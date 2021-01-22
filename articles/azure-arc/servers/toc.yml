@@ -55,7 +55,7 @@
               href: manage-vm-extensions-powershell.md
             - name: Implementar extensões com o modelo do ARM
               href: manage-vm-extensions-template.md
-        - name: Identidades geridas utilizadas no servidor
+        - name: Utilize identidades geridas no servidor
           href: managed-identity-authentication.md
         - name: Gerir o agente
           href: manage-agent.md
@@ -82,7 +82,7 @@
     - name: .NET
       href: /dotnet/api/overview/azure/hybridcompute/management
     - name: REST do Azure Stack HCI
-      href: 'https://docs.microsoft.com/rest/api/stackhci'
+      href: /rest/api/stackhci
     - name: REST
       href: /rest/api/hybridcompute
     - name: Ir

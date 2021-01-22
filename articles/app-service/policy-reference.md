@@ -1,15 +1,15 @@
 ---
 title: Definições políticas incorporadas para o Azure App Service
 description: Lista definições de políticas incorporadas para o Azure App Service. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 01/08/2021
+ms.date: 01/21/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 40b734b1c1ae29edb30c2a19cabd45c87c012cb4
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: f77008ced0e24bd813a15a6677738a5900217331
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98051182"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98700635"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-app-service"></a>Definições incorporadas da Política Azure para o Serviço de Aplicações Azure
 

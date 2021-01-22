@@ -1,0 +1,1106 @@
+- name: Documentação sobre as VMs do Linux
+  href: index.yml
+- name: Descrição geral
+  items:
+    - name: Acerca das Máquinas Virtuais
+      href: overview.md
+- name: Guias de Início Rápido
+  items:
+    - name: Criar VM - CLI do Azure
+      href: quick-create-cli.md
+    - name: Criar VM - Portal
+      href: quick-create-portal.md
+    - name: Criar VM - Azure PowerShell
+      href: quick-create-powershell.md
+    - name: Criar VM - Modelo ARM
+      displayName: 'Resource Manager, template, json'
+      href: quick-create-template.md
+  expanded: true
+- name: Tutoriais
+  items:
+    - name: Criar / gerir VMs
+      href: tutorial-manage-vm.md
+    - name: Criar / gerir discos
+      href: tutorial-manage-disks.md
+    - name: Automatizar a configuração
+      href: tutorial-automate-vm-deployment.md
+    - name: Criar imagens de VM
+      href: tutorial-custom-images.md
+    - name: VMs de elevada disponibilidade
+      href: tutorial-availability-sets.md
+    - name: Criar um conjunto de dimensionamento
+      href: tutorial-create-vmss.md
+    - name: Balanceamento de carga de VMs
+      href: tutorial-load-balancer.md
+    - name: Gerir redes
+      href: tutorial-virtual-network.md
+    - name: Permitir a recuperação de desastres
+      href: tutorial-disaster-recovery.md
+    - name: Gerir VMs
+      href: tutorial-govern-resources.md
+    - name: Acompanhar e atualizar VMs
+      href: tutorial-config-management.md
+    - name: Monitorizar VMs
+      href: tutorial-monitor.md
+    - name: Construir com Jenkins
+      href: /azure/developer/jenkins/pipeline-with-github-and-docker
+    - name: Integre Jenkins com Azure DevOps
+      href: /azure/developer/jenkins/deploy-to-linux-vm-using-azure-devops-services
+    - name: Estratégia de implantação de configure Rolling
+      href: tutorial-devops-azure-pipelines-classic.md
+    - name: Estratégia de implantação canária de configure
+      href: tutorial-azure-devops-canary-strategy.md
+    - name: Configurar a estratégia de implantação Blue-Green
+      href: tutorial-azure-devops-blue-green-strategy.md
+    - name: CI/CD com Gasodutos Azure (YAML)
+      href: tutorial-build-deploy-azure-pipelines.md
+    - name: Criar pilha de lâmpadas
+      href: tutorial-lamp-stack.md
+    - name: Proteger o servidor Web com SSL
+      href: tutorial-secure-web-server.md
+- name: Conceitos
+  items:
+    - name: Processamento de imagens
+      items:
+        - name: Descrição geral
+          href: imaging.md
+        - name: Aprovisionamento
+          href: provisioning.md
+        - name: Galerias de imagens partilhadas
+          href: ../shared-image-galleries.md
+        - name: Image Builder
+          href: ../image-builder-overview.md
+    - name: Azure Resource Manager
+      href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+    - name: Regiões
+      href: ../regions.md
+    - name: Extensões
+      items:
+        - name: Sobre as Extensões do Azure
+          href: ../extensions/overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Agente de VM do Linux
+          href: ../extensions/agent-linux.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Funcionalidades
+          href: ../extensions/features-linux.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+    - name: Disponibilidade e desempenho
+      items:
+        - name: Disponibilidade
+          href: ../availability.md
+        - name: Colocalização
+          href: ../co-location.md
+        - name: Desempenho da rede
+          href: ../..//virtual-network/virtual-network-optimize-network-bandwidth.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+    - name: Tipos e tamanhos de VM
+      items:
+        - name: Tamanhos de VM
+          href: ../sizes.md
+        - name: VMs de 2ª Geração
+          href: ../generation-2.md
+        - name: Fins gerais
+          items:
+            - name: Descrição geral
+              href: ../sizes-general.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Série Av2
+              href: ../av2-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Burstable de série B
+              href: ../sizes-b-series-burstable.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Série DCv2
+              href: ../dcv2-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Séries Dv2 e DSv2
+              href: ../dv2-dsv2-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Séries Dv3 e Dsv3
+              href: ../dv3-dsv3-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Séries Dav4 e Dasv4
+              href: ../dav4-dasv4-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Séries Ddv4 e Ddsv4
+              href: ../ddv4-ddsv4-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Séries Dv4 e Dsv4
+              href: ../dv4-dsv4-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Com otimização de computação
+          items:
+            - name: Descrição geral
+              href: ../sizes-compute.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Série Fsv2
+              href: ../fsv2-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Com otimização de memória
+          displayName: Esv3 Ev3 M-series GS G-series DSv2 Dv2
+          items:
+            - name: Descrição geral
+              href: ../sizes-memory.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Séries Dv2 e DSv2 11-15
+              href: ../dv2-dsv2-series-memory.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Séries Ev3 e Esv3
+              href: ../ev3-esv3-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Séries Eav4 e Easv4
+              href: ../eav4-easv4-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Séries Edv4 e Edsv4
+              href: ../edv4-edsv4-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Séries Ev4 e Esv4
+              href: ../ev4-esv4-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Série M
+              href: ../m-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Série Mv2
+              href: ../mv2-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: vCPUs restritos
+              href: ../constrained-vcpu.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Com otimização de armazenamento
+          items:
+            - name: Descrição geral
+              href: ../sizes-storage.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Série Lsv2
+              href: ../lsv2-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Otimizar o desempenho
+              href: storage-performance.md
+        - name: GPU - computação acelerada
+          items:
+            - name: Descrição geral
+              href: ../sizes-gpu.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Série NC
+              href: ../nc-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Série NCv2
+              href: ../ncv2-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Série NCv3
+              href: ../ncv3-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Série NCasT4_v3
+              href: ../nct4-v3-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: Série ND
+              href: ../nd-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Série NDv2
+              href: ../ndv2-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Série NV
+              href: ../nv-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Série NVv3
+              href: ../nvv3-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Série NVv4
+              href: ../nvv4-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Configurar controladores de GPU NVIDIA
+              href: n-series-driver-setup.md
+        - name: Computação de elevado desempenho
+          displayName: H-series
+          items:
+            - name: Descrição geral
+              href: ../sizes-hpc.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Série H
+              href: ../h-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Série HB
+              href: ../hb-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Série HBv2
+              href: ../hbv2-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Série HC
+              href: ../hc-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Instâncias reservadas
+          items:
+            - name: Pré-pagamento de VMs
+              href: ../prepay-reserved-vm-instances.md
+            - name: Pré-pagamento de Dedicated Hosts
+              href: ../prepay-dedicated-hosts-reserved-instances.md
+            - name: O que são as reservas do Azure?
+              href: ../../cost-management-billing/reservations/save-compute-costs-reservations.md?toc=/azure/virtual-machines/linux/toc.json
+            - name: Flexibilidade do tamanho da instância de VM
+              href: ../reserved-vm-instance-size-flexibility.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Spot VMs
+          displayName: 'pre-empt, preempt, spot'
+          href: ../spot-vms.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: VMs do Azure sem disco temporário
+          href: ../azure-vms-no-temp-disk.md
+        - name: Convenções de nomenclatura de tamanhos de VM do Azure
+          href: ../vm-naming-conventions.md
+        - name: Gerações anteriores
+          href: ../sizes-previous-gen.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Tamanhos isolados
+          href: ../isolation.md
+        - name: Unidades de computação do Azure (ACU)
+          href: ../acu.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Quotas de vCPU
+          href: quotas.md
+        - name: Pontuações de referência
+          href: compute-benchmark-scores.md
+    - name: Distribuições aprovadas
+      href: endorsed-distros.md
+    - name: Manutenção e atualizações
+      href: ../maintenance-and-updates.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+    - name: Armazenamento em disco
+      items:
+        - name: Introdução aos discos geridos
+          href: ../managed-disks-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Selecionar um tipo de disco para VMs IaaS
+          href: ../disks-types.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Encriptação
+          href: ../disk-encryption.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Reservas de Armazenamento de Discos
+          href: ../../cost-management-billing/reservations/understand-disk-reservations.md
+        - name: Desempenho da máquina virtual e do disco
+          href: ../disks-performance.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Conceber para desempenho elevado
+          href: ../premium-storage-performance.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Expansão do disco
+          href: ../disk-bursting.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Destinos de escalabilidade para discos
+          href: ../disks-scalability-targets.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Cópia de Segurança e recuperação após desastre para discos
+          href: ../backup-and-disaster-recovery-for-azure-iaas-disks.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Discos partilhados
+          href: ../disks-shared.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Escalões de desempenho dos discos
+          href: ../disks-change-performance.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Discos de SO Efémeros
+          href: ../ephemeral-os-disks.md
+    - name: Redes
+      href: ../network-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+    - name: Conjuntos de dimensionamento
+      href: ../../virtual-machine-scale-sets/overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+    - name: Automatização de infraestruturas
+      href: ../infrastructure-automation.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+    - name: Segurança
+      items:
+        - name: Segurança e política
+          href: ../security-policy.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Azure Disk Encryption
+          href: disk-encryption-overview.md
+        - name: Controlos de segurança do Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ../security-controls-policy.md
+        - name: Linha de base de segurança para a Referência de Segurança do Azure
+          href: security-baseline.md
+        - name: Bastion
+          href: ../../bastion/bastion-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+    - name: Estados e ciclo de vida
+      href: ../states-lifecycle.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+    - name: Chamadas PUT para operações de criação ou atualização
+      href: ../put-calls-create-or-update.md
+      maintainContext: true
+    - name: Monitorização
+      href: ../../azure-monitor/insights/monitor-vm-azure.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+    - name: Diagnósticos de arranque.
+      href: ../../virtual-machines/boot-diagnostics.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+    - name: Cópia de segurança e recuperação
+      href: ../backup-recovery.md
+    - name: Arquitetura de adoção da cloud
+      href: /azure/cloud-adoption-framework/get-started/
+    - name: Centro de arquiteturas
+      href: /azure/architecture/
+    - name: Benefício Híbrido do Azure
+      href: azure-hybrid-benefit-linux.md
+- name: Guias de procedimentos
+  items:
+    - name: Criar VMs
+      items:
+        - name: Utilizar a CLI
+          href: create-cli-complete.md
+        - name: Utilizar um modelo do Resource Manager
+          displayName: Azure Resource Manager
+          href: create-ssh-secured-vm-from-template.md
+        - name: Utilizar a API REST
+          href: create-vm-rest-api.md
+        - name: Copiar ou clonar uma VM
+          href: copy-vm.md
+        - name: Utilizar anfitriões dedicados
+          href: ../dedicated-hosts.md
+          items:
+            - name: CLI
+              href: dedicated-hosts-cli.md
+            - name: Portal
+              href: ../dedicated-hosts-portal.md
+        - name: Implementar VMs Spot
+          items:
+            - name: CLI
+              href: spot-cli.md
+            - name: Portal
+              href: ../spot-portal.md?toc=/azure/virtual-machines/linux/toc.json
+            - name: Modelo ARM
+              displayName: Azure Resource Manager
+              href: spot-template.md
+            - name: Códigos de erro
+              href: ../error-codes-spot.md?toc=/azure/virtual-machines/linux/toc.json
+    - name: Migrar de clássico para o Azure Resource Manager
+      items:
+        - name: Descontinuação a partir de 1 de março de 2023
+          href: ../classic-vm-deprecation.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Descrição Geral da Migração
+          href: ../migration-classic-resource-manager-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Descrição aprofundada da migração
+          href: ../migration-classic-resource-manager-deep-dive.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Planear a migração
+          href: ../migration-classic-resource-manager-plan.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Migrar com a CLI
+          href: ../migration-classic-resource-manager-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Erros comuns de migração
+          href: ../migration-classic-resource-manager-errors.md
+        - name: Ferramentas da comunidade para migração
+          href: ../migration-classic-resource-manager-community-tools.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: FAQ
+          href: ../migration-classic-resource-manager-faq.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+    - name: Utilizar Imagens
+      displayName: 'SIG, AMI, image'
+      items:
+        - name: Requisitos específicos de distribuição
+          items:
+            - name: Passos genéricos
+              href: create-upload-generic.md
+            - name: CentOS
+              href: create-upload-centos.md
+            - name: Debian
+              href: debian-create-upload-vhd.md
+            - name: Flatcar Container Linux
+              href: flatcar-create-upload-vhd.md
+            - name: FreeBSD
+              href: freebsd-intro-on-azure.md
+            - name: Oracle Linux
+              href: oracle-create-upload-vhd.md
+            - name: OpenBSD
+              href: create-upload-openbsd.md
+            - name: Red Hat
+              href: redhat-create-upload-vhd.md
+            - name: SUSE
+              href: suse-create-upload-vhd.md
+            - name: Ubuntu
+              href: create-upload-ubuntu.md
+        - name: Utilizar a inicialização da nuvem
+          items:
+            - name: Descrição geral da inicialização de cloud
+              href: using-cloud-init.md
+            - name: Descrição aprofundada
+              href: cloud-init-deep-dive.md
+            - name: Resolução de problemas
+              href: cloud-init-troubleshooting.md
+            - name: Configurar o nome de anfitrião de VM
+              href: cloudinit-update-vm-hostname.md
+            - name: Pacotes de atualização numa VM
+              href: cloudinit-update-vm.md
+            - name: Adicionar um utilizador a uma VM
+              href: cloudinit-add-user.md
+            - name: Configurar swapfile
+              href: cloudinit-configure-swapfile.md
+            - name: Executar script de bash existente
+              href: cloudinit-bash-script.md
+            - name: Preparar VM existente para inicialização em cloud
+              href: cloudinit-prepare-custom-image.md
+        - name: Criar imagens sem um agente de aprovisionamento
+          href: no-agent.md
+        - name: Desativar o aprovisionamento do Agente do Linux
+          href: disable-provisioning.md
+        - name: Galerias de Imagens Partilhadas
+          items:
+            - name: CLI
+              items:
+                - name: Criar uma galeria
+                  href: ../shared-images-cli.md
+                - name: Criar uma imagem
+                  items:
+                    - name: A partir de uma VM
+                      href: ../image-version-vm-cli.md
+                    - name: A partir de um Disco Gerido ou de um instantâneo
+                      href: ../image-version-snapshot-cli.md
+                    - name: Clonar uma imagem gerida
+                      href: ../image-version-managed-image-cli.md
+                    - name: Copiar de outra galeria
+                      href: ../image-version-another-gallery-cli.md
+                - name: Criar uma VM
+                  items:
+                    - name: Generalizada
+                      href: ../vm-generalized-image-version-cli.md
+                    - name: Especializada
+                      href: ../vm-specialized-image-version-cli.md
+                - name: Atualizar recursos de imagem
+                  href: ../update-image-resources-cli.md
+                - name: Registo de aplicações para partilha
+                  href: share-images-across-tenants.md
+            - name: PowerShell
+              items:
+                - name: Criar uma galeria
+                  href: ../shared-images-powershell.md
+                - name: Criar uma versão de imagem
+                  items:
+                    - name: A partir de uma VM
+                      href: ../image-version-vm-powershell.md
+                    - name: A partir de um Disco Gerido ou de um instantâneo
+                      href: ../image-version-snapshot-powershell.md
+                    - name: Clonar uma imagem gerida
+                      href: ../image-version-managed-image-powershell.md
+                    - name: Copiar de outra galeria
+                      href: ../image-version-another-gallery-powershell.md
+                - name: Criar uma VM
+                  items:
+                    - name: Generalizada
+                      href: ../vm-generalized-image-version-powershell.md
+                    - name: Especializada
+                      href: ../vm-specialized-image-version-powershell.md
+                - name: Atualizar recursos de imagem
+                  href: ../update-image-resources-powershell.md
+                - name: Registo de aplicações para partilha
+                  href: ../windows/share-images-across-tenants.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Portal
+              items:
+                - name: 'Criar uma galeria, imagem e VM'
+                  href: shared-images-portal.md
+            - name: Modelos do Resource Manager
+              items:
+                - name: Criar um Shared Image Gallery
+                  href: 'https://azure.microsoft.com/resources/templates/101-sig-create/'
+                - name: Criar uma Definição de Imagem num Shared Image Gallery
+                  href: 'https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/'
+                - name: Criar uma Versão de Imagem num Shared Image Gallery
+                  href: 'https://azure.microsoft.com/resources/templates/101-sig-image-version-create/'
+                - name: Criar uma VM a partir de uma Versão de Imagem
+                  href: 'https://azure.microsoft.com/resources/templates/101-vm-from-sig/'
+            - name: Resolver problemas de imagens partilhadas
+              href: ../troubleshooting-shared-images.md
+            - name: Utilizar chaves geridas pelo cliente
+              displayName: 'SSE, CMK, encrypt'
+              href: ../image-version-encryption.md
+        - name: Construtor de imagens (pré-visualização)
+          items:
+            - name: Descrição geral
+              href: image-builder-overview.md
+            - name: Utilizar a CLI do Azure
+              href: image-builder.md
+            - name: Utilizar uma VNET - CLI
+              href: image-builder-vnet.md
+            - name: Opções de redes
+              href: image-builder-networking.md
+            - name: Configurar permissões
+              items:
+                - name: CLI
+                  href: image-builder-permissions-cli.md
+                - name: PowerShell
+                  href: image-builder-permissions-powershell.md
+            - name: Tarefa de DevOps
+              href: image-builder-devops-task.md
+            - name: Referência de modelo do Image Builder
+              displayName: json
+              href: image-builder-json.md
+            - name: Criar para galerias de imagens
+              href: image-builder-gallery.md
+            - name: Atualizar uma imagem existente
+              href: image-builder-gallery-update-image-version.md
+            - name: Resolução de problemas
+              href: image-builder-troubleshoot.md
+        - name: Localizar e utilizar imagens
+          href: cli-ps-findimage.md
+        - name: Informações do plano de compra
+          href: ../marketplace-images.md
+        - name: Capturar a VM para a imagem gerida
+          href: capture-image.md
+        - name: Criar imagem com o Packer
+          href: build-image-with-packer.md
+        - name: Transferir o disco existente
+          href: download-vhd.md
+        - name: Disco gerido a partir da versão de imagem
+          href: ../managed-disk-from-image-version.md
+    - name: Proteger VMs
+      items:
+        - name: Recomendações
+          href: ../security-recommendations.md
+        - name: Acesso just-in-time
+          href: ../../security-center/security-center-just-in-time.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Utilizar o Bastion
+          items:
+            - name: Criar um anfitrião do Bastion
+              items:
+                - name: Portal
+                  href: ../../bastion/tutorial-create-host-portal.md
+                - name: PowerShell
+                  href: ../../bastion/bastion-create-host-powershell.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+                - name: CLI
+                  href: ../../bastion/create-host-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Utilizar o Bastion para ligar
+              href: ../../bastion/bastion-connect-vm-ssh.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Encriptar
+          items:
+            - name: Cenários de encriptação de discos para Linux
+              href: disk-encryption-linux.md
+            - name: Encriptação de VMs com a CLI do Azure
+              href: disk-encryption-cli-quickstart.md
+            - name: Encriptação de VMs com o Azure PowerShell
+              href: disk-encryption-powershell-quickstart.md
+            - name: Encriptação de VMs com o portal do Azure
+              href: disk-encryption-portal-quickstart.md
+            - name: Cofre de chaves para o Azure Disk Encryption
+              href: disk-encryption-key-vault.md
+            - name: Scripts de exemplo de encriptação de discos
+              href: disk-encryption-sample-scripts.md
+            - name: Encriptação de discos numa rede isolada
+              href: disk-encryption-isolated-network.md
+            - name: Como verificar o estado de encriptação
+              href: how-to-verify-encryption-status.md
+            - name: Como configurar LVM e RAID em crypt
+              href: how-to-configure-lvm-raid-on-crypt.md
+            - name: Como redimensionar volumes LVM encriptados
+              href: how-to-resize-encrypted-lvm.md
+            - name: Resolução de problemas de encriptação de discos
+              href: disk-encryption-troubleshooting.md
+            - name: FAQ de encriptação de discos
+              href: disk-encryption-faq.md
+            - name: Encriptação de discos - versão anterior
+              items:
+                - name: Descrição geral
+                  href: disk-encryption-overview-aad.md
+                - name: Cofre de chaves para o Azure Disk Encryption
+                  href: disk-encryption-key-vault-aad.md
+                - name: Cenários de encriptação de discos para Linux
+                  href: disk-encryption-linux-aad.md
+        - name: Utilizar controlos de acesso
+          href: ../../role-based-access-control/overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Utilizar políticas
+          href: policy.md
+        - name: Criar um Key Vault
+          href: key-vault-setup.md
+        - name: Criar e utilizar chaves SSH
+          displayName: ssh keys ssh openssh
+          items:
+            - name: No Linux ou macOS
+              href: mac-create-ssh-keys.md
+            - name: No Windows
+              href: ssh-from-windows.md
+            - name: No portal
+              href: ../ssh-keys-portal.md
+            - name: Passos detalhados
+              href: create-ssh-keys-detailed.md
+    - name: Proteger VMs
+      items:
+        - name: Recuperação após desastre
+          href: ../virtual-machines-disaster-recovery-guidance.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Fazer cópias de segurança de VMs
+          href: ../../backup/backup-overview.md?bc=/azure/virtual-machines/linux/breadcrumb/toc.json&toc=/azure/virtual-machines/linux/toc.json
+          items:
+            - name: Criar cópia de segurança de uma única VM
+              href: ../../backup/quick-backup-vm-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Fazer uma cópia de segurança de várias VMs
+              href: ../../backup/tutorial-backup-vm-at-scale.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Restaurar discos
+              href: ../../backup/tutorial-restore-disk.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Restaurar ficheiros individuais
+              href: ../../backup/tutorial-restore-files.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Configurar a recuperação após desastre para VMs
+          href: ../../site-recovery/site-recovery-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+          items:
+            - name: Ativar a recuperação após desastre para uma VM
+              href: ../../site-recovery/azure-to-azure-tutorial-enable-replication.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Executar um teste de recuperação após desastre para uma VM
+              href: ../../site-recovery/azure-to-azure-tutorial-dr-drill.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Efetuar a ativação pós-falha de uma VM para outra região
+              href: ../../site-recovery/azure-to-azure-tutorial-failover-failback.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+    - name: Gerir VMs
+      items:
+        - name: Utilização de VM
+          href: ../vm-usage.md
+        - name: Tarefas comuns da CLI
+          href: cli-manage.md
+        - name: Alterar o tamanho da VM
+          href: change-vm-size.md
+        - name: Trocar o disco de SO
+          href: os-disk-swap.md
+        - name: Sincronização da hora
+          href: time-sync.md
+        - name: Etiquetar uma VM
+          items:
+            - name: CLI
+              href: ../tag-cli.md
+            - name: Portal
+              href: ../tag-portal.md
+            - name: PowerShell
+              href: ../tag-powershell.md
+            - name: Modelo
+              href: ../tag-template.md
+        - name: Executar scripts numa VM
+          href: run-scripts-in-vm.md
+          items:
+            - name: Extensão de Script Personalizado
+              href: ../extensions/custom-script-linux.md
+            - name: Executar o Comando
+              href: run-command.md
+        - name: Utilizar o Ambiente de Trabalho Remoto
+          href: use-remote-desktop.md
+        - name: Associar uma VM ao Azure Active Directory
+          displayName: Azure AD
+          items:
+            - name: Red Hat Enterprise Linux
+              href: ../../active-directory-domain-services/join-rhel-linux-vm.md
+            - name: CentOS
+              href: ../../active-directory-domain-services/join-centos-linux-vm.md
+            - name: Ubuntu
+              href: ../../active-directory-domain-services/join-ubuntu-linux-vm.md
+        - name: Iniciar sessão com credenciais do Azure Active Directory
+          href: login-using-aad.md
+        - name: Atualizações e correções de erros
+          items:
+            - name: Infraestrutura de Atualização do Red Hat
+              href: ../workloads/redhat/redhat-rhui.md
+        - name: Agente da VM do Azure
+          items:
+            - name: Descrição geral
+              href: ../extensions/agent-linux.md
+            - name: Atualização do agente
+              href: ../extensions/update-linux-agent.md
+        - name: Mitigar a execução especulativa
+          href: ../mitigate-se.md
+        - name: Monitorizar metadados
+          href: instance-metadata-service.md
+        - name: Obter métricas de utilização com o REST
+          href: metrics-vm-usage-rest.md
+    - name: Controlo da manutenção
+      items:
+        - name: Notificações de manutenção
+          items:
+            - name: Descrição geral
+              href: ../maintenance-notifications.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: CLI
+              href: ../maintenance-notifications-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Portal
+              href: ../maintenance-notifications-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: PowerShell
+              href: ../maintenance-notifications-powershell.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Manutenção da plataforma
+          items:
+            - name: Descrição geral
+              href: ../maintenance-control.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: CLI
+              href: ../maintenance-control-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: PowerShell
+              href: ../maintenance-control-powershell.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Portal
+              href: ../maintenance-control-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Eventos agendados
+          href: scheduled-events.md
+        - name: Atualizações da imagem do SO do conjunto de dimensionamento de máquinas virtuais
+          items:
+            - name: Atualizações automáticas do SO
+              href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Controlo da manutenção
+              items:
+                - name: Descrição Geral (Pré-visualização)
+                  href: ../virtual-machine-scale-sets-maintenance-control.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+                - name: PowerShell (Pré-visualização)
+                  href: ../virtual-machine-scale-sets-maintenance-control-powershell.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+    - name: Monitorizar VMs
+      items:
+        - name: Agentes
+          items:
+            - name: Descrição geral dos agentes
+              href: ../../azure-monitor/platform/agents-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: FAQ
+              href: ../../azure-monitor/faq.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#agents
+            - name: Extensão do Diagnóstico do Azure
+              items:
+                - name: Descrição geral
+                  href: ../../azure-monitor/platform/diagnostics-extension-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+                - name: Extensão de diagnóstico do Linux
+                  items:
+                    - name: Descrição geral
+                      href: ../../azure-monitor/../virtual-machines/extensions/diagnostics-linux.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json?toc=/azure/azure-monitor/toc.json
+                    - name: Recolher métricas com o Telegraf
+                      href: ../../azure-monitor/platform/collect-custom-metrics-linux-telegraf.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+                  displayname: diagnostics extension
+            - name: Agente do Log Analytics
+              items:
+                - name: Descrição geral
+                  href: ../../azure-monitor/platform/log-analytics-agent.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+                - name: Agentes do Linux
+                  href: ../../azure-monitor/platform/agent-linux.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+                - name: Gateway do Log Analytics
+                  href: ../../azure-monitor/platform/gateway.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+                - name: Gestão de agente
+                  href: ../../azure-monitor/platform/agent-manage.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+                - name: Estado de Funcionamento do Agente
+                  href: ../../azure-monitor/insights/solution-agenthealth.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+                - name: Origens de dados
+                  items:
+                    - name: Descrição geral
+                      href: ../../azure-monitor/platform/agent-data-sources.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+                    - name: Dados JSON personalizados
+                      href: ../../azure-monitor/platform/data-sources-json.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+                    - name: Dados de desempenho do CollectID
+                      href: ../../azure-monitor/platform/data-sources-collectd.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+                    - name: Syslog
+                      href: ../../azure-monitor/platform/data-sources-syslog.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+                    - name: Contadores de desempenho
+                      href: ../../azure-monitor/platform/data-sources-performance-counters.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+                    - name: Desempenho de aplicações do Linux
+                      href: ../../azure-monitor/platform/data-sources-linux-applications.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+                    - name: Registos personalizados
+                      href: ../../azure-monitor/platform/data-sources-custom-logs.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+                    - name: Campos personalizados
+                      href: ../../azure-monitor/platform/custom-fields.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Resolução de problemas
+              items:
+                - name: Extensão de VM do Log Analytics
+                  href: ../../azure-monitor/platform/vmext-troubleshoot.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+                  displayname: 'troubleshoot, troubleshooting'
+                - name: Agente do Linux do Log Analytics
+                  href: ../../azure-monitor/platform/agent-linux-troubleshoot.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+                  displayname: 'troubleshoot, troubleshooting'
+        - name: Azure Monitor para VMs
+          items:
+            - name: Descrição geral
+              href: ../../azure-monitor/insights/vminsights-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: FAQ sobre Disponibilidade Geral
+              href: ../../azure-monitor/insights/vminsights-ga-release-faq.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: FAQ
+              href: ../../azure-monitor/faq.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#azure-monitor-for-vms
+            - name: Ativar monitorização
+              items:
+                - name: Ativar descrição geral da monitorização
+                  href: ../../azure-monitor/insights/vminsights-enable-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+                - name: Ativar para uma única VM do Azure
+                  href: ../../azure-monitor/insights/vminsights-enable-portal.md
+                - name: Ativar com o Azure Policy
+                  href: ../../azure-monitor/insights/vminsights-enable-policy.md
+                - name: Ativar com o Azure PowerShell
+                  href: ../../azure-monitor/insights/vminsights-enable-powershell.md
+                - name: Ativar para o ambiente Híbrido
+                  href: ../../azure-monitor/insights/vminsights-enable-hybrid.md
+            - name: Mapear dependências
+              href: ../../azure-monitor/insights/vminsights-maps.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Monitorizar desempenho
+              href: ../../azure-monitor/insights/vminsights-performance.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Analisar dados com consultas de registo
+              href: ../../azure-monitor/insights/vminsights-log-search.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Visualizar dados com livros
+              href: ../../azure-monitor/insights/vminsights-workbooks.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Criar regras de alertas
+              href: ../../azure-monitor/insights/vminsights-alerts.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Atualizar o agente de dependência
+              href: ../../azure-monitor/insights/vminsights-dependency-agent-maintenance.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Desativar a monitorização
+              href: ../../azure-monitor/insights/vminsights-optout.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+    - name: Disponibilidade e dimensionamento
+      items:
+        - name: Dimensionamento Automático
+          href: ../../virtual-machine-scale-sets/overview.md?bc=/azure/virtual-machines/linux/breadcrumb/toc.json&toc=/azure/virtual-machines/linux/toc.json
+        - name: Elevada disponibilidade
+          href: ../manage-availability.md
+        - name: Alterar o conjunto de disponibilidade
+          href: ../windows/change-availability-set.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Criar um grupo de colocação em proximidade
+          displayName: PPG aligned colocation co-location
+          items:
+            - name: CLI
+              href: proximity-placement-groups.md
+            - name: Portal
+              href: ../windows/proximity-placement-groups-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Criar uma VM na zona de disponibilidade
+          href: create-cli-availability-zone.md
+    - name: Utilizar ferramentas de automatização
+      items:
+        - name: Dados personalizados
+          href: ../custom-data.md
+        - name: Ansible
+          items:
+            - name: Instalar e configurar
+              href: /azure/developer/ansible/install-on-linux-vm
+            - name: Criar uma VM do Linux
+              href: /azure/developer/ansible/vm-configure
+            - name: Gerir uma VM do Linux
+              href: /azure/developer/ansible/vm-manage
+        - name: Terraform
+          items:
+            - name: Instalar e configurar
+              href: /azure/developer/terraform/install-configure
+            - name: Criar uma VM completa
+              href: /azure/developer/terraform/create-linux-virtual-machine-with-infrastructure
+        - name: Jenkins
+          href: /azure/developer/jenkins/overview
+          items:
+            - name: Criar um servidor Jenkins
+              href: /azure/developer/jenkins/configure-on-linux-vm
+            - name: Dimensionar com os agentes de VM
+              href: /azure/developer/jenkins/scale-deployments-using-vm-agents
+            - name: Publicar artefactos no Armazenamento
+              href: /azure/developer/jenkins/azure-storage-blobs-as-build-artifact-repository
+            - name: Proteger o Jenkins
+              href: 'https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/'
+    - name: Executar contentores
+      items:
+        - name: Criar anfitrião do Docker
+          href: 'https://github.com/Azure/azure-docker-extension/blob/master/README.md'
+        - name: Utilizar o Docker Machine
+          href: docker-machine.md
+        - name: Utilizar o Docker Compose
+          href: docker-compose-quickstart.md
+    - name: Executar aplicações
+      items:
+        - name: Red Hat
+          href: ../workloads/redhat/overview.md
+        - name: Cloud Foundry
+          href: ../../cloudfoundry/index.yml
+        - name: Cassandra
+          href: /azure/architecture/reference-architectures/n-tier/n-tier-cassandra?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: OpenShift
+          items:
+            - name: Descrição geral do OpenShift
+              href: openshift-get-started.md
+            - name: OpenShift Container Platform 4.x
+              href: openshift-container-platform-4x.md
+            - name: Pré-requisitos do OpenShift Container Platform 3.11
+              href: openshift-container-platform-3x-prerequisites.md
+            - name: OpenShift Container Platform 3.11
+              href: openshift-container-platform-3x.md
+            - name: OpenShift Container Platform 3.11 Marketplace Self-Managed
+              href: openshift-container-platform-3x-marketplace-self-managed.md
+            - name: Azure Stack
+              href: openshift-azure-stack.md
+            - name: Tarefas pós-implementação do OpenShift Container Platform 3.11
+              href: openshift-container-platform-3x-post-deployment.md
+            - name: Resolução de problemas das implementações do OpenShift Container Platform 3.11
+              href: openshift-container-platform-3x-troubleshooting.md
+        - name: SAP no Azure
+          href: ../workloads/sap/get-started.md
+        - name: Oracle
+          href: ../workloads/oracle/oracle-database-quick-create.md
+        - name: Elasticsearch
+          href: tutorial-elasticsearch.md
+        - name: Filtro de Pacotes do FreeBSD
+          href: freebsd-pf-nat.md
+        - name: Bases de Dados
+          items:
+            - name: MySQL no SUSE
+              href: mysql-on-opensuse.md
+            - name: MongoDB
+              href: install-mongodb.md
+            - name: PostgreSQL
+              href: postgresql-install.md
+            - name: MS SQL no Linux
+              href: /sql/linux/sql-server-linux-azure-virtual-machine
+        - name: Computação de Alto Desempenho (HPC)
+          href: /azure/architecture/topics/high-performance-computing/
+        - name: IBM Db2 pureScale
+          items:
+            - name: Arquitetura
+              href: ibm-db2-purescale-azure.md
+            - name: Implementação
+              href: deploy-ibm-db2-purescale-azure.md
+    - name: Gerir o armazenamento
+      items:
+        - name: Adicionar um disco
+          items:
+            - name: CLI do Azure
+              href: add-disk.md
+            - name: Portal do Azure
+              href: attach-disk-portal.md
+        - name: Alterar escalão do disco - PowerShell/CLI
+          href: ../disks-performance-tiers.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Alterar escalão do disco - Portal
+          href: ../disks-performance-tiers-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Desligar um disco
+          href: detach-disk.md
+        - name: Implementar discos com o modelo do Resource Manager
+          displayName: 'Azure Resource Manager, ARM'
+          href: ../using-managed-disks-template-deployments.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Ativar discos partilhados
+          href: ../disks-shared-enable.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Carregar um VHD para um disco - CLI
+          href: disks-upload-vhd-to-managed-disk-cli.md
+        - name: Importar/exportar um disco de forma segura - CLI
+          href: disks-export-import-private-links-cli.md
+        - name: Importar/exportar um disco de forma segura - Portal
+          href: ../disks-enable-private-links-for-import-export-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Redimensionar um disco
+          href: expand-disks.md
+        - name: Utilizar o Explorador de Armazenamento para gerir discos
+          href: ../disks-use-storage-explorer-managed-disks.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Tirar um instantâneo de um disco
+          href: snapshot-copy-managed-disk.md
+        - name: Reservar Armazenamento de Discos
+          href: ../disks-reserved-capacity.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Criar um instantâneo incremental
+          href: ../disks-incremental-snapshots.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Fazer cópia de segurança de discos não geridos
+          href: incremental-snapshots.md
+        - name: Encriptação
+          items:
+            - name: Ativar a encriptação no anfitrião - CLI
+              href: disks-enable-host-based-encryption-cli.md
+            - name: Ativar a encriptação no anfitrião - Portal
+              href: ../disks-enable-host-based-encryption-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Ativar chaves geridas pelo cliente - CLI
+              href: disks-enable-customer-managed-keys-cli.md
+            - name: Ativar chaves geridas pelo cliente - Portal
+              href: ../disks-enable-customer-managed-keys-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Ativar a encriptação dupla inativa - CLI
+              href: disks-enable-double-encryption-at-rest-cli.md
+            - name: Ativar a encriptação dupla inativa - Portal
+              href: ../disks-enable-double-encryption-at-rest-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Migração e conversão
+          items:
+            - name: Migrar para o armazenamento Premium com o Azure Site Recovery
+              href: migrate-to-premium-storage-using-azure-site-recovery.md
+            - name: Converter para o Managed Disks
+              href: convert-unmanaged-to-managed-disks.md
+            - name: Converter o disco entre Standard e Premium
+              href: convert-disk-storage.md
+        - name: Copiar ficheiros para uma VM
+          href: copy-files-to-linux-vm-using-scp.md
+        - name: Desempenho
+          items:
+            - name: Utilizar o acelerador de escrita
+              href: ../how-to-enable-write-accelerator.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Utilizar os discos ultra
+              href: ../disks-enable-ultra-ssd.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Criar um disco de referência
+              href: ../disks-benchmarks.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Localizar discos desanexados - CLI
+          href: find-unattached-disks.md
+        - name: Localizar discos desanexados - Portal
+          href: ../disks-find-unattached-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Mapear Discos do Azure para Discos Convidados
+          href: azure-to-guest-disk-mapping.md
+        - name: Utilizar o Armazenamento de Ficheiros
+          href: mount-azure-file-storage-on-linux-using-smb.md
+        - name: FAQ sobre discos
+          href: ../faq-for-disks.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+    - name: Gerir redes
+      items:
+        - name: Criar a rede virtual
+          href: ../../virtual-network/quick-create-cli.md?bc=/azure/virtual-machines/linux/breadcrumb/toc.json&toc=/azure/virtual-machines/linux/toc.json
+        - name: Abrir portas para uma VM
+          href: nsg-quickstart.md
+        - name: Atribuir um endereço IP público
+          href: ../../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Utilizar vários NICs
+          href: multiple-nics.md
+        - name: Utilizar redes aceleradas
+          href: ../../virtual-network/create-vm-accelerated-networking-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Atribuir um nome DNS público
+          href: ../create-fqdn.md
+        - name: Localizar e eliminar NICs desanexados
+          href: find-unattached-nics.md
+        - name: Resolução de DNS
+          href: azure-dns.md
+          items:
+            - name: Utilizar o DNS interno
+              href: static-dns-name-resolution-for-linux-on-azure.md
+    - name: Configurar identidades geridas
+      items:
+        - name: Portal
+          href: ../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: CLI
+          href: ../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: PowerShell
+          href: ../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Modelo do Azure Resource Manager
+          displayName: ARM
+          href: ../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: REST
+          href: ../../active-directory/managed-identities-azure-resources/qs-configure-rest-vm.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: SDKs do Azure
+          href: ../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+    - name: Utilizar extensões de VM
+      items:
+        - name: Restringir a instalação de extensões
+          href: ../extensions/extensions-rmpolicy-howto-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Atualizar o agente Linux
+          href: ../extensions/update-linux-agent.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Exportar extensões
+          href: ../extensions/export-templates.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Resolução de problemas
+          href: ../extensions/troubleshoot.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Problemas com sistemas Linux compatíveis com o Python 3
+          href: ../extensions/issues-using-vm-extensions-python-3.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Azure Disk Encryption
+          href: ../extensions/azure-disk-enc-linux.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Azure Key Vault
+          href: ../extensions/key-vault-linux.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Script Personalizado
+          href: ../extensions/custom-script-linux.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Instantâneo de VM
+          href: ../extensions/vmsnapshot-linux.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Agente do Observador de Rede
+          href: ../extensions/network-watcher-linux.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Controladores de GPU NVIDIA
+          href: ../extensions/hpccompute-gpu-linux.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Azure Monitor
+          items:
+            - name: Extensão de diagnóstico
+              href: ../extensions/diagnostics-linux.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Log Analytics
+              href: ../extensions/oms-linux.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Agente de Dependências Linux do Azure Monitor
+              href: ../extensions/agent-dependency-linux.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: DSC do PowerShell
+          href: ../extensions/dsc-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+          items:
+            - name: DSC e Linux
+              href: ../extensions/dsc-linux.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Processar credenciais
+              href: ../extensions/dsc-credentials.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Utilizar modelos
+              href: ../extensions/dsc-template.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Acesso à máquina virtual
+          href: ../extensions/vmaccess.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Chef
+          href: ../extensions/chef.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Stackify Retrace
+          href: ../extensions/stackify-retrace-linux.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Symantec
+          href: ../extensions/symantec.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+    - name: Mover e migrar VMs
+      items:
+        - name: Alterar subscrição ou grupo de recursos
+          href: move-vm.md
+        - name: Mover VMs para outra região
+          href: ../../site-recovery/azure-to-azure-tutorial-migrate.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Mover para uma zona de disponibilidade
+          href: ../../site-recovery/move-azure-vms-avset-azone.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Mover configurações de Controlo de Manutenção para outra região
+          href: ../move-region-maintenance-configuration.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Mover recursos de configuração de Controlo de Manutenção para outra região
+          href: ../move-region-maintenance-configuration-resources.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Migrar VMs AWS e VMs no local
+          href: ../windows/on-prem-to-azure.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+          items:
+            - name: Migrar a partir do Amazon Web Services (AWS) para o Azure
+              href: ../windows/aws-to-azure.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Carregar VM no local
+              href: upload-vhd.md
+            - name: Utilizar o Azure Site Recovery
+              href: ../../site-recovery/migrate-overview.md?bc=/azure/virtual-machines/linux/breadcrumb/toc.json&toc=/azure/virtual-machines/linux/toc.json
+        - name: Migrar do WebLogic para o Azure
+          href: /azure/developer/java/migration/migrate-weblogic-to-virtual-machines
+- name: Referência
+  items:
+    - name: CLI do Azure
+      href: /cli/azure/vm
+    - name: PowerShell
+      href: /powershell/azure/
+    - name: .NET
+      href: /dotnet/api/microsoft.azure.management.compute
+    - name: Java
+      href: /java/api
+    - name: Node.js
+      href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
+    - name: Python
+      href: 'https://azure.microsoft.com/develop/python/'
+    - name: REST
+      href: /rest/api/compute
+    - name: Modelo do Resource Manager
+      displayName: ARM
+      href: /azure/templates/microsoft.compute/allversions
+    - name: Incorporações do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ../policy-reference.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+- name: Recursos
+  items:
+    - name: Perguntas e Respostas
+      href: /answers/topics/azure-virtual-machines.html
+    - name: Modelos do Resource Manager de autor
+      displayName: 'Azure Resource Manager, ARM'
+      href: ../../azure-resource-manager/index.yml
+    - name: Desenvolva as suas competências com o Microsoft Learn
+      href: /learn/browse/?products=azure-virtual-machines
+    - name: Mapa do Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Modelos de Início Rápido do Azure
+      displayName: 'Azure Resource Manager, ARM'
+      href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular'
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/#Linux'
+    - name: Disponibilidade regional
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-virtual-machine'
+    - name: Vídeos
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines'
+    - name: FAQ
+      href: faq.md
+- name: Resolução de problemas
+  href: ../troubleshooting/index.yml

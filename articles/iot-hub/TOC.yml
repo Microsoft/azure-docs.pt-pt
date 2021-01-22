@@ -1,4 +1,4 @@
-- name: Documentação do Hub IoT
+- name: Documentação do IoT Hub
   href: index.yml
 - name: Descrição geral
   items:
@@ -481,6 +481,8 @@
           href: iot-hub-migrate-to-diagnostics-settings.md
         - name: Descontinuação do TLS 1.0 e 1.1
           href: iot-hub-tls-deprecating-1-0-and-1-1.md
+        - name: Filtro IP clássico
+          href: iot-hub-ip-filter-classic.md
 - name: Recursos
   items:
     - name: Opções de suporte e ajuda

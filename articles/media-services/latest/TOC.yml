@@ -258,14 +258,49 @@
               href: job-error-codes.md
         - name: Repor as credenciais da conta
           href: cli-reset-account-credentials.md
-    - name: Migrar da versão v2 para a v3
+    - name: Guia de migração
+      displayName: migration
       items:
-        - name: v2 vs v3
-          displayName: 'migrate, v2 to v3'
-          href: media-services-v2-vs-v3.md
-        - name: Orientação da migração
-          href: migrate-from-v2-to-v3.md
-          displayName: naming
+        - name: Introdução do guia de migração
+          href: migrate-v-2-v-3-migration-introduction.md
+          displayName: migration
+        - name: Passo 1 - Benefícios
+          href: migrate-v-2-v-3-migration-benefits.md
+          displayName: 'migration, benefits'
+        - name: Passo 2 - Diferenças
+          items:
+            - name: Acesso a API
+              href: migrate-v-2-v-3-differences-api-access.md
+              displayName: 'migration, api'
+            - name: Lacunas de recursos
+              href: migrate-v-2-v-3-differences-feature-gaps.md
+              displayName: 'migration, features'
+            - name: Terminologia e alterações de entidades
+              href: migrate-v-2-v-3-differences-terminology.md
+              displayName: 'migration, entity, api'
+        - name: Passo 3 - Configuração SDK
+          href: migrate-v-2-v-3-migration-setup.md
+          displayName: 'migration, SDK`'
+        - name: Passo 4 - Orientação de migração baseada em cenários
+          items:
+            - name: Encoding
+              href: migrate-v-2-v-3-migration-scenario-based-encoding.md
+              displayName: 'migration, encoding'
+            - name: Transmissão em direto
+              href: migrate-v-2-v-3-migration-scenario-based-live-streaming.md
+              displayName: 'migration, live streaming'
+            - name: Empacotamento e entrega
+              href: migrate-v-2-v-3-migration-scenario-based-publishing.md
+              displayName: 'migration, packaging, delivery, publishing'
+            - name: Proteção de conteúdo
+              href: migrate-v-2-v-3-migration-scenario-based-content-protection.md
+              displayName: 'migration, content protection, DRM, digital rights management'
+            - name: Unidades reservadas para meios de comunicação (MRU)
+              href: migrate-v-2-v-3-migration-scenario-based-media-reserved-units.md
+              displayName: 'migration, media reserved units'
+        - name: Comparação de amostras
+          href: migrate-v-2-v-3-migration-samples.md
+          displayName: 'migration, samples'
 - name: Guias de procedimentos
   items:
     - name: Criar recursos e carregar multimédia
@@ -408,7 +443,7 @@
           href: /python/api/overview/azure/mediaservices/management
         - name: Node.js
           href: /javascript/api/overview/azure/mediaservices/management
-        - name: Ir
+        - name: Go
           href: 'https://aka.ms/ams-v3-go-ref'
     - name: Modelo do Resource Manager
       href: /azure/templates/microsoft.media/allversions

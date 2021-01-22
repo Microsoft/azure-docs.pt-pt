@@ -1,5 +1,5 @@
 ---
-title: Opções de transferência de dados Azure para grandes conjuntos de dados, largura de banda de rede moderada a alta. Microsoft Docs
+title: Opções de transferência de dados Azure para grandes conjuntos de dados, largura de banda de rede moderada a alta| Microsoft Docs
 description: Saiba como escolher uma solução Azure para transferência de dados quando tiver largura de banda de rede moderada a alta no seu ambiente e planeia transferir grandes conjuntos de dados.
 services: storage
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: f1ded1ce87df1cb57960bbc99cd950ed7b3f97ee
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: cf0e423648db174433f0717f2e5971ac49697b42
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96573940"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704628"
 ---
 # <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>Data transfer for large datasets with moderate to high network bandwidth (Transferência de dados para conjuntos de dados grandes com largura de banda de rede moderada ou alta)
  
@@ -93,9 +93,9 @@ Se utilizar a transferência de dados on-line, utilize a tabela na secção segu
 |    **Tipo de utilizador**                    |    IT Pro ou dev                                       |    Dev                                       |    Profissional de TI                                                |    Profissional de TI                                                             |
 |    **Preços**                      |    Taxas gratuitas e de saída de dados aplicam-se         |    Taxas gratuitas e de saída de dados aplicam-se         |    [Preços](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                                               |    [Preços](https://azure.microsoft.com/pricing/details/data-factory/)                                                            |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- [Saiba como transferir dados com Importação/Exportação.](./storage-import-export-data-to-blobs.md)
+- [Saiba como transferir dados com Importação/Exportação.](../../import-export/storage-import-export-data-to-blobs.md)
 - Compreender como
 
     - [Transferir dados com o disco da caixa de dados.](../../databox/data-box-disk-quickstart-portal.md)

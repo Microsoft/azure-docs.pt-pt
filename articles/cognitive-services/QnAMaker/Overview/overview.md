@@ -4,15 +4,15 @@ description: O QnA Maker é um serviço NLP baseado na nuvem que cria facilmente
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
-ms.date: 05/26/2020
+ms.date: 01/22/2021
 ms.custom: cog-serv-seo-aug-2020
 keywords: fabricante de qna, bots de chat de código baixo, conversas multi-turn
-ms.openlocfilehash: 9655f64da455fb7a7124a97e6dc2d1d8437d05b7
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 16f30801d52aa46184c4eb394f3d1cfebecd4be6
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353141"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98700726"
 ---
 # <a name="what-is-qna-maker"></a>O que é o Criador de FAQ?
 
@@ -63,7 +63,7 @@ Assim que a sua base de conhecimentos for editada, publique a base de conhecimen
 
 O sistema do QnA Maker é uma abordagem de classificação em camadas. Os dados são armazenados na pesquisa do Azure, que também serve como a primeira camada de classificação. Os melhores resultados da pesquisa da Azure são então passados através do modelo de reclasse NLP da QnA Maker para produzir os resultados finais e a pontuação de confiança.
 
-## <a name="multi-turn-conversations"></a>Conversas multi-voltas
+## <a name="multi-turn-conversations"></a>Conversações multiturno
 
 O QnA Maker fornece solicitações de várias voltas e aprendizagem ativa para ajudá-lo a melhorar os seus pares básicos de perguntas e respostas.
 
@@ -85,10 +85,8 @@ Oferecemos quickstarts nas linguagens de programação mais populares, cada uma 
 
 * [Começa com a biblioteca de clientes da QnA Maker](../quickstarts/quickstart-sdk.md)
 * [Começa com o portal QnA Maker](../quickstarts/create-publish-knowledge-base.md)
-* [Começar com QnA Maker REST APis](../quickstarts/quickstart-rest-curl.md)
 
-
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 O QnA Maker fornece tudo o que precisa para construir, gerir e implementar a sua base de conhecimentos personalizados.
 
 > [!div class="nextstepaction"]

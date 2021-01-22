@@ -238,8 +238,10 @@
           items:
             - name: Mailjet
               href: custom-email-mailjet.md
+              displayName: 'Custom email, Custom verification email, Verification email'
             - name: SendGrid
               href: custom-email-sendgrid.md
+              displayName: 'Custom email, Custom verification email, Verification email'
           displayName: verification
         - name: Adicionar a sua própria lógica de negócio
           items:
@@ -381,6 +383,8 @@
           href: partner-itsme.md
         - name: Jumio
           href: partner-jumio.md
+        - name: Sem chave
+          href: partner-keyless.md
         - name: LexisNexis
           href: partner-lexisnexis.md
         - name: Identidade N8
@@ -415,9 +419,9 @@
         - name: Azure Monitor
           href: azure-monitor.md
           displayName: 'log, logs, logging, usage, events'
-        - name: Gerir utilizadores - Microsoft Graph
-          href: manage-user-accounts-graph-api.md
-          displayName: 'account, accounts'
+        - name: Microsoft Graph API
+          href: microsoft-graph-operations.md
+          displayName: 'account, accounts, msgraph, ms graph, graph'
         - name: Implementar com os Pipelines do Azure
           href: deploy-custom-policies-devops.md
           displayName: 'azure devops, ci/cd, cicd, custom policy, policies'
@@ -461,8 +465,6 @@
       href: extensions-app.md
     - name: Notas de versão da política personalizada (IEF)
       href: custom-policy-developer-notes.md
-    - name: Operações da API do Microsoft Graph
-      href: microsoft-graph-operations.md
     - name: Versões do esquema de página
       href: page-layout.md
     - name: Disponibilidade de região e residência dos dados

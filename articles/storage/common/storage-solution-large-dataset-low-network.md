@@ -1,5 +1,5 @@
 ---
-title: Opções de transferência de dados Azure para grandes conjuntos de dados com largura de banda baixa ou sem rede Microsoft Docs
+title: Opções de transferência de dados Azure para grandes conjuntos de dados com largura de banda de rede baixa ou nenhuma| Microsoft Docs
 description: Saiba como escolher uma solução Azure para transferência de dados quando se limitou a nenhuma largura de banda de rede no seu ambiente e está a planear transferir grandes conjuntos de dados.
 services: storage
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 8afedec224fed55f617340af512485726ff44326
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9b83ba106b35a0a3abd035e85f60c4c39bbadd3b
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792944"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704645"
 ---
 # <a name="data-transfer-for-large-datasets-with-low-or-no-network-bandwidth"></a>Data transfer for large datasets with low or no network bandwidth (Transferência de dados para conjuntos de dados grandes com pouca ou nenhuma largura de banda de rede)
  
@@ -38,12 +38,12 @@ Para confirmar se um dispositivo físico é a opção certa, utilize a tabela se
 
 As opções disponíveis neste cenário são dispositivos para transferência offline Azure Data Box ou Azure Import/Export.
 
-- **Família Azure Data Box para transferências offline** – Utilize dispositivos de dispositivos Data Box fornecidos pela Microsoft para mover grandes quantidades de dados para o Azure quando estiver limitado pelo tempo, disponibilidade da rede ou custos. Copie os dados no local utilizando ferramentas como robocopia. Dependendo do tamanho dos dados destinados à transferência, pode escolher entre o Disco caixa de dados, a caixa de dados ou a caixa de dados pesada.
-- **Azure Import/Export** – Use o serviço Azure Import/Export enviando as suas próprias unidades de disco para importar de forma segura grandes quantidades de dados para o armazenamento e arquivos Azure Blob. Este serviço também pode ser usado para transferir dados do armazenamento Azure Blob para unidades de discos e enviar para os seus sites no local.
+- **Família Azure Data Box para transferências offline** – Utilize dispositivos de dispositivos Data Box fornecidos pela Microsoft para mover grandes quantidades de dados para o Azure quando estiver limitado pelo tempo, disponibilidade da rede ou custos. Copie dados no local com ferramentas como o Robocopy. Conforme o tamanho dos dados que se pretende transferir, escolha entre Data Box Disk, Data Box ou Data Box Heavy.
+- **Azure Import/Export** – Use o serviço Azure Import/Export enviando as suas próprias unidades de disco para importar de forma segura grandes quantidades de dados para o armazenamento e arquivos Azure Blob. Este serviço também pode ser utilizado para transferir dados do Armazenamento de blobs do Azure para unidades de disco rígido e enviar para os sites no local.
 
 ## <a name="comparison-of-key-capabilities"></a>Comparação das capacidades-chave
 
-A tabela seguinte resume as diferenças nas capacidades-chave.
+A tabela seguinte resume as diferenças entre as principais capacidades.
 
 |                                     |    Data Box Disk      |    Data Box                                      |    Data Box Heavy              |    Importação/Exportação                       |
 |-------------------------------------|---------------------------------|--------------------------------------------------|------------------------------------------|----------------------------------------|
@@ -62,10 +62,10 @@ A tabela seguinte resume as diferenças nas capacidades-chave.
 |    **Preços**                      |    [Preços](https://azure.microsoft.com/pricing/details/databox/disk/)                    |   [Preços](https://azure.microsoft.com/pricing/details/storage/databox/)                                      |  [Preços](https://azure.microsoft.com/pricing/details/storage/databox/heavy/)                               |   [Preços](https://azure.microsoft.com/pricing/details/storage-import-export/)                            |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Compreender como
 
     - [Transferir dados com o disco da caixa de dados.](../../databox/data-box-disk-quickstart-portal.md)
     - [Transferir dados com a Caixa de Dados.](../../databox/data-box-quickstart-portal.md)
-    - [Dados de transferência com Importação/Exportação.](./storage-import-export-data-to-blobs.md)
+    - [Dados de transferência com Importação/Exportação.](../../import-export/storage-import-export-data-to-blobs.md)

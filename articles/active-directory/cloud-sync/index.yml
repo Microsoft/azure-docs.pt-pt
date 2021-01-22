@@ -1,0 +1,50 @@
+### YamlMime:Landing
+title: Azure AD Connect cloud sync documentação
+summary: O Azure AD Connect cloud sync ajuda a simplificar e automatizar a gestão dos utilizadores de AD Azure, através de regras geridas pela nuvem para sincronizar esses utilizadores a partir de florestas de AD existentes.
+metadata:
+  author: billmath
+  description: O cloud sync ajuda a simplificar e automatizar a gestão dos utilizadores de AD Azure, através de regras geridas pela nuvem para sincronizar esses utilizadores a partir das florestas de AD existentes.
+  ms.author: billmath
+  ms.collection: na
+  ms.date: 09/05/2019
+  ms.service: active-directory
+  ms.subservice: na
+  ms.topic: landing-page
+  services: active-directory
+  ms.openlocfilehash: 52032c39e77fb4ebd6488f25d660428ba59dfbd3
+  ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+  ms.translationtype: MT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 01/20/2021
+  ms.locfileid: "98611784"
+landingContent:
+- title: Sobre a sincronização de nuvens
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é a sincronização de nuvem AZure AD Connect?
+      url: what-is-cloud-sync.md
+- title: Saiba como implementar a melhor solução para gerir o ciclo de vida dos seus utilizadores e grupos
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Integre uma única floresta de AD com um único inquilino AZure AD
+      url: tutorial-single-forest.md
+    - text: Integrar uma floresta existente e uma nova floresta num único inquilino do Azure AD
+      url: tutorial-existing-forest.md
+    - text: Sincronização de nuvem piloto para uma floresta de AD sincronizada existente
+      url: tutorial-pilot-aadc-aadccp.md
+- title: Começar com sincronização de nuvem
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Pré-requisitos para sincronização de nuvem AZure AD Connect
+      url: how-to-prerequisites.md
+    - text: Instalar sincronização de nuvem Azure AD Connect
+      url: how-to-install.md
+    - text: Configuração do agente de provisionamento Azure AD Connect
+      url: how-to-configure.md
+  - linkListType: reference
+    links:
+    - text: Topologias e cenários suportados
+      url: plan-cloud-sync-topologies.md

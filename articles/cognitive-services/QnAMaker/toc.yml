@@ -14,9 +14,7 @@
           href: Quickstarts/create-publish-knowledge-base.md
         - name: Consultar uma base de dados de conhecimento
           href: Quickstarts/get-answer-from-knowledge-base-using-url-tool.md
-    - name: Utilizar REST
-      href: Quickstarts/quickstart-rest-curl.md
-    - name: Utilizar o SDK
+    - name: Utilização de bibliotecas de clientes ou REST API
       href: Quickstarts/quickstart-sdk.md
 - name: Tutoriais
   items:

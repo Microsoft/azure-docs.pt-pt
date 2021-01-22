@@ -970,10 +970,28 @@ groups:
     title: Python
   - id: rest-api
     title: REST
+- id: qnamaker-quickstart
+  title: Linguagens de programação
+  prompt: Escolher uma linguagem de programação
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-go
+    title: Ir
+  - id: programming-language-ruby
+    title: Ruby
+  - id: rest
+    title: REST
 metadata:
-  ms.openlocfilehash: 7486ee0d3c1be4f3957ecc11a97277b04d085691
-  ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
-  ms.translationtype: HT
+  ms.openlocfilehash: d0b0fc066111d3bd01ba5d810a5b1014981dfb1d
+  ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+  ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/12/2021
-  ms.locfileid: "98118494"
+  ms.lasthandoff: 01/22/2021
+  ms.locfileid: "98707995"

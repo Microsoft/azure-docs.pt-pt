@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 01/22/2021
 ms.author: mbullwin
-ms.openlocfilehash: 9457c610b256dd4602ef0dc51a47eeffb3c63b49
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: b0869335c386712e6b759bb0ced459ebd1bf383c
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705154"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702731"
 ---
 # <a name="best-practices-for-using-the-anomaly-detector-api"></a>Melhores práticas para a utilização do Detetor de AnomaliaS API
 
@@ -25,7 +25,7 @@ A API do Detetor de Anomalias é um serviço apátrida de deteção de anomalias
 * Os parâmetros de API do Detetor de Anomalias que foram usados.
 * O número de pontos de dados no seu pedido de API. 
 
-Use este artigo para aprender sobre as melhores práticas para usar a API obtenda os melhores resultados para os seus dados. 
+Use este artigo para aprender sobre as melhores práticas para usar a API para obter os melhores resultados para os seus dados. 
 
 ## <a name="when-to-use-batch-entire-or-latest-last-point-anomaly-detection"></a>Quando utilizar o lote (inteiro) ou a mais recente (última) deteção de anomalias de ponto
 
@@ -34,7 +34,7 @@ O ponto final de deteção do lote do Detetor de Anomalias permite detetar anoma
 * Uma série de tempo sazonal, com anomalias ocasionais.
 * Uma série de tempo de tendência plana, com picos/mergulhos ocasionais. 
 
-Não recomendamos a utilização de deteção de anomalias em lote para monitorização de dados em tempo real, ou a sua utilização em dados de séries temporizentes que não tenham características acima. 
+Não recomendamos a utilização de deteção de anomalias em lote para monitorização de dados em tempo real, ou a sua utilização em dados da série de tempo que não têm as características acima. 
 
 * A deteção de lotes cria e aplica apenas um modelo, a deteção para cada ponto é feita no contexto de toda a série. Se os dados das séries de tempo aumentarem e descerem sem sazonalidade, alguns pontos de mudança (mergulhos e picos nos dados) podem ser ignorados pelo modelo. Da mesma forma, alguns pontos de alteração menos significativos do que os mais tarde no conjunto de dados podem não ser contabilizados como suficientemente significativos para serem incorporados no modelo.
 
@@ -54,7 +54,7 @@ Abaixo está o mesmo conjunto de dados usando a deteção de anomalias de lote. 
 
 A API do Detetor de Anomalias aceita dados de séries de tempo formatados num objeto de pedido JSON. Uma série de tempo pode ser qualquer dado numérico registado ao longo do tempo em ordem sequencial. Pode enviar janelas dos dados da série de tempo para o ponto final da API do Detetor de Anomalias para melhorar o desempenho da API. O número mínimo de pontos de dados que pode enviar é de 12, e o máximo é de 8640 pontos. [A granularidade](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.granularity?view=azure-dotnet-preview) é definida como a taxa em que os seus dados são recolhidos. 
 
-Os pontos de dados enviados para a API do Detetor de Anomalias devem ter um relógio de tempo universal (UTC) e um valor numérico válido. 
+Os pontos de dados enviados para a API do Detetor de Anomalias devem ter uma timetamp universal coordenada válida (UTC) e um valor numérico. 
 
 ```json
 {
@@ -87,7 +87,7 @@ Os pontos de dados em falta são comuns em conjuntos de dados de séries de temp
 
 ### <a name="aggregate-distributed-data"></a>Dados distribuídos agregados
 
-A API do Detetor de Anomalias funciona melhor numa série de tempo distribuída uniformemente. Se os seus dados forem distribuídos aleatoriamente, deve agregar por uma unidade de tempo, como por exemplo, por hora, hora ou dia-a-dia.
+A API do Detetor de Anomalias funciona melhor numa série de tempo distribuída uniformemente. Se os seus dados forem distribuídos aleatoriamente, deve agregar por uma unidade de tempo, como por minuto, hora ou dia-a-dia.
 
 ## <a name="anomaly-detection-on-data-with-seasonal-patterns"></a>Deteção de anomalias em dados com padrões sazonais
 
@@ -95,13 +95,13 @@ Se souber que os dados da sua série de tempo têm um padrão sazonal (que ocorr
 
 Especificar um `period` quando constrói o seu pedido JSON pode reduzir a latência de deteção de anomalias em até 50%. É `period` um número inteiro que especifica aproximadamente quantos pontos de dados a série de tempo leva para repetir um padrão. Por exemplo, uma série de tempo com um ponto de dados por dia teria um `period` `7` como, e uma série de tempo com um ponto por hora (com o mesmo padrão semanal) teria um `period` de  `7*24` . Se não tem a certeza dos padrões dos seus dados, não precisa de especificar este parâmetro.
 
-Para obter os melhores `period` resultados, forneça 4's de ponto de dados, mais um adicional. Por exemplo, os dados de hora com um padrão semanal, tal como descrito acima, devem fornecer 673 pontos de dados no organismo de pedido `7 * 24 * 4 + 1` ().
+Para obter os melhores resultados, forneça quatro `period` pontos de dados, mais um adicional. Por exemplo, os dados de hora com um padrão semanal, tal como descrito acima, devem fornecer 673 pontos de dados no organismo de pedido `7 * 24 * 4 + 1` ().
 
 ### <a name="sampling-data-for-real-time-monitoring"></a>Dados de amostragem para monitorização em tempo real
 
 Se os seus dados de streaming forem recolhidos num curto intervalo (por exemplo, segundos ou minutos), o envio do número recomendado de pontos de dados pode exceder o número máximo permitido pela API do Detetor de Anomalias (8640 pontos de dados). Se os seus dados mostram um padrão sazonal estável, considere enviar uma amostra dos dados da sua série de tempo num intervalo de tempo maior, como horas. A amostragem dos seus dados desta forma também pode melhorar visivelmente o tempo de resposta da API. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [O que é a API do Detetor de Anomalias?](../overview.md)
 * [Quickstart: Detetar anomalias nos dados da série de tempo usando o Detetor de Anomalias](../quickstarts/client-libraries.md)

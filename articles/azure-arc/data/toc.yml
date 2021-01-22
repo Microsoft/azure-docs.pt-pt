@@ -50,6 +50,8 @@
           href: create-data-controller-using-azdata.md
         - name: Ferramentas do Kubernetes
           href: create-data-controller-using-kubernetes-native-tools.md
+        - name: Aplicar SCC (OpenShift)
+          href: how-to-apply-security-context-constraint.md
     - name: Experiências comuns em serviços de dados preparados para Azure Arc
       items:
         - name: Monitorizar com dashboards (Azure Data Studio)

@@ -154,9 +154,9 @@
           href: howto-password-ban-bad-on-premises-faq.md
         - name: Histórico da versão do agente
           href: howto-password-ban-bad-on-premises-agent-versions.md
-    - name: Utilizar autenticação baseada em SMS (pré-visualização)
+    - name: Utilize a autenticação baseada em SMS
       href: howto-authentication-sms-signin.md
-    - name: Utilizar o início de sessão com endereço de e-mail (pré-visualização)
+    - name: Use o endereço de e-mail iniciar s-in
       href: howto-authentication-use-email-signin.md
     - name: Bloqueio inteligente do Azure AD
       href: howto-password-smart-lockout.md

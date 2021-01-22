@@ -1,18 +1,18 @@
 ---
 title: Definições políticas incorporadas para a aprendizagem automática Azure
 description: Lista definições políticas incorporadas da Azure Policy para Azure Machine Learning. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 01/08/2021
+ms.date: 01/21/2021
 ms.author: larryfr
 author: BlackMist
 ms.topic: reference
 ms.service: machine-learning
 ms.custom: subject-policy-reference
-ms.openlocfilehash: f7f380492d7e261038aab0fba9e775f1eaa28aa9
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 778930d7370496387067823e88aa63f840b46782
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98072297"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98703572"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-machine-learning"></a>Definições políticas incorporadas da Política Azure para a Aprendizagem automática do Azure
 

@@ -3,18 +3,18 @@ title: Fazer o back up das máquinas Do Windows utilizando o agente MARS
 description: Utilize o agente Microsoft Azure Recovery Services (MARS) para fazer o back up das máquinas Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: d2cdd5d1fa98462a70d72fd9f8723685952b665a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54932192d61633da55657e2ba57adf4e30c4fbc7
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90052227"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702773"
 ---
 # <a name="back-up-windows-server-files-and-folders-to-azure"></a>Fazer o back up ficheiros e pastas do Windows Server para O Azure
 
 Este artigo explica como fazer o backup das máquinas windows utilizando o serviço [Azure Backup](backup-overview.md) e o agente Microsoft Azure Recovery Services (MARS). Mars também é conhecido como o agente Azure Backup.
 
-Neste artigo, aprenderá a:
+Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
 >
@@ -53,7 +53,7 @@ Para criar uma política de cópias de segurança:
     ![Selecione itens para fazer back-up](./media/backup-azure-manage-mars/selected-items-to-backup.png)
 
 1. Na **página 'Selecionar itens para fazer back up',** selecione **Seguinte**.
-1. Na página **'Agendar Cópia de Segurança** Especificar', especifique quando deve fazer cópias de segurança diárias ou semanais. e selecione **Seguinte**.
+1. Na página **'Agendar Cópia de Segurança** Especificar', especifique quando deve fazer cópias de segurança diárias ou semanais. Em seguida, selecione **Seguinte**.
 
     * Um ponto de recuperação é criado quando um backup é tomado.
     * O número de pontos de recuperação criados no seu ambiente depende do seu horário de reserva.
@@ -65,7 +65,7 @@ Para criar uma política de cópias de segurança:
 
         ![Estabeleça um horário de backup semanal](./media/backup-configure-vault/week-schedule.png)
 
-1. Na página **'Política de Retenção Seletiva',** especifique como armazenar cópias históricas dos seus dados. e selecione **Seguinte**.
+1. Na página **'Política de Retenção Seletiva',** especifique como armazenar cópias históricas dos seus dados. Em seguida, selecione **Seguinte**.
 
     * As definições de retenção especificam quais os pontos de recuperação para armazenar e quanto tempo os armazenar.
     * Para uma definição de retenção diária, indica que no momento especificado para a retenção diária, o último ponto de recuperação será mantido para o número especificado de dias. Ou pode especificar uma política de retenção mensal para indicar que o ponto de recuperação criado no dia 30 de cada mês deve ser armazenado durante 12 meses.
@@ -104,7 +104,7 @@ Para fazer uma transferência offline:
 1. Escreva os dados de reserva para um local de preparação.
 1. Utilize a ferramenta AzureOfflineBackupDiskPrep para copiar os dados da localização de localização para um ou mais discos SATA.
 
-    A ferramenta cria um trabalho de Importação Azure. Para mais informações, consulte [o serviço Azure Import/Export](../storage/common/storage-import-export-service.md).
+    A ferramenta cria um trabalho de Importação Azure. Para mais informações, consulte [o serviço Azure Import/Export](../import-export/storage-import-export-service.md).
 1. Envie os discos SATA para um datacenter Azure.
 
     No datacenter, os dados do disco são copiados para uma conta de armazenamento Azure. A Azure Backup copia os dados da conta de armazenamento para o cofre, e estão agendadas cópias incrementais.
@@ -155,7 +155,7 @@ Após o acabamento inicial da cópia de segurança, o estado **preenchido do Job
 
 Para obter mais informações, consulte [Criar uma política de backup](#create-a-backup-policy).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba como [restaurar ficheiros em Azure](backup-azure-restore-windows-server.md).
 * Encontre [questões comuns sobre o backup de ficheiros e pastas](backup-azure-file-folder-backup-faq.md)

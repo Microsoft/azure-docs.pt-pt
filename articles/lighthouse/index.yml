@@ -10,12 +10,12 @@ metadata:
   author: JnHs
   ms.author: jenhayes
   ms.date: 12/17/2020
-  ms.openlocfilehash: 46a3f48c4f9548e24709a0d56fe4c750ae9a76a8
-  ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
-  ms.translationtype: HT
+  ms.openlocfilehash: ad312bd1a1797ee6f9e2d474e93d066b4be9c131
+  ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+  ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 12/19/2020
-  ms.locfileid: "97693954"
+  ms.lasthandoff: 01/21/2021
+  ms.locfileid: "98707759"
 landingContent:
 - title: Acerca do Azure Lighthouse
   linkLists:
@@ -109,6 +109,8 @@ landingContent:
       url: /python/api/azure-mgmt-managedservices
     - text: Terraform
       url: https://www.terraform.io/docs/providers/azurerm/r/lighthouse_assignment.html
+    - text: Ansible
+      url: https://docs.ansible.com/ansible/latest/collections/azure/azcollection/index.html#plugins-in-azure-azcollection
 - title: Referência – Transferências
   linkLists:
   - linkListType: download

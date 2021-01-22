@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 12/17/2020
+ms.date: 01/22/2021
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 3f62ab20359273aec6743c27ab46b33027e82b55
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 893bf37a5a4c8a314e5182bf2ac4bc28502b98d9
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98598394"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98699446"
 ---
 # <a name="what-is-azure-cognitive-search"></a>O que é o Azure Cognitive Search?
 
@@ -22,25 +22,29 @@ Azure Cognitive Search[é](whats-new.md#new-service-name)um serviço de pesquisa
 
 Um serviço de pesquisa tem os seguintes componentes:
 
-+ Motor de busca para indexação e execução de consultas
-+ Armazenamento persistente de índices de pesquisa de propriedade do utilizador
-+ Linguagem de consulta para compor consultas simples e complexas
++ Pesquisar o motor para pesquisa completa de texto
++ Armazenamento persistente de conteúdo indexado de propriedade do utilizador
++ APIs para indexação e consulta
 + [Enriquecimentos opcionais baseados em IA,](cognitive-search-concept-intro.md)criando conteúdo pes pescável a partir de imagens, texto em bruto, ficheiros de aplicações
 + Integração opcional com outros serviços Azure para dados, machine learning/IA e segurança
 
-Em termos arquitetónicos, um serviço de pesquisa situa-se entre as lojas de dados externos que contêm os seus dados não indexados, e uma aplicação de cliente que envia pedidos de consulta para um índice de pesquisa e trata a resposta.
+Em termos arquitetónicos, um serviço de pesquisa situa-se entre as lojas de dados externos que contêm os seus dados não indexados, e a sua aplicação de cliente que envia pedidos de consulta para um índice de pesquisa e trata a resposta.
 
 ![Arquitetura de Pesquisa Cognitiva Azure](media/search-what-is-azure-search/azure-search-diagram.svg "Arquitetura de Pesquisa Cognitiva Azure")
 
-Exteriormente, a pesquisa pode integrar-se com outros serviços Azure sob a forma de *indexantes* que automatizam a ingestão/recuperação de dados a partir de fontes de dados Azure, e *skillsets* que incorporam IA consumível dos Serviços Cognitivos, tais como análise de imagem e texto, ou IA personalizada que você cria em Azure Machine Learning ou embrulhe dentro de Funções Azure.
+Externamente, a pesquisa pode integrar-se com outros serviços Azure sob a forma de *indexantes* que automatizam a ingestão/recuperação de dados a partir de fontes de dados Azure, e *skillsets* que incorporam IA consumível dos Serviços Cognitivos, tais como análise de imagem e texto, ou IA personalizada que você cria em Azure Machine Learning ou embrulhe dentro de Funções Azure.
+
+## <a name="inside-a-search-service"></a>Dentro de um serviço de pesquisa
 
 No próprio serviço de pesquisa, as duas cargas de trabalho primárias estão *a indexar* e *a consultar.* 
 
-+ Indexar o texto ao seu serviço de pesquisa torna-o pesmável. Internamente, o texto de entrada é processado em fichas e armazenado em índices invertidos para digitalizações rápidas. Pode fazer o upload de qualquer conteúdo que esteja na forma de documentos JSON.
++ [Indexar](search-what-is-an-index.md) é um processo de admissão que carrega o conteúdo para o seu serviço de pesquisa e o torna pes pespável. Internamente, o texto de entrada é processado em fichas e armazenado em índices invertidos para digitalizações rápidas. Pode fazer o upload de qualquer texto que esteja na forma de documentos JSON.
 
-  Dentro da indexação, você tem a opção de adicionar *enriquecimento* de IA através de [habilidades cognitivas](cognitive-search-working-with-skillsets.md), ou pré-finadas da Microsoft ou habilidades personalizadas que você cria. As análises e transformações subsequentes podem resultar em novas informações e estruturas que anteriormente não existiam, proporcionando alta utilidade para muitos cenários de pesquisa e mineração de conhecimento.
+  Além disso, se o seu conteúdo inclui ficheiros mistos, tem a opção de adicionar *enriquecimento* de IA através de [habilidades cognitivas.](cognitive-search-working-with-skillsets.md) O enriquecimento de IA pode extrair texto incorporado em ficheiros de aplicações, e também inferir texto e estrutura a partir de ficheiros não-texto, analisando o conteúdo. 
 
-+ Uma vez que um índice é preenchido com dados pes pesjáveis, a sua aplicação de cliente envia pedidos de consulta para um serviço de pesquisa e lida com respostas. Toda a execução de consultas é sobre um índice de pesquisa que você cria, possui e armazena no seu serviço. Na sua aplicação cliente, a experiência de pesquisa é definida usando APIs da Azure Cognitive Search, e pode incluir afinação de relevância, afinação automática, correspondência de sinónimo, correspondência fuzzy, correspondência de padrões, filtro e classificação.
+  As competências que fornecem a análise são predefinidas da Microsoft, ou habilidades personalizadas que cria. As análises e transformações subsequentes podem resultar em novas informações e estruturas que anteriormente não existiam, proporcionando alta utilidade para muitos cenários de pesquisa e mineração de conhecimento.
+
++ [A consulta](search-query-overview.md) pode ocorrer uma vez que um índice é preenchido com texto pesmável, quando a sua aplicação do cliente envia pedidos de consulta para um serviço de pesquisa e lida com respostas. Toda a execução de consultas é sobre um índice de pesquisa que você cria, possui e armazena no seu serviço. Na sua aplicação cliente, a experiência de pesquisa é definida usando APIs da Azure Cognitive Search, e pode incluir afinação de relevância, afinação automática, correspondência de sinónimo, correspondência fuzzy, correspondência de padrões, filtro e classificação.
 
 A funcionalidade é exposta através de uma simples [REST API](/rest/api/searchservice/) ou [.NET SDK](search-howto-dotnet-sdk.md) que dissimula a complexidade inerente da obtenção de informações. Também pode utilizar o portal Azure para a administração de serviços e gestão de conteúdos, com ferramentas para prototipagem e consulta dos seus índices e skillsets. Por o serviço executar na cloud, as infraestruturas e disponibilidade são geridas pela Microsoft.
 
@@ -73,7 +77,7 @@ Uma exploração de ponta a ponta das funcionalidades de pesquisa do núcleo pod
 > [!TIP]
 > Minimize os passos começando com o [**assistente de dados de importação**](search-get-started-portal.md) e uma fonte de dados Azure para criar, carregar e consultar um índice em minutos.
 
-## <a name="how-it-compares"></a>Como se compara
+## <a name="compare-search-options"></a>Comparar opções de pesquisa
 
 Os clientes perguntam frequentemente como a Azure Cognitive Search se compara com outras soluções relacionadas com a pesquisa. A tabela seguinte resume as diferenças principais.
 

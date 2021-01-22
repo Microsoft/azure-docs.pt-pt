@@ -241,6 +241,9 @@
           href: /powershell/module/az.databox
         - name: APIs do .NET
           href: /dotnet/api/overview/azure/databox/management
+        - name: Incorporações do Azure Policy
+          displayName: 'samples, policies, definitions'
+          href: ./policy-reference.md
     - name: Recursos
       items:
         - name: Produto do Data Box

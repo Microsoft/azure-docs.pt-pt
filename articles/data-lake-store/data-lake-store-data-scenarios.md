@@ -1,5 +1,5 @@
 ---
-title: Cenários de dados envolvendo Data Lake Storage Gen1 Microsoft Docs
+title: Cenários de dados envolvendo data lake storage Gen1 | Microsoft Docs
 description: Compreenda os diferentes cenários e ferramentas que utilizam quais os dados que podem ingerir, processar, descarregar e visualizar na Data Lake Storage Gen1 (anteriormente conhecida como Azure Data Lake Store)
 services: data-lake-store
 documentationcenter: ''
@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: 702a59f768bfe978e1a7708d91c6b6b1bb9c92fe
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 0bd895b0c19293a199b2a9b135915b7dc45b9e5e
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452234"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702502"
 ---
 # <a name="using-azure-data-lake-storage-gen1-for-big-data-requirements"></a>Utilização do Azure Data Lake Storage Gen1 para grandes requisitos de dados
 
@@ -88,7 +88,7 @@ Grandes quantidades de dados podem ser armazenados em clusters Hadoop existentes
 Para o upload de conjuntos de dados que variam em vários terabytes, usar os métodos acima descritos pode por vezes ser lento e dispendioso. Nesses casos, pode utilizar as opções abaixo.
 
 * **Utilizando a Azure ExpressRoute**. O Azure ExpressRoute permite criar ligações privadas entre datacenters Azure e infraestruturas nas suas instalações. Isto fornece uma opção fiável para a transferência de grandes quantidades de dados. Para mais informações, consulte [a documentação do Azure ExpressRoute.](../expressroute/expressroute-introduction.md)
-* **Upload "offline" de dados**. Se a utilização do Azure ExpressRoute não for viável por qualquer motivo, pode utilizar o [serviço Azure Import/Export](../storage/common/storage-import-export-service.md) para enviar discos rígidos com os seus dados para um centro de dados Azure. Os seus dados são enviados pela primeira vez para a Azure Storage Blobs. Em seguida, pode utilizar [a ferramenta Azure Data Factory](../data-factory/connector-azure-data-lake-store.md) ou [AdlCopy](data-lake-store-copy-data-azure-storage-blob.md) para copiar dados de Azure Storage Blobs para Data Lake Storage Gen1.
+* **Upload "offline" de dados**. Se a utilização do Azure ExpressRoute não for viável por qualquer motivo, pode utilizar o [serviço Azure Import/Export](../import-export/storage-import-export-service.md) para enviar discos rígidos com os seus dados para um centro de dados Azure. Os seus dados são enviados pela primeira vez para a Azure Storage Blobs. Em seguida, pode utilizar [a ferramenta Azure Data Factory](../data-factory/connector-azure-data-lake-store.md) ou [AdlCopy](data-lake-store-copy-data-azure-storage-blob.md) para copiar dados de Azure Storage Blobs para Data Lake Storage Gen1.
 
   > [!NOTE]
   > Ao utilizar o serviço De importação/exportação, os tamanhos dos ficheiros nos discos que envia para o centro de dados Azure não devem ser superiores a 195 GB.

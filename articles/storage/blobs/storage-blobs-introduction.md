@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 06/24/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 8e3f0435d9856d2b602a4f2b6f604aee05e040ba
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: b55ea814214397e12e50e7bc5047988394623940
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505210"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98703594"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Introdução ao Armazenamento de blobs do Azure
 
@@ -70,9 +70,9 @@ Existem várias soluções para a migração dos dados existentes para o armazen
 - **A Azure Data Factory** suporta a cópia de dados de e para o armazenamento blob usando a chave de conta, uma assinatura de acesso partilhado, um principal serviço ou identidades geridas para recursos Azure. Para obter mais informações, consulte [copiar dados para ou a partir do armazenamento da Azure Blob utilizando a Azure Data Factory](../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 - **Blobfuse** é um controlador de sistema de ficheiros virtual para o armazenamento Azure Blob. Pode utilizar o blobfuse para aceder aos dados de blob existentes na sua conta de Armazenamento através do sistema de ficheiros Linux. Para obter mais informações, consulte [Como montar o armazenamento Blob como um sistema de ficheiros com blobfuse](storage-how-to-mount-container-linux.md).
 - O serviço **Azure Data Box** está disponível para transferir dados no local para armazenamento Blob quando grandes conjuntos de dados ou restrições de rede tornam os dados de upload sobre o fio irrealistas. Dependendo do tamanho dos dados, pode solicitar [a Azure Data Box Disk,](../../databox/data-box-disk-overview.md) [Azure Data Box](../../databox/data-box-overview.md)ou [Azure Data Box Dispositivos pesados](../../databox/data-box-heavy-overview.md) da Microsoft. Em seguida, pode copiar os seus dados para esses dispositivos e enviá-los de volta para a Microsoft para serem enviados para o armazenamento blob.
-- O **serviço Azure Import/Export** fornece uma forma de importar ou exportar grandes quantidades de dados de e para a sua conta de armazenamento utilizando discos rígidos que fornece. Para obter mais informações, consulte [o serviço Microsoft Azure Import/Export para transferir dados para o armazenamento blob](../common/storage-import-export-service.md).
+- O **serviço Azure Import/Export** fornece uma forma de importar ou exportar grandes quantidades de dados de e para a sua conta de armazenamento utilizando discos rígidos que fornece. Para obter mais informações, consulte [o serviço Microsoft Azure Import/Export para transferir dados para o armazenamento blob](../../import-export/storage-import-export-service.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Criar uma conta de armazenamento](../common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 - [Metas de escalabilidade e desempenho para armazenamento blob](scalability-targets.md)
