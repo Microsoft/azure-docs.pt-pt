@@ -3,12 +3,12 @@ title: Azure Funções Plano de Consumo
 description: Saiba como o plano de consumo de funções Azure permite executar o seu código num ambiente que escala dinamicamente, mas só paga pelos recursos utilizados durante a execução.
 ms.date: 8/31/2020
 ms.topic: conceptual
-ms.openlocfilehash: c0619def4687935cd9e403563966b35b84f13c7c
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: ffb556ce48f18702e06fcdb02dda84f41ae5f906
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937789"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684696"
 ---
 # <a name="azure-functions-consumption-plan-hosting"></a>Azure Funções Plano de Consumo
 
@@ -33,10 +33,10 @@ Quando cria uma aplicação de função no portal Azure, o plano de Consumo é o
 Utilize os seguintes links para aprender a criar uma aplicação de função sem servidor num plano de Consumo, quer programáticamente, quer no portal Azure:
 
 + [CLI do Azure](./scripts/functions-cli-create-serverless.md)
-+ [Portal do Azure](functions-create-first-azure-function.md)
++ [Portal do Azure](./functions-get-started.md)
 + [Modelo Azure Resource Manager](functions-create-first-function-resource-manager.md)
 
-Também pode criar aplicações de função num plano de consumo quando publicar um projeto De Funções a partir do [Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure) ou do Visual [Studio](functions-create-your-first-function-visual-studio.md#publish-the-project-to-azure).
+Também pode criar aplicações de função num plano de consumo quando publicar um projeto De Funções a partir do [Visual Studio Code](./create-first-function-vs-code-csharp.md#publish-the-project-to-azure) ou do Visual [Studio](functions-create-your-first-function-visual-studio.md#publish-the-project-to-azure).
 
 ## <a name="multiple-apps-in-the-same-plan"></a>Várias aplicações no mesmo plano
 

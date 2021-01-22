@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: 43447454b82b74c10b1d53c41c7883b0b9bef242
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 634fc183cc27db1ae949959c3ae7fae8eda5b644
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98196508"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684547"
 ---
 # <a name="azure-image-builder-service-devops-task"></a>Tarefa de devOps de devops de serviço de construtor de imagem Azure
 
@@ -69,12 +69,12 @@ Selecione a partir do menu suspenso que subscrição deseja que o Construtor de 
 
 Utilize o grupo de recursos onde o artefacto do modelo de imagem temporária será armazenado. Ao criar um artefacto de modelo, é criado um grupo de recursos temporários de Image `IT_<DestinationResourceGroup>_<TemplateName>_guid` Builder. O grupo de recursos temporários armazena os metadados de imagem, como scripts. No final da tarefa, o artefacto do modelo de imagem e o grupo temporário de recursos do Construtor de Imagem são eliminados.
  
-### <a name="location"></a>A localização
+### <a name="location"></a>Localização
 
-A localização é a região onde o Construtor de Imagem vai funcionar. Apenas um número definido de regiões são [apoiadas.](../windows/image-builder-overview.md#regions) As imagens de origem devem estar presentes neste local. Por exemplo, se estiver a utilizar a Galeria de Imagens Partilhadas, deve existir uma réplica nessa região.
+A localização é a região onde o Construtor de Imagem vai funcionar. Apenas um número definido de regiões são [apoiadas.](../image-builder-overview.md#regions) As imagens de origem devem estar presentes neste local. Por exemplo, se estiver a utilizar a Galeria de Imagens Partilhadas, deve existir uma réplica nessa região.
 
 ### <a name="managed-identity-required"></a>Identidade gerida (Requerida)
-O Image Builder requer uma Identidade Gerida, que utiliza para ler imagens personalizadas de origem, ligar-se ao Azure Storage e criar imagens personalizadas. Aceda [aqui](./image-builder-overview.md#permissions) para obter mais detalhes.
+O Image Builder requer uma Identidade Gerida, que utiliza para ler imagens personalizadas de origem, ligar-se ao Azure Storage e criar imagens personalizadas. Aceda [aqui](../image-builder-overview.md#permissions) para obter mais detalhes.
 
 ### <a name="vnet-support"></a>Suporte VNET
 
@@ -335,4 +335,4 @@ O artefacto do recurso do modelo de imagem está no grupo de recursos especifica
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para mais informações, consulte [a visão geral do Azure Image Builder](image-builder-overview.md).
+Para mais informações, consulte [a visão geral do Azure Image Builder](../image-builder-overview.md).

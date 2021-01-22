@@ -11,12 +11,12 @@ ms.date: 09/04/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: e8826dff6d347f78625272a5620a1f168b8804db
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: bc101e6bb743b9290593937a4d1bac656430b438
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120041"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685315"
 ---
 # <a name="development-best-practices-for-synapse-sql-pool"></a>Melhores práticas de desenvolvimento para piscina Sinapse SQL
 
@@ -80,7 +80,7 @@ Outra forma de eliminar reversões consiste em utilizar Operações Apenas de Me
 
 Para tabelas não participantes, considere utilizar um CTAS para escrever os dados que pretende manter numa tabela em vez de utilizar DELETE.  Se um CTAS demorar o mesmo tempo, é uma operação muito mais segura, uma vez que tem registo de transações mínimos e pode ser cancelada rapidamente, se necessário.
 
-Consulte também [as transações de compreensão](sql-data-warehouse-develop-transactions.md), [Otimização de transações,](sql-data-warehouse-develop-best-practices-transactions.md) [divisão de tabelas,](sql-data-warehouse-tables-partition.md) [TABELA TRUNCATE,](/sql/t-sql/statements/truncate-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) [TABELA ALTER,](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)e [Criar tabela como selecionado (CTAS)](sql-data-warehouse-develop-ctas.md).
+Consulte também [as transações de compreensão](sql-data-warehouse-develop-transactions.md), [Otimização de transações,](sql-data-warehouse-develop-best-practices-transactions.md) [divisão de tabelas,](sql-data-warehouse-tables-partition.md) [TABELA TRUNCATE,](/sql/t-sql/statements/truncate-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) [TABELA ALTER,](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)e [Criar tabela como selecionado (CTAS)](sql-data-warehouse-develop-ctas.md).
 
 ## <a name="use-the-smallest-possible-column-size"></a>Utilizar o tamanho mais pequeno possível da coluna
 
@@ -114,7 +114,7 @@ Se a sua tabela não tiver 6 mil milhões de linhas neste exemplo, reduza o núm
 > [!TIP]
 > Ao consultar uma tabela columnstore, as consultas serão executadas mais rapidamente se selecionar apenas as colunas de que precisa.  
 
-Consulte também [índices de tabela,](sql-data-warehouse-tables-index.md) [guia de índices de colunas](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)e [índices de loja de colunas de reconstrução](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).
+Consulte também [índices de tabela,](sql-data-warehouse-tables-index.md) [guia de índices de colunas](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)e [índices de loja de colunas de reconstrução](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).
 
 ## <a name="next-steps"></a>Passos seguintes
 

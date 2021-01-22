@@ -3,12 +3,12 @@ title: Azure Service Bus duplica a deteção de mensagens | Microsoft Docs
 description: Este artigo explica como pode detetar duplicados em mensagens de autocarro da Azure Service. A mensagem duplicada pode ser ignorada e deixada.
 ms.topic: article
 ms.date: 01/13/2021
-ms.openlocfilehash: 29972f756c66f524cc2e4684fcb7afd1ca628820
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 8ff98b3a052be6004a2dc070f10d6f8c9ca0617f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98184684"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684813"
 ---
 # <a name="duplicate-detection"></a>Deteção de duplicados
 
@@ -17,6 +17,9 @@ Se uma aplicação falhar devido a um erro fatal imediatamente após enviar uma 
 Também é possível que um erro a nível do cliente ou da rede ocorra um momento antes, e que uma mensagem enviada seja comprometida na fila, com o reconhecimento não devolvido com sucesso ao cliente. Este cenário deixa o cliente em dúvida sobre o resultado da operação de envio.
 
 A deteção duplicada retira a dúvida destas situações, permitindo que o remetente reensiite a mesma mensagem, e a fila ou tópico descarta quaisquer cópias duplicadas.
+
+> [!NOTE]
+> O nível básico do Service Bus não suporta a deteção de duplicados. Os níveis standard e premium suportam a deteção duplicada. Para obter diferenças entre estes níveis, consulte [os preços do Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
 
 ## <a name="how-it-works"></a>Como funciona? 
 Permitir a deteção duplicada ajuda a acompanhar o *MessageId* controlado pela aplicação de todas as mensagens enviadas para uma fila ou tópico durante uma janela de tempo especificada. Se alguma nova mensagem for enviada com *o MessageId* que foi registada durante a janela de tempo, a mensagem é reportada como aceite (a operação de envio tem sucesso), mas a mensagem recentemente enviada é imediatamente ignorada e deixada. Não são consideradas outras partes da mensagem que não o *MessageId.*

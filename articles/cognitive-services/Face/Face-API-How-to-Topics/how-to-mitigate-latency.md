@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 1/5/2021
 ms.author: v-jawe
-ms.openlocfilehash: 07c9bd12664a94c64a0d0b37d638b5668cc7f61e
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: b4035e2039afb6fe66d2658ebfcd3206d46e1de5
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98605632"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98682467"
 ---
 # <a name="how-to-mitigate-latency-when-using-the-face-service"></a>Como: mitigar a latência ao utilizar o serviço Face
 
@@ -42,7 +42,11 @@ var faces = await client.Face.DetectWithUrlAsync("https://www.biography.com/.ima
 
 O serviço Face deve então descarregar a imagem a partir do servidor remoto. Se a ligação do serviço Face ao servidor remoto for lenta, isso afetará o tempo de resposta do método Detect.
 
-Para atenuar isto, considere [guardar a imagem no Azure Premium Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-upload-process-images?tabs=dotnet).
+Para atenuar isto, considere [guardar a imagem no Azure Premium Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-upload-process-images?tabs=dotnet). Por exemplo:
+
+``` csharp
+var faces = await client.Face.DetectWithUrlAsync("https://csdx.blob.core.windows.net/resources/Face/Images/Family1-Daughter1.jpg");
+```
 
 ### <a name="large-upload-size"></a>Tamanho de upload grande
 
@@ -58,7 +62,10 @@ Se o ficheiro para carregar for grande, isso afetará o tempo de resposta do `De
 - O serviço demora mais tempo a processar o ficheiro, proporcionalmente ao tamanho do ficheiro.
 
 Mitigações:
-- Considere [guardar a imagem no Azure Premium Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-upload-process-images?tabs=dotnet).
+- Considere [guardar a imagem no Azure Premium Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-upload-process-images?tabs=dotnet). Por exemplo:
+``` csharp
+var faces = await client.Face.DetectWithUrlAsync("https://csdx.blob.core.windows.net/resources/Face/Images/Family1-Daughter1.jpg");
+```
 - Considere carregar um ficheiro menor.
     - Consulte as diretrizes relativas aos dados de [entrada para deteção facial](https://docs.microsoft.com/azure/cognitive-services/face/concepts/face-detection#input-data) e [dados de entrada para reconhecimento facial](https://docs.microsoft.com/azure/cognitive-services/face/concepts/face-recognition#input-data).
     - Para a deteção facial, ao utilizar o modelo de `DetectionModel.Detection01` deteção, a redução do tamanho do ficheiro de imagem aumentará a velocidade de processamento. Ao utilizar o modelo de deteção, a redução do tamanho do ficheiro de `DetectionModel.Detection02` imagem só aumentará a velocidade de processamento se o ficheiro de imagem for inferior a 1920x1080.

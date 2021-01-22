@@ -8,12 +8,12 @@ ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 68a308952b63d15aa6db90021400f826ef575c0c
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: b80100216003e91fde54b5e555bafb755c942810
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94537191"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98682924"
 ---
 # <a name="use-the-azure-portal-to-restrict-importexport-access-for-managed-disks-with-private-links"></a>Utilize o portal Azure para restringir o acesso à importação/exportação de discos geridos com ligações privadas
 
@@ -92,4 +92,4 @@ Já completou a configuração de Links Privados que pode utilizar ao importar/e
 ## <a name="next-steps"></a>Passos seguintes
 
 - [FAQ para links privados](./faq-for-disks.md#private-links-for-securely-exporting-and-importing-managed-disks)
-- [Exportação/Cópia geriu instantâneos como VHD para uma conta de armazenamento em diferentes regiões com PowerShell](./scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account.md)
+- [Exportação/Cópia geriu instantâneos como VHD para uma conta de armazenamento em diferentes regiões com PowerShell](/previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account)

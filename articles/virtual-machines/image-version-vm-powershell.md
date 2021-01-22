@@ -9,18 +9,18 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 1a0bfb79b03b778696faef29597cabbcff47e6df
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: a7b8cb10f75d7a99198ddfdc1a1bbef3c34a03da
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601666"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685111"
 ---
 # <a name="create-an-image-from-a-vm"></a>Criar uma imagem a partir de uma VM
 
 Se tiver um VM existente que gostaria de usar para fazer VMs múltiplos e idênticos, pode usar esse VM para criar uma imagem numa Galeria de Imagens Partilhada utilizando a Azure PowerShell. Também pode criar uma imagem a partir de um VM utilizando o [Azure CLI](image-version-vm-cli.md).
 
-Pode capturar uma imagem de [VMs especializados e generalizados](./windows/shared-image-galleries.md#generalized-and-specialized-images) utilizando a Azure PowerShell. 
+Pode capturar uma imagem de [VMs especializados e generalizados](./shared-image-galleries.md#generalized-and-specialized-images) utilizando a Azure PowerShell. 
 
 As imagens numa galeria de imagens têm dois componentes, que iremos criar neste exemplo:
 - Uma **definição de Imagem** transporta informações sobre a imagem e requisitos para a sua utilização. Isto inclui se a imagem é Windows ou Linux, especializada ou generalizada, notas de lançamento e requisitos mínimos e máximo de memória. É uma definição de um tipo de imagem. 
@@ -77,7 +77,7 @@ As definições de imagem criam um agrupamento lógico para imagens. São usados
 
 Ao fazer a definição de imagem, certifique-se de que tem todas as informações corretas. Se generalizou o VM (utilizando o Sysprep para Windows, ou desprovisionamento waagent para o Linux), então deve criar uma definição de imagem utilizando `-OsState generalized` . Se não generalizou o VM, crie uma definição de imagem utilizando `-OsState specialized` .
 
-Para obter mais informações sobre os valores que pode especificar para uma definição de imagem, consulte [definições de imagem](./windows/shared-image-galleries.md#image-definitions).
+Para obter mais informações sobre os valores que pode especificar para uma definição de imagem, consulte [definições de imagem](./shared-image-galleries.md#image-definitions).
 
 Crie a definição de imagem utilizando [a Definição de Imagem de Nova AzGallery](/powershell/module/az.compute/new-azgalleryimageversion). 
 

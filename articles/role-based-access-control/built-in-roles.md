@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 01/15/2021
 ms.custom: generated
-ms.openlocfilehash: 8f44de679c9b0280652b0020d1e454a70f7114a3
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 39385a3ea9dc06875806ac85c06c0df6d5db2698
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98538537"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683798"
 ---
 # <a name="azure-built-in-roles"></a>Funções incorporadas do Azure
 
@@ -39,7 +39,7 @@ A tabela seguinte fornece uma breve descrição e a identificação única de ca
 > | [Login de administrador de máquina virtual](#virtual-machine-administrator-login) | Ver Máquinas Virtuais no portal e iniciar sessão como administrador | 1c0163c0-47e6-4577-8991-ea5c82e286e4 |
 > | [Contribuidor de Máquina Virtual](#virtual-machine-contributor) | Permite-lhe gerir máquinas virtuais, mas não acesso a elas, e não à rede virtual ou à conta de armazenamento a que estão ligadas. | 9980e02c-c2be-4d73-94e8-173b1dc7cf3c |
 > | [Início de sessão do utilizador de máquina virtual](#virtual-machine-user-login) | Ver Máquinas Virtuais no portal e iniciar sessão como um utilizador regular. | fb879df8-f326-4884-b1cf-06f3ad86be52 |
-> | **Redes** |  |  |
+> | **Rede** |  |  |
 > | [Colaborador de Ponto Final cdn](#cdn-endpoint-contributor) | Pode gerir os pontos finais da CDN, mas não pode dar acesso a outros utilizadores. | 426e0c7f-0c7e-4658-b36f-ff54d6c29b45 |
 > | [Leitor de ponto final CDN](#cdn-endpoint-reader) | Pode ver os pontos finais do CDN, mas não pode fazer alterações. | 871e35f6-b5c1-49cc-a043-bde969a0f2cd |
 > | [Colaborador de perfil CDN](#cdn-profile-contributor) | Pode gerir perfis de CDN e seus pontos finais, mas não pode dar acesso a outros utilizadores. | ec156ff8-a8d1-4d15-830c-5b80698ca432 |
@@ -7413,7 +7413,7 @@ Ver e atualizar permissões para o Centro de Segurança. As mesmas permissões q
 > | [Microsoft.Autorização](resource-provider-operations.md#microsoftauthorization)/*/ler | Ler papéis e atribuições de funções |
 > | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/policyAssignments/* | Criar e gerir atribuições políticas |
 > | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/policyDefinitions/* | Criar e gerir definições políticas |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/policyExemptions/* |  |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/policyExemptions/* | Criar e gerir isenções políticas |
 > | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/policySetDefinitions/* | Criar e gerir conjuntos de políticas |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerir um alerta métrico clássico |
 > | [Microsoft.Management](resource-provider-operations.md#microsoftmanagement)/managementGroups/read | Listar grupos de gestão para o utilizador autenticado. |
@@ -9171,7 +9171,7 @@ Utilizadores com direitos de criar/modificar a política de recursos, criar bilh
 > | */ler | Leia recursos de todos os tipos, exceto segredos. |
 > | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/policyassignments/* | Criar e gerir atribuições políticas |
 > | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/policydefinitions/* | Criar e gerir definições políticas |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/policyexemptions/* |  |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/policyexemptions/* | Criar e gerir isenções políticas |
 > | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/policysetdefinitions/* | Criar e gerir conjuntos de políticas |
 > | [Microsoft.PolicyInsights](resource-provider-operations.md#microsoftpolicyinsights)/* |  |
 > | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um bilhete de apoio |

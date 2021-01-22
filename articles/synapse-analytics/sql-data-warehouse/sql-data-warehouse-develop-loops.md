@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: emtehran
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 3477b3095414248afa9fbc7417ab707c94f35546
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: a6c4eb98d77ece6e6ae130fd57cc263ee7e5ca64
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462735"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683227"
 ---
 # <a name="using-t-sql-loops-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Utilização de loops T-SQL para piscinas SQL dedicadas em Azure Synapse Analytics
 
@@ -24,7 +24,7 @@ Incluído neste artigo estão dicas para o desenvolvimento dedicado da solução
 
 ## <a name="purpose-of-while-loops"></a>Finalidade dos ciclos DO WHILE
 
-Piscinas SQL dedicadas em Azure Synapse suportam o loop [WHILE](/sql/t-sql/language-elements/while-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para executar repetidamente blocos de declaração. Este laço WHILE continua enquanto as condições especificadas forem verdadeiras ou até que o código encerre especificamente o loop utilizando a palavra-chave BREAK.
+Piscinas SQL dedicadas em Azure Synapse suportam o loop [WHILE](/sql/t-sql/language-elements/while-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para executar repetidamente blocos de declaração. Este laço WHILE continua enquanto as condições especificadas forem verdadeiras ou até que o código encerre especificamente o loop utilizando a palavra-chave BREAK.
 
 Os loops são úteis para substituir cursores definidos no código SQL. Felizmente, quase todos os cursores que estão escritos no código SQL são da variedade rápida e só de leitura. Assim, os loops ENQUANTO são uma ótima alternativa para substituir cursores.
 

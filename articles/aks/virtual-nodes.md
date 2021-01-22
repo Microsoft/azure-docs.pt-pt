@@ -1,17 +1,17 @@
 ---
-title: Use os nóns virtuais
+title: Utilizar nós virtuais
 titleSuffix: Azure Kubernetes Service
 description: Visão geral de como usar o nó virtual com os Serviços Azure Kubernetes (AKS)
 services: container-service
 ms.topic: conceptual
 ms.date: 09/21/2020
 ms.custom: references_regions
-ms.openlocfilehash: 2dd91e5c506f229d653fdf98bc0549c173cec793
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 1e5a53c80aed90e44ba594dcff3c8ca23afc2c4f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93351891"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684779"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes"></a>Criar e configurar um cluster Azure Kubernetes Services (AKS) para usar nós virtuais
 
@@ -48,8 +48,9 @@ A funcionalidade Nódes Virtuais está fortemente dependente do conjunto de func
 * Nós virtuais com aglomerados privados.
 * Utilizando gamas ip autorizadas do servidor API para AKS.
 * A montagem em volume dos Ficheiros Azure partilha suporte [de uso geral V1](../storage/common/storage-account-overview.md#types-of-storage-accounts). Siga as instruções para a montagem [de um volume com a partilha de Ficheiros Azure](azure-files-volume.md)
+* A utilização do IPv6 não é suportada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Configure os nóns virtuais para os seus clusters:
 

@@ -9,15 +9,14 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 10/30/2017
 ms.author: vikdesai
-ms.openlocfilehash: ffc9c8f3143824dd099aaad3e743398eea4e0f43
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: e6cf097e927c4606885dd3f885de6ab8235bf6be
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602525"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98682598"
 ---
 # <a name="save-costs-with-azure-reserved-vm-instances"></a>Economize custos com Azure Reservado VM Instances
-
 
 
 Quando se compromete com uma instância VM reservada ao Azure, pode economizar dinheiro. O desconto de reserva é aplicado automaticamente ao número de máquinas virtuais em execução que correspondem ao âmbito e atributos da reserva. Não precisa de atribuir uma reserva a uma máquina virtual para obter os descontos. Uma compra de instância reservada cobre apenas a parte computacional da sua utilização em VM. Para os VMs do Windows, o medidor de utilização é dividido em dois metros separados. Há um medidor de cálculo, que é o mesmo que o medidor Linux, e um medidor IP do Windows. As despesas que vê quando faz a compra são apenas para os custos de cálculo. Os encargos não incluem os custos do software do Windows. Para obter mais informações sobre os custos de software, consulte [os custos de Software não incluídos com Azure Reserved VM Instances](../cost-management-billing/reservations/reserved-instance-windows-software-costs.md).
@@ -30,7 +29,7 @@ Antes de comprar uma reserva, deverá determinar o tamanho do VM de que necessit
 
 Pode usar recomendações de reserva para ajudar a determinar as reservas que deve comprar.
 
-- Recomendações de compra e quantidade recomendada são mostradas quando compra uma instância reservada vM no portal Azure.
+- Recomendações de compra e quantidades recomendadas são mostradas quando compra uma instância reservada vM no portal Azure.
 - O Azure Advisor fornece recomendações de compra para subscrições individuais.  
 - Pode utilizar as APIs para obter recomendações de compra tanto para âmbito partilhado como para o âmbito de subscrição único. Para obter mais informações, consulte [APIs de recomendação de compra de instância reservada para clientes empresariais.](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation)
 - Para os clientes do Enterprise Agreement (EA) e do Microsoft Customer Agreement (MCA), as recomendações de compra para âmbitos de subscrição partilhados e únicos estão disponíveis com o [pacote de conteúdos Azure Consumption Insights Power BI](/power-bi/service-connect-to-azure-consumption-insights).

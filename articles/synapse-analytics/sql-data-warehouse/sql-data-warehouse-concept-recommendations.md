@@ -11,12 +11,12 @@ ms.date: 06/26/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: bd32b9690f8a9aef92eb1f2fbcc4ec926a65584e
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 6510a7143e78c054130a1f1dddba78342a6785fe
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121197"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685281"
 ---
 # <a name="azure-advisor-recommendations-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Recomendações do Azure Advisor para piscina SQL dedicada em Azure Synapse Analytics
 
@@ -73,4 +73,4 @@ O desempenho da consulta pode degradar-se quando há uma alta contenção tempor
 
 ## <a name="data-loading-misconfiguration"></a>Confirmação errada de carregamento de dados
 
-Deve sempre carregar dados de uma conta de armazenamento na mesma região que a sua piscina SQL dedicada para minimizar a latência. Utilize a [declaração COPY para ingestão de dados de produção elevada](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) e divida os seus ficheiros encenados na sua conta de armazenamento para maximizar a produção. Se não puder utilizar a declaração COPY, pode utilizar a API sqlBulkCopy ou o BCP com um tamanho de lote elevado para uma melhor produção. Para orientação adicional de carregamento de dados, visite a seguinte [documentação.](./guidance-for-loading-data.md)
+Deve sempre carregar dados de uma conta de armazenamento na mesma região que a sua piscina SQL dedicada para minimizar a latência. Utilize a [declaração COPY para ingestão de dados de produção elevada](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) e divida os seus ficheiros encenados na sua conta de armazenamento para maximizar a produção. Se não puder utilizar a declaração COPY, pode utilizar a API sqlBulkCopy ou o BCP com um tamanho de lote elevado para uma melhor produção. Para orientação adicional de carregamento de dados, visite a seguinte [documentação.](./guidance-for-loading-data.md)

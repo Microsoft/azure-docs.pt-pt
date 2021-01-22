@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Migrar uma aplicação web do Bing Maps Microsoft Azure Maps'
+title: 'Tutorial: Migrar uma aplicação web do Bing Maps | Microsoft Azure Maps'
 description: Tutorial sobre como migrar uma aplicação web de Bing Maps para Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
-ms.openlocfilehash: ef2c69409ce3f479338ffc9d418b3469f197ad30
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: db53e4407674abc1e6c81090dc4a50afa784940d
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97679399"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684829"
 ---
 # <a name="tutorial-migrate-a-web-app-from-bing-maps"></a>Tutorial: Migrar uma aplicação web a partir de Bing Maps
 
@@ -85,7 +85,7 @@ O Azure Maps também tem muitos módulos de código aberto adicionais [para a we
 
 Seguem-se algumas das principais diferenças entre os Bing Maps e os Azure Maps Web SDKs a ter em conta:
 
-* Além de fornecer um ponto final hospedado para aceder ao Azure Maps Web SDK, um pacote NPM também está disponível para incorporar o Web SDK em aplicações, se preferir. Para mais informações, consulte esta [documentação](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control) para obter mais informações. Este pacote também inclui definições typeScript.
+* Além de fornecer um ponto final hospedado para aceder ao Azure Maps Web SDK, um pacote NPM também está disponível para incorporar o Web SDK em aplicações, se preferir. Para mais informações, consulte esta [documentação](./how-to-use-map-control.md) para obter mais informações. Este pacote também inclui definições typeScript.
 * Bing Maps fornece dois ramos hospedados do seu SDK; Lançamento e Experimental. O ramo Experimental pode receber várias atualizações por dia quando estiver a decorrer um novo desenvolvimento. O Azure Maps acolhe apenas um ramo de lançamento, no entanto as funcionalidades experimentais são criadas como módulos personalizados no projeto de amostras de código Azure Maps de código de código de código. Bing Maps também tinha um ramo congelado que foi atualizado com menos frequência, reduzindo assim o risco de quebra de alterações devido a um lançamento. No Azure Maps pode utilizar o módulo NPM e apontar para qualquer versão menor anterior.
 
 > [!TIP]
@@ -95,7 +95,7 @@ Seguem-se algumas das principais diferenças entre os Bing Maps e os Azure Maps 
 * Ambas as plataformas utilizam um sistema de inclinação semelhante para os mapas base, no entanto os azulejos em Bing Maps são de 256 pixels de dimensão, enquanto os azulejos em Azure Maps são de 512 pixels de dimensão. Como tal, para obter a mesma vista do mapa em Azure Maps como Bing Maps, um nível de zoom usado em Bing Maps precisa ser subtraído por um em Azure Maps.
 * As coordenadas em Bing Maps são referidas como `latitude, longitude` enquanto o Azure Maps `longitude, latitude` utiliza. Este formato alinha-se com o padrão `[x, y]` que é seguido pela maioria das plataformas SIG.
 
-* As formas no Azure Maps Web SDK são baseadas no esquema geoJSON. As classes de ajudantes são expostas através do [atlas.data namespace](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data). Há também o [atlas. Classe](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape) de forma que pode ser usada para embrulhar objetos GeoJSON e torná-los fáceis de atualizar e manter de forma binde de dados.
+* As formas no Azure Maps Web SDK são baseadas no esquema geoJSON. As classes de ajudantes são expostas através do [atlas.data namespace](/javascript/api/azure-maps-control/atlas.data). Há também o [atlas. Classe](/javascript/api/azure-maps-control/atlas.shape) de forma que pode ser usada para embrulhar objetos GeoJSON e torná-los fáceis de atualizar e manter de forma binde de dados.
 * As coordenadas em Azure Maps são definidas como objetos de posição que podem ser especificados como uma simples matriz de números no formato `[longitude, latitude]` ou `new atlas.data.Position(longitude, latitude)` .
 
 > [!TIP]
@@ -909,7 +909,7 @@ No Azure Maps, os dados são adicionados e geridos por uma fonte de dados. As ca
 
 Quando o agrupamento estiver ativado, a fonte de dados enviará pontos de dados agrupados e não agrupados para camadas para renderização. A fonte de dados é capaz de agrupar centenas de milhares de pontos de dados. Um ponto de dados agrupado tem as seguintes propriedades:
 
-| Nome da propriedade               | Tipo    | Descrição                                    |
+| Nome da propriedade               | Tipo    | Description                                    |
 |-----------------------------|---------|------------------------------------------------|
 | `cluster`                   | boolean | Indica se a característica representa um cluster.     |
 | `cluster_id`                | string  | Um ID único para o cluster que pode ser usado com as `DataSource` `getClusterExpansionZoom` `getClusterChildren` classes, e `getClusterLeaves` funções. |
@@ -918,7 +918,7 @@ Quando o agrupamento estiver ativado, a fonte de dados enviará pontos de dados 
 
 A `DataSource` classe tem a seguinte função de ajudante para aceder a informações adicionais sobre um cluster utilizando o `cluster_id` .
 
-| Função       | Tipo de retorno        | Descrição     |
+| Função       | Tipo de retorno        | Description     |
 |----------------|--------------------|-----------------|
 | `getClusterChildren(clusterId: number)`                              | `Promise<Feature<Geometry, any> | Shape>` | Recupera as crianças do aglomerado dado no próximo nível de zoom. Estas crianças podem ser uma combinação de formas e sub-agrupamentos. Os sub-clusters serão funcionalidades com propriedades correspondentes às propriedades do cluster. |
 | `getClusterExpansionZoom(clusterId: number)`                         | `Promise<number>`                            | Calcula um nível de zoom que o cluster começará a expandir-se ou a separar-se.    |

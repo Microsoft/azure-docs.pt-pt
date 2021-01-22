@@ -6,19 +6,22 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/01/2020
 ms.author: mjbrown
-ms.openlocfilehash: 496e9ba375e1c83b0e5c06d5bd746ea7e02b3b14
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: febe03b7f2f34302ed57ceffe96191f3541abc73
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099492"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684899"
 ---
 # <a name="update-an-azure-cosmos-accounts-regions-using-powershell"></a>Atualize as regiões da conta Azure Cosmos usando o PowerShell
 [!INCLUDE[appliesto-all-apis](../../../includes/appliesto-all-apis.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
-[!INCLUDE [sample-powershell-install](../../../../../includes/sample-powershell-install-no-ssh.md)]
+Esta amostra requer Azure PowerShell Az 5.4.0 ou mais tarde. Corra `Get-Module -ListAvailable Az` para ver quais versões estão instaladas.
+Se precisar de instalar, consulte [instalar o módulo Azure PowerShell](/powershell/azure/install-az-ps).
+
+Executar [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) para iniciar sação no Azure.
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -43,7 +46,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 
 | Comando | Notas |
 |---|---|
-|**BD do Cosmos para o Azure**| |
+|**Azure Cosmos DB**| |
 | [Get-AzCosmosDBAccount](/powershell/module/az.cosmosdb/get-azcosmosdbaccount) | Lista contas de DB cosmos ou obtém uma conta de DB cosmos especificada. |
 | [New-AzCosmosDBLocationObject](/powershell/module/az.cosmosdb/new-azcosmosdblocationobject) | Cria um objeto de tipo PSLocation para ser usado como parâmetro para Update-AzCosmosDBAccountRegion. |
 | [Atualização-AzCosmosDBBacountRegion](/powershell/module/az.cosmosdb/update-azcosmosdbaccountregion) | Atualizar regiões de uma conta DB cosmos. |

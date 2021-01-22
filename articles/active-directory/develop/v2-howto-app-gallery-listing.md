@@ -12,12 +12,12 @@ ms.date: 12/14/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 37d9c24d58e0dd9fb10db607ef1b96de0a44eb78
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 1f1100c27bb3c02e3d1a5040942509c24bab0e65
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97399371"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683993"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Publique a sua app na galeria de aplicações AZure AD
 
@@ -175,7 +175,7 @@ Apoiar o fornecimento [scim](https://aka.ms/scimoverview) é um passo opcional, 
 Para saber mais sobre os padrões e benefícios do SCIM para os seus clientes, consulte [o fornecimento com o SCIM - a começar.](https://aka.ms/scimoverview)
 
 ### <a name="understand-the-azure-ad-scim-implementation"></a>Compreender a implementação do Azure AD SCIM
-Para saber mais sobre a implementação do Azure AD SCIM, consulte [a construção de um ponto final SCIM e configuure o fornecimento do utilizador com a Ad AZure](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups).
+Para saber mais sobre a implementação do Azure AD SCIM, consulte [a construção de um ponto final SCIM e configuure o fornecimento do utilizador com a Ad AZure](../app-provisioning/use-scim-to-provision-users-and-groups.md).
 
 ### <a name="implement-scim"></a>Implementar SCIM
 A Azure AD fornece código de [referência](https://aka.ms/scimoverview) para ajudá-lo a construir um ponto final SCIM. Há também muitas bibliotecas /referências de terceiros que você pode encontrar no GitHub.  
@@ -186,7 +186,7 @@ Você precisará de um inquilino AZure AD para testar a sua app. Para configurar
 
 Em alternativa, um inquilino AZure AD vem com cada subscrição da Microsoft 365. Para configurar um ambiente de desenvolvimento gratuito do Microsoft 365, consulte [o Programa de Desenvolvimento microsoft 365](/office/developer-program/microsoft-365-developer-program).
 
-Uma vez que você tem um inquilino, você precisa testar um único sinal e [provisionamento](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#step-4-integrate-your-scim-endpoint-with-the-azure-ad-scim-client). 
+Uma vez que você tem um inquilino, você precisa testar um único sinal e [provisionamento](../app-provisioning/use-scim-to-provision-users-and-groups.md#step-4-integrate-your-scim-endpoint-with-the-azure-ad-scim-client). 
 
 **Para aplicações OIDC ou Juramento,** [Registe a sua candidatura](quickstart-register-app.md) como uma aplicação multi-arrendatário. Selecione as Contas em qualquer diretório organizacional e opção de contas pessoais da Microsoft em tipos de Conta Suportada.
 
@@ -274,7 +274,7 @@ Se pretender adicionar a sua aplicação à lista na galeria utilizando a palavr
 
 ![Listagem de uma aplicação SSO de palavra-passe na galeria](./media/howto-app-gallery-listing/passwordsso.png)
 
-Se estiver a implementar um ponto final [SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md) 2.0 para o provisionamento do utilizador, selecione a opção como mostrado. Ao fornecer o esquema no pedido de embarque, siga as instruções [aqui](https://docs.microsoft.com/azure/active-directory/app-provisioning/export-import-provisioning-configuration) para descarregar o seu esquema. Usaremos o esquema que configuraste ao testar a aplicação não-galeria para construir a aplicação da galeria. 
+Se estiver a implementar um ponto final [SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md) 2.0 para o provisionamento do utilizador, selecione a opção como mostrado. Ao fornecer o esquema no pedido de embarque, siga as instruções [aqui](../app-provisioning/export-import-provisioning-configuration.md) para descarregar o seu esquema. Usaremos o esquema que configuraste ao testar a aplicação não-galeria para construir a aplicação da galeria. 
 
    ![Pedido de provisionamento de utilizadores](./media/howto-app-gallery-listing/user-provisioning.png)
 

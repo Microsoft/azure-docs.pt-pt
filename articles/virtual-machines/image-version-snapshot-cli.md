@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/30/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: e694630d8bcd7879d9405152c4141fb6e5bad4e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9cfb1fe6d2050a63070e9c21e4b8c3ef59efcb15
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89297098"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98682686"
 ---
 # <a name="create-an-image-from-a-managed-disk-or-snapshot-in-a-shared-image-gallery-using-the-azure-cli"></a>Crie uma imagem a partir de um disco gerido ou instantâneo numa Galeria de Imagens Partilhadas utilizando o Azure CLI
 
@@ -25,7 +25,7 @@ As imagens numa galeria de imagens têm dois componentes, que iremos criar neste
 - Uma **versão de imagem** é o que é usado para criar um VM quando se utiliza uma Galeria de Imagens Partilhadas. Pode ter várias versões de uma imagem necessária para o seu ambiente. Quando se cria um VM, a versão de imagem é usada para criar novos discos para o VM. As versões de imagem podem ser usadas várias vezes.
 
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Para completar este artigo, tem de ter uma foto ou disco gerido. 
 
@@ -69,11 +69,11 @@ As definições de imagem criam um agrupamento lógico para imagens. São usados
 
 Ao fazer a definição de imagem, certifique-se de que tem todas as informações corretas. Neste exemplo, estamos assumindo que o instantâneo ou o Disco Gerido são de um VM que está em uso, e não foi generalizado. Se o Disco Gerido ou instantâneo foi tirado de um SISTEMA generalizado (depois de executar Sysprep para Windows ou [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` ou para `-deprovision+user` Linux) então mude o `-OsState` para `generalized` . 
 
-Para obter mais informações sobre os valores que pode especificar para uma definição de imagem, consulte [definições de imagem](./linux/shared-image-galleries.md#image-definitions).
+Para obter mais informações sobre os valores que pode especificar para uma definição de imagem, consulte [definições de imagem](./shared-image-galleries.md#image-definitions).
 
 Crie uma definição de imagem na galeria utilizando [a az sig definição de imagem criar](/cli/azure/sig/image-definition#az-sig-image-definition-create).
 
-Neste exemplo, a definição de imagem chama-se *myImageDefinition*, e [destina-se a](./linux/shared-image-galleries.md#generalized-and-specialized-images) uma imagem especializada do Linux OS. Para criar uma definição para imagens que utilizem um SISTEMA Windows, utilize `--os-type Windows` . 
+Neste exemplo, a definição de imagem chama-se *myImageDefinition*, e [destina-se a](./shared-image-galleries.md#generalized-and-specialized-images) uma imagem especializada do Linux OS. Para criar uma definição para imagens que utilizem um SISTEMA Windows, utilize `--os-type Windows` . 
 
 Neste exemplo, a galeria chama-se *myGallery*, está no grupo de recursos *myGalleryRG,* e o nome de definição de imagem será *mImageDefinition*.
 

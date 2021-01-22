@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/23/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 52071b964412071d820745b173e8835c6f9e7d0e
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 62f89106538ab7f57047e211fc8715878f889af1
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510996"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684564"
 ---
 # <a name="ephemeral-os-disks-for-azure-vms"></a>Discos EFÉMEROS para VMs Azure
 
@@ -26,7 +26,7 @@ As principais características dos discos efémeros são:
 - Latência mais baixa, semelhante a um disco temporário. 
 - Os discos de SO efémeros são gratuitos, não incorre em custos de armazenamento para o disco de SO.
 - Estão disponíveis em todas as regiões de Azure. 
-- O disco EFÉMER OS É suportado pela [Shared Image Gallery](./linux/shared-image-galleries.md). 
+- O disco EFÉMER OS É suportado pela [Shared Image Gallery](./shared-image-galleries.md). 
  
 
  
@@ -40,7 +40,7 @@ Principais diferenças entre discos de OS persistentes e efémeros:
 | **Suporte de região**              | Todas as regiões                                                                                  | Todas as regiões                              |
 | **Persistência de dados**            | Os dados do disco de SO escritos no disco OS são armazenados no Azure Storage                                  | Os dados escritos no disco OS são armazenados no armazenamento local de VM e não são persistidos ao Azure Storage. |
 | **Estado stop-deallocated**      | VMs e instâncias definidas em escala podem ser stop-dealloced e reiniciado a partir do estado stop-deallocated | VMs e instâncias definidas em escala não podem ser stop-deallocated                                  |
-| **Suporte especializado em disco de SO** | Sim                                                                                          | Não                                                                                 |
+| **Suporte especializado em disco de SO** | Yes                                                                                          | No                                                                                 |
 | **Redimensionar o disco de OS**              | Suportado durante a criação de VM e depois de VM é stop-deallocated                                | Suportado apenas durante a criação de VM                                                  |
 | **Redimensionamento para um novo tamanho VM**   | Os dados do disco de SO são preservados                                                                    | Os dados do disco de so são eliminados, o SO é re-provisionado       
 | **Colocação de ficheiro de página**   | Para o Windows, o ficheiro de página é armazenado no disco de recursos                                              | Para o Windows, o ficheiro de página é armazenado no disco OS   |

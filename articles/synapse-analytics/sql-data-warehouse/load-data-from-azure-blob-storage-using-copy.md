@@ -11,16 +11,16 @@ ms.date: 11/23/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: ec577e2a70e2b354b8d2013fe259aa9ea622c50e
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: b305a07997ccd2cbab0d963ced2bd23ab7a97690
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120143"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683412"
 ---
 # <a name="tutorial-load-the-new-york-taxicab-dataset"></a>Tutorial: Carregue o conjunto de dados do Táxi de Nova Iorque
 
-Este tutorial usa a [declaração COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) para carregar o conjunto de dados do Táxi de Nova Iorque a partir de uma conta de armazenamento de blob Azure. Este tutorial utiliza o [portal do Azure](https://portal.azure.com) e o [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) para:
+Este tutorial usa a [declaração COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) para carregar o conjunto de dados do Táxi de Nova Iorque a partir de uma conta de armazenamento de blob Azure. Este tutorial utiliza o [portal do Azure](https://portal.azure.com) e o [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (SSMS) para:
 
 > [!div class="checklist"]
 >
@@ -33,7 +33,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 ## <a name="before-you-begin"></a>Before you begin
 
-Antes de começar este tutorial, transfira e instale a versão mais recente do [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS).  
+Antes de começar este tutorial, transfira e instale a versão mais recente do [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (SSMS).  
 
 Este tutorial pressupõe que já criou uma piscina dedicada SQL a partir do seguinte [tutorial.](./create-data-warehouse-portal.md#connect-to-the-server-as-server-admin)
 
@@ -82,7 +82,7 @@ O primeiro passo para o carregamento de dados é iniciar sessão como LoaderRC20
 
 2. Introduza o nome de servidor completamente qualificado e introduza **LoaderRC20** como o Início de Sessão.  Introduza a palavra-passe para LoaderRC20.
 
-3. Selecione **Connect** (Ligar).
+3. Selecione **Ligar**.
 
 4. Quando a ligação estiver pronta, verá duas ligações de servidor no Object Explorer. Uma ligação como ServerAdmin e uma ligação como MedRCLogin.
 
@@ -251,7 +251,7 @@ Execute os seguintes scripts SQL e especifique informações sobre os dados que 
 
 ## <a name="load-the-data-into-your-data-warehouse"></a>Carregar os dados para o armazém de dados
 
-Esta secção utiliza a [declaração COPY para carregar](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) os dados da amostra a partir da Bolha de Armazenamento Azure.  
+Esta secção utiliza a [declaração COPY para carregar](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) os dados da amostra a partir da Bolha de Armazenamento Azure.  
 
 > [!NOTE]
 > Este tutorial carrega os dados diretamente para a tabela final. Normalmente, carrega-se numa mesa de preparação para as suas cargas de produção. Enquanto os dados estiverem na tabela de teste, pode efetuar quaisquer transformações necessárias. 
@@ -370,7 +370,7 @@ Esta secção utiliza a [declaração COPY para carregar](/sql/t-sql/statements/
 
     ![Ver tabelas carregadas](./media/load-data-from-azure-blob-storage-using-polybase/view-loaded-tables.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Estão a ser-lhe cobrados os recursos de computação e os dados que carregou para o armazém de dados. São faturados em separado.
 
@@ -381,7 +381,7 @@ Siga estes passos para limpar os recursos conforme quiser.
 
 1. Faça login no [portal Azure,](https://portal.azure.com)selecione o seu armazém de dados.
 
-    ![Limpar recursos](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
+    ![Limpar os recursos](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
 2. Para parar o cálculo, selecione o **botão Pausa.** Quando o armazém de dados estiver em pausa, verá um botão **Iniciar**.  Para retomar o cálculo, selecione **Start**.
 
@@ -393,7 +393,7 @@ Siga estes passos para limpar os recursos conforme quiser.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, aprendeu a criar um armazém de dados e a criar um utilizador para carregar dados. Usou a simples [declaração COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#examples) para carregar dados no seu armazém de dados.
+Neste tutorial, aprendeu a criar um armazém de dados e a criar um utilizador para carregar dados. Usou a simples [declaração COPY](/sql/t-sql/statements/copy-into-transact-sql&preserve-view=true?view=azure-sqldw-latest&preserve-view=true#examples) para carregar dados no seu armazém de dados.
 
 Fez tudo isto:
 > [!div class="checklist"]
@@ -413,6 +413,6 @@ Avance para a visão geral do desenvolvimento para aprender a migrar uma base de
 
 Para mais exemplos de carregamento e referências, consulte a seguinte documentação:
 
-- [Documentação de referência de declaração de CÓPIA](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#syntax)
+- [Documentação de referência de declaração de CÓPIA](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true#syntax)
 - [Exemplos de COPY para cada método de autenticação](./quickstart-bulk-load-copy-tsql-examples.md)
 - [INÍCIO DE CÓPIA para uma única tabela](./quickstart-bulk-load-copy-tsql.md)

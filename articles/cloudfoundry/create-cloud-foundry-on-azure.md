@@ -14,12 +14,12 @@ ms.service: azure
 ms.tgt_pltfrm: multiple
 ms.topic: tutorial
 ms.workload: web
-ms.openlocfilehash: 65d8ade438228d7af71de1fc66639e5b6de2edda
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 735c0955a25a3995c94c73bd6471643ce2783df3
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040800"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98682618"
 ---
 # <a name="create-a-pivotal-cloud-foundry-cluster-on-azure"></a>Crie um cluster de base de nuvens em Azure
 
@@ -42,11 +42,13 @@ Para obter mais informações, consulte [as teclas SSH com Windows on Azure](../
 
 > [!NOTE]
 >
-> Para criar um principal de serviço, precisa de permissão de conta do proprietário. Também pode escrever um script para automatizar a criação do principal de serviço. Por exemplo, você pode usar o Azure CLI [ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest).
+> Para criar um principal de serviço, precisa de permissão de conta do proprietário. Também pode escrever um script para automatizar a criação do principal de serviço. Por exemplo, você pode usar o Azure CLI [ad sp create-for-rbac](/cli/azure/ad/sp).
 
 1. Inicie sessão na sua conta do Azure.
 
-    `az login`
+    ```azurecli
+    az login
+    ```
 
     ![Login do Azure CLI](media/deploy/az-login-output.png )
  
@@ -54,11 +56,15 @@ Para obter mais informações, consulte [as teclas SSH com Windows on Azure](../
 
 2. Defina a sua subscrição predefinida para esta configuração.
 
-    `az account set -s {id}`
+    ```azurecli
+    az account set -s {id}
+    ```
 
 3. Crie uma aplicação Azure Ative Directory para o seu PCF. Especifique uma senha alfanumérica única. Guarde a palavra-passe como o seu **clienteSecret** para usar mais tarde.
 
-    `az ad app create --display-name "Svc Principal for OpsManager" --password {enter-your-password} --homepage "{enter-your-homepage}" --identifier-uris {enter-your-homepage}`
+    ```azurecli
+    az ad app create --display-name "Svc Principal for OpsManager" --password {enter-your-password} --homepage "{enter-your-homepage}" --identifier-uris {enter-your-homepage}
+    ```
 
     Copie o valor "appId" na saída como o seu **clienteID** para usar mais tarde.
 
@@ -68,21 +74,29 @@ Para obter mais informações, consulte [as teclas SSH com Windows on Azure](../
 
 4. Crie um diretor de serviço com o seu novo ID da aplicação.
 
-    `az ad sp create --id {appId}`
+    ```azurecli
+    az ad sp create --id {appId}
+    ```
 
 5. Defina a função de permissão do seu principal de serviço como um Contribuinte.
 
-    `az role assignment create --assignee "{enter-your-homepage}" --role "Contributor"`
+    ```azurecli
+    az role assignment create --assignee "{enter-your-homepage}" --role "Contributor"
+    ```
 
     Ou também pode usar
 
-    `az role assignment create --assignee {service-principal-name} --role "Contributor"`
+    ```azurecli
+    az role assignment create --assignee {service-principal-name} --role "Contributor"
+    ```
 
     ![Atribuição principal de função de serviço](media/deploy/svc-princ.png )
 
 6. Verifique se pode iniciar sôm com sucesso no seu principal de serviço usando o ID da aplicação, senha e ID do inquilino.
 
-    `az login --service-principal -u {appId} -p {your-password}  --tenant {tenantId}`
+    ```azurecli
+    az login --service-principal -u {appId} -p {your-password}  --tenant {tenantId}
+    ```
 
 7. Crie um ficheiro .json no seguinte formato. Utilize o **ID de assinatura,** **tenantID,** **clientID** e **clienteSssa** valores que copiou anteriormente. Guarde o ficheiro.
 
@@ -98,7 +112,7 @@ Para obter mais informações, consulte [as teclas SSH com Windows on Azure](../
 ## <a name="get-the-pivotal-network-token"></a>Obtenha o token da Rede Pivotal
 
 1. Registe-se ou inscreva-se na sua conta [Rede Pivotal.](https://network.pivotal.io)
-2. Selecione o nome do seu perfil no canto superior direito da página. Selecione **perfil de edição** .
+2. Selecione o nome do seu perfil no canto superior direito da página. Selecione **perfil de edição**.
 3. Percorra a parte inferior da página e copie o valor **TOKEN DA API LEGACY.** Este valor é o seu valor **Pivotal Network Token** que utiliza mais tarde.
 
 ## <a name="provision-your-cloud-foundry-cluster-on-azure"></a>Provisionar o seu cluster Cloud Foundry em Azure

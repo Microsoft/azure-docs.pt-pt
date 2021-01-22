@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/19/2021
-ms.openlocfilehash: f32739b06920f6b20dc87b8e1fbd2884c323a859
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 3d43a532f57feab361c6a3de79269991f46fc55d
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98634126"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684027"
 ---
 # <a name="prepare-data-with-data-wrangling"></a>Preparar dados com a disputa de dados
 
@@ -33,9 +33,9 @@ Existem duas formas de criar uma Consulta de Energia na Azure Data Factory. Uma 
 
 O outro método está no painel de atividades da tela do gasoduto. Abra o **acordeão de consulta de** potência e arraste a atividade **de consulta de energia** para a tela.
 
-![Screenshot que realça a opção de fluxo de dados wrangling.](media/data-flow/power-query-activity.png)
+![Screenshot que realça a opção de disputa de dados.](media/data-flow/power-query-activity.png)
 
-## <a name="author-a-wrangling-data-flow"></a>Autor de um fluxo de dados de estrangulamento
+## <a name="author-a-power-query-data-wrangling-activity"></a>Autor de uma atividade de conflito de dados de consulta de energia
 
 Adicione um **conjunto de dados Source** para o seu mash-up de consulta de energia. Pode escolher um conjunto de dados existente ou criar um novo. Também pode selecionar um conjunto de dados de pia. Pode escolher um ou mais conjuntos de dados de origem, mas apenas uma pia é permitida neste momento. Escolher um conjunto de dados de lavatório é opcional, mas pelo menos um conjunto de dados de origem é necessário.
 
@@ -45,19 +45,19 @@ Clique em **Criar** para abrir o editor de mashup online da Power Query.
 
 ![Screenshot que mostra o botão Criar que abre o editor de mashup online da Power Query Online.](media/wrangling-data-flow/tutorial5.png)
 
-Autore o fluxo de dados de luta utilizando a preparação de dados sem código. Para a lista de funções disponíveis, consulte [as funções de transformação](wrangling-functions.md). A ADF traduz o ```M``` script num script de fluxo de dados para que possa executar a sua Consulta de Energia em escala utilizando o ambiente de fluxo de dados ADF Spark.
+Autore a sua consulta de energia de discussão utilizando a preparação de dados sem código. Para a lista de funções disponíveis, consulte [as funções de transformação](wrangling-functions.md). A ADF traduz o script M num script de fluxo de dados para que possa executar a sua Consulta de Energia em escala utilizando o ambiente de fluxo de dados Azure Data Factory Spark.
 
-![Screenshot que mostra o processo de autoria do fluxo de dados de luta.](media/wrangling-data-flow/tutorial6.png)
+![Screenshot que mostra o processo de autoria dos seus dados que disputam a Consulta de Energia.](media/wrangling-data-flow/tutorial6.png)
 
-## <a name="running-and-monitoring-a-wrangling-data-flow"></a>Executar e monitorizar um fluxo de dados de estrangulamento
+## <a name="running-and-monitoring-a-power-query-data-wrangling-activity"></a>Executar e monitorizar uma atividade de conflito de dados de consulta de energia
 
-Para executar uma execução de depurar o gasoduto de um fluxo de dados de distúrbios, clique em **Debug** na tela do gasoduto. Assim que publicar o fluxo de dados, **o Trigger** executa agora uma execução a pedido do último oleoduto publicado. Os fluxos de dados de estrangulamento podem ser programados com todos os gatilhos existentes da Azure Data Factory.
+Para executar uma execução de depurar o gasoduto de uma atividade de consulta de energia, clique em **Debug** na tela do gasoduto. Assim que publicar o seu oleoduto, **o Trigger** executa agora uma execução a pedido do último oleoduto publicado. Os gasodutos de consulta de energia podem ser programados com todos os gatilhos existentes da Azure Data Factory.
 
-![Screenshot que mostra como adicionar um fluxo de dados de estrangulamento.](media/wrangling-data-flow/tutorial3.png)
+![Screenshot que mostra como adicionar uma atividade de conflito de dados de consulta de energia.](media/wrangling-data-flow/tutorial3.png)
 
-Vá ao **separador Monitor** para visualizar a saída de uma atividade de fluxo de dados desencadeada.
+Vá ao **separador Monitor** para visualizar a saída de uma atividade de consulta de energia desencadeada.
 
-![Screenshot que mostra a saída de uma atividade de fluxo de dados desencadeada.](media/wrangling-data-flow/tutorial2.png)
+![Screenshot que mostra a saída de uma atividade de consulta de energia desencadeada.](media/wrangling-data-flow/tutorial2.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

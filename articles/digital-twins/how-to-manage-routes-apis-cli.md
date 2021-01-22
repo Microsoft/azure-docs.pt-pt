@@ -7,18 +7,18 @@ ms.author: alkarche
 ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 33b30f29146e446c5525b1bbcfd76af71c557702
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: fa699163fdf445624c918e714fda890a41a67f07
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98045334"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98682652"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gerir pontos finais e rotas em Azure Digital Twins (APIs e CLI)
 
 [!INCLUDE [digital-twins-route-selector.md](../../includes/digital-twins-route-selector.md)]
 
-Em Azure Digital Twins, você pode encaminhar notificações de eventos para serviços a [jusante](how-to-interpret-event-data.md) ou recursos de computação conectados. Isto é feito primeiro através da criação **de pontos finais** que podem receber os eventos. Em seguida, pode criar  [**rotas de eventos**](concepts-route-events.md) que especifiquem quais os eventos gerados pela Azure Digital Twins que são entregues a que pontos finais.
+Em Azure Digital Twins, você pode encaminhar notificações de eventos para serviços a [jusante](how-to-interpret-event-data.md) ou recursos de computação conectados. Isto é feito ao, em primeiro lugar, configurar **pontos finais** que podem receber os eventos. Em seguida, pode criar  [**rotas de eventos**](concepts-route-events.md) que especifiquem quais os eventos gerados pela Azure Digital Twins que são entregues a que pontos finais.
 
 Este artigo acompanha-o através do processo de criação de pontos finais e rotas com as [APIs rotas de eventos,](/rest/api/digital-twins/dataplane/eventroutes)o [.NET (C#) SDK,](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)e o [Azure Digital Twins CLI](how-to-use-cli.md).
 
@@ -26,10 +26,12 @@ Em alternativa, também pode gerir pontos finais e rotas com o [portal Azure.](h
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Você vai precisar de uma **conta Azure** (você pode configurar uma [gratuitamente aqui)](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Você precisará de uma **instância Azure Digital Twins** na sua assinatura Azure. Se ainda não tiver um caso, pode criar um utilizando os passos em [*Como-a-: Configurar um caso e autenticação*](how-to-set-up-instance-cli.md). Ter os seguintes valores da configuração útil para usar mais tarde neste artigo:
+- Você vai precisar de uma **conta Azure** (você pode configurar uma [gratuitamente aqui)](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- Você precisará de uma **instância Azure Digital Twins** na sua assinatura Azure. Se ainda não tiver um caso, pode criar um utilizando os passos em [*Como-a-: Configurar um caso e autenticação*](how-to-set-up-instance-cli.md). Ter os seguintes valores da configuração útil para usar mais tarde neste artigo:
     - Nome da instância
     - Grupo de recursos
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
     
 ## <a name="create-an-endpoint-for-azure-digital-twins"></a>Criar um ponto final para a Azure Digital Twins
 
@@ -44,7 +46,7 @@ Para ligar um ponto final à Azure Digital Twins, o tópico da grelha de eventos
 
 ### <a name="create-an-event-grid-endpoint"></a>Criar um ponto final de Grade de Eventos
 
-O exemplo a seguir mostra como criar um ponto final do tipo de grelha de evento usando o Azure CLI. Pode utilizar [a Azure Cloud Shell,](https://shell.azure.com)ou [instalar o CLI localmente.](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)
+O exemplo a seguir mostra como criar um ponto final do tipo de grelha de evento usando o Azure CLI.
 
 Primeiro, criar um tópico de grelha de eventos. Pode utilizar o seguinte comando ou ver os passos mais detalhadamente visitando [a secção *de tópicos personalizados*](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) dos eventos Event Grid *Custom.*
 
@@ -185,7 +187,7 @@ As rotas do evento são definidas usando [APIs de plano de dados.](how-to-use-ap
 Uma definição de rota pode conter estes elementos:
 * O nome da rota que pretende usar
 * O nome do ponto final que quer usar
-* Um filtro que define quais os eventos enviados para o ponto final 
+* Um filtro que define que eventos são enviados para o ponto final 
 
 Se não houver nome de rota, nenhuma mensagem é encaminhada para fora da Azure Digital Twins. Se houver um nome de rota e o filtro estiver `true` , todas as mensagens são encaminhadas para o ponto final. Se houver um nome de rota e um filtro diferente for adicionado, as mensagens serão filtradas com base no filtro.
 

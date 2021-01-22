@@ -1,18 +1,18 @@
 ---
 title: Controlos de conformidade regulamentar da política Azure para o tecido de serviço Azure
 description: Lista controlos de conformidade regulamentar da política Azure disponíveis para o Azure Service Fabric. Estas definições políticas incorporadas fornecem abordagens comuns para gerir o cumprimento dos seus recursos Azure.
-ms.date: 01/08/2021
+ms.date: 01/21/2021
 ms.topic: sample
 author: erikadoyle
 ms.author: edoyle
 ms.service: service-fabric
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 7cfc8abd08caa7764476e12e9f7af297e214992e
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 389e610ad6851a7d68d37c23e6220015b7845c1d
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98050740"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684642"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-service-fabric"></a>Controlos de conformidade regulamentar da política Azure para o tecido de serviço Azure
 

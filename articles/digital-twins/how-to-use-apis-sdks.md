@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 29c05544b4291eb57215bb733eb3791ad3196b6c
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 4a2667e4876682a6b0aa6d6b7a8cf67eaee376cc
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98049801"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683672"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Utilizar as APIs e SDKs do Azure Digital Twins
 
@@ -32,7 +32,7 @@ Para utilizar as APIs do plano de controlo:
 * Pode ligar diretamente para as APIs, referindo-se à mais recente pasta Swagger no [plano de controlo Swagger repo](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/stable). Esta pasta também inclui uma pasta de exemplos que mostram a utilização.
 * Atualmente você pode aceder ADKs para controlar APIs em...
   - [**.NET (C#)**](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/) [(referência [auto-gerada]](/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet&preserve-view=true)([fonte)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins)
-  - [**Java**](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_10_31/azure-mgmt-digitaltwins/1.0.0/jar) [(referência [autogerada]](/java/api/overview/azure/digitaltwins?view=azure-java-stable&preserve-view=true)) ([fonte)](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/mgmt-v2020_10_31)
+  - [**Java**](https://search.maven.org/search?q=a:azure-mgmt-digitaltwins) [(referência [autogerada]](/java/api/overview/azure/digitaltwins?view=azure-java-stable&preserve-view=true)) ([fonte)](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins)
   - [**JavaScript**](https://www.npmjs.com/package/@azure/arm-digitaltwins) [(fonte)](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/arm-digitaltwins)
   - [**Python**](https://pypi.org/project/azure-mgmt-digitaltwins/) ([fonte)](https://github.com/Azure/azure-sdk-for-python/tree/release/v3/sdk/digitaltwins/azure-mgmt-digitaltwins)
   - [**Ir**](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/digitaltwins/mgmt/2020-10-31/digitaltwins) ([fonte)](https://github.com/Azure/azure-sdk-for-go/tree/master/services/digitaltwins/mgmt/2020-10-31/digitaltwins)

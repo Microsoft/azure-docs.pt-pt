@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 92cae59978b172993c779e9a486ff67d82309800
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 6bf2054a1b9d42529c3917994e5f446b3c50ecf7
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349927"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98682720"
 ---
 # <a name="clone-a-managed-image-to-a-shared-image-gallery-image"></a>Clone uma imagem gerida para uma imagem da Galeria de Imagens Partilhada
 
@@ -54,7 +54,7 @@ As definições de imagem criam um agrupamento lógico para imagens. São usados
 
 Ao fazer a definição de imagem, certifique-se de que tem todas as informações corretas. Como as imagens geridas são sempre generalizadas, deve definir `-OsState generalized` . 
 
-Para obter mais informações sobre os valores que pode especificar para uma definição de imagem, consulte [definições de imagem](./windows/shared-image-galleries.md#image-definitions).
+Para obter mais informações sobre os valores que pode especificar para uma definição de imagem, consulte [definições de imagem](./shared-image-galleries.md#image-definitions).
 
 Crie a definição de imagem utilizando [a Definição de Imagem de Nova AzGallery](/powershell/module/az.compute/new-azgalleryimageversion). Neste exemplo, a definição de imagem chama-se *myImageDefinition*, e destina-se a um Sistema operativo do Windows generalizado. Para criar uma definição para imagens usando um Sistema Operativo Linux, utilize `-OsType Linux` . 
 

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 01/06/2021
 ms.author: sngun
-ms.openlocfilehash: bfc17af99a435c7c17f308f913346045aa22b18d
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: d78ddf983f1c8f2bfeaf733c273afc1cc98b1185
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165557"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684863"
 ---
 # <a name="monitor-azure-cosmos-db-data-by-using-diagnostic-settings-in-azure"></a>Monitorize os dados do DB da Azure Cosmos utilizando configurações de diagnóstico em Azure
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -33,7 +33,7 @@ As métricas da plataforma e os registos de Atividade são recolhidos automatica
 
 1. Quando cria uma definição de diagnóstico, especifica qual a categoria de registos a recolher. As categorias de registos suportados pela Azure Cosmos DB são listadas abaixo, juntamente com o registo de amostras recolhido por eles:
 
- * **DataPlaneRequests**: Selecione esta opção para registar pedidos de back-end a todas as APIs, que incluem sql, gráfico, MongoDB, Cassandra e contas API de tabela em Azure Cosmos DB. As propriedades-chave a notar são: `Requestcharge` `statusCode` , e `clientIPaddress` `partitionID` `resourceTokenPermissionId` `resourceTokenPermissionMode` .
+ * **DataPlaneRequests**: Selecione esta opção para registar pedidos de back-end nas contas API SQL em Azure Cosmos DB. As propriedades-chave a notar são: `Requestcharge` `statusCode` , e `clientIPaddress` `partitionID` `resourceTokenPermissionId` `resourceTokenPermissionMode` .
 
    ```json
     { "time": "2019-04-23T23:12:52.3814846Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "DataPlaneRequests", "operationName": "ReadFeed", "properties": {"activityId": "66a0c647-af38-4b8d-a92a-c48a805d6460","requestResourceType": "Database","requestResourceId": "","collectionRid": "","statusCode": "200","duration": "0","userAgent": "Microsoft.Azure.Documents.Common/2.2.0.0","clientIpAddress": "10.0.0.24","requestCharge": "1.000000","requestLength": "0","responseLength": "372", "resourceTokenPermissionId": "perm-prescriber-app","resourceTokenPermissionMode": "all", "resourceTokenUserRid": "","region": "East US","partitionId": "062abe3e-de63-4aa5-b9de-4a77119c59f8","keyType": "PrimaryReadOnlyMasterKey","databaseName": "","collectionName": ""}}

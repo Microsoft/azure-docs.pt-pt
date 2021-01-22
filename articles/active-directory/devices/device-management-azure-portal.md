@@ -1,5 +1,5 @@
 ---
-title: Como gerir dispositivos utilizando o portal Azure Microsoft Docs
+title: Como gerir dispositivos utilizando o portal Azure | Microsoft Docs
 description: Saiba como utilizar o portal Azure para gerir dispositivos.
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a735817f59e43e1a9e5d2a513f1ad397f18aab8
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 92a0cc93b4d159a4ba87c1cadc2d0dedc0a28b2d
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232323"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683815"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Gerir identidades de dispositivos com o portal do Azure
 
@@ -168,7 +168,7 @@ Deve ser-lhe atribuída uma das seguintes funções para visualizar ou gerir as 
 - **Os dispositivos a aderir ao Azure AD ou a Azure AD registados requerem autenticação multi-factor** - Pode escolher se os utilizadores são obrigados a fornecer um fator de autenticação adicional para se juntarem ou registarem o seu dispositivo no Azure AD. O padrão é **nº**. Recomendamos que exija a autenticação de vários fatores ao registar ou juntar um dispositivo. Antes de ativar a autenticação de vários fatores para este serviço, deve certificar-se de que a autenticação de vários fatores está configurada para os utilizadores que registam os seus dispositivos. Para obter mais informações sobre diferentes serviços de autenticação multi-factor Azure AD, consulte [a autenticação multi-factor Azure AD](../authentication/concept-mfa-howitworks.md). 
 
 > [!NOTE]
-> **Os dispositivos a aderir ao AZure AD ou a Azure AD registados requerem que a definição de autenticação multi-factor** se aplique a dispositivos que estejam ligados ao Azure AD (com algumas exceções) ou a Azure AD registada. Esta definição não se aplica aos dispositivos híbridos Azure AD, [a Azure AD juntou VMs em Azure](/azure/active-directory/devices/howto-vm-sign-in-azure-ad-windows#enabling-azure-ad-login-in-for-windows-vm-in-azure) e Azure AD dispositivos de ligação com [o Modo de Auto-implantação do Windows Autopilot](/mem/autopilot/self-deploying).
+> **Os dispositivos a aderir ao AZure AD ou a Azure AD registados requerem que a definição de autenticação multi-factor** se aplique a dispositivos que estejam ligados ao Azure AD (com algumas exceções) ou a Azure AD registada. Esta definição não se aplica aos dispositivos híbridos Azure AD, [a Azure AD juntou VMs em Azure](./howto-vm-sign-in-azure-ad-windows.md#enabling-azure-ad-login-in-for-windows-vm-in-azure) e Azure AD dispositivos de ligação com [o Modo de Auto-implantação do Windows Autopilot](/mem/autopilot/self-deploying).
 
 - **Número máximo de dispositivos** - Esta definição permite selecionar o número máximo de dispositivos registados AZURE AD ou Azure AD que um utilizador pode ter no Azure AD. Se um utilizador atingir esta quota, não poderá adicionar dispositivos adicionais até que um ou mais dos dispositivos existentes sejam removidos. O valor predefinido é **de 50**.
 

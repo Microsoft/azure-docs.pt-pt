@@ -1,18 +1,18 @@
 ---
 title: Controlos de conformidade regulamentar da política Azure para o Gestor de Recursos Azure
 description: Lista controlos de conformidade regulamentar da política Azure disponíveis para O Gestor de Recursos Azure. Estas definições políticas incorporadas fornecem abordagens comuns para gerir o cumprimento dos seus recursos Azure.
-ms.date: 01/08/2021
+ms.date: 01/21/2021
 ms.topic: sample
 author: tfitzmac
 ms.author: tomfitz
 ms.service: azure-resource-manager
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 890a57ea1fcfccc3d00357584975bb4aba4a578a
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 2e65e6fac89d411283485e8f9cce388b88f7df7c
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98050815"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684972"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-resource-manager"></a>Controlos de conformidade regulamentar da política Azure para o Gestor de Recursos Azure
 

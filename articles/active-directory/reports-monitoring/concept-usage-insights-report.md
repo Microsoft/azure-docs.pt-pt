@@ -1,5 +1,5 @@
 ---
-title: Relatório de utilização e insights ! Microsoft Docs
+title: O relatório de utilização e insights | Microsoft Docs
 description: Introdução ao relatório de utilização e insights no portal Azure Ative Directory
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.subservice: report-monitor
 ms.date: 05/13/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2c7cc68c84cc9f137ba5b51206526ff96111fe9a
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 54bce5e839786862a6dac9aeb685dd364547a09a
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93122746"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685038"
 ---
 # <a name="usage-and-insights-report-in-the-azure-active-directory-portal"></a>Relatório de utilização e insights no portal Azure Ative Directory
 
@@ -42,7 +42,7 @@ Para aceder aos dados a partir do relatório de utilização e insights, é nece
 ## <a name="access-the-usage-and-insights-report"></a>Aceda ao relatório de utilização e insights
 
 1. Navegue até ao [portal Azure.](https://portal.azure.com)
-2. Selecione o diretório certo, em seguida, selecione **Azure Ative Directory** e escolha **aplicações Enterprise** .
+2. Selecione o diretório certo, em seguida, selecione **Azure Ative Directory** e escolha **aplicações Enterprise**.
 3. A partir da secção **De Atividade,** selecione **Usage & insights** para abrir o relatório. 
 
 ![A screenshot mostra o uso & insights selecionados a partir da secção Atividade.](./media/concept-usage-insights-report/main-menu.png)
@@ -50,15 +50,17 @@ Para aceder aos dados a partir do relatório de utilização e insights, é nece
 
 ## <a name="use-the-report"></a>Use o relatório
 
-O relatório de utilização e insights mostra a lista de aplicações com um ou mais sinais na tentativa, e permite-lhe classificar pelo número de entradas bem sucedidas, inscrições falhadas e a taxa de sucesso.
+O relatório de utilização e insights mostra a lista de aplicações com uma ou mais tentativas de inscrição, e permite-lhe classificar pelo número de entradas bem sucedidas, inserções falhadas e a taxa de sucesso.
 
-Clicar mais na parte inferior da lista permite-lhe visualizar aplicações adicionais na página. Pode selecionar o intervalo de datas para visualizar todas as aplicações que tenham sido utilizadas dentro do intervalo.
+Clicar **mais** na parte inferior da lista permite-lhe visualizar aplicações adicionais na página. Pode selecionar o intervalo de datas para visualizar todas as aplicações que tenham sido utilizadas dentro do intervalo.
 
-Também pode definir o foco numa aplicação específica. Selecione **a atividade de início de sposição** para ver o sinal em atividade ao longo do tempo para a aplicação, bem como os erros de topo.  
+![O Screenshot mostra o uso & insights para a atividade da Aplicação, onde pode selecionar uma atividade de visualização de gama e visualização de s-in para diferentes aplicações.](./media/concept-usage-insights-report/usage-and-insights-report.png)
+
+Também pode definir o foco numa aplicação específica. Selecione **a atividade de início de sposição** para ver a atividade de início ao longo do tempo para a aplicação, bem como os erros de topo.  
 
 Quando seleciona um dia no gráfico de utilização da aplicação, obtém uma lista detalhada das atividades de inscrição para a aplicação.  
 
-![O Screenshot mostra o uso & insights para a atividade da Aplicação, onde pode selecionar uma atividade de visualização de gama e visualização de s-in para diferentes aplicações.](./media/concept-usage-insights-report/usage-and-insights-report.png)
+:::image type="content" source="./media/concept-usage-insights-report/usage-and-insights-application-report.png" alt-text="A screenshot mostra o uso & insights para uma aplicação específica onde você pode ver um gráfico para a atividade de iniciar sposição.":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

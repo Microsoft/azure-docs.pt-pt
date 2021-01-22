@@ -1,5 +1,5 @@
 ---
-title: Sincronização de modelos entre gémeos digitais Azure e Time Series Insights Microsoft Docs
+title: Sincronização de modelos entre gémeos digitais Azure e Time Series Insights | Microsoft Docs
 description: Boas práticas e ferramentas usadas para traduzir modelo de ativo em ADT para modelo de ativo em Azure TSI
 ms.service: time-series-insights
 services: time-series-insights
@@ -8,14 +8,14 @@ ms.author: radhsrin
 manager: diviso
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 01/19/2021
 ms.custom: dpalled
-ms.openlocfilehash: 0d02a6e3eb2aef4a02c90360b2016e64af579081
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 5e8e5367daa532fa0cc36a18cd28b382e7cd8f78
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95014735"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98682907"
 ---
 # <a name="model-synchronization-between-azure-digital-twins-and-time-series-insights-gen2"></a>Sincronização de modelos entre o Azure Digital Twins e o Time Series Insights Gen2
 
@@ -225,6 +225,6 @@ private async Task<TimeSeriesInstance> AddHierarchyToInstanceAsync(TimeSeriesIns
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Em terceiro lugar na série de tutoriais é mostrar como consultar dados históricos de Azure Digital Twins usando AZIs da Série De Tempo. É um trabalho em curso e a secção será atualizada quando estiver pronta. Entretanto, os leitores são encorajados a consultar a [documentação da API da Time Series Insights](./concepts-query-overview.md).

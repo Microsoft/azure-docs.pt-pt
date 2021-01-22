@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: a557d4045b18b5c0ff71b3e47f0c189028702863
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7714ce748eb172565357723924ab2212e9559e1f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289536"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685332"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-synapse-analytics"></a>Gestão da carga de trabalho com classes de recursos em Azure Synapse Analytics
 
@@ -121,7 +121,7 @@ As seguintes declarações estão isentas de classes de recursos e são sempre e
 - ALTERAR DESATIVAÇÃO DO ÍNDICE
 - DROP INDEX
 - CRIAR, ATUALIZAR OU DEIXAR CAIR ESTATÍSTICAS
-- TABELA TRUNCADA
+- TRUNCATE TABLE
 - ALTERAR AUTORIZAÇÃO
 - CRIAR LOGIN
 - CRIAR, ALTERAR ou DEIXAR CAIR O UTILIZADOR
@@ -129,7 +129,7 @@ As seguintes declarações estão isentas de classes de recursos e são sempre e
 - CRIAR ou DEIXAR VER
 - INSERIR VALORES
 - SELECIONE a partir de vistas do sistema e DMVs
-- EXPLICAR
+- EXPLAIN
 - DBCC
 
 <!--
@@ -162,13 +162,13 @@ WHERE  name LIKE '%rc%' AND type_desc = 'DATABASE_ROLE';
 
 As classes de recursos são implementadas atribuindo os utilizadores a funções de base de dados. Quando um utilizador executa uma consulta, a consulta é executado com a classe de recursos do utilizador. Por exemplo, se um utilizador é membro da função de base de dados staticrc10, as suas consultas são executadas com pequenas quantidades de memória. Se um utilizador de base de dados for membro das funções de base de dados xlargerc ou staticrc80, as suas consultas são executadas com grandes quantidades de memória.
 
-Para aumentar a classe de recursos de um utilizador, utilize [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para adicionar o utilizador a uma função de base de dados de uma grande classe de recursos.  O código abaixo adiciona um utilizador à função de base de dados maior.  Cada pedido recebe 22% da memória do sistema.
+Para aumentar a classe de recursos de um utilizador, utilize [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para adicionar o utilizador a uma função de base de dados de uma grande classe de recursos.  O código abaixo adiciona um utilizador à função de base de dados maior.  Cada pedido recebe 22% da memória do sistema.
 
 ```sql
 EXEC sp_addrolemember 'largerc', 'loaduser';
 ```
 
-Para diminuir a classe de recursos, utilize [sp_droprolemember](/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  Se o 'loaduser' não for membro ou qualquer outra classe de recursos, eles vão para a classe de recursos de pequeno por defeito com uma bolsa de memória de 3%.  
+Para diminuir a classe de recursos, utilize [sp_droprolemember](/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).  Se o 'loaduser' não for membro ou qualquer outra classe de recursos, eles vão para a classe de recursos de pequeno por defeito com uma bolsa de memória de 3%.  
 
 ```sql
 EXEC sp_droprolemember 'largerc', 'loaduser';

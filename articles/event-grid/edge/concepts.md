@@ -1,5 +1,5 @@
 ---
-title: Conceitos - Azure Event Grid IoT Edge / Microsoft Docs
+title: Conceitos - Azure Event Grid IoT Edge | Microsoft Docs
 description: Conceitos em Grade de Eventos em IoT Edge.
 author: VidyaKukke
 manager: rajarv
@@ -7,12 +7,12 @@ ms.author: vkukke
 ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
-ms.openlocfilehash: b3babfe93012fae15e79362ba34f3f48856bc833
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8314447e7d5d282eb428ec9316c4eef6844a7423
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86171742"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98682384"
 ---
 # <a name="event-grid-concepts"></a>Conceitos do Event Grid
 
@@ -48,7 +48,7 @@ Consulte [documentação da API](api.md) REST sobre como gerir subscrições em 
 
 ## <a name="event-handlers"></a>Processadores de eventos
 
-Do ponto de vista da Grade de Eventos, um manipulador de eventos é o local onde o evento é enviado. O manipulador toma medidas adicionais para processar o evento. A Grade de Eventos suporta vários tipos de manipuladores. Pode utilizar um serviço Azure suportado ou o seu próprio gancho web como manipulador. Dependendo do tipo de manipulador, a Grade de Eventos segue diferentes mecanismos para garantir a entrega do evento. Se o manipulador de eventos de destino for um gancho web HTTP, o evento é novamente experimentado quando o manipulador devolve um código de estado de `200 – OK` . Para o Edge Hub, se o evento for entregue sem qualquer exceção, é considerado um sucesso.
+Do ponto de vista da Grade de Eventos, um manipulador de eventos é o local onde o evento é enviado. O manipulador toma medidas adicionais para processar o evento. A Grade de Eventos suporta vários tipos de manipuladores. Pode utilizar um serviço Azure suportado ou o seu próprio gancho web como manipulador. Dependendo do tipo de manipulador, a Grade de Eventos segue diferentes mecanismos para garantir a entrega do evento. Se o manipulador de eventos de destino for um gancho web HTTP, o evento é novamente experimentado até que o manipulador devolva um código de estado de `200 – OK` . Para o Edge Hub, se o evento for entregue sem qualquer exceção, é considerado um sucesso.
 
 ## <a name="security"></a>Segurança
 

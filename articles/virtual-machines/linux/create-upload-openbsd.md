@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 05/24/2017
 ms.author: guybo
-ms.openlocfilehash: 08b18dae6cec3f30ba9ecc69a3537eec428cc9ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: efa38384778bb63857d3c867d74ace7f4f199118
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87372727"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685094"
 ---
 # <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>Criar e carregar uma imagem de disco OpenBSD para Azure
 Este artigo mostra-lhe como criar e carregar um disco rígido virtual (VHD) que contém o sistema operativo OpenBSD. Depois de o fazer o upload, pode usá-lo como sua própria imagem para criar uma máquina virtual (VM) em Azure através do Azure CLI.
@@ -22,7 +22,7 @@ Este artigo assume que tem os seguintes itens:
 
 * **Uma subscrição do Azure** - Se não tiver uma conta, pode criar uma em apenas alguns minutos. Se tiver uma subscrição da MSDN, consulte [o crédito mensal do Azure para assinantes do Estúdio Visual.](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) Caso contrário, aprenda a [criar uma conta de teste gratuita.](https://azure.microsoft.com/pricing/free-trial/)  
 * **Azure CLI** - Certifique-se de que tem o mais recente [Azure CLI](/cli/azure/install-azure-cli) instalado e iniciado na sua conta Azure com [login az](/cli/azure/reference-index).
-* **O sistema operativo OpenBSD instalado num ficheiro .vhd** - Um sistema operativo OpenBSD suportado[(versão 6.6 AMD64](https://ftp.openbsd.org/pub/OpenBSD/6.6/amd64/)) deve ser instalado num disco rígido virtual. Existem várias ferramentas para criar ficheiros .vhd. Por exemplo, pode utilizar uma solução de virtualização como o Hyper-V para criar o ficheiro .vhd e instalar o sistema operativo. Para obter instruções sobre como instalar e utilizar o Hyper-V, consulte [instalar o Hyper-V e criar uma máquina virtual](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11)).
+* **O sistema operativo OpenBSD instalado num ficheiro .vhd** - Um sistema operativo OpenBSD suportado [(versão 6.6 AMD64](https://ftp.openbsd.org/pub/OpenBSD/6.6/amd64/)) deve ser instalado num disco rígido virtual. Existem várias ferramentas para criar ficheiros .vhd. Por exemplo, pode utilizar uma solução de virtualização como o Hyper-V para criar o ficheiro .vhd e instalar o sistema operativo. Para obter instruções sobre como instalar e utilizar o Hyper-V, consulte [instalar o Hyper-V e criar uma máquina virtual](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11)).
 
 
 ## <a name="prepare-openbsd-image-for-azure"></a>Prepare a imagem OpenBSD para O Azure
@@ -56,7 +56,7 @@ No VM onde instalou o sistema operativo OpenBSD 6.1, que acrescentou suporte Hyp
     ln -sf /usr/local/bin/python2.7 /usr/local/bin/python
     ln -sf /usr/local/bin/python2.7-2to3 /usr/local/bin/2to3
     ln -sf /usr/local/bin/python2.7-config /usr/local/bin/python-config
-    ln -sf /usr/local/bin/pydoc2.7  /usr/local/bin/pydoc
+    ln -sf /usr/local/bin/pydoc2.7  /usr/local/bin/pydoc
     ```
 
 6. A mais recente versão do agente Azure pode sempre ser encontrada no [GitHub.](https://github.com/Azure/WALinuxAgent/releases) Instale o agente da seguinte forma:
@@ -140,7 +140,7 @@ az storage blob upload \
 
 
 ## <a name="create-vm-from-your-vhd"></a>Crie VM a partir do seu VHD
-Pode criar um VM com um [script de amostra](../scripts/virtual-machines-linux-cli-sample-create-vm-vhd.md) ou diretamente com a [criação de az vm](/cli/azure/vm). Para especificar o VHD OpenBSD que carregou, utilize o `--image` parâmetro da seguinte forma:
+Pode criar um VM com um [script de amostra](/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-vhd) ou diretamente com a [criação de az vm](/cli/azure/vm). Para especificar o VHD OpenBSD que carregou, utilize o `--image` parâmetro da seguinte forma:
 
 ```azurecli
 az vm create \
@@ -168,4 +168,4 @@ ssh azureuser@<ip address>
 ## <a name="next-steps"></a>Passos seguintes
 Se quiser saber mais sobre o suporte ao Hiper-V no OpenBSD6.1, leia [OpenBSD 6.1](https://www.openbsd.org/61.html) e [hyperv.4](https://man.openbsd.org/hyperv.4).
 
-Se pretender criar um VM a partir de disco gerido, leia [o disco az](/cli/azure/disk). 
+Se pretender criar um VM a partir de disco gerido, leia [o disco az](/cli/azure/disk).

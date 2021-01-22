@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 2448f5f778f19674aec63291acb72536c65ca6c9
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: ac9a1b43ba4ffb537afd658c84edb48ed59a3694
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555894"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683487"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Modelos de trem com Azure Machine Learning
 
@@ -31,9 +31,9 @@ O Azure Machine Learning fornece várias formas de treinar os seus modelos, desd
 
 + [Azure Machine Learning SDK para R (pré-visualização)](#r-sdk-preview): O SDK para R utiliza o pacote reticulado para se ligar ao Python SDK da Azure Machine Learning. Isto permite-lhe aceder a objetos e métodos principais implementados no Python SDK a partir de qualquer ambiente R.
 
-+ **Designer** : O designer Azure Machine Learning proporciona um fácil ponto de entrada na aprendizagem automática para construir a prova de conceitos, ou para utilizadores com pouca experiência de codificação. Permite-lhe treinar modelos usando uma UI baseada na web. Você pode usar o código Python como parte do design, ou modelos de comboio sem escrever qualquer código.
++ **Designer**: O designer Azure Machine Learning proporciona um fácil ponto de entrada na aprendizagem automática para construir a prova de conceitos, ou para utilizadores com pouca experiência de codificação. Permite-lhe treinar modelos usando uma UI baseada na web. Você pode usar o código Python como parte do design, ou modelos de comboio sem escrever qualquer código.
 
-+ **CLI** : O CLI de aprendizagem automática fornece comandos para tarefas comuns com a Azure Machine Learning, e é frequentemente utilizado para **scripts e automatização de tarefas.** Por exemplo, uma vez criado um script de treino ou um pipeline, poderá utilizar o CLI para iniciar uma corrida de treino num horário ou quando os ficheiros de dados utilizados para a formação forem atualizados. Para modelos de formação, fornece comandos que submetem trabalhos de formação. Pode submeter trabalhos utilizando configurações ou oleodutos de execução.
++ **CLI**: O CLI de aprendizagem automática fornece comandos para tarefas comuns com a Azure Machine Learning, e é frequentemente utilizado para **scripts e automatização de tarefas.** Por exemplo, uma vez criado um script de treino ou um pipeline, poderá utilizar o CLI para iniciar uma corrida de treino num horário ou quando os ficheiros de dados utilizados para a formação forem atualizados. Para modelos de formação, fornece comandos que submetem trabalhos de formação. Pode submeter trabalhos utilizando configurações ou oleodutos de execução.
 
 Cada um destes métodos de treino pode utilizar diferentes tipos de recursos computacional para a formação. Colectivamente, estes recursos são referidos como [__objetivos de computação.__](concept-azure-machine-learning-architecture.md#compute-targets) Um alvo de computação pode ser uma máquina local ou um recurso em nuvem, como um Azure Machine Learning Compute, Azure HDInsight ou uma máquina virtual remota.
 
@@ -109,7 +109,6 @@ O R SDK permite-lhe utilizar a linguagem R com Azure Machine Learning. O SDK usa
 
 Para obter mais informações, veja os seguintes artigos:
 
-* [Tutorial: Criar um modelo de regressão logística](tutorial-1st-r-experiment.md)
 * [Azure Machine Learning SDK para referência R](https://azure.github.io/azureml-sdk-for-r/index.html)
 
 ## <a name="azure-machine-learning-designer"></a>Estruturador do Azure Machine Learning

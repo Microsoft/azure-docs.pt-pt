@@ -12,12 +12,12 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tag: azure-synapse
-ms.openlocfilehash: b2b5ca024046c5bc46fff756c55688d3ff0cfea1
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 80bc9f6fc6af94ba2a5ade77cc1d53b3fc29f1ea
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96451972"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685349"
 ---
 # <a name="authenticate-to-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Autenticar para piscina SQL dedicada (anteriormente SQL DW) em Azure Synapse Analytics
 
@@ -60,7 +60,7 @@ Os benefícios do Azure Ative Directory incluem:
 * Elimina o armazenamento de palavras-passe, permitindo a autenticação integrada do Windows e outras formas de autenticação suportadas pelo Azure Ative Directory.
 * Utiliza utilizadores de bases de dados contidos para autenticar identidades ao nível da base de dados.
 * Suporta a autenticação baseada em fichas para aplicações que se ligam à piscina SQL.
-* Suporta a autenticação multi-factor através da autenticação universal do Diretório Ativo para várias ferramentas, incluindo [o SQL Server Management Studio](../../azure-sql/database/authentication-mfa-ssms-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) e as [Ferramentas de Dados do Servidor SQL.](/sql/ssdt/azure-active-directory?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* Suporta a autenticação multi-factor através da autenticação universal do Diretório Ativo para várias ferramentas, incluindo [o SQL Server Management Studio](../../azure-sql/database/authentication-mfa-ssms-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) e as [Ferramentas de Dados do Servidor SQL.](/sql/ssdt/azure-active-directory?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 
 > [!NOTE]
 > O Azure Ative Directory ainda é relativamente novo e tem algumas limitações. Para garantir que o Azure Ative Directory é um bom ajuste para o seu ambiente, consulte [as funcionalidades e limitações AD do Azure,](../../azure-sql/database/authentication-aad-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#azure-ad-features-and-limitations)especificamente as considerações adicionais.
@@ -76,12 +76,12 @@ Siga estes passos para configurar a autenticação do Azure Ative Directory.
 5. Crie utilizadores de bases de dados contidos na sua base de dados mapeadas para identidades Azure AD
 6. Conecte-se à sua piscina SQL utilizando identidades AD AZure
 
-Atualmente, os utilizadores do Azure Ative Directory não são apresentados no SSDT Object Explorer. Como solução alternativa, veja os utilizadores em [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Atualmente, os utilizadores do Azure Ative Directory não são apresentados no SSDT Object Explorer. Como solução alternativa, veja os utilizadores em [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ### <a name="find-the-details"></a>Encontre os detalhes
 
 * Os passos para configurar e utilizar a autenticação do Azure Ative Directory são quase idênticos para a Base de Dados Azure SQL e sinapse SQL em Azure Synapse. Siga os passos detalhados no tópico [Ligando à Base de Dados SQL ou piscina SQL Utilizando a autenticação do Diretório Ativo Azure](../../azure-sql/database/authentication-aad-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
-* Crie funções de base de dados personalizadas e adicione utilizadores às funções. Em seguida, conceda permissões granulares para os papéis. Para obter mais informações, consulte ["Começar com permissões de motores de base de dados".](/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* Crie funções de base de dados personalizadas e adicione utilizadores às funções. Em seguida, conceda permissões granulares para os papéis. Para obter mais informações, consulte ["Começar com permissões de motores de base de dados".](/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 
 ## <a name="next-steps"></a>Passos seguintes
 

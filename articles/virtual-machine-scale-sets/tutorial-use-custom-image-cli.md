@@ -9,12 +9,12 @@ ms.date: 05/01/2020
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
 ms.reviewer: akjosh
-ms.openlocfilehash: 62cf7c979be83454ae2433befcdbf4f5d8e5524f
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: b12715e299f523d7ace56a72b0098b5d7ffac0ab
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94516548"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683059"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli"></a>Tutorial: Criar e utilizar uma imagem personalizada para conjuntos de dimensionamento de máquinas virtuais com a CLI do Azure
 Quando cria um conjunto de dimensionamento, tem de especificar uma imagem a ser utilizada quando as instâncias de VM são implementadas. Para reduzir o número de tarefas após as instâncias de VM serem implementadas, pode utilizar uma imagem de VM personalizada. Esta imagem de VM personalizada inclui instalações ou configurações de aplicações obrigatórias. Quaisquer instâncias de VM criadas no conjunto de dimensionamento utilizam a imagem de VM personalizada e estão prontas para apresentar o seu tráfego de aplicações. Neste tutorial, ficará a saber como:
@@ -33,15 +33,15 @@ Quando cria um conjunto de dimensionamento, tem de especificar uma imagem a ser 
 
 - Este artigo requer a versão 2.4.0 ou posterior do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
-Uma [Galeria de Imagens Partilhadas](shared-image-galleries.md) simplifica a partilha de imagens personalizadas em toda a sua organização. As imagens personalizadas são como imagens do marketplace, mas são criadas por si. As imagens personalizadas podem ser utilizadas para configurações do programa de arranque do sistema, como o pré-carregamento de aplicações, configurações de aplicação e outras configurações do SO. 
+Uma [Galeria de Imagens Partilhadas](../virtual-machines/shared-image-galleries.md) simplifica a partilha de imagens personalizadas em toda a sua organização. As imagens personalizadas são como imagens do marketplace, mas são criadas por si. As imagens personalizadas podem ser utilizadas para configurações do programa de arranque do sistema, como o pré-carregamento de aplicações, configurações de aplicação e outras configurações do SO. 
 
 A Galeria de Imagens Partilhada permite-lhe partilhar as suas imagens VM personalizadas com outras. Escolha quais as imagens que pretende partilhar, em que regiões quer disponibilizá-las e com quem quer partilhá-las. 
 
 ## <a name="create-and-configure-a-source-vm"></a>Criar e configurar uma VM de origem
 
-Em primeiro lugar, crie um grupo de recursos com [az group create](/cli/azure/group) e, em seguida, crie uma VM com [az vm create](/cli/azure/vm). Este VM é então usado como fonte para a imagem. O exemplo seguinte cria uma VM com o nome *myVM* no grupo de recursos com o nome *myResourceGroup* :
+Em primeiro lugar, crie um grupo de recursos com [az group create](/cli/azure/group) e, em seguida, crie uma VM com [az vm create](/cli/azure/vm). Este VM é então usado como fonte para a imagem. O exemplo seguinte cria uma VM com o nome *myVM* no grupo de recursos com o nome *myResourceGroup*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -63,7 +63,7 @@ O endereço IP público do seu VM também é mostrado na saída do comando [az v
 ssh azureuser@<publicIpAddress>
 ```
 
-Para personalizar a sua VM, vamos instalar um servidor Web básico. Quando a instância de VM no conjunto de dimensionamento for implementada, terá todos os pacotes necessários para executar uma aplicação Web. Utilize `apt-get` para instalar o *NGINX* , da seguinte forma:
+Para personalizar a sua VM, vamos instalar um servidor Web básico. Quando a instância de VM no conjunto de dimensionamento for implementada, terá todos os pacotes necessários para executar uma aplicação Web. Utilize `apt-get` para instalar o *NGINX*, da seguinte forma:
 
 ```bash
 sudo apt-get install -y nginx
@@ -92,11 +92,11 @@ Os nomes da definição de imagem podem ser compostos por letras maiúsculas ou 
 
 Certifique-se de que a definição de imagem é o tipo certo. Se generalizou o VM (utilizando o Sysprep para Windows, ou desprovisionamento waagent para o Linux), então deve criar uma definição de imagem generalizada utilizando `--os-state generalized` . Se pretender utilizar o VM sem remover as contas de utilizador existentes, crie uma definição de imagem especializada utilizando `--os-state specialized` .
 
-Para obter mais informações sobre os valores que pode especificar para uma definição de imagem, consulte [definições de imagem](../virtual-machines/linux/shared-image-galleries.md#image-definitions).
+Para obter mais informações sobre os valores que pode especificar para uma definição de imagem, consulte [definições de imagem](../virtual-machines/shared-image-galleries.md#image-definitions).
 
 Crie uma definição de imagem na galeria utilizando [a az sig definição de imagem criar](/cli/azure/sig/image-definition#az-sig-image-definition-create).
 
-Neste exemplo, a definição de imagem chama-se *myImageDefinition* , e [destina-se a](../virtual-machines/linux/shared-image-galleries.md#generalized-and-specialized-images) uma imagem especializada do Linux OS. Para criar uma definição para imagens que utilizem um SISTEMA Windows, utilize `--os-type Windows` . 
+Neste exemplo, a definição de imagem chama-se *myImageDefinition*, e [destina-se a](../virtual-machines/shared-image-galleries.md#generalized-and-specialized-images) uma imagem especializada do Linux OS. Para criar uma definição para imagens que utilizem um SISTEMA Windows, utilize `--os-type Windows` . 
 
 ```azurecli-interactive 
 az sig image-definition create \
@@ -165,7 +165,7 @@ A criação e configuração de todas as VMs e recursos do conjunto de dimension
 
 
 ## <a name="test-your-scale-set"></a>Testar o seu conjunto de dimensionamento
-Para permitir que o tráfego alcance o conjunto de dimensionamento e verificar se o servidor Web funciona corretamente, crie um balanceador de carga com [az network lb rule create](/cli/azure/network/lb/rule). O exemplo seguinte cria uma regra com o nome *myLoadBalancerRuleWeb* , que permite tráfego na porta *TCP**80* :
+Para permitir que o tráfego alcance o conjunto de dimensionamento e verificar se o servidor Web funciona corretamente, crie um balanceador de carga com [az network lb rule create](/cli/azure/network/lb/rule). O exemplo seguinte cria uma regra com o nome *myLoadBalancerRuleWeb*, que permite tráfego na porta *TCP**80*:
 
 ```azurecli-interactive
 az network lb rule create \
@@ -179,7 +179,7 @@ az network lb rule create \
   --protocol tcp
 ```
 
-Para ver o seu conjunto de dimensionamento em ação, obtenha o endereço IP público do seu balanceador de carga com [az network public-ip show](/cli/azure/network/public-ip). O exemplo seguinte obtém o endereço IP para *myScaleSetLBPublicIP* , criado como parte do conjunto de dimensionamento:
+Para ver o seu conjunto de dimensionamento em ação, obtenha o endereço IP público do seu balanceador de carga com [az network public-ip show](/cli/azure/network/public-ip). O exemplo seguinte obtém o endereço IP para *myScaleSetLBPublicIP*, criado como parte do conjunto de dimensionamento:
 
 ```azurecli-interactive
 az network public-ip show \
@@ -220,7 +220,7 @@ az role assignment create \
 Para obter mais informações sobre como partilhar recursos usando o Azure RBAC, consulte [Adicionar ou remover atribuições de funções Azure usando Azure CLI](../role-based-access-control/role-assignments-cli.md).
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Para remover o seu conjunto de dimensionamento e recursos adicionais, elimine o grupo de recursos e todos os respetivos recursos com [az group delete](/cli/azure/group). O parâmetro `--no-wait` devolve o controlo à linha de comandos, sem aguardar a conclusão da operação. O parâmetro `--yes` confirma que pretende eliminar os recursos sem uma linha de comandos adicional para fazê-lo.
 
 ```azurecli-interactive

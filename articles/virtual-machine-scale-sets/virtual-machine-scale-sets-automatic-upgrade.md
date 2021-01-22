@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 06/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma, devx-track-azurecli
-ms.openlocfilehash: 4ebb16186e613affdb886a8819240d47f944c42f
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: ff1a29577c0778d6ef88d3523c726f7a48739cdc
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763545"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684615"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Atualizações automáticas da imagem do SO do conjunto de dimensionamento de máquinas virtuais do Azure
 
@@ -49,7 +49,7 @@ A escala configurada os sistemas de atualização do sistema operativo verificam
 >A atualização automática do SO não atualiza a imagem de referência Sku no conjunto de escala. Para alterar o Sku (tal como Ubuntu 16.04-LTS para 18.04-LTS), tem de atualizar o [modelo de conjunto de escala](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-model) diretamente com a imagem desejada Sku. O editor de imagem e a oferta não podem ser alterados para um conjunto de escala existente.  
 
 ## <a name="supported-os-images"></a>Imagens de SO suportadas
-Apenas algumas imagens da plataforma OS são suportadas atualmente. As imagens personalizadas [são suportadas](virtual-machine-scale-sets-automatic-upgrade.md#automatic-os-image-upgrade-for-custom-images) se o conjunto de escalas utilizar imagens personalizadas através [da Galeria de Imagens Partilhadas.](shared-image-galleries.md)
+Apenas algumas imagens da plataforma OS são suportadas atualmente. As imagens personalizadas [são suportadas](virtual-machine-scale-sets-automatic-upgrade.md#automatic-os-image-upgrade-for-custom-images) se o conjunto de escalas utilizar imagens personalizadas através [da Galeria de Imagens Partilhadas.](../virtual-machines/shared-image-galleries.md)
 
 As seguintes plataformas SKUs são atualmente suportadas (e mais são adicionadas periodicamente):
 
@@ -89,11 +89,11 @@ Certifique-se de que as definições de durabilidade não são desajustadas na e
 
 ## <a name="automatic-os-image-upgrade-for-custom-images"></a>Atualização automática de imagem do SO para imagens personalizadas
 
-A atualização automática de imagens de SO é suportada para imagens personalizadas implementadas através [da Galeria de Imagens Partilhadas.](shared-image-galleries.md) Outras imagens personalizadas não são suportadas para atualizações automáticas de imagem de SO.
+A atualização automática de imagens de SO é suportada para imagens personalizadas implementadas através [da Galeria de Imagens Partilhadas.](../virtual-machines/shared-image-galleries.md) Outras imagens personalizadas não são suportadas para atualizações automáticas de imagem de SO.
 
 ### <a name="additional-requirements-for-custom-images"></a>Requisitos adicionais para imagens personalizadas
 - O processo de configuração e configuração para a atualização automática de imagem de SO é o mesmo para todos os conjuntos de escala como detalhado na secção de [configuração](virtual-machine-scale-sets-automatic-upgrade.md#configure-automatic-os-image-upgrade) desta página.
-- Os conjuntos de escalas configurados para atualizações automáticas de imagens de SO serão atualizados para a versão mais recente da imagem da Galeria de Imagens Partilhadas quando uma nova versão da imagem for publicada e [replicada](shared-image-galleries.md#replication) para a região desse conjunto de escala. Se a nova imagem não for replicada na região onde a escala é implantada, as instâncias definidas em escala não serão atualizadas para a versão mais recente. A replicação de imagem regional permite-lhe controlar o lançamento da nova imagem para os seus conjuntos de escala.
+- Os conjuntos de escalas configurados para atualizações automáticas de imagens de SO serão atualizados para a versão mais recente da imagem da Galeria de Imagens Partilhadas quando uma nova versão da imagem for publicada e [replicada](../virtual-machines/shared-image-galleries.md#replication) para a região desse conjunto de escala. Se a nova imagem não for replicada na região onde a escala é implantada, as instâncias definidas em escala não serão atualizadas para a versão mais recente. A replicação de imagem regional permite-lhe controlar o lançamento da nova imagem para os seus conjuntos de escala.
 - A nova versão de imagem não deve ser excluída da versão mais recente para aquela imagem da galeria. As versões de imagem excluídas da versão mais recente da imagem da galeria não são lançadas para a escala definida através de uma atualização automática de imagens OS.
 
 > [!NOTE]

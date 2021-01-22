@@ -1,14 +1,14 @@
 ---
 title: Implementar amostra de planta ISM PROTECTED do Governo Australiano
 description: Implementar etapas para a amostra de planta PROTEGIDA do Governo Australiano ISM, incluindo detalhes do parâmetro do artefacto da planta.
-ms.date: 09/11/2020
+ms.date: 01/21/2021
 ms.topic: sample
-ms.openlocfilehash: 4d38a5ad6790b8b2ef09476f4779ef596be9734b
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 354d010442f896728ef9af1e3f372c2abbc58ef3
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91950521"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98682283"
 ---
 # <a name="deploy-the-australian-government-ism-protected-blueprint-sample"></a>Implementar a amostra de planta PROTEGIDA DO Governo Australiano ISM PROTECTED
 
@@ -52,7 +52,7 @@ A cópia do esquema de exemplo está agora criada no seu ambiente. Está criada 
 
 ## <a name="assign-the-sample-copy"></a>Atribuir a cópia de exemplo
 
-Uma vez publicada com **sucesso**a cópia da amostra de plantas, pode ser atribuída a uma subscrição dentro do grupo de gestão a que foi guardada. É neste passo que são fornecidos os parâmetros que fazem com que cada implementação da cópia do esquema de exemplo seja única.
+Uma vez publicada com **sucesso** a cópia da amostra de plantas, pode ser atribuída a uma subscrição dentro do grupo de gestão a que foi guardada. É neste passo que são fornecidos os parâmetros que fazem com que cada implementação da cópia do esquema de exemplo seja única.
 
 1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Esquemas**.
 

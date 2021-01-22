@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: b8738b46359287ce1d4e410292cdce213ab80999
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 9077ce35065b1bf45646496cc4c43d6def82d958
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98115825"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685230"
 ---
 # <a name="what-is-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>O que é a piscina SQL dedicada (anteriormente SQL DW) em Azure Synapse Analytics?
 
@@ -29,7 +29,7 @@ O Azure Synapse Analytics é um serviço de análise que combina o armazenamento
 
 Piscina DE SQL dedicada (anteriormente SQL DW) representa uma coleção de recursos analíticos que são a provisionados ao utilizar o SQL synapse. O tamanho de uma piscina SQL dedicada (anteriormente SQL DW) é determinado por Unidades de Armazenamento de Dados (DWU).
 
-Uma vez criado o seu pool DE SQL dedicado, você pode importar big data com consultas simples [PolyBase](/sql/relational-databases/polybase/polybase-guide?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL, e, em seguida, usar a potência do motor de consulta distribuído para executar análises de alto desempenho. À medida que integra e analisa os dados, o pool de SQL dedicado (anteriormente SQL DW) tornar-se-á a única versão da verdade com que o seu negócio pode contar para insights mais rápidos e robustos.
+Uma vez criado o seu pool DE SQL dedicado, você pode importar big data com consultas simples [PolyBase](/sql/relational-databases/polybase/polybase-guide?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) T-SQL, e, em seguida, usar a potência do motor de consulta distribuído para executar análises de alto desempenho. À medida que integra e analisa os dados, o pool de SQL dedicado (anteriormente SQL DW) tornar-se-á a única versão da verdade com que o seu negócio pode contar para insights mais rápidos e robustos.
 
 > [!NOTE]
 >Explore a [documentação Azure Synapse Analytics](../overview-what-is.md).

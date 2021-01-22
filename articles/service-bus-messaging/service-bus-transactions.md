@@ -4,16 +4,19 @@ description: Este artigo dá-lhe uma visão geral do processamento de transaçõ
 ms.topic: article
 ms.date: 10/28/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9162b8578fe4f48cc3740b38d9d84ffaa2f260de
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9a95a200b57d348109884a319b5433f0ffd5dde1
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023606"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684796"
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Visão geral do processamento de transações de autocarros de serviço
 
 Este artigo discute as capacidades de transação da Microsoft Azure Service Bus. Grande parte da discussão é ilustrada pelas [Transações AMQP com a amostra de Service Bus.](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TransactionsAndSendVia/TransactionsAndSendVia/AMQPTransactionsSendVia) Este artigo limita-se a uma visão geral do processamento de transações e o *envio através de* funcionalidades no Service Bus, enquanto a amostra de Transações Atómicas é mais ampla e complexa no âmbito.
+
+> [!NOTE]
+> O nível básico da Service Bus não suporta transações. Os níveis standard e premium suportam as transações. Para obter diferenças entre estes níveis, consulte [os preços do Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
 
 ## <a name="transactions-in-service-bus"></a>Transações em Service Bus
 
@@ -28,7 +31,7 @@ O Service Bus suporta operações de agrupamento em relação a uma entidade de 
 As operações que podem ser realizadas dentro de um âmbito de transação são as seguintes:
 
 * **[QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient), [MessageSender,](/dotnet/api/microsoft.azure.servicebus.core.messagesender) [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient)**: `Send` , `SendAsync` `SendBatch` ,`SendBatchAsync`
-* **[IntermediárioS:](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)** `Complete` , , `CompleteAsync` , , , `Abandon` , , , , , , , `AbandonAsync` `Deadletter` `DeadletterAsync` `Defer` `DeferAsync` `RenewLock` , `RenewLockAsync` 
+* **[IntermediárioS:](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)** `Complete` , `CompleteAsync` `Abandon` `AbandonAsync` `Deadletter` `DeadletterAsync` `Defer` `DeferAsync` `RenewLock``RenewLockAsync` 
 
 As operações de receção não estão incluídas, pois presume-se que a aplicação adquire mensagens utilizando o modo [ReceberMode.PeekLock,](/dotnet/api/microsoft.azure.servicebus.receivemode) dentro de alguns loops de receção ou com uma chamada [OnMessage,](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage) e só então abre uma margem de transação para o processamento da mensagem.
 

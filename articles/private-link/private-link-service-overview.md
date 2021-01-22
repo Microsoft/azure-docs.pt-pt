@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: sumi
-ms.openlocfilehash: 27dba675f82c4d34ec793cf492c18b293a6c8c77
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 7983a80da8a5ca9d900e44515b5e078cc9d70d79
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95544263"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684191"
 ---
 # <a name="what-is-azure-private-link-service"></a>O que é o serviço Azure Private Link?
 
@@ -126,7 +126,7 @@ Detalhes personalizados da TLV:
 Seguem-se as limitações conhecidas ao utilizar o serviço Private Link:
 - Suportado apenas no Balanceador de Carga Padrão 
 - Suporta apenas o tráfego IPv4
-- Suporta apenas o tráfego TCP
+- Suporta apenas o tráfego de TCP e UDP
 
 ## <a name="next-steps"></a>Passos seguintes
 - [Criar um serviço de ligação privada utilizando a Azure PowerShell](create-private-link-service-powershell.md)

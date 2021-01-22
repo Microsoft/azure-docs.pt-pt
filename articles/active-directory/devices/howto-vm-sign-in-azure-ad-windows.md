@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions, devx-track-azurecli
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef2c9d7e2388d2da7a807fbf6b579360115a8323
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 22a4bdc92ea2a91425c1070a5837c672307de665
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629804"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683781"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Iniciar sedutação na máquina virtual do Windows em Azure utilizando a autenticação do Azure Ative Directory (Preview)
 
@@ -227,7 +227,7 @@ Está agora a fazer sessão no Windows Server 2019 Azure virtual machine com as 
 > [!NOTE]
 > Pode salvar o . O ficheiro RDP localmente no seu computador para lançar futuras ligações remotas de ambiente de trabalho à sua máquina virtual em vez de ter de navegar para a página geral da máquina virtual no portal Azure e utilizar a opção de ligação.
 
-## <a name="troubleshoot"></a>Resolver Problemas
+## <a name="troubleshoot"></a>Resolução de problemas
 
 ### <a name="troubleshoot-deployment-issues"></a>Resolver problemas de implementação
 
@@ -335,7 +335,7 @@ Se vir a seguinte mensagem de erro quando iniciar uma ligação remota de ambien
 Verifique se [configuraram as políticas de RBAC do Azure](../../virtual-machines/linux/login-using-aad.md) para o VM que concede ao utilizador o Login do Administrador de Máquina Virtual ou a função de Login do Utilizador de Máquina Virtual:
 
 > [!NOTE]
-> Se estiver a ter problemas com atribuições de funções Azure, consulte [o Troubleshoot Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/troubleshooting#azure-role-assignments-limit).
+> Se estiver a ter problemas com atribuições de funções Azure, consulte [o Troubleshoot Azure RBAC](../../role-based-access-control/troubleshooting.md#azure-role-assignments-limit).
  
 #### <a name="unauthorized-client"></a>Cliente não autorizado
 

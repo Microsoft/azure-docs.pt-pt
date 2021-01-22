@@ -10,12 +10,12 @@ ms.date: 05/01/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: fa4a649115f8e89c27f435888b682b7de36e9894
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b8aa2623722b5e75480e68324d76e4a1493501df
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87533925"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685145"
 ---
 # <a name="create-an-image-version-from-a-vm-in-azure-using-the-azure-cli"></a>Criar uma versão de imagem a partir de um VM em Azure usando o Azure CLI
 
@@ -24,7 +24,7 @@ Se tiver um VM existente que gostaria de usar para fazer VMs múltiplos e idênt
 Uma **versão de imagem** é o que se usa para criar um VM quando se utiliza uma Galeria de Imagens Partilhadas. Pode ter várias versões de uma imagem necessária para o seu ambiente. Quando se utiliza uma versão de imagem para criar um VM, a versão de imagem é usada para criar discos para o novo VM. As versões de imagem podem ser usadas várias vezes.
 
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Para completar este artigo, você deve ter uma Galeria de Imagem Partilhada existente. 
 
@@ -57,11 +57,11 @@ Os nomes da definição de imagem podem ser compostos por letras maiúsculas ou 
 
 Certifique-se de que a definição de imagem é o tipo certo. Se generalizou o VM (utilizando o Sysprep para Windows, ou desprovisionamento waagent para o Linux), então deve criar uma definição de imagem generalizada utilizando `--os-state generalized` . Se pretender utilizar o VM sem remover as contas de utilizador existentes, crie uma definição de imagem especializada utilizando `--os-state specialized` .
 
-Para obter mais informações sobre os valores que pode especificar para uma definição de imagem, consulte [definições de imagem](./linux/shared-image-galleries.md#image-definitions).
+Para obter mais informações sobre os valores que pode especificar para uma definição de imagem, consulte [definições de imagem](./shared-image-galleries.md#image-definitions).
 
 Crie uma definição de imagem na galeria utilizando [a az sig definição de imagem criar](/cli/azure/sig/image-definition#az-sig-image-definition-create).
 
-Neste exemplo, a definição de imagem chama-se *myImageDefinition*, e [destina-se a](./linux/shared-image-galleries.md#generalized-and-specialized-images) uma imagem especializada do Linux OS. Para criar uma definição para imagens que utilizem um SISTEMA Windows, utilize `--os-type Windows` . 
+Neste exemplo, a definição de imagem chama-se *myImageDefinition*, e [destina-se a](./shared-image-galleries.md#generalized-and-specialized-images) uma imagem especializada do Linux OS. Para criar uma definição para imagens que utilizem um SISTEMA Windows, utilize `--os-type Windows` . 
 
 ```azurecli-interactive 
 az sig image-definition create \

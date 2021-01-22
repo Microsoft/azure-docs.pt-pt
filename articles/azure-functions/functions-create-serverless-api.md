@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: d683ef92c4e8d11e9defbed5454e5849211bf8f7
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 7375a46245fbe523ddf0512bb5a55371adff64e9
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104755"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683747"
 ---
 # <a name="customize-an-http-endpoint-in-azure-functions"></a>Personalize um ponto final HTTP em Funções Azure
 
@@ -86,7 +86,7 @@ Nesta secção, você cria um novo proxy, que serve como um frontend para a sua 
 
 ### <a name="setting-up-the-frontend-environment"></a>Configurar o ambiente de front-end
 
-Repita os passos para [Criar uma aplicação de funções](./functions-create-first-azure-function.md#create-a-function-app) para criar uma nova aplicação de funções na qual vai criar o proxy. O URL desta nova aplicação serve como frontend para a nossa API, e a aplicação de função que estava a editar anteriormente serve como backend.
+Repita os passos para [Criar uma aplicação de funções](./functions-get-started.md) para criar uma nova aplicação de funções na qual vai criar o proxy. O URL desta nova aplicação serve como frontend para a nossa API, e a aplicação de função que estava a editar anteriormente serve como backend.
 
 1. Navegue para a nova aplicação de funções de front-end no portal.
 1. Selecione **Funcionalidades de Plataforma** e escolha **Definições da Aplicação**.
@@ -101,7 +101,7 @@ Repita os passos para [Criar uma aplicação de funções](./functions-create-fi
 
 1. Volte para a sua aplicação de função frontal no portal.
 
-1. No menu da esquerda, selecione **Proxies**e, em seguida, **selecione Adicionar**. 
+1. No menu da esquerda, selecione **Proxies** e, em seguida, **selecione Adicionar**. 
 
 1. Na página **New Proxy,** utilize as definições na tabela seguinte e, em seguida, selecione **Criar**.
 
@@ -112,7 +112,7 @@ Repita os passos para [Criar uma aplicação de funções](./functions-create-fi
     | URL de back-end | https://%HELLO_HOST%/api/hello | Especifica o ponto final para o qual o pedido deve ser transmitido por proxy |
 
     
-    :::image type="content" source="./media/functions-create-serverless-api/creating-proxy.png" alt-text="Personalizar uma função HTTP":::
+    :::image type="content" source="./media/functions-create-serverless-api/creating-proxy.png" alt-text="Criar um proxy":::
 
     As funções Azure Não fornecem o `/api` prefixo do caminho base, que deve ser incluído no modelo de rota. A `%HELLO_HOST%` sintaxe refere-se à definição de aplicação que criou anteriormente. O URL resolvido apontará para a sua função original.
 
@@ -195,5 +195,5 @@ As referências seguintes podem ser úteis à medida que desenvolve ainda mais a
 - [Documentar uma API de Funções do Azure (pré-visualização)](./functions-openapi-definition.md)
 
 
-[Create your first function]: ./functions-create-first-azure-function.md
+[Create your first function]: ./functions-get-started.md
 [Trabalhar com Proxies de Funções do Azure]: ./functions-proxies.md

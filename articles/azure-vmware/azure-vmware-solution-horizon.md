@@ -3,12 +3,12 @@ title: Implementar Horizonte na Solução VMware Azure
 description: Saiba como implementar o VMware Horizon na Solução VMware Azure.
 ms.topic: how-to
 ms.date: 09/29/2020
-ms.openlocfilehash: 6d5d8e12e358e2289128af9840660be18f5f217a
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 2cf6fc5cb7662188650365cb019774d6c778d405
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95537446"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684880"
 ---
 # <a name="deploy-horizon-on-azure-vmware-solution"></a>Implementar Horizonte na Solução VMware Azure 
 
@@ -130,15 +130,35 @@ A metodologia de dimensionamento da Horizon num hospedeiro em execução na Azur
 
 ### <a name="sizing-tables"></a>Tabelas de dimensionamento
 
-As tabelas mostram as cargas de trabalho comuns para as cargas de trabalho do Trabalhador do Conhecimento de Login VSI e cargas de trabalho do Power Worker.
+Os requisitos específicos de vCPU/vRAM para desktops virtuais Horizon dependem do perfil de carga de trabalho específico do cliente.   Trabalhe com a sua equipa de vendas da MSFT e da VMware para ajudar a determinar os seus requisitos vCPU/vRAM para os seus ambientes de trabalho virtuais. 
 
-#### <a name="knowledge-worker-workloads"></a>Cargas de trabalho dos trabalhadores do conhecimento
+| vCPU por VM | vRAM por VM (GB) | Instância | 100 VMs | 200 VMs | 300 VMs | 400 VMs | 500 VMs | 600 VMs | 700 VMs | 800 VMs | 900 VMs | 1000 VMs | 2000 VMs | 3000 VMs | 4000 VMs | 5000 VMs | 6000 VMs | 6400 VMs |
+|:-----------:|:----------------:|:--------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|
+|      2      |        3.5       |    AVS   |    3    |    3    |    4    |    4    |    5    |    6    |    6    |    7    |    8    |     9    |    17    |    25    |    33    |    41    |    49    |    53    |
+|      2      |         4        |    AVS   |    3    |    3    |    4    |    5    |    6    |    6    |    7    |    8    |    9    |     9    |    18    |    26    |    34    |    42    |    51    |    54    |
+|      2      |         6        |    AVS   |    3    |    4    |    5    |    6    |    7    |    9    |    10   |    11   |    12   |    13    |    26    |    38    |    51    |    62    |    75    |    79    |
+|      2      |         8        |    AVS   |    3    |    5    |    6    |    8    |    9    |    11   |    12   |    14   |    16   |    18    |    34    |    51    |    67    |    84    |    100   |    106   |
+|      2      |        12        |    AVS   |    4    |    6    |    9    |    11   |    13   |    16   |    19   |    21   |    23   |    26    |    51    |    75    |    100   |    124   |    149   |    158   |
+|      2      |        16        |    AVS   |    5    |    8    |    11   |    14   |    18   |    21   |    24   |    27   |    30   |    34    |    67    |    100   |    133   |    165   |    198   |    211   |
+|      4      |        3.5       |    AVS   |    3    |    3    |    4    |    5    |    6    |    7    |    8    |    9    |    10   |    11    |    22    |    33    |    44    |    55    |    66    |    70    |
+|      4      |         4        |    AVS   |    3    |    3    |    4    |    5    |    6    |    7    |    8    |    9    |    10   |    11    |    22    |    33    |    44    |    55    |    66    |    70    |
+|      4      |         6        |    AVS   |    3    |    4    |    5    |    6    |    7    |    9    |    10   |    11   |    12   |    13    |    26    |    38    |    51    |    62    |    75    |    79    |
+|      4      |         8        |    AVS   |    3    |    5    |    6    |    8    |    9    |    11   |    12   |    14   |    16   |    18    |    34    |    51    |    67    |    84    |    100   |    106   |
+|      4      |        12        |    AVS   |    4    |    6    |    9    |    11   |    13   |    16   |    19   |    21   |    23   |    26    |    51    |    75    |    100   |    124   |    149   |    158   |
+|      4      |        16        |    AVS   |    5    |    8    |    11   |    14   |    18   |    21   |    24   |    27   |    30   |    34    |    67    |    100   |    133   |    165   |    198   |    211   |
+|      6      |        3.5       |    AVS   |    3    |    4    |    5    |    6    |    7    |    9    |    10   |    11   |    13   |    14    |    27    |    41    |    54    |    68    |    81    |    86    |
+|      6      |         4        |    AVS   |    3    |    4    |    5    |    6    |    7    |    9    |    10   |    11   |    13   |    14    |    27    |    41    |    54    |    68    |    81    |    86    |
+|      6      |         6        |    AVS   |    3    |    4    |    5    |    6    |    7    |    9    |    10   |    11   |    13   |    14    |    27    |    41    |    54    |    68    |    81    |    86    |
+|      6      |         8        |    AVS   |    3    |    5    |    6    |    8    |    9    |    11   |    12   |    14   |    16   |    18    |    34    |    51    |    67    |    84    |    100   |    106   |
+|      6      |        12        |    AVS   |    4    |    6    |    9    |    11   |    13   |    16   |    19   |    21   |    23   |    26    |    51    |    75    |    100   |    124   |    149   |    158   |
+|      6      |        16        |    AVS   |    5    |    8    |    11   |    14   |    18   |    21   |    24   |    27   |    30   |    34    |    67    |    100   |    133   |    165   |    198   |    211   |
+|      8      |        3.5       |    AVS   |    3    |    4    |    6    |    7    |    9    |    10   |    12   |    14   |    15   |    17    |    33    |    49    |    66    |    82    |    98    |    105   |
+|      8      |         4        |    AVS   |    3    |    4    |    6    |    7    |    9    |    10   |    12   |    14   |    15   |    17    |    33    |    49    |    66    |    82    |    98    |    105   |
+|      8      |         6        |    AVS   |    3    |    4    |    6    |    7    |    9    |    10   |    12   |    14   |    15   |    17    |    33    |    49    |    66    |    82    |    98    |    105   |
+|      8      |         8        |    AVS   |    3    |    5    |    6    |    8    |    9    |    11   |    12   |    14   |    16   |    18    |    34    |    51    |    67    |    84    |    100   |    106   |
+|      8      |        12        |    AVS   |    4    |    6    |    9    |    11   |    13   |    16   |    19   |    21   |    23   |    26    |    51    |    75    |    100   |    124   |    149   |    158   |
+|      8      |        16        |    AVS   |    5    |    8    |    11   |    14   |    18   |    21   |    24   |    27   |    30   |    34    |    67    |    100   |    133   |    165   |    198   |    211   |
 
-:::image type="content" source="media/horizon/common-vdi-profiles-vsi-workloads-knowledge.png" alt-text="Tabela de perfis VDI comuns para VMware Horizon para trabalhos de trabalhadores de login VSI Knowledge" lightbox="media/horizon/common-vdi-profiles-vsi-workloads-knowledge.png" border="false":::
-
-#### <a name="power-worker-workloads"></a>Cargas de trabalho dos trabalhadores do poder
-
-:::image type="content" source="media/horizon/common-vdi-profiles-vsi-workloads-power.png" alt-text="Tabela de perfis VDI comuns para VMware Horizon para trabalhos de trabalhadores vsi power de login" lightbox="media/horizon/common-vdi-profiles-vsi-workloads-power.png" border="false":::
 
 ### <a name="horizon-sizing-inputs"></a>Entradas de dimensionamento horizonte
 
@@ -189,24 +209,9 @@ Se implantado na Azure VMware Solution e no local, como acontece com um caso de 
 
 Trabalhe com a sua equipa de vendas da VMware EUC para determinar o custo de licenciamento da Horizon com base nas suas necessidades.
 
-### <a name="cost-of-the-horizon-infrastructure-vms-on-azure-virtual-network"></a>Custo da infraestrutura Horizonte VMs na Rede Virtual Azure
+### <a name="azure-instance-types"></a>Tipos de exemplos Azure
 
-Com base na arquitetura de implementação padrão, os VMs de infraestrutura Horizon são compostos por Servidores de Conexão, UAGs, Gestores de Volume de Aplicações. Estão implantados na Rede Virtual Azure do cliente. Casos nativos adicionais do Azure são necessários para suportar serviços de Alta Disponibilidade (HA), Microsoft SQL ou Microsoft Ative Directory (AD) no Azure. A tabela lista as instâncias Azure com base num exemplo de implementação de 2.000 desktops. 
-
->[!NOTE]
->Para poder lidar com a falha, implante mais um servidor do que o necessário para o número de ligações (n+1). O número mínimo recomendado de instâncias do Connection Server, UAG e App Volumes Manager é 2, e o número de requisitos irá crescer com base na quantidade de utilizadores que o ambiente irá suportar.  Um único Servidor de Ligação suporta um máximo de 4.000 sessões, embora 2.000 seja recomendado como uma boa prática. Até sete Servidores de Ligação são suportados por cápsula com uma recomendação de 12.000 sessões ativas no total por vagem. Para obter os números mais atuais, consulte o [artigo Base de Conhecimento VMware VMware Horizonte 7 Limites e Recomendações](https://kb.vmware.com/s/article/2150348)de Dimensionamento .
-
-| Componente de infraestrutura horizonte | Exemplo de Azure | Número de casos necessários (para 2.000 desktops)    | Comentário  |
-|----------------------------------|----------------|----------------------------------------------------|----------|
-| Servidor de Conexão                | D4sv3          | 2       | *Ver Nota Acima*                         |    
-| UAG                              | F2sv2          | 2       | *Ver Nota Acima*                         |
-| Gestor de Volumes de Aplicativos              | D4sv3          | 2       | *Ver Nota Acima*                         |
-| Conector de nuvem                  | D4sv3          | 1       |                                          |
-| Controlador de anúncios                    | D4sv3          | 2       | *Opção de utilização do serviço MSFT AD no Azure* |
-| Base de Dados MS-SQL                  | D4sv3          | 2       | *Opção de utilizar o serviço SQL em Azure*     |
-| Partilha de ficheiros do Windows               | D4sv3          |         | *Opcional*                               |
-
-O custo da infraestrutura VM ascende a \$ 0,36 por utilizador por mês para a implantação de 2.000 desktops no exemplo acima. Este exemplo utiliza os preços de junho de 2020 dos EUA. O seu preço pode variar dependendo da região, opções selecionadas e tempo.
+Para compreender os tamanhos das máquinas virtuais Azure que serão necessários para a Infraestrutura Horizonte consulte as diretrizes da VMware que podem ser encontradas [aqui.](https://techzone.vmware.com/resource/horizon-on-azure-vmware-solution-configuration#horizon-installation-on-azure-vmware-solution)
 
 ## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre a VMware Horizon na Solução VMware Azure, leia o [VMware Horizon FAQ](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/products/horizon/vmw-horizon-on-microsoft-azure-vmware-solution-faq.pdf).

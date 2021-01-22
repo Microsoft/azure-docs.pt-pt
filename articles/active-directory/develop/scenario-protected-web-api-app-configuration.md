@@ -1,5 +1,5 @@
 ---
-title: Configurar aplicações de API protegidas na Web / Rio Azure
+title: Configurar aplicações de API protegidas | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como construir uma API web protegida e configurar o código da sua aplicação.
 services: active-directory
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f1277972480f504d9d2df67930d9385cbe8c06b4
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 9ffb77db4f7bcd5a07e25085eed17e8972aa9a33
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063200"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683764"
 ---
 # <a name="protected-web-api-code-configuration"></a>API web protegida: configuração de código
 
@@ -175,7 +175,7 @@ services.AddControllers();
 > - `$"api://{ClientId}` em todos os outros casos (para [fichas de acesso](access-tokens.md)v1.0).
 > Para mais informações, consulte o [código fonte](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/Resource/RegisterValidAudience.cs#L70-L83)microsoft.Identity.Web .
 
-O corte de código anterior é extraído do tutorial incremental da [API web ASP.NET.](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/63087e83326e6a332d05fee6e1586b66d840b08f/1.%20Desktop%20app%20calls%20Web%20API/TodoListService/Startup.cs#L23-L28) O detalhe da **AddMicrosoftIdentityWebApiAuthentication** está disponível em [Microsoft.Identity.Web](microsoft-identity-web.md). Este método chama [AddMicrosoftIdentityWebAPI,](https://docs.microsoft.com/dotnet/api/microsoft.identity.web.microsoftidentitywebapiauthenticationbuilderextensions.addmicrosoftidentitywebapi?view=azure-dotnet-preview&preserve-view=true)que por si só instrui o middleware sobre como validar o token.
+O corte de código anterior é extraído do tutorial incremental da [API web ASP.NET.](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/63087e83326e6a332d05fee6e1586b66d840b08f/1.%20Desktop%20app%20calls%20Web%20API/TodoListService/Startup.cs#L23-L28) O detalhe da **AddMicrosoftIdentityWebApiAuthentication** está disponível em [Microsoft.Identity.Web](microsoft-identity-web.md). Este método chama [AddMicrosoftIdentityWebAPI,](/dotnet/api/microsoft.identity.web.microsoftidentitywebapiauthenticationbuilderextensions.addmicrosoftidentitywebapi?preserve-view=true&view=azure-dotnet-preview)que por si só instrui o middleware sobre como validar o token.
 
 ## <a name="token-validation"></a>Validação token
 
@@ -195,7 +195,7 @@ Os passos de validação são capturados em validadores, que são fornecidos pel
 
 Esta tabela descreve os validadores:
 
-| Validador | Descrição |
+| Validador | Description |
 |---------|---------|
 | **ValidarAudiência** | Garante que o token é para a aplicação que valida o token para si. |
 | **ValidarIssuer** | Garante que o símbolo foi emitido por uma STS de confiança, o que significa que é de alguém em quem confias. |
@@ -240,6 +240,6 @@ Também pode validar fichas de acesso recebidas em Funções Azure. Pode encontr
 - Node.js: [Azure-Samples/ms-identidade-nodejs-webapi-azurefunctions](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions)
 - Python: [Azure-Samples/ms-identity-python-webapi-azurefunctions)](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Passe para o próximo artigo neste cenário, [Verifique os âmbitos e as funções de aplicação no seu código.](scenario-protected-web-api-verification-scope-app-roles.md)

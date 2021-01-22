@@ -2,14 +2,14 @@
 title: Executar Linux em nó de computação de máquina virtual
 description: Aprenda a processar cargas de trabalho paralelas em piscinas de máquinas virtuais Linux em Azure Batch.
 ms.topic: how-to
-ms.date: 11/10/2020
+ms.date: 01/21/2021
 ms.custom: H1Hack27Feb2017, devx-track-python, devx-track-csharp
-ms.openlocfilehash: 0a9c801a13af05f077b87f296992da7f50742e4b
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: c711ec0d035b9b59ec7628a51fe3cff26de358bc
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94533502"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683705"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Provisão Linux nómada em piscinas de Lote
 
@@ -17,9 +17,7 @@ Pode utilizar o Azure Batch para executar cargas de trabalho paralelas de comput
 
 ## <a name="virtual-machine-configuration"></a>Configuração de máquina virtual
 
-Quando cria um conjunto de nós computacional em Batch, tem duas opções para selecionar o tamanho do nó e o sistema operativo: Configuração de serviços de nuvem e configuração de máquina virtual. A maioria dos grupos de nós de computação do Windows utilizam [a Configuração dos Serviços cloud,](nodes-and-pools.md#cloud-services-configuration)que especifica que a piscina é composta por nós dos Azure Cloud Services. Estas piscinas fornecem apenas nós de computação Windows.
-
-Em contraste, [a Configuração da Máquina Virtual](nodes-and-pools.md#virtual-machine-configuration) especifica que a piscina é composta por VMs Azure, que podem ser criados a partir de imagens Linux ou Windows. Quando criar uma piscina com Configuração de Máquina Virtual, tem de especificar um [tamanho de nó de computação disponível,](../virtual-machines/sizes.md)a referência de imagem da máquina virtual e o agente de nó de lote SKU (um programa que funciona em cada nó e fornece uma interface entre o nó e o serviço Batch) e a referência de imagem da máquina virtual que será instalada nos nós.
+Quando cria um conjunto de nós computacional em Batch, tem duas opções para selecionar o tamanho do nó e o sistema operativo: Configuração de serviços de nuvem e configuração de máquina virtual. As piscinas [de configuração de máquinas virtuais](nodes-and-pools.md#virtual-machine-configuration) são compostas por VMs Azure, que podem ser criados a partir de imagens Linux ou Windows. Quando cria uma piscina com Configuração de Máquina Virtual, especifica um [tamanho de nó de computação disponível,](../virtual-machines/sizes.md)a referência de imagem da máquina virtual a ser instalada nos nós e o agente de nó de lote SKU (um programa que funciona em cada nó e fornece uma interface entre o nó e o serviço Batch).
 
 ### <a name="virtual-machine-image-reference"></a>Referência de imagem de máquina virtual
 
@@ -35,7 +33,11 @@ Quando criar uma referência de imagem de máquina virtual, deve especificar as 
 | Versão |mais recente |
 
 > [!TIP]
-> Você pode saber mais sobre estas propriedades e como especificar imagens do Marketplace em [find Linux VM imagens no Azure Marketplace com o Azure CLI](../virtual-machines/linux/cli-ps-findimage.md). Note que nem todas as imagens do Marketplace são atualmente compatíveis com o Batch.
+> Você pode saber mais sobre estas propriedades e como especificar imagens do Marketplace em [find Linux VM imagens no Azure Marketplace com o Azure CLI](../virtual-machines/linux/cli-ps-findimage.md). Note que algumas imagens do Marketplace não são atualmente compatíveis com o Batch.
+
+### <a name="list-of-virtual-machine-images"></a>Lista de imagens de máquinas virtuais
+
+Nem todas as imagens do Marketplace são compatíveis com os agentes de nó de lote atualmente disponíveis. Para listar todas as imagens de máquinas virtuais suportadas do Marketplace para o serviço Batch e o respetivo agente de nó SKUs, utilize [list_supported_images](/python/api/azure-batch/azure.batch.operations.AccountOperations#list-supported-images-account-list-supported-images-options-none--custom-headers-none--raw-false----operation-config-) (Python), [ListSupportedImages](/dotnet/api/microsoft.azure.batch.pooloperations.listsupportedimages) (Batch .NET) ou a API correspondente em outro SDK de idioma.
 
 ### <a name="node-agent-sku"></a>Agente de nó SKU
 
@@ -44,10 +46,6 @@ O [agente de nó batch](https://github.com/Azure/Batch/blob/master/changelogs/no
 - lote.node.ubuntu 18.04
 - lote.nó.centos 7
 - lote.node.windows amd64
-
-### <a name="list-of-virtual-machine-images"></a>Lista de imagens de máquinas virtuais
-
-Nem todas as imagens do Marketplace são compatíveis com os agentes de nó de lote atualmente disponíveis. Para listar todas as imagens de máquinas virtuais suportadas do Marketplace para o serviço Batch e o respetivo agente de nó SKUs, utilize [list_supported_images](/python/api/azure-batch/azure.batch.operations.AccountOperations#list-supported-images-account-list-supported-images-options-none--custom-headers-none--raw-false----operation-config-) (Python), [ListSupportedImages](/dotnet/api/microsoft.azure.batch.pooloperations.listsupportedimages) (Batch .NET) ou a API correspondente em outro SDK de idioma.
 
 ## <a name="create-a-linux-pool-batch-python"></a>Criar uma piscina Linux: Batch Python
 

@@ -4,12 +4,12 @@ description: Saiba como ligar a sua aplicação de função a Application Insigh
 ms.date: 8/31/2020
 ms.topic: how-to
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 24350eb07481db66907d199cd96f84a02cc98c9e
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 73ed679288d9d03b81a0b01670aa0f574a14839f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937285"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684713"
 ---
 # <a name="how-to-configure-monitoring-for-azure-functions"></a>Como configurar a monitorização para as funções do Azure
 
@@ -233,7 +233,7 @@ az functionapp config appsettings delete --name <FUNCTION_APP_NAME> \
 
 Para que uma aplicação de função envie dados para o Application Insights, precisa de conhecer a chave de instrumentação de um recurso Application Insights. A chave deve estar numa definição de aplicação chamada **APPINSIGHTS_INSTRUMENTATIONKEY**.
 
-Quando cria a sua aplicação de função [no portal Azure](functions-create-first-azure-function.md), a partir da linha de comando utilizando [ferramentas principais de funções Azure](./create-first-function-cli-csharp.md), ou utilizando [o Código do Estúdio Visual,](./create-first-function-vs-code-csharp.md)a integração de Insights de Aplicação é ativada por padrão. O recurso Application Insights tem o mesmo nome que a sua aplicação de função, e é criado na mesma região ou na região mais próxima.
+Quando cria a sua aplicação de função [no portal Azure](./functions-get-started.md), a partir da linha de comando utilizando [ferramentas principais de funções Azure](./create-first-function-cli-csharp.md), ou utilizando [o Código do Estúdio Visual,](./create-first-function-vs-code-csharp.md)a integração de Insights de Aplicação é ativada por padrão. O recurso Application Insights tem o mesmo nome que a sua aplicação de função, e é criado na mesma região ou na região mais próxima.
 
 ### <a name="new-function-app-in-the-portal"></a>Nova aplicação de função no portal
 

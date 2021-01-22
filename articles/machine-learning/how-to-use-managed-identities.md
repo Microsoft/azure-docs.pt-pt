@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 3490e3004e5f5dd99795967f0deb8510200fa50b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b0b0c43039648737b229edc79dd4e0a3dc45f38e
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311036"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683345"
 ---
 # <a name="use-managed-identities-with-azure-machine-learning-preview"></a>Utilizar identidades geridas com Azure Machine Learning (pré-visualização)
 
@@ -54,12 +54,12 @@ Pode trazer o seu próprio ACR com o utilizador administrativo desativado quando
 
 ### <a name="bring-your-own-acr"></a>Traga o seu próprio ACR
 
-Se o utilizador administrador ACR for inde ser inde ser inde ser inde ser indesenhado pela política de subscrição, deve primeiro criar ACR sem utilizador administrativo e, em seguida, associá-lo ao espaço de trabalho. Além disso, se tiver ACR existente com o utilizador administrativo desativado, pode anexá-lo ao espaço de trabalho.
+Se o utilizador administrador ACR for inde ser indesenhado pela política de subscrição, deve primeiro criar ACR sem utilizador administrativo e, em seguida, associá-lo ao espaço de trabalho. Além disso, se tiver ACR existente com o utilizador administrativo desativado, pode anexá-lo ao espaço de trabalho.
 
 [Crie ACR a partir do Azure CLI](../container-registry/container-registry-get-started-azure-cli.md) sem definir ```--admin-enabled``` o argumento, ou a partir do portal Azure sem permitir o utilizador de administração. Em seguida, ao criar o espaço de trabalho Azure Machine Learning, especifique o ID de recurso Azure do ACR. O exemplo a seguir demonstra a criação de um novo espaço de trabalho Azure ML que utiliza um ACR existente:
 
 > [!TIP]
-> Para obter o valor do `--container-registry` parâmetro, utilize o comando [de exibição az acr](/cli/azure/acr?view=azure-cli-latest#az_acr_show) para mostrar informações para o seu ACR. O `id` campo contém o ID de recursos para o seu ACR.
+> Para obter o valor do `--container-registry` parâmetro, utilize o comando [de exibição az acr](/cli/azure/acr#az_acr_show) para mostrar informações para o seu ACR. O `id` campo contém o ID de recursos para o seu ACR.
 
 ```azurecli-interactive
 az ml workspace create -w <workspace name> \
@@ -90,7 +90,7 @@ Se não trouxer o seu próprio ACR, o serviço Azure Machine Learning criará um
 
     Este comando devolve um valor semelhante ao seguinte texto. Só quer a última parte do texto, que é o nome da instância ACR:
 
-    ```text
+    ```output
     /subscriptions/<subscription id>/resourceGroups/<my resource group>/providers/MicrosoftContainerReggistry/registries/<ACR instance name>
     ```
 

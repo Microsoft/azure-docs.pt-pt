@@ -9,12 +9,12 @@ ms.author: larryfr
 author: BlackMist
 ms.date: 11/04/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 618b7b9cef5ec78cd53247faea2797e9fc897833
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: a9d471e81c348bfaa92c5d15774517f0d9e0e43f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98630222"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683362"
 ---
 # <a name="what-is-azure-machine-learning"></a>O que é o Azure Machine Learning?
 
@@ -128,7 +128,6 @@ A sua conta de Armazenamento Azure, metas de computação e outros recursos pode
 - Crie a sua primeira experiência com o seu método preferido:
 - + [Começar no seu próprio ambiente de desenvolvimento](tutorial-1st-experiment-sdk-setup-local.md)
   + [Use cadernos Jupyter em uma instância de computação para treinar & implementar modelos ML](tutorial-1st-experiment-sdk-setup.md)
-  + [Use R Markdown para treinar & implementar modelos ML](tutorial-1st-r-experiment.md) 
   + [Utilize machine learning automatizado para treinar & implementar modelos ML](tutorial-first-experiment-automated-ml.md) 
   + [Use as capacidades de arrastar & de arrastar do designer para treinar & implementar](tutorial-designer-automobile-price-train-score.md) 
   + [Use o CLI de aprendizagem automática para treinar e implementar um modelo](tutorial-train-deploy-model-cli.md)

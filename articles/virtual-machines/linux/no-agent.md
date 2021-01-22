@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 09/01/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 9f0309f4e8273c2ef19ea86636de8e3aa6b6c4bc
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: edbcabfe4d0b633a784163562f52b303120916ca
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96435105"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685072"
 ---
 # <a name="creating-generalized-images-without-a-provisioning-agent"></a>Criação de imagens generalizadas sem um agente de provisionamento
 
@@ -180,7 +180,7 @@ Se o seu VM não tiver Python instalado ou disponível, pode reproduzir program�
 
 Esta demo usa sistema, que é o sistema init mais comum nos modernos distros Linux. Assim, a forma mais fácil e nativa de garantir que este mecanismo de relatório é executado no momento certo é criar uma unidade de serviço sistema. Pode adicionar o seguinte ficheiro de unidade para `/etc/systemd/system` (este exemplo designa o ficheiro da `azure-provisioning.service` unidade):
 
-```
+```bash
 [Unit]
 Description=Azure Provisioning
 
@@ -204,7 +204,7 @@ Este serviço sistemado faz três coisas para o fornecimento básico:
 
 Com a unidade no sistema de ficheiros, execute o seguinte para o ativar:
 
-```
+```bash
 $ sudo systemctl enable azure-provisioning.service
 ```
 
@@ -214,14 +214,14 @@ Agora o VM está pronto para ser generalizado e ter uma imagem criada a partir d
 
 De volta à sua máquina de desenvolvimento, corra o seguinte para preparar a criação de imagem a partir da base VM:
 
-```
+```bash
 $ az vm deallocate --resource-group demo1 --name demo1
 $ az vm generalize --resource-group demo1 --name demo1
 ```
 
 E criar a imagem a partir deste VM:
 
-```
+```bash
 $ az image create \
     --resource-group demo1 \
     --source demo1 \
@@ -231,7 +231,7 @@ $ az image create \
 
 Agora estamos prontos para criar um novo VM (ou múltiplos VMs) a partir da imagem:
 
-```
+```bash
 $ IMAGE_ID=$(az image show -g demo1 -n demo1img --query id -o tsv)
 $ az vm create \
     --resource-group demo12 \
@@ -249,7 +249,7 @@ $ az vm create \
 
 Este VM deve provisição com sucesso. Iniciar sessão no VM recém-aderado, deverá ser possível ver a saída do serviço sistema pronto para o relatório:
 
-```
+```bash
 $ sudo journalctl -u azure-provisioning.service
 -- Logs begin at Thu 2020-06-11 20:28:45 UTC, end at Thu 2020-06-11 20:31:24 UTC. --
 Jun 11 20:28:49 thstringnopa systemd[1]: Starting Azure Provisioning...

@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 03/10/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: c255a3d68b1a24e25c1c0e308faa3fd364a15861
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: bd16f0ef330d1d4a33dd796af0ec3e94dda5acfc
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358746"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684598"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificar um conjunto de dimensionamento de máquinas virtuais
 
@@ -350,7 +350,7 @@ Algumas propriedades podem ser alteradas, com exceções dependendo do valor atu
 
 - **singlePlacementGroup** - Se o SinglePlacementGroup for verdadeiro, pode ser modificado para falso. No entanto, se o Grupo de Substituição Único for falso, **pode não** ser modificado para ser verdadeiro.
 - **sub-rede** - A sub-rede de um conjunto de escala pode ser modificada enquanto a sub-rede original e a nova sub-rede estiverem na mesma rede virtual.
-- **imageReferenceSku** - Referência de imagem SKU pode ser atualizado para [distros Linux endossados, imagens](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)do servidor do Windows/cliente e imagens sem [informações do plano](https://docs.microsoft.com/azure/virtual-machines/linux/cli-ps-findimage#view-plan-properties). 
+- **imageReferenceSku** - Referência de imagem SKU pode ser atualizado para [distros Linux endossados, imagens](../virtual-machines/linux/endorsed-distros.md)do servidor do Windows/cliente e imagens sem [informações do plano](../virtual-machines/linux/cli-ps-findimage.md#view-plan-properties). 
 
 ### <a name="properties-that-require-deallocation-to-change"></a>Imóveis que exigem a mudança de negociação
 Algumas propriedades só podem ser alteradas para determinados valores se os VMs na escala definida forem transabilitados. Estas propriedades incluem:
