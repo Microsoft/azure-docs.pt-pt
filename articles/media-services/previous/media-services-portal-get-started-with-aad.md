@@ -1,5 +1,5 @@
 ---
-title: Começa com a autenticação AZure AD através do portal Azure Microsoft Docs
+title: Começa com a autenticação AZure AD utilizando o portal Azure| Microsoft Docs
 description: Saiba como utilizar o portal Azure para aceder à autenticação do Azure Ative Directory (Azure AD) para consumir a AZure Media Services API.
 services: media-services
 documentationcenter: ''
@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 3d6c494232456b4819c9275d66fa6f7ab5de9b77
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c2ac03f600f57ae97cebb77e3b67bcd466955d0b
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89260735"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695412"
 ---
 # <a name="get-started-with-azure-ad-authentication-by-using-the-azure-portal"></a>Introdução à autenticação do Azure AD através do portal do Azure
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 Saiba como utilizar o portal Azure para aceder à autenticação do Azure Ative Directory (Azure AD) para aceder à API dos Serviços de Media Azure.
 
@@ -69,6 +69,6 @@ Esta opção poderia ser usada para autenticar um empregado ou membro de um Dire
 
 Copie as suas credenciais para ligar a sua aplicação de utilizador a partir da secção **API de Serviços de Comunicação Social.** Pode obter valores de texto ou copiar os blocos JSON ou XML.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Começa com [o upload de ficheiros para a tua conta.](media-services-portal-upload-files.md)

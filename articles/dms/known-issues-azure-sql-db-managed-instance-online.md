@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: 1d5c79a141dbe1310762dc90b447fe78848ac10d
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 46c5f5995c7a1d4eb074f6c1b25ecaad7e2da37e
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94962489"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695543"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-managed-instance"></a>Questões conhecidas/limitações de migração com migrações on-line para Azure SQL Gestão De Instância
 
@@ -31,7 +31,7 @@ Problemas e limitações conhecidos que estão associados às migrações on-lin
 
     O Serviço de Migração da Base de Dados Azure utiliza o método de backup e restauro para migrar as bases de dados no local para a SQL Managed Instance. O Serviço de Migração da Base de Dados Azure suporta apenas cópias de segurança criadas através do checksum.
 
-    [Ativar ou desativar os custos de verificação de cópias de segurança durante a cópia de segurança ou restauro (SQL Server)](/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server?view=sql-server-2017)
+    [Ativar ou desativar os custos de verificação de cópias de segurança durante a cópia de segurança ou restaurar (SQL Server)](/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server).
 
     > [!NOTE]
     > Se pegar nas cópias de segurança da base de dados com compressão, a conta de verificação é um comportamento predefinido, a menos que seja explicitamente desativado.
@@ -65,3 +65,29 @@ Problemas e limitações conhecidos que estão associados às migrações on-lin
     SQL Managed Instance é um serviço PaaS com remendos automáticos e atualizações de versão. Durante a migração da sua SQL Managed Instance, as atualizações não críticas são mantidas por até 36 horas. Posteriormente (e para atualizações críticas), se a migração for interrompida, o processo reinicia para um estado de restauro total.
 
     O corte de migração só pode ser chamado depois de restaurado o backup completo e recuperar todos os backups de registo. Se os cortes de migração da sua produção forem afetados, contacte o [pseudónimo Azure DMS Feedback](mailto:dmsfeedback@microsoft.com).
+
+## <a name="smb-file-share-connectivity"></a>Conectividade de partilha de ficheiros SMB
+
+Os problemas ligados à partilha de ficheiros SMB são provavelmente causados por um problema de permissões. 
+
+Para testar a conectividade de partilha de ficheiros SMB, siga estes passos: 
+
+1. Guarde uma cópia de segurança para a partilha de ficheiros SMB. 
+1. Verifique a conectividade da rede entre a sub-rede do Serviço de Migração da Base de Dados Azure e o servidor SQL de origem. A maneira mais fácil de o fazer é implantar uma máquina virtual SQL Server na sub-rede DMS e ligar-se ao SqL Server de origem utilizando o SQL Server Management Studio. 
+1. Restaurar o cabeçalho no servidor SQL de origem a partir da cópia de segurança no ficheiro: 
+
+   ```sql
+   RESTORE HEADERONLY   
+   FROM DISK = N'\\<SMB file share path>\full.bak'
+   ```
+
+Se não conseguir ligar-se à partilha de ficheiros, configure permissões com estes passos: 
+
+1. Navegue para a sua partilha de ficheiros usando o File Explorer. 
+1. Clique com o direito na partilha de ficheiros e selecione propriedades. 
+1. Escolha o separador **Partilhar** e selecione **Partilha Avançada.** 
+1. Adicione a conta Do Windows utilizada para a migração e atribua-lhe acesso total ao controlo. 
+1. Adicione a conta de serviço SQL Server e atribua-lhe acesso total ao controlo. Verifique o **Gestor de Configuração** do Servidor SQL para a conta de serviço SQL Server se não tiver a certeza de que conta está a ser utilizada. 
+
+   :::image type="content" source="media/known-issues-azure-sql-db-managed-instance-online/assign-fileshare-permissions.png" alt-text="Dar acesso total às contas do Windows utilizadas para a migração e para a conta de serviço sql Server. ":::
+

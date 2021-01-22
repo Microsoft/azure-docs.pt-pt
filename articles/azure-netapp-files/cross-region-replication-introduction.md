@@ -1,5 +1,5 @@
 ---
-title: Replicação transversal dos volumes do Azure NetApp Files Microsoft Docs
+title: Replicação transversal de volumes de ficheiros Azure NetApp | Microsoft Docs
 description: Descreve o que a replicação transversal do Azure NetApp Files faz, pares de regiões suportados, objetivos de nível de serviço, durabilidade de dados e modelo de custos.
 services: azure-netapp-files
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/09/2020
+ms.date: 01/21/2021
 ms.author: b-juche
-ms.openlocfilehash: 7c78d5fa89d6d4f3c73bdd1fe9b6d2fdae97c011
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: e51297e8fe5c3dccf43318a066ac5da4a7d24cb2
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937479"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696096"
 ---
 # <a name="cross-region-replication-of-azure-netapp-files-volumes"></a>Replicação transversal dos volumes dos Ficheiros Azure NetApp
 
@@ -37,6 +37,7 @@ A replicação do volume Azure NetApp Files está atualmente disponível nos seg
 * Central Sul dos EUA e Central dos EUA 
 * Centro Sul dos EUA e Leste dos EUA
 * Centro Sul dos EUA e Leste dos EUA 2 
+* Leste dos EUA e Leste dos EUA 2  
 * EUA Leste 2 e Central dos EUA 
 * Austrália Leste e Austrália Sudeste
 * Canadá Central e Canadá Leste

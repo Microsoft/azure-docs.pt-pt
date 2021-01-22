@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8a3a51644f61d4a1e118798986f9c6fb6c52d0e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ae1d19ee3da59c43722ca1ea720eb441f6dd484
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89264169"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696215"
 ---
 # <a name="encrypting-your-content-with-storage-encryption"></a>Encriptar o seu conteúdo com encriptação de armazenamento
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Para concluir este tutorial, precisa de uma conta do Azure. Para obter mais detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).   > Não estão a ser adicionadas novas funcionalidades ou funcionalidades aos Serviços de Comunicação Social v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Para concluir este tutorial, precisa de uma conta do Azure. Para obter mais detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).   > Não estão a ser adicionadas novas funcionalidades ou funcionalidades aos Serviços de Comunicação Social v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 >
 
 Este artigo dá uma visão geral da encriptação de armazenamento AMS e mostra-lhe como carregar o conteúdo encriptado de armazenamento:
@@ -110,7 +110,7 @@ Seguem-se os passos gerais para gerar chaves de conteúdo que associa a ativos q
     }
     ```
 
-5. Crie a tecla de conteúdo com o **EncryptedContentKey** (convertido em cadeia codificada de base64), **ProtectionKeyId,** **ProtectionKeyType,** **ContentKeyType**e **Valores de Checksum** que tenha recebido em etapas anteriores.
+5. Crie a tecla de conteúdo com o **EncryptedContentKey** (convertido em cadeia codificada de base64), **ProtectionKeyId,** **ProtectionKeyType,** **ContentKeyType** e **Valores de Checksum** que tenha recebido em etapas anteriores.
 
     Para encriptação de armazenamento, as seguintes propriedades devem ser incluídas no corpo de pedido.
 

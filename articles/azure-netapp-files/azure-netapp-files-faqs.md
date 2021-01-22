@@ -1,5 +1,5 @@
 ---
-title: PERGUNTAS Frequentes Sobre Ficheiros Azure NetApp / Microsoft Docs
+title: PERGUNTAS FREQUENTES Sobre Ficheiros Azure NetApp | Microsoft Docs
 description: A análise fez perguntas frequentes sobre ficheiros Azure NetApp, tais como networking, segurança, desempenho, gestão de capacidades e migração/proteção de dados.
 services: azure-netapp-files
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/05/2020
+ms.date: 01/21/2020
 ms.author: b-juche
-ms.openlocfilehash: 913d61c506505d18fff416291e7f3b718f1d92f3
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: f680b1ec76200cb4d3bfc90cd83a2c134f379245
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97913503"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696130"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>PERGUNTAS Frequentes Sobre Ficheiros Azure NetApp
 
@@ -258,6 +258,16 @@ N.º A Azure Data Box não suporta ficheiros Azure NetApp atualmente.
 ### <a name="is-migration-with-azure-importexport-service-supported"></a>A migração com o serviço Azure Import/Export é suportada?
 
 N.º O serviço Azure Import/Export não suporta atualmente ficheiros Azure NetApp.
+
+## <a name="product-faqs"></a>Perguntas frequentes de produtos
+
+### <a name="can-i-use-azure-netapp-files-nfs-or-smb-volumes-with-azure-vmware-solution-avs"></a>Posso utilizar volumes NFS ou SMB de Ficheiros Azure NetApp com Solução VMware Azure (AVS)?
+
+Pode montar volumes NFS em VMs do Azure NetApp ou em VMs do Azure NetApp. Pode mapear as ações SMB dos Ficheiros Azure NetApp em VMs do AVS Windows. Para mais detalhes, consulte [os Ficheiros Azure NetApp com Solução VMware Azure]( ../azure-vmware/net-app-files-with-azure-vmware-solution.md).  
+
+### <a name="what-regions-are-supported-for-using-azure-netapp-files-nfs-or-smb-volumes-with-azure-vmware-solution-avs"></a>Que regiões são suportadas para a utilização de volumes NFS ou SMB de Ficheiros Azure NetApp ou SMB com Solução VMware Azure (AVS)?
+
+A utilização de volumes NFS ou SMB de Ficheiros Azure NetApp com AVS é suportada nas seguintes regiões - Leste dos EUA, Eua Ocidental, Europa Ocidental e Austrália Oriental.
 
 ## <a name="next-steps"></a>Passos seguintes  
 

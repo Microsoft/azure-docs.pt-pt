@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8eb45397b1941b9a6955066c22d6d9d00eeef4c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dda7849b6a5e22eea4891eacb2678b4c500dc1e1
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89262098"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693668"
 ---
 # <a name="media-services-development-with-net"></a>Desenvolvimento de Serviços de Mídia com .NET
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 Este artigo discute como começar a desenvolver aplicações de Serviços de Mídia usando .NET.
 
@@ -46,7 +46,7 @@ Esta secção mostra como utilizar **o NuGet** para adicionar extensões net SDK
 
 Em alternativa, pode obter os mais recentes bits net SDK dos Serviços de Media (NET SDK) do GitHub[(github.com/Azure/azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services) ou [github.com/Azure/azure-sdk-for-media-services-extensions),](https://github.com/Azure/azure-sdk-for-media-services-extensions)construir a solução e adicionar as referências ao projeto do cliente. Todas as dependências necessárias são descarregadas e extraídas automaticamente.
 
-1. Crie uma nova Aplicação de Consola C# no Visual Studio. Introduza o **nome Nome,** **Localização**e **Solução**e, em seguida, clique em OK.
+1. Crie uma nova Aplicação de Consola C# no Visual Studio. Introduza o **nome Nome,** **Localização** e **Solução** e, em seguida, clique em OK.
 2. Compilar a solução.
 3. Utilize **o NuGet** para instalar e adicionar **extensões Azure Media Services .NET SDK** **(windowsazure.mediaservices.extensions**). Ao instalar este pacote, também é instalado o **SDK do .NET dos Media Services** e são adicionadas todas as outras dependências necessárias.
    
@@ -82,7 +82,7 @@ Em alternativa, pode obter os mais recentes bits net SDK dos Serviços de Media 
     </configuration>
     ```
 
-7. Adicione a ** referênciaSystem.Configuration** ao seu projeto.
+7. Adicione a **referênciaSystem.Configuration** ao seu projeto.
 8. Sobrepor as declarações **existentes** no início do ficheiro Program.cs com o seguinte código:
 
     ```csharp      

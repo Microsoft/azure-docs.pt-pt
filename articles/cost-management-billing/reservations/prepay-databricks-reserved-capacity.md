@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: b7d7380114046fbeaaf4b6eb2660997d64168715
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 390a8b421a7b34391bde689e4b968fa98cdbaf76
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91368571"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599159"
 ---
 # <a name="optimize-azure-databricks-costs-with-a-pre-purchase"></a>Otimizar custos do Azure Databricks com uma pré-compra
 
@@ -48,7 +48,7 @@ Pode comprar planos do Databricks no [portal do Azure](https://portal.azure.com/
 **Para Comprar:**
 
 1. Aceda ao [Portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22Databricks%22%7D).
-1. Selecione uma subscrição. Use a lista **Subscrição** para selecionar a subscrição que serve para pagar a capacidade de reserva. Os custos iniciais são cobrados de acordo com o método de pagamento indicado na capacidade de reserva. Os custos são deduzidos do saldo de fidelização monetária da inscrição ou cobrados como utilização excedida.
+1. Selecione uma subscrição. Use a lista **Subscrição** para selecionar a subscrição que serve para pagar a capacidade de reserva. Os custos iniciais são cobrados de acordo com o método de pagamento indicado na capacidade de reserva. Os custos são deduzidos do saldo do Pré-pagamento do Azure (que antes se chamava alocação monetária) da inscrição, se disponível, ou cobrados como utilização excedida.
 1. Selecione um âmbito. Use a lista **Âmbito** para selecionar um âmbito de subscrição:
     - **Âmbito de grupo de recursos único** – aplica o desconto de reserva aos recursos correspondentes apenas no grupo de recursos selecionado.
     - **Âmbito de subscrição individual** – aplica o desconto de reserva aos recursos correspondentes na subscrição selecionada.

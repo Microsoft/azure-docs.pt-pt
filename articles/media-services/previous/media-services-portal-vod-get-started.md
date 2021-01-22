@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: f8b2454bb0e39f5923af00502367f7b16bb040a4
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 0cc3e26895f6bd11ba4f2e5f0b04e4dd36a4fcab
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018989"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695294"
 ---
 # <a name="get-started-with-delivering-content-on-demand-by-using-the-azure-portal"></a>Introdução à entrega de conteúdos a pedido com o portal do Azure
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 Este tutorial mostra os passos para implementar um serviço básico de entrega de conteúdos de vídeo a pedido com uma aplicação dos Serviços de Multimédia do Azure no portal do Azure.
 
@@ -63,7 +63,7 @@ Para iniciar o ponto final da transmissão em fluxo:
 Para transmitir vídeos em fluxo com os Serviços de Multimédia, tem de carregar os vídeos de origem, codificá-los em velocidades de transmissão múltiplas e publicar o resultado. O primeiro passo é abrangido nesta secção. 
 
 1. No [portal do Azure](https://portal.azure.com/) selecione a sua conta de Serviços de Multimédia do Azure.
-2. Selecione **Settings**  >  **Configurações Ativos**. Em seguida, selecione o botão **Carregar**.
+2. Selecione   >  **Configurações Ativos**. Em seguida, selecione o botão **Carregar**.
    
     ![Carregar ficheiros](./media/media-services-portal-vod-get-started/media-services-upload.png)
    
@@ -86,7 +86,7 @@ Para tirar partido do empacotamento dinâmico, tem de codificar o ficheiro de or
 Para codificar os seus conteúdos com o Media Encoder Standard no portal do Azure:
 
 1. No [portal do Azure](https://portal.azure.com/) selecione a sua conta de Serviços de Multimédia do Azure.
-2. Selecione **Settings**  >  **Configurações Ativos**. Selecione o elemento que pretende codificar.
+2. Selecione   >  **Configurações Ativos**. Selecione o elemento que pretende codificar.
 3. Selecione o botão **Codificar**.
 4. No painel **Codificar um elemento**, selecione o processador **Media Encoder Standard** e uma predefinição. Para obter informações sobre as predefinições, veja [Auto-generate a bitrate ladder](media-services-autogen-bitrate-ladder-with-mes.md) (Gerar automaticamente uma escala de velocidade de transmissão) e [Task presets for Media Encoder Standard](media-services-mes-presets-overview.md) (Predefinições de tarefas para o Media Encoder Standard). É importante escolher a predefinição que funcionará melhor no seu vídeo de entrada. Por exemplo, se sabe que o seu vídeo de entrada tem uma resolução de 1920 &#215; 1080 pixels, pode escolher a predefinição **H264 Multiple Bitrate 1080p**. Se o vídeo for de baixa resolução (640 &#215; 360), não deve utilizar a predefinição **H264 Multiple Bitrate 1080p**.
    
@@ -134,7 +134,7 @@ Para atualizar uma data de expiração num localizador, pode utilizar uma [API R
 
 ### <a name="to-use-the-portal-to-publish-an-asset"></a>Para utilizar o portal para publicar um elemento
 1. No [portal do Azure](https://portal.azure.com/) selecione a sua conta de Serviços de Multimédia do Azure.
-2. Selecione **Settings**  >  **Configurações Ativos**. Selecione o elemento que pretende publicar.
+2. Selecione   >  **Configurações Ativos**. Selecione o elemento que pretende publicar.
 3. Selecione o botão **Publicar**.
 4. Selecione o tipo de localizador.
 5. Selecione **Adicionar**.

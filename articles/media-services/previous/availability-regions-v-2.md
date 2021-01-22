@@ -1,5 +1,5 @@
 ---
-title: Disponibilidade regional da Azure Media Services Microsoft Docs
+title: Disponibilidade regional da Azure Media Services | Microsoft Docs
 description: Este artigo é uma visão geral das funcionalidades do Microsoft Azure Media Services e disponibilidade regional do serviço.
 services: media-services
 documentationcenter: ''
@@ -14,19 +14,19 @@ ms.topic: conceptual
 ms.date: 11/03/2020
 ms.author: inhenkel
 ms.custom: references_regions
-ms.openlocfilehash: cf84e45ff43643c7e9a983b867194a7920aa1b57
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 458927afc78c46ad365d437a574d0b40b32fc11e
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93351903"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695802"
 ---
 # <a name="media-services-regional-availability"></a>Disponibilidade regional dos Serviços de Mídia
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. Confira a versão mais recente, [Media Services v3](../latest/media-services-overview.md). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. Confira a versão mais recente, [Media Services v3](../latest/media-services-overview.md). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 Os Serviços de Multimédia do Microsoft Azure (AMS) permitem-lhe carregar, armazenar, codificar e empacotar de forma segura conteúdos de vídeo ou áudio, para a entrega de transmissões em fluxo, tanto a pedido, como em direto, para vários clientes (por exemplo, TV, PC e dispositivos móveis).
 
@@ -42,7 +42,7 @@ Utilize [produtos Azure por Região](https://azure.microsoft.com/global-infrastr
 
 Os clientes dos Serviços de Multimédia podem escolher um ponto final de transmissão em fluxo **Standard** ou **Premium**.
 
-|Nome|Estado|Região
+|Name|Estado|Região
 |---|---|---|
 |Standard|GA|Todos|
 |Premium|GA|Todos|
@@ -107,7 +107,7 @@ Uma conta de Serviços de Comunicação está associada a um tipo de unidade res
 |S2|GA|Todos, exceto Sul do Brasil e Oeste da Índia|
 |S3|GA|Todos, exceto Oeste da Índia|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Migrar para os Serviços de Multimédia v3](../latest/media-services-overview.md)
 

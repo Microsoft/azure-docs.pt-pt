@@ -1,5 +1,5 @@
 ---
-title: Operações de Serviços de Mídia REST Visão geral da API / Microsoft Docs
+title: Operações de Serviços de Mídia REST API visão geral | Microsoft Docs
 description: A API "Media Services Operations REST" é utilizada para a criação de Empregos, Ativos, Canais Ao Vivo e outros recursos numa conta de Serviços de Comunicação Social. Este artigo fornece uma visão geral da Azure Media Services v2 REST API.
 services: media-services
 documentationcenter: ''
@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: johndeu
-ms.openlocfilehash: 84e94a431efdc84ff6896de416bd222120784899
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f48a01bb81829ff2bc10b4db1ed543382f992b58
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89264288"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696232"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Operações de Serviços de Mídia REST Visão geral da API
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 A **API de Operações de Serviços de Mídia** É utilizada para a criação de Empregos, Ativos, Canais Ao Vivo e outros recursos numa conta dos Serviços de Comunicação Social. Para mais informações, consulte a [referência API de Operações de Serviços de Mídia](/rest/api/media/operations/azure-media-services-rest-api-reference)REST .
 
@@ -78,23 +78,23 @@ Segue-se um conjunto de cabeçalhos opcionais:
 
 | Cabeçalho | Tipo | Valor |
 | --- | --- | --- |
-| Date |Data RFC 1123 |Tempotam do pedido |
+| Data |Data RFC 1123 |Tempotam do pedido |
 | Aceitar |Tipo do conteúdo |O tipo de conteúdo solicitado para a resposta, tais como:<p> -aplicação/json;odata=verbose<p> - aplicação/átomo+xml<p> As respostas podem ter um tipo de conteúdo diferente, como uma busca de bolhas, onde uma resposta bem sucedida contém o fluxo de bolhas como a carga útil. |
 | Accept-Encoding |Gzip, esvaziar |Codificação GZIP e DEFLATE, quando aplicável. Nota: Para grandes recursos, os Serviços de Comunicação Social podem ignorar este cabeçalho e devolver dados não comprimidos. |
 | Accept-Language |"en", "es", e assim por diante. |Especifica a língua preferida para a resposta. |
 | Accept-Charset |Tipo de charset como "UTF-8" |O padrão é UTF-8. |
 | Método X-HTTP |Método HTTP |Permite que clientes ou firewalls que não suportem métodos HTTP como PUT ou DELETE utilizem estes métodos, escavados através de uma chamada GET. |
 | Content-Type |Tipo do conteúdo |Tipo de conteúdo do organismo de pedido em pedidos PUT ou POST. |
-| cliente-pedido id |Cadeia |Um valor definido pelo chamador que identifica o pedido dado. Se especificado, este valor será incluído na mensagem de resposta como forma de mapear o pedido. <p><p>**Importante**<p>Os valores devem ser limitados a 2096b (2k). |
+| cliente-pedido id |String |Um valor definido pelo chamador que identifica o pedido dado. Se especificado, este valor será incluído na mensagem de resposta como forma de mapear o pedido. <p><p>**Importante**<p>Os valores devem ser limitados a 2096b (2k). |
 
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>Cabeçalhos de resposta HTTP padrão suportados pelos Media Services
 Segue-se um conjunto de cabeçalhos que lhe podem ser devolvidos, dependendo do recurso que solicitou e da ação que pretendia realizar.
 
 | Cabeçalho | Tipo | Valor |
 | --- | --- | --- |
-| pedido id |Cadeia |Um identificador único para a operação atual, serviço gerado. |
-| cliente-pedido id |Cadeia |Um identificador especificado pelo autor da chamada no pedido original, se estiver presente. |
-| Date |Data RFC 1123 |A data/hora em que o pedido foi processado. |
+| pedido id |String |Um identificador único para a operação atual, serviço gerado. |
+| cliente-pedido id |String |Um identificador especificado pelo autor da chamada no pedido original, se estiver presente. |
+| Data |Data RFC 1123 |A data/hora em que o pedido foi processado. |
 | Content-Type |Varia |O tipo de conteúdo do corpo de resposta. |
 | Codificação de conteúdos |Varia |Gzip ou esvazie, conforme apropriado. |
 
@@ -124,7 +124,7 @@ Para mais informações sobre como obter os dados de autenticação necessários
 
 Para obter mais informações sobre o código de escrita que se liga à API REST utilizando a autenticação AZure AD, consulte o artigo [Utilize a autenticação Azure AD para aceder à AZure Media Services API com REST](media-services-rest-connect-with-aad.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para aprender a utilizar a autenticação AZure AD com serviços de mídia REST API, consulte [a autenticação AD do Azure para aceder à Azure Media Services API com REST](media-services-rest-connect-with-aad.md).
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services

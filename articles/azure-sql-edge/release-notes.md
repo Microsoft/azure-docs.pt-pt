@@ -10,16 +10,31 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 11/24/2020
-ms.openlocfilehash: c18cb1cef9b46b4b3cd2f614945f98abf9de7c58
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: e078fb91b3279b6f4321cd51dfb094f82bbe5f14
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704355"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696384"
 ---
 # <a name="azure-sql-edge-release-notes"></a>Notas de lançamento do Azure SQL Edge 
 
 Este artigo descreve o que é novo e o que mudou com cada nova construção de Azure SQL Edge.
+
+## <a name="azure-sql-edge-102"></a>Aresta Azure SQL 1.0.2
+
+Motor SQL constrói 15.0.2000.1554
+
+### <a name="fixes"></a>Correções
+
+- Streaming T-SQL  
+   - Fixar na propriedade e permissões para objetos de streaming
+   - Registar melhorias com rotação de registo e pré-fixação de registos
+   - Azure Stream Analytics: Registar melhorias, melhorar código de erro/mensagens de erro nos adaptadores 
+
+- ONNX
+    - Correções de bugs para cenário de consulta paralela e falhas de limpeza de modelos
+    - Tempo de funcionaamento onNX atualizado para 1.5.1
 
 ## <a name="azure-sql-edge-101"></a>Aresta Azure SQL 1.0.1
 
@@ -93,7 +108,7 @@ Motor SQL constrói 15.0.2000.1549
 ## <a name="ctp-22"></a>CTP 2.2
 Motor SQL constrói 15.0.2000.1546
 ### <a name="whats-new"></a>Novidades
-- Apoio a contentores não-de-corda 
+- Suporte para recipientes não-raiz 
 - Suporte para a recolha de dados de utilização e diagnóstico 
 - Atualizações de streaming T-SQL:
    - Suporte para caracteres Unicode para nomes de objetos de fluxo

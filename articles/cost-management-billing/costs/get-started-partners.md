@@ -3,18 +3,18 @@ title: Começar a utilizar o Azure Cost Management para parceiros
 description: Este artigo explica como os parceiros utilizam as funcionalidades do Azure Cost Management e como ativam o acesso ao Cost Management para os clientes.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/16/2020
+ms.date: 01/19/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: cd3ca4d3ddf73469cd1f1fc065eccb369cf765af
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 8a04cb2c590bc4f0104a93ac7c7c2cf7b71a4662
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905684"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602182"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Começar a utilizar o Azure Cost Management para parceiros
 
@@ -71,9 +71,9 @@ Depois de integrar os seus clientes num Contrato de Cliente Microsoft, estarão 
 
 Utilize o âmbito da conta de faturação para ver os custos antes de impostos em todos os seus clientes e perfis de faturação. Os custos faturados só são apresentados para os produtos baseados no consumo do cliente no Contrato de Cliente Microsoft. No entanto, os custos faturados são apresentados para os produtos baseados na compra para clientes no Contrato de Cliente Microsoft e na oferta CSP. Atualmente, a moeda predefinida para ver os custos no âmbito é o dólar americano. Os orçamentos definidos para o âmbito também estão em USD.
 
-Independentemente das diferentes moedas faturadas pelo cliente, os parceiros utilizam o âmbito da conta de faturação para definir os orçamentos e gerir os custos em USD por clientes, subscrições, recursos e grupos de recursos.
+Independentemente das diferentes moedas faturadas, os parceiros utilizam o âmbito da Conta de faturação para definir orçamentos e gerir custos em USD para os respetivos clientes, subscrições, recursos e grupos de recursos.
 
-Os parceiros também filtram os custos com base numa moeda de faturação específica para os clientes na vista de análise de custos. Selecione a lista **Custos reais** para ver os custos nas moedas de faturação dos clientes suportadas.
+Os parceiros também filtram os custos com base numa moeda de faturação específica para os clientes na vista de análise de custos. Selecione a lista **Custos reais** para ver os custos nas moedas de faturação suportadas.
 
 ![Exemplo a mostrar a seleção de Custos reais para as moedas](./media/get-started-partners/actual-cost-selector.png)
 
@@ -83,7 +83,7 @@ Utilize a [vista de custos amortizados](quick-acm-cost-analysis.md#customize-cos
 
 Utilize o âmbito do perfil de faturação para ver os custos antes de impostos na moeda de faturação em todos os seus clientes para todos os produtos e subscrições incluídos numa fatura. Pode filtrar os custos num perfil de faturação para uma fatura específica através do filtro **InvoiceID**. O filtro mostra os custos de consumo e de compra de produtos para uma fatura específica. Também pode filtrar os custos de um cliente específico na fatura para ver os custos antes de impostos.
 
-Depois de integrar os clientes num Contrato de Cliente Microsoft, receberá uma fatura com todos os custos de todos os produtos (consumo, compras e direitos) para estes clientes no Contrato de Cliente Microsoft. Quando faturadas na mesma moeda, estas faturas também incluem os custos relativos aos produtos de direito e comprados, tais como SaaS, Azure Marketplace e reservas para os clientes que ainda estão na oferta CSP.
+Depois de integrar os clientes num Contrato de Cliente Microsoft, receberá uma fatura com todos os custos de todos os produtos (consumo, compras e direitos) para estes clientes no Contrato de Cliente Microsoft. Quando faturadas na mesma moeda, estas faturas também incluem os custos relativos aos produtos de elegibilidade e comprados, tais como SaaS, Azure Marketplace e reservas para os clientes que ainda estejam na oferta CSP clássica no plano do Azure.
 
 Para ajudar a reconciliar os custos com a fatura do cliente, o âmbito do perfil de faturação permite-lhe ver todos os custos acumulados numa fatura dos seus clientes. Tal como a fatura, o âmbito mostra os custos de cada cliente no novo Contrato de Cliente Microsoft. O âmbito também mostra todos os custos dos produtos de direito do cliente ainda na oferta CSP atual.
 
@@ -91,7 +91,7 @@ Os âmbitos do perfil de faturação e da conta de faturação são os únicos �
 
 Os perfis de faturação definem as subscrições que estão incluídas numa fatura. Os perfis de faturação são o equivalente funcional de uma inscrição no contrato Enterprise. Um perfil de faturação é o âmbito onde as faturas são geradas.
 
-Atualmente, a moeda de faturação do cliente é a moeda predefinida quando visualizar os custos no âmbito do perfil de faturação. Os orçamentos definidos no âmbito do perfil de faturação estão na moeda de faturação.
+Atualmente, a moeda de faturação é a moeda predefinida quando vê os custos no âmbito do perfil de faturação. Os orçamentos definidos no âmbito do perfil de faturação estão na moeda de faturação.
 
 Os parceiros podem utilizar o âmbito para fazer a reconciliação com as faturas. Além disso, utilizam o âmbito para definir orçamentos na moeda de faturação para os seguintes itens:
 
@@ -220,7 +220,7 @@ Os seguintes campos de dados estão disponíveis nos ficheiros de detalhes de ut
 | Quantidade | Quantidade medida comprada ou consumida. O valor do medidor utilizado durante o período de faturação. | Número de unidades. Verifique se corresponde às informações no sistema de faturação durante a reconciliação. |
 | unitOfMeasure | Identifica a unidade em que o serviço é cobrado. Por exemplo, GB e horas. | Identifica a unidade em que o serviço é cobrado. Por exemplo, GB, horas e 10 000 s. |
 | pricingCurrency | A moeda que define o preço unitário. | A moeda na lista de preços.|
-| billingCurrency | A moeda que define o custo faturado. | A moeda da região geográfica do cliente. |
+| billingCurrency | A moeda que define o custo faturado. | A moeda definida como a moeda faturada na fatura. |
 | chargeType | Define o tipo de custo representado no Azure Cost Management, como compra e reembolso. | O tipo de custo ou ajuste. Não disponível para a atividade atual. |
 | costinBillingCurrency | ExtendedCost ou custo combinado antes de impostos na moeda faturada. | N/D |
 | costinPricingCurrency | ExtendedCost ou custo combinado antes de impostos na moeda de preço para correlacionar com os preços. | N/D |

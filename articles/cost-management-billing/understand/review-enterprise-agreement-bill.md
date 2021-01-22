@@ -9,18 +9,18 @@ ms.subservice: enterprise
 ms.topic: tutorial
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: d707051e20b4ce9d1289557aec6f8256c2e6bfba
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 643aac7927cc7b14693387fbb5765bdcd0214dc2
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150074"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598246"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Compreenda a faturação do Contrato Enterprise do Azure
 
 Os clientes do Azure com um Contrato Enterprise recebem uma fatura quando excedem o crédito da organização ou quando utilizam serviços que não são cobertos pelo crédito.
 
-O crédito da sua organização inclui a alocação monetária. A alocação monetária é o montante que a sua organização pagou antecipadamente para a utilização dos serviços do Azure. Pode adicionar fundos de alocação monetária ao Contrato Enterprise ao contactar o seu revendedor ou o gestor de conta Microsoft.
+O crédito da sua organização inclui o seu Pré-pagamento do Azure (que antes se chamava alocação monetária). O Pré-pagamento do Azure é o montante que a sua organização pagou antecipadamente pela utilização dos serviços do Azure. Pode adicionar fundos do Pré-pagamento do Azure ao Contrato Enterprise ao contactar o seu revendedor ou gestor de conta Microsoft.
 
 Este tutorial aplica-se apenas a clientes do Azure com um Contrato Enterprise do Azure.
 
@@ -155,7 +155,7 @@ Alguns motivos para diferenças nos preços:
 
 ## <a name="request-detailed-usage-information"></a>Pedir informações de utilização detalhadas
 
-Os administradores do Enterprise podem ver um resumo dos dados de utilização, da alocação monetária consumida e dos custos associados à utilização adicional no portal Azure Enterprise. Os custos são apresentados ao nível do resumo em todas as contas e subscrições.
+Os administradores de Enterprise podem ver um resumo dos dados de utilização, dos Pré-pagamentos consumidos do Azure e dos custos associados à utilização adicional no portal Azure Enterprise. Os custos são apresentados ao nível do resumo em todas as contas e subscrições.
 
 Para ver a utilização detalhada em contas específicas, transfira o relatório de detalhes de utilização ao aceder a **Relatórios** > **Transferir Utilização**.
 
@@ -166,7 +166,7 @@ Para as inscrições indiretas, o seu parceiro tem de ativar a função de marge
 
 ## <a name="reports"></a>Relatórios
 
-Os administradores do Enterprise podem ver um resumo dos dados de utilização, da alocação monetária consumida e dos custos associados à utilização adicional no portal Azure Enterprise. Os custos são apresentados ao nível do resumo em todas as contas e subscrições.
+Os administradores de Enterprise podem ver um resumo dos dados de utilização, dos Pré-pagamentos consumidos do Azure e dos custos associados à utilização adicional no portal Azure Enterprise. Os custos são apresentados ao nível do resumo em todas as contas e subscrições.
 
 ### <a name="azure-enterprise-reports"></a>Relatórios do Azure Enterprise
 
@@ -249,7 +249,7 @@ Se uma moeda europeia utilizar um ponto (.) para o separador de milhares e uma v
 
 1. No Microsoft Excel, aceda a **Ficheiro** > **Abrir**.
    O Assistente de Importação de Texto é apresentado.
-1. Em **Tipo de Dados Original**, escolha**delimitados**.  A predefinição é **Largura Fixa**.
+1. Em **Tipo de Dados Original**, escolha **delimitados**.  A predefinição é **Largura Fixa**.
 1. Selecione **Seguinte**.
 1. Em Delimitadores, selecione a caixa de verificação de **Vírgula**. Desmarque **Separador** se estiver selecionado.
 1. Selecione **Seguinte**.

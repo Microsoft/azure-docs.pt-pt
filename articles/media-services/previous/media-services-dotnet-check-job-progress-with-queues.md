@@ -1,5 +1,5 @@
 ---
-title: Utilize o armazenamento da Azure Queue para monitorizar as notificações de emprego dos Media Services com .NET / Microsoft Docs
+title: Utilize o armazenamento da Azure Queue para monitorizar as notificações de emprego dos Media Services com .NET | Microsoft Docs
 description: Saiba como usar o armazenamento da Azure Queue para monitorizar as notificações de emprego dos Media Services. A amostra de código está escrita em C# e utiliza o SDK dos Serviços de Mídia para .NET.
 services: media-services
 documentationcenter: ''
@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c6c1dcb0af500c47aabbd8e8193c066bb4a921c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 634b508ca15349152540aca90125575b17943929
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89267773"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696435"
 ---
 # <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Utilize o armazenamento da Azure Queue para monitorizar as notificações de emprego dos Media Services com .NET
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 Quando se faz trabalhos de codificação, muitas vezes é preciso uma forma de acompanhar o progresso do emprego. Pode configurar os Serviços de Comunicação Social para entregar notificações ao [armazenamento da Fila Azure](../../storage/queues/storage-dotnet-how-to-use-queues.md). Pode monitorizar o progresso do trabalho recebendo notificações do armazenamento da fila. 
 
@@ -74,7 +74,7 @@ O exemplo de código nesta secção faz o seguinte:
 ### <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto de Visual Studio
 
 1. Configure o seu ambiente de desenvolvimento e preencha o ficheiro app.config com informações da ligação, conforme descrito em [Media Services development with .NET](media-services-dotnet-how-to-use.md) (Desenvolvimento de Serviços de Multimédia com .NET). 
-2. Crie uma nova pasta (a pasta pode estar em qualquer lugar da unidade local) e copie um ficheiro .mp4 que pretende codificar e fazer streaming ou descarregar progressivamente. Neste exemplo, é utilizado o caminho "C:\Media".
+2. Crie uma nova pasta (a pasta pode estar em qualquer lugar na unidade local) e copie um ficheiro .mp4 que pretende codificar e fazer streaming ou descarregar progressivamente. Neste exemplo, é utilizado o caminho "C:\Media".
 3. Adicione uma referência à biblioteca **System.Runtime.Serialization.**
 
 ### <a name="code"></a>Código

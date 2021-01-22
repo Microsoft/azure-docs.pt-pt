@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: juliako
-ms.openlocfilehash: d235316ad6a16cdc535c705ec88ec13d6963fb41
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: a95e6c9554c96a530b4c92832a57b4febda86002
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92910292"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695692"
 ---
 # <a name="configure-postman-for-media-services-v2-rest-api-calls"></a>Configure Carteiro para Serviços de Mídia v2 REST API chama
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 Este tutorial mostra-lhe como configurar **o Carteiro** para que possa ser usado para chamar APIs de REST da Azure Media Services (AMS). O tutorial mostra como importar ambiente e coleções de ficheiros para **o Carteiro.** A coleção contém definições agrupadas de pedidos HTTP que chamam Azure Media Services (AMS) REST APIs. O ficheiro de ambiente contém variáveis que são utilizadas pela coleção.
 
@@ -35,16 +35,16 @@ Este ambiente e coleção é usado em artigos que mostram como realizar várias 
 
 - Instale o cliente REST do [Postman](https://www.getpostman.com/) para executar as API REST mostradas em alguns dos tutoriais sobre AMS REST. 
 
-    Estamos a utilizar o **Postman** , mas qualquer ferramenta REST seria adequada. Outras alternativas são: **Código de Estúdio Visual** com o plugin REST ou o **Fiddler Telerik** . 
+    Estamos a utilizar o **Postman**, mas qualquer ferramenta REST seria adequada. Outras alternativas são: **Código de Estúdio Visual** com o plugin REST ou o **Fiddler Telerik**. 
 
 ## <a name="configure-the-environment"></a>Configurar o ambiente 
 
 1. Crie um ficheiro .json que contenha as variáveis ambientais utilizadas nos tutoriais da AMS. Nomeie o ficheiro (por exemplo, **AzureMediaServices.postman_environment.js).** Abra o ficheiro e cole o código que define o ambiente do Carteiro a partir [desta listagem](postman-environment.md)de código . 
-2. Abra o **Postman** .
-3. À direita do ecrã, selecione a opção **Gerir ambiente** .
+2. Abra o **Postman**.
+3. À direita do ecrã, selecione a opção **Gerir ambiente**.
 
     ![A screenshot mostra a opção Manage Environment selecionada.](./media/media-services-rest-upload-files/postman-create-env.png)
-4. Na caixa de diálogo **Gerir ambiente** , clique em **Importar** .
+4. Na caixa de diálogo **Gerir ambiente**, clique em **Importar**.
 5. Navegue e selecione as **AzureMediaServices.postman_environment.jsno** ficheiro.
 6. O ambiente **AzureMedia** é adicionado.
 7. Feche a caixa de diálogo.

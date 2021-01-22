@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: overview
 ms.date: 12/15/2020
 ms.author: banders
-ms.openlocfilehash: b79bde204d82b069b3314855a45a680b863c3f69
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 0e45e9741e92bb9e1fe23af79695cae06e64e871
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560496"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602053"
 ---
 # <a name="what-are-azure-reservations"></a>O que é o Azure Reservations?
 
@@ -56,7 +56,7 @@ Para obter mais informações, veja  [Comprar uma reserva](prepare-buy-reserva
 
 ## <a name="how-is-a-reservation-billed"></a>Como é que uma reserva é faturada? 
 
-A reserva é cobrada de acordo com o método de pagamento associado à subscrição. O custo da reserva será deduzido do saldo da alocação monetária, se disponível. Quando o saldo da sua alocação monetária não cobrir o custo da reserva, ser-lhe-á faturada a utilização excedida. Se tiver uma subscrição de um plano individual com taxas pay as you go, o cartão de crédito na sua conta será cobrado de imediato por compras adiantadas. Os pagamentos mensais são apresentados na sua fatura e o seu cartão de crédito é cobrado mensalmente. Ao optar pelo custo por fatura, verá os custos na sua próxima fatura. 
+A reserva é cobrada de acordo com o método de pagamento associado à subscrição. O custo da reserva é deduzido do saldo do Pré-pagamento do Azure (que antes se chamava alocação monetária), se disponível. Quando o saldo do Pré-pagamento do Azure não cobre o custo da reserva, ser-lhe-á faturada a utilização excedida. Se tiver uma subscrição de um plano individual com taxas pay as you go, o cartão de crédito na sua conta será cobrado de imediato por compras adiantadas. Os pagamentos mensais são apresentados na sua fatura e o seu cartão de crédito é cobrado mensalmente. Ao optar pelo custo por fatura, verá os custos na sua próxima fatura. 
 
 ## <a name="who-can-manage-a-reservation-by-default"></a>Quem pode gerir reservas por predefinição
 

@@ -4,12 +4,12 @@ ms.service: azure-resource-manager
 ms.topic: include
 ms.date: 09/01/2020
 ms.author: tomfitz
-ms.openlocfilehash: f1e7b33630ea52bb0cb675b81fff9cc738f27980
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 543aa50d72de5a06a9a1c7ac88ac5ecae993bc9d
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95558014"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98697887"
 ---
 | Recurso | Limite |
 | --- | --- |
@@ -37,4 +37,4 @@ ms.locfileid: "95558014"
 | Tamanho do modelo |4 MB |
 | Tamanho do arquivo do parâmetro |64 KB |
 
-Pode exceder alguns limites de modelo usando um modelo aninhado. Para obter mais informações, consulte [Utilize modelos ligados quando implementar recursos Azure](../articles/azure-resource-manager/templates/linked-templates.md). Para reduzir o número de parâmetros, variáveis ou saídas, pode combinar vários valores num objeto. Para obter mais informações, consulte [os Objetos como parâmetros.](/azure/architecture/building-blocks/extending-templates/objects-as-parameters)
+Pode exceder alguns limites de modelo usando um modelo aninhado. Para obter mais informações, consulte [Utilize modelos ligados quando implementar recursos Azure](../articles/azure-resource-manager/templates/linked-templates.md). Para reduzir o número de parâmetros, variáveis ou saídas, pode combinar vários valores num objeto. Para obter mais informações, consulte [os Objetos como parâmetros.](/azure/architecture/guide/azure-resource-manager/advanced-templates/objects-as-parameters)

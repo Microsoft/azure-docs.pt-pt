@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure NetSuite OneWorld para fornecimento automático de utilizadores com Diretório Ativo Azure / Microsoft Docs'
+title: 'Tutorial: Configurar o NetSuite OneWorld para o fornecimento automático de utilizadores com o Azure Ative Directory | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o NetSuite OneWorld.
 services: active-directory
 author: jeevansd
@@ -10,21 +10,19 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: a5b995fd273fcfa231e101bc77b11d268be728fb
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 294870d3448886b9cea573a0e79b3ac436941f89
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359140"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696494"
 ---
 # <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>Tutorial: Configurar o NetSuite para o fornecimento automático de utilizadores
 
 O objetivo deste tutorial é mostrar-lhe os passos que precisa de executar no NetSuite OneWorld e AD Azure para provisões automáticas e desavisagem de contas de utilizadores de Azure AD para NetSuite.
 
-> [!NOTE]
-> Esta integração atualmente autentica-se utilizando a autenticação básica (nome de utilizador e senha). A NetSuite implementou um requisito de autenticação multi-factor que impede os clientes de utilizarem esta integração a menos que tenham uma isenção deste requisito. Estamos a trabalhar com a NetSuite para atualizar esta integração para um método de autenticação mais recente para permitir que os clientes sem isenção a utilizem novamente. Atualizaremos este documento com um ETA assim que um estiver disponível.
-
-Ação recomendada: Por favor, aguarde até lançarmos uma atualização do comportamento de autenticação para esta integração ou contacte o suporte da NetSuite para inquirir sobre uma isenção ao requisito de autenticação de vários fatores.
+> [!WARNING]
+> Esta integração de provisionamento deixará de funcionar em fevereiro de 2020 devido a uma alteração nas APIs NetSuite que são usadas pela Microsoft para a provisionar utilizadores no NetSuite. Como resultado, a funcionalidade de provisionamento da aplicação NetSuite na Azure Ative Directory Enterprise App Gallery será removida em breve. A funcionalidade SSO da aplicação permanecerá intacta. A Microsoft está a trabalhar com a NetSuite para construir uma nova integração de provisão modernizada, mas atualmente não existe nenhuma ETA sobre quando será concluída.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: reference
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 8cef36cf26231758eb839379d0c020484cbe09fb
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: e0a7553269e1223a5e744db967d65814877878ab
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132606"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598259"
 ---
 # <a name="automation-scenarios-for-billing-and-cost-management"></a>Cenários de automatização para faturação e gestão de custos
 
@@ -103,7 +103,7 @@ As seguintes APIs são apenas para o Enterprise:
 ### <a name="whats-the-difference-between-the-enterprise-reporting-apis-and-the-consumption-apis-when-should-i-use-each"></a>Qual é a diferença entre as APIs de Relatórios do Enterprise e as APIs de Consumo? Quando devo utilizar cada uma delas?
 Estas APIs têm um conjunto de funcionalidades semelhante e podem responder ao mesmo conjunto amplo de perguntas no espaço da faturação e gestão de custos. No entanto, visam públicos diferentes:
 
-- As APIs de Relatórios Enterprise estão disponíveis para os clientes que assinaram um Contrato Enterprise com a Microsoft, que concede acesso a alocações monetárias negociadas e a preços personalizados. As APIs exigem uma chave que pode obter no [Enterprise Portal.](https://ea.azure.com) Para uma descrição destas APIs, veja [Descrição geral das APIs de Relatórios para clientes Enterprise](enterprise-api.md).
+- As APIs de Relatórios Enterprise estão disponíveis para os clientes que assinaram um Contrato Enterprise com a Microsoft, que concede acesso a pagamentos negociados do Pré-pagamento do Azure (que antes se chamava alocação monetária) e a preços personalizados. As APIs exigem uma chave que pode obter no [Enterprise Portal.](https://ea.azure.com) Para uma descrição destas APIs, veja [Descrição geral das APIs de Relatórios para clientes Enterprise](enterprise-api.md).
 
 - As APIs de Consumo estão disponíveis para todos os clientes, com algumas exceções. Para obter mais informações, veja [Descrição geral da API de consumo do Azure](consumption-api-overview.md) e a [ referência da API de Consumo do Azure](/rest/api/consumption/). Recomendamos as APIs fornecidas como a solução para os cenários de desenvolvimento mais recentes.
 
@@ -112,7 +112,7 @@ Estas APIs fornecem dados fundamentalmente diferentes:
 
 - A [API de Detalhes de Utilização](/rest/api/consumption/usagedetails) fornece informações de utilização e custo do Azure por instância de medidor. Os dados fornecidos já passaram pelo sistema de medição de custos no Azure e foram-lhes aplicados os custos, juntamente com outras alterações possíveis:
 
-   - Alterações à conta para a utilização de alocações monetárias pré-pagas
+   - Alterações à conta para a utilização de montantes pré-pagos do Pré-pagamento do Azure
    - Alterações à conta para discrepâncias de utilização descobertas pelo Azure
 
 - A [API de utilização](/previous-versions/azure/reference/mt219003(v=azure.100)) fornece informações brutas de utilização do Azure antes de passar pelo sistema de medição de custos no Azure. Estes dados podem não ter nenhuma correlação com a utilização ou o montante de faturação que é visto após o sistema de medição de carga do Azure.

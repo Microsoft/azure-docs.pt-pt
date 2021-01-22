@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/19/2021
+ms.date: 01/21/2021
 ms.author: b-juche
-ms.openlocfilehash: f50cde2fa67351552d1f31500da09a5f800b2bcc
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 4320222e02f3447dcdff280f04ad26115323e798
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600125"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696159"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Arquiteturas de solução com o Azure NetApp Files
 Este artigo fornece referências às melhores práticas que podem ajudá-lo a entender as arquiteturas de solução para a utilização de Ficheiros Azure NetApp.  
@@ -92,6 +92,10 @@ Esta secção fornece referências à SAP sobre soluções Azure.
 * [Ficheiros Azure NetApp – SAP HANA descarregando backup com Cloud Sync](https://blog.netapp.com/azure-netapp-files-sap-hana)
 * [Acelere as suas cópias do sistema SAP HANA utilizando ficheiros Azure NetApp](https://blog.netapp.com/sap-hana-faster-using-azure-netapp-files/)
 * [Volumes de nuvem ONTAP e Azure NetApp Ficheiros: Migração do sistema SAP HANA facilitada](https://blog.netapp.com/cloud-volumes-ontap-and-azure-netapp-files-sap-hana-system-migration-made-easy/)
+
+## <a name="azure-vmware-solutions"></a>Soluções Azure VMware
+
+* [Ficheiros Azure NetApp com Solução VMware Azure - Suportes de OS Convidados](../azure-vmware/net-app-files-with-azure-vmware-solution.md)
 
 ## <a name="virtual-desktop-infrastructure-solutions"></a>Soluções de Infraestrutura de Ambiente de Trabalho Virtual
 

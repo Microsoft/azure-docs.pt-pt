@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a26be590d5f7b467f57e8e18eac54ce57be24094
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd1d50003ef4334f1ea83ac256b371b20d021936
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266600"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693897"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>Offline PlayReady Streaming for Windows 10 (Transmissão em Fluxo Offline do PlayReady para Windows 10)
 
@@ -31,7 +31,7 @@ ms.locfileid: "89266600"
 > * [Versão 2](offline-playready-streaming-windows-10.md)
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 Azure Media Services suporta descarregamento/reprodução offline com proteção DRM. Este artigo abrange suporte offline da Azure Media Services para clientes Windows 10/PlayReady. Pode ler sobre o suporte ao modo offline para dispositivos iOS/FairPlay e Android/Widevine nos seguintes artigos:
 
@@ -42,7 +42,7 @@ Azure Media Services suporta descarregamento/reprodução offline com proteção
 
 Esta secção dá algum fundo na reprodução do modo offline, especialmente por que:
 
-* Em alguns países/regiões, a disponibilidade de Internet e/ou largura de banda ainda é limitada.Os utilizadores podem optar por descarregar primeiro para poderem ver conteúdos em resolução suficientemente alta para uma experiência de visualização satisfatória. Neste caso, mais frequentemente, a questão não é a disponibilidade da rede, mas sim a largura de banda de rede limitada. Os fornecedores de OTT/OVP estão a pedir suporte ao modo offline.
+* Em alguns países/regiões, a disponibilidade de Internet e/ou largura de banda ainda é limitada. Os utilizadores podem optar por descarregar primeiro para poderem ver conteúdos em resolução suficientemente alta para uma experiência de visualização satisfatória. Neste caso, mais frequentemente, a questão não é a disponibilidade da rede, mas sim a largura de banda de rede limitada. Os fornecedores de OTT/OVP estão a pedir suporte ao modo offline.
 * Conforme divulgado na conferência de acionistas do Q3 da Netflix de 2016, o download de conteúdos é uma "funcionalidade solicitada", e "estamos abertos a isso" dito por Reed Hastings, CEO da Netflix.
 * Alguns fornecedores de conteúdo podem não permitir a entrega de licenças de DRM para além da fronteira entre um país e uma região. Se um utilizador precisar de viajar para o estrangeiro e ainda quiser ver conteúdos, é necessário descarregar offline.
  

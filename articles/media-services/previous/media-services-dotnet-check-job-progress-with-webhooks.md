@@ -1,5 +1,5 @@
 ---
-title: Utilize webhooks da Azure para monitorizar as notificações de emprego dos Media Services com .NET / Microsoft Docs
+title: Utilize webhooks Azure para monitorizar notificações de emprego dos Media Services com .NET | Microsoft Docs
 description: Saiba como usar o Azure Webhooks para monitorizar as notificações de trabalho dos Media Services. A amostra de código está escrita em C# e utiliza o SDK dos Serviços de Mídia para .NET.
 services: media-services
 documentationcenter: ''
@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 24e4bf9940de0f7b0e851bdfdbd2d788757034e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e99d2c2676d05772106296d8b960dd55fd30501c
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89267739"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696477"
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Utilize webhooks Azure para monitorizar notificações de emprego dos Media Services com .NET
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 Quando se gere empregos, muitas vezes é preciso uma forma de acompanhar o progresso do emprego. Pode monitorizar as notificações de emprego dos Media Services utilizando o armazenamento de Azure Webhooks ou [Azure Queue](media-services-dotnet-check-job-progress-with-queues.md). Este artigo mostra como trabalhar com webhooks.
 
@@ -64,7 +64,7 @@ Ao desenvolver funções de Media Services, é útil adicionar variáveis ambien
 
 A secção [de definições de aplicação](media-services-dotnet-how-to-use-azure-functions.md#configure-function-app-settings) define parâmetros que são utilizados no webhook definido neste artigo. Adicione também os seguintes parâmetros às definições da aplicação. 
 
-|Nome|Definição|Exemplo| 
+|Name|Definição|Exemplo| 
 |---|---|---|
 |AssinaturaKey |Uma chave de assinatura.| j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt|
 |WebHookEndpoint | Um endereço de ponto final webhook. Uma vez criada a sua função webhook, pode copiar o URL a partir do link URL da **função Obter.** | https: \/ /juliakofuncapp.azurewebsites.net/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g=.|
@@ -80,7 +80,7 @@ Uma vez implementada a sua aplicação de função, pode encontrá-la entre as F
 
 ### <a name="files"></a>Ficheiros
 
-A sua Função Azure está associada a ficheiros de código e outros ficheiros descritos nesta secção. Por predefinição, uma função está associada a ** ficheirosfunction.js** e **executados.csx** (C#). Precisa adicionar um **project.jsno** arquivo. O resto desta secção mostra as definições para estes ficheiros.
+A sua Função Azure está associada a ficheiros de código e outros ficheiros descritos nesta secção. Por predefinição, uma função está associada a **ficheirosfunction.js** e **executados.csx** (C#). Precisa adicionar um **project.jsno** arquivo. O resto desta secção mostra as definições para estes ficheiros.
 
 ![ficheiros](./media/media-services-azure-functions/media-services-azure-functions003.png)
 

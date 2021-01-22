@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.openlocfilehash: c59bd7f9bc8c5049572afdf93343222b30c0007b
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: d1546ef92d923b9d72c4aca0ddf61d2b93646656
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131909"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602342"
 ---
 # <a name="use-cost-alerts-to-monitor-usage-and-spending"></a>Utilizar alertas de custo para monitorizar a utilização e as despesas
 
@@ -29,7 +29,7 @@ Pode utilizar a API de Orçamentos para enviar alertas de e-mail num idioma dife
 
 ## <a name="credit-alerts"></a>Alertas de crédito
 
-Os alertas de crédito notificam-no quando as suas alocações monetárias de crédito do Azure são consumidas. As alocações monetárias destinam-se às organizações com Contratos Enterprise. Os alertas de crédito são gerados automaticamente quando atinge 90% e 100% do seu saldo de crédito do Azure. Sempre que é gerado um alerta, este é refletido nos alertas de custos e no e-mail enviado aos proprietários da conta.
+Os alertas de crédito notificam-no de quando consumiu o Pré-pagamento do Azure (que antes se chamava alocação monetária). O Pré-pagamento do Azure destina-se às organizações com Contratos Enterprise. Os alertas de crédito são gerados automaticamente quanto atinge 90% e 100% do saldo de crédito do Pré-pagamento do Azure. Sempre que é gerado um alerta, este é refletido nos alertas de custos e no e-mail enviado aos proprietários da conta.
 
 ## <a name="department-spending-quota-alerts"></a>Alertas de quotas de despesas do departamento
 

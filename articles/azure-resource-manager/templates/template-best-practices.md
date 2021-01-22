@@ -3,12 +3,12 @@ title: Melhores práticas de modelos
 description: Descreve abordagens recomendadas para a autoria de modelos de Gestor de Recursos Azure (modelos ARM). Oferece sugestões para evitar problemas comuns ao usar modelos.
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.openlocfilehash: 85d58098508d5ac7cad6c1cb3cb68ad6c7f179f9
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: c0b26c300a9474cc5db0b1a7b732c4416a9e6f5f
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724991"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696351"
 ---
 # <a name="arm-template-best-practices"></a>As melhores práticas do modelo ARM
 
@@ -26,9 +26,9 @@ Também se limita a:
 * 64 valores de saída
 * 24.576 caracteres em uma expressão de modelo
 
-Pode exceder alguns limites de modelo usando um modelo aninhado. Para obter mais informações, consulte [utilizando modelos ligados e aninhados ao utilizar recursos Azure](linked-templates.md). Para reduzir o número de parâmetros, variáveis ou saídas, pode combinar vários valores num objeto. Para obter mais informações, consulte [os Objetos como parâmetros.](/azure/architecture/building-blocks/extending-templates/objects-as-parameters)
+Pode exceder alguns limites de modelo usando um modelo aninhado. Para obter mais informações, consulte [utilizando modelos ligados e aninhados ao utilizar recursos Azure](linked-templates.md). Para reduzir o número de parâmetros, variáveis ou saídas, pode combinar vários valores num objeto. Para obter mais informações, consulte [os Objetos como parâmetros.](/azure/architecture/guide/azure-resource-manager/advanced-templates/objects-as-parameters)
 
-## <a name="resource-group"></a>O grupo de recursos
+## <a name="resource-group"></a>Grupo de recursos
 
 Quando implementa recursos para um grupo de recursos, o grupo de recursos armazena metadados sobre os recursos. Os metadados são armazenados na localização do grupo de recursos.
 
@@ -283,7 +283,7 @@ O kit de ferramentas de teste do modelo ARM é um script que verifica se o seu m
 
 Depois de ter concluído o seu modelo, execute o kit de ferramentas de teste para ver se existem formas de melhorar a sua implementação. Para obter mais informações, consulte [o kit de ferramentas de teste do modelo ARM](test-toolkit.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter informações sobre a estrutura do ficheiro do modelo, consulte [compreender a estrutura e a sintaxe dos modelos ARM](template-syntax.md).
 * Para recomendações sobre como construir modelos que funcionam em todos os ambientes de nuvem Azure, consulte [modelos de DESENVOLVIMENTO ARM para a consistência da nuvem.](templates-cloud-consistency.md)

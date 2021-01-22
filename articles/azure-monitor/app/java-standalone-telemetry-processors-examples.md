@@ -6,12 +6,12 @@ ms.date: 12/29/2020
 author: kryalama
 ms.custom: devx-track-java
 ms.author: kryalama
-ms.openlocfilehash: b9ad5347e146fc94b513180c591b00c4f449619f
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 9b29c9611359c97c4097ad0b90ee2673bb28f37c
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98146461"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696317"
 ---
 # <a name="telemetry-processors-examples---azure-monitor-application-insights-for-java"></a>Exemplos de processadores de telemetria - Azure Monitor Application Insights for Java
 
@@ -330,7 +330,7 @@ O seguinte demonstra os valores de atributos existentes.
 ### <a name="extract"></a>Extrair
 
 O exemplo a seguir demonstra a utilização do Regex para criar novos atributos baseados no valor de outro atributo.
-Por exemplo, dado http.url = http://example.com/path?queryParam1=value1 ,consultaParam2=valor2 serão inseridos os seguintes atributos:
+Por exemplo, dado http.url = ' http://example.com/path?queryParam1=value1 'consultaParam2=valor2' serão inseridos os seguintes atributos:
 * httpProtocol: http
 * httpDomain: example.com
 * httpPath: caminho

@@ -11,20 +11,20 @@ author: justinha
 manager: daveba
 ms.reviewer: rateller
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43573b54be6884e01121e404370d2e1d85a3c4e8
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: d9430066ad92b4d0b69bd07c763e3f7b5d6e889a
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98660886"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693541"
 ---
 # <a name="configure-and-enable-users-for-sms-based-authentication-using-azure-active-directory"></a>Configure e permita aos utilizadores a autenticação baseada em SMS utilizando o Azure Ative Directory 
 
-Para simplificar e garantir o sinal de inscrição nas aplicações e serviços, o Azure Ative Directory (Azure AD) oferece múltiplas opções de autenticação. A autenticação baseada em SMS permite que os utilizadores entrem sem fornecer, ou mesmo saber, o seu nome de utilizador e senha. Após a criação da sua conta por um administrador de identidade, podem introduzir o seu número de telefone na introdução do pedido de inscrição. Recebem um código de autenticação através de uma mensagem de texto que podem fornecer para completar a súm. Este método de autenticação simplifica o acesso a aplicações e serviços, especialmente para os trabalhadores da linha da frente.
+Para simplificar e garantir o sinal de inscrição nas aplicações e serviços, o Azure Ative Directory (Azure AD) oferece múltiplas opções de autenticação. A autenticação baseada em SMS permite que os utilizadores entrem sem fornecer, ou mesmo saber, o seu nome de utilizador e senha. Após a criação da sua conta por um administrador de identidade, podem introduzir o seu número de telefone na introdução do pedido de inscrição. Recebem um código de autenticação através de uma mensagem de texto que podem fornecer para completar a súm. Este método de autenticação simplifica o acesso a aplicações e serviços, especialmente para os trabalhadores da Linha da Frente.
 
 Este artigo mostra-lhe como ativar a autenticação baseada em SMS para utilizadores ou grupos selecionados em Azure AD.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Para completar este artigo, precisa dos seguintes recursos e privilégios:
 
@@ -145,7 +145,7 @@ Se receber um erro quando tentar definir um número de telefone para uma conta d
 1. Certifique-se de que o número de telefone não é usado em outro lugar no seu inquilino.
 1. Verifique se não há nenhum número de voz definido na conta. Se um número de voz estiver definido, apague e tente novamente o número de telefone.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter formas adicionais de iniciar sing no AD Azure sem uma senha, como a App autenticador microsoft ou as teclas de segurança FIDO2, consulte [opções de autenticação sem palavras-passe para Azure AD][concepts-passwordless].
 

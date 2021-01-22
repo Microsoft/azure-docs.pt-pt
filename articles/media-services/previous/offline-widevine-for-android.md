@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan
 ms.reviewer: dwgeo
-ms.openlocfilehash: 4b3b2b8c39b5b2552b5ce9f508bacd1ea86b2638
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: dc21523d158330d70adfbc33734abe3d49535804
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006371"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696300"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Transmissão offline em fluxo de Widevine para Android
 
@@ -31,7 +31,7 @@ ms.locfileid: "96006371"
 > * [Versão 2](offline-widevine-for-android.md)
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 Além de proteger conteúdos para streaming online, a subscrição de conteúdos de mídia e os serviços de aluguer oferecem conteúdo transferível que funciona quando não está ligado à internet. Pode ser necessário transferir conteúdo para o seu telemóvel ou tablet para reprodução no modo avião quando voar desligado da rede. Cenários adicionais, nos quais poderá querer descarregar conteúdo:
 
@@ -49,7 +49,7 @@ Para a construção das aplicações para jogadores Android, delineamos três op
 
 O artigo também responde a algumas questões comuns relacionadas com o streaming offline de conteúdos protegidos de Widevine.
 
-## <a name="requirements"></a>Requisitos 
+## <a name="requirements"></a>Requirements 
 
 Antes de implementar DRM offline para Widevine em dispositivos Android, você deve primeiro:
 
@@ -165,7 +165,7 @@ A aplicação PWA de código aberto acima é da autoria em Node.js. Se pretender
     - O certificado deve ter confiado em AC e um certificado de desenvolvimento auto-assinado não funciona
     - O certificado deve ter um CN correspondente ao nome DNS do servidor web ou gateway
 
-## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 ### <a name="question"></a>Pergunta
 

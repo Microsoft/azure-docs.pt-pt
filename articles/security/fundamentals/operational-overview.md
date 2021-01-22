@@ -1,5 +1,5 @@
 ---
-title: Visão geral da segurança operacional do Azure Microsoft Docs
+title: Visão geral da segurança operacional do Azure| Microsoft Docs
 description: Conheça a segurança operacional da Azure nesta visão geral. Segurança operacional refere-se a serviços de proteção de bens, controlos e funcionalidades.
 services: security
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: 9dcb1113bb37cb0f5f65c54ae9d6ca76a88330c1
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: c3674b6877438a0dd4fe53569cf6852e872334a7
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94698670"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693617"
 ---
 # <a name="azure-operational-security-overview"></a>Visão geral da segurança operacional do Azure
 
@@ -171,23 +171,23 @@ As plantas fornecem uma forma declarativa de orquestrar a implantação de vári
 
 ## <a name="devops"></a>DevOps
 
-Antes do desenvolvimento [de aplicações de Developer Operations (DevOps),](https://www.visualstudio.com/learn/what-is-devops/) as equipas estavam encarregadas de recolher os requisitos de negócio para um programa de software e código de escrita. Em seguida, uma equipa de QA separada testou o programa em um ambiente de desenvolvimento isolado. Se os requisitos fossem cumpridos, a equipa da QA divulgou o código para as operações a implementar. As equipas de implantação foram ainda fragmentadas em grupos como networking e base de dados. De cada vez que um programa de software era "atirado por cima da parede" para uma equipa independente, acrescentava estrangulamentos.
+Antes do desenvolvimento [de aplicações de Developer Operations (DevOps),](https://azure.microsoft.com/overview/what-is-devops/) as equipas estavam encarregadas de recolher os requisitos de negócio para um programa de software e código de escrita. Em seguida, uma equipa de QA separada testou o programa em um ambiente de desenvolvimento isolado. Se os requisitos fossem cumpridos, a equipa da QA divulgou o código para as operações a implementar. As equipas de implantação foram ainda fragmentadas em grupos como networking e base de dados. De cada vez que um programa de software era "atirado por cima da parede" para uma equipa independente, acrescentava estrangulamentos.
 
 O DevOps permite que as equipas proporcionem soluções mais seguras e de maior qualidade mais rápidas e baratas. Os clientes esperam uma experiência dinâmica e fiável ao consumir software e serviços. As equipas devem iterar rapidamente as atualizações de software e medir o impacto das atualizações. Devem responder rapidamente com novas iterações de desenvolvimento para resolver questões ou fornecer mais valor.  
 
 Plataformas cloud como o Microsoft Azure removeram os estrangulamentos tradicionais e ajudaram a commoditizar a infraestrutura. O software reina em todos os negócios como o principal diferenciador e fator nos resultados do negócio. Nenhuma organização, desenvolvedor ou trabalhador de TI pode ou deve evitar o movimento DevOps.
 
-Os praticantes de DevOps maduros adotam várias das seguintes práticas. Estas práticas [envolvem as pessoas](https://www.visualstudio.com/learn/what-is-devops-culture/) a formar estratégias baseadas nos cenários de negócio. A ferramenta pode ajudar a automatizar as várias práticas.
+Os praticantes de DevOps maduros adotam várias das seguintes práticas. Estas práticas [envolvem as pessoas](/azure/devops/learn/what-is-devops-culture) a formar estratégias baseadas nos cenários de negócio. A ferramenta pode ajudar a automatizar as várias práticas.
 
 - As técnicas [ágeis de planeamento e gestão de projetos](https://www.visualstudio.com/learn/what-is-agile/) são usadas para planear e isolar o trabalho em sprints, gerir a capacidade da equipa e ajudar as equipas a adaptarem-se rapidamente às necessidades de negócio em mudança.
-- [O controlo de versão, normalmente com](https://www.visualstudio.com/learn/what-is-git/)o Git, permite que as equipas localizadas em qualquer parte do mundo partilhem a origem e se integrem com ferramentas de desenvolvimento de software para automatizar o pipeline de lançamento.
-- [A integração contínua](https://www.visualstudio.com/learn/what-is-continuous-integration/) impulsiona a fusão e teste de código em curso, o que leva a encontrar defeitos precocemente.  Outros benefícios incluem menos tempo desperdiçado na luta contra questões de fusão e feedback rápido para as equipas de desenvolvimento.
-- [A entrega contínua](https://www.visualstudio.com/learn/what-is-continuous-delivery/) de soluções de software para ambientes de produção e teste ajuda as organizações a corrigir rapidamente bugs e a responder a requisitos de negócio em constante mudança.
-- [Monitorização](https://www.visualstudio.com/learn/what-is-monitoring/) de aplicações em execução -- incluindo ambientes de produção para a saúde da aplicação, bem como o uso do cliente -- ajuda as organizações a formar uma hipótese e a validar ou refutar rapidamente estratégias.  Os dados ricos são capturados e armazenados em vários formatos de registo.
-- [Infraestrutura como Código (IAC)](https://www.visualstudio.com/learn/what-is-infrastructure-as-code/) é uma prática que permite a automatização e validação da criação e demolição de redes e máquinas virtuais para ajudar a fornecer plataformas de hospedagem de aplicações seguras e estáveis.
-- A arquitetura [microserviços](https://www.visualstudio.com/learn/what-are-microservices/) é usada para isolar casos de uso de negócios em pequenos serviços reutilizáveis.  Esta arquitetura permite escalabilidade e eficiência.
+- [O controlo de versão, normalmente com](/azure/devops/learn/git/what-is-git)o Git, permite que as equipas localizadas em qualquer parte do mundo partilhem a origem e se integrem com ferramentas de desenvolvimento de software para automatizar o pipeline de lançamento.
+- [A integração contínua](/azure/devops/learn/what-is-continuous-integration) impulsiona a fusão e teste de código em curso, o que leva a encontrar defeitos precocemente.  Outros benefícios incluem menos tempo desperdiçado na luta contra questões de fusão e feedback rápido para as equipas de desenvolvimento.
+- [A entrega contínua](/azure/devops/learn/what-is-continuous-delivery) de soluções de software para ambientes de produção e teste ajuda as organizações a corrigir rapidamente bugs e a responder a requisitos de negócio em constante mudança.
+- [Monitorização](/azure/devops/learn/what-is-monitoring) de aplicações em execução -- incluindo ambientes de produção para a saúde da aplicação, bem como o uso do cliente -- ajuda as organizações a formar uma hipótese e a validar ou refutar rapidamente estratégias.  Os dados ricos são capturados e armazenados em vários formatos de registo.
+- [Infraestrutura como Código (IAC)](/azure/devops/learn/what-is-infrastructure-as-code) é uma prática que permite a automatização e validação da criação e demolição de redes e máquinas virtuais para ajudar a fornecer plataformas de hospedagem de aplicações seguras e estáveis.
+- A arquitetura [microserviços](/azure/devops/learn/what-are-microservices) é usada para isolar casos de uso de negócios em pequenos serviços reutilizáveis.  Esta arquitetura permite escalabilidade e eficiência.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre a solução segurança e auditoria, consulte os seguintes artigos:
 

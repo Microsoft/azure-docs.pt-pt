@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: troubleshooting
 ms.date: 09/04/2020
 ms.author: deanwe
-ms.openlocfilehash: 2b15389ae35a63c71ac4cb9e167e578e7e1e690e
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: b8f2b3e1ffde49c8df3c3a6d7c0b9b3751fda5fa
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97695773"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696181"
 ---
 # <a name="frequently-asked-questions-for-azure-automanage-for-vms"></a>Perguntas frequentes para Azure Automanage para VMs
 
@@ -28,7 +28,6 @@ Se a sua questão Azure não for abordada neste artigo, visite os fóruns Azure 
 
 São os seguintes pré-requisitos para permitir a auto-produção da Azure:
 - Apenas VMs do Servidor windows
-- Os VMs devem estar a funcionar
 - Os VMs devem estar numa região apoiada
 - O utilizador deve ter permissões corretas
 - VMs definidos não escala apenas

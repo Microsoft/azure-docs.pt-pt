@@ -1,5 +1,5 @@
 ---
-title: Live stream com codificadores no local usando portal Azure / Microsoft Docs
+title: Live stream com codificadores no local usando portal Azure | Microsoft Docs
 description: Este tutorial explica os passos para criar um Canal configurado para uma entrega pass-through.
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 707c12cac6bbceee925c4710eff29482f687d47f
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 08d1e9cd281cf41a79d1b30d709062c01abbab33
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040723"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695446"
 ---
 # <a name="perform-live-streaming-with-on-premises-encoders-using-azure-portal"></a>Execute o streaming ao vivo com codificadores no local usando o portal Azure
 
@@ -33,7 +33,7 @@ ms.locfileid: "93040723"
 > 
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 Este tutorial explica os passos para criar um **Canal** configurado para uma entrega pass-through através do Portal do Azure. 
 
@@ -55,7 +55,7 @@ O seguinte é necessário para concluir o tutorial:
 Os passos seguintes descrevem as tarefas envolvidas na criação de aplicações de transmissão em fluxo em direto comuns que utilizam canais que estão configurados para entrega pass-through. Este tutorial mostra como criar e gerir um canal pass-through e eventos em direto.
 
 > [!NOTE]
-> Certifique-se de que o ponto final de transmissão em fluxo a partir do qual quer transmitir conteúdo está no estado **Em execução** . 
+> Certifique-se de que o ponto final de transmissão em fluxo a partir do qual quer transmitir conteúdo está no estado **Em execução**. 
     
 1. Ligue uma câmara de vídeo a um computador. <br/>Para obter ideias de configuração, confira [a configuração de equipamento de vídeo de evento simples e portátil]( https://link.medium.com/KNTtiN6IeT).
 1. Iniciar e configurar um codificador em direto no local que produza um RTMP com velocidade de transmissão múltipla ou uma transmissão em fluxo MP4 fragmentada. Para obter mais informações, consulte [Suporte RTMP dos Media Services do Azure e Codificadores em Direto](https://go.microsoft.com/fwlink/?LinkId=532824).<br/>Confira também este blog: [Produção de streaming ao vivo com OBS](https://link.medium.com/ttuwHpaJeT).
@@ -90,7 +90,7 @@ Se pretende ver as notificações e os erros produzidos pelo Portal do Azure, cl
 ## <a name="create-and-start-pass-through-channels-and-events"></a>Criar e iniciar eventos e canais pass-through
 Um canal está associado a eventos/programas que permitem controlar a publicação e armazenamento de segmentos numa transmissão em fluxo em direto. Os canais gerem eventos. 
 
-Pode especificar o número de horas que pretenda manter o conteúdo gravado para o programa através da configuração da duração da **Janela de Arquivo** . Este valor pode ser definido a partir de um mínimo de 5 minutos até um máximo de 25 horas. A duração da janela de arquivo dita também o tempo máximo que os clientes podem recuar a partir da posição atual em direto. Os eventos podem ser executados durante o período de tempo especificado, contudo, o conteúdo que não respeitar essa duração da janela é continuamente descartado. O valor desta propriedade também determina durante quanto tempo os manifestos dos clientes podem aumentar.
+Pode especificar o número de horas que pretenda manter o conteúdo gravado para o programa através da configuração da duração da **Janela de Arquivo**. Este valor pode ser definido a partir de um mínimo de 5 minutos até um máximo de 25 horas. A duração da janela de arquivo dita também o tempo máximo que os clientes podem recuar a partir da posição atual em direto. Os eventos podem ser executados durante o período de tempo especificado, contudo, o conteúdo que não respeitar essa duração da janela é continuamente descartado. O valor desta propriedade também determina durante quanto tempo os manifestos dos clientes podem aumentar.
 
 Cada evento está associado a um elemento. Para publicar o evento, deve criar um localizador OnDemand para o elemento associado. Ter este localizador permite compilar um URL de transmissão em fluxo que pode fornecer aos seus clientes.
 
@@ -112,7 +112,7 @@ Esta secção mostra como utilizar a opção **Criação Rápida** para criar um
 Para obter mais detalhes sobre canais pass-through, veja [Transmissão em fluxo em direto com codificadores no local que criam transmissões em fluxo com velocidade de transmissão múltipla](media-services-live-streaming-with-onprem-encoders.md).
 
 1. No [portal do Azure](https://portal.azure.com/) selecione a sua conta de Serviços de Multimédia do Azure.
-2. Na janela **Definições** , clique em **Transmissão em Fluxo em Direto** . 
+2. Na janela **Definições**, clique em **Transmissão em Fluxo em Direto**. 
    
     ![Introdução](./media/media-services-portal-passthrough-get-started/media-services-getting-started.png)
    
@@ -120,13 +120,13 @@ Para obter mais detalhes sobre canais pass-through, veja [Transmissão em fluxo 
 3. Clique em **Criação Rápida** para criar um canal pass-through com o protocolo de inserção RTMP.
    
     A janela **CRIAR UM NOVO CANAL** é apresentada.
-4. Dê um nome ao novo canal e clique em **Criar** . 
+4. Dê um nome ao novo canal e clique em **Criar**. 
    
     Tal cria um canal pass-through com o protocolo de inserção RTMP.
 
 ## <a name="create-events"></a>Criar eventos
 1. Selecione um canal para o qual pretende adicionar um evento.
-2. Prima o botão **Evento em Direto** .
+2. Prima o botão **Evento em Direto**.
 
 ![Evento](./media/media-services-portal-passthrough-get-started/media-services-create-events.png)
 
@@ -151,7 +151,7 @@ Para obter mais detalhes sobre canais pass-through, veja [Transmissão em fluxo 
 ## <a name="view-archived-content"></a>Ver conteúdo arquivado
 Mesmo depois de parar e eliminar o evento, os utilizadores conseguirão transmitir o seu conteúdo arquivado como um vídeo a pedido, desde que não elimine o elemento. Não é possível eliminar um elemento se este é utilizado por um evento; o evento deve ser eliminado primeiro. 
 
-Para gerir os seus elementos, selecione **Definição** e clique em **Elementos** .
+Para gerir os seus elementos, selecione **Definição** e clique em **Elementos**.
 
 ![Elementos](./media/media-services-portal-passthrough-get-started/media-services-assets.png)
 

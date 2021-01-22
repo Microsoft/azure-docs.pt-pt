@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 08/04/2020
-ms.openlocfilehash: 0041779abcd97901fb9315125a287a1d45cff133
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 02adb6f47b907fea402f8b312b3f4e8e117927ed
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350114"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693685"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-online-using-dms"></a>Tutorial: Migrar o SQL Server para um Azure SQL Managed Instance on-line usando DMS
 
@@ -211,11 +211,11 @@ Após a criação de uma instância do serviço, localize-a no portal do Azure, 
 
     | | |
     |--------|---------|
-    |**Partilha de localização na Rede SMB** | A partilha de rede SMB local ou a partilha de ficheiros Azure que contém os ficheiros de backup de bases de dados completos e ficheiros de cópia de segurança de registo de transações que o Azure Database Migration Service pode usar para migração. A conta de serviço que estiver a executar a instância do SQL Server de origem tem de ter privilégios de leitura\escrita nesta partilha de rede. Indique um FQDN ou um endereço IP do servidor na partilha de rede, como, por exemplo, “\\\servername.domainname.com\backupfolder” ou “\\\IP address\backupfolder”. Para um melhor desempenho, recomenda-se a utilização de pastas separadas para cada base de dados a ser migrada. Pode fornecer o caminho de partilha de ficheiros de nível de base de dados utilizando a opção **Definições Avançadas.** |
+    |**Partilha de localização na Rede SMB** | A partilha de rede SMB local ou a partilha de ficheiros Azure que contém os ficheiros de backup de bases de dados completos e ficheiros de cópia de segurança de registo de transações que o Azure Database Migration Service pode usar para migração. A conta de serviço que estiver a executar a instância do SQL Server de origem tem de ter privilégios de leitura\escrita nesta partilha de rede. Indique um FQDN ou um endereço IP do servidor na partilha de rede, como, por exemplo, “\\\servername.domainname.com\backupfolder” ou “\\\IP address\backupfolder”. Para um melhor desempenho, recomenda-se a utilização de pastas separadas para cada base de dados a ser migrada. Pode fornecer o caminho de partilha de ficheiros de nível de base de dados utilizando a opção **Definições Avançadas.** Se estiver a detear problemas ligados à participação do SMB, consulte [a partilha do SMB](known-issues-azure-sql-db-managed-instance-online.md#smb-file-share-connectivity). |
     |**Nome de utilizador** | Certifique-se de que o utilizador do Windows tem privilégio de controlo total na partilha de rede que indicou acima. O Serviço de Migração da Base de Dados Azure personificará a credencial do utilizador para enviar os ficheiros de cópia de segurança para o contentor de armazenamento Azure para restaurar o funcionamento. Se utilizar a partilha do Ficheiro Azure, utilize o nome da conta de armazenamento pré-pendido com AZURE\ como nome de utilizador. |
     |**Palavra-passe** | A palavra-passe do utilizador. Se utilizar a partilha de ficheiros Azure, utilize uma chave de conta de armazenamento como palavra-passe. |
     |**Subscrição da Conta de Armazenamento do Azure** | Selecione a subscrição que contém a Conta de Armazenamento do Azure. |
-    |**Conta de Armazenamento do Azure** | Selecione a Conta de Armazenamento do Azure para a qual o DMS pode carregar os ficheiros de cópia de segurança da partilha de rede SMB e utilizá-los para a migração de base de dados.  Recomendamos que selecione a Conta de Armazenamento na mesma região do serviço DMS para um desempenho de carregamento de ficheiros ideal. |
+    |**Conta de Armazenamento Azure** | Selecione a Conta de Armazenamento do Azure para a qual o DMS pode carregar os ficheiros de cópia de segurança da partilha de rede SMB e utilizá-los para a migração de base de dados.  Recomendamos que selecione a Conta de Armazenamento na mesma região do serviço DMS para um desempenho de carregamento de ficheiros ideal. |
 
     ![Configurar as Definições da Migração](media/tutorial-sql-server-to-managed-instance-online/dms-configure-migration-settings4.png)
 
@@ -270,7 +270,7 @@ Após a recuperação completa da base de dados ser restaurada no caso-alvo de S
 
     ![Transferência concluída](media/tutorial-sql-server-to-managed-instance-online/dms-cutover-complete.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para um tutorial que lhe mostre como migrar uma base de dados para SQL Managed Instance utilizando o comando T-SQL RESTORE, consulte [Restaurar uma cópia de segurança para SQL Managed Instance utilizando o comando de restauro](../azure-sql/managed-instance/restore-sample-database-quickstart.md).
 * Para obter informações sobre a SQL Managed Instance, consulte [o que é a sql Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md).

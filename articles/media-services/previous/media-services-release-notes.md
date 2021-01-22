@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services divulga notas Microsoft Docs
+title: Azure Media Services divulga notas | Microsoft Docs
 description: Este artigo fala sobre as notas de lançamento v2 da Microsoft Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bd4f50365ced61e35ae6d10a9763a0f9815098d7
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: e1700489b4f3ee37d95b87b1bf026d47c9f1de4d
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014108"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98694907"
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de lançamento da Azure Media Services
 
@@ -28,7 +28,7 @@ ms.locfileid: "92014108"
 Estas notas de lançamento para a Azure Media Services resumem as alterações das versões anteriores e dos problemas conhecidos.
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 Queremos ouvir os nossos clientes para que possamos focar-nos na resolução de problemas que o afetam. Para reportar um problema ou fazer perguntas, envie um post no [Fórum MSDN dos Media Media Services]. 
 

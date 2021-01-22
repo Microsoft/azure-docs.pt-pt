@@ -4,20 +4,23 @@ description: Saiba como dar a uma entidade principal de utilizador ou de serviç
 author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.reviewer: amberb
+ms.reviewer: andalmia
 ms.topic: conceptual
-ms.date: 08/26/2020
+ms.date: 01/13/2021
 ms.author: banders
-ms.openlocfilehash: c13670df26e5d0f7774b5a2aac81f656de94c960
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 039e728f6518d21ddfb9c7c359a6cf2ec743f232
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844715"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185109"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Conceder acesso para criar subscrições Enterprise do Azure (pré-visualização)
 
 Na qualidade de cliente do Azure no [Contrato Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/), pode conceder a outra entidade principal de utilizador ou de serviço a permissão para criar subscrições faturadas para a sua conta. Neste artigo, aprenderá a usar o [Controlo de acesso baseado em funções do Azure (RBAC do Azure)](../../role-based-access-control/role-assignments-portal.md) para partilhar a capacidade de criar subscrições e como auditar as criações de subscrições. Tem de ter a função de Proprietário na conta que pretende partilhar.
+
+> [!NOTE]
+> Esta API só funciona com as [APIs de pré-visualização para a criação de subscrições](programmatically-create-subscription-preview.md). Se quiser utilizar a versão de [Disponibilidade Geral](programmatically-create-subscription-enterprise-agreement.md), utilize a versão mais recente da API em [2019-10-01-preview](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). Se estiver a migrar para utilizar as APIs mais recentes, tem de conceder permissões de proprietário novamente com a versão [2019-10-01-preview](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). A configuração anterior que utiliza as seguintes APIs não é convertida automaticamente para utilização com APIs mais recentes.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

@@ -1,5 +1,5 @@
 ---
-title: Use o Azure CLI para criar uma app AD Azure e configurá-la para aceder à Azure Media Services API ! Microsoft Docs
+title: Use o Azure CLI para criar uma aplicação AD Azure e configurá-la para aceder à Azure Media Services API | Microsoft Docs
 description: Este tópico mostra como usar o Azure CLI para criar uma app AD Azure e configurá-la para aceder à Azure Media Services API.
 services: media-services
 documentationcenter: ''
@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: juliako
-ms.openlocfilehash: 12d6beac446f8a15a41daf0dfe8ca1783c95c775
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 76a7cef074dd16a41dee59773aff00d8e58d432d
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021117"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695950"
 ---
 # <a name="use-azure-cli-to-create-an-azure-ad-app-and-configure-it-to-access-media-services-api"></a>Use o Azure CLI para criar uma app AD Azure e configurá-la para aceder à API dos Media Services
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 Este tópico mostra-lhe como usar o CLI Azure para criar uma aplicação e um diretor de serviço Azure Ative (Azure AD) para aceder aos recursos da Azure Media Services. 
 

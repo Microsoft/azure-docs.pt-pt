@@ -6,12 +6,12 @@ ms.author: sujie
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/15/2019
-ms.openlocfilehash: 9fe1aaed58d6069cd583f8607f7bd6332f97674e
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 0b4356c74b2e0c1494456d5d1082efd7b8953a15
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019895"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693380"
 ---
 # <a name="use-the-azure-stream-analytics-cicd-nuget-package-for-integration-and-development"></a>Utilize o pacote Azure Stream Analytics CI/CD NuGet para integração e desenvolvimento 
 Este artigo descreve como utilizar o pacote Azure Stream Analytics CI/CD NuGet para configurar um processo de integração e implementação contínua.
@@ -51,7 +51,7 @@ Os parâmetros padrão no parameters.jsno ficheiro são das definições do seu 
       "value": null
     },
 ```
-Saiba mais sobre como [implementar com um ficheiro de modelo do Gestor de Recursos e Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md). Saiba mais sobre como [usar um objeto como parâmetro num modelo de Gestor de Recursos.](/azure/architecture/building-blocks/extending-templates/objects-as-parameters)
+Saiba mais sobre como [implementar com um ficheiro de modelo do Gestor de Recursos e Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md). Saiba mais sobre como [usar um objeto como parâmetro num modelo de Gestor de Recursos.](/azure/architecture/guide/azure-resource-manager/advanced-templates/objects-as-parameters)
 
 Para utilizar a Identidade Gerida para a Azure Data Lake Store Gen1 como pia de saída, precisa de fornecer acesso ao principal do serviço usando o PowerShell antes de se deslocar para a Azure. Saiba mais sobre como [implementar a ADLS Gen1 com identidade gerida com o modelo de Gestor de Recursos.](stream-analytics-managed-identities-adls.md#resource-manager-template-deployment)
 
@@ -89,7 +89,7 @@ Exemplo:
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Quickstart: Criar um trabalho em nuvem Azure Stream Analytics em Estúdio Visual](stream-analytics-quick-create-vs.md)
 * [Teste Stream Analytics consultas localmente com Visual Studio](stream-analytics-vs-tools-local-run.md)

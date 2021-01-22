@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: f04e2aa97cafe2345918e433bcef5e719cee7483
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: eaba099725530f24dcd6aa5da7eb59cb233efd46
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98610170"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695650"
 ---
 # <a name="azure-functions-http-trigger"></a>Azure Funções HTTP Trigger
 
@@ -553,7 +553,7 @@ A tabela seguinte explica as propriedades de configuração de encadernação qu
 | **direção** | n/a| Necessário - deve ser definido para `in` . |
 | **nome** | n/a| Requerido - o nome variável utilizado no código de função para o órgão de pedido ou pedido. |
 | <a name="http-auth"></a>**authLevel** |  **AuthLevel** |Determina quais as teclas, se houver, que precisam de estar presentes no pedido para invocar a função. O nível de autorização pode ser um dos seguintes valores: <ul><li><code>anonymous</code>&mdash;Não é necessária nenhuma chave API.</li><li><code>function</code>&mdash;É necessária uma chave API específica para a função. Este é o valor padrão se nenhum for fornecido.</li><li><code>admin</code>&mdash;A chave principal é necessária.</li></ul> Para mais informações, consulte a secção sobre [as chaves de autorização.](#authorization-keys) |
-| **métodos** |**Métodos** | Uma matriz dos métodos HTTP aos quais a função responde. Se não for especificado, a função responde a todos os métodos HTTP. Consulte [personalizar o ponto final HTTP](#customize-the-http-endpoint). |
+| **methods** |**Métodos** | Uma matriz dos métodos HTTP aos quais a função responde. Se não for especificado, a função responde a todos os métodos HTTP. Consulte [personalizar o ponto final HTTP](#customize-the-http-endpoint). |
 | **route** | **Rota** | Define o modelo de rota, controlando a que pedido URLs a sua função responde. O valor predefinido se nenhum for fornecido é `<functionname>` . Para mais informações, consulte [personalizar o ponto final HTTP](#customize-the-http-endpoint). |
 | **webHookType** | **WebHookType** | _Suportado apenas para a versão 1.x tempo de execução._<br/><br/>Configura o gatilho HTTP para funcionar como um recetor [webhook](https://en.wikipedia.org/wiki/Webhook) para o fornecedor especificado. Não desateia a `methods` propriedade se você definir esta propriedade. O tipo webhook pode ser um dos seguintes valores:<ul><li><code>genericJson</code>&mdash;Um ponto final webhook de uso geral sem lógica para um fornecedor específico. Esta definição restringe os pedidos apenas a quem utiliza HTTP POST e com o `application/json` tipo de conteúdo.</li><li><code>github</code>&mdash;A função responde a [webhooks GitHub](https://developer.github.com/webhooks/). Não utilize a propriedade  _authLevel_ com webhooks GitHub. Para mais informações, consulte a secção de webhooks do GitHub mais tarde neste artigo.</li><li><code>slack</code>&mdash;A função responde a [webhooks Slack](https://api.slack.com/outgoing-webhooks). Não utilize a propriedade _authLevel_ com webhooks Slack. Para mais informações, consulte a secção De webhooks Slack mais tarde neste artigo.</li></ul>|
 
@@ -749,6 +749,10 @@ A seguinte configuração mostra como o `{id}` parâmetro é passado para o da e
 }
 ```
 
+Quando utiliza parâmetros de rota, `invoke_URL_template` um é automaticamente criado para a sua função. Os seus clientes podem usar o modelo de URL para entender os parâmetros que precisam de passar no URL ao ligar para a sua função usando o seu URL. Navegue para uma das suas funções desencadeadas por HTTP no [portal Azure](https://portal.azure.com) e selecione **Obter URL de função**.
+
+Pode aceder programáticamente ao `invoke_URL_template` Azure Resource Manager APIs para [funções de lista](https://docs.microsoft.com/rest/api/appservice/webapps/listfunctions) ou [obter função.](https://docs.microsoft.com/rest/api/appservice/webapps/getfunction)
+
 ## <a name="working-with-client-identities"></a>Trabalhar com identidades de cliente
 
 Se a sua aplicação de função estiver a utilizar [a Autenticação/Autorização do Serviço de Aplicações,](../app-service/overview-authentication-authorization.md)pode visualizar informações sobre clientes autenticados a partir do seu código. Esta informação está disponível como [cabeçalhos de pedido injetados pela plataforma](../app-service/app-service-authentication-how-to.md#access-user-claims).
@@ -846,11 +850,17 @@ O utilizador autenticado está disponível através [de cabeçalhos HTTP](../app
 
 ## <a name="obtaining-keys"></a>Obtenção de chaves
 
-As chaves são armazenadas como parte da sua aplicação de função em Azure e são encriptadas em repouso. Para visualizar as suas teclas, crie as novas ou role teclas para novos valores, navegue numa das suas funções desencadeadas por HTTP no [portal Azure](https://portal.azure.com) e selecione **Gerir**.
+As chaves são armazenadas como parte da sua aplicação de função em Azure e são encriptadas em repouso. Para visualizar as suas teclas, crie as novas ou role teclas para novos valores, navegue numa das suas funções desencadeadas por HTTP no [portal Azure](https://portal.azure.com) e selecione **Teclas de função**.
 
-![Gerir as teclas de função no portal.](./media/functions-bindings-http-webhook/manage-function-keys.png)
+Também pode gerir as teclas do anfitrião. Navegue para a aplicação de função no [portal Azure](https://portal.azure.com) e selecione **as teclas de aplicação**.
 
-Pode obter teclas de função programáticamente utilizando [APIs de gestão de chave](https://github.com/Azure/azure-functions-host/wiki/Key-management-API).
+Pode obter funções e anfitriões de chaves programáticamente utilizando as APIs do Gestor de Recursos Azure. Existem APIs para [listar teclas](/rest/api/appservice/webapps/listfunctionkeys) de função e [teclas de anfitrião da lista](/rest/api/appservice/webapps/listhostkeys), e quando se utilizam slots de APIs equivalentes são as ranhuras das [teclas de função da lista](/rest/api/appservice/webapps/listfunctionkeysslot) e a ranhura das [teclas do anfitrião da lista](/rest/api/appservice/webapps/listhostkeysslot).
+
+Também pode criar novas funções e receber teclas programáticamente utilizando o Criar ou Atualizar o Segredo de [Função](/rest/api/appservice/webapps/createorupdatefunctionsecret), [criar ou atualizar a função secreta slot](/rest/api/appservice/webapps/createorupdatefunctionsecretslot), criar ou atualizar o segredo do [anfitrião](/rest/api/appservice/webapps/createorupdatehostsecret) e criar ou atualizar APIs [de slot secreta do anfitrião.](/rest/api/appservice/webapps/createorupdatehostsecretslot)
+
+As teclas de função e de anfitrião podem ser eliminadas programáticamente utilizando o [Delete Function Secret](/rest/api/appservice/webapps/deletefunctionsecret), Delete Function Secret ( [Sessão Secreta)](/rest/api/appservice/webapps/deletefunctionsecretslot)e eliminar APIs de slot secreta do [](/rest/api/appservice/webapps/deletehostsecret) [anfitrião.](/rest/api/appservice/webapps/deletehostsecretslot)
+
+Também pode utilizar as [APIs de gestão de chaves antigas para obter teclas de função](https://github.com/Azure/azure-functions-host/wiki/Key-management-API), mas é recomendado utilizar as APIs do Gestor de Recursos Azure.
 
 ## <a name="api-key-authorization"></a>Autorização chave da API
 
@@ -917,6 +927,6 @@ O comprimento do pedido HTTP é limitado a 100 MB (104.857.600 bytes), e o compr
 Se uma função que utiliza o gatilho HTTP não estiver concluída dentro de 230 segundos, o Balançador de [Carga Azure](../app-service/faq-availability-performance-application-issues.md#why-does-my-request-time-out-after-230-seconds) irá esgotar-se e devolver-lhe um erro HTTP 502. A função continuará a funcionar mas não poderá devolver uma resposta HTTP. Para funções de longa duração, recomendamos que siga os padrões async e devolva um local onde possa verificar o estado do pedido. Para obter informações sobre quanto tempo uma função pode funcionar, consulte [Escala e hospedagem - Plano de consumo](functions-scale.md#timeout).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Devolver uma resposta HTTP de uma função](./functions-bindings-http-webhook-output.md)

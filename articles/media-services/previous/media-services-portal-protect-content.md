@@ -1,5 +1,5 @@
 ---
-title: Configure políticas de proteção de conteúdos utilizando o portal Azure Microsoft Docs
+title: Configure as políticas de proteção de conteúdos utilizando o portal Azure | Microsoft Docs
 description: Este artigo demonstra como usar o portal Azure para configurar políticas de proteção de conteúdos. O artigo também mostra como ativar encriptação dinâmica para os seus ativos.
 services: media-services
 documentationcenter: ''
@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 061d66f08e79f935c778eb84dd47f71cab1a62d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ddd31f96ca88a02fa667f8809a00e2a4e3ecc50
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266634"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695429"
 ---
 # <a name="configure-content-protection-policies-by-using-the-azure-portal"></a>Configure políticas de proteção de conteúdos utilizando o portal Azure
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Para concluir este tutorial, precisa de uma conta do Azure. Para obter mais detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).   > Não estão a ser adicionadas novas funcionalidades ou funcionalidades aos Serviços de Comunicação Social v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Para concluir este tutorial, precisa de uma conta do Azure. Para obter mais detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).   > Não estão a ser adicionadas novas funcionalidades ou funcionalidades aos Serviços de Comunicação Social v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 >
 
  Com a Azure Media Services, pode proteger os seus meios de comunicação a partir do momento em que este deixa o computador através do armazenamento, processamento e entrega. Pode utilizar os Serviços de Comunicação social para fornecer o seu conteúdo encriptado dinamicamente com o Padrão avançado de encriptação (AES) utilizando chaves de encriptação de 128 bits. Também pode usá-lo com encriptação comum (CENC) utilizando a PlayReady e/ou Widevine digital rights management (DRM) e Apple FairPlay. 
@@ -117,7 +117,7 @@ A encriptação de chave clara AES está ativada em todos os protocolos de strea
     
     e. **O FairPlay apenas com o HLS** encripta dinamicamente o seu fluxo HLS com FairPlay.
 
-1. Para ativar a encriptação FairPlay, na lâmina **De Definições Globais de Proteção de Conteúdos,** selecione **a configuração FairPlay**. Em seguida, selecione o **certificado app**e introduza a **Chave Secreta da Aplicação.**
+1. Para ativar a encriptação FairPlay, na lâmina **De Definições Globais de Proteção de Conteúdos,** selecione **a configuração FairPlay**. Em seguida, selecione o **certificado app** e introduza a **Chave Secreta da Aplicação.**
 
     ![Tipo de encriptação](./media/media-services-portal-content-protection/media-services-content-protection009.png)
 

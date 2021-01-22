@@ -1,5 +1,5 @@
 ---
-title: Realizar codificação avançada personalizando predefinições MES Microsoft Docs
+title: Realize codificação avançada personalizando predefinições MES | Microsoft Docs
 description: Este tópico mostra como executar codificação avançada personalizando predefinições de tarefas Media Encoder Standard.
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4288e2e955f8205f3b6551c83a5c883eecf02501
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9713a2ad10d1edc9a79d475ed58a99b3b24b6483
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021151"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696045"
 ---
 # <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>Realizar codificação avançada personalizando predefinições MES
 
@@ -33,7 +33,7 @@ Este tópico mostra como personalizar as predefinições padrão da Media Encode
 Se utilizar uma predefinição XML, certifique-se de preservar a ordem dos elementos, como mostrado nas amostras XML abaixo (por exemplo, KeyFrameInterval deve preceder a CenaChangeDetection).
 
 > [!NOTE] 
-> Muitas das funcionalidades avançadas dos Media Services v2 da Media Encoder Standard não estão atualmente disponíveis na V3. Para obter mais informações, consulte [as lacunas de funcionalidades.](../latest/media-services-v2-vs-v3.md#feature-gaps-with-respect-to-v2-apis)
+> Muitas das funcionalidades avançadas dos Media Services v2 da Media Encoder Standard não estão atualmente disponíveis na V3. Para mais informações, consulte [o Guia de Migração.](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 ## <a name="support-for-relative-sizes"></a>Suporte para tamanhos relativos
 

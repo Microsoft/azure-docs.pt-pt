@@ -1,5 +1,5 @@
 ---
-title: Proteja os conteúdos HLS com Apple FairPlay offline - Azure / Microsoft Docs
+title: Proteja o conteúdo do HLS com Apple FairPlay offline - Azure | Microsoft Docs
 description: Este tópico dá uma visão geral e mostra como usar o Azure Media Services para encriptar dinamicamente o seu conteúdo HTTP Live Streaming (HLS) com o Apple FairPlay em modo offline.
 services: media-services
 keywords: HLS, DRM, FairPlay Streaming (FPS), Offline, iOS 10
@@ -16,12 +16,12 @@ ms.date: 05/07/2020
 ms.author: willzhan
 ms.reviewer: dwgeo
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5e003e17490c2e35ef3f8adfdef6de0377cda7d5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae1d4ef81d14d5adfb728cf7a59534cb376a0eb1
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89259715"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695091"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>Offline FairPlay Streaming for iOS (Transmissão Offline do FairPlay para iOS)
 
@@ -32,7 +32,7 @@ ms.locfileid: "89259715"
 > * [Versão 2](media-services-protect-hls-with-offline-fairplay.md)
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 A Azure Media Services fornece um conjunto de serviços de proteção de conteúdos bem [concebidos](https://azure.microsoft.com/services/media-services/content-protection/) que cobrem:
 
@@ -129,11 +129,11 @@ O suporte ao modo offline FPS só está disponível no iOS 10 e posteriormente. 
 * Documento: "Reprodução offline com FairPlay Streaming e HTTP Live Streaming." Apple, 14 de setembro de 2016. Na versão 4.0 do FPS Server SDK, este documento é fundido no documento principal do FPS.
 * Código de amostra: Amostra de HLSCatalog para o modo offline FPS na versão 3.1\Development\Development\Client\HLSCatalog_With_FPS\HLSCatalog\. Na aplicação de amostra HLSCatalog, são utilizados os seguintes ficheiros de código para implementar funcionalidades de modo offline:
 
-    - Ficheiro de código AssetPersistenceManager.swift: AssetPersistenceManager é a classe principal desta amostra que demonstra como:
+    - Ficheiro de código .swift AssetPersistenceManager é a classe principal desta amostra que demonstra como:
 
         - Gerir o download de streams HLS, como as APIs usadas para iniciar e cancelar transferências e eliminar os ativos existentes fora dos dispositivos.
         - Monitorize o progresso do download.
-    - AssetListTableViewController.swift e AssetListTableViewCell.swift code files: AssetListTableViewController é a interface principal desta amostra. Fornece uma lista de ativos que a amostra pode usar para reproduzir, transferir, eliminar ou cancelar um download. 
+    - AssetListTableViewController.swift e Ficheiros de código AssetListTableViewCell.swift: AssetListTableViewController é a interface principal desta amostra. Fornece uma lista de ativos que a amostra pode usar para reproduzir, transferir, eliminar ou cancelar um download. 
 
 Estes passos mostram como configurar um leitor de iOS em execução. Assumindo que começa a partir da amostra HLSCatalog na versão 4.0.1 do FPS Server SDK, efetua as seguintes alterações de código:
 
@@ -170,7 +170,7 @@ Em HLSCatalog\Shared\Managers\ContentKeyDelegate.swift, implemente o método `re
     return ckcData
 ```
 
-Em HLSCatalog\Shared\Managers\ContentKeyDelegate.swift, implemente o método `requestApplicationCertificate()` . Esta implementação depende se incorpora o certificado (apenas na chave pública) com o dispositivo ou se hospeda o certificado na web. A seguinte implementação utiliza o certificado de pedido hospedado utilizado nas amostras de ensaio. Deixe o "certUrl" ser uma variável que contenha o URL do certificado de candidatura.
+No HLSCatalog\Shared\Managers\ContentKeyDelegate.swift, implemente o método `requestApplicationCertificate()` . Esta implementação depende se incorpora o certificado (apenas na chave pública) com o dispositivo ou se hospeda o certificado na web. A seguinte implementação utiliza o certificado de pedido hospedado utilizado nas amostras de ensaio. Deixe o "certUrl" ser uma variável que contenha o URL do certificado de candidatura.
 
 ```swift
 func requestApplicationCertificate() throws -> Data {
@@ -209,12 +209,12 @@ As seguintes perguntas frequentes prestam assistência à resolução de problem
 
 - **Porque é que só o áudio reproduz, mas não o vídeo durante o modo offline?** Este comportamento parece ser por design da aplicação da amostra. Quando existe uma faixa de áudio alternativa (o que é o caso do HLS) durante o modo offline, tanto o iOS 10 como o iOS 11 estão por defeito na faixa de áudio alternativa. Para compensar este comportamento para o modo offline FPS, remova a faixa de áudio alternativa do fluxo. Para isso nos Serviços de Media, adicione o filtro manifesto dinâmico "audio-only=falso". Por outras palavras, um URL HLS termina com .ism/manifest (formato=m3u8-aapl,audio-only=falso). 
 - **Porque é que ainda reproduz áudio apenas sem vídeo durante o modo offline depois de eu adicionar áudio-only=falso?** Dependendo do design da chave de cache da rede de entrega de conteúdos (CDN), o conteúdo pode ser em cache. Purgue a cache.
-- **O modo offline FPS também é suportado no iOS 11, além do iOS 10?** Sim. O modo offline FPS é suportado para iOS 10 e iOS 11.
+- **O modo offline FPS também é suportado no iOS 11, além do iOS 10?** Yes. O modo offline FPS é suportado para iOS 10 e iOS 11.
 - **Por que não posso encontrar o documento "Offline Playback with FairPlay Streaming e HTTP Live Streaming" no FPS Server SDK?** Desde a versão 4 do FPS Server SDK, este documento foi fundido no "Guia de Programação de Streaming fairPlay".
 - **O que significa o último parâmetro no seguinte modo API para o modo offline FPS?**
 `Microsoft.WindowsAzure.MediaServices.Client.FairPlay.FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration(objX509Certificate2, pfxPassword, pfxPasswordId, askId, iv, RentalAndLeaseKeyType.PersistentUnlimited, 0x9999);`
 
-    Para obter a documentação para esta API, consulte [FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration Method](/dotnet/api/microsoft.windowsazure.mediaservices.client.fairplay.fairplayconfiguration.createserializedfairplayoptionconfiguration?view=azure-dotnet). O parâmetro representa a duração do aluguer offline, com o segundo como unidade.
+    Para obter a documentação para esta API, consulte [FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration Method](/dotnet/api/microsoft.windowsazure.mediaservices.client.fairplay.fairplayconfiguration.createserializedfairplayoptionconfiguration). O parâmetro representa a duração do aluguer offline, com o segundo como unidade.
 - **O que é a estrutura de ficheiros descarregado/offline em dispositivos iOS?** A estrutura de ficheiros descarregada num dispositivo iOS parece a seguinte imagem. As `_keys` lojas de pasta descarregaram licenças de FPS, com um ficheiro de loja para cada anfitrião do serviço de licença. A `.movpkg` pasta armazena conteúdo sonoro e de vídeo. A primeira pasta com um nome que termina com um traço seguido de um numérico contém conteúdo de vídeo. O valor numérico é o PeakBandwidth das representações de vídeo. A segunda pasta com um nome que termina com um traço seguido de 0 contém conteúdo sonoro. A terceira pasta denominada "Data" contém a lista principal do conteúdo FPS. Finalmente, boot.xml fornece uma descrição completa do conteúdo da `.movpkg` pasta. 
 
 ![Estrutura de ficheiros de aplicativos de amostra de fairPlay offline FairPlay](media/media-services-protect-hls-with-offline-FairPlay/media-services-offline-FairPlay-file-structure.png)

@@ -3,17 +3,17 @@ title: Contratos e emendas do Azure EA
 description: Este artigo explica como os contratos e as emendas do Azure EA afetam a utilização do Azure EA Portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/03/2020
+ms.date: 01/19/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 9e6750bd8404b4f9b910dda93859a0ca3fd268d4
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: c2c3636e98d67616826b03cca9657b806c5bd653
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442535"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598011"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Contratos e emendas do Azure EA
 
@@ -21,7 +21,7 @@ O artigo descreve como os contratos e as emendas do Azure EA podem afetar o ace
 
 ## <a name="enrollment-provisioning-status"></a>Estado do aprovisionamento da inscrição
 
-A data de início de um novo Pré-pagamento do Azure é definida pela data em que o centro de operações regional o processou. Dado que as encomendas do Pré-pagamento do Azure através do Azure EA Portal são processadas no fuso horário UTC, poderá sofrer algum atraso se a sua nota de encomenda do Pré-pagamento do Azure tiver sido processada numa região diferente. A data de início da cobertura na nota de encomenda mostra o início do Pré-pagamento do Azure. A data de início da cobertura aplica-se quando o Pré-pagamento do Azure aparece no Azure EA Portal.
+A data de início de um novo Pré-pagamento do Azure (que antes se chamava alocação monetária) é definida pela data em que o centro de operações regional o processou. Dado que as encomendas do Pré-pagamento do Azure através do Azure EA Portal são processadas no fuso horário UTC, poderá sofrer algum atraso se a sua nota de encomenda do Pré-pagamento do Azure tiver sido processada numa região diferente. A data de início da cobertura na nota de encomenda mostra o início do Pré-pagamento do Azure. A data de início da cobertura aplica-se quando o Pré-pagamento do Azure aparece no Azure EA Portal.
 
 ## <a name="support-for-enterprise-customers"></a>Suporte de clientes empresariais
 
@@ -60,7 +60,7 @@ A Microsoft não acederá nem utilizará a margem de lucro fornecida e preços a
 
 ### <a name="how-the-calculation-works"></a>Como funciona o cálculo
 
-O LSP fornece um único valor percentual no EA Portal.  Todas as informações comerciais no portal serão aumentadas pela percentagem fornecida no LSP. Exemplo:
+O LSP fornece um único valor percentual no EA Portal.    Todas as informações comerciais no portal serão aumentadas pela percentagem fornecida no LSP. Exemplo:
 
 - O cliente assina um EA com um Pré-pagamento do Azure de 100 000 USD.
 - A taxa do medidor do Serviço A é de 10 USD/hora.
@@ -101,13 +101,14 @@ Confirme que analisa as informações comerciais (informações de saldo monetá
 Analise o preço da margem de lucro no _Resumo da Utilização_ para o período de Pré-pagamento na vista de cliente. O preço da Microsoft ainda estará disponível na vista de parceiro. Pode alternar as vistas com o botão "pessoas" da margem de lucro do parceiro no canto superior direito.
 
 1. Analise os preços na folha de preços.
-1. Pode fazer alterações antes da publicação. Para tal, selecione **Editar** no separador _Ver Resumo da Utilização > Vista de Cliente_ .  
-  Tanto os preços de serviço como os saldos de Pré-pagamento terão a margem de lucro com as mesmas percentagens. Se tiver percentagens diferentes para o saldo monetário e as taxas dos medidores ou percentagens diferentes para serviços diferentes, não utilize esta funcionalidade.
+1. Pode fazer alterações antes da publicação. Para tal, selecione **Editar** no separador _Ver Resumo da Utilização > Vista de Cliente_ . 
+   
+Tanto os preços de serviço como os saldos de Pré-pagamento terão a margem de lucro com as mesmas percentagens. Se tiver percentagens diferentes para o saldo monetário e as taxas dos medidores ou percentagens diferentes para serviços diferentes, não utilize esta funcionalidade.
 
 **Passo 3: Publicar**
 
 Após analisar e validar o preço, clique em **Publicar**.
-  
+  
 Os preços com a margem de lucro estarão disponíveis para os administradores do Enterprise imediatamente após selecionar publicar. Não podem ser feitas edições às margens de lucro. Deve desativar a margem de lucro e começar a partir do Passo 1.
 
 ### <a name="which-enrollments-have-a-markup-enabled"></a>Que inscrições possuem uma margem de lucro ativada?

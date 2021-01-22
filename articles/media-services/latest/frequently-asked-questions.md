@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services v3 frequentemente fez perguntas. Microsoft Docs
+title: Azure Media Services v3 frequentemente fez perguntas| Microsoft Docs
 description: Este artigo dá respostas a perguntas frequentes sobre a Azure Media Services v3.
 services: media-services
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 50a0fe0fa5dece41ac9e343d5a8939e8d9dc634e
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 9e48d14419e2cd24251f1b00a09fd0289c50c55f
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426889"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693812"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Serviços de Mídia v3 frequentemente perguntas
 
@@ -30,7 +30,7 @@ Este artigo dá respostas a perguntas frequentes sobre a Azure Media Services v3
 
 Você pode usar o [portal Azure](https://portal.azure.com/) para gerir eventos v3 ao vivo, ver ativos e empregos v3, obter informações sobre o acesso a APIs, encriptar conteúdo. <br/>Para todas as outras tarefas de gestão (por exemplo, gerir transformações e empregos ou analisar o conteúdo v3), utilize o [REST API,](/rest/api/media/accountfilters) [OCli,](/cli/azure/ams)ou um dos [SDKs suportados.](media-services-apis-overview.md#sdks)
 
-Se o seu vídeo foi previamente enviado para a conta dos Media Services utilizando os Serviços de Comunicação v3 API ou se o conteúdo foi gerado com base numa saída ao vivo, não verá os botões **Encode**, **Analyze**ou **Encrypt** no portal Azure. Utilize os Serviços de Mídia v3 APIs para executar estas tarefas.  
+Se o seu vídeo foi previamente enviado para a conta dos Media Services utilizando os Serviços de Comunicação v3 API ou se o conteúdo foi gerado com base numa saída ao vivo, não verá os botões **Encode**, **Analyze** ou **Encrypt** no portal Azure. Utilize os Serviços de Mídia v3 APIs para executar estas tarefas.  
 
 ### <a name="what-azure-roles-can-perform-actions-on-azure-media-services-resources"></a>Que funções da Azure podem executar ações sobre os recursos da Azure Media Services? 
 
@@ -60,7 +60,7 @@ Quando estiver a usar a paginação, deve sempre utilizar o próximo link para e
 
 ### <a name="what-features-are-not-yet-available-in-azure-media-services-v3"></a>Quais as funcionalidades que ainda não estão disponíveis no Azure Media Services v3?
 
-Para mais informações, consulte [as lacunas de funcionalidades relativas às APIs v2](media-services-v2-vs-v3.md#feature-gaps-with-respect-to-v2-apis).
+Para mais informações, consulte [o Guia de Migração.](migrate-v-2-v-3-migration-introduction.md)
 
 ### <a name="what-is-the-process-of-moving-a-media-services-account-between-subscriptions"></a>Qual é o processo de movimentação de uma conta de Serviços de Comunicação entre subscrições?  
 
@@ -169,7 +169,7 @@ Para todas as outras tarefas de gestão (por exemplo, [Transformações e Empreg
 
 O `AssetFile` conceito foi removido da API dos Serviços de Mídia para separar os Serviços de Mídia da dependência da SDK de armazenamento. Agora, a Azure Storage, não a Media Services, mantém a informação que pertence ao SDK de armazenamento. 
 
-Para mais informações, consulte [Migrate to Media Services v3](media-services-v2-vs-v3.md).
+Para mais informações, consulte [Migrate to Media Services v3](migrate-v-2-v-3-migration-introduction.md).
 
 ### <a name="where-did-client-side-storage-encryption-go"></a>Para onde foi a encriptação do armazenamento do lado do cliente?
 
@@ -191,7 +191,7 @@ Dependendo do design da chave de cache para a rede de entrega de conteúdos, o c
 
 #### <a name="is-fps-offline-mode-supported-on-ios-11-in-addition-to-ios-10"></a>O modo offline FPS é suportado no iOS 11 para além do iOS 10?
 
-Sim. O modo offline FPS é suportado para iOS 10 e iOS 11.
+Yes. O modo offline FPS é suportado para iOS 10 e iOS 11.
 
 #### <a name="why-cant-i-find-the-document-offline-playback-with-fairplay-streaming-and-http-live-streaming-in-the-fps-server-sdk"></a>Por que não posso encontrar o documento "Offline Playback with FairPlay Streaming e HTTP Live Streaming" no FPS Server SDK?
 
@@ -269,6 +269,6 @@ Existem duas formas de melhorar a velocidade de descarregamento:
   * Controlado pelo cliente: A aplicação do jogador seleciona automaticamente, ou o utilizador seleciona, a camada de qualidade de vídeo e as faixas de áudio para descarregar.
   * Controlado por serviço: Pode utilizar a função Dynamic Manifest nos Serviços Azure Media para criar um filtro (global), que limita a lista de reprodução HLS ou o MPD do DASH a uma única camada de qualidade de vídeo e faixas de áudio selecionadas. Em seguida, o URL de descarregamento apresentado aos utilizadores incluirá este filtro.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Visão geral dos Serviços de Comunicação Social v3](media-services-overview.md)

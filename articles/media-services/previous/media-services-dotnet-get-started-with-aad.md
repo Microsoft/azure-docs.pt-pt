@@ -1,5 +1,5 @@
 ---
-title: Utilize a autenticação Azure AD para aceder à Azure Media Services API com .NET / Microsoft Docs
+title: Utilize a autenticação Azure AD para aceder à Azure Media Services API com .NET | Microsoft Docs
 description: Este tópico mostra como utilizar a autenticação do Azure Ative Directory (Azure AD) para aceder à Azure Media Services (AMS) API com .NET.
 services: media-services
 documentationcenter: ''
@@ -14,19 +14,19 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: has-adal-ref, devx-track-csharp
-ms.openlocfilehash: cca17aacc914412d34f613adfeba31617c60c455
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 9de7505ffaab244713706984bdeb9ab395766321
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97652947"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695743"
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>Utilize a autenticação Azure AD para aceder à Azure Media Services API com .NET
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 Começando pelos windowsazure.mediaservices 4.0.0.4, a Azure Media Services suporta a autenticação com base no Azure Ative Directory (Azure AD). Este tópico mostra-lhe como utilizar a autenticação Azure AD para aceder à Azure Media Services API com a Microsoft .NET.
 

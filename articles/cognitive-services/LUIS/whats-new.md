@@ -4,13 +4,13 @@ description: Este artigo é atualizado regularmente com notícias sobre a Azure 
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 01/12/2021
-ms.openlocfilehash: 4bcd25e96aba1ca103737679540cb9ff67674914
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.date: 01/21/2021
+ms.openlocfilehash: 5fdde81d31eae4c50b86a5553742f9b599f32505
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98179134"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693600"
 ---
 # <a name="whats-new-in-language-understanding"></a>Quais as novidades na compreensão da linguagem
 
@@ -21,6 +21,7 @@ Saiba o que há de novo no serviço. Estes itens incluem notas de lançamento, v
 ### <a name="january-2021"></a>Janeiro de 2021
 
 * A API de previsão V3 suporta agora a [API Bing Spellcheck](luis-how-to-publish-app.md#spelling-correction).
+* Os portais regionais (au.luis.ai e eu.luis.ai) foram consolidados num único portal e URL. Se estiver a utilizar um destes portais, será automaticamente redirecionado para luis.ai.
 
 ### <a name="december-2020"></a>Dezembro de 2020
 
@@ -66,7 +67,7 @@ Saiba o que há de novo no serviço. Estes itens incluem notas de lançamento, v
 
 ### <a name="november-4-2019---ignite"></a>4 de novembro de 2019 - Ignite
 
-* Vídeo - [Modelos avançados de compreensão da linguagem natural (NLU) utilizando os Serviços Cognitivos LUIS e Azure ! BRK2188](https://www.youtube.com/watch?v=JdJEV2jV0_Y)
+* Vídeo - [Modelos avançados de compreensão da linguagem natural (NLU) usando os serviços cognitivos LUIS e Azure | BRK2188](https://www.youtube.com/watch?v=JdJEV2jV0_Y)
 
 * Melhoria da produtividade dos desenvolvedores
     * Disponibilidade geral do nosso [ponto final de previsão V3](luis-migration-api-v3.md).
@@ -128,7 +129,7 @@ As seguintes funcionalidades foram lançadas na Conferência Build 2019:
 
 ### <a name="2019-ignite-videos"></a>Vídeos Ignite 2019
 
-[Modelos avançados de compreensão da linguagem natural (NLU) utilizando os serviços cognitivos LUIS e Azure BRK2188](https://www.youtube.com/watch?v=JdJEV2jV0_Y)
+[Modelos avançados de compreensão da linguagem natural (NLU) utilizando os serviços cognitivos LUIS e Azure | BRK2188](https://www.youtube.com/watch?v=JdJEV2jV0_Y)
 
 ### <a name="2019-build-videos"></a>2019 Construir vídeos
 

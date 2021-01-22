@@ -1,5 +1,5 @@
 ---
-title: Visão geral da embalagem dinâmica da Azure Media Services Microsoft Docs
+title: Visão geral da embalagem dinâmica da Azure Media Services | Microsoft Docs
 description: Estes artigos dão uma visão geral da embalagem dinâmica da Microsoft Azure Media Services.
 author: Juliako
 manager: femila
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: juliako
-ms.openlocfilehash: 5b570efa54d99380f2beff5441dc40a3a10b902a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c4f099df071bccb8a74f29a98953fe1e0323b12
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89269119"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695582"
 ---
 # <a name="dynamic-packaging"></a>Empacotamento dinâmico
 
@@ -29,7 +29,7 @@ ms.locfileid: "89269119"
 > * [Versão 2](media-services-dynamic-packaging-overview.md)
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 O Microsoft Azure Media Services pode ser utilizado para fornecer muitos formatos de ficheiros de origem de mídia, formatos de streaming de mídia e formatos de proteção de conteúdos para uma variedade de tecnologias de clientes (por exemplo, iOS, XBOX, Silverlight, Windows 8). Estes clientes compreendem diferentes protocolos, por exemplo, o iOS requer um formato HTTP Live Streaming (HLS) V4 e Silverlight e Xbox requerem Smooth Streaming. Se tiver um conjunto de ficheiros adaptáveis de bitrate (multi-bitrate) MP4 (ISO Base Media 14496-12) ou um conjunto de ficheiros de streaming suave adaptável que pretende servir a clientes que compreendam MPEG DASH, HLS ou Smooth Streaming, deverá aproveitar a embalagem dinâmica dos Media Services.
 

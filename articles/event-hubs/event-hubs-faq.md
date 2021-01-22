@@ -1,14 +1,14 @@
 ---
-title: Perguntas frequentes - Azure Event Hubs Microsoft Docs
+title: Perguntas frequentes - Azure Event Hubs | Microsoft Docs
 description: Este artigo fornece uma lista de perguntas frequentes (FAQ) para Azure Event Hubs e suas respostas.
 ms.topic: article
-ms.date: 10/27/2020
-ms.openlocfilehash: e7a34fe0f2ef04fffeeddc5615d3ac1749467902
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.date: 01/20/2021
+ms.openlocfilehash: e6fd4814e771d03827e51f1cd5ee182c9e432cc5
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955421"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696113"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Os Centros de Eventos fazem perguntas frequentes
 
@@ -55,8 +55,8 @@ Pode configurar o período de retenção para os dados capturados na sua conta d
 ### <a name="how-do-i-monitor-my-event-hubs"></a>Como monitorizo os meus Centros de Eventos?
 O Event Hubs emite métricas exaustivas que fornecem o estado dos seus recursos ao [Azure Monitor.](../azure-monitor/overview.md) Também permitem avaliar a saúde geral do serviço Event Hubs não só ao nível do espaço de nome, mas também ao nível da entidade. Saiba qual é a monitorização oferecida para [o Azure Event Hubs](event-hubs-metrics-azure-monitor.md).
 
-### <a name="where-does-azure-event-hubs-store-customer-data"></a><a name="in-region-data-residency"></a>Onde é que o Azure Event Hubs armazena os dados dos clientes?
-O Azure Event Hubs armazena dados do cliente. Estes dados são automaticamente armazenados pelos Event Hubs numa única região, pelo que este serviço satisfaz automaticamente os requisitos de residência de dados da região, incluindo os especificados no [Trust Center.](https://azuredatacentermap.azurewebsites.net/)
+### <a name="where-does-azure-event-hubs-store-data"></a><a name="in-region-data-residency"></a>Onde é que o Azure Event Hubs armazena dados?
+Os níveis padrão e dedicados do Azure Event Hubs armazenam metadados e dados em regiões que seleciona. Quando a recuperação de geo-desastres é configurada para um espaço de nomes Azure Event Hubs, os metadados são copiados para a região secundária que seleciona. Portanto, este serviço satisfaz automaticamente os requisitos de residência de dados da região, incluindo os especificados no [Trust Center.](https://azuredatacentermap.azurewebsites.net/)
 
 [!INCLUDE [event-hubs-connectivity](../../includes/event-hubs-connectivity.md)]
 
@@ -247,10 +247,10 @@ Para um exemplo sobre como direcionar uma versão API de armazenamento específi
 - Python - [Sincronizado,](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob/samples/receive_events_using_checkpoint_store_storage_api_version.py) [Assíncronos](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/receive_events_using_checkpoint_store_storage_api_version_async.py)
 - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript/receiveEventsWithApiSpecificStorage.js) e [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript/src/receiveEventsWithApiSpecificStorage.ts)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Pode saber mais sobre os Hubs de Eventos ao aceder às seguintes ligações:
 
 * [Descrição geral dos Event Hubs](./event-hubs-about.md)
-* [Criar um Centro de Eventos](event-hubs-create.md)
+* [Criar um Hub de Eventos](event-hubs-create.md)
 * [Hubs de eventos Auto-insuflado](event-hubs-auto-inflate.md)

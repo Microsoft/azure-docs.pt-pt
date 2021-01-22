@@ -4,12 +4,12 @@ description: Descreve como resolver erros comuns quando implementa recursos para
 tags: top-support-issue
 ms.topic: troubleshooting
 ms.date: 01/20/2021
-ms.openlocfilehash: bb701baf164cfd6ba1dd5c670a406343e83c5c70
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 61a306cd36c55a005ee9ebd897fcfc9a6c88d7c9
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98622816"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696401"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Resolver problemas comuns de erros de implementação do Azure com o Azure Resource Manager
 
@@ -25,7 +25,7 @@ Se procura informações sobre um código de erro e essa informação não é fo
 | ContaPropertyCannotBeSet | Verifique as propriedades da conta de armazenamento disponível. | [armazenamento Contas](/azure/templates/microsoft.storage/storageaccounts) |
 | AtribuiçãoFailada | O cluster ou região não tem recursos disponíveis ou não pode suportar o tamanho de VM solicitado. Reda o pedido mais tarde, ou solicite um tamanho VM diferente. | [Questões de provisionamento e atribuição de problemas de linux,](../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-linux.md) [provisionamento e atribuição de](../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-windows.md) falhas na atribuição de janelas e [resolução de problemas](../../virtual-machines/troubleshooting/allocation-failure.md)|
 | Outra OperaçãoInProgress | Aguarde que a operação simultânea esteja concluída. | |
-| Autorizações Destruídas | A sua conta ou diretor de serviço não tem acesso suficiente para completar a implementação. Verifique a função a que a sua conta pertence e o seu acesso ao âmbito de implementação.<br><br>Pode receber este erro quando um fornecedor de recursos necessário não estiver registado. | [Controlo de acesso baseado em funções Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)<br><br>[Resolver o registo](error-register-resource-provider.md) |
+| Autorizações Destruídas | A sua conta ou diretor de serviço não tem acesso suficiente para completar a implementação. Verifique a função a que a sua conta pertence e o seu acesso ao âmbito de implementação.<br><br>Pode receber este erro quando um fornecedor de recursos necessário não estiver registado. | [Controlo de acesso baseado em funções do Azure (RBAC do Azure)](../../role-based-access-control/role-assignments-portal.md)<br><br>[Resolver o registo](error-register-resource-provider.md) |
 | BadRequest | Enviaste valores de implantação que não correspondem ao esperado pelo Gestor de Recursos. Verifique a mensagem de estado interior para obter ajuda com a resolução de problemas. | [Referência do modelo](/azure/templates/) e [locais suportados](resource-location.md) |
 | Conflito | Está a pedir uma operação que não é permitida no estado atual dos recursos. Por exemplo, o redimensionamento do disco só é permitido quando se cria um VM ou quando o VM é transacionado. | |
 | ImplementaçãoActiveAndUneditable | Aguarde a implementação simultânea deste grupo de recursos para completar. | |
@@ -37,7 +37,7 @@ Se procura informações sobre um código de erro e essa informação não é fo
 | ImplementaçãoJobSizeExceed | Simplifique o seu modelo para reduzir o tamanho. | [Resolver erros de tamanho do modelo](error-job-size-exceeded.md) |
 | DnsRecordInUse | O nome do registo do DNS deve ser único. Insira um nome diferente. | |
 | ImagemNotFound | Verifique as definições de imagem em VM. |  |
-| InUseSubnetCannotBedeleted | Pode obter este erro ao tentar atualizar um recurso, e o pedido é processado eliminando e criando o recurso. Certifique-se de especificar todos os valores inalterados. | [Atualizar recurso](/azure/architecture/building-blocks/extending-templates/update-resource) |
+| InUseSubnetCannotBedeleted | Pode obter este erro ao tentar atualizar um recurso, e o pedido é processado eliminando e criando o recurso. Certifique-se de especificar todos os valores inalterados. | [Atualizar recurso](/azure/architecture/guide/azure-resource-manager/advanced-templates/update-resource) |
 | InvalidAuthenticationTokenTenant | Obtenha acesso ao inquilino apropriado. Só pode obter o sinal do inquilino a que a sua conta pertence. | |
 | InvalidContentLink | Provavelmente tentou ligar-se a um modelo aninhado que não está disponível. Verifique novamente o URI que forneceu para o modelo aninhado. Se o gabarito existir numa conta de armazenamento, certifique-se de que o URI está acessível. Talvez precises de passar um sinal sas. Atualmente, não é possível ligar a um modelo que está numa conta de armazenamento por trás de uma [firewall de armazenamento Azure](../../storage/common/storage-network-security.md). Considere mover o seu modelo para outro repositório, como o GitHub. | [Modelos ligados](linked-templates.md) |
 | IndundosDeploylocação | Ao implementar ao nível da subscrição, forneceu um local diferente para um nome de implementação usado anteriormente. | [Implementações de nível de subscrição](deploy-to-subscription.md) |
@@ -64,7 +64,7 @@ Se procura informações sobre um código de erro e essa informação não é fo
 | PasswordTooLong | Pode ter selecionado uma palavra-passe com demasiados caracteres ou convertido o valor da palavra-passe para uma cadeia segura antes de a passar como parâmetro. Se o modelo incluir um parâmetro **de corda seguro,** não precisa converter o valor numa cadeia segura. Forneça o valor da palavra-passe como texto. |  |
 | PrivateIPAddressInReservedRange | O endereço IP especificado inclui um intervalo de endereços exigido pelo Azure. Altere o endereço IP para evitar o alcance reservado. | [Endereços IP](../../virtual-network/public-ip-addresses.md) |
 | PrivateIPAddressNotInsubnet | O endereço IP especificado está fora do intervalo da sub-rede. Altere o endereço IP para se enquadrar no intervalo da sub-rede. | [Endereços IP](../../virtual-network/public-ip-addresses.md) |
-| PropertyChangeNotAllowed | Algumas propriedades não podem ser alteradas num recurso implantado. Ao atualizar um recurso, limite as suas alterações às propriedades permitidas. | [Atualizar recurso](/azure/architecture/building-blocks/extending-templates/update-resource) |
+| PropertyChangeNotAllowed | Algumas propriedades não podem ser alteradas num recurso implantado. Ao atualizar um recurso, limite as suas alterações às propriedades permitidas. | [Atualizar recurso](/azure/architecture/guide/azure-resource-manager/advanced-templates/update-resource) |
 | RequestDisallowedByPolicy | A sua subscrição inclui uma política de recursos que impede uma ação que está a tentar executar durante a implementação. Encontre a política que bloqueia a ação. Se possível, altere a sua implementação para satisfazer as limitações da apólice. | [Resolver políticas](error-policy-requestdisallowedbypolicy.md) |
 | ReservedResourceName | Forneça um nome de recurso que não inclua um nome reservado. | [Nomes de recursos reservados](error-reserved-resource-name.md) |
 | Grupo de RecursosBeingDeleted | Espere que a supressão esteja completa. | |
@@ -247,7 +247,7 @@ Em alguns casos, a maneira mais fácil de resolver problemas o seu modelo é tes
 
 Ou suponha que esteja a ter erros de implantação que acredita estarem relacionados com dependências incorretamente definidas. Teste o seu modelo quebrando-o em modelos simplificados. Em primeiro lugar, crie um modelo que implemente apenas um único recurso (como um SQL Server). Quando tiver a certeza de que tem esse recurso corretamente definido, adicione um recurso que depende dele (como uma Base de Dados SQL). Quando tiver esses dois recursos corretamente definidos, adicione outros recursos dependentes (como políticas de auditoria). Entre cada implementação de teste, elimine o grupo de recursos para se certificar de que testa adequadamente as dependências.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para passar por um tutorial de resolução de [problemas, consulte Tutorial: Implementações de modelos do Gestor de Recursos de Resolução de Problemas](template-tutorial-troubleshoot.md)
 * Para conhecer as ações de auditoria, consulte [as operações de Auditoria com o Gestor de Recursos.](../management/view-activity-logs.md)

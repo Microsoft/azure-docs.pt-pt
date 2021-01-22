@@ -7,24 +7,24 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/15/2020
+ms.date: 01/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: ffb5a78c13413a46565a9c57c87dc8273742fd24
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 49364681f0c5b4b6cc4d5f20778edb61e9f6f5b3
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563454"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695785"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Segurança em Azure Cognitive Search - visão geral
 
-Este artigo descreve as principais funcionalidades de segurança na Azure Cognitive Search que podem proteger conteúdos e operações.
+Este artigo descreve as funcionalidades de segurança na Azure Cognitive Search que protegem o conteúdo e as operações.
 
-+ Na camada de armazenamento, a encriptação-em-repouso é incorporada para todos os conteúdos geridos pelo serviço guardados no disco, incluindo índices, mapas de sinónimo, e as definições de indexadores, fontes de dados e skillsets. A Azure Cognitive Search também suporta a adição de chaves geridas pelo cliente (CMK) para encriptação suplementar de conteúdo indexado. Para os serviços criados após 1 de agosto de 2020, a encriptação CMK estende-se a dados em discos temporários, para a dupla encriptação total de conteúdo indexado.
++ Na camada de armazenamento, a encriptação de dados é incorporada para todos os conteúdos geridos pelo serviço guardados no disco, incluindo índices, mapas de sinónimo, e as definições de indexadores, fontes de dados e skillsets. Opcionalmente, pode adicionar chaves geridas pelo cliente (CMK) para encriptação suplementar de conteúdo indexado. Para os serviços criados após 1 de agosto de 2020, a encriptação CMK estende-se a dados em discos temporários, para uma "dupla encriptação" de conteúdo indexado.
 
-+ A segurança de entrada protege o ponto final do serviço de pesquisa em níveis crescentes de segurança: desde as chaves da API a pedido, às regras de entrada na firewall, aos pontos finais privados que protegem totalmente o seu serviço da internet pública.
++ A segurança de entrada refere-se a proteções no ponto final do serviço de pesquisa em níveis crescentes de segurança: desde chaves API a pedido, a regras de entrada na firewall, a pontos finais privados que protegem totalmente o seu serviço da internet pública.
 
-+ A segurança de saída aplica-se aos indexantes que retiram conteúdo de fontes externas. Para pedidos de saída, crie uma identidade gerida para fazer uma pesquisa de um serviço de confiança ao aceder a dados da Azure Storage, Azure SQL, Cosmos DB ou outras fontes de dados Azure. Uma identidade gerida é um substituto de credenciais ou chaves de acesso na ligação. A segurança de saída não está abrangida por este artigo. Para obter mais informações sobre esta capacidade, consulte [Connect a uma fonte de dados utilizando uma identidade gerida.](search-howto-managed-identities-data-sources.md)
++ A segurança de saída diz respeito a indexantes que retiram conteúdo de fontes externas. Para pedidos de saída, crie uma identidade gerida para fazer uma pesquisa de um serviço de confiança ao aceder a dados da Azure Storage, Azure SQL, Cosmos DB ou outras fontes de dados Azure. Uma identidade gerida é um substituto de credenciais ou chaves de acesso na ligação. A segurança de saída não está abrangida por este artigo. Para obter mais informações sobre esta capacidade, consulte [Connect a uma fonte de dados utilizando uma identidade gerida.](search-howto-managed-identities-data-sources.md)
 
 Veja este vídeo de ritmo acelerado para uma visão geral da arquitetura de segurança e de cada categoria de funcionalidades.
 
@@ -40,7 +40,7 @@ Na Pesquisa Cognitiva do Azure, a encriptação começa com ligações e transmi
 
 Para os dados tratados internamente pelo serviço de pesquisa, a tabela seguinte descreve os [modelos de encriptação](../security/fundamentals/encryption-models.md)de dados . Algumas funcionalidades, tais como a loja de conhecimento, o enriquecimento incremental e a indexação baseada em indexantes, lêem ou escrevem para estruturas de dados em outros Serviços Azure. Esses serviços têm os seus próprios níveis de suporte de encriptação separados da Azure Cognitive Search.
 
-| Modelo | Chaves&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Requisitos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Restrições | Aplica-se a |
+| Modelação | Chaves&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Requisitos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Restrições | Aplica-se a |
 |------------------|-------|-------------|--------------|------------|
 | encriptação do lado do servidor | Chaves geridas pela Microsoft | Nenhum (incorporado) | Nenhum, disponível em todos os escalões, em todas as regiões, para conteúdos criados após 24 de janeiro de 2018. | Conteúdo (índices e mapas de sinónimo) e definições (indexantes, fontes de dados, skillsets) |
 | encriptação do lado do servidor | chaves geridas pelo cliente | Azure Key Vault | Disponível em níveis faturantes, em todas as regiões, para conteúdos criados após janeiro de 2019. | Conteúdo (índices e mapas de sinónimo) em discos de dados |

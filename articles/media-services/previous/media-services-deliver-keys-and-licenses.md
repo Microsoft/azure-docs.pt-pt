@@ -1,5 +1,5 @@
 ---
-title: Utilize a Azure Media Services para entregar licenças DE DRM ou chaves AES Microsoft Docs
+title: Utilize a Azure Media Services para entregar licenças DE DRM ou chaves AES | Microsoft Docs
 description: Este artigo descreve como pode utilizar o Azure Media Services para fornecer licenças PlayReady e/ou Widevine e chaves AES, mas faça o resto (codificar, encriptar, transmitir) utilizando os seus servidores no local.
 services: media-services
 documentationcenter: ''
@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 88d21c7ee092f8d4971770699bdcade4bf40039d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e564feadfdb1d3cb6943d76b4b39ba0ec814e0d6
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89267807"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693647"
 ---
 # <a name="use-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Utilize serviços de mídia para entregar licenças DE DRM ou chaves AES
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 O Azure Media Services permite-lhe ingerir, codificar, adicionar proteção de conteúdos e transmitir o seu conteúdo. Para obter mais informações, consulte [a utilização da encriptação comum dinâmica PlayReady e/ou Widevine](media-services-protect-with-playready-widevine.md). Alguns clientes querem utilizar os Serviços de Comunicação apenas para entregar licenças e/ou chaves e codificar, encriptar e transmitir utilizando os seus servidores no local. Este artigo descreve como pode utilizar os Media Services para entregar licenças PlayReady e/ou Widevine, mas faça o resto com os seus servidores no local. 
 
@@ -358,6 +358,6 @@ namespace DeliverDRMLicenses
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 * [Utilizar a encriptação comum dinâmica com PlayReady e/ou Widevine](media-services-protect-with-playready-widevine.md)
 * [Utilizar a encriptação dinâmica de AES-128 e o serviço de entrega de chave](media-services-protect-with-aes128.md)

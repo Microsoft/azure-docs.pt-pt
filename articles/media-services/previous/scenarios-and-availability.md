@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure Media Services cenários comuns Microsoft Docs
+title: Microsoft Azure Media Services cenários comuns | Microsoft Docs
 description: Este artigo apresenta uma visão geral dos cenários da Microsoft Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/3/2020
 ms.author: inhenkel
-ms.openlocfilehash: 001c535a2b39898673f2d587ee807d43b4d5f60a
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: d195ad6715c47b9b4c14dc2e65ba1d07ebf79ce8
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348547"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696266"
 ---
 # <a name="microsoft-azure-media-services-common-scenarios"></a>Microsoft Azure Media Services cenários comuns
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. Confira a versão mais recente, [Media Services v3](../latest/media-services-overview.md). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. Confira a versão mais recente, [Media Services v3](../latest/media-services-overview.md). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 Os Serviços de Multimédia do Microsoft Azure (AMS) permitem-lhe carregar, armazenar, codificar e empacotar de forma segura conteúdos de vídeo ou áudio, para a entrega de transmissões em fluxo, tanto a pedido, como em direto, para vários clientes (por exemplo, TV, PC e dispositivos móveis).
 
@@ -143,7 +143,7 @@ Os clientes do AMS podem dimensionar pontos finais de transmissões, o processam
 
 * Também pode escalar a sua conta dos Media Services adicionando-lhe contas deo Storage. Cada conta do Storage está limitada a 500 TB. Para obter mais informações, veja [Manage storage accounts](./media-services-managing-multiple-storage-accounts.md) (Gerir contas de armazenamento).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Migrar para os Serviços de Multimédia v3](../latest/media-services-overview.md)
 

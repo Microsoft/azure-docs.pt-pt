@@ -1,5 +1,5 @@
 ---
-title: Copiar bolhas de uma conta de armazenamento num ativo da Azure Media Services Microsoft Docs
+title: Copiar bolhas de uma conta de armazenamento num ativo da Azure Media Services | Microsoft Docs
 description: Este tópico mostra como copiar uma bolha existente num Ativo de Serviços de Mídia. O exemplo utiliza extensões Azure Media Services .NET SDK.
 services: media-services
 documentationcenter: ''
@@ -14,19 +14,19 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4ac981fb3aa17cbc242b5cc51cd579f926bad034
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8eee17e5ed819365f30cf1b1e0eb2e9ab1557e9d
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89257981"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695912"
 ---
 # <a name="copying-existing-blobs-into-a-media-services-asset"></a>Copiar bolhas existentes num Ativo de Serviços de Mídia
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 Este artigo mostra como copiar bolhas de uma conta de armazenamento num novo ativo Azure Media Services (AMS) utilizando [extensões Azure Media Services .NET SDK](https://github.com/Azure/azure-sdk-for-media-services-extensions/).
 

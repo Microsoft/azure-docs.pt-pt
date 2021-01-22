@@ -1,5 +1,5 @@
 ---
-title: Adicione uma fonte de eventos Hubs - Azure Time Series Insights Microsoft Docs
+title: Adicione uma fonte de eventos hubs de evento - Azure Time Series Insights | Microsoft Docs
 description: Saiba como adicionar uma fonte de eventos Azure Event Hubs ao seu ambiente Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
@@ -9,14 +9,14 @@ manager: diviso
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 01/21/2021
 ms.custom: seodec18
-ms.openlocfilehash: 7d672da30a4d81ead9115fc6b829c35aeab3ee6a
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: f4b5d4915cd6520edd7a45af85a836c3360eee32
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95016824"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696334"
 ---
 # <a name="add-an-event-hub-event-source-to-your-azure-time-series-insights-environment"></a>Adicione uma fonte de eventos hub de evento ao seu ambiente Azure Time Series Insights
 
@@ -111,7 +111,7 @@ Para adicionar um novo grupo de consumidores no seu centro de eventos:
 
    Após a criação da fonte do evento, o Azure Time Series Insights começa automaticamente a transmitir dados para o seu ambiente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Defina políticas de acesso](./concepts-access-policies.md) a dados para proteger os dados.
 

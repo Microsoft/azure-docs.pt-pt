@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 99101f31ec955c822c784180dd8b04bfb8e5f73c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f6f4cfcc07496179908c8349f4282a7633379cd3
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89291607"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695830"
 ---
 # <a name="assets-in-azure-media-services-v3"></a>Ativos em Azure Media Services v3
 
@@ -46,6 +46,6 @@ Os nomes de ficheiros/bolhas dentro de um ativo devem seguir tanto os requisitos
 
 [Visão geral dos serviços de mídia](media-services-overview.md)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
-[Diferenças entre os Serviços de Comunicação Social v2 e v3](migrate-from-v2-to-v3.md)
+[Diferenças entre os Serviços de Comunicação Social v2 e v3](migrate-v-2-v-3-migration-introduction.md)

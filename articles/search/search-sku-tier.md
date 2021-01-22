@@ -9,24 +9,27 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2021
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 1a1fc0ce634282ffd4fcf374138fe97a04f32062
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 320f02f6ece106b4d0e14293f95533aa5b4e0743
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539592"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693456"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Escolha um nível de preços para Azure Cognitive Search
 
-Ao [criar um serviço de pesquisa,](search-create-service-portal.md)escolha um nível de preços (ou SKU) que seja fixado para o tempo de vida do serviço. Os custos mensais estimados são apresentados na página **Select Pricing Tier** no portal. Se estiver a criar um serviço através do PowerShell ou do Azure CLI, o nível é especificado através do **`-Sku`** parâmetro.
+Parte da [criação](search-create-service-portal.md) de um serviço de pesquisa significa escolher um nível de preços (ou SKU) que seja fixado para o tempo de vida do serviço. Os preços - ou o custo mensal estimado de execução do serviço - são apresentados na página **Select Pricing Tier** do portal quando cria o serviço. Se estiver a provisões através do PowerShell ou do Azure CLI, o nível é especificado através do **`-Sku`** parâmetro, e deve verificar [os preços do serviço](https://azure.microsoft.com/pricing/details/search/) para saber mais sobre os custos estimados.
 
 O nível selecionado determina:
 
-+ Número máximo de índices e outros objetos que pode criar no serviço
++ Número máximo de índices e outros objetos permitidos no serviço
 + Tamanho e velocidade das divisórias (armazenamento físico)
 + Taxa faturada como um custo mensal fixo, mas também um custo incremental se adicionar capacidade
 
 Em alguns casos, o nível que escolhe determina a disponibilidade de [funcionalidades premium](#premium-features).
+
+> [!NOTE]
+> À procura de informações sobre "Azure SKUs"? Comece com [os preços do Azure](https://azure.microsoft.com/pricing/) e, em seguida, desloque-se para baixo para links para páginas de preços por serviço.
 
 ## <a name="tier-descriptions"></a>Descrições de nível
 
@@ -67,7 +70,7 @@ Os níveis determinam o armazenamento máximo do próprio serviço, bem como o n
 
 ## <a name="partition-size-and-speed"></a>Tamanho e velocidade da partição
 
-Os preços de nível incluem detalhes sobre o armazenamento por partição que varia entre 2 GB para níveis básicos, até 2 TB para armazenamento otimizado (L2). Outras características do hardware, como a velocidade de operações, latência e taxas de transferência, não são publicadas, mas os níveis que são projetados para arquiteturas de soluções específicas são construídos em hardware que tem as funcionalidades para suportar esses cenários.
+Os preços de nível incluem detalhes sobre o armazenamento por partição que varia entre 2 GB para níveis básicos, até 2 TB para armazenamento otimizado (L2). Outras características do hardware, como a velocidade de operações, latência e taxas de transferência, não são publicadas, mas os níveis que são projetados para arquiteturas de soluções específicas são construídos em hardware que tem as funcionalidades para suportar esses cenários. Para obter mais informações sobre divisórias, consulte [Estimativa e gerir capacidade](search-capacity-planning.md) e Escala para [desempenho.](search-performance-optimization.md)
 
 ## <a name="billing-rates"></a>Taxas de faturação
 
