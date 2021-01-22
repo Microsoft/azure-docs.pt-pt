@@ -4,14 +4,14 @@ description: Problemas comuns com alertas métricos do Azure Monitor e possívei
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 01/11/2021
+ms.date: 01/21/2021
 ms.subservice: alerts
-ms.openlocfilehash: e4e876b58c82605df0c005b225dcf2cdbcda1b34
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 11dc71578b3d94ce41fe040557184ff32bcf3240
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98070737"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661802"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Resolver problemas relacionados com os alertas de métricas do Azure Monitor 
 
@@ -24,8 +24,9 @@ Os alertas do Azure Monitor notificam-no proativamente quando forem encontradas 
 Se acredita que um alerta métrico deveria ter disparado, mas não disparou e não foi encontrado no portal Azure, experimente os seguintes passos:
 
 1. **Configuração** - Reveja a configuração da regra de alerta métrico para se certificar de que está corretamente configurada:
-    - Verifique se o **tipo de agregação,** **granularidade agregação (período)** e valor ou **sensibilidade** **do limiar** estão configurados como esperado
-    - Para uma regra de alerta que utilize limiares dinâmicos, verifique se as definições avançadas estão configuradas, pois **o número de violações** pode filtrar alertas e **ignorar dados antes** de poder afetar a forma como os limiares são calculados
+    - Verifique se o **tipo de agregação** e **a granularidade de agregação (período)** estão configurados como esperado. **O tipo de agregação** determina como os valores métricos são agregados (saiba mais [aqui),](./metrics-aggregation-explained.md#aggregation-types)e **a granularidade agregada (período)** controla até que ponto a avaliação agrega os valores métricos cada vez que a regra de alerta corre.
+    -  Verifique se o **valor** limiar ou **a sensibilidade** estão configurados como esperado.
+    - Para uma regra de alerta que utilize limiares dinâmicos, verifique se as definições avançadas estão configuradas, pois **o número de violações** pode filtrar alertas e **ignorar dados antes** de poder impactar a forma como os limiares são calculados.
 
        > [!NOTE] 
        > Os limiares dinâmicos requerem pelo menos 3 dias e 30 amostras métricas antes de se tornarem ativas.

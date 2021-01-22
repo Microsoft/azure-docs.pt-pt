@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 09ce611b5bca6c04d55da95a82a8fcd7ae348db3
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 4f68eba8106a20d357fe6d3fb2baac1d1661aa1e
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98049221"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660543"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Tutorial: Construir uma solução de ponta a ponta
 
@@ -167,11 +167,13 @@ Para permitir que a aplicação de função aceda a Azure Digital Twins, o próx
 
 [!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
-No Azure Cloud Shell, utilize o seguinte comando para definir uma definição de aplicação que a sua aplicação de função utilizará para fazer referência à sua instância Azure Digital Twins.
+No Azure Cloud Shell, utilize o seguinte comando para definir uma definição de aplicação que a sua aplicação de função utilizará para fazer referência à sua instância Azure Digital Twins. Preencha os espaços reservados com os detalhes dos seus recursos (lembre-se que o url de exemplo de Azure Digital Twins é o seu nome de anfitrião precedido por *https://).*
 
 ```azurecli-interactive
 az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=<your-Azure-Digital-Twins-instance-URL>"
 ```
+
+A saída é a lista de definições para a Função Azure, que deve agora conter uma entrada chamada *ADT_SERVICE_URL*.
 
 Utilize o seguinte comando para criar a identidade gerida pelo sistema. Tome nota do campo *principalid* na saída.
 
@@ -255,9 +257,9 @@ az iot hub device-identity create --device-id thermostat67 --hub-name <your-IoT-
 
 A saída é informação sobre o dispositivo que foi criado.
 
-### <a name="configure-and-run-the-simulation"></a>Configure e executar a simulação
+### <a name="configure-and-run-the-simulation"></a>Configurar e executar a simulação
 
-Em seguida, configuure o simulador do dispositivo para enviar dados para a sua instância IoT Hub.
+Em seguida, configure o simulador de dispositivos para enviar dados para a instância do Hub IoT.
 
 Comece por obter a *cadeia de ligação do hub IoT* com este comando:
 
@@ -265,7 +267,7 @@ Comece por obter a *cadeia de ligação do hub IoT* com este comando:
 az iot hub connection-string show -n <your-IoT-hub-name>
 ```
 
-Em seguida, obtenha a *cadeia de ligação* do dispositivo com este comando:
+Em seguida, obtenha a *cadeia de ligação de dispositivo* com este comando:
 
 ```azurecli-interactive
 az iot hub device-identity connection-string show --device-id thermostat67 --hub-name <your-IoT-hub-name>

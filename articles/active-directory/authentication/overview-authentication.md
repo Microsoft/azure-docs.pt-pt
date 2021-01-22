@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: overview
-ms.date: 07/13/2020
+ms.date: 01/20/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f85b78480e7258780f8dd396431edeb968189e4c
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: ae7ae239493c999d98100bf9dee4f4f0183addf2
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741257"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660818"
 ---
 # <a name="what-is-azure-active-directory-authentication"></a>O que é a autenticação do Azure Ative Directory?
 
@@ -27,6 +27,8 @@ Uma das principais características de uma plataforma de identidade é verificar
 * Integração híbrida para escrever alterações de palavra-passe de volta ao ambiente no local
 * Integração híbrida para impor políticas de proteção de senhas para um ambiente no local
 * Autenticação sem palavra-passe
+
+Veja o nosso pequeno vídeo para saber mais sobre estes componentes de autenticação.
 
 ## <a name="improve-the-end-user-experience"></a>Melhorar a experiência do utilizador final
 
@@ -80,7 +82,7 @@ O objetivo final para muitos ambientes é remover o uso de senhas como parte de 
 
 ![Segurança versus conveniência com o processo de autenticação que leva a sem palavras-passe](./media/concept-authentication-passwordless/passwordless-convenience-security.png)
 
-Quando se inscreve com um método sem palavras-passe, as credenciais são fornecidas através da utilização de métodos como biometria com Windows Hello for Business ou uma chave de segurança FIDO2. Estes métodos de autenticação não podem ser facilmente duplicados por um intruso.
+Quando se inscreve com um método sem palavras-passe, as credenciais são fornecidas utilizando métodos como biometria com Windows Hello for Business ou uma chave de segurança FIDO2. Estes métodos de autenticação não podem ser facilmente duplicados por um intruso.
 
 O Azure AD fornece formas de autenticar de forma nativa utilizando métodos sem palavras-passe para simplificar a experiência de entrada para os utilizadores e reduzir o risco de ataques.
 

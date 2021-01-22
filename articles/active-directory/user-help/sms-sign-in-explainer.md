@@ -1,5 +1,5 @@
 ---
-title: Experiência de utilizador de súmis por SMS para número de telefone (pré-visualização) - Azure AD
+title: Experiência de utilizador de súmis por SMS para o número de telefone - Azure AD
 description: Saiba mais sobre a experiência do utilizador de sing-in POR SMS para números de telefone novos ou existentes
 services: active-directory
 author: curtand
@@ -8,18 +8,18 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 04/14/2020
+ms.date: 01/21/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: a4dcb6774990c03ce3d55fb6c519b0600a1086f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a50f2032a978a552205d1bba602249f34f0478a
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91536890"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661602"
 ---
-# <a name="use-your-phone-number-as-a-user-name-preview"></a>Use o seu número de telefone como nome de utilizador (pré-visualização)
+# <a name="use-your-phone-number-as-a-user-name"></a>Use o seu número de telefone como nome de utilizador
 
 Registar um dispositivo dá acesso ao seu telefone aos serviços da sua organização e não permite que a sua organização tenha acesso ao seu telemóvel. Se for administrador, pode encontrar mais informações em [Configurar e ativar a autenticação baseada](../authentication/howto-authentication-sms-signin.md)em SMS.
 
@@ -36,7 +36,7 @@ Se receber um novo telefone ou um novo número e o registar numa organização p
 1. Verá uma solicitação que diz "SMS verificado. O seu telemóvel foi registado com sucesso."
 
 > [!Important]
-> Devido a um problema conhecido na pré-visualização, por um curto período de tempo adicionando o número de telefone não registará o número de sing-in POR SMS. Terá de iniciar sing com o número adicional e, em seguida, seguir as indicações para registar o número de sing-in por SMS.
+> Devido a um problema conhecido, por um curto período de tempo a adição de número de telefone não registará o número de inscrição por SMS. Terá de iniciar sing com o número adicional e, em seguida, seguir as indicações para registar o número de sing-in por SMS.
 
 ### <a name="when-the-phone-number-is-in-use"></a>Quando o número de telefone estiver a ser utilizado
 

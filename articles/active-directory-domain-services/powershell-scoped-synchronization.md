@@ -1,5 +1,5 @@
 ---
-title: Sincronização âmbito usando PowerShell para Serviços de Domínio AD AZure / Microsoft Docs
+title: Sincronização âmbito usando PowerShell para serviços de domínio AD Azure | Microsoft Docs
 description: Saiba como utilizar o Azure AD PowerShell para configurar a sincronização telescópio do Azure AD para um domínio gerido por Serviços de Domínio do Diretório Ativo Azure
 services: active-directory-ds
 author: justinha
@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 01/20/2021
 ms.author: justinha
-ms.openlocfilehash: c078117baf84d7dbfaaaa2b569abb8a5f5c67e6d
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 04c611b8a902d27f40893a05f301898c0111748f
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96619016"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660954"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-azure-active-directory-domain-services-using-azure-ad-powershell"></a>Configure sincronização telescópio de Ad AD a Azure Ative Directory Domain Services usando Azure AD PowerShell
 
@@ -41,15 +41,14 @@ Para completar este artigo, precisa dos seguintes recursos e privilégios:
 
 Por padrão, todos os utilizadores e grupos de um diretório AD Azure são sincronizados a um domínio gerido. Se apenas alguns utilizadores precisarem de aceder ao domínio gerido, pode sincronizar apenas essas contas de utilizador. Esta sincronização âmbito é baseada em grupo. Quando configurar a sincronização de âmbito de grupo, apenas as contas de utilizador que pertencem aos grupos especificados são sincronizadas com o domínio gerido. Os grupos aninhados não são sincronizados, apenas os grupos específicos que seleciona.
 
-Pode alterar o âmbito de sincronização quando criar o domínio gerido, ou uma vez implementado. Também pode agora alterar o âmbito da sincronização num domínio gerido existente sem precisar de o recriar.
+Pode alterar o âmbito de sincronização antes ou depois de criar o domínio gerido. O âmbito de sincronização é definido por um chefe de serviço com o identificador de aplicação 2565bd9d-da50-47d4-8b85-4c97f669dc36. Para evitar a perda de âmbito, não apague nem altere o principal de serviço. Se for acidentalmente eliminado, o âmbito de sincronização não pode ser recuperado. 
+
+Tenha em mente as seguintes ressalvas se alterar o âmbito de sincronização:
+
+- Ocorre uma sincronização completa.
+- Os objetos que já não são necessários no domínio gerido são eliminados. Novos objetos são criados no domínio gerido.
 
 Para saber mais sobre o processo de sincronização, consulte [a sincronização do Azure AD Domain Services][concepts-sync].
-
-> [!WARNING]
-> Alterar o âmbito da sincronização faz com que o domínio gerido ressincronize todos os dados. As seguintes considerações são aplicáveis:
->
->  * Quando altera o âmbito de sincronização para um domínio gerido, ocorre uma ressincronização completa.
->  * Os objetos que já não são necessários no domínio gerido são eliminados. Novos objetos são criados no domínio gerido.
 
 ## <a name="powershell-script-for-scoped-synchronization"></a>Script PowerShell para sincronização de âmbito
 

@@ -12,12 +12,12 @@ ms.date: 02/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 9485fb09d3ac7684ba91bcd37720a0e55603404b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 04d5a989fcaf3cef3eea3b782842fb3255d4b317
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94952731"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661107"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Aceder aos registos de auditoria do Azure AD B2C
 
@@ -32,7 +32,7 @@ Os eventos de registo de auditoria só são mantidos por **sete dias**. Planeie 
 
 A categoria **B2C** nos registos de auditoria contém os seguintes tipos de atividades:
 
-|Tipo de atividade |Descrição  |
+|Tipo de atividade |Description  |
 |---------|---------|
 |Autorização |Atividades relativas à autorização de um utilizador para aceder aos recursos B2C (por exemplo, um administrador que aceda a uma lista de políticas B2C).         |
 |Diretório |Atividades relacionadas com atributos de diretório recuperados quando um administrador assina na utilização do portal Azure. |
@@ -53,7 +53,7 @@ O painel de detalhes da atividade contém as seguintes informações relevantes:
 
 |Section|Campo|Descrição|
 |-------|-----|-----------|
-| Atividade | Nome | Que atividade aconteceu. Por exemplo, *emita um id_token à aplicação*, que conclui o real pedido de inscrição do utilizador. |
+| Atividade | Name | Que atividade aconteceu. Por exemplo, *emita um id_token à aplicação*, que conclui o real pedido de inscrição do utilizador. |
 | Iniciado por (Ator) | ObjectId | O **ID** do Objeto da aplicação B2C a que o utilizador está a iniciar sessão. Este identificador não é visível no portal Azure, mas é acessível através da API do Microsoft Graph. |
 | Iniciado por (Ator) | Spn | O ID de **aplicação** da aplicação B2C a que o utilizador está a iniciar sessão. |
 | Destino(s) | ObjectId | O **ID do objeto** do utilizador que está a iniciar sessão. |
@@ -223,4 +223,4 @@ Aqui está a representação JSON do evento de atividades exemplo mostrado anter
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Pode automatizar outras tarefas de administração, por exemplo, [gerir contas de utilizadores Azure AD B2C com o Microsoft Graph](manage-user-accounts-graph-api.md).
+Pode automatizar outras tarefas de administração, por exemplo, [gerir contas de utilizadores Azure AD B2C com o Microsoft Graph](microsoft-graph-operations.md).

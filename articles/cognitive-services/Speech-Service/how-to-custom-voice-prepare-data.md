@@ -10,26 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 563a3e224ffedc98bcc3102ea865f06315294365
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: 28cc0e27e5ac97ca52f5e94a556795b1404f6961
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98573110"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98663201"
 ---
 # <a name="prepare-data-to-create-a-custom-voice"></a>Preparar dados para criar uma voz personalizada
 
 Quando estiver pronto para criar uma voz personalizada de texto-a-voz para a sua aplicação, o primeiro passo é recolher gravações áudio e scripts associados para começar a treinar o modelo de voz. O serviço Discurso utiliza estes dados para criar uma voz única sintonizada para corresponder à voz nas gravações. Depois de treinar a voz, pode começar a sintetizar o discurso nas suas aplicações.
 
-Antes de treinar o seu próprio modelo de voz de texto para voz, precisará de gravações áudio e transcrições de texto associadas. Nesta página, vamos rever os tipos de dados, como são usados e como gerir cada um deles.
-
-> [!NOTE]
-> Se quiser treinar uma voz neural, deve especificar um perfil de talento de voz com o ficheiro de consentimento áudio fornecido pelo talento de voz, reconhecendo usar os seus dados de fala para treinar um modelo de voz personalizado. Ao preparar o seu script de gravação, certifique-se de que inclui a frase abaixo. 
-
-> "Eu [declaro o seu primeiro e último nome] estou ciente de que as gravações da minha voz serão usadas [pelo nome da empresa] para criar e usar uma versão sintética da minha voz."
-Esta frase será usada para verificar se os dados de formação são feitos pela mesma pessoa que faz o consentimento. Leia mais sobre a [verificação](https://aka.ms/CNV-data-privacy) de talentos de voz aqui.
-
-> A Voz Neural Personalizada está disponível com acesso limitado. Certifique-se de compreender os [requisitos responsáveis da IA](https://aka.ms/gating-overview) e [aplicar o acesso aqui.](https://aka.ms/customneural) 
+Pode começar com uma pequena quantidade de dados para criar uma prova de conceito. No entanto, quanto mais dados fornecer, mais natural será a sua voz personalizada. Antes de treinar o seu próprio modelo de voz de texto para voz, precisará de gravações áudio e transcrições de texto associadas. Nesta página, vamos rever os tipos de dados, como são usados e como gerir cada um deles.
 
 ## <a name="data-types"></a>Tipos de dados
 
@@ -39,22 +31,22 @@ Em alguns casos, pode não ter o conjunto de dados certo pronto e irá querer te
 
 Esta tabela lista os tipos de dados e como cada um é usado para criar um modelo personalizado de voz texto-a-voz.
 
-| Tipo de dados | Descrição | Quando utilizar | Processamento adicional necessário | 
-| --------- | ----------- | ----------- | --------------------------- |
-| **Declarações individuais + transcrição correspondente** | Uma coleção (.zip) de ficheiros áudio (.wav) como expressões individuais. Cada ficheiro áudio deve ter 15 segundos ou menos de comprimento, emparelhado com uma transcrição formatada (.txt). | Gravações profissionais com transcrições correspondentes | Pronto para o treino. |
-| **Longa transcrição áudio + (beta)** | Uma coleção (.zip) de ficheiros áudio longos e não-egmentados (mais de 20 segundos), emparelhada com uma transcrição (.txt) que contém todas as palavras faladas. | Tem ficheiros áudio e transcrições correspondentes, mas não são segmentados em expressões. | Segmentação (utilizando a transcrição do lote).<br>Transformação do formato áudio sempre que necessário. | 
-| **Apenas áudio (beta)** | Uma coleção (.zip) de ficheiros áudio sem transcrição. | Só tem ficheiros áudio disponíveis, sem transcrições. | Segmentação + geração de transcrição (utilizando a transcrição do lote).<br>Transformação do formato áudio sempre que necessário.| 
+| Tipo de dados | Descrição | Quando utilizar | Serviço adicional necessário | Quantidade para formação de um modelo | Locale(s) |
+| --------- | ----------- | ----------- | --------------------------- | ----------------------------- | --------- |
+| **Declarações individuais + transcrição correspondente** | Uma coleção (.zip) de ficheiros áudio (.wav) como expressões individuais. Cada ficheiro áudio deve ter 15 segundos ou menos de comprimento, emparelhado com uma transcrição formatada (.txt). | Gravações profissionais com transcrições correspondentes | Pronto para o treino. | Não há requisitos difíceis para en-US e zh-CN. Mais de 2.000 proclamações distintas para outros locais. | [Todos os locais de voz personalizada](language-support.md#customization) |
+| **Longa transcrição áudio + (beta)** | Uma coleção (.zip) de ficheiros áudio longos e não-egmentados (mais de 20 segundos), emparelhada com uma transcrição (.txt) que contém todas as palavras faladas. | Tem ficheiros áudio e transcrições correspondentes, mas não são segmentados em expressões. | Segmentação (utilizando a transcrição do lote).<br>Transformação do formato áudio sempre que necessário. | Sem requisitos difíceis  | [Todos os locais de voz personalizada](language-support.md#customization) |
+| **Apenas áudio (beta)** | Uma coleção (.zip) de ficheiros áudio sem transcrição. | Só tem ficheiros áudio disponíveis, sem transcrições. | Segmentação + geração de transcrição (utilizando a transcrição do lote).<br>Transformação do formato áudio sempre que necessário.| Sem requisitos difíceis | [Todos os locais de voz personalizada](language-support.md#customization) |
 
 Os ficheiros devem ser agrupados por tipo num conjunto de dados e carregados como um ficheiro zip. Cada conjunto de dados só pode conter um único tipo de dados.
 
 > [!NOTE]
-> O número máximo de conjuntos de dados autorizados a serem importados por subscrição é de 10 ficheiros zip para utilizadores de subscrição gratuita (F0) e 500 para utilizadores de subscrição padrão (S0).
+> O número máximo de conjuntos de dados autorizados a serem importados por subscrição é de 10 ficheiros .zip para utilizadores de subscrição gratuita (F0) e 500 para utilizadores de subscrição padrão (S0).
 
 ## <a name="individual-utterances--matching-transcript"></a>Declarações individuais + transcrição correspondente
 
 Pode preparar gravações de declarações individuais e a transcrição correspondente de duas maneiras. Ou escreve um guião e fazê-lo ler por um talento de voz ou usar áudio disponível ao público e transcrevê-lo para texto. Se fizer este último, edite disfluências dos ficheiros áudio, tais como "um" e outros sons de enchimento, gaguez, palavras murmurantes ou pronúncias erradas.
 
-Para produzir um bom modelo de voz, crie as gravações numa sala tranquila com um microfone de alta qualidade. Volume consistente, taxa de fala, tom de fala e maneirismos expressivos da fala são essenciais.
+Para produzir uma boa fonte de voz, crie as gravações numa sala tranquila com um microfone de alta qualidade. Volume consistente, taxa de fala, tom de fala e maneirismos expressivos da fala são essenciais.
 
 > [!TIP]
 > Para criar uma voz para uso de produção, recomendamos que use um estúdio de gravação profissional e talento de voz. Para obter mais informações, consulte [Como gravar amostras de voz para uma voz personalizada](record-custom-voice-samples.md).
@@ -97,6 +89,9 @@ Abaixo está um exemplo de como as transcrições são organizadas por expressã
 0000000003[tab] It was Janet Maslin.
 ```
 É importante que as transcrições sejam 100% precisas transcrições do áudio correspondente. Erros nas transcrições introduzirão perda de qualidade durante o treino.
+
+> [!TIP]
+> Ao construir vozes de texto para voz de produção, selecione expressões (ou escreva scripts) que têm em conta a cobertura fonética e a eficiência. Estás a ter problemas em obter os resultados que queres? [Contacte a](mailto:speechsupport@microsoft.com) equipa de Voz Personalizada para saber mais sobre a nossa consulta.
 
 ## <a name="long-audio--transcript-beta"></a>Longa transcrição áudio + (beta)
 

@@ -6,15 +6,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 08/27/2020
+ms.date: 01/20/2021
 ms.author: victorh
 ms.custom: mvc, subject-armqs
-ms.openlocfilehash: 3ea5c891a0e3709c1ce469be2e9101a0825acfcb
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 05e7cd8d7018759a3c8670a610b4c98ac0a86a7a
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093876"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660060"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---arm-template"></a>Quickstart: Tráfego web direto com Gateway de aplicação Azure - modelo ARM
 
@@ -77,7 +77,7 @@ Embora o IIS não seja necessário para criar o gateway de aplicações, está i
 
    Refresque o navegador várias vezes e deverá ver ligações tanto para o myVM1 como para o myVM2.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não precisar dos recursos que criou com o gateway de aplicações, elimine o grupo de recursos. Isto remove o gateway de aplicação e todos os recursos relacionados.
 

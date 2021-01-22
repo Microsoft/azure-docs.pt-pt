@@ -11,12 +11,12 @@ ms.author: jaredmoo
 author: jaredmoo
 ms.reviewer: sstein
 ms.date: 02/07/2020
-ms.openlocfilehash: 9c9f5972cdd2690b86610ea585bdd82d736ed163
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 76f9fb4ed5c3b88b3a1f69e352f50079586ec336
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792145"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98663337"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs-preview"></a>Utilize o Transact-SQL (T-SQL) para criar e gerir trabalhos de base de dados elásticos (pré-visualização)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -63,8 +63,8 @@ EXEC jobs.sp_add_target_group 'ServerGroup1'
 EXEC jobs.sp_add_target_group_member
 'ServerGroup1',
 @target_type = 'SqlServer',
-@refresh_credential_name='mymastercred', --credential required to refresh the databases in a server
-@server_name='server1.database.windows.net'
+@refresh_credential_name = 'mymastercred', --credential required to refresh the databases in a server
+@server_name = 'server1.database.windows.net'
 
 --View the recently created target group and target group members
 SELECT * FROM jobs.target_groups WHERE target_group_name='ServerGroup1';
@@ -73,7 +73,7 @@ SELECT * FROM jobs.target_group_members WHERE target_group_name='ServerGroup1';
 
 ## <a name="exclude-an-individual-database"></a>Excluir uma base de dados individual
 
-O exemplo a seguir mostra como executar um trabalho contra todas as bases de dados de um servidor, com exceção da base de dados chamada *MappingDB* .  
+O exemplo a seguir mostra como executar um trabalho contra todas as bases de dados de um servidor, com exceção da base de dados chamada *MappingDB*.  
 Ligue-se à [*base de dados de trabalho*](job-automation-overview.md#job-database) e execute o seguinte comando:
 
 ```sql
@@ -87,16 +87,16 @@ GO
 EXEC [jobs].sp_add_target_group_member
 @target_group_name = N'ServerGroup',
 @target_type = N'SqlServer',
-@refresh_credential_name=N'mymastercred', --credential required to refresh the databases in a server
-@server_name=N'London.database.windows.net'
+@refresh_credential_name = N'mymastercred', --credential required to refresh the databases in a server
+@server_name = N'London.database.windows.net'
 GO
 
 -- Add a server target member
 EXEC [jobs].sp_add_target_group_member
 @target_group_name = N'ServerGroup',
 @target_type = N'SqlServer',
-@refresh_credential_name=N'mymastercred', --credential required to refresh the databases in a server
-@server_name='server2.database.windows.net'
+@refresh_credential_name = N'mymastercred', --credential required to refresh the databases in a server
+@server_name = 'server2.database.windows.net'
 GO
 
 --Exclude a database target member from the server target group
@@ -105,7 +105,7 @@ EXEC [jobs].sp_add_target_group_member
 @membership_type = N'Exclude',
 @target_type = N'SqlDatabase',
 @server_name = N'server1.database.windows.net',
-@database_name =N'MappingDB'
+@database_name = N'MappingDB'
 GO
 
 --View the recently created target group and target group members
@@ -128,9 +128,9 @@ EXEC jobs.sp_add_target_group 'PoolGroup'
 EXEC jobs.sp_add_target_group_member
 'PoolGroup',
 @target_type = 'SqlElasticPool',
-@refresh_credential_name='mymastercred', --credential required to refresh the databases in a server
-@server_name='server1.database.windows.net',
-@elastic_pool_name='ElasticPool-1'
+@refresh_credential_name = 'mymastercred', --credential required to refresh the databases in a server
+@server_name = 'server1.database.windows.net',
+@elastic_pool_name = 'ElasticPool-1'
 
 -- View the recently created target group and target group members
 SELECT * FROM jobs.target_groups WHERE target_group_name = N'PoolGroup';
@@ -146,14 +146,14 @@ Ligue-se à [*base de dados de trabalho*](job-automation-overview.md#job-databas
 --Connect to the job database specified when creating the job agent
 
 --Add job for create table
-EXEC jobs.sp_add_job @job_name='CreateTableTest', @description='Create Table Test'
+EXEC jobs.sp_add_job @job_name = 'CreateTableTest', @description = 'Create Table Test'
 
 -- Add job step for create table
-EXEC jobs.sp_add_jobstep @job_name='CreateTableTest',
-@command=N'IF NOT EXISTS (SELECT * FROM sys.tables WHERE object_id = object_id(''Test''))
+EXEC jobs.sp_add_jobstep @job_name = 'CreateTableTest',
+@command = N'IF NOT EXISTS (SELECT * FROM sys.tables WHERE object_id = object_id(''Test''))
 CREATE TABLE [dbo].[Test]([TestId] [int] NOT NULL);',
-@credential_name='myjobcred',
-@target_group_name='PoolGroup'
+@credential_name = 'myjobcred',
+@target_group_name = 'PoolGroup'
 ```
 
 ## <a name="data-collection-using-built-in-parameters"></a>Recolha de dados utilizando parâmetros incorporados
@@ -179,7 +179,7 @@ Por exemplo, para agrupar todos os resultados da mesma execução de trabalho em
 
 O exemplo a seguir cria um novo trabalho para recolher dados de desempenho de várias bases de dados.
 
-Por padrão, o agente de trabalho criará a tabela de saída para armazenar os resultados devolvidos. Por conseguinte, o principal da base de dados associado à credencial de saída deve, no mínimo, ter as seguintes permissões: `CREATE TABLE` na base de dados, `ALTER` , , na tabela de saída ou no seu `SELECT` `INSERT` `DELETE` esquema, e `SELECT` na vista do catálogo [sys.indexes.](/sql/relational-databases/system-catalog-views/sys-indexes-transact-sql)
+Por padrão, o agente de trabalho criará a tabela de saída para armazenar os resultados devolvidos. Por conseguinte, o principal da base de dados associado à credencial de saída deve, no mínimo, ter as seguintes permissões: `CREATE TABLE` na base de dados, `ALTER` na tabela de saída ou no seu `SELECT` `INSERT` `DELETE` esquema, e `SELECT` na vista do catálogo [sys.indexes.](/sql/relational-databases/system-catalog-views/sys-indexes-transact-sql)
 
 Se quiser criar manualmente a tabela antes do tempo, então tem de ter as seguintes propriedades:
 
@@ -198,15 +198,15 @@ EXEC jobs.sp_add_job @job_name ='ResultsJob', @description='Collection Performan
 
 -- Add a job step w/ schedule to collect results
 EXEC jobs.sp_add_jobstep
-@job_name='ResultsJob',
-@command= N' SELECT DB_NAME() DatabaseName, $(job_execution_id) AS job_execution_id, * FROM sys.dm_db_resource_stats WHERE end_time > DATEADD(mi, -20, GETDATE());',
-@credential_name='myjobcred',
-@target_group_name='PoolGroup',
-@output_type='SqlDatabase',
-@output_credential_name='myjobcred',
-@output_server_name='server1.database.windows.net',
-@output_database_name='<resultsdb>',
-@output_table_name='<resutlstable>'
+@job_name = 'ResultsJob',
+@command = N' SELECT DB_NAME() DatabaseName, $(job_execution_id) AS job_execution_id, * FROM sys.dm_db_resource_stats WHERE end_time > DATEADD(mi, -20, GETDATE());',
+@credential_name = 'myjobcred',
+@target_group_name = 'PoolGroup',
+@output_type = 'SqlDatabase',
+@output_credential_name = 'myjobcred',
+@output_server_name = 'server1.database.windows.net',
+@output_database_name = '<resultsdb>',
+@output_table_name = '<resutlstable>'
 Create a job to monitor pool performance
 --Connect to the job database specified when creating the job agent
 
@@ -215,17 +215,17 @@ EXEC jobs.sp_add_target_group 'MasterGroup'
 
 -- Add a server target member
 EXEC jobs.sp_add_target_group_member
-@target_group_name='MasterGroup',
-@target_type='SqlDatabase',
-@server_name='server1.database.windows.net',
-@database_name='master'
+@target_group_name = 'MasterGroup',
+@target_type = 'SqlDatabase',
+@server_name = 'server1.database.windows.net',
+@database_name = 'master'
 
 -- Add a job to collect perf results
 EXEC jobs.sp_add_job
-@job_name='ResultsPoolsJob',
-@description='Demo: Collection Performance data from all pools',
-@schedule_interval_type='Minutes',
-@schedule_interval_count=15
+@job_name = 'ResultsPoolsJob',
+@description = 'Demo: Collection Performance data from all pools',
+@schedule_interval_type = 'Minutes',
+@schedule_interval_count = 15
 
 -- Add a job step w/ schedule to collect results
 EXEC jobs.sp_add_jobstep
@@ -246,13 +246,13 @@ SELECT elastic_pool_name , end_time, elastic_pool_dtu_limit, avg_cpu_percent, av
         avg_storage_percent, elastic_pool_storage_limit_mb FROM sys.elastic_pool_resource_stats
         WHERE end_time > @poolStartTime and end_time <= @poolEndTime;
 '),
-@credential_name='myjobcred',
-@target_group_name='MasterGroup',
-@output_type='SqlDatabase',
-@output_credential_name='myjobcred',
-@output_server_name='server1.database.windows.net',
-@output_database_name='resultsdb',
-@output_table_name='resutlstable'
+@credential_name = 'myjobcred',
+@target_group_name = 'MasterGroup',
+@output_type = 'SqlDatabase',
+@output_credential_name = 'myjobcred',
+@output_server_name = 'server1.database.windows.net',
+@output_database_name = 'resultsdb',
+@output_table_name = 'resutlstable'
 ```
 
 ## <a name="view-job-definitions"></a>Ver definições de emprego
@@ -306,10 +306,10 @@ Ligue-se à [*base de dados de trabalho*](job-automation-overview.md#job-databas
 --Connect to the job database specified when creating the job agent
 
 EXEC jobs.sp_update_job
-@job_name='ResultsJob',
+@job_name = 'ResultsJob',
 @enabled=1,
-@schedule_interval_type='Minutes',
-@schedule_interval_count=15
+@schedule_interval_type = 'Minutes',
+@schedule_interval_count = 15
 ```
 
 ## <a name="monitor-job-execution-status"></a>Monitorizar o estado de execução do trabalho
@@ -389,7 +389,7 @@ EXEC jobs.sp_delete_job @job_name='ResultsPoolsJob'
 
 Os seguintes procedimentos armazenados estão na [base de dados](job-automation-overview.md#job-database)de empregos.
 
-|Procedimento armazenado  |Descrição  |
+|Procedimento armazenado  |Description  |
 |---------|---------|
 |[sp_add_job](#sp_add_job)     |     Acrescenta um novo emprego.    |
 |[sp_update_job](#sp_update_job)    |      Atualiza um trabalho existente.   |
@@ -433,7 +433,7 @@ A descrição do trabalho. descrição é nvarchar(512), com um padrão de NUN. 
 [ **\@ ativado =** ] ativado  
 Se o horário do trabalho está habilitado. Ativado é bit, com um padrão de 0 (desativado). Se 0, o trabalho não está habilitado e não funciona de acordo com o seu horário; no entanto, pode ser executado manualmente. Se 1, o trabalho funcionará de acordo com o seu horário, e também pode ser executado manualmente.
 
-[schedule_interval_type **\@ =** ] schedule_interval_type  
+[schedule_interval_type **\@ =**] schedule_interval_type  
 O valor indica quando o trabalho deve ser executado. schedule_interval_type é nvarchar(50), com um padrão de Once, e pode ser um dos seguintes valores:
 
 - "Uma vez",
@@ -1204,7 +1204,7 @@ GO
 
 As seguintes opiniões estão disponíveis na [base de dados](job-automation-overview.md#job-database)de empregos.
 
-|Vista  |Descrição  |
+|Vista  |Description  |
 |---------|---------|
 |[job_executions](#job_executions-view)     |  Mostra o histórico de execução de empregos.      |
 |[empregos](#jobs-view)     |   Mostra todos os empregos.      |

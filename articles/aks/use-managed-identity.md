@@ -4,12 +4,12 @@ description: Saiba como utilizar identidades geridas no Serviço Azure Kubernete
 services: container-service
 ms.topic: article
 ms.date: 12/16/2020
-ms.openlocfilehash: fe11170b1cdf18aacf832f4c8171bfc082339395
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: e991f7313bae5aa67478043b4f9306dbc274e1e7
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98599606"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98659993"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Utilize identidades geridas no Serviço Azure Kubernetes
 
@@ -25,7 +25,6 @@ Deve ter o seguinte recurso instalado:
 
 ## <a name="limitations"></a>Limitações
 
-* Durante as operações **de atualização** do cluster, a identidade gerida está temporariamente indisponível.
 * Os inquilinos movem-se/migram de agrupamentos de identidade geridos não são suportados.
 * Se o cluster `aad-pod-identity` tiver ativado, as cápsulas Node-Managed Identity (NMI) modificam os iptables dos nós para intercetar chamadas para o ponto final dos metadados Azure Instance. Esta configuração significa que qualquer pedido feito ao ponto final dos metadados é intercetado pelo NMI mesmo que a cápsula não utilize `aad-pod-identity` . AzurePodIdentityException CRD pode ser configurado para informar `aad-pod-identity` que quaisquer pedidos para o ponto final de metadados originários de um pod que corresponda às etiquetas definidas em CRD devem ser proxiited sem qualquer processamento em NMI. As cápsulas do sistema com `kubernetes.azure.com/managedby: aks` etiqueta no espaço de _nomes do sistema kube_ devem ser excluídas `aad-pod-identity` configurando o CRD AzurePodIdentityException. Para obter mais informações, consulte [Desativar a identidade do aad-pod para uma cápsula ou aplicação específica.](https://azure.github.io/aad-pod-identity/docs/configure/application_exception)
   Para configurar uma exceção, instale a [yaML de exceção ao microfone.](https://github.com/Azure/aad-pod-identity/blob/master/deploy/infra/mic-exception.yaml)
@@ -34,20 +33,20 @@ Deve ter o seguinte recurso instalado:
 
 A AKS usa várias identidades geridas para serviços incorporados e addons.
 
-| Identidade                       | Nome    | Caso de utilização | Permissões por defeito | Traga a sua própria identidade
+| Identidade                       | Name    | Caso de utilização | Permissões por defeito | Traga a sua própria identidade
 |----------------------------|-----------|----------|
 | Plano de controlo | não visível | Utilizados por componentes de planos de controlo AKS para gerir recursos de cluster, incluindo equilibradores de carga ingressuais e IPs públicos geridos pela AKS, e operações de Cluster Autoscaler | Papel contribuinte para o grupo de recursos nó | Suportado
 | Kubelet | AKS Cluster Name-agentpool | Autenticação com Registo de Contentores Azure (ACR) | NA (para kubernetes v1.15+) | Atualmente, não é suportado
-| Add-on | AzurenPM | Nenhuma identidade necessária | ND | Não
-| Add-on | Monitorização da rede AzureCNI | Nenhuma identidade necessária | ND | Não
-| Add-on | política azul (gatekeeper) | Nenhuma identidade necessária | ND | Não
-| Add-on | política azul | Nenhuma identidade necessária | ND | Não
-| Add-on | Calico | Nenhuma identidade necessária | ND | Não
-| Add-on | Dashboard | Nenhuma identidade necessária | ND | Não
-| Add-on | HTTPApplicationRouting | Gere os recursos de rede necessários | Função do leitor para grupo de recursos de nó, papel de contribuinte para a zona DNS | Não
-| Add-on | Gateway de aplicação ingress | Gere os recursos de rede necessários| Papel contribuinte para o grupo de recursos de nó | Não
-| Add-on | omsagent | Usado para enviar métricas AKS para Azure Monitor | Função de editor de métricas de monitorização | Não
-| Add-on | Virtual-Node (ACIConnector) | Gere os recursos de rede necessários para as instâncias do contentor Azure (ACI) | Papel contribuinte para o grupo de recursos de nó | Não
+| Add-on | AzurenPM | Nenhuma identidade necessária | ND | No
+| Add-on | Monitorização da rede AzureCNI | Nenhuma identidade necessária | ND | No
+| Add-on | política azul (gatekeeper) | Nenhuma identidade necessária | ND | No
+| Add-on | política azul | Nenhuma identidade necessária | ND | No
+| Add-on | Calico | Nenhuma identidade necessária | ND | No
+| Add-on | Dashboard | Nenhuma identidade necessária | ND | No
+| Add-on | HTTPApplicationRouting | Gere os recursos de rede necessários | Função do leitor para grupo de recursos de nó, papel de contribuinte para a zona DNS | No
+| Add-on | Gateway de aplicação ingress | Gere os recursos de rede necessários| Papel contribuinte para o grupo de recursos de nó | No
+| Add-on | omsagent | Usado para enviar métricas AKS para Azure Monitor | Função de editor de métricas de monitorização | No
+| Add-on | Virtual-Node (ACIConnector) | Gere os recursos de rede necessários para as instâncias do contentor Azure (ACI) | Papel contribuinte para o grupo de recursos de nó | No
 | Projeto OSS | aad-pod-identidade | Permite aplicações para aceder a recursos em nuvem de forma segura com o Azure Ative Directory (AAD) | ND | Passos para conceder permissão em https://github.com/Azure/aad-pod-identity#role-assignment .
 
 ## <a name="create-an-aks-cluster-with-managed-identities"></a>Criar um cluster AKS com identidades geridas

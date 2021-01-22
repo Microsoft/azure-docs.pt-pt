@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/18/2021
+ms.date: 01/21/2021
 ms.author: memildin
-ms.openlocfilehash: ba9a640c2231c7098e58ad6e29bbfa196436a7f9
-ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
+ms.openlocfilehash: 6d656dbb3fb50091fc8721ba40431b37f77c4ad6
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98562323"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98662952"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Mudanças importantes para o Centro de Segurança Azure
 
@@ -33,7 +33,6 @@ Se procura as últimas notas de lançamento, vai encontrá-las no [What's new in
 
 - [Duas recomendações do controlo de segurança "Aplicar atualizações do sistema" que estão a ser depreciadas](#two-recommendations-from-apply-system-updates-security-control-being-deprecated)
 - [Melhorias à recomendação de classificação de dados sql](#enhancements-to-sql-data-classification-recommendation)
-- [Recursos "não aplicáveis" a serem reportados como "conformes" nas avaliações da Política Azure](#not-applicable-resources-to-be-reported-as-compliant-in-azure-policy-assessments)
 - [35 recomendações de pré-visualização adicionadas para aumentar a cobertura do Benchmark de Segurança Azure](#35-preview-recommendations-being-added-to-increase-coverage-of-azure-security-benchmark)
 
 
@@ -61,15 +60,6 @@ A versão atual da recomendação **Os dados sensíveis nas suas bases de dados 
 - O controlo de segurança ("Aplicar classificação de dados") deixará de afetar a sua pontuação segura
 - O ID da recomendação também mudará (atualmente b0df6f56-862d-4730-8597-38c0fd4ebd59)
 
-
-
-### <a name="not-applicable-resources-to-be-reported-as-compliant-in-azure-policy-assessments"></a>Recursos "não aplicáveis" a serem reportados como "conformes" nas avaliações da Política Azure
-
-**Data estimada para a alteração:** janeiro de 2021
-
-Atualmente, os recursos que são avaliados para uma recomendação e que se considera **não aplicáveis** aparecem na Política Azure como "incompatíveis". Nenhuma ação do utilizador pode alterar o seu estado para "Compliant". A partir desta mudança planeada, serão reportados como "conformes" para uma maior clareza.
-
-O único impacto será visto na Política Azure, onde o número de recursos em conformidade aumentará. Não haverá impacto na sua pontuação segura no Centro de Segurança Azure.
 
 ### <a name="35-preview-recommendations-being-added-to-increase-coverage-of-azure-security-benchmark"></a>35 recomendações de pré-visualização adicionadas para aumentar a cobertura do Benchmark de Segurança Azure
 

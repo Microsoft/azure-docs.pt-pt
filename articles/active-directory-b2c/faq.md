@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 30b7788419695db7ee5d4b81714bf55248a41b4a
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: e181b90219f340a29e818801ee2b53f1ccbd9c23
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97108727"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660289"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Perguntas frequentes (FAQ)
 
@@ -49,7 +49,7 @@ A Azure AD B2C também suporta [políticas personalizadas.](custom-policy-overvi
 
 ### <a name="can-i-configure-scopes-to-gather-more-information-about-consumers-from-various-social-identity-providers"></a>Posso configurar âmbitos para recolher mais informações sobre os consumidores de vários fornecedores de identidade social?
 
-Não. Os âmbitos padrão utilizados para o nosso conjunto suportado de fornecedores de identidade social são:
+N.º Os âmbitos padrão utilizados para o nosso conjunto suportado de fornecedores de identidade social são:
 
 * Facebook: e-mail
 * Google+: e-mail
@@ -96,7 +96,7 @@ Para obter informações sobre bloqueios de contas e palavras-passe, consulte [G
 
 ### <a name="can-i-use-azure-ad-connect-to-migrate-consumer-identities-that-are-stored-on-my-on-premises-active-directory-to-azure-ad-b2c"></a>Posso utilizar o Azure AD Connect para migrar identidades dos consumidores que estão armazenadas no meu Ative Directory para Azure AD B2C?
 
-Não, o Azure AD Connect não foi concebido para funcionar com o Azure AD B2C. Considere utilizar a [API do Microsoft Graph](manage-user-accounts-graph-api.md) para a migração do utilizador. Consulte o [guia de migração](user-migration.md) do Utilizador para obter mais detalhes.
+Não, o Azure AD Connect não foi concebido para funcionar com o Azure AD B2C. Considere utilizar a [API do Microsoft Graph](microsoft-graph-operations.md) para a migração do utilizador. Consulte o [guia de migração](user-migration.md) do Utilizador para obter mais detalhes.
 
 ### <a name="can-my-app-open-up-azure-ad-b2c-pages-within-an-iframe"></a>A minha aplicação pode abrir páginas Azure AD B2C dentro de um iFrame?
 

@@ -5,14 +5,14 @@ ms.date: 01/08/2021
 ms.topic: reference
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 763cdd53905b88c97e48435d72ed61e4edb5f409
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 668b3f91d8203e884dd847fdb054b626d6209d15
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98051301"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98662047"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-database-for-mariadb"></a>Azure Policy definições incorporadas para Azure Database for MariaDB
 

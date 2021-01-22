@@ -11,17 +11,17 @@ ms.topic: overview
 ms.date: 11/19/2020
 ms.author: aahi
 ms.reviewer: chtufts
-ms.openlocfilehash: 2adca03a820d02731bca252dee99c76debc85e2e
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: 9ba9fe7ca73e874fb55c228e22b884a86de736cf
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028136"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661464"
 ---
 # <a name="data-and-rate-limits-for-the-text-analytics-api"></a>Limites de dados e taxas para a API de Análise de Texto
 <a name="data-limits"></a>
 
-Use este artigo para encontrar os limites para o tamanho e as tarifas que pode enviar para a API de Text Analytics. 
+Use este artigo para encontrar os limites para o tamanho e as tarifas que pode enviar para a API de Text Analytics. Note que os preços não são afetados pelos limites de dados ou limites de taxa. Os preços estão sujeitos aos detalhes de [preços](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)do seu recurso Text Analytics .
 
 ## <a name="data-limits"></a>Limites de dados
 

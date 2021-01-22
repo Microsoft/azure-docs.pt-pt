@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 11/13/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 18622d60f3a33658fadfd28c53c93a07b4b438a9
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 89faa5b29e0a972f31ad51a7354635a53176541a
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96488651"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661362"
 ---
 # <a name="windows-stop-error---hardware-malfunction"></a>Erro de paragem do Windows - Avaria de hardware
 
@@ -48,6 +48,9 @@ Este ecrã aparecerá quando o SO convidado não foi configurado corretamente e 
 ## <a name="solution"></a>Solução
 
 ### <a name="process-overview"></a>Visão geral do processo 
+
+> [!TIP]
+> Se tiver uma cópia de segurança recente do VM, poderá tentar [restaurar o VM da cópia de segurança](../../backup/backup-azure-arm-restore-vms.md) para corrigir o problema da bota.
 
 1. Configurar a chave de registo de interrupção não mascarada (NMI) 
 2. Criar e Aceder a um VM de reparação 

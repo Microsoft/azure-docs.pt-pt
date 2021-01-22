@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/17/2021
+ms.date: 01/21/2021
 ms.author: memildin
-ms.openlocfilehash: 48e7093c30ffb135231f5843cb0767848f242d89
-ms.sourcegitcommit: 949c0a2b832d55491e03531f4ced15405a7e92e3
+ms.openlocfilehash: d171e3a7f1f0d63d0a5d130c6e19b246bf0cd795
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98541393"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661819"
 ---
 # <a name="whats-new-in-azure-security-center"></a>O que há de novo no Centro de Segurança Azure?
 
@@ -35,27 +35,17 @@ Para saber mais sobre as mudanças *planeadas* que estão a chegar em breve ao C
 
 As atualizações em dezembro incluem:
 
+- [A avaliação da vulnerabilidade para máquinas no local e multi-nuvens é lançada para disponibilidade geral (GA)](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-is-released-for-general-availability-ga)
+- [A API de pontuação segura é lançada para Disponibilidade Geral (GA)](#secure-score-api-is-released-for-general-availability-ga)
 - [Exportação de CSV de lista filtrada de recomendações](#csv-export-of-filtered-list-of-recommendations)
-- [A avaliação da vulnerabilidade para máquinas no local e multi-nuvens está geralmente disponível](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-is-generally-available)
+- [Recursos "não aplicáveis" agora reportados como "conformes" nas avaliações da Política Azure](#not-applicable-resources-now-reported-as-compliant-in-azure-policy-assessments)
 
 
-### <a name="csv-export-of-filtered-list-of-recommendations"></a>Exportação de CSV de lista filtrada de recomendações 
-
-Em novembro de 2020, adicionámos filtros à página de recomendações[(a lista de recomendações inclui agora filtros).](#recommendations-list-now-includes-filters) Em dezembro, expandimos esses filtros[(a página de recomendações tem novos filtros para o ambiente, gravidade e respostas disponíveis).](#recommendations-page-has-new-filters-for-environment-severity-and-available-responses) 
-
-Com este anúncio, estamos a alterar o comportamento do botão **Download para CSV para** que a exportação de CSV apenas inclua as recomendações atualmente apresentadas na lista filtrada. 
-
-Por exemplo, na imagem abaixo pode ver que a lista foi filtrada a duas recomendações. O ficheiro CSV que é gerado inclui os detalhes de estado de cada recurso afetado por essas duas recomendações.   
-
-:::image type="content" source="media/security-center-managing-and-responding-alerts/export-to-csv-with-filters.png" alt-text="Exportação de recomendações filtradas para um ficheiro CSV":::
-
-Saiba mais em [Recomendações de Segurança no Centro de Segurança Azure.](security-center-recommendations.md)
-
-### <a name="vulnerability-assessment-for-on-premise-and-multi-cloud-machines-is-generally-available"></a>A avaliação da vulnerabilidade para máquinas no local e multi-nuvens está geralmente disponível
+### <a name="vulnerability-assessment-for-on-premise-and-multi-cloud-machines-is-released-for-general-availability-ga"></a>A avaliação da vulnerabilidade para máquinas no local e multi-nuvens é lançada para disponibilidade geral (GA)
 
 Em outubro, anunciou uma pré-visualização para digitalizar servidores Azure Arc habilitados com [Azure Defender para](defender-for-servers-introduction.md)o scanner integrado de avaliação de vulnerabilidade dos servidores (alimentado por Qualys).
 
-Está disponível agora. 
+Agora é lançado para Disponibilidade Geral (GA).
 
 Quando tiver ativado o Azure Arc nas suas máquinas não-Azure, o Security Center oferecer-se-á para implementar o scanner integrado de vulnerabilidade neles - manual e à escala.
 
@@ -71,6 +61,36 @@ Principais capacidades:
 [Saiba mais sobre a implementação do scanner de vulnerabilidade integrado nas suas máquinas híbridas.](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines)
 
 [Saiba mais sobre os servidores ativados do Azure Arc](../azure-arc/servers/index.yml).
+
+
+### <a name="secure-score-api-is-released-for-general-availability-ga"></a>A API de pontuação segura é lançada para Disponibilidade Geral (GA)
+
+Agora pode aceder à sua pontuação através da [pontuação segura API](/rest/api/securitycenter/securescores/). Os métodos API fornecem a flexibilidade para consultar os dados e construir o seu próprio mecanismo de reporte das suas pontuações seguras ao longo do tempo. Por exemplo, pode utilizar a API **de Pontuações Seguras** para obter a pontuação de uma subscrição específica. Além disso, pode utilizar a API **de Controlos de Pontuação Segura** para listar os controlos de segurança e a pontuação atual das suas subscrições.
+
+Por exemplo, ferramentas externas possibilitadas com a pontuação segura API, consulte [a área de pontuação segura da nossa comunidade GitHub](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score).
+
+Saiba mais sobre [os controlos de pontuação e segurança seguros no Azure Security Center](secure-score-security-controls.md).
+
+
+### <a name="csv-export-of-filtered-list-of-recommendations"></a>Exportação de CSV de lista filtrada de recomendações 
+
+Em novembro de 2020, adicionámos filtros à página de recomendações[(a lista de recomendações inclui agora filtros).](#recommendations-list-now-includes-filters) Em dezembro, expandimos esses filtros[(a página de recomendações tem novos filtros para o ambiente, gravidade e respostas disponíveis).](#recommendations-page-has-new-filters-for-environment-severity-and-available-responses) 
+
+Com este anúncio, estamos a alterar o comportamento do botão **Download para CSV para** que a exportação de CSV apenas inclua as recomendações atualmente apresentadas na lista filtrada. 
+
+Por exemplo, na imagem abaixo pode ver que a lista foi filtrada a duas recomendações. O ficheiro CSV que é gerado inclui os detalhes de estado de cada recurso afetado por essas duas recomendações.   
+
+:::image type="content" source="media/security-center-managing-and-responding-alerts/export-to-csv-with-filters.png" alt-text="Exportação de recomendações filtradas para um ficheiro CSV":::
+
+Saiba mais em [Recomendações de Segurança no Centro de Segurança Azure.](security-center-recommendations.md)
+
+
+### <a name="not-applicable-resources-now-reported-as-compliant-in-azure-policy-assessments"></a>Recursos "não aplicáveis" agora reportados como "conformes" nas avaliações da Política Azure
+
+Anteriormente, os recursos que foram avaliados para uma recomendação e que se verificou não serem **aplicáveis** apareceram na Política Azure como "incompatíveis". Nenhuma ação do utilizador poderia mudar o seu estado para "Compliant". Com esta mudança, são reportados como "conformes" para uma maior clareza.
+
+O único impacto será visto na Política Azure, onde o número de recursos em conformidade aumentará. Não haverá impacto na sua pontuação segura no Centro de Segurança Azure.
+
 
 
 ## <a name="december-2020"></a>Dezembro de 2020
@@ -134,12 +154,12 @@ Adicionámos duas novas capacidades de proteção contra ameaças nativas da nuv
 
 Estas novas proteções aumentam consideravelmente a sua resiliência contra ataques de atores ameaças, e aumentam significativamente o número de recursos Azure protegidos pelo Azure Defender.
 
-- **Azure Defender for Resource Manager** - monitoriza automaticamente todas as operações de gestão de recursos realizadas na sua organização. Para obter mais informações, veja:
+- **Azure Defender for Resource Manager** - monitoriza automaticamente todas as operações de gestão de recursos realizadas na sua organização. Para obter mais informações, consulte:
     - [Introdução ao Azure Defender para Gestor de Recursos](defender-for-resource-manager-introduction.md)
     - [Responder a alertas do Azure Defender para Resource Manager](defender-for-resource-manager-usage.md)
     - [Lista de alertas fornecidos pelo Azure Defender para Gestor de Recursos](alerts-reference.md#alerts-resourcemanager)
 
-- **Azure Defender for DNS** - monitoriza continuamente todas as consultas dns a partir dos seus recursos Azure. Para obter mais informações, veja:
+- **Azure Defender for DNS** - monitoriza continuamente todas as consultas dns a partir dos seus recursos Azure. Para obter mais informações, consulte:
     - [Introdução ao Azure Defender para DNS](defender-for-dns-introduction.md)
     - [Responder a alertas do Azure Defender para DNS](defender-for-dns-usage.md)
     - [Lista de alertas fornecidos pelo Azure Defender para DNS](alerts-reference.md#alerts-dns)

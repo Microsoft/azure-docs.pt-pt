@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: d39d72a79d4b273918986d0d350df4706592c77d
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: c30d8a66cf9deffaa32e5ec0356a9067575b77e8
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95503174"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660707"
 ---
 # <a name="header-based-single-sign-on-for-on-premises-apps-with-azure-ad-app-proxy-preview"></a>Sign-on único baseado em cabeçalho para aplicativos no local com Proxy app AD Ad (Preview)
 
@@ -88,9 +88,13 @@ Quando tiver completado todos estes passos, a sua aplicação deve estar a corre
 1. Abra um novo navegador ou janela de navegador privado para se certificar de que os cabeçalhos previamente em cache estão limpos. Em seguida, navegue para o **URL Externo** a partir   das definições de Procuração de Aplicação.
 2. Inscreva-se na conta de teste que atribuiu à aplicação. Se conseguir carregar e assinar a aplicação usando SSO, então está bem! 
 
+## <a name="considerations"></a>Considerações
+
+- O Application Proxy é utilizado para fornecer acesso remoto a apps no local ou em nuvem privada. O Application Proxy não é recomendado para lidar com o tráfego originário internamente da rede corporativa.
+- O acesso a aplicações de autenticação baseadas em cabeçalhos deve limitar-se apenas ao tráfego do conector ou a outra solução de autenticação baseada em cabeçalhos permitido. Isto é geralmente feito através da restrição do acesso à rede à aplicação usando uma firewall ou restrição IP no servidor de aplicações.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [O que é o início de sessão único?](what-is-single-sign-on.md)
+- [O que é um único sinal?](what-is-single-sign-on.md)
 - [O que é procuração de aplicativos?](what-is-application-proxy.md)
 - [Quickstart Series em Gestão de Aplicações](view-applications-portal.md)

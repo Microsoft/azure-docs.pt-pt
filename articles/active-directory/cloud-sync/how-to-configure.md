@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/26/2020
+ms.date: 01/21/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0eacf3cad0a610ae75f38dbb6f1bd7bdab816d54
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: ffdd27b67a122f82cc5fdb5568f11c85387955e8
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98614275"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660801"
 ---
 # <a name="create-a-new-configuration-for-azure-ad-connect-cloud-sync"></a>Crie uma nova configuração para sincronização de nuvem AZure AD Connect
 

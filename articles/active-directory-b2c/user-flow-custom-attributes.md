@@ -1,5 +1,5 @@
 ---
-title: Defina atributos personalizados no Azure Ative Directory B2C Microsoft Docs
+title: Defina atributos personalizados no Azure Ative Directory B2C | Microsoft Docs
 description: Defina atributos personalizados para a sua aplicação no Azure Ative Directory B2C para recolher informações sobre os seus clientes.
 services: active-directory-b2c
 author: msmimart
@@ -12,12 +12,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 9759c1109c7be279520fa187bd3366bcac505d46
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 5552c93c1c65f08f70ed8929d81126035aa2a357
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97503748"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661209"
 ---
 # <a name="define-custom-attributes-in-azure-active-directory-b2c"></a>Defina atributos personalizados no Azure Ative Directory B2C
 
@@ -31,7 +31,7 @@ O seu diretório Azure AD B2C vem com um [conjunto de atributos incorporados](us
 * Um fornecedor de identidade tem um identificador de utilizador único, **uniqueUserGUID,** que deve ser persistido.
 * Uma viagem personalizada de utilizador precisa de persistir o estado do utilizador, **migrationStatus,** para que outra lógica funcione.
 
-O Azure AD B2C permite-lhe alargar o conjunto de atributos armazenados em cada conta de utilizador. Também pode ler e escrever estes atributos utilizando a [API](manage-user-accounts-graph-api.md)do Gráfico microsoft .
+O Azure AD B2C permite-lhe alargar o conjunto de atributos armazenados em cada conta de utilizador. Também pode ler e escrever estes atributos utilizando a [API](microsoft-graph-operations.md)do Gráfico microsoft .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -60,7 +60,7 @@ O atributo personalizado está agora disponível na lista de **atributos** do Ut
 1. Selecione **as reclamações de aplicação** e, em seguida, selecione o atributo personalizado.
 1. Clique em **Guardar**.
 
-Uma vez criado um novo utilizador utilizando um fluxo de utilizador que utiliza o atributo personalizado recém-criado, o objeto pode ser consultado no [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). Em alternativa, pode utilizar a função [de fluxo do utilizador Run](./tutorial-create-user-flows.md) no fluxo do utilizador para verificar a experiência do cliente. Deverá agora ver **o ShoeSize** na lista de atributos recolhidos durante a jornada de inscrição e vê-lo no token enviado de volta para a sua aplicação.
+Uma vez criado um novo utilizador utilizando um fluxo de utilizador, que utiliza o atributo personalizado recém-criado, o objeto pode ser consultado no [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). Em alternativa, pode utilizar a função [de fluxo do utilizador Run](./tutorial-create-user-flows.md) no fluxo do utilizador para verificar a experiência do cliente. Deverá agora ver **o ShoeSize** na lista de atributos recolhidos durante a jornada de inscrição e vê-lo no token enviado de volta para a sua aplicação.
 
 ::: zone-end
 
@@ -132,10 +132,10 @@ Os mesmos atributos de extensão são partilhados entre políticas incorporadas 
 
 Pode criar estes atributos utilizando o UI do portal antes ou depois de os utilizar nas suas políticas personalizadas. Quando criar um **atributo de fidelid** no portal, deve consultar-se da seguinte forma:
 
-|Nome     |Usado em |
+|Name     |Usado em |
 |---------|---------|
 |`extension_loyaltyId`  | Política personalizada|
-|`extension_<b2c-extensions-app-guid>_loyaltyId`  | [Microsoft Graph API](manage-user-accounts-graph-api.md)|
+|`extension_<b2c-extensions-app-guid>_loyaltyId`  | [Microsoft Graph API](microsoft-graph-operations.md)|
 
 O exemplo a seguir demonstra a utilização de atributos personalizados numa definição de reivindicação de política personalizada Azure AD B2C.
 

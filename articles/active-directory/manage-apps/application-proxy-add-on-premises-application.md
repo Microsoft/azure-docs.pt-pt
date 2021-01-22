@@ -8,20 +8,22 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/10/2020
+ms.date: 01/20/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.custom: contperf-fy21q2
-ms.openlocfilehash: bcb484d62b7c4add7e1ab5562c19417a90cfb7e1
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.custom: contperf-fy21q3
+ms.openlocfilehash: 6b46a5ea71bf8c9705ffc3bc51ea48f4b0c28502
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97587558"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660768"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Tutorial: Adicionar uma aplicação no local para acesso remoto através de Aplicação Proxy em Diretório Ativo Azure
 
 O Azure Ative Directory (Azure AD) tem um serviço de Procuração de Aplicações que permite aos utilizadores aceder em aplicações no local, insinundo-se com a sua conta Azure AD. Este tutorial prepara o seu ambiente para uso com Aplicação Proxy. Assim que o seu ambiente estiver pronto, utilizará o portal Azure para adicionar uma aplicação no local ao seu inquilino AZure AD.
+
+:::image type="content" source="./media/application-proxy-add-on-premises-application/app-proxy-diagram.png" alt-text="Diagrama de visão geral do formulário de procuração de aplicação" lightbox="./media/application-proxy-add-on-premises-application/app-proxy-diagram.png":::
 
 Os conectores são uma parte chave do Application Proxy. Para saber mais sobre conectores, consulte [os conectores Proxy da aplicação AD Azure.](application-proxy-connectors.md)
 
@@ -108,7 +110,7 @@ Comece por permitir a comunicação aos centros de dados Azure para preparar o s
 
 Abra as seguintes portas para o tráfego **de saída.**
 
-   | Número da porta | Como é usado |
+   | Número da porta | Como é utilizado |
    | --- | --- |
    | 80 | Baixar listas de revogação de certificados (CRLs) ao mesmo tempo que valida o certificado TLS/SSL |
    | 443 | Toda a comunicação de saída com o serviço Application Proxy |
@@ -119,14 +121,18 @@ Se a sua firewall impor o tráfego de acordo com os utilizadores originários, t
 
 Permitir o acesso aos seguintes URLs:
 
-| URL | Porta | Como é usado |
+| URL | Porta | Como é utilizado |
 | --- | --- | --- |
 | &ast;.msappproxy.net<br>&ast;.servicebus.windows.net | 443/HTTPS | Comunicação entre o conector e o serviço de nuvem Proxy de aplicação |
 | crl3.digicert.com<br>crl4.digicert.com<br>ocsp.digicert.com<br>crl.microsoft.com<br>oneocsp.microsoft.com<br>ocsp.msocsp.com<br> | 80/HTTP |O conector utiliza estes URLs para verificar os certificados. |
 | login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>&ast;.microsoftonline.com<br>&ast;.microsoftonline-p.com<br>&ast;.msauth.net<br>&ast;.msauthimages.net<br>&ast;.msecnd.net<br>&ast;.msftauth.net<br>&ast;.msftauthimages.net<br>&ast;.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com<br>www.microsoft.com/pkiops | 443/HTTPS |O conector utiliza estes URLs durante o processo de registo. |
 | ctldl.windowsupdate.com | 80/HTTP |O conector utiliza este URL durante o processo de registo. |
 
-Pode permitir ligações a &ast; .msappproxy.net, &ast; .servicebus.windows.net e outros URLs acima se a sua firewall ou proxy permitir que ele configuure listas de autorizações DNS. Caso contrário, tem de permitir o acesso às [gamas Azure IP e Tags de Serviço - Nuvem Pública](https://www.microsoft.com/download/details.aspx?id=56519). Os intervalos IP são atualizados todas as semanas.
+Pode permitir ligações a &ast; .msappproxy.net, &ast; .servicebus.windows.net e outros URLs acima se a sua firewall ou proxy permitir que configuure as regras de acesso com base em sufixos de domínio. Caso contrário, tem de permitir o acesso às [gamas Azure IP e Tags de Serviço - Nuvem Pública](https://www.microsoft.com/download/details.aspx?id=56519). Os intervalos IP são atualizados todas as semanas.
+
+### <a name="dns-name-resolution-for-azure-ad-application-proxy-endpoints"></a>Resolução de nome DNS para Azure AD Application Proxypoints
+
+Os registos públicos de DNS para os pontos finais da aplicação Ad Azure estão acorrentados registos CNAME que apontam para um registo A. Isto garante tolerância e flexibilidade por falhas. É garantido que o Azure AD Application Proxy Connector acede sempre aos nomes de anfitriões com os sufixos de domínio _*.msappproxy.net_ ou _*.servicebus.windows.net_. No entanto, durante a resolução do nome, os registos CNAME podem conter registos DNS com diferentes nomes de hospedeiros e sufixos.  Devido a isso, deve certificar-se de que o dispositivo (dependendo da sua configuração - servidor de conector, firewall, procuração de saída) pode resolver todos os registos da cadeia e permite a ligação aos endereços IP resolvidos. Uma vez que os registos dns na cadeia podem ser alterados de vez em quando, não podemos fornecer-lhe qualquer registo DNS de lista.
 
 ## <a name="install-and-register-a-connector"></a>Instalar e registar um conector
 

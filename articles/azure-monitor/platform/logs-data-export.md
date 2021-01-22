@@ -7,12 +7,12 @@ ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: d9ae9cae1a0a8014f007cd7c4a3d1f97f27128bb
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 4ae69ddeb46d484a64edc4ccabfa6740b36c4264
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98610969"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98663269"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics exportação de dados do espaço de trabalho em Azure Monitor (pré-visualização)
 A exportação de dados do espaço de trabalho do Log Analytics no Azure Monitor permite-lhe exportar continuamente dados de tabelas selecionadas no seu espaço de trabalho Log Analytics para uma conta de armazenamento Azure ou Azure Event Hubs à medida que são recolhidos. Este artigo fornece detalhes sobre esta funcionalidade e passos para configurar a exportação de dados nos seus espaços de trabalho.
@@ -33,7 +33,7 @@ Os dados do espaço de trabalho log Analytics exportam continuamente dados de um
 - Uma vez exporta para máquina local usando o script PowerShell. Consulte [Invoke-AzOperationalInsightsQueryExport](https://www.powershellgallery.com/packages/Invoke-AzOperationalInsightsQueryExport).
 
 
-## <a name="current-limitations"></a>Limitações atuais
+## <a name="limitations"></a>Limitações
 
 - A configuração pode ser realizada usando pedidos CLI ou REST atualmente. O portal Azure ou o PowerShell ainda não estão suportados.
 - A ```--export-all-tables``` opção em CLI e REST não é suportada e será removida. Deve fornecer explicitamente a lista de tabelas nas regras de exportação.

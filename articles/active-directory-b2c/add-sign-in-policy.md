@@ -12,12 +12,12 @@ ms.date: 01/12/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: c4db7bf989a0062f87a5c3e6303ba64224996554
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 2956f0ffb562214477249da3198ebbe42ef9bb45
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98224495"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660374"
 ---
 # <a name="set-up-a-sign-in-flow-in-azure-active-directory-b2c"></a>Configurar um fluxo de entrada no Azure Ative Directory B2C
 
@@ -30,7 +30,7 @@ A política de inscrição permite aos utilizadores:
 * Os utilizadores podem iniciar sação com uma Conta Local Azure AD B2C
 * Inscreva-se ou inscreva-se com uma conta social
 * Reposição de palavras-passe
-* Os utilizadores não podem inscrever-se numa Conta Local AZure AD B2C - Para criar uma conta, um Administrador pode utilizar [a API do Ms Graph](manage-user-accounts-graph-api.md).
+* Os utilizadores não podem inscrever-se numa Conta Local AZure AD B2C - Para criar uma conta, um Administrador pode utilizar [a API do Ms Graph](microsoft-graph-operations.md).
 
 ![Fluxo de edição de perfis](./media/add-sign-in-policy/sign-in-user-flow.png)
 

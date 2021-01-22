@@ -8,12 +8,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: lagayhar
-ms.openlocfilehash: 7af26be91ff129e4c968bcb131cc98290cd8d7b9
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: b2e9c267b0a3723c9ac7b3edd49e23b95741962f
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98610085"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660458"
 ---
 # <a name="click-analytics-auto-collection-plugin-for-application-insights-javascript-sdk"></a>Clique no plugin de recolha automática de analíticos para insights de aplicação JavaScript SDK
 
@@ -69,7 +69,7 @@ appInsights.loadAppInsights();
     2. Para melhorar a eficiência, o plugin utiliza esta etiqueta como bandeira, quando encontrado irá impedir-se de continuar a processar o DOM (Modelo de Objeto de Documento) para cima.
     
     > [!CAUTION]
-    > Uma vez `parentDataTag` utilizado, tem um efeito persistente em toda a sua aplicação e não apenas o elemento HTML em que o usou.
+    > Uma vez `parentDataTag` utilizado, o SDK começará a procurar etiquetas parentais em toda a sua aplicação e não apenas o elemento HTML onde a usou.
 4. `customDataPrefix` fornecida pelo utilizador deve sempre começar `data-` com, por `data-sample-` exemplo. Em HTML os `data-*` atributos globais formam uma classe de atributos chamados atributos de dados personalizados, que permitem a troca de informações de propriedade entre o HTML e a sua representação DOM por scripts. Os navegadores mais antigos (Internet Explorer, Safari) vão deixar cair atributos que não compreende, a menos que comecem por `data-` .
 
     O `*` in pode ser substituído por qualquer nome que a seguir à regra de `data-*` [produção dos nomes XML](https://www.w3.org/TR/REC-xml/#NT-Name) com as seguintes restrições:
@@ -79,7 +79,7 @@ appInsights.loadAppInsights();
 
 ## <a name="configuration"></a>Configuração
 
-| Nome                  | Tipo                               | Predefinição | Descrição                                                                                                                              |
+| Nome                  | Tipo                               | Predefinição | Description                                                                                                                              |
 | --------------------- | -----------------------------------| --------| ---------------------------------------------------------------------------------------------------------------------------------------- |
 | autoCapture           | boolean                            | true    | Configuração de captura automática.                                                                                                         |
 | callback              | [IValueCallback](#ivaluecallback)  | nulo    | Configuração de chamadas.                                                                                                                 |
@@ -101,7 +101,7 @@ appInsights.loadAppInsights();
 
 ### <a name="icustomdatatags"></a>ICustomDataTags
 
-| Nome                      | Tipo    | Predefinição   | Etiqueta padrão a utilizar em HTML |   Descrição                                                                                |
+| Nome                      | Tipo    | Predefinição   | Etiqueta padrão a utilizar em HTML |   Description                                                                                |
 |---------------------------|---------|-----------|-------------|----------------------------------------------------------------------------------------------|
 | useDefaultContentNameOrId | boolean | false     | N/D         |Recolhe atributo HTML padrão para o nome de conteúdo quando um determinado elemento não está marcado com o Costume DefaultDataPrefix ou quando oDataPrefix personalizado não é fornecido pelo utilizador. |
 | CustomDataPrefixo          | string  | `data-`   | `data-*`| Denominação de conteúdo de captura automática e valor dos elementos que estão marcados com prefixo fornecido. Por `data-*-id` exemplo, `data-<yourcustomattribute>` pode ser utilizado nas tags HTML.   |
@@ -314,5 +314,5 @@ appInsights.loadAppInsights();
 
 - Consulte o [Pacote De Repositório GitHub](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-clickanalytics-js) e [NPM](https://www.npmjs.com/package/@microsoft/applicationinsights-clickanalytics-js) para o Plugin de Recolha Automática Click Analytics.
 - Use [análise de eventos na experiência de utilização](usage-segmentation.md) para analisar cliques de topo e corte pelas dimensões disponíveis.
-- Encontre os dados de clique no campo de conteúdo dentro do atributo CustomEvents na [Tabela De Registos.](../log-query/log-analytics-tutorial.md#write-a-query)
+- Encontre os dados de clique no campo de conteúdo dentro do atributo CustomEvents na [Tabela De Registos.](../log-query/log-analytics-tutorial.md#write-a-query) Consulte [a App sample para](https://go.microsoft.com/fwlink/?linkid=2152871) obter orientações adicionais.
 - Construa um [Livro de Trabalho](../platform/workbooks-overview.md) para criar visualizações personalizadas de dados de clique.

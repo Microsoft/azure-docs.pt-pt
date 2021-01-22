@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure MediusFlow para fornecimento automático de utilizadores com Diretório Ativo Azure / Microsoft Docs'
+title: 'Tutorial: Configure MediusFlow para fornecimento automático de utilizadores com Azure Ative Directory | Microsoft Docs'
 description: Saiba como provisão e desa provisionamento automático de contas de utilizadores de Azure AD a MediusFlow.
 services: active-directory
 author: zchia
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: Zhchia
-ms.openlocfilehash: 881309c040f6c1bdff758d17ab7f51e935437192
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: a49258208f7a5945ac71c8f17db56fccfdcd6515
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97607886"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98662005"
 ---
 # <a name="tutorial-configure-mediusflow-for-automatic-user-provisioning"></a>Tutorial: Configure MediusFlow para o provisionamento automático do utilizador
 
@@ -155,17 +155,25 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 9. Reveja os atributos do utilizador que são sincronizados de AD AD a MediusFlow na secção **De mapeamento de atributos.** Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar as contas de utilizador no MediusFlow para operações de atualização. Se optar por alterar o [atributo de alvo correspondente,](../app-provisioning/customize-application-attributes.md)terá de garantir que a API MediusFlow suporta utilizadores filtrantes com base nesse atributo. Selecione o botão **Guardar** para escoar quaisquer alterações.
 
-   |Atributo|Tipo|
-   |---|---|
-   |userName|String|
+   |Atributo|Tipo|Suportado para filtragem|
+   |---|---|---|
+   |userName|String|&check;|
    |emails[type eq "work"].value|String|
    |nome.displayName|String|
    |active|Booleano|
    |name.givenName|String|
    |name.familyName|String|
    |nome.formatado|String|
-   |externalID|String|
+   |externalId|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Referência|
+   |urn:ietf:params:scim:schemas:extension:medius:2.0:User:configurationFilter|String|
+   |urn:ietf:params:scim:schemas:extension:medius:2.0:User:identityProvider|String|
+   |urn:ietf:params:scim:schemas:extension:medius:2.0:User:nameIdentifier|String|
+   |urn:ietf:params:scim:schemas:extension:medius:2.0:User:customFieldText1|String|
+   |urn:ietf:params:scim:schemas:extension:medius:2.0:User:customFieldText2|String|
+   |urn:ietf:params:scim:schemas:extension:medius:2.0:User:customFieldText3|String|
+   |urn:ietf:params:scim:schemas:extension:medius:2.0:User:customFieldText4|String|
+   |urn:ietf:params:scim:schemas:extension:medius:2.0:User:customFieldText5|String|
 
 
 10. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Groups to MediusFlow**.
@@ -200,6 +208,10 @@ Depois de configurar o aprovisionamento, utilize os seguintes recursos para moni
 1. Utilize os [registos de aprovisionamento](../reports-monitoring/concept-provisioning-logs.md) para determinar quais os utilizadores que foram aprovisionados com ou sem êxito
 2. Verifique a [barra de progresso](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) para ver o estado do ciclo de aprovisionamento e quão próximo está da conclusão
 3. Se a configuração de aprovisionamento parecer estar num mau estado de funcionamento, a aplicação vai entrar em quarentena. Saiba mais sobre os estados de quarentena [aqui](../app-provisioning/application-provisioning-quarantine-status.md).
+
+## <a name="change-log"></a>Change log
+
+* 01/21/2021 - Configuração de atributos de extensão **personalizadaFiltro,** **identidadeProvider,** **nameIdentifier**, **customFieldText1**, **customFieldText2**, **customFieldText3**, **customFieldText3** e **customFieldText5** foi adicionado.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

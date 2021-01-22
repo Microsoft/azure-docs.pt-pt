@@ -3,14 +3,14 @@ author: baanders
 description: incluir arquivo para tutoriais Azure Digital Twins - pré-requisitos para o projeto de amostra
 ms.service: digital-twins
 ms.topic: include
-ms.date: 5/25/2020
+ms.date: 1/20/2021
 ms.author: baanders
-ms.openlocfilehash: 1a14c6d5d96726033694d8fc88cc4b6eead87221
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5a1baf9631f2d30dd14ff16d2d34beda04605c6c
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023274"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660526"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -18,9 +18,11 @@ Se não tiver uma subscrição do Azure, **crie uma [conta gratuita](https://azu
 
 Também antes de iniciar, **instale [o Visual Studio 2019](https://visualstudio.microsoft.com/downloads/), versão 16.5 ou posterior** na sua máquina de desenvolvimento. Se já tiver uma versão mais antiga instalada, pode abrir a aplicação *Visual Studio Installer* na sua máquina e seguir as instruções para atualizar a sua instalação.
 
-O tutorial é conduzido por um projeto de amostra escrito em C#. A amostra está localizada aqui: [Azure Digital Twins amostras de ponta a ponta.](/samples/azure-samples/digital-twins-samples/digital-twins-samples) **Obtenha o projeto de amostra** na sua máquina navegando para o link de amostra e selecionando o botão Download *ZIP* por baixo do título.
+O tutorial é conduzido por um projeto de amostra escrito em C#. A amostra está localizada aqui: [Azure Digital Twins amostras de ponta a ponta.](/samples/azure-samples/digital-twins-samples/digital-twins-samples) **Obtenha o projeto de amostra** na sua máquina navegando para a ligação de amostra e selecionando o botão de código *Browse* por baixo do título. Isto irá levá-lo ao gitHub repo para as amostras, que você pode baixar como um *. ZIP* selecionando o botão *Código* e *Descarregando ZIP*.
 
-Isto irá descarregar um *. Pasta ZIP* para a sua máquina **comoAzure_Digital_Twins_end_to_end_samples.zip**. Desaperte a pasta e extraa os ficheiros.
+:::image type="content" source="../articles/digital-twins/media/includes/download-repo-zip.png" alt-text="Vista para as amostras digitais de gémeos no GitHub. O botão Código é selecionado, produzindo uma pequena caixa de diálogo onde é realçado o botão Download ZIP." lightbox="../articles/digital-twins/media/includes/download-repo-zip.png":::
+
+Isto irá descarregar um *. Pasta ZIP* para a sua máquina **comodigital-twins-samples-master.zip**. Desaperte a pasta e extraa os ficheiros.
 
 ### <a name="prepare-an-azure-digital-twins-instance"></a>Prepare uma instância Azure Digital Twins
 

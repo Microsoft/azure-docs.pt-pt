@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 262a96c0c316987d0245ed29836f6a013c4339d1
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: b59d9ebf55f7a4c02891a782b7271eec2f521576
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98573161"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98663286"
 ---
 # <a name="create-a-custom-voice"></a>Criar uma voz personalizada
 
@@ -52,21 +52,17 @@ O quadro que se segue mostra os estados de tratamento dos conjuntos de dados imp
 
 Após a validação estar completa, pode ver o número total de expressões correspondidas para cada um dos seus conjuntos de dados na coluna **Utterances.** Se o tipo de dados selecionado requer segmentação de áudio longo, esta coluna apenas reflete as expressões que segmentamos para si, quer com base nas suas transcrições, quer através do serviço de transcrição de fala. Pode ainda descarregar o conjunto de dados validado para ver os resultados dos detalhes das expressões importadas com sucesso e as suas transcrições de mapeamento. Atenção: a segmentação de áudio longo pode demorar mais de uma hora a completar o processamento de dados.
 
-Na visão do detalhe de dados, pode verificar as pontuações de pronúncia e o nível de ruído de cada um dos seus conjuntos de dados. A pontuação da pronúncia varia entre 0 e 100. Uma pontuação abaixo de 70 normalmente indica um erro de fala ou uma incompatibilidade do script. Um sotaque pesado pode reduzir a sua pontuação de pronúncia e impactar a voz digital gerada.
+Para conjuntos de dados en-US e zh-CN, pode ainda fazer o download de um relatório para verificar as pontuações de pronúncia e o nível de ruído de cada uma das suas gravações. A pontuação da pronúncia varia entre 0 e 100. Uma pontuação abaixo de 70 normalmente indica um erro de fala ou uma incompatibilidade do script. Um sotaque pesado pode reduzir a sua pontuação de pronúncia e impactar a voz digital gerada.
 
 Uma relação sinal-ruído mais elevada (SNR) indica um ruído mais baixo no seu áudio. Normalmente, pode chegar a um SNR de 50+ gravando em estúdios profissionais. O áudio com um SNR abaixo de 20 pode resultar num ruído óbvio na sua voz gerada.
 
 Considere voltar a registar quaisquer expressões com pontuações baixas de pronúncia ou más relações sinal-ruído. Se não conseguir voltar a gravar, pode excluir essas expressões do seu conjunto de dados.
 
-> [!NOTE]
-> É necessário que, se estiver a utilizar a Voz Neural Personalizada, tenha de registar o seu talento de voz no separador **Voice Talent.** Ao preparar o seu script de gravação, certifique-se de que inclui a frase abaixo para adquirir o reconhecimento de talento de voz de usar os seus dados de voz para criar um modelo de voz TTS e gerar voz sintética. "Eu [declaro o seu primeiro e último nome] estou ciente de que as gravações da minha voz serão usadas [pelo nome da empresa] para criar e usar uma versão sintética da minha voz."
-Esta frase será usada para verificar se as gravações nos seus conjuntos de dados de treino são feitas pela mesma pessoa que faz o consentimento. [Leia mais sobre como os seus dados serão processados e como a verificação de talentos de voz é feita aqui.](https://aka.ms/CNV-data-privacy) 
-
 ## <a name="build-your-custom-voice-model"></a>Construa o seu modelo de voz personalizado
 
 Depois de o conjunto de dados ter sido validado, pode usá-lo para construir o seu modelo de voz personalizado.
 
-1.  Navegue **para text-to-speech > > de voz personalizada [nome do projeto] > Modelo**.
+1.  Navegue **para text-to-speech > > de voz personalizada [nome do projeto] > Training**.
 
 2.  Clique **no modelo train**.
 
@@ -76,22 +72,15 @@ Depois de o conjunto de dados ter sido validado, pode usá-lo para construir o s
 
     Um uso comum do campo **Descrição** é registar os nomes dos conjuntos de dados que foram usados para criar o modelo.
 
-4.  A partir da página **de dados de treino Select,** escolha um ou vários conjuntos de dados que gostaria de usar para treinar. Verifique o número de declarações antes de as submeter. Pode começar com qualquer número de expressões para modelos de voz en-US e zh-CN utilizando o método de treino "Adaptive". Para outros locais, você deve selecionar mais de 2.000 expressões para ser capaz de treinar uma voz usando um nível padrão, incluindo os métodos de treino "Estatística paramétrico" e "Concatenative", e mais de 300 expressões para treinar uma voz neural personalizada. 
+4.  A partir da página **de dados de treino Select,** escolha um ou vários conjuntos de dados que gostaria de usar para treinar. Verifique o número de declarações antes de as submeter. Você pode começar com qualquer número de expressões para modelos de voz en-US e zh-CN. Para outros locais, você deve selecionar mais de 2.000 expressões para ser capaz de treinar uma voz.
 
     > [!NOTE]
     > Os nomes de áudio duplicados serão removidos do treino. Certifique-se de que os conjuntos de dados selecionados não contêm os mesmos nomes de áudio em vários ficheiros .zip.
 
     > [!TIP]
-    > A utilização dos conjuntos de dados do mesmo altifalante é necessária para obter resultados de qualidade. Diferentes métodos de treino requerem diferentes tamanhos de dados de treino. Para formar um modelo com o método "Estatística paramétrica", são necessárias pelo menos 2.000 expressões distintas. Para o método "Concatenative", são 6.000 expressões, enquanto para "Neural", o requisito mínimo de tamanho de dados é de 300 expressões.
+    > A utilização dos conjuntos de dados do mesmo altifalante é necessária para obter resultados de qualidade. Quando os conjuntos de dados que submeteu para treino contiverem um número total de menos de 6.000 expressões distintas, irá treinar o seu modelo de voz através da técnica de síntese paramétrica estatística. No caso de os seus dados de treino excederem um número total de 6.000 expressões distintas, iniciará um processo de treino com a técnica de síntese de Concatenation. Normalmente, a tecnologia de concatenação pode resultar em resultados de voz mais naturais e de maior fidelidade. [Contacte a equipa de Voz Personalizada](https://go.microsoft.com/fwlink/?linkid=2108737) se quiser formar um modelo com a mais recente tecnologia Neural TTS que pode produzir uma voz digital equivalente às [vozes neurais](language-support.md#neural-voices)publicamente disponíveis.
 
-5. Selecione o **método de treino** no passo seguinte. 
-
-    > [!NOTE]
-    > Se quiser treinar uma voz neural, deve especificar um perfil de talento de voz com o ficheiro de consentimento áudio fornecido pelo talento de voz, reconhecendo usar os seus dados de fala para treinar um modelo de voz personalizado. A Voz Neural Personalizada está disponível com acesso limitado. Certifique-se de compreender os [requisitos responsáveis da IA](https://aka.ms/gating-overview) e [aplicar o acesso aqui.](https://aka.ms/customneural) 
-    
-    Nesta página também pode selecionar para carregar o seu script para testes. O script de teste deve ser um ficheiro Txt, inferior a 1Mb. O formato de codificação suportado inclui ANSI/ASCII, UTF-8, UTF-8-BOM, UTF-16-LE ou UTF-16-BE. Cada parágrafo da expressão resultará num áudio separado. Se quiser combinar todas as frases num único áudio, faça-as num parágrafo. 
-
-6. Clique **em Train** para começar a criar o seu modelo de voz.
+5.  Clique **em Train** para começar a criar o seu modelo de voz.
 
 A tabela Training apresenta uma nova entrada que corresponde a este modelo recém-criado. A tabela também apresenta o estado: Processamento, Sucesso, Falhado.
 
@@ -103,13 +92,10 @@ O estado mostrado reflete o processo de conversão do seu conjunto de dados para
 | Com êxito | O seu modelo de voz foi criado e pode ser implementado. |
 | Com falhas | O seu modelo de voz falhou na formação devido a muitas razões, por exemplo, problemas de dados invisíveis ou problemas de rede. |
 
-O tempo de treino varia consoante o volume de dados áudio processados e o método de treino selecionado. Pode variar de 30 minutos a 40 horas. Uma vez que o seu treino de modelo seja bem sucedido, você pode começar a testá-lo. 
+O tempo de formação varia consoante o volume de dados áudio processados. Os tempos típicos variam de cerca de 30 minutos para centenas de proclamações a 40 horas para 20.000 proclamações. Uma vez que o seu treino de modelo seja bem sucedido, você pode começar a testá-lo.
 
 > [!NOTE]
 > Os utilizadores de subscrição gratuita (F0) podem treinar uma fonte de voz simultaneamente. Os utilizadores de subscrição padrão (S0) podem treinar três vozes simultaneamente. Se atingir o limite, aguarde até que pelo menos uma das suas fontes de voz termine o treino e tente novamente.
-
-> [!NOTE]
-> O treino de vozes neurais personalizadas não é gratuito. Verifique o [preço](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) aqui. 
 
 > [!NOTE]
 > O número máximo de modelos de voz autorizados a ser treinados por subscrição é de 10 modelos para utilizadores de subscrição gratuita (F0) e 100 para utilizadores de subscrição padrão (S0).
@@ -118,27 +104,32 @@ Se estiver a utilizar a capacidade de treino de voz neural, pode selecionar para
 
 ## <a name="test-your-voice-model"></a>Teste o seu modelo de voz
 
-Cada treino gerará automaticamente 100 áudios de amostra para o ajudar a testar o modelo. Depois de o seu modelo de voz ter sido construído com sucesso, pode testá-lo antes de o utilizar.
+Depois de a sua fonte de voz ter sido construída com sucesso, pode testá-la antes de a utilizar.
 
-1.  Navegue **para text-to-speech > > de voz personalizada [nome do projeto] > Modelo**.
+1.  Navegue **para text-to-speech > > de voz personalizada [nome do projeto] > Testes**.
 
-2.  Clique no nome do modelo que gostaria de testar.
+2.  Clique **em Adicionar teste**.
 
-3.  Na página de detalhes do modelo, pode encontrar os áudios da amostra no **separador Teste.** 
+3.  Selecione um ou vários modelos que gostaria de testar.
 
-A qualidade da voz depende de uma série de fatores, incluindo o tamanho dos dados de treino, a qualidade da gravação, a precisão do ficheiro de transcrição, quão bem a voz gravada nos dados de treino corresponde à personalidade da voz desenhada para o seu caso de uso pretendido, e muito mais. [Consulte aqui para saber mais sobre as capacidades e limites da nossa tecnologia e as melhores práticas para melhorar a qualidade do seu modelo.](https://aka.ms/CNV-limits) 
+4.  Forneça o texto que pretende que a voz(s) fale. Se tiver selecionado testar vários modelos de uma só vez, o mesmo texto será utilizado para os testes para diferentes modelos.
+
+    > [!NOTE]
+    > A linguagem do seu texto deve ser a mesma que a língua do seu tipo de letra de voz. Só podem ser testados modelos treinados com sucesso. Apenas texto simples é apoiado neste passo.
+
+5.  Clique em **Criar**.
+
+Uma vez submetido o seu pedido de teste, voltará à página de teste. A tabela inclui agora uma entrada que corresponde ao seu novo pedido e à coluna de estado. Pode levar alguns minutos para sintetizar o discurso. Quando a coluna de estado diz **"Bem sucedido",** pode reproduzir o áudio ou transferir a entrada de texto (um ficheiro .txt) e a saída de áudio (um ficheiro .wav) e fazer uma audição adicional para obter qualidade.
+
+Também pode encontrar os resultados dos testes na página de detalhes de cada modelo que selecionou para testes. Vá ao **separador Treino** e clique no nome do modelo para introduzir a página de detalhes do modelo.
 
 ## <a name="create-and-use-a-custom-voice-endpoint"></a>Criar e usar um ponto final de voz personalizado
 
 Depois de ter criado e testado com sucesso o seu modelo de voz, implementou-o num ponto final text-to-speech personalizado. Em seguida, utilize este ponto final no lugar do ponto final habitual ao fazer pedidos de texto-a-discurso através da API REST. O seu ponto final personalizado só pode ser chamado pela subscrição que utilizou para implementar o tipo de letra.
 
-Para criar um novo ponto final de voz personalizado, vá ao **Texto-a-Voz > Voz Personalizada > Endpoint**. **Selecione Adicionar ponto final** e introduza um **Nome** e **Descrição** para o seu ponto de finalização personalizado. Em seguida, selecione o modelo de voz personalizado que pretende associar a este ponto final.
+Para criar um novo ponto final de voz personalizado, vá ao **Text-to-Speech > a > De voz personalizada**. **Selecione Adicionar ponto final** e introduza um **Nome** e **Descrição** para o seu ponto de finalização personalizado. Em seguida, selecione o modelo de voz personalizado que pretende associar a este ponto final.
 
 Depois de clicar no botão **Adicionar,** na tabela ponto final, verá uma entrada para o seu novo ponto final. Pode levar alguns minutos para instantanear um novo ponto final. Quando o estado da implantação for **bem sucedido,** o ponto final está pronto a ser utilizado.
-
-Pode **suspender** e **retomar** o seu ponto final se não o utilizar sempre. Quando um ponto final é reativado após a suspensão, o URL do ponto final será mantido o mesmo para que não seja necessário alterar o seu código nas suas apps. 
-
-Também pode atualizar o ponto final para um novo modelo. Para alterar o modelo, certifique-se de que o novo modelo tem o mesmo nome que o que pretende atualizar. 
 
 > [!NOTE]
 > Os utilizadores de subscrição gratuita (F0) podem ter apenas um modelo implantado. Os utilizadores de subscrição padrão (S0) podem criar até 50 pontos finais, cada um com a sua própria voz personalizada.

@@ -3,17 +3,17 @@ title: Configurar parâmetros do servidor - Azure PowerShell - Base de Dados Azu
 description: Este artigo descreve como configurar os parâmetros de serviço na Base de Dados Azure para MariaDB usando o PowerShell.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.devlang: azurepowershell
 ms.topic: how-to
 ms.date: 10/1/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8ace6306bec4c79cbce0a1572360db1acd2cea97
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 891cb5c6e570269d0414e7b7cece760af143927f
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94538245"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98662462"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mariadb-using-powershell"></a>Configurar parâmetros de servidor na Base de Dados Azure para MariaDB usando PowerShell
 

@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fea8d93121fcb5622f86257febcc7d834b444098
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 34bc50f5f95725b59c0d2b30b529e12abb6aa7fa
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178811"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661158"
 ---
 # <a name="migrate-users-to-azure-ad-b2c"></a>Migrar utilizadores para Azure AD B2C
 
-A migração de outro fornecedor de identidade para o Azure Ative Directory B2C (Azure AD B2C) também pode exigir a migração das contas de utilizadores existentes. São discutidos dois métodos de migração, *pré-migração* e *migração sem emenda.* Com qualquer uma das abordagens, é obrigado a escrever uma aplicação ou script que utilize a [API do Microsoft Graph](manage-user-accounts-graph-api.md) para criar contas de utilizador em Azure AD B2C.
+A migração de outro fornecedor de identidade para o Azure Ative Directory B2C (Azure AD B2C) também pode exigir a migração das contas de utilizadores existentes. São discutidos dois métodos de migração, *pré-migração* e *migração sem emenda.* Com qualquer uma das abordagens, é obrigado a escrever uma aplicação ou script que utilize a [API do Microsoft Graph](microsoft-graph-operations.md) para criar contas de utilizador em Azure AD B2C.
 
 ## <a name="pre-migration"></a>Pré-migração
 
@@ -34,7 +34,7 @@ Utilize o fluxo de pré-migração em qualquer uma destas duas situações:
 - Tem acesso às credenciais de texto simples de um utilizador (o seu nome de utilizador e palavra-passe).
 - As credenciais estão encriptadas, mas pode desencriptar.
 
-Para obter informações sobre a criação programática de contas de utilizador, consulte [contas de utilizador do Manage AD B2C com o Microsoft Graph](manage-user-accounts-graph-api.md).
+Para obter informações sobre a criação programática de contas de utilizador, consulte [contas de utilizador do Manage AD B2C com o Microsoft Graph](microsoft-graph-operations.md).
 
 ## <a name="seamless-migration"></a>Migração sem emenda
 

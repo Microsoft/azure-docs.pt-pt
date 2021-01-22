@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/21/2020
 ms.author: v-mibufo
-ms.openlocfilehash: b13b61aff819271ed1722572f251f9a6d14b17ab
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8af656e00c457dfa3d438f0cb104d85ccc687745
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977002"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661243"
 ---
 # <a name="windows-stop-error---0xc000021a-status-system-process-terminated"></a>Erro de paragem do Windows - 0xC000021A Processo do sistema de estado encerrado
 
@@ -48,6 +48,10 @@ Este erro ocorre quando um processo crítico, como o WinLogon (winlogon.exe) ou 
 
 ### <a name="collect-the-memory-dump-file"></a>Recolher o ficheiro de despejo de memória
 
+> [!TIP]
+> Se tiver uma cópia de segurança recente do VM, poderá tentar [restaurar o VM da cópia de segurança](../../backup/backup-azure-arm-restore-vms.md) para corrigir o problema da bota.
+
+
 Para resolver este problema, o depósito de acidentes terá de ser analisado. Recolha o ficheiro de despejo de memória para o suporte de acidente e contacto. Para recolher o ficheiro de despejo, siga estes passos:
 
 ### <a name="attach-the-os-disk-to-a-new-repair-vm"></a>Fixe o disco DE a um novo VM de reparação
@@ -58,8 +62,8 @@ Para resolver este problema, o depósito de acidentes terá de ser analisado. Re
 ### <a name="locate-the-dump-file-and-submit-a-support-ticket"></a>Localize o ficheiro de despejo e envie um bilhete de apoio
 
 1.  Na vM de reparação, vá à pasta do janela no disco oss anexado. Se a carta do controlador que é atribuída ao disco de oss anexado for F, vá para F:\Windows.
-2.  Localize o ficheiro memory.dmp e, em seguida, [envie um bilhete de apoio](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) com o ficheiro de despejo de memória.
-3.  Se tiver dificuldade em localizar o ficheiro memory.dmp, pode desejar utilizar [chamadas de interrupção não mascarada (NMI) na consola em série.](./serial-console-windows.md#use-the-serial-console-for-nmi-calls) Pode seguir o guia para gerar um ficheiro de informação de falha de sistema através de chamadas NMI [aqui](/windows/client-management/generate-kernel-or-complete-crash-dump).
+2.  Localize o ficheiro .dmp memória e, em seguida, [envie um bilhete de apoio](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) com o ficheiro de despejo de memória.
+3.  Se tiver dificuldade em localizar o ficheiro .dmp memória, poderá desejar utilizar [chamadas de interrupção não mascarada (NMI) na consola em série.](./serial-console-windows.md#use-the-serial-console-for-nmi-calls) Pode seguir o guia para gerar um ficheiro de informação de falha de sistema através de chamadas NMI [aqui](/windows/client-management/generate-kernel-or-complete-crash-dump).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -3,15 +3,15 @@ title: Link Privado - Portal Azure - Base de Dados Azure para MariaDB
 description: Saiba como configurar link privado para Azure Database for MariaDB a partir do portal Azure
 author: mksuni
 ms.author: sumuth
-ms.service: mariadb
+ms.service: jroth
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 79b3c3f8eca2fa4442a7845ca4aa3921d0302453
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 127a1c83525c4a9c457f551c05045a63a3c4347a
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005049"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98659629"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-portal"></a>Criar e gerir o Link Privado para Azure Database para MariaDB usando o Portal
 
@@ -32,7 +32,7 @@ Nesta secção, irá criar rede virtual e a sub-rede para hospedar o VM que é u
 ### <a name="create-the-virtual-network"></a>Criar a rede virtual
 Nesta secção, irá criar uma Rede Virtual e a sub-rede para hospedar o VM que é utilizado para aceder ao seu recurso De Ligação Privada.
 
-1. No lado superior esquerdo do ecrã, **selecione Criar uma** rede virtual  >  **de rede de rede de** recursos  >  **Virtual network**.
+1. No lado superior esquerdo do ecrã, **selecione Criar uma** rede virtual  >  **de rede de rede de** recursos  >  .
 2. Na **Criar rede virtual,** insira ou selecione esta informação:
 
     | Definição | Valor |
@@ -49,7 +49,7 @@ Nesta secção, irá criar uma Rede Virtual e a sub-rede para hospedar o VM que 
 
 ### <a name="create-virtual-machine"></a>Criar máquina virtual
 
-1. No lado superior esquerdo do ecrã no portal Azure, selecione **Criar uma** máquina virtual  >  **compute de** recurso  >  **Virtual Machine**.
+1. No lado superior esquerdo do ecrã no portal Azure, selecione **Criar uma** máquina virtual  >  **compute de** recurso  >  .
 
 2. Na **Criar uma máquina virtual - Básicos, insira** ou selecione esta informação:
 
@@ -60,7 +60,7 @@ Nesta secção, irá criar uma Rede Virtual e a sub-rede para hospedar o VM que 
     | Grupo de recursos | Selecione **myResourceGroup**. Criou isto na secção anterior.  |
     | **DETALHES DE INSTÂNCIA** |  |
     | Nome da máquina virtual | *Insira o myVm*. |
-    | Region | Selecione **Europa Ocidental**. |
+    | Região | Selecione **Europa Ocidental**. |
     | Opções de disponibilidade | Deixar o incumprimento **Não é necessário um despedimento de infraestrutura**. |
     | Imagem | Selecione **o Centro de Dados 2019 do Windows** Server . |
     | Tamanho | Deixe o **padrão DS1 v2**. |
@@ -130,7 +130,7 @@ Nesta secção, irá criar uma Base de Dados Azure para o servidor MariaDB em Az
 
 Nesta secção, irá criar um ponto final privado para o servidor MariaDB. 
 
-1. No lado superior esquerdo do ecrã no portal Azure, **selecione Criar uma**  >  **Networking**  >  **ligação privada** de rede de recursos .
+1. No lado superior esquerdo do ecrã no portal Azure, **selecione Criar uma**  >    >  **ligação privada** de rede de recursos .
 2. No **Private Link Center - Overview,** sobre a opção de construir uma **ligação privada a um serviço**, selecione **Start**.
 
     ![Visão geral do Link Privado](media/concepts-data-access-and-security-private-link/privatelink-overview.png)
@@ -144,7 +144,7 @@ Nesta secção, irá criar um ponto final privado para o servidor MariaDB.
     | Grupo de recursos | Selecione **myResourceGroup**. Criou isto na secção anterior.|
     | **Detalhes da instância** |  |
     | Name | Introduza *myPrivateEndpoint*. Se este nome for tomado, crie um nome único. |
-    |Region|Selecione **Europa Ocidental**.|
+    |Região|Selecione **Europa Ocidental**.|
     |||
 5. Selecione **Seguinte: Recurso**.
 6. Em **Criar um ponto final privado - Recurso,** insira ou selecione estas informações:

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8d41f8959d0a1ec0d6e48cf2fa4711a8ef8d8ae5
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 2600ea3488c643bcf215b058425de42cd439dcff
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178947"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660272"
 ---
 # <a name="set-up-phone-sign-up-and-sign-in-with-custom-policies-in-azure-ad-b2c"></a>Configurar inscrição no telefone e iniciar sôm-in com políticas personalizadas em Azure AD B2C
 
@@ -39,12 +39,12 @@ Com a inscrição no telefone e o registo, o utilizador pode inscrever-se na apl
 >
 > *&lt;inserir: um link para a sua Declaração de Privacidade&gt;*<br/>*&lt;inserir: um link para os seus Termos de Serviço&gt;*
 
-Para adicionar as suas próprias informações de consentimento, personalize a seguinte amostra e inclua-a nas Fontes Desinsufladas Para o Conteúdo Utilizado pela página autoafirmada com o controlo de visualização (o ficheiro *Phone_Email_Base.xml* no [pacote de arranque de inscrição e de entrada de inscrição][starter-pack-phone]do telefone):
+Para adicionar a sua própria informação de consentimento, personalize a seguinte amostra. Inclua-o na `LocalizedResources` definição de conteúdo utilizada pela página autoafirmada com o controlo de visualização (o ficheiro *Phone_Email_Base.xml* no pacote [de arranque de inscrição e entrada de inscrição][starter-pack-phone]do telefone):
 
 ```xml
 <LocalizedResources Id="phoneSignUp.en">        
     <LocalizedStrings>
-    <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_msg_intro">By providing your phone number, you consent to receiving a one-time passcode sent by text message to help you sign into {insert your application name}. Standard messsage and data rates may apply.</LocalizedString>          
+    <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_msg_intro">By providing your phone number, you consent to receiving a one-time passcode sent by text message to help you sign into {insert your application name}. Standard message and data rates may apply.</LocalizedString>          
     <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_link_1_text">Privacy Statement</LocalizedString>                
     <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_link_1_url">{insert your privacy statement URL}</LocalizedString>          
     <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_link_2_text">Terms and Conditions</LocalizedString>             
@@ -64,7 +64,7 @@ Um código de verificação único é enviado para o número de telefone do util
 
 ![Utilizador verifica código durante a inscrição no telefone](media/phone-authentication/phone-signup-verify-code.png)
 
- O utilizador introduz qualquer outra informação solicitada na página de inscrição, por exemplo, Nome de **Exibição, Nome** **Dado**, e **Apelido** (País e número de telefone permanecem povoados). Se o utilizador quiser utilizar um número de telefone diferente, pode escolher **o número de alteração** para reiniciar a inscrição. Quando terminar, o utilizador seleciona **Continuar**.
+O utilizador introduz qualquer outra informação solicitada na página de inscrição. Por exemplo, **Nome de Exibição**, **Nome Dado** e **Apelido** (País e número de telefone permanecem povoados). Se o utilizador quiser utilizar um número de telefone diferente, pode escolher **o número de alteração** para reiniciar a inscrição. Quando terminar, o utilizador seleciona **Continuar**.
 
 ![O utilizador fornece informações adicionais](media/phone-authentication/phone-signup-additional-info.png)
 
@@ -100,8 +100,6 @@ Precisa dos seguintes recursos antes de criar o OTP.
 
 Comece por atualizar os ficheiros de política de inscrição e inscrição no telefone para trabalhar com o seu inquilino Azure AD B2C.
 
-Os seguintes passos pressupõem que completou os [pré-requisitos](#prerequisites) e já clonou o repositório de pacote de [entradas de política personalizado][starter-pack] para a sua máquina local.
-
 1. Encontre os [ficheiros de política personalizados de inscrição e inscrição no][starter-pack-phone] seu clone local do suporte do pacote inicial ou descarregue-os diretamente. Os ficheiros de política XML estão localizados no seguinte diretório:
 
     `active-directory-b2c-custom-policy-starterpack/scenarios/`**`phone-number-passwordless`**
@@ -136,9 +134,9 @@ Ao carregar cada ficheiro, o Azure adiciona o prefixo `B2C_1A_` .
 
 ## <a name="get-user-account-by-phone-number"></a>Obtenha a conta do utilizador por número de telefone
 
-Um utilizador que se inscreva com um número de telefone mas não forneça um endereço de e-mail de recuperação é registado no seu diretório Azure AD B2C com o seu número de telefone como nome de inscrição. Se o utilizador quiser então alterar o seu número de telefone, o seu help desk ou equipa de suporte deve primeiro encontrar a sua conta e, em seguida, atualizar o seu número de telefone.
+Um utilizador que se inscreva com um número de telefone, sem endereço de e-mail de recuperação, é registado no seu diretório Azure AD B2C com o seu número de telefone como nome de inscrição. Para alterar o número de telefone, o seu help desk ou equipa de apoio tem primeiro de encontrar a sua conta e, em seguida, atualizar o seu número de telefone.
 
-Pode encontrar um utilizador pelo seu número de telefone (nome de inscrição) utilizando [o Microsoft Graph](manage-user-accounts-graph-api.md):
+Pode encontrar um utilizador pelo seu número de telefone (nome de inscrição) utilizando [o Microsoft Graph](microsoft-graph-operations.md):
 
 ```http
 GET https://graph.microsoft.com/v1.0/users?$filter=identities/any(c:c/issuerAssignedId eq '+{phone number}' and c/issuer eq '{tenant name}.onmicrosoft.com')

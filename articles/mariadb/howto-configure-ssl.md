@@ -3,16 +3,16 @@ title: Configure SSL - Base de Dados Azure para MariaDB
 description: Instruções para configurar corretamente a Base de Dados de Azure para a MariaDB e aplicações associadas para utilizar corretamente as ligações SSL
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: how-to
 ms.date: 07/08/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8f541e2302bc1f1de132de76e0638f9843d7003f
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: bda9c54fa344d44da01fba75d3f814d8f311fd48
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592486"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98662275"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mariadb"></a>Configure a conectividade SSL na sua aplicação para ligar de forma segura à Base de Dados Azure para MariaDB
 A Azure Database for MariaDB suporta ligar a sua Base de Dados Azure para servidor MariaDB a aplicações de clientes utilizando a Camada de Tomadas Seguras (SSL). A imposição de ligações SSL entre o servidor de base de dados e as aplicações de cliente ajuda a proteger contra ataques "man-in-the-middle" ao encriptar o fluxo de dados entre o servidor e a sua aplicação.
