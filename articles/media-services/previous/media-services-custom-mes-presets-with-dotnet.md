@@ -1,5 +1,5 @@
 ---
-title: Personalizar predefinições padrão media encoder / Microsoft Docs
+title: Personalização de pré-sintonias padrão de Media Encoder | Microsoft Docs
 description: Este tópico mostra como executar codificação avançada personalizando predefinições de tarefas Media Encoder Standard. O tópico mostra como usar os Serviços de Comunicação Social .NET SDK para criar uma tarefa e trabalho de codificação. Também mostra como fornecer predefinições personalizadas para o trabalho de codificação.
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a300345749351a360a16dc00424ee41ece7a17c9
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 6c1c74f86a9cf0e4bcd73844222f256a715cbfe5
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97652983"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695895"
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>Personalização de predefinições padrão media Encoder
 
@@ -33,7 +33,7 @@ Este artigo mostra como realizar codificação avançada com a Media Encoder Sta
 Este artigo mostra-lhe como personalizar uma predefinição tomando o [Bitrate Múltiplo H264 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) predefinido e reduzindo o número de camadas. O artigo [de predefinição de pré-sintonias do Media Encoder de Personalização](media-services-advanced-encoding-with-mes.md) demonstra predefinições personalizadas que podem ser usadas para executar tarefas avançadas de codificação.
 
 > [!NOTE]
-> As predefinições personalizadas descritas neste artigo não podem ser utilizadas nas transformações [dos Media Services V3](../latest/index.yml) ou nos comandos CLI. Consulte a [orientação de migração de V2 a V3](../latest/migrate-from-v2-to-v3.md) para mais detalhes.
+> As predefinições personalizadas descritas neste artigo não podem ser utilizadas nas transformações [dos Media Services V3](../latest/index.yml) ou nos comandos CLI. Consulte a [orientação de migração de V2 a V3](../latest/migrate-v-2-v-3-migration-introduction.md) para mais detalhes.
 
 ## <a name="customizing-a-mes-preset"></a><a id="customizing_presets"></a> Personalizar uma predefinição MES
 

@@ -1,5 +1,5 @@
 ---
-title: Visão geral do Azure Media Services Streaming Endpoint / Microsoft Docs
+title: Visão geral do ponto final dos serviços de comunicação social Azure | Microsoft Docs
 description: Este artigo apresenta uma visão geral dos pontos finais de streaming da Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: a541e1b068ec3667120bbb31e65ca7bc35febadb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5e3d7e61b6c2a6ad3c121da9c0198c95ac24850
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89265920"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98694577"
 ---
 # <a name="streaming-endpoints-overview"></a>Visão geral dos pontos finais do streaming  
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 No Microsoft Azure Media Services (AMS), um **Streaming Endpoint** representa um serviço de streaming que pode entregar conteúdo diretamente a uma aplicação de cliente, ou a uma Rede de Entrega de Conteúdos (CDN) para posterior distribuição. Os Media Services também proporcionam uma integração perfeita do Azure CDN. O stream de saída de um serviço StreamingEndpoint pode ser um stream ao vivo, um vídeo a pedido ou um download progressivo do seu ativo na sua conta de Media Services. Cada conta Azure Media Services inclui um StreamingEndpoint predefinido. Os StreamingEndpoints adicionais podem ser criados na conta. Existem duas versões de StreamingEndpoints, 1.0 e 2.0. A partir de 10 de janeiro de 2017, quaisquer contas AMS recém-criadas incluirão a versão 2.0 **default** StreamingEndpoint. Os pontos finais de streaming adicionais que adicionar a esta conta também serão a versão 2.0. Esta alteração não terá impacto nas contas existentes; Os StreamingEndpoints existentes serão a versão 1.0 e podem ser atualizados para a versão 2.0. Com esta alteração haverá mudanças de comportamento, faturação e funcionalidade (para mais informações, consulte os tipos de Streaming e a secção **de versões** documentadas abaixo).
 
@@ -79,10 +79,10 @@ Se a sua **versão "1.0"** streaming endpoint tiver >=1 unidades de streaming pr
 
 |Tipo|StreamingEndpointVersion|Unidades de escala|CDN|Faturação|
 |--------------|----------|-----------------|-----------------|-----------------|
-|Clássico|1.0|0|ND|Gratuito|
-|Ponto final de streaming padrão (pré-visualização)|2.0|0|Sim|Pago|
-|Unidades de streaming premium|1.0|>0|Sim|Pago|
-|Unidades de streaming premium|2.0|>0|Sim|Pago|
+|Clássico|1,0|0|ND|Gratuito|
+|Ponto final de streaming padrão (pré-visualização)|2,0|0|Yes|Paga|
+|Unidades de streaming premium|1,0|>0|Yes|Paga|
+|Unidades de streaming premium|2,0|>0|Yes|Paga|
 
 ### <a name="features"></a>Funcionalidades
 
@@ -91,11 +91,11 @@ Funcionalidade|Standard|Premium
 Débito |Até 600 Mbps e pode fornecer uma produção eficaz muito maior quando um CDN é usado.|200 Mbps por unidade de streaming (SU). Pode fornecer uma produção eficaz muito maior quando um CDN é usado.
 CDN|Azure CDN, CDN de terceiros, ou sem CDN.|Azure CDN, CDN de terceiros, ou sem CDN.
 A faturação é prostimada| Diário|Diário
-Encriptação dinâmica|Sim|Sim
-Empacotamento dinâmico|Sim|Sim
+Encriptação dinâmica|Yes|Yes
+Empacotamento dinâmico|Yes|Yes
 Escala|A escala automática sobe até à produção visada.|Unidades de streaming adicionais.
-Filtragem IP/G20/Anfitrião personalizado <sup>1</sup>|Sim|Sim
-Download progressivo|Sim|Sim
+Filtragem IP/G20/Anfitrião personalizado <sup>1</sup>|Yes|Yes
+Download progressivo|Yes|Yes
 Uso recomendado |Recomendado para a grande maioria dos cenários de streaming.|Uso profissional. 
 
 <sup>1</sup> Apenas utilizado diretamente no ponto de ponta de streaming quando o CDN não estiver ativado no ponto final.<br/>

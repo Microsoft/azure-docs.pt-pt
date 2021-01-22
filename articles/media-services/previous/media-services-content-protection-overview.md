@@ -1,5 +1,5 @@
 ---
-title: Proteja o seu conteúdo com a Azure Media Services Microsoft Docs
+title: Proteja o seu conteúdo com a Azure Media Services | Microsoft Docs
 description: Este artigo dá uma visão geral da proteção de conteúdos com a Azure Media Services v2.
 services: media-services
 documentationcenter: ''
@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 08ebda8bdd17cc4d620792934e1299365d0ced71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 287f93a60a1c44b29b75def8cc3ee9adc577971c
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89257930"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695929"
 ---
 # <a name="content-protection-overview"></a>Descrição geral da proteção de conteúdo
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)] 
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 Pode utilizar a Azure Media Services para proteger os seus meios de comunicação a partir do momento em que deixa o computador através do armazenamento, processamento e entrega. Com os Media Services, pode fornecer o seu conteúdo ao vivo e a pedido encriptado dinamicamente com o Advanced Encryption Standard (AES-128) ou qualquer um dos três principais sistemas de gestão de direitos digitais (DRM): Microsoft PlayReady, Google Widevine e Apple FairPlay. Os Media Services também fornecem um serviço para a entrega de chaves AES e licenças DRM (PlayReady, Widevine e FairPlay) a clientes autorizados. 
 
@@ -113,7 +113,7 @@ As seguintes considerações são aplicáveis:
 
 * Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e Política de Privacidade da Google, Inc.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Os seguintes artigos descrevem os próximos passos para ajudá-lo a começar com a proteção de conteúdos:
 
 * [Proteger com encriptação de armazenamento](media-services-rest-storage-encryption.md)

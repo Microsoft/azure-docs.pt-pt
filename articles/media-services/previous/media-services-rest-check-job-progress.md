@@ -1,5 +1,5 @@
 ---
-title: Como verificar o progresso do trabalho usando a API REST Microsoft Docs
+title: Como verificar o progresso do trabalho utilizando a API REST | Microsoft Docs
 description: Este artigo demonstra como verificar o progresso do trabalho utilizando a Azure Media Services v2 REST API.
 services: media-services
 documentationcenter: ''
@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 429e443ea0de665632cbacaee13a3ff3be443b9d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 252495df8189f677ada66b67b8a845b320c81aca
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89263404"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98694921"
 ---
 # <a name="how-to-check-job-progress"></a>Como: verificar o progresso do emprego
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 Quando se gere empregos, muitas vezes é preciso uma forma de acompanhar o progresso do emprego. Você pode descobrir o estado de Trabalho usando a propriedade do Estado do Trabalho. Para mais informações sobre a propriedade do Estado, consulte [a Job Entity Properties.](/rest/api/media/operations/job#job_entity_properties)
 
@@ -74,6 +74,6 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 [Operações de Serviços de Mídia REST Visão geral da API](media-services-rest-how-to-use.md)

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/19/2021
 ms.author: zhchia
-ms.openlocfilehash: 057b437c5d88c4f292e08828482e5dca0d2ca5b4
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 0e7275ee92431e791fec7bd2c9ec07dd623b0f9e
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98614677"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696012"
 ---
 # <a name="tutorial-configure-templafy-saml2-for-automatic-user-provisioning"></a>Tutorial: Configurar templafy SAML2 para fornecimento automático de utilizadores
 
@@ -133,7 +133,26 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 9. Reveja os atributos do utilizador que são sincronizados de AZure AD a Templafy SAML2 na secção **De Mapeamentos de Atributos.** Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar as contas do utilizador em TEMplafy SAML2 para operações de atualização. Selecione o botão **Guardar** para escoar quaisquer alterações.
 
-    ![Atributos do utilizador templário SAML2](media/templafy-saml-2-provisioning-tutorial/user-attribute.png)
+   |Atributo|Tipo|Suportado para filtragem|
+   |---|---|---|
+   |userName|String|&check;|
+   |active|Booleano|
+   |displayName|String|
+   |título|String|
+   |preferiuLanguage|String|
+   |name.givenName|String|
+   |name.familyName|String|
+   |phoneNumbers[type eq "work"].value|String|
+   |phoneNumbers[type eq "mobile"].value|String|
+   |números de telefone[tipo eq "fax"].valor|String|
+   |externalId|String|
+   |endereços[tipo eq "work"].localidade|String|
+   |endereços[tipo eq "work"].postalCode|String|
+   |endereços[tipo eq "work"].região|String|
+   |endereços[tipo eq "work"].streetAddress|String|
+   |endereços[tipo eq "work"].país|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|String|
 
 10. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Groups to Templafy**.
 
@@ -141,7 +160,12 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 11. Reveja os atributos do grupo que são sincronizados de Azure AD a Templafy SAML2 na secção **De Mapeamentos de Atributos.** Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar com os grupos em TEMplafy SAML2 para operações de atualização. Selecione o botão **Guardar** para escoar quaisquer alterações.
 
-    ![Atributos do Grupo Templário SAML2](media/templafy-saml-2-provisioning-tutorial/group-attribute.png)
+      |Atributo|Tipo|Suportado para filtragem|
+      |---|---|---|
+      |displayName|String|&check;|
+      |membros|Referência|
+      |externalId|String|      
+
 
 12. Para configurar filtros de âmbito, veja as instruções seguintes disponibilizadas no [Tutorial de filtro de âmbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 

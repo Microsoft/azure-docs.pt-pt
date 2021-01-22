@@ -1,5 +1,5 @@
 ---
-title: Telemetria Azure Media Services Microsoft Docs
+title: Telemetria Azure Media Services Telemetria | Microsoft Docs
 description: Este artigo fornece uma visão geral da telemetria da Microsoft Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 0701e9c6428283d45cf4b4a2e24c8de99d9a286b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4bf9a96d7ffc3b939abe8cfb889c5bd49fee09cc
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89265903"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98694626"
 ---
 # <a name="azure-media-services-telemetry"></a>Telemetria Azure Media Services  
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
-A Azure Media Services (AMS) permite-lhe aceder a dados de telemetria/métricas para os seus serviços. A versão atual da AMS permite-lhe recolher dados de telemetria para o **Canal**live, **StreamingEndpoint**e entidades live **Archive.** 
+A Azure Media Services (AMS) permite-lhe aceder a dados de telemetria/métricas para os seus serviços. A versão atual da AMS permite-lhe recolher dados de telemetria para o **Canal** live, **StreamingEndpoint** e entidades live **Archive.** 
 
 A telemetria é escrita para uma tabela de armazenamento numa conta de Armazenamento Azure que especifica (normalmente, utilizaria a conta de armazenamento associada à sua conta AMS). 
 
@@ -79,9 +79,9 @@ Propriedade|Valor|Exemplos/notas
 ---|---|---
 PartitionKey|{iD da conta}_{iD da entidade}|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66<br/<br/>O ID da conta está incluído na chave de partição para simplificar os fluxos de trabalho onde várias contas de Serviços de Mídia estão escrevendo para a mesma conta de armazenamento.
 RowKey|{segundos para meia-noite}_{valor aleatório}|01688_00199<br/><br/>A tecla de linha começa com o número de segundos à meia-noite para permitir consultas de estilo top n dentro de uma partição. Para mais informações, consulte [este](../../cosmos-db/table-storage-design-guide.md#log-tail-pattern) artigo. 
-Timestamp|Data/Hora|Marca de tempo automática da tabela Azure 2016-09-09T22:43:42.241Z
+CarimboDeDataEHora|Data/Hora|Marca de tempo automática da tabela Azure 2016-09-09T22:43:42.241Z
 Tipo|O tipo de entidade que fornece dados de telemetria|Canal/StreamingEndpoint/Arquivo<br/><br/>O tipo de evento é apenas um valor de corda.
-Nome|O nome do evento de telemetria|ChannelHeartbeat/StreamingEndpointRequestLog
+Name|O nome do evento de telemetria|ChannelHeartbeat/StreamingEndpointRequestLog
 Tempo observado|A hora em que ocorreu o evento de telemetria (UTC)|2016-09-09T22:42:36.924Z<br/><br/>O tempo observado é fornecido pela entidade que envia a telemetria (por exemplo, um canal). Pode haver problemas de sincronização de tempo entre componentes, pelo que este valor é aproximado
 ServiceID|{iD serviço}|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 Propriedades específicas da entidade|Conforme definido pelo evento|StreamName: stream1, Bitrate 10123, ...<br/><br/>As propriedades restantes são definidas para o tipo de evento dado. O conteúdo da tabela Azure é par de valores-chave.  (isto é, diferentes linhas na tabela têm diferentes conjuntos de propriedades).
@@ -100,9 +100,9 @@ Propriedade|Valor|Exemplos
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
-Timestamp|Timestamp|Marca de tempo automático da Tabela Azure 2016-09-09T22:43:42.241Z
+CarimboDeDataEHora|CarimboDeDataEHora|Marca de tempo automático da Tabela Azure 2016-09-09T22:43:42.241Z
 Tipo|Tipo|StreamingEndpoint
-Nome|Nome|StreamingEndpointRequestLog
+Name|Name|StreamingEndpointRequestLog
 Tempo observado|Tempo observado|2016-09-09T22:42:36.924Z
 ServiceID|ID de Serviço|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 Nome do Anfitrião|Nome de anfitrião do ponto final|builddemoserver.origin.mediaservices.windows.net
@@ -119,9 +119,9 @@ Propriedade|Valor|Exemplos/notas
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
-Timestamp|Timestamp|Marca de tempo automática da tabela Azure 2016-09-09T22:43:42.241Z
-Tipo|Tipo|Channel
-Nome|Nome|ChannelHeartbeat
+CarimboDeDataEHora|CarimboDeDataEHora|Marca de tempo automática da tabela Azure 2016-09-09T22:43:42.241Z
+Tipo|Tipo|Canal
+Name|Name|ChannelHeartbeat
 Tempo observado|Tempo observado|2016-09-09T22:42:36.924Z
 ServiceID|ID de Serviço|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 TrackType|Tipo de vídeo/áudio/texto de faixa|vídeo/áudio
@@ -144,9 +144,9 @@ Propriedade|Valor|Exemplos/notas
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
-Timestamp|Timestamp|Marca de tempo automática da tabela Azure 2016-09-09T22:43:42.241Z
+CarimboDeDataEHora|CarimboDeDataEHora|Marca de tempo automática da tabela Azure 2016-09-09T22:43:42.241Z
 Tipo|Tipo|Arquivo
-Nome|Nome|ArchiveHeartbeat
+Name|Name|ArchiveHeartbeat
 Tempo observado|Tempo observado|2016-09-09T22:42:36.924Z
 ServiceID|ID de Serviço|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 ManifestoName|Url do programa|activo-eb149703-ed0a-483c-91c4-e4066e72cce3/a0a5cfbf-71ec-4bd2-8c01-a92a2b38c9ba.ism

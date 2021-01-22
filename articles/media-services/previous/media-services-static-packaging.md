@@ -1,5 +1,5 @@
 ---
-title: Usando o Azure Media Packager para realizar tarefas de embalagem estáticas Microsoft Docs
+title: Utilizar o Azure Media Packager para realizar tarefas de embalagem estática | Microsoft Docs
 description: Este tópico mostra várias tarefas que são realizadas com o Azure Media Packager.
 services: media-services
 documentationcenter: ''
@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f9022b1e91b8a1030bf283675b213e87ecf171f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3dc0a6ddba110a171baadab650304e8f772f6db2
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89265937"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98694559"
 ---
 # <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>Utilizar o Azure Media Packager para realizar tarefas de embalagem estática  
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 
 ## <a name="overview"></a>Descrição geral
@@ -720,7 +720,7 @@ Se pretender encriptar o seu HLS com a AES-128, tem a opção de utilizar encrip
 > [!NOTE]
 > Para converter o seu conteúdo em HLS, tem primeiro de converter/codificar o seu conteúdo em Smooth Streaming.
 > Além disso, para que o HLS seja encriptado com a AES certifique-se de definir as seguintes propriedades no seu ficheiro MediaPackager_SmoothToHLS.xml: desagure a propriedade encriptada como verdadeira, detenha o valor chave e o valor keyuri a apontar para o seu servidor de autenticação\autorização.
-> Os Serviços de Comunicação Social criam um ficheiro chave e colocam-no no contentor do ativo. Deve copiar o ficheiro /-asset-containerguid/*.key para o seu servidor (ou criar o seu próprio ficheiro chave) e, em seguida, eliminar o ficheiro *.key do contentor do ativo.
+> Os Serviços de Comunicação Social criam um ficheiro chave e colocam-no no contentor do ativo. Deve copiar o ficheiro /-contentor de ativos/*.key para o seu servidor (ou criar o seu próprio ficheiro chave) e, em seguida, apagar o ficheiro *.key do contentor do ativo.
 > 
 > 
 

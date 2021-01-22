@@ -4,20 +4,20 @@ ms.service: storage
 ms.topic: include
 ms.date: 08/10/2020
 ms.author: rogarana
-ms.openlocfilehash: 8dcb58499113b0b7ae0814419f0a76965a0ed945
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 86bf4911026e46c997469b956f9e7c75c4f17164
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94680857"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98698078"
 ---
 #### <a name="additional-premium-file-share-level-limits"></a>Limites adicionais de nível de ações de ficheiros premium
 
 |Área  |Destino  |
 |---------|---------|
 |Aumento/diminuição do tamanho mínimo    |1 GiB      |
-|IOPS de linha de base    |1 IOPS por GiB, até 100.000|
-|IOPS rebentando    |3x IOPS por GiB, até 100.000|
+|IOPS de linha de base    |400 + 1 IOPS por GiB, até 100.000|
+|IOPS rebentando    |Max (4000,3x IOPS por GiB), até 100.000|
 |Taxa de Egress         |60 MiB/s + 0,06 * GiB a provisionado        |
 |Taxa de entrada| 40 MiB/s + 0,04 * GiB a provisionado |
 

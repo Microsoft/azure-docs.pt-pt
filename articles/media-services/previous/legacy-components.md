@@ -1,5 +1,5 @@
 ---
-title: Componentes legados da Azure Media Services Microsoft Docs
+title: Componentes legados da Azure Media Services | Microsoft Docs
 description: Este tópico discute componentes legados da Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: inhenkel
-ms.openlocfilehash: d85cbeb99264b5b730fe585fd39f658e6448467f
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 495b6bc68e79e50a0bda773e7229225595236fac
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92515768"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98694347"
 ---
 # <a name="azure-media-services-legacy-components"></a>Componentes legados da Azure Media Services
 
@@ -47,6 +47,6 @@ Os seguintes processadores de media Media Analytics são depreciados ou em breve
 | Detetor de Rosto | 1 de junho de 2020 | Este processador de mídia foi substituído por [Azure Media Services Video Indexer](../video-indexer/index.yml). Além disso, considere a utilização [da Azure Media Services v3 API](../latest/analyzing-video-audio-files-concept.md). <br/>Consulte [o Compare Azure Media Services v3 predefinições e Índice de Vídeo](../video-indexer/compare-video-indexer-with-media-services-presets.md). |
 | Content Moderator | 1 de junho de 2020 |Este processador de mídia foi substituído por [Azure Media Services Video Indexer](../video-indexer/index.yml). Além disso, considere a utilização [da Azure Media Services v3 API](../latest/analyzing-video-audio-files-concept.md). <br/>Consulte [o Compare Azure Media Services v3 predefinições e Índice de Vídeo](../video-indexer/compare-video-indexer-with-media-services-presets.md). |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-[Orientação de migração para passar dos Serviços de Comunicação v2 para v3](../latest/migrate-from-v2-to-v3.md)
+[Orientação de migração para passar dos Serviços de Comunicação v2 para v3](../latest/migrate-v-2-v-3-migration-introduction.md)

@@ -1,5 +1,5 @@
 ---
-title: Acesso Azure Media Services API com autenticação do Azure Ative Directory Microsoft Docs
+title: Aceda a Azure Media Services API com autenticação do Azure Ative Directory | Microsoft Docs
 description: Conheça os conceitos e passos a tomar para utilizar o Azure Ative Directory (Azure AD) para autenticar o acesso à API dos Serviços de Media Azure.
 services: media-services
 documentationcenter: ''
@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 9dae3b1adc1f7fecf6a34fc51d2a35bf4c98ea65
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: a26359c46caa8085384313f1c385c5740abc0b32
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425915"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98694542"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Aceder à API de Serviços de Multimédia do Azure com a autenticação do Azure AD 
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)] 
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 A Azure Media Services API é uma API RESTful. Pode usá-lo para realizar operações em recursos de mídia utilizando uma API REST ou utilizando SDKs de clientes disponíveis. A Azure Media Services oferece um cliente de Media Services SDK para a Microsoft .NET. Para obter autorização para aceder aos recursos dos Serviços de Multimédia e à API dos Serviços de Multimédia, primeiro tem de se autenticar. 
 

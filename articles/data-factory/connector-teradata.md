@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/26/2020
+ms.date: 01/22/2021
 ms.author: jingwang
-ms.openlocfilehash: a48ac86e8f9814adef9be2360b2446335d368447
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: 430b9a1e567d9a79093f50ae388b4b69119c057d
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96296561"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695878"
 ---
 # <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>Copiar dados da Teradata Vantage utilizando a Azure Data Factory
 
@@ -72,6 +72,7 @@ Mais propriedades de conexão que pode definir em cadeia de ligação por sua ca
 
 | Propriedade | Descrição | Valor predefinido |
 |:--- |:--- |:--- |
+| TdmstPortNumber | O número do porto usado para aceder à base de dados teradata.<br>Não altere este valor a menos que seja instruído a fazê-lo por Suporte Técnico. | 1025 |
 | UtilizaçãoDataEncrypation | Especifica se encriptar todas as comunicações com a base de dados Teradata. Os valores permitidos são 0 ou 1.<br><br/>- **0 (desativado, predefinido)**: Encripta apenas informações de autenticação.<br/>- **1 (ativado)**: Encripta todos os dados que são transmitidos entre o controlador e a base de dados. | `0` |
 | Conjunto de Caracteres | O conjunto de caracteres para usar para a sessão. Por exemplo, `CharacterSet=UTF16` .<br><br/>Este valor pode ser um conjunto de caracteres definido pelo utilizador, ou um dos seguintes conjuntos de caracteres pré-definidos: <br/>- ASCII<br/>- UTF8<br/>- UTF16<br/>- LATIN1252_0A<br/>- LATIN9_0A<br/>- LATIN1_0A<br/>- Shift-JIS (Windows, DOS compatível, KANJISJIS_0S)<br/>- EUC (compatível com Unix, KANJIEC_0U)<br/>- Ibm Mainframe (KANJIEBCDIC5035_0I)<br/>- KANJI932_1S0<br/>- BIG5 (TCHBIG5_1R0)<br/>- GB (SCHGB2312_1T0)<br/>- SCHINESE936_6R0<br/>- TCHINESE950_8R0<br/>- NetworkKorean (HANGULKSC5601_2R4)<br/>- HANGUL949_7R0<br/>- ARABIC1256_6A0<br/>- CYRILLIC1251_2A0<br/>- HEBREW1255_5A0<br/>- LATIN1250_1A0<br/>- LATIN1254_7A0<br/>- LATIN1258_8A0<br/>- THAI874_4A0 | `ASCII` |
 | MaxRespSize |O tamanho máximo do tampão de resposta para pedidos SQL, em kilobytes (KBs). Por exemplo, `MaxRespSize=‭10485760‬` .<br/><br/>Para a versão 16.00 ou posterior da Teradata Database, o valor máximo é de 7361536. Para ligações que usam versões anteriores, o valor máximo é 1048576. | `65536` |
@@ -171,7 +172,7 @@ Para copiar dados da Teradata, suportam-se as seguintes propriedades:
 |:--- |:--- |:--- |
 | tipo | A propriedade do tipo do conjunto de dados deve ser definida para `TeradataTable` . | Yes |
 | base de dados | O nome do caso Teradata. | Não (se for especificada "consulta" na fonte de atividade) |
-| mesa | O nome da mesa no caso Teradata. | Não (se for especificada "consulta" na fonte de atividade) |
+| table | O nome da mesa no caso Teradata. | Não (se for especificada "consulta" na fonte de atividade) |
 
 **Exemplo:**
 
@@ -275,7 +276,7 @@ O conector Teradata da Fábrica de Dados fornece partição de dados incorporada
 
 Quando ativa a cópia dividida, a Data Factory executa consultas paralelas contra a sua fonte Teradata para carregar dados por divisórias. O grau paralelo é controlado pela [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) regulação da atividade da cópia. Por exemplo, se definir `parallelCopies` para quatro, data factory simultaneamente gera e executa quatro consultas com base na sua opção e configurações de partição especificadas, e cada consulta recupera uma parte dos dados da sua Teradata.
 
-Sugere-se que ative uma cópia paralela com a partilha de dados, especialmente quando carrega uma grande quantidade de dados a partir do seu Teradata. São sugeridas configurações para diferentes cenários. Ao copiar dados para a loja de dados baseada em ficheiros, é recomcomcomerado para escrever para uma pasta como vários ficheiros (especificar apenas o nome da pasta), caso em que o desempenho é melhor do que escrever para um único ficheiro.
+Sugere-se que ative uma cópia paralela com a partilha de dados, especialmente quando carrega uma grande quantidade de dados a partir do seu Teradata. São sugeridas configurações para diferentes cenários. Ao copiar dados para a loja de dados baseada em ficheiros, é recomerado para escrever para uma pasta como vários ficheiros (especificar apenas o nome da pasta), caso em que o desempenho é melhor do que escrever para um único ficheiro.
 
 | Cenário                                                     | Definições sugeridas                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -323,7 +324,7 @@ Quando copia dados da Teradata, aplicam-se os seguintes mapeamentos. Para saber 
 | ByteInt |Int16 |
 | Char |String |
 | Clob |String |
-| Data |DateTime |
+| Date |DateTime |
 | Decimal |Decimal |
 | Double (Duplo) |Double (Duplo) |
 | Gráfico |Não suportado. Aplicar elenco explícito na consulta de origem. |
@@ -350,7 +351,7 @@ Quando copia dados da Teradata, aplicam-se os seguintes mapeamentos. Para saber 
 | PequenoInt |Int16 |
 | Hora |TimeSpan |
 | Tempo com fuso horário |TimeSpan |
-| Timestamp |DateTime |
+| CarimboDeDataEHora |DateTime |
 | Relógio com fuso horário |DateTime |
 | Rio VarByte |Byte[] |
 | Rio VarChar |String |

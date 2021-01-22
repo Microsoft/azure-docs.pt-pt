@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/30/2020
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: b7029c5cdd004910caa83425536bbe481e4b01f3
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 61858a478ead93b3709bb3e05c26335c9acbc24d
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95562160"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98697974"
 ---
 ## <a name="for-users-in-your-directory"></a>Para utilizadores no seu diretório
 
@@ -186,11 +186,13 @@ Por exemplo, se listasses Alice e Bob como os Primeiros Approvers, listasse Caro
 
     ![Pacote de acesso - Política - Mostrar definições de pedidos avançados](./media/active-directory-entitlement-management-request-policy/alternate-approvers-click-advanced-request.png)
 
-1. Definir **Se não forem tomadas medidas, avançar para os aprovadores alternativos?** **Yes**
+1. Definir **Se não forem tomadas medidas, avançar para os aprovadores alternativos?** 
 
 1. Clique **em Adicionar aprovadores alternativos** e selecione os aprovadores alternativos da lista.
 
     ![Pacote de acesso - Política - Adicionar Aprovadores Alternativos](./media/active-directory-entitlement-management-request-policy/alternate-approvers-add.png)
+
+    Se selecionar o Manager como aprovador para o Primeiro Aprovação, terá uma opção adicional, **gestor de segundo nível como aprovador alternativo,** disponível para escolher no campo de aprovação alternativa. Se selecionar esta opção, tem de adicionar um aprovador de recuo para encaminhar o pedido para o caso de o sistema não encontrar o gestor de segundo nível.
 
 1. No **Forward para os aprovadores alternativos após quantos dias** de caixa, colocar no número de dias os aprovadores têm de aprovar ou negar um pedido. Se nenhum aprovador tiver aprovado ou negado o pedido antes da duração do pedido, o pedido expira (prazo) e o utilizador terá de apresentar outro pedido para o pacote de acesso. 
 
