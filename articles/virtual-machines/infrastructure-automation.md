@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 07/17/2020
 ms.author: cynthn
-ms.openlocfilehash: 96c68850cfd8b03f7d1457eb0f1ca9ce5880c926
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: a20c19c3da89801570ca4d74a646e3cf0d8434b6
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98198004"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98675907"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Utilize ferramentas de automação de infraestruturas com máquinas virtuais em Azure
 
@@ -87,8 +87,8 @@ Os scripts podem ser descarregados a partir de um armazenamento Azure ou de qual
 
 Aprenda a:
 
-- [Crie um Linux VM com o CLI Azure e use a extensão de script personalizada.](./scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md?toc=%2fcli%2fazure%2ftoc.json)
-- [Crie um VM do Windows com Azure PowerShell e utilize a extensão de script personalizada](./scripts/virtual-machines-windows-powershell-sample-create-vm-iis.md).
+- [Crie um Linux VM com o CLI Azure e use a extensão de script personalizada.](/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-nginx?toc=%2fcli%2fazure%2ftoc.json)
+- [Crie um VM do Windows com Azure PowerShell e utilize a extensão de script personalizada](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-iis).
 
 
 ## <a name="packer"></a>Embalador
@@ -144,7 +144,7 @@ Aprenda a:
 
 - [Implementar VMs spot utilizando um modelo de Gestor de Recursos](./linux/spot-template.md).
 - [Crie uma máquina virtual Windows a partir de um modelo de Gestor de Recursos.](./windows/ps-template.md)
-- [Descarregue o modelo para um VM](./windows/download-template.md).
+- [Descarregue o modelo para um VM](/previous-versions/azure/virtual-machines/windows/download-template).
 - [Crie um modelo de construtor de imagens Azure.](./linux/image-builder-json.md)
 
 ## <a name="next-steps"></a>Passos seguintes

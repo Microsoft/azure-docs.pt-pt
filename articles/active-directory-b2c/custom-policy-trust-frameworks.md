@@ -1,5 +1,5 @@
 ---
-title: Visão geral da política personalizada Azure AD B2C / Microsoft Docs
+title: Visão geral da política personalizada Azure AD B2C | Microsoft Docs
 description: Um tópico sobre as políticas personalizadas do Azure Ative Directory B2C e o Quadro de Experiência de Identidade.
 services: active-directory-b2c
 author: msmimart
@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 12/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ed477a931ed63c0db378ff84f85544072492ef96
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: 644192de74a888daa0391b31dd42eb6028403fd8
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387042"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98674479"
 ---
 # <a name="azure-ad-b2c-custom-policy-overview"></a>Visão geral da política personalizada AZURE AD B2C
 
@@ -53,7 +53,7 @@ As [transformações de sinistros](claimstransformations.md) são funções pred
 
 ### <a name="customize-and-localize-your-ui"></a>Personalize e localize o seu UI
 
-Quando pretender recolher informações dos seus utilizadores apresentando uma página no seu navegador, utilize o [perfil técnico autoafirmado.](self-asserted-technical-profile.md) Pode editar o seu perfil técnico autoafirmado para [adicionar reclamações e personalizar a entrada do utilizador](custom-policy-configure-user-input.md).
+Quando pretender recolher informações dos seus utilizadores apresentando uma página no seu navegador, utilize o [perfil técnico autoafirmado.](self-asserted-technical-profile.md) Pode editar o seu perfil técnico autoafirmado para [adicionar reclamações e personalizar a entrada do utilizador](./configure-user-input.md).
 
 Para [personalizar a interface do utilizador](customize-ui-with-html.md) para o seu perfil técnico autoafirmado, especifica um URL no elemento de [definição](contentdefinitions.md) de conteúdo com conteúdo HTML personalizado. No perfil técnico autoafirmado, aponta-se para este ID de definição de conteúdo.
 
@@ -133,11 +133,11 @@ Dentro de uma política personalizada Azure AD B2C, pode integrar a sua própria
 
 - Crie a sua lógica dentro da **política de extensão,** ou **retransmite a política partidária**. Pode adicionar novos elementos, que irão sobrepor-se à política de base, fazendo referência ao mesmo ID. Isto irá permitir-lhe escalar o seu projeto, facilitando o upgrade da política de base mais tarde se a Microsoft lançar novos packs de arranque.
 - Dentro da **política de base,** recomendamos vivamente evitar fazer quaisquer alterações.  Quando necessário, faça comentários onde as alterações são feitas.
-- Quando estiver a sobrevaver um elemento, como metadados de perfil técnico, evite copiar todo o perfil técnico da política base. Em vez disso, copie apenas a secção necessária do elemento. Consulte [a verificação de e-mail desativada](custom-policy-disable-email-verification.md) para um exemplo de como fazer a alteração.
+- Quando estiver a sobrevaver um elemento, como metadados de perfil técnico, evite copiar todo o perfil técnico da política base. Em vez disso, copie apenas a secção necessária do elemento. Consulte [a verificação de e-mail desativada](./disable-email-verification.md) para um exemplo de como fazer a alteração.
 - Para reduzir a duplicação de perfis técnicos, onde a funcionalidade principal é partilhada, utilize a [inclusão do perfil técnico.](technicalprofiles.md#include-technical-profile)
 - Evite escrever para o diretório AD Azure durante a entrada, o que pode levar a problemas de estrangulamento.
 - Se a sua política tiver dependências externas, como a REST API garante que estão altamente disponíveis.
-- Para uma melhor experiência do utilizador, certifique-se de que os seus modelos HTML personalizados são implantados globalmente usando [a entrega de conteúdo on-line](https://docs.microsoft.com/azure/cdn/). A Azure Content Delivery Network (CDN) permite reduzir os tempos de carga, poupar largura de banda e capacidade de resposta rápida.
+- Para uma melhor experiência do utilizador, certifique-se de que os seus modelos HTML personalizados são implantados globalmente usando [a entrega de conteúdo on-line](../cdn/index.yml). A Azure Content Delivery Network (CDN) permite reduzir os tempos de carga, poupar largura de banda e capacidade de resposta rápida.
 - Se quiser alterar a viagem do utilizador. Copie toda a viagem do utilizador da política de base para a política de extensão. Forneça um ID de viagem de utilizador único para a viagem de utilizador que copiou. Em seguida, na [política do partido em apoio,](relyingparty.md)altere o elemento de [viagem do utilizador predefinido](relyingparty.md#defaultuserjourney) para apontar para a nova jornada do utilizador.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
@@ -164,13 +164,13 @@ Você começa com a política personalizada Azure AD B2C:
 1. Recomendamos que descarregue e instale [o Código do Estúdio Visual](https://code.visualstudio.com/) (Código VS). O Visual Studio Code é um editor de código fonte simples, mas poderoso, que é executado no seu ambiente de trabalho e está disponível para Windows, macOS e Linux. Com o Código VS pode editar os ficheiros XML de política personalizada Azure AD B2C.
 1. Para navegar rapidamente através das políticas personalizadas AZURE AD B2C, recomendamos que instale a [extensão AD B2C do Azure para o Código VS](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c)
  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de configurar e testar a sua política Azure AD B2C, pode começar a personalizar a sua política. Veja os seguintes artigos para aprender a:
 
-- [Adicione reclamações e personalize a entrada do utilizador](custom-policy-configure-user-input.md) usando políticas personalizadas. Aprenda a definir uma reclamação, adicione uma reclamação à interface do utilizador personalizando alguns dos perfis técnicos do pacote inicial.
+- [Adicione reclamações e personalize a entrada do utilizador](./configure-user-input.md) usando políticas personalizadas. Aprenda a definir uma reclamação, adicione uma reclamação à interface do utilizador personalizando alguns dos perfis técnicos do pacote inicial.
 - [Personalize a interface](customize-ui-with-html.md) de utilizador da sua aplicação utilizando uma política personalizada. Aprenda a criar o seu próprio conteúdo HTML e personalize a definição de conteúdo.
-- [Localize a interface](custom-policy-localization.md) de utilizador da sua aplicação utilizando uma política personalizada. Aprenda a configurar a lista de línguas apoiadas e forneça rótulos específicos da linguagem, adicionando o elemento de recursos localizado.
-- Durante o desenvolvimento e teste da sua política pode [desativar a verificação de e-mail.](custom-policy-disable-email-verification.md) Saiba como substituir um metadados de perfil técnico.
-- [Instale o sôm-in com uma conta google](identity-provider-google-custom.md) utilizando políticas personalizadas. Saiba como criar um novo fornecedor de reclamações com perfil técnico OAuth2. Em seguida, personalize a viagem do utilizador para incluir a opção de inscrição no Google.
+- [Localize a interface](./language-customization.md) de utilizador da sua aplicação utilizando uma política personalizada. Aprenda a configurar a lista de línguas apoiadas e forneça rótulos específicos da linguagem, adicionando o elemento de recursos localizado.
+- Durante o desenvolvimento e teste da sua política pode [desativar a verificação de e-mail.](./disable-email-verification.md) Saiba como substituir um metadados de perfil técnico.
+- [Instale o sôm-in com uma conta google](./identity-provider-google.md) utilizando políticas personalizadas. Saiba como criar um novo fornecedor de reclamações com perfil técnico OAuth2. Em seguida, personalize a viagem do utilizador para incluir a opção de inscrição no Google.
 - Para diagnosticar problemas com as suas políticas personalizadas pode [recolher registos B2C do Azure Ative Directory com Insights de Aplicação.](troubleshoot-with-application-insights.md) Saiba como adicionar novos perfis técnicos e configuure a sua política partidária de retransmissão.

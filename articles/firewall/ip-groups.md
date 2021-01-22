@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 07/30/2020
+ms.date: 01/21/2021
 ms.author: victorh
-ms.openlocfilehash: c56298d68bddd326ed2b32215f30a9057fa51e85
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: dc1eb64b5cfb527c10967a1a46525a418fdc37e3
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94653118"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98674002"
 ---
 # <a name="ip-groups-in-azure-firewall"></a>Grupos IP em Firewall Azure
 
@@ -26,6 +26,9 @@ Os grupos IP permitem-lhe agrupar e gerir endereços IP para as regras do Azure 
 Um Grupo IP pode ter um único endereço IP, vários endereços IP ou um ou mais intervalos de endereço IP.
 
 Os grupos IP podem ser reutilizados em Azure Firewall DNAT, rede e regras de aplicação para várias firewalls em regiões e subscrições em Azure. Os nomes de grupo devem ser únicos. Pode configurar um Grupo IP no portal Azure, Azure CLI ou REST API. Um modelo de amostra é fornecido para ajudá-lo a começar.
+
+> [!NOTE]
+> Os grupos IP não estão atualmente disponíveis em ambientes de nuvens nacionais do Azure.
 
 ## <a name="sample-format"></a>Sample format (Formato de exemplo)
 
@@ -84,6 +87,6 @@ Os seguintes cmdlets Azure PowerShell podem ser usados para criar e gerir grupos
 - [Nova-AzFirewallApplicationRule](/powershell/module/az.network/new-azfirewallapplicationrule?view=azps-3.4.0)
 - [New-AzFirewallNatrule](/powershell/module/az.network/new-azfirewallnatrule?view=azps-3.4.0)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [implantar e configurar um Azure Firewall](tutorial-firewall-deploy-portal.md).

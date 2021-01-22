@@ -1,5 +1,5 @@
 ---
-title: Criar uma fonte de dados para mapas Android Microsoft Azure Maps
+title: Crie uma fonte de dados para mapas Android | Microsoft Azure Maps
 description: 'Descubra como criar uma fonte de dados para um mapa. Conheça as fontes de dados que o Azure Maps Android SDK utiliza: fontes geoJSON e azulejos vetoriais.'
 author: rbrundritt
 ms.author: richbrun
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 2f383876963e3e1d310e7d93f7dc99bb58b189d3
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 78b0cbbdccc7d6853d4ce2821bf659e888680a5f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97681656"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98674648"
 ---
 # <a name="create-a-data-source-android-sdk"></a>Criar uma fonte de dados (Android SDK)
 
@@ -355,10 +355,10 @@ Uma fonte de azulejos do vetor descreve como aceder a uma camada de azulejo veto
 
 Azure Maps adere à [especificação do azulejo do vetor mapbox,](https://github.com/mapbox/vector-tile-spec)um padrão aberto. A Azure Maps fornece os seguintes serviços de azulejos vetoriais como parte da plataforma:
 
-- Detalhes do formato de dados [de documentação](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview)de azulejos  |  [de estrada](https://developer.tomtom.com/maps-api/maps-api-documentation-vector/tile)
-- Incidentes de [tráfego documentação](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficincidenttile)  |  [dados detalhes do formato de dados](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-incidents/vector-incident-tiles)
-- Detalhes do formato de [dados de documentação](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficflowtile)de fluxo de tráfego  |  [](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-flow/vector-flow-tiles)
-- O Azure Maps Creator também permite que os azulejos vetores personalizados sejam criados e acedidos através do [Get Tile Render V2](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview)
+- Detalhes do formato de dados [de documentação](/rest/api/maps/renderv2/getmaptilepreview)de azulejos  |  [de estrada](https://developer.tomtom.com/maps-api/maps-api-documentation-vector/tile)
+- Incidentes de [tráfego documentação](/rest/api/maps/traffic/gettrafficincidenttile)  |  [dados detalhes do formato de dados](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-incidents/vector-incident-tiles)
+- Detalhes do formato de [dados de documentação](/rest/api/maps/traffic/gettrafficflowtile)de fluxo de tráfego  |  [](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-flow/vector-flow-tiles)
+- O Azure Maps Creator também permite que os azulejos vetores personalizados sejam criados e acedidos através do [Get Tile Render V2](/rest/api/maps/renderv2/getmaptilepreview)
 
 Para exibir dados de uma fonte de azulejos vetoriais no mapa, ligue a fonte a uma das camadas de renderização de dados. Todas as camadas que usam uma fonte vetorial devem especificar um `sourceLayer` valor nas opções. O código seguinte carrega o serviço de vetor de fluxo de tráfego Azure Maps como uma fonte de azulejo vetorial, em seguida, exibe-o em um mapa usando uma camada de linha. Esta fonte de azulejos vetoriais tem um único conjunto de dados na camada de origem chamada "Fluxo de tráfego". Os dados da linha neste conjunto de dados têm uma propriedade chamada `traffic_level` que é usada neste código para selecionar a cor e escalar o tamanho das linhas.
 
@@ -523,4 +523,4 @@ Consulte os seguintes artigos para obter mais amostras de código para adicionar
 > [Adicione um mapa de calor](map-add-heat-map-layer-android.md)
 
 > [!div class="nextstepaction"]
-> [Amostras do Código SDK da Web](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [Amostras do Código SDK da Web](/samples/browse/?products=azure-maps)

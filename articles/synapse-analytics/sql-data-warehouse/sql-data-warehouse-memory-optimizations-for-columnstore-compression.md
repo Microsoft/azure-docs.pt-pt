@@ -11,12 +11,12 @@ ms.date: 03/22/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 6984ad41c07f7790a746dbd197c18dce2aa83e2f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: d668c3e505d6849d3cde52d52698a95c1c5647d9
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96453722"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676167"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore-indexes-in-dedicated-sql-pool"></a>Maximizar a qualidade do grupo de linha para índices de loja de colunas em piscina SQL dedicada 
 
@@ -28,7 +28,7 @@ Uma vez que um índice de loja de colunas digitaliza uma tabela através da digi
 
 Quando os grupos de linha têm um elevado número de linhas, a compressão de dados melhora, o que significa que há menos dados para ler a partir do disco.
 
-Para obter mais informações sobre grupos de linha, consulte o Guia de [Índices de Colunas.](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+Para obter mais informações sobre grupos de linha, consulte o Guia de [Índices de Colunas.](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 
 ## <a name="target-size-for-rowgroups"></a>Tamanho do alvo para grupos de linha
 
@@ -42,11 +42,11 @@ Durante uma reconstrução do índice de carga a granel ou de colunas, por vezes
 
 Quando não há memória suficiente para comprimir pelo menos 10.000 linhas em cada grupo de linha, será gerado um erro.
 
-Para obter mais informações sobre o carregamento a granel, consulte [a carga a granel num índice de loja de colunas agrupado](/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Para obter mais informações sobre o carregamento a granel, consulte [a carga a granel num índice de loja de colunas agrupado](/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="how-to-monitor-rowgroup-quality"></a>Como monitorizar a qualidade do grupo de linha
 
-O DMV sys.dm_pdw_nodes_db_column_store_row_group_physical_stats[(sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) contém a definição de visualização correspondente ao SQL DB) que expõe informações úteis, como o número de linhas em grupos de linha e a razão para aparar, se houver aparar.
+O DMV sys.dm_pdw_nodes_db_column_store_row_group_physical_stats[(sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) contém a definição de visualização correspondente ao SQL DB) que expõe informações úteis, como o número de linhas em grupos de linha e a razão para aparar, se houver aparar.
 
 Pode criar a seguinte vista como uma forma útil de consultar este DMV para obter informações sobre o corte de grupos de remo.
 

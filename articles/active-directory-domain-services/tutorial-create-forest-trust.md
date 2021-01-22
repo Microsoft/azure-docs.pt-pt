@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Criar uma confiança florestal nos Serviços de Domínio Azure AD / Microsoft Docs
+title: Tutorial - Criar uma confiança florestal nos Serviços de Domínio Azure AD | Microsoft Docs
 description: Saiba como criar uma floresta de ida e saída para um domínio AD DS no portal Azure para serviços de domínio Azure AD
 services: active-directory-ds
 author: justinha
@@ -8,18 +8,18 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/06/2020
+ms.date: 01/21/2021
 ms.author: justinha
-ms.openlocfilehash: faa46178262777454d4d67d23bbd0bb013974ab5
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: e381c80dddc4484d541f5f81de6b5df712cff69b
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98208493"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673472"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services"></a>Tutorial: Criar uma confiança florestal de saída para um domínio no local em Azure Ative Directory Domain Services
 
-Em ambientes onde não é possível sincronizar hashes de palavra-passe, ou tem utilizadores que assinam exclusivamente usando cartões inteligentes para que não saibam a sua palavra-passe, pode utilizar uma floresta de recursos nos Serviços de Domínio do Diretório Ativo Azure (Azure AD DS). Uma floresta de recursos usa uma confiança de saída de ida da Azure AD DS para um ou mais ambientes AD DS no local. Esta relação de confiança permite que utilizadores, aplicações e computadores autentem contra um domínio no local do domínio gerido pela Azure AD DS. Numa floresta de recursos, as hashes de senha no local nunca são sincronizadas.
+Em ambientes onde não é possível sincronizar hashes de palavra-passe, ou onde os utilizadores se inscrevem exclusivamente através de cartões inteligentes e não sabem a sua palavra-passe, pode utilizar uma floresta de recursos nos Serviços de Domínio do Diretório Ativo Azure (Azure AD DS). Uma floresta de recursos usa uma confiança de saída de ida da Azure AD DS para um ou mais ambientes AD DS no local. Esta relação de confiança permite que utilizadores, aplicações e computadores autentem contra um domínio no local do domínio gerido pela Azure AD DS. Numa floresta de recursos, as hashes de senha no local nunca são sincronizadas.
 
 ![Diagrama de confiança florestal de Azure AD DS para as AD DS no local](./media/concepts-resource-forest/resource-forest-trust-relationship.png)
 
@@ -61,7 +61,7 @@ Antes de configurar uma confiança florestal em Azure AD DS, certifique-se de qu
 
 * Utilize endereços IP privados. Não confie no DHCP com uma atribuição dinâmica de endereço IP.
 * Evite sobrepor-se a espaços de endereço IP para permitir que o espreitamento e encaminhamento de rede virtuais se comunique com sucesso entre o Azure e o local.
-* Uma rede virtual Azure precisa de uma sub-rede de gateway para configurar uma ligação [VPN ou ExpressRoute (Azure site-to-site)][vpn-gateway] ou uma ligação [ExpressRoute][expressroute]
+* Uma rede virtual Azure precisa de uma sub-rede de gateway para configurar uma ligação [VPN ou ExpressRoute (Azure site-to-site) ou][vpn-gateway] [expressRoute.][expressroute]
 * Crie sub-redes com endereços IP suficientes para suportar o seu cenário.
 * Certifique-se de que o Azure AD DS tem a sua própria sub-rede, não partilhe esta sub-rede de rede virtual com VMs e serviços de aplicação.
 * As redes virtuais espreitadas NÃO são transitivas.
@@ -84,8 +84,8 @@ O domínio AD DS no local precisa de uma confiança florestal para o domínio ge
 
 Para configurar a confiança de entrada no domínio AD DS no local, complete os seguintes passos de uma estação de trabalho de gestão para o domínio DS AD no local:
 
-1. Selecione **Iniciar / Ferramentas Administrativas / Domínios e Fidedignidades do Diretório Ativo.**
-1. Domínio de seleção à direita, como *onprem.contoso.com,* selecione **Propriedades**.
+1. Selecione **Iniciar**  >  **Ferramentas Administrativas**  >  **Domínios e Fidedignidades ativas**.
+1. Clique com o botão direito no domínio, como *onprem.contoso.com,* selecione **Propriedades**.
 1. Escolha o separador **Trusts,** em seguida, **New Trust**.
 1. Introduza o nome para nome de domínio Azure AD DS, como *aaddscontoso.com,* em seguida, selecione **Next**.
 1. Selecione a opção de criar um **fundo florestal,** em seguida, para criar uma **única maneira: confiança de entrada.**
@@ -93,6 +93,14 @@ Para configurar a confiança de entrada no domínio AD DS no local, complete os 
 1. Opte por utilizar a **autenticação em toda** a Floresta, em seguida, insira e confirme uma senha de confiança. Esta mesma palavra-passe também é inserida no portal Azure na secção seguinte.
 1. Passe pelas próximas janelas com opções predefinidas, em seguida, escolha a opção para **Não, não confirme a confiança de saída**.
 1. Selecione **Concluir**.
+
+Se a confiança florestal já não for necessária para um ambiente, complete os seguintes passos para removê-lo do domínio no local:
+
+1. Selecione **Iniciar**  >  **Ferramentas Administrativas**  >  **Domínios e Fidedignidades ativas**.
+1. Clique com o botão direito no domínio, como *onprem.contoso.com,* selecione **Propriedades**.
+1. Escolha o separador **Trusts** e, em seguida, **Domínios que confiem neste domínio (fidedignidades recebidas)**, clique na confiança a remover e, em seguida, clique em **Remover**.
+1. No separador Trusts, em **Domínios fidedignos por este domínio (fidedignidades de saída)**, clique na confiança a remover e, em seguida, clique em Remover.
+1. Clique **em No, remova a confiança apenas do domínio local**.
 
 ## <a name="create-outbound-forest-trust-in-azure-ad-ds"></a>Criar a confiança florestal de saída em Azure AD DS
 
@@ -107,11 +115,17 @@ Para criar a confiança de saída para o domínio gerido no portal Azure, comple
    > Se não vir a opção do menu **Trusts,** consulte as **Propriedades** para o *tipo Forest*. Só as florestas *de recursos* podem criar fidedignidades. Se o tipo de floresta for *Utilizador,* não pode criar fidedignidades. Não há forma de mudar o tipo de floresta de um domínio gerido. É necessário eliminar e recriar o domínio gerido como uma floresta de recursos.
 
 1. Introduza um nome de exibição que identifique a sua confiança, em seguida, o nome DNS da floresta confiável no local, como *onprem.contoso.com*.
-1. Forneça a mesma senha de confiança que foi usada ao configurar o fundo florestal de entrada para o domínio AD DS no local na secção anterior.
+1. Forneça a mesma senha de confiança que foi usada para configurar o fundo florestal de entrada para o domínio AD DS no local na secção anterior.
 1. Forneça pelo menos dois servidores DNS para o domínio DS AD no local, tais como *10.1.1.4* e *10.1.1.5*.
 1. Quando estiver pronto, **salve** a confiança da floresta de saída.
 
     ![Criar confiança florestal de saída no portal Azure](./media/tutorial-create-forest-trust/portal-create-outbound-trust.png)
+
+Se a confiança florestal já não for necessária para um ambiente, complete os seguintes passos para removê-lo do Azure AD DS:
+
+1. No portal Azure, procure e selecione **serviços de domínio Azure AD**, selecione o seu domínio gerido, como *aaddscontoso.com*.
+1. A partir do menu no lado esquerdo do domínio gerido, selecione **Trusts,** escolha a confiança e clique em **Remover**.
+1. Forneça a mesma senha de confiança que foi usada para configurar a confiança da floresta e clicar **EM OK**.
 
 ## <a name="validate-resource-authentication"></a>Validar a autenticação de recursos
 

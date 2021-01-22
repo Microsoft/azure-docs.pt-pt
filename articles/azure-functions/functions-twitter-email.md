@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/27/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, mvc, cc996988-fb4f-47
-ms.openlocfilehash: feb6b36f8e5e7bbec83d8882552484f68abfd56d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5750597d7d4d372be975aa64ce8db11859791da2
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537757"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98674322"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Criar uma função que se integra no Azure Logic Apps
 
@@ -22,7 +22,7 @@ Este tutorial mostra-lhe como usar funções Azure com aplicações lógicas e s
 
 ![imagem dos dois primeiros passos da aplicação no Estruturador de Aplicações Lógicas](media/functions-twitter-email/00-logic-app-overview.png)
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Criar um Recurso de API dos Serviços Cognitivos.
@@ -40,7 +40,7 @@ Neste tutorial, ficará a saber como:
 > [!NOTE]
 > Se quiser utilizar o conector do Gmail, apenas as contas de negócios da G-Suite podem utilizar este conector sem restrições em aplicações lógicas. Se tiver uma conta de consumo do Gmail, pode utilizar o conector do Gmail apenas com aplicações e serviços específicos aprovados pela Google, ou pode [criar uma aplicação de cliente da Google para utilizar para autenticação no seu conector Gmail.](/connectors/gmail/#authentication-and-bring-your-own-application) Para obter mais informações, consulte [as políticas de segurança de dados e privacidade para conectores google em Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
-+ Este artigo utiliza como ponto de partida os recursos criados na função [Criar a primeira função a partir do portal do Azure](functions-create-first-azure-function.md).
++ Este artigo utiliza como ponto de partida os recursos criados na função [Criar a primeira função a partir do portal do Azure](./functions-get-started.md).
 Se ainda não o fez, conclua estes passos agora para criar a sua aplicação de funções.
 
 ## <a name="create-a-cognitive-services-resource"></a>Criar um recurso dos Serviços Cognitivos
@@ -51,7 +51,7 @@ As APIs dos Serviços Cognitivos estão disponíveis no Azure como recursos indi
 
 2. Clique em **Criar um recurso** no canto superior esquerdo do portal Azure.
 
-3. Clique **em AI + Machine Learning**Text  >  **Analytics**. Em seguida, utilize as definições conforme especificado na tabela para criar o recurso.
+3. Clique **em AI + Machine Learning** Text  >  **Analytics**. Em seguida, utilize as definições conforme especificado na tabela para criar o recurso.
 
     ![Página Criar recurso dos Serviços Cognitivos](media/functions-twitter-email/01-create-text-analytics.png)
 
@@ -80,7 +80,7 @@ O Azure Functions fornece uma ótima maneira de descarregar tarefas de processam
 
 ## <a name="create-an-http-trigger-function"></a>Criar uma função de gatilho HTTP  
 
-1. A partir do menu esquerdo da janela **Funções,** selecione **Funções**e selecione **Adicione** no menu superior.
+1. A partir do menu esquerdo da janela **Funções,** selecione **Funções** e selecione **Adicione** no menu superior.
 
 2. A partir da janela **Nova Função,** selecione **HTTP trigger**.
 
@@ -126,7 +126,7 @@ O Azure Functions fornece uma ótima maneira de descarregar tarefas de processam
 
     Este código de função devolve uma categoria de cor com base na classificação de sentimento recebida no pedido. 
 
-5. Para testar a função, selecione **Teste** a partir do menu superior. No separador **Entrada,** introduza um valor `0.2` de **corpo**e, em seguida, selecione **Executar**. Um valor de **RED** é devolvido no **conteúdo de resposta HTTP** no **separador Saída.** 
+5. Para testar a função, selecione **Teste** a partir do menu superior. No separador **Entrada,** introduza um valor `0.2` de **corpo** e, em seguida, selecione **Executar**. Um valor de **RED** é devolvido no **conteúdo de resposta HTTP** no **separador Saída.** 
 
     :::image type="content" source="./media/functions-twitter-email/07-function-test.png" alt-text="Definir as definições de procuração":::
 
@@ -136,7 +136,7 @@ Agora, tem uma função que categoriza classificações de sentimentos. Em segui
 
 1. No portal Azure, clique no botão **Criar um** botão de recurso encontrado no canto superior esquerdo do portal Azure.
 
-2. Clique **na Web**Logic  >  **App**.
+2. Clique **na Web** Logic  >  **App**.
  
 3. Em seguida, escreva um valor para **Nome**, como `TweetSentiment`, e utilize as definições conforme especificado na tabela.
 

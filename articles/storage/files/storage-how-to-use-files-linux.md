@@ -1,5 +1,5 @@
 ---
-title: Use ficheiros Azure com Linux Microsoft Docs
+title: Use ficheiros Azure com | Linux Microsoft Docs
 description: Saiba como montar uma partilha de ficheiros Azure sobre sMB em Linux. Consulte a lista de pré-requisitos. Reveja considerações de segurança da SMB sobre os clientes Linux.
 author: roygara
 ms.service: storage
@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c271107b85e4903153c29b58aadadd37fb051b76
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5161d8e169a7eb9e757dfbfa71fa697880e1806e
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022569"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673692"
 ---
 # <a name="use-azure-files-with-linux"></a>Utilizar os Ficheiros do Azure com o Linux
 [Ficheiros do Azure](storage-files-introduction.md) é o sistema de ficheiros na cloud fácil de utilizar da Microsoft. As ações de ficheiros Azure podem ser montadas nas distribuições linux utilizando o [cliente kernel SMB](https://wiki.samba.org/index.php/LinuxCIFS). Este artigo mostra duas formas de montar uma partilha de ficheiros Azure: a pedido com o `mount` comando e no arranque, criando uma entrada em `/etc/fstab` .
@@ -67,7 +67,7 @@ uname -r
 
     Noutras distribuições, utilize o gestor de pacotes apropriado ou [compile a partir da fonte](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download)
 
-* **A versão mais recente da Interface da Linha de Comando Azure (CLI).** Para obter mais informações sobre como instalar o Azure CLI, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) e selecione o seu sistema operativo. Se preferir utilizar o módulo Azure PowerShell no PowerShell 6+, pode, no entanto, as instruções abaixo são apresentadas para o Azure CLI.
+* **A versão mais recente da Interface da Linha de Comando Azure (CLI).** Para obter mais informações sobre como instalar o Azure CLI, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli) e selecione o seu sistema operativo. Se preferir utilizar o módulo Azure PowerShell no PowerShell 6+, pode, no entanto, as instruções abaixo são apresentadas para o Azure CLI.
 
 * **Certifique-se de que a porta 445 está aberta**: SMB comunica através da porta TCP 445 - verifique se a sua firewall não está a bloquear as portas TCP 445 da máquina do cliente.  Substitua `<your-resource-group>` `<your-storage-account>` e, em seguida, execute o seguinte script:
     ```bash
@@ -87,7 +87,7 @@ uname -r
 
     Se a ligação tiver sido bem sucedida, deverá ver algo semelhante à seguinte saída:
 
-    ```
+    ```ouput
     Connection to <your-storage-account> 445 port [tcp/microsoft-ds] succeeded!
     ```
 
@@ -250,22 +250,22 @@ Começando pelo kernel Linux 4.18, o módulo de kernel SMB, chamado `cifs` por r
 
 | Distribuição | Pode desativar o SMB 1 |
 |--------------|-------------------|
-| Ubuntu 14.04-16.04 | Não |
-| Ubuntu 18.04 | Sim |
-| Ubuntu 19.04+ | Sim |
-| Debian 8-9 | Não |
-| Debian 10+ | Sim |
-| Fedora 29+ | Sim |
-| CentOS 7 | Não | 
-| CentOS 8+ | Sim |
-| Red Hat Enterprise Linux 6.x-7.x | Não |
-| Red Hat Enterprise Linux 8+ | Sim |
-| openSUSE Leap 15.0 | Não |
-| openSUSE Leap 15.1+ | Sim |
-| openSUSE Tumbleweed | Sim |
-| SUSE Linux Enterprise 11.x-12.x | Não |
-| Empresa SUSE Linux 15 | Não |
-| Empresa SUSE Linux 15.1 | Não |
+| Ubuntu 14.04-16.04 | No |
+| Ubuntu 18.04 | Yes |
+| Ubuntu 19.04+ | Yes |
+| Debian 8-9 | No |
+| Debian 10+ | Yes |
+| Fedora 29+ | Yes |
+| CentOS 7 | No | 
+| CentOS 8+ | Yes |
+| Red Hat Enterprise Linux 6.x-7.x | No |
+| Red Hat Enterprise Linux 8+ | Yes |
+| openSUSE Leap 15.0 | No |
+| openSUSE Leap 15.1+ | Yes |
+| openSUSE Tumbleweed | Yes |
+| SUSE Linux Enterprise 11.x-12.x | No |
+| Empresa SUSE Linux 15 | No |
+| Empresa SUSE Linux 15.1 | No |
 
 Pode verificar se a sua distribuição Linux suporta o parâmetro do `disable_legacy_dialects` módulo através do seguinte comando.
 

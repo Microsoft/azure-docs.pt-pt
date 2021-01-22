@@ -11,18 +11,18 @@ ms.topic: reference
 ms.date: 12/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: db99fbdea38dd30401a8aeedb7ebc23c71c5236c
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 2f16de49518e334f2f5e679ce24e24a262a1e231
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97655191"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98674948"
 ---
 # <a name="define-a-saml-identity-provider-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico do fornecedor de identidade SAML numa política personalizada do Azure Ative Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-O Azure Ative Directory B2C (Azure AD B2C) presta apoio ao fornecedor de identidade SAML 2.0. Este artigo descreve as especificidades de um perfil técnico para interagir com um fornecedor de sinistros que suporta este protocolo padronizado. Com um perfil técnico SAML pode federar com um fornecedor de identidade baseado em SAML, como [a ADFS](identity-provider-adfs2016-custom.md) e [a Salesforce.](identity-provider-salesforce-saml.md) Esta federação permite que os seus utilizadores assinem o seu contrato com as suas identidades sociais ou empresariais existentes.
+O Azure Ative Directory B2C (Azure AD B2C) presta apoio ao fornecedor de identidade SAML 2.0. Este artigo descreve as especificidades de um perfil técnico para interagir com um fornecedor de sinistros que suporta este protocolo padronizado. Com um perfil técnico SAML pode federar com um fornecedor de identidade baseado em SAML, como [a ADFS](./identity-provider-adfs.md) e [a Salesforce.](identity-provider-salesforce-saml.md) Esta federação permite que os seus utilizadores assinem o seu contrato com as suas identidades sociais ou empresariais existentes.
 
 ## <a name="metadata-exchange"></a>Troca de metadados
 

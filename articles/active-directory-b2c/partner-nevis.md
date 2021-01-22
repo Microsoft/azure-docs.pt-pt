@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 11/23/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 19aa847ce7ce1a6ba727a4733aefcdfad845e8c6
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 282ec6a25dc381dc51f28534d272bae57d2e792e
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629396"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98674998"
 ---
 # <a name="tutorial-to-configure-nevis-with-azure-active-directory-b2c-for-passwordless-authentication"></a>Tutorial para configurar Nevis com Azure Ative Directory B2C para autenticação sem palavras-passe
 
@@ -30,9 +30,9 @@ Para começar, vai precisar de:
 
 - Uma assinatura AD Azure. Se não tiver uma, obtenha uma [conta gratuita.](https://azure.microsoft.com/free/)
 
-- Um [inquilino Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) que está ligado à sua assinatura Azure.
+- Um [inquilino Azure AD B2C](./tutorial-create-tenant.md) que está ligado à sua assinatura Azure.
 
-- Ambiente Azure AD B2C configurado para a utilização de [políticas personalizadas,](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started)se desejar integrar o Nevis no seu fluxo de políticas de inscrição.
+- Ambiente Azure AD B2C configurado para a utilização de [políticas personalizadas,](./custom-policy-get-started.md)se desejar integrar o Nevis no seu fluxo de políticas de inscrição.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -134,9 +134,9 @@ Receberá dois e-mails:
 
 4. **Guarde** as alterações no ficheiro.
 
-5. Siga as [instruções](https://docs.microsoft.com/azure/active-directory-b2c/customize-ui-with-html#2-create-an-azure-blob-storage-account) e carrehe o ficheiro **nevis.html** para o seu armazenamento de bolhas Azure.
+5. Siga as [instruções](./customize-ui-with-html.md#2-create-an-azure-blob-storage-account) e carrehe o ficheiro **nevis.html** para o seu armazenamento de bolhas Azure.
 
-6. Siga as [instruções](https://docs.microsoft.com/azure/active-directory-b2c/customize-ui-with-html#3-configure-cors) e ative a partilha de recursos de origem cruzada (CORS) para este ficheiro.
+6. Siga as [instruções](./customize-ui-with-html.md#3-configure-cors) e ative a partilha de recursos de origem cruzada (CORS) para este ficheiro.
 
 7. Uma vez que o upload esteja concluído e o CORS esteja ativado, selecione o ficheiro **nevis.html** na lista.
 
@@ -268,6 +268,6 @@ Receberá dois e-mails:
 
 Para obter informações adicionais, reveja os seguintes artigos
 
-- [Políticas personalizadas no Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Políticas personalizadas no Azure AD B2C](./custom-policy-overview.md)
 
-- [Começar com políticas personalizadas em Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Começar com políticas personalizadas em Azure AD B2C](./custom-policy-get-started.md?tabs=applications)

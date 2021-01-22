@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp, devx-track-js
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 2488a476fe40c2bf1f3e290b462babceff30a9b0
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: f75f42f3879f551a945bdeb2d88450ae3b9d6106
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96601395"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98674155"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Estratégias para testar o seu código nas Funções do Azure
 
@@ -36,8 +36,8 @@ O exemplo a seguir descreve como criar uma aplicação de função C# no Estúdi
 
 Para configurar o seu ambiente, crie uma aplicação de função e teste. Os seguintes passos ajudam-no a criar as aplicações e funções necessárias para suportar os testes:
 
-1. [Criar uma nova aplicação funções](./functions-create-first-azure-function.md) e nomeá-la **Funções**
-2. [Crie uma função HTTP a partir do modelo](./functions-create-first-azure-function.md) e nomeie-o **MyHttpTrigger**.
+1. [Criar uma nova aplicação funções](./functions-get-started.md) e nomeá-la **Funções**
+2. [Crie uma função HTTP a partir do modelo](./functions-get-started.md) e nomeie-o **MyHttpTrigger**.
 3. [Crie uma função temporizador a partir do modelo](./functions-create-scheduled-function.md) e nomeie-o **MyTimerTrigger**.
 4. [Crie uma aplicação de teste xUnit](https://xunit.net/docs/getting-started/netcore/cmdline) na solução e nomeie-a **Funções.Testes**.
 5. Utilize o NuGet para adicionar uma referência da aplicação de teste à [Microsoft.AspNetCore.Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
@@ -381,7 +381,7 @@ Para depurar os seus testes, adicione a seguinte configuração à sua *launch.j
 
 Em seguida, desaponte um ponto de rutura no seu teste e prima **F5**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu a escrever testes automatizados para as suas funções, continue com estes recursos:
 

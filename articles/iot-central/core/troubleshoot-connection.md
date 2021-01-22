@@ -1,5 +1,5 @@
 ---
-title: Ligações de dispositivos de resolução de problemas à Azure IoT Central Microsoft Docs
+title: Ligações do dispositivo de resolução de problemas à Azure IoT Central | Microsoft Docs
 description: Resolução de problemas por que não está a ver dados dos seus dispositivos na IoT Central
 services: iot-central
 author: dominicbetts
@@ -8,12 +8,12 @@ ms.date: 08/13/2020
 ms.topic: troubleshooting
 ms.service: iot-central
 ms.custom: device-developer, devx-track-azurecli
-ms.openlocfilehash: 2bbf400840c968587de3a0a0951d28c7c35b210f
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: d1a7c94152b611ea0dbea249156add617178d7ca
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94990895"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673239"
 ---
 # <a name="troubleshoot-why-data-from-your-devices-isnt-showing-up-in-azure-iot-central"></a>Resolver problemas relacionados com a não apresentação dos dados dos seus dispositivos no Azure IoT Central
 
@@ -35,11 +35,11 @@ Esta secção ajuda-o a determinar se os seus dados estão a chegar à IoT Centr
 
 Se ainda não o fez, instale a ferramenta e a `az cli` `azure-iot` extensão.
 
-Para aprender a instalar `az cli` o , consulte instalar o [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
+Para aprender a instalar `az cli` o , consulte instalar o [Azure CLI](/cli/azure/install-azure-cli).
 
-Para [instalar](/cli/azure/azure-cli-reference-for-IoT?view=azure-cli-latest#extension-reference-installation) a `azure-iot` extensão, executar o seguinte comando:
+Para [instalar](/cli/azure/azure-cli-reference-for-IoT#extension-reference-installation) a `azure-iot` extensão, executar o seguinte comando:
 
-```cmd/bash
+```azurecli
 az extension add --name azure-iot
 ```
 
@@ -50,20 +50,20 @@ Quando instalar a `azure-iot` extensão, inicie o seu dispositivo para ver se as
 
 Utilize os seguintes comandos para iniciar sê-lo na subscrição onde tem a sua aplicação IoT Central:
 
-```cmd/bash
+```azurecli
 az login
 az set account --subscription <your-subscription-id>
 ```
 
 Para monitorizar a telemetria que o seu dispositivo está a enviar, utilize o seguinte comando:
 
-```cmd/bash
+```azurecli
 az iot central diagnostics monitor-events --app-id <app-id> --device-id <device-name>
 ```
 
 Se o dispositivo tiver sido ligado com sucesso à IoT Central, vê saída semelhante à seguinte:
 
-```cmd/bash
+```output
 Monitoring telemetry.
 Filtering on device: device-001
 {
@@ -82,13 +82,13 @@ Filtering on device: device-001
 
 Para monitorizar as atualizações da propriedade que o seu dispositivo está a trocar com a IoT Central, utilize o seguinte comando de pré-visualização:
 
-```cmd/bash
+```azurecli
 az iot central diagnostics monitor-properties --app-id <app-id> --device-id <device-name>
 ```
 
 Se o dispositivo enviar com sucesso atualizações de propriedade, vê uma saída semelhante à seguinte:
 
-```cmd/bash
+```output
 Changes in reported properties:
 version : 32
 {'state': 'true', 'name': {'value': {'value': 'Contoso'}, 'status': 'completed', 'desiredVersion': 7, 'ad': 'completed', 'av': 7, 'ac
@@ -106,7 +106,7 @@ Se ainda não está a ver nenhum dado aparecer no seu terminal, é provável que
 
 Se os seus dados não estiverem a aparecer no monitor, verifique o estado de provisionamento do seu dispositivo executando o seguinte comando:
 
-```cmd/bash
+```azurecli
 az iot central device registration-info --app-id <app-id> --device-id <device-name>
 ```
 
@@ -130,7 +130,7 @@ https://aka.ms/iotcentral-docs-dps-SAS",
 }
 ```
 
-| Estado de provisionamento do dispositivo | Descrição | Possível mitigação |
+| Estado de provisionamento do dispositivo | Description | Possível mitigação |
 | - | - | - |
 | Aprovisionado | Não há problema imediatamente reconhecível. | N/D |
 | Registado | O dispositivo ainda não está ligado à IoT Central. | Verifique se os registos do seu dispositivo têm problemas de conectividade. |
@@ -150,7 +150,7 @@ As tabelas que se seguem mostram os códigos de erro comuns e as possíveis aç�
 
 Se estiver a ver questões relacionadas com o seu fluxo de autenticação:
 
-| Código de erro | Descrição | Possível Mitigação |
+| Código de erro | Description | Possível Mitigação |
 | - | - | - |
 | 400 | O corpo do pedido não é válido. Por exemplo, não pode ser analisado, ou o objeto não pode ser validado. | Certifique-se de que está a enviar o corpo de pedido correto como parte do fluxo de atestado, ou utilize um dispositivo SDK. |
 | 401 | O sinal de autorização não pode ser validado. Por exemplo, expirou ou não se aplica ao URI do pedido. Este código de erro também é devolvido aos dispositivos como parte do fluxo de atestado TPM. | Certifique-se de que o seu dispositivo tem as credenciais corretas. |
@@ -176,13 +176,13 @@ Para detetar em que categorias está o seu problema, execute o comando mais adeq
 
 - Para validar a telemetria, utilize o comando de pré-visualização:
 
-    ```cmd/bash
+    ```azurecli
     az iot central diagnostics validate-messages --app-id <app-id> --device-id <device-name>
     ```
 
 - Para validar atualizações de propriedade, utilize o comando de pré-visualização
 
-    ```cmd/bash
+    ```azurecli
     az iot central diagnostics validate-properties --app-id <app-id> --device-id <device-name>
     ```
 
@@ -190,7 +190,7 @@ Pode ser solicitado a instalar a `uamqp` biblioteca na primeira vez que executar
 
 A seguinte saída mostra exemplo de erro e mensagens de aviso do comando validado:
 
-```cmd/bash
+```output
 Validating telemetry.
 Filtering on device: v22upeoqx6.
 Exiting after 300 second(s), or 10 message(s) have been parsed (whichever happens first).
@@ -210,7 +210,7 @@ Quando tiver detetado o problema, poderá necessitar de atualizar o firmware do 
 
 Se escolheu criar um novo modelo que modele os dados corretamente, migrar dispositivos do seu modelo antigo para o novo modelo. Para saber mais, consulte [Gerir os dispositivos na sua aplicação Azure IoT Central](howto-manage-devices.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se precisar de mais ajuda, pode contactar os especialistas do Azure nos [fóruns MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/community/). Em alternativa, pode arquivar um [bilhete de apoio Azure.](https://portal.azure.com/#create/Microsoft.Support)
 

@@ -4,18 +4,18 @@ description: Aprenda os componentes básicos de cluster e carga de trabalho de K
 services: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 17203123ceb0c196bd8f9011e2962f5022e54698
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 54d6f4529c236c7ff9f6258122b5b49d6d3723e8
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92901295"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98674931"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Kubernetes conceitos fundamentais para O Serviço Azure Kubernetes (AKS)
 
 À medida que o desenvolvimento de aplicações avança para uma abordagem baseada em contentores, a necessidade de orquestrar e gerir recursos é importante. A Kubernetes é a plataforma líder que fornece a capacidade de fornecer agendamento fiável de cargas de carga de aplicação tolerantes a falhas. O Azure Kubernetes Service (AKS) é um Kubernetes gerido que oferece que simplifica ainda mais a implementação e gestão de aplicações baseadas em contentores.
 
-Este artigo introduz os componentes de infraestrutura de Kubernetes fundamentais, tais como o *plano de controlo,* *nós* e *piscinas de nó.* São também introduzidos recursos de carga de trabalho como *cápsulas,* implantações e *conjuntos,* juntamente com a forma de agrupar recursos em espaços de *nome.* *sets*
+Este artigo introduz os componentes de infraestrutura de Kubernetes fundamentais, tais como o *plano de controlo,* *nós* e *piscinas de nó.* São também introduzidos recursos de carga de trabalho como *cápsulas,* implantações e *conjuntos,* juntamente com a forma de agrupar recursos em espaços de *nome.* 
 
 ## <a name="what-is-kubernetes"></a>O que é o Kubernetes?
 
@@ -78,7 +78,6 @@ Os recursos do nó são utilizados pela AKS para fazer com que o nó funcione co
 Para encontrar os recursos alocáveis de um nó, corra:
 ```kubectl
 kubectl describe node [NODE_NAME]
-
 ```
 
 Para manter o desempenho e funcionalidade do nó, os recursos são reservados em cada nó pela AKS. À medida que um nó aumenta em recursos, a reserva de recursos cresce devido a uma maior quantidade de cápsulas implantadas pelo utilizador que precisam de gestão.
@@ -86,22 +85,24 @@ Para manter o desempenho e funcionalidade do nó, os recursos são reservados em
 >[!NOTE]
 > A utilização de complementos AKS, como o Container Insights (OMS) consumirá recursos adicionais de nó.
 
-- **CPU** - CPU reservado depende do tipo de nó e configuração do cluster, o que pode causar CPU menos alocável devido à execução de funcionalidades adicionais
+São reservados dois tipos de recursos:
 
-| Núcleos de CPU no anfitrião | 1    | 2    | 4    | 8    | 16 | 32|64|
-|---|---|---|---|---|---|---|---|
-|Kube reservado (millicores)|60|100|140|180|260|420|740|
+- **CPU** - CpU reservado depende do tipo de nó e configuração do cluster, o que pode causar CPU menos alocável devido à execução de funcionalidades adicionais
 
-- **Memória** - a memória utilizada pela AKS inclui a soma de dois valores.
+   | Núcleos de CPU no anfitrião | 1    | 2    | 4    | 8    | 16 | 32|64|
+   |---|---|---|---|---|---|---|---|
+   |Kube reservado (millicores)|60|100|140|180|260|420|740|
 
-1. O daemon kubelet está instalado em todos os nós de agente Kubernetes para gerir a criação e rescisão de contentores. Por defeito na AKS, este daemon tem a seguinte regra de despejo: *memory.disponível<750Mi* , o que significa que um nó deve sempre ter pelo menos 750 Mi atribuível em todos os momentos.  Quando um hospedeiro estiver abaixo desse limiar de memória disponível, o kubelet terminará uma das cápsulas de funcionamento para libertar a memória na máquina hospedeira e protegê-la-á. Esta ação é desencadeada uma vez que a memória disponível diminui para além do limiar de 750Mi.
+- **Memória** - A memória utilizada pela AKS inclui a soma de dois valores.
 
-2. O segundo valor é uma taxa regressiva de reservas de memória para o daemon kubelet funcionar corretamente (kube-reserved).
-    - 25% dos primeiros 4 GB de memória
-    - 20% dos próximos 4 GB de memória (até 8 GB)
-    - 10% dos próximos 8 GB de memória (até 16 GB)
-    - 6% dos próximos 112 GB de memória (até 128 GB)
-    - 2% de qualquer memória acima de 128 GB
+   1. O daemon kubelet está instalado em todos os nós de agente Kubernetes para gerir a criação e rescisão de contentores. Por defeito na AKS, este daemon tem a seguinte regra de despejo: *memory.disponível<750Mi*, o que significa que um nó deve sempre ter pelo menos 750 Mi atribuível em todos os momentos.  Quando um hospedeiro estiver abaixo desse limiar de memória disponível, o kubelet terminará uma das cápsulas de funcionamento para libertar a memória na máquina hospedeira e protegê-la-á. Esta ação é desencadeada uma vez que a memória disponível diminui para além do limiar de 750Mi.
+
+   2. O segundo valor é uma taxa regressiva de reservas de memória para o daemon kubelet funcionar corretamente (kube-reserved).
+      - 25% dos primeiros 4 GB de memória
+      - 20% dos próximos 4 GB de memória (até 8 GB)
+      - 10% dos próximos 8 GB de memória (até 16 GB)
+      - 6% dos próximos 112 GB de memória (até 128 GB)
+      - 2% de qualquer memória acima de 128 GB
 
 As regras acima referidas para a alocação de memória e CPU são usadas para manter os nós de agente saudáveis, incluindo algumas cápsulas de sistema de hospedagem que são fundamentais para a saúde do agrupamento. Estas regras de atribuição também fazem com que o nó reporte menos memória alocável e CPU do que normalmente faria se não fizesse parte de um cluster kubernetes. As reservas de recursos acima não podem ser alteradas.
 
@@ -115,7 +116,7 @@ Para as melhores práticas associadas, consulte [as melhores práticas para func
 
 ### <a name="node-pools"></a>Conjuntos de nós
 
-Os nós da mesma configuração são agrupados em *piscinas de nó.* Um cluster Kubernetes contém uma ou mais piscinas de nós. O número inicial de nós e tamanho é definido quando cria um cluster AKS, que cria uma *piscina de nós predefinidos* . Este conjunto de nós predefinidos em AKS contém os VMs subjacentes que executam os nós do seu agente.
+Os nós da mesma configuração são agrupados em *piscinas de nó.* Um cluster Kubernetes contém uma ou mais piscinas de nós. O número inicial de nós e tamanho é definido quando cria um cluster AKS, que cria uma *piscina de nós predefinidos*. Este conjunto de nós predefinidos em AKS contém os VMs subjacentes que executam os nós do seu agente.
 
 > [!NOTE]
 > Para garantir que o seu cluster funciona de forma fiável, deve executar pelo menos 2 (dois) nós na piscina de nós predefinidos.
@@ -128,7 +129,7 @@ Para obter mais informações sobre como usar várias piscinas de nó em AKS, co
 
 Num cluster AKS que contém várias piscinas de nós, você pode precisar dizer ao Programador Kubernetes qual o conjunto de nós para usar para um determinado recurso. Por exemplo, os controladores de entrada não devem funcionar nos nós do Windows Server. Os seletores de nó permitem definir vários parâmetros, como o nó OS, para controlar onde deve ser programado um casulo.
 
-O exemplo básico a seguir programa uma instância NGINX num nó Linux utilizando o seletor de nó *"beta.kubernetes.io/os": linux* :
+O exemplo básico a seguir programa uma instância NGINX num nó Linux utilizando o seletor de nó *"beta.kubernetes.io/os": linux*:
 
 ```yaml
 kind: Pod
@@ -252,7 +253,7 @@ Quando cria um cluster AKS, os seguintes espaços de nome estão disponíveis:
 
 Para mais informações, consulte [os espaços de nomes de Kubernetes.][kubernetes-namespaces]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo cobre alguns dos componentes de Kubernetes e como se aplicam aos clusters AKS. Para obter mais informações sobre os conceitos core Kubernetes e AKS, consulte os seguintes artigos:
 

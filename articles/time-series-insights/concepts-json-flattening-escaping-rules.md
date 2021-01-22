@@ -1,5 +1,5 @@
 ---
-title: JSON achatando e escapando regras - Azure Time Series Insights Gen2 / Microsoft Docs
+title: JSON achatando e escapando regras - Azure Time Series Insights Gen2 | Microsoft Docs
 description: Saiba mais sobre o achatamento, fuga e manuseamento de matrizes em Azure Time Series Insights Gen2.
 author: lyrana
 ms.author: lyhughes
@@ -8,13 +8,13 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 09/28/2020
-ms.openlocfilehash: 0839d2c734418824952f37cb177490e56e1133c5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 01/21/2021
+ms.openlocfilehash: 9f768982e69f785c146f026040a91f7a63eef64c
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017972"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673456"
 ---
 # <a name="json-flattening-escaping-and-array-handling"></a>Simplificação, Escape e Processamento de Matriz do JSON
 

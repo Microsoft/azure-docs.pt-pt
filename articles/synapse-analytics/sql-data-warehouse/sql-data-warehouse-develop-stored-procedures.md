@@ -11,12 +11,12 @@ ms.date: 04/02/2019
 ms.author: emtehran
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: cc6a58b4ef78aca60d2a26870980e032c0b11a52
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: e28eeac131c737d673cac947a3fda30239180a62
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96463229"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673591"
 ---
 # <a name="using-stored-procedures-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Utilização de procedimentos armazenados para piscinas SQL dedicadas em Azure Synapse Analytics
 
@@ -73,7 +73,7 @@ GO
 EXEC prc_nesting
 ```
 
-Piscina dedicada SQL não suporta atualmente [@ @NESTLEVEL ](/sql/t-sql/functions/nestlevel-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Como tal, tens de seguir o nível do ninho. É improvável que ultrapasse o limite do nível de oito ninhos. Mas, se o fizer, tem de reformular o seu código para se adaptar aos níveis de nidificação dentro deste limite.
+Piscina dedicada SQL não suporta atualmente [@ @NESTLEVEL ](/sql/t-sql/functions/nestlevel-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Como tal, tens de seguir o nível do ninho. É improvável que ultrapasse o limite do nível de oito ninhos. Mas, se o fizer, tem de reformular o seu código para se adaptar aos níveis de nidificação dentro deste limite.
 
 ## <a name="insertexecute"></a>INSERT..EXEBONITO
 

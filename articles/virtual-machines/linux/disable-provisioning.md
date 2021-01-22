@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 2a17825d062496e6600966dc7c90b14749507e4d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0fea82c376a178de0be8ede6c0393e1de21de614
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86494518"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98675809"
 ---
 # <a name="disable-or-remove-the-linux-agent-from-vms-and-images"></a>Desativar ou remover o Agente Linux de VMs e imagens
 
@@ -31,9 +31,9 @@ A plataforma Azure acolhe muitas extensões que vão desde a configuração de V
 
 ## <a name="disabling-extension-processing"></a>Desativação do processamento de extensão
 
-Existem várias formas de desativar o processamento de extensão, dependendo das suas necessidades, mas antes de continuar, **deve** remover todas as extensões implantadas no VM, por exemplo usando o CLI AZ, pode [listar](/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-list) e [eliminar:](/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-delete)
+Existem várias formas de desativar o processamento de extensão, dependendo das suas necessidades, mas antes de continuar, **deve** remover todas as extensões implantadas no VM, por exemplo usando o Azure CLI, pode [listar](/cli/azure/vm/extension#az-vm-extension-list) e [eliminar:](/cli/azure/vm/extension#az-vm-extension-delete)
 
-```bash
+```azurecli
 az vm extension delete -g MyResourceGroup --vm-name MyVm -n extension_name
 ```
 > [!Note]
@@ -43,7 +43,7 @@ az vm extension delete -g MyResourceGroup --vm-name MyVm -n extension_name
 ### <a name="disable-at-the-control-plane"></a>Desativar no avião de controlo
 Se não tiver a certeza se irá precisar de extensões no futuro, pode deixar o Agente Linux instalado no VM e, em seguida, desativar a capacidade de processamento de extensão da plataforma. Esta opção está disponível na `Microsoft.Compute` versão api `2018-06-01` ou superior, e não tem uma dependência da versão Linux Agent instalada.
 
-```bash
+```azurecli
 az vm update -g <resourceGroup> -n <vmName> --set osProfile.allowExtensionOperations=false
 ```
 Pode facilmente reensificar este processamento de extensão a partir da plataforma, com o comando acima, mas defini-lo como "verdadeiro".
@@ -132,7 +132,7 @@ Uma vez concluída a acima, pode criar a imagem personalizada utilizando o Azure
 
 
 **Criar uma imagem gerida regular**
-```bash
+```azurecli
 az vm deallocate -g <resource_group> -n <vm_name>
 az vm generalize -g <resource_group> -n <vm_name>
 az image create -g <resource_group> -n <image_name> --source <vm_name>
@@ -140,7 +140,7 @@ az image create -g <resource_group> -n <image_name> --source <vm_name>
 
 **Criar uma versão de imagem numa Galeria de Imagens Partilhadas**
 
-```bash
+```azurecli
 az sig image-version create \
     -g $sigResourceGroup 
     --gallery-name $sigName 
@@ -157,7 +157,7 @@ Quando criar o VM a partir da imagem sem Agente Linux, tem de se certificar de q
 
 Para implantar o VM com extensões desativadas, pode utilizar o CLI Azure com [--activar-agente](/cli/azure/vm#az-vm-create).
 
-```bash
+```azurecli
 az vm create \
     --resource-group $resourceGroup \
     --name $prodVmName \

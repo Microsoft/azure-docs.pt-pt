@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 9520196c8dce9ea511c2f3b799bd12b34c6f988f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: ad3a2ae9fd9a99398b384ef4e4a44820faccf8c7
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499752"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98675890"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Adicionar um disco a uma VM com Linux
 
@@ -181,5 +181,5 @@ Existem duas formas de ativar o suporte TRIM no seu Linux VM. Como sempre, consu
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para garantir que o seu VM Linux está configurado corretamente, reveja as recomendações de desempenho da [máquina Linux.](optimization.md)
+* Para garantir que o seu VM Linux está configurado corretamente, reveja as recomendações de desempenho da [máquina Linux.](/previous-versions/azure/virtual-machines/linux/optimization)
 * Expanda a sua capacidade de armazenamento adicionando discos adicionais e [configurar o RAID](/previous-versions/azure/virtual-machines/linux/configure-raid) para um desempenho adicional.
