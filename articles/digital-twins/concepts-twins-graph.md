@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: d9a6eb572b1ab870fdb848f8b0989f88e6dbc3c0
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: a4875c2c75b133f0ab4046266d6aac36d5478fe4
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98045959"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664049"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Compreenda os gémeos digitais e o seu gráfico gémeo
 
@@ -25,7 +25,9 @@ Numa solução Azure Digital Twins, as entidades do seu ambiente são representa
 
 Antes de criar um gémeo digital na sua instância Azure Digital Twins, precisa de ter um *modelo* carregado para o serviço. Um modelo descreve o conjunto de propriedades, mensagens de telemetria e relacionamentos que um gémeo em particular pode ter, entre outras coisas. Para os tipos de informação que são definidos num modelo, consulte [*Conceitos: Modelos personalizados.*](concepts-models.md)
 
-Depois de criar e carregar um modelo, a sua aplicação de clientes pode criar uma instância do tipo; este é um gémeo digital. Por exemplo, depois de criar um modelo de *Floor,* pode criar um ou vários gémeos digitais que usam este tipo (como um twin tipo *chão* chamado *GroundFloor*, outro chamado *Floor2*, etc.). 
+Depois de criar e carregar um modelo, a sua aplicação de clientes pode criar uma instância do tipo; este é um gémeo digital. Por exemplo, depois de criar um modelo de *Floor,* pode criar um ou vários gémeos digitais que usam este tipo (como um twin tipo *chão* chamado *GroundFloor*, outro chamado *Floor2*, etc.).
+
+[!INCLUDE [digital-twins-versus-device-twins](../../includes/digital-twins-versus-device-twins.md)]
 
 ## <a name="relationships-a-graph-of-digital-twins"></a>Relacionamentos: um gráfico de gémeos digitais
 
@@ -41,7 +43,7 @@ O resultado deste processo é um conjunto de nós (os gémeos digitais) ligados 
 
 Esta secção mostra o que parece criar gémeos digitais e relacionamentos a partir de uma aplicação de cliente. Contém exemplos de código .NET que utilizam as [APIs DigitalTwins,](/rest/api/digital-twins/dataplane/twins)para fornecer contexto adicional sobre o que se passa dentro de cada um destes conceitos.
 
-### <a name="create-digital-twins"></a>Criar gémeos digitais
+### <a name="create-digital-twins"></a>Criar duplos digitais
 
 Abaixo está um corte de código de cliente que usa as [APIs DigitalTwins](/rest/api/digital-twins/dataplane/twins) para instantaneaizar um twin de *tipo Room*.
 
@@ -54,7 +56,7 @@ Você também pode usar uma classe de ajudante chamada `BasicDigitalTwin` para a
 >[!NOTE]
 >Enquanto as propriedades gémeas são tratadas como opcionais e, portanto, não têm de ser inicializadas, quaisquer componentes no **twin** precisam de ser [definidos](concepts-models.md#elements-of-a-model) quando o gémeo é criado. Podem ser objetos vazios, mas os próprios componentes devem existir.
 
-### <a name="create-relationships"></a>Criar relacionamentos
+### <a name="create-relationships"></a>Criar relações
 
 Aqui está um código de cliente exemplo que usa as [APIs DigitalTwins](/rest/api/digital-twins/dataplane/twins) para construir uma relação entre um twin digital tipo *Floor* chamado *GroundFloor* e um twin digital *tipo Quarto* chamado *Café.*
 
@@ -68,7 +70,7 @@ Os dados digitais de gémeos e de relacionamento são armazenados no formato JSO
 
 Quando representado como um objeto JSON, um gémeo digital apresentará os seguintes campos:
 
-| Nome do campo | Descrição |
+| Nome do campo | Description |
 | --- | --- |
 | `$dtId` | Uma cadeia fornecida pelo utilizador que representa o ID do gémeo digital |
 | `$etag` | Campo HTTP padrão atribuído pelo servidor web |
@@ -135,7 +137,7 @@ Aqui está um exemplo de um gémeo digital formatado como um objeto JSON:
 
 Quando representado como um objeto JSON, uma relação de um gémeo digital mostrará os seguintes campos:
 
-| Nome do campo | Descrição |
+| Nome do campo | Description |
 | --- | --- |
 | `$relationshipId` | Uma cadeia fornecida pelo utilizador que representa a identificação desta relação. Esta cadeia é única no contexto da fonte digital twin, o que também significa que `sourceId`  +  `relationshipId` é única no contexto da instância Azure Digital Twins. |
 | `$etag` | Campo HTTP padrão atribuído pelo servidor web |

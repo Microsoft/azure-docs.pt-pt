@@ -3,21 +3,21 @@ title: Conecte-se com reorientação - Azure Database for MariaDB
 description: Este artigo descreve como pode configurar a sua aplicação para ligar à Base de Dados Azure para MariaDB com reorientação.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: how-to
 ms.date: 6/8/2020
-ms.openlocfilehash: 3f26de72839fcaa39bff4d827aba757721736934
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 29f2ab8f70af2ca19cbffcbba6db39c5a93445fe
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94537429"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664907"
 ---
 # <a name="connect-to-azure-database-for-mariadb-with-redirection"></a>Ligue à Base de Dados Azure para MariaDB com reorientação
 
 Este tópico explica como ligar uma aplicação a sua Base de Dados Azure para servidor MariaDB com o modo de reorientação. A reorientação visa reduzir a latência da rede entre aplicações de clientes e servidores MariaDB, permitindo que as aplicações se conectem diretamente aos nós do servidor de backend.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 Inicie sessão no [portal do Azure](https://portal.azure.com). Crie uma Base de Dados Azure para servidor MariaDB com a versão 10.2 ou 10.3 do motor. 
 
 Para mais detalhes, consulte como criar uma Base de Dados Azure para servidor MariaDB utilizando o [portal Azure](quickstart-create-mariadb-server-database-using-azure-portal.md) ou [Azure CLI](quickstart-create-mariadb-server-database-using-azure-cli.md).
@@ -74,7 +74,7 @@ As secções subsequentes do documento descreverão como instalar a extensão ut
 
 3. Mude os diretórios para a pasta devolvida e certifique-se de que `mysqlnd_azure.so` está localizada nesta pasta. 
 
-4. Localize a pasta para ficheiros .ini executando o seguinte: 
+4. Localize a pasta para .ini ficheiros executando o seguinte: 
 
     ```bash
     php -i | grep "dir for additional .ini files"
@@ -82,7 +82,7 @@ As secções subsequentes do documento descreverão como instalar a extensão ut
 
 5. Mude os diretórios para esta pasta devolvida. 
 
-6. Crie um novo ficheiro .ini para `mysqlnd_azure` . Certifique-se de que a ordem do alfabeto do nome está atrás da do mysqnld, uma vez que os módulos são carregados de acordo com a ordem de nome dos ficheiros ini. Por exemplo, se `mysqlnd` .ini for `10-mysqlnd.ini` nomeado, nomeie o mysqlnd ini como `20-mysqlnd-azure.ini` .
+6. Crie um novo ficheiro .ini para `mysqlnd_azure` . Certifique-se de que a ordem do alfabeto do nome está atrás da do mysqnld, uma vez que os módulos são carregados de acordo com a ordem de nome dos ficheiros ini. Por exemplo, se `mysqlnd` .ini for `10-mysqlnd.ini` nomeado, diga o mysqlnd ini como `20-mysqlnd-azure.ini` .
 
 7. Dentro do novo ficheiro .ini, adicione as seguintes linhas para permitir a reorientação.
 

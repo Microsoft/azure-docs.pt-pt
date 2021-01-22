@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: v-tcassi
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 68fdc29edfd41799e2628abf40efa6a9453a90b9
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: e603e99c1aa9c49d20bdb281bbfd96131ae2efdd
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/21/2021
-ms.locfileid: "98634035"
+ms.locfileid: "98663626"
 ---
 # <a name="install-and-provision-azure-iot-edge-for-linux-on-a-windows-device-preview"></a>Instalação e fornecimento Azure IoT Edge para Linux num dispositivo Windows (Pré-visualização)
 
@@ -61,6 +61,12 @@ Este artigo lista os passos para configurar o IoT Edge num dispositivo Windows. 
       ![Selecione o ícone de engrenagem no topo direito do painel para aceder às definições.](./media/how-to-install-iot-edge-on-windows/select-gear-icon.png)
 
    1. No menu **Definições,** em **Gateway,** selecione **Extensões**.
+
+   1. Selecione o **separador Feeds** e selecione **Adicionar**.
+
+   1. https://aka.ms/wac-insiders-feedIntroduza na caixa de texto e selecione **Adicionar**.
+
+   1. Depois de adicionar o feed, navegue para o separador **extensões Disponível.** Pode levar um momento para atualizar a lista de extensões.
 
    1. No separador **extensões disponíveis,** encontre **a Azure IoT Edge** na lista de extensões. Escolha-o e selecione o pedido **de instalação** acima da lista de extensões.
 

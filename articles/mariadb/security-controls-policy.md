@@ -5,14 +5,14 @@ ms.date: 01/08/2021
 ms.topic: sample
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: e196b2d84af38e5e22e0ac75bd6d4494c9f1a3fe
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: d36574602b815d88c6d559c4e027b2b7855da081
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98046995"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664539"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-database-for-mariadb"></a>Controlos de conformidade regulamentar da Política Azure para a Base de Dados Azure para MariaDB
 

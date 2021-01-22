@@ -3,15 +3,15 @@ title: Alta disponibilidade - Base de Dados Azure para MariaDB
 description: Este artigo fornece informações sobre alta disponibilidade na Base de Dados Azure para MariaDB
 author: mksuni
 ms.author: sumuth
-ms.service: mariadb
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 7/7/2020
-ms.openlocfilehash: 4dcb1ac7ce4b468374993c11578bce553f766a42
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: dc37474a56ddb7d2c48c7acfce881fb812f0b8a4
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93241349"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664338"
 ---
 # <a name="high-availability-in-azure-database-for-mariadb"></a>Alta disponibilidade na Base de Dados Azure para MariaDB
 A Base de Dados Azure para o serviço MariaDB proporciona um elevado nível de disponibilidade garantido com o contrato de nível de serviço (SLA) apoiado financeiramente de [99,99%](https://azure.microsoft.com/support/legal/sla/MariaDB) de tempo de duração. A Azure Database for MariaDB fornece alta disponibilidade durante eventos planeados, como operação de computação em escala initada pelo utilizador, e também quando ocorrem eventos não planeados, tais como hardware, software ou falhas de rede subjacentes. A Azure Database for MariaDB pode rapidamente recuperar da maioria das circunstâncias críticas, garantindo praticamente nenhum tempo de inação ao utilizar este serviço.
@@ -24,7 +24,7 @@ A base de dados Azure para MariaDB é adequada para executar bases de dados crí
 | ------------ | ----------- |
 | <b>Servidor de base de dados MariaDB | A Azure Database for MariaDB fornece segurança, isolamento, salvaguardas de recursos e capacidade de reinício rápido para servidores de bases de dados. Estas capacidades facilitam operações como a operação de recuperação de servidores de escala e de base de dados após uma paragem em segundos. <br/> As modificações de dados no servidor da base de dados ocorrem normalmente no contexto de uma transação de base de dados. Todas as alterações na base de dados são registadas sincronizadamente sob a forma de registos de escrita antecipada (ib_log) no Azure Storage – que está anexado ao servidor de base de dados. Durante o processo [de verificação](https://mariadb.com/kb/innodb-redo-log/#checkpoints) da base de dados, as páginas de dados da memória do servidor de base de dados também são lavadas para o armazenamento. |
 | <b>Armazenamento remoto | Todos os ficheiros de dados físicos e ficheiros de registo da MariaDB são armazenados no Azure Storage, que é projetado para armazenar três cópias de dados dentro de uma região para garantir a redundância, disponibilidade e fiabilidade dos dados. A camada de armazenamento também é independente do servidor de base de dados. Pode ser desligado de um servidor de base de dados falhado e religado a um novo servidor de base de dados em poucos segundos. Além disso, o Azure Storage monitoriza continuamente quaisquer falhas de armazenamento. Se for detetada uma corrupção de bloco, é automaticamente corrigida através da instantânea nova cópia de armazenamento. |
-| <b>Porta de entrada | O Gateway funciona como um representante de base de dados, encaminha todas as ligações do cliente para o servidor de base de dados. |
+| <b>Gateway | O Gateway funciona como um representante de base de dados, encaminha todas as ligações do cliente para o servidor de base de dados. |
 
 ## <a name="planned-downtime-mitigation"></a>Mitigação prevista para o tempo de inatividade
 A Azure Database for MariaDB é arquitetada para fornecer alta disponibilidade durante as operações planeadas de inatividade. 

@@ -3,17 +3,17 @@ title: Backup e restauro - Azure PowerShell - Base de Dados Azure para MariaDB
 description: Saiba como fazer backup e restaurar um servidor na Base de Dados Azure para MariaDB utilizando o Azure PowerShell.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.devlang: azurepowershell
 ms.topic: how-to
 ms.date: 05/26/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0207be2c983fd986d5852403e36462d2d7d2cdda
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 211285a0ae8aaa9b82bca914f3add7fbaa700146
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94539639"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664856"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-mariadb-server-using-powershell"></a>Como fazer o back up e restaurar uma Base de Dados Azure para o servidor MariaDB usando o PowerShell
 

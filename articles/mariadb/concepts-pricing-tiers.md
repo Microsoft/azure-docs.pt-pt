@@ -3,15 +3,15 @@ title: Escalões de preço – Azure Database for MariaDB
 description: Saiba mais sobre os vários níveis de preços para Azure Database para MariaDB, incluindo gerações de cálculo, tipos de armazenamento, tamanho de armazenamento, vCores, memória e períodos de retenção de backup.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: b5b5a506b2f932d20a617634ace7ebf02093fbfa
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 6c786ea80ecbe2f174d8c3b701316791e1b6104f
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94536290"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664253"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Base de Dados Azure para os níveis de preços mariaDB
 

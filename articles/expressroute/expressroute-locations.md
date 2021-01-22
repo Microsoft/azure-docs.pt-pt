@@ -6,14 +6,14 @@ author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 01/05/2021
+ms.date: 01/21/2021
 ms.author: duau
-ms.openlocfilehash: c68d9654c673b75742205853ec186caa5d6a3ce5
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 589f8bef7e5023a3667ce0ebf9a14637b007223d
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916155"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664066"
 ---
 # <a name="expressroute-connectivity-partners-and-peering-locations"></a>Parceiros de conectividade e localizações de peering do ExpressRoute
 
@@ -93,7 +93,7 @@ A tabela seguinte mostra as localizações por fornecedor de serviços. Se quise
 | **[Chefe de Telecomunicações](https://www.chief.com.tw/)** |Suportado |Suportado |Hong Kong |
 | **China Mobile International** |Suportado |Suportado | Hong Kong, Hong Kong2, Singapura |
 | **China Telecom Global** |Suportado |Suportado |Hong Kong |
-| **China Unicom Global** |Suportado |Suportado | Singapura2 |
+| **China Unicom Global** |Suportado |Suportado | Hong Kong |
 | **[Telecomunicações Chunghwa](https://www.cht.com.tw/en/home/cht/about-cht/products-and-services/International/Cloud-Service)** |Suportado |Suportado |Taipé |
 | **[Claro](https://www.usclaro.com/enterprise-mnc/connectivity/mpls/)** |Suportado |Suportado |Miami |
 | **[Cologix](https://www.cologix.com/hyperscale/microsoft-azure/)** |Suportado |Suportado |Chicago, Dallas, Minneapolis, Montreal, Toronto, Vancouver, Washington DC |
@@ -121,6 +121,7 @@ A tabela seguinte mostra as localizações por fornecedor de serviços. Se quise
 | **[Internet Initiative Japan Inc. – IIJ](https://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** |Suportado |Suportado |Osaka, Tóquio |
 | **[Soluções de Internet - Cloud Connect](https://www.is.co.za/solution/cloud-connect/)** |Suportado |Suportado |Cidade do Cabo, Joanesburgo, Londres |
 | **[Interxion](https://www.interxion.com/why-interxion/colocate-with-the-clouds/Microsoft-Azure/)** |Suportado |Suportado |Amesterdão, Amesterdão2, Copenhague, Dublin, Frankfurt, Londres, Marselha, Paris, Zurique |
+| **[IRIDEOS](https://irideos.it/)** |Suportado |Suportado |Milão |
 | **[IX Reach](https://www.ixreach.com/partners/cloud-partners/microsoft-azure/)**|Suportado |Suportado | Amsterdão, Londres2, Silicon Valley, Toronto, Washington DC |
 | **Rede Jaguar** |Suportado |Suportado |Marselha |
 | **[Jisc](https://www.jisc.ac.uk/microsoft-azure-expressroute)** |Suportado |Suportado |Londres, Newport(País de Gales) |
@@ -159,7 +160,7 @@ A tabela seguinte mostra as localizações por fornecedor de serviços. Se quise
 | **[Swisscom](https://www.swisscom.ch/en/business/enterprise/offer/cloud-data-center/microsoft-cloud-services/microsoft-azure-von-swisscom.html)** | Suportado | Suportado | Zurique |
 | **[Tata Communications](https://www.tatacommunications.com/lp/izo/azure/azure_index.html)** |Suportado |Suportado |Amesterdão, Chennai, Hong Kong SAR, Londres, Mumbai, São Paulo, Silicon Valley, Singapura, Washington DC |
 | **[Telefonica](https://www.business-solutions.telefonica.com/es/enterprise/solutions/efficient-infrastructure/managed-voice-data-connectivity/)** |Suportado |Suportado |Amesterdão, São Paulo |
-| **[Telehouse - KDDI](https://www.telehouse.net/solutions/cloud-services/cloud-link)** |Suportado |Suportado |Londres, Londres2 |
+| **[Telehouse - KDDI](https://www.telehouse.net/solutions/cloud-services/cloud-link)** |Suportado |Suportado |Londres, Londres2, Singapura2 |
 | **Telenor** |Suportado |Suportado |Amsterdão, Londres, Oslo |
 | **[Telia Carrier](https://www.teliacarrier.com/)** | Suportado | Suportado |Amesterdão, Chicago, Dallas, Frankfurt, Hong Kong, Londres, Oslo, Paris, Silicon Valley, Estocolmo, Washington DC |
 | **[Rio Telin](https://www.telin.net/)** | Suportado | Suportado |Jacarta |

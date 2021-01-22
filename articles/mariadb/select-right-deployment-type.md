@@ -3,15 +3,15 @@ title: Selecionando o tipo de implementação certo - Base de Dados Azure para M
 description: Este artigo descreve quais os fatores a considerar antes de implementar a Base de Dados Azure para MariaDB como infraestrutura como serviço (IaaS) ou plataforma como um serviço (PaaS).
 author: mksuni
 ms.author: sumuth
-ms.service: mariadb
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: d8885e374142b3d916803fc472ae18351ca6d470
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 921ad8d187f6c2478bdf92aab0ee0ec3c9e75bce
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93240278"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664523"
 ---
 # <a name="choose-the-right-mariadb-server-option-in-azure"></a>Escolha a opção de Servidor MariaDB certa em Azure
 
@@ -49,7 +49,7 @@ As principais diferenças entre estas opções constam do quadro seguinte:
 
 Existem vários fatores que podem influenciar a sua decisão de escolher PaaS ou IaaS para hospedar as suas bases de dados MariaDB.
 
-### <a name="cost"></a>Cost
+### <a name="cost"></a>Custo
 
 O financiamento limitado é muitas vezes a principal consideração que determina a melhor solução para hospedar as suas bases de dados. Isto é verdade quer seja uma startup com pouco dinheiro ou uma equipa numa empresa estabelecida que opera sob restrições orçamentais apertadas. Esta secção descreve os fundamentos de faturação e licenciamento em Azure, uma vez que se aplicam à Base de Dados Azure para MariaDB e MariaDB em VMs Azure.
 

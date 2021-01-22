@@ -3,22 +3,22 @@ title: Migrar com despejo e restauro - Azure Database for MariaDB
 description: Este artigo explica duas formas comuns de fazer o back backs de apoio e restaurar as bases de dados na sua Base de Dados Azure para MariaDB, utilizando ferramentas como mysqldump, MySQL Workbench e PHPMyAdmin.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: how-to
 ms.date: 2/27/2020
-ms.openlocfilehash: 6c23b027b428ef58ae51a6ba1d2603e94b1eaaf8
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 8f7cb0710c11e0db9628ad19e2ede7ff05a19f88
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540863"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664975"
 ---
 # <a name="migrate-your-mariadb-database-to-azure-database-for-mariadb-using-dump-and-restore"></a>Migrar a sua base de dados MariaDB para Azure Database para MariaDB usando despejo e restauro
 Este artigo explica duas formas comuns de fazer o back backs de apoio e restaurar as bases de dados na sua Base de Dados Azure para a MariaDB
 - Despejar e restaurar a partir da linha de comando (usando mysqldump) 
 - Despejar e restaurar usando PHPMyAdmin
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 Para passar por este guia, você precisa ter:
 - [Criar Base de Dados Azure para servidor MariaDB - Portal Azure](quickstart-create-mariadb-server-database-using-azure-portal.md)
 - utilitário de linha de comando [mysqldump](https://mariadb.com/kb/en/library/mysqldump/) instalado numa máquina.
@@ -63,7 +63,7 @@ Os parâmetros a fornecer são:
 - [uname] Nome de utilizador da sua base de dados 
 - [passe] A palavra-passe da sua base de dados (note que não há espaço entre -p e a palavra-passe) 
 - [dbname] O nome da sua base de dados 
-- [backupfile.sql] O nome de ficheiro para a sua base de dados 
+- [ficheiro de reserva.sql] O nome de ficheiro para a sua cópia de segurança da base de dados 
 - [--opt] A opção mysqldump 
 
 Por exemplo, para fazer o back-up de uma base de dados chamada 'testdb' no seu servidor MariaDB com o nome de utilizador 'testuser' e sem palavra-passe para um ficheiro testdb_backup.sql, utilize o seguinte comando. O comando reensi para `testdb` um ficheiro chamado , que contém todas as `testdb_backup.sql` declarações SQL necessárias para recriar a base de dados. 

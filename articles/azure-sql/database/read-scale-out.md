@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein
-ms.date: 09/03/2020
-ms.openlocfilehash: 9c09a54daa482d738ded9f7aca1c95c2b640617e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 01/20/2021
+ms.openlocfilehash: 5f9e7e1c96db2b60e41fe0ded69ea562cf8fcea6
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790275"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98663990"
 ---
 # <a name="use-read-only-replicas-to-offload-read-only-query-workloads"></a>Use réplicas apenas de leitura para descarregar cargas de trabalho de consulta apenas de leitura
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -85,7 +85,7 @@ Quando ligados a uma réplica apenas de leitura, as Vistas de Gestão Dinâmica 
 
 As vistas comumente utilizadas são:
 
-| Nome | Objetivo |
+| Name | Objetivo |
 |:---|:---|
 |[sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Fornece métricas de utilização de recursos durante a última hora, incluindo CPU, IO de dados e utilização de gravação de registos em relação aos limites objetivos do serviço.|
 |[sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql)| Fornece estatísticas de espera agregadas para a instância do motor da base de dados. |
@@ -115,12 +115,12 @@ Em casos raros, se uma transação de isolamento instantâneo aceder a metadados
 
 ### <a name="long-running-queries-on-read-only-replicas"></a>Consultas de longa duração sobre réplicas só de leitura
 
-As consultas em execução em réplicas apenas de leitura precisam de aceder aos metadados para os objetos referenciados na consulta (tabelas, índices, estatísticas, etc.) Em casos raros, se um objeto de metadados for modificado na réplica primária enquanto uma consulta mantém um bloqueio no mesmo objeto na réplica apenas de leitura, a consulta pode [bloquear](/sql/database-engine/availability-groups/windows/troubleshoot-primary-changes-not-reflected-on-secondary#BKMK_REDOBLOCK) o processo que aplica alterações da réplica primária para a réplica apenas de leitura. Se tal consulta fosse executada por muito tempo, faria com que a réplica apenas de leitura estivesse significativamente dessincronizada com a réplica primária. 
+As consultas em execução em réplicas apenas de leitura precisam de aceder aos metadados para os objetos referenciados na consulta (tabelas, índices, estatísticas, etc.) Em casos raros, se um objeto de metadados for modificado na réplica primária enquanto uma consulta mantém um bloqueio no mesmo objeto na réplica apenas de leitura, a consulta pode [bloquear](/sql/database-engine/availability-groups/windows/troubleshoot-primary-changes-not-reflected-on-secondary#BKMK_REDOBLOCK) o processo que aplica alterações da réplica primária para a réplica apenas de leitura. Se tal consulta fosse executada por muito tempo, faria com que a réplica apenas de leitura estivesse significativamente dessincronizada com a réplica primária.
 
-Se uma consulta de longa duração sobre uma réplica só de leitura causar este tipo de bloqueio, será automaticamente encerrada e a sessão receberá o erro 1219, "A sua sessão foi desligada devido a uma operação DDL de alta prioridade".
+Se uma consulta de longa duração sobre uma réplica apenas de leitura causar este tipo de bloqueio, será automaticamente encerrada. A sessão receberá o erro 1219, "A sua sessão foi desligada devido a uma operação DDL de alta prioridade", ou erro 3947: "A transação foi abortada porque o cálculo secundário não conseguiu recuperar. Recandidutar a transação."
 
 > [!NOTE]
-> Se receber o erro 3961 ou o erro 1219 ao executar consultas contra uma réplica apenas de leitura, recandidutar a consulta.
+> Se receber o erro 3961, 1219 ou 3947 ao executar consultas contra uma réplica apenas de leitura, relempende a consulta.
 
 > [!TIP]
 > Nos níveis de serviço Premium e Business Critical, quando ligados a uma réplica apenas de leitura, o `redo_queue_size` `redo_rate` DMV [sys.dm_database_replica_states](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database) pode ser utilizado para monitorizar o processo de sincronização de dados, servindo como indicadores de latência de dados na réplica apenas de leitura.

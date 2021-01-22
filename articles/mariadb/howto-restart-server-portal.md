@@ -3,15 +3,15 @@ title: Reiniciar servidor - Portal Azure - Base de Dados Azure para MariaDB
 description: Este artigo descreve como pode reiniciar uma Base de Dados Azure para servidor MariaDB utilizando o Portal Azure.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 0c16cf8d67394f6aa50cb30a44b4ff5a677159de
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: a912c1cde092b082e4c0229b1f454e80f32e319e
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94538891"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664890"
 ---
 # <a name="restart-azure-database-for-mariadb-server-using-azure-portal"></a>Reinicie a base de dados do Azure para o servidor MariaDB utilizando o portal Azure
 Este tópico descreve como pode reiniciar uma Base de Dados Azure para servidor MariaDB. Pode ser necessário reiniciar o servidor por razões de manutenção, o que provoca uma falha curta à medida que o servidor executa a operação.

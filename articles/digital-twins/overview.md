@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: 49b7bae1a0cc224b92f292b891fae210f2cffa4e
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 91915f204a68d59a603b8bdea383b497a5b33d34
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400612"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664032"
 ---
 # <a name="what-is-azure-digital-twins"></a>O que é o Azure Digital Twins?
 
@@ -34,13 +34,15 @@ No Azure Digital Twins, define as entidades digitais que representam as pessoas,
 
 Pode pensar nestas definições de modelo como um vocabulário especializado para descrever o seu negócio. Para uma solução de gestão de edifícios, por exemplo, poderá definir modelos como "edifício", "piso" e "elevador". Em seguida, pode criar **gémeos digitais** com base nestes modelos para representar o seu ambiente específico.
 
+[!INCLUDE [digital-twins-versus-device-twins](../../includes/digital-twins-versus-device-twins.md)]
+
 Os modelos são definidos numa linguagem semelhante a JSON chamada Linguagem de Definição de [Gémeos Digitais (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md)e descrevem gémeos em termos das suas propriedades estatais, eventos de telemetria, comandos, componentes e relacionamentos.
 * Os modelos definem **relações** semânticas entre as suas entidades para que possa ligar os seus gémeos a um gráfico de conhecimento que reflita as suas interações. Podes pensar nos modelos como substantivos numa descrição do teu mundo, e nas relações como verbos.
 * Também pode especializar gémeos usando a herança modelo. Um modelo pode herdar de outro.
 
 O DTDL é utilizado para modelos de dados em outros serviços Azure IoT, incluindo [IoT Plug and Play (PnP)](../iot-pnp/overview-iot-plug-and-play.md) e [Time Series Insights (TSI)](../time-series-insights/overview-what-is-tsi.md). Isto ajuda-o a manter a sua solução Azure Digital Twins conectada e compatível com outras partes do ecossistema Azure.
 
-### <a name="live-execution-environment"></a>Ambiente de execução ao vivo
+### <a name="live-execution-environment"></a>Ambiente de execução ativo
 
 Os modelos digitais em Azure Digital Twins são representações ao vivo e atualizadas do mundo real. Utilizando as relações nos seus modelos DTDL personalizados, irá ligar gémeos a um **gráfico ao vivo** que representa o seu ambiente.
 
@@ -67,11 +69,11 @@ Também pode conduzir a Azure Digital Twins a partir de outras fontes de dados, 
 Os dados do seu modelo Azure Digital Twins podem ser encaminhados para os serviços Azure a jusante para análise ou armazenamento adicional. Isto é fornecido através de **rotas de eventos**, que usam [Event Hub,](../event-hubs/event-hubs-about.md) [Event Grid](../event-grid/overview.md)ou [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) para conduzir os fluxos de dados pretendidos.
 
 Algumas coisas que você pode fazer com as rotas do evento incluem:
-* Armazenar dados da Azure Digital Twins no [Lago de Dados Azure](../storage/blobs/data-lake-storage-introduction.md)
-* Analisar dados da Azure Digital Twins com [a Azure Synapse Analytics,](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)ou outras ferramentas de análise de dados da Microsoft
-* Integrando fluxos de trabalho maiores com apps lógicas
+* Armazenar dados do Azure Digital Twins no [Azure Data Lake](../storage/blobs/data-lake-storage-introduction.md)
+* Analisar dados do Azure Digital Twins com o [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) ou outras ferramentas de análise de dados da Microsoft
+* Integrar fluxos de trabalho maiores com o Logic Apps
 * Ligar as Gémeas Digitais Azure a Time Series Insights para acompanhar a história da série de tempo de cada gémeo
-* Alinhar um modelo de séries de tempo em insights de séries de tempo com uma fonte em Azure Digital Twins
+* Alinhar um Modelo de Série de Tempo ao Time Series Insights com origem no Azure Digital Twins
 
 Esta é outra forma de a Azure Digital Twins se ligar a uma solução maior e suportar as suas necessidades personalizadas para continuar a trabalhar com estas ideias.
 

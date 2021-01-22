@@ -4,16 +4,16 @@ description: Conheça os Azure Analysis Services, uma plataforma totalmente geri
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 01/07/2021
+ms.date: 01/20/2021
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: c4a14ab1e5b52eb36a532c6d69713d588864d288
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 542b1ed96025f6bd40cd4da766b434dde3569c25
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019079"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98663779"
 ---
 # <a name="what-is-azure-analysis-services"></a>O que é o Azure Analysis Services?
 
@@ -83,6 +83,7 @@ O Azure Analysis Services é suportado em várias regiões em todo o mundo. A di
 |---------|---------|:---------:|
 |Sul do Brasil     |    B1, B2, S0, S1, S2, S4, D1     |     1    |
 |Canadá Central    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
+|Canadá Central     |     S8v2, S9v2   |    1    |
 |E.U.A. Leste     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
 |E.U.A. Leste 2     |     B1, B2, S0, S1, S2, S4, D1   |    7    |
 |E.U.A. Leste 2     |     S8v2, S9v2   |    1    |
@@ -186,7 +187,7 @@ O Analysis Services utiliza a [autorização baseada em funções](/analysis-ser
   
 Os utilizadores finais não administrativos que consultam dados têm acesso através das funções de base de dados. Uma função de base de dados é criada como um objeto separado na base de dados e aplica-se apenas à base de dados na qual essa função é criada. As funções de base de dados são definidas pelas permissões (de base de dados) de Administrador, Leitura e Leitura e Processo. As contas de utilizadores e grupos são adicionadas através do SQL Server Management Studio ou PowerShell.
 
-### <a name="row-level-security"></a>Row-level security
+### <a name="row-level-security"></a>Segurança ao nível da linha
 
 Os modelos em tabela em todos os modelos de compatibilidade suportam a segurança ao nível da linha. A segurança ao nível da linha é configurada no modelo através de expressões DAX que definem as linhas numa tabela e as linhas nas direções de uma tabela relacionada que um utilizador pode consultar. Os filtros de linhas que utilizem expressões DAX são definidos para as permissões de Leitura e Leitura e Processo. 
 
@@ -213,7 +214,7 @@ Desenvolver e implementar modelos com projetos visual studio com serviços de an
 
 Os Microsoft Analysis Services Projects estão disponíveis como um pacote VSIX instalado gratuitamente. [Transferir do Marketplace](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects). A extensão funciona com qualquer versão do Visual Studio 2017 e mais tarde, incluindo a edição comunitária gratuita.
 
-### <a name="sql-server-management-studio"></a>SQL Server Management Studio
+### <a name="sql-server-management-studio"></a>O SQL Server Management Studio
 
 Faça a gestão dos seus servidores e das suas bases de dados de modelos com o [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms). Ligue aos seus servidores na cloud. Execute scripts TMSL diretamente na janela de consultas XMLA e utilize-os, bem como o PowerShell, para automatizar tarefas. As funcionalidades e funções novas são disponibilizadas rapidamente - o SSMS é atualizado todos os meses.
 
@@ -263,7 +264,7 @@ As coisas evoluem rapidamente. Obtenha as últimas informações no [blog Power 
 
 O Analysis Services tem uma vibrante comunidade de utilizadores. Junte-se à conversa no [fórum do Azure Analysis Services](https://aka.ms/azureanalysisservicesforum).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Inscreva-se numa Avaliação Gratuita do Azure](https://azure.microsoft.com/offers/ms-azr-0044p/)   

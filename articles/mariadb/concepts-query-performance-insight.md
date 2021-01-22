@@ -3,15 +3,15 @@ title: Consulta Performance Insight - Base de Dados Azure para MariaDB
 description: Este artigo descreve a funcionalidade De Insight de Desempenho de Consulta na Base de Dados Azure para MariaDB
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: b643ba3305736480e06d7c10d594b2271839038f
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 9e8e4527ba1717b4d152f501a38c3c8f65faf70e
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94536337"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664236"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mariadb"></a>Query Performance Insight no Azure Database for MariaDB
 
@@ -56,7 +56,7 @@ Pode clicar e arrastar no gráfico para restringir a uma janela de tempo especí
 ### <a name="wait-statistics"></a>Estatísticas de espera 
 
 > [!NOTE]
-> As estatísticas de espera destinam-se a resolver problemas de problemas de desempenho. Recomenda-se que seja ligado apenas para efeitos de resolução de problemas. <br>Se receber a mensagem de erro no portal Azure " *O problema encontrado para 'Microsoft.DBforMariaDB'; não pode cumprir o pedido. Se este problema continuar ou for inesperado, contacte o suporte com esta informação."* ao visualizar estatísticas de espera, utilize um período de tempo menor.
+> As estatísticas de espera destinam-se a resolver problemas de problemas de desempenho. Recomenda-se que seja ligado apenas para efeitos de resolução de problemas. <br>Se receber a mensagem de erro no portal Azure "*O problema encontrado para 'Microsoft.DBforMariaDB'; não pode cumprir o pedido. Se este problema continuar ou for inesperado, contacte o suporte com esta informação."* ao visualizar estatísticas de espera, utilize um período de tempo menor.
 
 As estatísticas de espera fornecem uma visão dos eventos de espera que ocorrem durante a execução de uma consulta específica. Saiba mais sobre os tipos de eventos de espera na documentação do [motor MySQL.](https://go.microsoft.com/fwlink/?linkid=2098206)
 

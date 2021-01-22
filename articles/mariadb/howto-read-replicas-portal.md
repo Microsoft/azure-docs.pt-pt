@@ -3,15 +3,15 @@ title: Gerir réplicas de leitura - Portal Azure - Base de Dados Azure para Mari
 description: Este artigo descreve como configurar e gerir réplicas de leitura na Base de Dados Azure para MariaDB usando o portal
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: how-to
 ms.date: 6/10/2020
-ms.openlocfilehash: 3ca6ef3c368a5f578cc90fae3923caa89f3b076a
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: fa2afdccf9c8bd6ec7f5808674e6eec968838d10
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94537752"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98665009"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-portal"></a>Como criar e gerir réplicas de leitura na Base de Dados Azure para MariaDB usando o portal Azure
 

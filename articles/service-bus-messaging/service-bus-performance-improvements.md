@@ -4,12 +4,12 @@ description: Descreve como usar o Service Bus para otimizar o desempenho ao troc
 ms.topic: article
 ms.date: 01/15/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7bfff1a31365724ed1d1cb6ff1956a4e2ef4f4c0
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 70f2fe88cf363572bcbca71115ba08dc0ed10e6d
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539438"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664703"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Melhores práticas para uma melhoria do desempenho com as Mensagens do Service Bus
 
@@ -150,8 +150,8 @@ static Task ErrorHandler(ProcessErrorEventArgs args)
 
 static async Task MessageHandler(ProcessMessageEventArgs args)
 {
-Console.WriteLine("Handle message");
-      await args.CompleteMessageAsync(args.Message);
+    Console.WriteLine("Handle message");
+    await args.CompleteMessageAsync(args.Message);
 }
 
 await processor.StartProcessingAsync();
@@ -346,6 +346,8 @@ Para mais informações, consulte as seguintes `PrefetchCount` propriedades:
 
 - [ServiceBusReceiver.PrefetchCount](/dotnet/api/azure.messaging.servicebus.servicebusreceiver.prefetchcount)
 - [ServiceBusProcessor.PrefetchCount](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.prefetchcount)
+
+Pode definir valores para estas propriedades em [Opções ServiceBusReceiver](/dotnet/api/azure.messaging.servicebus.servicebusreceiveroptions) ou [ServiceBusProcessorOptions](/dotnet/api/azure.messaging.servicebus.servicebusprocessoroptions).
 
 # <a name="microsoftazureservicebus-sdk"></a>[Microsoft.Azure.ServiceBus SDK](#tab/net-standard-sdk)
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1667c21b9a35b8e93feffb8cf1b37d4409da73c3
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 1552401953a8cba9dda787a0f0e461adb7972920
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98044310"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664457"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Configurar uma instância e autenticação de Gémeos Digitais Azure (scripted)
 
@@ -29,11 +29,13 @@ Esta versão deste artigo completa estes passos executando uma amostra [ **de sc
 
 ## <a name="prerequisites-download-the-script"></a>Pré-requisitos: Descarregue o script
 
-O guião da amostra está escrito no PowerShell. Faz parte das amostras de ponta a ponta dos [**Gémeos Digitais Azure,**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/)que pode descarregar para a sua máquina navegando para essa ligação de amostra e selecionando o botão *Download ZIP* por baixo do título.
+O guião da amostra está escrito no PowerShell. Faz parte das amostras de ponta a ponta dos [**Gémeos Digitais Azure,**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/)que pode descarregar para a sua máquina navegando para essa ligação de amostra e selecionando o botão *de código Browse* por baixo do título. Isto irá levá-lo ao gitHub repo para as amostras, que você pode baixar como um *. ZIP* selecionando o botão *Código* e *Descarregando ZIP*.
 
-Isto irá transferir o projeto de amostra para a sua máquina à medida _**queAzure_Digital_Twins_end_to_end_samples.zip**_. Navegue para a pasta da sua máquina e desaperte-a para extrair os ficheiros.
+:::image type="content" source="media/includes/download-repo-zip.png" alt-text="Vista para as amostras digitais de gémeos no GitHub. O botão Código é selecionado, produzindo uma pequena caixa de diálogo onde é realçado o botão Download ZIP." lightbox="media/includes/download-repo-zip.png":::
 
-Na pasta desapertado, o script de implementação está localizado em _Azure_Digital_Twins_end_to_end_samples > scripts > **deploy.ps1**_.
+Isto irá descarregar um *. Pasta ZIP* para a sua máquina **comodigital-twins-samples-master.zip**. Navegue para a pasta da sua máquina e desaperte-a para extrair os ficheiros.
+
+Na pasta desapertado, o script de implementação está localizado em _scripts digitais-gémeos-mestre > > **deploy.ps1**_.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -56,7 +58,7 @@ Aqui estão os passos para executar o script de implementação em Cloud Shell.
 
     :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Janela cloud Shell mostrando a seleção do ícone upload":::
 
-    Navegue para o ficheiro _**deploy.ps1**_ na sua máquina (em _Azure_Digital_Twins_end_to_end_samples > scripts > **deploy.ps1)**_ e acerte em "Open". Isto irá enviar o ficheiro para cloud Shell para que possa executá-lo na janela Cloud Shell.
+    Navegue para o ficheiro _**deploy.ps1**_ na sua máquina (em _scripts digitais-gémeos-mestre > > **deploy.ps1)**_ e atinja "Open". Isto irá enviar o ficheiro para cloud Shell para que possa executá-lo na janela Cloud Shell.
 
 4. Executar o script enviando o `./deploy.ps1` comando na janela Cloud Shell. Pode copiar o comando abaixo (lembre-se que para colar em Cloud Shell, pode utilizar **Ctrl+Shift+V** no Windows e Linux, ou **Cmd+Shift+V** no macOS. Também pode utilizar o menu de clique à direita).
 
@@ -102,7 +104,7 @@ Esta página lista todas as suas instâncias Azure Digital Twins. Procure o nome
 
 Se a verificação não tiver sido bem sucedida, pode voltar a tentar criar uma instância utilizando o [portal](how-to-set-up-instance-portal.md#create-the-azure-digital-twins-instance) ou [o CLI](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance).
 
-### <a name="collect-instance-values"></a>Recolher valores de instância
+### <a name="collect-instance-values"></a>Recolher os valores das instâncias
 
 Selecione o nome do seu caso na [página Azure Digital Twins](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.DigitalTwins%2FdigitalTwinsInstances) para abrir a página *geral* do caso. Note o seu *Nome,* *Grupo de Recursos* e Nome *hospedeiro.* Pode precisar mais tarde para identificar e ligar-se ao seu caso.
 

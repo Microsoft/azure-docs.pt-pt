@@ -3,15 +3,15 @@ title: Registos de consulta lenta - Base de Dados Azure para MariaDB
 description: Descreve os registos disponíveis na Base de Dados Azure para MariaDB e os parâmetros disponíveis para permitir diferentes níveis de registo.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 11/6/2020
-ms.openlocfilehash: a5acf3b6447b2e3722a27951700138f756a99251
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 2d3c3c92cc4d0da38f18c7895f4f7f3f3385c653
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541118"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664168"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mariadb"></a>Registos de consulta lenta na Base de Dados Azure para MariaDB
 Na Base de Dados Azure para MariaDB, o registo de consulta lenta está disponível para os utilizadores. O acesso ao registo de transações não é suportado. O registo de consulta lenta pode ser usado para identificar estrangulamentos de desempenho para a resolução de problemas.
@@ -26,9 +26,9 @@ Por predefinição, o registo de consulta lenta é desativado. Para a capacitá-
 Outros parâmetros que pode ajustar incluem:
 
 - **long_query_time:** se uma consulta demorar mais do que long_query_time (em segundos) essa consulta é registada. A predefinição é de 10 segundos.
-- **log_slow_admin_statements** : se a ON incluir declarações administrativas como ALTER_TABLE e ANALYZE_TABLE nas declarações escritas à slow_query_log.
-- **log_queries_not_using_indexes** : determina se as consultas que não utilizam índices são registadas no slow_query_log
-- **log_throttle_queries_not_using_indexes** : Este parâmetro limita o número de consultas não indexados que podem ser escritas para o registo de consulta lenta. Este parâmetro entra em vigor quando log_queries_not_using_indexes está definido para ON.
+- **log_slow_admin_statements**: se a ON incluir declarações administrativas como ALTER_TABLE e ANALYZE_TABLE nas declarações escritas à slow_query_log.
+- **log_queries_not_using_indexes**: determina se as consultas que não utilizam índices são registadas no slow_query_log
+- **log_throttle_queries_not_using_indexes**: Este parâmetro limita o número de consultas não indexados que podem ser escritas para o registo de consulta lenta. Este parâmetro entra em vigor quando log_queries_not_using_indexes está definido para ON.
 - **log_output:** se "File", permite que o registo de consulta lenta seja escrito tanto para o armazenamento do servidor local como para os Registos de Diagnóstico do Monitor Azure. Se for “Nenhum”, o registo de consultas lentas só será escrito nos Registos de Diagnósticos do Azure Monitor. 
 
 > [!IMPORTANT]

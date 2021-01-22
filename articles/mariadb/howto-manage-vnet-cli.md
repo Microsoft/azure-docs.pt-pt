@@ -3,17 +3,17 @@ title: Gerir pontos finais VNet - Azure CLI - Azure Database for MariaDB
 description: Este artigo descreve como criar e gerir a Base de Dados Azure para os pontos finais e regras do serviço MariaDB VNet utilizando a linha de comando Azure CLI.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 43d1b7700395bd06960737eae4f318d61aa03717
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: bee4af12b30b64409812d6758521a9ec29b2b61f
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94635250"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98665094"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-vnet-service-endpoints-using-azure-cli"></a>Criar e gerir a Base de Dados Azure para os pontos finais do serviço MariaDB VNet utilizando o Azure CLI
 

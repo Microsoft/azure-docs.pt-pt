@@ -3,16 +3,16 @@ title: 'Quickstart: Connect MySQL Workbench - Azure Database for MariaDB'
 description: Este início rápido indica os passos para utilizar o MySQL Workbench para se ligar e consultar dados do Azure Database for MariaDB.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 3/18/2020
-ms.openlocfilehash: 209c793903f1f706fc27102a783aa76e65382fcd
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: f4426e1d1b22c521dc436dc7e304d57e57b1812c
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541101"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664389"
 ---
 # <a name="quickstart-azure-database-for-mariadb-use-mysql-workbench-to-connect-and-query-data"></a>Quickstart: Azure Database for MariaDB: Use a bancada mySQL workbench para ligar e consultar dados
 
@@ -35,7 +35,7 @@ Obtenha as informações de ligação necessárias para ligar à instância do A
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-2. No menu esquerdo no portal do Azure, selecione **Todos os recursos**. Procure o servidor que criou (como **mydemoserver** ).
+2. No menu esquerdo no portal do Azure, selecione **Todos os recursos**. Procure o servidor que criou (como **mydemoserver**).
 
 3. Selecione o nome do servidor.
 
@@ -49,7 +49,7 @@ Para ligar a um servidor do Azure Database for MariaDB com o MySQL Workbench:
 
 1. Abra o MySQL Workbench no seu computador. 
 
-2. Na caixa de diálogo **Configurar Ligação Nova** , no separador **Parâmetros** , introduza as informações seguintes:
+2. Na caixa de diálogo **Configurar Ligação Nova**, no separador **Parâmetros**, introduza as informações seguintes:
 
    | Definição | Valor sugerido | Descrição do campo |
    |---|---|---|
@@ -66,7 +66,7 @@ Para ligar a um servidor do Azure Database for MariaDB com o MySQL Workbench:
 
 4. Selecione **OK** para guardar a ligação. 
 
-5. Em **MySQL Connections** , selecione o mosaico que corresponde ao seu servidor. Aguarde que a ligação seja estabelecida.
+5. Em **MySQL Connections**, selecione o mosaico que corresponde ao seu servidor. Aguarde que a ligação seja estabelecida.
 
    É aberto um novo separador do SQL com um editor em branco, onde pode escrever as suas consultas.
     
@@ -108,7 +108,7 @@ Para ligar a um servidor do Azure Database for MariaDB com o MySQL Workbench:
     
     ![Selecione o separador SQL do MySQL Workbench para executar o código SQL de exemplo](media/connect-workbench/3-workbench-sql-tab.png)
 
-2. Para executar o código SQL de exemplo, no separador **Ficheiro SQL** , selecione o ícone de relâmpago na barra de ferramentas.
+2. Para executar o código SQL de exemplo, no separador **Ficheiro SQL**, selecione o ícone de relâmpago na barra de ferramentas.
 3. Repare nos três resultados em separadores na secção **Grelha de Resultado** no meio da página. 
 4. Repare na lista de **Resultados** na parte inferior da página. É apresentado o estado de cada comando. 
 

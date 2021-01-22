@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/5/2020
 ms.author: mbaldwin
-ms.openlocfilehash: e19277aa3639031371e0e8dd28f4dd849efd4597
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 24fef1680c5660a70a20ae727833b045f6c5aa88
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97933936"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664355"
 ---
 # <a name="how-to-create-an-azure-key-vault-and-vault-access-policy-by-using-a-resource-manager-template"></a>Como criar uma política de acesso a cofre e cofre Azure utilizando um modelo de Gestor de Recursos
 
@@ -150,7 +150,7 @@ Pode implementar políticas de acesso a um cofre de chaves existente sem recoloc
             "permissions": {
               "keys": "[parameters('keysPermissions')]",
               "secrets": "[parameters('secretsPermissions')]",
-              "certificates": [parameters('certificatesPermissions')]
+              "certificates": "[parameters('certificatesPermissions')]"
             }
           }
         ]
@@ -160,6 +160,7 @@ Pode implementar políticas de acesso a um cofre de chaves existente sem recoloc
 }
 
 ```
+
 Para obter mais informações sobre as definições do modelo do Cofre de Chaves, consulte a [referência do modelo key Vault ARM](/azure/templates/microsoft.keyvault/vaults/accesspolicies).
 
 ## <a name="more-key-vault-resource-manager-templates"></a>Mais modelos de gestor de recursos de cofre de cofre

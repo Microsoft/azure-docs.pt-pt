@@ -3,17 +3,17 @@ title: Script CLI - Descarregue registos de consulta lenta - Base de Dados Azure
 description: Esta amostra O script Azure CLI mostra como ativar e descarregar os registos de consulta lenta de uma Base de Dados Azure para servidor MariaDB.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
 ms.date: 12/02/2019
-ms.openlocfilehash: 2e185997f887e0fd90a7966087350f91aabee6d1
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 150467a5770cd8d2fa0f1fabe562674b55711bcc
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541985"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664571"
 ---
 # <a name="enable-and-download-server-slow-query-logs-of-an-azure-database-for-mariadb-server-using-azure-cli"></a>Ative e descarregue registos de consulta lenta do servidor de uma Base de Dados Azure para servidor MariaDB utilizando O Azure CLI
 Esta amostra de script CLI permite e descarrega os registos de consulta lenta de uma única Base de Dados Azure para o servidor MariaDB.

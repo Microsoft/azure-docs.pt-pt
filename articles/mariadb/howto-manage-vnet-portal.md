@@ -3,15 +3,15 @@ title: Gerir pontos finais VNet - Portal Azure - Base de Dados Azure para MariaD
 description: Criar e gerir a Base de Dados Azure para pontos finais de serviço MariaDB VNet e regras usando o portal Azure
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 5eaa7821c61010b322d8f9032c439df28c297f3d
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: e84d5d15073e7ff4f22b15556345e40b01a9c37b
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540880"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98665026"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>Criar e gerir a Base de Dados Azure para pontos finais de serviço MariaDB VNet e regras VNet utilizando o portal Azure
 
@@ -33,7 +33,7 @@ Os pontos finais e as regras dos serviços da Rede Virtual (VNet) expandem o esp
 
    ![Portal Azure - clique na segurança de conexão](./media/howto-manage-vnet-portal/1-connection-security.png)
 
-4. Introduza um nome de regra VNet, selecione a subscrição, o nome da rede virtual e sub-rede e, em seguida, clique em **Enable**. Isto ativa automaticamente os pontos finais do serviço VNet na sub-rede utilizando a etiqueta de serviço **Microsoft.SQL.**
+4. Introduza um nome de regra VNet, selecione a subscrição, o nome da rede virtual e sub-rede e, em seguida, clique em **Enable**. Isto ativa automaticamente os pontos finais do serviço VNet na sub-rede utilizando a etiqueta de serviço **.SQL Microsoft.**
 
    ![Portal Azure - configurar vNet](./media/howto-manage-vnet-portal/2-configure-vnet.png)
 
