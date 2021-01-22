@@ -9,12 +9,12 @@ ms.date: 06/24/2020
 ms.author: mhopkins
 ms.reviewer: dineshm
 ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: c20c78cb3c946c666b1640ccac6f86c9b52387ea
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: b50aadfa16ed95bacb5247187c15489a1b017d39
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843881"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676579"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>Tutorial: Carregar dados de imagem na nuvem com armazenamento Azure
 
@@ -55,7 +55,7 @@ Crie um grupo de recursos com o comando [az group create](/cli/azure/group). Um 
 
 O exemplo seguinte cria um grupo de recursos com o nome `myResourceGroup`.
 
-```bash
+```azurecli
 az group create --name myResourceGroup --location southeastasia
 ```
 
@@ -72,7 +72,7 @@ A amostra envia imagens para um recipiente de bolhas numa conta de armazenamento
 
 No seguinte comando, substitua o seu próprio nome globalmente único para a conta de armazenamento Blob onde vê o `<blob_storage_account>` espaço reservado.
 
-```bash
+```azurecli
 blobStorageAccount="<blob_storage_account>"
 
 az storage account create --name $blobStorageAccount --location southeastasia \
@@ -130,7 +130,7 @@ Crie um plano do Serviço de Aplicações com o comando [az appservice plan crea
 
 O exemplo seguinte cria um plano do Serviço de Aplicações com o nome `myAppServicePlan`, que utiliza o escalão de preços **Gratuito**.
 
-```bash
+```azurecli
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku Free
 ```
 
@@ -144,7 +144,7 @@ A aplicação web fornece um espaço de hospedagem para o código de aplicação
 
 No comando seguinte, `<web_app>` substitua-o por um nome único. Os carateres válidos são `a-z`, `0-9` e `-`. Se `<web_app>` não for único, obtém-se a mensagem de erro: *O website com nome próprio já `<web_app>` existe.* O URL predefinido da aplicação Web é `https://<web_app>.azurewebsites.net`.  
 
-```bash
+```azurecli
 webapp="<web_app>"
 
 az webapp create --name $webapp --resource-group myResourceGroup --plan myAppServicePlan
@@ -164,7 +164,7 @@ O Serviço de Aplicações suporta várias formas de implementar conteúdo numa 
 
 O projeto da amostra contém uma [aplicação de MVC ASP.NET.](https://www.asp.net/mvc) A aplicação aceita uma imagem, guarda-a para uma conta de armazenamento e exibe imagens de um recipiente de miniaturas. A aplicação web utiliza o [Azure.Storage](/dotnet/api/azure.storage), [Azure.Storage.Blobs](/dotnet/api/azure.storage.blobs)e [Azure.Storage.Blobs.Models](/dotnet/api/azure.storage.blobs.models) para interagir com o serviço de armazenamento Azure.
 
-```bash
+```azurecli
 az webapp deployment source config --name $webapp --resource-group myResourceGroup \
   --branch master --manual-integration \
   --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp
@@ -180,7 +180,7 @@ az webapp deployment source config --name $webapp --resource-group myResourceGro
 
 O Serviço de Aplicações suporta várias formas de implementar conteúdo numa aplicação Web. Neste tutorial, vai implementar a aplicação Web a partir de um [repositório de exemplo do GitHub público](https://github.com/Azure-Samples/azure-sdk-for-js-storage-blob-stream-nodejs). Configure a implementação do GitHub para a aplicação Web com o comando [az webapp deployment source config](/cli/azure/webapp/deployment/source).
 
-```bash
+```azurecli
 az webapp deployment source config --name $webapp --resource-group myResourceGroup \
   --branch master --manual-integration \
   --repo-url https://github.com/Azure-Samples/azure-sdk-for-js-storage-blob-stream-nodejs
@@ -200,7 +200,7 @@ az webapp deployment source config --name $webapp --resource-group myResourceGro
 
 A aplicação web de amostra utiliza as [APIs de Armazenamento Azure para .NET](/dotnet/api/overview/azure/storage) para fazer upload de imagens. As credenciais de conta de armazenamento são definidas nas definições da aplicação para a aplicação web. Adicione as definições de aplicações à aplicação implementada com o comando de configuração de [appsettings az webapp.](/cli/azure/webapp/config/appsettings)
 
-```bash
+```azurecli
 az webapp config appsettings set --name $webapp --resource-group myResourceGroup \
   --settings AzureStorageConfig__AccountName=$blobStorageAccount \
     AzureStorageConfig__ImageContainer=images \
@@ -220,7 +220,7 @@ az webapp config appsettings set --name $webapp --resource-group myResourceGroup
 
 A aplicação web de amostras utiliza a [biblioteca de clientes Azure Storage para o JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage) para fazer upload de imagens. As credenciais de conta de armazenamento estão definidas nas definições da aplicação para a aplicação web. Adicione as definições de aplicações à aplicação implementada com o comando de configuração de [appsettings az webapp.](/cli/azure/webapp/config/appsettings)
 
-```bash
+```azurecli
 az webapp config appsettings set --name $webapp --resource-group myResourceGroup \
   --settings AZURE_STORAGE_ACCOUNT_NAME=$blobStorageAccount \
     AZURE_STORAGE_ACCOUNT_ACCESS_KEY=$blobStorageAccountKey

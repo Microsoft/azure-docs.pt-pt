@@ -13,12 +13,12 @@ ms.date: 01/04/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperf-fy21q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: ec925ce165c1de98fe920381e1b51e3388c1e4ad
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 33dffa40e0236483d641c2e2bbe318bb62a7724d
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232408"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678192"
 ---
 # <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Vidas de token configuradas na plataforma de identidade da Microsoft (pré-visualização)
 
@@ -82,9 +82,11 @@ Você pode definir políticas de vida útil para tokens de atualização e ficha
 > [!IMPORTANT]
 > A partir de maio de 2020, os novos inquilinos não podem configurar atualização e a sessão simbólica de vida.  Os inquilinos com configuração existente podem modificar as políticas de atualização e sessão até 30 de janeiro de 2021.   O Azure Ative Directory deixará de honrar a configuração de atualização e ficha de sessão existente em políticas após 30 de janeiro de 2021. Você ainda pode configurar o acesso, SAML, e id token vidas após a aposentadoria.
 >
-> Se precisar de continuar a definir o período de tempo antes de um utilizador ser convidado a iniciar novamente o súmis, configurar a frequência de inscrição no Acesso Condicional. Para saber mais sobre Acesso Condicional, leia a gestão da [sessão de autenticação configurada com Acesso Condicional.](/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime)
+> Se precisar de continuar a definir o período de tempo antes de um utilizador ser convidado a iniciar novamente o súmis, configurar a frequência de inscrição no Acesso Condicional. Para saber mais sobre Acesso Condicional, leia a gestão da [sessão de autenticação configurada com Acesso Condicional.](../conditional-access/howto-conditional-access-session-lifetime.md)
 >
 > Se não pretender utilizar o Acesso Condicional após a data de reforma, as suas fichas de atualização e sessão serão definidas como [configuração predefinitiva](#configurable-token-lifetime-properties-after-the-retirement) nessa data e deixará de poder alterar as suas vidas.
+>
+> A vida útil do símbolo existente não será alterada. Após o seu termo, um novo token será emitido com base no valor padrão.
 
 :::image type="content" source="./media/active-directory-configurable-token-lifetimes/roadmap.svg" alt-text="Informações sobre aposentadoria":::
 

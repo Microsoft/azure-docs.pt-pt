@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.author: kaib
 ms.date: 03/11/2020
 ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 7f51aae39c2cb60d8b60d4fb496f74eadb91b33b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 42b1aed2f6c66dbfc0f04759b232855f3b7f0a2a
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487658"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676823"
 ---
 # <a name="verify-encryption-status-for-linux"></a>Verifique o estado de encriptação do Linux 
 
@@ -70,7 +70,7 @@ Pode capturar as definições de encriptação de cada disco utilizando os segui
 ### <a name="single-pass"></a>Passe único
 Num único passe, as definições de encriptação são carimbadas em cada um dos discos (SO e dados). Pode capturar as definições de encriptação de um disco DE num único passe da seguinte forma:
 
-``` powershell
+```powershell
 $RGNAME = "RGNAME"
 $VMNAME = "VMNAME"
 
@@ -160,7 +160,7 @@ Write-Host "====================================================================
 
 Pode validar o estado de encriptação *geral* de um VM encriptado utilizando os seguintes comandos Azure CLI:
 
-```bash
+```azurecli
 VMNAME="VMNAME"
 RGNAME="RGNAME"
 az vm encryption show --name ${VMNAME} --resource-group ${RGNAME} --query "substatus"
@@ -170,7 +170,7 @@ az vm encryption show --name ${VMNAME} --resource-group ${RGNAME} --query "subst
 ### <a name="single-pass"></a>Passe único
 Pode validar as definições de encriptação de cada disco utilizando os seguintes comandos Azure CLI:
 
-```bash
+```azurecli
 az vm encryption show -g ${RGNAME} -n ${VMNAME} --query "disks[*].[name, statuses[*].displayStatus]"  -o table
 ```
 
@@ -203,7 +203,7 @@ done
 
 Discos de dados:
 
-```bash
+```azurecli
 RGNAME="RGNAME"
 VMNAME="VMNAME"
 az vm encryption show --name ${VMNAME} --resource-group ${RGNAME} --query "substatus"
@@ -223,7 +223,7 @@ done
 
 ### <a name="dual-pass"></a>Passe duplo
 
-``` bash
+```azurecli
 az vm encryption show --name ${VMNAME} --resource-group ${RGNAME} -o table
 ```
 
@@ -276,7 +276,7 @@ Para obter os detalhes de um disco específico, você precisa fornecer:
 
 Este comando lista todos os IDs para todas as suas contas de armazenamento:
 
-```bash
+```azurecli
 az storage account list --query [].[id] -o tsv
 ```
 Os IDs da conta de armazenamento são listados no seguinte formulário:
@@ -295,7 +295,7 @@ ConnectionString=$(az storage account show-connection-string --ids $id --query c
 ```
 
 O seguinte comando lista todos os contentores numa conta de armazenamento:
-```bash
+```azurecli
 az storage container list --connection-string $ConnectionString --query [].[name] -o tsv
 ```
 O recipiente usado para discos é normalmente chamado de "vhds".
@@ -306,7 +306,7 @@ ContainerName="name of the container"
 ```
 
 Utilize este comando para listar todas as bolhas num determinado recipiente:
-```bash 
+```azurecli 
 az storage blob list -c ${ContainerName} --connection-string $ConnectionString --query [].[name] -o tsv
 ```
 Escolha o disco que pretende consultar e guarde o seu nome numa variável:
@@ -314,7 +314,7 @@ Escolha o disco que pretende consultar e guarde o seu nome numa variável:
 DiskName="diskname.vhd"
 ```
 Consultar as definições de encriptação do disco:
-```bash
+```azurecli
 az storage blob show -c ${ContainerName} --connection-string ${ConnectionString} -n ${DiskName} --query metadata.DiskEncryptionSettings
 ```
 
@@ -323,7 +323,7 @@ Validar se as divisórias do disco de dados estiverem encriptadas (e o disco DE 
 
 Quando uma divisória ou disco é encriptado, é exibido como um tipo **de cripta.** Quando não está encriptado, é exibido como um tipo **de peça/disco.**
 
-``` bash
+```bash
 lsblk
 ```
 
@@ -340,11 +340,11 @@ lsblk -o NAME,TYPE,FSTYPE,LABEL,SIZE,RO,MOUNTPOINT
 
 Como um passo extra, pode validar se o disco de dados tiver alguma tecla carregada:
 
-``` bash
+```bash
 cryptsetup luksDump /dev/VGNAME/LVNAME
 ```
 
-``` bash
+```bash
 cryptsetup luksDump /dev/sdd1
 ```
 

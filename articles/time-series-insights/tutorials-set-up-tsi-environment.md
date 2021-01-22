@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Criar um ambiente Gen2 - Azure Time Series Insights Gen2 / Microsoft Docs'
+title: 'Tutorial: Criar um ambiente Gen2 - Azure Time Series Insights Gen2| Microsoft Docs'
 description: 'Tutorial: Saiba como configurar um ambiente em Azure Time Series Insights Gen2.'
 author: deepakpalled
 ms.author: dpalled
@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 01/19/2021
 ms.custom: seodec18
-ms.openlocfilehash: eeb3de2fc3f0e3e0be9c98002f11e470eaf04f8c
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 912dbf48254a8d68b9bf76db04734fd791a3edb9
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95020934"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98677058"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-gen2-environment"></a>Tutorial: Criar um ambiente Azure Time Series Insights Gen2
 
@@ -95,7 +95,7 @@ Esta secção descreve como criar um ambiente Azure Time Series Insights Gen2 e 
     | _ *Nome da conta de armazenamento** | Insira um nome globalmente único para uma nova conta de armazenamento.|
     | **Tipo de conta de armazenamento** | Selecione o tipo de armazenamento para uma nova conta de armazenamento. Recomendamos armazenamentoV2|
     | **Replicação da conta de armazenamento** | Selecione o tipo de armazenamento para uma nova conta de armazenamento. Com base na sua seleção de localização, pode escolher entre LRS, GRS e ZRS. Para este tutorial, pode selecionar LRS|
-    | **Espaço hierárquico de nomes** |Esta opção é selecionável, uma vez que selecione o tipo de armazenamento para ser StorageV2. Por predefinição, está desativado. Para este tutorial, pode deixá-lo no seu estado de *desativação* padrão|
+    | **Espaço de nomes hierárquico** |Esta opção é selecionável, uma vez que selecione o tipo de armazenamento para ser StorageV2. Por predefinição, está desativado. Para este tutorial, pode deixá-lo no seu estado de *desativação* padrão|
     |**Ativar loja quente**|Selecione **Sim** para ativar a loja quente. Esta definição pode ser desativada e reativada após a criação do ambiente. |
     |**Retenção de dados (em dias)**|Escolha a opção padrão de 7 dias. |
 
@@ -110,7 +110,7 @@ Esta secção descreve como criar um ambiente Azure Time Series Insights Gen2 e 
    | Parâmetro | Ação |
    | --- | --- |
    | **Criar uma fonte de evento?** | Selecione **Yes** (Sim).|
-   | **Name** | Insira um valor único para o nome de origem do evento. |
+   | **Nome** | Insira um valor único para o nome de origem do evento. |
    | **Tipo de origem** | **Selecione IoT Hub**. |
    | **Selecione um hub** | Escolha **Selecionar a existência.** |
    | **Subscrição** | Selecione a subscrição que utilizou para o simulador do dispositivo. |
@@ -119,7 +119,7 @@ Esta secção descreve como criar um ambiente Azure Time Series Insights Gen2 e 
    | **Grupo de consumidores IoT Hub** | Selecione **Novo,** introduza um nome único e, em seguida, selecione **+ Adicionar**. O grupo de consumidores deve ser um valor único na Azure Time Series Insights Gen2. |
    | **Propriedade de timetamp** | Este valor é utilizado para identificar a propriedade **Timestamp** nos dados de telemetria que chegam. Para este tutorial, deixe esta caixa vazia. Este simulador utiliza a hora de entrada do IoT Hub, ao qual a Azure Time Series Insights Gen2 não tem defeitos. |
 
-1. Selecione **Review + Criar**.
+1. Selecione **Rever + Criar**.
 
    [![Configurar o hub IoT criado como fonte de evento.](media/v2-update-provision/tsi-configure-event-source.png)](media/v2-update-provision/tsi-configure-event-source.png#lightbox)
 
@@ -163,7 +163,7 @@ Agora que implementou o seu ambiente Azure Time Series Insights Gen2, comece a t
 
         | Parâmetro | Ação |
         | --- | --- |
-        | **Name** | Insira um nome único para um simulador. |
+        | **Nome** | Insira um nome único para um simulador. |
         | **Descrição** | Insira uma definição. |
         | **Duração da simulação** | Definir para **executar indefinidamente**. |
         | **Modelo do dispositivo** | Clique + **Adicionar um tipo de dispositivo** <br />**Nome**: Enter **Elevator**. <br />**Quantidade**: Inserir **3**. <br /> Deixe os valores predefinidos restantes |
@@ -219,7 +219,7 @@ Nesta secção, aplica-se um modelo para estruturar os seus dados. Para completa
 
     | Parâmetro | Ação |
     | --- | ---|
-    | **Name** | Entrar **elevador** |
+    | **Nome** | Entrar **elevador** |
     | **Descrição** | Insira **Esta é uma definição tipo para Elevador** |
 
 1. Em seguida, selecione o **separador Variáveis.**
@@ -228,7 +228,7 @@ Nesta secção, aplica-se um modelo para estruturar os seus dados. Para completa
 
         | Parâmetro | Ação |
         | --- | --- |
-        | **Name** | Insira **a temperatura de Avg**. |
+        | **Nome** | Insira **a temperatura de Avg**. |
         | **Tipo** | Selecione **numérico** |
         | **Valor** | Selecione a partir da pré-sintonia: Selecione **a temperatura (Duplo)**. <br /> Nota: Pode levar alguns minutos para **que o Valor** seja automaticamente povoado após o Azure Time Series Insights Gen2 começar a receber eventos.|
         | **Operação agregação** | Expandir **Opções Avançadas**. <br /> Selecione **AVG**. |
@@ -237,7 +237,7 @@ Nesta secção, aplica-se um modelo para estruturar os seus dados. Para completa
 
         | Parâmetro | Ação |
         | --- | --- |
-        | **Name** | Insira **a Vibração Avg**. |
+        | **Nome** | Insira **a Vibração Avg**. |
         | **Tipo** | Selecione **numérico** |
         | **Valor** | Selecione a partir da pré-sintonia: Selecione **vibração (Duplo)**. <br /> Nota: Pode levar alguns minutos para **que o Valor** seja automaticamente povoado após o Azure Time Series Insights Gen2 começar a receber eventos.|
         | **Operação agregação** | Expandir **Opções Avançadas**. <br /> Selecione **AVG**. |
@@ -246,7 +246,7 @@ Nesta secção, aplica-se um modelo para estruturar os seus dados. Para completa
 
         | Parâmetro | Ação |
         | --- | --- |
-        | **Name** | Entrar **no piso**. |
+        | **Nome** | Entrar **no piso**. |
         | **Tipo** | Selecione **Categórico** |
         | **Valor** | Selecione a partir da pré-sintonia: **Select Floor (Duplo)**. <br /> Nota: Pode levar alguns minutos para **que o Valor** seja automaticamente povoado após o Azure Time Series Insights Gen2 começar a receber eventos.|
         | **Categorias** | <span style="text-decoration: underline">Etiqueta</span>   -  <span style="text-decoration: underline">Valores</span> <br /> Menor: 1,2,3,4 <br /> Meio: 5,6,7,8,9 <br /> Superior: 10,11,12,13,14,15 |
@@ -265,7 +265,7 @@ Nesta secção, aplica-se um modelo para estruturar os seus dados. Para completa
 
         | Parâmetro | Ação |
         | --- | ---|
-        | **Name** | Insira **a Hierarquia de Localização**. |
+        | **Nome** | Insira **a Hierarquia de Localização**. |
         |**Níveis**| Entre **no País** como o nome do primeiro nível <br /> Selecione **+ Adicionar Nível** <br /> Insira **o City** para o segundo nível e, em seguida, selecione **+ Adicionar Nível** <br /> **Insira o Edifício** como o nome do terceiro e último nível |
 
    1. Selecione **Guardar**.
@@ -279,7 +279,7 @@ Nesta secção, aplica-se um modelo para estruturar os seus dados. Para completa
         | Parâmetro | Ação |
         | --- | --- |
         | **Tipo** | Selecione **Elevador**. |
-        | **Name** | Insira **elevador 1**|
+        | **Nome** | Insira **elevador 1**|
         | **Descrição** | **Insira a instância para o elevador 1** |
 
     1. Navegue em **Campos de Instância** e introduza os seguintes valores:
@@ -300,7 +300,7 @@ Nesta secção, aplica-se um modelo para estruturar os seus dados. Para completa
     | Parâmetro | Ação |
     | --- | --- |
     | **Tipo** | Selecione **Elevador**. |
-    | **Name** | Entrar **elevador 2**|
+    | **Nome** | Entrar **elevador 2**|
     | **Descrição** | **Insira a instância para o elevador 2** |
     | **Hierarquias** | Selecione **hierarquia de localização** |
     | **País** | Entrar **nos EUA** |
@@ -312,7 +312,7 @@ Nesta secção, aplica-se um modelo para estruturar os seus dados. Para completa
     | Parâmetro | Ação |
     | --- | --- |
     | **Tipo** | Selecione **Elevador**. |
-    | **Name** | Entrar **elevador 3**|
+    | **Nome** | Entrar **elevador 3**|
     | **Descrição** | **Insira a instância para o elevador 3** |
     | **Hierarquias** | Selecione **hierarquia de localização** |
     | **País** | Entrar **nos EUA** |
@@ -333,7 +333,7 @@ Nesta secção, aplica-se um modelo para estruturar os seus dados. Para completa
 
     [![Visualizar o Elevador 2 com hierarquia e dados.](media/v2-update-provision/iot-solution-accelerator-elevator-two.png)](media/v2-update-provision/iot-solution-accelerator-elevator-two.png#lightbox)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Agora que completou o tutorial, limpe os recursos que criou:
 

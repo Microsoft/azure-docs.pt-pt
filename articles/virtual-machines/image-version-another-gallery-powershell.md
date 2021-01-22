@@ -9,19 +9,19 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 2f26716a4d04b574bf393f502758a725948419da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 85bc6f4468e0365d247b0adc204bd53ce9fa3006
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89299954"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676721"
 ---
 # <a name="copy-an-image-from-another-gallery-using-powershell"></a>Copie uma imagem de outra galeria usando PowerShell
 
 Se tiver várias galerias na sua organização, pode criar imagens a partir de imagens armazenadas noutras galerias. Por exemplo, você pode ter uma galeria de desenvolvimento e teste para criar e testar novas imagens. Quando estiverem prontos para serem utilizados na produção, pode copiá-los numa galeria de produção utilizando este exemplo. Também pode criar uma imagem a partir de uma imagem em outra galeria usando o [Azure CLI](image-version-another-gallery-cli.md).
 
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Para completar este artigo, você deve ter uma galeria de origem existente, definição de imagem e versão de imagem. Você também deve ter uma galeria de destino. 
 
@@ -164,6 +164,6 @@ $job.State
 
 Crie um VM a partir de uma versão de imagem [generalizada](vm-generalized-image-version-powershell.md) ou [especializada.](vm-specialized-image-version-powershell.md)
 
-[O Azure Image Builder (pré-visualização)](./linux/image-builder-overview.md) pode ajudar a automatizar a criação de versão de imagem, podendo até usá-la para atualizar e [criar uma nova versão de imagem a partir de uma versão de imagem existente.](./linux/image-builder-gallery-update-image-version.md) 
+[O Azure Image Builder (pré-visualização)](./image-builder-overview.md) pode ajudar a automatizar a criação de versão de imagem, podendo até usá-la para atualizar e [criar uma nova versão de imagem a partir de uma versão de imagem existente.](./linux/image-builder-gallery-update-image-version.md) 
 
 Para obter informações sobre como fornecer informações sobre o plano de compra, consulte [as informações do plano de compra do Supply Azure Marketplace ao criar imagens.](marketplace-images.md)

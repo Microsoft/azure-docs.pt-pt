@@ -8,12 +8,12 @@ ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.reviewer: cynthn
-ms.openlocfilehash: 43f33093010aa6a70d02c58e9faa34f7f0e2dfee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ae477dd04237e285915157615dcb6a6b841ca99
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91307284"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678260"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Pré-visualização: Criar um modelo de construtor de imagens Azure 
 
@@ -154,7 +154,7 @@ A API requer um 'SourceType' que define a fonte para a construção de imagem, a
 > Ao utilizar as imagens personalizadas do Windows existentes, pode executar o comando Sysprep até 8 vezes numa única imagem do Windows, para obter mais informações, consulte a documentação [do sysprep.](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep)
 
 ### <a name="platformimage-source"></a>Fonte da PlataformaImage 
-Azure Image Builder suporta o Windows Server e o cliente, e as imagens linux Azure Marketplace, consulte [aqui](../windows/image-builder-overview.md#os-support) a lista completa. 
+Azure Image Builder suporta o Windows Server e o cliente, e as imagens linux Azure Marketplace, consulte [aqui](../image-builder-overview.md#os-support) a lista completa. 
 
 ```json
         "source": {
@@ -404,7 +404,7 @@ Isto é suportado por diretórios Windows e caminhos Linux, mas existem algumas 
 - Janelas – Sem restrições de caminho, mas o caminho deve existir.
  
  
-Se houver um erro ao tentar descarregar o ficheiro, ou colocá-lo num diretório especificado, o passo personalizado falhará, e isso estará no personalização.log.
+Se houver um erro ao tentar descarregar o ficheiro, ou colocá-lo num diretório especificado, o passo personalizado falhará, e isso estará na personalização.log.
 
 > [!NOTE]
 > O personalizador de ficheiros só é adequado para pequenos downloads de ficheiros, < 20MB. Para transferências de ficheiros maiores, utilize um script ou um comando inline, o código de utilização para descarregar ficheiros, tais como, Linux `wget` ou `curl` Windows, `Invoke-WebRequest` .
@@ -436,7 +436,7 @@ Personalize propriedades:
 - **updateLimit** – Opcional, define quantas atualizações podem ser instaladas, padrão 1000.
  
 > [!NOTE]
-> O personalizador do Windows Update pode falhar se houver algum reinício pendente do Windows, ou instalações de aplicações ainda em execução, normalmente pode ver este erro no customization.log, `System.Runtime.InteropServices.COMException (0x80240016): Exception from HRESULT: 0x80240016` . Aconselhamos vivamente que considere adicionar um Windows Restart e/ou permitir às aplicações tempo suficiente para completar as suas instalações utilizando comandos [de sono] ou de espera( https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep?view=powershell-7) nos comandos ou scripts inline antes de executar o Windows Update.
+> O personalizador do Windows Update pode falhar se houver algum reinício pendente do Windows, ou instalações de aplicações ainda em execução, normalmente pode ver este erro na personalização.log, `System.Runtime.InteropServices.COMException (0x80240016): Exception from HRESULT: 0x80240016` . Aconselhamos vivamente que considere adicionar um Windows Restart e/ou permitir às aplicações tempo suficiente para completar as suas instalações utilizando comandos [de sono] ou de espera( https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep?view=powershell-7) nos comandos ou scripts inline antes de executar o Windows Update.
 
 ### <a name="generalize"></a>Generalizar 
 Por predefinição, o Azure Image Builder também executará o código 'deprovisionamento' no final de cada fase de personalização de imagem, para 'generalizar' a imagem. Generalizar é um processo em que a imagem é configurada para que possa ser reutilizada para criar vários VMs. Para o Windows VMs, o Azure Image Builder utiliza o Sysprep. Para o Linux, o Azure Image Builder corre 'waagent -deprovision". 
@@ -481,7 +481,7 @@ Para anular os comandos, utilize os provisionadores de scripts PowerShell ou She
 * Janelas: c:\DeprovisioningScript.ps1
 * Linux: /tmp/DeprovisioningScript.sh
 
-O Image Builder irá ler estes comandos, estes são escritos para os registos AIB, 'personalização.log'. Consulte [a resolução de problemas](image-builder-troubleshoot.md#customization-log) sobre como recolher registos.
+O Image Builder irá ler estes comandos, estes são escritos para os registos do AIB, 'personalização.log'. Consulte [a resolução de problemas](image-builder-troubleshoot.md#customization-log) sobre como recolher registos.
  
 ## <a name="properties-distribute"></a>Propriedades: distribuir
 

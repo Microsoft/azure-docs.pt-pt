@@ -1,5 +1,5 @@
 ---
-title: Autenticar dispositivos a jusante - Azure IoT Edge / Microsoft Docs
+title: Autenticar dispositivos a jusante - Azure IoT Edge | Microsoft Docs
 description: Como autenticar dispositivos a jusante ou dispositivos de folha para o IoT Hub e encaminhar a sua ligação através de dispositivos de gateway Azure IoT Edge.
 author: kgremban
 manager: philmea
@@ -8,12 +8,12 @@ ms.date: 10/15/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f2dd7cac8370c261f24f5587e801bd621fbdb0f0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3876b44bc6bb1ddbc5398126421fb9651003838f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017003"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678828"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Autenticar um dispositivo a jusante no Hub IoT do Azure
 
@@ -71,7 +71,7 @@ Quando criar a nova identidade do dispositivo, forneça as seguintes informaçõ
 
 Também pode utilizar a [extensão IoT para o Azure CLI](https://github.com/Azure/azure-iot-cli-extension) completar a mesma operação. O exemplo a seguir utiliza o comando [az iot hub de identidade do dispositivo](/cli/azure/ext/azure-iot/iot/hub/device-identity) para criar um novo dispositivo IoT com autenticação de chave simétrica e atribuir um dispositivo-mãe:
 
-```cli
+```azurecli
 az iot hub device-identity create -n {iothub name} -d {new device ID} --pd {existing gateway device ID}
 ```
 
@@ -126,7 +126,7 @@ Para a autenticação auto-assinada X.509, por vezes referida como autenticaçã
 
 Também pode utilizar a [extensão IoT para o Azure CLI](https://github.com/Azure/azure-iot-cli-extension) para completar a mesma operação de criação de dispositivos. O exemplo a seguir utiliza o comando [az iot hub de identidade do dispositivo](/cli/azure/ext/azure-iot/iot/hub/device-identity) para criar um novo dispositivo IoT com a autenticação auto-assinada X.509 e atribui um dispositivo-mãe:
 
-```cli
+```azurecli
 az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_thumbprint --ptp {primary thumbprint} --stp {secondary thumbprint}
 ```
 
@@ -170,7 +170,7 @@ Esta secção baseia-se nas instruções detalhadas no artigo do IoT Hub [Config
 
 Também pode utilizar a [extensão IoT para o Azure CLI](https://github.com/Azure/azure-iot-cli-extension) para completar a mesma operação de criação de dispositivos. O exemplo a seguir utiliza o comando [az iot hub de identidade de dispositivo](/cli/azure/ext/azure-iot/iot/hub/device-identity) para criar um novo dispositivo IoT com a autenticação assinada X.509 CA e atribui um dispositivo-mãe:
 
-```cli
+```azurecli
 az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_ca
 ```
 
@@ -191,19 +191,19 @@ As cadeias de ligação para dispositivos a jusante necessitam dos seguintes com
 
 Tudo junto, parece:
 
-```
+```console
 HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz;GatewayHostName=myGatewayDevice
 ```
 
 Ou:
 
-```
+```console
 HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;x509=true;GatewayHostName=myGatewayDevice
 ```
 
 Graças à relação pai/filho, pode simplificar a cadeia de ligação chamando o gateway diretamente como anfitrião de ligação. Por exemplo:
 
-```
+```console
 HostName=myGatewayDevice;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz
 ```
 

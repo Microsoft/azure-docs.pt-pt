@@ -12,14 +12,14 @@ ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/11/2019
-ms.author: akjosh
-ms.openlocfilehash: c06d8e4ab368934182ed67b91dedb9ba9bcfc199
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.date: 01/21/2021
+ms.author: amverma
+ms.openlocfilehash: a241086e6a590096cf40cbdb7a84838b14889f73
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965328"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678293"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Extensão do condutor do GPU da NVIDIA para o Linux
 
@@ -39,8 +39,8 @@ Esta extensão suporta os seguintes distros de SO, dependendo do suporte do cond
 | Distribuição | Versão |
 |---|---|
 | Linux: Ubuntu | 16.04 LTS, 18.04 LTS |
-| Linux: Red Hat Enterprise Linux | 7.3, 7.4, 7.5, 7.6, 7.7 |
-| Linux: CentOS | 7.3, 7.4, 7.5, 7.6, 7.7 |
+| Linux: Red Hat Enterprise Linux | 7.3, 7.4, 7.5, 7.6, 7.7, 7.8 |
+| Linux: CentOS | 7.3, 7.4, 7.5, 7.6, 7.7, 7.8 |
 
 ### <a name="internet-connectivity"></a>Conectividade Internet
 
@@ -72,9 +72,9 @@ O JSON seguinte mostra o esquema para a extensão.
 
 ### <a name="properties"></a>Propriedades
 
-| Nome | Valor / Exemplo | Tipo de Dados |
+| Name | Valor / Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | data |
+| apiVersion | 2015-06-15 | date |
 | publicador | Microsoft.HpcCompute | string |
 | tipo | NvidiaGpuDriverLinux | string |
 | typeHandlerVersion | 1.3 | int |
@@ -86,7 +86,7 @@ Todas as configurações são opcionais. O comportamento predefinido é não atu
 | Nome | Descrição | Valor Predefinido | Valores válidos | Tipo de Dados |
 | ---- | ---- | ---- | ---- | ---- |
 | updateOS | Atualizar o núcleo mesmo que não for necessário para a instalação do condutor | false | TRUE, false | boolean |
-| motoristaVersão | NV: Versão do controlador GRID<br> Versão NC/ND: Kit de ferramentas CUDA. Os controladores mais recentes da CUDA escolhida são instalados automaticamente. | mais recente | GRELHA: "430,30", "418,70", "410,92", "410,71", "390,75", "390,57", "390,42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | string |
+| motoristaVersão | NV: Versão do controlador GRID<br> Versão NC/ND: Kit de ferramentas CUDA. Os controladores mais recentes da CUDA escolhida são instalados automaticamente. | mais recente | [Lista](https://github.com/Azure/azhpc-extensions/blob/master/NvidiaGPU/resources.json) de versões de motorista apoiadas | string |
 | instalar aCUDA | Instale o kit de ferramentas CUDA. Apenas relevante para vMs da série NC/ND. | true | TRUE, false | boolean |
 
 

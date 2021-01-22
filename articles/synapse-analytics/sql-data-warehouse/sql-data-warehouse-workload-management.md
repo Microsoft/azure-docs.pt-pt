@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 761976741bf794a21182e8f962b274ae32925060
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 5640c1e254c4738ab53881544a09808b4894a462
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324470"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676974"
 ---
 # <a name="what-is-workload-management"></a>O que é a gestão da carga de trabalho?
 
@@ -44,7 +44,7 @@ Por exemplo, a concessão de uma adesão a um utilizador ad-hoc ao smallrc permi
 
 A gestão dedicada da carga de trabalho do pool SQL em Azure Synapse consiste em três conceitos de alto nível: Classificação da carga de [trabalho,](sql-data-warehouse-workload-classification.md) [importância da carga de trabalho](sql-data-warehouse-workload-importance.md)e isolamento de carga de [trabalho.](sql-data-warehouse-workload-isolation.md)  Estas capacidades dão-lhe mais controlo sobre a forma como a sua carga de trabalho utiliza os recursos do sistema.
 
-A classificação da carga de trabalho é o conceito de atribuir um pedido a um grupo de carga de trabalho e definir níveis de importância.  Historicamente, esta atribuição foi feita através de membros de funções usando [sp_addrolemember](resource-classes-for-workload-management.md#change-a-users-resource-class).  Esta ação pode agora ser feita através do [CREATE WORKLOAD CLASSIFER](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  A capacidade de classificação fornece um conjunto mais rico de opções, tais como etiqueta, sessão e tempo para classificar pedidos.
+A classificação da carga de trabalho é o conceito de atribuir um pedido a um grupo de carga de trabalho e definir níveis de importância.  Historicamente, esta atribuição foi feita através de membros de funções usando [sp_addrolemember](resource-classes-for-workload-management.md#change-a-users-resource-class).  Esta ação pode agora ser feita através do [CREATE WORKLOAD CLASSIFER](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).  A capacidade de classificação fornece um conjunto mais rico de opções, tais como etiqueta, sessão e tempo para classificar pedidos.
 
 A importância da carga de trabalho influencia a ordem em que um pedido obtém acesso aos recursos.  Num sistema movimentado, um pedido de maior importância tem primeiro acesso aos recursos.  A importância também pode garantir o acesso ordenado aos cadeados.
 

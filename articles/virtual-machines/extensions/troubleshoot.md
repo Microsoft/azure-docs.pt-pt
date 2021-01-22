@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2016
 ms.author: kundanap
-ms.openlocfilehash: b8b7a03d5176f5dbd8500b5ff9044c2f22ecbfc0
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 343ddb109de41a0959533b16b11762841b5b1105
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127146"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676764"
 ---
 # <a name="troubleshooting-azure-windows-vm-extension-failures"></a>Falhas de extensão Azure Windows VM de resolução de problemas
 [!INCLUDE [virtual-machines-common-extensions-troubleshoot](../../../includes/virtual-machines-common-extensions-troubleshoot.md)]
@@ -85,7 +85,7 @@ Este certificado será regenerado automaticamente reiniciando o Windows Guest Ag
 - Clique à direita e selecione "End Task". O processo será automaticamente reiniciado
 
 
-Também pode desencadear um novo GoalState para o VM, executando uma "Reapply VM". A VM [Reapply](https://docs.microsoft.com/rest/api/compute/virtualmachines/reapply) é uma API introduzida em 2020 para reaplicar o estado de um VM. Recomendamos fazê-lo numa altura em que pode tolerar um curto tempo de inatividade em VM. Embora a Reapply em si não cause um reboot VM, e a grande maioria das vezes chamando Reapply não reiniciará o VM, existe um risco muito pequeno de que alguma outra atualização pendente para o modelo VM seja aplicada quando a Reapply desencadeia um novo estado de objetivo, e que outra mudança pode exigir um reinício. 
+Também pode desencadear um novo GoalState para o VM, executando uma "Reapply VM". A VM [Reapply](/rest/api/compute/virtualmachines/reapply) é uma API introduzida em 2020 para reaplicar o estado de um VM. Recomendamos fazê-lo numa altura em que pode tolerar um curto tempo de inatividade em VM. Embora a Reapply em si não cause um reboot VM, e a grande maioria das vezes chamando Reapply não reiniciará o VM, existe um risco muito pequeno de que alguma outra atualização pendente para o modelo VM seja aplicada quando a Reapply desencadeia um novo estado de objetivo, e que outra mudança pode exigir um reinício. 
 
 Portal Azure:
 

@@ -7,19 +7,22 @@ ms.subservice: cosmosdb-table
 ms.topic: sample
 ms.date: 10/07/2020
 ms.author: mjbrown
-ms.openlocfilehash: 60d55745f22b2babe29eb3fc8b8840810b9bcddb
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 061bd06c0fa54497d8f00db0e5d4a808e949c2d3
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93094783"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98679207"
 ---
 # <a name="throughput-rus-operations-with-powershell-for-a-table-for-azure-cosmos-db---table-api"></a>Operações de produção (RU/s) com a PowerShell para uma tabela para Azure Cosmos DB - Tabela API
 [!INCLUDE[appliesto-table-api](../../../includes/appliesto-table-api.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
-[!INCLUDE [sample-powershell-install](../../../../../includes/sample-powershell-install-no-ssh.md)]
+Esta amostra requer Azure PowerShell Az 5.4.0 ou mais tarde. Corra `Get-Module -ListAvailable Az` para ver quais versões estão instaladas.
+Se precisar de instalar, consulte [instalar o módulo Azure PowerShell](/powershell/azure/install-az-ps).
+
+Executar [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) para iniciar sação no Azure.
 
 ## <a name="get-throughput"></a>Obtenção de débito
 
@@ -47,7 +50,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 
 | Comando | Notas |
 |---|---|
-|**BD do Cosmos para o Azure**| |
+|**Azure Cosmos DB**| |
 | [Get-AzCosmosDBTableThroughput](/powershell/module/az.cosmosdb/get-azcosmosdbtablethroughput) | Obtém o valor de produção da tabela API de tabela especificada. |
 | [Atualização-AzCosmosDBMongoDBCollectionThroughput](/powershell/module/az.cosmosdb/update-azcosmosdbsqldatabasethroughput) | Atualiza o valor de produção da Tabela API tabela. |
 | [Invocar-AzCosmosDBTableThroughmigration](/powershell/module/az.cosmosdb/invoke-azcosmosdbtablethroughputmigration) | Migrar o rendimento de uma tabela API de tabela. |

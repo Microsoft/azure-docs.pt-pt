@@ -3,12 +3,12 @@ title: Monitor desempenho em VMs Azure - Azure Application Insights
 description: Monitorização do desempenho da aplicação para conjuntos de balanças de máquinas virtuais Azure VM e Azure. Cartografe o tempo de carga e resposta, informações de dependência e definir alertas sobre o desempenho.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 6bc70b3d9a1a7a2d3fffb71ad28f2cf64cbd323b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: ed56bc88a9d2e8a9490331605cd4a72aef6930db
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461733"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98677948"
 ---
 # <a name="deploy-the-azure-monitor-application-insights-agent-on-azure-virtual-machines-and-azure-virtual-machine-scale-sets"></a>Implementar o Agente de Insights de Aplicação do Monitor Azure em máquinas virtuais Azure e conjuntos de escala de máquina virtual Azure
 
@@ -17,7 +17,7 @@ Ativar a monitorização nas aplicações web baseadas em .NET em funcionamento 
 Este artigo acompanha-o através da monitorização de Insights de Aplicação utilizando o Application Insights Agent e fornece orientações preliminares para automatizar o processo para implementações em larga escala.
 
 > [!IMPORTANT]
-> O Agente de Insights de Aplicação Azure para aplicações ASP.NET em execução em **VMs E VMSS E VMSS** está atualmente em pré-visualização pública. Para monitorizar as suas aplicações ASP.Net em funcionamento **no local,** utilize o [Agente de Insights de Aplicação Azure para servidores no local](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview), que geralmente está disponível e totalmente suportado.
+> O Agente de Insights de Aplicação Azure para aplicações ASP.NET em execução em **VMs E VMSS E VMSS** está atualmente em pré-visualização pública. Para monitorizar as suas aplicações ASP.Net em funcionamento **no local,** utilize o [Agente de Insights de Aplicação Azure para servidores no local](./status-monitor-v2-overview.md), que geralmente está disponível e totalmente suportado.
 > A versão de pré-visualização de Azure VMs e VMSS é fornecida sem um acordo de nível de serviço, e não recomendamos para cargas de trabalho de produção. Algumas funcionalidades podem não ser suportadas, e algumas podem ter capacidades restritas.
 > Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 

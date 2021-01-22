@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick; azure-synapse
-ms.openlocfilehash: 902f0ac96349cf3e30ec12aeda02130afc2b800c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: e137611809e2d2beefecfeaea11b4295bf6ba141
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460755"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678496"
 ---
 # <a name="performance-tune-with-materialized-views"></a>Melodia de desempenho com vistas materializadas
 
@@ -29,7 +29,7 @@ Uma visão padrão calcula os seus dados cada vez que a vista é usada.  Não h�
 
 Uma vista materializada pré-computa, armazena e mantém os seus dados em piscina SQL como uma mesa.  Não é necessária recomputação de cada vez que uma vista materializada é usada.  É por isso que as consultas que usam todos ou subconjuntos dos dados em vistas materializadas podem obter um desempenho mais rápido.  Ainda melhor, as consultas podem usar uma visão materializada sem fazer referência direta a ela, por isso não há necessidade de alterar o código de aplicação.  
 
-A maioria dos requisitos numa vista padrão ainda se aplica a uma visão materializada. Para obter detalhes sobre a sintaxe de vista materializada e outros requisitos, consulte a [VISÃO MATERIALIZADA COMO SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+A maioria dos requisitos numa vista padrão ainda se aplica a uma visão materializada. Para obter detalhes sobre a sintaxe de vista materializada e outros requisitos, consulte a [VISÃO MATERIALIZADA COMO SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 
 | Comparação                     | Vista                                         | Vista materializada
 |:-------------------------------|:---------------------------------------------|:--------------------------------------------------------------|
@@ -37,7 +37,7 @@ A maioria dos requisitos numa vista padrão ainda se aplica a uma visão materia
 |Ver conteúdos                    | Gerada cada vez que a vista é usada.   | Pré-processado e armazenado na piscina SQL durante a criação de vista. Atualizado à medida que os dados são adicionados às tabelas subjacentes.
 |Atualização de dados                    | Sempre atualizado                               | Sempre atualizado
 |Velocidade para recuperar dados de visualização de consultas complexas     | Lento                                         | Rápido  
-|Armazenamento extra                   | Não                                           | Sim
+|Armazenamento extra                   | No                                           | Yes
 |Syntax                          | CREATE VIEW                                  | CRIAR VISTA MATERIALIZADA COMO SELEÇÃO
 
 ## <a name="benefits-of-using-materialized-views"></a>Benefícios da utilização de vistas materializadas
@@ -55,8 +55,8 @@ As vistas materializadas implementadas na piscina SQL também proporcionam os se
 Comparando com outros fornecedores de armazéns de dados, as vistas materializadas implementadas no Azure Synapse Analytics também proporcionam os seguintes benefícios adicionais:
 
 - Atualização automática e sincronizada de dados com alterações de dados nas tabelas base. Não é necessária qualquer ação do utilizador.
-- Suporte de função agregado alargado. Consulte [CREATE VISTA MATERIALIZADA COMO SELECT (Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
-- O apoio à recomendação de visualização materializada específica da consulta.  Ver [EXPLAIN (Transact-SQL)](/sql/t-sql/queries/explain-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+- Suporte de função agregado alargado. Consulte [CREATE VISTA MATERIALIZADA COMO SELECT (Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+- O apoio à recomendação de visualização materializada específica da consulta.  Ver [EXPLAIN (Transact-SQL)](/sql/t-sql/queries/explain-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="common-scenarios"></a>Cenários comuns  
 

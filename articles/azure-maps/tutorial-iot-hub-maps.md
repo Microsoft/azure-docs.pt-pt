@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: a3481830a09b183213e84490b5300f2fb38f8d19
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: b5c65035f8b51b53f617d4562fe1982f53f0deec
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625069"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678276"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-by-using-azure-maps"></a>Tutorial: Implementar análises espaciais IoT utilizando mapas Azure
 
@@ -161,15 +161,15 @@ O IoT Hub permite uma comunicação bidirecional segura e fiável entre uma apli
 > [!NOTE]
 > A capacidade de publicar eventos de telemetria de dispositivos na Grade de Eventos está atualmente em pré-visualização. Esta funcionalidade está disponível em todas as regiões, exceto nas seguintes: Eua Oriental, EUA Ocidentais, Europa Ocidental, Governo Azure, Azure China 21Vianet e Azure Germany.
 
-Para criar um hub IoT no grupo de recursos *ContosoRental,* siga os passos na [criação de um hub IoT](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-dotnet#create-an-iot-hub).
+Para criar um hub IoT no grupo de recursos *ContosoRental,* siga os passos na [criação de um hub IoT](../iot-hub/quickstart-send-telemetry-dotnet.md#create-an-iot-hub).
 
 ## <a name="register-a-device-in-your-iot-hub"></a>Registe um dispositivo no seu hub IoT
 
-Os dispositivos não podem ligar-se ao hub IoT a menos que estejam registados no registo de identidade do hub IoT. Aqui, irá criar um único dispositivo com o nome *InVehicleDevice*. Para criar e registar o dispositivo dentro do seu hub IoT, siga os passos para [registar um novo dispositivo no hub IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal#register-a-new-device-in-the-iot-hub). Certifique-se de que copia a cadeia de ligação primária do seu dispositivo. Precisará dela mais tarde.
+Os dispositivos não podem ligar-se ao hub IoT a menos que estejam registados no registo de identidade do hub IoT. Aqui, irá criar um único dispositivo com o nome *InVehicleDevice*. Para criar e registar o dispositivo dentro do seu hub IoT, siga os passos para [registar um novo dispositivo no hub IoT](../iot-hub/iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub). Certifique-se de que copia a cadeia de ligação primária do seu dispositivo. Precisará dela mais tarde.
 
 ## <a name="create-a-function-and-add-an-event-grid-subscription"></a>Crie uma função e adicione uma subscrição de Grade de Eventos
 
-A azure Functions é um serviço de computação sem servidor que lhe permite executar pequenas peças de código ("funções"), sem a necessidade de provisões ou gestão explícitas de infraestruturas de computação. Para saber mais, consulte [as Funções Azure](https://docs.microsoft.com/azure/azure-functions/functions-overview).
+A azure Functions é um serviço de computação sem servidor que lhe permite executar pequenas peças de código ("funções"), sem a necessidade de provisões ou gestão explícitas de infraestruturas de computação. Para saber mais, consulte [as Funções Azure](../azure-functions/functions-overview.md).
 
 Uma função é desencadeada por um certo evento. Aqui, irá criar uma função que é desencadeada por um gatilho da Grade de Eventos. Crie a relação entre o gatilho e a função criando uma subscrição de eventos para eventos de telemetria de dispositivo IoT Hub. Quando ocorre um evento de telemetria do dispositivo, a sua função é chamada de ponto final e recebe os dados relevantes para o dispositivo que registou anteriormente no IoT Hub.
 
@@ -223,7 +223,7 @@ Agora, estabeleça a sua função Azure.
 
 ## <a name="filter-events-by-using-iot-hub-message-routing"></a>Filtrar eventos utilizando o encaminhamento de mensagens IoT Hub
 
-Quando adiciona uma subscrição de Grade de Eventos à função Azure, uma rota de mensagens é automaticamente criada no hub IoT especificado. O encaminhamento de mensagens permite-lhe encaminhar diferentes tipos de dados para vários pontos finais. Por exemplo, pode encaminhar mensagens de telemetria do dispositivo, eventos de ciclo de vida do dispositivo e eventos de mudança de dois dispositivos. Para obter mais informações, consulte [o encaminhamento de mensagens IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c).
+Quando adiciona uma subscrição de Grade de Eventos à função Azure, uma rota de mensagens é automaticamente criada no hub IoT especificado. O encaminhamento de mensagens permite-lhe encaminhar diferentes tipos de dados para vários pontos finais. Por exemplo, pode encaminhar mensagens de telemetria do dispositivo, eventos de ciclo de vida do dispositivo e eventos de mudança de dois dispositivos. Para obter mais informações, consulte [o encaminhamento de mensagens IoT Hub](../iot-hub/iot-hub-devguide-messages-d2c.md).
 
 :::image type="content" source="./media/tutorial-iot-hub-maps/hub-route.png" alt-text="Screenshot do encaminhamento de mensagens no hub IoT.":::
 
@@ -232,7 +232,7 @@ No seu cenário de exemplo, só pretende receber mensagens quando o carro alugad
 :::image type="content" source="./media/tutorial-iot-hub-maps/hub-filter.png" alt-text="Screenshot de mensagens de encaminhamento de filtros.":::
 
 >[!TIP]
->Existem várias formas de consultar mensagens IoT dispositivo-nuvem. Para saber mais sobre a sintaxe de encaminhamento de mensagens, consulte o [encaminhamento de mensagens IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax).
+>Existem várias formas de consultar mensagens IoT dispositivo-nuvem. Para saber mais sobre a sintaxe de encaminhamento de mensagens, consulte o [encaminhamento de mensagens IoT Hub](../iot-hub/iot-hub-devguide-routing-query-syntax.md).
 
 ## <a name="send-telemetry-data-to-iot-hub"></a>Enviar dados de telemetria para o IoT Hub
 

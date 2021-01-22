@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Criar uma aplicação Android com Azure Maps Microsoft Azure '
+title: 'Quickstart: Crie uma aplicação Android com Azure Maps | Microsoft Azure '
 description: 'Quickstart: Saiba como criar uma aplicação Android utilizando o Azure Maps Android SDK.'
 author: rbrundritt
 ms.author: richbrun
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: mvc
-ms.openlocfilehash: 874da5ffcd2777648bb06c6e702932d64a32e59c
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 740563935e12d5a7418bada2a18b48fb573f6e7d
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97682003"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98679012"
 ---
 # <a name="quickstart-create-an-android-app-with-azure-maps"></a>Quickstart: Criar uma aplicação Android com Azure Maps
 
@@ -59,7 +59,7 @@ Assim que a sua conta Maps for criada com sucesso, recupere a chave primária qu
 3. Copie a **Chave primária** para a área de transferência. Guarde-a localmente para a utilizar mais tarde neste tutorial.
 
 >[!NOTE]
-> Se utilizar a chave de subscrição Azure em vez da chave primária do Azure Maps, o seu mapa não renderizará corretamente. Além disso, por razões de segurança, recomenda-se que rode entre as suas teclas primária e secundária. Para rodar as teclas, atualize a sua aplicação para utilizar a tecla secundária, desloque-a e, em seguida, pressione o botão ciclo/atualização ao lado da tecla primária para gerar uma nova tecla primária. A velha chave primária será desativada. Para obter mais informações sobre a rotação da chave, consulte [Configurar o Cofre da Chave Azure com rotação e auditoria de chaves](https://docs.microsoft.com/azure/key-vault/secrets/key-rotation-log-monitoring)
+> Se utilizar a chave de subscrição Azure em vez da chave primária do Azure Maps, o seu mapa não renderizará corretamente. Além disso, por razões de segurança, recomenda-se que rode entre as suas teclas primária e secundária. Para rodar as teclas, atualize a sua aplicação para utilizar a tecla secundária, desloque-a e, em seguida, pressione o botão ciclo/atualização ao lado da tecla primária para gerar uma nova tecla primária. A velha chave primária será desativada. Para obter mais informações sobre a rotação da chave, consulte [Configurar o Cofre da Chave Azure com rotação e auditoria de chaves](../key-vault/secrets/tutorial-rotation-dual.md)
 
 ![Obtenha a chave principal Azure Maps no portal Azure](media/quick-android-map/get-key.png)
 

@@ -8,12 +8,12 @@ ms.topic: overview
 author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
-ms.openlocfilehash: f59ed16f98a22f77b2e67ec2bf829f58dccef611
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 4212c76d052fe1f272963003e836425b50d6f105
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740509"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98677619"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>O que é o Azure Machine Learning Studio (clássico)?
 
@@ -62,7 +62,7 @@ O estúdio oferece múltiplas experiências de autoria dependendo do projeto tip
 Gerencie os seus ativos de aprendizagem automática diretamente no seu browser. Os ativos são partilhados no mesmo espaço de trabalho entre o SDK e o estúdio para uma experiência perfeita. Utilize o estúdio para gerir:
 
 - Modelos
-- Conjuntos de Dados
+- Conjuntos de dados
 - Arquivos de dados
 - Recursos de cálculo
 - Notebooks
@@ -90,7 +90,7 @@ A tabela seguinte resume as principais diferenças entre ml Studio (clássico) e
 | Funcionalidade | Estúdio ML (clássico) | Azure Machine Learning |
 |---| --- | --- |
 | Interface arrastar e largar | Experiência clássica | Experiência atualizada - [Azure Machine Learning designer](concept-designer.md)| 
-| SDKs de código | Não suportado | Totalmente integrado com [Azure Machine Learning Python](/python/api/overview/azure/ml/) e [R](tutorial-1st-r-experiment.md) SDKs |
+| SDKs de código | Não suportado | Totalmente integrado com [Azure Machine Learning Python](/python/api/overview/azure/ml/) e [R](https://github.com/Azure/azureml-sdk-for-r) SDKs |
 | Experimentação | Escalável (limite de dados de formação de 10 GB) | Escala com alvo de computação |
 | Metas de computação de formação | Alvo de computação proprietária, suporte de CPU apenas | Ampla gama de objetivos de [computação de formação](concept-compute-target.md#train)personalizáveis. Inclui suporte de GPU e CPU | 
 | Alvos de computação de implantação | Formato de serviço web proprietário, não personalizável | Ampla gama de alvos de [computação](concept-compute-target.md#deploy)personalizável. Inclui suporte de GPU e CPU |

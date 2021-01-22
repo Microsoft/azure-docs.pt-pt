@@ -3,12 +3,12 @@ title: Azure Service Bus frequentemente fez perguntas (FAQ) | Microsoft Docs
 description: Este artigo fornece respostas a algumas das perguntas frequentes (FAQ) sobre a Azure Service Bus.
 ms.topic: article
 ms.date: 09/16/2020
-ms.openlocfilehash: 576df12a9d53ec3585f8691016cd250bf1ba4be3
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: e5bc9aae081868c92e0968c88c8cb6dcfb8ee57c
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98623112"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676379"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Azure Service Bus - Perguntas frequentes (FAQ)
 
@@ -119,7 +119,7 @@ Para obter informações completas sobre os preços do Service Bus, consulte [os
 Qualquer transferência de dados dentro de uma determinada região de Azure é fornecida gratuitamente, bem como qualquer transferência de dados de entrada. A transferência de dados para fora de uma região está sujeita a encargos de saída, que podem ser encontrados [aqui.](https://azure.microsoft.com/pricing/details/bandwidth/)
 
 ### <a name="does-service-bus-charge-for-storage"></a>O Service Bus cobra pelo armazenamento?
-Não. A Service Bus não cobra pelo armazenamento. No entanto, há uma quota que limita a quantidade máxima de dados que podem ser persistidos por fila/tópico. Veja as próximas FAQ.
+N.º A Service Bus não cobra pelo armazenamento. No entanto, há uma quota que limita a quantidade máxima de dados que podem ser persistidos por fila/tópico. Veja as próximas FAQ.
 
 ### <a name="i-have-a-service-bus-standard-namespace-why-do-i-see-charges-under-resource-group-system"></a>Tenho um espaço de nomes padrão de autocarro de serviço. Por que vejo acusações no âmbito do grupo de recursos "$system"?
 A Azure Service Bus atualizou recentemente os componentes de faturação. Devido a esta alteração, se tiver um espaço de nomes Service Bus Standard, poderá ver itens de linha para o recurso '/subscrições/<azure_subscription_id>/resourceGroups/$system/providers/Microsoft.ServiceBus/namespaces/$system' no grupo de recursos '$system'.
@@ -168,6 +168,8 @@ Select-AzSubscription -SubscriptionId 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa'
 $res = Find-AzResource -ResourceNameContains mynamespace -ResourceType 'Microsoft.ServiceBus/namespaces'
 Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
 ```
+## <a name="is-it-possible-to-disable-tls-10-or-11-on-service-bus-namespaces"></a>É possível desativar tLS 1.0 ou 1.1 em espaços de nomes de Service Bus?
+N.º Não é possível desativar tLS 1.0 ou 1.1 em espaços de nomes de Service Bus. Nas aplicações do seu cliente que ligam o Service Bus, utilize o TLS 1.2 ou superior. Para obter mais informações, consulte [a utilização do TLS 1.2 com o Azure Service Bus - Microsoft Tech Community](https://techcommunity.microsoft.com/t5/messaging-on-azure/enforcing-tls-1-2-use-with-azure-service-bus/ba-p/370912).
 
 ## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre a Service Bus, consulte os seguintes artigos:

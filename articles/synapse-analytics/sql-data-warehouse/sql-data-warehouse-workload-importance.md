@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 07c781672874bff306c9d25a464ec66414ebc9f1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 06d1957d182f2cabc336afcfc47a790442a3cb9a
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322126"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678411"
 ---
 # <a name="azure-synapse-analytics-workload-importance"></a>Azure Synapse Analytics importância da carga de trabalho
 
@@ -38,7 +38,7 @@ Para além do cenário de importância básica acima descrito com dados de venda
 
 ### <a name="locking"></a>Bloquear
 
-O acesso a fechaduras para atividade de leitura e escrita é uma área de contenção natural. Atividades como [comutação de divisórias](sql-data-warehouse-tables-partition.md) ou [OBJECT RENAME](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) requerem fechaduras elevadas.  Sem importância de carga de trabalho, a piscina SQL dedicada em Azure Synapse otimiza para produção. Otimizar para a produção significa que quando os pedidos de execução e fila têm as mesmas necessidades de bloqueio e recursos estão disponíveis, os pedidos em fila podem contornar pedidos com necessidades de bloqueio mais elevadas que chegaram na fila de pedidos mais cedo. Uma vez que a importância da carga de trabalho é aplicada a pedidos com necessidades de bloqueio mais elevadas. O pedido com maior importância será executado antes do pedido com menor importância.
+O acesso a fechaduras para atividade de leitura e escrita é uma área de contenção natural. Atividades como [comutação de divisórias](sql-data-warehouse-tables-partition.md) ou [OBJECT RENAME](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) requerem fechaduras elevadas.  Sem importância de carga de trabalho, a piscina SQL dedicada em Azure Synapse otimiza para produção. Otimizar para a produção significa que quando os pedidos de execução e fila têm as mesmas necessidades de bloqueio e recursos estão disponíveis, os pedidos em fila podem contornar pedidos com necessidades de bloqueio mais elevadas que chegaram na fila de pedidos mais cedo. Uma vez que a importância da carga de trabalho é aplicada a pedidos com necessidades de bloqueio mais elevadas. O pedido com maior importância será executado antes do pedido com menor importância.
 
 Considere o exemplo seguinte:
 
@@ -62,8 +62,8 @@ Como o Q5 é médio, requer duas ranhuras de concordância. O Q5 precisa esperar
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para obter mais informações sobre a criação de um classificador, consulte o [CLASSIFIER CREATE WORKLOAD (Transact-SQL)](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  
+- Para obter mais informações sobre a criação de um classificador, consulte o [CLASSIFIER CREATE WORKLOAD (Transact-SQL)](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).  
 - Para obter mais informações sobre a classificação da carga de trabalho, consulte [a Classificação da Carga de Trabalho.](sql-data-warehouse-workload-classification.md)  
 - Consulte o classificador Quickstart [Criar carga de trabalho](quickstart-create-a-workload-classifier-tsql.md) para criar um classificador de carga de trabalho.
 - Consulte os artigos de como configurar a [importância da carga de trabalho](sql-data-warehouse-how-to-configure-workload-importance.md) e como gerir e monitorizar a [Gestão da Carga de Trabalho.](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md)
-- Consulte [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para visualizar as consultas e a importância atribuída.
+- Consulte [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para visualizar as consultas e a importância atribuída.

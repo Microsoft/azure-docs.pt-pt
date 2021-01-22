@@ -8,17 +8,14 @@ ms.topic: how-to
 ms.date: 12/16/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7c6b25fd3615fa76bc76e6d360f4c76a21a9ad02
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 817f9a88bd3536e9c0ec8a1057098e6b4a96716e
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97918401"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676362"
 ---
 # <a name="discover-connect-and-explore-data-in-synapse-using-azure-purview"></a>Descubra, conecte e explore dados em Sinapse usando a Azure Purview 
-
-> [!IMPORTANT]
-> A integração entre a Azure Synapse Analytics e a Azure Purview está atualmente em Pré-Visualização. Se estiver interessado em experimentar o Azure Purview em Synapse, por favor, conecte-se com o seu Representante de Vendas da Microsoft. 
 
 Neste documento, você vai aprender o tipo de interações que você pode realizar ao registar uma Conta Azure Purview em Synapse. 
 

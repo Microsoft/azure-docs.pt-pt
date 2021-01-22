@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 01/21/2021
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: 6a24713a6027c38d2b9817928f3a82161bd37314
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: e4a5803b3d04b59316f71e50af24945efc87cb69
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96936731"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98677568"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Impedir a autorização da Chave Partilhada para uma conta de Armazenamento Azure (pré-visualização)
 
@@ -48,7 +48,7 @@ Siga estes passos para criar uma métrica que rastreie os pedidos feitos com Cha
 1. Navegue para a sua conta de armazenamento no portal do Azure. Na secção **de Monitorização,** selecione **Métricas**.
 1. Selecione **Adicionar métrica**. No diálogo **métrico,** especifique os seguintes valores:
     1. Deixe o campo **Scope** definido para o nome da conta de armazenamento.
-    1. Desa esta *Account* medida o **espaço de nomes.** Esta métrica reportará todos os pedidos contra a conta de armazenamento.
+    1. Desa esta medida o **espaço de nomes.** Esta métrica reportará todos os pedidos contra a conta de armazenamento.
     1. Desa estação **métrica** para *transações.*
     1. Desagregar o campo **de agregação** para *Sum*.
 
@@ -239,8 +239,6 @@ Algumas ferramentas Azure oferecem a opção de usar a autorização Azure AD pa
 ## <a name="about-the-preview"></a>Sobre a pré-visualização
 
 A pré-visualização para desativar a autorização da Chave Partilhada está disponível na nuvem pública do Azure. É suportado para contas de armazenamento que usam apenas o modelo de implementação do Gestor de Recursos Azure. Para obter informações sobre quais as contas de armazenamento que utilizam o modelo de implementação do Gestor de Recursos Azure, consulte [tipos de contas de armazenamento](storage-account-overview.md#types-of-storage-accounts).
-
-Para se registar para a pré-visualização, consulte [Azure Storage Allow Shared Key Access Limited Public Preview](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUN1o4TUtUUzZBV0JYVlhKQ1FITDlVUUU0Ui4u).
 
 > [!IMPORTANT]
 > Esta pré-visualização destina-se apenas à utilização não-produção.

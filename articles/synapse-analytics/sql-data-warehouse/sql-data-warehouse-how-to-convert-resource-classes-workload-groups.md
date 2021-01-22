@@ -11,12 +11,12 @@ ms.date: 08/13/2020
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: b82342ffb76f8bb58b8f6875751601094d6131ca
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: b6dd2199452837d81c201cf4aef2bcd94b35cda3
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461901"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98677210"
 ---
 # <a name="convert-resource-classes-to-workload-groups"></a>Converter classes de recursos em grupos de carga de trabalho
 
@@ -56,7 +56,7 @@ CREATE WORKLOAD GROUP wgDataLoads WITH
 
 ## <a name="create-the-classifier"></a>Criar o Classificador
 
-Anteriormente, o mapeamento de consultas às aulas de recursos foi feito com [sp_addrolemember](resource-classes-for-workload-management.md#change-a-users-resource-class).  Para obter a mesma funcionalidade e mapa pedidos para grupos de carga de trabalho, utilize a sintaxe [CREATE WORKLOAD CLASSIFIER.](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)  A utilização de sp_addrolemember só lhe permitiu mapear recursos para um pedido com base num login.  Um classificador oferece opções adicionais para além do login, tais como:
+Anteriormente, o mapeamento de consultas às aulas de recursos foi feito com [sp_addrolemember](resource-classes-for-workload-management.md#change-a-users-resource-class).  Para obter a mesma funcionalidade e mapa pedidos para grupos de carga de trabalho, utilize a sintaxe [CREATE WORKLOAD CLASSIFIER.](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)  A utilização de sp_addrolemember só lhe permitiu mapear recursos para um pedido com base num login.  Um classificador oferece opções adicionais para além do login, tais como:
     - etiqueta
     - sessão
     - tempo O exemplo abaixo atribui consultas do `AdfLogin` login que também têm o RÓTULO DE [OPPÇÃO](sql-data-warehouse-develop-label.md)  definido `factloads` para o grupo de carga de trabalho acima `wgDataLoads` criado.
@@ -91,4 +91,4 @@ SELECT request_id, [label], classifier_name, group_name, command
 - [Isolamento da carga de trabalho](sql-data-warehouse-workload-isolation.md)
 - [Como criar um grupo de trabalho](quickstart-configure-workload-isolation-tsql.md)
 - [CRIAR CLASSIFICAÇÃO DE CARGA DE TRABALHO (Transact-SQL)](/sql/t-sql/statements/create-workload-classifier-transact-sql?&view=azure-sqldw-latest)
-- [CRIAR GRUPO DE CARGA DE TRABALHO (Transact-SQL)](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)
+- [CRIAR GRUPO DE CARGA DE TRABALHO (Transact-SQL)](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest&preserve-view=true)

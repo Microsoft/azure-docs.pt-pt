@@ -1,18 +1,18 @@
 ---
 title: Controlos de conformidade regulamentar da política Azure para a pesquisa cognitiva do Azure
 description: Lista controlos de conformidade regulamentar da política Azure disponíveis para pesquisa cognitiva Azure. Estas definições políticas incorporadas fornecem abordagens comuns para gerir o cumprimento dos seus recursos Azure.
-ms.date: 01/08/2021
+ms.date: 01/21/2021
 ms.topic: sample
 author: HeidiSteen
 ms.author: heidist
 ms.service: search
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: b4a5b3171e324248fa55ff469b16b4fe22ff4970
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 2aa28bcbedeca44361529ef3980c4a46c49adf79
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98045861"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678642"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-cognitive-search"></a>Controlos de conformidade regulamentar da política Azure para a pesquisa cognitiva do Azure
 

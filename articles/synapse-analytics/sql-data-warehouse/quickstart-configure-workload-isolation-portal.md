@@ -11,12 +11,12 @@ ms.date: 05/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 302249b7d8490e43b841116c52500e686626433d
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 5773691852ddc723ec84503edee37c678bbbcfd9
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460562"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98677509"
 ---
 # <a name="quickstart-configure-dedicated-sql-pool-workload-isolation-using-a-workload-group-in-the-azure-portal"></a>Quickstart: Configurar isolamento dedicado à carga de trabalho da piscina SQL utilizando um grupo de carga de trabalho no portal Azure
 
@@ -93,7 +93,7 @@ Siga estes passos para limpar os recursos.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para utilizar o `DataLoads` grupo de carga de trabalho, é necessário criar um [classificador](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) de carga de trabalho para encaminhar os pedidos para o grupo de carga de trabalho.  Continue a criar tutorial [de classificação de carga de trabalho](quickstart-create-a-workload-classifier-portal.md) para criar um classificador de carga de trabalho para `DataLoads` .
+Para utilizar o `DataLoads` grupo de carga de trabalho, é necessário criar um [classificador](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) de carga de trabalho para encaminhar os pedidos para o grupo de carga de trabalho.  Continue a criar tutorial [de classificação de carga de trabalho](quickstart-create-a-workload-classifier-portal.md) para criar um classificador de carga de trabalho para `DataLoads` .
 
 ## <a name="see-also"></a>Ver também
 Consulte o artigo Gerir e monitorizar a [Gestão da Carga de Trabalho](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md) para obter detalhes sobre como monitorizar as cargas de trabalho para a gestão da carga de trabalho.

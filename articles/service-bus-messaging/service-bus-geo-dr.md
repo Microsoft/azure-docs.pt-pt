@@ -1,14 +1,14 @@
 ---
-title: Recuperação de geo-desastre de autocarro da Azure Service Microsoft Docs
+title: Azure Service Bus Geo-disaster recovery | Microsoft Docs
 description: Como utilizar as regiões geográficas para falhar e realizar a recuperação de desastres na Azure Service Bus
 ms.topic: article
 ms.date: 01/04/2021
-ms.openlocfilehash: c07721c07923a40da9fe28e0e3116bfd6a52210f
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: b25fd1befded253c79267b1b016cef979005d01e
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862364"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676460"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Recuperação de geo-desastre de autocarro de serviço Azure
 
@@ -48,6 +48,8 @@ São utilizados neste artigo os seguintes termos:
 
 -  *Espaço de nome primário/secundário*: Os espaços de nome que correspondem ao pseudónimo. O espaço de nome primário é "ativo" e recebe mensagens (este pode ser um espaço de nome existente ou novo). O espaço de nome secundário é "passivo" e não recebe mensagens. Os metadados entre ambos estão sincronizados, pelo que ambos podem aceitar mensagens sem qualquer código de aplicação ou alterações nas cordas de ligação. Para garantir que apenas o espaço de nome ativo recebe mensagens, deve utilizar o pseudónimo. 
 
+    > [!IMPORTANT]
+    > A funcionalidade de recuperação de geo-desastres requer que a subscrição e o grupo de recursos sejam os mesmos para espaços de nome primário e secundário.
 -  *Metadados*: Entidades como filas, tópicos e subscrições; e as suas propriedades do serviço que estão associados ao espaço de nome. Note que apenas as entidades e as suas configurações são replicadas automaticamente. As mensagens não são replicadas.
 
 -  *Failover*: O processo de ativação do espaço de nome secundário.

@@ -2,18 +2,21 @@
 title: Entidades de mensagens de autocarro da Azure Service de reencaminhamento automático
 description: Este artigo descreve como acorrentar uma fila de autocarros da Azure Service ou subscrição de outra fila ou tópico.
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 01/20/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8f5f93f65871c0b9658a75264ab959dbae7fefe7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80bef52d568130fa800a1da661f4867abb3df02c
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91819579"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678993"
 ---
 # <a name="chaining-service-bus-entities-with-autoforwarding"></a>Entidades de autocarros de serviço de chaining com autoforwarding
 
 A funcionalidade *de auto-ordenação* do Service Bus permite-lhe acorrentar uma fila ou subscrição a outra fila ou tópico que faça parte do mesmo espaço de nome. Quando o auto-ordenamento está ativado, o Service Bus remove automaticamente as mensagens que são colocadas na primeira fila ou subscrição (fonte) e coloca-as na segunda fila ou tópico (destino). Ainda é possível enviar uma mensagem diretamente à entidade de destino.
+
+> [!NOTE]
+> O nível básico do Service Bus não suporta a função de auto-forwarding. Os níveis standard e premium suportam a funcionalidade. Para obter diferenças entre estes níveis, consulte [os preços do Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
 
 ## <a name="using-autoforwarding"></a>Utilização de auto-via
 

@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 75f06ae11d308028431202c22338ff4a589acf28
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 8fee7eca780d81dcd5d9fa9359ab59994256db07
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97592301"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678779"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Integrar o Key Vault no Azure Private Link
 
@@ -69,7 +69,7 @@ Agora poderá ver o ponto final privado configurado. Tem agora a opção de elim
 
 Se já tiver um cofre chave, pode criar uma ligação de ligação privada seguindo estes passos:
 
-1. Inicie sessão no portal do Azure. 
+1. Inicie sessão no Portal do Azure. 
 1. Na barra de pesquisa, escreva em "cofres-chave"
 1. Selecione o cofre de chaves da lista à qual pretende adicionar um ponto final privado.
 1. Selecione o separador "Networking" em Definições
@@ -112,7 +112,7 @@ Existem quatro estados de provisionamento:
 
 ## <a name="establish-a-private-link-connection-to-key-vault-using-cli-initial-setup"></a>Estabelecer uma ligação privada ao Key Vault utilizando o CLI (Configuração Inicial)
 
-```console
+```azurecli
 az login                                                         # Login to Azure CLI
 az account set --subscription {SUBSCRIPTION ID}                  # Select your Azure Subscription
 az group create -n {RESOURCE GROUP} -l {REGION}                  # Create a new Resource Group
@@ -136,7 +136,7 @@ az network private-dns link vnet create --resource-group {RG} --virtual-network 
 ```
 
 ### <a name="add-private-dns-records"></a>Adicionar registos dns privados
-```console
+```azurecli
 # https://docs.microsoft.com/en-us/azure/dns/private-dns-getstarted-cli#create-an-additional-dns-record
 az network private-dns zone list -g $rg_name
 az network private-dns record-set a add-record -g $rg_name -z "privatelink.vaultcore.azure.net" -n $vault_name -a $kv_network_interface_private_ip
@@ -148,18 +148,18 @@ nslookup $vault_name.privatelink.vaultcore.azure.net
 ```
 
 ### <a name="create-a-private-endpoint-automatically-approve"></a>Criar um ponto final privado (aprovar automaticamente) 
-```console
+```azurecli
 az network private-endpoint create --resource-group {RG} --vnet-name {vNet NAME} --subnet {subnet NAME} --name {Private Endpoint Name}  --private-connection-resource-id "/subscriptions/{AZURE SUBSCRIPTION ID}/resourceGroups/{RG}/providers/Microsoft.KeyVault/vaults/ {KEY VAULT NAME}" --group-ids vault --connection-name {Private Link Connection Name} --location {AZURE REGION}
 ```
 
 ### <a name="create-a-private-endpoint-manually-request-approval"></a>Criar um ponto final privado (Aprovação de pedido manual) 
-```console
+```azurecli
 az network private-endpoint create --resource-group {RG} --vnet-name {vNet NAME} --subnet {subnet NAME} --name {Private Endpoint Name}  --private-connection-resource-id "/subscriptions/{AZURE SUBSCRIPTION ID}/resourceGroups/{RG}/providers/Microsoft.KeyVault/vaults/ {KEY VAULT NAME}" --group-ids vault --connection-name {Private Link Connection Name} --location {AZURE REGION} --manual-request
 ```
 
 ### <a name="manage-private-link-connections"></a>Gerir ligações de ligações privadas
 
-```console
+```azurecli
 # Show Connection Status
 az network private-endpoint show --resource-group {RG} --name {Private Endpoint Name}
 

@@ -4,12 +4,12 @@ description: Insira algumas linhas de código no seu dispositivo ou aplicação 
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: d553c192d62baedb93c7f8270c56526fbf8edb62
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 8fecca4875ba291da093bf1eea596eef290f80c8
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233751"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678117"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API do Application Insights para métricas e eventos personalizados
 
@@ -534,7 +534,7 @@ Se [a amostragem](./sampling.md) estiver em funcionamento, a propriedade itemCou
 Utilize a chamada TrackDependency para acompanhar os tempos de resposta e as taxas de sucesso das chamadas para uma peça de código externa. Os resultados aparecem nos gráficos de dependência do portal. O código abaixo precisa de ser adicionado onde quer que seja feita uma chamada de dependência.
 
 > [!NOTE]
-> Para .NET e .NET Core pode utilizar alternativamente o `TelemetryClient.StartOperation` método (extensão) que preenche as `DependencyTelemetry` propriedades necessárias para a correlação e algumas outras propriedades, como a hora de início e a duração, para que não seja necessário criar um temporizador personalizado como nos exemplos abaixo. Para mais informações consulte a secção deste artigo [sobre o rastreio da dependência de saída](https://docs.microsoft.com/azure/azure-monitor/app/custom-operations-tracking#outgoing-dependencies-tracking).
+> Para .NET e .NET Core pode utilizar alternativamente o `TelemetryClient.StartOperation` método (extensão) que preenche as `DependencyTelemetry` propriedades necessárias para a correlação e algumas outras propriedades, como a hora de início e a duração, para que não seja necessário criar um temporizador personalizado como nos exemplos abaixo. Para mais informações consulte a secção deste artigo [sobre o rastreio da dependência de saída](./custom-operations-tracking.md#outgoing-dependencies-tracking).
 
 *C#*
 

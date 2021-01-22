@@ -1,5 +1,5 @@
 ---
-title: Limitações de produção de streaming- Azure Time Series Insights Gen2 Microsoft Docs
+title: Limitações de produção de streaming - Azure Time Series Insights Gen2 | Microsoft Docs
 description: Conheça os limites de produção ingres em Azure Time Series Insights Gen2.
 author: lyrana
 ms.author: lyhughes
@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 01/21/2021
 ms.custom: seodec18
-ms.openlocfilehash: 7496a7a40df49fa1b9f8410526cb9ec00c10478b
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 72b78f49ed8b7016b92262de7256492fa6d5d7d1
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108777"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676806"
 ---
 # <a name="streaming-ingestion-throughput-limits"></a>Limites de produção de ingestão de streaming
 
