@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 0a73651b11c9ca6f7cb34deb755543c3b5a6d710
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: f8e4925f721b307abd85a8b881caff3e5fc04fde
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042988"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685667"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Implementar e monitorizar os módulos IoT Edge em escala utilizando o CLI Azure
 
@@ -191,7 +191,7 @@ Implementa módulos nos seus dispositivos-alvo criando uma implementação que c
 
 Utilize o comando de implementação de [borda az iot](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-create) para criar uma implementação:
 
-```cli
+```azurecli
 az iot edge deployment create --deployment-id [deployment id] --hub-name [hub name] --content [file path] --labels "[labels]" --target-condition "[target query]" --priority [int]
 ```
 
@@ -204,7 +204,7 @@ O comando de criação de implantação requer os seguintes parâmetros:
 * **--conteúdo** - Filepath para o manifesto de implantação JSON. Parâmetro necessário.
 * **--hub-name** - Nome do hub IoT no qual a implantação será criada. O centro deve estar na subscrição atual. Altere a sua subscrição atual com o `az account set -s [subscription name]` comando.
 * **--rótulos** - Adicione etiquetas para ajudar a rastrear as suas implementações. As etiquetas são Nome, pares de valor que descrevem a sua implantação. As etiquetas levam a formatação JSON para os nomes e valores. Por exemplo, `{"HostPlatform":"Linux", "Version:"3.0.1"}`
-* **...-condição-alvo** - Introduza uma condição de destino para determinar quais os dispositivos que serão alvo com esta implementação.A condição baseia-se em etiquetas gémeas do dispositivo ou no dispositivo que as propriedades reportadas por gémeos e devem corresponder ao formato de expressão.Por exemplo, `tags.environment='test' and properties.reported.devicemodel='4000x'`.
+* **...-condição-alvo** - Introduza uma condição de destino para determinar quais os dispositivos que serão alvo com esta implementação. A condição baseia-se em etiquetas gémeas do dispositivo ou no dispositivo que as propriedades reportadas por gémeos e devem corresponder ao formato de expressão. Por exemplo, `tags.environment='test' and properties.reported.devicemodel='4000x'`.
 * **--prioridade** - Um número inteiro positivo. No caso de duas ou mais implementações serem direcionadas para o mesmo dispositivo, aplicar-se-á a implantação com o valor numérico mais elevado de Prioridade.
 * **--métricas** - Criar métricas que consultam as propriedades reportadas edgeHub para rastrear o estado de uma implantação. As métricas tomam a entrada JSON ou um filepath. Por exemplo, `'{"queries": {"mymetric": "SELECT deviceId FROM devices WHERE properties.reported.lastDesiredStatus.code = 200"}}'`.
 
@@ -224,7 +224,7 @@ Não é possível atualizar o conteúdo de uma implementação, que inclui os m�
 
 Utilize o comando [de atualização de implementação de arestas az iot](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-update) para atualizar uma implementação:
 
-```cli
+```azurecli
 az iot edge deployment update --deployment-id [deployment id] --hub-name [hub name] --set [property1.property2='value']
 ```
 
@@ -245,7 +245,7 @@ Quando elimina uma implantação, qualquer dispositivo assume a sua próxima imp
 
 Utilize o comando [de exclusão de borda az iot](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-delete) para eliminar uma implantação:
 
-```cli
+```azurecli
 az iot edge deployment delete --deployment-id [deployment id] --hub-name [hub name]
 ```
 

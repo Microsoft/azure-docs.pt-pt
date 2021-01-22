@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 11/12/2020
 ms.author: aahi
-ms.openlocfilehash: b19fb3f86be46a5db60fb87f9c7f5c3e28ac6428
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 82c33c038a1f8eaba540c9906efcffa0a9214762
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965151"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98689758"
 ---
 ## <a name="install-the-container"></a>Instale o recipiente
 
@@ -38,7 +38,7 @@ Execute o seguinte `docker run` comando. Substitua os espaços reservados abaixo
 | **{API_KEY}** | A chave para o seu recurso Text Analytics. Pode encontrá-lo na página **chave e ponta final** do seu recurso, no portal Azure. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
 | **{ENDPOINT_URI}** | O ponto final para aceder à API de Análise de Texto. Pode encontrá-lo na página **chave e ponta final** do seu recurso, no portal Azure. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 | **{IMAGE_ID}** | A identificação da imagem do seu recipiente. | `1.1.011300001-amd64-preview` |
-| **{INPUT_DIR}** | O diretório de entrada para o contentor. | Janelas: `C:\healthcareMount` <br> Linux/MacOS: `/home/username/input` |
+| **{INPUT_DIR}** | O diretório de entrada para o contentor. | Windows: `C:\healthcareMount` <br> Linux/MacOS: `/home/username/input` |
 
 ```bash
 docker run --rm -it -p 5000:5000 --cpus 6 --memory 12g \
@@ -84,7 +84,7 @@ A azure [Web App for Containers](https://azure.microsoft.com/services/app-servic
 
 Execute este script PowerShell utilizando o CLI Azure para criar uma Aplicação Web para Contentores, utilizando a sua subscrição e a imagem do recipiente em HTTPS. Aguarde que o script esteja completo (aproximadamente 25-30 minutos) antes de submeter o primeiro pedido.
 
-```bash
+```azurecli
 $subscription_name = ""                    # THe name of the subscription you want you resource to be created on.
 $resource_group_name = ""                  # The name of the resource group you want the AppServicePlan
                                            #    and AppSerivce to be attached to.
@@ -118,7 +118,7 @@ Consulte o artigo de apoio regional da [ACI](../../../container-instances/contai
 > [!NOTE] 
 > As instâncias do recipiente Azure não incluem suporte HTTPS para os domínios construídos. Se precisar de HTTPS, terá de o configurar manualmente, incluindo a criação de um certificado e o registo de um domínio. Pode encontrar instruções para o fazer com o NGINX abaixo.
 
-```bash
+```azurecli
 $subscription_name = ""                    # The name of the subscription you want you resource to be created on.
 $resource_group_name = ""                  # The name of the resource group you want the AppServicePlan
                                            # and AppService to be attached to.
@@ -146,7 +146,7 @@ az container create --resource-group $resource_group_name --name $azure_containe
 Por predefinição, não existe qualquer garantia quando se utiliza a ACI com API de contentores. Isto porque normalmente os contentores funcionam como parte de uma cápsula que é protegida do exterior por uma ponte de rede. No entanto, pode modificar um recipiente com um componente frontal, mantendo o ponto final do recipiente em privado. Os exemplos a seguir usam [o NGINX](https://www.nginx.com) como porta de entrada para suportar a autenticação HTTPS/SSL e o certificado de cliente.
 
 > [!NOTE]
-> NGINX é um servidor HTTP de código aberto e de alto desempenho e procuração. Um recipiente NGINX pode ser utilizado para pôr termo a uma ligação TLS para um único recipiente. São também possíveis soluções de rescisão TLS baseadas em ingresss em NGINX mais complexas.
+> NGINX é um servidor HTTP de código aberto e de alto desempenho e procuração. Um recipiente NGINX pode ser utilizado para pôr termo a uma ligação TLS para um único recipiente. São também possíveis soluções de rescisão TLS baseadas em ingres em NGINX mais complexas.
 
 #### <a name="set-up-nginx-as-an-ingress-gateway"></a>Configurar o NGINX como um portal de entrada
 

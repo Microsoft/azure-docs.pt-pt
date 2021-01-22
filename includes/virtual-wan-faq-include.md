@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 5aab11b31756ee8430e8ae4d54a2b3de5ea2e136
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 8cd6f6a32071dc7bbd4aaccb92168cda009933a6
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97612605"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98689593"
 ---
 ### <a name="is-azure-virtual-wan-in-ga"></a>Azure Virtual WAN está na AG?
 
@@ -198,6 +198,9 @@ Quando os Sites VPN se ligam a um hub, fazem-no com ligações. O WAN virtual su
 ### <a name="what-is-the-total-vpn-throughput-of-a-vpn-tunnel-and-a-connection"></a>Qual é a produção total de VPN de um túnel VPN e uma ligação?
 
 A produção total de VPN de um hub é de até 20 Gbps com base na unidade de escala escolhida do gateway VPN. A produção é partilhada por todas as ligações existentes. Cada túnel numa ligação pode suportar até 1 Gbps.
+
+### <a name="can-i-use-nat-t-on-my-vpn-connections"></a>Posso usar o NAT-T nas minhas ligações VPN?
+Sim, nat traversal (NAT-T) é suportado. Virtual WAN VPN Gateway NÃO executará qualquer funcionalidade semelhante ao NAT nos pacotes internos de/para os túneis IPsec. Nesta configuração, certifique-se de que o dispositivo no local inicia o túnel IPSec.
 
 ### <a name="i-dont-see-the-20-gbps-setting-for-the-virtual-hub-in-portal-how-do-i-configure-that"></a>Não vejo a definição de 20 Gbps para o centro virtual no portal. Como posso configurar isto?
 

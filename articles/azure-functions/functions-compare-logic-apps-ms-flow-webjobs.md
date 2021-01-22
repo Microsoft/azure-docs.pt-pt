@@ -4,12 +4,12 @@ description: 'Compare os serviços de cloud da Microsoft que estão otimizados p
 ms.topic: overview
 ms.date: 04/09/2018
 ms.custom: mvc
-ms.openlocfilehash: 81b143219fd0b53d4cd00761af6b767c173ed88d
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 95167791efe13526b0a70c28fa89771542a9d220
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934871"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685566"
 ---
 # <a name="choose-the-right-integration-and-automation-services-in-azure"></a>Choose the right integration and automation services in Azure (Escolher os serviços de integração e automatização certos no Azure)
 
@@ -34,7 +34,7 @@ A Power Automamate capacita qualquer trabalhador de escritório para realizar in
 
 A tabela a seguir ajuda-o a determinar se o Power Automamate ou o Logic Apps são os melhores para uma determinada integração:
 
-|  | Power Automate | Aplicações Lógicas |
+|  | Power Automate | Logic Apps |
 | --- | --- | --- |
 | **Utilizadores** |Trabalhadores do escritório, utilizadores empresariais, administradores do SharePoint |Integradores e programadores profissionais, profissionais de TI |
 | **Cenários** |Gestão personalizada |Integrações avançadas |
@@ -51,7 +51,7 @@ Nas Funções do Azure, vai desenvolver orquestrações ao escrever código e ut
 
 Pode combinar serviços ao criar uma orquestração, chamar funções de aplicações lógicas e chamar aplicações lógicas de funções. Selecione como criar cada orquestração com base nas capacidades dos serviços ou nas suas preferências pessoais. A tabela que se segue enumera algumas das principais diferenças entre estes:
 
-|  | Funções Duráveis | Aplicações Lógicas |
+|  | Funções Duráveis | Logic Apps |
 | --- | --- | --- |
 | **Desenvolvimento** | Baseado em código (imperativo) | Baseado no estruturador (declarativo) |
 | **Conetividade** | [Cerca de uma dúzia de tipos de encadernação incorporados,](functions-triggers-bindings.md#supported-bindings)código de escrita para encadernações personalizadas | [Grande coleção de conectores](../connectors/apis-list.md), Pacote de [Integração Empresarial para cenários B2B,](../logic-apps/logic-apps-enterprise-integration-overview.md) [construa conectores personalizados](../logic-apps/custom-connector-overview.md) |
@@ -79,7 +79,7 @@ As Funções do Azure são criadas no SDK do WebJobs, pelo que partilham muitos 
 |  | Funções | WebJobs com o SDK do WebJobs |
 | --- | --- | --- |
 |**[Modelo de aplicativo sem servidor](https://azure.microsoft.com/solutions/serverless/) com escala [automática](event-driven-scaling.md)**|✔||
-|**[Desenvolver e testar no navegador](functions-create-first-azure-function.md)** |✔||
+|**[Desenvolver e testar no navegador](./functions-get-started.md)** |✔||
 |**[Preços com pagamento por utilização](consumption-plan.md)**|✔||
 |**[Integração com o Logic Apps](functions-twitter-email.md)**|✔||
 | **Eventos de acionador** |[Temporizador](functions-bindings-timer.md)<br>[Filas e blobs de Armazenamento do Microsoft Azure](functions-bindings-storage-blob.md)<br>[Filas e tópicos do Azure Service Bus](functions-bindings-service-bus.md)<br>[BD do Cosmos para o Azure](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md)<br>[Azure Event Grid](functions-bindings-event-grid.md)|[Temporizador](functions-bindings-timer.md)<br>[Filas e blobs de Armazenamento do Microsoft Azure](functions-bindings-storage-blob.md)<br>[Filas e tópicos do Azure Service Bus](functions-bindings-service-bus.md)<br>[BD do Cosmos para o Azure](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[Sistema de Ficheiros](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Files/FileTriggerAttribute.cs)|
@@ -124,4 +124,4 @@ Comece por criar o seu primeiro fluxo, aplicação lógica ou aplicação de fun
 
 * [Introdução ao Power Automate](/power-automate/getting-started)
 * [Criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
-* [Crie a sua primeira função Azure](functions-create-first-azure-function.md)
+* [Crie a sua primeira função Azure](./functions-get-started.md)

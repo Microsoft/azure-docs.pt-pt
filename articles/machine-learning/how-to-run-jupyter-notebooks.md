@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: cdd8783daf9e1e1458f47e773eb3b6ccedfbae83
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: d6832238b0c76059079e2a1330d31eed3212b242
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624562"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685583"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Como executar os Jupyter Notebooks na área de trabalho
 
@@ -230,6 +230,7 @@ O portátil irá automaticamente encontrar todos os núcleos jupyter instalados 
     conda install -y ipykernel
     python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
     ```
+1. Depois de ter instalado o núcleo, por favor, refresque a página e abra um caderno. Agora verão o novo núcleo na lista de núcleos.
 
 > [!NOTE]
 > Para a gestão de pacotes dentro de um caderno, utilize funções mágicas **%pip** ou **%conda** para instalar automaticamente pacotes no **núcleo atualmente em funcionamento**, em vez de **!pip** ou **!conda,** que se refere a todas as embalagens (incluindo pacotes fora do núcleo atualmente em funcionamento)
@@ -264,7 +265,7 @@ Uma célula está no modo de comando quando não há cursor de texto que lhe ord
 
    :::image type="content" source="media/how-to-run-jupyter-notebooks/command-mode.png" alt-text="Célula de portátil no modo de comando ":::
 
-| Atalho                      | Descrição                          |
+| Atalho                      | Description                          |
 | ----------------------------- | ------------------------------------|
 | ENTER                         | Entrar no modo de edição             |        
 | Shift + Enter                 | Executar célula, selecione abaixo         |     
@@ -308,7 +309,7 @@ O modo de edição é indicado por um cursor de texto que o leva a escrever na �
 
 Utilizando os seguintes atalhos de teclas, pode navegar e executar código mais facilmente em cadernos Azure Machine Learning quando estiver no modo Editar.
 
-| Atalho                      | Descrição|                                     
+| Atalho                      | Description|                                     
 | ----------------------------- | ----------------------------------------------- |
 | Esc                        | Insira o modo de comando|  
 | Controlo/Comando + Espaço       | Ativar o IntelliSense |

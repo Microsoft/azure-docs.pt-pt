@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 72caeb60fc058b88158979d211a0bc38985975c7
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 444b514dfb1798ff810e84fc4e9d50001dbaee1c
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968862"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685793"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerir grupos de ações no portal do Azure
 Um grupo de ação é uma coleção de preferências de notificação definidas pelo proprietário de uma subscrição Azure. Os alertas Azure Monitor e Service Health utilizam grupos de ação para notificar os utilizadores de que foi desencadeado um alerta. Vários alertas podem utilizar o mesmo grupo de ação ou diferentes grupos de ação, dependendo dos requisitos do utilizador. 
@@ -164,6 +164,7 @@ Você pode ter um número limitado de ações de Aplicação Lógica em um Grupo
 
 > [!NOTE]
 > A utilização da ação webhook requer que o ponto final do webhook alvo não exija que os detalhes do alerta funcionem com sucesso ou é capaz de analisar as informações de contexto de alerta fornecidas como parte da operação POST. Se o ponto final do webhook não conseguir lidar com as informações de contexto de alerta por si só, pode utilizar uma solução como uma [ação da Logic App](./action-groups-logic-app.md) para uma manipulação personalizada das informações de contexto de alerta para corresponder ao formato de dados esperado do webhook.
+> O utilizador deve ser **o proprietário** do webhook service principal para garantir que a segurança não é violada. Como qualquer cliente azul pode aceder a todos os IDs de objeto através do portal, sem verificar o proprietário, qualquer pessoa pode adicionar o webhook seguro ao seu próprio grupo de ação para notificação de alerta de monitor azul que viola a segurança.
 
 A ação Action Groups Webhook permite-lhe aproveitar o Azure Ative Directory para garantir a ligação entre o seu grupo de ação e a sua API web protegida (webhook endpoint). O fluxo de trabalho global para tirar partido desta funcionalidade é descrito abaixo. Para obter uma visão geral das aplicações ad da Azure e dos principais serviços, consulte a [plataforma de identidade da Microsoft (v2.0).](../../active-directory/develop/v2-overview.md)
 
@@ -318,11 +319,7 @@ Os preços dos países/regiões apoiados constam da página de preços do [Azure
 ### <a name="webhook"></a>Webhook
 
 > [!NOTE]
-> A utilização da ação webhook requer que o ponto final do webhook alvo não exija que os detalhes do alerta funcionem com sucesso ou é capaz de analisar as informações de contexto de alerta fornecidas como parte da operação POST. 
-
-> O utilizador deve ser **o proprietário** do webhook service principal para garantir que a segurança não é violada. Como qualquer cliente azul pode aceder a todos os IDs de objeto através do portal, sem verificar o proprietário, qualquer pessoa pode adicionar o webhook seguro ao seu próprio grupo de ação para notificação de alerta de monitor azul que viola a segurança.
-
-> Se o ponto final do webhook não conseguir lidar com as informações de contexto de alerta por si só, pode utilizar uma solução como uma [ação da Logic App](./action-groups-logic-app.md) para uma manipulação personalizada das informações de contexto de alerta para corresponder ao formato de dados esperado do webhook.
+> A utilização da ação webhook requer que o ponto final do webhook alvo não exija que os detalhes do alerta funcionem com sucesso ou é capaz de analisar as informações de contexto de alerta fornecidas como parte da operação POST. Se o ponto final do webhook não conseguir lidar com as informações de contexto de alerta por si só, pode utilizar uma solução como uma [ação da Logic App](./action-groups-logic-app.md) para uma manipulação personalizada das informações de contexto de alerta para corresponder ao formato de dados esperado do webhook.
 
 Webhooks são processados usando as seguintes regras
 - Uma chamada webhook é tentada no máximo 3 vezes.

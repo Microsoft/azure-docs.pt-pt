@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 09/10/2020
-ms.openlocfilehash: 4ba06af98714004e4429fe802a206acdfa8fb148
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 117bc71ba304445e3186b4e633f5888647be9223
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127622"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685634"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de lançamento do Azure Machine Learning
 
@@ -77,7 +77,7 @@ Neste artigo, saiba mais sobre os lançamentos da Azure Machine Learning.  Para 
     + Fixação dos avisos xref para documentação no pacote azureml-core
     + Correções de cadeias doc para funcionalidade de suporte de comando em SDK
     + Adicionar propriedade de comando ao RunConfiguration. A funcionalidade permite que os utilizadores executem um comando ou executáveis reais no cálculo através do AzureML SDK.
-    + Os utilizadores podem apagar uma experiência vazia dado o id dessa experiência.
+    + Os utilizadores podem apagar uma experiência vazia dada a identificação dessa experiência.
   + **azureml-dataprep**
     + Suporte de conjunto de dados adicionado para Spark construído com Scala 2.12. Isto adiciona ao suporte 2.11 existente.
   + **azureml-mlflow**
@@ -149,7 +149,7 @@ Neste artigo, saiba mais sobre os lançamentos da Azure Machine Learning.  Para 
     + Especificar a entrada de conjuntos de dados e os nomes de saída que têm o potencial de colidir com variáveis ambientais comuns resultará agora num aviso
     + Parâmetro reutilizado `grant_workspace_access` ao registar datastores. Desa cosdem-no `True` para aceder a dados por trás da rede virtual do Machine Learning Studio.
       [Saiba mais](./how-to-enable-studio-virtual-network.md)
-    + O serviço ligado API é refinado. Em vez de fornecer id de recursos, temos 3 parâmetros separados sub_id, rg e nome definidos na configuração.
+    + O serviço ligado API é refinado. Em vez de fornecer iD de recursos, temos 3 parâmetros separados sub_id, rg e nome definidos na configuração.
     + De forma a permitir que os clientes se auto-resolvam problemas de corrupção, permitir que a sincronização do espaço de trabalho seja um método público.
     + Esta alteração permite que uma corda vazia seja usada como um valor para um script_param
   + **azureml-train-automl-client**
@@ -895,7 +895,7 @@ Agora pode criar, editar e partilhar cadernos e ficheiros de machine learning di
 
 Aceda às seguintes ferramentas de autoria baseadas na web do estúdio:
     
-| Ferramenta baseada na web  |     Descrição  |
+| Ferramenta baseada na web  |     Description  |
 |---|---|
 | Cadernos do estúdio Azure ML   |     Primeira autoria em classe para ficheiros de portátil e suporte a toda a operação disponível no Azure ML Python SDK. | 
 
@@ -1407,7 +1407,7 @@ A partir do estúdio, você pode treinar, testar, implementar e gerir ativos de 
 
 Aceda às seguintes ferramentas de autoria baseadas na web do estúdio:
 
-| Ferramenta baseada na web | Descrição | 
+| Ferramenta baseada na web | Description | 
 |-|-|-|
 | VM do portátil (pré-visualização) | Estação de trabalho totalmente gerida em nuvem | 
 | [Aprendizagem automática de máquinas](tutorial-first-experiment-automated-ml.md) (pré-visualização) | Nenhuma experiência de código para automatizar o desenvolvimento de modelos de aprendizagem automática | 
@@ -1421,7 +1421,7 @@ Aceda às seguintes ferramentas de autoria baseadas na web do estúdio:
 
 ### <a name="r-sdk"></a>SDK para R 
  
-Cientistas de dados e desenvolvedores de IA usam o [Azure Machine Learning SDK para R](tutorial-1st-r-experiment.md) para construir e executar fluxos de trabalho de aprendizagem automática com Azure Machine Learning.
+Cientistas de dados e desenvolvedores de IA usam o [Azure Machine Learning SDK para R](https://github.com/Azure/azureml-sdk-for-r) para construir e executar fluxos de trabalho de aprendizagem automática com Azure Machine Learning.
 
 O Azure Machine Learning SDK para R utiliza o `reticulate` pacote para ligar ao Python SDK. Ao ligar-se diretamente à Python, o SDK para R permite-lhe aceder a objetos e métodos principais implementados no Python SDK a partir de qualquer ambiente R que escolher.
 
@@ -1597,13 +1597,13 @@ O Azure Machine Learning é agora um fornecedor de recursos para a Grade de Even
   + **azureml-train-automl**
     + Criar um objeto [Experiment](/python/api/azureml-core/azureml.core.experiment.experiment) obtém ou cria a experiência no espaço de trabalho Azure Machine Learning para executar rastreamento de história. A experiência ID e o tempo arquivado são povoados no objeto experimento sobre a criação. Exemplo:
 
-        ```py
+        ```python
         experiment = Experiment(workspace, "New Experiment")
         experiment_id = experiment.id
         ```
         [arquivo()](/python/api/azureml-core/azureml.core.experiment.experiment#archive--) e [reativação()](/python/api/azureml-core/azureml.core.experiment.experiment#reactivate-new-name-none-) são funções que podem ser chamadas numa experiência para ocultar e restaurar a experiência de ser mostrada no UX ou devolvida por padrão numa chamada para listar experiências. Se uma nova experiência for criada com o mesmo nome de uma experiência arquivada, pode renomear a experiência arquivada ao reativar passando um novo nome. Só pode haver uma experiência ativa com um nome próprio. Exemplo:
 
-        ```py
+        ```python
         experiment1 = Experiment(workspace, "Active Experiment")
         experiment1.archive()
         # Create new active experiment with the same name as the archived.
@@ -1612,7 +1612,7 @@ O Azure Machine Learning é agora um fornecedor de recursos para a Grade de Even
         ```
         A lista de métodos [estáticos()](/python/api/azureml-core/azureml.core.experiment.experiment#list-workspace--experiment-name-none--view-type--activeonly---tags-none-) em Experiment pode levar um filtro de nome e filtro ViewType. Os valores do ViewType são "ATIVE_ONLY", "ARCHIVED_ONLY" e "ALL". Exemplo:
 
-        ```py
+        ```python
         archived_experiments = Experiment.list(workspace, view_type="ARCHIVED_ONLY")
         all_first_experiments = Experiment.list(workspace, name="First Experiment", view_type="ALL")
         ```
@@ -1768,7 +1768,7 @@ O separador Experiment no novo portal do [espaço de trabalho](https://ml.azure.
     + Apoio de ficheiro de estivado adicionado em `environment_definition` parâmetro nos estimadores.
     + Parâmetros de formação distribuídos simplificados em estimadores.
 
-         ```py
+         ```python
         from azureml.train.dnn import TensorFlow, Mpi, ParameterServer
         ```
 
@@ -1820,14 +1820,14 @@ No momento desta versão, os seguintes navegadores são suportados: Chrome, Fire
   + **azureml-core**
     + Introduza Dataset.get_all (espaço de trabalho), que devolve um dicionário `TabularDataset` de `FileDataset` e objetos com o seu nome de registo.
 
-    ```py
+    ```python
     workspace = Workspace.from_config()
     all_datasets = Dataset.get_all(workspace)
     mydata = all_datasets['my-data']
     ```
 
     + Introduzir `parition_format` como argumento para e `Dataset.Tabular.from_delimited_files` `Dataset.Tabular.from_parquet.files` . A informação de partição de cada caminho de dados será extraída em colunas com base no formato especificado. '{column_name}' cria coluna de cordas, e '{column_name:yy/MM/dd/HH/mm/mm}' cria coluna de datas, onde 'yyyyy', 'MM', 'dd', 'HH', 'mm' e 'ss' são usados para extrair ano, mês, dia, hora, minuto e segundo para o tipo de data. O partition_format deve partir-se da posição da primeira chave de partição até ao fim do caminho do ficheiro. Por exemplo, dado o caminho. /USA/2019/01/01/data.csv' onde a partição é por país e tempo, partition_format='/{Country}/{PartitionDate:yy/MM/dd}/data.csv' cria coluna de cordas 'Country' com valor 'EUA' e coluna de datatime 'PartitionDate' com o valor '2019-01-01'.
-        ```py
+        ```python
         workspace = Workspace.from_config()
         all_datasets = Dataset.get_all(workspace)
         mydata = all_datasets['my-data']

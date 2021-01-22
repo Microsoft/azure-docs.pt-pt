@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 165fb2937db5edfa4f51f62033afaf87cfff83ef
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 9eb2b916bfe6c73a1535afb077b04fbb081dd5f1
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353107"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685725"
 ---
 # <a name="unique-key-constraints-in-azure-cosmos-db"></a>Constrangimentos fundamentais únicos no Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -22,7 +22,7 @@ Chaves únicas adicionam uma camada de integridade de dados a um recipiente Azur
 
 Depois de criar um recipiente com uma política chave única, a criação de um novo ou uma atualização de um item existente que resulte numa duplicação dentro de uma partição lógica é impedida, conforme especificado pelo constrangimento chave único. A chave de partição combinada com a chave única garante a singularidade de um item no âmbito do recipiente.
 
-Por exemplo, considere um recipiente Azure Cosmos com endereço de e-mail como o constrangimento chave único e `CompanyID` como a chave de partição. Ao configurar o endereço de e-mail do utilizador com uma chave única, cada item tem um endereço de e-mail único dentro de um `CompanyID` dado. Dois itens não podem ser criados com endereços de e-mail duplicados e com o mesmo valor de chave de partição. Na API SQL (Core) da Azure Cosmos DB, os itens são armazenados como valores JSON. Estes valores JSON são sensíveis a casos. Ao escolher um imóvel como uma chave única, pode inserir valores sensíveis a casos para essa propriedade. Por exemplo, Se tiver uma chave única definida na propriedade do nome, "Gaby" é diferente de "gaby" e pode inserir ambos no recipiente.
+Por exemplo, considere um recipiente Azure Cosmos `Email address` como o constrangimento chave único e como a chave de `CompanyID` partição. Ao configurar o endereço de e-mail do utilizador com uma chave única, cada item tem um endereço de e-mail único dentro de um `CompanyID` dado. Dois itens não podem ser criados com endereços de e-mail duplicados e com o mesmo valor de chave de partição. Na API SQL (Core) da Azure Cosmos DB, os itens são armazenados como valores JSON. Estes valores JSON são sensíveis a casos. Ao escolher um imóvel como uma chave única, pode inserir valores sensíveis a casos para essa propriedade. Por exemplo, Se tiver uma chave única definida na propriedade do nome, "Gaby" é diferente de "gaby" e pode inserir ambos no recipiente.
 
 Para criar itens com o mesmo endereço de e-mail, mas não o mesmo nome, apelido e endereço de e-mail, adicione mais caminhos à política chave única. Em vez de criar uma chave única baseada apenas no endereço de e-mail, também pode criar uma chave única com uma combinação do primeiro nome, apelido e endereço de e-mail. Esta chave é conhecida como uma chave única composta. Neste caso, é permitida cada combinação única dos três valores dentro de um `CompanyID` dado. 
 

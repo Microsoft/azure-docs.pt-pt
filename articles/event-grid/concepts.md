@@ -2,13 +2,13 @@
 title: Conceitos de grelha de eventos Azure
 description: Descreve o Azure Event Grid e respetivos conceitos. Define vários componentes-chave da Grade de Eventos.
 ms.topic: conceptual
-ms.date: 10/29/2020
-ms.openlocfilehash: 6cfb8b3aaf16a0080b9864ce5198b8a7232e8bc8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 01/21/2021
+ms.openlocfilehash: 6edc8a3980bfea15f28cfb7114bb9f8350a47a3f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93075114"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685708"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Conceitos em Azure Event Grid
 
@@ -18,10 +18,7 @@ Este artigo descreve os principais conceitos em Azure Event Grid.
 
 Um evento é a menor quantidade de informação que descreve totalmente algo que aconteceu no sistema. Cada evento tem informações comuns como: fonte do evento, hora do evento, e identificador único. Cada evento também tem informações específicas que só são relevantes para o tipo específico de evento. Por exemplo, um evento sobre um novo ficheiro que está a ser criado no Armazenamento do Azure inclui detalhes sobre o ficheiro, tal como o valor `lastTimeModified`. Ou, um evento dos Hubs de Eventos inclui o URL do ficheiro de Recolha. 
 
-Um evento de tamanho até 64 KB é coberto pelo Acordo de Nível de Serviço (SLA) de Disponibilidade Geral (GA). O suporte para um evento de tamanho até 1 MB está atualmente em pré-visualização. Os eventos com mais de 64 KB são carregados em incrementos de 64 KB. 
-
-
-Para as propriedades que são enviadas num evento, consulte [o esquema de eventos Azure Event Grid](event-schema.md).
+O tamanho máximo permitido para um evento é de 1 MB. Os eventos com mais de 64 KB são carregados em incrementos de 64 KB. Para as propriedades que são enviadas num evento, consulte [o esquema de eventos Azure Event Grid](event-schema.md).
 
 ## <a name="publishers"></a>Editores
 
@@ -76,10 +73,7 @@ Se o Event Grid não puder confirmar que um evento foi recebido pelo ponto final
 
 ## <a name="batching"></a>Lotes
 
-Ao utilizar um tópico personalizado, os eventos devem ser sempre publicados num conjunto. Este pode ser um lote de um para cenários de baixa produção, no entanto, para casos de uso de volume elevado, é recomendado que você lote de vários eventos juntos por publicação para obter uma maior eficiência. Os lotes podem chegar a 1 MB. Cada evento não deve ainda ser superior a 64 KB (Disponibilidade Geral) ou 1 MB (pré-visualização).
-
-> [!NOTE]
-> Um evento de tamanho até 64 KB é coberto pelo Acordo de Nível de Serviço (SLA) de Disponibilidade Geral (GA). O suporte para um evento de tamanho até 1 MB está atualmente em pré-visualização. Os eventos com mais de 64 KB são carregados em incrementos de 64 KB. 
+Ao utilizar um tópico personalizado, os eventos devem ser sempre publicados num conjunto. Este pode ser um lote de um para cenários de baixa produção, no entanto, para casos de uso de volume elevado, é recomendado que você lote de vários eventos juntos por publicação para obter uma maior eficiência. Os lotes podem ser até 1 MB e o tamanho máximo de um evento é de 1 MB. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
