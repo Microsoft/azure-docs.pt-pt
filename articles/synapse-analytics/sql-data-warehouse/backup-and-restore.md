@@ -11,12 +11,12 @@ ms.date: 11/13/2020
 ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019"
-ms.openlocfilehash: b033fd9c0a7f752cf08d6e679facc9fa27b44037
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: d8c680ec30dcecc56c064f08e4690cbbde9c2377
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120211"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98679918"
 ---
 # <a name="backup-and-restore-in-azure-synapse-dedicated-sql-pool"></a>Backup e restauro na piscina SQL dedicada Azure Synapse
 
@@ -88,7 +88,7 @@ Para obter mais informações sobre os preços da Azure Synapse, consulte [os pr
 
 Cada instantâneo cria um ponto de restauro que representa o tempo que o instantâneo começou. Para restaurar um armazém de dados, você escolhe um ponto de restauro e emite um comando de restauro.  
 
-Pode manter o armazém de dados restaurado e o atual, ou apagar um deles. Se pretender substituir o atual armazém de dados pelo armazém de dados restaurado, pode renomeá-lo utilizando [a BASE DE DADOS ALTER](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) com a opção MODIFICAR NOME.
+Pode manter o armazém de dados restaurado e o atual, ou apagar um deles. Se pretender substituir o atual armazém de dados pelo armazém de dados restaurado, pode renomeá-lo utilizando [a BASE DE DADOS ALTER](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) com a opção MODIFICAR NOME.
 
 Para restaurar um armazém de dados, consulte [restaurar uma piscina SQL dedicada.](sql-data-warehouse-restore-points.md#create-user-defined-restore-points-through-the-azure-portal)
 

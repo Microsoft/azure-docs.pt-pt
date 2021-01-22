@@ -11,16 +11,16 @@ ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 939a74a2bbedf6b00159f0c33a50eeb93595cda4
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 547f697c4f8ffb903006e48e94086433d64225c7
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98116080"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681341"
 ---
 # <a name="quickstart-bulk-load-data-using-the-copy-statement"></a>Quickstart: Dados de carga a granel utilizando a declaração COPY
 
-Neste arranque rápido, você irá amontoa dados de carga na sua piscina de SQL dedicada usando a [declaração](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) copy simples e flexível para ingestão de dados de alto rendimento. A declaração COPY é o utilitário de carregamento recomendado, pois permite-lhe carregar de forma perfeita e flexível os dados fornecendo a funcionalidade para:
+Neste arranque rápido, você irá amontoa dados de carga na sua piscina de SQL dedicada usando a [declaração](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) copy simples e flexível para ingestão de dados de alto rendimento. A declaração COPY é o utilitário de carregamento recomendado, pois permite-lhe carregar de forma perfeita e flexível os dados fornecendo a funcionalidade para:
 
 - Permitir que utilizadores privilegiados mais baixos carreguem sem precisar de permissões rígidas do CONTROL no armazém de dados
 - Aproveite apenas uma única declaração T-SQL sem ter que criar quaisquer objetos de base de dados adicionais

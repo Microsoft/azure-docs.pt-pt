@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/14/2021
 ms.author: jamesmantu
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: 8fa2e1ee4e42619a30a8af419c539df8e9e4399c
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: acaa87f44fbd496aea843de673c0b2d7652fe542
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98634468"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681048"
 ---
 # <a name="quickstart-sign-in-and-get-an-access-token-in-an-angular-spa-using-the-auth-code-flow"></a>Quickstart: Inicie e obtenha um token de acesso em um SPA Angular usando o fluxo de código auth
 
@@ -65,6 +65,15 @@ Este quickstart utiliza o MSAL Angular v2 com o fluxo de código de autorizaçã
 > 1. Clique no **botão Configurar** para aplicar as alterações.
 > 1. Nas **Configurações da Plataforma** expande a **aplicação de página única**.
 > 1. Confirme que nos **tipos de Subvenção** ![ já configurado o seu ](media/quickstart-v2-javascript/green-check.png) URI de redirecionamento é elegível para o Fluxo de Código de Autorização com PKCE.
+
+> [!div class="sxs-lookup" renderon="portal"]
+> #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Passo 1: Configurar a sua candidatura no portal Azure
+> Para fazer a amostra de código neste trabalho de arranque rápido, você precisa adicionar um `redirectUri` como `http://localhost:4200/` .
+> > [!div renderon="portal" id="makechanges" class="nextstepaction"]
+> > [Faça estas alterações para mim]()
+>
+> > [!div id="appconfigured" class="alert alert-info"]
+> > ![Já configurada](media/quickstart-v2-javascript/green-check.png) A sua aplicação está configurada com estes atributos.
 
  #### <a name="step-2-download-the-project"></a>Passo 2: Transferir o projeto
 

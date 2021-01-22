@@ -1,18 +1,18 @@
 ---
 title: Controlos de conformidade regulamentar da política Azure para mensagens de autocarro da Azure Service
 description: Lista os controlos de conformidade regulamentar da política Azure disponíveis para mensagens de autocarro do serviço Azure. Estas definições políticas incorporadas fornecem abordagens comuns para gerir o cumprimento dos seus recursos Azure.
-ms.date: 01/08/2021
+ms.date: 01/21/2021
 ms.topic: sample
 author: spelluru
 ms.author: spelluru
 ms.service: service-bus-messaging
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: cc13aefea18d7f492f32e0c7c1b87bed2d462358
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: c1784b3edf91cb9be0eb9965c51e8ef90ffb2268
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98045601"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98680720"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-service-bus-messaging"></a>Controlos de conformidade regulamentar da política Azure para mensagens de autocarro da Azure Service
 

@@ -1,14 +1,14 @@
 ---
-title: Recuperação de geo-desastres - Azure Event Hubs Microsoft Docs
+title: Recuperação de geo-desastres - Azure Event Hubs| Microsoft Docs
 description: Como utilizar as regiões geográficas para falhar e realizar a recuperação de desastres nos Hubs de Eventos do Azure
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 8824334e762237c3f18cb763d5b39fa55d6415a3
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 0e0a207630898eb7fe7613acb311364a64f9b38b
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108493"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681688"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Hubs de Eventos Azure - Recuperação de geo-desastres 
 
@@ -43,8 +43,10 @@ São utilizados neste artigo os seguintes termos:
 
 -  *Pseudónimo :* O nome para uma configuração de recuperação de desastres que configura. O pseudónimo fornece uma única cadeia estável de nome de domínio totalmente qualificado (FQDN). As aplicações utilizam este fio de ligação de pseudónimo para ligar a um espaço de nome. 
 
--  *Espaço de nome primário/secundário*: Os espaços de nome que correspondem ao pseudónimo. O espaço de nome primário é "ativo" e recebe mensagens (pode ser um espaço de nome existente ou novo). O espaço de nome secundário é "passivo" e não recebe mensagens. Os metadados entre ambos estão sincronizados, pelo que ambos podem aceitar mensagens sem qualquer código de aplicação ou alterações nas cordas de ligação. Para garantir que apenas o espaço de nome ativo recebe mensagens, deve utilizar o pseudónimo. 
+-  *Espaço de nome primário/secundário*: Os espaços de nome que correspondem ao pseudónimo. O espaço de nome primário é "ativo" e recebe mensagens (pode ser um espaço de nome existente ou novo). O espaço de nome secundário é "passivo" e não recebe mensagens. Os metadados entre ambos estão sincronizados, pelo que ambos podem aceitar mensagens sem qualquer código de aplicação ou alterações nas cordas de ligação. Para garantir que apenas o espaço de nome ativo recebe mensagens, deve utilizar o pseudónimo.
 
+    > [!IMPORTANT]
+    > A funcionalidade de recuperação de geo-desastres requer que a subscrição e o grupo de recursos sejam os mesmos para espaços de nome primário e secundário. 
 -  *Metadados*: Entidades como centros de eventos e grupos de consumidores; e as suas propriedades do serviço que estão associados ao espaço de nome. Apenas as entidades e as suas configurações são replicadas automaticamente. Mensagens e eventos não são replicados. 
 
 -  *Failover*: O processo de ativação do espaço de nome secundário.
@@ -54,10 +56,10 @@ São suportadas as seguintes combinações de espaços de nome primário e secun
 
 | Espaço de nome primário | Espaço de nome secundário | Suportado | 
 | ----------------- | -------------------- | ---------- |
-| Standard | Standard | Sim | 
-| Standard | Dedicada | Sim | 
-| Dedicada | Dedicada | Sim | 
-| Dedicada | Standard | Não | 
+| Standard | Standard | Yes | 
+| Standard | Dedicada | Yes | 
+| Dedicada | Dedicada | Yes | 
+| Dedicada | Standard | No | 
 
 > [!NOTE]
 > Não se pode emparelhar espaços de nomes que estão no mesmo aglomerado dedicado. Pode emparelhar espaços de nomes que estão em aglomerados separados. 
@@ -73,12 +75,12 @@ A seguinte secção é uma visão geral do processo de failover, e explica como 
 Primeiro cria-se ou usa-se um espaço de nome primário existente, e um novo espaço de nome secundário, em seguida, emparelha os dois. Este emparelhamento dá-lhe um pseudónimo que pode usar para ligar. Porque usas um pseudónimo, não tens de mudar as cordas de ligação. Apenas novos espaços de nome podem ser adicionados ao seu emparelhamento failover. 
 
 1. Crie o espaço de nome primário.
-1. Crie o espaço de nome secundário. Este passo é opcional. Pode criar o espaço de nome secundário enquanto cria o emparelhamento no passo seguinte. 
+1. Crie o espaço de nome secundário na subscrição e o grupo de recursos que tem o espaço de nome primário. Este passo é opcional. Pode criar o espaço de nome secundário enquanto cria o emparelhamento no passo seguinte. 
 1. No portal Azure, navegue para o seu espaço de nome principal.
 1. Selecione **Geo-recuperação** no menu esquerdo e selecione Iniciar o **emparelhamento** na barra de ferramentas. 
 
     :::image type="content" source="./media/event-hubs-geo-dr/primary-namspace-initiate-pairing-button.png" alt-text="Iniciar o emparelhamento a partir do espaço de nome primário":::    
-1. Na página **de emparelhamento Iniciar,** selecione um espaço de nome secundário existente ou crie um e, em seguida, selecione **Criar**. No exemplo seguinte, é selecionado um espaço de nome secundário existente. 
+1. Na página **de emparelhamento Iniciar,** selecione um espaço de nome secundário existente ou crie um na subscrição e no grupo de recursos que tem o espaço de nome primário. Em seguida, selecione **Criar**. No exemplo seguinte, é selecionado um espaço de nome secundário existente. 
 
     :::image type="content" source="./media/event-hubs-geo-dr/initiate-pairing-page.png" alt-text="Selecione o espaço de nome secundário":::        
 1. Agora, quando selecionar **Geo-recuperação** para o espaço de nome primário, deve ver a página **de Alias Geo-DR** que se parece com a seguinte imagem:

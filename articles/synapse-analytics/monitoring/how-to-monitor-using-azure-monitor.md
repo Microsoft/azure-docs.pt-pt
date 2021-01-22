@@ -9,12 +9,12 @@ ms.subservice: monitoring
 ms.date: 11/30/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 9032fcaf35265c791913f5b69fb0972bada6885f
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: eb74137e515bff7a432367e75b4208490b1243c0
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602466"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681392"
 ---
 # <a name="use-azure-monitor-with-your-azure-synapse-analytics-workspace"></a>Use o Azure Monitor com o seu espaço de trabalho Azure Synapse Analytics
 
@@ -82,7 +82,7 @@ Aqui estão algumas das métricas emitidas pelas piscinas Apache Spark:
 
 ## <a name="alerts"></a>Alertas
 
-Inscreva-se no portal Azure e selecione **Monitor**  >  **Alertas de Monitorização** para criar alertas.
+Inscreva-se no portal Azure e selecione   >  **Alertas de Monitorização** para criar alertas.
 
 ### <a name="create-alerts"></a>Criar alertas
 
@@ -103,7 +103,7 @@ Inscreva-se no portal Azure e selecione **Monitor**  >  **Alertas de Monitoriza�
 
 Aqui estão os registos emitidos pela Azure Synapse Analytics espaços de trabalho:
 
-| Log Analytics nome da tabela | Nome da categoria de registo                 | Descrição |
+| Log Analytics nome da tabela | Nome da categoria de registo                 | Description |
 |-------------------------------|-------------------------------------------------|-------------|
 | SynapseGatewayApiReques     | GatewayApiRequests             | Pedidos de Azure Synapse gateway API. |
 | Operações De SinapseRbac         | Operações De SinapseRbac          | Operações de controlo de acesso baseado em funções (SRBAC) da Azure Synapse. |
@@ -112,7 +112,7 @@ Aqui estão os registos emitidos pela Azure Synapse Analytics espaços de trabal
 
 Aqui estão os registos emitidos por piscinas SQL dedicadas:
 
-| Log Analytics nome da tabela        | Nome da categoria de registo             | Descrição |
+| Log Analytics nome da tabela        | Nome da categoria de registo             | Description |
 |----------------------|--------------------------------------|-------------|
 | SinapseSqlPoolExecRequests  | ExecRequests | Informações sobre pedidos/consultas SQL numa piscina SQL dedicada a Azure Synapse.
 | SynapseSqlPoolDmsWorkers    | DmsWorkers   | Informação sobre trabalhadores que completam passos DMS numa piscina SQL dedicada a Azure Synapse.
@@ -121,17 +121,17 @@ Aqui estão os registos emitidos por piscinas SQL dedicadas:
 | SynapseSqlPoolWaits         | Espera        | Informações sobre os estados de espera encontrados durante a execução de um pedido/consulta SQL numa piscina SQL dedicada a Azure Synapse, incluindo fechaduras e esperas nas filas de transmissão.
 
 Para obter mais informações sobre estes registos, consulte as seguintes informações:
-- [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [sys.dm_pdw_dms_workers](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-dms-workers-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [sys.dm_pdw_sql_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-sql-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [sys.dm_pdw_dms_workers](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-dms-workers-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [sys.dm_pdw_sql_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-sql-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 
 ### <a name="apache-spark-pool-log"></a>Log de piscina de Faísca Apache Spark
 
 Aqui está o registo emitido pelas piscinas Apache Spark:
 
-| Log Analytics nome da tabela               | Nome da categoria de registo              | Descrição                 |
+| Log Analytics nome da tabela               | Nome da categoria de registo              | Description                 |
 |-----------------------------|---------------------------------------|-----------------------------|
 | SinapseBigDataPoolApplicações Acabou | BigDataPoolAppsEnded | Informação sobre aplicações terminadas da Apache Spark |
 
@@ -160,7 +160,7 @@ Também pode utilizar uma conta de armazenamento ou espaço de nomes do Event Hu
 
 Crie ou adicione configurações de diagnóstico para o seu espaço de trabalho, piscina SQL dedicada ou piscina Apache Spark.
 
-1. No portal, vá ao Monitor. Selecione **Settings**  >  **definições de diagnóstico**.
+1. No portal, vá ao Monitor. Selecione   >  **definições de diagnóstico**.
 
 1. Selecione o espaço de trabalho Synapse, piscina SQL dedicada ou piscina Apache Spark para a qual pretende criar uma definição de diagnóstico.
 
@@ -177,7 +177,7 @@ Crie ou adicione configurações de diagnóstico para o seu espaço de trabalho,
 
 Após alguns momentos, a nova definição aparece na sua lista de configurações para o seu espaço de trabalho, piscina SQL dedicada ou piscina Apache Spark. Os registos de diagnóstico são transmitidos para esse espaço de trabalho assim que novos dados de eventos são gerados. Podem decorrer até 15 minutos entre quando um evento é emitido e quando aparece no Log Analytics.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a monitorização do gasoduto, consulte o gasoduto Monitor que funciona no artigo [do Synapse Studio.](how-to-monitor-pipeline-runs.md) 
 

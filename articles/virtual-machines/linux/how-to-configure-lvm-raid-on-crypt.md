@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.author: jofrance
 ms.date: 03/17/2020
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 46d2c039806e4e6a72e091458d44e7b21b3dfa70
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 3f90d5a95d153405f9257258fba6ab9cc1ce9a35
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843524"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681307"
 ---
 # <a name="configure-lvm-and-raid-on-encrypted-devices"></a>Configure LVM e RAID em dispositivos encriptados
 
@@ -77,7 +77,7 @@ New-AzVm -ResourceGroupName ${RGNAME} `
 ```
 Azure CLI:
 
-```bash
+```azurecli
 az vm create \
 -n ${VMNAME} \
 -g ${RGNAME} \
@@ -105,7 +105,7 @@ Update-AzVM -VM ${VM} -ResourceGroupName ${RGNAME}
 
 Azure CLI:
 
-```bash
+```azurecli
 az vm disk attach \
 -g ${RGNAME} \
 --vm-name ${VMNAME} \
@@ -125,7 +125,7 @@ $VM.StorageProfile.DataDisks | Select-Object Lun,Name,DiskSizeGB
 
 Azure CLI:
 
-```bash
+```azurecli
 az vm show -g ${RGNAME} -n ${VMNAME} --query storageProfile.dataDisks -o table
 ```
 ![Lista de discos anexados no Azure CLI](./media/disk-encryption/lvm-raid-on-crypt/002-lvm-raid-check-disks-cli.png)
@@ -207,7 +207,7 @@ Set-AzVMDiskEncryptionExtension -ResourceGroupName $RGNAME `
 
 Azure CLI usando um KEK:
 
-```bash
+```azurecli
 az vm encryption enable \
 --resource-group ${RGNAME} \
 --name ${VMNAME} \
@@ -231,7 +231,7 @@ Get-AzVmDiskEncryptionStatus -ResourceGroupName ${RGNAME} -VMName ${VMNAME}
 
 Azure CLI:
 
-```bash
+```azurecli
 az vm encryption show -n ${VMNAME} -g ${RGNAME} -o table
 ```
 ![Estado de encriptação no CLI Azure](./media/disk-encryption/lvm-raid-on-crypt/009-lvm-raid-verify-encryption-status-cli.png)

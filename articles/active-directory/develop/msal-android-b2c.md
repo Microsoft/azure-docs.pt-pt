@@ -1,5 +1,5 @@
 ---
-title: Azure AD B2C (MSAL Android) Rio Azure
+title: Azure AD B2C (MSAL Android) | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Saiba mais sobre considerações específicas ao utilizar o Azure AD B2C com a Microsoft Authentication Library para Android (MSAL). Android)
 services: active-directory
@@ -13,12 +13,12 @@ ms.date: 9/18/2019
 ms.author: brianmel
 ms.reviewer: rapong
 ms.custom: aaddev
-ms.openlocfilehash: a8c7ae8de41a01cb07a4bbbcd5943fb6290eced8
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: f87f2e79bd9439fddb52fad82c7ab4712fc68fb9
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131649"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98680370"
 ---
 # <a name="use-msal-for-android-with-b2c"></a>Use o MSAL para Android com B2C
 
@@ -36,7 +36,7 @@ Dada uma aplicação B2C que tem duas políticas:
 
 O ficheiro de configuração da aplicação declararia dois `authorities` . Um para cada política. A `type` propriedade de cada autoridade `B2C` é.
 
->Nota: O `account_mode` conjunto deve ser definido para **MULTIPLE** para aplicações B2C. Consulte a documentação para obter mais informações sobre [as aplicações de clientes públicos de várias contas.](https://docs.microsoft.com/azure/active-directory/develop/single-multi-account#multiple-account-public-client-application)
+>Nota: O `account_mode` conjunto deve ser definido para **MULTIPLE** para aplicações B2C. Consulte a documentação para obter mais informações sobre [as aplicações de clientes públicos de várias contas.](./single-multi-account.md#multiple-account-public-client-application)
 
 ### `app/src/main/res/raw/msal_config.json`
 ```json

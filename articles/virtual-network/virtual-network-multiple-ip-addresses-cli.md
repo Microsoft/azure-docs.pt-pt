@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: allensu
-ms.openlocfilehash: a1d94166c6c56a3652dc0ad532bd481c6e792c52
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 0b5e8f28be9960a2bb4e1406a293ab5e03962681
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98217095"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98680574"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli"></a>Atribuir vários endereços IP a máquinas virtuais utilizando o Azure CLI
 
@@ -38,7 +38,7 @@ Os passos que se seguem explicam como criar uma máquina virtual de exemplo com 
 3. A partir de uma concha de comando, inicie sessão com o comando `az login` e selecione a subscrição que está a utilizar.
 4. Crie o VM executando o script que se segue num computador Linux ou Mac. O script cria um grupo de recursos, uma rede virtual (VNet), um NIC com três configurações IP e um VM com os dois NICs ligados a ele. O NIC, endereço IP público, rede virtual e recursos VM devem existir todos no mesmo local e subscrição. Embora os recursos não tenham de existir todos no mesmo grupo de recursos, no seguinte guião eles.
 
-```bash
+```azurecli
     
 #!/bin/sh
     

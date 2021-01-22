@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 45e1ae5b8a1084334b7596f62c272e16294c4c14
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 6df8c3238ed6dfeb37fd10d0a7e97aa839e7bf26
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98118766"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681082"
 ---
 # <a name="query-nested-types-in-parquet-and-json-files-by-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Tipos de aninhados de consulta em ficheiros Parquet e JSON utilizando piscina SQL sem servidor em Azure Synapse Analytics
 
@@ -147,7 +147,7 @@ FROM
 
 ## <a name="access-elements-from-repeated-columns"></a>Elementos de acesso a colunas repetidas
 
-A seguinte consulta lê o ficheiro justSimpleArray.parquet e utiliza [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) para recuperar um elemento escalar de dentro de uma coluna repetida, como uma matriz ou mapa:
+A seguinte consulta lê o ficheiro justSimpleArray.parquet e utiliza [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para recuperar um elemento escalar de dentro de uma coluna repetida, como uma matriz ou mapa:
 
 ```sql
 SELECT
@@ -172,7 +172,7 @@ Aqui está o resultado:
 
 ## <a name="access-sub-objects-from-complex-columns"></a>Aceder a sub-objetos de colunas complexas
 
-A seguinte consulta lê o ficheiro mapExample.parquet e utiliza [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) para recuperar um elemento não escalar de dentro de uma coluna repetida, como uma matriz ou mapa:
+A seguinte consulta lê o ficheiro mapExample.parquet e utiliza [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para recuperar um elemento não escalar de dentro de uma coluna repetida, como uma matriz ou mapa:
 
 ```sql
 SELECT

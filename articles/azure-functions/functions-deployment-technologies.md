@@ -4,12 +4,12 @@ description: Saiba as diferentes formas de implantar código para as Funções A
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 04d96a09d41ace64bed5667bb9f0fa6e4beed244
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 51a76adcf25d5d1bc4025eab12073df0886fde3d
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936962"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681835"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologias de implantação em Funções Azure
 
@@ -181,7 +181,7 @@ Pode utilizar o FTP para transferir diretamente ficheiros para as Funções Azur
 
 No editor baseado no portal, pode editar diretamente os ficheiros que estão na sua aplicação de função (essencialmente implantando cada vez que guarda as suas alterações).
 
->__Como usá-lo:__ Para poder editar as suas funções no portal Azure, deve ter [criado as suas funções no portal](functions-create-first-azure-function.md). Para preservar uma única fonte de verdade, a utilização de qualquer outro método de implantação torna a sua função apenas lida e impede a edição contínua do portal. Para voltar a um estado em que pode editar os seus ficheiros no portal Azure, pode voltar a ligar manualmente o modo de edição `Read/Write` e remover quaisquer definições de aplicação relacionadas com a implementação (como). `WEBSITE_RUN_FROM_PACKAGE`
+>__Como usá-lo:__ Para poder editar as suas funções no portal Azure, deve ter [criado as suas funções no portal](./functions-get-started.md). Para preservar uma única fonte de verdade, a utilização de qualquer outro método de implantação torna a sua função apenas lida e impede a edição contínua do portal. Para voltar a um estado em que pode editar os seus ficheiros no portal Azure, pode voltar a ligar manualmente o modo de edição `Read/Write` e remover quaisquer definições de aplicação relacionadas com a implementação (como). `WEBSITE_RUN_FROM_PACKAGE`
 
 >__Quando usá-lo:__ O portal é uma boa maneira de começar com as Funções Azure. Para um trabalho de desenvolvimento mais intenso, recomendamos que utilize uma das seguintes ferramentas de cliente:
 >

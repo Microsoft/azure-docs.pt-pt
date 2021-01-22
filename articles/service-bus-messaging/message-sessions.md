@@ -1,14 +1,14 @@
 ---
-title: Sessões de mensagens de autocarro da Azure Service Microsoft Docs
+title: Sessões de mensagem de autocarro da Azure Service | Microsoft Docs
 description: Este artigo explica como usar sessões para permitir o manuseamento conjunto e ordenado de sequências ilimitadas de mensagens relacionadas.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 05efc550e119186a2925c13d3fcfed11bec17251
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/20/2021
+ms.openlocfilehash: 6d316571d69d2e1e73ddca4ccca53c116ee8fa5f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86511301"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98680758"
 ---
 # <a name="message-sessions"></a>Sessões de mensagens
 As sessões de ônibus de serviço da Microsoft Azure permitem o manuseamento conjunto e ordenado de sequências ilimitadas de mensagens relacionadas. As sessões podem ser usadas **em primeiro lugar, primeiro fora (FIFO)** e padrões **de resposta a pedidos.** Este artigo mostra como usar sessões para implementar estes padrões ao usar o Service Bus. 
@@ -34,9 +34,9 @@ No portal, coloque a bandeira com a seguinte caixa de verificação:
 ![Screenshot da caixa de diálogo de fila Create com a opção Desestação selecionada e delineada a vermelho.][2]
 
 > [!NOTE]
-> Quando as Sessões são ativadas numa fila ou numa subscrição, as aplicações do cliente ***já não*** podem enviar/receber mensagens regulares. Todas as mensagens devem ser enviadas como parte de uma sessão (definindo o id da sessão) e recebidas recebendo a sessão.
+> Quando as Sessões são ativadas numa fila ou numa subscrição, as aplicações do cliente não podem ***mais** _ enviar/receber mensagens regulares. Todas as mensagens devem ser enviadas como parte de uma sessão (definindo o id da sessão) e recebidas recebendo a sessão.
 
-As APIs para sessões existem em clientes de fila e subscrição. Há um modelo imperativo que controla quando se recebem sessões e mensagens, e um modelo baseado em manipuladores, semelhante ao *OnMessage,* que esconde a complexidade da gestão do ciclo de receção.
+As APIs para sessões existem em clientes de fila e subscrição. Há um modelo imperativo que controla quando se recebem sessões e mensagens, e um modelo baseado em manipuladores, semelhante ao _OnMessage*, que esconde a complexidade da gestão do ciclo de receção.
 
 ### <a name="session-features"></a>Características da sessão
 
@@ -46,7 +46,7 @@ As sessões proporcionam uma des multiplexing simultânea de streams de mensagen
 
 Um recetor [messageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) é criado pelo cliente aceitando uma sessão. O cliente chama [QueueClient.AcceptMessageSession](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesession#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSession) ou [QueueClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesessionasync#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSessionAsync) in C#. No modelo de retorno reativo, regista um manipulador de sessão.
 
-Quando o objeto [mensagensSssassassasasa](/dotnet/api/microsoft.servicebus.messaging.messagesession) aceita e enquanto é detido por um cliente, esse cliente mantém um bloqueio exclusivo em todas as mensagens com o [SessionId](/dotnet/api/microsoft.servicebus.messaging.messagesession.sessionid#Microsoft_ServiceBus_Messaging_MessageSession_SessionId) dessa sessão que existe na fila ou subscrição, e também em todas as mensagens com o **SessionId** que ainda chegam enquanto a sessão é realizada.
+Quando o objeto [mensagensSssa](/dotnet/api/microsoft.servicebus.messaging.messagesession) aceita e enquanto é detido por um cliente, esse cliente mantém um bloqueio exclusivo em todas as mensagens com o [SessionId](/dotnet/api/microsoft.servicebus.messaging.messagesession.sessionid#Microsoft_ServiceBus_Messaging_MessageSession_SessionId) dessa sessão que existe na fila ou subscrição, e também em todas as mensagens com o **SessionId** que ainda chegam enquanto a sessão é realizada.
 
 O bloqueio é libertado quando **o Close** Ou **CloseAsync** é chamado, ou quando o bloqueio expira nos casos em que o pedido não é capaz de fazer a operação de fecho. O bloqueio de sessão deve ser tratado como um bloqueio exclusivo num ficheiro, o que significa que a aplicação deve fechar a sessão assim que deixar de precisar e/ou não esperar mais mensagens.
 
@@ -78,8 +78,8 @@ A definição de contagem de entrega por mensagem no contexto das sessões varia
 
 | Cenário | É a contagem de entrega da mensagem incrementada |
 |----------|---------------------------------------------|
-| A sessão é aceite, mas o bloqueio da sessão expira (devido ao tempo limite) | Sim |
-| A sessão é aceite, as mensagens dentro da sessão não estão concluídas (mesmo que estejam bloqueadas), e a sessão está fechada | Não |
+| A sessão é aceite, mas o bloqueio da sessão expira (devido ao tempo limite) | Yes |
+| A sessão é aceite, as mensagens dentro da sessão não estão concluídas (mesmo que estejam bloqueadas), e a sessão está fechada | No |
 | Sessão é aceite, as mensagens são completadas, e então a sessão é explicitamente fechada | N/A (É o fluxo padrão. Aqui as mensagens são removidas da sessão) |
 
 ## <a name="request-response-pattern"></a>Padrão de resposta a pedidos

@@ -9,12 +9,12 @@ ms.custom: mvc, contperf-fy21q1
 ms.date: 12/03/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 04ba20bd5607bc309735e509ac37b15c33445c52
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 5f12eae9345cbb1daa4097305bb85b8ceaf0b439
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97672738"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681467"
 ---
 # <a name="what-is-azure-firewall"></a>O que é o Azure Firewall?
 
@@ -45,7 +45,7 @@ Para saber as novidades com o Azure Firewall, consulte as atualizações do [Azu
 
 O Azure Firewall tem os seguintes problemas conhecidos:
 
-|Problema  |Descrição  |Mitigação  |
+|Problema  |Description  |Mitigação  |
 |---------|---------|---------|
 As regras de filtragem de rede para protocolos não TCP/UDP (por exemplo, ICMP) não funcionam para o tráfego vinculado à Internet|As regras de filtragem da rede para protocolos não-TCP/UDP não funcionam com o SNAT no seu endereço IP público. Os protocolos não TCP/UDP são suportados entre VNets e sub-redes spoke.|O Azure Firewall utiliza o Balanceador de Carga Standard [que não suporta atualmente SNAT para protocolos IP](../load-balancer/load-balancer-overview.md). Estamos a explorar opções para apoiar este cenário num futuro lançamento.|
 |Suporte do PowerShell e CLI em falta para ICMP|A Azure PowerShell e CLI não suportam o ICMP como um protocolo válido nas regras de rede.|Ainda é possível utilizar o ICMP como protocolo através do portal e da API REST. Estamos a trabalhar para adicionar ICMP na PowerShell e na CLI em breve.|
@@ -58,7 +58,6 @@ As regras de filtragem de rede para protocolos não TCP/UDP (por exemplo, ICMP) 
 |SNAT em ligações de entrada|Além do DNAT, as ligações através do endereço IP público de firewall (entrada) são SNATed a um dos IPs privados de firewall. Este requisito hoje (também para NVAs ativos/ativos) para garantir o encaminhamento simétrico.|Para preservar a fonte original para HTTP/S, considere a utilização de cabeçalhos [XFF.](https://en.wikipedia.org/wiki/X-Forwarded-For) Por exemplo, utilize um serviço como [Azure Front Door](../frontdoor/front-door-http-headers-protocol.md#front-door-to-backend) ou [Azure Application Gateway](../application-gateway/rewrite-http-headers.md) em frente à firewall. Também pode adicionar WAF como parte da Porta frontal Azure e corrente à firewall.
 |Suporte de filtragem SQL FQDN apenas no modo proxy (porta 1433)|Para a base de dados Azure SQL, Azure Synapse Analytics e Azure SQL Gerenciado Instância:<br><br>A filtragem SQL FQDN é suportada apenas em modo proxy (porta 1433).<br><br>Para Azure SQL IaaS:<br><br>Se estiver a utilizar portas não standard, pode especificar essas portas nas regras de aplicação.|Para o SQL no modo de redireccionamento (o padrão se ligar a partir de Azure), pode, em vez disso, filtrar o acesso utilizando a etiqueta de serviço SQL como parte das regras da rede Azure Firewall.
 |Não é permitido tráfego de saída na porta TCP 25| As ligações SMTP de saída que utilizam a porta TCP 25 estão bloqueadas. O Porto 25 é usado principalmente para a entrega de e-mail não autenticado. Este é o comportamento padrão da plataforma para máquinas virtuais. Para obter mais informações, consulte mais [problemas de conectividade SMTP de saída de resolução de problemas em Azure](../virtual-network/troubleshoot-outbound-smtp-connectivity.md). No entanto, ao contrário das máquinas virtuais, não é atualmente possível ativar esta funcionalidade no Azure Firewall. Nota: para permitir que o SMTP autenticado (porta 587) ou SMTP sobre uma porta com outra de 25, certifique-se de que configura uma regra de rede e não uma regra de aplicação, uma vez que a inspeção SMTP não é suportada neste momento.|Siga o método recomendado para enviar e-mail, conforme documentado no artigo de resolução de problemas do SMTP. Ou, exclua a máquina virtual que necessita de acesso SMTP de saída da sua rota padrão para a firewall. Em vez disso, configurar o acesso de saída diretamente para a internet.
-|FTP ativo não é suportado|O FTP ativo é desativado no Azure Firewall para proteger contra ataques de ressalto FTP utilizando o comando FTP PORT.|Em vez disso, pode utilizar FTP passivo. Deve ainda abrir explicitamente as portas TCP 20 e 21 na firewall.
 |Métrica de utilização do porto SNAT mostra 0%|A métrica de utilização da porta Azure Firewall SNAT pode mostrar uma utilização de 0% mesmo quando as portas SNAT são utilizadas. Neste caso, a utilização da métrica como parte da métrica de saúde da firewall proporciona um resultado incorreto.|Esta questão foi corrigida e a produção está prevista para maio de 2020. Em alguns casos, a redistribuição de firewall resolve o problema, mas não é consistente. Como uma solução intermédia, utilize apenas o estado de saúde da firewall para procurar *o estado=degradado*, não para *o status=insalubre*. A exaustão portuária mostrar-se-á *degradada.* *Não é saudável* para uso futuro quando são mais métricas para impactar a saúde da firewall.
 |Dnat não é suportado com túnel forçado habilitado|As firewalls implantadas com túneis forçados ativados não podem suportar o acesso à entrada da Internet por causa do encaminhamento assimétrico.|Isto é por design devido ao encaminhamento assimétrico. O caminho de retorno para as ligações de entrada passa pela firewall no local, que não viu a ligação estabelecida.
 |FtP passivo de saída pode não funcionar para Firewalls com vários endereços IP públicos, dependendo da configuração do servidor FTP.|A FTP passiva estabelece diferentes ligações para canais de controlo e dados. Quando uma Firewall com vários endereços IP públicos envia dados para fora, seleciona aleatoriamente um dos seus endereços IP públicos para o endereço IP de origem. O FTP pode falhar quando os canais de dados e de controlo utilizam diferentes endereços IP de origem, dependendo da configuração do servidor FTP.|Está prevista uma configuração SNAT explícita. Entretanto, pode configurar o seu servidor FTP para aceitar canais de dados e de controlo de diferentes endereços IP de origem (ver [exemplo para IIS).](/iis/configuration/system.applicationhost/sites/sitedefaults/ftpserver/security/datachannelsecurity) Em alternativa, considere utilizar um único endereço IP nesta situação.|

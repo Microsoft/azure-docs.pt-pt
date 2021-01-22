@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 7a33cf4e66ce31f8fb8534de25d7564a5784ca3a
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 7341d1f07e8814edcad7b84f6b3b46c7bece3159
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625053"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98680336"
 ---
 # <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>Tutorial: Encaminhe veículos elétricos utilizando cadernos Azure (Python)
 
@@ -27,7 +27,7 @@ Neste tutorial, você anda ajuda um condutor cuja bateria de veículo elétrico 
 Neste tutorial, vai:
 
 > [!div class="checklist"]
-> * Crie e execute um ficheiro De Caderno Jupyter em [Cadernos Azure](../notebooks/index.yml) na nuvem.
+> * Crie e execute um ficheiro De Caderno Jupyter em [Cadernos Azure](https://notebooks.azure.com) na nuvem.
 > * Ligue para Azure Maps REST APIs em Python.
 > * Procure uma gama acessível com base no modelo de consumo do veículo elétrico.
 > * Procure postos de carregamento de veículos elétricos dentro do alcance acessível, ou isochrone.
@@ -49,7 +49,7 @@ Para obter mais informações sobre a autenticação no Azure Maps, consulte [a 
 
 Para acompanhar este tutorial, você precisa criar um projeto Azure Notebooks e baixar e executar o arquivo Jupyter Notebook. O ficheiro Jupyter Notebook contém código Python, que implementa o cenário neste tutorial. Para criar um projeto Azure Notebooks e enviar o documento do Jupyter Notebook para ele, faça os seguintes passos:
 
-1. Vá aos [Cadernos Azure](https://notebooks.azure.com) e inscreva-se. Para obter mais informações, consulte [Quickstart: Inicie e descreva um ID do utilizador](../notebooks/quickstart-sign-in-azure-notebooks.md).
+1. Vá aos [Cadernos Azure](https://notebooks.azure.com) e inscreva-se. Para obter mais informações, consulte [Quickstart: Inicie e descreva um ID do utilizador](https://notebooks.azure.com).
 1. No topo da sua página de perfil público, selecione **My Projects**.
 
     ![O botão My Projects](./media/tutorial-ev-routing/myproject.png)
@@ -408,4 +408,4 @@ Não há recursos que exijam limpeza.
 Para saber mais sobre cadernos Azure, ver
 
 > [!div class="nextstepaction"]
-> [Azure Notebooks](../notebooks/index.yml)
+> [Azure Notebooks](https://notebooks.azure.com)

@@ -12,12 +12,12 @@ ms.date: 01/12/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 646c47920d87fe1d11bc991838ba767b8569a6c9
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: 63bd44140ea5c355c3bb1a891a21e6c2e73ab041
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98246762"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98679505"
 ---
 # <a name="tutorial---build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Tutorial - Construa um ponto final SCIM e configuure o fornecimento de utilizadores com Azure AD
 
@@ -56,7 +56,7 @@ Cada aplicação requer diferentes atributos para criar um utilizador ou grupo. 
 |nome de login|userName|userPrincipalName|
 |nomePróprio|name.givenName|nomeDado|
 |apelido|nome.lastName|apelido|
-|workMail|E-mails[tipo eq "work"].value|Correio|
+|workMail|e-mails[tipo eq "work"].value|Correio|
 |gestor|gestor|gestor|
 |etiqueta|urn:ietf:params:scim:schemas:extensão:2.0:CustomExtension:tag|extensãoAttribute1|
 |status|active|isSoftDeleted (valor calculado não armazenado no utilizador)|

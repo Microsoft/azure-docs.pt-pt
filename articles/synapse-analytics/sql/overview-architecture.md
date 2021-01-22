@@ -10,14 +10,14 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: da6c9f6df0e9e74de297cf6c8f655b62e3446bad
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: bd911868028825164cdd9627bf6b5c6d56de7164
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462719"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98679623"
 ---
-# <a name="azure-synapse-sql-architecture"></a>Arquitetura Azure Synapse SQL 
+# <a name="azure-synapse-sql-architecture"></a>Arquitetura do Azure Synapse SQL 
 
 Este artigo descreve os componentes de arquitetura da Synapse SQL.
 
@@ -49,7 +49,7 @@ Com armazenamento e cálculo dissociados, ao utilizar o Synapse SQL pode-se bene
 
 O Synapse SQL aproveita o Azure Storage para manter os dados do utilizador seguros. Uma vez que os seus dados são armazenados e geridos pela Azure Storage, existe uma taxa separada para o seu consumo de armazenamento. 
 
-O pool SQL sem servidor permite-lhe consultar ficheiros no seu lago de dados apenas de forma a ler, enquanto o pool SQL permite ingerir dados também. Quando os dados são ingeridos em pool SQL dedicado, os dados são fragmentos em **distribuições** para otimizar o desempenho do sistema. Pode escolher qual o padrão de fragmentos a utilizar para distribuir os dados quando define a tabela. Estes padrões de fragmentos são suportados:
+O pool SQL sem servidor permite-lhe consultar ficheiros no seu lago de dados apenas de forma a ler, enquanto o pool SQL permite ingerir dados também. Quando os dados são ingeridos em pool SQL dedicado, os dados são fragmentos em **distribuições** para otimizar o desempenho do sistema. Pode escolher o padrão de fragmentação que será utilizado para distribuir os dados, ao definir a tabela. Estes padrões de fragmentos são suportados:
 
 * Hash
 * Round Robin
@@ -67,7 +67,7 @@ Na piscina SQL sem servidor, o motor DQP funciona no nó de Controlo para otimiz
 
 Os nós de computação conferem poder de computação. 
 
-Na piscina de SQL dedicada, mapa de distribuição para nós compute para processamento. À medida que paga por mais recursos computacional, o pool remaps as distribuições para os nós computacional disponíveis. O número de nós computativos varia de 1 a 60, e é determinado pelo nível de serviço para a piscina DE SQL dedicada. Cada nó computacional tem um nó ID que é visível nas vistas do sistema. Você pode ver o ID do nó compute procurando a coluna node_id nas vistas do sistema cujos nomes começam com sys.pdw_nodes. Para obter uma lista destas vistas do sistema, consulte [as vistas do sistema Synapse SQL](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=azure-sqldw-latest).
+Na piscina de SQL dedicada, mapa de distribuição para nós compute para processamento. À medida que paga por mais recursos computacional, o pool remaps as distribuições para os nós computacional disponíveis. O número de nós computativos varia de 1 a 60, e é determinado pelo nível de serviço para a piscina DE SQL dedicada. Cada nó computacional tem um nó ID que é visível nas vistas do sistema. Você pode ver o ID do nó compute procurando a coluna node_id nas vistas do sistema cujos nomes começam com sys.pdw_nodes. Para obter uma lista destas vistas do sistema, consulte [as vistas do sistema Synapse SQL](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=azure-sqldw-latest&preserve-view=true).
 
 Na piscina SQL sem servidor, cada nó Compute é atribuído tarefa e conjunto de ficheiros para executar tarefa. A tarefa é distribuída unidade de execução de consulta, que na verdade faz parte do utilizador de consulta submetido. O dimensionamento automático está em vigor para garantir que os nós computacional suficientes são utilizados para executar a consulta do utilizador.
 

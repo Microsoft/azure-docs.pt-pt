@@ -12,23 +12,23 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 817a912dabfc5365eabe8e0dabd7e0b40e40c525
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: fb34051f7d4b24190806dde939c8cc6d9c2a4896
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462508"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98679952"
 ---
 # <a name="column-level-security"></a>Segurança ao nível da coluna
 
 Column-Level segurança permite que os clientes controlem o acesso a colunas de mesa com base no contexto de execução do utilizador ou na adesão ao grupo.
 
 > [!VIDEO https://www.youtube.com/embed/OU_ESg0g8r8]
-Desde que este vídeo foi [publicado, a Row level Security](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) tornou-se disponível para piscina SQL dedicada em Azure Synapse.
+Desde que este vídeo foi [publicado, a Row level Security](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) tornou-se disponível para piscina SQL dedicada em Azure Synapse.
 
 A segurança ao nível da coluna simplifica a conceção e codificação da segurança na sua aplicação, permitindo-lhe restringir o acesso à coluna para proteger dados sensíveis. Por exemplo, garantir que utilizadores específicos só podem aceder a determinadas colunas de uma tabela pertinentes ao seu departamento. A lógica de restrição de acesso está localizada no nível da base de dados e não longe dos dados de outro nível de aplicação. A base de dados aplica as restrições de acesso sempre que o acesso aos dados é tentado a partir de qualquer nível. Esta restrição torna a sua segurança mais fiável e robusta reduzindo a área de superfície do seu sistema de segurança global. Além disso, a segurança ao nível das colunas também elimina a necessidade de introduzir pontos de vista para filtrar colunas para impor restrições de acesso aos utilizadores.
 
-Pode implementar a segurança ao nível da coluna com a declaração [GRANT](/sql/t-sql/statements/grant-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL. Com este mecanismo, a autenticação do SQL e do Azure Ative Directory (Azure AD) é suportada.
+Pode implementar a segurança ao nível da coluna com a declaração [GRANT](/sql/t-sql/statements/grant-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) T-SQL. Com este mecanismo, a autenticação do SQL e do Azure Ative Directory (Azure AD) é suportada.
 
 ![O diagrama mostra uma tabela esquemática com a primeira coluna chefiada por um cadeado fechado e as suas células de cor laranja enquanto as outras colunas são células brancas.](./media/column-level-security/cls.png)
 

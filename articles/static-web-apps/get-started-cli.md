@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.author: cshoe
-ms.openlocfilehash: 00892b61cd23ee38ff3d63f8b61391ff1bffdc90
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: eec893321dd39511e1cfc20cb5a6713377ff5167
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97616410"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98680625"
 ---
 # <a name="quickstart-building-your-first-static-site-using-the-azure-cli"></a>Quickstart: Construir o seu primeiro site estático usando o Azure CLI
 
@@ -25,7 +25,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta de teste gratuita](http
 - Conta do [GitHub](https://github.com)
 - [Token de acesso pessoal do GitHub](https://docs.github.com/github/authenticating-to-github/creating-a-personal-access-token)
 - [Conta Azure](https://portal.azure.com)
-- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) instalado (versão 2.8.0 e superior)
+- [Azure CLI](/cli/azure/install-azure-cli) instalado (versão 2.8.0 e superior)
 
 [!INCLUDE [create repository from template](../../includes/static-web-apps-get-started-create-repo.md)]
 
@@ -46,7 +46,7 @@ Agora que o repositório foi criado, pode criar uma aplicação web estática a 
 
 1. Inscreva-se no Azure CLI utilizando o seguinte comando.
 
-    ```bash
+    ```azurecli
     az login
     ```
 
@@ -54,7 +54,7 @@ Agora que o repositório foi criado, pode criar uma aplicação web estática a 
 
     # <a name="no-framework"></a>[Sem Enquadramento](#tab/vanilla-javascript)
 
-    ```bash
+    ```azurecli
     az staticwebapp create \
         -n my-first-static-web-app \
         -g <RESOURCE_GROUP_NAME> \
@@ -66,7 +66,7 @@ Agora que o repositório foi criado, pode criar uma aplicação web estática a 
 
     # <a name="angular"></a>[Angular](#tab/angular)
 
-    ```bash
+    ```azurecli
     az staticwebapp create \
         -n my-first-static-web-app \
         -g <RESOURCE_GROUP_NAME> \
@@ -79,7 +79,7 @@ Agora que o repositório foi criado, pode criar uma aplicação web estática a 
 
     # <a name="react"></a>[React](#tab/react)
 
-    ```bash
+    ```azurecli
     az staticwebapp create \
         -n my-first-static-web-app \
         -g <RESOURCE_GROUP_NAME> \
@@ -92,7 +92,7 @@ Agora que o repositório foi criado, pode criar uma aplicação web estática a 
 
     # <a name="vue"></a>[Vue](#tab/vue)
 
-    ```bash
+    ```azurecli
     az staticwebapp create \
         -n my-first-static-web-app \
         -g <RESOURCE_GROUP_NAME> \
@@ -127,7 +127,7 @@ Agora que o repositório foi criado, pode criar uma aplicação web estática a 
 
 Se não continuar a utilizar esta aplicação, pode eliminar a instância Azure Static Web Apps executando o seguinte comando:
 
-```bash
+```azurecli
 az staticwebapp delete \
     --name my-first-static-web-app \
     --resource-group my-first-static-web-app

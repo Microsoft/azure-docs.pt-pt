@@ -11,12 +11,12 @@ ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 1a988dba52b36b1d27407316200bfa6897de7cf5
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: b59e256f137bc8e1b13cb92d477e32bc01629ac5
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120160"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98679901"
 ---
 # <a name="data-loading-strategies-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Estratégias de carregamento de dados para piscina sql dedicada em Azure Synapse Analytics
 
@@ -24,7 +24,7 @@ As piscinas tradicionais de SQL dedicadas sMP utilizam um processo de extrato, t
 
 Utilizando um processo de Extração, Carga e Transformação (ELT) alavanca as capacidades de processamento de consultas distribuídas incorporadas e elimina os recursos necessários para a transformação de dados antes do carregamento.
 
-Enquanto as piscinas SQL dedicadas suportam muitos métodos de carregamento, incluindo opções populares do SQL Server, como o [BCP](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) e a [SqlBulkCopy API,](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)a forma mais rápida e escalável de carregar dados é através de tabelas externas polyBase e da [declaração COPY](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Enquanto as piscinas SQL dedicadas suportam muitos métodos de carregamento, incluindo opções populares do SQL Server, como o [BCP](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) e a [SqlBulkCopy API,](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)a forma mais rápida e escalável de carregar dados é através de tabelas externas polyBase e da [declaração COPY](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 Com a PolyBase e a declaração COPY, pode aceder a dados externos armazenados no armazenamento Azure Blob ou na Azure Data Lake Store através do idioma T-SQL. Para maior flexibilidade no carregamento, recomendamos a utilização da declaração COPY.
 
@@ -52,7 +52,7 @@ A obtenção de dados do seu sistema de origem depende da localização do armaz
 
 Com a PolyBase e a declaração COPY, pode carregar dados de UTF-8 e UTF-16 codificados por texto ou ficheiros CSV codificados. Além de ficheiros de texto ou CSV delimitados, carrega a partir dos formatos de ficheiros Hadoop, tais como ORC e Parquet. A PolyBase e a declaração COPY também podem carregar dados de ficheiros comprimidos Gzip e Snappy.
 
-O ASCII alargado, o formato de largura fixa e os formatos aninhados como o WinZip ou o XML não são suportados. Se estiver a exportar do SQL Server, pode utilizar a [ferramenta da linha de comando do BCP](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para exportar os dados para ficheiros de texto delimitados.
+O ASCII alargado, o formato de largura fixa e os formatos aninhados como o WinZip ou o XML não são suportados. Se estiver a exportar do SQL Server, pode utilizar a [ferramenta da linha de comando do BCP](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para exportar os dados para ficheiros de texto delimitados.
 
 ## <a name="2-land-the-data-into-azure-blob-storage-or-azure-data-lake-store"></a>2. Aterre os dados no armazenamento da Azure Blob ou na Azure Data Lake Store
 
@@ -76,9 +76,9 @@ Se estiver a utilizar o PolyBase, tem de definir tabelas externas na sua piscina
 
 Definir tabelas externas envolve especificar a fonte de dados, o formato dos ficheiros de texto e as definições de tabela. Os artigos de referência de sintaxe T-SQL que necessitará são:
 
-- [CRIAR FONTE DE DADOS EXTERNA](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [CRIAR TABELA EXTERNA](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [CRIAR FONTE DE DADOS EXTERNA](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [CRIAR TABELA EXTERNA](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 
 Utilize o seguinte mapeamento do tipo de dados SQL ao carregar ficheiros Parquet:
 
@@ -132,7 +132,7 @@ Para formatar os ficheiros de texto:
 
 - Se os seus dados são provenientes de uma fonte não relacional, tem de os transformar em linhas e colunas. Quer os dados sejam de uma fonte relacional ou não relacional, os dados devem ser transformados para alinhar com as definições de coluna para a tabela em que planeia carregar os dados.
 - Formato de dados no ficheiro de texto para alinhar com as colunas e tipos de dados na tabela de destino. O desalinhamento entre os tipos de dados nos ficheiros de texto externos e a tabela de piscinas SQL dedicada faz com que as filas sejam rejeitadas durante a carga.
-- Separe os campos no ficheiro de texto com um exterminador.  Certifique-se de usar um personagem ou uma sequência de caracteres que não seja encontrado nos seus dados de origem. Utilize o exterminador especificado com [FORMATO DE FICHEIRO EXTERNO CREATE](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+- Separe os campos no ficheiro de texto com um exterminador.  Certifique-se de usar um personagem ou uma sequência de caracteres que não seja encontrado nos seus dados de origem. Utilize o exterminador especificado com [FORMATO DE FICHEIRO EXTERNO CREATE](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="4-load-the-data-using-polybase-or-the-copy-statement"></a>4. Carregue os dados utilizando a PolyBase ou a declaração COPY
 
@@ -142,15 +142,15 @@ Para formatar os ficheiros de texto:
 
 Para carregar dados, pode utilizar qualquer uma destas opções de carregamento:
 
-- A [declaração COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) é o utilitário de carregamento recomendado, pois permite-lhe carregar de forma perfeita e flexível os dados. A declaração tem muitas capacidades de carregamento adicionais que a PolyBase não fornece. 
+- A [declaração COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) é o utilitário de carregamento recomendado, pois permite-lhe carregar de forma perfeita e flexível os dados. A declaração tem muitas capacidades de carregamento adicionais que a PolyBase não fornece. 
 - [A PolyBase com T-SQL](./load-data-from-azure-blob-storage-using-copy.md) requer que defina objetos de dados externos.
 - [A declaração de PolyBase e COPY com a Azure Data Factory (ADF)](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) é outra ferramenta de orquestração.  Define um oleoduto e programa empregos.
-- [A PolyBase com o SSIS](/sql/integration-services/load-data-to-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) funciona bem quando os seus dados de origem estão no SQL Server. O SSIS define a fonte para os mapeamentos de mesa de destino, e também orquestra a carga. Se já tiver pacotes SSIS, pode modificar os pacotes para trabalhar com o novo destino do armazém de dados.
+- [A PolyBase com o SSIS](/sql/integration-services/load-data-to-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) funciona bem quando os seus dados de origem estão no SQL Server. O SSIS define a fonte para os mapeamentos de mesa de destino, e também orquestra a carga. Se já tiver pacotes SSIS, pode modificar os pacotes para trabalhar com o novo destino do armazém de dados.
 - [A PolyBase com a Azure Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json) transfere dados de uma tabela para um dataframe de dados de Databricks e/ou escreve dados de um databricks para uma tabela utilizando a PolyBase.
 
 ### <a name="other-loading-options"></a>Outras opções de carregamento
 
-Além da PolyBase e da declaração COPY, pode utilizar o [BCP](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) ou a [API sqlBulkCopy](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). o BCP carrega diretamente para a base de dados sem passar pelo armazenamento Azure Blob, e destina-se apenas a pequenas cargas.
+Além da PolyBase e da declaração COPY, pode utilizar o [BCP](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) ou a [API sqlBulkCopy](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). o BCP carrega diretamente para a base de dados sem passar pelo armazenamento Azure Blob, e destina-se apenas a pequenas cargas.
 
 > [!NOTE]
 > O desempenho de carga destas opções é mais lento do que o PolyBase e a declaração COPY.

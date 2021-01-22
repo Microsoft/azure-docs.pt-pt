@@ -13,12 +13,12 @@ ms.date: 01/04/2021
 ms.author: ryanwi
 ms.custom: aaddev, content-perf, FY21Q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 4d6a7150c854ba89c3cd8eacd6b553c4b8e97343
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 883a06bdffcd0afcbc1be6f2c761d6a1c2c2ea2a
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97963354"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681880"
 ---
 # <a name="configure-token-lifetime-policies-preview"></a>Configure políticas de vida útil simbólicas (pré-visualização)
 Pode especificar o tempo de vida útil de um token de acesso, SAML ou ID emitido pela plataforma de identidade Microsoft. Pode definir durações de tokens para todas as aplicações existentes na sua organização, para uma aplicação multi-inquilino (com várias organizações) ou para um principal de serviço específico na sua organização. Para mais informações, leia [as vidas simbólicas configuráveis.](active-directory-configurable-token-lifetimes.md)
@@ -87,7 +87,7 @@ Neste exemplo, cria-se uma política que exige que os utilizadores autentem mais
 > [!IMPORTANT]
 > A partir de maio de 2020, os novos inquilinos não podem configurar atualização e a sessão simbólica de vida.  Os inquilinos com configuração existente podem modificar as políticas de atualização e sessão até 30 de janeiro de 2021.  O Azure Ative Directory deixará de honrar a configuração de atualização e ficha de sessão existente em políticas após 30 de janeiro de 2021. Você ainda pode configurar o acesso, SAML, e id token vidas após a aposentadoria.
 >
-> Se precisar de continuar a definir o período de tempo antes de um utilizador ser convidado a iniciar novamente o súmis, configurar a frequência de inscrição no Acesso Condicional. Para saber mais sobre Acesso Condicional, leia a gestão da [sessão de autenticação configurada com Acesso Condicional.](/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime)
+> Se precisar de continuar a definir o período de tempo antes de um utilizador ser convidado a iniciar novamente o súmis, configurar a frequência de inscrição no Acesso Condicional. Para saber mais sobre Acesso Condicional, leia a gestão da [sessão de autenticação configurada com Acesso Condicional.](../conditional-access/howto-conditional-access-session-lifetime.md)
 >
 > Se não pretender utilizar o Acesso Condicional após a data de reforma, as suas fichas de atualização e sessão serão definidas como [configuração predefinitiva](active-directory-configurable-token-lifetimes.md#configurable-token-lifetime-properties-after-the-retirement) nessa data e deixará de poder alterar as suas vidas.
 

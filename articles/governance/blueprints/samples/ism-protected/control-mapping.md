@@ -1,20 +1,20 @@
 ---
 title: Controlos de amostras de amostras do Governo australiano ISM PROTECTED
 description: Controlo do mapeamento da amostra de planta PROTEGIDA do Governo Australiano ISM. Cada controlo é mapeado para uma ou mais definições da Política Azure que ajudam na avaliação.
-ms.date: 09/11/2020
+ms.date: 01/21/2021
 ms.topic: sample
-ms.openlocfilehash: 9f036c7e1a749043a0b81717b75202a5c6c37c8c
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: df143a871db3d871fe6354eab23b7ca6dc012b78
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932231"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98680001"
 ---
 # <a name="control-mapping-of-the-australian-government-ism-protected-blueprint-sample"></a>Controlo do mapeamento da amostra de planta protegida do Governo australiano ISM PROTECTED
 
 O artigo seguinte detalha como o Azure Blueprints Australian Government ISM PROTECTED mapes para os controlos ISM PROTECTED. Para obter mais informações sobre os controlos, consulte [ISM PROTECTED](https://www.cyber.gov.au/ism).
 
-Os seguintes mapeamentos são para os **controlos ISM PROTECTED.** Utilize a navegação no direito de saltar diretamente para um mapeamento de controlo específico. Muitos dos controlos mapeados são implementados com uma iniciativa [da Política Azure.](../../../policy/overview.md) Para rever a iniciativa completa, abra **a Política** no portal Azure e selecione a página **Definições.** Em seguida, encontre e selecione a ** \[ pré-visualização \] : Audite os controlos protegidos do Governo australiano ISM e implemente extensões VM específicas para apoiar os requisitos** de auditoria incorporados na iniciativa política.
+Os seguintes mapeamentos são para os **controlos ISM PROTECTED.** Utilize a navegação no direito de saltar diretamente para um mapeamento de controlo específico. Muitos dos controlos mapeados são implementados com uma iniciativa [da Política Azure.](../../../policy/overview.md) Para rever a iniciativa completa, abra **a Política** no portal Azure e selecione a página **Definições.** Em seguida, encontre e selecione a **\[ pré-visualização \] : Audite os controlos protegidos do Governo australiano ISM e implemente extensões VM específicas para apoiar os requisitos** de auditoria incorporados na iniciativa política.
 
 > [!IMPORTANT]
 > Cada controlo abaixo está associado a uma ou mais definições [da Política Azure.](../../../policy/overview.md) Estas políticas podem ajudá-lo a avaliar o [cumprimento](../../../policy/how-to/get-compliance-data.md) do controlo; no entanto, muitas vezes não há um para um ou um jogo completo entre um controlo e uma ou mais políticas. Como tal, **a Conformidade** na Política Azure refere-se apenas às próprias políticas; isto não garante que esteja totalmente em conformidade com todos os requisitos de um controlo. Além disso, a norma de conformidade inclui controlos que não são abordados por nenhuma definição da Política Azure neste momento. Portanto, o cumprimento da Política Azure é apenas uma visão parcial do seu estado de conformidade geral. As associações entre controlos e definições de Política Azure para esta amostra de projeto de conformidade podem mudar ao longo do tempo. Para ver a história da mudança, consulte o [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/ism-protected/control-mapping.md).
@@ -225,7 +225,7 @@ Esta planta ajuda-o a restringir a localização para a implantação de todos o
 
 - As subscrições do Azure devem ter um perfil de registo de registo de atividades
 
-### <a name="0582-the-following-events-are-logged-for-operating-systems-access-to-important-data-and-processes-application-crashes-and-any-error-messages-attempts-to-use-special-privileges-changes-to-accounts-changes-to-security-policy-changes-to-system-configurations-domain-name-system-dns-and-hypertext-transfer-protocol-http-requests-failed-attempts-to-access-data-and-system-resources-service-failures-and-restarts-system-startup-and-shutdown-transfer-of-data-to-external-media-user-or-group-management-use-of-special-privileges"></a>0582 Os seguintes eventos são registados para sistemas operativos: acesso a dados e processos importantes, falhas de aplicações e quaisquer mensagens de erro, tentativas de utilização de privilégios especiais, alterações nas contas, alterações na política de segurança, alterações nas configurações do sistema, sistema de nome de domínio (DNS) e pedidos de Protocolo de Transferência de Hipertexto (HTTP), tentativas falhadas de aceder a dados e recursos do sistema, falhas de serviço e reinícios, startups de sistemas e encerramentos, startups e paralisações do sistema, startups e paralisações do sistema, startups e paralisações do sistema, startups e paralisações do sistema, startups e paralisações do sistema, startups e paralisações do sistema, startups e paralisações do sistema, startups e paralisações do sistema, startups e paralisações do sistema, startups e paralisações do sistema, startups e paralisações do sistema, startups e paralisações do sistema, startups e paralisações do sistema , transferência de dados para meios externos, gestão de utilizadores ou grupos, utilização de privilégios especiais
+### <a name="0582-the-following-events-are-logged-for-operating-systems-access-to-important-data-and-processes-application-crashes-and-any-error-messages-attempts-to-use-special-privileges-changes-to-accounts-changes-to-security-policy-changes-to-system-configurations-domain-name-system-dns-and-hypertext-transfer-protocol-http-requests-failed-attempts-to-access-data-and-system-resources-service-failures-and-restarts-system-startup-and-shutdown-transfer-of-data-to-external-media-user-or-group-management-use-of-special-privileges"></a>0582 Os seguintes eventos são registados para sistemas operativos: acesso a dados e processos importantes, falhas de aplicações e quaisquer mensagens de erro, tentativas de utilização de privilégios especiais, alterações nas contas, alterações na política de segurança, alterações nas configurações do sistema, sistema de nome de domínio (DNS) e pedidos de Protocolo de Transferência de Hipertexto (HTTP), tentativas falhadas de aceder a dados e recursos do sistema, falhas de serviço e reinícios, startups de sistemas e encerramentos, startups e paralisações do sistema , transferência de dados para meios externos, gestão de utilizadores ou grupos, utilização de privilégios especiais
 
 - \[Pré-visualização \] : Implementação do agente de análise de registo de auditoria - VM Image (OS) não listado
 - Implementação do agente de análise de registo de auditoria em VMSS - VM Image (OS) não listado

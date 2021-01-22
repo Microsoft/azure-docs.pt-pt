@@ -4,17 +4,17 @@ titleSuffix: Azure Cognitive Services
 description: Tens total controlo sobre visualização, exportação e eliminação dos seus dados. Elimine os dados do cliente para garantir a privacidade e a conformidade.
 services: cognitive-services
 manager: nitinme
-ms.custom: seodec18
+ms.custom: seodec18, references_regions
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 12/08/2020
-ms.openlocfilehash: cd9b353300b88c69efb0c458245a86963c579064
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.date: 12/10/2020
+ms.openlocfilehash: 0a2d0ce683261ca3460c7aeaa0d7a42152b81a1e
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97007743"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98680195"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Exporte e elimine os dados dos seus clientes em Compreensão de Linguagem (LUIS) em Serviços Cognitivos
 
@@ -58,31 +58,38 @@ Para permitir a [aprendizagem ativa,](luis-how-to-review-endpoint-utterances.md#
 
 Com exceção dos dados de aprendizagem ativa (detalhados abaixo), a LUIS segue as [práticas de armazenamento de dados para os serviços regionais.](https://azuredatacentermap.azurewebsites.net/)
 
+[!INCLUDE [portal consolidation](includes/portal-consolidation.md)]
+
+
 ### <a name="europe"></a>Europa
 
-O [portal eu.luis.ai](https://eu.luis.ai) e a Autoria da Europa (também conhecidas como APIs programáticas) são hospedados na geografia europeia de Azure. O portal eu.luis.ai e a Europe Authoring (também conhecidas como APIs programáticas) apoiam a implantação de pontos finais para as seguintes geografias Azure:
+Os recursos de autoria da Europa (também conhecidos como APIs programáticos) são hospedados na geografia europeia de Azure, e apoiam a implantação de pontos finais para as seguintes geografias Azure:
 
 * Europa
 * França
 * Reino Unido
 
-Ao implementar estas geografias Azure, as declarações recebidas pelo ponto final dos utilizadores finais da sua app serão armazenadas na geografia europeia do Azure para uma aprendizagem ativa. Pode desativar a aprendizagem ativa, ver [Desativar a aprendizagem ativa.](luis-how-to-review-endpoint-utterances.md#disable-active-learning) Para gerir as expressões armazenadas, consulte [Apagar as expressões](luis-how-to-review-endpoint-utterances.md#delete-utterance).
+Ao implementar estas geografias Azure, as declarações recebidas pelo ponto final dos utilizadores finais da sua app serão armazenadas na geografia europeia do Azure para uma aprendizagem ativa.
 
 ### <a name="australia"></a>Austrália
 
-O [portal au.luis.ai](https://au.luis.ai) e a Australian Authoring (também conhecida como APIs Programáticas) são hospedados na geografia australiana de Azure. O portal au.luis.ai e a Australia Authoring (também conhecidas como APIs programáticas) suportam a implantação de pontos finais para as seguintes geografias Azure:
+Os recursos de autoria da Austrália (também conhecidos como APIs programáticos) são hospedados na geografia australiana de Azure, e apoiam a implantação de pontos finais para as seguintes geografias Azure:
 
 * Austrália
 
-Ao implementar estas geografias Azure, as declarações recebidas pelo ponto final dos utilizadores finais da sua app serão armazenadas na geografia australiana do Azure para uma aprendizagem ativa. Pode desativar a aprendizagem ativa, ver [Desativar a aprendizagem ativa.](luis-how-to-review-endpoint-utterances.md#disable-active-learning) Para gerir as expressões armazenadas, consulte [Apagar as expressões](luis-how-to-review-endpoint-utterances.md#delete-utterance).
+Ao implementar estas geografias Azure, as declarações recebidas pelo ponto final dos utilizadores finais da sua app serão armazenadas na geografia australiana do Azure para uma aprendizagem ativa.
 
 ### <a name="united-states"></a>Estados Unidos da América
 
-O [portal luis.ai](https://www.luis.ai) e a Autoria dos Estados Unidos (também conhecidas como APIs programáticas) estão hospedados na geografia dos Estados Unidos da Azure. O portal luis.ai e a Autoria dos Estados Unidos (também conhecidas como APIs programáticas) apoiam a implantação de pontos finais para as seguintes geografias Azure:
+Os recursos de autoria dos Estados Unidos (também conhecidos como APIs programáticos) são hospedados na geografia dos Estados Unidos da Azure, e apoiam a implantação de pontos finais para as seguintes geografias Azure:
 
 * Geografias azuis não apoiadas pelas regiões autorais da Europa ou da Austrália
 
-Ao implementar estas geografias Azure, as declarações recebidas pelo ponto final dos utilizadores finais da sua app serão armazenadas na geografia dos Estados Unidos da Azure para uma aprendizagem ativa. Pode desativar a aprendizagem ativa, ver [Desativar a aprendizagem ativa.](luis-how-to-review-endpoint-utterances.md#disable-active-learning) Para gerir as expressões armazenadas, consulte [Apagar as expressões](luis-how-to-review-endpoint-utterances.md#delete-utterance).
+Ao implementar estas geografias Azure, as declarações recebidas pelo ponto final dos utilizadores finais da sua app serão armazenadas na geografia dos Estados Unidos da Azure para uma aprendizagem ativa. 
+
+## <a name="disable-active-learning"></a>Desativar a aprendizagem ativa
+
+Para desativar a aprendizagem ativa, consulte [Desativar a aprendizagem ativa.](luis-how-to-review-endpoint-utterances.md#disable-active-learning) Para gerir as expressões armazenadas, consulte [Apagar as expressões](luis-how-to-review-endpoint-utterances.md#delete-utterance).
 
 
 ## <a name="next-steps"></a>Passos seguintes

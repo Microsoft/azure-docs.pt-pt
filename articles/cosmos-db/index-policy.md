@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 01/21/2021
 ms.author: tisande
-ms.openlocfilehash: 00c80fa311837918a78f26e941f00cb17f1dc279
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 4d2ad9cf6b47d8307d9652419b82de8ffcbcb099
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019181"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681655"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Políticas de indexação no Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -35,6 +35,17 @@ AZure Cosmos DB suporta dois modos de indexação:
 > AZure Cosmos DB também suporta um modo de indexação preguiçoso. A indexação em diferido executa atualizações ao índice com um nível de prioridade muito menor quando o motor não está a realizar qualquer outro trabalho. Tal poderá levar a resultados de consulta **inconsistentes ou incompletos**. Se planear consultar um contentor do Cosmos, não deverá selecionar a indexação em diferido. Os novos recipientes não podem selecionar uma indexação preguiçosa. Pode solicitar uma isenção contactando o [suporte Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) (exceto se estiver a utilizar uma conta Azure Cosmos em modo [sem servidor,](serverless.md) que não suporta uma indexação preguiçosa).
 
 Por predefinição, a política de indexação está definida para `automatic` . É conseguido colocando a `automatic` propriedade na política de indexação para `true` . Configurar esta propriedade para `true` permitir que a Azure CosmosDB indexe automaticamente os documentos à medida que estão escritos.
+
+## <a name="index-size"></a><a id="index-size"></a>Tamanho do índice
+
+Em Azure Cosmos DB, o armazenamento total consumido é a combinação tanto do tamanho de Dados como do tamanho do Índice. Seguem-se algumas características do tamanho do índice:
+
+* O tamanho do índice depende da política de indexação. Se todas as propriedades estiverem indexadas, então o tamanho do índice pode ser maior do que o tamanho dos dados.
+* Quando os dados são eliminados, os índices são compactados numa base quase contínua. No entanto, para pequenas eliminações de dados, não pode observar imediatamente uma diminuição do tamanho do índice.
+* O tamanho do Índice pode crescer nos seguintes casos:
+
+  * Duração da divisão da partição - O espaço do índice é libertado após a divisão da partição estar concluída.
+  * Quando uma partição está se dividindo, o espaço do índice aumentará temporariamente durante a divisão. 
 
 ## <a name="including-and-excluding-property-paths"></a><a id="include-exclude-paths"></a>Incluindo e excluindo caminhos imobiliários
 
@@ -91,7 +102,7 @@ Ao incluir e excluir caminhos, poderá encontrar os seguintes atributos:
 
 Quando não especificadas, estas propriedades terão os seguintes valores predefinidos:
 
-| **Nome da propriedade**     | **Valor Predefinido** |
+| **Nome da Propriedade**     | **Valor Predefinido** |
 | ----------------------- | -------------------------------- |
 | `kind`   | `range` |
 | `precision`   | `-1`  |
@@ -294,7 +305,7 @@ A utilização da [função Time-to-Live (TTL)](time-to-live.md) requer indexaç
 
 Para cenários em que não é necessário indexar nenhuma trajetória imobiliária, mas o TTL é necessário, pode utilizar uma política de indexação com um modo de indexação definido para `consistent` , sem caminhos incluídos, e `/*` como o único caminho excluído.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Leia mais sobre a indexação nos seguintes artigos:
 

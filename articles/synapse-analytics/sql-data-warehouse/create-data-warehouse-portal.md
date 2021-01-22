@@ -11,12 +11,12 @@ ms.date: 05/28/2019
 ms.author: pimorano
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 4da99200079557ab9d1674635c0df26c9e62d488
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: ecab573f7a98bcee79231b8e20077bb32bffd48c
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120279"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98680119"
 ---
 # <a name="quickstart-create-and-query-a-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-using-the-azure-portal"></a>Quickstart: Criar e consultar uma piscina SQL dedicada (anteriormente SQL DW) em Azure synapse Analytics usando o portal Azure
 
@@ -29,7 +29,7 @@ Crie e questione rapidamente uma piscina SQL dedicada (anteriormente SQL DW) em 
    > [!NOTE]
    > A criação de uma piscina SQL dedicada (anteriormente SQL DW) em Azure Synapse pode resultar num novo serviço de faturação. Para mais informações, consulte [os preços do Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/synapse-analytics/).
 
-2. Transfira e instale a versão mais recente do [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS).
+2. Transfira e instale a versão mais recente do [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (SSMS).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
@@ -55,7 +55,7 @@ Siga estes passos para criar uma piscina SQL dedicada (anteriormente SQL DW) que
    | :------ | :-------------- | :---------- |
    | **Subscrição** | A sua subscrição | Para obter detalhes sobre as suas subscrições, veja [Subscriptions](https://account.windowsazure.com/Subscriptions) (Subscrições). |
    | **Grupo de recursos** | myResourceGroup | Para nomes de grupo de recursos válidos, veja [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (Atribuição de nomes de regras e restrições). |
-   | **Nome da piscina SQL** | Qualquer nome globalmente único (Um exemplo é *mySampleDataWarehouse)* | Para nomes de bases de dados válidos, veja [Database Identifiers](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (Identificadores de Bases de Dados).  |
+   | **Nome da piscina SQL** | Qualquer nome globalmente único (Um exemplo é *mySampleDataWarehouse)* | Para nomes de bases de dados válidos, veja [Database Identifiers](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (Identificadores de Bases de Dados).  |
    | **Servidor** | Qualquer nome globalmente exclusivo | Selecione o servidor existente ou crie um novo nome de servidor, **selecione Criar novo**. Para nomes de servidores válidos, veja [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (Atribuição de nomes de regras e restrições). |
 
    ![criar um armazém de dados detalhes básicos](./media/create-data-warehouse-portal/create-sql-pool-basics.png)
@@ -128,7 +128,7 @@ Obtenha o nome do servidor totalmente qualificado para o seu servidor no portal 
 
 ## <a name="connect-to-the-server-as-server-admin"></a>Ligar ao servidor como administrador do servidor
 
-Esta secção utiliza [o SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) para estabelecer uma ligação ao seu servidor.
+Esta secção utiliza [o SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (SSMS) para estabelecer uma ligação ao seu servidor.
 
 1. Abra o SQL Server Management Studio.
 
@@ -178,7 +178,7 @@ A Azure Synapse Analytics usa t-SQL como linguagem de consulta. Para abrir uma j
 
    ![Consultar dbo.dimCustomer](./media/create-data-warehouse-portal/query-customer.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Está a ser cobrado por unidades de armazém de dados e os dados armazenaram a sua piscina DE SQL dedicada (anteriormente SQL DW). Estes recursos de computação e armazenamento são faturados em separado.
 
@@ -190,7 +190,7 @@ Siga estes passos para limpar os recursos que já não precisa.
 
 1. Inscreva-se no [portal Azure,](https://portal.azure.com)selecione a sua piscina SQL dedicada (anteriormente SQL DW).
 
-   ![Limpar recursos](./media/create-data-warehouse-portal/clean-up-resources.png)
+   ![Limpar os recursos](./media/create-data-warehouse-portal/clean-up-resources.png)
 
 2. Para parar o cálculo, selecione o **botão Pausa.** Quando a piscina SQL dedicada (anteriormente SQL DW) é pausada, você vê um botão **Resume.** Para retomar o cálculo, **selecione Resume**.
 

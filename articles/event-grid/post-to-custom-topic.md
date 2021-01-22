@@ -3,12 +3,12 @@ title: Evento de post para personalizar o tópico da Grelha de Eventos Azure
 description: Este artigo descreve como publicar um evento para um tópico personalizado. Mostra o formato dos dados do post e do evento.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 197d8eb1963300bc6576e664c7c3fd470cf70bb2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed126487938e524264c94544903460854ffc4d41
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86108265"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681622"
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Post para tópico personalizado para Azure Event Grid
 
@@ -71,10 +71,7 @@ Para tópicos personalizados, os dados de alto nível contêm os mesmos campos q
 ]
 ```
 
-Para uma descrição destas propriedades, consulte [o esquema de eventos da Azure Event Grid](event-schema.md). Ao publicar eventos num tópico de grelha de evento, a matriz pode ter um tamanho total de até 1 MB. Cada evento na matriz é limitado a 64 KB (Disponibilidade Geral) ou 1 MB (pré-visualização).
-
-> [!NOTE]
-> Um evento de tamanho até 64 KB é coberto pelo Acordo de Nível de Serviço (SLA) de Disponibilidade Geral (GA). O suporte para um evento de tamanho até 1 MB está atualmente em pré-visualização. Os eventos com mais de 64 KB são carregados em incrementos de 64 KB. 
+Para uma descrição destas propriedades, consulte [o esquema de eventos da Azure Event Grid](event-schema.md). Ao publicar eventos num tópico de grelha de evento, a matriz pode ter um tamanho total de até 1 MB. O tamanho máximo permitido para um evento também é de 1 MB. Os eventos com mais de 64 KB são carregados em incrementos de 64 KB. 
 
 Por exemplo, um esquema de dados de evento válido é:
 
@@ -98,7 +95,7 @@ Depois de publicar no ponto final do tópico, recebe uma resposta. A resposta é
 
 |Resultado  |Resposta  |
 |---------|---------|
-|Success  | 200 OK  |
+|Com êxito  | 200 OK  |
 |Os dados do evento têm formato incorreto | 400 Pedido Incorreto |
 |Chave de acesso inválida | 401 Não Autorizado |
 |Ponto final incorreto | 404 Não Encontrado |

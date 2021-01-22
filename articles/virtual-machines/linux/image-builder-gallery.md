@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: danis
-ms.openlocfilehash: bab5a86cdf8e3fa6b17866fe4088b28ed3ece6f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0cf081fb7723972013d61f385c823a3b0c4d2aee
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91307301"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98679522"
 ---
 # <a name="preview-create-a-linux-image-and-distribute-it-to-a-shared-image-gallery"></a>Pré-visualização: Criar uma imagem Linux e distribuí-la para uma Galeria de Imagens Partilhadas 
 
-Este artigo mostra-lhe como pode usar o Azure Image Builder, e o Azure CLI, para criar uma versão de imagem numa [Galeria de Imagens Partilhadas,](../windows/shared-image-galleries.md)e depois distribuir a imagem globalmente. Também pode fazê-lo utilizando [a Azure PowerShell](../windows/image-builder-gallery.md).
+Este artigo mostra-lhe como pode usar o Azure Image Builder, e o Azure CLI, para criar uma versão de imagem numa [Galeria de Imagens Partilhadas,](../shared-image-galleries.md)e depois distribuir a imagem globalmente. Também pode fazê-lo utilizando [a Azure PowerShell](../windows/image-builder-gallery.md).
 
 
 Vamos usar um modelo de amostra .json para configurar a imagem. O ficheiro .json que estamos a usar está aqui: [helloImageTemplateforSIG.jsem](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json). 
@@ -26,7 +26,7 @@ Para distribuir a imagem por uma Galeria de Imagens Partilhadas, o modelo utiliz
 
 > [!IMPORTANT]
 > O Azure Image Builder está atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="register-the-features"></a>Registar as funcionalidades
 Para utilizar o Azure Image Builder durante a pré-visualização, tem de registar a nova funcionalidade.
@@ -298,4 +298,4 @@ az group delete -n $sigResourceGroup -y
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre [galerias de imagem partilhadas Azure.](shared-image-galleries.md)
+Saiba mais sobre [galerias de imagem partilhadas Azure.](../shared-image-galleries.md)

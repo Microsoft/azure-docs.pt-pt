@@ -11,14 +11,14 @@ ms.date: 07/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da80af9fe598186fa25d59601c9fa4faccb4286a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d67460c654c854c5a855560dde1d67732fa818c7
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87447044"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681960"
 ---
-# <a name="import-and-export-azure-ad-connect-configuration-settings-public-preview"></a>Importar e exportar configurações de configuração AZure AD Connect (pré-visualização pública)
+# <a name="import-and-export-azure-ad-connect-configuration-settings"></a>Importar e exportar configurações de configuração AZure AD Connect 
 
 Azure Ative Directory (Azure AD) As implementações de ligação variam de uma instalação de modo express de uma única floresta para implementações complexas que sincronizam em várias florestas utilizando regras de sincronização personalizadas. Devido ao grande número de opções e mecanismos de configuração, é essencial entender quais as definições em vigor e ser capaz de implementar rapidamente um servidor com uma configuração idêntica. Esta funcionalidade introduz a capacidade de catalogar a configuração de um determinado servidor de sincronização e importar as definições para uma nova implementação. Diferentes configurações de sincronização podem ser comparadas para visualizar facilmente as diferenças entre dois servidores ou o mesmo servidor ao longo do tempo.
 
@@ -52,7 +52,7 @@ Importar configurações previamente exportadas:
 A experiência de instalação de importação é mantida intencionalmente simples com entradas mínimas do utilizador para fornecer facilmente a reprodutibilidade de um servidor existente.
 
 Estas são as únicas alterações que podem ser feitas durante a experiência de instalação. Todas as outras alterações podem ser efetuadas após a instalação do assistente Azure AD Connect:
-- **Credenciais do Azure Ative Directory**: O nome da conta do Administrador Global Azure utilizado para configurar o servidor original é sugerido por padrão. *Tem de*ser alterado se   quiser sincronizar a informação com um novo diretório.
+- **Credenciais do Azure Ative Directory**: O nome da conta do Administrador Global Azure utilizado para configurar o servidor original é sugerido por padrão. *Tem de* ser alterado se   quiser sincronizar a informação com um novo diretório.
 - **Sposição do utilizador**: As opções de inscrição configuradas para o seu servidor original são selecionadas por predefinição e solicitam automaticamente credenciais ou outras informações necessárias durante a configuração. Em casos raros, pode haver a necessidade de configurar um servidor com diferentes opções para evitar alterar o comportamento do servidor ativo. Caso contrário, selecione **Seguinte** para utilizar as mesmas definições.
 - **Credenciais de diretório no local**: Para cada diretório no local incluído nas definições de sincronização, deve fornecer credenciais para criar uma conta de sincronização ou fornecer uma conta de sincronização personalizada pré-criada. Este procedimento é idêntico à experiência de instalação limpa com a exceção de que não pode adicionar ou remover diretórios.
 - **Opções de configuração**: Tal como acontece com uma instalação limpa, poderá optar por configurar as definições iniciais para iniciar a sincronização automática ou ativar o modo de realização. A principal diferença é que o modo de encenação é intencionalmente ativado por padrão para permitir a comparação dos resultados de configuração e sincronização antes de exportar ativamente os resultados para Azure.
@@ -77,10 +77,10 @@ Para migrar as definições:
 
    ![Screenshot que mostra a azure AD Connect diretórios.](media/how-to-connect-import-export-config/migrate1.png)
 
-1. Execute o script como mostrado aqui, e guarde todo o diretório de configuração do servidor de nível inferior. Copie este diretório para o novo servidor de encenação. Tem de copiar toda a pasta **Exported-ServerConfiguration para**o novo servidor.
+1. Execute o script como mostrado aqui, e guarde todo o diretório de configuração do servidor de nível inferior. Copie este diretório para o novo servidor de encenação. Tem de copiar toda a pasta **Exported-ServerConfiguration** para o novo servidor.
 
    ![Screenshot que mostra script no Windows PowerShell. ](media/how-to-connect-import-export-config/migrate2.png)
-    ![ Screenshot que mostra a cópia da pasta Exported-ServerConfiguration-* .](media/how-to-connect-import-export-config/migrate3.png)
+    ![ Screenshot que mostra a cópia da pasta Exported-ServerConfiguration-_ .](media/how-to-connect-import-export-config/migrate3.png)
 
 1. Inicie **o Azure AD Connect** clicando duas vezes no ícone no ambiente de trabalho. Aceite os Termos de Licença de Software da Microsoft e na página seguinte, **selecione Personalize**.
 1. Selecione a caixa **de verificação das definições de sincronização de Importação.** **Selecione Procurar** para navegar na pasta Exported-ServerConfiguration-* copiada. Selecione a MigratedPolicy.jspara importar as definições migradas.
@@ -91,7 +91,7 @@ Para migrar as definições:
 
 Comparar o ficheiro de definições originalmente importado com o ficheiro de definições exportadas do servidor recém-implantado é um passo essencial para compreender quaisquer diferenças entre o pretendido contra a implantação resultante. A utilização da sua aplicação de comparação de textos lado a lado favorita produz uma visualização instantânea que realça rapidamente quaisquer alterações desejadas ou acidentais.
 
-Embora muitos passos de configuração manual anteriormente sejam eliminados, você ainda deve seguir o processo de certificação da sua organização para garantir que não é necessária configuração adicional. Esta configuração pode ocorrer se utilizar definições avançadas, que não são atualmente capturadas na versão pública da gestão de definições.
+Embora muitos passos de configuração manual anteriormente sejam eliminados, você ainda deve seguir o processo de certificação da sua organização para garantir que não é necessária configuração adicional. Esta configuração pode ocorrer se utilizar definições avançadas, que não são atualmente capturadas nesta versão da gestão de definições.
 
 Aqui estão as limitações conhecidas:
 - **Regras de sincronização**: A precedência de uma regra personalizada deve estar na gama reservada de 0 a 99 para evitar conflitos com as regras padrão da Microsoft. A colocação de uma regra personalizada fora do alcance reservado pode resultar na mudança da sua regra personalizada à medida que as regras padrão são adicionadas à configuração. Um problema semelhante ocorrerá se a sua configuração contiver regras padrão modificadas. Modificar uma regra padrão é desencorajado, e a colocação de regras é suscetível de ser incorreta.

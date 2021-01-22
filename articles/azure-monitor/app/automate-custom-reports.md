@@ -4,12 +4,12 @@ description: Automatizar relatórios personalizados diários/semanais/mensais co
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sdash
-ms.openlocfilehash: d465666ce5d631a234644d1adc85afcf6e3c1e27
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: da465fbc899cb52fc48dbde830d3db4f3b58c68b
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010610"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98680455"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatizar relatórios personalizados com dados da Azure Application Insights
 
@@ -33,7 +33,7 @@ Pode [consultar programáticamente](https://dev.applicationinsights.io/) os dado
 
 * [Automatizar relatórios com a Power Automamate](../platform/logicapp-flow-connector.md)
 * [Automatizar relatórios com apps lógicas](automate-with-logic-apps.md)
-* Utilize o modelo de [função Azure](../../azure-functions/functions-create-first-azure-function.md) "Application Insights programado" no cenário de Monitorização. Esta função utiliza o SendGrid para entregar o e-mail. 
+* Utilize o modelo de [função Azure](../../azure-functions/functions-get-started.md) "Application Insights programado" no cenário de Monitorização. Esta função utiliza o SendGrid para entregar o e-mail. 
 
     ![Modelo de função azul](./media/automate-custom-reports/azure-function-template.png)
 
@@ -72,7 +72,7 @@ availabilityResults
 
 1. Crie uma App de Função Azure.(Os insights de aplicação _on_ são necessários apenas se quiser monitorizar a sua nova App de Função com Insights de Aplicação)
 
-   Visite a documentação do Azure Functions para aprender a [criar uma aplicação de função](../../azure-functions/functions-create-first-azure-function.md#create-a-function-app)
+   Visite a documentação do Azure Functions para aprender a [criar uma aplicação de função](../../azure-functions/functions-get-started.md)
 
 2. Uma vez concluída a sua nova App de Função, selecione **Ir para o recurso**.
 
@@ -91,7 +91,7 @@ availabilityResults
 
    ![Screenshot de Definições de Função](./media/automate-custom-reports/scheduled-digest.png)
 
-6. Selecione a configuração de funcionalidades da sua Plataforma **de Aplicação de**  >  **Platform features**  >  **Função.**
+6. Selecione a configuração de funcionalidades da sua Plataforma **de Aplicação de**  >    >  **Função.**
 
     ![Screenshot das definições de aplicação de função Azure](./media/automate-custom-reports/config.png)
 
@@ -154,4 +154,3 @@ Estes passos só se aplicam se ainda não tiver uma conta SendGrid configurada.
 * Saiba mais sobre [os dados programáticas de consultas de insights de aplicação](https://dev.applicationinsights.io/)
 * Saiba mais sobre o [Logic Apps](../../logic-apps/logic-apps-overview.md).
 * Saiba mais sobre [o Microsoft Power Automamate](https://ms.flow.microsoft.com).
-
