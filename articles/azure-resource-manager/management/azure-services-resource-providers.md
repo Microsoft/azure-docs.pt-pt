@@ -3,12 +3,12 @@ title: Fornecedores de recursos por serviços Azure
 description: Lista todos os espaços de nome do fornecedor de recursos para O Gestor de Recursos Azure e mostra o serviço Azure para esse espaço de nome.
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.openlocfilehash: 5e89b2b7cf7c27a501d93f63c74d81d8fb40883c
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: c319a6d06cbbcf5d36178c37207cc13f295a5897
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033549"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702858"
 ---
 # <a name="resource-providers-for-azure-services"></a>Resource providers for Azure services (Fornecedor de recursos para serviços do Azure)
 
@@ -83,7 +83,7 @@ Os fornecedores de recursos com os que estão marcados **- registados** são reg
 | Microsoft.DeploymentManager | [Gestor de Implementação Azure](../templates/deployment-manager-overview.md) |
 | Microsoft.DesktopVirtualization | [Windows Virtual Desktop](../../virtual-desktop/index.yml) |
 | Microsoft.Devices | [Hub IoT do Azure](../../iot-hub/index.yml)<br />[Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure](../../iot-dps/index.yml) |
-| Microsoft.DevOps | [DevOps do Azure](/azure/devops/) |
+| Microsoft.DevOps | [Azure DevOps](/azure/devops/) |
 | Microsoft.DevSpaces | [Azure Dev Spaces](../../dev-spaces/index.yml) |
 | Microsoft.DevTestLab | [Azure Lab Services](../../lab-services/index.yml) |
 | Microsoft.DigitalTwins | [Azure Digital Twins](../../digital-twins/overview.md) |
@@ -102,7 +102,7 @@ Os fornecedores de recursos com os que estão marcados **- registados** são reg
 | Microsoft.HybridCompute | [Azure Arc](../../azure-arc/index.yml) |
 | Microsoft.HybridData | [StorSimple](../../storsimple/index.yml) |
 | Microsoft.HybridNetwork  | [Zonas de Borda Privada](../../networking/edge-zones-overview.md) |
-| Microsoft.ImportExport | [Importar/Exportar do Microsoft Azure](../../storage/common/storage-import-export-service.md) |
+| Microsoft.ImportExport | [Importar/Exportar do Microsoft Azure](../../import-export/storage-import-export-service.md) |
 | microsoft.insights | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft.IoTCentral | [Azure IoT Central](../../iot-central/index.yml) |
 | Microsoft.IoTSpaces | [Azure Digital Twins](../../digital-twins/index.yml) |
@@ -176,10 +176,10 @@ Os fornecedores de recursos com os que estão marcados **- registados** são reg
 | Microsoft.TimeSeriesInsights | [Azure Time Series Insights](../../time-series-insights/index.yml) |
 | Microsoft.Token | Token |
 | Microsoft.VirtualMachineImages | [Azure Image Builder](../../virtual-machines/linux/image-builder-overview.md) |
-| microsoft.visualstudio | [DevOps do Azure](/azure/devops/) |
+| microsoft.visualstudio | [Azure DevOps](/azure/devops/) |
 | Microsoft.VMware | [Solução VMware no Azure](../../azure-vmware/index.yml) |
 | Microsoft.VMwareCloudSimple | [Azure VMware Solution by CloudSimple](../../vmware-cloudsimple/index.md) |
-| Microsoft.VSOnline | [DevOps do Azure](/azure/devops/) |
+| Microsoft.VSOnline | [Azure DevOps](/azure/devops/) |
 | Microsoft.Web | [Serviço de Aplicações](../../app-service/index.yml)<br />[Funções do Azure](../../azure-functions/index.yml) |
 | Microsoft.WindowsDefenderATP | [Proteção Avançada Contra Ameaças do Microsoft Defender](../../security-center/security-center-wdatp.md) |
 | Microsoft.WindowsESU | Atualizações de segurança alargadas |
@@ -193,6 +193,6 @@ Os fornecedores de recursos acima com os que estão marcados **- registados** s�
 > [!IMPORTANT]
 > Só registe um fornecedor de recursos quando estiver pronto para o utilizar. O passo de registo permite-lhe manter os privilégios mínimos dentro da sua subscrição. Um utilizador malicioso não pode usar fornecedores de recursos que não estejam registados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre os fornecedores de recursos, incluindo como registar um fornecedor de recursos, consulte [os fornecedores e tipos de recursos Azure](resource-providers-and-types.md).

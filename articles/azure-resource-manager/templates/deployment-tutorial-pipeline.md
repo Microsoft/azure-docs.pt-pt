@@ -4,12 +4,12 @@ description: Aprenda a construir, testar e implementar continuamente modelos de 
 ms.date: 08/24/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 8e9f047497f493752947d8115084dcfe86f5e040
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: e7e2cda0524e4d754fbf879c046fee2d43c44cb3
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97588136"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98701716"
 ---
 # <a name="tutorial-continuous-integration-of-arm-templates-with-azure-pipelines"></a>Tutorial: Integração contínua de modelos ARM com Pipelines Azure
 
@@ -39,12 +39,12 @@ Para concluir este artigo, precisa de:
 
 * **Uma conta GitHub,** onde a utiliza para criar um repositório para os seus modelos. Caso não tenha uma, pode [criá-la gratuitamente](https://github.com). Para obter mais informações sobre a utilização de repositórios GitHub, consulte [os repositórios Build GitHub](/azure/devops/pipelines/repos/github).
 * **Instale git**. Esta instrução tutorial usa *Git Bash* ou *Git Shell.* Para obter instruções, consulte [instalar o Git](https://www.atlassian.com/git/tutorials/install-git).
-* **Uma organização da Azure DevOps.** Caso não tenha uma, pode criá-la gratuitamente. Ver [Criar uma organização ou coleção de projetos.](/azure/devops/organizations/accounts/create-organization?view=azure-devops)
+* **Uma organização da Azure DevOps.** Caso não tenha uma, pode criá-la gratuitamente. Ver [Criar uma organização ou coleção de projetos.](/azure/devops/organizations/accounts/create-organization)
 * (opcional) **Código de estúdio visual com extensão de Ferramentas do Gestor de Recursos**. Consulte [Quickstart: Crie modelos ARM com Código de Estúdio Visual](quickstart-create-templates-use-visual-studio-code.md).
 
 ## <a name="prepare-a-github-repository"></a>Preparar um repositório do GitHub
 
-O GitHub é utilizado para armazenar o seu código fonte de projeto, incluindo modelos de Gestor de Recursos. Para outros repositórios apoiados, consulte [repositórios apoiados pela Azure DevOps](/azure/devops/pipelines/repos/?view=azure-devops).
+O GitHub é utilizado para armazenar o seu código fonte de projeto, incluindo modelos de Gestor de Recursos. Para outros repositórios apoiados, consulte [repositórios apoiados pela Azure DevOps](/azure/devops/pipelines/repos/).
 
 ### <a name="create-a-github-repository"></a>Criar um repositório GitHub
 
@@ -240,7 +240,7 @@ Quando os recursos do Azure já não forem necessários, limpe os recursos imple
 
 Também pode querer eliminar o repositório GitHub e o projeto Azure DevOps.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Parabéns, terminou este tutorial de implementação de modelos do Gestor de Recursos. Informe-nos se tiver algum comentário e sugestões na secção de comentários. Obrigado!
 Está pronto para saltar para conceitos mais avançados sobre modelos. O próximo tutorial vai para mais detalhes sobre o uso de documentação de referência do modelo para ajudar a definir recursos para implementar.

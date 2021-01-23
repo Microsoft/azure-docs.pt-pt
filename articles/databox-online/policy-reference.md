@@ -1,19 +1,19 @@
 ---
 title: Definições políticas incorporadas para Azure Stack Edge
 description: Lista definições de política incorporadas para Azure Stack Edge. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 01/13/2021
+ms.date: 01/21/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
 ms.service: databox
 ms.subservice: edge
 author: alkohli
 ms.author: alkohli
-ms.openlocfilehash: 111c5f833ea7d3bbe3c2e5e1b323764b9ffdb8d6
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 072916cb59dc50aeb48f77a01237311dc01392b5
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98626323"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98701848"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-stack-edge"></a>Definições incorporadas da Política Azure para Azure Stack Edge
 

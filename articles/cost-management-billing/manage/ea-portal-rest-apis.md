@@ -3,17 +3,17 @@ title: APIs REST do Azure Enterprise
 description: Este artigo descreve as APIs REST para usar com a sua inscrição do Azure Enterprise.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/03/2020
+ms.date: 01/21/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: c4c99142c64278514066efa8925ed8e3f6617235
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
-ms.translationtype: HT
+ms.openlocfilehash: 1fdf64053a55eb33d80ed461c231e8c6dd84d63b
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132589"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98677736"
 ---
 # <a name="azure-enterprise-rest-apis"></a>APIs REST do Azure Enterprise
 
@@ -93,17 +93,9 @@ Quando utiliza uma API, são mostrados os códigos de estado da resposta. A tabe
 
 Os ficheiros dos dados de utilização e de faturação são atualizados a cada 24 horas para o mês de faturação a decorrer. No entanto, pode ocorrer uma latência de dados de cerca de três dias. Por exemplo, se a utilização tiver ocorrido na segunda-feira, os dados poderão não ser apresentados no ficheiro de dados até quinta-feira.
 
-### <a name="test-enrollment-for-development"></a>Inscrição de teste para desenvolvimento
-
-Se for um parceiro ou um programador sem uma inscrição Azure Enterprise e quiser aceder à API, poderá utilizar a inscrição de teste. O nome da inscrição é _EnrollmentNumber 100_. Pode procurar e testar as informações de utilização até junho de 2018. Em seguida, pode utilizar a chave a seguir para chamar a API e ver os dados de exemplo.
-
-```
-eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImpoeXA2UU9DWlZmY1pmdmhDVGR1OFdxeTJ5byJ9.eyJFbnJvbGxtZW50TnVtYmVyIjoiMTAwIiwiSWQiOiI1ZTc2ZmNiMy0xN2I4LTQ5ZDItYjdkOC0zMDU0YjUwOWY0MWYiLCJSZXBvcnRWaWV3IjoiU3lzdGVtIiwiUGFydG5lcklkIjoiIiwiRGVwYXJ0bWVudElkIjoiIiwiQWNjb3VudElkIjoiIiwiaXNzIjoiZWEubWljcm9zb2Z0YXp1cmUuY29tIiwiYXVkIjoiY2xpZW50LmVhLm1pY3Jvc29mdGF6dXJlLmNvbSIsImV4cCI6MTU4NjM5MDA2OSwibmJmIjoxNTcwNTc4ODY5fQ.lENR5pCBph6iZCVexUlN1b-j7StaILCyBewVHoILD-_fn8S2o2bHY1qUseGOkBwNlaFQfk2OZIo-jQYvnf3eP3UNrNVTCINT0APbc1RqgwSjZSxugVVHH9jnSzEjONkJaSKmi4tlidk6zkF1-uY-TPJkKxYN_9ar7BgLshF9JGXk7t8OZhxSCxDZc-smntu6ORFDl4gRZZVBKXhqOGjOAdYX5tPiGDF2Bxb68RSzh9Xyr5PXxKLx5yivZzUdo0-GFHo13V9w6a5VQM4R1w4_ro8jF8WAo3mpGZ_ovx_U5IY6zMNmi_AoA1mUyvTGotgcu94RragutoJRxAGHbNJZ0Q
-```
-
 ### <a name="azure-service-catalog"></a>Catálogo de serviços do Azure
 
-Todos os serviços do Azure estão publicados num catálogo em formato CSV num blogue de armazenamento do Azure. O catálogo é útil caso precise de compilar um catálogo organizado de todos os serviços do Azure para o seu sistema. O catálogo atual está disponível em [https://azurecatalog.blob.core.windows.net/catalog/AzureCatalog.csv](https://azurecatalog.blob.core.windows.net/catalog/AzureCatalog.csv).
+Todos os serviços do Azure estão publicados num catálogo em formato CSV num blogue de armazenamento do Azure. O catálogo é útil caso precise de compilar um catálogo organizado de todos os serviços do Azure para o seu sistema. O catálogo atual está em [https://azurecatalog.blob.core.windows.net/catalog/AzureCatalog.csv](https://azurecatalog.blob.core.windows.net/catalog/AzureCatalog.csv) .
 
 ### <a name="csv-data-file-details"></a>Detalhes do ficheiro de dados CSV
 
@@ -125,9 +117,9 @@ O formato JSON é gerado a partir do relatório CSV. Como resultado, o formato �
 | Mês | Mês | Mês |   |
 | Dia | Dia | Dia |   |
 | Ano | Ano | Ano |   |
-| Produto | BillableItemName | Produto |   |
+| Product | BillableItemName | Product |   |
 | ID do Medidor | ResourceGUID | MeterId |   |
-| Categoria do Medidor | Serviço | MeterCategory | Útil para ajudar a localizar ficheiros. Relevante para serviços que tenham vários ServiceType. Por exemplo, Máquinas Virtuais. |
+| Categoria de Medidor | Serviço | MeterCategory | Útil para ajudar a localizar ficheiros. Relevante para serviços que tenham vários ServiceType. Por exemplo, Máquinas Virtuais. |
 | Subcategoria do Medidor | ServiceType | MeterSubCategory | Fornece um segundo nível de detalhes para um serviço. Por exemplo, VM A1 (não Windows).  |
 | Região do Medidor | ServiceRegion | MeterRegion | O terceiro nível de detalhe necessário para um serviço. Útil para localizar o contexto da região do ResourceGUID. |
 | Nome do Medidor | ServiceResource | MeterName | O nome do serviço. |
@@ -144,7 +136,7 @@ O formato JSON é gerado a partir do relatório CSV. Como resultado, o formato �
 | Identificador do Serviço de Arquivo   | OrderNumber | StoreServiceIdentifier   |   |
 | Nome do Departamento | DepartmentName | DepartmentName |   |
 | Centro de Custos | CostCenter | CostCenter |   |
-| Unidade de Medida | UnitOfMeasure | UnitOfMeasure | Valores de exemplo: Horas, GB, Eventos, Pushes, Unidade, Horas de Unidade, MB, Unidades Diárias |
+| Unidade de Medida | UnitOfMeasure | UnitOfMeasure | Valores de exemplo: Horas, GB, Eventos, Impulsos, Unidade, Horas unitárias, MB, Unidades Diárias |
 | ResourceGroup | ResourceGroup | ResourceGroup |   |
 
 #### <a name="azure-marketplace-report"></a>Relatório do Azure Marketplace
@@ -156,7 +148,7 @@ O formato JSON é gerado a partir do relatório CSV. Como resultado, o formato �
 | SubscriptionId | SubscriptionId | SubscriptionId |
 | SubscriptionGuid | SubscriptionGuid | SubscriptionGuid |
 | Nome da Subscrição | SubscriptionName |  SubscriptionName |
-| Date | BillingCycle |  Data (apenas Cadeia de Carateres de Data. Sem carimbo de data/hora)
+| Data | BillingCycle |  Data (apenas Cadeia de Carateres de Data. Sem carimbo de data/hora)
 | Mês | Mês |  Mês |
 | Dia | Dia |  Dia |
 | Ano | Ano |  Ano |
@@ -211,4 +203,4 @@ Pode receber os erros 400 e 404 (indisponível) enviados por uma chamada à API 
 ## <a name="next-steps"></a>Passos seguintes
 
 - Os administradores do Azure EA Portal devem ler o artigo [Azure EA portal administration](ea-portal-administration.md) (Administração do Azure EA Portal) para saber mais sobre as tarefas administrativas comuns.
-- Se precisar de ajuda para resolver problemas com o Azure EA Portal, veja [Troubleshoot Azure EA portal access](ea-portal-troubleshoot.md) (Resolver problemas de acesso do Azure EA Portal).
+- Se precisar de ajuda na resolução de problemas com o Azure EA Portal, veja [Resolver problemas de acesso do Azure EA Portal](ea-portal-troubleshoot.md).

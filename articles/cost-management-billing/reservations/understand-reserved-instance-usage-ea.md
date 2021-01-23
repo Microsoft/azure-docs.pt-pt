@@ -1,24 +1,24 @@
 ---
-title: Compreender a utilização de reservas do Azure para os Contratos Enterprise
-description: Saiba como ler a utilização para compreender como se aplica a reserva do Azure para a sua inscrição no Enterprise.
+title: Compreenda o uso das reservas da Azure para o Enterprise Agreement e o Microsoft Customer Agreement
+description: Saiba como ler as suas informações de utilização para entender como uma reserva Azure se aplica ao Enterprise Agreement e ao Uso do Contrato de Cliente da Microsoft.
 author: bandersmsft
 ms.reviewer: yashar
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 12/02/2020
+ms.date: 01/19/2020
 ms.author: banders
-ms.openlocfilehash: 874d5cb022a38b172bb37009bd86b5e6988f3204
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
-ms.translationtype: HT
+ms.openlocfilehash: 0c69e9533130d6ca70c57422c7cdd5fc75adff72
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96545609"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683722"
 ---
-# <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Obter custos e utilização de reservas do Contrato Enterprise
+# <a name="get-enterprise-agreement-and-microsoft-customer-agreement-reservation-costs-and-usage"></a>Obtenha o Acordo Empresarial e os custos de reserva e utilização do Acordo de Cliente da Microsoft
 
-Os custos de reserva e os dados de utilização estão disponíveis para os clientes do contrato Enterprise no portal do Azure e nas APIs REST. Este artigo ajuda-o a:
+Os dados melhorados para os custos de reserva e utilização estão disponíveis para o Acordo Empresarial (EA) e para o Acordo de Clientes da Microsoft (MCA) na gestão de custos. Este artigo ajuda-o a:
 
 - Obter os dados de compra de reserva
 - Saber qual subscrição, grupo de recursos ou recurso utilizou a reserva
@@ -61,9 +61,7 @@ Outras informações disponíveis nos dados de utilização do Azure foram alter
 
 Pode obter os dados com a API ou transferi-los no portal do Azure.
 
-Pode chamar a [API de Detalhes de Utilização](/rest/api/consumption/usagedetails/list) para obter os novos dados. Para obter detalhes sobre a terminologia, veja os [termos de utilização](../understand/understand-usage.md). O autor da chamada deve ser um Administrador da Empresa para o contrato Enterprise através do [portal de EA](https://ea.azure.com). Os Administradores de Empresa só de leitura também podem obter os dados.
-
-Tenha em atenção que estes dados não estão disponíveis em [APIs de Relatórios para clientes Enterprise – Detalhes de Utilização](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail).
+Pode chamar a [API de Detalhes de Utilização](/rest/api/consumption/usagedetails/list) para obter os novos dados. Para obter detalhes sobre a terminologia, veja os [termos de utilização](../understand/understand-usage.md).
 
 Veja a seguir um exemplo de chamada para a API de Detalhes de Utilização:
 
@@ -87,7 +85,7 @@ As informações na tabela a seguir sobre métrica e filtro podem ajudar a resol
 
 ## <a name="download-the-usage-csv-file-with-new-data"></a>Transferir o ficheiro CSV de utilização com novos dados
 
-Se for um administrador de EA, poderá transferir o ficheiro CSV que contém os novos dados de utilização a partir do portal do Azure. Estes dados não estão disponíveis no EA Portal (ea.azure.com), pelo que deve transferir o ficheiro de utilização no portal do Azure (portal.azure.com) para ver os novos dados.
+Se for um administrador da EA, pode descarregar o ficheiro CSV que contém novos dados de utilização do portal Azure. Estes dados não estão disponíveis no EA Portal (ea.azure.com), pelo que deve transferir o ficheiro de utilização no portal do Azure (portal.azure.com) para ver os novos dados.
 
 No portal do Azure, navegue até [Gestão de Custos + Faturação](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/BillingAccounts).
 
@@ -150,7 +148,7 @@ Os custos de reserva estão disponíveis na [análise de custo](https://aka.ms/c
 
 Agrupar por tipo de encargo para ver uma discriminação da utilização, das compras e dos reembolsos; ou por reserva para uma discriminação de reserva e custos a pedido. Lembre-se de que os únicos custos de reserva que verá ao examinar o custo real são as compras, mas os custos serão alocados aos recursos individuais que utilizaram o benefício ao examinar o custo amortizado. Também verá um novo tipo de encargo **UnusedReservation** ao examinar o custo amortizado.
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos
 
 Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
 

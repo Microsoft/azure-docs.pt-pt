@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: conceptual
 ms.date: 12/17/2020
 ms.author: alkohli
-ms.openlocfilehash: 3df8f75a726639e87157a1aa7fd9ff4d35c0ef4f
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 103e4453ecf848822db0d82bc13e93b0c8c68331
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654630"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702139"
 ---
 # <a name="azure-data-box-disk-frequently-asked-questions"></a>Disco de caixa de dados Azure: Perguntas frequentes
 
@@ -66,7 +66,7 @@ Por exemplo, se quiser transferir dados na sua localização no Canadá para uma
 
 ### <a name="option-1"></a>Opção 1: 
 
-Envie um [disco suportado](../storage/common/storage-import-export-requirements.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#supported-disks) contendo dados utilizando o [serviço Azure Import/Export](../storage/common/storage-import-export-service.md) da localização de origem no Canadá para o centro de dados Azure West US.
+Envie um [disco suportado](../import-export/storage-import-export-requirements.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#supported-disks) contendo dados utilizando o [serviço Azure Import/Export](../import-export/storage-import-export-service.md) da localização de origem no Canadá para o centro de dados Azure West US.
 
 ### <a name="option-2"></a>Opção 2:
 
@@ -109,7 +109,7 @@ Estes prazos são *estimativas.* O tempo para cada fase de processamento da enco
 ## <a name="configure-and-connect"></a>Configurar e ligar
  
 ### <a name="q-can-i-specify-the-number-of-data-box-disks-in-the-order"></a>P. Posso especificar o número de discos do Data Box Disk na encomenda?
-A.  N.º Obtém 8 discos de TB (um máximo de 5 discos) dependendo do tamanho dos seus dados e disponibilidade dos discos.  
+A.  Não. Obtém 8 discos de TB (um máximo de 5 discos) dependendo do tamanho dos seus dados e disponibilidade dos discos.  
 
 ### <a name="q-how-do-i-unlock-the-data-box-disks"></a>P. Como posso desbloquear os discos do Data Box Disk? 
 A.  No portal do Azure, aceda à encomenda do Data Box Disk e navegue para **Detalhes do dispositivo**. Copie a chave de acesso. Transfira e instale a ferramenta de desbloqueio do Data Box Disk do portal do Azure para o seu sistema operativo. Execute a ferramenta no computador que tem os dados que pretende copiar para os discos. Indique a chave de acesso para desbloquear os discos. A mesma chave de acesso desbloqueia todos os discos. 
@@ -185,7 +185,7 @@ A.  Para acelerar o processo de cópia:
 - Copie ficheiros para o disco do VM.
 
 ### <a name="q-can-i-use-multiple-storage-accounts-with-data-box-disks"></a>P. Posso utilizar várias contas de armazenamento com os discos do Data Box Disk?
-A.  N.º Atualmente, só é suportada uma conta de armazenamento, geral ou clássica, para os discos do Data Box Disk. São suportados tanto os blobs de acesso frequente, como os de acesso esporádico. Atualmente, apenas as contas de armazenamento nos EUA, Europa Ocidental e Norte da Europa na nuvem pública de Azure são apoiadas.
+A.  Não. Atualmente, só é suportada uma conta de armazenamento, geral ou clássica, para os discos do Data Box Disk. São suportados tanto os blobs de acesso frequente, como os de acesso esporádico. Atualmente, apenas as contas de armazenamento nos EUA, Europa Ocidental e Norte da Europa na nuvem pública de Azure são apoiadas.
 
 ### <a name="q-what-is-the-toolset-available-for-my-data-with-data-box-disks"></a>P. Qual é o conjunto de ferramentas disponível para os meus dados com discos de caixa de dados?
 A. O conjunto de ferramentas disponível com o Disco caixa de dados contém três ferramentas:
@@ -233,7 +233,7 @@ A. Yes. Os seus dados foram enviados para o Azure, mas se não vir nenhum disco 
  - Os Ficheiros Azure irão para um recipiente de blocos blob começando com *databoxdisk-invalid-af-*.
  - Os discos geridos irão para um contentor de blocos blob começando com *databoxdisk-invalid-md-*.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Reveja os requisitos do [sistema de disco de caixa de dados.](data-box-disk-system-requirements.md)
 - Compreenda os [Limites do Data Box Disk](data-box-disk-limits.md).

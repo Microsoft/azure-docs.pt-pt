@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 01/15/2021
 ms.custom: generated
-ms.openlocfilehash: 36f266a8402721dffecc9e80c4f769bd51b0e172
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: a521623447f4415e35a06c5c60e3723a69b4aa15
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539093"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98700606"
 ---
 # <a name="azure-resource-provider-operations"></a>Operações de fornecedor de recursos Azure
 
@@ -36,7 +36,7 @@ Clique no nome do fornecedor de recursos na tabela seguinte para ver a lista de 
 | [Microsoft.ClassicCompute](#microsoftclassiccompute) |
 | [Microsoft.Compute](#microsoftcompute) |
 | [Microsoft.ServiceFabric](#microsoftservicefabric) |
-| **Redes** |
+| **Rede** |
 | [Microsoft.Cdn](#microsoftcdn) |
 | [Microsoft.ClassicNetwork](#microsoftclassicnetwork) |
 | [Microsoft.Network](#microsoftnetwork) |
@@ -1464,7 +1464,7 @@ Serviço Azure: [Caixa de Dados Azure](../databox/index.yml)
 
 ### <a name="microsoftimportexport"></a>Microsoft.ImportExport
 
-Serviço Azure: [Azure Import/Export](../storage/common/storage-import-export-service.md)
+Serviço Azure: [Azure Import/Export](../import-export/storage-import-export-service.md)
 
 > [!div class="mx-tableFixed"]
 > | Ação | Descrição |
@@ -10076,7 +10076,7 @@ Serviço Azure: [Azure Digital Twins](../digital-twins/index.yml)
 > | Microsoft.DigitalTwins/models/write | Criar ou atualizar qualquer modelo |
 > | Microsoft.DigitalTwins/models/delete | Eliminar qualquer Modelo |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Combine o fornecedor de recursos ao serviço](../azure-resource-manager/management/azure-services-resource-providers.md)
 - [Funções incorporadas do Azure](built-in-roles.md)

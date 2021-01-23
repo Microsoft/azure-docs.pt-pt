@@ -1,18 +1,18 @@
 ---
 title: Definições políticas incorporadas para a Azure API Management
 description: Lista definições políticas incorporadas da Azure Policy para a Azure API Management. Estas definições políticas incorporadas fornecem abordagens para gerir os seus recursos Azure.
-ms.date: 01/08/2021
+ms.date: 01/21/2021
 author: georgewallace
 ms.author: gwallace
 ms.service: api-management
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: d9e4624e755e9e65792b59ee55ce267c8e0b9e08
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: bd2c0baf442a621f4b825c5eb8a4c508f9d8d103
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98045385"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98701746"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-api-management"></a>Definições políticas incorporadas da Azure Policy para a Azure API Management
 
@@ -20,7 +20,7 @@ Esta página é um índice de definições políticas incorporadas da [Azure Pol
 
 O nome de cada definição de política incorporada liga-se à definição de política no portal Azure. Utilize o link na coluna **versão** para visualizar a fonte no [repo GitHub da Política Azure](https://github.com/Azure/azure-policy).
 
-## <a name="azure-api-management"></a>Gestão de API do Azure
+## <a name="azure-api-management"></a>API Management do Azure
 
 [!INCLUDE [azure-policy-reference-rp-apimanagement](../../includes/policy/reference/byrp/microsoft.apimanagement.md)]
 

@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 11/10/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 6fb17ead2546875c0f334aae322f8fb070e8f1ea
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 6634ab3521fee3062ecee465eaf6dcda80ee6ff8
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684913"
+ms.locfileid: "98699519"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferenças T-SQL entre SQL Server & Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -277,7 +277,7 @@ As seguintes opções não podem ser modificadas:
 - `SINGLE_USER`
 - `WITNESS`
 
-Algumas `ALTER DATABASE` declarações (por exemplo, [CONTENÇÃO DE SET](https://docs.microsoft.com/sql/relational-databases/databases/migrate-to-a-partially-contained-database?#converting-a-database-to-partially-contained-using-transact-sql)) podem falhar transitoriamente, por exemplo, durante a cópia de segurança automatizada da base de dados ou logo após a criação de uma base de dados. Neste `ALTER DATABASE` caso, a declaração deve ser novamente julgada. Para obter mais detalhes e informações sobre mensagens de erro relacionadas, consulte a [secção Observações](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current&preserve-view=true&tabs=sqlpool#remarks-2).
+Algumas `ALTER DATABASE` declarações (por exemplo, [CONTENÇÃO DE SET)](https://docs.microsoft.com/sql/relational-databases/databases/migrate-to-a-partially-contained-database?#converting-a-database-to-partially-contained-using-transact-sql)podem falhar transitoriamente, por exemplo, durante a cópia de segurança da base de dados automatizada ou logo após a criação de uma base de dados. Neste `ALTER DATABASE` caso, a declaração deve ser novamente julgada. Para obter mais informações sobre mensagens de erro relacionadas, consulte a [secção Observações](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current&preserve-view=true&tabs=sqlpool#remarks-2).
 
 Para mais informações, consulte [a ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-file-and-filegroup-options).
 
@@ -305,7 +305,7 @@ Para mais informações, consulte [a ALTER DATABASE](/sql/t-sql/statements/alter
   - Os alertas ainda não estão suportados.
   - Os proxies não são apoiados.
 - O EventLog não é suportado.
-- O utilizador deve ser diretamente mapeado para o principal do servidor AD do Azure (login) para criar, modificar ou executar trabalhos de Agente SQL. Os utilizadores que não estejam diretamente mapeados, por exemplo, utilizadores que pertençam a um grupo AZure AD que tenha o direito de criar, modificar ou executar trabalhos de Agente SQL, não serão efetivamente capazes de executar essas ações. Isto deve-se a imitações de Instâncias Geridas e [A EXECUTE AS limitações](#logins-and-users).
+- O utilizador deve ser diretamente mapeado para o principal do servidor AD do Azure (login) para criar, modificar ou executar trabalhos de Agente SQL. Os utilizadores que não estejam diretamente mapeados, por exemplo, os utilizadores que pertençam a um grupo AZure AD que tenha o direito de criar, modificar ou executar trabalhos de Agente SQL, não serão efetivamente capazes de executar essas ações. Isto deve-se a imitações de Instâncias Geridas e [A EXECUTE AS limitações](#logins-and-users).
 
 As seguintes funcionalidades do Agente SQL não são suportadas:
 
@@ -400,12 +400,12 @@ Para obter mais informações, consulte [FILESTREAM](/sql/relational-databases/b
 Servidores ligados em SQL Managed Instance suportam um número limitado de alvos:
 
 - Os alvos suportados são SQL Managed Instance, SQL Database, Azure Synapse SQL [serverless](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) e piscinas dedicadas e sql server instances. 
-- Os servidores ligados não suportam transações writable distribuídas (MS DTC).
+- As transações dissijos distribuídas só são possíveis entre Instâncias Geridas. Para mais informações, consulte [As Transações Distribuídas.](https://docs.microsoft.com/azure/azure-sql/database/elastic-transactions-overview) No entanto, a DTC não é apoiada.
 - Os alvos que não são suportados são ficheiros, Serviços de Análise e outros RDBMS. Tente utilizar a importação de CSV nativa do Azure Blob Storage utilizando `BULK INSERT` ou como alternativa para a importação de `OPENROWSET` ficheiros, ou carregue ficheiros usando uma [piscina SQL sem servidor em Azure Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/).
 
 Operações: 
 
-- As transações de escrita cruzadas não são suportadas.
+- As transações de escrita [cruzadas](https://docs.microsoft.com/azure/azure-sql/database/elastic-transactions-overview) são suportadas apenas para Instâncias Geridas.
 - `sp_dropserver` é suportado para deixar cair um servidor ligado. Ver [sp_dropserver.](/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql)
 - A `OPENROWSET` função pode ser usada para executar consultas apenas em instâncias do SQL Server. Podem ser geridos, no local ou em máquinas virtuais. Ver [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql).
 - A `OPENDATASOURCE` função pode ser usada para executar consultas apenas em instâncias do SQL Server. Podem ser geridos, no local ou em máquinas virtuais. Apenas os `SQLNCLI` `SQLNCLI11` valores e `SQLOLEDB` valores são suportados como fornecedor. Um exemplo é `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`. Ver [OPENDATASOURCE](/sql/t-sql/functions/opendatasource-transact-sql).
@@ -413,7 +413,7 @@ Operações:
 
 ### <a name="polybase"></a>PolyBase
 
-Os únicos tipos disponíveis de fonte externa são RDBMS (em pré-visualização pública) para a base de dados Azure SQL, Azure SQL gerido instância, e piscina Azure Synapse. Você pode usar [uma tabela externa que referencia uma piscina SQL sem servidor em Synapse Analytics](https://devblogs.microsoft.com/azure-sql/read-azure-storage-files-using-synapse-sql-external-tables/) como uma solução para tabelas externas da Polybase que lê diretamente a partir do armazenamento Azure. Em Azure SQL, pode utilizar servidores ligados a [uma piscina SQL sem servidor em Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) ou SQL Server para ler dados de armazenamento do Azure.
+O único tipo de fonte externa disponível é RDBMS (em pré-visualização pública) para a base de dados Azure SQL, Azure SQL gerido instância, e piscina Azure Synapse. Você pode usar [uma tabela externa que referencia uma piscina SQL sem servidor em Synapse Analytics](https://devblogs.microsoft.com/azure-sql/read-azure-storage-files-using-synapse-sql-external-tables/) como uma solução para tabelas externas da Polybase que lê diretamente a partir do armazenamento Azure. Em Azure SQL, pode utilizar servidores ligados a [uma piscina SQL sem servidor em Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) ou SQL Server para ler dados de armazenamento do Azure.
 Para obter informações sobre a PolyBase, consulte [a PolyBase](/sql/relational-databases/polybase/polybase-guide).
 
 ### <a name="replication"></a>Replicação
@@ -551,7 +551,7 @@ Os seguintes esquemas MSDB em SQL Managed Instance devem ser propriedade das res
 
 SQL Gestd Instance coloca informações verbosas em registos de erro. Existem muitos eventos internos do sistema que são registados no registo de erros. Utilize um procedimento personalizado para ler registos de erros que filtram algumas entradas irrelevantes. Para obter mais informações, consulte [a extensão de exemplo gerida do SQL – sp_readmierrorlog](/archive/blogs/sqlcat/azure-sql-db-managed-instance-sp_readmierrorlog) ou [SQL Para](/sql/azure-data-studio/azure-sql-managed-instance-extension#logs) o Azure Data Studio.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter mais informações sobre a SQL Managed Instance, consulte [o que é a SqL Managed Instance?](sql-managed-instance-paas-overview.md)
 - Para obter uma lista de funcionalidades e comparação, consulte [a comparação de funcionalidades Azure SQL Managed Instance](../database/features-comparison.md).

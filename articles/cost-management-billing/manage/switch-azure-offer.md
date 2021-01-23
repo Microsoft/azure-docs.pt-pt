@@ -1,30 +1,30 @@
 ---
 title: Alterar a oferta da subscrição do Azure
-description: Saiba como alterar a subscrição do Azure e mudar para uma oferta diferente com o Centro de Contas do Azure.
+description: Saiba como alterar a sua subscrição Azure e mude para uma oferta diferente.
 author: bandersmsft
 ms.reviewer: amberb
 tags: billing,top-support-issue
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 01/20/2021
 ms.author: banders
-ms.openlocfilehash: e62ea7052420e2d0c20b99935659a5443540a942
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
-ms.translationtype: HT
+ms.openlocfilehash: dd8040effc5972d86e620793e437f5b185e12603
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686824"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685468"
 ---
 # <a name="change-your-azure-subscription-to-a-different-offer"></a>Alterar a subscrição do Azure para outra oferta
 
-Como cliente com uma [subscrição individual com taxas pay as you go](https://azure.microsoft.com/offers/ms-azr-0003p/), poderá mudar a subscrição do Azure para outra oferta no [Centro de Contas](https://account.windowsazure.com/Subscriptions). Por exemplo, pode utilizar esta funcionalidade para tirar partido dos [créditos mensais dos subscritores do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Como cliente com uma [subscrição pay-as-you-go,](https://azure.microsoft.com/offers/ms-azr-0003p/) pode mudar a sua subscrição Azure para outra oferta no portal Azure. Por exemplo, pode utilizar esta funcionalidade para tirar partido dos [créditos mensais dos subscritores do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 **Quer apenas atualizar a Avaliação Gratuita?** Veja [Atualizar a subscrição](upgrade-azure-subscription.md).
 
 ## <a name="whats-supported"></a>O que é suportado:
 
-Pode alterar de uma subscrição individual com taxas pay as you go para:
+Pode mudar de uma subscrição pay-as-you-go para:
 
 - [Pay As You Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p/)
 - [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)
@@ -35,43 +35,31 @@ Pode alterar de uma subscrição individual com taxas pay as you go para:
 
 > [!NOTE]
 > Para outras alterações na oferta, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
->
->
 
 ## <a name="switch-subscription-offer"></a>Mudar oferta de subscrição
 
-> [!VIDEO https://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/Switch-to-a-different-Azure-offer/player]
->
->
-
-1. Inicie sessão no [Centro de Contas do Azure](https://account.windowsazure.com/Subscriptions).
-1. Selecione a sua subscrição individual com taxas pay as you go.
-1. Clique em **Mudar para outra oferta**. A opção estará disponível apenas se tiver uma subscrição individual com taxas pay as you go e tiver concluído o primeiro período de faturação.
-
-   ![Repare no botão Mudar oferta no lado direito da página](./media/switch-azure-offer/switchbutton.png)
-1. **Selecione a oferta pretendida** na lista de ofertas para as quais a sua subscrição pode ser mudada. Esta lista varia de acordo com as associações da sua conta. Se não aparecer nada, veja a [lista de ofertas disponíveis para as quais pode mudar](#whats-supported) e confirme que tem as associações adequadas.
-
-   ![Selecionar a oferta para a qual quer mudar](./media/switch-azure-offer/selectoffer.png)
-1. Consoante a oferta para qual está a mudar, pode ver uma nota sobre o efeito da mudança. Leia cuidadosamente a lista e siga as instruções antes de continuar.
-
-   ![Rever as notas](./media/switch-azure-offer/thingstonote.png)
-1. Pode mudar o nome da subscrição. Por predefinição, não está definida como o novo nome da oferta. Clique em **Mudar Oferta** para concluir o processo.
-
-   ![Clicar no botão verde](./media/switch-azure-offer/confirmpage.png)
-1. Êxito! A subscrição foi mudada para a nova oferta.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Navegue para **Subscrições** e, em seguida, selecione a sua subscrição pay-as-you-go.
+1. No topo da página, selecione **Switch Offer**. A opção só está disponível se tiver uma subscrição pay-as-you-go e tiver concluído o seu primeiro período de faturação.  
+    :::image type="content" source="./media/switch-azure-offer/switch-offer.png" alt-text="ALTImage mostrando detalhes de subscrição com a opção Switch OfferTEXT" lightbox="./media/switch-azure-offer/switch-offer.png" :::
+1. Selecione a oferta que deseja na lista de ofertas para as quais a sua subscrição pode ser comutada. Esta lista varia de acordo com as associações da sua conta. Se não aparecer nada, veja a [lista de ofertas disponíveis para as quais pode mudar](#whats-supported) e confirme que tem as associações adequadas. Em seguida, selecione **Seguinte**.
+    :::image type="content" source="./media/switch-azure-offer/select-offer.png" alt-text="Selecionar a oferta para a qual quer mudar" lightbox="./media/switch-azure-offer/select-offer.png" :::
+    Consoante a oferta para qual está a mudar, pode ver uma nota sobre o efeito da mudança. Leia cuidadosamente a lista e siga as instruções antes de continuar. Também pode ter de verificar o seu número de telefone.
+1. Depois de rever quaisquer notas ou verificar o seu número de telefone, selecione **Switch Offer**.
+1. A subscrição foi mudada para a nova oferta.
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 As secções a seguir respondem às perguntas mais frequentes.
 
 ### <a name="what-is-an-azure-offer"></a>O que é uma oferta do Azure?
 
-Uma oferta do Azure é o *tipo* da subscrição do Azure que possui. Por exemplo, [uma subscrição com taxas pay as you go](https://azure.microsoft.com/offers/ms-azr-0003p/), [Azure no Open](https://azure.microsoft.com/offers/ms-azr-0111p/) e [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/) são todas ofertas do Azure. Cada oferta tem [termos](https://azure.microsoft.com/support/legal/offer-details/) diferentes e algumas têm benefícios especiais. A oferta da sua subscrição pode ser encontrada na página de subscrição do Centro de Contas. Clique no nome da oferta para obter mais detalhes.
+Uma oferta do Azure é o *tipo* da subscrição do Azure que possui. Por exemplo, [uma subscrição com taxas pay as you go](https://azure.microsoft.com/offers/ms-azr-0003p/), [Azure no Open](https://azure.microsoft.com/offers/ms-azr-0111p/) e [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/) são todas ofertas do Azure. Cada oferta tem [termos](https://azure.microsoft.com/support/legal/offer-details/) diferentes e algumas têm benefícios especiais. A oferta da sua subscrição é mostrada na página de detalhes da subscrição.
 
-   ![Clicar na ligação Oferta no Centro de Contas para obter mais detalhes](./media/switch-azure-offer/offerlink01.png)
+:::image type="content" source="./media/switch-azure-offer/subscription-details.png" alt-text="Página de detalhes da subscrição mostrando o tipo de oferta" lightbox="./media/switch-azure-offer/subscription-details.png" :::
 
 ### <a name="why-dont-i-see-the-button"></a>Por que não vejo o botão?
 
-Pode não ver a opção **Mudar para outra oferta** caso:
+Pode não ver a opção **Oferta switch** se:
 
 * Não tenha uma [subscrição com taxas pay as you go](https://azure.microsoft.com/offers/ms-azr-0003p/). Atualmente, só as subscrições pay as you go podem ser convertidas noutra oferta.
   * Se tiver uma [Avaliação Gratuita](https://azure.microsoft.com/free/), saiba como [atualizar para Pay As You Go](upgrade-azure-subscription.md).
@@ -85,7 +73,7 @@ Pode não ver a opção **Mudar para outra oferta** caso:
 
 ### <a name="what-does-switching-azure-offers-do-to-my-service-and-billing"></a>O que é afetado no serviço e na faturação com a mudança nas ofertas do Azure?
 
-Seguem-se os detalhes do que acontece quando muda as ofertas do Azure no Centro de Contas.
+Aqui estão os detalhes do que acontece quando troca as ofertas do Azure.
 
 #### <a name="no-service-downtime"></a>Nenhum tempo de inatividade do serviço
 
@@ -102,7 +90,7 @@ No dia em que mudar, uma fatura será gerada para todos os custos pendentes. Em 
 ### <a name="can-i-migrate-from-a-subscription-with-pay-as-you-go-rates-to-cloud-solution-provider-csp-or-enterprise-agreement-ea"></a>Posso migrar de uma subscrição com taxas pay as you go para o Fornecedor de Soluções Cloud (CSP) ou para o Contrato Enterprise (EA)?
 
 * Para migrar para o CSP, veja [Transfer Azure subscriptions between subscribers and CSPs](transfer-subscriptions-subscribers-csp.md) (Transferir subscrições do Azure entre subscritores e CSPs).
-* Para migrar para o EA, peça ao Administrador de Inscrição para adicionar a sua conta ao EA. Siga as instruções no e-mail de convite para que as suas subscrições sejam movidas ao abrigo da inscrição de EA. Para saber mais, veja [Associar uma Conta Existente](https://ea.azure.com/helpdocs/associateExistingAccount) no EA Portal.
+* Para migrar para o EA, peça ao Administrador de Inscrição para adicionar a sua conta ao EA. Siga as instruções no e-mail de convite para que as suas assinaturas se desametam sob a inscrição da EA.
 
 ### <a name="can-i-migrate-data-and-services-to-a-new-subscription"></a>Posso migrar dados e serviços para uma nova subscrição?
 

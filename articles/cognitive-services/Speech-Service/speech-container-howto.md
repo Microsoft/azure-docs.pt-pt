@@ -12,12 +12,12 @@ ms.date: 11/17/2020
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: no local, Docker, contentor
-ms.openlocfilehash: 829514637b72582dbb317970b0d23f92eb11bcad
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 79e53bf39e411569f87a46bfc275c784ce84babc
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862299"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98703331"
 ---
 # <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Instale e execute os recipientes Docker para as APIs do serviço de fala 
 
@@ -45,7 +45,7 @@ Os contentores de Voz permitem que os clientes criem uma arquitetura de aplicaç
 | Discurso-a-texto personalizado | Utilizando um modelo personalizado do [portal Discurso Personalizado,](https://speech.microsoft.com/customspeech)transcreve gravações contínuas de discursos em tempo real ou de lotes em texto com resultados intermédios. | 2.7.0 |
 | Conversão de texto em voz | Converte o texto para discurso sonoro natural com entrada de texto simples ou linguagem de marcação de síntese de fala (SSML). | 1.9.0 |
 | Texto-a-discurso personalizado | Utilizando um modelo personalizado do [portal Voz Personalizada,](https://aka.ms/custom-voice-portal)converte o texto em discurso sonoro natural com entrada de texto simples ou linguagem de marcação de síntese de fala (SSML). | 1.9.0 |
-| Deteção de linguagem da fala | Detetar a linguagem falada em ficheiros áudio. | 1,0 |
+| Deteção de linguagem da fala | Detetar a linguagem falada em ficheiros áudio. | 1.0 |
 | Texto-a-discurso neural | Converte o texto em discurso sonoro natural usando a tecnologia de rede neural profunda, permitindo um discurso mais natural sintetizado. | 1.3.0 |
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
@@ -373,13 +373,6 @@ Se tiver várias frases a adicionar, chame `.addPhrase()` cada frase para adicio
 # <a name="custom-speech-to-text"></a>[Discurso-a-texto personalizado](#tab/cstt)
 
 O recipiente *personalizado discurso-a-texto baseia-se* num modelo de fala personalizado. O modelo personalizado tem de ter sido [treinado](how-to-custom-speech-train-model.md) utilizando o [portal de fala personalizado.](https://speech.microsoft.com/customspeech)
-
-> [!IMPORTANT]
-> O modelo De Discurso Personalizado precisa de ser treinado a partir de uma das seguintes versões de modelo:
-> * **20181201 (v3.3 Unificado)**
-> * **20190520 (v4.14 Unificado)**
-> * **20190701 (v4.17 Unificado)**<br>
-> ![Modelo de recipiente de trem de fala personalizado](media/custom-speech/custom-speech-train-model-container-scoped.png)
 
 O **ID do modelo de** fala personalizado é necessário para executar o recipiente. Pode ser encontrado na página **de Formação** do portal de fala personalizado. A partir do portal de fala personalizado, navegue até à página **Treino** e selecione o modelo.
 <br>
@@ -768,7 +761,7 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para descarregar, instalar 
 > [!IMPORTANT]
 >  Os recipientes dos Serviços Cognitivos não estão licenciados para funcionar sem estarem ligados ao Azure para a medição. Os clientes precisam de permitir que os contentores comuniquem informações de faturação com o serviço de medição em todos os momentos. Os recipientes de Serviços Cognitivos não enviam dados do cliente (por exemplo, a imagem ou texto que está a ser analisado) para a Microsoft.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Reveja os recipientes de configuração](speech-container-configuration.md) para configurações de configuração
 * Saiba como [usar recipientes de serviço de fala com Kubernetes e Helm](speech-container-howto-on-premises.md)

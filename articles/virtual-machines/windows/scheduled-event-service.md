@@ -1,20 +1,20 @@
 ---
-title: Monitorar eventos agendados para os seus VMs windows em Azure
+title: Monitorize eventos agendados para os seus VMs em Azure
 description: Saiba como monitorizar as suas máquinas virtuais Azure para eventos agendados.
 author: mysarn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.subservice: monitoring
 ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: how-to
-ms.openlocfilehash: 0d1edde5ac1b83feab458eb5d12d524163d3ffb1
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: e3e44019d09927ff700e74b713a1b02136fedbc1
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483305"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702275"
 ---
-# <a name="monitoring-scheduled-events"></a>Monitorização de Eventos Agendados
+# <a name="monitor-scheduled-events-for-your-azure-vms"></a>Monitorar eventos agendados para os seus VMs Azure
 
 As atualizações são aplicadas a diferentes partes do Azure todos os dias, para manter os serviços em funcionamento sobre eles seguros e atualizados. Além das atualizações planeadas, podem também ocorrer eventos não planeados. Por exemplo, se for detetada qualquer degradação ou falha de hardware, os serviços da Azure poderão necessitar de efetuar uma manutenção não planeada. Utilizando a migração ao vivo, preservando a memória atualizações e mantendo geralmente uma barra rígida sobre o impacto das atualizações, na maioria dos casos estes eventos são quase transparentes para os clientes, e não têm impacto ou, no máximo, causam alguns segundos de congelamento de máquinas virtuais. No entanto, para algumas aplicações, mesmo alguns segundos de congelamento de máquinas virtuais podem causar um impacto. Conhecer antecipadamente a próxima manutenção do Azure é importante, para garantir a melhor experiência para essas aplicações. [O serviço Eventos Agendados](scheduled-events.md) fornece-lhe uma interface programática para ser notificado sobre a próxima manutenção, e permite-lhe lidar graciosamente com a manutenção. 
 
@@ -39,7 +39,7 @@ Também terá de [criar um espaço de trabalho Log Analytics](../../azure-monito
 
 ## <a name="set-up-the-environment"></a>Configurar o ambiente
 
-Deve agora ter 2 VMs iniciais num conjunto de disponibilidade. Agora precisamos criar um 3º VM, chamado myCollectorVM, no mesmo conjunto de disponibilidade. 
+Deve agora ter 2 VMs iniciais num conjunto de disponibilidade. Agora precisamos criar um 3º VM, `myCollectorVM` chamado, no mesmo conjunto de disponibilidade. 
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -150,7 +150,7 @@ Uma vez que os eventos são empurrados para Log Analytics, você pode executar a
     | project-away RenderedDescription,ReqJson
     ```
 
-1. **Selecione Guardar**, e, em seguida, *digitar logQuery* para o nome, deixar **a Consulta** como o tipo, escrever *VMLogs* como **categoria**, e, em seguida, selecionar **Guardar**. 
+1. **Selecione Guardar**, e, em seguida, digite `ogQuery` para o nome, deixe a **Consulta** como o tipo, escreva `VMLogs` como **categoria**, e, em seguida, selecione **Guardar**. 
 
     ![Salve a consulta](./media/notifications/save-query.png)
 
@@ -160,7 +160,7 @@ Uma vez que os eventos são empurrados para Log Analytics, você pode executar a
 1. No **valor limiar**, insira *0* e, em seguida, selecione **Fazer**.
 1. Em **Ações**, **selecione Criar grupo de ação**. A página **do grupo de ação Add** será aberta.
 1. Em **Nome do grupo Action**, digite *myActionGroup*.
-1. Em **nome curto,** escreva **myActionGroup**.
+1. Em **nome curto,** escreva *myActionGroup*.
 1. No **grupo de recursos,** selecione **myResourceGroupAvailability**.
 1. Em Ações, em **ACTION NAME** tipo **Email**, e, em seguida, selecione **Email/SMS/Push/Voice**. A página **email/SMS/Push/Voice** abrirá.
 1. Selecione **Email**, escreva no seu endereço de e-mail e, em seguida, selecione **OK**.
@@ -172,6 +172,6 @@ Uma vez que os eventos são empurrados para Log Analytics, você pode executar a
 Para gerir as suas regras de alerta, vá ao grupo de recursos, selecione **Alertas** do menu esquerdo e, em seguida, **selecione Gerir as regras** de alerta a partir do topo da página.
 
      
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais, consulte a página [de serviço de eventos agendados](https://github.com/microsoft/AzureScheduledEventsService) no GitHub.

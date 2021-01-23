@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5bcc6503af5f5f685ee589ed7671b4715834fef
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 496a8dba9b9ea7fb82ad9016479154d6a61cb767
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96779367"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98703280"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Como funciona: Reposição personalizada de palavra-passe do AAD
 
@@ -149,7 +149,7 @@ Os utilizadores não têm a opção de registar a sua aplicação móvel ao regi
 
 Se começar com uma política que tenha apenas um método de autenticação necessário para reiniciar ou desbloquear registado e alterar isso para dois métodos, o que acontece?
 
-| Número de métodos registados | Número de métodos necessários | Result |
+| Número de métodos registados | Número de métodos necessários | Resultado |
 | :---: | :---: | :---: |
 | 1 ou mais | 1 | **Capaz** de reiniciar ou desbloquear |
 | 1 | 2 | **Incapaz de** reiniciar ou desbloquear |
@@ -232,7 +232,7 @@ Para testar este cenário, vá a https://passwordreset.microsoftonline.com um de
 > [!NOTE]
 > As contas da Microsoft a quem foi concedido acesso ao seu inquilino Azure AD, como as de Hotmail.com, Outlook.com ou outros endereços de e-mail pessoais, não são capazes de usar Azure AD SSPR. Precisam de redefinir a sua palavra-passe utilizando as informações encontradas no [When you can't't iniciar sôm no seu](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) artigo de conta Microsoft.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para começar com a SSPR, complete o seguinte tutorial:
 

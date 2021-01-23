@@ -1,19 +1,21 @@
 ---
-title: Cenários de recuperação de desastres
+title: Interrupções no serviço Azure
 description: Saiba o que fazer no caso de uma rutura do serviço Azure afetar as máquinas virtuais Azure.
 author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 05/31/2017
 ms.author: cynthn
-ms.openlocfilehash: 0d659f0bc65d3dbe7cbb656d505275a52a9742eb
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.reviewer: ''
+ms.openlocfilehash: 5c6036a65fa449986f5c085202fefa752e3a414a
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976628"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98701038"
 ---
 # <a name="what-if-an-azure-service-disruption-impacts-azure-vms"></a>E se uma rutura do serviço Azure impactar os VMs Azure
+
 Na Microsoft, trabalhamos arduamente para garantir que os nossos serviços estão sempre disponíveis para si quando precisa deles. Forças fora do nosso controlo, por vezes, afetam-nos de formas que causam perturbações não planeadas de serviços.
 
 A Microsoft fornece um Acordo de Nível de Serviço (SLA) para os seus serviços como um compromisso para o tempo de trabalho e conectividade. O SLA para serviços individuais da Azure pode ser consultado nos [Acordos de Nível de Serviço da Azure.](https://azure.microsoft.com/support/legal/sla/)
@@ -39,7 +41,7 @@ Esta é a melhor opção se não tiver configurado a Recuperação do Local de A
 >
 >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Comece [a proteger as suas aplicações em execução em máquinas virtuais Azure](../site-recovery/azure-to-azure-quickstart.md) usando a recuperação do site Azure
 

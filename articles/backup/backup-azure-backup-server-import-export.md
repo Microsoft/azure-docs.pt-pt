@@ -3,12 +3,12 @@ title: Cópia de segurança offline para o DPM e Azure Backup Server
 description: Com a Azure Backup, pode enviar dados para fora da rede utilizando o serviço Azure Import/Export. Este artigo explica o fluxo de trabalho de backup offline para DPM e Azure Backup Server.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: 368ae846a24ec04ee4b7da9b5971c00180be611d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 006c0fa4d67c9a85426d7a007912df65876313da
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89378462"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98701818"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-mabs"></a>Fluxo de trabalho de backup offline para DPM e Azure Backup Server (MABS)
 
@@ -17,7 +17,7 @@ ms.locfileid: "89378462"
 
 O Gestor de Proteção de Dados do Centro de Sistemas e o Servidor de Backup do Azure (MABS) integram-se com o Azure Backup e utilizam várias eficiências incorporadas que poupam custos de rede e armazenamento durante as cópias de segurança completas iniciais dos dados para o Azure. As cópias de segurança completas iniciais normalmente transferem grandes quantidades de dados e requerem mais largura de banda de rede quando comparadas com as cópias de segurança subsequentes que transferem apenas os deltas/incrementais. O Azure Backup comprime as cópias de segurança iniciais. Através do processo de sementeira offline, o Azure Backup pode usar discos para enviar os dados de backup iniciais comprimidos offline para Azure.
 
-O processo de sementeira offline da Azure Backup está fortemente integrado com o [serviço Azure Import/Export](../storage/common/storage-import-export-service.md). Pode utilizar este serviço para transferir dados para a Azure utilizando discos. Se tiver terabytes (TBs) de dados de backup iniciais que precisam de ser transferidos através de uma rede de alta latência e de baixa largura de banda, pode utilizar o fluxo de trabalho de sementeira offline para enviar a cópia de backup inicial num ou mais discos rígidos para um datacenter Azure. Este artigo fornece uma visão geral e outros passos que terminam este fluxo de trabalho para System Center Data Protection Manager (DPM) e Microsoft Azure Backup Server (MABS).
+O processo de sementeira offline da Azure Backup está fortemente integrado com o [serviço Azure Import/Export](../import-export/storage-import-export-service.md). Pode utilizar este serviço para transferir dados para a Azure utilizando discos. Se tiver terabytes (TBs) de dados de backup iniciais que precisam de ser transferidos através de uma rede de alta latência e de baixa largura de banda, pode utilizar o fluxo de trabalho de sementeira offline para enviar a cópia de backup inicial num ou mais discos rígidos para um datacenter Azure. Este artigo fornece uma visão geral e outros passos que terminam este fluxo de trabalho para System Center Data Protection Manager (DPM) e Microsoft Azure Backup Server (MABS).
 
 > [!NOTE]
 > O processo de cópia de segurança offline para o Agente microsoft Azure Recovery Services (MARS) é distinto do DPM e do MABS. Para obter informações sobre a utilização de cópias de segurança offline com o Agente MARS, consulte [o fluxo de trabalho de backup offline no Azure Backup](backup-azure-backup-import-export.md). A cópia de segurança offline não é suportada por cópias de segurança do estado do sistema feitas utilizando o Agente de Backup Azure.
@@ -59,12 +59,12 @@ Certifique-se de que os seguintes pré-requisitos são cumpridos antes de inicia
        ![Registo do fornecedor de recursos](./media/backup-azure-backup-server-import-export/register-import-export.png)
 
 * É criada uma localização de encenação, que pode ser uma partilha de rede ou qualquer unidade adicional no computador, interna ou externa, com espaço suficiente em disco para segurar a sua cópia inicial. Por exemplo, se pretender fazer o back up de um servidor de ficheiros de 500 GB, certifique-se de que a área de paragem é de pelo menos 500 GB. (Uma quantidade menor é utilizada devido à compressão.)
-* Para os discos enviados para a Azure, certifique-se de que apenas são utilizados discos rígidos internos SATA II/III de 2,5 polegadas ou 3,5 polegadas. Pode utilizar discos rígidos até 10 TB. Consulte a documentação do [serviço Azure Import/Export](../storage/common/storage-import-export-requirements.md#supported-hardware) para obter o mais recente conjunto de unidades que o serviço suporta.
+* Para os discos enviados para a Azure, certifique-se de que apenas são utilizados discos rígidos internos SATA II/III de 2,5 polegadas ou 3,5 polegadas. Pode utilizar discos rígidos até 10 TB. Consulte a documentação do [serviço Azure Import/Export](../import-export/storage-import-export-requirements.md#supported-hardware) para obter o mais recente conjunto de unidades que o serviço suporta.
 * As unidades SATA devem ser ligadas a um computador (referido como *um computador de cópia*) de onde é feita a cópia dos dados de backup do local de preparação para as unidades SATA. Certifique-se de que o BitLocker está ativado no computador de cópia.
 
 ## <a name="workflow"></a>Fluxo de trabalho
 
-As informações nesta secção ajudam-no a completar o fluxo de trabalho de backup offline para que os seus dados possam ser entregues num datacenter Azure e enviados para o Azure Storage. Se tiver dúvidas sobre o serviço Import ou qualquer aspeto do processo, consulte a documentação geral do [serviço De importação](../storage/common/storage-import-export-service.md) referenciada anteriormente.
+As informações nesta secção ajudam-no a completar o fluxo de trabalho de backup offline para que os seus dados possam ser entregues num datacenter Azure e enviados para o Azure Storage. Se tiver dúvidas sobre o serviço Import ou qualquer aspeto do processo, consulte a documentação geral do [serviço De importação](../import-export/storage-import-export-service.md) referenciada anteriormente.
 
 ## <a name="initiate-offline-backup"></a>Iniciar backup offline
 
@@ -90,7 +90,7 @@ As informações nesta secção ajudam-no a completar o fluxo de trabalho de bac
 
     Guarde a **localização de preparação** e as informações sobre o **Nome do Trabalho da Importação de Azure** que forneceu. É necessário preparar os discos.
 
-4. Preencha o fluxo de trabalho para criar ou atualizar a proteção. E para iniciar a cópia de backup offline, clique com o botão direito do **Grupo de Proteção**e, em seguida, escolha a opção **Ponto de recuperação Criar.** Em seguida, escolha a opção **Proteção Online.**
+4. Preencha o fluxo de trabalho para criar ou atualizar a proteção. E para iniciar a cópia de backup offline, clique com o botão direito do **Grupo de Proteção** e, em seguida, escolha a opção **Ponto de recuperação Criar.** Em seguida, escolha a opção **Proteção Online.**
 
    ![Criar ponto de recuperação](./media/backup-azure-backup-server-import-export/create-recovery-point.png)
 
@@ -188,7 +188,7 @@ O tempo que demora a processar um trabalho de importação da Azure varia. O tem
 
 ### <a name="monitor-azure-import-job-status"></a>Monitor Azure importe estatuto de trabalho
 
-Pode monitorizar o estado do seu trabalho de Importação a partir do portal Azure navegando na página **de empregos de Importação/Exportação** e selecionando o seu trabalho. Para obter mais informações sobre o estado dos postos de trabalho nas importações, consulte o artigo do [serviço de exportação de importações de armazenamento.](../storage/common/storage-import-export-service.md)
+Pode monitorizar o estado do seu trabalho de Importação a partir do portal Azure navegando na página **de empregos de Importação/Exportação** e selecionando o seu trabalho. Para obter mais informações sobre o estado dos postos de trabalho nas importações, consulte o artigo do [serviço de exportação de importações de armazenamento.](../import-export/storage-import-export-service.md)
 
 ### <a name="complete-the-workflow"></a>Complete o fluxo de trabalho
 
@@ -196,6 +196,6 @@ Após o fim do trabalho de importação, os dados de backup iniciais estão disp
 
 No momento do próximo trabalho de criação de réplicas online programado, o Data Protection Manager realiza backup incremental sobre a cópia inicial de backup.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Para qualquer dúvida sobre o fluxo de trabalho do serviço Azure Import/Export, consulte [utilizar o serviço de importação/exportação do Microsoft Azure para transferir dados para o armazenamento blob](../storage/common/storage-import-export-service.md).
+* Para qualquer dúvida sobre o fluxo de trabalho do serviço Azure Import/Export, consulte [utilizar o serviço de importação/exportação do Microsoft Azure para transferir dados para o armazenamento blob](../import-export/storage-import-export-service.md).

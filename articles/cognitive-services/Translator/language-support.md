@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 60da61d094316b29c8fbc5454472bb898d693937
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: e8e54a97c13a69fce2e80676fa68d6d795736a83
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/22/2021
-ms.locfileid: "98681588"
+ms.locfileid: "98703127"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Apoio linguístico e regional para tradução de texto e fala
 
@@ -194,6 +194,7 @@ O método transliterado suporta as seguintes línguas. No "De/Para", "<->" indic
 | Linguagem    | Código do idioma | Script | Para/De | Script|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Árabe | `ar` | Árabe `Arab` | <--> | Latim `Latn` |
+| Assamese | `as` | Bengalês `Beng` | <--> | Latim `Latn` |
 | Bangla  | `bn` | Bengalês `Beng` | <--> | Latim `Latn` |
 |Bielorrusso| `be` | Cirílico `Cyrl`  | <--> | Latim `Latn` |
 |Búlgaro| `bg` | Cirílico `Cyrl`  | <--> | Latim `Latn` |
@@ -208,6 +209,7 @@ O método transliterado suporta as seguintes línguas. No "De/Para", "<->" indic
 | Japonês | `ja` | Japonês `Jpan` | <--> | Latim `Latn` |
 | Canarês | `kn` | Canarês `Knda` | <--> | Latim `Latn` |
 |Cazaque| `kk` | Cirílico `Cyrl`  | <--> | Latim `Latn` |
+|Coreano| `ko` | Coreano `Kore`  | <--> | Latim `Latn` |
 |Quirguiz| `ky` | Cirílico `Cyrl`  | <--> | Latim `Latn` |
 |Macedónio| `mk` | Cirílico `Cyrl`  | <--> | Latim `Latn` |
 | Malaiala | `ml` | Malaiala `Mlym` | <--> | Latim `Latn` |
@@ -220,6 +222,7 @@ O método transliterado suporta as seguintes línguas. No "De/Para", "<->" indic
 | Sérvio (Cirílico) | `sr-Cyrl` | Cirílico `Cyrl`  | --> | Latim `Latn` |
 | Sérvio (Latim) | `sr-Latn` | Latim `Latn` | --> | Cirílico `Cyrl`|
 |Sindhi| `sd` | Árabe `Arab`  | <--> | Latim `Latn` |
+|Sinhala| `si` | Sinhala `Sinh`  | <--> | Latim `Latn` |
 |Rio Tajik| `tg` | Cirílico `Cyrl`  | <--> | Latim `Latn` |
 | Tâmil | `ta` | Tâmil `Taml` | <--> | Latim `Latn` |
 |Tártaro| `tt` | Cirílico `Cyrl`  | <--> | Latim `Latn` |

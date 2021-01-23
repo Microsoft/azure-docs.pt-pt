@@ -11,14 +11,14 @@ ms.topic: how-to
 ms.date: 1/17/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 7e6f19e03eee6fb6ddf946ea79d197a231f5f113
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 2ab1b5ae87cee6265c965c45b706c7fbf10dfe3f
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/22/2021
-ms.locfileid: "98690633"
+ms.locfileid: "98702959"
 ---
-# <a name="tutorial-for-configuring-keyless-with-azure-active-directory-b2c"></a>Tutorial para configurar Keyless com Azure Ative Directory B2C
+# <a name="tutorial-configure-keyless-with-azure-active-directory-b2c"></a>Tutorial: Configurar Keyless com Azure Ative Directory B2C
 
 Neste tutorial de amostra, fornecemos orientações sobre como configurar o Azure Ative Directory (AD) B2C com [Keyless](https://keyless.io/). Com o Azure AD B2C como fornecedor de Identidade, pode integrar o Keyless com qualquer uma das suas aplicações de clientes para fornecer uma autenticação verdadeiramente sem palavras-passe aos seus utilizadores.
 
@@ -50,7 +50,7 @@ O seguinte diagrama de arquitetura mostra a implementação.
 
 ![Imagem mostra diagrama de arquitetura keyless](./media/partner-keyless/keyless-architecture-diagram.png)
 
-|Passo | Description |
+|Passo | Descrição |
 |:-----| :-----------|
 | 1. | O utilizador chega a uma página de login. Os utilizadores selecionam o pré-in/inscrição e introduzem o nome de utilizador
 | 2. | A aplicação envia os atributos do utilizador ao Azure AD B2C para verificação de identidade.
@@ -153,7 +153,7 @@ Deverá agora ver Keyless como um novo fornecedor de identidade OIDC listado nos
 
 5. Keyless será chamado durante o fluxo, após a criação do atributo do utilizador. Se o fluxo estiver incompleto, verifique se o utilizador não está guardado no diretório.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter informações adicionais, reveja os seguintes artigos:
 

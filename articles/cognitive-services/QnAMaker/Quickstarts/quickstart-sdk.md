@@ -6,13 +6,13 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 06/18/2020
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-zone_pivot_groups: programming-languages-set-sixteen
-ms.openlocfilehash: d9e984d4384b59fa13bc59e09e29939457dad37c
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+zone_pivot_groups: qnamaker-quickstart
+ms.openlocfilehash: de237c1bba699165e63fc0b2e4bfb58d25518bd9
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351053"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98701296"
 ---
 # <a name="quickstart-qna-maker-client-library"></a>Quickstart: Biblioteca de clientes QnA Maker
 
@@ -42,6 +42,10 @@ Começa com a biblioteca de clientes da QnA Maker. Siga estes passos para instal
 [!INCLUDE [QnA Maker Ruby client library quickstart](../includes/quickstart-sdk-ruby.md)]
 ::: zone-end
 
+::: zone pivot="rest"
+[!INCLUDE [QnA Maker REST quickstart](../includes/quickstart-rest.md)]
+::: zone-end
+
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados.
@@ -49,7 +53,7 @@ Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode el
 * [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [CLI do Azure](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 >[Tutorial: Teste a sua base de conhecimento com um ficheiro de lote](../index.yml)

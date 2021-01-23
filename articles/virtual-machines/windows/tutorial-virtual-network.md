@@ -10,16 +10,16 @@ ms.workload: infrastructure
 ms.date: 08/04/2020
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 22993e8a1513ae34b3752ebd80c60761467f396e
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: d61f4be63a2f3b2f75228848e2e4fe18fb27f598
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97912670"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702063"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-windows-virtual-machines-with-azure-powershell"></a>Tutorial: Criar e gerir redes virtuais do Azure para máquinas virtuais do Windows com o Azure PowerShell
 
-As máquinas virtuais do Azure utilizam a rede do Azure para a comunicação de rede interna e externa. Este tutorial mostra a implementação de duas máquinas virtuais e a configuração da rede do Azure para essas VMs Os exemplos neste tutorial assumem que os VMs estão a hospedar uma aplicação web com uma base de dados back-end, no entanto uma aplicação não é implementada no tutorial. Neste tutorial, vai aprender a:
+As máquinas virtuais do Azure utilizam a rede do Azure para a comunicação de rede interna e externa. Este tutorial mostra a implementação de duas máquinas virtuais e a configuração da rede do Azure para essas VMs Os exemplos neste tutorial assumem que os VMs estão a hospedar uma aplicação web com uma base de dados back-end, no entanto uma aplicação não é implementada no tutorial. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar uma rede virtual e uma sub-rede
@@ -269,7 +269,7 @@ New-AzVM `
 
 A imagem neste exemplo tem SQL Server instalado, mas não é usado neste tutorial. Está incluído para lhe mostrar como pode configurar um VM para lidar com o tráfego web e um VM para lidar com a gestão de bases de dados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, criou e protegeu redes do Azure relacionadas com máquinas virtuais. 
 
@@ -280,7 +280,4 @@ Neste tutorial, criou e protegeu redes do Azure relacionadas com máquinas virtu
 > * Proteger o tráfego de rede
 > * Criar uma VM de back-end
 
-Avance para o tutorial seguinte para saber mais sobre a monitorização da proteção de dados nas máquinas virtuais com o Azure Backup.
-
-> [!div class="nextstepaction"]
-> [Fazer uma cópia de segurança de máquinas virtuais do Windows no Azure](./tutorial-backup-vms.md)
+Para aprender a proteger os seus discos VM, consulte [backup e recuperação de desastres para discos](backup-and-disaster-recovery-for-azure-iaas-disks.md).

@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2021
-ms.openlocfilehash: 4a9a6b61e392ed2efd68cdcb1cf7e53d6bde5ccd
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 8d984a303234a24423ceae100bd139cb484d6495
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98249734"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702790"
 ---
 # <a name="estimate-and-manage-capacity-of-an-azure-cognitive-search-service"></a>Estimativa e gestão da capacidade de um serviço de Pesquisa Cognitiva Azure
 
 Antes [de fornecer um serviço de pesquisa](search-create-service-portal.md) e bloquear um nível de preços específico, desloque alguns minutos para entender como funciona a capacidade e como pode ajustar réplicas e divisórias para acomodar a flutuação da carga de trabalho.
 
-A capacidade é uma função do nível de [serviço.](search-sku-tier.md) Os níveis são diferenciados pelo armazenamento máximo, armazenamento por partição e os limites máximos no número de objetos que pode criar. O nível Básico é projetado para apps com requisitos de armazenamento modestos (apenas uma partição), mas com a capacidade de executar numa configuração de alta disponibilidade (3 réplicas). Outros níveis são projetados para cargas de trabalho ou padrões específicos, como a multitenência. Internamente, os serviços criados nesses níveis beneficiam de hardware que ajuda nesses cenários.
+A capacidade é uma função do nível de [serviço,](search-sku-tier.md)estabelecendo o armazenamento máximo por serviço, por partição, e os limites máximos no número de objetos que pode criar. O nível Básico é projetado para apps com requisitos de armazenamento modestos (apenas uma partição), mas com a capacidade de executar numa configuração de alta disponibilidade (3 réplicas). Outros níveis são projetados para cargas de trabalho ou padrões específicos, como a multitenência. Internamente, os serviços criados nesses níveis beneficiam de hardware que ajuda nesses cenários.
 
 A arquitetura de escalabilidade em Azure Cognitive Search baseia-se em combinações flexíveis de réplicas e divisórias para que possa variar a capacidade dependendo se você precisa de mais consulta ou potência de indexação. Uma vez criado um serviço, pode aumentar ou diminuir o número de réplicas ou divisórias de forma independente. Os custos aumentarão com cada recurso físico adicional, mas uma vez terminadas as grandes cargas de trabalho, pode reduzir a escala para baixar a sua fatura. Dependendo do nível e do tamanho do ajuste, a adição ou redução da capacidade pode demorar entre 15 minutos e várias horas.
 
@@ -208,7 +208,7 @@ Os acordos de nível de serviço (SLA) para a Azure Cognitive Search são direci
 
 O nível básico supera com uma divisória e três réplicas. Se quiser que a flexibilidade responda imediatamente às flutuações da procura tanto para indexar como para a produção de consultas, considere um dos níveis Standard.  Se descobrir que os seus requisitos de armazenamento estão a crescer muito mais rapidamente do que a sua produção de consulta, considere um dos níveis otimizados de armazenamento.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Como estimar e gerir custos](search-sku-manage-costs.md)
