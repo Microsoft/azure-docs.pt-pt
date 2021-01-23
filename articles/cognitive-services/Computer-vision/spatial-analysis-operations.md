@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: b530fc320f6c29dd7a86a39c5a7019265bb6b724
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: d19190723ebc415e9cf3053b929788dff68aeb0e
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624427"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734544"
 ---
 # <a name="spatial-analysis-operations"></a>Operações de análise espacial
 
@@ -61,7 +61,7 @@ Estes são os parâmetros exigidos por cada uma destas operações de análise e
 |---------|---------|
 | ID da Operação | O Identificador da Operação da tabela acima.|
 | ativado | Boolean: verdadeiro ou falso|
-| VIDEO_URL| O url RTSP para o dispositivo da câmara (Exemplo: `rtsp://username:password@url` ). A análise espacial suporta o fluxo codificado H.264 através de RTSP, http ou mp4. Video_URL pode ser fornecido como um valor de cadeia base 64 obfuscado usando encriptação AES, e se o url de vídeo é obfuscado `KEY_ENV` então e `IV_ENV` precisa ser fornecido como variáveis ambientais. O utilitário de amostra para gerar chaves e encriptação pode ser encontrado [aqui.](https://docs.microsoft.com/dotnet/api/system.security.cryptography.aesmanaged?view=net-5.0&preserve-view=true) |
+| VIDEO_URL| O url RTSP para o dispositivo da câmara (Exemplo: `rtsp://username:password@url` ). A análise espacial suporta o fluxo codificado H.264 através de RTSP, http ou mp4. Video_URL pode ser fornecido como um valor de cadeia base 64 obfuscado usando encriptação AES, e se o url de vídeo é obfuscado `KEY_ENV` então e `IV_ENV` precisa ser fornecido como variáveis ambientais. O utilitário de amostra para gerar chaves e encriptação pode ser encontrado [aqui.](/dotnet/api/system.security.cryptography.aesmanaged?preserve-view=true&view=net-5.0) |
 | VIDEO_SOURCE_ID | Um nome amigável para o dispositivo da câmara ou transmissão de vídeo. Isto será devolvido com a saída do evento JSON.|
 | VIDEO_IS_LIVE| Verdade para dispositivos de câmara; falso para vídeos gravados.|
 | VIDEO_DECODE_GPU_INDEX| Que GPU para descodificar a moldura de vídeo. Por defeito é 0. Deve ser o mesmo que `gpu_index` no outro nó config `VICA_NODE_CONFIG` como, . `DETECTOR_NODE_CONFIG` .|
@@ -386,7 +386,7 @@ Prove json para uma saída de evento por esta operação.
 | Nome do campo SourceInfo | Tipo| Description|
 |---------|---------|---------|
 | `id` | cadeia (de carateres)| ID da câmera|
-| `timestamp` | date| Data utc quando a carga de JSON foi emitida|
+| `timestamp` | data| Data utc quando a carga de JSON foi emitida|
 | `width` | int | Largura do quadro de vídeo|
 | `height` | int | Altura do quadro de vídeo|
 | `frameId` | int | Identificador de quadro|
@@ -399,7 +399,7 @@ Prove json para uma saída de evento por esta operação.
 | Nome do campo SourceInfo | Tipo| Description|
 |---------|---------|---------|
 | `id` | cadeia (de carateres)| ID da câmera|
-| `timestamp` | date| Data utc quando a carga de JSON foi emitida|
+| `timestamp` | data| Data utc quando a carga de JSON foi emitida|
 | `width` | int | Largura do quadro de vídeo|
 | `height` | int | Altura do quadro de vídeo|
 | `frameId` | int | Identificador de quadro|
@@ -485,7 +485,7 @@ Amostra JSON para deteção de saída por esta operação.
 | Nome do campo SourceInfo | Tipo| Description|
 |---------|---------|---------|
 | `id` | cadeia (de carateres)| ID da câmera|
-| `timestamp` | date| Data utc quando a carga de JSON foi emitida|
+| `timestamp` | data| Data utc quando a carga de JSON foi emitida|
 | `width` | int | Largura do quadro de vídeo|
 | `height` | int | Altura do quadro de vídeo|
 | `frameId` | int | Identificador de quadro|
@@ -756,7 +756,7 @@ Neste exemplo, `centerGroundPoint` é `{x: 4, y: 5}` . Isto significa que há um
 | Nome do campo SourceInfo | Tipo| Description|
 |---------|---------|---------|
 | `id` | cadeia (de carateres)| ID da câmera|
-| `timestamp` | date| Data utc quando a carga de JSON foi emitida|
+| `timestamp` | data| Data utc quando a carga de JSON foi emitida|
 | `width` | int | Largura do quadro de vídeo|
 | `height` | int | Altura do quadro de vídeo|
 | `frameId` | int | Identificador de quadro|
@@ -968,7 +968,7 @@ Para obter o melhor desempenho e utilização das GPUs, pode implementar quaisqu
 |---------|---------|---------|
 | `batch_size` | int | Indica o número de câmaras que serão usadas na operação. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Implementar uma aplicação web People Counting](spatial-analysis-web-app.md)
 * [Registo e resolução de problemas](spatial-analysis-logging.md)

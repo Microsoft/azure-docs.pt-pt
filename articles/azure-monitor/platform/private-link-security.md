@@ -6,12 +6,12 @@ ms.author: noakuper
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.subservice: ''
-ms.openlocfilehash: e8d0dcae81944d5799841c22093585b942934b79
-ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
+ms.openlocfilehash: 5008da99b63cabba41dade9a745fbd5853345737
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97732109"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734971"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Utilizar o Azure Private Link para se ligar em segurança a redes do Azure Monitor
 
@@ -149,7 +149,7 @@ Agora que tem recursos ligados ao seu AMPLS, crie um ponto final privado para li
  
    b.    Escolha **Sim** para **Integrar com a zona privada de DNS,** e deixe-o criar automaticamente uma nova Zona Privada de DNS. As zonas de DNS reais podem ser diferentes das mostradas na imagem abaixo. 
    > [!NOTE]
-   > Se escolher **Não** e preferir gerir os registos DNS manualmente, primeiro complete a configuração do seu Link Privado - incluindo este Ponto final privado e a configuração AMPLS. Em seguida, configuure o seu DNS de acordo com as instruções na [configuração do DNS do Ponto Final Privado Azure](../../private-link/private-endpoint-dns.md). Certifique-se de que não cria registos vazios como preparação para a configuração do Link Privado. Os registos DNS que cria podem substituir as definições existentes e impactar a sua conectividade com o Azure Monitor.
+   > Se escolher **Não** e preferir gerir os registos DNS manualmente, primeiro complete a configuração do seu Link Privado - incluindo este Ponto final privado e a configuração AMPLS. Em seguida, configure o DNS de acordo com as instruções em [Configuração do DNS do Ponto Final Privado do Azure](../../private-link/private-endpoint-dns.md). Não crie registos vazios como preparação da configuração da Ligação Privada. Os registos DNS criados podem substituir as definições existentes e afetar a conectividade com o Azure Monitor.
  
    c.    Clique em **Rever + criar**.
  
@@ -192,7 +192,7 @@ Para permitir que o Agente Desafiá-lo descarregue pacotes de soluções, adicio
 |Azure Government | usbn1oicore.blob.core.usgovcloudapi.net | 443 |  Saída
 |Azure China 21Vianet      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | Saída
 
-## <a name="configure-application-insights"></a>Configure insights de aplicação
+## <a name="configure-application-insights"></a>Configurar o Application Insights
 
 Aceda ao portal do Azure. No seu recurso componente Azure Monitor Application Insights está um item de menu **Isolamento de rede** no lado esquerdo. Você pode controlar dois estados diferentes deste menu.
 
@@ -217,7 +217,7 @@ Restringir o acesso desta forma só se aplica aos dados do recurso Application I
 
 Pode automatizar o processo descrito anteriormente utilizando modelos de Gestor de Recursos Azure, rest e interfaces de linha de comando.
 
-Para criar e gerir os âmbitos de ligação privados, utilize o [REST API](https://docs.microsoft.com/rest/api/monitor/private%20link%20scopes%20(preview)) ou [o Azure CLI (az monitor-link-scope)](/cli/azure/monitor/private-link-scope?view=azure-cli-latest).
+Para criar e gerir os âmbitos de ligação privados, utilize o [REST API](/rest/api/monitor/private%20link%20scopes%20(preview)) ou [o Azure CLI (az monitor-link-scope)](/cli/azure/monitor/private-link-scope?view=azure-cli-latest).
 
 Para gerir o acesso à rede, utilize as bandeiras `[--ingestion-access {Disabled, Enabled}]` e nos espaços de trabalho do Log `[--query-access {Disabled, Enabled}]` [Analytics](/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest) ou nos componentes do [Application Insights](/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest).
 
@@ -264,6 +264,6 @@ Embrulhe o código JavaScript no seu script para que o navegador não tente desc
 
 Se estiver a ligar-se aos recursos do Monitor Azure através de uma Ligação Privada, o tráfego para estes recursos deve passar pelo ponto final privado que está configurado na sua rede. Para ativar o ponto final privado, atualize as definições de DNS como explicado no [Connect para um ponto final privado](#connect-to-a-private-endpoint). Alguns navegadores usam as suas próprias definições de DNS em vez das que define. O navegador pode tentar ligar-se aos pontos finais públicos do Azure Monitor e contornar totalmente o Link Privado. Verifique se as definições dos seus navegadores não se sobrepõem ou cache as definições de DNS antigas. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [armazenamento privado](private-storage.md)

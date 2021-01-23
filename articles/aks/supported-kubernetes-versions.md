@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 138e3ee5272d790130cebfd8a1f61da7bed970d8
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 587078f1f084d002e4d725ca3be64bcec36b4c45
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98663973"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734652"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Supported Kubernetes versions in Azure Kubernetes Service (AKS) (Versões do Kubernetes suportadas no Azure Kubernetes Service [AKS])
 
@@ -107,7 +107,7 @@ Para novas **versões menores** de Kubernetes
 1. A AKS publica um pré-anúncio com a data prevista de um lançamento de nova versão e respetiva depreciação da versão antiga nas notas de lançamento da [AKS](https://aka.ms/aks/releasenotes) pelo menos 30 dias antes da remoção.
 2. A AKS publica uma [notificação de saúde](../service-health/service-health-overview.md) de serviço disponível para todos os utilizadores com acesso a AKS e portal, e envia um e-mail aos administradores de subscrição com as datas de remoção da versão planeadas.
 ````
-To find out who is your subscription administrators or to change it, please refer to [manage Azure subscriptions](https://docs.microsoft.com/azure/cost-management-billing/manage/add-change-subscription-administrator#assign-a-subscription-administrator).
+To find out who is your subscription administrators or to change it, please refer to [manage Azure subscriptions](../cost-management-billing/manage/add-change-subscription-administrator.md#assign-a-subscription-administrator).
 ````
 3. Os **utilizadores têm 30 dias** desde a remoção da versão para atualizar para uma versão menor suportada para continuar a receber suporte.
 
@@ -187,7 +187,7 @@ Para atualizar, a partir de *1.12.x*  ->  *1.14.x,* primeiro upgrade a partir de
 
 Saltar várias versões só pode ser feito quando o upgrade de uma versão não suportada de volta para uma versão suportada. Por exemplo, o upgrade a partir de um *1.10.x* não suportado --> um *1.15.x* suportado pode ser concluído.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter informações sobre como atualizar o seu cluster, consulte [upgrade de um cluster Azure Kubernetes Service (AKS).][aks-upgrade]
 

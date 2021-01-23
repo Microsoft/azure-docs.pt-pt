@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com AwareGo Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com AwareGo | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o AwareGo.
 services: active-directory
 author: jeevansd
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/07/2020
 ms.author: jeedes
-ms.openlocfilehash: 6599abd6282d0d1eb7cb81002c34ddd5158dab6b
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 4682396f68d6ff1af0b2fb6a5b1a8419d6963529
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97511064"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735345"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-awarego"></a>Tutorial: Azure Ative Directy integração única com AwareGo
 
@@ -139,11 +139,9 @@ Nesta secção, pode testar a sua configuração de inscrição única AD AD, fa
 
 * Vá diretamente à página de entrada do AwareGo e inicie o fluxo de entrada a partir daí.
 
-* Vá ao Microsoft My Apps. Quando seleciona o azulejo **AwareGo** nas Minhas Apps, é redirecionado para a página de sinse-in AwareGo. Para obter mais informações, consulte [iniciar sômis e inicie aplicações a partir do portal My Apps.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+* Vá ao Microsoft My Apps. Quando seleciona o azulejo **AwareGo** nas Minhas Apps, é redirecionado para a página de sinse-in AwareGo. Para obter mais informações, consulte [iniciar sômis e inicie aplicações a partir do portal My Apps.](../user-help/my-apps-portal-end-user-access.md)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Depois de configurar o AwareGo, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se a partir do Controlo de Aplicações de Acesso Condicional. Para obter mais informações, consulte [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security.](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app)
-
-
+Depois de configurar o AwareGo, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se a partir do Controlo de Aplicações de Acesso Condicional. Para obter mais informações, consulte [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security.](/cloud-app-security/proxy-deployment-any-app)

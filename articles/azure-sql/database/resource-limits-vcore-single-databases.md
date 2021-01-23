@@ -10,13 +10,13 @@ ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 01/15/2021
-ms.openlocfilehash: db3b168826223e4eb958f7700e65623a115e5779
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.date: 01/22/2021
+ms.openlocfilehash: a4be96d35116ed40ca61f00ed8f2ddd786760242
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251476"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735247"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Limites de recursos das bases de dados individuais com o modelo de compra baseado em vCore
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -42,7 +42,7 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 |Min-max vCores|0.5-1|0.5-2|0.5-4|0.75-6|1.0-8|
 |Memória min-max (GB)|2.02-3|2.05-6|2.10-12|2.25-18|3.00-24|
 |Atraso de pausa automática min-max (minutos)|60-10080|60-10080|60-10080|60-10080|60-10080|
-|Suporte de loja de colunas|Yes|Yes|Yes|Yes|Yes|
+|Suporte de loja de colunas|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|
 |Tamanho máximo dos dados (GB)|512|1024|1024|1024|1536|
 |Tamanho do tronco máximo (GB)|154|307|307|307|461|
@@ -68,7 +68,7 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 |Min-max vCores|1.25-10|1.50-12|1.75-14|2.00-16|
 |Memória min-max (GB)|3.75-30|4.50-36|5.25-42|6.00-48|
 |Atraso de pausa automática min-max (minutos)|60-10080|60-10080|60-10080|60-10080|
-|Suporte de loja de colunas|Yes|Yes|Yes|Yes|
+|Suporte de loja de colunas|Sim|Sim|Sim|Sim|
 |Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|
 |Tamanho máximo dos dados (GB)|1536|3072|3072|3072|
 |Tamanho do tronco máximo (GB)|461|461|461|922|
@@ -94,7 +94,7 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 |Min-max vCores|2.25-18|2.5-20|3-24|4-32|5-40|
 |Memória min-max (GB)|6.75-54|7.5-60|9-72|12-96|15-120|
 |Atraso de pausa automática min-max (minutos)|60-10080|60-10080|60-10080|60-10080|60-10080|
-|Suporte de loja de colunas|Yes|Yes|Yes|Yes|Yes|
+|Suporte de loja de colunas|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|
 |Tamanho máximo dos dados (GB)|3072|3072|4096|4096|4096|
 |Tamanho do tronco máximo (GB)|922|922|1024|1024|1024|
@@ -123,7 +123,7 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 |vCores|1|2|3|4|5|6|
 |Memória (GB)|7|14|21|28|35|42|
 |[RBPEX](service-tier-hyperscale.md#compute) Tamanho|3X Memória|3X Memória|3X Memória|3X Memória|3X Memória|3X Memória|
-|Suporte de loja de colunas|Yes|Yes|Yes|Yes|Yes|Yes|
+|Suporte de loja de colunas|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamanho máximo dos dados (TB)|100 |100 |100 |100 |100 |100|
 |Tamanho do tronco máximo (TB)|Ilimitado |Ilimitado |Ilimitado |Ilimitado |Ilimitado |Ilimitado |
@@ -136,7 +136,7 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 |Sessões simultâneas máx.|30,000|30,000|30,000|30,000|30,000|30,000|
 |Réplicas secundárias|0-4|0-4|0-4|0-4|0-4|0-4|
 |Multi-AZ|N/D|N/D|N/D|N/D|N/D|N/D|
-|Escalamento Horizontal de Leituras|Yes|Yes|Yes|Yes|Yes|Yes|
+|Escalamento Horizontal de Leituras|Sim|Sim|Sim|Sim|Sim|Sim|
 |Retenção de armazenamento de backup|7 dias|7 dias|7 dias|7 dias|7 dias|7 dias|
 |||
 
@@ -150,7 +150,7 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 |vCores|7|8|9|10|16|24|
 |Memória (GB)|49|56|63|70|112|159.5|
 |[RBPEX](service-tier-hyperscale.md#compute) Tamanho|3X Memória|3X Memória|3X Memória|3X Memória|3X Memória|3X Memória|
-|Suporte de loja de colunas|Yes|Yes|Yes|Yes|Yes|Yes|
+|Suporte de loja de colunas|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamanho máximo dos dados (TB)|100 |100 |100 |100 |100 |100 |
 |Tamanho do tronco máximo (TB)|Ilimitado |Ilimitado |Ilimitado |Ilimitado |Ilimitado |Ilimitado |
@@ -163,7 +163,7 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 |Sessões simultâneas máx.|30,000|30,000|30,000|30,000|30,000|30,000|
 |Réplicas secundárias|0-4|0-4|0-4|0-4|0-4|0-4|
 |Multi-AZ|N/D|N/D|N/D|N/D|N/D|N/D|
-|Escalamento Horizontal de Leituras|Yes|Yes|Yes|Yes|Yes|Yes|
+|Escalamento Horizontal de Leituras|Sim|Sim|Sim|Sim|Sim|Sim|
 |Retenção de armazenamento de backup|7 dias|7 dias|7 dias|7 dias|7 dias|7 dias|
 |||
 
@@ -179,7 +179,7 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 |vCores|2|4|6|8|10|12|14|
 |Memória (GB)|10.4|20.8|31.1|41.5|51.9|62.3|72.7|
 |[RBPEX](service-tier-hyperscale.md#compute) Tamanho|3X Memória|3X Memória|3X Memória|3X Memória|3X Memória|3X Memória|3X Memória|
-|Suporte de loja de colunas|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
+|Suporte de loja de colunas|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamanho máximo dos dados (TB)|100 |100 |100 |100 |100 |100 |100|
 |Tamanho do tronco máximo (TB)|Ilimitado |Ilimitado |Ilimitado |Ilimitado |Ilimitado |Ilimitado |Ilimitado |
@@ -192,7 +192,7 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 |Sessões simultâneas máx.|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |Réplicas secundárias|0-4|0-4|0-4|0-4|0-4|0-4|0-4|
 |Multi-AZ|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
-|Escalamento Horizontal de Leituras|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
+|Escalamento Horizontal de Leituras|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
 |Retenção de armazenamento de backup|7 dias|7 dias|7 dias|7 dias|7 dias|7 dias|7 dias|
 |||
 
@@ -206,7 +206,7 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 |vCores|16|18|20|24|32|40|80|
 |Memória (GB)|83|93,4|103,8|124.6|166.1|207.6|415.2|
 |[RBPEX](service-tier-hyperscale.md#compute) Tamanho|3X Memória|3X Memória|3X Memória|3X Memória|3X Memória|3X Memória|3X Memória|
-|Suporte de loja de colunas|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
+|Suporte de loja de colunas|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamanho máximo dos dados (TB)|100 |100 |100 |100 |100 |100 |100 |
 |Tamanho do tronco máximo (TB)|Ilimitado |Ilimitado |Ilimitado |Ilimitado |Ilimitado |Ilimitado |Ilimitado |
@@ -219,7 +219,7 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 |Sessões simultâneas máx.|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |Réplicas secundárias|0-4|0-4|0-4|0-4|0-4|0-4|0-4|
 |Multi-AZ|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
-|Escalamento Horizontal de Leituras|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
+|Escalamento Horizontal de Leituras|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
 |Retenção de armazenamento de backup|7 dias|7 dias|7 dias|7 dias|7 dias|7 dias|7 dias|
 |||
 
@@ -239,7 +239,7 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 |vCores|2|4|6|8|
 |Memória (GB)|9|18|27|36|
 |[RBPEX](service-tier-hyperscale.md#compute) Tamanho|3X Memória|3X Memória|3X Memória|3X Memória|
-|Suporte de loja de colunas|Yes|Yes|Yes|Yes|
+|Suporte de loja de colunas|Sim|Sim|Sim|Sim|
 |Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|
 |Tamanho máximo dos dados (TB)|100 |100 |100 |100 |
 |Tamanho do tronco máximo (TB)|Ilimitado |Ilimitado |Ilimitado |Ilimitado |
@@ -252,7 +252,7 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 |Sessões simultâneas máx.|30,000|30,000|30,000|30,000|
 |Réplicas secundárias|0-4|0-4|0-4|0-4|
 |Multi-AZ|N/D|N/D|N/D|N/D|
-|Escalamento Horizontal de Leituras|Yes|Yes|Yes|Yes|
+|Escalamento Horizontal de Leituras|Sim|Sim|Sim|Sim|
 |Retenção de armazenamento de backup|7 dias|7 dias|7 dias|7 dias|
 |||
 
@@ -274,7 +274,7 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 |Geração computacional|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCores|1|2|3|4|5|6|
 |Memória (GB)|7|14|21|28|35|42|
-|Suporte de loja de colunas|Yes|Yes|Yes|Yes|Yes|Yes|
+|Suporte de loja de colunas|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamanho máximo dos dados (GB)|1024|1024|1536|1536|1536|3072|
 |Tamanho do tronco máximo (GB)|307|307|461|461|461|922|
@@ -299,7 +299,7 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 |Geração computacional|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCores|7|8|9|10|16|24|
 |Memória (GB)|49|56|63|70|112|159.5|
-|Suporte de loja de colunas|Yes|Yes|Yes|Yes|Yes|Yes|
+|Suporte de loja de colunas|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamanho máximo dos dados (GB)|3072|3072|3072|3072|4096|4096|
 |Tamanho do tronco máximo (GB)|922|922|922|922|1229|1229|
@@ -326,7 +326,7 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 |Geração computacional|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |vCores|2|4|6|8|10|12|14|
 |Memória (GB)|10.4|20.8|31.1|41.5|51.9|62.3|72.7|
-|Suporte de loja de colunas|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
+|Suporte de loja de colunas|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamanho máximo dos dados (GB)|1024|1024|1536|1536|1536|3072|3072|
 |Tamanho do tronco máximo (GB)|307|307|461|461|461|922|922|
@@ -351,7 +351,7 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 |Geração computacional|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |vCores|16|18|20|24|32|40|80|
 |Memória (GB)|83|93,4|103,8|124.6|166.1|207.6|415.2|
-|Suporte de loja de colunas|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
+|Suporte de loja de colunas|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamanho máximo dos dados (GB)|3072|3072|3072|4096|4096|4096|4096|
 |Tamanho do tronco máximo (GB)|922|922|922|1024|1024|1024|1024|
@@ -378,7 +378,7 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 |Geração computacional|Série Fsv2|Série Fsv2|Série Fsv2|Série Fsv2|Série Fsv2|
 |vCores|8|10|12|14|16|
 |Memória (GB)|15.1|18,9|22.7|26,5|30.2|
-|Suporte de loja de colunas|Yes|Yes|Yes|Yes|Yes|
+|Suporte de loja de colunas|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|
 |Tamanho máximo dos dados (GB)|1024|1024|1024|1024|1536|
 |Tamanho do tronco máximo (GB)|336|336|336|336|512|
@@ -404,14 +404,14 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 |Geração computacional|Série Fsv2|Série Fsv2|Série Fsv2|Série Fsv2|Série Fsv2|Série Fsv2|
 |vCores|18|20|24|32|36|72|
 |Memória (GB)|34,0|37.8|45.4|60.5|68,0|136.0|
-|Suporte de loja de colunas|Yes|Yes|Yes|Yes|Yes|Yes|
+|Suporte de loja de colunas|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamanho máximo dos dados (GB)|1536|1536|1536|3072|3072|4096|
 |Tamanho do tronco máximo (GB)|512|512|512|1024|1024|1024|
 |Tamanho máximo de dados tempDB (GB)|83.25|92.5|111|148|166.5|333|
 |Tipo de armazenamento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latência IO (aproximada)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|5-7 ms (escrever)<br>5-10 ms (ler)|
-|Dados max IOPS *|5760|6400|7680|10240|11520|23040|
+|Dados max IOPS *|5760|6400|7680|10240|11520|12800|
 |Taxa de registo máximo (MBps)|36|36|36|36|36|36|
 |Trabalhadores max simultâneos (pedidos)|900|1000|1200|1600|1800|3600|
 |Inícios de sessão simultâneos máx.|1800|2000|2400|3200|3600|7200|
@@ -430,7 +430,7 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 |Geração computacional|Série DC|Série DC|Série DC|Série DC|
 |vCores|2|4|6|8|
 |Memória (GB)|9|18|27|36|
-|Suporte de loja de colunas|Yes|Yes|Yes|Yes|
+|Suporte de loja de colunas|Sim|Sim|Sim|Sim|
 |Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|
 |Tamanho máximo dos dados (GB)|1024|1536|3072|3072|
 |Tamanho do tronco máximo (GB)|307|461|922|922|
@@ -461,7 +461,7 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 |Geração computacional|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCores|1|2|3|4|5|6|
 |Memória (GB)|7|14|21|28|35|42|
-|Suporte de loja de colunas|Yes|Yes|Yes|Yes|Yes|Yes|
+|Suporte de loja de colunas|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento OLTP na memória (GB)|1|2|3|4|5|6|
 |Tipo de armazenamento|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
 |Tamanho máximo dos dados (GB)|1024|1024|1024|1024|1024|1024|
@@ -474,8 +474,8 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 |Inícios de sessão simultâneos máx.|200|400|600|800|1000|1200|
 |Sessões simultâneas máx.|30,000|30,000|30,000|30,000|30,000|30,000|
 |Número de réplicas|4|4|4|4|4|4|
-|Multi-AZ|Yes|Yes|Yes|Yes|Yes|Yes|
-|Escalamento Horizontal de Leituras|Yes|Yes|Yes|Yes|Yes|Yes|
+|Multi-AZ|Sim|Sim|Sim|Sim|Sim|Sim|
+|Escalamento Horizontal de Leituras|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento de backup incluído|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|
 
 \* O valor máximo para tamanhos IO varia entre 8 KB e 64 KB. Os IOPS reais dependem da carga de trabalho. Para mais informações, consulte [a Governação do IO de Dados.](resource-limits-logical-server.md#resource-governance)
@@ -487,7 +487,7 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 |Geração computacional|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCores|7|8|9|10|16|24|
 |Memória (GB)|49|56|63|70|112|159.5|
-|Suporte de loja de colunas|Yes|Yes|Yes|Yes|Yes|Yes|
+|Suporte de loja de colunas|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento OLTP na memória (GB)|7|8|9.5|11|20|36|
 |Tipo de armazenamento|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
 |Tamanho máximo dos dados (GB)|1024|1024|1024|1024|1024|1024|
@@ -500,8 +500,8 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 |Logins simultâneos max (pedidos)|1400|1600|1800|2000|3200|4800|
 |Sessões simultâneas máx.|30,000|30,000|30,000|30,000|30,000|30,000|
 |Número de réplicas|4|4|4|4|4|4|
-|Multi-AZ|Yes|Yes|Yes|Yes|Yes|Yes|
-|Escalamento Horizontal de Leituras|Yes|Yes|Yes|Yes|Yes|Yes|
+|Multi-AZ|Sim|Sim|Sim|Sim|Sim|Sim|
+|Escalamento Horizontal de Leituras|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento de backup incluído|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|
 
 \* O valor máximo para tamanhos IO varia entre 8 KB e 64 KB. Os IOPS reais dependem da carga de trabalho. Para mais informações, consulte [a Governação do IO de Dados.](resource-limits-logical-server.md#resource-governance)
@@ -515,7 +515,7 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 |Geração computacional|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |vCores|2|4|6|8|10|12|14|
 |Memória (GB)|10.4|20.8|31.1|41.5|51.9|62.3|72.7|
-|Suporte de loja de colunas|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
+|Suporte de loja de colunas|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento OLTP na memória (GB)|1.57|3.14|4.71|6.28|8.65|11.02|13.39|
 |Tamanho máximo dos dados (GB)|1024|1024|1536|1536|1536|3072|3072|
 |Tamanho do tronco máximo (GB)|307|307|461|461|461|922|922|
@@ -528,8 +528,8 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 |Inícios de sessão simultâneos máx.|200|400|600|800|1000|1200|1400|
 |Sessões simultâneas máx.|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |Número de réplicas|4|4|4|4|4|4|4|
-|Multi-AZ|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
-|Escalamento Horizontal de Leituras|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
+|Multi-AZ|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
+|Escalamento Horizontal de Leituras|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento de backup incluído|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|
 
 \* O valor máximo para tamanhos IO varia entre 8 KB e 64 KB. Os IOPS reais dependem da carga de trabalho. Para mais informações, consulte [a Governação do IO de Dados.](resource-limits-logical-server.md#resource-governance)
@@ -541,7 +541,7 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 |Geração computacional|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |vCores|16|18|20|24|32|40|80|
 |Memória (GB)|83|93,4|103,8|124.6|166.1|207.6|415.2|
-|Suporte de loja de colunas|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
+|Suporte de loja de colunas|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento OLTP na memória (GB)|15,77|18.14|20.51|25.25|37.94|52.23|131.64|
 |Tamanho máximo dos dados (GB)|3072|3072|3072|4096|4096|4096|4096|
 |Tamanho do tronco máximo (GB)|922|922|922|1024|1024|1024|1024|
@@ -554,8 +554,8 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 |Inícios de sessão simultâneos máx.|1600|1800|2000|2400|3200|4000|8000|
 |Sessões simultâneas máx.|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |Número de réplicas|4|4|4|4|4|4|4|
-|Multi-AZ|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
-|Escalamento Horizontal de Leituras|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
+|Multi-AZ|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
+|Escalamento Horizontal de Leituras|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento de backup incluído|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|
 
 \* O valor máximo para tamanhos IO varia entre 8 KB e 64 KB. Os IOPS reais dependem da carga de trabalho. Para mais informações, consulte [a Governação do IO de Dados.](resource-limits-logical-server.md#resource-governance)
@@ -569,7 +569,7 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 |Geração computacional|Série M|Série M|Série M|Série M|Série M|Série M|
 |vCores|8|10|12|14|16|18|
 |Memória (GB)|235.4|294.3|353.2|412.0|470.9|529.7|
-|Suporte de loja de colunas|Yes|Yes|Yes|Yes|Yes|Yes|
+|Suporte de loja de colunas|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento OLTP na memória (GB)|64|80|96|112|128|150|
 |Tamanho máximo dos dados (GB)|512|640|768|896|1024|1152|
 |Tamanho do tronco máximo (GB)|171|213|256|299|341|384|
@@ -582,8 +582,8 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 |Inícios de sessão simultâneos máx.|800|1,000|1200|1400|1.600|1.800|
 |Sessões simultâneas máx.|30000|30000|30000|30000|30000|30000|
 |Número de réplicas|4|4|4|4|4|4|
-|Multi-AZ|No|No|No|No|No|No|
-|Escalamento Horizontal de Leituras|Yes|Yes|Yes|Yes|Yes|Yes|
+|Multi-AZ|Não|Não|Não|Não|Não|Não|
+|Escalamento Horizontal de Leituras|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento de backup incluído|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|
 
 \* O valor máximo para tamanhos IO varia entre 8 KB e 64 KB. Os IOPS reais dependem da carga de trabalho. Para mais informações, consulte [a Governação do IO de Dados.](resource-limits-logical-server.md#resource-governance)
@@ -598,7 +598,7 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 |Geração computacional|Série M|Série M|Série M|Série M|Série M|
 |vCores|20|24|32|64|128|
 |Memória (GB)|588.6|706.3|941.8|1883.5|3767.0|
-|Suporte de loja de colunas|Yes|Yes|Yes|Yes|Yes|
+|Suporte de loja de colunas|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento OLTP na memória (GB)|172|216|304|704|1768|
 |Tamanho máximo dos dados (GB)|1280|1536|2048|4096|4096|
 |Tamanho do tronco máximo (GB)|427|512|683|1024|1024|
@@ -611,8 +611,8 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 |Inícios de sessão simultâneos máx.|2.000|2,400|3,200|6,400|12,800|
 |Sessões simultâneas máx.|30000|30000|30000|30000|30000|
 |Número de réplicas|4|4|4|4|4|
-|Multi-AZ|No|No|No|No|No|
-|Escalamento Horizontal de Leituras|Yes|Yes|Yes|Yes|Yes|
+|Multi-AZ|Não|Não|Não|Não|Não|
+|Escalamento Horizontal de Leituras|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento de backup incluído|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|
 
 \* O valor máximo para tamanhos IO varia entre 8 KB e 64 KB. Os IOPS reais dependem da carga de trabalho. Para mais informações, consulte [a Governação do IO de Dados.](resource-limits-logical-server.md#resource-governance)
@@ -627,7 +627,7 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 |Geração computacional|Série DC|Série DC|Série DC|Série DC|
 |vCores|2|4|6|8|
 |Memória (GB)|9|18|27|36|
-|Suporte de loja de colunas|Yes|Yes|Yes|Yes|
+|Suporte de loja de colunas|Sim|Sim|Sim|Sim|
 |Armazenamento OLTP na memória (GB)|1.7|3.7|5.9|8.2|
 |Tamanho máximo dos dados (GB)|768|768|768|768|
 |Tamanho do tronco máximo (GB)|230|230|230|230|
@@ -640,14 +640,14 @@ O [nível de computação sem servidor](serverless-tier-overview.md) está atual
 |Inícios de sessão simultâneos máx.|200|400|600|800|
 |Sessões simultâneas máx.|30,000|30,000|30,000|30,000|
 |Número de réplicas|4|4|4|4|
-|Multi-AZ|No|No|No|No|
-|Escalamento Horizontal de Leituras|No|No|No|No|
+|Multi-AZ|Não|Não|Não|Não|
+|Escalamento Horizontal de Leituras|Não|Não|Não|Não|
 |Armazenamento de backup incluído|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|Tamanho 1X DB|
 
 \* O valor máximo para tamanhos IO varia entre 8 KB e 64 KB. Os IOPS reais dependem da carga de trabalho. Para mais informações, consulte [a Governação do IO de Dados.](resource-limits-logical-server.md#resource-governance)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para limites de recursos DTU para uma única base de [dados, consulte os limites de recursos para bases de dados únicas utilizando o modelo de compra do DTU](resource-limits-dtu-single-databases.md)
 - Para limites de recursos vCore para piscinas elásticas, consulte [os limites de recursos para piscinas elásticas utilizando o modelo de compra vCore](resource-limits-vcore-elastic-pools.md)

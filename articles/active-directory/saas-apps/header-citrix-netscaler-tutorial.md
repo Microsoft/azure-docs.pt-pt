@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única de sign-on com citrix ADC (autenticação baseada em cabeçalho) / Microsoft Docs'
+title: 'Tutorial: Azure Ative Directy integração única de sign-on com Citrix ADC (autenticação baseada em cabeçalho) | Microsoft Docs'
 description: Aprenda a configurar um único sign-on (SSO) entre o Azure Ative Directory e o Citrix ADC utilizando a autenticação baseada em cabeçalho.
 services: active-directory
 author: jeevansd
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 73e895928beee288a4531f00347832967d0eab15
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 9cab0597aeb3bc28f391de558240e5d894f5a49c
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97608260"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735251"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-citrix-adc-header-based-authentication"></a>Tutorial: Azure Ative Directy integração única de sign-on com Citrix ADC (autenticação baseada em cabeçalho)
 
@@ -115,7 +115,7 @@ Para ativar o Azure AD SSO utilizando o portal Azure, complete estes passos:
 
 1. A aplicação Citrix ADC também espera que mais alguns atributos sejam repercutidos na resposta SAML. Na caixa de diálogo **'Atributos do Utilizador',** em **'Reclamações de Utilizador',** preencha os seguintes passos para adicionar os atributos de ficha SAML, tal como mostrado na tabela:
 
-    | Nome | Atributo de origem|
+    | Name | Atributo de origem|
     | ---------------| --------------- |
     | mySecretID  | user.userprincipalname |
     
@@ -189,7 +189,7 @@ Para criar um servidor virtual:
 
 1. Desacorda os seguintes valores para o servidor web que está a executar as aplicações:
 
-   * **Nome do Serviço**
+   * **Nome de serviço**
    * **Servidor IP/ Servidor Existente**
    * **Protocolo**
    * **Porta**
@@ -431,9 +431,9 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 
 * Vá diretamente ao URL de inscrição do Citrix ADC e inicie o fluxo de login a partir daí.
 
-* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo Citrix ADC nas Minhas Apps, este será redirecionado para o URL de assinatura do Citrix ADC. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo Citrix ADC nas Minhas Apps, este será redirecionado para o URL de assinatura do Citrix ADC. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](../user-help/my-apps-portal-end-user-access.md)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Uma vez configurado citrix ADC, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

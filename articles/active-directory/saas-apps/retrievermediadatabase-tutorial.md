@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com RetrieverMediaDatabase Microsoft Docs'
+title: 'Tutorial: Azure Ative Directy integração única de sign-on (SSO) com RetrieverMediaDatabase | Microsoft Docs'
 description: Saiba como configurar um único sinal de inscrição entre o Azure Ative Directory e o RetrieverMediaDatabase.
 services: active-directory
 author: jeevansd
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/25/2020
 ms.author: jeedes
-ms.openlocfilehash: 32ca39685772272ae93ccbe0c2afcbd1f66894b1
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 786925799d19bf01e8edebbf85de04d92213298b
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96355189"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732849"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-retrievermediadatabase"></a>Tutorial: Azure Ative Directy integração única (SSO) com RetrieverMediaDatabase
 
@@ -118,10 +118,8 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 
 1. Clique em Testar esta aplicação no portal Azure e deverá ser automaticamente inscrito na RetrieverMediaDatabase para a qual configura o SSO
 
-1. Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo RetrieverMediaDatabase nas Minhas Apps, deverá ser automaticamente inscrito na Base de Dados RetrieverMedia para a qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+1. Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo RetrieverMediaDatabase nas Minhas Apps, deverá ser automaticamente inscrito na Base de Dados RetrieverMedia para a qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](../user-help/my-apps-portal-end-user-access.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Uma vez configurado o RetrieverMediaDatabase, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Uma vez configurado o RetrieverMediaDatabase, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

@@ -12,12 +12,12 @@ ms.date: 09/14/2020
 ms.author: erhopf
 ms.custom: cog-serv-seo-aug-2020
 keywords: tradutor, serviço de tradutor, tradução de texto, texto transliterado, deteção de linguagem
-ms.openlocfilehash: 68bbb31ae87ebbb84cda752c2f4a7c1bd1116dda
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 38bd4d28a8ae4c737155cd74bcb39d1acfaf699c
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369533"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733499"
 ---
 # <a name="quickstart-get-started-with-translator"></a>Quickstart: Começa com o Tradutor
 
@@ -102,7 +102,7 @@ Ao ligar para o serviço de Tradução via REST, terá de se certificar de que o
 
 <table width="100%">
   <th width="20%">Cabeçalhos</th>
-  <th>Description</th>
+  <th>Descrição</th>
   <tr>
     <td>Cabeçalho de autenticação</td>
     <td><em>Cabeçalho de pedido necessário</em>.<br/><code>Ocp-Apim-Subscription-Key</code><br/><br/><em>Cabeçalho de pedido necessário se utilizar um recurso de serviços cognitivos. Opcional se utilizar um recurso tradutor.</em>.<br/><code>Ocp-Apim-Subscription-Region</code><br/><br/>Consulte <a href="/azure/cognitive-services/translator/reference/v3-0-reference#authentication">as opções disponíveis para autenticação.</a></td>
@@ -968,7 +968,8 @@ Se estiver a traduzir para uma língua que usa um alfabeto (ou fonmes) diferente
 
 Para obter uma transliteração do `translate` ponto final, use o `toScript` parâmetro.
 
-> ! [NOTA] Para obter uma lista completa de idiomas disponíveis e opções de transliteração, consulte [o suporte linguístico.](language-support.md)
+> [!NOTE]
+> Para obter uma lista completa de idiomas disponíveis e opções de transliteração, consulte [o suporte linguístico.](language-support.md)
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -1247,7 +1248,8 @@ Depois de uma chamada bem sucedida, deverá ver a seguinte resposta. Tenha em me
 
 Também pode utilizar o `transliterate` ponto final para obter uma transliteração. Ao utilizar o ponto final da transliteração, deve fornecer a língua de origem `language` (), a letra/alfabeto de origem ( `fromScript` ) e o script/alfabeto de saída como `toScript` parâmetros. Neste exemplo, vamos ter a transliteração para สวัสดี. 
 
-> ! [NOTA] Para obter uma lista completa de idiomas disponíveis e opções de transliteração, consulte [o suporte linguístico.](language-support.md)
+> [!NOTE]
+> Para obter uma lista completa de idiomas disponíveis e opções de transliteração, consulte [o suporte linguístico.](language-support.md)
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -2670,12 +2672,12 @@ Depois de uma chamada bem sucedida, deverá ver a seguinte resposta. Para obter 
 
 Se estiver a encontrar problemas de ligação, pode ser que o seu certificado SSL tenha expirado. Para resolver este problema, instale o [DigiCertGlobalRootG2.crt](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt) na sua loja privada. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Saiba como a API conta caracteres](character-counts.md)
 * [Personalizar e melhorar a tradução](customization.md)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 * [Referência API tradutor v3](reference/v3-0-reference.md)
 * [Suporte de idiomas](language-support.md)

@@ -1,17 +1,17 @@
 ---
-title: Orientação para dados pessoais armazenados no Azure Log Analytics Microsoft Docs
+title: Orientação para dados pessoais armazenados no Azure Log Analytics| Microsoft Docs
 description: Este artigo descreve como gerir os dados pessoais armazenados no Azure Log Analytics e os métodos para identificá-lo e removê-lo.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2018
-ms.openlocfilehash: 2bb1e667758a1430e34d222b9a5c537381c07624
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 40ea367c1298a916df541d362b85e8d485d193f1
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505278"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734937"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Orientações para dados pessoais armazenados no Log Analytics e no Application Insights
 
@@ -91,7 +91,7 @@ Para pedidos de visualização e exportação de dados, deve ser utilizada a [AP
 Disponibilizamos como parte de uma privacidade que lida com um caminho *de expurgação* da API. Este caminho deve ser utilizado com moderação devido ao risco associado a fazê-lo, ao impacto potencial do desempenho e ao potencial de distorcer agregações, medições e outros aspetos dos seus dados do Log Analytics. Consulte a [secção de tratamento de dados pessoais](#strategy-for-personal-data-handling) para obter abordagens alternativas para lidar com dados privados.
 
 > [!NOTE]
-> Uma vez realizada a operação de purga, os dados não podem ser acedidos enquanto o estado *de operação* de [purga](https://docs.microsoft.com/rest/api/loganalytics/workspacepurge/getpurgestatus) estiver pendente . 
+> Uma vez realizada a operação de purga, os dados não podem ser acedidos enquanto o estado *de operação* de [purga](/rest/api/loganalytics/workspacepurge/getpurgestatus) estiver pendente . 
 
 A purga é uma operação altamente privilegiada que nenhuma app ou utilizador em Azure (incluindo mesmo o proprietário do recurso) terá permissões para executar sem que seja expressamente concedido um papel no Azure Resource Manager. Esta função é _Data Purger_ e deve ser delegada cautelosamente devido ao potencial de perda de dados. 
 
@@ -126,7 +126,6 @@ Uma vez atribuída a função de Gestor de Recursos Azure, estão disponíveis d
 > [!IMPORTANT]
 >  Embora a grande maioria das operações de purga possa completar muito mais rapidamente do que o SLA, devido ao seu forte impacto na plataforma de dados utilizada pela Application Insights, **o SLA formal para a conclusão das operações de purga é fixado em 30 dias.**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Para saber mais sobre como os dados do Log Analytics são recolhidos, processados e protegidos, consulte [a segurança de dados do Log Analytics](./data-security.md).
 - Para saber mais sobre como os dados do Application Insights são recolhidos, processados e protegidos, consulte [a segurança dos dados do Application Insights](../app/data-retention-privacy.md).
-

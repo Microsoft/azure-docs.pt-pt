@@ -10,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 11/29/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e3d81bfaba572361304224932fadb7da5b1cc3f8
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 8ddc94301ae8954fb0a35827ebd21e090c9dfe89
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97912892"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734702"
 ---
 # <a name="tutorial---manage-azure-disks-with-azure-powershell"></a>Tutorial – Gerir discos do Azure com o Azure PowerShell
 
@@ -64,7 +64,7 @@ Enquanto a tabela acima identifica o IOPS máximo por disco, um nível mais elev
 
 Para concluir o exemplo neste tutorial, tem de ter uma máquina virtual existente. Se for preciso, crie uma máquina virtual com os seguintes comandos.
 
-Defina o nome de utilizador e a palavra-passe necessários para a conta de administrador na máquina virtual com [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1&preserve-view=true):
+Defina o nome de utilizador e a palavra-passe necessários para a conta de administrador na máquina virtual com [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential):
 
 
 Crie a máquina virtual com [New-AzVM](/powershell/module/az.compute/new-azvm). Será pedido para introduzir um nome de utilizador e palavra-passe para a conta de administradores para a VM.
@@ -158,7 +158,7 @@ VirtualHardDisk :
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, aprendeu sobre os tópicos de discos de VM, como:
 

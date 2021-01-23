@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 10/23/2019
 ms.author: haroldw
-ms.openlocfilehash: 68bd748e890659e4b79d76e4ccab038f251a937a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 51f6a2ac4f524ac2a504fb8e0c3dd90ec25c9f93
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016034"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734735"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-container-platform-311-in-azure"></a>Pré-requisitos comuns para a implantação da Plataforma de Contentores OpenShift 3.11 em Azure
 
@@ -64,7 +64,7 @@ az group create --name keyvaultrg --location eastus
 ```
 
 ## <a name="create-a-key-vault"></a>Criar um cofre de chaves
-Crie um cofre chave para armazenar as teclas SSH para o cluster com o [comando de criação de chave az.](/cli/azure/keyvault) O nome do cofre de chaves deve ser globalmente único e deve ser ativado para a implementação do modelo ou a implementação falhará com o erro "KeyVaultParameterReferenceReretretretretrieveFailed".
+Crie um cofre chave para armazenar as teclas SSH para o cluster com o [comando de criação de chave az.](/cli/azure/keyvault) O nome do cofre de chaves deve ser globalmente único e deve ser ativado para a implementação do modelo ou a implementação falhará com o erro "KeyVaultParameterReferenceReretrieveFailed".
 
 O exemplo a seguir cria um cofre-chave denominado *keyvault* no grupo de recursos *keyvaultrg:*
 
@@ -134,7 +134,7 @@ Tome nota da propriedade appId e senha devolvida do comando:
  > [!WARNING] 
  > Certifique-se de que escreve a palavra-passe segura, uma vez que não será possível recuperar novamente esta palavra-passe.
 
-Para obter mais informações sobre os principais serviços, consulte [Criar um diretor de serviço Azure com a Azure CLI.](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)
+Para obter mais informações sobre os principais serviços, consulte [Criar um diretor de serviço Azure com a Azure CLI.](/cli/azure/create-an-azure-service-principal-azure-cli)
 
 ## <a name="prerequisites-applicable-only-to-resource-manager-template"></a>Pré-requisitos aplicáveis apenas ao modelo de Gestor de Recursos
 
@@ -163,7 +163,7 @@ Crie os segredos usando o Azure CLI. Abaixo está um exemplo.
 az keyvault secret set --vault-name KeyVaultName -n mastercafile --file ~/certificates/masterca.pem
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Este artigo abordou os seguintes tópicos:
 > [!div class="checklist"]

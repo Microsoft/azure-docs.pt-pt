@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Snowflake para fornecimento automático de utilizadores com Diretório Ativo Azure / Microsoft Docs'
+title: 'Tutorial: Configurar floco de neve para fornecimento automático de utilizadores com Azure Ative Directory | Microsoft Docs'
 description: Aprenda a configurar o Azure Ative Directory para provisões automáticas e desavisagem de contas de utilizadores ao Snowflake.
 services: active-directory
 author: zchia
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: cc88712dd686983baed858de47e11dfa44e85350
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 9190585face277d92ef86c9bfa045d6d8c05b01c
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955523"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734879"
 ---
 # <a name="tutorial-configure-snowflake-for-automatic-user-provisioning"></a>Tutorial: Configure Snowflake para o fornecimento automático de utilizadores
 
@@ -164,7 +164,7 @@ Depois de configurar o aprovisionamento, utilize os seguintes recursos para moni
 
 * **Gamas IP** 
 
-   O serviço de prestação de AD Azure opera atualmente ao abrigo de uma determinada gama de IP. Assim, se necessário, pode restringir outras gamas de IP e adicionar estes intervalos IP específicos à lista de admissões da sua aplicação para permitir o fluxo de tráfego do serviço de fornecimento de Azure AD à sua aplicação. Consulte a documentação em [Gamas IP](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#ip-ranges).
+   O serviço de prestação de AD Azure opera atualmente ao abrigo de uma determinada gama de IP. Assim, se necessário, pode restringir outras gamas de IP e adicionar estes intervalos IP específicos à lista de admissões da sua aplicação para permitir o fluxo de tráfego do serviço de fornecimento de Azure AD à sua aplicação. Consulte a documentação em [Gamas IP](../app-provisioning/use-scim-to-provision-users-and-groups.md#ip-ranges).
 
 ## <a name="change-log"></a>Alterar Registo
 

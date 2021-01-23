@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 8dd3c60c3d1b714ab75b496a94ba4bd5aec4e43d
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: cd5b709843ba2d98170aaa58eb5c3cc1ec8883af
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558475"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734686"
 ---
 # <a name="azure-signalr-service-authentication"></a>Azure SignalR Service authentication (Autenticação do Azure SignalR Service)
 
@@ -46,16 +46,16 @@ Neste tutorial, ficará a saber como:
 Para concluir este tutorial, deve ter os seguintes pré-requisitos:
 
 - Uma conta criada no [GitHub](https://github.com/)
-- [Rio Git](https://git-scm.com/)
+- [Git](https://git-scm.com/)
 - [SDK .NET Core](https://www.microsoft.com/net/download/windows)
-- [Azure Cloud Shell](/azure/cloud-shell/quickstart) configurado para o ambiente de festa.
+- [Azure Cloud Shell](../cloud-shell/quickstart.md) configurado para o ambiente de festa.
 - Faça o download ou clone do repositório GitHub [da amostra AzureSignalR.](https://github.com/aspnet/AzureSignalR-samples)
 
 ## <a name="create-an-oauth-app"></a>Criar uma aplicação de OAuth
 
 1. Abra um browser, navegue para `https://github.com` e inicie sessão na sua conta.
 
-2. Para a sua **Settings** conta, navegue para  >  **definições de Desenvolvedores** e clique em **Registar uma nova aplicação**, ou Nova App **OAuth** ao abrigo *de aplicações OAuth*.
+2. Para a sua conta, navegue para  >  **definições de Desenvolvedores** e clique em **Registar uma nova aplicação**, ou Nova App **OAuth** ao abrigo *de aplicações OAuth*.
 
 3. Utilize as seguintes definições para a aplicação de OAuth nova e clique em **Register application** (Registar aplicação):
 
@@ -546,7 +546,7 @@ Para implementar o código, execute os seguintes comandos numa shell do Git.
 
 A última coisa que tem de fazer é atualizar o **URL da home page** e o **URL da chamada de retorno da autorização** da aplicação de OAuth do GitHub para apontar para a nova aplicação alojada.
 
-1. Abra [https://github.com](https://github.com) num browser e navegue para as definições do Programador de **Definições** da sua  >  **Developer settings**  >  **conta, Oauth Apps**.
+1. Abra [https://github.com](https://github.com) num browser e navegue para as definições do Programador de **Definições** da sua  >    >  **conta, Oauth Apps**.
 
 2. Clique na aplicação de autenticação e atualize o **URL da home page** e o **URL da chamada de retorno da autorização**, conforme mostrado abaixo:
 
@@ -559,7 +559,7 @@ A última coisa que tem de fazer é atualizar o **URL da home page** e o **URL d
 
     ![OAuth concluída alojada no Azure](media/signalr-concept-authenticate-oauth/signalr-oauth-complete-azure.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se avançar para o próximo tutorial, pode manter os recursos que criou neste início rápido e reutilizá-los.
 
@@ -578,7 +578,7 @@ Na caixa de texto **Filtrar por nome...**, escreva o nome do grupo de recursos. 
 
 Após alguns instantes, o grupo de recursos e todos os recursos contidos no mesmo são eliminados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, adicionou a autenticação com OAuth para proporcionar uma melhor abordagem à autenticação com o Azure SignalR Service. Para saber mais sobre como utilizar o Azure SignalR Service, avance para os exemplos da CLI do Azure para SignalR Service.
 

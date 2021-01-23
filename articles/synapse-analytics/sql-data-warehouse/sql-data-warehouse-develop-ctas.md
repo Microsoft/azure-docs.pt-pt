@@ -11,12 +11,12 @@ ms.date: 03/26/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seoapril2019, azure-synapse
-ms.openlocfilehash: 6750f010e3992a2b76cc688449ad44efa7ec76d0
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 68bab754142538fc6067cf2593ae6244a03a48d1
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98683278"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734819"
 ---
 # <a name="create-table-as-select-ctas"></a>CRIAR TABELA COMO SELECT (CTAS)
 
@@ -208,7 +208,7 @@ DROP TABLE CTAS_acs;
 
 ## <a name="ansi-join-replacement-for-merge"></a>ANSI junta-se a substituição da MERGE 
 
-No Azure Synapse Analytics, [a MERGE](/sql/t-sql/statements/merge-transact-sql?view=sql-server-ver15) (pré-visualização) com NÃO CORRESPONDED BY TARGET requer que o alvo seja uma tabela distribuída HASH.  Os utilizadores podem utilizar o ANSI JOIN com [UPDATE](/sql/t-sql/queries/update-transact-sql?view=sql-server-ver15) ou [DELETE](/sql/t-sql/statements/delete-transact-sql?view=sql-server-ver15) como uma solução alternativa para modificar os dados da tabela-alvo com base no resultado de se juntar a outra tabela.  Eis um exemplo.
+No Azure Synapse Analytics, [a MERGE](/sql/t-sql/statements/merge-transact-sql?view=azure-sqldw-latest&preserve-view=true) (pré-visualização) com NÃO CORRESPONDED BY TARGET requer que o alvo seja uma tabela distribuída HASH.  Os utilizadores podem utilizar o ANSI JOIN com [UPDATE](/sql/t-sql/queries/update-transact-sql?view=azure-sqldw-latest&preserve-view=true) ou [DELETE](/sql/t-sql/statements/delete-transact-sql?view=azure-sqldw-latest&preserve-view=true) como uma solução alternativa para modificar os dados da tabela-alvo com base no resultado de se juntar a outra tabela.  Eis um exemplo.
 
 ```sql
 CREATE TABLE dbo.Table1   
@@ -381,6 +381,6 @@ Você pode ver que tipo de consistência e manter propriedades de anulação em 
 
 O CTAS é uma das declarações mais importantes no Sinaapse SQL. Certifique-se de compreendê-lo completamente. Consulte a [documentação ctas.](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais dicas de desenvolvimento, consulte a [visão geral](sql-data-warehouse-overview-develop.md)do desenvolvimento.

@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
 ms.date: 01/15/2021
-ms.openlocfilehash: c41856c394166f2e3b8fd3bde794f0f294ef6af9
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 4448ce051b0c9e73865e8057cc4f224c9cbeb571
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98253459"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732749"
 ---
 # <a name="plan-for-intel-sgx-enclaves-and-attestation-in-azure-sql-database"></a>Plano para enclaves e atestado intel SGX na Base de Dados Azure SQL
 
@@ -25,7 +25,7 @@ ms.locfileid: "98253459"
 > [!NOTE]
 > Sempre encriptado com enclaves seguros para Azure SQL Database está atualmente em **pré-visualização pública**.
 
-[Sempre encriptado com enclaves seguros](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-enclaves) na Base de Dados Azure SQL utiliza [enclaves de extensões de proteção de software intel (Intel SGX)](https://itpeernetwork.intel.com/microsoft-azure-confidential-computing/) e requer [a Attestation Microsoft Azure](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-enclaves#secure-enclave-attestation).
+[Sempre encriptado com enclaves seguros](/sql/relational-databases/security/encryption/always-encrypted-enclaves) na Base de Dados Azure SQL utiliza [enclaves de extensões de proteção de software intel (Intel SGX)](https://itpeernetwork.intel.com/microsoft-azure-confidential-computing/) e requer [a Attestation Microsoft Azure](/sql/relational-databases/security/encryption/always-encrypted-enclaves#secure-enclave-attestation).
 
 ## <a name="plan-for-intel-sgx-in-azure-sql-database"></a>Plano para Intel SGX em Base de Dados Azure SQL
 
@@ -57,10 +57,10 @@ Configurar o seu ambiente para suportar enclaves intel SGX e atestado para Sempr
 
 Em ambientes de produção (manuseamento de dados sensíveis reais), é importante que a sua organização adere à separação de papéis ao configurar a atestação, onde cada papel distinto é assumido por diferentes pessoas. Em particular, se o objetivo de implementar Sempre Encriptado na sua organização é reduzir a área de superfície de ataque, garantindo que os administradores da Base de Dados Azure SQL não possam aceder a dados sensíveis, os administradores da Base de Dados Azure SQL não devem controlar as políticas de atestação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Ativar a Intel SGX para a sua base de dados Azure SQL](always-encrypted-enclaves-enable-sgx.md)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 - [Tutorial: Começar com Sempre Encriptado com enclaves seguros na Base de Dados Azure SQL](always-encrypted-enclaves-getting-started.md)

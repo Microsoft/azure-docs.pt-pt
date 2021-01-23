@@ -1,5 +1,5 @@
 ---
-title: Use scripts de implementação em modelos Microsoft Docs
+title: Use scripts de implementação em modelos | Microsoft Docs
 description: utilizar scripts de implementação em modelos de Gestor de Recursos Azure.
 services: azure-resource-manager
 author: mumian
@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 12/28/2020
 ms.author: jgao
-ms.openlocfilehash: 4d2a55355318a1bf916017fa77026a87a95b7f57
-ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
+ms.openlocfilehash: 574dcf50111c14f4924f009a74ed6f2ac2bb31e9
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97809722"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733845"
 ---
 # <a name="use-deployment-scripts-in-arm-templates"></a>Use scripts de implementação em modelos ARM
 
@@ -542,7 +542,7 @@ O ciclo de vida destes recursos é controlado pelas seguintes propriedades no mo
 > [!NOTE]
 > Não é aconselhável utilizar a conta de armazenamento e a instância do recipiente que são geradas pelo serviço de scripts para outros fins. Os dois recursos podem ser removidos dependendo do ciclo de vida do script.
 
-A instância do contentor e a conta de armazenamento são eliminadas de acordo com o `cleanupPreference` . No entanto, se o script falhar e `cleanupPreference` não estiver definido para **Always**, o processo de implantação mantém automaticamente o recipiente a funcionar durante uma hora. Podes usar esta hora para resolver problemas no guião. Se quiser manter o recipiente a funcionar após implementações bem sucedidas, adicione um passo de sono no seu script. Por exemplo, adicione [Start-Sleep](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep) ao fim do seu script. Se não adicionar o passo de sono, o recipiente está definido para um estado terminal e não pode ser acedido mesmo que ainda não tenha sido apagado.
+A instância do contentor e a conta de armazenamento são eliminadas de acordo com o `cleanupPreference` . No entanto, se o script falhar e `cleanupPreference` não estiver definido para **Always**, o processo de implantação mantém automaticamente o recipiente a funcionar durante uma hora. Podes usar esta hora para resolver problemas no guião. Se quiser manter o recipiente a funcionar após implementações bem sucedidas, adicione um passo de sono no seu script. Por exemplo, adicione [Start-Sleep](/powershell/module/microsoft.powershell.utility/start-sleep) ao fim do seu script. Se não adicionar o passo de sono, o recipiente está definido para um estado terminal e não pode ser acedido mesmo que ainda não tenha sido apagado.
 
 ## <a name="run-script-more-than-once"></a>Executar script mais de uma vez
 
@@ -566,7 +566,7 @@ Depois de o script ser testado com sucesso, pode usá-lo como um script de imple
 
 ## <a name="deployment-script-error-codes"></a>Códigos de erro de script de implementação
 
-| Código de erro | Description |
+| Código de erro | Descrição |
 |------------|-------------|
 | ImplementaçãoScriptInvalidOperação | A definição de recursos de script de implementação no modelo contém nomes de propriedade inválidos. |
 | ImplementaçãoScriptResourceConflict | Não é possível apagar um recurso de script de implantação que esteja em estado não terminal e a execução não tenha excedido 1 hora. Ou não pode refazer o mesmo script de implementação com o mesmo identificador de recursos (mesma subscrição, nome de grupo de recursos e nome de recurso), mas diferentes conteúdos corporais de script ao mesmo tempo. |
@@ -592,7 +592,7 @@ Depois de o script ser testado com sucesso, pode usá-lo como um script de imple
 | ImplementaçãoScriptContainerGroupInNonterminalState | Ao criar a instância do recipiente Azure (ACI), outro script de implantação está a utilizar o mesmo nome ACI no mesmo âmbito (mesma subscrição, nome de grupo de recursos e nome de recurso). |
 | ImplementaçãoScriptContainerGroupNameInvalid | O nome de instância do contentor Azure (ACI) especificado não satisfaz os requisitos de ACI. Consulte [questões comuns de resolução de problemas em instâncias de contentores Azure](../../container-instances/container-instances-troubleshooting.md#issues-during-container-group-deployment).|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu a usar scripts de implantação. Para percorrer um tutorial de script de implementação:
 

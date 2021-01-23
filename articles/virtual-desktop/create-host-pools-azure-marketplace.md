@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2830d8b82f5b53300d0af3f48e55b573d78ad295
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 268f1c4bff84a2c9ef67c3f6b5749bc8d0b90e85
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91287394"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735185"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Tutorial: Criar uma piscina de anfitriões com o portal Azure
 
@@ -75,7 +75,7 @@ Para começar a criar a sua nova piscina de anfitriões:
       > [!div class="mx-imgBorder"]
       > ![Uma imagem do menu drop-down do tipo de atribuição. O utilizador selecionou o Automatic.](media/assignment-type-field.png)
 
-9.  Se escolher **Pooled, insira**as seguintes informações:
+9.  Se escolher **Pooled, insira** as seguintes informações:
 
      - Para **o limite de sessão Max,** insira o número máximo de utilizadores que pretende equilibrar a carga para um único anfitrião de sessão.
      - Para **o algoritmo de equilíbrio de carga,** escolha a largura primeiro ou a profundidade primeiro, com base no seu padrão de utilização.
@@ -118,7 +118,7 @@ Para configurar a sua máquina virtual dentro do processo de configuração da p
       - Windows 10 Enterprise multi-sessão, Versão 2004
       - Windows 10 Enterprise multi-sessão, Versão 2004 + Microsoft 365 Apps
 
-     Se não vir a imagem desejada, **selecione Procurar todas as imagens e discos**, o que lhe permite selecionar outra imagem na sua galeria ou uma imagem fornecida pela Microsoft e outras editoras.
+     Se não vir a imagem desejada, **selecione Procurar todas as imagens e discos**, o que lhe permite selecionar outra imagem na sua galeria ou uma imagem fornecida pela Microsoft e outras editoras. Certifique-se de que a imagem que escolher é uma das [imagens de SO suportadas](overview.md#supported-virtual-machine-os-images).
 
      > [!div class="mx-imgBorder"]
      > ![Uma imagem do Marketplace com uma lista de imagens da Microsoft exibidas.](media/marketplace-images.png)
@@ -136,7 +136,7 @@ Para configurar a sua máquina virtual dentro do processo de configuração da p
 
 9. Em seguida, selecione se deseja um IP público para as máquinas virtuais. Recomendamos que selecione **Não** porque um IP privado é mais seguro.
 
-10. Selecione que tipo de grupo de segurança deseja: **Básico,** **Avançado**ou **Nenhum**.
+10. Selecione que tipo de grupo de segurança deseja: **Básico,** **Avançado** ou **Nenhum**.
 
     Se selecionar **Basic,** terá de selecionar se deseja uma porta de entrada aberta. Se selecionar **Sim,** escolha entre a lista de portas padrão para permitir ligações de entrada.
 
@@ -164,7 +164,7 @@ O processo de configuração do pool anfitrião cria um grupo de aplicação de 
 
 Para registar o grupo de aplicações de desktop num espaço de trabalho:
 
-1. Selecione **Sim**.
+1. Selecione **Yes** (Sim).
 
    Se selecionar **No**, pode registar o grupo de aplicações mais tarde, mas recomendamos que faça o registo do espaço de trabalho o mais rapidamente possível para que a sua piscina de anfitrião funcione corretamente.
 
@@ -197,7 +197,7 @@ Se preferir usar um processo automatizado, [baixe o nosso modelo de Gestor de Re
 >[!NOTE]
 >Se estiver a utilizar um processo automatizado para construir o seu ambiente, precisará da versão mais recente do ficheiro JSON de configuração. Pode encontrar o ficheiro JSON [aqui.](https://wvdportalstorageblob.blob.core.windows.net/galleryartifacts?restype=container&comp=list)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que fez a sua piscina de anfitriões, pode povoá-la com programas RemoteApp. Para saber mais sobre como gerir aplicações no Windows Virtual Desktop, dirija-se ao nosso próximo tutorial:
 

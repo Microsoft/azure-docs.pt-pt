@@ -1,16 +1,16 @@
 ---
-title: Azure Application Insights Agente resolução de problemas e questões conhecidas / Microsoft Docs
+title: Azure Application Insights Agente resolução de problemas e problemas conhecidos | Microsoft Docs
 description: As questões conhecidas do Application Insights Agent e exemplos de resolução de problemas. Monitorize o desempenho do site sem reimplantar o site. Funciona com ASP.NET aplicações web hospedadas no local, em VMs ou em Azure.
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 472a7f128ea19cdcc9df5a03d171f345c7d601de
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 7a6fc27321fa924b7ef8f9bd39b5824bb6fe3c72
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97616835"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732583"
 ---
 # <a name="troubleshooting-application-insights-agent-formerly-named-status-monitor-v2"></a>Agente de Insights de Aplicação de Resolução de Problemas (anteriormente denominado Status Monitor v2)
 
@@ -55,7 +55,7 @@ Pode utilizar ferramentas de resolução de problemas para ver comportamentos si
 ### <a name="powershell-versions"></a>Versões PowerShell
 Este produto foi escrito e testado utilizando o PowerShell v5.1.
 Este módulo não é compatível com as versões PowerShell 6 ou 7.
-Recomendamos a utilização do PowerShell v5.1 ao lado de versões mais recentes. Para obter mais informações, consulte [utilizar o PowerShell 7 lado a lado com o PowerShell 5.1](https://docs.microsoft.com/powershell/scripting/install/migrating-from-windows-powershell-51-to-powershell-7?view=powershell-7.1#using-powershell-7-side-by-side-with-windows-powershell-51).
+Recomendamos a utilização do PowerShell v5.1 ao lado de versões mais recentes. Para obter mais informações, consulte [utilizar o PowerShell 7 lado a lado com o PowerShell 5.1](/powershell/scripting/install/migrating-from-windows-powershell-51-to-powershell-7?view=powershell-7.1#using-powershell-7-side-by-side-with-windows-powershell-51).
 
 ### <a name="conflict-with-iis-shared-configuration"></a>Conflito com a configuração partilhada do IIS
 
@@ -155,6 +155,6 @@ Reveja a [referência da API](status-monitor-v2-api-reference.md) para uma descr
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Reveja a referência da [API](status-monitor-v2-overview.md#powershell-api-reference) para saber sobre os parâmetros que pode ter perdido.

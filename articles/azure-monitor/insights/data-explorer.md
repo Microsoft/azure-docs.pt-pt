@@ -1,17 +1,17 @@
 ---
-title: Monitor Azure para Azure Data Explorer (pré-visualização)/ Microsoft Docs
+title: Monitor Azure para Azure Data Explorer (pré-visualização)| Microsoft Docs
 description: Este artigo descreve Azure Monitor Insights para Azure Data Explorer Clusters.
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 01/05/2021
 author: lgayhardt
 ms.author: lagayhar
-ms.openlocfilehash: 6f25ff02dee16812898d77d0e801f927b354dc78
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 11e21f376ea3b5cf580d54780509529b4536718b
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97918331"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734179"
 ---
 # <a name="azure-monitor-for-azure-data-explorer-preview"></a>Monitor Azure para Azure Data Explorer (pré-visualização)
 
@@ -49,7 +49,7 @@ No **separador Visão Geral** para a subscrição selecionada, a tabela apresent
 
 O contador, na lista de drop-down, aumenta o número total de clusters Azure Data Explorer nas subscrições selecionadas e reflete quantos são selecionados. Existem códigos de cores condicionais para as colunas: Manter vivo, CPU, Utilização de Ingestão e Utilização de Cache. As células codificadas por laranja têm valores que não são sustentáveis para o cluster. 
 
-Para melhor entender o que cada uma das métricas representa, recomendamos a leitura através da documentação sobre as [métricas do Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/using-metrics#cluster-metrics).
+Para melhor entender o que cada uma das métricas representa, recomendamos a leitura através da documentação sobre as [métricas do Azure Data Explorer](/azure/data-explorer/using-metrics#cluster-metrics).
 
 ### <a name="query-performance-tab"></a>Separador de desempenho de consulta
 
@@ -81,7 +81,7 @@ Para aceder ao Azure Monitor para Azure Data Explorer Clusters diretamente de um
 
 Estas vistas também são acessíveis selecionando o nome de recurso de um cluster Azure Data Explorer a partir da vista de insights do Azure Monitor.
 
-O Azure Monitor for Azure Data Explorer combina registos e métricas para fornecer uma solução de monitorização global. A inclusão de visualizações baseadas em registos requer que os utilizadores [permitam o registo de diagnóstico do seu cluster Azure Data Explorer e envie-os para um espaço de trabalho log Analytics.](https://docs.microsoft.com/azure/data-explorer/using-diagnostic-logs?tabs=commands-and-queries#enable-diagnostic-logs) Os registos de diagnóstico que devem ser ativados são: **Comando,** **Consulta,** **TableDetails** e **TableUsageStatistics**.
+O Azure Monitor for Azure Data Explorer combina registos e métricas para fornecer uma solução de monitorização global. A inclusão de visualizações baseadas em registos requer que os utilizadores [permitam o registo de diagnóstico do seu cluster Azure Data Explorer e envie-os para um espaço de trabalho log Analytics.](/azure/data-explorer/using-diagnostic-logs?tabs=commands-and-queries#enable-diagnostic-logs) Os registos de diagnóstico que devem ser ativados são: **Comando,** **Consulta,** **TableDetails** e **TableUsageStatistics**.
 
 ![Screenshot do botão azul que exibe o texto "Ativar registos para monitorização"](./media/data-explorer/enable-logs.png)
 
@@ -90,7 +90,7 @@ O Azure Monitor for Azure Data Explorer combina registos e métricas para fornec
 
 - Telhas métricas que destacam a disponibilidade e o estado geral do cluster para avaliar rapidamente a sua saúde.
 
-- Um resumo das [recomendações ativas](https://docs.microsoft.com/azure/data-explorer/azure-advisor) do Advisor e do estado [de saúde dos recursos.](https://docs.microsoft.com/azure/data-explorer/monitor-with-resource-health)
+- Um resumo das [recomendações ativas](/azure/data-explorer/azure-advisor) do Advisor e do estado [de saúde dos recursos.](/azure/data-explorer/monitor-with-resource-health)
 
 - Gráficos que mostram os melhores consumidores de CPU e memória e o número de utilizadores únicos ao longo do tempo.
 
@@ -114,7 +114,7 @@ O separador **Utilização** permite que os utilizadores mergulhem profundamente
 
 O separador **tabelas** mostra as mais recentes e históricas propriedades das tabelas no cluster. Você pode ver quais as tabelas que estão consumindo mais espaço, rastrear a história de crescimento pelo tamanho da mesa, dados quentes, e o número de linhas ao longo do tempo.
 
-O separador **cache** permite que os utilizadores analisem os padrões de retrospetiva das suas consultas reais e os comparem com a política de cache configurada (para cada tabela). Pode identificar tabelas usadas pela maioria das consultas e tabelas que não são questionadas e adaptar a política de cache em conformidade. Pode obter recomendações de política de cache específicas em tabelas específicas no Azure Advisor (atualmente, as recomendações de cache estão disponíveis apenas a partir do painel principal do [Azure Advisor),](https://docs.microsoft.com/azure/data-explorer/azure-advisor#use-the-azure-advisor-recommendations)com base no olhar real das consultas nos últimos 30 dias e uma política de cache não otimizada para pelo menos 95% das consultas. Recomendações de redução de cache no Azure Advisor estão disponíveis para clusters que são "limitados por dados" (o que significa que o cluster tem baixa CPU e baixa utilização de ingestão, mas devido à alta capacidade de dados, o cluster não conseguiu escalar ou reduzir a escala).
+O separador **cache** permite que os utilizadores analisem os padrões de retrospetiva das suas consultas reais e os comparem com a política de cache configurada (para cada tabela). Pode identificar tabelas usadas pela maioria das consultas e tabelas que não são questionadas e adaptar a política de cache em conformidade. Pode obter recomendações de política de cache específicas em tabelas específicas no Azure Advisor (atualmente, as recomendações de cache estão disponíveis apenas a partir do painel principal do [Azure Advisor),](/azure/data-explorer/azure-advisor#use-the-azure-advisor-recommendations)com base no olhar real das consultas nos últimos 30 dias e uma política de cache não otimizada para pelo menos 95% das consultas. Recomendações de redução de cache no Azure Advisor estão disponíveis para clusters que são "limitados por dados" (o que significa que o cluster tem baixa CPU e baixa utilização de ingestão, mas devido à alta capacidade de dados, o cluster não conseguiu escalar ou reduzir a escala).
 
 [![Screenshot dos detalhes da cache](./media/data-explorer/cache-tab.png)](./media/data-explorer/cache-tab.png#lightbox)
 
@@ -153,13 +153,13 @@ Apenas mostramos subscrições que contenham Clusters Azure Data Explorer, escol
 
 ### <a name="why-do-i-not-see-any-data-for-my-azure-data-explorer-cluster-under-the-usage-tables-or-cache-sections"></a>Por que não vejo nenhum dado para o meu Cluster Azure Data Explorer sob as secções de Utilização, Tabelas ou Cache?
 
-Para visualizar os dados baseados em registos, terá de [ativar registos](https://docs.microsoft.com/azure/data-explorer/using-diagnostic-logs?tabs=commands-and-queries#enable-diagnostic-logs) de diagnóstico para cada um dos Clusters Azure Data Explorer que pretende monitorizar. Isto pode ser feito sob as definições de diagnóstico de cada cluster. Terá de enviar os seus dados para um espaço de trabalho do Log Analytics. Os registos de diagnóstico que devem ser ativados são: Comando, Consulta, TableDetails e TableUsageStatistics.
+Para visualizar os dados baseados em registos, terá de [ativar registos](/azure/data-explorer/using-diagnostic-logs?tabs=commands-and-queries#enable-diagnostic-logs) de diagnóstico para cada um dos Clusters Azure Data Explorer que pretende monitorizar. Isto pode ser feito sob as definições de diagnóstico de cada cluster. Terá de enviar os seus dados para um espaço de trabalho do Log Analytics. Os registos de diagnóstico que devem ser ativados são: Comando, Consulta, TableDetails e TableUsageStatistics.
 
 ### <a name="i-have-already-enabled-logs-for-my-azure-data-explorer-cluster-why-am-i-still-unable-to-see-my-data-under-commands-and-queries"></a>Já tenho registos habilitados para o meu Azure Data Explorer Cluster, porque é que ainda não consigo ver os meus dados sob Comandos e Consultas?
 
 Atualmente, os registos de diagnóstico não funcionam retroativamente, pelo que os dados só começarão a aparecer depois de terem sido tomadas ações para o seu Azure Data Explorer. Portanto, pode levar algum tempo, variando de horas a um dia, dependendo do quão ativo é o seu cluster Azure Data Explorer.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba os cenários que os livros de trabalho são projetados para apoiar, como autorizar novos e personalizar relatórios existentes, e mais através da revisão [criar relatórios interativos com os livros de trabalho do Azure Monitor.](../platform/workbooks-overview.md)

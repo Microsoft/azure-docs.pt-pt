@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
 ms.author: cavoeg
-ms.openlocfilehash: 9a4c331d82695aecb53990fd604ade82f3361959
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: ad663b345d3d150b55e0e018afd1430775d77162
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452921"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733474"
 ---
 # <a name="features"></a>Funcionalidades
 
@@ -35,7 +35,7 @@ As versões anteriores também suportadas incluem: `3.0.2`
 | atualização com bloqueio otimista | Sim       | Sim       | Sim       |                                                     |
 | atualização (condicional)           | Sim       | Sim       | Sim       |                                                     |
 | patch                          | Não        | Não        | Não        |                                                     |
-| delete                         | Sim       | Sim       | Sim       |                                                     |
+| eliminação                         | Sim       | Sim       | Sim       |                                                     |
 | eliminar (condicional)           | Não        | Não        | Não        |                                                     |
 | histórico                        | Sim       | Sim       | Sim       |                                                     |
 | criar                         | Sim       | Sim       | Sim       | Apoiar tanto o POST/PUT                               |
@@ -86,7 +86,7 @@ Todos os tipos de parâmetros de pesquisa são suportados.
 | `_id`                   | Sim       | Sim       | Sim       |         |
 | `_lastUpdated`          | Sim       | Sim       | Sim       |         |
 | `_tag`                  | Sim       | Sim       | Sim       |         |
-| `_profile`              | Sim       | Sim       | Sim       |         |
+| `_profile`              | Parcial   | Parcial   | Parcial   | Apenas apoiado na STU3, sem apoio em R4 |
 | `_security`             | Sim       | Sim       | Sim       |         |
 | `_text`                 | Não        | Não        | Não        |         |
 | `_content`              | Não        | Não        | Não        |         |
@@ -137,7 +137,7 @@ Atualmente, as ações permitidas para um determinado papel são aplicadas *glob
 
 * [**Unidades de Pedido (RUs)**](../cosmos-db/concepts-limits.md) - Pode configurar até 10.000 RUs no portal da Azure API para FHIR. Você precisará de um mínimo de 400 RUs ou 10 RUs/GB, o que for maior. Se você precisar de mais de 10.000 RUs, você pode colocar um bilhete de apoio para que este aumente. O máximo disponível é de 1.000.000.
 
-* **Conexões e instâncias simultâneas** - Por dafault, tem cinco ligações simultâneas em duas instâncias no cluster (para um total de 10 pedidos simultâneos). **Instances** Se você acredita que precisa de mais pedidos simultâneos, abra um bilhete de apoio com detalhes sobre suas necessidades.
+* **Ligações simultâneas** e **instâncias** - Por padrão, tem cinco ligações simultâneas em duas instâncias no cluster (para um total de 10 pedidos simultâneos). Se você acredita que precisa de mais pedidos simultâneos, abra um bilhete de apoio com detalhes sobre suas necessidades.
 
 * **Tamanho do pacote** - Cada pacote é limitado a 500 itens.
 
@@ -154,7 +154,7 @@ O desempenho do sistema depende do número de RUs, ligações simultâneas e do 
 | 10,000   | 225-400       |
 | 100.000  | 2,500-4,000   |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, você leu sobre as funcionalidades de FHIR suportadas na Azure API para FHIR. Em seguida, implemente a AZure API para fHIR.
  

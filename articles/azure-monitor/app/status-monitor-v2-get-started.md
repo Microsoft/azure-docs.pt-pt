@@ -1,17 +1,17 @@
 ---
-title: Azure Application Insights Agent - a começar / Microsoft Docs
+title: Azure Application Insights Agent - começando | Microsoft Docs
 description: Um guia de arranque rápido para o Agente de Insights de Aplicações. Monitorize o desempenho do site sem reimplantar o site. Funciona com ASP.NET aplicações web hospedadas no local, em VMs ou em Azure.
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
-ms.date: 04/23/2019
+ms.date: 01/22/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 690304ecef80d988f9a554cd10ce4689f5c72133
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0c0102f4d0f23fd7f306f431de7e90174796a56
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89070144"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732650"
 ---
 # <a name="get-started-with-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Começar com o Azure Monitor Application Insights Agent para servidores no local
 
@@ -26,6 +26,13 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 ## <a name="download-and-install-via-powershell-gallery"></a>Faça o download e instale através da PowerShell Gallery
 
 ### <a name="install-prerequisites"></a>Pré-requisitos da instalação
+
+> [!NOTE]
+> A partir de abril de 2020, a PowerShell Gallery depreifou os TLS 1.1 e 1.0.
+>
+> Para obter pré-requisitos adituais que possa necessitar, consulte [o Suporte TLS da PowerShell Gallery](https://devblogs.microsoft.com/powershell/powershell-gallery-tls-support).
+>
+
 Executar PowerShell como Administrador.
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
@@ -68,7 +75,7 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
  Ver a telemetria:
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: 01ac59ec435b19f5da56ca345840628964263a47
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: f66395b1e0f45f1e80cd0ac93bf8c9ae8674a0f2
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93147033"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732967"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importar uma Aplicação de Funções do Azure como uma API na Gestão de API do Azure
 
@@ -38,7 +38,7 @@ Vai aprender a:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Concluir o início rápido [Criar uma instância da Gestão de API do Azure](get-started-create-service-instance.md).
-* Certifique-se de que tem uma aplicação de Funções do Azure na sua subscrição. Para obter mais informações, veja [Criar uma Function App do Azure](../azure-functions/functions-create-first-azure-function.md#create-a-function-app). Ela deve conter Funções com o acionador HTTP e a definição de nível de autorização definida como *Anónimo* ou *Função* .
+* Certifique-se de que tem uma aplicação de Funções do Azure na sua subscrição. Para obter mais informações, veja [Criar uma Function App do Azure](../azure-functions/functions-get-started.md). Ela deve conter Funções com o acionador HTTP e a definição de nível de autorização definida como *Anónimo* ou *Função*.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -48,7 +48,7 @@ Siga os passos abaixo para criar uma nova API a partir de uma Function App do Az
 
 1. Navegue para o seu serviço de Gestão API no portal Azure e selecione **APIs** no menu.
 
-2. Na lista **Adicionar uma nova API** , selecione **Aplicação de Funções** .
+2. Na lista **Adicionar uma nova API**, selecione **Aplicação de Funções**.
 
     ![Screenshot que mostra o azulejo da App de Função.](./media/import-function-app-as-api/add-01.png)
 
@@ -60,35 +60,35 @@ Siga os passos abaixo para criar uma nova API a partir de uma Function App do Az
 
     ![Screenshot que realça a secção 'App' de funções.](./media/import-function-app-as-api/add-03.png)
 
-5. Encontre a Function App da qual pretende importar Funções, clique na mesma e prima **Selecionar** .
+5. Encontre a Function App da qual pretende importar Funções, clique na mesma e prima **Selecionar**.
 
     ![Screenshot que realça a App de Função que pretende importar Funções e o botão Select.](./media/import-function-app-as-api/add-04.png)
 
-6. Selecione as Funções que pretende importar e clique em **Selecionar** .
+6. Selecione as Funções que pretende importar e clique em **Selecionar**.
 
     ![Screenshot que realça as Funções a importar e o botão Select.](./media/import-function-app-as-api/add-05.png)
 
     > [!NOTE]
-    > Pode importar apenas as Funções que são baseadas no acionador HTTP e ter a definição do nível de autorização definido como *Anónimo* ou *Função* .
+    > Pode importar apenas as Funções que são baseadas no acionador HTTP e ter a definição do nível de autorização definido como *Anónimo* ou *Função*.
 
 7. Mude para a vista **Completa** e atribua o **Produto** à sua nova API. Se necessário, especifique outros campos durante a criação ou configufique-os mais tarde, indo ao **separador Definições.** As definições são explicadas no Import e publicam o seu primeiro tutorial [da API.](import-and-publish.md#import-and-publish-a-backend-api)
-8. Clique em **Criar** .
+8. Clique em **Criar**.
 
 ## <a name="append-azure-function-app-to-an-existing-api"></a><a name="append-azure-function-app-to-api"></a> Anexar uma Function App do Azure como uma API existente
 
 Siga os passos abaixo para anexar a Function App do Azure a uma API existente.
 
-1. Na sua instância de serviço de **Gestão de API do Azure** , selecione **APIs** no menu à esquerda.
+1. Na sua instância de serviço de **Gestão de API do Azure**, selecione **APIs** no menu à esquerda.
 
 2. Escolha a API para a qual pretende importar uma Function App do Azure. Clique em **...** e selecione **Importar** no menu de contexto.
 
     ![Screenshot que destaca a opção menu Import.](./media/import-function-app-as-api/append-01.png)
 
-3. Clique no mosaico **Function App** .
+3. Clique no mosaico **Function App**.
 
     ![Screenshot que realça o azulejo da App de Função.](./media/import-function-app-as-api/append-02.png)
 
-4. Na janela de pop-up, clique em **Procurar** .
+4. Na janela de pop-up, clique em **Procurar**.
 
     ![Screenshot que mostra o botão Browse.](./media/import-function-app-as-api/append-03.png)
 
@@ -96,11 +96,11 @@ Siga os passos abaixo para anexar a Function App do Azure a uma API existente.
 
     ![Screenshot que destaca a lista de Apps de Função.](./media/import-function-app-as-api/add-03.png)
 
-6. Encontre a Function App da qual pretende importar Funções, clique na mesma e prima **Selecionar** .
+6. Encontre a Function App da qual pretende importar Funções, clique na mesma e prima **Selecionar**.
 
     ![Screenshot que realça a App de Função a partir daí que pretende importar funções.](./media/import-function-app-as-api/add-04.png)
 
-7. Selecione as Funções que pretende importar e clique em **Selecionar** .
+7. Selecione as Funções que pretende importar e clique em **Selecionar**.
 
     ![Screenshot que destaca os functnios que você gostaria de importar.](./media/import-function-app-as-api/add-05.png)
 
@@ -112,8 +112,8 @@ Siga os passos abaixo para anexar a Function App do Azure a uma API existente.
 
 A importação de uma Function App do Azure gera automaticamente:
 
-* Chave de anfitrião dentro da App de funções com o nome apim-{ *o nome da instância de serviço API Management Azure },*
-* Valor nomeado dentro da instância de Gestão API Azure com o nome { *o nome da aplicação de função Azure* }-chave, que contém a chave de anfitrião criada.
+* Chave de anfitrião dentro da App de funções com o nome apim-{*o nome da instância de serviço API Management Azure },*
+* Valor nomeado dentro da instância de Gestão API Azure com o nome {*o nome da aplicação de função Azure*}-chave, que contém a chave de anfitrião criada.
 
 Para as APIs criadas após o dia 4 de abril de 2019, a chave de anfitrião é passada em pedidos HTTP da API Management para a App de Função num cabeçalho. As APIs mais antigas passam a chave hospedeira como [parâmetro de consulta.](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization) Este comportamento pode ser alterado através da `PATCH Backend` [chamada REST API](/rest/api/apimanagement/2019-12-01/backend/update#backendcredentialscontract) na entidade *Backend* associada à App de Função.
 
@@ -130,7 +130,7 @@ Para as APIs criadas após o dia 4 de abril de 2019, a chave de anfitrião é pa
 
     ![Screenshot que realça a opção de definições de Aplicações de Função.](./media/import-function-app-as-api/keys-02-a.png)
 
-3. A chave encontra-se na secção **Chaves de Anfitrião** .
+3. A chave encontra-se na secção **Chaves de Anfitrião**.
 
     ![Screenshot que realça a secção 'Chaves do Anfitrião'.](./media/import-function-app-as-api/keys-02-b.png)
 
@@ -146,19 +146,19 @@ Pode chamar operações diretamente a partir do portal do Azure. Utilizar o port
 
 1. Selecione a API que criou na secção anterior.
 
-2. Selecione o separador **Teste** .
+2. Selecione o separador **Teste**.
 
 3. Selecione uma operação.
 
     A página apresenta campos para os parâmetros de consulta e campos para os cabeçalhos. Um dos cabeçalhos é **a Chave de Subscrição Ocp-Apim,** para a chave de subscrição do produto que está associada a esta API. Se tiver criado a instância de Gestão de API, já é um administrador, pelo que a chave é preenchida automaticamente. 
 
-4. Selecione **Send** (Enviar).
+4. Selecione **Enviar**.
 
     O back-end responde com **200 OK** e alguns dados.
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Transformar e proteger a sua API](transform-api.md)

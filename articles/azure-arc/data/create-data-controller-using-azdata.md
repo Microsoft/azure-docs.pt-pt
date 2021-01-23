@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 986019ec4de2fc25b6d8714a8c687cc9342f47b8
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 3d2652d2f6c1bb56dd009a9e4de375c42786986d
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696075"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735004"
 ---
 # <a name="create-azure-arc-data-controller-using-the-azure-data-cli-azdata"></a>Criar controlador de dados Azure Arc utilizando o [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]
 
@@ -59,7 +59,7 @@ kubectl config current-context
 
 ### <a name="connectivity-modes"></a>Modos de conectividade
 
-Conforme descrito nos [modos e requisitos de conectividade,](https://docs.microsoft.com/azure/azure-arc/data/connectivity)o controlador de dados Azure Arc pode ser implantado com o modo de conectividade ou com `direct` o modo de `indirect` conectividade. Com `direct` o modo de conectividade, os dados de utilização são enviados automaticamente e continuamente para o Azure. Nestes artigos, os exemplos especificam o `direct` modo de conectividade da seguinte forma:
+Conforme descrito nos [modos e requisitos de conectividade,](./connectivity.md)o controlador de dados Azure Arc pode ser implantado com o modo de conectividade ou com `direct` o modo de `indirect` conectividade. Com `direct` o modo de conectividade, os dados de utilização são enviados automaticamente e continuamente para o Azure. Nestes artigos, os exemplos especificam o `direct` modo de conectividade da seguinte forma:
 
    ```console
    --connectivity-mode direct

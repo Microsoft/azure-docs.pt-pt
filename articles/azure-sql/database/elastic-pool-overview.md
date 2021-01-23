@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, sstein
 ms.date: 12/9/2020
-ms.openlocfilehash: d1ba9445441f38c55b40a8f8ca55471ea8b0a06d
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: f50042caf21630c5054ead76825e49b820405c5b
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008593"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732699"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-databases-in-azure-sql-database"></a>Piscinas elásticas ajudam a gerir e escalar várias bases de dados na Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -156,7 +156,7 @@ Quando tiver concluído a configuração da piscina, pode clicar em 'Aplicar', n
 
 No portal Azure, pode monitorizar a utilização de uma piscina elástica e as bases de dados dentro dessa piscina. Também pode fazer um conjunto de alterações na sua piscina elástica e submeter todas as alterações ao mesmo tempo. Estas alterações incluem adicionar ou remover bases de dados, alterar as definições de piscina elástica ou alterar as definições da base de dados.
 
-Pode utilizar as ferramentas de [monitorização](https://docs.microsoft.com/azure/azure-sql/database/performance-guidance) e alerta de desempenho [incorporadas,](https://docs.microsoft.com/azure/azure-sql/database/alerts-insights-configure-portal)combinadas com classificações de desempenho.  Além disso, a BASE de Dados SQL pode [emitir métricas e registos de recursos](https://docs.microsoft.com/azure/azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure?tabs=azure-portal) para uma monitorização mais fácil.
+Pode utilizar as ferramentas de [monitorização](./performance-guidance.md) e alerta de desempenho [incorporadas,](./alerts-insights-configure-portal.md)combinadas com classificações de desempenho.  Além disso, a BASE de Dados SQL pode [emitir métricas e registos de recursos](./metrics-diagnostic-telemetry-logging-streaming-export-configure.md?tabs=azure-portal) para uma monitorização mais fácil.
 
 ## <a name="customer-case-studies"></a>Casos práticos de clientes
 
@@ -172,7 +172,7 @@ Pode utilizar as ferramentas de [monitorização](https://docs.microsoft.com/azu
 
    A Daxko/CSI utiliza piscinas elásticas com Base de Dados Azure SQL para acelerar o seu ciclo de desenvolvimento e melhorar os seus serviços e desempenho ao cliente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter informações sobre preços, consulte [os preços da piscina elástica.](https://azure.microsoft.com/pricing/details/sql-database/elastic)
 - Para escalar piscinas elásticas, veja [piscinas elásticas de escalonamento](elastic-pool-scale.md) e [escale uma piscina elástica - código de amostra](scripts/monitor-and-scale-pool-powershell.md)

@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 3e45b5a48f9a7fb66d7539e83f385203ae371ad7
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 6e926211a0d86fef55608ede574dca53487f267c
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673557"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732732"
 ---
 # <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a> Problemas de resolução de problemas que permitem insights de aplicação Debugger ou visualização de instantâneos
 Se ativou o Application Insights Snapshot Debugger para a sua aplicação, mas não estiver a ver instantâneos para exceções, pode utilizar estas instruções para resolver problemas.
@@ -272,4 +272,4 @@ Se ainda não vê uma exceção com o ID do instantâneo, então o registo de ex
 
 Se a sua aplicação se ligar à Internet através de um proxy ou de uma firewall, poderá ter de atualizar as regras para comunicar com o serviço Snapshot Debugger.
 
-Os IPs utilizados pela Application Insights Snapshot Debugger estão incluídos na etiqueta de serviço Azure Monitor. Para mais informações, consulte a [documentação de Etiquetas de Serviço.](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
+Os IPs utilizados pela Application Insights Snapshot Debugger estão incluídos na etiqueta de serviço Azure Monitor. Para mais informações, consulte a [documentação de Etiquetas de Serviço.](../../virtual-network/service-tags-overview.md)

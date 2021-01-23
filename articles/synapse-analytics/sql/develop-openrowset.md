@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7e7dce7ec4b8d4d55e734487595bb330e97ab18b
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 2ead7291f52f33c271768ae2f470af65aca98030
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120449"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734752"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Como utilizar o OPENROWSET utilizando a piscina SQL sem servidor em Azure Synapse Analytics
 
@@ -171,7 +171,7 @@ WITH (
 )
 ```
 
-json_path = [expressão do caminho JSON](/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15) para coluna ou propriedade aninhada. O [modo de caminho](/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15#PATHMODE) predefinido é laxante.
+json_path = [expressão do caminho JSON](/sql/relational-databases/json/json-path-expressions-sql-server?view=azure-sqldw-latest&preserve-view=true) para coluna ou propriedade aninhada. O [modo de caminho](/sql/relational-databases/json/json-path-expressions-sql-server?view=azure-sqldw-latest&preserve-view=true#PATHMODE) predefinido é laxante.
 
 > [!NOTE]
 > Em modo rigoroso, a consulta falhará com erro se o caminho fornecido não existir. Em modo laxista a consulta terá sucesso e a expressão do caminho JSON avaliará para NU.
@@ -229,11 +229,11 @@ Detalhes da versão 2.0 do parser CSV:
 - Formato suportado para o tipo de dados TIME: HH:MM:SS[.fracional segundos]
 - Formato suportado para tipo de dados DATETIME2: YYYY-MM-DD HH:MM:SS[.segundos fracionais]
 
-HEADER_ROW = { TRUE FALSO}
+HEADER_ROW = { TRUE | FALSO}
 
 Especifica se o ficheiro CSV contém linha de cabeçalho. O padrão é FALSO. Apoiado em PARSER_VERSION='2.0'. Se VERDADEIRO, os nomes das colunas serão lidos da primeira linha de acordo com o argumento FIRSTROW. Se TRUE e schema forem especificados usando COM, a ligação dos nomes das colunas será feita por nome de coluna, não posições ordinais.
 
-DATAFILETYPE = {'char' 'widechar' }
+DATAFILETYPE = {'char' | 'widechar' }
 
 Especifica a codificação: o carvão é utilizado para UTF8, o widechar é utilizado para ficheiros UTF16.
 
@@ -281,7 +281,7 @@ Os ficheiros parquet contêm descrições de tipo para cada coluna. A tabela a s
 | INT32 |INT(8, falso) |tinyint |
 | INT32 |INT(16, falso) |int |
 | INT32 |INT(32, falso) |bigint |
-| INT32 |DATE |date |
+| INT32 |DATE |data |
 | INT32 |DECIMAL |decimal |
 | INT32 |TEMPO (MILLIS)|hora |
 | INT64 |INT(64, verdade) |bigint |
@@ -371,7 +371,7 @@ WITH (
 
 ### <a name="specify-columns-using-json-paths"></a>Especifique colunas usando caminhos JSON
 
-O exemplo a seguir mostra como pode utilizar [expressões de trajetória JSON](/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15) na cláusula COM e demonstra a diferença entre modos de caminho rigorosos e laxistas: 
+O exemplo a seguir mostra como pode utilizar [expressões de trajetória JSON](/sql/relational-databases/json/json-path-expressions-sql-server?view=azure-sqldw-latest&preserve-view=true) na cláusula COM e demonstra a diferença entre modos de caminho rigorosos e laxistas: 
 
 ```sql
 SELECT 
@@ -395,6 +395,6 @@ WITH (
 AS [r]
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais amostras, consulte o [quickstart de armazenamento de dados](query-data-storage.md) de consulta para aprender a usar `OPENROWSET` para ler os formatos de ficheiro [CSV,](query-single-csv-file.md) [PARQUET](query-parquet-files.md)e [JSON.](query-json-files.md) Verifique as [melhores práticas](best-practices-sql-on-demand.md) para obter um desempenho ideal. Também pode aprender a guardar os resultados da sua consulta para o Azure Storage utilizando [o CETAS](develop-tables-cetas.md).

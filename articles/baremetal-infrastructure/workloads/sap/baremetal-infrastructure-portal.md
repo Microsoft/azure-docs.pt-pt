@@ -3,12 +3,12 @@ title: Unidades de Exemplo BareMetal em Azure
 description: Saiba como identificar e interagir com unidades de Exemplo BareMetal através do portal Azure.
 ms.topic: how-to
 ms.date: 1/4/2021
-ms.openlocfilehash: 30e1661e82546dbaf6d8dc4288ad896df89f401e
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: b089b45c35ff05f10ae59f8ce793645361be1e9b
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861026"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733268"
 ---
 # <a name="manage-baremetal-instances-through-the-azure-portal"></a>Gerir Instâncias Bare-metal através do portal do Azure
  
@@ -97,7 +97,7 @@ As possíveis revisões de hardware são:
 >[!NOTE]
 >Rev 4.2 é a mais recente infraestrutura baremetal rebranded usando a arquitetura rev 4 existente. O Rev 4 proporciona uma maior proximidade com os anfitriões da máquina virtual Azure (VM). Tem melhorias significativas na latência da rede entre as unidades de instância Azure VMs e BareMetal implantadas em selos ou linhas Rev 4. Pode aceder e gerir as suas instâncias BareMetal através do portal Azure. Para mais informações, consulte [a Infraestruturas BareMetal em Azure.](baremetal-overview-architecture.md)
  
-Além disso, no lado direito, encontrará o nome do Grupo de [Colocação de Proximidade Azure,](../../../virtual-machines/linux/co-location.md) que é criado automaticamente para cada unidade de Instância BareMetal implantada. Faça referência ao Grupo de Colocação de Proximidade quando implementar os VMs Azure que acolhem a camada de aplicação. Quando utilizar o Grupo de Colocação de Proximidade associado à unidade BareMetal Instance, certifique-se de que os VMs Azure são implantados perto da unidade BareMetal Instance.
+Além disso, no lado direito, encontrará o nome do Grupo de [Colocação de Proximidade Azure,](../../../virtual-machines/co-location.md) que é criado automaticamente para cada unidade de Instância BareMetal implantada. Faça referência ao Grupo de Colocação de Proximidade quando implementar os VMs Azure que acolhem a camada de aplicação. Quando utilizar o Grupo de Colocação de Proximidade associado à unidade BareMetal Instance, certifique-se de que os VMs Azure são implantados perto da unidade BareMetal Instance.
  
 >[!TIP]
 >Para localizar a camada de aplicação no mesmo datacenter Azure que a Revisão 4.x, consulte [os grupos de colocação de proximidade do Azure para uma latência ótima da rede](../../../virtual-machines/workloads/sap/sap-proximity-placement-scenarios.md).
@@ -170,6 +170,6 @@ Pode submeter pedidos de apoio especificamente para uma unidade Desmesudo Caso.
  
 Leva até cinco dias úteis para um representante de apoio confirmar o seu pedido.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se quiser saber mais sobre as cargas de trabalho, consulte os [tipos de carga de trabalho BareMetal](../../../virtual-machines/workloads/sap/get-started.md).

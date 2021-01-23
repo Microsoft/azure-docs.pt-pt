@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, vanto
 ms.date: 11/09/2018
-ms.openlocfilehash: dd5c6527cd6a0beea291dce94ff0e5949ba00671
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 965e765e22a4da8f2ac3b7151337cf62b65be4fe
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791261"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732616"
 ---
 # <a name="connect-your-application-to-azure-sql-managed-instance"></a>Ligar a aplicação ao Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -56,7 +56,7 @@ Também pode ligar a sua aplicação no local à SQL Managed Instance. Sql Manag
 
 Existem duas opções para como ligar no local a uma rede virtual Azure:
 
-- Ligação VPN local-a-local[(portal Azure,](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) [PowerShell,](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md) [Azure CLI)](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md)
+- Ligação VPN local-a-local[(portal Azure,](../../vpn-gateway/tutorial-site-to-site-portal.md) [PowerShell,](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md) [Azure CLI)](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 - [Ligação Azure ExpressRoute](../../expressroute/expressroute-introduction.md)  
 
 Se estabeleceu uma ligação no local para a Azure com sucesso e não pode estabelecer uma ligação com a SQL Managed Instance, verifique se a sua firewall tem uma ligação de saída aberta na porta SQL 1433, bem como a gama de portas 11000-11999 para reorientação.
@@ -71,10 +71,10 @@ Outro cenário implementado pelos clientes é onde um gateway VPN é instalado n
 
 ![Peering de rede virtual](./media/connect-application-instance/vnet-peering.png)
 
-Uma vez configurada a infraestrutura básica, precisa modificar algumas definições para que o gateway VPN possa ver os endereços IP na rede virtual que acolhe a SQL Managed Instance. Para tal, faça as seguintes alterações muito específicas nas **definições de Peering** .
+Uma vez configurada a infraestrutura básica, precisa modificar algumas definições para que o gateway VPN possa ver os endereços IP na rede virtual que acolhe a SQL Managed Instance. Para tal, faça as seguintes alterações muito específicas nas **definições de Peering**.
 
-1. Na rede virtual que acolhe o gateway VPN, vá a **Peerings,** vá à ligação de rede virtual esprevada para a SQL Managed Instance e, em seguida, clique em **Permitir o Trânsito de Gateway** .
-2. Na rede virtual que acolhe a SQL Managed Instance, vá a **Peerings,** vá à ligação de rede virtual esprevada para o gateway VPN e, em seguida, clique em **Utilizar gateways remotos** .
+1. Na rede virtual que acolhe o gateway VPN, vá a **Peerings,** vá à ligação de rede virtual esprevada para a SQL Managed Instance e, em seguida, clique em **Permitir o Trânsito de Gateway**.
+2. Na rede virtual que acolhe a SQL Managed Instance, vá a **Peerings,** vá à ligação de rede virtual esprevada para o gateway VPN e, em seguida, clique em **Utilizar gateways remotos**.
 
 ## <a name="connect-azure-app-service"></a>Ligue o Serviço de Aplicações Azure 
 
@@ -154,7 +154,7 @@ Recomenda-se as seguintes versões mínimas das ferramentas e dos condutores se 
 |SSMS| 18.0 ou [superior](/sql/ssms/download-sql-server-management-studio-ssms) |
 |[SMO](/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) ou mais |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter informações sobre a SQL Managed Instance, consulte [o que é a Sql Managed Instance?](sql-managed-instance-paas-overview.md)
 - Para um tutorial que lhe mostre como criar um novo exemplo gerido, consulte [Criar um caso gerido](instance-create-quickstart.md).

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 444b514dfb1798ff810e84fc4e9d50001dbaee1c
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 8e260ae8310807ef9e0dad7d4fe21df8caad9b48
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98685793"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735298"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerir grupos de ações no portal do Azure
 Um grupo de ação é uma coleção de preferências de notificação definidas pelo proprietário de uma subscrição Azure. Os alertas Azure Monitor e Service Health utilizam grupos de ação para notificar os utilizadores de que foi desencadeado um alerta. Vários alertas podem utilizar o mesmo grupo de ação ou diferentes grupos de ação, dependendo dos requisitos do utilizador. 
@@ -148,7 +148,7 @@ Se não estiver a receber Notificações no seu *email principal,* pode tentar s
 Você pode ter um número limitado de ações de e-mail em um Grupo de Ação. Consulte o artigo [de informação limitativo da taxa.](./alerts-rate-limiting.md)
 
 ### <a name="function"></a>Função
-Chama um ponto final de gatilho HTTP existente em [Funções Azure](../../azure-functions/functions-create-first-azure-function.md#create-a-function-app).
+Chama um ponto final de gatilho HTTP existente em [Funções Azure](../../azure-functions/functions-get-started.md).
 
 Pode ter um número limitado de ações de função num Grupo de Ação.
 
@@ -462,7 +462,7 @@ Uma etiqueta de serviço representa um grupo de prefixos de endereço IP de um d
     
     :::image type="content" source="media/action-groups/action-group-service-tag.png" alt-text="Exemplo sobre como adicionar etiqueta de serviço."border="true":::
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Saiba mais sobre [o comportamento do alerta por SMS.](./alerts-sms-behavior.md)  
 * Obtenha uma [compreensão do esquema de alerta de alerta de atividade webhook](./activity-log-alerts-webhook.md).  
 * Saiba mais sobre [o CONECTOR ITSM](./itsmc-overview.md).

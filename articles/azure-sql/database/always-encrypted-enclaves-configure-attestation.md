@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
 ms.date: 01/15/2021
-ms.openlocfilehash: e8cb423d4d700c4b6b6caa30a02eac3e7ef10cb6
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 51431bf0da9145e1b61da708942b675e4c3eea78
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98253479"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733828"
 ---
 # <a name="configure-azure-attestation-for-your-azure-sql-logical-server"></a>Configure Azure Attestation para o seu servidor lógico Azure SQL
 
@@ -27,7 +27,7 @@ ms.locfileid: "98253479"
 
 [O Microsoft Azure Attestation](../../attestation/overview.md) é uma solução para atestar ambientes de execução fidedigna (TEEs), incluindo enclaves de extensões de guarda de software intel (Intel SGX). 
 
-Para utilizar o Azure Attestation para atestar enclaves Intel SGX utilizados para [sempre encriptados com enclaves seguros](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-enclaves) na Base de Dados Azure SQL, precisa de:
+Para utilizar o Azure Attestation para atestar enclaves Intel SGX utilizados para [sempre encriptados com enclaves seguros](/sql/relational-databases/security/encryption/always-encrypted-enclaves) na Base de Dados Azure SQL, precisa de:
 
 1. Crie um [fornecedor de atestado e](../../attestation/basic-concepts.md#attestation-provider) configuure-o com a política de atestação recomendada.
 
@@ -36,7 +36,7 @@ Para utilizar o Azure Attestation para atestar enclaves Intel SGX utilizados par
 > [!NOTE]
 > A configuração do atestado é da responsabilidade do administrador da atestado. Ver [Papéis e responsabilidades ao configurar enclaves EGX e atestado](always-encrypted-enclaves-plan.md#roles-and-responsibilities-when-configuring-sgx-enclaves-and-attestation).
 
-## <a name="requirements"></a>Requisitos
+## <a name="requirements"></a>Requirements
 
 O servidor lógico Azure SQL e o fornecedor de atestado devem pertencer ao mesmo inquilino do Azure Ative Directory. Interações entre inquilinos não são apoiadas. 
 
@@ -114,7 +114,7 @@ Durante o fluxo de trabalho do atestado, o servidor lógico Azure SQL que conté
 
 ### <a name="use-azure-portal-to-assign-permission"></a>Use o portal Azure para atribuir permissão
 
-Para atribuir a identidade de um servidor Azure SQL à função Attestation Reader para um fornecedor de atestado, siga as instruções gerais em [Adicionar ou remova as atribuições de funções Azure utilizando o portal Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal). Quando estiver no painel de atribuição de **funções Add:**
+Para atribuir a identidade de um servidor Azure SQL à função Attestation Reader para um fornecedor de atestado, siga as instruções gerais em [Adicionar ou remova as atribuições de funções Azure utilizando o portal Azure](../../role-based-access-control/role-assignments-portal.md). Quando estiver no painel de atribuição de **funções Add:**
 
 1. No **drop-down role,** selecione o papel **Attestation Reader.**
 1. No campo **Selecione,** insira o nome do seu servidor Azure SQL para o procurar.
@@ -143,12 +143,12 @@ $attestationResourceGroupName = "<attestation provider resource group name>"
 New-AzRoleAssignment -ObjectId $server.Identity.PrincipalId -RoleDefinitionName "Attestation Reader" -ResourceGroupName $attestationResourceGroupName
 ```
 
-Para obter mais informações, consulte [Adicionar ou remover atribuições de funções Azure utilizando a Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell#add-a-role-assignment).
+Para obter mais informações, consulte [Adicionar ou remover atribuições de funções Azure utilizando a Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md#add-role-assignment-examples).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Gerir chaves através do Always Encrypted com enclaves protegidos](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-enclaves-manage-keys)
+- [Gerir chaves através do Always Encrypted com enclaves protegidos](/sql/relational-databases/security/encryption/always-encrypted-enclaves-manage-keys)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 - [Tutorial: Começar com Sempre Encriptado com enclaves seguros na Base de Dados Azure SQL](always-encrypted-enclaves-getting-started.md)

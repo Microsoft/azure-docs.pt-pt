@@ -11,9 +11,10 @@
     - name: Criar registos de aplicação ilimitados
       href: quickstart-app-registration-limits.md
 - name: Tutoriais
+  expanded: true
   items:
-    - name: Criar um grupo dinâmico
-      href: ../enterprise-users/users-revoke-access.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
+    - name: Atribuir utilizadores a funções de administrador
+      href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
 - name: Conceitos
   expanded: true
   items:
@@ -28,18 +29,6 @@
 - name: Guias de procedimentos
   expanded: true
   items:
-    - name: Utilizadores e funções
-      items:
-        - name: Atribuir utilizadores a funções de administrador
-          href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
-        - name: Revogar o acesso de um utilizador
-          href: ../enterprise-users/users-revoke-access.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
-        - name: Atribuir uma função ao utilizador convidado
-          href: ../external-identities/add-guest-to-role.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
-        - name: Restringir o acesso do utilizador convidado
-          href: ../enterprise-users/users-restrict-guest-permissions.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
-        - name: Grupos dinâmicos e convidados
-          href: ../external-identities/use-dynamic-groups.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
     - name: Funções e permissões
       expanded: true
       items:
@@ -119,7 +108,7 @@
     - name: Documentação sobre funções do Microsoft 365
       href: m365-workload-docs.md
     - name: Graph API
-      href: /graph/api/resources/azure-ad-overview?view=graph-rest-1.0
+      href: /graph/api/resources/directoryrole?view=graph-rest-1.0
     - name: Azure AD CLI
       href: /cli/azure/ad
     - name: Azure AD PowerShell para Graph

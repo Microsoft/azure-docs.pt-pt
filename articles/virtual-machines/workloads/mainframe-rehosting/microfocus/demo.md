@@ -6,12 +6,12 @@ ms.author: sread
 ms.date: 03/30/2020
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: b2cac7a8310482305467a1cb3ed3127eb18ae416
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 2d48c767b836771600b3491299e0bdb33aacb75b
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915781"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733154"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>Configurar Micro Focus CICS BankDemo para Micro Focus Enterprise Developer 4.0 em Azure
 
@@ -28,7 +28,7 @@ Os CICs representam o Sistema de Controlo de Informação do Cliente, a platafor
 
 - [Edição Expresso SQL Server 2017](https://www.microsoft.com/sql-server/sql-server-editions-express). Faça o download e instale-o no Enterprise Developer VM. O Enterprise Server requer uma base de dados para a gestão das regiões do CICS, e a aplicação BankDemo também utiliza uma base de dados do SQL Server chamada BANKDEMO. Esta demonstração pressupõe que está a utilizar o SQL Server Express para ambas as bases de dados. Ao instalar, selecione a instalação básica.
 
-- [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017&preserve-view=true) (SSMS). O SSMS é utilizado para gerir as bases de dados e executar um script T-SQL. Faça o download e instale-o no Enterprise Developer VM.
+- [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). O SSMS é utilizado para gerir as bases de dados e executar um script T-SQL. Faça o download e instale-o no Enterprise Developer VM.
 
 - [Visual Studio 2019](https://azure.microsoft.com/downloads/) com o mais recente pacote de serviços ou [Visual Studio Community,](https://visualstudio.microsoft.com/vs/community/)que você pode baixar gratuitamente.
 
@@ -270,7 +270,7 @@ A última coisa que precisa fazer é configurar uma sessão de 3270 usando Rumba
 
 Parabéns! Está agora a executar uma aplicação CICS em Azure utilizando o Micro Focus Enterprise Server.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Executar servidor de empresa em contentores Docker em Azure](run-enterprise-server-container.md)
 - [Migração do Computador Central - Portal](/archive/blogs/azurecat/mainframe-migration-to-azure-portal)

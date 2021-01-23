@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 0db05c8caae8483de3b55448bfbe6b2bcfc23187
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: fdfb2470e83cefaeb6df35115f7bb46149d8ffe6
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625286"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733998"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>Tutorial: Parte 2 - Ver as mensagens encaminhadas
 
@@ -48,7 +48,7 @@ A fila do Service Bus serve para receber mensagens designadas como críticas. Co
 
    **Localização**: utilize a sua localização. Este tutorial utiliza **E.U.A. Oeste**.
 
-   **Log Analytics**: este botão de alternar deve estar desativado.
+   **Ativar o 'Registar' Analytics**: Este toggle deve ser desligado.
 
    ![O ecrã de aplicação Create Logic](./media/tutorial-routing-view-message-routing-results/create-logic-app.png)
 
@@ -151,6 +151,8 @@ Para ver os dados numa visualização do Power BI, configure primeiro uma taref
    **Nome do conjunto de dados**: nome do conjunto de dados a ser utilizado no Power BI. Este tutorial utiliza **contosodataset**. 
 
    **Nome da tabela**: nome da tabela a ser utilizada no Power BI. Este tutorial utiliza **contosotable**.
+
+  **Modo de autenticação**: Selecione o modo de utilização.
 
    Aceite as predefinições no resto dos campos.
 
@@ -298,7 +300,7 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 Pode também querer eliminar a quantidade de e-mails na sua caixa de entrada que foram gerados através da App Lógica enquanto a aplicação do dispositivo estava em execução.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial de 2 partes, aprendeu a usar o encaminhamento de mensagens para encaminhar mensagens IoT Hub para diferentes destinos, realizando as seguintes tarefas.  
 

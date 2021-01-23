@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 12/03/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: f1e9d65baacb9c712b92ef6f00abda169031b47e
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: d60a241506dbcf3e038f79c99830ef1a81c06b88
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96582966"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735269"
 ---
 # <a name="customize-node-configuration-for-azure-kubernetes-service-aks-node-pools-preview"></a>Personalizar a configuração do nó para piscinas de nó Azure Kubernetes (AKS) (pré-visualização)
 
@@ -132,7 +132,7 @@ As definições abaixo podem ser usadas para sintonizar o funcionamento do subsi
 | `transparentHugePageDefrag` | `always`, `defer`, `defer+madvise`, `madvise`, `never` | `madvise` | Este valor controla se o núcleo deve fazer uso agressivo da compactação da memória para tornar mais `hugepages` disponível. | 
 
 > [!IMPORTANT]
-> Para facilitar a pesquisa e a legibilidade, as definições de SO são apresentadas neste documento pelo seu nome, mas devem ser adicionadas ao ficheiro json de configuração ou à API AKS utilizando a convenção de [capitalização camelCase](https://docs.microsoft.com/dotnet/standard/design-guidelines/capitalization-conventions).
+> Para facilitar a pesquisa e a legibilidade, as definições de SO são apresentadas neste documento pelo seu nome, mas devem ser adicionadas ao ficheiro json de configuração ou à API AKS utilizando a convenção de [capitalização camelCase](/dotnet/standard/design-guidelines/capitalization-conventions).
 
 Criar um `kubeletconfig.json` ficheiro com os seguintes conteúdos:
 
@@ -184,7 +184,7 @@ Adicione um novo conjunto de nós especificando os parâmetros Kubelet utilizand
 az aks nodepool add --name mynodepool1 --cluster-name myAKSCluster --resource-group myResourceGroup --kubelet-config ./kubeletconfig.json
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba [como configurar o seu cluster AKS](cluster-configuration.md).
 - Saiba como [atualizar as imagens do nó](node-image-upgrade.md) no seu cluster.
