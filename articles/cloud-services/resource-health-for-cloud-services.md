@@ -1,20 +1,25 @@
 ---
 title: Saúde de Recursos para Serviços em Nuvem (Clássico)
 description: Este artigo fala sobre o Suporte ao Controlo de Saúde de Recursos (RHC) para os Serviços de Nuvem do Microsoft Azure (Clássico)
-services: cloud-services
-author: tanmaygore
-ms.service: cloud-services
 ms.topic: article
-ms.date: 9/1/2020
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: f99dd8131df9f8bc5d3e4013d4438faa8c25e53b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 37294e681066eb27ace69bcacee3a813b750b8eb
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072718"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743513"
 ---
 # <a name="resource-health-check-rhc-support-for-azure-cloud-services-classic"></a>Suporte para serviços de cloud Azure (Clássico)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (suporte alargado)](../cloud-services-extended-support/overview.md) é um novo modelo de implementação baseado em Recursos Azure para o produto Azure Cloud Services.Com esta alteração, os Serviços Azure Cloud em execução no modelo de implementação baseado no Azure Service Manager foram renomeados como Cloud Services (clássico) e todas as novas implementações devem utilizar [os Serviços Cloud (suporte alargado)](../cloud-services-extended-support/overview.md).
+
 Este artigo fala sobre o Suporte ao Controlo de Saúde de Recursos (RHC) para [os Serviços de Nuvem do Microsoft Azure (Clássico)](https://azure.microsoft.com/services/cloud-services)
 
 [A Azure Resource Health](../service-health/resource-health-overview.md) para serviços na nuvem ajuda-o a diagnosticar e a obter suporte para problemas de serviço que afetam a sua implementação do Serviço cloud, funções & Exemplos de Função. Relata a saúde atual e passada dos seus serviços em nuvem no nível de Implementação, Role & Role Instance.

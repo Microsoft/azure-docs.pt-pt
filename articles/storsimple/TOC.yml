@@ -38,8 +38,7 @@
         - name: Gerir através do portal do Azure
           href: storsimple-virtual-array-manager-service-administration.md
           items:
-            - name: Instalar a atualização mais recente
-              href: storsimple-virtual-array-install-update-11.md
+            - name: Instalar atualizações
               items:
                 - name: Instalar Atualização 1
                   href: storsimple-virtual-array-install-update-1.md
@@ -87,10 +86,10 @@
           href: storsimple-ova-web-ui-admin.md
     - name: Notas de versão
       items:
-        - name: Atualização 1.2 - atual
+        - name: Atualização 1.3 - corrente
+          href: storsimple-virtual-array-update-13-release-notes.md
+        - name: Atualização 1.2
           href: storsimple-virtual-array-update-12-release-notes.md
-        - name: Atualização 1.1
-          href: storsimple-virtual-array-update-11-release-notes.md
         - name: "Atualização\_1"
           href: storsimple-virtual-array-update-1-release-notes.md
         - name: Arquivo

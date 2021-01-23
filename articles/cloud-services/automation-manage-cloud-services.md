@@ -1,23 +1,24 @@
 ---
-title: Gerir os Serviços Azure Cloud utilizando a Azure Automation Microsoft Docs
+title: Gerir os Serviços de Nuvem Azure (clássico) utilizando a Azure Automation | Microsoft Docs
 description: Saiba como o serviço Azure Automation pode ser usado para gerir os serviços em nuvem Azure em escala.
-services: cloud-services, automation
-author: jodoglevy
-manager: timlt
-editor: ''
-ms.assetid: 3789810a-2892-4eef-bf29-c781c1b5af48
-ms.service: cloud-services
 ms.topic: article
-ms.date: 06/20/2016
-ms.author: timlt
-ms.openlocfilehash: 67830f8c00d9f74f62883e0714ffe1c2bbbd6903
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.service: cloud-services
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 530efd09f3632637c6a12648495dcff0e7bf0e6d
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075625"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743496"
 ---
-# <a name="managing-azure-cloud-services-using-azure-automation"></a>Gerir os Serviços de Nuvem Azure utilizando a Azure Automation
+# <a name="managing-azure-cloud-services-classic-using-azure-automation"></a>Gerir os Serviços Azure Cloud (clássico) utilizando a Azure Automation
+
+> [!IMPORTANT]
+> [Azure Cloud Services (suporte alargado)](../cloud-services-extended-support/overview.md) é um novo modelo de implementação baseado em Recursos Azure para o produto Azure Cloud Services.Com esta alteração, os Serviços Azure Cloud em execução no modelo de implementação baseado no Azure Service Manager foram renomeados como Cloud Services (clássico) e todas as novas implementações devem utilizar [os Serviços Cloud (suporte alargado)](../cloud-services-extended-support/overview.md).
 Este guia irá apresentá-lo ao serviço Azure Automation e como pode ser usado para simplificar a gestão dos seus serviços em nuvem Azure.
 
 ## <a name="what-is-azure-automation"></a>O que é a Automatização do Azure?
