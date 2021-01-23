@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com a SAP Cloud para clientes Microsoft Docs'
+title: 'Tutorial: Integração única de sign-on (SSO) do Azure Ative Directory com a NUVEM SAP para | cliente Microsoft Docs'
 description: Saiba como configurar um único sinal de inscrição entre o Azure Ative Directory e o SAP Cloud para o Cliente.
 services: active-directory
 author: jeevansd
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/28/2020
 ms.author: jeedes
-ms.openlocfilehash: df52e18c602e1054ecc53146080e56cab4781d78
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 60381c7d8c452277b53e1af67ae7fc85349521c8
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97963832"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735678"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-cloud-for-customer"></a>Tutorial: Azure Ative Directy integração única de sign-on (SSO) com a NUVEM SAP para o Cliente
 
@@ -188,9 +188,9 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 
 * Vá diretamente à NUVEM SAP para obter URL de inscrição do cliente e inicie o fluxo de login a partir daí.
 
-* Pode utilizar as minhas apps do Microsoft. Quando clicar na Nuvem SAP para azulejo do cliente nas Minhas Apps, este irá redirecionar para a Nuvem SAP para URL de inscrição do cliente. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+* Pode utilizar as minhas apps do Microsoft. Quando clicar na Nuvem SAP para azulejo do cliente nas Minhas Apps, este irá redirecionar para a Nuvem SAP para URL de inscrição do cliente. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](../user-help/my-apps-portal-end-user-access.md)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Uma vez configurada a Nuvem SAP para Cliente, pode impor controlos de sessão, o que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. Os controlos de sessão estendem-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

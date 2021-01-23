@@ -8,18 +8,18 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 09/02/2020
 ms.author: genli
-ms.openlocfilehash: 390cda604b71404735b7c14382d30067e154ef70
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e409211c167f7b29128faf9fdfc02aa5c0a7d0e3
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976189"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736259"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparar um VHD ou um VHDX do Windows para carregamento para o Azure
 
 Antes de carregar uma máquina virtual Windows (VM) das instalações para o Azure, tem de preparar o disco rígido virtual (VHD ou VHDX). O Azure suporta a geração 1 e a geração 2 VMs que estão em formato de ficheiro VHD e que têm um disco de tamanho fixo. O tamanho máximo permitido para o OS VHD numa geração 1 VM é de 2 TB.
 
-Pode converter um ficheiro VHDX em VHD, converter um disco de expansão dinâmica para um disco de tamanho fixo, mas não pode alterar a geração de um VM. Para mais informações, consulte [Devo criar uma geração 1 ou 2 VM em Hiper-V?](/windows-server/virtualization/hyper-v/plan/Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V) [Support for generation 2 VMs on Azure](../generation-2.md)
+Pode converter um ficheiro VHDX em VHD, converter um disco de expansão dinâmica para um disco de tamanho fixo, mas não pode alterar a geração de um VM. Para mais informações, consulte [Devo criar uma geração 1 ou 2 VM em Hiper-V?](/windows-server/virtualization/hyper-v/plan/Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V) [](../generation-2.md)
 
 Para obter informações sobre a política de suporte para VMs Azure, consulte o [suporte de software do servidor da Microsoft para VMs Azure](https://support.microsoft.com/help/2721672/).
 
@@ -350,7 +350,7 @@ Certifique-se de que o VM está saudável, seguro e pDR acessível:
 
 ### <a name="install-windows-updates"></a>Instalar atualizações do Windows
 
-O ideal é manter a máquina atualizada ao *nível*do patch , se tal não for possível, certifique-se de que as seguintes atualizações estão instaladas. Para obter as últimas atualizações, consulte as páginas de histórico da atualização do Windows: [Windows 10 e Windows Server 2019](https://support.microsoft.com/help/4000825), [Windows 8.1 e Windows Server 2012 R2](https://support.microsoft.com/help/4009470) e [Windows 7 SP1 e Windows Server 2008 R2 SP1](https://support.microsoft.com/help/4009469).
+O ideal é manter a máquina atualizada ao *nível* do patch , se tal não for possível, certifique-se de que as seguintes atualizações estão instaladas. Para obter as últimas atualizações, consulte as páginas de histórico da atualização do Windows: [Windows 10 e Windows Server 2019](https://support.microsoft.com/help/4000825), [Windows 8.1 e Windows Server 2012 R2](https://support.microsoft.com/help/4009470) e [Windows 7 SP1 e Windows Server 2008 R2 SP1](https://support.microsoft.com/help/4009469).
 
 <br />
 
@@ -423,7 +423,7 @@ Em particular, a Sysprep exige que as unidades sejam totalmente desencriptadas a
 1. Executar uma sessão PowerShell como administrador.
 1. Elimine o diretório da pantera (C:\Windows\Panther).
 1. Mude o diretório para `%windir%\system32\sysprep` . Em seguida, execute o `sysprep.exe`.
-1. Na caixa de diálogo de ferramentas de preparação do **sistema,** selecione **Enter System Out-of-Box Experience (OOBE) e certifique-se**de que a caixa de **verificação Generalize** está selecionada.
+1. Na caixa de diálogo de ferramentas de preparação do **sistema,** selecione **Enter System Out-of-Box Experience (OOBE) e certifique-se** de que a caixa de **verificação Generalize** está selecionada.
 
     ![Ferramenta de preparação do sistema](media/prepare-for-upload-vhd-image/syspre.png)
 1. Nas **opções de encerramento**, selecione **Shutdown**.
@@ -433,7 +433,7 @@ Em particular, a Sysprep exige que as unidades sejam totalmente desencriptadas a
 Agora o VHD está pronto para ser carregado. Para obter mais informações sobre como criar um VM a partir de um disco generalizado, consulte [o Upload a Generalized VHD e use-o para criar um novo VM em Azure](/previous-versions/azure/virtual-machines/windows/sa-upload-generalized).
 
 >[!NOTE]
-> Um ficheiro *unattend.xml* personalizado não é suportado. Embora suportemos a propriedade **adicional deUnattendContent,** que fornece apenas suporte limitado para adicionar opções [de configuração microsoft-windows-shell](/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup) no ficheiro *unattend.xml* que o agente de provisionamento Azure utiliza. Pode utilizar, por exemplo, [o Globalcontent adicional](/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet&preserve-view=true) para adicionar FirstLogonCommands e LogonCommands. Para obter mais informações, consulte [o exemplo adicional daUnattendContent FirstLogonCommands](https://github.com/Azure/azure-quickstart-templates/issues/1407).
+> Um ficheiro *unattend.xml* personalizado não é suportado. Embora suportemos a propriedade **adicional deUnattendContent,** que fornece apenas suporte limitado para adicionar opções [de configuração microsoft-windows-shell](/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup) no ficheiro *unattend.xml* que o agente de provisionamento Azure utiliza. Pode utilizar, por exemplo, [o Globalcontent adicional](/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent) para adicionar FirstLogonCommands e LogonCommands. Para obter mais informações, consulte [o exemplo adicional daUnattendContent FirstLogonCommands](https://github.com/Azure/azure-quickstart-templates/issues/1407).
 
 ## <a name="convert-the-virtual-disk-to-a-fixed-size-vhd"></a>Converter o disco virtual num VHD de tamanho fixo
 
@@ -517,7 +517,7 @@ As seguintes definições não afetam o upload de VHD. No entanto, recomendamos 
 
   - Recomendamos desativar bloqueadores de scripts que possam ser fornecidos por software antivírus. Podem interferir e bloquear os scripts do Agente de Provisionamento do Windows executados quando implementar um novo VM a partir da sua imagem.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Faça o upload de uma imagem do Windows VM para Azure para implementações do Gestor de Recursos](upload-generalized-managed.md)
 - [Problemas de ativação do Azure Windows VM](../troubleshooting/troubleshoot-activation-problems.md)

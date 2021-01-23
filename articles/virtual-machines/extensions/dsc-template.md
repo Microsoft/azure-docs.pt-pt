@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 10/05/2018
 ms.author: robreed
-ms.openlocfilehash: 01a41e9acccdb40bf198031d13c3ea3f13c079ce
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 8b862238c0c04fae72659d644dbaf882d00cca19
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98180154"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735695"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Extensão de configuração de estado desejada com modelos de gestor de recursos Azure
 
@@ -32,7 +32,7 @@ Este artigo descreve o modelo do Gestor de Recursos Azure para o [manipulador de
 
 O seguinte corte vai na secção **de Recursos** do modelo.
 A extensão DSC herda propriedades de extensão padrão.
-Para mais informações, consulte [a classe VirtualMachineExtension](/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet).
+Para mais informações, consulte [a classe VirtualMachineExtension](/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension).
 
 ```json
 {
@@ -85,7 +85,7 @@ Um nó de conjunto de escala de máquina virtual tem uma secção **de proprieda
 Em **extensões**, adicione os detalhes para extensão DSC.
 
 A extensão DSC herda propriedades de extensão padrão.
-Para obter mais informações, consulte [a classe VirtualMachineScaleSetExtension](/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet).
+Para obter mais informações, consulte [a classe VirtualMachineScaleSetExtension](/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension).
 
 ```json
 "extensionProfile": {
@@ -426,7 +426,7 @@ Siga o formato fornecido nos exemplos anteriores. Cuidado com citações, vírgu
 - Forneça a propriedade desaparecida.
 - Remova a propriedade que precisa da propriedade desaparecida.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais [sobre a utilização de conjuntos de balança de máquinas virtuais com a extensão Azure DSC](../../virtual-machine-scale-sets/virtual-machine-scale-sets-dsc.md).
 - Saiba mais detalhes sobre a [gestão de credenciais seguras da DSC.](dsc-credentials.md)

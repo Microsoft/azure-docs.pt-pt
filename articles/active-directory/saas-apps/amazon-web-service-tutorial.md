@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com a Amazon Web Services (AWS) Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com a Amazon Web Services (AWS) | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Amazon Web Services (AWS).
 services: active-directory
 author: jeevansd
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/08/2020
 ms.author: jeedes
-ms.openlocfilehash: 3db6fd2e6df96590d7d405157cbb33900c7d8531
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 286dc20ba70c78f8248f611abd75e0acc303c068
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127809"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736192"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>Tutorial: Azure Ative Directory integração única (SSO) com a Amazon Web Services (AWS)
 
@@ -120,7 +120,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     | SessãoDuração | "fornecer um valor entre 900 segundos (15 minutos) a 43200 segundos (12 horas)" |  `https://aws.amazon.com/SAML/Attributes` |
 
     > [!NOTE]
-    > A AWS espera funções para utilizadores atribuídos à aplicação. Por favor, crie estas funções em Azure AD para que os utilizadores possam ser atribuídos as funções apropriadas. Para entender como configurar papéis em Azure AD, consulte [aqui](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui)
+    > A AWS espera funções para utilizadores atribuídos à aplicação. Por favor, crie estas funções em Azure AD para que os utilizadores possam ser atribuídos as funções apropriadas. Para entender como configurar papéis em Azure AD, consulte [aqui](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui--preview)
 
 1. Na **configuração de um único sinal com** a página SAML, na caixa de diálogo do Certificado de Assinatura **SAML** (Passo 3), selecione **Adicionar um certificado**.
 
@@ -394,7 +394,7 @@ Também pode utilizar o Microsoft Access Panel para testar a aplicação em qual
 
 * 01/12/2020 - Aumento do limite de comprimento de função de 119 caracteres para 239 caracteres. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Assim que configurar a Amazon Web Services (AWS) pode impor o Session Control, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O Controlo de Sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 

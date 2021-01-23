@@ -5,14 +5,14 @@ keywords: serviço de aplicações azure, aplicativo web, aplicativo móvel, app
 ms.topic: article
 ms.date: 08/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 55ffb2d03a42809a41583e6be25066b0b8e104b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61bffcfa8b98ed666e450c344023258b752e4880
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88961504"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736110"
 ---
-# <a name="security-in-azure-app-service"></a>Segurança no Serviço de Aplicações Azure
+# <a name="security-in-azure-app-service"></a>Segurança no Serviço de Aplicações do Azure
 
 Este artigo mostra-lhe como o [Azure App Service](overview.md) ajuda a proteger a sua aplicação web, a aplicação móvel back end, a app API e [a aplicação de função.](../azure-functions/index.yml) Também mostra como pode proteger ainda mais a sua aplicação com as funcionalidades incorporadas do Serviço de Aplicações.
 
@@ -39,11 +39,11 @@ Para proteger a sua aplicação contra todas as ligações não encriptadas (HTT
 
 O Serviço de Aplicações suporta tanto o FTP como o FTPS para a implementação dos seus ficheiros. No entanto, os FTPS devem ser utilizados em vez de FTP, se possível. Quando um ou ambos os protocolos não estiverem a ser utilizados, deve [desativá-los](deploy-ftp.md#enforce-ftps).
 
-## <a name="static-ip-restrictions"></a>Restrições estáticas de IP
+## <a name="static-ip-restrictions"></a>Restrições de IP estático
 
 Por predefinição, a sua aplicação De Serviço de Aplicações aceita pedidos de todos os endereços IP a partir da internet, mas pode limitar esse acesso a um pequeno subconjunto de endereços IP. O Serviço de Aplicações no Windows permite definir uma lista de endereços IP que podem aceder à sua aplicação. A lista permitida pode incluir endereços IP individuais ou uma gama de endereços IP definidos por uma máscara de sub-rede. Para obter mais informações, consulte [as restrições estáticas de IP do Serviço de Aplicações Azure.](app-service-ip-restrictions.md)
 
-Para o Serviço de Aplicações no Windows, também pode restringir os endereços IP de forma dinâmica configurando o _web.config_. Para mais informações, consulte [a Dynamic IP Security \<dynamicIpSecurity> ](/iis/configuration/system.webServer/security/dynamicIpSecurity/).
+Para o Serviço de Aplicações no Windows, também pode restringir os endereços IP de forma dinâmica configurando o _web.config_. Para mais informações, consulte [a Dynamic IP Security \<dynamicIpSecurity>](/iis/configuration/system.webServer/security/dynamicIpSecurity/).
 
 ## <a name="client-authentication-and-authorization"></a>Autenticação e autorização do cliente
 
@@ -85,8 +85,8 @@ Para isolar completamente a conectividade dos recursos das redes partilhadas no 
 Pode aceder de forma segura aos recursos no local, como bases de dados, de três formas: 
 
 - [Ligações híbridas](app-service-hybrid-connections.md) - Estabelece uma ligação ponto-a-ponto ao seu recurso remoto através de um túnel TCP. O túnel TCP é estabelecido utilizando as teclas TLS 1.2 com assinatura de acesso partilhado (SAS).
-- [Integração de Rede Virtual](web-sites-integrate-with-vnet.md) com VPN site-to-site - Como descrito em [Recursos dentro de uma Rede Virtual Azure](#resources-inside-an-azure-virtual-network), mas a Rede Virtual pode ser ligada à sua rede de instalações através de uma [VPN site-to-site](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md). Nesta topologia de rede, a sua aplicação pode ligar-se a recursos no local, como outros recursos na Rede Virtual.
-- [Ambiente de Serviço](environment/intro.md) de Aplicações com VPN site-to-site - Como descrito em [Recursos dentro de uma Rede Virtual Azure](#resources-inside-an-azure-virtual-network), mas a Rede Virtual pode ser conectado à sua rede de instalações através de uma [VPN site-to-site](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md). Nesta topologia de rede, a sua aplicação pode ligar-se a recursos no local, como outros recursos na Rede Virtual.
+- [Integração de Rede Virtual](web-sites-integrate-with-vnet.md) com VPN site-to-site - Como descrito em [Recursos dentro de uma Rede Virtual Azure](#resources-inside-an-azure-virtual-network), mas a Rede Virtual pode ser ligada à sua rede de instalações através de uma [VPN site-to-site](../vpn-gateway/tutorial-site-to-site-portal.md). Nesta topologia de rede, a sua aplicação pode ligar-se a recursos no local, como outros recursos na Rede Virtual.
+- [Ambiente de Serviço](environment/intro.md) de Aplicações com VPN site-to-site - Como descrito em [Recursos dentro de uma Rede Virtual Azure](#resources-inside-an-azure-virtual-network), mas a Rede Virtual pode ser conectado à sua rede de instalações através de uma [VPN site-to-site](../vpn-gateway/tutorial-site-to-site-portal.md). Nesta topologia de rede, a sua aplicação pode ligar-se a recursos no local, como outros recursos na Rede Virtual.
 
 ## <a name="application-secrets"></a>Segredos de aplicação
 

@@ -1,5 +1,5 @@
 ---
-title: Utilize grupos de colocação de proximidade
+title: Utilizar grupos de colocação por proximidade
 description: Saiba como criar e utilizar grupos de colocação de proximidade para máquinas virtuais em Azure.
 author: cynthn
 ms.service: virtual-machines
@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 10/30/2019
 ms.author: cynthn
-ms.openlocfilehash: ee172203d6aa54b4b539356835f8a6bf2d21bad3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea50d0fdc5a772cae449951901af36eed4e93771
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87288418"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737630"
 ---
 # <a name="deploy-vms-to-proximity-placement-groups-using-azure-cli"></a>Implementar VMs em grupos de colocação por proximidade com a CLI do Azure
 
@@ -67,8 +67,8 @@ Também pode criar um conjunto de disponibilidade no seu grupo de colocação de
 
 ## <a name="scale-sets"></a>Conjuntos de dimensionamento
 
-Também pode criar um conjunto de escala no seu grupo de colocação de proximidade. Utilize o mesmo `--ppg` parâmetro com [az vmss criar](/cli/azure/vmss?view=azure-cli-latest#az-vmss-create) para criar um conjunto de escala e todas as instâncias serão criadas no mesmo grupo de colocação de proximidade.
+Também pode criar um conjunto de escala no seu grupo de colocação de proximidade. Utilize o mesmo `--ppg` parâmetro com [az vmss criar](/cli/azure/vmss#az_vmss_create) para criar um conjunto de escala e todas as instâncias serão criadas no mesmo grupo de colocação de proximidade.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre os comandos [Azure CLI](/cli/azure/ppg) para grupos de colocação de proximidade.

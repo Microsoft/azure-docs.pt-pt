@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 6538243cf8fc12131e1480c8578bfa8739c4f561
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: e3ebd83646353e34c239e7d1812e380b9e9d2e26
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98676294"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737528"
 ---
 # <a name="dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-release-notes"></a>Piscina SQL dedicada (anteriormente SQL DW) em notas de lançamento do Azure Synapse Analytics
 
@@ -52,7 +52,7 @@ Para melhorias na ferramenta, certifique-se de que tem a versão correta instala
 | Melhorias de serviços | Detalhes |
 | --- | --- |
 |**Funções de Table-Valued inline T-SQL (pré-visualização)**|Com esta versão, pode agora criar funções de valor de tabela com Transact-SQL e consultar os seus resultados como se fosse uma tabela. Esta funcionalidade encontra-se atualmente em Pré-Visualização e será suportada na ferramenta em GA. Para obter mais informações, consulte [CREATE FUNCTION (Azure Synapse Analytics)](/sql/t-sql/statements/create-function-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true).|
-|**Comando MERGE (pré-visualização)**|Pode agora executar inserir, atualizar ou apagar operações numa tabela alvo a partir dos resultados de uma tabela de origem. Por exemplo, pode sincronizar duas tabelas inserindo, atualizando ou eliminando linhas numa tabela com base nas diferenças encontradas na outra tabela.  Verifique [a MERGE](/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) para obter mais detalhes.|
+|**Comando MERGE (pré-visualização)**|Pode agora executar inserir, atualizar ou apagar operações numa tabela alvo a partir dos resultados de uma tabela de origem. Por exemplo, pode sincronizar duas tabelas inserindo, atualizando ou eliminando linhas numa tabela com base nas diferenças encontradas na outra tabela.  Verifique [a MERGE](/sql/t-sql/statements/merge-transact-sql??view=azure-sqldw-latest&preserve-view=true) para obter mais detalhes.|
 
 ## <a name="aug-2020"></a>Agosto 2020
 
@@ -68,7 +68,7 @@ Para melhorias na ferramenta, certifique-se de que tem a versão correta instala
 |**Encriptação de nível de coluna (visualização pública)**|Proteja informações sensíveis no seu Azure Synapse Analytics aplicando encriptação simétrica a uma coluna de dados utilizando o Transact-SQL. A encriptação ao nível da coluna tem funções incorporadas que pode utilizar para encriptar dados utilizando chaves simétricas que estão ainda mais protegidas com um certificado, palavra-passe, chave simétrica ou chave assimétrica. Para mais informações, visite [Criptografe uma Coluna de Dados.](/sql/relational-databases/security/encryption/encrypt-a-column-of-data?view=azure-sqldw-latest&preserve-view=true)|
 |**Suporte ao nível de compatibilidade (GA)**|Com esta versão, os utilizadores podem agora definir o nível de compatibilidade de uma base de dados para obter o comportamento de processamento de linguagem Transact-SQL e de processamento de consultas de uma versão específica do motor SYNAPSE SQL. Para obter mais informações, consulte [sys.database_scoped_configurations](/sql/relational-databases/system-catalog-views/sys-database-scoped-configurations-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) e [altere a configuração scoped da base de dados](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).|
 |**Segurança de nível de linha**|Esta versão inclui uma melhoria para a atualização e eliminação de operações em linhas com RLS aplicados nas suas. Com esta versão, atualizar e eliminar operações com funções intrínsecas como 'is_rolemember' terá sucesso se a intrínseca não referenciar nenhuma coluna na tabela-alvo DML. Antes desta melhoria, estas operações falharam devido à limitação das operações de DML subjacentes.|
-|**DBCC SHRINKDATABASE (GA)**|Pode agora reduzir o tamanho dos dados e registar ficheiros na base de dados especificada. Para mais informações, consulte a [documentação.](/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql?view=sql-server-ver15)|
+|**DBCC SHRINKDATABASE (GA)**|Pode agora reduzir o tamanho dos dados e registar ficheiros na base de dados especificada. Para mais informações, consulte a [documentação.](/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql?view=azure-sqldw-latest&preserve-view=true)|
 
 ## <a name="may-2020"></a>Maio de 2020
 
@@ -219,7 +219,7 @@ Para melhorias na ferramenta, certifique-se de que tem a versão correta instala
 |**Insetos notáveis**|Falhas do CETAS para Parquet em pequenas classes de recursos em armazéns de dados de DW2000 e muito mais - Esta correção identifica corretamente uma referência nula na tabela externa Create As to Parquet code path.<br/><br/>O valor da coluna de identidade pode perder em alguma operação CTAS - O valor de uma coluna de identificação não pode ser preservado quando cTASed para outra tabela. Relatado num [blog.](https://blog.westmonroepartners.com/azure-sql-dw-identity-column-bugs/)<br/><br/>Falha interna em alguns casos quando uma sessão é terminada enquanto uma consulta ainda está em execução - Esta correção desencadeia uma InvalidOperationException se uma sessão for terminada quando a consulta ainda estiver em execução.<br/><br/>(Implantado em novembro de 2018) Os clientes estavam a experimentar um desempenho sub-optimista quando tentavam carregar vários pequenos ficheiros da ADLS (Gen1) usando a Polybase. - O desempenho do sistema foi engarrafado durante a validação do sinal de segurança da AAD. Os problemas de desempenho foram atenuados permitindo o caching de fichas de segurança. |
 | | |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [criar uma piscina SQL dedicada (anteriormente SQL DW)](create-data-warehouse-portal.md)
 

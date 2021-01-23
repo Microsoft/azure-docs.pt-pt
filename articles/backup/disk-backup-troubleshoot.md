@@ -3,12 +3,12 @@ title: Falhas de backup de resolução de problemas na cópia de segurança do d
 description: Saiba como resolver falhas de backup no Azure Disk Backup
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: 3e7c81d70fc898528532a841a484bf6fff8b83a7
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 855c6c5b19b10bdb699a25f89ebc29001b7941ac
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98611241"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737732"
 ---
 # <a name="troubleshooting-backup-failures-in-azure-disk-backup-in-preview"></a>Falhas de backup de resolução de problemas na cópia de segurança do disco Azure (na pré-visualização)
 
@@ -115,7 +115,7 @@ Ação recomendada: Conceda à identidade gerida do cofre de reserva as permiss�
 
 Error Message: A operação falhou à medida que o limite máximo da quota de disco foi atingido na subscrição.
 
-Ação recomendada: Consulte os limites de subscrição e serviço do [Azure e a documentação da quota](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) ou contacte o Microsoft Support para obter mais orientações.
+Ação recomendada: Consulte os limites de subscrição e serviço do [Azure e a documentação da quota](../azure-resource-manager/management/azure-subscription-service-limits.md) ou contacte o Microsoft Support para obter mais orientações.
 
 ### <a name="error-code-usererrordiskbackuprestorergormsipermissionsnotpresent"></a>Código de erro: UserErrorDiskBackupRestoreRGOrMSIPermissionsNotPresent
 
@@ -177,6 +177,6 @@ Error Message: Não é possível iniciar a operação como número máximo de c�
 
 Ação recomendada: Aguarde até que a cópia de segurança anterior esteja concluída.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Matriz de suporte da Cópia de Segurança de Discos do Azure](disk-backup-support-matrix.md)

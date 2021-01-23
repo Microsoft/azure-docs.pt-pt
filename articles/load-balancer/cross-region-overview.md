@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: 4a9663e1356f616ed5f428c993f3367ce67cdbb5
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: fb03d0f8c2dc1f3812d417bc5a5d49857f3c1051
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98610917"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737681"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Balanceador de carga transversal (Pré-visualização)
 
@@ -35,7 +35,7 @@ O Azure Standard Load Balancer suporta o equilíbrio da carga entre regiões, pe
 * [Baseie-se na](#build-cross-region-solution-on-existing-azure-load-balancer) solução existente do balanceador de carga sem curva de aprendizagem
 
 > [!IMPORTANT]
-> O equilibrador de carga cross-region está atualmente em pré-visualização e pode ser implantado no Portal. Iniciar sposição **https://portal.azure.com** para visualizar e implementar a funcionalidade.. </br> </br>
+> O equilibrador de carga cross-region está atualmente em pré-visualização e pode ser implantado no Portal. Iniciar sposição **https://preview.portal.azure.com** para visualizar e implementar a funcionalidade.. </br> </br>
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 O equilíbrio entre regiões de carga oferece os mesmos benefícios de alto desempenho e baixa latência que o balanceador regional de carga padrão. 
@@ -129,7 +129,7 @@ O balançador de carga transversal encaminha o tráfego para o equilibrador regi
 * Leste do Japão 
 * Ásia Leste 
 * E.U.A. Centro-Oeste 
-* Sudeste da Austrália 
+* Austrália Sudeste 
 * Leste da Austrália 
 * Índia Central 
 
@@ -147,7 +147,7 @@ O balançador de carga transversal encaminha o tráfego para o equilibrador regi
 Balanceador de carga transversal, partilha o [SLA](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/ ) do balanceador de carga padrão.
 
  
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Ver [Tutorial: Criar um equilibrador de carga transversal utilizando o portal Azure](tutorial-cross-region-portal.md) para criar um equilibrador de carga transversal.
 - Consulte [Criar um equilibrador de carga padrão público](quickstart-load-balancer-standard-public-portal.md) para criar um balanceador regional de carga padrão.

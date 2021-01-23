@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: bb40586a93a40c2aaa3f0f884a0e747f168c324b
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: db21f1170dacbfa1e4367e7f22143ec3d0b0f6e4
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98186086"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737341"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Instale e execute o recipiente de análise espacial (Pré-visualização)
 
@@ -62,7 +62,7 @@ Neste artigo, você irá baixar e instalar os seguintes pacotes de software. O c
 * [Tempo de execução de Azure IoT Edge.](../../iot-edge/how-to-install-iot-edge.md)
 
 #### <a name="azure-vm-with-gpu"></a>[Azure VM com GPU](#tab/virtual-machine)
-No nosso exemplo, vamos utilizar uma [série NC VM](https://docs.microsoft.com/azure/virtual-machines/nc-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) que tem um K80 GPU.
+No nosso exemplo, vamos utilizar uma [série NC VM](../../virtual-machines/nc-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) que tem um K80 GPU.
 
 ---
 
@@ -309,13 +309,13 @@ No computador anfitrião aberto  `/etc/iotedge/config.yaml` para edição. `ADD 
 sudo systemctl restart iotedge
 ```
 
-Implementar o recipiente de análise espacial como módulo IoT no computador anfitrião, quer a partir do [portal Azure](../../iot-edge/how-to-deploy-modules-portal.md) ou [do Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows). Se estiver a utilizar o portal, deite a imagem URI para a localização do seu Registo de Contentores Azure. 
+Implementar o recipiente de análise espacial como módulo IoT no computador anfitrião, quer a partir do [portal Azure](../../iot-edge/how-to-deploy-modules-portal.md) ou [do Azure CLI](../cognitive-services-apis-create-account-cli.md?tabs=windows). Se estiver a utilizar o portal, deite a imagem URI para a localização do seu Registo de Contentores Azure. 
 
 Utilize os degraus abaixo para colocar o recipiente utilizando o Azure CLI.
 
 #### <a name="azure-vm-with-gpu"></a>[Azure VM com GPU](#tab/virtual-machine)
 
-Uma Máquina Virtual Azure com uma GPU também pode ser usada para executar análises espaciais. O exemplo abaixo utilizará uma [série NC](https://docs.microsoft.com/azure/virtual-machines/nc-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) VM que tem um K80 GPU.
+Uma Máquina Virtual Azure com uma GPU também pode ser usada para executar análises espaciais. O exemplo abaixo utilizará uma [série NC](../../virtual-machines/nc-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) VM que tem um K80 GPU.
 
 #### <a name="create-the-vm"></a>Criar a VM
 
@@ -335,7 +335,7 @@ Em seguida, selecione **NC6** ou **NC6_Promo**.
 
 Em seguida, Crie o VM. Uma vez criado, navegue para o recurso VM no portal Azure e selecione `Extensions` a partir do painel esquerdo. A janela de extensões aparecerá com todas as extensões disponíveis. Selecione, `NVIDIA GPU Driver Extension` clique em criar e complete o assistente.
 
-Assim que a extensão for aplicada com sucesso, navegue na página principal do VM no portal Azure e clique `Connect` em . O VM pode ser acedido através de SSH ou RDP. O PDR será útil, pois permitirá a visualização da janela do visualizador (explicado mais tarde). Configure o acesso RDP seguindo [estes passos](https://docs.microsoft.com/azure/virtual-machines/linux/use-remote-desktop) e abrindo uma ligação de ambiente de trabalho remoto ao VM.
+Assim que a extensão for aplicada com sucesso, navegue na página principal do VM no portal Azure e clique `Connect` em . O VM pode ser acedido através de SSH ou RDP. O PDR será útil, pois permitirá a visualização da janela do visualizador (explicado mais tarde). Configure o acesso RDP seguindo [estes passos](../../virtual-machines/linux/use-remote-desktop.md) e abrindo uma ligação de ambiente de trabalho remoto ao VM.
 
 ### <a name="verify-graphics-drivers-are-installed"></a>Verifique se os controladores gráficos estão instalados
 
@@ -426,7 +426,7 @@ A tabela seguinte mostra as várias variáveis ambientais utilizadas pelo Módul
 > [!IMPORTANT]
 > As `Eula` `Billing` opções , e `ApiKey` opções devem ser especificadas para executar o recipiente; caso contrário, o recipiente não arranca.  Para mais informações, consulte [Billing.](#billing)
 
-Uma vez atualizado o manifesto de implementação para [dispositivos Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179), [uma máquina de ambiente de trabalho](https://go.microsoft.com/fwlink/?linkid=2152270) ou [VM Azure com GPU](https://go.microsoft.com/fwlink/?linkid=2152189) com as suas próprias definições e seleção de operações, pode utilizar o comando [CLI abaixo do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows) para implantar o recipiente no computador anfitrião, como módulo IoT Edge.
+Uma vez atualizado o manifesto de implementação para [dispositivos Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179), [uma máquina de ambiente de trabalho](https://go.microsoft.com/fwlink/?linkid=2152270) ou [VM Azure com GPU](https://go.microsoft.com/fwlink/?linkid=2152189) com as suas próprias definições e seleção de operações, pode utilizar o comando [CLI abaixo do Azure](../cognitive-services-apis-create-account-cli.md?tabs=windows) para implantar o recipiente no computador anfitrião, como módulo IoT Edge.
 
 ```azurecli
 sudo az login
@@ -457,7 +457,7 @@ Terá de utilizar [operações de análise espacial](spatial-analysis-operations
 
 ## <a name="redeploy-or-delete-the-deployment"></a>Reimplantar ou eliminar a implantação
 
-Se precisar de atualizar a implementação, tem de se certificar de que as suas implementações anteriores estão implantadas com sucesso ou que tem de eliminar as implementações do dispositivo IoT Edge que não foram concluídas. Caso contrário, essas implementações continuarão, deixando o sistema em mau estado. Pode utilizar o portal Azure ou o [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows).
+Se precisar de atualizar a implementação, tem de se certificar de que as suas implementações anteriores estão implantadas com sucesso ou que tem de eliminar as implementações do dispositivo IoT Edge que não foram concluídas. Caso contrário, essas implementações continuarão, deixando o sistema em mau estado. Pode utilizar o portal Azure ou o [Azure CLI](../cognitive-services-apis-create-account-cli.md?tabs=windows).
 
 ## <a name="use-the-output-generated-by-the-container"></a>Utilize a saída gerada pelo recipiente
 
@@ -518,7 +518,7 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para descarregar, instalar 
 * As imagens do contentor funcionam como Módulos IoT em Azure IoT Edge.
 * Como configurar o recipiente e implantá-lo numa máquina hospedeira.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Implementar uma aplicação web People Counting](spatial-analysis-web-app.md)
 * [Configure operações de análise espacial](spatial-analysis-operations.md)

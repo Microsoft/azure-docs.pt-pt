@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/21/2020
+ms.date: 01/21/2021
 ms.author: b-juche
-ms.openlocfilehash: f680b1ec76200cb4d3bfc90cd83a2c134f379245
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: a8286768dac33e48bc4d7c4dce0d9934da08c319
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696130"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736076"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>PERGUNTAS Frequentes Sobre Ficheiros Azure NetApp
 
@@ -29,7 +29,7 @@ Este artigo responde a perguntas frequentes (FAQs) sobre ficheiros Azure NetApp.
 
 ### <a name="does-the-nfs-data-path-go-over-the-internet"></a>O caminho dos dados da NFS passa pela Internet?  
 
-N.º O caminho dos dados da NFS não passa pela Internet. O Azure NetApp Files é um serviço nativo do Azure que está implantado na Rede Virtual Azure (VNet) onde o serviço está disponível. O Azure NetApp Files utiliza uma sub-rede delegada e fornece uma interface de rede diretamente no VNet. 
+Não. O caminho dos dados da NFS não passa pela Internet. O Azure NetApp Files é um serviço nativo do Azure que está implantado na Rede Virtual Azure (VNet) onde o serviço está disponível. O Azure NetApp Files utiliza uma sub-rede delegada e fornece uma interface de rede diretamente no VNet. 
 
 Consulte as Diretrizes para o planeamento da [rede Azure NetApp Files](./azure-netapp-files-network-topologies.md) para obter mais detalhes.  
 
@@ -48,7 +48,7 @@ Sim, pode, se criar as entradas de DNS necessárias. A Azure NetApp Files fornec
 
 ### <a name="can-i-set-or-select-my-own-ip-address-for-an-azure-netapp-files-volume"></a>Posso definir ou selecionar o meu próprio endereço IP para um volume de Ficheiros Azure NetApp?  
 
-N.º A atribuição de IP aos volumes de Ficheiros Azure NetApp é dinâmica. A atribuição ip estática não é suportada. 
+Não. A atribuição de IP aos volumes de Ficheiros Azure NetApp é dinâmica. A atribuição ip estática não é suportada. 
 
 ### <a name="does-azure-netapp-files-support-dual-stack-ipv4-and-ipv6-vnet"></a>Os Ficheiros Azure NetApp suportam a dupla pilha (IPv4 e IPv6) VNet?
 
@@ -196,7 +196,7 @@ O Azure NetApp Files fornece métricas de utilização de pool e volume de capac
 
 ### <a name="can-i-manage-azure-netapp-files-through-azure-storage-explorer"></a>Posso gerir ficheiros Azure NetApp através do Azure Storage Explorer?
 
-N.º Os ficheiros Azure NetApp não são suportados pelo Azure Storage Explorer.
+Não. Os ficheiros Azure NetApp não são suportados pelo Azure Storage Explorer.
 
 ### <a name="how-do-i-determine-if-a-directory-is-approaching-the-limit-size"></a>Como posso determinar se um diretório se aproxima do tamanho do limite?
 
@@ -253,11 +253,11 @@ Os requisitos para replicar um volume de Ficheiros Azure NetApp para outra regi�
 
 ### <a name="is-migration-with-azure-data-box-supported"></a>A migração com a Caixa de Dados Azure está suportada?
 
-N.º A Azure Data Box não suporta ficheiros Azure NetApp atualmente. 
+Não. A Azure Data Box não suporta ficheiros Azure NetApp atualmente. 
 
 ### <a name="is-migration-with-azure-importexport-service-supported"></a>A migração com o serviço Azure Import/Export é suportada?
 
-N.º O serviço Azure Import/Export não suporta atualmente ficheiros Azure NetApp.
+Não. O serviço Azure Import/Export não suporta atualmente ficheiros Azure NetApp.
 
 ## <a name="product-faqs"></a>Perguntas frequentes de produtos
 
@@ -269,7 +269,7 @@ Pode montar volumes NFS em VMs do Azure NetApp ou em VMs do Azure NetApp. Pode m
 
 A utilização de volumes NFS ou SMB de Ficheiros Azure NetApp com AVS é suportada nas seguintes regiões - Leste dos EUA, Eua Ocidental, Europa Ocidental e Austrália Oriental.
 
-## <a name="next-steps"></a>Passos seguintes  
+## <a name="next-steps"></a>Próximos passos  
 
 - [Microsoft Azure ExpressRoute FAQs](../expressroute/expressroute-faqs.md)
 - [Microsoft Azure Virtual Network FAQ](../virtual-network/virtual-networks-faq.md)

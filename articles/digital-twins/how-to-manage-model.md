@@ -7,13 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.custom: contperf-fy21q3
-ms.openlocfilehash: 00e6802f37ec60467edbea98038dd23fcba1239a
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: c193565035435b29f77177086c535fae0903ccd4
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185500"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737783"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gerir os modelos Azure Digital Twins
 
@@ -196,7 +195,7 @@ Depois de um modelo ter sido eliminado, poderá decidir mais tarde carregar um n
 
 A Azure Digital Twins não impede este estado, por isso tenha cuidado para remendar os gémeos adequadamente, de modo a garantir que se mantêm válidos através do interruptor de definição de modelo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Veja como criar e gerir gémeos digitais com base nos seus modelos:
 * [*Como fazer: Gerir gémeos digitais*](how-to-manage-twin.md)

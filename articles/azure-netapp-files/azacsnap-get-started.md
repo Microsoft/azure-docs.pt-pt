@@ -1,5 +1,5 @@
 ---
-title: Começa com a ferramenta Azure Application Consistent Snapshot para ficheiros Azure NetApp ; Microsoft Docs
+title: Começa com a ferramenta Azure Application Consistent Snapshot para ficheiros Azure NetApp | Microsoft Docs
 description: Fornece um guia para instalar a ferramenta Azure Application Consistent Snapshot que pode utilizar com ficheiros Azure NetApp.
 services: azure-netapp-files
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: phjensen
-ms.openlocfilehash: c8532637e695b506e372817e6f4531f9a323936b
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 25f555038c1ce0d960266eacc673a62a1ffd5ac0
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97632851"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736367"
 ---
 # <a name="get-started-with-azure-application-consistent-snapshot-tool-preview"></a>Começa com a ferramenta Azure Application Consistent Snapshot (pré-visualização)
 
@@ -126,7 +126,7 @@ As ferramentas instantâneas podem ser utilizadas nos seguintes cenários.
 - SKU TIPO I
 - SKU TIPO II
 
-Ver [cenários apoiados para grandes instâncias HANA](/azure/virtual-machines/workloads/sap/hana-supported-scenario)
+Ver [cenários apoiados para grandes instâncias HANA](../virtual-machines/workloads/sap/hana-supported-scenario.md)
 
 ## <a name="snapshot-support-matrix-from-sap"></a>Matriz de suporte instantâneo da SAP
 
@@ -182,6 +182,6 @@ São fornecidas as seguintes orientações para ilustrar a utilização das ferr
 - [Como monitorizar a replicação de dados do site Primário para DR](azacsnap-disaster-recovery.md#monitor-data-replication-from-primary-to-dr-site)
 - [Como executar um failover para o site DR?](azacsnap-disaster-recovery.md#perform-a-failover-to-dr-site)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Instalar ferramenta instantânea consistente da aplicação Azure](azacsnap-installation.md)

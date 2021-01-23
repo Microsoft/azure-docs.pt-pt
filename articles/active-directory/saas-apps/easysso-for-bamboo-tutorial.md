@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com easySSO para bambu / Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com easySSO para | de bambu Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o EasySSO para o Bamboo.
 services: active-directory
 author: jeevansd
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/21/2020
 ms.author: jeedes
-ms.openlocfilehash: fec95dc033eb5eacaf79f5bbd2b6b294628667b9
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 3d784979876857e94c1e09ffc5b7bef11c0a0d04
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97725099"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735974"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-easysso-for-bamboo"></a>Tutorial: Azure Ative Directory integração única (SSO) com easySSO para bambu
 
@@ -94,7 +94,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação EasySSO para Bamboo espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
     
-    | Nome | Atributo de origem |
+    | Name | Atributo de origem |
     | ---------------| --------- |
     | urn:oid:0.9.2342.19200300.100.1.1 | user.userprincipalname |
     | urn:oid:0.9.2342.19200300.100.1.3 | user.mail |
@@ -199,7 +199,7 @@ No entanto, se não pretender permitir o fornecimento automático de utilizadore
 
 Nesta secção, você testa a sua configuração de sinal de Ad Ad única Azure usando as Minhas Apps.
 
-Quando clicar no azulejo EasySSO para bambu nas minhas apps, deverá ser automaticamente inscrito na instância de Bambu para a qual configura sSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Quando clicar no azulejo EasySSO para bambu nas minhas apps, deverá ser automaticamente inscrito na instância de Bambu para a qual configura sSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](../user-help/my-apps-portal-end-user-access.md)
 
 ### <a name="sp-initiated-workflow"></a>Fluxo de trabalho iniciado pela SP
 
@@ -217,6 +217,6 @@ Neste caso, tem de seguir as [instruções desta página]( https://techtime.co.n
 
 Se tiver algum problema em digerir as mensagens de registo, contacte a [equipa de suporte da EasySSO.](mailto:support@techtime.co.nz)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Uma vez configurado EasySSO para Bamboo, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

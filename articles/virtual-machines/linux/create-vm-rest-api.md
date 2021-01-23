@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: d6e5195f43991f4d40af57c1ab4b87aaca475b64
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b3eeaf5f343b6026e02d17e4d3bd90dba4b991c4
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87373407"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737050"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Crie uma máquina virtual Linux que utilize a autenticação SSH com a API REST
 
@@ -26,7 +26,7 @@ Este artigo mostra-lhe como usar a API REST para criar um Linux VM executando Ub
 Antes de criar e submeter o pedido, necessitará de:
 
 * O `{subscription-id}` para a sua subscrição
-  * Se tiver várias subscrições, consulte [Trabalhar com várias subscrições](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest)
+  * Se tiver várias subscrições, consulte [Trabalhar com várias subscrições](/cli/azure/manage-azure-subscriptions-azure-cli)
 * A `{resourceGroupName}` que criaste antes do tempo
 * Uma [interface de rede virtual](../../virtual-network/virtual-network-network-interface.md) no mesmo grupo de recursos
 * Um par de chaves SSH (pode [gerar um novo](mac-create-ssh-keys.md) se não tiver um)
@@ -54,7 +54,7 @@ Para obter informações gerais sobre o trabalho com pedidos de API REST, consul
 
 As seguintes definições comuns são utilizadas para construir um organismo de pedido:
 
-| Nome                       | Necessário | Tipo                                                                                | Descrição  |
+| Name                       | Necessário | Tipo                                                                                | Descrição  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
 | localização                   | Verdadeiro     | string                                                                              | Localização de recursos. |
 | name                       |          | string                                                                              | Nome para a máquina virtual. |
@@ -144,7 +144,7 @@ Uma resposta condensada *201 Criada* a partir do organismo de pedido de exemplo 
 
 Para obter mais informações sobre as respostas da API rest, consulte [processar a mensagem de resposta](/rest/api/azure/#process-the-response-message).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre as APIs Azure REST ou outras ferramentas de gestão, tais como Azure CLI ou Azure PowerShell, consulte o seguinte:
 

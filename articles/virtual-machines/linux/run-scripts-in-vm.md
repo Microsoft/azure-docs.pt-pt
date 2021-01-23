@@ -7,12 +7,12 @@ author: bobbytreed
 ms.author: robreed
 ms.date: 05/02/2018
 ms.topic: how-to
-ms.openlocfilehash: 0f91bb33116947312173d8f22929b8548d23a9ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 151bc827cc92c749edd2899cb331eebd22e171a7
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87292278"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737834"
 ---
 # <a name="run-scripts-in-your-linux-vm"></a>Execute scripts no seu Linux VM
 
@@ -33,7 +33,7 @@ A [extensão de script personalizado](../extensions/custom-script-linux.md) é u
 A funcionalidade ['Comando de Execução'](run-command.md) permite a gestão de máquinas virtuais e aplicações e resolução de problemas utilizando scripts, e está disponível mesmo quando a máquina não está acessível, por exemplo, se a firewall do hóspede não tiver a porta RDP ou SSH aberta.
 
 * Execute scripts em máquinas virtuais Azure.
-* Pode ser executado usando [portal Azure](run-command.md), [REST API,](/rest/api/compute/virtual%20machines%20run%20commands/runcommand) [Azure CLI,](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke)ou [PowerShell](/powershell/module/az.compute/invoke-azvmruncommand)
+* Pode ser executado usando [portal Azure](run-command.md), [REST API,](/rest/api/compute/virtual%20machines%20run%20commands/runcommand) [Azure CLI,](/cli/azure/vm/run-command#az_vm_run_command_invoke)ou [PowerShell](/powershell/module/az.compute/invoke-azvmruncommand)
 * Execute rapidamente um script e veja a saída e repita conforme necessário no portal Azure.
 * O script pode ser digitado diretamente ou pode executar um dos scripts incorporados.
 * Executar o script PowerShell em máquinas Windows e script Bash em máquinas Linux.
@@ -63,7 +63,7 @@ A [consola Serial](../troubleshooting/serial-console-linux.md) proporciona acess
 * Faça login na máquina com uma conta de utilizador local.
 * Útil quando o acesso à máquina virtual é necessário independentemente da rede ou do estado do sistema operativo da máquina.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre as diferentes funcionalidades que estão disponíveis para executar scripts e comandos dentro dos seus VMs.
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
 ms.reviewer: danis
-ms.openlocfilehash: 94e3b95e5e1d3c65550046c5db56e0f783fd60c3
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8ae41167b642be75c7bb99042bca829fd8c1728e
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976305"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736375"
 ---
 # <a name="use-azure-image-builder-for-windows-vms-allowing-access-to-an-existing-azure-vnet"></a>Utilize o Azure Image Builder para VMs windows permitindo o acesso a um Azure VNET existente
 
@@ -21,7 +21,7 @@ Este artigo mostra-lhe como pode usar o Azure Image Builder para criar uma image
 
 > [!IMPORTANT]
 > O Azure Image Builder está atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -90,7 +90,7 @@ Crie o grupo de recursos.
 New-AzResourceGroup -Name $imageResourceGroup -Location $location
 ```
 
-## <a name="configure-networking"></a>Configurar rede
+## <a name="configure-networking"></a>Configurar as redes
 
 Se não tiver um VNET\Subnet\NSG existente, utilize o seguinte script para criar um.
 
@@ -258,7 +258,7 @@ $runOutJsonStatus
 ```
 ## <a name="create-a-vm"></a>Criar uma VM
 
-Agora que a construção está terminada, pode construir um VM a partir da imagem. Utilize os exemplos da [documentação powerShell New-AzVM](/powershell/module/az.compute/new-azvm?view=azps-2.5.0#description).
+Agora que a construção está terminada, pode construir um VM a partir da imagem. Utilize os exemplos da [documentação powerShell New-AzVM](/powershell/module/az.compute/new-azvm#description).
 
 ## <a name="clean-up"></a>Limpeza
 
@@ -294,6 +294,6 @@ Remove-AzResourceGroup $imageResourceGroup -Force
 # BEWARE!!!!! In this example, you have either used an existing VNET or created one for this example. Do not delete your existing VNET. If you want to delete the VNET Resource group used in this example '$vnetRgName', modify the above code.
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre [galerias de imagem partilhadas Azure.](shared-image-galleries.md)

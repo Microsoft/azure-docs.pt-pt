@@ -11,12 +11,12 @@ ms.date: 11/13/2020
 ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019"
-ms.openlocfilehash: d8c680ec30dcecc56c064f08e4690cbbde9c2377
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 842f2f92133664f58ca60d6d30181d48d63271eb
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98679918"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736310"
 ---
 # <a name="backup-and-restore-in-azure-synapse-dedicated-sql-pool"></a>Backup e restauro na piscina SQL dedicada Azure Synapse
 
@@ -71,8 +71,16 @@ Quando você larga uma piscina SQL dedicada, um instantâneo final é criado e g
 
 Um geo-backup é criado uma vez por dia para um [centro de dados emparelhado](../../best-practices-availability-paired-regions.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). A RPO para um geo-restauro é de 24 horas. Pode restaurar o geo-backup para um servidor em qualquer outra região onde a piscina SQL dedicada é suportada. Um geo-backup garante que pode restaurar o armazém de dados no caso de não conseguir aceder aos pontos de restauro na sua região primária.
 
+Se não necessitar de geo-backups para a sua piscina SQL dedicada, pode desativá-las e economizar nos custos de armazenamento de recuperação de desastres. Para tal, consulte [como guiar: Desativar geo-backups para uma piscina SQL dedicada (anteriormente SQL DW)](disable-geo-backup.md). Note que se desativar geo-backups, não poderá recuperar a sua piscina SQL dedicada à região de Azure emparelhada se o seu centro de dados Azure primário não estiver disponível. 
+
 > [!NOTE]
 > Se necessitar de um RPO mais curto para geo-backups, vote nesta capacidade [aqui](https://feedback.azure.com/forums/307516-sql-data-warehouse). Também pode criar um ponto de restauro definido pelo utilizador e restaurar do ponto de restauro recém-criado para um novo armazém de dados numa região diferente. Uma vez restaurado, tem o armazém de dados on-line e pode fazê-lo indefinidamente para economizar custos de cálculo. A base de dados pausada incorre em encargos de armazenamento à taxa de armazenamento Azure Premium. Se precisar de uma cópia ativa do armazém de dados, pode retomar o que deve demorar apenas alguns minutos.
+
+## <a name="data-residency"></a>Residência dos dados 
+
+Se o seu centro de dados emparelhado estiver localizado fora do seu limite geográfico, pode garantir que os seus dados permanecem dentro do seu limite geográfico, optando por não armazenamento geo-redundante. Isto pode ser feito quando forte a sua piscina SQL dedicada (anteriormente SQL DW) através da opção de armazenamento geo-redundante ao criar ou restaurar uma piscina SQL dedicada (anteriormente SQL DW). 
+
+Para confirmar que o seu centro de dados emparelhado está num país diferente, consulte as [Regiões Emparelhadas Azure.](../../best-practices-availability-paired-regions.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
 
 ## <a name="backup-and-restore-costs"></a>Backup e restaurar custos
 
@@ -105,6 +113,6 @@ Você pode [restaurar a sua piscina SQL dedicada](sql-data-warehouse-restore-fro
 > [!NOTE]
 > Para realizar uma restauração geo-redundante não deve ter optado por sair desta funcionalidade.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre pontos de restauro, consulte [pontos de restauro definidos pelo utilizador](sql-data-warehouse-restore-points.md)

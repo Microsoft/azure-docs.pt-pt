@@ -1,5 +1,5 @@
 ---
-title: 'Gestão de candidaturas: Boas práticas e recomendações Microsoft Docs'
+title: 'Gestão de aplicações: Boas práticas e recomendações | Microsoft Docs'
 description: Saiba as melhores práticas e recomendações para a gestão de aplicações no Azure Ative Directory. Saiba como utilizar aplicações automáticas de fornecimento e publicação no local com Aplicação Proxy.
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 11/13/2019
 ms.subservice: app-mgmt
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f5aaf4bbff4c093872228d647d3850667fb9777
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: d7a570fb322d24bf0d32efcb6f1a2ee515862755
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656412"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736974"
 ---
 # <a name="application-management-best-practices"></a>Gestão de aplicações boas práticas
 
@@ -33,9 +33,9 @@ Este artigo contém recomendações e boas práticas para gerir aplicações no 
 | Consulte a galeria de aplicações AZure AD para obter aplicações  | A Azure AD tem uma galeria que contém milhares de aplicações pré-integradas que são ativadas com um único sign-on da Enterprise (SSO). Para obter orientação de configuração específica de aplicações, consulte a [Lista de tutoriais de aplicações SaaS](../saas-apps/tutorial-list.md).  | 
 | Utilizar SSO federado baseado em SAML  | Quando uma aplicação o suporta, utilize SSO federado, baseado em SAML com Azure AD em vez de SSO e ADFS baseados em palavra-passe.  | 
 | Utilize SHA-256 para a assinatura do certificado  | A Azure AD usa o algoritmo SHA-256 por padrão para assinar a resposta SAML. Utilize SHA-256 a menos que a aplicação exija SHA-1 (ver [opções](certificate-signing-options.md) de assinatura de certificado e [problema de inscrição de pedidos](application-sign-in-problem-application-error.md).)  | 
-| Exigir atribuição do utilizador  | Por predefinição, os utilizadores podem aceder às suas aplicações empresariais sem serem atribuídos às mesmos. No entanto, se a aplicação expor as funções, ou se pretender que a aplicação apareça nas Minhas Apps de um utilizador, requer a atribuição do utilizador. (Consulte [a orientação do Programador para a integração de aplicações](developer-guidance-for-integrating-applications.md).)  | 
+| Exigir atribuição do utilizador  | Por predefinição, os utilizadores podem aceder às suas aplicações empresariais sem serem atribuídos às mesmos. No entanto, se a aplicação expor as funções, ou se pretender que a aplicação apareça nas Minhas Apps de um utilizador, requer a atribuição do utilizador.  | 
 | Implementar as minhas apps para os seus utilizadores | [My Apps](end-user-experiences.md) at é um portal baseado na `https://myapps.microsoft.com` web que fornece aos utilizadores um único ponto de entrada para as suas aplicações baseadas na nuvem atribuídas. À medida que são adicionadas capacidades adicionais como a gestão do grupo e o reset da palavra-passe de autosserviço, os utilizadores podem encontrá-los nas Minhas Apps. Ver [Plan My Apps implementação](access-panel-deployment-plan.md).
-| Utilizar atribuição de grupo  | Se incluído na sua subscrição, atribua grupos a uma aplicação para que possa delegar a gestão de acesso contínua ao proprietário do grupo. (Consulte [a orientação do Programador para a integração de aplicações](developer-guidance-for-integrating-applications.md).)   | 
+| Utilizar atribuição de grupo  | Se incluído na sua subscrição, atribua grupos a uma aplicação para que possa delegar a gestão de acesso contínua ao proprietário do grupo.  | 
 | Estabelecer um processo de gestão de certificados | O prazo máximo de vida de um certificado de assinatura é de três anos. Para prevenir ou minimizar a interrupção devido à expiração de um certificado, utilize funções e listas de distribuição de e-mails para garantir que as notificações de alteração relacionadas com certificados são monitorizadas de perto. |
 
 ## <a name="provisioning-recommendations"></a>Recomendações de provisionamento

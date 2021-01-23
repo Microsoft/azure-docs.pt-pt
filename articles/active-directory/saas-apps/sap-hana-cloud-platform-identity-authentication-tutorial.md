@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com a Autenticação de Identidade da Plataforma CLOUD SAP Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com a autenticação de identidade da plataforma de nuvem SAP | Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e a Autenticação de Identidade da Plataforma CLOUD SAP.
 services: active-directory
 author: jeevansd
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/18/2020
 ms.author: jeedes
-ms.openlocfilehash: d2a7b27c7678f604c7f09febac67bf0879e34c3a
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 5b4a1e578ffc22fbda8b2e879f1bb85f31994997
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724192"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735662"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-cloud-platform-identity-authentication"></a>Tutorial: Azure Ative Directy integração única (SSO) com autenticação de identidade da plataforma de nuvem SAP
 
@@ -117,7 +117,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação de autenticação de identidade da plataforma SAP Cloud espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
 
-    | Nome | Atributo de origem|
+    | Name | Atributo de origem|
     | ---------------| --------------- |
     | nomePróprio | user.givenname |
 
@@ -205,8 +205,8 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 
 * Clique em **Testar esta aplicação** no portal Azure e deverá ser automaticamente inscrito na Autenticação de Identidade da Plataforma cloud SAP para a qual configura o SSO
 
-Também pode utilizar o Microsoft My Apps para testar a aplicação em qualquer modo. Quando clicar no azulejo de autenticação de identidade da plataforma DA Nuvem SAP nas Minhas Apps, se configurado no modo SP será redirecionado para o sinal de aplicação na página para iniciar o fluxo de login e se configurado no modo IDP, deverá ser automaticamente inscrito na Autenticação de Identidade da Plataforma SAP cloud para a qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Também pode utilizar o Microsoft My Apps para testar a aplicação em qualquer modo. Quando clicar no azulejo de autenticação de identidade da plataforma DA Nuvem SAP nas Minhas Apps, se configurado no modo SP será redirecionado para o sinal de aplicação na página para iniciar o fluxo de login e se configurado no modo IDP, deverá ser automaticamente inscrito na Autenticação de Identidade da Plataforma SAP cloud para a qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](../user-help/my-apps-portal-end-user-access.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Assim que configurar a Autenticação de Identidade da Plataforma cloud SAP, pode impor controlos de sessão, que protegem a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. Os controlos de sessão estendem-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)

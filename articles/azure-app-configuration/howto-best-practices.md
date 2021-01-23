@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: f407f9ee2ea0ca73b29e4fde9d542c005f78a929
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 1e5a04d385ba6c6dda5b52b23fd4793860f991dc
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98200452"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737206"
 ---
 # <a name="azure-app-configuration-best-practices"></a>Melhores práticas de Configuração de Aplicativos Azure
 
@@ -92,8 +92,8 @@ A Configuração de Aplicativos é um serviço regional. Para aplicações com c
 
 ## <a name="client-applications-in-app-configuration"></a>Aplicações do cliente na Configuração de Aplicações 
 
-Pedidos excessivos para a Configuração da Aplicação podem resultar em encargos de estrangulamento ou excesso de velocidade. As aplicações aproveitam o caching e o refrescante inteligente atualmente disponível para otimizar o número de pedidos que enviam. Este processo pode ser espelhado em aplicações de cliente de alto volume, evitando ligações diretas à loja de configuração. Em vez disso, as aplicações do cliente conectam-se a um serviço personalizado, e este serviço comunica com a loja de configuração. Esta solução proxy pode garantir que as aplicações do cliente não se aproximem do limite de estrangulamento na loja de configuração. Para obter mais informações sobre o estrangulamento, consulte [as FAQ](https://docs.microsoft.com/azure/azure-app-configuration/faq#are-there-any-limits-on-the-number-of-requests-made-to-app-configuration).  
+Pedidos excessivos para a Configuração da Aplicação podem resultar em encargos de estrangulamento ou excesso de velocidade. As aplicações aproveitam o caching e o refrescante inteligente atualmente disponível para otimizar o número de pedidos que enviam. Este processo pode ser espelhado em aplicações de cliente de alto volume, evitando ligações diretas à loja de configuração. Em vez disso, as aplicações do cliente conectam-se a um serviço personalizado, e este serviço comunica com a loja de configuração. Esta solução proxy pode garantir que as aplicações do cliente não se aproximem do limite de estrangulamento na loja de configuração. Para obter mais informações sobre o estrangulamento, consulte [as FAQ](./faq.md#are-there-any-limits-on-the-number-of-requests-made-to-app-configuration).  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Chaves e valores](./concept-key-value.md)

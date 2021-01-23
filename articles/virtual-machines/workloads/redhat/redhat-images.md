@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/10/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: dbff136ac5787ef9549cca9dc8f946c56a138986
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 293245d6778a40e234cdca177905c15dc88dd04f
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97900506"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737766"
 ---
 # <a name="overview-of-red-hat-enterprise-linux-images"></a>Visão geral das imagens do Red Hat Enterprise Linux
 
@@ -60,8 +60,8 @@ az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:8-LVM:lat
 ```
 
 >[!NOTE]
-> Em geral, a comparação das versões para determinar as últimas segue as regras do [método CompareTo](/dotnet/api/system.version.compareto?view=netcore-3.1#system_version_compareto_system_version_).
-Esta comparação de versão de imagem é feita comparando os valores como um objeto [versão,](/dotnet/api/system.version.-ctor?view=netframework-4.8) e não como uma corda.
+> Em geral, a comparação das versões para determinar as últimas segue as regras do [método CompareTo](/dotnet/api/system.version.compareto#system_version_compareto_system_version_).
+Esta comparação de versão de imagem é feita comparando os valores como um objeto [versão,](/dotnet/api/system.version.-ctor) e não como uma corda.
 
 ## <a name="rhel-6-image-types"></a>TIPOS DE IMAGEM RHEL 6
 
@@ -176,7 +176,7 @@ Atualizamos apenas a versão menor atual numa dada família de imagens. Com o la
 
 A política atual é manter todas as imagens publicadas anteriormente. Reservamo-nos o direito de remover imagens que são conhecidas por causar problemas de qualquer tipo. Por exemplo, imagens com configurações incorretas devido a atualizações subsequentes da plataforma ou componentes podem ser removidas. As imagens que podem ser removidas seguem a atual política do Azure Marketplace para fornecer notificações até 30 dias antes da remoção da imagem.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para ver a lista completa de imagens RHEL em Azure, consulte [as imagens red hat enterprise Linux (RHEL) disponíveis em Azure](./redhat-imagelist.md).
 * Para saber mais sobre a Infraestrutura de Atualização do Chapéu Vermelho Azure, consulte [a Infraestrutura red hat update para VMs RHEL a pedido em Azure](./redhat-rhui.md).

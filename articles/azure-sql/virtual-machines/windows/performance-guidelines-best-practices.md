@@ -1,5 +1,5 @@
 ---
-title: Diretrizes de desempenho para SQL Server em Azure Microsoft Docs
+title: Diretrizes de desempenho para SQL Server em Azure | Microsoft Docs
 description: Fornece diretrizes para otimizar o desempenho do SQL Server em Microsoft Azure Virtual Machines.
 services: virtual-machines-windows
 documentationcenter: na
@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/09/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 2b4e8d980ee2b5c69687fc7ad8975e26fe38071a
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 6ba30436b363353ad183396e07111b33ca912dbf
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97360123"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737443"
 ---
 # <a name="performance-guidelines-for-sql-server-on-azure-virtual-machines"></a>Diretrizes de desempenho do SQL Server nas Máquinas Virtuais do Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -43,7 +43,7 @@ Segue-se uma lista de verificação rápida para um desempenho ótimo do SQL Ser
 
 | Área | Otimizações |
 | --- | --- |
-| [Tamanho VM](#vm-size-guidance) | - Utilize tamanhos VM com 4 ou mais vCPU como o [Standard_M8-4ms,](/azure/virtual-machines/m-series)o [E4ds_v4,](../../../virtual-machines/edv4-edsv4-series.md#edv4-series)ou o [DS12_v2](../../../virtual-machines/dv2-dsv2-series-memory.md#dsv2-series-11-15) ou superior. <br/><br/> - Utilize os tamanhos de máquinas virtuais [otimizados](../../../virtual-machines/sizes-memory.md) para o melhor desempenho das cargas de trabalho do SQL Server. <br/><br/> - A série [DSv2 11-15,](../../../virtual-machines/dv2-dsv2-series-memory.md) [Edsv4,](../../../virtual-machines/edv4-edsv4-series.md) a série [M-](/azure/virtual-machines/m-series)e a [série Mv2](../../../virtual-machines/mv2-series.md) oferecem a relação memória-vCore ideal exigida para as cargas de trabalho OLTP. Ambos os VMs da série M oferecem a maior relação memória-vCore necessária para cargas de trabalho críticas da missão e também é ideal para cargas de trabalho de armazém de dados. <br/><br/> - Pode ser necessário um rácio memória-vCore mais elevado para a carga de trabalho crítica da missão e do armazém de dados. <br/><br/> - Aproveite as imagens do mercado da Máquina Virtual Azure, uma vez que as definições e opções de armazenamento do SQL Server são configuradas para um desempenho ideal do SQL Server. <br/><br/> - Recolher as características de desempenho da carga de trabalho do alvo e usá-las para determinar o tamanho de VM adequado para o seu negócio.|
+| [Tamanho VM](#vm-size-guidance) | - Utilize tamanhos VM com 4 ou mais vCPU como o [Standard_M8-4ms,](../../../virtual-machines/m-series.md)o [E4ds_v4,](../../../virtual-machines/edv4-edsv4-series.md#edv4-series)ou o [DS12_v2](../../../virtual-machines/dv2-dsv2-series-memory.md#dsv2-series-11-15) ou superior. <br/><br/> - Utilize os tamanhos de máquinas virtuais [otimizados](../../../virtual-machines/sizes-memory.md) para o melhor desempenho das cargas de trabalho do SQL Server. <br/><br/> - A série [DSv2 11-15,](../../../virtual-machines/dv2-dsv2-series-memory.md) [Edsv4,](../../../virtual-machines/edv4-edsv4-series.md) a série [M-](../../../virtual-machines/m-series.md)e a [série Mv2](../../../virtual-machines/mv2-series.md) oferecem a relação memória-vCore ideal exigida para as cargas de trabalho OLTP. Ambos os VMs da série M oferecem a maior relação memória-vCore necessária para cargas de trabalho críticas da missão e também é ideal para cargas de trabalho de armazém de dados. <br/><br/> - Pode ser necessário um rácio memória-vCore mais elevado para a carga de trabalho crítica da missão e do armazém de dados. <br/><br/> - Aproveite as imagens do mercado da Máquina Virtual Azure, uma vez que as definições e opções de armazenamento do SQL Server são configuradas para um desempenho ideal do SQL Server. <br/><br/> - Recolher as características de desempenho da carga de trabalho do alvo e usá-las para determinar o tamanho de VM adequado para o seu negócio.|
 | [Armazenamento](#storage-guidance) | - Para testar detalhadamente o desempenho do SQL Server em Máquinas Virtuais Azure com referências TPC-E e TPC_C, consulte o desempenho do blog [Otimize OLTP](https://techcommunity.microsoft.com/t5/SQL-Server/Optimize-OLTP-Performance-with-SQL-Server-on-Azure-VM/ba-p/916794). <br/><br/> - Utilize [SSDs premium](https://techcommunity.microsoft.com/t5/SQL-Server/Optimize-OLTP-Performance-with-SQL-Server-on-Azure-VM/ba-p/916794) para obter as melhores vantagens de preço/desempenho. Configurar [Leia apenas cache](../../../virtual-machines/premium-storage-performance.md#disk-caching) para ficheiros de dados e não cache para o ficheiro de registo. <br/><br/> - Utilize Discos Ultra se forem [necessárias](../../../virtual-machines/disks-types.md#ultra-disk) menos de 1-ms de atrasos de armazenamento pela carga de trabalho. Consulte [migrar para ultra disco](storage-migrate-to-ultradisk.md) para saber mais. <br/><br/> - Recolher os requisitos de latência de armazenamento para os dados do SQL Server, registo e DB temp [monitorizando a aplicação](../../../virtual-machines/premium-storage-performance.md#application-performance-requirements-checklist) antes de escolher o tipo de disco. Se forem necessárias < dedesemes de armazenamento de 1-ms, utilize discos ultra,de outra forma use SSD premium. Se as baixas latências forem apenas necessárias para o ficheiro de registo e não para ficheiros de dados, então [forneça o Disco Ultra](../../../virtual-machines/disks-enable-ultra-ssd.md) no IOPS necessário e os níveis de produção apenas para o Ficheiro de registo. <br/><br/>  - O armazenamento normalizado só é recomendado para fins de desenvolvimento e teste ou para ficheiros de cópia de segurança e não deve ser utilizado para cargas de trabalho de produção. <br/><br/> - Mantenha a [conta de armazenamento](../../../storage/common/storage-account-create.md) e o SQL Server VM na mesma região.<br/><br/> - Desativar [o armazenamento geo-redundante](../../../storage/common/storage-redundancy.md) da Azure (geo-replicação) na conta de armazenamento.  |
 | [Discos](#disks-guidance) | - Utilize um mínimo de 2 [discos SSD premium](../../../virtual-machines/disks-types.md#premium-ssd) (1 para ficheiros de registo e 1 para ficheiros de dados). <br/><br/> - Para cargas de trabalho que exijam < latências IO de 1-ms, ative o acelerador de escrita para séries M e considere a utilização de discos Ultra SSD para séries Es e DS. <br/><br/> - Ativar [a leitura apenas](../../../virtual-machines/premium-storage-performance.md#disk-caching) no(s) disco(s) que hospeda os ficheiros de dados.<br/><br/> - Adicione uma capacidade adicional de 20% de IOPS/produção premium do que a sua carga de trabalho requer ao [configurar o armazenamento para os ficheiros do SQL Server, log e TempDB](storage-configuration.md) <br/><br/> - Evite utilizar sistema operativo ou discos temporários para armazenamento de bases de dados ou registo de registo.<br/><br/> - Não ative o cache no(s) disco(s) hospedando o ficheiro de registo.  **Importante**: Pare o serviço SQL Server ao alterar as definições de cache para um disco Azure Virtual Machines.<br/><br/> - Stripe vários discos de dados Azure para obter um aumento da produção de armazenamento.<br/><br/> - Formato com tamanhos de atribuição documentados. <br/><br/> - Coloque o TempDB na unidade SSD local `D:\` para as cargas de trabalho críticas do SQL Server (depois de escolher o tamanho VM correto). Se criar o VM a partir do portal Azure ou dos modelos de quickstart Azure e [colocar o Temp DB no Disco Local,](https://techcommunity.microsoft.com/t5/SQL-Server/Announcing-Performance-Optimized-Storage-Configuration-for-SQL/ba-p/891583)então não precisa de mais ação; para todos os outros casos siga os passos no blog para  [usar SSDs para armazenar TempDB](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-TempDB-and-buffer-pool-extensions/) para evitar falhas após o reinício. Se a capacidade da unidade local não for suficiente para o seu tamanho DeP DB, em seguida, coloque o Temp DB numa piscina de armazenamento [listrada](../../../virtual-machines/premium-storage-performance.md) em discos SSD premium com [cache apenas de leitura](../../../virtual-machines/premium-storage-performance.md#disk-caching). |
 | [I/O](#io-guidance) |- Ativar a compressão da página da base de dados.<br/><br/> - Ativar a inicialização instantânea do ficheiro para ficheiros de dados.<br/><br/> - Limitar o crescimento automático da base de dados.<br/><br/> - Desative o auto-shrink da base de dados.<br/><br/> - Mover todas as bases de dados para discos de dados, incluindo bases de dados do sistema.<br/><br/> - Mover o registo de erros do SQL Server e rastrear os diretórios de ficheiros para discos de dados.<br/><br/> - Configurar a cópia de segurança predefinida e as localizações dos ficheiros de base de dados.<br/><br/> - [Ativar páginas bloqueadas na memória](/sql/database-engine/configure-windows/enable-the-lock-pages-in-memory-option-windows).<br/><br/> - Avaliar e aplicar as [últimas atualizações cumulativas](/sql/database-engine/install-windows/latest-updates-for-microsoft-sql-server) para a versão instalada do SQL Server. |
@@ -77,17 +77,17 @@ Utilize o vCPU e a configuração de memória da sua máquina de origem como bas
 
 Escolha uma [memória otimizada,](../../../virtual-machines/sizes-memory.md) [finalidade geral,](../../../virtual-machines/sizes-general.md) [armazenamento otimizado](../../../virtual-machines/sizes-storage.md)ou tamanho de máquina virtual [vCore constrangido](../../../virtual-machines/constrained-vcpu.md) que seja o melhor para o desempenho do SQL Server com base na sua carga de trabalho (OLTP ou armazém de dados). 
 
-### <a name="memory-optimized"></a>Com otimização de memória
+### <a name="memory-optimized"></a>Otimizada para memória
 
 Os [tamanhos de máquina virtual otimizados pela memória](../../../virtual-machines/sizes-memory.md) são um alvo primário para VMs do SQL Server e a escolha recomendada pela Microsoft. As máquinas virtuais otimizadas pela memória oferecem rácios de memória-CPU mais fortes e opções de cache média-grande. 
 
 #### <a name="m-and-mv2-series"></a>SérieS M e Mv2
 
-A [série M](/azure/virtual-machines/m-series) oferece contagens vCore e memória para algumas das maiores cargas de trabalho do SQL Server.  
+A [série M](../../../virtual-machines/m-series.md) oferece contagens vCore e memória para algumas das maiores cargas de trabalho do SQL Server.  
 
 A [série Mv2](../../../virtual-machines/mv2-series.md) tem as mais altas contagens e memória vCore e é recomendada para cargas de trabalho críticas e de armazéns de dados. As instâncias da série Mv2 são tamanhos VM otimizados de memória que fornecem um desempenho computacional sem paralelo para suportar grandes bases de dados na memória e cargas de trabalho com uma relação memória-CPU alta que é perfeita para servidores de base de dados relacionais, caches grandes e análises na memória.
 
-O [Standard_M64ms](/azure/virtual-machines/m-series) tem uma relação memória-vCore de 28, por exemplo.
+O [Standard_M64ms](../../../virtual-machines/m-series.md) tem uma relação memória-vCore de 28, por exemplo.
 
 Algumas das características da série M e Mv2 atraentes para o desempenho do SQL Server incluem [armazenamento premium](../../../virtual-machines/premium-storage-performance.md) e suporte de [armazenamento premium,](../../../virtual-machines/premium-storage-performance.md#disk-caching) suporte [de ultra-disco](../../../virtual-machines/disks-enable-ultra-ssd.md) e [aceleração de escrita](../../../virtual-machines/how-to-enable-write-accelerator.md).
 
@@ -158,7 +158,7 @@ O [Standard_A8m_v2](../../../virtual-machines/av2-series.md) 8 vCore também pod
 > [!NOTE] 
 > A série Av2 não suporta armazenamento premium e, como tal, não é recomendado para a produção de cargas de trabalho SQL Server mesmo com as máquinas virtuais que têm uma relação memória-vCore de 8.
 
-### <a name="storage-optimized"></a>Com otimização de armazenamento
+### <a name="storage-optimized"></a>Otimizada para armazenamento
 
 Os [tamanhos de VM otimizados](../../../virtual-machines/sizes-storage.md) de armazenamento são para casos específicos de utilização. Estas máquinas virtuais são especificamente concebidas com produção de disco otimizada e IO. Esta série de máquinas virtuais destina-se a cenários de big data, armazenamento de dados e grandes bases de dados transacionais. 
 
@@ -193,7 +193,7 @@ A contagem de vCPU pode ser limitada a metade a um quarto do tamanho original de
 
 Estes novos tamanhos VM têm um sufixo que especifica o número de vCPUs ativos para facilitar a sua identificação. 
 
-Por exemplo, o [M64-32ms](../../../virtual-machines/constrained-vcpu.md) requer o licenciamento de apenas 32 SQL Server vCores com a memória, IO, e produção dos [M64ms](/azure/virtual-machines/m-series) e o [M64-16ms](../../../virtual-machines/constrained-vcpu.md) requer licenciamento apenas 16 vCores.  Embora enquanto o [M64-16ms](../../../virtual-machines/constrained-vcpu.md) tenha um quarto do custo de licenciamento do SQL Server dos M64ms, o custo de computação da máquina virtual será o mesmo.
+Por exemplo, o [M64-32ms](../../../virtual-machines/constrained-vcpu.md) requer o licenciamento de apenas 32 SQL Server vCores com a memória, IO, e produção dos [M64ms](../../../virtual-machines/m-series.md) e o [M64-16ms](../../../virtual-machines/constrained-vcpu.md) requer licenciamento apenas 16 vCores.  Embora enquanto o [M64-16ms](../../../virtual-machines/constrained-vcpu.md) tenha um quarto do custo de licenciamento do SQL Server dos M64ms, o custo de computação da máquina virtual será o mesmo.
 
 > [!NOTE] 
 > - As cargas de trabalho de armazém de dados médios a grandes ainda podem beneficiar de [VMs vCore limitados,](../../../virtual-machines/constrained-vcpu.md)mas as cargas de trabalho do armazém de dados são geralmente caracterizadas por menos utilizadores e processos que abordam quantidades maiores de dados através de planos de consulta que funcionam em paralelo. 
@@ -409,7 +409,7 @@ Os seguintes contadores PerfMon podem ajudar a validar a saúde computacional de
 > [!NOTE] 
 > Idealmente, tente usar 80% do seu cálculo, com picos acima de 90% mas não atingindo 100% durante qualquer período de tempo sustentado. Fundamentalmente, você só quer providenciar o cálculo que a aplicação precisa e, em seguida, planeja escalar para cima ou para baixo como o negócio exige. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter as melhores práticas de segurança, consulte [considerações de segurança para o SQL Server em Azure Virtual Machines](security-considerations-best-practices.md).
 

@@ -1,5 +1,5 @@
 ---
-title: Arquiteturas de referência para bases de dados da Oracle em Azure Microsoft Docs
+title: Arquiteturas de referência para bases de dados oracle em Azure | Microsoft Docs
 description: Referências arquiteturas para executar bases de dados Da Oracle Database Enterprise Edition em Microsoft Azure Virtual Machines.
 author: dbakevlar
 ms.service: virtual-machines-linux
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/13/2019
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: 83da8cbf3a87570cfb967e0a6c8da3f0f2ed1766
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: bbaf34c977546891c6ac05fbd4b5feb15f333e04
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96486747"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737817"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Arquiteturas de referência para Oracle Database Enterprise Edition em Azure
 
@@ -207,12 +207,12 @@ Durante o pedido inicial, o servidor de aplicações conecta-se ao diretor de fr
 
 Ao implementar as suas cargas de trabalho da Oracle para o Azure, a Microsoft cuida de todos os patchings de nível OS do hospedeiro. Qualquer manutenção planeada ao nível do SO é comunicada antecipadamente aos clientes para permitir ao cliente esta manutenção planeada. Dois servidores de duas zonas de disponibilidade diferentes nunca são remendados simultaneamente. Consulte [Gerir a disponibilidade de máquinas virtuais](../../manage-availability.md) para obter mais detalhes sobre manutenção e remendos em VM. 
 
-Remendar o sistema operativo da máquina virtual pode ser automatizado utilizando [a Azure Automation Update Management](../../../automation/update-management/overview.md). Remendar e manter a base de dados oracle pode ser automatizado e programado usando [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) ou [Azure Automation Update Management](../../../automation/update-management/overview.md) para minimizar o tempo de inatividade. Consulte [a Entrega Contínua e As Implementações Azuis/Verdes](/azure/devops/learn/what-is-continuous-delivery) para entender como pode ser usada no contexto das suas bases de dados Oráculos.
+Remendar o sistema operativo da máquina virtual pode ser automatizado utilizando [a Azure Automation Update Management](../../../automation/update-management/overview.md). Remendar e manter a base de dados oracle pode ser automatizado e programado usando [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) ou [Azure Automation Update Management](../../../automation/update-management/overview.md) para minimizar o tempo de inatividade. Consulte [a Entrega Contínua e As Implementações Azuis/Verdes](/azure/devops/learn/what-is-continuous-delivery) para entender como pode ser usada no contexto das suas bases de dados Oráculos.
 
 ## <a name="architecture-and-design-considerations"></a>Considerações de arquitetura e design
 
 - Considere usar a [máquina virtual otimizada de memória hiperligada](../../sizes-memory.md) com [vCPUs de núcleo limitado](../../../virtual-machines/constrained-vcpu.md) para o seu Oracle Database VM para economizar nos custos de licenciamento e maximizar o desempenho. Utilize vários discos premium ou ultra (discos geridos) para desempenho e disponibilidade.
-- Ao utilizar discos geridos, o nome do disco/dispositivo pode ser alterado em reboots. Recomenda-se que utilize o dispositivo UUID em vez do nome para garantir que os seus suportes persistam em reboots. Mais informações podem ser [encontradas aqui.](/previous-versions/azure/virtual-machines/linux/configure-raid#add-the-new-file-system-to-etcfstab)
+- Ao utilizar discos geridos, o nome do disco/dispositivo pode ser alterado em reboots. Recomenda-se que utilize o dispositivo UUID em vez do nome para garantir que os seus suportes persistam em reboots. Pode encontrar mais informações [aqui](/previous-versions/azure/virtual-machines/linux/configure-raid#add-the-new-file-system-to-etcfstab).
 - Utilize zonas de disponibilidade para obter uma elevada disponibilidade na região.
 - Considere utilizar discos ultra (quando disponíveis) ou discos premium para a sua base de dados Oracle.
 - Considere criar uma base de dados de standby Oracle em outra região de Azure usando a Oracle Data Guard.
@@ -222,7 +222,7 @@ Remendar o sistema operativo da máquina virtual pode ser automatizado utilizand
 - Utilize [pipelines Azure](/azure/devops/pipelines/get-started/what-is-azure-pipelines) para gerir remendos e atualizações na sua base de dados sem qualquer tempo de inatividade.
 - Ajuste o seu código de aplicação para adicionar padrões nativos da nuvem, tais como padrão de [retrip,](/azure/architecture/patterns/retry) [padrão de disjuntor](/azure/architecture/patterns/circuit-breaker)de circuitos, e outros padrões definidos no [guia Cloud Design Patterns](/azure/architecture/patterns/) que podem ajudar a sua aplicação a ser mais resistente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Reveja os seguintes artigos de referência da Oracle que se aplicam ao seu cenário.
 

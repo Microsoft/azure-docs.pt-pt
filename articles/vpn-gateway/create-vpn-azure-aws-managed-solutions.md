@@ -6,14 +6,14 @@ titleSuffix: Azure VPN Gateway
 author: ricmmartins
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 01/15/2021
+ms.date: 01/22/2021
 ms.author: ricmart
-ms.openlocfilehash: 3b9e60eb037182318e9d1ef7336565908a9c8f32
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: a0655ce1d2e9939981bb4fd3280af80e359ea1e1
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98664788"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737749"
 ---
 # <a name="create-a-vpn-connection-between-azure-and-aws-using-managed-solutions"></a>Criar uma ligação VPN entre Azure e AWS utilizando soluções geridas
 
@@ -42,6 +42,8 @@ Crie uma porta VPN para a sua rede virtual. Para obter instruções, consulte [T
 
 Neste artigo são utilizados os seguintes valores e configurações:
 
+* **Nome gateway:** vpn-azure-aws
+* **Região:** Leste dos EUA
 * **Tipo de gateway:** VPN
 * **Tipo de VPN:** baseado na rota
 * **SKU:** VpnGw1
@@ -173,15 +175,13 @@ Nesta secção, cria-se uma segunda ligação para garantir uma elevada disponib
 
    :::image type="content" source="./media/create-vpn-azure-aws-managed-solutions/azure-tunnels.png" alt-text="Estado de ligação azul":::
 
-1. Veja as ligações AWS.
+1. Veja as ligações AWS. Neste exemplo, pode ver-se que as ligações estão agora estabelecidas.
 
    :::image type="content" source="./media/create-vpn-azure-aws-managed-solutions/aws-tunnels.png" alt-text="Estado de ligação AWS":::
 
-As ligações estão agora estabelecidas.
+## <a name="to-test-connections"></a>Para testar ligações
 
-## <a name="test-connections"></a>Ligações de teste
-
-1. Adicione um Gateway de Internet ao VPC na AWS. O Internet Gateway é uma ligação lógica entre uma Amazon VPN e a Internet. Este recurso permite-lhe ligar através do VM de teste a partir do IP público AWS através da Internet. Este recurso não é necessário para a ligação VPN. Só estamos a usá-lo para testar.
+1. Adicione uma **porta de entrada** de internet ao VPC na AWS. O portal de internet é uma ligação lógica entre uma VPN Amazon e a Internet. Este recurso permite-lhe ligar através do VM de teste a partir do IP público AWS através da Internet. Este recurso não é necessário para a ligação VPN. Só estamos a usá-lo para testar.
 
    :::image type="content" source="./media/create-vpn-azure-aws-managed-solutions/create-igw.png" alt-text="Criar o portal da Internet":::
 
@@ -189,11 +189,11 @@ As ligações estão agora estabelecidas.
 
    :::image type="content" source="./media/create-vpn-azure-aws-managed-solutions/attach-igw.png" alt-text="Anexação da Porta de Internet ao VPC":::
 
-1. Selecione um VPC e **anexe o portal internet**.
+1. Selecione um VPC e **anexe o portal de internet**.
 
    :::image type="content" source="./media/create-vpn-azure-aws-managed-solutions/attach-igw-2.png" alt-text="Anexar o portal":::
 
-1. Crie uma rota para permitir ligações a **0.0.0.0/0** (Internet) através do Portal da Internet.
+1. Crie uma rota para permitir ligações a **0.0.0.0/0** (Internet) através do portal de internet.
 
    :::image type="content" source="./media/create-vpn-azure-aws-managed-solutions/allow-internet-igw.png" alt-text="Configure a rota através do portal":::
 
@@ -201,11 +201,11 @@ As ligações estão agora estabelecidas.
 
    :::image type="content" source="./media/create-vpn-azure-aws-managed-solutions/azure-effective-routes.png" alt-text="Verifique as rotas eficazes":::
 
-1. De um Linux VM em Azure, o ambiente é semelhante ao seguinte exemplo.
+1. Pode testar isto a partir de um Linux VM em Azure. O resultado será semelhante ao seguinte exemplo.
 
    :::image type="content" source="./media/create-vpn-azure-aws-managed-solutions/azure-overview.png" alt-text="Visão geral do Azure da Linux VM":::
 
-1. De um Linux VM em AWS, o ambiente é semelhante ao seguinte exemplo.
+1. Também pode testar isto a partir de um Linux VM em AWS. O resultado será semelhante ao seguinte exemplo.
 
    :::image type="content" source="./media/create-vpn-azure-aws-managed-solutions/aws-overview.png" alt-text="Visão geral da AWS da Linux VM":::
 
@@ -217,6 +217,6 @@ As ligações estão agora estabelecidas.
 
    :::image type="content" source="./media/create-vpn-azure-aws-managed-solutions/aws-ping.png" alt-text="Teste de ping da AWS":::
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre o suporte da AWS para o IKEv2, consulte o [artigo da AWS](https://aws.amazon.com/about-aws/whats-new/2019/02/aws-site-to-site-vpn-now-supports-ikev2/).

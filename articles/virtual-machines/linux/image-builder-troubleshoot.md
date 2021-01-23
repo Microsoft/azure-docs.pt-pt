@@ -7,12 +7,12 @@ ms.date: 10/02/2020
 ms.topic: troubleshooting
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: 7c937353c645ee5d977a52ec0f8e935eba19a940
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 73984694d764234e9e1ec11e6b189a9ad85d97a8
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91969981"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737409"
 ---
 # <a name="troubleshoot-azure-image-builder-service"></a>Serviço de construtores de imagem Azure de resolução de problemas
 
@@ -137,7 +137,7 @@ Certifique-se de que o ficheiro está acessível. Verifique se o nome e a locali
 
 ## <a name="troubleshoot-build-failures"></a>Falhas na construção de problemas
 
-Para falhas na construção de imagens, pode obter o erro do `lastrunstatus` , e depois rever os detalhes no personalization.log.
+Para falhas na construção de imagens, pode obter o erro do `lastrunstatus` , e depois rever os detalhes na personalização.log.
 
 
 ```azurecli
@@ -152,18 +152,18 @@ Get-AzImageBuilderTemplate -ImageTemplateName  <imageTemplateName> -ResourceGrou
 
 Quando a construção da imagem está em execução, os registos são criados e armazenados numa conta de armazenamento. O Azure Image Builder cria a conta de armazenamento no grupo de recursos temporários quando cria um artefacto de modelo de imagem.
 
-O nome da conta de armazenamento usa o seguinte padrão: **IT_ \<ImageResourceGroupName\> _\<TemplateName\>_ \<GUID\> **
+O nome da conta de armazenamento usa o seguinte padrão: **IT_ \<ImageResourceGroupName\> _\<TemplateName\>_ \<GUID\>**
 
 Por exemplo, *IT_aibmdi_helloImageTemplateLinux01.*
 
-Pode ver a conta de armazenamento personalização.log in no grupo de recursos selecionando **As**  >  **Bolhas de**Conta de Armazenamento  >  `packerlogs` .  Em seguida, selecione **diretório > personalização.log**.
+Pode ver a personalização.log na conta de armazenamento no grupo de recursos, selecionando **As**  >  **Bolhas de** Conta de Armazenamento  >  `packerlogs` .  Em seguida, selecione **diretório > personalização.log**.
 
 
 ### <a name="understanding-the-customization-log"></a>Compreender o registo de personalização
 
 O tronco é verboso. Cobre a construção de imagens, incluindo quaisquer problemas com a distribuição de imagem, como a replicação da Galeria de Imagens Partilhadas. Estes erros são apresentados na mensagem de erro do estado do modelo de imagem.
 
-A personalização.log inclui as seguintes fases:
+A .log personalização inclui as seguintes fases:
 
 1. Implemente o VM de construção e as dependências utilizando modelos ARM para a fase de grupos de IT_ de estágio de recursos. Este palco inclui vários POSTs para o fornecedor de recursos Azure Image Builder:
     ```text
@@ -194,7 +194,7 @@ A personalização.log inclui as seguintes fases:
     PACKER OUT ==> azure-arm: Connected to SSH!
     ```
 
-4. Executar o estágio de personalização. Quando as personalizações são executadas, pode identificá-las revendo o personalização.log. Procurar *(telemetria)*.
+4. Executar o estágio de personalização. Quando as personalizações são executadas, pode identificá-las revendo a personalização.log. Procurar *(telemetria)*.
     ```text
     (telemetry) Starting provisioner windows-update
     (telemetry) ending windows-update
@@ -222,7 +222,7 @@ A personalização.log inclui as seguintes fases:
 ## <a name="tips-for-troubleshooting-scriptinline-customization"></a>Dicas para resolução de problemas script/personalização inline
 - Teste o código antes de o fornecer ao Image Builder
 - Certifique-se de que a Azure Policy's e firewalls permitem a conectividade com os recursos remotos.
-- Comentários de saída para a consola, como usar `Write-Host` `echo` ou, isto permitir-lhe-á pesquisar o personalization.log.
+- Comentários de saída para a consola, como usar `Write-Host` `echo` ou, isto permitir-lhe-á pesquisar a personalização.log.
 
 ## <a name="troubleshoot-common-build-errors"></a>Resolução de problemas erros de construção comuns
 
@@ -320,7 +320,7 @@ Deployment failed. Correlation ID: XXXXXX-XXXX-XXXXXX-XXXX-XXXXXX. Failed in dis
 
 #### <a name="cause"></a>Causa
 
-O Image Builder cronometrou à espera que a imagem fosse adicionada e replicada na Galeria de Imagens Partilhadas (SIG). Se a imagem está a ser injetada no SIG, pode presumir-se que a construção da imagem foi bem sucedida. No entanto, o processo global falhou, porque o construtor de imagens estava à espera da galeria de imagens partilhada para completar a replicação. Mesmo que a construção tenha falhado, a replicação continua. Pode obter as propriedades da versão de imagem verificando o *runOutout de*distribuição .
+O Image Builder cronometrou à espera que a imagem fosse adicionada e replicada na Galeria de Imagens Partilhadas (SIG). Se a imagem está a ser injetada no SIG, pode presumir-se que a construção da imagem foi bem sucedida. No entanto, o processo global falhou, porque o construtor de imagens estava à espera da galeria de imagens partilhada para completar a replicação. Mesmo que a construção tenha falhado, a replicação continua. Pode obter as propriedades da versão de imagem verificando o *runOutout de* distribuição .
 
 ```bash
 $runOutputName=<distributionRunOutput>
@@ -586,7 +586,7 @@ Há talvez alguns casos em que precisa investigar construções bem sucedidas, e
 
 Se a construção não foi cancelada por um utilizador, foi cancelada pelo Agente utilizador Azure DevOps. O mais provável é que o tempo limite de 1 hora tenha ocorrido devido às capacidades do Azure DevOps. Se estiver a usar um projeto privado e um agente, obtém 60 minutos de tempo de construção. Se a construção exceder o tempo limite, o DevOps cancela a tarefa de execução.
 
-Para obter mais informações sobre as capacidades e limitações do Azure DevOps, consulte [os agentes hospedados pela Microsoft](/azure/devops/pipelines/agents/hosted?view=azure-devops#capabilities-and-limitations)
+Para obter mais informações sobre as capacidades e limitações do Azure DevOps, consulte [os agentes hospedados pela Microsoft](/azure/devops/pipelines/agents/hosted#capabilities-and-limitations)
  
 #### <a name="solution"></a>Solução
 
@@ -659,7 +659,7 @@ Write-Output '>>> Sysprep complete ...'
 
 ### <a name="overriding-the-commands"></a>Sobrevando os Comandos
 
-Para anular os comandos, utilize os provisionadores de scripts PowerShell ou shell para criar os ficheiros de comando com o nome exato do ficheiro e colocá-los nos diretórios listados anteriormente. O Azure Image Builder lê estes comandos e a saída é escrita para o *personalização.log*.
+Para anular os comandos, utilize os provisionadores de scripts PowerShell ou shell para criar os ficheiros de comando com o nome exato do ficheiro e colocá-los nos diretórios listados anteriormente. O Azure Image Builder lê estes comandos e a saída é escrita para a *personalização.log*.
 
 ## <a name="getting-support"></a>Obter Suporte
 Se se referiu à orientação e ainda não consegue resolver o seu problema, pode abrir um caso de apoio. Ao fazê-lo, selecione o produto certo e o tópico de suporte, o que irá envolver a equipa de suporte do Azure VM Image Builder.
@@ -672,6 +672,6 @@ Support Topic: Azure Features
 Support Subtopic: Azure Image Builder
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para mais informações, consulte [a visão geral do Azure Image Builder](image-builder-overview.md).

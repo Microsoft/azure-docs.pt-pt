@@ -3,12 +3,12 @@ title: Back up Azure Managed Disks
 description: Saiba como fazer o back up Azure Managed Disks a partir do portal Azure.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: 2169e2f44e3ffb2c05c674d633efabed2c531878
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: ca86550c4dec4b51c60d9ecdef124e38783a3764
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98573127"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98738157"
 ---
 # <a name="back-up-azure-managed-disks-in-preview"></a>Faça o back up Azure Managed Disks (na pré-visualização)
 
@@ -17,7 +17,7 @@ ms.locfileid: "98573127"
 >
 >[Preencha este formulário](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) para se inscrever para a pré-visualização.
 
-Este artigo explica como fazer o back up [Azure Managed Disk](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview) a partir do portal Azure.
+Este artigo explica como fazer o back up [Azure Managed Disk](../virtual-machines/managed-disks-overview.md) a partir do portal Azure.
 
 Neste artigo, vai aprender a:
 
@@ -46,7 +46,7 @@ Um cofre de backup é uma entidade de armazenamento em Azure que contém dados d
 
    ![Iniciar: Criar cofre](./media/backup-managed-disks/initiate-create-vault.png)
 
-1. No separador **Basics,** forneça subscrição, grupo de recursos, nome do cofre de reserva, região e redundância de armazenamento de backup. Continue selecionando **Review + create**. Saiba mais sobre [a criação de um cofre de reserva.](https://docs.microsoft.com/azure/backup/backup-vault-overview#create-a-backup-vault)
+1. No separador **Basics,** forneça subscrição, grupo de recursos, nome do cofre de reserva, região e redundância de armazenamento de backup. Continue selecionando **Review + create**. Saiba mais sobre [a criação de um cofre de reserva.](./backup-vault-overview.md#create-a-backup-vault)
 
    ![Rever e criar cofre](./media/backup-managed-disks/review-and-create.png)
 
@@ -67,7 +67,7 @@ Um cofre de backup é uma entidade de armazenamento em Azure que contém dados d
 
    ![Selecione frequência de agenda de backup](./media/backup-managed-disks/backup-schedule-frequency.png)
 
-   O Azure Disk Backup oferece várias cópias de segurança por dia. Se necessitar de cópias de segurança mais frequentes, escolha a frequência de backup **hourly** com a capacidade de fazer backups com intervalos de cada 4, 6, 8 ou 12 horas. As cópias de segurança são programadas com base no intervalo **de tempo** selecionado. Por exemplo, se selecionar **De 4 em 4 horas,** as cópias de segurança são tomadas aproximadamente no intervalo de cada 4 horas para que as cópias de segurança sejam distribuídas igualmente ao longo do dia. Se uma cópia de segurança uma vez por dia for suficiente, então escolha a frequência de backup **Diária.** Na frequência de backup diária, pode especificar a hora do dia quando as suas cópias de segurança são tomadas. É importante notar que a hora do dia indica a hora de início de backup e não a hora em que a cópia de segurança termina. O tempo necessário para completar a operação de backup depende de vários fatores, incluindo o tamanho do disco, e a taxa de churn entre cópias de segurança consecutivas. No entanto, a cópia de segurança do Azure Disk é uma cópia de segurança sem agente que utiliza [instantâneos incrementais](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots-portal), o que não afeta o desempenho da aplicação de produção.
+   O Azure Disk Backup oferece várias cópias de segurança por dia. Se necessitar de cópias de segurança mais frequentes, escolha a frequência de backup **hourly** com a capacidade de fazer backups com intervalos de cada 4, 6, 8 ou 12 horas. As cópias de segurança são programadas com base no intervalo **de tempo** selecionado. Por exemplo, se selecionar **De 4 em 4 horas,** as cópias de segurança são tomadas aproximadamente no intervalo de cada 4 horas para que as cópias de segurança sejam distribuídas igualmente ao longo do dia. Se uma cópia de segurança uma vez por dia for suficiente, então escolha a frequência de backup **Diária.** Na frequência de backup diária, pode especificar a hora do dia quando as suas cópias de segurança são tomadas. É importante notar que a hora do dia indica a hora de início de backup e não a hora em que a cópia de segurança termina. O tempo necessário para completar a operação de backup depende de vários fatores, incluindo o tamanho do disco, e a taxa de churn entre cópias de segurança consecutivas. No entanto, a cópia de segurança do Azure Disk é uma cópia de segurança sem agente que utiliza [instantâneos incrementais](../virtual-machines/disks-incremental-snapshots.md), o que não afeta o desempenho da aplicação de produção.
 
 1. No separador **política de backup,** selecione as definições de retenção que satisfaçam o requisito do objetivo do ponto de recuperação (RPO).
 
@@ -80,7 +80,7 @@ Um cofre de backup é uma entidade de armazenamento em Azure que contém dados d
    ![Definições de retenção](./media/backup-managed-disks/retention-settings.png)
 
    >[!NOTE]
-   >A Azure Backup for Managed Disks utiliza instantâneos incrementais que estão limitados a 200 instantâneos por disco. Para permitir que você assuma backups a pedido para além de backups programados, a política de backup limita o total de backups para 180. Saiba mais sobre [instantâneos incrementais](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots-portal#restrictions) para o disco gerido.
+   >A Azure Backup for Managed Disks utiliza instantâneos incrementais que estão limitados a 200 instantâneos por disco. Para permitir que você assuma backups a pedido para além de backups programados, a política de backup limita o total de backups para 180. Saiba mais sobre [instantâneos incrementais](../virtual-machines/disks-incremental-snapshots.md#restrictions) para o disco gerido.
 
 1. Complete a criação de política de backup selecionando **Review + create**.
 
@@ -88,7 +88,7 @@ Um cofre de backup é uma entidade de armazenamento em Azure que contém dados d
 
 Backup Vault usa Identidade Gerida para aceder a outros recursos Azure. Para configurar a cópia de segurança dos discos geridos, a identidade gerida do cofre de backup requer um conjunto de permissões nos discos de origem e grupos de recursos onde as imagens são criadas e geridas.
 
-Um sistema atribuído à identidade gerida é restrito a um por recurso e está ligado ao ciclo de vida deste recurso. Pode conceder permissões à identidade gerida utilizando o controlo de acesso baseado em funções Azure (Azure RBAC). A identidade gerida é um principal de serviço de um tipo especial que só pode ser usado com recursos Azure. Saiba mais sobre [identidades geridas.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+Um sistema atribuído à identidade gerida é restrito a um por recurso e está ligado ao ciclo de vida deste recurso. Pode conceder permissões à identidade gerida utilizando o controlo de acesso baseado em funções Azure (Azure RBAC). A identidade gerida é um principal de serviço de um tipo especial que só pode ser usado com recursos Azure. Saiba mais sobre [identidades geridas.](../active-directory/managed-identities-azure-resources/overview.md)
 
 São necessários os seguintes pré-requisitos para configurar a cópia de segurança dos discos geridos:
 
@@ -115,7 +115,7 @@ São necessários os seguintes pré-requisitos para configurar a cópia de segur
 
    - Pode utilizar este grupo de recursos para armazenar instantâneos em vários discos que estão a ser (ou planeados) apoiados.  
 
-   - Não é possível criar uma imagem incremental para um disco específico fora da subscrição do disco. Por isso, escolha o grupo de recursos dentro da mesma subscrição que a do disco a ser apoiado. Saiba mais sobre [instantâneos incrementais](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots-portal#restrictions) para discos geridos.
+   - Não é possível criar uma imagem incremental para um disco específico fora da subscrição do disco. Por isso, escolha o grupo de recursos dentro da mesma subscrição que a do disco a ser apoiado. Saiba mais sobre [instantâneos incrementais](../virtual-machines/disks-incremental-snapshots.md#restrictions) para discos geridos.
 
    Para atribuir o papel, siga estes passos:
 
@@ -129,8 +129,6 @@ São necessários os seguintes pré-requisitos para configurar a cópia de segur
    >Digite o nome do cofre de reserva para selecionar a identidade gerida do cofre.
 
    ![Adicione a função de contribuinte snapshot de disco](./media/backup-managed-disks/disk-snapshot-contributor-role.png)
-
-1. Se o disco a ser apoiado for encriptado com [teclas geridas pelo cliente (CMK)](https://docs.microsoft.com/azure/virtual-machines/disks-enable-customer-managed-keys-portal) ou utilizando [encriptação dupla utilizando chaves geridas pela plataforma e teclas geridas pelo cliente,](https://docs.microsoft.com/azure/virtual-machines/disks-enable-double-encryption-at-rest-portal)atribua a permissão de função do **Leitor** à identidade gerida do Cofre de Cópia de Segurança no recurso **Conjunto de Encriptação** do Disco.
 
 1. Verifique se a identidade gerida do cofre de backup tem o conjunto certo de atribuições de funções no disco de origem e no grupo de recursos que serve como a loja de dados instantânea.
 
@@ -154,7 +152,7 @@ São necessários os seguintes pré-requisitos para configurar a cópia de segur
    ![Selecione disco Azure](./media/backup-managed-disks/select-azure-disk.png)
 
    >[!NOTE]
-   >O Azure Backup utiliza [instantâneos incrementais](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots-portal#restrictions) de discos geridos, que armazenam apenas as alterações delta no disco desde a última imagem no armazenamento standard hdd, independentemente do tipo de armazenamento do disco-mãe. Para uma fiabilidade adicional, os instantâneos incrementais são armazenados em Zone Redundant Storage (ZRS) por padrão em regiões que suportam ZRS. Atualmente, o Azure Disk Backup suporta a cópia de segurança operacional de discos geridos que não copiam as cópias de segurança para o armazenamento do cofre de backup. Assim, a definição de redundância de armazenamento de backup do cofre de backup não se aplica aos pontos de recuperação.
+   >O Azure Backup utiliza [instantâneos incrementais](../virtual-machines/disks-incremental-snapshots.md#restrictions) de discos geridos, que armazenam apenas as alterações delta no disco desde a última imagem no armazenamento standard hdd, independentemente do tipo de armazenamento do disco-mãe. Para uma fiabilidade adicional, os instantâneos incrementais são armazenados em Zone Redundant Storage (ZRS) por padrão em regiões que suportam ZRS. Atualmente, o Azure Disk Backup suporta a cópia de segurança operacional de discos geridos que não copiam as cópias de segurança para o armazenamento do cofre de backup. Assim, a definição de redundância de armazenamento de backup do cofre de backup não se aplica aos pontos de recuperação.
 
 1. No separador **política de backup,** escolha uma política de backup.
 
@@ -219,6 +217,6 @@ O serviço Azure Backup cria um trabalho para cópias de segurança programadas 
 
    ![Selecione trabalho para ver detalhes](./media/backup-managed-disks/select-job.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Restaurar Discos Geridos Azure](restore-managed-disks.md)

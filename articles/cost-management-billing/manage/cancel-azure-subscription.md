@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: banders
-ms.openlocfilehash: 662e1bf721c93ee1d59946d2fd603551f3f88ad3
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
-ms.translationtype: HT
+ms.openlocfilehash: 0d0dd5342cfc57da776e38ddef3df3b9c2199ac2
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97503799"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735780"
 ---
 # <a name="cancel-your-azure-subscription"></a>Cancelar a sua subscrição do Azure
 
@@ -79,7 +79,7 @@ Se tiver uma subscrição de avaliação gratuita, não tem de aguardar 30 dias 
 
 ## <a name="reactivate-a-subscription"></a>Reativar uma subscrição
 
-Se cancelar a sua subscrição com tarifas Pay As You Go por engano, pode [reativá-la no Centro de Contas](subscription-disabled.md).
+Se cancelar a sua subscrição com tarifas Pay-As-You-Go acidentalmente, pode [reativá-la no portal Azure](subscription-disabled.md).
 
 Se a sua subscrição não for uma subscrição com tarifas Pay As You Go, contacte o suporte no prazo de 90 dias após o cancelamento para reativar a sua subscrição.
 
@@ -101,4 +101,4 @@ Veja o artigo [Renovação e Cancelamento](/visualstudio/subscriptions/faq/admin
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Se for necessário, pode reativar uma subscrição pay as you go no [Centro de contas](subscription-disabled.md).
+- Se necessário, pode reativar uma subscrição pay-as-you-go no [portal Azure](subscription-disabled.md).

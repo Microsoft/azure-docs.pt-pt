@@ -1,5 +1,5 @@
 ---
-title: Modelo da Série Time - Azure Time Series Insights Gen2 / Microsoft Docs
+title: Modelo da Série De Tempo - Azure Time Series Insights Gen2 | Microsoft Docs
 description: Saiba mais sobre o modelo da Série De Tempo em Azure Time Series Insights Gen2.
 author: deepakpalled
 ms.author: dpalled
@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/01/2020
+ms.date: 01/22/2021
 ms.custom: seodec18
-ms.openlocfilehash: 0c201ce984a216a5cc62e221c0433f83a7eeabae
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 7b37934ff3b867b83c2c958d52bea2dd4db01354
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021767"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736806"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-gen2"></a>Modelo de série de tempo em Azure Time Series Insights Gen2
 
@@ -75,7 +75,7 @@ Estes componentes são combinados para especificar um modelo de série sonora e 
 
 [![Gráfico de visão geral do modelo de série de tempo](media/v2-update-tsm/time-series-model-overview.png)](media/v2-update-tsm/time-series-model-overview.png#lightbox)
 
-Um modelo de série sonora pode ser criado e gerido através do [Azure Time Series Insights Explorer](). As definições do modelo série de tempo podem ser geridas através da [API de Definições](/rest/api/time-series-insights/reference-model-apis)de Modelos .
+Um modelo de série sonora pode ser criado e gerido através do [Azure Time Series Insights Explorer](https://docs.microsoft.com/azure/time-series-insights/concepts-ux-panels). As definições do modelo série de tempo podem ser geridas através da [API de Definições](/rest/api/time-series-insights/reference-model-apis)de Modelos .
 
 ## <a name="time-series-model-instances"></a>Exemplos de modelos de séries de tempo
 

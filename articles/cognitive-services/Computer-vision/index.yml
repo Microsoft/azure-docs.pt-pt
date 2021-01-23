@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/22/2020
-  ms.openlocfilehash: 8a1710a44ebd93db352dbc63bd350aad8bfa2785
-  ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
-  ms.translationtype: HT
+  ms.openlocfilehash: cc986f0b29798cef62df2746a5af9a5d34bcef16
+  ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+  ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 12/02/2020
-  ms.locfileid: "96533898"
+  ms.lasthandoff: 01/23/2021
+  ms.locfileid: "98737715"
 landingContent:
 - title: Sobre a Imagem Digitalizada
   linkLists:
@@ -105,7 +105,7 @@ landingContent:
   - linkListType: deploy
     links:
     - text: Utilizar instâncias de contentor
-      url: deploy-computer-vision-on-container-instances.md
+      url: ../containers/azure-container-instance-recipe.md
     - text: Utilizar com o Kubernetes e Helm
       url: deploy-computer-vision-on-premises.md
 - title: Utilizar o contentor de análise espacial

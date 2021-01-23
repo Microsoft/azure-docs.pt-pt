@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/30/2019
 ms.author: magoedte
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: a21df6e5f8d437415bb5376969d56d26153b5c5f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: f100df39ad92a3e8062c01a48a9f68730a3badb8
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500466"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736722"
 ---
 # <a name="tutorial-monitor-a-linux-virtual-machine-in-azure"></a>Tutorial: Monitorize uma máquina virtual Linux em Azure
 
@@ -46,13 +46,13 @@ Se optar por instalar e utilizar a CLI localmente, este tutorial requer que exec
 
 ## <a name="create-vm"></a>Criar VM
 
-Para ver os diagnósticos e as métricas em ação, precisa de uma VM. Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroupMonitor* na localização *eastus*.
+Para ver os diagnósticos e as métricas em ação, precisa de uma VM. Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group#az_group_create). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroupMonitor* na localização *eastus*.
 
 ```azurecli-interactive
 az group create --name myResourceGroupMonitor --location eastus
 ```
 
-Agora, crie uma VM com [az vm create](/cli/azure/vm?view=azure-cli-latest#az-vm-create). O exemplo seguinte cria uma VM com o nome *myVM* e gera chaves SSH caso estas ainda não existam em *~/.ssh/*:
+Agora, crie uma VM com [az vm create](/cli/azure/vm#az_vm_create). O exemplo seguinte cria uma VM com o nome *myVM* e gera chaves SSH caso estas ainda não existam em *~/.ssh/*:
 
 ```azurecli-interactive
 az vm create \
@@ -67,7 +67,7 @@ az vm create \
 
 À medida que as VMs do Linux arrancam, a extensão de diagnóstico de arranque captura a saída de arranque e guarda-a no armazenamento do Azure. Estes dados podem ser utilizados para resolver problemas de arranque das VMs. Os diagnósticos de arranque não são ativados automaticamente ao criar uma VM do Linux através da CLI do Azure.
 
-Antes de ativar os diagnósticos de arranque, tem de ser criada uma conta de armazenamento para guardar os registos de arranque. As contas de armazenamento têm de ter um nome globalmente exclusivo, ter entre 3 e 24 carateres e conter apenas números e letras minúsculas. Crie uma conta de armazenamento com o comando [az storage account create](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create). Neste exemplo, é utilizada uma cadeia aleatória para criar um nome de conta de armazenamento exclusivo.
+Antes de ativar os diagnósticos de arranque, tem de ser criada uma conta de armazenamento para guardar os registos de arranque. As contas de armazenamento têm de ter um nome globalmente exclusivo, ter entre 3 e 24 carateres e conter apenas números e letras minúsculas. Crie uma conta de armazenamento com o comando [az storage account create](/cli/azure/storage/account#az_storage_account_create). Neste exemplo, é utilizada uma cadeia aleatória para criar um nome de conta de armazenamento exclusivo.
 
 ```azurecli-interactive
 storageacct=mydiagdata$RANDOM
@@ -96,13 +96,13 @@ az vm boot-diagnostics enable \
 
 ## <a name="view-boot-diagnostics"></a>Ver diagnósticos de arranque
 
-Quando os diagnósticos de arranque estão ativados, sempre que parar e iniciar a VM, as informações sobre o processo de arranque são escritas num ficheiro de registo. Neste exemplo, desaloque primeiro a VM com o comando [az vm deallocate](/cli/azure/vm?view=azure-cli-latest#az-vm-deallocate) da seguinte forma:
+Quando os diagnósticos de arranque estão ativados, sempre que parar e iniciar a VM, as informações sobre o processo de arranque são escritas num ficheiro de registo. Neste exemplo, desaloque primeiro a VM com o comando [az vm deallocate](/cli/azure/vm#az_vm_deallocate) da seguinte forma:
 
 ```azurecli-interactive
 az vm deallocate --resource-group myResourceGroupMonitor --name myVM
 ```
 
-Agora, inicie a VM com o comando [az vm start](/cli/azure/vm?view=azure-cli-latest#az-vm-start) da seguinte forma:
+Agora, inicie a VM com o comando [az vm start](/cli/azure/vm#az_vm_start) da seguinte forma:
 
 ```azurecli-interactive
 az vm start --resource-group myResourceGroupMonitor --name myVM
@@ -176,7 +176,7 @@ O exemplo seguinte cria um alerta para a utilização média da CPU.
 
 6. Clique no botão **OK.**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, configuraste e viste o desempenho do teu VM. Aprendeu a:
 

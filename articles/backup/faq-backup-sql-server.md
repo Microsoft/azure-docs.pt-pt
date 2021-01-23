@@ -4,12 +4,12 @@ description: Encontre respostas a perguntas comuns sobre como fazer backup das b
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 7518fc49f7d6d728bd8faa0de4cf0edc1c6d5831
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: 56dcf29a5c703a72fd137a5f1bf129f568a03b4b
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97734118"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735814"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>FAQ sobre bases de dados do SQL Server que estão a funcionar numa cópia de segurança do Azure VM
 
@@ -60,7 +60,7 @@ De acordo com as limitações SQL, pode executar cópia apenas cópia de cópia 
 
 ## <a name="can-i-protect-availability-groups-on-premises"></a>Posso proteger grupos de disponibilidade no local?
 
-N.º O Azure Backup protege as bases de dados do SQL Server em execução no Azure. Se um grupo de disponibilidade (AG) estiver espalhado entre as máquinas Azure e no local, a AG só pode ser protegida se a réplica primária estiver em funcionamento em Azure. Além disso, o Azure Backup protege apenas os nós que funcionam na mesma região de Azure que o cofre dos Serviços de Recuperação.
+Não. O Azure Backup protege as bases de dados do SQL Server em execução no Azure. Se um grupo de disponibilidade (AG) estiver espalhado entre as máquinas Azure e no local, a AG só pode ser protegida se a réplica primária estiver em funcionamento em Azure. Além disso, o Azure Backup protege apenas os nós que funcionam na mesma região de Azure que o cofre dos Serviços de Recuperação.
 
 ## <a name="can-i-protect-availability-groups-across-regions"></a>Posso proteger grupos de disponibilidade em todas as regiões?
 
@@ -68,7 +68,7 @@ O cofre dos Serviços de Recuperação de Backup Azure pode detetar e proteger t
 
 ## <a name="do-successful-backup-jobs-create-alerts"></a>As tarefas de cópia de segurança bem-sucedida criam alertas?
 
-N.º Trabalhos de apoio bem sucedidos não geram alertas. Os alertas são enviados apenas para trabalhos de reserva que falham. O comportamento detalhado dos alertas do portal está documentado [aqui.](backup-azure-monitoring-built-in-monitor.md) No entanto, se estiver interessado em ter alertas mesmo para trabalhos bem sucedidos, pode utilizar [a Monitorização utilizando o Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
+Não. Trabalhos de apoio bem sucedidos não geram alertas. Os alertas são enviados apenas para trabalhos de reserva que falham. O comportamento detalhado dos alertas do portal está documentado [aqui.](backup-azure-monitoring-built-in-monitor.md) No entanto, se estiver interessado em ter alertas mesmo para trabalhos bem sucedidos, pode utilizar [a Monitorização utilizando o Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
 
 ## <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>Posso ver trabalhos de reserva agendados no menu Backup Jobs?
 
@@ -108,9 +108,9 @@ Sim, o Azure Backup suporta a cópia de segurança das bases de dados do SQL Ser
 
 ## <a name="does-azure-backup-perform-a-checksum-operation-on-the-data-stream"></a>O Azure Backup realiza uma operação de checkum no fluxo de dados?
 
-Fazemos uma operação de checkum no fluxo de dados. No entanto, isto não deve ser confundido com [a estação de controlo SQL](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server).
+Fazemos uma operação de checkum no fluxo de dados. No entanto, isto não deve ser confundido com [a estação de controlo SQL](/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server).
 A azure workload backup calcula a data de verificação no fluxo de dados e armazena-o explicitamente durante a operação de backup. Este fluxo de dados é então tomado como referência e verificado com a parte de verificação do fluxo de dados durante a operação de restauro para garantir que os dados são consistentes.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como [fazer o back up de uma base de dados](backup-azure-sql-database.md) do SQL Server que está a funcionar num VM Azure.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 1626ee074d51048dbf45c629f261a550822d746c
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: ea984e527eb526e49c87ce5385ba5715803cc72d
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98200843"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737257"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Linha de segurança Azure para Automação
 
@@ -556,7 +556,7 @@ Siga as recomendações do Azure Security Center para encriptação em repouso e
 
 * [Compreender a encriptação em trânsito com Azure](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 
-* [Aplicação da Azure Automation TLS 1.2](/azure/active-directory/hybrid/reference-connect-tls-enforcement)
+* [Aplicação da Azure Automation TLS 1.2](../active-directory/hybrid/reference-connect-tls-enforcement.md)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 
@@ -938,7 +938,7 @@ Ao utilizar a função Trabalhador do Runbook Híbrido, existem várias opções
 
 Para a maioria dos cenários, os modelos VM base da Microsoft combinados com a Configuração do Estado da Automação Azure podem ajudar a cumprir e manter os requisitos de segurança.
 
-* [Informações sobre como descarregar o modelo VM](../virtual-machines/windows/download-template.md)
+* [Informações sobre como descarregar o modelo VM](/previous-versions/azure/virtual-machines/windows/download-template)
 
 * [Informação sobre a criação de modelos ARM](../virtual-machines/windows/ps-template.md)
 
@@ -1290,7 +1290,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 **Responsabilidade**: Partilhada
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte a [referência de segurança Azure](../security/benchmarks/overview.md)
 - Saiba mais sobre as [linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md)

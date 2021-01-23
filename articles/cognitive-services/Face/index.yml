@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 9/01/2020
-  ms.openlocfilehash: 4ec184d713ac6fffbfa83072c733444ebf9130f6
-  ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
-  ms.translationtype: HT
+  ms.openlocfilehash: f8b134c1cce93468d68d8d920b412d2c5751b104
+  ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+  ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 12/16/2020
-  ms.locfileid: "97560631"
+  ms.lasthandoff: 01/23/2021
+  ms.locfileid: "98737070"
 landingContent:
 - title: Acerca do serviço Face
   linkLists:
@@ -87,7 +87,7 @@ landingContent:
   - linkListType: deploy
     links:
     - text: Utilizar instâncias de contentor
-      url: Face-API-How-to-Topics/deploy-face-container-on-container-instances.md
+      url: ../containers/azure-container-instance-recipe.md
 - title: Referência
   linkLists:
   - linkListType: reference

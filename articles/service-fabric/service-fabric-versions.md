@@ -3,12 +3,12 @@ title: Versões de cluster suportadas em Tecido de Serviço Azure
 description: Conheça as versões de cluster no Azure Service Fabric, incluindo um link para os mais recentes lançamentos do blog da equipa do Service Fabric.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: c2ea2b53649cf148a19df46835c8936345aa20e5
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 82b90d6b0acf5d83f9509abd9ee4b34cb74d1b48
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98234346"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736789"
 ---
 # <a name="supported-service-fabric-versions"></a>Versões de tecido de serviço suportado
 
@@ -56,10 +56,13 @@ Para melhorar a segurança e a disponibilidade, a infraestrutura Azure fará uma
  #### <a name="impact-if-not-upgraded-to-supported-versions"></a>Impacto Se NÃO Atualizado para versões suportadas
   Os clusters de tecidos de serviço Azure que **utilizam a funcionalidade open [networking para contentores](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode) e funciona em versões superiores a 6.3** que não incluem alterações sentirão perda de funcionalidade ou perturbações de serviço se NÃO for atualizada para uma das versões suportadas abaixo até **19 de janeiro de 2021**.
  
-  - **Para os clusters que executam uma versão do Tecido de Serviço superior a 6.3 NÃO utilizando a função open networking,** o cluster permanecerá em funcionamento, no entanto a função de rede aberta para clusters de contentores, deixará de funcionar, o que poderá causar interrupções de serviço nas suas cargas de trabalho.
+  - **Para os clusters que executam uma versão do Service Fabric superior a 6.3 NÃO utilizando a função Open Networking,** o cluster permanecerá em funcionamento.
 
  - **Para os clusters que executam uma versão do Service Fabric superior a 6.3 e utilizar [a funcionalidade open networking para contentores](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode)** , o cluster pode ficar indisponível e deixará de funcionar, o que poderá causar interrupções de serviço nas suas cargas de trabalho.
-  
+ 
+ -   **Para os clusters que executam as [versões do Windows entre 7.0 e 7.0.466 (ambas as versões incluídas)](https://docs.microsoft.com/azure/service-fabric/service-fabric-versions#supported-version-names) e o Windows OS tem a Funcionalidade de Contentores do Windows ativada. NOTA: As versões Linux 7.0.457, 7.0.464 e 7.0.465 NÃO são impactadas**.
+    - **Impacto**: O cluster deixará de funcionar, o que poderá provocar interrupções de serviço nas suas cargas de trabalho.
+       
 #### <a name="required-action"></a>Ação Necessária
 Atualização para as versões suportadas pelo Tecido de Serviço listadas abaixo para evitar tempo de inatividade ou perda de funcionalidades relacionadas com esta alteração. Certifique-se de que os seus clusters estão a executar pelo menos estas versões para evitar problemas no seu ambiente. 
  

@@ -1,5 +1,5 @@
 ---
-title: Instale a ferramenta Azure Application Consistent Snapshot para ficheiros Azure NetApp / Microsoft Docs
+title: Instale a ferramenta Azure Application Consistent Snapshot para ficheiros Azure NetApp | Microsoft Docs
 description: Fornece um guia para a instalação da ferramenta Azure Application Consistent Snapshot que pode utilizar com ficheiros Azure NetApp.
 services: azure-netapp-files
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: phjensen
-ms.openlocfilehash: 5c2182fc80c3745e0238c378c1cade0530393181
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 00aaa5bdc0d48adb735679fc4a71b3431970ef09
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97632844"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737172"
 ---
 # <a name="install-azure-application-consistent-snapshot-tool-preview"></a>Instalar a ferramenta Azure Application Consistent Snapshot (pré-visualização)
 
@@ -34,9 +34,9 @@ O instalador tenta determinar as definições e caminhos corretos para todos os 
 
 Siga as diretrizes para configurar e executar os instantâneos e comandos de recuperação de desastres. Recomenda-se que os seguintes passos sejam concluídos como raiz antes de instalar e utilizar as ferramentas de instantâneo.
 
-1. **O SO está remendado**: Ver patching e configuração SMT em [Como instalar e configurar SAP HANA (Grandes Instâncias) no Azure](/azure/virtual-machines/workloads/sap/hana-installation#setting-up-smt-server-for-suse-linux).
+1. **O SO está remendado**: Ver patching e configuração SMT em [Como instalar e configurar SAP HANA (Grandes Instâncias) no Azure](../virtual-machines/workloads/sap/hana-installation.md#operating-system).
 1. **A sincronização do tempo é configurada**. O cliente terá de fornecer um servidor de tempo compatível com NTP e configurar o SO em conformidade.
-1. **HANA está instalado** : Consulte as instruções de instalação da HANA na [instalação SAP NetWeaver na base de dados HANA](https://blogs.msdn.microsoft.com/saponsqlserver/2017/11/21/sap-netweaver-installation-on-hana-database/).
+1. **HANA está instalado** : Consulte as instruções de instalação da HANA na [instalação SAP NetWeaver na base de dados HANA](/archive/blogs/saponsqlserver/sap-netweaver-installation-on-hana-database).
 1. **[Ativar a comunicação com o armazenamento](#enable-communication-with-storage)** (consulte a secção separada para mais detalhes): O Cliente deve configurar o SSH com um par de chaves privada/pública e fornecer a chave pública para cada nó onde as ferramentas instantâneas estão previstas para serem executadas nas Operações da Microsoft para configuração no back-end de armazenamento.
    1. **Para ficheiros Azure NetApp (consulte secção separada para mais detalhes)**: O Cliente deve gerar o ficheiro de autenticação principal do serviço.
    1. **Para Azure Large Instance (consulte a secção separada para mais detalhes)**: O cliente deve configurar o SSH com um par de chaves privada/pública e fornecer a chave pública para cada nó onde as ferramentas instantâneas estão previstas para serem executadas nas Operações da Microsoft para configuração no back-end de armazenamento.
@@ -714,6 +714,6 @@ global.ini,DEFAULT,,,persistence,log_backup_timeout_s,900
 global.ini,SYSTEM,,,persistence,log_backup_timeout_s,300
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Configure Aplicação Azure Ferramenta Snapshot consistente](azacsnap-cmd-ref-configure.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 1b8d88167dac6b2d0b1ba2afc90c443fd80b9e46
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 10f01fd5943928eda1f1e4518f30c8e3ccf56b46
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223164"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737800"
 ---
 # <a name="prepare-virtual-machines-for-an-fci-sql-server-on-azure-vms"></a>Preparar máquinas virtuais para um FCI (SQL Server em VMs Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -44,7 +44,7 @@ As definições de configuração da sua máquina virtual variam consoante a op�
 
 ## <a name="configure-vm-availability"></a>Configure disponibilidade VM 
 
-A funcionalidade de cluster failover requer que as máquinas virtuais sejam colocadas num [conjunto de disponibilidade](../../../virtual-machines/linux/tutorial-availability-sets.md) ou numa zona de [disponibilidade.](../../../availability-zones/az-overview.md#availability-zones) Se escolher conjuntos de disponibilidade, pode utilizar [grupos de colocação de proximidade](../../../virtual-machines/windows/co-location.md#proximity-placement-groups) para localizar os VMs mais perto. Na verdade, os grupos de colocação de proximidade são um pré-requisito para a utilização de discos partilhados Azure. 
+A funcionalidade de cluster failover requer que as máquinas virtuais sejam colocadas num [conjunto de disponibilidade](../../../virtual-machines/linux/tutorial-availability-sets.md) ou numa zona de [disponibilidade.](../../../availability-zones/az-overview.md#availability-zones) Se escolher conjuntos de disponibilidade, pode utilizar [grupos de colocação de proximidade](../../../virtual-machines/co-location.md#proximity-placement-groups) para localizar os VMs mais perto. Na verdade, os grupos de colocação de proximidade são um pré-requisito para a utilização de discos partilhados Azure. 
 
 Selecione cuidadosamente a opção de disponibilidade de VM que corresponda à configuração do cluster pretendido: 
 
@@ -126,7 +126,7 @@ Também precisa de juntar as suas máquinas virtuais ao domínio. Pode fazê-lo 
 As máquinas virtuais criadas a partir do Azure Marketplace vêm com armazenamento anexo. Se planeia configurar o seu armazenamento FCI utilizando ações de ficheiros Premium ou discos partilhados Azure, pode remover o armazenamento anexado para economizar custos, uma vez que o armazenamento local não é utilizado para a instância de cluster failover. No entanto, é possível utilizar o armazenamento anexado para os espaços de armazenamento soluções FCI diretas, por isso removê-las neste caso pode não ser útil. Reveja a sua solução de armazenamento FCI para determinar se a remoção do armazenamento anexado é ótima para poupar custos. 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que preparou o seu ambiente de máquina virtual, está pronto para configurar o seu caso de aglomerado de falhas. 
 

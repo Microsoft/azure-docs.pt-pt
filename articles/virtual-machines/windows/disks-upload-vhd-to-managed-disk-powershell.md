@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: 17b99a9d3fa6b2934705d913170f2f617c856998
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 1655c48eeb9227bf934c7fd9bb37610327b2b98c
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915764"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736276"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-powershell"></a>Faça o upload de um VHD para Azure ou copie um disco gerido para outra região - Azure PowerShell
 
@@ -44,7 +44,7 @@ Este tipo de disco gerido tem dois estados únicos:
 
 Antes de criar um HDD padrão vazio para o upload, vai precisar do tamanho do ficheiro do VHD que pretende carregar, em bytes. O código de exemplo vai conseguir isso para si, mas, para fazê-lo por si mesmo, pode usar: `$vhdSizeBytes = (Get-Item "<fullFilePathHere>").length` . Este valor é utilizado ao especificar o parâmetro **-UploadSizeInBytes.**
 
-Agora, na sua concha local, crie um HDD padrão vazio para carregar especificando a definição **de Upload** no parâmetro **-CreateOption,** bem como o parâmetro **-UploadSizeInBytes** no cmdlet [New-AzDiskConfig.](/powershell/module/az.compute/new-azdiskconfig?view=azps-1.8.0&preserve-view=true) Em seguida, ligue para [New-AzDisk](/powershell/module/az.compute/new-azdisk?view=azps-1.8.0&preserve-view=true) para criar o disco.
+Agora, na sua concha local, crie um HDD padrão vazio para carregar especificando a definição **de Upload** no parâmetro **-CreateOption,** bem como o parâmetro **-UploadSizeInBytes** no cmdlet [New-AzDiskConfig.](/powershell/module/az.compute/new-azdiskconfig) Em seguida, ligue para [New-AzDisk](/powershell/module/az.compute/new-azdisk) para criar o disco.
 
 Substituir `<yourdiskname>` `<yourresourcegroupname>` , `<yourregion>` e, em seguida, executar os seguintes comandos:
 
@@ -133,7 +133,7 @@ Revoke-AzDiskAccess -ResourceGroupName $sourceRG -DiskName $sourceDiskName
 Revoke-AzDiskAccess -ResourceGroupName $targetRG -DiskName $targetDiskName 
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que fez o upload de um VHD com sucesso para um disco gerido, pode ligar o disco a um VM e começar a usá-lo.
 

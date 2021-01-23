@@ -5,12 +5,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 04/16/2019
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 5e83c599ceed76927f2a313f78c83638d708f1bb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 81005a3032355f566aef2a6794cf2ec5038b0dd8
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90985130"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737121"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>Fazer uma cópia de segurança de uma máquina virtual no Azure com o PowerShell
 
@@ -18,7 +18,7 @@ O módulo [Azure PowerShell AZ](/powershell/azure/new-azureps-module-az) é util
 
 [O Azure Backup](backup-overview.md) apoia máquinas e aplicações no local e VMs Azure. Este artigo mostra-lhe como apoiar um Azure VM com o módulo AZ. Em alternativa, pode fazer uma utilização de um VM utilizando o [Azure CLI,](quick-backup-vm-cli.md)ou no [portal Azure](quick-backup-vm-portal.md).
 
-Este início rápido ativa a cópia de segurança numa VM do Azure existente. Se tiver de criar uma VM, pode [criá-la com o Azure PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json).
+Este início rápido ativa a cópia de segurança numa VM do Azure existente. Se tiver de criar uma VM, pode [criá-la com o Azure PowerShell](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm?toc=%2fpowershell%2fmodule%2ftoc.json).
 
 Este arranque rápido requer a versão 1.0 ou mais tarde do módulo Azure PowerShell AZ. Executar `Get-Module -ListAvailable Az` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure PowerShell module](/powershell/azure/install-az-ps)(Instalar o módulo do Azure PowerShell).
 
@@ -45,7 +45,7 @@ Um [cofre dos Serviços de Recuperação](backup-azure-recovery-services-vault-o
 Quando se cria o cofre:
 
 - Para o grupo de recursos e localização, especifique o grupo de recursos e a localização do VM que pretende fazer o back up.
-- Se usou este [script de amostra](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json) para criar o VM, o grupo de recursos é o **myResourceGroup,** o VM é ***myVM**, e os recursos estão na região **de WestEurope.**
+- Se usou este [script de amostra](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm?toc=%2fpowershell%2fmodule%2ftoc.json) para criar o VM, o grupo de recursos é o **myResourceGroup,** o VM é **_myVM_*, e os recursos estão na região **de WestEurope.**
 - O Azure Backup lida automaticamente com o armazenamento para dados com cópia de segurança. Por predefinição, o cofre utiliza [o Armazenamento Geo-Redundante (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). A geo-redundância garante que os dados com cópias de segurança são replicados numa região secundária de Azure, a centenas de quilómetros da região primária.
 
 Agora crie um cofre:
@@ -166,7 +166,7 @@ Remove-AzRecoveryServicesVault -Vault $vault
 Remove-AzResourceGroup -Name "myResourceGroup"
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste início rápido, criou um cofre dos Serviços de Recuperação, ativou a proteção numa VM e criou o ponto de recuperação inicial.
 

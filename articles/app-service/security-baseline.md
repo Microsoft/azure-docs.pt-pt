@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 1ea8f3bccd97e1aaa15a21ae605a163b11c8ae39
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 758f7de46c524406f31a40072250eb7d59745d42
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98197936"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736093"
 ---
 # <a name="azure-security-baseline-for-app-service"></a>Linha de base de segurança Azure para o Serviço de Aplicações
 
@@ -71,7 +71,7 @@ Utilize o Azure Firewall para enviar tráfego e criar, impor e registar polític
 
 - [Compreender a Segurança da Rede fornecida pelo Azure Security Center](../security-center/security-center-network-recommendations.md)
 
-- [Como Permitir a monitorização e proteção do serviço de aplicações](/azure/security-center/defender-for-app-service-introduction)
+- [Como Permitir a monitorização e proteção do serviço de aplicações](../security-center/defender-for-app-service-introduction.md)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 
@@ -168,7 +168,7 @@ Reveja os links referenciados para obter informações adicionais.
 
 - [Como configurar tLS de ponta a ponta utilizando o Gateway de Aplicação com o portal](../application-gateway/end-to-end-ssl-portal.md)
 
-- [Proteja o ASE como descrito no Bloqueio de um Serviço de Aplicações](/azure/app-service/environment/firewall-integration)
+- [Proteja o ASE como descrito no Bloqueio de um Serviço de Aplicações](./environment/firewall-integration.md)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 
@@ -205,7 +205,7 @@ Reveja os links referenciados para obter informações adicionais.
 
 - [Como configurar tLS de ponta a ponta utilizando o Gateway de Aplicação com o portal](../application-gateway/end-to-end-ssl-portal.md)
 
-- [Proteja o ASE como descrito no Bloqueio de um Serviço de Aplicações](/azure/app-service/environment/firewall-integration)
+- [Proteja o ASE como descrito no Bloqueio de um Serviço de Aplicações](./environment/firewall-integration.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -221,7 +221,7 @@ Aplique qualquer uma das definições da Política Azure incorporadas relacionad
 
 - [Como criar e usar tags](../azure-resource-manager/management/tag-resources.md)
 
-- [Restrições de acesso ao serviço de aplicações Azure](/azure/app-service/app-service-ip-restrictions)
+- [Restrições de acesso ao serviço de aplicações Azure](./app-service-ip-restrictions.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -1147,7 +1147,7 @@ Pode encontrar mais informações sobre a estratégia e execução da Red Teamin
 
 **Responsabilidade**: Partilhada
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte a [referência de segurança Azure](../security/benchmarks/overview.md)
 - Saiba mais sobre as [linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md)

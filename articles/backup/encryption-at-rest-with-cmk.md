@@ -3,12 +3,12 @@ title: Encriptação de dados de backup usando chaves geridas pelo cliente
 description: Saiba como o Azure Backup permite encriptar os seus dados de backup utilizando teclas geridas pelo cliente (CMK).
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 30bcf907e1a2759c8a9977e50cb4880c2e254ca2
-ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
+ms.openlocfilehash: d5daa88475e3becde6e513391c555471f80396c5
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98562765"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735865"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Encriptação de dados de backup usando chaves geridas pelo cliente
 
@@ -77,7 +77,7 @@ O Azure Backup utiliza o sistema atribuído à identidade gerida para autenticar
 
 **Com PowerShell:**
 
-Utilize o comando [Update-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/update-azrecoveryservicesvault) para permitir a identidade gerida atribuída pelo sistema para o cofre dos serviços de recuperação.
+Utilize o comando [Update-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/update-azrecoveryservicesvault) para permitir a identidade gerida atribuída pelo sistema para o cofre dos serviços de recuperação.
 
 Exemplo:
 
@@ -121,7 +121,7 @@ Agora precisa de permitir que o cofre dos Serviços de Recuperação aceda ao Co
 
 **Com PowerShell:**
 
-Utilize o comando [Set-AzRecoveryServicesVaultProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultproperty) para permitir a encriptação utilizando as teclas geridas pelo cliente e para atribuir ou atualizar a chave de encriptação a utilizar.
+Utilize o comando [Set-AzRecoveryServicesVaultProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultproperty) para permitir a encriptação utilizando as teclas geridas pelo cliente e para atribuir ou atualizar a chave de encriptação a utilizar.
 
 Exemplo:
 
@@ -290,7 +290,7 @@ O Conjunto de Encriptação do Disco é especificado nas Definições de Encript
 
 **Com PowerShell:**
 
-Utilize o comando [Get-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem) com o parâmetro [ `-DiskEncryptionSetId <string>` ] para [especificar o DES](https://docs.microsoft.com/powershell/module/az.compute/get-azdiskencryptionset) a ser utilizado para encriptar o disco restaurado. Para obter mais informações sobre a restauração de discos a partir de cópias de segurança VM, consulte [este artigo](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#restore-an-azure-vm).
+Utilize o comando [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem) com o parâmetro [ `-DiskEncryptionSetId <string>` ] para [especificar o DES](/powershell/module/az.compute/get-azdiskencryptionset) a ser utilizado para encriptar o disco restaurado. Para obter mais informações sobre a restauração de discos a partir de cópias de segurança VM, consulte [este artigo](./backup-azure-vms-automation.md#restore-an-azure-vm).
 
 Exemplo:
 
@@ -311,7 +311,7 @@ Ao executar uma restauração de ficheiros, os dados restaurados serão encripta
 
 Ao restaurar a partir de uma base de dados SAP HANA/SQL com rede de apoio que funciona num Azure VM, os dados restaurados serão encriptados utilizando a chave de encriptação utilizada no local de armazenamento do alvo. Pode ser uma chave gerida pelo cliente ou uma chave gerida pela plataforma usada para encriptar os discos do VM.
 
-## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 ### <a name="can-i-encrypt-an-existing-backup-vault-with-customer-managed-keys"></a>Posso encriptar um cofre de reserva existente com chaves geridas pelo cliente?
 
@@ -337,6 +337,6 @@ Não seguir os passos do artigo e continuar a proteger os itens pode levar a que
 
 A utilização da encriptação CMK para cópia de segurança não incorre em custos adicionais para si. No entanto, pode continuar a incorrer em custos para a utilização do seu Cofre de Chaves Azure, onde a sua chave está armazenada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Visão geral das funcionalidades de segurança no Azure Backup](security-overview.md)

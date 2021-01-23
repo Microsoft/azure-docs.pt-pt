@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 12/16/2020
 ms.custom: references_regions
-ms.openlocfilehash: 93b6160b495b609e23e10b3f709d130792067423
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 6d9ad775f91778f95380a19fbe253e2cbbebd3fc
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803787"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736461"
 ---
 # <a name="it-service-management-connector-overview"></a>Visão geral do conector de gestão de serviços de TI
 
@@ -27,12 +27,12 @@ Serviços Azure como o Azure Log Analytics e o Azure Monitor fornecem ferramenta
 A ITSMC suporta ligações com as seguintes ferramentas ITSM:
 
 -   ServiceNow
--   Gestor de serviços do Centro de Sistema
+-   System Center Service Manager
 -   Provance
 -   Cherwell
 
    >[!NOTE]
-> Propomos aos nossos clientes Cherwell e Provance que utilizem a [ação Webhook](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#webhook) para cherwell e provance como outra solução para a integração.
+> Propomos aos nossos clientes Cherwell e Provance que utilizem a [ação Webhook](./action-groups.md#webhook) para cherwell e provance como outra solução para a integração.
 
 Com o ITSMC, pode:
 
@@ -48,6 +48,6 @@ Pode começar a utilizar o ITSMC completando os seguintes passos:
 1. [Configure o conector Azure ITSM para o seu ambiente ITSM.](./itsmc-definition.md#create-an-itsm-connection)
 1. [Configure o Grupo de Ação para alavancar o conector ITSM.](./itsmc-definition.md#use-itsmc)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Resolver problemas do Conector do ITSM](./itsmc-resync-servicenow.md)

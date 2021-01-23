@@ -3,12 +3,12 @@ title: Melhorar o desempenho das aplicações da Azure com o Advisor
 description: Utilize recomendações de desempenho no Azure Advisor para melhorar a rapidez e capacidade de resposta das suas aplicações críticas ao negócio.
 ms.topic: article
 ms.date: 07/29/2020
-ms.openlocfilehash: d7d4e87670ca529f38465e928c4067daec802b8f
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: f546527011402b9ea33321d56356d8aabe2412c1
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98248433"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735533"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Melhorar o desempenho das aplicações da Azure utilizando o Azure Advisor
 
@@ -179,7 +179,7 @@ Saiba mais sobre [o leitor imersivo SDK.](../cognitive-services/immersive-reader
 
 O Advisor deteta que você tem uma piscina hospedeira que tem o primeiro conjunto de profundidade como o algoritmo de equilíbrio de carga, e que o limite máximo de sessão da piscina do anfitrião é maior ou igual a 999999. O balanceamento de carga em profundidade utiliza o limite máximo de sessões para determinar o número máximo de utilizadores que podem ter sessões em simultâneo num anfitrião com uma única sessão. Se o limite máximo de sessão for demasiado elevado, todas as sessões de utilizador serão direcionadas para o mesmo anfitrião da sessão, o que causará problemas de desempenho e fiabilidade. Por isso, ao configurar uma piscina hospedeira para ter um primeiro equilíbrio de carga de profundidade, deve definir um limite de sessão máxima adequado de acordo com a configuração da sua implantação e capacidade dos seus VMs. 
 
-Para saber mais sobre o equilíbrio de carga no Windows Virtual Desktop, consulte [o método de equilíbrio de carga virtual do Windows Desktop](/azure/virtual-desktop/troubleshoot-set-up-overview).
+Para saber mais sobre o equilíbrio de carga no Windows Virtual Desktop, consulte [o método de equilíbrio de carga virtual do Windows Desktop](../virtual-desktop/troubleshoot-set-up-overview.md).
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Como aceder às recomendações de desempenho no Advisor
 
@@ -187,7 +187,7 @@ Para saber mais sobre o equilíbrio de carga no Windows Virtual Desktop, consult
 
 2.  No painel 'Advisor', selecione o **separador Desempenho.**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre as recomendações do Advisor, consulte:
 

@@ -139,7 +139,7 @@
         - name: Explorar uma aplicação de processamento de imagens
           href: Tutorials/CSharpTutorial.md
         - name: Outros exemplos de Imagem Digitalizada
-          href: 'https://docs.microsoft.com/samples/browse/?products=azure&terms=computer-vision'
+          href: /samples/browse/?products=azure&terms=computer-vision
     - name: FAQ
       href: FAQ.md
     - name: Taxonomia da categoria

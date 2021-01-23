@@ -7,12 +7,12 @@ ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
 ms.custom: devx-track-csharp, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 4c7ba5806707e818f0ef13717d5f00b542c37614
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 16cd4685f513eb628372802cc158195b81bce72a
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97092742"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736176"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Como utilizar identidades geridas para o Serviço de Aplicações e Funções Azure
 
@@ -520,10 +520,10 @@ Update-AzFunctionApp -Name $functionAppName -ResourceGroupName $resourceGroupNam
 > [!NOTE]
 > Há também uma configuração de aplicação que pode ser definida, WEBSITE_DISABLE_MSI, que apenas desativa o serviço de token local. No entanto, deixa a identidade no lugar, e a ferramenta ainda mostrará a identidade gerida como "on" ou "ativada". Como resultado, a utilização desta definição não é recomendada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Access SQL Database de forma segura usando uma identidade gerida](app-service-web-tutorial-connect-msi.md)
 - [Aceda a Azure Storage de forma segura usando uma identidade gerida](scenario-secure-app-access-storage.md)
 - [Ligue para o Microsoft Graph de forma segura usando uma identidade gerida](scenario-secure-app-access-microsoft-graph-as-app.md)
 
-[Microsoft.Azure.Services.AppAuthentication referência]: ../key-vault/general/service-to-service-authentication.md
+[Microsoft.Azure.Services.AppAuthentication referência]: /dotnet/api/overview/azure/service-to-service-authentication

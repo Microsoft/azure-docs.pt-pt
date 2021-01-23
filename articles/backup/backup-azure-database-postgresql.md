@@ -4,12 +4,12 @@ description: Saiba mais sobre a Base de Dados Azure para cópia de segurança p�
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.custom: references_regions
-ms.openlocfilehash: 628f43788c11558185a7b8a735373f0a663fdad1
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+ms.openlocfilehash: 1e2d83d4a5e21ed747ec9d4dcf2fa03d1e3935cc
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98569492"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737577"
 ---
 # <a name="azure-database-for-postgresql-backup-with-long-term-retention-preview"></a>Base de Dados Azure para backup pós-SQL com retenção a longo prazo (pré-visualização)
 
@@ -31,7 +31,7 @@ Pode utilizar esta solução de forma independente ou além da solução de back
 
 |Suporte  |Detalhes  |
 |---------|---------|
-|Implantações apoiadas   |  [Base de Dados do Azure para PostgreSQL – Servidor Único](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server)     |
+|Implantações apoiadas   |  [Base de Dados do Azure para PostgreSQL – Servidor Único](../postgresql/overview.md#azure-database-for-postgresql---single-server)     |
 |Regiões de Azure apoiadas |  Leste dos EUA, Leste dos EUA 2, Central EUA, Centro Sul dos EUA, Oeste dos EUA 2, West Central EUA, Brasil Sul, Canadá Central, Europa do Norte, Europa Ocidental, Reino Unido Sul, Reino Unido Oeste, Alemanha West Central, Suíça Norte, Suíça Oeste, Ásia Oriental, Ásia Do Sudeste, Japão Oriental, Japão Ocidental, Coreia Central, Coreia do Sul, Índia Central, Austrália Oriental, Austrália Central 2, UAE  |
 |Versões Azure PostgreSQL suportadas    |   9.5, 9.6, 10, 11      |
 
@@ -323,6 +323,6 @@ Estabeleça uma linha de visão de rede, permitindo o acesso à bandeira **dos s
 
         ![Pesquisa rumo ao nome do cofre](./media/backup-azure-database-postgresql/search-for-vault-name.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Visão geral dos cofres de reserva](backup-vault-overview.md)

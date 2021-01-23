@@ -1,5 +1,5 @@
 ---
-title: Configure uma aplicação OpenID/OAuth da galeria de aplicações AZure AD ! Microsoft Docs
+title: Configure uma aplicação OpenID/OAuth da galeria de aplicações AD AZure | Microsoft Docs
 description: Passos para configurar uma aplicação OpenID/OAuth da galeria de aplicações AZure AD.
 services: active-directory
 author: jeevansd
@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: jeedes
 ms.custom: has-adal-ref
-ms.openlocfilehash: 17d78b4d6db9e65868995d8ea7835a0d911e8589
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 32f79f24df6fe705146b39750c710450ef8f1f7b
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348704"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735946"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Configure uma aplicação OpenID/OAuth da galeria de aplicações AZure AD
 
@@ -158,6 +158,6 @@ O parâmetro *prompt=admin_consent* também pode ser usado por aplicações que 
 
 Imagine que uma aplicação requer consentimento administrativo, e um sinal de administração sem o parâmetro *de prompt=admin_consent* sendo enviado. Quando o administrador consente com sucesso na aplicação, aplica-se apenas à sua conta de utilizador. Os utilizadores regulares continuarão a não conseguir iniciar sê-lo ou consentir a aplicação. Esta funcionalidade é útil se quiser dar ao administrador inquilino a capacidade de explorar a sua aplicação antes de permitir o acesso de outros utilizadores.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-[Configurar um único sign-on (SSO) baseado no OIDC para uma aplicação no seu inquilino Azure Ative Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal-setup-oidc-sso)
+[Configurar um único sign-on (SSO) baseado no OIDC para uma aplicação no seu inquilino Azure Ative Directory (Azure AD)](../manage-apps/add-application-portal-setup-oidc-sso.md)

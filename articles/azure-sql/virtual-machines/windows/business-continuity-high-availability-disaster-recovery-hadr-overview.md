@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2020
 ms.author: mathoma
-ms.openlocfilehash: 1a0d1018991be9d78623b0826aeab3d13958e996
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 4443ccfe8d570e50352cbb70c83d6094132038cc
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97504139"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736902"
 ---
 # <a name="business-continuity-and-hadr-for-sql-server-on-azure-virtual-machines"></a>Continuidade de negócios e HADR para SQL Server em Máquinas Virtuais Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -30,7 +30,7 @@ A maioria das soluções HADR do Servidor SQL são suportadas em máquinas virtu
 
 Este artigo compara e contrasta as soluções de continuidade de negócio disponíveis para o SQL Server em VMs Azure. 
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Cabe-lhe a si assegurar que o seu sistema de base de dados tem as capacidades HADR que o acordo de nível de serviço (SLA) requer. O facto de o Azure fornecer mecanismos de elevada disponibilidade, como a cura de serviços para serviços na nuvem e a deteção de recuperação de falhas para máquinas virtuais, não garante, por si só, que possa cumprir o SLA. Embora estes mecanismos ajudem a proteger a alta disponibilidade da máquina virtual, eles não protegem a disponibilidade do SQL Server que funciona dentro do VM. 
 
@@ -75,7 +75,7 @@ Pode ter uma solução de recuperação de desastres para as bases de dados do S
 | Tecnologia | Exemplo Arquiteturas |
 | --- | --- |
 | **Grupos de disponibilidade** |Algumas réplicas de disponibilidade em VMs Azure e outras réplicas que correm no local para recuperação de desastres no local. O local de produção pode ser no local ou num datacenter Azure.<br/>![Grupos de disponibilidade](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/hybrid-dr-alwayson.png)<br/>Como todas as réplicas de disponibilidade devem estar no mesmo cluster de failover, o cluster deve abranger ambas as redes (um cluster de failover multi-sub-rede). Esta configuração requer uma ligação VPN entre a Azure e a rede no local.<br/><br/>Para uma recuperação bem sucedida de desastres nas suas bases de dados, também deve instalar um controlador de domínio de réplica no local de recuperação de desastres.|
-| **Espelhamento da base de dados** |Um parceiro que corre num Azure VM e o outro a correr no local para recuperação de desastres no local através da utilização de certificados de servidor. Os parceiros não precisam de estar no mesmo domínio do Ative Directory, e não é necessária nenhuma ligação VPN.<br/>![Espelhamento da base de dados](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/hybrid-dr-dbmirroring.png)<br/>Outro cenário de espelhamento da base de dados envolve um parceiro que funciona num VM Azure e o outro a correr no local no mesmo domínio do Ative Directory para a recuperação de desastres trans-locais. É necessária uma [ligação VPN entre a rede virtual Azure e a rede no local.](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)<br/><br/>Para uma recuperação bem sucedida de desastres nas suas bases de dados, também deve instalar um controlador de domínio de réplica no local de recuperação de desastres. O espelhamento da base de dados do SQL Server não é suportado para SQL Server 2008 ou SQL Server 2008 R2 num Azure VM. |
+| **Espelhamento da base de dados** |Um parceiro que corre num Azure VM e o outro a correr no local para recuperação de desastres no local através da utilização de certificados de servidor. Os parceiros não precisam de estar no mesmo domínio do Ative Directory, e não é necessária nenhuma ligação VPN.<br/>![Espelhamento da base de dados](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/hybrid-dr-dbmirroring.png)<br/>Outro cenário de espelhamento da base de dados envolve um parceiro que funciona num VM Azure e o outro a correr no local no mesmo domínio do Ative Directory para a recuperação de desastres trans-locais. É necessária uma [ligação VPN entre a rede virtual Azure e a rede no local.](../../../vpn-gateway/tutorial-site-to-site-portal.md)<br/><br/>Para uma recuperação bem sucedida de desastres nas suas bases de dados, também deve instalar um controlador de domínio de réplica no local de recuperação de desastres. O espelhamento da base de dados do SQL Server não é suportado para SQL Server 2008 ou SQL Server 2008 R2 num Azure VM. |
 | **Envio de registo** |Um servidor a funcionar num VM Azure e o outro a correr no local para recuperação de desastres no local. O envio de registos depende da partilha de ficheiros Windows, pelo que é necessária uma ligação VPN entre a rede virtual Azure e a rede no local.<br/>![Envio de registos](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/hybrid-dr-log-shipping.png)<br/>Para uma recuperação bem sucedida de desastres nas suas bases de dados, também deve instalar um controlador de domínio de réplica no local de recuperação de desastres. |
 | **Backup e restauro com armazenamento Azure Blob** |Bases de dados de produção no local apoiadas diretamente no armazenamento da Azure Blob para recuperação de desastres.<br/>![Backup e restauro](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/hybrid-dr-backup-restore.png)<br/>Para obter mais informações, consulte [backup e restaure para o SQL Server em Azure Virtual Machines](../../../azure-sql/virtual-machines/windows/backup-restore.md). |
 | **Replicar e falhar sobre o SQL Server para Azure com a recuperação do site Azure** |No local produção sql server instância replicada diretamente para Azure Storage para recuperação de desastres.<br/>![Replicar usando a recuperação do local de Azure](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/hybrid-dr-standalone-sqlserver-asr.png)<br/>Para obter mais informações, consulte [Protect SQL Server utilizando a recuperação de desastres do SQL Server e a recuperação do site Azure](../../../site-recovery/site-recovery-sql.md). |
@@ -165,6 +165,6 @@ A geo-replicação nos discos Azure não suporta o ficheiro de dados e o ficheir
 
 Se não tiver a opção de desativar a geo-replicação na conta de armazenamento, guarde todos os dados e registos de uma base de dados no mesmo disco. Se tiver de utilizar mais do que um disco devido ao tamanho da base de dados, utilize uma das soluções de recuperação de desastres listadas anteriormente para garantir a redundância de dados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Decida se um [grupo de disponibilidade](availability-group-overview.md) ou uma instância de cluster de [failover](failover-cluster-instance-overview.md) é a melhor solução de continuidade de negócio para o seu negócio. Em seguida, reveja as [melhores práticas](hadr-cluster-best-practices.md) para configurar o seu ambiente para uma elevada disponibilidade e recuperação de desastres.

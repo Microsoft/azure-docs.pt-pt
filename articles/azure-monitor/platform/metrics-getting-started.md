@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 2bf56379a32bf8035ea2d0d3fe797776ec6ba40d
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: e31eb8deb3102ab03809f01e33b1e6548113dae4
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250405"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736394"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Getting started with Azure Metrics Explorer (Introdução ao Explorador de Métricas do Azure)
 
@@ -29,7 +29,7 @@ O explorador de métricas Azure Monitor é um componente do portal Microsoft Azu
 
 Para criar um gráfico métrico, a partir do seu recurso, grupo de recursos, subscrição ou vista Azure Monitor, abra o **separador Métricas** e siga estes passos:
 
-1. Clique no botão "Selecione um âmbito" para abrir o selecionador de âmbito de recurso. Isto permitir-lhe-á selecionar os recursos(s) para os quais pretende ver métricas. O recurso já deve ser povoado se abrir o explorador de métricas a partir do menu do recurso. Para aprender a ver métricas através de múltiplos recursos, [leia este artigo.](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-dynamic-scope)
+1. Clique no botão "Selecione um âmbito" para abrir o selecionador de âmbito de recurso. Isto permitir-lhe-á selecionar os recursos(s) para os quais pretende ver métricas. O recurso já deve ser povoado se abrir o explorador de métricas a partir do menu do recurso. Para aprender a ver métricas através de múltiplos recursos, [leia este artigo.](./metrics-dynamic-scope.md)
     > ![Selecionar um recurso](./media/metrics-getting-started/scope-picker.png)
 
 2. Para alguns recursos, você deve escolher um espaço de nome. O espaço de nome é apenas uma forma de organizar métricas para que possa encontrá-las facilmente. Por exemplo, as contas de armazenamento têm espaços de nome separados para armazenar ficheiros, tabelas, blobs e métricas de filas. Muitos tipos de recursos têm apenas um espaço de nome.
@@ -69,7 +69,7 @@ Veja [exemplos dos gráficos](metric-chart-samples.md) que têm filtragem e divi
 
 Pode personalizar o estilo de gráfico, o título e modificar as definições avançadas do gráfico. Quando terminar com a personalização, coloque-o num painel de instrumentos para salvar o seu trabalho. Também pode configurar alertas de métricas. Siga a [documentação](metrics-charts.md) do produto para saber mais sobre estas e outras funcionalidades avançadas do explorador de métricas do Azure Monitor.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Conheça as funcionalidades avançadas do Metrics Explorer](metrics-charts.md)
 * [Visualização de múltiplos recursos no Metrics Explorer](metrics-dynamic-scope.md)

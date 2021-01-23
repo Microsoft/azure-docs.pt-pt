@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com Confluence SAML SSO pela Microsoft ! Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com Confluence SAML SSO pela Microsoft | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Confluence SAML SSO da Microsoft.
 services: active-directory
 author: jeevansd
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/25/2020
 ms.author: jeedes
-ms.openlocfilehash: 939db97a03b69335c9d648c894f453cbb2010edb
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 34365a8bd7a15f502aa89a966adb14807e802cc4
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97967091"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737003"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-confluence-saml-sso-by-microsoft"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com Confluence SAML SSO pela Microsoft
 
@@ -252,9 +252,9 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 
 * Vá diretamente ao Confluence SAML SSO pelo MICROSOFT Sign-on URL e inicie o fluxo de login a partir daí.
 
-* Pode utilizar as minhas apps do Microsoft. Quando clicar no SSO SamL de Confluence pela Microsoft nas Minhas Apps, este será redirecionado para Confluence SAML SSO por URL de assinatura da Microsoft. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+* Pode utilizar as minhas apps do Microsoft. Quando clicar no SSO SamL de Confluence pela Microsoft nas Minhas Apps, este será redirecionado para Confluence SAML SSO por URL de assinatura da Microsoft. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](../user-help/my-apps-portal-end-user-access.md)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Uma vez configurado o Confluence SAML SSO pela Microsoft, pode impor o controlo de Sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)

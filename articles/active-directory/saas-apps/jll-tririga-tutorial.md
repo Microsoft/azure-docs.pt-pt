@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com JLL TRIRIGA Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com JLL TRIRIGA | Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o JLL TRIRIGA.
 services: active-directory
 author: jeevansd
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/17/2020
 ms.author: jeedes
-ms.openlocfilehash: fbf0b6f929fc0999249298f5f271a86ccf3bef39
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: b33db1b766d99aeb8d0a08f6396b5384948f118e
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96603649"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736873"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jll-tririga"></a>Tutorial: Azure Ative Directory integração única (SSO) com JLL TRIRIGA
 
@@ -140,11 +140,9 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 
 * Clique em Testar esta aplicação no portal Azure e deverá ser automaticamente inscrito no JLL TRIRIGA para o qual configura o SSO
 
-* Pode utilizar o Microsoft Access Panel. Quando clicar no azulejo JLL TRIRIGA no Painel de Acesso, deverá ser automaticamente inscrito no JLL TRIRIGA para o qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+* Pode utilizar o Microsoft Access Panel. Quando clicar no azulejo JLL TRIRIGA no Painel de Acesso, deverá ser automaticamente inscrito no JLL TRIRIGA para o qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
 
 
 ## <a name="next-steps"></a>Próximos passos
 
-Uma vez configurado JLL TRIRIGA, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Uma vez configurado JLL TRIRIGA, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

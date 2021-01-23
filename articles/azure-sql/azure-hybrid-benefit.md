@@ -5,18 +5,18 @@ description: Utilize as licenças existentes do SQL Server para descontos Azure 
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: features
-ms.custom: sqldbrb=4, devx-track-azurecli
+ms.custom: sqldbrb=4
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
 ms.date: 11/13/2019
-ms.openlocfilehash: 872b36eae9142473885885d5bf5ad3fa10ae5ccb
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 51cf4a4d3aa3cb4654b141a98064460a7152fcec
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841602"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737460"
 ---
 # <a name="azure-hybrid-benefit---azure-sql-database--sql-managed-instance"></a>Azure Hybrid Benefit - Azure SQL Database & SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -89,12 +89,12 @@ Os clientes da SQL Database têm os seguintes direitos associados ao Azure Hybri
 
 |Pegada de licença|O que é que o Azure Hybrid Benefit for SQL Server te dá?|
 |---|---|
-|SQL Server Enterprise Edition clientes centrais com SA|<li>Pode pagar taxa base em Propósito Geral ou SKU crítico de negócios</li><br><li>1 núcleo no local = 4 núcleos no SKU de Finalidade Geral</li><br><li>1 núcleo nas instalações = 1 núcleo no Business Critical SKU</li>|
-|Sql Server Standard Edition clientes centrais com SA|<li>Pode pagar taxa base apenas no SKU de Finalidade Geral</li><br><li>1 núcleo nas instalações = 1 núcleo no SKU de Finalidade Geral</li>|
+|SQL Server Enterprise Edition clientes centrais com SA|<li>Pode pagar taxa base em Hyperscale, General Purpose, ou Business Critical SKU</li><br><li>1 núcleo no local = 4 núcleos em Hiperscale SKU</li><br><li>1 núcleo no local = 4 núcleos no SKU de Finalidade Geral</li><br><li>1 núcleo nas instalações = 1 núcleo no Business Critical SKU</li>|
+|Sql Server Standard Edition clientes centrais com SA|<li>Pode pagar taxa base apenas em Hiperscale e SKU de Finalidade Geral</li><br><li>1 núcleo nas instalações = 1 núcleo em Hiperscale SKU</li><br><li>1 núcleo nas instalações = 1 núcleo no SKU de Finalidade Geral</li>|
 |||
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter ajuda na escolha de uma opção de implementação Azure SQL, consulte [Escolha a opção de implementação certa em Azure SQL](azure-sql-iaas-vs-paas-what-is-overview.md).
 - Para uma comparação das funcionalidades SQL Database e SQL Managed Instance, consulte a [Base de Dados SQL & as funcionalidades sql Managed Instance](database/features-comparison.md).

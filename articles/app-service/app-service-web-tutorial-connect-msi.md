@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: devx-track-csharp, mvc, cli-validate, devx-track-azurecli
-ms.openlocfilehash: f043f7ed63353dcb9cf9fd26690da97b902f32a6
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 2c19ee2b8e7ec3c695b2c76c46402c118c559b40
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108624"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736242"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Tutorial: Utilizar uma identidade gerida para proteger a ligação da Base de Dados SQL do Azure a partir do Serviço de Aplicações
 
@@ -130,7 +130,7 @@ Em *Web.config,* trabalhar a partir do topo do ficheiro e fazer as seguintes alt
 - Encontre a cadeia de ligação chamada `MyDbConnection` e substitua o seu `connectionString` valor por `"server=tcp:<server-name>.database.windows.net;database=<db-name>;UID=AnyString;Authentication=Active Directory Interactive"` . Substitua _\<server-name>_ e pelo nome do seu servidor e nome da base de _\<db-name>_ dados.
 
 > [!NOTE]
-> O SqlAuthenticationProvider que acabou de registar-se baseia-se no topo da biblioteca appAuthentication que instalou anteriormente. Por padrão, utiliza uma identidade atribuída ao sistema. Para alavancar uma identidade atribuída ao utilizador, terá de fornecer uma configuração adicional. Consulte o [suporte de cadeia de ligação](../key-vault/general/service-to-service-authentication.md#connection-string-support) para a biblioteca appAuthentication.
+> O SqlAuthenticationProvider que acabou de registar-se baseia-se no topo da biblioteca appAuthentication que instalou anteriormente. Por padrão, utiliza uma identidade atribuída ao sistema. Para alavancar uma identidade atribuída ao utilizador, terá de fornecer uma configuração adicional. Consulte o [suporte de cadeia de ligação](/dotnet/api/overview/azure/service-to-service-authentication#connection-string-support) para a biblioteca appAuthentication.
 
 É tudo o que precisas de ligar à Base de Dados SQL. Ao depurar no Visual Studio, o seu código utiliza o utilizador AZure AD que configurado no [set up Visual Studio](#set-up-visual-studio). Mais tarde, irá configurar a SQL Database para permitir a ligação a partir da identidade gerida da sua aplicação de Serviço de Aplicações.
 
@@ -265,7 +265,7 @@ Agora, deverá conseguir editar a lista de tarefas como antes.
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 O que aprendeu:
 

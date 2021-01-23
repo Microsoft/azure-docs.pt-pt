@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 0691411f57944f8203120ec2a6ed19013135458c
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 8db556709f68a1184046989a15fad147542a05a7
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920258"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735746"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-postgresql---single-server"></a>Notificação de manutenção planeada na Base de Dados do Azure para PostgreSQL – Servidor Único
 
@@ -25,7 +25,7 @@ Uma manutenção planeada é uma janela de manutenção quando estas atualizaç�
 
 ## <a name="planned-maintenance---duration-and-customer-impact"></a>Manutenção planeada - duração e impacto do cliente
 
-Espera-se que uma manutenção planeada para uma determinada região de Azure seja normalmente executada 15 horas. A janela também inclui tempo de tampão para executar um plano de reversão, se necessário. Durante a manutenção planeada, pode haver reinício ou falhas no servidor de base de dados, o que pode levar a uma breve indisponibilidade dos servidores de base de dados para os utilizadores finais. A base de dados Azure para servidores PostgreSQL está a funcionar em contentores para que os recomeçamento do servidor de base de dados sejam normalmente rápidos, esperando-se que completem normalmente em 60-120 segundos. Todo o evento de manutenção planeado, incluindo cada servidor, é cuidadosamente monitorizado pela equipa de engenharia. O tempo de falha do servidor depende do tempo de recuperação da base de dados, o que pode fazer com que a base de dados fique online por mais tempo se tiver uma atividade transacional pesada no servidor no momento da falha. Para evitar um tempo de reinício mais longo, é aconselhável evitar transações de longa duração (cargas a granel) durante os eventos de manutenção planeados.
+Espera-se que uma manutenção planeada para uma determinada região de Azure esteja concluída dentro de 15 horas. Esta janela de tempo também inclui tempo de tampão para executar um plano de reversão, se necessário. A base de dados Azure para servidores PostgreSQL está a funcionar em contentores, pelo que o servidor de base de dados normalmente demora 60-120 segundos a ser concluído, mas não há forma determinista de saber quando dentro desta janela de 15 horas o seu servidor será impactado. Todo o evento de manutenção planeado, incluindo cada servidor, é cuidadosamente monitorizado pela equipa de engenharia. O tempo de falha do servidor depende da recuperação da base de dados, o que pode fazer com que a base de dados fique online por mais tempo se tiver uma atividade transacional pesada no servidor no momento da falha. Para evitar um tempo de reinício mais longo, é aconselhável evitar transações de longa duração (cargas a granel) durante os eventos de manutenção planeados.
 
 Em resumo, enquanto o evento de manutenção planeado dura 15 horas, o impacto individual do servidor geralmente dura 60 segundos dependendo da atividade transacional no servidor. Uma notificação é enviada 72 horas antes do início da manutenção planeada e outra enquanto a manutenção está em curso para uma determinada região.
 
@@ -76,7 +76,7 @@ Não, todas as regiões de Azure são remendadas durante os tempos de janela sá
 Um erro transitório, também conhecido como falha transitória, é um erro que se resolverá sozinho. Podem ocorrer [erros transitórios](./concepts-connectivity.md#transient-errors) durante a manutenção. A maioria destes eventos são automaticamente atenuados pelo sistema em menos de 60 segundos. Os erros transitórios devem ser manuseados utilizando [a lógica de repetição](./concepts-connectivity.md#handling-transient-errors).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para quaisquer perguntas ou sugestões que possa ter sobre trabalhar com a Base de Dados Azure para PostgreSQL, envie um e-mail para a Base de Dados Azure para a Equipa PostgreSQL em AskAzureDBforPostgreSQL@service.microsoft.com
 - Veja [como configurar alertas](howto-alert-on-metric.md) para orientação sobre a criação de um alerta sobre uma métrica.

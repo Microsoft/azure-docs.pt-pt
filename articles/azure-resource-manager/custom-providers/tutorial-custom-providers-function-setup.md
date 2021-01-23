@@ -5,12 +5,12 @@ author: jjbfour
 ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: jobreen
-ms.openlocfilehash: 6e11e08d861538ddf395f522495798546e04ca7c
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 55554678047faeedd16b78dea61a42d50fd59491
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948957"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737324"
 ---
 # <a name="set-up-azure-functions-for-azure-custom-providers"></a>Configurar funções Azure para fornecedores personalizados Azure
 
@@ -21,7 +21,7 @@ Um fornecedor personalizado é um contrato entre a Azure e um ponto final. Com f
 > [!NOTE]
 > Neste tutorial, cria-se um ponto final de serviço simples que utiliza uma aplicação de função Azure. No entanto, um fornecedor personalizado pode usar qualquer ponto final acessível ao público. Alternativas incluem Aplicações Lógicas Azure, Gestão API Azure e a funcionalidade de Aplicações Web do Azure App Service.
 
-Para iniciar este tutorial, deve seguir primeiro o tutorial [Crie a sua primeira aplicação de função Azure no portal Azure.](../../azure-functions/functions-create-first-azure-function.md) Este tutorial cria uma função webhook .NET core que pode ser modificada no portal Azure. É também a base para o atual tutorial.
+Para iniciar este tutorial, deve seguir primeiro o tutorial [Crie a sua primeira aplicação de função Azure no portal Azure.](../../azure-functions/functions-get-started.md) Este tutorial cria uma função webhook .NET core que pode ser modificada no portal Azure. É também a base para o atual tutorial.
 
 ## <a name="install-azure-table-storage-bindings"></a>Instale encadernações de armazenamento de mesa Azure
 
@@ -42,7 +42,7 @@ Para instalar as ligações de armazenamento da Tabela Azure:
 Para configurar a função Azure para incluir os métodos de pedido RESTful do fornecedor personalizado:
 
 1. Aceda ao **separador Integração** para o HttpTrigger.
-1. Nos **métodos HTTP selecionados**, selecione **GET,** **POST,** **DELETE**e **PUT**.
+1. Nos **métodos HTTP selecionados**, selecione **GET,** **POST,** **DELETE** e **PUT**.
 
 ![Visão geral do fornecedor personalizado mostrando métodos HTTP](./media/create-custom-provider/azure-functions-http-methods.png)
 
@@ -75,7 +75,7 @@ O seguinte elemento XML é um ficheiro de projeto exemplo C#:
 </Project>
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, criou uma aplicação de função Azure para funcionar como um ponto final de fornecedor personalizado Azure.
 

@@ -366,6 +366,8 @@
           href: sql-data-warehouse-restore-deleted-dw.md
         - name: Restaurar a partir de uma cópia de segurança geo
           href: sql-data-warehouse-restore-from-geo-backup.md
+        - name: Desativar geo-backups
+          href: disable-geo-backup.md
     - name: Integrar
       items:
         - name: Utilizar a aprendizagem automática

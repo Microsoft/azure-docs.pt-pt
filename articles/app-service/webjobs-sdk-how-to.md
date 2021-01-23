@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: f941c394c3dab0e5e6997898a48a248f6a0cfe42
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 5666a489cfd0f0d92120c9ec7e3c8d3c2d083b5e
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352444"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737274"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>How to use the Azure WebJobs SDK for event-driven background processing (Como utilizar o SDK de WebJobs do Azure para processamento em segundo plano condicionado por eventos)
 
@@ -794,7 +794,7 @@ public static void RemoveItem([QueueTrigger("remove-item")] string message)
 
 ### <a name="viewing-lease-blobs"></a>Ver bolhas de arrendamento
 
-O WebJobs SDK utiliza [locações blob Azure](../storage/common/storage-concurrency.md#pessimistic-concurrency-for-blobs) sob as capas para implementar bloqueio distribuído. As bolhas de locação utilizadas pela Singleton podem ser encontradas `azure-webjobs-host` no recipiente na conta de armazenamento sob o caminho `AzureWebJobsStorage` "fechaduras". Por exemplo, o caminho da bolha de arrendamento para o primeiro `ProcessImage` exemplo mostrado anteriormente pode ser `locks/061851c758f04938a4426aa9ab3869c0/WebJobs.Functions.ProcessImage` . Todos os caminhos incluem o ID JobHost, neste caso 061851c758f04938a426aaaa9ab3869c0.
+O WebJobs SDK utiliza [locações blob Azure](../storage/blobs/concurrency-manage.md#pessimistic-concurrency-for-blobs) sob as capas para implementar bloqueio distribuído. As bolhas de locação utilizadas pela Singleton podem ser encontradas `azure-webjobs-host` no recipiente na conta de armazenamento sob o caminho `AzureWebJobsStorage` "fechaduras". Por exemplo, o caminho da bolha de arrendamento para o primeiro `ProcessImage` exemplo mostrado anteriormente pode ser `locks/061851c758f04938a4426aa9ab3869c0/WebJobs.Functions.ProcessImage` . Todos os caminhos incluem o ID JobHost, neste caso 061851c758f04938a426a9ab3869c0.
 
 ## <a name="async-functions"></a>Funções assínc
 

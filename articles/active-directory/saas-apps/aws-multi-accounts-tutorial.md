@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com a Amazon Web Services (AWS) para ligar várias contas Microsoft Docs'
+title: 'Tutorial: Integração do Azure Ative Directory com a Amazon Web Services (AWS) para ligar várias contas | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre a Azure AD e a Amazon Web Services (AWS) (Legacy Tutorial).
 services: active-directory
 author: jeevansd
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/24/2020
 ms.author: jeedes
-ms.openlocfilehash: e6b4175f4f47c9dd378bec84da2575c079a2079f
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 440fe52689a345eec36c3ac613d6bc2cc2dccc13
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98014438"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735482"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws-legacy-tutorial"></a>Tutorial: Integração do Azure Ative Directory com a Amazon Web Services (AWS) (Tutorial Legado)
 
@@ -77,7 +77,7 @@ Para configurar a integração da Amazon Web Services (AWS) no AD Azure, é nece
 
 1. Assim que a aplicação for adicionada, vá à página **Propriedades** e copie o **ID do objeto.**
 
-    ![ID de objeto](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-properties.png)
+    ![ID do Objeto](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-properties.png)
 
 ## <a name="configure-and-test-azure-ad-sso"></a>Configurar e testar Azure AD SSO
 
@@ -144,7 +144,7 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure e configu
     exemplo, Clique em **Guardar**.
 
     >[!NOTE]
-    >Para mais informações sobre papéis em Azure AD, consulte [aqui.](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui)
+    >Para mais informações sobre papéis em Azure AD, consulte [aqui.](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui--preview)
 
 7. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metdata XML da Federação** e guardá-lo no seu computador.
 

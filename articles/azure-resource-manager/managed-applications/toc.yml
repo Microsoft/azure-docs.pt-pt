@@ -180,6 +180,6 @@
     - name: Melhores práticas do modelo do Resource Manager
       href: 'https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md'
     - name: Microsoft Q&A
-      href: 'https://docs.microsoft.com/en-us/answers/topics/azure-managed-applications.html'
-    - name: Stack Overflow
+      href: /answers/topics/azure-managed-applications.html
+    - name: Stack Overflow (Capacidade de Pilha Excedida)
       href: 'https://stackoverflow.com/questions/tagged/azure-managed-app'

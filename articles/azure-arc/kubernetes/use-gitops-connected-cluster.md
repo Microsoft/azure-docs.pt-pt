@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Utilize GitOps para configurar um cluster Kubernetes ativado pelo Arco Azure (Pré-visualização)
 keywords: GitOps, Kubernetes, K8s, Azure, Arc, Azure Kubernetes Service, AKS, contentores
-ms.openlocfilehash: 751b274a9cae68f6bc9b1adc45804f2dd2ef4c72
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: a068ed90ea53b3b25a1f41cebd9a5b8e607afa54
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684762"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737189"
 ---
 # <a name="deploy-configurations-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>Implementar configurações com o GitOps em clusters do Kubernetes preparados para o Azure Arc (Pré-visualização)
 
@@ -29,7 +29,7 @@ O mesmo padrão pode ser usado para gerir uma maior coleção de aglomerados, qu
 
 Este guia de arranque irá acompanhá-lo através da aplicação de um conjunto de configurações com âmbito de administração de cluster.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Este artigo pressupõe que você tem um Azure Arc existente habilitado cluster ligado Kubernetes. Se precisar de um cluster ligado, consulte o [arranque rápido](./connect-cluster.md)do cluster .
 
@@ -138,7 +138,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 > [!NOTE]
 > HTTPS Helm auth privado é suportado apenas com a versão do gráfico do operador Helm >= 1.2.0.  A versão 1.2.0 é utilizada por predefinição.
 > HTTPS Helm lança auth privada não é suportado atualmente para clusters geridos Azure Kubernetes Services.
-> Se precisar de Fluxo para aceder ao Git repo através do seu representante, então terá de atualizar os agentes do Azure Arc com as definições de procuração. [Mais informações](https://docs.microsoft.com/azure/azure-arc/kubernetes/connect-cluster#connect-using-an-outbound-proxy-server)
+> Se precisar de Fluxo para aceder ao Git repo através do seu representante, então terá de atualizar os agentes do Azure Arc com as definições de procuração. [Mais informações](./connect-cluster.md#connect-using-an-outbound-proxy-server)
 
 #### <a name="additional-parameters"></a>Parâmetros adicionais
 
@@ -361,7 +361,7 @@ az k8sconfiguration delete --name cluster-config --cluster-name AzureArcTest1 --
 Command group 'k8sconfiguration' is in preview. It may be changed/removed in a future release.
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Use o leme com configuração de controlo de origem](./use-gitops-with-helm.md)
 - [Use a política do Azure para governar a configuração do cluster](./use-azure-policy.md)

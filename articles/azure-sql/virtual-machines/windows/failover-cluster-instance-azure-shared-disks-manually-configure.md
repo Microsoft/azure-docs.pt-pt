@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: becf9f8c7f6a967ed63cfd3040de90de76e32fff
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 8daec71745c9eff9a7db5bb34cb3596973def4aa
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97607274"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736418"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Criar um FCI com discos partilhados Azure (SQL Server em VMs Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -32,7 +32,7 @@ Para saber mais, consulte uma visão geral da [FCI com o SQL Server em VMs Azure
 Antes de completar as instruções deste artigo, já deve ter:
 
 - Uma subscrição do Azure. Começa de [graça.](https://azure.microsoft.com/free/) 
-- [Duas ou mais máquinas virtuais Windows Azure](failover-cluster-instance-prepare-vm.md). [Os conjuntos de disponibilidade](../../../virtual-machines/windows/tutorial-availability-sets.md) e [os grupos de colocação de proximidade](../../../virtual-machines/windows/co-location.md#proximity-placement-groups) (PPGs) suportados para SSD Premium e zonas de disponibilidade são [suportados](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address) para Discos Ultra. Se utilizar um PPG, todos os nós devem existir no mesmo grupo.
+- [Duas ou mais máquinas virtuais Windows Azure](failover-cluster-instance-prepare-vm.md). [Os conjuntos de disponibilidade](../../../virtual-machines/windows/tutorial-availability-sets.md) e [os grupos de colocação de proximidade](../../../virtual-machines/co-location.md#proximity-placement-groups) (PPGs) suportados para SSD Premium e zonas de disponibilidade são [suportados](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address) para Discos Ultra. Se utilizar um PPG, todos os nós devem existir no mesmo grupo.
 - Uma conta que tem permissões para criar objetos tanto em máquinas virtuais Azure como no Ative Directory.
 - A versão mais recente do [PowerShell.](/powershell/azure/install-az-ps) 
 
@@ -211,7 +211,7 @@ Para encaminhar o tráfego adequadamente para o nó primário atual, configufiqu
 
 - Apenas é suportado o registo com a extensão sql IaaS Agent em [modo de gestão leve.](sql-server-iaas-agent-extension-automate-management.md#management-modes)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se ainda não o fez, configugue a conectividade com o seu FCI com um [nome de rede virtual e um equilibrador de carga Azure](failover-cluster-instance-vnn-azure-load-balancer-configure.md) ou nome de rede distribuído [(DNN)](failover-cluster-instance-distributed-network-name-dnn-configure.md). 
 
@@ -219,6 +219,6 @@ Se os discos partilhados do Azure não forem a solução de armazenamento FCI ad
 
 Para saber mais, consulte uma visão geral da [FCI com o SQL Server em VMs Azure](failover-cluster-instance-overview.md) e [as melhores práticas de configuração do cluster](hadr-cluster-best-practices.md).
 
-Para obter mais informações, veja: 
+Para obter mais informações, consulte: 
 - [Tecnologias de cluster windows](/windows-server/failover-clustering/failover-clustering-overview)   
 - [SQL Server falha casos de cluster](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)

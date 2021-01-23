@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com a Yello Enterprise Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única (SSO) com a Yello Enterprise | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e a Yello Enterprise.
 services: active-directory
 author: jeevansd
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/21/2020
 ms.author: jeedes
-ms.openlocfilehash: 3d1840b2741b06421db21aa38dcf83a5fbf8d026
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: dc9c8e622840d30f1d18ab783cc20e2659a1b5e3
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746809"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735565"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-yello-enterprise"></a>Tutorial: Azure Ative Directory integração única (SSO) com a Yello Enterprise
 
@@ -87,7 +87,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação Yello Enterprise espera que alguns mais atributos sejam repercutidos na resposta SAML, que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
 
-    | Nome | Atributo de origem|
+    | Name | Atributo de origem|
     | ------------ | --------- |
     | ID de colaborador | utilizador.employeeid |
 
@@ -137,11 +137,9 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 
 * Clique em Testar esta aplicação no portal Azure e deverá ser automaticamente inscrito na Yello Enterprise para a qual configura o SSO
 
-* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo yello Enterprise nas Minhas Apps, deverá ser automaticamente inscrito na Yello Enterprise para a qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo yello Enterprise nas Minhas Apps, deverá ser automaticamente inscrito na Yello Enterprise para a qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](../user-help/my-apps-portal-end-user-access.md)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Assim que configurar a Yello Enterprise, pode impor o controlo da sessão, o que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Assim que configurar a Yello Enterprise, pode impor o controlo da sessão, o que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

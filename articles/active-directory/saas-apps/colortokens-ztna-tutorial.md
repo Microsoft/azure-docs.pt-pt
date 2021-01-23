@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com ColorTokens ZTNA / Microsoft Docs'
+title: 'Tutorial: Azure Ative Directy integração única de sign-on (SSO) com a | Do ColorTokens ZTNA Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o ColorTokens ZTNA.
 services: active-directory
 author: jeevansd
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 54386bd7431c2003dd29a905b3b696f69a39d2d9
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: c87eb3b52843f4de39d0c037bdf452160be1ca2b
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97914438"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735973"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-colortokens-ztna"></a>Tutorial: Azure Ative Directy integração única (SSO) com ColorTokens ZTNA
 
@@ -89,10 +89,10 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     | Name | Atributo de origem|
     | ------------- | --------- |
     | departamento | user.userprincipalname |
-    | Grupo | utilizador.grupos |
+    | Group | utilizador.grupos |
 
     > [!NOTE]
-    > Clique [aqui](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui) para saber como criar papéis em Azure AD.
+    > Clique [aqui](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui--preview) para saber como criar papéis em Azure AD.
 
 1. Na **configuração de um único sessão de inscrição com** a página SAML, na secção **Certificado de Assinatura SAML,** encontre o **Metadados XML da Federação** e selecione **Descarregue** para descarregar o certificado e guarde-o no seu computador.
 
@@ -142,9 +142,9 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 
 * Vá diretamente ao URL de assinatura do ColorTokens ZTNA e inicie o fluxo de login a partir daí.
 
-* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo ZTNA do ColorTokens nas Minhas Apps, este irá redirecionar para o URL de assinatura do ColorTokens ZTNA. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo ZTNA do ColorTokens nas Minhas Apps, este irá redirecionar para o URL de assinatura do ColorTokens ZTNA. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](../user-help/my-apps-portal-end-user-access.md)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Uma vez configurado o ColorTokens ZTNA, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

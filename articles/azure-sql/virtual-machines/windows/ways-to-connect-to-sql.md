@@ -1,5 +1,5 @@
 ---
-title: Ligue-se a uma máquina virtual SQL Server (Gestor de Recursos) Microsoft Docs
+title: Ligue-se a uma máquina virtual SQL Server (Gestor de Recursos) | Microsoft Docs
 description: Saiba como ligar-se à sua máquina virtual SQL Server no Azure. Este tópico utiliza o modelo clássico de implementação. Os cenários diferem consoante a configuração da rede e a localização do cliente.
 services: virtual-machines-windows
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 12/12/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 28b68178b98e53b7a7d4192ad20c05a667344969
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 37cb8f5a2ff0916f53ae50f5750664204ab1ba75
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97356735"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737494"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Ligue-se a uma máquina virtual SQL Server no Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -82,7 +82,7 @@ Ao escolher **Private** para o tipo **de conectividade SQL** no portal, o Azure 
 > [!IMPORTANT]
 > As imagens de máquina virtual para as edições SQL Server Developer e Express não ativam automaticamente o protocolo TCP/IP. Para as edições Developer e Express, deve utilizar o SqL Server Configuration Manager para [ativar manualmente o protocolo TCP/IP](#manualtcp) após a criação do VM.
 
-A conectividade privada é frequentemente usada em conjunto com uma [rede virtual](../../../virtual-network/virtual-networks-overview.md), que permite vários cenários. Pode ligar VMs na mesma rede virtual, mesmo que existam VMs em diferentes grupos de recursos. E com uma [VPN site-to-site,](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)você pode criar uma arquitetura híbrida que conecta VMs com redes e máquinas no local.
+A conectividade privada é frequentemente usada em conjunto com uma [rede virtual](../../../virtual-network/virtual-networks-overview.md), que permite vários cenários. Pode ligar VMs na mesma rede virtual, mesmo que existam VMs em diferentes grupos de recursos. E com uma [VPN site-to-site,](../../../vpn-gateway/tutorial-site-to-site-portal.md)você pode criar uma arquitetura híbrida que conecta VMs com redes e máquinas no local.
 
 As redes virtuais também permitem que se junte aos seus VMs Azure a um domínio. Esta é a única forma de utilizar a autenticação do Windows no SQL Server. Os outros cenários de ligação requerem autenticação SQL com nomes de utilizador e palavras-passe.
 
@@ -147,7 +147,7 @@ A tabela que se segue lista os requisitos para ligar ao SQL Server no Azure VM.
 > [!TIP]
 > Os passos na tabela anterior são feitos para si quando configura a conectividade no portal. Utilize estes passos apenas para confirmar a sua configuração ou para configurar a conectividade manualmente para o SQL Server.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter instruções de provisionamento juntamente com estes passos de conectividade, consulte [provisionar uma máquina virtual SQL Server no Azure](create-sql-vm-portal.md).
 

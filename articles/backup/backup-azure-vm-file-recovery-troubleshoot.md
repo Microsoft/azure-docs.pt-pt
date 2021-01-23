@@ -3,12 +3,12 @@ title: Resolução de problemas Recuperação de ficheiros Azure VM
 description: Problemas de resolução de problemas ao recuperar ficheiros e pastas de uma cópia de segurança do Azure VM.
 ms.topic: troubleshooting
 ms.date: 07/12/2020
-ms.openlocfilehash: aec69b91ad1dae5864e5e8fba61c53e6d15887f4
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: c4d0d233237cb477d72efea0b91d4e5288e2a302
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624511"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735882"
 ---
 # <a name="troubleshoot-issues-in-file-recovery-of-an-azure-vm-backup"></a>Problemas de resolução de problemas na recuperação de ficheiros de uma cópia de segurança do Azure VM
 
@@ -46,7 +46,7 @@ Esta secção fornece passos para resolver problemas comuns que pode experimenta
 
 ### <a name="you-cant-download-the-script"></a>Não pode descarregar o script
 
-1. Certifique-se de que tem as [permissões necessárias para descarregar o script](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#select-recovery-point-who-can-generate-script).
+1. Certifique-se de que tem as [permissões necessárias para descarregar o script](./backup-azure-restore-files-from-vm.md#select-recovery-point-who-can-generate-script).
 1. Verifique a ligação com os IPs do alvo Azure. Executar um dos seguintes comandos a partir de um pedido de comando elevado:
 
    `nslookup download.microsoft.com`
@@ -67,7 +67,7 @@ Quando executar o script Python para a recuperação do nível de item (ILR) no 
 
 Pode ver uma mensagem de erro "Exceção apanhada durante a ligação ao alvo".
 
-1. Certifique-se de que a máquina onde o script é executado satisfaz os [requisitos de acesso](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#step-4-access-requirements-to-successfully-run-the-script).
+1. Certifique-se de que a máquina onde o script é executado satisfaz os [requisitos de acesso](./backup-azure-restore-files-from-vm.md#step-4-access-requirements-to-successfully-run-the-script).
 1. Verifique a ligação com os IPs do alvo Azure. Executar um dos seguintes comandos a partir de um pedido de comando elevado:
 
    `nslookup download.microsoft.com`
@@ -169,6 +169,6 @@ A cópia pode falhar com o erro "0x80070780: O ficheiro não pode ser acedido pe
 
 Verifique se o servidor de origem tem deduplicação de disco ativada. Se o fizer, certifique-se de que o servidor de restauro também tem deduplica ativação ativada nas unidades. Pode deixar a desduplicação não configurada para não desduplicar as unidades do servidor de restauro.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Recuperar ficheiros e pastas da cópia de segurança da máquina virtual Azure](backup-azure-restore-files-from-vm.md)

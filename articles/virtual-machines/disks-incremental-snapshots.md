@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 01/15/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: a1cfabf6ccbb5d580bcad36694cd2e1a74155714
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 52e491c88d3483f21aa74f1a9f176246033bee3c
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98540766"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735797"
 ---
 # <a name="create-an-incremental-snapshot-for-managed-disks"></a>Crie um instantâneo incremental para discos geridos
 
@@ -33,7 +33,7 @@ Install-Module -Name Az -AllowClobber -Scope CurrentUser
 
 Uma vez instalado, inicie sessão no PowerShell com `Connect-AzAccount` .
 
-Para criar um instantâneo incremental com Azure PowerShell, desafie a configuração com [New-AzSnapShotConfig](/powershell/module/az.compute/new-azsnapshotconfig?view=azps-2.7.0) com o `-Incremental` parâmetro e, em seguida, passe-a como uma variável para [New-AzSnapshot](/powershell/module/az.compute/new-azsnapshot?view=azps-2.7.0) através do `-Snapshot` parâmetro.
+Para criar um instantâneo incremental com Azure PowerShell, desafie a configuração com [New-AzSnapShotConfig](/powershell/module/az.compute/new-azsnapshotconfig) com o `-Incremental` parâmetro e, em seguida, passe-a como uma variável para [New-AzSnapshot](/powershell/module/az.compute/new-azsnapshot) através do `-Snapshot` parâmetro.
 
 ```PowerShell
 $diskName = "yourDiskNameHere>"
@@ -108,6 +108,6 @@ Também pode usar modelos do Gestor de Recursos Azure para criar uma imagem incr
 ```
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se quiser ver o código de amostra que demonstre a capacidade diferencial de instantâneos incrementais, utilizando .NET, consulte [cópias de segurança dos Discos Geridos copy Azure para outra região com capacidade diferencial de instantâneos incrementais](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots).

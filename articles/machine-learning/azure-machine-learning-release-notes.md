@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 09/10/2020
-ms.openlocfilehash: 117bc71ba304445e3186b4e633f5888647be9223
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 38f37ff2fe150a9e1998fbe5e963b8737a6e1533
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98685634"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737970"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de lançamento do Azure Machine Learning
 
@@ -36,6 +36,7 @@ Neste artigo, saiba mais sobre os lançamentos da Azure Machine Learning.  Para 
     + Problema fixo no service.reload() para recolher alterações na score.py na implantação local.
     + `run.get_details()` tem um campo extra chamado "submittedBy" que mostra o nome do autor para esta execução.
     + Modelo editado.registar documentação do método para mencionar como registar o modelo a partir de executado diretamente
+    + Problema de tratamento de alteração de IOT-Server de estado de ligação fixo.
    
 
 ## <a name="2020-12-31"></a>2020-12-31
@@ -895,7 +896,7 @@ Agora pode criar, editar e partilhar cadernos e ficheiros de machine learning di
 
 Aceda às seguintes ferramentas de autoria baseadas na web do estúdio:
     
-| Ferramenta baseada na web  |     Description  |
+| Ferramenta baseada na web  |     Descrição  |
 |---|---|
 | Cadernos do estúdio Azure ML   |     Primeira autoria em classe para ficheiros de portátil e suporte a toda a operação disponível no Azure ML Python SDK. | 
 
@@ -1407,7 +1408,7 @@ A partir do estúdio, você pode treinar, testar, implementar e gerir ativos de 
 
 Aceda às seguintes ferramentas de autoria baseadas na web do estúdio:
 
-| Ferramenta baseada na web | Description | 
+| Ferramenta baseada na web | Descrição | 
 |-|-|-|
 | VM do portátil (pré-visualização) | Estação de trabalho totalmente gerida em nuvem | 
 | [Aprendizagem automática de máquinas](tutorial-first-experiment-automated-ml.md) (pré-visualização) | Nenhuma experiência de código para automatizar o desenvolvimento de modelos de aprendizagem automática | 
@@ -2278,6 +2279,6 @@ Foi [`PipelineEndpoint`](/python/api/azureml-pipeline-core/azureml.pipeline.core
   + Novo visualizador de ficheiros de Logs
   + Links para execuções experimentais, cálculo, modelos, imagens e implementações a partir do separador de atividades
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Leia a descrição geral do [Azure Machine Learning](overview-what-is-azure-ml.md).

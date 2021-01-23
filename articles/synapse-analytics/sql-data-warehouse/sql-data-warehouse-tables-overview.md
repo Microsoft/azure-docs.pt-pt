@@ -11,12 +11,12 @@ ms.date: 03/15/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: d31dfbf376bc3d93e31aa822a38c9f85db219324
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: c55edbd24553189c11070999ddc5d3b3516f2d97
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98679589"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737936"
 ---
 # <a name="design-tables-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Tabelas de design usando piscina SQL dedicada em Azure Synapse Analytics
 
@@ -75,7 +75,7 @@ Como tal, as tabelas externas são úteis para o carregamento de dados. Para um 
 
 ## <a name="data-types"></a>Tipos de dados
 
-O pool DE SQL dedicado suporta os tipos de dados mais utilizados. Para obter uma lista dos tipos de dados suportados, consulte [os tipos de dados na referência CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest#DataTypes) na declaração CREATE TABLE. Para obter orientações sobre a utilização de tipos de dados, consulte [os tipos de dados](sql-data-warehouse-tables-data-types.md).
+O pool DE SQL dedicado suporta os tipos de dados mais utilizados. Para obter uma lista dos tipos de dados suportados, consulte [os tipos de dados na referência CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json?view=azure-sqldw-latest&preserve-view=true#datatypes) na declaração CREATE TABLE. Para obter orientações sobre a utilização de tipos de dados, consulte [os tipos de dados](sql-data-warehouse-tables-data-types.md).
 
 ## <a name="distributed-tables"></a>Tabelas distribuídas
 
@@ -144,7 +144,7 @@ A CHAVE PRIMÁRIA só é suportada quando não é aplicada e não executada.  É
 
 Pode criar uma mesa como uma nova mesa vazia. Também pode criar e preencher uma tabela com os resultados de uma declaração selecionada. Seguem-se os comandos T-SQL para a criação de uma tabela.
 
-| Declaração T-SQL | Description |
+| Declaração T-SQL | Descrição |
 |:----------------|:------------|
 | [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Cria uma mesa vazia definindo todas as colunas e opções de mesa. |
 | [CRIAR TABELA EXTERNA](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Cria uma mesa externa. A definição da tabela é armazenada em piscina SQL dedicada. Os dados da tabela são armazenados no armazenamento Azure Blob ou na Azure Data Lake Store. |
@@ -373,6 +373,6 @@ ORDER BY    distribution_id
 ;
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Depois de criar as tabelas para a sua piscina SQL dedicada, o próximo passo é carregar dados na tabela.  Para um tutorial de carregamento, consulte [os dados de carregamento para a piscina sql dedicada.](load-data-wideworldimportersdw.md)

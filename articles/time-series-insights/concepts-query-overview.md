@@ -1,5 +1,5 @@
 ---
-title: Dados de consulta - Azure Time Series Insights Gen2 [ Microsoft Docs
+title: Dados de Consulta - Azure Time Series Insights Gen2 | Microsoft Docs
 description: Conceitos de consulta de dados e visão geral da API REST em Azure Time Series Insights Gen2.
 author: shreyasharmamsft
 ms.author: shresha
@@ -8,16 +8,16 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/01/2020
+ms.date: 01/22/2021
 ms.custom: seodec18
-ms.openlocfilehash: 5682cf9856ad8969d930d72f53e888b03ff6ae75
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: bf743bf1997a339664a6da2e5c02f1bcc1deea26
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95020866"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736756"
 ---
-# <a name="querying-data-from-azure-time-series-insights-gen2"></a>Consulta dados da Azure Time Series Insights Gen2
+# <a name="querying-data-from-azure-time-series-insights-gen2"></a>Consultar dados no Azure Time Series Insights Gen2
 
 Azure Time Series Insights Gen2 permite a consulta de dados sobre eventos e metadados armazenados no ambiente através de APIs de superfície pública. Estas APIs também são utilizadas pelo [Azure Time Series Insights TSI Explorer](./concepts-ux-panels.md).
 

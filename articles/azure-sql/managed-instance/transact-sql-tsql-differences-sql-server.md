@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 11/10/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 6634ab3521fee3062ecee465eaf6dcda80ee6ff8
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 0a462c7d713ea9285096db48b4a3bb5c5b0d9874
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98699519"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737392"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferenças T-SQL entre SQL Server & Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -508,15 +508,14 @@ As seguintes variáveis, funções e vistas retornam diferentes resultados:
 
 ### <a name="subnet"></a>Sub-rede
 -  Não é possível colocar quaisquer outros recursos (por exemplo, máquinas virtuais) na sub-rede onde implementou a sua SQL Managed Instance. Implemente estes recursos usando uma sub-rede diferente.
-- A sub-rede deve ter um número suficiente de [endereços IP](connectivity-architecture-overview.md#network-requirements)disponíveis . O mínimo é 16, enquanto a recomendação é ter pelo menos 32 endereços IP na sub-rede.
-- [Os pontos finais de serviço não podem ser associados à sub-rede sql Managed Instance](connectivity-architecture-overview.md#network-requirements). Certifique-se de que a opção de pontos finais de serviço é desativada quando criar a rede virtual.
+- A sub-rede deve ter um número suficiente de [endereços IP](connectivity-architecture-overview.md#network-requirements)disponíveis . O mínimo é ter pelo menos 32 endereços IP na sub-rede.
 - O número de vCores e tipos de casos que pode implementar numa região tem [alguns constrangimentos e limites.](resource-limits.md#regional-resource-limitations)
-- Existem algumas [regras de segurança que devem ser aplicadas na sub-rede.](connectivity-architecture-overview.md#network-requirements)
+- Existe uma [configuração de rede](connectivity-architecture-overview.md#network-requirements) que deve ser aplicada na sub-rede.
 
 ### <a name="vnet"></a>VNET
 - O VNet pode ser implementado utilizando o Modelo de Recurso - O modelo clássico para o VNet não é suportado.
 - Após a criação de um SQL Managed Instance, a deslocação da SQL Managed Instance ou VNet para outro grupo de recursos ou subscrição não é suportada.
-- Alguns serviços como Ambientes de Serviço de Aplicações, aplicações lógicas e sql Managed Instance (utilizados para geo-replicação, replicação transacional ou através de servidores ligados) não podem aceder ao SQL Managed Instance em diferentes regiões se os seus VNets estiverem ligados através de [um espreguite global.](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) Pode ligar-se a estes recursos através do ExpressRoute ou VNet-to-VNet através do VNet Gateways.
+- Para os SQL Managed Instances hospedados em clusters virtuais que são criados antes do 9/22/2020 [o peering global](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) não é suportado. Pode ligar-se a estes recursos através do ExpressRoute ou VNet-to-VNet através do VNet Gateways.
 
 ### <a name="failover-groups"></a>Grupos de ativação pós-falha
 As bases de dados do sistema não são replicadas para a instância secundária num grupo de failover. Portanto, os cenários que dependem de objetos das bases de dados do sistema serão impossíveis na instância secundária, a menos que os objetos sejam criados manualmente no secundário.

@@ -3,12 +3,12 @@ title: Azure partilha de ficheiros para piscinas Azure Batch
 description: Como montar uma partilha de Ficheiros Azure a partir de nós de computação num conjunto Linux ou Windows em Azure Batch.
 ms.topic: how-to
 ms.date: 05/24/2018
-ms.openlocfilehash: 6bbaba20512a17de563e74ba095057c5c3f71f6b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5682e7ba853973592c3a650a06ce72615cec7b6
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87986428"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735499"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>Use uma partilha de ficheiros Azure com uma piscina de Lote
 
@@ -20,7 +20,7 @@ ms.locfileid: "87986428"
 
 * As ações de ficheiros Azure são [rentáveis](https://azure.microsoft.com/pricing/details/storage/files/) e podem ser configuradas com a replicação de dados para outra região, pelo que são globalmente redundantes. 
 
-* Pode montar uma partilha de ficheiros Azure simultaneamente a partir de um computador no local. No entanto, certifique-se de que compreende [as implicações de conuscção,](../storage/common/storage-concurrency.md) especialmente quando utilizar ASP de REST.
+* Pode montar uma partilha de ficheiros Azure simultaneamente a partir de um computador no local. No entanto, certifique-se de que compreende [as implicações de conuscção,](../storage/blobs/concurrency-manage.md) especialmente quando utilizar ASP de REST.
 
 * Consulte também as [considerações gerais de planeamento](../storage/files/storage-files-planning.md) das ações de ficheiros Azure.
 
@@ -33,7 +33,7 @@ ms.locfileid: "87986428"
 
 Consulte a documentação sobre como [montar um sistema de ficheiros virtual numa piscina de Lote](virtual-file-mount.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para outras opções para ler e escrever dados em Batch, consulte [a saída de trabalho e tarefa de Persist](batch-task-output.md).
 * Consulte também o conjunto de [ferramentas](https://github.com/Azure/batch-shipyard/tree/master/recipes) [do Estaleiro batch,](https://github.com/Azure/batch-shipyard) que inclui receitas de estaleiro para implantar sistemas de ficheiros para cargas de carga de contentores de lotes.

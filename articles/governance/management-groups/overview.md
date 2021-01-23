@@ -1,15 +1,15 @@
 ---
 title: Organize os seus recursos com grupos de gestão - Azure Governance
 description: Saiba mais sobre os grupos de gestão, como as permissões destes funcionam e como utilizá-los.
-ms.date: 11/17/2020
+ms.date: 01/22/2021
 ms.topic: overview
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 9f23a279733169f17f0f82cb80aa08bfafcd45d0
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: e86501527ff68319fc8d2e942e7ffa977dcecbe6
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97030676"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736327"
 ---
 # <a name="what-are-azure-management-groups"></a>O que são os grupos de gestão do Azure?
 
@@ -162,16 +162,16 @@ Existem algumas opções diferentes para corrigir este cenário:
 - Remova a atribuição de funções da subscrição antes de mover a subscrição para um novo MG dos pais.
 - Adicione a subscrição ao âmbito atribuível da Definição de Função.
 - Altere o âmbito de aplicação na definição de função. No exemplo acima, pode atualizar os âmbitos atribuíveis do Marketing ao Root Management Group para que a definição possa ser alcançada por ambos os ramos da hierarquia.  
-- Crie uma Função Personalizada adicional que será definida no outro ramo. Esta nova função exigirá que a atribuição de funções seja alterada também na subscrição.  
+- Crie outro Papel Personalizado que seja definido no outro ramo. Esta nova função requer que a atribuição de funções seja alterada também na subscrição.  
 
 ### <a name="limitations"></a>Limitações  
 
 Existem limitações quando se utilizam funções personalizadas em grupos de gestão. 
 
  - Só é possível definir um grupo de gestão nos âmbitos atribuíveis de um novo papel. Esta limitação está em vigor para reduzir o número de situações em que as definições de funções e atribuições de funções são desligadas. Esta situação acontece quando uma subscrição ou grupo de gestão com uma atribuição de papel se muda para um pai diferente que não tem a definição de papel.  
- - As ações do plano de dados do fornecedor de recursos não podem ser definidas em funções personalizadas do grupo de gestão. Esta restrição está em vigor, uma vez que há um problema de latência com a atualização dos fornecedores de recursos de planos de dados.
-   Esta questão da latência está a ser trabalhada e estas ações serão desativadas da definição de papel para reduzir quaisquer riscos.
- - O Gestor de Recursos Azure não valida a existência do grupo de gestão no âmbito atribuível da definição de função. Se houver um erro ou um ID de grupo de gestão incorreto listado, a definição de função ainda será criada.
+ - As ações do plano de dados do fornecedor de recursos não podem ser definidas em funções personalizadas do grupo de gestão. Esta restrição está em vigor, uma vez que há um problema de latência com a atualização dos fornecedores de recursos de planos de dados. Esta questão da latência está a ser trabalhada e estas ações serão desativadas da definição de papel para reduzir quaisquer riscos.
+ - O Gestor de Recursos Azure não valida a existência do grupo de gestão no âmbito atribuível da definição de função. Se houver um erro ou um ID de grupo de gestão incorreto listado, a definição de função ainda é criada.
+ - A atribuição de funções para um papel com _dataActions_ não é suportada. Em vez disso, crie a atribuição de funções no âmbito de subscrição.
 
 > [!IMPORTANT]
 > A adição de um grupo de gestão `AssignableScopes` está atualmente em pré-visualização. Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção.
@@ -202,7 +202,7 @@ Os grupos de gestão são suportados no [Registo de Atividades do Azure](../../a
 
 Quando quiser consultar Grupos de Gestão fora do portal do Azure, o âmbito de destino dos grupos de gestão é semelhante a **"/ providers/Microsoft.Management/managementGroups/{yourMgID}"**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre os grupos de gestão, veja:
 

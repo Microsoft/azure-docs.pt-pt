@@ -6,15 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/11/2021
-ms.openlocfilehash: 877251ba7e0c1f3c33cab37e20d609479b69520c
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: c213a38286de05df5c3be8e3498bcca4ab6e1fbf
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251833"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736150"
 ---
 # <a name="azure-monitor-for-existing-operations-manager-customers"></a>Azure Monitor para clientes gestores de operações existentes
-Este artigo fornece orientações para os clientes que atualmente utilizam [o Gestor de Operações do System Center](https://docs.microsoft.com/system-center/scom/welcome) e estão a planear uma transição para o [Azure Monitor](overview.md) à medida que migram aplicações de negócios e outros recursos para o Azure. Assume que o seu objetivo final é uma transição completa para a nuvem, substituindo o máximo de funcionalidades do Gestor de Operações possível pelo Azure Monitor, sem comprometer os requisitos operacionais do seu negócio e de TI. 
+Este artigo fornece orientações para os clientes que atualmente utilizam [o Gestor de Operações do System Center](/system-center/scom/welcome) e estão a planear uma transição para o [Azure Monitor](overview.md) à medida que migram aplicações de negócios e outros recursos para o Azure. Assume que o seu objetivo final é uma transição completa para a nuvem, substituindo o máximo de funcionalidades do Gestor de Operações possível pelo Azure Monitor, sem comprometer os requisitos operacionais do seu negócio e de TI. 
 
 As recomendações específicas feitas neste artigo serão alteradas à medida que o Monitor e o Gestor de Operações do Azure acrescentam funcionalidades. No entanto, a estratégia fundamental continuará a ser coerente.
 
@@ -22,13 +22,13 @@ As recomendações específicas feitas neste artigo serão alteradas à medida q
 > Existe um custo para implementar várias funcionalidades do Azure Monitor descritas aqui, por isso deve avaliar o seu valor antes de se implantar em todo o seu ambiente.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Este artigo pressupõe que já utilize [o Gestor de Operações](https://docs.microsoft.com/system-center/scom) e pelo menos tenha um conhecimento básico do [Azure Monitor.](overview.md) Para uma comparação completa entre os dois, consulte o [guia de monitorização da Cloud: Visão geral das plataformas de monitorização](/azure/cloud-adoption-framework/manage/monitor/platform-overview). Este artigo detalha diferenças específicas entre os dois para ajudá-lo a entender algumas das recomendações feitas aqui. 
+Este artigo pressupõe que já utilize [o Gestor de Operações](/system-center/scom) e pelo menos tenha um conhecimento básico do [Azure Monitor.](overview.md) Para uma comparação completa entre os dois, consulte o [guia de monitorização da Cloud: Visão geral das plataformas de monitorização](/azure/cloud-adoption-framework/manage/monitor/platform-overview). Este artigo detalha diferenças específicas entre os dois para ajudá-lo a entender algumas das recomendações feitas aqui. 
 
 
 ## <a name="general-strategy"></a>Estratégia geral
 Não existem ferramentas de migração para converter ativos de Gestor de Operações para Azure Monitor, uma vez que as plataformas são fundamentalmente diferentes. A sua migração constituirá, em vez disso, uma [implementação padrão do Azure Monitor](deploy.md) enquanto continua a utilizar o Gestor de Operações. À medida que personaliza o Azure Monitor para satisfazer os seus requisitos para diferentes aplicações e componentes e à medida que ganha mais funcionalidades, poderá começar a retirar diferentes pacotes de gestão e agentes em Gestor de Operações.
 
-A estratégia geral recomendada neste artigo é a mesma que no [Guia de Monitorização](https://docs.microsoft.com/azure/cloud-adoption-framework/manage/monitor/)da Nuvem, que recomenda uma estratégia [híbrida de monitorização da nuvem](/azure/cloud-adoption-framework/manage/monitor/cloud-models-monitor-overview#hybrid-cloud-monitoring) que lhe permite fazer uma transição gradual para a nuvem. Apesar de algumas funcionalidades se poderem sobrepor, esta estratégia irá permitir-lhe manter os seus processos de negócio existentes à medida que se torna mais familiarizado com a nova plataforma. Afaste-se apenas da funcionalidade do Gestor de Operações, pois pode substituí-la pelo Azure Monitor. A utilização de várias ferramentas de monitorização adiciona complexidade, mas permite-lhe tirar partido da capacidade do Azure Monitor de monitorizar as cargas de trabalho na nuvem da próxima geração, mantendo ao mesmo tempo a capacidade do Gestor de Operações de monitorizar o software do servidor e os componentes de infraestruturas que podem estar no local ou noutras nuvens. 
+A estratégia geral recomendada neste artigo é a mesma que no [Guia de Monitorização](/azure/cloud-adoption-framework/manage/monitor/)da Nuvem, que recomenda uma estratégia [híbrida de monitorização da nuvem](/azure/cloud-adoption-framework/manage/monitor/cloud-models-monitor-overview#hybrid-cloud-monitoring) que lhe permite fazer uma transição gradual para a nuvem. Apesar de algumas funcionalidades se poderem sobrepor, esta estratégia irá permitir-lhe manter os seus processos de negócio existentes à medida que se torna mais familiarizado com a nova plataforma. Afaste-se apenas da funcionalidade do Gestor de Operações, pois pode substituí-la pelo Azure Monitor. A utilização de várias ferramentas de monitorização adiciona complexidade, mas permite-lhe tirar partido da capacidade do Azure Monitor de monitorizar as cargas de trabalho na nuvem da próxima geração, mantendo ao mesmo tempo a capacidade do Gestor de Operações de monitorizar o software do servidor e os componentes de infraestruturas que podem estar no local ou noutras nuvens. 
 
 
 ## <a name="components-to-monitor"></a>Componentes para monitorizar
@@ -37,7 +37,7 @@ Ajuda a categorizar os diferentes tipos de cargas de trabalho que precisa de mon
 Antes da nuvem, usou o Gestor de Operações para monitorizar todas as camadas. Ao iniciar a sua transição com a Infraestrutura como Serviço (IaaS), continua a utilizar o Gestor de Operações para as suas máquinas virtuais, mas começa a utilizar o Azure Monitor para os seus recursos na nuvem. À medida que avança para aplicações modernas usando a Plataforma como Um Serviço (PaaS), pode focar-se mais no Azure Monitor e começar a retirar a funcionalidade de Gestor de Operações.
 
 
-![Modelos de nuvem](https://docs.microsoft.com/azure/cloud-adoption-framework/strategy/media/monitoring-strategy/cloud-models.png)
+![Modelos de nuvem](/azure/cloud-adoption-framework/strategy/media/monitoring-strategy/cloud-models.png)
 
 Estas camadas podem ser simplificadas nas seguintes categorias, que são ainda descritas no resto deste artigo. Embora cada carga de trabalho de monitorização no seu ambiente possa não se encaixar perfeitamente numa destas categorias, cada uma deve estar suficientemente próxima de uma determinada categoria para que as recomendações gerais se apliquem.
 
@@ -145,7 +145,7 @@ Existem certos cenários, no entanto, onde poderá ter de continuar a utilizar o
 Seguindo a estratégia básica nas outras secções deste guia, continue a utilizar o Gestor de Operações para as suas aplicações empresariais, mas aproveite as funcionalidades adicionais fornecidas pela Application Insights. Como é capaz de substituir a funcionalidade crítica pelo Azure Monitor, pode começar a retirar os seus pacotes de gestão personalizados.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte o [Guia de Monitorização](/azure/cloud-adoption-framework/manage/monitor/) da Nuvem para uma comparação detalhada do Azure Monitor e Do System Center Operations Manager e mais detalhes sobre a conceção e implementação de um ambiente de monitorização híbrido.
 - Leia mais sobre [a monitorização dos recursos do Azure no Azure Monitor](insights/monitor-azure-resource.md).

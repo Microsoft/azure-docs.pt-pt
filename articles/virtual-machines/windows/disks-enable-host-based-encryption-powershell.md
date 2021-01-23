@@ -8,12 +8,12 @@ ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 4dd6736afe835eefe02b8095ec08cd65ac0d63b4
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 46c26b6070a874947dfe5d7acd5a615961576b49
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915832"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736689"
 ---
 # <a name="use-the-azure-powershell-module-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Utilize o módulo Azure PowerShell para ativar a encriptação de ponta a ponta utilizando encriptação no anfitrião
 
@@ -293,7 +293,7 @@ Chamando a [API de Recursos Skus](/rest/api/compute/resourceskus/list) e verific
     }
 ```
 
-Ou, chamando o [cmdlet Get-AzComputeResourceSku](/powershell/module/az.compute/get-azcomputeresourcesku?view=azps-3.8.0&preserve-view=true) PowerShell.
+Ou, chamando o [cmdlet Get-AzComputeResourceSku](/powershell/module/az.compute/get-azcomputeresourcesku) PowerShell.
 
 ```powershell
 $vmSizes=Get-AzComputeResourceSku | where{$_.ResourceType -eq 'virtualMachines' -and $_.Locations.Contains('CentralUSEUAP')} 
@@ -312,7 +312,7 @@ foreach($vmSize in $vmSizes)
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que criou e configura estes recursos, pode usá-los para proteger os seus discos geridos. O link que se segue contém scripts de exemplo, cada um com um cenário respetivo, que pode utilizar para proteger os seus discos geridos.
 

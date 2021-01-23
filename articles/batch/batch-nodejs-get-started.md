@@ -3,12 +3,12 @@ title: Utilize a biblioteca de clientes Azure Batch para Node.js
 description: Aprenda os conceitos básicos do Azure Batch e crie uma solução simples com Node.js.
 ms.topic: how-to
 ms.date: 10/08/2020
-ms.openlocfilehash: 8d34d5bbb302e3781aabdd697de11d3d492b879a
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 36a127a20014e87554f0d3e3927b05679b6f72f1
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97106704"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737291"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Introdução ao SDK do Batch para Node.js
 
@@ -38,7 +38,7 @@ O cliente de Node.js implementa uma tarefa de lote com uma tarefa de preparaçã
 
 > [!TIP]
 > O cliente Node.js na ligação especificada não contém código específico para implementação como uma aplicação de função das Funções do Azure. Para saber como criar uma aplicação destas, pode ver as ligações seguintes:
-> - [Criar a aplicação de funções](../azure-functions/functions-create-first-azure-function.md)
+> - [Criar a aplicação de funções](../azure-functions/functions-get-started.md)
 > - [Create timer trigger function](../azure-functions/functions-bindings-timer.md) (Criar função de acionador de temporizador)
 
 ## <a name="build-the-application"></a>Criar a aplicação
@@ -334,7 +334,7 @@ O código adiciona várias tarefas ao conjunto e cada uma das tarefas é executa
 
 O portal tem vistas detalhadas sobre as tarefas e os estados dos trabalhos. Também pode utilizar a lista para obter funções no SDK do Azure para Node. Estão disponíveis detalhes na [ligação](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Job.html) da documentação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Conheça o fluxo de trabalho do [serviço Batch e os recursos primários,](batch-service-workflow-features.md) tais como piscinas, nós, empregos e tarefas.
 - Veja [Batch Node.js reference](/javascript/api/overview/azure/batch) (Referência de Node.js do Batch) para explorar a API do Batch.

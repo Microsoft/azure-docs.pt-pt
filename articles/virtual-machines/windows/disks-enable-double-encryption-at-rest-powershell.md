@@ -8,12 +8,12 @@ ms.author: rogarana
 ms.service: virtual-machines-windows
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: c231aab47f154b6150368b504872d87317c790cc
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 9f0642d3421e775d1c6930b672b37643a961178f
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359957"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736293"
 ---
 # <a name="use-the-azure-powershell-module-to-enable-double-encryption-at-rest-for-managed-disks"></a>Utilize o módulo Azure PowerShell para permitir a dupla encriptação em repouso para discos geridos
 
@@ -21,7 +21,7 @@ O Azure Disk Storage suporta a dupla encriptação em repouso para discos gerido
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Instale a versão mais recente do [Azure PowerShell](/powershell/azure/install-az-ps)e inscreva-se numa conta Azure utilizando [o Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-4.3.0).
+Instale a versão mais recente do [Azure PowerShell](/powershell/azure/install-az-ps)e inscreva-se numa conta Azure utilizando [o Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
 ## <a name="getting-started"></a>Introdução
 

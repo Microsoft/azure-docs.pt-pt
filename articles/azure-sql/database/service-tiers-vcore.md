@@ -10,12 +10,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
 ms.date: 01/15/2021
-ms.openlocfilehash: 6589f451d4db8f2ed77ce70a2bdfa9d76927c1e2
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 35cdfdbdc04d0c88bc49c024ea7465537583e0d7
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251221"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735516"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>vCore model overview - Azure SQL Database e Azure SQL Managed Instance 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -106,7 +106,7 @@ To enable M-series hardware for a subscription and region, a support request mus
 > A série DC está atualmente em **pré-visualização pública.**
 
 - O hardware da série DC utiliza processadores Intel com tecnologia De Extensões de Guarda de Software (Intel SGX).
-- A série DC é necessária para [Sempre Encriptada com enclaves seguros](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-enclaves), que não é suportado com outras configurações de hardware.
+- A série DC é necessária para [Sempre Encriptada com enclaves seguros](/sql/relational-databases/security/encryption/always-encrypted-enclaves), que não é suportado com outras configurações de hardware.
 - A série DC é projetada para cargas de trabalho que processam dados sensíveis e exigem capacidades confidenciais de processamento de consultas, fornecidas pela Always Encrypted com enclaves seguros.
 - O hardware da série DC fornece recursos de computação e memória equilibrados.
 
@@ -251,7 +251,7 @@ A série DC está disponível nas seguintes regiões: Canadá Central, Canadá L
 
 Se necessitar de séries DC numa região atualmente não apoiada, [envie um bilhete de apoio](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) seguindo as instruções de Pedido de aumento de quota para [Azure SQL Database e SQL Managed Instance](quota-increase-request.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para começar, consulte: 
 - [Criação de uma Base de Dados SQL utilizando o portal Azure](single-database-create-quickstart.md)
