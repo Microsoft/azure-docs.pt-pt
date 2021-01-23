@@ -1,27 +1,25 @@
 ---
-title: Perfilamento de um Serviço de Nuvem Localmente no Emulator Compute Microsoft Docs
-services: cloud-services
+title: Perfilamento de um Serviço de Nuvem (clássico) Localmente no Emulador Compute | Microsoft Docs
 description: Investigue problemas de desempenho em serviços na nuvem com o profiler do Estúdio Visual
-documentationcenter: ''
-author: mikejo
-manager: jillfra
-editor: ''
-tags: ''
-ms.assetid: 25e40bf3-eea0-4b0b-9f4a-91ffe797f6c3
-ms.service: cloud-services
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/18/2016
-ms.author: mikejo
-ms.openlocfilehash: 6b5707405879c462a1d919e04730d368332ba68c
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.service: cloud-services
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 2f924d84967c1a1928a47b59fd3a8c28da091130
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077160"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743564"
 ---
-# <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Testar o desempenho de um serviço de nuvem localmente no Emulador Azure Compute usando o Perfil de Estúdio Visual
+# <a name="testing-the-performance-of-a-cloud-service-classic-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Testar o desempenho de um Serviço de Nuvem (clássico) Localmente no Emulador Azure Compute Usando o Profiler de Estúdio Visual
+
+> [!IMPORTANT]
+> [Azure Cloud Services (suporte alargado)](../cloud-services-extended-support/overview.md) é um novo modelo de implementação baseado em Recursos Azure para o produto Azure Cloud Services.Com esta alteração, os Serviços Azure Cloud em execução no modelo de implementação baseado no Azure Service Manager foram renomeados como Cloud Services (clássico) e todas as novas implementações devem utilizar [os Serviços Cloud (suporte alargado)](../cloud-services-extended-support/overview.md).
+
 Uma variedade de ferramentas e técnicas estão disponíveis para testar o desempenho dos serviços na nuvem.
 Quando publica um serviço em nuvem para o Azure, pode pedir ao Visual Studio que recolha dados de perfis e, em seguida, analise-os localmente, como descrito no [Profiling a Azure Application][1].
 Também pode utilizar diagnósticos para rastrear uma variedade de contadores de desempenho, conforme descrito na [Utilização de contadores de desempenho em Azure][2].
@@ -30,7 +28,7 @@ Também pode querer perfilar a sua aplicação localmente no emulador compute an
 Este artigo abrange o método de amostragem do CPU de perfis, que pode ser feito localmente no emulador. A amostragem do CPU é um método de perfis que não é muito intrusivo. Num intervalo de amostragem designado, o perfil tira uma imagem da pilha de chamadas. Os dados são recolhidos ao longo de um período de tempo, e apresentados num relatório. Este método de perfis tende a indicar onde, numa aplicação computacionalmente intensiva, a maior parte do trabalho da CPU está a ser realizado.  Isto dá-lhe a oportunidade de se concentrar no "caminho quente" onde a sua aplicação está a passar mais tempo.
 
 ## <a name="1-configure-visual-studio-for-profiling"></a>1: Configurar o Estúdio Visual para perfis
-Em primeiro lugar, existem algumas opções de configuração do Estúdio Visual que podem ser úteis no perfil. Para dar sentido aos relatórios de perfis, vai precisar de símbolos (ficheiros.pdb) para a sua aplicação e também de símbolos para bibliotecas do sistema. Deverá certificar-se de que faz referência aos servidores de símbolos disponíveis. Para isso, no menu **Ferramentas** no Estúdio Visual, escolha **Opções,** em seguida, escolha **Debugging,** em **seguida, Símbolos**. Certifique-se de que os Servidores de Símbolos do Microsoft estão listados nas **localizações do ficheiro Symbol (.pdb).**  Também pode fazer referência https://referencesource.microsoft.com/symbols , que pode ter ficheiros de símbolos adicionais.
+Em primeiro lugar, existem algumas opções de configuração do Estúdio Visual que podem ser úteis no perfil. Para dar sentido aos relatórios de perfis, vai precisar de símbolos (.pdb ficheiros) para a sua aplicação e também de símbolos para bibliotecas do sistema. Deverá certificar-se de que faz referência aos servidores de símbolos disponíveis. Para isso, no menu **Ferramentas** no Estúdio Visual, escolha **Opções,** em seguida, escolha **Debugging,** em **seguida, Símbolos**. Certifique-se de que os Servidores de Símbolos do Microsoft estão listados nas **localizações do ficheiro Symbol (.pdb).**  Também pode fazer referência https://referencesource.microsoft.com/symbols , que pode ter ficheiros de símbolos adicionais.
 
 ![Opções de símbolo][4]
 

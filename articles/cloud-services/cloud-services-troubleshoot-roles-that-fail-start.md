@@ -1,27 +1,25 @@
 ---
-title: Funções de resolução de problemas que não começam Microsoft Docs
+title: Papéis de resolução de problemas que não começam | Microsoft Docs
 description: Aqui estão algumas razões comuns para que um papel de Serviço cloud pode não começar. São também fornecidas soluções para estes problemas.
-services: cloud-services
-documentationcenter: ''
-author: simonxjx
-manager: dcscontentpm
-editor: ''
-tags: top-support-issue
-ms.assetid: 674b2faf-26d7-4f54-99ea-a9e02ef0eb2f
+ms.topic: article
 ms.service: cloud-services
-ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: tbd
-ms.date: 06/15/2018
-ms.author: v-six
-ms.openlocfilehash: bedf4dd2a955a8ffe648b47c1691e77ac1fdb8f5
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 2453fa2d9b4e78b60d4922e09347799266a84cff
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187804"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743224"
 ---
-# <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Funções de Serviço de Nuvem de Resolução de Problemas que não começam
+# <a name="troubleshoot-azure-cloud-service-classic-roles-that-fail-to-start"></a>Resolução de problemas Azure Cloud Service (clássico) papéis que não começam
+
+> [!IMPORTANT]
+> [Azure Cloud Services (suporte alargado)](../cloud-services-extended-support/overview.md) é um novo modelo de implementação baseado em Recursos Azure para o produto Azure Cloud Services.Com esta alteração, os Serviços Azure Cloud em execução no modelo de implementação baseado no Azure Service Manager foram renomeados como Cloud Services (clássico) e todas as novas implementações devem utilizar [os Serviços Cloud (suporte alargado)](../cloud-services-extended-support/overview.md).
+
 Eis alguns problemas e soluções comuns relacionados com as funções dos Azure Cloud Services que não começam.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
@@ -121,7 +119,7 @@ Para resolver os erros de DLL e de montagem em falta, siga estes passos:
 
 Uma vez verificado que todos os erros foram corrigidos, pode implementar o serviço sem verificar a caixa de verificação **de funções Enable IntelliTrace para .NET 4.**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Veja mais [artigos de resolução de problemas](../index.yml?product=cloud-services&tag=top-support-issue) para serviços na nuvem.
 
 Para aprender a resolver problemas de problemas de funções de serviço em nuvem utilizando dados de diagnóstico de computador Azure PaaS, consulte a [série de blogs de Kevin Williamson](/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data).

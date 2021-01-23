@@ -1,23 +1,24 @@
 ---
 title: Node.js aplicação utilizando Socket.io - Azure
 description: Utilize este tutorial para aprender a hospedar uma tomada. Aplicação de chat baseada em IO no Azure. Socket.IO fornece comunicação em tempo real para um servidor e clientes node.js.
-services: cloud-services
-documentationcenter: nodejs
-author: tgore03
-ms.service: cloud-services
-ms.devlang: nodejs
 ms.topic: article
-ms.date: 08/17/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.custom: devx-track-js
-ms.openlocfilehash: ef7325b53f7d6450acdff4664f3e338c31be9612
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: abc02769d7d978e14975d90ae0f98547bdc4faf7
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077223"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743326"
 ---
-# <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Construa uma aplicação de chat Node.js com Socket.IO num Serviço Azure Cloud
+# <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service-classic"></a>Construa uma aplicação de chat Node.js com Socket.IO num Azure Cloud Service (clássico)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (suporte alargado)](../cloud-services-extended-support/overview.md) é um novo modelo de implementação baseado em Recursos Azure para o produto Azure Cloud Services.Com esta alteração, os Serviços Azure Cloud em execução no modelo de implementação baseado no Azure Service Manager foram renomeados como Cloud Services (clássico) e todas as novas implementações devem utilizar [os Serviços Cloud (suporte alargado)](../cloud-services-extended-support/overview.md).
 
 Socket.IO fornece comunicação em tempo real entre o seu servidor node.js e os clientes. Este tutorial leva-o a hospedar uma tomada. IO aplicação de chat baseada em Azure. Para mais informações sobre Socket.IO, consulte [socket.io](https://socket.io).
 
@@ -50,7 +51,7 @@ Os passos seguintes criam o projeto de serviço em nuvem que irá acolher a apli
     PS C:\> cd node
     ```
 
-4. Insira os seguintes comandos para criar uma nova solução chamada **chatapp** e uma função de trabalhador chamada **WorkerRole1**:
+4. Insira os seguintes comandos para criar uma nova solução nomeada `chatapp` e uma função de trabalhador chamada `WorkerRole1` :
 
     ```powershell
     PS C:\node> New-AzureServiceProject chatapp
@@ -67,12 +68,12 @@ Para este projeto, usaremos o exemplo de chat do [repositório Socket.IO GitHub.
 1. Crie uma cópia local do repositório utilizando o botão **Clone.** Também pode utilizar o botão **ZIP** para descarregar o projeto.
 
    ![Uma visualização da janela https://github.com/LearnBoost/socket.io/tree/master/examples/chat do navegador, com o ícone de descarregamento ZIP em destaque](./media/cloud-services-nodejs-chat-app-socketio/socketio-22.png)
-2. Navegue pela estrutura do diretório do repositório local até chegar aos exemplos do diretório de ** \\ chat.** Copie o conteúdo deste diretório para o **C: \\ nó \\ chatapp \\ WorkerRole1** diretório criado anteriormente.
+2. Navegue pela estrutura do diretório do repositório local até chegar aos exemplos do diretório de **\\ chat.** Copie o conteúdo deste diretório para o **C: \\ nó \\ chatapp \\ WorkerRole1** diretório criado anteriormente.
 
    ![Explorador, exibindo o conteúdo dos exemplos \\ de diretório de chat extraído do arquivo][chat-contents]
 
-   Os itens destacados na imagem acima são os ficheiros copiados do diretório de ** \\ chat exemplos**
-3. No **C: \\ \\ node chatapp \\ WorkerRole1,** apagar o ficheiro **server.js** e, em seguida, mudar o nome do ficheiro **app.js** para **server.js**. Isto remove o ficheiro ** deserver.jspredefinido ** criado anteriormente pelo **cmdlet Add-AzureNodeWorkerRole** e substitui-o pelo ficheiro de aplicação do exemplo de chat.
+   Os itens destacados na imagem acima são os ficheiros copiados do diretório de **\\ chat exemplos**
+3. No **C: \\ \\ node chatapp \\ WorkerRole1,** apagar o ficheiro **server.js** e, em seguida, mudar o nome do ficheiro **app.js** para **server.js**. Isto remove o ficheiro **deserver.jspredefinido** criado anteriormente pelo **cmdlet Add-AzureNodeWorkerRole** e substitui-o pelo ficheiro de aplicação do exemplo de chat.
 
 ### <a name="modify-serverjs-and-install-modules"></a>Modificar Server.js e instalar módulos
 Antes de testar a aplicação no emulador Azure, temos de fazer algumas pequenas modificações. Execute os seguintes passos no ficheiro server.js:
@@ -92,14 +93,14 @@ Antes de testar a aplicação no emulador Azure, temos de fazer algumas pequenas
 3. Para garantir que a aplicação ouve na porta correta, abra server.js no Bloco de Notas ou no seu editor favorito e, em seguida, altere a seguinte linha substituindo **3000** por **process.env.port** como mostrado abaixo:
 
     ```js
-    //app.listen(3000, function () {            //Original
+    //app.listen(3000, function () {            //Original
     app.listen(process.env.port, function () {  //Updated
       var addr = app.address();
       console.log('   app listening on http://' + addr.address + ':' + addr.port);
     });
     ```
 
-Depois de guardar as alterações para **server.js, **utilize os seguintes passos para instalar os módulos necessários e, em seguida, teste a aplicação no emulador Azure:
+Depois de guardar as alterações para **server.js,** utilize os seguintes passos para instalar os módulos necessários e, em seguida, teste a aplicação no emulador Azure:
 
 1. Utilizando **o Azure PowerShell,** altere os diretórios para o **C: \\ \\ node chatapp \\ WorkerRole1** e utilize o seguinte comando para instalar os módulos exigidos por esta aplicação:
 
@@ -166,7 +167,7 @@ A sua aplicação está agora em execução no Azure, e pode transmitir mensagen
 >
 >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste tutorial aprendeu a criar uma aplicação básica de chat hospedada num Azure Cloud Service. Para aprender a hospedar esta aplicação num Website Azure, consulte [a Build a Node.js Chat Application com Socket.IO num Web Site Azure][chatwebsite].
 
 Para mais informações, consulte também o [Node.js Developer Center](/azure/developer/javascript/).

@@ -1,21 +1,25 @@
 ---
-title: Tamanhos de máquina virtual para serviços Azure Cloud Microsoft Docs
+title: Tamanhos de máquina virtual para serviços Azure Cloud (clássico) | Microsoft Docs
 description: Lista os diferentes tamanhos de máquinas virtuais (e IDs) para funções web e trabalhadores do serviço de nuvem Azure.
-services: cloud-services
-documentationcenter: ''
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 07/18/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: b617ba8db8f9dbb1c25ac34aa879613c29c723b7
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 55fa3ab4e5bd4472f7dae9692ae3ac9bcfa8e2b6
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96340293"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743173"
 ---
-# <a name="sizes-for-cloud-services"></a>Tamanhos para serviços em nuvem
+# <a name="sizes-for-cloud-services-classic"></a>Tamanhos para Serviços em Nuvem (clássico)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (suporte alargado)](../cloud-services-extended-support/overview.md) é um novo modelo de implementação baseado em Recursos Azure para o produto Azure Cloud Services.Com esta alteração, os Serviços Azure Cloud em execução no modelo de implementação baseado no Azure Service Manager foram renomeados como Cloud Services (clássico) e todas as novas implementações devem utilizar [os Serviços Cloud (suporte alargado)](../cloud-services-extended-support/overview.md).
+
 Este tópico descreve os tamanhos e opções disponíveis para instâncias de funções do Cloud Service (funções web e funções de trabalhador). Fornece igualmente considerações de implantação para estar ciente do plano de utilização destes recursos. Cada tamanho tem uma identificação que coloca no seu [ficheiro de definição de serviço.](cloud-services-model-and-package.md#csdef) Os preços para cada tamanho estão disponíveis na página [de Preços dos Serviços em Nuvem.](https://azure.microsoft.com/pricing/details/cloud-services/)
 
 > [!NOTE]
@@ -215,6 +219,6 @@ Pode utilizar o PowerShell ou a API REST para obter uma lista de tamanhos. A API
 Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceSize, RoleSizeLabel
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Saiba mais sobre [Subscrição do Azure e limites de serviço, quotas e restrições](../azure-resource-manager/management/azure-subscription-service-limits.md).
 * Saiba mais [sobre os tamanhos VM de cálculo de alto desempenho](../virtual-machines/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para cargas de trabalho HPC.

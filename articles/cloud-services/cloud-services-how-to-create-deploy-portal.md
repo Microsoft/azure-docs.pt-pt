@@ -1,21 +1,25 @@
 ---
-title: Como criar e implementar um serviço de cloud Microsoft Docs
+title: Como criar e implementar um serviço de nuvem (clássico) | Microsoft Docs
 description: Aprenda a usar o método Quick Create para criar um serviço de cloud e use o Upload para carregar e implementar um pacote de serviço na nuvem em Azure.
-services: cloud-services
-documentationcenter: ''
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 05/18/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 66938975784f1de2abdc0ac22e62aaca82279f86
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 879b86714adf50b5a4da4398389405063ac046dc
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164169"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743411"
 ---
-# <a name="how-to-create-and-deploy-a-cloud-service"></a>Como criar e implementar um serviço de nuvem
+# <a name="how-to-create-and-deploy-an-azure-cloud-service-classic"></a>Como criar e implementar um Azure Cloud Service (clássico)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (suporte alargado)](../cloud-services-extended-support/overview.md) é um novo modelo de implementação baseado em Recursos Azure para o produto Azure Cloud Services.Com esta alteração, os Serviços Azure Cloud em execução no modelo de implementação baseado no Azure Service Manager foram renomeados como Cloud Services (clássico) e todas as novas implementações devem utilizar [os Serviços Cloud (suporte alargado)](../cloud-services-extended-support/overview.md).
+
 O portal Azure fornece duas formas de criar e implementar um serviço em nuvem: *Quick Create* e *Custom Create*.
 
 Este artigo explica como usar o método Quick Create para criar um novo serviço na nuvem e, em seguida, usar **upload** para carregar e implementar um pacote de serviço de nuvem em Azure. Ao utilizar este método, o portal Azure disponibiliza links convenientes para completar todos os requisitos à medida que avança. Se estiver pronto para implementar o seu serviço de nuvem quando o criar, pode fazer ambos ao mesmo tempo usando o Custom Create.
@@ -54,9 +58,10 @@ Para criar um serviço em nuvem com implementações de funções web ou funçõ
 
 ## <a name="create-and-deploy"></a>Criar e implementar
 1. Faça login no [portal Azure](https://portal.azure.com/).
-2. Clique **em Criar um recurso > Compute**e, em seguida, desloque-se para baixo e clique no Cloud **Service**.
+2. Clique **em Criar um recurso > Compute** e, em seguida, desloque-se para baixo e clique no Cloud **Service**.
 
-    ![Screenshot que realça a opção Serviço cloud sob criar um recurso > Compute.](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
+    ![Publique o seu serviço na nuvem1](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
+
 3. No novo painel **cloud service,** insira um valor para o **nome DNS**.
 4. Crie um novo **Grupo de Recursos** ou selecione um existente.
 5. Selecione uma **localização**.
@@ -65,16 +70,16 @@ Para criar um serviço em nuvem com implementações de funções web ou funçõ
 8. Clique **em OK** que fechará o painel de embalagem do **Upload.**
 9. Se não tiver quaisquer certificados a adicionar, clique em **Criar**.
 
-    ![Publique o seu serviço na nuvem](media/cloud-services-how-to-create-deploy-portal/select-package.png)
+    ![Publique o seu serviço na nuvem2](media/cloud-services-how-to-create-deploy-portal/select-package.png)
 
 ## <a name="upload-a-certificate"></a>Faça upload de um certificado
 Se o seu pacote de implantação foi [configurado para utilizar certificados,](cloud-services-configure-ssl-certificate-portal.md#modify)pode fazer o upload do certificado agora.
 
 1. Selecione **Certificados**, e no painel de **certificados Adicionar,** selecione o certificado TLS/SSL .pfx e, em seguida, forneça a **Palavra-passe** para o certificado,
-2. Clique **em Anexar o certificado**e, em seguida, clique em **OK** no painel **de certificados Adicionar.**
+2. Clique **em Anexar o certificado** e, em seguida, clique em **OK** no painel **de certificados Adicionar.**
 3. Clique em **Criar** no painel de serviço de **nuvem.** Quando a colocação tiver atingido o estado **de Pronto,** pode proceder aos próximos passos.
 
-    ![Screenshot que destaca o processo de upload de um certificado.](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
+    ![Publique o seu serviço na nuvem3](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
 
 ## <a name="verify-your-deployment-completed-successfully"></a>Verifique se a sua implementação foi concluída com sucesso
 1. Clique na instância de serviço na nuvem.
@@ -86,7 +91,7 @@ Se o seu pacote de implantação foi [configurado para utilizar certificados,](c
 
 [TFSTutorialForCloudService]: ./cloud-services-choose-me.md
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Configuração geral do seu serviço na nuvem](cloud-services-how-to-configure-portal.md).
 * Configure um [nome de domínio personalizado.](cloud-services-custom-domain-name-portal.md)
 * [Gerencie o seu serviço na nuvem](cloud-services-how-to-manage-portal.md).

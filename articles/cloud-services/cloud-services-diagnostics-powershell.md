@@ -1,26 +1,29 @@
 ---
-title: Ativar diagnósticos em Azure Cloud Services usando PowerShell Microsoft Docs
+title: Ativar diagnósticos em Azure Cloud Services (clássico) utilizando o PowerShell | Microsoft Docs
 description: Aprenda a utilizar o PowerShell para permitir a recolha de dados de diagnóstico a partir de um Serviço de Nuvem Azure com a extensão Azure Diagnostics.
-services: cloud-services
-documentationcenter: .net
-author: tgore03
-ms.service: cloud-services
-ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/06/2016
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: f0bf7fa56ca511981820f63cd7178493a7d048e3
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 8dcc6dd355e0c89aa4120a6cc7f331159d56c1bc
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077512"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742187"
 ---
-# <a name="enable-diagnostics-in-azure-cloud-services-using-powershell"></a>Ativar diagnósticos em Azure Cloud Services usando PowerShell
+# <a name="enable-diagnostics-in-azure-cloud-services-classic-using-powershell"></a>Ativar diagnósticos em Azure Cloud Services (clássico) usando PowerShell
+
+> [!IMPORTANT]
+> [Azure Cloud Services (suporte alargado)](../cloud-services-extended-support/overview.md) é um novo modelo de implementação baseado em Recursos Azure para o produto Azure Cloud Services.Com esta alteração, os Serviços Azure Cloud em execução no modelo de implementação baseado no Azure Service Manager foram renomeados como Cloud Services (clássico) e todas as novas implementações devem utilizar [os Serviços Cloud (suporte alargado)](../cloud-services-extended-support/overview.md).
+
 Pode recolher dados de diagnóstico como registos de aplicações, contadores de desempenho, etc. de um Serviço de Cloud utilizando a extensão Azure Diagnostics. Este artigo descreve como ativar a extensão Azure Diagnostics para um Serviço de Cloud utilizando o PowerShell.  Ver [Como instalar e configurar a Azure PowerShell](/powershell/azure/) para os pré-requisitos necessários para este artigo.
 
 ## <a name="enable-diagnostics-extension-as-part-of-deploying-a-cloud-service"></a>Ativar a extensão de diagnóstico como parte da implementação de um Serviço Cloud
-Esta abordagem aplica-se ao tipo de cenários de integração contínua, onde a extensão de diagnóstico pode ser ativada como parte da implementação do serviço na nuvem. Ao criar uma nova implementação do Cloud Service, pode ativar a extensão de diagnóstico passando o parâmetro *ExtensionConfiguration* para o cmdlet [New-AzureDeployment.](/powershell/module/servicemanagement/azure.service/new-azuredeployment?view=azuresmps-3.7.0) O parâmetro *ExtensionConfiguration* requer uma série de configurações de diagnóstico que podem ser criadas usando o [cmdlet New-AzureServiceDiagnosticsExtensionConfig.](/powershell/module/servicemanagement/azure.service/new-azureservicediagnosticsextensionconfig?view=azuresmps-3.7.0)
+Esta abordagem aplica-se ao tipo de cenários de integração contínua, onde a extensão de diagnóstico pode ser ativada como parte da implementação do serviço na nuvem. Ao criar uma nova implementação do Cloud Service, pode ativar a extensão de diagnóstico passando o parâmetro *ExtensionConfiguration* para o cmdlet [New-AzureDeployment.](/powershell/module/servicemanagement/azure.service/new-azuredeployment?view=azuresmps-3.7.0&preserve-view=true&preserve-view=true) O parâmetro *ExtensionConfiguration* requer uma série de configurações de diagnóstico que podem ser criadas usando o [cmdlet New-AzureServiceDiagnosticsExtensionConfig.](/powershell/module/servicemanagement/azure.service/new-azureservicediagnosticsextensionconfig?view=azuresmps-3.7.0&preserve-view=true)
 
 O exemplo a seguir mostra como pode ativar diagnósticos para um serviço de nuvem com um WebRole e WorkerRole, cada um com uma configuração de diagnóstico diferente.
 
@@ -92,7 +95,7 @@ $workerrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "Worke
 ```
 
 ## <a name="enable-diagnostics-extension-on-an-existing-cloud-service"></a>Ativar a extensão de diagnóstico num Serviço Cloud existente
-Pode utilizar o [cmdlet Set-AzureServiceDiagnosticsExtension](/powershell/module/servicemanagement/azure.service/set-azureservicediagnosticsextension?view=azuresmps-3.7.0) para ativar ou atualizar a configuração de diagnósticos num Serviço de Cloud que já está em execução.
+Pode utilizar o [cmdlet Set-AzureServiceDiagnosticsExtension](/powershell/module/servicemanagement/azure.service/set-azureservicediagnosticsextension?view=azuresmps-3.7.0&preserve-view=true) para ativar ou atualizar a configuração de diagnósticos num Serviço de Cloud que já está em execução.
 
 [!INCLUDE [cloud-services-wad-warning](../../includes/cloud-services-wad-warning.md)]
 
@@ -108,14 +111,14 @@ Set-AzureServiceDiagnosticsExtension -DiagnosticsConfiguration @($webrole_diagco
 ```
 
 ## <a name="get-current-diagnostics-extension-configuration"></a>Obter a configuração atual da extensão de diagnóstico
-Utilize o [cmdlet Get-AzureServiceDiagnosticsextension](/powershell/module/servicemanagement/azure.service/get-azureservicediagnosticsextension?view=azuresmps-3.7.0) para obter a configuração atual de diagnóstico para um serviço de cloud.
+Utilize o [cmdlet Get-AzureServiceDiagnosticsextension](/powershell/module/servicemanagement/azure.service/get-azureservicediagnosticsextension?view=azuresmps-3.7.0&preserve-view=true) para obter a configuração atual de diagnóstico para um serviço de cloud.
 
 ```powershell
 Get-AzureServiceDiagnosticsExtension -ServiceName "MyService"
 ```
 
 ## <a name="remove-diagnostics-extension"></a>Remover a extensão de diagnóstico
-Para desativar os diagnósticos num serviço de nuvem, pode utilizar o [cmdlet Remove-AzureServiceDiagnosticsExtension.](/powershell/module/servicemanagement/azure.service/remove-azureservicediagnosticsextension?view=azuresmps-3.7.0)
+Para desativar os diagnósticos num serviço de nuvem, pode utilizar o [cmdlet Remove-AzureServiceDiagnosticsExtension.](/powershell/module/servicemanagement/azure.service/remove-azureservicediagnosticsextension?view=azuresmps-3.7.0&preserve-view=true)
 
 ```powershell
 Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService"

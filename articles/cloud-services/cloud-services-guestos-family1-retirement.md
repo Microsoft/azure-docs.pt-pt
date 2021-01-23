@@ -1,5 +1,5 @@
 ---
-title: Convidado os 1 família OS aviso de aposentadoria / Microsoft Docs
+title: Hóspede família OS 1 aviso de aposentadoria | Microsoft Docs
 description: Fornece informações sobre quando aconteceu a aposentadoria Azure Guest OS Family 1 e como determinar se você é afetado
 services: cloud-services
 documentationcenter: na
@@ -9,14 +9,15 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 5/21/2017
 ms.author: raiye
-ms.openlocfilehash: 6de03969a22c5b699fdfd2be17a6ba65905d23e6
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 7f6d3feee95d4cce654b2cc1547b8bd7f4eb45d2
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92073398"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743020"
 ---
 # <a name="guest-os-family-1-retirement-notice"></a>Aviso de extinção de SO convidado de Família 1
+
 A reforma da Família OS 1 foi anunciada pela primeira vez em 1 de junho de 2013.
 
 **2 de setembro de 2014** O sistema operativo Azure Guest (Guest OS) Family 1.x, baseado no sistema operativo Windows Server 2008, foi oficialmente retirado. Todas as tentativas de implantação de novos serviços ou de atualização dos serviços existentes utilizando a Família 1 falharão com uma mensagem de erro informando-o de que o Guest OS Family 1 foi reformado.
@@ -67,5 +68,5 @@ Recomendamos que emigre as suas funções de Cloud Service para uma das família
 ## <a name="extended-support-for-guest-os-family-1-ended-nov-3-2014"></a>Apoio alargado à família guest OS 1 terminou 3 de novembro de 2014
 Os serviços em nuvem na família Guest OS 1 já não são suportados. Migrar para fora da família 1 o mais rápido possível para evitar perturbações de serviço.  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Reveja as [últimas versões do Guest OS](cloud-services-guestos-update-matrix.md).

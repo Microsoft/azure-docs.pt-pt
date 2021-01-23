@@ -1,5 +1,5 @@
 ---
-title: Problemas de resolução de problemas causados por aplicações que não suportam TLS 1.2 Microsoft Docs
+title: Problemas de resolução de problemas causados por aplicações que não suportam TLS 1.2 | Microsoft Docs
 description: Problemas de resolução de problemas causados por aplicações que não suportam TLS 1.2
 services: cloud-services
 documentationcenter: ''
@@ -12,14 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 03/16/2020
 ms.author: tagore
-ms.openlocfilehash: ae284a6afa1f2e396aef8177229c344b569be6ec
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 70bcf5bce1c8c07633baf070149a9bb80c331d9c
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075676"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742578"
 ---
 # <a name="troubleshooting-applications-that-dont-support-tls-12"></a>Aplicações de resolução de problemas que não suportam TLS 1.2
+
+> [!IMPORTANT]
+> [Azure Cloud Services (suporte alargado)](../cloud-services-extended-support/overview.md) é um novo modelo de implementação baseado em Recursos Azure para o produto Azure Cloud Services.Com esta alteração, os Serviços Azure Cloud em execução no modelo de implementação baseado no Azure Service Manager foram renomeados como Cloud Services (clássico) e todas as novas implementações devem utilizar [os Serviços Cloud (suporte alargado)](../cloud-services-extended-support/overview.md).
+
 Este artigo descreve como ativar os protocolos TLS mais antigos (TLS 1.0 e 1.1) bem como aplicar suítes de cifra legado para suportar os protocolos adicionais no serviço de cloud do Windows Server 2019 e funções de trabalhador. 
 
 Entendemos que, embora estejamos a tomar medidas para depreciar os TLS 1.0 e TLS 1.1, os nossos clientes poderão ter de suportar os protocolos mais antigos e as suites de cifra até poderem planear a sua depreciação.  Embora não recomendemos a reedição destes valores antigos, estamos a fornecer orientações para ajudar os clientes. Encorajamos os clientes a avaliar o risco de regressão antes de implementar as alterações descritas neste artigo. 

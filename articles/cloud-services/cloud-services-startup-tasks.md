@@ -1,20 +1,25 @@
 ---
-title: Executar Tarefas de Startup nos Serviços Azure Cloud Microsoft Docs
+title: Executar tarefas de startup em Azure Cloud Services (clássico) | Microsoft Docs
 description: As tarefas de arranque ajudam a preparar o seu ambiente de serviço na nuvem para a sua aplicação. Isto ensina-lhe como as tarefas de arranque funcionam e como fazê-las
-services: cloud-services
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 07/05/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: f2417389de98f9998c189e7cbbbcdae77fbb8840
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 25190075bdd13bd4b75dd82c97ee06ee60f4c26c
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020709"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743190"
 ---
-# <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>Como configurar e executar tarefas de arranque para um serviço de cloud
+# <a name="how-to-configure-and-run-startup-tasks-for-an-azure-cloud-service-classic"></a>Como configurar e executar tarefas de arranque para um Azure Cloud Service (clássico)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (suporte alargado)](../cloud-services-extended-support/overview.md) é um novo modelo de implementação baseado em Recursos Azure para o produto Azure Cloud Services.Com esta alteração, os Serviços Azure Cloud em execução no modelo de implementação baseado no Azure Service Manager foram renomeados como Cloud Services (clássico) e todas as novas implementações devem utilizar [os Serviços Cloud (suporte alargado)](../cloud-services-extended-support/overview.md).
+
 Pode utilizar tarefas de arranque para executar operações antes de começar uma função. As operações que poderá querer realizar incluem a instalação de um componente, o registo de componentes com COM, a definição de chaves de registo ou o início de um longo processo de funcionamento.
 
 > [!NOTE]
@@ -148,7 +153,7 @@ Por exemplo, para criar uma variável ambiental que é "**verdadeira**" quando a
 </Startup>
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Saiba como executar algumas [tarefas comuns de arranque](cloud-services-startup-tasks-common.md) com o seu Serviço Cloud.
 
 [Embale](cloud-services-model-and-package.md) o seu Serviço cloud.  

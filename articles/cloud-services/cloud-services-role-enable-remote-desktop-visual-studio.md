@@ -1,25 +1,24 @@
 ---
-title: Utilizando o Visual Studio, ative o Ambiente de Trabalho Remoto para um papel (Azure Cloud Services)
+title: Utilizando o Visual Studio, ative o Remote Desktop para um role (clássico dos Serviços Azure Cloud)
 description: Como configurar a sua aplicação de serviço em nuvem Azure para permitir ligações remotas de desktop
-services: cloud-services
-author: ghogen
-manager: jillfra
-ms.assetid: f5727ebe-9f57-4d7d-aff1-58761e8de8c1
-ms.prod: visual-studio-dev15
-ms.technology: vs-azure
-ms.custom: vs-azure
-ms.topic: conceptual
-ms.workload: azure-vs
-ms.date: 03/06/2018
-ms.author: ghogen
-ms.openlocfilehash: f4622e44c795182ee68c617f335c9e1651d3adcc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.topic: article
+ms.service: cloud-services
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: ad95cefbdf839c28b0979b051e217a1dfec76eea
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80294393"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743241"
 ---
-# <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-visual-studio"></a>Ativar a conexão de ambiente de trabalho remoto para uma função em serviços de nuvem Azure usando o Estúdio Visual
+# <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-classic-using-visual-studio"></a>Ativar a conexão de ambiente de trabalho remoto para um papel em Azure Cloud Services (clássico) usando o Visual Studio
+
+> [!IMPORTANT]
+> [Azure Cloud Services (suporte alargado)](../cloud-services-extended-support/overview.md) é um novo modelo de implementação baseado em Recursos Azure para o produto Azure Cloud Services.Com esta alteração, os Serviços Azure Cloud em execução no modelo de implementação baseado no Azure Service Manager foram renomeados como Cloud Services (clássico) e todas as novas implementações devem utilizar [os Serviços Cloud (suporte alargado)](../cloud-services-extended-support/overview.md).
 
 > [!div class="op_single_selector"]
 > * [Portal do Azure](cloud-services-role-enable-remote-desktop-new-portal.md)
@@ -40,14 +39,14 @@ Ao utilizar a versão 15.4 e mais cedo do Visual Studio 2017, pode utilizar o **
 
 2. Inscreva-se na sua subscrição Azure se necessário e selecione **Next**.
 
-3. Na página **Definições,** selecione **Ativar o Ambiente de Trabalho Remoto para todas as funções**e, em seguida, selecione o link **Definições...** para abrir a caixa de diálogo **de configuração de ambiente de trabalho remoto.**
+3. Na página **Definições,** selecione **Ativar o Ambiente de Trabalho Remoto para todas as funções** e, em seguida, selecione o link **Definições...** para abrir a caixa de diálogo **de configuração de ambiente de trabalho remoto.**
 
 4. Na parte inferior da caixa de diálogo, selecione **Mais Opções**. Este comando apresenta uma lista de drop-down na qual cria ou escolhe um certificado para que possa encriptar informações de credenciais ao ligar através de um ambiente de trabalho remoto.
 
    > [!Note]
    > Os certificados de que necessita para uma ligação remota no ambiente de trabalho são diferentes dos certificados que utiliza para outras operações do Azure. O certificado de acesso remoto deve ter uma chave privada.
 
-5. Selecione um certificado da lista ou escolha ** &lt; Criar... &gt; **. Se criar um novo certificado, forneça um nome amigável para o novo certificado quando solicitado e selecione **OK**. O novo certificado aparece na caixa da lista.
+5. Selecione um certificado da lista ou escolha **&lt; Criar... &gt;**. Se criar um novo certificado, forneça um nome amigável para o novo certificado quando solicitado e selecione **OK**. O novo certificado aparece na caixa da lista.
 
 6. Forneça um nome de utilizador e uma senha. Não pode usar uma conta existente. Não utilize o "Administrador" como nome de utilizador da nova conta.
 

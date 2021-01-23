@@ -1,27 +1,25 @@
 ---
-title: O tamanho da pasta TEMP padrão é muito pequeno para um papel Microsoft Docs
+title: O tamanho da pasta TEMP padrão é muito pequeno para uma função | Microsoft Docs
 description: Uma função de serviço em nuvem tem uma quantidade limitada de espaço para a pasta TEMP. Este artigo fornece algumas sugestões sobre como evitar ficar sem espaço.
-services: cloud-services
-documentationcenter: ''
-author: simonxjx
-manager: dcscontentpm
-editor: ''
-tags: top-support-issue
-ms.assetid: 9f2af8dd-2012-4b36-9dd5-19bf6a67e47d
+ms.topic: article
 ms.service: cloud-services
-ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: tbd
-ms.date: 06/15/2018
-ms.author: v-six
-ms.openlocfilehash: d18e174eac30bbcf87010531821a4017efb088ba
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 1b7bfb47168c31f9e2e1b7e40764439118c00805
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075115"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743207"
 ---
-# <a name="default-temp-folder-size-is-too-small-on-a-cloud-service-webworker-role"></a>O tamanho da pasta TEMP padrão é muito pequeno numa função web/trabalhador de serviço de nuvem
+# <a name="default-temp-folder-size-is-too-small-on-a-cloud-service-classic-webworker-role"></a>O tamanho da pasta TEMP padrão é muito pequeno em um papel web/trabalhador de serviço de nuvem (clássico)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (suporte alargado)](../cloud-services-extended-support/overview.md) é um novo modelo de implementação baseado em Recursos Azure para o produto Azure Cloud Services.Com esta alteração, os Serviços Azure Cloud em execução no modelo de implementação baseado no Azure Service Manager foram renomeados como Cloud Services (clássico) e todas as novas implementações devem utilizar [os Serviços Cloud (suporte alargado)](../cloud-services-extended-support/overview.md).
+
 O diretório temporário padrão de um trabalhador de serviço de nuvem ou função web tem um tamanho máximo de 100 MB, que pode ficar cheio em algum momento. Este artigo descreve como evitar ficar sem espaço para o diretório temporário.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
@@ -69,7 +67,7 @@ namespace WorkerRole1
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Leia um blog que descreve [Como Aumentar o tamanho da Azure Web Role ASP.NET Pasta Temporária](/archive/blogs/kwill/how-to-increase-the-size-of-the-windows-azure-web-role-asp-net-temporary-folder).
 
 Veja mais [artigos de resolução de problemas](/visualstudio/azure/vs-azure-tools-debugging-cloud-services-overview) para serviços na nuvem.

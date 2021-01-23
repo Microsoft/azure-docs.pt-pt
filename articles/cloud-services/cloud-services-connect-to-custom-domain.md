@@ -1,20 +1,25 @@
 ---
-title: Conecte um Serviço de Cloud a um controlador de domínio personalizado Microsoft Docs
+title: Ligue um Serviço de Nuvem (clássico) a um controlador de domínio personalizado | Microsoft Docs
 description: Saiba como ligar as suas funções web/trabalhador a um domínio AD personalizado utilizando extensão de domínio PowerShell e AD
-services: cloud-services
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 07/18/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: fa918a3a6894205ed36c4b576608e7a71e523a92
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 8c2c8377944caa7ad28f6b379531e6d5bf44c9e7
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87092716"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742510"
 ---
-# <a name="connecting-azure-cloud-services-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>Conectar funções de serviços em nuvem de Azure a um controlador de domínio AD personalizado hospedado em Azure
+# <a name="connecting-azure-cloud-services-classic-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>Conectar os serviços de nuvem de Azure (clássico) a um controlador de domínio AD personalizado hospedado em Azure
+
+> [!IMPORTANT]
+> [Azure Cloud Services (suporte alargado)](../cloud-services-extended-support/overview.md) é um novo modelo de implementação baseado em Recursos Azure para o produto Azure Cloud Services.Com esta alteração, os Serviços Azure Cloud em execução no modelo de implementação baseado no Azure Service Manager foram renomeados como Cloud Services (clássico) e todas as novas implementações devem utilizar [os Serviços Cloud (suporte alargado)](../cloud-services-extended-support/overview.md).
+
 Primeiro criaremos uma Rede Virtual (VNet) em Azure. Em seguida, adicionaremos um Controlador de Domínio de Diretório Ativo (hospedado numa Máquina Virtual Azure) ao VNet. Em seguida, adicionaremos as funções de serviço de nuvem existentes ao VNet pré-criado e, em seguida, conectá-las-emos ao Controlador de Domínio.
 
 Antes de começarmos, algumas coisas a ter em mente:

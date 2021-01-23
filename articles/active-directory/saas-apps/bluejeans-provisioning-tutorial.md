@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar BlueJeans para fornecimento automático de utilizadores com Diretório Ativo Azure / Microsoft Docs'
+title: 'Tutorial: Configurar BlueJeans para fornecimento automático de utilizadores com Azure Ative Directory | Microsoft Docs'
 description: Saiba como configurar o Azure Ative Directory para provisão automática e desa provisionar contas de utilizadores à BlueJeans.
 services: active-directory
 author: zhchia
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 204cdc689d5a117df428bb314a81a35081f7b13c
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 8e155a253910cc5ee3f4fc71cf9ea66ced5cb46f
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357662"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742136"
 ---
 # <a name="tutorial-configure-bluejeans-for-automatic-user-provisioning"></a>Tutorial: Configurar BlueJeans para o fornecimento automático de utilizadores
 
@@ -81,7 +81,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 ### <a name="to-configure-automatic-user-provisioning-for-bluejeans-in-azure-ad"></a>Para configurar o fornecimento automático de utilizadores para blueJeans em Azure AD:
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) e selecione **Aplicações empresariais** , selecione **Todas as aplicações** e, em seguida, selecione **BlueJeans**.
+1. Inscreva-se no [portal Azure](https://portal.azure.com) e selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **BlueJeans**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
@@ -91,49 +91,51 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 3. Selecione o separador **Aprovisionamento**.
 
-    ![Screenshot da barra lateral da Aplicação da Empresa BlueJeans com a opção de Provisionamento realçada e chamada.](./media/bluejeans-provisioning-tutorial/BluejeansProvisioningTab.png)
+    ![Separador Aprovisionamento](common/provisioning.png)
 
 4. Defina o **Modo de Aprovisionamento** como **Automático**.
 
-    ![Screenshot da página de Provisioning com as secções de adifing Mode e Admin Credentials chamadas.](./media/bluejeans-provisioning-tutorial/Bluejeans1.png)
+    ![Separador de provisionamento automático](common/provisioning-automatic.png)
 
-5. Na secção **Credenciais de Administração,** insira o nome de **utilizador Admin** e **a Palavra-passe de Administrador** da sua conta BlueJeans. Exemplos destes valores são:
+5. Sob a secção **de Credenciais de Administração,** insira o URL do inquilino BlueJeans e o Secret Token. Clique em **Testar A Ligação** para garantir que o Azure AD pode ligar-se aos BlueJeans. Se a ligação falhar, certifique-se de que a sua conta BlueJeans tem permissões de Administração e tente novamente.
 
-   * No campo nome de **utilizador Admin,** povoe o nome de utilizador da conta de administração no seu inquilino BlueJeans. Exemplo: admin@contoso.com.
+    ![Token](common/provisioning-testconnection-tenanturltoken.png)
 
-   * No campo **Palavra-Passe Admin,** povoe a palavra-passe correspondente ao nome de utilizador de administração.
 
-6. Ao povoar os campos mostrados no Passo 5, clique em **Test Connection** para garantir que o Azure AD pode ligar-se aos BlueJeans. Se a ligação falhar, certifique-se de que a sua conta BlueJeans tem permissões de Administração e tente novamente.
+6. No campo **'Email' de Notificação,** insira o endereço de e-mail de uma pessoa ou grupo que deve receber as notificações de erro de provisionamento e verifique a caixa de verificação - **Envie uma notificação de e-mail quando ocorrer uma falha**.
 
-    ![Screenshot da secção credenciais de administrador com a opção de ligação de teste chamada.](./media/bluejeans-provisioning-tutorial/BluejeansTestConnection.png)
+    ![E-mail de Notificação](common/provisioning-notification-email.png)
 
-7. No campo **'Email' de Notificação,** insira o endereço de e-mail de uma pessoa ou grupo que deve receber as notificações de erro de provisionamento e verifique a caixa de verificação - **Envie uma notificação de e-mail quando ocorrer uma falha**.
+7. Clique em **Guardar**.
 
-    ![Screenshot da caixa de texto de e-mail de notificação.](./media/bluejeans-provisioning-tutorial/BluejeansNotificationEmail.png)
+8. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users to BlueJeans**.
 
-8. Clique em **Guardar**.
+9. Reveja os atributos do utilizador que são sincronizados de Azure AD a BlueJeans na secção **De Mapeamento de Atributos.** Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar as contas de utilizador em BlueJeans para operações de atualização. Selecione o botão **Guardar** para escoar quaisquer alterações.
 
-9. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users to BlueJeans**.
+|Atributo|Tipo|Suportado para filtragem|
+|---|---|---|
+|userName|String|&check;|
+|active|Booleano|
+|título|String|
+|emails[type eq "work"].value|String|
+|name.givenName|String|
+|name.familyName|String|
+|phoneNumbers[type eq "work"].value|String|
+|urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|String|
 
-    ![Screenshot da secção Mappings com a opção Synchronize Azure Ative Directory Users to BlueJeans destaque.](./media/bluejeans-provisioning-tutorial/BluejeansMapping.png)
+10. Para configurar filtros de âmbito, veja as instruções seguintes disponibilizadas no [Tutorial de filtro de âmbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-10. Reveja os atributos do utilizador que são sincronizados de Azure AD a BlueJeans na secção **De Mapeamento de Atributos.** Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar as contas de utilizador em BlueJeans para operações de atualização. Selecione o botão **Guardar** para escoar quaisquer alterações.
+11. Para ativar o serviço de prestação de Ad Azure para BlueJeans, altere o **Estado de Provisionamento** para **On** na secção **Definições.**
 
-    ![Screenshot da secção De mapeamentos de atributos com sete mapeamentos exibidos.](./media/bluejeans-provisioning-tutorial/BluejeansUserMappingAtrributes.png)
+    ![Estado do Aprovisionamento Ativado](common/provisioning-toggle-on.png)
 
-11. Para configurar filtros de âmbito, veja as instruções seguintes disponibilizadas no [Tutorial de filtro de âmbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+12. Defina os utilizadores e/ou grupos que deseja prestar aos BlueJeans, escolhendo os valores desejados no **Âmbito** na secção **Definições.**
 
-12. Para ativar o serviço de prestação de Ad Azure para BlueJeans, altere o **Estado de Provisionamento** para **On** na secção **Definições.**
+    ![Âmbito de Aprovisionamento](common/provisioning-scope.png)
 
-    ![Screenshot da secção Definições com a opção Estado de Provisionamento definida para On.](./media/bluejeans-provisioning-tutorial/BluejeansProvisioningStatus.png)
+13. Quando estiver pronto para aprovisionar, clique em **Guardar**.
 
-13. Defina os utilizadores e/ou grupos que deseja prestar aos BlueJeans, escolhendo os valores desejados no **Âmbito** na secção **Definições.**
-
-    ![Screenshot da definição de Âmbito com a opção sync apenas atribuída a utilizadores e grupos destacados.](./media/bluejeans-provisioning-tutorial/UserGroupSelection.png)
-
-14. Quando estiver pronto para aprovisionar, clique em **Guardar**.
-
-    ![Screenshot da barra lateral da Aplicação da Empresa BlueJeans com a opção Save chamada.](./media/bluejeans-provisioning-tutorial/SaveProvisioning.png)
+    ![Guardar Configuração de Aprovisionamento](common/provisioning-configuration-save.png)
 
 Esta operação inicia a sincronização inicial de todos os utilizadores e/ou grupos definidos no **Âmbito** na secção **Definições.** A sincronização inicial demora mais tempo a ser executada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de fornecimento AZure AD esteja em execução. Pode utilizar a secção Detalhes da **Sincronização** para monitorizar o progresso e seguir ligações ao relatório de atividades de provisionamento, que descreve todas as ações realizadas pelo serviço de fornecimento de Ad Azure em BlueJeans.
 
@@ -141,7 +143,7 @@ Para obter mais informações sobre como ler os registos de provisionamento da A
 
 ## <a name="connector-limitations"></a>Limitações do conector
 
-* Os bluejeans não permitem nomes de utilizadores que excedam 30 caracteres.
+* Bluejeans não permite nomes de utilizador em nomes que excedam 30 caracteres.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

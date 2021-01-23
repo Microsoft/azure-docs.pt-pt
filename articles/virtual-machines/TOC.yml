@@ -903,16 +903,14 @@
               href: ./workloads/redhat/redhat-rhui.md
 - name: Imagens
   items:
-    - name: Imagens do mercado
+    - name: Encontre imagens do Azure Marketplace
       items:
-        - name: Encontre imagens do Azure Marketplace
-          items:
-            - name: CLI
-              href: ./linux/cli-ps-findimage.md
-            - name: PowerShell
-              href: ./windows/cli-ps-findimage.md
-            - name: Imagens do cliente do Windows
-              href: ./windows/client-images.md
+        - name: CLI
+          href: ./linux/cli-ps-findimage.md
+        - name: PowerShell
+          href: ./windows/cli-ps-findimage.md
+        - name: Imagens do cliente do Windows
+          href: ./windows/client-images.md
     - name: Imagens personalizadas de Linux
       items:
         - name: Descrição geral
@@ -1058,6 +1056,8 @@
           href: image-version-encryption.md
         - name: Disco gerido a partir da versão de imagem
           href: managed-disk-from-image-version.md
+        - name: Informações do plano de compra
+          href: marketplace-images.md
     - name: Construtor de imagens (pré-visualização)
       items:
         - name: Descrição geral
@@ -1105,8 +1105,6 @@
           href: ./linux/image-builder-user-assigned-identity.md
         - name: Resolução de problemas
           href: ./linux/image-builder-troubleshoot.md
-    - name: Informações do plano de compra
-      href: marketplace-images.md
     - name: Criar imagem com o Packer
       items:
         - name: Linux

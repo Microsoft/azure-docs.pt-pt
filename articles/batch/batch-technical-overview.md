@@ -3,12 +3,12 @@ title: Azure Batch tem grandes trabalhos paralelos na nuvem
 description: Saiba como utilizar o serviço Azure Batch para cargas de trabalho em larga e escala e de HPC
 ms.topic: overview
 ms.date: 07/30/2020
-ms.openlocfilehash: 93dcf19b3b6af0f369fe19b7823bf43d597a9c21
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: dbd27dc1a00966a2d71952335cfb47c7ca55bc24
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97106653"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743105"
 ---
 # <a name="what-is-azure-batch"></a>O que é o Azure Batch?
 
@@ -75,7 +75,10 @@ Tenha em mente que o fluxo de trabalho acima descrito é apenas uma maneira de u
 
 Consulte [o fluxo de trabalho do serviço Batch e os recursos](batch-service-workflow-features.md) para uma visão geral de funcionalidades como piscinas, nós, empregos e tarefas. Veja também a versão mais recente das [Atualizações de serviço do Batch](https://azure.microsoft.com/updates/?product=batch).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="in-region-data-residency"></a>Residência de dados na região
+O Azure Batch não move nem armazena os dados dos clientes para fora da região em que é implantado. 
+
+## <a name="next-steps"></a>Próximos passos
 
 Introdução ao Azure Batch com um dos seguintes inícios rápidos:
 - [Executar a primeira tarefa do Batch com a CLI do Azure](quick-create-cli.md)

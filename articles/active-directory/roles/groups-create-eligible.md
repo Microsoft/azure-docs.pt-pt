@@ -1,24 +1,24 @@
 ---
-title: Criar um grupo para atribuir funções no Azure Ative Directory Microsoft Docs
+title: Criar um grupo para atribuir funções no Azure Ative Directory | Microsoft Docs
 description: Aprenda a criar um grupo atribuível a papéis no Azure AD. Gerir as funções Azure no portal Azure, PowerShell ou Graph API.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
 ms.date: 11/05/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc2c42f407ee31a792a6634a813358d428120b46
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 3f06a1e9ea83fc7ad758ad17245ffa5d7ca973f6
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378623"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742103"
 ---
 # <a name="create-a-role-assignable-group-in-azure-active-directory"></a>Criar um grupo atribuível a funções no Azure Ative Directory
 
@@ -27,7 +27,7 @@ Só é possível atribuir um papel a um grupo que foi criado com a propriedade '
 ## <a name="using-azure-ad-admin-center"></a>Usando o centro de administração Ad da Adure
 
 1. Inscreva-se no [centro de administração Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) com o administrador privilegiado ou permissões de administrador global na organização Azure AD.
-1. Selecione **Groups**  >  **Grupos Todos os grupos**  >  **Novo** grupo .
+1. Selecione   >  **Grupos Todos os grupos**  >  **Novo** grupo .
 
     [![Abra o Diretório Ativo Azure e crie um novo grupo.](./media/groups-create-eligible/new-group.png "Abra o Diretório Ativo Azure e crie um novo grupo.")](./media/groups-create-eligible/new-group.png#<lightbox>)
 
@@ -124,7 +124,7 @@ POST https://graph.microsoft.com/beta/groups
 
 Para este tipo de grupo, `isPublic` será sempre falso e será sempre `isSecurityEnabled` verdade.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Atribuir uma função a um grupo da cloud](groups-assign-role.md)
 - [Utilizar os grupos da cloud para gerir atribuições de funções](groups-concept.md)

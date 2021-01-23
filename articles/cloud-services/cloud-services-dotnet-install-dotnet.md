@@ -1,24 +1,25 @@
 ---
-title: Instale .NET nas funções do Azure Cloud Services / Microsoft Docs
+title: Instale .NET em funções Azure Cloud Services (clássico) | Microsoft Docs
 description: Este artigo descreve como instalar manualmente o Quadro .NET na sua web de serviço na nuvem e funções de trabalhador
-services: cloud-services
-documentationcenter: .net
-author: tgore03
-manager: carmonm
-ms.service: cloud-services
-ms.devlang: dotnet
-ms.custom: devx-track-dotnet
 ms.topic: article
-ms.date: 06/22/2018
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 6de4b79560557fc86edb9e1a25e32a6a1983ceb0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 18665fabad079a8759f26be8834b2fe029ab5f49
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88932241"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742782"
 ---
-# <a name="install-net-on-azure-cloud-services-roles"></a>Instale .NET nas funções Azure Cloud Services
+# <a name="install-net-on-azure-cloud-services-classic-roles"></a>Instale .NET em funções Azure Cloud Services (clássicos)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (suporte alargado)](../cloud-services-extended-support/overview.md) é um novo modelo de implementação baseado em Recursos Azure para o produto Azure Cloud Services.Com esta alteração, os Serviços Azure Cloud em execução no modelo de implementação baseado no Azure Service Manager foram renomeados como Cloud Services (clássico) e todas as novas implementações devem utilizar [os Serviços Cloud (suporte alargado)](../cloud-services-extended-support/overview.md).
+
 Este artigo descreve como instalar versões de .NET Framework que não vêm com o Azure Guest OS. Pode utilizar .NET no Guest OS para configurar as suas funções web e de trabalho do seu serviço de nuvem.
 
 Por exemplo, pode instalar o Quadro .NET 4.6.2 na família Guest OS 4, que não vem com qualquer lançamento de .NET Framework 4.6. (A família Guest OS 5 vem com .NET Framework 4.6.) Para obter as informações mais recentes sobre os lançamentos do Azure Guest OS, consulte as notícias de lançamento do [Azure Guest OS](cloud-services-guestos-update-matrix.md). 
@@ -37,10 +38,10 @@ Para descarregar o instalador web para o Quadro .NET, escolha a versão que pret
 
 Para adicionar o instalador para uma função *web:*
   1. No **Solution Explorer**, em **Funções** no seu projeto de serviço na nuvem, clique com o botão direito no seu papel *web* e selecione **Adicionar**  >  **Nova Pasta**. Criar uma pasta chamada **bin**.
-  2. Clique com o botão direito na pasta do caixote do lixo e **selecione Adicionar**o  >  **Item Existente**. Selecione o instalador .NET e adicione-o à pasta do caixote do lixo.
+  2. Clique com o botão direito na pasta do caixote do lixo e **selecione Adicionar** o  >  **Item Existente**. Selecione o instalador .NET e adicione-o à pasta do caixote do lixo.
   
 Para adicionar o instalador para um papel *de trabalhador:*
-* Clique com o botão direito na sua função *de trabalhador* e selecione **Adicionar**O  >  **Item Existente**. Selecione o instalador .NET e adicione-o à função. 
+* Clique com o botão direito na sua função *de trabalhador* e selecione **Adicionar** O  >  **Item Existente**. Selecione o instalador .NET e adicione-o à função. 
 
 Quando os ficheiros são adicionados desta forma à pasta de conteúdo de função, são automaticamente adicionados ao seu pacote de serviços na nuvem. Os ficheiros são então implantados para uma localização consistente na máquina virtual. Repita este processo para cada web e papel de trabalhador no seu serviço de nuvem para que todas as funções tenham uma cópia do instalador.
 
@@ -83,7 +84,7 @@ Pode utilizar tarefas de arranque para executar operações antes de começar um
 
 2. Crie um ficheiro chamado **install.cmd** e adicione o seguinte script de instalação ao ficheiro.
 
-   O script verifica se a versão especificada do Quadro .NET já está instalada na máquina consultando o registo. Se a versão .NET Framework não for instalada, o instalador web .NET Framework é aberto. Para ajudar a resolver problemas, o script regista toda a atividade no startup de ficheiros startuptasklog-(data e hora correntes).txt que é armazenado no armazenamento local **de InstallLogs.**
+   O script verifica se a versão especificada do Quadro .NET já está instalada na máquina consultando o registo. Se a versão .NET Framework não for instalada, o instalador web .NET Framework é aberto. Para ajudar a resolver problemas, o script regista toda a atividade no startup de ficheiros startuptasklog-(data e hora corrente).txt que é armazenado no armazenamento local **de InstallLogs.**
    
    > [!IMPORTANT]
    > Utilize um editor de texto básico como o Windows Notepad para criar o ficheiro install.cmd. Se utilizar o Visual Studio para criar um ficheiro de texto e alterar a extensão para .cmd, o ficheiro poderá ainda conter uma marca de ordem de byte UTF-8. Esta marca pode causar um erro quando a primeira linha do script é executada. Para evitar este erro, faça da primeira linha do script uma declaração REM que pode ser ignorada pelo processamento da encomenda byte. 

@@ -1,21 +1,24 @@
 ---
-title: Escalar um serviço de nuvem Azure no Windows PowerShell Microsoft Docs
+title: Dimensione um serviço em nuvem Azure (clássico) no Windows PowerShell | Microsoft Docs
 description: (clássico) Aprenda a usar o PowerShell para escalar um papel web ou um papel de trabalhador dentro ou fora em Azure.
-services: cloud-services
-author: mmccrory
-ms.service: cloud-services
 ms.topic: article
-ms.date: 12/01/2016
-ms.author: memccror
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c2cec08d86760694ec3c41a98af62c6b86e0a4c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.service: cloud-services
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: a090da1933b0fcd6edb5b2415c773f9efcb27387
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89071096"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743309"
 ---
-# <a name="how-to-scale-a-cloud-service-in-powershell"></a>Como escalar um serviço em nuvem em PowerShell
+# <a name="how-to-scale-an-azure-cloud-service-classic-in-powershell"></a>Como escalar um Azure Cloud Service (clássico) em PowerShell
+
+> [!IMPORTANT]
+> [Azure Cloud Services (suporte alargado)](../cloud-services-extended-support/overview.md) é um novo modelo de implementação baseado em Recursos Azure para o produto Azure Cloud Services.Com esta alteração, os Serviços Azure Cloud em execução no modelo de implementação baseado no Azure Service Manager foram renomeados como Cloud Services (clássico) e todas as novas implementações devem utilizar [os Serviços Cloud (suporte alargado)](../cloud-services-extended-support/overview.md).
 
 Pode utilizar o Windows PowerShell para escalar uma função web ou papel de trabalhador dentro ou fora, adicionando ou removendo instâncias.  
 
@@ -71,6 +74,6 @@ Uma vez iniciadas as novas instâncias, o cmdlet regressará com sucesso:
 
 Pode escalar um papel removendo os casos da mesma forma. Desfiza o parâmetro **Contagem** no **Set-AzureRole** para o número de casos que deseja ter após a escala em funcionamento estar completa.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Não é possível configurar a escala automática para serviços em nuvem da PowerShell. Para isso, consulte [como escalar automaticamente um serviço de nuvem](cloud-services-how-to-scale-portal.md).

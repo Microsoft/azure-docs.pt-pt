@@ -1,26 +1,27 @@
 ---
-title: Introdução ao Cloud Services do Azure e ao ASP.NET | Microsoft Docs
+title: Começa com os Azure Cloud Services (clássico) e ASP.NET | Microsoft Docs
 description: Saiba como criar uma aplicação de várias camadas com o MVC do ASP.NET e o Azure. A aplicação é executada num serviço em nuvem, com a função da Web e a função de trabalho. Utiliza as filas e os blobs do Entity Framework, da SQL Database e do Storage do Azure.
-services: cloud-services, storage
-documentationcenter: .net
-author: tgore03
-manager: carmonm
+ms.topic: article
 ms.service: cloud-services
-ms.devlang: dotnet
-ms.custom: devx-track-csharp
-ms.topic: conceptual
-ms.date: 05/15/2017
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: a875c036c79419357f1134c32f62fdb060fec7c6
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: ae7fd5a7c9bc858cb18473374e7bd5589717eac6
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562298"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742085"
 ---
-# <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introdução ao Cloud Services do Azure e ao ASP.NET
+# <a name="get-started-with-azure-cloud-services-classic-and-aspnet"></a>Começa com os Azure Cloud Services (clássico) e ASP.NET
 
 ## <a name="overview"></a>Descrição geral
+
+> [!IMPORTANT]
+> [Azure Cloud Services (suporte alargado)](../cloud-services-extended-support/overview.md) é um novo modelo de implementação baseado em Recursos Azure para o produto Azure Cloud Services.Com esta alteração, os Serviços Azure Cloud em execução no modelo de implementação baseado no Azure Service Manager foram renomeados como Cloud Services (clássico) e todas as novas implementações devem utilizar [os Serviços Cloud (suporte alargado)](../cloud-services-extended-support/overview.md).
+
 Este tutorial mostra como criar uma aplicação do .NET de várias camadas com um front-end do MVC do ASP.NET e como implementá-lo num [serviço em nuvem do Azure](cloud-services-choose-me.md). A aplicação utiliza a [Base de Dados SQL do Azure](/previous-versions/azure/ee336279(v=azure.100)), o [serviço Blob do Azure](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) e o [serviço Fila do Azure](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). Pode [transferir o projeto do Visual Studio](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) da Galeria de Códigos do MSDN.
 
 O tutorial mostra como compilar e executar a aplicação localmente, como implementá-la no Azure e executá-la na cloud e como compilá-la do zero. Pode começar por compilar do zero e, posteriormente, realizar os passos de teste e implementação, se preferir.
@@ -28,7 +29,7 @@ O tutorial mostra como compilar e executar a aplicação localmente, como implem
 ## <a name="contoso-ads-application"></a>Aplicação de Anúncios da Contoso
 A aplicação é um BBS de publicidade. Os utilizadores criam um anúncio através da introdução de texto e carregamento de uma imagem. Podem ver uma lista de anúncios com imagens em miniatura e ver a imagem de tamanho completo quando selecionarem um anúncio para ver os detalhes.
 
-![Lista de Anúncios](./media/cloud-services-dotnet-get-started/list.png)
+![Imagem mostra lista de anúncios](./media/cloud-services-dotnet-get-started/list.png)
 
 A aplicação utiliza o [padrão de trabalho centrado em filas](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) para transferir o trabalho intensivo da CPU de criar miniaturas para um processo de back-end.
 
@@ -60,7 +61,7 @@ Se não tiver nenhum destes produtos, o Visual Studio poderá ser instalado auto
 ## <a name="application-architecture"></a>Arquitetura da aplicação
 A aplicação armazena anúncios numa SQL Database, utilizando o Entity Framework Code First para criar as tabelas e aceder aos dados. Para cada anúncio, a base de dados armazena dois URLs, um para a imagem de tamanho completo e outro para a miniatura.
 
-![Tabela de anúncios](./media/cloud-services-dotnet-get-started/adtable.png)
+![Esta é uma imagem de uma mesa de anúncios](./media/cloud-services-dotnet-get-started/adtable.png)
 
 Quando um utilizador carrega uma imagem, o front-end em execução numa função da Web armazena a imagem num [blob do Azure](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) e armazena as informações do anúncio na base de dados com um URL que aponta para o blob. Ao mesmo tempo, escreve uma mensagem para uma fila do Azure. Um processo de back-end em execução numa função de trabalho consulta periodicamente a fila para verificar se existem novas mensagens. Quando for apresentada uma nova mensagem, a função de trabalho cria uma miniatura dessa imagem e atualiza o campo da base de dados de URLs de miniaturas desse anúncio. O diagrama seguinte mostra como interagem as partes da aplicação.
 
@@ -83,11 +84,11 @@ Quando um utilizador carrega uma imagem, o front-end em execução numa função
 
     Quando executar um projeto do serviço em nuvem pela primeira vez, demorará um minuto ou mais até que os emuladores arranquem. Quando o arranque dos emuladores estiver concluído, o browser predefinido é aberto na home page da aplicação.
 
-    ![Arquitetura dos Anúncios da Contoso](./media/cloud-services-dotnet-get-started/home.png)
+    ![Contoso Ads arquitetura 1](./media/cloud-services-dotnet-get-started/home.png)
 8. Clique em **Criar um Anúncio**.
 9. Introduza alguns dados de teste, selecione uma imagem *.jpg* para carregar e clique em **Criar**.
 
-    ![Criar página](./media/cloud-services-dotnet-get-started/create.png)
+    ![Imagem mostra criar página](./media/cloud-services-dotnet-get-started/create.png)
 
     A aplicação acede à página Índice, mas não mostra nenhuma miniatura do novo anúncio, porque esse processamento ainda não ocorreu.
 10. Aguarde um momento e, em seguida, atualize a página Índice para ver a miniatura.
@@ -129,7 +130,7 @@ Um serviço em nuvem do Azure é o ambiente onde a aplicação irá ser executad
 
     Na imagem seguinte, é criado um serviço cloud com o URL CSvccontosoads.cloudapp.net.
 
-    ![Novo Serviço em Nuvem](./media/cloud-services-dotnet-get-started/newcs.png)
+    ![Imagem mostra novo serviço de nuvem](./media/cloud-services-dotnet-get-started/newcs.png)
 
 ### <a name="create-a-database-in-azure-sql-database"></a>Criar uma base de dados na Base de Dados Azure SQL
 Quando a aplicação é executada na nuvem, utilizará uma base de dados baseada na nuvem.
@@ -230,7 +231,7 @@ As cadeias de ligação da conta do Storage do Azure para o projeto da função 
 
 1. No **Explorador de Soluções**, clique com o botão direito do rato em **ContosoAdsWeb**, em **Funções** no projeto **ContosoAdsCloudService**, e clique em **Propriedades**.
 
-    ![Propriedades da função](./media/cloud-services-dotnet-get-started/roleproperties.png)
+    ![Imagem mostra propriedades role](./media/cloud-services-dotnet-get-started/roleproperties.png)
 2. Clique no **separador Definições.** Na caixa de lançamento da configuração de **serviço,** escolha **Cloud**.
 
     ![Configuração da nuvem](./media/cloud-services-dotnet-get-started/sccloud.png)
@@ -378,7 +379,8 @@ Nesta secção, deverá configurar o Armazenamento do Azure e as cadeias de liga
 2. Guarde as alterações.
 3. No projeto ContosoAdsCloudService, clique com o botão direito do rato em ContosoAdsWeb em **Funções** e, em seguida, clique em **Propriedades**.
 
-    ![Screenshot que realça a opção do menu Propriedades em Roles.](./media/cloud-services-dotnet-get-started/roleproperties.png)
+    ![Imagem de propriedades de função](./media/cloud-services-dotnet-get-started/roleproperties.png)
+
 4. Na janela de propriedades **ContosoAdsWeb [Role],** clique no separador **Definições** e, em seguida, clique em **Adicionar Definição**.
 
     Deixe **Configuração do Serviço** definida para **Todas as Configurações**.
@@ -760,7 +762,7 @@ Para alterar o projeto para utilizar o emulador completo, clique com o botão di
 
 Para executar a aplicação com o emulador completo, terá de abrir o Visual Studio com privilégios de administrador.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 A aplicação Anúncios da Contoso foi intencionalmente mantida simples para um tutorial de introdução. Por exemplo, não implementa a [inserção de dependências](https://www.asp.net/mvc/tutorials/hands-on-labs/aspnet-mvc-4-dependency-injection) nem o [repositório e unidade de padrões de trabalho](https://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application#repo), não [utiliza uma interface para registo](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry#log), não utiliza as [Migrações do EF Code First](https://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application) para gerir as alterações dos modelos de dados nem [Resiliência da Ligação do EF](https://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application) para gerir erros de rede transitórios e etc.
 
 Apresentamos a seguir algumas aplicações de exemplo do serviço em nuvem que demonstram mais práticas de codificação do mundo real, das menos complexas à mais complexas:

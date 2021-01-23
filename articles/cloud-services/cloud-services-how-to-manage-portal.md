@@ -1,21 +1,25 @@
 ---
-title: Tarefas comuns de gestão de serviços em nuvem Microsoft Docs
+title: Tarefas comuns de gestão de serviços em nuvem | Microsoft Docs
 description: Saiba como gerir os Serviços Cloud no portal Azure. Estes exemplos usam o portal Azure.
-services: cloud-services
-documentationcenter: ''
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 07/05/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 84e450a55f9482c3a713943adfcc4d7940ab873f
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 306da8dae31c2bbdb487e7128e3a2e24424c239d
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076713"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743394"
 ---
-# <a name="manage-cloud-services-in-the-azure-portal"></a>Gerir serviços cloud no portal Azure
+# <a name="manage-cloud-services-classic-in-the-azure-portal"></a>Gerir serviços cloud (clássicos) no portal Azure
+
+> [!IMPORTANT]
+> [Azure Cloud Services (suporte alargado)](../cloud-services-extended-support/overview.md) é um novo modelo de implementação baseado em Recursos Azure para o produto Azure Cloud Services.Com esta alteração, os Serviços Azure Cloud em execução no modelo de implementação baseado no Azure Service Manager foram renomeados como Cloud Services (clássico) e todas as novas implementações devem utilizar [os Serviços Cloud (suporte alargado)](../cloud-services-extended-support/overview.md).
+
 Na área **de Serviços cloud** do portal Azure, pode:
 
 * Atualize uma função de serviço ou uma implementação.
@@ -77,7 +81,7 @@ Existem dois pré-requisitos fundamentais para uma troca de implementação bem 
 
 - Se pretender utilizar um endereço IP estático para a sua ranhura de produção, também deve reservar um para a sua ranhura de preparação. Caso contrário, a troca falha.
 
-- Todas as instâncias das suas funções devem estar a decorrer antes de poder efetuar a troca. Pode verificar o estado das suas instâncias na lâmina **geral** do portal Azure. Em alternativa, pode utilizar o comando [Get-AzureRole](/powershell/module/servicemanagement/azure.service/get-azurerole?view=azuresmps-3.7.0) no Windows PowerShell.
+- Todas as instâncias das suas funções devem estar a decorrer antes de poder efetuar a troca. Pode verificar o estado das suas instâncias na lâmina **geral** do portal Azure. Em alternativa, pode utilizar o comando [Get-AzureRole](/powershell/module/servicemanagement/azure.service/get-azurerole?view=azuresmps-3.7.0&preserve-view=true) no Windows PowerShell.
 
 Note que as atualizações do SO do hóspede e as operações de cura do serviço também podem causar a falha de trocas de implementação. Para obter mais informações, consulte [problemas de implementação do serviço de nuvem troubleshoot](cloud-services-troubleshoot-deployment-problems.md).
 
@@ -119,7 +123,7 @@ A **lâmina de visão geral** tem uma barra de estado no topo. Quando selecionar
 
 [Azure portal]: https://portal.azure.com
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Configuração geral do seu serviço na nuvem](cloud-services-how-to-configure-portal.md).
 * Saiba como [implementar um serviço de cloud](cloud-services-how-to-create-deploy-portal.md).
 * Configure um [nome de domínio personalizado.](cloud-services-custom-domain-name-portal.md)

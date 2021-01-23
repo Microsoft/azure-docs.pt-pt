@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 11/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 85026092e513ecc9ec3c23e292a416297774a2e4
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 052d11fe0125de7970fb7d02931edfc7f3c2e4d9
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98217843"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743122"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Utilize equipas da Microsoft no ambiente de trabalho virtual do Windows
 
@@ -146,6 +146,7 @@ Usar equipas num ambiente virtualizado é diferente de usar equipas num ambiente
 - As equipas no Windows Virtual Desktop suportam apenas uma entrada de vídeo recebida de cada vez. Isto significa que sempre que alguém tenta partilhar o seu ecrã, o seu ecrã aparecerá em vez do ecrã do líder da reunião.
 - Devido às limitações da WebRTC, a resolução de fluxo de vídeo de entrada e saída está limitada a 720p.
 - A aplicação Teams não suporta botões HID ou comandos LED com outros dispositivos.
+- A Nova Experiência de Reunião (NME) não é atualmente suportada em ambientes VDI.
 
 Para equipas conhecidas questões que não estão relacionadas com ambientes virtualizados, consulte [equipas de apoio na sua organização](/microsoftteams/known-issues)
 

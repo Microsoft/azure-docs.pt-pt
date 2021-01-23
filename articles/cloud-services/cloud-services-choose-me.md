@@ -1,20 +1,25 @@
 ---
-title: O que é a Azure Cloud Services Microsoft Docs
+title: O que é Azure Cloud Services (clássico) | Microsoft Docs
 description: Saiba o que é o Azure Cloud Services, especificamente que foi projetado para suportar aplicações que são escaláveis, fiáveis e baratas para operar.
-services: cloud-services
-author: tgore03
-ms.service: multiple
 ms.topic: article
-ms.date: 04/19/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 0013a3a29bae9d2dde7896b3ae23d0d358946f2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: cbb9aae57b952c05aa722f81309158a11aef826b
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88224293"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742816"
 ---
-# <a name="overview-of-azure-cloud-services"></a>Visão geral dos Serviços em Nuvem Azure
+# <a name="overview-of-azure-cloud-services-classic"></a>Visão geral dos Serviços de Nuvem Azure (clássico)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (suporte alargado)](../cloud-services-extended-support/overview.md) é um novo modelo de implementação baseado em Recursos Azure para o produto Azure Cloud Services.Com esta alteração, os Serviços Azure Cloud em execução no modelo de implementação baseado no Azure Service Manager foram renomeados como Cloud Services (clássico) e todas as novas implementações devem utilizar [os Serviços Cloud (suporte alargado)](../cloud-services-extended-support/overview.md).
+
 O Azure Cloud Services é um exemplo de uma [plataforma como um serviço](https://azure.microsoft.com/overview/what-is-paas/) (PaaS). Tal como [o Azure App Service,](../app-service/overview.md)esta tecnologia destina-se a suportar aplicações que sejam escaláveis, fiáveis e baratas para operar. Da mesma forma que o Serviço de Aplicações está hospedado em máquinas virtuais (VMs), também o Azure Cloud Services. No entanto, tens mais controlo sobre os VMs. Pode instalar o seu próprio software em VMs que utilizam os Serviços Azure Cloud, e pode aceder-lhes remotamente.
 
 ![Diagrama dos Serviços Azure Cloud](./media/cloud-services-choose-me/diagram.png)
@@ -43,7 +48,7 @@ O Azure Cloud Services também fornece monitorização. Tal como as Máquinas Vi
 
 A natureza PaaS da Azure Cloud Services também tem outras implicações. Uma das mais importantes é que as aplicações construídas sobre esta tecnologia devem ser escritas para funcionar corretamente quando qualquer instância de função web ou trabalhador falha. Para isso, uma aplicação Azure Cloud Services não deve manter o estado no sistema de ficheiros dos seus próprios VMs. Ao contrário dos VMs criados com Máquinas Virtuais, as escritas feitas para VMs Azure Cloud Não são persistentes. Não há nada como um disco de dados das Máquinas Virtuais. Em vez disso, uma aplicação Azure Cloud Services deve escrever explicitamente todos os estados para Azure SQL Database, blobs, tabelas ou algum outro armazenamento externo. A construção de aplicações desta forma torna-as mais fáceis de escalar e mais resistentes ao fracasso, que são ambos objetivos importantes dos Serviços Azure Cloud.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Criar uma aplicação de serviço em nuvem em .NET](cloud-services-dotnet-get-started.md) 
 * [Crie uma aplicação de serviço em nuvem em Node.js](cloud-services-nodejs-develop-deploy-app.md) 
 * [Criar uma aplicação de serviço em nuvem em PHP](../cloud-services-php-create-web-role.md) 

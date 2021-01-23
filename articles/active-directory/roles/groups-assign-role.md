@@ -1,24 +1,24 @@
 ---
-title: Atribuir um papel a um grupo em nuvem no Azure Ative Directory Microsoft Docs
+title: Atribua um papel a um grupo de nuvem no Azure Ative Directory | Microsoft Docs
 description: Atribua um papel AD a um grupo atribuível a funções no portal Azure, PowerShell ou API de gráficos.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
 ms.date: 11/05/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb81b5dc98bf75a17e55abafdebfbeca68774a99
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 816009abb688525cd7663311c79300a6d12cf146
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379150"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742952"
 ---
 # <a name="assign-a-role-to-a-cloud-group-in-azure-active-directory"></a>Atribuir um papel a um grupo de nuvem no Azure Ative Directory
 
@@ -30,7 +30,7 @@ Atribuir um grupo a uma função AD Azure é semelhante à atribuição de utili
 
 1. Inscreva-se no [centro de administração Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) com o administrador privilegiado ou permissões de administrador global na organização Azure AD.
 
-1. Selecione **Azure Ative Directory**  >  **Roles and administrators** , e selecione a função que pretende atribuir.
+1. Selecione **Azure Ative Directory**  >  **Roles and administrators**, e selecione a função que pretende atribuir.
 
 1. Na **página _do nome da função_*_, selecione > _* Adicionar a atribuição**.
 
@@ -40,7 +40,7 @@ Atribuir um grupo a uma função AD Azure é semelhante à atribuição de utili
 
     [![Apenas os grupos que são atribuíveis são mostrados para uma nova atribuição de funções.](./media/groups-assign-role/eligible-groups.png "Apenas os grupos que são atribuíveis são mostrados para uma nova atribuição de funções.")](./media/groups-assign-role/eligible-groups.png#lightbox)
 
-1. Selecione **Add** (Adicionar).
+1. Selecione **Adicionar**.
 
 Para obter mais informações sobre a atribuição de permissões de funções, consulte [as funções de administrador de atribuição e não administrador para os utilizadores](../fundamentals/active-directory-users-assign-role-azure-portal.md).
 
@@ -99,7 +99,7 @@ POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
 "directoryScopeId":"/"
 }
 ```
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Utilizar os grupos da cloud para gerir atribuições de funções](groups-concept.md)
 - [Resolver problemas de funções atribuídas a grupos de cloud](groups-faq-troubleshooting.md)

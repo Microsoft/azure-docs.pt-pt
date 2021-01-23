@@ -1,26 +1,25 @@
 ---
-title: Azure Cloud Services Def. WorkerRole Schema Microsoft Docs
+title: Azure Cloud Services (clássico) Def. WorkerRole Schema | Microsoft Docs
 description: O papel de trabalhador Azure é utilizado para o desenvolvimento generalizado e pode realizar o processamento de fundo para um papel web. Conheça o esquema de papel do trabalhador Azure.
-services: cloud-services
-ms.custom: ''
-ms.date: 04/14/2015
-ms.reviewer: ''
+ms.topic: article
 ms.service: cloud-services
-ms.suite: ''
-ms.tgt_pltfrm: ''
-ms.topic: reference
-ms.assetid: 41cd46bc-c479-43fa-96e5-d6c83e4e6d89
-caps.latest.revision: 55
-author: tgore03
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 26225442c72fb209bb1ac4cd2bf4777fb39542fb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 0871527187a3d678cb2b94bd8dc342cf2abde1ba
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005168"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743139"
 ---
-# <a name="azure-cloud-services-definition-workerrole-schema"></a>Azure Cloud Services Definição TrabalhadorRole Schema
+# <a name="azure-cloud-services-classic-definition-workerrole-schema"></a>Azure Cloud Services (clássico) Definição TrabalhadorRole Schema
+
+> [!IMPORTANT]
+> [Azure Cloud Services (suporte alargado)](../cloud-services-extended-support/overview.md) é um novo modelo de implementação baseado em Recursos Azure para o produto Azure Cloud Services.Com esta alteração, os Serviços Azure Cloud em execução no modelo de implementação baseado no Azure Service Manager foram renomeados como Cloud Services (clássico) e todas as novas implementações devem utilizar [os Serviços Cloud (suporte alargado)](../cloud-services-extended-support/overview.md).
+
 O papel de trabalhador do Azure é um papel que é útil para o desenvolvimento generalizado, e pode executar o processamento de fundo para um papel web.
 
 A extensão por defeito para o ficheiro de definição de serviço é .csdef.
@@ -280,7 +279,7 @@ A tabela seguinte descreve os atributos do `Certificate` elemento.
 | --------- | ---- | ----------- |
 |name|string|Obrigatório. Um nome para este certificado, que é usado para se referir a ele quando está associado a um `InputEndpoint` elemento HTTPS.|
 |storeLocalização|string|Obrigatório. A localização da loja de certificados onde este certificado pode ser encontrado na máquina local. Os valores possíveis são `CurrentUser` `LocalMachine` e.|
-|armazenarName|string|Obrigatório. O nome da loja de certificados onde este certificado reside na máquina local. Os valores possíveis incluem os nomes de lojas `My` incorporados, , , , , , , , `Root` , , , ou qualquer nome de `CA` loja `Trust` `Disallowed` `TrustedPeople` `TrustedPublisher` `AuthRoot` `AddressBook` personalizado. Se for especificado um nome de loja personalizado, a loja é criada automaticamente.|
+|armazenarName|string|Obrigatório. O nome da loja de certificados onde este certificado reside na máquina local. Os valores possíveis incluem os nomes de lojas `My` `Root` incorporados, ou qualquer nome de `CA` `Trust` loja `Disallowed` `TrustedPeople` `TrustedPublisher` `AuthRoot` `AddressBook` personalizado. Se for especificado um nome de loja personalizado, a loja é criada automaticamente.|
 |permissõesLevel|string|Opcional. Especifica as permissões de acesso dadas aos processos de função. Se pretender apenas processos elevados para poder aceder à chave privada, especifique `elevated` a permissão. `limitedOrElevated` a permissão permite que todos os processos de função acedam à chave privada. Os valores possíveis são `limitedOrElevated` ou `elevated`. O valor predefinido é `limitedOrElevated`.|
 
 ##  <a name="imports"></a><a name="Imports"></a> Importações

@@ -1,24 +1,24 @@
 ---
-title: Ver e atribuir permissões de função de administrador - Azure AD / Microsoft Docs
+title: Ver e atribuir permissões de função de administrador - Azure AD | Microsoft Docs
 description: Agora pode ver e gerir membros de um papel de administrador AD Azure no portal. Para aqueles que frequentemente gerem tarefas de papel.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
 ms.date: 11/05/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9330c6d34dcf5a799d65ebba176565ff031cb956
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 26217930b79b958ae86d976d06a28ba4a4852ab6
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93376787"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742034"
 ---
 # <a name="view-and-assign-administrator-roles-in-azure-active-directory"></a>Ver e atribuir funções de administrador no Azure Active Directory
 
@@ -77,7 +77,7 @@ Para descarregar todas as atribuições para uma função específica, na págin
 
     ![lista de permissões para um papel de administrador](./media/manage-roles-portal/directory-role-select-role.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Sinta-se livre para compartilhar conosco no fórum de [funções administrativas Azure AD.](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
 * Para obter mais informações sobre funções e atribuição de funções de Administrador, consulte [as funções de administrador de atribuição](permissions-reference.md).

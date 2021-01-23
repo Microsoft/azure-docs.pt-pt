@@ -1,21 +1,24 @@
 ---
-title: Monitorize um Serviço de Nuvem Azure Microsoft Docs
+title: Monitorize um serviço de nuvem Azure (clássico) | Microsoft Docs
 description: Descreve o que envolve a monitorização de um Serviço de Nuvem Azure e quais são algumas das suas opções.
-services: cloud-services
-documentationcenter: ''
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 01/29/2018
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 61c794ba03934ae1828ba310f3f776bfb61b652b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 60f320f86860cca482cdf25c7d93f84dae8c4e5f
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85847241"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743377"
 ---
-# <a name="introduction-to-cloud-service-monitoring"></a>Introdução à Monitorização do Serviço de Nuvem
+# <a name="introduction-to-cloud-service-classic-monitoring"></a>Introdução ao Serviço de Nuvem (clássico) Monitoring
+
+> [!IMPORTANT]
+> [Azure Cloud Services (suporte alargado)](../cloud-services-extended-support/overview.md) é um novo modelo de implementação baseado em Recursos Azure para o produto Azure Cloud Services.Com esta alteração, os Serviços Azure Cloud em execução no modelo de implementação baseado no Azure Service Manager foram renomeados como Cloud Services (clássico) e todas as novas implementações devem utilizar [os Serviços Cloud (suporte alargado)](../cloud-services-extended-support/overview.md).
 
 Pode monitorizar as principais métricas de desempenho para qualquer serviço na nuvem. Cada função de serviço na nuvem recolhe dados mínimos: utilização do CPU, utilização da rede e utilização do disco. Se o serviço de nuvem tiver a `Microsoft.Azure.Diagnostics` extensão aplicada a uma função, essa função pode recolher pontos adicionais de dados. Este artigo fornece uma introdução ao Azure Diagnostics for Cloud Services.
 
@@ -92,7 +95,7 @@ Ao publicar o Serviço cloud do Visual Studio, é-lhe dada a opção de enviar o
 Note que, embora possa utilizar o Application Insights para exibir os contadores de desempenho (e as outras definições) que especificou através da extensão de Diagnóstico do Windows Azure, só obtém uma experiência mais rica integrando o SDK de Insights de Aplicação nas suas funções de trabalhador e web.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Saiba mais sobre insights de aplicações com serviços cloud](../azure-monitor/app/cloudservices.md)
 - [Configurar contadores de desempenho](diagnostics-performance-counters.md)

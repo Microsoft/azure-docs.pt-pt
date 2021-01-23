@@ -1,24 +1,24 @@
 ---
-title: Funções de resolução de problemas atribuídas ao grupo de nuvem FAQ - Azure Ative Directory Microsoft Docs
+title: Funções de resolução de problemas atribuídas ao grupo de nuvem FAQ - Azure Ative Directory | Microsoft Docs
 description: Aprenda algumas perguntas comuns e dicas de resolução de problemas para atribuir funções a grupos no Azure Ative Directory.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
 ms.date: 11/05/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8735a0d34b9fcf5b86b6592980ffc5c7c3e3073c
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 0ff906654dc91c7b1980292efd2a737503e684e9
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861940"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742918"
 ---
 # <a name="troubleshooting-roles-assigned-to-cloud-groups"></a>Resolver problemas de funções atribuídas a grupos de cloud
 
@@ -61,7 +61,7 @@ Administrador de serviço de equipas | Proprietário do catálogo  | &nbsp; | �
 Administrador do SharePoint | Proprietário do catálogo | &nbsp; | ✔️  | &nbsp;  | ✔️ 
 Administrador de aplicação | Proprietário do catálogo  | &nbsp;  | &nbsp; | ✔️  | &nbsp;
 Administrador de aplicação em nuvem | Proprietário do catálogo  | &nbsp;  | &nbsp; | ✔️  | &nbsp;
-Utilizador | Proprietário do catálogo | Só se o dono do grupo | Só se o dono do grupo | Só se o proprietário da aplicação  | &nbsp;
+User | Proprietário do catálogo | Só se o dono do grupo | Só se o dono do grupo | Só se o proprietário da aplicação  | &nbsp;
 
 \*O grupo não é atribuível; isto é, isAssignableToRole = falso. Se um grupo é atribuível a funções, então a pessoa que cria o pacote de acesso também deve ser proprietária do grupo que atribui funções.
 
@@ -98,7 +98,7 @@ Utilizador | Proprietário do catálogo | Só se o dono do grupo | Só se o dono
 
 **A:** Se atribuir um grupo existente a um papel, o proprietário do grupo existente poderá adicionar outros membros a este grupo sem que os novos membros percebam que terão o papel. Como os grupos atribuíveis são poderosos, estamos a impor muitas restrições para os proteger. Não quer alterações no grupo que seriam surpreendentes para a pessoa que gere o grupo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Utilizar os grupos da cloud para gerir atribuições de funções](groups-concept.md)
 - [Criar um grupo ao qual se pode atribuir funções](groups-create-eligible.md)

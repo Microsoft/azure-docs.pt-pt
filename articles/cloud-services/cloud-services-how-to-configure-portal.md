@@ -1,21 +1,24 @@
 ---
-title: Como configurar um serviço de nuvem (portal) Microsoft Docs
+title: Como configurar um serviço em nuvem (clássico) - Portal | Microsoft Docs
 description: Saiba como configurar serviços em nuvem em Azure. Aprenda a atualizar a configuração do serviço de nuvem e configuure o acesso remoto a instâncias de função. Estes exemplos usam o portal Azure.
-services: cloud-services
-documentationcenter: ''
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 12/07/2016
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 4f2b5716e253f2810ff953a10c879574c6a6c342
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: f16fcfe227663958279281659b09929a4cd2d386
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91576664"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743428"
 ---
-# <a name="how-to-configure-cloud-services"></a>Como configurar um Serviços Cloud
+# <a name="how-to-configure-and-azure-cloud-service-classic"></a>Como Configurar e Azure Cloud Service (clássico)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (suporte alargado)](../cloud-services-extended-support/overview.md) é um novo modelo de implementação baseado em Recursos Azure para o produto Azure Cloud Services.Com esta alteração, os Serviços Azure Cloud em execução no modelo de implementação baseado no Azure Service Manager foram renomeados como Cloud Services (clássico) e todas as novas implementações devem utilizar [os Serviços Cloud (suporte alargado)](../cloud-services-extended-support/overview.md).
 
 Pode configurar as definições mais utilizadas para um serviço de nuvem no portal Azure. Ou, se gostar de atualizar diretamente os seus ficheiros de configuração, descarregue um ficheiro de configuração de serviço para atualizar e, em seguida, carrevar o ficheiro atualizado e atualizar o serviço de cloud com as alterações de configuração. De qualquer forma, as atualizações de configuração são empurradas para todas as instâncias de função.
 
@@ -29,7 +32,7 @@ Depois de abrir o [portal Azure,](https://portal.azure.com/)navegue para o seu s
 
 ![Página de definições](./media/cloud-services-how-to-configure-portal/cloud-service.png)
 
-As **definições** ou **todas as configurações** abrirão **Configurações** onde pode alterar as **Propriedades**, alterar a **Configuração**, gerir os **Certificados,** configurar **as regras de Alerta**e gerir os **Utilizadores** que tenham acesso a este serviço na nuvem.
+As **definições** ou **todas as configurações** abrirão **Configurações** onde pode alterar as **Propriedades**, alterar a **Configuração**, gerir os **Certificados,** configurar **as regras de Alerta** e gerir os **Utilizadores** que tenham acesso a este serviço na nuvem.
 
 ![Definições de serviço em nuvem Azure](./media/cloud-services-how-to-configure-portal/cs-settings-blade.png)
 
@@ -46,7 +49,7 @@ Se precisar de direcionar uma versão de SO específica, pode defini-la na **Con
 
 ## <a name="monitoring"></a>Monitorização
 
-Pode adicionar alertas ao seu serviço na nuvem. Clique **em Definições**  >  **Regras de Alerta**Adicionar  >  **alerta**.
+Pode adicionar alertas ao seu serviço na nuvem. Clique **em Definições**  >  **Regras de Alerta** Adicionar  >  **alerta**.
 
 ![Screenshot da panela De Definições com a opção de regras de alerta realçada e delineada a vermelho e a opção de alerta Add delineada a vermelho.](./media/cloud-services-how-to-configure-portal/cs-alerts.png)
 
@@ -62,7 +65,7 @@ A partir daqui, pode configurar um alerta. Com a caixa de entrega **métrica,** 
 
 ### <a name="configure-monitoring-from-a-metric-tile"></a>Configure a monitorização de um azulejo métrico
 
-Em vez **Settings**de utilizar as  >  **Regras de Alerta de**Definições, pode clicar num dos azulejos métricos da secção de **Monitorização** do serviço de nuvem.
+Em vez de utilizar as  >  **Regras de Alerta de** Definições, pode clicar num dos azulejos métricos da secção de **Monitorização** do serviço de nuvem.
 
 ![Monitorização do serviço de nuvem](./media/cloud-services-how-to-configure-portal/cs-monitoring.png)
 
@@ -98,7 +101,7 @@ Poderá ser necessário reconfigurar o seu serviço de cloud através do ficheir
     ![Carregar](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-upload.png)
 5. Selecione o ficheiro .cscfg e clique **em OK**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba como [implementar um serviço de cloud](cloud-services-how-to-create-deploy-portal.md).
 * Configure um [nome de domínio personalizado.](cloud-services-custom-domain-name-portal.md)

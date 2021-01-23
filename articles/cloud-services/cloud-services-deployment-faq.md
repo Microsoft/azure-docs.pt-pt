@@ -1,28 +1,24 @@
 ---
-title: Problemas de implementação para o Microsoft Azure Cloud Services FAQ / Microsoft Docs
+title: Problemas de implementação para o Microsoft Azure Cloud Services FAQ| Microsoft Docs
 description: Este artigo lista as perguntas frequentes sobre a implementação dos Serviços cloud do Microsoft Azure.
-services: cloud-services
-documentationcenter: ''
-author: genlin
-manager: dcscontentpm
-editor: ''
-tags: top-support-issue
-ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
-ms.service: cloud-services
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/31/2018
-ms.author: genli
-ms.openlocfilehash: 63a219078927e9001a8eb4085c722e7ec8d2fac9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.service: cloud-services
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 67c20823d1f80360b2ab23dc3f208673d36a7374
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75980634"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742221"
 ---
-# <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de implantação para serviços em nuvem Azure: Perguntas frequentes (PERGUNTAS Frequentes)
+# <a name="deployment-issues-for-azure-cloud-services-classic-frequently-asked-questions-faqs"></a>Problemas de implantação para Azure Cloud Services (clássico): Perguntas frequentes (PERGUNTAS Frequentes)
 
+> [!IMPORTANT]
+> [Azure Cloud Services (suporte alargado)](../cloud-services-extended-support/overview.md) é um novo modelo de implementação baseado em Recursos Azure para o produto Azure Cloud Services.Com esta alteração, os Serviços Azure Cloud em execução no modelo de implementação baseado no Azure Service Manager foram renomeados como Cloud Services (clássico) e todas as novas implementações devem utilizar [os Serviços Cloud (suporte alargado)](../cloud-services-extended-support/overview.md).
 Este artigo inclui perguntas frequentes sobre problemas de implementação para [o Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). Também pode consultar a [página de tamanho VM dos Serviços cloud](cloud-services-sizes-specs.md) para obter informações sobre o tamanho.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
@@ -63,9 +59,9 @@ Não é possível alterar o tamanho VM de um serviço de nuvem implantado sem o 
 
 Para mais informações, consulte [Como atualizar um serviço de cloud](cloud-services-update-azure-service.md).
 
-## <a name="why-am-i-not-able-to-deploy-cloud-services-through-service-management-apis-or-powershell-when-using-azure-resource-manager-storage-account"></a>Por que não posso implementar serviços cloud através de APIs de Gestão de Serviços ou PowerShell ao utilizar a conta de Armazenamento de Gestores de Recursos Azure? 
+## <a name="why-am-i-not-able-to-deploy-cloud-services-through-service-management-apis-or-powershell-when-using-azure-resource-manager-storage-account"></a>Por que não posso implementar serviços cloud através de APIs de Gestão de Serviços ou PowerShell ao utilizar a conta de Armazenamento de Gestores de Recursos Azure? 
 
-Uma vez que o Cloud Service é um recurso Clássico que não é diretamente compatível com o modelo Azure Resource Manager, não é possível associá-lo às contas de Armazenamento do Gestor de Recursos Azure. Aqui estão poucas opções: 
+Uma vez que o Cloud Service é um recurso Clássico que não é diretamente compatível com o modelo Azure Resource Manager, não é possível associá-lo às contas de Armazenamento do Gestor de Recursos Azure. Aqui estão poucas opções: 
 
 - Implantação através da REST API.
 
@@ -73,7 +69,7 @@ Uma vez que o Cloud Service é um recurso Clássico que não é diretamente comp
 
 - Implantação através do [portal Azure](https://portal.azure.com).
 
-    Isto funcionará a partir do [portal Azure](https://portal.azure.com) à medida que a chamada passa por um proxy/shim que permite a comunicação entre o Azure Resource Manager e os recursos clássicos. 
+    Isto funcionará a partir do [portal Azure](https://portal.azure.com) à medida que a chamada passa por um proxy/shim que permite a comunicação entre o Azure Resource Manager e os recursos clássicos. 
 
 ## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>Porque é que o portal Azure me obriga a fornecer uma conta de armazenamento para a implantação?
 

@@ -1,22 +1,24 @@
 ---
-title: Azure Cloud Services Role Schema Microsoft Docs
+title: Azure Cloud Services (clássico) Role Schema | Microsoft Docs
 description: O elemento Role de um ficheiro de configuração de serviço especifica quantas instâncias de função devem ser implantadas para cada função, valores de configuração e impressões digitais de certificado.
-ms.custom: ''
-ms.date: 12/07/2016
-services: cloud-services
+ms.topic: article
 ms.service: cloud-services
-ms.topic: reference
-caps.latest.revision: 12
-author: tgore03
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: b64f9d27e382a39b132593502fed32c565af473a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 2dc8e14a4e4d8855abb615632bb7d43b9034d360
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79528426"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743445"
 ---
-# <a name="azure-cloud-services-config-role-schema"></a>Azure Cloud Services Config Role Schema
+# <a name="azure-cloud-services-classic-config-role-schema"></a>Azure Cloud Services (clássico) Config Role Schema
+
+> [!IMPORTANT]
+> [Azure Cloud Services (suporte alargado)](../cloud-services-extended-support/overview.md) é um novo modelo de implementação baseado em Recursos Azure para o produto Azure Cloud Services.Com esta alteração, os Serviços Azure Cloud em execução no modelo de implementação baseado no Azure Service Manager foram renomeados como Cloud Services (clássico) e todas as novas implementações devem utilizar [os Serviços Cloud (suporte alargado)](../cloud-services-extended-support/overview.md).
 
 O `Role` elemento do ficheiro de configuração especifica o número de instâncias a implementar para cada função no serviço, os valores de quaisquer definições de configuração e as impressões digitais para quaisquer certificados associados a uma função.
 

@@ -1,21 +1,25 @@
 ---
-title: Configure um nome de domínio personalizado nos Serviços cloud / Microsoft Docs
+title: Configure um nome de domínio personalizado em Cloud Services (clássico) | Microsoft Docs
 description: Saiba como expor a sua aplicação ou dados Azure à internet num domínio personalizado configurando as definições de DNS.  Estes exemplos usam o portal Azure.
-services: cloud-services
-documentationcenter: .net
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 07/05/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 012801d0aada8ee55bb0eb05eaf75caa95878765
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: bced2345473dbcbb5b9adf0269de0bef0549e862
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92069930"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742374"
 ---
-# <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Configurar um nome de domínio personalizado para um serviço cloud do Azure
+# <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service-classic"></a>Configurar um nome de domínio personalizado para um serviço de nuvem Azure (clássico)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (suporte alargado)](../cloud-services-extended-support/overview.md) é um novo modelo de implementação baseado em Recursos Azure para o produto Azure Cloud Services.Com esta alteração, os Serviços Azure Cloud em execução no modelo de implementação baseado no Azure Service Manager foram renomeados como Cloud Services (clássico) e todas as novas implementações devem utilizar [os Serviços Cloud (suporte alargado)](../cloud-services-extended-support/overview.md).
+
 Quando cria um Serviço cloud, o Azure atribui-o a um subdomínio de **cloudapp.net**. Por exemplo, se o seu Serviço cloud estiver nomeado "contoso", os seus utilizadores poderão aceder à sua aplicação num URL como `http://contoso.cloudapp.net` . O Azure também atribui um endereço IP virtual.
 
 No entanto, também pode expor a sua aplicação no seu próprio nome de domínio, como **contoso.com**. Este artigo explica como reservar ou configurar um nome de domínio personalizado para funções web do Cloud Service.
@@ -44,7 +48,7 @@ Um registo CNAME mapeia um domínio *específico,* como **contoso.com** ou **www
 > Alguns registradores de domínio só permitem mapear subdomínios quando utilizar um registo CNAME, como www \. contoso.com, e não nomes de raiz, como contoso.com. Para obter mais informações sobre os registos cname, consulte a documentação fornecida pelo seu registo, [a entrada na Wikipédia no registo CNAME](https://en.wikipedia.org/wiki/CNAME_record), ou o [documento IETF Domain Names - Implementation and Specification.](https://tools.ietf.org/html/rfc1035)
 
 ### <a name="a-record"></a>Um registo
-Um registo *A* mapeia um domínio, como **contoso.com** ou **www \. contoso.com**, *ou um domínio wildcard* como ** \* .contoso.com**, para um endereço IP. No caso de um Azure Cloud Service, o IP virtual do serviço. Assim, o principal benefício de um registo A sobre um registo CNAME é que você pode ter uma entrada que usa um wildcard, como \* **.contoso.com**, que lidaria com pedidos de vários sub-domínios como **mail.contoso.com**, **login.contoso.com**, ou **www \. contso.com**.
+Um registo *A* mapeia um domínio, como **contoso.com** ou **www \. contoso.com**, *ou um domínio wildcard* como **\* .contoso.com**, para um endereço IP. No caso de um Azure Cloud Service, o IP virtual do serviço. Assim, o principal benefício de um registo A sobre um registo CNAME é que você pode ter uma entrada que usa um wildcard, como \* *_.contoso.com_*, que lidaria com pedidos de vários sub-domínios como **mail.contoso.com**, **login.contoso.com**, ou **www \. contso.com**.
 
 > [!NOTE]
 > Uma vez que um registo A é mapeado para um endereço IP estático, não pode resolver automaticamente alterações no endereço IP do seu Serviço cloud. O endereço IP utilizado pelo seu Serviço cloud é atribuído na primeira vez que se implanta numa ranhura vazia (produção ou encenação.) Se eliminar a implementação da ranhura, o endereço IP é lançado pela Azure e quaisquer futuras implementações para a ranhura poderão receber um novo endereço IP.
@@ -70,8 +74,8 @@ Para criar um registo CNAME, deve adicionar uma nova entrada na tabela DNS para 
        ```
 
      Guarde o nome de domínio utilizado no URL devolvido por qualquer método, pois necessitará dele ao criar um registo CNAME.
-2. Inicie sessão no site do seu registo DNS e vá à página para gerir o DNS. Procure links ou áreas do site rotulados como **Nome de Domínio**, **DNS**ou **Gestão do Servidor de Nome**.
-3. Agora encontre onde pode selecionar ou inserir CNAME's. Pode ter de selecionar o tipo de gravação a partir de uma queda ou ir para uma página de definições avançadas. Deve procurar as palavras **CNAME,** **Alias**ou **Subdomínios.**
+2. Inicie sessão no site do seu registo DNS e vá à página para gerir o DNS. Procure links ou áreas do site rotulados como **Nome de Domínio**, **DNS** ou **Gestão do Servidor de Nome**.
+3. Agora encontre onde pode selecionar ou inserir CNAME's. Pode ter de selecionar o tipo de gravação a partir de uma queda ou ir para uma página de definições avançadas. Deve procurar as palavras **CNAME,** **Alias** ou **Subdomínios.**
 4. Deve também fornecer o nome de domínio ou subdomínio para o CNAME, como **por exemplo, se** pretende criar um pseudónimo para **www \. customdomain.com**. Se quiser criar um pseudónimo para o domínio raiz, pode ser listado como o **\@** símbolo ' nas ferramentas DNS do seu registo.
 5. Em seguida, deve fornecer um nome de anfitrião canónico, que é o domínio **cloudapp.net** da sua aplicação neste caso.
 
@@ -103,9 +107,9 @@ Para criar um registo A, tem primeiro de encontrar o endereço IP virtual do seu
        ```
 
      Guarde o endereço IP, pois necessitará dele ao criar um registo A.
-2. Inicie sessão no site do seu registo DNS e vá à página para gerir o DNS. Procure links ou áreas do site rotulados como **Nome de Domínio**, **DNS**ou **Gestão do Servidor de Nome**.
+2. Inicie sessão no site do seu registo DNS e vá à página para gerir o DNS. Procure links ou áreas do site rotulados como **Nome de Domínio**, **DNS** ou **Gestão do Servidor de Nome**.
 3. Agora encontre onde pode selecionar ou introduzir um registo. Pode ter de selecionar o tipo de gravação a partir de uma queda ou ir para uma página de definições avançadas.
-4. Selecione ou introduza o domínio ou subdomínio que utilizará este registo A. Por exemplo, selecione **www** se pretende criar um pseudónimo para **www \. customdomain.com**. Se quiser criar uma entrada wildcard para todos os subdomínios, insira '******'. Isto abrangerá todos os subd domínios como **mail.customdomain.com,** **login.customdomain.com**e **www \. customdomain.com**.
+4. Selecione ou introduza o domínio ou subdomínio que utilizará este registo A. Por exemplo, selecione **www** se pretende criar um pseudónimo para **www \. customdomain.com**. Se quiser criar uma entrada wildcard para todos os subdomínios, insira '**'. Isto abrangerá todos os subd domínios como **mail.customdomain.com,** **login.customdomain.com** e **www \. customdomain.com**.
 
     Se pretender criar um registo A para o domínio raiz, pode ser listado como o **\@** símbolo ' nas ferramentas DNS do seu registo.
 5. Insira o endereço IP do seu serviço de nuvem no campo fornecido. Isto associa a entrada de domínio utilizada no registo A com o endereço IP da sua implementação de serviço em nuvem.
@@ -116,14 +120,14 @@ Por exemplo, o seguinte registo A encaminha todo o tráfego de **contoso.com** p
 | --- | --- |
 | \@ |137.135.70.239 |
 
-Este exemplo demonstra a criação de um registo A para o domínio raiz. Se desejar criar uma entrada wildcard para cobrir todos os subdomínios, introduzirá '*****' como subdomínio.
+Este exemplo demonstra a criação de um registo A para o domínio raiz. Se desejar criar uma entrada wildcard para cobrir todos os subdomínios, introduzirá '*' como subdomínio.
 
 > [!WARNING]
 > Os endereços IP em Azure são dinâmicos por padrão. Provavelmente irá querer utilizar um [endereço IP reservado](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) para garantir que o seu endereço IP não se altere.
 > 
 > 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Como gerir Serviços Cloud](cloud-services-how-to-manage-portal.md)
 * [Como Mapear Conteúdo da CDN para um Domínio Personalizado](../cdn/cdn-map-content-to-custom-domain.md)
 * [Configuração geral do seu serviço na nuvem](cloud-services-how-to-configure-portal.md).

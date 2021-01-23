@@ -1,22 +1,25 @@
 ---
-title: Azure Cloud Services NetworkConfiguration Schema Microsoft Docs
+title: Azure Cloud Services (clássico) RedeConfiguration Schema | Microsoft Docs
 description: Saiba mais sobre os elementos infantis do elemento De Configuração de Rede do ficheiro de configuração de serviço, que especifica os valores de Rede Virtual e DNS.
-ms.custom: ''
-ms.date: 12/07/2016
-services: cloud-services
+ms.topic: article
 ms.service: cloud-services
-ms.topic: reference
-caps.latest.revision: 28
-author: tgore03
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: a3f62bb33332e818cc40c5195a1cc2f667f819b4
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+'---thor': tagore
+ms.openlocfilehash: acf4c050ade21a6e5fc51ee6ace512eff00360ab
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072582"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743462"
 ---
-# <a name="azure-cloud-services-config-networkconfiguration-schema"></a>Azure Cloud Services Config NetworkConfiguration Schema
+# <a name="azure-cloud-services-classic-config-networkconfiguration-schema"></a>Azure Cloud Services (clássico) Config NetworkConfiguration Schema
+
+> [!IMPORTANT]
+> [Azure Cloud Services (suporte alargado)](../cloud-services-extended-support/overview.md) é um novo modelo de implementação baseado em Recursos Azure para o produto Azure Cloud Services.Com esta alteração, os Serviços Azure Cloud em execução no modelo de implementação baseado no Azure Service Manager foram renomeados como Cloud Services (clássico) e todas as novas implementações devem utilizar [os Serviços Cloud (suporte alargado)](../cloud-services-extended-support/overview.md).
 
 O `NetworkConfiguration` elemento do ficheiro de configuração de serviço especifica os valores de Rede Virtual e DNS. Estas configurações são opcionais para serviços na nuvem.
 

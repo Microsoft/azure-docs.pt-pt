@@ -1,23 +1,24 @@
 ---
-title: Introdução a Python e aos Serviços Cloud do Azure | Microsoft Docs
+title: Começa com os Serviços Python e Azure Cloud (clássico)| Microsoft Docs
 description: Descrição geral da utilização das Ferramentas do Python para Visual Studio para a criação de Cloud Services do Azure, incluindo funções da Web e funções de trabalho.
-services: cloud-services
-documentationcenter: python
-author: tgore03
+ms.topic: article
 ms.service: cloud-services
-ms.devlang: python
-ms.topic: conceptual
-ms.date: 07/18/2017
+ms.date: 10/14/2020
 ms.author: tagore
-ms.custom: devx-track-python
-ms.openlocfilehash: 955498c663560351c01f1894fb348b89f72d549b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 16aa6918c0f4b0df5ebf23f28268f8cbe5223fce
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92079246"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743292"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Funções da Web e de trabalho do Python com Ferramentas de Python para Visual Studio
+
+> [!IMPORTANT]
+> [Azure Cloud Services (suporte alargado)](../cloud-services-extended-support/overview.md) é um novo modelo de implementação baseado em Recursos Azure para o produto Azure Cloud Services.Com esta alteração, os Serviços Azure Cloud em execução no modelo de implementação baseado no Azure Service Manager foram renomeados como Cloud Services (clássico) e todas as novas implementações devem utilizar [os Serviços Cloud (suporte alargado)](../cloud-services-extended-support/overview.md).
 
 Este artigo fornece uma descrição geral da utilização de funções da Web e de trabalho do Python através das [Ferramentas do Python para Visual Studio][Python Tools for Visual Studio]. Aprenda a utilizar o Visual Studio para criar e implementar um Serviço Cloud básico que utiliza o Python.
 
@@ -326,7 +327,7 @@ A implementação demora alguns minutos a ser concluída. Em seguida, as funçõ
 ### <a name="investigate-logs"></a>Investigar registos
 Depois de a máquina virtual do serviço de nuvem arrancar e instalar o Python, pode procurar nos registos para localizar todas as mensagens de falha. Estes registos estão localizados na pasta **C:\Resources\Directory\\{role}\LogFiles**. **PrepPython.err.txt** tem, pelo menos, um erro quando o script tenta detetar se o Python está instalado e o **PipInstaller.err.txt** pode queixar-se de uma versão desatualizada do pip.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para obter informações mais detalhadas sobre como trabalhar com funções da Web e de trabalho nas Ferramentas do Python para Visual Studio, consulte a documentação das PTVS:
 
 * [Projetos de Serviço Cloud][Cloud Service Projects]

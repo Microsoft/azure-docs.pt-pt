@@ -1,28 +1,24 @@
 ---
 title: Problemas de conectividade e rede
-titleSuffix: Azure Cloud Services
 description: Este artigo lista as perguntas frequentes sobre conectividade e networking para o Microsoft Azure Cloud Services.
-services: cloud-services
-documentationcenter: ''
-author: genlin
-manager: dcscontentpm
-editor: ''
-tags: top-support-issue
-ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
-ms.service: cloud-services
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 08/23/2018
-ms.author: genli
-ms.openlocfilehash: d8f57cc16cad4c0b081478932f820c983e4bbdc7
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.service: cloud-services
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: c7b83c615e4ac19e10b5c4f6cc1a102206b1a39a
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070032"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742425"
 ---
-# <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Questões de conectividade e networking para serviços em nuvem Azure: Perguntas frequentes (PERGUNTAS Frequentes)
+# <a name="connectivity-and-networking-issues-for-azure-cloud-services-classic-frequently-asked-questions-faqs"></a>Questões de conectividade e networking para Azure Cloud Services (clássico): Perguntas frequentes (FAQs)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (suporte alargado)](../cloud-services-extended-support/overview.md) é um novo modelo de implementação baseado em Recursos Azure para o produto Azure Cloud Services.Com esta alteração, os Serviços Azure Cloud em execução no modelo de implementação baseado no Azure Service Manager foram renomeados como Cloud Services (clássico) e todas as novas implementações devem utilizar [os Serviços Cloud (suporte alargado)](../cloud-services-extended-support/overview.md).
 
 Este artigo inclui perguntas frequentes sobre questões de conectividade e networking para [a Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). Para obter informações sobre o tamanho, consulte a página de [tamanho dos Serviços cloud VM](cloud-services-sizes-specs.md).
 

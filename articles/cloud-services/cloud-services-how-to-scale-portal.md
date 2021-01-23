@@ -1,20 +1,24 @@
 ---
-title: Escalar automaticamente um serviço de nuvem no portal Microsoft Docs
+title: Escalar automaticamente um serviço em nuvem (clássico) no portal | Microsoft Docs
 description: Aprenda a usar o portal para configurar regras de escala automática para um papel web de serviço na nuvem ou papel de trabalhador em Azure.
-services: cloud-services
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 05/18/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 06a0209c2bbd0982054d33c199685d016f405b0c
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: a3e7f72dbe16c51280b922da2b5fc6550dee1d34
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165490"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743360"
 ---
-# <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Como configurar a escala automática para um Serviço de Nuvem no portal
+# <a name="how-to-configure-auto-scaling-for-a-cloud-service-classic-in-the-portal"></a>Como configurar a escala automática para um Serviço de Nuvem (clássico) no portal
+
+> [!IMPORTANT]
+> [Azure Cloud Services (suporte alargado)](../cloud-services-extended-support/overview.md) é um novo modelo de implementação baseado em Recursos Azure para o produto Azure Cloud Services.Com esta alteração, os Serviços Azure Cloud em execução no modelo de implementação baseado no Azure Service Manager foram renomeados como Cloud Services (clássico) e todas as novas implementações devem utilizar [os Serviços Cloud (suporte alargado)](../cloud-services-extended-support/overview.md).
 
 Podem ser definidas condições para um papel de trabalhador de serviço de nuvem que desencadeie uma escala dentro ou fora do funcionamento. As condições para o papel podem basear-se no CPU, disco ou carga de rede da função. Também pode definir uma condição com base numa fila de mensagens ou na métrica de algum outro recurso Azure associado à sua subscrição.
 
@@ -34,7 +38,7 @@ Deve considerar as seguintes informações antes de configurar o escalonamento p
 
 * Para ativar a elevada disponibilidade da sua aplicação, deve certificar-se de que é implementada com duas ou mais instâncias de função. Para mais informações, consulte [os Contratos de Nível de Serviço.](https://azure.microsoft.com/support/legal/sla/)
 
-* A Escala Automática só acontece quando todas as funções estão no estado **de Ready.**  
+* A Escala Automática só acontece quando todas as funções estão no estado **de Ready.**  
 
 
 ## <a name="where-scale-is-located"></a>Onde a escala está localizada
@@ -53,7 +57,7 @@ Pode configurar as definições de escala para uma função com dois modos **man
 
 Desagrema a **Escala por** opção de **programação e de desempenho.**
 
-![Screenshot que mostra a opção de horário e regras de desempenho.](./media/cloud-services-how-to-scale-portal/schedule-basics.png)
+![definições de escala de serviços de nuvem de imagem com perfil e regra](./media/cloud-services-how-to-scale-portal/schedule-basics.png)
 
 1. Um perfil existente.
 2. Adicione uma regra para o perfil dos pais.

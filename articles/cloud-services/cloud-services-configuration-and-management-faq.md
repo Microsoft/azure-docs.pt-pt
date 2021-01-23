@@ -1,28 +1,24 @@
 ---
 title: Questões de configuração e gestão FAQ
-titleSuffix: Azure Cloud Services
 description: Este artigo lista as perguntas frequentes sobre configuração e gestão para os Serviços de Cloud Microsoft Azure.
-services: cloud-services
-documentationcenter: ''
-author: genlin
-manager: dcscontentpm
-editor: ''
-tags: top-support-issue
-ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
-ms.service: cloud-services
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/23/2018
-ms.author: genli
-ms.openlocfilehash: c4497805e64ef303c9d7340c48a49027b3a26bef
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.service: cloud-services
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: c5dd09292897d69f90606e8661b4e6cb28090612
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011031"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742595"
 ---
-# <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de configuração e gestão para Azure Cloud Services: Perguntas frequentes (PERGUNTAS Frequentes)
+# <a name="configuration-and-management-issues-for-azure-cloud-services-classic-frequently-asked-questions-faqs"></a>Questões de configuração e gestão para Azure Cloud Services (clássico): Perguntas frequentes (PERGUNTAS)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (suporte alargado)](../cloud-services-extended-support/overview.md) é um novo modelo de implementação baseado em Recursos Azure para o produto Azure Cloud Services.Com esta alteração, os Serviços Azure Cloud em execução no modelo de implementação baseado no Azure Service Manager foram renomeados como Cloud Services (clássico) e todas as novas implementações devem utilizar [os Serviços Cloud (suporte alargado)](../cloud-services-extended-support/overview.md).
 
 Este artigo inclui perguntas frequentes sobre problemas de configuração e gestão para [os Serviços de Cloud Microsoft Azure](https://azure.microsoft.com/services/cloud-services). Também pode consultar a [página de tamanho VM dos Serviços cloud](cloud-services-sizes-specs.md) para obter informações sobre o tamanho.
 
@@ -62,7 +58,7 @@ Este artigo inclui perguntas frequentes sobre problemas de configuração e gest
 
 **Genérico**
 
-- [Como adiciono "nosniff" ao meu site?](#how-do-i-add-nosniff-to-my-website)
+- [Como adiciono `nosniff` ao meu site?](#how-do-i-add-nosniff-to-my-website)
 - [Como posso personalizar o IIS para um papel web?](#how-do-i-customize-iis-for-a-web-role)
 - [Qual é o limite de quota para o meu Serviço Cloud?](#what-is-the-quota-limit-for-my-cloud-service)
 - [Porque é que a unidade do meu VM cloud show muito pouco espaço de disco gratuito?](#why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space)
@@ -103,7 +99,7 @@ Select-AzureSubscription -Current -SubscriptionName <your subscription name>
 Get-AzurePublishSettingsFile
 ```
 
-O **Get-AzurePublishSettingsFile** criará um **Subscription** novo certificado de gestão em  >  **Certificados de Gestão de Assinaturas** no portal Azure. O nome do novo certificado parece "YourSubscriptionNam]-[CurrentDate]-credenciais".
+O **Get-AzurePublishSettingsFile** criará um novo certificado de gestão em  >  **Certificados de Gestão de Assinaturas** no portal Azure. O nome do novo certificado parece "YourSubscriptionNam]-[CurrentDate]-credenciais".
 
 ### <a name="how-to-automate-the-installation-of-main-tlsssl-certificatepfx-and-intermediate-certificatep7b"></a>Como automatizar a instalação do certificado TLS/SSL principal (.pfx) e certificado intermédio (.p7b)?
 
@@ -128,7 +124,7 @@ $cert = New-SelfSignedCertificate -DnsName yourdomain.cloudapp.net -CertStoreLoc
 $password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText
 Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $password
 ```
-A capacidade de escolher blob ou local para o seu local de upload csdef e cscfg está para breve. Utilizando [o New-AzureDeployment,](/powershell/module/servicemanagement/azure.service/new-azuredeployment?view=azuresmps-4.0.0)pode definir cada valor de localização.
+A capacidade de escolher blob ou local para o seu local de upload csdef e cscfg está para breve. Utilizando [o New-AzureDeployment,](/powershell/module/servicemanagement/azure.service/new-azuredeployment?view=azuresmps-4.0.0&preserve-view=true)pode definir cada valor de localização.
 
 Capacidade de monitorizar métricas ao nível da instância. Estão disponíveis capacidades de monitorização adicionais em [Como Monitorizar os Serviços de Cloud.](cloud-services-how-to-monitor.md)
 
@@ -146,9 +142,9 @@ Para obter mais informações, consulte os documentos seguintes:
 Pode ativar o registo de diagnósticos do Windows Azure (WAD) através das seguintes opções:
 1. [Ativar a partir do Estúdio Visual](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
 2. [Ativar através do código .NET](./cloud-services-dotnet-diagnostics.md)
-3. [Ativar através de Powershell](./cloud-services-diagnostics-powershell.md)
+3. [Ativar através do PowerShell](./cloud-services-diagnostics-powershell.md)
 
-Para obter as atuais definições de WAD do seu Serviço cloud, pode utilizar [o Get-AzureServiceDiagnosticsExtensions](./cloud-services-diagnostics-powershell.md#get-current-diagnostics-extension-configuration) PS CMD ou pode vê-lo através do portal a partir da lâmina "Cloud Services --> Extensions".
+Para obter as atuais definições de WAD do seu Serviço cloud, pode utilizar [o Get-AzureServiceDiagnosticsExtensions](./cloud-services-diagnostics-powershell.md#get-current-diagnostics-extension-configuration) PowerShell cmd ou pode vê-lo através do portal a partir da lâmina "Cloud Services --> Extensions".
 
 
 ## <a name="network-configuration"></a>Configuração de rede
@@ -198,7 +194,7 @@ O Windows 10 e o Windows Server 2016 vêm com suporte para HTTP/2 no lado do cli
 5. Reinicie o servidor.
 6. Vá ao Seu **Web Site padrão** e em **Encadernações,** crie uma nova ligação TLS com o certificado auto-assinado acaba de ser criado. 
 
-Para obter mais informações, veja:
+Para obter mais informações, consulte:
 
 - [HTTP/2 no IIS](https://blogs.iis.net/davidso/http2)
 - [Vídeo: HTTP/2 no Windows 10: Browser, Apps e Web Server](https://channel9.msdn.com/Events/Build/2015/3-88)
@@ -254,7 +250,7 @@ Para obter mais informações sobre como ativar o registo de diagnósticos Azure
 
 ## <a name="generic"></a>Genérica
 
-### <a name="how-do-i-add-nosniff-to-my-website"></a>Como adiciono "nosniff" ao meu site?
+### <a name="how-do-i-add-nosniff-to-my-website"></a>Como adiciono `nosniff` ao meu site?
 Para evitar que os clientes cheirem os tipos de MIME, adicione uma definição no seu *ficheiroweb.config.*
 
 ```xml
@@ -284,11 +280,11 @@ Consulte [os limites específicos do serviço.](../azure-resource-manager/manage
 ### <a name="why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space"></a>Porque é que a unidade do meu VM cloud show muito pouco espaço de disco gratuito?
 Este comportamento é esperado, e não deve causar qualquer problema à sua aplicação. O diário é ligado para a unidade de %aproot% em Azure PaaS VMs, que essencialmente consome o dobro da quantidade de espaço que os ficheiros normalmente consomem. No entanto, há várias coisas a ter em conta que, essencialmente, transformam isto numa questão não relacionada.
 
-O tamanho da unidade de %aproot% é calculado como \<size of .cspkg + max journal size + a margin of free space> , ou 1,5 GB, o que for maior. O tamanho do seu VM não tem qualquer influência neste cálculo. (O tamanho VM só afeta o tamanho do C temporário: unidade.) 
+O tamanho da unidade de %aproot% é calculado como <tamanho de .cspkg + tamanho máximo do diário + uma margem de espaço livre>, ou 1,5 GB, o que for maior. O tamanho do seu VM não tem qualquer influência neste cálculo. (O tamanho VM só afeta o tamanho do C temporário: unidade.) 
 
 Não é suportado para escrever para a unidade de %aproot%. Se estiver a escrever para o Azure VM, deve fazê-lo num recurso local temporário (ou outra opção, como armazenamento Blob, Ficheiros Azure, etc.). Assim, a quantidade de espaço livre na pasta %aproot% não tem significado. Se não tiver a certeza se a sua aplicação está a escrever para a unidade de %aproot%, pode sempre deixar o seu serviço funcionar durante alguns dias e, em seguida, comparar os tamanhos "antes" e "depois". 
 
-O Azure não vai escrever nada à unidade %aproot%. Uma vez que o VHD é criado a partir do seu .cspkg e montado no Azure VM, a única coisa que pode escrever a esta unidade é a sua aplicação. 
+O Azure não vai escrever nada à unidade %aproot%. Uma vez que o VHD é criado a partir do seu `.cspkg` e montado no Azure VM, a única coisa que pode escrever a esta unidade é a sua aplicação. 
 
 As definições do diário não são configuráveis, por isso não pode desligá-lo.
 
@@ -297,7 +293,7 @@ As definições do diário não são configuráveis, por isso não pode desligá
 Pode ativar a extensão antimalware utilizando o script PowerShell na Tarefa de Arranque. Siga os passos nestes artigos para implementá-lo: 
  
 - [Criar uma tarefa de arranque PowerShell](cloud-services-startup-tasks-common.md#create-a-powershell-startup-task)
-- [Set-AzureServiceAntimalwareExtension](/powershell/module/servicemanagement/azure.service/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0 )
+- [Set-AzureServiceAntimalwareExtension](/powershell/module/servicemanagement/azure.service/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0&preserve-view=true)
 
 Para obter mais informações sobre cenários de implementação de Antimalware e como o permitir a partir do portal, consulte Os Cenários de [Implementação de Antimalware](../security/fundamentals/antimalware.md#antimalware-deployment-scenarios).
 

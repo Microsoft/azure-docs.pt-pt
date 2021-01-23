@@ -1,25 +1,25 @@
 ---
-title: Delegado por tarefa de administração - Azure Ative Directory / Microsoft Docs
+title: Funções de delegado por tarefa de administração - Azure Ative Directory | Microsoft Docs
 description: Funções para delegar para tarefas de identidade no Azure Ative Directory
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
 ms.date: 11/05/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e83ff37140369cb073f4bdc2bd24ac08ee9b1ab
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 3ad48141c69d78096981b89758afd56089093021
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379099"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742935"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Funções de administrador por tarefa de administração no Azure Ative Directory
 
@@ -72,7 +72,7 @@ Tarefa | Papel menos privilegiado | Funções adicionais
 ---- | --------------------- | ----------------
 Configure propriedades da empresa | Administrador Global | 
 
-## <a name="connect"></a>Ligar-se
+## <a name="connect"></a>Ligar
 
 Tarefa | Papel menos privilegiado | Funções adicionais
 ---- | --------------------- | ----------------
@@ -360,7 +360,7 @@ Tarefa | Papel menos privilegiado | Funções adicionais
 ---- | --------------------- | ----------------
 Envie bilhete de apoio | Administrador de Serviços | Administrador de Aplicação, Administrador de Proteção de Informação Azure, Administrador de Faturação, Administrador de Aplicação na Nuvem, Administrador de Conformidade, Administrador dinâmico 365, Administrador de Análise de Ambiente, Administrador de Intercâmbio, Administrador de Password, Administrador Intune, Administrador de Negócios, Administrador de Power BI, Administrador de Autenticação Privilegiada, Administrador de Partilha de Comunicações, Administrador de Equipas, Administrador de Equipas, Administrador de Análise de Utilizador, Administrador de Análise de Trabalho
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Como atribuir ou remover funções de administrador ad azul](manage-roles-portal.md)
 * [Referência de funções de administrador da AD Azure](permissions-reference.md)

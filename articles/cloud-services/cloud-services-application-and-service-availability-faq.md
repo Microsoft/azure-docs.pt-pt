@@ -1,28 +1,24 @@
 ---
 title: Questões de aplicação e disponibilidade de serviços FAQ
-titleSuffix: Azure Cloud Services
 description: Este artigo lista as perguntas frequentes sobre a disponibilidade de aplicações e serviços para os Serviços cloud do Microsoft Azure.
-services: cloud-services
-documentationcenter: ''
-author: genlin
-manager: dcscontentpm
-editor: ''
-tags: top-support-issue
-ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
-ms.service: cloud-services
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/31/2018
-ms.author: genli
-ms.openlocfilehash: 2707c5a6cb110d30b85b765f6c8b144e8cca7abe
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.service: cloud-services
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: c1a5b63a33f951857bd4837380c1465af5b7583e
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074724"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742901"
 ---
-# <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de aplicação e disponibilidade de serviços para serviços em nuvem Azure: Perguntas frequentes (PERGUNTAS Frequentes)
+# <a name="application-and-service-availability-issues-for-azure-cloud-services-classic-frequently-asked-questions-faqs"></a>Problemas de aplicação e disponibilidade de serviços para Azure Cloud Services (clássico): Perguntas frequentes (PERGUNTAS)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (suporte alargado)](../cloud-services-extended-support/overview.md) é um novo modelo de implementação baseado em Recursos Azure para o produto Azure Cloud Services.Com esta alteração, os Serviços Azure Cloud em execução no modelo de implementação baseado no Azure Service Manager foram renomeados como Cloud Services (clássico) e todas as novas implementações devem utilizar [os Serviços Cloud (suporte alargado)](../cloud-services-extended-support/overview.md).
 
 Este artigo inclui perguntas frequentes sobre problemas de aplicação e disponibilidade de serviços para [os Serviços cloud do Microsoft Azure.](https://azure.microsoft.com/services/cloud-services) Também pode consultar a [página de tamanho VM dos Serviços cloud](cloud-services-sizes-specs.md) para obter informações sobre o tamanho.
 

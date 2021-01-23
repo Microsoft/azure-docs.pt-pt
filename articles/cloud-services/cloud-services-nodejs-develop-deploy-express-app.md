@@ -1,24 +1,24 @@
 ---
-title: Construa e implemente uma aplicação Node.js Express para a Azure Cloud Services
-titleSuffix: Azure Cloud Services
+title: Construa e implemente uma aplicação Node.js Express para Azure Cloud Services (clássico)
 description: Utilize este tutorial para criar uma nova aplicação utilizando o módulo Express, que fornece uma estrutura MVC para criar aplicações web Node.js.
-services: cloud-services
-documentationcenter: nodejs
-author: tgore03
-ms.service: cloud-services
-ms.devlang: nodejs
 ms.topic: article
-ms.date: 08/17/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.custom: devx-track-js
-ms.openlocfilehash: 7ecaccf36988e94d0cb1114bd04c5d571d4fe86d
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: e15af589b3a3c496738c97c0c2c6429ba708ba7e
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071868"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743343"
 ---
-# <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>Construa e implemente uma aplicação web Node.js utilizando o Express em um Azure Cloud Services
+# <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services-classic"></a>Construa e implemente uma aplicação web Node.js utilizando o Express em um Azure Cloud Services (clássico)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (suporte alargado)](../cloud-services-extended-support/overview.md) é um novo modelo de implementação baseado em Recursos Azure para o produto Azure Cloud Services.Com esta alteração, os Serviços Azure Cloud em execução no modelo de implementação baseado no Azure Service Manager foram renomeados como Cloud Services (clássico) e todas as novas implementações devem utilizar [os Serviços Cloud (suporte alargado)](../cloud-services-extended-support/overview.md).
 
 Node.js inclui um conjunto mínimo de funcionalidades no tempo de execução do núcleo.
 Os desenvolvedores usam frequentemente módulos de terceiros para fornecer funcionalidades adicionais ao desenvolver uma aplicação Node.js. Neste tutorial irá criar uma nova aplicação utilizando o módulo [Express,](https://github.com/expressjs/express) que fornece uma estrutura MVC para a criação de aplicações web Node.js.
@@ -135,7 +135,7 @@ Assim que a operação de implementação estiver concluída, o seu navegador ab
 
 ![Um navegador web exibindo a página Express. O URL indica que está agora hospedado no Azure.](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para mais informações, consulte o [Centro de Programadores de Node.js](/azure/developer/javascript/).
 
 [Node.js Web Application]: https://www.windowsazure.com/develop/nodejs/tutorials/getting-started/

@@ -1,22 +1,25 @@
 ---
-title: Azure Cloud Services Definition Schema (.cscfg File) Microsoft Docs
+title: Azure Cloud Services (clássico) Definição Schema (.cscfg File) | Microsoft Docs
 description: Um ficheiro de configuração de serviço (.cscfg) especifica quantas instâncias de função devem ser implantadas para cada função, valores de configuração e impressões digitais de certificado para uma função.
-services: cloud-services
-ms.custom: ''
-ms.date: 12/07/2016
+ms.topic: article
 ms.service: cloud-services
-ms.topic: reference
-caps.latest.revision: 35
-author: tgore03
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: cb77181e00c97b7f426429793f17af3cb5e84ebe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: ba933d4981fb7ed209a7fb5d5c41113750f312de
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79534750"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743479"
 ---
-# <a name="azure-cloud-services-config-schema-cscfg-file"></a>Azure Cloud Services Config Schema (.cscfg File)
+# <a name="azure-cloud-services-classic-config-schema-cscfg-file"></a>Azure Cloud Services (clássico) Config Schema (.cscfg File)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (suporte alargado)](../cloud-services-extended-support/overview.md) é um novo modelo de implementação baseado em Recursos Azure para o produto Azure Cloud Services.Com esta alteração, os Serviços Azure Cloud em execução no modelo de implementação baseado no Azure Service Manager foram renomeados como Cloud Services (clássico) e todas as novas implementações devem utilizar [os Serviços Cloud (suporte alargado)](../cloud-services-extended-support/overview.md).
+
 O ficheiro de configuração de serviço especifica o número de instâncias de função a implementar para cada função no serviço, os valores de quaisquer definições de configuração e as impressões digitais para quaisquer certificados associados a uma função. Se o serviço fizer parte de uma Rede Virtual, as informações de configuração da rede devem ser fornecidas no ficheiro de configuração de serviço, bem como no ficheiro de configuração de rede virtual. A extensão padrão para o ficheiro de configuração de serviço é .cscfg.
 
 O modelo de serviço é descrito pelo Esquema de [Definição do Serviço de Nuvem (clássico).](schema-csdef-file.md)

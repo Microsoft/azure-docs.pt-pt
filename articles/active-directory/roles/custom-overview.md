@@ -2,23 +2,23 @@
 title: Visão geral do controlo de acesso baseado em funções do Azure Ative Directory (RBAC)
 description: Saiba como entender as partes de uma atribuição de funções e âmbito restrito no Azure Ative Directory.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: overview
 ms.date: 11/20/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4b443265047edfadb449582483dba3c463d927d
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: b66b004a0371b76f82d525972feefab9c89efb2d
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232748"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742051"
 ---
 # <a name="overview-of-role-based-access-control-in-azure-active-directory"></a>Visão geral do controlo de acesso baseado em funções no Azure Ative Directory
 
@@ -31,14 +31,14 @@ Ambos os sistemas contêm definições de funções igualmente utilizadas e atri
 
 ## <a name="understand-azure-ad-role-based-access-control"></a>Compreenda o controlo de acesso baseado em funções da Azure AD
 A Azure AD suporta 2 tipos de definições de funções - 
-* [Funções incorporadas](https://docs.microsoft.com/azure/active-directory/roles/permissions-reference)
-* [Funções personalizadas](https://docs.microsoft.com/azure/active-directory/roles/custom-create)
+* [Funções incorporadas](./permissions-reference.md)
+* [Funções personalizadas](./custom-create.md)
 
-As funções incorporadas estão fora das funções de caixa que têm um conjunto fixo de permissões. Estas definições de papel não podem ser modificadas. Há muitos [papéis incorporados](https://docs.microsoft.com/azure/active-directory/roles/permissions-reference) que a Azure AD suporta, e a lista está a crescer. Para arredondar as bordas e satisfazer os seus requisitos sofisticados, a Azure AD também suporta [funções personalizadas.](https://docs.microsoft.com/azure/active-directory/roles/custom-create) Conceder permissão usando funções Azure AD personalizadas é um processo em duas etapas que envolve criar uma definição de papel personalizada e, em seguida, atribuí-la usando uma atribuição de papel. Uma definição de função personalizada é uma coleção de permissões que você adiciona a partir de uma lista pré-configurada. Estas permissões são as mesmas permissões usadas nas funções incorporadas.  
+As funções incorporadas estão fora das funções de caixa que têm um conjunto fixo de permissões. Estas definições de papel não podem ser modificadas. Há muitos [papéis incorporados](./permissions-reference.md) que a Azure AD suporta, e a lista está a crescer. Para arredondar as bordas e satisfazer os seus requisitos sofisticados, a Azure AD também suporta [funções personalizadas.](./custom-create.md) Conceder permissão usando funções Azure AD personalizadas é um processo em duas etapas que envolve criar uma definição de papel personalizada e, em seguida, atribuí-la usando uma atribuição de papel. Uma definição de função personalizada é uma coleção de permissões que você adiciona a partir de uma lista pré-configurada. Estas permissões são as mesmas permissões usadas nas funções incorporadas.  
 
 Uma vez criada a definição de papel personalizada (ou usando um papel incorporado), pode atribuí-la a um utilizador criando uma atribuição de funções. Uma atribuição de funções concede ao utilizador as permissões numa definição de função num âmbito especificado. Este processo em duas etapas permite-lhe criar uma definição de papel única e atribuí-la muitas vezes em diferentes âmbitos. Um âmbito define o conjunto de recursos Azure AD a que o membro tem acesso. O âmbito mais comum é o âmbito de organização (org-wide). Um papel personalizado pode ser atribuído no âmbito org-wide, o que significa que o membro do papel tem o papel permissões sobre todos os recursos na organização. Uma função personalizada também pode ser atribuída no âmbito do objeto. Um exemplo de um âmbito de objeto seria uma única aplicação. A mesma função pode ser atribuída a um utilizador em todas as aplicações da organização e depois a outro utilizador com âmbito apenas da app Contoso Expense Reports.  
 
-As funções azure AD incorporadas e personalizadas operam em conceitos semelhantes ao controlo de acesso baseado em [funções Azure (Azure RBAC)](https://docs.microsoft.com/azure/active-directory/develop/access-tokens#payload-claims). A [diferença entre estes dois sistemas de controlo de acesso baseados em funções](../../role-based-access-control/rbac-and-directory-admin-roles.md) é que o Azure RBAC controla o acesso aos recursos Azure, tais como máquinas virtuais ou armazenamento usando a Azure Resource Management, e as funções personalizadas AZURE controlam o acesso aos recursos Azure AD usando a API do gráfico. Ambos os sistemas alavancam o conceito de definições de funções e atribuições de funções. As permissões Azure AD RBAC não podem ser incluídas em funções de Azure e vice-versa.
+As funções azure AD incorporadas e personalizadas operam em conceitos semelhantes ao controlo de acesso baseado em [funções Azure (Azure RBAC)](../develop/access-tokens.md#payload-claims). A [diferença entre estes dois sistemas de controlo de acesso baseados em funções](../../role-based-access-control/rbac-and-directory-admin-roles.md) é que o Azure RBAC controla o acesso aos recursos Azure, tais como máquinas virtuais ou armazenamento usando a Azure Resource Management, e as funções personalizadas AZURE controlam o acesso aos recursos Azure AD usando a API do gráfico. Ambos os sistemas alavancam o conceito de definições de funções e atribuições de funções. As permissões Azure AD RBAC não podem ser incluídas em funções de Azure e vice-versa.
 
 ### <a name="how-azure-ad-determines-if-a-user-has-access-to-a-resource"></a>Como a Azure AD determina se um utilizador tem acesso a um recurso
 
@@ -85,7 +85,7 @@ Um âmbito é a restrição de ações permitidas a um determinado recurso AD Az
 
 A utilização de funções incorporadas no Azure AD é gratuita, enquanto as funções personalizadas requerem uma licença Azure AD Premium P1. Para encontrar a licença certa para os seus requisitos, veja [Comparação das funcionalidades disponíveis geralmente das edições Gratuita, Básica e Premium](https://azure.microsoft.com/pricing/details/active-directory).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Compreender as funções do Azure AD](concept-understand-roles.md)
 - Crie atribuições de funções personalizadas utilizando [o portal Azure AD PowerShell e API de gráficos](custom-create.md)

@@ -1,21 +1,24 @@
 ---
-title: Configure O TLS para um serviço de nuvem / Microsoft Docs
+title: Configure o TLS para um serviço de nuvem | Microsoft Docs
 description: Saiba como especificar um ponto final HTTPS para uma função web e como carregar um certificado TLS/SSL para garantir a sua aplicação. Estes exemplos usam o portal Azure.
-services: cloud-services
-documentationcenter: .net
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 05/26/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: c69b74cf91d8e097f8ad8a9ba2a16f3375f483ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 33aa088efd7768153d4a17472d82e0826f4ffa6b
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82024851"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742646"
 ---
 # <a name="configuring-tls-for-an-application-in-azure"></a>Configurar TLS para uma aplicação em Azure
+
+> [!IMPORTANT]
+> [Azure Cloud Services (suporte alargado)](../cloud-services-extended-support/overview.md) é um novo modelo de implementação baseado em Recursos Azure para o produto Azure Cloud Services.Com esta alteração, os Serviços Azure Cloud em execução no modelo de implementação baseado no Azure Service Manager foram renomeados como Cloud Services (clássico) e todas as novas implementações devem utilizar [os Serviços Cloud (suporte alargado)](../cloud-services-extended-support/overview.md).
 
 A Segurança da Camada de Transporte (TLS), anteriormente conhecida como encriptação Secure Socket Layer (SSL), é o método mais utilizado para proteger dados enviados através da internet. Esta tarefa comum discute como especificar um ponto final HTTPS para uma função web e como carregar um certificado TLS/SSL para garantir a sua aplicação.
 
@@ -34,7 +37,7 @@ O certificado deve satisfazer os seguintes requisitos relativos aos certificados
 
 * O certificado deve conter uma chave pública.
 * O certificado deve ser criado para troca de chaves, exportável para um ficheiro De troca de informações pessoais (.pfx).
-* O nome do certificado deve corresponder ao domínio utilizado para aceder ao serviço de nuvem. Não é possível obter um certificado TLS/SSL de uma autoridade de certificados (CA) para o domínio cloudapp.net. Tem de adquirir um nome de domínio personalizado para utilizar ao aceder ao seu serviço. Quando solicita um certificado a um CA, o nome do sujeito do certificado deve corresponder ao nome de domínio personalizado utilizado para aceder à sua aplicação. Por exemplo, se o seu nome de domínio personalizado for **contoso.com** solicitaria um certificado da sua AC para ***contoso.com** ou **www \. contoso.com**.
+* O nome do certificado deve corresponder ao domínio utilizado para aceder ao serviço de nuvem. Não é possível obter um certificado TLS/SSL de uma autoridade de certificados (CA) para o domínio cloudapp.net. Tem de adquirir um nome de domínio personalizado para utilizar ao aceder ao seu serviço. Quando solicita um certificado a um CA, o nome do sujeito do certificado deve corresponder ao nome de domínio personalizado utilizado para aceder à sua aplicação. Por exemplo, se o seu nome de domínio personalizado for **contoso.com** solicitaria um certificado da sua AC para **_contoso.com_* ou **www \. contoso.com**.
 * O certificado deve utilizar um mínimo de encriptação de 2048 bits.
 
 Para efeitos de teste, pode [criar](cloud-services-certs-create.md) e utilizar um certificado auto-assinado. Um certificado auto-assinado não é autenticado através de um CA e pode usar o domínio cloudapp.net como URL do site. Por exemplo, a seguinte tarefa utiliza um certificado auto-assinado no qual o nome comum (CN) utilizado no certificado é **sslexample.cloudapp.net**.
@@ -147,7 +150,7 @@ Ligue-se ao portal Azure e...
 
     ![Clique no item do menu upload](media/cloud-services-configure-ssl-certificate-portal/Upload_menu.png)
 
-4. Forneça o **Ficheiro**, **Palavra-passe**e clique em **Upload** na parte inferior da área de entrada de dados.
+4. Forneça o **Ficheiro**, **Palavra-passe** e clique em **Upload** na parte inferior da área de entrada de dados.
 
 ## <a name="step-4-connect-to-the-role-instance-by-using-https"></a>Passo 4: Ligar-se à instância de função utilizando HTTPS
 Agora que a sua implantação está a funcionar em Azure, pode ligar-se a ele utilizando HTTPS.
@@ -171,7 +174,7 @@ Agora que a sua implantação está a funcionar em Azure, pode ligar-se a ele ut
    > Criar um certificado com o nome comum (CN) igual ao URL baseado em GUID (por exemplo, **328187776e774ceda8fc57609d404462.cloudapp.net**). Utilize o portal para adicionar o certificado ao seu serviço de nuvem encenada. Em seguida, adicione as informações do certificado aos seus ficheiros CSDEF e CSCFG, reembale a sua aplicação e atualize a sua implementação encenada para utilizar o novo pacote.
    >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Configuração geral do seu serviço na nuvem](cloud-services-how-to-configure-portal.md).
 * Saiba como [implementar um serviço de cloud](cloud-services-how-to-create-deploy-portal.md).
 * Configure um [nome de domínio personalizado.](cloud-services-custom-domain-name-portal.md)

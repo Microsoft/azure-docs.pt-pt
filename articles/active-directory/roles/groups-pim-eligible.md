@@ -1,24 +1,24 @@
 ---
-title: Atribuir um papel a um grupo que utilize a Gestão de Identidade Privilegiada no AZure AD ! Microsoft Docs
+title: Atribuir um papel a um grupo que utilize a Gestão de Identidade Privilegiada em Azure AD | Microsoft Docs
 description: Saiba como pode atribuir um papel de Azure Ative Directory (Azure AD) a um grupo que utiliza a Azure AD Privileged Identity Management (PIM).
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
 ms.date: 11/05/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74ad503374e0148e9813508b6c7f8b21e2dca7a3
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 10f179ab1bf328a2132c9206580dfa58efb80f1b
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379167"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741926"
 ---
 # <a name="assign-a-role-to-a-group-using-privileged-identity-management"></a>Atribuir um papel a um grupo que utilize a Gestão de Identidade Privilegiada
 
@@ -31,7 +31,7 @@ Este artigo descreve como pode atribuir um papel de Azure Ative Directory (Azure
 
 1. Inscreva-se na [Azure AD Privileged Identity Management](https://ms.portal.azure.com/?Microsoft_AAD_IAM_GroupRoles=true&Microsoft_AAD_IAM_userRolesV2=true&Microsoft_AAD_IAM_enablePimIntegration=true#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart) como administrador privilegiado ou administrador global na sua organização.
 
-1. Selecione **funções de gestão de identidade privilegiada**  >  **Azure**  >  **AD**  >  **Add assignments**
+1. Selecione **funções de gestão de identidade privilegiada**  >  **Azure**  >  **AD**  >  
 
 1. Selecione uma função e, em seguida, selecione um grupo. Apenas são apresentados grupos elegíveis para a atribuição de funções (grupos atribuíveis por funções) e não todos os grupos.
 
@@ -45,7 +45,7 @@ Este artigo descreve como pode atribuir um papel de Azure Ative Directory (Azure
 
 ### <a name="download-the-azure-ad-preview-powershell-module"></a>Descarregue o módulo PowerShell de pré-visualização Azure AD
 
-Para instalar o módulo AD AD AD #PowerShell, utilize os seguintes cmdlets:
+Para instalar o módulo AD #PowerShell, utilize os seguintes cmdlets:
 
 ```powershell
 install-module azureadpreview
@@ -101,7 +101,7 @@ https://graph.microsoft.com/beta/privilegedAccess/aadroles/roleAssignmentRequest
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Utilizar os grupos da cloud para gerir atribuições de funções](groups-concept.md)
 - [Resolver problemas de funções atribuídas a grupos de cloud](groups-faq-troubleshooting.md)

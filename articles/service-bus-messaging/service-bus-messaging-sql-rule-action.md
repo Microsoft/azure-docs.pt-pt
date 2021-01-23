@@ -3,16 +3,16 @@ title: Azure Service Bus Subscription Rule SQL Action syntax | Microsoft Docs
 description: Este artigo fornece uma referência para a sintaxe de ação de regra SQL. As ações são escritas na sintaxe baseada em linguagem SQL que é realizada contra uma mensagem.
 ms.topic: article
 ms.date: 11/24/2020
-ms.openlocfilehash: 606281d42d5598d7f73312990d3a19775a202c08
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: f7b8cdfcccc22508b98a42391d2a0ef9955232d0
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632816"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742692"
 ---
 # <a name="subscription-rule-sql-action-syntax"></a>Regra de subscrição SQL Action Syntax
 
-Uma *ação SQL* é usada para manipular metadados de mensagens depois de uma mensagem ter sido selecionada por um filtro de uma regra de subscrição. É uma expressão de texto que se apoia num subconjunto da norma SQL-92. Expressões de ação são usadas com o `sqlExpression` elemento da propriedade de 'ação' de um Service Bus em um modelo de Gestor de Recursos `Rule` [Azure](service-bus-resource-manager-namespace-topic-with-rule.md), ou o argumento do comando Azure CLI, `az servicebus topic subscription rule create` e [`--action-sql-expression`](/cli/azure/servicebus/topic/subscription/rule#az_servicebus_topic_subscription_rule_create) várias funções SDK que permitem gerir regras de subscrição.
+Uma *ação SQL* é usada para manipular metadados de mensagens depois de uma mensagem ter sido selecionada por um filtro de uma regra de subscrição. É uma expressão de texto que se apoia num subconjunto do padrão SQL-92. Expressões de ação são usadas com o `sqlExpression` elemento da propriedade de 'ação' de um Service Bus em um modelo de Gestor de Recursos `Rule` [Azure](service-bus-resource-manager-namespace-topic-with-rule.md), ou o argumento do comando Azure CLI, `az servicebus topic subscription rule create` e [`--action-sql-expression`](/cli/azure/servicebus/topic/subscription/rule#az_servicebus_topic_subscription_rule_create) várias funções SDK que permitem gerir regras de subscrição.
   
   
 ```  
@@ -53,7 +53,7 @@ Uma *ação SQL* é usada para manipular metadados de mensagens depois de uma me
   
 ## <a name="arguments"></a>Argumentos  
   
--   `<scope>` é uma cadeia opcional que indica o alcance do `<property_name>` . Valores válidos são `sys` ou `user` . O `sys` valor indica o âmbito do sistema onde é um nome de propriedade pública da Classe `<property_name>` [MediaedMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user`indica o âmbito do utilizador onde `<property_name>` é uma chave do dicionário Da Classe [DeMetragem.](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) `user` o âmbito de aplicação é o âmbito padrão se `<scope>` não for especificado.  
+-   `<scope>` é uma cadeia opcional que indica o alcance do `<property_name>` . Valores válidos são `sys` ou `user` . O `sys` valor indica o âmbito do sistema onde é um nome de propriedade pública da Classe `<property_name>` [MediaedMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user`indica o âmbito do utilizador onde `<property_name>` é uma chave do dicionário Da Classe [DeMetragem.](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) `user` o âmbito é o âmbito padrão se `<scope>` não for especificado.  
   
 ### <a name="remarks"></a>Observações  
 
@@ -84,7 +84,7 @@ Uma tentativa de aceder a uma propriedade do sistema inexistente é um erro, enq
   
  `[:IsDigit:]` significa qualquer personagem Unicode que seja classificado como um dígito decimal. `System.Char.IsDigit(c)` retorna `true` se for um dígito `c` Unicode.  
   
- A `<regular_identifier>` não pode ser uma palavra-chave reservada.  
+ Uma `<regular_identifier>` não pode ser uma palavra-chave reservada.  
   
  `<delimited_identifier>` é qualquer corda que seja fechada com suportes quadrados esquerdo/direito ([]). Um suporte quadrado direito é representado como dois suportes quadrados direito. Seguem-se exemplos `<delimited_identifier>` de:  
   
@@ -94,7 +94,7 @@ Uma tentativa de aceder a uma propriedade do sistema inexistente é um erro, enq
   
 ```  
   
- `<quoted_identifier>` é qualquer cadeia que é fechada com aspas duplas. Uma marca de dupla cotação no identificador é representada como duas aspas duplas. Não é aconselhável utilizar identificadores citados porque pode ser facilmente confundido com uma constante de corda. Use um identificador delimitado, se possível. Segue-se um exemplo `<quoted_identifier>` de:  
+ `<quoted_identifier>` é qualquer cadeia que é fechada com aspas duplas. Uma marca de dupla cotação no identificador é representada como duas aspas duplas. Não é recomendado usar identificadores citados porque pode ser facilmente confundido com uma constante de corda. Use um identificador delimitado, se possível. Segue-se um exemplo `<quoted_identifier>` de:  
   
 ```  
 "Contoso & Northwind"  
@@ -146,7 +146,7 @@ Uma tentativa de aceder a uma propriedade do sistema inexistente é um erro, enq
     2  
     ```  
   
--   `<decimal_constant>` é uma série de números que não são incluídos em aspas, e contêm um ponto decimal. Os valores são armazenados `System.Double` internamente e seguem a mesma gama/precisão.  
+-   `<decimal_constant>` é uma série de números que não estão incluídos em aspas, e contêm um ponto decimal. Os valores são armazenados `System.Double` internamente e seguem a mesma gama/precisão.  
   
      Numa versão futura, este número pode ser armazenado num tipo de dados diferente para suportar a semântica de número exato, pelo que não deve confiar no facto de que o tipo de dados subjacente é `System.Double` para `<decimal_constant>` .  
   
@@ -195,9 +195,11 @@ As constantes de corda são incluídas em aspas únicas e incluem caracteres Uni
   
 ### <a name="remarks"></a>Observações  
 
-A `newid()` função devolve um **Sistema.Guid** gerado pelo `System.Guid.NewGuid()` método.  
+A `newid()` função devolve um `System.Guid` gerado pelo `System.Guid.NewGuid()` método.  
   
 A `property(name)` função devolve o valor do imóvel referenciado por `name` . O `name` valor pode ser qualquer expressão válida que devolva um valor de cadeia.  
+
+[!INCLUDE [service-bus-filter-examples](../../includes/service-bus-filter-examples.md)]
   
 ## <a name="considerations"></a>Considerações
 
@@ -208,11 +210,11 @@ A `property(name)` função devolve o valor do imóvel referenciado por `name` .
 - A ação não falha se as propriedades de utilizador inexistentes forem referenciadas.
 - Uma propriedade utilizadora inexistente é avaliada como "Desconhecida" internamente, seguindo a mesma semântica que o [SQLFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) ao avaliar os operadores.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Classe SQLRuleAction (.Net Framework)](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
 - [Classe SQLRuleAction (.NET Standard)](/dotnet/api/microsoft.azure.servicebus.sqlruleaction)
 - [Classe SqlRuleAction (Java)](/java/api/com.microsoft.azure.servicebus.rules.sqlruleaction)
 - [SqlRuleAction (JavaScript)](/javascript/api/@azure/service-bus/sqlruleaction)
-- [regra de subscrição de tópico de az servicebus](/cli/azure/servicebus/topic/subscription/rule)
+- [`az servicebus topic subscription rule`](/cli/azure/servicebus/topic/subscription/rule)
 - [Novo AzServiceBusrule](/powershell/module/az.servicebus/new-azservicebusrule)

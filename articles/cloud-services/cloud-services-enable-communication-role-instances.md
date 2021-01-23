@@ -1,22 +1,25 @@
 ---
-title: Comunicação para Papéis em Serviços cloud Microsoft Docs
+title: Comunicação para Papéis em Serviços em Nuvem (clássico) | Microsoft Docs
 description: As instâncias de função nos Serviços cloud podem ter pontos finais (https, tcp, udp) definidos para eles que comunicam com o exterior ou entre outras instâncias de papel.
-services: cloud-services
-documentationcenter: ''
-author: tgore03
-manager: carmonm
-ms.service: cloud-services
 ms.topic: article
-ms.date: 12/14/2016
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 094e08becf4f3a60c98d89bfae7e7c3a69b677f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 82aa1579a1f7feb36732153341e1eacf266a7218
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75386345"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743037"
 ---
-# <a name="enable-communication-for-role-instances-in-azure"></a>Permitir a comunicação para instâncias de função em azul
+# <a name="enable-communication-for-role-instances-in-azure-cloud-services-classic"></a>Permitir a comunicação para instâncias de função em Azure Cloud Services (clássico)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (suporte alargado)](../cloud-services-extended-support/overview.md) é um novo modelo de implementação baseado em Recursos Azure para o produto Azure Cloud Services.Com esta alteração, os Serviços Azure Cloud em execução no modelo de implementação baseado no Azure Service Manager foram renomeados como Cloud Services (clássico) e todas as novas implementações devem utilizar [os Serviços Cloud (suporte alargado)](../cloud-services-extended-support/overview.md).
+
 As funções de serviço em nuvem comunicam através de ligações internas e externas. As ligações externas são chamadas **pontos finais de entrada,** enquanto as ligações internas são chamadas **pontos finais internos**. Este tópico descreve como modificar a [definição](cloud-services-model-and-package.md#csdef) de serviço para criar pontos finais.
 
 ## <a name="input-endpoint"></a>Ponto final de entrada
@@ -106,7 +109,7 @@ A propriedade **Instances** devolve uma coleção de objetos **RoleInstance.** E
 > 
 > 
 
-Para determinar o número de porta para um ponto final interno numa instância de função, pode utilizar a propriedade [InstanceEndpoints](/previous-versions/azure/reference/ee741917(v=azure.100)) para devolver um objeto do Dicionário que contenha nomes de ponto final e os respetivos endereços IP e portas. A propriedade [IPEndpoint](/previous-versions/azure/reference/ee741919(v=azure.100)) devolve o endereço IP e a porta para um ponto final especificado. A propriedade **PublicIPEndpoint** devolve a porta para um ponto final equilibrado de carga. A parte de endereço IP da propriedade **PublicIPEndpoint** não é utilizada.
+Para determinar o número da porta para um ponto final interno numa instância de função, pode utilizar a [`InstanceEndpoints`](/previous-versions/azure/reference/ee741917(v=azure.100)) propriedade para devolver um objeto do Dicionário que contenha nomes de ponto final e os respetivos endereços IP e portas. A [`IPEndpoint`](/previous-versions/azure/reference/ee741919(v=azure.100)) propriedade devolve o endereço IP e a porta para um ponto final especificado. A `PublicIPEndpoint` propriedade devolve a porta para um ponto final equilibrado de carga. A parte do endereço IP da `PublicIPEndpoint` propriedade não é utilizada.
 
 Aqui está um exemplo que itera instâncias de papel.
 
@@ -365,7 +368,7 @@ Só permite o tráfego de rede de **WebRole1** a **WorkerRole1,** **WebRole1** a
 
 Uma referência de esquema XML para os elementos acima utilizados pode ser encontrada [aqui](/previous-versions/azure/reference/gg557551(v=azure.100)).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Leia mais sobre o [modelo](cloud-services-model-and-package.md)cloud service .
 
 

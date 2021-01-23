@@ -1,5 +1,5 @@
 ---
-title: Repor serviços de ambiente de trabalho remoto ou a sua senha de administrador num VM do Windows Microsoft Docs
+title: Reinicie os Serviços de Ambiente de Trabalho Remoto ou a sua palavra-passe de administrador num | Windows VM Microsoft Docs
 description: Saiba como redefinir uma palavra-passe de conta ou serviços de ambiente de trabalho remoto num VM do Windows utilizando o portal Azure ou o Azure PowerShell.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/25/2019
 ms.author: genli
-ms.openlocfilehash: 2f242de3bfa6a2bc95dc46b4ca5c10222b755a2f
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 720d25079e1350315c9f403a8215f650db49ceb7
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98200928"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743088"
 ---
 # <a name="reset-remote-desktop-services-or-its-administrator-password-in-a-windows-vm"></a>Repor serviços de ambiente de trabalho remoto ou a sua senha de administrador num VM do Windows
 Se não conseguir ligar-se a uma máquina virtual do Windows (VM), pode redefinir a palavra-passe do administrador local ou redefinir a configuração de Serviços de Ambiente de Trabalho Remoto (não suportado nos controladores de domínio do Windows). Para repor a palavra-passe, utilize o portal do Azure ou a extensão VM Access, no Azure PowerShell. Depois de iniciar sessão na VM, reponha a palavra-passe desse administrador local.  
@@ -88,12 +88,16 @@ Em primeiro lugar, certifique-se de que tem o [mais recente módulo PowerShell i
 
 1. Se ainda não conseguir ligar-se remotamente à sua máquina virtual, consulte [as ligações de Ambiente de Trabalho Remoto de Resolução de Problemas a uma máquina virtual Azure baseada no Windows](troubleshoot-rdp-connection.md). Se perder a ligação ao controlador de domínio do Windows, terá de a restaurar a partir de uma cópia de segurança do controlador de domínio.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- Se a extensão de acesso Azure VM não responder e não conseguir redefinir a palavra-passe, pode [redefinir a palavra-passe local do Windows offline](reset-local-password-without-agent.md). Este método é mais avançado e requer que ligue o disco rígido virtual do VM problemático a outro VM. Siga primeiro os passos documentados neste artigo e tente o método de reset da palavra-passe offline apenas se esses passos não funcionarem.
+
+- Se a extensão de acesso Azure VM não for instalada, pode [resolver problemas de extensão VM](../extensions/troubleshoot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+
+- Se não conseguir redefinir a palavra-passe utilizando a extensão de acesso VM, pode [redefinir a palavra-passe local do Windows offline](reset-local-password-without-agent.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Este método é mais avançado e requer que ligue o disco rígido virtual do VM problemático a outro VM. Siga primeiro os passos documentados neste artigo e tente o método de reset da palavra-passe offline apenas se esses passos não funcionarem.
 
 - [Saiba mais sobre extensões e funcionalidades Azure VM](../extensions/features-windows.md).
 
 - [Ligue-se a uma máquina virtual Azure com RDP ou SSH](/previous-versions/azure/dn535788(v=azure.100)).
 
-- [Resolução de problemas Ligações de ambiente de trabalho remoto a uma máquina virtual Azure baseada no Windows](troubleshoot-rdp-connection.md).
+
+- [Resolução de problemas Ligações de ambiente de trabalho remoto a uma máquina virtual Azure baseada no Windows](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

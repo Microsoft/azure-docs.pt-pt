@@ -1,23 +1,25 @@
 ---
-title: Lidar com uma perturbação do serviço Azure que afeta os Serviços Azure Cloud
-titleSuffix: Azure Cloud Services
+title: Lidar com uma rutura do serviço Azure que impacta os Serviços Azure Cloud (clássico)
 description: Saiba o que fazer em caso de perturbação do serviço Azure que impacte os Serviços Azure Cloud.
-services: cloud-services
-documentationcenter: ''
-author: mmccrory
-ms.service: cloud-services
-ms.workload: cloud-services
 ms.topic: article
-ms.date: 04/04/2017
-ms.author: memccror
-ms.openlocfilehash: 6ae1509d552de1d5473c7d995af2db68d7113e79
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.service: cloud-services
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: cdd6c9da5a1895d4aadd73133734cd4c8204ecf1
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077529"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742170"
 ---
-# <a name="what-to-do-in-the-event-of-an-azure-service-disruption-that-impacts-azure-cloud-services"></a>O que fazer em caso de interrupção de serviço Azure que afetas os Serviços Cloud do Azure
+# <a name="what-to-do-in-the-event-of-an-azure-service-disruption-that-impacts-azure-cloud-services-classic"></a>O que fazer em caso de uma rutura do serviço Azure que impacte a Azure Cloud Services (clássico)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (suporte alargado)](../cloud-services-extended-support/overview.md) é um novo modelo de implementação baseado em Recursos Azure para o produto Azure Cloud Services.Com esta alteração, os Serviços Azure Cloud em execução no modelo de implementação baseado no Azure Service Manager foram renomeados como Cloud Services (clássico) e todas as novas implementações devem utilizar [os Serviços Cloud (suporte alargado)](../cloud-services-extended-support/overview.md).
+
 Na Microsoft, trabalhamos arduamente para garantir que os nossos serviços estão sempre disponíveis para si quando precisa deles. Forças fora do nosso controlo, por vezes, afetam-nos de formas que causam perturbações não planeadas de serviços.
 
 A Microsoft fornece um Acordo de Nível de Serviço (SLA) para os seus serviços como um compromisso para o tempo de trabalho e conectividade. O SLA para serviços individuais da Azure pode ser consultado nos [Acordos de Nível de Serviço da Azure.](https://azure.microsoft.com/support/legal/sla/)
@@ -53,7 +55,7 @@ Dependendo das fontes de dados da sua aplicação, poderá ter de verificar os p
 ## <a name="option-3-wait-for-recovery"></a>Opção 3: Aguardar a recuperação
 Neste caso, não é necessária qualquer ação da sua parte, mas o seu serviço estará indisponível até que a região seja restaurada. Pode ver o estado atual do serviço no Painel de Saúde do [Serviço Azure](https://azure.microsoft.com/status/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para saber mais sobre como implementar uma estratégia de recuperação de desastres e alta disponibilidade, consulte [a recuperação de desastres e a elevada disponibilidade para aplicações Azure.](/azure/architecture/framework/resiliency/backup-and-recovery)
 
 Para desenvolver uma compreensão técnica detalhada das capacidades de uma plataforma em nuvem, consulte [a orientação técnica de resiliência do Azure](/azure/architecture/checklist/resiliency-per-service).
