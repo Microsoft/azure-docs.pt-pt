@@ -1,22 +1,25 @@
 ---
-title: Azure Cloud Services Definition Schema (.csdef File) / Microsoft Docs
+title: Azure Cloud Services (clássico) Definição Schema (.csdef File) | Microsoft Docs
 description: Um ficheiro de definição de serviço (.csdef) define um modelo de serviço para uma aplicação, contendo funções disponíveis, pontos finais e valores de configuração para o serviço.
-ms.custom: ''
-ms.date: 04/14/2015
-services: cloud-services
+ms.topic: article
 ms.service: cloud-services
-ms.topic: reference
-caps.latest.revision: 42
-author: tgore03
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 1896ee8385d1e41feffe7a9f542550ea7f34a8a3
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: de81b6ffb5b4dc944f3d538a116383d06145661b
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072565"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98739806"
 ---
-# <a name="azure-cloud-services-definition-schema-csdef-file"></a>Esquema de Definição de Serviços em Nuvem Azure (Ficheiro.csdef)
+# <a name="azure-cloud-services-classic-definition-schema-csdef-file"></a>Azure Cloud Services (clássico) Definição Schema (.csdef File)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (suporte alargado)](../cloud-services-extended-support/overview.md) é um novo modelo de implementação baseado em Recursos Azure para o produto Azure Cloud Services.Com esta alteração, os Serviços Azure Cloud em execução no modelo de implementação baseado no Azure Service Manager foram renomeados como Cloud Services (clássico) e todas as novas implementações devem utilizar [os Serviços Cloud (suporte alargado)](../cloud-services-extended-support/overview.md).
+
 O ficheiro de definição de serviço define o modelo de serviço para uma aplicação. O ficheiro contém as definições para as funções que estão disponíveis para um serviço de nuvem, especifica os pontos finais de serviço e estabelece definições de configuração para o serviço. Os valores de definição de configuração são definidos no ficheiro de configuração de serviço, conforme descrito pelo Esquema de Configuração do [Serviço de Nuvem (clássico).](/previous-versions/azure/reference/ee758710(v=azure.100))
 
 Por predefinição, o ficheiro de configuração Azure Diagnostics é instalado no `C:\Program Files\Microsoft SDKs\Windows Azure\.NET SDK\<version>\schemas` diretório. `<version>`Substitua-a pela versão instalada do [Azure SDK](https://www.windowsazure.com/develop/downloads/).

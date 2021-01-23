@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 01/13/2021
 ms.author: pafarley
-ms.openlocfilehash: 33987be39258adc74cf4f88dbb0544f7026f6086
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: d59826ba0e53c4b4146c13b354a85a124ac29b23
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98183358"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98738106"
 ---
 # <a name="whats-new-in-computer-vision"></a>Novidades na Visão Computacional
 
@@ -91,7 +91,7 @@ Tem agora a opção de utilizar a versão 3.0 da API de leitura para extrair tex
 * Pontuação de confiança para cada palavra extraída
 * Apoio às línguas espanhola e inglesa com o parâmetro linguístico adicional
 
-Siga um [quickstart de texto extrato](./quickstarts/csharp-hand-text.md?tabs=version-3) para começar a utilizar a API 3.0.
+Siga um [quickstart de texto extrato](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/REST/CSharp-hand-text.md?tabs=version-3) para começar a utilizar a API 3.0.
 
 ## <a name="cognitive-service-updates"></a>Atualizações do Serviço Cognitivo
 

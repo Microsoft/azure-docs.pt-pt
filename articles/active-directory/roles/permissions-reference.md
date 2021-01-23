@@ -2,7 +2,7 @@
 title: Descrições e permissões de funções da AZure AD - Azure Ative Directory | Microsoft Docs
 description: Uma função administrativa pode adicionar utilizadores, atribuir funções administrativas, redefinir palavras-passe do utilizador, gerir licenças de utilizador ou gerir domínios.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 search.appverid: MET150
 ms.service: active-directory
@@ -10,16 +10,16 @@ ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
 ms.date: 11/05/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a66ad61afe1439a80d750097d3c90d010547539
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 40269f6b1553d73af43b4cf86127eaa97524dd57
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98622413"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740912"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões da função de administrador no Azure Active Directory
 
@@ -2068,7 +2068,7 @@ Utilizador restrito de hóspedes | Não mostrado porque não pode ser usado | ND
 User | Não mostrado porque não pode ser usado | ND
 Aderir ao dispositivo de trabalho | Preterido | [Documentação de papéis precotados](permissions-reference.md#deprecated-roles)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para saber mais sobre como atribuir um utilizador como administrador de uma subscrição do Azure, consulte [Adicionar ou remover atribuições de funções Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)
 * Para saber mais sobre como o acesso a recursos é controlado no Microsoft Azure, consulte [Compreender as diferentes funções](../../role-based-access-control/rbac-and-directory-admin-roles.md)

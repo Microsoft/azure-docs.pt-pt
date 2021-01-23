@@ -1,32 +1,30 @@
 ---
-title: Problemas de implantação de serviços de nuvem de resolução de problemas Microsoft Docs
+title: Problemas de implementação do serviço de nuvem de resolução de problemas (clássicos) | Microsoft Docs
 description: Existem alguns problemas comuns que pode encontrar ao implementar um serviço de nuvem para Azure. Este artigo fornece soluções para alguns deles.
-services: cloud-services
-documentationcenter: ''
-author: simonxjx
-manager: dcscontentpm
-editor: ''
-tags: top-support-issue
-ms.assetid: a18ae415-0d1c-4bc4-ab6c-c1ddea02c870
+ms.topic: article
 ms.service: cloud-services
-ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: tbd
-ms.date: 06/15/2018
-ms.author: v-six
-ms.openlocfilehash: 0e7cd496f031f76320df5127d7e1aa3f2f7b06c7
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 7b3d7a9a674aab3976da9399f71ff4d8df08eb62
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075081"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741082"
 ---
-# <a name="troubleshoot-cloud-service-deployment-problems"></a>Problemas de implementação do serviço de nuvem de resolução de problemas
+# <a name="troubleshoot-azure-cloud-services-classic-deployment-problems"></a>Problemas de resolução de problemas Azure Cloud Services (Classic) problemas de implantação
+
+> [!IMPORTANT]
+> [Azure Cloud Services (suporte alargado)](../cloud-services-extended-support/overview.md) é um novo modelo de implementação baseado em Recursos Azure para o produto Azure Cloud Services.Com esta alteração, os Serviços Azure Cloud em execução no modelo de implementação baseado no Azure Service Manager foram renomeados como Cloud Services (clássico) e todas as novas implementações devem utilizar [os Serviços Cloud (suporte alargado)](../cloud-services-extended-support/overview.md).
+
 Quando implementar um pacote de aplicações de serviço em nuvem para o Azure, pode obter informações sobre a implantação a partir do painel **propriedades** no portal Azure. Pode utilizar os detalhes neste painel para ajudá-lo a resolver problemas com o serviço de nuvem, e pode fornecer estas informações ao Azure Support ao abrir um novo pedido de suporte.
 
 Pode encontrar o painel **de propriedades** da seguinte forma:
 
-* No portal Azure, clique na implementação do seu serviço na nuvem, clique em **Todas as definições**e, em seguida, clique em **Propriedades**.
+* No portal Azure, clique na implementação do seu serviço na nuvem, clique em **Todas as definições** e, em seguida, clique em **Propriedades**.
 
 > [!NOTE]
 > Pode copiar o conteúdo do painel **de propriedades** para a área de transferência clicando no ícone no canto superior direito do painel.
@@ -65,7 +63,7 @@ Para saber se uma atualização automática está a impedi-lo de fazer uma troca
 4. Se estiver em curso uma atualização automática, aguarde que termine antes de tentar fazer a troca VIP.
 
 ## <a name="problem-a-role-instance-is-looping-between-started-initializing-busy-and-stopped"></a>Problema: Uma instância de função está a circular entre Iniciado, Inicialização, Ocupado e Parado
-Esta condição poderá indicar um problema com o código, o pacote ou o ficheiro de configuração da aplicação. Nesse caso, deverá ser possível ver o estado a mudar a cada poucos minutos e o portal Azure pode dizer algo como **Reciclagem,** **Ocupado**ou **Inicialização.** Isto indica que há algo de errado com a aplicação que está a impedir que a instância de função seja desacorda.
+Esta condição poderá indicar um problema com o código, o pacote ou o ficheiro de configuração da aplicação. Nesse caso, deverá ser possível ver o estado a mudar a cada poucos minutos e o portal Azure pode dizer algo como **Reciclagem,** **Ocupado** ou **Inicialização.** Isto indica que há algo de errado com a aplicação que está a impedir que a instância de função seja desacorda.
 
 Para obter mais informações sobre como resolver problemas para este problema, consulte o post de blog [Azure PaaS Compute Diagnostics Datas](/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data) e [questões comuns que fazem com que as funções reciclem.](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md)
 
@@ -81,7 +79,7 @@ Para obter mais informações sobre como resolver problemas para este problema, 
 >
 >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Veja mais [artigos de resolução de problemas](./cloud-services-allocation-failures.md) para serviços na nuvem.
 
 Para aprender a resolver problemas de problemas de funções de serviço em nuvem utilizando dados de diagnóstico de computador Azure PaaS, consulte a [série de blogs de Kevin Williamson](/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data).

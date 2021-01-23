@@ -1,24 +1,24 @@
 ---
-title: Ver atribuições de funções personalizadas no portal Azure Ative Directory ! Microsoft Docs
+title: Ver atribuições de funções personalizadas no portal Azure Ative Directory | Microsoft Docs
 description: Agora pode ver e gerir membros de um papel de administrador do Azure Ative Directory no centro de administração do Azure Ative Directory.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
 ms.date: 11/05/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8546c2b50c78c7a24d07c75d2d730fd2566e8ba0
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: c13167706c2794253108b04eaa2dcc46e0e6c09a
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96862093"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740691"
 ---
 # <a name="view-custom-role-assignments-using-azure-active-directory"></a>Ver atribuições de funções personalizadas usando O Diretório Ativo Azure
 
@@ -117,7 +117,7 @@ Esta secção descreve atribuições de visualização de uma função com âmbi
 
     ![Ver atribuições de funções de registo de aplicativos a partir das propriedades de um registo de aplicações](./media/view-assignments/app-reg-assignments-2.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Sinta-se livre para compartilhar conosco no fórum de [funções administrativas Azure AD.](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
 * Para obter mais informações sobre funções e atribuição de funções de Administrador, consulte [as funções de administrador de atribuição](permissions-reference.md).

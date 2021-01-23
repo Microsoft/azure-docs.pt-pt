@@ -1,24 +1,24 @@
 ---
-title: Permissões de funções personalizadas para registo de aplicações - Azure AD / Microsoft Docs
+title: Permissões de funções personalizadas para registo de aplicações - Azure AD | Microsoft Docs
 description: Delegar permissões de função de administrador personalizado para gerir registos de aplicações.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
 ms.date: 11/04/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0e2f520f55b9664d2d0b039867ef7670b190fed
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 6eb854c8b9ac3b4ee527c9a117edde13479bfeb4
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377076"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740198"
 ---
 # <a name="application-registration-permissions-for-custom-roles-in-azure-active-directory"></a>Permissões de registo de aplicativos para funções personalizadas no Azure Ative Directory
 
@@ -167,7 +167,7 @@ Concede as mesmas permissões que microsoft.diretório/aplicações/permissões/
 
 [!INCLUDE [License requirement for using custom roles in Azure AD](../../../includes/active-directory-p1-license.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Crie funções personalizadas utilizando [o portal Azure, Azure AD PowerShell e Graph API](custom-create.md)
 - [Ver as atribuições para um papel personalizado](custom-view-assignments.md)

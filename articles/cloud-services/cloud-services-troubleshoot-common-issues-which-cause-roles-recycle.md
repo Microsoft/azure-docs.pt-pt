@@ -1,27 +1,25 @@
 ---
-title: Causas comuns da reciclagem de funções do Serviço de Nuvem Microsoft Docs
+title: Causas comuns do Serviço de Nuvem (clássico) funções de reciclagem | Microsoft Docs
 description: Um papel de serviço na nuvem que recicla repentinamente pode causar um tempo de inatividade significativo. Aqui estão algumas questões comuns que fazem com que os papéis sejam reciclados, o que pode ajudá-lo a reduzir o tempo de inatividade.
-services: cloud-services
-documentationcenter: ''
-author: simonxjx
-manager: dcscontentpm
-editor: ''
-tags: top-support-issue
-ms.assetid: 533930d1-8035-4402-b16a-cf887b2c4f85
+ms.topic: article
 ms.service: cloud-services
-ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: tbd
-ms.date: 06/15/2018
-ms.author: v-six
-ms.openlocfilehash: 0484eb919a9de11b64dcc3334c5a9a942d875ca6
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 9610b32207f8367b9415c0881e49b54e24c49ad7
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075132"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741167"
 ---
-# <a name="common-issues-that-cause-roles-to-recycle"></a>Problemas comuns que fazem com que as funções reciclem
+# <a name="common-issues-that-cause-azure-cloud-service-classic-roles-to-recycle"></a>Questões comuns que fazem com que os papéis do Azure Cloud Service (clássico) reciclem
+
+> [!IMPORTANT]
+> [Azure Cloud Services (suporte alargado)](../cloud-services-extended-support/overview.md) é um novo modelo de implementação baseado em Recursos Azure para o produto Azure Cloud Services.Com esta alteração, os Serviços Azure Cloud em execução no modelo de implementação baseado no Azure Service Manager foram renomeados como Cloud Services (clássico) e todas as novas implementações devem utilizar [os Serviços Cloud (suporte alargado)](../cloud-services-extended-support/overview.md).
+
 Este artigo discute algumas das causas comuns dos problemas de implantação e fornece dicas de resolução de problemas para ajudá-lo a resolver estes problemas. Uma indicação de que existe um problema com uma aplicação é quando a instância de função não começa, ou ciclos entre os estados de inicialização, ocupados e de paragem.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
@@ -62,7 +60,7 @@ DefaultEndpointsProtocol=https;AccountName=MyAccountName;AccountKey=MyAccountKey
 ## <a name="exported-certificate-does-not-include-private-key"></a>O certificado exportado não inclui chave privada
 Para desempenhar uma função web no âmbito do TLS, deve certificar-se de que o seu certificado de gestão exportado inclui a chave privada. Se utilizar o *Gestor de Certificados* do Windows para exportar o certificado, certifique-se de selecionar **Sim** para **exportar a opção chave privada.** O certificado deve ser exportado no formato PFX, que é o único formato atualmente suportado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Veja mais [artigos de resolução de problemas](../index.yml?product=cloud-services&tag=top-support-issue) para serviços na nuvem.
 
 Veja mais cenários de reciclagem de papéis na [série de blogs de Kevin Williamson.](/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data)

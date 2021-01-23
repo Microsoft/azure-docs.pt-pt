@@ -1,24 +1,24 @@
 ---
-title: Remover limites na criação de registos de apps - Azure AD ! Microsoft Docs
+title: Remover limites na criação de registos de aplicações - Azure AD | Microsoft Docs
 description: Atribuir um papel personalizado para conceder registos de aplicações sem restrições no Diretório Ativo AZURE AD
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: quickstart
 ms.date: 11/05/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, devx-track-azurepowershell
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a78296d3fd040b047c2a6cc3761d429883aa9d1
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 260b0621bf204c6d7593b3696c602665c42ad77e
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378793"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740861"
 ---
 # <a name="quickstart-grant-permission-to-create-unlimited-app-registrations"></a>Quickstart: Conceder permissão para criar registos ilimitados de aplicações
 
@@ -29,7 +29,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 ## <a name="create-a-custom-role-using-the-azure-ad-portal"></a>Crie um papel personalizado usando o portal AD Azure
 
 1. Inscreva-se no [centro de administração Azure AD](https://aad.portal.azure.com) com o administrador de função privilegiada ou permissões de administrador global na organização Azure AD.
-1. Selecione **Azure Ative Directory** , selecione **Funções e administradores** , e, em seguida, selecione **Nova função personalizada**.
+1. Selecione **Azure Ative Directory**, selecione **Funções e administradores**, e, em seguida, selecione **Nova função personalizada**.
 
     ![Criar ou editar funções a partir da página Funções e administradores](./media/quickstart-app-registration-limits/new-custom-role.png)
 
@@ -178,7 +178,7 @@ Corpo
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Sinta-se livre para compartilhar conosco no fórum de [funções administrativas Azure AD.](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
 - Para obter mais informações sobre as atribuições de funções de Azure AD, consulte [as funções de administrador de atribuição](permissions-reference.md).

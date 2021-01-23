@@ -1,24 +1,24 @@
 ---
-title: Use o Meu Staff para delegar a gestão do utilizador (pré-visualização) - Azure AD / Microsoft Docs
+title: Use o Meu Pessoal para delegar a gestão do utilizador (pré-visualização) - Azure AD | Microsoft Docs
 description: Delegar gestão de utilizadores usando o Meu Pessoal e unidades administrativas
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: daveba
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.date: 05/08/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 927d1f6dff9a24fb8427bb9c353e6cc61ac6a1f0
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 304d88dfcf0c72769f27911186df04c66224419e
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376309"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740147"
 ---
 # <a name="manage-your-users-with-my-staff-preview"></a>Gerir os seus utilizadores com o Meu Pessoal (pré-visualização)
 
@@ -54,7 +54,7 @@ Para completar este artigo, precisa dos seguintes recursos e privilégios:
 Uma vez configuradas UAs, pode aplicar este âmbito aos seus utilizadores que acedam ao Meu Pessoal. Apenas os utilizadores a quem for atribuída uma função administrativa podem aceder ao Meu Pessoal. Para ativar o Meu Pessoal, complete os seguintes passos:
 
 1. Inscreva-se no portal Azure como administrador do Utilizador.
-2. Navegue para as definições do utilizador **do Azure Ative**  >  **Directory**  >  **User feature previews**  >  **Manage user feature preview settings**User
+2. Navegue para as definições do utilizador **do Azure Ative**  >  **Directory**  >    >  User
 3. Em **Administradores pode aceder ao My Staff,** pode optar por ativar para todos os utilizadores, utilizadores selecionados ou sem acesso ao utilizador.
 
 > [!Note]
@@ -129,7 +129,7 @@ Também pode pesquisar por um utilizador dentro de uma AU. Para isso, utilize a 
 
 Pode ver os registos de auditoria das ações tomadas no Meu Pessoal no portal Azure Ative Directory. Se um registo de auditoria foi gerado por uma ação tomada no My Staff, verá isso indicado em DETALHES ADICIONAIS no evento de auditoria.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Documentação do [meu pessoal](../user-help/my-staff-team-manager.md) 
  [Documentação das unidades administrativas](administrative-units.md)

@@ -1,24 +1,24 @@
 ---
-title: Crie funções personalizadas no controlo de acesso baseado em funções Azure AD / Microsoft Docs
+title: Crie funções personalizadas no controlo de acesso baseado em funções Azure AD | Microsoft Docs
 description: Crie e atribua funções Azure AD personalizadas com âmbito de recursos nos recursos do Azure Ative Directory.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
 ms.date: 01/05/2021
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0adb88cd49dd3de8649703ed45821c68a31776e
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: ba8ecf5442ea3da6db02335520eef3856ea48c62
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97914472"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740164"
 ---
 # <a name="create-and-assign-a-custom-role-in-azure-active-directory"></a>Criar e atribuir um papel personalizado no Azure Ative Directory
 
@@ -188,7 +188,7 @@ Tal como as funções incorporadas, as funções personalizadas são atribuídas
 1. Selecione a função para abrir a página **Atribuições.**
 1. **Selecione Adicionar a atribuição** para adicionar um utilizador. O utilizador receberá quaisquer permissões apenas sobre o registo de aplicações selecionados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Sinta-se livre para compartilhar conosco no fórum de [funções administrativas Azure AD.](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
 - Para obter mais informações sobre funções e atribuição de funções de Administrador, consulte [as funções de administrador de atribuição](permissions-reference.md).

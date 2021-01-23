@@ -1,25 +1,25 @@
 ---
-title: Adicione, remova e liste grupos numa unidade administrativa - Azure Ative Directory / Microsoft Docs
+title: Adicione, remova e liste grupos numa unidade administrativa - Azure Ative Directory | Microsoft Docs
 description: Gerir grupos e as suas permissões de função numa unidade administrativa no Azure Ative Directory.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
 ms.date: 11/04/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 092604429cf5a527d7ee62b412e879ad9991eace
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: d628903f98f96fc205c9a6c9196a90b251e52af2
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394752"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740555"
 ---
 # <a name="add-and-manage-groups-in-an-administrative-unit-in-azure-active-directory"></a>Adicionar e gerir grupos numa unidade administrativa no Azure Ative Directory
 
@@ -207,7 +207,7 @@ Execute o seguinte comando:
 https://graph.microsoft.com/v1.0/directory/AdministrativeUnits/<adminunit-id>/members/<group-id>/$ref
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Atribuir um papel a uma unidade administrativa](admin-units-assign-roles.md)
 - [Gerir utilizadores numa unidade administrativa](admin-units-add-manage-users.md)

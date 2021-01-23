@@ -2,23 +2,23 @@
 title: Atribua funções personalizadas usando Azure AD PowerShell - Azure AD | Microsoft Docs
 description: Gerir membros de um papel personalizado de administrador AD Azure com a Azure AD PowerShell.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
 ms.date: 11/04/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b155ccd7f8f0d7f6d63d906d7d0baaa3243512b
-ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
+ms.openlocfilehash: 7828313844b8f95b2bac5bff37022a822686ab33
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98562782"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740249"
 ---
 # <a name="assign-custom-roles-with-resource-scope-using-powershell-in-azure-active-directory"></a>Atribuir funções personalizadas com âmbito de recursos utilizando o PowerShell no Azure Ative Directory
 
@@ -160,7 +160,7 @@ Get-AzureADMSRoleAssignment -Filter "roleDefinitionId eq '355aed8a-864b-4e2b-b22
 Remove-AzureADMSRoleAssignment -Id 'qiho4WOb9UKKgng_LbPV7tvKaKRCD61PkJeKMh7Y458-1'
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Partilhe connosco no fórum de [funções administrativas da Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
 - Para obter mais sobre funções e atribuições de funções de administrador AD Azure, consulte [atribuições de funções de administrador](permissions-reference.md)

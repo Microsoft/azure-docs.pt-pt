@@ -1,24 +1,24 @@
 ---
-title: Use grupos de nuvem para gerir atribuições de funções no Azure Ative Directory Microsoft Docs
+title: Utilize grupos de nuvem para gerir atribuições de funções no Azure Ative Directory | Microsoft Docs
 description: Pré-visualizar funções Azure AD personalizadas para delegar a gestão de identidade. Gerir atribuições de funções Azure no portal Azure, PowerShell ou Graph API.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
 ms.date: 11/05/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54988c8bbc4a9c3d448ac35f31e97e2d20228209
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: a4a35bafd2c5dc78f0d9d1debbf21babb6279545
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97007573"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740096"
 ---
 # <a name="use-cloud-groups-to-manage-role-assignments-in-azure-active-directory-preview"></a>Utilize grupos de nuvem para gerir atribuições de funções no Azure Ative Directory (pré-visualização)
 
@@ -70,7 +70,7 @@ Estamos a resolver estas questões.
 
 A utilização desta funcionalidade requer que tenha uma licença Azure AD Premium P1 disponível na sua organização Azure AD. Para utilizar também a Gestão de Identidade Privilegiada para ativação de funções just-in-time requer que você tenha uma licença Azure AD Premium P2 disponível. Para encontrar a licença certa para os seus requisitos, consulte [Comparar as funcionalidades geralmente disponíveis dos planos Free and Premium.](../fundamentals/active-directory-whatis.md#what-are-the-azure-ad-licenses)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Criar um grupo ao qual se pode atribuir funções](groups-create-eligible.md)
 - [Atribuir um papel a um grupo atribuível a funções](groups-assign-role.md)

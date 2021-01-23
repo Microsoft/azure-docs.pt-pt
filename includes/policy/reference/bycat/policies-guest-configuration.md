@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 01/08/2021
+ms.date: 01/21/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 8a7dd6c73ae3610837651c5a4c4f38c607f4f903
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 6f7d81e1d9c2641c6e603d9b2d970ecfb3cdac53
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98047730"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98738871"
 ---
-|Nome<br /><sub>(Portal Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|Name<br /><sub>(Portal Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Adicione identidade gerida atribuída ao sistema para permitir atribuições de Configuração de Hóspedes em máquinas virtuais sem identidades](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3cf2ab00-13f1-4d0c-8971-2ac904541a7e) |Esta política adiciona uma identidade gerida pelo sistema a máquinas virtuais hospedadas no Azure que são suportadas pela Configuração de Hóspedes mas não possuem identidades geridas. Uma identidade gerida atribuída pelo sistema é um pré-requisito para todas as atribuições de Configuração de Convidados e deve ser adicionada às máquinas antes de utilizar quaisquer definições de política de Configuração de Convidados. Para mais informações sobre a Configuração do Hóspede, visite [https://aka.ms/gcpol](https://aka.ms/gcpol) . |modificar |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_AddSystemIdentityWhenNone_Prerequisite.json) |
 |[Adicionar identidade gerida atribuída ao sistema para permitir atribuições de Configuração de Hóspedes em VMs com uma identidade atribuída ao utilizador](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F497dff13-db2a-4c0f-8603-28fa3b331ab6) |Esta política adiciona uma identidade gerida atribuída ao sistema a máquinas virtuais hospedadas no Azure que são suportadas pela Configuração do Hóspede e têm pelo menos uma identidade atribuída ao utilizador, mas não têm uma identidade gerida atribuída ao sistema. Uma identidade gerida atribuída pelo sistema é um pré-requisito para todas as atribuições de Configuração de Convidados e deve ser adicionada às máquinas antes de utilizar quaisquer definições de política de Configuração de Convidados. Para mais informações sobre a Configuração do Hóspede, visite [https://aka.ms/gcpol](https://aka.ms/gcpol) . |modificar |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_AddSystemIdentityWhenUser_Prerequisite.json) |

@@ -1,27 +1,25 @@
 ---
-title: Falha na atribuição do Serviço de Nuvem de Resolução de Problemas Microsoft Docs
+title: Falha de alocação do Serviço de Nuvem (clássico) de resolução de problemas | Microsoft Docs
 description: Resolver problemas com uma falha de atribuição quando implementar os Serviços Azure Cloud. Saiba como funciona a atribuição e por que a atribuição pode falhar.
-services: azure-service-management, cloud-services
-documentationcenter: ''
-author: simonxjx
-manager: dcscontentpm
-editor: ''
-tags: top-support-issue
-ms.assetid: 529157eb-e4a1-4388-aa2b-09e8b923af74
+ms.topic: article
 ms.service: cloud-services
-ms.workload: na
-ms.tgt_pltfrm: ibiza
-ms.topic: troubleshooting
-ms.date: 06/15/2018
-ms.author: v-six
-ms.openlocfilehash: 1d82b7223c2b392e6b9aebffdc545dc38b38ca2f
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 0c172add9aa49b2ca64d2fb2281d326256e3aec7
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074231"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741592"
 ---
-# <a name="troubleshooting-allocation-failure-when-you-deploy-cloud-services-in-azure"></a>Resolução de problemas com a falha de atribuição quando implementar os Serviços Cloud no Azure
+# <a name="troubleshooting-allocation-failure-when-you-deploy-cloud-services-classic-in-azure"></a>Falha na atribuição de problemas ao implementar serviços cloud (clássico) em Azure
+
+> [!IMPORTANT]
+> [Azure Cloud Services (suporte alargado)](../cloud-services-extended-support/overview.md) é um novo modelo de implementação baseado em Recursos Azure para o produto Azure Cloud Services.Com esta alteração, os Serviços Azure Cloud em execução no modelo de implementação baseado no Azure Service Manager foram renomeados como Cloud Services (clássico) e todas as novas implementações devem utilizar [os Serviços Cloud (suporte alargado)](../cloud-services-extended-support/overview.md).
+
 ## <a name="summary"></a>Resumo
 Quando implementa casos num Cloud Service ou adiciona novas instâncias de funções web ou de trabalhador, o Microsoft Azure atribui recursos de computação. Pode ocasionalmente receber erros ao realizar estas operações mesmo antes de atingir os limites de subscrição do Azure. Este artigo explica as causas de algumas falhas comuns de atribuição e sugere uma possível reparação. A informação também pode ser útil quando planeia a implantação dos seus serviços.
 

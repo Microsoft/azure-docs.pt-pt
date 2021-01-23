@@ -1,20 +1,25 @@
 ---
-title: Cloud Services Role config XPath cheat sheet / Microsoft Docs
+title: Cloud Services (clássico) Role config XPath cheat sheet | Microsoft Docs
 description: As várias definições de XPath que pode utilizar na função de serviço de nuvem config para expor as definições como uma variável ambiental.
-services: cloud-services
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 04/19/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 380b0be4e4e4b19d16cb611b0b472294339f2199
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 397bc6845dc8d2d8bc44c00c27f6c12037651337
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75386090"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741388"
 ---
 # <a name="expose-role-configuration-settings-as-an-environment-variable-with-xpath"></a>Expor as definições de configuração de função como uma variável de ambiente com XPath
+
+> [!IMPORTANT]
+> [Azure Cloud Services (suporte alargado)](../cloud-services-extended-support/overview.md) é um novo modelo de implementação baseado em Recursos Azure para o produto Azure Cloud Services.Com esta alteração, os Serviços Azure Cloud em execução no modelo de implementação baseado no Azure Service Manager foram renomeados como Cloud Services (clássico) e todas as novas implementações devem utilizar [os Serviços Cloud (suporte alargado)](../cloud-services-extended-support/overview.md).
+
 No ficheiro de definição de serviço de serviço de nuvem ou web role, pode expor os valores de configuração do tempo de execução como variáveis ambientais. Os seguintes valores XPath são suportados (que correspondem aos valores API).
 
 Estes valores XPath também estão disponíveis através da biblioteca [Microsoft.WindowsAzure.ServiceRuntime.](/previous-versions/azure/reference/ee773173(v=azure.100)) 
@@ -155,7 +160,7 @@ Aqui está um exemplo de um papel de trabalhador que cria uma tarefa de startup 
 </WorkerRole>
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Saiba mais sobre o ficheiro [ServiceConfiguration.cscfg.](cloud-services-model-and-package.md#serviceconfigurationcscfg)
 
 Crie um pacote [ServicePackage.cspkg.](cloud-services-model-and-package.md#servicepackagecspkg)

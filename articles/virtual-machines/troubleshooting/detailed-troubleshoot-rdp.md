@@ -1,5 +1,5 @@
 ---
-title: Resolução de problemas de ambiente de trabalho remoto detalhado em Azure Microsoft Docs
+title: Resolução de problemas remotos detalhados no ambiente de trabalho em Azure | Microsoft Docs
 description: Reveja etapas detalhadas de resolução de problemas para erros remotos no ambiente de trabalho onde não é possível a uma máquina virtual do Windows em Azure
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 5782765504eb1e0cb57558d3d4772d08de6b4d25
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: a17f3992663fe6de0751f7bc537297b9ba70cfc5
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97913112"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98738140"
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Passos de resolução de problemas detalhados para problemas de ligação de ambiente de trabalho remoto para VMs do Windows no Azure
 Este artigo fornece medidas detalhadas de resolução de problemas para diagnosticar e corrigir erros complexos de ambiente de trabalho remoto para máquinas virtuais Azure baseadas no Windows.
@@ -135,7 +135,7 @@ Para VMs criados usando o modelo de implementação clássico, pode utilizar uma
 
 Em seguida, instale a Azure PowerShell se ainda não o fez. Consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/).
 
-Em seguida, abra um pedido de comando Azure PowerShell e altere a pasta atual para a localização do ficheiro de script **InstallWinRMCertAzureVM.ps1.** Para executar um script Azure PowerShell, tem de definir a política de execução correta. Executar o comando **get-execuçãopolicy** para determinar o seu nível de política atual. Para obter informações sobre a definição do nível adequado, consulte [A Política de Execução de Conjuntos](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-5.1&preserve-view=true).
+Em seguida, abra um pedido de comando Azure PowerShell e altere a pasta atual para a localização do ficheiro de script **InstallWinRMCertAzureVM.ps1.** Para executar um script Azure PowerShell, tem de definir a política de execução correta. Executar o comando **get-execuçãopolicy** para determinar o seu nível de política atual. Para obter informações sobre a definição do nível adequado, consulte [A Política de Execução de Conjuntos](/powershell/module/microsoft.powershell.security/set-executionpolicy).
 
 Em seguida, preencha o nome de subscrição do Azure, o nome do serviço de nuvem e o nome da sua máquina virtual (removendo os caracteres < e >) e, em seguida, execute estes comandos.
 

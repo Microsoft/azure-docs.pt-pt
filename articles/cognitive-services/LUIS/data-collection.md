@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/06/2020
-ms.openlocfilehash: bb00595a5d5be130bf6c1177004bf3042ef8f9f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c901d4024292ad03a9195ad0cbd226f473917ee4
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327192"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98738089"
 ---
 # <a name="data-collection-for-your-app"></a>Recolha de dados para a sua aplicação
 
@@ -71,13 +71,13 @@ As seguintes etapas de pré-processamento ajudarão a construir uma melhor aplic
 
 ## <a name="test-data-selection-for-batch-testing"></a>Seleção de dados de teste para testes de lote
 
-Todos os princípios acima referidos para as declarações de treino aplicam-se às expressões que deve utilizar para o seu [conjunto de testes](luis-concept-batch-test.md). Garantir a distribuição através de intenções e entidades espelham a distribuição real o mais próximo possível.
+Todos os princípios acima referidos para as declarações de treino aplicam-se às expressões que deve utilizar para o seu [conjunto de testes](./luis-how-to-batch-test.md). Garantir a distribuição através de intenções e entidades espelham a distribuição real o mais próximo possível.
 
 Não reutilhe as expressões do seu conjunto de treino no seu conjunto de testes. Isto distorça indevidamente os seus resultados e não lhe dará a indicação certa de como a sua app LUIS irá funcionar na produção.
 
 Uma vez publicada a primeira versão da sua aplicação, deverá atualizar o seu conjunto de testes com expressões de tráfego real para garantir que o seu conjunto de testes reflete a sua distribuição de produção e pode monitorizar o desempenho realista ao longo do tempo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Saiba como o LUIS altera os seus dados antes da previsão](luis-concept-data-alteration.md)

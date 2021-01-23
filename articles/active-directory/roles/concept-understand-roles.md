@@ -2,23 +2,23 @@
 title: Compreender conceitos de papel do Azure Ative Directory
 description: Saiba como entender as funções integradas e personalizadas do Azure Ative Directory com âmbito de recursos no Azure Ative Directory.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: overview
 ms.date: 11/20/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db3eaef240e1f76e4c61a454e104336806666a7c
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 8b46262e34f57b3ff9aeb6bd4ea671ec611b99df
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803906"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740351"
 ---
 # <a name="understand-roles-in-azure-active-directory"></a>Compreender papéis no Azure Ative Directory
 
@@ -64,7 +64,7 @@ Funções específicas da AD Azure | Administrador da Aplicação<br>Programador
 Funções de cross-service | Administrador da Empresa<br>Administrador de Conformidade<br>Administrador de Dados de Conformidade<br>Leitor Global<br>Administrador de Segurança<br>Operador de Segurança<br>Leitor de Segurança<br>Administrador de Suporte de Serviço
 Funções específicas do serviço | Administrador da Azure DevOps<br>Administrador de Proteção de Informação da Azure<br>Administrador de Faturação<br>Administrador de serviço crm<br>Aprovação de acesso ao cliente LockBox<br>Administrador de Análise de Desktop<br>Administrador de Serviço de Intercâmbio<br>Administrador de Insights<br>Insights Business Leader<br>Administrador de Serviços do Intune<br>Administrador kaizala<br>Administrador de Serviço Lync<br>Leitor de Privacidade do Centro de Mensagens<br>Leitor do Centro de Mensagens<br>Utilizador de Comércio Moderno<br>Administrador de rede<br>Administrador de Aplicações de Escritório<br>Administrador do Serviço Power BI<br>Administrador da Plataforma de Energia<br>Administrador de impressora<br>Técnico de Impressora<br>Administrador de Pesquisa<br>Editor de Pesquisa<br>Administrador de serviço do SharePoint<br>Administrador de Comunicações de Equipas<br>Engenheiro de Suporte de Comunicações de Equipas<br>Especialista em Apoio às Comunicações das Equipas<br>Administrador de dispositivos de equipas<br>Administrador de Serviço de Equipas
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Visão geral do controlo de acesso baseado em funções da Azure AD](custom-overview.md)
 - Criar atribuições de funções utilizando [o portal Azure, Azure AD PowerShell e API de gráficos](custom-create.md)

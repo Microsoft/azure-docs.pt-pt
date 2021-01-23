@@ -4,12 +4,12 @@ ms.service: databox
 ms.topic: include
 ms.date: 03/06/2019
 ms.author: alkohli
-ms.openlocfilehash: 6e603442bdecf9a627172e24390b06cef573f475
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 10c1680afd6cd6673efe3fe9d2397a0dc6a04859
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96025943"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98738887"
 ---
 Dependendo do sistema operativo do cliente, os procedimentos para ligar remotamente ao dispositivo são diferentes.
 
@@ -23,6 +23,8 @@ Siga estes passos para ligar remotamente a partir de um cliente Windows.
 2. Certifique-se de que o serviço de Gestão Remota do Windows está a funcionar no seu cliente. Na linha de comandos, escreva:
 
     `winrm quickconfig`
+
+    Para obter mais informações, consulte [instalação e configuração para gestão remota do Windows](/windows/win32/winrm/installation-and-configuration-for-windows-remote-management#quick-default-configuration).
 
 3. Atribua uma variável ao endereço IP do dispositivo.
 

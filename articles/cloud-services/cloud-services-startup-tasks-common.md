@@ -1,21 +1,25 @@
 ---
-title: Tarefas comuns de startups para serviços cloud Microsoft Docs
+title: Tarefas comuns de startups para serviços em nuvem (clássico) | Microsoft Docs
 description: Fornece alguns exemplos de tarefas comuns de startup que pode querer desempenhar na sua função web de serviços na nuvem ou no papel de trabalhador.
-services: cloud-services
-documentationcenter: ''
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 07/18/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 77cea7ebd333b958675438aaeb5e0e2a326a5866
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: f55b225e615a3e7a5fbcf56b405054883d3b5413
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075183"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741201"
 ---
-# <a name="common-cloud-service-startup-tasks"></a>Tarefas de arranque do Serviço Comum de Nuvem
+# <a name="common-cloud-service-classic-startup-tasks"></a>Tarefas de arranque common Cloud Service (clássicos)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (suporte alargado)](../cloud-services-extended-support/overview.md) é um novo modelo de implementação baseado em Recursos Azure para o produto Azure Cloud Services.Com esta alteração, os Serviços Azure Cloud em execução no modelo de implementação baseado no Azure Service Manager foram renomeados como Cloud Services (clássico) e todas as novas implementações devem utilizar [os Serviços Cloud (suporte alargado)](../cloud-services-extended-support/overview.md).
+
 Este artigo fornece alguns exemplos de tarefas comuns de arranque que poderá querer executar no seu serviço de cloud. Pode utilizar tarefas de arranque para executar operações antes de começar uma função. As operações que poderá querer realizar incluem a instalação de um componente, o registo de componentes com COM, a definição de chaves de registo ou o início de um longo processo de funcionamento. 
 
 Consulte [este artigo](cloud-services-startup-tasks.md) para entender como funcionam as tarefas de arranque e especificamente como criar as entradas que definem uma tarefa de arranque.
@@ -57,7 +61,7 @@ A [AppCmd.exe](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012
 No entanto, há algumas coisas a ter em atenção no uso de *AppCmd.exe* como uma tarefa de arranque:
 
 * As tarefas de arranque podem ser executadas mais de uma vez entre reinicializações. Por exemplo, quando um papel recicla.
-* Se uma * açãoAppCmd.exe* for executada mais de uma vez, pode gerar um erro. Por exemplo, tentar adicionar uma secção a *Web.config* duas vezes pode gerar um erro.
+* Se uma *açãoAppCmd.exe* for executada mais de uma vez, pode gerar um erro. Por exemplo, tentar adicionar uma secção a *Web.config* duas vezes pode gerar um erro.
 * As tarefas de arranque falham se devolverem um código de saída não zero ou **um nível de erro**. Por exemplo, quando *AppCmd.exe* gera um erro.
 
 É uma boa prática verificar o **nível de erro** depois de ligar *AppCmd.exe*, o que é fácil de fazer se embrulhe a chamada para *AppCmd.exe* com um ficheiro *.cmd.* Se detetar uma resposta de **nível de erro** conhecida, pode ignorá-la ou passá-la de volta.
@@ -65,7 +69,7 @@ No entanto, há algumas coisas a ter em atenção no uso de *AppCmd.exe* como um
 O nível de erro devolvido por *AppCmd.exe* estão listados no ficheiro winerror.h, podendo também ser vistos na [MSDN](/windows/desktop/Debug/system-error-codes--0-499-).
 
 ### <a name="example-of-managing-the-error-level"></a>Exemplo de gestão do nível de erro
-Este exemplo adiciona uma secção de compressão e uma entrada de compressão para JSON no ficheiro *Web.config, * com manipulação de erros e registo.
+Este exemplo adiciona uma secção de compressão e uma entrada de compressão para JSON no ficheiro *Web.config,* com manipulação de erros e registo.
 
 As secções relevantes do ficheiro [ServiceDefinition.csdef] são apresentadas aqui, que incluem a definição do atributo [de execuçãoContexto](/previous-versions/azure/reference/gg557552(v=azure.100)#task) `elevated` para dar a *AppCmd.exe* permissões suficientes para alterar as definições no ficheiro *Web.config:*
 
@@ -83,7 +87,7 @@ As secções relevantes do ficheiro [ServiceDefinition.csdef] são apresentadas 
 O ficheiro de lote *De arranque.cmd* utiliza *AppCmd.exe* para adicionar uma secção de compressão e uma entrada de compressão para json no ficheiro *Web.config.* O **nível de erro** esperado de 183 está definido para zero usando o VERIFY.EXE programa de linha de comando. Os velóis de erro inesperados são registados em StartupErrorLog.txt.
 
 ```cmd
-REM   *** Add a compression section to the Web.config file. ***
+REM   **_ Add a compression section to the Web.config file. _*_
 %windir%\system32\inetsrv\appcmd set config /section:urlCompression /doDynamicCompression:True /commit:apphost >> "%TEMP%\StartupLog.txt" 2>&1
 
 REM   ERRORLEVEL 183 occurs when trying to add a section that already exists. This error is expected if this
@@ -98,7 +102,7 @@ IF %ERRORLEVEL% NEQ 0 (
     GOTO ErrorExit
 )
 
-REM   *** Add compression for json. ***
+REM   _*_ Add compression for json. _*_
 %windir%\system32\inetsrv\appcmd set config  -section:system.webServer/httpCompression /+"dynamicTypes.[mimeType='application/json; charset=utf-8',enabled='True']" /commit:apphost >> "%TEMP%\StartupLog.txt" 2>&1
 IF %ERRORLEVEL% EQU 183 VERIFY > NUL
 IF %ERRORLEVEL% NEQ 0 (
@@ -106,10 +110,10 @@ IF %ERRORLEVEL% NEQ 0 (
     GOTO ErrorExit
 )
 
-REM   *** Exit batch file. ***
+REM   _*_ Exit batch file. _*_
 EXIT /b 0
 
-REM   *** Log error and exit ***
+REM   _*_ Log error and exit _*_
 :ErrorExit
 REM   Report the date, time, and ERRORLEVEL of the error.
 DATE /T >> "%TEMP%\StartupLog.txt" 2>&1
@@ -125,7 +129,7 @@ A segunda firewall controla as ligações entre a máquina virtual e os processo
 
 O Azure cria regras de firewall para os processos iniciados dentro das suas funções. Por exemplo, quando inicia um serviço ou programa, o Azure cria automaticamente as regras de firewall necessárias para permitir que esse serviço se comunique com a Internet. No entanto, se criar um serviço que seja iniciado por um processo fora da sua função (como um serviço COM+ ou uma Tarefa Agendada do Windows), tem de criar manualmente uma regra de firewall para permitir o acesso a esse serviço. Estas regras de firewall podem ser criadas utilizando uma tarefa de arranque.
 
-Uma tarefa de arranque que crie uma regra de firewall deve ter uma tarefa[de] texto de [execução] **elevada**. Adicione a seguinte tarefa de arranque ao ficheiro [ServiceDefinition.csdef.]
+Uma tarefa de arranque que crie uma regra de firewall deve ter uma tarefa[de] texto de [execução]de _*elevated**. Adicione a seguinte tarefa de arranque ao ficheiro [ServiceDefinition.csdef.]
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -153,7 +157,7 @@ EXIT /B %errorlevel%
 ## <a name="block-a-specific-ip-address"></a>Bloqueie um endereço IP específico
 Pode restringir o acesso de uma função web Azure a um conjunto de endereços IP especificados modificando o seu ficheiro **IISweb.config.** Também é necessário utilizar um ficheiro de comando que desbloqueie a secção **ipSecurity** do ficheiro **ApplicationHost.config.**
 
-Para fazer desbloquear a secção **ipSecurity** do ficheiro **ApplicationHost.config, ** crie um ficheiro de comando que seja executado no início da função. Crie uma pasta ao nível da raiz da sua função web chamada **startup** e, dentro desta pasta, crie um ficheiro de lote chamado **startup.cmd**. Adicione este ficheiro ao seu projeto Visual Studio e desemine as propriedades para **Copy Always** para garantir que está incluído no seu pacote.
+Para fazer desbloquear a secção **ipSecurity** do ficheiro **ApplicationHost.config,** crie um ficheiro de comando que seja executado no início da função. Crie uma pasta ao nível da raiz da sua função web chamada **startup** e, dentro desta pasta, crie um ficheiro de lote chamado **startup.cmd**. Adicione este ficheiro ao seu projeto Visual Studio e desemine as propriedades para **Copy Always** para garantir que está incluído no seu pacote.
 
 Adicione a seguinte tarefa de arranque ao ficheiro [ServiceDefinition.csdef.]
 
@@ -300,7 +304,7 @@ Pode fazer com que a sua tarefa de arranque execute diferentes passos quando est
 
 Esta capacidade de executar diferentes ações no emulador computacional e na nuvem pode ser realizada criando uma variável ambiental no ficheiro [ServiceDefinition.csdef.] Em seguida, você testa essa variável ambiente para um valor na sua tarefa de arranque.
 
-Para criar a variável [Variable]ambiente, adicione o elemento / [Variable RoleInstanceValue] e crie um valor XPath de `/RoleEnvironment/Deployment/@emulated` . O valor da variável ambiente **%ComputeEmulatorRunning%** é `true` quando funciona no emulador de computação e `false` quando funciona na nuvem.
+Para criar a variável []ambiente, adicione o elemento / [Variable RoleInstanceValue] e crie um valor XPath de `/RoleEnvironment/Deployment/@emulated` . O valor da variável ambiente **%ComputeEmulatorRunning%** é `true` quando funciona no emulador de computação e `false` quando funciona na nuvem.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -464,12 +468,12 @@ Saída de amostra no ficheiro **StartupLog.txt:**
 ### <a name="set-executioncontext-appropriately-for-startup-tasks"></a>Definir execuçõesContexto adequadamente para tarefas de arranque
 Desateia os privilégios adequadamente para a tarefa de arranque. Por vezes, as tarefas de arranque devem ser executadas com privilégios elevados, mesmo que o papel seja executado com privilégios normais.
 
-O [atributo Tarefa de Tarefa de execução Dedistexto][Task] define o nível de privilégio da tarefa de arranque. Usar `executionContext="limited"` significa que a tarefa de arranque tem o mesmo nível de privilégio que o papel. A utilização `executionContext="elevated"` de meios, a tarefa de arranque tem privilégios de administrador, o que permite que a tarefa de arranque execute tarefas de administrador sem dar privilégios ao administrador para o seu papel.
+O [atributo Tarefa de Tarefa de execução Dedistexto][] define o nível de privilégio da tarefa de arranque. Usar `executionContext="limited"` significa que a tarefa de arranque tem o mesmo nível de privilégio que o papel. A utilização `executionContext="elevated"` de meios, a tarefa de arranque tem privilégios de administrador, o que permite que a tarefa de arranque execute tarefas de administrador sem dar privilégios ao administrador para o seu papel.
 
 Um exemplo de uma tarefa de startup que requer privilégios elevados é uma tarefa de startup que usa **AppCmd.exe** para configurar o IIS. **AppCmd.exe** `executionContext="elevated"` requer.
 
 ### <a name="use-the-appropriate-tasktype"></a>Utilize o tipo de tarefa apropriado
-O atributo[TaskType] de [tarefa]determina a forma como a tarefa de arranque é executada. Existem três valores: **simples,** **fundo**e **primeiro plano.** As tarefas de fundo e de primeiro plano são iniciadas de forma assíncronea, e então as tarefas simples são executadas sincronizadamente uma de cada vez.
+O atributo[TaskType] de [tarefa]determina a forma como a tarefa de arranque é executada. Existem três valores: **simples,** **fundo** e **primeiro plano.** As tarefas de fundo e de primeiro plano são iniciadas de forma assíncronea, e então as tarefas simples são executadas sincronizadamente uma de cada vez.
 
 Com tarefas **simples** de arranque, pode definir a ordem em que as tarefas executadas pela ordem em que as tarefas estão listadas no ficheiro ServiceDefinition.csdef. Se uma tarefa **simples** termina com um código de saída sem zero, então o procedimento de arranque para e a função não começa.
 
@@ -491,7 +495,7 @@ Nem todas as reciclagems de papéis incluem um reboot, mas todas as reciclagems 
 ### <a name="use-local-storage-to-store-files-that-must-be-accessed-in-the-role"></a>Use o armazenamento local para armazenar ficheiros que devem ser acedidos na função
 Se pretender copiar ou criar um ficheiro durante a sua tarefa inicial que esteja então acessível à sua função, esse ficheiro deve ser colocado no armazenamento local. Consulte [a secção anterior.](#create-files-in-local-storage-from-a-startup-task)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Reveja o [modelo e pacote de serviços](cloud-services-model-and-package.md) em nuvem
 
 Saiba mais sobre como as [Tarefas](cloud-services-startup-tasks.md) funcionam.
@@ -506,7 +510,7 @@ Saiba mais sobre como as [Tarefas](cloud-services-startup-tasks.md) funcionam.
 [Variável]: /previous-versions/azure/reference/gg557552(v=azure.100)#Variable
 [RoleInstanceValue]: /previous-versions/azure/reference/gg557552(v=azure.100)#RoleInstanceValue
 [RoleEnvironment]: /previous-versions/azure/reference/ee773173(v=azure.100)
-[Pontos finais]: /previous-versions/azure/reference/gg557552(v=azure.100)#Endpoints
+[Pontos Finais]: /previous-versions/azure/reference/gg557552(v=azure.100)#Endpoints
 [LocalStorage]: /previous-versions/azure/reference/gg557552(v=azure.100)#LocalStorage
 [Recursos Locais]: /previous-versions/azure/reference/gg557552(v=azure.100)#LocalResources
 [RoleInstanceValue]: /previous-versions/azure/reference/gg557552(v=azure.100)#RoleInstanceValue

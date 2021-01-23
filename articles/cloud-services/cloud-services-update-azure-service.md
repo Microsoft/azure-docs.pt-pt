@@ -1,20 +1,24 @@
 ---
-title: Como atualizar um serviço de nuvem Microsoft Docs
+title: Como atualizar um serviço de nuvem (clássico) | Microsoft Docs
 description: Saiba como atualizar os serviços em nuvem em Azure. Saiba como é que uma atualização de um serviço de nuvem procede para garantir a disponibilidade.
-services: cloud-services
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 04/19/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: f12e5b6b0b2902d69936b9cf2695b7ee21db88e2
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 5d85003ca7b4307c308914484502ae03269f66ac
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075047"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741116"
 ---
-# <a name="how-to-update-a-cloud-service"></a>Como atualizar um serviço de nuvem
+# <a name="how-to-update-an-azure-cloud-service-classic"></a>Como atualizar um Azure Cloud Service (clássico)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (suporte alargado)](../cloud-services-extended-support/overview.md) é um novo modelo de implementação baseado em Recursos Azure para o produto Azure Cloud Services.Com esta alteração, os Serviços Azure Cloud em execução no modelo de implementação baseado no Azure Service Manager foram renomeados como Cloud Services (clássico) e todas as novas implementações devem utilizar [os Serviços Cloud (suporte alargado)](../cloud-services-extended-support/overview.md).
 
 Atualizar um serviço de nuvem, incluindo as suas funções e o SO convidado, é um processo de três etapas. Em primeiro lugar, os binários e ficheiros de configuração para o novo serviço de nuvem ou versão OS devem ser carregados. Em seguida, o Azure reserva recursos de computação e rede para o serviço na nuvem com base nos requisitos da nova versão do serviço cloud. Finalmente, a Azure executa uma atualização rolante para atualizar incrementalmente o inquilino para a nova versão ou so convidado, preservando ao mesmo tempo a sua disponibilidade. Este artigo discute os detalhes deste último passo – a atualização em andamento.
 
@@ -47,18 +51,18 @@ A tabela a seguir mostra as alterações permitidas a um serviço durante uma at
 
 | Alterações permitidas ao alojamento, serviços e funções | Atualização no local | Encenado (troca VIP) | Eliminar e relançar |
 | --- | --- | --- | --- |
-| Versão do sistema operativo |Yes |Yes |Yes |
-| .NET nível de confiança |Yes |Yes |Yes |
-| Tamanho da máquina virtual<sup>1</sup> |Sim<sup>2</sup> |Yes |Yes |
-| Configurações de armazenamento locais |Aumentar apenas<sup>2</sup> |Yes |Yes |
-| Adicionar ou remover funções num serviço |Yes |Yes |Yes |
-| Número de casos de um papel específico |Yes |Yes |Yes |
-| Número ou tipo de pontos finais para um serviço |Sim<sup>2</sup> |No |Yes |
-| Nomes e valores das definições de configuração |Yes |Yes |Yes |
-| Valores (mas não nomes) das definições de configuração |Yes |Yes |Yes |
-| Adicionar novos certificados |Yes |Yes |Yes |
-| Alterar certificados existentes |Yes |Yes |Yes |
-| Implementar novo código |Yes |Yes |Yes |
+| Versão do sistema operativo |Sim |Sim |Sim |
+| .NET nível de confiança |Sim |Sim |Sim |
+| Tamanho da máquina virtual<sup>1</sup> |Sim<sup>2</sup> |Sim |Sim |
+| Configurações de armazenamento locais |Aumentar apenas<sup>2</sup> |Sim |Sim |
+| Adicionar ou remover funções num serviço |Sim |Sim |Sim |
+| Número de casos de um papel específico |Sim |Sim |Sim |
+| Número ou tipo de pontos finais para um serviço |Sim<sup>2</sup> |Não |Sim |
+| Nomes e valores das definições de configuração |Sim |Sim |Sim |
+| Valores (mas não nomes) das definições de configuração |Sim |Sim |Sim |
+| Adicionar novos certificados |Sim |Sim |Sim |
+| Alterar certificados existentes |Sim |Sim |Sim |
+| Implementar novo código |Sim |Sim |Sim |
 
 <sup>1</sup> Alteração de tamanho limitada ao subconjunto de tamanhos disponíveis para o serviço de nuvem.
 
@@ -99,7 +103,7 @@ O Controlador de Tecidos aguardará 30 minutos para que cada instância de funç
 
 Ao atualizar um serviço de uma única instância para várias instâncias, o seu serviço será reduzido enquanto a atualização é realizada devido à forma como o Azure atualiza os serviços. O contrato de nível de serviço que garante a disponibilidade do serviço só se aplica aos serviços que são implantados com mais de uma instância. A lista a seguir descreve como os dados de cada unidade são afetados por cada cenário de atualização do serviço Azure:
 
-|Cenário|Unidade C|Unidade D|E Drive|
+|Scenario|Unidade C|Unidade D|E Drive|
 |--------|-------|-------|-------|
 |Reinicialização do VM|Preservado|Preservado|Preservado|
 |Reinicialização do portal|Preservado|Preservado|Destruído|
@@ -179,7 +183,7 @@ O diagrama seguinte ilustra como um serviço do que contém duas funções são 
 >
 >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [Como gerir Serviços Cloud](cloud-services-how-to-manage-portal.md)  
 [Como monitorizar os serviços na nuvem](cloud-services-how-to-monitor.md)  
 [Como configurar um Serviços Cloud](cloud-services-how-to-configure-portal.md)

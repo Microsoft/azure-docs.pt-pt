@@ -1,25 +1,25 @@
 ---
-title: Adicionar e remover unidades administrativas - Azure Ative Directory / Microsoft Docs
+title: Adicione e remova unidades administrativas - Azure Ative Directory | Microsoft Docs
 description: Utilize unidades administrativas para restringir o âmbito das permissões de funções no Diretório Ativo Azure.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
 ms.date: 11/04/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbe76d21d948525421790f574830da7b3a163216
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 537847d84b417814bddb16cf5b961bdb221af488
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93395398"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740453"
 ---
 # <a name="manage-administrative-units-in-azure-active-directory"></a>Gerir unidades administrativas em Azure Ative Directory
 
@@ -109,7 +109,7 @@ Request body
 {}
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Gerir utilizadores numa unidade administrativa](admin-units-add-manage-users.md)
 * [Gerir grupos numa unidade administrativa](admin-units-add-manage-groups.md)

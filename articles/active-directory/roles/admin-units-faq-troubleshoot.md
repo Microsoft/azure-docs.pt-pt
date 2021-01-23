@@ -1,31 +1,31 @@
 ---
-title: Resolução de problemas das unidades administrativas e FAQ - Diretório Ativo Azure / Microsoft Docs
+title: Resolução de problemas das unidades administrativas e FAQ - Azure Ative Directory | Microsoft Docs
 description: Investigue unidades administrativas para conceder permissões com âmbito restrito no Diretório Ativo Azure.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
 ms.date: 11/04/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f585be2057bda19038fff1066e7864c6796576c0
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 0fb61388b13b912166c9c07b9ee28b365c4a63b9
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394684"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740385"
 ---
 # <a name="azure-ad-administrative-units-troubleshooting-and-faq"></a>Unidades administrativas AZure AD: Resolução de problemas e FAQ
 
 Para um controlo administrativo mais granular no Azure Ative Directory (Azure AD), pode atribuir os utilizadores a uma função AD Azure com um âmbito limitado a uma ou mais unidades administrativas. Para obter scripts PowerShell para tarefas comuns, consulte [Trabalhar com unidades administrativas](/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0&preserve-view=true).
 
-## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 **P: Por que sou incapaz de criar uma unidade administrativa?**
 
@@ -47,7 +47,7 @@ Para evitar uma elevação de privilégios, um administrador administrativo não
 
 **P: Por que as unidades administrativas são necessárias? Não podíamos ter usado grupos de segurança como forma de definir um âmbito?**
 
-**A:** Os grupos de segurança têm um modelo de finalidade e autorização existente. Um *Administrador de Utilizador* , por exemplo, pode gerir a adesão de todos os grupos de segurança da organização Azure AD. A função poderá utilizar grupos para gerir o acesso a aplicações como a Salesforce. Um *administrador de utilizador* não deve ser capaz de gerir o próprio modelo de delegação, o que seria o resultado se os grupos de segurança fossem alargados para apoiar cenários de "agrupamento de recursos". 
+**A:** Os grupos de segurança têm um modelo de finalidade e autorização existente. Um *Administrador de Utilizador*, por exemplo, pode gerir a adesão de todos os grupos de segurança da organização Azure AD. A função poderá utilizar grupos para gerir o acesso a aplicações como a Salesforce. Um *administrador de utilizador* não deve ser capaz de gerir o próprio modelo de delegação, o que seria o resultado se os grupos de segurança fossem alargados para apoiar cenários de "agrupamento de recursos". 
 
 As unidades administrativas, como as unidades organizacionais no Windows Server Ative Directory, destinam-se a fornecer uma forma de abranger a administração de uma vasta gama de objetos de diretório. Os próprios grupos de segurança podem ser membros de âmbitos de recursos. A utilização de grupos de segurança para definir o conjunto de grupos de segurança que um administrador pode gerir pode tornar-se confuso.
 
@@ -73,7 +73,7 @@ As unidades administrativas, como as unidades organizacionais no Windows Server 
 
 Encontre suporte para o [tipo de recurso administrativoU no](/graph/api/resources/administrativeunit?view=graph-rest-1.0&preserve-view=true) Microsoft Graph.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Restringir o âmbito de funções utilizando unidades administrativas](administrative-units.md)
 - [Gerir unidades administrativas](admin-units-manage.md)

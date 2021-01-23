@@ -1,24 +1,24 @@
 ---
-title: Permissões de funções personalizadas para atribuições de acesso a aplicações empresariais - Azure Ative Directory Microsoft Docs
+title: Permissões de funções personalizadas para atribuições de acesso a aplicações empresariais - Azure Ative Directory | Microsoft Docs
 description: Criar e atribuir funções Azure AD personalizadas para o acesso de apps empresariais no Azure Ative Directory
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
 ms.date: 11/04/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0932e4b6163264b0b514958e1e898b297e249870
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: d3cb65503ffab610f9545acb313f7284ffb11ed1
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378555"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741150"
 ---
 # <a name="assign-custom-roles-to-manage-enterprise-apps-in-azure-active-directory"></a>Atribuir funções personalizadas para gerir aplicações empresariais no Azure Ative Directory
 
@@ -46,7 +46,7 @@ A concessão da permissão de atualização é feita em dois passos:
 > As funções personalizadas são criadas e geridas a nível da organização e estão disponíveis apenas a partir da página geral da organização.
 
 1. Inscreva-se no [centro de administração Azure AD](https://aad.portal.azure.com) com permissões de Administrador de Função Privilegiada ou Administrador Global na sua organização.
-1. Selecione **Azure Ative Directory** , selecione **Funções e administradores** , e, em seguida, selecione **Nova função personalizada**.
+1. Selecione **Azure Ative Directory**, selecione **Funções e administradores**, e, em seguida, selecione **Nova função personalizada**.
 
     ![Adicione um novo papel personalizado da lista de papéis em Azure AD](./media/custom-enterprise-apps/new-custom-role.png)
 
@@ -70,7 +70,7 @@ A concessão da permissão de atualização é feita em dois passos:
 
     ![Funções abertas e administradores e pesquisa rumo ao papel personalizado](./media/custom-enterprise-apps/select-custom-role.png)
 
-1. **Selecione Adicionar a atribuição** , selecione o utilizador pretendido e, em seguida, clique em **Selecionar** para adicionar a atribuição de funções ao utilizador.
+1. **Selecione Adicionar a atribuição**, selecione o utilizador pretendido e, em seguida, clique em **Selecionar** para adicionar a atribuição de funções ao utilizador.
 
     ![Adicione uma atribuição para o papel personalizado ao utilizador](./media/custom-enterprise-apps/assign-user-to-role.png)
 
@@ -195,6 +195,6 @@ POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Explore as permissões de funções personalizadas disponíveis para aplicações empresariais](custom-enterprise-app-permissions.md)

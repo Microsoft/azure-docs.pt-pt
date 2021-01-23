@@ -3,12 +3,12 @@ title: Nódoas e piscinas em Azure Batch
 description: Saiba mais sobre os nós e piscinas computacional e como são usados num fluxo de trabalho do Azure Batch do ponto de vista do desenvolvimento.
 ms.topic: conceptual
 ms.date: 11/20/2020
-ms.openlocfilehash: c229381ba1019a5a40a4ca6b7db88f534f57de29
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: e55be57968eae2a371a21b214dbd15921641e31f
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934650"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741779"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Nódoas e piscinas em Azure Batch
 
@@ -114,7 +114,7 @@ Para obter informações sobre preços para nós de baixa prioridade e dedicados
 
 ## <a name="node-size"></a>Tamanho do nó
 
-Quando cria um conjunto do Azure Batch, pode escolher entre quase todas as famílias e tamanhos de VM disponíveis no Azure. O Azure oferece um leque diversificado de tamanhos de VM para diferentes cargas de trabalho, incluindo tamanhos de VM especializados preparados para [HPC](../virtual-machines/sizes-hpc.md) ou [GPU](../virtual-machines/sizes-gpu.md). 
+Quando cria um conjunto do Azure Batch, pode escolher entre quase todas as famílias e tamanhos de VM disponíveis no Azure. O Azure oferece um leque diversificado de tamanhos de VM para diferentes cargas de trabalho, incluindo tamanhos de VM especializados preparados para [HPC](../virtual-machines/sizes-hpc.md) ou [GPU](../virtual-machines/sizes-gpu.md). Note que os tamanhos dos nós só podem ser escolhidos no momento da criação de uma piscina. Por outras palavras, uma vez criada uma piscina, o seu tamanho do nó não pode ser alterado.
 
 Para obter mais informações, veja [Escolher um tamanho de VM para nós de computação num conjunto do Azure Batch](batch-pool-vm-sizes.md).
 
@@ -202,6 +202,6 @@ Quando um certificado é associado a um conjunto, o serviço Batch instala o cer
 
 Se adicionar um certificado a uma piscina existente, deve reiniciar os seus nós de cálculo para que o certificado seja aplicado aos nós.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Conheça [os empregos e tarefas.](jobs-and-tasks.md)

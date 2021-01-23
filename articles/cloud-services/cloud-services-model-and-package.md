@@ -1,20 +1,25 @@
 ---
-title: O que é um modelo e pacote cloud service Microsoft Docs
+title: O que é um modelo de Cloud Service (clássico) e pacote | Microsoft Docs
 description: Descreve o modelo de serviço em nuvem (.csdef, .cscfg) e pacote (.cspkg) em Azure
-services: cloud-services
-author: tanmaygore
-ms.service: cloud-services
 ms.topic: article
-ms.date: 07/05/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 180295599082a762fc525c4740079ceefc0954a1
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 1cf8e966b80e005a0cb2cf7ea46f355e38cb0011
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077189"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741541"
 ---
-# <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>O que é o modelo cloud service e como posso empacotá-lo?
+# <a name="what-is-the-cloud-service-classic-model-and-how-do-i-package-it"></a>O que é o modelo cloud service (clássico) e como o embalo?
+
+> [!IMPORTANT]
+> [Azure Cloud Services (suporte alargado)](../cloud-services-extended-support/overview.md) é um novo modelo de implementação baseado em Recursos Azure para o produto Azure Cloud Services.Com esta alteração, os Serviços Azure Cloud em execução no modelo de implementação baseado no Azure Service Manager foram renomeados como Cloud Services (clássico) e todas as novas implementações devem utilizar [os Serviços Cloud (suporte alargado)](../cloud-services-extended-support/overview.md).
+
 Um serviço de nuvem é criado a partir de três componentes, a definição de serviço *(.csdef)*, o serviço config *(.cscfg)* e um pacote de serviço *(.cspkg)*. Tanto os **ficheiros ServiceDefinition.csdef** como **ServiceConfig.cscfg** são baseados em XML e descrevem a estrutura do serviço de nuvem e como está configurado; coletivamente chamado de modelo. O **ServicePackage.cspkg** é um ficheiro zip que é gerado a partir do **ServiceDefinition.csdef** e, entre outras coisas, contém todas as dependências binárias necessárias. A Azure cria um serviço de nuvem tanto a partir do **ServicePackage.cspkg** como do **ServiceConfig.cscfg**.
 
 Uma vez que o serviço de nuvem esteja em execução em Azure, pode reconfigurá-lo através do ficheiro **ServiceConfig.cscfg,** mas não é possível alterar a definição.
@@ -273,7 +278,7 @@ Quando as variáveis forem definidas da seguinte forma:
 | \[CaminhoFísico\] |Os diretórios físicos dos conteúdos para cada caminho virtual definido no nó do site da definição de serviço. |
 | \[RoleAssemblyName\] |O nome do ficheiro binário para o papel. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Estou a criar um pacote de serviços na nuvem e quero...
 
 * [Configurar ambiente de trabalho remoto para uma instância de serviço em nuvem][remotedesktop]

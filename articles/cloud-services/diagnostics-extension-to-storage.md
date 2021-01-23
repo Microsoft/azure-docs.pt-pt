@@ -8,14 +8,18 @@ ms.topic: conceptual
 ms.date: 08/01/2016
 ms.author: bwren
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 9e16d77c36f382e72d5e9902b07afbbec50b6876
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4962d5f048cf41eca50a77a0dedad3cef48ac1f0
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88723261"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740079"
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Armazenar e ver dados de diagnósticos no Armazenamento do Azure
+
+> [!IMPORTANT]
+> [Azure Cloud Services (suporte alargado)](../cloud-services-extended-support/overview.md) é um novo modelo de implementação baseado em Recursos Azure para o produto Azure Cloud Services.Com esta alteração, os Serviços Azure Cloud em execução no modelo de implementação baseado no Azure Service Manager foram renomeados como Cloud Services (clássico) e todas as novas implementações devem utilizar [os Serviços Cloud (suporte alargado)](../cloud-services-extended-support/overview.md).
+
 Os dados de diagnóstico não são armazenados permanentemente a menos que os transfira para o Emulador de Armazenamento Microsoft Azure ou para o Azure Storage. Uma vez armazenado, pode ser visto com uma das várias ferramentas disponíveis.
 
 ## <a name="specify-a-storage-account"></a>Especificar uma conta de armazenamento
@@ -34,13 +38,13 @@ Dependendo do tipo de dados de diagnóstico que estão a ser recolhidos, o Azure
 | Origem de dados | Formato de armazenamento |
 | --- | --- |
 | Troncos de Azure |Tabela |
-| IIS 7.0 registos |Blob |
+| IIS 7.0 registos |Blobs |
 | Registos da infraestrutura do Diagnóstico do Azure |Tabela |
-| Registos de rastreio de pedidos falhados |Blob |
+| Registos de rastreio de pedidos falhados |Blobs |
 | Registos do Evento Windows |Tabela |
 | Contadores de desempenho |Tabela |
-| Informações de falha de sistema |Blob |
-| Registos de erros personalizados |Blob |
+| Informações de falha de sistema |Blobs |
+| Registos de erros personalizados |Blobs |
 
 ## <a name="transfer-diagnostic-data"></a>Transferir dados de diagnóstico
 Para o SDK 2.5 e posteriormente, o pedido de transferência de dados de diagnóstico pode ocorrer através do ficheiro de configuração. Pode transferir dados de diagnóstico em intervalos programados, conforme especificado na configuração.

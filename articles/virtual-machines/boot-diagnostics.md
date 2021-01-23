@@ -7,12 +7,12 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: 3ae300ca2746ab9e3478d3fe14fd6fc49c95a93d
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: dc9f7dfdf33411f11d51734b48105be200874d02
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071736"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98738123"
 ---
 # <a name="azure-boot-diagnostics"></a>Diagnóstico de arranque Azure
 
@@ -45,7 +45,7 @@ Ao criar um VM no portal Azure, a definição predefinida é ter diagnósticos d
 :::image type="content" source="./media/boot-diagnostics/boot-diagnostics-enable-portal.png" alt-text="Screenshot permitindo diagnósticos de arranque geridos durante a criação de VM.":::
 
 ### <a name="enable-managed-boot-diagnostics-using-cli"></a>Ativar diagnósticos de arranque geridos usando CLI
-Os diagnósticos de arranque com uma conta de armazenamento gerida são suportados no Azure CLI 2.12.0 e posterior. Se não inserir um nome ou URI para uma conta de armazenamento, será utilizada uma conta gerida. Para obter mais informações e amostras de código consulte a [documentação do CLI para diagnóstico de arranque](/cli/azure/vm/boot-diagnostics?preserve-view=true&view=azure-cli-latest).
+Os diagnósticos de arranque com uma conta de armazenamento gerida são suportados no Azure CLI 2.12.0 e posterior. Se não inserir um nome ou URI para uma conta de armazenamento, será utilizada uma conta gerida. Para obter mais informações e amostras de código consulte a [documentação do CLI para diagnóstico de arranque](/cli/azure/vm/boot-diagnostics).
 
 ### <a name="enable-managed-boot-diagnostics-using-azure-resource-manager-arm-templates"></a>Ativar diagnósticos de arranque geridos utilizando modelos do Azure Resource Manager (ARM)
 Tudo depois da versão API 2020-06-01 suporta diagnósticos de arranque geridos. Para mais informações, consulte [a visualização do caso de diagnóstico de arranque](/rest/api/compute/virtualmachines/createorupdate#bootdiagnostics).
@@ -109,6 +109,6 @@ Tudo depois da versão API 2020-06-01 suporta diagnósticos de arranque geridos.
 - A Azure Serial Console é atualmente incompatível com uma conta de armazenamento gerida para diagnósticos de arranque. Saiba mais sobre [a Consola Em Série Azure.](./troubleshooting/serial-console-overview.md)
 - O Portal apenas suporta a utilização de diagnósticos de arranque com uma conta de armazenamento gerida para VMs de exemplo único.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre a [Consola em Série Azure](./troubleshooting/serial-console-overview.md) e como utilizar diagnósticos de arranque para [resolver problemas em máquinas virtuais em Azure](./troubleshooting/boot-diagnostics.md).

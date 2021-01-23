@@ -1,24 +1,24 @@
 ---
-title: Ver funções atribuídas a um grupo no Azure Ative Directory Microsoft Docs
+title: Ver funções atribuídas a um grupo no Azure Ative Directory | Microsoft Docs
 description: Saiba como as funções atribuídas a um grupo podem ser vistas usando o centro de administração Azure AD. Os grupos de visualização e as funções atribuídas são permissões de utilizador predefinidas.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
 ms.date: 11/05/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8fdfd99b2ef5c1578bc9e87534461d68398c9f6
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 1a1939be42126606fdae261e60c890c71374c894
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378283"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741830"
 ---
 # <a name="view-roles-assigned-to-a-group-in-azure-active-directory"></a>Ver funções atribuídas a um grupo no Azure Ative Directory
 
@@ -60,7 +60,7 @@ GET https://graph.microsoft.com/beta/groups?$filter displayName eq ‘Contoso_He
 GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments?$filter=principalId eq
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Utilizar os grupos da cloud para gerir atribuições de funções](groups-concept.md)
 - [Resolver problemas de funções atribuídas a grupos de cloud](groups-faq-troubleshooting.md)

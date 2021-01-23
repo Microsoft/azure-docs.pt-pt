@@ -1,22 +1,25 @@
 ---
-title: Azure Cloud Services Def. LoadBalancerProbe Schema Microsoft Docs
+title: Azure Cloud Services (clássico) Def. LoadBalancerProbe Schema | Microsoft Docs
 description: O LoadBalancerProbe definido pelo cliente é uma sonda de saúde de pontos finais em instâncias de função. Combina com funções web ou trabalhadora num ficheiro de definição de serviço.
-ms.custom: ''
-ms.date: 04/14/2015
-services: cloud-services
+ms.topic: article
 ms.service: cloud-services
-ms.topic: reference
-caps.latest.revision: 14
-author: georgewallace
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 6d0e84b6724d9df4162d4be3e06a9952087a53a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 3dca519f7fb4523ce9d9267f7629c1177cc5e3b6
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79537351"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98739795"
 ---
-# <a name="azure-cloud-services-definition-loadbalancerprobe-schema"></a>Azure Cloud Services Definition LoadBalancerProbe Schema
+# <a name="azure-cloud-services-classic-definition-loadbalancerprobe-schema"></a>Azure Cloud Services (clássico) Definição LoadBalancerProbe Schema
+
+> [!IMPORTANT]
+> [Azure Cloud Services (suporte alargado)](../cloud-services-extended-support/overview.md) é um novo modelo de implementação baseado em Recursos Azure para o produto Azure Cloud Services.Com esta alteração, os Serviços Azure Cloud em execução no modelo de implementação baseado no Azure Service Manager foram renomeados como Cloud Services (clássico) e todas as novas implementações devem utilizar [os Serviços Cloud (suporte alargado)](../cloud-services-extended-support/overview.md).
+
 A sonda de balanço de carga é uma sonda de saúde definida pelo cliente de pontos finais da UDP e pontos finais em instâncias de função. O `LoadBalancerProbe` não é um elemento autónomo; é combinado com o papel web ou o papel do trabalhador num ficheiro de definição de serviço. A `LoadBalancerProbe` pode ser usada por mais de um papel.
 
 A extensão por defeito para o ficheiro de definição de serviço é .csdef.

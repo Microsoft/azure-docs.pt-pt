@@ -1,9 +1,9 @@
 ---
-title: Compreenda a delegação de funções de administração - Azure Ative Directory / Microsoft Docs
+title: Compreender a delegação de funções de administração - Azure Ative Directory | Microsoft Docs
 description: Modelos de delegação, exemplos e segurança de papéis no Azure Ative Directory
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -11,16 +11,16 @@ ms.workload: identity
 ms.subservice: roles
 ms.topic: conceptual
 ms.date: 11/05/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f4512bea533b6394fcef025ddc19bb7989292a4
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 77ba93b9017fa75f7247bda639880415eda1d280
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378368"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740317"
 ---
 # <a name="delegate-administration-in-azure-active-directory"></a>Delegada administração em Diretório Ativo Azure
 
@@ -112,6 +112,6 @@ Os atacantes que obtêm o controlo de contas privilegiadas podem causar danos tr
 
 Para a maioria das atividades do dia-a-dia, nem todos os utilizadores precisam de direitos de administrador global, e nem todos devem ser permanentemente atribuídos ao papel de Administrador Global. Quando os utilizadores precisam das permissões de um Administrador Global, devem ativar a atribuição de funções na Azure AD [Privileged Identity Management,](../privileged-identity-management/pim-configure.md) quer na sua própria conta, quer numa conta administrativa alternativa.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para uma referência às descrições de funções da AD Azure, consulte [atribuir funções de administrador em Azure AD](permissions-reference.md)

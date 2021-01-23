@@ -1,26 +1,25 @@
 ---
-title: Azure Cloud Services Def. NetworkTrafficRules Schema Microsoft Docs
+title: Azure Cloud Services (clássico) Def. NetworkTrafficRules Schema | Microsoft Docs
 description: Saiba mais sobre o NetworkTrafficRules, que limita as funções que podem aceder aos pontos finais internos de um papel. Combina com papéis num ficheiro de definição de serviço.
-ms.custom: ''
-ms.date: 04/14/2015
-services: cloud-services
-ms.reviewer: ''
+ms.topic: article
 ms.service: cloud-services
-ms.suite: ''
-ms.tgt_pltfrm: ''
-ms.topic: reference
-ms.assetid: 351b369f-365e-46c1-82ce-03fc3655cc88
-caps.latest.revision: 17
-author: tgore03
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: e53c10395ec3168e656633cc43fb2d01902209fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 2c8ab53068b71652d03d03bf79a224fe5e34dff3
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79534733"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98739773"
 ---
-# <a name="azure-cloud-services-definition-networktrafficrules-schema"></a>Azure Cloud Services Definition NetworkTrafficRules Schema
+# <a name="azure-cloud-services-classic-definition-networktrafficrules-schema"></a>Azure Cloud Services (clássico) Definição NetworkTrafficRules Schema
+
+> [!IMPORTANT]
+> [Azure Cloud Services (suporte alargado)](../cloud-services-extended-support/overview.md) é um novo modelo de implementação baseado em Recursos Azure para o produto Azure Cloud Services.Com esta alteração, os Serviços Azure Cloud em execução no modelo de implementação baseado no Azure Service Manager foram renomeados como Cloud Services (clássico) e todas as novas implementações devem utilizar [os Serviços Cloud (suporte alargado)](../cloud-services-extended-support/overview.md).
+
 O `NetworkTrafficRules` nó é um elemento opcional no ficheiro de definição de serviço que especifica como as funções comunicam entre si. Limita quais as funções que podem aceder aos pontos finais internos do papel específico. O `NetworkTrafficRules` não é um elemento autónomo; é combinado com duas ou mais funções num ficheiro de definição de serviço.
 
 A extensão por defeito para o ficheiro de definição de serviço é .csdef.

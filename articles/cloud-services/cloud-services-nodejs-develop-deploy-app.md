@@ -1,23 +1,24 @@
 ---
 title: Guia de Introdução do Node.js
 description: Saiba como criar uma aplicação Web Node.js simples e implementá-la num serviço em nuvem do Azure.
-services: cloud-services
-documentationcenter: nodejs
-author: tgore03
+ms.topic: article
 ms.service: cloud-services
-ms.devlang: nodejs
-ms.topic: conceptual
-ms.date: 08/17/2017
+ms.date: 10/14/2020
 ms.author: tagore
-ms.custom: devx-track-js
-ms.openlocfilehash: 86bc968c922bcfb90da9ae2babd456ce4db81cb7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 9889e0e95db84b4dbc5856ba6425f0f303161068
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327481"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741626"
 ---
-# <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Compilar e implementar uma aplicação Node.js num Serviço em Nuvem do Azure
+# <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service-classic"></a>Construa e implemente uma aplicação Node.js para um Azure Cloud Service (clássico)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (suporte alargado)](../cloud-services-extended-support/overview.md) é um novo modelo de implementação baseado em Recursos Azure para o produto Azure Cloud Services.Com esta alteração, os Serviços Azure Cloud em execução no modelo de implementação baseado no Azure Service Manager foram renomeados como Cloud Services (clássico) e todas as novas implementações devem utilizar [os Serviços Cloud (suporte alargado)](../cloud-services-extended-support/overview.md).
 
 Este tutorial mostra como criar uma aplicação Node.js simples para execução num Serviço em Nuvem do Azure. Os Cloud Services são os blocos modulares de aplicações em nuvem dimensionáveis no Azure. Permitem a separação, bem como a gestão e ampliação independentes de componentes front-end e back-end da aplicação.  Os Cloud Services fornecem uma máquina virtual dedicada robusta para alojar cada função de forma fiável.
 
@@ -172,7 +173,7 @@ Depois de implementar a aplicação, poderá pretender desativá-la, para evitar
    > [!NOTE]
    > A eliminação do serviço não elimina a conta do Storage que foi criada quando o serviço foi inicialmente publicado. por isso, continuará a ser-lhe cobrado o armazenamento utilizado. Se mais nada estiver a utilizar o armazenamento, poderá querer eliminá-lo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para mais informações, consulte o [Centro de Programadores de Node.js].
 
 <!-- URL List -->

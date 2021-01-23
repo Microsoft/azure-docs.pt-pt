@@ -1,25 +1,25 @@
 ---
-title: Atribuir e listar funções com âmbito de unidade administrativa - Azure Ative Directory / Microsoft Docs
+title: Atribuir e listar funções com âmbito de unidade administrativa - Azure Ative Directory | Microsoft Docs
 description: Utilize unidades administrativas para restringir o âmbito das atribuições de funções no Diretório Ativo Azure.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
 ms.date: 11/04/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73ed2741c7dd754127a57642703b650a70637c63
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: ecfa9186ef42d4822c9b3053d76b7c0160841621
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93393443"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740402"
 ---
 # <a name="assign-scoped-roles-to-an-administrative-unit"></a>Atribuir funções âmbito a uma unidade administrativa
 
@@ -29,7 +29,7 @@ Para preparar a utilização do PowerShell e do Microsoft Graph para a gestão d
 
 ## <a name="available-roles"></a>Funções disponíveis
 
-Função  |  Description
+Função  |  Descrição
 ----- |  -----------
 Administrador de Autenticação  |  Tem acesso a visualização, definição e reposição de informações do método de autenticação para qualquer utilizador não administrativo apenas na unidade administrativa atribuída.
 Administrador de Grupos  |  Pode gerir todos os aspetos de grupos e configurações de grupos, tais como as políticas de nomeação e expiração, apenas na unidade administrativa atribuída.
@@ -109,7 +109,7 @@ Pode ver todas as atribuições de funções criadas com um âmbito de unidade a
 
 1. No painel esquerdo, selecione **unidades administrativas** e, em seguida, selecione a unidade administrativa para a lista de atribuições de funções que deseja visualizar. 
 
-1. Selecione **Funções e administradores** , e, em seguida, abra uma função para visualizar as atribuições na unidade administrativa.
+1. Selecione **Funções e administradores**, e, em seguida, abra uma função para visualizar as atribuições na unidade administrativa.
 
 ### <a name="use-powershell"></a>Utilizar o PowerShell
 
@@ -129,7 +129,7 @@ Request body
 {}
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Utilizar os grupos da cloud para gerir atribuições de funções](groups-concept.md)
 - [Funções de resolução de problemas atribuídas a grupos de nuvem](groups-faq-troubleshooting.md)

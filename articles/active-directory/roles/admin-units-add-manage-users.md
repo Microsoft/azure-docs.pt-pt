@@ -1,25 +1,25 @@
 ---
-title: Adicione, remova e liste os utilizadores numa unidade administrativa - Azure Ative Directory / Microsoft Docs
+title: Adicione, remova e liste os utilizadores numa unidade administrativa - Azure Ative Directory | Microsoft Docs
 description: Gerir os utilizadores e as suas permissões de função numa unidade administrativa no Azure Ative Directory
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
 ms.date: 11/04/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b490e03ea7ac0a3bc780fa731629217126b6828a
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: d3dc7b37c96d2d82ae42d9bce32a97beab2d91e9
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93395534"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740521"
 ---
 # <a name="add-and-manage-users-in-an-administrative-unit-in-azure-active-directory"></a>Adicionar e gerir utilizadores numa unidade administrativa no Azure Ative Directory
 
@@ -49,7 +49,7 @@ Pode atribuir os utilizadores a unidades administrativas individualmente ou como
 
    1. Inscreva-se no [centro de administração Azure AD](https://portal.azure.com) com permissões de Administrador de Função Privilegiada.
    1. Selecione **unidades administrativas** e, em seguida, selecione a unidade administrativa onde o utilizador deve ser designado.
-   1. Selecione **Todos os utilizadores** , selecione **Adicionar membro** e, em seguida, no painel **de membros Adicionar,** selecione um ou mais utilizadores que pretende atribuir à unidade administrativa.
+   1. Selecione **Todos os utilizadores**, selecione **Adicionar membro** e, em seguida, no painel **de membros Adicionar,** selecione um ou mais utilizadores que pretende atribuir à unidade administrativa.
 
         ![Screenshot do painel da unidade administrativa "Utilizadores" para atribuir um utilizador a uma unidade administrativa.](./media/admin-units-add-manage-users/assign-to-admin-unit.png)
 
@@ -179,7 +179,7 @@ Para remover vários utilizadores de uma unidade administrativa, faça o seguint
 
 1. Guarde as alterações, faça o upload do ficheiro e, em seguida, **selecione Enviar por isso**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Atribuir um papel a uma unidade administrativa](admin-units-assign-roles.md)
 - [Adicionar grupos a uma unidade administrativa](admin-units-add-manage-groups.md)

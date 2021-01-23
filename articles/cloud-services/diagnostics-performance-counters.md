@@ -1,21 +1,24 @@
 ---
-title: Recolha em Contadores de Desempenho nos Serviços Azure Cloud Microsoft Docs
+title: Recolha em contadores de desempenho em Azure Cloud Services (clássico) | Microsoft Docs
 description: Aprenda a descobrir, usar e criar contadores de desempenho em Serviços cloud com Azure Diagnostics e Application Insights.
-services: cloud-services
-documentationcenter: .net
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 02/02/2018
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 39843ad83830a72b5d6b01cc00ecd65269c02e12
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 16b54e8a59eb42c6e2351d37ec0a29d775161493
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078600"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98739841"
 ---
-# <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Colete contadores de desempenho para o seu Azure Cloud Service
+# <a name="collect-performance-counters-for-your-azure-cloud-service-classic"></a>Colete contadores de desempenho para o seu Azure Cloud Service (clássico)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (suporte alargado)](../cloud-services-extended-support/overview.md) é um novo modelo de implementação baseado em Recursos Azure para o produto Azure Cloud Services.Com esta alteração, os Serviços Azure Cloud em execução no modelo de implementação baseado no Azure Service Manager foram renomeados como Cloud Services (clássico) e todas as novas implementações devem utilizar [os Serviços Cloud (suporte alargado)](../cloud-services-extended-support/overview.md).
 
 Os contadores de desempenho fornecem uma forma de acompanhar o desempenho da sua aplicação e do anfitrião. O Windows Server fornece muitos contadores de desempenho diferentes relacionados com hardware, aplicações, sistema operativo e muito mais. Ao recolher e enviar contadores de desempenho para o Azure, pode analisar esta informação para ajudar a tomar melhores decisões. 
 
@@ -80,7 +83,7 @@ Um contador de desempenho pode ser adicionado ao seu serviço de nuvem para Azur
 
 O Azure Application Insights for Cloud Services permite especificar quais os contadores de desempenho que pretende recolher. Depois de [adicionar Application Insights ao seu projeto,](../azure-monitor/app/cloudservices.md#sdk)um ficheiro config chamado **ApplicationInsights.config** é adicionado ao seu projeto Visual Studio. Este ficheiro config define que tipo de informação a Application Insights recolhe e envia para o Azure.
 
-Abra o ficheiro **ApplicationInsights.config** e encontre o elemento Telemetriamodules **ApplicationInsights.**  >  **TelemetryModules** Cada `<Add>` elemento infantil define um tipo de telemetria para recolher, juntamente com a sua configuração. O tipo de módulo de telemetria de contador de desempenho é `Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector` . Se este elemento já estiver definido, não o adicione uma segunda vez. Cada contador de desempenho a recolher é definido sob um nó denominado `<Counters>` . Aqui está um exemplo que recolhe contadores de desempenho de unidade:
+Abra o ficheiro **ApplicationInsights.config** e encontre o elemento Telemetriamodules **ApplicationInsights.**  >   Cada `<Add>` elemento infantil define um tipo de telemetria para recolher, juntamente com a sua configuração. O tipo de módulo de telemetria de contador de desempenho é `Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector` . Se este elemento já estiver definido, não o adicione uma segunda vez. Cada contador de desempenho a recolher é definido sob um nó denominado `<Counters>` . Aqui está um exemplo que recolhe contadores de desempenho de unidade:
 
 ```xml
 <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings">

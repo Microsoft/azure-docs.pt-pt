@@ -1,25 +1,25 @@
 ---
-title: Unidades administrativas em Diretório Ativo Azure Microsoft Docs
+title: Unidades administrativas em Azure Ative Directory | Microsoft Docs
 description: Utilize unidades administrativas para uma delegação mais granular de permissões no Diretório Ativo Azure.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.topic: overview
 ms.subservice: roles
 ms.workload: identity
 ms.date: 11/04/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 792e8cd1e70f901385ed3b225a753024e06f2df0
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: e82be52cff824c69dd2fe4ea5e7e1c0d7489be1d
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394599"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740334"
 ---
 # <a name="administrative-units-in-azure-active-directory"></a>Unidades administrativas em Diretório Ativo Azure
 
@@ -58,9 +58,9 @@ Os critérios em que as unidades administrativas são criadas são guiados pelos
 
 Pode esperar que a criação de unidades administrativas na organização passe pelas seguintes fases:
 
-1. **Adoção inicial** : A sua organização começará a criar unidades administrativas com base em critérios iniciais, e o número de unidades administrativas aumentará à medida que os critérios forem refinados.
-1. **Poda** : Após a definição dos critérios, serão suprimidas as unidades administrativas que já não são necessárias.
-1. **Estabilização** : A sua estrutura organizacional está definida e o número de unidades administrativas não vai mudar significativamente a curto prazo.
+1. **Adoção inicial**: A sua organização começará a criar unidades administrativas com base em critérios iniciais, e o número de unidades administrativas aumentará à medida que os critérios forem refinados.
+1. **Poda**: Após a definição dos critérios, serão suprimidas as unidades administrativas que já não são necessárias.
+1. **Estabilização**: A sua estrutura organizacional está definida e o número de unidades administrativas não vai mudar significativamente a curto prazo.
 
 ## <a name="currently-supported-scenarios"></a>Cenários atualmente apoiados
 
@@ -79,7 +79,7 @@ As secções seguintes descrevem o atual apoio aos cenários da unidade administ
 
 ### <a name="administrative-unit-management"></a>Gestão de unidades administrativas
 
-| Permissões |   Gráfico/PowerShell   | Portal Azure AD | Microsoft 365 admin center (Centro de administração do Microsoft 365) |
+| Permissões |   Gráfico/PowerShell   | Portal Azure AD | Centro de administração do Microsoft 365 |
 | --- | --- | --- | --- |
 | Criação e eliminação de unidades administrativas   |    Suportado    |   Suportado   |    Não suportado |
 | Adicionar e remover individualmente os membros da unidade administrativa    |   Suportado    |   Suportado   |    Não suportado |
@@ -89,7 +89,7 @@ As secções seguintes descrevem o atual apoio aos cenários da unidade administ
 
 ### <a name="user-management"></a>Gestão de utilizadores
 
-| Permissões |   Gráfico/PowerShell   | Portal Azure AD | Microsoft 365 admin center (Centro de administração do Microsoft 365) |
+| Permissões |   Gráfico/PowerShell   | Portal Azure AD | Centro de administração do Microsoft 365 |
 | --- | --- | --- | --- |
 | Gestão administrativa de propriedades, senhas e licenças de utilização   |    Suportado     |  Suportado   |   Suportado |
 | Bloqueio e desbloqueio de inscrições administrativas por unidades    |   Suportado   |    Suportado   |    Suportado |
@@ -97,14 +97,14 @@ As secções seguintes descrevem o atual apoio aos cenários da unidade administ
 
 ### <a name="group-management"></a>Gestão de grupos
 
-| Permissões |   Gráfico/PowerShell   | Portal Azure AD | Microsoft 365 admin center (Centro de administração do Microsoft 365) |
+| Permissões |   Gráfico/PowerShell   | Portal Azure AD | Centro de administração do Microsoft 365 |
 | --- | --- | --- | --- |
 | Gestão administrativa de propriedades e membros do grupo     |  Suportado   |    Suportado    |  Não suportado |
 | Gestão administrativa de âmbito unitário de licenciamento de grupo   |    Suportado  |    Suportado   |   Não suportado |
 
 As unidades administrativas aplicam âmbito apenas às permissões de gestão. Não impedem que membros ou administradores utilizem as suas [permissões de utilizador predefinidas](../fundamentals/users-default-permissions.md) para navegar em outros utilizadores, grupos ou recursos fora da unidade administrativa. No centro de administração Microsoft 365, os utilizadores fora das unidades administrativas de um administrador de âmbito são filtrados. Mas pode navegar em outros utilizadores no portal AD AZure, PowerShell e outros serviços da Microsoft.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Gerir unidades administrativas](admin-units-manage.md)
 - [Gerir utilizadores em unidades administrativas](admin-units-add-manage-users.md)

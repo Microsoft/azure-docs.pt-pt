@@ -4,16 +4,16 @@ description: Saiba como criar um cluster privado Azure Red Hat OpenShift com ope
 ms.service: container-service
 ms.topic: article
 ms.date: 03/12/2020
-author: georgewallace
-ms.author: gwallace
+author: sakthi-vetrivel
+ms.author: suvetriv
 keywords: aro, openshift, az aro, chapéu vermelho, cli
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 3864d48399f00d5cfbdfa0a94939be0d88a73322
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 6daeb617e7d1922427fe1889b41512a61c5067cf
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92928064"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740929"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-private-cluster"></a>Crie um aglomerado privado Azure Red Hat OpenShift 4
 
@@ -23,7 +23,7 @@ Neste artigo, você vai preparar o seu ambiente para criar clusters privados Azu
 > * Configurar os pré-requisitos e criar a rede virtual e sub-redes necessárias
 > * Implementar um cluster com um ponto final privado do servidor API e um controlador de entrada privada
 
-Se optar por instalar e utilizar o CLI localmente, este tutorial requer que esteja a executar a versão Azure CLI 2.6.0 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli?view=azure-cli-latest).
+Se optar por instalar e utilizar o CLI localmente, este tutorial requer que esteja a executar a versão Azure CLI 2.6.0 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -233,9 +233,9 @@ Lance o URL da consola num browser e faça login usando as `kubeadmin` credencia
 
 ## <a name="install-the-openshift-cli"></a>Instale o CLI OpenShift
 
-Uma vez iniciado sessão na Consola Web OpenShift, clique no **?** no topo direito e, em seguida, em **Ferramentas de Linha de Comando** . Descarregue o desbloqueio apropriado para a sua máquina.
+Uma vez iniciado sessão na Consola Web OpenShift, clique no **?** no topo direito e, em seguida, em **Ferramentas de Linha de Comando**. Descarregue o desbloqueio apropriado para a sua máquina.
 
-![Ecrã de login Azure Red Hat OpenShift](media/aro4-download-cli.png)
+![Imagem mostra ecrã de login openshift do chapéu vermelho Azure](media/aro4-download-cli.png)
 
 Também pode descarregar a versão mais recente do CLI apropriada para a sua máquina a partir de <https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/> .
 
@@ -256,7 +256,7 @@ Faça login no servidor API do cluster OpenShift utilizando o seguinte comando. 
 oc login $apiServer -u kubeadmin -p <kubeadmin password>
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, foi implantado um cluster Azure Red Hat OpenShift com openshift 4. Aprendeu a:
 

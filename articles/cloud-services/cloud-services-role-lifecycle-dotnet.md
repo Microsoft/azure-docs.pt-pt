@@ -1,22 +1,25 @@
 ---
-title: Lidar com eventos de ciclo de vida do Serviço de Nuvem Microsoft Docs
+title: Lidar com eventos de ciclo de vida (clássicos) do Serviço de Nuvem (clássico) | Microsoft Docs
 description: Aprenda a usar os métodos de ciclo de vida de um papel de Serviço cloud em .NET, incluindo RoleEntryPoint, que fornece métodos para responder a eventos de ciclo de vida.
-services: cloud-services
-documentationcenter: .net
-author: tgore03
-ms.service: cloud-services
-ms.custom: devx-track-csharp
 ms.topic: article
-ms.date: 07/18/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: d64414abfbc62e52b172a2c42796ec8d89d1719f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: b5aa4bd061647f63ebcc70109f0ba21b39e814cc
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88930065"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741337"
 ---
 # <a name="customize-the-lifecycle-of-a-web-or-worker-role-in-net"></a>Personalize o ciclo de vida de uma função Web ou Trabalhador em .NET
+
+> [!IMPORTANT]
+> [Azure Cloud Services (suporte alargado)](../cloud-services-extended-support/overview.md) é um novo modelo de implementação baseado em Recursos Azure para o produto Azure Cloud Services.Com esta alteração, os Serviços Azure Cloud em execução no modelo de implementação baseado no Azure Service Manager foram renomeados como Cloud Services (clássico) e todas as novas implementações devem utilizar [os Serviços Cloud (suporte alargado)](../cloud-services-extended-support/overview.md).
+
 Quando cria um papel de trabalhador, estende-se a classe [RoleEntryPoint,](/previous-versions/azure/reference/ee758619(v=azure.100)) que fornece métodos para que possa anular que lhe permitam responder a eventos de ciclo de vida. Para funções web esta classe é opcional, por isso deve usá-la para responder a eventos de ciclo de vida.
 
 ## <a name="extend-the-roleentrypoint-class"></a>Prolongar a classe RoleEntryPoint
@@ -73,9 +76,9 @@ Pode anular o método **Executar** para implementar um fio de longa duração pa
 Não é necessário ultrapassar o método **Run;** a implementação padrão inicia um fio que dorme para sempre. Se anular o método **'Executar',** o seu código deverá bloquear indefinidamente. Se o método **Executar** voltar, a função é automaticamente reciclada graciosamente; por outras palavras, o Azure eleva o evento **stop** e chama o método **OnStop** para que as suas sequências de paragem possam ser executadas antes de a função ser desligada.
 
 ### <a name="implementing-the-aspnet-lifecycle-methods-for-a-web-role"></a>Implementação dos métodos de ciclo de vida ASP.NET para um papel web
-Pode utilizar os métodos de ciclo de vida ASP.NET, para além dos fornecidos pela classe **RoleEntryPoint,** para gerir sequências de inicialização e de encerramento para um papel web. Isto pode ser útil para fins de compatibilidade se estiver a apresentar uma aplicação ASP.NET existente ao Azure. Os métodos ASP.NET do ciclo de vida são chamados a partir dos métodos **RoleEntryPoint.** O método ** \_ Início de Aplicação** é chamado após o fim do método **RoleEntryPoint.OnStart.** O método ** \_ Final de Aplicação** é chamado antes do método **RoleEntryPoint.OnStop** ser chamado.
+Pode utilizar os métodos de ciclo de vida ASP.NET, para além dos fornecidos pela classe **RoleEntryPoint,** para gerir sequências de inicialização e de encerramento para um papel web. Isto pode ser útil para fins de compatibilidade se estiver a apresentar uma aplicação ASP.NET existente ao Azure. Os métodos ASP.NET do ciclo de vida são chamados a partir dos métodos **RoleEntryPoint.** O método **\_ Início de Aplicação** é chamado após o fim do método **RoleEntryPoint.OnStart.** O método **\_ Final de Aplicação** é chamado antes do método **RoleEntryPoint.OnStop** ser chamado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Saiba como [criar um pacote de serviços em nuvem.](cloud-services-model-and-package.md)
 
 
