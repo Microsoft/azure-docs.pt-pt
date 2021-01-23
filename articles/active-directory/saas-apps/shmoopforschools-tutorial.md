@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Diretório Ativo Azure com o Shmoop For Schools Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com Shmoop For Schools | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Shmoop For Schools.
 services: active-directory
 author: jeevansd
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/18/2020
 ms.author: jeedes
-ms.openlocfilehash: aa45c2c6ca779669411c3f7c2d2e322d8f647a3a
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: d1d29e939ab01f6311b665eaec8425b7cd38f207
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915254"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98729482"
 ---
 # <a name="tutorial-integrate-shmoop-for-schools-with-azure-active-directory"></a>Tutorial: Integrar Shmoop para escolas com Diretório Ativo Azure
 
@@ -94,7 +94,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     | papel      | user.assignedroles |
 
     > [!NOTE]
-    > A Shmoop for School apoia duas funções para os utilizadores: **Professor** e **Aluno.** Crie estas funções em Azure AD para que os utilizadores possam ser atribuídos as funções apropriadas. Para entender como configurar papéis em Azure AD, consulte [aqui.](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui)
+    > A Shmoop for School apoia duas funções para os utilizadores: **Professor** e **Aluno.** Crie estas funções em Azure AD para que os utilizadores possam ser atribuídos as funções apropriadas. Para entender como configurar papéis em Azure AD, consulte [aqui.](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui--preview)
 
 1. Na **configuração single Sign-On com página SAML,** na secção Certificado de Assinatura **SAML,** clique no botão de cópia para copiar o **Url de Metadados da Federação de Aplicações** e guarde-o no seu computador.
 
@@ -143,9 +143,9 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 
 * Vá diretamente ao URL de inscrição de Shmoop For Schools e inicie o fluxo de login a partir daí.
 
-* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo Shmoop For Schools nas Minhas Apps, este será redirecionado para O URL de inscrição de Escolas para Escolas. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo Shmoop For Schools nas Minhas Apps, este será redirecionado para O URL de inscrição de Escolas para Escolas. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](../user-help/my-apps-portal-end-user-access.md)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Uma vez configurado Shmoop For Schools, pode impor o controlo de sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

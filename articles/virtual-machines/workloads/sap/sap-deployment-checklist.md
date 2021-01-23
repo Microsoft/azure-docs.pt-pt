@@ -1,5 +1,5 @@
 ---
-title: Sap workload planning and deployment checklist [ Microsoft Docs
+title: O planeamento da carga de trabalho da SAP e a lista de verificação de implantação | Microsoft Docs
 description: Lista de verificação para planear as implementações da carga de trabalho DOM para a Azure e implantar as cargas de trabalho
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 601f268f81c222ada5a4f99b05ae8ffcdfc13a23
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: ca2a844364d11dbb5ac2a244945e07d8ca725c1c
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916291"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728445"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Cargas de trabalho sap em Azure: lista de verificação de planeamento e implantação
 
@@ -66,7 +66,7 @@ Durante esta fase, planeia a migração da sua carga de trabalho SAP para a plat
     - Alta disponibilidade e arquitetura de recuperação de desastres.
         - Com base na RTO e na RPO, defina como a arquitetura de alta disponibilidade e recuperação de desastres precisa de ser.
         - Para obter uma elevada disponibilidade dentro de uma zona, verifique o que o DBMS desejado tem para oferecer em Azure. A maioria dos pacotes DBMS oferecem métodos sincronizados de um standby quente sincronizado, que recomendamos para sistemas de produção. Verifique também a documentação relacionada com o SAP para diferentes bases de dados, começando com [considerações para a implementação de DBMS de máquinas virtuais Azure para cargas de trabalho SAP e documentos relacionados.](./dbms_guide_general.md)
-           A utilização do Cluster de Failover do Servidor do Windows com uma configuração de disco partilhada para a camada DBMS, uma vez que, por exemplo, [descrita para SQL Server,](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server?view=sql-server-2017&preserve-view=true)não é suportada. Em vez disso, utilize soluções como:
+           A utilização do Cluster de Failover do Servidor do Windows com uma configuração de disco partilhada para a camada DBMS, uma vez que, por exemplo, [descrita para SQL Server,](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)não é suportada. Em vez disso, utilize soluções como:
            - [SQL Server AlwaysOn](/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups)
            - [Proteção de Dados Oracle](../oracle/configure-oracle-dataguard.md)
            - [Replicação do sistema HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html)
@@ -299,7 +299,7 @@ Esta fase tem a ver com monitorização, operação e administração do sistema
 3. Otimize os tempos em que pode desligar os sistemas.  
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Veja estes artigos:
 
 - [Azure Virtual Machines planejamento e implementação para SAP NetWeaver](./planning-guide.md)

@@ -5,12 +5,12 @@ description: Aprenda a instalar e configurar um controlador de entrada NGINX com
 services: container-service
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: e6777946b0c83eb7f7eb6f3230bb95da2313e741
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: 58cda3f2bfc76f00deaa85347c059040e39f9ef5
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98246235"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98729018"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Criar um controlador de entrada com um endereço IP público estático no Serviço Azure Kubernetes (AKS)
 
@@ -25,7 +25,7 @@ Também pode:
 - [Crie um controlador de entrada que use os seus próprios certificados TLS][aks-ingress-own-tls]
 - [Crie um controlador ingress que usa o Let's Encrypt para gerar automaticamente certificados TLS com um endereço IP público dinâmico][aks-ingress-tls]
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Este artigo pressupõe que você tem um cluster AKS existente. Se precisar de um cluster AKS, consulte o quickstart AKS [utilizando o Azure CLI][aks-quickstart-cli] ou [utilizando o portal Azure][aks-quickstart-portal].
 
@@ -85,6 +85,7 @@ helm install nginx-ingress ingress-nginx/ingress-nginx \
     --set controller.replicaCount=2 \
     --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
     --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set controller.admissionWebhooks.patch.nodeSelector."beta\.kubernetes\.io/os"=linux \
     --set controller.service.loadBalancerIP="STATIC_IP" \
     --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"="DNS_LABEL"
 ```
@@ -390,7 +391,7 @@ Adicione agora o caminho */olá-mundo-dois* ao FQDN, tal como *`https://demo-aks
 
 ![Exemplo de aplicação dois](media/ingress/app-two.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Este artigo usou helm para instalar os componentes, certificados e aplicações de amostra. Quando se implementa um gráfico Helm, são criados vários recursos kubernetes. Estes recursos incluem cápsulas, implantações e serviços. Para limpar estes recursos, pode eliminar todo o espaço de nome da amostra ou os recursos individuais.
 
@@ -449,7 +450,7 @@ Por fim, remova o endereço IP público estático criado para o controlador de e
 az network public-ip delete --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Este artigo incluiu alguns componentes externos para a AKS. Para saber mais sobre estes componentes, consulte as seguintes páginas do projeto:
 

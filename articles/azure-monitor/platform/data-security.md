@@ -1,17 +1,17 @@
 ---
-title: Log Analytics segurança de dados / Microsoft Docs
+title: Registar | de segurança de dados do Registo Microsoft Docs
 description: Saiba como o Log Analytics protege a sua privacidade e protege os seus dados.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/11/2020
-ms.openlocfilehash: 87cdecd29d684c712853970c8246002132d274ac
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: a618a5d94513f7d648d118ae3bebdb34e4f5b1c4
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094340"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728864"
 ---
 # <a name="log-analytics-data-security"></a>Log Analytics segurança de dados
 Este documento destina-se a fornecer informações específicas ao Log Analytics, que é uma característica do Azure Monitor, para complementar a informação no [Azure Trust Center](https://www.microsoft.com/en-us/trust-center?rtc=1).  
@@ -183,11 +183,10 @@ Pode utilizar estas funcionalidades de segurança adicionais para proteger ainda
 - [Teclas (segurança) geridas pelo cliente](customer-managed-keys.md) - Pode utilizar as chaves geridas pelo cliente para encriptar os dados enviados para os seus espaços de trabalho do Log Analytics. Requer o uso do Cofre da Chave Azure. 
 - [Armazenamento privado / gerido pelo cliente](private-storage.md) - Gerencie a sua conta de armazenamento encriptada pessoalmente e diga ao Log Analytics para a utilizar para armazenar dados de monitorização 
 - [Private Link networking](private-link-security.md) - Azure Private Link permite-lhe ligar de forma segura os serviços Azure PaaS (incluindo O Azure Monitor) à sua rede virtual utilizando pontos finais privados. 
-- [Lockbox do cliente Azure](/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-preview) - O Bloqueio do Cliente para o Microsoft Azure fornece uma interface para os clientes reverem e aprovarem ou rejeitarem os pedidos de acesso aos dados dos clientes. É utilizado nos casos em que um engenheiro da Microsoft precisa de aceder aos dados do cliente durante um pedido de suporte.
+- [Lockbox do cliente Azure](../../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-preview) - O Bloqueio do Cliente para o Microsoft Azure fornece uma interface para os clientes reverem e aprovarem ou rejeitarem os pedidos de acesso aos dados dos clientes. É utilizado nos casos em que um engenheiro da Microsoft precisa de aceder aos dados do cliente durante um pedido de suporte.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Saiba como recolher dados com o Log Analytics para os seus VMs Azure seguindo o [quickstart Azure VM](../learn/quick-collect-azurevm.md).  
 
 *  Se procura recolher dados de computadores Físicos ou virtuais do Windows ou Linux no seu ambiente, consulte o [Quickstart para computadores Linux](../learn/quick-collect-linux-computer.md) ou [Quickstart para computadores Windows](../learn/quick-collect-windows-computer.md)
-

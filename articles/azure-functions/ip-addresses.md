@@ -3,12 +3,12 @@ title: Endereços IP em Funções Azure
 description: Saiba como encontrar endereços IP de entrada e saída para aplicações de função, e o que as faz mudar.
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: 291a1cda7b8a2acc5426ea255519e1c2e58a2d7c
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: fcc92e61e180d25bc67d5ca3f9e2bff4af01fd3f
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936724"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98726736"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Endereços IP em Funções Azure
 
@@ -27,8 +27,7 @@ Cada aplicação de função tem um único endereço IP de entrada. Para encontr
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Navegue para a aplicação de função.
-3. Selecione **funcionalidades da Plataforma**.
-4. Selecione **Propriedades** e o endereço IP de entrada aparece no **endereço IP virtual**.
+3. Em **Definições**, selecione **Propriedades**. O endereço IP de entrada aparece no **endereço IP virtual**.
 
 ## <a name="function-app-outbound-ip-addresses"></a><a name="find-outbound-ip-addresses"></a>Endereços IP de saída de aplicativo de função
 
@@ -129,6 +128,6 @@ az webapp show --resource-group <group_name> --name <app_name> --query sku --out
 
 O Ambiente de Serviço de `sku` Aplicações é `Isolated` .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Uma causa comum de alterações ip é alterações na escala de aplicações de função. [Saiba mais sobre o dimensionamento de aplicações de função.](functions-scale.md)

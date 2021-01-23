@@ -3,12 +3,12 @@ title: Referência das definições de aplicação para as Funções do Azure
 description: Documentação de referência para as definições da aplicação Azure Functions ou variáveis ambientais.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 72b42e392f350a8693ca8a052bdec1d5fd337234
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 80b2daebbd64f08dd4f5d728b2a9a4ee04b8952f
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937115"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728997"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referência das definições de aplicação para as Funções do Azure
 
@@ -229,11 +229,13 @@ O valor desta chave é fornecido no `<DESTINATION>:<VERBOSITY>` formato, que é 
 
 ## <a name="website_contentazurefileconnectionstring"></a>\_CONTEÚDO DO SITEAZUREFILECONNECTIONSTRING
 
-Apenas para consumo & Planos Premium. Cadeia de ligação para conta de armazenamento onde o código e configuração da aplicação de função são armazenados. Ver [Criar uma aplicação de função](functions-infrastructure-as-code.md#create-a-function-app).
+Cadeia de ligação para conta de armazenamento onde o código e configuração da aplicação de função são armazenados em planos de escala orientados para o evento em execução no Windows. Para obter mais informações, consulte [Criar uma aplicação de função.](functions-infrastructure-as-code.md#windows)
 
 |Chave|Valor da amostra|
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|PredefiniçãoendpointsProtocol=https; ContaName=[nome]; AccountKey=[chave]|
+
+Apenas utilizados na implementação de planos De Consumo ou Premium em execução no Windows. Não apoiado pelo Linux. Alterar ou remover esta definição pode fazer com que a sua aplicação de função não arranque. Para saber mais, consulte [este artigo de resolução de problemas.](functions-recover-storage-account.md#storage-account-application-settings-were-deleted) 
 
 ## <a name="website_contentovervnet"></a>\_CONTENTOVERVNET DO SITE
 
@@ -245,11 +247,15 @@ Apenas para planos Premium. Um valor `1` que permite que a sua aplicação de fu
 
 ## <a name="website_contentshare"></a>\_PARTILHA DE CONTEÚDOS DO SITE
 
-Apenas para consumo & Planos Premium. O caminho do ficheiro para o código e configuração da aplicação de função. Usado com WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. O padrão é uma cadeia única que começa com o nome da aplicação da função. Ver [Criar uma aplicação de função](functions-infrastructure-as-code.md#create-a-function-app).
+O caminho do ficheiro para o código e configuração da aplicação de função num plano de escala orientado para o evento no Windows. Usado com WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. O padrão é uma cadeia única que começa com o nome da aplicação da função. Ver [Criar uma aplicação de função](functions-infrastructure-as-code.md#windows).
 
 |Chave|Valor da amostra|
 |---|------------|
 |WEBSITE_CONTENTSHARE|functionapp091999e2|
+
+Utilizado apenas por aplicações de função em planos De Consumo ou Premium em execução no Windows. Não apoiado pelo Linux. Alterar ou remover esta definição pode fazer com que a sua aplicação de função não arranque. Para saber mais, consulte [este artigo de resolução de problemas.](functions-recover-storage-account.md#storage-account-application-settings-were-deleted)
+
+Quando utilizar um Gestor de Recursos Azure para criar uma aplicação de função durante a implementação, não inclua WEBSITE_CONTENTSHARE no modelo. Esta definição de aplicação é gerada durante a implementação. Para saber mais, consulte [a implementação de recursos de Automatização para a sua aplicação de função.](functions-infrastructure-as-code.md#windows)   
 
 ## <a name="website_max_dynamic_application_scale_out"></a>ESCALA \_ DE \_ \_ APLICAÇÃO MAX DYNAMIC \_ \_ DO SITE
 
@@ -292,7 +298,7 @@ Permite-lhe definir o timezone para a sua aplicação de função.
 
 [!INCLUDE [functions-timezone](../../includes/functions-timezone.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Saiba como atualizar as definições de aplicações](functions-how-to-use-azure-function-app-settings.md#settings)
 

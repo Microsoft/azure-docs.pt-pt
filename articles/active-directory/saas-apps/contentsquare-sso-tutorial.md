@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com Contentsquare SSO / Microsoft Docs'
+title: 'Tutorial: Azure Ative Directy integração única de sign-on (SSO) com o Contentsquare SSO | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Contentsquare SSO.
 services: active-directory
 author: jeevansd
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/07/2020
 ms.author: jeedes
-ms.openlocfilehash: 008866cce2ed52b1504f1ac3356965450cf7b103
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: ddb188b31b6085af5e163972daa7a86f71402a99
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97439549"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98727828"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-contentsquare-sso"></a>Tutorial: Azure Ative Directy integração única (SSO) com O SSO de Conteúdos
 
@@ -130,10 +130,8 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 
 * Vá diretamente ao URL de SSO SSO e inicie o fluxo de login a partir daí.
 
-* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo SSO do Contentsquare nas Minhas Apps, este irá redirecionar para o URL de SSO de base de conteúdos. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo SSO do Contentsquare nas Minhas Apps, este irá redirecionar para o URL de SSO de base de conteúdos. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](../user-help/my-apps-portal-end-user-access.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Uma vez configurado o Contentsquare SSO, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Uma vez configurado o Contentsquare SSO, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

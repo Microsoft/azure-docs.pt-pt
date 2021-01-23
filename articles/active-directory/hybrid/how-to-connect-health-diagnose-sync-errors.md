@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect Health - Diagnosticar erros de sincronização de atributos duplicados / Microsoft Docs
+title: Azure AD Connect Health - Diagnosticar erros de sincronização de atributos duplicados | Microsoft Docs
 description: Este documento descreve o processo de diagnóstico de erros de sincronização de atributos duplicados e uma possível correção dos cenários de objetos órfãos diretamente do portal Azure.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 05/11/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5942d208fa3859d0a4a80de5f072f2e798fe040f
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: 4fe6af43c9ca44095c328356e8171da10717875e
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028935"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728242"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnose and remediate duplicated attribute sync errors (Diagnosticar e resolver erros de sincronização de atributos duplicados)
 
@@ -110,7 +110,7 @@ Esta questão verifica um utilizador conflituoso e o objeto de utilizador existe
 1. O objeto conflituoso está recentemente sincronizado com o Azure Ative Directory. Compare os atributos dos objetos:  
    - Nome a Apresentar
    - Nome Principal de Utilizador
-   - ID de objeto
+   - ID do Objeto
 2. Se a Azure AD não os comparar, verifique se o Ative Directory tem objetos com os **nomes de UserPrincipalNames** fornecidos . Responda **não** se encontrar os dois.
 
 No exemplo seguinte, os dois objetos pertencem ao mesmo utilizador **Joe Johnson.**
@@ -139,7 +139,7 @@ O utilizador com atributo conflituoso no Azure AD deve ser limpo antes de poder 
 O utilizador baseado em nuvem em Azure AD não deve ter âncora de origem. Neste caso, a atualização da âncora de origem não é suportada. A correção manual é necessária a partir do local. 
 
 **O processo de correção não atualizou os valores.**
-As definições específicas, tais como [userWriteback no Azure AD Connect,](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-preview#user-writeback) não são suportadas. Por favor, desative as definições. 
+As definições específicas, tais como [userWriteback no Azure AD Connect,](./how-to-connect-preview.md#user-writeback) não são suportadas. Por favor, desative as definições. 
 
 ## <a name="faq"></a>FAQ
 **Q.** O que acontece se a execução da **Correção de Aplicação** falhar?  

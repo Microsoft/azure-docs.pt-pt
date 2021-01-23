@@ -5,12 +5,12 @@ description: Aprenda a instalar e configurar um controlador de entrada NGINX par
 services: container-service
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 6c848160afc6a6a755e967dd8517e48240bc113e
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 976c5581ad217064da37b0b092d2d634d30cb7e5
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685890"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98729166"
 ---
 # <a name="create-an-ingress-controller-to-an-internal-virtual-network-in-azure-kubernetes-service-aks"></a>Criar um controlador de entrada para uma rede virtual interna no Serviço Azure Kubernetes (AKS)
 
@@ -25,7 +25,7 @@ Também pode:
 - [Crie um controlador de entrada que use os seus próprios certificados TLS][aks-ingress-own-tls]
 - Crie um controlador ingress que utilize o Let's Encrypt para gerar automaticamente certificados TLS [com um endereço IP público dinâmico][aks-ingress-tls] ou com um endereço IP público [estático][aks-ingress-static-tls]
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Este artigo utiliza [o Helm 3][helm] para instalar o controlador de entrada NGINX. Certifique-se de que está a utilizar a mais recente versão do Helm e tenha acesso ao repositório de Helm *ingresss-nginx.* Para obter mais informações sobre a configuração e utilização do Helm, consulte [instalar aplicações com Helm in Azure Kubernetes Service (AKS)][use-helm].
 
@@ -68,7 +68,8 @@ helm install nginx-ingress ingress-nginx/ingress-nginx \
     -f internal-ingress.yaml \
     --set controller.replicaCount=2 \
     --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
-    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
+    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set controller.admissionWebhooks.patch.nodeSelector."beta\.kubernetes\.io/os"=linux
 ```
 
 Quando o serviço de balançador de carga Kubernetes é criado para o controlador de entrada NGINX, o seu endereço IP interno é atribuído. Para obter o endereço IP público, use o `kubectl get service` comando.

@@ -12,12 +12,12 @@ ms.date: 04/07/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 808357b95f4de904ead0741d848480d548a2e26a
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: b6ecea10c884bffb10c936ca7c619d70d2449467
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97030081"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728496"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Trabalhar com servidores proxy existentes no local
 
@@ -111,7 +111,7 @@ Há quatro aspetos a considerar no representante de saída:
 
 Permitir o acesso aos seguintes URLs:
 
-| URL | Porta |  Como é usado |
+| URL | Porta |  Como é utilizado |
 | --- | --- | --- |
 | &ast;.msappproxy.net<br>&ast;.servicebus.windows.net | 443/HTTPS | Comunicação entre o conector e o serviço de nuvem Proxy de aplicação |
 | crl3.digicert.com<br>crl4.digicert.com<br>ocsp.digicert.com<br>crl.microsoft.com<br>oneocsp.microsoft.com<br>ocsp.msocsp.com<br> | 80/HTTP | O conector utiliza estes URLs para verificar os certificados. |
@@ -169,7 +169,7 @@ A melhor maneira de identificar e resolver problemas de conectividade do conecto
 Pode utilizar a ferramenta de monitorização à sua escolha. Para efeitos deste artigo, utilizamos o Microsoft Message Analyzer.
 
 > [!NOTE]
-> [O Microsoft Message Analyzer (MMA) foi retirado](https://docs.microsoft.com/openspecs/blog/ms-winintbloglp/dd98b93c-0a75-4eb0-b92e-e760c502394f) e os seus pacotes de descarregamento foram removidos dos sites microsoft.com em 25 de novembro de 2019.  Não existe atualmente nenhum substituto da Microsoft para o Microsoft Message Analyzer em desenvolvimento neste momento.  Para funcionalidades semelhantes, considere utilizar uma ferramenta de analisador de protocolo de rede de terceiros, como o Wireshark.
+> [O Microsoft Message Analyzer (MMA) foi retirado](/openspecs/blog/ms-winintbloglp/dd98b93c-0a75-4eb0-b92e-e760c502394f) e os seus pacotes de descarregamento foram removidos dos sites microsoft.com em 25 de novembro de 2019.  Não existe atualmente nenhum substituto da Microsoft para o Microsoft Message Analyzer em desenvolvimento neste momento.  Para funcionalidades semelhantes, considere utilizar uma ferramenta de analisador de protocolo de rede de terceiros, como o Wireshark.
 
 Os exemplos a seguir são específicos do Analisador de Mensagens, mas os princípios podem ser aplicados a qualquer ferramenta de análise.
 
@@ -208,7 +208,7 @@ O filtro anterior mostra apenas os pedidos e respostas dos HTTPs para/a partir d
 
 Se vir outros códigos de resposta, como o 407 ou o 502, isso significa que o representante está a necessitar de autenticação ou não permite o tráfego por outro motivo. Neste momento, contrata a equipa de suporte ao servidor proxy.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Compreenda os conectores Proxy de aplicação AD Azure](application-proxy-connectors.md)
 * Se tiver problemas com problemas de conectividade do conector, faça a sua pergunta na página de perguntas do [Microsoft Q&A para o Azure Ative Directory](/answers/topics/azure-active-directory.html) ou crie um bilhete com a nossa equipa de suporte.

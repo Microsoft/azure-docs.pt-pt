@@ -5,12 +5,12 @@ description: Aprenda a instalar e configurar um controlador de entrada NGINX que
 services: container-service
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: da2aab0530dce6c7c2cb3f776fdd618880c79805
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: e5a766eafb8f4b576a571b9b5379f343bbef54ea
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98246184"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98729048"
 ---
 # <a name="create-an-https-ingress-controller-and-use-your-own-tls-certificates-on-azure-kubernetes-service-aks"></a>Criar um controlador de entrada HTTPS e utilizar os seus próprios certificados TLS no Azure Kubernetes Service (AKS)
 
@@ -25,7 +25,7 @@ Também pode:
 - [Crie um controlador ingress que utilize uma rede interna, privada e endereço IP][aks-ingress-internal]
 - Crie um controlador ingress que utilize o Let's Encrypt para gerar automaticamente certificados TLS [com um endereço IP público dinâmico][aks-ingress-tls] ou com um endereço IP público [estático][aks-ingress-static-tls]
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Este artigo utiliza [o Helm 3][helm] para instalar o controlador de entrada NGINX. Certifique-se de que está a utilizar a mais recente versão do Helm e tenha acesso ao repositório de Helm *ingresss-nginx.* Para obter instruções de atualização, consulte os [docs de instalação helm][helm-install]. Para obter mais informações sobre a configuração e utilização do Helm, consulte [instalar aplicações com Helm in Azure Kubernetes Service (AKS)][use-helm].
 
@@ -55,7 +55,8 @@ helm install nginx-ingress ingress-nginx/ingress-nginx \
     --namespace ingress-basic \
     --set controller.replicaCount=2 \
     --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
-    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
+    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set controller.admissionWebhooks.patch.nodeSelector."beta\.kubernetes\.io/os"=linux
 ```
 
 Durante a instalação, é criado um endereço IP público Azure para o controlador de entrada. Este endereço IP público é estático para o tempo de vida do controlador de entrada. Se eliminar o controlador de entrada, perde-se a atribuição do endereço IP público. Se então criar um controlador adicional de entrada, será atribuído um novo endereço IP público. Se desejar reter a utilização do endereço IP público, pode, em vez disso, [criar um controlador de entrada com um endereço IP público estático][aks-ingress-static-tls].
@@ -305,7 +306,7 @@ $ curl -v -k --resolve demo.azure.com:443:EXTERNAL_IP https://demo.azure.com/hel
 [...]
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Este artigo usou o Helm para instalar os componentes de entrada e as aplicações de amostra. Quando se implementa um gráfico Helm, são criados vários recursos kubernetes. Estes recursos incluem cápsulas, implantações e serviços. Para limpar estes recursos, pode eliminar todo o espaço de nome da amostra ou os recursos individuais.
 
@@ -373,7 +374,7 @@ Finalmente, pode apagar o espaço de nome em si. Utilize o `kubectl delete` coma
 kubectl delete namespace ingress-basic
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Este artigo incluiu alguns componentes externos para a AKS. Para saber mais sobre estes componentes, consulte as seguintes páginas do projeto:
 

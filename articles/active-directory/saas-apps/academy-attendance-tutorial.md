@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directory integração única (SSO) com a Participação na Academia Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única (SSO) com a | de Atendimento à Academia Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Academy Attendance.
 services: active-directory
 author: jeevansd
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/08/2020
 ms.author: jeedes
-ms.openlocfilehash: 06b538f0f218beab2549b027a5da9dcc594969a4
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 12752e3d3cc08e8a13e9679725fbb6678c4bbd71
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97586878"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728706"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-academy-attendance"></a>Tutorial: Azure Ative Directory integração única (SSO) com a Participação na Academia
 
@@ -92,12 +92,12 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação de Atendimento da Academia espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com o seu requisito.
 
-    | Nome |  Atributo de origem|
+    | Name |  Atributo de origem|
     | --------- | --------------- |
     | papel      | user.assignedroles |
 
     > [!NOTE]
-    > A Academy Attendance apoia duas funções para utilizadores: **Docente** e **Estudante.** Crie estas funções em Azure AD para que os utilizadores possam ser atribuídos as funções apropriadas. Consulte [este](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui) doc que explica como criar papéis personalizados no Azure AD.
+    > A Academy Attendance apoia duas funções para utilizadores: **Docente** e **Estudante.** Crie estas funções em Azure AD para que os utilizadores possam ser atribuídos as funções apropriadas. Consulte [este](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui--preview) doc que explica como criar papéis personalizados no Azure AD.
 
 1. Na **configuração de um único sessão de inscrição com** a página SAML, na secção **Certificado de Assinatura SAML,** encontre o **Metadados XML da Federação** e selecione **Descarregue** para descarregar o certificado e guarde-o no seu computador.
 
@@ -147,9 +147,9 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 
 * Vá diretamente ao URL de inscrição da Academia e inicie o fluxo de login a partir daí.
 
-* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo de Assistência da Academia nas Minhas Apps, isto irá redirecionar para o URL de inscrição de presença da Academia. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo de Assistência da Academia nas Minhas Apps, isto irá redirecionar para o URL de inscrição de presença da Academia. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](../user-help/my-apps-portal-end-user-access.md)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Uma vez configurado o Atendimento à Academia, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Uma vez configurado o Atendimento à Academia, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

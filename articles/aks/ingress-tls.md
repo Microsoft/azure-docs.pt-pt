@@ -5,12 +5,12 @@ description: Aprenda a instalar e configurar um controlador de entrada NGINX que
 services: container-service
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 0b0e26262f75ba8030188a2bffbce8282b38bca8
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 1faabdda869bbaba8027df121d080b0fb421e9f1
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219645"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728897"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Criar um controlador de entrada HTTPS no Serviço Azure Kubernetes (AKS)
 
@@ -26,7 +26,7 @@ Também pode:
 - [Crie um controlador de entrada que use os seus próprios certificados TLS][aks-ingress-own-tls]
 - [Crie um controlador ingress que usa o Let's Encrypt para gerar automaticamente certificados TLS com um endereço IP público estático][aks-ingress-static-tls]
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Este artigo pressupõe que você tem um cluster AKS existente. Se precisar de um cluster AKS, consulte o quickstart AKS [utilizando o Azure CLI][aks-quickstart-cli] ou [utilizando o portal Azure][aks-quickstart-portal].
 
@@ -60,7 +60,8 @@ helm install nginx-ingress ingress-nginx/ingress-nginx \
     --namespace ingress-basic \
     --set controller.replicaCount=2 \
     --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
-    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
+    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set controller.admissionWebhooks.patch.nodeSelector."beta\.kubernetes\.io/os"=linux
 ```
 
 Durante a instalação, é criado um endereço IP público Azure para o controlador de entrada. Este endereço IP público é estático para o tempo de vida do controlador de entrada. Se eliminar o controlador de entrada, perde-se a atribuição do endereço IP público. Se então criar um controlador adicional de entrada, será atribuído um novo endereço IP público. Se desejar reter a utilização do endereço IP público, pode, em vez disso, [criar um controlador de entrada com um endereço IP público estático][aks-ingress-static-tls].
@@ -125,13 +126,13 @@ helm repo add jetstack https://charts.jetstack.io
 helm repo update
 
 # Install the cert-manager Helm chart
-helm install \
-  cert-manager \
+helm install cert-manager jetstack/cert-manager \
   --namespace ingress-basic \
   --version v0.16.1 \
   --set installCRDs=true \
-  --set nodeSelector."beta\.kubernetes\.io/os"=linux \
-  jetstack/cert-manager
+  --set nodeSelector."kubernetes\.io/os"=linux \
+  --set webhook.nodeSelector."kubernetes\.io/os"=linux \
+  --set cainjector.nodeSelector."kubernetes\.io/os"=linux
 ```
 
 Para obter mais informações sobre a configuração do gestor de cert, consulte o [projeto cert-manager][cert-manager].
@@ -348,7 +349,7 @@ tls-secret   True    tls-secret   11m
 
 Abra um navegador web para *hello-world-ingress. MY_CUSTOM_DOMAIN* do seu controlador de entrada kubernetes. Note que é redirecionado para a utilização do HTTPS e o certificado é fidedigno e a aplicação de demonstração é mostrada no navegador web. Adicione o caminho */olá-mundo-dois* e note que a segunda aplicação de demonstração com o título personalizado é mostrado.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Este artigo usou helm para instalar os componentes, certificados e aplicações de amostra. Quando se implementa um gráfico Helm, são criados vários recursos kubernetes. Estes recursos incluem cápsulas, implantações e serviços. Para limpar estes recursos, pode eliminar todo o espaço de nome da amostra ou os recursos individuais.
 
@@ -406,7 +407,7 @@ Finalmente, pode apagar o espaço de nome em si. Utilize o `kubectl delete` coma
 kubectl delete namespace ingress-basic
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Este artigo incluiu alguns componentes externos para a AKS. Para saber mais sobre estes componentes, consulte as seguintes páginas do projeto:
 

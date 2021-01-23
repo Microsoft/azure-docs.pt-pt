@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com Caixa / Microsoft Docs'
+title: 'Tutorial: Azure Ative Directy integração única de sign-on (SSO) com Box | Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o Box.
 services: active-directory
 author: jeevansd
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/05/2021
 ms.author: jeedes
-ms.openlocfilehash: caf919f8a5b6ac9a979ade256918138e4c846b68
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 6c2f8a1e49f97b9f57547fea8b87ba31da310854
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98049699"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98727930"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-box"></a>Tutorial: Azure Ative Directy integração única (SSO) com Caixa
 
@@ -152,9 +152,9 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 
 * Vá diretamente para o URL de inscrição de caixa e inicie o fluxo de login a partir daí.
 
-* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo da Caixa nas Minhas Apps, este será redirecionado para o URL de inscrição da caixa. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo da Caixa nas Minhas Apps, este será redirecionado para o URL de inscrição da caixa. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](../user-help/my-apps-portal-end-user-access.md)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Uma vez configurar a Caixa, pode impor o Controlo de Sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O Controlo de Sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)

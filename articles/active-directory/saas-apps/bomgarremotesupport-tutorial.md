@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com Suporte Remoto BeyondTrust Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com beyondTrust Remote Support | Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o BeyondTrust Remote Support.
 services: active-directory
 author: jeevansd
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/12/2020
 ms.author: jeedes
-ms.openlocfilehash: c11d8aaa578006c7dbd96b457399df5b17fd9bd8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f9e4af3330ecf5fbe161f7ba92ddf96eb04880a1
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95914983"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728045"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-beyondtrust-remote-support"></a>Tutorial: Azure Ative Directory integração única (SSO) com Suporte Remoto BeyondTrust
 
@@ -91,7 +91,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação BeyondTrust Remote Support espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
 
-    | Nome |  Atributo de origem|
+    | Name |  Atributo de origem|
     | ---------------| ----------|
     | Nome de utilizador | user.userprincipalname |
     | FirstName | user.givenname |
@@ -189,8 +189,8 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 
 * Vá diretamente ao URL de suporte remoto BeyondTrust e inicie o fluxo de login a partir daí.
 
-* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo de Suporte Remoto BeyondTrust nas Minhas Apps, este irá redirecionar para URL de suporte remoto BeyondTrust. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo de Suporte Remoto BeyondTrust nas Minhas Apps, este irá redirecionar para URL de suporte remoto BeyondTrust. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](../user-help/my-apps-portal-end-user-access.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Uma vez configurado o Suporte Remoto BeyondTrust, pode impor controlos de sessão, o que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. Os controlos de sessão estendem-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+Uma vez configurado o Suporte Remoto BeyondTrust, pode impor controlos de sessão, o que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. Os controlos de sessão estendem-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)

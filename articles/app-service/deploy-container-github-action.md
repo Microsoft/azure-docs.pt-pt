@@ -7,12 +7,12 @@ ms.date: 12/04/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: github-actions-azure
-ms.openlocfilehash: 4f5deb33218c336da7a477b4f39cd45f7386debf
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: fec4ba8cba33a1d52d8f330308645fb616921ba4
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97604979"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98726813"
 ---
 # <a name="deploy-a-custom-container-to-app-service-using-github-actions"></a>Implementar um recipiente personalizado para o Serviço de Aplicações utilizando ações do GitHub
 
@@ -50,7 +50,7 @@ Um perfil de publicação é uma credencial de nível de aplicação. Configura 
 1. Na página **'Vista Geral',** selecione **Obter Perfil De publicação**.
 
     > [!NOTE]
-    > A partir de outubro de 2020, as aplicações web do Linux precisarão da definição da aplicação `WEBSITE_WEBDEPLOY_USE_SCM` definida para antes de descarregar o `true` **ficheiro.** Este requisito será removido no futuro. Consulte [uma aplicação de Serviço de Aplicações no portal Azure,](/azure/app-service/configure-common)para aprender a configurar as configurações comuns de aplicações web.  
+    > A partir de outubro de 2020, as aplicações web do Linux precisarão da definição da aplicação `WEBSITE_WEBDEPLOY_USE_SCM` definida para antes de descarregar o `true` **ficheiro.** Este requisito será removido no futuro. Consulte [uma aplicação de Serviço de Aplicações no portal Azure,](./configure-common.md)para aprender a configurar as configurações comuns de aplicações web.  
 
 1. Guarde o ficheiro transferido. Vais usar o conteúdo do ficheiro para criar um segredo do GitHub.
 
@@ -261,7 +261,7 @@ jobs:
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Você pode encontrar o nosso conjunto de Ações agrupadas em diferentes repositórios no GitHub, cada um contendo documentação e exemplos para ajudá-lo a usar GitHub para CI/CD e implementar suas aplicações para Azure.
 

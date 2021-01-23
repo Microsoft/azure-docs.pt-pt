@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.author: drewbat
-ms.openlocfilehash: fbe517c766b3835bf4265a1309b8737a25925b7c
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 4d80c034ab03fed6b9ae2ed0c4c0420afe6f7e32
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97914965"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728096"
 ---
 # <a name="pull-settings-to-app-configuration-with-azure-pipelines"></a>Puxe as definições para configuração de aplicativos com gasodutos Azure
 
@@ -47,7 +47,7 @@ Agora que a sua ligação de serviço foi criada, encontre o nome do principal d
 
 Atribua a função adequada de Configuração de Aplicação à ligação de serviço que está a ser utilizada na tarefa para que a tarefa possa aceder à loja de Configuração de Aplicações.
 
-1. Navegue para a sua loja de configuração de aplicativos alvo. Para obter uma posição de configuração de uma loja de configuração de aplicações, consulte Criar uma loja de configuração de [aplicações](/azure/azure-app-configuration/quickstart-dotnet-core-app#create-an-app-configuration-store) numa das quickstarts de configuração de aplicações Azure.
+1. Navegue para a sua loja de configuração de aplicativos alvo. Para obter uma posição de configuração de uma loja de configuração de aplicações, consulte Criar uma loja de configuração de [aplicações](./quickstart-dotnet-core-app.md#create-an-app-configuration-store) numa das quickstarts de configuração de aplicações Azure.
 1. À esquerda, selecione **Access control (IAM)**.
 1. No topo, selecione **+ Adicionar** e escolher Adicionar a atribuição **de funções**.
 1. Em **Função**, selecione **App Configuration Data Reader**. Esta função permite que a tarefa seja lida a partir da loja de Configuração de Aplicações. 

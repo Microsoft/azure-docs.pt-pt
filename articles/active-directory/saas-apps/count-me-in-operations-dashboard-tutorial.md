@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com o Count Me In - Dashboard de Operações Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com o Count Me In - Painel de Operações | Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o Count Me In - Painel de Operações.
 services: active-directory
 author: jeevansd
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/30/2020
 ms.author: jeedes
-ms.openlocfilehash: 98899c635b93548bd6e4359a3a5bee8b1cb55ae7
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 3339516193af6e1ff832ac586f4a81f8799c5b83
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96907789"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98727697"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-count-me-in---operations-dashboard"></a>Tutorial: Azure Ative Directory single sign-on (SSO) integração com o Count Me In - Painel de Operações
 
@@ -90,12 +90,12 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação Count Me In - Operations Dashboard espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
     
-    | Nome |  Atributo de origem|
+    | Name |  Atributo de origem|
     | ----------- | --------- |
     | funções atribuídas | user.assignedroles |
 
     > [!NOTE]
-    > Count Me In - Operations Dashboard espera funções para utilizadores atribuídos à aplicação. Por favor, crie estas funções em Azure AD para que os utilizadores possam ser atribuídos as funções apropriadas. Para entender como configurar papéis em Azure AD, consulte [aqui.](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui)
+    > Count Me In - Operations Dashboard espera funções para utilizadores atribuídos à aplicação. Por favor, crie estas funções em Azure AD para que os utilizadores possam ser atribuídos as funções apropriadas. Para entender como configurar papéis em Azure AD, consulte [aqui.](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui--preview)
 
 1. Na **configuração de um único sessão de inscrição com** a página SAML, na secção **Certificado de Assinatura SAML,** encontre **o Certificado (Base64)** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
 
@@ -144,11 +144,9 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 
 * Vá ao Count Me In - URL de sinalização do painel de operações diretamente e inicie o fluxo de login a partir daí.
 
-* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo Do Painel de Operações Count Me In - Operations Dashboard nas Minhas Apps, este será redirecionado para Count Me In - URL de sinalização do painel de operações. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo Do Painel de Operações Count Me In - Operations Dashboard nas Minhas Apps, este será redirecionado para Count Me In - URL de sinalização do painel de operações. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](../user-help/my-apps-portal-end-user-access.md)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Assim que configurar o Count Me In - Painel de Operações, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Assim que configurar o Count Me In - Painel de Operações, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

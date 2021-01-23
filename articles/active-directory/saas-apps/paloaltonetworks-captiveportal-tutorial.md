@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com o Portal Cativo palo Alto Networks / Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com o Portal Cativo palo Alto Networks | Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o Portal Cativo das Redes Palo Alto.
 services: active-directory
 author: jeevansd
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: jeedes
-ms.openlocfilehash: 0e16cb3d24f9dd33b156bca72ce1c99e7aae957a
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 1b9c9182b8ffc6e9ea2e05fd4863783f111f81dd
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97963609"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98727153"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks-captive-portal"></a>Tutorial: Integração do Diretório Ativo Azure com o Portal Cativo das Redes Palo Alto
 
@@ -150,9 +150,9 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 
 * Clique em Testar esta aplicação no portal Azure e deverá ser automaticamente inscrito no Portal Cativo das Redes Palo Alto para o qual configura o SSO
 
-* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo do Portal Cativo das Redes Palo Alto nas Minhas Apps, deverá ser automaticamente inscrito no Portal Cativo das Redes Palo Alto para o qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo do Portal Cativo das Redes Palo Alto nas Minhas Apps, deverá ser automaticamente inscrito no Portal Cativo das Redes Palo Alto para o qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](../user-help/my-apps-portal-end-user-access.md)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Uma vez configurado o Portal Cativo palo Alto Networks, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

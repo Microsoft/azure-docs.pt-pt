@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com a OpsGenie Microsoft Docs'
+title: 'Tutorial: Integração do Azure Ative Directory com a OpsGenie | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o OpsGenie.
 services: active-directory
 author: jeevansd
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 622ead38a62e593e304f49da9a9d3f652a868bde
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 2ab1f9ee6095dfc0f708ec33622aad6f70fcae65
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814402"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728566"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-opsgenie"></a>Tutorial: Azure Ative Directory integração única (SSO) com OpsGenie
 
@@ -187,8 +187,8 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 
 * Clique em Testar esta aplicação no portal Azure e deverá ser automaticamente inscrito no OpsGenie para o qual configura o SSO
 
-* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo OpsGenie nas Minhas Apps, deverá ser automaticamente inscrito no OpsGenie para o qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo OpsGenie nas Minhas Apps, deverá ser automaticamente inscrito no OpsGenie para o qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](../user-help/my-apps-portal-end-user-access.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Uma vez configurado OpsGenie, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

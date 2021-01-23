@@ -12,12 +12,12 @@ ms.date: 01/20/2021
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: 6b46a5ea71bf8c9705ffc3bc51ea48f4b0c28502
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 6f8fdb23222944eab4742d1e972280e1e27e30a3
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98660768"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728519"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Tutorial: Adicionar uma aplicação no local para acesso remoto através de Aplicação Proxy em Diretório Ativo Azure
 
@@ -97,7 +97,7 @@ Para ativar o TLS 1.2:
 1. Reinicie o servidor.
 
 > [!Note]
-> A Microsoft está a atualizar os serviços da Azure para utilizar certificados TLS de um conjunto diferente de Autoridades de Certificados De Raiz (CAs). Esta alteração está a ser feita porque os certificados ac atuais não cumprem um dos requisitos de Base do Fórum CA/Browser. Consulte [as alterações do certificado Azure TLS](https://docs.microsoft.com/azure/security/fundamentals/tls-certificate-changes) para obter mais informações.
+> A Microsoft está a atualizar os serviços da Azure para utilizar certificados TLS de um conjunto diferente de Autoridades de Certificados De Raiz (CAs). Esta alteração está a ser feita porque os certificados ac atuais não cumprem um dos requisitos de Base do Fórum CA/Browser. Consulte [as alterações do certificado Azure TLS](../../security/fundamentals/tls-certificate-changes.md) para obter mais informações.
 
 ## <a name="prepare-your-on-premises-environment"></a>Prepare o seu ambiente no local
 
@@ -255,7 +255,7 @@ Para a resolução de problemas, consulte [problemas de procuração de aplicaç
 
 Quando já não for necessário, elimine os recursos que criou neste tutorial.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, preparou o seu ambiente no local para trabalhar com o Application Proxy e, em seguida, instalou e registou o conector Application Proxy. Em seguida, adicionou um pedido ao seu inquilino AZure AD. Verificou que um utilizador pode inscrever-se na aplicação utilizando uma conta AZure AD.
 

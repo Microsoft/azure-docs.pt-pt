@@ -1,14 +1,14 @@
 ---
 title: Ativar a extensão de VM a partir do portal Azure
 description: Este artigo descreve como implementar extensões de máquinas virtuais para O Arco Azure habilitados a funcionar em ambientes de nuvem híbrida a partir do portal Azure.
-ms.date: 11/06/2020
+ms.date: 01/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 48d7d4085dce893d94436fe0c6be32cfeea9cda3
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 43bbcef28b77e7c7112880fdac1bbd4809791cef
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359090"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728959"
 ---
 # <a name="enable-azure-vm-extensions-from-the-azure-portal"></a>Ativar extensões VM do Azure a partir do portal Azure
 
@@ -40,6 +40,18 @@ As extensões VM podem ser aplicadas ao seu Arco para máquina gerida pelo servi
 >[!NOTE]
 >Embora as extensões múltiplas possam ser emgrurentadas e processadas, são instaladas em série. Uma vez concluída a primeira instalação de extensão, tentará-se a instalação da próxima extensão.
 
+## <a name="list-extensions-installed"></a>Extensões de lista instaladas
+
+Pode obter uma lista das extensões VM no seu servidor ativado arc a partir do portal Azure. Execute os seguintes passos para vê-los.
+
+1. A partir do seu navegador, aceda ao [portal Azure.](https://portal.azure.com)
+
+2. No portal, navegue pelos **Servidores - Azure Arc** e selecione a sua máquina híbrida da lista.
+
+3. Escolha **Extensões**, e a lista de extensões instaladas é devolvida.
+
+    ![Extensão VM da lista implantada para máquina selecionada](./media/manage-vm-extensions/list-vm-extensions.png)
+
 ## <a name="uninstall-extension"></a>Desinstalar extensão
 
 Pode remover uma ou mais extensões de um servidor ativado pelo Arco do portal Azure. Execute os seguintes passos para remover uma extensão.
@@ -52,7 +64,7 @@ Pode remover uma ou mais extensões de um servidor ativado pelo Arco do portal A
 
 4. Selecione **Desinstalar** e quando for solicitado para verificar, selecione **Sim** para prosseguir.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Pode implementar, gerir e remover extensões VM utilizando os modelos [Azure CLI,](manage-vm-extensions-cli.md) [PowerShell](manage-vm-extensions-powershell.md)ou [Azure Resource Manager](manage-vm-extensions-template.md).
 

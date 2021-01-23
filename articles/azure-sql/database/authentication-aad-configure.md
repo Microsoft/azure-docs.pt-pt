@@ -12,12 +12,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, sstein
 ms.date: 08/17/2020
-ms.openlocfilehash: 2c7db937905baed94c6fe81adeb44c8b3f5be52b
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: e19bf5b4ee5b6c48f002ca79711646cca7b0ec5f
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936078"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98729148"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Configure e gere a autenticação AD AD com Azure SQL
 
@@ -257,7 +257,7 @@ Os dois procedimentos seguintes mostram-lhe como providenciar um administrador d
 
     ![Selecione administrador do Diretório Ativo Azure](./media/authentication-aad-configure/select-azure-active-directory-admin.png)  
 
-6. No topo da página de administração do **Ative Directory,** selecione **SAVE**.
+6. No topo da página de administração do **Ative Directory,** selecione **Save**.
 
     ![salvar administrador](./media/authentication-aad-configure/save-admin.png)
 
@@ -344,7 +344,7 @@ Em todas as máquinas clientes, a partir das quais as suas aplicações ou utili
 
 - .NET Quadro 4.6 ou posteriormente de [https://msdn.microsoft.com/library/5a4x27ek.aspx](/dotnet/framework/install/guide-for-developers) .
 - Biblioteca de autenticação do Diretório Ativo Azure para o Servidor SQL *(ADAL.DLL*). Abaixo estão os links de descarregamento para instalar os mais recentes SSMS, ODBC e OLE DB que contém a biblioteca *ADAL.DLL.*
-  - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
+  - [O SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
   - [Controlador ODBC 17 para sql server](https://www.microsoft.com/download/details.aspx?id=56567)
   - [OLE DB Driver 18 para SQL Server](https://www.microsoft.com/download/details.aspx?id=56730)
 
@@ -532,7 +532,7 @@ sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -U bob@contoso.com -P MyA
 
 As orientações sobre problemas de resolução de problemas com a autenticação AZure AD podem ser encontradas no seguinte blog: <https://techcommunity.microsoft.com/t5/azure-sql-database/troubleshooting-problems-related-to-azure-ad-authentication-with/ba-p/1062991>
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para uma visão geral de logins, utilizadores, funções de base de dados e permissões na Base de Dados SQL, consulte [Logins, utilizadores, funções de base de dados e contas de utilizador.](logins-create-manage.md)
 - Para obter mais informações sobre os principais de bases de dados, veja [Principals (Principais)](/sql/relational-databases/security/authentication-access/principals-database-engine).

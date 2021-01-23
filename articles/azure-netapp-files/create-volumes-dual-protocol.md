@@ -1,5 +1,5 @@
 ---
-title: Criar um volume de duplo protocolo (NFSv3 e SMB) para ficheiros Azure NetApp Microsoft Docs
+title: Crie um volume de duplo protocolo (NFSv3 e SMB) para ficheiros Azure NetApp | Microsoft Docs
 description: Descreve como criar um volume que utiliza o protocolo duplo de NFSv3 e SMB com suporte para mapeamento de utilizador LDAP.
 services: azure-netapp-files
 documentationcenter: ''
@@ -12,21 +12,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 01/12/2020
+ms.date: 01/22/2020
 ms.author: b-juche
-ms.openlocfilehash: c914ab007f482e4d2b560b1cb461e27d4f4442ec
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 47aefecce846f58128335768018ba59d3520bd87
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133162"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98726685"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Criar um volume de duplo protocolo (NFSv3 e SMB) para ficheiros Azure NetApp
 
 O Azure NetApp Files suporta a criação de volumes utilizando NFSv3 (NFSv3 e NFSv4.1), SMB3 ou protocolo duplo. Este artigo mostra-lhe como criar um volume que utiliza o protocolo duplo de NFSv3 e SMB com suporte para mapeamento de utilizador LDAP.  
 
 
-## <a name="before-you-begin"></a>Before you begin 
+## <a name="before-you-begin"></a>Antes de começar 
 
 * Você já deve ter criado uma piscina de capacidade.  
     Consulte [configurar uma piscina de capacidade.](azure-netapp-files-set-up-capacity-pool.md)   
@@ -51,6 +51,7 @@ O Azure NetApp Files suporta a criação de volumes utilizando NFSv3 (NFSv3 e NF
     | `Unix`    | NFS   | Bits de modo NFSv3   | UNIX  | NFS e Windows   |
     | `Ntfs`    | Windows   | NTFS ACLs     | NTFS  |NFS e Windows|
 * Os utilizadores unix que montam o volume de estilo de segurança NTFS utilizando o NFS serão autenticados como utilizador do Windows `root` para o UNIX `root` e para todos `pcuser` os outros utilizadores. Certifique-se de que estas contas de utilizador existem no seu Ative Directory antes de montar o volume quando utilizar o NFS. 
+* Não precisa de um certificado de CA raiz de servidor para criar um volume de protocolo duplo. Só é necessário se o LDAP sobre o TLS estiver ativado.
 
 
 ## <a name="create-a-dual-protocol-volume"></a>Criar um volume de protocolo duplo
@@ -135,7 +136,7 @@ Tem de definir os seguintes atributos para utilizadores LDAP e grupos LDAP:
 
 Siga as instruções em [Configurar um cliente NFS para a Azure NetApp Files](configure-nfs-clients.md) para configurar o cliente NFS.  
 
-## <a name="next-steps"></a>Passos seguintes  
+## <a name="next-steps"></a>Próximos passos  
 
 * [Configurar um cliente NFS para o Azure NetApp Files](configure-nfs-clients.md)
 * [Resolver problemas de volumes de protocolo duplo](troubleshoot-dual-protocol-volumes.md)
