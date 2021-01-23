@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: article
 ms.date: 06/8/2020
 ms.author: chenyl
-ms.openlocfilehash: 4f70cbacf686210c1188cb0a87e6116af8ed4b01
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: dee15977318eda7bcd0b1950286bb33f621221dd
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763192"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98731589"
 ---
 # <a name="managed-identities-for-azure-signalr-service"></a>Identidades geridas para o Serviço Azure SignalR
 
@@ -44,7 +44,7 @@ A criação de uma instância do Serviço Azure SignalR com uma identidade atrib
 
 4. No **separador Utilizador atribuído,** selecione **Adicionar**.
 
-5. Procure a identidade que criou anteriormente e selecione-a. Selecione **Add** (Adicionar).
+5. Procure a identidade que criou anteriormente e selecione-a. Selecione **Adicionar**.
 
     :::image type="content" source="media/signalr-howto-use-managed-identity/user-identity-portal.png" alt-text="Adicionar uma identidade atribuída ao utilizador no portal":::
 
@@ -104,13 +104,13 @@ O Serviço SignalR pode aceder ao Key Vault para obter segredo usando a identida
 
 1. Adicione uma identidade atribuída ao sistema ou identidade atribuída ao utilizador para o Serviço Azure SignalR.
 
-2. Grant Secret leia permissão para a identidade gerida nas políticas de acesso no Cofre de Chaves. Consulte [atribuir uma política de acesso ao Cofre de Chaves utilizando o portal Azure](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal)
+2. Grant Secret leia permissão para a identidade gerida nas políticas de acesso no Cofre de Chaves. Consulte [atribuir uma política de acesso ao Cofre de Chaves utilizando o portal Azure](../key-vault/general/assign-access-policy-portal.md)
 
 Atualmente, esta funcionalidade pode ser utilizada nos seguintes cenários:
 
 - [Segredo de referência no padrão de URL a montante](./concept-upstream.md#key-vault-secret-reference-in-url-template-settings)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Desenvolvimento das Funções do Azure e configuração com o Azure SignalR Service](signalr-concept-serverless-development-config.md)

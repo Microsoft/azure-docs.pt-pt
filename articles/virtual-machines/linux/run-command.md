@@ -8,20 +8,20 @@ ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: how-to
 manager: carmonm
-ms.openlocfilehash: 5baa6d57bd3895640f1654cf7a5ebca52f101cbe
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: dae77dfb72fb6b11721500686991f2b199606b99
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970576"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737868"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-by-using-run-command"></a>Executar scripts de concha no seu Linux VM usando o Comando de Execução
 
-A função Comando de Execução utiliza o agente de máquina virtual (VM) para executar scripts de concha dentro de um VM Azure Linux. Pode utilizar estes scripts para a gestão geral de máquinas ou aplicações. Eles podem ajudá-lo a diagnosticar e remediar rapidamente o acesso vm e problemas de rede e levar o VM de volta a um bom estado.
+A funcionalidade Executar Comando utiliza a máquina virtual (VM) para executar scripts de shell numa VM Linux do Azure. Pode utilizar estes scripts para a gestão geral de computadores ou aplicações. Eles podem ajudá-lo a diagnosticar e remediar rapidamente o acesso vm e problemas de rede e levar o VM de volta a um bom estado.
 
 ## <a name="benefits"></a>Benefícios
 
-Pode aceder às suas máquinas virtuais de várias formas. O Comando de Execução pode executar scripts nas suas máquinas virtuais remotamente utilizando o agente VM. Utilize o Comando run através do portal Azure, [REST API,](/rest/api/compute/virtual%20machines%20run%20commands/runcommand)ou [Azure CLI](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) para Os VMs Linux.
+Pode aceder às suas máquinas virtuais de várias formas. O Comando de Execução pode executar scripts nas suas máquinas virtuais remotamente utilizando o agente VM. Utilize o Comando run através do portal Azure, [REST API,](/rest/api/compute/virtual%20machines%20run%20commands/runcommand)ou [Azure CLI](/cli/azure/vm/run-command#az_vm_run_command_invoke) para Os VMs Linux.
 
 Esta capacidade é útil em todos os cenários onde pretende executar um script dentro de uma máquina virtual. É uma das únicas formas de resolver problemas e remediar uma máquina virtual que não tem a porta RDP ou SSH aberta devido à configuração inadequada da rede ou do utilizador administrativo.
 
@@ -56,7 +56,7 @@ The entity was not found in this Azure location
 
 ## <a name="azure-cli"></a>CLI do Azure
 
-O exemplo a seguir utiliza o comando [de comando de execução az vm](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) para executar uma script de concha num VM Azure Linux.
+O exemplo a seguir utiliza o comando [de comando de execução az vm](/cli/azure/vm/run-command#az_vm_run_command_invoke) para executar uma script de concha num VM Azure Linux.
 
 ```azurecli-interactive
 az vm run-command invoke -g myResourceGroup -n myVm --command-id RunShellScript --scripts "apt-get update && apt-get install -y nginx"
@@ -88,7 +88,7 @@ O exemplo a seguir utiliza o [cmdlet Invoke-AzVMRunCommand](/powershell/module/a
 Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' -CommandId 'RunShellScript' -ScriptPath '<pathToScript>' -Parameter @{"arg1" = "var1";"arg2" = "var2"}
 ```
 
-## <a name="limiting-access-to-run-command"></a>Limitação do acesso ao Comando de Execução
+## <a name="limiting-access-to-run-command"></a>Limitar o acesso ao Comando Executar
 
 A listagem dos comandos de execução ou a apresentação dos detalhes de um comando requer a `Microsoft.Compute/locations/runCommands/read` permissão. O papel de [Leitor](../../role-based-access-control/built-in-roles.md#reader) incorporado e os níveis mais altos têm esta permissão.
 
@@ -96,6 +96,6 @@ Executar um comando requer a `Microsoft.Compute/virtualMachines/runCommand/actio
 
 Pode utilizar uma das [funções incorporadas](../../role-based-access-control/built-in-roles.md) ou criar um [papel personalizado](../../role-based-access-control/custom-roles.md) para utilizar o Comando Run.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para aprender sobre outras formas de executar scripts e comandos remotamente no seu VM, consulte [scripts Run no seu Linux VM](run-scripts-in-vm.md).
