@@ -13,22 +13,22 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71031c7f5db299fbb1b7c99014c30590fec89f03
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 0dcb6d24eacbe594a907f084874e76fea963c561
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222297"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725133"
 ---
 # <a name="control-access-with-sensitivity-labels"></a>Controlar o acesso com etiquetas de sensibilidade 
 
-[As etiquetas de sensibilidade](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels?view=o365-worldwide) ajudam-no a controlar o acesso ao seu conteúdo nas aplicações do Office 365 e em contentores como microsoft teams, Microsoft 365 Groups e SharePoint sites. Podem proteger o seu conteúdo sem impedir a colaboração e as capacidades de produção dos seus utilizadores. As etiquetas de sensibilidade permitem-lhe enviar os conteúdos da sua organização através de dispositivos, apps e serviços, protegendo os seus dados e cumprindo as suas políticas de conformidade e segurança. 
+[As etiquetas de sensibilidade](/microsoft-365/compliance/sensitivity-labels?view=o365-worldwide) ajudam-no a controlar o acesso ao seu conteúdo nas aplicações do Office 365 e em contentores como microsoft teams, Microsoft 365 Groups e SharePoint sites. Podem proteger o seu conteúdo sem impedir a colaboração e as capacidades de produção dos seus utilizadores. As etiquetas de sensibilidade permitem-lhe enviar os conteúdos da sua organização através de dispositivos, apps e serviços, protegendo os seus dados e cumprindo as suas políticas de conformidade e segurança. 
 
 Com etiquetas de sensibilidade pode:
 
 * **Classifique o conteúdo sem adicionar quaisquer definições de proteção**. Pode atribuir uma classificação a conteúdos (como um autocolante) que persista e vagueie com o seu conteúdo tal como é usado e partilhado. Pode utilizar esta classificação para gerar relatórios de utilização e ver dados de atividade dos seus conteúdos confidenciais.
 
-* **Impor definições de proteção tais como encriptação, marcas de água e restrições de acesso**. Por exemplo, os utilizadores podem aplicar uma etiqueta Confidencial a um documento ou e-mail, e esse rótulo pode [encriptar o conteúdo](https://docs.microsoft.com/microsoft-365/compliance/encryption-sensitivity-labels?view=o365-worldwide) e adicionar uma marca de água "Confidencial". Além disso, pode [aplicar uma etiqueta de sensibilidade a um recipiente](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide) como um site sharePoint e impor se os utilizadores externos podem aceder ao conteúdo que contém.
+* **Impor definições de proteção tais como encriptação, marcas de água e restrições de acesso**. Por exemplo, os utilizadores podem aplicar uma etiqueta Confidencial a um documento ou e-mail, e esse rótulo pode [encriptar o conteúdo](/microsoft-365/compliance/encryption-sensitivity-labels?view=o365-worldwide) e adicionar uma marca de água "Confidencial". Além disso, pode [aplicar uma etiqueta de sensibilidade a um recipiente](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide) como um site sharePoint e impor se os utilizadores externos podem aceder ao conteúdo que contém.
 
 Etiquetas de sensibilidade no e-mail e outros conteúdos viajam com o conteúdo. As etiquetas de sensibilidade nos recipientes podem restringir o acesso ao recipiente, mas o conteúdo do recipiente não herda o rótulo. Por exemplo, um utilizador poderia tirar conteúdo de um site protegido, descarregá-lo e partilhá-lo sem restrições, a menos que o conteúdo também tivesse uma etiqueta de sensibilidade.
 
@@ -52,7 +52,7 @@ Ao pensar em governar o acesso externo ao seu conteúdo, determine o seguinte:
 
 * Como vai definir o que é Alto, Médio ou Baixo Impacto Empresarial (HBI, MBI, LBI)? Considere o impacto para a sua organização se tipos específicos de conteúdo forem partilhados de forma inadequada.
 
-   * Conteúdo com tipos específicos de conteúdo inerentemente [sensível,](https://docs.microsoft.com/microsoft-365/compliance/apply-sensitivity-label-automatically?view=o365-worldwide)tais como cartões de crédito ou números de passaporte
+   * Conteúdo com tipos específicos de conteúdo inerentemente [sensível,](/microsoft-365/compliance/apply-sensitivity-label-automatically?view=o365-worldwide)tais como cartões de crédito ou números de passaporte
 
    * Conteúdo criado por grupos ou pessoas específicas (por exemplo, agentes de conformidade, gestores financeiros ou executivos)
 
@@ -66,21 +66,21 @@ Ao pensar em governar o acesso externo ao seu conteúdo, determine o seguinte:
 
 * Quais os predefinições para dados, sites ou Grupos Microsoft 365?
 
-* Onde utilizará rótulos de sensibilidade para [rotular e monitorizar,](https://docs.microsoft.com/microsoft-365/compliance/label-analytics?view=o365-worldwide)versus para [impor encriptação](https://docs.microsoft.com/microsoft-365/compliance/encryption-sensitivity-labels?view=o365-worldwide) ou para [impor restrições](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide)de acesso ao contentor?
+* Onde utilizará rótulos de sensibilidade para [rotular e monitorizar,](/microsoft-365/compliance/label-analytics?view=o365-worldwide)versus para [impor encriptação](/microsoft-365/compliance/encryption-sensitivity-labels?view=o365-worldwide) ou para [impor restrições](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide)de acesso ao contentor?
 
 **Para e-mail e conteúdo**
 
-* Pretende aplicar [automaticamente rótulos de sensibilidade](https://docs.microsoft.com/microsoft-365/compliance/apply-sensitivity-label-automatically?view=o365-worldwide) ao conteúdo, ou fazê-lo manualmente?
+* Pretende aplicar [automaticamente rótulos de sensibilidade](/microsoft-365/compliance/apply-sensitivity-label-automatically?view=o365-worldwide) ao conteúdo, ou fazê-lo manualmente?
 
-   * Se optar por fazê-lo manualmente, deseja [recomendar aos utilizadores que apliquem uma etiqueta?](https://docs.microsoft.com/microsoft-365/compliance/apply-sensitivity-label-automatically?view=o365-worldwide)
+   * Se optar por fazê-lo manualmente, deseja [recomendar aos utilizadores que apliquem uma etiqueta?](/microsoft-365/compliance/apply-sensitivity-label-automatically?view=o365-worldwide)
 
 **Para contentores**
 
 * Que critérios determinarão se grupos, equipas ou sites do SharePoint exigem que o acesso seja restringido utilizando etiquetas de sensibilidade?
 
-* Pretende apenas rotular o conteúdo destes contentores ou pretende [rotular automaticamente](https://docs.microsoft.com/microsoft-365/compliance/apply-sensitivity-label-automatically?view=o365-worldwide) os ficheiros existentes no SharePoint e no OneDrive?
+* Pretende apenas rotular o conteúdo destes contentores ou pretende [rotular automaticamente](/microsoft-365/compliance/apply-sensitivity-label-automatically?view=o365-worldwide) os ficheiros existentes no SharePoint e no OneDrive?
 
-Veja estes [cenários comuns para rótulos de sensibilidade](https://docs.microsoft.com/microsoft-365/compliance/get-started-with-sensitivity-labels?view=o365-worldwide) para outras ideias sobre como usar rótulos de sensibilidade.
+Veja estes [cenários comuns para rótulos de sensibilidade](/microsoft-365/compliance/get-started-with-sensitivity-labels?view=o365-worldwide) para outras ideias sobre como usar rótulos de sensibilidade.
 
 ### <a name="sensitivity-labels-on-email-and-content"></a>Etiquetas de sensibilidade no e-mail e conteúdo
 
@@ -100,7 +100,7 @@ Quando atribui um rótulo de sensibilidade a um documento ou e-mail, é como um 
 
 ### <a name="sensitivity-labels-on-containers"></a>Etiquetas de sensibilidade em recipientes
 
-Pode aplicar etiquetas de sensibilidade em recipientes como [os grupos Microsoft 365,](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-assign-sensitivity-labels) [Microsoft Teams](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide)e [sharePoint](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide)sites . Quando aplica esta etiqueta de sensibilidade a um recipiente suportado, a etiqueta aplica automaticamente as definições de classificação e proteção ao local ou grupo ligado. As etiquetas de sensibilidade nestes recipientes podem controlar os seguintes aspetos dos contentores:
+Pode aplicar etiquetas de sensibilidade em recipientes como [os grupos Microsoft 365,](../enterprise-users/groups-assign-sensitivity-labels.md) [Microsoft Teams](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide)e [sharePoint](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide)sites . Quando aplica esta etiqueta de sensibilidade a um recipiente suportado, a etiqueta aplica automaticamente as definições de classificação e proteção ao local ou grupo ligado. As etiquetas de sensibilidade nestes recipientes podem controlar os seguintes aspetos dos contentores:
 
 * **Privacidade**. Pode escolher quem pode ver o site: utilizadores específicos, todos os utilizadores internos, ou qualquer pessoa.
 
@@ -116,27 +116,27 @@ Pode aplicar etiquetas de sensibilidade em recipientes como [os grupos Microsoft
 
 Quando se aplica um rótulo de sensibilidade a um recipiente como um site sharePoint, este não é aplicado ao conteúdo: etiquetas de sensibilidade nos recipientes controlam o acesso ao conteúdo dentro do recipiente. 
 
-* Se pretender aplicar automaticamente etiquetas ao conteúdo dentro do recipiente, consulte [Aplicar automaticamente uma sensibilidade ao conteúdo](https://docs.microsoft.com/microsoft-365/compliance/apply-sensitivity-label-automatically?view=o365-worldwide).
+* Se pretender aplicar automaticamente etiquetas ao conteúdo dentro do recipiente, consulte [Aplicar automaticamente uma sensibilidade ao conteúdo](/microsoft-365/compliance/apply-sensitivity-label-automatically?view=o365-worldwide).
 
-* Se pretender que os utilizadores possam aplicar manualmente etiquetas neste conteúdo, certifique-se de que [ativou etiquetas de sensibilidade para ficheiros office no SharePoint e OneDrive](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-sharepoint-onedrive-files?view=o365-worldwide).
+* Se pretender que os utilizadores possam aplicar manualmente etiquetas neste conteúdo, certifique-se de que [ativou etiquetas de sensibilidade para ficheiros office no SharePoint e OneDrive](/microsoft-365/compliance/sensitivity-labels-sharepoint-onedrive-files?view=o365-worldwide).
 
 ### <a name="plan-to-implement-sensitivity-labels"></a>Plano para implementar rótulos de sensibilidade
 
 Depois de ter determinado como pretende utilizar etiquetas de sensibilidade e em que conteúdo e sites pretende aplicá-los, consulte a seguinte documentação para o ajudar a executar a sua implementação.
 
-1. [Começar com rótulos de sensibilidade](https://docs.microsoft.com/microsoft-365/compliance/get-started-with-sensitivity-labels?view=o365-worldwide)
+1. [Começar com rótulos de sensibilidade](/microsoft-365/compliance/get-started-with-sensitivity-labels?view=o365-worldwide)
 
-2. [Criar uma estratégia de implantação](https://docs.microsoft.com/microsoft-365/compliance/get-started-with-sensitivity-labels?view=o365-worldwide)
+2. [Criar uma estratégia de implantação](/microsoft-365/compliance/get-started-with-sensitivity-labels?view=o365-worldwide)
 
-3. [Criar e publicar rótulos de sensibilidade](https://docs.microsoft.com/microsoft-365/compliance/create-sensitivity-labels?view=o365-worldwide)
+3. [Criar e publicar rótulos de sensibilidade](/microsoft-365/compliance/create-sensitivity-labels?view=o365-worldwide)
 
-4. [Restringir o acesso ao conteúdo usando etiquetas de sensibilidade para aplicar encriptação](https://docs.microsoft.com/microsoft-365/compliance/encryption-sensitivity-labels?view=o365-worldwide)
+4. [Restringir o acesso ao conteúdo usando etiquetas de sensibilidade para aplicar encriptação](/microsoft-365/compliance/encryption-sensitivity-labels?view=o365-worldwide)
 
-5. [Use rótulos de sensibilidade com equipas, grupos e sites](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide)
+5. [Use rótulos de sensibilidade com equipas, grupos e sites](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide)
 
-6. [Permitir etiquetas de sensibilidade para ficheiros office em SharePoint e OneDrive](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-sharepoint-onedrive-files?view=o365-worldwide)
+6. [Permitir etiquetas de sensibilidade para ficheiros office em SharePoint e OneDrive](/microsoft-365/compliance/sensitivity-labels-sharepoint-onedrive-files?view=o365-worldwide)
 
-### <a name="next-steps"></a>Passos seguintes
+### <a name="next-steps"></a>Próximos passos
 
 Consulte os seguintes artigos sobre a garantia do acesso externo aos recursos. Recomendamos que tome as ações na ordem listada.
 

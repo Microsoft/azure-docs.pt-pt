@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c45b362bc37df71346fc3b635c8ae4a51f62cdc
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: de01788c01d4d6dedd9563faaaac07bff30bbd97
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95919917"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724764"
 ---
 # <a name="build-resilience-in-your-hybrid-architecture"></a>Construa resiliência na sua arquitetura híbrida
 
@@ -82,7 +82,7 @@ Para implementar a Autenticação Pass-through, consulte os seguintes recursos.
 
 A Federação envolve a criação de uma relação de confiança entre a Azure AD e o serviço da federação, que inclui a troca de pontos finais, certificados de assinatura de fichas simbólicas e outros metadados. Quando um pedido chega ao Azure AD, lê a configuração e redireciona o utilizador para os pontos finais configurados. Nessa altura, o utilizador interage com o serviço da federação, que emite uma afirmação SAML validada pela Azure AD. 
 
-O diagrama seguinte mostra uma topologia de uma empresa Ative Directory Federation Services (AD FS), implantação que inclui servidores de procuração de federação redundante e aplicações web em vários centros de dados no local. Esta configuração baseia-se em componentes de infraestrutura de rede empresarial como DNS, Network Load Balance com capacidades de geofinidade, firewalls, etc. Todos os componentes e ligações no local são suscetíveis a falhas. Visite a Documentação de [Planeamento da Capacidade da AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/design/planning-for-ad-fs-server-capacity) para obter mais informações.
+O diagrama seguinte mostra uma topologia de uma empresa Ative Directory Federation Services (AD FS), implantação que inclui servidores de procuração de federação redundante e aplicações web em vários centros de dados no local. Esta configuração baseia-se em componentes de infraestrutura de rede empresarial como DNS, Network Load Balance com capacidades de geofinidade, firewalls, etc. Todos os componentes e ligações no local são suscetíveis a falhas. Visite a Documentação de [Planeamento da Capacidade da AD FS](/windows-server/identity/ad-fs/design/planning-for-ad-fs-server-capacity) para obter mais informações.
 
 > [!NOTE]
 >  A Federação tem o maior número de dependências no local e, portanto, os pontos mais potenciais de insucesso. Embora este diagrama mostre AD FS, outros fornecedores de identidade no local estão sujeitos a considerações de design semelhantes para alcançar alta disponibilidade, escalabilidade e falha.
@@ -99,13 +99,13 @@ Se estiver a implementar uma estratégia de autenticação federada ou quiser to
 
 * [Lista de compatibilidades de federação do Azure AD](../hybrid/how-to-connect-fed-compatibility.md)
 
-* Siga a documentação de [planeamento de capacidade da AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/design/planning-for-ad-fs-server-capacity)
+* Siga a documentação de [planeamento de capacidade da AD FS](/windows-server/identity/ad-fs/design/planning-for-ad-fs-server-capacity)
 
-* [Implantação de FS AD em Azure IaaS](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs)
+* [Implantação de FS AD em Azure IaaS](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs)
 
 * [Ativar o PHS](../hybrid/tutorial-phs-backup.md) juntamente com a sua federação
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Recursos de resiliência para administradores e arquitetos
  
 * [Construir resiliência com gestão credencial](resilience-in-credentials.md)

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/22/2020
-ms.openlocfilehash: 01af7b251c9ce3bfebb87016c85ea3efd9c0e8ac
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: dbd7937667a3c4d5af9f13e15cdd4ff2081241f0
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928771"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98723885"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Como ligar a Azure Data Factory e a Azure Purview
 
@@ -35,7 +35,7 @@ Várias fábricas de dados Azure podem ligar-se a um único Catálogo de Dados A
     - **Não-Adcêncio**: O utilizador atual não tem acesso à fábrica de dados, pelo que o estado de ligação é desconhecido.
  >[!Note]
  >Para visualizar as ligações da Data Factory, é necessário atribuir-lhe qualquer uma das funções de Purview:
- >- Contribuidor
+ >- Contribuinte
  >- Proprietário
  >- Leitor
  >- Administrador de Acesso dos Utilizadores
@@ -99,9 +99,9 @@ A integração entre a Data Factory e a Purview suporta apenas um subconjunto do
 
 | Sistema de armazenamento de dados | Suportado como fonte | Suportado como pia |
 | ------------------- | ------------------- | ----------------- |
-| ADLS Gen1 (sem suporte JSON) | Sim | Sim (apenas cópia não binária) |
-| ADLS Gen2 (sem suporte JSON) | Sim | Sim |
-| Azure Blob (sem suporte JSON) | Sim | Sim |
+| ADLS Gen1 | Sim | Sim (apenas cópia não binária) |
+| ADLS Gen2 | Sim | Sim |
+| Blob do Azure | Sim | Sim |
 | Azure Cosmos DB (SQL API) | Sim | Sim |
 | Azure Cosmos DB (Mongo API) | Sim | Sim |
 | Azure Cognitive Search | Sim | Sim |
@@ -212,7 +212,7 @@ No exemplo seguinte, um conjunto de recursos Azure Data Lake Gen2 é produzido a
 
 :::image type="content" source="./media/how-to-link-azure-data-factory/adf-resource-set-lineage.png" alt-text="Screenshot mostrando a linhagem para um conjunto de recursos." lightbox="./media/how-to-link-azure-data-factory/adf-resource-set-lineage.png":::
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Guia do utilizador da linhagem do catálogo](catalog-lineage-user-guide.md)
 - [Link para Azure Data Share para linhagem](how-to-link-azure-data-share.md)

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cd782cdab625934fe60617142e5ac0baf756398
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 614b3f927dc22bc534168f8fe95cc2f97031b621
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80128768"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725528"
 ---
 # <a name="troubleshooting-devices-using-the-dsregcmd-command"></a>Dispositivos de resolução de problemas utilizando o comando dsregcmd
 
@@ -305,10 +305,10 @@ Esta secção apresenta a saída das verificações de sanidade realizadas num d
 
 ## <a name="ngc-prerequisite-check"></a>Verificação pré-requisito da NGC
 
-Esta secção realiza os controlos perquisitos para o provisionamento do Windows Hello for Business (WHFB). 
+Esta secção realiza os controlos pré-requisitos para o provisionamento do Windows Hello for Business (WHFB). 
 
 > [!NOTE]
-> Pode não ver os detalhes de verificação pré-requisitos da NGC em dsregcmd/status se o utilizador já configurar com sucesso o WHFB.
+> Pode não ver os detalhes pré-requisitos da NGC em dsregcmd/status se o utilizador já configurar com sucesso o WHFB.
 
 - **IsDeviceJoined:** - set to "YES" if the device is join to Azure AD.
 - **IsUserAzureAD:** - Definir para "SIM" se o utilizador registado estiver presente no Azure AD .
@@ -343,6 +343,6 @@ Esta secção realiza os controlos perquisitos para o provisionamento do Windows
 +----------------------------------------------------------------------+
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para dúvidas, consulte a [faq de gestão](faq.md) de dispositivos

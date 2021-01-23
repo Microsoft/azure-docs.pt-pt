@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 10/22/2020
-ms.openlocfilehash: 9a35c0dc8a3b994b015d7a8d64f76f7e10d95a00
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 58563629b30e7be764732a9810162e1a0b1931e6
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97722407"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725841"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Arquitetura de conectividade do Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -107,11 +107,11 @@ Implementar a SQL Managed Instance numa sub-rede dedicada dentro da rede virtual
 - **Endereços IP suficientes:** A sub-rede SQL Managed Instance deve ter pelo menos 32 endereços IP. Para obter mais informações, consulte [determine o tamanho da sub-rede para sql Managed Instance](vnet-subnet-determine-size.md). Pode implementar casos geridos [na rede existente](vnet-existing-add-subnet.md) depois de a configurar para satisfazer os [requisitos de networking para a SQL Managed Instance](#network-requirements). Caso contrário, crie uma [nova rede e sub-rede](virtual-network-subnet-create-arm-template.md).
 
 > [!IMPORTANT]
-> Quando cria um caso gerido, é aplicada uma política de intenções de rede na sub-rede para evitar alterações não conformes na configuração da rede. Após a remoção da última instância da sub-rede, a política de intenções de rede também é removida. As regras abaixo são apenas para fins informativos, e não deve implantá-las usando o modelo ARM / PowerShell /CLI. Se quiser utilizar o modelo oficial mais recente, poderá sempre [recuperá-lo do portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal).
+> Quando cria um caso gerido, é aplicada uma política de intenções de rede na sub-rede para evitar alterações não conformes na configuração da rede. Após a remoção da última instância da sub-rede, a política de intenções de rede também é removida. As regras abaixo são apenas para fins informativos, e não deve implantá-las usando o modelo ARM / PowerShell /CLI. Se quiser utilizar o modelo oficial mais recente, poderá sempre [recuperá-lo do portal](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
 ### <a name="mandatory-inbound-security-rules-with-service-aided-subnet-configuration"></a>Regras de segurança obrigatórias de entrada com configuração de sub-rede ajudada pelo serviço
 
-| Nome       |Porta                        |Protocolo|Origem           |Destino|Ação|
+| Name       |Porta                        |Protocolo|Origem           |Destino|Ação|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |gestão  |9000, 9003, 1438, 1440, 1452|TCP     |SqlManagement    |SUB-REDE MI  |Permitir |
 |            |9000, 9003                  |TCP     |Serra Corpnet       |SUB-REDE MI  |Permitir |
@@ -121,14 +121,14 @@ Implementar a SQL Managed Instance numa sub-rede dedicada dentro da rede virtual
 
 ### <a name="mandatory-outbound-security-rules-with-service-aided-subnet-configuration"></a>Regras de segurança obrigatórias de saída com configuração de sub-rede ajudada pelo serviço
 
-| Nome       |Porta          |Protocolo|Origem           |Destino|Ação|
+| Name       |Porta          |Protocolo|Origem           |Destino|Ação|
 |------------|--------------|--------|-----------------|-----------|------|
 |gestão  |443, 12000    |TCP     |SUB-REDE MI        |AzureCloud |Permitir |
 |mi_subnet   |Qualquer           |Qualquer     |SUB-REDE MI        |SUB-REDE MI  |Permitir |
 
 ### <a name="user-defined-routes-with-service-aided-subnet-configuration"></a>Rotas definidas pelo utilizador com configuração de sub-rede ajudada pelo serviço
 
-|Nome|Prefixo de endereço|Próximo salto|
+|Name|Prefixo de endereço|Próximo salto|
 |----|--------------|-------|
 |sub-rede-para-vnetlocal|SUB-REDE MI|Rede virtual|
 |mi-13-64-11-nexthop-internet|13.64.0.0/11|Internet|
@@ -319,7 +319,7 @@ As seguintes funcionalidades de rede virtual não são atualmente *suportadas* c
 - **Gateway NAT**: A utilização [da Rede Virtual Azure NAT](../../virtual-network/nat-overview.md) para controlar a conectividade de saída com um endereço IP público específico tornaria a SQL Managed Instance indisponível. O serviço SQL Managed Instance está atualmente limitado ao uso de balanceador de carga básico que não proporciona coexistência de fluxos de entrada e saída com a Rede Virtual NAT.
 - **IPv6 para Azure Virtual Network**: Implantar a SQL Managed Instance para [dupla pilha redes virtuais IPv4/IPv6](../../virtual-network/ipv6-overview.md) deverá falhar. Associar o grupo de segurança da rede (NSG) ou a tabela de rotas (UDR) que contenha prefixos de endereço IPv6 na sub-rede SQL Managed Instance, ou adicionar prefixos de endereço IPv6 a NSG ou UDR que já esteja associado à sub-rede de instância gerida, tornaria indisponíveis as instâncias geridas sql. As implementações de Exemplos Geridos SQL para uma sub-rede com NSG e UDR que já têm prefixos IPv6 devem falhar.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para uma visão geral, veja [o que é Azure SQL Managed Instance?](sql-managed-instance-paas-overview.md). .
 - Saiba como [configurar uma nova rede virtual Azure](virtual-network-subnet-create-arm-template.md) ou uma [rede virtual Azure existente](vnet-existing-add-subnet.md) onde pode implementar a SQL Managed Instance.

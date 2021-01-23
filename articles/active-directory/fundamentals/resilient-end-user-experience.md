@@ -1,5 +1,5 @@
 ---
-title: Experiência resiliente de utilizador final utilizando Azure AD B2C / Microsoft Docs
+title: Experiência resiliente de utilizador final usando Azure AD B2C | Microsoft Docs
 description: Métodos para construir resiliência na experiência do utilizador final usando Azure AD B2C
 services: active-directory
 ms.service: active-directory
@@ -13,12 +13,12 @@ ms.reviewer: ''
 ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c695466fbd50435a85c63842ceb50ce80765760
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: f6896a812ec173994a1299a28ff2e99a0f351391
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97630297"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724446"
 ---
 # <a name="resilient-end-user-experience"></a>Experiência resiliente do utilizador final
 
@@ -34,19 +34,19 @@ A experiência de inscrição e de inscrição no utilizador final é composta p
 
 ## <a name="choose-between-user-flow-and-custom-policy"></a>Escolha entre o fluxo do utilizador e a política personalizada  
 
-Para ajudá-lo a configurar as tarefas de identidade mais comuns, o Azure AD B2C fornece fluxos de utilizador configuráveis [incorporados](https://docs.microsoft.com/azure/active-directory-b2c/user-flow-overview). Você também pode construir suas próprias [políticas personalizadas,](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)que lhe oferecem a máxima flexibilidade. No entanto, é recomendado usar políticas personalizadas apenas para abordar cenários complexos.
+Para ajudá-lo a configurar as tarefas de identidade mais comuns, o Azure AD B2C fornece fluxos de utilizador configuráveis [incorporados](../../active-directory-b2c/user-flow-overview.md). Você também pode construir suas próprias [políticas personalizadas,](../../active-directory-b2c/custom-policy-overview.md)que lhe oferecem a máxima flexibilidade. No entanto, é recomendado usar políticas personalizadas apenas para abordar cenários complexos.
 
 ### <a name="how-to-decide-between-user-flow-and-custom-policy"></a>Como decidir entre o fluxo do utilizador e a política personalizada
 
 Escolha fluxos de utilizador incorporados se os seus requisitos de negócio puderem ser cumpridos por eles. Uma vez amplamente testado pela Microsoft, pode minimizar os testes necessários para validar o nível de aplicação funcional, desempenho ou escala destes fluxos de utilizador de identidade. Ainda precisa de testar as suas aplicações para funcionalidade, desempenho e escala.
 
-Caso [escolha políticas personalizadas](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started) devido aos requisitos do seu negócio, certifique-se de que realiza testes de nível de política para testes funcionais, de desempenho ou escala, além de testes ao nível da aplicação.
+Caso [escolha políticas personalizadas](../../active-directory-b2c/custom-policy-get-started.md) devido aos requisitos do seu negócio, certifique-se de que realiza testes de nível de política para testes funcionais, de desempenho ou escala, além de testes ao nível da aplicação.
 
-Veja o artigo que [compara fluxos de utilizadores e polícias personalizados](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview#comparing-user-flows-and-custom-policies) para ajudá-lo a decidir.
+Veja o artigo que [compara fluxos de utilizadores e polícias personalizados](../../active-directory-b2c/custom-policy-overview.md#comparing-user-flows-and-custom-policies) para ajudá-lo a decidir.
 
 ## <a name="choose-multiple-idps"></a>Escolha vários IDPs
 
-Quando utilizar um [fornecedor de identidade externo,](https://docs.microsoft.com/azure/active-directory-b2c/technical-overview#external-identity-providers) como o Facebook, certifique-se de ter um plano de recuo no caso de o fornecedor externo ficar indisponível.
+Quando utilizar um [fornecedor de identidade externo,](../../active-directory-b2c/technical-overview.md#external-identity-providers) como o Facebook, certifique-se de ter um plano de recuo no caso de o fornecedor externo ficar indisponível.
 
 ### <a name="how-to-set-up-multiple-idps"></a>Como configurar vários IDPs
 
@@ -58,11 +58,11 @@ Como parte do processo de registo do fornecedor de identidade externo, inclua um
 
  2. Configurar uma política de perfil para permitir que os utilizadores [liguem a outra identidade à sua conta](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/account-linking) depois de iniciarem a sua sessão.
 
- 3. Notifique e permita que os utilizadores [mudem para um IDP alternativo](https://docs.microsoft.com/azure/active-directory-b2c/customize-ui-with-html#configure-dynamic-custom-page-content-uri) durante uma paragem.
+ 3. Notifique e permita que os utilizadores [mudem para um IDP alternativo](../../active-directory-b2c/customize-ui-with-html.md#configure-dynamic-custom-page-content-uri) durante uma paragem.
 
 ## <a name="availability-of-multi-factor-authentication"></a>Disponibilidade de autenticação multi-factor
 
-Ao utilizar um [serviço telefónico para autenticação multi-factor (MFA), certifique-se](https://docs.microsoft.com/azure/active-directory-b2c/phone-authentication)de considerar um prestador de serviços alternativo. O telco local ou o prestador de serviços telefónicos podem sofrer interrupções no seu serviço.
+Ao utilizar um [serviço telefónico para autenticação multi-factor (MFA), certifique-se](../../active-directory-b2c/phone-authentication.md)de considerar um prestador de serviços alternativo. O telco local ou o prestador de serviços telefónicos podem sofrer interrupções no seu serviço.
 
 ### <a name="how-to-choose-an-alternate-mfa"></a>Como escolher um MFA alternativo  
 
@@ -95,7 +95,7 @@ As redes de entrega de conteúdos (CDNs) são melhores performantes e menos disp
 
 Teste periodicamente a disponibilidade do seu CDN e o desempenho da distribuição de conteúdos através de cenários de ponta a ponta e testes de carga. Se está a planear um próximo aumento devido à promoção ou tráfego de férias, reveja as suas estimativas para testes de carga.
   
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Recursos de resiliência para desenvolvedores Azure AD B2C](resilience-b2c.md)
   

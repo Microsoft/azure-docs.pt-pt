@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: overview
-ms.date: 01/20/2021
+ms.date: 01/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae7ae239493c999d98100bf9dee4f4f0183addf2
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: c6f4659b9ee809cc1f1caeb1cb9c0d626b1b3a3b
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98660818"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725659"
 ---
 # <a name="what-is-azure-active-directory-authentication"></a>O que é a autenticação do Azure Ative Directory?
 
@@ -29,6 +29,8 @@ Uma das principais características de uma plataforma de identidade é verificar
 * Autenticação sem palavra-passe
 
 Veja o nosso pequeno vídeo para saber mais sobre estes componentes de autenticação.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4KVJA]
 
 ## <a name="improve-the-end-user-experience"></a>Melhorar a experiência do utilizador final
 
@@ -86,7 +88,7 @@ Quando se inscreve com um método sem palavras-passe, as credenciais são fornec
 
 O Azure AD fornece formas de autenticar de forma nativa utilizando métodos sem palavras-passe para simplificar a experiência de entrada para os utilizadores e reduzir o risco de ataques.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para começar, consulte o [tutorial para reset de senha de autosserviço (SSPR)][tutorial-sspr] e [autenticação multi-factor AD Azure][tutorial-azure-mfa].
 

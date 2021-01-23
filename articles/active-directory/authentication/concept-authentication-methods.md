@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 12/14/2020
+ms.date: 01/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 24b29cfb1f58a61193f67ba924e583d4264dfc51
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 1459dd41fcdc30a29a5f9f93ec9704083767a342
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562128"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725676"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Que métodos de autenticação e verificação estão disponíveis no Azure Active Directory?
 
@@ -70,7 +70,7 @@ Os seguintes contornos da tabela quando um método de autenticação pode ser ut
 | Chave de segurança FIDO2 (pré-visualização)   | Sim                    | MFA                       |
 | Fichas de hardware do OATH (pré-visualização) | Não                     | MFA                       |
 | Fichas de software OATH           | Não                     | MFA                       |
-| SMS                            | Sim (pré-visualização)          | MFA e SSPR              |
+| SMS                            | Sim                    | MFA e SSPR              |
 | Chamada de voz                     | Não                     | MFA e SSPR              |
 | Palavra-passe                       | Sim                    |                           |
 
@@ -83,7 +83,7 @@ Para saber mais sobre o funcionamento de cada método de autenticação, consult
 * [Chave de segurança FIDO2 (pré-visualização)](concept-authentication-passwordless.md#fido2-security-keys)
 * [Fichas de hardware do OATH (pré-visualização)](concept-authentication-oath-tokens.md#oath-hardware-tokens-preview)
 * [Fichas de software OATH](concept-authentication-oath-tokens.md#oath-software-tokens)
-* [S-in SMS (pré-visualização)](howto-authentication-sms-signin.md) e [verificação](concept-authentication-phone-options.md#mobile-phone-verification)
+* [Sindução](howto-authentication-sms-signin.md) e [verificação](concept-authentication-phone-options.md#mobile-phone-verification) por SMS
 * [Verificação de chamadas de voz](concept-authentication-phone-options.md)
 * Palavra-passe
 
@@ -96,7 +96,7 @@ Em certos cenários, podem ser utilizados os seguintes métodos de verificação
 * [Questões de segurança](concept-authentication-security-questions.md) - apenas utilizadas para sSPR
 * [Endereço de e-mail](concept-sspr-howitworks.md#authentication-methods) - usado apenas para SSPR
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para começar, consulte o [tutorial para reset de senha de autosserviço (SSPR)][tutorial-sspr] e [autenticação multi-factor AD Azure][tutorial-azure-mfa].
 

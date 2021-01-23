@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8bfc3fb239f30911eddf0aa27496a465e36c486
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8fed78d7d2250d749ced7fe343689df76329b60d
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95919881"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724665"
 ---
 # <a name="build-resilience-in-application-access-with-application-proxy"></a>Criar resiliência no acesso à aplicação com Aplicação Proxy
 
@@ -27,7 +27,7 @@ Application Proxy é uma funcionalidade do Azure AD que permite aos utilizadores
 Os utilizadores acedem aos recursos no local através de um URL publicado via Application Proxy. São redirecionados para o sinal AZure AD na página. O serviço de Procuração de Aplicações em Azure AD envia então um símbolo para o conector Proxy de aplicação na rede corporativa, que passa o token para o Diretório Ativo no local O utilizador autenticado pode então aceder ao recurso no local. No diagrama abaixo, [os conectores](../manage-apps/application-proxy-connectors.md) são indicados num [grupo de conector](../manage-apps/application-proxy-connector-groups.md).
 
 > [!IMPORTANT]
-> Ao publicar as suas aplicações através do Application Proxy, tem de implementar [o planeamento de capacidade e o despedimento adequado para os conectores Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors#capacity-planning).
+> Ao publicar as suas aplicações através do Application Proxy, tem de implementar [o planeamento de capacidade e o despedimento adequado para os conectores Application Proxy](../manage-apps/application-proxy-connectors.md#capacity-planning).
 
 ![Diagrama de arquitetura da Aplicação y](./media/resilience-on-prem-access/admin-resilience-app-proxy.png))
 
@@ -43,7 +43,7 @@ Para implementar o acesso remoto com a Azure AD Application Proxy, consulte os s
 
 * [Desenhe uma estratégia resiliente de controlo de acessos](../authentication/concept-resilient-controls.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Recursos de resiliência para administradores e arquitetos
  
 * [Construir resiliência com gestão credencial](resilience-in-credentials.md)

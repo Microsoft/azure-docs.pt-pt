@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 09/21/2020
-ms.openlocfilehash: 6b217e77310224779ea3ea840e613e28da6c86a3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 5d15947254d80d97b6a241a717fb7d33a3d5ccb5
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92779871"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724021"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Perguntas frequentes (FAQ) sobre o Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -118,7 +118,7 @@ A alteração de um nome de instância gerida não é suportada.
 
 Sim, A zona de DNS padrão de Instância Gerida *(database.windows.net DS) pode* ser alterada. 
 
-Para utilizar outra zona DNS em vez do padrão, por exemplo, *.contoso.com* : 
+Para utilizar outra zona DNS em vez do padrão, por exemplo, *.contoso.com*: 
 - Use o CliConfig para definir um pseudónimo. A ferramenta é apenas um invólucro de definições de registo, para que possa ser feito usando a política de grupo ou um script também.
 - Utilize *CNAME* com a opção *TrustServerCertificate=true.*
 
@@ -192,7 +192,7 @@ Não, não são apoiados. Pode utilizar [DMVs](../database/monitoring-with-dmvs.
 
 **Posso criar alertas métricos no SQL Managed Instance?**
 
-Sim. Para obter instruções, consulte [Criar alertas para a sql Managed Instance](alerts-create.md).
+Yes. Para obter instruções, consulte [Criar alertas para a sql Managed Instance](alerts-create.md).
 
 **Posso criar alertas métricos numa base de dados em casos geridos?**
 
@@ -230,9 +230,9 @@ Para acompanhar quando foram realizadas cópias de segurança automatizadas em C
 
 Sim, pode criar uma cópia-apenas cópia de backup no seu Azure Blob Storage, mas só será restaurado em Caso Gerido. Para mais informações, consulte [a cópia de segurança.](/sql/relational-databases/backup-restore/copy-only-backups-sql-server?preserve-view=true&view=sql-server-ver15) No entanto, a cópia de segurança só é impossível se a base de dados for encriptada pelo TDE gerido pelo serviço, uma vez que o certificado utilizado para encriptação é inacessível. Nesse caso, utilize a função de restauro ponto-a-tempo para mover a base de dados para outra SQL Managed Instance ou mudar para a chave gerida pelo cliente.
 
-**A restauração nativa (de ficheiros .bak) para Instância Gerida é suportada?**
+**A restauração nativa (de .bak ficheiros) para a Instância Gerida é suportada?**
 
-Sim, é suportado e disponível para versões SQL Server 2005+.  Para utilizar a restauração nativa, faça o upload do seu ficheiro .bak para o armazenamento de blob Azure e execute os comandos T-SQL. Para mais detalhes, consulte [a restauração nativa da URL.](./migrate-to-instance-from-sql-server.md#native-restore-from-url)
+Sim, é suportado e disponível para versões SQL Server 2005+.  Para utilizar a restauração nativa, faça o upload do seu ficheiro de .bak para o armazenamento de blob Azure e execute comandos T-SQL. Para mais detalhes, consulte [a restauração nativa da URL.](./migrate-to-instance-from-sql-server.md#native-restore-from-url)
 
 ## <a name="business-continuity"></a>Continuidade do negócio
 
@@ -254,11 +254,11 @@ Isto é para garantir um fluxo ininterrupto do tráfego de gestão, a fim de cum
 
 **Posso obter os intervalos ip de origem que são usados para o tráfego de gestão de entrada?**
 
-Sim. Pode analisar o tráfego que passa pelo seu grupo de segurança de redes [configurando os registos de fluxo do Observador de Rede](../../network-watcher/network-watcher-monitoring-overview.md#analyze-traffic-to-or-from-a-network-security-group).
+Yes. Pode analisar o tráfego que passa pelo seu grupo de segurança de redes [configurando os registos de fluxo do Observador de Rede](../../network-watcher/network-watcher-monitoring-overview.md#analyze-traffic-to-or-from-a-network-security-group).
 
 **Posso definir o NSG para controlar o acesso ao ponto final de dados (porta 1433)?**
 
-Sim. Depois de ser a provisionada uma Instância Gerida, pode definir o NSG que controla o acesso à porta 1433. É aconselhável reduzir ao máximo o seu intervalo de IP.
+Yes. Depois de ser a provisionada uma Instância Gerida, pode definir o NSG que controla o acesso à porta 1433. É aconselhável reduzir ao máximo o seu intervalo de IP.
 
 **Posso definir a firewall NVA ou no local para filtrar o tráfego de gestão de saída com base em FQDNs?**
 
@@ -269,7 +269,7 @@ Não. Isto não é apoiado por várias razões:
 
 **Posso definir o NVA ou firewall para o tráfego de não gestão de saída?**
 
-Sim. A forma mais simples de o conseguir é adicionar a regra 0/0 a uma UDR associada à sub-rede de instância gerida para encaminhar o tráfego através da NVA.
+Yes. A forma mais simples de o conseguir é adicionar a regra 0/0 a uma UDR associada à sub-rede de instância gerida para encaminhar o tráfego através da NVA.
  
 **Quantos endereços IP preciso para uma Instância Gerida?**
 
@@ -316,7 +316,7 @@ Por esta razão, desencorajamos vivamente a imutabilidade do endereço IP, uma v
 
 **A Managed Instance tem um ponto final público?**
 
-Sim. A Managed Instance tem um ponto final público que é por padrão usado apenas para Gestão de Serviços, mas um cliente pode habilitar o acesso aos dados também. Para obter mais detalhes, consulte [a Utilização sql Managed Instance com pontos finais públicos](./public-endpoint-overview.md). Para configurar o ponto final público, vá ao [ponto final público configure em SQL Managed Instance](public-endpoint-configure.md).
+Yes. A Managed Instance tem um ponto final público que é por padrão usado apenas para Gestão de Serviços, mas um cliente pode habilitar o acesso aos dados também. Para obter mais detalhes, consulte [a Utilização sql Managed Instance com pontos finais públicos](./public-endpoint-overview.md). Para configurar o ponto final público, vá ao [ponto final público configure em SQL Managed Instance](public-endpoint-configure.md).
 
 **Como é que a Managed Instance controla o acesso ao ponto final público?**
 
@@ -326,7 +326,7 @@ Os serviços de gestão e implantação conectam-se a uma instância gerida util
 
 **Posso utilizar o ponto final público para aceder aos dados nas bases de dados de Instância Gerida?**
 
-Sim. O cliente terá de permitir o acesso de dados de ponto final público a partir do [portal Azure](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal)  /  [PowerShell](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-using-powershell) /ARM e configurar o NSG para bloquear o acesso à porta de dados (porta número 3342). Para obter mais informações, consulte o [ponto final público Configure em Azure SQL Managed Instance](public-endpoint-configure.md) e Use [Azure SQL Managed Instance de forma segura com o ponto final público](public-endpoint-overview.md). 
+Yes. O cliente terá de permitir o acesso de dados de ponto final público a partir do [portal Azure](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal)  /  [PowerShell](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-using-powershell) /ARM e configurar o NSG para bloquear o acesso à porta de dados (porta número 3342). Para obter mais informações, consulte o [ponto final público Configure em Azure SQL Managed Instance](public-endpoint-configure.md) e Use [Azure SQL Managed Instance de forma segura com o ponto final público](public-endpoint-overview.md). 
 
 **Posso especificar uma porta personalizada para o ponto final de dados SQL?**
 
@@ -339,7 +339,7 @@ O prescêdo do circuito da Rota Expresso é a forma preferida de o fazer. O espr
 > [!IMPORTANT]
 > [Em 22/9/2020 anunciamos a rede virtual global que procura clusters virtuais recém-criados.](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/) Isto significa que o espreitamento global da rede virtual é suportado para sql Managed Instances criados em sub-redes vazias após a data de anúncio, bem como para todos os casos geridos subsequentes criados nessas sub-redes. Para todos os outros SQL, o suporte de observação está limitado às redes da mesma região devido aos [constrangimentos da rede virtual global de observação.](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints) Consulte também a secção relevante das [Redes Virtuais Azure frequentemente fez perguntas](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) a artigo para mais detalhes. 
 
-Se o perspitamento do circuito de Rota Expresso e o espreitamento da rede virtual global não forem possíveis, a única outra opção é criar a ligação VPN site-to-site[(portal Azure](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), [PowerShell](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), [Azure CLI).](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md)
+Se o perspitamento do circuito de Rota Expresso e o espreitamento da rede virtual global não forem possíveis, a única outra opção é criar a ligação VPN site-to-site[(portal Azure](../../vpn-gateway/tutorial-site-to-site-portal.md), [PowerShell](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), [Azure CLI).](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 
 ## <a name="mitigate-data-exfiltration-risks"></a>Mitigar riscos de exfiltração de dados  
 
@@ -359,7 +359,7 @@ Para mitigar quaisquer riscos de exfiltração de dados, recomenda-se aos client
 
 **Posso configurar um DNS personalizado para sql Managed Instance?**
 
-Sim. Ver [como configurar um DNS personalizado para Azure SQL Managed Instance](./custom-dns-configure.md).
+Yes. Ver [como configurar um DNS personalizado para Azure SQL Managed Instance](./custom-dns-configure.md).
 
 **Posso refrescar o DNS?**
 
@@ -409,8 +409,8 @@ Pode rodar o protetor TDE para Instância Gerida utilizando a Azure Cloud Shell.
 
 Sim, não precisa de desencriptar a sua base de dados para a restaurar para a SQL Managed Instance. É necessário fornecer um certificado/chave utilizado como protetor de chave de encriptação no sistema de origem para a SQL Managed Instance para ser capaz de ler dados a partir do ficheiro de backup encriptado. Há duas maneiras possíveis de fazê-lo:
 
-- *Faça o upload do certificado-protector para a SQL Managed Instance* . Pode ser feito apenas com o PowerShell. O [guião da amostra](./tde-certificate-migrate.md) descreve todo o processo.
-- *Faça o upload assimétrico do protector-chave para o Cofre da Chave Azure e aponte para o SQL Managed Instance .* Esta abordagem assemelha-se a uma caixa de utilização TDE (BYOK) que também utiliza a integração do Key Vault para armazenar a chave de encriptação. Se não quiser utilizar a chave como protetor de chave de encriptação e apenas quiser disponibilizar a chave para a SQL Managed Instance para restaurar a(s) base de dados encriptada, siga as instruções para configurar o [BYOK TDE](../database/transparent-data-encryption-tde-overview.md#manage-transparent-data-encryption), e não verifique a caixa de verificação **Faça da chave selecionada o protetor TDE predefinido** .
+- *Faça o upload do certificado-protector para a SQL Managed Instance*. Pode ser feito apenas com o PowerShell. O [guião da amostra](./tde-certificate-migrate.md) descreve todo o processo.
+- *Faça o upload assimétrico do protector-chave para o Cofre da Chave Azure e aponte para o SQL Managed Instance .* Esta abordagem assemelha-se a uma caixa de utilização TDE (BYOK) que também utiliza a integração do Key Vault para armazenar a chave de encriptação. Se não quiser utilizar a chave como protetor de chave de encriptação e apenas quiser disponibilizar a chave para a SQL Managed Instance para restaurar a(s) base de dados encriptada, siga as instruções para configurar o [BYOK TDE](../database/transparent-data-encryption-tde-overview.md#manage-transparent-data-encryption), e não verifique a caixa de verificação **Faça da chave selecionada o protetor TDE predefinido**.
 
 Assim que disponibilizar o protetor de encriptação para a SQL Managed Instance, pode proceder ao procedimento de restauro da base de dados padrão.
 
@@ -463,7 +463,7 @@ Para otimizar os custos de armazenamento de backup, consulte [afinação de back
 
 **Onde posso encontrar casos de utilização e consequentes economias de custos com a SQL Managed Instance?**
 
-Estudos de caso de caso de caso de caso de caso de casos geridos pela SQL:
+Estudos de caso de casos geridos pela SQL:
 
 - [Rio Komatsu](https://customers.microsoft.com/story/komatsu-australia-manufacturing-azure)
 - [KMD](https://customers.microsoft.com/en-ca/story/kmd-professional-services-azure-sql-database)

@@ -17,12 +17,12 @@ ms.date: 1/19/2021
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c7d02b48d30fa558f8fd12f92705046dab74057
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: deab3460baf9c46e2a3073eb41b738b0e7ad586f
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624240"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98726306"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Relatórios de provisionamento no portal Azure Ative Directory (pré-visualização)
 
@@ -48,7 +48,7 @@ Este tópico dá-lhe uma visão geral dos registos de provisionamento. Fornecem 
 ### <a name="who-can-access-the-data"></a>Quem pode aceder aos dados?
 * Os proprietários de aplicações podem ver registos de aplicações que possuam
 * Utilizadores nas funções de Administrador de Segurança, Leitor de Segurança, Leitor de Relatórios, Administrador de Aplicações e Administrador de Aplicações em Nuvem
-* Utilizadores em uma função personalizada com a [permissão de provisioningLogs](https://docs.microsoft.com/azure/active-directory/roles/custom-enterprise-app-permissions#full-list-of-permissions)
+* Utilizadores em uma função personalizada com a [permissão de provisioningLogs](../roles/custom-enterprise-app-permissions.md#full-list-of-permissions)
 * Administradores Globais
 
 
@@ -102,7 +102,7 @@ Pode filtrar os seus dados de atenção. Alguns valores de filtro são dinamicam
 Na vista predefinitiva, pode selecionar os seguintes filtros:
 
 - Identidade
-- Date
+- Data
 - Estado
 - Ação
 
@@ -301,7 +301,7 @@ Utilize a tabela abaixo para entender melhor como resolver os erros que pode enc
 |EntradaSsynchronizationSkipped | O serviço de fornecimento solicitou com sucesso o sistema de origem e identificou o utilizador. Não foram tomadas mais medidas contra o utilizador e foram ignoradas. O salto pode dever-se ao facto de o utilizador estar fora de alcance ou de o utilizador já existir no sistema-alvo sem necessidade de mais alterações.|
 |SystemForCrossDomainIdentityManagementMultipleEntriesInResponse| Ao realizar um pedido GET para recuperar um utilizador ou grupo, recebemos vários utilizadores ou grupos na resposta. Esperávamos receber apenas um utilizador ou grupo na resposta. Se, [por exemplo,](../app-provisioning/use-scim-to-provision-users-and-groups.md#get-group)fizermos um pedido GET para recuperar um grupo e fornecermos um filtro para excluir membros e o seu ponto final SCIM devolver os membros, lançaremos este erro.|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Verifique o estado do fornecimento do utilizador](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)
 * [Problema de configuração do fornecimento de um utilizador a uma aplicação da Galeria AD Azure](../app-provisioning/application-provisioning-config-problem.md)

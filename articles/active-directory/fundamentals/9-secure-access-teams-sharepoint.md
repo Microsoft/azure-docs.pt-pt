@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18036644dc4df51bfacc5019f70ae7694757f753
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 218208891cccb4f606a574a9c1c09f30c4ac0b11
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222246"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725083"
 ---
 # <a name="secure-external-access-to-microsoft-teams-sharepoint-and-onedrive-for-business"></a>Acesso externo seguro a Microsoft Teams, SharePoint e OneDrive para negócios 
 
@@ -28,7 +28,7 @@ Este artigo guia-o a determinar e configurar a colaboração externa para cumpri
 
 ## <a name="governance-begins-in-azure-active-directory"></a>Governação começa no Azure Ative Directory
 
-A partilha na Microsoft 365 é parcialmente regida pelas [Identidades Externas Definições de colaboração externa](https://aad.portal.azure.com/) no Azure Ative Directory (Azure AD). Se a partilha externa for desativada ou restringida no Azure AD, substitui quaisquer definições de partilha configuradas no Microsoft 365. Uma exceção a isto é que se a integração AZure AD B2B não estiver ativada, o SharePoint e o OneDrive podem ser configurados para suportar a partilha ad-hoc através de códigos de acesso únicos (OTP).
+A partilha na Microsoft 365 é em parte regida pelas [identidades externas | Definições de colaboração externa](https://aad.portal.azure.com/) no Azure Ative Directory (Azure AD). Se a partilha externa for desativada ou restringida no Azure AD, substitui quaisquer definições de partilha configuradas no Microsoft 365. Uma exceção a isto é que se a integração AZure AD B2B não estiver ativada, o SharePoint e o OneDrive podem ser configurados para suportar a partilha ad-hoc através de códigos de acesso únicos (OTP).
 
 ![Screenshot das definições de colaboração externa](media/secure-external-access/9-external-collaboration-settings.png)
 
@@ -77,7 +77,7 @@ Há três opções sob restrições de colaboração. Os seus requisitos de neg�
 
 ## <a name="govern-access-in-teams"></a>Governar o acesso em Equipas
 
-[As equipas diferenciam utilizadores externos (qualquer pessoa fora da sua organização) e utilizadores convidados (aqueles com contas de hóspedes).](https://docs.microsoft.com/microsoftteams/communicate-with-users-from-other-organizations?WT.mc_id=TeamsAdminCenterCSH) Gere a definição de colaboração no [portal Teams Admin](https://admin.teams.microsoft.com/company-wide-settings/external-communications) em definições org-wide. 
+[As equipas diferenciam utilizadores externos (qualquer pessoa fora da sua organização) e utilizadores convidados (aqueles com contas de hóspedes).](/microsoftteams/communicate-with-users-from-other-organizations?WT.mc_id=TeamsAdminCenterCSH%e2%80%8b) Gere a definição de colaboração no [portal Teams Admin](https://admin.teams.microsoft.com/company-wide-settings/external-communications) em definições org-wide. 
 
 > [!NOTE]
 > As definições de colaboração de identidades externas no Azure Ative Directory controlam as permissões eficazes. Pode aumentar as restrições em Equipas, mas não diminuí-las do que está definido no Azure AD.
@@ -88,13 +88,13 @@ Há três opções sob restrições de colaboração. Os seus requisitos de neg�
 
 Para saber mais sobre a gestão do acesso externo em Equipas, consulte os seguintes recursos.
 
-* [Gerir o acesso externo em Equipas microsoft](https://docs.microsoft.com/microsoftteams/manage-external-access)
+* [Gerir o acesso externo em Equipas microsoft](/microsoftteams/manage-external-access)
 
-* [Microsoft 365 modelos de identidade e Azure Ative Directory](https://docs.microsoft.com/microsoft-365/enterprise/about-microsoft-365-identity?view=o365-worldwide)
+* [Microsoft 365 modelos de identidade e Azure Ative Directory](/microsoft-365/enterprise/about-microsoft-365-identity?view=o365-worldwide)
 
-* [Modelos de identidade e autenticação para equipas da Microsoft](https://docs.microsoft.com/MicrosoftTeams/identify-models-authentication)
+* [Modelos de identidade e autenticação para equipas da Microsoft](/MicrosoftTeams/identify-models-authentication)
 
-* [Etiquetas de sensibilidade para equipas da Microsoft](https://docs.microsoft.com/MicrosoftTeams/sensitivity-labels)
+* [Etiquetas de sensibilidade para equipas da Microsoft](/MicrosoftTeams/sensitivity-labels)
 
 ## <a name="govern-access-in-sharepoint-and-onedrive"></a>Reger o acesso no SharePoint e no OneDrive
 
@@ -102,9 +102,9 @@ Os administradores do SharePoint têm muitas configurações disponíveis para c
 
 ### <a name="integrating-sharepoint-and-one-drive-with-azure-ad-b2b"></a>Integração do SharePoint e unidade única com a Azure AD B2B
 
-Como parte da sua estratégia global para governar a colaboração externa, recomendamos que [permita a pré-visualização do SharePoint e a integração oneDrive com a Azure AD B2B](https://docs.microsoft.com/sharepoint/sharepoint-azureb2b-integration-preview) .
+Como parte da sua estratégia global para governar a colaboração externa, recomendamos que [permita a pré-visualização do SharePoint e a integração oneDrive com a Azure AD B2B](/sharepoint/sharepoint-azureb2b-integration-preview) .
 
-O Azure AD B2B fornece autenticação e gestão de utilizadores convidados. Com a integração do SharePoint e do OneDrive, as [senhas únicas do Azure AD B2B](https://docs.microsoft.com/azure/active-directory/external-identities/one-time-passcode) são utilizadas para a partilha externa de ficheiros, pastas, itens de lista, bibliotecas de documentos e sites. Esta funcionalidade proporciona uma experiência atualizada a partir da [experiência do destinatário de partilha externa seguro](https://docs.microsoft.com/sharepoint/what-s-new-in-sharing-in-targeted-release)existente.
+O Azure AD B2B fornece autenticação e gestão de utilizadores convidados. Com a integração do SharePoint e do OneDrive, as [senhas únicas do Azure AD B2B](../external-identities/one-time-passcode.md) são utilizadas para a partilha externa de ficheiros, pastas, itens de lista, bibliotecas de documentos e sites. Esta funcionalidade proporciona uma experiência atualizada a partir da [experiência do destinatário de partilha externa seguro](/sharepoint/what-s-new-in-sharing-in-targeted-release)existente.
 
 > [!NOTE]
 > Se ativar a pré-visualização da integração AZure AD B2B, então a partilha do SharePoint e da OneDrive está sujeita às definições de relações organizacionais AD AZure, tais como **membros podem convidar** e **os hóspedes podem convidar.**
@@ -171,11 +171,11 @@ Não recomendamos permitir ligações a ninguém. Se o fizer, recomendamos a def
 
 Para saber mais sobre a governação do acesso externo ao SharePoint consulte o seguinte:
 
-* [Visão geral de partilha externa do SharePoint](https://docs.microsoft.com/sharepoint/external-sharing-overview)
+* [Visão geral de partilha externa do SharePoint](/sharepoint/external-sharing-overview)
 
-* [Integração sharePoint e OneDrive com Azure AD B2B](https://docs.microsoft.com/sharepoint/sharepoint-azureb2b-integration-preview)
+* [Integração sharePoint e OneDrive com Azure AD B2B](/sharepoint/sharepoint-azureb2b-integration-preview)
 
-#### <a name="next-steps"></a>Passos seguintes
+#### <a name="next-steps"></a>Próximos passos
 
 Consulte os seguintes artigos sobre a garantia do acesso externo aos recursos. Recomendamos que tome as ações na ordem listada.
 

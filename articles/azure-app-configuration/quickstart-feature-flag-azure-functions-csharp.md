@@ -1,5 +1,5 @@
 ---
-title: Quickstart para adicionar bandeiras de recurso às Funções Azure Microsoft Docs
+title: Quickstart para adicionar bandeiras de recurso às funções Azure | Microsoft Docs
 description: Neste arranque rápido, utilize funções Azure com bandeiras de recurso da Configuração da Aplicação Azure e teste a função localmente.
 services: azure-app-configuration
 author: AlexandraKemperMS
@@ -8,12 +8,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 8/26/2020
 ms.author: alkemper
-ms.openlocfilehash: 6996fdd9dce4314e9365177815d7d310ac80c7cb
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 96efc0ea6300e482ddeeda8fa177847f02b7e126
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98046078"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724259"
 ---
 # <a name="quickstart-add-feature-flags-to-an-azure-functions-app"></a>Quickstart: Adicione bandeiras de recurso a uma aplicação Azure Functions
 
@@ -46,7 +46,7 @@ As bibliotecas de Gestão de Recursos .NET alargam o quadro com suporte de bande
 
 ## <a name="connect-to-an-app-configuration-store"></a>Conecte-se a uma loja de configuração de aplicativos
 
-Este projeto utilizará [a injeção de dependência em Funções Azure .NET](/azure/azure-functions/functions-dotnet-dependency-injection). Adiciona a Configuração da Aplicação Azure como uma fonte de configuração extra onde as suas bandeiras de recurso estão armazenadas.
+Este projeto utilizará [a injeção de dependência em Funções Azure .NET](../azure-functions/functions-dotnet-dependency-injection.md). Adiciona a Configuração da Aplicação Azure como uma fonte de configuração extra onde as suas bandeiras de recurso estão armazenadas.
 
 1. Clique com o botão direito no seu projeto e **selecione Gerir Pacotes NuGet**. No separador **Procurar,** procure e adicione os pacotes NuGet ao seu projeto.
    - [Microsoft.Extensions.Configuration. AzureAppConfiguration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.AzureAppConfiguration/) versão 4.1.0 ou posterior
@@ -195,12 +195,12 @@ Este projeto utilizará [a injeção de dependência em Funções Azure .NET](/a
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido, criou uma bandeira de recurso e utilizou-a com uma aplicação Azure Functions através da biblioteca [Microsoft.FeatureManagement.](/dotnet/api/microsoft.featuremanagement)
 
 - Saiba mais sobre [gestão de recursos](./concept-feature-management.md)
 - [Gerir sinalizadores de funcionalidades](./manage-feature-flags.md)
-- [Use bandeiras de características condicionais](./howto-feature-filters-aspnet-core.md)
+- [Utilizar sinalizadores de funcionalidade condicional](./howto-feature-filters-aspnet-core.md)
 - [Ativar o lançamento encenado de funcionalidades para públicos direcionados](./howto-targetingfilter-aspnet-core.md)
 - [Utilize uma configuração dinâmica numa aplicação Azure Functions](./enable-dynamic-configuration-azure-functions-csharp.md)

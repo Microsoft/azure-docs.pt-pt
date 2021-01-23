@@ -7,12 +7,12 @@ ms.custom: subject-cost-optimization
 ms.service: api-management
 ms.topic: how-to
 ms.date: 12/15/2020
-ms.openlocfilehash: 799ef33e78737bfd2e1c1a1cfa4991f44c8f5ec0
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: e171e642440b7c6c99353169e426a722885f1bcf
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98599638"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725942"
 ---
 # <a name="plan-and-manage-costs-for-api-management"></a>Planear e gerir custos para a Gestão da API
 
@@ -104,11 +104,11 @@ Ao adicionar ou remover unidades, a capacidade e a escala de custos proporcional
 
 [Monitorize](api-management-howto-use-azure-monitor.md) a métrica de Capacidade para o seu exemplo de Gestão de API para ajudar a tomar decisões quer dimensionar ou atualizar um caso de Gestão de API para acomodar mais carga.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba [como otimizar o seu investimento em nuvem com a Azure Cost Management.](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 - Saiba mais sobre gestão de custos com [a análise de custos.](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
-- Saiba como [evitar custos inesperados.](../cost-management-billing/manage/getting-started.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
-- Faça o curso de aprendizagem guiada [de Gestão](https://docs.microsoft.com/learn/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) de Custos.
+- Saiba como [evitar custos inesperados.](../cost-management-billing/cost-management-billing-overview.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+- Faça o curso de aprendizagem guiada [de Gestão](/learn/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) de Custos.
 - Conheça a [capacidade de](api-management-capacity.md)Gestão da API.
 - Consulte os passos para escalar e atualizar a Gestão da API utilizando o [portal Azure,](upgrade-and-scale.md)e saiba sobre [autoscaling](api-management-howto-autoscale.md).

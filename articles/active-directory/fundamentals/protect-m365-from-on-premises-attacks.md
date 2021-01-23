@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97893dece068dfdde85159f734095401288231d2
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: ecddb950c06c9f8e61f31e104051f5e3b3640ae5
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201353"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725015"
 ---
 # <a name="protecting-microsoft-365-from-on-premises-attacks"></a>Proteger a Microsoft 365 de ataques no local
 
@@ -60,7 +60,7 @@ Para abordar os vetores de ameaça acima descritos, recomendamos que cumpra os p
 
      *  Acedido apenas utilizando estações de trabalho geridas aZure.
 
-Estas são contas de utilização restrita. **Não deve haver contas no local com privilégios administrativos na Microsoft 365.** Para mais informações, consulte esta [visão geral das funções de administrador da Microsoft 365](https://docs.microsoft.com/microsoft-365/admin/add-users/about-admin-roles?view=o365-worldwide).
+Estas são contas de utilização restrita. **Não deve haver contas no local com privilégios administrativos na Microsoft 365.** Para mais informações, consulte esta [visão geral das funções de administrador da Microsoft 365](/microsoft-365/admin/add-users/about-admin-roles?view=o365-worldwide).
 Ver também [Funções para a Microsoft 365 no Azure Ative Directory](../roles/m365-workload-docs.md).
 
 *  **Gerencie os dispositivos da Microsoft 365.** Utilize o Azure AD Join e a gestão de dispositivos móveis baseados na nuvem (MDM) para eliminar as dependências da sua infraestrutura de gestão de dispositivos no local, o que pode comprometer os controlos de dispositivos e segurança.
@@ -82,7 +82,7 @@ No Azure AD, os utilizadores com funções privilegiadas, como administradores, 
 
 * Use contas apenas em nuvem para Azure AD e Microsoft 365 funções privilegiadas.d
 
-* Implemente [dispositivos de acesso privilegiados](https://docs.microsoft.com/security/compass/privileged-access-devices#device-roles-and-profiles) para acesso privilegiado para gerir o Microsoft 365 e a AZure AD.
+* Implemente [dispositivos de acesso privilegiados](/security/compass/privileged-access-devices#device-roles-and-profiles) para acesso privilegiado para gerir o Microsoft 365 e a AZure AD.
 
 *  Implementar [Azure AD Gestão de Identidade Privilegiada](../privileged-identity-management/pim-configure.md) (PIM) para o acesso a todas as contas humanas que tenham funções privilegiadas, e exigir uma autenticação forte para ativar funções.
 
@@ -92,7 +92,7 @@ No Azure AD, os utilizadores com funções privilegiadas, como administradores, 
 
 * Implemente [contas de acesso de emergência](../roles/security-emergency-access.md) e NÃO utilize cofres de senha no local para armazenar credenciais.
 
-Para mais informações, consulte [a Garantia de acesso privilegiado,](https://aka.ms/SPA)que tem orientações detalhadas sobre este tema. Consulte também [práticas de acesso Secure para administradores em Azure AD](../roles/security-planning.md).
+Para mais informações, consulte [a Garantia de acesso privilegiado,](/security/compass/overview)que tem orientações detalhadas sobre este tema. Consulte também [práticas de acesso Secure para administradores em Azure AD](../roles/security-planning.md).
 
 ### <a name="use-cloud-authentication"></a>Use a autenticação em nuvem 
 
@@ -100,15 +100,15 @@ Credenciais são um vetor de ataque primário. Implementar as seguintes prática
 
 * [Implementar autenticação sem palavras-passe](../authentication/howto-authentication-passwordless-deployment.md): Reduza ao máximo a utilização de palavras-passe através da implementação de credenciais sem palavras-passe. Estas credenciais são geridas e validadas nativamente na nuvem. Escolha entre:
 
-   * [Windows Hello para negócios](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/passwordless-strategy)
+   * [Windows Hello para negócios](/windows/security/identity-protection/hello-for-business/passwordless-strategy)
 
    * [Aplicação Authenticator](../authentication/howto-authentication-passwordless-phone.md)
 
    * [Chaves de segurança FIDO2](../authentication/howto-authentication-passwordless-security-key-windows.md)
 
-* [Implementar autenticação multi-factor](https://aka.ms/deploymentplans/mfa): Providenciar [múltiplas credenciais fortes utilizando Azure AD MFA](../fundamentals/resilience-in-credentials.md). Desta forma, o acesso aos recursos em nuvem exigirá uma credencial que é gerida em Azure AD, além de uma senha no local que pode ser manipulada.
+* [Implementar autenticação multi-factor](../authentication/howto-mfa-getstarted.md): Providenciar [múltiplas credenciais fortes utilizando Azure AD MFA](../fundamentals/resilience-in-credentials.md). Desta forma, o acesso aos recursos em nuvem exigirá uma credencial que é gerida em Azure AD, além de uma senha no local que pode ser manipulada.
 
-   * Para obter mais informações, consulte [Criar uma estratégia resiliente de gestão de controlo de acessos com o Diretório ativo da Azure.](https://aka.ms/resilientaad)
+   * Para obter mais informações, consulte [Criar uma estratégia resiliente de gestão de controlo de acessos com o Diretório ativo da Azure.](./resilience-overview.md)
 
 **Limitações e compensações**
 
@@ -131,7 +131,7 @@ O provisionamento refere-se à criação de contas de utilizador e grupos em apl
 
    *  Limite o acesso dos hóspedes a grupos de navegação e outras propriedades no diretório. Utilize as definições de colaboração externa para restringir a capacidade de leitura dos grupos de que não são membros. 
 
-    *   Bloqueie o acesso ao portal Azure. Pode fazer raras exceções necessárias.  Crie uma política de Acesso Condicional que inclua todos os hóspedes e utilizadores externos e, em seguida, [implemente uma política para bloquear o acesso.](/azure/role-based-access-control/conditional-access-azure-management) 
+    *   Bloqueie o acesso ao portal Azure. Pode fazer raras exceções necessárias.  Crie uma política de Acesso Condicional que inclua todos os hóspedes e utilizadores externos e, em seguida, [implemente uma política para bloquear o acesso.](../../role-based-access-control/conditional-access-azure-management.md) 
 
 * **Florestas desligadas:** Utilize o provisionamento da [nuvem ad Azure](../cloud-provisioning/what-is-cloud-provisioning.md). Isto permite-lhe conectar-se a florestas desligadas, eliminando a necessidade de estabelecer conectividade ou fidedignidades florestais, que podem alargar o impacto de uma violação no local. * 
  
@@ -143,7 +143,7 @@ O provisionamento refere-se à criação de contas de utilizador e grupos em apl
 
 Os grupos cloud permitem-lhe dissociar a sua colaboração e acesso a partir da sua infraestrutura no local.
 
-* **Colaboração:** Utilize os Grupos Microsoft 365 e as Equipas Microsoft para uma colaboração moderna. Desativar listas de distribuição no local e atualizar as listas de [distribuição para os Grupos Microsoft 365 no Outlook](https://docs.microsoft.com/office365/admin/manage/upgrade-distribution-lists?view=o365-worldwide).
+* **Colaboração:** Utilize os Grupos Microsoft 365 e as Equipas Microsoft para uma colaboração moderna. Desativar listas de distribuição no local e atualizar as listas de [distribuição para os Grupos Microsoft 365 no Outlook](/office365/admin/manage/upgrade-distribution-lists?view=o365-worldwide).
 
 * **Acesso:** Utilize grupos de segurança Azure AD ou Grupos Microsoft 365 para autorizar o acesso a aplicações em Azure AD.
 * **Licenciamento do Escritório 365:** Utilize o licenciamento baseado em grupo para provisão ao Office 365 utilizando grupos apenas em nuvem. Isto separa o controlo da adesão ao grupo a partir de infraestruturas no local.
@@ -156,7 +156,7 @@ A tomada de posse inclui manipulação direta da adesão ao grupo no local ou ma
 
 Utilize as capacidades AD do Azure para gerir de forma segura os dispositivos.
 
--   **Utilizar estações de trabalho do Windows 10:** Implementar dispositivos [AD AD Azure](../devices/azureadjoin-plan.md) com políticas DE MDM. Ativar [o Windows Autopilot](https://docs.microsoft.com/mem/autopilot/windows-autopilot) para uma experiência de provisionamento totalmente automatizada.
+-   **Utilizar estações de trabalho do Windows 10:** Implementar dispositivos [AD AD Azure](../devices/azureadjoin-plan.md) com políticas DE MDM. Ativar [o Windows Autopilot](/mem/autopilot/windows-autopilot) para uma experiência de provisionamento totalmente automatizada.
 
     -   Depreciar o Windows 8.1 e as máquinas anteriores.
 
@@ -164,7 +164,7 @@ Utilize as capacidades AD do Azure para gerir de forma segura os dispositivos.
 
     -   Utilize o [Microsoft Intune](https://www.microsoft.com/en/microsoft-365/enterprise-mobility-security/microsoft-intune) como fonte de autoridade de todas as cargas de trabalho de gestão de dispositivos.
 
--   [**Implemente dispositivos de acesso privilegiados**](https://docs.microsoft.com/security/compass/privileged-access-devices#device-roles-and-profiles) para acesso privilegiado para gerir o Microsoft 365 e a AZure AD.
+-   [**Implemente dispositivos de acesso privilegiados**](/security/compass/privileged-access-devices#device-roles-and-profiles) para acesso privilegiado para gerir o Microsoft 365 e a AZure AD.
 
  ## <a name="workloads-applications-and-resources"></a>Cargas de trabalho, aplicações e recursos 
 
@@ -181,19 +181,19 @@ Utilize as capacidades AD do Azure para gerir de forma segura os dispositivos.
 
 *  **Servidores de aplicações e carga de trabalho**
 
-   * As aplicações ou recursos que exijam servidores podem ser migrados para Azure IaaS e utilizar [os Serviços de Domínio AD Azure](https://docs.microsoft.com/azure/active-directory-domain-services/overview) (Azure AD DS) para dissociar a confiança e a dependência da AD no local. Para conseguir esta dissociação, as redes virtuais utilizadas para a Azure AD DS não devem ter ligação com redes corporativas.
+   * As aplicações ou recursos que exijam servidores podem ser migrados para Azure IaaS e utilizar [os Serviços de Domínio AD Azure](../../active-directory-domain-services/overview.md) (Azure AD DS) para dissociar a confiança e a dependência da AD no local. Para conseguir esta dissociação, as redes virtuais utilizadas para a Azure AD DS não devem ter ligação com redes corporativas.
 
-   * Siga a orientação do [tiering credencial](https://aka.ms/TierModel). Os Servidores de Aplicações são normalmente considerados ativos de Nível 1.
+   * Siga a orientação do [tiering credencial](/security/compass/privileged-access-access-model#ADATM_BM). Os Servidores de Aplicações são normalmente considerados ativos de Nível 1.
 
  ## <a name="conditional-access-policies"></a>Políticas de acesso condicional
 
-Utilize o Acesso Condicional Azure AD para interpretar sinais e tomar decisões de autenticação com base neles. Para mais informações, consulte o [plano de implementação](https://aka.ms/deploymentplans/ca) do Acesso Condicional.
+Utilize o Acesso Condicional Azure AD para interpretar sinais e tomar decisões de autenticação com base neles. Para mais informações, consulte o [plano de implementação](../conditional-access/plan-conditional-access.md) do Acesso Condicional.
 
 * [Protocolos de Autenticação Legacy](../fundamentals/auth-sync-overview.md): Utilize acesso condicional para bloquear protocolos [de autenticação legado](../conditional-access/howto-conditional-access-policy-block-legacy.md) sempre que possível. Adicionalmente, desative os protocolos de autenticação de legados ao nível da aplicação utilizando a configuração específica da aplicação.
 
-   * Consulte detalhes específicos para [Exchange Online](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online#how-basic-authentication-works-in-exchange-online) e [SharePoint Online.](https://docs.microsoft.com/powershell/module/sharepoint-online/set-spotenant?view=sharepoint-ps)
+   * Consulte detalhes específicos para [Exchange Online](/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online#how-basic-authentication-works-in-exchange-online) e [SharePoint Online.](/powershell/module/sharepoint-online/set-spotenant?view=sharepoint-ps)
 
-* Implementar as [configurações recomendadas de acesso à identidade e ao dispositivo.](https://docs.microsoft.com/microsoft-365/security/office-365-security/identity-access-policies?view=o365-worldwide)
+* Implementar as [configurações recomendadas de acesso à identidade e ao dispositivo.](/microsoft-365/security/office-365-security/identity-access-policies?view=o365-worldwide)
 
 * Se estiver a utilizar uma versão do AZure AD que não inclua acesso condicional, certifique-se de que está a utilizar as [falhas de segurança Azure AD](../fundamentals/concept-fundamentals-security-defaults.md).
 
@@ -206,13 +206,13 @@ Depois de configurar o seu ambiente para proteger o Microsoft 365 de um compromi
 
 Monitorize os seguintes cenários-chave, além de quaisquer cenários específicos da sua organização. Por exemplo, deve monitorizar proativamente o acesso às aplicações e recursos críticos do seu negócio.
 
-* **Atividade suspeita**: Todos os eventos de [risco Azure AD](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection#risk-detection-and-remediation) devem ser monitorizados para atividades suspeitas. [A Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection) é integrada nativamente com o Azure Security Center.
+* **Atividade suspeita**: Todos os eventos de [risco Azure AD](../identity-protection/overview-identity-protection.md#risk-detection-and-remediation) devem ser monitorizados para atividades suspeitas. [A Azure AD Identity Protection](../identity-protection/overview-identity-protection.md) é integrada nativamente com o Azure Security Center.
 
    * Defina os [locais nomeados](../reports-monitoring/quickstart-configure-named-locations.md) para evitar deteções ruidosas em sinais baseados na localização. 
 *  **Alertas de Análise Comportamental da Entidade utilizadora (UEBA)** Use a UEBA para obter informações sobre a deteção de anomalias.
-   * O Microsoft Cloud App Discovery (MCAS) fornece [a UEBA na nuvem.](https://docs.microsoft.com/cloud-app-security/tutorial-ueba)
+   * O Microsoft Cloud App Discovery (MCAS) fornece [a UEBA na nuvem.](/cloud-app-security/tutorial-ueba)
 
-   * Pode [integrar no local a UEBA a partir do Azure ATP](https://docs.microsoft.com/defender-for-identity/install-step2). MCAS lê sinais da Azure AD Identity Protection. 
+   * Pode [integrar no local a UEBA a partir do Azure ATP](/defender-for-identity/install-step2). MCAS lê sinais da Azure AD Identity Protection. 
 
 * **Atividade das contas de acesso de emergência**: Qualquer acesso que utilize contas de acesso de [emergência](../roles/security-emergency-access.md) deve ser monitorizado e alertas criados para investigações. Este controlo deve incluir: 
 
@@ -223,7 +223,7 @@ Monitorize os seguintes cenários-chave, além de quaisquer cenários específic
    * Quaisquer atualizações sobre membros do grupo. 
 
    *    Atribuição de Candidaturas. 
-* **Atividade de função privilegiada**: Configurar e rever alertas de segurança [gerados pela Azure AD PIM](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-how-to-configure-security-alerts?tabs=new#security-alerts).
+* **Atividade de função privilegiada**: Configurar e rever alertas de segurança [gerados pela Azure AD PIM](../privileged-identity-management/pim-how-to-configure-security-alerts.md?tabs=new#security-alerts).
     Monitorize a atribuição direta de funções privilegiadas fora da PIM gerando alertas sempre que um utilizador é atribuído diretamente.
 * **Configurações para o inquilino Azure AD**: Qualquer alteração às configurações em toda a parte do inquilino deve gerar alertas no sistema. Estes incluem, mas não se limitam a
   *  Atualizar domínios personalizados  
@@ -254,11 +254,11 @@ Defina uma estratégia de armazenamento e retenção de registos, design e imple
 
    * Eventos de risco 
 
-A Azure AD proporciona [integração do Azure Monitor](../reports-monitoring/concept-activity-logs-azure-monitor.md) para os registos de atividades de login e registos de auditoria. Os eventos de risco podem ser ingeridos através [da Microsoft Graph API](https://aka.ms/AzureADSecuredAzure/32b). Pode [transmitir registos AD AZure para registos de monitores Azure](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
+A Azure AD proporciona [integração do Azure Monitor](../reports-monitoring/concept-activity-logs-azure-monitor.md) para os registos de atividades de login e registos de auditoria. Os eventos de risco podem ser ingeridos através [da Microsoft Graph API](/graph/api/resources/identityriskevent). Pode [transmitir registos AD AZure para registos de monitores Azure](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
 
 * **Registos de segurança da infraestrutura híbrida.** Todos os registos de infraestruturas de identidade híbridas os registos de OS devem ser arquivados e cuidadosamente monitorizados como um <br>Sistema de nível 0, dadas as implicações da área da superfície. O que está incluído: 
 
-   *  Azure AD Connect. [A Azure AD Connect Health](https://aka.ms/AzureADSecuredAzure/32e) deve ser implementado para monitorizar a sincronização de identidade.
+   *  Azure AD Connect. [A Azure AD Connect Health](../hybrid/whatis-azure-ad-connect.md) deve ser implementado para monitorizar a sincronização de identidade.
 
    *  Agentes de procuração de aplicação 
 

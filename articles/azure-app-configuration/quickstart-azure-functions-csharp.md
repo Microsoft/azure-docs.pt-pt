@@ -1,5 +1,5 @@
 ---
-title: Quickstart para Configuração de Aplicativos Azure com Funções Azure Microsoft Docs
+title: Quickstart para configuração de aplicativos Azure com funções Azure | Microsoft Docs
 description: Neste quickstart, faça uma aplicação Azure Functions com Configuração de Aplicação Azure e C#. Criar e ligar a uma loja de Configuração de Aplicações. Teste a função localmente.
 services: azure-app-configuration
 author: AlexandraKemperMS
@@ -8,12 +8,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 09/28/2020
 ms.author: alkemper
-ms.openlocfilehash: b5c659a673ece8fd7fbb9566d8bb84201a668a7f
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 9d378b21132e6646329c459401255ef9a3ed9426
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964087"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724248"
 ---
 # <a name="quickstart-create-an-azure-functions-app-with-azure-app-configuration"></a>Quickstart: Criar uma app Azure Functions com Configuração de Aplicações Azure
 
@@ -44,7 +44,7 @@ Neste arranque rápido, incorpora o serviço de Configuração de Aplicações A
 [!INCLUDE [Create a project using the Azure Functions template](../../includes/functions-vstools-create.md)]
 
 ## <a name="connect-to-an-app-configuration-store"></a>Conecte-se a uma loja de configuração de aplicativos
-Este projeto utilizará [a injeção de dependência em Funções Azure .NET](/azure/azure-functions/functions-dotnet-dependency-injection) e adicionará a Configuração da Aplicação Azure como uma fonte de configuração extra.
+Este projeto utilizará [a injeção de dependência em Funções Azure .NET](../azure-functions/functions-dotnet-dependency-injection.md) e adicionará a Configuração da Aplicação Azure como uma fonte de configuração extra.
 
 1. Clique com o botão direito no seu projeto e **selecione Gerir Pacotes NuGet**. No separador **Procurar,** procure e adicione os pacotes NuGet ao seu projeto.
    - [Microsoft.Extensions.Configuration. AzureAppConfiguration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.AzureAppConfiguration/) versão 4.1.0 ou posterior
@@ -148,7 +148,7 @@ Este projeto utilizará [a injeção de dependência em Funções Azure .NET](/a
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste quickstart, criou uma nova loja de Configuração de Aplicações e utilizou-a com uma aplicação Azure Functions através do fornecedor de Configuração de [Aplicações.](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration) Para aprender a atualizar a sua app Azure Functions para atualizar dinamicamente a configuração, continue para o próximo tutorial.
 

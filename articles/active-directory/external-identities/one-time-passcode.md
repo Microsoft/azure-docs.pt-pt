@@ -12,12 +12,12 @@ manager: CelesteDG
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1aebfaa176992b7e20824518bc214a6688ae493
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: a9a0668b3ea651d129dc076e5f2247e38f5ab7d0
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97703590"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725500"
 ---
 # <a name="email-one-time-passcode-authentication"></a>E-mail autenticação de senha única
 
@@ -102,7 +102,7 @@ Se já optou pela pré-visualização do código de acesso por e-mail, a data de
 
 ![Ativar a senha de e-mail uma vez optada em](media/delegate-invitations/enable-email-otp-opted-in.png)
 
-No entanto, se preferir excluir a funcionalidade e permitir que seja ativada automaticamente em março de 2021, pode reverter para as definições predefinidas utilizando o tipo de recurso de configuração do método de [autenticação de email](https://aka.ms/exid-graphemailauth)da Microsoft Graph API . Depois de reverter para as definições predefinidas, as seguintes opções estarão disponíveis no **Email one-time passcode para os hóspedes:**
+No entanto, se preferir excluir a funcionalidade e permitir que seja ativada automaticamente em março de 2021, pode reverter para as definições predefinidas utilizando o tipo de recurso de configuração do método de [autenticação de email](/graph/api/resources/emailauthenticationmethodconfiguration)da Microsoft Graph API . Depois de reverter para as definições predefinidas, as seguintes opções estarão disponíveis no **Email one-time passcode para os hóspedes:**
 
 - **Ativar automaticamente a senha de e-mail para os hóspedes em março de 2021**. (Predefinição) Se a funcionalidade de código de acesso de e-mail não estiver já ativada para o seu inquilino, será automaticamente ativada em março de 2021. Não é necessária mais nenhuma ação se pretender que a funcionalidade seja ativada nesse momento. Se já tiver ativado ou desativado a funcionalidade, esta opção não estará disponível.
 

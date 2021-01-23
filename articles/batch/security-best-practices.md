@@ -3,12 +3,12 @@ title: Segurança do lote e boas práticas de conformidade
 description: Aprenda as melhores práticas e dicas úteis para melhorar a segurança com as suas soluções Azure Batch.
 ms.date: 12/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: b9732ffb810a1038a6f402a46fa8b809f180f0a8
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 6ec4a1d89ebaa9318986fc0d51e832652ba51683
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97802291"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98723817"
 ---
 # <a name="batch-security-and-compliance-best-practices"></a>Segurança do lote e boas práticas de conformidade
 
@@ -137,8 +137,8 @@ Os nós computacional do lote têm dois discos por padrão: um disco DE e o SSD 
 
 Para uma segurança extra, criptografe estes discos utilizando uma destas capacidades de encriptação do disco Azure:
 
-- [Encriptação gerida do disco em repouso com teclas geridas pela plataforma](../virtual-machines/windows/disk-encryption.md#platform-managed-keys)
-- [Encriptação no hospedeiro usando uma chave gerida pela plataforma](../virtual-machines/windows/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data)
+- [Encriptação gerida do disco em repouso com teclas geridas pela plataforma](../virtual-machines/disk-encryption.md#platform-managed-keys)
+- [Encriptação no hospedeiro usando uma chave gerida pela plataforma](../virtual-machines/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data)
 - [Azure Disk Encryption](disk-encryption.md)
 
 ## <a name="securely-access-services-from-compute-nodes"></a>Serviços de acesso seguro a partir de nóns de computação
@@ -162,7 +162,7 @@ Dependendo do modo de atribuição de piscinas e dos recursos a que uma polític
 - Diretamente, utilizando o recurso Microsoft.Batch/batchAccounts. Um subconjunto das propriedades de uma conta Batch pode ser usado. Por exemplo, a sua política pode incluir regiões de conta de Lote válidas, modo de atribuição de piscinas permitido, e se uma rede pública está habilitada para contas.
 - Indiretamente, utilizando o recurso Microsoft.Compute/virtualMachineScaleSets. As contas de lote com o modo de atribuição de pool de subscrição do utilizador podem ter a política definida na escala virtual de recursos definidos na escala de máquinas que são criados na subscrição da conta Batch. Por exemplo, tamanhos de VM permitidos e certifique-se de que certas extensões são executadas em cada nó de piscina.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Reveja a [linha de base de segurança Azure para o Lote](security-baseline.md).
 - Leia mais [boas práticas para O Lote Azure.](best-practices.md)

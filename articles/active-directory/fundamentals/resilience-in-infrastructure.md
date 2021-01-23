@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f65ab02e06319519548eaa2c02120691a0ceef02
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 64fe4b8c217ec46cbb6dd046339c3ac65eebb121
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498562"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724682"
 ---
 # <a name="build-resilience-in-your-identity-and-access-management-infrastructure"></a>Construa resiliência na sua infraestrutura de gestão de identidade e acessos
 
@@ -32,7 +32,7 @@ O conjunto de documentos é projetado para
 
 * Equipas de Operações identitárias
 
-Consulte também a documentação para [programadores de aplicações](https://aka.ms/azureadresilience/developer) e para [sistemas Azure AD B2C.](resilience-b2c.md)
+Consulte também a documentação para [programadores de aplicações](./resilience-app-development-overview.md) e para [sistemas Azure AD B2C.](resilience-b2c.md)
 
 ## <a name="what-is-resilience"></a>O que é resiliência?
 
@@ -44,14 +44,14 @@ Cada chamada para o sistema de autenticação está sujeita a perturbações se 
 
 Num sistema de autenticação baseado em símbolos como o Azure AD, a aplicação (cliente) de um utilizador deve adquirir um símbolo de segurança do sistema de identidade antes de poder aceder a uma aplicação ou outro recurso. Durante o período de validade, um cliente pode apresentar o mesmo símbolo várias vezes para aceder à aplicação.
 
-Quando o token apresentado ao pedido expirar, o pedido rejeita o token, e o cliente deve adquirir um novo token da Azure AD. A aquisição de um novo símbolo requer potencialmente a interação do utilizador, como pedidos de credenciais ou o cumprimento de outros requisitos do sistema de autenticação. A redução da frequência de chamadas de autenticação com fichas de vida mais longas diminui as interações desnecessárias. No entanto, é preciso equilibrar a vida útil com o risco criado por menos avaliações políticas. Para obter mais informações sobre a gestão de vidas simbólicas, consulte este artigo sobre [a otimização de pedidos de reauestação](https://docs.microsoft.com/azure/active-directory/authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime).
+Quando o token apresentado ao pedido expirar, o pedido rejeita o token, e o cliente deve adquirir um novo token da Azure AD. A aquisição de um novo símbolo requer potencialmente a interação do utilizador, como pedidos de credenciais ou o cumprimento de outros requisitos do sistema de autenticação. A redução da frequência de chamadas de autenticação com fichas de vida mais longas diminui as interações desnecessárias. No entanto, é preciso equilibrar a vida útil com o risco criado por menos avaliações políticas. Para obter mais informações sobre a gestão de vidas simbólicas, consulte este artigo sobre [a otimização de pedidos de reauestação](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
 
 ## <a name="ways-to-increase-resilience"></a>Formas de aumentar a resiliência
 O diagrama que se segue mostra seis formas concretas de aumentar a resiliência. Cada método é explicado em detalhe nos artigos ligados na parte dos próximos passos deste artigo.
   
 ![Diagrama mostrando visão geral da resiliência da administração](./media/resilience-in-infrastructure/admin-resilience-overview.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Recursos de resiliência para administradores e arquitetos
  
 * [Construir resiliência com gestão credencial](resilience-in-credentials.md)

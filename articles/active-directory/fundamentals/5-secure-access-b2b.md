@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c0d63df3e5525b200723db209d05e5eb5013e23
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 654e1c163a16f427958320ea081c38338e0ab4e1
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222365"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725397"
 ---
 # <a name="transition-to-governed-collaboration-with-azure-active-directory-b2b-collaboration"></a>Transição para colaboração governada com a colaboração B2B do Azure Ative Directory 
 
@@ -80,7 +80,7 @@ Existem muitas formas de colaborar com parceiros externos usando a Azure AD B2B.
 
 * Solicitando acesso através do portal [O Meu Acesso](../governance/entitlement-management-request-access.md)
 
-Ao ativar o Azure AD B2B, ativa a capacidade de convidar utilizadores convidados através de links diretos e convites por e-mail por padrão. Os convites via OTP e um portal de self-service estão atualmente em pré-visualização e devem ser ativados dentro das Identidades Externas . Definições de colaboração externa no portal AD Azure.
+Ao ativar o Azure AD B2B, ativa a capacidade de convidar utilizadores convidados através de links diretos e convites por e-mail por padrão. Os convites via OTP e um portal de self-service estão atualmente em pré-visualização e devem ser ativados dentro das Identidades Externas | Definições de colaboração externa no portal AD Azure.
 
 ### <a name="control-who-can-invite-guest-users"></a>Controle quem pode convidar utilizadores convidados
 
@@ -100,7 +100,7 @@ Determine quem pode convidar os utilizadores convidados a aceder aos recursos.
 
 Se utilizar a gestão de direitos Azure AD, pode configurar perguntas para utilizadores externos responderem. As perguntas serão então apresentadas aos aprovadores para ajudá-los a tomar uma decisão. Pode configurar diferentes conjuntos de perguntas para cada política de [pacotes](../governance/entitlement-management-access-package-approval-policy.md) de acesso para que os aprovadores possam ter informações relevantes para o acesso que estão a aprovar. Por exemplo, se um pacote de acesso for destinado ao acesso do fornecedor, então o solicitador pode ser solicitado para o seu número de contrato de fornecedor. Um pacote de acesso diferente destinado aos fornecedores pode solicitar o seu país de origem.
 
-Se utilizar um portal de self-service, pode utilizar [conectores API](../external-identities/api-connectors-overview.md) para recolher atributos adicionais sobre os utilizadores à medida que se inscrevem. Em seguida, pode potencialmente usar esses atributos para atribuir acesso. Por exemplo, se durante o processo de inscrição recolher o seu ID de fornecedor, poderá utilizar esse atributo para atribuí-los dinamicamente a um grupo ou pacote de acesso a esse fornecedor. Pode criar atributos personalizados no portal Azure e usá-los nos fluxos de utilizador de inscrição de autosserviço. Também pode ler e escrever estes atributos utilizando a [API](https://docs.microsoft.com/azure/active-directory-b2c/manage-user-accounts-graph-api)do Gráfico microsoft . 
+Se utilizar um portal de self-service, pode utilizar [conectores API](../external-identities/api-connectors-overview.md) para recolher atributos adicionais sobre os utilizadores à medida que se inscrevem. Em seguida, pode potencialmente usar esses atributos para atribuir acesso. Por exemplo, se durante o processo de inscrição recolher o seu ID de fornecedor, poderá utilizar esse atributo para atribuí-los dinamicamente a um grupo ou pacote de acesso a esse fornecedor. Pode criar atributos personalizados no portal Azure e usá-los nos fluxos de utilizador de inscrição de autosserviço. Também pode ler e escrever estes atributos utilizando a [API](../../active-directory-b2c/manage-user-accounts-graph-api.md)do Gráfico microsoft . 
 
 ### <a name="troubleshoot-invitation-redemption-to-azure-ad-users"></a>Resgate de convites de resolução de problemas para utilizadores da AD Azure
 
@@ -132,7 +132,7 @@ Recomendamos as seguintes restrições para os utilizadores convidados.
 
 * **Bloqueie o acesso ao portal Azure. Pode fazer raras exceções necessárias.** 
 
-   * Crie uma política de acesso condicional que inclua todos os utilizadores convidados e externos e, em seguida, [implemente uma política para bloquear o acesso](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management).
+   * Crie uma política de acesso condicional que inclua todos os utilizadores convidados e externos e, em seguida, [implemente uma política para bloquear o acesso](../../role-based-access-control/conditional-access-azure-management.md).
 
  
 
@@ -185,7 +185,7 @@ Por predefinição, as equipas permitem o acesso externo, o que significa que a 
 
 ### <a name="direct-sharing-through-sharepoint-and-onedrive"></a>Partilha direta através do SharePoint e do OneDrive
 
-A partilha direta através do SharePoint e do OneDrive pode adicionar utilizadores fora do processo de Gestão de Direitos. Para uma análise aprofundada destas configurações, consulte [o Manage Access com as Microsoft Teams, SharePoint e OneDrive para negócios,](9-secure-access-teams-sharepoint.md) pode também bloquear o uso do [OneDrive pessoal do utilizador,](https://docs.microsoft.com/office365/troubleshoot/group-policy/block-onedrive-use-from-office) se assim o desejar.
+A partilha direta através do SharePoint e do OneDrive pode adicionar utilizadores fora do processo de Gestão de Direitos. Para uma análise aprofundada destas configurações, consulte [o Manage Access com as Microsoft Teams, SharePoint e OneDrive para negócios,](9-secure-access-teams-sharepoint.md) pode também bloquear o uso do [OneDrive pessoal do utilizador,](/office365/troubleshoot/group-policy/block-onedrive-use-from-office) se assim o desejar.
 
 ### <a name="sending-documents-through-email"></a>Envio de documentos por e-mail
 
@@ -197,12 +197,12 @@ A paisagem das ferramentas de colaboração é vasta. Os seus utilizadores prova
 
 Para obter mais informações sobre a gestão de aplicações não proibidas, consulte:
 
-* [Governar aplicações ligadas](https://docs.microsoft.com/cloud-app-security/governance-actions)
+* [Governar aplicações ligadas](/cloud-app-security/governance-actions)
 
-* [Sancionar e não sancionar um pedido.](https://docs.microsoft.com/cloud-app-security/governance-discovery)
+* [Sancionar e não sancionar um pedido.](/cloud-app-security/governance-discovery)
 
  
-### <a name="next-steps"></a>Passos seguintes
+### <a name="next-steps"></a>Próximos passos
 
 Consulte os seguintes artigos sobre a garantia do acesso externo aos recursos. Recomendamos que tome as ações na ordem listada.
 

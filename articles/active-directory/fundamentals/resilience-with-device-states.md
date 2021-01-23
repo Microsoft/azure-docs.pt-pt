@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: faa334c21e23ecddad287846d34aaf0d72af66cc
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 6d476be7a417cfc31cca76d3409074aaaa281a56
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602189"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724615"
 ---
 # <a name="build-resilience-with-device-states"></a>Construir resiliência com estados de dispositivo
 
@@ -40,11 +40,11 @@ Quando um PRT é usado para solicitar o acesso a uma aplicação, o seu disposit
 
   Se existirem versões mais antigas do Windows na sua organização, atualize estes dispositivos para utilizar o Windows 10.
 
-* Standardize o acesso do navegador do utilizador para usar o [Microsoft Edge](https://docs.microsoft.com/deployedge/microsoft-edge-security-identity) ou o Google Chrome com [extensões](https://chrome.google.com/webstore/detail/office/ndjpnladcallmjemlbaebfadecfhkepb) [suportadas](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji) que permitiram que sSO sem costura para aplicações web usando o PRT.
+* Standardize o acesso do navegador do utilizador para usar o [Microsoft Edge](/deployedge/microsoft-edge-security-identity) ou o Google Chrome com [extensões](https://chrome.google.com/webstore/detail/office/ndjpnladcallmjemlbaebfadecfhkepb) [suportadas](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji) que permitiram que sSO sem costura para aplicações web usando o PRT.
 
-* Para dispositivos pessoais ou empresas iOS e Android implementam a [App Microsoft Authenticator](../user-help/user-help-auth-app-overview.md). Além da autenticação multi-fator e do sinal sem palavra-passe, a aplicação Microsoft Authenticator irá permitir um único sinal através de uma aplicação nativa através de [autenticação intermediada](../develop/brokered-auth.md) com menos pedidos de autenticação para os utilizadores finais.
+* Para dispositivos pessoais ou empresas iOS e Android implementam a [App Microsoft Authenticator](../user-help/user-help-auth-app-overview.md). Além da autenticação multi-fator e do sinal sem palavra-passe, a aplicação Microsoft Authenticator irá permitir um único sinal através de uma aplicação nativa através de [autenticação intermediada](../develop/msal-android-single-sign-on.md) com menos pedidos de autenticação para os utilizadores finais.
 
-* Para dispositivos iOS e Android de propriedade pessoal ou empresa, utilize [a gestão de aplicações móveis](https://docs.microsoft.com/mem/intune/apps/app-management) para aceder de forma segura aos recursos da empresa com menos pedidos de autenticação. 
+* Para dispositivos iOS e Android de propriedade pessoal ou empresa, utilize [a gestão de aplicações móveis](/mem/intune/apps/app-management) para aceder de forma segura aos recursos da empresa com menos pedidos de autenticação. 
 
 * [Utilize o plug-in Microsoft Enterprise SSO para dispositivos Apple (pré-visualização)](../develop/apple-sso-plugin.md). Este regista o dispositivo e fornece SSO em todo o navegador e aplicações AD nativas do Azure. 
 

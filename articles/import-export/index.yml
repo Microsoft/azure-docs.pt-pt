@@ -1,5 +1,5 @@
 ### YamlMime:Landing
-title: Documentação sobre importação/exportação do Azure - Transferência online
+title: Documentação sobre importação/exportação do Azure
 summary: Utilize a Azure Import/Export para importar de forma segura grandes quantidades de dados para o armazenamento de Azure Blob e para os Ficheiros Azure, enviando discos para um centro de dados Azure.
 metadata:
   title: Documentação sobre importação/exportação do Azure
@@ -12,12 +12,12 @@ metadata:
   author: v-dalc
   ms.author: alkohli
   ms.date: 01/08/201
-  ms.openlocfilehash: 5bccc4c64da4493e2f6d5e969949eb13df8bc1e7
-  ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+  ms.openlocfilehash: fe86eab66b0f03cb23072a7a34c4be161ca4fb38
+  ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/22/2021
-  ms.locfileid: "98707939"
+  ms.lasthandoff: 01/23/2021
+  ms.locfileid: "98725742"
 landingContent:
 - title: Sobre a importação/exportação de Azure
   linkLists:

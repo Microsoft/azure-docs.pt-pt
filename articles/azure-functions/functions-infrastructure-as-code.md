@@ -5,12 +5,12 @@ ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4b649942a52c51aef0d6edd17b913f75e1fb247b
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: a1b621b5d5601e6d8bffef48e23d217e0eee1d6a
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98674172"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725824"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatizar a implementação de recursos para a sua aplicação de funções em Funções Azure
 
@@ -137,7 +137,7 @@ O recurso de aplicação de função é definido utilizando um recurso do tipo *
 
 Uma aplicação de função deve incluir estas definições de aplicação:
 
-| Nome da definição                 | Description                                                                               | Valores de exemplo                        |
+| Nome da definição                 | Descrição                                                                               | Valores de exemplo                        |
 |------------------------------|-------------------------------------------------------------------------------------------|---------------------------------------|
 | AzureWebJobsStorage          | Uma cadeia de ligação a uma conta de armazenamento que o tempo de execução de Funções utiliza para a fila interna | Ver [conta de armazenamento](#storage)       |
 | FUNCTIONS_EXTENSION_VERSION  | A versão do tempo de funcionamento das Funções Azure                                                | `~3`                                  |
@@ -212,9 +212,11 @@ Se definir explicitamente o seu plano de Consumo, terá de definir o `serverFarm
 
 ### <a name="create-a-function-app"></a>Criar uma aplicação de funções
 
+As definições exigidas por uma aplicação de função em execução no plano de consumo adiam entre o Windows e o Linux. 
+
 #### <a name="windows"></a>Windows
 
-No Windows, um plano de consumo requer duas definições adicionais na configuração do site: `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` e `WEBSITE_CONTENTSHARE` . Estas propriedades configuram a conta de armazenamento e o caminho do ficheiro onde o código e configuração da aplicação de função são armazenados.
+No Windows, um plano de consumo requer uma definição adicional na configuração do site: [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring) . Esta propriedade configura a conta de armazenamento onde o código e configuração da aplicação de função são armazenados.
 
 ```json
 {
@@ -238,10 +240,6 @@ No Windows, um plano de consumo requer duas definições adicionais na configura
                     "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2019-06-01').keys[0].value)]"
                 },
                 {
-                    "name": "WEBSITE_CONTENTSHARE",
-                    "value": "[toLower(variables('functionAppName'))]"
-                },
-                {
                     "name": "FUNCTIONS_WORKER_RUNTIME",
                     "value": "node"
                 },
@@ -259,9 +257,12 @@ No Windows, um plano de consumo requer duas definições adicionais na configura
 }
 ```
 
+> [!IMPORTANT]
+> Não defina a [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) definição como é gerada para si quando o site for criado pela primeira vez.  
+
 #### <a name="linux"></a>Linux
 
-No Linux, a aplicação de função deve ter o seu `kind` conjunto para , e deve ter a propriedade definida `functionapp,linux` `reserved` `true` para:
+No Linux, a aplicação de função deve ter o seu `kind` conjunto para , e deve ter a propriedade definida para `functionapp,linux` `reserved` `true` . 
 
 ```json
 {
@@ -299,8 +300,9 @@ No Linux, a aplicação de função deve ter o seu `kind` conjunto para , e deve
 }
 ```
 
-<a name="premium"></a>
+As [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring) [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) configurações e as configurações não são suportadas no Linux.
 
+<a name="premium"></a>
 ## <a name="deploy-on-premium-plan"></a>Implementar no plano Premium
 
 O plano Premium oferece a mesma escala que o plano de Consumo, mas inclui recursos dedicados e capacidades adicionais. Para saber mais, consulte [o Plano Premium Azure Functions.](./functions-premium-plan.md)
@@ -332,7 +334,7 @@ Um plano Premium é um tipo especial de recurso "serverfarm". Pode especiá-lo u
 
 ### <a name="create-a-function-app"></a>Criar uma aplicação de funções
 
-Uma aplicação de função num plano Premium deve ter a `serverFarmId` propriedade definida para o ID de recursos do plano criado anteriormente. Além disso, um plano Premium requer duas definições adicionais na configuração do site: `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` e `WEBSITE_CONTENTSHARE` . Estas propriedades configuram a conta de armazenamento e o caminho do ficheiro onde o código e configuração da aplicação de função são armazenados.
+Uma aplicação de função num plano Premium deve ter a `serverFarmId` propriedade definida para o ID de recursos do plano criado anteriormente. Além disso, um plano Premium requer uma configuração adicional na configuração do site: [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring) . Esta propriedade configura a conta de armazenamento onde o código e configuração da aplicação de função são armazenados.
 
 ```json
 {
@@ -358,10 +360,6 @@ Uma aplicação de função num plano Premium deve ter a `serverFarmId` propried
                     "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2019-06-01').keys[0].value)]"
                 },
                 {
-                    "name": "WEBSITE_CONTENTSHARE",
-                    "value": "[toLower(variables('functionAppName'))]"
-                },
-                {
                     "name": "FUNCTIONS_WORKER_RUNTIME",
                     "value": "node"
                 },
@@ -378,6 +376,8 @@ Uma aplicação de função num plano Premium deve ter a `serverFarmId` propried
     }
 }
 ```
+> [!IMPORTANT]
+> Não defina a [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) definição como é gerada para si quando o site for criado pela primeira vez.  
 
 <a name="app-service-plan"></a>
 
@@ -686,7 +686,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "MyResourceGroup" -TemplateFile
 
 Para testar esta implementação, pode utilizar um [modelo como este](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-function-app-create-dynamic/azuredeploy.json) que cria uma aplicação de função no Windows num plano de Consumo. `<function-app-name>`Substitua-o por um nome único para a sua aplicação de função.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre como desenvolver e configurar funções Azure.
 

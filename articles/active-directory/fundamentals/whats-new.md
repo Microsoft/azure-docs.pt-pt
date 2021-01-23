@@ -1,5 +1,5 @@
 ---
-title: Novidades Notas de lançamento - Azure Ative Directory / Microsoft Docs
+title: Novidades Notas de lançamento - Azure Ative Directory | Microsoft Docs
 description: Saiba quais as novidades com o Azure Ative Directory; como as últimas notas de lançamento, problemas conhecidos, correções de bugs, funcionalidades precadas e alterações futuras.
 services: active-directory
 author: ajburnle
@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6da9f27e25fa5543f949716824f54af2b9f1ad1
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 12b5c95b67f8fada29914d3a8de559280e6145f8
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132550"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724225"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Quais as novidades no Diretório Ativo do Azure?
 
@@ -100,7 +100,7 @@ Pode agora automatizar a criação, atualização e eliminação de contas de ut
 - [Bizagi Studio for Digital Process Automation](../saas-apps/bizagi-studio-for-digital-process-automation-provisioning-tutorial.md)
 - [CybSafe](../saas-apps/cybsafe-provisioning-tutorial.md)
 - [GroupTalk](../saas-apps/grouptalk-provisioning-tutorial.md)
-- [PaperCut Cloud Print Management](/azure/active-directory/saas-apps/papercut-cloud-print-management-provisioning-tutorial)
+- [PaperCut Cloud Print Management](../saas-apps/papercut-cloud-print-management-provisioning-tutorial.md)
 - [Parsable](../saas-apps/parsable-provisioning-tutorial.md)
 - [Shopify Plus](../saas-apps/shopify-plus-provisioning-tutorial.md)
 
@@ -191,7 +191,7 @@ Para listar a sua aplicação na galeria de aplicações Azure AD, leia os detal
 **Categoria de serviço:** RBAC  
 **Capacidade do produto:** Controlo de Acessos
  
- [As funções personalizadas do RBAC para gestão de aplicações de empresas delegadas](../users-groups-roles/roles-custom-available-permissions.md) estão agora em pré-visualização pública. Estas novas permissões baseiam-se nas funções personalizadas para a gestão do registo de aplicações, o que permite um controlo fino sobre o acesso que os seus administradores têm. Com o tempo, serão libertadas permissões adicionais para delegar a gestão do Azure AD.
+ [As funções personalizadas do RBAC para gestão de aplicações de empresas delegadas](../roles/custom-available-permissions.md) estão agora em pré-visualização pública. Estas novas permissões baseiam-se nas funções personalizadas para a gestão do registo de aplicações, o que permite um controlo fino sobre o acesso que os seus administradores têm. Com o tempo, serão libertadas permissões adicionais para delegar a gestão do Azure AD.
 
 Alguns cenários comuns de delegação:
 - atribuição de utilizadores e grupos que podem aceder a aplicações únicas de inscrição baseadas em SAML
@@ -247,7 +247,7 @@ Pode agora automatizar a criação, atualização e eliminação de contas de ut
 - [Tic - Tac Mobile](../saas-apps/tic-tac-mobile-provisioning-tutorial.md)
 - [Visibly](../saas-apps/visibly-provisioning-tutorial.md)
 
-Para obter mais informações, consulte [automatizar o fornecimento de utilizadores às aplicações do SaaS com Azure AD](../manage-apps/user-provisioning.md).
+Para obter mais informações, consulte [automatizar o fornecimento de utilizadores às aplicações do SaaS com Azure AD](../app-provisioning/user-provisioning.md).
  
 ---
 
@@ -301,7 +301,7 @@ O agente de provisionamento em nuvem foi lançado em pré-visualização públic
  
 Anteriormente, pode recuperar as teclas BitLocker através do ponto final /bitlocker. Acabaremos por depregrir este ponto final, e os clientes devem começar a consumir a API que agora se enquadra na /informationProtection. 
 
-Consulte [a API de recuperação do BitLocker](https://docs.microsoft.com/graph/api/resources/bitlockerrecoverykey?view=graph-rest-beta) para obter atualizações da documentação para refletir estas alterações.
+Consulte [a API de recuperação do BitLocker](/graph/api/resources/bitlockerrecoverykey?view=graph-rest-beta) para obter atualizações da documentação para refletir estas alterações.
 
 ---
 
@@ -603,7 +603,7 @@ Para uma experiência ideal do utilizador, recomendamos a utilização da frequ�
  
 Pode agora automatizar a criação, atualização e eliminação de contas de utilizador para estas novas aplicações integradas:
 
-- [Coda](../saas-apps/coda-provisioning-tutorial.md)
+- [Rio Coda](../saas-apps/coda-provisioning-tutorial.md)
 - [Cofense Recipient Sync](../saas-apps/cofense-provision-tutorial.md)
 - [InVision](../saas-apps/invision-provisioning-tutorial.md)
 - [myday](../saas-apps/myday-provision-tutorial.md)
@@ -1126,4 +1126,3 @@ Se a sua organização estiver a usar o Azure MFA SDK, tem de migrar até 30 de 
 
 ---
 
- 

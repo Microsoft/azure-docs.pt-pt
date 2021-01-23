@@ -1,5 +1,5 @@
 ---
-title: Interfaces resilientes com processos externos utilizando Azure AD B2C Microsoft Docs
+title: Interfaces resilientes com processos externos utilizando | Azure AD B2C Microsoft Docs
 description: Métodos para construir interfaces resilientes com processos externos
 services: active-directory
 ms.service: active-directory
@@ -13,12 +13,12 @@ ms.reviewer: ''
 ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c96856c988cae891e64ddf460d61851102e4666c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 58ef522f5b048db0ef120625d9e894c8e14c070e
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95919814"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724412"
 ---
 # <a name="resilient-interfaces-with-external-processes"></a>Interfaces resilientes com processos externos
 
@@ -28,7 +28,7 @@ Neste artigo, fornecemos-lhe orientações sobre como planear e implementar as A
 
 ## <a name="ensure-correct-placement-of-the-apis"></a>Garantir a correta colocação das APIs
 
-As políticas de enquadramento de identidade (IEF) permitem-lhe chamar um sistema externo utilizando um [perfil técnico restful da API](https://docs.microsoft.com/azure/active-directory-b2c/restful-technical-profile). Os sistemas externos não são controlados pelo ambiente de execução do IEF e são um potencial ponto de falha.
+As políticas de enquadramento de identidade (IEF) permitem-lhe chamar um sistema externo utilizando um [perfil técnico restful da API](../../active-directory-b2c/restful-technical-profile.md). Os sistemas externos não são controlados pelo ambiente de execução do IEF e são um potencial ponto de falha.
 
 ### <a name="how-to-manage-external-systems-using-apis"></a>Como gerir sistemas externos utilizando APIs
 
@@ -38,11 +38,11 @@ As políticas de enquadramento de identidade (IEF) permitem-lhe chamar um sistem
 
 - Remova as chamadas API do caminho pré-autenticado sempre que possível. Se não conseguir, deve colocar proteções rigorosas para ataques de Negação de Serviço (DoS) e Denegação de Serviço Distribuído (DDoS) em frente às suas APIs. Os atacantes podem carregar a página de inscrição e tentar inundar a sua API com ataques DoS e aleijar a sua aplicação. Por exemplo, usando o CAPTCHA no seu sinal, o fluxo de inscrição pode ajudar.
 
-- Utilize [conectores API do fluxo de utilizador de inscrição incorporado](https://docs.microsoft.com/azure/active-directory-b2c/api-connectors-overview) sempre que possível para se integrar com APIs web, quer depois de iniciar sessão com um fornecedor de identidade ou antes de criar o utilizador. Uma vez que os fluxos de utilizador já estão amplamente testados, é provável que não tenha de realizar testes funcionais, de desempenho ou de escala ao nível do utilizador. Ainda precisa de testar as suas aplicações para funcionalidade, desempenho e escala.
+- Utilize [conectores API do fluxo de utilizador de inscrição incorporado](../../active-directory-b2c/api-connectors-overview.md) sempre que possível para se integrar com APIs web, quer depois de iniciar sessão com um fornecedor de identidade ou antes de criar o utilizador. Uma vez que os fluxos de utilizador já estão amplamente testados, é provável que não tenha de realizar testes funcionais, de desempenho ou de escala ao nível do utilizador. Ainda precisa de testar as suas aplicações para funcionalidade, desempenho e escala.
 
-- Os [perfis técnicos da](https://docs.microsoft.com/azure/active-directory-b2c/restful-technical-profile) AD RESTFUL da AD API não fornecem qualquer comportamento de caching. Em vez disso, o perfil de API RESTFUL implementa uma lógica de retídica e um tempo limite que é incorporado na política.
+- Os [perfis técnicos da](../../active-directory-b2c/restful-technical-profile.md) AD RESTFUL da AD API não fornecem qualquer comportamento de caching. Em vez disso, o perfil de API RESTFUL implementa uma lógica de retídica e um tempo limite que é incorporado na política.
 
-- Para as APIs que precisam de escrever dados, faça fila para ter tais tarefas executadas por um trabalhador de fundo. Serviços como [as filas Azure](https://docs.microsoft.com/azure/storage/queues/storage-queues-introduction) podem ser usados. Isto fará com que a API regresse de forma eficiente, aumentando o desempenho da execução da política.  
+- Para as APIs que precisam de escrever dados, faça fila para ter tais tarefas executadas por um trabalhador de fundo. Serviços como [as filas Azure](../../storage/queues/storage-queues-introduction.md) podem ser usados. Isto fará com que a API regresse de forma eficiente, aumentando o desempenho da execução da política.  
 
 ## <a name="api-error-handling"></a>Tratamento de erros da API
 
@@ -50,11 +50,11 @@ Como as APIs vivem fora do sistema Azure AD B2C, é necessário ter um manuseame
 
 ### <a name="how-to-gracefully-handle-api-errors"></a>Como lidar graciosamente com erros da API
 
-- Uma API pode falhar por várias razões, tornar a sua aplicação resiliente a tais falhas. [Devolva uma mensagem de erro HTTP 4XX](https://docs.microsoft.com/azure/active-directory-b2c/restful-technical-profile#returning-validation-error-message) se a API não conseguir completar o pedido. Na política Azure AD B2C, tente gerir graciosamente a indisponibilidade da API e talvez tornar uma experiência reduzida.
+- Uma API pode falhar por várias razões, tornar a sua aplicação resiliente a tais falhas. [Devolva uma mensagem de erro HTTP 4XX](../../active-directory-b2c/restful-technical-profile.md#returning-validation-error-message) se a API não conseguir completar o pedido. Na política Azure AD B2C, tente gerir graciosamente a indisponibilidade da API e talvez tornar uma experiência reduzida.
 
-- [Lidar com erros transitórios graciosamente](https://docs.microsoft.com/azure/active-directory-b2c/restful-technical-profile#error-handling). O perfil DE API RESTFul permite-lhe configurar mensagens de erro para [vários disjuntores](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker).
+- [Lidar com erros transitórios graciosamente](../../active-directory-b2c/restful-technical-profile.md#error-handling). O perfil DE API RESTFul permite-lhe configurar mensagens de erro para [vários disjuntores](/azure/architecture/patterns/circuit-breaker).
 
-- Monitorize e utilize proactivamente a Integração Contínua/Entrega Contínua (CICD), rode as credenciais de acesso da API, tais como palavras-passe e certificados utilizados pelo [motor de perfil técnico.](https://docs.microsoft.com/azure/active-directory-b2c/restful-technical-profile)
+- Monitorize e utilize proactivamente a Integração Contínua/Entrega Contínua (CICD), rode as credenciais de acesso da API, tais como palavras-passe e certificados utilizados pelo [motor de perfil técnico.](../../active-directory-b2c/restful-technical-profile.md)
 
 ## <a name="api-management---best-practices"></a>Gestão da API - boas práticas
 
@@ -64,9 +64,9 @@ Enquanto implementa as APIs REST e configura o perfil técnico RESTful, seguindo
 
 - A API Management (APIM) publica, gere e analisa as suas APIs. A APIM também lida com a autenticação para fornecer acesso seguro a serviços de backend e microserviços. Utilize uma porta de entrada API para escalar as implementações da API, o tiaching e o equilíbrio de carga.
 
-- Recomendação é obter o símbolo certo no início da viagem do utilizador em vez de ligar várias vezes para cada API e [garantir um API AZURE APIM](https://docs.microsoft.com/azure/active-directory-b2c/secure-api-management?tabs=app-reg-ga).
+- Recomendação é obter o símbolo certo no início da viagem do utilizador em vez de ligar várias vezes para cada API e [garantir um API AZURE APIM](../../active-directory-b2c/secure-api-management.md?tabs=app-reg-ga).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Recursos de resiliência para desenvolvedores Azure AD B2C](resilience-b2c.md)
   - [Experiência resiliente do utilizador final](resilient-end-user-experience.md)
