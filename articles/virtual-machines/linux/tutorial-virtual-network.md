@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 72c7f1dd6652a51a960c80829a697b97fd74f8de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c806e5d1d9c9242b6ba57496327c672d7fed0654
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87500032"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704494"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli"></a>Tutorial: Criar e gerir redes virtuais do Azure para máquinas virtuais do Linux com a CLI do Azure
 
@@ -289,7 +289,7 @@ A VM de back-end só é acessível na porta *22* e na porta *3306* a partir da s
 az network nsg rule list --resource-group myRGNetwork --nsg-name myBackendNSG --output table
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, criou e protegeu redes do Azure relacionadas com máquinas virtuais. Aprendeu a:
 
@@ -300,7 +300,4 @@ Neste tutorial, criou e protegeu redes do Azure relacionadas com máquinas virtu
 > * Proteger o tráfego de rede
 > * Criar a VM de back-end
 
-Avance para o tutorial seguinte para aprender a proteger os dados nas máquinas virtuais com o Azure Backup. 
-
-> [!div class="nextstepaction"]
-> [Apoiar máquinas virtuais Linux em Azure](./tutorial-backup-vms.md)
+Para aprender a proteger os seus discos VM, consulte [backup e recuperação de desastres para discos](backup-and-disaster-recovery-for-azure-iaas-disks.md).

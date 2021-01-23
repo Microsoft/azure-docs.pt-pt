@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: v-tcassi
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: e603e99c1aa9c49d20bdb281bbfd96131ae2efdd
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 3470e07c1b5673efa6cd015e43e077828da1573e
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98663626"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98703670"
 ---
 # <a name="install-and-provision-azure-iot-edge-for-linux-on-a-windows-device-preview"></a>Instalação e fornecimento Azure IoT Edge para Linux num dispositivo Windows (Pré-visualização)
 
@@ -162,7 +162,7 @@ Instale o IoT Edge para o Linux no Windows no seu dispositivo-alvo se ainda não
    Se a política de execução não for, pode definir a política de `local machine` `AllSigned` execução utilizando:
 
    ```azurepowershell-interactive
-   Set-ExecutionPolicy - ExecutionPolicy AllSigned -Force
+   Set-ExecutionPolicy -ExecutionPolicy AllSigned -Force
    ```
 
 1. Crie a Borda IoT para Linux na implementação do Windows.
@@ -337,6 +337,6 @@ Verifique se o IoT Edge para Linux no Windows foi instalado com sucesso e config
        sudo iotedge check
        ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Continue a [implementar módulos IoT Edge](how-to-deploy-modules-portal.md) para aprender a implantar módulos no seu dispositivo.

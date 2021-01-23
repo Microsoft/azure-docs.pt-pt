@@ -3,18 +3,18 @@ title: Criar & implementar projetos de grupo de recursos do Estúdio Visual
 description: Use o Visual Studio para criar um projeto de grupo de recursos Azure e implementar os recursos para a Azure.
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: 479dbed1f288148c24fc8464f7895cd3e2b182f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1a06a3e89c5fd2ea8906ff9a438c170f135d6ec
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372651"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704419"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Criar e implementar grupos de recursos do Azure através do Visual Studio
 
 Com o Visual Studio, pode criar um projeto que implementa a sua infraestrutura e o código para o Azure. Por exemplo, pode implementar o web host, website e código para o site. O Visual Studio fornece muitos modelos de introdução diferentes para cenários comuns de implementação. Neste artigo, implementa-se uma aplicação web.
 
-Este artigo mostra como utilizar [o Visual Studio 2019 ou mais tarde com o desenvolvimento do Azure e ASP.NET cargas de trabalho instaladas.](/visualstudio/install/install-visual-studio?view=vs-2019) Se utilizar o Visual Studio 2017, a sua experiência é em grande parte a mesma.
+Este artigo mostra como utilizar [o Visual Studio 2019 ou mais tarde com o desenvolvimento do Azure e ASP.NET cargas de trabalho instaladas.](/visualstudio/install/install-visual-studio) Se utilizar o Visual Studio 2017, a sua experiência é em grande parte a mesma.
 
 ## <a name="create-azure-resource-group-project"></a>Criar projeto do Grupo de Recursos do Azure
 
@@ -382,7 +382,7 @@ Quando os recursos do Azure já não forem necessários, limpe os recursos imple
 
 1. **Selecione Eliminar o grupo** de recursos do menu superior.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu a criar e implementar modelos usando o Visual Studio. Para saber mais sobre o desenvolvimento do modelo, consulte a nossa nova série tutorial de principiantes:
 

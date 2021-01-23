@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: b263d3e62ae97914fc8e06580486bddd0cb9b3b7
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 0b671fbdfe16848012ac94671ce68e8a33a8b3e8
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968454"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98703874"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matriz de suporte da migração do VMware
 
@@ -166,7 +166,7 @@ Arquitetura do sistema operativo convidado | 64-bit.
 Tamanho do disco do sistema operativo | Até 2.048 GB. 
 Contagem de discos do sistema operativo | 1 
 Contagem de discos de dados | 64 ou menos. 
-Tamanho do disco de dados | Até 8.095 GB
+Tamanho do disco de dados | Até 32 TB
 Placas de rede | Vários adaptadores são suportados.
 VHD partilhado | Não suportado. 
 Disco FC | Não suportado. 
@@ -176,6 +176,6 @@ Conecte-se após a migração-Windows | Para ligar aos VMs Azure que executam o 
 Conecte-se após migração-Linux | Para ligar aos VMs Azure após a migração utilizando SSH:<br/><br/> Antes da migração, na máquina no local, verifique se o serviço Secure Shell está definido para iniciar e que as regras de firewall permitem uma ligação SSH.<br/><br/> Após o failover, no Azure VM, permita a entrada de ligações à porta SSH para as regras do grupo de segurança da rede sobre o falhado sobre vM, e para a sub-rede Azure à qual está ligada.<br/><br/> Além disso, adicione um endereço IP público para o VM.  
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Selecione](server-migrate-overview.md) uma opção de migração VMware.

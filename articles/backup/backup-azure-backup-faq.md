@@ -3,12 +3,12 @@ title: Respostas a perguntas comuns
 description: 'Respostas a perguntas comuns sobre: funcionalidades do Azure Backup incluindo os cofres dos Serviços de Recuperação, que cópias de segurança podem criar, como funcionam, a encriptação e os limites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: bd84ff553b486d200ec4501b89b42335335b223f
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: dbe6ce95427b559c037e38525f9f48195a2a76a4
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98572532"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98703424"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup – Perguntas frequentes
 
@@ -58,9 +58,9 @@ Se já configurar a cópia de segurança e tiver de passar de GRS para LRS, ent�
 - O ILR é suportado nas VMs do Azure com cópia de segurança efetuada pela cópia de segurança da VM do Azure. Para obter mais informações, veja este [artigo](backup-azure-restore-files-from-vm.md)
 - O ILR não é suportado para pontos de recuperação on-line de VMs no local apoiados pelo Azure Backup Server (MABS) ou pelo System Center DPM.
 
-### <a name="how-can-i-move-data-from-the-recovery-services-vault-to-on-premises"></a>Como posso transferir dados do cofre dos Serviços de Recuperação para o local?
+### <a name="how-can-i-move-data-from-the-recovery-services-vault-to-on-premises"></a>Como posso mover dados do cofre dos Serviços de Recuperação para o local?
 
-Não é suportado a exportação de dados diretamente do cofre dos Serviços de Recuperação para as instalações utilizando a Data Box. Os dados devem ser restaurados numa conta de armazenamento e, em seguida, podem ser transferidos para o local através da [Data Box](../databox/data-box-overview.md) ou [da Import/Export](../storage/common/storage-import-export-service.md).
+Não é suportado a exportação de dados diretamente do cofre dos Serviços de Recuperação para as instalações utilizando a Data Box. Os dados devem ser restaurados numa conta de armazenamento e, em seguida, podem ser transferidos para o local através da [Data Box](../databox/data-box-overview.md) ou [da Import/Export](../import-export/storage-import-export-service.md).
 
 ### <a name="what-is-the-difference-between-a-geo-redundant-storage-grs-vault-with-and-without-the-cross-region-restore-crr-capability-enabled"></a>Qual é a diferença entre um cofre de armazenamento geo-redundante (GRS) com e sem a capacidade de Restauro cross-region (CRR) ativada?
 
@@ -232,7 +232,7 @@ A chave de encriptação utilizada pelo Agente microsoft Azure Recovery Services
 
 Apenas o seu site possui a chave utilizada para encriptar os dados da cópia de segurança. A Microsoft não mantém uma cópia no Azure e não tem qualquer acesso à chave. Se tiver colocado a chave num local incorreto, a Microsoft não poderá recuperar os dados da cópia de segurança.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Leia as outras FAQs:
 

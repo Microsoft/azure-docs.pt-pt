@@ -1,18 +1,18 @@
 ---
 title: Definições políticas incorporadas para Azure Data Box
 description: Lista definições de políticas incorporadas da Azure Policy para Azure Data Box. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 01/13/2021
+ms.date: 01/21/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
 ms.service: databox
 author: alkohli
 ms.author: alkohli
-ms.openlocfilehash: c67d7a359bc805f62e932adad847a4ab2484033b
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: ce607d8036fa7dd4f6c0878d9ec028b880089355
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98626313"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98703802"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-data-box"></a>Definições incorporadas da Política Azure para Azure Data Box
 

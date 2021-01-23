@@ -1,24 +1,24 @@
 ---
-title: Configure a monitorização do PV com o Monitor Azure para contentores Microsoft Docs
+title: Configure a monitorização do PV com o Monitor Azure para contentores | Microsoft Docs
 description: Este artigo descreve como pode configurar a monitorização dos aglomerados de Kubernetes com volumes persistentes com o Azure Monitor para contentores.
 ms.topic: conceptual
 ms.date: 10/20/2020
-ms.openlocfilehash: e7c547c137fc84e6e6dfb2807b871ef0329a3c13
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: d7da6bc88e7c8526e3940714502d3c92d2f37dd8
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186852"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704478"
 ---
 # <a name="configure-pv-monitoring-with-azure-monitor-for-containers"></a>Configure a monitorização do PV com o Monitor Azure para contentores
 
-A partir da versão do agente *ciprod10052020,* o monitor Azure para contentores integrados agora suporta a monitorização da utilização do PV (volume persistente).
+A partir da versão do agente *ciprod10052020,* o Azure Monitor para contentores integrados agora suporta a monitorização do uso de PV (volume persistente).
 
 ## <a name="pv-metrics"></a>Métricas de PV
 
 O Azure Monitor para recipientes inicia automaticamente a monitorização do PV, recolhendo as seguintes métricas em intervalos de 60sec e armazenando-os na tabela **InsightMetrics.**
 
-|Nome da métrica |Dimensão métrica (etiquetas) |Description |
+|Nome da métrica |Dimensão métrica (etiquetas) |Descrição |
 |------------|------------------------|------------|
 | `pvUsedBytes`|`container.azm.ms/pv`|Espaço usado em bytes para um volume persistente específico com uma reivindicação usada por uma vagem específica. `pvCapacityBytes` é dobrado como uma dimensão no campo Tags para reduzir o custo de ingestão de dados e simplificar as consultas.|
 
@@ -28,6 +28,6 @@ O Azure Monitor para recipientes inclui gráficos pré-configurados para esta m�
 
 ![Exemplo de livro de trabalho do Azure Monitor PV](./media/container-insights-persistent-volumes/pv-workload-example.PNG)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre as métricas de PV recolhidas [aqui.](./container-insights-agent-config.md)

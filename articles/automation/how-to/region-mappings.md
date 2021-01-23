@@ -1,16 +1,16 @@
 ---
 title: Regiões suportadas para a área de trabalho do Log Analytics ligada
 description: Este artigo descreve os mapeamentos da região suportada entre uma conta de Automação e um espaço de trabalho Log Analytics, uma vez que se relaciona com certas características da Azure Automation.
-ms.date: 12/15/2020
+ms.date: 01/21/2021
 services: automation
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: 95537bd54ecb476055608c89ac68a46d410288b6
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 3b744127b51b0e0db63c158feaf463af4cd0bdcf
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97590890"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704326"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Regiões suportadas para a área de trabalho do Log Analytics ligada
 
@@ -32,13 +32,17 @@ A tabela a seguir mostra os mapeamentos suportados:
 |**EUA**||
 |Leste<sup>1</sup>|Leste|
 |Leste2<sup>2</sup>|Rio Eastus|
+|Westus|Westus|
 |Westus2|Westus2|
+|Central|Central|
 |Sul-Centro|Sul-Centro|
 |WestCentralus|WestCentralus|
 |**Canadá**||
 |Centro do Canadá|Centro do Canadá|
 |**Ásia-Pacífico**||
+|AustráliaEast|AustráliaEast|
 |AustráliaSoutheast|AustráliaSoutheast|
+|Ásia Oriental|Ásia Oriental|
 |Sudeste da Ásia|Sudeste da Ásia|
 |CentralIndia|CentralIndia|
 |ChinaEast2<sup>3</sup>|ChinaEast2|
@@ -92,7 +96,7 @@ Em alternativa, pode desvincular o seu espaço de trabalho da sua conta Automati
 1. No espaço de trabalho, selecione **a Conta de Automação** em **Recursos Relacionados.**
 2. Na página 'Conta Dem automação', selecione **'Desvincular'.**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre a Gestão de Atualização na [visão geral da Gestão de Atualização](../update-management/overview.md).
 * Saiba mais sobre o Rastreio de Alterações e Inventário na [visão geral do Change Tracking e do Inventário](../change-tracking/overview.md).

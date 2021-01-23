@@ -3,12 +3,12 @@ title: Configurar o Servidor de Backup Azure para a Solução VMware Azure
 description: Confende o ambiente Azure VMware Solution para fazer backup de máquinas virtuais utilizando o Servidor de Backup Azure.
 ms.topic: how-to
 ms.date: 10/23/2020
-ms.openlocfilehash: e71ec19402d22643d51f1435d1abcf56b20a290b
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 7885c0bc73bd5f7cd802e76ed9db470f77eda30d
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517383"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98703407"
 ---
 # <a name="set-up-azure-backup-server-for-azure-vmware-solution"></a>Configurar o Servidor de Backup Azure para a Solução VMware Azure
 
@@ -154,7 +154,7 @@ Um cofre dos Serviços de Recuperação é uma entidade de armazenamento que arm
 
    A caixa de diálogo **Cofre dos Serviços de Recuperação** abre-se.
 
-1. Introduza valores para o **Nome,** **Subscrição,** **Grupo de Recursos**e **Localização.**
+1. Introduza valores para o **Nome,** **Subscrição,** **Grupo de Recursos** e **Localização.**
 
    ![Configure o cofre dos Serviços de Recuperação.](../backup/media/backup-create-rs-vault/create-new-vault-dialog.png)
 
@@ -218,21 +218,21 @@ Siga os passos nesta secção para descarregar, extrair e instalar o pacote de s
 
    1. A partir do menu **Onde está a correr a sua carga de trabalho,** selecione **On-Premis**.
 
-      :::image type="content" source="media/azure-vmware-solution-backup/deploy-mabs-on-premises-workload.png" alt-text="O Azure Backup Server é implantado como uma infraestrutura Azure como um VM de serviço (IaaS) para proteger VMs de Solução VMware Azure.":::
+      :::image type="content" source="media/azure-vmware-solution-backup/deploy-mabs-on-premises-workload.png" alt-text="Onde está a sua carga de trabalho?":::
 
    1. A partir do menu **O que pretende fazer para fazer o backup,** selecione as cargas de trabalho que pretende proteger utilizando o Servidor de Backup Azure.
 
    1. Selecione **Prepare a Infraestrutura** para descarregar e instalar o Azure Backup Server e as credenciais do cofre.
 
-      :::image type="content" source="media/azure-vmware-solution-backup/deploy-mabs-prepare-infrastructure.png" alt-text="O Azure Backup Server é implantado como uma infraestrutura Azure como um VM de serviço (IaaS) para proteger VMs de Solução VMware Azure.":::
+      :::image type="content" source="media/azure-vmware-solution-backup/deploy-mabs-prepare-infrastructure.png" alt-text="Preparar Infraestruturas":::
 
 1. Na janela **de infraestrutura Prepare-se** que abre:
 
    1. Selecione o link **descarregar** para instalar o Servidor de Backup Azure.
 
-   1. 1. Selecione **Já descarregue ou utilize a mais recente instalação do Azure Backup Server** e, em seguida, **descarregue** para descarregar as credenciais do cofre. Utilizará estas credenciais quando registar o Servidor de Backup Azure no cofre dos Serviços de Recuperação. Os links levam-no ao Centro de Descarregamento, onde descarrega o pacote de software.
+   1. Selecione **Já descarregue ou utilize a mais recente instalação do Azure Backup Server** e, em seguida, **descarregue** para descarregar as credenciais do cofre. Utilizará estas credenciais quando registar o Servidor de Backup Azure no cofre dos Serviços de Recuperação. Os links levam-no ao Centro de Descarregamento, onde descarrega o pacote de software.
 
-   :::image type="content" source="media/azure-vmware-solution-backup/deploy-mabs-prepare-infrastructure2.png" alt-text="O Azure Backup Server é implantado como uma infraestrutura Azure como um VM de serviço (IaaS) para proteger VMs de Solução VMware Azure.":::
+   :::image type="content" source="media/azure-vmware-solution-backup/deploy-mabs-prepare-infrastructure2.png" alt-text="Infraestrutura de preparação - Servidor de Backup Azure":::
 
 1. Na página de descarregamento, selecione todos os ficheiros e selecione **Next**.
 
@@ -303,9 +303,9 @@ Se descarregou o pacote de software para um servidor diferente, copie os ficheir
    Utilize os seguintes valores para a configuração SSRS:
 
    * **Conta de Serviço**: **A utilização da conta incorporada** deve ser serviço de **rede**.
-   * **URL do Serviço Web**: **O Diretório Virtual** deve ser ** \<SQLInstanceName> ReportServer_**.
-   * **Base de dados**: **O nome de base de dados** deve ser **ReportServer$ \<SQLInstanceName> **.
-   * **URL do Portal Web**: **O Diretório Virtual** deve ser ** \<SQLInstanceName> Reports_**.
+   * **URL do Serviço Web**: **O Diretório Virtual** deve ser **\<SQLInstanceName> ReportServer_**.
+   * **Base de dados**: **O nome de base de dados** deve ser **ReportServer$ \<SQLInstanceName>**.
+   * **URL do Portal Web**: **O Diretório Virtual** deve ser **\<SQLInstanceName> Reports_**.
 
    [Saiba mais](/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode) sobre a configuração SSRS.
 
@@ -332,7 +332,7 @@ Se descarregou o pacote de software para um servidor diferente, copie os ficheir
 
    ![Selecione se deseja utilizar o Microsoft Update para verificar se há atualizações e selecione Next.](../backup/media/backup-azure-microsoft-azure-backup/update-opt-screen2.png)
 
-1. Reveja o **Resumo das Definições**e selecione **Instalar**.
+1. Reveja o **Resumo das Definições** e selecione **Instalar**.
 
    A instalação acontece por fases. 
    - A primeira fase instala o Agente de Serviços de Recuperação do Microsoft Azure.
@@ -387,7 +387,7 @@ O Azure Backup Server v3 só aceita volumes de armazenamento. Quando adiciona um
 1. Selecione **OK** para formatar estes volumes para ReFS para que o Azure Backup Server possa utilizar os benefícios modernos de armazenamento de backup.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Continue até ao próximo tutorial para aprender a configurar uma cópia de segurança dos VMware VMs em execução na Solução VMware Azure utilizando o Azure Backup Server.
 

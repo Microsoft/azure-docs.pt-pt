@@ -1,5 +1,5 @@
 ---
-title: Tutorial para exportar dados da Caixa de Dados do Azure Microsoft Docs
+title: Tutorial para exportar dados da Caixa de Dados Azure | Microsoft Docs
 description: Conheça os pré-requisitos de implantação e como exportar dados a partir de uma Caixa de Dados Azure
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: how-to
 ms.date: 12/18/2020
 ms.author: alkohli
-ms.openlocfilehash: ac86dfba02b54730773a1d243981e85d563517e7
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: aac1fb8e2da7a3c84b3abff47c8f476b9fb9049c
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98183835"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704343"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box"></a>Tutorial: Criar ordem de exportação para Azure Data Box
 
@@ -100,7 +100,7 @@ Execute os passos seguintes no Portal do Azure para encomendar um dispositivo.
     |---------|---------|
     |Conta de armazenamento     | A conta de Armazenamento Azure de onde pretende exportar dados. |
     |Tipo de exportação     | Especifica o tipo de dados para exportar de **todos os objetos** e **utilizar o ficheiro XML**.<ul><li> **Todos os objetos** - Especifica que o trabalho exporta todos os dados dependendo da sua seleção para **opções de Transferência.**</li><li> **Utilize o ficheiro XML** – Especifica um ficheiro XML que contém um conjunto de caminhos e prefixos para bolhas e/ou ficheiros a serem exportados da conta de armazenamento. O ficheiro XML tem de estar no recipiente da conta de armazenamento selecionada e a seleção das ações de ficheiros não é suportada. O ficheiro tem de ser um ficheiro de .xml não vazio.</li></ul>        |
-    |Opções de transferência     |  Especifica as opções de transferência de dados **de Selecione todos**, **Todas as bolhas** e **todos os ficheiros**. <ul><li> **Selecione All** - Especifica que todas as bolhas e ficheiros Azure são exportados. Se estiver a utilizar uma conta de armazenamento que suporta apenas bolhas (Conta de Armazenamento Blob), a opção **Todos os Ficheiros** não será selecionada.</li><li> **Todas as Bolhas** - Especifica que apenas blobs de bloco e página são exportados.</li><li> **Todos os ficheiros** - Especifica que todos os ficheiros são exportados, excluindo bolhas. O tipo de conta de armazenamento que tem (GPv1 e GPv2, armazenamento premium ou armazenamento de bolhas) determina os tipos de dados que pode exportar. Para obter mais informações, consulte [as contas de armazenamento suportadas para exportação.](../storage/common/storage-import-export-requirements.md#supported-storage-types)</li></ul>         |
+    |Opções de transferência     |  Especifica as opções de transferência de dados **de Selecione todos**, **Todas as bolhas** e **todos os ficheiros**. <ul><li> **Selecione All** - Especifica que todas as bolhas e ficheiros Azure são exportados. Se estiver a utilizar uma conta de armazenamento que suporta apenas bolhas (Conta de Armazenamento Blob), a opção **Todos os Ficheiros** não será selecionada.</li><li> **Todas as Bolhas** - Especifica que apenas blobs de bloco e página são exportados.</li><li> **Todos os ficheiros** - Especifica que todos os ficheiros são exportados, excluindo bolhas. O tipo de conta de armazenamento que tem (GPv1 e GPv2, armazenamento premium ou armazenamento de bolhas) determina os tipos de dados que pode exportar. Para obter mais informações, consulte [as contas de armazenamento suportadas para exportação.](../import-export/storage-import-export-requirements.md#supported-storage-types)</li></ul>         |
     |Incluir log verbose     | Indica se deseja um ficheiro de registo verboso que contenha uma lista de todos os ficheiros que foram exportados com sucesso.        |
 
     > [!NOTE]

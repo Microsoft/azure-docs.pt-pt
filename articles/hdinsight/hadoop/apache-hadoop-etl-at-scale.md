@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: d6c3dbc28da7bee0bc24a6dc24608c78e480c20e
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: e7a8a72d0669f39cc27c997d83af1e6272d045a6
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462173"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704157"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Extrair, transformar e carregar (ETL) em escala
 
@@ -82,7 +82,7 @@ Para o upload de conjuntos de dados na gama terabyte, a latência da rede pode s
 
 - **Azure ExpressRoute:** Crie ligações privadas entre datacenters Azure e a sua infraestrutura no local. Estas ligações fornecem uma opção fiável para a transferência de grandes quantidades de dados. Para mais informações, consulte [a documentação do Azure ExpressRoute.](../../expressroute/expressroute-introduction.md)
 
-- **Upload de dados a partir de discos rígidos:** Pode utilizar [o serviço Azure Import/Export](../../storage/common/storage-import-export-service.md) para enviar discos rígidos com os seus dados para um datacenter Azure. Os seus dados são enviados pela primeira vez para o armazenamento da Azure Blob. Em seguida, pode utilizar a Azure Data Factory ou a ferramenta AdlCopy para copiar dados do armazenamento de Azure Blob para o Armazenamento do Lago de Dados.
+- **Upload de dados a partir de discos rígidos:** Pode utilizar [o serviço Azure Import/Export](../../import-export/storage-import-export-service.md) para enviar discos rígidos com os seus dados para um datacenter Azure. Os seus dados são enviados pela primeira vez para o armazenamento da Azure Blob. Em seguida, pode utilizar a Azure Data Factory ou a ferramenta AdlCopy para copiar dados do armazenamento de Azure Blob para o Armazenamento do Lago de Dados.
 
 ### <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
 
@@ -138,7 +138,7 @@ Apache Flume não pode ser usado com Azure HDInsight. Mas, uma instalação hado
 
 Depois de existirem dados no local escolhido, é necessário limpá-lo, combiná-lo ou prepará-lo para um padrão de utilização específico. Colmeia, Porco e Spark SQL são boas escolhas para este tipo de trabalho. São todos apoiados no HDInsight.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Usando a Colmeia Apache como uma ferramenta ETL](apache-hadoop-using-apache-hive-as-an-etl-tool.md)
 - [Utilizar o Azure Data Lake Storage Gen2 com clusters do Azure HDInsight](../hdinsight-hadoop-use-data-lake-storage-gen2.md)

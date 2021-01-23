@@ -164,9 +164,9 @@
             - name: SDK de .NET (C#) - Código fonte
               href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins'
             - name: SDK de Java - Maven
-              href: 'https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_10_31/azure-mgmt-digitaltwins/1.0.0/jar'
+              href: 'https://search.maven.org/search?q=a:azure-mgmt-digitaltwins'
             - name: SDK de Java - Código fonte
-              href: 'https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/mgmt-v2020_10_31'
+              href: 'https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins'
             - name: SDK de JavaScript - NPM
               href: 'https://www.npmjs.com/package/@azure/arm-digitaltwins'
             - name: SDK de JavaScript - Código fonte
@@ -243,8 +243,10 @@
           href: /samples/azure-samples/dtdl-validator/dtdl-validator/
         - name: Especificação DTMI
           href: 'https://github.com/Azure/digital-twin-model-identifier'
-        - name: Pedidos de dados do cliente
+    - name: Pedidos de dados do cliente
       href: resources-customer-data-requests.md
+    - name: Limites de serviço do Digital Twins
+      href: reference-service-limits.md
     - name: Preços e disponibilidade
       items:
         - name: Preços
@@ -253,8 +255,6 @@
           href: 'https://azure.microsoft.com/support/legal/sla/digital-twins'
         - name: Regiões e disponibilidade
           href: 'https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins'
-        - name: Limites de serviço do Digital Twins
-          href: reference-service-limits.md
     - name: Histórias dos clientes
       href: 'https://customers.microsoft.com/en-us/search?sq=%22Azure%20Digital%20Twins%22&ff=&p=0&so=story_publish_date%20desc'
     - name: Vídeos do Channel 9

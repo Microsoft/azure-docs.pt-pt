@@ -11,12 +11,12 @@ metadata:
   services: cognitive-services
   title: Documentação do Criador de FAQ
   description: O Criador de FAQ é um serviço de API com base na cloud, que cria uma camada de conversação, perguntas e respostas com os seus dados. O Criador de FAQ permite-lhe incorporar um serviço de perguntas e respostas a partir do seu conteúdo semiestruturado, como documentos de FAQ, URLs e manuais de produtos. O serviço Criador de FAQ responde às perguntas em linguagem natural dos seus utilizadores, correspondendo-as à melhor resposta possível de FAQ da sua Base de Dados de Conhecimento.
-  ms.openlocfilehash: d1236b8a40d43ac5203cd4cac8aa607c925a04d7
-  ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
-  ms.translationtype: HT
+  ms.openlocfilehash: 6bc5587612a953f2e0bb43765f579adb56fab336
+  ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+  ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 12/09/2020
-  ms.locfileid: "96932732"
+  ms.lasthandoff: 01/22/2021
+  ms.locfileid: "98707971"
 landingContent:
 - title: Acerca do Criador de FAQ
   linkLists:
@@ -60,9 +60,7 @@ landingContent:
     links:
     - text: 'Início Rápido: Com o Postman ou cURL'
       url: quickstarts/get-answer-from-knowledge-base-using-url-tool.md
-    - text: 'Início Rápido: Utilizar REST e cURL'
-      url: quickstarts/quickstart-rest-curl.md
-    - text: 'Início Rápido: Utilizar o SDK'
+    - text: 'Quickstart: Utilização de API SDK e REST'
       url: quickstarts/quickstart-sdk.md
   - linkListType: how-to-guide
     links:

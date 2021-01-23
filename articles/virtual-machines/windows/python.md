@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/22/2017
 ms.author: cynthn
 ms.custom: devx-track-python
-ms.openlocfilehash: 15714405c683889c0f783359011a0f0f5f9f3f43
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: d99f9326b3113742fdc0c14a4ae39d552df47edd
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201795"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730161"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Criar e gerir VMs windows em Azure usando Python
 
@@ -564,7 +564,7 @@ Como é cobrado pelos recursos utilizados no Azure, é sempre uma boa prática a
     Deve levar cerca de cinco minutos para que esta aplicação da consola corra completamente do início ao fim. Pode demorar vários minutos após o fim da aplicação antes de todos os recursos e o grupo de recursos serem eliminados.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Se ocorreram problemas com a implementação, um passo seguinte será ver [Troubleshooting resource group deployments with Azure portal (Resolução de problemas com implementações do grupo de recursos com o portal do Azure)](../../azure-resource-manager/templates/deployment-history.md)
-- Saiba mais sobre a [Biblioteca Azure Python](/python/api/overview/azure/?view=azure-python)
+- Saiba mais sobre a [Biblioteca Azure Python](/python/api/overview/azure/)

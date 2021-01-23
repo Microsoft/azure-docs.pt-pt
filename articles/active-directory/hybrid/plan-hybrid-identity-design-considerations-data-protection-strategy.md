@@ -1,5 +1,5 @@
 ---
-title: Design de identidade híbrida - estratégia de proteção de dados Azure / Microsoft Docs
+title: Design de identidade híbrida - estratégia de proteção de dados Azure | Microsoft Docs
 description: Define a estratégia de proteção de dados para a sua solução de identidade híbrida para satisfazer os requisitos de negócio que definiu.
 documentationcenter: ''
 services: active-directory
@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e991fb0c60e8f08eb43cb7799027d4200263c9b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bac3f53def6db1038a6dd7e45d7933daa22df9f0
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89659542"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98703857"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Defina a estratégia de proteção de dados para a sua solução de identidade híbrida
 Nesta tarefa, definirá a estratégia de proteção de dados para a sua solução de identidade híbrida para satisfazer os requisitos de negócio definidos em:
@@ -37,7 +37,7 @@ Como explicado nos [requisitos de sincronização de diretório determine,](plan
 
 Uma vez autenticado, o nome principal do utilizador (UPN) é lido a partir do token de autenticação. Em seguida, o sistema de autorização determina a partição replicada e o recipiente correspondente ao domínio do utilizador. Informações sobre a existência do utilizador, estado habilitado e função ajudam então o sistema de autorização a determinar se o acesso ao inquilino-alvo é autorizado para o utilizador nessa sessão. Algumas ações autorizadas (especificamente, criar o utilizador e a redefinição de password) criam um rasto de auditoria que um administrador de inquilino usa para gerir esforços de conformidade ou investigações.
 
-A transferência de dados do seu datacenter no local para o Azure Storage através de uma ligação à Internet pode nem sempre ser viável devido ao volume de dados, disponibilidade de largura de banda ou outras considerações. O [Serviço de Importação/Exportação de Armazenamento Azure](../../storage/common/storage-import-export-service.md) oferece uma opção baseada em hardware para a colocação/recuperação de grandes volumes de dados no armazenamento de bolhas. Permite-lhe enviar discos rígidos [encriptados bitLocker](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn306081(v=ws.11)#BKMK_BL2012R2) diretamente para um centro de dados Azure onde os operadores de nuvem carregam o conteúdo para a sua conta de armazenamento, ou podem descarregar os seus dados Azure para as suas unidades para voltar a si. Apenas os discos encriptados são aceites para este processo (utilizando uma chave BitLocker gerada pelo próprio serviço durante a configuração do trabalho). A chave BitLocker é fornecida ao Azure separadamente, proporcionando assim a partilha de chaves de banda.
+A transferência de dados do seu datacenter no local para o Azure Storage através de uma ligação à Internet pode nem sempre ser viável devido ao volume de dados, disponibilidade de largura de banda ou outras considerações. O [Serviço de Importação/Exportação de Armazenamento Azure](../../import-export/storage-import-export-service.md) oferece uma opção baseada em hardware para a colocação/recuperação de grandes volumes de dados no armazenamento de bolhas. Permite-lhe enviar discos rígidos [encriptados bitLocker](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn306081(v=ws.11)#BKMK_BL2012R2) diretamente para um centro de dados Azure onde os operadores de nuvem carregam o conteúdo para a sua conta de armazenamento, ou podem descarregar os seus dados Azure para as suas unidades para voltar a si. Apenas os discos encriptados são aceites para este processo (utilizando uma chave BitLocker gerada pelo próprio serviço durante a configuração do trabalho). A chave BitLocker é fornecida ao Azure separadamente, proporcionando assim a partilha de chaves de banda.
 
 Uma vez que os dados em trânsito podem ocorrer em diferentes cenários, também é relevante saber que o Microsoft Azure utiliza [redes virtuais](https://azure.microsoft.com/documentation/services/virtual-network/) para isolar o tráfego dos inquilinos uns dos outros, utilizando medidas como firewalls de nível de hospedeiro e de hóspedes, filtragem de pacotes IP, bloqueio de portas e pontos finais HTTPS. No entanto, a maioria das comunicações internas da Azure, incluindo infra-estruturas-infra-estruturas e infra-estruturas-a-cliente (no local), também são encriptadas. Outro cenário importante é as comunicações dentro dos datacenters da Azure; A Microsoft gere redes para garantir que nenhum VM pode fazer-se passar ou escutar o endereço IP de outro. O TLS/SSL é utilizado ao aceder a Bases de Dados de Armazenamento Azure ou SQL, ou ao ligar-se aos Serviços cloud. Neste caso, o administrador do cliente é responsável pela obtenção de um certificado TLS/SSL e pela sua implantação na sua infraestrutura de inquilinos. O tráfego de dados que se move entre máquinas virtuais na mesma implementação ou entre inquilinos numa única implementação através da Rede Virtual Microsoft Azure pode ser protegido através de protocolos de comunicação encriptados como HTTPS, SSL/TLS, ou outros.
 
@@ -144,7 +144,7 @@ O Azure AD pode ajudar a TI a identificar potenciais riscos de segurança no amb
 * **Relatório integrado de aplicações**: Fornece informações sobre como as aplicações em nuvem estão a ser usadas na sua organização. O Azure Ative Directory oferece integração com milhares de aplicações em nuvem.
 * **Relatórios de erro**: Indique erros que possam ocorrer ao aussar contas a aplicações externas.
 * **Relatórios específicos do utilizador**: Mostrar o dispositivo/sinal em dados de atividade para um utilizador específico.
-* **Registos**de atividades : Contenha um registo de todos os eventos auditados nas últimas 24 horas, nos últimos 7 dias, ou dure 30 dias, bem como alterações de atividade em grupo, e atividade de reset e registo de passwords.
+* **Registos** de atividades : Contenha um registo de todos os eventos auditados nas últimas 24 horas, nos últimos 7 dias, ou dure 30 dias, bem como alterações de atividade em grupo, e atividade de reset e registo de passwords.
 
 > [!TIP]
 > Outro relatório que também pode ajudar a equipa de Resposta a Incidentes a trabalhar num caso é o [utilizador com credenciais vazadas.](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/15/azure-active-directory-premium-reporting-now-detects-leaked-credentials/) Este relatório aparece entre a lista de credenciais vazadas e o seu inquilino.
@@ -168,7 +168,7 @@ Além da capacidade de reporte principal do Azure AD Premium que pode utilizar d
 
 Uma vez que as opções de resposta a incidentes utilizam uma abordagem multicamadora, a comparação entre essas opções não é aplicável para esta tarefa. Certifique-se de que está a aproveitar todas as opções disponíveis para cada cenário que o exija a utilizar a capacidade de reporte AZure AD como parte do processo de resposta a incidentes da sua empresa.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [Determinar tarefas híbridas de gestão de identidade](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)
 
 ## <a name="see-also"></a>Consulte também

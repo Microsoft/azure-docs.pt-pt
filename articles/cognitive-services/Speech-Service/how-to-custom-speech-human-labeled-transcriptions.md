@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: cc373a67ee0f4ed2e900e7b41cbcb96d31d67b34
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: eafdebc795d5bede7fa52a3562d33c806035697f
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98126891"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704436"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>Como criar transcrições com rótulo humano
 
@@ -47,6 +47,8 @@ A normalização do texto é a transformação das palavras num formato consiste
 - Os caracteres não alfabéticos ou caracteres alfanuméricos mistos devem ser transcritos como pronunciados.
 - Abreviaturas que são pronunciadas como palavras não devem ser editadas (como "radar", "laser", "RAM" ou "NATO").
 - Escreva abreviaturas que são pronunciadas como letras separadas com cada letra separada por um espaço.
+- Se utilizar áudio, transcreva números como palavras que correspondam ao áudio (por exemplo, "101" pode ser pronunciado como "um oh um" ou "cento e um").
+- Evite repetir personagens, palavras ou grupos de palavras mais de três vezes, como "sim sim sim". As linhas com tais repetições podem ser abandonadas pelo serviço de discurso.
 
 Aqui estão alguns exemplos de normalização que deve realizar na transcrição:
 
@@ -90,7 +92,7 @@ Eis alguns exemplos:
 | Personagens a evitar | Substitution   | Notas |
 | ------------------- | -------------- | ----- |
 | "你好" | "你好" | As aspas de abertura e de fecho foram substituídas por caracteres apropriados. |
-| 需要什么帮助? | 需要什么帮助?| O ponto de interrogação foi substituído pelo carácter apropriado. |
+| 需要什么帮助? | 需要什么帮助？| O ponto de interrogação foi substituído pelo carácter apropriado. |
 
 ### <a name="text-normalization-for-mandarin-chinese"></a>Normalização de texto para mandarim chinês
 

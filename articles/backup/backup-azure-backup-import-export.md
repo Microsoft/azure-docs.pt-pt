@@ -4,18 +4,18 @@ description: Saiba como pode utilizar o Azure Backup para enviar dados para fora
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.openlocfilehash: f3cf44a34babab79d135923db040630a1c8e3dfe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ea470c2e732b7e0ef46e9e5fa78c744aa30c955
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88892019"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704368"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Fluxo de trabalho de backup offline em Azure Backup
 
 O Azure Backup tem várias eficiências incorporadas que poupam custos de rede e armazenamento durante as cópias de segurança completas iniciais de dados para o Azure. As cópias de segurança completas iniciais normalmente transferem grandes quantidades de dados e requerem mais largura de banda de rede quando comparadas com as cópias de segurança subsequentes que transferem apenas os deltas/incrementais. Através do processo de sementeira offline, o Azure Backup pode usar discos para enviar os dados de backup offline para o Azure.
 
-O processo de sementeira offline Azure Backup está fortemente integrado com o [serviço Azure Import/Export](../storage/common/storage-import-export-service.md). Pode utilizar este serviço para transferir dados de backup iniciais para a Azure utilizando discos. Se tiver terabytes (TBs) de dados de backup iniciais que precisam de ser transferidos através de uma rede de alta latência e de baixa largura de banda, pode utilizar o fluxo de trabalho de sementeira offline para enviar a cópia de backup inicial, em um ou mais discos rígidos para um centro de dados Azure. A imagem a seguir fornece uma visão geral dos passos no fluxo de trabalho.
+O processo de sementeira offline Azure Backup está fortemente integrado com o [serviço Azure Import/Export](../import-export/storage-import-export-service.md). Pode utilizar este serviço para transferir dados de backup iniciais para a Azure utilizando discos. Se tiver terabytes (TBs) de dados de backup iniciais que precisam de ser transferidos através de uma rede de alta latência e de baixa largura de banda, pode utilizar o fluxo de trabalho de sementeira offline para enviar a cópia de backup inicial, em um ou mais discos rígidos para um centro de dados Azure. A imagem a seguir fornece uma visão geral dos passos no fluxo de trabalho.
 
   ![Visão geral do processo de fluxo de trabalho de importação offline](./media/backup-azure-backup-import-export/offlinebackupworkflowoverview.png)
 
@@ -64,12 +64,12 @@ Antes de iniciar o fluxo de trabalho de backup offline, complete os seguintes pr
         ![Registar o fornecedor de recursos](./media/backup-azure-backup-import-export/registerimportexport.png)
 
 * É criada uma localização de encenação, que pode ser uma partilha de rede ou qualquer unidade adicional no computador, interna ou externa, com espaço suficiente em disco para segurar a sua cópia inicial. Por exemplo, se pretender fazer o back up de um servidor de ficheiros de 500 GB, certifique-se de que a área de paragem é de pelo menos 500 GB. (Uma quantidade menor é utilizada devido à compressão.)
-* Quando enviar discos para Azure, utilize apenas discos SSD de 2,5 polegadas ou discos internos SATA II/III de 2,5 polegadas ou 3,5 polegadas. Pode utilizar discos rígidos até 10 TB. Consulte a documentação do [serviço Azure Import/Export](../storage/common/storage-import-export-requirements.md#supported-hardware) para obter o mais recente conjunto de unidades que o serviço suporta.
+* Quando enviar discos para Azure, utilize apenas discos SSD de 2,5 polegadas ou discos internos SATA II/III de 2,5 polegadas ou 3,5 polegadas. Pode utilizar discos rígidos até 10 TB. Consulte a documentação do [serviço Azure Import/Export](../import-export/storage-import-export-requirements.md#supported-hardware) para obter o mais recente conjunto de unidades que o serviço suporta.
 * As unidades SATA devem ser ligadas a um computador (referido como *um computador de cópia*) de onde é feita a cópia dos dados de backup do local de preparação para as unidades SATA. Certifique-se de que o BitLocker está ativado no computador de cópia.
 
 ## <a name="workflow"></a>Fluxo de trabalho
 
-Esta secção descreve o fluxo de trabalho de backup offline para que os seus dados possam ser entregues num datacenter Azure e enviados para o Azure Storage. Se tiver dúvidas sobre o serviço de importação ou qualquer aspeto do processo, consulte a documentação geral do [serviço Azure Import/Export](../storage/common/storage-import-export-service.md).
+Esta secção descreve o fluxo de trabalho de backup offline para que os seus dados possam ser entregues num datacenter Azure e enviados para o Azure Storage. Se tiver dúvidas sobre o serviço de importação ou qualquer aspeto do processo, consulte a documentação geral do [serviço Azure Import/Export](../import-export/storage-import-export-service.md).
 
 ## <a name="initiate-offline-backup"></a>Iniciar backup offline
 
@@ -202,7 +202,7 @@ O tempo que demora a processar um trabalho de importação da Azure varia. O tem
 
 ### <a name="monitor-azure-import-job-status"></a>Monitor Azure importe estatuto de trabalho
 
-Pode monitorizar o estado do seu trabalho de importação a partir do portal Azure. Vá à página **de empregos de Importação/Exportação** e selecione o seu trabalho. Para obter mais informações sobre o estado dos postos de trabalho de importação, [veja-se o que é o serviço de importação/exportação Azure?](../storage/common/storage-import-export-service.md)
+Pode monitorizar o estado do seu trabalho de importação a partir do portal Azure. Vá à página **de empregos de Importação/Exportação** e selecione o seu trabalho. Para obter mais informações sobre o estado dos postos de trabalho de importação, [veja-se o que é o serviço de importação/exportação Azure?](../import-export/storage-import-export-service.md)
 
 ### <a name="finish-the-workflow"></a>Termine o fluxo de trabalho
 
@@ -216,6 +216,6 @@ No momento do próximo backup programado, o Azure Backup executa uma cópia de s
 
 Depois de terminada a cópia de segurança inicial, pode eliminar com segurança os dados importados para o contentor de armazenamento Azure e os dados de backup no local de paragem.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Para qualquer dúvida sobre o fluxo de trabalho do serviço Azure Import/Export, consulte [utilizar o serviço de importação/exportação do Microsoft Azure para transferir dados para o armazenamento blob](../storage/common/storage-import-export-service.md).
+* Para qualquer dúvida sobre o fluxo de trabalho do serviço Azure Import/Export, consulte [utilizar o serviço de importação/exportação do Microsoft Azure para transferir dados para o armazenamento blob](../import-export/storage-import-export-service.md).

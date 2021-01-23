@@ -1,5 +1,5 @@
 ---
-title: Pontos finais de serviço de rede virtual para Azure Key Vault
+title: Pontos finais de serviço de rede virtual para o Azure Key Vault
 description: Saiba como os pontos finais do serviço de rede virtual para O Azure Key Vault permitem restringir o acesso a uma rede virtual especificada, incluindo cenários de utilização.
 services: key-vault
 author: amitbapat
@@ -9,14 +9,14 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 9dcabe10822fd09c8f7a0da6259d81a089c1a042
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 4a817f386d68c144968540dd05f3fa6859bb0acc
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936299"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704174"
 ---
-# <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Pontos finais de serviço de rede virtual para Azure Key Vault
+# <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Pontos finais de serviço de rede virtual para o Azure Key Vault
 
 Os pontos finais de serviço de rede virtual para Azure Key Vault permitem-lhe restringir o acesso a uma rede virtual especificada. Os pontos finais também permitem restringir o acesso a uma lista de intervalos de endereços IPv4 (versão 4 do protocolo de internet). Qualquer utilizador que se conecte ao cofre de fora dessas fontes é negado acesso.
 
@@ -43,7 +43,7 @@ Aqui está uma lista de serviços fidedignos que podem aceder a um cofre chave s
 | --- | --- |
 |Serviço de implementação de máquinas virtuais Azure|[Implementar certificados para VMs a partir do Key Vault gerido pelo cliente](/archive/blogs/kv/updated-deploy-certificates-to-vms-from-customer-managed-key-vault).|
 |Serviço de implementação do modelo do Gestor de Recursos Azure|[Passe valores seguros durante a implantação](../../azure-resource-manager/templates/key-vault-parameter.md).|
-|Gateway de aplicação Azure v2 SKU|[Rescisão de TLS com certificados Key Vault](../../application-gateway/key-vault-certs.md)|
+|Gateway de aplicação Azure v2 SKU|[Terminação TLS com certificados do Key Vault](../../application-gateway/key-vault-certs.md)|
 |Serviço de encriptação de volume de encriptação de disco Azure|Permitir o acesso à Chave BitLocker (Windows VM) ou DM Passphrase (Linux VM) e à Chave de Encriptação, durante a implementação da máquina virtual. Isto permite [a encriptação do disco Azure](../../security/fundamentals/encryption-overview.md).|
 |Azure Backup|Permitir a cópia de segurança e restaurar as chaves e segredos relevantes durante a cópia de segurança das Máquinas Virtuais Azure, utilizando [o Azure Backup](../../backup/backup-overview.md).|
 |Troca Online & SharePoint Online|Permitir o acesso à chave do cliente para encriptação do serviço de armazenamento Azure com [a chave do cliente.](/microsoft-365/compliance/customer-key-overview)|
@@ -53,17 +53,17 @@ Aqui está uma lista de serviços fidedignos que podem aceder a um cofre chave s
 |Storage do Azure|[Encriptação do serviço de armazenamento utilizando chaves geridas pelo cliente no Cofre da Chave Azure](../../storage/common/customer-managed-keys-configure-key-vault.md).|
 |Azure Data Lake Store|[Encriptação de dados na Azure Data Lake Store](../../data-lake-store/data-lake-store-encryption.md) com uma chave gerida pelo cliente.|
 |Azure Databricks|[Serviço de análise rápido, fácil e colaborativo apache spark baseado em Apache Spark](/azure/databricks/scenarios/what-is-azure-databricks)|
-|Gestão de API do Azure|[Implementar certificados para domínio personalizado a partir do Cofre de Chaves usando MSI](../../api-management/api-management-howto-use-managed-service-identity.md#use-ssl-tls-certificate-from-azure-key-vault)|
+|API Management do Azure|[Implementar certificados para domínio personalizado a partir do Cofre de Chaves usando MSI](../../api-management/api-management-howto-use-managed-service-identity.md#use-ssl-tls-certificate-from-azure-key-vault)|
 |Azure Data Factory|[Buscar credenciais de loja de dados no Cofre de Dados da Data Factory](https://go.microsoft.com/fwlink/?linkid=2109491)|
 |Azure Event Hubs|[Permitir o acesso a um cofre chave para cenário de chaves geridas pelo cliente](../../event-hubs/configure-customer-managed-key.md)|
 |Service Bus do Azure|[Permitir o acesso a um cofre chave para cenário de chaves geridas pelo cliente](../../service-bus-messaging/configure-customer-managed-key.md)|
-|Importar/Exportar do Microsoft Azure| [Utilize chaves geridas pelo cliente no Cofre chave Azure para o serviço de importação/exportação](../../storage/common/storage-import-export-encryption-key-portal.md)
+|Importar/Exportar do Microsoft Azure| [Utilize chaves geridas pelo cliente no Cofre chave Azure para o serviço de importação/exportação](../../import-export/storage-import-export-encryption-key-portal.md)
 |Registo de Contentores do Azure|[Encriptação do registo utilizando chaves geridas pelo cliente](../../container-registry/container-registry-customer-managed-keys.md)
 
 > [!NOTE]
 > Tem de configurar as políticas de acesso ao Cofre chave relevantes para permitir que os serviços correspondentes tenham acesso ao Key Vault.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter instruções passo a passo, consulte [firewalls Configure Key Vault e redes virtuais](network-security.md)
 - ver a visão geral de segurança do [Cofre chave Azure](security-overview.md)

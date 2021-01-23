@@ -9,12 +9,12 @@ author: samkemp
 ms.author: samkemp
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 17418b0255182934045acc9174b34cff2aefff99
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 7726fce7ac69ebfaabf44049abc49c53f8175718
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307456"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704545"
 ---
 # <a name="track-experiments-and-deploy-models-in-azure-machine-learning"></a>Acompanhe experiências e implemente modelos em Azure Machine Learning
 
@@ -30,7 +30,7 @@ O diagrama seguinte ilustra que, com o MLflow Tracking, rastreia as métricas de
 
 ## <a name="create-a-new-notebook"></a>Criar um novo Notebook
 
-O Azure Machine Learning e o MLFlow SDK estão pré-instalados no VM da Ciência dos Dados e podem ser acedidos no ambiente * *azureml_py36_ \** _ conda. No Jupyterlab, clique no lançador e selecione o seguinte núcleo:
+O Azure Machine Learning e o MLFlow SDK estão pré-instalados no VM da Ciência dos Dados e podem ser acedidos no ambiente **azureml_py36_ \** _ conda. No JupyterLab, clique no lançador e selecione o seguinte núcleo:
 
 ![seleção de kernel](./media/how-to-track-experiments/experiment-tracking-1.png)
 
