@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 07/17/2020
 ms.author: cynthn
-ms.openlocfilehash: a20c19c3da89801570ca4d74a646e3cf0d8434b6
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 7a702fbf405011a9df3e7e77936a9a37f0fdfad7
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98675907"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730643"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Utilize ferramentas de automação de infraestruturas com máquinas virtuais em Azure
 
@@ -126,7 +126,7 @@ Aprenda a:
 
 Saiba mais sobre:
 
-- [Serviços Azure DevOps](/azure/devops/user-guide/index?view=vsts).
+- [Serviços Azure DevOps](/azure/devops/user-guide/index).
 
 
 ## <a name="jenkins"></a>Jenkins
@@ -147,5 +147,5 @@ Aprenda a:
 - [Descarregue o modelo para um VM](/previous-versions/azure/virtual-machines/windows/download-template).
 - [Crie um modelo de construtor de imagens Azure.](./linux/image-builder-json.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Existem muitas opções diferentes para usar ferramentas de automação de infraestruturas em Azure. Tem a liberdade de usar a solução que melhor se adequa às suas necessidades e ambiente. Para começar e experimentar algumas das ferramentas incorporadas no Azure, veja como automatizar a personalização de um [Linux](./linux/tutorial-automate-vm-deployment.md) ou [Windows](./windows/tutorial-automate-vm-deployment.md) VM.

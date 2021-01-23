@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com Slack Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com Slack | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Slack.
 services: active-directory
 author: jeevansd
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/28/2020
 ms.author: jeedes
-ms.openlocfilehash: d219767f943a432d41796c7d99f0e52253a9dd80
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 6e2428967b8e3b4c677752955ea743c5b7d144e5
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814045"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98729664"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-slack"></a>Tutorial: Azure Ative Directy integração única (SSO) com Slack
 
@@ -109,7 +109,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação Slack espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos. Também deve adicionar o `email` atributo. Se o utilizador não tiver um endereço de **e-mail, mapear o endereço de e-mail** para **user.userprincipalname** e **mapear o e-mail** para **user.userprincipalname**.
 
-    | Nome | Atributo de origem |
+    | Name | Atributo de origem |
     | -----|---------|
     | endereço de e-mail | user.userprincipalname |
     | e-mail | user.userprincipalname |
@@ -210,8 +210,8 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 
 * Vá diretamente ao URL de inscrição de slack e inicie o fluxo de login a partir daí.
 
-* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo Slack nas Minhas Apps, este será redirecionado para o URL de inscrição de slack. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo Slack nas Minhas Apps, este será redirecionado para o URL de inscrição de slack. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](../user-help/my-apps-portal-end-user-access.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Uma vez configurado Slack, pode impor o controlo de Sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 10/15/2019
 ms.author: haroldw
-ms.openlocfilehash: ed74d0829a8372ea8391fcd331eef2ef3af3dae0
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: d0a10c6c700f11e540dc7edaa27baee35396d814
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704916"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732399"
 ---
 # <a name="deploy-okd-in-azure"></a>Implementar OKD em Azure
 
@@ -119,7 +119,7 @@ Diferentes versões podem ter diferentes parâmetros, por isso verifique os par�
 
 
 > [!NOTE] 
-> O seguinte comando requer Azure CLI 2.0.8 ou mais tarde. Pode verificar a versão CLI com o `az --version` comando. Para atualizar a versão CLI, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
+> O seguinte comando requer Azure CLI 2.0.8 ou mais tarde. Pode verificar a versão CLI com o `az --version` comando. Para atualizar a versão CLI, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli).
 
 O exemplo seguinte implanta o cluster OKD e todos os recursos relacionados num grupo de recursos chamado openshiftrg, com um nome de implantação do myOpenShiftCluster. O modelo é referenciado diretamente a partir do repo GitHub enquanto usa um ficheiro de parâmetros locais nomeado azuredeploy.parameters.js.
 
@@ -156,7 +156,7 @@ Utilize o comando de eliminação do [grupo az](/cli/azure/group) para remover o
 az group delete --name openshiftrg
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Tarefas pós-implantação](./openshift-container-platform-3x-post-deployment.md)
 - [Resolução de problemas OpenShift deployment](./openshift-container-platform-3x-troubleshooting.md)

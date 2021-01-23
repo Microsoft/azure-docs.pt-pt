@@ -1,5 +1,5 @@
 ---
-title: Azure AD assegura acesso híbrido com guia de implantação F5 Microsoft Docs
+title: Azure AD garantir acesso híbrido com guia de implantação F5 | Microsoft Docs
 description: Tutorial para implementar F5 BIG-IP Virtual Edition (VE) VM em Azure IaaS para acesso híbrido seguro
 services: active-directory
 author: gargi-sinha
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/12/2020
 ms.author: gasinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c03009b08dcf33bf4b84bc91232af96e7ba2c71
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: f962bf131b87f17712186145b8c8b8e6090f7002
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095190"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730662"
 ---
 # <a name="tutorial-to-deploy-f5-big-ip-virtual-edition-vm-in-azure-iaas-for-secure-hybrid-access"></a>Tutorial para implementar F5 BIG-IP Virtual Edition VM em Azure IaaS para acesso híbrido seguro
 
@@ -83,7 +83,7 @@ Complete as seguintes tarefas para implantar BIG-IP VE a partir do [Mercado Azur
  |Grupo de recursos | Grupo de Recursos Azure existentes, o BIG-IP VM será implantado ou criar um. Deve ser o mesmo grupo de recursos dos seus VMs DC e IIS|
  | **Detalhes da instância**|  |
  |Nome da VM| Exemplo BIG-IP-VM |
- |Região | Alvo Azure geo para BIG-IP-VM |
+ |Region | Alvo Azure geo para BIG-IP-VM |
  |Opções de disponibilidade| Só ativa se utilizar VM na produção|
  |Imagem| F5 BIG-IP VE - TODOS (BYOL, 2 Locais de Arranque)|
  |Instância do Azure Spot| Não, mas sinta-se livre para permitir se apropriado |
@@ -216,7 +216,7 @@ Os passos seguintes pressupõem que a zona DE DNS do domínio público utilizado
  |:-------|:-----------|
  |Subscrição| Mesma subscrição do BIG-IP-VM|
  |Zona DNS| A zona de DNS que é autoritária para o sufixo de domínio verificado os seus websites publicados usará, por exemplo, www.contoso.com |
- |Nome | O nome de anfitrião que especifica irá resolver para o IP público que está associado ao IP secundário selecionado. Certifique-se de que define os mapeamentos DNS corretos para IP. Consulte a última imagem na secção de configs de rede, por exemplo, intranet.contoso.com > 13.77.148.215|
+ |Name | O nome de anfitrião que especifica irá resolver para o IP público que está associado ao IP secundário selecionado. Certifique-se de que define os mapeamentos DNS corretos para IP. Consulte a última imagem na secção de configs de rede, por exemplo, intranet.contoso.com > 13.77.148.215|
  | TTL | 1 |
  |Unidades TTL | Horas |
 
@@ -250,7 +250,7 @@ Por padrão, os VNets Azure e as sub-redes associadas são redes privadas que n�
  |Protocolo| TCP |
  |Ação| Permitir|
  |Prioridade|Valor disponível mais baixo entre 100 e 4096|
- |Nome | Um nome descritivo, por exemplo: `BIG-IP-VM_Web_Services_80_443`|
+ |Name | Um nome descritivo, por exemplo: `BIG-IP-VM_Web_Services_80_443`|
 
 3. **Selecione Adicionar** para comprometer as alterações e fechar o menu **de Networking.**
 
@@ -264,7 +264,7 @@ Um sistema BIG-IP é administrado através da sua UI web config, que pode ser ac
 
 - De um cliente VPN ligado à rede interna da BIG-IP-VM
 
-- Publicado via [Azure AD Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application)
+- Publicado via [Azure AD Application Proxy](./application-proxy-add-on-premises-application.md)
 
 Terá de decidir o método mais adequado antes de poder prosseguir com as restantes configurações. Se necessário, pode ligar-se diretamente à configuração web da internet, configurando o IP primário do BIG-IP com um IP público. Em seguida, adicionando uma regra NSG para permitir o tráfego 8443 para o IP primário. Certifique-se de restringir a fonte ao seu próprio IP de confiança, caso contrário qualquer pessoa será capaz de se conectar.
 
@@ -276,7 +276,7 @@ Uma vez pronto, confirme que pode ligar-se à config web do BIG-IP VM e iniciar 
 
 Um sistema BIG-IP também pode ser gerido através do seu ambiente SSH subjacente, que é normalmente utilizado para tarefas de linha de comando (CLI) e acesso ao nível da raiz. Existem várias opções para a ligação ao CLI, incluindo:
 
-- [Serviço Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview): Permite ligações rápidas e seguras a qualquer VM dentro de um vNET, a partir de qualquer local
+- [Serviço Azure Bastion](../../bastion/bastion-overview.md): Permite ligações rápidas e seguras a qualquer VM dentro de um vNET, a partir de qualquer local
 
 - Conecte-se diretamente através de um cliente SSH como PuTTY através da abordagem JIT
 
@@ -423,7 +423,7 @@ Com o sistema BIG-IP agora totalmente a provisionado, recomendamos que se faça 
 
 6. Guarde o conjunto de configuração do Utilizador (UCS) arquivar localmente, escolhendo o link da cópia de segurança e selecione **Download**.
 
-Como um passo opcional, também pode fazer uma cópia de segurança de todo o disco do sistema utilizando [imagens Azure](https://docs.microsoft.com/azure/virtual-machines/windows/snapshot-copy-managed-disk), que ao contrário da cópia de segurança da web config forneceria alguma contingência para testes entre versões TMOS, ou voltar para um sistema novo.
+Como um passo opcional, também pode fazer uma cópia de segurança de todo o disco do sistema utilizando [imagens Azure](../../virtual-machines/windows/snapshot-copy-managed-disk.md), que ao contrário da cópia de segurança da web config forneceria alguma contingência para testes entre versões TMOS, ou voltar para um sistema novo.
 
 ```PowerShell
 # Install modules
@@ -482,6 +482,6 @@ Get-AzVmSnapshot -ResourceGroupName '<E.g.contoso-RG>' -VmName '<E.g.BIG-IP-VM>'
 
 -   [Microsoft Azure: Waagent](https://clouddocs.f5.com/cloud/public/v1/azure/Azure_waagent.html)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Selecione um [cenário de implementação](f5-aad-integration.md) e inicie a sua implementação.

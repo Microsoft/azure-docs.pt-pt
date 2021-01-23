@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure ServiceNow para fornecimento automático de utilizadores com Diretório Ativo Azure / Microsoft Docs'
+title: 'Tutorial: Configurar o Serviço Agora para fornecimento automático de utilizadores com o Azure Ative Directory | Microsoft Docs'
 description: Saiba como provisão e desaconsebilização automática de contas de utilizador do Azure AD para o ServiceNow.
 services: active-directory
 author: jeevansd
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 71f4cfa9e7b69e51bafa5364f857f8ab689f2ad0
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 928b8118c614d7d16293c8d6e0cec194a270314e
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955472"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98729928"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>Tutorial: Configure ServiceNow para o fornecimento automático de utilizadores
 
@@ -155,7 +155,7 @@ Depois de configurar o aprovisionamento, utilize os seguintes recursos para moni
 
 * **Gamas IP** 
 
-   O serviço de prestação de AD Azure opera atualmente ao abrigo de uma determinada gama de IP. Assim, se necessário, pode restringir outras gamas de IP e adicionar estes intervalos IP específicos à lista de admissões da sua aplicação para permitir o fluxo de tráfego do serviço de fornecimento de Azure AD à sua aplicação. Consulte a documentação em [Gamas IP](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#ip-ranges).
+   O serviço de prestação de AD Azure opera atualmente ao abrigo de uma determinada gama de IP. Assim, se necessário, pode restringir outras gamas de IP e adicionar estes intervalos IP específicos à lista de admissões da sua aplicação para permitir o fluxo de tráfego do serviço de fornecimento de Azure AD à sua aplicação. Consulte a documentação em [Gamas IP](../app-provisioning/use-scim-to-provision-users-and-groups.md#ip-ranges).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

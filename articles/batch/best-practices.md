@@ -3,12 +3,12 @@ title: Melhores práticas
 description: Aprenda as melhores práticas e dicas úteis para desenvolver as suas soluções Azure Batch.
 ms.date: 12/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7e2a49c8307af89fb3898f5f2513fb493d0f5d90
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 95dca907f9380de29bd3c9b0e52b120c9114b5ee
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934293"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732416"
 ---
 # <a name="azure-batch-best-practices"></a>As melhores práticas do Azure Batch
 
@@ -149,7 +149,7 @@ Tal como acontece com outras tarefas, a [tarefa de arranque](jobs-and-tasks.md#s
 
 ### <a name="isolated-nodes"></a>Nódoas isoladas
 
-Considere a utilização de tamanhos VM isolados para cargas de trabalho com requisitos de conformidade ou regulamentação. Os tamanhos isolados suportados no modo de configuração da máquina virtual `Standard_E80ids_v4` `Standard_M128ms` incluem, e `Standard_F72s_v2` `Standard_G5` `Standard_GS5` `Standard_E64i_v3` . Para obter mais informações sobre tamanhos de VM isolados, consulte [o isolamento da máquina virtual em Azure.](https://docs.microsoft.com/azure/virtual-machines/isolation)
+Considere a utilização de tamanhos VM isolados para cargas de trabalho com requisitos de conformidade ou regulamentação. Os tamanhos isolados suportados no modo de configuração da máquina virtual `Standard_E80ids_v4` `Standard_M128ms` incluem, e `Standard_F72s_v2` `Standard_G5` `Standard_GS5` `Standard_E64i_v3` . Para obter mais informações sobre tamanhos de VM isolados, consulte [o isolamento da máquina virtual em Azure.](../virtual-machines/isolation.md)
 
 ### <a name="manage-long-running-services-via-the-operating-system-services-interface"></a>Gerir serviços de longa duração através da interface de serviços do sistema operativo
 
@@ -235,7 +235,7 @@ O lote tenta ativamente limpar o diretório de trabalho em que as tarefas são e
 
 A limpeza automatizada do diretório de trabalho será bloqueada se executar um serviço no Windows a partir do diretório de trabalho startTask, devido à pasta ainda em uso. Isto resultará num desempenho degradado. Para corrigir isto, mude o diretório desse serviço para um diretório separado que não seja gerido pelo Batch.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Criar uma conta Azure Batch utilizando o portal Azure](batch-account-create-portal.md).
 - Conheça o fluxo de trabalho do [serviço Batch e os recursos primários,](batch-service-workflow-features.md) tais como piscinas, nós, empregos e tarefas.

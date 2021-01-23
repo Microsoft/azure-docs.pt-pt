@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/10/2020
 ms.author: jodowns
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 409ba7a954830bb2370ce83989b9e8b08b742fe7
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: f2d844054e3744aafa01f43ded354a5b5d9f8b4b
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97631181"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732104"
 ---
 # <a name="assign-a-managed-identity-access-to-an-application-role-using-powershell"></a>Atribuir um acesso de identidade gerido a uma função de aplicação utilizando o PowerShell
 
@@ -36,7 +36,7 @@ Neste artigo, aprende-se a atribuir uma identidade gerida a uma função de apli
 - Se ainda não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 - Para executar os scripts de exemplo, tem duas opções:
     - Utilize o [Azure Cloud Shell,](../../cloud-shell/overview.md)que pode abrir utilizando o botão **Try It** no canto superior direito dos blocos de código.
-    - Executar scripts localmente instalando a versão mais recente do [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2).
+    - Executar scripts localmente instalando a versão mais recente do [Azure AD PowerShell](/powershell/azure/active-directory/install-adv2).
 
 ## <a name="assign-a-managed-identity-access-to-another-applications-app-role"></a>Atribuir um acesso de identidade gerido à função de app de outra aplicação
 
@@ -134,7 +134,7 @@ New-AzureADServiceAppRoleAssignment `
     -ResourceId $serverServicePrincipalObjectId
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Identidade gerida para visão geral dos recursos da Azure](overview.md)
 - Para permitir a identidade gerida num Azure VM, consulte [identidades geridas configure para recursos Azure num VM Azure utilizando o PowerShell](qs-configure-powershell-windows-vm.md).

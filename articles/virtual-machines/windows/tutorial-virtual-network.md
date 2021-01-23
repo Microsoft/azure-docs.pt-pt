@@ -10,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 08/04/2020
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: d61f4be63a2f3b2f75228848e2e4fe18fb27f598
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 963a84c55a5433a204f387d1936eb7ceee60d913
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98702063"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730044"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-windows-virtual-machines-with-azure-powershell"></a>Tutorial: Criar e gerir redes virtuais do Azure para máquinas virtuais do Windows com o Azure PowerShell
 
@@ -127,7 +127,7 @@ $frontendNic = New-AzNetworkInterface `
   -PublicIpAddressId $pip.Id
 ```
 
-Defina o nome de utilizador e a palavra-passe necessários para a conta de administrador na VM com [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1&preserve-view=true). Vai utilizar estas credenciais para ligar à VM nos passos adicionais:
+Defina o nome de utilizador e a palavra-passe necessários para a conta de administrador na VM com [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential). Vai utilizar estas credenciais para ligar à VM nos passos adicionais:
 
 ```azurepowershell-interactive
 $cred = Get-Credential

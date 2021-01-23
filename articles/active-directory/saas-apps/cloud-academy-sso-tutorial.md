@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/15/2020
 ms.author: jeedes
-ms.openlocfilehash: 96c4eba31013b868fa7afb41544d5d8cbcc1cdc6
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: fa46d6e5c7f1007e3a90e22eb9d4f46e18251a28
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97607223"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98729837"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-cloud-academy---sso"></a>Tutorial: Azure Ative Directory integração única com cloud Academy - SSO
 
@@ -161,9 +161,9 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 
 * Vá para cloud Academy - SSO Sign-on URL diretamente e inicie o fluxo de login a partir daí.
 
-* Pode utilizar as minhas apps do Microsoft. Quando clicar na Cloud Academy - Azulejo SSO nas Minhas Apps, isto irá redirecionar para Cloud Academy - SSO Sign-on URL. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+* Pode utilizar as minhas apps do Microsoft. Quando clicar na Cloud Academy - Azulejo SSO nas Minhas Apps, isto irá redirecionar para Cloud Academy - SSO Sign-on URL. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](../user-help/my-apps-portal-end-user-access.md)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Assim que configurar a Cloud Academy - SSO, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Assim que configurar a Cloud Academy - SSO, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

@@ -1,5 +1,5 @@
 ---
-title: Fazer o back up utilizando a ferramenta Azure Application Consistent Snapshot para ficheiros Azure NetApp / Microsoft Docs
+title: Fazer o back up utilizando a ferramenta Azure Application Consistent Snapshot para ficheiros Azure NetApp | Microsoft Docs
 description: Fornece um guia para executar o comando de backup da ferramenta Azure Application Consistent Snapshot que pode utilizar com ficheiros Azure NetApp.
 services: azure-netapp-files
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 12/14/2020
 ms.author: phjensen
-ms.openlocfilehash: 1051859d514c77bad1aa5f14becc2218a923df44
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 17c29fdf88495f6ecc40963eda08858887173fd1
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97632995"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730943"
 ---
 # <a name="back-up-using-azure-application-consistent-snapshot-tool-preview"></a>Fazer o back up utilizando a ferramenta Azure Application Consistent Snapshot (pré-visualização)
 
@@ -143,9 +143,9 @@ O nome *do ficheiro de registo* neste exemplo é `azacsnap-backup-bootVol.log` .
 > O nome do ficheiro de registo é constituído pelo "(nome de comando-(a `-c` opção)-(o nome de ficheiro config)".  Por exemplo, se utilizar a `-c backup` opção com o nome de ficheiro de registo de `h80.json` , então o ficheiro de registo será chamado `azacsnap-backup-h80.log` .  Ou se utilizar a `-c test` opção com o mesmo ficheiro de configuração, o ficheiro de registo será chamado `azacsnap-test-h80.log` .
 
 - Tipo de grande instância HANA: Existem dois valores válidos com `TYPEI` ou `TYPEII` dependentes da Unidade de Grande Instância HANA.
-- Consulte [SKUs disponíveis para HANA Grandes Instâncias](/azure/virtual-machines/workloads/sap/hana-available-skus) para confirmar os SKUs disponíveis.
+- Consulte [SKUs disponíveis para HANA Grandes Instâncias](../virtual-machines/workloads/sap/hana-available-skus.md) para confirmar os SKUs disponíveis.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Obtenha detalhes instantâneos](azacsnap-cmd-ref-details.md)
 - [Eliminar instantâneos](azacsnap-cmd-ref-delete.md)

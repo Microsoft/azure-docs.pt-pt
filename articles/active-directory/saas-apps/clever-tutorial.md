@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com Clever Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com Clever | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Clever.
 services: active-directory
 author: jeevansd
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/17/2020
 ms.author: jeedes
-ms.openlocfilehash: 7275bd8bc51d5f2889c7fc9365e9187040049876
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 29384457f946eff5708c319e14161d670adf6ca8
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97722254"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98729895"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-clever"></a>Tutorial: Azure Ative Directory integração única (SSO) com Clever
 
@@ -137,8 +137,8 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 
 * Vá diretamente para o URL de inscrição inteligente e inicie o fluxo de login a partir daí.
 
-* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo Inteligente nas Minhas Apps, isto irá redirecionar para O URL de Inscrição Inteligente. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo Inteligente nas Minhas Apps, isto irá redirecionar para O URL de Inscrição Inteligente. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](../user-help/my-apps-portal-end-user-access.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Uma vez configurado Clever, pode impor o controlo de Sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)

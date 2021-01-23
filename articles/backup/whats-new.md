@@ -3,12 +3,12 @@ title: Novidades do Azure Backup
 description: Conheça as novidades no Azure Backup.
 ms.topic: conceptual
 ms.date: 11/11/2020
-ms.openlocfilehash: 62a6146990863c339917777b2624fee76ebe60d8
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+ms.openlocfilehash: 935c2a806ed3b08f19e680bf1522d98a9ad67666
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98569424"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730294"
 ---
 # <a name="whats-new-in-azure-backup"></a>Novidades do Azure Backup
 
@@ -37,7 +37,7 @@ Pode saber mais sobre os novos lançamentos marcando esta página ou [subscreven
 
 ## <a name="azure-disk-backup-in-preview"></a>Backup do disco Azure (na pré-visualização)
 
-O Azure Disk Backup oferece uma solução chave na mão que fornece uma gestão instantânea do ciclo de vida para [discos geridos azure,](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview) automatizando a criação periódica de instantâneos e mantendo-o por uma duração configurada usando a política de backup. Você pode gerir os instantâneos do disco com custos de infraestrutura zero e sem a necessidade de scripts personalizados ou qualquer sobrecarga de gestão. Esta é uma solução de backup consistente por falhas que requer uma cópia de segurança pontual de um disco gerido usando [instantâneos incrementais](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots) com suporte para múltiplas cópias de segurança por dia. É também uma solução sem agente e não tem impacto no desempenho da aplicação de produção. Suporta a cópia de segurança e a restauração dos discos de SEGURANÇA e de dados (incluindo discos partilhados), quer estejam ou não ligados a uma máquina virtual Azure em funcionamento.
+O Azure Disk Backup oferece uma solução chave na mão que fornece uma gestão instantânea do ciclo de vida para [discos geridos azure,](../virtual-machines/managed-disks-overview.md) automatizando a criação periódica de instantâneos e mantendo-o por uma duração configurada usando a política de backup. Você pode gerir os instantâneos do disco com custos de infraestrutura zero e sem a necessidade de scripts personalizados ou qualquer sobrecarga de gestão. Esta é uma solução de backup consistente por falhas que requer uma cópia de segurança pontual de um disco gerido usando [instantâneos incrementais](../virtual-machines/disks-incremental-snapshots.md) com suporte para múltiplas cópias de segurança por dia. É também uma solução sem agente e não tem impacto no desempenho da aplicação de produção. Suporta a cópia de segurança e a restauração dos discos de SEGURANÇA e de dados (incluindo discos partilhados), quer estejam ou não ligados a uma máquina virtual Azure em funcionamento.
 
 Para obter mais informações, consulte [a cópia de segurança do disco Azure (em pré-visualização)](disk-backup-overview.md).
 
@@ -121,6 +121,6 @@ Agora, além do suporte de eliminação suave para VMs Azure, sql server e carga
 
 Para obter mais informações, consulte [Soft delete para o servidor SQL em Azure VM e SAP HANA em cargas de trabalho Azure VM](soft-delete-sql-saphana-in-azure-vm.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Orientação de backup Azure e boas práticas](guidance-best-practices.md)

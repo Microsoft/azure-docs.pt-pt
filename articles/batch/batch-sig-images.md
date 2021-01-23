@@ -4,16 +4,16 @@ description: As piscinas de imagem personalizadas são uma forma eficiente de co
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: eb21a9e0d355274142e34fbb5c90a4d293c88ef1
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 98dbb965d77da43d937dccbc0f99abf12c195929
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327309"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98731366"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Utilize a Galeria de Imagens Partilhadas para criar uma piscina de imagens personalizada
 
-Quando cria um pool Azure Batch utilizando a Configuração da Máquina Virtual, especifica uma imagem VM que fornece o sistema operativo para cada nó de computação na piscina. Pode criar um conjunto de máquinas virtuais com uma imagem Azure Marketplace suportada ou criar uma imagem personalizada com uma [imagem da Galeria de Imagens Partilhada.](../virtual-machines/windows/shared-image-galleries.md)
+Quando cria um pool Azure Batch utilizando a Configuração da Máquina Virtual, especifica uma imagem VM que fornece o sistema operativo para cada nó de computação na piscina. Pode criar um conjunto de máquinas virtuais com uma imagem Azure Marketplace suportada ou criar uma imagem personalizada com uma [imagem da Galeria de Imagens Partilhada.](../virtual-machines/shared-image-galleries.md)
 
 ## <a name="benefits-of-the-shared-image-gallery"></a>Benefícios da Galeria de Imagens Partilhadas
 
@@ -31,7 +31,7 @@ A utilização de uma Imagem Partilhada configurada para o seu cenário pode pro
 - **Copie grandes quantidades de dados uma vez.** Faça parte dos dados estáticos da imagem partilhada gerida copiando-a para os discos de dados de uma imagem gerida. Isto só precisa ser feito uma vez e disponibilizar dados para cada nó da piscina.
 - **Cresça piscinas para tamanhos maiores.** Com a Galeria de Imagens Partilhadas, pode criar piscinas maiores com as suas imagens personalizadas juntamente com mais réplicas de Imagem Partilhada.
 - **Melhor desempenho do que usar apenas uma imagem gerida como uma imagem personalizada.** Para um pool de imagem personalizado image shared Image, o tempo para alcançar o estado estável é até 25% mais rápido, e a latência ociosa VM é até 30% mais curta.
-- **Imagem de versão e agrupamento para uma gestão mais fácil.** A definição de agrupamento de imagens contém informações sobre o porquê da imagem ter sido criada, para que é o SISTEMA e informação sobre a utilização da imagem. Agrupar imagens permite uma gestão de imagem mais fácil. Para obter mais informações, consulte [as definições de imagem.](../virtual-machines/windows/shared-image-galleries.md#image-definitions)
+- **Imagem de versão e agrupamento para uma gestão mais fácil.** A definição de agrupamento de imagens contém informações sobre o porquê da imagem ter sido criada, para que é o SISTEMA e informação sobre a utilização da imagem. Agrupar imagens permite uma gestão de imagem mais fácil. Para obter mais informações, consulte [as definições de imagem.](../virtual-machines/shared-image-galleries.md#image-definitions)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -223,7 +223,7 @@ Se planeia criar uma piscina com centenas ou milhares de VMs ou mais usando uma 
 
 - **Redimensionar o tempo limite.** Se a sua piscina contiver um número fixo de nós (se não for auto-escalado), aumente a `resizeTimeout` propriedade da piscina dependendo do tamanho da piscina. Para cada 1000 VMs, o tempo limite recomendado de redimensionar é de pelo menos 15 minutos. Por exemplo, o tempo limite recomendado para uma piscina com 2000 VMs é de pelo menos 30 minutos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter uma visão geral aprofundada do Lote, consulte o fluxo de trabalho e os recursos do [serviço Batch.](batch-service-workflow-features.md)
-- Conheça a [Galeria de Imagens Partilhadas.](../virtual-machines/windows/shared-image-galleries.md)
+- Conheça a [Galeria de Imagens Partilhadas.](../virtual-machines/shared-image-galleries.md)

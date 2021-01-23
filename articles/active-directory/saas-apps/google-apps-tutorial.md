@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/11/2021
 ms.author: jeedes
-ms.openlocfilehash: eb142f1ac8ef0eae77e2ac47a7cd655e025dadf8
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: a846899ba8f9b9e7c0d2e54744f5e5044ca7a2d6
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98633268"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732106"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-google-cloud-g-suite-connector"></a>Tutorial: Azure Ative Directy integração única (SSO) com o Conector Google Cloud (G Suite)
 
@@ -249,10 +249,10 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 
 * Vá diretamente ao URL de acesso do Conector Google Cloud (G Suite) e inicie o fluxo de login a partir daí.
 
-* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo do Conector Google Cloud (G Suite) nas Minhas Apps, este será redirecionado para o URL de referência do Conector google Cloud (G Suite). Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo do Conector Google Cloud (G Suite) nas Minhas Apps, este será redirecionado para o URL de referência do Conector google Cloud (G Suite). Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](../user-help/my-apps-portal-end-user-access.md)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Assim que configurar o Conector Google Cloud (G Suite) pode impor o Controlo de Sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O Controlo de Sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
 

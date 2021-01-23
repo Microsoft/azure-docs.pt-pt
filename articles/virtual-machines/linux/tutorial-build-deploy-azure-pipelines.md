@@ -11,12 +11,12 @@ ms.workload: infrastructure
 ms.date: 1/3/2020
 ms.author: ushan
 ms.custom: devops, devx-track-js
-ms.openlocfilehash: 3d26da693d83fd680c644849d581ea35ca7b49af
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 4ca431290fe168f8fc073908bb3735ecb5992562
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97739710"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98731255"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>Tutorial: Implemente a sua aplicação para máquinas virtuais Linux em Azure utilizando serviços Azure DevOps e Pipelines Azure
 
@@ -24,7 +24,7 @@ A integração contínua (CI) e a implantação contínua (CD) formam um oleodut
 
 A Azure Pipelines fornece um conjunto completo e totalmente apresentado de ferramentas de automação CI/CD para implementações em máquinas Virtuais, tanto no pré-m como em qualquer nuvem.
 
-Neste tutorial, irá configurar um pipeline CI/CD baseado em YAML para implementar a sua app num [Azure](/azure/devops/pipelines/process/environments?view=azure-devops) Pipelines Environment com máquinas Virtual Linux como recursos, cada um dos quais serve como servidores web para executar a aplicação.
+Neste tutorial, irá configurar um pipeline CI/CD baseado em YAML para implementar a sua app num [Azure](/azure/devops/pipelines/process/environments) Pipelines Environment com máquinas Virtual Linux como recursos, cada um dos quais serve como servidores web para executar a aplicação.
 
 Saiba como:
 
@@ -41,7 +41,7 @@ Saiba como:
   Pode obter uma [organização de Serviços de DevOps do Azure gratuita](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308).
 
   > [!NOTE]
-  > Para obter mais informações, veja [Ligar aos Serviços de DevOps do Azure](/azure/devops/organizations/projects/connect-to-projects?view=vsts).
+  > Para obter mais informações, veja [Ligar aos Serviços de DevOps do Azure](/azure/devops/organizations/projects/connect-to-projects).
 
 *  Precisa de uma máquina virtual do Linux para um destino de implementação.  Para obter mais informações, veja [Criar e gerir VMs do Linux com a CLI do Azure](./tutorial-manage-vm.md).
 
@@ -222,7 +222,7 @@ Para obter mais orientação, siga os passos na [Build your Node.js app com gole
        tags: web
    ```
 2. Pode selecionar conjuntos específicos de máquinas virtuais do ambiente para receber a implementação especificando as **etiquetas** que definiu para cada máquina virtual no ambiente.
-[Aqui](/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema#deployment-job) está o esquema YAML completo para o trabalho de implantação.
+[Aqui](/azure/devops/pipelines/yaml-schema?tabs=schema#deployment-job) está o esquema YAML completo para o trabalho de implantação.
 
 3. Pode especificar uma `runOnce` ou como estratégia de `rolling` implantação. 
 
@@ -295,7 +295,7 @@ A visão de implantação do ambiente proporciona uma rastreabilidade completa d
   
 ![VMjobs_view](media/tutorial-deploy-vms-azure-pipelines/vm-jobsview.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Pode proceder à [personalização do oleoduto](/azure/devops/pipelines/customize-pipeline) que acabou de criar.
 - Para saber o que mais pode fazer nos oleodutos YAML, consulte [a referência de esquema YAML](/azure/devops/pipelines/yaml-schema).
 - Para saber mais sobre como implementar uma pilha LAMP (Linux, Apache, MySQL e PHP), avance para o próximo tutorial.

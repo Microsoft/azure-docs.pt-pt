@@ -51,8 +51,6 @@
           href: non-gallery-apps.md
         - name: Planear uma implementação de As Minhas Aplicações
           href: access-panel-deployment-plan.md
-        - name: Orientação para programadores
-          href: developer-guidance-for-integrating-applications.md
     - name: Início de sessão único
       items:
         - name: Planear uma implementação de início de sessão único

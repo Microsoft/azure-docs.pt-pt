@@ -10,12 +10,12 @@ metadata:
   author: shortpatti
   ms.author: v-patsho
   ms.date: 12/31/2020
-  ms.openlocfilehash: 496e995909b885e494ee289c436cda17f3d39367
-  ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
-  ms.translationtype: HT
+  ms.openlocfilehash: 285421d12b656290ef5ddbe21136345b718e0ca1
+  ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+  ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/04/2021
-  ms.locfileid: "97861927"
+  ms.lasthandoff: 01/23/2021
+  ms.locfileid: "98730277"
 landingContent:
 - title: Acerca da Infraestrutura Bare-metal
   linkLists:
@@ -28,7 +28,7 @@ landingContent:
   - linkListType: reference
     links:
     - text: Tipos de carga de trabalho de Bare-metal
-      url: /azure/virtual-machines/workloads/sap/get-started?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+      url: ../virtual-machines/workloads/sap/get-started.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
 - title: Unidades da Instância Bare-metal
   linkLists:
   - linkListType: how-to-guide

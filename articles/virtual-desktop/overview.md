@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0fe9b3ddaee41802ced30e1898b46cefa2566771
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 36a15560b88c823ff2ae41f160839796bf21e4f8
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023195"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730790"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>O que é o Windows Virtual Desktop?
 
@@ -57,7 +57,7 @@ Também pode atribuir e ligar os utilizadores aos seus ambientes de trabalho vir
 * Uma vez atribuídos, os utilizadores podem lançar qualquer cliente virtual do Windows desktop para ligar os utilizadores aos seus desktops e aplicações do Windows publicados. Conecte-se a partir de qualquer dispositivo através de uma aplicação nativa no seu dispositivo ou do cliente web VIRTUAL Desktop HTML5 do Windows.
 * Estabeleça de forma segura os utilizadores através de ligações inversas ao serviço, para que nunca tenha de deixar portas de entrada abertas.
 
-## <a name="requirements"></a>Requisitos
+## <a name="requirements"></a>Requirements
 
 Há algumas coisas que precisa para configurar o Windows Virtual Desktop e ligar com sucesso os seus utilizadores aos seus desktops e aplicações windows.
 
@@ -130,20 +130,20 @@ O Windows Virtual Desktop suporta as seguintes imagens do sistema operativo x64:
 * Windows Server 2016
 * Windows Server 2012 R2
 
-O Windows Virtual Desktop não suporta imagens do sistema operativo X86 (32 bits), Do Windows 10 Enterprise N ou do Sistema operativo Kn do Windows 10. O Windows 7 também não suporta nenhuma solução de perfil baseada em VHD ou VHDX hospedada no Azure Storage gerido devido a uma limitação de tamanho do setor.
+O Windows Virtual Desktop não suporta imagens do sistema operativo X86 (32 bits), Do Windows 10 Enterprise N, do Windows 10 Pro ou do Sistema operativo Kn do Windows 10. O Windows 7 também não suporta nenhuma solução de perfil baseada em VHD ou VHDX hospedada no Azure Storage gerido devido a uma limitação de tamanho do setor.
 
 As opções de automação e implantação disponíveis dependem do sistema operativo e da versão escolhidas, como mostra o seguinte quadro:
 
 |Sistema operativo|Galeria de Imagens Azure|Implantação manual de VM|Integração do modelo do Gestor de Recursos Azure|Provisão de piscinas de acolhimento no Azure Marketplace|
 |--------------------------------------|:------:|:------:|:------:|:------:|
-|Windows 10 Enterprise (multi-sessão), versão 2004|Yes|Yes|Yes|Yes|
-|Windows 10 Enterprise (multi-sessão), versão 1909|Yes|Yes|Yes|Yes|
-|Windows 10 Enterprise (multi-sessão), versão 1903|Yes|Yes|No|No|
-|Windows 10 Enterprise (multi-sessão), versão 1809|Yes|Yes|No|No|
-|Windows 7 Enterprise|Yes|Yes|No|No|
-|Windows Server 2019|Yes|Yes|No|No|
-|Windows Server 2016|Yes|Yes|Yes|Yes|
-|Windows Server 2012 R2|Yes|Yes|No|Não|
+|Windows 10 Enterprise (multi-sessão), versão 2004|Sim|Sim|Sim|Sim|
+|Windows 10 Enterprise (multi-sessão), versão 1909|Sim|Sim|Sim|Sim|
+|Windows 10 Enterprise (multi-sessão), versão 1903|Sim|Sim|Não|Não|
+|Windows 10 Enterprise (multi-sessão), versão 1809|Sim|Sim|Não|Não|
+|Windows 7 Enterprise|Sim|Sim|Não|Não|
+|Windows Server 2019|Sim|Sim|Não|Não|
+|Windows Server 2016|Sim|Sim|Sim|Sim|
+|Windows Server 2012 R2|Sim|Sim|Não|Não|
 
 ## <a name="next-steps"></a>Próximos passos
 

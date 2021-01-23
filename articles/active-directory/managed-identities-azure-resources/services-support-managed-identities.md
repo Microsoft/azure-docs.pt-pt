@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 2da0407f848b0795414b071b9e082c7ed60a633d
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 7ebe56b95b0c4b938c31c0ece04d27fd1b234b05
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861889"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98729917"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Serviços que suportam identidades geridas para recursos da Azure
 
@@ -30,7 +30,7 @@ Identidades geridas para recursos Azure fornecem aos serviços Azure uma identid
 Os seguintes serviços da Azure apoiam identidades geridas para os recursos da Azure:
 
 
-### <a name="azure-api-management"></a>Gestão de API do Azure
+### <a name="azure-api-management"></a>API Management do Azure
 
 Tipo de identidade gerido | Tudo geralmente disponível<br>Regiões Azure Globais | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
@@ -190,7 +190,7 @@ Consulte a seguinte lista para configurar a identidade gerida para as funções 
 - [Azure PowerShell](../../app-service/overview-managed-identity.md#using-azure-powershell)
 - [Modelo Azure Resource Manager](../../app-service/overview-managed-identity.md#using-an-azure-resource-manager-template)
 
-### <a name="azure-iot-hub"></a>Hub IoT do Azure
+### <a name="azure-iot-hub"></a>Azure IoT Hub
 
 Tipo de identidade gerido | Tudo geralmente disponível<br>Regiões Azure Globais | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
@@ -208,7 +208,7 @@ Tipo de identidade gerido | Tudo geralmente disponível<br>Regiões Azure Globai
 | Sistema atribuído | Disponível na região onde o serviço de exportação de importações Azure está disponível | Pré-visualizar | Disponível | Disponível |
 | Utilizador atribuído | Não disponível | Não disponível | Não disponível | Não disponível |
 
-### <a name="azure-kubernetes-service-aks"></a>Serviço de Kubernetes do Azure (AKS)
+### <a name="azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS)
 
 | Tipo de identidade gerido | Tudo geralmente disponível<br>Regiões Azure Globais | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
@@ -253,7 +253,7 @@ Consulte a seguinte lista para configurar a identidade gerida para a Política A
 - [Portal do Azure](../../governance/policy/tutorials/create-and-manage.md#assign-a-policy)
 - [PowerShell](../../governance/policy/how-to/remediate-resources.md#create-managed-identity-with-powershell)
 - [CLI do Azure](/cli/azure/policy/assignment#az-policy-assignment-create)
-- [Modelos de gestor de recursos Azure](/azure/templates/microsoft.authorization/policyassignments)
+- [Modelos do Azure Resource Manager](/azure/templates/microsoft.authorization/policyassignments)
 - [REST](/rest/api/resources/policyassignments/create)
 
 
@@ -299,7 +299,7 @@ Consulte a seguinte lista para configurar a identidade gerida para conjuntos de 
 - [Portal do Azure](qs-configure-portal-windows-vm.md)
 - [PowerShell](qs-configure-powershell-windows-vm.md)
 - [CLI do Azure](qs-configure-cli-windows-vm.md)
-- [Modelos de gestor de recursos Azure](qs-configure-template-windows-vm.md)
+- [Modelos do Azure Resource Manager](qs-configure-template-windows-vm.md)
 - [REST](qs-configure-rest-vm.md)
 
 
@@ -316,7 +316,7 @@ Consulte a seguinte lista para configurar a identidade gerida para as máquinas 
 - [Portal do Azure](qs-configure-portal-windows-vm.md)
 - [PowerShell](qs-configure-powershell-windows-vm.md)
 - [CLI do Azure](qs-configure-cli-windows-vm.md)
-- [Modelos de gestor de recursos Azure](qs-configure-template-windows-vm.md)
+- [Modelos do Azure Resource Manager](qs-configure-template-windows-vm.md)
 - [REST](qs-configure-rest-vm.md)
 - [SDKs do Azure](qs-configure-sdk-windows-vm.md)
 
@@ -326,9 +326,9 @@ Consulte a seguinte lista para configurar a identidade gerida para as máquinas 
 | Tipo de identidade gerido | Tudo geralmente disponível<br>Regiões Azure Globais | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
 | Sistema atribuído | Não Disponível | Não Disponível | Não Disponível | Não Disponível |
-| Utilizador atribuído | [Disponível em regiões apoiadas](../../virtual-machines/windows/image-builder-overview.md#regions) | Não Disponível | Não Disponível | Não Disponível |
+| Utilizador atribuído | [Disponível em regiões apoiadas](../../virtual-machines/image-builder-overview.md#regions) | Não Disponível | Não Disponível | Não Disponível |
 
-Para aprender a configurar a identidade gerida para O Azure VM Image Builder (em regiões onde disponível), consulte a visão geral do [Construtor de Imagens](../../virtual-machines/windows/image-builder-overview.md#permissions).
+Para aprender a configurar a identidade gerida para O Azure VM Image Builder (em regiões onde disponível), consulte a visão geral do [Construtor de Imagens](../../virtual-machines/image-builder-overview.md#permissions).
 ### <a name="azure-signalr-service"></a>Serviço SignalR do Azure
 
 Tipo de identidade gerido | Tudo geralmente disponível<br>Regiões Azure Globais | Azure Government | Azure Alemanha | Azure China 21Vianet |

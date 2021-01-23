@@ -1,5 +1,5 @@
 ---
-title: Recuperação de desastres utilizando a ferramenta Azure Application Consistent Snapshot para ficheiros Azure NetApp / Microsoft Docs
+title: Recuperação de desastres utilizando a ferramenta Azure Application Consistent Snapshot para ficheiros Azure NetApp | Microsoft Docs
 description: Explica como realizar a recuperação de desastres ao utilizar a ferramenta Azure Application Consistent Snapshot que pode utilizar com ficheiros Azure NetApp.
 services: azure-netapp-files
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: phjensen
-ms.openlocfilehash: c34ca08ae2ede9430804f6b8bb33f2bfcb0b39ab
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 70e1823b30814d7dc29fef69215fcb53a2a2ab96
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97632839"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730875"
 ---
 # <a name="disaster-recovery-using-azure-application-consistent-snapshot-tool-preview"></a>Recuperação de desastres utilizando a ferramenta Azure Application Consistent Snapshot (pré-visualização)
 
@@ -40,7 +40,7 @@ Os seguintes requisitos devem ser cumpridos antes de planear o fracasso da recup
 - Tem replicação de armazenamento a funcionar. A equipa de operações da Microsoft executa a configuração de replicação de armazenamento no momento do fornecimento de DR automaticamente. Pode monitorizar a replicação do armazenamento utilizando o comando `azacsnap -c details --details replication` no local DR.
 - Configuraste e configuraste as fotos de armazenamento no local principal.
 - Tem uma instância HANA instalada no local de DR para o primário com o mesmo SID que o exemplo principal tem.
-- Você leu e compreende o procedimento dr failover descrito em [SAP HANA Large Instances alta disponibilidade e recuperação de desastres em Azure](/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure)
+- Você leu e compreende o procedimento dr failover descrito em [SAP HANA Large Instances alta disponibilidade e recuperação de desastres em Azure](../virtual-machines/workloads/sap/hana-failover-procedure.md)
 - Você montou e configuraram instantâneos de armazenamento no local dr.
 - Foi criado um ficheiro de configuração (por `DR.json` exemplo, ) com os volumes de armazenamento DR e informações associadas no servidor DR.
 - Completou os passos no local dr para:
@@ -282,7 +282,7 @@ Se estiver a executar cópias de segurança baseadas em instantâneos no site DR
 > [!IMPORTANT]
 > Executar a `azacsnap -c backup` lata criar instantâneos de armazenamento no site DR, estes não são automaticamente replicados para outro site.  Trabalhe com a Microsoft Operations para entender melhor a devolução de quaisquer ficheiros ou dados ao site de produção original.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Obtenha detalhes instantâneos](azacsnap-cmd-ref-details.md)
 - [Pegue uma cópia de segurança.](azacsnap-cmd-ref-backup.md)

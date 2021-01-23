@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/14/2020
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 2731a7f263db223c258ddfc434bc84f59632d1f5
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 3022e9c694d70359a90e71ecd1232e9274f92f10
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223368"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730327"
 ---
 # <a name="shared-image-galleries-overview"></a>Visão geral das Galerias de Imagem Partilhadas
 
@@ -150,8 +150,8 @@ Como a Galeria de Imagens Partilhada, Definição de Imagem e Versão Image são
 
 | Partilhado com o Utilizador     | Galeria de Imagens Partilhada | Definição da Imagem | Versão da imagem |
 |----------------------|----------------------|--------------|----------------------|
-| Galeria de Imagens Partilhada | Yes                  | Yes          | Yes                  |
-| Definição da Imagem     | No                   | Yes          | Yes                  |
+| Galeria de Imagens Partilhada | Sim                  | Sim          | Sim                  |
+| Definição da Imagem     | Não                   | Sim          | Sim                  |
 
 Recomendamos a partilha ao nível da Galeria para obter a melhor experiência. Não recomendamos a partilha de versões de imagem individuais. Para obter mais informações sobre o RBAC, consulte [Gerir o acesso aos recursos do Azure utilizando o RBAC.](../role-based-access-control/role-assignments-portal.md)
 
@@ -170,12 +170,12 @@ Por exemplo, digamos que tem uma imagem de um disco oss de 127 GB, que ocupa ape
 Uma vez criado, pode fazer algumas alterações nos recursos da galeria de imagens. Estes limitam-se a:
  
 Galeria de imagens partilhada:
-- Description
+- Descrição
 
 Definição de imagem:
 - VCPUs recomendados
 - Memória recomendada
-- Description
+- Descrição
 - Data de fim de vida
 
 Versão de imagem:
@@ -188,10 +188,10 @@ Versão de imagem:
 
 Os seguintes SDKs apoiam a criação de Galerias de Imagem Partilhada:
 
-- [.NET](/dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet)
-- [Java](/java/azure/?view=azure-java-stable)
+- [.NET](/dotnet/api/overview/azure/virtualmachines/management)
+- [Java](/java/azure/)
 - [Node.js](/javascript/api/@azure/arm-compute)
-- [Python](/python/api/overview/azure/virtualmachines?view=azure-python)
+- [Python](/python/api/overview/azure/virtualmachines)
 - [Ir](/azure/go/)
 
 ## <a name="templates"></a>Modelos
@@ -203,7 +203,7 @@ Pode criar o recurso Image Gallery partilhado utilizando modelos. Existem vário
 - [Criar uma Versão de Imagem num Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
 - [Criar uma VM a partir de uma Versão de Imagem](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
 
-## <a name="frequently-asked-questions"></a>Perguntas mais frequentes 
+## <a name="frequently-asked-questions"></a>Perguntas frequentes 
 
 * [Como posso listar todos os recursos da Galeria de Imagem Partilhada através de subscrições?](#how-can-i-list-all-the-shared-image-gallery-resources-across-subscriptions) 
 * [Posso mover a minha imagem existente para a galeria de imagens partilhada?](#can-i-move-my-existing-image-to-the-shared-image-gallery)
@@ -241,7 +241,7 @@ Para obter mais informações, consulte **Gerir os recursos** da galeria utiliza
 
 ### <a name="can-i-move-my-existing-image-to-the-shared-image-gallery"></a>Posso mover a minha imagem existente para a galeria de imagens partilhada?
  
-Sim. Existem 3 cenários baseados nos tipos de imagens que pode ter.
+Yes. Existem 3 cenários baseados nos tipos de imagens que pode ter.
 
  Cenário 1: Se tiver uma imagem gerida, então pode criar uma definição de imagem e versão de imagem a partir dela. Para obter mais informações, consulte **Migrar de uma imagem gerida para uma versão de imagem** utilizando o [Azure CLI](image-version-managed-image-cli.md) ou [PowerShell](image-version-managed-image-powershell.md).
 
@@ -322,7 +322,7 @@ Se tiver problemas com a realização de quaisquer operações nos recursos da g
 
 Além disso, pode publicar e marcar a sua pergunta `azure-virtual-machines-images` no Q&[A](/answers/topics/azure-virtual-machines-images.html).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como implementar imagens partilhadas utilizando o [Azure CLI](shared-images-cli.md) ou [o PowerShell](shared-images-powershell.md).
 

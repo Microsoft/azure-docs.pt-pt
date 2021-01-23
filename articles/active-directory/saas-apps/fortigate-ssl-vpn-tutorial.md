@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com FortiGate SSL VPN Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com fortiGate SSL VPN | Microsoft Docs'
 description: Aprenda os passos que precisa de executar para integrar o FortiGate SSL VPN com o Azure Ative Directory (Azure AD).
 services: active-directory
 author: jeevansd
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/26/2020
 ms.author: jeedes
-ms.openlocfilehash: b9a22025f124e7639aa1b9a157dbbd020e2ff966
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 9852752799fd010ebb069637f55008d9c4f68bf8
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98020269"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732141"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fortigate-ssl-vpn"></a>Tutorial: Azure Ative Directory integração única (SSO) com FortiGate SSL VPN
 
@@ -108,7 +108,7 @@ Siga estes passos para permitir que o Azure AD SSO no portal Azure:
 
    d. Para **o atributo Fonte**, selecione **user.userprincipalname**.
 
-   e. Selecione **Save** (Guardar).
+   e. Selecione **Guardar**.
 
    f. **Selecione Adicionar uma reivindicação de grupo**.
 
@@ -118,7 +118,7 @@ Siga estes passos para permitir que o Azure AD SSO no portal Azure:
 
    i. Para **nome,** insira **o grupo**.
    
-   j. Selecione **Save** (Guardar).   
+   j. Selecione **Guardar**.   
 
 1. Na **configuração single Sign-On com página SAML,** na secção Certificado de Assinatura **SAML,** selecione o link **de descarregamento** ao lado **do Certificado (Base64)** para descarregar o certificado e guardá-lo no seu computador:
 
@@ -260,7 +260,7 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 
 * Vá diretamente ao URL de inscrição VPN FortiGate e inicie o fluxo de login a partir daí.
 
-* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo VPN fortiGate nas Minhas Apps, este irá redirecionar para o URL de inscrição VPN FortiGate. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo VPN fortiGate nas Minhas Apps, este irá redirecionar para o URL de inscrição VPN FortiGate. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](../user-help/my-apps-portal-end-user-access.md)
 
 
 ## <a name="next-steps"></a>Próximos passos

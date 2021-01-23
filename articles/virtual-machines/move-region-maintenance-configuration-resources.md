@@ -6,12 +6,12 @@ ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 03/04/2020
 ms.author: shants
-ms.openlocfilehash: 7c4d9f3a5f73e5832e9ff22ed2cd4c215811c845
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 88082c441dafdc7571f2b9775bfc07ebe3ca5aa4
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98197562"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730511"
 ---
 # <a name="move-resources-in-a-maintenance-control-configuration-to-another-region"></a>Mover recursos numa configuração de Controlo de Manutenção para outra região
 
@@ -49,7 +49,7 @@ Antes de começar a mover os recursos associados a uma configuração de Control
     $adh | Nome de anfitrião dedicado | "myHost"
     $adhParentName | Nome do recurso-mãe | "HostGroup"
     
-2. Para recuperar as configurações de manutenção utilizando o comando PowerShell [Get-AZConfigurationAssignment:](/powershell/module/az.maintenance/get-azconfigurationassignment?view=azps-3.5.0)
+2. Para recuperar as configurações de manutenção utilizando o comando PowerShell [Get-AZConfigurationAssignment:](/powershell/module/az.maintenance/get-azconfigurationassignment)
 
     - Para anfitriões dedicados Azure, corra:
         ```
@@ -91,6 +91,6 @@ Verifique os recursos na nova região e verifique as configurações associadas 
 Após a mudança, considere apagar os recursos movidos na região origem.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Siga [estas instruções](move-region-maintenance-configuration.md) se precisar de mover as configurações de manutenção. 

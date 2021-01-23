@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com easySSO para BitBucket Microsoft Docs'
+title: 'Tutorial: Integração única de sign-on (SSO) do Azure Ative Directory (SSO) com a EasySSO para o BitBucket | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o EasySSO para o BitBucket.
 services: active-directory
 author: jeevansd
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/21/2020
 ms.author: jeedes
-ms.openlocfilehash: 21e5da3884cce6e3a7beff297e40fdc48a3ac761
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 6fdc9c70d1c9fc67c38edfd794354f9e03321c73
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724362"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98731430"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-easysso-for-bitbucket"></a>Tutorial: Azure Ative Directy integração única (SSO) com easySSO para BitBucket
 
@@ -94,7 +94,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. A aplicação EasySSO para BitBucket também espera que mais alguns atributos sejam repercutidos na resposta SAML. A tabela a seguir mostra isto. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
     
-    | Nome | Atributo de origem|
+    | Name | Atributo de origem|
     | ---------------| --------- |
     | urn:oid:0.9.2342.19200300.100.1.1 | user.userprincipalname |
     | urn:oid:0.9.2342.19200300.100.1.3 | user.mail |
@@ -201,8 +201,8 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 
 * Clique em **Testar esta aplicação** no portal Azure e deverá ser automaticamente inscrito no EasySSO para o BitBucket para o qual configura o SSO
 
-Também pode utilizar o Microsoft My Apps para testar a aplicação em qualquer modo. Quando clicar no easySSO para o bitBucket nas Minhas Apps, se configurado no modo SP, será redirecionado para o sinal de aplicação na página para iniciar o fluxo de login e se configurado no modo IDP, deverá ser automaticamente inscrito no EasySSO para o BitBucket para o qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Também pode utilizar o Microsoft My Apps para testar a aplicação em qualquer modo. Quando clicar no easySSO para o bitBucket nas Minhas Apps, se configurado no modo SP, será redirecionado para o sinal de aplicação na página para iniciar o fluxo de login e se configurado no modo IDP, deverá ser automaticamente inscrito no EasySSO para o BitBucket para o qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](../user-help/my-apps-portal-end-user-access.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Uma vez configurado EasySSO para o BitBucket, pode impor o controlo de sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o acesso condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
