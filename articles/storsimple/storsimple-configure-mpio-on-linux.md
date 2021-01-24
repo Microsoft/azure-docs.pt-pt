@@ -7,12 +7,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 06/12/2019
 ms.author: alkohli
-ms.openlocfilehash: 6584b2ecc54efd257bb30c479fd0f22150e8d9e1
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: 2b7ddf6423db4c471ee2065635f4e3e89f7eb7b2
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608593"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98745738"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Configure mPIO em um anfitrião StorSimple executando CentOS
 Este artigo explica os passos necessários para configurar o IO Multipating (MPIO) no servidor anfitrião Centos 6.6. O servidor anfitrião está ligado ao seu dispositivo Microsoft Azure StorSimple para uma elevada disponibilidade através de iniciadores iSCSI. Descreve em detalhe a descoberta automática de dispositivos multipatas e a configuração específica apenas para volumes StorSimple.
@@ -21,10 +21,6 @@ Este procedimento aplica-se a todos os modelos de dispositivos da série StorSim
 
 > [!NOTE]
 > Este procedimento não pode ser utilizado para um aparelho de nuvem StorSimple. Para obter mais informações, consulte como configurar servidores anfitriões para o seu aparelho em nuvem.
-
-> [!NOTE]
-> Este artigo contém referências ao termo *blacklist*, um termo que a Microsoft já não utiliza. Quando o termo for removido do software, vamos removê-lo deste artigo.
-
 
 ## <a name="about-multipathing"></a>Sobre multipathing
 A funcionalidade multipatar permite configurar vários caminhos de E/S entre um servidor anfitrião e um dispositivo de armazenamento. Estes caminhos de E/S são ligações FÍSICAS SAN que podem incluir cabos separados, interruptores, interfaces de rede e controladores. Multipathing agrega os caminhos de E/S, para configurar um novo dispositivo que está associado a todos os caminhos agregados.
@@ -54,7 +50,7 @@ O multipata.conf tem cinco secções:
 
 - **Predefinições no nível do sistema** *(predefinições)*: Pode substituir as predefinições do nível do sistema.
 - **Dispositivos na lista negra** *(lista negra)*: Pode especificar a lista de dispositivos que não devem ser controlados pelo mapper do dispositivo.
-- **Exceções na lista negra** *(blacklist_exceptions)*: Pode identificar dispositivos específicos para serem tratados como dispositivos multipatas, mesmo que listados na lista negra.
+- **Exceções na lista negra** *(blacklist_exceptions)*: Pode identificar dispositivos específicos para serem tratados como dispositivos multipatas, mesmo que listados na lista de bloqueios.
 - **Definições específicas do controlador de armazenamento** *(dispositivos)*: Pode especificar as definições de configuração que serão aplicadas a dispositivos que tenham informações do Fornecedor e do Produto.
 - **Definições específicas do dispositivo** *(multipatas)*: Pode utilizar esta secção para afinar as definições de configuração para ASNS individuais.
 
@@ -178,7 +174,7 @@ A configuração acima produzirá 4 caminhos separados entre o seu dispositivo e
 
 > [!IMPORTANT]
 > * Recomendamos que não misture interfaces de rede de 1 GbE e 10 GbE para multipatas. Ao utilizar duas interfaces de rede, ambas as interfaces devem ser do tipo idêntico.
-> * No seu dispositivo StorSimple, DATA0, DATA1, DATA4 e DATA5 são 1 Interfaces GbE, enquanto data2 e DATA3 são interfaces de rede de 10 GbE./
+> * No seu dispositivo StorSimple, DATA0, DATA1, DATA4 e DATA5 são 1 Interfaces GbE, enquanto data2 e DATA3 são 10 interfaces de rede GbE.|
 > 
 > 
 
@@ -215,12 +211,12 @@ Os dispositivos suportados por vários caminhos podem ser automaticamente descob
     ```
 
 ### <a name="step-2-configure-multipathing-for-storsimple-volumes"></a>Passo 2: Configurar multipatriamento para volumes StorSimple
-Por predefinição, todos os dispositivos são listados em preto no ficheiro multipata.conf e serão ignorados. Terá de criar exceções na lista negra para permitir a multipatração para volumes a partir de dispositivos StorSimple.
+Por predefinição, todos os dispositivos estão bloqueados no ficheiro multipata.conf e serão ignorados. Terá de criar exceções de blocklist para permitir multipatas para volumes a partir de dispositivos StorSimple.
 
 1. Editar o ficheiro `/etc/mulitpath.conf`. Escreva:
    
     `vi /etc/multipath.conf`
-1. Localize a secção blacklist_exceptions no ficheiro multipata.conf. O seu dispositivo StorSimple tem de ser listado como uma exceção à lista negra nesta secção. Pode descodê-lo de linhas relevantes neste ficheiro para modificá-lo conforme mostrado abaixo (utilize apenas o modelo específico do dispositivo que está a utilizar):
+1. Localize a secção blacklist_exceptions no ficheiro multipata.conf. O seu dispositivo StorSimple tem de ser listado como uma exceção de bloqueio nesta secção. Pode descodê-lo de linhas relevantes neste ficheiro para modificá-lo conforme mostrado abaixo (utilize apenas o modelo específico do dispositivo que está a utilizar):
    
     ```config
     blacklist_exceptions {
@@ -447,7 +443,7 @@ Para mais informações, vá à [resolução de problemas para multipatar.](http
 | &nbsp; |`mpathconf --enable` |Criar um ficheiro mulitpath.conf de amostra em `/etc/mulitpath.conf` |
 |  | | |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Como está a configurar o MPIO no anfitrião Linux, também poderá ter de consultar os seguintes documentos CentoS 6.6:
 
 * [Criação do MPIO no CentOS](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/index)

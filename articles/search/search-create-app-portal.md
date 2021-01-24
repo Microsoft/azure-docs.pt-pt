@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 09/25/2020
-ms.openlocfilehash: b69feec7249c80fc63d803a14f360614bcf880fa
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 01/23/2021
+ms.openlocfilehash: 590afe4c396942c5179826cd831908e37f48c3e4
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91399827"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98745755"
 ---
 # <a name="quickstart-create-a-demo-app-in-the-portal-azure-cognitive-search"></a>Quickstart: Criar uma app de demonstração no portal (Azure Cognitive Search)
 
@@ -61,7 +61,7 @@ O assistente fornece um layout básico para resultados de pesquisa renderizados 
 
 1. Em Descrição, escolha um campo que forneça detalhes que possam ajudar alguém a decidir se deve clicar nesse documento em particular.
 
-   :::image type="content" source="media/search-create-app-portal/configure-results.png" alt-text="página de origem de dados para dados de amostra" border="false":::
+   :::image type="content" source="media/search-create-app-portal/configure-results.png" alt-text="configure os resultados para os dados da amostra" border="false":::
 
 ## <a name="add-a-sidebar"></a>Adicione uma barra lateral
 
@@ -72,8 +72,9 @@ Na Pesquisa Cognitiva Azure, a navegação facial é uma experiência de filtrag
 > [!TIP]
 > Pode ver o esquema de índice completo no portal. Procure o link **de definição de índice (JSON)** na página geral de cada índice. Os campos que se qualificam para a navegação facetada têm atributos "filtrados: verdadeiros" e "facetable: verdadeiros".
 
-Aceite a atual seleção de facetas e continue para a página seguinte.
+1. No assistente, selecione o **separador Sidebar** no topo da página. Você verá uma lista de todos os campos que são atribuídos como filtrados e facetable no índice.
 
+1. Aceite a atual seleção de campos facetados e continue para a página seguinte.
 
 ## <a name="add-typeahead"></a>Adicionar cabeça de tipo
 
@@ -83,22 +84,46 @@ As sugestões são ativadas em definições de campo específicas. O assistente 
 
 A imagem que se segue mostra opções no assistente, justtaposa com uma página renderizada na aplicação. Pode ver como as seleções de campo são usadas e como "Show Field Name" é usado para incluir ou excluir a rotulagem dentro da sugestão.
 
-:::image type="content" source="media/search-create-app-portal/suggestions.png" alt-text="página de origem de dados para dados de amostra":::
+:::image type="content" source="media/search-create-app-portal/suggestions.png" alt-text="Configuração de sugestão de consulta":::
+
+## <a name="add-suggestions"></a>Adicionar sugestões
+
+Sugestões referem-se a pedidos de consulta automatizados que estão anexados à caixa de pesquisa. A Pesquisa Cognitiva suporta dois: *auto-preconção* de um termo de pesquisa parcialmente introduzido, e *sugestões* para uma lista de desistências de potenciais documentos correspondentes baseados.
+
+O assistente suporta sugestões, e os campos que podem fornecer resultados sugeridos são derivados de uma [`Suggesters`](index-add-suggesters.md) construção no índice:
+
+```JSON
+  "suggesters": [
+    {
+      "name": "sg",
+      "searchMode": "analyzingInfixMatching",
+      "sourceFields": [
+        "number",
+        "street",
+        "city",
+        "region",
+        "postCode",
+        "tags"
+      ]
+```
+
+1. No assistente, selecione o separador **Sugestões** no topo da página. Você verá uma lista de todos os campos que são designados no esquema de índice como fornecedores de sugestões.
+
+1. Aceite a seleção atual e continue para a página seguinte.
 
 ## <a name="create-download-and-execute"></a>Criar, transferir e executar
 
-1. Selecione **Criar uma aplicação de demonstração** para gerar o ficheiro HTML.
+1. Selecione **Criar uma aplicação de demonstração** na parte inferior da página para gerar o ficheiro HTML.
 
 1. Quando solicitado, selecione **Descarregue a sua aplicação** para descarregar o ficheiro.
 
-1. Abra o ficheiro. Deve ver uma página semelhante à seguinte. Introduza um termo e utilize filtros para reduzir os resultados. 
+1. Abra o ficheiro e clique no botão Procurar. Esta ação executa uma consulta, que pode ser uma consulta vazia ( `*` ) que devolve um conjunto de resultados arbitrário. A página deve ser semelhante à seguinte imagem. Introduza um termo e utilize filtros para reduzir os resultados. 
 
 O índice subjacente é composto por dados fictícios gerados que foram duplicados entre documentos, e as descrições às vezes não correspondem à imagem. Pode esperar uma experiência mais coesa quando criar uma app baseada nos seus próprios índices.
 
-:::image type="content" source="media/search-create-app-portal/run-app.png" alt-text="página de origem de dados para dados de amostra":::
+:::image type="content" source="media/search-create-app-portal/run-app.png" alt-text="Executar a aplicação":::
 
-
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Ao trabalhar na sua própria subscrição, recomendamos que verifique, depois de concluir um projeto, se irá precisar dos recursos que criou. Os recursos que deixar em execução podem custar-lhe dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
 
@@ -106,9 +131,9 @@ Pode encontrar e gerir recursos no portal, utilizando a ligação **de todos os 
 
 Se estiver a utilizar um serviço gratuito, lembre-se que está limitado a três índices, indexadores e fontes de dados. Pode eliminar itens individuais no portal para ficar abaixo do limite. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Embora a aplicação predefinitiva seja útil para a exploração inicial e pequenas tarefas, a revisão das APIs no início irá ajudá-lo a compreender os conceitos e o fluxo de trabalho a um nível mais profundo:
+A aplicação de demonstração é útil para prototipagem porque pode simular uma experiência de utilizador final sem ter que escrever JavaScript ou código frontal. Para obter mais informações sobre funcionalidades frontais, comece com a navegação frontal:
 
 > [!div class="nextstepaction"]
-> [Criar um índice usando .NET SDK](./search-get-started-dotnet.md)
+> [Como construir um filtro facet](search-filters-facets.md)

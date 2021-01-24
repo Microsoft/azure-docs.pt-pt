@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 09/10/2020
-ms.openlocfilehash: 38f37ff2fe150a9e1998fbe5e963b8737a6e1533
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 11aa739beeb07c3de056d8a2430b556fcc40b178
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737970"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746735"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de lançamento do Azure Machine Learning
 
@@ -493,8 +493,8 @@ Saiba mais sobre [a rotulagem de segmentação de casos de imagem.](how-to-label
     + Os utilizadores podem agora especificar uma frequência de série sonora para as tarefas de previsão utilizando o `freq` parâmetro.
   + **azureml-train-automl-runtime**
     + Melhor produção da consola quando as melhores explicações do modelo falham.
-    + Renomeado parâmetro de entrada "backlist_models" para "blocked_models".
-      + Renomeado parâmetro de entrada "whitelist_models" para "allowed_models".
+    + Rebatizado parâmetro de entrada para "blocked_models" para remover um termo sensível.
+      + Rebatizado parâmetro de entrada para "allowed_models" para remover um termo sensível.
     + Os utilizadores podem agora especificar uma frequência de série sonora para as tarefas de previsão utilizando o `freq` parâmetro.
 
   

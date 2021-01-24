@@ -2,18 +2,18 @@
 title: Funcionalidades de FHIR suportadas em Azure - Azure API para FHIR
 description: Este artigo explica quais as características da especificação FHIR que são implementadas na AZure API para fHIR
 services: healthcare-apis
-author: matjazl
+author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 02/07/2019
+ms.date: 1/21/2021
 ms.author: cavoeg
-ms.openlocfilehash: ad663b345d3d150b55e0e018afd1430775d77162
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 43372eb0a9f7c08f6957627950769c1941580bd8
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98733474"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98745872"
 ---
 # <a name="features"></a>Funcionalidades
 

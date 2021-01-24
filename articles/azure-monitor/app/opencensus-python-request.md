@@ -1,26 +1,23 @@
 ---
-title: Rastreio de pedido de entrada em Azure Application Insights com OpenCensus Python / Microsoft Docs
+title: Rastreio de pedido de entrada em insights de aplicação Azure com | De Pitão OpenCensus Microsoft Docs
 description: Monitor solicita chamadas para as suas aplicações Python via OpenCensus Python.
 ms.topic: conceptual
 author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 4b88550ad489607bb66eb737067190d45a466a43
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: 4abb795335bfcb2c9b335d4fb09ddc9fdb2476b4
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96607080"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746582"
 ---
 # <a name="track-incoming-requests-with-opencensus-python"></a>Acompanhe os pedidos de entrada com o OpenCensus Python
 
 Os dados de pedido de entrada são recolhidos utilizando o OpenCensus Python e as suas várias integrações. Acompanhe os dados de pedido de entrada enviados para as suas aplicações web construídas em cima das populares estruturas web `django` , `flask` e `pyramid` . Os dados são então enviados para a Application Insights no Azure Monitor como `requests` telemetria.
 
 Em primeiro lugar, instrumento a sua aplicação Python com o mais recente [OpenCensus Python SDK](./opencensus-python.md).
-
-> [!NOTE]
-> Este artigo contém referências ao termo *blacklist*, um termo que a Microsoft já não utiliza. Quando o termo for removido do software, vamos removê-lo deste artigo.
 
 ## <a name="tracking-django-applications"></a>Rastreio de aplicações de Django
 
@@ -36,7 +33,7 @@ Em primeiro lugar, instrumento a sua aplicação Python com o mais recente [Open
     )
     ```
 
-3. Certifique-se de que o AzureExporter está corretamente configurado na sua `settings.py` `OPENCENSUS` sub. Para pedidos de urls que não deseja rastrear, adicione-os a `BLACKLIST_PATHS` .
+3. Certifique-se de que o AzureExporter está corretamente configurado na sua `settings.py` `OPENCENSUS` sub. Para pedidos de urls que não deseja rastrear, adicione-os a `EXCLUDELIST_PATHS` .
 
     ```python
     OPENCENSUS = {
@@ -45,7 +42,7 @@ Em primeiro lugar, instrumento a sua aplicação Python com o mais recente [Open
             'EXPORTER': '''opencensus.ext.azure.trace_exporter.AzureExporter(
                 connection_string="InstrumentationKey=<your-ikey-here>"
             )''',
-            'BLACKLIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent to it.
+            'EXCLUDELIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent to it.
         }
     }
     ```
@@ -77,7 +74,7 @@ Em primeiro lugar, instrumento a sua aplicação Python com o mais recente [Open
     
     ```
 
-2. Também pode configurar a sua `flask` aplicação através de `app.config` . Para pedidos de urls que não deseja rastrear, adicione-os a `BLACKLIST_PATHS` .
+2. Também pode configurar a sua `flask` aplicação através de `app.config` . Para pedidos de urls que não deseja rastrear, adicione-os a `EXCLUDELIST_PATHS` .
 
     ```python
     app.config['OPENCENSUS'] = {
@@ -86,7 +83,7 @@ Em primeiro lugar, instrumento a sua aplicação Python com o mais recente [Open
             'EXPORTER': '''opencensus.ext.azure.trace_exporter.AzureExporter(
                 connection_string="InstrumentationKey=<your-ikey-here>",
             )''',
-            'BLACKLIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent to it.
+            'EXCLUDELIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent to it.
         }
     }
     ```
@@ -103,7 +100,7 @@ Em primeiro lugar, instrumento a sua aplicação Python com o mais recente [Open
                          '.pyramid_middleware.OpenCensusTweenFactory')
     ```
 
-2. Pode configurar a sua `pyramid` interpolação diretamente no código. Para pedidos de urls que não deseja rastrear, adicione-os a `BLACKLIST_PATHS` .
+2. Pode configurar a sua `pyramid` interpolação diretamente no código. Para pedidos de urls que não deseja rastrear, adicione-os a `EXCLUDELIST_PATHS` .
 
     ```python
     settings = {
@@ -113,7 +110,7 @@ Em primeiro lugar, instrumento a sua aplicação Python com o mais recente [Open
                 'EXPORTER': '''opencensus.ext.azure.trace_exporter.AzureExporter(
                     connection_string="InstrumentationKey=<your-ikey-here>",
                 )''',
-                'BLACKLIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent to it.
+                'EXCLUDELIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent to it.
             }
         }
     }
@@ -175,7 +172,7 @@ O OpenCensus não tem uma extensão para o FastAPI. Para escrever o seu próprio
         uvicorn.run("example:app", host="127.0.0.1", port=5000, log_level="info")
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Mapeamento de Aplicações](./app-map.md)
 * [Disponibilidade](./monitor-web-app-availability.md)

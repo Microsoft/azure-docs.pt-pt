@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor FAQ / Microsoft Docs
+title: Azure Monitor FAQ | Microsoft Docs
 description: Respostas a perguntas frequentes sobre o Azure Monitor.
 services: azure-monitor
 ms.subservice: ''
@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
-ms.openlocfilehash: 7336078d1f04b9dcb6c2f229654f1c36d9b3114b
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: bc229974cf14ba364e5e7111dc1d2704e03c3635
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96919975"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746803"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor perguntas frequentes
 
@@ -37,7 +37,7 @@ O Azure Monitor está ativado no momento em que cria uma nova subscrição do Az
 Aceda a todas as funcionalidades e dados do Azure Monitor **no** menu Azure. A secção de **Monitorização** do menu de diferentes serviços Azure fornece acesso às mesmas ferramentas com dados filtrados a um determinado recurso. Os dados do Azure Monitor também estão acessíveis para uma variedade de cenários usando CLI, PowerShell e uma API REST.
 
 ### <a name="is-there-an-on-premises-version-of-azure-monitor"></a>Existe uma versão no local do Azure Monitor?
-N.º O Azure Monitor é um serviço de nuvem escalável que processa e armazena grandes quantidades de dados, embora o Azure Monitor possa monitorizar recursos que estão no local e em outras nuvens.
+Não. O Azure Monitor é um serviço de nuvem escalável que processa e armazena grandes quantidades de dados, embora o Azure Monitor possa monitorizar recursos que estão no local e em outras nuvens.
 
 ### <a name="can-azure-monitor-monitor-on-premises-resources"></a>O Azure Monitor pode monitorizar os recursos no local?
 Sim, além de recolher dados de monitorização a partir de recursos Azure, o Azure Monitor pode recolher dados de máquinas virtuais e aplicações em outras nuvens e no local. Consulte [as fontes de monitorização dos dados do Azure Monitor](platform/data-sources.md).
@@ -94,7 +94,7 @@ Pode mover um espaço de trabalho entre grupos de recursos ou subscrições, mas
 
 ### <a name="why-cant-i-see-query-explorer-and-save-buttons-in-log-analytics"></a>Por que não posso ver os botões Desíduo Explorador e Guardar em Log Analytics?
 
-Os botões **de regra** de alerta **Query Explorer** **Desembarantes** , Save e New alert não estão disponíveis quando o [âmbito de consulta](log-query/scope.md) é definido para um recurso específico. Para criar alertas, guardar ou carregar uma consulta, o Log Analytics deve ser analisado para um espaço de trabalho. Para abrir o Log Analytics no contexto do espaço de trabalho, selecione **Logs** do menu **Azure Monitor.** O último espaço de trabalho usado é selecionado, mas pode selecionar qualquer outro espaço de trabalho. Consulte [o âmbito de consulta de registo e o intervalo de tempo no Azure Monitor Log Analytics](log-query/scope.md)
+Os botões **de regra** de alerta  **Desembarantes** , Save e New alert não estão disponíveis quando o [âmbito de consulta](log-query/scope.md) é definido para um recurso específico. Para criar alertas, guardar ou carregar uma consulta, o Log Analytics deve ser analisado para um espaço de trabalho. Para abrir o Log Analytics no contexto do espaço de trabalho, selecione **Logs** do menu **Azure Monitor.** O último espaço de trabalho usado é selecionado, mas pode selecionar qualquer outro espaço de trabalho. Consulte [o âmbito de consulta de registo e o intervalo de tempo no Azure Monitor Log Analytics](log-query/scope.md)
 
 ### <a name="why-am-i-getting-the-error-register-resource-provider-microsoftinsights-for-this-subscription-to-enable-this-query-when-opening-log-analytics-from-a-vm"></a>Porque estou a obter o erro: "Registar fornecedor de recursos 'Microsoft.Insights' para esta subscrição para permitir esta consulta" ao abrir o Log Analytics a partir de um VM? 
 Muitos fornecedores de recursos estão automaticamente registados, mas pode ser necessário registar manualmente alguns fornecedores de recursos. A margem de inscrição é sempre a subscrição. Veja [Fornecedores e tipos de recursos](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) para obter mais informações.
@@ -345,7 +345,9 @@ Isto é possível se o seu código enviar esses dados. Também pode acontecer se
 
 **Todos os** octetos do endereço web do cliente estão sempre definidos para 0 após os atributos de localização geoparque serem analisados.
 
-### <a name="my-instrumentation-key-is-visible-in-my-web-page-source"></a>A minha chave de instrumentação está visível na minha fonte de página web. 
+A [Aplicação Insights JavaScript SDK](app/javascript.md) não inclui quaisquer dados pessoais na sua auto-preconção por padrão. No entanto, alguns dados pessoais utilizados na sua aplicação podem ser recolhidos pelo SDK (por exemplo, `window.title` nomes completos ou IDs de conta nos parâmetros de consulta de URL XHR). Para mascarar dados pessoais personalizados, adicione um [inicializador de telemetria](app/api-filtering-sampling.md#javascript-web-applications).
+
+### <a name="my-instrumentation-key-is-visible-in-my-web-page-source"></a>A minha chave de instrumentação está visível na minha fonte de página web.
 
 * Trata-se de uma prática comum no controlo de soluções.
 * Não pode ser usado para roubar os seus dados.
@@ -813,7 +815,7 @@ Se tiver configurado o Azure Monitor com um espaço de trabalho Log Analytics ut
 Nesta condição, será solicitado com a opção **Try Now** quando abrir o VM e selecionar **Insights** a partir do painel esquerdo, mesmo depois de já ter sido instalado no VM.  No entanto, não é solicitado com opções como normalmente ocorreria se este VM não fosse a bordo do Azure Monitor para VMs. 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Se a sua pergunta não for respondida aqui, pode consultar os seguintes fóruns para perguntas e respostas adicionais.
 
 - [Log Analytics](/answers/topics/azure-monitor.html)

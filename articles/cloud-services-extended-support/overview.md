@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 9055da552e16ec69e9de516c8561f0cf30ecd88b
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: cf7c4b881697b664403d8c817c3b9e48fb48944d
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98744913"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746769"
 ---
 # <a name="about-azure-cloud-services-extended-support"></a>Sobre a Azure Cloud Services (suporte alargado)
 

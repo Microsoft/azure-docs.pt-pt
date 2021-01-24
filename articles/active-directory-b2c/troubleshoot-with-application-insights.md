@@ -12,12 +12,12 @@ ms.date: 10/16/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1628d78c9d1e4db1f59982d696dcc886646fe604
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 33504487b6175023e18893812c533950305cb1d3
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132062"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746007"
 ---
 # <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Recolher registos B2C do Diretório Ativo Azure com Insights de Aplicação
 
@@ -26,7 +26,7 @@ Este artigo fornece passos para a recolha de registos do Ative Directory B2C (Az
 Os registos de atividades detalhados aqui descritos devem ser ativados **apenas** durante o desenvolvimento das suas políticas personalizadas.
 
 > [!WARNING]
-> Não coloque o `DeploymentMode` ponto `Developer` em ambientes de produção. Os registos recolhem todas as reclamações enviadas de e para fornecedores de identidade. O desenvolvedor assume a responsabilidade por quaisquer dados pessoais recolhidos nos registos do Application Insights. Estes registos detalhados só são recolhidos quando a política é colocada em **MODO DEVELOPER**.
+> Não coloque o `DeploymentMode` ponto `Development` em ambientes de produção. Os registos recolhem todas as reclamações enviadas de e para fornecedores de identidade. O desenvolvedor assume a responsabilidade por quaisquer dados pessoais recolhidos nos registos do Application Insights. Estes registos detalhados só são recolhidos quando a política é colocada em **MODO DEVELOPER**.
 
 ## <a name="set-up-application-insights"></a>Configurar Insights de Aplicação
 
@@ -35,7 +35,7 @@ Se ainda não tiver um, crie uma instância de Application Insights na sua subsc
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Selecione o filtro **de subscrição Diretório +** no menu superior e, em seguida, selecione o diretório que contém a sua subscrição Azure (não o seu diretório Azure AD B2C).
 1. **Selecione Criar um recurso** no menu de navegação à esquerda.
-1. Procure e selecione **Insights de Aplicação**e, em seguida, selecione **Criar**.
+1. Procure e selecione **Insights de Aplicação** e, em seguida, selecione **Criar**.
 1. Preencha o formulário, **selecione 'Rever + criar'** e, em seguida, selecione **Criar**.
 1. Uma vez concluída a implementação, selecione **Ir para o recurso**.
 1. No menu **Configurar** no menu Application Insights, selecione **Propriedades**.
@@ -43,7 +43,7 @@ Se ainda não tiver um, crie uma instância de Application Insights na sua subsc
 
 ## <a name="configure-the-custom-policy"></a>Configure a política personalizada
 
-1. Abra o ficheiro do partido de base (RP), por * exemplo,SignUpOrSignin.xml*.
+1. Abra o ficheiro do partido de base (RP), por *exemplo,SignUpOrSignin.xml*.
 1. Adicione os seguintes atributos ao `<TrustFrameworkPolicy>` elemento:
 
    ```xml
@@ -128,7 +128,7 @@ Para melhorar o desempenho do seu ambiente de produção e uma melhor experiênc
    
 1. Faça upload e teste a sua política.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 A comunidade desenvolveu um espectador de viagem de utilizador para ajudar os desenvolvedores de identidade. Lê a partir da sua instância Application Insights e fornece uma visão bem estruturada dos eventos de viagem do utilizador. Obtém o código fonte e implanta-o na sua própria solução.
 

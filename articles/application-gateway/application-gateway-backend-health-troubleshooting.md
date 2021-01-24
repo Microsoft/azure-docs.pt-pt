@@ -7,23 +7,20 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/09/2020
 ms.author: surmb
-ms.openlocfilehash: 05df2144b892aed764f9606fb19bd6a3242b97f3
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 5e5be79371b640431603409a34b1a7812ed5c2a3
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934905"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746109"
 ---
-<a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Problemas de saúde na resolução de problemas de saúde no Gateway de Aplicação
+<a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Resolver problemas de estado de funcionamento do back-end no Gateway de Aplicação
 ==================================================
 
 <a name="overview"></a>Descrição geral
 --------
 
 Por predefinição, o Azure Application Gateway sonda servidores backend para verificar o seu estado de saúde e para verificar se estão prontos para atender pedidos. Os utilizadores também podem criar sondas personalizadas para mencionar o nome do anfitrião, o caminho a ser sondado e os códigos de estado a serem aceites como Saudáveis. Em cada caso, se o servidor backend não responder com sucesso, o Gateway de Aplicação marca o servidor como Insalubre e deixa de encaminhar pedidos para o servidor. Depois de o servidor começar a responder com sucesso, o Application Gateway volta a encaminhar os pedidos.
-
-> [!NOTE]
-> Este artigo contém referências ao termo *whitelist*, um termo que a Microsoft já não utiliza. Quando o termo for removido do software, vamos removê-lo deste artigo.
 
 ### <a name="how-to-check-backend-health"></a>Como verificar a saúde backend
 
@@ -245,7 +242,7 @@ Para obter mais informações sobre como extrair e carregar certificados de raiz
 
 #### <a name="trusted-root-certificate-mismatch"></a>Incompatibilidade de certificado de raiz fidedigno
 
-**Mensagem:** O certificado de raiz do certificado de servidor utilizado pelo backend não corresponde ao certificado raiz fidedigno adicionado ao gateway de aplicação. Certifique-se de que adiciona o certificado de raiz correto à lista de backend
+**Mensagem:** O certificado de raiz do certificado de servidor utilizado pelo backend não corresponde ao certificado raiz fidedigno adicionado ao gateway de aplicação. Certifique-se de que adiciona o certificado de raiz correto para permitir a lista de apoio.
 
 **Causa:** SSL de ponta a ponta com Application Gateway v2 requer que o certificado do servidor backend seja verificado de forma a considerar o servidor saudável.
 Para que seja confiável um certificado TLS/SSL, o certificado de backend servidor deve ser emitido por um CA incluído na loja fidedigna do Gateway de Aplicações. Se o certificado não foi emitido por uma AC fidedigna (por exemplo, foi utilizado um certificado auto-assinado), os utilizadores devem enviar o certificado do emitente para o Gateway de Aplicação.
@@ -357,8 +354,8 @@ Este comportamento pode ocorrer por uma ou mais das seguintes razões:
 1.  A sub-rede NSG na sub-rede Application Gateway está a bloquear o acesso de entrada às portas 65503-65534 (v1 SKU) ou 65200-65535 (v2 SKU) de "Internet".
 1.  A UDR na sub-rede 'Gateway' de aplicação está definida para a rota predefinida (0.0.0.0/0) e o próximo lúpulo não é especificado como "Internet".
 1.  A rota padrão é anunciada por uma ligação ExpressRoute/VPN a uma rede virtual sobre o BGP.
-1.  O servidor DNS personalizado está configurado numa rede virtual que não consegue resolver nomes de domínio público.
-1.  O Application Gateway está num estado pouco saudável.
+1.  O servidor DNS personalizado está configurado numa rede virtual que não consegue resolver os nomes de domínio públicos.
+1.  O Gateway de Aplicação está num Mau estado de funcionamento.
 
 **Solução:**
 
@@ -398,7 +395,7 @@ Este comportamento pode ocorrer por uma ou mais das seguintes razões:
 
 1.  Para verificar se o Gateway de Aplicação está saudável e em funcionamento, vá à opção **Saúde de Recursos** no portal e verifique se o estado é **saudável.** Se vir um estado **insalubre** ou **degradado,** [contacte o suporte](https://azure.microsoft.com/support/options/).
 
-<a name="next-steps"></a>Passos seguintes
+<a name="next-steps"></a>Próximos passos
 ----------
 
 Saiba mais sobre [diagnósticos e registos de gateway de aplicações.](./application-gateway-diagnostics.md)

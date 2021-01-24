@@ -8,12 +8,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 01/18/2021
 ms.author: allensu
-ms.openlocfilehash: 3e9ade329d2b26d36763db579b0fcec03e938aad
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: d394a475c5121607f70c03437382e104a5d0cbee
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98555462"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746412"
 ---
 # <a name="quickstart-create-a-private-link-service-by-using-the-azure-portal"></a>Quickstart: Criar um serviço de ligação privada utilizando o portal Azure
 
@@ -171,7 +171,7 @@ Nesta secção, irá criar uma regra do balançador de carga:
 
 4. Deixe o resto dos predefinidos e, em seguida, selecione **OK**.
 
-## <a name="create-a-private-link-service"></a>Criar um serviço de Ligação Privada
+## <a name="create-a-private-link-service"></a>Criar um serviço de ligação privada
 
 Nesta secção, irá criar um serviço de Ligação Privada por trás de um balanceador de carga padrão.
 
@@ -217,9 +217,115 @@ Nesta secção, irá criar um serviço de Ligação Privada por trás de um bala
 
 12. Selecione **Criar** no **separador 'Revisão+' criar.**
 
-## <a name="clean-up-resources"></a>Limpar recursos
+O seu serviço de ligação privada foi criado e pode receber tráfego. Se quiser ver fluxos de tráfego, configuure a sua aplicação por trás do seu balanceador de carga padrão.
 
-Quando terminar de usar o serviço Private Link, elimine o grupo de recursos para limpar os recursos utilizados neste arranque rápido.
+
+## <a name="create-private-endpoint"></a>Criar ponto final privado
+
+Nesta secção, você irá mapear o serviço de ligação privada para um ponto final privado. Uma rede virtual contém o ponto final privado para o serviço de ligação privada. Esta rede virtual contém os recursos que irão aceder ao seu serviço de ligação privada.
+
+### <a name="create-private-endpoint-virtual-network"></a>Criar rede virtual de ponto final privado
+
+1. No canto superior esquerdo do ecrã, selecione **Criar um recurso > Redes > Rede virtual** ou procure **Rede virtual** na caixa de pesquisa.
+
+2. Na **Criação de rede virtual,** insira ou selecione esta informação no **separador Básicos:**
+
+    | **Definição**          | **Valor**                                                           |
+    |------------------|-----------------------------------------------------------------|
+    | **Detalhes do projeto**  |                                                                 |
+    | Subscrição     | selecione a subscrição do Azure                                  |
+    | Grupo de Recursos   | Selecione **CreatePrivLinkService-rg** |
+    | **Detalhes da instância** |                                                                 |
+    | Name             | Insira **myVNetPE**                                    |
+    | Region           | Selecione **East US 2** |
+
+3. Selecione o separador **endereços IP** ou selecione o botão **Seguinte: Endereços IP** na parte inferior da página.
+
+4. No separador **endereços IP,** introduza estas informações:
+
+    | Definição            | Valor                      |
+    |--------------------|----------------------------|
+    | Espaço de endereço IPv4 | Insira **11.1.0.0/16** |
+
+5. No **nome da sub-rede,** selecione a palavra **predefinição**.
+
+6. Na **sub-rede Editar,** insira esta informação:
+
+    | Definição            | Valor                      |
+    |--------------------|----------------------------|
+    | Nome da sub-rede | Insira **mySubnetPE** |
+    | Intervalo de endereços da sub-rede | Insira **11.1.0.0/24** |
+
+7. Selecione **Guardar**.
+
+8. Selecione o **separador 'Rever +' ou** selecionar o botão **'Rever +' criar.**
+
+9. Selecione **Criar**.
+
+### <a name="create-private-endpoint"></a>Criar ponto final privado
+
+1. No lado superior esquerdo do ecrã no portal, selecione **Criar um Link** Privado de Rede de Recursos , ou na caixa de pesquisa entrar No Link  >    >   **Privado**.
+
+2. Selecione **Criar**.
+
+3. No **Private Link Center**, selecione **Pontos finais privados** no menu da esquerda.
+
+4. Em **pontos finais privados**, selecione **+ Adicionar**.
+
+5. No separador **Básico de** Criar um ponto **final privado,** insira ou selecione estas informações:
+
+    | Definição | Valor |
+    | ------- | ----- |
+    | **Detalhes do projeto** | |
+    | Subscrição | Selecione a sua subscrição. |
+    | Grupo de recursos | Selecione **CreatePrivLinkService-rg**. Criou este grupo de recursos na secção anterior.|
+    | **Detalhes da instância** |  |
+    | Name  | Introduza **myPrivateEndpoint**. |
+    | Region | Selecione **E.U.A. Leste 2**. |
+
+6. Selecione o **separador Recursos** ou o **seguinte: Botão de recurso** na parte inferior da página.
+    
+7. Em **Recurso,** insira ou selecione estas informações:
+
+    | Definição | Valor |
+    | ------- | ----- |
+    | Método de ligação | Selecione **Ligar a um recurso Azure no meu diretório**. |
+    | Subscrição | Selecione a sua subscrição. |
+    | Tipo de recurso | Selecione **Microsoft.Network/privateLinkServices**. |
+    | Recurso | Selecione **myPrivateLinkService**. |
+
+8. Selecione o **separador Configuração** ou o **seguinte: Botão de configuração** na parte inferior do ecrã.
+
+9. Na **Configuração,** insira ou selecione esta informação:
+
+    | Definição | Valor |
+    | ------- | ----- |
+    | **Rede** |  |
+    | Rede Virtual | Selecione **myVNetPE**. |
+    | Sub-rede | Selecione **mySubnetPE**. |
+
+10. Selecione o **separador 'Rever +'** ou o botão **'Rever +'** na parte inferior do ecrã.
+
+11. Selecione **Criar**.
+
+### <a name="ip-address-of-private-endpoint"></a>Endereço IP do ponto final privado
+
+Nesta secção, encontrará o endereço IP do ponto final privado que corresponde ao equilibrador de carga e ao serviço de ligação privada.
+
+1. Na coluna à esquerda do portal Azure, selecione **grupos de recursos**.
+
+2. Selecione o grupo de recursos **CreatePrivLinkService-rg.**
+
+3. No grupo de recursos **CreatePrivLinkService-rg,** selecione **myPrivateEndpoint**.
+
+4. Na página **de visão geral** do **myPrivateEndpoint,** selecione o nome da interface de rede associada ao ponto final privado.  O nome da interface de rede começa com **myPrivateEndpoint.nic**.
+
+5. Na página **geral** do nic de ponto final privado, o endereço IP do ponto final é apresentado no **endereço IP privado**.
+    
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Quando terminar de usar o serviço de ligação privada, elimine o grupo de recursos para limpar os recursos utilizados neste arranque rápido.
 
 1. Introduza **CreatePrivLinkService-rg** na caixa de pesquisa no topo do portal e selecione **CreatePrivLinkService-rg** a partir dos resultados da pesquisa.
 1. Selecione **Eliminar grupo de recursos**.
@@ -231,7 +337,8 @@ Quando terminar de usar o serviço Private Link, elimine o grupo de recursos par
 Neste início rápido, irá:
 
 * Criei uma rede virtual e um Equilibrador de Carga Azure interno.
-* Criei um serviço de ligação privada
+* Criei um serviço de ligação privada.
+* Criou uma rede virtual e um ponto final privado para o serviço de ligação privada.
 
 Para saber mais sobre o ponto final da Azure Private, continue a:
 > [!div class="nextstepaction"]

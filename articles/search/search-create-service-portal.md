@@ -7,19 +7,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 10/14/2020
-ms.openlocfilehash: 3f55e2a7d62d2f32173d382dc9be0d6eb4f83fae
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.date: 01/23/2021
+ms.openlocfilehash: 57867cc4fb539b07fc1e4117f6e956078c41e2c6
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98249759"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746701"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Quickstart: Criar um serviço Azure Cognitive Search no portal
 
-A Azure Cognitive Search é um recurso autónomo usado para ligar uma experiência de pesquisa em aplicações personalizadas. A Cognitive Search integra-se facilmente com outros serviços Azure, com aplicações em servidores de rede ou com software a correr noutras plataformas da nuvem.
+[A Azure Cognitive Search](search-what-is-azure-search.md) é um recurso Azure usado para adicionar uma experiência completa de pesquisa de texto a aplicações personalizadas. Pode integrá-lo facilmente com outros serviços Azure que fornecem dados ou processamento adicional, com aplicações em servidores de rede ou com software em execução em outras plataformas de nuvem.
 
-Neste artigo, aprenda a criar um recurso no [portal Azure.](https://portal.azure.com/)
+Neste artigo, aprenda a criar um serviço de pesquisa no [portal Azure.](https://portal.azure.com/)
 
 [![GIF animado](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
 
@@ -31,7 +31,7 @@ As seguintes propriedades de serviço são fixadas durante o tempo de vida do se
 
 * O nome do serviço torna-se parte do ponto final do URL[(dicas de revisão](#name-the-service) para nomes de serviços úteis).
 * [O nível de](search-sku-tier.md) serviço afeta a faturação e estabelece um limite ascendente de capacidade. Algumas funcionalidades não estão disponíveis no nível livre.
-* A região de serviços pode determinar a disponibilidade de certos cenários. Se necessitar de [funcionalidades](search-security-overview.md) de alta segurança ou [enriquecimento de IA,](cognitive-search-concept-intro.md)terá de colocar a Azure Cognitive Search na mesma região que outros serviços, ou em regiões que fornecem a funcionalidade em questão. 
+* A região de serviços pode determinar a disponibilidade de certos cenários. Se necessitar de [funcionalidades](search-security-overview.md) de alta segurança ou [enriquecimento de IA,](cognitive-search-concept-intro.md)terá de criar a Azure Cognitive Search na mesma região que outros serviços, ou em regiões que fornecem a funcionalidade em questão. 
 
 ## <a name="subscribe-free-or-paid"></a>Subscrever (gratuito ou pago)
 
@@ -43,7 +43,7 @@ Em alternativa, [ative os benefícios do subscritor do MSDN](https://azure.micro
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-1. Clique no sinal de mais ("+ Criar Recurso") no canto superior esquerdo.
+1. Clique no sinal de mais **("+ Criar Recurso"**) no canto superior esquerdo.
 
 1. Utilize a barra de pesquisa para encontrar "Azure Cognitive Search" ou navegue para o recurso através da **Web**  >  **Azure Cognitive Search**.
 
@@ -92,7 +92,7 @@ A Azure Cognitive Search está disponível na maioria das regiões. A lista de r
 >
 > A dupla encriptação só está disponível em certas regiões. Para obter mais informações, consulte [a dupla encriptação.](search-security-overview.md#double-encryption)
 
-### <a name="requirements"></a>Requisitos
+### <a name="requirements"></a>Requirements
 
  Se estiver a utilizar o enriquecimento de IA, crie o seu serviço de pesquisa na mesma região que os Serviços Cognitivos. *A co-localização da Azure Cognitive Search and Cognitive Services na mesma região é um requisito para o enriquecimento de IA.*
 
@@ -171,7 +171,7 @@ Embora a maioria dos clientes utilize apenas um serviço, a redundância de serv
 
 Não é necessário um segundo serviço para elevada disponibilidade. A elevada disponibilidade para consultas é alcançada ao utilizar 2 ou mais réplicas no mesmo serviço. As atualizações de réplicas são sequenciais, o que significa que pelo menos uma está operacional quando uma atualização de serviço é lançada. Para obter mais informações sobre o tempo de paragem, consulte [Os Contratos de Nível de Serviço](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Depois de prestar um serviço, pode continuar no portal para criar o seu primeiro índice.
 

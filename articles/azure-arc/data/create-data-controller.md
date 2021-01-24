@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: b9a41f4d4bb10599d50e58ad6f08d61aaba7ecfc
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: cd41f740d3cdb8130199a5dda6e73209637d5142
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97608787"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98745939"
 ---
 # <a name="create-the-azure-arc-data-controller"></a>Criar o controlador de dados Azure Arc
 
@@ -26,7 +26,7 @@ Os serviços de dados habilitados a Azure Arc podem ser criados em vários tipos
 
 Atualmente, a lista suportada de serviços e distribuições de Kubernetes são as seguintes:
 
-- Serviço de Kubernetes do Azure (AKS)
+- Azure Kubernetes Service (AKS)
 - Motor de serviço Azure Kubernetes (motor AKS) em Azure Stack
 - Serviço Azure Kubernetes em Azure Stack HCI
 - Azure RedHat OpenShift (ARO)
@@ -54,12 +54,12 @@ Independentemente da opção que escolha, durante o processo de criação terá 
 - **Nome de utilizador do controlador de dados** - Qualquer nome de utilizador para o utilizador do administrador do controlador de dados.
 - **Password do controlador de dados** - Uma palavra-passe para o utilizador do administrador do controlador de dados.
 - **Nome do seu espaço de nomes Kubernetes** - o nome do espaço de nomes Kubernetes em que pretende criar o controlador de dados.
-- **Modo conectividade** - O [modo de conectividade](./connectivity.md) do seu cluster. Atualmente apenas é apoiado "indireto".
+- **Modo conectividade** - O modo de conectividade determina o grau de conectividade do seu Azure Arc ativado ambiente de serviços de dados para Azure. Atualmente, a pré-visualização apenas suporta modos indiretamente ligados e diretamente ligados.  Para obter informações, consulte [o modo de conectividade](./connectivity.md). 
 - **ID de assinatura Azure** - A assinatura Azure GUID para onde pretende que o recurso de controlador de dados em Azure seja criado.
 - Nome do **grupo de recursos Azure** - O nome do grupo de recursos onde pretende que o recurso de controlador de dados em Azure seja criado.
 - **Localização azul** - A localização Azure onde os metadados de recursos do controlador de dados serão armazenados em Azure. Para obter uma lista das regiões disponíveis, consulte [a infraestrutura global Azure /Produtos por região.](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Existem múltiplas opções para a criação do controlador de dados Azure Arc:
 

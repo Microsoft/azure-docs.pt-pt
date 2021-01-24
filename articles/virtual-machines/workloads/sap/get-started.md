@@ -14,15 +14,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/18/2021
+ms.date: 01/23/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0b323268c625ed25236cf4a9f9faa17606bd967c
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+ms.openlocfilehash: 0a0f17df13b5b101aebf585b7f1f3fb2a5b48006
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98570070"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746058"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Use o Azure para hospedar e executar cenários de carga de trabalho SAP
 
@@ -84,6 +84,7 @@ Nesta secção, encontra documentos sobre a integração do Microsoft Power BI e
 
 ## <a name="change-log"></a>Alterar Registo
 
+- 01/23/2021: Introduza a funcionalidade de partição do volume de dados HANA como funcionalidade para riscar operações de E/S contra ficheiros de dados HANA em diferentes discos Azure ou NFS sem utilizar um gestor de volume de disco em artigos [CONFIGURAÇÕES DE ARMAZENAMENTO DE MÁQUINAS virtuais SAP HANA Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) e [volumes NFS v4.1 em Ficheiros Azure NetApp para SAP HANA HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp)
 - 01/18/2021: Suporte adicional de apps Azure net Ficheiros baseados NFS para Oracle em [Azure Máquinas Virtuais Oracle DBMS implantação para carga](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_oracle) de trabalho SAP e ajuste decimais em tabela no documento [volumes NFS v4.1 em Azure NetApp Files for SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp)
 - 01/11/2021: Pequenas alterações em [HA para SAP NW em Azure VMs em RHEL para aplicações SAP](./high-availability-guide-rhel.md), HA para SAP NW em [VMs Azure em RHEL com ANF](./high-availability-guide-rhel-netapp-files.md) e [HA para SAP NW em Azure VMs no guia RHEL multi-SID](./high-availability-guide-rhel-multi-sid.md) para ajustar comandos para trabalhar tanto para RHEL8 como RHEL7, e ENSA1 e ENSA2
 - 01/05/2021: Alterações na [escala SAP HANA com nó de espera em VMs Azure com ANF em escala SLES](./sap-hana-scale-out-standby-netapp-files-suse.md) e [SAP HANA com nó de espera em VMs Azure com ANF na RHEL,](./sap-hana-scale-out-standby-netapp-files-rhel.md)revisão da configuração recomendada para permitir que o Agente Anfitrião SAP gere a gama portuária local  

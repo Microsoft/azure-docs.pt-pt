@@ -6,12 +6,12 @@ ms.date: 03/29/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 931189a6740009bd26472c186057fa0e6ef5fddf
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 249afa361946e85a8c8ff241f07d7aae608949ae
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624897"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98745705"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Java aplicação codificada monitorizando Azure Monitor Application Insights
 
@@ -323,8 +323,3 @@ import com.microsoft.applicationinsights.web.internal.ThreadContext;
 RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry();
 requestTelemetry.setName("myname");
 ```
-
-> [!NOTE]
-> Todas as outras operações de uma `RequestTelemetry` recuperação além das `ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry()` descritas acima, falharão rapidamente e lançarão uma exceção para que saiba que é um comportamento indefinido sob o agente 3.0.
->
-> Se precisar de interop para outros `RequestTelemetry` métodos, por favor, avise-nos abrindo um problema https://github.com/microsoft/ApplicationInsights-Java/issues .

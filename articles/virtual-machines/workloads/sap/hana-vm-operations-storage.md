@@ -1,5 +1,5 @@
 ---
-title: Configurações de armazenamento de máquinas virtuais SAP HANA Azure Microsoft Docs
+title: Configurações de armazenamento de máquinas virtuais SAP HANA Azure | Microsoft Docs
 description: Recomendações de armazenamento para VM que têm SAP HANA implantado neles.
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
@@ -13,15 +13,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/26/2020
+ms.date: 01/23/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8c4aa608e892867daaf954284a9dfce997a9ae1f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 01c6a2eb53e82965dd96deaa1a09afb1e70dda24
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96484282"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746752"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurações de armazenamento da máquina virtual do Azure do SAP HANA
 
@@ -63,10 +63,22 @@ Alguns princípios orientadores na seleção da sua configuração de armazename
 - Decida o tipo de armazenamento com base nos [tipos de armazenamento Azure para a carga de trabalho SAP](./planning-guide-storage.md) e [selecione um tipo de disco](../../disks-types.md)
 - A produção global de VM I/O e os limites de IOPS em mente ao dimensionar ou decidir para um VM. A produção geral de armazenamento de VM está documentada no artigo [Tamanhos de máquina virtual otimizados memória](../../sizes-memory.md)
 - Ao decidir a configuração de armazenamento, tente manter-se abaixo da produção geral do VM com a sua configuração **/hana/volume de dados.** Escrevendo pontos de salvamento, SAP HANA pode ser agressivo emitindo I/Os. É facilmente possível empurrar até aos limites de produção do seu volume **/hana/dados** ao escrever um ponto de poupança. Se o seu (s) disco(s) que constrói o volume **/hana/dados** tiver uma produção superior à que o seu VM permite, poderá encontrar situações em que a produção utilizada pela escrita de pontos de salvamento esteja a interferir com as exigências de produção do registo de redo. Uma situação que pode afetar a produção de aplicações
-- Se estiver a utilizar o armazenamento premium Azure, a configuração menos dispendiosa é usar gestores de volume lógicos para construir conjuntos de riscas para construir os volumes **/hana/dados** e **/hana/log**
+
 
 > [!IMPORTANT]
 > As sugestões para as configurações de armazenamento destinam-se a ser feitas como direções para começar. Executando a carga de trabalho e analisando padrões de utilização de armazenamento, você pode perceber que você não está usando toda a largura de banda de armazenamento ou IOPS fornecido. Então, pode considerar reduzir o tamanho no armazém. Ou, ao contrário, a sua carga de trabalho pode precisar de mais produção de armazenamento do que sugerida com estas configurações. Como resultado, poderá ter de implantar mais capacidade, IOPS ou produção. No campo da tensão entre a capacidade de armazenamento necessária, a latência de armazenamento necessária, a produção de armazenamento e a configuração iops necessária e menos dispendiosa, o Azure oferece diferentes tipos de armazenamento com diferentes capacidades e diferentes pontos de preço para encontrar e ajustar-se ao compromisso certo para si e para a sua carga de trabalho HANA.
+
+
+## <a name="stripe-sets-versus-sap-hana-data-volume-partitioning"></a>Conjuntos de listras versus partição do volume de dados SAP HANA
+Utilizando o armazenamento premium Azure, poderá atingir a melhor relação preço/desempenho quando riscar o volume **/hana/data** e/ou **/hana/log** através de vários discos Azure. Em vez de implantar volumes de disco maiores que fornecem mais em IOPS ou produção necessária. Até agora, isso foi conseguido com gestores de volume LVM e MDADM que fazem parte do Linux. O método de despir discos tem décadas e é bem conhecido. Por mais benéfico que esses volumes listrados sejam para chegar ao IOPS ou capacidades de produção que possas precisar, adiciona complexidades em torno da gestão desses volumes listrados. Especialmente nos casos em que os volumes precisam de ser alargados na capacidade. Pelo menos para **/hana/dados,** o SAP introduziu um método alternativo que alcança o mesmo objetivo que a despida através de vários discos Azure. Desde o SAP HANA 2.0 SPS03, o indexserver HANA é capaz de riscar a sua atividade de E/S através de vários ficheiros de dados HANA que estão localizados em diferentes discos Azure. A vantagem é que não tens de ter cuidado para criar e gerir um volume às riscas através de diferentes discos Azure. A funcionalidade SAP HANA da partição do volume de dados é descrita em detalhe em:
+
+- [Guia do Administrador HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.05/en-US/40b2b2a880ec4df7bac16eae3daef756.html?q=hana%20data%20volume%20partitioning)
+- [Blog sobre SAP HANA – Volumes de Dados de Partição](https://blogs.sap.com/2020/10/07/sap-hana-partitioning-data-volumes/)
+- [#2400005 de nota SAP](https://launchpad.support.sap.com/#/notes/2400005)
+- [Nota SAP #2700123](https://launchpad.support.sap.com/#/notes/2700123)
+
+Lendo os detalhes, é evidente que alavancar esta funcionalidade retira complexidades de conjuntos de listras baseados em volume. Também percebe que a partição do volume de dados HANA não está apenas a funcionar para o armazenamento do bloco Azure, como o armazenamento premium Azure. Você pode usar esta funcionalidade também para riscar em todas as ações NFS no caso de estas ações terem IOPS ou limitações de produção.  
+
 
 ## <a name="linux-io-scheduler-mode"></a>Modo de Programador Linux I/O
 Linux tem vários modos de agendamento de I/O diferentes. Recomendação comum através dos fornecedores Linux e SAP é reconfigurar o modo de programador de E/S para volumes de discos desde o **mq-deadline** ou modo **kyber** até ao modo **noop** (não multiqueue) ou **nenhum** para o modo (multiqueue). Os detalhes são referenciados na [#1984787 da Nota SAP](https://launchpad.support.sap.com/#/notes/1984787). 
@@ -310,7 +322,7 @@ No caso de combinar os dados e o volume de registo para o SAP HANA, os discos qu
 Existem tipos de VM listados que não são certificados com SAP e, como tal, não estão listados no chamado [diretório de hardware SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). O feedback dos clientes foi o de que esses tipos de VM não listados foram utilizados com sucesso para algumas tarefas não-produção.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para obter mais informações, consulte:
 
 - [Guia de alta disponibilidade SAP HANA para máquinas virtuais Azure](./sap-hana-availability-overview.md).

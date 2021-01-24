@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 10/13/2020
+ms.date: 01/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c9d9c43ae1be755ccb30fc377692257a81332ea8
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: b8711fa468cf361a42ed996c5b5dc50372d6cf90
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94593727"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746157"
 ---
 # <a name="tutorial-index-from-multiple-data-sources-using-the-net-sdk"></a>Tutorial: Índice de várias fontes de dados utilizando o .NET SDK
 
@@ -306,7 +306,7 @@ private static async Task CreateAndRunBlobIndexerAsync(string indexName, SearchI
     await indexerClient.CreateOrUpdateDataSourceConnectionAsync(blobDataSource);
 ```
 
-Após a criação da fonte de dados, o programa configura um indexante blob chamado **hotel-rooms-blob-indexer** , como mostrado abaixo.
+Após a criação da fonte de dados, o programa configura um indexante blob chamado **hotel-rooms-blob-indexer**, como mostrado abaixo.
 
 As bolhas JSON contêm um campo chave nomeado **`Id`** em vez de **`HotelId`** . O código utiliza a `FieldMapping` classe para dizer ao indexante para direcionar o valor de campo para a chave de documento no **`Id`** **`HotelId`** índice.
 
@@ -381,13 +381,13 @@ O código de amostra verifica os objetos existentes e elimina-os ou atualiza-os 
 
 Também pode utilizar o portal para eliminar índices, indexadores e fontes de dados.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando se está a trabalhar na sua própria subscrição, no final de um projeto, é uma boa ideia remover os recursos de que já não precisa. Os recursos que deixar em execução podem custar-lhe dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
 
 Pode encontrar e gerir recursos no portal, utilizando a ligação de todos os recursos ou grupos de recursos no painel de navegação à esquerda.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que está familiarizado com o conceito de ingerir dados de várias fontes, vamos olhar mais de perto para a configuração do indexante, a começar pelo Cosmos DB.
 

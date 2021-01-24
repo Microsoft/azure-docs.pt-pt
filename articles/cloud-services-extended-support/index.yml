@@ -10,12 +10,12 @@ metadata:
   author: mimckitt
   ms.author: mimckitt
   ms.date: 03/06/2020
-  ms.openlocfilehash: 8f999851c1566b2a488daa4bdc5da73761f7ce0b
-  ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+  ms.openlocfilehash: 7013158692883a002c16a2ad3c24735d2223b59e
+  ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/23/2021
-  ms.locfileid: "98745268"
+  ms.lasthandoff: 01/24/2021
+  ms.locfileid: "98746786"
 landingContent:
 - title: Sobre os Serviços cloud (suporte alargado)
   linkLists:
@@ -47,6 +47,8 @@ landingContent:
       url: available-sizes.md
     - text: Perguntas frequentes
       url: faq.md
+    - text: Notícias de lançamento do SO Convidado
+      url: ../cloud-services/cloud-services-guestos-update-matrix.md?toc=/azure/cloud-services-extended-support/toc.json&bc=/azure/cloud-services-extended-support/breadcrumb/toc.json
 - title: Guias de Procedimentos
   linkLists:
   - linkListType: how-to-guide

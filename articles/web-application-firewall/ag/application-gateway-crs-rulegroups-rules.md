@@ -8,19 +8,16 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 890e2b972818cf9805623d94709ce5631b50aaf5
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: e2c88091072921f1ca674868e401c34d354418de
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608610"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746514"
 ---
 # <a name="web-application-firewall-crs-rule-groups-and-rules"></a>Grupos e regras de regras de CRS de firewall de aplicação web
 
 A firewall da aplicação web Do Gateway (WAF) protege as aplicações web de vulnerabilidades e explorações comuns. Isto é feito através de regras definidas com base na regra principal da OWASP define 3.1, 3.0 ou 2.2.9. Estas regras podem ser desativadas por regra. Este artigo contém as regras e regras atuais oferecidas.
-
-> [!NOTE]
-> Este artigo contém referências ao termo *blacklist*, um termo que a Microsoft já não utiliza. Quando o termo for removido do software, vamos removê-lo deste artigo.
 
 ## <a name="core-rule-sets"></a>Conjuntos de regras principais
 
@@ -46,7 +43,7 @@ O CRS 3.1 inclui 13 grupos de regras, como mostra a tabela seguinte. Cada grupo 
 > [!NOTE]
 > O CRS 3.1 só está disponível no WAF_v2 SKU.
 
-|Grupo de regras|Description|
+|Grupo de regras|Descrição|
 |---|---|
 |**[Geral](#general-31)**|Grupo geral|
 |**[REQUEST-911-METHOD-ENFORCEMENT](#crs911-31)**|Métodos de bloqueio (PUT, PATCH)|
@@ -66,7 +63,7 @@ O CRS 3.1 inclui 13 grupos de regras, como mostra a tabela seguinte. Cada grupo 
 
 O CRS 3.0 inclui 12 grupos de regras, como mostra a tabela seguinte. Cada grupo contém várias regras, que podem ser desativadas.
 
-|Grupo de regras|Description|
+|Grupo de regras|Descrição|
 |---|---|
 |**[Geral](#general-30)**|Grupo geral|
 |**[REQUEST-911-METHOD-ENFORCEMENT](#crs911-30)**|Métodos de bloqueio (PUT, PATCH)|
@@ -85,7 +82,7 @@ O CRS 3.0 inclui 12 grupos de regras, como mostra a tabela seguinte. Cada grupo 
 
 O CRS 2.2.9 inclui 10 grupos de regras, como mostra o quadro seguinte. Cada grupo contém várias regras, que podem ser desativadas.
 
-|Grupo de regras|Description|
+|Grupo de regras|Descrição|
 |---|---|
 |**[crs_20_protocol_violations](#crs20)**|Proteja contra violações de protocolos (tais como caracteres inválidos ou um GET com um corpo de pedido)|
 |**[crs_21_protocol_anomalies](#crs21)**|Proteja contra informações incorretas do cabeçalho|
@@ -106,20 +103,20 @@ Os seguintes grupos de regras e regras estão disponíveis quando se utilizam fi
 
 ### <a name="p-x-ms-format-detectionnonegeneralp"></a><a name="general-31"></a> <p x-ms-format-detection="none">Geral</p>
 
-|RuleId|Description|
+|RuleId|Descrição|
 |---|---|
 |200004|Possível Fronteira Incomparável Multipart.|
 
 ### <a name="p-x-ms-format-detectionnonerequest-911-method-enforcementp"></a><a name="crs911-31"></a> <p x-ms-format-detection="none">REQUEST-911-METHOD-ENFORCEMENT</p>
 
-|RuleId|Description|
+|RuleId|Descrição|
 |---|---|
 |911100|O método não é permitido pela política|
 
 
 ### <a name="p-x-ms-format-detectionnonerequest-913-scanner-detectionp"></a><a name="crs913-31"></a> <p x-ms-format-detection="none">REQUEST-913-SCANNER-DETECTION</p>
 
-|RuleId|Description|
+|RuleId|Descrição|
 |---|---|
 |913100|Encontrado User-Agent associado ao scanner de segurança|
 |913101|Encontrado User-Agent associados a script/genérico cliente HTTP|
@@ -130,7 +127,7 @@ Os seguintes grupos de regras e regras estão disponíveis quando se utilizam fi
 
 ### <a name="p-x-ms-format-detectionnonerequest-920-protocol-enforcementp"></a><a name="crs920-31"></a> <p x-ms-format-detection="none">REQUEST-920-PROTOCOL-ENFORCEMENT</p>
 
-|RuleId|Description|
+|RuleId|Descrição|
 |---|---|
 |920100|Linha de pedido inválida HTTP|
 |920120|Desvio multiparte/dados de formulários tentado|
@@ -182,7 +179,7 @@ Os seguintes grupos de regras e regras estão disponíveis quando se utilizam fi
 
 ### <a name="p-x-ms-format-detectionnonerequest-921-protocol-attackp"></a><a name="crs921-31"></a> <p x-ms-format-detection="none">REQUEST-921-PROTOCOL-ATTACK</p>
 
-|RuleId|Description|
+|RuleId|Descrição|
 |---|---|
 |921110|HTTP Solicitação contrabando ataque|
 |921120|HTTP Resposta Ataque de Divisão|
@@ -196,7 +193,7 @@ Os seguintes grupos de regras e regras estão disponíveis quando se utilizam fi
 
 ### <a name="p-x-ms-format-detectionnonerequest-930-application-attack-lfip"></a><a name="crs930-31"></a> <p x-ms-format-detection="none">REQUEST-930-APPLICATION-ATTACK-LFI</p>
 
-|RuleId|Description|
+|RuleId|Descrição|
 |---|---|
 |930100|Ataque Traversal do Caminho (/.. /)|
 |930110|Ataque Traversal do Caminho (/.. /)|
@@ -205,7 +202,7 @@ Os seguintes grupos de regras e regras estão disponíveis quando se utilizam fi
 
 ### <a name="p-x-ms-format-detectionnonerequest-931-application-attack-rfip"></a><a name="crs931-31"></a> <p x-ms-format-detection="none">REQUEST-931-APPLICATION-ATTACK-RFI</p>
 
-|RuleId|Description|
+|RuleId|Descrição|
 |---|---|
 |931100|Possível Inclusão de Ficheiros Remotos (RFI) Ataque = Parâmetro URL usando endereço IP|
 |931110|Possível inclusão de ficheiros remotos (RFI) Attack = Nome comum do parâmetro vulnerável da RFI usado c/URL Payload|
@@ -214,7 +211,7 @@ Os seguintes grupos de regras e regras estão disponíveis quando se utilizam fi
 
 ### <a name="p-x-ms-format-detectionnonerequest-932-application-attack-rcep"></a><a name="crs932-31"></a> <p x-ms-format-detection="none">REQUEST-932-APPLICATION-ATTACK-RCE</p>
 
-|RuleId|Description|
+|RuleId|Descrição|
 |---|---|
 |932100|Execução de comando remoto: Injeção de comando unix|
 |932105|Execução de comando remoto: Injeção de comando unix|
@@ -233,7 +230,7 @@ Os seguintes grupos de regras e regras estão disponíveis quando se utilizam fi
 
 ### <a name="p-x-ms-format-detectionnonerequest-933-application-attack-phpp"></a><a name="crs933-31"></a> <p x-ms-format-detection="none">REQUEST-933-APPLICATION-ATTACK-PHP</p>
 
-|RuleId|Description|
+|RuleId|Descrição|
 |---|---|
 |933100|Ataque de injeção PHP = Abertura/Etiqueta de fecho Encontrada|
 |933110|Ataque de injeção PHP = upload de ficheiro de script PHP encontrado|
@@ -252,7 +249,7 @@ Os seguintes grupos de regras e regras estão disponíveis quando se utilizam fi
 
 ### <a name="p-x-ms-format-detectionnonerequest-941-application-attack-xssp"></a><a name="crs941-31"></a> <p x-ms-format-detection="none">REQUEST-941-APPLICATION-ATTACK-XSS</p>
 
-|RuleId|Description|
+|RuleId|Descrição|
 |---|---|
 |941100|Ataque XSS Detetado por libinjecção|
 |941101|Ataque XSS Detetado por libinjecção|
@@ -262,7 +259,7 @@ Os seguintes grupos de regras e regras estão disponíveis quando se utilizam fi
 |941150|Filtro XSS - Categoria 5 = Atributos HTML não permitidos|
 |941160|Verificador de injeção NoScript XSS: Injeção HTML|
 |941170|Verificador de injeção noScript XSS: Injeção de atributo|
-|941180|Node-Validator palavras-chave da lista negra|
+|941180|palavras-chave blocklist Node-Validator|
 |941190|XSS usando folhas de estilo|
 |941200|XSS usando quadros VML|
 |941210|XSS usando Javascript obfuscado|
@@ -284,7 +281,7 @@ Os seguintes grupos de regras e regras estão disponíveis quando se utilizam fi
 
 ### <a name="p-x-ms-format-detectionnonerequest-942-application-attack-sqlip"></a><a name="crs942-31"></a> <p x-ms-format-detection="none">REQUEST-942-APPLICATION-ATTACK-SQLI</p>
 
-|RuleId|Description|
+|RuleId|Descrição|
 |---|---|
 |942100|Ataque de injeção SQL detetado por libinjecção|
 |942110|Ataque de injeção SQL: Testes comuns de injeção detetados|
@@ -334,7 +331,7 @@ Os seguintes grupos de regras e regras estão disponíveis quando se utilizam fi
 
 ### <a name="p-x-ms-format-detectionnonerequest-943-application-attack-session-fixationp"></a><a name="crs943-31"></a> <p x-ms-format-detection="none">REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION</p>
 
-|RuleId|Description|
+|RuleId|Descrição|
 |---|---|
 |943100|Possível ataque de fixação de sessão = Definição de valores de cookies em HTML|
 |943110|Possível ataque de fixação de sessão = nome do parâmetro sessionID com Off-Domain referrer|
@@ -342,7 +339,7 @@ Os seguintes grupos de regras e regras estão disponíveis quando se utilizam fi
 
 ### <a name="p-x-ms-format-detectionnonerequest-944-application-attack-session-javap"></a><a name="crs944-31"></a> <p x-ms-format-detection="none">PEDIDO-944-APLICAÇÃO-ATTACK-SESSION-JAVA</p>
 
-|RuleId|Description|
+|RuleId|Descrição|
 |---|---|
 |944120|Possível execução de carga útil e execução de comando remoto|
 |944130|Aulas suspeitas de Java|
@@ -354,20 +351,20 @@ Os seguintes grupos de regras e regras estão disponíveis quando se utilizam fi
 
 ### <a name="p-x-ms-format-detectionnonegeneralp"></a><a name="general-30"></a> <p x-ms-format-detection="none">Geral</p>
 
-|RuleId|Description|
+|RuleId|Descrição|
 |---|---|
 |200004|Possível Fronteira Incomparável Multipart.|
 
 ### <a name="p-x-ms-format-detectionnonerequest-911-method-enforcementp"></a><a name="crs911-30"></a> <p x-ms-format-detection="none">REQUEST-911-METHOD-ENFORCEMENT</p>
 
-|RuleId|Description|
+|RuleId|Descrição|
 |---|---|
 |911100|O método não é permitido pela política|
 
 
 ### <a name="p-x-ms-format-detectionnonerequest-913-scanner-detectionp"></a><a name="crs913-30"></a> <p x-ms-format-detection="none">REQUEST-913-SCANNER-DETECTION</p>
 
-|RuleId|Description|
+|RuleId|Descrição|
 |---|---|
 |913100|Encontrado User-Agent associado ao scanner de segurança|
 |913110|Cabeçalho de pedido encontrado associado ao scanner de segurança|
@@ -377,7 +374,7 @@ Os seguintes grupos de regras e regras estão disponíveis quando se utilizam fi
 
 ### <a name="p-x-ms-format-detectionnonerequest-920-protocol-enforcementp"></a><a name="crs920-30"></a> <p x-ms-format-detection="none">REQUEST-920-PROTOCOL-ENFORCEMENT</p>
 
-|RuleId|Description|
+|RuleId|Descrição|
 |---|---|
 |920100|Linha de pedido inválida HTTP|
 |920130|Falhou em analisar o corpo do pedido.|
@@ -423,7 +420,7 @@ Os seguintes grupos de regras e regras estão disponíveis quando se utilizam fi
 
 ### <a name="p-x-ms-format-detectionnonerequest-921-protocol-attackp"></a><a name="crs921-30"></a> <p x-ms-format-detection="none">REQUEST-921-PROTOCOL-ATTACK</p>
 
-|RuleId|Description|
+|RuleId|Descrição|
 |---|---|
 |921100|HTTP Solicitação de Ataque de Contrabando.|
 |921110|HTTP Solicitação contrabando ataque|
@@ -438,7 +435,7 @@ Os seguintes grupos de regras e regras estão disponíveis quando se utilizam fi
 
 ### <a name="p-x-ms-format-detectionnonerequest-930-application-attack-lfip"></a><a name="crs930-30"></a> <p x-ms-format-detection="none">REQUEST-930-APPLICATION-ATTACK-LFI</p>
 
-|RuleId|Description|
+|RuleId|Descrição|
 |---|---|
 |930100|Ataque Traversal do Caminho (/.. /)|
 |930110|Ataque Traversal do Caminho (/.. /)|
@@ -447,7 +444,7 @@ Os seguintes grupos de regras e regras estão disponíveis quando se utilizam fi
 
 ### <a name="p-x-ms-format-detectionnonerequest-931-application-attack-rfip"></a><a name="crs931-30"></a> <p x-ms-format-detection="none">REQUEST-931-APPLICATION-ATTACK-RFI</p>
 
-|RuleId|Description|
+|RuleId|Descrição|
 |---|---|
 |931100|Possível Inclusão de Ficheiros Remotos (RFI) Ataque = Parâmetro URL usando endereço IP|
 |931110|Possível inclusão de ficheiros remotos (RFI) Attack = Nome comum do parâmetro vulnerável da RFI usado c/URL Payload|
@@ -456,7 +453,7 @@ Os seguintes grupos de regras e regras estão disponíveis quando se utilizam fi
 
 ### <a name="p-x-ms-format-detectionnonerequest-932-application-attack-rcep"></a><a name="crs932-30"></a> <p x-ms-format-detection="none">REQUEST-932-APPLICATION-ATTACK-RCE</p>
 
-|RuleId|Description|
+|RuleId|Descrição|
 |---|---|
 |932120|Execução de comando remoto = comando de powershell do Windows encontrado|
 |932130|Execução de comando remoto = expressão unix shell encontrada|
@@ -467,7 +464,7 @@ Os seguintes grupos de regras e regras estão disponíveis quando se utilizam fi
 
 ### <a name="p-x-ms-format-detectionnonerequest-933-application-attack-phpp"></a><a name="crs933-30"></a> <p x-ms-format-detection="none">REQUEST-933-APPLICATION-ATTACK-PHP</p>
 
-|RuleId|Description|
+|RuleId|Descrição|
 |---|---|
 |933100|Ataque de injeção PHP = Abertura/Etiqueta de fecho Encontrada|
 |933110|Ataque de injeção PHP = upload de ficheiro de script PHP encontrado|
@@ -483,14 +480,14 @@ Os seguintes grupos de regras e regras estão disponíveis quando se utilizam fi
 
 ### <a name="p-x-ms-format-detectionnonerequest-941-application-attack-xssp"></a><a name="crs941-30"></a> <p x-ms-format-detection="none">REQUEST-941-APPLICATION-ATTACK-XSS</p>
 
-|RuleId|Description|
+|RuleId|Descrição|
 |---|---|
 |941100|Ataque XSS Detetado por libinjecção|
 |941110|Filtro XSS - Categoria 1 = Vetor de etiquetas de script|
 |941130|Filtro XSS - Categoria 3 = Vetor de atributos|
 |941140|Filtro XSS - Categoria 4 = Vetor URI javascript|
 |941150|Filtro XSS - Categoria 5 = Atributos HTML não permitidos|
-|941180|Node-Validator palavras-chave da lista negra|
+|941180|palavras-chave blocklist Node-Validator|
 |941190|XSS usando folhas de estilo|
 |941200|XSS usando quadros VML|
 |941210|XSS usando Javascript obfuscado|
@@ -510,7 +507,7 @@ Os seguintes grupos de regras e regras estão disponíveis quando se utilizam fi
 
 ### <a name="p-x-ms-format-detectionnonerequest-942-application-attack-sqlip"></a><a name="crs942-30"></a> <p x-ms-format-detection="none">REQUEST-942-APPLICATION-ATTACK-SQLI</p>
 
-|RuleId|Description|
+|RuleId|Descrição|
 |---|---|
 |942100|Ataque de injeção SQL detetado por libinjecção|
 |942110|Ataque de injeção SQL: Testes comuns de injeção detetados|
@@ -542,7 +539,7 @@ Os seguintes grupos de regras e regras estão disponíveis quando se utilizam fi
 
 ### <a name="p-x-ms-format-detectionnonerequest-943-application-attack-session-fixationp"></a><a name="crs943-30"></a> <p x-ms-format-detection="none">REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION</p>
 
-|RuleId|Description|
+|RuleId|Descrição|
 |---|---|
 |943100|Possível ataque de fixação de sessão = Definição de valores de cookies em HTML|
 |943110|Possível ataque de fixação de sessão = nome do parâmetro sessionID com Off-Domain referrer|
@@ -554,7 +551,7 @@ Os seguintes grupos de regras e regras estão disponíveis quando se utilizam fi
 
 ### <a name="crs_20_protocol_violations"></a><a name="crs20"></a> crs_20_protocol_violations
 
-|RuleId|Description|
+|RuleId|Descrição|
 |---|---|
 |960911|Linha de pedido inválida HTTP|
 |981227|Erro Apache = URI Inválido no Pedido.|
@@ -580,7 +577,7 @@ Os seguintes grupos de regras e regras estão disponíveis quando se utilizam fi
 
 ### <a name="crs_21_protocol_anomalies"></a><a name="crs21"></a> crs_21_protocol_anomalies
 
-|RuleId|Description|
+|RuleId|Descrição|
 |---|---|
 |960008|Pedido faltando um cabeçalho anfitrião|
 |960007|Cabeçalho de anfitrião vazio|
@@ -593,7 +590,7 @@ Os seguintes grupos de regras e regras estão disponíveis quando se utilizam fi
 
 ### <a name="crs_23_request_limits"></a><a name="crs23"></a> crs_23_request_limits
 
-|RuleId|Description|
+|RuleId|Descrição|
 |---|---|
 |960209|Nome do argumento muito longo|
 |960208|Valor do argumento demasiado longo|
@@ -604,7 +601,7 @@ Os seguintes grupos de regras e regras estão disponíveis quando se utilizam fi
 
 ### <a name="crs_30_http_policy"></a><a name="crs30"></a> crs_30_http_policy
 
-|RuleId|Description|
+|RuleId|Descrição|
 |---|---|
 |960032|O método não é permitido pela política|
 |960010|O tipo de conteúdo de pedido não é permitido pela política|
@@ -614,7 +611,7 @@ Os seguintes grupos de regras e regras estão disponíveis quando se utilizam fi
 
 ### <a name="crs_35_bad_robots"></a><a name="crs35"></a> crs_35_bad_robots
 
-|RuleId|Description|
+|RuleId|Descrição|
 |---|---|
 |990002|Pedido indica um scanner de segurança digitalizado no site|
 |990901|Pedido indica um scanner de segurança digitalizado no site|
@@ -623,7 +620,7 @@ Os seguintes grupos de regras e regras estão disponíveis quando se utilizam fi
 
 ### <a name="crs_40_generic_attacks"></a><a name="crs40"></a> crs_40_generic_attacks
 
-|RuleId|Description|
+|RuleId|Descrição|
 |---|---|
 |960024|Meta-Character Alerta de Deteção de Anomalias - Personagens repetitivos não-palavra|
 |950008|Injeção de Marcas de Fusão De Frio Não Documentada|
@@ -652,7 +649,7 @@ Os seguintes grupos de regras e regras estão disponíveis quando se utilizam fi
 
 ### <a name="crs_41_sql_injection_attacks"></a><a name="crs41sql"></a> crs_41_sql_injection_attacks
 
-|RuleId|Description|
+|RuleId|Descrição|
 |---|---|
 |981231|Sequência de comentários SQL detetada.|
 |981260|Codificação de hex SQL identificada|
@@ -689,7 +686,7 @@ Os seguintes grupos de regras e regras estão disponíveis quando se utilizam fi
 
 ### <a name="crs_41_xss_attacks"></a><a name="crs41xss"></a> crs_41_xss_attacks
 
-|RuleId|Description|
+|RuleId|Descrição|
 |---|---|
 |973336|Filtro XSS - Categoria 1 = Vetor de etiquetas de script|
 |973338|Filtro XSS - Categoria 3 = Vetor URI javascript|
@@ -794,13 +791,13 @@ Os seguintes grupos de regras e regras estão disponíveis quando se utilizam fi
 
 ### <a name="crs_42_tight_security"></a><a name="crs42"></a> crs_42_tight_security
 
-|RuleId|Description|
+|RuleId|Descrição|
 |---|---|
 |950103|Ataque Traversal do Caminho|
 
 ### <a name="crs_45_trojans"></a><a name="crs45"></a> crs_45_trojans
 
-|RuleId|Description|
+|RuleId|Descrição|
 |---|---|
 |950110|Acesso backdoor|
 |950921|Acesso backdoor|
@@ -808,6 +805,6 @@ Os seguintes grupos de regras e regras estão disponíveis quando se utilizam fi
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Personalize as regras de Firewall de aplicações web usando o portal Azure](application-gateway-customize-waf-rules-portal.md)

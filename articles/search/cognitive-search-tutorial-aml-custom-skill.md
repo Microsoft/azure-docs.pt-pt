@@ -1,23 +1,23 @@
 ---
-title: 'Tutorial: Criar e implementar uma habilidade personalizada com a Azure Machine Learning'
+title: 'Exemplo: Criar e implementar uma habilidade personalizada com a Azure Machine Learning'
 titleSuffix: Azure Cognitive Search
-description: Este tutorial demonstra como usar a Azure Machine Learning para construir e implementar uma habilidade personalizada para o oleoduto de enriquecimento de IA da Azure Cognitive Search.
+description: Este exemplo demonstra como usar a Azure Machine Learning para construir e implementar uma habilidade personalizada para o oleoduto de enriquecimento de IA da Azure Cognitive Search.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 09/25/2020
-ms.openlocfilehash: fa961a5a6d3a3b827a082fbac2acc3431ac40949
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 98d8395236bf955eed88f36c03c96981fa0e4b6b
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057608"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98745638"
 ---
-# <a name="tutorial-build-and-deploy-a-custom-skill-with-azure-machine-learning"></a>Tutorial: Construa e implemente uma habilidade personalizada com a Azure Machine Learning 
+# <a name="example-build-and-deploy-a-custom-skill-with-azure-machine-learning"></a>Exemplo: Construir e implementar uma habilidade personalizada com a Azure Machine Learning 
 
-Neste tutorial, você usará o [conjunto de dados de avaliações do hotel](https://www.kaggle.com/datafiniti/hotel-reviews) (distribuídos sob a licença Creative Commons CC [BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt)) para criar uma [habilidade personalizada](./cognitive-search-aml-skill.md) usando Azure Machine Learning para extrair sentimento baseado em aspetos das avaliações. Isto permite que a atribuição de sentimentos positivos e negativos no âmbito da mesma revisão seja corretamente atribuída a entidades identificadas como pessoal, sala, lobby ou piscina.
+Neste exemplo, você usará o [conjunto de dados de avaliações](https://www.kaggle.com/datafiniti/hotel-reviews) de hotéis (distribuídos sob a licença Creative Commons [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt)) para criar uma [habilidade personalizada](./cognitive-search-aml-skill.md) usando Azure Machine Learning para extrair sentimento baseado em aspetos das avaliações. Isto permite que a atribuição de sentimentos positivos e negativos no âmbito da mesma revisão seja corretamente atribuída a entidades identificadas como pessoal, sala, lobby ou piscina.
 
 Para treinar o modelo de sentimento baseado em aspetos em Azure Machine Learning, você estará usando o [repositório de receitas nlp](https://github.com/microsoft/nlp-recipes/tree/master/examples/sentiment_analysis/absa). O modelo será então implantado como ponto final num cluster Azure Kubernetes. Uma vez implantado, o ponto final é adicionado ao gasoduto de enriquecimento como uma habilidade AML para utilização pelo serviço de Pesquisa Cognitiva.
 
@@ -31,14 +31,14 @@ Há dois conjuntos de dados fornecidos. Se desejar treinar o modelo por si mesmo
 > * Ingerir saída do modelo implementado como uma habilidade personalizada
 
 > [!IMPORTANT] 
-> Esta habilidade está atualmente em visualização pública. A funcionalidade de pré-visualização é fornecida sem um contrato de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Atualmente não existe suporte .NET SDK.
+> Esta habilidade está atualmente em visualização pública. A funcionalidade de pré-visualização é fornecida sem um contrato de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Atualmente não existe suporte .NET SDK.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Azure subscrição - obtenha uma [subscrição gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Serviço de Pesquisa Cognitiva](./search-get-started-arm.md)
 * [Recurso de Serviços Cognitivos](../cognitive-services/cognitive-services-apis-create-account.md?tabs=multiservice%2cwindows)
-* [Conta de Armazenamento Azure](../storage/common/storage-account-create.md?tabs=azure-portal&toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+* [Conta de armazenamento do Azure](../storage/common/storage-account-create.md?tabs=azure-portal&toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Área de trabalho do Azure Machine Learning](../machine-learning/how-to-manage-workspace.md)
 
 ## <a name="setup"></a>Configuração
@@ -96,15 +96,15 @@ Salve a habilidade.
 
 Depois de guardar o skillset, vá ao indexante e selecione a ligação De definição de Indexer (JSON). O portal apresentará o JSON do indexante que foi criado nas primeiras células do caderno. Os mapeamentos do campo de saída terão de ser atualizados com mapeamentos de campo adicionais para garantir que o indexante pode manusear e passá-los corretamente. Guarde as alterações e, em seguida, selecione Executar. 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
-Ao trabalhar na sua própria subscrição, depois de concluir um projeto, recomendamos que verifique se irá precisar dos recursos que criou. Os recursos que deixar em execução podem custar-lhe dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
+Ao trabalhar na sua própria subscrição, recomendamos que verifique, depois de concluir um projeto, se irá precisar dos recursos que criou. Os recursos que deixar em execução podem custar-lhe dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
 
 Pode encontrar e gerir recursos no portal, utilizando a ligação **de todos os recursos** ou **grupos** de recursos no painel de navegação à esquerda.
 
 Se estiver a utilizar um serviço gratuito, lembre-se que está limitado a três índices, indexadores e fontes de dados. Pode eliminar itens individuais no portal para ficar abaixo do limite.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Reveja a habilidade personalizada web api](./cognitive-search-custom-skill-web-api.md) 

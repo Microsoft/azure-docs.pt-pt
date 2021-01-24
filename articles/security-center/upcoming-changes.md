@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/21/2021
+ms.date: 01/24/2021
 ms.author: memildin
-ms.openlocfilehash: 6d656dbb3fb50091fc8721ba40431b37f77c4ad6
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 1b034c0f1c62eecf8139ed908a5a242060f3e886
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98662952"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746565"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Mudanças importantes para o Centro de Segurança Azure
 
@@ -31,10 +31,40 @@ Se procura as últimas notas de lançamento, vai encontrá-las no [What's new in
 
 ## <a name="planned-changes"></a>Alterações planeadas
 
+- [As recomendações de proteção da carga de trabalho da Kubernetes serão em breve lançadas para disponibilidade geral (GA)](#kubernetes-workload-protection-recommendations-will-soon-be-released-for-general-availability-ga)
 - [Duas recomendações do controlo de segurança "Aplicar atualizações do sistema" que estão a ser depreciadas](#two-recommendations-from-apply-system-updates-security-control-being-deprecated)
 - [Melhorias à recomendação de classificação de dados sql](#enhancements-to-sql-data-classification-recommendation)
 - [35 recomendações de pré-visualização adicionadas para aumentar a cobertura do Benchmark de Segurança Azure](#35-preview-recommendations-being-added-to-increase-coverage-of-azure-security-benchmark)
 
+
+### <a name="kubernetes-workload-protection-recommendations-will-soon-be-released-for-general-availability-ga"></a>As recomendações de proteção da carga de trabalho da Kubernetes serão em breve lançadas para disponibilidade geral (GA)
+
+**Data estimada para a alteração:** janeiro de 2021
+
+As recomendações de proteção da carga de trabalho kubernetes descritas na [Protect your Kubernetes workloads](kubernetes-workload-protections.md) estão atualmente em pré-visualização. Embora uma recomendação esteja em pré-visualização, não torna um recurso insalubre, e não está incluído nos cálculos da sua pontuação segura.
+
+Estas recomendações serão em breve lançadas para disponibilidade geral (GA) e assim *serão* incluídas no cálculo da pontuação. Se ainda não os remedia, isto pode resultar num ligeiro impacto na sua pontuação segura.
+
+Remediar sempre que possível (saiba como [em Remediar recomendações no Azure Security Center).](security-center-remediate-recommendations.md)
+
+As recomendações de proteção da carga de trabalho kubernetes são:
+
+- O complemento de política Azure para Kubernetes deve ser instalado e ativado nos seus clusters
+- CpU do contentor e limites de memória devem ser aplicados
+- Recipientes privilegiados devem ser evitados
+- O sistema de ficheiros de raiz imutável (apenas para leitura) deve ser aplicado para os contentores
+- Contentor com escalada de privilégio deve ser evitado
+- Os recipientes de funcionamento como utilizador de raiz devem ser evitados
+- Os recipientes que partilham espaços sensíveis de nome de hospedeiro devem ser evitados
+- Capacidades linux menos privilegiadas devem ser aplicadas para contentores
+- O uso dos suportes de volume pod HostPath deve ser restringido a uma lista conhecida
+- Os contentores devem ouvir apenas as portas permitidas
+- Os serviços devem ouvir apenas os portos permitidos
+- A utilização da rede de acolhimento e das portas deve ser restringida
+- Sobrevaor ou desativação de contentores O perfil appArmor deve ser restringido
+- As imagens dos contentores devem ser implantadas apenas a partir de registos fidedignos             
+
+Saiba mais sobre estas recomendações na [Protect your Kubernetes workloads](kubernetes-workload-protections.md).
 
 ### <a name="two-recommendations-from-apply-system-updates-security-control-being-deprecated"></a>Duas recomendações do controlo de segurança "Aplicar atualizações do sistema" que estão a ser depreciadas 
 
@@ -91,6 +121,6 @@ Links relacionados:
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para todas as alterações recentes ao produto, veja [o que há de novo no Azure Security Center?](release-notes.md)

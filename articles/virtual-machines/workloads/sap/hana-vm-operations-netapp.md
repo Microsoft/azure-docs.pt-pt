@@ -13,15 +13,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/18/2021
+ms.date: 01/23/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2c7ea804e9e85578076969f0ec6bdf90b571bb75
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+ms.openlocfilehash: 906879c44a2d7a3248f3d3ac0c9fec7ced7f2a4f
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98570087"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746548"
 ---
 # <a name="nfs-v41-volumes-on-azure-netapp-files-for-sap-hana"></a>Volumes NFS v4.1 no Azure NetApp Files para SAP HANA
 
@@ -62,7 +62,13 @@ Importante entender é a relação de desempenho do tamanho e que existem limite
 
 O quadro abaixo demonstra que poderia fazer sentido criar um grande volume "Standard" para armazenar backups e que não faz sentido criar um volume "Ultra" superior a 12 TB, uma vez que a capacidade de largura de banda física de um único LIF seria ultrapassada. 
 
-A produção máxima para um LIF e uma única sessão de Linux é entre 1,2 e 1,4 GB/s. 
+A produção máxima para um LIF e uma única sessão de Linux é entre 1,2 e 1,4 GB/s. Se necessitar de mais produção para /hana/dados, pode utilizar a partição do volume de dados SAP HANA para riscar a atividade de E/S durante a recarga de dados ou os pontos de poupança HANA em vários ficheiros de dados HANA que estão localizados em várias partilhas de NFS. Para mais detalhes sobre o volume de dados da HANA, leia estes artigos:
+
+- [Guia do Administrador HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.05/en-US/40b2b2a880ec4df7bac16eae3daef756.html?q=hana%20data%20volume%20partitioning)
+- [Blog sobre SAP HANA – Volumes de Dados de Partição](https://blogs.sap.com/2020/10/07/sap-hana-partitioning-data-volumes/)
+- [#2400005 de nota SAP](https://launchpad.support.sap.com/#/notes/2400005)
+- [Nota SAP #2700123](https://launchpad.support.sap.com/#/notes/2700123)
+
 
 | Tamanho  | Padrão de produção | Prémio de Produção | Produção Ultra |
 | --- | --- | --- | --- |
@@ -193,7 +199,7 @@ Por exemplo, se uma imagem diária deve ser sincronizada no recipiente de bolhas
 root # > azcopy sync '/hana/data/SID/mnt00001/.snapshot' 'https://azacsnaptmytestblob01.blob.core.windows.net/abc?sv=2021-02-02&ss=bfqt&srt=sco&sp=rwdlacup&se=2021-02-04T08:25:26Z&st=2021-02-04T00:25:26Z&spr=https&sig=abcdefghijklmnopqrstuvwxyz' --recursive=true --delete-destination=true
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Leia o artigo:
 
 - [SAP HANA alta disponibilidade para máquinas virtuais Azure](./sap-hana-availability-overview.md)

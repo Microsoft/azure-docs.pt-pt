@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 09/25/2020
-ms.openlocfilehash: 7c88aea6aff942cdcf5cbc022df8f07cfe0d4cce
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.date: 01/25/2021
+ms.openlocfilehash: a7a010e3c60d6b96947597878fcd870e9845b2b3
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701284"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746141"
 ---
 # <a name="tutorial-index-json-blobs-from-azure-storage-using-rest"></a>Tutorial: Blobs índice JSON do Azure Storage usando REST
 
@@ -98,13 +98,13 @@ As chamadas à API precisam do URL de serviço e de uma chave de acesso em todos
 
 1. Em **Definições**  >  **Teclas,** obtenha uma chave de administração para todos os direitos sobre o serviço. Existem duas chaves de administração intercambiáveis, previstas para a continuidade do negócio, caso precise de rolar uma. Pode utilizar a tecla primária ou secundária nos pedidos de adição, modificação e eliminação de objetos.
 
-:::image type="content" source="media/search-get-started-rest/get-url-key.png" alt-text="Obtenha uma chave de acesso http e acesso" border="false":::
+   :::image type="content" source="media/search-get-started-rest/get-url-key.png" alt-text="Obtenha uma chave de acesso http e acesso" border="false":::
 
 Todos os pedidos requerem uma chave API em cada pedido enviado ao seu serviço. Ter uma chave válida estabelece fidedignidade, numa base por pedido, entre a aplicação a enviar o pedido e o serviço que o processa.
 
 ## <a name="2---set-up-postman"></a>2 - Configurar carteiro
 
-Inicie o Postman e configure um pedido de HTTP. Se não estiver familiarizado com esta ferramenta, consulte As APIs de [Pesquisa Cognitiva explore Azure](search-get-started-rest.md).
+Inicie o Postman e configure um pedido de HTTP. Se não estiver familiarizado com esta ferramenta, consulte [Criar um índice de pesquisa utilizando APIs REST](search-get-started-rest.md).
 
 Os métodos de pedido para cada chamada neste tutorial são **POST** e **GET.** Você fará três chamadas API para o seu serviço de pesquisa para criar uma fonte de dados, um índice e um indexante. A origem de dados inclui um ponteiro para a sua conta de armazenamento e os dados JSON. O serviço de pesquisa faz a ligação ao carregar os dados.
 
@@ -158,7 +158,7 @@ A [API create Data Source](/rest/api/searchservice/create-data-source) cria um o
     ```
 
 ## <a name="4---create-an-index"></a>4 - Criar um índice
-    
+
 A segunda chamada é [Criar API índice,](/rest/api/searchservice/create-index)criando um índice de Pesquisa Cognitiva Azure que armazena todos os dados pes pesjáveis. Um índice especifica todos os parâmetros e os respetivos atributos.
 
 1. Desaponte o ponto final desta chamada para `https://[service name].search.windows.net/indexes?api-version=2020-06-30` . Substitua `[service name]` pelo nome do seu serviço de pesquisa.
@@ -344,7 +344,7 @@ Quando se está a trabalhar na sua própria subscrição, no final de um projeto
 
 Pode encontrar e gerir recursos no portal, utilizando a ligação de todos os recursos ou grupos de recursos no painel de navegação à esquerda.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que está familiarizado com o básico da indexação Azure Blob, vamos olhar mais de perto a configuração do indexante para as bolhas JSON no Azure Storage.
 

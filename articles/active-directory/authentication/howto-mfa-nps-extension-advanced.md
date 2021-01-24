@@ -11,19 +11,16 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d436414393d77c83acc835110f17e55e491dce1
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 695261ceae9d64be9395e6de082f97be04292078
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97503494"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98745990"
 ---
 # <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>Opções de configuração avançada para a extensão NPS para Multi-Factor Authentication
 
 A extensão do Network Policy Server (NPS) estende as suas funcionalidades de autenticação multi-factor Azure AD baseadas na nuvem na sua infraestrutura de instalações. Este artigo assume que já tem a extensão instalada, e agora quer saber como personalizar a extensão para as suas necessidades.
-
-> [!NOTE]
-> Este artigo contém referências ao termo *whitelist*, um termo que a Microsoft já não utiliza. Quando o termo for removido do software, vamos removê-lo deste artigo.
 
 ## <a name="alternate-login-id"></a>ID de login alternativo
 
@@ -54,8 +51,8 @@ Para configurar uma lista permitida por IP, vá `HKLM\SOFTWARE\Microsoft\AzureMf
 > [!NOTE]
 > Esta chave de registo não é criada por padrão pelo instalador e aparece um erro no registo AuthZOptCh quando o serviço é reiniciado. Este erro no registo pode ser ignorado, mas se esta chave de registo for criada e deixada vazia se não for necessário, a mensagem de erro não volta.
 
-Quando um pedido é proveniente de um endereço IP que existe na verificação em `IP_WHITELIST` duas etapas é ignorado. A lista de IP é comparada com o endereço IP fornecido no atributo *ratNASIPAddress* do pedido RADIUS. Se um pedido RADIUS entrar sem o atributo ratNASIPAddress, regista-se o seguinte aviso: "P_WHITE_LIST_WARNING::IP Whitelist está a ser ignorado como o IP de origem está em falta no pedido de RADIUS no atributo NasIpAddress."
+Quando um pedido é proveniente de um endereço IP que existe na verificação em `IP_WHITELIST` duas etapas é ignorado. A lista de IP é comparada com o endereço IP fornecido no atributo *ratNASIPAddress* do pedido RADIUS. Se um pedido RADIUS entrar sem o atributo ratNASIPAddress, regista-se um aviso: "IP_WHITE_LIST_WARNING::IP Whitelist está a ser ignorado à medida que o IP de origem está em falta no atributo RADIUS request NasIpAddress.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Resolver mensagens de erro a partir da extensão NPS para autenticação multi-factor Azure AD](howto-mfa-nps-extension-errors.md)

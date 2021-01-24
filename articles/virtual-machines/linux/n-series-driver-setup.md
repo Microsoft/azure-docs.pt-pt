@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: vikancha
-ms.openlocfilehash: 7af13147804fd1e50a033635985c08b9c62f76ba
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 22c7a70379649876de4af88080543438e58998a6
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98200996"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746650"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instale os controladores da NVIDIA GPU em VMs da série N que executam o Linux
 
@@ -22,9 +22,6 @@ Para tirar partido das capacidades da GPU de VMs da série Azure N apoiados pelo
 Se optar por instalar manualmente os controladores da NVIDIA GPU, este artigo fornece distribuições suportadas, controladores e etapas de instalação e verificação. Informações de configuração manual do controlador também estão disponíveis para [VMs do Windows](../windows/n-series-driver-setup.md).
 
 Para especificações VM da série N, capacidades de armazenamento e detalhes do disco, consulte [os tamanhos VM da GPU Linux](../sizes-gpu.md?toc=/azure/virtual-machines/linux/toc.json). 
-
-> [!NOTE]
-> Este artigo contém referências ao termo *blacklist*, um termo que a Microsoft já não utiliza. Quando o termo for removido do software, vamos removê-lo deste artigo.
 
 [!INCLUDE [virtual-machines-n-series-linux-support](../../../includes/virtual-machines-n-series-linux-support.md)]
 
@@ -386,6 +383,6 @@ Em seguida, crie uma entrada para o seu script de atualização `/etc/rc.d/rc3.d
 * Se atualizou os controladores da NVIDIA CUDA para a versão mais recente e descobriu que a conectividade RDMA já não está a funcionar, [reinstale os controladores RDMA](#rdma-network-connectivity) para restabelecer essa conectividade. 
 * Se uma determinada versão CentOS/RHEL OS (ou kernel) não for suportada para LIS, é lançado um erro "versão kernel não suportada". Por favor, reporte este erro juntamente com as versões SO e kernel.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para capturar uma imagem Linux VM com os seus controladores NVIDIA instalados, consulte [Como generalizar e capturar uma máquina virtual Linux](capture-image.md).

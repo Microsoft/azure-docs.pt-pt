@@ -1,5 +1,5 @@
 ---
-title: Tamanhos Azure VM - Finalidade geral / Microsoft Docs
+title: Tamanhos Azure VM - | de finalidade geral Microsoft Docs
 description: Lista os diferentes tamanhos de finalidade geral disponíveis para máquinas virtuais em Azure. Lista informações sobre o número de vCPUs, discos de dados e NICs, bem como a produção de armazenamento e largura de banda de rede para tamanhos nesta série.
 author: mimckitt
 ms.service: virtual-machines
@@ -9,21 +9,21 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: mimckitt
-ms.openlocfilehash: 6929c0110dcf9ff9f59c200243e886af1936c22f
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 6f6f98b39f693d2d15b77cdf6de6251e1c264c8a
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018836"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746092"
 ---
 # <a name="general-purpose-virtual-machine-sizes"></a>Tamanhos de máquina virtual de propósito geral
 
-Os tamanhos VM de finalidade geral proporcionam uma relação CPU-memória equilibrada. Ideais para testes e programação, bases de dados pequenas a médias e servidores Web de tráfego baixo a médio. Este artigo fornece informações sobre as ofertas para a computação para fins gerais.
+Os tamanhos VM de finalidade geral proporcionam uma relação CPU-memória equilibrada. Ideais para testes e desenvolvimento, bases de dados pequenas a médias e servidores Web de tráfego baixo a médio. Este artigo fornece informações sobre as ofertas para a computação para fins gerais.
 
 - Os VMs [da série Av2](av2-series.md) podem ser implantados numa variedade de tipos e processadores de hardware. Os VMs da série A têm configurações de desempenho e memória de CPU mais adequadas para cargas de trabalho de nível de entrada como desenvolvimento e teste. O tamanho é limitado com base no hardware de forma a proporcionar um desempenho de processador consistente para a instância em execução, independentemente do hardware no qual está implementado. Para determinar o hardware físico no qual este tamanho está implementado, consulte o hardware virtual a partir da Máquina Virtual. Os casos de uso de exemplo incluem servidores de desenvolvimento e teste, servidores web de baixo tráfego, bases de dados pequenas a médias, prova de conceitos e repositórios de código.
 
   > [!NOTE]
-  > A A8 – A11 VMs está prevista para a reforma em 3/2021. Para mais informações, consulte [o Guia de Migração do HPC.](https://azure.microsoft.com/resources/hpc-migration-guide/)
+  > A A8, A9, A10 A11 VMs estão previstas para a reforma em 3/2021. Para mais informações, consulte [o Guia de Migração do HPC.](https://azure.microsoft.com/resources/hpc-migration-guide/) Estes tamanhos VM estão na série original "A_v1", NÃO "v2".
 
 - [Rebentamento da série B](sizes-b-series-burstable.md) Os VMs são ideais para cargas de trabalho que não necessitam de um desempenho completo do CPU continuamente, como servidores web, pequenas bases de dados e ambientes de desenvolvimento e teste. Estas cargas de trabalho normalmente têm requisitos de desempenho rebeníveis. A Série B proporciona a estes clientes a capacidade de adquirir um tamanho VM com um desempenho de base consciente do preço que permite à instância VM acumular créditos quando o VM está a utilizar menos do que o seu desempenho base. Quando o VM tiver crédito acumulado, o VM pode rebentar acima da linha de base do VM utilizando até 100% do CPU quando a sua aplicação requer um desempenho de CPU mais elevado.
 
@@ -44,11 +44,11 @@ Os tamanhos VM de finalidade geral proporcionam uma relação CPU-memória equil
 - [Com otimização de computação](sizes-compute.md)
 - [Com otimização de memória](sizes-memory.md)
 - [Com otimização de armazenamento](sizes-storage.md)
-- [Com otimização de GPU](sizes-gpu.md)
+- [Otimizada para GPU](sizes-gpu.md)
 - [Computação de elevado desempenho](sizes-hpc.md)
 - [Gerações anteriores](sizes-previous-gen.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre como [as unidades de computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho do cálculo em Azure SKUs.
 
