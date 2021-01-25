@@ -1,5 +1,5 @@
 ---
-title: Contas da plataforma de identidade microsoft & perfis de inquilinos no Android Rio Azure
+title: Contas da plataforma de identidade microsoft & perfis de inquilinos no Android | Rio Azure
 description: Uma visão geral da plataforma de identidade da Microsoft conta para o Android
 services: active-directory
 author: shoatman
@@ -13,18 +13,18 @@ ms.date: 09/14/2019
 ms.author: shoatman
 ms.custom: aaddev, devx-track-java
 ms.reviewer: shoatman
-ms.openlocfilehash: 404ffbc09a69b623a421bd0c01550d72e5c03158
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fac66e8f82ea4c04e866b28fed5f8d0860ab81ef
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88115990"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755977"
 ---
 # <a name="accounts--tenant-profiles-android"></a>Contas e perfis de inquilino (Android)
 
 Este artigo fornece uma visão geral do que é uma `account` coisa na plataforma de identidade da Microsoft.
 
-A API da Biblioteca de Autenticação da Microsoft (MSAL) substitui o *utilizador* do termo pela *conta*de prazo . Uma das razões é que um utilizador (humano ou agente de software) pode ter, ou pode usar, várias contas. Estas contas podem estar na própria organização do utilizador e/ou noutras organizações de que o utilizador é membro.
+A API da Biblioteca de Autenticação da Microsoft (MSAL) substitui o *utilizador* do termo pela *conta* de prazo . Uma das razões é que um utilizador (humano ou agente de software) pode ter, ou pode usar, várias contas. Estas contas podem estar na própria organização do utilizador e/ou noutras organizações de que o utilizador é membro.
 
 Uma conta na plataforma de identidade da Microsoft consiste em:
 

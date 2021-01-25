@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Proteja uma API web core ASP.NET com a plataforma de identidade microsoft / Rio Azure'
+title: 'Quickstart: Proteja uma API web core ASP.NET com a plataforma de identidade microsoft | Rio Azure'
 titleSuffix: Microsoft identity platform
 description: Neste quickstart, você descarrega e modifica uma amostra de código que demonstra como proteger uma API web core ASP.NET, utilizando a plataforma de identidade da Microsoft para autorização.
 services: active-directory
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/22/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: ca22d4f1ff48222b33030eb44d7feb62b1d154cd
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 7d38ee1782987afce703fbd8b4203186bbcbb505
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98011889"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754484"
 ---
 # <a name="quickstart-protect-an-aspnet-core-web-api-with-microsoft-identity-platform"></a>Quickstart: Proteja uma API web core ASP.NET com plataforma de identidade microsoft
 
@@ -96,7 +96,7 @@ O middleware *Microsoft.AspNetCore.Authentication* utiliza uma `Startup` classe 
 
 O `AddAuthentication()` método configura o serviço para adicionar a autenticação baseada em JwtBearer.
 
-A linha que contém `.AddMicrosoftIdentityWebApi` adiciona a autorização da plataforma de identidade da Microsoft à sua API web. Em seguida, é configurado para validar fichas de acesso emitidas pelo ponto final da plataforma de identidade da Microsoft com base nas informações `AzureAD` na secção doappsettings.js *no* ficheiro de configuração:
+A linha que contém `.AddMicrosoftIdentityWebApi` adiciona a autorização da plataforma de identidade da Microsoft à sua API web. Em seguida, é configurado para validar fichas de acesso emitidas pela plataforma de identidade da Microsoft com base nas informações `AzureAD` na secção doappsettings.js *no* ficheiro de configuração:
 
 | *appsettings.jsna* chave | Descrição                                                                                                                                                          |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|

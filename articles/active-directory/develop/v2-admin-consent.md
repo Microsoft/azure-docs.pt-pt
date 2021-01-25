@@ -1,6 +1,6 @@
 ---
 title: Protocolos de consentimento da plataforma de identidade da Microsoft
-description: Uma descrição da autorização no ponto final da plataforma de identidade da Microsoft, incluindo âmbitos, permissões e consentimento.
+description: Uma descrição da autorização na plataforma de identidade da Microsoft, incluindo âmbitos, permissões e consentimento.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.date: 12/18/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 353c349ebe348addac60c5f9f7b1bf0fbb1fc425
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 13cff9f3a6037a16d7c3b9cf233d26c6e9518bc1
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97703322"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756106"
 ---
 # <a name="admin-consent-on-the-microsoft-identity-platform"></a>Consentimento de administração na plataforma de identidade da Microsoft
 
@@ -27,7 +27,7 @@ Algumas permissões requerem o consentimento de um administrador antes de podere
 
 Normalmente, quando constrói uma aplicação que utiliza o ponto final de consentimento administrativo, a aplicação precisa de uma página ou vista na qual o administrador pode aprovar as permissões da app. Esta página pode fazer parte do fluxo de inscrição da aplicação, parte das definições da aplicação, ou pode ser um fluxo dedicado de "connect". Em muitos casos, faz sentido que a app mostre esta vista de "conectar" apenas depois de um utilizador ter assinado com uma conta microsoft de trabalho ou escola.
 
-Quando assinar o utilizador na sua aplicação, pode identificar a organização a que o administrador pertence antes de pedir-lhes que aprovem as permissões necessárias. Embora não seja estritamente necessário, pode ajudá-lo a criar uma experiência mais intuitiva para os seus utilizadores organizacionais. Para iniciar sômsim do utilizador, siga os [nossos tutoriais de protocolo de plataforma de identidade da Microsoft.](active-directory-v2-protocols.md)
+Quando assinar o utilizador na sua aplicação, pode identificar a organização a que o administrador pertence antes de pedir-lhes que aprovem as permissões necessárias. Embora não seja estritamente necessário, pode ajudá-lo a criar uma experiência mais intuitiva para os seus utilizadores organizacionais. Para iniciar a sômin, siga os [tutoriais](active-directory-v2-protocols.md)do protocolo da plataforma de identidade da Microsoft .
 
 ## <a name="request-the-permissions-from-a-directory-admin"></a>Solicite as permissões a um administrador de diretório
 
@@ -83,7 +83,7 @@ Adicionando aos parâmetros vistos numa resposta bem sucedida, os parâmetros de
 | `state` | Um valor incluído no pedido que também será devolvido na resposta simbólica. Pode ser uma série de conteúdos que quiser. O Estado é utilizado para codificar informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorrer, como a página ou a visualização em que se encontravam.|
 | `admin_consent` | Será programado `True` para indicar que esta resposta ocorreu num fluxo de consentimento administrativo.|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Veja [como converter uma app para ser multi-inquilino](howto-convert-app-to-be-multi-tenant.md)
 - Saiba como [o consentimento é suportado na camada do protocolo OAuth 2.0 durante o fluxo de concessão de código de autorização](v2-oauth2-auth-code-flow.md#request-an-authorization-code).
 - Saiba [como uma aplicação multi-arrendatário pode usar o quadro de consentimento](./howto-convert-app-to-be-multi-tenant.md) para implementar o consentimento "utilizador" e "administrador", suportando padrões de aplicação de vários níveis mais avançados.

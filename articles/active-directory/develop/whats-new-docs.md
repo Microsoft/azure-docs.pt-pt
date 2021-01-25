@@ -11,12 +11,12 @@ ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
 ms.author: marsma
-ms.openlocfilehash: 1ab79c32bfc28f6b4582d5a7d7177d5a9c04d682
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 0beaef9162f4bdb540764a100243c579b40d1324
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98702680"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755945"
 ---
 # <a name="microsoft-identity-platform-docs-whats-new"></a>Docs da plataforma de identidade da Microsoft: Quais as novidades
 

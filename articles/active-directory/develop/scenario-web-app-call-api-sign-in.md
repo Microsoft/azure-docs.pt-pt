@@ -1,5 +1,6 @@
 ---
-title: Remover contas da cache simbólica no sign-out - Plataforma de identidade da Microsoft Rio Azure
+title: Remova as contas da cache simbólica no | de assinatura Rio Azure
+titleSuffix: Microsoft identity platform
 description: Saiba como remover uma conta da cache simbólica na sinse-out
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b7f59f235f4baa270b36b01cc4532227ab23fbc8
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 9fc271dfa9edbedac8527009dd2b2180b7c5e7cd
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442536"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756257"
 ---
 # <a name="a-web-app-that-calls-web-apis-remove-accounts-from-the-token-cache-on-global-sign-out"></a>Uma aplicação web que chama APIs web: Remova as contas da cache simbólica no sign-out global
 
@@ -46,7 +47,7 @@ A amostra python não remove as contas da cache na assinatura global.
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 

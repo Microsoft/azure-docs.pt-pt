@@ -13,12 +13,12 @@ ms.date: 10/27/2020
 ms.author: ryanwi
 ms.reviewer: marsma, jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 22d6cacc36363b17f9bc32d354982eb71974b31d
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 4f87c3fd0cfda2db535b2c8f7f7330a273e6b767
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96779758"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755344"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>How to: Iniciar sessão de qualquer utilizador do Azure Active Directory com o padrão de aplicação multi-inquilino
 
@@ -186,7 +186,7 @@ As aplicações multi-arrendadas também podem ter acesso a fichas para chamar A
 * [Visão geral do Quadro de Consentimento][AAD-Consent-Overview]
 * [Âmbitos de permissão da Microsoft Graph API][MSFT-Graph-permission-scopes]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu a construir uma aplicação que pode assinar num utilizador de qualquer inquilino da AZure AD. Depois de ativar Sign-On (SSO) entre a sua aplicação e a AD Azure, também pode atualizar a sua aplicação para aceder a APIs expostas por recursos da Microsoft como o Microsoft 365. Isto permite-lhe oferecer uma experiência personalizada na sua aplicação, como mostrar informações contextuais aos utilizadores, como a sua imagem de perfil ou a sua próxima marcação de calendário.
 

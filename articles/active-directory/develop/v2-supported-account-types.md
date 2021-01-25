@@ -1,5 +1,6 @@
 ---
-title: Tipos de conta suportados - plataforma de identidade da Microsoft Rio Azure
+title: Tipos de conta suportados | Rio Azure
+titleSuffix: Microsoft identity platform
 description: Documentação conceptual sobre audiências e tipos de conta suportados em aplicações
 services: active-directory
 author: jmprieur
@@ -12,12 +13,12 @@ ms.date: 07/14/2020
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: f0895cfc14b0237db8f2f762602fee949354e6cb
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: d6c184e2983a072dec4b3021a1b58a61cd206dba
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347460"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755991"
 ---
 # <a name="supported-account-types"></a>Tipos de conta suportados
 
@@ -50,7 +51,7 @@ Alguns tipos de conta não podem ser usados com certos fluxos de autenticação.
 
 As aplicações também podem assinar nos utilizadores em [nuvens nacionais.](authentication-national-cloud.md) No entanto, as contas pessoais da Microsoft não são suportadas nestas nuvens. É por isso que os tipos de conta suportados são reduzidos, para estas nuvens, para a sua organização (inquilino único) ou qualquer organização (aplicações multitenantes).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [o arrendamento no Azure Ative Directory](./single-and-multi-tenant-apps.md).
 - Saiba mais sobre [as nuvens nacionais.](./authentication-national-cloud.md)

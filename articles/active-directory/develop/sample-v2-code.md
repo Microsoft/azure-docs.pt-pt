@@ -1,6 +1,6 @@
 ---
 title: Amostras de código para plataforma de identidade da Microsoft
-description: Fornece um índice de amostras de código disponíveis da plataforma de identidade da Microsoft (v2.0 endpoint), organizadas por cenário.
+description: Fornece um índice de amostras de código de plataforma de identidade disponíveis da Microsoft, organizado por cenário.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: marsma
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 3baeb87bf3fe1cdcd5e9f27aed2587eed060c5a8
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 368a1acdfda66c3714979d27037737a75bbada5a
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064526"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756651"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Amostras de código da plataforma de identidade da Microsoft (ponto final v2.0)
 
@@ -26,9 +26,9 @@ Pode utilizar a plataforma de identidade da Microsoft para:
 - Adicione autenticação e autorização às suas aplicações web e APIs web.
 - Requer um token de acesso para aceder a uma API web protegida.
 
-Este artigo descreve e fornece-lhe links para amostras para o ponto final da plataforma de identidade da Microsoft. Estas amostras mostram-lhe como é feito, e também fornecem códigos que pode usar nas suas aplicações. Na página de amostra de código, você encontrará tópicos de leitura detalhadas que ajudam com requisitos, instalação e configuração. Os comentários dentro do código ajudam-no a compreender as secções críticas.
+Este artigo descreve e fornece-lhe links para amostras para a plataforma de identidade da Microsoft. Estas amostras mostram-lhe como é feito, e também fornecem códigos que pode usar nas suas aplicações. Na página de amostra de código, você encontrará tópicos de leitura detalhadas que ajudam com requisitos, instalação e configuração. Os comentários dentro do código ajudam-no a compreender as secções críticas.
 
-Para compreender o cenário básico de cada tipo de amostra, consulte [os tipos de Aplicações para o ponto final da plataforma de identidade da Microsoft.](v2-app-types.md)
+Para compreender o cenário básico de cada tipo de amostra, consulte [os tipos de aplicações para a plataforma de identidade da Microsoft.](v2-app-types.md)
 
 Também pode contribuir para as amostras no GitHub. Para saber como, consulte [as amostras e documentação do Microsoft Azure Ative Directory](https://github.com/Azure-Samples?page=3&query=active-directory).
 
@@ -56,8 +56,8 @@ As amostras que se seguem ilustram as aplicações web que assinam nos utilizado
 
 | Plataforma | Apenas sinais nos utilizadores | Sinais nos utilizadores e chamadas Microsoft Graph |
 | -------- | ------------------- | --------------------------------- |
-| ![Esta imagem mostra o logotipo do Núcleo ASP.NET](media/sample-v2-code/logo_NETcore.png)</p>Núcleo de ASP.NET | [tutorial de sinais de ASP.NET Core WebApp](https://aka.ms/aspnetcore-webapp-sign-in) | A mesma amostra na [aplicação web core ASP.NET chama](https://aka.ms/aspnetcore-webapp-call-msgraph) fase do Microsoft Graph</p>Amostra avançada [Aceder à cache simbólica do utilizador registado a partir de aplicações de fundo, APIs e serviços](https://github.com/Azure-Samples/ms-identity-dotnet-advanced-token-cache) |
-| ![Esta imagem mostra o logótipo do Quadro de ASP.NET](media/sample-v2-code/logo_NETframework.png)</p>Núcleo de ASP.NET | [AD FS para Azure AD aplicação de migração para desenvolvedores](https://github.com/Azure-Samples/ms-identity-dotnet-adfs-to-aad) aprender a migrar de forma segura e segura suas aplicações integradas com Serviços da Federação de Diretório Ativo (AD FS) para Azure Ative Directory (Azure AD) | |
+| ![Esta imagem mostra o logotipo do Núcleo ASP.NET](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core | [tutorial de sinais de ASP.NET Core WebApp](https://aka.ms/aspnetcore-webapp-sign-in) | A mesma amostra na [aplicação web core ASP.NET chama](https://aka.ms/aspnetcore-webapp-call-msgraph) fase do Microsoft Graph</p>Amostra avançada [Aceder à cache simbólica do utilizador registado a partir de aplicações de fundo, APIs e serviços](https://github.com/Azure-Samples/ms-identity-dotnet-advanced-token-cache) |
+| ![Esta imagem mostra o logótipo do Quadro de ASP.NET](media/sample-v2-code/logo_NETframework.png)</p>ASP.NET Core | [AD FS para Azure AD aplicação de migração para desenvolvedores](https://github.com/Azure-Samples/ms-identity-dotnet-adfs-to-aad) aprender a migrar de forma segura e segura suas aplicações integradas com Serviços da Federação de Diretório Ativo (AD FS) para Azure Ative Directory (Azure AD) | |
 | ![Esta imagem mostra o logótipo do Quadro de ASP.NET](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET | [ASP.NET Quickstart](https://github.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) </p> [dotnet-webapp-openidconnect-v2](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |  [dotnet-admin-restrito-âmbitos-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) </p> |[msgraph-training-aspnetmvcapp](https://github.com/microsoftgraph/msgraph-training-aspnetmvcapp)
 | ![Esta imagem mostra o logótipo java](media/sample-v2-code/logo_java.png)  |                   | [ms-identidade-java-webapp](https://github.com/Azure-Samples/ms-identity-java-webapp) |
 | ![Esta imagem mostra o logótipo java](media/sample-v2-code/logo_java.png)  | [ms-identidade-b2c-java-servlet-webapp-autenticação](https://github.com/Azure-Samples/ms-identity-b2c-java-servlet-webapp-authentication)|  |
@@ -121,11 +121,11 @@ As seguintes amostras mostram como configurar o seu pedido de aceitação de ins
 
 ## <a name="web-apis"></a>APIs da Web
 
-As amostras que se seguem mostram como proteger uma API web com o ponto final da plataforma de identidade da Microsoft, e como chamar uma API a jusante da API web.
+As seguintes amostras mostram como proteger uma API web com a plataforma de identidade da Microsoft, e como chamar uma API a jusante da API web.
 
 | Plataforma | Sample |
 | -------- | ------------------- |
-| ![Esta imagem mostra o logotipo do Núcleo ASP.NET](media/sample-v2-code/logo_NETcore.png)</p>Núcleo de ASP.NET | ASP.NET Core web API (serviço) de [dotnet-native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi-calls-msgraph)  |
+| ![Esta imagem mostra o logotipo do Núcleo ASP.NET](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core | ASP.NET Core web API (serviço) de [dotnet-native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi-calls-msgraph)  |
 | ![Esta imagem mostra o logótipo ASP.NET](media/sample-v2-code/logo_NET.png)</p>ASP.NET MVC | Web API (serviço) de [ms-identidade-aspnet-webapi-onbehalfof](https://github.com/Azure-Samples/ms-identity-aspnet-webapi-onbehalfof) |
 | ![Esta imagem mostra o logótipo java](media/sample-v2-code/logo_java.png) | API Web (serviço) de [ms-identidade-java-webapi](https://github.com/Azure-Samples/ms-identity-java-webapi) |
 | ![Esta imagem mostra o logótipo Node.js](media/sample-v2-code/logo_nodejs.png) | Web API (serviço) de [active-directório-javascript-nodejs-webapi-v2](https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2) |
@@ -133,11 +133,11 @@ As amostras que se seguem mostram como proteger uma API web com o ponto final da
 
 ## <a name="azure-functions-as-web-apis"></a>Funciona Azure como APIs web
 
-As seguintes amostras mostram como proteger uma Função Azure usando httpTrigger e expondo uma API web com o ponto final da plataforma de identidade da Microsoft, e como chamar uma API a jusante da API web.
+As seguintes amostras mostram como proteger uma Função Azure usando httpTrigger e expondo uma API web com a plataforma de identidade microsoft, e como chamar uma API a jusante da API web.
 
 | Plataforma | Sample |
 | -------- | ------------------- |
-| ![Esta imagem mostra o logotipo do Núcleo ASP.NET](media/sample-v2-code/logo_NETcore.png)</p>Núcleo de ASP.NET | ASP.NET Core web API (serviço) Azure Function of [dotnet-native-aspnetcore-v2](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions)  |
+| ![Esta imagem mostra o logotipo do Núcleo ASP.NET](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core | ASP.NET Core web API (serviço) Azure Function of [dotnet-native-aspnetcore-v2](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions)  |
 | ![Esta imagem mostra o logótipo python](media/sample-v2-code/logo_python.png)</p>Python | Web API (serviço) de [Python](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions) |
 | ![Esta imagem mostra o logótipo Node.js](media/sample-v2-code/logo_nodejs.png)</p>Node.js | Web API (serviço) de [Node.js e passport-azure-ad](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions) |
 | ![Esta imagem mostra o logótipo Node.js](media/sample-v2-code/logo_nodejs.png)</p>Node.js | Web API (serviço) de [Node.js e passaporte-azure-ad usando em nome de](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-onbehalfof-azurefunctions) |
@@ -146,6 +146,6 @@ As seguintes amostras mostram como proteger uma Função Azure usando httpTrigge
 
 Para conhecer [amostras](https://github.com/microsoftgraph/msgraph-community-samples/tree/master/samples#aspnet) e tutoriais que demonstrem diferentes padrões de utilização para a API do Microsoft Graph, incluindo a autenticação com AZure AD, consulte [amostras da Comunidade de Gráficos do Microsoft & tutoriais](https://github.com/microsoftgraph/msgraph-community-samples).
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 [Microsoft Graph API conceptual e referência](/graph/use-the-api?context=graph%2fapi%2fbeta&view=graph-rest-beta&preserve-view=true)

@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Adicione o início com a Microsoft a uma aplicação para iOS ou macOS Rio Azure'
+title: 'Quickstart: Adicione o início de sôr-se com a Microsoft a uma aplicação iOS ou macOS | Rio Azure'
 titleSuffix: Microsoft identity platform
 description: Neste quickstart, saiba como uma aplicação iOS ou macOS pode iniciar sôm nos utilizadores, obter um token de acesso a partir da plataforma de identidade da Microsoft e ligar para a Microsoft Graph API.
 services: active-directory
@@ -13,12 +13,12 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: 2fbff2abeb454fe02aa4bd50615033b9a0b7f27b
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: ef2ab6511d80f7f1f836805055e7cc7f48a488e7
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178607"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754297"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Quickstart: Inicie sísmia nos utilizadores e ligue para a Microsoft Graph API a partir de uma aplicação para iOS ou macOS
 
@@ -178,10 +178,10 @@ let msalConfiguration = MSALPublicClientApplicationConfig(clientId: kClientID, r
 self.applicationContext = try MSALPublicClientApplication(configuration: msalConfiguration)
 ```
 
-> |Onde: | Descrição |
+> |Em que: | Descrição |
 > |---------|---------|
 > | `clientId` | O ID do requerimento registado em _portal.azure.com* |
-> | `authority` | O ponto final da plataforma de identidade da Microsoft. Na maioria dos casos isto será `https://login.microsoftonline.com/common` |
+> | `authority` | A plataforma de identidade da Microsoft. Na maioria dos casos isto será `https://login.microsoftonline.com/common` |
 > | `redirectUri` | O URI redirecionado da aplicação. Pode passar 'zero' para utilizar o valor padrão ou o seu URI de redirecionamento personalizado. |
 
 ### <a name="for-ios-only-additional-app-requirements"></a>Apenas para iOS, requisitos adicionais de aplicações
@@ -242,7 +242,7 @@ let parameters = MSALInteractiveTokenParameters(scopes: kScopes, webviewParamete
 self.applicationContext!.acquireToken(with: parameters) { (result, error) in /* Add your handling logic */}
 ```
 
-> |Onde:| Descrição |
+> |Em que:| Descrição |
 > |---------|---------|
 > | `scopes` | Contém os âmbitos solicitados (isto é, `[ "user.read" ]` para o Microsoft Graph ou para `[ "<Application ID URL>/scope" ]` APIs web personalizados ( `api://<Application ID>/access_as_user` ) |
 
@@ -262,14 +262,14 @@ self.applicationContext!.getCurrentAccount(with: nil) { (currentAccount, previou
 }
 ```
 
-> |Onde: | Descrição |
+> |Em que: | Descrição |
 > |---------|---------|
 > | `scopes` | Contém os âmbitos solicitados (isto é, `[ "user.read" ]` para o Microsoft Graph ou para `[ "<Application ID URL>/scope" ]` APIs web personalizados ( `api://<Application ID>/access_as_user` ) |
 > | `account` | A conta está a ser pedida. Este quickstart é sobre uma única aplicação de conta. Se quiser construir uma aplicação multi-conta, terá de definir lógica para identificar qual a conta a utilizar para pedidos simbólicos usando `accountsFromDeviceForParameters:completionBlock:` e passando corretamente `accountIdentifier` |
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Passe para o tutorial passo a passo no qual constrói uma aplicação iOS ou macOS que obtém um token de acesso a partir da plataforma de identidade da Microsoft e a usa para ligar para a Microsoft Graph API.
 

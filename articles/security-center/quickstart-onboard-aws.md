@@ -3,16 +3,16 @@ title: Ligue a sua conta AWS ao Azure Security Center
 description: Monitorização dos seus recursos AWS a partir do Azure Security Center
 author: memildin
 ms.author: memildin
-ms.date: 12/29/2020
+ms.date: 01/24/2021
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 4c919115efb39a8e8c008eab69dc087792f7b105
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 2ad3ab8c39d9f9a29e74bd139fb5ddd1e5faeff9
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814317"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755159"
 ---
 #  <a name="connect-your-aws-accounts-to-azure-security-center"></a>Ligue as suas contas AWS ao Azure Security Center
 
@@ -33,16 +33,16 @@ A bordo da sua conta AWS no Security Center, integra o AWS Security Hub e o Azur
 
 Na imagem abaixo pode ver as contas AWS apresentadas no painel de visão geral do Security Center.
 
-:::image type="content" source="./media/quickstart-onboard-aws/aws-account-in-overview.png" alt-text="3 projetos GCP listados no painel de visão geral do Security Center" lightbox="./media/quickstart-onboard-gcp/gcp-account-in-overview.png":::
+:::image type="content" source="./media/quickstart-onboard-aws/aws-account-in-overview.png" alt-text="Três projetos GCP listados no painel de visão geral do Security Center" lightbox="./media/quickstart-onboard-gcp/gcp-account-in-overview.png":::
 
 ## <a name="availability"></a>Disponibilidade
 
 |Aspeto|Detalhes|
 |----|:----|
-|Estado de libertação:|Pré-visualizar<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
+|Estado de libertação:|Disponibilidade Geral (GA)|
 |Preços:|Requer [Azure Defender para servidores](defender-for-servers-introduction.md)|
 |Funções e permissões necessárias:|**Proprietário** na assinatura Azure relevante<br>**O contribuinte** também pode ligar uma conta AWS se um proprietário fornecer os principais detalhes do serviço|
-|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![No](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
 |||
 
 
@@ -136,9 +136,9 @@ O AWS Systems Manager é necessário para automatizar tarefas através dos seus 
 1. Configure as opções no **separador de autenticação AWS:**
     1. Introduza um **nome de exibição** para o conector.
     1. Confirme se a subscrição está correta. É a subscrição que incluirá as recomendações do connector e do AWS Security Hub.
-    1. Dependendo da opção de autenticação que escolheu no [Passo 2. Configurar a autenticação para o Centro de Segurança em AWS:](#step-2-set-up-authentication-for-security-center-in-aws)
+    1. Dependendo da opção de autenticação, escolheu no [Passo 2. Configurar a autenticação para o Centro de Segurança em AWS:](#step-2-set-up-authentication-for-security-center-in-aws)
         - **Selecione Assumir Role** e cole o ARN de Criar uma [função IAM para o Centro de Segurança](#create-an-iam-role-for-security-center).
-            :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="Colar o ficheiro ARN no campo relevante do assistente de conexão AWS no Portal Azure":::
+            :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="Colar o ficheiro ARN no campo relevante do assistente de conexão AWS no portal Azure":::
 
             OR
 
@@ -164,7 +164,7 @@ O AWS Systems Manager é necessário para automatizar tarefas através dos seus 
 
 ### <a name="step-6-confirmation"></a>Passo 6. Confirmação
 
-Quando o conector é criado com sucesso e o AWS Security Hub foi configurado corretamente:
+Quando o conector é criado com sucesso, e o AWS Security Hub foi configurado corretamente:
 
 - O Security Center analisa o ambiente para instâncias AWS EC2, a bordo do Azure Arc, permitindo instalar o agente Log Analytics e fornecer recomendações de proteção e segurança de ameaças. 
 - O serviço ASC verifica novas instâncias AWS EC2 a cada 6 horas e a bordo de acordo com a configuração.
@@ -190,14 +190,14 @@ Para ver todas as recomendações ativas para os seus recursos por tipo de recur
 SISTEMA suportado para embarque automático no Arco de Azure para máquinas AWS
 
 - Ubuntu 16.04 - SSM Agent é pré-instalado, por padrão
-- Ubuntu 18.04 -SSM Agent está pré-instalado, por padrão
+- Ubuntu 18.04 - SSM Agent é pré-instalado, por padrão
 - Servidor windows - SSM Agent está pré-instalado, por padrão
 - CentOS Linux 7 – SSM deve ser instalado manualmente ou a bordo separadamente
 - SUSE Linux Enterprise Server (SLES) 15 (x64) -SSM deve ser instalado manualmente ou a bordo separadamente
 - Red Hat Enterprise Linux (RHEL) 7 (x64) - SSM deve ser instalado manualmente ou a bordo separadamente
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Ligar a sua conta AWS faz parte da experiência multi-nuvem disponível no Azure Security Center. Para obter informações relacionadas, consulte a seguinte página:
 

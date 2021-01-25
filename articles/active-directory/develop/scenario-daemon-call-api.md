@@ -1,5 +1,6 @@
 ---
-title: Ligue para a API web a partir de uma app daemon - Plataforma de identidade da Microsoft Rio Azure
+title: Ligue para uma API web de uma aplicação da Daemon | Rio Azure
+titleSuffix: Microsoft identity platform
 description: Saiba como construir uma app daemon que chama uma API web.
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 0dfd729a48b7e81028078fd035b3b900f4d7b9bc
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: a94cbebffbe2c735515d9758a2353a9857676311
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444125"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756572"
 ---
 # <a name="daemon-app-that-calls-web-apis---call-a-web-api-from-the-app"></a>Daemon app que chama APIs web - ligue para uma API web a partir da app
 
@@ -65,7 +66,7 @@ JSONObject responseObject = HttpClientHelper.processResponse(responseCode, respo
 
 Para aplicações daemon, as APIs web a que chama precisam de ser pré-aprovadas. Não há consentimento incremental com aplicações daemon. (Não há interação do utilizador.) O administrador inquilino precisa de dar consentimento antecipadamente para o pedido e todas as permissões da API. Se quiser ligar para várias APIs, tem de adquirir um símbolo para cada recurso, cada vez que `AcquireTokenForClient` ligue. A MSAL utilizará o cache de ficha de aplicação para evitar chamadas de serviço desnecessárias.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 

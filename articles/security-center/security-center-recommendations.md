@@ -11,30 +11,39 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/25/2020
+ms.date: 01/24/2021
 ms.author: memildin
-ms.openlocfilehash: 115d89783a849a9c4c7adb2fceceaf8d1575c785
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: dbda0aecdadd81da0f7681a5fc9b140157d5e8f3
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97795993"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756816"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Recomendações de segurança no Centro de Segurança do Azure 
+
 Este tópico explica como ver e compreender as recomendações no Azure Security Center para ajudá-lo a proteger os seus recursos Azure.
 
 
 ## <a name="what-are-security-recommendations"></a>O que são recomendações de segurança?
 
-Recomendações são ações a tomar para garantir os seus recursos.
-
 O Centro de Segurança analisa periodicamente o estado de segurança dos seus recursos Azure para identificar potenciais vulnerabilidades de segurança. Em seguida, fornece-lhe recomendações sobre como remediar essas vulnerabilidades.
+
+Recomendações são ações a tomar para garantir e endurecer os seus recursos. 
 
 Cada recomendação fornece-lhe:
 
 - Uma breve descrição da questão
 - As medidas de reparação a realizar para implementar a recomendação
 - Os recursos afetados
+
+## <a name="how-does-microsoft-decide-what-needs-securing-and-hardening"></a>Como é que a Microsoft decide o que precisa de ser assegurado e endurecido?
+
+As recomendações do Centro de Segurança baseiam-se no Benchmark de Segurança Azure. 
+
+A azure Security Benchmark é o conjunto de diretrizes específicas da Microsoft para a segurança e conformidade das melhores práticas com base em quadros comuns de conformidade. Este referencial amplamente respeitado baseia-se nos controlos do [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) e do Instituto Nacional de [Normalização e Tecnologia (NIST)](https://www.nist.gov/) com foco na segurança centrada na nuvem.
+
+Saiba mais sobre a [Referência de Segurança do Azure](../security/benchmarks/introduction.md).
 
 ## <a name="monitor-recommendations"></a>Monitorizar recomendações <a name="monitor-recommendations"></a>
 
@@ -77,7 +86,7 @@ Um exemplo de uma recomendação de pré-visualização:
 
 :::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Recomendação com a bandeira de pré-visualização":::
  
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste documento, foi apresentado às recomendações de segurança no Centro de Segurança. Para informações relacionadas:
 

@@ -1,5 +1,5 @@
 ---
-title: Configure aplicações daemon que chamam APIs web - Plataforma de identidade da Microsoft Rio Azure
+title: Configure aplicações daemon que chamam APIs web - Plataforma de identidade microsoft | Rio Azure
 description: Saiba como configurar o código para a sua aplicação Daemon que chama APIs web (configuração de aplicação)
 services: active-directory
 author: jmprieur
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/19/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 6864502a9d338a786e1e77dbf9888a7818bb94e9
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: c858f48a67cd434a620fb610046833d29b7475f7
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95748653"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756603"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>App Daemon que chama APIs web - configuração de código
 
@@ -26,7 +26,7 @@ Saiba como configurar o código para a sua aplicação daemon que chama APIs web
 
 Estas bibliotecas da Microsoft suportam aplicações daemon:
 
-  Biblioteca MSAL | Description
+  Biblioteca MSAL | Descrição
   ------------ | ----------
   ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | As plataformas .NET Framework e .NET Core são suportadas para a construção de aplicações daemon. (UWP, Xamarin.iOS e Xamarin.Android não são suportados porque essas plataformas são usadas para construir aplicações de clientes públicos.)
   ![Python](media/sample-v2-code/logo_python.png) <br/> Pitão MSAL | Apoio a aplicações daemon em Python.
@@ -348,7 +348,7 @@ ConfidentialClientApplication cca =
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 

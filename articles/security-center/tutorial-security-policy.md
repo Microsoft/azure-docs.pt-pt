@@ -1,5 +1,5 @@
 ---
-title: Trabalhar com políticas de segurança Microsoft Docs
+title: Trabalhar com políticas de segurança | Microsoft Docs
 description: Este artigo descreve como trabalhar com políticas de segurança no Azure Security Center.
 services: security-center
 documentationcenter: na
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 01/24/2021
 ms.author: memildin
-ms.openlocfilehash: 88af554faab9479a402dd393b0a7eed0835ce59e
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 7ea871428fffe685cc9d43dd698bfefb8d8a511a
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814351"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756677"
 ---
 # <a name="manage-security-policies"></a>Manage security policies (Gerir políticas de segurança)
 
@@ -33,7 +33,7 @@ O Azure Security Center faz as suas recomendações de segurança com base nas s
 
 O Centro de Segurança oferece as seguintes opções para trabalhar com políticas de segurança:
 
-* **Ver e editar a política de padrão incorporada** - Quando ativar o Security Center, uma iniciativa incorporada chamada "ASC default" é automaticamente atribuída a todas as subscrições registadas do Security Center. Para personalizar esta iniciativa, pode ativar ou desativar políticas individuais dentro dela. Consulte a lista de [políticas de segurança incorporadas](./policy-reference.md) para entender as opções disponíveis fora da caixa.
+* **Ver e editar a política de incumprimento incorporada** - Quando ativar o Centro de Segurança, a iniciativa denominada 'Azure Security Benchmark' é automaticamente atribuída a todas as subscrições registadas do Security Center. Para personalizar esta iniciativa, pode ativar ou desativar políticas individuais dentro dela. Consulte a lista de [políticas de segurança incorporadas](./policy-reference.md) para entender as opções disponíveis fora da caixa.
 
 * **Adicione as suas próprias políticas personalizadas** - Se quiser personalizar as iniciativas de segurança aplicadas à sua subscrição, pode fazê-lo dentro do Security Center. Em seguida, receberá recomendações se as suas máquinas não seguirem as políticas que cria. Para obter instruções sobre a construção e atribuição de políticas personalizadas, consulte [utilizando políticas de segurança personalizadas](custom-security-policies.md).
 
@@ -128,7 +128,7 @@ Para obter mais informações sobre recomendações, consulte [recomendações d
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Este artigo explicava as políticas de segurança. Para obter informações relacionadas, consulte os seguintes artigos:
 
 - [Saiba como definir políticas usando o PowerShell](../governance/policy/assign-policy-powershell.md) - 

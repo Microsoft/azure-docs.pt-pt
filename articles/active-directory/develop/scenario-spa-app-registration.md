@@ -1,5 +1,5 @@
 ---
-title: Registar aplicações de uma só página (SPA) Rio Azure
+title: Registar aplicações de uma só página (SPA) | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como construir uma aplicação de uma página (registo de aplicações)
 services: active-directory
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: 0050eb61aac53b69c74306b9aaab797d8adfa915
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: d4189e466d5e9b41247723165ce2a5c14c4a8dfa
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98017005"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756402"
 ---
 # <a name="single-page-application-app-registration"></a>Aplicação de uma página única: Registo de aplicações
 

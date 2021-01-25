@@ -1,5 +1,6 @@
 ---
-title: Verificação de editores de resolução de problemas - Plataforma de identidade da Microsoft Rio Azure
+title: '| de verificação de editores de resolução de problemas Rio Azure'
+titleSuffix: Microsoft identity platform
 description: Descreve como resolver problemas na verificação de editores para a plataforma de identidade da Microsoft, chamando APIs do Microsoft Graph.
 services: active-directory
 author: rwike77
@@ -12,12 +13,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 857659cdd97666dba585c1ec22c750e29bf28879
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 10609f2706d257dbe5d8f43b85da5f06cb986cae
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96169176"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756189"
 ---
 # <a name="troubleshoot-publisher-verification"></a>Resolver problemas da verificação do publicador
 Se não conseguir completar o processo ou estiver a experimentar comportamentos inesperados com [a verificação do editor,](publisher-verification-overview.md)deve começar por fazer o seguinte se estiver a receber erros ou a ver comportamentos inesperados: 
@@ -230,11 +231,11 @@ Ocorre quando a autenticação de vários fatores não foi realizada antes de te
 
 A mensagem de erro exibida será: "Devido a uma alteração de configuração feita pelo seu administrador, ou porque se mudou para um novo local, deve utilizar a autenticação de vários fatores para prosseguir."
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se tiver revisto todas as informações anteriores e ainda estiver a receber um erro do Microsoft Graph, recolha o máximo de informações possíveis relacionadas com o pedido de falha e contacte o suporte da [Microsoft.](developer-support-help-options.md#open-a-support-request)
 
-- Timestamp 
+- CarimboDeDataEHora 
 - CorrelationId 
 - ObjectID ou UserPrincipalName assinado no utilizador 
 - ObjectId da aplicação-alvo

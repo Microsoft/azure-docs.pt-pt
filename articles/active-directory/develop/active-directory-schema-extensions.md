@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 07/29/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 8861e641f5ee6a10576425a7702ba02da297a0bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0127c8d796126d1e99b1fa38a9506df477c7eb49
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631278"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755732"
 ---
 # <a name="using-directory-schema-extension-attributes-in-claims"></a>Utilização de atributos de extensão de esquema de diretório em sinistros
 
@@ -29,7 +29,7 @@ Os atributos de extensão de esquema de diretório fornecem uma forma de armazen
 
 Os atributos de extensão do esquema de diretório estão sempre associados a uma aplicação no arrendatário e são referenciados pela *aplicaçãoid* da aplicação em seu nome.
 
-O identificador de um atributo de extensão de esquema de diretório é do formulário *Extension_xxxxxxxxx_AttributeName*.  Onde *xxxxxxxxx* é a *aplicaçãoId* da aplicação para a qual a extensão foi definida.
+O identificador de um atributo de extensão de esquema de diretório é do formulário *Extension_xxxxxxxxx_AttributeName*.  Onde *xxxxx* é a *aplicaçãoId* da aplicação para a qual a extensão foi definida.
 
 ## <a name="registering-and-using-directory-schema-extensions"></a>Registar e utilizar extensões de esquema de diretório
 Os atributos de extensão do esquema de diretório podem ser registados e povoados de uma de duas maneiras:
@@ -41,7 +41,7 @@ Os atributos de extensão do esquema de diretório podem ser registados e povoad
 Os atributos de extensão de esquema de diretório criados e sincronizados usando o AD Connect estão sempre associados ao ID de aplicação utilizado pelo AD Connect. Podem ser utilizados como fonte de reclamações, configurando-as como reclamações na configuração **de Aplicações Empresariais** no Portal UI para aplicações SAML registadas usando a Galeria ou a experiência de configuração de aplicação não-Galeria ao abrigo **de Aplicações empresariais,** e através de uma política de mapeamento de reclamações para aplicações registadas através da experiência de registo de aplicações.  Uma vez que um atributo de extensão de diretório criado via AD Connect esteja no diretório, ele aparecerá na configuração de reclamações SAML SSO UI.
 
 ### <a name="emitting-claims-with-data-from-directory-schema-extension-attributes-created-for-an-application-using-graph-or-powershell"></a>Emissão de reclamações com dados de atributos de extensão de esquema de diretório criados para uma aplicação usando Graph ou PowerShell
-Se um atributo de extensão de esquema de diretório estiver registado para uma aplicação utilizando o Microsoft Graph ou PowerShell (através de uma configuração inicial de aplicações ou passo de provisionamento, por exemplo), a mesma aplicação pode ser configurada no Azure Ative Directory para receber dados nesse atributo de um objeto de utilizador numa reivindicação quando o utilizador se inscreve.  O pedido pode ser configurado para receber dados em extensões de esquema de diretório que estejam registadas nessa mesma aplicação usando [reclamações opcionais.](active-directory-optional-claims.md#configuring-directory-extension-optional-claims)  Estes podem ser definidos no manifesto de candidatura.  Isto permite que uma aplicação multi-inquilino registe atributos de extensão de esquema de diretório para seu próprio uso. Quando a aplicação é disponibilizada a um inquilino, as extensões de esquema de diretório associadas ficam disponíveis para serem fixadas aos utilizadores desse inquilino e para serem consumidas.  Uma vez configurado no arrendatário e o consentimento concedido, pode ser usado para armazenar e recuperar dados através de gráfico e mapear para reclamações em fichas a plataforma de identidade da Microsoft emite para aplicações.
+Se um atributo de extensão de esquema de diretório estiver registado para uma aplicação utilizando o Microsoft Graph ou PowerShell (através de uma configuração inicial de aplicações ou passo de provisionamento, por exemplo), a mesma aplicação pode ser configurada no Azure Ative Directory para receber dados nesse atributo de um objeto de utilizador numa reivindicação quando o utilizador se inscreve.  O pedido pode ser configurado para receber dados em extensões de esquema de diretório que estejam registadas nessa mesma aplicação usando [reclamações opcionais.](active-directory-optional-claims.md#configuring-directory-extension-optional-claims)  Estes podem ser definidos no manifesto de candidatura.  Isto permite que uma aplicação multi-inquilino registe atributos de extensão de esquema de diretório para seu próprio uso. Quando a aplicação é disponibilizada a um inquilino, as extensões de esquema de diretório associadas ficam disponíveis para serem fixadas aos utilizadores desse inquilino e para serem consumidas.  Uma vez configurado no arrendatário e o consentimento concedido, pode ser usado para armazenar e recuperar dados através de gráfico e mapear para reclamações em fichas que a plataforma de identidade microsoft emite para aplicações.
 
 Os atributos de extensão do esquema de diretório podem ser registados e povoados para qualquer aplicação.
 
@@ -71,6 +71,6 @@ Onde *xxxxxxx* é o ID da aplicação com que a extensão foi registada.
 >
 > O parâmetro "ID" no esquema de alegações utilizado para atributos de diretório incorporado é "ExtensionID" para atributos de extensão de diretório.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Saiba como [adicionar reclamações personalizadas ou adicionais aos tokens SAML 2.0 e JSON Web Tokens (JWT).](active-directory-optional-claims.md)
 - Saiba como [personalizar as reclamações emitidas em fichas para uma aplicação específica.](active-directory-claims-mapping.md)

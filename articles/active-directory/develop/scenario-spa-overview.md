@@ -1,5 +1,6 @@
 ---
-title: Cenário de aplicação de página única JavaScript - plataforma de identidade da Microsoft Rio Azure
+title: Cenário de aplicação de página única JavaScript
+titleSuffix: Microsoft identity platform
 description: Saiba como construir uma aplicação de uma página (visão geral do cenário) utilizando a plataforma de identidade da Microsoft.
 services: active-directory
 author: navyasric
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: 17acb2bc5e96a136f31371c0be912c2c758c0f76
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 47b8c8c074a5e0ce3ed73a2a9a4b06aa307cdff3
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443862"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756423"
 ---
 # <a name="scenario-single-page-application"></a>Cenário: Aplicação de página única
 
@@ -56,6 +57,6 @@ Para ativar este cenário para a sua aplicação, precisa:
 
 [!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Passe para o próximo artigo neste cenário, [registo de aplicações.](scenario-spa-app-registration.md)

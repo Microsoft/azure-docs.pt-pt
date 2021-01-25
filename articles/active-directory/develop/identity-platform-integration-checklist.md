@@ -1,5 +1,5 @@
 ---
-title: Boas práticas para a plataforma de identidade da Microsoft Rio Azure
+title: As melhores práticas para a plataforma de identidade da Microsoft | Rio Azure
 description: Conheça as melhores práticas, recomendações e descuidos comuns ao integrar-se na plataforma de identidade da Microsoft.
 services: active-directory
 author: rwike77
@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 011acdf98c8430bfb7ba1b02ec24a170f829e48f
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: cefcf6b1bcd7ac5f81fa4e872b30660183a46a82
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063795"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755249"
 ---
 # <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>As melhores práticas e recomendações da plataforma de identidade da Microsoft
 
@@ -104,7 +104,7 @@ Utilize a seguinte lista de verificação para garantir que a sua aplicação es
 
 Explore informações aprofundadas sobre o v2.0:
 
-* [Plataforma de identidade da Microsoft (visão geral v2.0)](v2-overview.md)
+* [Plataforma de identidade da Microsoft (visão geral)](v2-overview.md)
 * [Referência de protocolos de plataforma de identidade da Microsoft](active-directory-v2-protocols.md)
 * [Referência de tokens de acesso](access-tokens.md)
 * [Referência de tokens de ID](id-tokens.md)

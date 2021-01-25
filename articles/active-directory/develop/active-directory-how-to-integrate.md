@@ -1,5 +1,5 @@
 ---
-title: Como integrar-se com a plataforma de identidade da Microsoft Rio Azure
+title: Como integrar-se com a plataforma de identidade da Microsoft | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Conheça os benefícios de integrar a sua aplicação com a plataforma de identidade da Microsoft e obtenha recursos para funcionalidades como sing-in simplificado, gestão de identidade, autenticação de vários fatores e controlo de acesso.
 services: active-directory
@@ -14,26 +14,26 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, seoapril2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: deb923a52e5d6cd5384dbf94d2249572b25b1a61
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: b7ee283ff61753a060e49a3340cd0a795b04faf9
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063846"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755925"
 ---
-# <a name="integrating-with-microsoft-identity-platform"></a>Integração com a plataforma de identidade da Microsoft
+# <a name="integrating-with-the-microsoft-identity-platform"></a>Integração na plataforma de identidade da Microsoft
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
-Neste artigo, aprende sobre os benefícios de integrar a sua aplicação com a plataforma de identidade da Microsoft e obter recursos para integração. A plataforma de identidade microsoft e o Azure Ative Directory (AD) fornecem às organizações uma gestão de identidade de nível empresarial para aplicações na nuvem. A integração da plataforma de identidade da Microsoft proporciona aos seus utilizadores uma experiência de sismo simplificada e ajuda a sua aplicação a cumprir a política de TI.
+Neste artigo, aprende sobre os benefícios de integrar a sua aplicação na plataforma de identidade da Microsoft e obter recursos para integração. A plataforma de identidade da Microsoft e o Azure Ative Directory (AD) fornecem às organizações uma gestão de identidade de nível empresarial para aplicações na nuvem. A integração da plataforma de identidade da Microsoft proporciona aos seus utilizadores uma experiência de sismo simplificada e ajuda a sua aplicação a cumprir a política de TI.
 
 ## <a name="how-to-integrate"></a>Como integrar
 
-Existem várias formas de a sua aplicação se integrar com a plataforma de identidade da Microsoft. Aproveite quantos ou poucos destes cenários for apropriado para a sua aplicação.
+Existem várias formas de a sua aplicação se integrar na plataforma de identidade da Microsoft. Aproveite quantos ou poucos destes cenários for apropriado para a sua aplicação.
 
-### <a name="support-microsoft-identity-platform-as-a-way-to-sign-in-to-your-application"></a>Apoie a plataforma de identidade da Microsoft como forma de iniciar sôms na sua aplicação
+### <a name="support-the-microsoft-identity-platform-as-a-way-to-sign-in-to-your-application"></a>Apoie a plataforma de identidade da Microsoft como forma de iniciar sôms na sua aplicação
 
-**Reduza o sinal de atrito e reduza os custos de suporte.** Ao utilizar a plataforma de identidade da Microsoft para iniciar sôms na sua aplicação, os seus utilizadores não terão mais um nome e senha para se lembrarem. Como desenvolvedor, terá uma senha a menos para armazenar e proteger. Não ter de lidar com resets de palavras-passe esquecidos pode ser uma poupança significativa por si só. Os poderes da plataforma de identidade da Microsoft inscrevem-se em algumas das aplicações cloud mais populares do mundo, incluindo o Microsoft 365 e o Microsoft Azure. Com centenas de milhões de utilizadores de milhões de organizações, é provável que o seu utilizador já esteja inscrito na plataforma de identidade da Microsoft. Saiba mais sobre [a adição de suporte para o sinal da plataforma de identidade da Microsoft.](./authentication-vs-authorization.md)
+**Reduza o sinal de atrito e reduza os custos de suporte.** Ao utilizar a plataforma de identidade da Microsoft para iniciar sôm na sua aplicação, os seus utilizadores não terão mais um nome e senha para se lembrarem. Como desenvolvedor, terá uma senha a menos para armazenar e proteger. Não ter de lidar com resets de palavras-passe esquecidos pode ser uma poupança significativa por si só. A plataforma de identidade da Microsoft faz o sismo de algumas das aplicações cloud mais populares do mundo, incluindo o Microsoft 365 e o Microsoft Azure. Com centenas de milhões de utilizadores de milhões de organizações, é provável que o seu utilizador já esteja inscrito na plataforma de identidade da Microsoft. Saiba mais sobre [a adição de suporte para o sinal de plataforma de identidade da Microsoft.](./authentication-vs-authorization.md)
 
 **Simplifique o seu pedido.**  Durante o pré-inscrição para a sua aplicação, a plataforma de identidade da Microsoft pode enviar informações essenciais sobre um utilizador para que possa pré-preencher o formulário de inscrição ou eliminá-lo completamente. Os utilizadores podem inscrever-se na sua aplicação utilizando a sua conta Azure AD através de uma experiência de consentimento familiar semelhante à encontrada nas redes sociais e aplicações móveis. Qualquer utilizador pode inscrever-se e iniciar seduca numa aplicação que está integrada na plataforma de identidade da Microsoft sem necessitar de envolvimento de TI. Saiba mais sobre [a inscrição na sua candidatura para o login da Conta AD Azure.](../../app-service/configure-authentication-provider-aad.md)
 
@@ -49,7 +49,7 @@ Existem várias formas de a sua aplicação se integrar com a plataforma de iden
 
 ### <a name="get-access-to-users-profile-calendar-email-contacts-files-and-more"></a>Tenha acesso ao perfil dos utilizadores, calendário, e-mail, contactos, ficheiros e muito mais
 
-**A plataforma de identidade da Microsoft é o servidor de autorização do Microsoft 365 e de outros serviços comerciais da Microsoft.**  Se apoiar a plataforma de identidade da Microsoft para iniciar sessão na sua aplicação ou suporte que ligue as suas contas de utilizador corrente às contas de utilizadores Azure AD utilizando o OAuth 2.0, pode solicitar a leitura e escrever o acesso ao perfil de um utilizador, calendário, e-mail, contactos, ficheiros e outras informações. Pode escrever eventos perfeitamente para o calendário do utilizador e ler ou escrever ficheiros para o seu OneDrive. Saiba mais sobre [as APIs microsoft 365](/graph/overview).
+**A plataforma de identidade da Microsoft é o servidor de autorização do Microsoft 365 e de outros serviços comerciais da Microsoft.**  Se apoiar a plataforma de identidade da Microsoft para iniciar sessão na sua aplicação ou suporte que ligue as suas contas de utilizador corrente às contas de utilizadores Azure AD utilizando o OAuth 2.0, pode solicitar a leitura e escrever acesso ao perfil de um utilizador, calendário, e-mail, contactos, ficheiros e outras informações. Pode escrever eventos perfeitamente para o calendário do utilizador e ler ou escrever ficheiros para o seu OneDrive. Saiba mais sobre [as APIs microsoft 365](/graph/overview).
 
 ### <a name="promote-your-application-in-the-azure-and-microsoft-365-marketplaces"></a>Promover a sua aplicação nos Mercados Azure e Microsoft 365
 
@@ -59,7 +59,7 @@ Existem várias formas de a sua aplicação se integrar com a plataforma de iden
 
 ### <a name="secure-device-to-service-and-service-to-service-communication"></a>Comunicação segura de dispositivo a serviço e serviço-a-serviço
 
-**A utilização da plataforma de identidade da Microsoft para a gestão de identidade de serviços e dispositivos reduz o código que precisa de escrever e permite que as TI gerem o acesso.**  Os serviços e dispositivos podem obter fichas da plataforma de identidade da Microsoft usando o OAuth e usar esses tokens para aceder a APIs web. Utilizando a plataforma de identidade da Microsoft, pode evitar escrever código de autenticação complexo. Uma vez que as identidades dos serviços e dispositivos são armazenados no Azure AD, o TI pode gerir as chaves e a revogação num só local em vez de ter de o fazer separadamente na sua aplicação.
+**A utilização da plataforma de identidade da Microsoft para a gestão de identidade de serviços e dispositivos reduz o código que precisa de escrever e permite que as TI gerem o acesso.**  Os serviços e dispositivos podem obter fichas da plataforma de identidade da Microsoft usando o OAuth e usar esses tokens para aceder a APIs web. Utilizando a plataforma de identidade microsoft pode evitar escrever código de autenticação complexo. Uma vez que as identidades dos serviços e dispositivos são armazenados no Azure AD, o TI pode gerir as chaves e a revogação num só local em vez de ter de o fazer separadamente na sua aplicação.
 
 ## <a name="benefits-of-integration"></a>Benefícios da integração
 
@@ -73,7 +73,7 @@ A integração com a plataforma de identidade da Microsoft vem com benefícios q
 
 ### <a name="advanced-security-features"></a>Recursos avançados de segurança
 
-**Autenticação multi-factor.**  A plataforma de identidade microsoft fornece autenticação de vários fatores nativos. Os administradores de TI podem exigir a autenticação de vários fatores para aceder à sua aplicação, para que não tenha de codificar este suporte por si mesmo. Saiba mais sobre [a Autenticação Multi-Factor.](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
+**Autenticação multi-factor.**  A plataforma de identidade da Microsoft fornece autenticação de vários fatores nativos. Os administradores de TI podem exigir a autenticação de vários fatores para aceder à sua aplicação, para que não tenha de codificar este suporte por si mesmo. Saiba mais sobre [a Autenticação Multi-Factor.](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
 
 **Sinal anómalo na deteção.**  A plataforma de identidade da Microsoft processa mais de mil milhões de inscrições por dia, enquanto utiliza algoritmos de aprendizagem automática para detetar atividades suspeitas e notificar os administradores de TI de possíveis problemas. Ao apoiar o início da plataforma de identidade da Microsoft, a sua aplicação beneficia desta proteção. Saiba mais sobre [a visualização do relatório de acesso ao Azure Ative Directory](../reports-monitoring/overview-reports.md).
 
@@ -81,7 +81,7 @@ A integração com a plataforma de identidade da Microsoft vem com benefícios q
 
 ### <a name="easy-development"></a>Desenvolvimento fácil
 
-**Protocolos padrão da indústria.**  A Microsoft está empenhada em apoiar os padrões da indústria. A plataforma de identidade da Microsoft suporta os protocolos OAuth 2.0 e OpenID Connect 1.0 padrão da indústria. Saiba mais sobre [os protocolos de autenticação da plataforma de identidade da Microsoft.](active-directory-v2-protocols.md)
+**Protocolos padrão da indústria.**  A Microsoft está empenhada em apoiar os padrões da indústria. A plataforma de identidade da Microsoft suporta os protocolos OAuth 2.0 e OpenID Connect 1.0 padrão da indústria. Saiba mais sobre os [protocolos de autenticação da plataforma de identidade da Microsoft.](active-directory-v2-protocols.md)
 
 **Bibliotecas de código aberto.**  A Microsoft fornece bibliotecas de código aberto totalmente suportadas para idiomas e plataformas populares para acelerar o desenvolvimento. O código fonte é licenciado sob Apache 2.0, e você é livre para fork e contribuir de volta para os projetos. Saiba mais sobre a [Biblioteca de Autenticação da Microsoft (MSAL)](reference-v2-libraries.md).
 
@@ -93,4 +93,4 @@ A integração com a plataforma de identidade da Microsoft vem com benefícios q
 
 [Começa a escrever código.](v2-overview.md#getting-started)
 
-[Inscreva utilizadores na utilização da plataforma de identidade microsoft](./authentication-vs-authorization.md)
+[Inscreva os utilizadores na utilização da plataforma de identidade microsoft](./authentication-vs-authorization.md)

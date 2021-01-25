@@ -1,5 +1,5 @@
 ---
-title: 'Como: Remover uma aplicação registada da plataforma de identidade microsoft Rio Azure'
+title: 'Como: Remover uma aplicação registada da plataforma de identidade microsoft | Rio Azure'
 titleSuffix: Microsoft identity platform
 description: Nesta forma de remover uma aplicação registada na plataforma de identidade da Microsoft.
 services: active-directory
@@ -13,16 +13,16 @@ ms.date: 11/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: marsma, aragra, lenalepa, sureshja
-ms.openlocfilehash: 033d5cfa5dbe5e0010bc1182f54643ec04db3ce3
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 24c29d34c14e6237bc79e38741ea244da5429e9e
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98017617"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754560"
 ---
 # <a name="how-to-remove-an-application-registered-with-the-microsoft-identity-platform"></a>Como remover uma aplicação registada na plataforma de identidade da Microsoft
 
-Os programadores empresariais e os fornecedores de software como um serviço (SaaS) que tenham registado aplicações com a plataforma de identidade da Microsoft poderão ter de remover o registo dessas aplicações.
+Os desenvolvedores empresariais e fornecedores de software-as-a-service (SaaS) que tenham registado aplicações com a plataforma de identidade da Microsoft podem precisar de remover o registo de uma aplicação.
 
 Nas seguintes secções, aprende-se a:
 

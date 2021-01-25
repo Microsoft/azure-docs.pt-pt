@@ -1,5 +1,5 @@
 ---
-title: Fluxos de autenticação MSAL / Rio Azure
+title: Fluxos de autenticação MSAL | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Saiba mais sobre os fluxos de autenticação e subsídios utilizados pela Microsoft Authentication Library (MSAL).
 services: active-directory
@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/08/2020
+ms.date: 01/25/2021
 ms.author: marsma
 ms.reviewer: saeeda
-ms.openlocfilehash: 4a902ed53e92cd073d81626e80bdb3c8629ad072
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78932e5852453fe996e26a278f8a1859a8ecf546
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89437875"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755020"
 ---
 # <a name="authentication-flows"></a>Fluxos de autenticação
 
@@ -78,7 +78,7 @@ No diagrama anterior, a aplicação:
 
 ## <a name="client-credentials"></a>Credenciais de cliente
 
-O [fluxo de credenciais de cliente OAuth 2](v2-oauth2-client-creds-grant-flow.md) permite-lhe aceder a recursos hospedados na Web utilizando a identidade de uma aplicação. Este tipo de concessão é comumente usado para interações servidor-a-servidor que devem ser executadas em segundo plano, sem interação imediata com um utilizador. Estes tipos de aplicações são muitas vezes referidos como daemons ou contas de serviço.
+O [fluxo de credenciais de cliente OAuth 2](v2-oauth2-client-creds-grant-flow.md) permite-lhe aceder a recursos hospedados na Web utilizando a identidade de uma aplicação. Este tipo de concessão é comumente utilizado para interações de servidor para servidor que têm de ser executadas em segundo plano, sem interação imediata com um utilizador. Estes tipos de aplicações são frequentemente denominados daemons ou conta de serviço.
 
 As credenciais do cliente concedem fluxo permite que um serviço web (um cliente confidencial) utilize as suas próprias credenciais, em vez de se fazer passar por utilizador, para autenticar quando liga para outro serviço web. Neste cenário, o cliente é tipicamente um serviço web de nível médio, um serviço daemon ou um site. Para um nível de garantia mais elevado, a plataforma de identidade da Microsoft também permite que o serviço de chamadas utilize um certificado (em vez de um segredo partilhado) como credencial.
 
@@ -223,11 +223,11 @@ Isto significa que um dos seguintes é verdade:
 - Forneceu uma forma de os utilizadores consentirem com a aplicação; ver [Solicitar o consentimento individual do utilizador.](v2-permissions-and-consent.md#requesting-individual-user-consent)
 - Forneceu uma maneira de o administrador do inquilino consentir o pedido; ver [consentimento administrativo](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
 
-O fluxo IWA está ativado para aplicações .NET desktop, .NET Core e Windows Universal Platform. Em .NET Core deve fornecer o nome de utilizador à IWA, porque .NET Core não pode obter nomes de utilizador do sistema operativo.
+O fluxo IWA está ativado para aplicações .NET desktop, .NET Core e Windows Universal Platform.
 
 Para obter mais informações sobre o consentimento, consulte [permissões v2.0 e consentimento.](v2-permissions-and-consent.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que reviu os fluxos de autenticação suportados pela Microsoft Authentication Library (MSAL), saiba a aquisição e caching dos tokens utilizados nestes fluxos:
 

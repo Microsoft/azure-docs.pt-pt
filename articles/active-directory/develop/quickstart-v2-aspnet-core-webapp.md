@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Adicione o início de sing-in com a Microsoft a uma aplicação web core ASP.NET [ Rio Azure'
+title: 'Quickstart: Adicione o início de sôs-in com a Microsoft a uma aplicação web core ASP.NET | Rio Azure'
 titleSuffix: Microsoft identity platform
 description: Neste quickstart, você aprende como uma aplicação implementa o início de sôrção da Microsoft em uma aplicação web core ASP.NET usando OpenID Connect
 services: active-directory
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/11/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 293a8d8b8add37f78e5a900b093ec89e95851aec
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: c20685c0c392ece68dc80b57afc6680f2efd9e35
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178641"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754518"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Quickstart: Adicione o início de sôs-in com a Microsoft a uma aplicação web core ASP.NET
 
@@ -148,7 +148,7 @@ O middleware *Microsoft.AspNetCore.Authentication* utiliza uma `Startup` classe 
 
 O `AddAuthentication()` método configura o serviço para adicionar autenticação baseada em cookies, que é usada em cenários de navegador e para definir o desafio para OpenID Connect.
 
-A linha que contém `.AddMicrosoftIdentityWebApp` adiciona a autenticação da plataforma de identidade da Microsoft à sua aplicação. Em seguida, é configurado para iniciar sação usando o ponto final da plataforma de identidade da Microsoft com base nas informações `AzureAD` na secção doappsettings.js *no* ficheiro de configuração:
+A linha que contém `.AddMicrosoftIdentityWebApp` adiciona a autenticação da plataforma de identidade da Microsoft à sua aplicação. Em seguida, é configurado para iniciar sedução usando a plataforma de identidade da Microsoft com base nas informações na `AzureAD` secção doappsettings.js *no* ficheiro de configuração:
 
 | *appsettings.jsna* chave | Descrição                                                                                                                                                          |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -180,7 +180,7 @@ Pode proteger um controlador ou métodos de controlador utilizando o `[Authorize
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 O repo GitHub que contém este tutorial ASP.NET Core inclui instruções e mais amostras de código que mostram como:
 

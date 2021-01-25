@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Adicione o início de sôs-in com a Microsoft a uma aplicação Android Rio Azure'
+title: 'Quickstart: Adicione o início de sôr-in com a Microsoft a uma aplicação Android | Rio Azure'
 titleSuffix: Microsoft identity platform
 description: Neste quickstart, saiba como as aplicações android podem chamar uma API que requer acesso a tokens emitidos pela plataforma de identidade da Microsoft.
 services: active-directory
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/15/2019
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:Android
-ms.openlocfilehash: f5909a3a824149d9bb4247c78eaaa895b040c6f2
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 42a054f211d2509dee4e9e55eeb3ea82fa46da9d
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95993980"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754575"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Início Rápido: Iniciar sessão dos utilizadores e chamar a Microsoft Graph API a partir de uma aplicação Android
 
@@ -478,7 +478,7 @@ Ao contrário do [auth_config_single_account.jsno](#auth_config_single_accountjs
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Passe para o tutorial android no qual constrói uma aplicação Android que obtém um token de acesso a partir da plataforma de identidade da Microsoft e a usa para ligar para a Microsoft Graph API.
 

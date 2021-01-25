@@ -1,7 +1,7 @@
 ---
-title: Fluxo de entrada de app com plataforma de identidade da Microsoft Rio Azure
+title: Fluxo de entrada de aplicativos com a plataforma de identidade microsoft | Rio Azure
 titleSuffix: Microsoft identity platform
-description: Conheça o fluxo de entrada de aplicações web, desktop e mobile na plataforma de identidade da Microsoft (v2.0).
+description: Conheça o fluxo de entrada de aplicações web, desktop e mobile na plataforma de identidade da Microsoft.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -13,14 +13,14 @@ ms.date: 05/18/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: af5b27dc85a276c731a61135ab59ab81f5aaf3c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f9f330ab140fa66b5a66a112c47ca2a68ba56bf
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83772204"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755705"
 ---
-# <a name="app-sign-in-flow-with-microsoft-identity-platform"></a>Fluxo de entrada de aplicativo com plataforma de identidade da Microsoft
+# <a name="app-sign-in-flow-with-the-microsoft-identity-platform"></a>Fluxo de entrada de aplicativos com a plataforma de identidade da Microsoft
 
 Este tópico discute o fluxo básico de entrada para aplicações web, desktop e mobile usando a plataforma de identidade da Microsoft. Consulte [fluxos de autenticação e cenários](authentication-flows-app-scenarios.md) de aplicações para conhecer os cenários de entrada suportados pela plataforma de identidade da Microsoft.
 
@@ -48,7 +48,7 @@ Os desenvolvedores de aplicações web podem indicar se todas ou apenas determin
 
 Este atributo faz com que ASP.NET verifique a presença de um cookie de sessão que contenha a identidade do utilizador. Se um cookie não estiver presente, ASP.NET redireciona a autenticação para o fornecedor de identidade especificado. Se o fornecedor de identidade for Azure AD, a aplicação web redireciona a autenticação para `https://login.microsoftonline.com` , que exibe um diálogo de inscrição.
 
-### <a name="how-a-web-app-delegates-sign-in-to-microsoft-identity-platform-and-obtains-a-token"></a>Como uma aplicação web delega o acesso à plataforma de identidade da Microsoft e obtém um token
+### <a name="how-a-web-app-delegates-sign-in-to-the-microsoft-identity-platform-and-obtains-a-token"></a>Como uma aplicação web delega o acesso à plataforma de identidade da Microsoft e obtém um token
 
 A autenticação do utilizador acontece através do browser. O protocolo OpenID utiliza mensagens de protocolo HTTP padrão.
 
@@ -71,7 +71,7 @@ Como o Azure AD guarda o mesmo cookie de identidade no navegador como para aplic
 
 Por padrão, o MSAL utiliza o navegador do sistema. A exceção são aplicações de ambiente de trabalho .NET Framework onde um controlo incorporado é usado para proporcionar uma experiência de utilizador mais integrada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para outros tópicos que abranjam os fundamentos básicos de autenticação e autorização:
 

@@ -1,5 +1,6 @@
 ---
-title: Construa uma API web que chame APIs web - plataforma de identidade microsoft / Rio Azure
+title: Construa uma API web que chame APIs web | Rio Azure
+titleSuffix: Microsoft identity platform
 description: Saiba como construir uma API web que chama APIs da web a jusante (visão geral).
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: ee9d879849a94ac255a0967ad4fbc762417f8cd4
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: a66f0a2de1d8239baffbe53dfb5d6f2dd275d448
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442655"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756348"
 ---
 # <a name="scenario-a-web-api-that-calls-web-apis"></a>Cenário: Uma API web que chama APIs web
 
@@ -38,6 +39,6 @@ Este cenário, no qual uma API web protegida chama a outras APIs web, baseia-se 
 
 A parte de registo de aplicações relacionada com permissões de API é clássica. A configuração da aplicação envolve a utilização do fluxo OAuth 2.0 On-Behalf-Of para trocar o token do portador JWT contra um símbolo para uma API a jusante. Este token é adicionado à cache simbólica, onde está disponível nos controladores da API web, e pode então adquirir um símbolo silenciosamente para chamar APIs a jusante.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Passe para o próximo artigo neste cenário, [registo de aplicações.](scenario-web-api-call-api-app-registration.md)

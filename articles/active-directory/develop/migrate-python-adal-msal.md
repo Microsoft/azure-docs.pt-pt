@@ -1,5 +1,5 @@
 ---
-title: Python ADAL para guia de migração MSAL / Rio Azure
+title: Python ADAL para guia de migração MSAL | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como migrar a sua app Azure Ative Directory Authentication Library (ADAL) Python para a Microsoft Authentication Library (MSAL) para Python.
 services: active-directory
@@ -14,12 +14,12 @@ ms.date: 11/11/2019
 ms.author: rayluo
 ms.reviewer: marsma, rayluo, nacanuma
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 213184409c9f5ee21ac9f61be1ad138fbbaa3590
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 42ffc7ffba20868b23675fd8613fd3ef11b0924a
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107860"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755042"
 ---
 # <a name="adal-to-msal-migration-guide-for-python"></a>Guia de migração ADAL para MSAL para Python
 
@@ -38,13 +38,13 @@ Suportes:
   - OAuth v2.0
   - Ligação OpenID (OIDC)
 
-Veja [o que há de diferente na plataforma de identidade da Microsoft (v2.0)](../azuread-dev/azure-ad-endpoint-comparison.md) para mais detalhes.
+Veja [o que há de diferente na plataforma de identidade da Microsoft para](../azuread-dev/azure-ad-endpoint-comparison.md) mais detalhes.
 
 ### <a name="scopes-not-resources"></a>Âmbitos não recursos
 
 ADAL Python adquire fichas para recursos, mas a MSAL Python adquire fichas para miras. A superfície da API em MSAL Python já não tem parâmetro de recurso. Você precisaria fornecer âmbitos como uma lista de cordas que declaram as permissões e recursos desejados que são solicitados. Para ver alguns exemplos de âmbitos, consulte os [âmbitos do Microsoft Graph](/graph/permissions-reference).
 
-Pode adicionar o `/.default` sufixo de âmbito ao recurso para ajudar a migrar as suas aplicações do ponto final v1.0 (ADAL) para o ponto final da plataforma de identidade da Microsoft (MSAL). Por exemplo, para o valor de recursos `https://graph.microsoft.com` de, o valor de âmbito equivalente é `https://graph.microsoft.com/.default` .  Se o recurso não estiver no formulário URL, mas sim num ID de recurso do `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX` formulário, ainda pode utilizar o valor de âmbito como `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX/.default` .
+Pode adicionar o `/.default` sufixo de âmbito ao recurso para ajudar a migrar as suas aplicações do ponto final v1.0 (ADAL) para a plataforma de identidade da Microsoft (MSAL). Por exemplo, para o valor de recursos `https://graph.microsoft.com` de, o valor de âmbito equivalente é `https://graph.microsoft.com/.default` .  Se o recurso não estiver no formulário URL, mas sim num ID de recurso do `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX` formulário, ainda pode utilizar o valor de âmbito como `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX/.default` .
 
 Para obter mais detalhes sobre os diferentes tipos de âmbitos, consulte [permissões e consentimento na plataforma de identidade da Microsoft](./v2-permissions-and-consent.md) e nos [Âmbitos para uma API Web aceitando artigos de fichas v1.0.](./msal-v1-app-scopes.md)
 
@@ -92,7 +92,7 @@ def get_preexisting_rt_and_their_scopes_from_elsewhere():
     # You may be able to append "/.default" to your v1 resource to form a scope
     # See https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#the-default-scope
 
-    # Or maybe you have an app already talking to Microsoft identity platform v2,
+    # Or maybe you have an app already talking to the Microsoft identity platform,
     # powered by some 3rd-party auth library, and persist its tokens somehow.
 
     # Either way, you need to extract RTs from there, and return them like this.
@@ -120,6 +120,6 @@ print("Migration completed")
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações, consulte a [comparação v1.0 e v2.0](../azuread-dev/azure-ad-endpoint-comparison.md).

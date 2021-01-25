@@ -1,7 +1,7 @@
 ---
-title: Modelo de aplicação / Rio Azure
+title: Modelo de aplicação | Rio Azure
 titleSuffix: Microsoft identity platform
-description: Conheça o processo de registo da sua aplicação para que possa integrar-se com a plataforma de identidade da Microsoft (v2.0).
+description: Conheça o processo de registo da sua aplicação para que possa integrar-se com a plataforma de identidade da Microsoft.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -13,12 +13,12 @@ ms.date: 04/28/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 5aca96a9c3bc4e8f1061f677e316565b10014ac9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ba41e36d12b58da2e572cf870195716eacaddef
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88117486"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755674"
 ---
 # <a name="application-model"></a>Modelo de aplicação
 
@@ -41,7 +41,7 @@ A plataforma de identidade da Microsoft representa aplicações utilizando um mo
 * Identifique a aplicação pelos protocolos de autenticação que suporta
 * Forneça todos os identificadores, URLs, segredos e informações relacionadas que são necessários para autenticar
 
-Plataforma de identidade da Microsoft:
+A plataforma de identidade da Microsoft:
 
 * Detém todos os dados necessários para suportar a autenticação em tempo de execução
 * Detém todos os dados para decidir que recursos uma app pode precisar de aceder, e em que circunstâncias um dado pedido deve ser preenchido
@@ -55,7 +55,7 @@ Plataforma de identidade da Microsoft:
 
 ## <a name="multi-tenant-apps"></a>Aplicações multi-inquilino
 
-Na plataforma de identidade da Microsoft, um [objeto de aplicação](developer-glossary.md#application-object) descreve uma aplicação. No momento da implementação, a plataforma de identidade da Microsoft utiliza o objeto de aplicação como uma planta para criar um [principal serviço](developer-glossary.md#service-principal-object), o que representa uma instância concreta de uma aplicação dentro de um diretório ou inquilino. O diretor de serviço define o que a app pode realmente fazer num diretório-alvo específico, quem pode usá-lo, quais os recursos a que tem acesso, e assim por diante. A plataforma de identidade da Microsoft cria um principal de serviço a partir de um objeto de aplicação através do [consentimento.](developer-glossary.md#consent)
+Na plataforma de identidade da Microsoft, um [objeto de aplicação](developer-glossary.md#application-object) descreve uma aplicação. No momento da implementação, a plataforma de identidade da Microsoft utiliza o objeto de aplicação como um plano para criar um [principal serviço](developer-glossary.md#service-principal-object), o que representa uma instância concreta de uma aplicação dentro de um diretório ou inquilino. O diretor de serviço define o que a app pode realmente fazer num diretório-alvo específico, quem pode usá-lo, quais os recursos a que tem acesso, e assim por diante. A plataforma de identidade da Microsoft cria um principal de serviço a partir de um objeto de aplicação através do [consentimento.](developer-glossary.md#consent)
 
 O diagrama seguinte mostra um fluxo de provisão de plataforma de identidade da Microsoft simplificado impulsionado pelo consentimento. Mostra dois inquilinos: *A* e *B.*
 
@@ -69,12 +69,12 @@ Neste fluxo de aprovisionamento:
 1. Um utilizador do inquilino B tenta entrar com a app, o ponto final de autorização solicita um sinal para a aplicação.
 1. As credenciais de utilizador são adquiridas e verificadas para autenticação.
 1. O utilizador é solicitado a fornecer consentimento para que a app obtenha acesso ao inquilino B.
-1. A plataforma de identidade da Microsoft usa o objeto de aplicação no inquilino A como um plano para criar um principal de serviço no inquilino B.
+1. A plataforma de identidade da Microsoft usa o objeto de aplicação no inquilino A como um plano para criar um principal serviço no inquilino B.
 1. O utilizador recebe o token solicitado.
 
 Pode repetir este processo para inquilinos adicionais. O inquilino A mantém a planta para a aplicação (objeto de aplicação). Os utilizadores e administradores de todos os outros inquilinos onde a app é dada consentimento controlam o que a aplicação é permitida através do objeto principal de serviço correspondente em cada inquilino. Para obter mais informações, consulte [os objetos principais de aplicação e serviço na plataforma de identidade da Microsoft.](app-objects-and-service-principals.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para outros tópicos que abranjam os fundamentos básicos de autenticação e autorização:
 

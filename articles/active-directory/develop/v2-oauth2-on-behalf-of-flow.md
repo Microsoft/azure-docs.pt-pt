@@ -13,12 +13,12 @@ ms.date: 08/7/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 8c8167142876dfac0ae0aeff51e85b66c65c607b
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: ff8e03b813e2cb890192667e3466d920eaabc72c
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98208853"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756083"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Plataforma de identidade da Microsoft e OAuth 2.0 Em nome do fluxo
 
@@ -201,7 +201,7 @@ Dependendo da arquitetura ou uso da sua aplicação, poderá considerar diferent
 
 ### <a name="default-and-combined-consent"></a>/.predefinido e consentimento combinado
 
-A aplicação de nível médio adiciona o cliente à lista de aplicações de clientes conhecida no seu manifesto, e então o cliente pode desencadear um fluxo de consentimento combinado para si mesmo e para a aplicação de nível médio. No ponto final da plataforma de identidade da Microsoft, isto é feito utilizando o [ `/.default` âmbito](v2-permissions-and-consent.md#the-default-scope). Ao desencadear um ecrã de consentimento utilizando aplicações de clientes conhecidas `/.default` e, o ecrã de consentimento mostrará permissões tanto para o cliente como para a API de nível médio, e também solicitará quaisquer permissões necessárias pela API de nível médio.  O utilizador fornece o consentimento para ambas as aplicações e, em seguida, o fluxo OBO funciona.
+A aplicação de nível médio adiciona o cliente à lista de aplicações de clientes conhecida no seu manifesto, e então o cliente pode desencadear um fluxo de consentimento combinado para si mesmo e para a aplicação de nível médio. Na plataforma de identidade da Microsoft, isto é feito utilizando o [ `/.default` âmbito.](v2-permissions-and-consent.md#the-default-scope) Ao desencadear um ecrã de consentimento utilizando aplicações de clientes conhecidas `/.default` e, o ecrã de consentimento mostrará permissões tanto para o cliente como para a API de nível médio, e também solicitará quaisquer permissões necessárias pela API de nível médio.  O utilizador fornece o consentimento para ambas as aplicações e, em seguida, o fluxo OBO funciona.
 
 ### <a name="pre-authorized-applications"></a>Pedidos pré-autorizados
 
@@ -219,7 +219,7 @@ Em alguns cenários, você pode ter apenas um único emparelhamento de cliente d
 
 Se um cliente usa o fluxo implícito para obter uma id_token, e esse cliente também tem wildcards em um URL de resposta, o id_token não pode ser usado para um fluxo OBO.  No entanto, os tokens de acesso adquiridos através do fluxo implícito de subvenção ainda podem ser resgatados por um cliente confidencial, mesmo que o cliente iniciante tenha um URL de resposta wildcard registado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre o protocolo OAuth 2.0 e outra forma de realizar o serviço de atendimento usando credenciais de cliente.
 

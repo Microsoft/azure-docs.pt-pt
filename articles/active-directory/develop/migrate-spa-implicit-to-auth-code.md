@@ -1,5 +1,5 @@
 ---
-title: Migrar a aplicação de uma página única DoIgRão implícito ao fluxo de código de autorização Rio Azure
+title: Migrar a aplicação de uma página única JavaScript de subvenção implícita para o fluxo de código de autorização | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Como atualizar um Spa JavaScript utilizando MSAL.js 1.x e o fluxo implícito de concessão para MSAL.js 2.x e o fluxo de código de autorização com suporte PKCE e CORS.
 services: active-directory
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: 2c03e6940d392e3e2c03bf6508de41a7a19aef3b
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: e6bbebafab45080a2076f33d66dd96296a761e4f
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063778"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754959"
 ---
 # <a name="migrate-a-javascript-single-page-app-from-implicit-grant-to-auth-code-flow"></a>Migrar uma aplicação de página única JavaScript de subvenção implícita para fluxo de código de auth
 
@@ -90,7 +90,7 @@ Quando desmarque as definições implícitas de subvenção no registo da aplica
 
 ## <a name="next-steps"></a>Próximos passos
 
-Para saber mais sobre o fluxo de código de autorização, incluindo as diferenças entre os fluxos implícitos e de código de auth, consulte a [plataforma de identidade da Microsoft e o fluxo de código de autorização OAuth 2.0](v2-oauth2-auth-code-flow.md).
+Para saber mais sobre o fluxo de código de autorização, incluindo as diferenças entre os fluxos implícitos e de código de auth, consulte a plataforma de identidade da Microsoft e o [fluxo de código de autorização OAuth 2.0](v2-oauth2-auth-code-flow.md).
 
 Se quiser mergulhar mais profundamente no desenvolvimento de aplicações de página única javaScript na plataforma de identidade da Microsoft, o cenário multi-partes: série de aplicações de uma página única pode [ajudá-lo](scenario-spa-overview.md) a começar.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Adicione o início de sing-in com a Microsoft a uma aplicação web ASP.NET [ Rio Azure'
+title: 'Quickstart: Adicione o início de sôs-in com a Microsoft a uma aplicação web ASP.NET | Rio Azure'
 titleSuffix: Microsoft identity platform
 description: Neste quickstart, aprenda a implementar o início de sôs-in da Microsoft numa aplicação web ASP.NET utilizando o OpenID Connect.
 services: active-directory
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, contperf-fy21q1
-ms.openlocfilehash: dbddf35b0aa1494ef719803fa84cafae04f3ec50
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: e2a71313294457e09e2bb152dea98c84b7730236
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178590"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754403"
 ---
 # <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>Quickstart: Adicione o início da plataforma de identidade da Microsoft a uma aplicação web ASP.NET
 
@@ -94,7 +94,7 @@ Veja [como funciona a amostra](#how-the-sample-works) para uma ilustração.
 >    <add key="ClientId" value="Enter_the_Application_Id_here" />
 >    <add key="Tenant" value="Enter_the_Tenant_Info_Here" />
 >    ```
->    Onde:
+>    Em que:
 > - `Enter_the_Application_Id_here` - é o Id da Aplicação que registou.
 > - `Enter_the_Tenant_Info_Here` - é uma das opções abaixo:
 >   - Se a sua candidatura apoiar **apenas a Minha organização,** substitua este valor pelo nome **de Inquilino** ou **Inquilino** (por exemplo, contoso.onmicrosoft.com)
@@ -169,7 +169,7 @@ public void Configuration(IAppBuilder app)
 > |---------|---------|
 > | `ClientId`     | O ID de Aplicação da aplicação registada no portal do Azure |
 > | `Authority`    | O ponto final STS para o utilizador autenticar. Normalmente `https://login.microsoftonline.com/{tenant}/v2.0` para a cloud pública, em que {tenant} é o nome do seu inquilino, o Id do seu inquilino, ou *common* para uma referência ao ponto final comum (utilizado para aplicações multi-inquilino) |
-> | `RedirectUri`  | URL onde os utilizadores são enviados após autenticação contra o ponto final da plataforma de identidade da Microsoft |
+> | `RedirectUri`  | URL onde os utilizadores são enviados após autenticação contra a plataforma de identidade da Microsoft |
 > | `PostLogoutRedirectUri`     | URL para onde os utilizadores são enviados depois de terminarem sessão |
 > | `Scope`     | A lista dos âmbitos que estão a ser solicitados, separados por espaços |
 > | `ResponseType`     | Pedido de que a resposta da autenticação contenha um token de ID |
@@ -206,7 +206,7 @@ Pode proteger um controlador ou as ações do controlador com o atributo `[Autho
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Experimente o tutorial para ASP.NET para obter um guia passo a passo completo sobre a criação de aplicações e novas funcionalidades, incluindo uma explicação completa deste início rápido.
 

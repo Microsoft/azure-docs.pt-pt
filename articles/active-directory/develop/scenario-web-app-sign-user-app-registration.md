@@ -1,5 +1,6 @@
 ---
-title: Registar uma aplicação web que assina nos utilizadores - Plataforma de identidade da Microsoft Rio Azure
+title: Registe uma aplicação web que assina nos utilizadores | Rio Azure
+titleSuffix: Microsoft identity platform
 description: Saiba como registar uma aplicação web que assina nos utilizadores
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7ca294d3d7764737d4e2be55aae25bc8ff08a8d1
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: b6240f88d309cbf4f26375c5f961d716b472755d
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98011531"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756277"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>Aplicação web que assina nos utilizadores: Registo de aplicações
 
@@ -68,7 +69,7 @@ Pode utilizar estes links para a criação da sua aplicação web:
    1. Selecione **Registar** para criar a aplicação.
 1. Em **Gestão**, **selecione Autenticação**.
 1. Na secção **de concessão implícita,** selecione **fichas de identificação**. Esta amostra requer que o [fluxo de subvenção implícito](v2-oauth2-implicit-grant-flow.md) seja ativado para assinar no utilizador.
-1. Selecione **Save** (Guardar).
+1. Selecione **Guardar**.
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -85,7 +86,7 @@ Por predefinição, a amostra utiliza:
    - **http://localhost:8080/msal4jsample/secure/aad**
    - **http://localhost:8080/msal4jsample/graph/me**
 
-1. Selecione **Save** (Guardar).
+1. Selecione **Guardar**.
 1. Em **Gerir**, selecione **Certificados e segredos**.
 1. Na secção **de segredos** do Cliente, selecione **Novo segredo do cliente,** e depois:
 

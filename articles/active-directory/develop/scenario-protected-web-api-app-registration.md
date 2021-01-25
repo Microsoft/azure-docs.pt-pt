@@ -1,5 +1,5 @@
 ---
-title: Registo de aplicações da API protegida na Web Rio Azure
+title: Registo de aplicativos API protegidos na Web | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como construir uma API web protegida e as informações necessárias para registar a aplicação.
 services: active-directory
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7a38e2384c5f24bc3a72e1ef8e8f7119b2db0f2f
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: c3d9cd5e710eb263707e87c4afe0f08809b8d50c
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443947"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756464"
 ---
 # <a name="protected-web-api-app-registration"></a>API web protegida: Registo de aplicativos
 
@@ -27,11 +27,11 @@ Para que os passos comuns registe uma aplicação, consulte [Quickstart: Registe
 
 ## <a name="accepted-token-version"></a>Versão simbólica aceite
 
-O ponto final da plataforma de identidade da Microsoft pode emitir tokens v1.0 e tokens v2.0. Para obter mais informações sobre estes tokens, consulte [os tokens de acesso.](access-tokens.md)
+A plataforma de identidade da Microsoft pode emitir tokens v1.0 e tokens v2.0. Para obter mais informações sobre estes tokens, consulte [os tokens de acesso.](access-tokens.md)
 
 A versão simbólica que a API pode aceitar depende da seleção **dos tipos de conta suportados** quando criar o registo de aplicação da API na Web no portal Azure.
 
-- Se o valor dos tipos de **conta suportado** for Contas em **qualquer diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox, Outlook.com)** , a versão token aceite deve ser v2.0.
+- Se o valor dos tipos de **conta suportado** for Contas em **qualquer diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox, Outlook.com)**, a versão token aceite deve ser v2.0.
 - Caso contrário, a versão simbólica aceite pode ser v1.0.
 
 Depois de criar a aplicação, pode determinar ou alterar a versão simbólica aceita seguindo estes passos:
@@ -44,7 +44,7 @@ Depois de criar a aplicação, pode determinar ou alterar a versão simbólica a
 1. Se alterar a versão token, **selecione Save**.
 
 > [!NOTE]
-> A API web especifica qual a versão simbólica que aceita. Quando um cliente solicita um token para a sua API web a partir do ponto final da plataforma de identidade da Microsoft (v2.0), o cliente recebe um token que indica qual a versão simbólica que a API web aceita.
+> A API web especifica qual a versão simbólica que aceita. Quando um cliente solicita um token para a sua API web a partir da plataforma de identidade microsoft, o cliente recebe um token que indica qual a versão simbólica que a API web aceita.
 
 ## <a name="no-redirect-uri"></a>Sem redirecionar URI
 
@@ -139,18 +139,18 @@ Para adicionar esta segurança aumentada:
    > Quando selecionar este link, aceda à página **'Visão Geral da Aplicação da Empresa'.** Esta página está associada ao principal de serviço para a sua candidatura no arrendatário onde a criou. Pode ir à página de registo da aplicação utilizando o botão de trás do seu navegador.
 
 1. Selecione a página **Propriedades** na secção **Gerir** as páginas de aplicação da Enterprise.
-1. Se deseja que o AZure AD permita o acesso à sua API web **Yes** a partir de apenas determinados clientes, desemocupe **a atribuição do Utilizador necessária?**
+1. Se deseja que o AZure AD permita o acesso à sua API web a partir de apenas determinados clientes, desemocupe **a atribuição do Utilizador necessária?**
 
    > [!IMPORTANT]
    >
    > Se definir **a atribuição do Utilizador necessária?** para **Sim,** a AZure AD verifica as atribuições de funções de um cliente quando solicita um token de acesso da API web. Se o cliente não estiver atribuído a quaisquer funções de aplicação, a Azure AD devolverá a mensagem de erro "invalid_client: AADSTS501051: A aplicação \<application name\> não é atribuída a uma função para o \<web API\> ".
    >
-   > Se mantiver a atribuição do **No** **Utilizador necessária?** Qualquer cliente daemon, ou seja, qualquer cliente que use o fluxo de credenciais de cliente, pode obter um token de acesso para a API apenas especificando o seu público. Qualquer aplicação pode aceder à API sem ter de solicitar permissões para a mesmo.
+   > Se mantiver a atribuição do  **Utilizador necessária?** Qualquer cliente daemon, ou seja, qualquer cliente que use o fluxo de credenciais de cliente, pode obter um token de acesso para a API apenas especificando o seu público. Qualquer aplicação pode aceder à API sem ter de solicitar permissões para a mesmo.
    >
    > Mas, como explicado na secção anterior, a sua API web pode sempre verificar se a aplicação tem o papel certo, que é autorizado pelo administrador do arrendatário. A API realiza esta verificação validando que o token de acesso tem uma reivindicação de funções e que o valor desta reclamação está correto. Na amostra JSON anterior, o valor é `access_as_application` .
 
 1. Selecione **Guardar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Passe para o próximo artigo neste cenário, [configuração do código de aplicação](scenario-protected-web-api-app-configuration.md).

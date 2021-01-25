@@ -1,5 +1,5 @@
 ---
-title: Obtenha consentimento para vários recursos (MSAL.NET) Rio Azure
+title: Obtenha consentimento para vários recursos (MSAL.NET) | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como um utilizador pode obter o pré-consentimento para vários recursos utilizando a Biblioteca de Autenticação da Microsoft para .NET (MSAL.NET).
 services: active-directory
@@ -13,15 +13,15 @@ ms.date: 04/30/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 6333d935e1a902ba173017f8149c098f44398955
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af9dbcbb6c32969b66cd446db634e83ce81f3c92
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88165877"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754727"
 ---
 # <a name="user-gets-consent-for-several-resources-using-msalnet"></a>O utilizador obtém o consentimento de vários recursos utilizando MSAL.NET
-O ponto final da plataforma de identidade da Microsoft não permite obter um token para vários recursos de uma só vez. Ao utilizar a Biblioteca de Autenticação do Microsoft para .NET (MSAL.NET), o parâmetro de âmbito no método de ficha de aquisição só deve conter âmbitos para um único recurso. No entanto, pode pré-consentir vários recursos antecipadamente, especificando âmbitos adicionais utilizando o `.WithExtraScopeToConsent` método de construtor.
+A plataforma de identidade da Microsoft não permite obter um token para vários recursos de uma só vez. Ao utilizar a Biblioteca de Autenticação do Microsoft para .NET (MSAL.NET), o parâmetro de âmbito no método de ficha de aquisição só deve conter âmbitos para um único recurso. No entanto, pode pré-consentir vários recursos antecipadamente, especificando âmbitos adicionais utilizando o `.WithExtraScopeToConsent` método de construtor.
 
 > [!NOTE]
 > Obter consentimento para vários recursos funciona para a plataforma de identidade da Microsoft, mas não para Azure AD B2C. O Azure AD B2C suporta apenas o consentimento administrativo, não o consentimento do utilizador.

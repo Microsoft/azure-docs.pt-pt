@@ -1,5 +1,5 @@
 ---
-title: Referência do portal de registo de aplicações Rio Azure
+title: Referência do portal de registo de aplicativos | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Uma descrição das funcionalidades no portal de registo de aplicações da Microsoft.
 services: active-directory
@@ -14,12 +14,12 @@ ms.author: ryanwi
 ms.reviewer: lenalepa
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: b165cd4abd55026e10aa43eb20faa85b887de194
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 6a33da602eaa9bee20f155eaa550e558e5dcbeca
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98065048"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755558"
 ---
 # <a name="app-registration-reference"></a>Referência de registo de aplicação
 
@@ -27,7 +27,7 @@ Este documento fornece contexto e descrições de várias [funcionalidades encon
 
 ## <a name="my-applications-or-converged-applications"></a>As minhas aplicações ou aplicações convergentes
 
-Esta lista contém todas as suas aplicações registadas para utilização com a plataforma de identidade da Microsoft (v2.0). Estas aplicações têm a capacidade de assinar em utilizadores com contas pessoais da Microsoft e contas de trabalho/escola do Azure Ative Directory. Para saber mais sobre o ponto final da plataforma de identidade, consulte a [visão geral v2.0](./v2-overview.md). Estas aplicações também podem ser utilizadas para integrar-se com o ponto final de autenticação da conta Microsoft, `https://login.live.com` .
+Esta lista contém todas as suas aplicações registadas para utilização na plataforma de identidade da Microsoft. Estas aplicações têm a capacidade de assinar em utilizadores com contas pessoais da Microsoft e contas de trabalho/escola do Azure Ative Directory. Para saber mais sobre a plataforma de identidade da Microsoft, consulte a [visão geral do v2.0](./v2-overview.md). Estas aplicações também podem ser utilizadas para integrar-se com o ponto final de autenticação da conta Microsoft, `https://login.live.com` .
 
 ## <a name="azure-ad-only-applications"></a>Azure AD apenas aplicações
 
@@ -39,7 +39,7 @@ Esta lista contém todas as suas aplicações registadas para uso exclusivamente
 
 ## <a name="application-secrets"></a>Segredos de Aplicação
 
-Os segredos da aplicação são credenciais que permitem que a sua aplicação realize [uma autenticação](https://tools.ietf.org/html/rfc6749#section-2.3) confiável do cliente com a plataforma de identidade da Microsoft. Em OAuth & OpenID Connect, um segredo de aplicação é comumente referido como `client_secret` um . No protocolo v2.0, qualquer aplicação que receba um token de segurança num local web endereçado (usando um `https` esquema) deve usar um segredo de aplicação para se identificar na plataforma de identidade da Microsoft após o resgate desse sinal de segurança. Além disso, qualquer cliente nativo que receba fichas num dispositivo será proibido de usar um segredo de aplicação para realizar a autenticação do cliente. Isto desencoraja o armazenamento de segredos em ambientes inseguros.
+Os segredos da aplicação são credenciais que permitem que a sua aplicação realize [uma autenticação](https://tools.ietf.org/html/rfc6749#section-2.3) confiável do cliente com a plataforma de identidade da Microsoft. Em OAuth & OpenID Connect, um segredo de aplicação é comumente referido como `client_secret` um . No protocolo v2.0, qualquer aplicação que receba um token de segurança num local web endereçado (usando um esquema) deve usar um segredo de `https` aplicação para se identificar na plataforma de identidade da Microsoft após o resgate desse sinal de segurança. Além disso, qualquer cliente nativo que receba fichas num dispositivo será proibido de usar um segredo de aplicação para realizar a autenticação do cliente. Isto desencoraja o armazenamento de segredos em ambientes inseguros.
 
 Cada aplicação pode conter dois segredos de aplicação válidos a qualquer momento. Ao manter dois segredos, você tem a capacidade de realizar a rododagem periódica de chave em todo o ambiente da sua aplicação. Uma vez migrado toda a sua candidatura para um novo segredo, pode apagar o velho segredo e providenciar um novo.
 

@@ -1,7 +1,7 @@
 ---
-title: Protocolos OAuth 2.0 e OpenID Connect na plataforma de identidade da Microsoft Rio Azure
+title: Os protocolos OAuth 2.0 e OpenID Connect na plataforma de identidade da Microsoft | Rio Azure
 titleSuffix: Microsoft identity platform
-description: Um guia para os protocolos OAuth 2.0 e OpenID Connect que são suportados pelo ponto final da plataforma de identidade da Microsoft.
+description: Um guia para os protocolos OAuth 2.0 e OpenID Connect que são suportados pela plataforma de identidade da Microsoft.
 services: active-directory
 author: hpsin
 manager: CelesteDG
@@ -13,14 +13,14 @@ ms.date: 07/21/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 12edbcda7354d9d6d4b03ebe32304d988b2eb579
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 765c363542b07deac44d47b94731e1109fcba045
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88751454"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755757"
 ---
-# <a name="oauth-20-and-openid-connect-protocols-on-microsoft-identity-platform"></a>Protocolos OAuth 2.0 e OpenID Connect na plataforma de identidade da Microsoft
+# <a name="oauth-20-and-openid-connect-protocols-on-the-microsoft-identity-platform"></a>Protocolos OAuth 2.0 e OpenID Connect na plataforma de identidade da Microsoft
 
 O ponto final da plataforma de identidade da Microsoft para a autenticação e autorização de identidade como serviço implementa a autenticação e autorização com os protocolos padrão da indústria OpenID Connect (OIDC) e OAuth 2.0, respectivamente. Embora o serviço seja conforme com as normas, pode haver diferenças subtis entre qualquer implementação destes protocolos. As informações aqui serão úteis se optar por escrever o seu código enviando e manuseando diretamente pedidos HTTP ou utilizando uma biblioteca de código aberto de terceiros, em vez de utilizar uma das [nossas bibliotecas de código aberto.](reference-v2-libraries.md)
 
@@ -30,12 +30,12 @@ Em quase todos os fluxos OAuth 2.0 e OpenID Connect, há quatro partes envolvida
 
 ![Diagrama mostrando as funções OAuth 2.0](./media/active-directory-v2-flows/protocols-roles.svg)
 
-* O **Servidor de Autorização** é o ponto final da plataforma de identidade da Microsoft e é responsável por garantir a identidade do utilizador, conceder e revogar o acesso aos recursos e emitir fichas. O servidor de autorização também é conhecido como o fornecedor de identidade - lida com segurança qualquer coisa a ver com a informação do utilizador, o seu acesso e as relações de confiança entre as partes num fluxo.
+* O **Servidor de Autorização** é a plataforma de identidade da Microsoft e é responsável por garantir a identidade do utilizador, conceder e revogar o acesso aos recursos e emitir fichas. O servidor de autorização também é conhecido como o fornecedor de identidade - lida com segurança qualquer coisa a ver com a informação do utilizador, o seu acesso e as relações de confiança entre as partes num fluxo.
 * O **Proprietário de Recursos** é normalmente o utilizador final. É o partido que detém os dados e tem o poder de permitir que os clientes acedam a esses dados ou recursos.
 * O **Cliente OAuth** é a sua aplicação, identificada pelo seu ID de aplicação. O cliente OAuth é geralmente a parte com a qual o utilizador final interage, e solicita fichas do servidor de autorização. O cliente deve ter permissão para aceder ao recurso pelo proprietário do recurso.
 * O **Servidor de Recursos** é onde reside o recurso ou dados. Confia no Servidor de Autorização para autenticar e autorizar de forma segura o Cliente OAuth, e utiliza fichas de acesso ao Portador para garantir que o acesso a um recurso pode ser concedido.
 
-## <a name="app-registration"></a>Registo da aplicação
+## <a name="app-registration"></a>Registo de aplicações
 
 Todas as aplicações que queiram aceitar contas pessoais e de trabalho ou escolares devem ser **registadas** através da experiência de registos da App no [portal Azure](https://aka.ms/appregistrations) antes de poder assinar estes utilizadores através da OAuth 2.0 ou OpenID Connect. O processo de registo da aplicação irá recolher e atribuir alguns valores à sua aplicação:
 
@@ -66,7 +66,7 @@ Onde pode `{tenant}` levar um de quatro valores diferentes:
 Para aprender a interagir com estes pontos finais, escolha um determinado tipo de aplicação na secção [Protocolos](#protocols) e siga os links para obter mais informações.
 
 > [!TIP]
-> Qualquer aplicação registada no Azure AD pode utilizar o ponto final da plataforma de identidade da Microsoft, mesmo que não assinem em contas pessoais.  Desta forma, pode migrar as aplicações existentes para a plataforma de identidade da Microsoft e [para a MSAL](reference-v2-libraries.md) sem recriar novamente a sua aplicação.
+> Qualquer aplicação registada no Azure AD pode utilizar a plataforma de identidade da Microsoft, mesmo que não assine em contas pessoais.  Desta forma, pode migrar as aplicações existentes para a plataforma de identidade da Microsoft e [PARA a MSAL](reference-v2-libraries.md) sem recriar novamente a sua aplicação.
 
 ## <a name="tokens"></a>Tokens
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Criar uma aplicação de página única JavaScript que usa fluxo de código auth / Rio Azure'
+title: 'Tutorial: Criar uma aplicação de página única JavaScript que utiliza fluxo de código auth | Rio Azure'
 titleSuffix: Microsoft identity platform
 description: Neste tutorial, cria-se um JavaScript SPA que pode iniciar sessão nos utilizadores e utilizar o fluxo de código auth para obter um token de acesso a partir da plataforma de identidade da Microsoft e ligar para a Microsoft Graph API.
 services: active-directory
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: b7d14ee321a1160420d106151276ae6aef513c5b
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 1ec046ca6b42a5ca8f33b0347c562c85abd42684
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064407"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756176"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-app-spa-using-auth-code-flow"></a>Tutorial: Inscreva-se nos utilizadores e ligue para a API do Gráfico microsoft a partir de uma aplicação de página única JavaScript (SPA) usando fluxo de código auth
 
@@ -28,7 +28,7 @@ Neste tutorial:
 > * Executar o fluxo de código de autorização OAuth 2.0 com PKCE
 > * Assine nas contas pessoais da Microsoft, bem como contas de trabalho e escola
 > * Adquirir um token de acesso
-> * Ligue para o Microsoft Graph ou para a sua própria API que requer acesso a tokens obtidos a partir do ponto final da plataforma de identidade da Microsoft
+> * Ligue para o Microsoft Graph ou para a sua própria API que requer acesso a tokens obtidos a partir da plataforma de identidade da Microsoft
 
 MSAL.js 2.0 melhora em MSAL.js 1.0, suportando o fluxo de código de autorização no navegador em vez do fluxo de concessão implícito. MSAL.js 2.0 **NÃO** suporta o fluxo implícito.
 
@@ -41,7 +41,7 @@ MSAL.js 2.0 melhora em MSAL.js 1.0, suportando o fluxo de código de autorizaç�
 
 :::image type="content" source="media/tutorial-v2-javascript-auth-code/diagram-01-auth-code-flow.png" alt-text="Diagrama mostrando o fluxo de código de autorização numa aplicação de uma página":::
 
-A aplicação que cria neste tutorial permite a um JavaScript SPA consultar a API do Microsoft Graph, adquirindo fichas de segurança a partir do ponto final da plataforma de identidade da Microsoft. Neste cenário, após a indicação de um utilizador, é solicitado um token de acesso e adicionado aos pedidos HTTP no cabeçalho de autorização. A aquisição e renovação de token são tratadas pela Microsoft Authentication Library for JavaScript (MSAL.js).
+A aplicação que cria neste tutorial permite a um JavaScript SPA consultar a API do Microsoft Graph, adquirindo fichas de segurança a partir da plataforma de identidade da Microsoft. Neste cenário, após a indicação de um utilizador, é solicitado um token de acesso e adicionado aos pedidos HTTP no cabeçalho de autorização. A aquisição e renovação de token são tratadas pela Microsoft Authentication Library for JavaScript (MSAL.js).
 
 Este tutorial utiliza a seguinte biblioteca:
 
@@ -558,13 +558,13 @@ O SPA que criou nestas chamadas tutoriais `acquireTokenSilent` e/ou `acquireToke
 
 #### <a name="get-a-user-token-interactively"></a>Obter um token de utilizador interativamente
 
-Após o seu primeiro sôs-in, a sua aplicação não deve pedir aos utilizadores que reauttenenássem sempre que precisam de aceder a um recurso protegido (isto é, para solicitar um token). Para evitar tais pedidos de reautoria, `acquireTokenSilent` ligue. Existem algumas situações, no entanto, em que poderá ser necessário forçar os utilizadores a interagirem com o ponto final da plataforma de identidade da Microsoft. Por exemplo:
+Após o seu primeiro sôs-in, a sua aplicação não deve pedir aos utilizadores que reauttenenássem sempre que precisam de aceder a um recurso protegido (isto é, para solicitar um token). Para evitar tais pedidos de reautoria, `acquireTokenSilent` ligue. Existem algumas situações, no entanto, em que poderá ser necessário forçar os utilizadores a interagirem com a plataforma de identidade da Microsoft. Por exemplo:
 
 - Os utilizadores precisam de reintrodutar as suas credenciais porque a palavra-passe expirou.
 - A sua aplicação está a solicitar o acesso a um recurso e precisa do consentimento do utilizador.
 - É necessária autenticação de dois fatores.
 
-A chamada `acquireTokenPopup` abre uma janela pop-up (ou `acquireTokenRedirect` redireciona os utilizadores para o ponto final da plataforma de identidade da Microsoft). Nessa janela, os utilizadores precisam interagir confirmando as suas credenciais, dando consentimento ao recurso necessário ou completando a autenticação de dois fatores.
+A chamada `acquireTokenPopup` abre uma janela pop-up (ou `acquireTokenRedirect` redireciona os utilizadores para a plataforma de identidade da Microsoft). Nessa janela, os utilizadores precisam interagir confirmando as suas credenciais, dando consentimento ao recurso necessário ou completando a autenticação de dois fatores.
 
 #### <a name="get-a-user-token-silently"></a>Obter um token de utilizador automaticamente
 
@@ -618,7 +618,7 @@ Concluiu a criação da aplicação e está agora pronto para lançar o Node.js 
 
 ### <a name="sign-in-to-the-application"></a>Iniciar sessão na aplicação
 
-Depois de o navegador carregar o ficheiro *index.html,* selecione **Iniciar Sôs.** É-lhe pedido que assine com o ponto final da plataforma de identidade da Microsoft:
+Depois de o navegador carregar o ficheiro *index.html,* selecione **Iniciar Sôs.** É-lhe pedido que assine com a plataforma de identidade da Microsoft:
 
 :::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-01-signin-dialog.png" alt-text="Web browser exibindo diálogo de insusimento":::
 
@@ -648,7 +648,7 @@ Se uma API de back-end não necessitar de um âmbito, o que não é recomendado,
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se quiser mergulhar mais profundamente no desenvolvimento de aplicações de página única javaScript na plataforma de identidade da Microsoft, consulte a nossa série de cenários multi-partes:
 

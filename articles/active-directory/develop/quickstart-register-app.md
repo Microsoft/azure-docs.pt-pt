@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Registar uma aplicação na plataforma de identidade da Microsoft Rio Azure'
+title: 'Quickstart: Registar uma aplicação na plataforma de identidade microsoft | Rio Azure'
 description: Neste arranque rápido, aprende-se a registar uma aplicação com a plataforma de identidade da Microsoft.
 services: active-directory
 author: mmacy
@@ -12,12 +12,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 45280ec41a9fd9423e4184b2e1ce593720ab6488
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 6052e2243f8b31aa57d4abf27c24a4b045c9eae2
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232357"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754638"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Quickstart: Registar uma aplicação com a plataforma de identidade microsoft
 
@@ -125,7 +125,7 @@ O segredo do cliente, também conhecido como senha de *aplicação,* é um valor
 
 **Nota:** O ID gerado juntamente com o valor do segredo é o ID do segredo, que é diferente do ID da aplicação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 As aplicações do cliente normalmente precisam de aceder a recursos numa API web. Além de proteger a aplicação do seu cliente com a plataforma de identidade da Microsoft, pode utilizar a plataforma para autorizar o acesso baseado em permissões à sua API web.
 

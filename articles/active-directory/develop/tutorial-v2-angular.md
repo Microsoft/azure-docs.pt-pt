@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Criar uma app Angular que utilize a plataforma de identidade da Microsoft para autenticação Rio Azure'
+title: 'Tutorial: Criar uma aplicação Angular que utilize a plataforma de identidade da Microsoft para autenticação | Rio Azure'
 titleSuffix: Microsoft identity platform
 description: Neste tutorial, você constrói uma aplicação de página única angular (SPA) que utiliza a plataforma de identidade da Microsoft para assinar nos utilizadores e obter um token de acesso para ligar para a Microsoft Graph API em seu nome.
 services: active-directory
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: c4c7d021c7c3a5a32d537a50fa45449fdee7e817
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 105353598a2af60c407bacf02b4527b2de84e450
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94979934"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756157"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>Tutorial: Inscreva-se nos utilizadores e ligue para a Microsoft Graph API a partir de uma aplicação de página única angular
 
@@ -271,7 +271,7 @@ Por exemplo:
 
 #### <a name="get-a-user-token-interactively"></a>Obter um token de utilizador interativamente
 
-Por vezes, é necessário que o utilizador interaja com o ponto final da plataforma de identidade da Microsoft. Por exemplo:
+Por vezes, é necessário que o utilizador interaja com a plataforma de identidade da Microsoft. Por exemplo:
 
 * Os utilizadores podem precisar de reentrar nas suas credenciais porque a sua palavra-passe expirou.
 * A sua aplicação está a solicitar acesso a âmbitos de recursos adicionais aos quais o utilizador precisa de consentir.
@@ -279,7 +279,7 @@ Por vezes, é necessário que o utilizador interaja com o ponto final da platafo
 
 O padrão recomendado para a maioria das aplicações é ligar `acquireTokenSilent` primeiro, depois pegar a exceção e, em seguida, ligar `acquireTokenPopup` (ou `acquireTokenRedirect` ) para iniciar um pedido interativo.
 
-A chamada `acquireTokenPopup` resulta numa janela de inscrição pop-up. Em alternativa, `acquireTokenRedirect` redireciona os utilizadores para o ponto final da plataforma de identidade da Microsoft. Nessa janela, os utilizadores precisam de confirmar as suas credenciais, dar consentimento ao recurso necessário ou completar a autenticação de dois fatores.
+A chamada `acquireTokenPopup` resulta numa janela de inscrição pop-up. Em alternativa, `acquireTokenRedirect` redireciona os utilizadores para a plataforma de identidade da Microsoft. Nessa janela, os utilizadores precisam de confirmar as suas credenciais, dar consentimento ao recurso necessário ou completar a autenticação de dois fatores.
 
 ```javascript
   const requestObj = {
@@ -340,7 +340,7 @@ Se uma API de back-end não necessitar de um âmbito (não recomendado), pode ut
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Aprofundar o desenvolvimento de aplicações de uma página única (SPA) na plataforma de identidade da Microsoft na nossa série de artigos multi-partes.
 

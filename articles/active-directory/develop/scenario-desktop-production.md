@@ -1,5 +1,6 @@
 ---
-title: Mover aplicativo de desktop chamando APIs web para produção - Plataforma de identidade microsoft / Rio Azure
+title: Mover aplicativo de desktop chamando APIs web para produção | Rio Azure
+titleSuffix: Microsoft identity platform
 description: Saiba como mover uma aplicação de desktop que chama APIs web à produção
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 325f95f2830ef021a4ac79de48695dda570f7817
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 05b93848bff66adc49d2855ee98fff6c9b7a2d3d
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629787"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756515"
 ---
 # <a name="desktop-app-that-calls-web-apis-move-to-production"></a>Aplicativo de desktop que chama APIs web: Mover para a produção
 
@@ -31,7 +32,7 @@ Nos diferentes fluxos, aprendeste a lidar com os erros para os fluxos silencioso
 > [!NOTE]
 > Obter consentimento para vários recursos funciona para a plataforma de identidade da Microsoft, mas não para O Azure Ative Directory (Azure AD) B2C. O Azure AD B2C suporta apenas o consentimento administrativo, não o consentimento do utilizador.
 
-Não é possível obter um símbolo de vários recursos ao mesmo tempo com a plataforma de identidade da Microsoft (v2.0). O `scopes` parâmetro pode conter âmbitos para apenas um recurso. Pode assegurar-se de que o utilizador pré-consente com vários recursos utilizando o `extraScopesToConsent` parâmetro.
+Não é possível obter um símbolo de vários recursos ao mesmo tempo com a plataforma de identidade da Microsoft. O `scopes` parâmetro pode conter âmbitos para apenas um recurso. Pode assegurar-se de que o utilizador pré-consente com vários recursos utilizando o `extraScopesToConsent` parâmetro.
 
 Por exemplo, pode ter dois recursos que têm dois âmbitos cada:
 
@@ -105,6 +106,6 @@ AcquireTokenSilent(scopesForVendorApi, accounts.FirstOrDefault()).ExecuteAsync()
 
 Para os utilizadores de contas pessoais da Microsoft, repromundo o consentimento em cada cliente nativo (desktop ou aplicativo móvel) para autorizar é o comportamento pretendido. A identidade do cliente nativo é inerentemente insegura, o que é contrário à identidade confidencial da aplicação do cliente. As aplicações confidenciais de clientes trocam um segredo com a plataforma Microsoft Identity para provar a sua identidade. A plataforma de identidade da Microsoft optou por atenuar esta insegurança para os serviços ao consumidor, solicitando ao utilizador o consentimento sempre que a aplicação é autorizada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]

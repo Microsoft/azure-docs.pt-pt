@@ -1,5 +1,5 @@
 ---
-title: Adquirir & fichas de cache com a Microsoft Authentication Library (MSAL) Rio Azure
+title: Adquirir fichas de cache & com a Microsoft Authentication Library (MSAL) | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como adquirir e caching tokens usando MSAL.
 services: active-directory
@@ -13,12 +13,12 @@ ms.date: 11/04/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 34cdaa42f3a41ae04c73c570bb4fede01a786af2
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 98ae81626db637f5b0bd6bfe9e294c32293d09e5
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107843"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755070"
 ---
 # <a name="acquire-and-cache-tokens-using-the-microsoft-authentication-library-msal"></a>Adquirir e cache fichas utilizando a Biblioteca de Autenticação da Microsoft (MSAL)
 
@@ -30,7 +30,7 @@ Também pode limpar a cache simbólica, que é conseguida removendo as contas da
 
 ## <a name="scopes-when-acquiring-tokens"></a>Âmbitos na aquisição de fichas
 
-[Os âmbitos](v2-permissions-and-consent.md) são as permissões que uma API web expõe a que as aplicações do cliente podem solicitar acesso. As aplicações do cliente solicitam o consentimento do utilizador para estes âmbitos ao escrutinar pedidos de autenticação para obter fichas para aceder às APIs da web. O MSAL permite-lhe obter fichas para aceder a Azure AD para programadores (v1.0) e plataforma de identidade microsoft (v2.0) APIs. o protocolo v2.0 utiliza âmbitos em vez de recursos nos pedidos. Para mais informações, leia [a comparação v1.0 e v2.0](../azuread-dev/azure-ad-endpoint-comparison.md). Com base na configuração da API web da versão simbólica que aceita, o ponto final v2.0 devolve o token de acesso ao MSAL.
+[Os âmbitos](v2-permissions-and-consent.md) são as permissões que uma API web expõe a que as aplicações do cliente podem solicitar acesso. As aplicações do cliente solicitam o consentimento do utilizador para estes âmbitos ao escrutinar pedidos de autenticação para obter fichas para aceder às APIs da web. O MSAL permite-lhe obter fichas para aceder ao Azure AD para programadores (v1.0) e a plataforma de identidade apIs da Microsoft. o protocolo v2.0 utiliza âmbitos em vez de recursos nos pedidos. Para mais informações, leia [a comparação v1.0 e v2.0](../azuread-dev/azure-ad-endpoint-comparison.md). Com base na configuração da API web da versão simbólica que aceita, o ponto final v2.0 devolve o token de acesso ao MSAL.
 
 Vários dos métodos de aquisição simbólicos da MSAL requerem um `scopes` parâmetro. O `scopes` parâmetro é uma lista de cordas que declaram as permissões desejadas e os recursos solicitados. Os âmbitos bem conhecidos são as permissões do [Microsoft Graph](/graph/permissions-reference).
 
@@ -120,7 +120,7 @@ Quando o seu cliente solicita um token de acesso, a Azure AD também retorna um 
 
 [!INCLUDE [advanced-token-caching](../../../includes/advanced-token-cache.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Várias das plataformas apoiadas pela MSAL têm informações adicionais relacionadas com cache na documentação para a biblioteca daquela plataforma. Por exemplo:
 - [Obtenha um símbolo da cache simbólica usando MSAL.NET](msal-net-acquire-token-silently.md)

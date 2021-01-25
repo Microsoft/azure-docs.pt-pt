@@ -1,6 +1,6 @@
 ---
 title: Bibliotecas de autenticação de plataformas de identidade da Microsoft
-description: Bibliotecas de clientes compatíveis e bibliotecas de middleware de servidor, juntamente com links relacionados com biblioteca, origem e amostra, para o ponto final da plataforma de identidade da Microsoft.
+description: Bibliotecas de clientes compatíveis e bibliotecas de middleware de servidor, juntamente com links relacionados com biblioteca, origem e amostra, para a plataforma de identidade da Microsoft.
 services: active-directory
 author: negoe
 manager: CelesteDG
@@ -12,16 +12,16 @@ ms.date: 07/25/2019
 ms.author: negoe
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.openlocfilehash: a7792e989444c87ba80088f8a850cacb4aa0dc3c
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 51b60d7b81d7402f69415b79cd575f51915dc38f
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064577"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756667"
 ---
 # <a name="microsoft-identity-platform-authentication-libraries"></a>Bibliotecas de autenticação de plataformas de identidade da Microsoft
 
-O ponto final da [plataforma de identidade da Microsoft](../azuread-dev/azure-ad-endpoint-comparison.md) suporta os protocolos OAuth 2.0 e OpenID Connect 1.0 padrão da indústria. A Microsoft Authentication Library (MSAL) foi concebida para funcionar com o ponto final da plataforma de identidade da Microsoft. Também pode utilizar bibliotecas de código aberto que suportam OAuth 2.0 e OpenID Connect 1.0.
+A [plataforma de identidade da Microsoft ](../azuread-dev/azure-ad-endpoint-comparison.md) suporta os protocolos OAuth 2.0 e OpenID Connect 1.0 padrão da indústria. A Microsoft Authentication Library (MSAL) foi concebida para funcionar com a plataforma de identidade da Microsoft. Também pode utilizar bibliotecas de código aberto que suportam OAuth 2.0 e OpenID Connect 1.0.
 
 Recomendamos que utilize bibliotecas escritas por peritos em domínio de protocolo que sigam uma metodologia de Ciclo de Vida para o Desenvolvimento de Segurança (SDL). Tais metodologias incluem [a que a Microsoft segue.][Microsoft-SDL] Se entregar código para os protocolos, deve seguir uma metodologia como o Microsoft SDL. Preste muita atenção às considerações de segurança nas especificações de normas de cada protocolo.
 
@@ -30,7 +30,7 @@ Recomendamos que utilize bibliotecas escritas por peritos em domínio de protoco
 
 ## <a name="types-of-libraries"></a>Tipos de bibliotecas
 
-O ponto final da plataforma de identidade da Microsoft funciona com dois tipos de bibliotecas:
+A plataforma de identidade da Microsoft funciona com dois tipos de bibliotecas:
 
 * **Bibliotecas de clientes**: Clientes nativos e servidores usam bibliotecas de clientes para adquirir fichas de acesso para chamar um recurso como o Microsoft Graph.
 * **Bibliotecas de middleware do servidor**: As aplicações web utilizam bibliotecas de middleware do servidor para o início de s início do utilizador. As APIs web utilizam bibliotecas de middleware de servidor para validar fichas que são enviadas por clientes nativos ou por outros servidores.
@@ -40,15 +40,15 @@ O ponto final da plataforma de identidade da Microsoft funciona com dois tipos d
 As bibliotecas vêm em duas categorias de suporte:
 
 * **Suportado pela Microsoft**: A Microsoft fornece correções para estas bibliotecas e fez diligências SDL nestas bibliotecas.
-* **Compatível**: A Microsoft testou estas bibliotecas em cenários básicos e confirmou que funcionam com o ponto final da plataforma de identidade da Microsoft. A Microsoft não fornece correções para estas bibliotecas e ainda não fez uma revisão destas bibliotecas. As questões e os pedidos de funcionalidade devem ser direcionados para o projeto de código aberto da biblioteca.
+* **Compatível**: A Microsoft testou estas bibliotecas em cenários básicos e confirmou que funcionam com a plataforma de identidade da Microsoft. A Microsoft não fornece correções para estas bibliotecas e ainda não fez uma revisão destas bibliotecas. As questões e os pedidos de funcionalidade devem ser direcionados para o projeto de código aberto da biblioteca.
 
-Para obter uma lista de bibliotecas que funcionem com o ponto final da plataforma de identidade da Microsoft, consulte as seguintes secções.
+Para obter uma lista de bibliotecas que funcionem com a plataforma de identidade da Microsoft, consulte as seguintes secções.
 
 ## <a name="microsoft-supported-client-libraries"></a>Bibliotecas de clientes suportadas pela Microsoft
 
 Utilize bibliotecas de autenticação de clientes para adquirir um símbolo para chamar uma API web protegida.
 
-| Plataforma | Biblioteca | Transferir | Código de origem | Sample | Referência | Doc conceptual | Mapa |
+| Plataforma | Biblioteca | Download | Código de origem | Sample | Referência | Doc conceptual | Mapa |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | ![JavaScript](media/sample-v2-code/logo_js.png) | MSAL.js  | [NPM](https://www.npmjs.com/package/msal) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/README.md) |  [Aplicação de página única](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) | [Referência](https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-core/) | [Docs conceptuais](msal-overview.md)| [Mapa](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki#roadmap)
 ![Angular](media/sample-v2-code/logo_angular.png) | MSAL Angular | [NPM](https://www.npmjs.com/package/@azure/msal-angular) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/README.md) | [Angular SPA](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular) | [Referência](https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-angular/) | [Docs conceptuais](msal-overview.md) | [Mapa](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki#roadmap)
@@ -63,7 +63,7 @@ Utilize bibliotecas de autenticação de clientes para adquirir um símbolo para
 
 Utilize bibliotecas de middleware para ajudar a proteger aplicações web e APIs web. Aplicativos web ou APIs web escritos com ASP.NET ou ASP.NET Core use as bibliotecas de middleware.
 
-| Plataforma | Biblioteca | Transferir | Código fonte | Sample | Referência
+| Plataforma | Biblioteca | Download | Código fonte | Sample | Referência
 | --- | --- | --- | --- | --- | --- |
 | ![.NET](media/sample-v2-code/logo_NET.png) ![.NET Core](media/sample-v2-code/logo_NETcore.png) | Segurança ASP.NET |[NuGet](https://www.nuget.org/packages/Microsoft.AspNet.Mvc/) |[GitHub](https://github.com/aspnet/AspNetCore) |[Aplicativo MVC](quickstart-v2-aspnet-webapp.md) |[referência ASP.NET API](/dotnet/api/?view=aspnetcore-2.0&preserve-view=true) |
 | ![.NET](media/sample-v2-code/logo_NET.png)| Extensões do Modelo de Identidade para .NET| |[GitHub](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) | [Aplicativo MVC](quickstart-v2-aspnet-webapp.md) |[Referência](/dotnet/api/overview/azure/activedirectory/client?view=azure-dotnet&preserve-view=true) |
@@ -98,16 +98,16 @@ Ver também [Cenários por plataformas e idiomas suportados](authentication-flow
 | ![Ruby](media/sample-v2-code/logo_ruby.png) |[OmniAuth](https://github.com/omniauth/omniauth/wiki) |omniauth: 1.3.1<br />omniauth2: 1.4.0 |[OmniAuth](https://github.com/omniauth/omniauth)<br />[OmniAuth OAuth2](https://github.com/intridea/omniauth-oauth2) |  |
 | iOS, macOS, & Android  | [Reagir Auth de Aplicação Nativa](https://github.com/FormidableLabs/react-native-app-auth) | [Versão 4.2.0](https://github.com/FormidableLabs/react-native-app-auth/releases/tag/v4.2.0) | [Reagir Auth de Aplicação Nativa](https://github.com/FormidableLabs/react-native-app-auth) | |
 
-Para qualquer biblioteca conforme os padrões, pode utilizar o ponto final da plataforma de identidade da Microsoft. É importante saber onde ir para o apoio:
+Para qualquer biblioteca conforme os padrões, pode utilizar a plataforma de identidade da Microsoft. É importante saber onde ir para o apoio:
 
 * Para problemas e novos pedidos de funcionalidades no código da biblioteca, contacte o proprietário da biblioteca.
 * Para problemas e novos pedidos de funcionalidades na implementação do protocolo do lado do serviço, contacte a Microsoft.
 * [Arquiva um pedido de funcionalidade](https://feedback.azure.com/forums/169401-azure-active-directory) para funcionalidades adicionais que pretende ver no protocolo.
-* [Crie um pedido de suporte](../../azure-portal/supportability/how-to-create-azure-support-request.md) se encontrar um problema em que o ponto final da plataforma de identidade da Microsoft não esteja em conformidade com o OAuth 2.0 ou o OpenID Connect 1.0.
+* [Crie um pedido de suporte](../../azure-portal/supportability/how-to-create-azure-support-request.md) se encontrar um problema em que a plataforma de identidade da Microsoft não esteja em conformidade com o OAuth 2.0 ou o OpenID Connect 1.0.
 
 ## <a name="related-content"></a>Conteúdo relacionado
 
-Para obter mais informações sobre o ponto final da plataforma de identidade da Microsoft, consulte a [visão geral][AAD-App-Model-V2-Overview]da plataforma de identidade da Microsoft .
+Para obter mais informações sobre a plataforma de identidade da Microsoft, consulte a visão geral da [plataforma de identidade da Microsoft.][AAD-App-Model-V2-Overview]
 
 <!--Image references-->
 

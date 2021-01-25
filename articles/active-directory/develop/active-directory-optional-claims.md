@@ -12,12 +12,12 @@ ms.date: 1/06/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 6b5c328503a28c6eb92c2c20ca54d4d3d80c9a15
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 6855e8f550c14574795ec00f4fed36762944dca1
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232476"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756044"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Como: Fornecer reclamações opcionais à sua app
 
@@ -31,7 +31,7 @@ Pode utilizar reclamações opcionais para:
 
 Para as listas de reclamações padrão, consulte o [token de acesso](access-tokens.md) e [id_token](id-tokens.md) documentação de reclamações.
 
-Embora as reclamações opcionais sejam suportadas em fichas de formato v1.0 e v2.0, bem como em fichas SAML, fornecem a maior parte do seu valor ao passar de v1.0 para v2.0. Um dos objetivos do ponto final da [plataforma de identidade V2.0 microsoft](./v2-overview.md) é tamanhos de token mais pequenos para garantir o melhor desempenho dos clientes. Como resultado, várias reclamações anteriormente incluídas no acesso e fichas de identificação já não estão presentes em fichas v2.0 e devem ser solicitadas especificamente por aplicação.
+Embora as reclamações opcionais sejam suportadas em fichas de formato v1.0 e v2.0, bem como em fichas SAML, fornecem a maior parte do seu valor ao passar de v1.0 para v2.0. Um dos objetivos da plataforma de identidade da [Microsoft](./v2-overview.md) são tamanhos de token mais pequenos para garantir o melhor desempenho dos clientes. Como resultado, várias reclamações anteriormente incluídas no acesso e fichas de identificação já não estão presentes em fichas v2.0 e devem ser solicitadas especificamente por aplicação.
 
 **Quadro 1: Aplicabilidade**
 
@@ -447,7 +447,7 @@ No exemplo abaixo, utilizará a **configuração Token** UI e **Manifesto** para
 
 1. Quando terminar de atualizar o manifesto, **selecione Guardar** para guardar o manifesto.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre as reclamações padrão fornecidas pela Azure AD.
 

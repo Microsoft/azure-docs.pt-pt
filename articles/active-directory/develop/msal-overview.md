@@ -1,5 +1,5 @@
 ---
-title: Saiba mais sobre o MSAL Rio Azure
+title: Saiba mais sobre a MSAL | Rio Azure
 titleSuffix: Microsoft identity platform
 description: A Microsoft Authentication Library (MSAL) permite que os desenvolvedores de aplicações adquiram fichas de forma a chamar APIs web seguras. Estas APIs web podem ser o Microsoft Graph, outros APIs da Microsoft, APIs web de terceiros ou a sua própria API web. A MSAL suporta múltiplas arquiteturas e plataformas de aplicações.
 services: active-directory
@@ -13,15 +13,15 @@ ms.date: 10/30/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 2b6266f308fce75f136aa4a2482c5b1be6eedb8e
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: c16eb2af5dfb103541c2eac207eb8ee5c303168f
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063370"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754712"
 ---
 # <a name="overview-of-the-microsoft-authentication-library-msal"></a>Visão geral da Biblioteca de Autenticação da Microsoft (MSAL)
-A Microsoft Authentication Library (MSAL) permite que os desenvolvedores adquiram [fichas](developer-glossary.md#security-token) a partir do ponto final da plataforma de identidade da Microsoft, de forma a autenticar os utilizadores e aceder a APIs web seguras. Pode ser usado para fornecer acesso seguro ao Microsoft Graph, outras APIs da Microsoft, APIs web de terceiros ou a sua própria API web. A MSAL suporta muitas arquiteturas e plataformas de aplicações diferentes, incluindo .NET, JavaScript, Java, Python, Android e iOS.
+A Microsoft Authentication Library (MSAL) permite que os desenvolvedores adquiram [fichas](developer-glossary.md#security-token) a partir da plataforma de identidade da Microsoft, de forma a autenticar os utilizadores e aceder a APIs web seguras. Pode ser usado para fornecer acesso seguro ao Microsoft Graph, outras APIs da Microsoft, APIs web de terceiros ou a sua própria API web. A MSAL suporta muitas arquiteturas e plataformas de aplicações diferentes, incluindo .NET, JavaScript, Java, Python, Android e iOS.
 
 A MSAL dá-lhe muitas formas de obter fichas, com uma API consistente para várias plataformas. A utilização da MSAL proporciona os seguintes benefícios:
 
@@ -59,6 +59,6 @@ A MSAL pode ser utilizada em muitos cenários de aplicação, incluindo os segui
 
 ## <a name="differences-between-adal-and-msal"></a>Diferenças entre ADAL e MSAL
 
-A Ative Directory Authentication Library (ADAL) integra-se com o AD AZure para programadores (v1.0), onde o MSAL se integra com a plataforma de identidade da Microsoft (v2.0). O ponto final v1.0 suporta contas de trabalho, mas não contas pessoais. O ponto final v2.0 é a unificação das contas pessoais da Microsoft e contas de trabalho num único sistema de autenticação. Além disso, com o MSAL também pode obter autenticações para Azure AD B2C.
+A Ative Directory Authentication Library (ADAL) integra-se com o AD AZure para programadores (v1.0), onde o MSAL se integra com a plataforma de identidade da Microsoft. O ponto final v1.0 suporta contas de trabalho, mas não contas pessoais. O ponto final v2.0 é a unificação das contas pessoais da Microsoft e contas de trabalho num único sistema de autenticação. Além disso, com o MSAL também pode obter autenticações para Azure AD B2C.
 
 Para obter informações mais específicas, leia sobre [migração para MSAL.NET a partir de ADAL.NET](msal-net-migration.md) e [migrar para MSAL.js a partir de ADAL.js](msal-compare-msal-js-and-adal-js.md).

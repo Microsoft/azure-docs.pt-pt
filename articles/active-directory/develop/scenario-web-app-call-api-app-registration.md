@@ -1,5 +1,6 @@
 ---
-title: Registe uma aplicação web que chama APIs web - Plataforma de identidade da Microsoft Rio Azure
+title: Registe uma aplicação web que chama APIs web | Rio Azure
+titleSuffix: Microsoft identity platform
 description: Saiba como registar uma aplicação web que chama APIs web
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 863d8d87d5de771293199dd60618128b0ac11bba
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: bb9a1ca6c2c81e3b0d5dbeff06f4de012446cf79
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442604"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756321"
 ---
 # <a name="a-web-app-that-calls-web-apis-app-registration"></a>Uma aplicação web que chama APIs web: Registo de aplicações
 
@@ -30,6 +31,6 @@ No entanto, como a aplicação web agora também chama APIs web, torna-se uma ap
 
 As aplicações web chamam APIs em nome do utilizador inscrito. Para isso, devem solicitar *permissões delegadas.* Para mais informações, consulte [permissões adicionais para aceder à sua API web.](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-your-web-api)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Passe para o próximo artigo neste cenário, [configuração de código](scenario-web-app-call-api-app-configuration.md).

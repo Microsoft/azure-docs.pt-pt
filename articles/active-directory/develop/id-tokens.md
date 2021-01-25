@@ -1,5 +1,5 @@
 ---
-title: Fichas de ID da plataforma de identidade da Microsoft Rio Azure
+title: Fichas de ID da plataforma de identidade da Microsoft | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como utilizar id_tokens emitidos pelos pontos finais Azure AD v1.0 e Microsoft (v2.0).
 services: active-directory
@@ -14,12 +14,12 @@ ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: eec24ca19af8c41a842b1db3db4b9e16f748f029
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 6a1f4a02ebf42c0f181b595aae0a5fa0bcc9b41d
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653254"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755917"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Fichas de ID da plataforma de identidade da Microsoft
 
@@ -89,7 +89,7 @@ Esta lista mostra as alegações do JWT que estão na maioria id_tokens por padr
 |`groups:src1`|Objeto JSON | Para pedidos simbólicos que não sejam limitados (ver `hasgroups` acima) mas ainda demasiado grandes para o token, será incluído um link para a lista completa de grupos para o utilizador. Para os JWTs como uma reclamação distribuída, para a SAML como uma nova reivindicação em vez da `groups` reclamação. <br><br>**Exemplo JWT Valor**: <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects" }`<br><br> Para obter mais informações, consulte [a reclamação de overage de Grupos.](#groups-overage-claim)|
 
 > [!NOTE]
-> Os id_token v1.0 e v2.0 têm diferenças na quantidade de informação que transportarão, como se pode ver nos exemplos acima referidos. A versão baseia-se no ponto final de onde foi solicitada. Embora as aplicações existentes utilizem provavelmente o ponto final Azure AD, as novas aplicações devem utilizar o ponto final v2.0 "Microsoft identity platform".
+> Os id_token v1.0 e v2.0 têm diferenças na quantidade de informação que transportarão, como se pode ver nos exemplos acima referidos. A versão baseia-se no ponto final de onde foi solicitada. Embora as aplicações existentes utilizem provavelmente o ponto final Azure AD, as novas aplicações devem utilizar a "plataforma de identidade da Microsoft".
 >
 > - v1.0: Pontos finais Azure AD: `https://login.microsoftonline.com/common/oauth2/authorize`
 > - v2.0: Pontos finais da Plataforma de Identidade da Microsoft: `https://login.microsoftonline.com/common/oauth2/v2.0/authorize`
@@ -135,7 +135,7 @@ Para validar manualmente o token, consulte os detalhes dos passos na [validaçã
 * Público: a `aud` reclamação deve coincidir com o ID da aplicação para a sua aplicação.
 * Nonce: a `nonce` reclamação na carga útil deve corresponder ao parâmetro nonce passado para o ponto final /autorizado durante o pedido inicial.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre [fichas de acesso](access-tokens.md)
 * Personalize as reclamações do JWT na sua id_token utilizando [reclamações opcionais.](active-directory-optional-claims.md)

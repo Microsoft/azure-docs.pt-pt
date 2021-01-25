@@ -1,5 +1,5 @@
 ---
-title: Ligue para uma API web a partir de uma aplicação móvel ! Rio Azure
+title: Ligue para uma API web a partir de uma aplicação móvel | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como construir uma aplicação móvel que chame APIs web. (Ligue para uma API web.)
 services: active-directory
@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 018b5396563ac3a4b92b371d396c38afa3d2962f
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 601eefa7957972daa2d538e6ba0d9b7a5311c79d
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064271"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756484"
 ---
 # <a name="call-a-web-api-from-a-mobile-app"></a>Ligue para uma API web a partir de uma aplicação móvel
 
@@ -157,6 +157,6 @@ catch(MsalUiRequiredException ex)
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Passe para o próximo artigo neste cenário, [passe para a produção](scenario-mobile-production.md).

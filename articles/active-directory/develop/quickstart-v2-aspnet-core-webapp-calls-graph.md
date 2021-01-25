@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: ASP.NET web web do Core que assina nos utilizadores e chama Microsoft Graph [ Rio Azure'
+title: 'Quickstart: ASP.NET web web do Core que assina nos utilizadores e chama o Microsoft Graph | Rio Azure'
 titleSuffix: Microsoft identity platform
 description: Neste quickstart, você aprende como uma aplicação aproveita o Microsoft.Identity.Web para implementar o início de sôs-in da Microsoft numa aplicação web core ASP.NET utilizando o OpenID Connect e chama o Microsoft Graph
 services: active-directory
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: ae80ddd9efe8274a29a4b8dd91b7a3c391eefc3a
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 8e54f71ef58b3ea76a5fe55347a1caa173046320
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178692"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754502"
 ---
 # <a name="quickstart-aspnet-core-web-app-that-signs-in-users-and-calls-microsoft-graph-on-their-behalf"></a>Quickstart: ASP.NET web web do Core que assina nos utilizadores e chama o Microsoft Graph em seu nome
 
@@ -166,7 +166,7 @@ O middleware *Microsoft.AspNetCore.Authentication* utiliza uma `Startup` classe 
 
 O `AddAuthentication()` método configura o serviço para adicionar autenticação baseada em cookies, que é usada em cenários de navegador e para definir o desafio para OpenID Connect.
 
-A linha que contém `.AddMicrosoftIdentityWebApp` adiciona a autenticação da plataforma de identidade da Microsoft à sua aplicação. Isto é fornecido por [Microsoft.Identity.Web](microsoft-identity-web.md). Em seguida, é configurado para iniciar sação usando o ponto final da plataforma de identidade da Microsoft com base nas informações `AzureAD` na secção doappsettings.js *no* ficheiro de configuração:
+A linha que contém `.AddMicrosoftIdentityWebApp` adiciona a autenticação da plataforma de identidade da Microsoft à sua aplicação. Isto é fornecido por [Microsoft.Identity.Web](microsoft-identity-web.md). Em seguida, é configurado para iniciar sedução usando a plataforma de identidade da Microsoft com base nas informações na `AzureAD` secção doappsettings.js *no* ficheiro de configuração:
 
 | *appsettings.jsna* chave | Descrição                                                                                                                                                          |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -211,7 +211,7 @@ public async Task<IActionResult> Index()
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 O repo GitHub que contém a amostra de código core ASP.NET referenciada neste quickstart inclui instruções e mais amostras de código que mostram como:
 

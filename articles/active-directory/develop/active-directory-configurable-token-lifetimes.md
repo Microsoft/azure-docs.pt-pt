@@ -13,14 +13,14 @@ ms.date: 01/04/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperf-fy21q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 33dffa40e0236483d641c2e2bbe318bb62a7724d
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: f4ae26a489b823e2347841cf72690d6cd8462611
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98678192"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755307"
 ---
-# <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Vidas de token configuradas na plataforma de identidade da Microsoft (pré-visualização)
+# <a name="configurable-token-lifetimes-in-the-microsoft-identity-platform-preview"></a>Vidas de token configuráveis na plataforma de identidade da Microsoft (pré-visualização)
 
 Pode especificar o tempo de vida útil de um token de acesso, ID ou SAML emitido pela plataforma de identidade Microsoft. Pode definir durações de tokens para todas as aplicações existentes na sua organização, para uma aplicação multi-inquilino (com várias organizações) ou para um principal de serviço específico na sua organização. No entanto, atualmente, não apoiamos a configuração das vidas simbólicas para [os diretores de serviços de identidade geridos.](../managed-identities-azure-resources/overview.md)
 
@@ -50,7 +50,7 @@ Os clientes usam fichas de acesso para aceder a um recurso protegido. Um token d
 
 ### <a name="saml-tokens"></a>Tokens SAML
 
-Os tokens SAML são usados por muitas aplicações SAAS baseadas na web, e são obtidos usando o ponto final do protocolo SAML2 do Azure Ative Directory. Também são consumidos por aplicações que utilizam a WS-Federation. A vida útil padrão do símbolo é de 1 hora. Do ponto de vista da aplicação, o período de validade do token é especificado pelo valor notOnOrAfter do `<conditions …>` elemento no token. Após o fim do período de validade do token, o cliente deve iniciar um novo pedido de autenticação, que muitas vezes será satisfeito sem o sinal interativo como resultado do token de Sessão de Sinal Único (SSO).
+Os tokens SAML são usados por muitas aplicações SaaS baseadas na web, e são obtidos usando o ponto final do protocolo SAML2 do Azure Ative Directory. Também são consumidos por aplicações que utilizam a WS-Federation. A vida útil padrão do símbolo é de 1 hora. Do ponto de vista da aplicação, o período de validade do token é especificado pelo valor notOnOrAfter do `<conditions …>` elemento no token. Após o fim do período de validade do token, o cliente deve iniciar um novo pedido de autenticação, que muitas vezes será satisfeito sem o sinal interativo como resultado do token de Sessão de Sinal Único (SSO).
 
 O valor de NotOnOrAfter pode ser alterado usando o `AccessTokenLifetime` parâmetro num `TokenLifetimePolicy` . Será definido para a vida útil configurada na apólice, se houver, mais um fator de distorção do relógio de cinco minutos.
 
@@ -106,7 +106,7 @@ Os clientes públicos não podem armazenar de forma segura uma palavra-passe do 
 A propriedade Max Age é o tempo que um único símbolo pode ser usado. 
 
 ### <a name="single-sign-on-session-tokens"></a>Fichas de sessão de inscrição única
-Quando um utilizador autentica com a plataforma de identidade da Microsoft, é estabelecida uma única sessão de sessão de sessão (SSO) com o navegador do utilizador e a plataforma de identidade microsoft. O símbolo SSO, na forma de um cookie, representa esta sessão. O token de sessão SSO não está ligado a uma aplicação específica de recursos/cliente. Os tokens de sessão SSO podem ser revogados e a sua validade é verificada sempre que são utilizadas.
+Quando um utilizador autentica com a plataforma de identidade da Microsoft, é estabelecida uma única sessão de sessão (SSO) com o navegador do utilizador e a plataforma de identidade microsoft. O símbolo SSO, na forma de um cookie, representa esta sessão. O token de sessão SSO não está ligado a uma aplicação específica de recursos/cliente. Os tokens de sessão SSO podem ser revogados e a sua validade é verificada sempre que são utilizadas.
 
 A plataforma de identidade da Microsoft utiliza dois tipos de fichas de sessão SSO: persistentes e não-persistentes. Tokens de sessão persistente são armazenados como cookies persistentes pelo navegador. As fichas de sessão não-escuta são armazenadas como cookies de sessão. (Os cookies de sessão são destruídos quando o navegador está fechado.) Normalmente, um token de sessão não-reservado é armazenado. Mas, quando o utilizador seleciona o **Keep me assinado na** caixa de verificação durante a autenticação, é armazenado um token de sessão persistente.
 
@@ -274,6 +274,6 @@ Pode utilizar os seguintes cmdlets para as políticas principais do serviço.
 | [Get-AzureADServicePrincipalPolicy](/powershell/module/azuread/get-azureadserviceprincipalpolicy?view=azureadps-2.0-preview&preserve-view=true) | Obtém qualquer política ligada ao principal de serviço especificado.|
 | [Remove-AzureADServicePrincipalPolicy](/powershell/module/azuread/remove-azureadserviceprincipalpolicy?view=azureadps-2.0-preview&preserve-view=true) | Remove a política do principal de serviço especificado.|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais, leia [exemplos de como configurar vidas simbólicas.](configure-token-lifetimes.md)

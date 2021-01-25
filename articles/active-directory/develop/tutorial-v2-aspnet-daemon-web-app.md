@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Construir um daemon multi-inquilino que aceda aos dados empresariais do Microsoft Graph Rio Azure'
+title: 'Tutorial: Construa um daemon multi-inquilino que aceda aos dados de negócios do Microsoft Graph | Rio Azure'
 titleSuffix: Microsoft identity platform
 description: Neste tutorial, aprenda a chamar uma API web ASP.NET protegida pelo Azure Ative Directory a partir de uma aplicação de desktop do Windows (WPF). O cliente WPF autentica um utilizador, solicita um token de acesso e liga para a API web.
 services: active-directory
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 5f2560cdc062edb41ecda935eb9b8efe630949dc
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 7d34039a5d56feb42473b1a2b24def5244ec3e04
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98015951"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756135"
 ---
 # <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>Tutorial: Construa um daemon multi-inquilino que usa a plataforma de identidade da Microsoft
 
@@ -49,7 +49,7 @@ Uma vez que a aplicação é uma aplicação multi-inquilina para clientes empre
 
 ![O diagrama mostra a App UserSync com três itens locais ligados ao Azure, com o Start dot Auth a adquirir um símbolo interativamente para ligar ao Azure A D, o AccountController obter o consentimento administrativo para ligar ao Azure A D e o utilizador de leitura SyncController para se ligar ao Microsoft Graph.](./media/tutorial-v2-aspnet-daemon-webapp/topology.png)
 
-Para obter mais informações sobre os conceitos utilizados nesta amostra, leia a documentação do protocolo de credenciais do [cliente para o ponto final da plataforma de identidade.](v2-oauth2-client-creds-grant-flow.md)
+Para obter mais informações sobre os conceitos utilizados nesta amostra, leia a documentação do protocolo de credenciais do [cliente para a plataforma de identidade.](v2-oauth2-client-creds-grant-flow.md)
 
 ## <a name="clone-or-download-this-repository"></a>Clone ou descarregue este repositório
 
@@ -111,7 +111,7 @@ Se não quiser utilizar a automatização, utilize os passos nas seguintes secç
 1. Em **Gestão**, **selecione Autenticação**.
 1. Desatado **URL de logout** para `https://localhost:44316/Account/EndSession` .
 1. Na secção **de concessão implícita,** selecione **Tokens de acesso** e **fichas de identificação**. Esta amostra requer que o [fluxo de subvenção implícito](v2-oauth2-implicit-grant-flow.md) seja habilitado a assinar no utilizador e a chamar uma API.
-1. Selecione **Save** (Guardar).
+1. Selecione **Guardar**.
 1. Em **Gerir**, selecione **Certificados e segredos**.
 1. Na secção **de segredos** do Cliente, selecione **Novo segredo de cliente.** 
 1. Introduza uma descrição chave (por exemplo, **app secret).**
@@ -218,7 +218,7 @@ Este projeto tem aplicativos web e projetos web API. Para os implementar nos web
 1. Selecione **Configurar**.
 1. No separador **'Ligação',** atualize o URL de destino para que utilize "https". Por exemplo, usar `https://dotnet-web-daemon-v2-contoso.azurewebsites.net` . Selecione **Seguinte**.
 1. No separador **Definições,** certifique-se de que **ativar a autenticação organizacional.**
-1. Selecione **Save** (Guardar). Selecione **Publicar** no ecrã principal.
+1. Selecione **Guardar**. Selecione **Publicar** no ecrã principal.
 
 O Visual Studio publicará o projeto e abrirá automaticamente um navegador para o URL do projeto. Se vir a página web padrão do projeto, a publicação foi bem sucedida.
 

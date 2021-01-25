@@ -1,5 +1,5 @@
 ---
-title: Obtenha um símbolo para uma API web que chama APIs web Rio Azure
+title: Obtenha um símbolo para uma API web que chama APIs web | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como construir uma API web que chama APIs web que requerem a aquisição de um símbolo para a app.
 services: active-directory
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: e8301a1961479f57528802e6d8c0f10ceb0569d5
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: 9f9758ec765ad34e5ef5d8b4d4e0a420a6701b6e
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558271"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756396"
 ---
 # <a name="a-web-api-that-calls-web-apis-acquire-a-token-for-the-app"></a>Uma API web que chama APIs web: Adquira um símbolo para a app
 
@@ -124,6 +124,6 @@ def get(self):
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Passe para o próximo artigo neste cenário, [Chame uma API](scenario-web-api-call-api-call-api.md).

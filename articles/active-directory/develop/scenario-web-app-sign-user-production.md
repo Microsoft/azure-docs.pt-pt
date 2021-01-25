@@ -1,5 +1,6 @@
 ---
-title: Mover aplicação web que assina nos utilizadores para a produção - plataforma de identidade microsoft / Rio Azure
+title: Mover aplicação web que assina nos utilizadores para produção | Rio Azure
+titleSuffix: Microsoft identity platform
 description: Saiba como construir uma aplicação web que assina nos utilizadores (passe para a produção)
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: fd9890cb94bf6bb4b82ebbb585ab8bbb9d5ba46a
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: c7abad31c9936729b8d9c19ed2efcb841ac103ca
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96169295"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756246"
 ---
 # <a name="web-app-that-signs-in-users-move-to-production"></a>Aplicação web que assina nos utilizadores: Mover-se para a produção
 
@@ -24,7 +25,7 @@ Agora que sabe como obter um símbolo para chamar APIs web, aprenda a movê-lo p
 
 [!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
 
-## <a name="troubleshooting"></a>Resolução de problemas
+## <a name="troubleshooting"></a>Resolução de Problemas
 
 > [!NOTE]
 > Quando os utilizadores iniciarem a s presenciação na aplicação web pela primeira vez, terão de consentir. No entanto, em algumas organizações, os utilizadores podem ver uma mensagem como a seguinte:

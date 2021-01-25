@@ -13,18 +13,18 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: c6049bf55e379a2629e8cd4ef1427f91fc31d2cd
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: b437efcfa2b0bb2a725929ae0253f48d97d11552
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063608"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754817"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Aplicações migratórias para MSAL.NET
 
 Tanto a Biblioteca de Autenticação microsoft para .NET (MSAL.NET) como a Azure AD Authentication Library for .NET (ADAL.NET) são utilizadas para autenticar entidades AD do Azure e solicitar fichas da Azure AD. Até agora, a maioria dos desenvolvedores tem trabalhado com a Azure AD para a plataforma de desenvolvedores (v1.0) para autenticar identidades AD AZure (trabalho e contas escolares) solicitando fichas usando a Azure AD Authentication Library (ADAL). Utilização do MSAL:
 
-- pode autenticar um conjunto mais amplo de identidades da Microsoft (identidades AD AD Azure e contas da Microsoft, e contas sociais e locais através do Azure AD B2C) uma vez que utiliza o ponto final da plataforma de identidade da Microsoft,
+- você pode autenticar um conjunto mais amplo de identidades da Microsoft (identidades AD AD Azure e contas microsoft, e contas sociais e locais através do Azure AD B2C) uma vez que utiliza a plataforma de identidade microsoft,
 - os seus utilizadores terão a melhor experiência de um único sinal.
 - a sua aplicação pode permitir o consentimento incremental, e apoiar o Acesso Condicional é mais fácil
 - beneficia-se da inovação.
@@ -35,9 +35,9 @@ Este artigo descreve as diferenças entre a Biblioteca de Autenticação da Micr
 
 ## <a name="differences-between-adal-and-msal-apps"></a>Diferenças entre aplicações ADAL e MSAL
 
-Na maioria dos casos pretende utilizar MSAL.NET e o ponto final da plataforma de identidade da Microsoft, que é a última geração de bibliotecas de autenticação da Microsoft. Utilizando MSAL.NET, adquire fichas para os utilizadores que se inscrevam na sua aplicação com Azure AD (contas de trabalho e escola), contas da Microsoft (pessoais) (MSA) ou Azure AD B2C.
+Na maioria dos casos pretende utilizar MSAL.NET e a plataforma de identidade da Microsoft, que é a última geração de bibliotecas de autenticação da Microsoft. Utilizando MSAL.NET, adquire fichas para os utilizadores que se inscrevam na sua aplicação com Azure AD (contas de trabalho e escola), contas da Microsoft (pessoais) (MSA) ou Azure AD B2C.
 
-Se já está familiarizado com o AD Azure para programadores (v1.0) (e ADAL.NET), talvez queira ler [O que é diferente sobre a plataforma de identidade da Microsoft (v2.0) ponto final?](../azuread-dev/azure-ad-endpoint-comparison.md)
+Se já está familiarizado com o AD AZure para programadores (v1.0) (e ADAL.NET), talvez queira ler [O que é diferente na plataforma de identidade da Microsoft?](../azuread-dev/azure-ad-endpoint-comparison.md)
 
 No entanto, ainda precisa de utilizar ADAL.NET se a sua aplicação precisar de assinar em utilizadores com versões anteriores dos Serviços da [Federação de Diretórios Ativos (ADFS)](/windows-server/identity/active-directory-federation-services). Para mais informações, consulte [o suporte da ADFS.](https://aka.ms/msal-net-adfs-support)
 
@@ -266,4 +266,4 @@ Você também pode usar este método para vários cenários de integração onde
 
 ## <a name="next-steps"></a>Próximos passos
 
-Pode encontrar mais informações sobre os âmbitos de [aplicação em Scopes, permissões e consentimento no ponto final da plataforma de identidade da Microsoft](v2-permissions-and-consent.md)
+Pode encontrar mais informações sobre os âmbitos de [aplicação em Scopes, permissões e consentimento na plataforma de identidade da Microsoft](v2-permissions-and-consent.md)

@@ -1,5 +1,6 @@
 ---
-title: Configure aplicações de desktop que chamem APIs web - Plataforma de identidade da Microsoft Rio Azure
+title: Configure aplicações de ambiente de trabalho que liguem para APIs web | Rio Azure
+titleSuffix: Microsoft identity platform
 description: Saiba como configurar o código de uma aplicação de desktop que chama APIs web
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 27c9f2ab8b02c96d016fea66acd2b3840d79d09d
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 5b74c817a974378a7fefc71e4eed67e6564765be
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444134"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756561"
 ---
 # <a name="desktop-app-that-calls-web-apis-code-configuration"></a>Aplicativo de desktop que chama APIs web: configuração de código
 
@@ -26,7 +27,7 @@ Agora que criou a sua aplicação, aprenderá a configurar o código com as coor
 
 As seguintes aplicações de suporte para bibliotecas de autenticação da Microsoft (MSALs).
 
-  Biblioteca de Autenticação da Microsoft | Description
+  Biblioteca de Autenticação da Microsoft | Descrição
   ------------ | ----------
   ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Suporta a construção de uma aplicação para desktop em várias plataformas, como Linux, Windows e macOS.
   ![Python](media/sample-v2-code/logo_python.png) <br/> Pitão MSAL | Suporta a construção de uma aplicação de desktop em várias plataformas.
@@ -103,7 +104,7 @@ app = PublicClientApplicationBuilder.Create(clientId)
         .Build();
 ```
 
-### <a name="learn-more"></a>Saiba mais
+### <a name="learn-more"></a>Saber mais
 
 Para saber mais sobre como configurar uma aplicação de ambiente de trabalho MSAL.NET:
 
@@ -259,6 +260,6 @@ if let application = try? MSALPublicClientApplication(configuration: config) { /
 ```
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Passe para o próximo artigo neste cenário, [adquira um símbolo para a aplicação de ambiente de trabalho](scenario-desktop-acquire-token.md).

@@ -13,12 +13,12 @@ ms.date: 12/09/2020
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 9fb5e229882532fed076f2e0d800f32acfcdbf4c
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 0ded249a55e5a59bdcad7407694cbd5ed4cf2352
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013792"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756070"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Como: personalizar reclamações emitidas no token SAML para aplicações empresariais
 
@@ -48,7 +48,7 @@ Para editar o NameID (valor do identificador de nome):
 
 ### <a name="nameid-format"></a>Formato NameID
 
-Se o pedido DE SAML contiver o elemento NameIDPolicy com um formato específico, então a plataforma de identidade da Microsoft honrará o formato no pedido.
+Se o pedido SAML contiver o elemento NameIDPolicy com um formato específico, então a plataforma de identidade da Microsoft honrará o formato no pedido.
 
 Se o pedido DE SAML não contiver um elemento para NameIDPolicy, então a plataforma de identidade da Microsoft emitirá o NameID com o formato especificado. Se nenhum formato for especificado, a plataforma de identidade da Microsoft utilizará o formato de origem padrão associado à fonte de reclamação selecionada.
 

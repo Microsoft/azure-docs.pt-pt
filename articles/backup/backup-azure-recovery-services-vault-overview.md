@@ -3,12 +3,12 @@ title: Descrição geral dos cofres dos Serviços de Recuperação
 description: Uma visão geral dos cofres dos Serviços de Recuperação.
 ms.topic: conceptual
 ms.date: 08/17/2020
-ms.openlocfilehash: ab6b27bdc7ac9b01385ed43830d0af5900210d43
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0ed37446e1ccf0780f924143c8f063964adf0004
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017326"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755128"
 ---
 # <a name="recovery-services-vaults-overview"></a>Descrição geral dos Cofres dos Serviços de Recuperação
 
@@ -22,7 +22,7 @@ Este artigo descreve as características de um cofre dos Serviços de Recuperaç
 
 - **Soft Delete**: Com a eliminação suave, mesmo que um ator malicioso elimine uma cópia de segurança (ou os dados de cópia de segurança sejam acidentalmente eliminados), os dados de cópia de segurança são retidos por mais 14 dias, permitindo a recuperação desse item de backup sem perda de dados. Os 14 dias adicionais de retenção para dados de backup no estado de "soft delete" não incorrem em qualquer custo para si. [Saiba mais](backup-azure-security-feature-cloud.md).
 
-- **Cross Region Restore**: Cross Region Restore (CRR) permite restaurar os VMs Azure numa região secundária, que é uma região emparelhada Azure. Se Azure declarar um desastre na região primária, os dados replicados na região secundária estão disponíveis para restaurar na região secundária para mitigar o desastre real de tempo de inatividade na região primária para o seu ambiente. [Saiba mais](backup-azure-arm-restore-vms.md#cross-region-restore).
+- **Cross Region Restore**: Cross Region Restore (CRR) permite restaurar os VMs Azure numa região secundária, que é uma região emparelhada Azure. Ao ativar esta funcionalidade ao nível do [cofre,](backup-create-rs-vault.md#set-cross-region-restore)pode restaurar os dados replicados na região secundária a qualquer momento, quando escolher. Isto permite-lhe restaurar os dados da região secundária para a conformidade com a auditoria, e durante os cenários de paralisação, sem esperar que a Azure declare um desastre (ao contrário das configurações GRS do cofre). [Saiba mais](backup-azure-arm-restore-vms.md#cross-region-restore).
 
 ## <a name="storage-settings-in-the-recovery-services-vault"></a>Definições de armazenamento no cofre dos Serviços de Recuperação
 
@@ -46,20 +46,20 @@ Pode optar por encriptar os seus dados utilizando chaves de encriptação possu�
 
 Leia mais sobre como encriptar os seus dados de backup [utilizando as teclas geridas pelo cliente](encryption-at-rest-with-cmk.md).
 
-## <a name="azure-advisor"></a>Assistente do Azure
+## <a name="azure-advisor"></a>Azure Advisor
 
 [O Azure Advisor](../advisor/index.yml) é um consultor de nuvem personalizado que ajuda a otimizar o uso do Azure. Analisa o seu uso Azure e fornece recomendações oportunas para ajudar a otimizar e proteger as suas implementações. Fornece recomendações em quatro categorias: Alta Disponibilidade, Segurança, Desempenho e Custo.
 
 O Azure Advisor fornece [recomendações horárias](../advisor/advisor-high-availability-recommendations.md#protect-your-virtual-machine-data-from-accidental-deletion) para VMs que não são apoiados, por isso nunca perca o apoio de VMs importantes. Também pode controlar as recomendações snoozing-las.  Pode selecionar a recomendação e ativar a cópia de segurança em VMs em linha especificando o cofre (onde serão armazenadas cópias de segurança) e a política de backup (agendamento de cópias de backup e retenção de cópias de backup).
 
-![Assistente do Azure](./media/backup-azure-recovery-services-vault-overview/azure-advisor.png)
+![Azure Advisor](./media/backup-azure-recovery-services-vault-overview/azure-advisor.png)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 - [Cenários suportados e não suportados pelo cofre](backup-support-matrix.md#vault-support)
 - [Cofre frequentemente fez perguntas](backup-azure-backup-faq.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Utilize os seguintes artigos para:
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 0c4299bc41a656fd678c14d63ae1d4987dba327b
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: a4838dd6e8f9f4959fc1e4d0dc8dbc2218a30f30
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060644"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755472"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Compreenda as métricas para Azure Spring Cloud
 
@@ -89,16 +89,17 @@ As tabelas que se seguem mostram as métricas e detalhes disponíveis.
 
 ### <a name="error"></a>Erro
 >[!div class="mx-tdCol2BreakAll"]
->| Nome | Nome métrico do actuador de primavera | Unidade | Detalhes |
+>| Name | Nome métrico do actuador de primavera | Unidade | Detalhes |
 >|----|----|----|------------|
 >| tomcat.global.erro | tomcat.global.erro | de palavras | Número de erros ocorridos em pedidos processados |
 
 ### <a name="performance"></a>Desempenho
 >[!div class="mx-tdCol2BreakAll"]
->| Nome | Nome métrico do actuador de primavera | Unidade | Detalhes |
+>| Name | Nome métrico do actuador de primavera | Unidade | Detalhes |
 >|----|----|----|------------|
->| system.cpu.usage | system.cpu.usage | Percentagem | Uso recente do CPU para todo o sistema. Este valor é um duplo no intervalo [0.0,1.0]. Um valor de 0,0 significa que todos os CPUs estiveram inativos durante o período de tempo observado recentemente, enquanto um valor de 1.0 significa que todas as CPUs estavam a funcionar ativamente a 100% do tempo durante o período recente observado.|
->| process.cpu.usage | Percentagem de Utilização cpu de aplicação | Percentagem | Utilização recente do CPU para o processo Java Virtual Machine. Este valor é um duplo no intervalo [0.0,1.0]. Um valor de 0.0 significa que nenhum dos CPUs estava a executar fios do processo JVM durante o recente período de tempo observado, enquanto um valor de 1.0 significa que todos os CPUs estavam a executar ativamente fios a partir do JVM 100% do tempo durante o período recente observado. Os fios do JVM incluem os fios de aplicação, bem como os fios internos JVM.|
+>| system.cpu.usage | system.cpu.usage | Percentagem | Utilização recente do CPU para todo o sistema (Obsoleto e não sugiro a sua utilização). Este valor é um duplo no intervalo [0.0,1.0]. Um valor de 0,0 significa que todos os CPUs estiveram inativos durante o período de tempo observado recentemente, enquanto um valor de 1.0 significa que todas as CPUs estavam a funcionar ativamente a 100% do tempo durante o período recente observado.|
+>| process.cpu.usage | Percentagem de Utilização cpu de aplicação | Percentagem | Utilização recente do CPU para o processo java Virtual Machine (Obsoleto e não sugere a sua utilização). Este valor é um duplo no intervalo [0.0,1.0]. Um valor de 0.0 significa que nenhum dos CPUs estava a executar fios do processo JVM durante o recente período de tempo observado, enquanto um valor de 1.0 significa que todos os CPUs estavam a executar ativamente fios a partir do JVM 100% do tempo durante o período recente observado. Os fios do JVM incluem os fios de aplicação, bem como os fios internos JVM.|
+>| AppCpuUsage | Utilização do CPU da aplicação (pré-visualização) | Percentagem | Utilização recente do CPU do processo JVM contra o CPU atribuído a esta app, valor duplo do tipo entre [0.0,1.0]. Um valor de 0.0 significa que nenhum dos CPUs estava a executar fios do processo JVM durante o recente período de tempo observado, enquanto um valor de 1.0 significa que todos os CPUs estavam a executar ativamente fios a partir do JVM 100% do tempo durante o período recente observado. Os fios do JVM incluem os fios de aplicação, bem como os fios internos JVM.|
 >| jvm.memory.committed | jvm.memory.committed | Bytes | Representa a quantidade de memória que é garantida para ser usada pelo JVM. O JVM pode libertar memória para o sistema e comprometido pode ser menor do que o init. comprometido será sempre maior ou igual a usado. |
 >| jvm.memory.usado | jvm.memory.usado | Bytes | Representa a quantidade de memória atualmente utilizada nos bytes. |
 >| jvm.memória.max | jvm.memória.max | Bytes | Representa a quantidade máxima de memória que pode ser usada para a gestão da memória. A quantidade de memória usada e comprometida será sempre inferior ou igual ao máximo se o máximo for definido. Uma atribuição de memória pode falhar se tentar aumentar a memória usada de tal forma que usou > cometida mesmo que usada <= max ainda seria verdade (por exemplo, quando o sistema é baixo na memória virtual). |
@@ -112,7 +113,7 @@ As tabelas que se seguem mostram as métricas e detalhes disponíveis.
 ### <a name="performance-net"></a>Desempenho (.NET)
 
 >[!div class="mx-tdCol2BreakAll"]
->| Nome | Nome métrico do actuador de primavera | Unidade | Detalhes |
+>| Name | Nome métrico do actuador de primavera | Unidade | Detalhes |
 >|------|-----------------------------|------|---------|
 >| Utilização da CPU       | cpu-uso      | Percentagem      | A percentagem da utilização do CPU do processo em relação a todos os recursos do SISTEMA CPU [0-100]. |
 >| Conjunto de trabalho     | conjunto de trabalho    | Megabytes    | Quantidade de conjunto de trabalho utilizado pelo processo. |
@@ -137,7 +138,7 @@ Para mais informações, consulte [os contadores dotnet.](/dotnet/core/diagnosti
 
 ### <a name="request"></a>Pedir
 >[!div class="mx-tdCol2BreakAll"]
->| Nome | Nome métrico do actuador de primavera | Unidade | Detalhes |
+>| Name | Nome métrico do actuador de primavera | Unidade | Detalhes |
 >|----|----|----|------------|
 >| tomcat.global.enviado | tomcat.global.enviado | Bytes | Quantidade de dados que o servidor web tomcat enviado |
 >| tomcat.global.recebeu | tomcat.global.recebeu | Bytes | Quantidade de dados que o servidor web Tomcat recebeu |
@@ -147,7 +148,7 @@ Para mais informações, consulte [os contadores dotnet.](/dotnet/core/diagnosti
 ### <a name="request-net"></a>Pedido (.NET)
 
 >[!div class="mx-tdCol2BreakAll"]
->| Nome | Nome métrico do actuador de primavera | Unidade | Detalhes |
+>| Name | Nome métrico do actuador de primavera | Unidade | Detalhes |
 >|------|-----------------------------|------|---------|
 >| Pedidos por segundo | pedidos por segundo | de palavras | Taxa de pedido. |
 >| Total de pedidos | pedidos totais | de palavras | Número total de pedidos. |
@@ -158,7 +159,7 @@ Para mais informações, consulte [os contadores dotnet.](/dotnet/core/diagnosti
 
 ### <a name="session"></a>Sessão
 >[!div class="mx-tdCol2BreakAll"]
->| Nome | Nome métrico do actuador de primavera | Unidade | Detalhes |
+>| Name | Nome métrico do actuador de primavera | Unidade | Detalhes |
 >|----|----|----|------------|
 >| tomcat.sessions.ative.max | tomcat.sessions.ative.max | de palavras | Número máximo de sessões que estiveram ativas ao mesmo tempo |
 >| tomcat.sessions.alive.max | tomcat.sessions.alive.max | Milissegundos | Mais tempo (em segundos) que uma sessão expirada estava viva |
@@ -167,7 +168,7 @@ Para mais informações, consulte [os contadores dotnet.](/dotnet/core/diagnosti
 >| tomcat.sessions.rejeitado | tomcat.sessions.rejeitado | de palavras | Número de sessões que não foram criadas porque o número máximo de sessões ativas atingiu. |
 >| tomcat.sessions.ative.current | tomcat.sessions.ative.current | de palavras | Contagem ativa da sessão de Tomcat |
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 * [Quickstart: Monitorização de aplicativos Azure Spring Cloud com registos, métricas e rastreio](spring-cloud-quickstart-logs-metrics-tracing.md)
 
@@ -175,7 +176,7 @@ Para mais informações, consulte [os contadores dotnet.](/dotnet/core/diagnosti
 
 * [Analisar registos e métricas com definições de diagnóstico](./diagnostic-services.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Tutorial: Monitorar recursos da Nuvem de primavera usando alertas e grupos de ação](./spring-cloud-tutorial-alerts-action-groups.md)
 

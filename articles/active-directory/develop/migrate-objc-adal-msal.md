@@ -1,5 +1,5 @@
 ---
-title: Guia de migração ADAL para MSAL (MSAL iOS/macOS) Rio Azure
+title: Guia de migração ADAL para MSAL (MSAL iOS/macOS) | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Saiba as diferenças entre o MSAL para iOS/macOS e a Biblioteca de Autenticação AD Azure para o ObjectiveC (ADAL). ObjC) e como migrar para MSAL para iOS/macOS.
 services: active-directory
@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
-ms.openlocfilehash: fb66d8a4bf97a6f8a10534c9c4459123ad6a2654
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 7dc3241198fbc6eeddba059251f28c6dc35c8a29
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107925"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754941"
 ---
 # <a name="migrate-applications-to-msal-for-ios-and-macos"></a>Migrar aplicações para MSAL para iOS e macOS
 
@@ -38,14 +38,14 @@ A plataforma de identidade da Microsoft tem algumas diferenças fundamentais com
 
 ### <a name="standards-compliance"></a>Cumprimento das normas
 
-* O ponto final da Plataforma de Identidade da Microsoft segue os padrões OAuth 2.0 e OpenId Connect.
+* A plataforma de identidade da Microsoft segue os padrões OAuth 2.0 e OpenId Connect.
 
 ### <a name="incremental-and-dynamic-consent"></a>Consentimento incremental e dinâmico
 
 * O Azure Ative Directory v1.0 endpoint exige que todas as permissões sejam declaradas antecipadamente durante o registo da aplicação. Isto significa que as permissões são estáticas.
 * A plataforma de identidade da Microsoft permite-lhe solicitar permissões dinamicamente. As aplicações podem pedir permissões apenas quando necessário e pedir mais à medida que a app precisa delas.
 
-Para saber mais sobre as diferenças entre o Azure Ative Directory v1.0 e a plataforma de identidade da Microsoft, consulte [porquê a atualização para a plataforma de identidade da Microsoft (v2.0)?](../azuread-dev/azure-ad-endpoint-comparison.md)
+Para saber mais sobre as diferenças entre o Azure Ative Directory v1.0 e a plataforma de identidade da Microsoft, consulte [porquê a atualização para a plataforma de identidade da Microsoft?](../azuread-dev/azure-ad-endpoint-comparison.md)
 
 ## <a name="adal-and-msal-library-differences"></a>Diferenças na biblioteca ADAL e MSAL
 
@@ -463,6 +463,6 @@ application.acquireTokenSilent(with: silentParameters) {
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre [fluxos de autenticação e cenários de aplicação](authentication-flows-app-scenarios.md)

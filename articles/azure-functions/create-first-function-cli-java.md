@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.custom:
 - devx-track-java
 - devx-track-azurecli
-ms.openlocfilehash: 504d3a834760605149c93c0beea84bbe1b59e263
-ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
+ms.openlocfilehash: 5ebb30101d191bb254017db7b0de2f9b8bce145d
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97707559"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755176"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-from-the-command-line"></a>Quickstart: Criar uma função Java em Azure a partir da linha de comando
 
@@ -73,7 +73,7 @@ Em Funções Azure, um projeto de função é um recipiente para uma ou mais fun
     ---
 
     > [!IMPORTANT]
-    > + Utilize `-DjavaVersion=11` se quiser que as suas funções funcionem em Java 11. Para saber mais, consulte as [versões Java.](functions-reference-java.md#java-versions) 
+    > + Se quiser que as suas funções sejam executadas no Java 11, utilize `-DjavaVersion=11`. Para saber mais, consulte as [versões Java.](functions-reference-java.md#java-versions) 
     > + A `JAVA_HOME` variável ambiente deve ser definida para a localização de instalação da versão correta do JDK para completar este artigo.
 
 1. A Maven pede-lhe valores necessários para terminar a geração do projeto na implantação.   
@@ -113,7 +113,7 @@ A mensagem de resposta é gerada pela [HttpResponseMessage.Builder](/java/api/co
 
 As definições para os recursos Azure criados para hospedar a sua aplicação são definidas no elemento de **configuração** do plugin com um **grupoId** do `com.microsoft.azure` ficheiro pom.xml gerado. Por exemplo, o elemento de configuração abaixo instrui uma implementação baseada em Maven para criar uma aplicação de função no `java-functions-group` grupo de recursos na `westus` região. A própria aplicação de função funciona no Windows hospedado no `java-functions-app-service-plan` plano, que por padrão é um plano de consumo sem servidor.
 
-:::code language="java" source="~/azure-functions-samples-java/pom.xml" range="62-102":::
+:::code language="java" source="~/azure-functions-samples-java/pom.xml" range="62-107":::
 
 Pode alterar estas definições para controlar a forma como os recursos são criados no Azure, tais como alterando `runtime.os` de antes da `windows` `linux` implantação inicial. Para obter uma lista completa de definições suportadas pelo plug-in Maven, consulte os detalhes da [configuração](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Functions:-Configuration-Details).
 
@@ -220,7 +220,7 @@ Remove-AzResourceGroup -Name java-functions-group
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Ligue-se a uma fila de armazenamento Azure](functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-java)

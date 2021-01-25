@@ -1,5 +1,5 @@
 ---
-title: Configure aplicativos móveis que chamam APIs web Rio Azure
+title: Configure aplicações móveis que chamem APIs web | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como configurar o código da sua aplicação móvel para chamar uma API web
 services: active-directory
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/16/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: e2c632de3d602fe2d3e5bfa74f78e90f48412067
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: ebc22e3cf300b664aae5842f7cf924769d4d907e
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98208918"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756489"
 ---
 # <a name="configure-a-mobile-app-that-calls-web-apis"></a>Configure uma aplicação móvel que chama APIs web
 
@@ -27,7 +27,7 @@ Depois de criar a sua aplicação, aprenderá a configurar o código utilizando 
 
 Os seguintes tipos da Microsoft Authentication Library (MSAL) suportam aplicações móveis.
 
-MSAL | Description
+MSAL | Descrição
 ------------ | ----------
 ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Usado para desenvolver aplicações portáteis. MSAL.NET suporta as seguintes plataformas para a construção de uma aplicação móvel: Universal Windows Platform (UWP), Xamarin.iOS e Xamarin.Android.
 ![MSAL.iOS](media/sample-v2-code/logo_iOS.png) <br/> MSAL.iOS | Usado para desenvolver aplicações nativas do iOS utilizando Object-C ou Swift.
@@ -363,6 +363,6 @@ Aqui está um exemplo de como `LSApplicationQueriesSchemes` adicionar:
 
 Para obter informações sobre como ativar um corretor no Android, consulte [a autenticação mediada em Xamarin.Android](msal-net-use-brokers-with-xamarin-apps.md#brokered-authentication-for-android).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Passe para o próximo artigo neste cenário, [Adquirindo um símbolo](scenario-mobile-acquire-token.md).

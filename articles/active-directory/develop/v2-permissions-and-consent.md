@@ -12,16 +12,16 @@ ms.date: 09/23/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40
-ms.openlocfilehash: 35499810ae13a8ddc5b7bb6306deafef0ef24e0f
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: aa8c00d1ee2a0dc3d019cc75b4e411ede984e74a
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98246796"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756055"
 ---
-# <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Permissões e consentimento no ponto final da plataforma de identidades da Microsoft
+# <a name="permissions-and-consent-in-the-microsoft-identity-platform"></a>Permissões e consentimento na plataforma de identidade da Microsoft
 
-As aplicações que se integram com a plataforma de identidade da Microsoft seguem um modelo de autorização que dá aos utilizadores e administradores o controlo sobre a forma como os dados podem ser acedidos. A implementação do modelo de autorização foi atualizada no ponto final da plataforma de identidade da Microsoft. Altera a forma como uma aplicação deve interagir com a plataforma de identidade da Microsoft. Este artigo abrange os conceitos básicos deste modelo de autorização, incluindo âmbitos, permissões e consentimento.
+As aplicações que se integram com a plataforma de identidade da Microsoft seguem um modelo de autorização que dá aos utilizadores e administradores o controlo sobre a forma como os dados podem ser acedidos. A implementação do modelo de autorização foi atualizada na plataforma de identidade da Microsoft. Altera a forma como uma aplicação deve interagir com a plataforma de identidade da Microsoft. Este artigo abrange os conceitos básicos deste modelo de autorização, incluindo âmbitos, permissões e consentimento.
 
 ## <a name="scopes-and-permissions"></a>Âmbitos e permissões
 
@@ -128,7 +128,7 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
 
 O `scope` parâmetro é uma lista separada do espaço de permissões delegadas que a aplicação está a solicitar. Cada permissão é indicada através da anexação do valor de permissão ao identificador do recurso (o ID URI de aplicação). No exemplo do pedido, a aplicação necessita de permissão para ler o calendário do utilizador e enviar o correio como utilizador.
 
-Depois de o utilizador introduzir as suas credenciais, o ponto final da plataforma de identidade da Microsoft verifica se há um registo correspondente do consentimento do *utilizador*. Se o utilizador não tiver consentido nenhuma das permissões solicitadas no passado, e se o administrador não tiver consentido estas permissões em nome de toda a organização, o ponto final da plataforma de identidade da Microsoft pede ao utilizador que conceda as permissões solicitadas.
+Depois de o utilizador introduzir as suas credenciais, a plataforma de identidade da Microsoft verifica se há um registo correspondente do consentimento do *utilizador.* Se o utilizador não tiver consentido nenhuma das permissões solicitadas no passado, e se o administrador não tiver consentido estas permissões em nome de toda a organização, a plataforma de identidade da Microsoft pede ao utilizador que conceda as permissões solicitadas.
 
 Neste momento, a `offline_access` permissão ("Manter o acesso aos dados a que lhe deu acesso") e `user.read` ("Iniciar e ler o seu perfil") são automaticamente incluídas no consentimento inicial de uma aplicação.  Estas permissões são geralmente necessárias para uma funcionalidade adequada da aplicação. A `offline_access` permissão dá à aplicação acesso a tokens de atualização que são fundamentais para aplicações nativas e aplicações web. A `user.read` permissão dá acesso à `sub` reclamação. Permite ao cliente ou app identificar corretamente o utilizador ao longo do tempo e aceder a informações rudimentares do utilizador.
 
@@ -335,7 +335,7 @@ response_type=token            //Code or a hybrid flow is also possible here
 
 Este exemplo de código produz uma página de consentimento para todas as permissões registadas se as descrições anteriores de consentimento e `/.default` se aplicarem ao cenário. Em seguida, o código devolve um `id_token` , em vez de um token de acesso.  
 
-Este comportamento acomoda alguns clientes legados que estão a mudar-se da Azure AD Authentication Library (ADAL) para a Microsoft Authentication Library (MSAL). Esta configuração *não deve* ser utilizada por novos clientes que visam o ponto final da plataforma de identidade da Microsoft.
+Este comportamento acomoda alguns clientes legados que estão a mudar-se da Azure AD Authentication Library (ADAL) para a Microsoft Authentication Library (MSAL). Esta configuração *não deve* ser usada por novos clientes que visam a plataforma de identidade da Microsoft.
 
 ### <a name="client-credentials-grant-flow-and-default"></a>Fluxo de concessão de credenciais de cliente e /.default  
 
@@ -355,7 +355,7 @@ Alguns URIs de recursos têm um corte para a frente, por exemplo, `https://conto
 
 Para obter etapas de resolução de problemas, consulte [erro inesperado ao efetuar o consentimento de uma aplicação](../manage-apps/application-sign-in-unexpected-user-consent-error.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Fichas de ID na plataforma de identidade da Microsoft](id-tokens.md)
-* [Tokens de acesso na plataforma de identidade da Microsoft](access-tokens.md)
+* [Fichas de acesso na plataforma de identidade da Microsoft](access-tokens.md)

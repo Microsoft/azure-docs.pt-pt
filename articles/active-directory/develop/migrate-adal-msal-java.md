@@ -1,5 +1,5 @@
 ---
-title: Guia de migração ADAL para MSAL (MSAL4j) / Rio Azure
+title: Guia de migração ADAL para MSAL (MSAL4j) | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como migrar a sua app Azure Ative Directory Authentication Library (ADAL) Java para a Microsoft Authentication Library (MSAL).
 services: active-directory
@@ -14,12 +14,12 @@ ms.date: 11/04/2019
 ms.author: sagonzal
 ms.reviewer: nacanuma, twhitney
 ms.custom: aaddev, devx-track-java
-ms.openlocfilehash: 0183471db274bb7fca59ed8f24aa87b2bf997fb6
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 1d1512447b5d0474f8fabe92dbc7a36259f4618c
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063744"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754976"
 ---
 # <a name="adal-to-msal-migration-guide-for-java"></a>Guia de migração ADAL para MSAL para Java
 
@@ -29,7 +29,7 @@ Tanto a Biblioteca de Autenticação da Microsoft para Java (MSAL4J) como a Azur
 
 A MSAL oferece os seguintes benefícios:
 
-- Uma vez que utiliza o mais recente ponto final da plataforma de identidade da Microsoft, pode autenticar um conjunto mais alargado de identidades da Microsoft, tais como identidades AD AD Azure, contas da Microsoft e contas sociais e locais através do Azure AD Business to Consumer (B2C).
+- Uma vez que utiliza a mais recente plataforma de identidade da Microsoft, pode autenticar um conjunto mais alargado de identidades da Microsoft, tais como identidades AD AD Azure, contas da Microsoft e contas sociais e locais através do Azure AD Business to Consumer (B2C).
 - Os seus utilizadores terão a melhor experiência de um único sinal.
 - A sua aplicação pode permitir o consentimento incremental, e o acesso condicional é mais fácil.
 
@@ -37,13 +37,13 @@ MSAL para Java é a biblioteca de auth que recomendamos que utilize com a plataf
 
 ## <a name="differences"></a>Diferenças
 
-Se tem trabalhado com o AD Azure para programadores (v1.0) endpoint (e ADAL4J), talvez queira ler [O que há de diferente na plataforma de identidade da Microsoft (v2.0) ponto final?](../azuread-dev/azure-ad-endpoint-comparison.md)
+Se tem trabalhado com o AD AZure para programadores (v1.0) (e ADAL4J), talvez queira ler [O que há de diferente na plataforma de identidade da Microsoft?](../azuread-dev/azure-ad-endpoint-comparison.md)
 
 ## <a name="scopes-not-resources"></a>Âmbitos não recursos
 
 A ADAL4J adquire fichas para recursos, enquanto a MSAL para a Java adquire fichas para âmbitos. Uma série de MSAL para as classes java requerem um parâmetro de âmbito. Este parâmetro é uma lista de cordas que declaram as permissões e recursos pretendidos que são solicitados. Consulte [os âmbitos do Microsoft Graph](/graph/permissions-reference) para ver os âmbitos de exemplo.
 
-Pode adicionar o `/.default` sufixo de âmbito ao recurso para ajudar a migrar as suas aplicações do ponto final v1.0 (ADAL) para o ponto final da plataforma de identidade da Microsoft (MSAL). Por exemplo, para o valor de recursos `https://graph.microsoft.com` de, o valor de âmbito equivalente é `https://graph.microsoft.com/.default` .  Se o recurso não estiver no formulário URL, mas sim num ID de recurso do `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX` formulário, ainda pode utilizar o valor de âmbito como `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX/.default` .
+Pode adicionar o `/.default` sufixo de âmbito ao recurso para ajudar a migrar as suas aplicações do ADAL para o MSAL. Por exemplo, para o valor de recursos `https://graph.microsoft.com` de, o valor de âmbito equivalente é `https://graph.microsoft.com/.default` .  Se o recurso não estiver no formulário URL, mas sim num ID de recurso do `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX` formulário, ainda pode utilizar o valor de âmbito como `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX/.default` .
 
 Para obter mais detalhes sobre os diferentes tipos de âmbitos, consulte [permissões e consentimento na plataforma de identidade da Microsoft](./v2-permissions-and-consent.md) e nos [Âmbitos para uma API Web aceitando artigos de fichas v1.0.](./msal-v1-app-scopes.md)
 

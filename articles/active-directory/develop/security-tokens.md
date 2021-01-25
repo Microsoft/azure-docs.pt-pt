@@ -1,7 +1,7 @@
 ---
-title: Fichas de segurança Rio Azure
+title: Fichas de segurança | Rio Azure
 titleSuffix: Microsoft identity platform
-description: Conheça os fundamentos dos tokens de segurança na plataforma de identidade da Microsoft (v2.0).
+description: Conheça os fundamentos dos tokens de segurança na plataforma de identidade da Microsoft.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -13,12 +13,12 @@ ms.date: 05/11/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 88dc4bb86459cd0390c4c01deb871aa93e39c6d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9668d3b0b57e36fb95421f8b502b9b743be8eb31
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84266751"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756223"
 ---
 # <a name="security-tokens"></a>Tokens de segurança
 
@@ -67,7 +67,7 @@ Uma reivindicação consiste em pares de valores-chave que fornecem informaçõe
 * Público, que é a app para a qual o símbolo foi gerado
 * App (o cliente) que pediu o token. No caso das aplicações web, isto pode ser o mesmo que o público
 
-Para saber mais sobre como a plataforma de identidade da Microsoft implementa fichas e reclama informações, consulte [tokens de acesso](access-tokens.md) e [fichas de identificação.](id-tokens.md)
+Para saber mais sobre como a plataforma de identidade da Microsoft implementa fichas e reclama informações, consulte [tokens de acesso](access-tokens.md) e [fichas de ID.](id-tokens.md)
 
 ## <a name="how-each-flow-emits-tokens-and-codes"></a>Como cada fluxo emite fichas e códigos
 
@@ -84,7 +84,7 @@ Dependendo da forma como o seu cliente é construído, pode utilizar um (ou vár
 
 Os tokens emitidos através do modo implícito têm uma limitação de comprimento devido a ser passado de volta para o navegador através do URL (onde `response_mode` está `query` ou `fragment` ).  Alguns navegadores têm um limite no tamanho do URL que pode ser colocado na barra de navegador e falhar quando é muito longo.  Assim, estes tokens não têm `groups` nem `wids` reivindicações.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para outros tópicos que abranjam os fundamentos básicos de autenticação e autorização:
 
