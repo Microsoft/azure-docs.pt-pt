@@ -9,16 +9,16 @@ ms.workload: azure-vs
 ms.topic: tutorial
 ms.date: 10/5/2020
 ms.author: ghogen
-ms.openlocfilehash: 1c2264cb76e062f5f22c0460572ec01750086a04
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: b12f8beeee054e547a6b58750d8482d32ee14453
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98745076"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747261"
 ---
 # <a name="create-and-deploy-a-azure-cloud-service-extended-support-using-visual-studio"></a>Criar e implementar um Azure Cloud Service (suporte alargado) utilizando o Visual Studio
 
-Começando pela versão 16.9 Preview 1 do Visual Studio 2019, pode trabalhar com a Cloud Services (suporte alargado) utilizando o Azure Resource Manager, o que simplifica e moderniza muito a manutenção e gestão dos recursos da Azure. Também pode converter um projeto de Cloud Service existente para um projeto de Serviço cloud de suporte alargado.
+Começando pela [versão 16.9 do Visual Studio 2019](https://visualstudio.microsoft.com/vs/preview/) (atualmente em pré-visualização), pode trabalhar com serviços em nuvem utilizando o Azure Resource Manager (ARM), o que simplifica e moderniza muito a manutenção e gestão dos recursos da Azure. Isto é ativado por um novo serviço Azure referido como Cloud Services (suporte alargado). Pode publicar um serviço de nuvem existente para cloud Services (suporte alargado). Para obter informações sobre este serviço Azure, consulte [a documentação cloud Services (suporte alargado).](overview.md)
 
 > [!IMPORTANT]
 > Os Serviços cloud (suporte alargado) estão atualmente em pré-visualização pública.

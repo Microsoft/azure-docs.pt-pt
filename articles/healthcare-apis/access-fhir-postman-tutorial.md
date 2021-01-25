@@ -9,12 +9,12 @@ ms.reviewer: dseven
 ms.author: matjazl
 author: matjazl
 ms.date: 02/07/2019
-ms.openlocfilehash: 37086a925d65a80f219c8e0a3358c834a2691701
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: b0acfbf9636c2ad1df7df3197a0a1a83ec91b5c3
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145655"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747344"
 ---
 # <a name="access-azure-api-for-fhir-with-postman"></a>Acesso Azure API para FHIR com Carteiro
 
@@ -32,7 +32,7 @@ Para utilizar o Carteiro, são necessários os seguintes detalhes:
 
 - O URL do seu servidor FHIR, por exemplo `https://MYACCOUNT.azurehealthcareapis.com`
 - O fornecedor de identidade `Authority` do seu servidor FHIR, por exemplo, `https://login.microsoftonline.com/{TENANT-ID}`
-- Os `audience` configurados. Este é geralmente o URL do servidor FHIR, por exemplo `https://MYACCOUNT.azurehealthcareapis.com` ou apenas `https://azurehealthcareapis.com` .
+- Os `audience` configurados. Este é geralmente o URL do servidor FHIR, por exemplo `https://<FHIR-SERVER-NAME>.azurehealthcareapis.com` ou apenas `https://azurehealthcareapis.com` .
 - O `client_id` (ou ID de aplicação) da [aplicação](register-confidential-azure-ad-client-app.md) do cliente que você vai usar para aceder ao serviço FHIR.
 - O `client_secret` (ou segredo de aplicação) da aplicação do cliente.
 
@@ -127,7 +127,7 @@ Se repetir a procura do paciente, deve agora ver o registo do paciente:
 
 ![Paciente criado](media/tutorial-postman/postman-patient-found.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, acedeu a uma API FHIR usando carteiro. Leia sobre as funcionalidades de API suportadas na nossa secção de funcionalidades suportadas.
  

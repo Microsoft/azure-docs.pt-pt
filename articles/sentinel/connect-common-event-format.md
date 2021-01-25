@@ -1,5 +1,5 @@
 ---
-title: Ligue os dados do CEF à pré-visualização do Azure Sentinel. Microsoft Docs
+title: Ligue os dados do CEF à pré-visualização do Sentinela Azure| Microsoft Docs
 description: Ligue uma solução externa que envia mensagens Common Event Format (CEF) ao Azure Sentinel, utilizando uma máquina Linux como reencaminhador de registos.
 services: sentinel
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: 4b34477a40530a0e6f26b59dd9707c019418b2a4
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 6010242e7fbd14aa117c481dee0d05e92928ef1b
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655855"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747496"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Ligue a sua solução externa utilizando o Formato Comum de Eventos
 
@@ -77,6 +77,12 @@ Certifique-se de que a máquina Linux que utiliza como reencaminhador de registo
   - Syslog RFC 5424
  
 Certifique-se de que a sua máquina também cumpre os seguintes requisitos: 
+
+- Capacidade
+  - A sua máquina deve ter um mínimo de **4 núcleos CPU e 8 GB de RAM**.
+
+    > [!NOTE]
+    > - Uma única máquina de reencaminhamento de log utilizando o daemon **rsyslog** tem uma capacidade suportada de **até 8500 eventos por segundo (EPS) recolhidos.**
 
 - Permissões
   - Deve ter permissões elevadas (sudo) na sua máquina. 

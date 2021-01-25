@@ -1,6 +1,6 @@
 ---
-title: Ligue os dados do Syslog ao Azure Sentinel ! Microsoft Docs
-description: Ligue qualquer máquina ou aparelho que suporte o Syslog ao Azure Sentinel utilizando um agente numa máquina Linux entre o aparelho e o Sentinel. 
+title: Ligue os dados do Syslog ao | do Azure Sentinel Microsoft Docs
+description: Ligue qualquer máquina ou aparelho que suporte o Syslog ao Azure Sentinel utilizando um agente numa máquina Linux entre o aparelho e o Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 7670d00a2dd25961a51d18c50c102e0f92b30975
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c3cf4c3c135b3f275542af4f531d1071e180ebe
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88566153"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747195"
 ---
 # <a name="collect-data-from-linux-based-sources-using-syslog"></a>Recolher dados de fontes baseadas em Linux utilizando o Syslog
 
@@ -104,7 +104,7 @@ Para obter mais informações, consulte [fontes de dados do Syslog no Azure Moni
 > [!IMPORTANT]
 > A deteção de login anómala SSH está atualmente em visualização pública.
 > Esta funcionalidade é fornecida sem um contrato de nível de serviço, e não é recomendado para cargas de trabalho de produção.
-> Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 O Azure Sentinel pode aplicar machine learning (ML) aos dados do syslog para identificar a atividade de login anómala Secure Shell (SSH). Os cenários incluem:
 
@@ -120,17 +120,21 @@ Esta deteção requer uma configuração específica do conector de dados Syslog
 
 2. Permitir a recolha de informações syslog. Em seguida, navegue até **Azure Sentinel - Logs**, e copie e cole a seguinte consulta:
     
-    ```console
-    Syslog |  where Facility in ("authpriv","auth")| extend c = extract( "Accepted\\s(publickey|password|keyboard-interactive/pam)\\sfor ([^\\s]+)",1,SyslogMessage)| where isnotempty(c) | count 
+    ```kusto
+    Syslog
+    | where Facility in ("authpriv","auth")
+    | extend c = extract( "Accepted\\s(publickey|password|keyboard-interactive/pam)\\sfor ([^\\s]+)",1,SyslogMessage)
+    | where isnotempty(c)
+    | count 
     ```
     
     Altere o **intervalo de tempo,** se necessário, e selecione **Executar**.
     
     Se a contagem resultante for zero, confirme a configuração do conector e que os computadores monitorizados têm uma atividade de login bem sucedida durante o período de tempo especificado para a sua consulta.
     
-    Se a contagem resultante for superior a zero, os seus dados de syslog são adequados para a deteção anómala de login SSH. Ativa esta deteção a partir de modelos de regras de **análise**  >   **Rule templates**  >  **(pré-visualização) Deteção de Login anómala**.
+    Se a contagem resultante for superior a zero, os seus dados de syslog são adequados para a deteção anómala de login SSH. Ativa esta deteção a partir de modelos de regras de **análise**  >     >  **(pré-visualização) Deteção de Login anómala**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste documento, aprendeu a ligar os aparelhos Syslog no local ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)
 - Começa [a detetar ameaças com o Azure Sentinel.](tutorial-detect-threats-built-in.md)

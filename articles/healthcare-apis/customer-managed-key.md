@@ -8,34 +8,45 @@ ms.subservice: fhir
 ms.topic: overview
 ms.date: 09/28/2020
 ms.author: matjazl
-ms.openlocfilehash: 05c208ba3c9005d38b8924037748764f8d112e3a
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 3879280f56a4b99d8e6e08a9c9ed852ef2cafa68
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93398186"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747328"
 ---
-# <a name="configure-customer-managed-keys"></a>Configurar chaves geridas pelo cliente
+# <a name="configure-customer-managed-keys-at-rest"></a>Configure as chaves geridas pelo cliente em repouso
 
 Quando cria uma nova API Azure para conta FHIR, os seus dados são encriptados utilizando por padrão as teclas geridas pela Microsoft. Agora, pode adicionar uma segunda camada de encriptação para os dados usando a sua própria chave que você escolhe e gere a si mesmo.
 
-Em Azure, isto é normalmente realizado usando uma chave de encriptação no Cofre de Chaves Azure (AKV) do cliente. Azure SQL, Azure Storage e Cosmos DB são alguns exemplos que fornecem esta capacidade hoje em dia. A Azure API para fHIR aproveita este apoio da Cosmos DB. Quando criar uma conta, terá a opção de especificar uma chave AKV URI. Passaremos esta chave para cosmos DB quando a conta DB for abastado. Quando um pedido de FHIR é feito, cosmos DB pega na sua chave e usa-a para encriptar/desencriptar os dados. Para começar, pode consultar os seguintes links:
+Em Azure, isto é normalmente realizado usando uma chave de encriptação no Cofre de Chaves Azure do cliente. Azure SQL, Azure Storage e Cosmos DB são alguns exemplos que fornecem esta capacidade hoje em dia. A Azure API para fHIR aproveita este apoio da Cosmos DB. Ao criar uma conta, terá a opção de especificar uma chave URI do Cofre de Chaves Azure. Esta chave será transmitida à Cosmos DB quando a conta DB for abastado. Quando um pedido de FHIR é feito, cosmos DB pega na sua chave e usa-a para encriptar/desencriptar os dados. Para começar, pode consultar os seguintes links:
 
 - [Registe o fornecedor de recursos DB da Azure Cosmos para a sua subscrição Azure](../cosmos-db/how-to-setup-cmk.md#register-resource-provider) 
-- [Configure a sua instância AKV](../cosmos-db/how-to-setup-cmk.md#configure-your-azure-key-vault-instance)
--  [Adicione uma política de acesso à sua instância AKV](../cosmos-db/how-to-setup-cmk.md#add-an-access-policy-to-your-azure-key-vault-instance)
-- [Gerar uma chave em AKV](../cosmos-db/how-to-setup-cmk.md#generate-a-key-in-azure-key-vault)
+- [Configure o seu exemplo de Cofre de Chave Azure](../cosmos-db/how-to-setup-cmk.md#configure-your-azure-key-vault-instance)
+- [Adicione uma política de acesso ao seu Azure Key Vault](../cosmos-db/how-to-setup-cmk.md#add-an-access-policy-to-your-azure-key-vault-instance)
+- [Gere uma chave no Cofre da Chave Azure](../cosmos-db/how-to-setup-cmk.md#generate-a-key-in-azure-key-vault)
 
-Depois de criar a sua API Azure para conta FHIR no portal Azure, pode ver uma opção de configuração de "Encriptação de Dados" no separador "Definições de base" no separador "Definições Adicionais". Por predefinição, a opção chave gerida pelo serviço será escolhida. Pode especificar a sua chave AKV aqui selecionando a opção "chave gerida pelo cliente". Pode introduzir aqui a chave copiada URI.
+## <a name="specify-the-azure-key-vault-key"></a>Especificar a chave Azure Key Vault
 
-:::image type="content" source="media/bring-your-own-key/bring-your-own-key-create.png" alt-text="Criar Azure API para FHIR":::
+Ao criar a sua API Azure para conta FHIR no portal Azure, pode ver uma opção de configuração de "Encriptação de Dados" no separador "Definições de Base de Dados" no separador "Definições Adicionais". Por predefinição, a opção chave gerida pelo serviço será escolhida. 
 
-Ou, pode escolher a sua chave no KeyPicker:
+Pode escolher a sua chave no KeyPicker:
 
 :::image type="content" source="media/bring-your-own-key/bring-your-own-key-keypicker.png" alt-text="KeyPicker":::
+
+Ou pode especificar a sua chave Azure Key Vault aqui, selecionando a opção "chave gerida pelo cliente". Pode introduzir a chave URI aqui:
+
+:::image type="content" source="media/bring-your-own-key/bring-your-own-key-create.png" alt-text="Criar Azure API para FHIR":::
 
 Para as contas FHIR existentes, pode ver a escolha de encriptação chave (chave gerida pelo serviço ou gerida pelo cliente) na lâmina "Database" como abaixo. A opção de configuração não pode ser modificada uma vez escolhida. No entanto, pode modificar e atualizar a sua chave.
 
 :::image type="content" source="media/bring-your-own-key/bring-your-own-key-database.png" alt-text="Base de dados":::
 
-Além disso, pode criar uma nova versão da chave especificada, após a qual os seus dados serão encriptados com a nova versão sem qualquer interrupção de serviço. Também pode remover o acesso à chave para remover o acesso aos dados.
+Além disso, pode criar uma nova versão da chave especificada, após a qual os seus dados serão encriptados com a nova versão sem qualquer interrupção de serviço. Também pode remover o acesso à chave para remover o acesso aos dados. Quando a chave estiver desativada, as consultas resultarão num erro. Se a chave for re-activada, as consultas voltarão a ter sucesso.
+
+## <a name="next-steps"></a>Próximos passos
+
+Neste artigo, aprendeu a configurar chaves geridas pelo cliente em repouso. Em seguida, pode conferir mais uma vez na secção Azure Cosmos DB FAQ: 
+ 
+>[!div class="nextstepaction"]
+>[Cosmos DB: como configurar a CMK](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#frequently-asked-questions)

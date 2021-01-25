@@ -1,5 +1,5 @@
 ---
-title: 'CLI: Apoiar uma aplicação'
+title: 'CLI: Backup de uma aplicação'
 description: Saiba como utilizar o Azure CLI para automatizar a implementação e gestão da sua aplicação De Serviço de Aplicações. Esta amostra mostra como fazer o back up de uma aplicação.
 author: msangapu-msft
 tags: azure-service-management
@@ -9,12 +9,12 @@ ms.date: 12/07/2017
 ms.author: msangapu
 ms.reviewer: cephalin
 ms.custom: mvc, seodec18, devx-track-azurecli
-ms.openlocfilehash: cca0f927c6824642f11254743f3bdf275ca7e5d9
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 4f87e610c1f3315b21a9c157f127e713ff5444f2
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97006859"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747546"
 ---
 # <a name="back-up-an-app-using-cli"></a>Fazer o back up de uma aplicação usando o CLI
 
@@ -47,7 +47,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [`az webapp config backup create`](/cli/azure/webapp/config/backup#az-webapp-config-backup-create) | Cria uma cópia de segurança para uma aplicação de Serviço de Aplicações. |
 | [`az webapp config backup list`](/cli/azure/webapp/config/backup#az-webapp-config-backup-list) | Obtém uma lista de backups para uma aplicação do Serviço de Aplicações. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 

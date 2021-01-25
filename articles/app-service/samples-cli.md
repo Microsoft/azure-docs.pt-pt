@@ -6,12 +6,12 @@ ms.assetid: 53e6a15a-370a-48df-8618-c6737e26acec
 ms.topic: sample
 ms.date: 07/07/2020
 ms.custom: mvc
-ms.openlocfilehash: beab87618b97da4e61b0525c0c5a6bdd134fb7f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61ce290f8ed5e8ad919a253d426d3278233caa3f
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86169447"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747294"
 ---
 # <a name="cli-samples-for-azure-app-service"></a>Amostras de CLI para O Serviço de Aplicações Azure
 
@@ -40,8 +40,8 @@ A tabela seguinte inclui ligações para scripts bash criados com a CLI do Azure
 | [Conecte uma aplicação a uma conta de armazenamento](./scripts/cli-connect-to-storage.md?toc=%2fcli%2fazure%2ftoc.json)| Cria uma aplicação de Serviço de Aplicações e uma conta de armazenamento e, em seguida, adiciona o fio de ligação de armazenamento às definições da aplicação. |
 | [Conecte uma aplicação a um Azure Cache para Redis](./scripts/cli-connect-to-redis.md?toc=%2fcli%2fazure%2ftoc.json) | Cria uma aplicação de Serviço de Aplicações e um Cache Azure para Redis, em seguida, adiciona os detalhes da ligação redis às definições da aplicação.) |
 | [Conecte uma aplicação ao Cosmos DB](./scripts/cli-connect-to-documentdb.md?toc=%2fcli%2fazure%2ftoc.json) | Cria uma aplicação de Serviço de Aplicações e um Cosmos DB, em seguida, adiciona os detalhes da conexão Cosmos DB às definições da aplicação. |
-|**Apoiar e restaurar app**||
-| [Efetuar cópia de segurança de uma aplicação](./scripts/cli-backup-onetime.md?toc=%2fcli%2fazure%2ftoc.json) | Cria uma aplicação de Serviço de Aplicações e cria uma cópia de segurança única para a empresa. |
+|**App de backup e restauro**||
+| [Backup de uma aplicação](./scripts/cli-backup-onetime.md?toc=%2fcli%2fazure%2ftoc.json) | Cria uma aplicação de Serviço de Aplicações e cria uma cópia de segurança única para a empresa. |
 | [Crie uma cópia de segurança programada para uma aplicação](./scripts/cli-backup-scheduled.md?toc=%2fcli%2fazure%2ftoc.json) | Cria uma aplicação de Serviço de Aplicações e cria uma cópia de segurança programada para a empresa. |
 | [Restaura uma aplicação a partir de uma cópia de segurança](./scripts/cli-backup-restore.md?toc=%2fcli%2fazure%2ftoc.json) | Restaura uma aplicação de Serviço de Aplicações a partir de uma cópia de segurança. |
 |**Monitorizar aplicação**||

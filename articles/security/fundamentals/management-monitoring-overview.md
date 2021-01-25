@@ -1,5 +1,5 @@
 ---
-title: Funcionalidades de segurança de gestão e monitorização - Microsoft Azure Microsoft Docs
+title: Funcionalidades de segurança de gestão e monitorização - Microsoft Azure | Microsoft Docs
 description: Este artigo fornece uma visão geral das funcionalidades e serviços de segurança que a Azure fornece para ajudar na gestão e monitorização dos serviços de nuvem Azure e máquinas virtuais.
 services: security
 documentationcenter: na
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2019
+ms.date: 01/24/2021
 ms.author: terrylan
-ms.openlocfilehash: 038f30ee186a5b3a9d87d64054726324051c37b4
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: d85b1fdd433c372bb41adec6e3d33013f19363f0
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842758"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747178"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Visão geral da gestão e monitorização da segurança da Azure
 Este artigo fornece uma visão geral das funcionalidades e serviços de segurança que a Azure fornece para ajudar na gestão e monitorização dos serviços de nuvem Azure e máquinas virtuais.
@@ -61,8 +61,8 @@ A Autenticação Multi-Factor ajuda a salvaguardar o acesso a dados e aplicaçõ
 Saiba mais:
 
 * [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
-* [O que é a autenticação multi-factor Azure AD?](../../active-directory/authentication/concept-mfa-howitworks.md)
-* [Como funciona a autenticação multi-factor Azure AD](../../active-directory/authentication/concept-mfa-howitworks.md)
+* [O que é a Multi-Factor Authentication do Azure AD?](../../active-directory/authentication/concept-mfa-howitworks.md)
+* [Como funciona o Multi-Factor Authentication do Azure AD](../../active-directory/authentication/concept-mfa-howitworks.md)
 
 ## <a name="expressroute"></a>ExpressRoute
 
@@ -85,7 +85,7 @@ Gateways VPN, também chamados gateways de rede virtual Azure, são usados para 
 Saiba mais:
 
 * [Sobre gateways VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md)
-* [Visão geral da segurança da rede Azure](network-overview.md)
+* [Descrição geral da segurança de rede do Azure](network-overview.md)
 
 ## <a name="privileged-identity-management"></a>Privileged Identity Management
 
@@ -112,20 +112,23 @@ Ao fornecer notificações e remediação recomendada, a Proteção de Identidad
 
 Saiba mais:
 
-* [Proteção de Identidade do Diretório Ativo Azure](../../active-directory/identity-protection/overview-identity-protection.md)
+* [Azure Active Directory Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md)
 * [Canal 9: Azure AD e Identity Show: Preview de Proteção de Identidade](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
 ## <a name="security-center"></a>Centro de Segurança
 
-O Centro de Segurança do Azure ajuda-o a evitar, detetar e responder a ameaças. O Centro de Segurança dá-lhe uma maior visibilidade e controlo sobre a segurança dos seus recursos Azure. Fornece monitorização integrada de segurança e gestão de políticas em todas as suas subscrições Azure. Ajuda a detetar ameaças que de outra forma poderiam passar despercebidas, e trabalha com um amplo ecossistema de soluções de segurança.
+O Centro de Segurança do Azure ajuda-o a evitar, detetar e responder a ameaças. O Security Center dá-lhe uma maior visibilidade e controlo sobre a segurança dos seus recursos Azure, bem como os do seu ambiente de nuvem híbrida. 
+
+O Security Center realiza avaliações contínuas de segurança dos seus recursos conectados e compara a sua configuração e implantação com o [Azure Security Benchmark](../benchmarks/introduction.md) para fornecer recomendações de segurança detalhadas adaptadas ao seu ambiente.
 
 O Security Center ajuda-o a otimizar e monitorizar a segurança dos seus recursos Azure através de:
 
-* Permitindo-lhe definir políticas para os seus recursos de subscrição Azure de acordo com:
-  * As necessidades de segurança da sua empresa.
-  * O tipo de aplicações ou sensibilidade dos dados em cada subscrição.
-* Monitorização do estado das suas máquinas virtuais Azure, networking e aplicações.
-* Fornecendo uma lista de alertas de segurança prioritários, incluindo alertas de soluções parceiras integradas. Também fornece a informação de que precisa para investigar rapidamente um ataque e recomendações sobre como remediar.
+- Permitindo-lhe definir políticas para os seus recursos de subscrição Azure de acordo com:
+    - As necessidades de segurança da sua organização.
+    - O tipo de aplicações ou sensibilidade dos dados em cada subscrição.
+    - Qualquer indústria ou normas regulamentares ou benchmarks que aplique às suas subscrições. 
+- Monitorização do estado das suas máquinas virtuais Azure, networking e aplicações.
+- Fornecendo uma lista de alertas de segurança prioritários, incluindo alertas de soluções parceiras integradas. Também fornece a informação de que precisa para investigar rapidamente um ataque e recomendações sobre como remediar.
 
 Saiba mais:
 

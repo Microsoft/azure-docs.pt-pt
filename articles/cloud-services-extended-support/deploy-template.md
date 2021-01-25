@@ -8,20 +8,21 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: aeb53e722eae588b7d5e2963afe67f299c2c3565
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: dfbae5144ec19b795463bd44f1e84fcf2516c267
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98745179"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747211"
 ---
 # <a name="create-a-cloud-service-extended-support-using-arm-templates"></a>Criar um Serviço de Nuvem (suporte alargado) utilizando modelos ARM
+
+Este tutorial explica como criar uma implementação de Cloud Service (suporte alargado) utilizando [modelos ARM](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview). 
 
 > [!IMPORTANT]
 > Os Serviços cloud (suporte alargado) estão atualmente em pré-visualização pública.
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Este tutorial explica como criar uma implementação de Cloud Service (suporte alargado) utilizando [modelos ARM](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview). 
 
 ## <a name="before-you-begin"></a>Antes de começar
 1. Reveja os [pré-requisitos](deploy-prerequisite.md) de implantação para serviços em nuvem (suporte alargado) e crie os recursos associados. 

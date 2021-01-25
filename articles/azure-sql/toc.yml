@@ -973,6 +973,8 @@
           href: managed-instance/virtual-cluster-delete.md
         - name: Configurar DNS personalizado
           href: managed-instance/custom-dns-configure.md
+        - name: Sincronização de DNS
+          href: managed-instance/synchronize-vnet-dns-servers-setting-on-virtual-cluster.md
         - name: Configuração de rede sincronizada
           href: managed-instance/azure-app-sync-network-configuration.md
         - name: Localizar o endereço IP de ponto final de gestão

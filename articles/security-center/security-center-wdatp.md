@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 553151aebeadf4ad4764e747b1bf6dcd8c552721
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 9fde0ecd8b6670e43aa3970b2df27a402b9c1a5c
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98126857"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747245"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Proteja os seus pontos finais com a solução EDR integrada do Security Center: Microsoft Defender for Endpoint
 
@@ -45,7 +45,7 @@ O Microsoft Defender for Endpoint é uma solução holística de segurança de p
 | Plataformas suportadas:            | Máquinas Azure executando Janelas<br>Máquinas Azure Arc executando janelas|
 | Versões suportadas do Windows:  |  • Security Center suporta a deteção no Windows Server 2016, 2012 R2 e 2008 R2 SP1<br> • A monitorização do ponto final do servidor utilizando esta integração foi desativada para os clientes do Office 365 GCC<br> • Sem suporte para Windows Server 2019, Windows 10 1703 (e mais recente) ou Linux|
 | Funções e permissões necessárias: | Para ativar/desativar a integração: **Administrador de segurança** ou **Proprietário**<br>Para ver alertas de MDATP no Centro de Segurança: **Leitor de segurança,** **leitor,** **contribuinte do grupo de recursos,** **proprietário do grupo de recursos,** **administrador de segurança,** **proprietário de assinatura,** ou **colaborador de subscrição**|
-| Nuvens:                         | ![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![Não](./media/icons/no-icon.png) China Gov, Outro Gov<br>![Não](./media/icons/no-icon.png) Clientes da GCC que executam cargas de trabalho em nuvens azure globais                                                        |
+| Nuvens:                         | ![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) US Gov<br>![Não](./media/icons/no-icon.png) China Gov, Outro Gov<br>![Não](./media/icons/no-icon.png) Clientes da GCC que executam cargas de trabalho em nuvens azure globais                                                        |
 |                                 |                                                                                                                                                                                                                                                                                                               |
 
 
@@ -118,6 +118,8 @@ Para gerar um alerta de teste do Microsoft Defender benigno para o ponto final:
 1. Para rever o alerta no Centro de Segurança, vá a **Alertas de Segurança**  >  **Alertas Suspeitos powerShell CommandLine**.
 1. A partir da janela de investigação, selecione o link para ir ao microsoft Defender para o portal Endpoint.
 
+    > [!TIP]
+    > O alerta é desencadeado com **severidade informacional.**
 
 ## <a name="faq-for-security-centers-integrated-microsoft-defender-for-endpoint"></a>FAQ para o Microsoft Defender integrado do Security Center para Endpoint
 
@@ -138,7 +140,7 @@ As instruções completas para mudar de uma solução de ponto final não micros
   
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Plataformas e funcionalidades suportadas pelo Centro de Segurança do Azure](security-center-os-coverage.md)
 - [Gerir recomendações de segurança no Azure Security Center](security-center-recommendations.md): Saiba como as recomendações o ajudam a proteger os seus recursos Azure.

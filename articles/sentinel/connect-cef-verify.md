@@ -1,5 +1,5 @@
 ---
-title: Validar conectividade ao Azure Sentinel ! Microsoft Docs
+title: Validar a conectividade com a Azure Sentinel | Microsoft Docs
 description: Valide a conectividade da sua solução de segurança para garantir que as mensagens CEF estão a ser reencaminhadas para o Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2021
 ms.author: yelevin
-ms.openlocfilehash: 557f53e39781406674b9903dcf0bb3cb536cd804
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: f9fb1c917a0719cb9d250b997329d3415b5872eb
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97897489"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747479"
 ---
 # <a name="step-3-validate-connectivity"></a>PASSO 3: Validar a conectividade
 
@@ -44,7 +44,7 @@ Tenha em atenção que pode demorar cerca de 20 minutos até que os seus registo
 1. Execute o seguinte script no reencaminhador de registo (aplicando o ID do espaço de trabalho no lugar do espaço reservado) para verificar a conectividade entre a sua solução de segurança, o reencaminhador de registos e o Azure Sentinel. Este script verifica se o daemon está a ouvir nas portas corretas, que o reencaminhamento está devidamente configurado, e que nada está a bloquear a comunicação entre o daemon e o agente Log Analytics. Também envia mensagens falsas 'TestCommonEventFormat' para verificar a conectividade de ponta a ponta. <br>
 
     ```bash
-    sudo wget -O https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py [WorkspaceID]
+    sudo wget -O cef_troubleshoot.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py [WorkspaceID]
     ```
 
    - Pode receber uma mensagem que o direcione a executar um comando para corrigir um problema com o **mapeamento do campo *Computador***. Consulte a [explicação no roteiro de validação](#mapping-command) para mais detalhes.
@@ -243,7 +243,7 @@ O script de validação executa as seguintes verificações:
     ```
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste documento, aprendeu a ligar os aparelhos CEF ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)
