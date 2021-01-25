@@ -1,5 +1,5 @@
 ---
-title: Configure uma API web que chama APIs web Rio Azure
+title: Configure uma API web que chama APIs web | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como construir uma API web que chama APIs web (configuração de código da aplicação)
 services: active-directory
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/26/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 4a888c3ad771e4a7edbd7110ba584050fe68e810
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: b8360a22c815fa28626bb07a1518bd82ba6e3e46
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443794"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753513"
 ---
 # <a name="a-web-api-that-calls-web-apis-code-configuration"></a>Uma API web que chama APIs web: configuração de código
 
@@ -29,7 +29,7 @@ O código que utiliza para configurar a sua API web para que chame APIs web a ju
 
 ## <a name="microsoftidentityweb"></a>Microsoft.Identity.Web
 
-A Microsoft recomenda que utilize o pacote [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web) NuGet ao desenvolver uma API protegida ASP.NET Core chamando APIs web a jusante. Ver [API web protegida: configuração de código / Microsoft.Identity.Web](scenario-protected-web-api-app-configuration.md#microsoftidentityweb) para uma rápida apresentação dessa biblioteca no contexto de uma API web.
+A Microsoft recomenda que utilize o pacote [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web) NuGet ao desenvolver uma API protegida ASP.NET Core chamando APIs web a jusante. Ver [API web protegido: configuração de código | Microsoft.Identity.Web](scenario-protected-web-api-app-configuration.md#microsoftidentityweb) para uma rápida apresentação dessa biblioteca no contexto de uma API web.
 
 ## <a name="client-secrets-or-client-certificates"></a>Segredos do cliente ou certificados de cliente
 
@@ -252,8 +252,8 @@ Também pode ver um exemplo da implementação do fluxo OBO em [Node.js e funç�
 
 ## <a name="protocol"></a>Protocolo
 
-Para obter mais informações sobre o protocolo OBO, consulte a [plataforma de identidade da Microsoft e o fluxo OAuth 2.0 On-Behalf-Of](./v2-oauth2-on-behalf-of-flow.md).
+Para obter mais informações sobre o protocolo OBO, consulte a plataforma de identidade da [Microsoft e o fluxo OAuth 2.0 On-Behalf-Of](./v2-oauth2-on-behalf-of-flow.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Passe para o próximo artigo neste cenário, [adquira um símbolo para a app.](scenario-web-api-call-api-acquire-token.md)

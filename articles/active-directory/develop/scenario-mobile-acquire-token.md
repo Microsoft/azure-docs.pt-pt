@@ -1,5 +1,5 @@
 ---
-title: Adquira um token para chamar uma API web (aplicações móveis) Rio Azure
+title: Adquira um token para chamar uma API web (aplicativos móveis) | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como construir uma aplicação móvel que chame APIs web. (Obtenha um símbolo para a aplicação.)
 services: active-directory
@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 946908bf28a50bc8b523c4efd853e8720b115c7b
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: c071cb9a8a27964a93e039e4d1536e078730bfc9
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063081"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753635"
 ---
 # <a name="get-a-token-for-a-mobile-app-that-calls-web-apis"></a>Obtenha um símbolo para uma aplicação móvel que chama APIs web
 
@@ -28,7 +28,7 @@ Antes que a sua aplicação possa chamar APIs web protegidas, precisa de um toke
 
 Quando pede um token, precisa definir um âmbito. O âmbito determina quais os dados a que a sua aplicação pode aceder.
 
-A forma mais fácil de definir um âmbito é combinar as API's web desejadas `App ID URI` com o âmbito `.default` . Esta definição diz à Microsoft que a sua aplicação requer todos os âmbitos definidos no portal.
+A forma mais fácil de definir um âmbito é combinar as API's web desejadas `App ID URI` com o âmbito `.default` . Esta definição diz à plataforma de identidade da Microsoft que a sua aplicação requer todos os âmbitos definidos no portal.
 
 ### <a name="android"></a>Android
 ```Java
@@ -243,7 +243,7 @@ A classe define as seguintes constantes:
 
 ##### <a name="withextrascopetoconsent"></a>ComExtraScopeToConsent
 
-Utilize o `WithExtraScopeToConsent` modificador num cenário avançado onde pretende que o utilizador forneça o consentimento inicial a vários recursos. Pode utilizar este modificador quando não pretender utilizar o consentimento incremental, que normalmente é utilizado com MSAL.NET ou plataforma de identidade microsoft 2.0. Para obter mais informações, consulte [o consentimento do utilizador antecipadamente para vários recursos.](scenario-desktop-production.md#have-the-user-consent-upfront-for-several-resources)
+Utilize o `WithExtraScopeToConsent` modificador num cenário avançado onde pretende que o utilizador forneça o consentimento inicial a vários recursos. Pode utilizar este modificador quando não pretender utilizar o consentimento incremental, que normalmente é utilizado com MSAL.NET ou a plataforma de identidade da Microsoft. Para obter mais informações, consulte [o consentimento do utilizador antecipadamente para vários recursos.](scenario-desktop-production.md#have-the-user-consent-upfront-for-several-resources)
 
 Aqui está um exemplo de código:
 

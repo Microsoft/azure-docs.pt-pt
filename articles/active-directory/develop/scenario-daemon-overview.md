@@ -1,5 +1,6 @@
 ---
-title: Construa uma app daemon que chama APIs web - plataforma de identidade da Microsoft Rio Azure
+title: Construa uma app daemon que chama APIs web | Rio Azure
+titleSuffix: Microsoft identity platform
 description: Saiba como construir uma app daemon que chama APIs web
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 01/31/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: e63a948260863c93a92e4241044be5e0baf8afca
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 45af940382a261f1793583e471871b9cceed0a57
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443267"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753837"
 ---
 # <a name="scenario-daemon-application-that-calls-web-apis"></a>Cenário: Aplicação Daemon que chama APIs web
 
@@ -45,7 +46,7 @@ Aplicações que adquirem um símbolo para as suas próprias identidades:
 
 > [!IMPORTANT]
 >
-> - Os utilizadores não podem interagir com uma aplicação Daemon. Um pedido de daemon requer a sua própria identidade. Este tipo de aplicação solicita um token de acesso utilizando a sua identidade de aplicação e apresentando o seu ID de aplicação, credencial (senha ou certificado) e iD URI de aplicação a Azure AD. Após a autenticação bem sucedida, o daemon recebe um token de acesso (e um token de atualização) a partir do ponto final da plataforma de identidade da Microsoft. Este token é então usado para chamar a API web (e é atualizado conforme necessário).
+> - Os utilizadores não podem interagir com uma aplicação Daemon. Um pedido de daemon requer a sua própria identidade. Este tipo de aplicação solicita um token de acesso utilizando a sua identidade de aplicação e apresentando o seu ID de aplicação, credencial (senha ou certificado) e iD URI de aplicação a Azure AD. Após a autenticação bem sucedida, o daemon recebe um token de acesso (e um token de atualização) da plataforma de identidade da Microsoft. Este token é então usado para chamar a API web (e é atualizado conforme necessário).
 > - Como os utilizadores não podem interagir com aplicações daemon, o consentimento incremental não é possível. Todas as permissões de API necessárias devem ser configuradas no registo de inscrição. O código da aplicação apenas solicita permissões estáticas definidas. Isto também significa que as aplicações daemon não suportam o consentimento incremental.
 
 Para os desenvolvedores, a experiência de ponta a ponta para este cenário tem os seguintes aspetos:
@@ -59,6 +60,6 @@ Para os desenvolvedores, a experiência de ponta a ponta para este cenário tem 
 
 [!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Passe para o próximo artigo neste cenário, [registo de aplicações.](./scenario-daemon-app-registration.md)

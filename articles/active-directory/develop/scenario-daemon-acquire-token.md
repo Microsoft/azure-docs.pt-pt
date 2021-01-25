@@ -1,5 +1,5 @@
 ---
-title: Adquira fichas para chamar uma API web (app Daemon) - Plataforma de identidade da Microsoft Rio Azure
+title: Adquira fichas para chamar uma API web (app Daemon) - A plataforma de identidade da Microsoft | Rio Azure
 description: Saiba como construir uma app daemon que chama APIs web (aquisição de fichas)
 services: active-directory
 author: jmprieur
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 9416005c708cafe5adbad2b09ce70c41fae66fd7
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 295897be03a7dd8e397e8202ff1cf10e6d59cdfb
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936027"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753866"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>Daemon app que chama APIs web - adquira um token
 
@@ -204,7 +204,7 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 
 Para obter mais informações, consulte a documentação do protocolo: [plataforma de identidade da Microsoft e o fluxo de credenciais de cliente OAuth 2.0](v2-oauth2-client-creds-grant-flow.md).
 
-## <a name="troubleshooting"></a>Resolução de problemas
+## <a name="troubleshooting"></a>Resolução de Problemas
 
 ### <a name="did-you-use-the-resourcedefault-scope"></a>Usou o âmbito de recurso/.predefinido?
 
@@ -235,7 +235,7 @@ Se você ligar para a sua própria API web e não puder adicionar uma permissão
 
 Para mais detalhes, consulte [as permissões de aplicações expositoras (funções de aplicações)](scenario-protected-web-api-app-registration.md#exposing-application-permissions-app-roles) e, em particular, [Garantindo que a Azure AD emite fichas para a sua API web apenas permitiu clientes.](scenario-protected-web-api-app-registration.md#ensuring-that-azure-ad-issues-tokens-for-your-web-api-to-only-allowed-clients)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 

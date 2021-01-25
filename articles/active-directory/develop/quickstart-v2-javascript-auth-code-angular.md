@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/14/2021
 ms.author: jamesmantu
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: acaa87f44fbd496aea843de673c0b2d7652fe542
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: b6e83f8c4ba00f64bd924ce7b404cd3acfcecd14
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98681048"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754204"
 ---
 # <a name="quickstart-sign-in-and-get-an-access-token-in-an-angular-spa-using-the-auth-code-flow"></a>Quickstart: Inicie e obtenha um token de acesso em um SPA Angular usando o fluxo de código auth
 
@@ -39,9 +39,7 @@ Este quickstart utiliza o MSAL Angular v2 com o fluxo de código de autorizaçã
 >
 > ### <a name="option-1-express-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opção 1 (Expresso): Registar e configurar automaticamente a sua app e, em seguida, descarregar a sua amostra de código
 >
-> 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-> 1. Se a sua conta lhe der acesso a mais do que um inquilino, selecione a sua conta no topo direito e, em seguida, desacione a sua sessão de portal para o inquilino AD AZure que pretende usar.
-> 1. Selecione [Registos de aplicações](https://aka.ms/AAatehv).
+> 1. Vá ao <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs" target="_blank">portal Azure - <span class="docon docon-navigate-external x-hidden-focus"></span> Aplicação registra</a> experiência de arranque rápido.
 > 1. Introduza um nome para a aplicação.
 > 1. Nos **tipos de conta suportada**, selecione Contas em qualquer **diretório organizacional e contas pessoais da Microsoft.**
 > 1. Selecione **Registar**.
@@ -51,18 +49,17 @@ Este quickstart utiliza o MSAL Angular v2 com o fluxo de código de autorizaçã
 >
 > #### <a name="step-1-register-your-application"></a>Passo 1: Registar a aplicação
 >
-> 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-> 1. Se a sua conta lhe der acesso a mais do que um inquilino, selecione a sua conta no topo direito e, em seguida, desacione a sua sessão de portal para o inquilino do Azure Ative Directory (Azure AD) que pretende utilizar.
-> 1. Selecione [Registos de aplicações](https://go.microsoft.com/fwlink/?linkid=2083908).
-> 1. Selecione **Novo registo**.
-> 1. Quando a página **Registar uma aplicação** for apresentada, introduza um nome para a sua aplicação.
+> 1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>.
+> 1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino no qual pretende registar uma candidatura.
+> 1. Procure e selecione **Azure Active Directory**.
+> 1. Em **Gestão**, selecione **registos de aplicações**  >  **Novo registo**.
+> 1. Insira um **Nome** para a sua inscrição. Os utilizadores da sua aplicação podem ver este nome, e pode alterá-lo mais tarde.
 > 1. Nos **tipos de conta suportada**, selecione Contas em qualquer **diretório organizacional e contas pessoais da Microsoft.**
 > 1. Selecione **Registar**. Na página **geral** da aplicação, note o valor **de ID da Aplicação (cliente)** para posterior utilização.
-> 1. No painel esquerdo da aplicação registada, selecione **Autenticação**.
-> 1. Nas **configurações da Plataforma**, selecione `Add a platform` .
-> 1. Na janela resultante, selecione **aplicação de página única**.
+> 1. Em **Gestão**, **selecione Autenticação**.
+> 1. Nas **configurações da Plataforma**, selecione Adicionar uma **plataforma**. No painel que abre selecione **aplicação de página única**.
 > 1. Desa estale o valor **de redirecionamento URIs** para `http://localhost:4200/` . Esta é a porta padrão que o NodeJS irá ouvir na sua máquina local. Devolveremos a resposta de autenticação a este URI depois de autenticar com sucesso o utilizador. 
-> 1. Clique no **botão Configurar** para aplicar as alterações.
+> 1. Selecione **Configurar** para aplicar as alterações.
 > 1. Nas **Configurações da Plataforma** expande a **aplicação de página única**.
 > 1. Confirme que nos **tipos de Subvenção** ![ já configurado o seu ](media/quickstart-v2-javascript/green-check.png) URI de redirecionamento é elegível para o Fluxo de Código de Autorização com PKCE.
 
@@ -189,7 +186,7 @@ Se tiver Node.js instalado, pode descarregar a versão mais recente utilizando o
 npm install @azure/msal-browser @azure/msal-angular@2
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter um guia passo a passo detalhado sobre a construção da aplicação de fluxo de código auth utilizando o JavaScript de baunilha, consulte o seguinte tutorial:
 

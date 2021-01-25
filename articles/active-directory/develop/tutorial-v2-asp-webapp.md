@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Criar uma ASP.NET aplicação web que utiliza a plataforma de identidade da Microsoft para autenticação Rio Azure'
+title: 'Tutorial: Criar uma aplicação web ASP.NET que utiliza a plataforma de identidade da Microsoft para autenticação | Rio Azure'
 titleSuffix: Microsoft identity platform
 description: Neste tutorial, você constrói uma aplicação web ASP.NET que utiliza a plataforma de identidade microsoft e o middleware OWIN para permitir o login do utilizador.
 services: active-directory
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: dcb8675350442274418920bb9439b65643f1b046
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 8b12df62a7080e57e47b52cb79ed8a67e12bd526
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178250"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753100"
 ---
 # <a name="tutorial-add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Tutorial: Adicione o sôs-in à Microsoft a uma aplicação web ASP.NET
 
@@ -119,7 +119,7 @@ Os seguintes passos são usados para criar uma classe de startup de middleware O
         // Tenant is the tenant ID (e.g. contoso.onmicrosoft.com, or 'common' for multi-tenant)
         static string tenant = System.Configuration.ConfigurationManager.AppSettings["Tenant"];
 
-        // Authority is the URL for authority, composed by Microsoft identity platform endpoint and the tenant name (e.g. https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0)
+        // Authority is the URL for authority, composed of the Microsoft identity platform and the tenant name (e.g. https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0)
         string authority = String.Format(System.Globalization.CultureInfo.InvariantCulture, System.Configuration.ConfigurationManager.AppSettings["Authority"], tenant);
 
         /// <summary>
@@ -406,14 +406,13 @@ Quando estiver pronto para executar o seu teste, utilize uma conta AD Azure (tra
 <br/><br/>
 ![Inscreva-se na sua conta Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin2.png)
 
-#### <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Permissões e consentimento no ponto final da plataforma de identidades da Microsoft
-
-As aplicações que se integram com a plataforma de identidade da Microsoft seguem um modelo de autorização que dá aos utilizadores e administradores o controlo sobre a forma como os dados podem ser acedidos. Depois de um utilizador autenticar com a plataforma de identidade da Microsoft para aceder a esta aplicação, estes serão solicitados a consentir com as permissões solicitadas pela aplicação ("Ver o seu perfil básico" e "Manter o acesso aos dados a que lhe deu acesso"). Depois de aceitar estas permissões, o utilizador continuará a seguir os resultados da aplicação. No entanto, o utilizador pode, em vez disso, ser solicitado com uma página **de consentimento administrativo Need** se um dos seguintes ocorrer:
+#### <a name="permissions-and-consent-in-the-microsoft-identity-platform"></a>Permissões e consentimento na plataforma de identidade da Microsoft
+As aplicações que se integram com a plataforma de identidade da Microsoft seguem um modelo de autorização que dá aos utilizadores e administradores o controlo sobre a forma como os dados podem ser acedidos. Depois de um utilizador autenticar com a plataforma de identidade da Microsoft para aceder a esta aplicação, estes serão solicitados a consentir as permissões solicitadas pela aplicação ("Ver o seu perfil básico" e "Manter o acesso aos dados a que lhe deu acesso"). Depois de aceitar estas permissões, o utilizador continuará a seguir os resultados da aplicação. No entanto, o utilizador pode, em vez disso, ser solicitado com uma página **de consentimento administrativo Need** se um dos seguintes ocorrer:
 
 - O desenvolvedor de aplicações adiciona quaisquer permissões adicionais que requerem **o consentimento do Administrador**.
 - Ou o inquilino é configurado (em **Aplicações empresariais -> Configurações do Utilizador),** onde os utilizadores não podem consentir em aplicações que acedam aos dados da empresa em seu nome.
 
-Para obter mais informações, consulte [permissões e consentimento no ponto final da plataforma de identidade da Microsoft.](./v2-permissions-and-consent.md)
+Para mais informações, consulte [permissões e consentimento na plataforma de identidade da Microsoft.](./v2-permissions-and-consent.md)
 
 ### <a name="view-application-results"></a>Ver resultados da aplicação
 
@@ -482,7 +481,7 @@ Pode implementar um método personalizado para validar emitentes utilizando o pa
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como ligar para apis web protegidos a partir de aplicações web com a plataforma de identidade da Microsoft:
 

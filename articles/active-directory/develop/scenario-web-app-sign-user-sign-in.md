@@ -1,5 +1,6 @@
 ---
-title: Escreva uma aplicação web que assina utilizadores in/out - Plataforma de identidade microsoft / Rio Azure
+title: Escreva uma aplicação web que assina utilizadores in/out | Rio Azure
+titleSuffix: Microsoft identity platform
 description: Saiba como construir uma aplicação web que assina utilizadores in/out
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: e7397f6d02d71a6344953b8210b0349b9ee26360
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 5b0b86321f7f2b320c3fea8e7c5bfa45bd936b77
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443556"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752996"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>Aplicação web que assina nos utilizadores: Iniciar s-in e iniciar sê-out
 
@@ -96,7 +97,7 @@ No nosso quickstart Java, o botão de entrada está localizado no ficheiro [prin
 
 # <a name="python"></a>[Python](#tab/python)
 
-No início rápido dos Python, não há botão de inscrição. O código-por trás solicita automaticamente ao utilizador o seu insusição quando está a atingir a raiz da aplicação web. Ver [app.py#L14-L18](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/0.1.0/app.py#L14-L18).
+No início rápido dos Python, não há botão de inscrição. O código-por trás solicita automaticamente ao utilizador o seu insusição quando está a atingir a raiz da aplicação web. Ver [aplicativo.py#L14-L18](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/0.1.0/app.py#L14-L18).
 
 ```Python
 @app.route("/")
@@ -118,7 +119,7 @@ Este controlador também trata das aplicações Azure AD B2C.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
-Em ASP.NET, a assinatura é desencadeada a partir do `SignOut()` método num controlador (por exemplo, [AccountController.cs#L16-L23](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/Controllers/AccountController.cs#L16-L23)). Este método não faz parte da estrutura ASP.NET (ao contrário do que acontece no ASP.NET Core). Envia um desafio de inscrição OpenID depois de propor um URI de redirecionamento.
+Em ASP.NET, a assinatura é desencadeada a partir do `SignOut()` método de um controlador (por exemplo, Controlador de [Contas.cs#L16-L23).](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/Controllers/AccountController.cs#L16-L23) Este método não faz parte da estrutura ASP.NET (ao contrário do que acontece no ASP.NET Core). Envia um desafio de inscrição OpenID depois de propor um URI de redirecionamento.
 
 ```csharp
 public void SignIn()
@@ -133,7 +134,7 @@ public void SignIn()
 
 # <a name="java"></a>[Java](#tab/java)
 
-Em Java, o sign-out é tratado ligando diretamente para o ponto final da plataforma de identidade da Microsoft `logout` e fornecendo o `post_logout_redirect_uri` valor. Para mais informações, consulte [AuthPageController.java#L30-L48](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/AuthPageController.java#L30-L48).
+Em Java, o sign-out é tratado ligando diretamente para o ponto final da plataforma de identidade da Microsoft `logout` e fornecendo o `post_logout_redirect_uri` valor. Para mais informações, consulte [a AuthPageController.java#L30-L48](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/AuthPageController.java#L30-L48).
 
 ```Java
 @Controller
@@ -213,7 +214,7 @@ Depois de o utilizador ter assinado a sua aplicação, irá querer que assinem.
 A assinatura de uma aplicação web envolve mais do que remover a informação sobre a conta de inscrição do estado da aplicação web.
 A aplicação web também deve redirecionar o utilizador para o ponto final da plataforma de identidade da Microsoft `logout` para assinar.
 
-Quando a sua aplicação web redireciona o utilizador para o `logout` ponto final, este ponto final limpa a sessão do utilizador do navegador. Se a sua aplicação não for para o `logout` ponto final, o utilizador irá reautenticar a sua app sem voltar a introduzir as suas credenciais. A razão é que eles terão uma sessão de sessão de sessão de sessão de sessão de inscrição única válida com o ponto final da plataforma de identidade da Microsoft.
+Quando a sua aplicação web redireciona o utilizador para o `logout` ponto final, este ponto final limpa a sessão do utilizador do navegador. Se a sua aplicação não for para o `logout` ponto final, o utilizador irá reautenticar a sua app sem voltar a introduzir as suas credenciais. A razão é que eles terão uma sessão de sessão de inscrição única válida com a plataforma de identidade da Microsoft.
 
 Para saber mais, consulte a secção Enviar uma secção [de pedido de sinalização](v2-protocols-oidc.md#send-a-sign-out-request) na plataforma de identidade da Microsoft e na documentação [do protocolo OpenID Connect.](v2-protocols-oidc.md)
 
@@ -339,7 +340,7 @@ Em versões anteriores dos ASP.NET modelos de núcleo, o `Account` controlador f
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
-Em ASP.NET, a assinatura é desencadeada a partir do `SignOut()` método de um controlador (por exemplo, [AccountController.cs#L25-L31](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/Controllers/AccountController.cs#L25-L31)). Este método não faz parte da estrutura ASP.NET, ao contrário do que acontece no ASP.NET Core. É:
+Em ASP.NET, a assinatura é desencadeada a partir do `SignOut()` método de um controlador (por exemplo, Controlador de [Contas.cs#L25-L31](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/Controllers/AccountController.cs#L25-L31)). Este método não faz parte da estrutura ASP.NET, ao contrário do que acontece no ASP.NET Core. É:
 
 - Envia um desafio de assinatura OpenID.
 - Limpa a cache.
@@ -378,7 +379,7 @@ Em Java, o sign-out é tratado ligando diretamente para o ponto final da platafo
 
 # <a name="python"></a>[Python](#tab/python)
 
-O código que assina o utilizador está em [app.py#L46-L52](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/48637475ed7d7733795ebeac55c5d58663714c60/app.py#L47-L48).
+O código que assina o utilizador está na [aplicação.py#L46-L52](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/48637475ed7d7733795ebeac55c5d58663714c60/app.py#L47-L48).
 
 ```Python
 @app.route("/logout")
@@ -430,6 +431,6 @@ No quickstart Python, o redirecionamento de uri pós-logout apenas exibe a pági
 
 Se quiser saber mais sobre a assinatura, leia a documentação do protocolo disponível no [Open ID Connect](./v2-protocols-oidc.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Passe para o próximo artigo neste cenário, [passe para a produção](scenario-web-app-sign-user-production.md).

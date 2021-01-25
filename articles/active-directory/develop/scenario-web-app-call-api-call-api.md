@@ -1,5 +1,5 @@
 ---
-title: Ligue para uma api web a partir de uma aplicação web / Rio Azure
+title: Ligue para uma api web a partir de uma aplicação web | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como construir uma aplicação web que chame APIs web (chamando uma API web protegida)
 services: active-directory
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 016a2917c02deaecf35c526426cb2a6dbc89e338
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: b294a56a523adaa2629a5d1e72a7ccef532956e0
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173197"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753291"
 ---
 # <a name="a-web-app-that-calls-web-apis-call-a-web-api"></a>Uma aplicação web que chama APIs web: Ligue para uma API web
 
@@ -197,6 +197,6 @@ def graphcall():
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Passe para o próximo artigo neste cenário, [passe para a produção](scenario-web-app-call-api-production.md).

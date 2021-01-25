@@ -1,5 +1,6 @@
 ---
-title: Diferenças de validação por tipos de conta suportados - plataforma de identidade da Microsoft Rio Azure
+title: Diferenças de validação por tipos de conta suportados | Rio Azure
+titleSuffix: Microsoft identity platform
 description: Conheça as diferenças de validação de várias propriedades para diferentes tipos de conta suportadas ao registar a sua aplicação na plataforma de identidade microsoft.
 author: SureshJa
 ms.author: sureshja
@@ -10,12 +11,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: e794e277f6731c7b6e57a4710eea437f65be0340
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77521150e73014c5568003597059a9d32f6e80ee
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87336349"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752973"
 ---
 # <a name="validation-differences-by-supported-account-types-signinaudience"></a>Diferenças de validação por tipos de conta suportados (signInAudience)
 
@@ -47,7 +48,7 @@ Consulte a tabela seguinte para as diferenças de validação de vários imóvei
 
 *Existe um limite global de cerca de 1000 itens em todas as propriedades de recolha no objeto da aplicação
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [o registo de candidaturas](app-objects-and-service-principals.md)
 - Conheça o [manifesto da Candidatura](reference-app-manifest.md)

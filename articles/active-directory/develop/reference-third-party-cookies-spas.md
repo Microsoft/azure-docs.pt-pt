@@ -1,5 +1,5 @@
 ---
-title: Como lidar com a Proteção inteligente de rastreio (ITP) no Safari Rio Azure
+title: Como lidar com a Proteção inteligente de rastreio (ITP) no Safari | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Autenticação de aplicações de uma página única (SPA) quando os cookies de terceiros já não são permitidos.
 services: active-directory
@@ -13,12 +13,12 @@ ms.date: 05/19/2020
 ms.author: hirsin
 ms.reviewer: kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 064c9a00e1cd7c139f3f42a053dcf8a5db13f161
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: eed4e919684575bb2c63170d91517b661fac4acf
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104585"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753963"
 ---
 # <a name="handle-itp-in-safari-and-other-browsers-where-third-party-cookies-are-blocked"></a>Lide com o ITP no Safari e noutros navegadores onde os cookies de terceiros estão bloqueados
 
@@ -77,9 +77,9 @@ Um padrão comum nas aplicações web é usar um iframe para incorporar uma apli
 
 A emissão de fichas de atualização para o navegador é considerada um problema de segurança. Os ataques de scripts de sites cruzados (XSS) ou pacotes JS comprometidos podem roubar o token da atualização e usá-lo remotamente até que expire ou seja revogado. Para minimizar o risco de tokens de atualização roubados, as SPAs serão emitidas fichas válidas por apenas 24 horas. Após 24 horas, a aplicação deve adquirir um novo código de autorização através de uma visita de quadro de alto nível à página de login.
 
-Este padrão de token de renovação de vida limitada foi escolhido como um equilíbrio entre segurança e UX degradado. Sem tokens de atualização ou cookies de terceiros, o fluxo de código de autorização (conforme recomendado pelo [projeto de boas práticas de segurança OAuth](https://tools.ietf.org/html/draft-ietf-oauth-security-topics-14)) torna-se onerosa quando são necessárias fichas novas ou adicionais. Um redirecionamento de página inteira ou popup é necessário para cada token, cada vez que um token expira (a cada hora normalmente, para fichas de plataforma de identidade da Microsoft).
+Este padrão de token de renovação de vida limitada foi escolhido como um equilíbrio entre segurança e UX degradado. Sem tokens de atualização ou cookies de terceiros, o fluxo de código de autorização (conforme recomendado pelo [projeto de boas práticas de segurança OAuth](https://tools.ietf.org/html/draft-ietf-oauth-security-topics-14)) torna-se onerosa quando são necessárias fichas novas ou adicionais. Um redirecionamento de página inteira ou popup é necessário para cada token, cada vez que um token expira (a cada hora normalmente, para os tokens da plataforma de identidade da Microsoft).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre o fluxo de [código de autorização.](v2-oauth2-auth-code-flow.md)
 

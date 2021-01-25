@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2021
 ms.author: memildin
-ms.openlocfilehash: 1e6b66fce6b22dfd12c162d469ce44137c94ab87
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: e881c61d16cd167ace78abb96dca7e714436cfc0
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916376"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752213"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Pontuação de segurança no Centro de Segurança do Azure
 
@@ -54,7 +54,7 @@ Pode encontrar a sua pontuação máxima, bem como a sua pontuação por subscri
 
 ### <a name="get-your-secure-score-from-the-portal"></a>Obtenha a sua pontuação segura a partir do portal
 
-O Centro de Segurança exibe a sua pontuação de forma proeminente no portal: é o primeiro azulejo principal da página geral do Centro de Segurança. Selecionando este azulejo, leva-o à página de pontuação segura dedicada, onde verá a pontuação desabatada por subscrição. Selecione uma única subscrição para ver a lista detalhada de recomendações prioritárias e o impacto potencial que a sua reparação terá na pontuação da subscrição.
+O Centro de Segurança exibe a sua pontuação de forma proeminente no portal: é o primeiro azulejo principal da página geral do Centro de Segurança. Selecionando este azulejo, leva-o à página de pontuação segura dedicada, onde verá a pontuação desabatada por subscrição. Selecione uma única subscrição para ver a lista detalhada de recomendações prioritárias e o impacto potencial que a sua reparação terá na pontuação da subscrição. 
 
 Para recapitular, a sua pontuação segura é mostrada nos seguintes locais nas páginas do portal do Security Center.
 
@@ -62,9 +62,14 @@ Para recapitular, a sua pontuação segura é mostrada nos seguintes locais nas 
 
     :::image type="content" source="./media/secure-score-security-controls/score-on-main-dashboard.png" alt-text="A pontuação segura no painel do Centro de Segurança":::
 
-- Na página de **pontuação Secure** dedicada:
+- Na página de **pontuação Secure** dedicada pode ver a pontuação segura para a sua subscrição e os seus grupos de gestão:
 
-    :::image type="content" source="./media/secure-score-security-controls/score-on-dedicated-dashboard.png" alt-text="A pontuação segura na página de pontuação segura do Security Center":::
+    :::image type="content" source="./media/secure-score-security-controls/score-on-dedicated-dashboard.png" alt-text="A pontuação segura para subscrições na página de pontuação segura do Security Center":::
+
+    :::image type="content" source="./media/secure-score-security-controls/secure-score-management-groups.png" alt-text="A pontuação segura para grupos de gestão na página de pontuação segura do Security Center":::
+
+    > [!NOTE]
+    > Quaisquer grupos de gestão para os quais não tenha permissões suficientes, mostrarão a sua pontuação como "Restrito". 
 
 - No topo da página de **Recomendações:**
 
@@ -125,7 +130,7 @@ O painel contém os seguintes dois relatórios para ajudá-lo a analisar o seu e
 - **Resumo de Recursos** - fornece dados resumidos sobre a saúde dos seus recursos.
 - **Secure Score Summary** - fornece dados resumidos sobre o progresso da sua pontuação. Utilize o gráfico "Obter pontuação segura ao longo do tempo por subscrição" para ver as alterações na pontuação. Se notar uma alteração dramática na sua pontuação, verifique a tabela "alterações detetadas que podem afetar a sua pontuação segura" para eventuais alterações que possam ter causado a alteração. Este quadro apresenta recursos eliminados, recursos recém-utilizados ou recursos que o seu estatuto de segurança mudou para uma das recomendações.
 
-:::image type="content" source="./media/secure-score-security-controls/power-bi-secure-score-dashboard.png" alt-text="O painel de pontuação secure secure opcional durante o tempo PowerBI para rastrear a sua pontuação segura ao longo do tempo e investigar alterações":::
+:::image type="content" source="./media/secure-score-security-controls/power-bi-secure-score-dashboard.png" alt-text="O painel opcional Secure Score Over Time Power BI para rastrear a sua pontuação segura ao longo do tempo e investigar alterações":::
 
 
 
@@ -152,7 +157,7 @@ A pontuação máxima para este controlo, Aplicar atualizações do sistema, é 
 
 ### <a name="calculations---understanding-your-score"></a>Cálculos - compreender a sua pontuação
 
-|Métrica|Fórmula e exemplo|
+|Metric|Fórmula e exemplo|
 |-|-|
 |**Pontuação atual do controlo de segurança**|<br>![Equação para calcular a pontuação de um controlo de segurança](media/secure-score-security-controls/secure-score-equation-single-control.png)<br><br>Cada controlo de segurança individual contribui para a Pontuação de Segurança. Cada recurso afetado por uma recomendação dentro do controlo, contribui para a pontuação atual do controlo. A pontuação atual para cada controlo é uma medida do estado dos recursos *sob* controlo.<br>![Dicas de ferramentas que mostram os valores utilizados no cálculo da pontuação atual do controlo de segurança](media/secure-score-security-controls/security-control-scoring-tooltips.png)<br>Neste exemplo, a pontuação máxima de 6 seria dividida por 78 porque essa é a soma dos recursos saudáveis e insalubres.<br>6 / 78 = 0,0769<br>Multiplicar-se pelo número de recursos saudáveis (4) resulta na pontuação atual:<br>0,0769 * 4 = **0,31**<br><br>|
 |**Classificação de segurança**<br>Subscrição individual|<br>![Equação para calcular a pontuação segura de uma subscrição](media/secure-score-security-controls/secure-score-equation-single-sub.png)<br><br>![Pontuação segura de subscrição única com todos os controlos ativados](media/secure-score-security-controls/secure-score-example-single-sub.png)<br>Neste exemplo, existe uma única subscrição com todos os controlos de segurança disponíveis (uma pontuação máxima potencial de 60 pontos). A pontuação mostra 28 pontos de um possível 60 e os restantes 32 pontos refletem-se nos números de "Potencial aumento de pontuação" dos controlos de segurança.<br>![Lista de controlos e o aumento potencial da pontuação](media/secure-score-security-controls/secure-score-example-single-sub-recs.png)|
@@ -274,7 +279,7 @@ Embora a iniciativa de segurança padrão do Security Center se baseie nas melho
 ## <a name="secure-score-faq"></a>Pontuação segura FAQ
 
 ### <a name="if-i-address-only-three-out-of-four-recommendations-in-a-security-control-will-my-secure-score-change"></a>Se eu abordar apenas três de quatro recomendações num controlo de segurança, a minha pontuação segura mudará?
-N.º Não mudará até que remediar todas as recomendações para um único recurso. Para obter a pontuação máxima para um controlo, você deve remediar todas as recomendações, para todos os recursos.
+Não. Não mudará até que remediar todas as recomendações para um único recurso. Para obter a pontuação máxima para um controlo, você deve remediar todas as recomendações, para todos os recursos.
 
 ### <a name="if-a-recommendation-isnt-applicable-to-me-and-i-disable-it-in-the-policy-will-my-security-control-be-fulfilled-and-my-secure-score-updated"></a>Se uma recomendação não for aplicável a mim, e eu a desativar na apólice, o meu controlo de segurança será cumprido e a minha pontuação segura atualizada?
 Yes. Recomendamos desativar recomendações quando são inaplicáveis no seu ambiente. Para obter instruções sobre como desativar uma recomendação específica, consulte [as políticas de segurança para desativar](./tutorial-security-policy.md#disable-security-policies-and-disable-recommendations).
@@ -282,7 +287,7 @@ Yes. Recomendamos desativar recomendações quando são inaplicáveis no seu amb
 ### <a name="if-a-security-control-offers-me-zero-points-towards-my-secure-score-should-i-ignore-it"></a>Se um controlo de segurança me oferece zero pontos para a minha pontuação segura, devo ignorá-la?
 Em alguns casos, verá uma pontuação máxima de controlo superior a zero, mas o impacto é zero. Quando a pontuação incremental para a fixação de recursos é insignificante, é arredondada para zero. Não ignore estas recomendações, pois ainda trazem melhorias de segurança. A única exceção é o controlo "Melhores Práticas Adicionais". Remediar estas recomendações não aumentará a sua pontuação, mas aumentará a sua segurança geral.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Este artigo descreveu a pontuação segura e os controlos de segurança que introduz. Para obter material relacionado, consulte os seguintes artigos:
 

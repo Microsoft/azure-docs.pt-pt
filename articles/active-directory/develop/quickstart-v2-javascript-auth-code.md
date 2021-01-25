@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Iniciar súp à vista nos utilizadores em aplicações de página única JavaScript (SPA) com código auth / Rio Azure'
+title: 'Quickstart: Inicie súmitos em aplicações de página única JavaScript (SPA) com código auth | Rio Azure'
 titleSuffix: Microsoft identity platform
 description: Neste quickstart, saiba como uma aplicação de página única JavaScript (SPA) pode iniciar sômitos em utilizadores de contas pessoais, contas de trabalho e contas escolares utilizando o fluxo de código de autorização.
 services: active-directory
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: c4d77d1eb532aa18dcc575ffcc093587b69c94d9
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: f9c9cb3b1891383d4c1f0d579cf5990eee9f7826
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98017447"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754172"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow"></a>Quickstart: Inicie os utilizadores e obtenha um token de acesso num JavaScript SPA utilizando o fluxo de código auth
 
@@ -39,9 +39,7 @@ Este arranque rápido utiliza MSAL.js 2.0 com o fluxo de código de autorizaçã
 >
 > ### <a name="option-1-express-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opção 1 (Expresso): Registar e configurar automaticamente a sua app e, em seguida, descarregar a sua amostra de código
 >
-> 1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>.
-> 1. Se a sua conta lhe der acesso a mais do que um inquilino, selecione a conta no topo direito e, em seguida, desacione a sua sessão de portal para o inquilino Azure Ative Directory (Azure AD) que pretende utilizar.
-> 1. Selecione [Registos de aplicações](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs).
+> 1. Aceda ao <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs" target="_blank">portal Azure <span class="docon docon-navigate-external x-hidden-focus"></span> - Inscrições de aplicações.</a>
 > 1. Introduza um nome para a aplicação.
 > 1. Nos **tipos de conta suportada**, selecione Contas em qualquer **diretório organizacional e contas pessoais da Microsoft.**
 > 1. Selecione **Registar**.
@@ -58,7 +56,7 @@ Este arranque rápido utiliza MSAL.js 2.0 com o fluxo de código de autorizaçã
 > 1. Insira um **Nome** para a sua inscrição. Os utilizadores da sua aplicação podem ver este nome, e pode alterá-lo mais tarde.
 > 1. Nos **tipos de conta suportada**, selecione Contas em qualquer **diretório organizacional e contas pessoais da Microsoft.**
 > 1. Selecione **Registar**. Na página **geral** da aplicação, note o valor **de ID da Aplicação (cliente)** para posterior utilização.
-> 1. No painel esquerdo da aplicação registada, selecione **Autenticação**.
+> 1. Em **Gestão**, **selecione Autenticação**.
 > 1. Nas **configurações da Plataforma**, selecione Adicionar uma **plataforma**. No painel que abre selecione **aplicação de página única**.
 > 1. Desa estale o valor **URI de redirecionamento** para `http://localhost:3000/` .
 > 1. Selecione **Configurar**.

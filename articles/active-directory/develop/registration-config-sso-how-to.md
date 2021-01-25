@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
 ROBOTS: NOINDEX
-ms.openlocfilehash: 62f4f629e44d317d36e182adb48f8f00b9f1c2b3
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 4665e4240d7563a585b7c224365172d69d7efddf
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063064"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753887"
 ---
 # <a name="how-to-configure-single-sign-on-for-an-application"></a>Como configurar um único sinal para uma aplicação
 
@@ -41,6 +41,6 @@ Para iOS, consulte [Enableing Cross App SSO no iOS](../azuread-dev/howto-v1-enab
 
 [Integração de Apps para AzureAD](./quickstart-register-app.md)<br>
 
-[Permissões e consentimento no ponto final da plataforma de identidades da Microsoft](./v2-permissions-and-consent.md)<br>
+[Permissões e consentimento na plataforma de identidade da Microsoft](./v2-permissions-and-consent.md)<br>
 
 [Fluxo de stack AzureAD](https://stackoverflow.com/questions/tagged/azure-active-directory)

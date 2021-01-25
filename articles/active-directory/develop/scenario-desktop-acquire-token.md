@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/06/2021
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 040f9fa67617b058138926310706f4bc56c4ff62
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: a2048a509bdbe11c948ac8eb2daa6e78013c2fa5
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98680978"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753786"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Aplicativo de desktop que chama APIs web: Adquirir um token
 
@@ -439,7 +439,7 @@ Para iniciar súm num utilizador de domínio numa máquina de união a um domín
 
 - Este fluxo está ativado para aplicações .NET desktop, .NET Core e UWP.
 
-Para obter mais informações sobre o consentimento, consulte [as permissões da plataforma de identidade da Microsoft e o consentimento.](./v2-permissions-and-consent.md)
+Para obter mais informações sobre o consentimento, consulte as permissões e consentimento da [plataforma de identidade da Microsoft.](./v2-permissions-and-consent.md)
 
 ### <a name="learn-how-to-use-it"></a>Saiba como usá-lo
 
@@ -1405,6 +1405,6 @@ namespace CommonCacheMsalV3
 
 [!INCLUDE [advanced-token-caching](../../../includes/advanced-token-cache.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Passe para o próximo artigo neste cenário, [Ligue para uma API web a partir da aplicação de ambiente de trabalho](scenario-desktop-call-api.md).

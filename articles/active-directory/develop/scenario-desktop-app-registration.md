@@ -1,5 +1,6 @@
 ---
-title: Registar aplicações de desktop que chamam APIs web - Plataforma de identidade da Microsoft | Rio Azure
+title: Registar aplicações de desktop que chamam APIs web | Rio Azure
+titleSuffix: Microsoft identity platform
 description: Saiba como construir uma aplicação de desktop que chame APIs web (registo de aplicações)
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c769fd86f432d135542c1f09b83ea5a01c6ab0a6
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 46c8127a93cef8f662930fffd07a2fa3d22b8871
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250609"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753707"
 ---
 # <a name="desktop-app-that-calls-web-apis-app-registration"></a>Aplicativo de desktop que chama APIs web: Registo de aplicações
 
@@ -57,6 +58,6 @@ Os URIs de redirecionamento para utilizar numa aplicação de ambiente de trabal
 
 As aplicações para desktop chamam APIs para o utilizador inscrito. Precisam pedir permissões delegadas. Não podem solicitar permissões de pedidos, que são tratadas apenas em [aplicações daemon](scenario-daemon-overview.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Passe para o próximo artigo neste cenário, [configuração do Código de Aplicação](scenario-desktop-app-configuration.md).

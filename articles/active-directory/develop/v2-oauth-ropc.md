@@ -1,5 +1,5 @@
 ---
-title: Inscreva-se com o subsídio de credenciais de senha do proprietário de recursos / Rio Azure
+title: Inscreva-se com credenciais de senha do proprietário de recursos conceder | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Suporte fluxos de autenticação sem navegador utilizando a credencial de credencial de senha do proprietário do recurso (ROPC).
 services: active-directory
@@ -13,23 +13,23 @@ ms.date: 05/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 39cd25c2c84e92a0b06bc2ee6c6229ecb2d296d5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0282e4f52db8557364cdabe197fa0da63204e42
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91812544"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752643"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-resource-owner-password-credentials"></a>Plataforma de identidade microsoft e credenciais de senha do proprietário de recursos OAuth 2.0
 
-A plataforma de identidade microsoft suporta a [concessão de Credenciais de Senha do Proprietário de Recursos OAuth 2.0 (ROPC),](https://tools.ietf.org/html/rfc6749#section-4.3)que permite que uma aplicação assine no utilizador manuseando diretamente a sua palavra-passe.  Este artigo descreve como programar diretamente contra o protocolo na sua aplicação.  Quando possível, recomendamos que utilize as Bibliotecas de Autenticação da Microsoft (MSAL) suportadas para [adquirir fichas e chamar APIs web seguras](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Dê também uma olhada nas aplicações de [amostra que utilizam o MSAL.](sample-v2-code.md)
+A plataforma de identidade da Microsoft suporta a [concessão de Credenciais de Senha do Proprietário de Recursos OAuth 2.0 (ROPC),](https://tools.ietf.org/html/rfc6749#section-4.3)que permite que uma aplicação assine no utilizador manuseando diretamente a sua palavra-passe.  Este artigo descreve como programar diretamente contra o protocolo na sua aplicação.  Quando possível, recomendamos que utilize as Bibliotecas de Autenticação da Microsoft (MSAL) suportadas para [adquirir fichas e chamar APIs web seguras](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Dê também uma olhada nas aplicações de [amostra que utilizam o MSAL.](sample-v2-code.md)
 
 > [!WARNING]
 > A Microsoft recomenda que _não_ utilize o fluxo ROPC. Na maioria dos cenários, alternativas mais seguras estão disponíveis e recomendadas. Este fluxo requer um elevado grau de confiança na aplicação e comporta riscos que não estão presentes noutros fluxos. Só deve utilizar este fluxo quando não puderem ser utilizados outros fluxos mais seguros.
 
 > [!IMPORTANT]
 >
-> * O ponto final da plataforma de identidade da Microsoft apenas suporta ROPC para inquilinos AZure AD, não contas pessoais. Isto significa que você deve usar um ponto final específico do inquilino `https://login.microsoftonline.com/{TenantId_or_Name}` () ou o `organizations` ponto final.
+> * A plataforma de identidade da Microsoft apenas suporta ROPC para inquilinos AZure AD, não contas pessoais. Isto significa que você deve usar um ponto final específico do inquilino `https://login.microsoftonline.com/{TenantId_or_Name}` () ou o `organizations` ponto final.
 > * As contas pessoais que são convidadas para um inquilino da AD Azure não podem usar o ROPC.
 > * As contas que não têm senhas não podem entrar através do ROPC. Para este cenário, recomendamos que utilize um fluxo diferente para a sua aplicação.
 > * Se os utilizadores precisarem de utilizar a [autenticação de vários fatores (MFA)](../authentication/concept-mfa-howitworks.md) para iniciar sessão na aplicação, serão bloqueados.
@@ -92,7 +92,7 @@ O exemplo a seguir mostra uma resposta simbólica bem sucedida:
 
 | Parâmetro | Formato | Descrição |
 | --------- | ------ | ----------- |
-| `token_type` | Cadeia | Sempre definido para `Bearer` . |
+| `token_type` | String | Sempre definido para `Bearer` . |
 | `scope` | Cadeias separadas do espaço | Se um token de acesso foi devolvido, este parâmetro lista os âmbitos para os quais o token de acesso é válido. |
 | `expires_in`| int | Número de segundos para o qual o token de acesso incluído é válido. |
 | `access_token`| Corda opaca | Emitido para os [âmbitos](v2-permissions-and-consent.md) que foram solicitados. |
@@ -110,6 +110,6 @@ Se o utilizador não tiver fornecido o nome de utilizador ou palavra-passe corre
 | `invalid_grant` | A autenticação falhou | As credenciais estavam incorretas ou o cliente não tem consentimento para os âmbitos solicitados. Se os telescópios não forem concedidos, será devolvido um `consent_required` erro. Se isso ocorrer, o cliente deve enviar o utilizador para um pedido interativo usando uma webview ou browser. |
 | `invalid_request` | O pedido foi mal construído | O tipo de subvenção não é suportado nos `/common` contextos ou `/consumers` autenticação.  Use `/organizations` ou uma identificação de inquilino em vez disso. |
 
-## <a name="learn-more"></a>Saiba mais
+## <a name="learn-more"></a>Saber mais
 
 Para um exemplo de utilização do ROPC, consulte a amostra de código de [aplicação da consola .NET Core](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2) no GitHub.

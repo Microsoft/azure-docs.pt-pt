@@ -1,5 +1,6 @@
 ---
-title: API web que chama APIs web - plataforma de identidade microsoft / Rio Azure
+title: API web que chama APIs web | Rio Azure
+titleSuffix: Microsoft identity platform
 description: Saiba como construir uma API web que chama APIs web.
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 09/26/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b8eb737752741dc55da24ad6b605b081053b8a11
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 2c69cea7055476bcc4c4a28cea0a0cf8c8f66f88
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443706"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753465"
 ---
 # <a name="a-web-api-that-calls-web-apis-call-an-api"></a>Uma API web que chama APIs web: Chame uma API
 
@@ -162,6 +163,6 @@ Uma amostra que demonstra este fluxo com o MSAL Python ainda não está disponí
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Passe para o próximo artigo neste cenário, [passe para a produção](scenario-web-api-call-api-production.md).

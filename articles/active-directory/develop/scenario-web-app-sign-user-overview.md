@@ -1,5 +1,6 @@
 ---
-title: Inscreva-se nos utilizadores a partir de uma aplicação Web - Plataforma de identidade da Microsoft Rio Azure
+title: Inscreva-se nos utilizadores a partir de uma aplicação Web | Rio Azure
+titleSuffix: Microsoft identity platform
 description: Saiba como construir uma aplicação web que assina nos utilizadores (visão geral)
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 38ed7fb2930463e6657422e851a73f2b3b011f35
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: a7e33f950bc5f13372962694abc8e3e40d8ad5c0
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443590"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753238"
 ---
 # <a name="scenario-web-app-that-signs-in-users"></a>Cenário: aplicação web que assina nos utilizadores
 
@@ -73,7 +74,7 @@ Como segunda fase, pode ativar a sua aplicação para ligar para APIs web em nom
 
 [!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 

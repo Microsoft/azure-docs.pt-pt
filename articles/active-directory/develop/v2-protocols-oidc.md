@@ -1,5 +1,5 @@
 ---
-title: Plataforma de identidade microsoft e protocolo OpenID Connect Rio Azure
+title: Plataforma de identidade microsoft e protocolo OpenID Connect | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Construa aplicações web utilizando a implementação da plataforma de identidade microsoft do protocolo de autenticação OpenID Connect.
 services: active-directory
@@ -13,16 +13,16 @@ ms.date: 05/22/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 71e930898f1f86622357f9e02da69be7bf2f8088
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de1fcdc259de3f72e35feb411bcc836354352eb4
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91256590"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752599"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Plataforma de identidade da Microsoft e protocolo OpenID Connect
 
-OpenID Connect (OIDC) é um protocolo de autenticação construído no OAuth 2.0 que pode utilizar para assinar de forma segura num utilizador para uma aplicação. Quando utilizar a implementação do OpenID Connect na plataforma de identidade da Microsoft, pode adicionar acesso de s-in e API às suas apps. Este artigo mostra como fazê-lo independentemente da linguagem e descreve como enviar e receber mensagens HTTP sem utilizar quaisquer [bibliotecas de código aberto da Microsoft.](reference-v2-libraries.md)
+OpenID Connect (OIDC) é um protocolo de autenticação construído no OAuth 2.0 que pode utilizar para assinar de forma segura num utilizador para uma aplicação. Quando utilizar a implementação da plataforma de identidade da Microsoft do OpenID Connect, pode adicionar acesso de s-in e API às suas aplicações. Este artigo mostra como fazê-lo independentemente da linguagem e descreve como enviar e receber mensagens HTTP sem utilizar quaisquer [bibliotecas de código aberto da Microsoft.](reference-v2-libraries.md)
 
 [O OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) alarga o protocolo de *autorização* OAuth 2.0 para utilização como protocolo de *autenticação,* para que possa fazer um único início de sposição utilizando o OAuth. O OpenID Connect introduz o conceito de um símbolo de *ID,* que é um símbolo de segurança que permite ao cliente verificar a identidade do utilizador. O token de ID também obtém informações básicas de perfil sobre o utilizador. Introduz também o [ponto final do UserInfo](userinfo.md), uma API que devolve informações sobre o utilizador. 
 
@@ -88,7 +88,7 @@ Os metadados são um documento simples de Notação de Objetos JavaScript (JSON)
 
 Se a sua aplicação tiver teclas de assinatura personalizadas como resultado da utilização da funcionalidade [de mapeamento de sinistros,](active-directory-claims-mapping.md) tem de anexar um `appid` parâmetro de consulta que contenha o ID da aplicação, de forma a obter uma `jwks_uri` indicação para as informações-chave de assinatura da sua aplicação. Por exemplo: `https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` contém um `jwks_uri` de `https://login.microsoftonline.com/{tenant}/discovery/v2.0/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e` .
 
-Normalmente, utilizaria este documento de metadados para configurar uma biblioteca OpenID Connect ou SDK; a biblioteca usaria os metadados para fazer o seu trabalho. No entanto, se não estiver a utilizar uma biblioteca OpenID Connect pré-construída, pode seguir os passos no restante deste artigo para fazer o sismo numa aplicação web utilizando o ponto final da plataforma de identidade da Microsoft.
+Normalmente, utilizaria este documento de metadados para configurar uma biblioteca OpenID Connect ou SDK; a biblioteca usaria os metadados para fazer o seu trabalho. No entanto, se não estiver a utilizar uma biblioteca OpenID Connect pré-construída, pode seguir os passos no restante deste artigo para fazer o sismo numa aplicação web utilizando a plataforma de identidade da Microsoft.
 
 ## <a name="send-the-sign-in-request"></a>Envie o pedido de inscrição
 
@@ -126,13 +126,13 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `nonce` | Necessário | Um valor incluído no pedido, gerado pela app, que será incluído no valor id_token resultante como reclamação. A aplicação pode verificar este valor para mitigar os ataques de reprodução de token. O valor é tipicamente uma corda aleatória e única que pode ser usada para identificar a origem do pedido. |
 | `response_mode` | Recomendado | Especifica o método que deve ser usado para enviar o código de autorização resultante de volta para a sua aplicação. Pode ser `form_post` ou `fragment`. Para aplicações web, recomendamos a `response_mode=form_post` utilização, para garantir a transferência mais segura de fichas para a sua aplicação. |
 | `state` | Recomendado | Um valor incluído no pedido que também será devolvido na resposta simbólica. Pode ser uma série de conteúdos que quiser. Um valor único gerado aleatoriamente é normalmente usado para [evitar ataques de falsificação de pedidos de trans-locais](https://tools.ietf.org/html/rfc6749#section-10.12). O estado também é usado para codificar informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorrer, como a página ou visualização em que o utilizador estava ligado. |
-| `prompt` | Opcional | Indica o tipo de interação do utilizador que é necessária. Os únicos valores válidos neste momento são `login` `none` , e `consent` . A `prompt=login` alegação obriga o utilizador a introduzir as suas credenciais nesse pedido, o que nega uma única inscrição. A `prompt=none` reivindicação é o oposto. Esta alegação garante que o utilizador não é apresentado com qualquer solicitação interativa. Se o pedido não puder ser concluído silenciosamente através de um único sinal, o ponto final da plataforma de identidade da Microsoft retorna um erro. A `prompt=consent` alegação desencadeia o diálogo de consentimento OAuth após a indicação do utilizador. O diálogo pede ao utilizador que conceda permissões à aplicação. |
+| `prompt` | Opcional | Indica o tipo de interação do utilizador que é necessária. Os únicos valores válidos neste momento são `login` `none` , e `consent` . A `prompt=login` alegação obriga o utilizador a introduzir as suas credenciais nesse pedido, o que nega uma única inscrição. A `prompt=none` reivindicação é o oposto. Esta alegação garante que o utilizador não é apresentado com qualquer solicitação interativa. Se o pedido não puder ser concluído silenciosamente através de um único sinal, a plataforma de identidade da Microsoft retorna um erro. A `prompt=consent` alegação desencadeia o diálogo de consentimento OAuth após a indicação do utilizador. O diálogo pede ao utilizador que conceda permissões à aplicação. |
 | `login_hint` | Opcional | Pode utilizar este parâmetro para pré-preenchimento do nome de utilizador e do campo de endereço de e-mail da página de entrada para o utilizador, caso conheça o nome de utilizador com antecedência. Muitas vezes, as aplicações usam este parâmetro durante a reauthentication, depois de já terem extraído o nome de utilizador de um pré-início de súd in, utilizando a `preferred_username` alegação. |
 | `domain_hint` | Opcional | O reino do utilizador num diretório federado.  Isto ignora o processo de descoberta baseado em e-mail que o utilizador passa na página de entrada, para uma experiência de utilizador um pouco mais simplificada. Para os inquilinos que são federados através de um diretório no local como o AD FS, isso resulta frequentemente num login sem emenda por causa da sessão de login existente. |
 
-Neste momento, o utilizador é solicitado a introduzir as suas credenciais e completar a autenticação. O ponto final da plataforma de identidade da Microsoft verifica que o utilizador consentiu nas permissões indicadas no `scope` parâmetro de consulta. Se o utilizador não tiver consentido com nenhuma dessas permissões, o ponto final da plataforma de identidade da Microsoft solicita ao utilizador que consinta nas permissões necessárias. Você pode ler mais sobre [permissões, consentimento e aplicativos multi-inquilinos.](v2-permissions-and-consent.md)
+Neste momento, o utilizador é solicitado a introduzir as suas credenciais e completar a autenticação. A plataforma de identidade da Microsoft verifica que o utilizador consentiu nas permissões indicadas no `scope` parâmetro de consulta. Se o utilizador não tiver consentido com nenhuma dessas permissões, a plataforma de identidade da Microsoft solicita ao utilizador que consinta nas permissões necessárias. Você pode ler mais sobre [permissões, consentimento e aplicativos multi-inquilinos.](v2-permissions-and-consent.md)
 
-Após a autenticação e concessão de consentimento do utilizador, o ponto final da plataforma de identidade da Microsoft devolve uma resposta à sua aplicação no URI de redirecionamento indicado, utilizando o método especificado no `response_mode` parâmetro.
+Após a autenticação e concessão de consentimento do utilizador, a plataforma de identidade da Microsoft devolve uma resposta à sua aplicação no URI de redirecionamento indicado, utilizando o método especificado no `response_mode` parâmetro.
 
 ### <a name="successful-response"></a>Resposta bem sucedida
 
@@ -184,7 +184,7 @@ A tabela a seguir descreve códigos de erro que podem ser devolvidos no `error` 
 
 ## <a name="validate-the-id-token"></a>Validar o token de ID
 
-Receber uma id_token nem sempre é suficiente para autenticar o utilizador; poderá também ser necessário validar a assinatura do id_token e verificar as reclamações no token de acordo com os requisitos da sua aplicação. Como todas as plataformas OIDC, o ponto final da plataforma de identidade da Microsoft utiliza [os Tokens Web JSON (JWTs)](https://tools.ietf.org/html/rfc7519) e a criptografia de chaves públicas para assinar fichas de identificação e verificar se são válidos.
+Receber uma id_token nem sempre é suficiente para autenticar o utilizador; poderá também ser necessário validar a assinatura do id_token e verificar as reclamações no token de acordo com os requisitos da sua aplicação. Como todas as plataformas OIDC, a plataforma de identidade da Microsoft utiliza [os Tokens Web JSON (JWTs)](https://tools.ietf.org/html/rfc7519) e a criptografia de chaves públicas para assinar fichas de identificação e verificar se são válidos.
 
 Nem todas as aplicações beneficiam de verificar o token de ID - aplicações nativas e aplicações de página única, por exemplo, raramente beneficiam de validar o token de ID.  Alguém com acesso físico ao dispositivo (ou browser) pode contornar a validação de muitas formas - desde a edição do tráfego web até ao dispositivo para fornecer fichas e chaves falsas para simplesmente depurar a aplicação para saltar a lógica de validação.  Por outro lado, as aplicações web e as APIs que utilizam um token de ID para autorização devem validar cuidadosamente o símbolo de ID, uma vez que estão a obter acesso aos dados.
 
@@ -283,7 +283,7 @@ Reveja a [documentação Do UtilizadorInfo](userinfo.md#calling-the-api) para ve
 
 ## <a name="send-a-sign-out-request"></a>Enviar um pedido de sinalização
 
-Quando pretender assinar o utilizador da sua aplicação, não basta limpar os cookies da sua aplicação ou terminar a sessão do utilizador. Também deve redirecionar o utilizador para o ponto final da plataforma de identidade da Microsoft para assinar. Se não o fizer, o utilizador reaudiu para a sua aplicação sem introduzir novamente as suas credenciais, pois terá uma sessão de sessão de sessão de sessão de inscrição única válida com o ponto final da plataforma de identidade da Microsoft.
+Quando pretender assinar o utilizador da sua aplicação, não basta limpar os cookies da sua aplicação ou terminar a sessão do utilizador. Também deve redirecionar o utilizador para a plataforma de identidade da Microsoft para assinar. Se não o fizer, o utilizador reaudiu para a sua aplicação sem introduzir novamente as suas credenciais, pois terá uma sessão de sessão de sessão de inscrição única válida com a plataforma de identidade da Microsoft.
 
 Pode redirecionar o utilizador para a `end_session_endpoint` lista no documento de metadados OpenID Connect:
 
@@ -294,13 +294,13 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 | Parâmetro | Condição | Descrição |
 | ----------------------- | ------------------------------- | ------------ |
-| `post_logout_redirect_uri` | Recomendado | O URL para o qual o utilizador é redirecionado após a assinatura com sucesso. Se o parâmetro não estiver incluído, o utilizador é mostrado uma mensagem genérica que é gerada pelo ponto final da plataforma de identidade da Microsoft. Este URL deve corresponder a um dos URIs de redirecionamento registados para a sua aplicação no portal de registo de aplicações. |
+| `post_logout_redirect_uri` | Recomendado | O URL para o qual o utilizador é redirecionado após a assinatura com sucesso. Se o parâmetro não estiver incluído, o utilizador é mostrado uma mensagem genérica que é gerada pela plataforma de identidade da Microsoft. Este URL deve corresponder a um dos URIs de redirecionamento registados para a sua aplicação no portal de registo de aplicações. |
 
 ## <a name="single-sign-out"></a>Fim de sessão único
 
-Quando redireciona o utilizador para o `end_session_endpoint` ponto final da plataforma de identidade da Microsoft, o ponto final da plataforma de identidade microsoft limpa a sessão do utilizador a partir do navegador. No entanto, o utilizador pode ainda ser inscrito noutras aplicações que utilizem as contas da Microsoft para autenticação. Para permitir que essas aplicações assinem o utilizador simultaneamente, o ponto final da plataforma de identidade da Microsoft envia um pedido HTTP GET para o registo `LogoutUrl` de todas as aplicações a que o utilizador se encontra atualmente inscrito. As aplicações devem responder a este pedido, limpando qualquer sessão que identifique o utilizador e devolvendo uma `200` resposta. Se pretender apoiar uma única sinseção na sua aplicação, tem de implementar tal `LogoutUrl` no código da sua aplicação. Pode definir o `LogoutUrl` portal de registo de aplicações.
+Quando redireciona o utilizador para o `end_session_endpoint` , a plataforma de identidade da Microsoft limpa a sessão do utilizador a partir do navegador. No entanto, o utilizador pode ainda ser inscrito noutras aplicações que utilizem as contas da Microsoft para autenticação. Para permitir que essas aplicações assinem o utilizador simultaneamente, a plataforma de identidade da Microsoft envia um pedido HTTP GET ao registo `LogoutUrl` de todas as aplicações a que o utilizador se encontra atualmente inscrito. As aplicações devem responder a este pedido, limpando qualquer sessão que identifique o utilizador e devolvendo uma `200` resposta. Se pretender apoiar uma única sinseção na sua aplicação, tem de implementar tal `LogoutUrl` no código da sua aplicação. Pode definir o `LogoutUrl` portal de registo de aplicações.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Reveja a [documentação Do UtilizadorInfo](userinfo.md)
 * Saiba como [personalizar os valores num token](active-directory-claims-mapping.md) com dados dos seus sistemas no local. 

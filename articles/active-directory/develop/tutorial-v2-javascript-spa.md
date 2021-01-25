@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Criar uma aplicação de página única JavaScript que utiliza a plataforma de identidade da Microsoft para autenticação Rio Azure'
+title: 'Tutorial: Criar uma aplicação de página única JavaScript que utiliza a plataforma de identidade da Microsoft para autenticação | Rio Azure'
 titleSuffix: Microsoft identity platform
 description: Neste tutorial, você constrói uma aplicação de página única JavaScript (SPA) que utiliza a plataforma de identidade da Microsoft para assinar nos utilizadores e obter um token de acesso para ligar para a API do Gráfico microsoft em seu nome.
 services: active-directory
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/06/2020
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: 51b548beae57ce1da32006b61dfd222b0a4e6218
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 874488e5de7888edad5310afce1afd1baec4ece0
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98015866"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753061"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Tutorial: Inscreva-se nos utilizadores e ligue para a API do Gráfico microsoft a partir de uma aplicação de página única JavaScript (SPA)
 
@@ -45,7 +45,7 @@ Neste tutorial:
 
 ![Mostra como funciona a app de amostras gerada por este tutorial](media/active-directory-develop-guidedsetup-javascriptspa-introduction/javascriptspa-intro.svg)
 
-A aplicação de amostra criada por este guia permite a um JavaScript SPA consultar a API do Microsoft Graph ou uma API web que aceita fichas a partir do ponto final da plataforma de identidade da Microsoft. Neste cenário, após a indicação de um utilizador, é solicitado um token de acesso e adicionado aos pedidos HTTP através do cabeçalho de autorização. Este token será utilizado para adquirir o perfil e os e-mails do utilizador através da **MS Graph API**.
+A aplicação de amostra criada por este guia permite a um JavaScript SPA consultar a API do Microsoft Graph ou uma API web que aceita fichas da plataforma de identidade da Microsoft. Neste cenário, após a indicação de um utilizador, é solicitado um token de acesso e adicionado aos pedidos HTTP através do cabeçalho de autorização. Este token será utilizado para adquirir o perfil e os e-mails do utilizador através da **MS Graph API**.
 
 A aquisição e renovação de token são tratadas pela [Microsoft Authentication Library (MSAL) para JavaScript](https://github.com/AzureAD/microsoft-authentication-library-for-js).
 
@@ -276,7 +276,7 @@ Antes de prosseguir com a autenticação, registe o seu pedido no **Diretório A
 1. Na página **geral** da aplicação, note o valor **de ID da Aplicação (cliente)** para posterior utilização.
 1. Em **Gestão**, **selecione Autenticação**.
 1. Na secção **de concessão implícita,** selecione **fichas de identificação** e **fichas de acesso**. São necessárias fichas de ID e fichas de acesso porque esta aplicação deve assinar nos utilizadores e chamar uma API.
-1. Selecione **Save** (Guardar).
+1. Selecione **Guardar**.
 
 > ### <a name="set-a-redirect-url-for-nodejs"></a>Desa redirecione um URL de redirecionamento para Node.js
 >
@@ -318,7 +318,7 @@ Crie um novo ficheiro .js nomeado `authConfig.js` , que conterá os seus parâme
   };
 ```
 
- Onde:
+ Em que:
  - *\<Enter_the_Application_Id_Here>* é o **ID de Aplicação (cliente)** para a aplicação que registou.
  - *\<Enter_the_Cloud_Instance_Id_Here>* é o exemplo da nuvem Azure. Para a nuvem Azure principal ou global, basta *https://login.microsoftonline.com* entrar. Para nuvens **nacionais** (por exemplo, China), ver [nuvens nacionais.](./authentication-national-cloud.md)
  - *\<Enter_the_Tenant_info_here>* é definida como uma das seguintes opções:
@@ -413,13 +413,13 @@ O SPA gerado por este guia chama `acquireTokenSilent` e/ou `acquireTokenPopup` p
 
 #### <a name="get-a-user-token-interactively"></a>Obter um token de utilizador interativamente
 
-Após a iniciação inicial, não pretende pedir aos utilizadores que reauttenenássem sempre que precisam de pedir um token para aceder a um recurso. Assim, *adquirir oTokenSilent* deve ser usado na maior parte do tempo para adquirir fichas. Existem situações, no entanto, em que é necessário forçar os utilizadores a interagirem com o ponto final da plataforma de identidade da Microsoft. Os exemplos incluem:
+Após a iniciação inicial, não pretende pedir aos utilizadores que reauttenenássem sempre que precisam de pedir um token para aceder a um recurso. Assim, *adquirir oTokenSilent* deve ser usado na maior parte do tempo para adquirir fichas. Existem situações, no entanto, em que é necessário forçar os utilizadores a interagirem com a plataforma de identidade da Microsoft. Os exemplos incluem:
 
 - Os utilizadores precisam de reentrar nas suas credenciais porque a palavra-passe expirou.
 - A sua aplicação está a solicitar o acesso a um recurso e precisa do consentimento do utilizador.
 - É necessária autenticação de dois fatores.
 
-Call *acquireTokenPopup* abre uma janela pop-up (ou *adquireTokenRedirect* redireciona os utilizadores para o ponto final da plataforma de identidade microsoft). Nessa janela, os utilizadores precisam interagir confirmando as suas credenciais, dando consentimento ao recurso necessário ou completando a autenticação de dois fatores.
+Call *acquireTokenPopup* abre uma janela pop-up (ou *adquireTokenRedirect* redireciona os utilizadores para a plataforma de identidade da Microsoft). Nessa janela, os utilizadores precisam interagir confirmando as suas credenciais, dando consentimento ao recurso necessário ou completando a autenticação de dois fatores.
 
 #### <a name="get-a-user-token-silently"></a>Obter um token de utilizador automaticamente
 
@@ -443,7 +443,7 @@ O `acquireTokenSilent` método lida com a aquisição e renovação de símbolos
       };
    ```
 
-   Onde:
+   Em que:
    - *\<Enter_the_Graph_Endpoint_Here>* é o caso da MS Graph API. Para o ponto final global da MS Graph API, basta substituir esta cadeia por `https://graph.microsoft.com` . Para implementações em nuvem nacional, consulte a [Documentação da API do Gráfico.](/graph/deployments)
 
 1. Em seguida, crie um ficheiro .js nomeado `graph.js` , que fará uma chamada REST para a Microsoft Graph API, e adicione o seguinte código:
@@ -483,7 +483,7 @@ Na aplicação de amostra criada por este guia, o `callMSGraph()` método é uti
    ```
 1. No seu navegador, insira **http://localhost:3000** **http://localhost:{port}** ou, onde a *porta* é a porta que o seu servidor web está a ouvir. Deverá ver o conteúdo do seuindex.htmficheiro *L* e o botão **Iniciar.**
 
-Depois de o navegador carregar o ficheiro *index.html,* selecione **Iniciar Sôs.** É-lhe pedido que assine com o ponto final da plataforma de identidade da Microsoft:
+Depois de o navegador carregar o ficheiro *index.html,* selecione **Iniciar Sôs.** É-lhe pedido que assine com a plataforma de identidade da Microsoft:
 
 ![A janela de inscrição da conta JavaScript SPA](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspascreenshot1.png)
 

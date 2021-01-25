@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Ligue para o Microsoft Graph de um daemon Python Rio Azure'
+title: 'Quickstart: Ligue para o Microsoft Graph a partir de um daemon Python | Rio Azure'
 titleSuffix: Microsoft identity platform
-description: Neste quickstart, você aprende como um processo Python pode obter um token de acesso e chamar uma API protegida pelo ponto final da plataforma de identidade Microsoft, usando a própria identidade da app
+description: Neste quickstart, você aprende como um processo Python pode obter um token de acesso e chamar uma API protegida pela plataforma de identidade Microsoft, usando a própria identidade da app
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/22/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, devx-track-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: 47aaf67c9ae2402e0445de60de439b77242bd87d
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 04c3497e41aba301d5cf16cd6cc723409d1f4175
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178233"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754072"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-python-console-app-using-apps-identity"></a>Quickstart: Adquira um token e ligue para a Microsoft Graph API a partir de uma aplicação de consola Python usando a identidade da app
 
@@ -100,7 +100,7 @@ Para fazer esta amostra, precisa:
 >    "client_id": "Enter_the_Application_Id_Here",
 >    "secret": "Enter_the_Client_Secret_Here"
 >    ```
->    Onde:
+>    Em que:
 >    - `Enter_the_Application_Id_Here` - é o **ID da Aplicação (cliente)** que registou.
 >    - `Enter_the_Tenant_Id_Here`- substituir este valor pelo **nome** **de Inquilino Ou** Inquilino (por exemplo, contoso.microsoft.com)
 >    - `Enter_the_Client_Secret_Here` - substituir este valor pelo segredo do cliente criado no passo 1.
@@ -135,7 +135,7 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 ```
 
 > [!div renderon="docs"]
->> Onde:
+>> Em que:
 >> * `Enter_the_Tenant_Id_Here`- substituir este valor pelo **nome** **de Inquilino Ou** Inquilino (por exemplo, contoso.microsoft.com)
 >> * `Enter_the_Application_Id_Here` - é o **ID da Aplicação (cliente)** que registou.
 
@@ -190,7 +190,7 @@ app = msal.ConfidentialClientApplication(
     client_credential=config["secret"])
 ```
 
-> | Onde: |Descrição |
+> | Em que: |Descrição |
 > |---------|---------|
 > | `config["secret"]` | É o segredo do cliente criado para a aplicação no Portal Azure. |
 > | `config["client_id"]` | É o **ID de Aplicação (cliente)** da aplicação registada no portal do Azure. Pode encontrar este valor na página **Descrição geral** da aplicação no portal do Azure. |
@@ -211,7 +211,7 @@ if not result:
     result = app.acquire_token_for_client(scopes=config["scope"])
 ```
 
-> |Onde:| Descrição |
+> |Em que:| Descrição |
 > |---------|---------|
 > | `config["scope"]` | Contém os âmbitos solicitados. Para clientes confidenciais, este deve utilizar o formato semelhante `{Application ID URI}/.default` para indicar que os âmbitos que estão a ser solicitados são os que estão definidos estáticamente no objeto da aplicação definido no Portal Azure (para o Microsoft Graph, aponta `{Application ID URI}` `https://graph.microsoft.com` para). Para APIs web personalizado, `{Application ID URI}` é definido em Expor uma secção **API** no Registo de Aplicação do Portal Azure (Pré-visualização). |
 
@@ -219,7 +219,7 @@ Para mais informações, consulte a [documentação de referência para `Acquire
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre aplicações daemon, consulte a página de aterragem do cenário
 

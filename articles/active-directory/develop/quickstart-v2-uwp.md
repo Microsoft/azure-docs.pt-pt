@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Inicie sísmia nos utilizadores e ligue para o Microsoft Graph numa aplicação Universal Windows Platform / Rio Azure'
+title: 'Quickstart: Inicie síproca nos utilizadores e ligue para o Microsoft Graph numa aplicação Universal Windows Platform | Rio Azure'
 titleSuffix: Microsoft identity platform
 description: Neste quickstart, saiba como uma aplicação Universal Windows Platform (UWP) pode obter um token de acesso e chamar uma API protegida pela plataforma de identidade Microsoft.
 services: active-directory
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/07/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
-ms.openlocfilehash: 4610d4d677d2d340340aab5edcddb658ac32e5e4
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 074b64debc0a5aa08967efce69b7e5d14b4d90e4
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178213"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754052"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Início Rápido: Chamar a Microsoft Graph API a partir de uma aplicação da Plataforma Universal do Windows (UWP)
 
@@ -124,7 +124,7 @@ Quando a janela da aplicação aparecer, pode selecionar o botão **API do Gráf
 
 ### <a name="msalnet"></a>MSAL.NET
 
-MSAL[(Microsoft.Identity.Client)](https://www.nuget.org/packages/Microsoft.Identity.Client)é a biblioteca utilizada para iniciar serções nos utilizadores e solicitar fichas de segurança. Os tokens de segurança são usados para aceder a uma API protegida pela plataforma Microsoft Identity para desenvolvedores. Pode instalar a MSAL ao executar o comando seguinte na *Consola do Gestor de Pacotes* do Visual Studio:
+MSAL[(Microsoft.Identity.Client)](https://www.nuget.org/packages/Microsoft.Identity.Client)é a biblioteca utilizada para iniciar serções nos utilizadores e solicitar fichas de segurança. Os tokens de segurança são utilizados para aceder a uma API protegida pela plataforma Microsoft Identity. Pode instalar a MSAL ao executar o comando seguinte na *Consola do Gestor de Pacotes* do Visual Studio:
 
 ```powershell
 Install-Package Microsoft.Identity.Client
@@ -155,7 +155,7 @@ A MSAL tem dois métodos para adquirir fichas numa aplicação UWP: `AcquireToke
 
 #### <a name="get-a-user-token-interactively"></a>Obter um token de utilizador interativamente
 
-Algumas situações exigem forçar os utilizadores a interagir com o ponto final da plataforma de identidade da Microsoft através de uma janela popup para validar as suas credenciais ou dar consentimento. Alguns exemplos incluem:
+Algumas situações exigem forçar os utilizadores a interagir com a plataforma de identidade da Microsoft através de uma janela pop-up para validar as suas credenciais ou dar consentimento. Alguns exemplos incluem:
 
 - Os utilizadores da primeira vez insinuam-se na aplicação
 - Quando os utilizadores possam ter de reintroduzir as respetivas credenciais por a palavra-passe ter expirado
@@ -185,7 +185,7 @@ authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Experimente o tutorial do ambiente de trabalho do Windows para obter um guia passo a passo completo sobre a criação de aplicações e novas funcionalidades, incluindo uma explicação completa deste início rápido.
 

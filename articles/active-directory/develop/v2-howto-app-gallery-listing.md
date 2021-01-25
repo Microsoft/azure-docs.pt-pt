@@ -12,12 +12,12 @@ ms.date: 12/14/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 1f1100c27bb3c02e3d1a5040942509c24bab0e65
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 8f5324e967c5a67ee77559087a02c3421611d8f3
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98683993"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752864"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Publique a sua app na galeria de aplicações AZure AD
 
@@ -148,7 +148,7 @@ Para saber mais sobre a autenticação, veja [o que é a autenticação?](../azu
 
 Para o OpenID Connect, a aplicação deve ser multi-arrendada e o quadro de [consentimento Azure AD](consent-framework.md) deve ser devidamente implementado para a aplicação. O utilizador pode enviar o pedido de inscrição para um ponto final comum para que qualquer cliente possa fornecer consentimento para a aplicação. Pode controlar o acesso do utilizador com base no ID do inquilino e na UPN do utilizador recebida no token.
 
-Para rever exemplos específicos, consulte [as amostras de código da plataforma de identidade da Microsoft.](sample-v2-code.md) 
+Para rever exemplos específicos, consulte as amostras de código da plataforma de identidade da [Microsoft.](sample-v2-code.md) 
 
 Para rever exemplos específicos móveis, consulte: 
 * [Android](quickstart-v2-android.md)
@@ -317,6 +317,6 @@ Para qualquer escalada, envie um e-mail para a [Equipa de Integração Azure AD 
 A Microsoft Partner Network fornece acesso instantâneo a recursos exclusivos, programas, ferramentas e conexões. Para aderir à rede e criar o seu plano de mercado, consulte [os clientes comerciais Reach.](https://partner.microsoft.com/explore/commercial#gtm)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Construa um ponto final SCIM e configuure o fornecimento de utilizadores](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 * [Cenários de autenticação para Azure AD](authentication-flows-app-scenarios.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Criar uma app da Fundação de Apresentação do Windows (WPF) que utiliza a plataforma de identidade da Microsoft para autenticação Rio Azure'
+title: 'Tutorial: Criar uma aplicação da Fundação de Apresentação do Windows (WPF) que utiliza a plataforma de identidade da Microsoft para autenticação | Rio Azure'
 titleSuffix: Microsoft identity platform
 description: Neste tutorial, você constrói uma aplicação WPF que utiliza a plataforma de identidade da Microsoft para iniciar sísmis nos utilizadores e obter um token de acesso para ligar para a Microsoft Graph API em seu nome.
 services: active-directory
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 0d759b3af097067ba0c9215b65b212d50474d571
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 5bfdf90ddbd500fd9d1c504bd37ed4ac35d8bf70
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178352"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752767"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Tutorial: Ligue para a API do Gráfico microsoft a partir de uma aplicação para desktop do Windows
 
@@ -47,7 +47,7 @@ A aplicação de amostra que cria com este guia permite uma aplicação do Windo
 
 ## <a name="handling-token-acquisition-for-accessing-protected-web-apis"></a>Manipulação da aquisição de token para aceder a APIs web protegidas
 
-Após a autenticação do utilizador, a aplicação da amostra recebe um token que pode utilizar para consultar a Microsoft Graph API ou uma API web que é protegida pela plataforma de identidade da Microsoft para desenvolvedores.
+Após a autenticação do utilizador, a aplicação da amostra recebe um token que pode utilizar para consultar a Microsoft Graph API ou uma API web que é protegida pela plataforma de identidade da Microsoft.
 
 APIs como o Microsoft Graph requerem um símbolo para permitir o acesso a recursos específicos. Por exemplo, é necessário um token para ler o perfil de um utilizador, aceder ao calendário de um utilizador ou enviar e-mail. A sua aplicação pode solicitar um token de acesso utilizando o MSAL para aceder a estes recursos especificando os âmbitos de API. Este token de acesso é então adicionado ao cabeçalho de autorização HTTP para cada chamada feita contra o recurso protegido.
 
@@ -377,7 +377,7 @@ Além do token de acesso que é usado para chamar a API do Gráfico microsoft, d
 
 [!INCLUDE [5. Test and Validate](../../../includes/active-directory-develop-guidedsetup-windesktop-test.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre a construção de aplicativos de desktop que chamem APIs web protegidos na nossa série de cenários multi-partes:
 

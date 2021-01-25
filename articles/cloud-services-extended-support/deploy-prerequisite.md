@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 45f2b75be9a0090b883c5cc62a0886366e81a302
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 28c7f2c0a61150b2014f669f37ac84ee3a94aebf
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98744670"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752148"
 ---
 # <a name="prerequisites-for-deploying-azure-cloud-services-extended-support"></a>Pré-requisitos para a implantação de Serviços cloud Azure (suporte alargado)
 
@@ -42,12 +42,12 @@ CloudServices           Microsoft.Compute    Registered
 ## <a name="required-service-configuration-cscfg-file-updates"></a>Configurações de serviço necessárias (.cscfg) atualizações de ficheiros
 
 ### <a name="1-virtual-network"></a>1) Rede Virtual
-As implementações do Cloud Service (suporte alargado) devem estar numa rede virtual. A rede virtual pode ser criada através do [portal Azure,](https://docs.microsoft.com/azure/virtual-network/quick-create-portal) [PowerShell,](https://docs.microsoft.com/azure/virtual-network/quick-create-powershell) [Azure CLI](https://docs.microsoft.com/azure/virtual-network/quick-create-cli) ou [ARM.](https://docs.microsoft.com/azure/virtual-network/quick-create-template) A rede virtual e as sub-redes também devem ser referenciadas na Configuração de Serviço (.cscfg) na `NetworkConfiguration` secção. 
+As implementações do Cloud Service (suporte alargado) devem estar numa rede virtual. A rede virtual pode ser criada através do [portal Azure,](https://docs.microsoft.com/azure/virtual-network/quick-create-portal) [PowerShell,](https://docs.microsoft.com/azure/virtual-network/quick-create-powershell) [Azure CLI](https://docs.microsoft.com/azure/virtual-network/quick-create-cli) ou [ARM.](https://docs.microsoft.com/azure/virtual-network/quick-create-template) A rede virtual e as sub-redes também devem ser referenciadas na Configuração de Serviço (.cscfg) na secção [NetworkConfiguration.](schema-cscfg-networkconfiguration.md) 
 
 Para uma rede virtual pertencente ao mesmo grupo de recursos que o serviço de nuvem, apenas é suficiente fazer referência ao nome da rede virtual no ficheiro Configuração de Serviço (.cscfg). Se a rede virtual e o serviço de nuvem estiverem em dois grupos de recursos diferentes, então o ID completo do Gestor de Recursos Azure da rede virtual tem de ser especificado no ficheiro de Configuração de Serviço (.cscfg).
  
 #### <a name="virtual-network-located-in-same-resource-group"></a>Rede Virtual localizada no mesmo grupo de recursos
-```json
+```xml
 <VirtualNetworkSite name="<vnet-name>"/> 
 <AddressAssignments> 
 <InstanceAddress roleName="<role-name>"> 
@@ -58,8 +58,8 @@ Para uma rede virtual pertencente ao mesmo grupo de recursos que o serviço de n
 ```
 
 #### <a name="virtual-network-located-in-different-resource-group"></a>Rede virtual localizada em diferentes grupos de recursos
-```json
-“/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/Microsoft.Network/virtualNetworks/<vnet-name>/> 
+```xml
+<VirtualNetworkSite name="/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/Microsoft.Network/virtualNetworks/<vnet-name>"/> 
 <AddressAssignments> 
 <InstanceAddress roleName="<role-name>"> 
 <Subnets> 

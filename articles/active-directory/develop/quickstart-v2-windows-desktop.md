@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Inicie síprofone nos utilizadores e ligue para o Microsoft Graph numa aplicação de desktop da Plataforma Universal Windows ! Rio Azure'
-description: Neste quickstart, saiba como uma aplicação windows desktop .NET (XAML) pode obter um token de acesso e chamar uma API protegida por um ponto final da plataforma de identidade da Microsoft
+title: 'Início rápido: Inicie sílquio nos utilizadores e ligue para o Microsoft Graph numa aplicação de ambiente de trabalho Universal Windows Platform | Rio Azure'
+description: Neste arranque rápido, saiba como uma aplicação de desktop do Windows (XAML) pode obter um token de acesso e chamar uma API protegida pela plataforma de identidade microsoft.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 1cac8ab4ccf23047bd5eb2d15c174a2009f2864a
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: b54438441b0e34cccda7fbec37dc1d1740101e9e
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178301"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753998"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Início rápido: Adquirir um token e chamar a Microsoft Graph API a partir de uma aplicação de ambiente de trabalho do Windows
 
@@ -95,7 +95,7 @@ Veja [como funciona a amostra](#how-the-sample-works) para uma ilustração.
 >    private static string Tenant = "Enter_the_Tenant_Info_Here";
 >    ```
 >
-> Onde:
+> Em que:
 > - `Enter_the_Application_Id_here` - é o **ID da Aplicação (cliente)** que registou.
 > - `Enter_the_Tenant_Info_Here` - está definido para uma das seguintes opções:
 >   - Se a sua aplicação suportar **Contas neste diretório organizacional**, substitua este valor pelo **Id do Inquilino** ou pelo **Nome do inquilino** (por exemplo, contoso.microsoft.com)
@@ -135,7 +135,7 @@ PublicClientApplicationBuilder.Create(ClientId)
                 .Build();
 ```
 
-> |Onde: | Descrição |
+> |Em que: | Descrição |
 > |---------|---------|
 > | `ClientId` | É o **ID de Aplicação (cliente)** da aplicação registada no portal do Azure. Pode encontrar este valor na página **Descrição geral** da aplicação no portal do Azure. |
 
@@ -145,7 +145,7 @@ A MSAL tem dois métodos para comprar tokens: `AcquireTokenInteractive` e `Acqui
 
 #### <a name="get-a-user-token-interactively"></a>Obter um token de utilizador interativamente
 
-Algumas situações exigem forçar os utilizadores a interagir com o ponto final da plataforma de identidade da Microsoft através de uma janela popup para validar as suas credenciais ou dar consentimento. Alguns exemplos incluem:
+Algumas situações exigem forçar os utilizadores a interagir com a plataforma de identidade da Microsoft através de uma janela pop-up para validar as suas credenciais ou dar consentimento. Alguns exemplos incluem:
 
 - A primeira vez que os utilizadores iniciam sessão na aplicação
 - Quando os utilizadores possam ter de reintroduzir as respetivas credenciais por a palavra-passe ter expirado
@@ -157,7 +157,7 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(_scopes)
                                       .ExecuteAsync();
 ```
 
-> |Onde:| Descrição |
+> |Em que:| Descrição |
 > |---------|---------|
 > | `_scopes` | Contém os âmbitos que estão a ser solicitados, tais como `{ "user.read" }` para o Microsoft Graph ou para `{ "api://<Application ID>/access_as_user" }` APIs web personalizados. |
 
@@ -172,14 +172,14 @@ authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
                                       .ExecuteAsync();
 ```
 
-> |Onde: | Descrição |
+> |Em que: | Descrição |
 > |---------|---------|
 > | `scopes` | Contém os âmbitos que estão a ser solicitados, tais como `{ "user.read" }` para o Microsoft Graph ou para `{ "api://<Application ID>/access_as_user" }` APIs web personalizados. |
 > | `firstAccount` | Especifica o primeiro utilizador na cache (a MSAL suporta vários utilizadores numa única aplicação). |
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Experimente o tutorial do ambiente de trabalho do Windows para obter um guia passo a passo completo sobre a criação de aplicações e novas funcionalidades, incluindo uma explicação completa deste início rápido.
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 9ffb77db4f7bcd5a07e25085eed17e8972aa9a33
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 3a26157949ff6ef69c9c009dfdd40781b47bc761
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98683764"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753584"
 ---
 # <a name="protected-web-api-code-configuration"></a>API web protegida: configuração de código
 
@@ -55,7 +55,7 @@ HttpResponseMessage response = await _httpClient.GetAsync(apiUri);
 ```
 
 > [!IMPORTANT]
-> Uma aplicação de cliente solicita o token ao ponto final da plataforma de identidade da Microsoft *para a API web*. A API web é a única aplicação que deve verificar o token e ver as alegações que contém. As aplicações de clientes nunca devem tentar inspecionar as reclamações em fichas.
+> Uma aplicação de cliente solicita o token ao portador da plataforma de identidade da Microsoft *para a API web*. A API web é a única aplicação que deve verificar o token e ver as alegações que contém. As aplicações de clientes nunca devem tentar inspecionar as reclamações em fichas.
 >
 > No futuro, a API web pode exigir que o símbolo seja encriptado. Este requisito impediria o acesso a aplicações de clientes que possam ver fichas de acesso.
 
@@ -140,7 +140,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
- Atualmente, os modelos core ASP.NET criam APIs web Azure Ative (Azure AD) que assinam em utilizadores dentro da sua organização ou em qualquer organização. Não assinam utilizadores com contas pessoais. No entanto, pode alterar os modelos para utilizar o ponto final da plataforma de identidade da Microsoft utilizando o [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web) substituindo o código em *Startup.cs*:
+ Atualmente, os modelos core ASP.NET criam APIs web Azure Ative (Azure AD) que assinam em utilizadores dentro da sua organização ou em qualquer organização. Não assinam utilizadores com contas pessoais. No entanto, pode alterar os modelos para utilizar a plataforma de identidade da Microsoft utilizando o [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web) substituindo o código em *Startup.cs*:
 
 ```csharp
 using Microsoft.Identity.Web;
@@ -195,7 +195,7 @@ Os passos de validação são capturados em validadores, que são fornecidos pel
 
 Esta tabela descreve os validadores:
 
-| Validador | Description |
+| Validador | Descrição |
 |---------|---------|
 | **ValidarAudiência** | Garante que o token é para a aplicação que valida o token para si. |
 | **ValidarIssuer** | Garante que o símbolo foi emitido por uma STS de confiança, o que significa que é de alguém em quem confias. |
@@ -240,6 +240,6 @@ Também pode validar fichas de acesso recebidas em Funções Azure. Pode encontr
 - Node.js: [Azure-Samples/ms-identidade-nodejs-webapi-azurefunctions](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions)
 - Python: [Azure-Samples/ms-identity-python-webapi-azurefunctions)](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Passe para o próximo artigo neste cenário, [Verifique os âmbitos e as funções de aplicação no seu código.](scenario-protected-web-api-verification-scope-app-roles.md)

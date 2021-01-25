@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Iniciar sing em utilizadores em aplicações de página única JavaScript / Rio Azure'
+title: 'Início rápido: Iniciar snus em utilizadores em aplicações de página única JavaScript | Rio Azure'
 titleSuffix: Microsoft identity platform
 description: Neste quickstart, você aprende como uma aplicação JavaScript pode chamar uma API que requer acesso a tokens emitidos pela plataforma de identidade Microsoft.
 services: active-directory
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: 532fcc7db849af192ceddb1c239e99f31a2a3088
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: b475d8072c4103e8a532cdf703e2d75b0c8aafa2
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178471"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754148"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Quickstart: Inicie seduário nos utilizadores e obtenha um token de acesso num JavaScript SPA
 
@@ -54,7 +54,7 @@ Veja [como funciona a amostra](#how-the-sample-works) para uma ilustração.
 > 1. Insira um **Nome** para a sua inscrição. Os utilizadores da sua aplicação podem ver este nome, e pode alterá-lo mais tarde.
 > 1. Nos **tipos de conta suportada**, selecione Contas em qualquer **diretório organizacional e contas pessoais da Microsoft.**
 > 1. Selecione **Registar**. Na página **geral** da aplicação, note o valor **de ID da Aplicação (cliente)** para posterior utilização.
-> 1. Este arranque rápido requer que o [fluxo de subvenção implícito](v2-oauth2-implicit-grant-flow.md) seja ativado. No painel esquerdo da aplicação registada, selecione **Autenticação**.
+> 1. Este arranque rápido requer que o [fluxo de subvenção implícito](v2-oauth2-implicit-grant-flow.md) seja ativado. Em **Gestão**, **selecione Autenticação**.
 > 1. Em **Configurações de Plataforma**, selecione Adicionar uma **plataforma**. Abre-se um painel à esquerda. Lá, selecione a região **aplicações web.**
 > 1. Ainda à esquerda, desa um **valor URI de redirecionamento** para `http://localhost:3000/` . Em seguida, selecione **Access Token** e **ID Token**.
 > 1. Selecione **Configurar**.
@@ -107,7 +107,7 @@ Veja [como funciona a amostra](#how-the-sample-works) para uma ilustração.
 
 > [!div renderon="docs"]
 >
-> Onde:
+> Em que:
 > - *\<Enter_the_Application_Id_Here>* é o **ID de Aplicação (cliente)** para a aplicação que registou.
 > - *\<Enter_the_Cloud_Instance_Id_Here>* é o exemplo da nuvem Azure. Para a nuvem Azure principal ou global, basta *https://login.microsoftonline.com* entrar. Para nuvens **nacionais** (por exemplo, China), ver [nuvens nacionais.](./authentication-national-cloud.md)
 > - *\<Enter_the_Tenant_info_here>* é definida como uma das seguintes opções:
@@ -141,7 +141,7 @@ Veja [como funciona a amostra](#how-the-sample-works) para uma ilustração.
 
 > [!div renderon="docs"]
 >
-> Onde:
+> Em que:
 > - *\<Enter_the_Graph_Endpoint_Here>* é o ponto final que as chamadas da API serão feitas contra. Para o serviço API principal ou global da Microsoft Graph, basta introduzir `https://graph.microsoft.com` . Para mais informações, consulte [a implantação nacional de nuvens](/graph/deployments)
 >
 > #### <a name="step-4-run-the-project"></a>Passo 4: Executar o projeto
@@ -266,14 +266,14 @@ myMSALObj.acquireTokenSilent(tokenRequest)
 
 #### <a name="get-a-user-token-interactively"></a>Obter um token de utilizador interativamente
 
-Existem situações em que é necessário forçar os utilizadores a interagir com o ponto final da plataforma de identidade da Microsoft. Por exemplo:
+Existem situações em que é necessário forçar os utilizadores a interagir com a plataforma de identidade da Microsoft. Por exemplo:
 * Os utilizadores podem precisar de reentrar nas suas credenciais porque a sua palavra-passe expirou.
 * A sua aplicação está a solicitar acesso a âmbitos de recursos adicionais aos quais o utilizador precisa de consentir.
 * É necessária autenticação de dois fatores.
 
 O padrão recomendado habitual para a maioria das aplicações é ligar `acquireTokenSilent` primeiro, depois pegar a exceção e, em seguida, ligar `acquireTokenPopup` (ou `acquireTokenRedirect` ) para iniciar um pedido interativo.
 
-Chamando os `acquireTokenPopup` resultados numa janela popup para iniciar sessão. (Ou `acquireTokenRedirect` resulta na reorientação dos utilizadores para o ponto final da plataforma de identidade da Microsoft.) Nessa janela, os utilizadores precisam interagir confirmando as suas credenciais, dando o consentimento ao recurso necessário, ou completando a autenticação de dois fatores.
+Chamando os `acquireTokenPopup` resultados numa janela popup para iniciar sessão. (Ou `acquireTokenRedirect` resulta na reorientação dos utilizadores para a plataforma de identidade da Microsoft). Nessa janela, os utilizadores precisam interagir confirmando as suas credenciais, dando o consentimento ao recurso necessário, ou completando a autenticação de dois fatores.
 
 ```javascript
 // Add here scopes for access token to be used at MS Graph API endpoints.
@@ -293,7 +293,7 @@ myMSALObj.acquireTokenPopup(requestObj)
 > [!NOTE]
 > Este quickstart utiliza os e métodos com o `loginRedirect` Microsoft Internet `acquireTokenRedirect` Explorer, devido a um problema [conhecido](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) relacionado com o manuseamento de janelas popup pelo Internet Explorer.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para um guia passo a passo mais detalhado sobre a construção do pedido para este arranque rápido, consulte:
 

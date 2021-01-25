@@ -1,5 +1,5 @@
 ---
-title: Configure uma aplicação web que chama APIs web Rio Azure
+title: Configure uma aplicação web que chama APIs web | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como configurar o código de uma aplicação web que chama APIs web
 services: active-directory
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: e055287f069c477318a54aedf3d9a2fe22343367
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: bcbff131706854c079a5af2f38cad98f97018167
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509160"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753317"
 ---
 # <a name="a-web-app-that-calls-web-apis-code-configuration"></a>Uma aplicação web que chama APIs web: configuração de código
 
@@ -420,7 +420,7 @@ services.AddDistributedSqlServerCache(options =>
 });
 ```
 
-Para mais informações sobre os fornecedores de cache de fichas simbólicas, consulte também o artigo [de serialização](https://aka.ms/ms-id-web/token-cache-serialization) da cache da Microsoft.Identity.Web, bem como os [tutoriais de aplicações core web ASP.NET [ Fase de caches token](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache) do tutorial de aplicações web.
+Para obter mais informações sobre os fornecedores de cache de fichas simbólicas, consulte também o artigo [de serialização](https://aka.ms/ms-id-web/token-cache-serialization) da cache token da Microsoft.Identity.Web, bem como os [tutoriais de aplicações core web ASP.NET | Fase de caches token](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache) do tutorial de aplicações web.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
@@ -515,7 +515,7 @@ def _build_msal_app(cache=None):
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste ponto, quando o utilizador assina, um token é armazenado na cache simbólica. Vamos ver como é usado noutras partes da aplicação web.
 

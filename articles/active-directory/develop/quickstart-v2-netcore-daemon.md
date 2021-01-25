@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Get token & call Microsoft Graph in a console app [ Rio Azure'
+title: 'Quickstart: Obtenha & chamada & Microsoft Numa aplicação de consola | Rio Azure'
 titleSuffix: Microsoft identity platform
 description: Neste quickstart, você aprende como uma aplicação de amostra .NET Core pode usar o fluxo de credenciais do cliente para obter um token e ligar para o Microsoft Graph.
 services: active-directory
@@ -13,12 +13,12 @@ ms.date: 10/05/2020
 ms.author: jmprieur
 ms.reviewer: marsma
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 7e236a6f10394d2b9c8889383b6ef3813969832d
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: c5c89b285e8ef98f83d0bfa923aaca402491315d
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178369"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754221"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>Quickstart: Adquira um token e ligue para a Microsoft Graph API usando a identidade da app da consola
 
@@ -101,7 +101,7 @@ Este arranque rápido requer [.NET Core 3.1](https://www.microsoft.com/net/downl
 >    "ClientId": "Enter_the_Application_Id_Here",
 >    "ClientSecret": "Enter_the_Client_Secret_Here"
 >    ```
->   Onde:
+>   Em que:
 >   - `Enter_the_Application_Id_Here` - é o **ID da Aplicação (cliente)** que registou.
 >   - `Enter_the_Tenant_Id_Here`- substituir este valor pelo **nome** **de Inquilino Ou** Inquilino (por exemplo, contoso.microsoft.com)
 >   - `Enter_the_Client_Secret_Here` - substituir este valor pelo segredo do cliente criado no passo 1.
@@ -137,7 +137,7 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 ```
 
 > [!div renderon="docs"]
->> Onde:
+>> Em que:
 >> * `Enter_the_Tenant_Id_Here`- substituir este valor pelo **nome** **de Inquilino Ou** Inquilino (por exemplo, contoso.microsoft.com)
 >> * `Enter_the_Application_Id_Here` - é o **ID da Aplicação (cliente)** que registou.
 
@@ -157,7 +157,7 @@ cd {ProjectFolder}\1-Call-MSGraph\daemon-console
 dotnet run
 ```
 
-> Onde:
+> Em que:
 > * *{ProjectFolder}* é a pasta onde extraiu o ficheiro zip. Exemplo **C:\Azure-Samples\active-directory-dotnetcore-daemon-v2**
 
 Como resultado, deverá ver uma lista de utilizadores no seu diretório AD Azure.
@@ -198,7 +198,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .Build();
 ```
 
-> | Onde: | Descrição |
+> | Em que: | Descrição |
 > |---------|---------|
 > | `config.ClientSecret` | É o segredo do cliente criado para a aplicação no Portal Azure. |
 > | `config.ClientId` | É o **ID de Aplicação (cliente)** da aplicação registada no portal do Azure. Pode encontrar este valor na página **Descrição geral** da aplicação no portal do Azure. |
@@ -215,7 +215,7 @@ result = await app.AcquireTokenForClient(scopes)
                   .ExecuteAsync();
 ```
 
-> |Onde:| Descrição |
+> |Em que:| Descrição |
 > |---------|---------|
 > | `scopes` | Contém os âmbitos solicitados. Para clientes confidenciais, este deve utilizar o formato semelhante `{Application ID URI}/.default` para indicar que os âmbitos que estão a ser solicitados são os que estão definidos estáticamente no objeto da aplicação definido no Portal Azure (para o Microsoft Graph, aponta `{Application ID URI}` `https://graph.microsoft.com` para). Para APIs web personalizado, `{Application ID URI}` é definido em Expor uma secção **API** no Registo de Aplicação do Portal Azure (Pré-visualização). |
 
@@ -223,7 +223,7 @@ Para mais informações, consulte a [documentação de referência para `Acquire
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre aplicações daemon, consulte a visão geral do cenário:
 

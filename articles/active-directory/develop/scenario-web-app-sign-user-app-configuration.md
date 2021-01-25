@@ -1,5 +1,6 @@
 ---
-title: Configure uma aplicação web que assina nos utilizadores - plataforma de identidade microsoft / Rio Azure
+title: Configure uma aplicação web que assina nos utilizadores | Rio Azure
+titleSuffix: Microsoft identity platform
 description: Saiba como construir uma aplicação web que assina nos utilizadores (configuração de código)
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: dad7b0563fd1ca0dbf60403bc6172e7616e278b2
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 45f3a066283a921f60909a4aa3cfdc76f3faad06
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443658"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753265"
 ---
 # <a name="web-app-that-signs-in-users-code-configuration"></a>Aplicação web que assina nos utilizadores: Configuração de código
 
@@ -27,7 +28,7 @@ Saiba como configurar o código da sua aplicação web que assina nos utilizador
 <!-- This section can be in an include for web app and web APIs -->
 As bibliotecas que são usadas para proteger uma aplicação web (e uma API web) são:
 
-| Plataforma | Biblioteca | Description |
+| Plataforma | Biblioteca | Descrição |
 |----------|---------|-------------|
 | ![.NET](media/sample-v2-code/logo_NET.png) | [Extensões de modelo de identidade para .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | Utilizados diretamente por ASP.NET e ASP.NET Core, as extensões do modelo de identidade da Microsoft para .NET propõe um conjunto de DLLs em execução tanto no .NET Framework como no .NET Core. A partir de uma aplicação web core ASP.NET ou ASP.NET, pode controlar a validação de tokens utilizando a classe **TokenValidationParameters** (em particular, em alguns cenários de parceiros). Na prática, a complexidade é encapsulada na biblioteca [Microsoft.Identity.Web](https://aka.ms/ms-identity-web) |
 | ![Java](media/sample-v2-code/small_logo_java.png) | [MSAL Java](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | Suporte para aplicações web java |
@@ -202,7 +203,7 @@ SESSION_TYPE = "filesystem"  # So the token cache will be stored in a server-sid
 
 ## <a name="initialization-code"></a>Código de inicialização
 
-O código de inicialização é diferente dependendo da plataforma. Para ASP.NET Core e ASP.NET, a assinatura nos utilizadores é delegada no middleware OpenID Connect. O modelo ASP.NET ou ASP.NET Core gera aplicações web para o Azure Ative Directory (Azure AD) v1.0. Alguma configuração é necessária para adaptá-las ao ponto final da plataforma de identidade da Microsoft (v2.0). No caso de Java, é tratado pela primavera com a cooperação da aplicação.
+O código de inicialização é diferente dependendo da plataforma. Para ASP.NET Core e ASP.NET, a assinatura nos utilizadores é delegada no middleware OpenID Connect. O modelo ASP.NET ou ASP.NET Core gera aplicações web para o Azure Ative Directory (Azure AD) v1.0. Alguma configuração é necessária para adaptá-las à plataforma de identidade da Microsoft. No caso de Java, é tratado pela primavera com a cooperação da aplicação.
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
@@ -262,7 +263,7 @@ No código acima:
 - O `AddMicrosoftIdentityWebAppAuthentication` método de extensão é definido em **Microsoft.Identity.Web**. É:
   - Adiciona o serviço de autenticação.
   - Configura opções para ler o ficheiro de configuração (aqui a partir da secção "AzureAD")
-  - Configura as opções OpenID Connect de modo a que a autoridade seja o ponto final da plataforma de identidade da Microsoft.
+  - Configura as opções OpenID Connect de modo a que a autoridade seja a plataforma de identidade da Microsoft.
   - Valida o emitente do símbolo.
   - Garante que as reclamações correspondentes ao nome são mapeadas a partir da `preferred_username` reclamação no token de identificação.
 
@@ -279,7 +280,7 @@ Pode encontrar mais detalhes sobre como o Microsoft.Identity.Web lhe permite cri
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
-O código relacionado com a autenticação numa aplicação web ASP.NET e apis web está localizado no ficheiro [App_Start/Startup.Auth.cs.](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/App_Start/Startup.Auth.cs#L17-L61)
+O código relacionado com a autenticação numa aplicação web ASP.NET e apis web está localizado no ficheiro [.cs App_Start/Startup.Auth.](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/App_Start/Startup.Auth.cs#L17-L61)
 
 ```csharp
  public void ConfigureAuth(IAppBuilder app)
@@ -291,7 +292,7 @@ O código relacionado com a autenticação numa aplicação web ASP.NET e apis w
   app.UseOpenIdConnectAuthentication(
     new OpenIdConnectAuthenticationOptions
     {
-     // `Authority` represents the identity platform endpoint - https://login.microsoftonline.com/common/v2.0.
+     // Authority` represents the identity platform endpoint - https://login.microsoftonline.com/common/v2.0.
      // `Scope` describes the initial permissions that your app will need.
      //  See https://azure.microsoft.com/documentation/articles/active-directory-v2-scopes/.
      ClientId = clientId,
@@ -316,11 +317,11 @@ Para mais detalhes, consulte o `doFilter()` método em [AuthFilter.java](https:/
 > [!NOTE]
 > O código do `doFilter()` código está escrito numa ordem ligeiramente diferente, mas o fluxo é o descrito.
 
-Para obter mais informações sobre o fluxo de código de autorização que este método desencadeia, consulte a [plataforma de identidade da Microsoft e o fluxo de código de autorização OAuth 2.0](v2-oauth2-auth-code-flow.md).
+Para obter mais informações sobre o fluxo de código de autorização que este método desencadeia, consulte a plataforma de identidade da Microsoft e o [fluxo de código de autorização OAuth 2.0](v2-oauth2-auth-code-flow.md).
 
 # <a name="python"></a>[Python](#tab/python)
 
-A amostra python usa o Frasco. A inicialização de Flask e MSAL Python é feita em [app.py#L1-L28](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e03be352914bfbd58be0d4170eba1fb7a4951d84/app.py#L1-L28).
+A amostra python usa o Frasco. A inicialização do Flask e do MSAL Python é feita em [app.py#L1-L28](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e03be352914bfbd58be0d4170eba1fb7a4951d84/app.py#L1-L28).
 
 ```Python
 import uuid
@@ -338,7 +339,7 @@ Session(app)
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 No próximo artigo, aprenderá a desencadear o sº de sção e a assinatura.
 

@@ -1,5 +1,5 @@
 ---
-title: OAuth 2.0 fluxo de subvenção implícita - plataforma de identidade da Microsoft Rio Azure
+title: OAuth 2.0 fluxo de subvenção implícita - A plataforma de identidade da Microsoft | Rio Azure
 description: Proteja as aplicações de uma página única utilizando o fluxo implícito da plataforma de identidade da Microsoft.
 services: active-directory
 author: hpsin
@@ -12,12 +12,12 @@ ms.date: 11/30/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 4b5465cc5c1c3447af5303a5c0bfe82874705362
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 97f4642d69d4a432b823bd1cd7cdbdd9fc7f270d
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511202"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752754"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Plataforma de identidade da Microsoft e fluxo de subvenção implícito
 
@@ -41,7 +41,7 @@ O diagrama seguinte mostra como é todo o fluxo de entrada implícita e as secç
 
 ## <a name="send-the-sign-in-request"></a>Envie o pedido de inscrição
 
-Para inicialmente iniciar a inscrição do utilizador na sua aplicação, pode enviar um pedido de autenticação [OpenID Connect](v2-protocols-oidc.md) e obter um `id_token` a partir do ponto final da plataforma de identidade da Microsoft.
+Para inicialmente iniciar a inscrição do utilizador na sua aplicação, pode enviar um pedido de autenticação [OpenID Connect](v2-protocols-oidc.md) e obter um `id_token` a partir da plataforma de identidade da Microsoft.
 
 > [!IMPORTANT]
 > Para solicitar com sucesso um token de ID e/ou um token de acesso, o registo da aplicação no [portal Azure - Página de registos de aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) deve ter o fluxo de subvenção implícita correspondente, selecionando fichas de **identificação** e.ou **fichas de acesso ao** abrigo da secção de **subvenção Implícita.** Se não estiver ativado, será devolvido um `unsupported_response` erro: **O valor fornecido para o parâmetro de entrada 'response_type' não é permitido para este cliente. Valor esperado é 'código'**
@@ -73,13 +73,13 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `response_mode` | opcional |Especifica o método que deve ser usado para enviar o símbolo resultante de volta para a sua aplicação. Predefinições para consulta para apenas um token de acesso, mas fragmento se o pedido inclui uma id_token. |
 | `state` | recomendado |Um valor incluído no pedido que também será devolvido na resposta simbólica. Pode ser uma série de conteúdos que desejes. Um valor único gerado aleatoriamente é normalmente usado para [prevenir ataques de falsificação de pedidos de trans-locais](https://tools.ietf.org/html/rfc6749#section-10.12). O estado também é usado para codificar informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorrer, como a página ou a vista em que estavam. |
 | `nonce` | obrigatório |Um valor incluído no pedido, gerado pela app, que será incluído no id_token resultante como reclamação. A aplicação pode então verificar este valor para mitigar os ataques de reprodução de token. O valor é tipicamente uma corda aleatória e única que pode ser usada para identificar a origem do pedido. Só é necessário quando é solicitada uma id_token. |
-| `prompt` | opcional |Indica o tipo de interação do utilizador que é necessária. Os únicos valores válidos neste momento são 'login', 'nenhum', 'select_account', e 'consentimento'. `prompt=login` forçará o utilizador a introduzir as suas credenciais nesse pedido, negando um único sinal. `prompt=none` é o oposto - irá garantir que o utilizador não é apresentado com qualquer posição interativa. Se o pedido não puder ser concluído silenciosamente através de um único sinal, o ponto final da plataforma de identidade da Microsoft retornará um erro. `prompt=select_account` envia o utilizador para um selecionador de contas onde todas as contas lembradas na sessão aparecerão. `prompt=consent` irá acionar o diálogo de consentimento OAuth após o utilizador entrar, pedindo ao utilizador que conceda permissões à aplicação. |
+| `prompt` | opcional |Indica o tipo de interação do utilizador que é necessária. Os únicos valores válidos neste momento são 'login', 'nenhum', 'select_account', e 'consentimento'. `prompt=login` forçará o utilizador a introduzir as suas credenciais nesse pedido, negando um único sinal. `prompt=none` é o oposto - irá garantir que o utilizador não é apresentado com qualquer posição interativa. Se o pedido não puder ser concluído silenciosamente através de um único sinal, a plataforma de identidade da Microsoft retornará um erro. `prompt=select_account` envia o utilizador para um selecionador de contas onde todas as contas lembradas na sessão aparecerão. `prompt=consent` irá acionar o diálogo de consentimento OAuth após o utilizador entrar, pedindo ao utilizador que conceda permissões à aplicação. |
 | `login_hint`  |opcional |Pode ser usado para pré-preenchimento do nome de utilizador/endereço de e-mail do sinal na página para o utilizador, se souber o seu nome de utilizador com antecedência. Muitas vezes as aplicações usam este parâmetro durante a reauthentication, tendo já extraído o nome de utilizador de um pré-in usando a `preferred_username` alegação.|
 | `domain_hint` | opcional |Se incluído, saltará o processo de descoberta baseado em e-mail que o utilizador passa no sinal na página, levando a uma experiência de utilizador um pouco mais simplificada. Este parâmetro é comumente usado para aplicações da Linha de Negócios que operam em um único inquilino, onde eles fornecerão um nome de domínio dentro de um determinado inquilino, reencaminhando o utilizador para o provedor da federação para esse inquilino.  Note que esta dica impede os hóspedes de assinarem esta aplicação, e limita o uso de credenciais de nuvem como o FIDO.  |
 
-Neste momento, o utilizador será convidado a introduzir as suas credenciais e a completar a autenticação. O ponto final da plataforma de identidade da Microsoft também garantirá que o utilizador consentiu nas permissões indicadas no `scope` parâmetro de consulta. Se o utilizador não tiver consentido **em nenhuma** dessas permissões, solicitará ao utilizador que consinta nas permissões necessárias. Para mais informações, consulte [permissões, consentimento e aplicações multi-arrendantes.](v2-permissions-and-consent.md)
+Neste momento, o utilizador será convidado a introduzir as suas credenciais e a completar a autenticação. A plataforma de identidade da Microsoft também garantirá que o utilizador consentiu nas permissões indicadas no `scope` parâmetro de consulta. Se o utilizador não tiver consentido **em nenhuma** dessas permissões, solicitará ao utilizador que consinta nas permissões necessárias. Para mais informações, consulte [permissões, consentimento e aplicações multi-arrendantes.](v2-permissions-and-consent.md)
 
-Assim que o utilizador autenticar e conceder o consentimento, o ponto final da plataforma de identidade da Microsoft devolverá uma resposta à sua aplicação no indicado `redirect_uri` , utilizando o método especificado no `response_mode` parâmetro.
+Assim que o utilizador autenticar e conceder o consentimento, a plataforma de identidade da Microsoft devolverá uma resposta à sua aplicação no indicado `redirect_uri` , utilizando o método especificado no `response_mode` parâmetro.
 
 #### <a name="successful-response"></a>Resposta bem sucedida
 
@@ -199,7 +199,7 @@ Nos navegadores que não suportam cookies de terceiros, isso resultará num erro
 
 ## <a name="send-a-sign-out-request"></a>Enviar um pedido de sinalização
 
-O OpenID Connect `end_session_endpoint` permite que a sua aplicação envie um pedido para o ponto final da plataforma de identidade da Microsoft para terminar a sessão de um utilizador e cookies claros definidos pelo ponto final da plataforma de identidade da Microsoft. Para assinar totalmente um utilizador a partir de uma aplicação web, a sua aplicação deve terminar a sua própria sessão com o utilizador (normalmente limpando uma cache simbólica ou largando cookies), e, em seguida, redirecionar o navegador para:
+O OpenID Connect `end_session_endpoint` permite que a sua aplicação envie um pedido à plataforma de identidade da Microsoft para terminar a sessão de um utilizador e limpar cookies definidos pela plataforma de identidade microsoft. Para assinar totalmente um utilizador a partir de uma aplicação web, a sua aplicação deve terminar a sua própria sessão com o utilizador (normalmente limpando uma cache simbólica ou largando cookies), e, em seguida, redirecionar o navegador para:
 
 ```
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redirect_uri=https://localhost/myapp/
@@ -208,9 +208,9 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redire
 | Parâmetro | Tipo | Descrição |
 | --- | --- | --- |
 | `tenant` |obrigatório |O `{tenant}` valor no caminho do pedido pode ser usado para controlar quem pode assinar a aplicação. Os valores permitidos `common` `organizations` são, `consumers` e os identificadores de inquilinos. Para mais detalhes, consulte [o protocolo básico.](active-directory-v2-protocols.md#endpoints) |
-| `post_logout_redirect_uri` | recomendado | O URL a que o utilizador deve ser devolvido após o início de sê-lo. Este valor deve corresponder a um dos URIs de redirecionamento registados para a aplicação. Se não estiver incluído, o utilizador será mostrado uma mensagem genérica pelo ponto final da plataforma de identidade da Microsoft. |
+| `post_logout_redirect_uri` | recomendado | O URL a que o utilizador deve ser devolvido após o início de sê-lo. Este valor deve corresponder a um dos URIs de redirecionamento registados para a aplicação. Se não estiver incluído, o utilizador será mostrado uma mensagem genérica pela plataforma de identidade da Microsoft. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Ver as amostras do [MSAL JS](sample-v2-code.md) para começar a codificar.
 * Reveja o [fluxo de código](v2-oauth2-auth-code-flow.md) de autorização como uma alternativa mais recente e melhor à concessão implícita. 
