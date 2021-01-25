@@ -1,5 +1,5 @@
 ---
-title: Estender Azure Sentinel através de espaços de trabalho e inquilinos Microsoft Docs
+title: Estenda o Azure Sentinel através de espaços de trabalho e inquilinos | Microsoft Docs
 description: Como usar o Azure Sentinel para consultar e analisar dados em espaços de trabalho e inquilinos.
 services: sentinel
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2020
 ms.author: yelevin
-ms.openlocfilehash: 60e86c7c849bf09b3a5577453a6935466ab447f6
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 4312a819f8fd41805dca095556efdc6189f23af9
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95483918"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757124"
 ---
 # <a name="extend-azure-sentinel-across-workspaces-and-tenants"></a>Alargar o Azure Sentinel através de áreas de trabalho e inquilinos
 
@@ -94,18 +94,18 @@ Uma função também pode simplificar uma união comumente usada. Por exemplo, p
 
 Em seguida, pode escrever uma consulta em ambos os espaços de trabalho, começando por `unionSecurityEvent | where ...` .
 
-#### <a name="scheduled-alerts"></a>Alertas agendados
+#### <a name="cross-workspace-analytics-rules"></a>Regras de análise de espaço de trabalho transversal<a name="scheduled-alerts"></a>
+<!-- Bookmark added for backward compatibility with old heading -->
+As consultas de espaço cross-work podem agora ser incluídas nas regras de análise programadas, sob reserva das seguintes limitações:
 
-As consultas de espaço de trabalho cruzada podem agora ser incluídas em alertas programados nas regras de análise, sujeitos às seguintes limitações:
-
-- Até 10 espaços de trabalho podem ser incluídos numa única consulta.
+- Até 15 espaços de trabalho podem ser incluídos numa única consulta.
 - O Azure Sentinel deve ser implantado em todos os espaços de trabalho referenciados na consulta.
 
 > [!NOTE] 
 > Consultar vários espaços de trabalho na mesma consulta pode afetar o desempenho, e portanto é recomendado apenas quando a lógica requer esta funcionalidade.
 
-### <a name="using-cross-workspace-workbooks"></a>Usando livros de espaço de trabalho cruzados
-
+#### <a name="cross-workspace-workbooks"></a>Livros de espaço de trabalho cruzados<a name="using-cross-workspace-workbooks"></a>
+<!-- Bookmark added for backward compatibility with old heading -->
 [Os livros fornecem](./overview.md#workbooks) dashboards e aplicativos ao Azure Sentinel. Ao trabalhar com vários espaços de trabalho, eles fornecem monitorização e ações através de espaços de trabalho.
 
 Os livros de trabalho podem fornecer consultas de espaço de trabalho transversal num dos três métodos, cada um dos quais atende a diferentes níveis de experiência do utilizador final:
@@ -117,7 +117,7 @@ Os livros de trabalho podem fornecer consultas de espaço de trabalho transversa
 | Editar o livro interativamente | Um utilizador avançado que modifica um livro existente pode editar as consultas no mesmo, selecionando os espaços de trabalho-alvo utilizando o seletor de espaço de trabalho no editor. | Esta opção permite que um utilizador de energia modifique facilmente os livros de trabalho existentes para trabalhar com vários espaços de trabalho. |
 |
 
-### <a name="cross-workspace-hunting"></a>Caça ao espaço de trabalho transversal
+#### <a name="cross-workspace-hunting"></a>Caça ao espaço de trabalho transversal
 
 O Azure Sentinel fornece amostras de consulta pré-carregadas concebidas para começar e familiarizar-se com as tabelas e a linguagem de consulta. Estas consultas de caça incorporadas são desenvolvidas por investigadores de segurança da Microsoft de forma contínua, tanto adicionando novas consultas e consultas de afinação existentes, para fornecer-lhe um ponto de entrada para procurar novas deteções e identificar sinais de intrusão que podem ter passado despercebidos pelas suas ferramentas de segurança.  
 
@@ -135,7 +135,7 @@ Como mencionado acima, em muitos cenários, os diferentes espaços de trabalho A
 
 Ao utilizar o Farol Azure, recomenda-se criar um grupo para cada papel de Azure Sentinel e delegar permissões de cada inquilino para esses grupos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste documento, você descobriu como as capacidades de Azure Sentinel podem ser estendidas em vários espaços de trabalho e inquilinos. Para obter orientações práticas sobre a implementação da arquitetura cross-workspace de Azure Sentinel, consulte os seguintes artigos:
 
 - Aprenda a [trabalhar com vários inquilinos](./multiple-tenants-service-providers.md) em Azure Sentinel, usando o Farol de Azure.

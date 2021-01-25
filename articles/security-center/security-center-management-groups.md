@@ -1,5 +1,5 @@
 ---
-title: Ganhe visibilidade em todo o inquilino para o Azure Security Center Microsoft Docs
+title: Ganhe visibilidade para o Centro de Segurança Azure | Microsoft Docs
 description: Este artigo explica como gerir a sua postura de segurança em escala aplicando políticas a todas as subscrições ligadas ao seu inquilino Azure Ative Directory.
 services: security-center
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2020
 ms.author: memildin
-ms.openlocfilehash: d03177e3224bbd3f53320871efc6a0d6b3ea479d
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 5b257e45a86a7b22e9064fcfc6092b3c946ae99b
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922753"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757652"
 ---
 # <a name="organize-management-groups-subscriptions-and-tenant-wide-visibility"></a>Organizar grupos de gestão, subscrições e visibilidade em todo o arrendamento
 
@@ -107,6 +107,36 @@ Para atribuir permissão ao nível do inquilino:
 
 1. Uma vez elevado acesso, abra ou refresque o Centro de Segurança Azure para verificar se tem visibilidade em todas as subscrições sob o seu inquilino AZure AD. 
 
+
+## <a name="request-tenant-wide-permissions-when-yours-are-insufficient"></a>Solicite permissões em todo o inquilino quando as suas são insuficientes
+
+Se iniciar sessão no Security Center e vir um banner a dizer-lhe que a sua vista é limitada, pode clicar para enviar um pedido ao administrador global para a sua organização. No pedido, pode incluir o papel que gostaria de ser atribuído e o administrador global tomará uma decisão sobre qual o papel a conceder. 
+
+É a decisão do administrador global de aceitar ou rejeitar estes pedidos. 
+
+> [!IMPORTANT]
+> Só pode apresentar um pedido a cada sete dias.
+
+Para solicitar permissões elevadas ao seu administrador global:
+
+1. A partir do portal Azure, abra o Centro de Segurança Azure.
+
+1. Se vires o banner "Estás a ver informações limitadas". selecioná-lo.
+
+    :::image type="content" source="media/security-center-management-groups/request-tenant-permissions.png" alt-text="Banner informando um utilizador que pode solicitar permissões em todo o inquilino.":::
+
+1. No formulário de pedido detalhado, selecione a função desejada e a justificação para o porquê destas permissões.
+
+    :::image type="content" source="media/security-center-management-groups/request-tenant-permissions-details.png" alt-text="Página de detalhes para solicitar permissões ao largo do inquilino do seu administrador global da Azure":::
+
+1. Selecione **O acesso ao Pedido**.
+
+    Um e-mail é enviado ao administrador global. O e-mail contém um link para o Centro de Segurança onde podem aprovar ou rejeitar o pedido.
+
+    :::image type="content" source="media/security-center-management-groups/request-tenant-permissions-email.png" alt-text="E-mail para o administrador global para novas permissões":::
+
+    Depois de o administrador global selecionar **Rever o pedido** e concluir o processo, a decisão é enviada por e-mail ao utilizador que solicita. 
+
 ## <a name="assign-azure-roles-to-other-users"></a>Atribuir funções Azure a outros utilizadores
 
 ### <a name="assign-azure-roles-to-users-through-the-azure-portal"></a>Atribuir funções Azure aos utilizadores através do portal Azure: 
@@ -149,6 +179,7 @@ Para atribuir permissão ao nível do inquilino:
     ```
 
 ## <a name="remove-elevated-access"></a>Remover acesso elevado 
+
 Uma vez atribuídas as funções Azure aos utilizadores, o administrador do arrendatário deve retirar-se da função de administrador de acesso ao utilizador.
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) ou no [Centro de Administração Azure Ative.](https://aad.portal.azure.com)
@@ -161,7 +192,7 @@ Uma vez atribuídas as funções Azure aos utilizadores, o administrador do arre
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste artigo, aprendeu a ganhar visibilidade para o Centro de Segurança Azure. Para obter informações relacionadas, consulte:
 
 - [Permissions in Azure Security Center](security-center-permissions.md) (Permissões no Centro de Segurança do Azure)

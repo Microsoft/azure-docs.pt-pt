@@ -5,14 +5,14 @@ services: data-factory
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 11/17/2020
+ms.date: 01/25/2021
 ms.author: lle
-ms.openlocfilehash: ccebdbf428180f8ff4ab10dc6007c3ec35a66362
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: e81a12f4c5d817670fe1f7968184bcc97e78a53c
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97503595"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757683"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Resolução de problemas de integração auto-acolagem
 
@@ -67,31 +67,6 @@ Uma nova atividade pode lançar um erro OOM se a máquina de infravermelhos expe
 #### <a name="resolution"></a>Resolução
 
 Verifique a utilização do recurso e a execução simultânea da atividade no nó DE INFRAVERMELHO. Ajuste o tempo de atividade interno e desencadeado para evitar demasiada execução num único nó de infravermelhos ao mesmo tempo.
-
-
-### <a name="ssltls-certificate-issue"></a>Emissão de certificado SSL/TLS
-
-#### <a name="symptoms"></a>Sintomas
-
-Quando tenta ativar um certificado de Segurança da Camada de Tomadas Seguras (SSL)/Segurança da Camada de Transporte (avançado) ao escolher o certificado (depois de selecionar o **Self-hosted IR Configuration Manager**  >  **Acesso remoto a partir da intranet),** obtém o seguinte erro:
-
-"As definições de acesso remoto são inválidas. A verificação de identidade falhou na mensagem de saída. A identidade esperada do DNS do ponto final remoto era "abc.microsoft.com", mas o ponto final remoto forneceu ao DNS a alegação de "microsoft.com". Se este for um ponto final remoto legítimo, pode corrigir o problema especificando explicitamente a identidade do DNS 'microsoft.com' como propriedade de Identidade do EndpointAddress ao criar o proxy de canais."
-
-No exemplo anterior, o certificado escolhido tem "microsoft.com" anexado a ele.
-
-#### <a name="cause"></a>Causa
-
-Este é um problema conhecido na Windows Communication Foundation (WCF). A validação WCF SSL/TLS verifica apenas o último DNSName no campo **Nome Alternativo sujeito** (SAN). 
-
-#### <a name="resolution"></a>Resolução
-
-Um certificado wildcard é suportado na Azure Data Factory v2 auto-hospedado IR. Esta questão acontece normalmente porque o certificado SSL está incorreto. O último DNSName da SAN deve ser válido. 
-
-Para verificar e corrigir o DNSName, faça o seguinte: 
-
-1. Consola de Gestão Aberta.
-1. Em **Detalhes do Certificado,** verifique duas vezes o valor nas caixas de Nome Alternativo **Sujeito** e **Assunto.** Por exemplo, "DNS Name= microsoft.com.com" não é um nome válido.
-1. Contacte a empresa emissora de certificados para que seja removido o nome DNS Incorreto.
 
 ### <a name="concurrent-jobs-limit-issue"></a>Problema de limite de trabalhos simultâneos
 
@@ -376,7 +351,7 @@ Aceda ao registo de eventos de integração para verificar o erro.
     
         ![Screenshot do painel "Log On" para a conta de serviço.](media/self-hosted-integration-runtime-troubleshoot-guide/logon-service-account.png)
 
-    1. Verifique se a conta de serviço de início de sessão tem **iniciar sessão como uma** permissões de serviço para iniciar o serviço Windows:
+    1. Verifique se a conta de serviço de início de sessão tem **log on como uma** permissão de serviço para iniciar o serviço Windows:
 
         ![Screenshot do painel de propriedades "Iniciar sessão como serviço".](media/self-hosted-integration-runtime-troubleshoot-guide/logon-as-service.png)
 
@@ -465,7 +440,7 @@ O certificado está a utilizar o armazenamento do principal fornecedor de armaze
 
 Recomendamos que utilize certificados CSP neste caso.
 
-**Solução 1** 
+**Solução 1** 
 
 Para importar o certificado, executar o seguinte comando:
 
@@ -473,7 +448,7 @@ Para importar o certificado, executar o seguinte comando:
 
 ![Screenshot do comando certutil para importar o certificado.](media/self-hosted-integration-runtime-troubleshoot-guide/use-certutil.png)
 
-**Solução 2** 
+**Solução 2** 
 
 Para converter o certificado, executar os seguintes comandos:
 
@@ -817,7 +792,7 @@ Você pode notar outras fábricas de dados (em diferentes inquilinos) como você
 
 O IR auto-alojado não pode ser partilhado entre inquilinos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais ajuda na resolução de problemas, experimente os seguintes recursos:
 

@@ -6,16 +6,16 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 11/23/2020
-ms.openlocfilehash: de0c48bb775b96052fe16d60aa58049bfd58ca4d
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: 750cf0a938fffd4e5bfe25811bb276f7cb1b5583
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567776"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757564"
 ---
 # <a name="create-and-manage-azure-migrate-projects"></a>Criar e gerir projetos de migrações do Azure Migrate
 
-Este artigo descreve como criar, gerir e eliminar projetos [da Azure Migrate.](migrate-services-overview.md) Se estiver a utilizar projetos Classic Azure Migrate, por favor, apague esses projetos e siga os passos para criar um novo projeto Azure Migrate. Não é possível atualizar projetos ou componentes da Classic Azure Migrate para o Azure Migrate.
+Este artigo descreve como criar, gerir e eliminar projetos [da Azure Migrate.](migrate-services-overview.md) Se estiver a utilizar projetos Classic Azure Migrate, por favor, apague esses projetos e siga os passos para criar um novo projeto Azure Migrate. Não é possível atualizar projetos ou componentes da Classic Azure Migrate para o Azure Migrate. Ver [FAQ](https://docs.microsoft.com/azure/migrate/resources-faq#i-have-a-project-with-the-previous-classic-experience-of-azure-migrate-how-do-i-start-using-the-new-version) antes de iniciar o processo de criação.
 
 Um projeto Azure Migrate é usado para armazenar metadados de descoberta, avaliação e migração recolhidos do ambiente que está a avaliar ou migrar. Num projeto é possível rastrear ativos descobertos, criar avaliações e orquestrar migrações para Azure.  
 
@@ -127,6 +127,6 @@ Tenha em atenção que:
        
 2. [Siga as instruções](../azure-monitor/platform/delete-workspace.md) para eliminar o espaço de trabalho.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Adicione ferramentas de [avaliação](how-to-assess.md) ou [migração](how-to-migrate.md) a projetos da Azure Migrate.

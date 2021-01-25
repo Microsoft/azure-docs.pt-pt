@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 01/10/2021
-ms.openlocfilehash: f2807501b1e18d4cbffaa34d70bccf8d70565266
-ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
+ms.openlocfilehash: b6836eee7e0e6ccbfa2628e0e371152f31ddf9d2
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/25/2021
-ms.locfileid: "98747228"
+ms.locfileid: "98757547"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chave gerida pelo cliente do Azure Monitor 
 
@@ -126,7 +126,7 @@ Estas definições podem ser atualizadas no Key Vault via CLI e PowerShell:
 ## <a name="create-cluster"></a>Criar cluster
 
 Os clusters suportam dois tipos de [identidade geridos](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types): Atribuídos pelo sistema e atribuídos pelo Utilizador, enquanto uma única identidade pode ser definida num cluster dependendo do seu cenário. 
-- A identidade gerida atribuída pelo sistema é mais simples e gerada automaticamente com a criação do cluster quando a identidade `type` é definida como "*SystemAssigned*". Esta identidade pode ser usada mais tarde para garantir o acesso do cluster ao seu Cofre chave. 
+- A identidade gerida atribuída pelo sistema é mais simples e gerada automaticamente com a criação do cluster quando a identidade `type` é definida como "*SystemAssigned*". Esta identidade pode ser usada mais tarde para conceder acesso ao seu Cofre chave para operações de embrulho e desembrulhar. 
   
   Definições de identidade em cluster para identidade gerida atribuída pelo Sistema
   ```json
@@ -137,7 +137,7 @@ Os clusters suportam dois tipos de [identidade geridos](../../active-directory/m
   }
   ```
 
-- Se pretender configurar a chave gerida pelo Cliente na criação do cluster, deve ter previamente uma chave e identidade atribuída ao Utilizador concedida no seu Cofre-Chave, em seguida, crie o cluster com estas definições: identidade `type` como "*UserAssigned*", `UserAssignedIdentities` com o ID de recurso da identidade.
+- Se pretender configurar a chave gerida pelo Cliente na criação do cluster, deve ter previamente uma chave e identidade atribuída ao Utilizador concedida no seu Cofre-Chave, em seguida, crie o cluster com estas definições: identidade `type` como "*UserAssigned*", `UserAssignedIdentities` com o *ID* de recurso da sua identidade.
 
   Definições de identidade no cluster para identidade gerida atribuída pelo utilizador
   ```json
@@ -151,27 +151,7 @@ Os clusters suportam dois tipos de [identidade geridos](../../active-directory/m
   ```
 
 > [!IMPORTANT]
-> Não é possível utilizar a chave gerida pelo Cliente com identidade gerida pelo Utilizador se o seu Cofre-Chave estiver em Private-Link (vNet). Pode utilizar a identidade gerida atribuída pelo Sistema neste cenário.
-
-```json
-{
-  "identity": {
-    "type": "SystemAssigned"
-}
-```
- 
-Por:
-
-```json
-{
-  "identity": {
-  "type": "UserAssigned",
-    "userAssignedIdentities": {
-      "subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft. ManagedIdentity/UserAssignedIdentities/<user-assigned-managed-identity-name>"
-      }
-}
-```
-
+> Não pode utilizar a identidade gerida atribuída pelo utilizador se o seu Cofre de Chaves estiver em Private-Link (vNet). Pode utilizar a identidade gerida atribuída pelo Sistema neste cenário.
 
 Siga o procedimento ilustrado no [artigo de Agrupamentos Dedicados](../log-query/logs-dedicated-clusters.md#creating-a-cluster). 
 
@@ -452,7 +432,7 @@ Customer-Managed chave é fornecida em cluster dedicado e estas operações são
 
   - Não é possível utilizar a chave gerida pelo Cliente com identidade gerida pelo Utilizador se o seu Cofre-Chave estiver em Private-Link (vNet). Pode utilizar a identidade gerida atribuída pelo Sistema neste cenário.
 
-## <a name="troubleshooting"></a>Resolução de problemas
+## <a name="troubleshooting"></a>Resolução de Problemas
 
 - Comportamento com disponibilidade de Cofre chave
   - Em funcionamento normal- Caches de armazenamento AEK por curtos períodos de tempo e volta para Key Vault para desembrulhar periodicamente.

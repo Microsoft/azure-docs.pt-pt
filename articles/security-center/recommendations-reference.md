@@ -4,22 +4,21 @@ description: Este artigo lista as recomendações de segurança do Azure Securit
 author: memildin
 ms.service: security-center
 ms.topic: reference
-ms.date: 01/12/2021
+ms.date: 01/24/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: 11d4830908b4e86da12cd5e40cc26b1c1b1aecbd
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: cd72e904f659b7bd9c7e2df86b46fe20bd26ec33
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133052"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757102"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Recomendações de segurança: um guia de referência
 
 Este artigo lista as recomendações que pode ver no Centro de Segurança Azure. As recomendações apresentadas no seu ambiente dependem dos recursos que está a proteger e da sua configuração personalizada.
 
-As recomendações do Centro de Segurança são baseadas nas melhores práticas. Algumas estão alinhadas com a **Referência de Segurança do Azure**, as diretrizes criadas pela Microsoft e específicas do Azure para as melhores práticas de segurança e conformidade com base em estruturas de conformidade comuns.
-[Saiba mais sobre a Referência de Segurança do Azure](../security/benchmarks/introduction.md).
+As recomendações do Centro de Segurança baseiam-se no [Benchmark de Segurança Azure.](../security/benchmarks/introduction.md) A azure Security Benchmark é o conjunto de diretrizes específicas da Microsoft para a segurança e conformidade das melhores práticas com base em quadros comuns de conformidade. Este referencial amplamente respeitado baseia-se nos controlos do [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) e do Instituto Nacional de [Normalização e Tecnologia (NIST)](https://www.nist.gov/) com foco na segurança centrada na nuvem.
 
 Para saber como responder a estas recomendações, consulte [recomendações do Remediate no Centro de Segurança Azure.](security-center-remediate-recommendations.md)
 
@@ -54,7 +53,7 @@ A sua Pontuação Segura baseia-se no número de recomendações do Centro de Se
 |**As políticas de segurança do Pod devem ser definidas para reduzir o vetor de ataque removendo privilégios de aplicação desnecessários (Pré-visualização)**|Defina as políticas de segurança do Pod para reduzir o vetor de ataque removendo privilégios de aplicação desnecessários. Recomenda-se configurar as políticas de segurança do pod para que as cápsulas só possam aceder aos recursos a que possam aceder.<br>(Política relacionada: [Pré-visualização]: As políticas de segurança do Pod devem ser definidas nos serviços kubernetes)|Médio|N|Recursos computacional (Contentores)|
 |**Instale o Azure Security Center para módulo de segurança IoT para obter mais visibilidade nos seus dispositivos IoT**|Instale o Azure Security Center para módulo de segurança IoT para obter mais visibilidade nos seus dispositivos IoT.|Baixo|N|Dispositivo IoT|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre recomendações, consulte o seguinte:
 

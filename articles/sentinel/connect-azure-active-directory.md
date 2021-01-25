@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/20/2021
 ms.author: yelevin
-ms.openlocfilehash: e84484990725b0c39b132aead51e9b01dbb7e7ef
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 409a316bd9c4222dd9b8ff30e42e37d23805c38b
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632296"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757767"
 ---
 # <a name="connect-data-from-azure-active-directory-azure-ad"></a>Ligar dados do Azure Ative Directory (Azure AD)
 
@@ -44,12 +44,12 @@ Pode utilizar o conector incorporado do Azure Sentinel para recolher dados do [A
 
 1. Marque as caixas de verificação ao lado dos tipos de registo que pretende transmitir para Azure Sentinel e clique em **Connect**. Estes são os tipos de registo que pode escolher:
 
-    - Registos de início de sessão
-    - Registos de auditoria
-    - Registos de inscrição de utilizadores não interativos
-    - Registos de inscrição principal de serviço
-    - Registos de registo de identidade geridos
-    - Registos de aprovisionamento
+    - **Registos de início de sessão**: Informações sobre a utilização de aplicações geridas e atividades de login do utilizador.
+    - **Registos de auditoria**: Informações de atividade do sistema sobre gestão de utilizadores e grupos, aplicações geridas e atividades de diretório.
+    - **Registos de registo não interativos** do utilizador : Informações sobre as entradas realizadas por um cliente em nome de um utilizador, que não requerem qualquer interação ou fator de autenticação por parte do utilizador.
+    - **Registos de início de sessão de serviço**: Informações sobre logins por apps e principais serviços que não envolvam nenhum utilizador. Nestes insusentuques, a app ou serviço fornece uma credencial em seu próprio nome para autenticar ou aceder a recursos.
+    - **Registos de inscrição de identidade geridos**: Logins por recursos Azure que têm segredos geridos pelo Azure.
+    - **Registos de fornecimento**: Informações sobre a atividade do sistema sobre utilizadores, grupos e funções a provisionadas pelo serviço de fornecimento de Azure AD.
 
 ## <a name="find-your-data"></a>Encontre os seus dados
 
@@ -64,7 +64,7 @@ Após a criação de uma ligação bem sucedida, os dados aparecem em **Logs,** 
 
 Para consultar os registos AZure AD, insira o nome de mesa relevante no topo da janela de consulta.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste documento, aprendeu a ligar o Azure Ative Directory ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)
 - Começa [a detetar ameaças com o Azure Sentinel.](tutorial-detect-threats-built-in.md)

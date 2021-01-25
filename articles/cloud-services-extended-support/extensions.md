@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: c2eddf75f99b751773220ae677d66fe8c09abb0e
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: f9029a36dc3b778e139b4553524e8e2ca6b4bbad
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98744833"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757174"
 ---
 # <a name="extensions-for-cloud-services-extended-support"></a>Extensões para serviços em nuvem (suporte alargado)
 
@@ -35,7 +35,7 @@ Com a monitorização básica, os dados de contador de desempenho de instâncias
 
 Com uma monitorização avançada, as métricas adicionais são amostradas e recolhidas em intervalos de 5 minutos, 1 hora e 12 horas. Os dados agregados são armazenados numa conta de armazenamento, em tabelas, e são purgados após 10 dias. A conta de armazenamento utilizada é configurada por função; pode utilizar diferentes contas de armazenamento para diferentes funções. 
 
-A extensão do Windows Azure Diagnostics pode ser ativada para serviços cloud (suporte alargado) através do modelo [PowerShell](deploy-powershell.md) ou [ARM](deploy-template.md)
+Para obter mais informações, consulte [aplicar a extensão de diagnóstico do Windows Azure em Cloud Services (suporte alargado)](enable-wad.md)
 
 
 ## <a name="next-steps"></a>Próximos passos 

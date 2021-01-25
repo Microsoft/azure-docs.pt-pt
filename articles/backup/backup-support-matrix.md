@@ -4,12 +4,12 @@ description: Fornece um resumo das definições e limitações de suporte para o
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: be0c576da6e38233423a79f562f767de806d7640
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 833837c317d22bf031aee4608ff4c93775736a34
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008372"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757445"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de suporte para backup Azure
 
@@ -150,12 +150,12 @@ O Azure Backup adicionou a funcionalidade Cross Region Restore para reforçar a 
 
 | Tipo de Gestão de Backup | Suportado                                                    | Regiões apoiadas |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
-| VM do Azure               | Sim.   Suportado para VMs e VMs encriptados com discos inferiores a 4-TB | Todas as regiões públicas de Azure.  |
+| VM do Azure               | Suportado para VMs Azure com discos geridos e não geridos. Não suportado para VMs clássicos. | Todas as regiões públicas de Azure.  |
 | SQL /SAP HANA | Sim                                                          | Todas as regiões públicas, com exceção da França |
 | Agente MARS/Nas instalações  | Não                                                           | N/D               |
 | AFS (ações de ficheiros Azure)                 | Não                                                           | N/D               |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Rever matriz de suporte](backup-support-matrix-iaas.md) para backup Azure VM.
 

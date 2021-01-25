@@ -11,18 +11,24 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/11/2020
+ms.date: 01/24/2021
 ms.author: memildin
-ms.openlocfilehash: bbc36dbb2a17d379d31a9a235898500aea36247d
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: b0baa532e8ca986e76cfb938a198d8a8697bd4dd
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96533915"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757699"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Tutorial: Melhorar a conformidade regulamentar
 
-O Azure Security Center ajuda a agilizar o processo de cumprimento dos requisitos de conformidade regulamentar, utilizando o **painel de conformidade regulamentar**. No painel de instrumentos, o Security Center fornece informações sobre a sua postura de conformidade com base em avaliações contínuas do seu ambiente Azure. O Security Center analisa fatores de risco no seu ambiente de nuvem híbrida de acordo com as melhores práticas de segurança. Estas avaliações são mapeadas para controlos de conformidade de um conjunto de normas apoiadas. No painel de conformidade regulamentar, pode ver o estado de todas as avaliações dentro do seu ambiente no contexto de uma determinada norma ou regulamento. À medida que age sobre as recomendações e reduz os fatores de risco no seu ambiente, a sua postura de conformidade melhora.
+O Azure Security Center ajuda a agilizar o processo de cumprimento dos requisitos de conformidade regulamentar, utilizando o **painel de conformidade regulamentar**. 
+
+O Security Center realiza avaliações contínuas do seu ambiente em nuvem híbrida para analisar os fatores de risco de acordo com os controlos e boas práticas nos padrões aplicados às suas subscrições. O painel de instrumentos reflete o estado da sua conformidade com estas normas. 
+
+Quando ativa o Centro de Segurança numa subscrição Azure, é automaticamente atribuído o [Benchmark de Segurança Azure](../security/benchmarks/introduction.md). Este referencial amplamente respeitado baseia-se nos controlos do [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) e do Instituto Nacional de [Normalização e Tecnologia (NIST)](https://www.nist.gov/) com foco na segurança centrada na nuvem.
+
+No painel de conformidade regulamentar, pode ver o estado de todas as avaliações dentro do seu ambiente no contexto de uma determinada norma ou regulamento. À medida que age sobre as recomendações e reduz os fatores de risco no seu ambiente, a sua postura de conformidade melhora.
 
 Neste tutorial, ficará a saber como:
 
@@ -41,17 +47,13 @@ Para passar pelas características abrangidas por este tutorial:
 
 ##  <a name="assess-your-regulatory-compliance"></a>Avalie a sua conformidade regulamentar
 
-O Security Center avalia continuamente a configuração dos seus recursos para identificar problemas de segurança e vulnerabilidades. Estas avaliações são apresentadas como recomendações, que se concentram em melhorar a sua higiene de segurança. No painel de conformidade regulamentar, pode ver um conjunto de normas de conformidade com todos os seus requisitos, onde os requisitos suportados são mapeados para avaliações de segurança aplicáveis. Isto permite-lhe visualizar a sua postura de conformidade em relação à norma, com base no estado destas avaliações.
+O painel de conformidade regulamentar mostra as suas normas de conformidade selecionadas com todos os seus requisitos, onde os requisitos suportados são mapeados para avaliações de segurança aplicáveis. O estado destas avaliações reflete o seu cumprimento da norma.
 
-A visão do painel de conformidade regulamentar pode ajudar a concentrar a sua atenção nas lacunas em conformidade com uma norma ou regulamento que é importante para si. Esta visão focada também permite monitorizar continuamente a sua pontuação de conformidade ao longo do tempo dentro de ambientes dinâmicos de nuvem e híbrido.
+Utilize o painel de conformidade regulamentar para ajudar a concentrar a sua atenção nas lacunas de acordo com as normas e regulamentos que lhe interessam. Esta visão focada também permite monitorizar continuamente a sua conformidade ao longo do tempo dentro de ambientes dinâmicos de nuvem e híbrido.
 
->[!NOTE]
-> Por padrão, o Security Center suporta as seguintes normas regulamentares: Azure CIS, PCI DSS 3.2, ISO 27001 e SOC TSP. 
->
-> A funcionalidade [de pacotes de conformidade dinâmica (pré-visualização)](update-regulatory-compliance-packages.md) permite-lhe atualizar as normas apresentadas no seu painel de conformidade regulamentar para os novos pacotes *dinâmicos.* Também pode utilizar a mesma funcionalidade de pré-visualização para adicionar novos pacotes de conformidade e monitorizar o cumprimento de normas adicionais. 
+1. A partir do menu do Centro de Segurança, **selecione conformidade regulamentar**.
 
-1. A partir do menu do Centro de Segurança, **selecione conformidade regulamentar**. <br>
-Na parte superior do ecrã, vê-se um dashboard com uma visão geral do seu estado de conformidade com o conjunto de regulamentos de conformidade suportados. Pode ver a sua pontuação geral de conformidade, e o número de avaliações de passagem vs. falhando associadas a cada padrão.
+    Na parte superior do ecrã encontra-se um dashboard com uma visão geral do seu estado de conformidade com o conjunto de regulamentos de conformidade suportados. Pode ver a sua pontuação geral de conformidade, e o número de avaliações de passagem vs. falhando associadas a cada padrão.
 
     :::image type="content" source="./media/security-center-compliance-dashboard/compliance-dashboard.png" alt-text="Painel de conformidade regulamentar":::
 
@@ -59,7 +61,7 @@ Na parte superior do ecrã, vê-se um dashboard com uma visão geral do seu esta
 
     :::image type="content" source="./media/security-center-compliance-dashboard/compliance-drilldown.png" alt-text="Explorando os detalhes do cumprimento de uma norma específica":::
 
-1. Para gerar e descarregar um relatório PDF que ressoe o seu estado de conformidade atual para uma determinada norma, clique em **Baixar o relatório**.
+1. Para gerar um relatório PDF com um resumo do seu estado de conformidade atual para uma determinada norma, selecione **Relatório de Descarregamento**.
 
     O relatório fornece um resumo de alto nível do seu estado de conformidade para a norma selecionada com base nos dados de avaliação do Centro de Segurança, e é organizado de acordo com os controlos dessa norma específica. O relatório pode ser partilhado com as partes interessadas relevantes e pode apresentar provas aos auditores internos e externos.
 
@@ -71,7 +73,7 @@ Tendo em conta as informações no painel de conformidade regulamentar, pode mel
 
 1.  Clique em qualquer uma das avaliações falhadas que aparecem no painel de instrumentos para ver os detalhes dessa recomendação. Cada recomendação inclui um conjunto de medidas de reparação que devem ser seguidas para resolver a questão.
 
-1.  Pode selecionar um recurso específico para visualizar mais detalhes e resolver a recomendação para esse recurso. <br>Por exemplo, na **norma Azure CIS 1.1.0 (Nova),** pode selecionar a recomendação **A encriptação do disco deve ser aplicada em máquinas virtuais**.
+1.  Pode selecionar um recurso específico para visualizar mais detalhes e resolver a recomendação para esse recurso. <br>Por exemplo, na norma **Azure CIS 1.1.0,** pode selecionar a recomendação **A encriptação do disco deve ser aplicada em máquinas virtuais**.
 
     :::image type="content" source="./media/security-center-compliance-dashboard/sample-recommendation.png" alt-text="Selecionar uma recomendação a partir de uma norma leva diretamente à página de detalhes da recomendação":::
 
@@ -86,7 +88,7 @@ Tendo em conta as informações no painel de conformidade regulamentar, pode mel
     > [!NOTE]
     > As avaliações são executadas aproximadamente a cada 12 horas, pelo que verá o impacto nos seus dados de conformidade apenas após a próxima execução da avaliação relevante.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, aprendeu a usar o painel de conformidade regulamentar do Centro de Segurança para:
 

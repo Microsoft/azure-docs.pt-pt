@@ -3,12 +3,12 @@ title: FAQ - Backup Up Azure VMs
 description: Neste artigo, descubra respostas a perguntas comuns sobre o backup dos VMs Azure com o serviço Azure Backup.
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: ba2779305302e91f68cb2664c90f53fdf9a9ca55
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: edc48aaf0a05867de81bd7d5f64f8be4e54ddb8a
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008355"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757513"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Perguntas frequentes-Back up Azure VMs
 
@@ -28,7 +28,7 @@ Apesar de o tempo total das cópias de segurança incrementais ser inferior a 24
 
 ### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>O custo de reserva está incluído no custo do VM?
 
-N.º Os custos de backup são separados dos custos de um VM. Saiba mais sobre [os preços de backup da Azure.](https://azure.microsoft.com/pricing/details/backup/)
+Não. Os custos de backup são separados dos custos de um VM. Saiba mais sobre [os preços de backup da Azure.](https://azure.microsoft.com/pricing/details/backup/)
 
 ### <a name="which-permissions-are-required-to-enable-backup-for-a-vm"></a>Que permissões são necessárias para permitir a cópia de segurança para um VM?
 
@@ -48,7 +48,7 @@ Se o cofre dos Serviços de Recuperação e o VM tiverem diferentes grupos de re
 
 ### <a name="does-an-on-demand-backup-job-use-the-same-retention-schedule-as-scheduled-backups"></a>Um trabalho de reserva a pedido usa o mesmo horário de retenção que os backups programados?
 
-N.º Especifique o intervalo de retenção para um trabalho de backup a pedido. Por padrão, é retido por 30 dias quando disparado do portal.
+Não. Especifique o intervalo de retenção para um trabalho de backup a pedido. Por padrão, é retido por 30 dias quando disparado do portal.
 
 ### <a name="i-recently-enabled-azure-disk-encryption-on-some-vms-will-my-backups-continue-to-work"></a>Ativei recentemente o Azure Disk Encryption em algumas VMs. As minhas cópias de segurança vão continuar a funcionar?
 
@@ -64,11 +64,11 @@ O feiticeiro só lista VMs na mesma região que o cofre, e isso já não está a
 
 ### <a name="my-vm-is-shut-down-will-an-on-demand-or-a-scheduled-backup-work"></a>O meu VM está desligado. Um trabalho de reserva ou de reserva?
 
-Sim. As cópias de segurança funcionam quando uma máquina é desligada. O ponto de recuperação é marcado como consistente acidente.
+Yes. As cópias de segurança funcionam quando uma máquina é desligada. O ponto de recuperação é marcado como consistente acidente.
 
 ### <a name="can-i-cancel-an-in-progress-backup-job"></a>Posso cancelar uma tarefa de cópia de segurança em curso?
 
-Sim. Pode cancelar o trabalho de reserva num estado **de tomada de fotos.** Não pode cancelar um emprego se a transferência de dados do instantâneo estiver em andamento.
+Yes. Pode cancelar o trabalho de reserva num estado **de tomada de fotos.** Não pode cancelar um emprego se a transferência de dados do instantâneo estiver em andamento.
 
 ### <a name="i-enabled-a-lock-on-the-resource-group-created-by-azure-backup-service-for-example-azurebackuprg_geo_number-will-my-backups-continue-to-work"></a>Consegui bloquear o grupo de recursos criado pelo Azure Backup Service (por exemplo, `AzureBackupRG_<geo>_<number>` ). As minhas cópias de segurança vão continuar a funcionar?
 
@@ -114,6 +114,10 @@ O Azure Backup suporta agora a cópia de segurança seletiva do disco e restaura
 
 Se [ocorrerem alterações](/azure/devops/organizations/accounts/change-azure-ad-connection) no inquilino, é obrigado a desativar e a reativar [identidades geridas](../active-directory/managed-identities-azure-resources/overview.md) para fazer com que as cópias de segurança voltem a funcionar.
 
+### <a name="does-azure-backup-support-backing-up-nfs-files-mounted-from-storage"></a>O Suporte de Backup da Azure suporta o backup de ficheiros NFS montados a partir do armazenamento?
+
+O Azure Backup não suporta o backup de ficheiros NFS que são montados a partir do armazenamento, ou de qualquer outro servidor NFS, para máquinas Linux ou Windows. Só faz a parte de trás dos discos que estão ligados localmente ao VM.
+
 ## <a name="restore"></a>Restauro
 
 ### <a name="how-do-i-decide-whether-to-restore-disks-only-or-a-full-vm"></a>Como decido se restabelece apenas discos ou um VM completo?
@@ -144,7 +148,7 @@ No caso de uma restauração gerida do VM, mesmo que a criação de VM falhe, os
 
 ### <a name="can-i-restore-a-vm-thats-been-deleted"></a>Posso restaurar um VM que foi apagado?
 
-Sim. Mesmo que apague o VM, pode ir ao item de backup correspondente no cofre e restaurar a partir de um ponto de recuperação.
+Yes. Mesmo que apague o VM, pode ir ao item de backup correspondente no cofre e restaurar a partir de um ponto de recuperação.
 
 ### <a name="how-do-i-restore-a-vm-to-the-same-availability-sets"></a>Como posso restaurar um VM para os mesmos conjuntos de disponibilidade?
 

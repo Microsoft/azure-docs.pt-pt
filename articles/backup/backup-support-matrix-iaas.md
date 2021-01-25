@@ -4,12 +4,12 @@ description: Fornece um resumo das definições e limitações de suporte ao faz
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: ade92e445897e36139e74353fa703ddf50d3f9b3
-ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
+ms.openlocfilehash: d3329d9cac9547fbe9ec971bb8944f50971732b5
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98562731"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757411"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte da cópia de segurança de uma VM do Azure
 
@@ -81,6 +81,7 @@ Para backups Azure VM Linux, a Azure Backup suporta a lista de distribuições L
 - O Azure Backup não suporta sistemas operativos de 32 bits.
 - Outras distribuições linux próprias podem funcionar desde que o [agente Azure VM para Linux](../virtual-machines/extensions/agent-linux.md) esteja disponível no VM, e enquanto python for suportado.
 - O Azure Backup não suporta um Linux VM configurado por procuração se não tiver a versão Python 2.7 instalada.
+- O Azure Backup não suporta o backup de ficheiros NFS que são montados a partir do armazenamento, ou de qualquer outro servidor NFS, para máquinas Linux ou Windows. Só faz a parte de trás dos discos que estão ligados localmente ao VM.
 
 ## <a name="backup-frequency-and-retention"></a>Frequência e retenção de backup
 
@@ -144,10 +145,11 @@ Back up VMs que são implantados a partir de uma imagem personalizada (terceiro)
 Back up VMs que são migrados para Azure| Suportado.<br/><br/> Para fazer uma proteção do VM, o agente VM tem de ser instalado na máquina migratória.
 Apoiar consistência multi-VM | O Azure Backup não fornece consistência de dados e aplicações em vários VMs.
 Backup com [Definições de Diagnóstico](../azure-monitor/platform/platform-logs-overview.md)  | Sem apoio. <br/><br/> Se a restauração do VM Azure com definições de diagnóstico for acionada utilizando a opção [Create New,](backup-azure-arm-restore-vms.md#create-a-vm) então a restauração falha.
-Restauro de VMs fixados em zona | Suportado (para um VM que é apoiado depois de janeiro de 2019 e onde estão disponíveis [zonas de disponibilidade).](https://azure.microsoft.com/global-infrastructure/availability-zones/)<br/><br/>Atualmente, apoiamos restaurar a mesma zona que está presa em VMs. No entanto, se a zona não estiver disponível, o restauro falha.
+Restauro de VMs fixados em zona | Suportado (para um VM que é apoiado depois de janeiro de 2019 e onde estão disponíveis [zonas de disponibilidade).](https://azure.microsoft.com/global-infrastructure/availability-zones/)<br/><br/>Atualmente, apoiamos restaurar a mesma zona que está presa em VMs. No entanto, se a zona não estiver disponível devido a uma paragem, a restauração falhará.
 GMs gen2 | Suportado <br> A Azure Backup suporta cópia de segurança e restauro de [VMs da Gen2](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/). Quando estes VMs são restaurados do ponto de recuperação, são restaurados como [VMs gen2](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/).
 Backup de VMs Azure com fechaduras | Não suportado para VMs não geridos. <br><br> Suportado para VMs geridos.
 [Spot VMs](../virtual-machines/spot-vms.md) | Sem apoio. A Azure Backup restaura os VMs spot como VMs Azure regulares.
+[Anfitrião Dedicado Azure](https://docs.microsoft.com/azure/virtual-machines/dedicated-hosts) | Suportado
 
 ## <a name="vm-storage-support"></a>Suporte de armazenamento VM
 
@@ -165,6 +167,7 @@ Redimensione o disco em VM protegido | Suportado.
 Armazenamento compartilhado| O backup de VMs utilizando o Cluster Shared Volume (CSV) ou Scale-Out File Server não é suportado. É provável que os escritores do CSV falhem durante o backup. No restauro, os discos que contêm volumes de CSV podem não aparecer.
 [Discos compartilhados](../virtual-machines/disks-shared-enable.md) | Não suportado.
 Discos Ultra SSD | Não suportado. Para mais detalhes, consulte estas [limitações.](selective-disk-backup-restore.md#limitations)
+[Discos temporários](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview#temporary-disk) | Os discos temporários não são apoiados pela Azure Backup.
 
 ## <a name="vm-network-support"></a>Suporte à rede VM
 
@@ -178,7 +181,7 @@ VMs com endereços IP públicos| Suportado.<br/><br/> Associe um endereço IP p�
 Grupo de segurança de rede (NSG) em NIC/sub-rede. |Suportado.
 Endereço IP estático | Não suportado.<br/><br/> Um novo VM que é criado a partir de um ponto de restauro é atribuído um endereço IP dinâmico.<br/><br/> Para VMs clássicos, não é possível fazer uma reserva de VM com um endereço IP reservado e sem ponto final definido.
 Endereço IP dinâmico |Suportado.<br/><br/> Se o NIC na fonte VM utilizar um endereço IP dinâmico, por predefinição o NIC no VM restaurado também o utilizará.
-Traffic Manager do Azure| Suportado.<br/><br/>Se o VM de apoio estiver no Traffic Manager, adicione manualmente o VM restaurado à mesma instância do Gestor de Tráfego.
+Gestor de Tráfego do Azure| Suportado.<br/><br/>Se o VM de apoio estiver no Traffic Manager, adicione manualmente o VM restaurado à mesma instância do Gestor de Tráfego.
 DNS do Azure |Suportado.
 DNS Personalizado |Suportado.
 Conectividade de saída via http proxy | Suportado.<br/><br/> Um representante autenticado não é apoiado.

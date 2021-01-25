@@ -1,6 +1,6 @@
 ---
 title: A bordo do Centro de Segurança Azure com PowerShell
-description: Este documento acompanha-o através do processo de embarque do Azure Security Center utilizando cmdlets PowerShell.
+description: Este documento acompanha-o através do processo de ativação do Centro de Segurança Azure com cmdlets PowerShell.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/02/2018
+ms.date: 01/24/2021
 ms.author: memildin
-ms.openlocfilehash: 20fce643defd12897eceb1accc7ade8b10548568
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 4979ff0010c1f959e8f8fc16f56da61971faf1e9
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341170"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757073"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Automatizar o embarque no Azure Security Center usando o PowerShell
 
@@ -89,7 +89,7 @@ Estes passos devem ser realizados antes de executar os cmdlets do Centro de Segu
 
     ```Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'```
 
-    ```$Policy = Get-AzPolicySetDefinition | where {$_.Properties.displayName -EQ 'Enable Monitoring in Azure Security Center'} New-AzPolicyAssignment -Name 'ASC Default <d07c0080-170c-4c24-861d-9c817742786c>' -DisplayName 'Security Center Default <subscription ID>' -PolicySetDefinition $Policy -Scope '/subscriptions/d07c0080-170c-4c24-861d-9c817742786c'```
+    ```$Policy = Get-AzPolicySetDefinition | where {$_.Properties.displayName -EQ 'Azure Security Benchmark'} New-AzPolicyAssignment -Name 'ASC Default <d07c0080-170c-4c24-861d-9c817742786c>' -DisplayName 'Security Center Default <subscription ID>' -PolicySetDefinition $Policy -Scope '/subscriptions/d07c0080-170c-4c24-861d-9c817742786c'```
 
 Conseguiu embarcar no Centro de Segurança Azure com a PowerShell.
 
@@ -98,7 +98,7 @@ Agora pode utilizar estes cmdlets PowerShell com scripts de automação para ite
 
 
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 Para saber mais sobre como pode utilizar o PowerShell para automatizar o embarque no Security Center, consulte o seguinte artigo:
 
 * [Az.Security](/powershell/module/az.security)
