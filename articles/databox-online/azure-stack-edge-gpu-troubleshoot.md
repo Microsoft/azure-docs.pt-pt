@@ -1,19 +1,19 @@
 ---
-title: Use o portal Azure para resolver problemas Azure Stack Edge Pro com GPU Microsoft Docs
+title: Utilize o portal Azure para resolver problemas no Azure Stack Edge Pro com GPU| Microsoft Docs
 description: Descreve como resolver problemas com os problemas de GPU do Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 10/07/2020
+ms.date: 01/21/2021
 ms.author: alkohli
-ms.openlocfilehash: d07d9dccb0aa273f79b251f2ffb4a920f3cac2e7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 0976dd9f3c4d0228ec0f170a755ec13800da435b
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447615"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98761543"
 ---
 # <a name="troubleshoot-issues-on-your-azure-stack-edge-pro-gpu-device"></a>Problemas de resolução de problemas no seu dispositivo GPU Azure Stack Edge Pro 
 
@@ -26,7 +26,7 @@ Este artigo descreve como resolver problemas no seu dispositivo GPU Azure Stack 
 
 Para diagnosticar e resolver quaisquer erros do dispositivo, pode executar os testes de diagnóstico. Efetue os seguintes passos na IU da Web local no dispositivo para executar testes de diagnóstico.
 
-1. Na IU da Web local, aceda a **Resolução de problemas > Testes de diagnóstico**. Selecione o teste que pretende executar e selecione **Teste de execução**. Esta ação executa os testes para diagnosticar possíveis problemas nas definições de rede, dispositivo, proxy Web, hora ou cloud. Será notificado de que o dispositivo está a executar testes.
+1. Na IU da Web local, aceda a **Resolução de problemas > Testes de diagnóstico**. Selecione o teste que pretende executar e selecione **Teste de execução**. O teste diagnostica quaisquer problemas possíveis com a sua rede, dispositivo, procuração web, tempo ou configurações de nuvem. Será notificado de que o dispositivo está a executar testes.
 
     ![Selecione testes ](media/azure-stack-edge-gpu-troubleshoot/run-diag-1.png)
  
@@ -97,7 +97,7 @@ Para detetar qualquer intrusão de hardware no dispositivo, atualmente todos os 
 
 - O registo de eventos do sistema do dispositivo é lido utilizando o `racadm` cmdlet. Estes eventos são então filtrados para evento relacionado com chassis em um `HWIntrusion.txt` arquivo.
 
-- Para obter apenas o login de intrusão de hardware no pacote de suporte, utilize `-Include HWSelLog` a opção ao criar o pacote de suporte. 
+- Para obter apenas o login de intrusão de hardware no pacote de suporte, use a `-Include HWSelLog` opção quando criar o pacote de suporte. 
 
 - Se não for fornecida nenhuma opção específica de inclusão, o registo de intrusão de hardware é incluído como padrão no pacote de suporte.
 
@@ -147,8 +147,8 @@ Aqui estão os erros que podem aparecer durante a configuração do Azure Resour
 |Erro devolvido do serviço. Consulte o InnerException para obter mais detalhes: A ligação subjacente foi fechada: Não foi possível estabelecer uma relação de confiança para o canal seguro SSL/TLS. |   Este erro deve-se, provavelmente, a uma ou mais etapas do certificado incorretamente realizadas. Pode encontrar orientação [aqui.](./azure-stack-edge-j-series-connect-resource-manager.md#step-2-create-and-install-certificates) |
 |Operação devolveu um código de estado inválido 'ServiceUnavailable' <br> O código de estado de resposta não indica sucesso: 503 (Serviço Indisponível). | Este erro pode ser o resultado de qualquer uma destas condições.<li>ArmStsPool está em estado de paragem.</li><li>Qualquer um dos websites de serviços Azure Resource Manager/Security token estão em baixo.</li><li>O recurso de cluster Azure Resource Manager está em baixo.</li><br><strong>Nota:</strong> Reiniciar o aparelho pode corrigir o problema, mas deve recolher o pacote de suporte para que possa desordiá-lo ainda mais.|
 |AADSTS50126: Nome de utilizador ou senha inválido.<br>ID de traço: 29317da9-52fc-4ba0-9778-446ae5625e5a<br>ID de correlação: 1b9752c4-8cbf-4304-a714-8a16527410f4<br>Horário: 2019-11-15 09:21:57Z: O servidor remoto devolveu um erro: (400) Mau Pedido.<br>Na linha:1 char:1 |Este erro pode ser o resultado de qualquer uma destas condições.<li>Para um nome de utilizador e senha inválidos, valide que o cliente alterou a palavra-passe do portal Azure seguindo os passos [aqui](./azure-stack-edge-j-series-set-azure-resource-manager-password.md) e, em seguida, utilizando a senha correta.<li>Para um ID inquilino inválido, o ID do inquilino é um GUID fixo e deve ser definido para `c0257de7-538f-415c-993a-1b87a031879d`</li>|
-|connect-AzureRmAccount : AADSTS90056: O recurso está desativado ou não existe. Verifique o código da sua aplicação para garantir que especificou o URL de recurso exato para o recurso a que está a tentar aceder.<br>ID de traço: e19bdbc9-5dc8-4a74-85c3-ac6abdfda115<br>ID de correlação: 75c8ef5a-830e-48b5-b039-595a96488ff9 Timestamp: 2019-11-18 07:00:51Z: O servidor remoto devolveu um erro: (400) Bad |Os pontos finais de recursos utilizados no `Add-AzureRmEnvironment` comando estão incorretos.|
-|Incapaz de obter pontos finais da nuvem.<br>Certifique-se de que tem ligação à rede. Detalhe de erro: HTTPSConnectionPool (host='management.dbg-of4k6suvm.microsoftdatabox.com', porta=30005): Retries max ultrapassados com url: /metadados/pontos finais?api-versão=2015-01-01 (Causado por SSLError("mau aperto de mão: Erro([rotinas SSL', 'tls_process_server_certificate', 'certificação verificar falhou'))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) |Este erro aparece principalmente num ambiente Mac/Linux, e deve-se às seguintes questões:<li>Um certificado de formato PEM não foi adicionado à loja de certificados python.</li> |
+|connect-AzureRmAccount: AADSTS90056: O recurso está desativado ou não existe. Verifique o código da sua aplicação para garantir que especificou o URL de recurso exato para o recurso a que está a tentar aceder.<br>ID de traço: e19bdbc9-5dc8-4a74-85c3-ac6abdfda115<br>ID de correlação: 75c8ef5a-830e-48b5-b039-595a96488ff9 Timestamp: 2019-11-18 07:00:51Z: O servidor remoto devolveu um erro: (400) Bad |Os pontos finais de recursos utilizados no `Add-AzureRmEnvironment` comando estão incorretos.|
+|Incapaz de obter pontos finais da nuvem.<br>Certifique-se de que tem ligação à rede. Detalhe de erro: HTTPSConnectionPool (host='management.dbg-of4k6suvm.microsoftdatabox.com', porta=30005): Retries max ultrapassados com url: /metadados/pontos finais?api-versão=2015-01-01 (Causado por SSLError("mau aperto de mão: Erro([rotinas SSL', 'tls_process_server_certificate', 'certificação verificar falhou') |Este erro aparece principalmente num ambiente Mac/Linux, e deve-se às seguintes questões:<li>Um certificado de formato PEM não foi adicionado à loja de certificados python.</li> |
 
 ### <a name="verify-the-device-is-configured-properly"></a>Verifique se o dispositivo está configurado corretamente
 
@@ -187,7 +187,7 @@ Aqui estão os erros relacionados com o armazenamento de bolhas no dispositivo A
 | **Emissão / Erros** |  **Resolução** | 
 |--------------------|-----------------|
 |Incapaz de recuperar recursos infantis. O valor de um dos cabeçalhos HTTP não está no formato correto.| No menu **Editar,** selecione **ApIs target Azure Stack**. Em seguida, reinicie o Explorador de Armazenamento Azure.|
-|getaddrinfo <accountname> ENOTFOUND.blob. <serialnumber> . . microsoftdatabox.com|Verifique se o nome do ponto final `<accountname>.blob.<serialnumber>.microsoftdatabox.com` é adicionado ao ficheiro dos anfitriões neste caminho: no Windows ou no `C:\Windows\System32\drivers\etc\hosts` `/etc/hosts` Linux.|
+|`getaddrinfo ENOTFOUND <accountname>.blob.<serialnumber>.microsoftdatabox.com`|Verifique se o nome do ponto final `<accountname>.blob.<serialnumber>.microsoftdatabox.com` é adicionado ao ficheiro dos anfitriões neste caminho: no Windows ou no `C:\Windows\System32\drivers\etc\hosts` `/etc/hosts` Linux.|
 |Incapaz de recuperar recursos infantis.<br> Detalhes: certificado auto-assinado |Importe o certificado SSL para o seu dispositivo no Azure Storage Explorer: <ol><li>Faça o download do certificado do portal Azure. Para mais informações, consulte [Descarregar o certificado.](../databox/data-box-deploy-copy-data-via-rest.md#download-certificate)</li><li>No menu **Editar,** selecione Certificados SSL e, em seguida, selecione **Certificados de Importação**.</li></ol>|
 |O comando AzCopy parece parar de responder durante um minuto antes de exibir este erro:<br>`Failed to enumerate directory https://… The remote name could not be resolved <accountname>.blob.<serialnumber>.microsoftdatabox.com`|Verifique se o nome do ponto final `<accountname>.blob.<serialnumber>.microsoftdatabox.com` é adicionado ao ficheiro dos anfitriões em: `C:\Windows\System32\drivers\etc\hosts` .|
 |O comando AzCopy parece parar de responder durante um minuto antes de exibir este erro:<br>`Error parsing source location. The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel`. |Importe o certificado SSL para o seu dispositivo na loja de certificados do sistema. Para mais informações, consulte [Descarregar o certificado.](../databox/data-box-deploy-copy-data-via-rest.md#download-certificate)|
@@ -197,10 +197,13 @@ Aqui estão os erros relacionados com o armazenamento de bolhas no dispositivo A
 |O comando AzCopy parece parar de responder durante 20 minutos antes de exibir este erro: `Error parsing source location… The SSL connection could not be established` .|Importe o certificado SSL para o seu dispositivo na loja de certificados do sistema. Para mais informações, consulte [Descarregar o certificado.](../databox/data-box-deploy-copy-data-via-rest.md#download-certificate)|
 |O valor de um dos cabeçalhos HTTP não está no formato correto.|A versão instalada da Microsoft Azure Storage Library for Python não é suportada pela Data Box. Consulte os requisitos de armazenamento da Caixa de Dados Azure para versões suportadas.|
 |… [SSL: CERTIFICATE_VERIFY_FAILED] ...| Antes de executar python, desafie a variável ambiente REQUESTS_CA_BUNDLE para o caminho do certificado SSL codificado base64 (ver como [descarregar o certificado](../databox/data-box-deploy-copy-data-via-rest.md#download-certificate). Por exemplo:<br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer`<br>`python`<br>Em alternativa, adicione o certificado à loja de certificados do sistema e, em seguida, coloque esta variável ambiental no caminho dessa loja. Por exemplo, no Ubuntu:<br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt`<br>`python`.|
-|A ligação está fora.|Inscreva-se no Azure Stack Edge Pro e verifique se está desbloqueado. Sempre que o dispositivo reinicia, fica bloqueado até alguém entrar.|
+|A ligação está fora.|Inscreva-se no Azure Stack Edge Pro e verifique se está desbloqueado. Sempre que o dispositivo reinicia, fica trancado até alguém entrar.|
+
+## <a name="troubleshoot-iot-edge-errors"></a>Erros de IoT Edge de resolução de problemas
+
+[!INCLUDE [Troubleshoot IoT Edge runtime](../../includes/azure-stack-edge-iot-troubleshoot-compute.md)]
 
 
-
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre como [resolver problemas de ativação do dispositivo](azure-stack-edge-gpu-troubleshoot-activation.md).

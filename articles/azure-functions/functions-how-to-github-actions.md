@@ -6,18 +6,18 @@ ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python, github-actions-azure
-ms.openlocfilehash: bc80a4f5c6c2919f0cb3faa15958fb75eed70270
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: cc356b307a752b10ba6f1c1a7151381c5644ca1e
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98035228"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762724"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Entrega contínua utilizando a GitHub Action
 
 Utilize [as ações do GitHub](https://github.com/features/actions) para definir um fluxo de trabalho para construir e implementar código automaticamente para a sua aplicação de funções em Funções Azure. 
 
-Em GitHub Actions, um [fluxo de trabalho](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions) é um processo automatizado que você define no seu repositório GitHub. Este processo diz ao GitHub como construir e implementar o seu projeto de aplicação de função no GitHub. 
+Em GitHub Actions, um [fluxo de trabalho](https://docs.github.com/en/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions) é um processo automatizado que você define no seu repositório GitHub. Este processo diz ao GitHub como construir e implementar o seu projeto de aplicação de função no GitHub. 
 
 Um fluxo de trabalho é definido por um ficheiro YAML (.yml) no caminho do `/.github/workflows/` seu repositório. Esta definição contém os vários passos e parâmetros que compõem o fluxo de trabalho. 
 
@@ -40,7 +40,7 @@ Para um fluxo de trabalho de Funções Azure, o ficheiro tem três secções:
 
 A forma recomendada de autenticar com Funções Azure para As Ações do GitHub é utilizando um perfil de publicação. Também pode autenticar com um diretor de serviço. Para saber mais, consulte [este repositório de ações do GitHub.](https://github.com/Azure/functions-action) 
 
-Depois de guardar a credencial de perfil de publicação como [um segredo do GitHub,](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets)utilizará este segredo dentro do seu fluxo de trabalho para autenticar com o Azure. 
+Depois de guardar a credencial de perfil de publicação como [um segredo do GitHub,](https://docs.github.com/en/actions/reference/encrypted-secrets)utilizará este segredo dentro do seu fluxo de trabalho para autenticar com o Azure. 
 
 #### <a name="download-your-publish-profile"></a>Baixe o seu perfil de publicação
 
@@ -496,7 +496,7 @@ jobs:
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre a integração do Azure e do GitHub](/azure/developer/github/)

@@ -4,17 +4,17 @@ description: Este artigo diz como resolver problemas e resolver problemas com o 
 services: automation
 author: mgoedtel
 ms.author: magoedte
-ms.date: 12/03/2019
+ms.date: 01/25/2021
 ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: f1351b29a0102a374b75d832687d66c3b5572c75
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a7ac5e8324d9979b17ee93d16b3e007fe7916a8a
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83680867"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762624"
 ---
 # <a name="troubleshoot-linux-update-agent-issues"></a>Resolver problemas do agente de atualização do Linux
 
@@ -27,7 +27,7 @@ Pode haver muitas razões pelas quais a sua máquina não aparece tão pronta (s
 > [!NOTE]
 > Pode haver um ligeiro atraso entre o que o portal Azure mostra e o estado atual de uma máquina.
 
-Este artigo discute como executar o resolução de problemas para máquinas Azure a partir do portal Azure e máquinas não-Azure no [cenário offline](#troubleshoot-offline). 
+Este artigo discute como executar o resolução de problemas para máquinas Azure a partir do portal Azure e máquinas não-Azure no [cenário offline](#troubleshoot-offline).
 
 > [!NOTE]
 > O script de resolução de problemas não é atualmente encaminhado o tráfego através de um servidor proxy se um estiver configurado.
@@ -90,7 +90,6 @@ A Update Management descarrega pacotes híbridos de trabalhador runbook do ponto
 
 Esta verificação garante que o Trabalhador de Runbook Híbrido está a funcionar na máquina. Os processos no exemplo abaixo devem estar presentes se o Trabalhador de Runbook Híbrido estiver a funcionar corretamente.
 
-
 ```bash
 nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>
 nxautom+   8593      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/hybridworker.py /var/opt/microsoft/omsagent/state/automationworker/worker.conf managed rworkspace:<workspaceId> rversion:<Linux hybrid worker version>
@@ -129,7 +128,7 @@ Esta verificação verifica se a sua máquina tem acesso aos pontos finais neces
 
 ## <a name="troubleshoot-offline"></a><a name="troubleshoot-offline"></a>Resolução de problemas offline
 
-Pode utilizar o resolução de problemas offline num Trabalhador De Runbook Híbrido executando o script localmente. O script Python, [update_mgmt_health_check.py,](https://gallery.technet.microsoft.com/scriptcenter/Troubleshooting-utility-3bcbefe6)pode ser encontrado no Script Center. Um exemplo da saída deste script é mostrado no seguinte exemplo:
+Pode utilizar o resolução de problemas offline num Trabalhador De Runbook Híbrido executando o script localmente. O roteiro Python, [UM_Linux_Troubleshooter_Offline.py,](https://github.com/Azure/updatemanagement/blob/main/UM_Linux_Troubleshooter_Offline.py)pode ser encontrado no GitHub. Um exemplo da saída deste script é mostrado no seguinte exemplo:
 
 ```output
 Debug: Machine Information:   Static hostname: LinuxVM2
@@ -182,6 +181,6 @@ Passed: TCP test for {ods.systemcenteradvisor.com} (port 443) succeeded
 
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Problemas com o trabalhador do runbook híbrido.](hybrid-runbook-worker.md)

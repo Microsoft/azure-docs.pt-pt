@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: afe2cf288cd4a15091e8278309b3ecf74a2d35a4
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: eb08bb262806cb662822a75898196546a5c1058e
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98572753"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762542"
 ---
 # <a name="claim-sets"></a>Conjuntos de afirmações
 
@@ -55,6 +55,12 @@ Abaixo afirmações definidas pelo [IETF JWT](https://tools.ietf.org/html/rfc751
 Abaixo afirmações definidas pelo [IETF EAT](https://tools.ietf.org/html/draft-ietf-rats-eat-03#page-9) e utilizadas pela Azure Attestation no objeto de resposta:
 - **"Nonce claim" (nonce)**
 
+Abaixo as reclamações são geradas por incumprimento com base nos créditos recebidos
+- **x-ms-ver**: versão do esquema JWT (espera-se que seja "1.0")
+- **x-ms-attestation-type**: Valor de corda que representa o tipo de atestado 
+- **x-ms-policy-hash**: Valor de corda contendo hash SHA256 do texto de política calculado por BASE64URL(SHA256(UTF8 (BASE64URL(TEXTO DE POLÍTICA)
+- **x-ms-policy-signer**: Contém um JWK com a chave pública ou a cadeia de certificados presente no cabeçalho de política assinado. x-ms-política-signer só é adicionado se a política é assinada
+
 ## <a name="claims-specific-to-sgx-enclaves"></a>Reclamações específicas dos enclaves da SGX
 
 ### <a name="incoming-claims-specific-to-sgx-attestation"></a>Reclamações de entrada específicas para atestado SGX
@@ -71,7 +77,6 @@ Abaixo as reclamações são geradas pelo serviço para atestado SGX e podem ser
 As reclamações abaixo são geradas pelo serviço e incluídas no objeto de resposta para atestado SGX:
 - **x-ms-sgx-is-debuggable**: A Boolean, que indica se o enclave tem ou não depuração ativado
 - **x-ms-sgx-produto-id**
-- **x-ms-ver**
 - **x-ms-sgx-mrsigner**: valor codificado hex do campo "mrsigner" da citação
 - **x-ms-sgx-mrenclave**: valor codificado hex do campo "mrenclave" da citação
 - **x-ms-sgx-svn**: número da versão de segurança codificado na cotação 
@@ -99,36 +104,39 @@ maa-ehd | x-ms-sgx-ehd
 aas-ehd | x-ms-sgx-ehd
 maa-atesstationcollateral | x-ms-sgx-colateral
 
-## <a name="claims-issued-specific-to-trusted-platform-module-tpm-attestation"></a>Reclamações emitidas específicas para o atestado de Plataforma Fidedigna (TPM)
+## <a name="claims-specific-to-trusted-platform-module-tpm-vbs-attestation"></a>Reclamações específicas do Módulo de Plataforma Fidedigna (TPM)/ Atestado de VBS
 
-### <a name="incoming-claims-can-also-be-used-as-outgoing-claims"></a>Reclamações recebidas (também podem ser utilizadas como reclamações de saída)
+### <a name="incoming-claims-for-tpm-attestation"></a>Pedidos de entrada para atestado de TPM
 
-- **aikValidated**: Valor booleano contendo informações se o certificado da Chave de Identidade de Atestado (AIK) tiver sido validado ou não.
-- **aikPubHash**: Cadeia contendo a base64 (chave pública AIK em formato DER)).
-- **tpmVersion**: Valor inteiro contendo a versão principal do Módulo plataforma fidedigna (TPM).
-- **secureBootEnabled**: Valor booleano para indicar se a bota segura está ativada.
-- **iommuEnabled**: Valor booleano para indicar se a unidade de gestão da memória de saída de entrada (Iommu) está ativada.
-- **bootDebuggingDisabled**: Valor booleano para indicar se a depuração de arranque está desativada.
-- **notSafeMode**: Valor booleano para indicar se o Windows não está a funcionar em modo de segurança.
-- **notWinPE**: Valor booleano indicando se o Windows não está a funcionar no modo WinPE.
-- **vbsEnabled**: Valor booleano que indica se vBS está ativado.
-- **vbsReportPresent**: Valor booleano indicando se o relatório do enclave VBS está disponível.
-- **enclaveAuthorId**: Valor de corda que contém o valor codificado Base64Url do id-O identificador autor do módulo primário para o enclave.
-- **enclaveImageId**: Valor de corda que contém o valor codificado Base64Url do id-Imagem do enclave O identificador de imagem do módulo primário para o enclave.
-- **enclaveOwnerId**: Valor de corda que contém o valor codificado Base64Url do id proprietário do enclave O identificador do proprietário para o enclave.
-- **enclaveFamilyId**: Valor de corda que contém o valor codificado Base64Url do ID da família do enclave. O identificador da família do módulo primário para o enclave.
-- **enclaveSvn**: Valor inteiro contendo o número da versão de segurança do módulo primário para o enclave.
-- **enclavePlatformSvn**: Valor inteiro contendo o número de versão de segurança da plataforma que acolhe o enclave.
-- **enclaveFlags**: A alegação do enclaveFlags é um valor inteiro contendo bandeiras que descrevem a política de tempo de execução para o enclave.
-  
-### <a name="outgoing-claims-specific-to-tpm-attestation"></a>Reclamações de saída específicas do atestado TPM
+Reclamações emitidas pela Azure Attestation para atestado TPM. A disponibilidade dos créditos depende dos elementos de prova previstos para o atestado.
 
-- **policy_hash**: Valor de cadeia contendo hash SHA256 do texto de política calculado por BASE64URL (SHA256 (BASE64URL(UTF8(texto de política))).
-- **policy_signer**: Contém um JWK com a chave pública ou a cadeia de certificados presente no cabeçalho de política assinado.
-- **ver (Versão)**: Valor de cadeia contendo versão do relatório. Atualmente 1.0.
-- **cnf (Confirmação) Reivindicação**: A alegação "cnf" é utilizada para identificar a chave de prova de posse. As alegações de confirmação, tal como definidas no RFC 7800, contêm a parte pública da chave de enclave atesta representada como um objeto JSON Web Key (JWK) (RFC 7517).
-- **rp_data (dados da parte)**: Confiar nos dados das partes, se houver, especificados no pedido, utilizados pela parte que conta como um nó para garantir a frescura do relatório.
-- **"jti" (JWT ID) Claim**: A alegação "jti" (JWT ID) fornece um identificador único para o JWT. O valor do identificador é atribuído de uma forma que garante que existe uma probabilidade negligenciável de que o mesmo valor será acidentalmente atribuído a um objeto de dados diferente.
+- **aikValidated**: Valor booleano contendo informações se a chave de identidade atesta (AIK) cert tiver sido validada ou não
+- **aikPubHash**: Cadeia contendo a base64 (chave pública AIK em formato DER))
+- **tpmVersion**: Valor inteiro contendo a versão principal do Módulo plataforma fidedigna (TPM)
+- **secureBootEnabled**: Valor booleano para indicar se a bota segura está ativada
+- **iommuEnabled**: Valor booleano para indicar se a unidade de gestão da memória de saída de entrada (Iommu) está ativada
+- **bootDebuggingDisabled**: Valor booleano para indicar se a depuração de botas é desativada
+- **notSafeMode**: Valor booleano para indicar se o Windows não está a funcionar em modo de segurança
+- **notWinPE**: Valor booleano indicando se o Windows não está a funcionar no modo WinPE
+- **vbsEnabled**: Valor booleano indicando se VBS está ativado
+- **vbsReportPresent**: Valor booleano indicando se o relatório do enclave VBS está disponível
+
+### <a name="incoming-claims-for-vbs-attestation"></a>Pedidos de entrada para atestado vBS
+
+As reclamações emitidas pela Azure Attestation para atestado VBS são para além das reclamações disponibilizadas para atestado de TPM. A disponibilidade dos créditos depende dos elementos de prova previstos para o atestado.
+
+- **enclaveAuthorId**: Valor de corda que contém o valor codificado Base64Url do id-O identificador autor do módulo primário para o enclave
+- **enclaveImageId**: Valor de corda que contém o valor codificado Base64Url do id-Imagem do enclave O identificador de imagem do módulo primário para o enclave
+- **enclaveOwnerId**: Valor de corda que contém o valor codificado Base64Url do id proprietário do enclave O identificador do proprietário para o enclave
+- **enclaveFamilyId**: Valor de corda que contém o valor codificado Base64Url do ID da família do enclave. O identificador da família do módulo primário para o enclave
+- **enclaveSvn**: Valor inteiro contendo o número da versão de segurança do módulo primário para o enclave
+- **enclavePlatformSvn**: Valor inteiro contendo o número da versão de segurança da plataforma que acolhe o enclave
+- **enclaveFlags**: A reivindicação do enclaveFlags é um valor inteiro contendo bandeiras que descrevem a política de tempo de execução para o enclave
+
+### <a name="outgoing-claims-specific-to-tpm-and-vbs-attestation"></a>Reclamações de saída específicas do atestado de TPM e VBS
+
+- **cnf (Confirmação)**: A alegação "cnf" é utilizada para identificar a chave de prova de posse. A alegação de confirmação, tal como definida no RFC 7800, contém a parte pública da chave de enclave atesta representada como um objeto JSON Web Key (JWK) (RFC 7517)
+- **rp_data (dados da parte)**: Confiar nos dados das partes, se houver, especificados no pedido, utilizados pela parte que conta como um nó para garantir a frescura do relatório. rp_data só é adicionado se houver rp_data
 
 ### <a name="property-claims"></a>Reclamações imobiliárias
 
@@ -137,6 +145,6 @@ maa-atesstationcollateral | x-ms-sgx-colateral
   - **Valor máximo(tempo)**: Um ano em minutos.
 - **omit_x5c**: Uma alegação booleana que indique se o Azure Attestation deve omitir o certificado utilizado para fornecer um comprovativo da autenticidade do serviço. Se for verdade, x5t será adicionado ao token do atestado. Se falso(predefinitivo), x5c será adicionado ao token do atestado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - [Como autor e assinar uma política de atestado](author-sign-policy.md)
 - [Configurar a Azure Attestation usando o PowerShell](quickstart-powershell.md)

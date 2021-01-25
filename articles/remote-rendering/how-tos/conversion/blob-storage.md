@@ -5,16 +5,16 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: 96a2fde3e510c6eb7146da9c92d93f69111e8c80
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: cfc10658463888e43ea1a24dfefd3f8939ec8ef7
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92206548"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762774"
 ---
 # <a name="use-azure-blob-storage-for-model-conversion"></a>Utilizar o Armazenamento de Blobs do Azure para conversão de modelos
 
-O serviço [de conversão de modelos](model-conversion.md) requer acesso ao armazenamento de blob Azure para que possa recuperar dados de entrada e armazenar dados de saída. Este artigo descreve como fazer os passos mais comuns.
+O serviço [de conversão de modelos](model-conversion.md) requer acesso ao Azure Blob Storage para que possa recuperar dados de entrada e armazenar dados de saída. Este artigo descreve como fazer os passos mais comuns.
 
 ## <a name="prepare-azure-storage-accounts"></a>Preparar contas de armazenamento Azure
 
@@ -29,7 +29,7 @@ A criação da conta de armazenamento e dos recipientes blob pode ser feita com 
 
 - [Portal do Azure](https://portal.azure.com)
 - [linha de comando az](/cli/azure/install-azure-cli?view=azure-cli-latest)
-- [Explorador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/)
+- [Explorador do Storage do Azure](https://azure.microsoft.com/features/storage-explorer/)
 - SDKs (C#, Python ... )
 
 ## <a name="ensure-azure-remote-rendering-can-access-your-storage-account"></a>Certifique-se de que a Renderização Remota Azure pode aceder à sua conta de armazenamento
@@ -53,7 +53,7 @@ Um SAS URI pode ser gerado usando um dos seguintes:
 - módulo PowerShell az
   - ver o [exemplo Scripts PowerShell](../../samples/powershell-example-scripts.md)
 - [linha de comando az](/cli/azure/install-azure-cli?view=azure-cli-latest)
-- [Explorador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/)
+- [Explorador do Storage do Azure](https://azure.microsoft.com/features/storage-explorer/)
   - clique no recipiente "Obter Assinatura de Acesso Partilhado" (ler, listar o acesso ao recipiente de entrada, escrever acesso para recipiente de saída)
 - SDKs (C#, Python ... )
 
@@ -80,7 +80,7 @@ Por exemplo, para recuperar um SAS URI através do [Azure Storage Explorer,](htt
 
 É necessária uma Assinatura de Acesso Partilhado (SAS) para carregar modelos se não tiver ligado a sua conta de armazenamento à sua conta de renderização remota Azure. Pode aprender a ligar a sua conta na [Criar uma Conta.](../create-an-account.md#link-storage-accounts)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Configurar a conversão do modelo](configure-model-conversion.md)
 - [A conversão do modelo REST API](conversion-rest-api.md)

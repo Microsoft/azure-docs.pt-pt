@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 12/07/2020
-ms.openlocfilehash: 7c15b3a854b533d93bc05f7e5302671711da75c2
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.date: 01/22/2021
+ms.openlocfilehash: a4d1543c5c4ce7a44825a879b838e7829b8c84fd
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936129"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98760634"
 ---
 # <a name="overview-azure-logic-apps-preview"></a>Visão geral: Pré-visualização de apps da Azure Logic Apps
 
@@ -139,6 +139,8 @@ A Azure Logic Apps Preview inclui muitas capacidades atuais e adicionais, por ex
 
 * Habilita capacidades de registo e rastreio de diagnósticos para a sua aplicação lógica utilizando [o Application Insights](../azure-monitor/app/app-insights-overview.md) quando suportado pelas definições de subscrição e aplicação lógica do Azure.
 
+* Regenerar chaves de acesso para ligações geridas utilizadas por fluxos de trabalho individuais num recurso **de Aplicação Lógica (Preview).** Para esta tarefa, [siga os mesmos passos para o recurso **Logic Apps** mas ao nível do fluxo de trabalho individual](logic-apps-securing-a-logic-app.md#regenerate-access-keys), não ao nível de recursos de aplicações lógicas.
+
 > [!NOTE]
 > Para obter informações sobre os problemas atuais conhecidos, reveja a [página de Questões Conhecidas de Pré-Visualização Pública de Aplicações Lógicas no GitHub](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md).
 
@@ -165,7 +167,7 @@ Para obter mais informações sobre os modelos de preços aplicáveis a este nov
 
 ## <a name="changed-limited-unavailable-or-unsupported-capabilities"></a>Capacidades alteradas, limitadas, indisponíveis ou não suportadas
 
-Na pré-visualização de apps Azure Logic, estas capacidades têm mudanças, ou estão atualmente limitadas, indisponíveis ou não suportadas:
+Na pré-visualização de apps Azure Logic, estas capacidades mudaram, ou estão atualmente limitadas, indisponíveis ou não suportadas:
 
 * **Gatilhos e ações**: Alguns gatilhos incorporados não estão disponíveis, tais como janela deslizante e lote. Para iniciar o seu fluxo de trabalho, utilize o [recorrence incorporado, request, HTTP, HTTP Webhook, Event Hubs ou Service Bus trigger](../connectors/apis-list.md). Os gatilhos e ações incorporados são executados de forma nativa no tempo de pré-visualização das aplicações lógicas Azure, enquanto os conectores geridos são implantados em Azure. No designer, os gatilhos e ações incorporados aparecem sob o separador **Incorporado,** enquanto os gatilhos e ações geridos aparecem sob o separador **Azure.**
 
@@ -259,7 +261,7 @@ Para uma definição de aplicação lógica única, a ação Inline Code Operati
 
 Para obter mais informações, consulte [os limites de definição de aplicações logicos.](logic-apps-limits-and-config.md#definition-limits)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Criar fluxos de trabalho apátridas e apátridas no portal Azure](create-stateful-stateless-workflows-azure-portal.md)
 * [Criar fluxos de trabalho apátridas e apátridas no Código do Estúdio Visual](create-stateful-stateless-workflows-visual-studio-code.md)

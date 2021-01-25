@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 01/04/2021
+ms.date: 01/22/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro R so I can use it to transfer data to Azure.
-ms.openlocfilehash: dd0b6833c4c51c218497cea4fec04390200edff4
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 5c668783232533098822cca982f1af9008f13640
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935361"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98761722"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-r"></a>Tutorial: Prepare-se para implementar Azure Stack Edge Pro R
 
@@ -22,7 +22,7 @@ Este tutorial é o primeiro da série de tutoriais de implementação que são n
 
 Necessita de privilégios de administrador para concluir o processo de instalação e configuração. A preparação do portal demora menos de 10 minutos.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 >
@@ -142,15 +142,18 @@ Para criar um recurso Azure Stack Edge, tome os seguintes passos no portal Azure
 
 11. Selecione **Criar**.
 
-A criação do recurso demora alguns minutos. Também é criado um MSI que permite que o dispositivo Azure Stack Edge comunique com o fornecedor de recursos em Azure.
+    A criação do recurso demora alguns minutos. Também é criado um MSI que permite que o dispositivo Azure Stack Edge comunique com o fornecedor de recursos em Azure.
 
-Depois de o recurso ser criado e implementado com sucesso, é notificado. Selecione **Ir para recurso**.
+    Depois de o recurso ser criado e implementado com sucesso, é notificado. Selecione **Ir para recurso**.
 
-![Vá ao recurso Azure Stack Edge Pro](media/azure-stack-edge-pro-r-deploy-prep/azure-stack-edge-resource-1.png)
+    ![Vá ao recurso Azure Stack Edge Pro](media/azure-stack-edge-pro-r-deploy-prep/azure-stack-edge-resource-1.png)
 
 Após a encomenda ser feita, a Microsoft revê a encomenda e contacta-o (via e-mail) com detalhes de envio.
 
 <!--![Notification for review of the Azure Stack Edge Pro order](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-2.png) - If this is restored, it must go above "After the resource is successfully created." The azure-stack-edge-resource-1.png would seem superfluous in that case.--> 
+
+> [!NOTE]
+> Se pretender criar várias encomendas ao mesmo tempo ou clonar uma encomenda existente, pode utilizar os [scripts em Amostras Azure](https://github.com/Azure-Samples/azure-stack-edge-order). Para mais informações, consulte o ficheiro README.
 
 Se encontrar problemas durante o processo de encomenda, consulte [problemas de ordem de resolução de problemas](azure-stack-edge-troubleshoot-ordering.md).
 
@@ -174,7 +177,7 @@ Depois de o recurso Azure Stack Edge estar a funcionar, terás de obter a chave 
 > - A chave de ativação expira três dias após a sua geração.
 > - Se a chave tiver expirado, gere uma nova chave. A chave mais antiga não é válida.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, você aprendeu sobre tópicos Azure Stack Edge tais como:
 

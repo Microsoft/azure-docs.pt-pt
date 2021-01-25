@@ -2,14 +2,14 @@
 title: Disponibilidade e consistência - Azure Event Hubs | Microsoft Docs
 description: Como fornecer a quantidade máxima de disponibilidade e consistência com os Azure Event Hubs usando divisórias.
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 01/25/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7b97d76f29ee8b7e44373c865baa09ba5ea4dd23
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 5ffa2df992eb0c22aafbbb7436250405998d8073
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98631924"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762805"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Disponibilidade e consistência em Hubs de Eventos
 
@@ -22,6 +22,11 @@ O teorema de Brewer define consistência e disponibilidade da seguinte forma:
 * Tolerância à partição: a capacidade de um sistema de processamento de dados continuar a processar dados mesmo que ocorra uma falha de partição.
 * Disponibilidade: um nó não falha devolve uma resposta razoável dentro de um período de tempo razoável (sem erros ou intervalos).
 * Consistência: uma leitura é garantida para devolver a escrita mais recente para um determinado cliente.
+
+> [!NOTE]
+> O termo **partição** é usado em diferentes contextos em Centros de Eventos e teorema cap. 
+> - **O Event Hubs** organiza eventos em uma ou mais divisórias. As partições são independentes e contêm a sua própria sequência de dados, muitas vezes crescem a ritmos diferentes. Para mais informações, consulte [As Divisórias.](event-hubs-features.md#partitions)
+> - No **teorema da CAP,** uma divisória é uma rutura de comunicações entre nós num sistema distribuído.
 
 ## <a name="partition-tolerance"></a>Tolerância à partição
 Os Centros de Eventos são construídos em cima de um modelo de dados dividido. Pode configurar o número de divisórias no seu centro de eventos durante a configuração, mas não pode alterar este valor mais tarde. Uma vez que tem de usar divisórias com os Centros de Eventos, tem de tomar uma decisão sobre disponibilidade e consistência para a sua aplicação.
@@ -141,7 +146,7 @@ await producer.SendAsync(data);
 
 Este exemplo envia o seu evento para uma das divisórias disponíveis no seu centro de eventos e define o número de sequência correspondente a partir da sua aplicação. Esta solução requer que o estado seja mantido pela sua aplicação de processamento, mas dá aos seus remetentes um ponto final mais provável de estar disponível.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Pode saber mais sobre os Hubs de Eventos ao aceder às seguintes ligações:
 
 * [Visão geral do serviço do Event Hubs](./event-hubs-about.md)

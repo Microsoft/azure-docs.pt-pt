@@ -1,5 +1,5 @@
 ---
-title: Dados de exportação da Azure IoT Central Microsoft Docs
+title: Dados de exportação da Azure IoT Central | Microsoft Docs
 description: Como utilizar os novos dados exportam para exportar os seus dados IoT para destinos em nuvem Azure e personalizados.
 services: iot-central
 author: viv-liu
@@ -8,12 +8,12 @@ ms.date: 11/05/2020
 ms.topic: how-to
 ms.service: iot-central
 ms.custom: contperf-fy21q1, contperf-fy21q3
-ms.openlocfilehash: 3079b8384a24642322d6f6eb86e2ca7f0927db15
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 74de0481bf6786d245fb96f5d102ab72a00031c8
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98065393"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98760908"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>Exportar dados de IoT para destinos em nuvem usando exportação de dados
 
@@ -36,11 +36,13 @@ Pode, por exemplo:
 
 Para utilizar as funcionalidades de exportação de dados, tem de ter uma [aplicação V3,](howto-get-app-info.md)e tem de ter a permissão [de exportação de Dados.](howto-manage-users-roles.md)
 
+Se tiver uma aplicação V2, consulte [a sua aplicação V2 IoT Central para V3](howto-migrate.md).
+
 ## <a name="set-up-export-destination"></a>Configurar destino de exportação
 
 O seu destino de exportação deve existir antes de configurar a sua exportação de dados. Os seguintes tipos de destino estão atualmente disponíveis:
 
-- Hubs de Eventos do Azure
+- Azure Event Hubs
 - Fila do Azure Service Bus
 - Tópico do Azure Service Bus
 - Armazenamento de Blobs do Azure

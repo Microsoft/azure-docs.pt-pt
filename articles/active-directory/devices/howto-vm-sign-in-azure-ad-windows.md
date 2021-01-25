@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions, devx-track-azurecli
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22a4bdc92ea2a91425c1070a5837c672307de665
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 3e22e5fc4bc7211d905dbe8775b0ef6e893bd2cc
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98683781"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98760999"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Iniciar sedutação na máquina virtual do Windows em Azure utilizando a autenticação do Azure Ative Directory (Preview)
 
@@ -39,7 +39,7 @@ Existem muitos benefícios em utilizar a autenticação AD AZure para iniciar se
 > [!NOTE]
 > Assim que ativar esta capacidade, os seus VMs windows em Azure serão aderidos ao Azure AD. Não pode junção a outros domínios, como AD ou AD DS Azure. Se precisar de o fazer, terá de desligar o VM do seu inquilino AZure AD desinstalando a extensão.
 
-## <a name="requirements"></a>Requisitos
+## <a name="requirements"></a>Requirements
 
 ### <a name="supported-azure-regions-and-windows-distributions"></a>Regiões de Azure apoiadas e distribuição do Windows
 
@@ -350,7 +350,9 @@ Verifique se o PC Windows 10 que está a utilizar para iniciar a ligação remot
 > [!NOTE]
 > O Windows 10 Build 20H1 adicionou suporte para um PC AD registado no Azure para iniciar a ligação RDP ao seu VM. Ao utilizar um AD AZure registado (não a Azure AD ligado ou híbrido Azure AD) PC como cliente RDP para iniciar ligações ao seu VM, deve introduzir credenciais no formato AzureAD\UPn (por AzureAD\john@contoso.com exemplo).
 
-Além disso, verifique se a extensão AADLoginForWindows não foi desinstalada após a junção AD do Azure ter terminado.
+Verifique se a extensão AADLoginForWindows não foi desinstalada após a junção AD do Azure ter terminado.
+
+Além disso, certifique-se de que a política de segurança "Segurança da rede: permitir que os pedidos de autenticação PKU2U a este computador utilizem identidades online" esteja ativada tanto no *servidor* como no cliente.
  
 #### <a name="mfa-sign-in-method-required"></a>Método de inscrição do MFA necessário
 
@@ -371,6 +373,6 @@ Se não tiver implementado o Windows Hello for Business e se isso não for uma o
 
 Partilhe o seu feedback sobre esta funcionalidade de pré-visualização ou informe os problemas que o utilizam no fórum de feedback da [AD Azure](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para mais informações sobre o Diretório Ativo Azure, consulte [o que é o Diretório Ativo Azure](../fundamentals/active-directory-whatis.md)

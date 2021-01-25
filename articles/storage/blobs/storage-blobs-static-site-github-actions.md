@@ -9,16 +9,16 @@ ms.reviewer: dineshm
 ms.date: 01/11/2021
 ms.subservice: blobs
 ms.custom: devx-track-javascript, github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: d8727bd747ef6d035cabbccf2ad42b80937a06a8
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: d3aa0ca83b28708fde81cba12993ac6e79e79a88
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98180205"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98760612"
 ---
 # <a name="set-up-a-github-actions-workflow-to-deploy-your-static-website-in-azure-storage"></a>Crie um fluxo de trabalho de GitHub Actions para implementar o seu website estático no Azure Storage
 
-Inicie com [as ações do GitHub](https://docs.github.com/en/free-pro-team@latest/actions) usando um fluxo de trabalho para implantar um site estático numa conta de armazenamento Azure. Uma vez configurado um fluxo de trabalho gitHub Actions, poderá implementar automaticamente o seu site para Azure a partir do GitHub quando escoar alterações ao código do seu site.
+Inicie com [as ações do GitHub](https://docs.github.com/en/actions) usando um fluxo de trabalho para implantar um site estático numa conta de armazenamento Azure. Uma vez configurado um fluxo de trabalho gitHub Actions, poderá implementar automaticamente o seu site para Azure a partir do GitHub quando escoar alterações ao código do seu site.
 
 > [!NOTE]
 > Se estiver a utilizar [aplicações web estáticas Azure](../../static-web-apps/index.yml), então não precisa de configurar manualmente um fluxo de trabalho gitHub Actions.
@@ -185,7 +185,7 @@ No exemplo acima, substitua os espaços reservados pelo seu ID de subscrição e
 
 Quando o seu site estático e o repositório GitHub já não forem necessários, limpe os recursos que implementou eliminando o grupo de recursos e o seu repositório GitHub. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre Azure Static Web Apps](../../static-web-apps/index.yml)

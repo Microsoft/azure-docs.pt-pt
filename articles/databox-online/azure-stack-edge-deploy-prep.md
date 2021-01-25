@@ -1,20 +1,20 @@
 ---
-title: Tutorial para preparar portal Azure, ambiente do datacenter para implantar O Azure Stack Edge Pro Microsoft Docs
+title: Tutorial para preparar portal Azure, ambiente do datacenter para implementar Azure Stack Edge Pro | Microsoft Docs
 description: O primeiro tutorial sobre a implementação do Azure Stack Edge Pro envolve a preparação do portal Azure.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 01/06/2021
+ms.date: 01/22/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: aabc141666fe5c9fb52a3eac5ee1866f390e4551
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 07b526d443b5f1b41bc6f811b7cccc0fbc6165ee
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968503"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98761714"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro"></a>Tutorial: Prepare-se para implementar Azure Stack Edge Pro  
 
@@ -118,14 +118,14 @@ Para criar um recurso Azure Stack Edge, tome os seguintes passos no portal Azure
 
     |Definição  |Valor  |
     |---------|---------|
-    |Nome   | Um nome amigável para identificar o recurso.<br>O nome tem entre 2 e 50 carateres que contêm letras, números e hífenes.<br> O nome começa e termina com uma letra ou um número.        |
-    |Região     |Para obter uma lista de todas as regiões onde o recurso Azure Stack Edge está disponível, consulte [os produtos Azure disponíveis por região.](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all) Se utilizar o Governo de Azure, todas as regiões governamentais estão disponíveis, como mostra as regiões de [Azure.](https://azure.microsoft.com/global-infrastructure/regions/)<br> Escolha uma localização mais próxima da região geográfica onde pretende implementar o dispositivo.|
+    |Nome   | Um nome amigável para identificar o recurso.<br>O nome tem de 2 e 50 caracteres, incluindo letras, números e hífenes.<br> O nome começa e termina com uma letra ou um número.        |
+    |Region     |Para obter uma lista de todas as regiões onde o recurso Azure Stack Edge está disponível, consulte [os produtos Azure disponíveis por região.](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all) Se utilizar o Governo de Azure, todas as regiões governamentais estão disponíveis, como mostra as regiões de [Azure.](https://azure.microsoft.com/global-infrastructure/regions/)<br> Escolha uma localização mais próxima da região geográfica onde pretende implementar o dispositivo.|
 
     ![Detalhes do projeto e da instância](media/azure-stack-edge-deploy-prep/data-box-edge-resource.png)
 
 5. Selecione **Seguinte: Endereço de envio**.
 
-    - Se já tiver um dispositivo, selecione a caixa de combinação para **eu ter um dispositivo Azure Stack Edge Pro**.
+    - Se já tiver um dispositivo, selecione a caixa de combinação para **eu ter um dispositivo Azure Stack Edge**.
     - Se este for o novo dispositivo que está a encomendar, insira o nome de contacto, a empresa, o endereço para enviar o dispositivo e as informações de contacto.
 
     ![Endereço de envio para novo dispositivo](media/azure-stack-edge-deploy-prep/data-box-edge-resource1.png)
@@ -138,13 +138,17 @@ Para criar um recurso Azure Stack Edge, tome os seguintes passos no portal Azure
 
 8. Selecione **Criar**.
 
-A criação do recurso demora alguns minutos. Depois de o recurso ser criado e implementado com sucesso, é notificado. Selecione **Ir para recurso**.
+   A criação do recurso demora alguns minutos. Depois de o recurso ser criado e implementado com sucesso, é notificado. Selecione **Ir para recurso**.
 
-![Vá ao recurso Azure Stack Edge](media/azure-stack-edge-deploy-prep/data-box-edge-resource3.png)
+   ![Vá ao recurso Azure Stack Edge](media/azure-stack-edge-deploy-prep/data-box-edge-resource3.png)
 
 Após a encomenda ser feita, a Microsoft revê a encomenda e contacta-o (via e-mail) com detalhes de envio.
 
 ![Notificação para revisão da encomenda Azure Stack Edge Pro](media/azure-stack-edge-deploy-prep/data-box-edge-resource4.png)
+
+
+> [!NOTE]
+> Se pretender criar várias encomendas ao mesmo tempo ou clonar uma encomenda existente, pode utilizar os [scripts em Amostras Azure](https://github.com/Azure-Samples/azure-stack-edge-order). Para mais informações, consulte o ficheiro README.
 
 ## <a name="get-the-activation-key"></a>Obter a chave de ativação
 
@@ -163,7 +167,7 @@ Depois de o recurso Azure Stack Edge estar a funcionar, terás de obter a chave 
 > * A chave de ativação expira três dias após a sua geração.
 > * Se a chave tiver expirado, gere uma nova chave. A chave mais antiga não é válida.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, você aprendeu sobre tópicos Azure Stack Edge Pro tais como:
 

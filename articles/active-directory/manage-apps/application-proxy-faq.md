@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 49388ee75fa3e5570a906998fdeaa579208fd636
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: f1a1d43f9bfc960628447a3c20e7dab2ac701dc5
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97588595"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762572"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Diretório Ativo (Azure AD) Aplicação Proxy frequentemente perguntas
 
@@ -102,6 +102,10 @@ Aqui ficam algumas dicas para resolver problemas com este erro:
 
 O comprimento predefinido é de 85 segundos. A definição "longa" é de 180 segundos. O prazo não pode ser prorrogado.
 
+### <a name="can-a-service-principal-manage-application-proxy-using-powershell-or-microsoft-graph-apis"></a>Um chefe de serviço pode gerir o Application Proxy utilizando APIs powershell ou Microsoft Graph?
+
+Não, atualmente isto não é apoiado.
+
 ### <a name="how-do-i-change-the-landing-page-my-application-loads"></a>Como posso alterar a página de aterragem que a minha aplicação carrega?
 
 A partir da página 'Registos de Candidaturas', pode alterar o URL da página inicial para o URL externo pretendido da página de aterragem. A página especificada será carregada quando a aplicação for lançada a partir das Minhas Apps ou do Portal do Office 365. Para etapas de configuração, consulte [Definir uma página inicial personalizada para aplicações publicadas utilizando o Azure AD Application Proxy](./application-proxy-configure-custom-home-page.md)
@@ -179,7 +183,7 @@ A [aplicação móvel SharePoint](/sharepoint/administration/supporting-the-shar
 
 ### <a name="can-i-use-azure-ad-application-proxy-as-ad-fs-proxy-like-web-application-proxy"></a>Posso usar o Azure AD Application Proxy como proxy AD FS (como o Proxy de Aplicações Web)?
 
-N.º O Azure AD Application Proxy foi concebido para trabalhar com a Azure AD e não preenche os requisitos para agir como um representante da AD FS.
+Não. O Azure AD Application Proxy foi concebido para trabalhar com a Azure AD e não preenche os requisitos para agir como um representante da AD FS.
 
 ## <a name="websocket"></a>WebSocket
 

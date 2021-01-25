@@ -6,20 +6,20 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 01/18/2021
-ms.openlocfilehash: 9521c13b21317bb0a782b0bea0b08312ff24b113
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: c3e6408a6a3473380edbe2966eba41970bd73562
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98610357"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762754"
 ---
-# <a name="errors-in-the-connector-status"></a>Erros no estado do conector
+# <a name="errors-in-the-connector-status-section"></a>Erros na secção de estado do conector
 
-Na lista de estado do conector pode encontrar erros que o podem ajudar a corrigir problemas no seu conector ITSM.
+Na secção de estado do conector no painel de instrumentos pode encontrar erros que o podem ajudar a corrigir problemas no seu conector ITSM.
 
 ## <a name="status-common-errors"></a>Erros comuns do estado
 
-nesta secção pode encontrar os erros comuns apresentados na secção de estado do conector e como deve resolvê-lo:
+Nesta secção pode encontrar os erros comuns apresentados na secção de estado do conector e como deve resolvê-los:
 
 * **Erro**: "Resposta inesperada do ServiceNow juntamente com o código de estado de sucesso. Resposta: { "import_set": "{import_set_id}", "staging_table": "x_mioms_microsoft_oms_incident", "resultado": [ {"transform_map": "Incidente OMS", "tabela": "incidente", "estado": "erro", "error_message": "{Registo de alvo não encontrado| Mesa inválida| Mesa de encenação inválida" }"
 
@@ -27,7 +27,7 @@ nesta secção pode encontrar os erros comuns apresentados na secção de estado
   * Um script personalizado implementado no caso ServiceNow faz com que os incidentes sejam ignorados.
   * O próprio código "OMS Integrator App" foi modificado no lado do ServiceNow, por exemplo, no script onBefore.
 
-  **Resolução**: Desative todos os scripts personalizados ou modificações de código da trajetória de importação de dados.
+  **Resolução**: Desative todos os scripts personalizados ou modificações de código.
 
 * **Erro**: "{"error":{"message":"Operation Failed", "detail":"A ACL Exception Update Failed due to security constraints"}"
 
@@ -58,7 +58,7 @@ nesta secção pode encontrar os erros comuns apresentados na secção de estado
     **Causa**: O conector ITSM foi eliminado.
 
     **Resolução**: O conector ITSM foi suprimido, mas ainda existem grupos de ação ITSM definidos. Existem 2 opções para resolver este problema:
-  * Localizar e desativar ou apagar tal ação
+  * Localizar e desativar ou eliminar tais grupos de ação
   * [Reconfigure o grupo de ação](./itsmc-definition.md#create-itsm-work-items-from-azure-alerts) para utilizar um conector ITSM existente.
   * [Crie um novo conector ITSM](./itsmc-definition.md#create-an-itsm-connection) e [reconfigure o grupo de ação para o utilizar](itsmc-definition.md#create-itsm-work-items-from-azure-alerts).
 

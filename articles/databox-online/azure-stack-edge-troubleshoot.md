@@ -1,19 +1,19 @@
 ---
-title: Use o portal Azure para resolver problemas Azure Stack Edge Pro Microsoft Docs
+title: Utilize o portal Azure para resolver problemas no Azure Stack Edge Pro | Microsoft Docs
 description: Saiba como resolver problemas no seu Azure Stack Edge Pro. Pode executar diagnósticos, recolher informações para suporte e usar registos para resolver problemas.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 08/11/2020
+ms.date: 01/21/2021
 ms.author: alkohli
-ms.openlocfilehash: f668136713024ba57d72bf5a457cd249742a3b11
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09325289dd5cb83bfc26dd26b266d50b622fe098
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91742031"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98763083"
 ---
 # <a name="troubleshoot-your-azure-stack-edge-pro-issues"></a>Resolução de problemas dos seus problemas Azure Stack Edge Pro
 
@@ -26,6 +26,7 @@ Neste artigo, vai aprender a:
 > * Executar diagnósticos
 > * Recolher pacote de Suporte
 > * Utilizar registos para resolução de problemas
+> * Erros de IoT Edge de resolução de problemas
 
 ## <a name="run-diagnostics"></a>Executar diagnósticos
 
@@ -82,6 +83,10 @@ Quaisquer erros ocorridos durante os processos de carregamento e atualização s
 
     [!INCLUDE [data-box-edge-edge-upload-error-reference](../../includes/data-box-edge-gateway-upload-error-reference.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="troubleshoot-iot-edge-errors"></a>Erros de IoT Edge de resolução de problemas
+
+[!INCLUDE [Troubleshoot IoT Edge runtime](../../includes/azure-stack-edge-iot-troubleshoot-compute.md)]
+
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre os [problemas conhecidos nesta versão](data-box-gateway-release-notes.md).

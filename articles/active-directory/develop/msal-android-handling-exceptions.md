@@ -1,5 +1,5 @@
 ---
-title: Erros e exceções (MSAL Android) Rio Azure
+title: Erros e exceções (MSAL Android) | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como lidar com erros e exceções, Acesso Condicional e reclama desafios em aplicações MSAL Android.
 services: active-directory
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/07/2020
 ms.author: hahamil
 ms.reviewer: marsma
-ms.openlocfilehash: f40c2bb0f529f9e0683c67bea884443458707f4f
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 4185206e92a78c2684ba1690f03700ef2532cc5e
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92206599"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98761385"
 ---
 # <a name="handle-exceptions-and-errors-in-msal-for-android"></a>Lidar com exceções e erros no MSAL para Android
 
@@ -75,6 +75,6 @@ private SilentAuthenticationCallback getAuthSilentCallback() {
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Saiba mais sobre [erros de registo](./msal-logging.md?tabs=android)
+Saiba mais sobre [iniciar sessão no MSAL para Android.](msal-logging-android.md)

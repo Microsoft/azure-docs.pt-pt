@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Troubleshoot Pass-through Authentication / Microsoft Docs'
+title: 'Azure AD Connect: Troubleshoot Pass-through Authentication | Microsoft Docs'
 description: Este artigo descreve como resolver problemas com a autenticação pass-through do Azure Ative Directory (Azure AD).
 services: active-directory
 keywords: Resolução de problemas Ad Connect Authentication, instalar Ative Directory, componentes necessários para Azure AD, SSO, Single Sign-on
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 07/27/2020
+ms.date: 01/25/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 251f9a2b075189f19b9e943ff660baaba93ec33b
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 9a014bd5c8f1edbfb00019b8541cef552271d65b
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97652046"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762852"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Resolver problemas da Autenticação Pass-through do Azure Active Directory
 
@@ -157,7 +157,7 @@ Para erros relacionados com o Agente de Autenticação, abra a aplicação do Ob
 
 Para análises detalhadas, ative o registo "Session" (clique à direita dentro da aplicação 'Espectador de Eventos' para encontrar esta opção). Não execute o Agente de Autenticação com este registo ativado durante as operações normais; utilizar apenas para resolução de problemas. O conteúdo do registo só é visível depois de o registo ser novamente desativado.
 
-O manifesto do evento do agente PTA pode ser encontrado [aqui.](https://msazure.visualstudio.com/One/_git/AD-AppProxy?path=%2Fsrc%2FProduct%2FMUC%2FPTADiagnosticsResource%2FPTADiagnosticsResource%2FPTAConnectorDiagnosticsResource%2FPTAConnectorEventManifest.man&_a=contents&version=GBmaster)
+
 
 ### <a name="detailed-trace-logs"></a>Registos de vestígios detalhados
 

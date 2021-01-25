@@ -329,7 +329,7 @@
               href: msal-error-handling-dotnet.md
               displayName: 'handling, catch'
             - name: Registos no MSAL.NET
-              href: msal-logging.md?tabs=dotnet
+              href: msal-logging-dotnet.md
             - name: Adquirir um token da cache
               href: msal-net-acquire-token-silently.md
             - name: Serialização de cache de token
@@ -371,7 +371,7 @@
               href: msal-error-handling-js.md
               displayName: 'handling, catch'
             - name: Registos no MSAL.js
-              href: msal-logging.md?tabs=javascript
+              href: msal-logging-js.md
         - name: MSAL para iOS e macOS
           items:
             - name: Diferenças entre o MSAL para iOS e para macOS
@@ -401,7 +401,7 @@
               href: msal-error-handling-ios.md
               displayName: 'handling, catch'
             - name: Registos no MSAL para iOS/macOS
-              href: msal-logging.md?tabs=swift
+              href: msal-logging-ios.md
         - name: MSAL para Python
           items:
             - name: Personalizar serialização de cache de token
@@ -414,7 +414,7 @@
               href: msal-error-handling-python.md
               displayName: 'handling, catch'
             - name: Registos no MSAL para Python
-              href: msal-logging.md?tabs=python
+              href: msal-logging-python.md
         - name: MSAL para Java
           items:
             - name: Personalizar serialização de cache de token
@@ -429,7 +429,7 @@
               href: msal-error-handling-java.md
               displayName: 'handling, catch'
             - name: Registos no MSAL para Java
-              href: msal-logging.md?tabs=java
+              href: msal-logging-java.md
         - name: MSAL para Android
           items:
             - name: Contas e perfis de inquilino
@@ -449,7 +449,7 @@
               href: msal-android-handling-exceptions.md
               displayName: 'android, mobile, handling, catch'
             - name: Registos no MSAL para Android
-              href: msal-logging.md?tabs=android
+              href: msal-logging-android.md
     - name: Personalizar tokens e afirmações
       items:
         - name: Configurar afirmação de função

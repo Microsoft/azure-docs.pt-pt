@@ -7,16 +7,16 @@ ms.topic: article
 ms.date: 11/06/2020
 ms.author: atulmal
 ms.custom: github-actions-azure
-ms.openlocfilehash: d03acab340e593a925f042ca41f9e8967b468858
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 94134360de49a066f825cbb0c85712995d90b37f
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97605450"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98761462"
 ---
 # <a name="github-actions-for-deploying-to-kubernetes-service"></a>GitHub Actions para implantação no serviço Kubernetes
 
-[GitHub Actions](https://docs.github.com/en/free-pro-team@latest/actions) dá-lhe a flexibilidade para construir um fluxo de trabalho de ciclo de vida de desenvolvimento de software automatizado. Pode utilizar várias ações de Kubernetes para implantar em contentores desde o Registo de Contentores Azure até ao Serviço Azure Kubernetes com ações do GitHub. 
+[GitHub Actions](https://docs.github.com/en/actions) dá-lhe a flexibilidade para construir um fluxo de trabalho de ciclo de vida de desenvolvimento de software automatizado. Pode utilizar várias ações de Kubernetes para implantar em contentores desde o Registo de Contentores Azure até ao Serviço Azure Kubernetes com ações do GitHub. 
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
@@ -215,7 +215,7 @@ jobs:
 
 Quando o seu cluster Kubernetes, o registo de contentores e o repositório já não forem necessários, limpe os recursos que implementou eliminando o grupo de recursos e o seu repositório GitHub. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre o Serviço Azure Kubernetes](/azure/architecture/reference-architectures/containers/aks-start-here)

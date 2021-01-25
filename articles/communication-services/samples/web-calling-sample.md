@@ -9,12 +9,12 @@ ms.author: mariusu
 ms.date: 10/15/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 8faa6533ba4dc7fad61c045278c5504c5f78d900
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: a00f319c55665695879aac3c8ba711ce13fd5d4e
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888968"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98763048"
 ---
 # <a name="get-started-with-the-web-calling-sample"></a>Começar com a amostra de chamada web
 
@@ -27,7 +27,7 @@ A amostra de **chamada web** dos Serviços de Comunicação Azure demonstra como
 
 Neste quickstart da amostra, vamos aprender como a amostra funciona antes de passarmos a amostra na sua máquina local. Em seguida, enviaremos a amostra para Azure usando os seus próprios recursos dos Serviços de Comunicação Azure.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 A amostra de chamada web é uma aplicação web que serve como uma caminhada passo a passo através das várias capacidades fornecidas pela web services web call client library. 
 
@@ -86,7 +86,7 @@ Esta amostra também fornece fragmentos de código para as seguintes capacidades
   - Clicando em "Remover o participante" na lista de participantes para remover um participante específico da chamada
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 >[!div class="nextstepaction"] 
 >[Faça o download da amostra do GitHub](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/)
@@ -96,6 +96,7 @@ Para obter mais informações, veja os seguintes artigos:
 - Familiarize-se com [a utilização da biblioteca de clientes de chamadas](../quickstarts/voice-video-calling/calling-client-samples.md)
 - Saiba mais sobre [como funciona a chamada](../concepts/voice-video-calling/about-call-types.md)
 - Rever os [docs de referência da API](/javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js)
+- Reveja a amostra da [App Contoso Med](https://github.com/Azure-Samples/communication-services-contoso-med-app)
 
 ## <a name="additional-reading"></a>Leitura adicional
 

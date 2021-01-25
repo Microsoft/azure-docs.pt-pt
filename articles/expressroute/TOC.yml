@@ -4,7 +4,7 @@
   items:
     - name: O que é o ExpressRoute?
       href: expressroute-introduction.md
-- name: Guias de Início Rápido
+- name: Guias de Introdução
   items:
     - name: Criar um circuito do ExpressRoute - Portal
       href: expressroute-howto-circuit-portal-resource-manager.md
@@ -82,7 +82,7 @@
           href: about-upgrade-circuit-bandwidth.md
         - name: Mover circuitos da implementação clássica para Resource Manager
           href: expressroute-move.md
-    - name: Acerca dos gateways do ExpressRoute
+    - name: Sobre as portas expressRoute
       href: expressroute-about-virtual-network-gateways.md
     - name: Acerca do ExpressRoute FastPath
       href: about-fastpath.md

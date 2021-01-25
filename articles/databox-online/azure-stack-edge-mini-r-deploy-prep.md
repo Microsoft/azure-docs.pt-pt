@@ -1,20 +1,20 @@
 ---
-title: Tutorial para preparar portal Azure, ambiente do datacenter para implantar o dispositivo Azure Stack Edge Mini R Microsoft Docs
+title: Tutorial para preparar portal Azure, ambiente do datacenter para implantar o dispositivo Azure Stack Edge Mini R | Microsoft Docs
 description: O primeiro tutorial sobre a implementação do dispositivo Azure Stack Edge Mini R envolve a preparação do portal Azure.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 01/05/2021
+ms.date: 01/22/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Mini R device so I can use it to transfer data to Azure.
-ms.openlocfilehash: 4535368b7d8d044469a4b0effee914176aca78e4
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: b6745ed879f02a341027417b54eb459b5bfed705
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935412"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762949"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-mini-r"></a>Tutorial: Prepare-se para implantar O Azure Stack Edge Mini R
 
@@ -22,7 +22,7 @@ Este tutorial é o primeiro da série de tutoriais de implementação que são n
 
 Necessita de privilégios de administrador para concluir o processo de instalação e configuração. A preparação do portal demora menos de 10 minutos.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar um novo recurso
@@ -89,7 +89,7 @@ Para criar um recurso Azure Stack Edge, tome os seguintes passos no portal Azure
 1. Utilize as suas credenciais Microsoft Azure para iniciar súb9 no portal Azure neste URL: [https://portal.azure.com](https://portal.azure.com) .
 
 
-2. No painel esquerdo, selecione **+ Criar um recurso**. Procure e selecione **Azure Stack Edge / Data Box Gateway**. Selecione **Criar**. 
+2. No painel esquerdo, selecione **+ Create a resource** (+ Criar um recurso). Procure e selecione **Azure Stack Edge / Data Box Gateway**. Selecione **Criar**. 
 
 3. Escolha a subscrição que pretende utilizar para o dispositivo Azure Stack Edge Pro. Selecione o país para onde pretende enviar este dispositivo físico. Selecione **dispositivos Show**.
 
@@ -121,11 +121,11 @@ Para criar um recurso Azure Stack Edge, tome os seguintes passos no portal Azure
 
 7. Selecione **Seguinte: Endereço de envio**.
 
-    - Se já tem um dispositivo, selecione a caixa de combinação para **eu já ter um dispositivo**.
+   - Se já tem um dispositivo, selecione a caixa de combinação para **eu já ter um dispositivo**.
 
      ![Criar um recurso 5](media/azure-stack-edge-mini-r-deploy-prep/create-resource-5.png)
 
-    - Se este for o novo dispositivo que está a encomendar, insira o nome de contacto, a empresa, o endereço para enviar o dispositivo e as informações de contacto.
+   - Se este for o novo dispositivo que está a encomendar, insira o nome de contacto, a empresa, o endereço para enviar o dispositivo e as informações de contacto.
 
      ![Criar um recurso 6](media/azure-stack-edge-mini-r-deploy-prep/create-resource-6.png)
 
@@ -145,9 +145,12 @@ Para criar um recurso Azure Stack Edge, tome os seguintes passos no portal Azure
     
     ![Vá ao recurso Azure Stack Edge Pro](media/azure-stack-edge-mini-r-deploy-prep/azure-stack-edge-resource-1.png)
     
-    Após a encomenda ser feita, a Microsoft revê a encomenda e contacta-o (via e-mail) com detalhes de envio.
+Após a encomenda ser feita, a Microsoft revê a encomenda e contacta-o (via e-mail) com detalhes de envio.
 
-   Se encontrar problemas durante o processo de encomenda, consulte [problemas de ordem de resolução de problemas](azure-stack-edge-troubleshoot-ordering.md).
+> [!NOTE]
+> Se pretender criar várias encomendas ao mesmo tempo ou clonar uma encomenda existente, pode utilizar os [scripts em Amostras Azure](https://github.com/Azure-Samples/azure-stack-edge-order). Para mais informações, consulte o ficheiro README.
+
+Se encontrar problemas durante o processo de encomenda, consulte [problemas de ordem de resolução de problemas](azure-stack-edge-troubleshoot-ordering.md).
 
 ## <a name="get-the-activation-key"></a>Obter a chave de ativação
 
@@ -171,7 +174,7 @@ Depois de o recurso Azure Stack Edge estar a funcionar, terás de obter a chave 
 > - A chave de ativação expira três dias após a sua geração.
 > - Se a chave tiver expirado, gere uma nova chave. A chave mais antiga não é válida.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, você aprendeu sobre tópicos Azure Stack Edge tais como:
 

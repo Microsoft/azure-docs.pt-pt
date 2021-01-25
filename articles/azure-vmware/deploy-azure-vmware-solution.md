@@ -2,17 +2,20 @@
 title: Implementar e configurar a solução VMware Azure
 description: Saiba como utilizar as informações recolhidas na fase de planeamento para implementar a nuvem privada Azure VMware Solution.
 ms.topic: tutorial
-ms.date: 11/09/2020
-ms.openlocfilehash: 7e31b9236a3c75009d15bde35019036b6db55cab
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.date: 12/24/2020
+ms.openlocfilehash: f2b6f3c4ad82117fee96e0c2e5973a7011384d48
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861536"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98760891"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Implementar e configurar a solução VMware Azure
 
-Neste artigo, utilizará as informações da secção de [planeamento](production-ready-deployment-steps.md) para implementar a Solução VMware Azure. Se ainda não definiu a informação, volte à [secção de planeamento](production-ready-deployment-steps.md) antes de continuar.
+Neste artigo, utilizará as informações da secção de [planeamento](production-ready-deployment-steps.md) para implementar a Solução VMware Azure. 
+
+>[!IMPORTANT]
+>Se ainda não definiu a informação, volte à [secção de planeamento](production-ready-deployment-steps.md) antes de continuar.
 
 ## <a name="register-the-resource-provider"></a>Registar o fornecedor de recursos
 
@@ -36,19 +39,20 @@ Utilize as informações recolhidas no artigo [de implementação do Planeamento
 >[!IMPORTANT]
 >Se deixou a opção **Rede Virtual** em branco durante o passo inicial de provisionamento no ecrã Criar uma **Nuvem Privada,** preencha a rede de configuração para o seu tutorial [de nuvem privada VMware](tutorial-configure-networking.md) **antes** de prosseguir com esta secção.  
 
-Depois de implementar a Solução VMware Azure, irá criar a caixa de salto da rede virtual que se conecta ao vCenter e ao NSX. Depois de configurar os circuitos ExpressRoute e ExpressRoute Global Reach, a caixa de salto não é necessária.  Mas é útil chegar ao vCenter e NSX na sua Solução Azure VMware.  
+Depois de implementar a Solução VMware Azure, criará a caixa de salto da rede virtual que se conecta ao vCenter e ao NSX. Depois de configurar os circuitos ExpressRoute e ExpressRoute Global Reach, a caixa de salto não é necessária.  Mas é útil chegar ao vCenter e NSX na sua Solução Azure VMware.  
 
 :::image type="content" source="media/pre-deployment/jump-box-diagram.png" alt-text="Crie a caixa de salto Azure VMware Solution" border="false" lightbox="media/pre-deployment/jump-box-diagram.png":::
 
-Para criar uma máquina virtual (VM) na rede virtual que [identificou ou criou como parte do processo de implantação,](production-ready-deployment-steps.md#azure-virtual-network-to-attach-azure-vmware-solution)siga estas instruções: 
+Para criar uma máquina virtual (VM) na rede virtual que [identificou ou criou como parte do processo de implantação,](production-ready-deployment-steps.md#attach-virtual-network-to-azure-vmware-solution)siga estas instruções: 
 
 [!INCLUDE [create-avs-jump-box-steps](includes/create-jump-box-steps.md)]
 
 ## <a name="connect-to-a-virtual-network-with-expressroute"></a>Ligue-se a uma rede virtual com o ExpressRoute
 
-Se não definiu uma rede virtual no passo de implementação e a sua intenção é ligar o ExpressRoute da Azure VMware Solution a um Gateway ExpressRoute existente, siga os passos abaixo.
+>[!IMPORTANT]
+>Se já definiu uma rede virtual no ecrã de implementação em Azure, então salte para a secção seguinte.
 
-Se já definiu uma rede virtual no ecrã de implementação em Azure, então salte para a secção seguinte.
+Se não definiu uma rede virtual no passo de implementação e a sua intenção é ligar o ExpressRoute da Azure VMware Solution a um Gateway ExpressRoute existente, siga estes passos.
 
 [!INCLUDE [connect-expressroute-to-vnet](includes/connect-expressroute-vnet.md)]
 
@@ -70,7 +74,7 @@ Pode identificar os endereços IP e credenciais ip da consola de administração
 
 ## <a name="create-a-network-segment-on-azure-vmware-solution"></a>Criar um segmento de rede na Solução VMware Azure
 
-Utiliza o NSX-T para criar novos segmentos de rede no seu ambiente Azure VMware Solution.  Definiu a(s) rede(s) que pretende criar na [secção de planeamento](production-ready-deployment-steps.md).  Se ainda não os definiu, volte para a [secção de planeamento](production-ready-deployment-steps.md) antes de prosseguir.
+Utiliza o NSX-T para criar novos segmentos de rede no seu ambiente Azure VMware Solution.  Definiu as redes que pretende criar na [secção de planeamento.](production-ready-deployment-steps.md)  Se ainda não os definiu, volte para a [secção de planeamento](production-ready-deployment-steps.md) antes de prosseguir.
 
 >[!IMPORTANT]
 >Certifique-se de que o bloco de endereços de rede CIDR que definiu não se sobrepõe a nada nos ambientes Azure ou no local.  
@@ -79,9 +83,9 @@ Siga o [segmento de rede Criar NSX-T no tutorial Azure VMware Solution](tutorial
 
 ## <a name="verify-advertised-nsx-t-segment"></a>Verifique o segmento NSX-T anunciado
 
-Volte para as rotas de rede Verificar o passo [anunciado.](#verify-network-routes-advertised) Verá uma rota adicional na lista que representa o(s) segmento(s) de rede que criou no passo anterior.  
+Volte para as rotas de rede Verificar o passo [anunciado.](#verify-network-routes-advertised) Verá outras rotas na lista que representa os segmentos de rede que criou no passo anterior.  
 
-Para máquinas virtuais, irá atribuir o segmento(s) que criou no [segmento de rede criar no passo Azure VMware Solution.](#create-a-network-segment-on-azure-vmware-solution)  
+Para máquinas virtuais, irá atribuir os segmentos que criou no segmento criar um segmento de rede no passo [Azure VMware Solution.](#create-a-network-segment-on-azure-vmware-solution)  
 
 Como o DNS é necessário, identifique o servidor DNS que pretende utilizar.  
 
@@ -94,7 +98,7 @@ Como o DNS é necessário, identifique o servidor DNS que pretende utilizar.
 
 ## <a name="optional-provide-dhcp-services-to-nsx-t-network-segment"></a>(Opcional) Fornecer serviços DHCP para o segmento de rede NSX-T
 
-Se pretender utilizar o DHCP no seu segmento NSX-T, continue com esta secção. Caso contrário, salte para o Add a VM na secção [de segmento de rede NSX-T.](#add-a-vm-on-the-nsx-t-network-segment)  
+Se pretender utilizar o DHCP nos seus segmentos NSX-T, continue com esta secção. Caso contrário, salte para o Add a VM na secção [de segmento de rede NSX-T.](#add-a-vm-on-the-nsx-t-network-segment)  
 
 Agora que criou o seu segmento de rede NSX-T, pode criar e gerir o DHCP na Azure VMware Solution de duas formas:
 
@@ -104,13 +108,13 @@ Agora que criou o seu segmento de rede NSX-T, pode criar e gerir o DHCP na Azure
 
 ## <a name="add-a-vm-on-the-nsx-t-network-segment"></a>Adicione um VM no segmento de rede NSX-T
 
-No seu Azure VMware Solution vCenter, implemente um VM e use-o para verificar a conectividade da sua rede de solução VMware Azure para:
+No seu Azure VMware Solution vCenter, implemente um VM e use-o para verificar a conectividade das suas redes Azure VMware Solution para:
 
 - A internet
 - Redes Virtuais do Azure
 - No local.  
 
-Desdobre o VM como faria em qualquer ambiente vSphere.  Fixe o VM a um dos segmentos de rede que criou anteriormente em NSX-T.  
+Desdobre o VM como faria em qualquer ambiente vSphere.  Ligue o VM a um dos segmentos de rede que criou anteriormente em NSX-T.  
 
 >[!NOTE]
 >Se configurar um servidor DHCP, obtém a configuração da rede para o VM a partir dele (não se esqueça de configurar o âmbito).  Se vai configurar estáticamente, então configuure-se como normalmente faria.
@@ -119,15 +123,14 @@ Desdobre o VM como faria em qualquer ambiente vSphere.  Fixe o VM a um dos segme
 
 Inicie sessão no VM criado no passo anterior e verifique a conectividade;
 
-1. Ping um IP na Internet.
-2. Aceda a um site da Internet através de um navegador web.
+1. Ping um IP na internet.
+2. Num navegador web, aceda a um site da Internet.
 3. Ping a caixa de salto que fica na Rede Virtual Azure.
 
->[!IMPORTANT]
->Neste momento, a Azure VMware Solution está em funcionamento, e você estabeleceu com sucesso conectividade de e para a Rede Virtual Azure e a internet.
+A Azure VMware Solution está agora em funcionamento, e você estabeleceu com sucesso conectividade de e para a Rede Virtual Azure e a internet.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Na secção seguinte, irá ligar a Solução Azure VMware à sua rede no local via ExpressRoute.
+Na secção seguinte, irá ligar a Solução Azure VMware à sua rede no local através do ExpressRoute.
 > [!div class="nextstepaction"]
 > [Ligue a Solução Azure VMware ao seu ambiente no local](azure-vmware-solution-on-premises.md)

@@ -4,16 +4,16 @@ description: Descreve como implementar modelos de Gestor de Recursos Azure (mode
 ms.topic: conceptual
 ms.date: 10/13/2020
 ms.custom: github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 4c1f59e9a18e7359ae543b0311baea0c2a4ab8d6
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 67d4ac51e3e1f84f6a9acd0fc94d5818355d3954
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97674337"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762078"
 ---
 # <a name="deploy-arm-templates-by-using-github-actions"></a>Implemente modelos ARM utilizando ações do GitHub
 
-[GitHub Actions](https://docs.github.com/en/free-pro-team@latest/actions) é um conjunto de funcionalidades no GitHub para automatizar os fluxos de trabalho de desenvolvimento de software no mesmo local onde armazena código e colabora em pedidos e problemas de puxar.
+[GitHub Actions](https://docs.github.com/en/actions) é um conjunto de funcionalidades no GitHub para automatizar os fluxos de trabalho de desenvolvimento de software no mesmo local onde armazena código e colabora em pedidos e problemas de puxar.
 
 Utilize o [Modelo de Gestor de Recursos Azure](https://github.com/marketplace/actions/deploy-azure-resource-manager-arm-template) implementar a implementação de um modelo de Gestor de Recursos Azure (modelo ARM) para Azure.
 
@@ -21,7 +21,7 @@ Utilize o [Modelo de Gestor de Recursos Azure](https://github.com/marketplace/ac
 
 - Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - Uma conta do GitHub. Se não tiver um, inscreva-se [de graça.](https://github.com/join)
-    - Um repositório GitHub para armazenar os seus modelos de Gestor de Recursos e os seus ficheiros de fluxo de trabalho. Para criar um, consulte [criar um novo repositório.](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/creating-a-new-repository)
+    - Um repositório GitHub para armazenar os seus modelos de Gestor de Recursos e os seus ficheiros de fluxo de trabalho. Para criar um, consulte [criar um novo repositório.](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-new-repository)
 
 
 ## <a name="workflow-file-overview"></a>Visão geral do ficheiro do fluxo de trabalho
@@ -154,7 +154,7 @@ Uma vez que o fluxo de trabalho está configurado para ser acionado pelo ficheir
 ## <a name="clean-up-resources"></a>Limpar os recursos
 Quando o seu grupo de recursos e repositório já não forem necessários, limpe os recursos que implementou eliminando o grupo de recursos e o seu repositório GitHub.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Crie o seu primeiro modelo ARM](./template-tutorial-create-first-template.md)

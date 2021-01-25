@@ -1,5 +1,5 @@
 ---
-title: Monitorize a saúde de uma aplicação Azure IoT Central / Microsoft Docs
+title: Monitorize a saúde de uma aplicação Azure IoT Central | Microsoft Docs
 description: Como operador ou administrador, monitorize a saúde geral dos dispositivos ligados à sua aplicação IoT Central.
 author: dominicbetts
 ms.author: dobett
@@ -7,12 +7,12 @@ ms.date: 05/14/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 1fb17d56c546511fee291f30b103a5310c8015cc
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: 12485e07bc3cad9d420141ecc6ee66763ac010b7
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96122275"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98760772"
 ---
 # <a name="monitor-the-overall-health-of-the-devices-connected-to-an-iot-central-application"></a>Monitorize a saúde geral dos dispositivos ligados a uma aplicação IoT Central
 
@@ -58,6 +58,6 @@ As métricas podem diferir dos números indicados na sua fatura Azure IoT Centra
 
 - Embora as métricas possam mostrar um subconjunto de comunicação dispositivo-nuvem, toda a comunicação entre o dispositivo e a nuvem [conta como uma mensagem para a faturação](https://azure.microsoft.com/pricing/details/iot-central/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Agora que aprendeu a usar modelos de aplicação, o próximo passo sugerido é aprender a [gerir o IoT Central a partir do portal Azure](howto-manage-iot-central-from-portal.md)
+Agora que aprendeu a usar modelos de aplicação, o próximo passo sugerido é aprender a [gerir o IoT Central a partir do portal Azure.](howto-manage-iot-central-from-portal.md)

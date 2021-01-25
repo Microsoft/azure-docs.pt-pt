@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d348b8c2325c7bc2cdaa28356151647a9430684f
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: 10fe3b895ea5084247822f1c35275e68d80b73fa
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98247051"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762981"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrar para a autenticação em nuvem usando o lançamento encenado (pré-visualização)
 
@@ -61,7 +61,10 @@ Os seguintes cenários são suportados para o lançamento encenado. A funcionali
 - Utilizadores que são a provisionados ao Azure AD utilizando o Azure AD Connect. Não se aplica a utilizadores apenas na nuvem.
 
 - Tráfego de login do utilizador nos navegadores e clientes *de autenticação moderna.* As aplicações ou serviços em nuvem que utilizem a autenticação antiga vão recair sobre os fluxos de autenticação federados. Um exemplo pode ser Exchange online com a autenticação moderna desligada, ou Outlook 2010, que não suporta a autenticação moderna.
+
 - O tamanho do grupo está atualmente limitado a 50.000 utilizadores.  Se tiver grupos maiores, então 50.000 utilizadores, recomenda-se dividir este grupo em vários grupos para o lançamento encenado.
+
+- Windows 10 Hybrid Join ou Azure AD Junte-se à aquisição de token de atualização primária sem linha de visão para o servidor da federação para a versão 1903 do Windows 10 e mais recente, quando a UPN do utilizador é encaminhável e o sufixo de domínio é verificado em AD Azure.
 
 ## <a name="unsupported-scenarios"></a>Cenários não suportados
 
@@ -87,6 +90,10 @@ Os seguintes cenários não são suportados para o lançamento encenado:
 - Quando adicionas um grupo de segurança para lançamento encenado, estás limitado a 200 utilizadores para evitar uma saída sem acordo com o UX. Depois de ter adicionado o grupo, pode adicionar mais utilizadores diretamente ao mesmo, conforme necessário.
 
 - Enquanto os utilizadores estão em Lançamento Encenado, quando o EnforceCloudPasswordPolicyForPasswordSyncedUsers está ativado, a política de validade da palavra-passe está definida para 90 dias sem opção de personalizar. 
+
+- Windows 10 Hybrid Join ou Azure AD Junte-se à aquisição de token de atualização primária para a versão windows 10 com mais de 1903. Este cenário irá recair sobre o WS-Trust ponto final do servidor da federação, mesmo que a assinatura do utilizador esteja no âmbito do lançamento encenado.
+
+- Windows 10 Hybrid Join ou Azure AD Junte-se à aquisição de token de atualização primária para todas as versões, quando a UPN do utilizador não é encaminhável. Este cenário irá voltar ao ponto final WS-Trust enquanto estiver em modo de lançamento encenado, mas deixará de funcionar quando a migração faseada estiver completa e o início de saúde do utilizador já não depender do servidor da federação.
 
 
 ## <a name="get-started-with-staged-rollout"></a>Começar com lançamento encenado
@@ -248,5 +255,5 @@ R: Não, esta função foi concebida para testar a autenticação em nuvem. Depo
 
 R: Sim. Para aprender a usar o PowerShell para executar o lançamento encenado, consulte [a pré-visualização AD Azure](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - [Pré-visualização Azure AD 2.0](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )

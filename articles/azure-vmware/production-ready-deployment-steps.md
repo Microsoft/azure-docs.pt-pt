@@ -3,12 +3,12 @@ title: Planeamento da implementação da Solução VMware Azure
 description: Este artigo descreve um fluxo de trabalho de implementação de Solução VMware Azure.  O resultado final é um ambiente pronto para a criação e migração de máquinas virtuais (VM).
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: cdf4ddd6166920fa7461bfd85e01ef0efd6dfbb9
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 8b1d69f3f953b43177a3b1d0611b51ca2cfb1a75
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98704572"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762857"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Planeamento da implementação da Solução VMware Azure
 
@@ -93,9 +93,9 @@ Tenha em mente que:
 - Se pretender estender as redes a partir do local, essas redes devem ligar-se a um [vSphere Distributed Switch (vDS)](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-B15C6A13-797E-4BCB-B9D9-5CBC5A60C3A6.html) no seu ambiente VMware no local.  
 - Se a rede(s) pretender prolongar ao vivo num [vSphere Standard Switch,](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-350344DE-483A-42ED-B0E2-C811EE927D59.html)então não pode ser estendida.
 
-## <a name="azure-virtual-network-to-attach-azure-vmware-solution"></a>Rede Virtual Azure para anexar Solução VMware Azure
+## <a name="attach-virtual-network-to-azure-vmware-solution"></a>Anexar rede virtual à Solução Azure VMware
 
-Neste passo, irá identificar um gateway de rede virtual ExpressRoute e uma rede virtual de suporte Azure utilizada para ligar o circuito Azure VMware Solution ExpressRoute.  O circuito ExpressRoute facilita a conectividade de e para a nuvem privada Azure VMware Solution para outros serviços Azure, recursos Azure e ambientes no local.
+Neste passo, irá identificar um gateway de rede virtual ExpressRoute e suporte a Rede Virtual Azure utilizado para ligar o circuito Azure VMware Solution ExpressRoute.  O circuito ExpressRoute facilita a conectividade de e para a nuvem privada Azure VMware Solution para outros serviços Azure, recursos Azure e ambientes no local.
 
 Pode utilizar um *novo* gateway *de* rede virtual ExpressRoute existente.
 
@@ -103,21 +103,23 @@ Pode utilizar um *novo* gateway *de* rede virtual ExpressRoute existente.
 
 ### <a name="use-an-existing-expressroute-virtual-network-gateway"></a>Utilize um gateway de rede virtual ExpressRoute existente
 
-Se utilizar um gateway de rede virtual ExpressRoute *existente,* o circuito Azure VMware Solution ExpressRoute é estabelecido depois de implantar a nuvem privada.  Então, não precisas de preencher o campo **da Rede Virtual.**  
+Se utilizar um gateway de rede virtual ExpressRoute *existente,* o circuito Azure VMware Solution ExpressRoute é estabelecido depois de implantar a nuvem privada. Neste caso, deixe o campo **de Rede Virtual** em branco.  
 
 Tome nota do gateway de rede virtual ExpressRoute que utilizará e continue até ao próximo passo.
 
 ### <a name="create-a-new-expressroute-virtual-network-gateway"></a>Criar um novo gateway de rede virtual ExpressRoute
 
-Se criar um *novo* gateway de rede virtual ExpressRoute, pode ser utilizada uma Rede Virtual Azure existente, ou pode ser criada uma nova Rede Virtual Azure.  
+Quando criar um *novo* gateway de rede virtual ExpressRoute, pode utilizar uma Rede Virtual Azure existente ou criar uma nova.  
 
-Se a escolha for utilizar uma Rede Virtual Azure existente, verifique se não existem gateways de rede virtual ExpressRoute pré-existentes na rede virtual e selecione-o no dropdown da Rede Virtual do ecrã de implementação de nuvem privada.
+- Para uma rede virtual Azure existente:
+   1. Verifique se não existem gateways de rede virtual ExpressRoute pré-existentes na rede virtual. 
+   1. Selecione a rede virtual Azure existente na lista **de Rede Virtual.**
 
-Se a escolha for criar uma nova Rede Virtual Azure, pode ser criada antes do tempo ou durante a implementação clicando na nova opção de Criar a secção de Rede Virtual do ecrã de implementação de nuvem privada.
+- Para uma nova Rede Virtual Azure, pode criá-la com antecedência ou durante a implementação. Selecione o novo link **Criar** na lista **de Rede Virtual.**
 
-Para referência, abaixo está uma imagem do Create um ecrã de implementação **de nuvem privada** e delineado a vermelho é o campo **Azure Virtual Network** que foi referido ao longo desta secção.
+A imagem abaixo mostra o Criar um ecrã de implementação **em nuvem privada** com o campo de Rede **Virtual** realçado.
 
-:::image type="content" source="media/pre-deployment/azure-vmware-solution-deployment-screen-vnet-circle.png" alt-text="Screenshot do ecrã de implementação da Solução VMware Azure com gateway de rede virtual em círculo.":::
+:::image type="content" source="media/pre-deployment/azure-vmware-solution-deployment-screen-vnet-circle.png" alt-text="Screenshot do ecrã de implementação da Solução VMware Azure com campo de Rede Virtual em destaque.":::
 
 >[!NOTE]
 >Qualquer rede virtual que seja usada ou criada pode ser vista pelo seu ambiente no local e pela Solução Azure VMware, por isso certifique-se de que qualquer segmento IP que utilize nesta rede virtual e sub-redes não se sobreponha.

@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: cf7c4b881697b664403d8c817c3b9e48fb48944d
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: 969f60cd92e8c1cbe93f1646cccd08c942ad9923
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746769"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762827"
 ---
 # <a name="about-azure-cloud-services-extended-support"></a>Sobre a Azure Cloud Services (suporte alargado)
 
@@ -27,9 +27,11 @@ Com esta alteração, o modelo de implementação baseado no Azure Service Manag
 
 ## <a name="what-does-not-change"></a>O que não muda 
 - Cria-se o código, define-se as configurações e implanta-se no Azure. O Azure configura o ambiente computacional, executa o seu código e depois monitoriza e mantém-no para si.
-- Os Serviços cloud (suporte alargado) também suportam dois tipos de funções, [web e trabalhador.](../cloud-services/cloud-services-choose-me.md) 
-- Os três componentes, a definição de serviço (.csdef), o serviço config (.cscfg), e um pacote de serviço (.cspkg) de um serviço de nuvem são transportados para a frente e não há alteração nos seus [formatos.](cloud-services-model-and-package.md) 
-- Não são necessárias alterações ao código de tempo de funcionamento, uma vez que o plano de dados é o mesmo e o plano de controlo só está a mudar.  
+- Os Serviços cloud (suporte alargado) também suportam dois tipos de funções, [web e trabalhador.](../cloud-services/cloud-services-choose-me.md) Não há alterações no design, arquitetura ou componentes das funções web e trabalhadora. 
+- Os três componentes de um serviço em nuvem, a definição de serviço (.csdef), o config de serviço (.cscfg) e o pacote de serviço (.cspkg) são transportados para a frente e não há alteração nos seus [formatos.](cloud-services-model-and-package.md) 
+- Não são necessárias alterações ao código de tempo de funcionamento, uma vez que o plano de dados é o mesmo e o plano de controlo só está a mudar. 
+- Os lançamentos do Azure GuestOS e as atualizações associadas estão alinhados com os Serviços Cloud (clássicos)
+- Processo de atualização subjacente no que diz respeito à atualização de domínios, como a atualização prossegue, reversão e alterações permitidas de serviço durante uma atualização não alteram
 
 ## <a name="changes-in-deployment-model"></a>Alterações no modelo de implementação
 

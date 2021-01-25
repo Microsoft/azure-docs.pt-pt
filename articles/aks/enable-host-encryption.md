@@ -4,19 +4,19 @@ description: Saiba como configurar uma encriptação baseada no anfitrião num c
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: 14ec39272bf2f434aaa57217a90667a62e82901a
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 6b23bf285d89a5f3285825feef849b3d168ed62f
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183299"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762033"
 ---
 # <a name="host-based-encryption-on-azure-kubernetes-service-aks-preview"></a>Encriptação baseada no anfitrião no Serviço Azure Kubernetes (AKS) (pré-visualização)
 
 Com encriptação baseada no anfitrião, os dados armazenados no anfitrião VM dos VM dos seus subms do seu agente AKS são encriptados em repouso e fluxos encriptados para o serviço de Armazenamento. Isto significa que os discos temporários são encriptados em repouso com teclas geridas pela plataforma. A cache de SO e discos de dados é encriptada em repouso com chaves geridas pela plataforma ou teclas geridas pelo cliente, dependendo do tipo de encriptação definido nesses discos. Por padrão, quando se utiliza AKS, os oss e os discos de dados são encriptados em repouso com as teclas geridas pela plataforma, o que significa que os caches para estes discos também são encriptados por padrão em repouso com teclas geridas pela plataforma.  Pode especificar as suas próprias teclas geridas seguindo [as suas próprias chaves (BYOK) com discos Azure no Serviço Azure Kubernetes](azure-disk-customer-managed-keys.md). A cache destes discos também será encriptada utilizando a chave que especifica neste passo.
 
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Esta funcionalidade só pode ser definida no tempo de criação de cluster ou de criação de piscinas de nó.
 
@@ -26,34 +26,32 @@ Esta funcionalidade só pode ser definida no tempo de criação de cluster ou de
 ### <a name="prerequisites"></a>Pré-requisitos
 
 - Certifique-se de que tem a `aks-preview` extensão CLI v0.4.55 ou superior instalada
-- Certifique-se de que tem a `EncryptionAtHost` bandeira de recurso `Microsoft.Compute` ativada.
 - Certifique-se de que tem a `EnableEncryptionAtHostPreview` bandeira de recurso `Microsoft.ContainerService` ativada.
 
+Para poder utilizar a encriptação no anfitrião para os seus VMs ou conjuntos de escala de máquinas virtuais, tem de obter a funcionalidade ativada na sua subscrição. Envie um e-mail encryptionAtHost@microsoft.com com os seus Ids de subscrição para obter a funcionalidade ativada para as suas subscrições.
+
 ### <a name="register-encryptionathost--preview-features"></a>Registar `EncryptionAtHost`  funcionalidades de pré-visualização
+
+> [!IMPORTANT]
+> Tem de enviar um e-mail encryptionAtHost@microsoft .com com os seus Ids de subscrição para obter a funcionalidade ativada para recursos de computação. Não pode permitir por esses recursos. Pode ative-lo no serviço de contentores.
 
 Para criar um cluster AKS que utilize encriptação baseada no anfitrião, tem de ativar as `EnableEncryptionAtHostPreview` bandeiras e `EncryptionAtHost` apresentar bandeiras na sua subscrição.
 
 Registe a bandeira de `EncryptionAtHost` características utilizando o comando [de registo de recurso az,][az-feature-register] como mostra o seguinte exemplo:
 
 ```azurecli-interactive
-az feature register --namespace "Microsoft.Compute" --name "EncryptionAtHost"
-
 az feature register --namespace "Microsoft.ContainerService"  --name "EnableEncryptionAtHostPreview"
 ```
 
 Demora alguns minutos para que o estado seja *apresentado.* Pode verificar o estado de registo utilizando o comando [da lista de recursos az:][az-feature-list]
 
 ```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.Compute/EncryptionAtHost')].{Name:name,State:properties.state}"
-
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableEncryptionAtHostPreview')].{Name:name,State:properties.state}"
 ```
 
 Quando estiver pronto, reaprovi o registo dos `Microsoft.ContainerService` fornecedores e `Microsoft.Compute` dos recursos utilizando o comando de registo do fornecedor [az:][az-provider-register]
 
 ```azurecli-interactive
-az provider register --namespace Microsoft.Compute
-
 az provider register --namespace Microsoft.ContainerService
 ```
 
@@ -97,7 +95,7 @@ az aks nodepool add --name hostencrypt --cluster-name myAKSCluster --resource-gr
 
 Se pretender criar novos grupos de nó sem a função de encriptação baseada no anfitrião, pode fazê-lo omitindo o `--aks-custom-headers` parâmetro personalizado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Rever [as melhores práticas para a segurança do cluster AKS][best-practices-security] Leia mais sobre [encriptação baseada no anfitrião.](../virtual-machines/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data)
 

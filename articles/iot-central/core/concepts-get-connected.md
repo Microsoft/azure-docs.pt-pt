@@ -1,9 +1,9 @@
 ---
-title: Conectividade do dispositivo no Azure IoT Central Microsoft Docs
+title: Conectividade do dispositivo em Azure IoT Central | Microsoft Docs
 description: Este artigo introduz conceitos-chave relativos à conectividade do dispositivo na Azure IoT Central
-author: dominicbetts
-ms.author: dobett
-ms.date: 10/22/2020
+author: TheJasonAndrew
+ms.author: v-anjaso@microsoft.com
+ms.date: 1/15/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: 90246459663980de25e301817f651e7719e8f380
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: a0ba695adb25adb6d339535bb9496630eaec70bb
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033196"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762797"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Ligar-se ao Azure IoT Central
 
@@ -234,13 +234,18 @@ Os SDKs do dispositivo Azure oferecem a forma mais fácil de implementar o códi
 Toda a comunicação do dispositivo com o IoT Hub utiliza as seguintes opções de conectividade IoT Hub:
 
 - [Mensagens dispositivo-a-nuvem](../../iot-hub/iot-hub-devguide-messages-d2c.md)
+- [Mensagens cloud-to-device](../../iot-hub/iot-hub-csharp-csharp-c2d.md)
 - [Gémeos do dispositivo](../../iot-hub/iot-hub-devguide-device-twins.md)
+
+> [!NOTE]
+> Azure agora apoia
 
 A tabela a seguir resume como o dispositivo Azure IoT Central apresenta o mapa nas características do IoT Hub:
 
-| Azure IoT Central | Hub IoT do Azure |
+| Azure IoT Central | Azure IoT Hub |
 | ----------- | ------- |
 | Telemetria | Mensagens dispositivo-a-nuvem |
+| Comandos offline | Mensagens nuvem-para-dispositivo |
 | Propriedade | Propriedades reportadas de twin dispositivo |
 | Propriedade (depreciada) | Propriedades duplas do dispositivo desejadas e reportadas |
 | Comando | Métodos diretos |
@@ -261,7 +266,7 @@ Se o seu dispositivo não puder utilizar nenhum dos protocolos suportados, utili
 
 Todos os dados trocados entre dispositivos e o seu Azure IoT Central estão encriptados. O IoT Hub autentica todos os pedidos de um dispositivo que se conecta a qualquer um dos pontos finais do IoT Hub virado para o dispositivo. Para evitar a troca de credenciais por cima do fio, um dispositivo utiliza fichas assinadas para autenticar. Para mais informações, consulte, [Controle o acesso ao IoT Hub](../../iot-hub/iot-hub-devguide-security.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se você é um desenvolvedor de dispositivos, alguns passos sugeridos seguintes são:
 

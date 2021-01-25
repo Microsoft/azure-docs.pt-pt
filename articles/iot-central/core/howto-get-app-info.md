@@ -1,5 +1,5 @@
 ---
-title: Obtenha informações sobre a versão de aplicação Azure IoT Central / Microsoft Docs
+title: Obtenha informações sobre a versão da aplicação Azure IoT Central | Microsoft Docs
 description: Como obter informações sobre a aplicação IoT Central que está a usar
 services: iot-central
 author: dominicbetts
@@ -7,12 +7,12 @@ ms.author: dobett
 ms.date: 06/26/2020
 ms.topic: how-to
 ms.service: iot-central
-ms.openlocfilehash: 12ba8526be68d2cb15e37510e66f959ab65c6e99
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5118fa22a198ee6871a4cfb455e88d345d6a44e0
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85802292"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98760858"
 ---
 # <a name="about-your-application"></a>Acerca da sua aplicação
 
@@ -37,6 +37,8 @@ Para obter informações sobre a sua aplicação IoT Central:
 
     Utilize o botão **de informação Copy** para copiar as informações para a área de transferência.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que sabe como encontrar a versão da sua aplicação IoT Central, um próximo passo sugerido é continuar a explorar os artigos de como fazer para administradores: Alterar definições de [aplicação IoT Central](howto-administer.md).
+
+Se tiver uma aplicação V2, consulte [a sua aplicação V2 IoT Central para V3](howto-migrate.md).

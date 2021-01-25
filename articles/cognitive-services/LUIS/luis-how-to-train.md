@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 11/15/2019
-ms.openlocfilehash: a53857061110d5a77ac3d166277e7076f4f7f9c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47b006932aace3149dd94e136e334c1b6e5bfcef
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541378"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762704"
 ---
 # <a name="train-your-active-version-of-the-luis-app"></a>Treine a sua versão ativa da app LUIS
 
@@ -40,9 +40,15 @@ A data e a hora do treino são GMT + 2.
 
 ## <a name="train-with-all-data"></a>Treine com todos os dados
 
-O treino usa uma pequena percentagem de amostragem negativa. Se pretender utilizar todos os dados em vez da pequena amostragem negativa, utilize a [API](#version-settings-api-use-of-usealltrainingdata).
+O treino usa uma pequena percentagem de amostragem negativa. Pode utilizar todos os dados disponíveis em vez de utilizar o portal ou a API. 
 
-### <a name="version-settings-api-use-of-usealltrainingdata"></a>Definições de versão API utilização de UseAllTrainingData
+### <a name="using-the-luis-portal"></a>Usando o portal LUIS
+
+Inicie sessão no [portal LUIS](https://www.luis.ai/) e clique na sua aplicação. **Selecione Gerir** na parte superior do ecrã e, em seguida, selecionar **Definições** e ativar ou desativar a opção **de treino de utilização determinística.** Quando desativado, o treino utilizará todos os dados disponíveis.
+
+![Um botão para permitir ou desativar o treino não determinístico](./media/non-determinstic-training.png)
+
+### <a name="using-the-version-settings-api"></a>Utilização das definições de versão API
 
 Utilize a [API de definições de versão](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) com o `UseAllTrainingData` conjunto para ser verdadeiro para desligar esta função.
 
@@ -56,7 +62,7 @@ A formação no portal LUIS é um único passo para pressionar o botão **Train.
 
 Para saber quando o treino está completo, tem de fazer uma sondagem até que todos os modelos sejam treinados com sucesso.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Testes interativos](luis-interactive-test.md)
 * [Testes em lote](luis-how-to-batch-test.md)

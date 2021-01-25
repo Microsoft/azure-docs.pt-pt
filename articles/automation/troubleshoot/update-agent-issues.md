@@ -4,17 +4,17 @@ description: Este artigo diz como resolver problemas e resolver problemas com o 
 services: automation
 author: mgoedtel
 ms.author: magoedte
-ms.date: 01/16/2020
+ms.date: 01/25/2020
 ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 92020313fccf1b8be0add58a7bafab62b5daa4d5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5c2cc014c87a345507e9c0f99c507d151d59b86
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187137"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762114"
 ---
 # <a name="troubleshoot-windows-update-agent-issues"></a>Resolver problemas do agente de atualização do Windows
 
@@ -27,10 +27,10 @@ Pode haver muitas razões pelas quais a sua máquina não aparece tão pronta (s
 > [!NOTE]
 > Pode haver um ligeiro atraso entre o que o portal Azure mostra e o estado atual de uma máquina.
 
-Este artigo discute como executar o resolução de problemas para máquinas Azure a partir do portal Azure, e máquinas não-Azure no [cenário offline](#troubleshoot-offline). 
+Este artigo discute como executar o resolução de problemas para máquinas Azure a partir do portal Azure, e máquinas não-Azure no [cenário offline](#troubleshoot-offline).
 
 > [!NOTE]
-> O script de resolução de problemas inclui agora verificações para serviços de atualização do Servidor do Windows (WSUS) e para a carga automática e instalação de teclas. 
+> O script de resolução de problemas inclui agora verificações para serviços de atualização do Servidor do Windows (WSUS) e para a carga automática e instalação de teclas.
 
 ## <a name="start-the-troubleshooter"></a>Inicie o resolução de problemas
 
@@ -110,7 +110,7 @@ A verificação de acesso à pasta Crypto determina se a conta do sistema local 
 
 ## <a name="troubleshoot-offline"></a><a name="troubleshoot-offline"></a>Resolução de problemas offline
 
-Pode utilizar o resolução de problemas num Trabalhador de Runbook Híbrido offline executando o script localmente. Obtenha o seguinte script na PowerShell Gallery: [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration). Para executar o script, você deve ter WMF 4.0 ou mais tarde instalado. Para descarregar a versão mais recente do PowerShell, consulte [instalar várias versões do PowerShell.](/powershell/scripting/install/installing-powershell)
+Pode utilizar o resolução de problemas num Trabalhador de Runbook Híbrido offline executando o script localmente. Obtenha o seguinte script do GitHub: [UM_Windows_Troubleshooter_Offline.ps1](https://github.com/Azure/updatemanagement/blob/main/UM_Windows_Troubleshooter_Offline.ps1). Para executar o script, você deve ter WMF 4.0 ou mais tarde instalado. Para descarregar a versão mais recente do PowerShell, consulte [instalar várias versões do PowerShell.](/powershell/scripting/install/installing-powershell)
 
 A saída deste script parece ser o seguinte exemplo:
 
@@ -206,6 +206,6 @@ CheckResultMessageId        : TlsVersionCheck.Passed.EnabledByDefault
 CheckResultMessageArguments : {}
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Problemas com o trabalhador do runbook híbrido.](hybrid-runbook-worker.md)

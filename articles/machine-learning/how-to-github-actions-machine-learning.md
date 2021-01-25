@@ -10,16 +10,16 @@ ms.author: jukullam
 ms.date: 10/19/2020
 ms.topic: conceptual
 ms.custom: github-actions-azure
-ms.openlocfilehash: e7f6066cb7ed5c166d3e2bdc3f895073b05b92b9
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 8bce95b65d9b944505d7f9153159b342e49427cd
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97605030"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762908"
 ---
 # <a name="use-github-actions-with-azure-machine-learning"></a>Use ações do GitHub com aprendizagem de máquinas Azure
 
-Começa com as [ações do GitHub](https://docs.github.com/en/free-pro-team@latest/actions) para treinar um modelo no Azure Machine Learning. 
+Começa com as [ações do GitHub](https://docs.github.com/en/actions) para treinar um modelo no Azure Machine Learning. 
 
 > [!NOTE]
 > GitHub Actions for Azure Machine Learning são fornecidos como é, e não são totalmente suportados pela Microsoft. Se encontrar problemas com uma ação específica, abra uma questão no repositório para a ação. Por exemplo, se encontrar um problema com a ação de implantação da AML, informe o problema no [https://github.com/Azure/aml-deploy]( https://github.com/Azure/aml-deploy) repo.
@@ -225,7 +225,7 @@ jobs:
 
 Quando o seu grupo de recursos e repositório já não forem necessários, limpe os recursos que implementou eliminando o grupo de recursos e o seu repositório GitHub. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Criar e executar gasodutos de aprendizagem automática com Azure Machine Learning SDK](how-to-create-your-first-pipeline.md)

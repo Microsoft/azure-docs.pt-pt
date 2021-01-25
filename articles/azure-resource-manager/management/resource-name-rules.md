@@ -3,12 +3,12 @@ title: Restrições de nomeação de recursos
 description: Mostra as regras e restrições para nomear recursos Azure.
 ms.topic: conceptual
 ms.date: 12/29/2020
-ms.openlocfilehash: 59babd9298fdca96b450b2dc67832c86c043c49c
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: bd8ba72d43b7e3e5a9145d756741436f0a49e18b
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132754"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762482"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Regras de nomenclatura e restrições para recursos do Azure
 
@@ -633,9 +633,9 @@ Nas tabelas seguintes, o termo alfanumérico refere-se:
 > [!div class="mx-tableFixed"]
 > | Entidade | Âmbito | Comprimento | Carateres Válidos |
 > | --- | --- | --- | --- |
-> | managedInstances | global | 1-63 | Letras minúsculas, números e hífenes.<br><br>Não se pode começar ou acabar com hífen. |
+> | managedInstances | global | 1-63 | Letras minúsculas, números e hífenes.<br><br>Não se pode começar ou acabar com hífen. <br><br> Não se pode ter personagens especiais, `@` como. |
 > | servidores | global | 1-63 | Letras minúsculas, números e hífenes.<br><br>Não se pode começar ou acabar com hífen. |
-> | servidores / administradores | servidor |  | Deve `ActiveDirectory` ser. |
+> | servidores / administradores | servidor |  | Deve `ActiveDirectory` ser. <br><br> Não se pode ter personagens especiais, `@` como.|
 > | servidores / bases de dados | servidor | 1-128 | Não posso usar:<br>`<>*%&:\/?`<br><br>Não pode terminar com período ou espaço. |
 > | servidores / bases de dados / syncGroups | base de dados | 1-150 | Alfanuméricos, hífens e sublinhados. |
 > | servidores / elásticos | servidor | 1-128 | Não posso usar:<br>`<>*%&:\/?`<br><br>Não pode terminar com período ou espaço. |
@@ -706,6 +706,6 @@ Nas tabelas seguintes, o termo alfanumérico refere-se:
 > [!NOTE]
 > A Azure Functions tem as mesmas regras e restrições de nomeação que a Microsoft.Web/sites.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para recomendações sobre como nomear recursos, consulte [Ready: Convenções recomendadas de nomeação e marcação](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).

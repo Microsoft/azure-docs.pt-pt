@@ -1,5 +1,5 @@
 ---
-title: Configuração de aplicação do cliente (MSAL) Rio Azure
+title: Configuração de aplicação do cliente (MSAL) | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Saiba mais sobre opções de configuração para aplicações de cliente público e confidencial usando a Microsoft Authentication Library (MSAL).
 services: active-directory
@@ -13,12 +13,12 @@ ms.date: 11/20/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 9ec8a5fe5de751e40ebaa17629ff72c5f6b2adca
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 46626c3ebe9d70600be1cc5f73c43677f67bcd09
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94979992"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98761377"
 ---
 # <a name="application-configuration-options"></a>Opções de configuração de aplicações
 
@@ -26,7 +26,7 @@ Para autenticar e adquirir fichas, inicializa uma nova aplicação de cliente p�
 
 - Opções de inscrição, incluindo:
   - [Autoridade](#authority) (composta pela [instância](#cloud-instance) do fornecedor de identidade e [público](#application-audience) de inscrição para a app, e possivelmente a identificação do inquilino)
-  - [ID do cliente](#client-id)
+  - [ID de Cliente](#client-id)
   - [URI de Redirecionamento](#redirect-uri)
   - [Segredo do cliente](#client-secret) (para aplicações confidenciais de clientes)
 - [Opções de registo](#logging), incluindo o nível de registo, o controlo de dados pessoais e o nome do componente que utiliza a biblioteca
@@ -147,9 +147,21 @@ Para aplicações daemon, você não precisa especificar um URI redirecionado.
 Esta opção especifica o segredo do cliente para a aplicação confidencial do cliente. Este segredo (palavra-passe da aplicação) é fornecido pelo portal de registo de aplicações ou fornecido ao Azure AD durante o registo de aplicações com o PowerShell AzureAD, PowerShell AzureRM ou Azure CLI.
 
 ## <a name="logging"></a>Registo
+Para ajudar a depurar e autenticar cenários de resolução de problemas de falha de autenticação, a Microsoft Authentication Library fornece suporte de registo incorporado. O registo madeireira é que cada biblioteca é abrangida pelos seguintes artigos:
 
-As outras opções de configuração permitem registar e resolver problemas. Consulte o artigo ['Registar'](msal-logging.md) para obter mais informações sobre como usá-los.
+:::row:::
+    :::column:::
+        - [Registos no MSAL.NET](msal-logging-dotnet.md)
+        - [Registos no MSAL para Android](msal-logging-android.md)
+        - [Registos no MSAL.js](msal-logging-js.md)
+    :::column-end:::
+    :::column:::
+        - [Registos no MSAL para iOS/macOS](msal-logging-ios.md)
+        - [Registos no MSAL para Java](msal-logging-java.md)
+        - [Registos no MSAL para Python](msal-logging-python.md)
+    :::column-end:::
+:::row-end:::
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como [instantânear as aplicações do cliente utilizando aplicações de MSAL.NET](msal-net-initializing-client-applications.md) e [instantaneamente do cliente utilizando MSAL.js](msal-js-initializing-client-applications.md).

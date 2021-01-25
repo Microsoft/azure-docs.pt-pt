@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/28/2020
+ms.date: 01/15/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 7bd85c60025475e8208847a12ccc2729743a975a
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: f550f96a8bd2e402556089061604654b11d47844
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803923"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762904"
 ---
 # <a name="perform-a-point-in-time-restore-on-block-blob-data"></a>Execute uma restauração pontual em dados de blob de bloco
 
@@ -23,7 +23,7 @@ Pode utilizar o restauro pontual para restaurar um ou mais conjuntos de bolhas d
 Para saber mais sobre a restauração pontual, consulte [o restauro do ponto-a-tempo para as bolhas de blocos](point-in-time-restore-overview.md).
 
 > [!CAUTION]
-> O ponto-a-tempo restaura os suportes de restauração apenas em blobs de blocos. As operações em contentores não podem ser restauradas. Se eliminar um recipiente da conta de armazenamento chamando a operação [do Recipiente delete,](/rest/api/storageservices/delete-container) esse recipiente não pode ser restaurado com uma operação de restauro. Em vez de eliminar um recipiente inteiro, elimine as bolhas individuais se desejar restaurá-las mais tarde.
+> O ponto-a-tempo restaura os suportes de restauração apenas em blobs de blocos. As operações em contentores não podem ser restauradas. Se eliminar um recipiente da conta de armazenamento chamando a operação [do Recipiente delete,](/rest/api/storageservices/delete-container) esse recipiente não pode ser restaurado com uma operação de restauro. Em vez de eliminar um recipiente inteiro, elimine as bolhas individuais se desejar restaurá-las mais tarde. Além disso, a Microsoft recomenda que se permita eliminar suavemente os recipientes e as bolhas para proteger contra a eliminação acidental. Para obter mais informações, consulte [Soft delete para recipientes (pré-visualização)](soft-delete-container-overview.md) e [apagar suavemente para bolhas](soft-delete-blob-overview.md).
 
 ## <a name="enable-and-configure-point-in-time-restore"></a>Permitir e configurar o ponto-a-tempo restaurar
 
@@ -52,19 +52,16 @@ A imagem a seguir mostra uma conta de armazenamento configurada para restauro po
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Para configurar o ponto-a-tempo restaurar com o PowerShell, instale primeiro a versão 2.6.0 ou posterior do módulo [Az.Storage.](https://www.powershellgallery.com/packages/Az.Storage) Em seguida, ligue para o comando Enable-AzStorageBlobRestorePolicy para permitir a restauração pontual para a conta de armazenamento.
+Para configurar o ponto-a-tempo restaurar com o PowerShell, instale primeiro a versão 2.6.0 ou posterior do módulo [Az.Storage.](https://www.powershellgallery.com/packages/Az.Storage) Em seguida, ligue para o comando [Enable-AzStorageBlobRestorePolicy](/powershell/module/az.storage/enable-azstorageblobrestorepolicy) para permitir a restauração pontual para a conta de armazenamento.
 
-O exemplo a seguir permite a eliminação suave e define o período de retenção de eliminação suave, permite alterar o feed e a versão e, em seguida, permite a restauração pontual.    Ao executar o exemplo, lembre-se de substituir os valores em suportes angulares pelos seus próprios valores:
+O exemplo a seguir permite a eliminação suave e define o período de retenção de eliminação suave, permite alterar o feed e a versão e, em seguida, permite a restauração pontual. Ao executar o exemplo, lembre-se de substituir os valores em suportes angulares pelos seus próprios valores:
 
 ```powershell
-# Sign in to your Azure account.
-Connect-AzAccount
-
 # Set resource group and account variables.
 $rgName = "<resource-group>"
 $accountName = "<storage-account>"
 
-# Enable soft delete with a retention of 14 days.
+# Enable blob soft delete with a retention of 14 days.
 Enable-AzStorageBlobDeleteRetentionPolicy -ResourceGroupName $rgName `
     -StorageAccountName $accountName `
     -RetentionDays 14
@@ -87,11 +84,33 @@ Get-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
     -StorageAccountName $accountName
 ```
 
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+Para configurar o ponto-a-tempo com O Azure CLI, instale primeiro a versão Azure CLI 2.2.0 ou posterior. Em seguida, ligue para o comando [de atualização de propriedades de serviço de armazenamento az](/cli/azure/ext/storage-blob-preview/storage/account/blob-service-properties#ext_storage_blob_preview_az_storage_account_blob_service_properties_update) para permitir a restauração pontual e as outras definições de proteção de dados necessárias para a conta de armazenamento.
+
+O exemplo a seguir permite a eliminação suave e define o período de retenção de eliminação suave para 14 dias, permite alterar o feed e a versão, e permite a restauração pontual com um período de restauração de 7 dias. Ao executar o exemplo, lembre-se de substituir os valores em suportes angulares pelos seus próprios valores:
+
+```azurecli
+az storage account blob-service-properties update \
+    --resource-group <resource_group> \
+    --account-name <storage-account> \
+    --enable-delete-retention true \
+    --delete-retention-days 14 \
+    --enable-versioning true \
+    --enable-change-feed true \
+    --enable-restore-policy true \
+    --restore-days 7
+```
+
 ---
 
-## <a name="perform-a-restore-operation"></a>Realizar uma operação de restauro
+## <a name="choose-a-restore-point"></a>Escolha um ponto de restauro
 
-Quando efetuar uma operação de restauro, deve especificar o ponto de restauro como um valor UTC **DateTime.** Os contentores e as bolhas serão restaurados no seu estado nesse dia e hora. A operação de restauro pode demorar vários minutos a ser concluída.
+O ponto de restauro é a data e hora para a qual os dados são restaurados. O Azure Storage utiliza sempre um valor de data/hora UTC como ponto de restauro. No entanto, o portal Azure permite especificar o ponto de restauro na hora local e, em seguida, converte esse valor de data/hora para uma data/valor de hora UTC para realizar a operação de restauro.
+
+Quando efetuar uma operação de restauro com PowerShell ou Azure CLI, deve especificar o ponto de restauro como uma data/valor de hora UTC. Se o ponto de restauro for especificado com um valor temporal local em vez de um valor de tempo UTC, a operação de restauro pode ainda comportar-se como esperado em alguns casos. Por exemplo, se a sua hora local for UTC menos cinco horas, então especificar um valor da hora local resulta num ponto de restauro que é cinco horas antes que o valor que forneceu. Se não forem efetuadas alterações aos dados da gama a restabelecer durante esse período de cinco horas, a operação de restauro produzirá os mesmos resultados independentemente do valor do tempo fornecido. Recomenda-se especificar um tempo UTC para o ponto de restauro para evitar resultados inesperados.
+
+## <a name="perform-a-restore-operation"></a>Realizar uma operação de restauro
 
 Pode restaurar todos os recipientes na conta de armazenamento, ou pode restaurar uma gama de bolhas em um ou mais recipientes. Uma gama de bolhas é definida lexicograficamente, o que significa em ordem do dicionário. Até dez gamas lexicográficas são suportadas por operação de restauro. O início da gama é inclusivo, e o fim da gama é exclusivo.
 
@@ -128,7 +147,7 @@ Para restaurar todos os recipientes e bolhas na conta de armazenamento com o por
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Para restaurar todos os recipientes e bolhas na conta de armazenamento com o PowerShell, ligue para o comando **Restore-AzStorageBlobRange.** Por predefinição, o comando **Restore-AzStorageBlobRange** funciona assíncronamente e devolve um objeto do tipo **PSBlobRestoreStatus** que pode utilizar para verificar o estado da operação de restauro.
+Para restaurar todos os recipientes e bolhas na conta de armazenamento com o PowerShell, ligue para o comando **Restore-AzStorageBlobRange** e forneça o ponto de restauro como data/valor de hora UTC. Por predefinição, o comando **Restore-AzStorageBlobRange** funciona assíncronamente e devolve um objeto do tipo **PSBlobRestoreStatus** que pode utilizar para verificar o estado da operação de restauro.
 
 O exemplo a seguir restaura assíncronamente os contentores na conta de armazenamento para o seu estado 12 horas antes do presente momento, e verifica algumas das propriedades da operação de restauro:
 
@@ -136,7 +155,7 @@ O exemplo a seguir restaura assíncronamente os contentores na conta de armazena
 # Specify -TimeToRestore as a UTC value
 $restoreOperation = Restore-AzStorageBlobRange -ResourceGroupName $rgName `
     -StorageAccountName $accountName `
-    -TimeToRestore (Get-Date).AddHours(-12)
+    -TimeToRestore (Get-Date).ToUniversalTime().AddHours(-12)
 
 # Get the status of the restore operation.
 $restoreOperation.Status
@@ -153,6 +172,22 @@ Restore-AzStorageBlobRange -ResourceGroupName $rgName `
     -StorageAccountName $accountName `
     -TimeToRestore (Get-Date).AddHours(-12) -WaitForComplete
 ```
+
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+Para restaurar todos os recipientes e bolhas na conta de armazenamento com o Azure CLI, ligue para o comando de restauro da [bolha de armazenamento az](/cli/azure/storage/blob#az_storage_blob_restore) e forneça o ponto de restauro como uma data/valor de hora UTC.
+
+O exemplo seguinte restaura assincroticamente todos os recipientes da conta de armazenamento para o seu estado 12 horas antes de uma data e hora especificadas. Para verificar o estado da operação de restauro, ligue para [a conta de armazenamento AZ:](/cli/azure/storage/account#az_storage_account_show)
+
+```azurecli
+az storage blob restore \
+    --resource-group <resource_group> \
+    --account-name <storage-account> \
+    --time-to-restore 2021-01-14T06:31:22Z \
+    --no-wait
+```
+
+Para executar a **bolha de armazenamento az restaurar** o comando sincronizado e bloquear a execução até que a operação de restauro esteja completa, omita o `--no-wait` parâmetro.
 
 ---
 
@@ -245,11 +280,30 @@ $restoreOperation.Parameters.BlobRanges
 
 Para executar a operação de restauro sincronizada e bloquear a execução até estar concluída, inclua o parâmetro **-WaitForComplete** no comando.
 
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+Para restaurar uma gama de bolhas, chame o comando de restauro da bolha de [armazenamento az](/cli/azure/storage/blob#az_storage_blob_restore) e especifique uma gama lexicográfica de contentores e nomes blob para o `--blob-range` parâmetro. Para especificar várias gamas, forneça o `--blob-range` parâmetro para cada gama distinta.
+
+Por exemplo, para restaurar as bolhas num único recipiente denominado *contentor1,* pode especificar uma gama que começa com *o contentor1* e termina com *o contentor2*. Não existe qualquer requisito para que os recipientes nomeados no início e nos intervalos finais existam. Uma vez que o fim da gama é exclusivo, mesmo que a conta de armazenamento inclua um contentor denominado *contentor2,* apenas o contentor denominado *contentor1* será restaurado.
+
+Para especificar um subconjunto de bolhas num recipiente para restaurar, utilize um corte para a frente (/) para separar o nome do recipiente do padrão do prefixo blob. O exemplo mostrado abaixo restaura assíncronamente uma gama de bolhas num recipiente cujos nomes começam com as letras `d` através `f` de .
+
+```azurecli
+az storage blob restore \
+    --account-name <storage-account> \
+    --time-to-restore 2021-01-14T06:31:22Z \
+    --blob-range container1 container2
+    --blob-range container3/d container3/g
+    --no-wait
+```
+
+Para executar a **bolha de armazenamento az restaurar** o comando sincronizado e bloquear a execução até que a operação de restauro esteja completa, omita o `--no-wait` parâmetro.
+
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Restauro pontual para bolhas de bloco](point-in-time-restore-overview.md)
 - [Eliminação recuperável](./soft-delete-blob-overview.md)
-- [Feed de alterações](storage-blob-change-feed.md)
+- [Alterar alimentação](storage-blob-change-feed.md)
 - [Versão blob](versioning-overview.md)

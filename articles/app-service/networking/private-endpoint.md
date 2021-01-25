@@ -9,14 +9,14 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: bebc7dcbc18a25b0d6d0761a8ca3ac476e83e581
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 4534a315429a120af45dfd495df4a8c29b233de7
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183044"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98763030"
 ---
-# <a name="using-private-endpoints-for-azure-web-app"></a>Utilização de pontos finais privados para app Web Azure
+# <a name="using-private-endpoints-for-azure-web-app"></a>Utilizar Pontos Finais Privados para a Aplicação Web do Azure
 
 > [!IMPORTANT]
 > O Private Endpoint está disponível para Windows e Linux Web App, contentorizada ou não, hospedada nestes Planos de Serviço de Aplicações : **Isolado,** **PremiumV2,** **PremiumV3,** **Funções Premium** (por vezes designada como plano Elastic Premium). 
@@ -116,7 +116,7 @@ Para obter detalhes sobre os preços, consulte [os preços do Azure Private Link
 
 Quando utilizar a Função Azure em Plano Premium Elástico com Ponto Final Privado, para executar ou executar a função no portal Azure Web, tem de ter acesso direto à rede ou receberá um erro HTTP 403. Por outras palavras, o seu navegador deve ser capaz de chegar ao Ponto Final Privado para executar a função a partir do portal Azure Web. 
 
-Pode ligar até 100 Pontos Finais Privados a uma determinada Aplicação Web.
+Pode ligar até 100 pontos de final privados a uma determinada Web App.
 
 As ranhuras não podem ser utilizadas no Ponto Final Privado.
 
@@ -124,7 +124,7 @@ A funcionalidade de depuração remota não está disponível quando o Private E
 
 Estamos a melhorar regularmente o recurso Private Link e o Private Endpoint, consulte [este artigo][pllimitations] para obter informações atualizadas sobre limitações.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para implementar o Private Endpoint para a sua Web App através do portal, consulte [como ligar-se privadamente a uma Aplicação Web com o Portal][howtoguide1]
 - Para implementar o Private Endpoint para a sua Web App utilizando o Azure CLI, consulte [como ligar-se privadamente a uma Aplicação Web com o Azure CLI][howtoguide2]

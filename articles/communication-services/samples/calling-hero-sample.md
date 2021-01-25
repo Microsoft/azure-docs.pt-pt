@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 44f23e4f5b3f65fb4f3c69b2ddc55af8c983aa23
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: d73024c6c227a0ef0b05a871b455411e93cb70ba
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98043732"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98761775"
 ---
 # <a name="get-started-with-the-group-calling-hero-sample"></a>Começa com o grupo a chamar amostra de herói
 
@@ -84,7 +84,7 @@ Pode testar a amostra localmente abrindo várias sessões de navegador com o URL
 1. Vá à pasta Call e abra `Calling.csproj` solução no Visual Studio
 2. Executar `Calling` projeto. O navegador será aberto na localidade:5001
 
-#### <a name="troubleshooting"></a>Resolução de problemas
+#### <a name="troubleshooting"></a>Resolução de Problemas
 
 - A solução não constrói; lança erros durante a instalação/construção de NPM.
 
@@ -100,7 +100,7 @@ Pode testar a amostra localmente abrindo várias sessões de navegador com o URL
 
 Se pretender limpar e remover uma assinatura de Serviços de Comunicação, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados. Saiba mais sobre [a limpeza de recursos.](../quickstarts/create-communication-resource.md#clean-up-resources)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 >[!div class="nextstepaction"] 
 >[Faça o download da amostra do GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero)
@@ -109,6 +109,7 @@ Para obter mais informações, veja os seguintes artigos:
 
 - Familiarize-se com [a utilização da biblioteca de clientes de chamadas](../quickstarts/voice-video-calling/calling-client-samples.md)
 - Saiba mais sobre [como funciona a chamada](../concepts/voice-video-calling/about-call-types.md)
+- Reveja a amostra da [App Contoso Med](https://github.com/Azure-Samples/communication-services-contoso-med-app)
 
 ## <a name="additional-reading"></a>Leitura adicional
 

@@ -1,5 +1,5 @@
 ---
-title: Criar um volume SMB para ficheiros Azure NetApp Microsoft Docs
+title: Criar um volume SMB para ficheiros Azure NetApp | Microsoft Docs
 description: Este artigo mostra-lhe como criar um volume SMB3 em Ficheiros Azure NetApp. Saiba mais sobre os requisitos para ligações de Diretório Ativo e Serviços de Domínio.
 services: azure-netapp-files
 documentationcenter: ''
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 12/01/2020
 ms.author: b-juche
-ms.openlocfilehash: cd2a293ebcc35d4884211f50783738a502dcc7de
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 48ee05eebd91c60fa2cfecc80898d3be54367269
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96854830"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762669"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Criar um volume SMB para o Azure NetApp Files
 
 O Azure NetApp Files suporta a criação de volumes utilizando NFSv3 (NFSv3 e NFSv4.1), SMB3 ou protocolo duplo (NFSv3 e SMB). O consumo de capacidade de um volume é contabilizado para a capacidade aprovisionada do seu conjunto. Este artigo mostra-lhe como criar um volume SMB3.
 
-## <a name="before-you-begin"></a>Before you begin 
+## <a name="before-you-begin"></a>Antes de começar 
 Tem de ter um conjunto de capacidade já configurado.   
 [Criar um pool de capacidade](azure-netapp-files-set-up-capacity-pool.md)   
 Uma sub-rede deve ser delegada nos Ficheiros Azure NetApp.  
@@ -74,7 +74,7 @@ Uma sub-rede deve ser delegada nos Ficheiros Azure NetApp.
 
     Consulte [a topologia do site](/windows-server/identity/ad-ds/plan/designing-the-site-topology) sobre sites e serviços de AD. 
     
-* Pode ativar a encriptação AES para um volume SMB verificando a caixa **de encriptação AES** na janela ['Join Ative Directory'.](#create-an-active-directory-connection) O Azure NetApp Files suporta os tipos de encriptação DES, Kerberos AES 128 e Kerberos AES 256 (dos menos seguros aos mais seguros). Se ativar a encriptação AES, as credenciais de utilizador utilizadas para aderir ao Ative Directory devem ter a opção de conta correspondente mais elevada, ativada que corresponda às capacidades ativadas para o seu Diretório Ativo.    
+* Pode ativar a encriptação AES para autenticação AD, verificando a caixa **de encriptação AES** na janela [''s AES's](#create-an-active-directory-connection) O Azure NetApp Files suporta os tipos de encriptação DES, Kerberos AES 128 e Kerberos AES 256 (dos menos seguros aos mais seguros). Se ativar a encriptação AES, as credenciais de utilizador utilizadas para aderir ao Ative Directory devem ter a opção de conta correspondente mais elevada, ativada que corresponda às capacidades ativadas para o seu Diretório Ativo.    
 
     Por exemplo, se o seu Diretório Ativo tiver apenas a capacidade AES-128, deve ativar a opção de conta AES-128 para as credenciais do utilizador. Se o seu Diretório Ativo tiver a capacidade AES-256, deve ativar a opção conta AES-256 (que também suporta AES-128). Se o seu Ative Directory não tiver qualquer capacidade de encriptação Kerberos, o Azure NetApp Files utiliza o DES por padrão.  
 
@@ -187,7 +187,7 @@ Esta definição está configurada nas Ligações de **Diretório Ativo** na **C
         Também pode utilizar [comandos Azure CLI](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` e registar a funcionalidade e exibir o estado de `az feature show` registo. 
 
     * **Assinatura LDAP**   
-        Selecione esta caixa de verificação para ativar a assinatura de LDAP. Esta funcionalidade permite uma pesquisa segura de LDAP entre o serviço Azure NetApp Files e os controladores de [domínio de serviços de domínio de diretório ativo especificados](/windows/win32/ad/active-directory-domain-services)pelo utilizador . Para mais informações, consulte [ADV190023 / Orientação da Microsoft para permitir a ligação do canal LDAP e a assinatura LDAP](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023).  
+        Selecione esta caixa de verificação para ativar a assinatura de LDAP. Esta funcionalidade permite uma pesquisa segura de LDAP entre o serviço Azure NetApp Files e os controladores de [domínio de serviços de domínio de diretório ativo especificados](/windows/win32/ad/active-directory-domain-services)pelo utilizador . Para mais informações, consulte [a ADV190023 | Orientação da Microsoft para permitir a ligação do canal LDAP e a assinatura LDAP](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023).  
 
         ![Assinatura do Diretório Ativo LDAP](../media/azure-netapp-files/active-directory-ldap-signing.png) 
 
@@ -321,7 +321,7 @@ Pode definir permissões para um ficheiro ou pasta utilizando o separador **Segu
  
 ![Definir permissões de ficheiros e pastas](../media/azure-netapp-files/set-file-folder-permissions.png) 
 
-## <a name="next-steps"></a>Passos seguintes  
+## <a name="next-steps"></a>Próximos passos  
 
 * [Montar ou desmontar um volume para máquinas virtuais Windows ou Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md) (Limites dos recursos do Azure NetApp Files)

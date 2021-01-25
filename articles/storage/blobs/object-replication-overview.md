@@ -10,12 +10,12 @@ ms.date: 01/13/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ff2408e35d76a6ea0d5221e04c7a41ed6cde7ac9
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: e7fa6b1ee7c92f82c3e15335991f5a240c7acc52
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178981"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762874"
 ---
 # <a name="object-replication-for-block-blobs"></a>Replicação de objeto para bolhas de bloco
 
@@ -88,7 +88,9 @@ Quando se cria uma regra de replicação, por padrão apenas são copiadas novas
 
 Também pode especificar um ou mais filtros como parte de uma regra de replicação para filtrar bolhas de bloqueio por prefixo. Quando especificar um prefixo, apenas as bolhas correspondentes ao prefixo no recipiente de origem serão copiadas para o recipiente de destino.
 
-Os recipientes de origem e destino devem existir antes de os especificar numa regra. Após criar a política de replicação, o contentor de destino torna-se só de leitura. Qualquer tentativa de escrever no contentor de destino falhará com o código de erro 409 (Conflito). No entanto, pode ligar para a operação [set Blob Tier](/rest/api/storageservices/set-blob-tier) numa bolha no recipiente de destino para movê-la para o nível de arquivo. Para obter mais informações sobre o nível de arquivo, consulte o [armazenamento Azure Blob: níveis de acesso quentes, frescos e de arquivo.](storage-blob-storage-tiers.md#archive-access-tier)
+Os recipientes de origem e destino devem existir antes de os especificar numa regra. Depois de criar a política de replicação, não é permitida a escrita de operações para o contentor de destino. Qualquer tentativa de escrever no contentor de destino falhará com o código de erro 409 (Conflito). Para escrever num recipiente de destino para o qual uma regra de replicação está configurada, deve eliminar a regra configurada para esse recipiente ou remover a política de replicação. É permitida a leitura e eliminação das operações para o contentor de destino quando a política de replicação estiver ativa.
+
+Pode ligar para a operação [set Blob Tier](/rest/api/storageservices/set-blob-tier) numa bolha no recipiente de destino para movê-la para o nível de arquivo. Para obter mais informações sobre o nível de arquivo, consulte o [armazenamento Azure Blob: níveis de acesso quentes, frescos e de arquivo.](storage-blob-storage-tiers.md#archive-access-tier)
 
 ## <a name="replication-status"></a>Estado de replicação
 
@@ -104,7 +106,7 @@ Se o estado de replicação de uma bolha na conta de origem indicar falha, entã
 
 A replicação de objetos incorre em custos adicionais na leitura e na escrita de transações contra as contas de origem e destino, bem como encargos de erupção para a replicação de dados da conta de origem para a conta de destino e taxas de leitura para processar a alteração de feed.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Configurar a replicação de objetos](object-replication-configure.md)
 - [Alterar suporte de alimentação no armazenamento de blob Azure](storage-blob-change-feed.md)

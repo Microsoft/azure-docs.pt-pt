@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: fc757e1310369c48de24c0cc9253c668ca27495c
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 80fdedb29f70c961431c987558a42d5fa46dfa7d
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888577"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98760803"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>Começa com a amostra de herói de chat de grupo
 
@@ -34,7 +34,7 @@ A amostra de **chat hero do grupo** de serviços de comunicação Azure mostra c
 Neste quickstart da amostra, vamos aprender como a amostra funciona antes de passarmos a amostra na sua máquina local. Em seguida, enviaremos a amostra para Azure usando os seus próprios recursos dos Serviços de Comunicação Azure.
 
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 A amostra tem uma aplicação do lado do cliente e uma aplicação do lado do servidor. A **aplicação do lado do cliente** é uma aplicação web React/Redux que utiliza a estrutura fluente da Microsoft. Esta aplicação envia pedidos para uma **aplicação do ASP.NET** Core que ajuda a aplicação do lado do cliente a ligar-se ao Azure. 
 
@@ -86,7 +86,7 @@ Pode testar a amostra localmente abrindo várias sessões de navegador com o URL
 1. Vá à pasta Chat e abra a `Chat.csproj` solução no Visual Studio
 2. Executar o projeto. O navegador será aberto na localidade:5000.
 
-#### <a name="troubleshooting"></a>Resolução de problemas
+#### <a name="troubleshooting"></a>Resolução de Problemas
 
 - A solução não constrói, lança erros durante a instalação/construção do NPM
 
@@ -102,7 +102,7 @@ Pode testar a amostra localmente abrindo várias sessões de navegador com o URL
 
 Se pretender limpar e remover uma assinatura de Serviços de Comunicação, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados. Saiba mais sobre [a limpeza de recursos.](../quickstarts/create-communication-resource.md#clean-up-resources)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 >[!div class="nextstepaction"] 
 >[Faça o download da amostra do GitHub](https://github.com/Azure-Samples/communication-services-web-chat-hero)
@@ -111,6 +111,7 @@ Para obter mais informações, veja os seguintes artigos:
 
 - Saiba mais [sobre conceitos de chat](../concepts/chat/concepts.md)
 - Familiarize-se com a nossa [biblioteca de clientes de chat](../concepts/chat/sdk-features.md)
+- Reveja a amostra da [App Contoso Med](https://github.com/Azure-Samples/communication-services-contoso-med-app)
 
 ## <a name="additional-reading"></a>Leitura adicional
 

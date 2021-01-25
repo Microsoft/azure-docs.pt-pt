@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Single Sign-On sem emenda - quickstart / Microsoft Docs'
+title: 'Azure AD Connect: Single Sign-On sem emenda - | de arranque rápido Microsoft Docs'
 description: Este artigo descreve como começar com o Azure Ative Directory Seamless Single Sign-On
 services: active-directory
 keywords: o que é Azure AD Connect, instalar Ative Directory, componentes necessários para Azure AD, SSO, Single Sign-on
@@ -16,21 +16,18 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eadb20bc570545356508d82c05e1746424a14b71
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 59cc50274b291c23aeec4620ec7a09312cc0c1fb
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97504394"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762260"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Azure Ative Directory Sem Emenda Single Sign-On: Quickstart
 
 ## <a name="deploy-seamless-single-sign-on"></a>Implementar Sign-On única sem emenda
 
 Azure Ative Directory (Azure AD) Seamless Single Sign-On (Seamless SSO) assina automaticamente nos utilizadores quando estão nos seus desktops corporativos que estão ligados à sua rede corporativa. O Seamless SSO proporciona aos seus utilizadores um fácil acesso às suas aplicações baseadas na nuvem sem precisar de componentes adicionais no local.
-
-> [!NOTE]
-> Este artigo contém referências ao termo *whitelist*, um termo que a Microsoft já não utiliza. Quando o termo for removido do software, vamos removê-lo deste artigo.
 
 Para implementar o SSO sem emenda, siga estes passos.
 
@@ -40,7 +37,7 @@ Certifique-se de que existem os seguintes pré-requisitos:
 
 * **Configurar o seu servidor Azure AD Connect**: Se utilizar [a Autenticação Pass-through](how-to-connect-pta.md) como método de entrada, não é necessária nenhuma verificação prévia adicional. Se utilizar [a sincronização de hash de palavra-passe](how-to-connect-password-hash-synchronization.md) como método de entrada e se houver uma firewall entre Azure AD Connect e AZure AD, certifique-se de que:
    - Utiliza a versão 1.1.644.0 ou mais tarde do Azure AD Connect. 
-   - Se a sua firewall ou proxy permitir, adicione as ligações à lista permitida para **\* URLs de .msappproxy.net** sobre a porta 443. Caso contrário, permita o acesso aos intervalos IP do [datacenter Azure](https://www.microsoft.com/download/details.aspx?id=41653), que são atualizados semanalmente. Este pré-requisito só é aplicável quando ativar a funcionalidade. Não é necessário para as insuposições reais do utilizador.
+   - Se a sua firewall ou proxy permitir, adicione as ligações à lista permitida para **\* URLs de .msappproxy.net** sobre a porta 443. Se você precisar de um URL específico em vez de um wildcard para configuração de procuração, você pode configurar **tenantid.registration.msappproxy.net**, onde tenantid é o GUID do inquilino onde você está configurando a funcionalidade. Se as exceções de procuração baseadas em URL não forem possíveis na sua organização, pode, em vez disso, permitir o acesso aos intervalos IP do [datacenter Azure](https://www.microsoft.com/download/details.aspx?id=41653), que são atualizados semanalmente. Este pré-requisito só é aplicável quando ativar a funcionalidade. Não é necessário para as insuposições reais do utilizador.
 
     >[!NOTE]
     >As versões AZURE AD Connect 1.1.557.0, 1.1.558.0, 1.1.561.0 e 1.1.614.0 têm um problema relacionado com a sincronização da hash da palavra-passe. Se _não_ pretender utilizar a sincronização de hash de palavra-passe em conjunto com a Autenticação Pass-through, leia as notas de lançamento do [Azure AD Connect](./reference-connect-version-history.md) para saber mais.
@@ -237,7 +234,7 @@ Para obter instruções sobre como rolar as teclas, consulte [O Diretório Azure
 >[!IMPORTANT]
 >Não precisa de fazer este passo _imediatamente_ depois de ter ativado a funcionalidade. Revir as chaves de desencriptação Kerberos pelo menos uma vez a cada 30 dias.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Mergulho profundo técnico](how-to-connect-sso-how-it-works.md): Compreenda como funciona a funcionalidade de Sign-On Sem Emenda.
 - [Perguntas frequentes](how-to-connect-sso-faq.md): Obtenha respostas a perguntas frequentes sobre o Sign-On Único Sem Emenda.

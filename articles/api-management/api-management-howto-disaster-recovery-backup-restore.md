@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/05/2020
 ms.author: apimpm
-ms.openlocfilehash: 25356e7101293fc27d4107b3a618cfc481aee969
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 223d119786d99eac611ece597fc0e8de4fcaf6bd
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96779588"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762404"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Como implementar a recuperação após desastre através do serviço de cópia de segurança e restauro na Gestão de API do Azure
 
@@ -221,8 +221,8 @@ Restaurar é uma operação de longa duração que pode demorar até 30 minutos 
 
 ## <a name="what-is-not-backed-up"></a>O que não é apoiado
 -   **Os dados de utilização utilizados** para criar relatórios de análise **não estão incluídos** na cópia de segurança. Utilize [a Azure API Management REST API][azure api management rest api] para recuperar periodicamente relatórios de análise para segurança.
--   [Certificados TLS/SSL de domínio personalizado](configure-custom-domain.md)
--   [Certificado AC personalizado](api-management-howto-ca-certificates.md), que inclui certificados intermédios ou de raiz carregados pelo cliente
+-   [Certificados TLS/SSL de domínio personalizado.](configure-custom-domain.md)
+-   [Certificado AC personalizado,](api-management-howto-ca-certificates.md)que inclui certificados intermédios ou de raiz carregados pelo cliente.
 -   [Definições de](api-management-using-with-vnet.md) integração de rede virtual.
 -   [Configuração de identidade gerida.](api-management-howto-use-managed-service-identity.md)
 -   [Diagnóstico do Monitor Azure](api-management-howto-use-azure-monitor.md) A configuração.
@@ -231,7 +231,7 @@ Restaurar é uma operação de longa duração que pode demorar até 30 minutos 
 
 A frequência com que executa cópias de segurança de serviço afeta o seu objetivo de ponto de recuperação. Para minimizá-lo, recomendamos a implementação de backups regulares e a realização de backups a pedido depois de efetuar alterações no seu serviço de Gestão API.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Confira os seguintes recursos para diferentes passos do processo de backup/restauro.
 
