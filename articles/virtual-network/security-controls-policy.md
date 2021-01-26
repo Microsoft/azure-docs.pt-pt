@@ -1,18 +1,18 @@
 ---
 title: Controlos de conformidade regulamentar da política Azure para a Rede Virtual Azure
 description: Lista controlos de conformidade regulamentar da política Azure disponíveis para a Rede Virtual Azure. Estas definições políticas incorporadas fornecem abordagens comuns para gerir o cumprimento dos seus recursos Azure.
-ms.date: 01/21/2021
+ms.date: 01/25/2021
 ms.topic: sample
 author: KumudD
 ms.author: kumud
 ms.service: virtual-network
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 558c2f7472321421234cc173aba7d678522ce94d
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: f82dd1b4bd13f58ca3a62b99a04a64b6802d4329
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684142"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797480"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-virtual-network"></a>Controlos de conformidade regulamentar da política Azure para a Rede Virtual Azure
 
@@ -22,7 +22,7 @@ ms.locfileid: "98684142"
 
 [!INCLUDE [azure-policy-compliancecontrols-vnet](../../includes/policy/standards/byrp/microsoft.network.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [a Conformidade Regulamentar da Política Azure.](../governance/policy/concepts/regulatory-compliance.md)
 - Veja as incorporações no [repositório do GitHub do Azure Policy](https://github.com/Azure/azure-policy).

@@ -13,18 +13,18 @@ ms.date: 12/3/2020
 ms.author: hirsin
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 50a2f56824db67b73199439922e662339ff30872
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 22352f6d0c7dc48b98be5fcb4101f262adc480d6
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98755292"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98795615"
 ---
 # <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Credenciais de certificado de autenticação de aplicativos da plataforma de identidade da Microsoft
 
 A plataforma de identidade da Microsoft permite que uma aplicação utilize as suas próprias credenciais para autenticação em qualquer lugar que um segredo do cliente possa ser usado, por exemplo, no fluxo de concessão de  [credenciais](v2-oauth2-client-creds-grant-flow.md) de cliente OAuth 2.0 e no fluxo [em nome de](v2-oauth2-on-behalf-of-flow.md) (OBO).
 
-Uma forma de credencial que uma aplicação pode usar para autenticação é uma afirmação [JSON Web Token](./security-tokens.md#json-web-tokens-jwts-and-claims) (JWT) assinada com um certificado que a aplicação possui.
+Uma forma de credencial que uma aplicação pode usar para autenticação é uma afirmação [JSON Web Token](./security-tokens.md#json-web-tokens-and-claims) (JWT) assinada com um certificado que a aplicação possui.
 
 ## <a name="assertion-format"></a>Formato de afirmação
 

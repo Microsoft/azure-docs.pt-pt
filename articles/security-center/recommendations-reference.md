@@ -1,18 +1,18 @@
 ---
 title: Tabela de referência para todas as recomendações do Centro de Segurança Azure
-description: Este artigo lista as recomendações de segurança do Azure Security Center que o ajudam a proteger os seus recursos.
+description: Este artigo lista as recomendações de segurança do Azure Security Center que o ajudam a endurecer e proteger os seus recursos.
 author: memildin
 ms.service: security-center
 ms.topic: reference
-ms.date: 01/24/2021
+ms.date: 01/26/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: cd72e904f659b7bd9c7e2df86b46fe20bd26ec33
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: f6d881036b0ebaa79d1052e41b8ec649bb1e8d6d
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757102"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797171"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Recomendações de segurança: um guia de referência
 
@@ -22,7 +22,7 @@ As recomendações do Centro de Segurança baseiam-se no [Benchmark de Seguranç
 
 Para saber como responder a estas recomendações, consulte [recomendações do Remediate no Centro de Segurança Azure.](security-center-remediate-recommendations.md)
 
-A sua Pontuação Segura baseia-se no número de recomendações do Centro de Segurança que concluiu. Para decidir quais as recomendações a resolver primeiro, olhe para a gravidade de cada um e o seu impacto potencial na sua Pontuação Segura.
+A sua pontuação segura baseia-se no número de recomendações do Centro de Segurança que completou. Para decidir quais as recomendações a resolver primeiro, olhe para a gravidade de cada um e o seu impacto potencial na sua pontuação segura.
 
 > [!TIP]
 > Se a descrição de uma recomendação diz "Nenhuma política relacionada", é geralmente porque essa recomendação depende de uma recomendação diferente e _da sua_ política. Por exemplo, a recomendação "As falhas de saúde de proteção endpoint devem ser remediadas...", baseia-se na recomendação de que verifica se uma solução de proteção de pontos finais é mesmo _instalada_ ("Solução de proteção de ponto final deve ser instalada..."). A recomendação subjacente _tem_ uma política.

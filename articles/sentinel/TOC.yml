@@ -223,14 +223,26 @@
           href: bookmarks.md
         - name: Utilizar a transmissão em direto para investigar
           href: livestream.md
-        - name: Gerir consultas de investigação com a API REST
-          href: hunting-with-rest-api.md
     - name: Remover o Azure Sentinel
       href: offboard.md
 - name: Referência (Novo!)
   items:
+    - name: Funções RBAC do Azure
+      items:
+        - name: Todos os papéis de Azure
+          href: /azure/role-based-access-control/built-in-roles#all
+        - name: Funções de Azure Sentinel
+          href: /azure/role-based-access-control/built-in-roles#security
     - name: APIs REST
-      href: /rest/api/securityinsights/
+      items:
+        - name: Azure Sentinel REST-API
+          href: /rest/api/securityinsights/
+        - name: Gerir consultas de investigação com a API REST
+          href: hunting-with-rest-api.md
+        - name: Gerir listas de relógios com REST-API
+          href: watchlist-with-rest-api.md
+    - name: Conector do Logic Apps do Azure Sentinel
+      href: /connectors/azuresentinel/
     - name: Esquema de normalização de rede
       href: normalization-schema.md
     - name: Melhoramentos da UEBA

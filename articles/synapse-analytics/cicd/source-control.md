@@ -8,22 +8,18 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 1f1a74f3a26a079039e68eb8e59fac4c18ff0c32
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 3564609d869bef090f0a3db5e6040ba0f5ad80b0
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219747"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98796962"
 ---
 # <a name="source-control-in-azure-synapse-studio"></a>Controlo de fontes no Azure Synapse Studio
 
-Por padrão, os autores do Azure Synapse Studio contra o serviço Synapse. No entanto, esta experiência tem as seguintes limitações:
+Por padrão, os autores do Azure Synapse Studio contra o serviço Synapse. Se tiver necessidade de colaboração usando Git para controlo de fontes, o Synapse Studio permite-lhe associar o seu espaço de trabalho a um repositório Git, Azure DevOps ou GitHub. 
 
-- O estúdio Synapse não inclui um armazenamento temporário para armazenar as suas alterações. A única forma de guardar e partilhar alterações é através da **Publicação** e todas as alterações são publicadas diretamente no serviço Synapse.
-
-- O Synapse Studio não está otimizado para a colaboração e controlo de versão.
-
-Para fornecer capacidade de controlo de fontes, o Synapse Studio permite-lhe associar o seu espaço de trabalho a um repositório Git, Azure DevOps ou GitHub. Este artigo irá delinear como configurar e trabalhar num espaço de trabalho da Sinapse com repositório de git habilitado. E também destacamos algumas boas práticas e um guia de resolução de problemas.
+Este artigo irá delinear como configurar e trabalhar num espaço de trabalho da Sinapse com repositório de git habilitado. E também destacamos algumas boas práticas e um guia de resolução de problemas.
 
 > [!NOTE]
 > A integração do Azure Synapse Studio não está disponível na Nuvem do Governo de Azure.
@@ -242,6 +238,6 @@ Se a sucursal de publicação estiver dessincronizada com o ramo de colaboraçã
 - O Synapse Studio não suporta personalizar a mensagem de compromisso.
 - Por design, apagar ação em Studio será comprometido a git diretamente
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para implementar a integração e implantação contínuas, consulte [integração e entrega contínuas (CI/CD)](continuous-integration-deployment.md).

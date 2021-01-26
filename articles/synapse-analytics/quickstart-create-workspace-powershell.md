@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: alehall
 ms.reviewer: jrasnick
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0537d2353d6b372ed19127101c488b872bbc5224
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 43f07bc26e75b440cde6d26db8ac8fb80aa3e39c
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98218863"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98796918"
 ---
 # <a name="quickstart-create-an-azure-synapse-workspace-with-azure-powershell"></a>Quickstart: Criar um espaço de trabalho sinapse Azure com Azure PowerShell
 
@@ -53,7 +53,7 @@ Install-Module -Name Az.Synapse
 
 1. Definir variáveis ambientais necessárias para criar recursos para o espaço de trabalho Azure Synapse.
 
-   |        Nome da variável        |                                                 Description                                                 |
+   |        Nome da variável        |                                                 Descrição                                                 |
    | --------------------------- | ----------------------------------------------------------------------------------------------------------- |
    | StorageAccountName          | Nome da sua conta de armazenamento ADLS Gen2 existente.                                                           |
    | StorageAccountResourceGroup | Nome do seu grupo de recursos de conta de armazenamento ADLS Gen2 existente.                                             |
@@ -70,26 +70,6 @@ Install-Module -Name Az.Synapse
 
    ```azurepowershell-interactive
    New-AzResourceGroup -Name $SynapseResourceGroup -Location $Region
-   ```
-
-1. Recupere a chave da conta de armazenamento ADLS Gen 2:
-
-   ```azurepowershell-interactive
-   $StorageAccountKey = Get-AzStorageAccountKey -ResourceGroupName $StorageAccountResourceGroup -Name $StorageAccountName |
-     Select-Object -First 1 -ExpandProperty Value
-    ```
-
-1. Recupere o URL de ponto final de armazenamento ADLS Gen 2:
-
-   ```azurepowershell-interactive
-   $StorageEndpointUrl = (Get-AzStorageAccount -ResourceGroupName $StorageAccountResourceGroup -Name $StorageAccountName).PrimaryEndpoints.Dfs
-   ```
-
-1. (Opcional) Pode sempre verificar qual é a sua chave de conta de armazenamento ADLS Gen2 e ponto final:
-
-   ```azurepowershell-interactive
-   Write-Output "Storage Account Key: $StorageAccountKey"
-   Write-Output "Storage Endpoint URL: $StorageEndpointUrl"
    ```
 
 1. Criar um espaço de trabalho Azure Synapse:
@@ -136,7 +116,7 @@ Install-Module -Name Az.Synapse
 
    ![Azure Synapse workspace web](media/quickstart-create-synapse-workspace-powershell/create-workspace-powershell-1.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Siga os passos abaixo para eliminar o espaço de trabalho Azure Synapse.
 
@@ -149,6 +129,6 @@ Se o espaço de trabalho Azure Synapse criado neste artigo não for necessário,
 Remove-AzSynapseWorkspace -Name $SynapseWorkspaceNam -ResourceGroupName $SynapseResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Em seguida, você pode [criar piscinas SQL](quickstart-create-sql-pool-studio.md) ou [criar piscinas Apache Spark](quickstart-create-apache-spark-pool-studio.md) para começar a analisar e explorar seus dados.

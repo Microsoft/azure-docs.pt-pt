@@ -10,14 +10,17 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 09/06/2020
-ms.openlocfilehash: fd3c8a08e5512d15be4dfb26ca3eff151d08386f
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: e31128687cfcc1f4e32879328ad3227182efb9ce
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651367"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797363"
 ---
 # <a name="use-azure-sentinel-watchlists"></a>Use listas de observação Azure Sentinel
+
+> [!IMPORTANT]
+> A funcionalidade de listas de relógios encontra-se atualmente em **PREVIEW**. Consulte os [Termos Complementares de Utilização para o Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para termos legais adicionais aplicáveis às funcionalidades do Azure que estejam em versão beta, pré-visualização ou ainda não lançadas em disponibilidade geral.
 
 As listas de observação do Azure Sentinel permitem a recolha de dados de fontes de dados externas para a correlação com os eventos no seu ambiente Azure Sentinel. Uma vez criado, pode utilizar listas de vigilância na sua pesquisa, regras de deteção, caça a ameaças e reprodução de resposta. As listas de observação são armazenadas no seu espaço de trabalho Azure Sentinel como pares de valor-nome e estão em cache para um desempenho de consulta ideal e baixa latência.
 
@@ -33,7 +36,7 @@ Os cenários comuns para a utilização de listas de observação incluem:
 
 ## <a name="create-a-new-watchlist"></a>Criar uma nova lista de observação
 
-1. A partir do portal Azure, navegue até a Lista de Observação de Configuração **Azure Sentinel**  >  **Configuration**  >  **Watchlist** e, em seguida, selecione **Adicionar novo**.
+1. A partir do portal Azure, navegue até a Lista de Observação de Configuração **Azure Sentinel**  >    >   e, em seguida, selecione **Adicionar novo**.
 
     > [!div class="mx-imgBorder"]
     > ![nova lista de observação](./media/watchlists/sentinel-watchlist-new.png)
@@ -62,7 +65,7 @@ Os cenários comuns para a utilização de listas de observação incluem:
 
 ## <a name="use-watchlists-in-queries"></a>Use listas de observação em consultas
 
-1. A partir do portal Azure, navegue para a Lista de Observações de Configuração **Azure Sentinel**  >  **Configuration**  >  **Watchlist**, selecione a lista de relógios que pretende utilizar e, em seguida, selecione **Ver em Log Analytics**.
+1. A partir do portal Azure, navegue para a Lista de Observações de Configuração **Azure Sentinel**  >    >  , selecione a lista de relógios que pretende utilizar e, em seguida, selecione **Ver em Log Analytics**.
 
     :::image type="content" source="./media/watchlists/sentinel-watchlist-queries-list.png" alt-text="usar listas de observação em consultas" lightbox="./media/watchlists/sentinel-watchlist-queries-list.png":::
 
@@ -73,11 +76,43 @@ Os cenários comuns para a utilização de listas de observação incluem:
 
     :::image type="content" source="./media/watchlists/sentinel-watchlist-queries-fields.png" alt-text="consultas com campos de lista de observação" lightbox="./media/watchlists/sentinel-watchlist-queries-fields.png":::
     
+1. Pode consultar os dados em qualquer tabela contra dados de uma lista de observação, tratando a lista de observação como uma tabela para junções e procuras.
+
+    ```kusto
+    Heartbeat
+    | lookup kind=leftouter _GetWatchlist('IPlist') 
+     on $left.ComputerIP == $right.IPAddress
+    ```
+    :::image type="content" source="./media/watchlists/sentinel-watchlist-queries-join.png" alt-text="consultas contra lista de observação como olhar":::
+
 ## <a name="use-watchlists-in-analytics-rules"></a>Use listas de observação em regras de análise
 
 Para utilizar listas de observação em regras de análise, a partir do portal Azure, navegue até **Azure Sentinel**  >  **Configuration**  >  **Analytics**, e crie uma regra utilizando a `_GetWatchlist('<watchlist>')` função na consulta.
 
-:::image type="content" source="./media/watchlists/sentinel-watchlist-analytics-rule.png" alt-text="usar listas de relógios em regras de análise" lightbox="./media/watchlists/sentinel-watchlist-analytics-rule.png":::
+1. Neste exemplo, crie uma lista de observação chamada "ipwatchlist" com os seguintes valores:
+
+    :::image type="content" source="./media/watchlists/create-watchlist.png" alt-text="lista de quatro itens para lista de observação":::
+
+    :::image type="content" source="./media/watchlists/sentinel-watchlist-new-2.png" alt-text="criar lista de observação com quatro itens":::
+
+1. Em seguida, criar a regra da análise.  Neste exemplo, apenas incluímos eventos a partir de endereços IP na lista de observação:
+
+    ```kusto
+    //Watchlist as a variable
+    let watchlist = (_GetWatchlist('ipwatchlist') | project IPAddress);
+    Heartbeat
+    | where ComputerIP in (watchlist)
+    ```
+    ```kusto
+    //Watchlist inline with the query
+    Heartbeat
+    | where ComputerIP in ( 
+        (_GetWatchlist('ipwatchlist')
+        | project IPAddress)
+    )
+    ```
+
+:::image type="content" source="./media/watchlists/sentinel-watchlist-analytics-rule-2.png" alt-text="usar listas de relógios em regras de análise":::
 
 ## <a name="view-list-of-watchlists-aliases"></a>Ver lista de pseudónimos de listas de relógios
 

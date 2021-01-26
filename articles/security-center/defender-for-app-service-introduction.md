@@ -7,12 +7,12 @@ ms.date: 01/25/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: c6d62cf7b93255336d87cec1d0fef2c567cde9f2
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 200e1fd7bfffef403fa459d3de13dc31145b8a33
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791845"
+ms.locfileid: "98796636"
 ---
 # <a name="introduction-to-azure-defender-for-app-service"></a>Introdução ao Azure Defender para o Serviço de Aplicações
 
@@ -28,7 +28,7 @@ O Azure App Service é uma plataforma totalmente gerida para construir e hospeda
 |Estado de libertação:|Geralmente disponível (GA)|
 |Preços:|[O Azure Defender for App Service](azure-defender.md) é faturado como mostrado na página de [preços](security-center-pricing.md)<br>A página de preços e definições lista o número de casos para a sua **Quantidade de Recursos**. Este número é o número total de instâncias computacional, em todos os planos do Serviço de Aplicações nesta subscrição, em execução no momento em que abriu a página de nível de preços.<br>Para validar a contagem, abra os planos do **Serviço de Aplicações** no portal Azure e verifique o número de casos de computação utilizados por cada plano.|
 |Planos de Serviço de Aplicações suportados:|![Sim ](./media/icons/yes-icon.png) Básico, Standard, Premium, Isolado ou Linux<br>![Sem ](./media/icons/no-icon.png) Consumo Gratuito, Partilhado ou Partilhado<br>[Saiba mais sobre Planos de Serviço de Aplicações](https://azure.microsoft.com/pricing/details/app-service/plans/)|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
+|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![No](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
 |||
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-app-service"></a>Quais são os benefícios do Azure Defender para o Serviço de Aplicações?
@@ -62,9 +62,9 @@ O Azure Defender monitoriza muitas ameaças aos seus recursos do Serviço de Apl
 
 ### <a name="dangling-dns-detection"></a>Deteção de DNS pendente
 
-O Azure Defender for App Service também identifica quaisquer entradas dns restantes no seu registo DNS quando um website do Serviço de Aplicações é desativado - estes são conhecidos como entradas de DNS pendentes. Neste momento, a entrada do DNS está a apontar para um recurso inexistente e o seu subdomínio está vulnerável a uma aquisição. O Azure Defender não digitaliza o seu registo DNS para as entradas de DNS *pendentes;* alerta-o quando um website do Serviço de Aplicações é desativado e o seu domínio personalizado (entrada DNS) não é eliminado.
+O Azure Defender for App Service também identifica quaisquer entradas dns restantes no seu registo DNS quando um website do Serviço de Aplicações é desativado - estes são conhecidos como entradas de DNS pendentes. Quando remove um website e não remove o seu domínio personalizado do seu registo DNS, a entrada de DNS está a apontar para um recurso inexistente e o seu subdomínio está vulnerável a uma aquisição. O Azure Defender não digitaliza o seu registo DNS para as entradas de DNS *pendentes;* alerta-o quando um website do Serviço de Aplicações é desativado e o seu domínio personalizado (entrada DNS) não é eliminado.
 
-As aquisições de subdomínios são uma ameaça comum e de alta gravidade para as organizações. Quando um ator ameaça deteta uma entrada de DNS pendente, eles criam o seu próprio site no endereço de destino. O tráfego destinado ao domínio da organização é então direcionado para o site do ator ameaça, e eles podem usar esse tráfego para uma ampla gama de atividades maliciosas. 
+As aquisições de subdomínios são uma ameaça comum e de alta gravidade para as organizações. Quando um ator ameaça deteta uma entrada de DNS pendente, eles criam o seu próprio site no endereço de destino. O tráfego destinado ao domínio da organização é então direcionado para o site do ator ameaça, e eles podem usar esse tráfego para uma ampla gama de atividades maliciosas.
 
 A proteção DENGLING DNS está disponível se os seus domínios são geridos com Azure DNS ou um registrador de domínio externo e se aplica ao Serviço de Aplicações tanto no Windows como no Linux.
 
@@ -100,4 +100,4 @@ Para obter material relacionado, consulte os seguintes artigos:
 - Para obter uma lista dos alertas do Azure Defender para o Serviço de Aplicações, consulte a [tabela de alertas de referência](alerts-reference.md#alerts-azureappserv).
 - Para obter mais informações sobre os planos do Serviço de Aplicações, consulte [os planos do Serviço de Aplicações.](https://azure.microsoft.com/pricing/details/app-service/plans/)
 > [!div class="nextstepaction"]
-> [Ativar o Azure Defender](security-center-pricing.md)
+> [Ativar o Azure Defender](security-center-pricing.md#enable-azure-defender)

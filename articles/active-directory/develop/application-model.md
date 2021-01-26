@@ -1,7 +1,7 @@
 ---
 title: Modelo de aplicação | Rio Azure
 titleSuffix: Microsoft identity platform
-description: Conheça o processo de registo da sua aplicação para que possa integrar-se com a plataforma de identidade da Microsoft.
+description: Conheça o processo de registo da sua aplicação para que possa integrar-se na plataforma de identidade da Microsoft.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -13,45 +13,45 @@ ms.date: 04/28/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 2ba41e36d12b58da2e572cf870195716eacaddef
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 86543b961698e736b2211553b0dca367b28158ef
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98755674"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98795662"
 ---
 # <a name="application-model"></a>Modelo de aplicação
 
-As aplicações podem iniciar saúde nos próprios utilizadores ou delegar o sismo num fornecedor de identidade. Este tópico discute os passos necessários para registar uma aplicação com a plataforma de identidade da Microsoft.
+As aplicações podem iniciar saúde nos próprios utilizadores ou delegar o sismo num fornecedor de identidade. Este artigo discute as etapas que são necessárias para registar uma aplicação com a plataforma de identidade da Microsoft.
 
-## <a name="registering-an-application"></a>Registar uma aplicação
+## <a name="register-an-application"></a>Registar uma aplicação
 
-Para que um fornecedor de identidade saiba que um utilizador tem acesso a uma determinada aplicação, tanto o utilizador como a aplicação devem ser registados junto do fornecedor de identidade. Quando regista a sua aplicação com Azure AD, está a fornecer uma configuração de identidade para a sua aplicação que lhe permite integrar-se com a plataforma de identidade da Microsoft. O registo da aplicação também lhe permite:
+Para que um fornecedor de identidade saiba que um utilizador tem acesso a uma determinada aplicação, tanto o utilizador como a aplicação devem ser registados junto do fornecedor de identidade. Quando regista a sua aplicação no Azure Ative Directory (Azure AD), está a fornecer uma configuração de identidade para a sua aplicação que lhe permite integrar-se na plataforma de identidade da Microsoft. O registo da aplicação também lhe permite:
 
-* Personalize a marcação da sua aplicação no diálogo de inscrição. Isto é importante porque esta é a primeira experiência que um utilizador terá com a sua aplicação.
-* Decida se deseja que os utilizadores assinem apenas se pertencerem à sua organização. Este é um único pedido de inquilino. Ou permitir que os utilizadores se inscrevam usando qualquer trabalho ou conta escolar. Esta é uma aplicação multi-inquilino. Também pode permitir contas pessoais da Microsoft, ou uma conta social do LinkedIn, Google, e assim por diante.
+* Personalize a marcação da sua aplicação na caixa de diálogo de entrada. Esta marca é importante porque a inscrição é a primeira experiência que um utilizador terá com a sua aplicação.
+* Decida se deseja permitir que os utilizadores só entrem se pertencerem à sua organização. Esta arquitetura é conhecida como uma aplicação de inquilino único. Ou, você pode permitir que os utilizadores se inscrevam usando qualquer conta de trabalho ou escola, que é conhecida como uma aplicação multi-inquilino. Também pode permitir contas pessoais da Microsoft ou uma conta social do LinkedIn, Google, e assim por diante.
 * Solicite permissões de âmbito. Por exemplo, pode solicitar o âmbito "user.read", que permite ler o perfil do utilizador inscrito.
 * Defina âmbitos que definem o acesso à sua API web. Normalmente, quando uma aplicação quer aceder à sua API, terá de pedir permissões aos âmbitos que define.
-* Partilhe um segredo com a plataforma de identidade da Microsoft que comprovam a identidade da aplicação.  Isto é relevante no caso em que a app é uma aplicação confidencial do cliente. Um pedido de cliente confidencial é uma aplicação que pode manter as credenciais de forma segura. Requerem um servidor de backend de confiança para armazenar as credenciais.
+* Partilhe um segredo com a plataforma de identidade da Microsoft que comprovam a identidade da aplicação. A utilização de um segredo é relevante no caso de a app ser uma aplicação confidencial do cliente. Um pedido de cliente confidencial é uma aplicação que pode manter as credenciais de forma segura. Um servidor back-end de confiança é necessário para armazenar as credenciais.
 
-Uma vez registado, a aplicação receberá um identificador único que a aplicação partilha com a plataforma de identidade da Microsoft quando solicita fichas. Se a aplicação for uma [aplicação confidencial](developer-glossary.md#client-application)do cliente, também partilhará o segredo ou a chave pública, dependendo se foram usados certificados ou segredos.
+Depois de a aplicação estar registada, é dado um identificador único que partilha com a plataforma de identidade da Microsoft quando solicita fichas. Se a aplicação for uma [aplicação confidencial do cliente,](developer-glossary.md#client-application)também partilhará o segredo ou a chave pública dependendo se foram usados certificados ou segredos.
 
 A plataforma de identidade da Microsoft representa aplicações utilizando um modelo que cumpre duas funções principais:
 
-* Identifique a aplicação pelos protocolos de autenticação que suporta
-* Forneça todos os identificadores, URLs, segredos e informações relacionadas que são necessários para autenticar
+* Identifique a aplicação pelos protocolos de autenticação que suporta.
+* Forneça todos os identificadores, URLs, segredos e informações relacionadas que são necessários para autenticar.
 
 A plataforma de identidade da Microsoft:
 
-* Detém todos os dados necessários para suportar a autenticação em tempo de execução
-* Detém todos os dados para decidir que recursos uma app pode precisar de aceder, e em que circunstâncias um dado pedido deve ser preenchido
-* Fornece infraestruturas para implementar o provisionamento de aplicativos dentro do inquilino do desenvolvedor de aplicações, e para qualquer outro inquilino AZURE AD
-* Lida com o consentimento do utilizador durante o tempo de pedido do token e facilita o fornecimento dinâmico de apps através dos inquilinos
+* Detém todos os dados necessários para suportar a autenticação em tempo de execução.
+* Detém todos os dados para decidir quais os recursos a que uma aplicação pode precisar de aceder e em que circunstâncias um determinado pedido deve ser preenchido.
+* Fornece infraestruturas para implementar o provisionamento de aplicativos dentro do inquilino do desenvolvedor de aplicações, e para qualquer outro inquilino AZure AD.
+* Lida com o consentimento do utilizador durante o tempo de pedido simbólico e facilita o fornecimento dinâmico de aplicações entre os inquilinos.
 
-**Consentimento** é o processo de um titular de recursos que concede autorização para um pedido de cliente para aceder a recursos protegidos, sob permissões específicas, em nome do proprietário do recurso. Plataforma de identidade da Microsoft:
+*Consentimento* é o processo de um titular de recursos que concede autorização para um pedido de cliente para aceder a recursos protegidos, sob permissões específicas, em nome do proprietário do recurso. A plataforma de identidade da Microsoft permite:
 
-* Permite aos utilizadores e administradores conceder ou negar dinamicamente o consentimento da aplicação para aceder a recursos em seu nome.
-* Por fim, permite aos administradores decidir que aplicações estão autorizados a fazer, que utilizadores podem utilizar aplicações específicas e de que forma são acedidos os recursos de diretório.
+* Os utilizadores e administradores concedem ou negam o consentimento para que a app aceda aos recursos em seu nome.
+* Os administradores para decidir em última análise quais as aplicações que são permitidas e quais os utilizadores que podem usar aplicações específicas, e como os recursos do diretório são acedidos.
 
 ## <a name="multi-tenant-apps"></a>Aplicações multi-inquilino
 
@@ -62,28 +62,28 @@ O diagrama seguinte mostra um fluxo de provisão de plataforma de identidade da 
 * *O inquilino A* é dono do requerimento.
 * *O inquilino B* está a instantanear o pedido através de um diretor de serviço.
 
-![Fluxo de aprovisionamento simplificado orientado por consentimento](./media/authentication-scenarios/simplified-provisioning-flow-consent-driven.svg)
+![Diagrama que mostra um fluxo de provisão simplificado impulsionado pelo consentimento.](./media/authentication-scenarios/simplified-provisioning-flow-consent-driven.svg)
 
 Neste fluxo de aprovisionamento:
 
-1. Um utilizador do inquilino B tenta entrar com a app, o ponto final de autorização solicita um sinal para a aplicação.
+1. Um utilizador do inquilino B tenta entrar com a app. O ponto final de autorização solicita um sinal para o pedido.
 1. As credenciais de utilizador são adquiridas e verificadas para autenticação.
 1. O utilizador é solicitado a fornecer consentimento para que a app obtenha acesso ao inquilino B.
 1. A plataforma de identidade da Microsoft usa o objeto de aplicação no inquilino A como um plano para criar um principal serviço no inquilino B.
 1. O utilizador recebe o token solicitado.
 
-Pode repetir este processo para inquilinos adicionais. O inquilino A mantém a planta para a aplicação (objeto de aplicação). Os utilizadores e administradores de todos os outros inquilinos onde a app é dada consentimento controlam o que a aplicação é permitida através do objeto principal de serviço correspondente em cada inquilino. Para obter mais informações, consulte [os objetos principais de aplicação e serviço na plataforma de identidade da Microsoft.](app-objects-and-service-principals.md)
+Pode repetir este processo para mais inquilinos. O inquilino A mantém a planta para a aplicação (objeto de aplicação). Os utilizadores e administradores de todos os outros inquilinos onde a app é dada consentimento controlam o que a aplicação é permitida através do objeto principal de serviço correspondente em cada inquilino. Para obter mais informações, consulte [os objetos principais de aplicação e serviço na plataforma de identidade da Microsoft.](app-objects-and-service-principals.md)
 
 ## <a name="next-steps"></a>Próximos passos
 
-Para outros tópicos que abranjam os fundamentos básicos de autenticação e autorização:
+Para obter mais informações sobre a autenticação e autorização na plataforma de identidade da Microsoft, consulte os seguintes artigos:
 
-* Consulte [a autenticação vs. autorização](authentication-vs-authorization.md) para conhecer os conceitos básicos de autenticação e autorização na plataforma de identidade da Microsoft.
-* Consulte [fichas de segurança](security-tokens.md) para saber como os tokens de acesso, tokens de atualização e fichas de identificação são usados na autenticação e autorização.
-* Consulte o [fluxo de entrada de app](app-sign-in-flow.md) para saber sobre o fluxo de entrada de aplicações web, desktop e mobile na plataforma de identidade da Microsoft.
+* Para conhecer os conceitos básicos de autenticação e autorização, consulte [autenticação vs. autorização.](authentication-vs-authorization.md)
+* Para saber como os tokens de acesso, tokens de atualização e fichas de identificação são usados na autenticação e autorização, consulte [fichas de segurança.](security-tokens.md)
+* Para saber mais sobre o fluxo de entrada de web, desktop e aplicativos móveis, consulte o [fluxo de entrada de app](app-sign-in-flow.md).
 
-Para saber mais sobre o modelo de candidatura:
+Para obter mais informações sobre o modelo de aplicação, consulte os seguintes artigos:
 
-* Veja [como e por que as aplicações são adicionadas ao Azure AD](active-directory-how-applications-are-added.md) para mais informações sobre objetos de aplicações e principais de serviço na plataforma de identidade da Microsoft.
-* Consulte [o Tenancy in Azure Ative Directory](single-and-multi-tenant-apps.md) para obter mais informações sobre aplicações de inquilinos individuais e aplicações multi-arrendatários.
-* Consulte [a documentação do Azure Ative Directory B2C](../../active-directory-b2c/index.yml) para obter mais informações sobre como a Azure AD também fornece o Azure Ative Directory B2C para que as organizações possam assinar nos utilizadores, normalmente clientes, utilizando identidades sociais como uma conta da Google.
+* Para obter mais informações sobre objetos de aplicações e principais de serviço na plataforma de identidade da Microsoft, consulte [como e por que as aplicações são adicionadas ao Azure AD](active-directory-how-applications-are-added.md).
+* Para obter mais informações sobre aplicações de inquilinos individuais e aplicativos multi-inquilinos, consulte [Tenancy in Azure Ative Directory](single-and-multi-tenant-apps.md).
+* Para obter mais informações sobre como a Azure AD também fornece a Azure Ative Directory B2C para que as organizações possam assinar nos utilizadores, normalmente clientes, utilizando identidades sociais como uma conta google, consulte [a documentação do Azure Ative Directory B2C.](../../active-directory-b2c/index.yml)

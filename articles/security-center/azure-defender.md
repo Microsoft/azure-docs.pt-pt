@@ -7,16 +7,14 @@ ms.date: 9/30/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: d9c8df4fe296bcd40f26847233fcd49bcab573c0
-ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
+ms.openlocfilehash: 23d00acc03ee879036a823f0c3d7fe2f67902e31
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97709455"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797022"
 ---
 # <a name="introduction-to-azure-defender"></a>Introdução ao Azure Defender
-
-[!INCLUDE [Solorigate banner](../../includes/security-center-solorigate.md)]
 
 As características do Azure Security Center cobrem os dois grandes pilares da segurança na nuvem:
 
@@ -96,9 +94,9 @@ Saiba mais nas seguintes páginas:
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu sobre os benefícios do Azure Defender. 
 
 > [!div class="nextstepaction"]
-> [Ativar o Azure Defender](security-center-pricing.md)
+> [Ativar o Azure Defender](security-center-pricing.md#enable-azure-defender)

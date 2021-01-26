@@ -9,12 +9,12 @@ ms.subservice: workspace
 ms.date: 08/25/2020
 ms.author: alehall
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2658240e670e617f7296881f733ff369b9bf8f87
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: d4beef9383b8e51e1295639c18e745fd0fdf8588
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219033"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98796942"
 ---
 # <a name="quickstart-create-an-azure-synapse-workspace-with-azure-cli"></a>Quickstart: Criar um espaço de trabalho sinapse Azure com Azure CLI
 
@@ -38,7 +38,7 @@ Neste arranque rápido, aprende-se a criar um espaço de trabalho synapse utiliz
 
 1. Definir variáveis ambientais necessárias para criar recursos para o espaço de trabalho Azure Synapse.
 
-    | Nome da Variável de Ambiente | Description |
+    | Nome da Variável de Ambiente | Descrição |
     |---|---|---|
     |StorageAccountName| Nome da sua conta de armazenamento ADLS Gen2 existente.|
     |StorageAccountResourceGroup| Nome do seu grupo de recursos de conta de armazenamento ADLS Gen2 existente. |
@@ -50,31 +50,12 @@ Neste arranque rápido, aprende-se a criar um espaço de trabalho synapse utiliz
     |SqlPassword| Escolha uma senha segura.|
     |||
 
-2. Crie um grupo de recursos como recipiente para o seu espaço de trabalho Azure Synapse:
+1. Crie um grupo de recursos como recipiente para o seu espaço de trabalho Azure Synapse:
     ```azurecli
     az group create --name $SynapseResourceGroup --location $Region
     ```
-3. Recupere a chave da conta de armazenamento ADLS Gen 2:
-    ```azurecli
-    StorageAccountKey=$(az storage account keys list \
-      --account-name $StorageAccountName \
-      | jq -r '.[0] | .value')
-    ```
-4. Recupere o URL de ponto final de armazenamento ADLS Gen 2:
-    ```azurecli
-    StorageEndpointUrl=$(az storage account show \
-      --name $StorageAccountName \
-      --resource-group $StorageAccountResourceGroup \
-      | jq -r '.primaryEndpoints | .dfs')
-    ```
 
-5. (Opcional) Pode sempre verificar qual é a sua chave de conta de armazenamento ADLS Gen2 e ponto final:
-    ```azurecli
-    echo "Storage Account Key: $StorageAccountKey"
-    echo "Storage Endpoint URL: $StorageEndpointUrl"
-    ```
-
-6. Criar um espaço de trabalho Azure Synapse:
+1. Criar um espaço de trabalho Azure Synapse:
     ```azurecli
     az synapse workspace create \
       --name $SynapseWorkspaceName \
@@ -86,14 +67,14 @@ Neste arranque rápido, aprende-se a criar um espaço de trabalho synapse utiliz
       --location $Region
     ```
 
-7. Obtenha Web e Dev URL para O espaço de trabalho Azure Synapse:
+1. Obtenha Web e Dev URL para O espaço de trabalho Azure Synapse:
     ```azurecli
     WorkspaceWeb=$(az synapse workspace show --name $SynapseWorkspaceName --resource-group $SynapseResourceGroup | jq -r '.connectivityEndpoints | .web')
 
     WorkspaceDev=$(az synapse workspace show --name $SynapseWorkspaceName --resource-group $SynapseResourceGroup | jq -r '.connectivityEndpoints | .dev')
     ```
 
-8. Crie uma Regra de Firewall para permitir o seu acesso ao Espaço de Trabalho Azure Synapse a partir da sua máquina:
+1. Crie uma Regra de Firewall para permitir o seu acesso ao Espaço de Trabalho Azure Synapse a partir da sua máquina:
 
     ```azurecli
     ClientIP=$(curl -sb -H "Accept: application/json" "$WorkspaceDev" | jq -r '.message')
@@ -103,7 +84,7 @@ Neste arranque rápido, aprende-se a criar um espaço de trabalho synapse utiliz
     az synapse workspace firewall-rule create --end-ip-address $ClientIP --start-ip-address $ClientIP --name "Allow Client IP" --resource-group $SynapseResourceGroup --workspace-name $SynapseWorkspaceName
     ```
 
-9. Abra o endereço WEB URL do Espaço de Trabalho Azure Synapse armazenado em variável ambiente `WorkspaceWeb` para aceder ao seu espaço de trabalho:
+1. Abra o endereço WEB URL do Espaço de Trabalho Azure Synapse armazenado em variável ambiente `WorkspaceWeb` para aceder ao seu espaço de trabalho:
 
     ```azurecli
     echo "Open your Azure Synapse Workspace Web URL in the browser: $WorkspaceWeb"
@@ -112,7 +93,7 @@ Neste arranque rápido, aprende-se a criar um espaço de trabalho synapse utiliz
     [![Azure Synapse workspace web ](media/quickstart-create-synapse-workspace-cli/create-workspace-cli-1.png)](media/quickstart-create-synapse-workspace-cli/create-workspace-cli-1.png#lightbox)
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Siga os passos abaixo para eliminar o espaço de trabalho Azure Synapse.
 > [!WARNING]
@@ -126,6 +107,6 @@ Se pretender eliminar o espaço de trabalho Azure Synapse, complete o seguinte c
 az synapse workspace delete --name $SynapseWorkspaceName --resource-group $SynapseResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Em seguida, você pode [criar piscinas SQL](quickstart-create-sql-pool-studio.md) ou [criar piscinas Apache Spark](quickstart-create-apache-spark-pool-studio.md) para começar a analisar e explorar seus dados.

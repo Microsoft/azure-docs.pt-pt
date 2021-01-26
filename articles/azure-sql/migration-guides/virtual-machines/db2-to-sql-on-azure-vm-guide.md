@@ -3,19 +3,19 @@ title: DB2 para SQL Server em VMs Azure (guia de migração)
 description: Siga este guia para migrar o seu servidor DB2 para o SQL Server em VMs Azure.
 ms.custom: ''
 ms.service: virtual-machines-sql
-ms.subservice: ''
+ms.subservice: migration-guide
 ms.devlang: ''
 ms.topic: how-to
 author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: 5312ee08bad9d0b84e13c53fe4b1de59fad896f1
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: c3f3af6a1c114d6587992f79e95dcc0c1ccb41e6
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96326051"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797477"
 ---
 # <a name="migration-guide-db2-to-sql-server-on-azure-vms"></a>Guia de migração: DB2 para SQL Server em VMs Azure
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -39,7 +39,7 @@ Para migrar a sua base de dados DB2 para o SQL Server, precisa de:
 
 Depois de conhecer os pré-requisitos, está pronto para descobrir a topologia do seu ambiente e avaliar a viabilidade da sua migração. 
 
-### <a name="assess"></a>Avaliar 
+### <a name="assess"></a>Avaliação 
 
 Crie uma avaliação utilizando o Sql Server Migration Assistant (SSMA). 
 
@@ -88,7 +88,7 @@ Para converter o esquema, siga estes passos:
 1. Selecione **Connect to SQL Server**. 
     1. Introduza os detalhes da ligação para ligar à sua instância SQL Server no seu Azure VM. 
     1. Opte por ligar-se a uma base de dados existente no servidor alvo ou fornecer um novo nome para criar uma nova base de dados no servidor alvo. 
-    1. Selecione **Connect** (Ligar). 
+    1. Selecione **Ligar**. 
 
     :::image type="content" source="../../../../includes/media/virtual-machines-sql-server-connection-steps/rm-ssms-connect.png" alt-text="Ligue ao seu Servidor SQL em Azure VM":::
 
@@ -160,7 +160,7 @@ Para assistência adicional, consulte os seguintes recursos, que foram desenvolv
 
 Estes recursos foram desenvolvidos como parte do Programa Ninja Data SQL, que é patrocinado pela equipa de engenharia do Azure Data Group. A carta principal do programa Data SQL Ninja é desbloquear e acelerar a modernização complexa e competir oportunidades de migração da plataforma de dados para a plataforma de dados Azure Data da Microsoft. Se acha que a sua organização estaria interessada em participar no programa Data SQL Ninja, contacte a sua equipa de conta e peça-lhes que apresentem uma nomeação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Após a migração, reveja o [guia de validação e otimização pós-migração.](/sql/relational-databases/post-migration-validation-and-optimization-guide) 
 

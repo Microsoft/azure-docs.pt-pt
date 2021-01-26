@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2020
 ms.author: memildin
-ms.openlocfilehash: 4ecd436b548c29c520a7538970d4d703cc8488d2
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 31472b0a0eedee03d5cfcb6ff47a97033a8c78e0
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027572"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98796073"
 ---
 # <a name="enable-security-center-on-all-subscriptions-in-a-management-group"></a>Ativar o Centro de Segurança em todas as subscrições de um grupo de gestão
 
@@ -25,20 +25,26 @@ Pode utilizar a Azure Policy para ativar o Azure Security Center em todas as sub
 
 Para bordo de um grupo de gestão e todas as suas subscrições:
 
-1. Como utilizador com permissões **de Administração** de Segurança, abra a Política Azure e procure a definição **Enable Azure Security Center na sua subscrição** .
+1. Como utilizador com permissões **de Administração** de Segurança, abra a Política Azure e procure a definição **Enable Azure Security Center na sua subscrição**.
 
     :::image type="content" source="./media/security-center-get-started/enable-security-center-policy.png" alt-text="A definição de Política Azure Enable Azure Security Center na sua subscrição":::
 
 1. Selecione **Atribua** e certifique-se de que define o âmbito para o nível MG.
 
-    :::image type="content" source="./media/security-center-get-started/assign-policy.png" alt-text="A definição de Política Azure Enable Azure Security Center na sua subscrição":::
+    :::image type="content" source="./media/security-center-get-started/assign-policy.png" alt-text="Atribuir a definição Enable Azure Security Center na sua subscrição":::
 
     > [!TIP]
     > Além do âmbito, não existem parâmetros necessários.
 
 1. **Selecione Criar uma tarefa de remediação** para garantir que todas as subscrições existentes que não tenham o Centro de Segurança ativado, serão a bordo.
 
-    :::image type="content" source="./media/security-center-get-started/remediation-task.png" alt-text="A definição de Política Azure Enable Azure Security Center na sua subscrição" todas as subscrições registadas (independentemente de terem o Azure Defender ligado ou desligado).
+    :::image type="content" source="./media/security-center-get-started/remediation-task.png" alt-text="Criar uma tarefa de remediação para a definição de Política Azure Enable Azure Security Center na sua subscrição":::
+
+1. Quando a definição for atribuída, será:
+
+    1. Detete todas as subscrições no MG que ainda não estão registadas no Centro de Segurança.
+    1. Marque estas assinaturas como "incompatíveis".
+    1. Marque como "conforme" todas as subscrições registadas (independentemente de terem o Azure Defender ligado ou desligado).
 
     A tarefa de remediação permitirá então ao Centro de Segurança, gratuitamente, as subscrições não conformes.
 
@@ -92,4 +98,4 @@ Existem várias formas de escolher modificar a definição da Política Azure:
 Agora que insaltou um grupo de gestão inteiro, permita as proteções avançadas do Azure Defender. 
 
 > [!div class="nextstepaction"]
-> [Ativar o Azure Defender](security-center-pricing.md)
+> [Ativar o Azure Defender](security-center-pricing.md#enable-azure-defender)

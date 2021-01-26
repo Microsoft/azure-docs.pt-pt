@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 7a665bf05167a6bdf20c7325c66a5d0e439aa7f1
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: ba5286b16b6e640e968b50174e39a05328e750a4
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223691"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797300"
 ---
 # <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Integração contínua e entrega para o espaço de trabalho Azure Synapse
 
@@ -134,3 +134,13 @@ Se estiver a utilizar a integração do Git com o seu espaço de trabalho synaps
 -   **Prepare piscinas antes da migração de artefactos.** Se você tem script SQL ou caderno anexado a piscinas no espaço de trabalho de desenvolvimento, o mesmo nome de piscinas em diferentes ambientes são esperados. 
 -   **Infraestrutura como Código (IAC)**. Gestão de infraestruturas (redes, máquinas virtuais, equilibradores de carga e topologia de ligação) num modelo descritivo, utilize a mesma versão que a equipa de DevOps utiliza para código fonte. 
 -   **Outros.** Ver [as melhores práticas para artefactos ADF](../../data-factory/continuous-integration-deployment.md#best-practices-for-cicd)
+
+## <a name="troubleshooting-artifacts-deployment"></a>Implantação de artefactos de resolução de problemas 
+
+### <a name="use-the-synapse-workspace-deployment-task"></a>Utilize a tarefa de implantação do espaço de trabalho Synapse
+
+Na Synapse, todos os tipos de artefactos não são recursos ARM, que são diferentes com a ADF. Não é possível utilizar a tarefa de implantação do modelo ARM para implantar artefactos synapse
+ 
+### <a name="unexpected-token-error-in-release"></a>Erro inesperado do token no lançamento
+
+Quando o seu ficheiro de parâmetros tem valores de parâmetros que não são escapados, o pipeline de libertação não analisaria o ficheiro com o erro de token inesperado. Sugerimos que substitua os parâmetros ou keyVault para obter parâmetros. Também pode escapar duas vezes como uma solução alternativa.

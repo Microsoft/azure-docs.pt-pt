@@ -10,12 +10,13 @@ ms.date: 05/12/2020
 ms.author: santoshc
 ms.reviewer: tamram
 ms.subservice: common
-ms.openlocfilehash: 5b4a1b1f27dff059090d78e24a6a0eca0bbbf01f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: references_regions
+ms.openlocfilehash: 9afe58434d60280f635deab75b763077bc76b93c
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85514201"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797640"
 ---
 # <a name="configure-network-routing-preference-for-azure-storage-preview"></a>Configure a preferência de encaminhamento de rede para armazenamento Azure (pré-visualização)
 
@@ -46,7 +47,7 @@ Por exemplo, a publicação de um ponto final específico da rota da Internet pa
 | Serviço de armazenamento        | Ponto final específico da rota                                  |
 | :--------------------- | :------------------------------------------------------- |
 | Serviço Blob           | `StorageAccountA-internetrouting.blob.core.windows.net`  |
-| Armazenamento do Data Lake Ger2 | `StorageAccountA-internetrouting.dfs.core.windows.net`   |
+| Data Lake Storage Gen2 | `StorageAccountA-internetrouting.dfs.core.windows.net`   |
 | Serviço de arquivos           | `StorageAccountA-internetrouting.file.core.windows.net`  |
 | Websites estáticos        | `StorageAccountA-internetrouting.web.core.windows.net`   |
 
@@ -55,7 +56,7 @@ Se tiver uma conta de armazenamento geo-redundante de acesso de leitura (RA-GRS)
 | Serviço de armazenamento        | Ponto final secundário específico da rota                        |
 | :--------------------- | :----------------------------------------------------------------- |
 | Serviço Blob           | `StorageAccountA-internetrouting-secondary.blob.core.windows.net`  |
-| Armazenamento do Data Lake Ger2 | `StorageAccountA-internetrouting-secondary.dfs.core.windows.net`   |
+| Data Lake Storage Gen2 | `StorageAccountA-internetrouting-secondary.dfs.core.windows.net`   |
 | Serviço de arquivos           | `StorageAccountA-internetrouting-secondary.file.core.windows.net`  |
 | Websites estáticos        | `StorageAccountA-internetrouting-secondary.web.core.windows.net`   |
 
@@ -65,9 +66,36 @@ As cadeias de ligação para os pontos finais específicos da rota publicadas po
 
 A preferência de encaminhamento para o Armazenamento Azure está disponível nas seguintes regiões:
 
-- Sul de França
-- E.U.A. Centro-Norte
+- E.U.A. Central 
+- EUA Central EUAP
+- E.U.A. Leste 
+- E.U.A. Leste 2
+- E.U.A. Leste 2 
+- Leste DOS EUA 2
+- E.U.A. Centro-Sul
 - E.U.A. Centro-Oeste
+- E.U.A. Oeste 
+- E.U.A. Oeste 2 
+- França Central 
+- Sul de França 
+- Alemanha Norte 
+- Alemanha Centro-Oeste 
+- E.U.A. Centro-Norte
+- Europa do Norte 
+- Leste da Noruega 
+- Suíça Norte
+- Suíça Oeste
+- Sul do Reino Unido 
+- Oeste do Reino Unido 
+- Europa Ocidental 
+- Centro dos Emirados Árabes Unidos
+- Ásia Leste 
+- Sudeste Asiático 
+- Leste do Japão 
+- Oeste do Japão 
+- Oeste da Índia
+- Leste da Austrália 
+- Austrália Sudeste 
 
 Os seguintes problemas conhecidos afetam a pré-visualização da preferência de encaminhamento para o Armazenamento Azure:
 
@@ -77,7 +105,7 @@ Os seguintes problemas conhecidos afetam a pré-visualização da preferência d
 
 Para obter detalhes sobre preços e faturação, consulte a secção **de preços** em Qual é a preferência [de encaminhamento (pré-visualização)?](../../virtual-network/routing-preference-overview.md#pricing)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [O que é a preferência de encaminhamento (pré-visualização)?](../../virtual-network/routing-preference-overview.md)
 - [Configurar as firewalls e as redes virtuais do Armazenamento do Microsoft Azure](storage-network-security.md)

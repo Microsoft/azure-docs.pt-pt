@@ -11,12 +11,12 @@ ms.reviewer: sawinark
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/08/2019
-ms.openlocfilehash: 5f1332255ae83a32f9b71d24d812b00fad9b7fa1
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 34fd595a03f67201b303c94764668bf86a6c244b
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637926"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98796901"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Resolução de problemas SSIS Integração Gestão de tempo de execução na Azure Data Factory
 
@@ -151,7 +151,7 @@ O SSIS IR será atualizado automaticamente de forma regular. Um novo conjunto d
 
 Se o aprovisionamento do SSIS IR falhar, todos os recursos criados serão eliminados. No entanto, se existir um bloqueio de eliminação de recursos ao nível da subscrição ou do grupo de recursos, os recursos da Rede Virtual não serão eliminados conforme o esperado. Para corrigir este erro, remova o bloqueio de eliminação e reinicie o IR.
 
-### <a name="vnetresourcegrouplockedduringstop"></a>VNetResourceGroupLockedDuringStop
+### <a name="vnetresourcegrouplockedduringstopvnetdeletelock"></a>VNetResourceGroupLockedduringstop/vNetDeleteLock
 
 Quando parar o SSIS IR, todos os recursos relacionados com a Rede Virtual serão eliminados. Mas a eliminação poderá falhar se existir um bloqueio de eliminação de recursos ao nível da subscrição ou do grupo de recursos. Também aqui o cliente controla e define o bloqueio de eliminação. Portanto, o cliente deve remover o bloqueio de eliminação e parar o SSIS IR novamente.
 

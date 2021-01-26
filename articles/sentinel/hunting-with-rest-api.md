@@ -1,5 +1,5 @@
 ---
-title: Gerir consultas de caça e livestream em Azure Sentinel usando REST API Microsoft Docs
+title: Gerir consultas de caça e livestream em Azure Sentinel usando REST API | Microsoft Docs
 description: Este artigo descreve como as funcionalidades de caça Azure Sentinel permitem-lhe tirar partido da API REST do Log Analytics para gerir consultas de caça e livestream.
 services: sentinel
 documentationcenter: na
@@ -9,18 +9,18 @@ editor: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
-ms.topic: how-to
+ms.topic: reference
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/06/2020
 ms.author: yelevin
-ms.openlocfilehash: cd52f22004bf72f3328d1e6a0d1ec988c2406317
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 64f05e18ff757d9f086cf06d74109bf64e32a05c
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660853"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98795683"
 ---
 # <a name="manage-hunting-and-livestream-queries-in-azure-sentinel-using-rest-api"></a>Gerir consultas de caça e livestream em Azure Sentinel usando REST API
 

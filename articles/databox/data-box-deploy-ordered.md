@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/13/2021
 ms.author: alkohli
-ms.openlocfilehash: 4c44fca7b443a4d289b7ac7e2e507a3c3f305089
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 26e8f08d4b901a9ea57da826d9441d23508c4a4c
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/26/2021
-ms.locfileid: "98790787"
+ms.locfileid: "98797623"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutorial: Encomendar o Azure Data Box
 
@@ -231,7 +231,7 @@ Faça os seguintes passos no portal Azure para encomendar um dispositivo.
     |País/região de origem    |    Selecione o país/região onde os dados residem atualmente.         |
     |Região do Azure de destino     |     Selecione a região do Azure para onde pretende transferir os dados. <br> Para obter mais informações, aceda a [Disponibilidade de região](data-box-overview.md#region-availability).            |
 
-    ![Iniciar uma ordem de importação da Caixa de Dados Azure](media/data-box-deploy-ordered/select-data-box-import-04-b.png#lightbox)
+    [![Iniciar uma ordem ](media/data-box-deploy-ordered/select-data-box-import-04-b.png) de importação da Caixa de Dados Azure](media/data-box-deploy-ordered/select-data-box-import-04-b.png#lightbox)
 
 5. Selecione **Data Box**. A capacidade máxima utilizável para uma única encomenda é de 80 TB. Pode criar várias encomendas para tamanhos de dados maiores.
 

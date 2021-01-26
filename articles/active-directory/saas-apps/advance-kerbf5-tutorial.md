@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única com F5 / Microsoft Docs'
+title: 'Tutorial: Azure Ative Directy integração única com F5 | Microsoft Docs'
 description: Neste artigo, aprenda os passos necessários para integrar o F5 com o Azure Ative Directory (Azure AD).
 services: active-directory
 author: jeevansd
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 8d24ed014dd66235383b58cbcb7404aaf00f863e
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 217872586d09531926b43a13d826efe559c70597
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92308968"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98796763"
 ---
 # <a name="tutorial-azure-active-directory-ad-single-sign-on-sso-integration-with-f5"></a>Tutorial: Azure Ative Directory (AD) integração única (SSO) com F5
 
@@ -120,7 +120,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso a F5.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **F5**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
@@ -266,7 +266,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
         ![Screenshot que mostra o separador APM Delegatio Account Properties > Delegação.](./media/advance-kerbf5-tutorial/configure25.png)
 
-1. Fornecer os detalhes mencionados no [this](https://techdocs.f5.com/kb/en-us/products/big-ip_apm/manuals/product/apm-authentication-single-sign-on-11-5-0/2.html) documento de referência acima
+1. Fornecer os detalhes mencionados no [](https://techdocs.f5.com/kb/en-us/products/big-ip_apm/manuals/product/apm-authentication-single-sign-on-11-5-0/2.html) documento de referência acima
 
 1. Apêndice- SAML – Mapeamentos variáveis BIG-IP mostrados abaixo:
 
@@ -314,7 +314,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 ### <a name="create-f5-test-user"></a>Criar utilizador de teste F5
 
-Nesta secção, cria-se um utilizador chamado B.Simon em F5. Trabalhe com [a equipa de suporte do Cliente F5](https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM45) para adicionar os utilizadores na plataforma F5. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação. 
+Nesta secção, cria-se um utilizador chamado B.Simon em F5. Trabalhe com [a equipa de suporte do Cliente F5](https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM45) para adicionar os utilizadores na plataforma F5. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação. 
 
 ## <a name="test-sso"></a>Teste SSO 
 
@@ -335,3 +335,9 @@ Quando clicar no azulejo F5 no Painel de Acesso, deverá ser automaticamente ins
 - [Configurar f5 único sinal para aplicação baseada em cabeçalho](headerf5-tutorial.md)
 
 - [Configurar f5 único sinal para a aplicação Kerberos](kerbf5-tutorial.md)
+
+- [F5 BIG-IP APM e Ad AD Azure para acesso híbrido seguro](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-aad-integration)
+
+- [Tutorial para implementar F5 BIG-IP Virtual Edition VM em Azure IaaS para acesso híbrido seguro](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-bigip-deployment-guide)
+
+- [Tutorial para integração única de sign-on do Azure Ative Directory com F5 BIG-IP para VPN sem palavra-passe](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-aad-password-less-vpn)

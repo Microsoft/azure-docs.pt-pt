@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 09/21/2020
-ms.openlocfilehash: 8bc303f619d145cc280e6caab65781bd42d1b314
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: db80ae66761e49ce90f25a22f0e74cf8a1300796
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489698"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797236"
 ---
 # <a name="choose-the-right-postgresql-server-option-in-azure"></a>Escolha a opção de servidor PostgreSQL certa em Azure
 
@@ -21,7 +21,7 @@ Com o Azure, as suas cargas de trabalho do PostgreSQL Server podem funcionar num
 Ao tomar a sua decisão, considere as seguintes três opções em PaaS ou, em alternativa, em execução em VMs Azure (IaaS)
 - [Base de dados Azure para PostgreSQL Single Server](./overview-single-server.md)
 - [Base de dados Azure para PostgreSQL Flexible Server](./flexible-server/overview.md)
-- [Base de dados Azure para a hiperescala pós-SQL (Citus)]()
+- [Base de dados Azure para a hiperescala pós-SQL (Citus)](hyperscale/index.yml)
 
 A opção **PostgreSQL em VMs Azure** enquadra-se na categoria industrial do IaaS. Com este serviço, pode executar o PostgreSQL Server dentro de uma máquina virtual totalmente gerida na plataforma cloud Azure. Todas as versões e edições recentes do PostgreSQL podem ser instaladas numa máquina virtual IaaS. Na diferença mais significativa da Base de Dados Azure para PostgreSQL, postgreSQL em VMs Azure oferece controlo sobre o motor de base de dados. No entanto, este controlo tem o custo da responsabilidade de gerir as VMs e muitas tarefas da administração de bases de dados (DBA). Estas tarefas incluem a manutenção e remendar servidores de bases de dados, recuperação de bases de dados e design de alta disponibilidade.
 
@@ -94,7 +94,7 @@ Além disso, configurar alta disponibilidade para outro centro de dados requer u
 
 - Quando pretende evitar o tempo e a despesa de adquirir novo hardware no local, o PostgreSQL em VMs Azure é a solução certa para aplicações que requerem um controlo granular e personalização do motor PostgreSQL não suportado pelo serviço ou que exijam acesso ao SISTEMA subjacente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte a Base de Dados Azure para [preços pós-SQL](https://azure.microsoft.com/pricing/details/postgresql/server/).
 - Comece por criar o seu primeiro servidor.

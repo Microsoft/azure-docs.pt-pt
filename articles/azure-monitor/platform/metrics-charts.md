@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: b4feb177abbdbfb9666be0ea0746c8316acdf5ae
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 2f8dc9f53c36f59a152fc34361b3726ea2cc001c
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250762"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797024"
 ---
 # <a name="advanced-features-of-the-azure-metrics-explorer"></a>Características avançadas do explorador de métricas Azure
 
@@ -129,16 +129,19 @@ Pode aplicar filtros em gráficos cujas métricas têm dimensões. Por exemplo, 
 
    ![Screenshot que mostra as dimensões (propriedades) que pode filtrar.](./media/metrics-charts/028.png)
 
-3. Selecione os valores de dimensão que pretende incluir quando traçar o gráfico. O exemplo a seguir filtra as transações de armazenamento bem sucedidas:
+3. Selecione o operador que pretende aplicar contra a dimensão (propriedade). O operador predefinido é = (é igual)
+
+   ![Screenshot que mostra o operador que pode usar com o filtro.](./media/metrics-charts/filter-operator.png)
+
+4. Selecione quais os valores de dimensão que pretende aplicar ao filtro ao traçar o gráfico (este exemplo mostra a filtragem das transações de armazenamento bem sucedidas):
 
    ![Screenshot que mostra as transações de armazenamento filtradas bem sucedidas.](./media/metrics-charts/029.png)
 
-4. Selecione para fora do **Seletor de Filtro** para fechá-lo. Agora o gráfico mostra quantas transações de armazenamento falharam:
+5. Depois de selecionar os valores do filtro, clique para longe do Seletor de Filtro para o fechar. Agora o gráfico mostra quantas transações de armazenamento falharam:
 
    ![Screenshot que mostra quantas transações de armazenamento falharam.](./media/metrics-charts/030.png)
 
-Pode repetir estes passos para aplicar vários filtros nas mesmas tabelas.
-
+6. Pode repetir os passos 1-5 para aplicar vários filtros nas mesmas tabelas.
 
 
 ## <a name="metric-splitting"></a>Divisão métrica
@@ -158,9 +161,18 @@ Pode dividir uma métrica por dimensão para visualizar como diferentes segmento
 
    O gráfico agora mostra várias linhas, uma para cada segmento de dimensão:
 
-   ![Screenshot que mostra linhas para cada segmento de dimensão.](./media/metrics-charts/032.png)
+   ![Screenshot que mostra várias linhas, uma para cada segmento de dimensão.](./media/metrics-charts/segment-dimension.png)
+   
+3. Escolha um limite para o número de valores a apresentar após a divisão por dimensão selecionada. O limite de predefinição é de 10, como mostrado no gráfico acima. O intervalo de limite é de 1 a 50.
+   
+   ![Screenshot que mostra limite de divisão, o que restringe o número de valores após a divisão.](./media/metrics-charts/segment-dimension-limit.png)
+   
+4. Escolha a ordem de classificação em segmentos: Ascendente ou Descendente. A seleção padrão está a descer.
+   
+   ![Screenshot que mostra ordem de classificação em valores divididos.](./media/metrics-charts/segment-dimension-sort.png)
 
-3. Selecione fora do **Seletor de Agrupamento** para fechá-lo.
+5. Clique para longe do **Seletor de Agrupamento** para fechá-lo.
+   
 
    > [!NOTE]
    > Para ocultar segmentos que são irrelevantes para o seu cenário e para facilitar a leitura dos seus gráficos, utilize tanto a filtragem como a divisão na mesma dimensão.
@@ -228,7 +240,7 @@ Se não vir nenhum dado na sua ficha, reveja as seguintes informações de resol
 
 * Se segmentar um gráfico por uma propriedade que a métrica não define, o gráfico não apresenta nenhum conteúdo. Tente limpar a segmentação (divisão), ou escolha uma propriedade diferente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para criar painéis de instrumentos através da utilização de métricas, consulte [criar painéis KPI personalizados](../learn/tutorial-app-dashboards.md).
 

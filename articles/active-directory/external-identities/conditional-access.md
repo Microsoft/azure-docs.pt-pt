@@ -5,46 +5,85 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 09/11/2017
+ms.date: 01/21/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eccbbb22814788aaf06fa6fd10d8c376203c1d49
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 42b3c3d4d474c61cbe472b4122ac2f80f218bf8d
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92892456"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797273"
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>Acesso Condicional para utilizadores de colaboração B2B
 
-## <a name="multi-factor-authentication-for-b2b-users"></a>Autenticação multi-factor para utilizadores de B2B
-Com a colaboração Azure AD B2B, as organizações podem impor políticas de autenticação de vários fatores (MFA) para utilizadores de B2B. Estas políticas podem ser aplicadas ao nível do arrendatário, app ou utilizador individual, da mesma forma que são ativadas para funcionários a tempo inteiro e membros da organização. As políticas de MFA são aplicadas na organização de recursos.
+Este artigo descreve como as organizações podem âmbito das políticas de Acesso Condicional (CA) para os utilizadores convidados B2B acederem aos seus recursos.
+>[!NOTE]
+>Este fluxo de autenticação ou autorização é um pouco diferente para os utilizadores convidados do que para os utilizadores existentes desse fornecedor de Identidade (IdP).
 
-Exemplo:
-1. A Administração ou trabalhador da informação na Empresa A convida o utilizador da empresa B a uma aplicação *Foo* na empresa A.
-2. A Aplicação *Foo* na empresa A está configurada para exigir MFA no acesso.
-3. Quando o utilizador da empresa B tenta aceder à app *Foo* na empresa A inquilina, é-lhes pedido que completem um desafio de MFA.
-4. O utilizador pode configurar o seu MFA com a empresa A, e escolhe a sua opção MFA.
-5. Este cenário funciona para qualquer identidade (Azure AD ou MSA, por exemplo, se os utilizadores da Empresa B autenticar usando iD social)
-6. A Empresa A deve ter licenças AD Premium Azure suficientes que suportem MFA. O utilizador da empresa B consome esta licença da empresa A.
+## <a name="authentication-flow-for-b2b-guest-users-from-an-external-directory"></a>Fluxo de autenticação para utilizadores convidados B2B a partir de um diretório externo
 
-O arrendamento convidativo é sempre responsável pelo MFA para os utilizadores da organização parceira, mesmo que a organização parceira tenha capacidades de MFA.
+O seguinte diagrama ilustra o fluxo: ![ a imagem mostra o fluxo de autenticação para utilizadores convidados B2B a partir de um diretório externo](./media/conditional-access-b2b/authentication-flow-b2b-guests.png)
 
-### <a name="setting-up-mfa-for-b2b-collaboration-users"></a>Criação de MFA para utilizadores de colaboração B2B
-Para descobrir como é fácil configurar MFA para utilizadores de colaboração B2B, veja como no seguinte vídeo:
+| Passo | Descrição |
+|--------------|-----------------------|
+| 1. | O utilizador convidado B2B solicita o acesso a um recurso. O recurso redireciona o utilizador para o seu inquilino de recursos, um IdP de confiança.|
+| 2. | O inquilino identifica o utilizador como externo e redireciona o utilizador para o IdP do utilizador convidado B2B. O utilizador realiza a autenticação primária no IdP.
+| 3. | O IdP do utilizador convidado B2B emite um símbolo ao utilizador. O utilizador é redirecionado de volta para o inquilino de recurso com o token. O inquilino de recursos valida o token e avalia o utilizador contra as suas políticas de CA. Por exemplo, o inquilino de recursos pode exigir que o utilizador realize a Autenticação Multi-Factor Azure Ative(AD).
+| 4. | Uma vez que todas as políticas de inquilino de recursos CA estão satisfeitas, o inquilino de recursos emite o seu próprio token e redireciona o utilizador para o seu recurso.
+
+## <a name="authentication-flow-for-b2b-guest-users-with-one-time-passcode"></a>Fluxo de autenticação para utilizadores convidados B2B com senha única
+
+O diagrama a seguir ilustra o fluxo: ![ a imagem mostra o fluxo de autenticação para utilizadores convidados B2B com uma senha de tempo](./media/conditional-access-b2b/authentication-flow-b2b-guests-otp.png)
+
+| Passo | Descrição |
+|--------------|-----------------------|
+| 1. |O utilizador solicita o acesso a um recurso noutro inquilino. O recurso redireciona o utilizador para o seu inquilino de recursos, um IdP de confiança.|
+| 2. | O inquilino identifica o utilizador como um [utilizador de senha única (OTP) e](https://docs.microsoft.com/azure/active-directory/external-identities/one-time-passcode) envia um e-mail com a OTP ao utilizador.|
+| 3. | O utilizador recupera o OTP e envia o código. O inquilino de recursos avalia o utilizador contra as suas políticas de CA.
+| 4. | Uma vez que todas as políticas de CA estão satisfeitas, o inquilino de recursos emite um símbolo e redireciona o utilizador para o seu recurso. |
+
+>[!NOTE]
+>Se o utilizador for de um inquilino de recursos externos, não é possível avaliar também as políticas IdP CA do utilizador B2B. A partir de hoje, apenas as políticas de CA do inquilino de recursos se aplicam aos seus hóspedes.
+
+## <a name="azure-ad-multi-factor-authentication-for-b2b-users"></a>Autenticação multi-factor Azure AD para utilizadores B2B
+
+As organizações podem impor várias políticas de autenticação multi-factor Azure AD para os seus utilizadores convidados B2B. Estas políticas podem ser aplicadas ao nível do inquilino, app ou utilizador individual da mesma forma que estão habilitadas para funcionários a tempo inteiro e membros da organização.
+O inquilino de recursos é sempre responsável pela Autenticação Multi-Factor AZure AD para os utilizadores, mesmo que a organização do utilizador convidado tenha capacidades de autenticação multi-factor. Aqui está um exemplo...
+
+1. Um administrador ou trabalhador de informação de uma empresa chamada Fabrikam convida o utilizador de outra empresa chamada Contoso a usar a sua aplicação Woodgrove.
+
+2. A aplicação Woodgrove em Fabrikam está configurada para exigir autenticação multi-factor Azure AD no acesso.
+
+3. Quando o utilizador convidado B2B da Contoso tenta aceder à Woodgrove no inquilino de Fabrikam, é-lhes pedido que completem o desafio de autenticação multi-factor Azure AD.
+
+4. O utilizador convidado pode então configurar a sua Autenticação Multi-Factor Azure AD com a Fabrikam e selecionar as opções.
+
+5. Este cenário funciona para qualquer identidade – Azure AD ou Personal Microsoft Account (MSA). Por exemplo, se o utilizador em Contoso autenticar a utilização de ID social.
+
+6. A Fabrikam deve ter licenças AD AZure premium suficientes que suportem a autenticação multi-factor Azure AD. O utilizador de Contoso consome então esta licença da Fabrikam. Consulte [o modelo de faturação das identidades externas da Azure AD](https://docs.microsoft.com/azure/active-directory/external-identities/external-identities-pricing) para obter informações sobre o licenciamento B2B.
+
+>[!NOTE]
+>A autenticação multi-factor Azure AD é feita no arrendamento de recursos para garantir a previsibilidade.
+
+### <a name="set-up-azure-ad-multi-factor-authentication-for-b2b-users"></a>Configurar a autenticação multi-factor Azure AD para utilizadores B2B
+
+Para configurar a autenticação multi-factor Azure AD para os utilizadores de colaboração B2B, veja este vídeo:
 
 >[!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-conditional-access-setup/Player]
 
-### <a name="b2b-users-mfa-experience-for-offer-redemption"></a>Experiência MFA dos utilizadores B2B para resgate de ofertas
-Confira a seguinte animação para ver a experiência de redenção:
+### <a name="b2b-users-azure-ad-multi-factor-authentication-for-offer-redemption"></a>Utilizadores B2B Azure AD Multi-Factor Autenticação para resgate de oferta
+
+Para saber mais sobre a experiência de redenção de autenticação multi-factor Azure AD, veja este vídeo:
 
 >[!VIDEO https://channel9.msdn.com/Blogs/Azure/MFA-redemption/Player]
 
-### <a name="mfa-reset-for-b2b-collaboration-users"></a>Reposição de MFA para utilizadores de colaboração B2B
-Atualmente, o administrador pode exigir que os utilizadores de colaboração B2B voltem a ser revistos apenas utilizando os seguintes cmdlets PowerShell:
+### <a name="azure-ad-multi-factor-authentication-reset-for-b2b-users"></a>Reset de autenticação multi-factor Azure AD para utilizadores de B2B
+
+Agora, os seguintes cmdlets PowerShell estão disponíveis para comprovar os utilizadores convidados B2B:
 
 1. Ligar ao Azure AD
 
@@ -63,52 +102,57 @@ Atualmente, o administrador pode exigir que os utilizadores de colaboração B2B
    Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
    ```
 
-3. Repor o método MFA para que um utilizador específico exija que o utilizador de colaboração B2B volte a definir métodos de impermeabilização. Exemplo:
+3. Reinicie o método de autenticação multi-factor Azure AD para que um utilizador específico exija que o utilizador de colaboração B2B volte a configurar métodos de impermeabilização. 
+   Segue-se um exemplo:
 
    ```
    Reset-MsolStrongAuthenticationMethodByUpn -UserPrincipalName gsamoogle_gmail.com#EXT#@ WoodGroveAzureAD.onmicrosoft.com
    ```
 
-### <a name="why-do-we-perform-mfa-at-the-resource-tenancy"></a>Por que realizamos MFA no arrendamento de recursos?
+## <a name="conditional-access-for-b2b-users"></a>Acesso Condicional para utilizadores B2B
 
-Na versão atual, o MFA está sempre no arrendamento de recursos, por razões de previsibilidade. Por exemplo, digamos que um utilizador do Contoso (Sally) é convidado para a Fabrikam e a Fabrikam permitiu que o MFA para utilizadores de B2B.
+Existem vários fatores que influenciam as políticas de CA para os utilizadores convidados B2B.
 
-Se o Contoso tiver uma política de MFA ativada para a App1 mas não para a App2, então se olharmos para a reivindicação do Contoso MFA no token, poderemos ver o seguinte problema:
+### <a name="device-based-conditional-access"></a>Acesso Condicional com base em dispositivos
 
-* Dia 1: Um utilizador tem MFA em Contoso e está a aceder à App1, então não é mostrado nenhum pedido adicional de MFA em Fabrikam.
+Na AC, existe uma opção para exigir que o dispositivo de um utilizador [seja conforme ou a AD Híbrido Azure aderido](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#device-state-preview). Os utilizadores de hóspedes B2B só podem satisfazer a conformidade se o arrendatário de recursos puder gerir o seu dispositivo. Os dispositivos não podem ser geridos por mais de uma organização de cada vez. Os utilizadores de hóspedes B2B não conseguem satisfazer a ad AD híbrida Azure porque não têm uma conta AD no local. Só se o dispositivo do utilizador convidado não for gerido, podem registar ou inscrever o seu dispositivo no arrendatário de recursos e, em seguida, tornar o dispositivo conforme. O utilizador pode então satisfazer o controlo da concessão.
 
-* Dia 2: O utilizador acedeu à App 2 em Contoso, pelo que agora, ao aceder a Fabrikam, tem de se registar para mFA lá.
+>[!Note]
+>Não é aconselhável exigir um dispositivo gerido para utilizadores externos.
 
-Este processo pode ser confuso e pode levar à queda nas conclusões de inscrição.
+### <a name="mobile-application-management-policies"></a>Políticas de gestão de aplicações móveis
 
-Além disso, mesmo que Contoso tenha capacidade de MFA, nem sempre é o caso de o Fabrikam confiar na política do MFA de Contoso.
+Os controlos de concessão da AC, tais como **requerer aplicações de clientes aprovadas** e exigir políticas de proteção de **aplicações** precisam que o dispositivo seja registado no arrendatário. Estes controlos só podem ser aplicados em [dispositivos iOS e Android.](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#device-platforms) No entanto, nenhum destes controlos pode ser aplicado aos utilizadores de hóspedes B2B se o dispositivo do utilizador já estiver a ser gerido por outra organização. Um dispositivo móvel não pode ser registado em mais de um inquilino de cada vez. Se o dispositivo móvel for gerido por outra organização, o utilizador será bloqueado. Só se o dispositivo do utilizador convidado não for gerido, podem registar o seu dispositivo no arrendatário de recursos. O utilizador pode então satisfazer o controlo da concessão.  
 
-Finalmente, o inquilino de recursos MFA também trabalha para MSAs e IDs sociais e para orgs parceiros que não têm MFA configurado.
+>[!NOTE]
+>Não é aconselhável exigir uma política de proteção de aplicações para utilizadores externos.
 
-Por conseguinte, a recomendação para os utilizadores de B2B é exigir sempre MFA no inquilino convidado. Esta exigência pode levar a um duplo MFA em alguns casos, mas sempre que acede ao inquilino convidado, a experiência dos utilizadores finais é previsível: a Sally deve inscrever-se na MFA com o inquilino convidado.
+### <a name="location-based-conditional-access"></a>Acesso Condicional baseado em localização
 
-### <a name="device-based-location-based-and-risk-based-conditional-access-for-b2b-users"></a>Acesso Condicional baseado em dispositivos, baseado em localização e risco para utilizadores B2B
+A [política baseada na localização](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#locations) baseada em intervalos IP pode ser aplicada se a organização convidativa puder criar um intervalo de endereços IP confiável que define as suas organizações parceiras.
 
-Quando a Contoso permite políticas de acesso condicional baseadas em dispositivos para os seus dados corporativos, o acesso é impedido de dispositivos que não são geridos pela Contoso e não estão em conformidade com as políticas do dispositivo Contoso.
+As políticas também podem ser aplicadas com base em **localizações geográficas.**
 
-Se o dispositivo do utilizador B2B não for gerido pela Contoso, o acesso dos utilizadores B2B das organizações parceiras é bloqueado em qualquer contexto que estas políticas sejam aplicadas. No entanto, a Contoso pode criar listas de exclusão que contenham utilizadores de parceiros específicos para os excluir da política de Acesso Condicional baseada no dispositivo.
+### <a name="risk-based-conditional-access"></a>Acesso Condicional baseado em riscos
 
-#### <a name="mobile-application-management-policies-for-b2b"></a>Políticas de gestão de aplicações móveis para B2B
+A [política de risco de inscrição](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#sign-in-risk) é aplicada se o utilizador convidado B2B satisfizer o controlo da concessão. Por exemplo, uma organização pode exigir autenticação multi-factor Azure AD para risco médio ou alto de sinalização. No entanto, se um utilizador não tiver registado previamente a autenticação multi-factor Azure AD no arrendatário de recursos, o utilizador será bloqueado. Isto é feito para evitar que utilizadores maliciosos registem as suas próprias credenciais de autenticação multi-factor Azure AD no caso de comprometerem a palavra-passe de um utilizador legítimo.
 
-As políticas de proteção de aplicações de acesso condicional não podem ser aplicadas aos utilizadores B2B porque a organização convidativa não tem visibilidade na organização do utilizador B2B.
+No [entanto, a política de risco de utilizador](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#user-risk) não pode ser resolvida no arrendatário de recursos. Por exemplo, se necessitar de uma alteração de palavra-passe para utilizadores de hóspedes de alto risco, eles serão bloqueados devido à incapacidade de redefinir palavras-passe no diretório de recursos.
 
-#### <a name="location-based-conditional-access-for-b2b"></a>Acesso condicional baseado na localização para B2B
+### <a name="conditional-access-client-apps-condition"></a>Condição de aplicações de cliente de acesso condicional
 
-As políticas de acesso condicional baseadas em localização podem ser aplicadas aos utilizadores B2B se a organização convidada for capaz de criar uma gama de endereços IP fidedigna que define as suas organizações parceiras.
+[As condições das aplicações](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#client-apps) do cliente comportam-se da mesma forma para os utilizadores convidados B2B, como para qualquer outro tipo de utilizador. Por exemplo, pode impedir que os utilizadores convidados utilizem protocolos de autenticação antigas.
 
-#### <a name="risk-based-conditional-access-for-b2b"></a>Acesso condicional baseado no risco para B2B
+### <a name="conditional-access-session-controls"></a>Controlos de sessão de acesso condicional
 
-Atualmente, as políticas de inscrição baseadas no risco não podem ser aplicadas aos utilizadores de B2B porque a avaliação do risco é realizada na organização do utilizador B2B.
+[Os controlos de](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-session) sessão comportam-se da mesma forma para os utilizadores convidados B2B, como para qualquer outro tipo de utilizador.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Consulte os seguintes artigos sobre a colaboração Azure AD B2B:
+Para mais informações, consulte os seguintes artigos sobre a colaboração Azure AD B2B:
 
-* [O que é a colaboração B2B do Azure AD?](what-is-b2b.md)
-* [Preços das Identidades Externas](external-identities-pricing.md)
-* [Perguntas mais frequentes (FAQ) sobre a colaboração B2B do Azure Active Directory](faq.md)
+- [O que é a colaboração B2B do Azure AD?](https://docs.microsoft.com/azure/active-directory/external-identities/what-is-b2b)
+- [Utilizadores de proteção de identidade e B2B](https://docs.microsoft.com/azure/active-directory/identity-protection/concept-identity-protection-b2b)
+- [Preços das Identidades Externas](https://azure.microsoft.com/pricing/details/active-directory/)
+- [Perguntas frequentes (Perguntas Frequentes)](https://docs.microsoft.com/azure/active-directory/external-identities/faq)
+

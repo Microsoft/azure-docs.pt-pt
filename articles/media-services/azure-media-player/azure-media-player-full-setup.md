@@ -7,22 +7,16 @@ ms.service: media-services
 ms.topic: how-to
 ms.date: 04/20/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 13abe333bcf3f67ea1a1ba823c693deaa60bc723
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: b6b239f44311424db2e80c59e2aba639ae3c0000
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/26/2021
-ms.locfileid: "98788812"
+ms.locfileid: "98797457"
 ---
 # <a name="azure-media-player-full-setup"></a>Configuração completa do Leitor de Multimédia do Azure #
 
 O Azure Media Player é fácil de configurar. Bastam alguns momentos para obter a reprodução básica de conteúdos de mídia na sua conta Azure Media Services. [As amostras](https://github.com/Azure-Samples/azure-media-player-samples) também são fornecidas no diretório de amostras da libertação.
-
-<!--//aka.ms/ampembed?url=https%3A%2F%2Fxpouyatdemo-euwe.streaming.media.azure.net%2Fc9b6ac82-c187-4882-a3d3-1a67204ac58e%2Fconnect2017-v3.ism%2Fmanifest-->
-
-Aqui está um exemplo de um vídeo da AMS.
-
-> [!VIDEO https://aka.ms/ampembed?url=https%3A%2F%2Fxpouyatdemo-euwe.streaming.media.azure.net%2Fc9b6ac82-c187-4882-a3d3-1a67204ac58e%2Fconnect2017-v3.ism%2Fmanifest]
 
 ## <a name="step-1-include-the-javascript-and-css-files-in-the-head-of-your-page"></a>Passo 1: Incluir os ficheiros JavaScript e CSS na cabeça da sua página ##
 

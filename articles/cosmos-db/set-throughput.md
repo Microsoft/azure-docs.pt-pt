@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 01/19/2021
-ms.openlocfilehash: a03ad1eb893c97671d7ab60cc38708115a73d260
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.date: 01/25/2021
+ms.openlocfilehash: 74addd691e3a6c42f48100292542cfd3563b5c3a
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602395"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797593"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introdução à produção prevista na Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -154,7 +154,7 @@ Este quadro mostra uma comparação entre a produção padrão de provisionament
 |Produção máxima por partição lógica de um recipiente|10K RU/s|10K RU/s|10K RU/s|10K RU/s|
 |Armazenamento máximo (dados + índice) por partição lógica de um recipiente|20 GB|20 GB|20 GB|20 GB|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre [divisórias lógicas.](partitioning-overview.md)
 * Saiba como providenciar o [padrão (manual) num recipiente Azure Cosmos](how-to-provision-container-throughput.md).
