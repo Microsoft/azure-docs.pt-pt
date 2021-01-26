@@ -3,12 +3,12 @@ title: Recuperar dados de um Servidor de Backup Azure
 description: Recupere os dados que protegeu para um cofre dos Serviços de Recuperação de qualquer Servidor de Backup Azure registado no cofre.
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.openlocfilehash: 0cce45fbaaedad4cfcee0cda768aae2fa294312b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ed8c937f97ec7a74662a8b46a354b0a6db39a2b0
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002975"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806009"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Recuperar dados do Azure Backup Server
 
@@ -85,9 +85,9 @@ Para recuperar dados de um Servidor de Backup Azure:
 | 3. |Nenhum outro servidor DPM está registado neste cofre. |**Causa:** Não existem outros Servidores de Backup Azure registados no cofre a partir do qual a recuperação está a ser tentada.<br>**Resolução:** Se existirem outros Servidores de Backup Azure registados no cofre dos Serviços de Recuperação, certifique-se de que o mais recente agente de backup do Azure está instalado.<br>Se existirem outros Servidores de Backup Azure registados no cofre dos Serviços de Recuperação, aguarde um dia após a instalação para iniciar o processo de recuperação. O trabalho noturno envia os metadados para todos os backups protegidos para cloud. Os dados estarão disponíveis para recuperação. |
 | 4. |A palavra-passe de encriptação fornecida não corresponde à palavra-passe associada ao seguinte servidor: **\<server name>** |**Causa:** A palavra-passe de encriptação utilizada no processo de encriptação dos dados dos dados do Azure Backup Server que está a ser recuperado não corresponde à palavra-passe de encriptação fornecida. O agente é incapaz de desencriptar os dados, e assim a recuperação falha.<br>**Resolução:** Forneça exatamente a mesma palavra-passe de encriptação associada ao Servidor de Backup Azure cujos dados estão a ser recuperados. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Leia as outras FAQs:
 
-* [Perguntas comuns](backup-azure-vm-backup-faq.md) sobre backups Azure VM
+* [Perguntas comuns](backup-azure-vm-backup-faq.yml) sobre backups Azure VM
 * [Perguntas comuns](backup-azure-file-folder-backup-faq.md) sobre o agente do Azure Backup

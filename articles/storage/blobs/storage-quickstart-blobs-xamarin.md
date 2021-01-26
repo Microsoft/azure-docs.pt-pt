@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Biblioteca de armazenamento Azure Blob v12 - Xamarin'
-description: Neste arranque rápido, aprende-se a usar a versão 12 da biblioteca de clientes de armazenamento Azure Blob com Xamarin para criar um recipiente e uma bolha no armazenamento blob (objeto). Em seguida, você aprende a baixar a bolha para o seu dispositivo móvel, e como listar todas as bolhas em um recipiente.
+title: 'Quickstart: Azure Blob Storage library v12 - Xamarin'
+description: Neste arranque rápido, aprende-se a usar a versão 12 da biblioteca do cliente Azure Blob Storage com Xamarin para criar um recipiente e uma bolha no armazenamento blob (objeto). Em seguida, você aprende a baixar a bolha para o seu dispositivo móvel, e como listar todas as bolhas em um recipiente.
 author: codemillmatt
 ms.author: masoucou
 ms.date: 10/09/2020
@@ -8,18 +8,18 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 641117414c855a044d3ed55004b6e6ea15b259ac
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: dab938a526aa89f6fe5a014e10869bd8da8b475d
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96004743"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98802355"
 ---
-# <a name="quickstart-azure-blob-storage-client-library-v12-with-xamarin"></a>Quickstart: Azure Blob storage client library v12 com Xamarin
+# <a name="quickstart-azure-blob-storage-client-library-v12-with-xamarin"></a>Quickstart: Azure Blob Storage biblioteca de clientes v12 com Xamarin
 
-Começa com a biblioteca de clientes de armazenamento Azure Blob v12 com Xamarin. O Armazenamento de blobs do Azure é a solução de armazenamento de objetos da Microsoft para a cloud. Siga as medidas para instalar a embalagem e experimente o código de exemplo para tarefas básicas. O armazenamento de blobs está otimizado para armazenar quantidades em grande escala de dados não estruturados.
+Começa com a biblioteca de clientes Azure Blob Storage v12 com Xamarin. Azure Blob Storage é a solução de armazenamento de objetos da Microsoft para a nuvem. Siga as medidas para instalar a embalagem e experimente o código de exemplo para tarefas básicas. O armazenamento de blobs está otimizado para armazenar quantidades em grande escala de dados não estruturados.
 
-Utilize a biblioteca de clientes de armazenamento Azure Blob v12 com Xamarin para:
+Utilize a biblioteca de clientes Azure Blob Storage v12 com Xamarin para:
 
 * Criar um contentor
 * Carregar um blob para o Armazenamento do Microsoft Azure
@@ -32,7 +32,7 @@ Links de referência:
 * [Documentação de referência da API](/dotnet/api/azure.storage.blobs)
 * [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs)
 * [Pacote (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs)
-* [Amostra](https://github.com/Azure-Samples/storage-blobs-xamarin-quickstart)
+* [Sample](https://github.com/Azure-Samples/storage-blobs-xamarin-quickstart)
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
@@ -44,7 +44,7 @@ Links de referência:
 
 ## <a name="setting-up"></a>Configuração
     
-Esta secção acompanha-o através da preparação de um projeto para trabalhar com a biblioteca de clientes de armazenamento Azure Blob v12 com Xamarin.
+Esta secção acompanha-o através da preparação de um projeto para trabalhar com a biblioteca de clientes Azure Blob Storage v12 com Xamarin.
     
 ### <a name="create-the-project"></a>Criar o projeto
 
@@ -80,7 +80,7 @@ Do **diretório BlobQuickstartV12:**
 
 ## <a name="object-model"></a>Modelo de objeto
 
-O armazenamento Azure Blob está otimizado para armazenar quantidades massivas de dados não estruturados. Os dados não estruturados são dados que não seguem uma definição ou um modelo de dados em particular, como por exemplo, texto ou dados binários. O armazenamento blob oferece três tipos de recursos:
+O Azure Blob Storage está otimizado para armazenar quantidades massivas de dados não estruturados. Os dados não estruturados são dados que não seguem uma definição ou um modelo de dados em particular, como por exemplo, texto ou dados binários. O armazenamento blob oferece três tipos de recursos:
 
 * A conta de armazenamento
 * Um recipiente na conta de armazenamento
@@ -99,7 +99,7 @@ Utilize as seguintes classes .NET para interagir com estes recursos:
 
 ## <a name="code-examples"></a>Exemplos de código
 
-Estes excertos de código de exemplo mostram-lhe como executar as seguintes tarefas com a biblioteca do cliente de armazenamento Azure Blob para .NET numa aplicação Xamarin.Forms:
+Estes excertos de código de exemplo mostram-lhe como executar as seguintes tarefas com a biblioteca cliente de Armazenamento Azure Blob para .NET numa aplicação Xamarin.Forms:
 
 * [Criar variáveis de nível de classe](#create-class-level-variables)
 * [Criar um contentor](#create-a-container)
@@ -110,7 +110,7 @@ Estes excertos de código de exemplo mostram-lhe como executar as seguintes tare
 
 ### <a name="create-class-level-variables"></a>Criar variáveis de nível de classe
 
-O código abaixo declara várias variáveis de nível de classe. Precisavam de comunicar ao armazenamento do Azure Blob durante todo o resto desta amostra.
+O código abaixo declara várias variáveis de nível de classe. Precisavam de comunicar ao Azure Blob Storage durante todo o resto desta amostra.
 
 Estes são além do fio de ligação para a conta de armazenamento definida na secção de configuração da [sua ligação de armazenamento.](#configure-your-storage-connection-string)
 
@@ -267,14 +267,14 @@ Antes de iniciar o processo de limpeza, verifique se a saída do conteúdo da bo
 
 Depois de verificar os valores, confirme a solicitação para apagar o recipiente e terminar a demonstração.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Neste quickstart, aprendeu a carregar, descarregar e listar bolhas usando a biblioteca de clientes de armazenamento Azure Blob v12 com Xamarin.
+Neste quickstart, aprendeu a carregar, descarregar e listar bolhas usando a biblioteca de clientes Azure Blob Storage v12 com Xamarin.
 
 Para ver as aplicações de amostra de armazenamento Blob, continue a:
 
 > [!div class="nextstepaction"]
-> [Amostra de SDK v12 Xamarin de armazenamento Azure Blob](https://github.com/Azure-Samples/storage-blobs-xamarin-quickstart)
+> [Amostra de Azure Blob Storage SDK v12 Xamarin](https://github.com/Azure-Samples/storage-blobs-xamarin-quickstart)
 
 * Para tutoriais, amostras, arranques rápidos e outra documentação, visite [a Azure para desenvolvedores móveis.](/azure/mobile-apps)
 * Para saber mais sobre Xamarin, consulte [Começar com Xamarin.](/xamarin/get-started/)

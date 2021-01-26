@@ -9,13 +9,13 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
-ms.date: 01/25/2021
-ms.openlocfilehash: c12e1f4b01b0e2dd7fa21808cf33f45f9a5be59b
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.date: 01/26/2021
+ms.openlocfilehash: 7588ce055ce0df89a7dca87a75a38c8acccf6d46
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/26/2021
-ms.locfileid: "98789977"
+ms.locfileid: "98806077"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Ativação pós-falha manual iniciada pelo utilizador no SQL Managed Instance
 
@@ -125,7 +125,7 @@ O estado de funcionamento pode ser rastreado através da revisão das respostas 
 
 ## <a name="monitor-the-failover"></a>Monitorize a falha
 
-Para monitorizar o progresso da falha manual iniciada pelo utilizador, execute a seguinte consulta T-SQL no seu cliente favorito (tal é SSMS) em SQL Managed Instance. Lerá a visão do sistema sys.dm_hadr_fabric_replica_states e reportará réplicas disponíveis no caso. Refresque a mesma consulta depois de iniciar o failover manual.
+Para monitorizar o progresso do failover iniciado pelo utilizador para a sua instância BC, execute a seguinte consulta T-SQL no seu cliente favorito (tal é SSMS) em SQL Managed Instance. Lerá a visão do sistema sys.dm_hadr_fabric_replica_states e reportará réplicas disponíveis no caso. Refresque a mesma consulta depois de iniciar o failover manual.
 
 ```T-SQL
 SELECT DISTINCT replication_endpoint_url, fabric_replica_role_desc FROM sys.dm_hadr_fabric_replica_states
@@ -133,7 +133,13 @@ SELECT DISTINCT replication_endpoint_url, fabric_replica_role_desc FROM sys.dm_h
 
 Antes de iniciar a falha, a sua saída indicará a réplica primária atual no nível de serviço BC contendo um primário e três secundários no Grupo De Disponibilidade AlwaysOn. Após a execução de um failover, executar esta consulta novamente teria que indicar uma mudança do nó primário.
 
-Não poderá ver a mesma saída com o nível de serviço GP acima mostrado para BC. Isto porque o nível de serviço GP baseia-se apenas num único nó. A saída de consulta T-SQL para o nível de serviço GP só mostrará um único nó antes e depois da falha. A perda de conectividade do seu cliente durante a execução, tipicamente com duração inferior a um minuto, será a indicação da execução falhada.
+Não poderá ver a mesma saída com o nível de serviço GP acima mostrado para BC. Isto porque o nível de serviço GP baseia-se apenas num único nó. Pode utilizar consulta alternativa T-SQL mostrando o processo SQL iniciado no nó para a instância de nível de serviço GP:
+
+```T-SQL
+SELECT sqlserver_start_time, sqlserver_start_time_ms_ticks FROM sys.dm_os_sys_info
+```
+
+A curta perda de conectividade do seu cliente durante a execução, tipicamente com duração inferior a um minuto, será a indicação da execução falhada independentemente do nível de serviço.
 
 > [!NOTE]
 > A conclusão do processo de failover (não a indisponibilidade efetiva e curta) pode demorar vários minutos de cada vez em caso de cargas de trabalho **de alta intensidade.** Isto porque o motor de instância está a tratar de todas as transações atuais no principal e a recuperar o nó secundário, antes de ser capaz de falhar.

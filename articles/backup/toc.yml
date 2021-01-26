@@ -79,7 +79,7 @@
         - name: FAQ - Centro de Cópias de Segurança
           href: backup-center-faq.yml
         - name: FAQ - Cópia de segurança de VMs do Azure
-          href: backup-azure-vm-backup-faq.md
+          href: backup-azure-vm-backup-faq.yml
         - name: FAQ - Agente MARS
           href: backup-azure-file-folder-backup-faq.md
         - name: FAQ - Fazer cópias de segurança de Ficheiros do Azure

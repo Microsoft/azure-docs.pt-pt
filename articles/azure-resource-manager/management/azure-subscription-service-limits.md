@@ -3,12 +3,12 @@ title: Limites e quotas de subscrição do Azure
 description: Fornece uma lista de limites comuns de subscrição e serviço da Azure, quotas e constrangimentos. Este artigo inclui informações sobre como aumentar limites, juntamente com valores máximos.
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 20de08ee30deae74954f2857b4de756b8cf46f08
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: baef641a741d12185029436e5a74039427c69f68
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964200"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98802907"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Subscrição do Azure e limites, quotas e restrições do serviço
 
@@ -402,7 +402,7 @@ Para obter mais informações, consulte [os tamanhos da máquina virtual.](../..
 
 #### <a name="disk-encryption-sets"></a>Conjuntos de encriptação de disco
 
-Há uma limitação de 50 conjuntos de encriptação de disco por região, por subscrição. Para obter mais informações, consulte a documentação de encriptação para máquinas virtuais [Linux](../../virtual-machines/disk-encryption.md#restrictions) ou [Windows.](../../virtual-machines/disk-encryption.md#restrictions) Se precisar de aumentar a quota, contacte o suporte da Azure.
+Há uma limitação de 1000 conjuntos de encriptação de disco por região, por subscrição. Para obter mais informações, consulte a documentação de encriptação para máquinas virtuais [Linux](../../virtual-machines/disk-encryption.md#restrictions) ou [Windows.](../../virtual-machines/disk-encryption.md#restrictions) Se precisar de aumentar a quota, contacte o suporte da Azure.
 
 ### <a name="managed-virtual-machine-disks"></a>Discos de máquinas virtuais geridos
 
@@ -446,7 +446,7 @@ Existem limites, por subscrição, para a implantação de recursos utilizando g
 
 [!INCLUDE [virtual-machine-scale-sets-limits](../../../includes/azure-virtual-machine-scale-sets-limits.md)]
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 * [Compreender os limites e aumentos do Azure](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 * [Tamanhos de serviço de máquina virtual e nuvem para Azure](../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/20/2021
 ms.author: yelevin
-ms.openlocfilehash: 409a316bd9c4222dd9b8ff30e42e37d23805c38b
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: eb89d2a4e719e34ad5ea31656dc9e3c02472b07d
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757767"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98802259"
 ---
 # <a name="connect-data-from-azure-active-directory-azure-ad"></a>Ligar dados do Azure Ative Directory (Azure AD)
 
@@ -28,7 +28,7 @@ Pode utilizar o conector incorporado do Azure Sentinel para recolher dados do [A
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Qualquer licença AD Azure (Grátis/O365/P1/P2) é suficiente para ingerir registos de entrada no Azure Sentinel. Podem ser aplicadas taxas adicionais por gigabyte para o Azure Monitor (Log Analytics) e para o Azure Sentinel.
+- Você deve ter uma assinatura [Azure AD Premium P2](https://azure.microsoft.com/pricing/details/active-directory/) para ingerir logins de entrada em Azure Sentinel. Podem ser aplicadas taxas adicionais por gigabyte para o Azure Monitor (Log Analytics) e para o Azure Sentinel.
 
 - O seu utilizador deve ser atribuído ao contributo do Azure Sentinel no espaço de trabalho.
 
@@ -46,10 +46,6 @@ Pode utilizar o conector incorporado do Azure Sentinel para recolher dados do [A
 
     - **Registos de início de sessão**: Informações sobre a utilização de aplicações geridas e atividades de login do utilizador.
     - **Registos de auditoria**: Informações de atividade do sistema sobre gestão de utilizadores e grupos, aplicações geridas e atividades de diretório.
-    - **Registos de registo não interativos** do utilizador : Informações sobre as entradas realizadas por um cliente em nome de um utilizador, que não requerem qualquer interação ou fator de autenticação por parte do utilizador.
-    - **Registos de início de sessão de serviço**: Informações sobre logins por apps e principais serviços que não envolvam nenhum utilizador. Nestes insusentuques, a app ou serviço fornece uma credencial em seu próprio nome para autenticar ou aceder a recursos.
-    - **Registos de inscrição de identidade geridos**: Logins por recursos Azure que têm segredos geridos pelo Azure.
-    - **Registos de fornecimento**: Informações sobre a atividade do sistema sobre utilizadores, grupos e funções a provisionadas pelo serviço de fornecimento de Azure AD.
 
 ## <a name="find-your-data"></a>Encontre os seus dados
 
@@ -57,10 +53,6 @@ Após a criação de uma ligação bem sucedida, os dados aparecem em **Logs,** 
 
 - `SigninLogs`
 - `AuditLogs`
-- `AADNonInteractiveUserSignInLogs`
-- `AADServicePrincipalSignInLogs`
-- `AADManagedIdentitySignInLogs`
-- `AADProvisioningLogs`
 
 Para consultar os registos AZure AD, insira o nome de mesa relevante no topo da janela de consulta.
 

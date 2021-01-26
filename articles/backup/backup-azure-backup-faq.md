@@ -3,12 +3,12 @@ title: Respostas a perguntas comuns
 description: 'Respostas a perguntas comuns sobre: funcionalidades do Azure Backup incluindo os cofres dos Serviços de Recuperação, que cópias de segurança podem criar, como funcionam, a encriptação e os limites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: dbe6ce95427b559c037e38525f9f48195a2a76a4
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: f819440001180a3c446f366e61e3ac0f983fa67f
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98703424"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806650"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup – Perguntas frequentes
 
@@ -70,7 +70,7 @@ No caso de um cofre [GRS](azure-backup-glossary.md#grs) sem capacidade [crr](azu
 
 ### <a name="where-can-i-find-common-questions-about-the-azure-backup-agent-for-azure-vm-backup"></a>Onde posso encontrar as perguntas comuns sobre o agente do Azure Backup para a cópia de segurança de VMs do Azure?
 
-- Relativamente ao agente em execução em VMs do Azure, leias estas [FAQ](backup-azure-vm-backup-faq.md).
+- Relativamente ao agente em execução em VMs do Azure, leias estas [FAQ](backup-azure-vm-backup-faq.yml).
 - Relativamente ao agente utilizado para fazer cópias de segurança das pastas de ficheiros do Azure, leia estas [FAQ](backup-azure-file-folder-backup-faq.md).
 
 ## <a name="general-backup"></a>Cópia de segurança geral
@@ -236,5 +236,5 @@ Apenas o seu site possui a chave utilizada para encriptar os dados da cópia de 
 
 Leia as outras FAQs:
 
-- [Perguntas comuns](backup-azure-vm-backup-faq.md) sobre cópias de segurança de VMs do Azure.
+- [Perguntas comuns](backup-azure-vm-backup-faq.yml) sobre cópias de segurança de VMs do Azure.
 - [Perguntas comuns](backup-azure-file-folder-backup-faq.md) sobre o agente do Azure Backup

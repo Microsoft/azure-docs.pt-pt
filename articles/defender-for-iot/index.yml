@@ -11,12 +11,12 @@ metadata:
   author: mlottner
   ms.author: mlottner
   ms.date: 09/07/2020
-  ms.openlocfilehash: 89bab2cde338cdabe47f70ee084aa5365b1f1877
-  ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
-  ms.translationtype: HT
+  ms.openlocfilehash: a56e82d81839d94029bc34dcdec30544e7158ea1
+  ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+  ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/06/2021
-  ms.locfileid: "97935976"
+  ms.lasthandoff: 01/26/2021
+  ms.locfileid: "98802674"
 landingContent:
 - title: Introdução ao Azure Defender para IoT
   linkLists:
@@ -24,9 +24,9 @@ landingContent:
     links:
     - text: O que é o Azure Defender para IoT?
       url: overview.md
-    - text: Arquitetura da Solução
+    - text: Arquitetura de soluções
       url: architecture.md
-    - text: Descrição Geral da Configuração
+    - text: Visão geral da configuração da solução
       url: getting-started.md
     - text: Novidades?
       url: release-notes.md
@@ -50,8 +50,6 @@ landingContent:
       url: how-to-investigate-sensor-detections-in-a-device-inventory.md
     - text: Investigar Alertas
       url: how-to-work-with-alerts-on-your-sensor.md
-    - text: Gerar Relatórios
-      url: how-to-generate-reports.md
     - text: Controlar que Tráfego é Detetado
       url: how-to-control-what-traffic-is-monitored.md
     - text: Ligar ao Azure Sentinel

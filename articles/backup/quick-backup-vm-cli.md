@@ -5,12 +5,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 27294f91fd6c79b10a85678a7acd60de56cf1ca4
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 1a1b11d517fdfea0aa3a0f553b63276bc20f90be
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94562343"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98805450"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-the-azure-cli"></a>Apoie uma máquina virtual em Azure com o Azure CLI
 
@@ -28,8 +28,8 @@ Um cofre dos Serviços de Recuperação é um contentor lógico que armazena os 
 
 Crie um cofre dos Serviços de Recuperação com [az backup vault create](/cli/azure/backup/vault#az-backup-vault-create). Especifique o mesmo grupo de recursos e a mesma localização da VM que quer proteger. Se utilizou o [início rápido da VM](../virtual-machines/linux/quick-create-cli.md), então criou:
 
-- um grupo de recursos com o nome *myResourceGroup* ,
-- uma VM com o nome *myVM* ,
+- um grupo de recursos com o nome *myResourceGroup*,
+- uma VM com o nome *myVM*,
 - recursos na localização *eastus*.
 
 ```azurecli-interactive
@@ -71,7 +71,7 @@ az backup protection enable-for-vm \
 ```
 
 > [!IMPORTANT]
-> Ao utilizar o CLI para ativar a cópia de segurança de vários VMs de uma só vez, certifique-se de que uma única política não tem mais de 100 VMs associados. Esta é uma [boa prática recomendada.](./backup-azure-vm-backup-faq.md#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy) Atualmente, o cliente PowerShell não bloqueia explicitamente se houver mais de 100 VMs, mas o cheque está previsto para ser adicionado no futuro.
+> Ao utilizar o CLI para ativar a cópia de segurança de vários VMs de uma só vez, certifique-se de que uma única política não tem mais de 100 VMs associados. Esta é uma [boa prática recomendada.](./backup-azure-vm-backup-faq.yml#is-there-a-limit-on-number-of-vms-that-can-be-associated-with-the-same-backup-policy) Atualmente, o cliente PowerShell não bloqueia explicitamente se houver mais de 100 VMs, mas o cheque está previsto para ser adicionado no futuro.
 
 ## <a name="start-a-backup-job"></a>Iniciar uma tarefa de cópia de segurança
 
@@ -81,7 +81,7 @@ Os parâmetros seguintes são utilizados para criar a cópia de segurança da VM
 
 - `--container-name` é o nome da VM
 - `--item-name` é o nome da VM
-- O valor `--retain-until` deve ser definido como a última data disponível, no formato de data em UTC ( **dd-mm-aaaa** ), até à qual pretende que o ponto de recuperação esteja disponível.
+- O valor `--retain-until` deve ser definido como a última data disponível, no formato de data em UTC (**dd-mm-aaaa**), até à qual pretende que o ponto de recuperação esteja disponível.
 
 O exemplo seguinte cria uma cópia de segurança da VM com o nome *myVM* e define a expiração do ponto de recuperação como 18 de outubro de 2017:
 
@@ -114,7 +114,7 @@ a0a8e5e6  Backup           InProgress  myvm         2017-09-19T03:09:21  0:00:48
 fe5d0414  ConfigureBackup  Completed   myvm         2017-09-19T03:03:57  0:00:31.191807
 ```
 
-Quando o *Estado* da tarefa de cópia de segurança mostrar *Concluído* , a VM estará protegida com os Serviços de Recuperação e tem armazenado um ponto de recuperação completo.
+Quando o *Estado* da tarefa de cópia de segurança mostrar *Concluído*, a VM estará protegida com os Serviços de Recuperação e tem armazenado um ponto de recuperação completo.
 
 ## <a name="clean-up-deployment"></a>Limpar a implementação
 
@@ -135,7 +135,7 @@ az backup vault delete \
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste início rápido, criou um cofre dos Serviços de Recuperação, ativou a proteção numa VM e criou o ponto de recuperação inicial. Para saber mais sobre o Azure Backup e os Serviços de Recuperação, prossiga para os tutoriais.
 

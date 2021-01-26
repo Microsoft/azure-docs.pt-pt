@@ -4,12 +4,12 @@ description: Impedir que os utilizadores atualem ou apaguem os recursos do Azure
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 53054f89c992139fbbd4f087d2a0344e26d97efc
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 0e8fc74b2da0c253ec9c5bf34ec7543398aea48f
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98610204"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98802435"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloquear recursos para prevenir alterações inesperadas
 
@@ -38,7 +38,7 @@ A aplicação de bloqueios pode levar a resultados inesperados porque algumas op
 
 * Um bloqueio não pode eliminar um grupo de **recursos** impede o Gestor de Recursos Azure de [eliminar automaticamente as implementações](../templates/deployment-history-deletions.md) na história. Se atingir 800 destacamentos na história, as suas implementações falharão.
 
-* Um bloqueio não pode eliminar o **grupo de recursos** criado pelo **Azure Backup Service** faz com que as cópias de segurança falhem. O serviço suporta um máximo de 18 pontos de restauro. Quando bloqueado, o serviço de reserva não pode limpar pontos de restauro. Para obter mais informações, consulte [Perguntas Frequentes-Back up Azure VMs](../../backup/backup-azure-vm-backup-faq.md).
+* Um bloqueio não pode eliminar o **grupo de recursos** criado pelo **Azure Backup Service** faz com que as cópias de segurança falhem. O serviço suporta um máximo de 18 pontos de restauro. Quando bloqueado, o serviço de reserva não pode limpar pontos de restauro. Para obter mais informações, consulte [Perguntas Frequentes-Back up Azure VMs](../../backup/backup-azure-vm-backup-faq.yml).
 
 * Um bloqueio de leitura numa **subscrição** impede o **Azure Advisor** de funcionar corretamente. O consultor não consegue armazenar os resultados das suas consultas.
 
@@ -339,7 +339,7 @@ No pedido, inclua um objeto JSON que especifica as propriedades para o bloqueio.
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para aprender a organizar logicamente os seus recursos, consulte [Usando tags para organizar os seus recursos.](tag-resources.md)
 * Pode aplicar restrições e convenções em toda a sua subscrição com políticas personalizadas. Para obter mais informações, veja [What is Azure Policy?](../../governance/policy/overview.md) (O que é o Azure Policy?).
