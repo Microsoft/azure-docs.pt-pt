@@ -1,5 +1,5 @@
 ---
-title: Configurar proteção de identidade e acesso condicional em Azure AD B2C
+title: Configurar o Identity Protection e o Acesso Condicional no Azure AD B2C
 description: Saiba como configurar a Proteção de Identidade e o Acesso Condicional para você, inquilino Azure AD B2C, para ver o acesso de risco e outros eventos de risco e criar políticas baseadas em deteções de risco.
 services: active-directory
 ms.service: active-directory
@@ -10,14 +10,14 @@ ms.author: mimart
 author: msmimart
 manager: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2472183673e5f06f5664a306a69d14c2eaf5f82d
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 654206bccd25bf09fcdc5c3e7ee72ba97c75af2a
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94949773"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785486"
 ---
-# <a name="set-up-identity-protection-and-conditional-access-in-azure-ad-b2c"></a>Configurar proteção de identidade e acesso condicional em Azure AD B2C
+# <a name="set-up-identity-protection-and-conditional-access-in-azure-ad-b2c"></a>Configurar o Identity Protection e o Acesso Condicional no Azure AD B2C
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
@@ -94,9 +94,7 @@ Para adicionar uma política de acesso condicional baseada nas deteções de ris
 
 1. Em **Segurança**, selecione **Acesso Condicional (Pré-visualização)**. Abre a página **Políticas de Acesso Condicional.** 
 
-1. Selecione **Nova política** e siga a documentação de Acesso Condicionado AZure AD para criar uma nova política. Exemplo:
-
-   - [Acesso condicional baseado no risco de acesso: Ative com política de acesso condicional](../active-directory/conditional-access/howto-conditional-access-policy-risk.md#enable-with-conditional-access-policy)
+1. Selecione **Nova política** e siga a documentação de Acesso Condicionado AZure AD para criar uma nova política. Para políticas baseadas no risco, terá de configurar políticas separadas com base no risco de [utilizador](../active-directory/conditional-access/howto-conditional-access-policy-risk-user.md#enable-with-conditional-access-policy) ou [no risco de inscrição,](../active-directory/conditional-access/howto-conditional-access-policy-risk.md#enable-with-conditional-access-policy) dependendo do tipo de risco que pretende utilizar como condição. Não recomendamos a utilização de ambos os tipos de risco numa única política.
 
    > [!IMPORTANT]
    > Ao selecionar os utilizadores a quem pretende aplicar a política, não selecione **apenas todos os utilizadores,** ou pode bloquear-se a fazer a sua sessão.
@@ -145,6 +143,6 @@ Para rever o resultado de um evento de Acesso Condicional:
    - Políticas Aplicadas: Uma lista de todas as políticas de Acesso Condicional onde as condições foram satisfeitas e as políticas estão ON.
    - ReportingPolicies: Uma lista das políticas de acesso condicional que foram definidas para o modo apenas reporte e onde as condições foram satisfeitas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Adicionar Acesso Condicional a um fluxo de utilizador.](conditional-access-user-flow.md)

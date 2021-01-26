@@ -14,12 +14,12 @@ ms.topic: sample
 ms.date: 01/18/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 1b04a0c4d2865cf72d9fbccb51f0f083872ea799
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b55dc6a400f936ac23b233e4c84a6b1aebf45cb
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87037887"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784701"
 ---
 # <a name="upgrade-a-service-fabric-application"></a>Atualizar uma aplicação de Tecido de Serviço
 
@@ -37,18 +37,18 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 
 | Comando | Notas |
 |---|---|
-| [Get-ServiceFabricApplicação](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps) | Obtém todas as aplicações no cluster de Tecido de Serviço ou uma aplicação específica.  |
-| [Get-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/get-servicefabricapplicationupgrade?view=azureservicefabricps) | Obtém o estado de uma atualização de aplicação de Tecido de Serviço. |
-| [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) | Obtém os tipos de aplicação de Tecido de Serviço registados no cluster de Tecido de Serviço. |
-| [Unregister-ServiceFabricApplicationType](/powershell/module/servicefabric/unregister-servicefabricapplicationtype?view=azureservicefabricps) | Desregista um tipo de aplicação de Tecido de Serviço.  |
-| [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) | Copia um pacote de aplicações de Tecido de Serviço na loja de imagens.  |
-| [Registo-ServiçoFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) | Regista um tipo de aplicação de Tecido de Serviço. |
-| [Serviço de InícioFabricApplicationUpgrade](/powershell/module/servicefabric/start-servicefabricapplicationupgrade?view=azureservicefabricps) | Atualiza uma aplicação de Tecido de Serviço para a versão especificada do tipo de aplicação. |
-| [Remove-ServiceFabricApplicationPackage](/powershell/module/servicefabric/remove-servicefabricapplicationpackage?view=azureservicefabricps) | Remove um pacote de aplicações de Tecido de Serviço da loja de imagens.|
+| [Get-ServiceFabricApplicação](/powershell/module/servicefabric/get-servicefabricapplication) | Obtém todas as aplicações no cluster de Tecido de Serviço ou uma aplicação específica.  |
+| [Get-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/get-servicefabricapplicationupgrade) | Obtém o estado de uma atualização de aplicação de Tecido de Serviço. |
+| [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype) | Obtém os tipos de aplicação de Tecido de Serviço registados no cluster de Tecido de Serviço. |
+| [Unregister-ServiceFabricApplicationType](/powershell/module/servicefabric/unregister-servicefabricapplicationtype) | Desregista um tipo de aplicação de Tecido de Serviço.  |
+| [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage) | Copia um pacote de aplicações de Tecido de Serviço na loja de imagens.  |
+| [Registo-ServiçoFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype) | Regista um tipo de aplicação de Tecido de Serviço. |
+| [Serviço de InícioFabricApplicationUpgrade](/powershell/module/servicefabric/start-servicefabricapplicationupgrade) | Atualiza uma aplicação de Tecido de Serviço para a versão especificada do tipo de aplicação. |
+| [Remove-ServiceFabricApplicationPackage](/powershell/module/servicefabric/remove-servicefabricapplicationpackage) | Remove um pacote de aplicações de Tecido de Serviço da loja de imagens.|
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Para obter mais informações sobre o módulo PowerShell do tecido de serviço, consulte [a documentação Azure PowerShell](/powershell/azure/service-fabric/overview?view=azureservicefabricps).
+Para obter mais informações sobre o módulo PowerShell do tecido de serviço, consulte [a documentação Azure PowerShell](/powershell/azure/service-fabric/overview).
 
 Pode ver exemplos adicionais do Powershell para o Azure Service Fabric em [Exemplos do Azure PowerShell](../service-fabric-powershell-samples.md).

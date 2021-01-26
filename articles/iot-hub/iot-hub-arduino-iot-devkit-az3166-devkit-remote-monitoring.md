@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: a5a69c35e5c7e33443c3810cad9ab4e21b048328
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 6912124ce8d1741731d625dccfea445417b2488d
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148809"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785021"
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>Ligue o acelerador de solução de monitorização remota MXChip IoT a Azure IoT
 
@@ -66,7 +66,7 @@ Uma subscrição ativa do Azure. Se não tiver um, pode registar-se através de 
   
    ![Criar dispositivo com ID](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-new-device-configuration.png)
 
-8. Tome nota do **nome de anfitrião do IoT Hub**e clique em **'Fazer'.**
+8. Tome nota do **nome de anfitrião do IoT Hub** e clique em **'Fazer'.**
 
 ## <a name="open-the-remotemonitoring-sample"></a>Abra a amostra remoteMonitoring
 
@@ -120,7 +120,7 @@ Quando a aplicação da amostra é executada, o DevKit envia dados de sensores s
 
 ## <a name="change-device-id"></a>Alterar iD do dispositivo
 
-Se pretender alterar o **AZ3166** codificado com código para um ID de dispositivo personalizado, modifique a linha de código exibida no exemplo de [monitorização remota](../iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoring-v2.md).
+Se pretender alterar o **AZ3166** codificado com código para um ID de dispositivo personalizado, modifique a linha de código exibida no exemplo de [monitorização remota](/previous-versions/azure/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoring-v2).
 
 ## <a name="problems-and-feedback"></a>Problemas e feedback
 
@@ -129,7 +129,7 @@ Se encontrar problemas, consulte [o kit de desenvolvimento IoT FAQs](https://mic
 * [Gitter.im](https://gitter.im/Microsoft/azure-iot-developer-kit)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que aprendeu a ligar um dispositivo DevKit ao seu acelerador de solução de monitorização remota Azure IoT e visualizar os dados do sensor, eis os próximos passos sugeridos:
 

@@ -4,12 +4,12 @@ description: Aprenda a desenvolver aplicações Azure Functions usando Python qu
 ms.topic: article
 ms.date: 10/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: baa362f029678f266f154df912a9178a6626667d
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: e3bbdb8819062d45d071633e0208fb58a003da54
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935874"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786111"
 ---
 # <a name="improve-throughput-performance-of-python-apps-in-azure-functions"></a>Melhorar o desempenho das aplicações Python em Funções Azure
 
@@ -22,10 +22,10 @@ Por predefinição, o Azure Functions monitoriza automaticamente a carga da sua 
 
 As configurações predefinidas são adequadas para a maioria das aplicações Azure Functions. No entanto, pode melhorar o desempenho da produção das suas aplicações utilizando configurações com base no seu perfil de carga de trabalho. O primeiro passo é compreender o tipo de carga de trabalho que está a correr.
 
-|| Carga de trabalho i/O-bound | Carga de trabalho ligada ao CPU |
-|--| -- | -- |
-|Características da aplicação de função| <ul><li>A aplicação precisa de lidar com muitas invocações simultâneas.</li> <li> A aplicação processa um grande número de eventos de E/S, tais como chamadas de rede e leitura/escrita de disco.</li> </ul>| <ul><li>A aplicação faz cálculos de longa duração, como o redimensionamento de imagens.</li> <li>A aplicação faz a transformação de dados.</li> </ul> |
-|Exemplos| <ul><li>APIs da Web</li><ul> | <ul><li>Processamento de dados</li><li> Inferência de aprendizagem automática</li><ul>|
+| Tipo de carga de trabalho | Características da aplicação de função       | Exemplos                                          |
+| ------------- | ---------------------------------- | ------------------------------------------------- |
+| **I/O-bound**     | • A aplicação precisa de lidar com muitas invocações simultâneas.<br>• A aplicação processa um grande número de eventos de E/S, tais como chamadas de rede e leitura/escrita de discos. | • APIs web                                          |
+| **Limite de CPU**     | • A aplicação faz cálculos de longa duração, tais como o redimensionamento de imagens.<br>• A aplicação faz a transformação de dados.                                                | • Processamento de dados<br>• Inferência de aprendizagem automática<br> |
 
  
 Como as cargas de trabalho da função real são geralmente uma mistura de I/O e CPU ligados, você deve perfilar a app sob cargas de produção realistas.
@@ -171,7 +171,7 @@ async def main(req: func.HttpRequest) -> func.HttpResponse:
 #### <a name="vertical-scaling"></a>Dimensionamento vertical
 Para mais unidades de processamento especialmente em operação ligada à CPU, você pode ser capaz de obter isso através da atualização para plano premium com especificações mais elevadas. Com unidades de processamento mais elevadas, pode ajustar o número de trabalhos de contagem de trabalho de acordo com o número de núcleos disponíveis e obter um maior grau de paralelismo. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre o desenvolvimento do Azure Functions Python, consulte os seguintes recursos:
 

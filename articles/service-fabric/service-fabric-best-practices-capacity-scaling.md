@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 41cfff11e44a3d052614aa3c81a4623f59bbbbf5
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: d7d9ed8fa695c636e7aaf36fd034babb4de012d9
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095292"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784685"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Planeamento e dimensionamento de capacidades para o tecido de serviço Azure
 
@@ -161,7 +161,7 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 
 > [!NOTE]
 > Quando escala num cluster, verá a instância nó/VM removida exibida num estado pouco saudável no Service Fabric Explorer. Para obter uma explicação deste comportamento, consulte [Comportamentos que possa observar no Service Fabric Explorer](./service-fabric-cluster-scale-in-out.md#behaviors-you-may-observe-in-service-fabric-explorer). Pode:
-> * Ligue para o [comando Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps&preserve-view=true) com o nome de nó apropriado.
+> * Ligue para o [comando Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate) com o nome de nó apropriado.
 > * Implemente a [aplicação de ajudante de escala automática do Tecido de Serviço](https://github.com/Azure/service-fabric-autoscale-helper/) no seu cluster. Esta aplicação garante que os nós de escala são limpos do Service Fabric Explorer.
 
 ## <a name="reliability-levels"></a>Níveis de fiabilidade
@@ -218,7 +218,7 @@ O outro recurso está no `nodeTypes` [recurso Microsoft.ServiceFabric/clusters](
 ]
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Crie um cluster em VMs ou computadores que executam o Windows Server: [Criação de cluster de tecido de serviço para o Windows Server](service-fabric-cluster-creation-for-windows-server.md).
 * Crie um cluster em VMs ou computadores que executam o Linux: [Crie um cluster Linux](service-fabric-cluster-creation-via-portal.md).

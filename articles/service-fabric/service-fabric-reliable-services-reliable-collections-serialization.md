@@ -4,12 +4,12 @@ description: Saiba mais sobre a Azure Service Fabric Reliable Collections objeto
 ms.topic: conceptual
 ms.date: 5/8/2017
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1d29f5d3391bdea0b21997a392d4d2e053b7ec65
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29bb9a2dfb028d223d63559b35735e78d7e6bcf8
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89018625"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784364"
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Serialização de objetos de coleção fiável no tecido de serviço Azure
 A fiáveis coleções replica e persiste os seus itens para se certificar de que são duráveis através de falhas de máquinas e falhas de energia.
@@ -20,7 +20,7 @@ O Reliable State Manager contém serializers incorporados e permite que os seria
 
 ## <a name="built-in-serializers"></a>Serializers incorporados
 
-O Gestor de Estado fiável inclui serializador incorporado para alguns tipos comuns, para que possam ser serializados eficientemente por padrão. Para outros tipos, o Gestor de Estado fiável volta a utilizar o [DataContractSerializer](/dotnet/api/system.runtime.serialization.datacontractserializer?view=netcore-3.1).
+O Gestor de Estado fiável inclui serializador incorporado para alguns tipos comuns, para que possam ser serializados eficientemente por padrão. Para outros tipos, o Gestor de Estado fiável volta a utilizar o [DataContractSerializer](/dotnet/api/system.runtime.serialization.datacontractserializer).
 Os serializers incorporados são mais eficientes uma vez que sabem que os seus tipos não podem mudar e não precisam de incluir informações sobre o tipo como o seu nome.
 
 O Gestor estatal fiável tem serializador incorporado para seguintes tipos: 
@@ -138,9 +138,9 @@ Os utilizadores de serializadores personalizados devem respeitar as diretrizes d
 A forma comum de suportar todas as versões é adicionar informações de tamanho no início e apenas adicionar propriedades opcionais.
 Desta forma, cada versão pode ler o máximo que puder e saltar sobre a parte restante do fluxo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
   * [Serialização e atualização](service-fabric-application-upgrade-data-serialization.md)
-  * [Referência do programador para Coleções Fiáveis](/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)
+  * [Referência do programador para Coleções Fiáveis](/dotnet/api/microsoft.servicefabric.data.collections#microsoft_servicefabric_data_collections)
   * [A atualização da sua aplicação utilizando o Visual Studio](service-fabric-application-upgrade-tutorial.md) acompanha-o através de uma atualização de aplicações utilizando o Visual Studio.
   * [Atualizar a sua aplicação Utilizando o Powershell](service-fabric-application-upgrade-tutorial-powershell.md) acompanha-o através de uma atualização de aplicações utilizando o PowerShell.
   * Controle como a sua aplicação atualiza utilizando [parâmetros de atualização.](service-fabric-application-upgrade-parameters.md)

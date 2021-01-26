@@ -7,12 +7,12 @@ ms.reviewer: jehollan, klam, logicappspm
 ms.topic: article
 ms.date: 11/08/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 25f761d85ebfd0ac16f182941c5b5c29636066bf
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a7df9ba1318f40de8af392cfaedbe51d7a5df755
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000339"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784940"
 ---
 # <a name="call-or-trigger-logic-apps-by-using-azure-functions-and-azure-service-bus"></a>Ligue ou desencadeie aplicativos lógicos utilizando Azure Functions e Azure Service Bus
 
@@ -24,7 +24,7 @@ Pode utilizar [as Funções Azure](../azure-functions/functions-overview.md) par
 
 * Um espaço de nomes para autocarros da Azure Service. Se não tiver um espaço de nome, [crie primeiro o seu espaço de nome.](../service-bus-messaging/service-bus-create-namespace-portal.md)
 
-* Uma aplicação de função, que é um recipiente para as suas funções. Se não tiver uma aplicação de função, [crie primeiro a sua aplicação de função](../azure-functions/functions-create-first-azure-function.md)e certifique-se de que seleciona .NET como a pilha de tempo de execução.
+* Uma aplicação de função, que é um recipiente para as suas funções. Se não tiver uma aplicação de função, [crie primeiro a sua aplicação de função](../azure-functions/functions-get-started.md)e certifique-se de que seleciona .NET como a pilha de tempo de execução.
 
 * Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
@@ -149,6 +149,6 @@ Em seguida, crie a função que funciona como o gatilho e ouve a fila.
 
    A aplicação lógica ativa imediatamente após a função receber a mensagem.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Rebome, desencadeie ou nestflows utilizando pontos finais HTTP](../logic-apps/logic-apps-http-endpoint.md)

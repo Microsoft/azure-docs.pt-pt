@@ -1,5 +1,5 @@
 ---
-title: Segurança Azure Data Box Gateway / Microsoft Docs
+title: Segurança Azure Data Box Gateway | Microsoft Docs
 description: Descreve as funcionalidades de segurança e privacidade que protegem o dispositivo virtual, serviço e dados do Azure Data Box Gateway, no local e na nuvem.
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 10/20/2020
 ms.author: alkohli
-ms.openlocfilehash: 11122b57a1971f328a8a83c3dea136813426c060
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 13d3809611714992f24a66a96c22074e69fba9bd
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96583077"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786661"
 ---
 # <a name="azure-data-box-gateway-security-and-data-protection"></a>Segurança e proteção de dados da Caixa de Dados Azure
 
@@ -83,9 +83,9 @@ Esta secção descreve as funcionalidades de segurança do Data Box Gateway que 
 
 ### <a name="protect-the-device-data-using-bitlocker"></a>Proteja os dados do dispositivo utilizando o BitLocker
 
-Para proteger os discos virtuais na sua máquina virtual Data Box Gateway, recomendamos que ative o BitLocker. Por predefinição, o BitLocker não está ativado. Para obter mais informações, veja:
+Para proteger os discos virtuais na sua máquina virtual Data Box Gateway, recomendamos que ative o BitLocker. Por predefinição, o BitLocker não está ativado. Para obter mais informações, consulte:
 
-- [Definições de suporte de encriptação no Hyper-V Manager](hhttps://docs.microsoft.com/windows-server/virtualization/hyper-v/learn-more/generation-2-virtual-machine-security-settings-for-hyper-v#encryption-support-settings-in-hyper-v-manager)
+- [Definições de suporte de encriptação no Hyper-V Manager](/windows-server/virtualization/hyper-v/learn-more/generation-2-virtual-machine-security-settings-for-hyper-v#encryption-support-settings-in-hyper-v-manager)
 - [Suporte BitLocker em uma máquina virtual](https://kb.vmware.com/s/article/2036142)
 
 ## <a name="manage-personal-information"></a>Gerir informações pessoais
@@ -98,6 +98,6 @@ Para ver a lista de utilizadores que podem aceder ou apagar uma partilha, siga o
 
 Para mais informações, reveja a política de privacidade da Microsoft no [Trust Center.](https://www.microsoft.com/trustcenter)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Implemente o seu dispositivo Data Box Gateway](data-box-gateway-deploy-prep.md)

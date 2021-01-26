@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/04/2020
-ms.openlocfilehash: 71ef902e909e552ade5174196f291630bc242ca0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2a7b686bb0aae0b35b25cdd724925bab3c0a2e10
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005372"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786525"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Ligar o HDInsight à sua rede no local
 
@@ -52,7 +52,7 @@ No diagrama seguinte, as linhas verdes são pedidos de recursos que terminam no 
 
 Utilize os seguintes documentos para aprender a criar uma Rede Virtual Azure que esteja ligada à sua rede no local:
 
-* [Com o Portal do Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+* [Com o Portal do Azure](../vpn-gateway/tutorial-site-to-site-portal.md)
 * [Utilizar o Azure PowerShell](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
 * [Utilizar a CLI do Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 
@@ -69,7 +69,7 @@ Estes passos utilizam o [portal Azure](https://portal.azure.com) para criar uma 
 
     ![Criar uma máquina virtual Ubuntu](./media/connect-on-premises-network/azure-portal-create-resource.png)
 
-1. Selecione a máquina Virtual **compute**  >  **Virtual machine** para ir à página de máquina **virtual Criar.**
+1. Selecione a máquina Virtual **compute**  >   para ir à página de máquina **virtual Criar.**
 
 1. A partir do separador __Básicos,__ introduza as seguintes informações:  
   
@@ -238,7 +238,7 @@ Uma vez criada a máquina virtual, receberá uma notificação **conseguida da I
 
 Para configurar a rede virtual para utilizar o servidor DNS personalizado em vez do Azure recursive resolver, utilize os seguintes passos a partir do [portal Azure](https://portal.azure.com):
 
-1. A partir do menu esquerdo, navegue para todas as redes virtuais de rede de **serviços.**  >  **Networking**  >  **Virtual networks**
+1. A partir do menu esquerdo, navegue para todas as redes virtuais de rede de **serviços.**  >    >  
 
 2. Selecione a sua rede virtual a partir da lista, que abrirá a vista padrão para a sua rede virtual.  
 
@@ -341,7 +341,7 @@ Para ligar diretamente ao HDInsight através da rede virtual, utilize os seguint
     >
     > Por exemplo, Apache Ambari só está ativo num nó de cada vez. Se tentar aceder a Ambari num nó de cabeça e retornar um erro de 404, então está a correr no outro nó da cabeça.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter mais informações sobre a utilização do HDInsight numa rede virtual, consulte [Plan uma implementação de rede virtual para clusters Azure HDInsight](./hdinsight-plan-virtual-network-deployment.md).
 

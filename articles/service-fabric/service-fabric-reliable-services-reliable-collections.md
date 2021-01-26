@@ -3,12 +3,12 @@ title: Introdução a Coleções Fiáveis
 description: Serviços estatais de tecido fornecem coleções fiáveis que lhe permitem escrever aplicações de nuvem altamente disponíveis, escaláveis e de baixa latência.
 ms.topic: conceptual
 ms.date: 3/10/2020
-ms.openlocfilehash: 6e0f39b994087fe44038e62e85326945589c719a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d705f81b4ad31559886e43226febcd4cf1d345d
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86245131"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784381"
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Introdução a Coleções Fiáveis em Serviços Azure Fabric serviços estatais
 
@@ -40,21 +40,21 @@ As APIs de Coleções Fiáveis são uma evolução das COLEÇÕES SIMultâneas (
 
 Hoje, **microsoft.serviceFabric.Data.Collections** contém três coleções:
 
-* [Dicionário Fiável](/dotnet/api/microsoft.servicefabric.data.collections.ireliabledictionary-2?view=azure-dotnet#microsoft_servicefabric_data_collections_ireliabledictionary_2): Representa uma coleção replicada, transacional e assíncronea de pares chave/valor. Semelhante ao **Simultâneo,** tanto a chave como o valor podem ser de qualquer tipo.
-* [Fila fiável](/dotnet/api/microsoft.servicefabric.data.collections.ireliablequeue-1?view=azure-dotnet#microsoft_servicefabric_data_collections_ireliablequeue_1): Representa uma fila replicada, transacional e assíncronda e rígida de primeira para a primeira e primeira saída (FIFO). Semelhante ao **ConcurrentQueue,** o valor pode ser de qualquer tipo.
+* [Dicionário Fiável](/dotnet/api/microsoft.servicefabric.data.collections.ireliabledictionary-2#microsoft_servicefabric_data_collections_ireliabledictionary_2): Representa uma coleção replicada, transacional e assíncronea de pares chave/valor. Semelhante ao **Simultâneo,** tanto a chave como o valor podem ser de qualquer tipo.
+* [Fila fiável](/dotnet/api/microsoft.servicefabric.data.collections.ireliablequeue-1#microsoft_servicefabric_data_collections_ireliablequeue_1): Representa uma fila replicada, transacional e assíncronda e rígida de primeira para a primeira e primeira saída (FIFO). Semelhante ao **ConcurrentQueue,** o valor pode ser de qualquer tipo.
 * [Fila simultânea fiável](service-fabric-reliable-services-reliable-concurrent-queue.md): Representa uma fila replicada, transacional e assíncronea de encomenda para alta produção. Semelhante ao **ConcurrentQueue,** o valor pode ser de qualquer tipo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Diretrizes de cobrança fiáveis & recomendações](service-fabric-reliable-services-reliable-collections-guidelines.md)
 * [Trabalhar com as Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Transações e Fechaduras](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 * Gestão de Dados
-  * [Backup e Restauro](service-fabric-reliable-services-backup-restore.md)
+  * [Cópia de Segurança e Restauro](service-fabric-reliable-services-backup-restore.md)
   * [Notificações](service-fabric-reliable-services-notifications.md)
   * [Serialização das Reliable Collections](service-fabric-reliable-services-reliable-collections-serialization.md)
   * [Serialização e Atualização](service-fabric-application-upgrade-data-serialization.md)
   * [Configuração fiável do Gestor de Estado](service-fabric-reliable-services-configuration.md)
 * Outros
   * [Arranque rápido de serviços fiáveis](service-fabric-reliable-services-quick-start.md)
-  * [Referência do programador para Coleções Fiáveis](/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)
+  * [Referência do programador para Coleções Fiáveis](/dotnet/api/microsoft.servicefabric.data.collections#microsoft_servicefabric_data_collections)

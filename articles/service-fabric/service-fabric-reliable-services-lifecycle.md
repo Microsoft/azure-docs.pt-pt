@@ -5,12 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 162ad87f79109cf38d3d0013608812155c6988a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ea8fa6933052374721d8d205d5b07386c807ae2
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86252254"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784601"
 ---
 # <a name="reliable-services-lifecycle-overview"></a>Visão geral do ciclo de vida dos serviços fiáveis
 > [!div class="op_single_selector"]
@@ -113,7 +113,7 @@ O Tecido de Serviço altera a Primária de um serviço estatal por uma variedade
 
 Os serviços que não lidam com o cancelamento de forma limpa podem experimentar vários problemas. Estas operações são lentas porque a Service Fabric espera que os serviços parem graciosamente. Isto pode, em última análise, levar a melhorias falhadas que o tempo para fora e para trás. A falta de honrar o símbolo de cancelamento também pode causar aglomerados desequilibrados. Os aglomerados tornam-se desequilibrados porque os nós ficam quentes, mas os serviços não podem ser reequilibrados porque demora muito tempo a movê-los para outro lugar. 
 
-Como os serviços são imponentes, também é provável que utilizem as [Coleções Fiáveis.](service-fabric-reliable-services-reliable-collections.md) No Tecido de Serviço, quando uma Primária é despromovada, uma das primeiras coisas que acontece é que escrever acesso ao estado subjacente é revogado. Isto leva a um segundo conjunto de problemas que podem afetar o ciclo de vida do serviço. As coleções devolvem exceções com base no tempo e se a réplica está a ser movida ou desligada. Estas exceções devem ser manuseadas corretamente. As exceções lançadas pelo Tecido de Serviço enquadram-se em categorias permanentes [ `FabricException` ()](/dotnet/api/system.fabric.fabricexception?view=azure-dotnet) e transitórias. [ `FabricTransientException` ](/dotnet/api/system.fabric.fabrictransientexception?view=azure-dotnet) As exceções permanentes devem ser registadas e lançadas, enquanto as exceções transitórias podem ser novamente julgadas com base em alguma lógica de relemissão.
+Como os serviços são imponentes, também é provável que utilizem as [Coleções Fiáveis.](service-fabric-reliable-services-reliable-collections.md) No Tecido de Serviço, quando uma Primária é despromovada, uma das primeiras coisas que acontece é que escrever acesso ao estado subjacente é revogado. Isto leva a um segundo conjunto de problemas que podem afetar o ciclo de vida do serviço. As coleções devolvem exceções com base no tempo e se a réplica está a ser movida ou desligada. Estas exceções devem ser manuseadas corretamente. As exceções lançadas pelo Tecido de Serviço enquadram-se em categorias permanentes [ `FabricException` ()](/dotnet/api/system.fabric.fabricexception) e transitórias. [ `FabricTransientException` ](/dotnet/api/system.fabric.fabrictransientexception) As exceções permanentes devem ser registadas e lançadas, enquanto as exceções transitórias podem ser novamente julgadas com base em alguma lógica de relemissão.
 
 Lidar com as exceções que vêm da utilização do `ReliableCollections` em conjunto com eventos de ciclo de vida de serviço é uma parte importante do teste e validação de um Serviço Fiável. Recomendamos que utilize sempre o seu serviço com carga enquanto realiza upgrades e [testes de caos](service-fabric-controlled-chaos.md) antes de se deslocar para a produção. Estes passos básicos ajudam a garantir que o seu serviço é corretamente implementado e lida corretamente com os eventos do ciclo de vida.
 
@@ -126,7 +126,7 @@ Lidar com as exceções que vêm da utilização do `ReliableCollections` em con
   - Falhas no `OnCloseAsync()` caminho resultam na `OnAbort()` chamada, que é uma oportunidade de última oportunidade para o serviço limpar e libertar quaisquer recursos que tenham reclamado. Isto é geralmente chamado quando uma falha permanente é detetada no nó, ou quando o Tecido de Serviço não consegue gerir de forma fiável o ciclo de vida da instância de serviço devido a falhas internas.
   - `OnChangeRoleAsync()` é chamada quando a réplica de serviço imponente está mudando de papel, por exemplo para primária ou secundária. Réplicas primárias recebem o estado de escrita (são permitidas a criar e escrever para Coleções Fiáveis). As réplicas secundárias recebem o estado de leitura (só podem ler-se das coleções fiáveis existentes). A maioria dos trabalhos num serviço estatal é realizada na réplica primária. Réplicas secundárias podem realizar validação apenas de leitura, geração de relatórios, mineração de dados ou outros trabalhos apenas de leitura.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - [Introdução a Serviços Fiáveis](service-fabric-reliable-services-introduction.md)
 - [Início rápido dos Serviços Fiáveis](service-fabric-reliable-services-quick-start.md)
 - [Réplicas e instâncias](service-fabric-concepts-replica-lifecycle.md)

@@ -5,18 +5,18 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 90ffd1c01411982f56aed3332c499aa0c10b8a94
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7af0a4c26a47644973e936eb37e221853d74c03
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86257606"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784668"
 ---
 # <a name="azure-service-fabric-security"></a>Segurança do Azure Service Fabric 
 
 Para mais informações sobre [as melhores práticas da Azure Security,](../security/index.yml)reveja as [melhores práticas de segurança da Azure Service Fabric](../security/fundamentals/service-fabric-best-practices.md)
 
-## <a name="key-vault"></a>Cofre de Chaves
+## <a name="key-vault"></a>Key Vault
 
 [Azure Key Vault](../key-vault/index.yml) é o serviço de gestão de segredos recomendado para aplicações e clusters de tecido de serviço Azure.
 > [!NOTE]
@@ -56,7 +56,7 @@ Para implementar certificados de um keyvault co-localizado para um conjunto de b
 
 ## <a name="apply-an-access-control-list-acl-to-your-certificate-for-your-service-fabric-cluster"></a>Aplicar uma Lista de Controlo de Acesso (ACL) no seu certificado para o seu cluster de tecido de serviço
 
-O editor [de extensões virtual de escala de máquinas](/cli/azure/vmss/extension?view=azure-cli-latest) Microsoft.Azure.ServiceFabric é utilizado para configurar a segurança dos nós.
+O editor [de extensões virtual de escala de máquinas](/cli/azure/vmss/extension) Microsoft.Azure.ServiceFabric é utilizado para configurar a segurança dos nós.
 Para aplicar um ACL nos seus certificados para os seus processos de Cluster de Tecido de Serviço, utilize as seguintes propriedades do modelo do Gestor de Recursos:
 
 ```json
@@ -270,7 +270,7 @@ Por predefinição, as aplicações do Service Fabric têm acesso ao próprio te
 
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Crie um cluster em VMs, ou computadores, executando o Windows Server: [Criação de cluster de tecido de serviço para o Windows Server](service-fabric-cluster-creation-for-windows-server.md).
 * Crie um cluster em VMs, ou computadores, executando Linux: [Crie um cluster Linux](service-fabric-cluster-creation-via-portal.md).

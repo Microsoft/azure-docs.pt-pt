@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/12/2020
-ms.openlocfilehash: d749c901b21651eec7b3e25ce111fb107e09b754
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 5c414a11085a6a37dee6be522dcf513e8990e5e2
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97883355"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786356"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Notas de lançamento do Azure HDInsight
 
@@ -48,7 +48,7 @@ A partir de 16 de novembro de 2020, o HDInsight vai bloquear novos clientes que 
 
 ## <a name="behavior-changes"></a>Mudanças de comportamento
 ### <a name="add-nsg-rule-checking-before-scaling-operation"></a>Adicione verificação de regras NSG antes da operação de escalonamento
-HDInsight adicionou grupos de segurança de rede (NSGs) e rotas definidas pelo utilizador (UDRs) verificando com a operação de escala. A mesma validação é feita para a escala de clusters, além da criação de clusters. Esta validação ajuda a prevenir erros imprevisíveis. Se a validação não passar, o escalonamento falha. Saiba mais sobre como configurar os NSGs e uDRs corretamente, consulte [os endereços IP de gestão hdInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses).
+HDInsight adicionou grupos de segurança de rede (NSGs) e rotas definidas pelo utilizador (UDRs) verificando com a operação de escala. A mesma validação é feita para a escala de clusters, além da criação de clusters. Esta validação ajuda a prevenir erros imprevisíveis. Se a validação não passar, o escalonamento falha. Saiba mais sobre como configurar os NSGs e uDRs corretamente, consulte [os endereços IP de gestão hdInsight](./hdinsight-management-ip-addresses.md).
 
 ## <a name="upcoming-changes"></a>Próximas alterações
 As seguintes alterações irão ocorrer nos próximos lançamentos.
@@ -72,7 +72,7 @@ O HDInsight continua a fazer melhorias na fiabilidade do cluster e no desempenho
 Nenhuma alteração da versão componente para esta versão. Pode encontrar as versões componentes atuais para HDInsight 4.0 e HDInsight 3.6 [neste doc](./hdinsight-component-versioning.md).
 
 ## <a name="known-issues"></a>Problemas conhecidos
-### <a name="prevent-hdinsight-cluster-vms-from-rebooting-periodically"></a>Evite que os VMs do cluster HDInsight reiniciem periodicamente
+### <a name="prevent-hdinsight-cluster-vms-from-rebooting-periodically"></a>Impedir que as VMs do cluster do HDInsight reiniciem periodicamente
 
 A partir de meados de novembro de 2020, pode ter reparado que os VMs do cluster HDInsight são reiniciados regularmente. Isto pode ser causado por:
 
@@ -84,4 +84,3 @@ O HDInsight está a implementar correções e a aplicar patch para todos os clus
 https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/replace_cacert_script.sh
 https://healingscriptssa.blob.core.windows.net/healingscripts/ChangeOOMPolicyAndApplyLatestConfigForClamav.sh
 ```
-

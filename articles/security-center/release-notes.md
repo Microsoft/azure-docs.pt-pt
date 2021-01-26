@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/25/2021
 ms.author: memildin
-ms.openlocfilehash: 349f0b72ad7f3cb98e8f4ae9105efa9718f0b11b
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: ee9a20d3e5bb6974676d6d7a8285a56247756f64
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98752239"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784953"
 ---
 # <a name="whats-new-in-azure-security-center"></a>O que há de novo no Centro de Segurança Azure?
 
@@ -39,6 +39,7 @@ As atualizações em janeiro incluem:
 - [A avaliação da vulnerabilidade para máquinas no local e multi-nuvens é lançada para disponibilidade geral (GA)](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-is-released-for-general-availability-ga)
 - [Pontuação segura para grupos de gestão já está disponível na pré-visualização](#secure-score-for-management-groups-is-now-available-in-preview)
 - [A API de pontuação segura é lançada para Disponibilidade Geral (GA)](#secure-score-api-is-released-for-general-availability-ga)
+- [Proteções DNS pendentes adicionadas ao Azure Defender para o Serviço de Aplicações](#dangling-dns-protections-added-to-azure-defender-for-app-service)
 - [Os conectores multi-nuvem são lançados para disponibilidade geral (GA)](#multi-cloud-connectors-are-released-for-general-availability-ga)
 - [Isentar as recomendações inteiras da sua pontuação segura para subscrições e grupos de gestão](#exempt-entire-recommendations-from-your-secure-score-for-subscriptions-and-management-groups)
 - [Os utilizadores podem agora solicitar visibilidade ao arrendatário do seu administrador global](#users-can-now-request-tenant-wide-visibility-from-their-global-administrator)
@@ -94,7 +95,7 @@ Principais capacidades:
 
 A página de pontuação segura mostra agora as pontuações garantidas agregadas para os seus grupos de gestão, além do nível de subscrição. Agora pode ver a lista de grupos de gestão na sua organização e a pontuação para cada grupo de gestão.
 
-:::image type="content" source="media/secure-score-security-controls/secure-score-management-groups.png" alt-text="Ver as pontuações seguras para os seus grupos de gestão.":::
+:::image type="content" source="media/secure-score-security-controls/secure-score-management-groups.png" alt-text="Visualizar as pontuações seguras para os seus grupos de gestão.":::
 
 Saiba mais sobre [os controlos de pontuação e segurança seguros no Azure Security Center](secure-score-security-controls.md).
 
@@ -107,13 +108,28 @@ Por exemplo, ferramentas externas possibilitadas com a pontuação segura API, c
 Saiba mais sobre [os controlos de pontuação e segurança seguros no Azure Security Center](secure-score-security-controls.md).
 
 
+### <a name="dangling-dns-protections-added-to-azure-defender-for-app-service"></a>Proteções DNS pendentes adicionadas ao Azure Defender para o Serviço de Aplicações
+
+As aquisições de subdomínios são uma ameaça comum e de alta gravidade para as organizações. Uma aquisição de subdomínio pode ocorrer quando tiver um registo DNS que aponta para um web site desprovisionado. Estes registos DNS também são conhecidos como entradas "dNS pendentes". Os registos da CNAME são especialmente vulneráveis a esta ameaça. 
+
+As aquisições de subdomínio permitem que os atores de ameaça redirecionem o tráfego destinado ao domínio de uma organização para um site que executa atividades maliciosas.
+
+O Azure Defender for App Service deteta agora entradas de DNS pendentes quando um website do Serviço de Aplicações é desativado. Este é o momento em que a entrada do DNS está a apontar para um recurso inexistente e o seu website está vulnerável a uma aquisição de subdomínio. Estas proteções estão disponíveis se os seus domínios são geridos com DNS Azure ou um registrador de domínio externo e se aplica tanto ao Serviço de Aplicações no Windows como no Serviço de Aplicações no Linux.
+
+Saiba mais:
+
+- [Tabela de referência de alerta do Serviço de Aplicações](alerts-reference.md#alerts-azureappserv) - Inclui dois novos alertas do Azure Defender que disparam quando é detetada uma entrada de DNS pendente
+- [Evite entradas pendentes de DNS e evite a aquisição de subdomínio](../security/fundamentals/subdomain-takeover.md) - Saiba mais sobre a ameaça de aquisição de subdomínio e o aspeto pendente do DNS
+- [Introdução ao Azure Defender para o Serviço de Aplicações](defender-for-app-service-introduction.md)
+
+
 ### <a name="multi-cloud-connectors-are-released-for-general-availability-ga"></a>Os conectores multi-nuvem são lançados para disponibilidade geral (GA)
 
 Com cargas de trabalho em nuvem geralmente abrangendo várias plataformas de nuvem, os serviços de segurança na nuvem devem fazer o mesmo.
 
 O Azure Security Center protege cargas de trabalho em Azure, Amazon Web Services (AWS) e Google Cloud Platform (GCP).
 
-A ligação das suas contas AWS ou GCP integra as suas ferramentas de segurança nativas, como o AWS Security Hub e o Centro de Comando de Segurança GCP no Centro de Segurança Azure.
+A ligação das suas contas AWS ou GCP integra as suas ferramentas de segurança nativas, como o AWS Security Hub e o GCP Security Command Center no Azure Security Center.
 
 Esta capacidade significa que o Centro de Segurança proporciona visibilidade e proteção em todos os principais ambientes de nuvem. Alguns dos benefícios desta integração:
 
@@ -153,7 +169,7 @@ Saiba mais sobre [a isenção de recursos e recomendações da sua pontuação s
 
 ### <a name="users-can-now-request-tenant-wide-visibility-from-their-global-administrator"></a>Os utilizadores podem agora solicitar visibilidade ao arrendatário do seu administrador global
 
-Se um utilizador não tiver permissões para ver os dados do Security Center, irá agora ver uma reserva de link do administrador global da sua organização. O pedido inclui o papel que gostariam e a justificação para o porquê de ser necessário.
+Se um utilizador não tiver permissões para ver os dados do Security Center, irá agora ver um link para solicitar permissões ao administrador global da sua organização. O pedido inclui o papel que gostariam e a justificação para o porquê de ser necessário.
 
 :::image type="content" source="media/security-center-management-groups/request-tenant-permissions.png" alt-text="Banner informando um utilizador que pode solicitar permissões em todo o inquilino.":::
 
@@ -389,7 +405,7 @@ As atualizações em novembro incluem:
 - [Lista de recomendações agora inclui filtros](#recommendations-list-now-includes-filters)
 - [Experiência de provisionamento automático melhorada e expandida](#auto-provisioning-experience-improved-and-expanded)
 - [A pontuação segura está agora disponível em exportação contínua (pré-visualização)](#secure-score-is-now-available-in-continuous-export-preview)
-- [Recomendação "Atualizações do sistema devem ser instaladas nas suas máquinas" agora inclui sub-recomendações](#system-updates-should-be-installed-on-your-machines-recommendation-now-includes-sub-recommendations)
+- [Recomendação "Atualizações do sistema devem ser instaladas nas suas máquinas" agora inclui subrecomendas](#system-updates-should-be-installed-on-your-machines-recommendation-now-includes-subrecommendations)
 - [Página de gestão de políticas no portal Azure mostra agora o estado das atribuições de política padrão](#policy-management-page-in-the-azure-portal-now-shows-status-of-default-policy-assignments)
 
 ### <a name="29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark"></a>29 recomendações de pré-visualização adicionadas para aumentar a cobertura do Benchmark de Segurança Azure
@@ -468,13 +484,13 @@ Com a exportação contínua de pontuação segura, pode transmitir alterações
 Saiba mais sobre como [exportar continuamente os dados do Security Center.](continuous-export.md)
 
 
-### <a name="system-updates-should-be-installed-on-your-machines-recommendation-now-includes-sub-recommendations"></a>Recomendação "Atualizações do sistema devem ser instaladas nas suas máquinas" agora inclui sub-recomendações
+### <a name="system-updates-should-be-installed-on-your-machines-recommendation-now-includes-subrecommendations"></a>Recomendação "Atualizações do sistema devem ser instaladas nas suas máquinas" agora inclui subrecomendas
 
-As **atualizações do Sistema devem ser instaladas na** recomendação das suas máquinas. A nova versão inclui sub-recomendações para cada atualização em falta e traz as seguintes melhorias:
+As **atualizações do Sistema devem ser instaladas na** recomendação das suas máquinas. A nova versão inclui sub-nomeações para cada atualização em falta e traz as seguintes melhorias:
 
 - Uma experiência redesenhada nas páginas do Centro de Segurança Azure do portal Azure. A página de detalhes da recomendação para **atualizações do Sistema deve ser instalada nas suas máquinas** inclui a lista de resultados, tal como mostrado abaixo. Ao selecionar uma única descoberta, o painel de detalhes abre-se com um link para a informação de remediação e uma lista de recursos afetados.
 
-    :::image type="content" source="./media/upcoming-changes/system-updates-should-be-installed-subassessment.png" alt-text="Abertura de uma das sub-recomendações na experiência do portal para a recomendação atualizada":::
+    :::image type="content" source="./media/upcoming-changes/system-updates-should-be-installed-subassessment.png" alt-text="Abertura de uma das subrecomendas na experiência do portal para a recomendação atualizada":::
 
 - Dados enriquecidos para a recomendação do Azure Resource Graph (ARG). A ARG é um serviço Azure projetado para fornecer uma exploração eficiente de recursos. Você pode usar ARG para consultar em escala através de um determinado conjunto de subscrições para que você possa efetivamente governar o seu ambiente. 
 
@@ -560,7 +576,7 @@ Para o Azure Security Center, pode utilizar o ARG e a [Língua De Consulta de Ku
 - Utilizações de inventário de ativos (ARG)
 - Documentamos uma consulta de amostra ARG sobre como [identificar contas sem autenticação de vários fatores (MFA) ativada](security-center-identity-access.md#identify-accounts-without-multi-factor-authentication-mfa-enabled)
 
-Dentro da ARG existem tabelas de dados para utilizar nas suas consultas.
+Dentro da ARG, existem tabelas de dados para utilizar nas suas consultas.
 
 :::image type="content" source="./media/release-notes/azure-resource-graph-tables.png" alt-text="Azure Resource Graph Explorer e as tabelas disponíveis":::
 
@@ -973,4 +989,4 @@ A fase inicial deste projeto inclui uma pré-visualização privada e a adição
 Pode ignorar com segurança estas políticas e não haverá impacto no seu ambiente. Se quiser ative-los, inscreva-se para a pré-visualização https://aka.ms/SecurityPrP e selecione a partir das seguintes opções:
 
 1. **Pré-visualização única** – Para juntar apenas esta pré-visualização privada. Mencione explicitamente "ASC Continuous Scan" como a pré-visualização que gostaria de aderir.
-1. **Programa em curso** – A ser adicionado a esta e futuras antestreias privadas. Você precisará completar um acordo de perfil e privacidade.
+1. **Programa em curso** – A ser adicionado a esta e futuras antestreias privadas. Terá de completar um acordo de perfil e privacidade.

@@ -1,5 +1,5 @@
 ---
-title: Devolva o seu dispositivo Azure Stack Edge Pro / Microsoft Docs
+title: Devolva o seu dispositivo Azure Stack Edge Pro | Microsoft Docs
 description: Saiba como limpar os dados e devolver o seu dispositivo Azure Stack Edge Pro e, em seguida, elimine o recurso associado ao dispositivo.
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: alkohli
-ms.openlocfilehash: 730774f33d43754d4ca198ed170159fa4f872e09
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0c35bde40cac9629f084d69d52f119651b5655f7
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90903674"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784482"
 ---
 # <a name="return-your-azure-stack-edge-pro-device"></a>Devolva o seu dispositivo Azure Stack Edge Pro
 
@@ -101,7 +101,7 @@ Para iniciar o processo de devolução, tome os seguintes passos.
 Para agendar uma recolha, tome os seguintes passos.
 
 1. Encerre o dispositivo. Na uI web local, vá para as **definições de Manutenção > Energia**.
-2. Selecione **Desligar**. Quando solicitado para confirmação, clique em **Sim** para continuar. Para obter mais informações, consulte [Gerir a energia](data-box-gateway-manage-access-power-connectivity-mode.md#manage-power).
+2. Selecione **Desligar**. Quando solicitado para confirmação, clique em **Sim** para continuar. Para obter mais informações, consulte [Gerir a energia](../databox-gateway/data-box-gateway-manage-access-power-connectivity-mode.md#manage-power).
 3. Desligue os cabos de alimentação e retire todos os cabos de rede do aparelho.
 4. Prepare o pacote de envio usando a sua própria caixa ou a caixa vazia que recebeu da Azure. Coloque o dispositivo e os cabos de alimentação que foram enviados com o dispositivo na caixa.
 5. Afixe a etiqueta de envio que recebeu da Azure na embalagem.
@@ -142,6 +142,6 @@ Tome as seguintes medidas para eliminar o dispositivo e o recurso no portal Azur
 É notificado após o dispositivo e o recurso associado ser eliminado com sucesso.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba como [obter um dispositivo Azure Stack Edge Pro de substituição](azure-stack-edge-replace-device.md).

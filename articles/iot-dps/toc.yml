@@ -124,8 +124,6 @@
       items:
         - name: Gerir inscrições - Portal
           href: how-to-manage-enrollments.md
-        - name: Gerir inscrições - SDKs de Serviço
-          href: how-to-manage-enrollments-sdks.md
         - name: Configurar certificados de AC verificados
           href: how-to-verify-certificates.md
         - name: Implementar certificados de dispositivo
@@ -150,10 +148,6 @@
         - name: Windows
           href: ../iot-edge/how-to-auto-provision-simulated-device-windows.md
           maintainContext: true
-    - name: Utilizar os mecanismos de atestado com o SDK
-      href: use-hsm-with-sdk.md
-    - name: Utilizar as ferramentas do SDK para desenvolvimento
-      href: how-to-use-sdk-tools.md
     - name: Como enviar dados adicionais a partir de dispositivos
       href: how-to-send-additional-data.md
     - name: Resolução de problemas

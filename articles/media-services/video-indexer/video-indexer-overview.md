@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/11/2020
 ms.author: juliako
-ms.openlocfilehash: 6b5a228c12cfc874673dda854de6d4dcc25f28c1
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 06f5e19718445f44dd2302faf280f083cce0774f
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98014540"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98783806"
 ---
 # <a name="what-is-azure-media-services-video-indexer"></a>O que é o Video Indexer dos Serviços de Multimédia do Azure?
 
@@ -115,6 +115,21 @@ Pode aceder às capacidades do Indexador de Vídeo de três formas:
     Para obter mais informações, consulte [widgets visuais incorporados na sua aplicação.](video-indexer-embed-widgets.md)
 
 Se estiver a utilizar o website, os insights são adicionados como metadados e são visíveis no portal. Se estiver a utilizar APIs, os insights estão disponíveis como um ficheiro JSON.
+
+## <a name="supported-browsers"></a>Browsers suportados
+
+A lista que se segue mostra os navegadores suportados que pode utilizar para o website do Video Indexer e para as suas aplicações que incorporam os widgets. A lista também mostra a versão mínima suportada do navegador:
+
+- Borda, versão: 16
+- Firefox, versão: 54
+- Chrome, versão: 58
+- Safari, versão: 11
+- Ópera, versão: 44
+- Opera Mobile, versão: 59
+- Android Browser, versão: 81
+- Samsung Browser, versão: 7
+- Chrome para Android, versão: 87
+- Firefox para Android, versão: 83
 
 ## <a name="next-steps"></a>Próximos passos
 

@@ -7,12 +7,12 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 7423f8d8f2a566801048457ad5f5c44f3c1097ec
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: ea4a4a47e91e88c00ca8a4e886d0372a24482907
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920062"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784313"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Guia de referência de Schema para tipos de gatilho e ação em Azure Logic Apps
 
@@ -819,7 +819,7 @@ Aqui estão alguns tipos de ação comumente usados:
 
 | Tipo de ação | Descrição | 
 |-------------|-------------| 
-| [**Compor**](#compose-action) | Cria uma única saída a partir de entradas, que pode ter vários tipos. | 
+| [**Compose**](#compose-action) | Cria uma única saída a partir de entradas, que pode ter vários tipos. | 
 | [**Executar código JavaScript**](#run-javascript-code) | Executar os snippets de código JavaScript que se enquadram dentro de critérios específicos. Para obter requisitos de código e mais informações, consulte [Adicionar e executar os snippets de código com código inline](../logic-apps/logic-apps-add-run-inline-code.md). |
 | [**Função**](#function-action) | Chama uma Função Azure. | 
 | [**HTTP**](#http-action) | Chama um ponto final HTTP. | 
@@ -830,7 +830,7 @@ Aqui estão alguns tipos de ação comumente usados:
 | [**Selecione**](#select-action) | Cria uma matriz com objetos JSON transformando itens de outra matriz com base no mapa especificado. | 
 | [**Tabela**](#table-action) | Cria uma tabela CSV ou HTML a partir de uma matriz. | 
 | [**Terminate**](#terminate-action) | Impede um fluxo de trabalho ativamente em funcionamento. | 
-| [**Espera, espera.**](#wait-action) | Pausa o seu fluxo de trabalho durante uma duração especificada ou até à data e hora especificadas. | 
+| [**Wait**](#wait-action) | Pausa o seu fluxo de trabalho durante uma duração especificada ou até à data e hora especificadas. | 
 | [**Fluxo de trabalho**](#workflow-action) | Aninha um fluxo de trabalho dentro de outro fluxo de trabalho. | 
 ||| 
 
@@ -852,7 +852,7 @@ Estas ações ajudam-no a controlar a execução do fluxo de trabalho e incluem 
 
 | Tipo de ação | Descrição | 
 |-------------|-------------| 
-| [**ForEach**](#foreach-action) | Executar as mesmas ações em loop para cada item de uma matriz. | 
+| [**Foreach**](#foreach-action) | Executar as mesmas ações em loop para cada item de uma matriz. | 
 | [**Se**](#if-action) | Executar ações com base no facto de a condição especificada ser verdadeira ou falsa. | 
 | [**Âmbito**](#scope-action) | Executar ações com base no estado de grupo de um conjunto de ações. | 
 | [**Comutador**](#switch-action) | Executar ações organizadas em casos em que valores de expressões, objetos ou fichas correspondam aos valores especificados por cada caso. | 
@@ -1126,7 +1126,7 @@ O código extrai os endereços de e-mail da propriedade do gatilho `Body` e devo
 
 ### <a name="function-action"></a>Ação de função
 
-Esta ação chama uma [função Azure](../azure-functions/functions-create-first-azure-function.md)previamente criada.
+Esta ação chama uma [função Azure](../azure-functions/functions-get-started.md)previamente criada.
 
 ```json
 "<Azure-function-name>": {
@@ -2098,12 +2098,12 @@ Esta condição especifica que quando a variável número inteiro tem um valor s
 
 Aqui estão alguns exemplos que mostram como pode usar expressões em condições:
   
-| JSON | Result | 
+| JSON | Resultado | 
 |------|--------| 
 | "expressão": " @parameters ('<*temSpecialAction*>')" | Apenas para expressões booleanas, a condição passa por qualquer valor que avalie para verdade. <p>Para converter outros tipos em Boolean, utilize estas funções: `empty()` ou `equals()` . | 
-| "expressão": " @greater (ação <>').output.value, parâmetros ('<*limiar*>)" *action* | Para funções de comparação, a ação só funciona quando a produção de <*ação*> é mais do que o *limiar* <> valor. | 
-| "expressão": " @or (ação maior(ação *action* <>').output.value, parâmetros ('<*limiar*>')), menos (ações('<>'.output.value, 100)". *same-action* | Para funções lógicas e criação de expressões booleanas aninhadas, a ação corre quando a saída de <*ação*> é mais do que o *limiar* <> valor ou inferior a 100. | 
-| "expressão": " @equals (comprimento (ação <*action*>').outputs.errors), 0)" | Pode utilizar funções de matriz para verificar se a matriz tem itens. A ação funciona quando a `errors` matriz está vazia. | 
+| "expressão": " @greater (ação <>').output.value, parâmetros ('<*limiar*>)"  | Para funções de comparação, a ação só funciona quando a produção de <*ação*> é mais do que o *limiar* <> valor. | 
+| "expressão": " @or (ação maior(ação  <>').output.value, parâmetros ('<*limiar*>')), menos (ações('<>'.output.value, 100)".  | Para funções lógicas e criação de expressões booleanas aninhadas, a ação corre quando a saída de <*ação*> é mais do que o *limiar* <> valor ou inferior a 100. | 
+| "expressão": " @equals (comprimento (ação <>').outputs.errors), 0)" | Pode utilizar funções de matriz para verificar se a matriz tem itens. A ação funciona quando a `errors` matriz está vazia. | 
 ||| 
 
 <a name="scope-action"></a>
@@ -2717,6 +2717,6 @@ Na definição JSON subjacente da ação, adicione e desateia a [propriedade "op
 
 Os pontos finais HTTP e HTTPS suportam diferentes tipos de autenticação. Com base no gatilho ou ação que utiliza para escoar chamadas ou pedidos de acesso a estes pontos finais, pode selecionar entre diferentes gamas de tipos de autenticação. Para obter mais informações, consulte [Adicionar autenticação às chamadas de saída](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre [linguagem de definição de fluxo de trabalho](../logic-apps/logic-apps-workflow-definition-language.md)

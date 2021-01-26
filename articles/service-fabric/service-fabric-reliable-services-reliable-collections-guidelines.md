@@ -3,12 +3,12 @@ title: Orientações para coleções fiáveis
 description: Diretrizes e recomendações para a utilização de coleções fiáveis de tecido de serviço numa aplicação de tecido de serviço Azure.
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 63e6de436bdaceed7f1d2a78e8385dd14bfc0ed6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f12db76f324d07c178b49150d4e574476e7d9929
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86260926"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784330"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Diretrizes e recomendações para coleções fiáveis em tecido de serviço Azure
 Esta secção fornece diretrizes para a utilização de Reliable State Manager e Reliable Collections. O objetivo é ajudar os utilizadores a evitar armadilhas comuns.
@@ -54,14 +54,14 @@ Ao decidir utilizar coleções voláteis e fiáveis, considere o seguinte:
 * Perda de quórum de uma partição volátil resulta em perda completa de dados
 * Backup e restauro NÃO está disponível para serviços voláteis
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Trabalhar com as Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Transações e Fechaduras](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 * Gestão de Dados
-  * [Backup e Restauro](service-fabric-reliable-services-backup-restore.md)
+  * [Cópia de Segurança e Restauro](service-fabric-reliable-services-backup-restore.md)
   * [Notificações](service-fabric-reliable-services-notifications.md)
   * [Serialização e Atualização](service-fabric-application-upgrade-data-serialization.md)
   * [Configuração fiável do Gestor de Estado](service-fabric-reliable-services-configuration.md)
 * Outros
   * [Arranque rápido de serviços fiáveis](service-fabric-reliable-services-quick-start.md)
-  * [Referência do programador para Coleções Fiáveis](/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)
+  * [Referência do programador para Coleções Fiáveis](/dotnet/api/microsoft.servicefabric.data.collections#microsoft_servicefabric_data_collections)

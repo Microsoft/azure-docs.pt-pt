@@ -10,12 +10,12 @@ ms.subservice: secrets
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 4ded48fe8f04d2cdba40650974fd5002d659e381
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 78e9c50cb0601f6be69ae61f3a8e02621c7dd808
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705273"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786044"
 ---
 # <a name="about-azure-key-vault-secrets"></a>Sobre os segredos do Cofre da Chave Azure
 
@@ -84,15 +84,15 @@ Pode especificar metadados específicos de aplicação adicionais sob a forma de
 
 ## <a name="azure-storage-account-key-management"></a>Gestão de chaves de conta de armazenamento Azure
 
-Key Vault pode gerir as chaves [da conta de armazenamento Azure:](https://docs.microsoft.com/azure/storage/common/storage-account-overview)
+Key Vault pode gerir as chaves [da conta de armazenamento Azure:](../../storage/common/storage-account-overview.md)
 
 - Internamente, o Key Vault pode listar as chaves (sincronização) com uma conta de armazenamento Azure. 
 - O Cofre-chave regenera (gira) as chaves periodicamente.
 - Os valores-chave nunca são devolvidos em resposta ao chamador.
 - Key Vault gere chaves de contas de armazenamento e contas de armazenamento clássicas.
 
-Para obter mais informações, veja:
-- [Chaves de acesso da conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-account-keys-manage)
+Para obter mais informações, consulte:
+- [Chaves de acesso da conta de armazenamento](../../storage/common/storage-account-keys-manage.md)
 - [Gestão de chaves de conta de armazenamento no Cofre da Chave Azure](../secrets/overview-storage-keys.md))
 
 
@@ -127,7 +127,7 @@ Guias para controlar o acesso no Cofre de Chaves:
 - [Fornecer acesso a chaves, certificados e segredos do Cofre Chave com um controlo de acesso baseado em funções Azure (pré-visualização)](../general/rbac-guide.md)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Sobre o Key Vault](../general/overview.md)
 - [Acerca de chaves, segredos e certificados](../general/about-keys-secrets-certificates.md)

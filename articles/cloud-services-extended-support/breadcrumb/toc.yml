@@ -9,3 +9,6 @@
         - name: Serviços Cloud
           tocHref: /azure/cloud-services/
           topicHref: /azure/cloud-services/index
+        - name: Implementar Estúdio Visual
+          tocHref: /visualstudio-docs/docs/
+          topicHref: /visualstudio-docs/docs/index

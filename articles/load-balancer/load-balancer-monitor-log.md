@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2020
 ms.author: allensu
-ms.openlocfilehash: fcfd3da30ef9ace723b4204f5924591b1e2717f8
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 59359cdd3e3c035d4cb6789295d41bb3908019bb
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97503170"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785825"
 ---
 # <a name="azure-monitor-logs-for-azure-standard-load-balancer"></a>Registos do Monitor Azure para O Equilibrador de Carga Padrão Azure
 
@@ -74,7 +74,7 @@ O registo de atividades é ativado automaticamente para todos os recursos do Res
 
 ## <a name="view-and-analyze-the-activity-log"></a>Ver e analisar o registo de atividades
 
-O registo de atividade é gerado por padrão. Pode configurá-lo a ser exportado a nível de subscrição [seguindo as instruções deste artigo.](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log) Saiba mais sobre estes registos lendo os [registos de atividades](../azure-resource-manager/management/view-activity-logs.md) do Ver para monitorizar as ações no artigo de recursos.
+O registo de atividade é gerado por padrão. Pode configurá-lo a ser exportado a nível de subscrição [seguindo as instruções deste artigo.](../azure-monitor/platform/activity-log.md) Saiba mais sobre estes registos lendo os [registos de atividades](../azure-resource-manager/management/view-activity-logs.md) do Ver para monitorizar as ações no artigo de recursos.
 
 Pode visualizar e analisar dados de registo de atividade utilizando qualquer um dos seguintes métodos:
 
@@ -111,6 +111,6 @@ A funcionalidade de exportação de métricas para registos para o Balanceador d
 * A dimensionalidade das métricas não é preservada. Por exemplo, com métricas como **DipAvailability** (estado da sonda de saúde), não será capaz de dividir ou visualizar por um endereço IP de back-end.
 * As métricas para portas SNAT usadas e portas SNAT alocadas não estão atualmente disponíveis para exportação como troncos.
 
-## <a name="next-steps"></a>Passos seguintes
-* [Reveja as métricas disponíveis para o seu balanceador de carga](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics)
-* [Criar e testar consultas seguindo as instruções do Monitor Azure](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)
+## <a name="next-steps"></a>Próximos passos
+* [Reveja as métricas disponíveis para o seu balanceador de carga](./load-balancer-standard-diagnostics.md)
+* [Criar e testar consultas seguindo as instruções do Monitor Azure](../azure-monitor/log-query/log-query-overview.md)

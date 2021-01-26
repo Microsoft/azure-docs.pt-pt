@@ -3,12 +3,12 @@ title: Dimensione um cluster gerido por Tecido de Serviço (pré-visualização)
 description: Neste tutorial, aprenda a escalar um tipo de nó de um cluster gerido por Tecido de Serviço.
 ms.topic: tutorial
 ms.date: 09/28/2020
-ms.openlocfilehash: 01b299744d462496296884211eff08b7a9c64687
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 769bcb339b2cc1419c7a3d92d0f08130029a9f95
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92316147"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785435"
 ---
 # <a name="tutorial-scale-out-a-service-fabric-managed-cluster-preview"></a>Tutorial: Escale um cluster gerido por tecido de serviço (pré-visualização)
 
@@ -28,7 +28,7 @@ Esta parte da série abrange como:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Um cluster gerido por tecido de serviço (ver [*Implementar um cluster gerido).*](tutorial-managed-cluster-deploy.md)
-* [Azure PowerShell 4.7.0](/powershell/azure/release-notes-azureps?preserve-view=true&view=azps-4.7.0#azservicefabric) ou mais tarde (ver [*Instalar Azure PowerShell*](/powershell/azure/install-az-ps?preserve-view=true&view=azps-4.7.0)).
+* [Azure PowerShell 4.7.0](/powershell/azure/release-notes-azureps#azservicefabric) ou mais tarde (ver [*Instalar Azure PowerShell*](/powershell/azure/install-az-ps)).
 
 ## <a name="scale-a-service-fabric-managed-cluster"></a>Escalar um cluster gerido de tecido de serviço
 Altere a contagem de casos para aumentar ou diminuir o número de nós no tipo de nó que gostaria de escalar. Pode encontrar nomes de tipo de nó no modelo Azure Resource Manager (modelo ARM) da sua implantação do cluster ou no Explorador de Tecidos de Serviço.  
@@ -47,7 +47,7 @@ Set-AzServiceFabricManagedNodeType -ResourceGroupName $resourceGroup -ClusterNam
 
 O cluster começará a atualizar-se automaticamente e, passados alguns minutos, verá os nós adicionais.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste passo, escalamos um tipo de nó num cluster gerido por Tecido de Serviço. Para saber mais sobre a adição e remoção de tipos de nó, consulte:
 

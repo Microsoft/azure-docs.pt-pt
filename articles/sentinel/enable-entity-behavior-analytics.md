@@ -1,5 +1,5 @@
 ---
-title: Use a análise de comportamento da entidade para detetar ameaças avançadas Microsoft Docs
+title: Use análise de comportamento de entidade para detetar ameaças avançadas | Microsoft Docs
 description: Ativar o Comportamento do Utilizador e da Entidade Analytics em Azure Sentinel, e configurar fontes de dados
 services: sentinel
 documentationcenter: na
@@ -12,25 +12,20 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2020
+ms.date: 01/25/2021
 ms.author: yelevin
-ms.openlocfilehash: 140228a65be166bc172e81267c4449b49621e02c
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 0dccd8ac4f852688bf7e59e7ed96c4458c08d18b
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94425784"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784733"
 ---
 # <a name="enable-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Ativar o Comportamento do Utilizador e da Entidade Analytics (UEBA) em Azure Sentinel 
 
 > [!IMPORTANT]
 >
-> - As funcionalidades ueba e páginas de entidades estão agora em **Disponibilidade Geral** nas seguintes geografias e regiões do Azure Sentinel:
->    - Geografia dos Estados Unidos
->    - Europa Região Oeste
->    - Geografia da Austrália
->
-> - Em todas as outras geografias e regiões, estas características permanecem por enquanto em **PREVIEW**. Consulte os [Termos Complementares de Utilização para o Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para termos legais adicionais aplicáveis às funcionalidades do Azure que estejam em versão beta, pré-visualização ou ainda não lançadas em disponibilidade geral.
+> - As funcionalidades ueba e páginas de entidades estão agora em **Disponibilidade Geral** em **_todas __* geografias e regiões do Azure Sentinel.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -38,7 +33,7 @@ Para ativar ou desativar esta função (estes pré-requisitos não são necessá
 
 - O seu utilizador deve ser membro do Azure Ative Directory da sua organização e não um utilizador convidado.
 
-- O seu utilizador deve ser atribuído às funções **de Administrador Global** ou Administrador de **Segurança** em Azure AD.
+- O seu utilizador deve ser atribuído às funções de *Administrador Global** ou Administrador **de Segurança** em Azure AD.
 
 - O seu utilizador deve ser atribuído pelo menos a uma das **seguintes funções Azure** [(Saiba mais sobre a Azure RBAC](roles.md)):
     - **Azure Sentinel Contributor** nos níveis de espaço de trabalho ou grupo de recursos.
@@ -64,7 +59,7 @@ Para ativar ou desativar esta função (estes pré-requisitos não são necessá
 
 1. Selecione **Vá à pesquisa de entidades**. Isto irá levá-lo ao painel de pesquisa da entidade, que a partir de agora será o que você vê quando você escolher **o comportamento** da Entidade a partir do menu principal Azure Sentinel.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste documento, aprendeu a ativar e configurar a Análise de Comportamento do Utilizador e entidade (UEBA) em Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)
 - Começa [a detetar ameaças com o Azure Sentinel.](tutorial-detect-threats-built-in.md)

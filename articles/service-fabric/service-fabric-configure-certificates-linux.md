@@ -4,12 +4,12 @@ description: Configure certificados para a sua app com o tempo de execução do 
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: pepogors
-ms.openlocfilehash: a97c8b8315fe3be405aed9c6570004afb8fafd1d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70f9cc38d84681f68c10882889214648a4dd2624
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86258669"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785571"
 ---
 # <a name="certificates-and-security-on-linux-clusters"></a>Certificados e segurança em clusters Linux
 
@@ -19,9 +19,9 @@ Este artigo fornece informações sobre a configuração de certificados X.509 e
 
 A Service Fabric geralmente espera que os certificados X.509 estejam presentes no diretório */var/lib/sfcerts* nos nós do cluster Linux. Isto aplica-se aos certificados de cluster, certificados de cliente, etc. Em alguns casos, pode especificar um local diferente da pasta *var/lib/sfcerts* para certificados. Por exemplo, com serviços fiáveis construídos utilizando o Service Fabric Java SDK, pode especificar uma localização diferente através do pacote de configuração (Settings.xml) para alguns certificados específicos da aplicação. Para saber mais, consulte [Certificados referenciados no pacote de configuração (Settings.xml)](#certificates-referenced-in-the-configuration-package-settingsxml).
 
-Para os clusters Linux, o Service Fabric espera que os certificados estejam presentes como um ficheiro .pem que contenha tanto o certificado como a chave privada ou como um ficheiro .crt que contenha o certificado e um ficheiro .key que contenha a chave privada. Todos os ficheiros devem estar no formato PEM. 
+Para os clusters Linux, a Service Fabric espera que os certificados estejam presentes como um ficheiro .pem que contenha tanto o certificado como a chave privada ou como um ficheiro .crt que contenha o certificado e um ficheiro .key que contenha a chave privada. Todos os ficheiros devem estar no formato PEM. 
 
-Se instalar o seu certificado a partir do Cofre de Chaves Azure utilizando um [modelo de Gestor de Recursos](./service-fabric-cluster-creation-create-template.md) ou comandos [PowerShell,](/powershell/module/az.servicefabric/?view=azps-2.6.0) o certificado é instalado no formato correto no diretório */var/lib/sfcerts* em cada nó. Se instalar um certificado através de outro método, deve certificar-se de que o certificado está corretamente instalado nos nós do cluster.
+Se instalar o seu certificado a partir do Cofre de Chaves Azure utilizando um [modelo de Gestor de Recursos](./service-fabric-cluster-creation-create-template.md) ou comandos [PowerShell,](/powershell/module/az.servicefabric/) o certificado é instalado no formato correto no diretório */var/lib/sfcerts* em cada nó. Se instalar um certificado através de outro método, deve certificar-se de que o certificado está corretamente instalado nos nós do cluster.
 
 ## <a name="certificates-referenced-in-the-application-manifest"></a>Certificados referenciados no manifesto de pedido
 

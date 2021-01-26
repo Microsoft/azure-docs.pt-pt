@@ -1,5 +1,5 @@
 ---
-title: Identifique ameaças avançadas com a Análise de Comportamento de Utilizador e Entidade (UEBA) no Azure Sentinel Microsoft Docs
+title: Identifique ameaças avançadas com a Análise de Comportamento de Utilizador e Entidade (UEBA) em Azure Sentinel | Microsoft Docs
 description: Crie linhas de base comportamentais para entidades (utilizadores, nomes de anfitriões, endereços IP) e use-as para detetar comportamentos anómalos e identificar ameaças persistentes avançadas de zero dias (APT).
 services: sentinel
 documentationcenter: na
@@ -12,25 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/19/2020
+ms.date: 01/25/2021
 ms.author: yelevin
-ms.openlocfilehash: 2326746d274c68225cd4c8569df6a20d6050ec1a
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 7944ea48feaca1eb8312e01d876bf9627af429d1
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97900897"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784800"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Identificar ameaças avançadas com a Análise de Comportamento de Utilizador e Entidade (UEBA) em Azure Sentinel
 
 > [!IMPORTANT]
 >
-> - As funcionalidades ueba e páginas de entidades estão agora em **Disponibilidade Geral** nas seguintes geografias e regiões do Azure Sentinel:
->    - Geografia dos Estados Unidos
->    - Europa Região Oeste
->    - Geografia da Austrália
->
-> - Em todas as outras geografias e regiões, estas características permanecem por enquanto em **PREVIEW**. Consulte os [**Termos Complementares de Utilização para o Microsoft Azure Previews**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para termos legais adicionais aplicáveis às funcionalidades do Azure que estejam em versão beta, pré-visualização ou ainda não lançadas em disponibilidade geral.
+> - As funcionalidades ueba e páginas de entidades estão agora em **Disponibilidade Geral** em **_todas __* geografias e regiões do Azure Sentinel.
 
 ## <a name="what-is-user-and-entity-behavior-analytics-ueba"></a>O que é Analítica de Comportamento de Utilizador e Entidade (UEBA)?
 
@@ -50,7 +45,7 @@ Como o Azure Sentinel recolhe registos e alertas de todas as suas fontes de dado
 
 Inspirado no paradigma da Gartner para soluções UEBA, o Azure Sentinel oferece uma abordagem "externa", baseada em três quadros de referência:
 
-- **Casos de utilização:** Priorizando vetores e cenários de ataque relevantes com base em pesquisas de segurança alinhadas com o MITRE ATT&quadro CK de táticas, técnicas e sub-técnicas que colocam várias entidades como vítimas, autores ou pontos de rotação na cadeia de morte; O Azure Sentinel foca-se especificamente nos registos mais valiosos que cada fonte de dados pode fornecer.
+- _ *Utilização de casos:** Priorizando vetores e cenários de ataque relevantes com base em pesquisas de segurança alinhadas com o QUADRO MITRE ATT&CK de táticas, técnicas e sub-técnicas que colocam várias entidades como vítimas, autores ou pontos de rotação na cadeia de morte; O Azure Sentinel foca-se especificamente nos registos mais valiosos que cada fonte de dados pode fornecer.
 
 - **Fontes de dados:** Embora, em primeiro lugar e principalmente, suporte a fontes de dados do Azure, o Azure Sentinel seleciona cuidadosamente fontes de dados de terceiros para fornecer dados que correspondam aos nossos cenários de ameaça.
 
@@ -219,7 +214,7 @@ Azure Sentinel fornece fora da caixa um conjunto de consultas de caça, consulta
 
 Saiba mais sobre [a caça e o gráfico de investigação](./hunting.md) em Azure Sentinel.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste documento, você aprendeu sobre as capacidades de análise de comportamento da entidade de Azure Sentinel. Para obter orientações práticas sobre a implementação e para utilizar os insights que obteve, consulte os seguintes artigos:
 
 - [Ativar a análise de comportamento da entidade](./enable-entity-behavior-analytics.md) em Azure Sentinel.

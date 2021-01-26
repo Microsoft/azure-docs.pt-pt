@@ -1,5 +1,5 @@
 ---
-title: Começar guia para programadores no Azure Microsoft Docs
+title: Inicie o guia para programadores em Azure | Microsoft Docs
 description: Este artigo fornece informações essenciais para os desenvolvedores que procuram começar a usar a plataforma Microsoft Azure para as suas necessidades de desenvolvimento.
 services: ''
 cloud: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: 9999b2fa116a2336f8e50fb166e5d870ae4b5a5f
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: a193ccd060c75cf4031449ddf3318af6e4691436
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165064"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786474"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guia de introdução para programadores do Azure
 
@@ -84,7 +84,7 @@ Em vez de se preocupar em construir e gerir toda uma aplicação ou a infraestru
 
 > **Quando utilizar**: Utilize funções Azure quando tiver um código que é acionado por outros serviços Azure, por eventos baseados na web ou num horário. Também pode utilizar Funções quando não necessitar da sobrecarga de um projeto completo ou quando apenas pretender pagar o tempo que o seu código executa. Para saber mais, consulte [a Visão geral das Funções Azure](../../azure-functions/functions-overview.md).
 >
-> **Começar**: Siga o tutorial de arranque rápido das funções para criar a [sua primeira função](../../azure-functions/functions-create-first-azure-function.md) a partir do portal.
+> **Começar**: Siga o tutorial de arranque rápido das funções para criar a [sua primeira função](../../azure-functions/functions-get-started.md) a partir do portal.
 >
 > **Experimente agora:** As Funções Azure permitem executar o seu código sem ter de se inscrever para uma conta Azure. Experimente agora e [crie a sua primeira Função Azure](https://tryappservice.azure.com/).
 
@@ -213,7 +213,7 @@ Quer esteja a atear VMs ou a publicar as suas aplicações web com integração 
 * Chef
 * TeamCity
 * Ansible
-* DevOps do Azure
+* Azure DevOps
 
 > **Começar**: Para ver as opções de DevOps para uma aplicação de Serviço de Aplicações, consulte [a Implementação Contínua para o Serviço de Aplicações Azure.](../../app-service/deploy-continuous-deployment.md)
 >

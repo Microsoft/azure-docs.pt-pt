@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: overview
 ms.date: 08/21/2019
 ms.author: alkohli
-ms.openlocfilehash: aa68b746ef5c22c97fcfdcca889bf71577c19479
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: adb0e12b81701acbdb33018f055bfe8fda2efc52
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96583852"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786644"
 ---
 # <a name="what-is-azure-data-box-gateway"></a>O que é Azure Data Box Gateway?
 
@@ -89,16 +89,15 @@ A solução Data Box Gateway inclui o recurso Data Box Gateway, o dispositivo vi
 
 O dispositivo físico Data Box Gateway, o recurso Azure e a conta de armazenamento alvo para a qual transfere dados nem todos têm de estar na mesma região.
 
-- **Disponibilidade de recursos** - Para uma lista de todas as regiões onde está disponível o recurso Azure Data Box Gateway, aceda aos [produtos Azure disponíveis por região.](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=databox) O Data Box Gateway também pode ser implantado na Nuvem do Governo de Azure. Para mais informações, veja [o que é o Governo Azure?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)
+- **Disponibilidade de recursos** - Para uma lista de todas as regiões onde está disponível o recurso Azure Data Box Gateway, aceda aos [produtos Azure disponíveis por região.](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=databox) O Data Box Gateway também pode ser implantado na Nuvem do Governo de Azure. Para mais informações, veja [o que é o Governo Azure?](../azure-government/documentation-government-welcome.md)
 
 - **Contas de Armazenamento de Destino** - as contas de armazenamento que armazenam os dados estão disponíveis em todas as regiões do Azure.
 
     As regiões nas quais as contas de armazenamento armazenam os dados do Data Box devem estar localizadas próximo de onde estiver o dispositivo, para um desempenho ideal. Uma conta de armazenamento localizada longe do dispositivo resulta em latências longas e desempenho mais lento.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Reveja os [requisitos de sistema do Data Box Gateway](data-box-gateway-system-requirements.md).
 - Compreenda os [Limites do Data Box Gateway](data-box-gateway-limits.md).
 - Implemente o [Azure Data Box Gateway](data-box-gateway-deploy-prep.md) no portal do Azure.
-

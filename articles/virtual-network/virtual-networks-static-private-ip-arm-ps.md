@@ -4,7 +4,6 @@ description: Saiba como criar uma máquina virtual com um endereço IP privado u
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: d5f18929-15e3-40a2-9ee3-8188bc248ed8
@@ -17,18 +16,18 @@ ms.workload: infrastructure-services
 ms.date: 02/07/2019
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 2825d8d9f8be7c56d7beea767a1afb7a290eafa2
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 43c2e2c8905ca60e59caed3fdf1b4920f509fd88
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222603"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98783789"
 ---
 # <a name="create-a-virtual-machine-with-a-static-private-ip-address-using-powershell"></a>Crie uma máquina virtual com um endereço IP estático privado usando PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 Pode criar uma máquina virtual (VM) com um endereço IP estático privado. Atribua um endereço IP estático privado, em vez de um endereço dinâmico, se pretender selecionar qual endereço de uma sub-rede é atribuído a um VM. Saiba mais sobre [endereços IP privados estáticos](./public-ip-addresses.md#allocation-method). Para alterar um endereço IP privado atribuído a um VM existente de dinâmico para estático, ou para trabalhar com endereços IP públicos, consulte [Adicionar, alterar ou remover endereços IP](virtual-network-network-interface-addresses.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 
@@ -99,7 +98,7 @@ Pode completar os seguintes passos a partir do seu computador local ou utilizand
 > [!IMPORTANT]
 > Para aceder ao VM a partir da internet, tem de atribuir um endereço IP público ao VM. Também pode alterar uma atribuição dinâmica de endereço IP privado para uma atribuição estática. Para mais informações, consulte [adicionar ou alterar endereços IP](virtual-network-network-interface-addresses.md). Além disso, recomenda-se que limite o tráfego de rede ao seu VM associando um grupo de segurança de rede à interface de rede, a sub-rede em que criou a interface de rede, ou ambos. Para mais informações, consulte [Gerir grupos de segurança de rede](manage-network-security-group.md).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, pode utilizar [o Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos e todos os recursos que contém:
 
@@ -107,7 +106,7 @@ Quando já não for necessário, pode utilizar [o Remove-AzResourceGroup](/power
 Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [endereços IP privados](./private-ip-addresses.md) e atribuindo um [endereço IP estático privado](virtual-network-network-interface-addresses.md#add-ip-addresses) a uma máquina virtual Azure.
 - Saiba mais sobre a criação de máquinas virtuais [Linux](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Windows.](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

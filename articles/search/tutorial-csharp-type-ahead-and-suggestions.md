@@ -7,20 +7,20 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 10/05/2020
+ms.date: 01/22/2021
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 202a7f6b01423045fe7c72db5b42c29ae58f648d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 06c0b25bcf64cfce01b4144550ef69da8c96ee0e
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013841"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785858"
 ---
 # <a name="tutorial-add-autocomplete-and-suggestions-using-the-net-sdk"></a>Tutorial: Adicione autocomplete e sugestões utilizando o .NET SDK
 
 Saiba como implementar o autocomplete (consultas de tipa e resultados sugeridos) quando um utilizador começar a digitar numa caixa de pesquisa. Neste tutorial, mostraremos consultas autocompletas e resultados sugeridos separadamente, e depois juntos. Um utilizador só pode ter de escrever dois ou três caracteres para localizar todos os resultados disponíveis.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > * Adicionar sugestões
 > * Adicionar destaque às sugestões
@@ -466,7 +466,7 @@ Considere os seguintes takeaways deste projeto:
 * Teste sempre funções de auto-completação com todas as formas de entrada.
 * A utilização da função **setInterval** pode ser útil na verificação e correção de elementos de UI.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 No próximo tutorial, temos uma outra forma de melhorar a experiência do utilizador, usando facetas para reduzir as pesquisas com um único clique.
 

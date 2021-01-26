@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 01/26/2021
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: a08756a1e3153aa69bd0e79dc23e88d4bf211e5d
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: bad4bc4d0016b2898b315bfb9799dc8972be7b12
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91950691"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785874"
 ---
 # <a name="tutorial-add-paging-to-search-results-using-the-net-sdk"></a>Tutorial: Adicione paging aos resultados da pesquisa usando o .NET SDK
 
@@ -25,7 +25,7 @@ Neste tutorial, ficará a saber como:
 > * Estenda a sua app com paging numerado
 > * Estenda a sua app com scrolling infinito
 
-## <a name="overview"></a>Overview (Descrição geral)
+## <a name="overview"></a>Descrição geral
 
 Este tutorial sobrepõe um sistema de paging num projeto previamente criado descrito no tutorial da [sua primeira aplicação de pesquisa.](tutorial-csharp-create-first-app.md)
 
@@ -196,7 +196,7 @@ Tenha a solução básica de página de pesquisa aberta.
 
     As opções de primeira e última página não enviam cadeias como "primeiro" e "último", mas enviam os números de página corretos.
 
-1. Adicione aulas de paging à lista de estilos HTML no ficheiro hotels.css. A **páginaSelected** class is there para identificar a página atual (aplicando um formato arrojado ao número da página) na lista de números de página.
+1. Adicione aulas de paging à lista de estilos HTML nos hotéis.css ficheiro. A **páginaSelected** class is there para identificar a página atual (aplicando um formato arrojado ao número da página) na lista de números de página.
 
     ```html
     .pageButton {
@@ -304,7 +304,7 @@ Tenha a solução básica de página de pesquisa aberta.
     }
     ```
 
-1. O método **RunQueryAsync,** introduzido na lição anterior, necessita de modificação para resolver o erro de sintaxe. Utilizamos os campos **Skip,** **Size**e **IncludeTotalCount** da classe [**SearchOptions**](/dotnet/api/azure.search.documents.searchoptions) para solicitar apenas uma página de resultados, a partir da definição **Skip.** Também precisamos calcular as variáveis de paging para a nossa visão. Substitua todo o método pelo seguinte código.
+1. O método **RunQueryAsync,** introduzido na lição anterior, necessita de modificação para resolver o erro de sintaxe. Utilizamos os campos **Skip,** **Size** e **IncludeTotalCount** da classe [**SearchOptions**](/dotnet/api/azure.search.documents.searchoptions) para solicitar apenas uma página de resultados, a partir da definição **Skip.** Também precisamos calcular as variáveis de paging para a nossa visão. Substitua todo o método pelo seguinte código.
 
     ```csharp
     private async Task<ActionResult> RunQueryAsync(SearchData model, int page, int leftMostPage)
@@ -439,9 +439,9 @@ Para implementar o scrolling infinito, vamos começar com o projeto antes que qu
 
 ### <a name="add-a-vertical-scroll-bar-to-the-view"></a>Adicione uma barra de deslocação vertical à vista
 
-1. Localizar a secção do ficheiro index.cshtml que apresenta os resultados (começa com o ** @if (Modelo!= nulo)**).
+1. Localizar a secção do ficheiro index.cshtml que apresenta os resultados (começa com o **@if (Modelo!= nulo)**).
 
-1. Substitua a secção pelo código abaixo. A nova secção ** &lt; de div &gt; ** é em torno da área que deve ser percorrível, e adiciona tanto um atributo **transbordante como** uma chamada para uma função **onscroll** chamada "scrolled()", assim.
+1. Substitua a secção pelo código abaixo. A nova secção **&lt; de div &gt;** é em torno da área que deve ser percorrível, e adiciona tanto um atributo **transbordante como** uma chamada para uma função **onscroll** chamada "scrolled()", assim.
 
     ```csharp
     @if (Model != null)
@@ -484,7 +484,7 @@ Para implementar o scrolling infinito, vamos começar com o projeto antes que qu
     </script>
     ```
 
-    A **if** declaração no script acima testa se o utilizador se desloca na parte inferior da barra de deslocação vertical. Se o fizerem, é feita uma chamada para o controlador **Home** para uma ação chamada **NextAsync**. Nenhuma outra informação é necessária pelo controlador, irá devolver a próxima página de dados. Estes dados são então formatados utilizando estilos HTML idênticos como a página original. Se não forem devolvidos resultados, nada é anexado e as coisas ficam como estão.
+    A  declaração no script acima testa se o utilizador se desloca na parte inferior da barra de deslocação vertical. Se o fizerem, é feita uma chamada para o controlador **Home** para uma ação chamada **NextAsync**. Nenhuma outra informação é necessária pelo controlador, irá devolver a próxima página de dados. Estes dados são então formatados utilizando estilos HTML idênticos como a página original. Se não forem devolvidos resultados, nada é anexado e as coisas ficam como estão.
 
 ### <a name="handle-the-next-action"></a>Lidar com a próxima ação
 
@@ -582,7 +582,7 @@ Há apenas três ações que precisam de ser enviadas para o controlador: a prim
     }
     ```
 
-1. Se obter um erro de sintaxe na ** &lt; cadeia &gt; List,** adicione a seguinte diretiva **de utilização** à cabeça do ficheiro do controlador.
+1. Se obter um erro de sintaxe na **&lt; cadeia &gt; List,** adicione a seguinte diretiva **de utilização** à cabeça do ficheiro do controlador.
 
     ```csharp
     using System.Collections.Generic;
@@ -597,7 +597,7 @@ Agora **selecione Iniciar Sem Depurar** (ou prima a tecla F5).
     ![Scrolling infinito através dos resultados da "piscina"](./media/tutorial-csharp-create-first-app/azure-search-infinite-scroll.png)
 
     > [!Tip]
-    > Para garantir que uma barra de deslocação aparece na primeira página, a primeira página de resultados deve exceder ligeiramente a altura da área em que estão a ser apresentadas. No nosso exemplo **.box1** tem uma altura de 30 pixels, **.box2** tem uma altura de 100 pixels _e_ uma margem inferior de 24 pixels. Assim, cada entrada usa 154 pixels. Três entradas ocuparão 3 x 154 = 462 pixels. Para garantir a localização de uma barra de deslocamento vertical, deve ser definida uma altura para a área de visualização inferior a 462 pixels, mesmo 461 trabalhos. Este problema ocorre apenas na primeira página, depois disso uma barra de deslocação certamente aparecerá. A linha a atualizar é: ** &lt; div id="myDiv" style="width: 800px; height: 450px; overflow-y: scroll;" onscroll="scrolled()" &gt; **.
+    > Para garantir que uma barra de deslocação aparece na primeira página, a primeira página de resultados deve exceder ligeiramente a altura da área em que estão a ser apresentadas. No nosso exemplo **.box1** tem uma altura de 30 pixels, **.box2** tem uma altura de 100 pixels _e_ uma margem inferior de 24 pixels. Assim, cada entrada usa 154 pixels. Três entradas ocuparão 3 x 154 = 462 pixels. Para garantir a localização de uma barra de deslocamento vertical, deve ser definida uma altura para a área de visualização inferior a 462 pixels, mesmo 461 trabalhos. Este problema ocorre apenas na primeira página, depois disso uma barra de deslocação certamente aparecerá. A linha a atualizar é: **&lt; div id="myDiv" style="width: 800px; height: 450px; overflow-y: scroll;" onscroll="scrolled()" &gt;**.
 
 1. Percorra todo o caminho até ao fundo dos resultados. Note como todas as informações estão agora na página de uma vista. Pode deslocar-se até ao topo sem desencadear chamadas de servidor.
 
@@ -614,7 +614,7 @@ Considere os seguintes takeaways deste projeto:
 * Uma característica chave do scrolling infinito é que os resultados são anexados a uma página existente, não substituindo essa página, que é eficiente.
 * O armazenamento temporário persiste por apenas uma chamada, e precisa ser reposto para sobreviver a chamadas adicionais.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 A paging é fundamental para uma experiência de pesquisa. Com a paging bem coberta, o próximo passo é melhorar ainda mais a experiência do utilizador, adicionando pesquisas de tipo à frente.
 

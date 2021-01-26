@@ -8,12 +8,12 @@ ms.author: jehollan
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: 2fae7d2526e6c95efe83ca8fa742a6d92457b897
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 22e0c7304f7a53a86bc5c6739a2061352d738d29
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86520754"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784817"
 ---
 # <a name="create-a-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Crie um dashboard de informação de clientes em streaming com apps Azure Logic e Funções Azure
 
@@ -67,7 +67,7 @@ Também pode criar e uma Função Azure para que possa realizar o processamento 
 
 ## <a name="process-data-with-azure-functions"></a>Processar dados com Funções Azure
 
-Antes de criar uma função, crie uma aplicação de função na sua subscrição Azure. Além disso, para que a sua aplicação lógica chame diretamente uma função, a função deve ter uma ligação http trigger, por exemplo, use o modelo **HttpTrigger.** Saiba [como criar a sua primeira aplicação de função e funcionar no portal Azure](../azure-functions/functions-create-first-azure-function.md).
+Antes de criar uma função, crie uma aplicação de função na sua subscrição Azure. Além disso, para que a sua aplicação lógica chame diretamente uma função, a função deve ter uma ligação http trigger, por exemplo, use o modelo **HttpTrigger.** Saiba [como criar a sua primeira aplicação de função e funcionar no portal Azure](../azure-functions/functions-get-started.md).
 
 Para este cenário, utilize o texto do tweet como o órgão de pedido para a sua Função Azure. No seu código de função, defina a lógica que determina se o texto do tweet contém uma palavra-chave ou uma frase. Mantenha a função tão simples ou complexa quanto necessário para o cenário.
 No final da função, devolva uma resposta à aplicação lógica com alguns dados, por exemplo, um simples valor boolean, como `containsKeyword` ou um objeto complexo.
@@ -108,7 +108,7 @@ Depois de criar uma solução de aplicação lógica, pode capturar e implementa
 
 Para obter um modelo de implementação de exemplo com uma função Azure, verifique o [repositório do modelo de arranque rápido Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-function-app-create-dynamic).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Encontre outros exemplos e cenários para Azure Logic Apps](logic-apps-examples-and-scenarios.md)
 

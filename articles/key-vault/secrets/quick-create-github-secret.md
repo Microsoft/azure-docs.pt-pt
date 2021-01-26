@@ -8,12 +8,12 @@ ms.date: 11/24/2020
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: 9509f84b14a42180189a529282b5db348deab279
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c1e8062210de1d7d99f57a4e0b155492f7dfdd9a
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95920287"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785981"
 ---
 # <a name="use-key-vault-secrets-in-github-actions-workflows"></a>Use segredos do Cofre chave em fluxos de trabalho de ações gitHub
 
@@ -25,7 +25,7 @@ Com Key Vault e GitHub Actions, você tem os benefícios de uma ferramenta centr
 ## <a name="prerequisites"></a>Pré-requisitos 
 - Uma conta do GitHub. Se não tiver um, inscreva-se [de graça.](https://github.com/join)  
 - Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- Uma app Azure ligada a um repositório GitHub. Este exemplo utiliza [recipientes de implantação para o Serviço de Aplicações Azure.](https://docs.microsoft.com/azure/developer/javascript/tutorial-vscode-docker-node-01) 
+- Uma app Azure ligada a um repositório GitHub. Este exemplo utiliza [recipientes de implantação para o Serviço de Aplicações Azure.](/azure/developer/javascript/tutorial-vscode-docker-node-01) 
 - Um cofre de chaves Azure.  Pode criar um Cofre de Chaves Azure utilizando o portal Azure CLI ou Azure PowerShell.
 
 ## <a name="workflow-file-overview"></a>Visão geral do ficheiro do fluxo de trabalho
@@ -139,7 +139,7 @@ jobs:
 
 Quando a sua aplicação Azure, o repositório GitHub e o cofre-chave já não forem necessários, limpe os recursos que implementou eliminando o grupo de recursos para a app, o repositório GitHub e o cofre de chaves.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre o Azure Key Vault](../general/overview.md)

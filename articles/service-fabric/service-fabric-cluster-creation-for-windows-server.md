@@ -3,12 +3,12 @@ title: Criar um cluster de tecido de serviço Azure autónomo
 description: Crie um cluster de tecido de serviço Azure em qualquer máquina (física ou virtual) que esteja a executar o Windows Server, seja no local ou em qualquer nuvem.
 ms.topic: conceptual
 ms.date: 2/21/2019
-ms.openlocfilehash: 36883f2c8b09fa3f8f013e0267dafa2a8220e5d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41af655be07ccae2b66e75f5bfe87629cdb54924
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843197"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785689"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Criar um cluster autónomo em execução no Windows Server
 Pode utilizar o Azure Service Fabric para criar clusters de Tecido de Serviço em quaisquer máquinas virtuais ou computadores que executem o Windows Server. Isto significa que pode implementar e executar aplicações de Tecido de Serviço em qualquer ambiente que contenha um conjunto de computadores do Windows Server interligados, seja nas instalações ou em qualquer fornecedor de nuvem. O Service Fabric fornece um pacote de configuração para criar clusters de Tecido de Serviço chamado pacote autónomo do Windows Server. Os clusters de tecido de serviço tradicional em Azure estão disponíveis como um serviço gerido, enquanto clusters de tecido de serviço autónomo são self-service. Para obter mais informações sobre as diferenças, consulte os clusters de tecido de [serviço comparsando Azure e autónomos.](./service-fabric-deploy-anywhere.md)
@@ -55,7 +55,7 @@ O cluster criado neste artigo é inseguro.  Qualquer pessoa pode ligar de forma 
 #### <a name="scenario-a-create-an-unsecured-local-development-cluster"></a>Cenário A: Criar um cluster de desenvolvimento local não seguro
 O tecido de serviço pode ser implantado num cluster de desenvolvimento de uma máquina utilizando o *ClusterConfig.Unsecure.DevCluster.jsem* ficheiro incluído em [Amostras](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples).
 
-Desembale o pacote autónomo para a sua máquina, copie o ficheiro config da amostra para a máquina local e, em seguida, passe * o *CreateServiceFabricCluster.ps1script através de uma sessão PowerShell do administrador, a partir da pasta do pacote autónomo.
+Desembale o pacote autónomo para a sua máquina, copie o ficheiro config da amostra para a máquina local e, em seguida, passe *o* CreateServiceFabricCluster.ps1script através de uma sessão PowerShell do administrador, a partir da pasta do pacote autónomo.
 
 ```powershell
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.DevCluster.json -AcceptEULA
@@ -95,7 +95,7 @@ O administrador do cluster que irá implementar e configurar o cluster tem de te
     Passed                     : True
     ```
 
-2. Crie o cluster: Executar * o *CreateServiceFabricCluster.ps1script para implantar o cluster de Tecido de Serviço em cada máquina na configuração. 
+2. Crie o cluster: Executar *o* CreateServiceFabricCluster.ps1script para implantar o cluster de Tecido de Serviço em cada máquina na configuração. 
     ```powershell
     .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.json -AcceptEULA
     ```
@@ -113,10 +113,10 @@ O pacote de tempo de execução pode ser descarregado separadamente, a partir de
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.json -FabricRuntimePackagePath .\MicrosoftAzureServiceFabric.cab
 ```
 
-*.\ClusterConfig.jse* *.\MicrosoftAzureServiceFabric.cab* são os caminhos para a configuração do cluster e para o ficheiro de tempo de execução .cab, respectivamente.
+*.\ClusterConfig.jse* *.\MicrosoftAzureServiceFabric.cab* são os caminhos para a configuração do cluster e o ficheiro de .cab de tempo de execução, respectivamente.
 
 ### <a name="step-2-connect-to-the-cluster"></a>Passo 2: Ligar ao cluster
-Ligue-se ao cluster para verificar se o cluster está a funcionar e disponível. O módulo do ServiceFabric PowerShell é instalado com o runtime.  Pode ligar-se ao cluster a partir de um dos nós de cluster ou de um computador remoto com o tempo de funcionação do Tecido de Serviço.  O cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) estabelece uma ligação ao cluster.
+Ligue-se ao cluster para verificar se o cluster está a funcionar e disponível. O módulo do ServiceFabric PowerShell é instalado com o runtime.  Pode ligar-se ao cluster a partir de um dos nós de cluster ou de um computador remoto com o tempo de funcionação do Tecido de Serviço.  O cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) estabelece uma ligação ao cluster.
 
 Para ligar a um cluster inseguro, executar o seguinte comando PowerShell:
 
@@ -129,7 +129,7 @@ Por exemplo:
 Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.234:19000
 ```
 
-Consulte [Connect to a secure cluster (Ligar a um cluster seguro)](service-fabric-connect-to-secure-cluster.md) para outros exemplos de ligação a um cluster. Depois de ligar ao cluster, utilize o cmdlet [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) para apresentar uma lista de nós no cluster e informações de estado para cada nó. O **HealthState** deve ser *OK* para cada nó.
+Consulte [Connect to a secure cluster (Ligar a um cluster seguro)](service-fabric-connect-to-secure-cluster.md) para outros exemplos de ligação a um cluster. Depois de ligar ao cluster, utilize o cmdlet [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode) para apresentar uma lista de nós no cluster e informações de estado para cada nó. O **HealthState** deve ser *OK* para cada nó.
 
 ```powershell
 PS C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer> Get-ServiceFabricNode |Format-Table
@@ -209,7 +209,7 @@ Nenhum.
 > 
 > 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Implementar e remover aplicações usando PowerShell](service-fabric-deploy-remove-applications.md)
 * [Definições de configuração para cluster de Windows autónomo](service-fabric-cluster-manifest.md)
 * [Adicione ou remova os nódinhos a um cluster de tecido de serviço autónomo](service-fabric-cluster-windows-server-add-remove-nodes.md)

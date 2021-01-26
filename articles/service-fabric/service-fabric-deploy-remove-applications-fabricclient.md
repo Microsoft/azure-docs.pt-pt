@@ -4,12 +4,12 @@ description: Utilize as APIs doNcims do Tecido para implantar e remover aplicaç
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 565e6b8f23f159a5c231295694830917217a3d19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 343a37c983b1d64a4b1986913d9d6fd648a113fe
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89009306"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785554"
 ---
 # <a name="deploy-and-remove-applications-using-fabricclient"></a>Implementar e remover aplicações usando o FabricClient
 > [!div class="op_single_selector"]
@@ -47,7 +47,7 @@ FabricClient fabricClient = new FabricClient();
 ## <a name="upload-the-application-package"></a>Faça o upload do pacote de aplicações
 Suponha que construa e embale uma aplicação chamada *MyApplication* in Visual Studio. Por predefinição, o nome do tipo de aplicação listado no ApplicationManifest.xml é "MyApplicationType".  O pacote de aplicações, que contém o manifesto de aplicação necessário, manifestos de serviço e pacotes de código/config/dados, está localizado em *C:\Users \& lt;username &gt; \Documents\Visual Studio 2019\Projects\MyApplication\MyApplication\pkg\Debug*.
 
-O upload do pacote de aplicações coloca-o num local acessível pelos componentes internos do Service Fabric. A Service Fabric verifica o pacote de pedidos durante o registo do pacote de candidaturas. No entanto, se pretender verificar localmente o pacote de aplicações (isto é, antes de carregar), utilize o [cmdlet Test-ServiceFabricApplicationPackage.](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps)
+O upload do pacote de aplicações coloca-o num local acessível pelos componentes internos do Service Fabric. A Service Fabric verifica o pacote de pedidos durante o registo do pacote de candidaturas. No entanto, se pretender verificar localmente o pacote de aplicações (isto é, antes de carregar), utilize o [cmdlet Test-ServiceFabricApplicationPackage.](/powershell/module/servicefabric/test-servicefabricapplicationpackage)
 
 A [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) API envia o pacote de aplicações para a loja de imagem cluster. 
 
@@ -90,9 +90,9 @@ Quando uma instância de aplicação já não é necessária, pode removê-la pe
 ## <a name="unregister-an-application-type"></a>Não registar um tipo de aplicação
 Quando uma versão específica de um tipo de aplicação já não for necessária, deve desmarcar essa versão específica do tipo de aplicação utilizando o [Unregister-ServiceFabricApplicationType](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.unprovisionapplicationasync) API. Versões não utilizadas não utilizadas dos tipos de aplicações liberta espaço de armazenamento utilizado pela loja de imagens. Uma versão de um tipo de aplicação pode ser não registada desde que nenhuma aplicação seja instantânea contra essa versão do tipo de aplicação. Além disso, o tipo de aplicação não pode ter atualizações pendentes de aplicação referendo-se a essa versão do tipo de aplicação.
 
-## <a name="troubleshooting"></a>Resolução de problemas
+## <a name="troubleshooting"></a>Resolução de Problemas
 ### <a name="copy-servicefabricapplicationpackage-asks-for-an-imagestoreconnectionstring"></a>Copy-ServiceFabricApplicationPackage pede um ImageStoreConnectionString
-O ambiente SDK do tecido de serviço já deve ter as predefinições corretas configuradas. Mas, se necessário, o ImageStoreConnectionString para todos os comandos deve corresponder ao valor que o cluster de Tecido de Serviço está a utilizar. Pode encontrar o ImageStoreConnectionString no manifesto de cluster, recuperado através dos comandos [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest?view=azureservicefabricps) e Get-ImageStoreConnectionStringFromClusterManifest:
+O ambiente SDK do tecido de serviço já deve ter as predefinições corretas configuradas. Mas, se necessário, o ImageStoreConnectionString para todos os comandos deve corresponder ao valor que o cluster de Tecido de Serviço está a utilizar. Pode encontrar o ImageStoreConnectionString no manifesto de cluster, recuperado através dos comandos [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest) e Get-ImageStoreConnectionStringFromClusterManifest:
 
 ```powershell
 PS C:\> Get-ImageStoreConnectionStringFromClusterManifest(Get-ServiceFabricClusterManifest)
@@ -321,7 +321,7 @@ static void Main(string[] args)
 
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [Atualização da aplicação do Tecido de Serviço](service-fabric-application-upgrade.md)
 
 [Introdução da saúde do tecido de serviço](service-fabric-health-introduction.md)

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: masnider
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cb5820849fb34e232a07d610e1cedeb40c0fcfba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87ac89edc1c9996afc03e7c2bd6743202fdfcb52
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89005331"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786196"
 ---
 # <a name="scaling-in-service-fabric"></a>Escala no Tecido de Serviço
 O Azure Service Fabric facilita a construção de aplicações escaláveis gerindo os serviços, divisórias e réplicas nos nós de um cluster. Executar muitas cargas de trabalho no mesmo hardware permite a máxima utilização de recursos, mas também proporciona flexibilidade em termos de como você escolhe escalar suas cargas de trabalho. Este vídeo do Canal 9 descreve como pode construir aplicações de microserviços escaláveis:
@@ -64,7 +64,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 ## <a name="scaling-by-creating-or-removing-new-named-services"></a>Dimensionamento através da criação ou remoção de novos serviços nomeados
 Uma instância de serviço nomeada é uma instância específica de um tipo de serviço (ver ciclo de [vida da aplicação de tecido de serviço](service-fabric-application-lifecycle.md)) dentro de algumas instâncias de aplicação nomeadas no cluster. 
 
-Novas instâncias de serviço nomeadas podem ser criadas (ou removidas) à medida que os serviços se tornam mais ou menos ocupados. Isto permite que os pedidos sejam distribuídos por mais instâncias de serviço, permitindo geralmente que a carga nos serviços existentes diminua. Ao criar serviços, o Service Fabric Cluster Resource Manager coloca os serviços no cluster de forma distribuída. As decisões exatas são regidas pelas [métricas](service-fabric-cluster-resource-manager-metrics.md) do cluster e outras regras de colocação. Os serviços podem ser criados de várias maneiras, mas os mais comuns são através de ações administrativas como alguém que chama [`New-ServiceFabricService`](/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps) , ou por chamada de [`CreateServiceAsync`](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync?view=azure-dotnet) código. `CreateServiceAsync` pode mesmo ser chamado de dentro de outros serviços em execução no cluster.
+Novas instâncias de serviço nomeadas podem ser criadas (ou removidas) à medida que os serviços se tornam mais ou menos ocupados. Isto permite que os pedidos sejam distribuídos por mais instâncias de serviço, permitindo geralmente que a carga nos serviços existentes diminua. Ao criar serviços, o Service Fabric Cluster Resource Manager coloca os serviços no cluster de forma distribuída. As decisões exatas são regidas pelas [métricas](service-fabric-cluster-resource-manager-metrics.md) do cluster e outras regras de colocação. Os serviços podem ser criados de várias maneiras, mas os mais comuns são através de ações administrativas como alguém que chama [`New-ServiceFabricService`](/powershell/module/servicefabric/new-servicefabricservice) , ou por chamada de [`CreateServiceAsync`](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) código. `CreateServiceAsync` pode mesmo ser chamado de dentro de outros serviços em execução no cluster.
 
 Criar serviços dinamicamente pode ser usado em todos os tipos de cenários, e é um padrão comum. Por exemplo, considere um serviço estatal que represente um determinado fluxo de trabalho. As chamadas que representam o trabalho vão aparecer neste serviço, e este serviço vai executar os passos para esse fluxo de trabalho e registar o progresso. 
 
@@ -141,7 +141,7 @@ Este padrão de criação dinâmica muitos benefícios:
   - Não estás a executar um monte de casos de serviço ou réplicas enquanto esperas que os clientes apareçam.
   - Se um cliente alguma vez sair, então remover as suas informações do seu serviço é tão simples como ter o gestor a apagar esse serviço ou aplicação que criou.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para obter mais informações sobre os conceitos de Tecido de Serviço, consulte os seguintes artigos:
 
 * [Disponibilidade de serviços de tecido de serviço](service-fabric-availability-services.md)

@@ -1,5 +1,5 @@
 ---
-title: Impor política de nomeação de grupos no Azure Ative Directory Microsoft Docs
+title: Impor a política de nomeação de grupos no Azure Ative Directory | Microsoft Docs
 description: Como estabelecer uma política de nomeação para os grupos Microsoft 365 no Azure Ative Directory
 services: active-directory
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4c1c30e4651136ada7264cad8ff4d3921c3aeeb
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 894a90c50f968c892a76160a7375f11fe09390d6
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96547921"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785004"
 ---
 # <a name="enforce-a-naming-policy-on-microsoft-365-groups-in-azure-active-directory"></a>Impor uma política de nomeação em grupos Microsoft 365 no Azure Ative Directory
 
@@ -72,6 +72,7 @@ Regras da lista de palavras bloqueadas:
 Para configurar a política de nomeação, é necessária uma das seguintes funções:
 - Administrador global
 - Administrador de grupo
+- Escritor de diretório
 
 
 Os administradores selecionados podem ser isentos destas políticas, em todas as cargas de trabalho do grupo e pontos finais, para que possam criar grupos usando palavras bloqueadas e com as suas próprias convenções de nomeação. Segue-se a lista das funções de administrador isentas da política de nomeação de grupos.
@@ -257,7 +258,7 @@ Cmdlets powershell do diretório ativo Azure | Os cmdlets powershell do Diretór
 Centro de Administração de Intercâmbio | O centro de administração de intercâmbio está em conformidade com a política de nomeação. Os utilizadores recebem mensagens de erro apropriadas com prefixos e sufixos sugeridos e para palavras bloqueadas personalizadas se não seguirem a convenção de nomeação no nome de grupo e pseudónimos de grupo.
 Microsoft 365 admin center (Centro de administração do Microsoft 365) | O Centro de Administração Microsoft 365 está em conformidade com a política de nomeação. Quando um utilizador cria ou edita nomes de grupo, a política de nomeação é aplicada automaticamente e os utilizadores recebem erros adequados quando introduzem palavras bloqueadas personalizadas. O centro de administração microsoft 365 ainda não mostra uma pré-visualização da política de nomeação e não devolve erros de palavras bloqueados personalizados quando o utilizador introduz o nome de grupo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Estes artigos fornecem informações adicionais sobre os grupos AZURE AD.
 
