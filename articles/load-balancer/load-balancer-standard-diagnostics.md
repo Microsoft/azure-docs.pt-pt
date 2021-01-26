@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: allensu
-ms.openlocfilehash: 386e0051a64f73b18c1ff76ed33af5f9eebe8aa0
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 90443a898ffdebf33a0c967719ba25a2ccc6f9a7
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121418"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98792104"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnóstico do Balanceador de Carga Standard com métricas, alertas e estado de funcionamento dos recursos
 
@@ -239,8 +239,8 @@ O estado de saúde dos recursos do Balanceador de Carga Padrão é exposto atrav
 | Estado da saúde dos recursos | Descrição |
 | --- | --- |
 | Disponível | O seu recurso balanceador de carga padrão é saudável e disponível. |
-| Degradado | O seu balanceador de carga padrão tem eventos iniciados pela plataforma ou pelo utilizador com impacto no desempenho. A métrica de Disponibilidade do DataPath comunicou um estado de funcionamento inferior a 90%, mas superior a 25% durante, pelo menos, dois minutos. Você vai experimentar um impacto de desempenho moderado a grave. [Siga o guia RHC de resolução de problemas](https://docs.microsoft.com/azure/load-balancer/troubleshoot-rhc) para determinar se existem eventos iniciados pelo utilizador que causam impacto na sua disponibilidade.
-| Indisponível | O seu recurso padrão de balanceador de carga não é saudável. A métrica de Disponibilidade de Datapath reportou menos 25% de saúde durante pelo menos dois minutos. Você sentirá um impacto significativo no desempenho ou falta de disponibilidade para a conectividade de entrada. Pode haver eventos de utilizador ou plataforma que causem indisponibilidade. [Siga o guia RHC de resolução de problemas](https://docs.microsoft.com/azure/load-balancer/troubleshoot-rhc) para determinar se existem eventos iniciados pelo utilizador com impacto na sua disponibilidade. |
+| Degradado | O seu balanceador de carga padrão tem eventos iniciados pela plataforma ou pelo utilizador com impacto no desempenho. A métrica de Disponibilidade do DataPath comunicou um estado de funcionamento inferior a 90%, mas superior a 25% durante, pelo menos, dois minutos. Você vai experimentar um impacto de desempenho moderado a grave. [Siga o guia RHC de resolução de problemas](./troubleshoot-rhc.md) para determinar se existem eventos iniciados pelo utilizador que causam impacto na sua disponibilidade.
+| Indisponível | O seu recurso padrão de balanceador de carga não é saudável. A métrica de Disponibilidade de Datapath reportou menos 25% de saúde durante pelo menos dois minutos. Você sentirá um impacto significativo no desempenho ou falta de disponibilidade para a conectividade de entrada. Pode haver eventos de utilizador ou plataforma que causem indisponibilidade. [Siga o guia RHC de resolução de problemas](./troubleshoot-rhc.md) para determinar se existem eventos iniciados pelo utilizador com impacto na sua disponibilidade. |
 | Desconhecido | O estado de saúde dos recursos para o seu recurso balanceador de carga padrão ainda não foi atualizado ou não recebeu informações de disponibilidade do Data Path nos últimos 10 minutos. Este estado deve ser transitório e refletirá o estado correto assim que os dados forem recebidos. |
 
 Para ver a saúde dos seus recursos públicos standard balancer:
@@ -265,7 +265,7 @@ Para ver a saúde dos seus recursos públicos standard balancer:
 A descrição genérica do estado de saúde dos recursos está disponível na documentação do [RHC](../service-health/resource-health-overview.md). Para os estatutos específicos do Balançador de Carga Azure estão listados na tabela abaixo: 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [o Balancer de Carga Padrão](./load-balancer-overview.md).
 - Saiba mais sobre a conectividade de saída do seu [balanceador de carga](./load-balancer-outbound-connections.md).

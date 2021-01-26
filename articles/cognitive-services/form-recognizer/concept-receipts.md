@@ -10,16 +10,16 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 43eae43d11a48ee6c395e4a86b8e8c1353843991
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 7173efd3dab0e8d2fd3c948a3a9bac07641e78f3
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131458"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98792087"
 ---
 # <a name="form-recognizer-prebuilt-receipt-model"></a>Modelo de recibo pré-construído do Reconhecimento de Formulário
 
-O Azure Form Recogniser pode analisar e extrair informações dos recibos de venda utilizando o seu modelo de recibo pré-construído. Combina as nossas poderosas capacidades [de Reconhecimento de Caracteres Óticos (OCR)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text) com modelos de aprendizagem profunda de receção para extrair informações-chave dos recibos em inglês. A API recibo extrai informações-chave dos recibos de venda em inglês, tais como nome de comerciante, data de transação, total de transações, rubricas e muito mais. 
+O Azure Form Recogniser pode analisar e extrair informações dos recibos de venda utilizando o seu modelo de recibo pré-construído. Combina as nossas poderosas capacidades [de Reconhecimento de Caracteres Óticos (OCR)](../computer-vision/concept-recognizing-text.md) com modelos de aprendizagem profunda de receção para extrair informações-chave dos recibos em inglês. A API recibo extrai informações-chave dos recibos de venda em inglês, tais como nome de comerciante, data de transação, total de transações, rubricas e muito mais. 
 
 ## <a name="understanding-receipts"></a>Compreensão de recibos 
 
@@ -44,7 +44,7 @@ O serviço de Receção pré-construído extrai o conteúdo dos recibos de venda
 | Nome mercante | string | Nome do comerciante que emite o recibo | Contoso |  |
 | MerchantPhoneNumber | número de telefone | Número de telefone listado de comerciante | 987-654-3210 | +19876543210 |
 | MerchantAddress | string | Endereço listado do comerciante | 123 Main St Redmond WA 98052 |  |
-| TransaçãoDate | date | Data em que o recibo foi emitido | 06 de junho de 2019 | 2019-06-26  |
+| TransaçãoDate | data | Data em que o recibo foi emitido | 06 de junho de 2019 | 2019-06-26  |
 | Tempo de Transação | hora | Hora do recibo ser emitido | 16h49 | 16:49:00  |
 | Total | número | Total de transações totais de receção | $14.34 | 14.34 |
 | Subtotal | número | Subtotal de recibo, muitas vezes antes de serem aplicados impostos | $12.34 | 12,34 |
@@ -465,7 +465,7 @@ As receitas contêm dados úteis que pode utilizar para analisar o comportamento
 
 A API de Receção também alimenta a [funcionalidade de Processamento de Recibos de Construtora de IA.](/ai-builder/prebuilt-receipt-processing)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Preencha um [quickstart do Reconhecimento de Formulário](quickstarts/client-library.md) para começar a escrever uma aplicação de processamento de recibos com o Form Recogniser no idioma à sua escolha.
 

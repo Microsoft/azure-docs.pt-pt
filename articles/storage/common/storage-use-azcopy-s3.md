@@ -1,5 +1,5 @@
 ---
-title: Copie os dados do Amazon S3 para o Azure Storage utilizando o AzCopy Microsoft Docs
+title: Copie os dados do Amazon S3 para o Azure Storage utilizando o AzCopy | Microsoft Docs
 description: Utilize o AzCopy para copiar dados do Amazon S3 para o Azure Storage. O AzCopy é um utilitário da linha de comando que pode utilizar para copiar blobs ou ficheiros de/para uma conta de armazenamento.
 services: storage
 author: normesta
@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 07a8d2b394e8ca690925c677af676643064a9ba8
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: b94cb6d6302cd92816fe25f6e672b1ce3bb9398d
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96901835"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98792002"
 ---
 # <a name="copy-data-from-amazon-s3-to-azure-storage-by-using-azcopy"></a>Copiar dados do Amazon S3 para o Azure Storage utilizando o AzCopy
 
-O AzCopy é um utilitário da linha de comando que pode utilizar para copiar blobs ou ficheiros de/para uma conta de armazenamento. Este artigo ajuda-o a copiar objetos, diretórios e baldes da Amazon Web Services (AWS) S3 para o armazenamento de blob Azure utilizando a AzCopy.
+O AzCopy é um utilitário da linha de comando que pode utilizar para copiar blobs ou ficheiros de/para uma conta de armazenamento. Este artigo ajuda-o a copiar objetos, diretórios e baldes da Amazon Web Services (AWS) S3 para Azure Blob Storage utilizando a AzCopy.
 
 ## <a name="choose-how-youll-provide-authorization-credentials"></a>Escolher como disponibilizar as credenciais de autorização
 
@@ -161,7 +161,7 @@ A AzCopy realiza estes passos:
    Esta chave será utilizada para guardar a chave inválida dos metadados **originais**.
    Pode utilizar esta chave para tentar recuperar os metadados do lado Azure, uma vez que a tecla de metadados é preservada como um valor no serviço de armazenamento Blob.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Encontre mais exemplos em qualquer um destes artigos:
 

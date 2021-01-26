@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2020
 ms.author: memildin
-ms.openlocfilehash: 0a487f778693e87e680033edd0d80c55d1a85f66
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 34d2e8116b7b914803d1bb68b350c9aadd78439f
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013790"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98792070"
 ---
 # <a name="sql-information-protection-policy-in-azure-security-center"></a>Política de proteção de informação SQL no Centro de Segurança Azure
  
@@ -58,7 +58,7 @@ Cada um destes é mostrado no separador abaixo.
 A partir da página **de preços e definições** do Security Center, selecione **a proteção de informação SQL**.
 
 > [!NOTE]
-> Esta opção só aparece para utilizadores com permissões ao nível do inquilino. 
+> Esta opção só aparece para utilizadores com permissões ao nível do inquilino. [Conceda permissões a si mesmo.](https://docs.microsoft.com/azure/security-center/security-center-management-groups#grant-tenant-wide-permissions-to-yourself)
 
 :::image type="content" source="./media/security-center-info-protection-policy/pricing-settings-link-to-information-protection.png" alt-text="Aceder à política de proteção de informação SQL a partir da página de preços e definições do Centro de Segurança Azure":::
 
@@ -141,7 +141,7 @@ Pode descarregar um ficheiro JSON com as suas etiquetas e tipos de informação 
 - [Set-AzSqlInformationProtectionPolicy](/powershell/module/az.security/set-azsqlinformationprotectionpolicy): Define a política eficaz de proteção da informação do inquilino SQL.
  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
  
 Neste artigo, aprendeu sobre a definição de uma política de proteção de informação no Centro de Segurança Azure. Para saber mais sobre a utilização da SqL Information Protection para classificar e proteger dados sensíveis nas suas bases de dados SQL, consulte [a Azure SQL Database Data Discovery and Classification](../azure-sql/database/data-discovery-and-classification-overview.md).
 
