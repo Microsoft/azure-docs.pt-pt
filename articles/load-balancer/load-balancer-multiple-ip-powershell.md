@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: a78bfc2b4f0c372c915647c0afa40263079af8e5
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 8b10e850fd3ae0282785164596f537652148a716
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746073"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791008"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-powershell"></a>Equilibrar a carga em várias configurações IP utilizando PowerShell
 
@@ -46,7 +46,7 @@ Siga os passos abaixo para alcançar o cenário delineado neste artigo:
     $myResourceGroup = "contosofabrikam"
     ```
 
-    Para mais informações, consulte o passo 2 da [Create a Resource Group](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fazure%2fload-balancer%2ftoc.json).
+    Para mais informações, consulte o passo 2 da [Create a Resource Group](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm?toc=%2fazure%2fload-balancer%2ftoc.json).
 
 3. [Crie um Conjunto de Disponibilidade](../virtual-machines/windows/tutorial-availability-sets.md?toc=%2fazure%2fload-balancer%2ftoc.json) para conter os seus VMs. Para este cenário, utilize o seguinte comando:
 
@@ -54,14 +54,14 @@ Siga os passos abaixo para alcançar o cenário delineado neste artigo:
     New-AzAvailabilitySet -ResourceGroupName "contosofabrikam" -Name "myAvailset" -Location "West Central US"
     ```
 
-4. Siga os passos 3 a 5 em Criar um artigo [do Windows VM](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fazure%2fload-balancer%2ftoc.json) para preparar a criação de um VM com um único NIC. Executar o passo 6.1 e utilizar o seguinte em vez do passo 6.2:
+4. Siga os passos 3 a 5 em Criar um artigo [do Windows VM](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm?toc=%2fazure%2fload-balancer%2ftoc.json) para preparar a criação de um VM com um único NIC. Executar o passo 6.1 e utilizar o seguinte em vez do passo 6.2:
 
     ```powershell
     $availset = Get-AzAvailabilitySet -ResourceGroupName "contosofabrikam" -Name "myAvailset"
     New-AzVMConfig -VMName "VM1" -VMSize "Standard_DS1_v2" -AvailabilitySetId $availset.Id
     ```
 
-    Em [seguida,](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fazure%2fload-balancer%2ftoc.json) complete Criar um Windows VM passos 6.3 a 6.8.
+    Em [seguida,](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm?toc=%2fazure%2fload-balancer%2ftoc.json) complete Criar um Windows VM passos 6.3 a 6.8.
 
 5. Adicione uma segunda configuração IP a cada um dos VMs. Siga as instruções em [Atribuir vários endereços IP a artigos de máquinas virtuais.](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md#add) Utilize as seguintes definições de configuração:
 
@@ -141,6 +141,6 @@ Siga os passos abaixo para alcançar o cenário delineado neste artigo:
 
 13. Por fim, tem de configurar registos de recursos DNS para indicar o respetivo endereço IP frontal do Balanceador de Carga. Pode hospedar os seus domínios em Azure DNS. Para obter mais informações sobre a utilização do Azure DNS com balanceador de carga, consulte [utilizar o Azure DNS com outros serviços Azure](../dns/dns-for-azure-services.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Saiba mais sobre como combinar serviços de equilíbrio de carga em Azure em [Utilizar serviços de equilíbrio de carga em Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
 - Saiba como pode utilizar diferentes tipos de registos em Azure para gerir e resolver problemas nos [registos do Azure Monitor para o Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).

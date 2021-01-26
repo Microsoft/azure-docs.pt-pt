@@ -17,16 +17,14 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: rdhillon
 ms.custom: ''
-ms.openlocfilehash: 1d4fcc280ba2e34d2fa81584846441ad6fe81431
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d8e300c9be8f3e59dc9443bf1f1806e4228992ad
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84708200"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790398"
 ---
 # <a name="manage-data-exfiltration-to-azure-storage-accounts-with-virtual-network-service-endpoint-policies-using-azure-powershell"></a>Gerir a exfiltração de dados para contas de armazenamento de Azure com políticas de ponto final de serviço de rede virtual utilizando a Azure PowerShell
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 As políticas de ponto final do serviço de rede virtual permitem-lhe aplicar o controlo de acesso nas contas de Armazenamento Azure a partir de uma rede virtual sobre pontos finais de serviço. Esta é uma chave para garantir as suas cargas de trabalho, gerir as contas de armazenamento permitidas e onde a exfiltração de dados é permitida.
 Neste artigo, vai aprender a:
@@ -38,6 +36,8 @@ Neste artigo, vai aprender a:
 * Insaem uma máquina virtual (VM) na sub-rede.
 * Confirme o acesso à conta de armazenamento permitida a partir da sub-rede.
 * Confirme que o acesso é negado à conta de armazenamento não autorizada a partir da sub-rede.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -109,7 +109,7 @@ $rule2 = New-AzNetworkSecurityRuleConfig `
   -SourcePortRange *
 ```
 
-A seguinte regra permite que o tráfego de tráfego de tráfego de ambiente de trabalho remoto (RDP) entre na sub-rede a partir de qualquer lugar. As ligações remotas de ambiente de trabalho são permitidas na sub-rede, para que possa confirmar o acesso à rede a um recurso num passo posterior.
+A seguinte regra permite que o tráfego de ambiente de trabalho remoto (RDP) entre na sub-rede a partir de qualquer lugar. As ligações remotas de ambiente de trabalho são permitidas na sub-rede, para que possa confirmar o acesso à rede a um recurso num passo posterior.
 
 ```azurepowershell-interactive
 $rule3 = New-AzNetworkSecurityRuleConfig `
@@ -382,6 +382,6 @@ Quando já não for necessário, pode utilizar [o Remove-AzResourceGroup](/power
 Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aplicou uma política de ponto final de serviço sobre um ponto final de serviço de rede virtual Azure ao Azure Storage. Criou contas de Armazenamento Azure e acesso limitado à rede a determinadas contas de armazenamento (e assim negou outras) a partir de uma sub-rede de rede virtual. Para saber mais sobre as políticas de ponto final de serviço, consulte [a visão geral das políticas de pontos finais](virtual-network-service-endpoint-policies-overview.md)do Serviço .

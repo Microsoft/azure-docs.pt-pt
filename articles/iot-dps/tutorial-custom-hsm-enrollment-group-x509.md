@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 25d084b8af148707685b2cbb4368394a12d99db2
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 64064a584681d84eb6ba023c4777c0fdc4e6ec3d
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97005312"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791934"
 ---
 # <a name="tutorial-provision-multiple-x509-devices-using-enrollment-groups"></a>Tutorial: Fornecimento de vários dispositivos X.509 utilizando grupos de inscrição
 
@@ -46,7 +46,7 @@ Neste tutorial completará os seguintes objetivos:
 
 Os seguintes pré-requisitos são para um ambiente de desenvolvimento do Windows. Para Linux ou macOS, consulte a secção apropriada no preparar o [seu ambiente de desenvolvimento](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) na documentação SDK.
 
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 com o ['desenvolvimento do ambiente de trabalho com C++'](https://docs.microsoft.com/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) habilitado. Visual Studio 2015 e Visual Studio 2017 também são suportados.
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 com o ['desenvolvimento do ambiente de trabalho com C++'](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) habilitado. Visual Studio 2015 e Visual Studio 2017 também são suportados.
 
 * Versão mais recente do [Git](https://git-scm.com/download/) instalada.
 
@@ -56,7 +56,7 @@ Nesta secção, irá preparar um ambiente de programação utilizado para criar 
 
 1. Descarregue o [sistema de construção CMake](https://cmake.org/download/).
 
-    É importante que os pré-requisitos do Visual Studio ([Visual Studio](https://visualstudio.microsoft.com/vs/) e o desenvolvimento 'Desktop com carga de trabalho [C++'](https://docs.microsoft.com/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) sejam instalados na sua máquina, **antes** de iniciar a `CMake` instalação. Depois de os pré-requisitos estarem assegurados e a transferência verificada, instale o sistema de compilação CMake.
+    É importante que os pré-requisitos do Visual Studio ([Visual Studio](https://visualstudio.microsoft.com/vs/) e o desenvolvimento 'Desktop com carga de trabalho [C++'](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) sejam instalados na sua máquina, **antes** de iniciar a `CMake` instalação. Depois de os pré-requisitos estarem assegurados e a transferência verificada, instale o sistema de compilação CMake.
 
 2. Encontre o nome da etiqueta para a [última versão](https://github.com/Azure/azure-iot-sdk-c/releases/latest) do Azure IoT C SDK.
 
@@ -87,7 +87,7 @@ Nesta secção, irá preparar um ambiente de programação utilizado para criar 
     $ cmake -Duse_prov_client:BOOL=ON -Dhsm_custom_lib=/d/azure-iot-sdk-c/cmake/provisioning_client/samples/custom_hsm_example/Debug/custom_hsm_example.lib ..
     ```
 
-    Se `cmake` não encontrar o compilador de C++, poderá obter erros de compilação ao executar o comando acima. Se isto acontecer, tente executar o comando seguinte na [linha de comandos do Visual Studio](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs).
+    Se `cmake` não encontrar o compilador de C++, poderá obter erros de compilação ao executar o comando acima. Se isto acontecer, tente executar o comando seguinte na [linha de comandos do Visual Studio](/dotnet/framework/tools/developer-command-prompt-for-vs).
 
     Assim que a construção tiver sucesso, uma solução Visual Studio será gerada no seu `cmake` diretório. As últimas linhas de saída são semelhantes à seguinte saída:
 
@@ -351,7 +351,7 @@ Para atualizar o código de canhoto HSM personalizado para este tutorial:
 
 Em dispositivos não Windows, pode passar a cadeia de certificados do código como loja de certificados.
 
-Nos dispositivos baseados no Windows, deve adicionar os certificados de assinatura (raiz e intermédio) a uma [loja de certificados](https://docs.microsoft.com/windows/win32/secauthn/certificate-stores)Windows . Caso contrário, os certificados de assinatura não serão transportados para DPS por um canal seguro com Segurança da Camada de Transporte (TLS).
+Nos dispositivos baseados no Windows, deve adicionar os certificados de assinatura (raiz e intermédio) a uma [loja de certificados](/windows/win32/secauthn/certificate-stores)Windows . Caso contrário, os certificados de assinatura não serão transportados para DPS por um canal seguro com Segurança da Camada de Transporte (TLS).
 
 Para adicionar os certificados de assinatura à loja de certificados em dispositivos baseados no Windows:
 
@@ -462,7 +462,7 @@ Quando terminar de testar e explorar esta amostra do cliente do dispositivo, use
 1. Clique em **Certificados** em DPS. Para cada certificado que carregou e verificou neste tutorial, clique no certificado e clique no botão **Apagar** para o remover.
 1. A partir do menu à esquerda no portal Azure, selecione **Todos os recursos** e, em seguida, selecione o seu hub IoT. Abra **os dispositivos IoT** para o seu hub. Selecione a caixa de verificação ao lado do *ID* do dispositivo que registou neste tutorial. Clique no botão **Eliminar** na parte superior do painel.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, você a forte um dispositivo X.509 usando um HSM personalizado para o seu hub IoT. Para aprender a providenciar dispositivos IoT para vários centros, continue para o próximo tutorial. 
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: bharatn
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fd8e6dd712801de49971c1ef27cea664d73a4cb0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 012a49762596adee39988614ed0c1020cd8bc104
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005916"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791109"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Procuração inversa no tecido de serviço Azure
 O proxy invertido incorporado no Azure Service Fabric ajuda os microserviços a funcionar num cluster de Tecidos de Serviço a descobrir e comunicar com outros serviços que tenham pontos finais http.
@@ -67,7 +67,7 @@ http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?
 ```
 
 * **http(s):** O representante inverso pode ser configurado para aceitar o tráfego HTTP ou HTTPS. Para encaminhamento HTTPS, consulte [o Connect para um serviço seguro com o representante inverso](service-fabric-reverseproxy-configure-secure-communication.md) uma vez que tenha configuração de procuração inversa para ouvir em HTTPS.
-* **Nome de domínio totalmente qualificado (FQDN) / IP interno:** Para clientes externos, pode configurar o representante inverso para que seja acessível através do domínio do cluster, como mycluster.eastus.cloudapp.azure.com. Por predefinição, o representante inverso funciona em cada nó. Para o tráfego interno, o representante inverso pode ser alcançado em local ou em qualquer nó IP interno, como 10.0.0.1.
+* **O nome de domínio totalmente qualificado do cluster (FQDN) | IP interno:** Para clientes externos, pode configurar o representante inverso para que seja acessível através do domínio do cluster, como mycluster.eastus.cloudapp.azure.com. Por predefinição, o representante inverso funciona em cada nó. Para o tráfego interno, o representante inverso pode ser alcançado em local ou em qualquer nó IP interno, como 10.0.0.1.
 * **Porto:** Este é o porto, como 19081, que foi especificado para o representante inverso.
 * **Nome do ServiçoInstance:** Este é o nome totalmente qualificado da instância de serviço implantada que está a tentar alcançar sem o "tecido:/" esquema. Por exemplo, para chegar ao *tecido:/myapp/myservice/service,* utilizaria *o myapp/myservice*.
 
@@ -118,7 +118,7 @@ O Service Fabric reverte as tentativas de proxy para resolver novamente um ender
 
 No entanto, réplicas ou instâncias de serviço podem partilhar um processo de anfitrião e também podem partilhar uma porta quando hospedado por um servidor web baseado em http.sys, incluindo:
 
-* [System.net.httpListener](/dotnet/api/system.net.httplistener?view=netcore-3.1)
+* [System.net.httpListener](/dotnet/api/system.net.httplistener)
 * [ASP.NET Core WebListener](https://docs.asp.net/latest/fundamentals/servers.html#weblistener)
 * [Rio Katana](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.OwinSelfHost/)
 
@@ -150,7 +150,7 @@ Para o aglomerado local, `Fabric_NodeIPOrFQDN` está definido para "localhost" p
 
 Os serviços de tecido de serviço que funcionam dentro de recipientes Docker Compose requerem uma secção especial de estiva-compose.yml *Ports* http: ou https: configuração. Para mais informações, consulte [o suporte de implementação do Docker Compose no Azure Service Fabric](service-fabric-docker-compose.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Configurar e configurar](service-fabric-reverseproxy-setup.md)o proxy inverso num cluster .
 * [Configurar o encaminhamento para garantir o serviço HTTP com o proxy invertido](service-fabric-reverseproxy-configure-secure-communication.md)
 * [Diagnosticar eventos de proxy inverso](service-fabric-reverse-proxy-diagnostics.md)

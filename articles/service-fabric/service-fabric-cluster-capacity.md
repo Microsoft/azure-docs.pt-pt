@@ -4,12 +4,12 @@ description: Tipos de nó, durabilidade, fiabilidade e outras coisas a ter em co
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: pepogors
-ms.openlocfilehash: 731dcfdf25efc4b2f44669dacd8a400037ed47f4
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 03ec9b411f13f22a74b864a745acfed922e78b12
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576337"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790703"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerações de planeamento da capacidade do cluster de tecidos de serviço
 
@@ -146,7 +146,7 @@ Aqui está a recomendação sobre a escolha do nível de fiabilidade. O número 
 | 7 ou 8 | Gold |
 | 9 e mais | Platina |
 
-Quando aumentar ou diminuir o tamanho do seu cluster (a soma de instâncias VM em todos os tipos de nó), considere atualizar a fiabilidade do seu cluster de um nível para outro. Ao fazê-lo, desencadeia-se as atualizações de cluster necessárias para alterar a contagem de conjuntos de réplicas de serviços do sistema. Aguarde que a atualização em curso esteja concluída antes de escla lor o cluster, como adicionar nós.  Pode monitorizar o progresso da atualização no Service Fabric Explorer ou executando [o Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)
+Quando aumentar ou diminuir o tamanho do seu cluster (a soma de instâncias VM em todos os tipos de nó), considere atualizar a fiabilidade do seu cluster de um nível para outro. Ao fazê-lo, desencadeia-se as atualizações de cluster necessárias para alterar a contagem de conjuntos de réplicas de serviços do sistema. Aguarde que a atualização em curso esteja concluída antes de escla lor o cluster, como adicionar nós.  Pode monitorizar o progresso da atualização no Service Fabric Explorer ou executando [o Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade)
 
 ### <a name="capacity-planning-for-reliability"></a>Planeamento de capacidade para a fiabilidade
 
@@ -181,7 +181,7 @@ Para cargas de trabalho de produção imponentes utilizando coleções fiáveis 
 
 Para as cargas de trabalho de produção apátridas, o tamanho mínimo suportado do nó não primário é três para manter o quórum, no entanto é recomendado um tamanho do tipo nó de cinco.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Antes de configurar o seu cluster, reveja as `Not Allowed` [políticas de atualização](service-fabric-cluster-fabric-settings.md) do cluster para atenuar ter de recriar o seu cluster mais tarde devido a definições de configuração do sistema imutáveis.
 

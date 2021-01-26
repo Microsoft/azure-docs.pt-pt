@@ -1,14 +1,14 @@
 ---
-title: Visão geral das funcionalidades - Azure Event Hubs Microsoft Docs
+title: Visão geral das funcionalidades - Azure Event Hubs | Microsoft Docs
 description: Este artigo fornece detalhes sobre funcionalidades e terminologia dos Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 60dc964d1b827eec75ee4f65a5776710e57fd6eb
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 8860a8aa83a17b12236dd47d79479a82846fa8a8
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98195794"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791951"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Funcionalidades e terminologia nos Hubs de Eventos do Azure
 
@@ -56,7 +56,7 @@ Os eventos publicados são removidos de um Centro de Eventos com base numa polí
 >
 > [O Event Hubs Capture](event-hubs-capture-overview.md) integra-se diretamente com o Azure Blob Storage e o Azure Data Lake Storage e, através dessa integração, também permite [eventos fluídos diretamente para a Azure Synapse.](store-captured-data-data-warehouse.md)
 >
-> Se pretender utilizar o [padrão de Sourcing](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing) de Eventos para a sua aplicação, deverá alinhar a sua estratégia de instantâneo com os limites de retenção dos Centros de Eventos. Não pretenda reconstruir visões materializadas de eventos brutos a partir do início dos tempos. Certamente que se arrependeria de tal estratégia uma vez que a sua aplicação está em produção por um tempo e é bem utilizada, e o seu construtor de projeção tem de passar por anos de eventos de mudança enquanto tenta acompanhar as mudanças mais recentes e contínuas. 
+> Se pretender utilizar o [padrão de Sourcing](/azure/architecture/patterns/event-sourcing) de Eventos para a sua aplicação, deverá alinhar a sua estratégia de instantâneo com os limites de retenção dos Centros de Eventos. Não pretenda reconstruir visões materializadas de eventos brutos a partir do início dos tempos. Certamente que se arrependeria de tal estratégia uma vez que a sua aplicação está em produção por um tempo e é bem utilizada, e o seu construtor de projeção tem de passar por anos de eventos de mudança enquanto tenta acompanhar as mudanças mais recentes e contínuas. 
 
 
 ### <a name="publisher-policy"></a>Política do publicador
@@ -151,7 +151,7 @@ Dados do evento:
 
 É da sua responsabilidade gerir o desvio.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre os Hubs de Eventos, visite as seguintes ligações:
 

@@ -4,12 +4,12 @@ description: Neste tutorial, irá implementar um cluster gerido por Tecido de Se
 ms.topic: tutorial
 ms.date: 08/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: 0265a1393c697cbd767de13df1064a5eea957380
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: fd54e6f8c5272c3a8fe0e0162ca2e57968b24642
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92316173"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791715"
 ---
 # <a name="tutorial-deploy-a-service-fabric-managed-cluster-preview"></a>Tutorial: Implementar um cluster gerido por tecido de serviço (pré-visualização)
 
@@ -37,7 +37,7 @@ Antes de começar este tutorial:
 
 * Instale o [módulo SDK e PowerShell do tecido de serviço](service-fabric-get-started.md).
 
-* Instale [a Azure PowerShell 4.7.0](/powershell/azure/release-notes-azureps?preserve-view=true&view=azps-4.7.0#azservicefabric) (ou mais tarde).
+* Instale [a Azure PowerShell 4.7.0](/powershell/azure/release-notes-azureps#azservicefabric) (ou mais tarde).
 
 ## <a name="connect-to-your-azure-account"></a>Ligar à sua conta do Azure
 
@@ -54,7 +54,7 @@ Set-AzContext -SubscriptionId <your-subscription>
 Em seguida, crie o grupo de recursos para o cluster Managed Service Fabric, substituindo `<your-rg>` e pelo nome e `<location>` localização de grupo pretendidos.
 
 > [!NOTE]
-> As regiões apoiadas para a pré-visualização pública `centraluseuap` incluem, , , , e `eastus2euap` `eastasia` `northeurope` `westcentralus` `eastus2` .
+> As regiões apoiadas para a pré-visualização pública `centraluseuap` `eastus2euap` incluem, e `eastasia` `northeurope` `westcentralus` `eastus2` .
 
 ```powershell
 $resourceGroup = "myResourceGroup"
@@ -110,7 +110,7 @@ Este comando pode demorar alguns minutos a ser concluído.
 
 Uma vez concluída a implementação, encontre o valor do Explorador de Tecido de Serviço na página de visão geral do cluster gerido pelo Service Fabric no Portal. Quando solicitado para um certificado, utilize o certificado para o qual o polegar do cliente foi fornecido no comando PowerShell.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste passo criamos e implantamos o nosso primeiro cluster gerido de Tecido de Serviço. Para saber mais sobre como escalar um cluster, consulte:
 

@@ -3,30 +3,22 @@ title: Dispositivos de reprovisionamento no serviço de provisionamento de dispo
 description: Saiba como reprovisionar os dispositivos com a sua instância do Serviço de Provisionamento de Dispositivos (DPS) e por que razão poderá ter de o fazer.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/04/2019
+ms.date: 01/25/2021
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: e5cc5b557aa4dff793f7e87093eeb65028da4f8c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d704e8f9687f3987d80018d84b41c0fd519da172
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010950"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791901"
 ---
 # <a name="how-to-reprovision-devices"></a>Como reprovisionar dispositivos
 
-Durante o ciclo de vida de uma solução IoT, é comum mover dispositivos entre centros IoT. As razões para este movimento podem incluir os seguintes cenários:
+Durante o ciclo de vida de uma solução IoT, é comum mover dispositivos entre centros IoT. Este tópico é escrito para ajudar os operadores de soluções a configurar políticas de reprovisionamento.
 
-* **Geolocalização**: À medida que um dispositivo se move entre locais, a latência da rede é melhorada com a migração do dispositivo para um hub IoT mais próximo de cada local.
-
-* **Multi-arrendamento**: Um dispositivo poderia ser utilizado dentro da mesma solução IoT mas, reatribuído ou alugado a um novo cliente, ou site do cliente. Este novo cliente pode ser reparado utilizando um hub IoT diferente.
-
-* **Mudança de solução**: Um dispositivo pode ser movido para uma nova solução IoT ou atualizada. Esta reatribuição pode exigir que o dispositivo comunique com um novo hub IoT que esteja ligado a outros componentes de backend. 
-
-* **Quarentena**: Semelhante a uma mudança de solução. Um dispositivo que esteja avariado, comprometido ou desatualizado pode ser transferido para um hub IoT onde tudo o que pode fazer é atualizar e voltar ao cumprimento. Uma vez que o dispositivo esteja a funcionar corretamente, é então migrado de volta para o seu centro principal.
-
-Para obter uma visão mais detalhada da reprovisionamento, consulte [os conceitos de reprovisionamento do IoT Hub Device](concepts-device-reprovision.md).
+Para obter uma visão mais detalhada dos cenários de reprovisionamento, consulte [os conceitos de reprovisionamento do IoT Hub Device](concepts-device-reprovision.md).
 
 
 ## <a name="configure-the-enrollment-allocation-policy"></a>Configure a política de atribuição de matrículas
@@ -90,7 +82,7 @@ A política de reprovisionamento de uma inscrição determina como a instância 
 Por exemplo, código de envio de pedidos de provisionamento de um dispositivo durante uma sequência de arranque, consulte [o provisionamento automático de um dispositivo simulado](quick-create-simulated-device.md).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para saber mais Reprovisioning, consulte [conceitos de reprovisionamento do IoT Hub Device](concepts-device-reprovision.md) 
 - Para saber mais Deprovisionamento, consulte [Como desprovisionar dispositivos que foram previamente auto-aprovisionados](how-to-unprovision-devices.md) 

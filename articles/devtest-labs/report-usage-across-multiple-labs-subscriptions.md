@@ -3,12 +3,12 @@ title: Utilização da Azure DevTest Labs em vários laboratórios e subscriçõ
 description: Saiba como reportar o uso da Azure DevTest Labs em vários laboratórios e subscrições.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 9640dc3fd74095a737f382994201dc5610af921a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: d789b9849ec798a396e99420649792937422470f
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152193"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789943"
 ---
 # <a name="report-azure-devtest-labs-usage-across-multiple-labs-and-subscriptions"></a>Reportar o uso da Azure DevTest Labs em vários laboratórios e subscrições
 
@@ -82,5 +82,5 @@ Uma vez que o sistema é configurado e os dados estão movendo-se para o armazen
     Os utilizadores estão a selecionar tamanhos VM de alto desempenho (mais caros) ?
 -   Que imagens do Marketplace estão a ser usadas?
 
-    São imagens personalizadas a base VM mais comum, caso uma loja de Imagens comum seja construída como [A Galeria de Imagens Partilhada](../virtual-machines/windows/shared-image-galleries.md) ou a fábrica de [imagem.](image-factory-create.md)
+    São imagens personalizadas a base VM mais comum, caso uma loja de Imagens comum seja construída como [A Galeria de Imagens Partilhada](../virtual-machines/shared-image-galleries.md) ou a fábrica de [imagem.](image-factory-create.md)
 -   Que imagens personalizadas estão a ser usadas ou não?

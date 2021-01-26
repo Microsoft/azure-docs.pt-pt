@@ -4,12 +4,12 @@ description: Descreve como autenticar o acesso do cliente a um cluster de Tecido
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2ce0325f7aebac92eb1e7deadd6f6875b75b3755
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a669f7400eb2daf2d71f6caed41560020699c58
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89008816"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791126"
 ---
 # <a name="connect-to-a-secure-cluster"></a>Ligar a um cluster seguro
 
@@ -232,7 +232,7 @@ catch (Exception e)
 
 O exemplo a seguir baseia-se no Microsoft.IdentityModel.Clients.ActiveDirectory, Versão: 2.19.208020213.
 
-Para obter mais informações sobre a aquisição de fichas AAD, consulte [Microsoft.IdentityModel.Clients.ActiveDirectory](/dotnet/api/microsoft.identitymodel.clients.activedirectory?view=azure-dotnet).
+Para obter mais informações sobre a aquisição de fichas AAD, consulte [Microsoft.IdentityModel.Clients.ActiveDirectory](/dotnet/api/microsoft.identitymodel.clients.activedirectory).
 
 ```csharp
 string tenantId = "C15CFCEA-02C1-40DC-8466-FBD0EE0B05D2";
@@ -379,7 +379,7 @@ Pelo menos dois certificados devem ser utilizados para assegurar o cluster, um p
 
 * No Mac: faça duplo clique no ficheiro PFX e siga as instruções para instalar o certificado na sua Keychain.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Processo de upgrade do Cluster de Tecido de Serviço e expectativas de si](service-fabric-cluster-upgrade.md)
 * [Gerir as suas aplicações de Tecido de Serviço em Estúdio Visual](service-fabric-manage-application-in-visual-studio.md)

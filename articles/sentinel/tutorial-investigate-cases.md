@@ -1,5 +1,5 @@
 ---
-title: Investigar incidentes com Azure Sentinel. Microsoft Docs
+title: Investigue incidentes com Azure Sentinel| Microsoft Docs
 description: Neste tutorial, aprenda a usar o Azure Sentinel para criar regras avançadas de alerta que gerem incidentes que pode atribuir e investigar.
 services: sentinel
 documentationcenter: na
@@ -12,20 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 01/25/2021
 ms.author: yelevin
-ms.openlocfilehash: aa9160f01ed0040123bd8ac932cfd2443f557bb6
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 8853f3774bb35361746c8b706f38bc54079d74f7
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511734"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790991"
 ---
 # <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Tutorial: Investigar incidentes com Azure Sentinel
 
 > [!IMPORTANT]
-> O gráfico de investigação encontra-se atualmente em **PREVIEW**. Consulte os [Termos Complementares de Utilização para o Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para termos legais adicionais aplicáveis às funcionalidades do Azure que estejam em versão beta, pré-visualização ou ainda não lançadas em disponibilidade geral.
-
+> O gráfico de investigação está agora na **Disponibilidade Geral.** 
 
 Este tutorial ajuda-o a investigar incidentes com a Azure Sentinel. Depois de ligar as suas fontes de dados ao Azure Sentinel, pretende ser notificado quando algo suspeito acontece. Para que possa fazê-lo, o Azure Sentinel permite criar regras avançadas de alerta, que geram incidentes que pode atribuir e investigar.
 
@@ -113,11 +112,11 @@ Para usar o gráfico de investigação:
 
 Uma vez resolvido um incidente particular (por exemplo, quando a sua investigação tiver chegado à sua conclusão), deverá definir o estado do incidente para **Fechado**. Quando o fizer, será solicitado que classifique o incidente especificando a razão pela qual está a fechá-lo. Este passo é obrigatório. Clique **em Selecionar classificação** e escolha um dos seguintes da lista de drop-down:
 
-- True Positive - atividade suspeita
-- Benign Positivo - suspeito mas esperado
-- Falso Positivo - lógica de alerta incorreto
-- False Positive - dados incorretos
-- Indeterminado
+- Verdadeiro Positivo – atividade suspeita
+- Positivo Benigno – suspeito, mas esperado
+- Falso Positivo – lógica de alertas incorreta
+- Falso Positivo – dados incorretos
+- Não determinado
 
 :::image type="content" source="media/tutorial-investigate-cases/closing-reasons-dropdown.png" alt-text="Screenshot que destaca as classificações disponíveis na lista de classificação Select.":::
 
@@ -125,7 +124,7 @@ Depois de escolher a classificação adequada, adicione algum texto descritivo n
 
 :::image type="content" source="media/tutorial-investigate-cases/closing-reasons-comment-apply.png" alt-text="{alt-text}":::
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste tutorial, aprendeu a investigar incidentes usando Azure Sentinel. Continue a tutorial para [responder a ameaças usando livros de jogadas automatizados](tutorial-respond-threats-playbook.md).
 > [!div class="nextstepaction"]
 > [Responda às ameaças](tutorial-respond-threats-playbook.md) de automatizar as suas respostas a ameaças.

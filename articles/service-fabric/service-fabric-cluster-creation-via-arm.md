@@ -3,12 +3,12 @@ title: Criar um cluster de tecido de serviço Azure
 description: Saiba como configurar um cluster de tecido de serviço seguro em Azure usando o Azure Resource Manager.  Pode criar um cluster usando um modelo padrão ou usando o seu próprio modelo de cluster.
 ms.topic: conceptual
 ms.date: 08/16/2018
-ms.openlocfilehash: fd2c472d24f305e42f1706e5fc49168ccde2a580
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d4daa75fd9383bc19da1b09104ebddff5712c5b4
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96008672"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791816"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Criar um cluster de tecido de serviço usando O Gestor de Recursos Azure 
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ Neste artigo, utilize os módulos Service Fabric RM ou Azure CLI para implantar 
 
 Pode encontrar aqui a documentação de referência dos módulos De Tecido de Serviço:
 * [Az.ServiceFabric](/powershell/module/az.servicefabric)
-* [módulo CLI Az SF](/cli/azure/sf?view=azure-cli-latest)
+* [módulo CLI Az SF](/cli/azure/sf)
 
 ### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -278,13 +278,13 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
     --template-file $templateFilePath --parameter-file $parameterFilePath 
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste momento, tem um aglomerado seguro em Azure. Em seguida, [ligue-se ao seu cluster](service-fabric-connect-to-secure-cluster.md) e aprenda a gerir segredos de [aplicação.](service-fabric-application-secret-management.md)
 
 Para que a sintaxe JSON e as propriedades utilizem um modelo, consulte a [referência do modelo Microsoft.ServiceFabric/clusters](/azure/templates/microsoft.servicefabric/clusters).
 
 <!-- Links -->
 [azure-powershell]:https://docs.microsoft.com/powershell/azure/install-Az-ps
-[azure-CLI]:https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest
+[azure-CLI]:https://docs.microsoft.com/cli/azure/get-started-with-azure-cli
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [customize-your-cluster-template]: service-fabric-cluster-creation-create-template.md

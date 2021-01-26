@@ -5,15 +5,15 @@ author: abhishekram
 ms.topic: conceptual
 ms.date: 10/26/2017
 ms.author: abhisram
-ms.openlocfilehash: a38a11d9cf062cd0a45890d43afe9b2530b2b7bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebaedb5369f3b39372262bfde526706e8d069418
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86258471"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789621"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-actors"></a>Diagnóstico e monitorização do desempenho dos Reliable Actors
-O tempo de execução dos Atores Fidedigdos emite eventos [EventSource](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1) e [contadores de desempenho.](/dotnet/api/system.diagnostics.performancecounter?view=dotnet-plat-ext-3.1) Estes fornecem informações sobre como o tempo de funcionamento está funcionando e ajudam na resolução de problemas e monitorização do desempenho.
+O tempo de execução dos Atores Fidedigdos emite eventos [EventSource](/dotnet/api/system.diagnostics.tracing.eventsource) e [contadores de desempenho.](/dotnet/api/system.diagnostics.performancecounter) Estes fornecem informações sobre como o tempo de funcionamento está funcionando e ajudam na resolução de problemas e monitorização do desempenho.
 
 ## <a name="eventsource-events"></a>Eventos EventSource
 O nome do fornecedor EventSource para o tempo de execução de Atores Fiáveis é "Microsoft-ServiceFabric-Actors". Eventos desta fonte do evento aparecem na janela [de Eventos de Diagnóstico](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) quando a aplicação do ator está a ser [depurada no Visual Studio](service-fabric-debugging-your-application.md).
@@ -50,7 +50,7 @@ Para a `Service Fabric Actor` categoria, os nomes de contraexemplo estão no seg
 
 `ServiceFabricPartitionID_ActorsRuntimeInternalID`
 
-*ServiceFabricPartitionID* é a representação de cadeia do ID de partição do Tecido de Serviço a que o contador de desempenho está associado. O ID de partição é um GUID, e a sua representação de cordas é gerada através do método com o [`Guid.ToString`](/dotnet/api/system.guid.tostring?view=netcore-3.1#System_Guid_ToString_System_String_) especificador de formato "D".
+*ServiceFabricPartitionID* é a representação de cadeia do ID de partição do Tecido de Serviço a que o contador de desempenho está associado. O ID de partição é um GUID, e a sua representação de cordas é gerada através do método com o [`Guid.ToString`](/dotnet/api/system.guid.tostring#System_Guid_ToString_System_String_) especificador de formato "D".
 
 *ActorRuntimeInternalID* é a representação de uma corda de um inteiro de 64 bits que é gerado pelos Fabric Actors runtime para o seu uso interno. Isto está incluído no nome do contraexemplo de desempenho para garantir a sua singularidade e evitar conflitos com outros nomes de contra-instância de desempenho. Os utilizadores não devem tentar interpretar esta parte do nome do contador de desempenho.
 
@@ -69,7 +69,7 @@ Para a `Service Fabric Actor Method` categoria, os nomes de contraexemplo estão
 
 *ActorsRuntimeMethodId* é a representação de uma corda de um inteiro de 32 bits que é gerado pelos Fabric Actors runtime para o seu uso interno. Isto está incluído no nome do contraexemplo de desempenho para garantir a sua singularidade e evitar conflitos com outros nomes de contra-instância de desempenho. Os utilizadores não devem tentar interpretar esta parte do nome do contador de desempenho.
 
-*ServiceFabricPartitionID* é a representação de cadeia do ID de partição do Tecido de Serviço a que o contador de desempenho está associado. O ID de partição é um GUID, e a sua representação de cordas é gerada através do método com o [`Guid.ToString`](/dotnet/api/system.guid.tostring?view=netcore-3.1#System_Guid_ToString_System_String_) especificador de formato "D".
+*ServiceFabricPartitionID* é a representação de cadeia do ID de partição do Tecido de Serviço a que o contador de desempenho está associado. O ID de partição é um GUID, e a sua representação de cordas é gerada através do método com o [`Guid.ToString`](/dotnet/api/system.guid.tostring#System_Guid_ToString_System_String_) especificador de formato "D".
 
 *ActorRuntimeInternalID* é a representação de uma corda de um inteiro de 64 bits que é gerado pelos Fabric Actors runtime para o seu uso interno. Isto está incluído no nome do contraexemplo de desempenho para garantir a sua singularidade e evitar conflitos com outros nomes de contra-instância de desempenho. Os utilizadores não devem tentar interpretar esta parte do nome do contador de desempenho.
 
@@ -83,7 +83,7 @@ No exemplo acima, `ivoicemailboxactor.leavemessageasync` é o nome do método, �
 ### <a name="actor-method-events-and-performance-counters"></a>Eventos de método de ator e contadores de desempenho
 O runtime dos Reliable Actors emite os seguintes eventos relacionados com os [métodos do ator.](service-fabric-reliable-actors-introduction.md)
 
-| Nome do evento | ID do Evento | Nível | Palavra-chave | Descrição |
+| Nome do evento | ID do Evento | Level | Palavra-chave | Descrição |
 | --- | --- | --- | --- | --- |
 | ActorMethodStart |7 |Verboso |0x2 |O tempo de execução dos atores está prestes a invocar um método de ator. |
 | ActorMethodStop |8 |Verboso |0x2 |Um método de ator terminou a execução. Ou seja, a chamada assíncrona do tempo de execução para o método do ator regressou, e a tarefa devolvida pelo método do ator terminou. |
@@ -100,7 +100,7 @@ O runtime the Reliable Actors publica os seguintes contadores de desempenho rela
 ### <a name="concurrency-events-and-performance-counters"></a>Eventos de concurrency e contadores de desempenho
 O tempo de execução dos Atores Fidedigdos emite os seguintes eventos relacionados com a [concuência.](service-fabric-reliable-actors-introduction.md#concurrency)
 
-| Nome do evento | ID do Evento | Nível | Palavra-chave | Descrição |
+| Nome do evento | ID do Evento | Level | Palavra-chave | Descrição |
 | --- | --- | --- | --- | --- |
 | ActorMethodCallsWaitingForLock |12 |Verboso |0x8 |Este evento é escrito no início de cada nova volta num ator. Contém o número de chamadas pendentes de atores que estão à espera para adquirir o bloqueio por ator que impõe a concordância baseada em turnos. |
 
@@ -115,7 +115,7 @@ O tempo de execução dos Atores Fidedigdos publica os seguintes contadores de d
 ### <a name="actor-state-management-events-and-performance-counters"></a>Eventos de gestão do estado do ator e balcões de desempenho
 O runtime do Reliable Actors emite os seguintes eventos relacionados com a [gestão estatal do ator.](service-fabric-reliable-actors-state-management.md)
 
-| Nome do evento | ID do Evento | Nível | Palavra-chave | Descrição |
+| Nome do evento | ID do Evento | Level | Palavra-chave | Descrição |
 | --- | --- | --- | --- | --- |
 | ActorSaveStateStart |10 |Verboso |0x4 |O tempo de execução dos atores está prestes a salvar o estado do ator. |
 | ActorSaveStateStop |11 |Verboso |0x4 |Os atores terminaram de salvar o estado do ator. |
@@ -130,7 +130,7 @@ O runtime the Reliable Actors publica os seguintes contadores de desempenho rela
 ### <a name="events-related-to-actor-replicas"></a>Eventos relacionados com réplicas de atores
 O runtime dos Reliable Actors emite os seguintes eventos relacionados com [réplicas de atores.](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors)
 
-| Nome do evento | ID do Evento | Nível | Palavra-chave | Descrição |
+| Nome do evento | ID do Evento | Level | Palavra-chave | Descrição |
 | --- | --- | --- | --- | --- |
 | ReplicaChangeRoleToPrimary |1 |Informativo |0x1 |A réplica do ator mudou de papel para Primária. Isto implica que os atores para esta partição serão criados dentro desta réplica. |
 | ReplicaChangeRoleFromPrimary |2 |Informativo |0x1 |A réplica do ator mudou o papel para não-primária. Isto implica que os atores para esta partição não serão mais criados dentro desta réplica. Nenhum novo pedido será entregue aos atores já criados dentro desta réplica. Os atores serão destruídos depois de concluídos os pedidos em curso. |
@@ -138,7 +138,7 @@ O runtime dos Reliable Actors emite os seguintes eventos relacionados com [répl
 ### <a name="actor-activation-and-deactivation-events-and-performance-counters"></a>Eventos de ativação e desativação de atores e contadores de desempenho
 O tempo de execução dos Atores Fidedigdos emite os seguintes eventos relacionados com a [ativação e desativação do ator.](service-fabric-reliable-actors-lifecycle.md)
 
-| Nome do evento | ID do Evento | Nível | Palavra-chave | Descrição |
+| Nome do evento | ID do Evento | Level | Palavra-chave | Descrição |
 | --- | --- | --- | --- | --- |
 | AtorActivado |5 |Informativo |0x1 |Um ator foi ativado. |
 | Ator Desativado |6 |Informativo |0x1 |Um ator foi desativado. |
@@ -159,8 +159,8 @@ Quando um cliente invoca um método através de um objeto de procuração de ato
 | Ator de Tecido de Serviço |Milissegundos médios para pedido de deserialização |Tempo demorado (em milissegundos) para deserializar a mensagem de pedido do ator quando é recebido no serviço |
 | Ator de Tecido de Serviço |Milissegundos médios para serialização de resposta |Tempo demorado (em milissegundos) para serializar a mensagem de resposta do ator no serviço antes de a resposta ser enviada ao cliente |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Como os atores fiáveis usam a plataforma de tecido de serviço](service-fabric-reliable-actors-platform.md)
 * [Documentação de referência da API do ator](/previous-versions/azure/dn971626(v=azure.100))
-* [Código de exemplo](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [Código de amostra](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Fornecedores de EventSource em PerfView](/archive/blogs/vancem/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource)

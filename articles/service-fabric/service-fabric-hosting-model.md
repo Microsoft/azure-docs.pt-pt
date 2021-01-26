@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: harahma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5f3f6238bb72704d13fef4a7171aeaebee5f9141
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9932c11332a616928d59c213d4f4806feb81cfe2
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708701"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791650"
 ---
 # <a name="azure-service-fabric-hosting-model"></a>Modelo de hospedagem de tecido de serviço Azure
 Este artigo fornece uma visão geral dos modelos de hospedagem de aplicações fornecidos pela Azure Service Fabric, e descreve as diferenças entre os modelos **processo partilhado** e **processo exclusivo.** Descreve como uma aplicação implementada se apresenta num nó de Tecido de Serviço e a relação entre réplicas (ou instâncias) do serviço e o processo de anfitrião de serviço.
@@ -27,7 +27,7 @@ Antes de prosseguir, certifique-se de que compreende os vários conceitos e rela
 
 Para entender o modelo de hospedagem, vamos percorrer um exemplo. Digamos que temos um 'MyAppType' *de AplicaçãoType,* que tem um 'MyServiceType' de *serviço.* O 'MyServiceType' é fornecido pelo *ServicePackage* 'MyServicePackage', que tem um *CodePackage* 'MyCodePackage'. 'MyCodePackage' regista *o ServiceType* 'MyServiceType' quando é executado.
 
-Digamos que temos um cluster de três nós, e criamos um tecido de **aplicação:/App1** do tipo 'MyAppType'. *application* Dentro deste tecido de **aplicação:/App1,** criamos um tecido de **serviço:/App1/ServiceA** do tipo 'MyServiceType'. Este serviço tem duas divisórias (por exemplo, **P1** e **P2),** e três réplicas por partição. O diagrama seguinte mostra a visão desta aplicação à medida que acaba implantada num nó.
+Digamos que temos um cluster de três nós, e criamos um tecido de **aplicação:/App1** do tipo 'MyAppType'.  Dentro deste tecido de **aplicação:/App1,** criamos um tecido de **serviço:/App1/ServiceA** do tipo 'MyServiceType'. Este serviço tem duas divisórias (por exemplo, **P1** e **P2),** e três réplicas por partição. O diagrama seguinte mostra a visão desta aplicação à medida que acaba implantada num nó.
 
 
 ![Diagrama que mostra a visão desta aplicação à medida que acaba implantada num nó.][node-view-one]
@@ -107,7 +107,7 @@ Quando utiliza apenas o modelo processo partilhado para uma aplicação, existe 
 ## <a name="work-with-a-deployed-service-package"></a>Trabalhar com um pacote de serviço implantado
 Uma cópia ativa de um *ServicePackage* num nó é referida como um [pacote de serviço implantado.][p3] Quando utiliza o modelo de Processo Exclusivo para criar serviços, para uma determinada aplicação, poderá existir vários pacotes de serviços implantados para o mesmo *ServicePackage.* Se estiver a realizar operações específicas de um pacote de serviços implantado, deverá fornecer **ServicePackageActivationId** para identificar um pacote de serviços implantado específico. Por exemplo, forneça o ID se estiver [a reportar a saúde de um pacote de serviços implantado][p4] ou reiniciar o pacote de código de um pacote de [serviços implantado][p5].
 
-Pode descobrir o **ServicePackageActivationId** de um pacote de serviço implantado consultando a lista de pacotes de [serviço implantados][p3] num nó. Quando está a consultar os tipos de serviço [implantados, réplicas implantadas][p7]e [pacotes de código implantados][p8] num nó, o resultado da consulta também contém o **ServicePackageActivationId** do pacote de serviços implantado pelos pais. [deployed service types][p6]
+Pode descobrir o **ServicePackageActivationId** de um pacote de serviço implantado consultando a lista de pacotes de [serviço implantados][p3] num nó. Quando está a consultar os tipos de serviço [implantados, réplicas implantadas][p7]e [pacotes de código implantados][p8] num nó, o resultado da consulta também contém o **ServicePackageActivationId** do pacote de serviços implantado pelos pais. [][p6]
 
 > [!NOTE]
 >- No modelo de hospedagem do Processo Partilhado, num dado nó, para uma determinada aplicação, apenas é ativada uma cópia de um *ServicePackage.* Tem um **ServicePackageActivationId** igual a *uma corda vazia,* e não precisa de ser especificado durante a realização de operações relacionadas com o pacote de serviço implantado. 
@@ -172,9 +172,9 @@ No exemplo anterior, pode pensar-se que se o 'MyCodePackageA' registar tanto 'My
 
 ### <a name="reliable-services-and-actor-forking-subprocesses"></a>Serviços fiáveis e subprocessamentos de forca de ator
 
-A Service Fabric não suporta serviços fiáveis e, posteriormente, atores fiáveis que falsificam subprocessos. Um exemplo do motivo pelo qual o seu não suportado é [o CodePackageActivationContext](/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet) não pode ser utilizado para registar um subprocesso não suportado, e as fichas de cancelamento são enviadas apenas para processos registados; resultando em todo o tipo de problemas, tais como falhas de upgrade, quando os subprocessos não fecham após o processo dos pais ter recebido um token de cancelamento.
+A Service Fabric não suporta serviços fiáveis e, posteriormente, atores fiáveis que falsificam subprocessos. Um exemplo do motivo pelo qual o seu não suportado é [o CodePackageActivationContext](/dotnet/api/system.fabric.codepackageactivationcontext) não pode ser utilizado para registar um subprocesso não suportado, e as fichas de cancelamento são enviadas apenas para processos registados; resultando em todo o tipo de problemas, tais como falhas de upgrade, quando os subprocessos não fecham após o processo dos pais ter recebido um token de cancelamento.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [Embale uma aplicação][a4] e prepare-a para ser implantada.
 
 [Implementar e remover aplicações][a5]. Este artigo descreve como usar o PowerShell para gerir instâncias de aplicação.

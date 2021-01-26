@@ -2,13 +2,13 @@
 title: Modelos de ligação para implantação
 description: Descreve como usar modelos ligados num modelo de Gestor de Recursos Azure (modelo ARM) para criar uma solução de modelo modular. Mostra como passar valores de parâmetros, especificar um ficheiro de parâmetros e URLs criados dinamicamente.
 ms.topic: conceptual
-ms.date: 01/20/2021
-ms.openlocfilehash: dd810167e07f1bb23f9563936cb481652953ccd1
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.date: 01/25/2021
+ms.openlocfilehash: 7d4df67b7f69b3e58799f45ad72bd9ed68540dc2
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624863"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790940"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Utilizar modelos ligados e aninhados ao implementar recursos do Azure
 
@@ -111,6 +111,10 @@ Você define o âmbito através da `expressionEvaluationOptions` propriedade. Po
   },
   ...
 ```
+
+> [!NOTE]
+>
+> Quando o âmbito está definido `outer` para , não é possível utilizar a `reference` função na secção de saídas de um modelo aninhado para um recurso que implementou no modelo aninhado. Para devolver os valores de um recurso implantado num modelo aninhado, utilize `inner` o âmbito ou converta o seu modelo aninhado num modelo ligado.
 
 O modelo a seguir demonstra como as expressões do modelo são resolvidas de acordo com o âmbito. Contém uma variável nomeada `exampleVar` que é definida tanto no modelo dos pais como no modelo aninhado. Devolve o valor da variável.
 
@@ -399,10 +403,6 @@ O seguinte excerto mostra quais valores são seguros e que não são seguros.
   ]
 }
 ```
-
-> [!NOTE]
->
-> Quando o âmbito está definido `outer` para , não é possível utilizar a `reference` função na secção de saídas de um modelo aninhado para um recurso que implementou no modelo aninhado. Para devolver os valores de um recurso implantado num modelo aninhado, utilize `inner` o âmbito ou converta o seu modelo aninhado num modelo ligado.
 
 ## <a name="linked-template"></a>Modelo associado
 
@@ -803,7 +803,7 @@ Os exemplos a seguir mostram utilizações comuns de modelos ligados.
 |[Balanceador de carga com endereço IP público](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[modelo ligado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Devolve o endereço IP público do modelo ligado e define esse valor no equilibrador de carga. |
 |[Vários endereços IP](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) | [modelo ligado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json) |Cria vários endereços IP públicos em modelo ligado.  |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para passar por um tutorial, consulte [Tutorial: Implemente um modelo ligado](./deployment-tutorial-linked-template.md).
 * Para saber mais sobre a definição da ordem de implantação dos seus recursos, consulte [Definir a ordem para a implantação de recursos em modelos ARM](define-resource-dependency.md).

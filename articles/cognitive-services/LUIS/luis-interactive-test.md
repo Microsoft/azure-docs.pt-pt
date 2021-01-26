@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/02/2020
-ms.openlocfilehash: b6fcc294c2b8c131d9a4a058c653ae1f64652ccf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31885eba16d59e2e48a08f84c56271b84e6c565f
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324863"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790923"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Teste a sua app LUIS no portal LUIS
 
@@ -112,16 +112,16 @@ Pode ver o ponto final que json devolveu para a comparação selecionando a **vi
 
 ### <a name="luis-endpoint"></a>Ponto final DO LUIS
 
-Se tiver vários pontos finais LUIS, utilize o link **Definições Adicionais** no painel publicado do Teste para alterar o ponto final utilizado para os testes. Se não tiver a certeza de qual o ponto final a utilizar, selecione o **Starter_Key**predefinido .
+Se tiver vários pontos finais LUIS, utilize o link **Definições Adicionais** no painel publicado do Teste para alterar o ponto final utilizado para os testes. Se não tiver a certeza de qual o ponto final a utilizar, selecione o **Starter_Key** predefinido .
 
 > [!div class="mx-imgBorder"]
 > ![Painel de teste com ligação de Definições Adicionais realçado](media/luis-how-to-interactive-test/additional-settings-v3-settings.png)
 
 
 ## <a name="batch-testing"></a>Testes em lote
-Consulte [conceitos de](luis-concept-batch-test.md) teste de lote e [aprenda a](luis-how-to-batch-test.md) testar um lote de expressões.
+Consulte [conceitos de](./luis-how-to-batch-test.md) teste de lote e [aprenda a](luis-how-to-batch-test.md) testar um lote de expressões.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se os testes indicarem que a sua aplicação LUIS não reconhece as intenções e entidades corretas, pode trabalhar para melhorar a precisão da sua app LUIS, rotulando mais expressões ou adicionando funcionalidades.
 

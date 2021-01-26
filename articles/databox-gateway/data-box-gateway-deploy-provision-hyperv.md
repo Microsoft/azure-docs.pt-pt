@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 12/21/2020
 ms.author: alkohli
-ms.openlocfilehash: 9d1d22d57464266239aea96f427020351eb749d5
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 22d7ee518a458143fe25b677b680a964c538904f
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740662"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791565"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v"></a>Tutorial: Provision Azure Data Box Gateway em Hiper-V
 
@@ -23,7 +23,7 @@ Este tutorial descreve como aprovisionar um Data Box Gateway num sistema anfitri
 
 Para aprovisionar e configurar um dispositivo virtual, precisa de privilégios de administrador. O aprovisionamento e a configuração inicial demoram cerca de 10 minutos a concluir. 
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 >
@@ -83,8 +83,8 @@ Para criar um dispositivo virtual, precisa:
 
 ## <a name="bitlocker-considerations"></a>Considerações BitLocker
 
-* Recomendamos que ative o BitLocker na sua máquina virtual Data Box Gateway. Por predefinição, o BitLocker não está ativado. Para obter mais informações, veja:
-  * [Definições de suporte de encriptação no Hyper-V Manager](hhttps://docs.microsoft.com/windows-server/virtualization/hyper-v/learn-more/generation-2-virtual-machine-security-settings-for-hyper-v#encryption-support-settings-in-hyper-v-manager)
+* Recomendamos que ative o BitLocker na sua máquina virtual Data Box Gateway. Por predefinição, o BitLocker não está ativado. Para obter mais informações, consulte:
+  * [Definições de suporte de encriptação no Hyper-V Manager](/windows-server/virtualization/hyper-v/learn-more/generation-2-virtual-machine-security-settings-for-hyper-v#encryption-support-settings-in-hyper-v-manager)
   * [Suporte BitLocker em uma máquina virtual](https://kb.vmware.com/s/article/2036142)
 
 ## <a name="provision-a-virtual-device-in-hypervisor"></a>Aprovisionar um dispositivo virtual no hipervisor
@@ -193,7 +193,7 @@ Se enfrentar qualquer outro erro durante a configuração inicial utilizando a U
 * [Executar testes de diagnóstico para resolver problemas na configuração da UI web](data-box-gateway-troubleshoot.md#run-diagnostics).
 * [Gerei o pacote de registo e visualiza os ficheiros de registo](data-box-gateway-troubleshoot.md#collect-support-package).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, ficou a conhecer tópicos do Data Box Gateway, como:
 

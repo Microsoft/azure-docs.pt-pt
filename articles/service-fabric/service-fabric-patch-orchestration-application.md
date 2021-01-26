@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: atsenthi
-ms.openlocfilehash: 8f92501bdb8261a67d3dc2b8aefbe1fb1498ef1e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d64c6383b9a83b759dd8368a4e3e0f1847b5ee16
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91445888"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791228"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Corrigir o sistema operativo Windows no seu cluster de Tecido de Serviço
 
@@ -31,7 +31,7 @@ ms.locfileid: "91445888"
 > Obter [atualizações automáticas de imagem de SO no seu conjunto de escala de máquina virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) é a melhor prática para manter o seu sistema operativo remendado em Azure. Escala de máquina virtual Conjunto de atualizações automáticas de imagem DE SO exigirão prata ou maior durabilidade num conjunto de escala.
 >
 
- Patch Orchestration Application (POA) é um invólucro em torno do serviço Azure Service Fabric Repair Manager, que permite o agendamento de patchs de sistemas de sistemas de sistemas de sistemas de sistemas de sistemas de sistemas operativos não-Azure. O POA não é necessário para clusters hospedados não-Azure, mas a instalação de patch de agendamento por domínio de atualização é necessária para remendar os anfitriões do cluster de tecido de serviço sem incorrer em tempo de inatividade.
+ Patch Orchestration Application (POA) é um invólucro em torno do serviço Azure Service Fabric Repair Manager, que permite o agendamento de patchs de sistemas operativos não-Azure. O POA não é necessário para clusters hospedados não-Azure, mas a instalação de patch de agendamento por domínio de atualização é necessária para remendar os anfitriões do cluster de tecido de serviço sem incorrer em tempo de inatividade.
 
 POA é uma aplicação de Tecido de Serviço que automatiza a correção do sistema operativo num cluster de Tecido de Serviço sem incorrer em tempo de inatividade.
 
@@ -239,7 +239,7 @@ Campo | Valores | Detalhes
 -- | -- | --
 OperaçãoResult | 0 - Bem sucedido<br> 1 - Bem sucedido com erros<br> 2 - Falhado<br> 3 - Abortado<br> 4 - Abortado com timeout | Indica o resultado do funcionamento global, que normalmente envolve a instalação de uma ou mais atualizações.
 Resultados Código | O mesmo que a OperaçãoResult | Este campo indica o resultado da operação de instalação para uma atualização individual.
-OperaçãoType | 1 - Instalação<br> 0 - Pesquisar e Descarregar| Por predefinição, a instalação é a única OperaçãoType que é mostrada nos resultados.
+Tipo de Operação | 1 - Instalação<br> 0 - Pesquisar e Descarregar| Por predefinição, a instalação é a única OperaçãoType que é mostrada nos resultados.
 WindowsUpdateQuery | O padrão é "IsInstalled=0" | A consulta de Atualização do Windows que foi usada para procurar atualizações. Para mais informações, consulte [WuQuery.](/windows/win32/api/wuapi/nf-wuapi-iupdatesearcher-search)
 RebootRequired | verdadeiro - reboot foi necessário<br> falso - reboot não era necessário | Indica se foi necessário reiniciar a instalação de atualizações.
 OperaçãoStartTime | DateTime | Indica a hora em que a operação (Descarregamento/Instalação) começou.
@@ -271,17 +271,17 @@ Esta secção discute como depurar ou diagnosticar problemas com atualizações 
 > [!NOTE]
 > Para obter muitas das seguintes melhorias chamadas, auto-diagnóstico, você deve ter a versão POA 1.4.0 ou posteriormente instalada.
 
-O Agente de Nó NTService cria tarefas de [reparação](/dotnet/api/system.fabric.repair.repairtask?view=azure-dotnet) para instalar atualizações nos nós. Cada tarefa é então preparada pelo Serviço coordenador de acordo com a política de aprovação de tarefas. Finalmente, as tarefas preparadas são aprovadas pelo Gestor de Reparação, que não aprova qualquer tarefa se o cluster estiver num estado pouco saudável. 
+O Agente de Nó NTService cria tarefas de [reparação](/dotnet/api/system.fabric.repair.repairtask) para instalar atualizações nos nós. Cada tarefa é então preparada pelo Serviço coordenador de acordo com a política de aprovação de tarefas. Finalmente, as tarefas preparadas são aprovadas pelo Gestor de Reparação, que não aprova qualquer tarefa se o cluster estiver num estado pouco saudável. 
 
 Para ajudá-lo a entender como as atualizações prosseguem num nó, vamos passo a passo:
 
 1. O NodeAgentNTService, em execução em todos os nós, procura atualizações disponíveis do Windows na hora programada. Se as atualizações estiverem disponíveis, descarrega-as no nó.
 
-1. Após o download das atualizações, o Agente de Nó NTService cria uma tarefa de reparação correspondente para o nó com o nome *POS___ \<unique_id> *. Pode ver estas tarefas de reparação utilizando o cmdlet [Get-ServiceFabricRepairTask](/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps) ou utilizando o SFX na secção de detalhes do nó. Após a criação da tarefa de reparação, move-se rapidamente para o estado [ *reclamado* ](/dotnet/api/system.fabric.repair.repairtaskstate?view=azure-dotnet).
+1. Após o download das atualizações, o Agente de Nó NTService cria uma tarefa de reparação correspondente para o nó com o nome *POS___ \<unique_id>*. Pode ver estas tarefas de reparação utilizando o cmdlet [Get-ServiceFabricRepairTask](/powershell/module/servicefabric/get-servicefabricrepairtask) ou utilizando o SFX na secção de detalhes do nó. Após a criação da tarefa de reparação, move-se rapidamente para o estado [ *reclamado*](/dotnet/api/system.fabric.repair.repairtaskstate).
 
-1. O Serviço de Coordenador procura periodicamente tarefas de reparação em estado *reclamado* e, em seguida, atualiza-as para o estado *de preparação* com base na TaskApprovalPolicy. Se a TaskApprovalPolicy estiver configurada como NodeWise, uma tarefa de reparação que corresponda a um nó só será preparada se não houver outra tarefa de reparação atualmente em *Preparação,* *Execução*ou *Restauro.* *Executing* 
+1. O Serviço de Coordenador procura periodicamente tarefas de reparação em estado *reclamado* e, em seguida, atualiza-as para o estado *de preparação* com base na TaskApprovalPolicy. Se a TaskApprovalPolicy estiver configurada como NodeWise, uma tarefa de reparação que corresponda a um nó só será preparada se não houver outra tarefa de reparação atualmente em *Preparação,* *Execução* ou *Restauro.*  
 
-   Da mesma forma, no caso do UpgradeWise TaskApprovalPolicy, existem tarefas nos estados anteriores apenas para nós que pertencem ao mesmo domínio de atualização. Depois de uma tarefa de reparação ser transferida para o estado *de preparação,* o nó de tecido de serviço correspondente é [desativado](/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps) com a intenção definida para *reiniciar*.
+   Da mesma forma, no caso do UpgradeWise TaskApprovalPolicy, existem tarefas nos estados anteriores apenas para nós que pertencem ao mesmo domínio de atualização. Depois de uma tarefa de reparação ser transferida para o estado *de preparação,* o nó de tecido de serviço correspondente é [desativado](/powershell/module/servicefabric/disable-servicefabricnode) com a intenção definida para *reiniciar*.
 
    As versões POA 1.4.0 e posteriormente pós eventos com a propriedade ClusterPatchingStatus no CoordinatorService para exibir os nós que estão a ser remendados. As atualizações são instaladas no _poanode_0, como mostra a seguinte imagem:
 
@@ -300,7 +300,7 @@ Para ajudá-lo a entender como as atualizações prosseguem num nó, vamos passo
 
    [![O Screenshot mostra a janela da consola do estado de funcionamento do Windows Update com poanode_1 realçada.](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png#lightbox)
 
-   Também pode obter os detalhes usando o PowerShell. Para tal, liga-se ao cluster e obtém o estado da tarefa de reparação utilizando [o Get-ServiceFabricRepairTask](/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps). 
+   Também pode obter os detalhes usando o PowerShell. Para tal, liga-se ao cluster e obtém o estado da tarefa de reparação utilizando [o Get-ServiceFabricRepairTask](/powershell/module/servicefabric/get-servicefabricrepairtask). 
    
    No exemplo seguinte, a tarefa "POS__poanode_2_125f2969-933c-4774-85d1-ebdf85e79f15" encontra-se no estado *de DownloadComplete.* Significa que as atualizações foram descarregadas no nó *poanode_2,* e a instalação será tentada quando a tarefa for para o estado *de Execução.*
 
@@ -334,7 +334,7 @@ Para ajudá-lo a entender como as atualizações prosseguem num nó, vamos passo
 
 Os registos de aplicação de orquestração de remendos são recolhidos como parte dos registos de execução do Tecido de Serviço.
 
-Pode capturar registos utilizando a ferramenta de diagnóstico ou o pipeline à sua escolha. O POA utiliza os seguintes IDs fixos do fornecedor para registar eventos através de [fonte de evento:](/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1)
+Pode capturar registos utilizando a ferramenta de diagnóstico ou o pipeline à sua escolha. O POA utiliza os seguintes IDs fixos do fornecedor para registar eventos através de [fonte de evento:](/dotnet/api/system.diagnostics.tracing.eventsource)
 
 - e39b723c-590c-4090-abb0-11e3e616346
 - fc0028ff-bfdc-499f-80dc-ed922c52c5e9
@@ -379,7 +379,7 @@ R: O POA não instala atualizações enquanto o cluster não estiver saudável. 
 
 **P: Devo definir a TaskApprovalPolicy como "NodeWise" ou "UpgradeDomainWise" para o meu cluster?**
 
-R: A definição "UpgradeDomainWise" acelera a reparação global do cluster remendando paralelamente todos os nós que pertencem a um domínio de atualização. Durante o processo, os nódes que pertencem a todo um domínio de atualização estão indisponíveis (em estado [ *de desativação).* ](/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled)
+R: A definição "UpgradeDomainWise" acelera a reparação global do cluster remendando paralelamente todos os nós que pertencem a um domínio de atualização. Durante o processo, os nódes que pertencem a todo um domínio de atualização estão indisponíveis (em estado [ *de desativação).*](/dotnet/api/system.fabric.query.nodestatus#System_Fabric_Query_NodeStatus_Disabled)
 
 Em contraste, a definição "NodeWise" remenda apenas um nó de cada vez, o que implicaria que a remendação geral do cluster poderia demorar mais tempo. No entanto, apenas um nó no máximo estaria indisponível (em estado *de desativação)* durante o processo de remendação.
 
@@ -405,9 +405,9 @@ R: O tempo necessário para remendar um cluster inteiro depende de:
     - Para "NodeWise": ~20 horas.
     - Para "UpgradeDomainWise": ~5 horas.
 
-- A carga de aglomerado. Cada operação de remendação requer a recolocar a carga de trabalho do cliente para outros nós disponíveis no cluster. Um nó que está a ser remendado estaria em estado [ *de desativação* ](/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabling) durante este tempo. Se o cluster estiver a funcionar perto da carga máxima, o processo de desativação demoraria mais tempo. Por conseguinte, o processo global de remendação pode parecer lento em condições tão stressadas.
+- A carga de aglomerado. Cada operação de remendação requer a recolocar a carga de trabalho do cliente para outros nós disponíveis no cluster. Um nó que está a ser remendado estaria em estado [ *de desativação*](/dotnet/api/system.fabric.query.nodestatus#System_Fabric_Query_NodeStatus_Disabling) durante este tempo. Se o cluster estiver a funcionar perto da carga máxima, o processo de desativação demoraria mais tempo. Por conseguinte, o processo global de remendação pode parecer lento em condições tão stressadas.
 
-- Falhas de saúde do cluster durante a remendação. Qualquer [degradação](/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet#System_Fabric_Health_HealthState_Error) na [saúde do cluster](./service-fabric-health-introduction.md) interromperia o processo de remendos. Esta questão acrescentaria ao tempo global necessário para remendar todo o cluster.
+- Falhas de saúde do cluster durante a remendação. Qualquer [degradação](/dotnet/api/system.fabric.health.healthstate#System_Fabric_Health_HealthState_Error) na [saúde do cluster](./service-fabric-health-introduction.md) interromperia o processo de remendos. Esta questão acrescentaria ao tempo global necessário para remendar todo o cluster.
 
 **P: Por que vejo algumas atualizações nos resultados do Windows Update que são obtidos através da REST API, mas não sob o histórico de Atualização do Windows na máquina?**
 
@@ -443,7 +443,7 @@ R: O POA utiliza o Service Fabric Repair Manager para criar tarefas de reparaç�
 
 - O POA recolhe telemetria para acompanhar o uso e o desempenho. A telemetria da aplicação segue a definição da definição de telemetria do tecido de serviço (que está ligado por predefinição).
 
-## <a name="troubleshooting"></a>Resolução de problemas
+## <a name="troubleshooting"></a>Resolução de Problemas
 
 Esta secção fornece possíveis soluções de resolução de problemas para problemas com os nós de remendação.
 

@@ -1,5 +1,5 @@
 ---
-title: Bilhete de suporte para Azure Stack Edge Pro, Azure Data Box Gateway / Microsoft Docs
+title: Registre o bilhete de suporte para Azure Stack Edge Pro, Azure Data Box Gateway gateway | Microsoft Docs
 description: Saiba como registar o pedido de suporte para problemas relacionados com as suas encomendas Azure Stack Edge Pro ou Data Box Gateway.
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 01/07/2021
 ms.author: alkohli
-ms.openlocfilehash: 5bbd02f9e15a4ee29e244b2a0307accd151ba487
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 411757f4ef4e33ccbc8a69ca2b40598b51c6d13b
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98033953"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790838"
 ---
 # <a name="open-a-support-ticket-for-azure-stack-edge-pro-and-azure-data-box-gateway"></a>Abra um bilhete de apoio para Azure Stack Edge Pro e Azure Data Box Gateway
 
@@ -96,7 +96,7 @@ Depois de criar um pedido de suporte, pode gerir o ciclo de vida do mesmo no por
 
 3. Selecione e clique num pedido de suporte. Pode ver o estado e os detalhes deste pedido. Clique **em + Nova mensagem** se quiser acompanhar este pedido.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como [resolver problemas relacionados com o Azure Stack Edge Pro](azure-stack-edge-troubleshoot.md).
-Saiba como [resolver problemas relacionados com o Data Box Gateway](data-box-gateway-troubleshoot.md).
+Saiba como [resolver problemas relacionados com o Data Box Gateway](../databox-gateway/data-box-gateway-troubleshoot.md).

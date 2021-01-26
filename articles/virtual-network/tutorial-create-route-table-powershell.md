@@ -1,5 +1,5 @@
 ---
-title: Tráfego de rede de rotas Azure PowerShell / Microsoft Docs
+title: Tráfego de rede de rota Azure PowerShell | Microsoft Docs
 description: Neste artigo, aprenda a encaminhar o tráfego de rede com uma tabela de rotas utilizando o PowerShell.
 services: virtual-network
 documentationcenter: virtual-network
@@ -17,16 +17,14 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 41c0f9546b07158a2c7fb3344698598f0c38521f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 5bd52e8865bb704497740851f6a0e3c886ed9d6d
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492102"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790212"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-powershell"></a>Tráfego de rede de rotas com uma tabela de rotas usando PowerShell
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 O Azure encaminha automaticamente o tráfego entre todas as sub-redes numa rede virtual, por predefinição. Pode criar as sua próprias rotas para substituir o encaminhamento predefinido do Azure. A capacidade de criar rotas personalizadas é útil se, por exemplo, pretender encaminhar o tráfego entre sub-redes através de uma aplicação virtual de rede (NVA). Neste artigo, vai aprender a:
 
@@ -329,7 +327,7 @@ Quando já não for necessário, utilize [o Remove-AzResourcegroup](/powershell/
 Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, criou uma tabela de rotas e associou-a a uma sub-rede. Criou um simples aparelho virtual de rede que encaminhou o tráfego de uma sub-rede pública para uma sub-rede privada. Implementar uma variedade de aparelhos virtuais de rede pré-configurados que desempenham funções de rede como firewall e otimização WAN do [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). Para saber mais sobre o encaminhamento, veja [Descrição geral do encaminhamento](virtual-networks-udr-overview.md) e [Manage a route table](manage-route-table.md) (Gerir uma tabela de rotas).
 

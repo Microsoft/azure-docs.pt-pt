@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: travisw
-ms.openlocfilehash: 09859be61029242e987603e01b5c3fba8dffb2ca
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: fc85eec008ef099d63d538e4871a1a84573f5a18
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483891"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790450"
 ---
 # <a name="what-is-a-voice-assistant"></a>O que é um assistente de voz?
 
@@ -66,7 +66,7 @@ O código de amostra para criar um assistente de voz está disponível no GitHub
 
 * [Amostras de assistente de voz no GitHub](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant)
 * [Tutorial: Ativar a voz do seu assistente construído utilizando o Serviço Azure Bot com o SDK de discurso C#](tutorial-voice-enable-your-bot-speech-sdk.md)
-* [Tutorial: Criar uma aplicação de comandos personalizados com comandos de voz simples](how-to-custom-commands-create-application-with-simple-commands.md)
+* [Tutorial: Criar uma aplicação de comandos personalizados com comandos de voz simples](./how-to-develop-custom-commands-application.md)
 
 ## <a name="customization"></a>Personalização
 
@@ -79,7 +79,7 @@ Os assistentes de voz construídos usando os serviços de Discurso Azure podem u
 > [!NOTE]
 > As opções de personalização variam de acordo com o idioma/local (ver [idiomas suportados).](language-support.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Obtenha gratuitamente uma chave de subscrição de serviço de discurso](overview.md#try-the-speech-service-for-free)
 * [Saiba mais sobre Comandos Personalizados](custom-commands.md)

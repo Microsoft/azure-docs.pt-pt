@@ -7,12 +7,12 @@ ms.subservice: language-understanding
 ms.topic: overview
 ms.date: 11/23/2020
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: fb36ab8a86a89d6383f93ad58c23956472841de2
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: f21a2cc8218dde8b0cf7203a1fcb1f5cfb9424a2
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95539265"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790872"
 ---
 # <a name="what-is-language-understanding-luis"></a>O que é o Language Understanding (LUIS)?
 
@@ -66,7 +66,7 @@ Desenhe o seu modelo com categorias de intenções de utilizador chamadas **[int
 |`When does your store open?`|HoráriodaLojaeLocalização|abre|
 |`Schedule a meeting at 1pm with Bob in Distribution`|AgendarReunião|13:00, João|
 
-Construa o modelo com as APIs [de autoria,](https://go.microsoft.com/fwlink/?linkid=2092087 "criação") ou com o **[portal LUIS,](https://www.luis.ai "Portal do LUIS")** ou ambos. Saiba mais como construir com o [portal](get-started-portal-build-app.md "portal") e as [bibliotecas de clientes SDK.](azure-sdk-quickstart.md "Bibliotecas de clientes SDK")
+Construa o modelo com as APIs [de autoria,](https://go.microsoft.com/fwlink/?linkid=2092087 "criação") ou com o **[portal LUIS,](https://www.luis.ai "Portal do LUIS")** ou ambos. Saiba mais como construir com o [portal](get-started-portal-build-app.md "portal") e as [bibliotecas de clientes SDK.](./client-libraries-rest-api.md?pivots=rest-api "Bibliotecas de clientes SDK")
 
 ## <a name="step-2-get-the-query-prediction"></a>Passo 2: Obter a previsão de consulta
 
@@ -128,14 +128,14 @@ A LUIS fornece funcionalidade a partir de Text Analytics como parte dos seus rec
 
 ## <a name="learn-with-the-quickstarts"></a>Aprenda com os Quickstarts
 
-Saiba mais sobre o LUIS com quickstarts práticos utilizando o [portal](get-started-portal-build-app.md "portal") e as [bibliotecas de clientes SDK.](azure-sdk-quickstart.md "Bibliotecas de clientes SDK")
+Saiba mais sobre o LUIS com quickstarts práticos utilizando o [portal](get-started-portal-build-app.md "portal") e as [bibliotecas de clientes SDK.](./client-libraries-rest-api.md?pivots=rest-api "Bibliotecas de clientes SDK")
 
 
 ## <a name="deploy-on-premises-using-docker-containers"></a>Implantar nas instalações utilizando contentores Docker
 
 [Utilize recipientes LUIS](luis-container-howto.md) para implantar funcionalidades de API no local. Estes recipientes Docker permitem-lhe aproximar o serviço dos seus dados por razões de conformidade, segurança ou outras razões operacionais.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Novidades](whats-new.md "Novidades") com o serviço e documentação
 * [Planeie a sua app](luis-how-plan-your-app.md "Planear a sua aplicação") com [intenções](luis-concept-intent.md "intenções") e [entidades.](luis-concept-entity-types.md "entidades")

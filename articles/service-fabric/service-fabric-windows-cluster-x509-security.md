@@ -3,12 +3,12 @@ title: Garantir um cluster no Windows utilizando certificados
 description: Comunicação segura dentro de um cluster autónomo ou no local do Azure Service Fabric, bem como entre clientes e o cluster.
 ms.topic: conceptual
 ms.date: 10/15/2017
-ms.openlocfilehash: 34ba457ce0f39705393962d5c5ec8fa11668f413
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: d75c644be47ea44f6a8a6ccac91b785af0132833
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686128"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791042"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Garantir um cluster autónomo no Windows utilizando certificados X.509
 Este artigo descreve como garantir a comunicação entre os vários nós do seu cluster Windows autónomo. Também descreve como autenticar clientes que se conectam a este cluster utilizando certificados X.509. A autenticação garante que apenas os utilizadores autorizados podem aceder ao cluster e às aplicações implementadas e executar tarefas de gestão. A segurança do certificado deve ser ativada no cluster quando o cluster for criado.  
@@ -302,7 +302,7 @@ Depois de ter certificados, pode instalá-los nos nós do cluster. Os seus nós 
     $PfxFilePath ="C:\mypfx.pfx"
     Import-PfxCertificate -Exportable -CertStoreLocation Cert:\LocalMachine\My -FilePath $PfxFilePath -Password (ConvertTo-SecureString -String $pswd -AsPlainText -Force)
     ```
-3. Agora, desacorde o controlo de acesso neste certificado para que o processo de Tecido de Serviço, que funciona sob a conta de Serviço de Rede, possa usá-lo executando o seguinte script. Fornecer a impressão digital do certificado e **serviço de rede** para a conta de serviço. Pode verificar se os ACLs no certificado estão **Start** corretos abrindo o certificado em  >  **Iniciar a Gestão de Certificados de Computador** e olhando para todas as **tarefas**  >  **gerir chaves privadas**.
+3. Agora, desacorde o controlo de acesso neste certificado para que o processo de Tecido de Serviço, que funciona sob a conta de Serviço de Rede, possa usá-lo executando o seguinte script. Fornecer a impressão digital do certificado e **serviço de rede** para a conta de serviço. Pode verificar se os ACLs no certificado estão corretos abrindo o certificado em  >  **Iniciar a Gestão de Certificados de Computador** e olhando para todas as **tarefas**  >  **gerir chaves privadas**.
    
     ```powershell
     param
@@ -355,7 +355,7 @@ $ConnectArgs = @{  ConnectionEndpoint = '10.7.0.5:19000';  X509Credential = $Tru
 Connect-ServiceFabricCluster $ConnectArgs
 ```
 
-Em seguida, pode executar outros comandos PowerShell para trabalhar com este cluster. Por exemplo, pode executar [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) para mostrar uma lista de nós neste cluster seguro.
+Em seguida, pode executar outros comandos PowerShell para trabalhar com este cluster. Por exemplo, pode executar [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode) para mostrar uma lista de nós neste cluster seguro.
 
 
 Para remover o cluster, ligue-se ao nó no cluster onde descarregou o pacote 'Service Fabric', abra uma linha de comando e vá para a pasta do pacote. Agora executar o seguinte comando:

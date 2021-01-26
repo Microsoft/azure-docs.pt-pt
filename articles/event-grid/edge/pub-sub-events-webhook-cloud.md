@@ -1,5 +1,5 @@
 ---
-title: Publicar, subscrever eventos em nuvem - Azure Event Grid IoT Edge Microsoft Docs
+title: Publicar, subscrever eventos na nuvem - Azure Event Grid IoT Edge | Microsoft Docs
 description: Publicar, subscrever eventos em nuvem usando Webhook com Grade de Eventos no IoT Edge
 author: VidyaKukke
 manager: rajarv
@@ -8,12 +8,12 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 12bcb54f4bfdf17209324febeba380ff7789fc0f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec7ecb77d37ed1cdf1d13aa7191f5d50e0008c20
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88998990"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790804"
 ---
 # <a name="tutorial-publish-subscribe-to-events-in-cloud"></a>Tutorial: Publicar, subscrever eventos na nuvem
 
@@ -31,7 +31,7 @@ Para completar este tutorial, você precisará:
 
 ## <a name="create-an-azure-function-in-the-azure-portal"></a>Criar uma função Azure no portal Azure
 
-Siga os passos descritos no [tutorial](../../azure-functions/functions-create-first-azure-function.md) para criar uma função Azure. 
+Siga os passos descritos no [tutorial](../../azure-functions/functions-get-started.md) para criar uma função Azure. 
 
 Substitua o corte de código pelo seguinte código:
 
@@ -195,7 +195,7 @@ Pode ver o evento entregue no portal Azure sob a opção **Monitor** da sua fun�
 
 * Eliminar a função Azure criada no portal Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, criou um tópico de grelha de eventos, subscrição e eventos publicados. Agora que conhece os passos básicos, veja os seguintes artigos:
 

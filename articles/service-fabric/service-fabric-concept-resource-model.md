@@ -3,12 +3,12 @@ title: Modelo de recurso de aplicação Azure Service Fabric
 description: Este artigo fornece uma visão geral da gestão de uma aplicação Azure Service Fabric utilizando o Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 10/21/2019
-ms.openlocfilehash: f4fbd775ab479437c350dc24b9b5511f7a614c8b
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 0019f154f301d2b688d4c16c9adb36ec386adef2
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576099"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790728"
 ---
 # <a name="service-fabric-application-resource-model"></a>Modelo de recurso de aplicação de tecido de serviço
 
@@ -171,19 +171,19 @@ Você pode atualizar uma aplicação que já foi implantada para um cluster de T
 
 Para eliminar uma aplicação que foi implementada utilizando o modelo de recursos de aplicação no Gestor de Recursos:
 
-1. Utilize o [cmdlet Get-AzResource](/powershell/module/az.resources/get-azresource?view=azps-2.5.0) para obter o ID de recursos para a aplicação:
+1. Utilize o [cmdlet Get-AzResource](/powershell/module/az.resources/get-azresource) para obter o ID de recursos para a aplicação:
 
     ```powershell
     Get-AzResource  -Name <String> | f1
     ```
 
-1. Utilize o [cmdlet Remove-AzResource](/powershell/module/az.resources/remove-azresource?view=azps-2.5.0) para eliminar os recursos da aplicação:
+1. Utilize o [cmdlet Remove-AzResource](/powershell/module/az.resources/remove-azresource) para eliminar os recursos da aplicação:
 
     ```powershell
     Remove-AzResource  -ResourceId <String> [-Force] [-ApiVersion <String>]
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Obtenha informações sobre o modelo de recursos de aplicação:
 

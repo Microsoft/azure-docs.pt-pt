@@ -4,12 +4,12 @@ description: Saiba como implementar um cluster do Service Fabric do Linux numa r
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 52eba2e5780b1a66f3884a764631908335372273
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 77cc49c1b79e5c24e78a67a69493aa0b0059d565
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92738961"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791076"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Implementar um cluster de tecido de serviço Linux numa rede virtual Azure
 
@@ -52,7 +52,7 @@ Este modelo implementa um cluster seguro de sete máquinas virtuais e três tipo
 
 ### <a name="service-fabric-cluster"></a>Cluster do Service Fabric
 
-No recurso **Microsoft.ServiceFabric/clusters** , é implementado um cluster Linux com as seguintes características:
+No recurso **Microsoft.ServiceFabric/clusters**, é implementado um cluster Linux com as seguintes características:
 
 * três tipos de nó
 * cinco nós no tipo de nó primário (configurável nos parâmetros do modelo), um nó em cada um dos outros tipos de nós
@@ -66,7 +66,7 @@ No recurso **Microsoft.ServiceFabric/clusters** , é implementado um cluster Lin
 
 ### <a name="azure-load-balancer"></a>Balanceador de carga do Azure
 
-No recurso **Microsoft.Network/loadBalancers** , é configurado um balanceador de carga e são configuradas pesquisas e regras para as seguintes portas:
+No recurso **Microsoft.Network/loadBalancers**, é configurado um balanceador de carga e são configuradas pesquisas e regras para as seguintes portas:
 
 * ponto final de ligação de cliente: 19000
 * ponto final de gateway HTTP: 19080
@@ -75,7 +75,7 @@ No recurso **Microsoft.Network/loadBalancers** , é configurado um balanceador d
 
 ### <a name="virtual-network-and-subnet"></a>Rede virtual e sub-rede
 
-Os nomes da rede virtual e sub-rede são declarados nos parâmetros do modelo.  Os espaços de endereços da rede virtual e da sub-rede também são declarados nos parâmetros do modelo e configurados no recurso **Microsoft.Network/virtualNetworks** :
+Os nomes da rede virtual e sub-rede são declarados nos parâmetros do modelo.  Os espaços de endereços da rede virtual e da sub-rede também são declarados nos parâmetros do modelo e configurados no recurso **Microsoft.Network/virtualNetworks**:
 
 * espaço de endereços de rede virtual: 10.0.0.0/16
 * espaço de endereços de sub-rede do Service Fabric: 10.0.2.0/24
@@ -106,7 +106,7 @@ O modelo deste artigo implementa um cluster que utiliza a impressão digital do 
 
 ### <a name="create-a-cluster-using-an-existing-certificate"></a>Criar um cluster através de um certificado existente
 
-O script seguinte utiliza o comando [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest) e o modelo para implementar um novo cluster protegido por um certificado existente. O comando também cria um novo cofre de chaves no Azure e carrega o certificado.
+O script seguinte utiliza o comando [az sf cluster create](/cli/azure/sf/cluster) e o modelo para implementar um novo cluster protegido por um certificado existente. O comando também cria um novo cofre de chaves no Azure e carrega o certificado.
 
 ```azurecli
 ResourceGroupName="sflinuxclustergroup"
@@ -132,7 +132,7 @@ az sf cluster create --resource-group $ResourceGroupName --location $Location \
 
 ### <a name="create-a-cluster-using-a-new-self-signed-certificate"></a>Criar um cluster ao utilizar um novo certificado autoassinado
 
-O script seguinte utiliza o comando [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest) e o modelo para implementar um novo cluster no Azure. O comando também cria um novo cofre chave em Azure, adiciona um novo certificado auto-assinado ao cofre de chaves, e descarrega o arquivo de certificado localmente.
+O script seguinte utiliza o comando [az sf cluster create](/cli/azure/sf/cluster) e o modelo para implementar um novo cluster no Azure. O comando também cria um novo cofre chave em Azure, adiciona um novo certificado auto-assinado ao cofre de chaves, e descarrega o arquivo de certificado localmente.
 
 ```azurecli
 ResourceGroupName="sflinuxclustergroup"
@@ -169,7 +169,7 @@ sfctl cluster health
 
 Se não passar imediatamente para o artigo seguinte, poderá [eliminar o cluster](./service-fabric-tutorial-delete-cluster.md) para evitar incorrer em custos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Aprenda a [escalar um Cluster.](service-fabric-tutorial-scale-cluster.md)
 

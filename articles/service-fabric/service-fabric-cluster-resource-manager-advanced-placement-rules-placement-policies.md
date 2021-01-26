@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5a4586c9c1be51b0ebbdebcf0c23289fc39f9eda
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 263e45928642aa74d682fc490e424a24deeb8076
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96485506"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790686"
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>Políticas de colocação para serviços de tecidos de serviço
 As políticas de colocação são regras adicionais que podem ser usadas para governar a colocação de serviços em alguns cenários específicos e menos comuns. Alguns exemplos desses cenários são:
@@ -150,7 +150,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 >
 
 > [!NOTE]
-> Atualmente, a política só é suportada para serviços apátridas com [modo de ativação de pacote de serviços](/dotnet/api/system.fabric.description.servicepackageactivationmode?view=azure-dotnet)ExclusiveProcess .
+> Atualmente, a política só é suportada para serviços apátridas com [modo de ativação de pacote de serviços](/dotnet/api/system.fabric.description.servicepackageactivationmode)ExclusiveProcess .
 >
 
 > [!WARNING]
@@ -158,10 +158,10 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 >
 
 > [!NOTE]
-> A utilização de um valor elevado de [MinInstanceCount](/dotnet/api/system.fabric.description.statelessservicedescription.mininstancecount?view=azure-dotnet) com esta política de colocação pode levar a atualizações de aplicações presas. Por exemplo, se tiver um cluster de cinco nós e definir InstanceCount=10, terá duas instâncias em cada nó. Se definir MinInstanceCount=9, uma tentativa de atualização de aplicações pode ficar presa; com MinInstanceCount=8, isto pode ser evitado.
+> A utilização de um valor elevado de [MinInstanceCount](/dotnet/api/system.fabric.description.statelessservicedescription.mininstancecount) com esta política de colocação pode levar a atualizações de aplicações presas. Por exemplo, se tiver um cluster de cinco nós e definir InstanceCount=10, terá duas instâncias em cada nó. Se definir MinInstanceCount=9, uma tentativa de atualização de aplicações pode ficar presa; com MinInstanceCount=8, isto pode ser evitado.
 >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Para obter mais informações sobre serviços de configuração, [Saiba mais sobre a configuração dos serviços](service-fabric-cluster-resource-manager-configure-services.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies/cluster-invalid-placement-domain.png

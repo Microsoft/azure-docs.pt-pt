@@ -3,12 +3,12 @@ title: Configurar configurações de utilização em laboratórios de Serviços 
 description: Aprenda a configurar o número de alunos para um laboratório, registei-os no laboratório, controle o número de horas que podem usar o VM, e muito mais.
 ms.topic: article
 ms.date: 12/01/2020
-ms.openlocfilehash: 3b05246445aea708312891ec631a35da3bc1eb8e
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 380a587eecb276c457b93ca3c3f3ac08b2239275
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602636"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791968"
 ---
 # <a name="add-and-manage-lab-users"></a>Adicionar e gerir utilizadores de laboratório
 
@@ -24,7 +24,7 @@ Este artigo mostra como adicionar utilizadores a um laboratório.
 
 Pode agora sincronizar uma lista de utilizadores de laboratório para um grupo existente do Azure Ative Directory (Azure AD) para que não tenha de adicionar ou eliminar manualmente os utilizadores. 
 
-Um grupo Azure AD pode ser criado dentro do Azure Ative Directory da sua organização para gerir o acesso a recursos organizacionais e aplicações baseadas na nuvem. Para saber mais, consulte [os grupos AD Azure.](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups) Se a sua organização utilizar os serviços Microsoft Office 365 ou Azure, a sua organização já terá administradores que gerem o seu Azure Ative Directory. 
+Um grupo Azure AD pode ser criado dentro do Azure Ative Directory da sua organização para gerir o acesso a recursos organizacionais e aplicações baseadas na nuvem. Para saber mais, consulte [os grupos AD Azure.](../active-directory/fundamentals/active-directory-manage-groups.md) Se a sua organização utilizar os serviços Microsoft Office 365 ou Azure, a sua organização já terá administradores que gerem o seu Azure Ative Directory. 
 
 ### <a name="sync-users-with-azure-ad-group"></a>Sincronizar utilizadores com o grupo AZure AD
 

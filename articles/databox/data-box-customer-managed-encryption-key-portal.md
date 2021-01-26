@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/19/2020
 ms.author: alkohli
 ms.subservice: pod
-ms.openlocfilehash: 80a6824edb92d8337481f592cbbf5eb23255b383
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: e6b588ddea5bf4b4c92e89d9cebb37b09b9a86af
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185534"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791549"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-azure-data-box"></a>Utilize chaves geridas pelo cliente no Cofre da Chave Azure para a Azure Data Box
 
@@ -27,7 +27,7 @@ Este artigo mostra como ativar uma chave gerida pelo cliente para a sua encomend
 
 Este artigo aplica-se a dispositivos Azure Data Box e Azure Data Box Heavy.
 
-## <a name="requirements"></a>Requisitos
+## <a name="requirements"></a>Requirements
 
 A chave gerida pelo cliente para uma encomenda de Caixa de Dados deve satisfazer os seguintes requisitos:
 
@@ -95,7 +95,7 @@ Para ativar uma chave gerida pelo cliente para a sua encomenda de Caixa de Dados
 
 7. Selecione o tipo de identidade a utilizar para gerir a chave gerida pelo cliente para este recurso. Pode utilizar a identidade atribuída ao **sistema** que foi gerada durante a criação da encomenda ou escolher uma identidade atribuída ao utilizador.
 
-    Uma identidade atribuída ao utilizador é um recurso independente que pode usar para gerir o acesso aos recursos. Para obter mais informações, consulte [os tipos de identidade geridos.](/azure/active-directory/managed-identities-azure-resources/overview)
+    Uma identidade atribuída ao utilizador é um recurso independente que pode usar para gerir o acesso aos recursos. Para obter mais informações, consulte [os tipos de identidade geridos.](../active-directory/managed-identities-azure-resources/overview.md)
 
     ![Selecione o tipo de identidade](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-13.png)
 
@@ -103,7 +103,7 @@ Para ativar uma chave gerida pelo cliente para a sua encomenda de Caixa de Dados
 
     ![Selecione uma identidade para usar](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-14.png)
 
-    Não pode criar uma nova identidade de utilizador aqui. Para saber como criar um, consulte [Criar, listar, excluir ou atribuir uma função a uma identidade gerida atribuída pelo utilizador utilizando o portal Azure](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal).
+    Não pode criar uma nova identidade de utilizador aqui. Para saber como criar um, consulte [Criar, listar, excluir ou atribuir uma função a uma identidade gerida atribuída pelo utilizador utilizando o portal Azure](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
 
     A identidade do utilizador selecionada é mostrada nas definições do **tipo encriptação.**
 
@@ -187,9 +187,9 @@ Se receber quaisquer erros relacionados com a sua chave gerida pelo cliente, uti
 |-------------|--------------|---------|
 | SsemUserErrorEncryptionKeyDisabled| Não foi possível obter a chave-passe, uma vez que a chave gerida pelo cliente está desativada.| Sim, ativando a versão chave.|
 | SsemUserErrorEncryptionKeyExpired| Não foi possível ir buscar a chave-passe, uma vez que a chave gerida pelo cliente expirou.| Sim, ativando a versão chave.|
-| SsemUserErrorKeyDetailsNotFound| Não foi possível ir buscar a chave de passagem, uma vez que a chave gerida pelo cliente não foi encontrada.| Se apagou o cofre da chave, não poderá recuperar a chave gerida pelo cliente.  Se você emigrou o cofre chave para um inquilino diferente, consulte [Change a key vault iD após um movimento de subscrição](../key-vault/general/move-subscription.md). Se apagar o cofre da chave:<ol><li>Sim, se estiver na duração da proteção da purga, utilizando os passos da [Recuperar um cofre de chaves.](../key-vault/general/soft-delete-powershell.md#recovering-a-key-vault)</li><li>Não, se for para além da duração da proteção da purga.</li></ol><br>Caso contrário, se o cofre-chave sofreu uma migração de inquilinos, sim, pode ser recuperado usando um dos passos abaixo: <ol><li>Reverta o cofre de volta para o velho inquilino.</li><li>Desa `Identity = None` parte e, em seguida, reesuse o valor para `Identity = SystemAssigned` . Isto elimina e recria a identidade uma vez criada a nova identidade. Ativar `Get` `Wrap` , e `Unwrap` permissões para a nova identidade na política de acesso do cofre-chave.</li></ol> |
+| SsemUserErrorKeyDetailsNotFound| Não foi possível ir buscar a chave de passagem, uma vez que a chave gerida pelo cliente não foi encontrada.| Se apagou o cofre da chave, não poderá recuperar a chave gerida pelo cliente.  Se você emigrou o cofre chave para um inquilino diferente, consulte [Change a key vault iD após um movimento de subscrição](../key-vault/general/move-subscription.md). Se apagar o cofre da chave:<ol><li>Sim, se estiver na duração da proteção da purga, utilizando os passos da [Recuperar um cofre de chaves.](../key-vault/general/key-vault-recovery.md?tabs=azure-powershell#key-vault-powershell)</li><li>Não, se for para além da duração da proteção da purga.</li></ol><br>Caso contrário, se o cofre-chave sofreu uma migração de inquilinos, sim, pode ser recuperado usando um dos passos abaixo: <ol><li>Reverta o cofre de volta para o velho inquilino.</li><li>Desa `Identity = None` parte e, em seguida, reesuse o valor para `Identity = SystemAssigned` . Isto elimina e recria a identidade uma vez criada a nova identidade. Ativar `Get` `Wrap` , e `Unwrap` permissões para a nova identidade na política de acesso do cofre-chave.</li></ol> |
 | SsemUserErrorKeyVaultBadRequestExcepção | Aplicou uma chave gerida pelo cliente, mas o acesso à chave não foi concedido ou foi revogado, ou não foi possível aceder ao cofre de chaves devido à ativação da firewall. | Adicione a identidade selecionada no cofre de chaves para permitir o acesso à chave gerida pelo cliente. Se o cofre-chave tiver a firewall ativada, mude para uma identidade atribuída ao sistema e adicione uma chave gerida pelo cliente. Para mais informações, consulte como [ativar a chave.](#enable-key) |
-| SsemUserErrorKeyVaultDetailsNotFound| Não foi possível ir buscar a chave-chave, uma vez que o cofre-chave associado para a chave gerida pelo cliente não foi encontrado. | Se apagou o cofre da chave, não poderá recuperar a chave gerida pelo cliente.  Se você emigrou o cofre chave para um inquilino diferente, consulte [Change a key vault iD após um movimento de subscrição](../key-vault/general/move-subscription.md). Se apagar o cofre da chave:<ol><li>Sim, se estiver na duração da proteção da purga, utilizando os passos da [Recuperar um cofre de chaves.](../key-vault/general/soft-delete-powershell.md#recovering-a-key-vault)</li><li>Não, se for para além da duração da proteção da purga.</li></ol><br>Caso contrário, se o cofre-chave sofreu uma migração de inquilinos, sim, pode ser recuperado usando um dos passos abaixo: <ol><li>Reverta o cofre de volta para o velho inquilino.</li><li>Desa `Identity = None` parte e, em seguida, reesuse o valor para `Identity = SystemAssigned` . Isto elimina e recria a identidade uma vez criada a nova identidade. Ativar `Get` `Wrap` , e `Unwrap` permissões para a nova identidade na política de acesso do cofre-chave.</li></ol> |
+| SsemUserErrorKeyVaultDetailsNotFound| Não foi possível ir buscar a chave-chave, uma vez que o cofre-chave associado para a chave gerida pelo cliente não foi encontrado. | Se apagou o cofre da chave, não poderá recuperar a chave gerida pelo cliente.  Se você emigrou o cofre chave para um inquilino diferente, consulte [Change a key vault iD após um movimento de subscrição](../key-vault/general/move-subscription.md). Se apagar o cofre da chave:<ol><li>Sim, se estiver na duração da proteção da purga, utilizando os passos da [Recuperar um cofre de chaves.](../key-vault/general/key-vault-recovery.md?tabs=azure-powershell#key-vault-powershell)</li><li>Não, se for para além da duração da proteção da purga.</li></ol><br>Caso contrário, se o cofre-chave sofreu uma migração de inquilinos, sim, pode ser recuperado usando um dos passos abaixo: <ol><li>Reverta o cofre de volta para o velho inquilino.</li><li>Desa `Identity = None` parte e, em seguida, reesuse o valor para `Identity = SystemAssigned` . Isto elimina e recria a identidade uma vez criada a nova identidade. Ativar `Get` `Wrap` , e `Unwrap` permissões para a nova identidade na política de acesso do cofre-chave.</li></ol> |
 | SsemUserErrorSystemAssignedIdentityAbsent  | Não foi possível ir buscar a chave de passagem, uma vez que a chave gerida pelo cliente não foi encontrada.| Sim, verifique se: <ol><li>O cofre ainda tem o MSI na política de acesso.</li><li>A identidade é do tipo sistema atribuído.</li><li>Ativar permissões de Obter, Embrulhar e Desembrulhar a identidade na política de acesso do cofre-chave.</li></ol>|
 | SsemUserErrorUserAssignedLimitEdReached | A adição de uma nova Identidade Atribuída ao Utilizador falhou uma vez que atingiu o limite do número total de identidades atribuídas pelo utilizador que podem ser adicionadas. | Por favor, relemisse a operação com menos identidades de utilizador ou remova algumas identidades atribuídas pelo utilizador do recurso antes de voltar a tentar. |
 | SsemUserErrorCrossTenantIdentityAccessForbidden | A operação de acesso à identidade gerida falhou. <br> Nota: Isto é para o cenário em que a subscrição é transferida para um inquilino diferente. O cliente tem de mover manualmente a identidade para novo inquilino. Correio de PFA para mais detalhes. | Por favor, mova a identidade selecionada para o novo inquilino sob o qual a subscrição está presente. Para mais informações, consulte como [ativar a chave.](#enable-key) |
@@ -199,7 +199,7 @@ Se receber quaisquer erros relacionados com a sua chave gerida pelo cliente, uti
 | SsemUserErrorKeyVaultBadRequestExcepção | Aplicou uma chave gerida pelo cliente, mas o acesso à chave não foi concedido ou foi revogado, ou não foi possível aceder ao cofre de chaves devido à ativação da firewall. | Adicione a identidade selecionada no cofre de chaves para permitir o acesso à chave gerida pelo cliente. Se o cofre-chave tiver a firewall ativada, mude para uma identidade atribuída ao sistema e adicione uma chave gerida pelo cliente. Para mais informações, consulte como [ativar a chave.](#enable-key) |
 | Erro genérico  | Não consegui pegar a chave.| Isto é um erro genérico. Contacte o Microsoft Support para resolver o erro e determinar os próximos passos.|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [O que é o Azure Key Vault?](../key-vault/general/overview.md)
 - [Início Rápido: Definir e obter um segredo do Azure Key Vault com o portal do Azure](../key-vault/secrets/quick-create-portal.md)

@@ -3,12 +3,12 @@ title: Adicione ou remova os nódinhos a um cluster de tecido de serviço autón
 description: Aprenda a adicionar ou remover nós a um cluster de Tecido de Serviço Azure numa máquina física ou virtual que executa o Windows Server, que pode estar no local ou em qualquer nuvem.
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.openlocfilehash: 3e5f32274d2263bc5bf1bbec8f1626d519f8ca3f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26945b4785a0591d997139f2427b0ae6b59fa742
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842925"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790601"
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Adicionar ou remover nós de um cluster do Service Fabric autónomo em execução no Windows Server
 Depois de ter criado o seu cluster de Tecido de [Serviço autónomo em máquinas do Windows Server,](service-fabric-cluster-creation-for-windows-server.md)as suas necessidades (empresariais) podem mudar e terá de adicionar ou remover nós ao seu cluster, conforme descrito neste artigo.
@@ -47,9 +47,9 @@ Depois de ter criado o seu cluster de Tecido de [Serviço autónomo em máquinas
 
    ```
 
-   Quando o script terminar de funcionar, pode verificar se o novo nó foi adicionado executando o [cmdlet Get-ServiceFabricNode.](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps)
+   Quando o script terminar de funcionar, pode verificar se o novo nó foi adicionado executando o [cmdlet Get-ServiceFabricNode.](/powershell/module/servicefabric/get-servicefabricnode)
 
-7. Para garantir a consistência entre diferentes nós no cluster, tem de iniciar uma atualização de configuração. Executar [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) para obter o mais recente ficheiro de configuração e adicionar o nó recém-adicionado à secção "Nós". Recomenda-se também que tenha sempre a mais recente configuração de cluster disponível no caso de precisar de recolocar um cluster com a mesma configuração.
+7. Para garantir a consistência entre diferentes nós no cluster, tem de iniciar uma atualização de configuração. Executar [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration) para obter o mais recente ficheiro de configuração e adicionar o nó recém-adicionado à secção "Nós". Recomenda-se também que tenha sempre a mais recente configuração de cluster disponível no caso de precisar de recolocar um cluster com a mesma configuração.
 
    ```
     {
@@ -61,17 +61,17 @@ Depois de ter criado o seu cluster de Tecido de [Serviço autónomo em máquinas
     }
    ```
 
-8. Executar [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps) para iniciar a atualização.
+8. Executar [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade) para iniciar a atualização.
 
    ```
    Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>
    ```
 
-   Pode monitorizar o progresso da atualização no Service Fabric Explorer. Em alternativa, pode executar [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps).
+   Pode monitorizar o progresso da atualização no Service Fabric Explorer. Em alternativa, pode executar [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade).
 
 ### <a name="add-nodes-to-clusters-configured-with-windows-security-using-gmsa"></a>Adicione os gDes aos clusters configurados com a Segurança do Windows utilizando gMSA
 Para os clusters configurados com a Conta de Serviço Gerido do Grupo (gMSA), https://technet.microsoft.com/library/hh831782.aspx) um novo nó pode ser adicionado usando uma atualização de configuração:
-1. Executar [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) em qualquer um dos nós existentes para obter o ficheiro de configuração mais recente e adicionar detalhes sobre o novo nó que pretende adicionar na secção "Nós". Certifique-se de que o novo nó faz parte da conta gerida pelo mesmo grupo. Esta conta deve ser um Administrador em todas as máquinas.
+1. Executar [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration) em qualquer um dos nós existentes para obter o ficheiro de configuração mais recente e adicionar detalhes sobre o novo nó que pretende adicionar na secção "Nós". Certifique-se de que o novo nó faz parte da conta gerida pelo mesmo grupo. Esta conta deve ser um Administrador em todas as máquinas.
 
     ```
         {
@@ -82,20 +82,20 @@ Para os clusters configurados com a Conta de Serviço Gerido do Grupo (gMSA), ht
             "upgradeDomain": "UD1"
         }
     ```
-2. Executar [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps) para iniciar a atualização.
+2. Executar [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade) para iniciar a atualização.
 
     ```
     Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>
     ```
-    Pode monitorizar o progresso da atualização no Service Fabric Explorer. Em alternativa, pode executar [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)
+    Pode monitorizar o progresso da atualização no Service Fabric Explorer. Em alternativa, pode executar [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade)
 
 ### <a name="add-node-types-to-your-cluster"></a>Adicione tipos de nó ao seu cluster
-Para adicionar um novo tipo de nó, modifique a sua configuração para incluir o novo tipo de nó na secção "NodeTypes" em "Propriedades" e inicie uma atualização de configuração utilizando [start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps). Uma vez concluída a atualização, pode adicionar novos nós ao seu cluster com este tipo de nó.
+Para adicionar um novo tipo de nó, modifique a sua configuração para incluir o novo tipo de nó na secção "NodeTypes" em "Propriedades" e inicie uma atualização de configuração utilizando [start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade). Uma vez concluída a atualização, pode adicionar novos nós ao seu cluster com este tipo de nó.
 
 ## <a name="remove-nodes-from-your-cluster"></a>Remova os nódes do seu cluster
 Um nó pode ser removido de um cluster utilizando uma atualização de configuração, da seguinte forma:
 
-1. Executar [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) para obter o ficheiro de configuração mais recente e *remover* o nó da secção "Nós".
+1. Executar [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration) para obter o ficheiro de configuração mais recente e *remover* o nó da secção "Nós".
 Adicione o parâmetro "NodesToBeRemoved" à secção "Configuração" dentro da secção "FabricSettings". O "valor" deve ser uma lista separada por vírgula de nomes de nós que precisam de ser removidos.
 
     ```
@@ -119,13 +119,13 @@ Adicione o parâmetro "NodesToBeRemoved" à secção "Configuração" dentro da 
             }
         ]
     ```
-2. Executar [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps) para iniciar a atualização.
+2. Executar [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade) para iniciar a atualização.
 
     ```
     Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>
 
     ```
-    Pode monitorizar o progresso da atualização no Service Fabric Explorer. Em alternativa, pode executar [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps).
+    Pode monitorizar o progresso da atualização no Service Fabric Explorer. Em alternativa, pode executar [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade).
 
 > [!NOTE]
 > A remoção dos nós pode iniciar várias atualizações. Alguns nós são marcados com `IsSeedNode=”true”` etiqueta e podem ser identificados consultando o manifesto do cluster usando `Get-ServiceFabricClusterManifest` . A remoção de tais nós pode demorar mais tempo do que outros, uma vez que os nós de sementes terão de ser movidos nesses cenários. O cluster deve manter um mínimo de 3 nós do tipo de nó primário.
@@ -133,14 +133,14 @@ Adicione o parâmetro "NodesToBeRemoved" à secção "Configuração" dentro da 
 > 
 
 ### <a name="remove-node-types-from-your-cluster"></a>Remova os tipos de nó do seu cluster
-Antes de remover um tipo de nó, verifique se existem nóles que referenciam o tipo de nó. Retire estes nós antes de remover o tipo de nó correspondente. Uma vez removidos todos os nós correspondentes, pode remover o NodeType da configuração do cluster e iniciar uma atualização de configuração utilizando [start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps).
+Antes de remover um tipo de nó, verifique se existem nóles que referenciam o tipo de nó. Retire estes nós antes de remover o tipo de nó correspondente. Uma vez removidos todos os nós correspondentes, pode remover o NodeType da configuração do cluster e iniciar uma atualização de configuração utilizando [start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade).
 
 
 ### <a name="replace-primary-nodes-of-your-cluster"></a>Substitua os nóns primários do seu cluster
 A substituição dos nós primários deve ser executada um nó após o outro, em vez de remover e, em seguida, adicionar em lotes.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Definições de configuração para cluster de Windows autónomo](service-fabric-cluster-manifest.md)
 * [Garantir um cluster autónomo no Windows utilizando certificados X509](service-fabric-windows-cluster-x509-security.md)
 * [Crie um cluster de tecido de serviço autónomo com VMs Azure executando Windows](./service-fabric-cluster-creation-via-arm.md)

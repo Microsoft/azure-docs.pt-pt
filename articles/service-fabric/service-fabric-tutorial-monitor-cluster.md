@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.author: srrengar
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: f9ad0f443b1647499f7085693f34f4da9ec85398
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: ecd05a838425d57e0eaff2fa571d72b5a87e92a6
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331996"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791782"
 ---
 # <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>Tutorial: Monitorize um cluster de tecido de serviço em Azure
 
@@ -229,7 +229,7 @@ Para ver os contadores de desempenho, vá ao [portal Azure](https://portal.azure
 
 Selecione o **serviço de recursosFabric (mysfomsworkspace)** e, em seguida, **Log Analytics Workspace**, e, em seguida, **Configurações Avançadas**.
 
-Clique em **Dados**e, em seguida, clique em **Contadores de Desempenho do Windows**. Há uma lista de contadores predefinidos que pode escolher para ativar e também pode definir o intervalo para recolha. Também pode adicionar [contadores de desempenho adicionais](service-fabric-diagnostics-event-generation-perf.md) para recolher. O formato adequado é referenciado neste [artigo.](/windows/desktop/PerfCtrs/specifying-a-counter-path) Clique **em Guardar**e, em seguida, clique em **OK**.
+Clique em **Dados** e, em seguida, clique em **Contadores de Desempenho do Windows**. Há uma lista de contadores predefinidos que pode escolher para ativar e também pode definir o intervalo para recolha. Também pode adicionar [contadores de desempenho adicionais](service-fabric-diagnostics-event-generation-perf.md) para recolher. O formato adequado é referenciado neste [artigo.](/windows/desktop/PerfCtrs/specifying-a-counter-path) Clique **em Guardar** e, em seguida, clique em **OK**.
 
 Feche a lâmina de Definições Avançadas e selecione o resumo do **espaço de trabalho** na rubrica **Geral.** Para cada uma das soluções ativadas existe um azulejo gráfico, incluindo um para Tecido de Serviço. Clique no gráfico **de Tecido de Serviço** para continuar na solução Service Fabric Analytics.
 
@@ -240,7 +240,7 @@ Selecione o gráfico **métrico** do recipiente para ver detalhes adicionais. Ta
 ## <a name="query-the-eventstore-service"></a>Consulta do serviço EventStore
 O [serviço EventStore](service-fabric-diagnostics-eventstore.md) fornece uma forma de entender o estado do seu cluster ou cargas de trabalho num dado momento. O EventStore é um serviço stateful Service Fabric que mantém eventos do cluster. Os eventos são expostos através do [Service Fabric Explorer,](service-fabric-visualizing-your-cluster.md)REST e APIs. O EventStore consulta o cluster diretamente para obter dados de diagnóstico em qualquer entidade do seu cluster Para ver uma lista completa de eventos disponíveis na Loja de Eventos, consulte [eventos de Tecido de Serviço.](service-fabric-diagnostics-event-generation-operational.md)
 
-As APIs da EventStore podem ser consultadas programáticamente utilizando a biblioteca do [cliente do Service Fabric.](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet#client-library)
+As APIs da EventStore podem ser consultadas programáticamente utilizando a biblioteca do [cliente do Service Fabric.](/dotnet/api/overview/azure/service-fabric#client-library)
 
 Aqui está um pedido de exemplo para todos os eventos de cluster entre 2018-04-03T18:00:00Z e 2018-04-04T18:00:00Z, através da função GetClusterEventListAsync.
 
@@ -299,10 +299,10 @@ A Service Fabric introduz um [modelo de saúde](service-fabric-health-introducti
 
 O cluster é automaticamente povoado com relatórios de saúde enviados pelos componentes do sistema. Leia mais na [Use system health reports to troubleshoot](service-fabric-understand-and-troubleshoot-with-system-health-reports.md).
 
-A Service Fabric expõe consultas de saúde para cada um dos tipos de [entidades](service-fabric-health-introduction.md#health-entities-and-hierarchy)suportadas. Podem ser acedidos através da API, utilizando métodos em [FabricClient.HealthManager,](/dotnet/api/system.fabric.fabricclient.healthmanager?view=azure-dotnet)PowerShell cmdlets e REST. Estas consultas devolvem informações completas sobre a saúde sobre a entidade: o estado de saúde agregado, os eventos de saúde das entidades, os estados de saúde infantil (quando aplicável), as avaliações pouco saudáveis (quando a entidade não é saudável) e as estatísticas de saúde das crianças (quando aplicável).
+A Service Fabric expõe consultas de saúde para cada um dos tipos de [entidades](service-fabric-health-introduction.md#health-entities-and-hierarchy)suportadas. Podem ser acedidos através da API, utilizando métodos em [FabricClient.HealthManager,](/dotnet/api/system.fabric.fabricclient.healthmanager)PowerShell cmdlets e REST. Estas consultas devolvem informações completas sobre a saúde sobre a entidade: o estado de saúde agregado, os eventos de saúde das entidades, os estados de saúde infantil (quando aplicável), as avaliações pouco saudáveis (quando a entidade não é saudável) e as estatísticas de saúde das crianças (quando aplicável).
 
 ### <a name="get-cluster-health"></a>Obtenha saúde de cluster
-O [Get-ServiceFabricClusterHealth cmdlet](/powershell/module/servicefabric/get-servicefabricclusterhealth) devolve a saúde da entidade do cluster e contém os estados de saúde das aplicações e nóns (crianças do cluster).  Em primeiro lugar, ligue-se ao cluster utilizando o [cmdlet Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps).
+O [Get-ServiceFabricClusterHealth cmdlet](/powershell/module/servicefabric/get-servicefabricclusterhealth) devolve a saúde da entidade do cluster e contém os estados de saúde das aplicações e nóns (crianças do cluster).  Em primeiro lugar, ligue-se ao cluster utilizando o [cmdlet Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster).
 
 O estado do cluster é de 11 nós, a aplicação do sistema e o tecido:/Votação configurada como descrito.
 
@@ -454,7 +454,7 @@ HealthEvents            : None
 ```
 
 ### <a name="get-node-health"></a>Obter saúde de nó
-O [Cmdlet Get-ServiceFabricNodeHealth](/powershell/module/servicefabric/get-servicefabricnodehealth) devolve a saúde de uma entidade nólafa e contém os eventos de saúde relatados no nó. Em primeiro lugar, ligue-se ao cluster utilizando o [cmdlet Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps). O exemplo a seguir obtém a saúde de um nó específico utilizando políticas de saúde predefinidos:
+O [Cmdlet Get-ServiceFabricNodeHealth](/powershell/module/servicefabric/get-servicefabricnodehealth) devolve a saúde de uma entidade nólafa e contém os eventos de saúde relatados no nó. Em primeiro lugar, ligue-se ao cluster utilizando o [cmdlet Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster). O exemplo a seguir obtém a saúde de um nó específico utilizando políticas de saúde predefinidos:
 
 ```powershell
 Get-ServiceFabricNodeHealth _nt1vm_3

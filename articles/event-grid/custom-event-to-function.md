@@ -3,12 +3,12 @@ title: 'Quickstart: Enviar eventos personalizados para a Função Azure - Grade 
 description: 'Quickstart: Use Azure Event Grid e Azure CLI ou portal para publicar um tópico e subscrever esse evento. Uma Função Azure é utilizada para o ponto final.'
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: aea52bcaa94d6f288e86e44e1a0f294796d8e4a3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4fe4753de41443a0537636933364c7b69b25cb27
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996355"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791732"
 ---
 # <a name="quickstart-route-custom-events-to-an-azure-function-with-event-grid"></a>Quickstart: Encaminhe eventos personalizados para uma função Azure com grade de evento
 
@@ -19,7 +19,7 @@ O Azure Event Grid é um serviço de eventos para a cloud. A Azure Functions é 
 ## <a name="create-azure-function"></a>Criar a Função do Azure
 Antes de subscrever o tópico personalizado, crie uma função para lidar com os eventos. 
 
-1. Criar uma aplicação de função utilizando instruções a partir de [criar uma aplicação de função](../azure-functions/functions-create-first-azure-function.md#create-a-function-app).
+1. Criar uma aplicação de função utilizando instruções a partir de [criar uma aplicação de função](../azure-functions/functions-get-started.md).
 2. Criar uma função utilizando o **Gatilho da grelha de eventos**. Selecione Se esta for a sua primeira utilização deste gatilho, poderá ter de clicar em 'Instalar' para instalar a extensão.
     1. Na página **'App' 'Função',** selecione **Funções** no menu esquerdo, procure grelha **de eventos** nos modelos e, em seguida, selecione **o gatilho da Grelha de Eventos Azure**. 
 
@@ -187,7 +187,7 @@ Se quiser continuar a trabalhar com este evento, não limpe os recursos criados 
 
     O outro grupo de recursos que vê na imagem foi criado e usado pela janela Cloud Shell. Elimine-o se não pretender utilizar a janela Cloud Shell mais tarde. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que sabe como criar tópicos e subscrições de eventos, saiba mais sobre o que o Event Grid pode ajudá-lo a fazer:
 

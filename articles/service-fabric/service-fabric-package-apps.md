@@ -4,12 +4,12 @@ description: Saiba mais sobre a embalagem de uma aplicação Azure Service Fabri
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 11a3fdd5dbaef53af321342952f786ed8119689c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 168e6d6dc7ab5bfeccc4e1dabc7bd50efcbe8f34
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021066"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789707"
 ---
 # <a name="package-an-application"></a>Criar pacote de uma aplicação
 
@@ -75,7 +75,7 @@ D:\Temp> msbuild HelloWorld.sfproj /t:Package
 
 ## <a name="test-the-package"></a>Teste o pacote
 
-Pode verificar a estrutura do pacote localmente através do PowerShell utilizando o comando [Test-ServiceFabricApplicationPackage.](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps)
+Pode verificar a estrutura do pacote localmente através do PowerShell utilizando o comando [Test-ServiceFabricApplicationPackage.](/powershell/module/servicefabric/test-servicefabricapplicationpackage)
 Este comando verifica se há problemas de análise manifesto e verifica todas as referências. Este comando apenas verifica a correção estrutural dos diretórios e ficheiros no pacote.
 Não verifica nenhum dos conteúdos do código ou do pacote de dados para além de verificar se todos os ficheiros necessários estão presentes.
 
@@ -121,7 +121,7 @@ Test-ServiceFabricApplicationPackage .\MyApplicationType
 True
 ```
 
-Se a sua aplicação tiver parâmetros de [aplicação definidos,](service-fabric-manage-multiple-environment-app-configuration.md) pode passá-los em [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) para validação adequada.
+Se a sua aplicação tiver parâmetros de [aplicação definidos,](service-fabric-manage-multiple-environment-app-configuration.md) pode passá-los em [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage) para validação adequada.
 
 Se conhecer o cluster onde a aplicação será implantada, recomenda-se que passe no `ImageStoreConnectionString` parâmetro. Neste caso, o pacote também é validado em comparação com versões anteriores da aplicação que já estão em execução no cluster. Por exemplo, a validação pode detetar se um pacote com a mesma versão, mas já foi implementado um conteúdo diferente.  
 
@@ -135,9 +135,9 @@ Para um pacote de aplicações comprimidos, [o upload do pacote de aplicações]
 O mecanismo de implantação é o mesmo para os pacotes comprimidos e descomprimidos. Se a embalagem for comprimida, é armazenada como tal na loja de imagens do cluster e não é compacta no nó antes da aplicação ser executada.
 A compressão substitui o pacote de tecido de serviço válido pela versão comprimido. A pasta deve permitir a escrita de permissões. A compressão em execução num pacote já comprimido não produz alterações.
 
-Pode comprimir um pacote executando o [copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) com `CompressPackage` o interruptor. Pode descomprimir a embalagem com o mesmo comando, utilizando o `UncompressPackage` interruptor.
+Pode comprimir um pacote executando o [copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage) com `CompressPackage` o interruptor. Pode descomprimir a embalagem com o mesmo comando, utilizando o `UncompressPackage` interruptor.
 
-O comando a seguir comprime a embalagem sem a copiar para a loja de imagens. Pode copiar um pacote comprimido para um ou mais clusters de Tecido de Serviço, conforme necessário, utilizando [copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) sem a `SkipCopy` bandeira.
+O comando a seguir comprime a embalagem sem a copiar para a loja de imagens. Pode copiar um pacote comprimido para um ou mais clusters de Tecido de Serviço, conforme necessário, utilizando [copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage) sem a `SkipCopy` bandeira.
 O pacote agora inclui ficheiros com fecho para o `code` `config` , e `data` pacotes. O manifesto de candidatura e os manifestos de serviço não são fechados, pois são necessários para muitas operações internas. Por exemplo, a partilha de pacotes, o nome do tipo de aplicação e a extração de versão para determinadas validações, todos precisam de aceder aos manifestos. Fechar os manifestos tornaria estas operações ineficientes.
 
 ```
@@ -179,7 +179,7 @@ D:\TEMP\MYAPPLICATIONTYPE
 
 ```
 
-Em alternativa, pode comprimir e copiar o pacote com [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) num só passo.
+Em alternativa, pode comprimir e copiar o pacote com [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage) num só passo.
 Se a embalagem for grande, forneça um tempo suficientemente alto para permitir tempo tanto para a compressão da embalagem como para o upload para o cluster.
 
 ```powershell
@@ -212,7 +212,7 @@ Com esta opção, o pacote de aplicações não tem de ser copiado para a loja d
 O `sfpkg` ficheiro é um zip que contém o pacote inicial de aplicação e tem a extensão ".sfpkg".
 Dentro do fecho, a embalagem de aplicação pode ser comprimida ou descomprimida. A compressão do pacote de aplicações no interior do fecho é feita a níveis de código, config e pacote de dados, como [mencionado anteriormente](service-fabric-package-apps.md#compress-a-package).
 
-Para criar uma `sfpkg` pasta que contenha o pacote de aplicações original, comprimido ou não. Em seguida, utilize qualquer utilidade para fechar a pasta com a extensão ".sfpkg". Por exemplo, utilize [ZipFile.CreateFromDirect .](/dotnet/api/system.io.compression.zipfile.createfromdirectory?view=netcore-3.1#System_IO_Compression_ZipFile_CreateFromDirectory_System_String_System_String_System_IO_Compression_CompressionLevel_System_Boolean_)
+Para criar uma `sfpkg` pasta que contenha o pacote de aplicações original, comprimido ou não. Em seguida, utilize qualquer utilidade para fechar a pasta com a extensão ".sfpkg". Por exemplo, utilize [ZipFile.CreateFromDirect .](/dotnet/api/system.io.compression.zipfile.createfromdirectory#System_IO_Compression_ZipFile_CreateFromDirectory_System_String_System_String_System_IO_Compression_CompressionLevel_System_Boolean_)
 
 ```csharp
 ZipFile.CreateFromDirectory(appPackageDirectoryPath, sfpkgFilePath);
@@ -225,7 +225,7 @@ Para o fornecimento do pacote, utilize a disposição externa, que requer a info
 >[!NOTE]
 > O provisionamento baseado no caminho relativo da loja de imagens não suporta `sfpkg` ficheiros atualmente. Portanto, o `sfpkg` não deve ser copiado para a loja de imagens.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Implementar e remover aplicações][10] descreve como usar o PowerShell para gerir instâncias de aplicação
 

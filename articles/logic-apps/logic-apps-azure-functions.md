@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/01/2019
 ms.custom: devx-track-js
-ms.openlocfilehash: fd04e5a7f084de7a95f20b54b99a9e4590f10cd7
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 7df9f7d072af7c5f6523fd1be0432ce51954fa10
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98034769"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791884"
 ---
 # <a name="call-functions-from-azure-logic-apps"></a>Funções de chamada de Azure Logic Apps
 
@@ -31,7 +31,7 @@ Para executar os cortes de código sem utilizar funções Azure, aprenda a [adic
 
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/).
 
-* Uma aplicação de função, que é um recipiente para uma função criada em Funções Azure, juntamente com a função que cria. Se não tiver uma aplicação de função, [crie primeiro a sua aplicação de função](../azure-functions/functions-create-first-azure-function.md). Em seguida, pode criar a sua função fora da sua aplicação lógica no portal Azure, ou [de dentro da sua aplicação lógica](#create-function-designer) no Logic App Designer.
+* Uma aplicação de função, que é um recipiente para uma função criada em Funções Azure, juntamente com a função que cria. Se não tiver uma aplicação de função, [crie primeiro a sua aplicação de função](../azure-functions/functions-get-started.md). Em seguida, pode criar a sua função fora da sua aplicação lógica no portal Azure, ou [de dentro da sua aplicação lógica](#create-function-designer) no Logic App Designer.
 
 * Ao trabalhar com aplicações lógicas, os mesmos requisitos aplicam-se às aplicações e funções de função, quer sejam existentes ou novas:
 
@@ -102,9 +102,9 @@ Agora que criou a sua função no Azure, siga os passos para [adicionar funçõe
 
 ## <a name="create-functions-inside-logic-apps"></a>Criar funções dentro de apps lógicas
 
-Pode criar funções diretamente a partir do fluxo de trabalho da sua aplicação lógica utilizando a ação de Azure Functions incorporada no Logic App Designer, mas só pode utilizar este método para funções escritas em JavaScript. Para outras línguas, pode criar funções através da experiência Azure Functions no portal Azure. Para obter mais informações, consulte [Criar a sua primeira função no portal Azure](../azure-functions/functions-create-first-azure-function.md).
+Pode criar funções diretamente a partir do fluxo de trabalho da sua aplicação lógica utilizando a ação de Azure Functions incorporada no Logic App Designer, mas só pode utilizar este método para funções escritas em JavaScript. Para outras línguas, pode criar funções através da experiência Azure Functions no portal Azure. Para obter mais informações, consulte [Criar a sua primeira função no portal Azure](../azure-functions/functions-get-started.md).
 
-No entanto, antes de poder criar a sua função no Azure, já deve ter uma aplicação de função, que é um recipiente para as suas funções. Se não tiver uma aplicação de função, crie primeiro essa aplicação de função. Ver [Criar a sua primeira função no portal Azure](../azure-functions/functions-create-first-azure-function.md).
+No entanto, antes de poder criar a sua função no Azure, já deve ter uma aplicação de função, que é um recipiente para as suas funções. Se não tiver uma aplicação de função, crie primeiro essa aplicação de função. Ver [Criar a sua primeira função no portal Azure](../azure-functions/functions-get-started.md).
 
 1. No [portal Azure,](https://portal.azure.com)abra a sua aplicação lógica no Logic App Designer.
 
@@ -313,6 +313,6 @@ Agora está pronto para configurar a autenticação Azure AD para a sua aplicaç
 
 1. Volte ao Designer de Aplicações Lógica e siga os [passos para autenticar o acesso com a identidade gerida.](../logic-apps/create-managed-service-identity.md#authenticate-access-with-identity)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais [sobre os conectores de Aplicações Lógicas](../connectors/apis-list.md)

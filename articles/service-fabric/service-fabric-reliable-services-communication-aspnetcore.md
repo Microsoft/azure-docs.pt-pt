@@ -4,12 +4,12 @@ description: Saiba como usar ASP.NET Core em aplicações apátridas e stateful 
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ba5626d477bbd6aa07d89703cc37b157f4cfd4d5
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: a125c6a1972b51f518175a4c69248119f71ada7c
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576796"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791599"
 ---
 # <a name="aspnet-core-in-azure-service-fabric-reliable-services"></a>ASP.NET Core em Serviço Azure Fabric Reliable Services
 
@@ -190,7 +190,7 @@ Uma porta dinâmica atribuída por uma `Endpoint` configuração fornece apenas 
 ## <a name="kestrel-in-reliable-services"></a>Kestrel em Serviços Fiáveis
 Pode utilizar o Kestrel em Serviços Fiáveis importando o pacote **Microsoft.ServiceFabric.AspNetCore.Kestrel** NuGet. Este pacote `KestrelCommunicationListener` contém, uma implementação de `ICommunicationListener` . `KestrelCommunicationListener` permite-lhe criar um Core WebHost ASP.NET dentro de um serviço confiável, utilizando o Kestrel como servidor web.
 
-Kestrel é um servidor web de plataforma cruzada para ASP.NET Core. Ao contrário HTTP.sys, o Kestrel não usa um gestor centralizado de pontos finais. Também ao contrário HTTP.sys, Kestrel não suporta a partilha de portas entre vários processos. Cada instância de Kestrel deve usar uma porta única. Para mais informações sobre kestrel, consulte os Detalhes de [Implementação.](/aspnet/core/fundamentals/servers/kestrel?view=aspnetcore-2.2)
+Kestrel é um servidor web de plataforma cruzada para ASP.NET Core. Ao contrário HTTP.sys, o Kestrel não usa um gestor centralizado de pontos finais. Também ao contrário HTTP.sys, Kestrel não suporta a partilha de portas entre vários processos. Cada instância de Kestrel deve usar uma porta única. Para mais informações sobre kestrel, consulte os Detalhes de [Implementação.](/aspnet/core/fundamentals/servers/kestrel)
 
 ![Diagrama de Kestrel][4]
 
@@ -510,7 +510,7 @@ Os serviços estatais que são chamados apenas de dentro do cluster devem utiliz
 | Configuração da porta | atribuído dinamicamente | Várias réplicas de um serviço imponente podem partilhar um processo de anfitrião ou um sistema operativo anfitrião e, portanto, precisarão de portas únicas. |
 | Opções de Integração de ServiçosFabric | UseUniqueServiceUrl | Com uma atribuição dinâmica da porta, esta definição impede o problema de identidade errado descrito anteriormente. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [Depurar a sua aplicação do Service Fabric com o Visual Studio](service-fabric-debugging-your-application.md)
 
 

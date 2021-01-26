@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 16e60b5015107c5f99e63f15bb21c5a375f05340
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 74d2654c54d1ab2ac5d47aa24449c41c20a90b74
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123257"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791143"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Escalões de preço na Base de Dados do Azure para PostgreSQL – Servidor Único
 
@@ -51,7 +51,7 @@ O armazenamento que fornece é a quantidade de capacidade de armazenamento dispo
 | IOPS | Variável |3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20.000 IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20.000 IOPS |
 
 > [!NOTE]
-> O armazenamento até 16TB e 20.000 IOPS é suportado nas seguintes regiões: Leste dos EUA, Leste dos EUA 2, Brasil Sul, Eua Central, Eua Ocidental, Eua Central Do Sul, América do Norte, Europa do Norte, Europa Ocidental, Reino Unido Sul, Reino Unido, Sudeste Asiático, Ásia Oriental, Japão Ocidental, Coreia Central, Coreia do Sul, Austrália Oriental, Austrália Sudeste, Oeste dos EUA , Canadá Leste, e Canadá Central.
+> O armazenamento até 16TB e 20.000 IOPS é suportado nas seguintes regiões: Austrália Leste, Austrália Sudeste, Brasil Sul, Canadá Central, Canadá Leste, Central EUA, China Leste 2, China Norte 2, Leste Asiático, Leste DOS EUA 1, Leste DOS EUA 2, Japão Leste, Japão Oeste, Coreia Central Sul, Eua Central Do Norte, Norte da Europa, Sudeste, Ásia , Suíça Oeste, EUA Gov East, US Gov SouthCentral, US Gov SouthWest, UK South, UK West, West Europe, West Central US, West US, e West US 2.
 >
 > Todas as outras regiões suportam até 4TB de armazenamento e 6000 IOPS.
 >
@@ -104,7 +104,7 @@ O armazenamento de escala e a alteração do período de retenção de backup s�
 
 Para obter as informações de preços mais atualizadas, consulte a [página de preços do](https://azure.microsoft.com/pricing/details/PostgreSQL/)serviço . Para ver o custo da configuração desejada, o [portal Azure](https://portal.azure.com/#create/Microsoft.PostgreSQLServer) mostra o custo mensal no **separador de nível de Preços** com base nas opções selecionadas. Se não tiver uma subscrição do Azure, pode utilizar a calculadora de preços Azure para obter um preço estimado. No site da [calculadora de preços Azure,](https://azure.microsoft.com/pricing/calculator/) selecione **Adicionar itens,** expanda a categoria **Base de Dados** e escolha a Base de **Dados Azure para PostgreSQL** para personalizar as opções.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba como [criar um servidor PostgreSQL no portal](tutorial-design-database-using-azure-portal.md).
 - Saiba mais sobre [os limites de serviço.](concepts-limits.md)

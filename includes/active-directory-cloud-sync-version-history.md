@@ -1,14 +1,42 @@
 ---
-ms.openlocfilehash: 77866fcb72515d5167d9f06b7d9ad91c59bc7945
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 35cb7ba4523cfbc88daf958fd972b127519385ce
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97700591"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98792407"
 ---
 Este artigo lista as versões e funcionalidades do Azure Ative Directory Connect Provisioning Agent que foram lançados. A equipa Azure AD atualiza regularmente o Agente de Provisionamento com novas funcionalidades e funcionalidades. O Agente Provisionante é atualizado automaticamente quando uma nova versão é lançada. 
 
 A Microsoft fornece suporte direto para a versão mais recente do agente e uma versão anterior.
+
+## <a name="113540"></a>1.1.354.0
+
+20 de janeiro de 2021: Lançamento para download
+
+### <a name="new-features-and-improvements"></a>Novas funcionalidades e melhorias
+- Melhoria da experiência GMSA, incluindo suporte para conta GMSA criada pré-personalizada
+- [Suporte de cmdlets PowerShell](../articles/active-directory/cloud-sync/how-to-gmsa-cmdlets.md) para a configuração da GMSA
+- [Suporte CLI](../articles/active-directory/cloud-sync/how-to-install-pshell.md) para instalação de agentes (instalação silenciosa)
+- Diagnósticos adicionais para problemas de quarentena de fonte de agente
+- Correções de bugs que incluem a redução do uso da memória de filtros de scoping ou, executando PHS apenas para utilizadores em âmbito, manuseamento de objetos aninhados em U quando se utilizam scoping ou etc. 
+
+
+### <a name="fixed-issues"></a>Problemas corrigidos
+-    Previne a quarentena quando o grupo de scoping está fora de alcance
+-   quando os filtros de deteção são configurados - o trabalho phs agora só funciona para utilizadores em âmbito
+-   Agente penduraria algum dia durante a atualização
+-   Sincronização inicial para objetos em OUs aninhados ao utilizar a deteção de OU
+-   Tornar o Repair-AADCloudSyncToolsAccount mais robusto
+-   Reduzir o uso de memória grande de filtros de deteção de OU
+-   A verificação de funções de administração falha se os membros da função contiverem um grupo de segurança
+-   Corrija o problema de permissão da pasta GMSA que impede a renovação do Agente Cert
+
+
+
+
+
+
 
 ## <a name="112810"></a>1.1.281.0
 
@@ -18,18 +46,18 @@ A Microsoft fornece suporte direto para a versão mais recente do agente e uma v
 
 ### <a name="new-features-and-improvements"></a>Novas funcionalidades e melhorias
 
-* Suporte para [gMSA](../articles/active-directory/cloud-provisioning/how-to-prerequisites.md#group-managed-service-accounts)
+* Suporte para [gMSA](../articles/active-directory/cloud-sync/how-to-prerequisites.md#group-managed-service-accounts)
 * Suporte para grupos até tamanho inferior a 1500 membros durante o ciclo de sincronização incremental ou delta. Isto é aplicável ao usar o filtro de deteção de grupo
 * Suporte para grandes grupos com tamanho de membro até 15K
 * Melhorias iniciais do sincronização
 * Registo avançado de verbose
-* Introdução do [módulo AADCloudSyncTools PowerShell](../articles/active-directory/cloud-provisioning/reference-powershell.md)
+* Introdução do [módulo AADCloudSyncTools PowerShell](../articles/active-directory/cloud-sync/reference-powershell.md)
 * Limitações fixas para permitir a instalação do agente em servidor não inglês
 * Suporte para filtragem de PHS apenas para objetos de âmbito (Originalmente, estávamos a sincronizar hashes de palavra-passe para todos os objetos)
 * Corrigiu o problema da fuga de memória no agente
 * Registos de provisionamento melhorados
-* Suporte para configurar o tempo limite de [ligação LDAP](../articles/active-directory/cloud-provisioning/how-to-manage-registry-options.md#configure-ldap-connection-timeout) 
-* Apoio à configuração da perseguição de [encaminhamento](../articles/active-directory/cloud-provisioning/how-to-manage-registry-options.md#configure-referral-chasing) 
+* Suporte para configurar o tempo limite de [ligação LDAP](../articles/active-directory/cloud-sync/how-to-manage-registry-options.md#configure-ldap-connection-timeout) 
+* Apoio à configuração da perseguição de [encaminhamento](../articles/active-directory/cloud-sync/how-to-manage-registry-options.md#configure-referral-chasing) 
 
 
 ## <a name="11960"></a>1.1.96.0
@@ -40,7 +68,7 @@ A Microsoft fornece suporte direto para a versão mais recente do agente e uma v
 
 ### <a name="new-features-and-improvements"></a>Novas funcionalidades e melhorias
 
-* Inclui suporte para [fornecimento de nuvem Azure AD Connect](../articles/active-directory/cloud-provisioning/what-is-cloud-provisioning.md) para sincronizar dados de utilizador, contato e grupo de diretórios ativos no local para Azure AD
+* Inclui suporte para [sincronização de nuvem Azure AD Connect](../articles/active-directory/cloud-sync/what-is-cloud-sync.md) para sincronizar dados de utilizador, contacto e grupo de diretórios no local para Azure AD
 
 
 ## <a name="11670"></a>1.1.67.0

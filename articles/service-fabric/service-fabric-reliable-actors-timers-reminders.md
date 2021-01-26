@@ -4,12 +4,12 @@ description: Introdução aos temporizadores e lembretes para Service Fabric Rel
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2b97b15ca4eb287f8d8f2c1af932f22acafae546
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f77eb29c9146fe66d5d2b6073c33e30fbab649c2
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89016551"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791799"
 ---
 # <a name="actor-timers-and-reminders"></a>Temporizadores e lembretes do ator
 Os atores podem agendar trabalhos periódicos sobre si mesmos, registando ou temporizadores ou lembretes. Este artigo mostra como usar temporizadores e lembretes e explica as diferenças entre eles.
@@ -131,7 +131,7 @@ Os lembretes são um mecanismo para desencadear chamadas persistentes num ator e
 > [!NOTE]
 > A fiabilidade dos lembretes está ligada às garantias de fiabilidade do Estado fornecidas pelo prestador estatal de atores. Isto significa que, para os atores cuja persistência do Estado está definida para *Nenhum,* os lembretes não dispararão após uma falha.
 
-Para registar um lembrete, um ator chama o [`RegisterReminderAsync`](/dotnet/api/microsoft.servicefabric.actors.runtime.actorbase.registerreminderasync?view=azure-dotnet#remarks) método fornecido na classe base, como mostra o seguinte exemplo:
+Para registar um lembrete, um ator chama o [`RegisterReminderAsync`](/dotnet/api/microsoft.servicefabric.actors.runtime.actorbase.registerreminderasync#remarks) método fornecido na classe base, como mostra o seguinte exemplo:
 
 ```csharp
 protected override async Task OnActivateAsync()

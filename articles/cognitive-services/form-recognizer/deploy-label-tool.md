@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 985f9e741a1491a812c1d2b20de96381f8af3fa4
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 084ca039e7f388a11e15b29c579606c6ed3086db
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359851"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790432"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Implementar a ferramenta de etiquetagem de exemplo
 
@@ -101,7 +101,7 @@ Siga estes passos para criar um novo recurso utilizando o portal Azure:
 > Ao criar a sua aplicação web, também pode configurar a autorização/autenticação. Isto não é necessário para começar. 
 
 > [!IMPORTANT]
-> Poderá ser necessário ativar o TLS para a sua aplicação web para a visualizar no seu `https` endereço. Siga as instruções em [Ativar um ponto final TLS](https://docs.microsoft.com/azure/container-instances/container-instances-container-group-ssl) para configurar um recipiente de sidecar do que ativar o TLS/SSL para a sua aplicação web.
+> Poderá ser necessário ativar o TLS para a sua aplicação web para a visualizar no seu `https` endereço. Siga as instruções em [Ativar um ponto final TLS](../../container-instances/container-instances-container-group-ssl.md) para configurar um recipiente de sidecar do que ativar o TLS/SSL para a sua aplicação web.
 
 ### <a name="azure-cli"></a>CLI do Azure
 
@@ -158,6 +158,6 @@ Recomenda-se que conecte a sua aplicação web ao Azure Ative Directory. Isto ga
 
 A Ferramenta de Rotulagem do Formulário OCR também está disponível como um projeto de código aberto no GitHub. A ferramenta é uma aplicação web construída usando React + Redux, e está escrita no TypeScript. Para saber mais ou contribuir, consulte [a Ferramenta de Rotulagem do Formulário OCR](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Utilize o [Comboio com etiquetas](./quickstarts/label-tool.md) de arranque rápido para aprender a usar a ferramenta para rotular manualmente dados de treino e realizar aprendizagem supervisionada.

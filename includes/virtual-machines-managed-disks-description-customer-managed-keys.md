@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: bf79fe8766d36fe59595be43250341d49b5460c8
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: ba50def51bcea4f477bea5cecbe5b1ed0409b01a
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95558611"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98792403"
 ---
 Pode optar por gerir a encriptação ao nível de cada disco gerido, com as suas próprias chaves. A encriptação do lado do servidor para discos geridos com chaves geridas pelo cliente oferece uma experiência integrada com o Azure Key Vault. Pode importar [as chaves RSA](../articles/key-vault/keys/hsm-protected-keys.md) para o cofre de chaves ou gerar novas chaves RSA no Cofre da Chave Azure. 
 
@@ -22,8 +22,6 @@ Os discos geridos pela Azure tratam a encriptação e a desencriptação de form
 #### <a name="full-control-of-your-keys"></a>Controlo total das suas chaves
 
 Tem de conceder acesso a discos geridos no cofre para usar as suas chaves para encriptar e desencriptar o DEK. Isto permite-lhe o controlo total dos seus dados e chaves. Pode desativar as suas chaves ou revogar o acesso a discos geridos a qualquer momento. Também pode auditar a utilização da chave de encriptação com a monitorização do Azure Key Vault para garantir que apenas discos geridos ou outros serviços de Azure confiáveis estão a aceder às suas chaves.
-
-Quando desativar ou eliminar a sua tecla, quaisquer VMs com discos que utilizem essa tecla serão automaticamente desligados. Depois disso, os VM não serão utilizáveis a menos que a chave esteja novamente ativada ou atribua uma nova chave.
 
 Para SSDs premium, SSDs standard e HDDs padrão: Quando desativar ou apagar a sua chave, quaisquer VMs com discos que utilizem essa tecla serão automaticamente desligados. Depois disso, os VM não serão utilizáveis a menos que a chave esteja novamente ativada ou atribua uma nova chave.    
 

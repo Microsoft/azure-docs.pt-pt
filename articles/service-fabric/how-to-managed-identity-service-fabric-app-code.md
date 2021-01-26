@@ -3,12 +3,12 @@ title: Utilizar identidade gerida com uma aplicação
 description: Como utilizar identidades geridas no código de aplicação do Azure Service Fabric para aceder aos Serviços Azure.
 ms.topic: article
 ms.date: 10/09/2019
-ms.openlocfilehash: c89f7bd064e643b978253f2e083c449d904d2cad
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: bec640077a17ccef822afb85fc104728aabb13b1
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108522"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791327"
 ---
 # <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services"></a>Como alavancar a identidade gerida de uma aplicação de Service Fabric para aceder aos serviços da Azure
 
@@ -30,7 +30,7 @@ A Azure Identity SDK agora suporta o Tecido de Serviço. A utilização do Azure
 O suporte ao tecido de serviço está disponível nas seguintes versões para estes idiomas: 
 - [C# na versão 1.3.0](https://www.nuget.org/packages/Azure.Identity). Ver uma [amostra C#](https://github.com/Azure-Samples/service-fabric-managed-identity).
 - [Python na versão 1.5.0](https://pypi.org/project/azure-identity/). Veja uma [amostra de Python.](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/identity/azure-identity/tests/managed-identity-live/service-fabric/service_fabric.md)
-- [Java na versão 1.2.0](https://docs.microsoft.com/java/api/overview/azure/identity-readme?view=azure-java-stable).
+- [Java na versão 1.2.0](https://docs.microsoft.com/java/api/overview/azure/identity-readme).
 
 Amostra C# de inicialização de credenciais e usando as credenciais para obter um segredo do Cofre da Chave Azure:
 
@@ -426,7 +426,7 @@ Recomenda-se que os pedidos falhados devido ao estrangulamento sejam novamente j
 ## <a name="resource-ids-for-azure-services"></a>IDs de recursos para serviços Azure
 Consulte [os serviços Azure que suportam a autenticação Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) para uma lista de recursos que suportam a Azure AD e os respetivos IDs de recursos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Implementar uma aplicação Azure Service Fabric com uma identidade gerida atribuída ao sistema](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
 * [Implementar uma aplicação Azure Service Fabric com uma identidade gerida atribuída pelo utilizador](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
 * [Conceder a uma aplicação Azure Service Fabric acesso a outros recursos da Azure](./how-to-grant-access-other-resources.md)

@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 05/12/2020
 ms.author: victorh
-ms.openlocfilehash: e51cc8905a7b4a88bb7f7dabaf24bb30159ff86c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77e36d5ab98f1177b5a0b89ee10b3e6bd22560c2
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83655082"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791464"
 ---
 # <a name="azure-firewall-threat-intelligence-based-filtering"></a>Filtragem baseada em ameaças de Azure Firewall
 
@@ -27,7 +27,7 @@ Pode optar por registar um alerta quando uma regra é ativada, ou pode escolher 
 
 Por predefinição, a filtragem baseada em inteligência de ameaça é ativada no modo de alerta. Não é possível desativar esta funcionalidade ou alterar o modo até que a interface do portal fique disponível na sua região.
 
-:::image type="content" source="media/threat-intel/threat-intel-ui.png" alt-text="Inteligência de ameaça de firewall":::
+:::image type="content" source="media/threat-intel/threat-intel-ui.png" alt-text="Interface do portal de filtragem baseada em inteligência de ameaça":::
 
 ## <a name="logs"></a>Registos
 
@@ -51,8 +51,8 @@ O seguinte excerto de registo mostra uma regra desencadeada:
 
 - **Testes de entrada** - Pode esperar ver alertas sobre o tráfego de entrada se as regras de ADN forem configuradas na firewall. Isto é verdade mesmo que apenas fontes específicas sejam permitidas na regra do ADN e o tráfego seja negado de outra forma. A Azure Firewall não alerta em todos os scanners de portas conhecidos; apenas em scanners que são conhecidos por também se envolver em atividades maliciosas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- Ver [amostras do Azure Firewall Log Analytics](log-analytics-samples.md)
+- Ver [amostras do Azure Firewall Log Analytics](./firewall-workbook.md)
 - Saiba como [implementar e configurar uma Firewall Azure](tutorial-firewall-deploy-portal.md)
 - Reveja o [relatório de inteligência](https://www.microsoft.com/en-us/security/operations/security-intelligence-report) da Microsoft Security

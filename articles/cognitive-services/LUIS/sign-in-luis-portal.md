@@ -9,12 +9,12 @@ ms.date: 09/08/2020
 ms.topic: how-to
 ms.author: nitinme
 author: nitinme
-ms.openlocfilehash: b8382b76496976054ebb452e39866765d986ccbb
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 8a4b86fb8fa5a87283178d957e07617b908e6286
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368188"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790906"
 ---
 # <a name="sign-in-to-luis-portal"></a>Iniciar sessão no portal LUIS
 
@@ -47,15 +47,15 @@ Use este artigo para começar com o portal LUIS e crie um recurso de autoria. De
     * **Nome do Inquilino** - o inquilino a que a sua assinatura Azure está associada. Não poderá trocar os inquilinos da janela existente. Pode trocar os inquilinos fechando esta janela e selecionando o avatar no canto superior direito do ecrã, contendo as suas iniciais. Selecione Escolha um recurso de **autoria diferente** a partir da parte superior para reabrir a janela.
     * **Nome do grupo Azure Resource** - um nome de grupo de recursos personalizado que escolher na sua subscrição. Os grupos de recursos permitem-lhe agrupar recursos Azure para acesso e gestão. Se atualmente não tiver um grupo de recursos na sua subscrição, não poderá criar um no portal LUIS. Vá ao [portal Azure](https://ms.portal.azure.com/#create/Microsoft.ResourceGroup) para criar um e depois vá ao LUIS para continuar o processo de inscrição.
     * **Nome do Recurso Azure** - um nome personalizado que escolhe, usado como parte do URL para as suas transações de autoria. O seu nome de recurso só pode incluir caracteres alfanuméricos, `-` e não pode começar ou terminar com `-` . Se outros símbolos estiverem incluídos no nome, a criação de um recurso falhará.
-    * **Localização** - Escolha autor de suas aplicações em um dos [três locais de autoria](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions) que são atualmente apoiados pela LUIS, incluindo: West Us, West Europe e East Australia
-    * **Nível de preços** - Por padrão, o nível de preços de autoria de F0 é selecionado como recomendado. Crie uma [chave gerida pelo cliente](https://docs.microsoft.com/azure/cognitive-services/luis/luis-encryption-of-data-at-rest#customer-managed-keys-for-language-understanding) a partir do portal Azure se estiver à procura de uma camada extra de segurança.
+    * **Localização** - Escolha autor de suas aplicações em um dos [três locais de autoria](./luis-reference-regions.md) que são atualmente apoiados pela LUIS, incluindo: West Us, West Europe e East Australia
+    * **Nível de preços** - Por padrão, o nível de preços de autoria de F0 é selecionado como recomendado. Crie uma [chave gerida pelo cliente](./luis-encryption-of-data-at-rest.md#customer-managed-keys-for-language-understanding) a partir do portal Azure se estiver à procura de uma camada extra de segurança.
 8. Agora assinou com sucesso com o LUIS. Pode agora começar a criar aplicações.
 
-## <a name="troubleshooting"></a>Resolução de problemas
+## <a name="troubleshooting"></a>Resolução de Problemas
 
 * Ao criar um novo recurso, certifique-se de que o nome do recurso apenas inclui caracteres alfanuméricos, '-', e não pode começar ou terminar com '-'. Caso contrário, falhará.
 * Certifique-se de que tem as [permissões adequadas na sua subscrição para criar um recurso Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles). Se não tiver as permissões adequadas, contacte a administração da sua subscrição para lhe dar permissões suficientes.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba como [iniciar uma nova aplicação](luis-how-to-start-new-app.md)

@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 01/26/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ec98762ac5918437e8fdb8426b54b79b1fb5b222
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 961e30cf17bf385647f4482c6f767641c6b891af
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91939727"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791682"
 ---
 # <a name="tutorial-create-your-first-search-app-using-the-net-sdk"></a>Tutorial: Crie a sua primeira app de pesquisa utilizando o .NET SDK
 
@@ -77,7 +77,7 @@ Se quiser saltar à frente de uma aplicação de trabalho, siga os passos abaixo
 
 1. Este é um índice de hotéis, por isso escreva em algumas palavras que você pode usar para pesquisar hotéis (por exemplo, "wifi", "view", "bar", "parking"), e examinar os resultados.
 
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-wifi.png" alt-text="À procura de *piscina*" border="true":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-wifi.png" alt-text="À procura de *wifi*" border="true":::
 
 Esperemos que este projeto corra bem e que tenhas uma aplicação web a funcionar. Muitos dos componentes essenciais para pesquisas mais sofisticadas estão incluídos nesta aplicação, por isso é uma boa ideia passar por ela, e recriá-la passo a passo. As seguintes secções cobrem estes passos.
 
@@ -87,17 +87,17 @@ Para criar este projeto do zero, e assim reforçar os conceitos de Azure Cogniti
 
 1. No Estúdio Visual, selecione **New**  >  **Project,** em **seguida, ASP.NET Core Web Application**.
 
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-project1.png" alt-text="À procura de *piscina*" border="true":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-project1.png" alt-text="Criar um projeto em nuvem" border="true":::
 
 1. Dê ao projeto um nome como "FirstSearchApp" e desista da localização. Selecione **Criar**.
 
 1. Escolha o modelo de projeto **de aplicação web (Model-View-Controller).**
 
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-project2.png" alt-text="À procura de *piscina*" border="true":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-project2.png" alt-text="Criação de um projeto MVC" border="true":::
 
 1. Instale a biblioteca do cliente. Em **Tools**  >  **NuGet Package Manager**  >  **Gerencie pacotes nuget para solução...** selecione **Procurar** "azure.search.documents". Instale **Azure.Search.Documents** (versão 11 ou posterior), aceitando os contratos de licença e dependências.
 
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png" alt-text="À procura de *piscina*" border="true":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png" alt-text="Utilização do NuGet para adicionar bibliotecas Azure" border="true":::
 
 ### <a name="initialize-azure-cognitive-search"></a>Inicialize a pesquisa cognitiva do Azure
 
@@ -114,7 +114,7 @@ Para esta amostra, está a utilizar dados do hotel disponíveis ao público. Est
 
 1. No Solution Explorer, selecione o ficheiro e, em Propriedades, altere a definição **copy para Output Directory** para **Copy se for mais recente**.
 
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-copy-if-newer.png" alt-text="À procura de *piscina*" border="true":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-copy-if-newer.png" alt-text="Copiar as definições da aplicação para a saída" border="true":::
 
 ## <a name="model-data-structures"></a>Estruturas de dados de modelo
 
@@ -122,11 +122,11 @@ Os modelos (classes C#) são utilizados para comunicar dados entre o cliente (a 
 
 Neste passo, irá modelar as estruturas de dados do índice de pesquisa, bem como a cadeia de pesquisa utilizada nas comunicações view/controller. No índice de hotéis, cada hotel tem muitos quartos, e cada hotel tem um endereço multi-partes. No total, a representação completa de um hotel é uma estrutura hierárquica e aninhada de dados. Vai precisar de três aulas para criar cada componente.
 
-O conjunto de aulas de **Hotel,** **Endereço**e **Quarto** são conhecidos como [*tipos complexos,*](search-howto-complex-data-types.md)uma característica importante da Pesquisa Cognitiva Azure. Tipos complexos podem ser muitos níveis profundos de classes e subclasses, e permitir que estruturas de dados muito mais complexas sejam representadas do que usar *tipos simples* (uma classe que contém apenas membros primitivos).
+O conjunto de aulas de **Hotel,** **Endereço** e **Quarto** são conhecidos como [*tipos complexos,*](search-howto-complex-data-types.md)uma característica importante da Pesquisa Cognitiva Azure. Tipos complexos podem ser muitos níveis profundos de classes e subclasses, e permitir que estruturas de dados muito mais complexas sejam representadas do que usar *tipos simples* (uma classe que contém apenas membros primitivos).
 
-1. No Solution Explorer, **os modelos**de clique à direita  >  **adicionam**  >  **novo item**.
+1. No Solution Explorer, **os modelos** de clique à direita  >  **adicionam**  >  **novo item**.
 
-1. Selecione**Class** e nomeie o item Hotel.cs. Substitua todo o conteúdo da Hotel.cs pelo seguinte código. Note os **membros** do **Endereço** e sala da classe, estes campos são as próprias aulas, por isso também vai precisar de modelos para eles.
+1. Selecione **Class** e nomeie o item Hotel.cs. Substitua todo o conteúdo da Hotel.cs pelo seguinte código. Note os **membros** do **Endereço** e sala da classe, estes campos são as próprias aulas, por isso também vai precisar de modelos para eles.
 
     ```csharp
     using Azure.Search.Documents.Indexes;
@@ -243,7 +243,7 @@ O conjunto de aulas de **Hotel,** **Endereço**e **Quarto** são conhecidos como
     }
     ```
 
-1. O último modelo que irá criar neste tutorial é uma classe chamada **SearchData** e representa a entrada do utilizador **(SearchText),** e a saída da pesquisa **(resultadoList).** O tipo de saída é crítico, **SearchResults &lt; Hotel, &gt; **pois este tipo corresponde exatamente aos resultados da pesquisa, e você precisa passar esta referência através da vista. Substitua o modelo predefinido pelo seguinte código.
+1. O último modelo que irá criar neste tutorial é uma classe chamada **SearchData** e representa a entrada do utilizador **(SearchText),** e a saída da pesquisa **(resultadoList).** O tipo de saída é crítico, **SearchResults &lt; Hotel, &gt;** pois este tipo corresponde exatamente aos resultados da pesquisa, e você precisa passar esta referência através da vista. Substitua o modelo predefinido pelo seguinte código.
 
     ```csharp
     using Azure.Search.Documents.Models;
@@ -327,7 +327,7 @@ Elimine o conteúdo do Index.cshtml na sua totalidade e reconstrua o ficheiro no
     </body>
     ```
 
-1. Adicione a folha de estilo. No Estúdio Visual, em **Ficheiro** >  **New**  >  **Novo,** selecione **Style Sheet** (com destaque **geral).**
+1. Adicione a folha de estilo. No Estúdio Visual, em **Ficheiro** >    >  **Novo,** selecione **Style Sheet** (com destaque **geral).**
 
    Substitua o código predefinido pelo seguinte. Não entraremos neste ficheiro com mais detalhes, os estilos são HTML padrão.
 
@@ -406,7 +406,7 @@ Elimine o conteúdo do Index.cshtml na sua totalidade e reconstrua o ficheiro no
     }
     ```
 
-1. Guarde o ficheiro de folha de estilo como hotels.css, na pasta **wwwroot/css,** juntamente com o ficheiro site.css predefinido.
+1. Guarde o ficheiro de folha de estilo como hotéis.css, na pasta **wwwroot/css,** juntamente com o ficheiro .css site predefinido.
 
 Isso completa a nossa visão. Neste ponto, tanto os modelos como as vistas estão concluídos. Só resta o controlador para ligar tudo.
 
@@ -534,11 +534,11 @@ Agora, vamos verificar se a aplicação funciona corretamente.
 
 1. Selecione **Debug**  >  **Start Without Debugging** ou prima **F5**. Se a aplicação correr como esperado, deverá obter a visão inicial do Índice.
 
-     :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-index.png" alt-text="À procura de *piscina*" border="true":::
+     :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-index.png" alt-text="Abertura da app" border="true":::
 
 1. Introduza uma cadeia de consulta como "praia" (ou qualquer texto que venha à mente) e clique no ícone de pesquisa para enviar o pedido.
 
-     :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-beach.png" alt-text="À procura de *piscina*" border="true":::
+     :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-beach.png" alt-text="Procurando *praia*" border="true":::
 
 1. Tente entrar no "cinco estrelas". Note que esta consulta não retorna a resultados. Uma pesquisa mais sofisticada trataria a "cinco estrelas" como sinónimo de "luxo" e devolveria esses resultados. O suporte para [sinónimos](search-synonyms.md) está disponível em Azure Cognitive Search, mas não está coberto nesta série tutorial.
 
@@ -554,7 +554,7 @@ Agora, vamos verificar se a aplicação funciona corretamente.
 
 2. Executar a aplicação, introduzir "bar" como texto de pesquisa e clicar no ícone de pesquisa. A exceção deve resultar na visão de erro.
 
-     :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-error.png" alt-text="À procura de *piscina*" border="true":::
+     :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-error.png" alt-text="Forçar um erro" border="true":::
 
     > [!Important]
     > Considera-se um risco de segurança devolver números de erro internos em páginas de erro. Se a sua aplicação se destinar a uso geral, faça alguma investigação sobre as melhores práticas e seguras do que devolver quando ocorrer um erro.
@@ -569,7 +569,7 @@ Considere os seguintes takeaways deste projeto:
 * As chamadas assíncronos adicionam uma pequena quantidade de complexidade ao controlador, mas são as melhores práticas se pretende desenvolver apps de qualidade.
 * Esta aplicação realizou uma pesquisa de texto simples, definida pelo que é configurado em **searchOptions**. No entanto, esta classe pode ser povoada com muitos membros que adicionam sofisticação a uma pesquisa. Não é necessário muito trabalho adicional para tornar esta aplicação consideravelmente mais poderosa.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para melhorar a experiência do utilizador, adicione mais funcionalidades, nomeadamente paging (utilizando números de página, ou deslocamento infinito) e autocomplete/sugestões. Você também pode considerar opções de pesquisa mais sofisticadas (por exemplo, pesquisas geográficas em hotéis dentro de um determinado raio de um determinado ponto, e pedido de resultados de pesquisa).
 

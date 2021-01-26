@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: how-to
 ms.date: 11/10/2020
-ms.openlocfilehash: fe79797aeef2b0c148aece0319d6b340b663b184
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: 96872a067d2414254aec3f212542dadabdf2bd6f
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763728"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791746"
 ---
 # <a name="how-to-use-postman-to-send-requests-to-the-azure-digital-twins-apis"></a>Como usar o Carteiro para enviar pedidos para as APIs das Gémeas Digitais do Azure
 
@@ -52,7 +52,7 @@ Caso contrário, pode abrir uma janela [Azure Cloud Shell](https://shell.azure.c
     az login
     ```
 
-1. Em seguida, use o comando [get-token da conta az](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest&preserve-view=true#az_account_get_access_token) para obter um token portador com acesso ao serviço Azure Digital Twins.
+1. Em seguida, use o comando [get-token da conta az](/cli/azure/account?preserve-view=true&view=azure-cli-latest#az_account_get_access_token) para obter um token portador com acesso ao serviço Azure Digital Twins.
 
     ```azurecli-interactive
     az account get-access-token --resource 0b07f429-9f4b-4714-9392-cc5e8e80c8b0
@@ -154,6 +154,6 @@ Após o envio do pedido, os detalhes da resposta aparecerão na janela do Cartei
 
 Também pode comparar a resposta com os dados de resposta esperados na documentação de referência, para verificar o resultado ou saber mais sobre quaisquer erros que surjam.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre as APIs das Gémeas Digitais, leia [*Como fazer: Use as APIs e SDKs de gémeos digitais Azure,*](how-to-use-apis-sdks.md)ou consulte a [documentação de referência para as APIs REST](/rest/api/azure-digitaltwins/).

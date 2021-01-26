@@ -6,17 +6,17 @@ ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: motanv
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9e9127d9776169131c2ed7f4778052646e84f8b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34ec43593d50e359f09059cd3d51522df62cf567
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89013117"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789656"
 ---
 # <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>Induzir o caos controlado nos clusters de tecido de serviço
 Sistemas distribuídos em larga escala, como infraestruturas em nuvem, são inerentemente pouco fiáveis. O Azure Service Fabric permite que os desenvolvedores escrevam serviços distribuídos fiáveis em cima de uma infraestrutura pouco fiável. Para escrever serviços robustos distribuídos em cima de uma infraestrutura pouco fiável, os desenvolvedores precisam de ser capazes de testar a estabilidade dos seus serviços enquanto a infraestrutura subjacente não confiável está a passar por transições complicadas do Estado devido a falhas.
 
-O [Serviço de Injeção de Falhas e Análise de Cluster](./service-fabric-testability-overview.md) (também conhecido como Serviço de Análise de Falhas) dá aos desenvolvedores a capacidade de induzir falhas para testar os seus serviços. Estas falhas simuladas direcionadas, como [reiniciar uma partição,](/powershell/module/servicefabric/start-servicefabricpartitionrestart?view=azureservicefabricps)podem ajudar a exercer as transições estatais mais comuns. No entanto, falhas simuladas direcionadas são tendenciosas por definição e, portanto, podem falhar bugs que aparecem apenas em seqüência difícil de prever, longa e complicada das transições do estado. Para um teste imparcial, pode usar o Caos.
+O [Serviço de Injeção de Falhas e Análise de Cluster](./service-fabric-testability-overview.md) (também conhecido como Serviço de Análise de Falhas) dá aos desenvolvedores a capacidade de induzir falhas para testar os seus serviços. Estas falhas simuladas direcionadas, como [reiniciar uma partição,](/powershell/module/servicefabric/start-servicefabricpartitionrestart)podem ajudar a exercer as transições estatais mais comuns. No entanto, falhas simuladas direcionadas são tendenciosas por definição e, portanto, podem falhar bugs que aparecem apenas em seqüência difícil de prever, longa e complicada das transições do estado. Para um teste imparcial, pode usar o Caos.
 
 O caos simula falhas periódicas e intercaladas (graciosas e ingracidas) durante longos períodos de tempo. Uma falha graciosa consiste num conjunto de chamadas API de Tecido de Serviço, por exemplo, reiniciar a falha da réplica é uma falha graciosa porque esta é uma falha próxima seguida de uma abertura numa réplica. Remover réplica, mover réplica primária e mover réplica secundária são as outras falhas graciosas exercidas pelo Caos. Falhas ingraças são saídas de processo, como reiniciar o nó e reiniciar o pacote de código. 
 

@@ -5,12 +5,12 @@ ms.date: 06/10/2019
 ms.topic: conceptual
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: bb7708514de6a1d68ecad0c142d68c321293d728
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 41aa7f251bc12fd889a71f65da83c4730ebda9a7
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219628"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789638"
 ---
 # <a name="service-fabric-releases"></a>Lançamentos de tecido de serviço
 
@@ -117,7 +117,7 @@ Também atualizaremos as nossas datas de lançamento planeadas para indicar que 
 #### <a name="key-announcements"></a>Principais anúncios
  - [**Suporte keyVaultReference para segredos de aplicação (Preview)**](./service-fabric-keyvault-references.md): Aplicações de tecido de serviço que tenham ativado [identidades geridas](./concepts-managed-identity.md) podem agora referenciar diretamente um URL secreto key Vault como uma variável ambiental, parâmetro de aplicação ou credencial de repositório de contentores. O Service Fabric resolverá automaticamente o segredo utilizando a identidade gerida da aplicação. 
      
-- **Segurança melhorada para serviços apátridas**: Para garantir a disponibilidade durante uma atualização de aplicações, introduzimos novas configurações para definir o [número mínimo de casos para serviços apátridas](/dotnet/api/system.fabric.description.statelessservicedescription?view=azure-dotnet) a considerar disponíveis. Anteriormente este valor era 1 para todos os serviços e não era mutável. Com esta nova verificação de segurança por serviço, pode garantir que os seus serviços retêm um número mínimo de casos durante as atualizações de aplicações, atualizações de clusters e outras manutenção que dependem das verificações de saúde e segurança da Service Fabric.
+- **Segurança melhorada para serviços apátridas**: Para garantir a disponibilidade durante uma atualização de aplicações, introduzimos novas configurações para definir o [número mínimo de casos para serviços apátridas](/dotnet/api/system.fabric.description.statelessservicedescription) a considerar disponíveis. Anteriormente este valor era 1 para todos os serviços e não era mutável. Com esta nova verificação de segurança por serviço, pode garantir que os seus serviços retêm um número mínimo de casos durante as atualizações de aplicações, atualizações de clusters e outras manutenção que dependem das verificações de saúde e segurança da Service Fabric.
   
 - [**Limites de Recursos para Serviços ao Utilizador**](./service-fabric-resource-governance.md#enforcing-the-resource-limits-for-user-services): Os utilizadores podem estabelecer limites de recursos para os serviços do utilizador num nó para evitar cenários como o esgotamento de recursos dos serviços do sistema Service Fabric. 
   

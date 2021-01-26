@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/29/2020
-ms.openlocfilehash: 1d3a7be429f730dd4dbd71bade1e3e51ea73c10f
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1ff20ab19390dcdadb9a4aa79822f7ace3d31989
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188654"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791177"
 ---
 # <a name="what-are-compute-targets-in-azure-machine-learning"></a>Quais são os destinos de computação no Azure Machine Learning?
 
@@ -52,7 +52,7 @@ Ao realizar inferência, a Azure Machine Learning cria um recipiente Docker que 
     * [Azure Kubernetes Service](how-to-create-attach-kubernetes.md)
     * Funções Azure (pré-visualização). A implementação para funções depende apenas da Aprendizagem automática Azure para construir o recipiente Docker. A partir daí, é implantado usando Funções. Para obter mais informações, consulte [Implementar um modelo de aprendizagem automática para funções Azure (pré-visualização)](how-to-deploy-functions.md).
 
-* Como um ponto final de _inferência_ de lote que é usado periodicamente para processar lotes de dados. As inferências do lote utilizam [clusters computa computa computacional Azure Machine Learning](how-to-create-attach-compute-cluster.md).
+* Como um ponto final de _inferência_ de lote que é usado periodicamente para processar lotes de dados. As inferências do lote utilizam [clusters computacional Azure Machine Learning](how-to-create-attach-compute-cluster.md).
 
 * Para um _dispositivo IoT_ (pré-visualização). A implantação num dispositivo IoT depende apenas da Azure Machine Learning para construir o recipiente Docker. A partir daí, é implantado usando Azure IoT Edge. Para obter mais informações, consulte [implementar como um módulo IoT Edge (pré-visualização)](../iot-edge/tutorial-deploy-machine-learning.md).
 
@@ -123,7 +123,7 @@ Embora a Azure Machine Learning suporte estas séries VM, podem não estar dispo
 > [!NOTE]
 > A Azure Machine Learning não suporta todos os tamanhos VM que o Azure Compute suporta. Para listar os tamanhos VM disponíveis, utilize um dos seguintes métodos:
 > * [API REST](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2020-08-01/examples/ListVMSizesResult.json)
-> * [Python SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py.md#supported-vmsizes-workspace--location-none-)
+> * [Python SDK](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py.md#supported-vmsizes-workspace--location-none-)
 >
 
 ### <a name="compute-isolation"></a>Isolamento computacional
@@ -145,7 +145,7 @@ Para saber mais sobre o isolamento, veja [o Isolamento na nuvem pública azul.](
 
 Um alvo computacional não gerido *não* é gerido pela Azure Machine Learning. Cria este tipo de meta de computação fora do Azure Machine Learning e, em seguida, anexá-lo ao seu espaço de trabalho. Os recursos computacional não geridos podem exigir medidas adicionais para manter ou melhorar o desempenho das cargas de trabalho de aprendizagem automática.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Aprenda a:
 * [Use um alvo computacional para treinar o seu modelo](how-to-set-up-training-targets.md)

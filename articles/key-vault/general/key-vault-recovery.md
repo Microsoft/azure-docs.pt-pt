@@ -8,12 +8,12 @@ ms.author: mbaldwin
 author: msmbaldwin
 manager: rkarlin
 ms.date: 09/30/2020
-ms.openlocfilehash: 4a6b3e4c6354c292d000a307bc25f8532aa9a096
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: a8e8e791f0dbe18322ad43364ae4ffd09b430caf
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250796"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790389"
 ---
 # <a name="azure-key-vault-recovery-management-with-soft-delete-and-purge-protection"></a>Gestão de recuperação do Cofre Azure Key com proteção de eliminação e purga suave
 
@@ -26,10 +26,15 @@ Para mais informações sobre o Key Vault, consulte
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma subscrição do Azure - [crie uma gratuitamente](https://azure.microsoft.com/free/dotnet)
-* [Módulo PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+* [Módulo PowerShell](/powershell/azure/install-az-ps).
 * [CLI do Azure](/cli/azure/install-azure-cli)
 * Um Cofre chave - você pode criar um usando [o portal Azure](../general/quick-create-portal.md) [CLI](../general/quick-create-cli.md), ou [Azure PowerShell](../general/quick-create-powershell.md)
-* O utilizador necessitará das seguintes permissões (a nível de subscrição) para realizar operações em cofres com isolamento suave: | Microsoft.KeyVault/locations/deletedVaults/read| Veja as propriedades de um cofre de chave apagado suave| | Microsoft.KeyVault/locations/deletedVaults/purga/ação| Purgue um cofre de chave apagado macio|
+* O utilizador necessitará das seguintes permissões (a nível de subscrição) para realizar operações em cofres com isolamento suave:
+
+  | Permissão | Descrição |
+  |---|---|
+  |Microsoft.KeyVault/locations/deletedVaults/read|Ver as propriedades de um cofre de chave apagado suave|
+  |Microsoft.KeyVault/locations/deletedVaults/purga/ação|Purgue um cofre de chaves apagado suave|
 
 
 ## <a name="what-are-soft-delete-and-purge-protection"></a>O que são a proteção de eliminação e purga suave
@@ -388,10 +393,10 @@ Para obter mais informações sobre a eliminação suave, consulte [a visão ger
   ```
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- [Cmdlets Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault)
-- [Comandos Key Vault Azure CLI](https://docs.microsoft.com/cli/azure/keyvault)
+- [Cmdlets Azure Key Vault PowerShell](/powershell/module/az.keyvault)
+- [Comandos Key Vault Azure CLI](/cli/azure/keyvault)
 - [Backup do Cofre de Chaves Azure](backup.md)
 - [Como permitir a exploração do Cofre de Chaves](howto-logging.md)
 - [Acesso seguro a um cofre de chaves](secure-your-key-vault.md)

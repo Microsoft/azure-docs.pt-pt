@@ -3,12 +3,12 @@ title: Preparação de implantação de cluster autónomo
 description: Documentação relacionada com a preparação do ambiente e a criação da configuração do cluster, a considerar antes da implantação de um cluster destinado a lidar com uma carga de trabalho de produção.
 ms.topic: conceptual
 ms.date: 9/11/2018
-ms.openlocfilehash: 277c7e047815b3b4171f7cced203ecbe5b68b155
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 18b8b0ce8c0e877bf9dd274596b19f85b1febe12
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509177"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790957"
 ---
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Planeie e prepare a sua implantação de cluster autónomo de tecido de serviço
 
@@ -57,7 +57,7 @@ Aqui estão as especificações recomendadas para máquinas num cluster de tecid
 * Conectividade a uma rede ou redes seguras para todas as máquinas
 * Windows Server OS instalado (versões válidas: 2012 R2, 2016, 1709 ou 1803). A versão 6.4.654.9590 do Tecido de Serviço e, mais tarde, também suporta o Server 2019 e o 1809.
 * [.NET Quadro 4.5.1 ou superior](https://www.microsoft.com/download/details.aspx?id=40773), instalação completa
-* [Windows PowerShell 3.0](/powershell/scripting/windows-powershell/install/installing-windows-powershell?view=powershell-7)
+* [Windows PowerShell 3.0](/powershell/scripting/windows-powershell/install/installing-windows-powershell)
 * O [serviço RemoteRegistry](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754820(v=ws.11)) deve estar a funcionar em todas as máquinas
 * **Unidade de instalação de tecido de serviço deve ser sistema de arquivo NTFS**
 * **Serviços windows *Registos de desempenho & alertas* e *registo de eventos do Windows* devem ser [ativados](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc755249(v=ws.11))**.
@@ -159,5 +159,5 @@ Atualmente este módulo de teste de configuração não valida a configuração 
 >
 >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Criar um cluster autónomo em execução no Windows Server](service-fabric-cluster-creation-for-windows-server.md)

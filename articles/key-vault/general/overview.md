@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 5025c4ad81433b6eb18f5beded860625791ffce5
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 4747c958b5e592458c14bbf4244953564c252678
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445103"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790128"
 ---
 # <a name="about-azure-key-vault"></a>Acerca do Azure Key Vault
 
@@ -25,7 +25,7 @@ O Azure Key Vault ajuda a resolver os seguintes problemas:
 - **Gestão de Chaves** – O Azure Key Vault também pode ser utilizado como uma solução de Gestão de Chaves. O Azure Key Vault torna mais fácil criar e controlar as chaves de encriptação utilizadas para encriptar os seus dados. 
 - **Gestão de Certificados** - Azure Key Vault é também um serviço que permite facilmente a prestação, gestão e implantação de certificados públicos e privados de segurança da camada de transporte/camada de tomadas seguras (TLS/SSL) para utilização com a Azure e os seus recursos internos conectados.
 
-O Azure Key Vault tem dois níveis de serviço: Standard, que encripta com uma chave de software, e um nível Premium, que inclui chaves protegidas por HSM. Para ver uma comparação entre os níveis Standard e Premium, consulte a página de preços do [Cofre da Chave Azure](https://azure.microsoft.com/pricing/details/key-vault/).
+O Azure Key Vault tem dois níveis de serviço: Standard, que encripta com uma chave de software, e um nível Premium, que inclui chaves protegidas por módulos de segurança de hardware (HSM). Para ver uma comparação entre os níveis Standard e Premium, consulte a página de preços do [Cofre da Chave Azure](https://azure.microsoft.com/pricing/details/key-vault/).
 
 ## <a name="why-use-azure-key-vault"></a>Porquê utilizar o Azure Key Vault?
 
@@ -76,7 +76,7 @@ Como uma loja segura em Azure, Key Vault tem sido usado para simplificar cenári
 
 O próprio Key Vault pode ser integrado em Contas de Armazenamento, em Hubs de Eventos e no Log Analytics.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [chaves, segredos e certificados](about-keys-secrets-certificates.md)
 - [Início Rápido: Criar um Azure Key Vault com a CLI](../secrets/quick-create-cli.md)

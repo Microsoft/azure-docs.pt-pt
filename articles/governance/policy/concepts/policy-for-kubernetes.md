@@ -3,12 +3,12 @@ title: Aprenda Azure Policy para Kubernetes
 description: Saiba como a Azure Policy usa o Rego e o Open Policy Agent para gerir clusters que executam Kubernetes em Azure ou no local.
 ms.date: 12/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: e2b9253d8ce60d5dc77d406e3c9d0469539f2c77
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: f25b64bc28535d125c7883f16c9e747d6250ca96
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511336"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789743"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Compreender o Azure Policy para clusters do Kubernetes
 
@@ -463,7 +463,7 @@ Para mais informações, consulte [o Gatekeeper de Debugging](https://github.com
 
 ## <a name="troubleshooting-the-add-on"></a>Resolução de problemas do add-on
 
-Para obter mais informações sobre a resolução de problemas do Add-on para Kubernetes, consulte a [secção Kubernetes](/azure/governance/policy/troubleshoot/general#add-on-for-kubernetes-general-errors) do artigo de resolução de problemas da Política Azure.
+Para obter mais informações sobre a resolução de problemas do Add-on para Kubernetes, consulte a [secção Kubernetes](../troubleshoot/general.md#add-on-for-kubernetes-general-errors) do artigo de resolução de problemas da Política Azure.
 
 ## <a name="remove-the-add-on"></a>Remova o addon
 
@@ -544,7 +544,7 @@ A informação recolhida pelo addon não são dados pessoais. Os seguintes detal
 - Exceções/erros encontrados pelo Azure Policy Add-on durante a instalação do agente na avaliação de políticas
 - Número de definições de política gatekeeper não instaladas pelo Add-on da Política Azure
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Rever exemplos nas [amostras da Azure Policy](../samples/index.md).
 - Veja a [Estrutura de definição do Policy](definition-structure.md).

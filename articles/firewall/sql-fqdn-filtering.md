@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 06/18/2020
 ms.author: victorh
-ms.openlocfilehash: 2b1b68b32ccd5a4dda0b71736da4e2d1e2566b6b
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: c65f32cc3ce56ddf3fd235de8c002528e7a3cebd
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97348021"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791447"
 ---
 # <a name="configure-azure-firewall-application-rules-with-sql-fqdns"></a>Configurar as regras de aplicação do Azure Firewall com FQDNs do SQL
 
@@ -96,8 +96,8 @@ Se utilizar portas não predefinidas para o tráfego IaaS do SQL, poderá config
 3. Adicione a regra de aplicação com o protocolo, porta e FQDN SQL adequados e, em seguida, **selecione Save**.
    ![regra de aplicação com SQL FQDN](media/sql-fqdn-filtering/application-rule-sql.png)
 4. Aceda ao SQL a partir de uma máquina virtual num VNet que filtra o tráfego através da firewall. 
-5. Valide que [os registos da Azure Firewall](log-analytics-samples.md) mostrem que o tráfego é permitido.
+5. Valide que [os registos da Azure Firewall](./firewall-workbook.md) mostrem que o tráfego é permitido.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre os modos de procuração e redireccionamento [sql, consulte a arquitetura de conectividade Azure SQL Database](../azure-sql/database/connectivity-architecture.md).

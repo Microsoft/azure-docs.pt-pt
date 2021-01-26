@@ -7,19 +7,19 @@ ms.topic: how-to
 ms.date: 10/15/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: bbb959b6b1d71c81f7b920b3962f693716041e16
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d1d433c7db36a3f4fe5f528b7fbd17549bc08e4a
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016238"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791498"
 ---
 # <a name="expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Expandir discos rígidos virtuais num Linux VM com o Azure CLI
 
 Este artigo descreve como expandir discos geridos para uma máquina virtual Linux (VM) com o Azure CLI. Pode [adicionar discos de dados](add-disk.md) para fornecer espaço de armazenamento adicional, e também pode expandir um disco de dados existente. O tamanho do disco rígido virtual padrão para o sistema operativo (OS) é tipicamente de 30 GB num Linux VM em Azure. 
 
 > [!WARNING]
-> Certifique-se sempre de que o seu sistema de ficheiros está num estado saudável, o tipo de tabela de partição de disco irá suportar o novo tamanho e certifique-se de que os seus dados são suportados antes de realizar operações de redimensionação do disco. Para mais informações, consulte [Back up Linux VMs em Azure](tutorial-backup-vms.md). 
+> Certifique-se sempre de que o seu sistema de ficheiros está num estado saudável, o tipo de tabela de partição de disco irá suportar o novo tamanho e certifique-se de que os seus dados são suportados antes de realizar operações de redimensionação do disco. Para obter mais informações, consulte o [arranque rápido da Azure Backup](../../backup/quick-backup-vm-portal.md). 
 
 ## <a name="expand-an-azure-managed-disk"></a>Expandir um disco gerido azure
 Certifique-se de que tem o mais recente [Azure CLI](/cli/azure/install-az-cli2) instalado e está inscrito numa conta Azure utilizando [o login az](/cli/azure/reference-index#az-login).
@@ -140,6 +140,6 @@ Para utilizar um disco expandido, expanda a partição subjacente e o sistema de
     /dev/sdc1        197G   60M   187G   1% /datadrive
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Se precisar de armazenamento adicional, também pode [adicionar discos de dados a um Linux VM](add-disk.md). 
 * Para obter mais informações sobre encriptação de disco, consulte [Azure Disk Encryption para Linux VMs](disk-encryption-overview.md).

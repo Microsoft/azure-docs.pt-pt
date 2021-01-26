@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 10/01/2020
+ms.date: 01/26/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ab15af07c5f63d375d8fdb4fc38e0853e207a0be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44a05ed5b4386f2787a1c84dfeb61a5d539c7cb5
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667287"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789807"
 ---
 # <a name="tutorial-add-faceted-navigation-using-the-net-sdk"></a>Tutorial: Adicionar navegação facetada usando o .NET SDK
 
@@ -45,7 +45,7 @@ Este tutorial foi atualizado para utilizar o pacote [Azure.Search.Documents (ver
 
 Para que uma propriedade modelo seja localizada numa pesquisa de facetas, deve ser marcado com **IsFacetable**.
 
-1. Examine a classe **hoteleira.** **As categorias** e tags , por exemplo, são **marcadas**como **IsFacetable,** mas **o HotelName** e **a Description** não são. 
+1. Examine a classe **hoteleira.** **As categorias** e tags , por exemplo, são **marcadas** como **IsFacetable,** mas **o HotelName** e **a Description** não são. 
 
     ```cs
     public partial class Hotel
@@ -328,7 +328,7 @@ Quando um utilizador seleciona uma determinada faceta, por exemplo, clica na cat
 
 A vista vai requerer algumas mudanças significativas. 
 
-1. Comece por abrir o ficheiro hotels.css (na pasta wwwroot/css) e adicione as seguintes aulas.
+1. Comece por abrir os hotéis.css ficheiro (na pasta wwwroot/css) e adicione as seguintes aulas.
 
     ```html
     .facetlist {
@@ -563,7 +563,7 @@ Considere os seguintes takeaways deste projeto:
 * As facetas são combinadas com filtros para reduzir os resultados.
 * As facetas são cumulativas, com cada edifício de seleção no anterior para mais resultados mais estreitos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 No próximo tutorial, olhamos para os resultados da encomenda. Até este ponto, os resultados são encomendados simplesmente na ordem em que estão localizados na base de dados.
 

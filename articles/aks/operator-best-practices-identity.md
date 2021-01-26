@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: a63a756448f9c7202c79c3b4625fc99d4a90dc52
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8e0c7324f5b73b3a2ac5e5fd6fa256202035077a
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96014062"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790974"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>Melhores práticas para autenticação e autorização no Serviço Azure Kubernetes (AKS)
 
@@ -98,39 +98,42 @@ Para ver como controlar o acesso ao recurso AKS e ao kubeconfig, consulte [o lim
 2. Acesso à API de Kubernetes. Este nível de acesso é controlado quer pela [Kubernetes RBAC](#use-kubernetes-role-based-access-control-kubernetes-rbac) (tradicionalmente) quer pela integração do Azure RBAC com a AKS para autorização de kubernetes.
 Para ver como dar granularmente permissões à API de Kubernetes usando Azure RBAC ver [Use Azure RBAC para autorização Kubernetes](manage-azure-rbac.md).
 
-## <a name="use-pod-identities"></a>Use identidades de vagem
+## <a name="use-pod-managed-identities"></a>Use identidades geridas por Pod
 
 **Orientação para as melhores práticas** - Não utilize credenciais fixas dentro de cápsulas ou imagens de contentores, uma vez que estão em risco de exposição ou abuso. Em vez disso, utilize identidades de pod para solicitar automaticamente o acesso utilizando uma solução de identidade AZure AD central. As identidades do pod destinam-se apenas a ser utilizadas apenas com cápsulas Linux e imagens de contentores.
 
+> [!NOTE]
+> O suporte de identidades geridas por pod para contentores windows está para breve.
+
 Quando os pods precisam de acesso a outros serviços Azure, tais como Cosmos DB, Key Vault ou Blob Storage, o pod precisa de credenciais de acesso. Estas credenciais de acesso podem ser definidas com a imagem do recipiente ou injetadas como um segredo de Kubernetes, mas precisam de ser criadas e atribuídas manualmente. Muitas vezes, as credenciais são reutilizadas através de cápsulas, e não são regularmente giradas.
 
-Identidades geridas para recursos Azure (atualmente implementadas como um projeto de código aberto AKS associado) permitem solicitar automaticamente o acesso aos serviços através do Azure AD. Não define manualmente credenciais para cápsulas, em vez disso, solicitam um token de acesso em tempo real, e podem usá-lo apenas para aceder apenas aos seus serviços atribuídos. Em AKS, dois componentes são implantados pelo operador do cluster para permitir que as cápsulas utilizem identidades geridas:
+Identidades geridas por pod para recursos Azure permite-lhe solicitar automaticamente o acesso aos serviços através do Azure AD. As identidades geridas pelo Pod estão atualmente em pré-visualização para o Serviço Azure Kubernetes. Consulte a [documentação do Use Azure Ative Directory em Azure Kubernetes Service (Preview)]( https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity) para começar. Com identidades geridas pelo Pod, não define manualmente credenciais para cápsulas, em vez disso solicitam um token de acesso em tempo real, e podem usá-lo apenas para aceder aos seus serviços atribuídos. Na AKS, existem dois componentes que lidam com as operações para permitir que as cápsulas utilizem identidades geridas:
 
 * **O servidor Node Management Identity (NMI)** é um pod que funciona como Um DaemonSet em cada nó no cluster AKS. O servidor NMI ouve pedidos de pod para os serviços Azure.
-* **O Controlador de Identidade Gerido (MIC)** é um pod central com permissões para consultar o servidor API de Kubernetes e verifica um mapeamento de identidade Azure que corresponde a uma cápsula.
+* **O Fornecedor de Recursos Azure** consulta o servidor API de Kubernetes e verifica um mapeamento de identidade Azure que corresponde a uma cápsula.
 
-Quando os pods solicitam o acesso a um serviço Azure, as regras de rede redirecionam o tráfego para o servidor Node Management Identity (NMI). O servidor NMI identifica cápsulas que solicitam o acesso aos serviços Azure com base no seu endereço remoto, e consulta o Controlador de Identidade Gerido (MIC). O MIC verifica os mapeamentos de identidade Azure no cluster AKS, e o servidor NMI solicita então um token de acesso a partir do Azure Ative Directory (AD) com base no mapeamento de identidade da cápsula. A Azure AD fornece acesso ao servidor NMI, que é devolvido à cápsula. Este token de acesso pode ser usado pela cápsula para, em seguida, solicitar acesso aos serviços em Azure.
+Quando os pods solicitam o acesso a um serviço Azure, as regras de rede redirecionam o tráfego para o servidor Node Management Identity (NMI). O servidor NMI identifica cápsulas que solicitam o acesso aos serviços Azure com base no seu endereço remoto e consulta o Fornecedor de Recursos Azure. O Azure Resoruce Provider verifica os mapeamentos de identidade Azure no cluster AKS, e o servidor NMI solicita então um token de acesso a partir do Azure Ative Directory (AD) com base no mapeamento de identidade da cápsula. A Azure AD fornece acesso ao servidor NMI, que é devolvido à cápsula. Este token de acesso pode ser usado pela cápsula para, em seguida, solicitar acesso aos serviços em Azure.
 
 No exemplo seguinte, um desenvolvedor cria um pod que usa uma identidade gerida para solicitar o acesso à Base de Dados Azure SQL:
 
 ![Identidades do Pod permitem que um casulo solicite automaticamente acesso a outros serviços](media/operator-best-practices-identity/pod-identities.png)
 
 1. O operador de cluster cria primeiro uma conta de serviço que pode ser usada para mapear identidades quando as cápsulas pedem acesso aos serviços.
-1. O servidor NMI e o MIC são implantados para transmitir quaisquer pedidos de pod para fichas de acesso ao Azure AD.
+1. O servidor NMI é implantado para retransmitir quaisquer pedidos de pod, juntamente com o Fornecedor de Recursos Azure, para acesso a Azure AD.
 1. Um desenvolvedor implementa um pod com uma identidade gerida que solicita um token de acesso através do servidor NMI.
 1. O token é devolvido à cápsula e usado para aceder à Base de Dados Azure SQL
 
 > [!NOTE]
-> As identidades geridas do pod são um projeto de código aberto, e não é suportado pelo suporte técnico da Azure.
+> As identidades geridas pelo Pod estão atualmente em estado de pré-visualização.
 
-Para utilizar identidades de vagem, consulte [as identidades do Azure Ative Directory para aplicações kubernetes][aad-pod-identity].
+Para utilizar identidades geridas pelo Pod, consulte [use identidades geridas pelo Azure Ative Directory no Serviço Azure Kubernetes (Preview)]( https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Este artigo de boas práticas focado na autenticação e autorização para o seu cluster e recursos. Para implementar algumas destas boas práticas, consulte os seguintes artigos:
 
 * [Integre o Azure Ative Directy com a AKS][aks-aad]
-* [Utilize identidades geridas para recursos Azure com AKS][aad-pod-identity]
+* [Use identidades geridas por cápsulas Azure Ative pod no Serviço Azure Kubernetes (Pré-visualização)]( https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity)
 
 Para obter mais informações sobre as operações de cluster em AKS, consulte as seguintes boas práticas:
 

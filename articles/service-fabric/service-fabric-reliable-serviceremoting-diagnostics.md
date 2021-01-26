@@ -5,15 +5,15 @@ author: suchiagicha
 ms.topic: conceptual
 ms.date: 06/29/2017
 ms.author: pepogors
-ms.openlocfilehash: 89a7a545dd334f892ee27b97995de40d7b6416dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c7d466d6e8fd36b4445966b92ee753becf96c64
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86245930"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791766"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Diagnóstico e monitorização de desempenho para remoting de serviços fiáveis
-O tempo de execução Reliable ServiceRemoting emite  [contadores de desempenho](/dotnet/api/system.diagnostics.performancecounter?view=dotnet-plat-ext-3.1). Estes fornecem informações sobre como o ServiceRemoting está a funcionar e ajudam na resolução de problemas e na monitorização do desempenho.
+O tempo de execução Reliable ServiceRemoting emite  [contadores de desempenho](/dotnet/api/system.diagnostics.performancecounter). Estes fornecem informações sobre como o ServiceRemoting está a funcionar e ajudam na resolução de problemas e na monitorização do desempenho.
 
 
 ## <a name="performance-counters"></a>Contadores de desempenho
@@ -36,7 +36,7 @@ Para a `Service Fabric Service` categoria, os nomes de contraexemplo estão no s
 
 `ServiceFabricPartitionID_ServiceReplicaOrInstanceId_ServiceRuntimeInternalID`
 
-*ServiceFabricPartitionID* é a representação de cadeia do ID de partição do Tecido de Serviço a que o contador de desempenho está associado. O ID de partição é um GUID, e a sua representação de cordas é gerada através do método com o [`Guid.ToString`](/dotnet/api/system.guid.tostring?view=netcore-3.1#System_Guid_ToString_System_String_) especificador de formato "D".
+*ServiceFabricPartitionID* é a representação de cadeia do ID de partição do Tecido de Serviço a que o contador de desempenho está associado. O ID de partição é um GUID, e a sua representação de cordas é gerada através do método com o [`Guid.ToString`](/dotnet/api/system.guid.tostring#System_Guid_ToString_System_String_) especificador de formato "D".
 
 *ServiceReplicaOrInstanceId* é a representação de cadeia da réplica de tecido de serviço/ID de instância a que a instância do contador de desempenho está associada.
 
@@ -57,7 +57,7 @@ Para a `Service Fabric Service Method` categoria, os nomes de contraexemplo est�
 
 *ServiceRuntimeMethodId* é a representação de uma corda de um inteiro de 32 bits que é gerado pelo tempo de execução do Serviço de Tecido para o seu uso interno. Isto está incluído no nome do contraexemplo de desempenho para garantir a sua singularidade e evitar conflitos com outros nomes de contra-instância de desempenho. Os utilizadores não devem tentar interpretar esta parte do nome do contador de desempenho.
 
-*ServiceFabricPartitionID* é a representação de cadeia do ID de partição do Tecido de Serviço a que o contador de desempenho está associado. O ID de partição é um GUID, e a sua representação de cordas é gerada através do método com o [`Guid.ToString`](/dotnet/api/system.guid.tostring?view=netcore-3.1#System_Guid_ToString_System_String_) especificador de formato "D".
+*ServiceFabricPartitionID* é a representação de cadeia do ID de partição do Tecido de Serviço a que o contador de desempenho está associado. O ID de partição é um GUID, e a sua representação de cordas é gerada através do método com o [`Guid.ToString`](/dotnet/api/system.guid.tostring#System_Guid_ToString_System_String_) especificador de formato "D".
 
 *ServiceReplicaOrInstanceId* é a representação de cadeia da réplica de tecido de serviço/ID de instância a que a instância do contador de desempenho está associada.
 
@@ -90,6 +90,6 @@ Quando um cliente invoca um método através de um objeto de procuração de ser
 | Serviço de Tecido de Serviço |Milissegundos médios para pedido de deserialização |Tempo demorado (em milissegundos) para deserializar a mensagem de pedido de serviço quando é recebida no serviço |
 | Serviço de Tecido de Serviço |Milissegundos médios para serialização de resposta |Tempo demorado (em milissegundos) para serializar a mensagem de resposta de serviço no serviço antes de a resposta ser enviada ao cliente |
 
-## <a name="next-steps"></a>Passos seguintes
-* [Código de exemplo](https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0)
+## <a name="next-steps"></a>Próximos passos
+* [Código de amostra](https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0)
 * [Fornecedores de EventSource em PerfView](/archive/blogs/vancem/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource)

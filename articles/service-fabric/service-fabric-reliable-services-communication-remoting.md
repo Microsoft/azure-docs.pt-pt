@@ -4,12 +4,12 @@ description: A remoing de tecido de serviço permite que clientes e serviços se
 ms.topic: conceptual
 ms.date: 09/20/2017
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c3659fea73abae3c9c5264f227b90d0af95a93e7
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: a0486a27d76c978a65c4a3cfd81df52a12e4ea1d
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576660"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791582"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>Remoing de serviço em C# com Serviços Fiáveis
 
@@ -160,7 +160,7 @@ Estes passos alteram o código de modelo para usar a pilha V2 utilizando classes
    </Resources>
    ```
 
-2. Utilize [o FabricTransportServiceRemotingListener](/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotinglistener?view=azure-dotnet) do `Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Runtime` espaço de nomes.
+2. Utilize [o FabricTransportServiceRemotingListener](/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotinglistener) do `Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Runtime` espaço de nomes.
 
    ```csharp
    protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -176,7 +176,7 @@ Estes passos alteram o código de modelo para usar a pilha V2 utilizando classes
     }
    ```
 
-3. Utilize [o FabricTransportServiceRemotingClientFactory](/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory?view=azure-dotnet) a partir do `Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Client` espaço de nomes para criar clientes.
+3. Utilize [o FabricTransportServiceRemotingClientFactory](/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory) a partir do `Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Client` espaço de nomes para criar clientes.
 
    ```csharp
    var proxyFactory = new ServiceProxyFactory((c) =>
@@ -255,7 +255,7 @@ Siga estes passos para mudar para uma pilha de V2_1.
     }
    ```
 
-3. Adicione um [atributo de montagem](/dotnet/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportserviceremotingproviderattribute?view=azure-dotnet) em interfaces de remoagem.
+3. Adicione um [atributo de montagem](/dotnet/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportserviceremotingproviderattribute) em interfaces de remoagem.
 
    ```csharp
     [assembly:  FabricTransportServiceRemotingProvider(RemotingListenerVersion=  RemotingListenerVersion.V2_1, RemotingClientVersion= RemotingClientVersion.V2_1)]
@@ -267,7 +267,7 @@ Construa o conjunto do cliente com o conjunto de interfaces para se certificar d
 
 ### <a name="use-explicit-remoting-classes-to-create-a-listenerclient-factory-for-the-v2-interface-compatible-version"></a>Utilize aulas explícitas de remoing para criar uma fábrica de ouvintes/clientes para a versão V2 (compatível com interface)
 
-Siga estes passos:
+Siga estes passos.
 
 1. Adicione um recurso de ponto final com o nome "ServiceEndpointV2_1" no manifesto de serviço.
 
@@ -279,7 +279,7 @@ Siga estes passos:
    </Resources>
    ```
 
-2. Utilize o [ouvinte V2 de remoing](/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotinglistener?view=azure-dotnet). O nome de recurso de ponto final de serviço padrão utilizado é "ServiceEndpointV2_1". Deve ser definido no manifesto de serviço.
+2. Utilize o [ouvinte V2 de remoing](/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotinglistener). O nome de recurso de ponto final de serviço padrão utilizado é "ServiceEndpointV2_1". Deve ser definido no manifesto de serviço.
 
    ```csharp
    protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -297,7 +297,7 @@ Siga estes passos:
     }
    ```
 
-3. Utilize a [fábrica de clientes](/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory?view=azure-dotnet)V2.
+3. Utilize a [fábrica de clientes](/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory)V2.
    ```csharp
    var proxyFactory = new ServiceProxyFactory((c) =>
           {
@@ -356,7 +356,7 @@ Este passo garante que o serviço está a ouvir apenas no ouvinte V2.
 ### <a name="use-custom-serialization-with-a-remoting-wrapped-message"></a>Use serialização personalizada com uma mensagem embrulhada de remoting
 
 Para uma mensagem embrulhada de remoing, criamos um único objeto embrulhado com todos os parâmetros como campo.
-Siga estes passos:
+Siga estes passos.
 
 1. Implemente a `IServiceRemotingMessageSerializationProvider` interface para fornecer implementação para serialização personalizada.
     Este código mostra como é a implementação.
@@ -546,7 +546,7 @@ Siga estes passos:
       });
       ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Web API com OWIN em Serviços Fiáveis](./service-fabric-reliable-services-communication-aspnetcore.md)
 * [Comunicação da Fundação de Comunicação do Windows com Serviços Fiáveis](service-fabric-reliable-services-communication-wcf.md)

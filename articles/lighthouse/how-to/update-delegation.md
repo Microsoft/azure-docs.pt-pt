@@ -3,12 +3,12 @@ title: Atualizar uma delegação
 description: Saiba como atualizar uma delegação para um cliente previamente a bordo do Farol de Azure.
 ms.date: 12/03/2020
 ms.topic: how-to
-ms.openlocfilehash: e204d1f3546e6e978f91c7e808065a388a4af4b3
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: eec5d1f2d34e8e3c9e0ded59cb111624b1981873
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97093422"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791344"
 ---
 # <a name="update-a-delegation"></a>Atualizar uma delegação
 
@@ -58,14 +58,14 @@ Após a conclusão da implantação, [confirme que foi bem sucedida](onboard-cus
 
 ## <a name="updating-managed-service-offers"></a>Atualizar ofertas de Serviço Gerido
 
-Se embarcar no seu cliente através de uma oferta de Serviço Gerido publicada no Azure Marketplace, e quiser atualizar as autorizações, pode atualizar a delegação [publicando uma nova versão da sua oferta](../../marketplace/partner-center-portal/update-existing-offer.md) com as autorizações que pretende utilizar [atualizadas](../../marketplace/partner-center-portal/create-new-managed-service-offer.md#authorization) no plano para esse cliente. O cliente poderá então atualizar para a versão mais recente no portal Azure.
+Se embarcar no seu cliente através de uma oferta de Serviço Gerido publicada no Azure Marketplace, e quiser atualizar as autorizações, pode atualizar a delegação [publicando uma nova versão da sua oferta](../../marketplace/partner-center-portal/update-existing-offer.md) com as autorizações que pretende utilizar [atualizadas](../../marketplace/plan-managed-service-offer.md) no plano para esse cliente. O cliente poderá então atualizar para a versão mais recente no portal Azure.
 
-Se quiser mudar o inquilino gerente, terá de [criar e publicar uma nova oferta de Serviço Gerido](../../marketplace/partner-center-portal/create-new-managed-service-offer.md) para que o cliente aceite.
+Se quiser mudar o inquilino gerente, terá de [criar e publicar uma nova oferta de Serviço Gerido](../../marketplace/plan-managed-service-offer.md) para que o cliente aceite.
 
 > [!TIP]
 > Como mencionado anteriormente, recomendamos que não utilize várias ofertas diferentes entre o mesmo cliente e o inquilino gerente. Se publicar uma nova oferta para o mesmo cliente que utiliza o mesmo inquilino gerente, certifique-se de que a oferta anterior é removida antes de o cliente aceitar a oferta mais recente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Ver e gerir clientes](view-manage-customers.md) indo para **os meus clientes** no portal Azure.
 - Saiba como [remover o acesso a uma delegação](remove-delegation.md) que estava previamente a bordo.
