@@ -7,12 +7,12 @@ ms.date: 9/12/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 04427a1eb2760e44086003a06ed4eb0d5cb473bf
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 76b83a608c7178b42b762d5fd5bb94d14a6ee41b
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673329"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797767"
 ---
 # <a name="introduction-to-azure-defender-for-kubernetes"></a>Introdução ao Azure Defender para Kubernetes
 
@@ -107,12 +107,12 @@ Se os seus clusters já estiverem a executar o Azure Monitor para agente de cont
 [Saiba mais sobre o Azure Monitor para o agente de contentores.](../azure-monitor/insights/container-insights-manage-agent.md)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, você aprendeu sobre a proteção Kubernetes do Security Center, incluindo Azure Defender for Kubernetes. 
 
 Para obter material relacionado, consulte os seguintes artigos: 
 
-- [Ativar o Azure Defender](security-center-pricing.md)
+- [Ativar o Azure Defender](security-center-pricing.md#enable-azure-defender)
 - [Alertas de fluxo para uma solução siem, SOAR ou GESTão de Serviços de TI](export-to-siem.md)
 - [Tabela de alertas de referência](alerts-reference.md)

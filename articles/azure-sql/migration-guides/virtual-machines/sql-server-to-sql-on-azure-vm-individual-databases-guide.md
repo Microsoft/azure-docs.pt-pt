@@ -3,19 +3,19 @@ title: Sql Server para SQL Server em VMs Azure (guia de migração)
 description: Siga este guia para migrar as bases de dados individuais do SQL Server para o SQL Server em Azure Virtual Machines (VMs).
 ms.custom: ''
 ms.service: virtual-machines-sql
-ms.subservice: ''
+ms.subservice: migration-guide
 ms.devlang: ''
 ms.topic: how-to
 author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: 3b0fdccd3eaf6e6bd94b595107022f738bdd8382
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: cc2a641cb017edace24db5df69bc4adf3a607524
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325927"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797881"
 ---
 # <a name="migration-guide-sql-server-to-sql-server-on-azure-vms"></a>Guia de migração: SQL Server para SQL Server em VMs Azure 
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -57,7 +57,7 @@ A Azure Migrate avalia a adequação da migração de computadores no local, rea
 Para obter ferramentas adicionais de descoberta, consulte [serviços e ferramentas](../../../dms/dms-tools-matrix.md#business-justification-phase) disponíveis para cenários de migração de dados.
 
 
-### <a name="assess"></a>Avaliar
+### <a name="assess"></a>Avaliação
 
 Depois de ter descoberto todas as fontes de dados, utilize o [Data Migration Assistant (DMA)](/sql/dma/dma-overview) para avaliar as instâncias do SQL Server no local, migrando para um caso de SQL Server em Azure VM para entender as lacunas entre a origem e os casos-alvo. 
 
@@ -195,7 +195,7 @@ A abordagem de ensaio para a migração da base de dados consiste na realizaçã
 > Utilize o [Assistente de Experimentação da Base de Dados (DEA)](/sql/dea/database-experimentation-assistant-overview) para ajudar a avaliar o desempenho do servidor SQL alvo.
 >
 
-### <a name="optimize"></a>Otimizar
+### <a name="optimize"></a>Otimização
 
 A fase de migração pós-migração é crucial para conciliar quaisquer problemas com precisão e completude de dados, bem como para abordar potenciais problemas de desempenho com a carga de trabalho.
 
@@ -205,7 +205,7 @@ Para obter mais informações sobre estas questões e medidas específicas para 
 - [Desempenho de sintonização em Máquinas Virtuais Azure SQL](../../virtual-machines/windows/performance-guidelines-best-practices.md).
 - [Centro de otimização de custos Azure](https://azure.microsoft.com/overview/cost-optimization/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para verificar a disponibilidade de serviços aplicáveis ao SQL Server consulte o centro de [infraestruturas Azure Global](https://azure.microsoft.com/global-infrastructure/services/?regions=all&amp;products=synapse-analytics,virtual-machines,sql-database)
 

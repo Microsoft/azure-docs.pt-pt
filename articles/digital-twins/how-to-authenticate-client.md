@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 10/7/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 2502fdd14acae206b8440fe602639aa49be55f4e
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: eba3958ae5dd307b80b04371d3659a129d5acf89
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98045925"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797870"
 ---
 # <a name="write-client-app-authentication-code"></a>Escreva código de autenticação de aplicativos de cliente
 
 Depois de [configurar uma instância e autenticação Azure Digital Twins,](how-to-set-up-instance-portal.md)pode criar uma aplicação ao cliente que utilizará para interagir com o caso. Uma vez configurado um projeto de cliente inicial, terá de **escrever código nessa aplicação do cliente para** o autenticar contra a instância Azure Digital Twins.
 
-A Azure Digital Twins realiza a autenticação utilizando [tokens de segurança Azure AD com base em AAUTH 2.0](../active-directory/develop/security-tokens.md#json-web-tokens-jwts-and-claims). Para autenticar o seu SDK, terá de obter um token ao portador com as permissões certas para a Azure Digital Twins e passá-lo juntamente com as suas chamadas API. 
+A Azure Digital Twins realiza a autenticação utilizando [tokens de segurança Azure AD com base em AAUTH 2.0](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims). Para autenticar o seu SDK, terá de obter um token ao portador com as permissões certas para a Azure Digital Twins e passá-lo juntamente com as suas chamadas API. 
 
 Este artigo descreve como obter credenciais usando a biblioteca do `Azure.Identity` cliente. Enquanto este artigo mostra exemplos de código em C#, como o que escreveria para o [.NET (C#) SDK,](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)pode utilizar uma versão `Azure.Identity` de independentemente do que está a usar (para mais informações sobre os SDKs disponíveis para as Gémeas Digitais Azure, ver [*Como:: Use as APIs e SDKs de Gémeos Digitais Azure).*](how-to-use-apis-sdks.md)
 
@@ -112,7 +112,7 @@ Além disso, para utilizar a autenticação em função, lembre-se de:
 
 Se os cenários de autenticação acima referidos não cobrirem as necessidades da sua aplicação, poderá explorar outros tipos de autenticação oferecidas na plataforma de identidade da [**Microsoft.**](../active-directory/develop/v2-overview.md#getting-started) A documentação desta plataforma abrange cenários de autenticação adicional, organizados por tipo de aplicação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Leia mais sobre como funciona a segurança em Azure Digital Twins:
 * [*Conceitos: Segurança para soluções Azure Digital Twins*](concepts-security.md)

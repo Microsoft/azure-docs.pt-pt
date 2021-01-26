@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: quickstart
-ms.date: 10/30/2020
+ms.date: 01/25/2021
 ms.author: juliako
-ms.openlocfilehash: 7099b0d303965b987fb316170738cc82568dc6d6
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 5b38c731db141052e6700472020cd60b6a4d13a5
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505602"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797792"
 ---
 # <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>Quickstart: Como se inscrever e carregar o seu primeiro vídeo
 
@@ -57,8 +57,12 @@ Consulte o artigo [de formatos de recipiente/ficheiro](../latest/media-encoder-s
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/video-indexer-get-started/uploaded.png" alt-text="Carregou o upload":::
- 
-## <a name="see-also"></a>Ver também
+
+## <a name="supported-browsers"></a>Browsers suportados
+
+Para mais informações, consulte [os navegadores suportados.](video-indexer-overview.md#supported-browsers)
+
+## <a name="see-also"></a>Veja também
 
 Consulte [os vídeos de upload e índice](upload-index-videos.md) para obter mais detalhes.
 
@@ -66,7 +70,7 @@ Depois de fazer o upload e indexar um vídeo, pode começar a usar o [website do
 
 [Comece a usar APIs](video-indexer-use-apis.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para uma introdução detalhada, visite o nosso [laboratório de introdução.](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/IntroToVideoIndexer.md) 
 

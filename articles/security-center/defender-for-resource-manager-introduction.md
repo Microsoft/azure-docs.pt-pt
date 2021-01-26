@@ -7,12 +7,12 @@ ms.date: 12/07/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 5594e8225b615bf6e1af5077bd68422edbbeec19
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 9591dae058a19cea73d88513b7c4ff4ab8f88045
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905456"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797755"
 ---
 # <a name="introduction-to-azure-defender-for-resource-manager"></a>Introdução ao Azure Defender para Gestor de Recursos
 
@@ -28,7 +28,7 @@ O Azure Defender for Resource Manager monitoriza automaticamente as operações 
 |----|:----|
 |Estado de libertação:|Pré-visualizar<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |Preços:|**Azure Defender for Resource Manager** é faturado como mostrado na página de [preços](security-center-pricing.md)|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
+|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![No](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
 |||
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-resource-manager"></a>Quais são os benefícios do Azure Defender para o Gestor de Recursos?
@@ -68,11 +68,11 @@ Para investigar alertas de segurança da Azure Defender para o Gestor de Recurso
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, você aprendeu sobre Azure Defender para Gestor de Recursos. Para material relacionado, consulte o seguinte artigo: 
 
 - Os alertas de segurança podem ser gerados pelo Security Center ou recebidos pelo Security Center a partir de diferentes produtos de segurança. Para exportar todos estes alertas para a Azure Sentinel, qualquer SIEM de terceiros, ou qualquer outra ferramenta externa, siga as instruções em [alertas de exportação para um SIEM](continuous-export.md).
 
 - > [!div class="nextstepaction"]
-    > [Ativar o Azure Defender](security-center-pricing.md)
+    > [Ativar o Azure Defender](security-center-pricing.md#enable-azure-defender)

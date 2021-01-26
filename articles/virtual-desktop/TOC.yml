@@ -120,6 +120,10 @@
       href: azure-monitor.md
     - name: Configurar um plano de recuperação após desastre
       href: disaster-recovery.md
+    - name: Configurar o proxy KDC
+      href: key-distribution-center-proxy.md
+    - name: Configurar o papel RD Gateway
+      href: rd-gateway-role.md
 - name: Conceitos
   items:
     - name: Funções incorporadas
@@ -170,6 +174,10 @@
       href: azure-monitor-glossary.md
     - name: Localizações dos dados
       href: data-locations.md
+    - name: Segurança
+      items:
+        - name: Linha de base de segurança
+          href: security-baseline.md
 - name: Resolução de problemas
   items:
     - name: 'Descrição geral da resolução de problemas, comentários e suporte'
