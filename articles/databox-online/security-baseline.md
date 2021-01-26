@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/18/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 0de08c166aba7609210892a32836bee9b07d5394
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 1d7cd07ee8ae8b35d51fbdd25b34602c2e799c75
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98203053"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787269"
 ---
 # <a name="azure-security-baseline-for-azure-stack-edge"></a>Linha de segurança Azure para Azure Stack Edge
 
@@ -22,7 +22,7 @@ Para ver como o Azure Stack Edge mapeia completamente para o Benchmark de Segura
 
 ## <a name="network-security"></a>Segurança de Rede
 
-*Para obter mais informações, veja [Referência de Segurança do Azure: Segurança de Rede](/azure/security/benchmarks/security-controls-v2-network-security).*
+*Para obter mais informações, veja [Referência de Segurança do Azure: Segurança de Rede](../security/benchmarks/security-controls-v2-network-security.md).*
 
 ### <a name="ns-1-implement-security-for-internal-traffic"></a>NS-1: Implementar a segurança para o tráfego interno
 
@@ -104,7 +104,7 @@ O dispositivo Azure Stack Edge utiliza as suas próprias funcionalidades de dete
 
 ## <a name="identity-management"></a>Gestão de Identidades
 
-*Para obter mais informações, veja [Referência de Segurança do Azure: Gestão de Identidades](/azure/security/benchmarks/security-controls-v2-identity-management).*
+*Para obter mais informações, veja [Referência de Segurança do Azure: Gestão de Identidades](../security/benchmarks/security-controls-v2-identity-management.md).*
 
 ### <a name="im-2-manage-application-identities-securely-and-automatically"></a>IM-2: Gerir identidades de aplicação de forma segura e automática
 
@@ -181,7 +181,7 @@ Rode e, em seguida, sincronize regularmente as chaves da sua conta de armazename
 
 ## <a name="privileged-access"></a>Acesso Privilegiado
 
-*Para obter mais informações, veja [Referência de Segurança do Azure: Acesso Privilegiado](/azure/security/benchmarks/security-controls-v2-privileged-access).*
+*Para obter mais informações, veja [Referência de Segurança do Azure: Acesso Privilegiado](../security/benchmarks/security-controls-v2-privileged-access.md).*
 
 ### <a name="pa-2-restrict-administrative-access-to-business-critical-systems"></a>PA-2: Restringir o acesso administrativo a sistemas críticos da empresa
 
@@ -236,7 +236,7 @@ As estações de trabalho seguras podem ser geridas centralmente para impor uma 
 
 - [Compreender estações de trabalho de acesso privilegiada](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/) 
 
-- [Implementar uma estação de trabalho de acesso privilegiado](/azure/active-directory/devices/howto-azure-managed-workstation)
+- [Implementar uma estação de trabalho de acesso privilegiado](/security/compass/privileged-access-deployment)
 
 **Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
@@ -244,7 +244,7 @@ As estações de trabalho seguras podem ser geridas centralmente para impor uma 
 
 ## <a name="data-protection"></a>Proteção de Dados
 
-*Para obter mais informações, veja [Referência de Segurança do Azure: Proteção de dados](/azure/security/benchmarks/security-controls-v2-data-protection).*
+*Para obter mais informações, veja [Referência de Segurança do Azure: Proteção de dados](../security/benchmarks/security-controls-v2-data-protection.md).*
 
 ### <a name="dp-2-protect-sensitive-data"></a>DP-2: Proteger dados confidenciais
 
@@ -274,7 +274,7 @@ A melhor prática é configurar o seu navegador para usar o TLS 1.2. Utilize o S
 
 ## <a name="asset-management"></a>Gestão de Recursos
 
-*Para obter mais informações, veja [Referência de Segurança do Azure: Gestão de Ativos](/azure/security/benchmarks/security-controls-v2-asset-management).*
+*Para obter mais informações, veja [Referência de Segurança do Azure: Gestão de Ativos](../security/benchmarks/security-controls-v2-asset-management.md).*
 
 ### <a name="am-1-ensure-security-team-has-visibility-into-risks-for-assets"></a>AM-1: Certifique-se de que a equipa de segurança tem visibilidade para os riscos dos ativos
 
@@ -308,7 +308,7 @@ Note que podem ser necessárias permissões adicionais para obter visibilidade e
 
 **Orientação**: Pode trazer as suas próprias aplicações para executar em quaisquer máquinas virtuais criadas localmente. Utilize scripts PowerShell para criar máquinas virtuais de computação local no seu dispositivo Stack Edge. Recomendamos vivamente que traga apenas aplicações fidedignas para executar nas máquinas virtuais locais. 
 
-- [Como controlar a execução do script PowerShell em ambiente Windows](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7.1&amp;viewFallbackFrom=powershell-6&amp;preserve-view=true)
+- [Como controlar a execução do script PowerShell em ambiente Windows](/powershell/module/microsoft.powershell.security/set-executionpolicy?preserve-view=true&amp;viewFallbackFrom=powershell-6&view=powershell-7.1)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -316,7 +316,7 @@ Note que podem ser necessárias permissões adicionais para obter visibilidade e
 
 ## <a name="logging-and-threat-detection"></a>Registos e Deteção de Ameaças
 
-*Para obter mais informações, veja [Referência de Segurança do Azure: Registos e Deteção de Ameaças](/azure/security/benchmarks/security-controls-v2-logging-threat-detection).*
+*Para obter mais informações, veja [Referência de Segurança do Azure: Registos e Deteção de Ameaças](../security/benchmarks/security-controls-v2-logging-threat-detection.md).*
 
 ### <a name="lt-1-enable-threat-detection-for-azure-resources"></a>LT-1: Permitir a deteção de ameaças para recursos Azure
 
@@ -380,7 +380,7 @@ Note que podem ser necessárias permissões adicionais para obter visibilidade e
 
 ## <a name="incident-response"></a>Resposta a Incidentes
 
-*Para obter mais informações, veja [Referência de Segurança do Azure: Resposta a Incidentes](/azure/security/benchmarks/security-controls-v2-incident-response).*
+*Para obter mais informações, veja [Referência de Segurança do Azure: Resposta a Incidentes](../security/benchmarks/security-controls-v2-incident-response.md).*
 
 ### <a name="ir-1-preparation--update-incident-response-process-for-azure"></a>IR-1: Preparação – atualizar o processo de resposta a incidentes para o Azure
 
@@ -466,7 +466,7 @@ Além disso, marque os recursos com etiquetas e crie um sistema de nomenclatura 
 
 - [Alertas de segurança no Centro de Segurança do Azure](../security-center/security-center-alerts-overview.md)
 
-- [Utilizar etiquetas para organizar os recursos do Azure](/azure/azure-resource-manager/resource-group-using-tags)
+- [Utilizar etiquetas para organizar os recursos do Azure](../azure-resource-manager/management/tag-resources.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
@@ -488,7 +488,7 @@ Além disso, marque os recursos com etiquetas e crie um sistema de nomenclatura 
 
 ## <a name="posture-and-vulnerability-management"></a>Gestão da Postura e da Vulnerabilidade
 
-*Para obter mais informações, veja [Referência de Segurança do Azure: Gestão da Postura e da Vulnerabilidade](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management).*
+*Para obter mais informações, veja [Referência de Segurança do Azure: Gestão da Postura e da Vulnerabilidade](../security/benchmarks/security-controls-v2-posture-vulnerability-management.md).*
 
 ### <a name="pv-3-establish-secure-configurations-for-compute-resources"></a>PV-3: Estabelecer configurações seguras para recursos computacional
 
@@ -547,7 +547,7 @@ Para ter a certeza de que os seus testes de penetração não infringem as polí
 
 ## <a name="endpoint-security"></a>Segurança de ponto final
 
-*Para mais informações, consulte o [Benchmark de Segurança Azure: Endpoint Security](/azure/security/benchmarks/security-controls-v2-endpoint-security).*
+*Para mais informações, consulte o [Benchmark de Segurança Azure: Endpoint Security](../security/benchmarks/security-controls-v2-endpoint-security.md).*
 
 ### <a name="es-1-use-endpoint-detection-and-response-edr"></a>ES-1: Utilizar deteção e resposta de ponto final (EDR)
 
@@ -569,7 +569,7 @@ Para ter a certeza de que os seus testes de penetração não infringem as polí
 
 ## <a name="backup-and-recovery"></a>Cópia de Segurança e Recuperação
 
-*Para obter mais informações, veja [Referência de Segurança do Azure: Cópia de Segurança e Recuperação](/azure/security/benchmarks/security-controls-v2-backup-recovery).*
+*Para obter mais informações, veja [Referência de Segurança do Azure: Cópia de Segurança e Recuperação](../security/benchmarks/security-controls-v2-backup-recovery.md).*
 
 ### <a name="br-1-ensure-regular-automated-backups"></a>BR-1: Garantir backups automáticos regulares
 
@@ -623,7 +623,7 @@ O acesso à conta Azure Storage é controlado por subscrições da Azure e pelas
 
 ## <a name="governance-and-strategy"></a>Governação e Estratégia
 
-*Para obter mais informações, veja [Referência de Segurança do Azure: Governação e Estratégia](/azure/security/benchmarks/security-controls-v2-governance-strategy).*
+*Para obter mais informações, veja [Referência de Segurança do Azure: Governação e Estratégia](../security/benchmarks/security-controls-v2-governance-strategy.md).*
 
 ### <a name="gs-1-define-asset-management-and-data-protection-strategy"></a>GS-1: Definir a gestão dos ativos e a estratégia de proteção de dados 
 
@@ -648,15 +648,15 @@ Esta estratégia deve incluir orientações, políticas e normas documentadas pa
 -   Normas criptográficas adequadas
 
 Para obter mais informações, veja as seguintes referências:
-- [Recomendação de Arquitetura de Segurança do Azure - Armazenamento, dados e encriptação](https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption?toc=/security/compass/toc.json&amp;bc=/security/compass/breadcrumb/toc.json)
+- [Recomendação de Arquitetura de Segurança do Azure - Armazenamento, dados e encriptação](/azure/architecture/framework/security/storage-data-encryption?bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
 
 - [Noções Básicas da Segurança do Azure - Segurança, encriptação e armazenamento de dados do Azure](../security/fundamentals/encryption-overview.md)
 
-- [Cloud Adoption Framework - Melhores práticas de segurança e encriptação de dados do Azure](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
+- [Cloud Adoption Framework - Melhores práticas de segurança e encriptação de dados do Azure](../security/fundamentals/data-encryption-best-practices.md?bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
 
-- [Referência de Segurança do Azure - Gestão de ativos](/azure/security/benchmarks/security-controls-v2-asset-management)
+- [Referência de Segurança do Azure - Gestão de ativos](../security/benchmarks/security-controls-v2-asset-management.md)
 
-- [Referência de Segurança do Azure - Proteção de dados](/azure/security/benchmarks/security-controls-v2-data-protection)
+- [Referência de Segurança do Azure - Proteção de dados](../security/benchmarks/security-controls-v2-data-protection.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -684,7 +684,7 @@ Certifique-se de que a estratégia de segmentação está implementada de forma 
 
 **Orientação**: Meça e mitigue continuamente os riscos para os seus ativos individuais e para o ambiente em que estão alojados. Dê prioridade aos ativos de valor alto e a superfícies de ataque muito expostas, como aplicações publicadas, pontos de entrada e saída de rede, pontos finais de utilizador e administrador, etc.
 
-- [Referência de Segurança do Azure - Gestão da postura e das vulnerabilidades](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management)
+- [Referência de Segurança do Azure - Gestão da postura e das vulnerabilidades](../security/benchmarks/security-controls-v2-posture-vulnerability-management.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -725,7 +725,7 @@ Esta estratégia deve incluir orientações, políticas e normas documentadas pa
 Para obter mais informações, veja as seguintes referências:
 - [Melhor Prática de Segurança do Azure 11 – Arquitetura. Estratégia de segurança única e unificada](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
-- [Referência de Segurança do Azure - Segurança de Rede](/azure/security/benchmarks/)
+- [Referência de Segurança do Azure - Segurança de Rede](../security/benchmarks/index.yml)
 
 - [Descrição geral da segurança de rede do Azure](../security/fundamentals/network-overview.md)
 
@@ -753,9 +753,9 @@ Esta estratégia deve incluir orientações, políticas e normas documentadas pa
 
 Para obter mais informações, veja as seguintes referências:
 
-- [Referência de Segurança do Azure - Gestão de identidades](/azure/security/benchmarks/security-controls-v2-identity-management)
+- [Referência de Segurança do Azure - Gestão de identidades](../security/benchmarks/security-controls-v2-identity-management.md)
 
-- [Referência de Segurança do Azure - Acesso privilegiado](/azure/security/benchmarks/security-controls-v2-privileged-access)
+- [Referência de Segurança do Azure - Acesso privilegiado](../security/benchmarks/security-controls-v2-privileged-access.md)
 
 - [Melhor Prática de Segurança do Azure 11 – Arquitetura. Estratégia de segurança única e unificada](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
@@ -787,9 +787,9 @@ Esta estratégia deve incluir orientações, políticas e normas documentadas pa
 
 Para obter mais informações, veja as seguintes referências:
 
-- [Referência de Segurança do Azure - Registos e deteção de ameaças](/azure/security/benchmarks/security-controls-v2-logging-threat-detection)
+- [Referência de Segurança do Azure - Registos e deteção de ameaças](../security/benchmarks/security-controls-v2-logging-threat-detection.md)
 
-- [Referência de Segurança do Azure - Resposta a incidentes](/azure/security/benchmarks/security-controls-v2-incident-response)
+- [Referência de Segurança do Azure - Resposta a incidentes](../security/benchmarks/security-controls-v2-incident-response.md)
 
 - [Melhor Prática de Segurança do Azure 4 – Processo. Atualizar os Processos de Resposta a Incidentes para a Cloud](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 
@@ -801,5 +801,5 @@ Para obter mais informações, veja as seguintes referências:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Veja a [Descrição geral da Referência de Segurança do Azure v2](/azure/security/benchmarks/overview)
-- Saiba mais sobre as [linhas de base de segurança do Azure](/azure/security/benchmarks/security-baselines-overview)
+- Veja a [Descrição geral da Referência de Segurança do Azure v2](../security/benchmarks/overview.md)
+- Saiba mais sobre as [linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md)

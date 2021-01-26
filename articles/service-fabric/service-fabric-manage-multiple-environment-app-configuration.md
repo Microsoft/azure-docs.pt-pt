@@ -3,12 +3,12 @@ title: Gerir aplicativos para vários ambientes
 description: As aplicações Azure Service Fabric podem ser executadas em clusters que variam em tamanho de uma máquina a milhares de máquinas. Em alguns casos, irá querer configurar a sua aplicação de forma diferente para esses ambientes variados. Este artigo abrange como definir diferentes parâmetros de aplicação por ambiente.
 ms.topic: conceptual
 ms.date: 02/23/2018
-ms.openlocfilehash: 51bc77abca8ce2b3878df1c1859203618d3e2e27
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: c907540c03788ab5f4087a96e301f18ab7ced4ca
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96574450"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787982"
 ---
 # <a name="manage-applications-for-multiple-environments"></a>Gerir as aplicações para vários ambientes
 
@@ -38,11 +38,11 @@ A configuração que fornece pode ser dividida em duas categorias:
 
 Ao criar uma aplicação nomeada em Service Fabric, tem a opção de passar em parâmetros. A forma como o fazes depende da forma como crias a aplicação.
 
-  - No PowerShell, o [`New-ServiceFabricApplication`](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet toma os parâmetros de aplicação como um haxixe.
+  - No PowerShell, o [`New-ServiceFabricApplication`](/powershell/module/servicefabric/new-servicefabricapplication) cmdlet toma os parâmetros de aplicação como um haxixe.
   - Utilizando sfctl, o [`sfctl application create`](./service-fabric-sfctl-application.md#sfctl-application-create) comando toma os parâmetros como uma corda JSON. O install.sh script usa sfctl.
   - O Visual Studio fornece-lhe um conjunto de ficheiros de parâmetros na pasta Parâmetros no projeto de aplicação. Estes ficheiros de parâmetros são utilizados na publicação do Visual Studio, utilizando os Serviços Azure DevOps ou o Azure DevOps Server. No Estúdio Visual, os ficheiros dos parâmetros estão a ser transmitidos para o Deploy-FabricApplication.ps1 script.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Os seguintes artigos mostram-lhe como utilizar alguns dos conceitos aqui descritos:
 
 - [Como especificar variáveis ambientais para serviços em Tecido de Serviço](service-fabric-how-to-specify-environment-variables.md)

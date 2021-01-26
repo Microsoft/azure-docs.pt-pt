@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 325e9123dd3f121b88df6d03518cfd9300fe3be9
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 82e154d8261d5fb24ce63e6266f2dfe8d8622e70
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98745184"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787067"
 ---
 # <a name="create-a-cloud-service-extended-support-using-azure-powershell"></a>Criar um Serviço de Nuvem (suporte alargado) utilizando a Azure PowerShell
 
@@ -147,17 +147,17 @@ Este artigo mostra como usar o `Az.CloudService` módulo PowerShell para implant
 19. Criar implementação de Serviço de Nuvem utilizando objetos de perfil & URLs SAS.
 
     ```powershell
-    $cloudService = New-AzCloudService                                                  ` 
-    -Name “ContosoCS”                                           ` 
-    -ResourceGroupName “ContosOrg”                     ` 
-    -Location “East US”                                           ` 
-    -PackageUrl $cspkgUrl                       ` 
-    -ConfigurationUrl $cscfgUrl                                         ` 
-    -UpgradeMode 'Auto'                                           ` 
-    -RoleProfile $roleProfile                                       ` 
+    $cloudService = New-AzCloudService ` 
+    -Name “ContosoCS” ` 
+    -ResourceGroupName “ContosOrg” ` 
+    -Location “East US” ` 
+    -PackageUrl $cspkgUrl ` 
+    -ConfigurationUrl $cscfgUrl ` 
+    -UpgradeMode 'Auto' ` 
+    -RoleProfile $roleProfile ` 
     -NetworkProfile $networkProfile  ` 
     -ExtensionProfile $extensionProfile ` 
-    -OSProfile $osProfile  
+    -OSProfile $osProfile `
     -Tag $tag 
     ```
 

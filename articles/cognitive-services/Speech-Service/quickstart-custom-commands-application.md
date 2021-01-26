@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
 ms.custom: references_regions
-ms.openlocfilehash: 2cc37cc66c06dc9e6997c6a031a9c60ad050c01a
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: ea32358aa86a6093cd72adf959d5fe731cf1e125
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601760"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786881"
 ---
 # <a name="create-a-voice-assistant-using-custom-commands"></a>Criar um assistente de voz com os Comandos Personalizados
 
@@ -134,6 +134,6 @@ No âmbito deste artigo, utilizaremos o cliente Assistente de Voz do Windows que
 > [!TIP]
 > Pode clicar em entradas no **Registo de Atividades** para inspecionar as respostas brutas enviadas a partir do serviço Comandos Personalizados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Neste artigo, usou uma aplicação existente. Em seguida, nas [secções de como desenhar,](how-to-custom-commands-create-application-with-simple-commands.md)desenvolver, depurar, testar e integrar uma aplicação de Comandos Personalizados do zero.
+Neste artigo, usou uma aplicação existente. Em seguida, nas [secções de como desenhar,](./how-to-develop-custom-commands-application.md)desenvolver, depurar, testar e integrar uma aplicação de Comandos Personalizados do zero.

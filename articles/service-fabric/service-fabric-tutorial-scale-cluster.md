@@ -4,18 +4,18 @@ description: Neste tutorial, você aprende a escalar um cluster de Tecido de Ser
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 063c83818ec2e98491f9062e936b9a1e7b2c4356
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: cdc7ba8d6c83ae72ffb8f1afae3954b3a46dc6ec
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97702179"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788032"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Tutorial: Dimensionar um cluster do Service Fabric no Azure
 
 Este tutorial é a terceira parte de uma série, e mostra-lhe como escalar o seu cluster existente para fora e dentro. Quando tiver terminado, saberá como dimensionar o seu cluster e como limpar quaisquer recursos restantes.  Para obter mais informações sobre a escala de um cluster em execução em Azure, leia [os clusters de Tecidos de Serviço de Escala.](service-fabric-cluster-scaling.md)
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Adicione e remova os nós (escalone para fora e escalone)
@@ -809,7 +809,7 @@ Depois de criar um cluster de Tecido de Serviço, pode escalar um cluster horizo
 > [!WARNING]
 > Não é aconselhável utilizar Remove-AzServiceFabricNodeType para remover um nó de um aglomerado de produção. É um comando perigoso, uma vez que elimina o recurso de escala de máquina virtual por trás do tipo de nó. 
 
-Para remover o tipo de nó, executar o [cmdlet Remove-AzServiceFabricNodeType.](/powershell/module/az.servicefabric/remove-azservicefabricnodetype)  O tipo de nó deve ser nível de [durabilidade][durability]  prateado ou dourado O cmdlet elimina o conjunto de escalas associado ao tipo de nó e demora algum tempo a ser concluído.  Em seguida, executar o cmdlet [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) em cada um dos nós para remover, que elimina o estado do nó e remove os nós do cluster. Se houver serviços nos nós, então os serviços são transferidos para outro nó. Se o gestor do cluster não conseguir encontrar um nó para a réplica/serviço, então a operação está atrasada/bloqueada.
+Para remover o tipo de nó, executar o [cmdlet Remove-AzServiceFabricNodeType.](/powershell/module/az.servicefabric/remove-azservicefabricnodetype)  O tipo de nó deve ser nível de [durabilidade][durability]  prateado ou dourado O cmdlet elimina o conjunto de escalas associado ao tipo de nó e demora algum tempo a ser concluído.  Em seguida, executar o cmdlet [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate) em cada um dos nós para remover, que elimina o estado do nó e remove os nós do cluster. Se houver serviços nos nós, então os serviços são transferidos para outro nó. Se o gestor do cluster não conseguir encontrar um nó para a réplica/serviço, então a operação está atrasada/bloqueada.
 
 ```powershell
 $groupname = "sfclustertutorialgroup"

@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: sebansal
-ms.openlocfilehash: bbc232ed0bc9e9715f481fef8b7b3a1f8eeebe78
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: aa631f4c505200c2c8abc67d4e22ffbab23e015c
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98059658"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789031"
 ---
 # <a name="create-and-merge-a-csr-in-key-vault"></a>Criar e fundir um CSR no Cofre de Chaves
 
@@ -104,7 +104,7 @@ O pedido de certificado foi agora fundido com êxito.
 ## <a name="add-more-information-to-the-csr"></a>Adicione mais informações à RSE
 
 Se pretender adicionar mais informações ao criar a RSE, defina-a no **Nome de Assunto**. É melhor adicionar informações como:
-- País
+- Country
 - Cidade/localidade
 - Distrito
 - Organização
@@ -123,7 +123,7 @@ Exemplo
 
 - Como monitorizo ou manco a minha RSE?
 
-     Consulte [monitor e gerencie a criação de certificados.](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate-scenarios)
+     Consulte [monitor e gerencie a criação de certificados.](./create-certificate-scenarios.md)
 
 - E se eu vir **Error type 'A chave pública do certificado de entidade final no conteúdo do certificado X.509 especificado não corresponde à parte pública da chave privada especificada. Por favor, verifique se o certificado é válido'**
 
@@ -143,7 +143,7 @@ Exemplo
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Autenticação, pedidos e respostas](../general/authentication-requests-and-responses.md)
 - [Guia do Programador do Key Vault](../general/developers-guide.md)

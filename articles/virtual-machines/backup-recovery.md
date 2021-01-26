@@ -1,19 +1,19 @@
 ---
-title: Opções de backup de visão geral para Os VMs Do Linux
-description: Opções de backup geral para máquinas virtuais Linux Azure.
+title: Opções de backup de visão geral para VMs
+description: Opções de backup geral para máquinas virtuais Azure.
 author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 8/03/2020
 ms.author: cynthn
-ms.openlocfilehash: c56adc852b504d3a0663a9607b3472cb3348e7a5
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 5a093de0a27c8379cb6eff9c2bc3867dfdc20db5
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972361"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787812"
 ---
-# <a name="backup-and-restore-options-for-linux-virtual-machines-in-azure"></a>Opções de backup e restauro para máquinas virtuais Linux em Azure
+# <a name="backup-and-restore-options-for-virtual-machines-in-azure"></a>Opções de backup e restauro para máquinas virtuais em Azure
 
 Pode criar cópias de segurança em intervalos regulares para manter os seus dados protegidos. Existem várias opções de backup disponíveis para VMs, dependendo da sua caixa de uso.
 
@@ -21,7 +21,7 @@ Pode criar cópias de segurança em intervalos regulares para manter os seus dad
 
 Para apoiar os VMS Azure que executam cargas de trabalho de produção, utilize a Azure Backup. O Azure Backup suporta cópias de segurança consistentes para windows e VMs Linux. O Azure Backup cria pontos de recuperação que são armazenados em cofres de recuperação georredundantes. Quando restaura a partir de um ponto de recuperação, pode restaurar a VM completa ou apenas ficheiros específicos. 
 
-Para uma introdução simples e prática ao Azure Backup para VMs Azure, consulte o tutorial "Back up Azure virtual machines" para [Linux](./linux/tutorial-backup-vms.md) ou [Windows](./windows/tutorial-backup-vms.md).
+Para obter uma introdução simples e prática ao Azure Backup para VMs Azure, consulte o [quickstart Azure Backup](../backup/quick-backup-vm-portal.md).
 
 Para obter mais informações sobre como funciona a Azure Backup, consulte [Planeie a sua infraestrutura de backup VM em Azure](../backup/backup-azure-vms-introduction.md)
 
@@ -45,5 +45,5 @@ Para obter mais informações sobre a criação de instantâneos, consulte:
 
 
 
-## <a name="next-steps"></a>Passos seguintes
-Pode experimentar o Azure Backup seguindo o tutorial "Back up Windows virtual machines" para [Linux](./linux/tutorial-backup-vms.md) ou [Windows](./windows/tutorial-backup-vms.md).
+## <a name="next-steps"></a>Próximos passos
+Pode experimentar o Azure Backup seguindo o [quickstart de Backup Azure](../backup/quick-backup-vm-portal.md).

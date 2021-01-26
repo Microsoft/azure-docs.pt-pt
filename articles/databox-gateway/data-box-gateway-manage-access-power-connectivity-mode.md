@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: alkohli
-ms.openlocfilehash: 994e5a11cd3b42de339ed11a9d2517c81856e672
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: c4e2894d193309c169adbea96491e0754d479a8a
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96582474"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786813"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway"></a>Gerir o modo de acesso, energia e conectividade para o seu Gateway Azure Data Box
 
@@ -68,7 +68,7 @@ Ao gerar a chave de ativação do dispositivo, ou realizar quaisquer operações
 
 Você deve ter `User` acesso ao inquilino ative diretório para que você possa `Read all directory objects` . Um utilizador convidado não tem permissões para `Read all directory objects` . Se for um hóspede, operações como gerar uma chave de ativação, criar uma partilha no seu dispositivo e criar um utilizador falharão.
 
-Para obter mais informações sobre como fornecer acesso aos utilizadores à Microsoft Graph API, consulte a [referência de permissões do Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference).
+Para obter mais informações sobre como fornecer acesso aos utilizadores à Microsoft Graph API, consulte a [referência de permissões do Microsoft Graph](/graph/permissions-reference).
 
 ### <a name="register-resource-providers"></a>Registar fornecedores de recursos
 
@@ -95,7 +95,7 @@ Para um dispositivo Data Box Gateway, `Microsoft.DataBoxEdge` deve ser registado
 Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge
 ```
 
-Para obter mais informações sobre como registar um fornecedor de recursos, consulte [Resolver os erros do registo do fornecedor de recursos.](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors)
+Para obter mais informações sobre como registar um fornecedor de recursos, consulte [Resolver os erros do registo do fornecedor de recursos.](../azure-resource-manager/templates/error-register-resource-provider.md)
 
 ## <a name="manage-connectivity-mode"></a>Gerir o modo de conectividade
 

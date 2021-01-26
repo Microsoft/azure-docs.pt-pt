@@ -1,6 +1,6 @@
 ---
-title: Dados da amostra no armazenamento de blob Azure - Processo de Ciência de Dados de Equipa
-description: Dados de amostragem armazenados no armazenamento de bolhas Azure, descarregando-os programáticamente e, em seguida, amostrando-os usando procedimentos escritos em Python.
+title: Dados da amostra no Azure Blob Storage - Processo de Ciência de Dados de Equipa
+description: Dados de amostragem armazenados no Azure Blob Storage, descarregando-os programáticamente e, em seguida, amostrando-os usando procedimentos escritos em Python.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: b190bf0c474640c07d84971069072d3af2faa66d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c5827a0e07e537b66684f852d8f3e1500cd9febb
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321904"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788846"
 ---
-# <a name="sample-data-in-azure-blob-storage"></a><a name="heading"></a>Dados de exemplo no armazenamento de blobs do Azure
+# <a name="sample-data-in-azure-blob-storage"></a><a name="heading"></a>Dados da amostra no armazenamento de blob Azure
 
-Este artigo cobre os dados de amostragem armazenados no armazenamento de bolhas Azure, descarregando-os programáticamente e, em seguida, amostrando-os usando procedimentos escritos em Python.
+Este artigo cobre os dados de amostragem armazenados no Azure Blob Storage, descarregando-os programáticamente e, em seguida, amostrando-os utilizando procedimentos escritos em Python.
 
 **Por que provar os seus dados?**
 Se o conjunto de dados que pretende analisar é grande, é geralmente uma boa ideia reduzir a amostragem dos dados para reduzi-los a um tamanho menor, mas representativo e mais manejável. A amostragem facilita a compreensão de dados, a exploração e a engenharia de recursos. O seu papel no Processo de Análise cortana é permitir uma rápida prototipagem das funções de processamento de dados e modelos de machine learning.
@@ -28,7 +28,7 @@ Se o conjunto de dados que pretende analisar é grande, é geralmente uma boa id
 Esta tarefa de amostragem é um passo no Processo de Ciência de Dados de [Equipa (TDSP)](./index.yml).
 
 ## <a name="download-and-down-sample-data"></a>Dados de descarregamento e amostra de amostra
-1. Descarregue os dados do armazenamento de blob Azure utilizando o serviço Blob a partir do seguinte código Python da amostra: 
+1. Descarregue os dados do Azure Blob Storage utilizando o serviço Blob a partir do seguinte código Python da amostra: 
 
     ```python
     from azure.storage.blob import BlobService

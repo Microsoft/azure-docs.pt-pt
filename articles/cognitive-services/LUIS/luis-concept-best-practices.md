@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/17/2020
-ms.openlocfilehash: fc4475eb64744688e901d2b37e30632d044b0115
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 2f6ed85416cc5d7c3c2baba2b2cfe489e301d7e5
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95019318"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788490"
 ---
 # <a name="best-practices-for-building-a-language-understanding-luis-app"></a>Melhores práticas para a construção de uma app de compreensão linguística (LUIS)
 Utilize o processo de autoria da aplicação para construir a sua aplicação LUIS:
@@ -141,7 +141,7 @@ Use **as expressões** de ponto final de revisão da [aprendizagem ativa](luis-h
 
 ## <a name="do-monitor-the-performance-of-your-app"></a>Monitorize o desempenho da sua aplicação
 
-Monitorize a precisão da previsão utilizando um conjunto [de testes de lote.](luis-concept-batch-test.md)
+Monitorize a precisão da previsão utilizando um conjunto [de testes de lote.](./luis-how-to-batch-test.md)
 
 Mantenha um conjunto separado de expressões que não são usadas como [palavras de exemplo](luis-concept-utterance.md) ou proclamações de ponto final. Continue a melhorar a aplicação para o seu conjunto de testes. Adaptar o conjunto de teste para refletir as declarações reais do utilizador. Utilize este conjunto de testes para avaliar cada iteração ou versão da aplicação.
 

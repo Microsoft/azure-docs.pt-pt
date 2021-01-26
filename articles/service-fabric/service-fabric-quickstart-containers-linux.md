@@ -4,12 +4,12 @@ description: Neste início rápido, irá criar uma imagem do Docker com a sua ap
 ms.topic: quickstart
 ms.date: 07/22/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 27d9c96643feb805a785e1e535cd8cac2602082b
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: f58b8feda0e88d8a5e7cddaabbc650b0f0ab3973
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741923"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788167"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>Início rápido: Implementar contentores do Linux no Service Fabric
 
@@ -25,7 +25,7 @@ Para concluir este guia de início rápido:
 
 1. Crie uma [conta Azure gratuita](https://azure.microsoft.com/free/) antes de começar se não tiver uma subscrição.
 
-2. Instale o [Azure CLI](/cli/azure/install-azure-cli-apt?view=azure-cli-latest)
+2. Instale o [Azure CLI](/cli/azure/install-azure-cli-apt)
 
 3. Instalar o [Service Fabric SDK e o CLI](service-fabric-get-started-linux.md#installation-methods)
 
@@ -89,7 +89,7 @@ O Service Fabric fornece várias ferramentas que pode utilizar para gerir um clu
 
 Neste arranque rápido, utilize o Service Fabric CLI e o Service Fabric Explorer (uma ferramenta baseada na web). Para utilizar o Service Fabric Explorer, é necessário importar o certificado ficheiro PFX para o navegador. Por predefinição, o ficheiro PFX não tem senha.
 
-Mozilla Firefox é o navegador padrão em Ubuntu 16.04. Para importar o certificado para o Firefox, clique no botão de menu no canto superior direito do seu browser e, em seguida, clique em **Opções** . Na página **Preferências** , utilize a caixa de pesquisa para procurar "certificados". Clique em **Ver Certificados** , selecione o separador **Os Seus Certificados** , clique em **Importar** e siga as instruções para importar o certificado.
+Mozilla Firefox é o navegador padrão em Ubuntu 16.04. Para importar o certificado para o Firefox, clique no botão de menu no canto superior direito do seu browser e, em seguida, clique em **Opções**. Na página **Preferências**, utilize a caixa de pesquisa para procurar "certificados". Clique em **Ver Certificados**, selecione o separador **Os Seus Certificados**, clique em **Importar** e siga as instruções para importar o certificado.
 
    ![Instalar o certificado no Firefox](./media/service-fabric-quickstart-containers-linux/install-cert-firefox.png)
 
@@ -143,13 +143,13 @@ Os serviços do Service Fabric podem ser facilmente dimensionados num cluster pa
 Para dimensionar o serviço de front-end da Web, execute os seguintes passos:
 
 1. Abra o Service Fabric Explorer no seu cluster; por exemplo, `https://containertestcluster.eastus.cloudapp.azure.com:19080`.
-2. Clique nas reticências (três pontos) junto ao nó **fabric:/Voting/azurevotefront** na vista de árvore e escolha **Dimensionar Serviço** .
+2. Clique nas reticências (três pontos) junto ao nó **fabric:/Voting/azurevotefront** na vista de árvore e escolha **Dimensionar Serviço**.
 
     ![Início do serviço de dimensionamento do Service Fabric Explorer][containersquickstartscale]
 
     Agora, pode optar por dimensionar o número de instâncias do serviço de front-end da Web.
 
-3. Altere o número para **2** e clique em **Dimensionar Serviço** .
+3. Altere o número para **2** e clique em **Dimensionar Serviço**.
 4. Clique no nó **fabric:/Voting/azurevotefront** na vista de árvore e expanda o nó de partição (representado por um GUID).
 
     ![Serviço de dimensionamento do Service Fabric Explorer concluído][containersquickstartscaledone]
@@ -168,7 +168,7 @@ Utilize o script de desinstalação (uninstall.sh) fornecido no modelo para elim
 
 A forma mais simples de eliminar o cluster e todos os recursos que consome é eliminando o grupo de recursos.
 
-Faça o súmis no Azure e selecione o ID de subscrição com o qual pretende remover o cluster. Pode encontrar o ID da subscrição ao iniciar sessão no portal do Azure. Elimine o grupo de recursos e todos os recursos de cluster utilizando o [comando de eliminação](/cli/azure/group?view=azure-cli-latest)do grupo az .
+Faça o súmis no Azure e selecione o ID de subscrição com o qual pretende remover o cluster. Pode encontrar o ID da subscrição ao iniciar sessão no portal do Azure. Elimine o grupo de recursos e todos os recursos de cluster utilizando o [comando de eliminação](/cli/azure/group)do grupo az .
 
 ```azurecli
 az login
@@ -182,7 +182,7 @@ Se tiver terminado de trabalhar com o cluster, pode remover o certificado do arq
 - No Mac: utilize a aplicação Keychain.
 - No Ubuntu: siga os passos utilizados para ver os certificados e remova o certificado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste início rápido, implementou uma aplicação de contentor do Linux num cluster do Service Fabric do Azure, efetuou a ativação pós-falha na aplicação e dimensionou a aplicação no cluster. Para saber mais sobre como trabalhar com contentores do Linux no Service Fabric, avance para o tutorial para aplicações de contentor do Linux.
 

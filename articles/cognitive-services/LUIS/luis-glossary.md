@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 05/08/2020
-ms.openlocfilehash: cc7dac3767ca5c9e2429f4691a458f88ad1af707
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 7c65c8272172cab9f5361d16141bf7b229037480
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151984"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786949"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glossário de compreensão linguística do vocabulário e conceitos comuns
 O glossário de Compreensão linguística (LUIS) explica termos que poderá encontrar enquanto trabalha com o serviço LUIS.
@@ -50,12 +50,13 @@ O recurso de autoria tem um Azure "tipo" de `LUIS-Authoring` .
 
 ## <a name="batch-test"></a>Teste de lote
 
-O teste em lote é a capacidade de validar os modelos atuais da app LUIS com um conjunto de testes consistente e conhecido de expressões de utilizador. O teste do lote é definido num [ficheiro formatado JSON](luis-concept-batch-test.md#batch-file-format).
+O teste em lote é a capacidade de validar os modelos atuais da app LUIS com um conjunto de testes consistente e conhecido de expressões de utilizador. O teste do lote é definido num [ficheiro formatado JSON](./luis-how-to-batch-test.md#batch-test-file).
+
 
 Veja também:
-* [Conceitos](luis-concept-batch-test.md)
+* [Conceitos](./luis-how-to-batch-test.md)
 * [Como executar](luis-how-to-batch-test.md) um teste de lote
-* [Tutorial](luis-tutorial-batch-testing.md) - crie e execute um teste de lote
+* [Tutorial](./luis-how-to-batch-test.md) - crie e execute um teste de lote
 
 ### <a name="f-measure"></a>Medida F
 
@@ -194,7 +195,7 @@ Em LUIS, [rotula-se](label-entity-example-utterance.md) uma palavra ou frase no 
 
 Consulte a definição para [aplicação (app)](#application-app).
 
-## <a name="model"></a>Modelo
+## <a name="model"></a>Modelação
 
 Um modelo (aprendido com máquina) é uma função que faz uma previsão sobre os dados de entrada. No LUIS, referimo-nos a classificadores de intenção e extratores de entidades genericamente como "modelos", e referimo-nos a uma coleção de modelos que são treinados, publicados e consultados em conjunto como uma "app".
 

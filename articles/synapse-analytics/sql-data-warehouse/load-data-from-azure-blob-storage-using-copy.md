@@ -11,16 +11,16 @@ ms.date: 11/23/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: b305a07997ccd2cbab0d963ced2bd23ab7a97690
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 398cbd49f79cbeb5f486e3f8ca33987d5357add6
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98683412"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789451"
 ---
 # <a name="tutorial-load-the-new-york-taxicab-dataset"></a>Tutorial: Carregue o conjunto de dados do Táxi de Nova Iorque
 
-Este tutorial usa a [declaração COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) para carregar o conjunto de dados do Táxi de Nova Iorque a partir de uma conta de armazenamento de blob Azure. Este tutorial utiliza o [portal do Azure](https://portal.azure.com) e o [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (SSMS) para:
+Este tutorial utiliza a [declaração COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) para carregar o conjunto de dados do Táxi de Nova Iorque a partir de uma conta de Armazenamento Azure Blob. Este tutorial utiliza o [portal do Azure](https://portal.azure.com) e o [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (SSMS) para:
 
 > [!div class="checklist"]
 >
@@ -31,7 +31,7 @@ Este tutorial usa a [declaração COPY](/sql/t-sql/statements/copy-into-transact
 
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Antes de começar este tutorial, transfira e instale a versão mais recente do [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (SSMS).  
 
@@ -90,7 +90,7 @@ O primeiro passo para o carregamento de dados é iniciar sessão como LoaderRC20
 
 ## <a name="create-tables-for-the-sample-data"></a>Criar tabelas para os dados da amostra
 
-Está pronto para iniciar o processo de carregamento de dados para o novo armazém de dados. Esta parte do tutorial mostra-lhe como usar a declaração COPY para carregar o conjunto de dados do táxi de Nova Iorque a partir de uma bolha de armazenamento Azure. Para referência futura, para aprender a levar os seus dados para o armazenamento de blob Azure ou para carregá-lo diretamente da sua fonte, consulte a [visão geral](design-elt-data-loading.md)de carregamento .
+Está pronto para iniciar o processo de carregamento de dados para o novo armazém de dados. Esta parte do tutorial mostra-lhe como usar a declaração COPY para carregar o conjunto de dados do táxi de Nova Iorque a partir de uma bolha de armazenamento Azure. Para referência futura, para saber como obter os seus dados para o Azure Blob Storage ou para os carregar diretamente a partir da sua fonte, consulte a [visão geral](design-elt-data-loading.md)de carregamento .
 
 Execute os seguintes scripts SQL e especifique informações sobre os dados que pretende carregar. Estas informações incluem a localização dos dados, o formato do conteúdo dos dados e a definição da tabela dos dados.
 
@@ -391,7 +391,7 @@ Siga estes passos para limpar os recursos conforme quiser.
 
 5. Para remover o grupo de recursos, selecione **myResourceGroup** e, em seguida, **selecione Delete resource group**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, aprendeu a criar um armazém de dados e a criar um utilizador para carregar dados. Usou a simples [declaração COPY](/sql/t-sql/statements/copy-into-transact-sql&preserve-view=true?view=azure-sqldw-latest&preserve-view=true#examples) para carregar dados no seu armazém de dados.
 

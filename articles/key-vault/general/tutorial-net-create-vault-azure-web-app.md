@@ -10,23 +10,23 @@ ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 2504efcbd79ab0e43f958b86564709b6ac6295a6
-ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
+ms.openlocfilehash: 2960726cf687908e8e4aed9333fce490dd7ff006
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97733061"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788742"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-in-net"></a>Tutorial: Use uma identidade gerida para ligar o Key Vault a uma aplicação web Azure em .NET
 
 [Azure Key Vault](./overview.md) fornece uma forma de armazenar credenciais e outros segredos com segurança aumentada. Mas o seu código precisa de autenticar no Cofre de Chaves para os recuperar. [Identidades geridas para recursos Azure](../../active-directory/managed-identities-azure-resources/overview.md) ajudam a resolver este problema, dando aos serviços Azure uma identidade gerida automaticamente no Azure Ative Directory (Azure AD). Pode utilizar esta identidade para autenticar qualquer serviço que suporte a autenticação AZure AD, incluindo o Key Vault, sem ter de apresentar credenciais no seu código.
 
-Neste tutorial, irá criar e implementar a aplicação web Azure para o [Azure App Service.](https://docs.microsoft.com/azure/app-service/overview) Você usará uma identidade gerida para autenticar a sua aplicação web Azure com um cofre de chaves Azure usando [a biblioteca de clientes secretos Azure Key Vault para .NET](/dotnet/api/overview/azure/key-vault) e o [Azure CLI](/cli/azure/get-started-with-azure-cli). Os mesmos princípios básicos aplicam-se quando utiliza a linguagem de desenvolvimento à sua escolha, Azure PowerShell, e/ou o portal Azure.
+Neste tutorial, irá criar e implementar a aplicação web Azure para o [Azure App Service.](../../app-service/overview.md) Você usará uma identidade gerida para autenticar a sua aplicação web Azure com um cofre de chaves Azure usando [a biblioteca de clientes secretos Azure Key Vault para .NET](/dotnet/api/overview/azure/key-vault) e o [Azure CLI](/cli/azure/get-started-with-azure-cli). Os mesmos princípios básicos aplicam-se quando utiliza a linguagem de desenvolvimento à sua escolha, Azure PowerShell, e/ou o portal Azure.
 
 Para obter mais informações sobre aplicações web de serviço da Azure App e implementação apresentadas neste tutorial, consulte:
-- [Descrição geral do Serviço de Aplicações](https://docs.microsoft.com/azure/app-service/overview)
-- [Crie uma aplicação web core ASP.NET no Azure App Service](https://docs.microsoft.com/azure/app-service/quickstart-dotnetcore)
-- [Implantação local de Git para o Serviço de Aplicações Azure](https://docs.microsoft.com/azure/app-service/deploy-local-git)
+- [Descrição geral do Serviço de Aplicações](../../app-service/overview.md)
+- [Crie uma aplicação web core ASP.NET no Azure App Service](../../app-service/quickstart-dotnetcore.md)
+- [Implantação local de Git para o Serviço de Aplicações Azure](../../app-service/deploy-local-git.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -67,7 +67,7 @@ Num navegador web, vá à aplicação em `http://localhost:5000` .
 
 Será apresentada a mensagem "Olá, Mundo!" mensagem da aplicação da amostra exibida na página.
 
-Para obter mais informações sobre a criação de aplicações web para o Azure, consulte [Criar uma aplicação web Core ASP.NET no Azure App Service](https://docs.microsoft.com/azure/app-service/quickstart-dotnetcore)
+Para obter mais informações sobre a criação de aplicações web para o Azure, consulte [Criar uma aplicação web Core ASP.NET no Azure App Service](../../app-service/quickstart-dotnetcore.md)
 
 ## <a name="deploy-the-app-to-azure"></a>Implementar a aplicação no Azure
 
@@ -228,7 +228,7 @@ http://<your-webapp-name>.azurewebsites.net
 
 Será apresentada a mensagem "Olá, Mundo!" mensagem que viu antes quando `http://localhost:5000` visitou.
 
-Para obter mais informações sobre a implementação de aplicações web usando o Git, consulte [a implementação do Git Local para o Azure App Service](https://docs.microsoft.com/azure/app-service/deploy-local-git)
+Para obter mais informações sobre a implementação de aplicações web usando o Git, consulte [a implementação do Git Local para o Azure App Service](../../app-service/deploy-local-git.md)
  
 ## <a name="configure-the-web-app-to-connect-to-key-vault"></a>Configure a aplicação web para ligar ao Key Vault
 
@@ -264,7 +264,7 @@ Também pode atribuir políticas de acesso utilizando o [portal Azure](./assign-
 
 ### <a name="modify-the-app-to-access-your-key-vault"></a>Modifique a app para aceder ao cofre da chave
 
-Neste tutorial, você usará a biblioteca secreta do [Azure Key Vault](https://docs.microsoft.com/dotnet/api/overview/azure/security.keyvault.secrets-readme) para fins de demonstração. Também pode utilizar [a biblioteca de clientes de certificados Azure Key Vault,](https://docs.microsoft.com/dotnet/api/overview/azure/security.keyvault.certificates-readme)ou [biblioteca de clientes chave Azure Key Vault](https://docs.microsoft.com/dotnet/api/overview/azure/security.keyvault.keys-readme).
+Neste tutorial, você usará a biblioteca secreta do [Azure Key Vault](/dotnet/api/overview/azure/security.keyvault.secrets-readme) para fins de demonstração. Também pode utilizar [a biblioteca de clientes de certificados Azure Key Vault,](/dotnet/api/overview/azure/security.keyvault.certificates-readme)ou [biblioteca de clientes chave Azure Key Vault](/dotnet/api/overview/azure/security.keyvault.keys-readme).
 
 #### <a name="install-the-packages"></a>Instalar as embalagens
 
@@ -333,7 +333,7 @@ http://<your-webapp-name>.azurewebsites.net
 
 Onde antes de ver "Olá Mundo!", deve agora ver o valor do seu segredo exibido.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Utilize o Cofre de Chaves Azure com aplicações implantadas numa máquina virtual em .NET](./tutorial-net-virtual-machine.md)
 - Saiba mais sobre [identidades geridas para recursos Azure](../../active-directory/managed-identities-azure-resources/overview.md)

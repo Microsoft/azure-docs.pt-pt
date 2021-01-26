@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: how-to
 ms.date: 12/18/2020
 ms.author: alkohli
-ms.openlocfilehash: aac1fb8e2da7a3c84b3abff47c8f476b9fb9049c
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 42476e2689cc503edc19e8e299a01ce922f1bf42
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98704343"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789200"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box"></a>Tutorial: Criar ordem de exportação para Azure Data Box
 
@@ -179,7 +179,7 @@ Execute os passos seguintes no Portal do Azure para encomendar um dispositivo.
 
 15. Selecione uma identidade de utilizador que utilizará para gerir o acesso a este recurso. Escolha **Selecionar uma identidade de utilizador.** No painel à direita, selecione a subscrição e a identidade gerida para utilizar. Em seguida, escolha **Selecionar**.
 
-    Uma identidade gerida atribuída pelo utilizador é um recurso autónomo do Azure que pode ser usado para gerir múltiplos recursos. Para obter mais informações, consulte [os tipos de identidade geridos.](/azure/active-directory/managed-identities-azure-resources/overview)  
+    Uma identidade gerida atribuída pelo utilizador é um recurso autónomo do Azure que pode ser usado para gerir múltiplos recursos. Para obter mais informações, consulte [os tipos de identidade geridos.](../active-directory/managed-identities-azure-resources/overview.md)  
 
     Se precisar de criar uma nova identidade gerida, siga as orientações em [Criar, listar, excluir ou atribuir uma função a uma identidade gerida atribuída pelo utilizador utilizando o portal Azure](../../articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
     

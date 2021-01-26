@@ -3,18 +3,18 @@ title: Gerir projetos de migração em escala com a Azure Migrate
 description: Saiba como utilizar eficazmente a Azure Migrate em recursos de clientes delegados.
 ms.date: 12/4/2020
 ms.topic: how-to
-ms.openlocfilehash: 16b92f3aa4dc3bfcb71eb232170c4df30348f8db
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 53f7c390d9f16dcbccbb1d09f46e63fec13eee2d
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095394"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788948"
 ---
 # <a name="manage-migration-projects-at-scale-with-azure-migrate"></a>Gerir projetos de migração em escala com a Azure Migrate
 
 Como prestador de serviços, pode ter a bordo vários inquilinos de clientes para o [Farol de Azure.](../overview.md) O Azure Lighthouse permite que os prestadores de serviços realizem operações em escala em vários inquilinos do Azure Ative Directory (Azure AD) de uma só vez, tornando as tarefas de gestão mais eficientes.
 
-[A Azure Migrate](../../migrate/migrate-services-overview.md) fornece um hub centralizado para avaliar e migrar para Azure nos servidores, infraestruturas, aplicações e dados. Normalmente, os parceiros que realizam avaliações e migração em escala para vários clientes devem aceder individualmente a cada subscrição do cliente utilizando o [modelo de subscrição CSP (Cloud Solution Provider)](/partner-center/customers-revoke-admin-privileges) ou [criando um utilizador convidado no cliente inquilino.](/azure/active-directory/external-identities/what-is-b2b)
+[A Azure Migrate](../../migrate/migrate-services-overview.md) fornece um hub centralizado para avaliar e migrar para Azure nos servidores, infraestruturas, aplicações e dados. Normalmente, os parceiros que realizam avaliações e migração em escala para vários clientes devem aceder individualmente a cada subscrição do cliente utilizando o [modelo de subscrição CSP (Cloud Solution Provider)](/partner-center/customers-revoke-admin-privileges) ou [criando um utilizador convidado no cliente inquilino.](../../active-directory/external-identities/what-is-b2b.md)
 
 A integração do Azure Lighthouse com a Azure Migrate permite que os prestadores de serviços descubram, avaliem e migram cargas de trabalho para diferentes clientes em escala, permitindo ao mesmo tempo que os clientes tenham total visibilidade e controlo dos seus ambientes. Através da gestão de recursos delegada da Azure, os prestadores de serviços têm uma visão única de todos os projetos da Azure Migrate que gerem através de vários inquilinos de clientes.
 
@@ -39,7 +39,7 @@ Esta abordagem minimiza a mudança de contexto para prestadores de serviços que
 O fluxo de trabalho para este modelo será semelhante ao seguinte:
 
 1. O cliente está [a bordo do Farol de Azure.](onboard-customer.md) O papel incorporado do Contribuinte é necessário para a identidade que será usada com Azure Migrate. Consulte o modelo de amostra de [gestão de recursos-azmigrate delegado](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegated-resource-management-azmigrate) para um exemplo utilizando esta função.
-1. O utilizador designado assina no inquilino gerente no portal Azure, e depois vai para Azure Migrate. Este utilizador [cria um projeto Azure Migrate,](/azure/migrate/create-manage-projects)selecionando a subscrição de clientes delegados apropriado.
+1. O utilizador designado assina no inquilino gerente no portal Azure, e depois vai para Azure Migrate. Este utilizador [cria um projeto Azure Migrate,](../../migrate/create-manage-projects.md)selecionando a subscrição de clientes delegados apropriado.
 1. Em seguida, o utilizador [executa passos para a descoberta e avaliação](../../migrate/tutorial-discover-vmware.md).
 
    Para VMware VMs, antes de configurar o aparelho, pode limitar a descoberta a centros de dados vCenter Server, clusters, uma pasta de clusters, anfitriões, uma pasta de anfitriões ou VMs individuais. Para definir o âmbito, atribua permissões na conta que o aparelho utiliza para aceder ao servidor vCenter. Isto é útil se os VM de vários clientes estiverem hospedados no hipervisor. Não se pode limitar o alcance de descoberta do Hiper-V.
@@ -61,7 +61,7 @@ Esta abordagem permite que os prestadores de serviços iniciem rapidamente proje
 O fluxo de trabalho para este modelo será semelhante ao seguinte:
 
 1. O cliente está [a bordo do Farol de Azure.](onboard-customer.md) O papel incorporado do Contribuinte é necessário para a identidade que será usada com Azure Migrate. Consulte o modelo de amostra de [gestão de recursos-azmigrate delegado](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegated-resource-management-azmigrate) para um exemplo utilizando esta função.
-1. O utilizador designado assina no inquilino gerente no portal Azure, e depois vai para Azure Migrate. Este utilizador [cria um projeto Azure Migrate](/azure/migrate/create-manage-projects) numa subscrição pertencente ao inquilino gerente.
+1. O utilizador designado assina no inquilino gerente no portal Azure, e depois vai para Azure Migrate. Este utilizador [cria um projeto Azure Migrate](../../migrate/create-manage-projects.md) numa subscrição pertencente ao inquilino gerente.
 1. Em seguida, o utilizador [executa passos para a descoberta e avaliação](../../migrate/tutorial-discover-vmware.md). Os VMs no local serão descobertos e avaliados no âmbito do projeto de migração criado no inquilino gerente, migrando depois de lá.
 
    Se estiver a gerir vários clientes no mesmo anfitrião Hyper-V, pode descobrir todas as cargas de trabalho ao mesmo tempo. Os VMs específicos do cliente podem ser selecionados no mesmo grupo, então uma avaliação pode ser criada, e a migração pode ser realizada selecionando a subscrição do cliente apropriado como destino alvo. Não há necessidade de limitar o âmbito de descoberta, e você pode manter uma visão geral completa de todas as cargas de trabalho do cliente em um projeto de migração.
@@ -76,8 +76,7 @@ Como membro da [Microsoft Partner Network,](https://partner.microsoft.com)pode l
 
 Para obter mais informações, veja [Ligar o seu ID de parceiro para controlar o impacto nos recursos delegados](partner-earned-credit.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [Azure Migrate.](../../migrate/migrate-services-overview.md)
 - Conheça as [experiências de gestão de inquilinos cruzados.](../concepts/cross-tenant-management-experience.md)
-

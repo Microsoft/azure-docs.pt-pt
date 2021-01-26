@@ -1,5 +1,5 @@
 ---
-title: Ativar o Arco Azure em Kubernetes no dispositivo GPU Azure Stack Edge Pro/ Microsoft Docs
+title: Ativar o Azure Arc em Kubernetes no dispositivo GPU Azure Stack Edge Pro| Microsoft Docs
 description: Descreve como ativar o Azure Arc num cluster Kubernetes existente no seu dispositivo GPU Azure Stack Edge Pro.
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 11/12/2020
 ms.author: alkohli
-ms.openlocfilehash: 342f6a2c4761104823694f2181b3ffa8726a441e
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 53ef73c70f5d20133e7b408ad7af91c3778e5568
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96449418"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787456"
 ---
 # <a name="enable-azure-arc-on-kubernetes-cluster-on-your-azure-stack-edge-pro-gpu-device"></a>Ativar o Azure Arc no cluster Kubernetes no seu dispositivo GPU Azure Stack Edge Pro
 
@@ -39,7 +39,7 @@ Antes de poder ativar o Azure Arc no cluster Kubernetes, certifique-se de que co
 
 1. Tem um sistema de clientes Windows que será utilizado para aceder ao dispositivo Azure Stack Edge Pro.
   
-    - O cliente está a executar o Windows PowerShell 5.0 ou mais tarde. Para descarregar a versão mais recente do Windows PowerShell, aceda à [Instalação do Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows).
+    - O cliente está a executar o Windows PowerShell 5.0 ou mais tarde. Para descarregar a versão mais recente do Windows PowerShell, aceda à [Instalação do Windows PowerShell](/powershell/scripting/install/installing-powershell-core-on-windows).
     
     - Também pode ter qualquer outro cliente com um [sistema operativo suportado.](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) Este artigo descreve o procedimento quando se utiliza um cliente Windows. 
     
@@ -226,6 +226,6 @@ Para remover a gestão do Arco Azure, siga estes passos:
 > [!NOTE]
 > Por predefinição, quando os recursos `yamls` são eliminados do repositório git, os recursos correspondentes não são eliminados do cluster Kubernetes. É necessário definir `--sync-garbage-collection`  no Arc OperatorParams para permitir a supressão de recursos quando eliminado do repositório de git. Para obter mais informações, consulte [Eliminar uma configuração](../azure-arc/kubernetes/use-gitops-connected-cluster.md#additional-parameters)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para entender como executar uma implementação do Arco Azure, consulte [implementar uma aplicação apátrida php guestbook com Redis via GitOps num dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md)

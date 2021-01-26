@@ -7,18 +7,18 @@ ms.topic: tutorial
 ms.service: firewall-manager
 ms.date: 10/22/2020
 ms.author: victorh
-ms.openlocfilehash: e2bcdf947db60fb50b44abba9d6a224768840b28
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 093b962bb9f42b660fb8cc5c0584ec67ebc87e48
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656144"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789166"
 ---
 # <a name="tutorial-secure-your-virtual-hub-using-azure-powershell"></a>Tutorial: Proteja o seu hub virtual usando a Azure PowerShell
 
 Neste tutorial, você cria um caso WAN virtual com um Hub Virtual numa região, e você implementa um Azure Firewall no Centro Virtual para garantir a conectividade. Neste exemplo, demonstra conectividade segura entre redes virtuais. O tráfego entre redes virtuais e os balcões site-to-site, ponto-a-local ou ExpressRoute também são suportados pelo Virtual Secure Hub.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Implementar o WAN virtual
@@ -265,7 +265,7 @@ TimeGenerated            Protocol    SourceIP       SourcePort TargetIP      Tar
 2020-10-04T20:52:52.356Z TCP         10.1.1.4       53748      10.1.2.4      22         Allow   N/A            AZFW1
 ```
 
-Se pretender ver os registos das regras de aplicação (descrevendo ligações HTTP permitidas e negadas) ou alterar a forma como os registos são apresentados, pode tentar com outras consultas de KQL. Pode encontrar alguns exemplos nos [registos do Azure Monitor para Azure Firewall](../firewall/log-analytics-samples.md).
+Se pretender ver os registos das regras de aplicação (descrevendo ligações HTTP permitidas e negadas) ou alterar a forma como os registos são apresentados, pode tentar com outras consultas de KQL. Pode encontrar alguns exemplos nos [registos do Azure Monitor para Azure Firewall](../firewall/firewall-workbook.md).
 
 
 ## <a name="clean-up-resources"></a>Limpar os recursos

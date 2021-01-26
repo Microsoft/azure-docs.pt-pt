@@ -1,5 +1,5 @@
 ---
-title: Monitor, diagnóstico e resolução de problemas Azure Storage / Microsoft Docs
+title: Monitor, diagnóstico e resolução de problemas Azure Storage | Microsoft Docs
 description: Use funcionalidades como análise de armazenamento, registo de registo do lado do cliente e outras ferramentas de terceiros para identificar, diagnosticar e resolver problemas relacionados com o Armazenamento Azure.
 author: normesta
 ms.service: storage
@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 18d36e37554a5d2b37488b7a1525f8290dc03da0
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 50d78e83bbbeb4b0252c83f9f52e94599ea6946c
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763273"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787965"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitorizar, diagnosticar e resolver problemas do Armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -566,7 +566,7 @@ Se a aplicação do cliente tentar utilizar uma chave SAS que não inclua as per
 
 A tabela a seguir mostra uma mensagem de registo do lado do servidor da amostra a partir do ficheiro de registo de registo de registo de armazenamento:
 
-| Nome | Valor |
+| Name | Valor |
 | --- | --- |
 | Pedir hora de início | 2014-05-30T06:17:48.4473697Z |
 | Tipo de operação     | GetBlobProperties            |
@@ -767,7 +767,7 @@ Também pode optar por visualizar os dados da TCP à medida que a camada de apli
 >
 
 ### <a name="appendix-4-using-excel-to-view-metrics-and-log-data"></a><a name="appendix-4"></a>Apêndice 4: Usar o Excel para visualizar métricas e registar dados
-Muitas ferramentas permitem-lhe descarregar os dados de Métricas de Armazenamento do armazenamento de mesas Azure num formato delimitado que facilita o carregamento dos dados no Excel para visualização e análise. Armazenamento Os dados de registo de armazenamento do blob Azure já estão num formato delimitado que pode carregar no Excel. No entanto, terá de adicionar rubricas de colunas adequadas com base nas informações no [Formato de Registo de Armazenamento Analytics](/rest/api/storageservices/Storage-Analytics-Log-Format) e no Esquema de Tabela de Análise de [Armazenamento](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema).
+Muitas ferramentas permitem-lhe descarregar os dados de Métricas de Armazenamento do armazenamento de mesas Azure num formato delimitado que facilita o carregamento dos dados no Excel para visualização e análise. Os dados de registo de armazenamento do Azure Blob Storage já se encontra num formato delimitado que pode carregar no Excel. No entanto, terá de adicionar rubricas de colunas adequadas com base nas informações no [Formato de Registo de Armazenamento Analytics](/rest/api/storageservices/Storage-Analytics-Log-Format) e no Esquema de Tabela de Análise de [Armazenamento](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema).
 
 Para importar os seus dados de Registo de Armazenamento no Excel depois de os transferir do armazenamento de bolhas:
 
@@ -785,7 +785,7 @@ Também pode utilizar a funcionalidade Application Insights para Azure DevOps co
 
 Pode encontrar mais informações no [What is Application Insights](../../azure-monitor/app/app-insights-overview.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre a análise no Azure Storage, consulte estes recursos:
 

@@ -1,18 +1,18 @@
 ---
 title: Métricas personalizadas no Monitor Azure (Pré-visualização)
 description: Saiba mais sobre as métricas personalizadas no Azure Monitor e como são modeladas.
-author: ancav
+author: anirudhcavale
 ms.author: ancav
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 06/01/2020
+ms.date: 01/25/2021
 ms.subservice: metrics
-ms.openlocfilehash: 73c9b2bf8cf88ca5e8576c451c9d9ac5f0eae8a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce081896292ec92c41dabc735df828ed167d86e7
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88639907"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788507"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Métricas personalizadas no Monitor Azure (Pré-visualização)
 
@@ -69,13 +69,13 @@ Esta propriedade captura o que a região de Azure, o recurso para o qual está a
 >
 >
 
-### <a name="timestamp"></a>Timestamp
+### <a name="timestamp"></a>CarimboDeDataEHora
 Cada ponto de dados enviado ao Monitor Azure deve ser marcado com uma marca de tempo. Esta estampta de tempo captura o DateTime no qual o valor métrico é medido ou recolhido. O Azure Monitor aceita dados métricos com timetamps até 20 minutos no passado e 5 minutos no futuro. A estada de tempo deve estar no formato ISO 8601.
 
 ### <a name="namespace"></a>Espaço de Nomes
 Os espaços de nome são uma forma de categorizar ou agrupar métricas semelhantes em conjunto. Ao utilizar espaços de nome, pode alcançar o isolamento entre grupos de métricas que podem recolher diferentes insights ou indicadores de desempenho. Por exemplo, você pode ter um espaço de nome chamado **contosomemorymetrics** que rastreia métricas de uso de memória que perfilam a sua aplicação. Outro espaço de nome chamado **contosoapptransaction** pode rastrear todas as métricas sobre transações de utilizadores na sua aplicação.
 
-### <a name="name"></a>Nome
+### <a name="name"></a>Name
 **O** nome é o nome da métrica que está a ser reportada. Normalmente, o nome é descritivo o suficiente para ajudar a identificar o que é medido. Um exemplo é uma métrica que mede o número de bytes de memória usados num determinado VM. Pode ter um nome métrico como **Memory Bytes In Use**.
 
 ### <a name="dimension-keys"></a>Chaves de dimensão
@@ -105,7 +105,6 @@ Por exemplo, se houvesse quatro transações de entrada na sua app durante um mi
 |Transação 1|Transação 2|Transação 3|Transação 4|
 |---|---|---|---|
 |7 ms|4 ms|13 ms|16 ms|
-|
 
 Em seguida, a publicação métrica resultante ao Azure Monitor seria a seguinte:
 * Min: 4
@@ -134,7 +133,8 @@ No exemplo seguinte, cria uma métrica personalizada chamada **Memory Bytes in U
         "metric": "Memory Bytes in Use",
         "namespace": "Memory Profile",
         "dimNames": [
-          "Process"        ],
+          "Process"
+        ],
         "series": [
           {
             "dimValues": [
@@ -174,44 +174,29 @@ Não há necessidade de pré-finar uma métrica personalizada no Azure Monitor a
 Depois de as métricas personalizadas serem submetidas ao Azure Monitor, pode navedá-las através do portal Azure e questioná-las através das APIs do Monitor Azure. Também pode criar alertas para o notificar quando determinadas condições estiverem reunidas.
 
 > [!NOTE]
-> Você precisa ser um leitor ou um papel contribuinte para ver métricas personalizadas.
+> Você precisa ser um leitor ou um papel contribuinte para ver métricas personalizadas. Consulte [o Leitor de Monitorização](../../role-based-access-control/built-in-roles.md#monitoring-reader). 
 
 ### <a name="browse-your-custom-metrics-via-the-azure-portal"></a>Navegue pelas suas métricas personalizadas através do portal Azure
-1.    Aceda ao [portal do Azure](https://portal.azure.com).
+1.    Aceda ao [Portal do Azure](https://portal.azure.com).
 2.    Selecione o **painel monitor.**
 3.    Selecione **Métricas**.
 4.    Selecione um recurso contra o qual emitia métricas personalizadas.
 5.    Selecione o espaço de nome das métricas para a sua métrica personalizada.
 6.    Selecione a métrica personalizada.
 
+> [!NOTE]
+> Consulte [começar com o Azure Metrics Explorer](./metrics-getting-started.md) para obter mais informações sobre as métricas de visualização no portal Azure.
+
 ## <a name="supported-regions"></a>Regiões suportadas
-Durante a pré-visualização pública, a capacidade de publicar métricas personalizadas está disponível apenas num subconjunto de regiões do Azure. Esta restrição significa que as métricas só podem ser publicadas para recursos numa das regiões apoiadas. O quadro que se segue lista o conjunto de regiões Azure suportadas para métricas personalizadas. Enumera igualmente os pontos finais correspondentes que devem ser publicados métricas de recursos nessas regiões:
+Durante a pré-visualização pública, a capacidade de publicar métricas personalizadas está disponível apenas num subconjunto de regiões do Azure. Esta restrição significa que as métricas só podem ser publicadas para recursos numa das regiões apoiadas. Consulte [as geografias do Azure](https://azure.microsoft.com/global-infrastructure/geographies/) para obter mais informações sobre as regiões de Azure. O código da região de Azure utilizado nos pontos finais abaixo é apenas o nome da região com espaço branco removido A tabela seguinte lista o conjunto de regiões de Azure apoiadas para métricas personalizadas. Enumera igualmente os pontos finais correspondentes que devem ser publicados métricas de recursos nessas regiões:
 
 |Região do Azure |Prefixo do ponto final regional|
 |---|---|
-| **EUA e Canadá** | |
-|E.U.A. Centro-Oeste | https: \/ /westcentralus.monitoring.azure.com |
-|E.U.A. Oeste 2       | https: \/ /westus2.monitoring.azure.com |
-|E.U.A. Centro-Norte | https: \/ /northcentralus.monitoring.azure.com
-|E.U.A. Centro-Sul| https: \/ /southcentralus.monitoring.azure.com |
-|E.U.A. Central      | https: \/ /centralus.monitoring.azure.com |
-|Canadá Central | https: \/ /canadacentral.monitoring.azure.com |
-|E.U.A. Leste| https: \/ /eastus.monitoring.azure.com |
-|E.U.A. Leste 2 | https: \/ /eastus2.monitoring.azure.com |
-| **Europa** | |
-|Europa do Norte    | https: \/ /northeurope.monitoring.azure.com |
-|Europa Ocidental     | https: \/ /westeurope.monitoring.azure.com |
-|Sul do Reino Unido | https: \/ /uksouth.monitoring.azure.com
-|França Central | https: \/ /francecentral.monitoring.azure.com |
-| **África** | |
-|África do Sul Norte | https: \/ /southafricanorth.monitoring.azure.com |
-| **Ásia** | |
-|Índia Central | https: \/ /centralindia.monitoring.azure.com |
-|Leste da Austrália | https: \/ /australiaeast.monitoring.azure.com |
-|Leste do Japão | https: \/ /japaneast.monitoring.azure.com |
-|Sudeste Asiático  | https: \/ /southeastasia.monitoring.azure.com |
-|Ásia Leste | https: \/ /eastasia.monitoring.azure.com |
-|Coreia do Sul Central   | https: \/ /koreacentral.monitoring.azure.com |
+| Todas as regiões de nuvem pública | https://<azure_region_code>.monitoring.azure.com |
+| **Azure Government** | |
+| US Gov - Arizona | https: \/ /usgovarizona.monitoring.azure.us |
+| **China** | |
+| China Leste 2 | https: \/ /chinaeast2.monitoring.azure.cn |
 
 ## <a name="latency-and-storage-retention"></a>Retenção de latência e armazenamento
 
@@ -230,7 +215,7 @@ O Azure Monitor impõe os seguintes limites de utilização em métricas persona
 
 Uma série de tempo ativa é definida como qualquer combinação única de métrica, chave de dimensão ou valor de dimensão que teve valores métricos publicados nas últimas 12 horas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Utilize métricas personalizadas de diferentes serviços: 
  - [Máquinas Virtuais](collect-custom-metrics-guestos-resource-manager-vm.md)
  - [Conjuntos de dimensionamento de máquinas virtuais](collect-custom-metrics-guestos-resource-manager-vmss.md)

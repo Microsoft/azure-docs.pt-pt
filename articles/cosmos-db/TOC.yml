@@ -1043,6 +1043,8 @@
           href: create-mongodb-xamarin.md
         - name: Golang
           href: create-mongodb-go.md
+        - name: Rust
+          href: create-mongodb-rust.md
     - name: Tutoriais
       items:
         - name: 1 - Criar e gerir dados

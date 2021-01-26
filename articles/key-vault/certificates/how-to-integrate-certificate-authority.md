@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: sebansal
-ms.openlocfilehash: 4635bcc51d2ab626b16ddcf02e772bf3df3cad4d
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: c36353448c140450044f352062c3349939e3f7b5
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763745"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789015"
 ---
 # <a name="integrating-key-vault-with-digicert-certificate-authority"></a>Integrar o Key Vault com a Autoridade de Certificação DigiCert
 
@@ -38,11 +38,11 @@ Para completar este guia, você deve ter os seguintes recursos.
 *   Permissões de nível de administrador nas suas contas.
 
 
-### <a name="before-you-begin"></a>Before you begin
+### <a name="before-you-begin"></a>Antes de começar
 
 Certifique-se de que tem as seguintes informações úteis na sua conta DigiCert Central:
 -   ID de conta certcentral
--   ID da organização
+-   ID da Organização
 -   Chave API
 
 ## <a name="adding-certificate-authority-in-key-vault"></a>Adicionar autoridade de certificados no cofre chave 
@@ -129,14 +129,14 @@ Se o certificado emitido estiver em estado de 'desactivado' no portal Azure, pro
  ![Operação de certificado](../media/certificates/how-to-integrate-certificate-authority/certificate-operation-select.png)
 
 Error message 'Please efetuar uma fusão para completar este pedido de certificado.'
-Precisaria de fundir a RSE assinada pela AC para completar este pedido. Saiba mais [aqui](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate-signing-request)
+Precisaria de fundir a RSE assinada pela AC para completar este pedido. Saiba mais [aqui](./create-certificate-signing-request.md)
 
 Para obter mais informações, consulte as operações do [Certificado na referência API do Cofre-Chave](/rest/api/keyvault). Para obter informações sobre o estabelecimento de permissões, consulte [Cofres - Criar ou Atualizar](/rest/api/keyvault/vaults/createorupdate) e [Abóbadas - Atualizar a Política de Acesso](/rest/api/keyvault/vaults/updateaccesspolicy).
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 - Posso gerar um certificado de wildcard digicert através do KeyVault? 
-   Sim. Depende de como configuraste a tua conta de digicert.
+   Yes. Depende de como configuraste a tua conta de digicert.
 - Como posso criar **certificado OV-SSL ou EV-SSL** com DigiCert? 
    O cofre-chave suporta a criação de certificados OV e EV SSL. Ao criar um certificado, clique na Configuração de Política Avançada e, em seguida, especifique o tipo de Certificado. Os valores suportados são: OV-SSL, EV-SSL
    
@@ -147,10 +147,10 @@ Exemplo
     ```
    
 - Existe um atraso de tempo na criação de certificado digicert através da integração vs aquisição de certificado através do digicert diretamente?
-   N.º Ao criar um certificado, é o processo de verificação que pode demorar e que a verificação depende do processo que a DigiCert segue.
+   Não. Ao criar um certificado, é o processo de verificação que pode demorar e que a verificação depende do processo que a DigiCert segue.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Autenticação, pedidos e respostas](../general/authentication-requests-and-responses.md)
 - [Guia do Programador do Key Vault](../general/developers-guide.md)

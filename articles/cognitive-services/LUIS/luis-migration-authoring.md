@@ -11,12 +11,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 12/14/2020
-ms.openlocfilehash: 086bc17938064571e8759ecda633fb5f87d1060f
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 3ff48ff5a3f46d8ec0fbf81b4cd20d20c217344b
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97616818"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787642"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Migrar para uma chave de autoria de recursos Azure
 
@@ -81,7 +81,7 @@ Aparecerá `*` um símbolo ao lado do nome da aplicação se tiver um recurso de
    > ![Exporte as suas aplicações.](./media/migrate-authoring-key/migration-export-apps.png)
 
 
-4. Na janela para as regiões migratórias, ser-lhe-á pedido que emigure as suas aplicações para um recurso Azure na mesma região em que foram da autoria. A LUIS tem três regiões e portais de [autoria.](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-authoring-regions) A janela mostrará as regiões onde as suas aplicações foram da autoria. As regiões de migração exibidas podem ser diferentes dependendo do portal regional que usa, e aplicações que você escreveu. 
+4. Na janela para as regiões migratórias, ser-lhe-á pedido que emigure as suas aplicações para um recurso Azure na mesma região em que foram da autoria. A LUIS tem três regiões e portais de [autoria.](./luis-reference-regions.md#luis-authoring-regions) A janela mostrará as regiões onde as suas aplicações foram da autoria. As regiões de migração exibidas podem ser diferentes dependendo do portal regional que usa, e aplicações que você escreveu. 
 
    > [!div class="mx-imgBorder"]
    > ![Migração multi-região.](./media/migrate-authoring-key/migration-regional-flow.png)
@@ -158,7 +158,7 @@ Se tiver algum problema com a migração que não seja abordado na secção de r
    * **Serviço**: Pesquisar e selecionar "Serviços Cognitivos"
    * **Recurso**: Escolha um recurso LUIS se houver um existente. Caso contrário, selecione a pergunta geral.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Rever [conceitos sobre a autoria e as chaves de tempo de execução](luis-how-to-azure-subscription.md)
 * Reveja como [atribuir chaves](luis-how-to-azure-subscription.md) e [adicionar contribuintes](luis-how-to-collaborate.md)

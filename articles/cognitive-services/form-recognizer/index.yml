@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/05/2019
-  ms.openlocfilehash: c456153b3efe3da28d9cd7b2fd39c1eca073e656
-  ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
-  ms.translationtype: HT
+  ms.openlocfilehash: 1d4eb69942ad9d58e4d0d358efc13c3dbcb77923
+  ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+  ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/20/2021
-  ms.locfileid: "98598141"
+  ms.lasthandoff: 01/26/2021
+  ms.locfileid: "98788371"
 landingContent:
 - title: Sobre o Reconhecedor de Formato
   linkLists:
@@ -133,7 +133,7 @@ landingContent:
   - linkListType: deploy
     links:
     - text: Utilizar instâncias de contentor
-      url: deploy-form-recognizer-on-container-instances.md
+      url: ../containers/azure-container-instance-recipe.md
 - title: Referência
   linkLists:
   - linkListType: reference

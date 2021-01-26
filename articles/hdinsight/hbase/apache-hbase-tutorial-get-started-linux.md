@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 04/14/2020
-ms.openlocfilehash: d24c63e3a2989173e718cd27fa43cecc50181047
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.date: 01/22/2021
+ms.openlocfilehash: 3aff700493fbdc0c2b8a9a3dcb4dbbafe9b10761
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533500"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788778"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>Tutorial: Use Apache HBase em Azure HDInsight
 
@@ -30,7 +30,7 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um cliente SSH. Para obter mais informações, consulte [Connect to HDInsight (Apache Hadoop) utilizando SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* Um cliente SSH. Para obter mais informações, veja [Ligar ao HDInsight (Apache Hadoop) através de SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 * O Bash. Os exemplos deste artigo utilizam a concha Bash no Windows 10 para os comandos curl. Consulte [o subsistema Windows para o Guia de Instalação do Linux para o Windows 10](/windows/wsl/install-win10) para obter etapas de instalação.  Outras [conchas Unix](https://www.gnu.org/software/bash/) também funcionarão.  Os exemplos de caracóis, com algumas modificações ligeiras, podem funcionar numa solicitação do Windows Command.  Ou pode utilizar o cmdlet Do Windows PowerShell [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod).
 
@@ -50,14 +50,14 @@ O procedimento a seguir utiliza um modelo de Gestor de Recursos Azure para criar
     |Grupo de recursos|Crie um grupo de gestão de recursos Azure ou utilize um existente.|
     |Localização|Especificar a localização do grupo de recursos. |
     |ClusterName|Insira um nome para o cluster HBase.|
-    |Nome e palavra-passe de início de sessão no cluster|O nome de início de sessão predefinido é **admin** .|
-    |Nome de utilizador e palavra-passe de SSH|O nome de utilizador predefinido é **sshuser** .|
+    |Nome e palavra-passe de início de sessão no cluster|O nome de início de sessão predefinido é **admin**.|
+    |Nome de utilizador e palavra-passe de SSH|O nome de utilizador predefinido é **sshuser**.|
 
     Os outros parâmetros são opcionais.  
 
     Cada cluster tem uma dependência de conta do Armazenamento do Azure. Depois de apagar um cluster, os dados ficam na conta de armazenamento. O nome da conta do Storage predefinida do cluster é o nome do cluster com "store" anexado. É codificado na secção de variáveis do modelo.
 
-3. **Selecione Concordo com os termos e condições acima indicados** e, em seguida, selecione **Comprar** . A criação de um cluster demora cerca de 20 minutos.
+3. **Selecione Concordo com os termos e condições acima indicados** e, em seguida, selecione **Comprar**. A criação de um cluster demora cerca de 20 minutos.
 
 Depois de eliminar um cluster HBase, pode criar outro cluster HBase utilizando o mesmo contentor de blob predefinido. O novo cluster seleciona as tabelas do HBase criadas por si no cluster original. Para evitar inconsistências, recomendamos que desative as tabelas do HBase antes de eliminar o cluster.
 
@@ -332,7 +332,7 @@ O HBase em HDInsight é fornecido com uma interface de utilizador da Web para mo
 
 1. Selecione **HBase** a partir do menu esquerdo.
 
-1. Selecione **links rápidos** no topo da página, aponte para o link de nó do Zookeeper ativo e, em seguida, selecione **HBase Master UI** .  A IU é aberta noutro separador do browser:
+1. Selecione **links rápidos** no topo da página, aponte para o link de nó do Zookeeper ativo e, em seguida, selecione **HBase Master UI**.  A IU é aberta noutro separador do browser:
 
    ![HDInsight Apache HBase HMaster UI](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
 
@@ -344,17 +344,23 @@ O HBase em HDInsight é fornecido com uma interface de utilizador da Web para mo
    - tarefas
    - atributos de software
 
+## <a name="cluster-recreation"></a>Recreação de cluster
+
+Depois de eliminar um cluster HBase, pode criar outro cluster HBase utilizando o mesmo contentor de blob predefinido. O novo cluster seleciona as tabelas do HBase criadas por si no cluster original. No entanto, para evitar inconsistências, recomendamos que desative as tabelas HBase antes de eliminar o cluster. 
+
+Pode utilizar o comando HBase `disable 'Contacts'` . 
+
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Para evitar inconsistências, recomendamos que desative as tabelas do HBase antes de eliminar o cluster. Pode utilizar o comando HBase `disable 'Contacts'` . Se não continuar a utilizar esta aplicação, elimine o cluster HBase que criou com os seguintes passos:
+Se não continuar a utilizar esta aplicação, elimine o cluster HBase que criou com os seguintes passos:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-1. Na caixa **de pesquisa** no topo, escreva **HDInsight** .
-1. Selecione **clusters HDInsight** em **Serviços** .
+1. Na caixa **de pesquisa** no topo, escreva **HDInsight**.
+1. Selecione **clusters HDInsight** em **Serviços**.
 1. Na lista de clusters HDInsight que aparecem, clique no **...** ao lado do cluster que criou para este tutorial.
-1. Clique em **Eliminar** . Clique em **Sim** .
+1. Clique em **Eliminar**. Clique em **Sim**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, aprendeu a criar um cluster Apache HBase. E como criar tabelas e ver os dados nessas tabelas a partir da concha HBase. Também aprendeu a usar uma consulta de Hive em dados em tabelas HBase. E como utilizar as APIs DE REPOUSO HBase C# para criar uma tabela HBase e obter dados da tabela. Para saber mais, veja:
 

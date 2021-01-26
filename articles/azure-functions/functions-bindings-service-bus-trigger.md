@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: cd0b73dd22e5e2cab720bb1a33e58e25e517b1f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2a514af99baa2d828df1aee35a0e6339d39e617
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90605044"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788558"
 ---
 # <a name="azure-service-bus-trigger-for-azure-functions"></a>Gatilho de ônibus de serviço Azure para funções Azure
 
@@ -83,91 +83,6 @@ public static void Run(string myQueueItem,
 }
 ```
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
-
-O exemplo a seguir mostra uma ligação do gatilho do Service Bus numa *function.jsno* ficheiro e numa [função JavaScript](functions-reference-node.md) que utiliza a ligação. A função lê [metadados de mensagens](#message-metadata) e regista uma mensagem de fila do Service Bus. 
-
-Aqui estão os dados vinculativos do *function.jsarquivado:*
-
-```json
-{
-"bindings": [
-    {
-    "queueName": "testqueue",
-    "connection": "MyServiceBusConnection",
-    "name": "myQueueItem",
-    "type": "serviceBusTrigger",
-    "direction": "in"
-    }
-],
-"disabled": false
-}
-```
-
-Aqui está o código de script JavaScript:
-
-```javascript
-module.exports = function(context, myQueueItem) {
-    context.log('Node.js ServiceBus queue trigger function processed message', myQueueItem);
-    context.log('EnqueuedTimeUtc =', context.bindingData.enqueuedTimeUtc);
-    context.log('DeliveryCount =', context.bindingData.deliveryCount);
-    context.log('MessageId =', context.bindingData.messageId);
-    context.done();
-};
-```
-
-# <a name="python"></a>[Python](#tab/python)
-
-O exemplo a seguir demonstra como ler uma mensagem de fila do Service Bus através de um gatilho.
-
-Uma ligação de autocarro de serviço é definida em *function.jsno* local onde *o tipo* está definido para `serviceBusTrigger` .
-
-```json
-{
-  "scriptFile": "__init__.py",
-  "bindings": [
-    {
-      "name": "msg",
-      "type": "serviceBusTrigger",
-      "direction": "in",
-      "queueName": "inputqueue",
-      "connection": "AzureServiceBusConnectionString"
-    }
-  ]
-}
-```
-
-O código * _ \_ init_ \_ .py* declara um parâmetro como `func.ServiceBusMessage` , que lhe permite ler a mensagem de fila na sua função.
-
-```python
-import azure.functions as func
-
-import logging
-import json
-
-def main(msg: func.ServiceBusMessage):
-    logging.info('Python ServiceBus queue trigger processed message.')
-
-    result = json.dumps({
-        'message_id': msg.message_id,
-        'body': msg.get_body().decode('utf-8'),
-        'content_type': msg.content_type,
-        'expiration_time': msg.expiration_time,
-        'label': msg.label,
-        'partition_key': msg.partition_key,
-        'reply_to': msg.reply_to,
-        'reply_to_session_id': msg.reply_to_session_id,
-        'scheduled_enqueue_time': msg.scheduled_enqueue_time,
-        'session_id': msg.session_id,
-        'time_to_live': msg.time_to_live,
-        'to': msg.to,
-        'user_properties': msg.user_properties,
-        'metadata' : msg.metadata
-    })
-
-    logging.info(result)
-```
-
 # <a name="java"></a>[Java](#tab/java)
 
 A seguinte função Java utiliza a `@ServiceBusQueueTrigger` anotação da biblioteca de [tempo de execução](/java/api/overview/azure/functions/runtime) das funções Java para descrever a configuração de um gatilho de fila de ônibus de serviço. A função agarra a mensagem colocada na fila e adiciona-a aos registos.
@@ -199,6 +114,120 @@ As funções de Java também podem ser ativadas quando uma mensagem é adicionad
     ) {
         context.getLogger().info(message);
     }
+```
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+O exemplo a seguir mostra uma ligação do gatilho do Service Bus numa *function.jsno* ficheiro e numa [função JavaScript](functions-reference-node.md) que utiliza a ligação. A função lê [metadados de mensagens](#message-metadata) e regista uma mensagem de fila do Service Bus.
+
+Aqui estão os dados vinculativos do *function.jsarquivado:*
+
+```json
+{
+"bindings": [
+    {
+    "queueName": "testqueue",
+    "connection": "MyServiceBusConnection",
+    "name": "myQueueItem",
+    "type": "serviceBusTrigger",
+    "direction": "in"
+    }
+],
+"disabled": false
+}
+```
+
+Aqui está o código de script JavaScript:
+
+```javascript
+module.exports = function(context, myQueueItem) {
+    context.log('Node.js ServiceBus queue trigger function processed message', myQueueItem);
+    context.log('EnqueuedTimeUtc =', context.bindingData.enqueuedTimeUtc);
+    context.log('DeliveryCount =', context.bindingData.deliveryCount);
+    context.log('MessageId =', context.bindingData.messageId);
+    context.done();
+};
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+O exemplo a seguir mostra uma ligação do gatilho do Service Bus numa *function.jsno* ficheiro e numa [função PowerShell](functions-reference-powershell.md) que utiliza a ligação. 
+
+Aqui estão os dados vinculativos do *function.jsarquivado:*
+
+```json
+{
+  "bindings": [
+    {
+      "name": "mySbMsg",
+      "type": "serviceBusTrigger",
+      "direction": "in",
+      "topicName": "mytopic",
+      "subscriptionName": "mysubscription",
+      "connection": "AzureServiceBusConnectionString"
+    }
+  ]
+}
+```
+
+Aqui está a função que funciona quando uma mensagem de Autocarro de Serviço é enviada.
+
+```powershell
+param([string] $mySbMsg, $TriggerMetadata)
+
+Write-Host "PowerShell ServiceBus queue trigger function processed message: $mySbMsg"
+```
+
+# <a name="python"></a>[Python](#tab/python)
+
+O exemplo a seguir demonstra como ler uma mensagem de fila do Service Bus através de um gatilho.
+
+Uma ligação de autocarro de serviço é definida em *function.jsno* local onde *o tipo* está definido para `serviceBusTrigger` .
+
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "name": "msg",
+      "type": "serviceBusTrigger",
+      "direction": "in",
+      "queueName": "inputqueue",
+      "connection": "AzureServiceBusConnectionString"
+    }
+  ]
+}
+```
+
+O código *_\_ no .py_ \_* declara um parâmetro como , que lhe permite ler a `func.ServiceBusMessage` mensagem de fila na sua função.
+
+```python
+import azure.functions as func
+
+import logging
+import json
+
+def main(msg: func.ServiceBusMessage):
+    logging.info('Python ServiceBus queue trigger processed message.')
+
+    result = json.dumps({
+        'message_id': msg.message_id,
+        'body': msg.get_body().decode('utf-8'),
+        'content_type': msg.content_type,
+        'expiration_time': msg.expiration_time,
+        'label': msg.label,
+        'partition_key': msg.partition_key,
+        'reply_to': msg.reply_to,
+        'reply_to_session_id': msg.reply_to_session_id,
+        'scheduled_enqueue_time': msg.scheduled_enqueue_time,
+        'session_id': msg.session_id,
+        'time_to_live': msg.time_to_live,
+        'to': msg.to,
+        'user_properties': msg.user_properties,
+        'metadata' : msg.metadata
+    })
+
+    logging.info(result)
 ```
 
 ---
@@ -268,14 +297,6 @@ A conta service bus a utilizar é determinada na seguinte ordem:
 
 Os atributos não são suportados pelo Script C#.
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
-
-Os atributos não são suportados pelo JavaScript.
-
-# <a name="python"></a>[Python](#tab/python)
-
-Os atributos não são suportados pela Python.
-
 # <a name="java"></a>[Java](#tab/java)
 
 A `ServiceBusQueueTrigger` anotação permite-lhe criar uma função que funciona quando uma mensagem de fila do Service Bus é criada. As opções de configuração disponíveis incluem nome de fila e nome de cadeia de ligação.
@@ -283,6 +304,18 @@ A `ServiceBusQueueTrigger` anotação permite-lhe criar uma função que funcion
 A `ServiceBusTopicTrigger` anotação permite-lhe designar um tópico e subscrição para direcionar os dados que desencadeiam a função.
 
 Consulte o [exemplo](#example) do gatilho para obter mais detalhes.
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+Os atributos não são suportados pelo JavaScript.
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Os atributos não são suportados pela PowerShell.
+
+# <a name="python"></a>[Python](#tab/python)
+
+Os atributos não são suportados pela Python.
 
 ---
 
@@ -313,8 +346,8 @@ Os seguintes tipos de parâmetros estão disponíveis para a fila ou mensagem de
 * `string` - Se a mensagem for sms.
 * `byte[]` - Útil para dados binários.
 * Um tipo personalizado - Se a mensagem contiver JSON, a Azure Functions tenta deserizar os dados JSON.
-* `BrokeredMessage`- Dá-lhe a mensagem desercializada com o método [BrokeredMessage.GetBody \<T> ().](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1)
-* [`MessageReceiver`](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver?view=azure-dotnet) - Utilizado para receber e reconhecer mensagens do recipiente de mensagens (necessário quando [`autoComplete`](functions-bindings-service-bus-output.md#hostjson-settings) definido para `false` )
+* `BrokeredMessage`- Dá-lhe a mensagem desercializada com o método [BrokeredMessage.GetBody \<T> ().](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1&preserve-view=true)
+* [`MessageReceiver`](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver?view=azure-dotnet&preserve-view=true) - Utilizado para receber e reconhecer mensagens do recipiente de mensagens (necessário quando [`autoComplete`](functions-bindings-service-bus-output.md#hostjson-settings) definido para `false` )
 
 Estes tipos de parâmetros são para Azure Functions versão 1.x; para 2.x e superior, use [`Message`](/dotnet/api/microsoft.azure.servicebus.message) em vez de `BrokeredMessage` .
 
@@ -325,23 +358,27 @@ Os seguintes tipos de parâmetros estão disponíveis para a fila ou mensagem de
 * `string` - Se a mensagem for sms.
 * `byte[]` - Útil para dados binários.
 * Um tipo personalizado - Se a mensagem contiver JSON, a Azure Functions tenta deserizar os dados JSON.
-* `BrokeredMessage`- Dá-lhe a mensagem desercializada com o método [BrokeredMessage.GetBody \<T> ().](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1)
+* `BrokeredMessage`- Dá-lhe a mensagem desercializada com o método [BrokeredMessage.GetBody \<T> ().](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1&preserve-view=true)
 
 Estes parâmetros são para Azure Functions versão 1.x; para 2.x e superior, use [`Message`](/dotnet/api/microsoft.azure.servicebus.message) em vez de `BrokeredMessage` .
-
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
-
-Aceda à fila ou mensagem de tópico utilizando `context.bindings.<name from function.json>` . A mensagem 'Service Bus' é transmitida para a função como um objeto string ou JSON.
-
-# <a name="python"></a>[Python](#tab/python)
-
-A mensagem de fila está disponível para a função através de um parâmetro dactilografado como `func.ServiceBusMessage` . A mensagem 'Service Bus' é transmitida para a função como um objeto string ou JSON.
 
 # <a name="java"></a>[Java](#tab/java)
 
 A mensagem de ônibus de serviço recebida está disponível através de um `ServiceBusQueueMessage` ou `ServiceBusTopicMessage` parâmetro.
 
 [Consulte o exemplo para mais detalhes.](#example)
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+Aceda à fila ou mensagem de tópico utilizando `context.bindings.<name from function.json>` . A mensagem 'Service Bus' é transmitida para a função como um objeto string ou JSON.
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+A instância do Service Bus está disponível através do parâmetro configurado no *function.jsna* propriedade do nome do ficheiro.
+
+# <a name="python"></a>[Python](#tab/python)
+
+A mensagem de fila está disponível para a função através de um parâmetro dactilografado como `func.ServiceBusMessage` . A mensagem 'Service Bus' é transmitida para a função como um objeto string ou JSON.
 
 ---
 
@@ -351,13 +388,13 @@ O manuseamento de mensagens venenosas não pode ser controlado ou configurado em
 
 ## <a name="peeklock-behavior"></a>Comportamento do PeekLock
 
-O tempo de execução das funções recebe uma mensagem no [modo PeekLock](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode). Solicita `Complete` a mensagem se a função terminar com sucesso ou se `Abandon` ligar se a função falhar. Se a função for mais longa do que o `PeekLock` tempo limite, o bloqueio é automaticamente renovado enquanto a função estiver em funcionamento. 
+O tempo de execução das funções recebe uma mensagem no [modo PeekLock](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode). Solicita `Complete` a mensagem se a função terminar com sucesso ou se `Abandon` ligar se a função falhar. Se a função for mais longa do que o `PeekLock` tempo limite, o bloqueio é automaticamente renovado enquanto a função estiver em funcionamento.
 
-O `maxAutoRenewDuration` é configurável em *host.jsem*, que mapeia para [OnMessageOptions.MaxAutoRenewDuration](/dotnet/api/microsoft.azure.servicebus.messagehandleroptions.maxautorenewduration?view=azure-dotnet). O máximo permitido para esta regulação é de 5 minutos de acordo com a documentação do Service Bus, enquanto que pode aumentar o prazo de tempo de Funções do padrão de 5 minutos para 10 minutos. Para funções de Service Bus, não gostaria de fazer isso, pois ultrapassaria o limite de renovação do Service Bus.
+O `maxAutoRenewDuration` é configurável em *host.jsem*, que mapeia para [OnMessageOptions.MaxAutoRenewDuration](/dotnet/api/microsoft.azure.servicebus.messagehandleroptions.maxautorenewduration?view=azure-dotnet&preserve-view=true). O máximo permitido para esta regulação é de 5 minutos de acordo com a documentação do Service Bus, enquanto que pode aumentar o prazo de tempo de Funções do padrão de 5 minutos para 10 minutos. Para funções de Service Bus, não gostaria de fazer isso, pois ultrapassaria o limite de renovação do Service Bus.
 
 ## <a name="message-metadata"></a>Metadados de mensagens
 
-O gatilho do Service Bus fornece várias [propriedades de metadados.](./functions-bindings-expressions-patterns.md#trigger-metadata) Estas propriedades podem ser usadas como parte de expressões de ligação em outras encadernações ou como parâmetros no seu código. Estas propriedades são membros da classe [Message.](/dotnet/api/microsoft.azure.servicebus.message?view=azure-dotnet)
+O gatilho do Service Bus fornece várias [propriedades de metadados.](./functions-bindings-expressions-patterns.md#trigger-metadata) Estas propriedades podem ser usadas como parte de expressões de ligação em outras encadernações ou como parâmetros no seu código. Estas propriedades são membros da classe [Message.](/dotnet/api/microsoft.azure.servicebus.message?view=azure-dotnet&preserve-view=true)
 
 |Propriedade|Tipo|Descrição|
 |--------|----|-----------|
@@ -378,6 +415,6 @@ O gatilho do Service Bus fornece várias [propriedades de metadados.](./function
 
 Consulte [exemplos de código](#example) que utilizam estas propriedades anteriormente neste artigo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Enviar mensagens de autocarro da Azure Service de Azure Functions (ligação de saída)](./functions-bindings-service-bus-output.md)

@@ -1,6 +1,6 @@
 ---
 title: Mover dados de armazenamento blob com Azure Storage Explorer - Processo de ciência de dados de equipa
-description: Saiba como usar o Azure Storage Explorer para carregar e transferir dados a partir do armazenamento de blob Azure.
+description: Saiba como usar o Azure Storage Explorer para carregar e transferir dados a partir do Azure Blob Storage.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -11,15 +11,15 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c5750132280d69c946ce180c51e4de6507549fcb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 53cb8cdd1c5f9824b07b16b8b6c70648603b9f38
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318170"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788914"
 ---
 # <a name="move-data-to-and-from-azure-blob-storage-using-azure-storage-explorer"></a>Mover dados de e para Azure Blob Storage usando O Explorador de Armazenamento Azure
-O Azure Storage Explorer é uma ferramenta gratuita da Microsoft que permite trabalhar com dados de Armazenamento Azure no Windows, macOS e Linux. Este tópico descreve como usá-lo para carregar e transferir dados do armazenamento de blob Azure. A ferramenta pode ser descarregada a partir do [Microsoft Azure Storage Explorer](https://storageexplorer.com/).
+O Azure Storage Explorer é uma ferramenta gratuita da Microsoft que permite trabalhar com dados de Armazenamento Azure no Windows, macOS e Linux. Este tópico descreve como usá-lo para carregar e transferir dados do Azure Blob Storage. A ferramenta pode ser descarregada a partir do [Microsoft Azure Storage Explorer](https://storageexplorer.com/).
 
 [!INCLUDE [blob-storage-tool-selector](../../../includes/machine-learning-blob-storage-tool-selector.md)]
 
@@ -27,7 +27,7 @@ O Azure Storage Explorer é uma ferramenta gratuita da Microsoft que permite tra
 > Se estiver a utilizar VM que foi configurado com os scripts fornecidos pelas [máquinas virtual data science em Azure](../data-science-virtual-machine/overview.md), então o Azure Storage Explorer já está instalado no VM.
 > 
 > [!NOTE]
-> Para uma introdução completa ao armazenamento de blob Azure, consulte o [Azure Blob Basics](../../storage/blobs/storage-quickstart-blobs-dotnet.md) e [o Azure Blob Service](/rest/api/storageservices/Blob-Service-Concepts).   
+> Para uma introdução completa ao Azure Blob Storage, consulte o [Azure Blob Basics](../../storage/blobs/storage-quickstart-blobs-dotnet.md) e [o Azure Blob Service](/rest/api/storageservices/Blob-Service-Concepts).   
 > 
 > 
 

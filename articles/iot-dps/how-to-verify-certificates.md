@@ -7,12 +7,12 @@ ms.date: 02/26/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 50e8dfd2998b50bfff7341e49ac4d0770c115166
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2020205357c68e007a1a375c4853e8c04afd2019
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530867"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789065"
 ---
 # <a name="how-to-do-proof-of-possession-for-x509-ca-certificates-with-your-device-provisioning-service"></a>Como fazer comprovativo de posse para certificados X.509 CA com o seu Serviço de Provisionamento de Dispositivos
 
@@ -58,18 +58,18 @@ A Microsoft fornece ferramentas e amostras que podem ajudá-lo a criar um certif
 > [!IMPORTANT]
 > Além de realizar a prova de posse, os scripts PowerShell e Bash citados anteriormente também permitem criar certificados de raiz, certificados intermédios e certificados de folha que podem ser usados para autenticar e fornecer dispositivos. Estes certificados devem ser utilizados apenas para o desenvolvimento. Nunca devem ser utilizados num ambiente de produção. 
 
-Os scripts PowerShell e Bash fornecidos na documentação e os SDKs dependem [do OpenSSL](https://www.openssl.org/). Também pode utilizar o OpenSSL ou outras ferramentas de terceiros para ajudá-lo a fazer prova de posse. Para obter mais informações sobre a ferramenta fornecida com os SDKs, consulte [como utilizar as ferramentas fornecidas nos SDKs](how-to-use-sdk-tools.md). 
+Os scripts PowerShell e Bash fornecidos na documentação e os SDKs dependem [do OpenSSL](https://www.openssl.org/). Também pode utilizar o OpenSSL ou outras ferramentas de terceiros para ajudá-lo a fazer prova de posse. Por exemplo, utilizando ferramentas fornecidas com os SDKs, consulte [Criar uma cadeia de certificados X.509](tutorial-custom-hsm-enrollment-group-x509.md#create-an-x509-certificate-chain). 
 
 
 ## <a name="upload-the-signed-verification-certificate"></a>Faça o upload do certificado de verificação assinado
 
-1. Faça o upload da assinatura resultante como certificado de verificação para o seu serviço de provisionamento no portal. Em **Dados de Certificado** no portal Azure, utilize o ícone Explorador de  _Ficheiros_ ao lado do **Certificado de Verificação .pem ou campo de ficheiros .cer** para carregar o certificado de verificação assinado do seu sistema.
+1. Faça o upload da assinatura resultante como certificado de verificação para o seu serviço de provisionamento no portal. Em **Dados de Certificado** no portal Azure, utilize o ícone Explorador de  _Ficheiros_ ao lado do **Certificado de Verificação .pem ou .cer** campo de ficheiros para fazer o upload do certificado de verificação assinado do seu sistema.
 
 2. Uma vez que o certificado seja carregado com sucesso, clique em **Verificar**. O **estado** do seu certificado altera-se a **_Verificado_** na lista do **Certificate Explorer.** Clique **em Atualizar** se não atualizar automaticamente.
 
    ![Verificação de certificado de upload](./media/how-to-verify-certificates/upload-cert-verification.png)  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para saber como usar o portal para criar um grupo de [inscrições, consulte gestão de inscrições de dispositivos com portal Azure.](how-to-manage-enrollments.md)
 - Para saber como usar os SDKs de serviço para criar um grupo de inscrições, consulte [a Gestão de inscrições de dispositivos com SDKs de serviço.](how-to-manage-enrollments-sdks.md)

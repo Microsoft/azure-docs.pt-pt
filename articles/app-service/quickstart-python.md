@@ -9,18 +9,16 @@ adobe-target: true
 adobe-target-activity: DocsExp–377467–A/B– Quickstarts/Python App–12.11
 adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-python-1
-ms.openlocfilehash: f60534f7d319bfe0b9e8e7bd4447770bcd6d45e3
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 11e47e83da09699d60ada11539dbb2f000f075db
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134437"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788677"
 ---
 # <a name="quickstart-create-a-python-app-using-azure-app-service-on-linux"></a>Quickstart: Criar uma aplicação Python utilizando o Serviço de Aplicações Azure no Linux
 
 Neste quickstart, você implementa uma aplicação web Python para [o App Service no Linux,](overview.md#app-service-on-linux)o serviço de hospedagem web altamente escalável e auto-remendado da Azure. Utilize a [interface de linha de comando Azure local (CLI)](/cli/azure/install-azure-cli) num computador Mac, Linux ou Windows para implementar uma amostra com as estruturas do Flask ou do Django. A aplicação web que configura utiliza um nível de Serviço de Aplicações gratuito, para que não incorre em custos no decurso deste artigo.
-
-Para **definições de termos comuns,** consulte [Azure Terminology Brief](/azure/developer/python/cloud-azure-terminology?toc=/azure/app-service/toc.json).
 
 > [!TIP]
 > Se preferir usar o Código do Estúdio Visual, siga o nosso **[Serviço de Aplicações visual Studio Code](/azure/developer/python/tutorial-deploy-app-service-on-linux-01)**.
@@ -202,7 +200,7 @@ def hello():
 ```
 ::: zone-end
 ::: zone pivot="python-framework-django"
-Abra *olá/views.py* num editor e atualize a `hello` função para corresponder ao seguinte código.
+Abra *o olá/vistas.py* num editor e atualize a `hello` função para corresponder ao seguinte código.
 
 ```python
 def hello(request):
@@ -282,7 +280,7 @@ O `--no-wait` argumento permite que o comando regresse antes da operação estar
 
 Tendo problemas? [Deixe-nos saber.](https://aka.ms/FlaskCLIQuickstartHelp)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Tutorial: Python (Django) web app com PostgreSQL](tutorial-python-postgresql-app.md)

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 11/28/2017
-ms.openlocfilehash: 2e6da1783c3bec4958783494cb6928f5a6a69a58
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: 63d46298de2f480d97d25de2ec7e1ec78fbebd8d
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97822357"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789468"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-apache-spark-applications-remotely-in-hdinsight-through-vpn"></a>Utilize o Azure Toolkit para o IntelliJ para depurar as aplicações Apache Spark remotamente em HDInsight através da VPN
 
@@ -41,7 +41,7 @@ Este artigo fornece orientações passo a passo sobre como usar as Ferramentas H
 
 Siga as instruções dos seguintes links para criar uma rede virtual Azure e, em seguida, verifique a conectividade entre o computador de secretária e a rede virtual:
 
-* [Criar um VNet com uma ligação VPN site-to-site utilizando o portal Azure](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+* [Criar um VNet com uma ligação VPN site-to-site utilizando o portal Azure](../../vpn-gateway/tutorial-site-to-site-portal.md)
 * [Criar um VNet com uma ligação VPN site-to-site utilizando PowerShell](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
 * [Configure uma ligação ponto-a-local a uma rede virtual utilizando o PowerShell](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 
@@ -299,7 +299,7 @@ Recomendamos que também crie um cluster Apache Spark em Azure HDInsight que faz
 
     ![Saída da consola intelliJ IDEA depura](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-complete-window.png)
 
-## <a name="next-steps"></a><a name="seealso"></a>Passos seguintes
+## <a name="next-steps"></a><a name="seealso"></a>Próximos passos
 
 * [Descrição geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
 

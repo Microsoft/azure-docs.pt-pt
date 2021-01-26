@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 10/08/2020
 ms.author: victorh
-ms.openlocfilehash: 6c71d9325ff7c1c5d2e7eff03a587a28335efd72
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 69eaf3ca60378afd810d712d85ea7ef732e41e3e
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94652149"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788235"
 ---
 # <a name="azure-firewall-features"></a>Funcionalidades do Azure Firewall
 
@@ -29,7 +29,7 @@ A azure Firewall inclui as seguintes funcionalidades:
 - [Regras de filtragem de tráfego de rede](#network-traffic-filtering-rules)
 - [Etiquetas FQDN](#fqdn-tags)
 - [Etiquetas de serviço](#service-tags)
-- [Informações sobre ameaças](#threat-intelligence)
+- [Inteligência de ameaça](#threat-intelligence)
 - [Suporte SNAT de saída](#outbound-snat-support)
 - [Suporte DNAT de entrada](#inbound-dnat-support)
 - [Vários endereços IP públicos](#multiple-public-ip-addresses)
@@ -101,7 +101,7 @@ Isto permite os seguintes cenários:
 
 ## <a name="azure-monitor-logging"></a>Registo do Azure Monitor
 
-Todos os eventos são integrados com o Azure Monitor, permitindo-lhe arquivar registos numa conta de armazenamento, transmitir eventos para o seu Centro de Eventos ou enviá-los para registos do Azure Monitor. Para amostras de registo do Monitor Azure, consulte [os registos do Monitor Azure para Azure Firewall](log-analytics-samples.md).
+Todos os eventos são integrados com o Azure Monitor, permitindo-lhe arquivar registos numa conta de armazenamento, transmitir eventos para o seu Centro de Eventos ou enviá-los para registos do Azure Monitor. Para amostras de registo do Monitor Azure, consulte [os registos do Monitor Azure para Azure Firewall](./firewall-workbook.md).
 
 Para obter mais informações, consulte [Tutorial: Monitor Azure Firewall registos e métricas](./firewall-diagnostics.md). 
 

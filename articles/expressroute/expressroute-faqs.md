@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: duau
-ms.openlocfilehash: deb5f07340f44e7ae4da3372fd17e484d500e6ab
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: 1be7331b0c2309350316d1c88c54e6018400463c
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98573263"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789352"
 ---
 # <a name="expressroute-faq"></a>FAQ do ExpressRoute
 
@@ -256,7 +256,7 @@ Se você anunciar rotas predefinidas, forçamos o tráfego para os serviços ofe
 
 ### <a name="can-virtual-networks-linked-to-the-same-expressroute-circuit-talk-to-each-other"></a>As redes virtuais ligadas ao mesmo circuito ExpressRoute podem falar entre si?
 
-Yes. As máquinas virtuais implantadas em redes virtuais ligadas ao mesmo circuito ExpressRoute podem comunicar entre si. Recomendamos a criação [de um espreitamento de rede virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) para facilitar esta comunicação.
+Yes. As máquinas virtuais implantadas em redes virtuais ligadas ao mesmo circuito ExpressRoute podem comunicar entre si. Recomendamos a criação [de um espreitamento de rede virtual](../virtual-network/virtual-network-peering-overview.md) para facilitar esta comunicação.
 
 ### <a name="can-i-use-site-to-site-connectivity-for-virtual-networks-in-conjunction-with-expressroute"></a>Posso utilizar a conectividade site-a-local para redes virtuais em conjunto com o ExpressRoute?
 

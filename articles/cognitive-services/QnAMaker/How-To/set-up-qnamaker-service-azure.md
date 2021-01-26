@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: af9087f0dd45212ec88b620dcd965c895b86bbce
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: baa071c8967c97cb5df2b8f522b3737436bdb359
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108197"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787710"
 ---
 # <a name="manage-qna-maker-resources"></a>Gerir os recursos do Fabricante QnA
 
@@ -130,12 +130,12 @@ Saiba mais sobre como configurar as [definições gerais](../../../app-service/c
 ### <a name="configure-app-service-environment-to-host-qna-maker-app-service"></a>Configure o Ambiente de Serviço de Aplicações para acolher o Serviço de Aplicações do Criador QnA
 O Ambiente de Serviço de Aplicações (ASE) pode ser usado para hospedar o serviço QnA Maker App. Siga os passos abaixo:
 
-1. Crie um Ambiente de Serviço de Aplicações e marque-o como "externo". Por favor, siga o [tutorial](https://docs.microsoft.com/azure/app-service/environment/create-external-ase) para instruções.
+1. Crie um Ambiente de Serviço de Aplicações e marque-o como "externo". Por favor, siga o [tutorial](../../../app-service/environment/create-external-ase.md) para instruções.
 2.  Crie um serviço de Aplicações dentro do Ambiente de Serviço de Aplicações.
     * Verifique a configuração do serviço de Aplicação e adicione 'PrimaryEndpointKey' como uma definição de aplicação. O valor de 'PrimaryEndpointKey' deve ser definido como " \<app-name\> -PrimaryEndpointKey". O Nome da Aplicação é definido no URL do serviço de aplicações. Por exemplo, se o URL do serviço de aplicações for "mywebsite.myase.p.azurewebsite.net", então o nome da aplicação é "mywebsite". Neste caso, o valor de 'PrimaryEndpointKey' deve ser definido como "mywebsite-PrimaryEndpointKey".
     * Crie um serviço de pesquisa Azure.
     * Certifique-se de que as configurações de pesquisa e aplicação do Azure estão devidamente configuradas. 
-      Por favor, siga este [tutorial.](https://docs.microsoft.com/azure/cognitive-services/qnamaker/reference-app-service?tabs=v1#app-service)
+      Por favor, siga este [tutorial.](../reference-app-service.md?tabs=v1#app-service)
 3.  Atualizar o Grupo de Segurança da Rede associado ao Ambiente de Serviço de Aplicações
     * Atualizar regras de segurança de entrada pré-criadas de acordo com os seus requisitos.
     * Adicione uma nova Regra de Segurança de Entrada com a fonte como 'Tag de Serviço' e etiqueta de serviço de origem como 'CognitiveServicesManagement'.
@@ -387,7 +387,7 @@ Os recursos de pesquisa gratuita são eliminados após 90 dias sem receber uma c
 
 Se eliminar algum dos recursos Azure utilizados para as suas bases de conhecimento QnA Maker, as bases de conhecimento deixarão de funcionar. Antes de eliminar quaisquer recursos, certifique-se de que exporta as suas bases de conhecimento a partir da página **Definições.**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre o [serviço app](../../../app-service/index.yml) e serviço [de pesquisa.](../../../search/index.yml)
 
