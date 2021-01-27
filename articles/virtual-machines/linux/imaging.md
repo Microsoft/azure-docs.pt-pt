@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: e364578cdec8696688cf19e14fd0529f1ca3fbb3
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 223fdc215bc391bea5cad5d4cb9999b9d14ba570
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842622"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878787"
 ---
 # <a name="bringing-and-creating-linux-images-in-azure"></a>Trazer e criar imagens Linux em Azure
 
@@ -29,7 +29,7 @@ O Azure permite-lhe trazer um VHD para a plataforma, para usar como [disco gerid
 
 Os discos geridos Azure são VHDs únicos. Pode pegar num VHD existente e criar um disco gerido a partir dele, ou criar um disco gerido vazio a partir do zero. Pode criar VMs a partir de discos geridos, fixando o disco ao VM, mas só pode utilizar um VHD com um VM. Não é possível modificar nenhuma propriedade de SO, o Azure tentará apenas ligar o VM e iniciar a utilização desse disco. 
 
-As imagens Azure podem ser compostas por vários discos de SO e discos de dados. Quando utiliza uma imagem gerida para criar um VM, a plataforma faz uma cópia da imagem e usa-a para criar o VM, pelo que o suporte de imagem gerido reutiliza a mesma imagem para vários VMs. O Azure também fornece capacidades avançadas de gestão para imagens, como a replicação global, e a versão através [da Shared Image Gallery.](shared-image-galleries.md) 
+As imagens Azure podem ser compostas por vários discos de SO e discos de dados. Quando utiliza uma imagem gerida para criar um VM, a plataforma faz uma cópia da imagem e usa-a para criar o VM, pelo que o suporte de imagem gerido reutiliza a mesma imagem para vários VMs. O Azure também fornece capacidades avançadas de gestão para imagens, como a replicação global, e a versão através [da Shared Image Gallery.](../shared-image-galleries.md) 
 
 
 
@@ -37,7 +37,7 @@ As imagens Azure podem ser compostas por vários discos de SO e discos de dados.
 
 O Azure oferece dois tipos principais de imagem, generalizados e especializados. Os termos generalizados e especializados são originalmente termos Windows, que migraram para Azure. Estes tipos definem como a plataforma irá lidar com o VM quando o liga. Ambos os tipos têm vantagens e desvantagens, e pré-requisitos. Antes de começar, precisa saber de que tipo de imagem vai precisar. Abaixo resume os cenários e o tipo que você precisaria escolher:
 
-| Cenário      | Tipo de imagem  | Opções de armazenamento |
+| Scenario      | Tipo de imagem  | Opções de armazenamento |
 | ------------- |:-------------:| :-------------:| 
 | Crie uma imagem que possa ser configurada para utilização por vários VMs, e posso definir o nome de anfitrião, adicionar um utilizador administrativo e executar outras tarefas durante a primeira bota. | Generalizada | Galeria de Imagens Partilhadas ou imagens geridas autónomas |
 | Crie uma imagem a partir de um instantâneo VM, ou uma cópia de segurança | Especializada |Galeria de Imagens Partilhadas ou um disco gerido |
@@ -65,7 +65,7 @@ Os agentes de provisionamento não são necessários para estas imagens, no enta
 Ao trazer a sua imagem Linux, tem duas opções:
 
 - Imagens geridas para uma simples criação de VM num ambiente de desenvolvimento e teste.
-- [Galeria de Imagens Partilhada](shared-image-galleries.md) para criar e partilhar imagens em escala.
+- [Galeria de Imagens Partilhada](../shared-image-galleries.md) para criar e partilhar imagens em escala.
 
 
 ### <a name="managed-images"></a>Imagens geridas
@@ -76,7 +76,7 @@ Imagens geridas podem ser usadas para ambientes de desenvolvimento e teste, onde
 
 ### <a name="azure-shared-image-gallery-sig"></a>Galeria de Imagens Partilhadas Azure (SIG)
 
-[As Galerias de Imagem Partilhada](shared-image-galleries.md) são recomendadas para criar, gerir e partilhar imagens em escala. As galerias de imagens partilhadas ajudam-no a construir estrutura e organização em torno das suas imagens.  
+[As Galerias de Imagem Partilhada](../shared-image-galleries.md) são recomendadas para criar, gerir e partilhar imagens em escala. As galerias de imagens partilhadas ajudam-no a construir estrutura e organização em torno das suas imagens.  
 
 - Apoio a imagens generalizadas e especializadas.
 - Suporte para imagem tanto de geração 1 como de 2 imagens.
@@ -108,6 +108,6 @@ Se ainda precisar de criar a sua própria imagem, certifique-se de que cumpre os
 - [Ubuntu](create-upload-ubuntu.md)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como criar uma [Galeria de Imagens Partilhadas.](tutorial-custom-images.md)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 10/06/2020
-ms.openlocfilehash: 2191a4df5b319ec16a4a6116aa99cfac50c87d9b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 3be967b611f6b75705a60bfa14523832b0652931
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462908"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879229"
 ---
 # <a name="publishing-guide-by-offer-type"></a>Guia de publicação por tipo de oferta
 
@@ -36,12 +36,12 @@ A tabela seguinte mostra os tipos de oferta de mercado comercial no Partner Cent
 | [**Serviço de consultoria**](./plan-consulting-service-offer.md) | Os serviços de consultoria ajudam a conectar os clientes com serviços de apoio e ampliação da sua utilização dos serviços Azure, Dynamics 365 ou Power Suite.|
 | [**Dynamics 365**](appsource-offer-publishing-guide.md) | Pode publicar ofertas appSource que se baseiam ou prolongam as aplicações Dynamics 365 Business Central, Dynamics 365 Customer Engagement, Power Apps e Finance and Operations.|
 | [**Módulo IoT Edge**](iot-edge-module.md) | Os módulos Azure IoT Edge são as unidades de computação mais pequenas geridas pelo IoT Edge, e podem conter serviços microsoft (como a Azure Stream Analytics), serviços de terceiros ou o seu próprio código específico para solução. |
-| [**Serviço gerido**](partner-center-portal/create-new-managed-service-offer.md) | Pode criar ofertas de serviços geridos e gerir subscrições ou grupos de recursos delegados ao cliente através [do Farol de Azure.](../lighthouse/overview.md)|
+| [**Serviço gerido**](./plan-managed-service-offer.md) | Pode criar ofertas de serviços geridos e gerir subscrições ou grupos de recursos delegados ao cliente através [do Farol de Azure.](../lighthouse/overview.md)|
 | [**Aplicativo Power BI** <br/> **Microsoft 365**](appsource-offer-publishing-guide.md) | Pode publicar ofertas appSource que se baseiam ou prolongam o Power BI e o Microsoft 365.|
 | [**Software como serviço**](plan-saas-offer.md) | Utilize o software como tipo de oferta de serviço (SaaS) para permitir ao seu cliente comprar a sua solução técnica baseada no SaaS como subscrição. Para obter informações sobre os requisitos de inscrição única para as ofertas da SaaS, consulte [a Azure AD e as ofertas transacionáveis saaS no mercado comercial.](azure-ad-saas.md) |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Reveja os requisitos de elegibilidade no artigo correspondente para o seu tipo de oferta para finalizar a seleção e configuração da sua oferta.
 - Reveja os padrões de publicação de cada loja online, por exemplo, sobre como a sua solução mapeia para um tipo de oferta e configuração.

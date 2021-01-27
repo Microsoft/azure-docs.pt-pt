@@ -7,16 +7,16 @@ ms.date: 05/05/2020
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
-ms.openlocfilehash: 6699db280c4d82867d5559255eab08fd6b55b65a
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: e3a7ea2cd696f54b032a3f17eceff466a6201436
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201523"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878685"
 ---
 # <a name="preview-create-a-windows-image-and-distribute-it-to-a-shared-image-gallery"></a>Pré-visualização: Criar uma imagem do Windows e distribuí-la para uma Galeria de Imagens Partilhadas 
 
-Este artigo é para lhe mostrar como pode usar o Azure Image Builder, e a Azure PowerShell, para criar uma versão de imagem numa [Galeria de Imagens Partilhadas,](shared-image-galleries.md)e depois distribuir a imagem globalmente. Também pode fazê-lo utilizando o [Azure CLI](../linux/image-builder-gallery.md).
+Este artigo é para lhe mostrar como pode usar o Azure Image Builder, e a Azure PowerShell, para criar uma versão de imagem numa [Galeria de Imagens Partilhadas,](../shared-image-galleries.md)e depois distribuir a imagem globalmente. Também pode fazê-lo utilizando o [Azure CLI](../linux/image-builder-gallery.md).
 
 Vamos usar um modelo .json para configurar a imagem. O ficheiro .json que estamos a usar está aqui: [armTemplateWinSIG.jsem](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/armTemplateWinSIG.json). Vamos descarregar e editar uma versão local do modelo, por isso este artigo é escrito usando a sessão local do PowerShell.
 
@@ -298,7 +298,7 @@ dir c:\
 Você deve ver um diretório chamado `buildActions` que foi criado durante a personalização da imagem.
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Se pretender agora tentar re-personalizar a versão de imagem para criar uma nova versão da mesma imagem, **ignore este passo** e continue a utilizar o [Azure Image Builder para criar outra versão de imagem](image-builder-gallery-update-image-version.md).
 
 

@@ -1,24 +1,11 @@
 ---
-title: Transformações e Empregos em Serviços de Media
-titleSuffix: Azure Media Services
-description: Saiba como criar um Transforms para descrever as regras para o processamento dos seus vídeos nos Serviços Azure Media.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: ''
-ms.topic: conceptual
-ms.date: 08/19/2019
-ms.author: inhenkel
-ms.openlocfilehash: 4cb4bcf5eb205d27cbca764d5ec16890a23be5c6
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
-ms.translationtype: MT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426779"
+# <a name="mandatory-fields-see-more-on-akamsskyeyemeta"></a>Campos obrigatórios. Veja mais na aka.ms/skyeye/meta.
+título: Transforms and Jobs in Media Services : Descrição do Azure Media Services: Saiba como criar uma Transforms para descrever as regras de processamento dos seus vídeos nos Serviços Azure Media.
+serviços: media-services documentationcenter: '' autor: IngridAtMicrosoft manager: femila editor: ''
+
+ms.service: media-services ms.workload: ms.topic: conceptual ms.date: 08/19/2019 ms.author: inhenkel
 ---
+
 # <a name="transforms-and-jobs-in-media-services"></a>Transformações e Empregos em Serviços de Media
 
 Este tópico dá detalhes sobre [Transforms](/rest/api/media/transforms) e [Jobs](/rest/api/media/jobs) e explica a relação entre estas entidades.
@@ -114,12 +101,12 @@ Para mais informações, consulte [o processamento de mídia scale com CLI](medi
 
 Consulte o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Media Services.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 * [Códigos de erro](/rest/api/media/jobs/get#joberrorcode)
 * [Filtragem, encomenda, paging de entidades de Serviços de Comunicação Social](entities-overview.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Antes de começar a desenvolver, [reveja o Desenvolvimento com os Serviços de Comunicação Social v3 APIs](media-services-apis-overview.md) (inclui informações sobre o acesso a APIs, convenções de nomeação, etc.)
 - Confira estes tutoriais:

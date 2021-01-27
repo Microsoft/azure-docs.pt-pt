@@ -10,12 +10,12 @@ ms.date: 09/10/2020
 ms.author: ruxu
 ms.reviewer: ''
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: c681195a60329320b875cc06919e9440b65eb9e5
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: d2e9e306e979f569819568650b25d49278997ede
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120245"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878532"
 ---
 # <a name="introduction-to-microsoft-spark-utilities"></a>Introdução aos Utilitários Microsoft Spark
 
@@ -39,7 +39,11 @@ Pode aceder aos dados da ADLS Gen2 com a Synapse Spark através do seguinte URL:
 
 <code>abfss://<container_name>@<storage_account_name>.dfs.core.windows.net/<path></code>
 
-### <a name="configure-access-to-azure-blob-storage"></a>Configure acesso ao armazenamento de blob Azure 
+<!-- ### Configure access to Azure Blob Storage  -->
+
+:::zone pivot = "programming-language-python"
+
+### <a name="configure-access-to-azure-blob-storage"></a>Configure acesso ao armazenamento de blob Azure  
 
 Sinaapse alavanca **assinatura de acesso compartilhado (SAS)** para aceder ao Azure Blob Storage. Para evitar expor as teclas SAS no código, recomendamos a criação de um novo serviço ligado no espaço de trabalho synapse para a conta Azure Blob Storage a que pretende aceder.
 
@@ -58,9 +62,6 @@ Pode aceder aos dados do Azure Blob Storage com a Faísca de Sinapse através do
 <code>wasb[s]://<container_name>@<storage_account_name>.blob.core.windows.net/<path></code>
 
 Aqui está um exemplo de código:
-
-
-:::zone pivot = "programming-language-python"
 
 ```python
 from pyspark.sql import SparkSession
@@ -85,6 +86,26 @@ print('Remote blob path: ' + wasb_path)
 
 :::zone pivot = "programming-language-scala"
 
+### <a name="configure-access-to-azure-blob-storage"></a>Configure acesso ao armazenamento de blob Azure  
+
+Sinaapse alavanca **assinatura de acesso compartilhado (SAS)** para aceder ao Azure Blob Storage. Para evitar expor as teclas SAS no código, recomendamos a criação de um novo serviço ligado no espaço de trabalho synapse para a conta Azure Blob Storage a que pretende aceder.
+
+Siga estes passos para adicionar um novo serviço ligado para uma conta de armazenamento Azure Blob:
+
+1. Abra o [Azure Synapse Studio](https://web.azuresynapse.net/).
+2. **Selecione Gerir** a partir do painel esquerdo e selecionar **serviços Linked** sob as **ligações Externas**.
+3. Procure no **Azure Blob Storage** no novo painel **de serviço ligado** à direita.
+4. Selecione **Continuar**.
+5. Selecione a Conta de Armazenamento Azure Blob para aceder e configurar o nome de serviço ligado. Sugerir a utilização **da tecla conta** para o **método de autenticação.**
+6. Selecione **A ligação de teste** para validar as definições estão corretas.
+7. Selecione **Criar** primeiro e clique em **Publicar tudo** para guardar as suas alterações. 
+
+Pode aceder aos dados do Azure Blob Storage com a Faísca de Sinapse através do seguinte URL:
+
+<code>wasb[s]://<container_name>@<storage_account_name>.blob.core.windows.net/<path></code>
+
+Aqui está um exemplo de código:
+
 ```scala
 val blob_account_name = "" // replace with your blob name
 val blob_container_name = "" //replace with your container name
@@ -101,13 +122,13 @@ spark.conf.set(f"fs.azure.sas.$blob_container_name.$blob_account_name.blob.core.
 
 ::: zone-end
 
-:::zone pivot = "programming-language-csharp"
+<!-- :::zone pivot = "programming-language-csharp"
 
 ```csharp
 
 ```
 
-::: zone-end
+::: zone-end -->
  
 ###  <a name="configure-access-to-azure-key-vault"></a>Configure acesso ao Cofre da Chave Azure
 
@@ -621,11 +642,15 @@ Credentials.GetSecret("azure key vault name","secret name")
 
 ::: zone-end
 
+<!-- ### Put secret using workspace identity
+
+Puts Azure Key Vault secret for a given Azure Key Vault name, secret name, and linked service name using workspace identity. Make sure you configure the access to [Azure Key Vault](#configure-access-to-azure-key-vault) appropriately. -->
+
+:::zone pivot = "programming-language-python"
+
 ### <a name="put-secret-using-workspace-identity"></a>Colocar segredo usando identidade do espaço de trabalho
 
 Coloca o cofre da chave Azure em segredo para um dado nome Azure Key Vault, nome secreto e nome de serviço ligado usando a identidade do espaço de trabalho. Certifique-se de que configura o acesso ao [Cofre da Chave Azure](#configure-access-to-azure-key-vault) adequadamente.
-
-:::zone pivot = "programming-language-python"
 
 ```python
 mssparkutils.credentials.putSecret('azure key vault name','secret name','secret value','linked service name')
@@ -634,26 +659,34 @@ mssparkutils.credentials.putSecret('azure key vault name','secret name','secret 
 
 :::zone pivot = "programming-language-scala"
 
+### <a name="put-secret-using-workspace-identity"></a>Colocar segredo usando identidade do espaço de trabalho
+
+Coloca o cofre da chave Azure em segredo para um dado nome Azure Key Vault, nome secreto e nome de serviço ligado usando a identidade do espaço de trabalho. Certifique-se de que configura o acesso ao [Cofre da Chave Azure](#configure-access-to-azure-key-vault) adequadamente.
+
 ```scala
 mssparkutils.credentials.putSecret("azure key vault name","secret name","secret value","linked service name")
 ```
 
 ::: zone-end
 
-:::zone pivot = "programming-language-csharp"
+<!-- :::zone pivot = "programming-language-csharp"
 
 ```csharp
 
 ```
 
-::: zone-end
+::: zone-end -->
 
+
+<!-- ### Put secret using user credentials
+
+Puts Azure Key Vault secret for a given Azure Key Vault name, secret name, and linked service name using user credentials.  -->
+
+:::zone pivot = "programming-language-python"
 
 ### <a name="put-secret-using-user-credentials"></a>Colocar segredo usando credenciais de utilizador
 
 Coloca o cofre da chave Azure em segredo para um dado nome Azure Key Vault, nome secreto e nome de serviço ligado usando credenciais de utilizador. 
-
-:::zone pivot = "programming-language-python"
 
 ```python
 mssparkutils.credentials.putSecret('azure key vault name','secret name','secret value')
@@ -662,19 +695,23 @@ mssparkutils.credentials.putSecret('azure key vault name','secret name','secret 
 
 :::zone pivot = "programming-language-scala"
 
+### <a name="put-secret-using-user-credentials"></a>Colocar segredo usando credenciais de utilizador
+
+Coloca o cofre da chave Azure em segredo para um dado nome Azure Key Vault, nome secreto e nome de serviço ligado usando credenciais de utilizador. 
+
 ```scala
 mssparkutils.credentials.putSecret("azure key vault name","secret name","secret value")
 ```
 
 ::: zone-end
 
-:::zone pivot = "programming-language-csharp"
+<!-- :::zone pivot = "programming-language-csharp"
 
 ```csharp
 
 ```
 
-::: zone-end
+::: zone-end -->
 
 
 ## <a name="environment-utilities"></a>Serviços de utilidade ambiental 
@@ -876,7 +913,7 @@ Env.GetClusterId()
 
 ::: zone-end
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Confira os cadernos da amostra da Sinapse](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks)
 - [Quickstart: Criar uma piscina Apache Spark em Azure Synapse Analytics usando ferramentas web](../quickstart-apache-spark-notebook.md)

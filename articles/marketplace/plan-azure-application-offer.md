@@ -8,18 +8,18 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: 45bc3aaf5217c626e2593b4eda861eaace2a8be2
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: f98f128e56810e3dd710ce454c8dc34b333690d1
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96620414"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879297"
 ---
 # <a name="plan-an-azure-application-offer-for-the-commercial-marketplace"></a>Planeie uma oferta de aplicação Azure para o mercado comercial
 
 Este artigo explica as diferentes opções e requisitos para a publicação de uma oferta de aplicação Azure ao mercado comercial da Microsoft.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Projetar, construir e testar as ofertas de aplicações Azure requer conhecimento técnico tanto da plataforma Azure como das tecnologias usadas para construir a oferta. A sua equipa de engenharia deve ter conhecimento das seguintes tecnologias da Microsoft:
 
@@ -64,7 +64,7 @@ Escolha um ou ambos os seguintes ambientes de script para ajudar a gerir a sua a
 
 Recomendamos adicionar as seguintes ferramentas ao seu ambiente de desenvolvimento:
 
-- [Explorador de Armazenamento do Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md)
+- [Explorador do Storage do Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md)
 - [Código do Estúdio Visual](https://code.visualstudio.com/) com as seguintes extensões:
     - Extensão: [Ferramentas do gestor de recursos Azure](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
     - Extensão: [Embelezamento](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
@@ -121,7 +121,7 @@ Quando criar uma nova oferta de aplicação Azure no Partner Center, introduzir�
 5. Endereço de política de privacidade (link)
 6. Nome da oferta
 7. Resumo
-8. Description
+8. Descrição
 9. Screenshots/vídeos
 
 A imagem que se segue mostra como as informações da oferta aparecem no portal Azure:
@@ -210,7 +210,7 @@ Esta configuração é necessária se pretender utilizar o [evento de utilizaç�
 Pode optar por optar por canais de marketing e vendas suportados pela Microsoft. Ao criar a sua oferta no Partner Center, verá dois separadores no final do processo:
 
 - **Revender através de CSPs**: Utilize esta opção para permitir que os parceiros da Microsoft Cloud Solution Providers (CSP) revendam a sua solução como parte de uma oferta agregada. Consulte [o programa Cloud Solution Provider](./cloud-solution-providers.md) para obter mais informações.
-- **Co-vender com** a Microsoft: Esta opção permite que as equipas de vendas da Microsoft considerem a sua solução elegível para co-venda ip ao avaliar as necessidades dos seus clientes. Para obter informações detalhadas sobre como preparar a sua oferta para avaliação, consulte [a opção Co-venda no mercado comercial.](commercial-marketplace-co-sell.md) Para obter mais informações sobre os requisitos de co-venda de IP, consulte [os requisitos para o estado de co-venda](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status). Para obter mais informações sobre o marketing da sua oferta através dos canais parceiros da Microsoft CSP, consulte [os Fornecedores de Soluções Cloud.](cloud-solution-providers.md)
+- **Co-vender com** a Microsoft: Esta opção permite que as equipas de vendas da Microsoft considerem a sua solução elegível para co-venda ip ao avaliar as necessidades dos seus clientes. Para obter informações detalhadas sobre como preparar a sua oferta para avaliação, consulte [a opção Co-venda no mercado comercial.](commercial-marketplace-co-sell.md) Para obter mais informações sobre os requisitos de co-venda de IP, consulte [os requisitos para o estado de co-venda](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status). Para obter mais informações sobre o marketing da sua oferta através dos canais parceiros da Microsoft CSP, consulte [os Fornecedores de Soluções Cloud.](cloud-solution-providers.md)
 
 Para saber mais, veja [o Crescimento do seu negócio na nuvem com o Azure Marketplace.](https://azuremarketplace.microsoft.com/sell)
 
@@ -231,7 +231,7 @@ Existem dois tipos de planos de aplicação Azure: _modelo de solução_ e _apli
  
     Utilize o tipo de plano de aplicação gerido quando você ou o seu cliente requer que a solução seja gerida por um parceiro ou que implemente uma solução baseada em subscrição. Para obter mais informações sobre as vantagens e tipos de aplicações geridas, consulte [a visão geral das aplicações geridas pela Azure.](../azure-resource-manager/managed-applications/overview.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para planear um modelo de solução, consulte [Plano um modelo de solução para uma oferta de aplicação Azure](plan-azure-app-solution-template.md).
 - Para planear uma aplicação gerida pela Azure, consulte [o Plano de um pedido gerido pela Azure para uma oferta de candidatura da Azure](plan-azure-app-managed-app.md).

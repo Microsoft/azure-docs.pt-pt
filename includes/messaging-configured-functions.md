@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/12/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: b487dcad83ccbc31adf2d7ec2dd77c490db2c68e
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 9bc641d680d927c44814f6814ebf6a6dde958c9e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935205"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98901132"
 ---
 As Funções Azure permitem criar tarefas de replicação apenas de configuração que se apoiem num ponto de entrada pré-construído. As [amostras de replicação baseadas na configuração para funções Azure](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config) ilustram como alavancar [os ajudantes pré-construídos](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/src/Azure.Messaging.Replication) no seu próprio código ou evitar manusear completamente o código e apenas usar a configuração.
 
@@ -218,13 +218,12 @@ O quadro a seguir dá-lhe os valores corretos para combinações de fontes e alv
 
 ### <a name="retry-policy"></a>Política de Repetição
 
-Consulte a documentação do [Azure Functions sobre as retrações](/azure/azure-functions/functions-bindings-error-pages) para configurar a política de retíria. As definições políticas escolhidas ao longo dos projetos neste repositório configuram uma estratégia exponencial de backoff com intervalos de retry de 5 segundos a 5 minutos com infinitas retrações para evitar a perda de dados.
+Consulte a documentação do [Azure Functions sobre as retrações](../articles/azure-functions/functions-bindings-error-pages.md) para configurar a política de retíria. As definições políticas escolhidas ao longo dos projetos neste repositório configuram uma estratégia exponencial de backoff com intervalos de retry de 5 segundos a 5 minutos com infinitas retrações para evitar a perda de dados.
 
-Para o Service Bus, reveja a secção "usar o [suporte de repreensão em cima da resiliência do gatilho"](/azure/azure-functions/functions-bindings-error-pages#using-retry-support-on-top-of-trigger-resilience) para entender a interação dos gatilhos e a contagem máxima de entrega definida para a fila.
+Para o Service Bus, reveja a secção "usar o [suporte de repreensão em cima da resiliência do gatilho"](../articles/azure-functions/functions-bindings-error-pages.md#using-retry-support-on-top-of-trigger-resilience) para entender a interação dos gatilhos e a contagem máxima de entrega definida para a fila.
 
 ### <a name="build-deploy-and-configure"></a>Construir, implantar e configurar
 
 Enquanto estiver focado na configuração, as tarefas ainda requerem a construção de uma aplicação implantável e para configurar os anfitriões das Funções Azure de modo a que tenha todas as informações necessárias para se ligar aos pontos finais determinados. 
 
 Isto é ilustrado, juntamente com scripts reutilizáveis, nas [amostras de replicação baseadas na configuração para funções Azure](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config).
-

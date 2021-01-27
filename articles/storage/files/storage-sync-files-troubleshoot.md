@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 1/15/2021
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 71de1d17731e086d012da5365fa6671bcb9e6e3b
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 49184778c7d6592f074e04df535b9bc221f3162e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539242"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878804"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Resolver problemas da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as ações de ficheiros da sua organização em Ficheiros Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos dados localmente, incluindo SMB, NFS e FTPS. Podes ter o número de caches que precisares em todo o mundo.
@@ -206,8 +206,8 @@ No servidor que está a mostrar como "Aparece offline" no portal, veja o ID 9301
     - Se o servidor estiver por detrás de um proxy, configufique as definições de procuração específicas para toda a máquina ou para aplicações seguindo os passos na [documentação](./storage-sync-files-firewall-and-proxy.md#proxy)Proxy .
     - Utilize o Test-StorageSyncNetworkConnectivity cmdlet para verificar a conectividade da rede nos pontos finais de serviço. Para saber mais, consulte [a conectividade da rede de teste para os pontos finais de serviço](./storage-sync-files-firewall-and-proxy.md#test-network-connectivity-to-service-endpoints).
     - Se a ordem de suíte de cifra TLS estiver configurada no servidor, pode utilizar a política de grupo ou os cmdlets TLS para adicionar suítes de cifra:
-        - Para utilizar a política de grupo, consulte [a Configuração da Ordem da Suíte Cifra TLS utilizando a Política de Grupo](https://docs.microsoft.com/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-group-policy).
-        - Para utilizar cmdlets TLS, consulte [a Configuração da Ordem da Suíte Cifra TLS utilizando cmdlets TLS PowerShell](https://docs.microsoft.com/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-tls-powershell-cmdlets).
+        - Para utilizar a política de grupo, consulte [a Configuração da Ordem da Suíte Cifra TLS utilizando a Política de Grupo](/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-group-policy).
+        - Para utilizar cmdlets TLS, consulte [a Configuração da Ordem da Suíte Cifra TLS utilizando cmdlets TLS PowerShell](/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-tls-powershell-cmdlets).
     
         A Azure File Sync suporta atualmente as seguintes suítes cifra para o protocolo TLS 1.2:  
         - TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384_P384  
@@ -931,7 +931,7 @@ Este erro ocorre se o diretório utilizado como o caminho do ponto final do serv
 Se o diretório foi eliminado, execute os seguintes passos para remover o ponto final do servidor existente e criar um novo ponto final do servidor utilizando um novo caminho:
 
 1. Remova o ponto final do servidor no grupo de sincronização seguindo os passos documentados no [Remover um ponto final do servidor](./storage-sync-files-server-endpoint.md#remove-a-server-endpoint).
-2. Crie um novo ponto final do servidor no grupo de sincronização seguindo os passos documentados no [Add a server endpoint](https://docs.microsoft.com/azure/storage/files/storage-sync-files-server-endpoint#add-a-server-endpoint).
+2. Crie um novo ponto final do servidor no grupo de sincronização seguindo os passos documentados no [Add a server endpoint](./storage-sync-files-server-endpoint.md#add-a-server-endpoint).
 
 ### <a name="common-troubleshooting-steps"></a>Etapas comuns de resolução de problemas
 <a id="troubleshoot-storage-account"></a>**Verifique se a conta de armazenamento existe.**  
@@ -1336,7 +1336,7 @@ Para a versão do agente v10 e mais cedo:
 6. Um ficheiro .zip que contenha registos e ficheiros de rastreio é guardado no diretório de saída que especificou.
 
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 - [Monitorizar o Azure File Sync](storage-sync-files-monitoring.md)
 - [Ficheiros Azure frequentemente fazem perguntas](storage-files-faq.md)
 - [Resolver problemas de Ficheiros do Azure no Windows](storage-troubleshoot-windows-file-connection-problems.md)

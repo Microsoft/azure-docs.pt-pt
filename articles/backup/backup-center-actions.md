@@ -3,14 +3,14 @@ title: Executar ações usando o Backup Center
 description: Este artigo explica como realizar ações usando o Backup Center
 ms.topic: conceptual
 ms.date: 09/07/2020
-ms.openlocfilehash: 65ac6374b1a9571d0415bc097a6ee957874d3d44
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 06229eb0b8cb76482035d3dfe1949c3ab8354f17
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91854431"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98894580"
 ---
-# <a name="perform-actions-using-backup-center"></a>Executar ações usando o Backup Center
+# <a name="perform-actions-using-backup-center-preview"></a>Executar ações usando backup Center (Pré-visualização)
 
 O Backup Center permite-lhe executar ações relacionadas com a chave a partir de uma interface central sem precisar navegar para um cofre individual. Algumas ações que pode realizar a partir do Backup Center são:
 
@@ -23,26 +23,28 @@ O Backup Center permite-lhe executar ações relacionadas com a chave a partir d
 
 ## <a name="supported-scenarios"></a>Cenários suportados
 
-* O Backup Center é atualmente suportado para cópia de segurança Azure VM e Base de Dados Azure para backup do Servidor PostgreSQL.
+* O Backup Center é atualmente suportado para backup Azure VM, SQL em backup Azure VM, SAP HANA em backup VM Azure, backup de Ficheiros Azure e Base de Dados Azure para backup do Servidor PostgreSQL.
 * Consulte a matriz de [suporte](backup-center-support-matrix.md) para obter uma lista detalhada de cenários suportados e não apoiados.
 
 ## <a name="configure-backup"></a>Configurar a cópia de segurança
 
+Se estiver a apoiar os Azure VMs, SQL em VMs Azure, SAP HANA em VMs Azure ou Ficheiros Azure, deverá utilizar um cofre dos Serviços de Recuperação. Se estiver a fazer backup de Bases de Dados Azure para o Servidor PostgreSQL, deverá utilizar um cofre de reserva. 
+
 Dependendo do tipo de fonte de dados que pretende fazer, siga as instruções apropriadas, conforme descrito abaixo.
 
-### <a name="configure-backup-for-azure-virtual-machines"></a>Configurar backup para máquinas virtuais Azure
+### <a name="configure-backup-to-a-recovery-services-vault"></a>Configure o backup para um cofre dos Serviços de Recuperação
 
 1. Navegue para o Backup Center e selecione **+ Backup** na parte superior do **separador Vista Geral.**
 
     ![Visão geral do Backup Center](./media/backup-center-actions/backup-center-overview-configure-backup.png)
 
-2. Selecione o tipo de fonte de dados que deseja fazer (a máquina virtual Azure neste caso).
+2. Selecione o tipo de fonte de dados que deseja fazer.
 
     ![Selecione a fonte de dados para configurar a cópia de segurança VM](./media/backup-center-actions/backup-select-datasource-vm.png)
 
 3. Escolha um cofre dos Serviços de Recuperação e selecione **Proceder**. Isto leva-o à experiência de configuração de backup que é idêntica à que é alcançável a partir de um cofre dos Serviços de Recuperação. [Saiba mais sobre como configurar o backup para máquinas virtuais Azure com um cofre dos Serviços de Recuperação.](tutorial-backup-vm-at-scale.md)
 
-### <a name="configure-backup-for-azure-database-for-postgresql-server"></a>Configurar backup para Azure Database para PostgreSQL Server
+### <a name="configure-backup-to-a-backup-vault"></a>Configure o backup para um cofre de reserva
 
 1. Navegue para o Backup Center e selecione **+ Backup** na parte superior do **separador Vista Geral.**
 2. Selecione o tipo de fonte de dados que pretende fazer (Azure Database para o servidor PostgreSQL neste caso).
@@ -55,19 +57,19 @@ Dependendo do tipo de fonte de dados que pretende fazer, siga as instruções ap
 
 Dependendo do tipo de fonte de dados que pretende restaurar, siga as instruções apropriadas, conforme descrito abaixo.
 
-### <a name="if-youre-restoring-an-azure-virtual-machine"></a>Se estiver a restaurar uma máquina virtual Azure
+### <a name="if-youre-restoring-from-a-recovery-services-vault"></a>Se você está restaurando de um cofre dos Serviços de Recuperação
 
 1. Navegue no Backup Center e **selecione Restaurar** na parte superior do **separador Vista Geral.**
 
     ![Visão geral do Backup Center para restaurar o VM](./media/backup-center-actions/backup-center-overview-restore.png)
 
-2. Selecione o tipo de fonte de dados que deseja restaurar (a máquina virtual Azure neste caso).
+2. Selecione o tipo de fonte de dados que deseja restaurar.
 
     ![Selecione fonte de dados para restauro de VM](./media/backup-center-actions/restore-select-datasource-vm.png)
 
 3. Escolha uma instância de backup e **selecione Proceder**. Isto leva-o à experiência de definições de restauro que é idêntica à que é alcançável a partir de um cofre dos Serviços de Recuperação. [Saiba mais sobre como restaurar uma Máquina Virtual Azure com um cofre dos Serviços de Recuperação.](backup-azure-arm-restore-vms.md#before-you-start)
 
-### <a name="if-youre-restoring-an-azure-database-for-postgresql-server"></a>Se estiver a restaurar uma base de dados Azure para o Servidor PostgreSQL
+### <a name="if-youre-restoring-from-a-backup-vault"></a>Se estás a restaurar de um cofre de reserva
 
 1. Navegue no Backup Center e **selecione Restaurar** na parte superior do **separador Vista Geral.**
 2. Selecione o tipo de fonte de dados que deseja restaurar (Azure Database for PostgreSQL Server neste caso).
@@ -89,19 +91,19 @@ Pode criar um novo cofre navegando para o Backup Center e selecionando **+ Cofre
 
 Dependendo do tipo de fonte de dados que pretende fazer, siga as instruções apropriadas descritas abaixo.
 
-### <a name="if-youre-backing-up-an-azure-virtual-machine"></a>Se está a apoiar uma máquina virtual Azure
+### <a name="if-youre-backing-up-to-a-recovery-services-vault"></a>Se está a voltar para um cofre dos Serviços de Recuperação
 
 1. Navegue para o Backup Center e selecione **+ Política** no topo do **separador Vista Geral.**
 
     ![Visão geral do backup center para a política de backup](./media/backup-center-actions/backup-center-overview-policy.png)
 
-2. Selecione o tipo de fonte de dados que deseja fazer (Azure Virtual machine neste caso).
+2. Selecione o tipo de fonte de dados que deseja fazer.
 
     ![Selecione a fonte de dados para a política de backup VM](./media/backup-center-actions/policy-select-datasource-vm.png)
 
 3. Escolha um cofre de serviços de recuperação e **selecione Proceder**. Isto leva-o à experiência de criação de políticas idêntica à que é acessível a partir de um cofre dos Serviços de Recuperação. [Saiba mais sobre como criar uma nova política de backup para a Azure Virtual Machine com um cofre de serviços de recuperação.](backup-azure-arm-vms-prepare.md#create-a-custom-policy)
 
-### <a name="if-youre-backing-up-an-azure-database-for-postgresql-server"></a>Se estiver a fazer backup de uma base de dados Azure para o Servidor PostgreSQL
+### <a name="if-youre-backing-up-to-a-backup-vault"></a>Se estás a subir para um cofre de reserva
 
 1. Navegue para o Backup Center e selecione **+ Política** no topo do **separador Vista Geral.**
 2. Selecione o tipo de fonte de dados que pretende fazer (Base de Dados Azure para o Servidor PostgreSQL neste caso).
@@ -134,7 +136,7 @@ Para ativar uma cópia de segurança a pedido, navegue para o Backup Center e se
 
 [Saiba mais sobre parar a cópia de segurança para o Azure Database para o Servidor PostgreSQL](backup-azure-database-postgresql.md#stop-protection)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Monitorizar e operar backups](backup-center-monitor-operate.md)
 * [Governe a sua propriedade de reserva](backup-center-govern-environment.md)

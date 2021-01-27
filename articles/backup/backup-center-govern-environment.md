@@ -3,14 +3,14 @@ title: Administrar as cópias de segurança realizadas através do Centro de Có
 description: Aprenda a governar o seu ambiente Azure para garantir que todos os seus recursos estão em conformidade com uma perspetiva de backup com o Backup Center.
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: ebb4d72c3a3377072e185251bd642762f6876c03
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 67b0591c7d7146d162687018854365d338105d76
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173805"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98893851"
 ---
-# <a name="govern-your-backup-estate-using-backup-center"></a>Administrar as cópias de segurança realizadas através do Centro de Cópias de Segurança
+# <a name="govern-your-backup-estate-using-backup-center-preview"></a>Regule o seu espólio de backup usando backup Center (Preview)
 
 O Backup Center ajuda-o a governar o seu ambiente Azure para garantir que todos os seus recursos estão em conformidade com uma perspetiva de backup. Abaixo estão algumas das capacidades de governação do Backup Center:
 
@@ -44,7 +44,12 @@ A seleção do item do menu **De recursos humanos protegidos** permite-lhe visua
 
 ![Menu de fontes de dados protegidos](./media/backup-center-govern-environment/protectable-datasources.png)
 
-## <a name="next-steps"></a>Passos seguintes
+> [!NOTE]
+> Se selecionar **o SQL em Azure VM** como o tipo de fonte de dados, a visualização de fontes de **dados protegidos** apresenta a lista de todos os VMs da Galeria que não possuem bases de dados SQL que tenham sido configuradas para cópia de segurança.
+> Se selecionar **o Azure Storage (Azure Files)** como o tipo de fonte de dados, a visualização de fontes de **dados protegidos** apresenta a lista de todas as contas de armazenamento (que suportam ações de ficheiros) que não têm quaisquer ações de ficheiro que tenham sido configuradas para cópia de segurança.
+
+
+## <a name="next-steps"></a>Próximos passos
 
 * [Monitorizar e operar backups](backup-center-monitor-operate.md)
 * [Executar ações usando o Backup Center](backup-center-actions.md)

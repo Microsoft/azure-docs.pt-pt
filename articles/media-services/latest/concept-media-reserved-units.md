@@ -1,5 +1,5 @@
 ---
-title: Meios de comunicação reservados - Azure / Microsoft Docs
+title: Unidades reservadas aos meios de comunicação social - Azure
 description: As unidades reservadas aos meios de comunicação permitem-lhe escalar o processo de mídia e determinar a velocidade das suas tarefas de processamento de meios de comunicação.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: inhenkel
-ms.openlocfilehash: df691f5b9e74432f683e52fbb896dd4d44efe2aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e0cfc47b546c31e6b93d224e64de20b79baacfd9
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91622090"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98891302"
 ---
 # <a name="media-reserved-units"></a>Unidades Reservadas aos Meios de Comunicação Social
 
@@ -32,7 +32,7 @@ Uma tarefa é uma operação individual de trabalho numa codificação de stream
 
 A tabela a seguir ajuda-o a tomar uma decisão ao escolher entre diferentes velocidades de codificação.  Mostra a duração da codificação durante um vídeo de 7 minutos e 1080p, dependendo da ressonância magnética utilizada.
 
-|Tipo RU|Cenário|Resultados de exemplo para o vídeo de 7 min 1080p |
+|Tipo RU|Scenario|Resultados de exemplo para o vídeo de 7 min 1080p |
 |---|---|---|
 | **S1**|Codificação de bitrate única. <br/>Ficheiros em SD ou abaixo de resoluções, não sensíveis ao tempo, baixo custo.|A codificação para um único ficheiro MP4 de resolução de bitrate sd utilizando "H264 Single Bitrate SD 16x9" demora cerca de 7 minutos.|
 | **S2**|Bitrate único e múltiplas codificações bitrate.<br/>Utilização normal para codificação SD e HD.|A codificação com a predefinição "H264 Single Bitrate 720p" demora cerca de 6 minutos.<br/><br/>A codificação com a predefinição "H264 Multiple Bitrate 720p" demora cerca de 12 minutos.|
@@ -54,6 +54,6 @@ A tabela a seguir ajuda-o a tomar uma decisão ao escolher entre diferentes velo
 [Unidades reservadas para mídia de escala com CLI](media-reserved-units-cli-how-to.md) 
  [Analisar vídeos](analyze-videos-tutorial-with-api.md)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 * [Quotas e limites](limits-quotas-constraints.md)

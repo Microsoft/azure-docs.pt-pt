@@ -7,19 +7,19 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 01/19/2020
-ms.openlocfilehash: 6075027124352746a3adbb8f6937d3787eb22b9d
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: a1726b29c153bf680d29fe821ac34aa958064335
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602559"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879246"
 ---
 # <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>Apoio ao programa de marketplace comercial no Partner Center
 
 A Microsoft fornece suporte para uma grande variedade de produtos e serviços. Encontrar a equipa de apoio certa é importante para garantir uma resposta adequada e oportuna. Considere os seguintes cenários, que devem ajudá-lo a encaminhar a sua consulta para a equipa apropriada:
 
 - Se é editor e tem uma pergunta de um cliente, peça ao seu cliente para solicitar apoio utilizando os links de suporte no [portal Azure](https://portal.azure.com/).
-- Se você é um editor e detetou um problema de segurança com uma aplicação em execução no Azure, consulte [como registar um bilhete de suporte para eventos de segurança](/azure/security/fundamentals/event-support-ticket). Os editores devem reportar casos de segurança suspeitos, incluindo incidentes de segurança e vulnerabilidades do seu software e ofertas de serviços Azure Marketplace, o mais rapidamente possível.
+- Se você é um editor e detetou um problema de segurança com uma aplicação em execução no Azure, consulte [como registar um bilhete de suporte para eventos de segurança](../security/fundamentals/event-support-ticket.md). Os editores devem reportar casos de segurança suspeitos, incluindo incidentes de segurança e vulnerabilidades do seu software e ofertas de serviços Azure Marketplace, o mais rapidamente possível.
 - Se é editor e tem uma pergunta relacionada com a sua app ou serviço, reveja as seguintes opções de suporte.
 
 ## <a name="get-help-or-open-a-support-ticket"></a>Obtenha ajuda ou abra um bilhete de apoio
@@ -119,6 +119,6 @@ Para gerar um ficheiro HAR utilizando **o Safari:**
 
     ![Como exportar um ficheiro HAR no Safari](media/support/safari-network-export-har.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Atualizar uma oferta existente no Marketplace Comercial](partner-center-portal/update-existing-offer.md)

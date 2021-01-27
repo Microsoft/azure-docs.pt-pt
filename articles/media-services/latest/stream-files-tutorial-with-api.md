@@ -1,25 +1,10 @@
 ---
-title: Upload, codificação e stream com Serviços de Mídia v3
-titleSuffix: Azure Media Services
-description: Tutorial mostrando como carregar um ficheiro, codificar vídeo e transmitir conteúdo com a Azure Media Services v3.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: ''
-ms.topic: tutorial
-ms.custom: mvc
-ms.date: 08/31/2020
-ms.author: inhenkel
-ms.openlocfilehash: eedbb63f4928c0397150b40a47fdc7c3e87d1991
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89256774"
+título: Carregar, codificar e transmitir com os Media Services v3 : Descrição do Azure Media Services: Tutorial mostrando como carregar um ficheiro, codificar vídeo e transmitir conteúdo com a Azure Media Services v3.
+serviços: media-services documentationcenter: '' autor: IngridAtMicrosoft manager: femila editor: ''
+
+ms.service: media-services ms.workload: ms.topic: tutorial ms.custom: mvc ms.date: 08/31/2020 ms.author: inhenkel
 ---
+
 # <a name="tutorial-upload-encode-and-stream-videos-with-media-services-v3"></a>Tutorial: Carregar, codificar e transmitir vídeos com o Media Services v3
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
@@ -67,7 +52,7 @@ Esta secção examina as funções definidas no ficheiro [Program.cs](https://gi
 O exemplo realiza as seguintes ações:
 
 1. Cria uma nova **Transformação** (em primeiro lugar, verifica se existe a Transformação especificada).
-2. Cria uma saída **O Ativo** que é usado como a saída de **Job**codificante.
+2. Cria uma saída **O Ativo** que é usado como a saída de **Job** codificante.
 3. Crie um **Ativo** de entrada e carrefique o ficheiro de vídeo local especificado nele. O elemento é utilizado como entrada da tarefa.
 4. Submete o trabalho de codificação usando a entrada e saída que foi criada.
 5. Verifica o estado da tarefa.
@@ -144,7 +129,7 @@ Depois de concluída a codificação, o passo seguinte consiste em disponibiliza
 
 O processo de criação de um **Localizador de Streaming** chama-se publicação. Por predefinição, o **Localizador de Streaming** é válido imediatamente após a edição da API e dura até ser eliminado, a menos que configuure os tempos de início e fim opcionais.
 
-Ao criar um [StreamingLocator,](/rest/api/media/streaminglocators)terá de especificar o **nome streamingPolicyName**desejado. Neste exemplo, estará a transmitir conteúdo limpo (ou não encriptado) para que seja utilizada a política de streaming clara**predefinida (PredefinedStreamingPoliingPolicy.ClearStreamingOnly).**
+Ao criar um [StreamingLocator,](/rest/api/media/streaminglocators)terá de especificar o **nome streamingPolicyName** desejado. Neste exemplo, estará a transmitir conteúdo limpo (ou não encriptado) para que seja utilizada a política de streaming clara **predefinida (PredefinedStreamingPoliingPolicy.ClearStreamingOnly).**
 
 > [!IMPORTANT]
 > Ao utilizar uma [Política de Streaming](/rest/api/media/streamingpolicies)personalizada, deverá conceber um conjunto limitado de tais políticas para a sua conta de Media Service e reutilizá-las para os seus StreamingLocators sempre que forem necessárias as mesmas opções e protocolos de encriptação. A sua conta de Media Service tem uma quota para o número de entradas na Política de Streaming. Não devias estar a criar uma nova Política de Streaming para cada Localizador de Streaming.
@@ -157,7 +142,7 @@ Enquanto a amostra deste tópico discute o streaming, você pode usar a mesma ch
 
 ### <a name="get-streaming-urls"></a>Obter os URLs de transmissão
 
-Agora que o [Localizador de Streaming](/rest/api/media/streaminglocators) foi criado, pode obter os URLs de streaming, como mostrado no **GetStreamingURLs**. Para construir um URL, é necessário concatenar o nome do anfitrião [streaming Endpoint](/rest/api/media/streamingendpoints) e o caminho **do localizador de streaming.** Nesta amostra, é utilizado o ponto final de streaming *predefinido.* **Streaming Endpoint** Quando criar uma conta de Serviço de Mídia, este **ponto final de streaming** *predefinido* estará num estado parado, pelo que tem de ligar para **o Start**.
+Agora que o [Localizador de Streaming](/rest/api/media/streaminglocators) foi criado, pode obter os URLs de streaming, como mostrado no **GetStreamingURLs**. Para construir um URL, é necessário concatenar o nome do anfitrião [streaming Endpoint](/rest/api/media/streamingendpoints) e o caminho **do localizador de streaming.** Nesta amostra, é utilizado o ponto final de streaming *predefinido.*  Quando criar uma conta de Serviço de Mídia, este **ponto final de streaming** *predefinido* estará num estado parado, pelo que tem de ligar para **o Start**.
 
 > [!NOTE]
 > Neste método, você precisa do nome localizador que foi usado ao criar o **Localizador de Streaming** para o Ativo de saída.
@@ -210,7 +195,7 @@ Os Azure Media Services v3 SDKs não são seguros. Ao desenvolver uma aplicaçã
 
 Consulte o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Media Services.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que sabe como carregar, codificar e transmitir o vídeo, veja o artigo seguinte: 
 

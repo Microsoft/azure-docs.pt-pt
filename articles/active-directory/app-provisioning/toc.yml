@@ -10,8 +10,10 @@
 - name: Tutoriais
   expanded: true
   items:
-    - name: Criar um ponto final SCIM e configurar o aprovisionamento
+    - name: Plano de provisão para um ponto final scim
       href: use-scim-to-provision-users-and-groups.md
+    - name: Desenvolver uma amostra do ponto final DO SCIM
+      href: use-scim-to-build-users-and-groups-endpoints.md
     - name: Personalizar os mapeamentos de atributos
       href: customize-application-attributes.md
     - name: Tutoriais de aprovisionamento específicos de aplicações

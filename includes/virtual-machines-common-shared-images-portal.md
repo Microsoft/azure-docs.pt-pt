@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/06/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 1af80f208c72af9434d596f2c1219c08c0e3f719
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e7a4af2c18bfc2b8fbd6149dab12c0bcfc665341
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016012"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878833"
 ---
 ## <a name="create-an-image-gallery"></a>Criar uma galeria de imagens
 
@@ -35,7 +35,7 @@ O exemplo a seguir cria uma galeria chamada *myGallery* no grupo de recursos *my
 
 ## <a name="create-an-image-definition"></a>Criar uma definição de imagem 
 
-As definições de imagem criam um agrupamento lógico para imagens. São utilizados para gerir informações sobre as versões de imagem que são criadas dentro delas. Os nomes da definição de imagem podem ser compostos por letras maiúsculas ou minúsculas, dígitos, pontos, traços e períodos. Para obter mais informações sobre os valores que pode especificar para uma definição de imagem, consulte [definições de imagem](../articles/virtual-machines/windows/shared-image-galleries.md#image-definitions).
+As definições de imagem criam um agrupamento lógico para imagens. São utilizados para gerir informações sobre as versões de imagem que são criadas dentro delas. Os nomes da definição de imagem podem ser compostos por letras maiúsculas ou minúsculas, dígitos, pontos, traços e períodos. Para obter mais informações sobre os valores que pode especificar para uma definição de imagem, consulte [definições de imagem](../articles/virtual-machines/shared-image-galleries.md#image-definitions).
 
 Crie a definição de imagem da galeria dentro da sua galeria. Neste exemplo, a imagem da galeria é nomeada *myImageDefinition*.
 
@@ -44,7 +44,7 @@ Crie a definição de imagem da galeria dentro da sua galeria. Neste exemplo, a 
 1. Para **o nome de definição de** imagem, *escreva myImageDefinition*.
 1. Para **o sistema operativo,** selecione a opção correta com base na sua fonte VM.  
 1. Para **a geração VM,** selecione a opção com base na sua fonte VM. Na maioria dos casos, esta será *a Gen 1.* Para obter mais informações, consulte [Suporte para a geração 2 VMs](../articles/virtual-machines/generation-2.md).
-1. Para **o estado do sistema operativo,** selecione a opção com base na sua fonte VM. Para mais informações, consulte [Generalizado e especializado.](../articles/virtual-machines/linux/shared-image-galleries.md#generalized-and-specialized-images)
+1. Para **o estado do sistema operativo,** selecione a opção com base na sua fonte VM. Para mais informações, consulte [Generalizado e especializado.](../articles/virtual-machines/shared-image-galleries.md#generalized-and-specialized-images)
 1. Para **Editor,** escreva *myPublisher*. 
 1. Para **Oferta**, *Digite myOffer*.
 1. Para **SKU,** escreva *mySKU*.

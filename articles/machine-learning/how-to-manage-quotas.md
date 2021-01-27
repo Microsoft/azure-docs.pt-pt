@@ -11,12 +11,12 @@ ms.author: siarora
 ms.date: 12/1/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperf-fy20q4, contperf-fy21q2
-ms.openlocfilehash: 78cc0aa6beb9ab83fea2039b271b071de1662fc1
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: aa25a81068b25b7b8696a7472eb04542e8bb1a60
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98629185"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878957"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>Gerir e aumentar quotas para recursos com Azure Machine Learning
 
@@ -82,7 +82,7 @@ Recursos disponíveis:
 + **Os aglomerados por região** têm um limite de incumprimento de 200. Estes são partilhados entre um cluster de treino e um caso computacional. (Uma instância computacional é considerada um agrupamento de nó único para efeitos de quota.)
 
 > [!TIP]
-> Para saber mais sobre qual a família VM a solicitar um aumento de quota, confira os [tamanhos das máquinas virtuais em Azure.](https://docs.microsoft.com/azure/virtual-machines/sizes) Por exemplo, as famílias de VM gpu começam com um "N" em seu nome de família (por exemplo. Série NCv3)
+> Para saber mais sobre qual a família VM a solicitar um aumento de quota, confira os [tamanhos das máquinas virtuais em Azure.](../virtual-machines/sizes.md) Por exemplo, as famílias de VM gpu começam com um "N" em seu nome de família (por exemplo. Série NCv3)
 
 A tabela seguinte mostra limites adicionais na plataforma. Contacte a equipa de produtos da AzureML através de um bilhete de apoio **técnico** para solicitar uma exceção.
 
@@ -209,7 +209,7 @@ Para solicitar um subsídio para estes cenários, utilize as seguintes etapas:
 
 :::image type="content" source="media/how-to-manage-quotas/quota-increase-private-endpoint.png" alt-text="Screenshot de um ponto final privado e pedido de aumento de quota de DNS privado.":::
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 + [Planear e gerir os custos para a Azure Machine Learning](concept-plan-manage-cost.md)
 + [Limites de serviço na Aprendizagem automática Azure](resource-limits-quotas-capacity.md)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: msjogarrig
 ms.author: jogarrig
 ms.date: 04/22/2020
-ms.openlocfilehash: 475a8615e9233def091edc03fe91c82ea63cdc27
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: c7074981c8491460d6f2a8e7d40d086f261dfeb3
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96433528"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879348"
 ---
 # <a name="publishing-guide-for-azure-applications-solution-template-offers"></a>Guia de publicação para ofertas de modelo de solução de aplicações Azure
 
@@ -32,9 +32,9 @@ A opção de listagem que um cliente vê para este tipo de oferta é *Get It Now
 |Faturação e medição    |  As ofertas de modelos de solução não são ofertas de transações, mas podem ser usadas para implementar ofertas de VM pagas que são faturadas através do mercado comercial da Microsoft. Os recursos que o modelo ARM da solução implementa são configurados na subscrição Azure do cliente. As máquinas virtuais pay-as-you-go são transacionadas com o cliente através da Microsoft e faturadas através da subscrição Azure do cliente.<br/> Para a faturação da sua própria licença (BYOL), embora a Microsoft faça contas de custos de infraestrutura que são incorridos na subscrição do cliente, transaciona diretamente as suas taxas de licenciamento de software com o cliente.   |
 |Disco rígido virtual compatível com Azure (VHD)  |   Os VMs devem ser construídos em Windows ou Linux. Para obter mais informações, consulte: <ul> <li>[Crie uma oferta de aplicação Azure](./create-new-azure-apps-offer.md) (para VHDs windows).</li><li>[Distribuição linux endossada em Azure](../virtual-machines/linux/endorsed-distros.md) (para Linux VHDs).</li></ul> |
 | Atribuição de utilização dos clientes | É necessária a atribuição de utilização do cliente em todos os modelos de solução que são publicados no Azure Marketplace. Para obter mais informações sobre a atribuição de utilização do cliente e como a capacitar, consulte a [atribuição de utilização do cliente do parceiro Azure](./azure-partner-customer-usage-attribution.md).  |
-| Utilizar discos geridos | [Os discos geridos](../virtual-machines/managed-disks-overview.md) são a opção padrão para discos de infraestrutura persistidos como um VMs de serviço (IaaS) em Azure. Deve utilizar discos geridos em modelos de solução. <ul><li>Para atualizar os seus modelos de solução, siga as orientações em [Utilizar discos geridos nos modelos Azure Resource Manager](../virtual-machines/using-managed-disks-template-deployments.md), e use as [amostras fornecidas](https://github.com/Azure/azure-quickstart-templates).<br><br> </li><li>Para publicar o VHD como uma imagem no Azure Marketplace, importe o VHD subjacente dos discos geridos para uma conta de armazenamento utilizando qualquer um dos seguintes métodos:<ul><li>[Azure PowerShell](../virtual-machines/scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd.md) </li> <li> [A CLI do Azure](../virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-vhd.md) </li> </ul></ul> |
+| Utilizar discos geridos | [Os discos geridos](../virtual-machines/managed-disks-overview.md) são a opção padrão para discos de infraestrutura persistidos como um VMs de serviço (IaaS) em Azure. Deve utilizar discos geridos em modelos de solução. <ul><li>Para atualizar os seus modelos de solução, siga as orientações em [Utilizar discos geridos nos modelos Azure Resource Manager](../virtual-machines/using-managed-disks-template-deployments.md), e use as [amostras fornecidas](https://github.com/Azure/azure-quickstart-templates).<br><br> </li><li>Para publicar o VHD como uma imagem no Azure Marketplace, importe o VHD subjacente dos discos geridos para uma conta de armazenamento utilizando qualquer um dos seguintes métodos:<ul><li>[Azure PowerShell](/previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd) </li> <li> [A CLI do Azure](/previous-versions/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-vhd) </li> </ul></ul> |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se ainda não o fez, aprenda a [fazer crescer o seu negócio na nuvem com o Azure Marketplace.](https://azuremarketplace.microsoft.com/sell)
 

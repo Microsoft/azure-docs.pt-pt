@@ -1,5 +1,5 @@
 ---
-title: Serviços Go-To-Market - Como entrar em destaque no mercado Mercado Azure
+title: Serviços Go-To-Market - Como ser apresentado no marketplace | Mercado Azure
 description: Go-To-Market Services - Esta secção descreve como obter uma listagem em destaque no Azure Marketplace
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/16/2020
-ms.openlocfilehash: 4a3d0ef3c112da87e73f83c6c87de8f3fce1fea0
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 465f00400c28de9642a95ebcb7bc6b2349d64bc5
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621370"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878719"
 ---
 # <a name="how-to-get-featured-in-appsource-and-azure-marketplace"></a>Como ser apresentado no AppSource e no Azure Marketplace
 
@@ -30,7 +30,7 @@ Pode tomar os seguintes itens de ação para melhorar a sua pontuação:
 1. *Certifique-se de que a sua aplicação ou serviço está devidamente categorizado*: escolha três categorias que representam a sua app ou capacidades de serviço.
 2. *Azure Marketplace Apps: cresça o seu consumo Azure mês após mês.* Se conseguires atingir 1.000 horas de utilização do Azure por mês, aumentarás consideravelmente as tuas hipóteses de estar em destaque.
 3. *Aplicações AppSource: aumente as aquisições que chegam à sua oferta.* Se conseguir 10 aquisições por mês, aumentará consideravelmente as suas hipóteses de estar em destaque.
-4. *Obter Co-Sell estado pronto:* preencha os [requisitos para a co-venda pronta](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status).
+4. *Obter Co-Sell estado pronto:* preencha os [requisitos para a co-venda pronta](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status).
 5. *Melhorar a qualidade da sua oferta*: consulte as  [diretrizes de listagem de conteúdos](marketplace-criteria-content-validation.md) para obter informações sobre como modificar a sua oferta
 6. Publicar várias ofertas no Marketplace: todas as suas principais aplicações e serviços estão listados? Tem experiência em julgamento?
 7. Encoraje os seus clientes a escrever comentários.
@@ -42,7 +42,7 @@ As promoções de Apps em destaque operam separadamente do algoritmo de pesquisa
 
 O seu suporte GTM também inclui uma biblioteca completa de modelos de autoajuda, conteúdos web, formação e ferramentas para ajudá-lo a promover ainda mais as suas listas e o seu negócio.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre os seus [benefícios no mercado comercial.](gtm-your-marketplace-benefits.md)
 

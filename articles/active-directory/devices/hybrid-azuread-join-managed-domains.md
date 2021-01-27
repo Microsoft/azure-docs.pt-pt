@@ -1,22 +1,22 @@
 ---
-title: Configure híbrido Azure Ative Directy junta-se a domínios geridos Microsoft Docs
+title: Configure híbrido Azure Ative Directy junta-se a domínios geridos | Microsoft Docs
 description: Saiba como configurar o Azure Ative Directory híbrido para domínios geridos.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: tutorial
-ms.date: 03/06/2020
+ms.date: 01/26/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 303f02e0c6b72b7061a996b3ce8e70799954b435
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: d3da63503c80652bc8737f2cb4894e25d8bc6fc0
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861056"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98893410"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutorial: configurar a associação ao Azure Active Directory para os domínios geridos
 
@@ -40,7 +40,7 @@ Neste tutorial, ficará a saber como:
 > * Configurar a associação ao Azure AD híbrido
 > * Permitir dispositivos de nível inferior do Windows
 > * Verificar dispositivos associados
-> * Resolução de Problemas
+> * Resolução de problemas
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -90,23 +90,21 @@ Para configurar um AD híbrido Azure junta-se usando Azure AD Connect:
 
 1. Inicie o Azure AD Connect e, em seguida, selecione **Configure**.
 
-   ![Bem-vindo](./media/hybrid-azuread-join-managed-domains/welcome-azure-ad-connect.png)
-
 1. Em **tarefas adicionais**, selecione **opções de configuração** e, em seguida, selecione **Seguinte**.
 
    ![Tarefas adicionais](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-additional-tasks.png)
 
 1. Em **Visão Geral**, selecione **Next**.
 
-   ![Descrição geral](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-overview.png)
-
 1. Em **Connect to Azure AD,** insira as credenciais de um administrador global para o seu inquilino AZure AD.  
-
-   ![Ligar ao Azure AD](./media/hybrid-azuread-join-managed-domains/connect-to-azure-ad-username-password.png)
 
 1. Nas **opções do Dispositivo**, selecione **Configure Hybrid Azure AD ,** e, em seguida, selecione **Next**.
 
    ![Opções do dispositivo](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-device-options.png)
+
+1. Nos **sistemas operativos do Dispositivo**, selecione os sistemas operativos que os dispositivos no ambiente do seu Diretório Ativo utilizam e, em seguida, selecione **Next**.
+
+   ![Sistema operativo do dispositivo](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-device-operating-systems.png)
 
 1. Na **configuração SCP**, para cada floresta onde deseja Azure AD Connect para configurar o SCP, complete os seguintes passos e, em seguida, selecione **Next**.
 
@@ -116,17 +114,9 @@ Para configurar um AD híbrido Azure junta-se usando Azure AD Connect:
 
    ![SCP](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-scp-configuration.png)
 
-1. Nos **sistemas operativos do Dispositivo**, selecione os sistemas operativos que os dispositivos no ambiente do seu Diretório Ativo utilizam e, em seguida, selecione **Next**.
-
-   ![Sistema operativo do dispositivo](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-device-operating-systems.png)
-
 1. Em **Pronto para configurar,** selecione **Configure**.
 
-   ![Preparado para configurar](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-ready-to-configure.png)
-
 1. Na **configuração completa**, selecione **Exit**.
-
-   ![Configuração completa](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-configuration-complete.png)
 
 ## <a name="enable-windows-down-level-devices"></a>Permitir dispositivos de nível inferior do Windows
 
@@ -228,7 +218,7 @@ Se sentir problemas em completar a ad AD híbrida para dispositivos Windows unid
 - [Resolver problemas de dispositivos associados ao Azure Active Directory híbrido](troubleshoot-hybrid-join-windows-current.md)
 - [O Azure Ative Directory híbrido de resolução de problemas juntou-se a dispositivos de nível inferior](troubleshoot-hybrid-join-windows-legacy.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Avance para o próximo artigo para aprender a gerir as identidades dos dispositivos utilizando o portal Azure.
 > [!div class="nextstepaction"]

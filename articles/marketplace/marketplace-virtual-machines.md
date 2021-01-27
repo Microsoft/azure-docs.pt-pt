@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: d9e26b6388223ae252a5e85e6e9fb9783a3b8429
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 9169d691b58ad4a59796123c64f856128a0f8c83
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600404"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879331"
 ---
 # <a name="how-to-plan-a-virtual-machine-offer"></a>Como planear uma oferta de máquina virtual
 
@@ -30,10 +30,10 @@ O processo de conceção, construção e testes oferece tempo e requer experiên
   - [VMs do Windows](../virtual-machines/windows/tutorial-manage-vm.md)
 
 - Amostras
-  - [Amostras de CLI Azure para LMs Linux](../virtual-machines/linux/cli-samples.md)
-  - [Azure PowerShell para LMs Linux](../virtual-machines/linux/powershell-samples.md)
-  - [Amostras de CLI Azure para VMs do Windows](../virtual-machines/windows/cli-samples.md)
-  - [Azure PowerShell para VMs windows](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-quick.md)
+  - [Amostras de CLI Azure para LMs Linux](https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine)
+  - [Azure PowerShell para LMs Linux](https://github.com/Azure/azure-docs-powershell-samples/tree/master/virtual-machine)
+  - [Amostras de CLI Azure para VMs do Windows](https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine)
+  - [Azure PowerShell para VMs windows](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-quick)
 
 ## <a name="technical-requirements"></a>Requisitos técnicos
 
@@ -131,7 +131,7 @@ Ao criar a sua oferta no Partner Center, verá o **separador Revenda através do
 > [!NOTE]
 > O opt-in do canal parceiro Cloud Solution Provider (CSP) já está disponível. Para obter mais informações sobre o marketing da sua oferta através dos canais parceiros da Microsoft CSP, consulte [**os Fornecedores de Soluções Cloud.**](./cloud-solution-providers.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Crie uma oferta de máquina virtual no Azure Marketplace](azure-vm-create.md)
 - [Crie uma máquina virtual utilizando uma base aprovada](azure-vm-create-using-approved-base.md) ou crie uma máquina virtual utilizando a sua própria [imagem](azure-vm-create-using-own-image.md).

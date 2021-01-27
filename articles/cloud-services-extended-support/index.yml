@@ -10,12 +10,12 @@ metadata:
   author: mimckitt
   ms.author: mimckitt
   ms.date: 03/06/2020
-  ms.openlocfilehash: 7013158692883a002c16a2ad3c24735d2223b59e
-  ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+  ms.openlocfilehash: efbdf689b895278445f022d15473591e09a691f9
+  ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/24/2021
-  ms.locfileid: "98746786"
+  ms.lasthandoff: 01/27/2021
+  ms.locfileid: "98878736"
 landingContent:
 - title: Sobre os Serviços cloud (suporte alargado)
   linkLists:
@@ -45,7 +45,7 @@ landingContent:
     links:
     - text: Tamanhos disponíveis
       url: available-sizes.md
-    - text: Perguntas frequentes
+    - text: Perguntas mais frequentes
       url: faq.md
     - text: Notícias de lançamento do SO Convidado
       url: ../cloud-services/cloud-services-guestos-update-matrix.md?toc=/azure/cloud-services-extended-support/toc.json&bc=/azure/cloud-services-extended-support/breadcrumb/toc.json
@@ -65,6 +65,8 @@ landingContent:
   linkLists:
   - linkListType: sample
     links:
+    - text: Modelos de amostra
+      url: https://github.com/Azure-Samples/cloud-services-extended-support
     - text: Criar uma implementação de Serviço cloud
       url: sample-create-cloud-service.md
     - text: Recuperar informações sobre uma implementação do Serviço cloud

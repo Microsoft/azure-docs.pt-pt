@@ -8,12 +8,12 @@ author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.reviewer: anbene
 ms.date: 12/23/2020
-ms.openlocfilehash: a504969d23fce8000119aadf9e45d599da0894f0
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 57a6883a2c4fff14507df27b55ac0f6621306bf5
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97918307"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879280"
 ---
 # <a name="how-to-plan-a-managed-service-offer-for-the-microsoft-commercial-marketplace"></a>Como planear uma oferta de Serviço Gerido para o mercado comercial da Microsoft
 
@@ -25,7 +25,7 @@ Os Serviços Geridos são ofertas do Azure Marketplace que permitem a gestão de
 
 Para publicar um Serviço Gerido, deve ter ganho uma Competência Gold ou Silver Microsoft na Cloud Platform. Esta competência demonstra a sua experiência aos clientes. Para obter mais informações, consulte [as Competências da Rede de Parceiros da Microsoft.](https://partner.microsoft.com/membership/competencies)
 
-As ofertas devem satisfazer todas as políticas de [certificação do mercado comercial aplicáveis](https://docs.microsoft.com/legal/marketplace/certification-policies) a publicar no Azure Marketplace.
+As ofertas devem satisfazer todas as políticas de [certificação do mercado comercial aplicáveis](/legal/marketplace/certification-policies) a publicar no Azure Marketplace.
 
 ## <a name="customer-leads"></a>Ligações ao cliente
 
@@ -129,7 +129,7 @@ As ofertas de Serviço Gerido requerem pelo menos um plano. Um plano define o â
 
 Serviços Geridos suportam apenas um modelo de preços: **Traga a sua própria licença (BYOL)**. Isto significa que vai cobrar diretamente aos seus clientes, e a Microsoft não lhe cobrará quaisquer taxas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Criar uma oferta de Serviço Gerido](./create-managed-service-offer.md)
 * [Melhores práticas de listagem de ofertas](./gtm-offer-listing-best-practices.md)

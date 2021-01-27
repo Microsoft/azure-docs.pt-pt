@@ -1,5 +1,5 @@
 ---
-title: cópia azcopia . Microsoft Docs
+title: cópia azcopia| Microsoft Docs
 description: Este artigo fornece informações de referência para o comando de cópia de azcopia.
 author: normesta
 ms.service: storage
@@ -8,12 +8,12 @@ ms.date: 12/11/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 6390aafca4937a480e4d92ff04003a294b9c0e20
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: c4e85195ace0a24aa11d4a03b8f429f2714399b0
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97356179"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879161"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -37,7 +37,7 @@ Para mais informações, consulte a secção de exemplos deste artigo.
 ## <a name="related-conceptual-articles"></a>Artigos conceptuais relacionados
 
 - [Introdução ao AzCopy](storage-use-azcopy-v10.md)
-- [Dados de transferência com armazenamento AzCopy e Blob](storage-use-azcopy-blobs.md)
+- [Dados de transferência com armazenamento AzCopy e Blob](./storage-use-azcopy-v10.md#transfer-data)
 - [Transferir dados com o AzCopy e armazenamento de ficheiros](storage-use-azcopy-files.md)
 - [Configurar, otimizar e resolver problemas AzCopy](storage-use-azcopy-configure.md)
 
@@ -246,7 +246,7 @@ Transfira ficheiros e diretórios para a conta de Armazenamento Azure e descreva
 
 **--check-length** Verifique a duração de um ficheiro no destino após a transferência. Se houver um desfasamento entre a fonte e o destino, a transferência é marcada como falhada. (o valor predefinido `true` é)
 
-**---cadeia de verificação-md5** Especifica como os hashes MD5 devem ser validados estritamente ao descarregar. Disponível apenas ao descarregar. Opções disponíveis: `NoCheck` `LogOnly` . `FailIfDifferent` `FailIfDifferentOrMissing` . (predefinição) `FailIfDifferent` (predefinição "FailIfDifferent")
+**---cadeia de verificação-md5** Especifica como os hashes MD5 devem ser validados estritamente ao descarregar. Disponível apenas ao descarregar. Opções disponíveis: `NoCheck` . . . . `LogOnly` `FailIfDifferent` `FailIfDifferentOrMissing` . (predefinição) `FailIfDifferent` (predefinição "FailIfDifferent")
 
 **--cadeia de disposição de conteúdo** Definir o cabeçalho de disposição de conteúdo. Devolvido no download.
 
@@ -270,7 +270,7 @@ Transfira ficheiros e diretórios para a conta de Armazenamento Azure e descreva
 
 **--força-se-ler-apenas** Ao sobrepor um ficheiro existente no Windows ou em Azure Files, force o excesso de trabalho mesmo que o ficheiro existente tenha o seu conjunto de atributos apenas de leitura.
 
-**-de-para** cadeia Opcionalmente especifica a combinação de destino de origem. Por exemplo: `LocalBlob` `BlobLocal` . `LocalBlobFS`
+**-de-para** cadeia Opcionalmente especifica a combinação de destino de origem. Por exemplo: `LocalBlob` `BlobLocal` . . . `LocalBlobFS` .
 
 **...ajuda**  para a cópia.
 
@@ -284,7 +284,7 @@ Transfira ficheiros e diretórios para a conta de Armazenamento Azure e descreva
 
 **-- incluir** a cadeia de padrão Inclua apenas estes ficheiros ao copiar. Esta opção suporta caracteres wildcard (*). Separar ficheiros utilizando um `;` .
 
-**--lista de versões** cadeia Especifica um ficheiro em que cada iD de versão está listado numa linha separada. Certifique-se de que a fonte deve apontar para uma única bolha e todos os IDs de versão especificados no ficheiro que utilizam esta bandeira devem pertencer apenas à bolha de origem. O AzCopy irá descarregar as versões especificadas na pasta de destino fornecida. Para obter mais informações, consulte [Baixar as versões anteriores de uma bolha.](storage-use-azcopy-blobs.md#download-previous-versions-of-a-blob)
+**--lista de versões** cadeia Especifica um ficheiro em que cada iD de versão está listado numa linha separada. Certifique-se de que a fonte deve apontar para uma única bolha e todos os IDs de versão especificados no ficheiro que utilizam esta bandeira devem pertencer apenas à bolha de origem. O AzCopy irá descarregar as versões especificadas na pasta de destino fornecida. Para obter mais informações, consulte [Baixar as versões anteriores de uma bolha.](./storage-use-azcopy-v10.md#transfer-data)
 
 **--cadeia de nível de log** Define a verbosidade do registo para o ficheiro de registo, níveis disponíveis: INFO (todos os pedidos/respostas), ADVERTÊNCIA (respostas lentas), ERRO (apenas pedidos falhados) e NENHUM (sem registos de saída). (predefinição). `INFO` 
 
@@ -324,6 +324,6 @@ Transfira ficheiros e diretórios para a conta de Armazenamento Azure e descreva
 
 **--cadeia de sufixos fidedignos-microsoft-sufixos** Especifica sufixos de domínio adicionais onde podem ser enviados tokens de login do Azure Ative Directory.  A predefinição é `*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net`. Qualquer listado aqui é adicionado ao padrão. Para a segurança, só deve colocar os domínios microsoft Azure aqui. Separe várias entradas com pontos e vírgulas.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
-- [azcopy](storage-ref-azcopy.md)
+- [azcopia](storage-ref-azcopy.md)

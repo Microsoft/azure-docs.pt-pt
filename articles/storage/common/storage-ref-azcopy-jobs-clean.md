@@ -1,5 +1,5 @@
 ---
-title: empregos de azcopia limpos / Microsoft Docs
+title: trabalhos azcopia limpar | Microsoft Docs
 description: Este artigo fornece informações de referência para o comando limpo de trabalhos de azcopia.
 author: normesta
 ms.service: storage
@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: f3e9d70ced0d2974a66717436c28c5b6914f6745
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a2c717601747e15556608559450b35bb934410b
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87287142"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879110"
 ---
 # <a name="azcopy-jobs-clean"></a>azcopy jobs clean
 
@@ -26,7 +26,7 @@ azcopy jobs clean [flags]
 ## <a name="related-conceptual-articles"></a>Artigos conceptuais relacionados
 
 - [Introdução ao AzCopy](storage-use-azcopy-v10.md)
-- [Dados de transferência com armazenamento AzCopy e Blob](storage-use-azcopy-blobs.md)
+- [Dados de transferência com armazenamento AzCopy e Blob](./storage-use-azcopy-v10.md#transfer-data)
 - [Transferir dados com o AzCopy e armazenamento de ficheiros](storage-use-azcopy-files.md)
 - [Configurar, otimizar e resolver problemas AzCopy](storage-use-azcopy-configure.md)
 
@@ -40,7 +40,7 @@ azcopy jobs clean [flags]
 
 **...-ajuda**                Ajuda para limpar.
 
-**--com o status** string Apenas remova os postos de trabalho com este estatuto, valores disponíveis: `Canceled` , , , , `Completed` `Failed` `InProgress` `All` (padrão `All` )
+**--com o status** string Apenas remova os postos de trabalho com este estatuto, valores disponíveis: `Canceled` , `Completed` `Failed` `InProgress` `All` (padrão `All` )
 
 ## <a name="options-inherited-from-parent-commands"></a>Opções herdadas dos comandos dos pais
 
@@ -50,6 +50,6 @@ azcopy jobs clean [flags]
 
 **--cadeia de sufixos fidedignos-microsoft-sufixos** Especifica sufixos de domínio adicionais onde podem ser enviados tokens de login do Azure Ative Directory.  O padrão é '*.core.windows.net;*. core.chinacloudapi.cn; *.core.cloudapi.de;* core.usgovcloudapi.net.' Qualquer listado aqui é adicionado ao padrão. Para a segurança, só deve colocar os domínios microsoft Azure aqui. Separe várias entradas com pontos e vírgulas.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 - [azcopy jobs](storage-ref-azcopy-jobs.md)

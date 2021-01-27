@@ -6,16 +6,16 @@ ms.author: cynthn
 ms.date: 05/05/2020
 ms.topic: how-to
 ms.service: virtual-machines-windows
-ms.openlocfilehash: 8ad463672660582f28e0fd758a2293ad4112a981
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 4779abfa92876c0d5a9b045963778a9d2440bf3f
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201880"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878753"
 ---
 # <a name="preview-create-a-new-vm-image-version-from-an-existing-image-version-using-azure-image-builder-in-windows"></a>Pré-visualização: Criar uma nova versão de imagem VM a partir de uma versão de imagem existente utilizando O Azure Image Builder no Windows
 
-Este artigo mostra-lhe como pegar uma versão de imagem existente numa [Galeria de Imagens Partilhadas,](shared-image-galleries.md)atualizá-la e publicá-la como uma nova versão de imagem para a galeria.
+Este artigo mostra-lhe como pegar uma versão de imagem existente numa [Galeria de Imagens Partilhadas,](../shared-image-galleries.md)atualizá-la e publicá-la como uma nova versão de imagem para a galeria.
 
 Vamos usar um modelo de amostra .json para configurar a imagem. O ficheiro .json que estamos a usar está aqui: [helloImageTemplateforSIGfromWinSIG.jsem](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/2_Creating_a_Custom_Win_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromWinSIG.json). 
 
@@ -175,6 +175,6 @@ Deve agora ver dois diretórios:
 - `buildActions2` que foi criado como parte a atualização da primeira versão de imagem para criar a segunda versão de imagem.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre os componentes do ficheiro .json utilizado neste artigo, consulte a [referência do modelo do construtor de imagem](../linux/image-builder-json.md).
