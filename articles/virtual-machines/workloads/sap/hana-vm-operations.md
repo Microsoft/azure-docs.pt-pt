@@ -1,5 +1,5 @@
 ---
-title: Configurações e operações de infraestrutura SAP HANA em Azure Microsoft Docs
+title: Configurações e operações de infraestrutura SAP HANA em Azure | Microsoft Docs
 description: Guia de operações para sistemas SAP HANA que são implantados em máquinas virtuais Azure.
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9a907f2a6fc54c96dbef9f2091a91cac50bbd4ca
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 6e28b23f20a0336498abbc357f4c96bdfa5b089f
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96486526"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881843"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configurações e operações de infraestrutura do SAP HANA no Azure
 Este documento fornece orientações para configurar a infraestrutura Azure e operar sistemas SAP HANA que são implantados em máquinas virtuais nativas do Azure (VMs). O documento também inclui informações de configuração para a escala SAP HANA para o M128s VM SKU. Este documento não se destina a substituir a documentação padrão SAP, que inclui o seguinte conteúdo:
@@ -46,7 +46,7 @@ As secções seguintes descrevem considerações básicas de configuração para
 Conforme documentado no guia de planeamento de [máquinas virtuais Azure,](./planning-guide.md)existem dois métodos básicos de ligação aos VMs Azure:
 
 - Conecte-se através da internet e dos pontos finais públicos num Jump VM ou no VM que está a executar SAP HANA.
-- Ligue-se através de uma [VPN](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) ou Azure [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
+- Ligue-se através de uma [VPN](../../../vpn-gateway/tutorial-site-to-site-portal.md) ou Azure [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
 
 A conectividade local-a-local via VPN ou ExpressRoute é necessária para cenários de produção. Este tipo de conexão também é necessário para cenários de não produção que se alimentam de cenários de produção onde o software SAP está a ser utilizado. A imagem a seguir mostra um exemplo de conectividade entre sites:
 

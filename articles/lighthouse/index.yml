@@ -9,13 +9,13 @@ metadata:
   ms.collection: collection
   author: JnHs
   ms.author: jenhayes
-  ms.date: 12/17/2020
-  ms.openlocfilehash: ad312bd1a1797ee6f9e2d474e93d066b4be9c131
-  ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+  ms.date: 01/26/2021
+  ms.openlocfilehash: 08c6275a9202f8d52e4e3f72f18822633cd113bc
+  ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/21/2021
-  ms.locfileid: "98707759"
+  ms.lasthandoff: 01/27/2021
+  ms.locfileid: "98881776"
 landingContent:
 - title: Acerca do Azure Lighthouse
   linkLists:
@@ -35,6 +35,8 @@ landingContent:
     links:
     - text: Incluir um cliente no Azure Lighthouse
       url: ./how-to/onboard-customer.md
+    - text: Ver e gerir clientes
+      url: ./how-to/view-manage-customers.md
     - text: Associar o seu ID de parceiro
       url: ./how-to/partner-earned-credit.md
   - linkListType: concept
@@ -59,6 +61,14 @@ landingContent:
     links:
     - text: Ofertas de Serviços Geridos no Azure Marketplace
       url: ./concepts/managed-services-offers.md
+- title: Experiências com o cliente
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Ver e gerir fornecedores de serviços
+      url: ./how-to/view-manage-service-providers.md
+    - text: Ver a atividade do fornecedor de serviços
+      url: ./how-to/view-service-provider-activity.md
 - title: Exemplos e modelos
   linkLists:
   - linkListType: deploy
@@ -67,14 +77,6 @@ landingContent:
       url: https://github.com/Azure/Azure-Lighthouse-samples/
     - text: Índice de exemplos do Azure Lighthouse
       url: ./samples/index.md
-- title: Experiências com o portal do Azure
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Ver e gerir clientes
-      url: ./how-to/view-manage-customers.md
-    - text: Ver e gerir fornecedores de serviços
-      url: ./how-to/view-manage-service-providers.md
 - title: Trabalhar com os serviços do Azure em escala
   linkLists:
   - linkListType: how-to-guide

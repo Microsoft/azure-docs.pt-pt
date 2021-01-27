@@ -3,12 +3,12 @@ title: Atualize a sua versão de cluster de tecido de serviço Azure
 description: Conheça as versões de cluster no Azure Service Fabric, incluindo um link para os mais recentes lançamentos do blog da equipa do Service Fabric.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: c9a29a97238164b9f6daf9dda66a1f314a7673ce
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: cd9c4be285c68e5482f7276429dd5514c72ae135
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98804245"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881555"
 ---
 # <a name="upgrade-your-azure-service-fabric-cluster-version"></a>Atualize a sua versão de cluster de tecido de serviço Azure
 
@@ -55,7 +55,7 @@ Atualização para uma versão suportada do Service Fabric para evitar tempo de 
 
 ### <a name="upgrade-alert-for-versions-later-than-63"></a>Alerta de upgrade para versões posteriores a 6.3
 
-Para melhorar a segurança e a disponibilidade, a infraestrutura Azure fez uma alteração que pode afetar os clientes do Service Fabric. Esta alteração afetará todos os clusters de Tecidos de Serviço que [utilizem o modo de rede Aberto para contentores](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode) e executar as versões 6.3 a 7.0 ou versões suportadas incompatíveis mais tarde do que 7.0. Uma atualização para o tempo de funcionação do Service Fabric está disponível para todas as versões suportadas do Service Fabric em todas as regiões.
+Para melhorar a segurança e a disponibilidade, a infraestrutura Azure fez uma alteração que pode afetar os clientes do Service Fabric. Esta alteração afetará todos os clusters de Tecidos de Serviço que [utilizem o modo de rede Aberto para contentores](./service-fabric-networking-modes.md#set-up-open-networking-mode) e executar as versões 6.3 a 7.0 ou versões suportadas incompatíveis mais tarde do que 7.0. Uma atualização para o tempo de funcionação do Service Fabric está disponível para todas as versões suportadas do Service Fabric em todas as regiões.
 
 #### <a name="if-you-dont-upgrade-to-a-supported-version"></a>Se não atualizar para uma versão suportada
 

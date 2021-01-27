@@ -1,5 +1,5 @@
 ---
-title: Opções de transferência de dados para a Azure usando um aparelho Microsoft Docs
+title: Opções de transferência de dados para a Azure utilizando um aparelho | Microsoft Docs
 description: Saiba como escolher o aparelho certo para transferência de dados no local para Azure entre data box edge, Azure File Sync e série StorSimple 8000.
 services: storsimple
 author: alkohli
@@ -7,12 +7,12 @@ ms.service: storsimple
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: f2de6dbba2548f0c281df35edf2883d0c00af667
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 4fc92146d6f076287fe37f64734bb07e8250792b
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96571918"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882217"
 ---
 # <a name="compare-storsimple-with-azure-file-sync-and-data-box-edge-data-transfer-options"></a>Comparar o StorSimple com as opções de transferência de dados do Azure File Sync e do Data Box Edge 
 
@@ -37,7 +37,7 @@ Este documento fornece uma visão geral das opções para transferência de dado
 |**Suporte de protocolo** |iSCSI          |SMB, NFS    | SMB ou NFS      |
 |**Preços**      |[StorSimple](https://azure.microsoft.com/pricing/details/storsimple/) |[Azure File Sync](https://azure.microsoft.com/pricing/details/storage/files/)  |[Data Box Edge](https://azure.microsoft.com/pricing/details/storage/databox/edge/)  |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- Saiba mais sobre [a Azure Data Box Edge](../databox-online/azure-stack-edge-overview.md) e [Azure Data Box Gateway](../databox-online/data-box-gateway-overview.md)
+- Saiba mais sobre [a Azure Data Box Edge](../databox-online/azure-stack-edge-overview.md) e [Azure Data Box Gateway](../databox-gateway/data-box-gateway-overview.md)
 - Saiba mais sobre [o Azure File Sync](../storage/files/storage-sync-files-deployment-guide.md)

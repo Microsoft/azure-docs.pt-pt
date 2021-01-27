@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 12/15/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 77a32872726e3c67f0d3c542ca699271846a193b
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: e44e7c5d04695d5bd65d2eedc5474889a707c8bd
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98680675"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882149"
 ---
 # <a name="collect-spring-cloud-resilience4j-circuit-breaker-metrics-preview"></a>Colete as métricas do disjuntor de disjuntores de resiliência da nuvem de primavera4J (pré-visualização)
 
@@ -22,9 +22,9 @@ Usamos a [demonstração de disjuntor de molas](https://github.com/spring-cloud-
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Ativar o agente java In-Process do [guia Java In-Process Agent for Application Insights](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-howto-application-insights#enable-java-in-process-agent-for-application-insights). 
+* Ativar o agente java In-Process do [guia Java In-Process Agent for Application Insights](./spring-cloud-howto-application-insights.md#enable-java-in-process-agent-for-application-insights). 
 
-* Permitir a recolha de dimensões para métricas de resiliência4j do [guia Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation).
+* Permitir a recolha de dimensões para métricas de resiliência4j do [guia Application Insights](../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
 
 * Instale git, Maven e Java, se não já estiver em uso pelo computador de desenvolvimento.
 
@@ -123,8 +123,8 @@ az spring-cloud app deploy -n reactive-resilience4j \
 
    [![resiliência4J 5](media/spring-cloud-resilience4j/resilience4j-5.png)](media/spring-cloud-resilience4j/resilience4j-5.PNG)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
-* [Insights de aplicação](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-howto-application-insights)
+* [Insights de aplicação](./spring-cloud-howto-application-insights.md)
 * [Rastreio distribuído](spring-cloud-tutorial-distributed-tracing.md)
 * [Painel de disjuntor](spring-cloud-tutorial-circuit-breaker.md)

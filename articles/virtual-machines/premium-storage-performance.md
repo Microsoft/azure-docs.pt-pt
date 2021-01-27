@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 26ef07269c9451c2e9d05d42e2247fbfcdae4844
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 7e93c659ad58db8d82e68380ab6a0855af27e1bf
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201965"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882387"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Armazenamento premium Azure: design para alto desempenho
 
@@ -35,8 +35,8 @@ Fornecemos estas diretrizes especificamente para o Armazenamento Premium, porque
 >
 > Se procura comparar o seu disco, consulte os nossos artigos sobre o benchmarking de um disco:
 >
-> * Para Linux: [Benchmark a sua aplicação no Armazenamento de Disco Azure](linux/disks-benchmarks.md)
-> * Para windows: [Benchmarking um disco](windows/disks-benchmarks.md).
+> * Para Linux: [Benchmark a sua aplicação no Armazenamento de Disco Azure](./disks-benchmarks.md)
+> * Para windows: [Benchmarking um disco](./disks-benchmarks.md).
 >
 > Se o seu VM suportar uma rede acelerada, deve certificar-se de que está ativado. Se não estiver ativado, pode ative-lo em VMs já implantados tanto no [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) como no [Linux](../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
 
@@ -119,7 +119,7 @@ A melhor forma de medir os requisitos de desempenho da sua aplicação é utiliz
 
 Os contadores PerfMon estão disponíveis para processador, memória e cada disco lógico e disco físico do seu servidor. Quando utiliza discos de armazenamento premium com um VM, os contadores de disco físico são para cada disco de armazenamento premium, e os contadores de disco lógicos são para cada volume criado nos discos de armazenamento premium. Tem de capturar os valores dos discos que acolhem a carga de trabalho da sua aplicação. Se houver um mapeamento entre discos lógicos e físicos, pode consultar os contadores de discos físicos; caso contrário, consulte os contadores de disco lógicos. No Linux, o comando do iostat gera um relatório de utilização de CPU e disco. O relatório de utilização do disco fornece estatísticas por dispositivo físico ou partição. Se tiver um servidor de base de dados com os seus dados e registos em discos separados, recolha estes dados para ambos os discos. Abaixo a tabela descreve contadores para discos, processadores e memória:
 
-| Contador | Description | PerfMon | Iostat |
+| Contador | Descrição | PerfMon | Iostat |
 | --- | --- | --- | --- |
 | **IOPS ou Transações por segundo** |Número de pedidos de E/S emitidos para o disco de armazenamento por segundo. |Leituras/seg de disco <br> Escritas/seg de disco |tps <br> r/s <br> c/s |
 | **Leituras e escritos de disco** |% das operações de Leitura e Escrita realizadas no disco. |% Tempo de leitura do disco <br> % Tempo de escrita do disco |r/s <br> c/s |
@@ -376,12 +376,12 @@ Para um volume listrado, mantenha uma profundidade de fila suficientemente alta 
 
 As disposições de Armazenamento Azure Premium especificaram o número de IOPS e Depute dependendo dos tamanhos de VM e dos tamanhos do disco que escolher. Sempre que a sua aplicação tentar conduzir IOPS ou Produção acima destes limites do que o VM ou o disco podem manusear, o Premium Storage irá estrangulá-lo. Isto manifesta-se sob a forma de desempenho degradado na sua aplicação. Isto pode significar maior latência, menor produção ou iops mais baixo. Se o Armazenamento Premium não acelerar, a sua aplicação poderá falhar completamente excedendo o que os seus recursos são capazes de alcançar. Assim, para evitar problemas de desempenho devido a estrangulamento, sempre fornecendo recursos suficientes para a sua aplicação. Tome em consideração o que discutimos nas secções de tamanhos de VM e tamanhos de disco acima. O benchmarking é a melhor maneira de descobrir quais os recursos necessários para hospedar a sua aplicação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se procura comparar o seu disco, consulte os nossos artigos sobre o benchmarking de um disco:
 
-* Para Linux: [Benchmark a sua aplicação no Armazenamento de Disco Azure](linux/disks-benchmarks.md)
-* Para windows: [Benchmarking um disco](windows/disks-benchmarks.md).
+* Para Linux: [Benchmark a sua aplicação no Armazenamento de Disco Azure](./disks-benchmarks.md)
+* Para windows: [Benchmarking um disco](./disks-benchmarks.md).
 
 Saiba mais sobre os tipos de disco disponíveis:
 

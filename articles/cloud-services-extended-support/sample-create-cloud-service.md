@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 1c501bcd716a8d5b1deabf345192ced65ab2d5ca
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 61c8924b5dba37e3fc61da4710b9bcdad34ebeca
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98745128"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881538"
 ---
 # <a name="create-a-new-azure-cloud-service-extended-support"></a>Criar um novo Serviço de Nuvem Azure (Suporte alargado)
 Estas amostras cobrem várias formas de criar uma nova implantação do Azure Cloud Service (suporte alargado).
@@ -189,5 +189,5 @@ $cloudService = New-AzCloudService                                              
 
 ## <a name="next-steps"></a>Próximos passos
 
-Para obter mais informações sobre os Serviços de Nuvem Azure (suporte alargado), consulte [a visão geral dos Serviços Azure Cloud (suporte alargado).](overview.md)
-
+- Para obter mais informações sobre os Serviços de Nuvem Azure (suporte alargado), consulte [a visão geral dos Serviços Azure Cloud (suporte alargado).](overview.md)
+- Visite o [repositório](https://github.com/Azure-Samples/cloud-services-extended-support) de amostras cloud services (suporte alargado)

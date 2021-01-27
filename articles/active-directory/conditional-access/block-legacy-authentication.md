@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d8bc1a96109eda9cc2ee1f86cec892cc5ce9308d
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 769460d5dab7311eb2940d101df6f4996a3ad355
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96860325"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98876584"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Como: Bloquear a autenticação do legado para Azure AD com acesso condicional   
 
@@ -81,7 +81,7 @@ Para obter mais informações sobre estes protocolos e serviços de autenticaç�
 Antes de bloquear a autenticação do legado no seu diretório, tem de primeiro compreender se os seus utilizadores têm aplicações que utilizam a autenticação antiga e como isso afeta o seu diretório geral. Os registos de login AD do Azure podem ser utilizados para entender se está a utilizar a autenticação antiga.
 
 1. Navegue para o **portal**  >  **Azure Ative Directory**  >  **Ins**.
-1. Adicione a coluna 'App' cliente se não for mostrada clicando na App do Cliente **das Colunas.**  >  **Client App**
+1. Adicione a coluna 'App' cliente se não for mostrada clicando na App do Cliente **das Colunas.**  >  
 1. **Adicionar filtros**  >  **A App do Cliente** > selecione todos os protocolos de autenticação do legado. Selecione fora da caixa de diálogo de filtragem para aplicar as suas seleções e feche a caixa de diálogo.
 
 A filtragem só lhe mostrará as tentativas de inscrição que foram feitas por protocolos de autenticação de legados. Clicar em cada tentativa de inscrição individual irá mostrar-lhe detalhes adicionais. O campo **de Aplicação do Cliente** no separador **Informações Básicas** indicará qual o protocolo de autenticação legado utilizado.
@@ -121,9 +121,9 @@ Pode selecionar todos os controlos de subvenção disponíveis para a condição
 
 Para bloquear o acesso do utilizador B2B através da autenticação do legado ao SharePoint Online, as organizações devem desativar a autenticação do legado no SharePoint utilizando o `Set-SPOTenant` comando PowerShell e definir o `-LegacyAuthProtocolsEnabled` parâmetro para `$false` . Mais informações sobre a definição deste parâmetro podem ser encontradas no documento de referência do SharePoint PowerShell relativo ao [Set-SPOTenant](/powershell/module/sharepoint-online/set-spotenant)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Determinar o impacto utilizando o modo de relatório de acesso condicional](howto-conditional-access-insights-reporting.md)
 - Se ainda não está familiarizado com a configuração das políticas de Acesso Condicional, consulte [o MFA para aplicações específicas com acesso condicional do Azure Ative Directory,](../authentication/tutorial-enable-azure-mfa.md) por exemplo.
 - Para obter mais informações sobre suporte de autenticação moderna, consulte [como funciona a autenticação moderna para as aplicações de clientes do Office 2013 e office 2016](/office365/enterprise/modern-auth-for-office-2013-and-2016) 
-- [Como configurar um dispositivo ou aplicação multifunções para enviar e-mail usando o Microsoft 365](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-office-3)
+- [Como configurar um dispositivo ou aplicação multifunções para enviar e-mail usando o Microsoft 365](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365)

@@ -4,12 +4,12 @@ description: Saiba como proteger o seu cluster utilizando uma gama de endereços
 services: container-service
 ms.topic: article
 ms.date: 09/21/2020
-ms.openlocfilehash: 9828682fa71d023356b174d528c2137ed29f368d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: ca6e1c06b3ad90ef12c9bf375bae50d46c5f7c37
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682507"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98890646"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Acesso seguro ao servidor API utilizando intervalos de endereços IP autorizados no Serviço Azure Kubernetes (AKS)
 
@@ -17,7 +17,7 @@ Em Kubernetes, o servidor API recebe pedidos para realizar ações no cluster, t
 
 Este artigo mostra como utilizar os intervalos de endereços IP autorizados pelo servidor API para limitar quais endereços IP e CIDRs podem aceder ao plano de controlo.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Este artigo mostra-lhe como criar um cluster AKS usando o Azure CLI.
 
@@ -130,6 +130,23 @@ az aks update \
     --api-server-authorized-ip-ranges ""
 ```
 
+## <a name="find-existing-authorized-ip-ranges"></a>Encontre as gamas IP autorizadas existentes
+
+Para encontrar os intervalos IP autorizados, use [az aks mostrar][az-aks-show] e especificar o nome e o grupo de recursos do cluster. Por exemplo:
+
+```azurecli-interactive
+az aks show \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --query apiServerAccessProfile.authorizedIpRanges'
+```
+
+## <a name="update-disable-and-find-authorized-ip-ranges-using-azure-portal"></a>Atualizar, desativar e encontrar gamas de IP autorizadas usando o portal Azure
+
+As operações acima referidas de adição, atualização, descoberta e desativação de gamas IP autorizadas também podem ser realizadas no portal Azure. Para aceder, navegue em **Rede** em **Definições** na lâmina do menu do seu recurso cluster.
+
+:::image type="content" source="media/api-server-authorized-ip-ranges/ip-ranges-specified.PNG" alt-text="Num browser, mostra as definições de rede do recurso do cluster Azure portal. Destacam-se as opções &quot;gama IP especificada&quot; e &quot;Intervalos IP especificados&quot;.":::
+
 ## <a name="how-to-find-my-ip-to-include-in---api-server-authorized-ip-ranges"></a>Como encontrar o meu IP para `--api-server-authorized-ip-ranges` incluir?
 
 Tem de adicionar as suas máquinas de desenvolvimento, endereços IP de ferramentas ou automatização à lista de clusters AKS de gamas IP aprovadas para aceder ao servidor API a partir daí. 
@@ -170,6 +187,7 @@ Para obter mais informações, consulte [conceitos de segurança para aplicaçõ
 <!-- LINKS - internal -->
 [az-aks-update]: /cli/azure/ext/aks-preview/aks#ext-aks-preview-az-aks-update
 [az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-show]: /cli/azure/aks#az_aks_show
 [az-network-public-ip-list]: /cli/azure/network/public-ip#az-network-public-ip-list
 [concepts-clusters-workloads]: concepts-clusters-workloads.md
 [concepts-security]: concepts-security.md

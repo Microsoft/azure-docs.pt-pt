@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 4b8141d99d654705450a14767b04ae6265766af9
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 519285f2bad352aa16bdc8d9a1db7a63c2eb04e5
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98807088"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98876398"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Proteja os seus pontos finais com a solução EDR integrada do Security Center: Microsoft Defender for Endpoint
 
@@ -62,7 +62,7 @@ O Microsoft Defender for Endpoint fornece:
 
 Ao integrar o Defender para Endpoint com o Security Center, irá beneficiar das seguintes capacidades adicionais:
 
-- **Embarque automatizado.** O Security Center ativa automaticamente o microsoft Defender para o sensor Endpoint para todos os servidores windows monitorizados pelo Security Center. Exceto aqueles que estão a executar o Windows Server 2019, que deve ser a bordo através de script local, Group Policy Object (GPO) ou [Microsoft Endpoint Configuration Manager](https://docs.microsoft.com/mem/configmgr/) (anteriormente SCCM).
+- **Embarque automatizado.** O Security Center ativa automaticamente o microsoft Defender para o sensor Endpoint para todos os servidores windows monitorizados pelo Security Center. Exceto aqueles que estão a executar o Windows Server 2019, que deve ser a bordo através de script local, Group Policy Object (GPO) ou [Microsoft Endpoint Configuration Manager](/mem/configmgr/) (anteriormente SCCM).
 
 - **Uma única vidraça de vidro.** A consola Do Centro de Segurança apresenta alertas microsoft Defender para endpoint. Para investigar mais aprofundadamente, utilize o Microsoft Defender para as páginas do portal do Endpoint, onde verá informações adicionais, como a árvore do processo de alerta e o gráfico do incidente. Você também pode ver uma linha do tempo de máquina detalhada que mostra todos os comportamentos por um período histórico de até seis meses.
 

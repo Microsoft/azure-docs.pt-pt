@@ -1,5 +1,5 @@
 ---
-title: Copiar ou mover dados para o Azure Storage utilizando a AzCopy v10 Microsoft Docs
+title: Copie ou transpuma os dados para o Azure Storage utilizando a AzCopy v10 | Microsoft Docs
 description: O AzCopy é um utilitário de linha de comando que pode usar para copiar dados para, a partir ou entre contas de armazenamento. Este artigo ajuda-o a transferir o AzCopy, a ligar-se à conta de armazenamento e a transferir ficheiros.
 author: normesta
 ms.service: storage
@@ -8,12 +8,12 @@ ms.date: 12/08/2020
 ms.author: normesta
 ms.subservice: common
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: ab3cb403a8757f424a141206f99f9c29bf3e0b49
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 87cc8af9206daa1f1e959b8abd8beb3e7f8ff2f2
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108153"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880999"
 ---
 # <a name="get-started-with-azcopy"></a>Introdução ao AzCopy
 
@@ -79,7 +79,7 @@ Use esta tabela como guia:
 Esta opção está disponível apenas para armazenamento de bolhas. Ao utilizar o Azure Ative Directory, pode fornecer credenciais uma vez em vez de ter de anexar um token SAS a cada comando.  
 
 > [!NOTE]
-> Na versão atual, se planeia copiar bolhas entre contas de armazenamento, terá de anexar um token SAS a cada URL de origem. Você pode omitir o token SAS apenas a partir do URL de destino. Por exemplo, consulte [bolhas de cópia entre contas de armazenamento](storage-use-azcopy-blobs.md).
+> Na versão atual, se planeia copiar bolhas entre contas de armazenamento, terá de anexar um token SAS a cada URL de origem. Você pode omitir o token SAS apenas a partir do URL de destino. Por exemplo, consulte [bolhas de cópia entre contas de armazenamento](#transfer-data).
 
 Para autorizar o acesso utilizando a Azure AD, consulte [o Acesso Autorizado a bolhas com AzCopy e Azure Ative Directory (Azure AD)](storage-use-azcopy-authorize-azure-active-directory.md).
 
@@ -167,6 +167,6 @@ Se precisar de utilizar a versão anterior do AzCopy, consulte qualquer uma das 
 
 - [AzCopy em Linux (v7)](/previous-versions/azure/storage/storage-use-azcopy-linux)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se tiver dúvidas, problemas ou feedback geral, envie-os na página [do GitHub.](https://github.com/Azure/azure-storage-azcopy)

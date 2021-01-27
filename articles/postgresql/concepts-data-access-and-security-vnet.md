@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: d45ab771f90c0174f24d5f0d39921f93f72be850
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: b875936e13edfe0eff12f253836b093796951308
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96451069"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98876331"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql---single-server"></a>Utilize pontos finais de serviço de rede virtual e regras para Azure Database for PostgreSQL - Single Server
 
@@ -32,9 +32,9 @@ Também pode considerar a utilização [de Link Privado](concepts-data-access-an
 
 **Rede virtual:** Pode ter redes virtuais associadas à sua subscrição Azure.
 
-**Sub-rede:** Uma rede virtual contém **sub-redes.** Quaisquer máquinas virtuais Azure (VMs) que tenha estão atribuídas a sub-redes. Uma sub-rede pode conter vários VMs ou outros nós computacional. Os nós computacional que estão fora da sua rede virtual não podem aceder à sua rede virtual a menos que configuure a sua segurança para permitir o acesso.
+**Sub-rede:** Uma rede virtual contém **sub-redes.** Quaisquer máquinas virtuais Azure (VMs) dentro do VNet são atribuídas a uma sub-rede. Uma sub-rede pode conter vários VMs e/ou outros nós computacional. Os nós computacional que estão fora da sua rede virtual não podem aceder à sua rede virtual a menos que configuure a sua segurança para permitir o acesso.
 
-**Ponto final do serviço de rede virtual:** Um [ponto final de serviço de Rede Virtual][vm-virtual-network-service-endpoints-overview-649d] é uma sub-rede cujos valores de propriedade incluem um ou mais nomes formais de tipo de serviço Azure. Neste artigo estamos interessados no nome-tipo do **Microsoft.Sql,** que se refere ao serviço Azure denominado SQL Database. Esta etiqueta de serviço também se aplica à Base de Dados Azure para os serviços PostgreSQL e MySQL. É importante notar que ao aplicar a etiqueta de serviço **Microsoft.Sql** num ponto final de serviço VNet irá configurar o tráfego de ponto final de serviço para toda a Base de Dados Azure SQL, Base de Dados Azure para postgresQL e Base de Dados Azure para servidores MySQL na sub-rede. 
+**Ponto final do serviço de rede virtual:** Um [ponto final de serviço de Rede Virtual][vm-virtual-network-service-endpoints-overview-649d] é uma sub-rede cujos valores de propriedade incluem um ou mais nomes formais de tipo de serviço Azure. Neste artigo estamos interessados no nome-tipo do **Microsoft.Sql,** que se refere ao serviço Azure denominado SQL Database. Esta etiqueta de serviço também se aplica à Base de Dados Azure para os serviços PostgreSQL e MySQL. É importante notar que ao aplicar a etiqueta de serviço **Microsoft.Sql** num ponto final do serviço VNet irá configurar o tráfego de ponto final de serviço para serviços de base de dados Azure: SQL Database, Azure Synapse Analytics, Azure Database for PostgreSQL e Azure Database for MySQL servers na sub-rede. 
 
 **Regra de rede virtual:** Uma regra de rede virtual para o seu servidor PostgreSQL é uma sub-rede listada na lista de controlo de acesso (ACL) do seu servidor Azure Database for PostgreSQL. Para estar no ACL para o seu servidor PostgreSQL, a sub-rede deve conter o nome do tipo **Microsoft.Sql.**
 
@@ -46,11 +46,11 @@ Uma regra de rede virtual diz à sua Base de Dados Azure para o servidor Postgre
 
 Até tomar medidas, os VMs nas suas sub-redes não podem comunicar com a sua Base de Dados Azure para o servidor PostgreSQL. Uma ação que estabelece a comunicação é a criação de uma regra de rede virtual. A razão para escolher a abordagem da regra VNet requer uma discussão de comparação e contraste envolvendo as opções de segurança concorrentes oferecidas pela firewall.
 
-### <a name="a-allow-access-to-azure-services"></a>A. Permitir acesso aos serviços do Azure
+### <a name="allow-access-to-azure-services"></a>Permitir acesso aos serviços do Azure
 
 O painel de segurança Connection tem um botão **ON/OFF** com a etiqueta **Permitir o acesso aos serviços Azure**. A definição **ON** permite comunicações a partir de todos os endereços Azure IP e de todas as sub-redes Azure. Estes IPs ou sub-redes Azure podem não ser propriedade de si. Esta definição **ON** é provavelmente mais aberta do que pretende que a sua Base de Dados Azure para a Base de Dados PostgreSQL seja. A funcionalidade de regra de rede virtual oferece um controlo granular muito mais fino.
 
-### <a name="b-ip-rules"></a>B. Regras de IP
+### <a name="ip-rules"></a>Regras de IP
 
 A Base de Dados Azure para firewall PostgreSQL permite especificar as gamas de endereços IP a partir das quais as comunicações são aceites na Base de Dados Azure para a Base de Dados Pós-SQL. Esta abordagem é boa para endereços IP estáveis que estão fora da rede privada Azure. Mas muitos nós dentro da rede privada Azure estão configurados com endereços IP *dinâmicos.* Os endereços IP dinâmicos podem mudar, como quando o seu VM é reiniciado. Seria uma loucura especificar um endereço IP dinâmico numa regra de firewall, num ambiente de produção.
 
@@ -132,7 +132,7 @@ Pode definir a bandeira **IgnoreMissingServiceEndpoint** utilizando o Azure CLI 
 - [Redes virtuais do Azure][vm-virtual-network-overview]
 - [Pontos finais de serviço de rede virtual Azure][vm-virtual-network-service-endpoints-overview-649d]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para artigos sobre a criação de regras VNet, consulte:
 - [Criar e gerir a Base de Dados de Azure para as regras postgreSQL VNet utilizando o portal Azure](howto-manage-vnet-using-portal.md)
 - [Criar e gerir a Base de Dados de Azure para regras postgreSQL VNet usando Azure CLI](howto-manage-vnet-using-cli.md)

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/14/2019
-ms.openlocfilehash: f5192176a6a0e174d5878c51defce70d949c1eb1
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: d6b5bab1c1b6c8db4821fdf84728eb66eb55b899
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922340"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882234"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-databases-in-azure-sql-database-and-sql-server"></a>Tutorial: Configurar o SQL Data Sync entre bases de dados na Base de Dados Azure SQL e no SQL Server
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -57,7 +57,7 @@ Para exemplos de PowerShell sobre como configurar o SQL Data Sync, consulte [com
 
    | Definições                        | Descrição |
    | ------------------------------ | ------------------------------------------------- |
-   | **Nome do grupo de sincronização** | Insira um nome para o novo grupo de sincronização. Este nome é distinto do nome da própria base de dados. |
+   | **Nome do Grupo de Sincronização** | Insira um nome para o novo grupo de sincronização. Este nome é distinto do nome da própria base de dados. |
    | **Base de Dados de Metadados sincronizado** | Opte por criar uma base de dados (recomendada) ou utilizar uma base de dados existente.<br/><br/>Se escolher **Nova base de dados,** selecione Criar uma nova base de **dados.** Em seguida, na página **sql Database,** nome e configurar a nova base de dados e selecione **OK**.<br/><br/>Se escolher **Utilizar a base de dados existente,** selecione a base de dados da lista. |
    | **Sincronização automática** | Selecione **Ligado** ou **Desligado**.<br/><br/>Se escolher **On**, introduza um número e selecione **Segundos**, **Minutos,** **Horas** ou **Dias** na secção Frequência **de Sincronização.**<br/> A primeira sincronização começa após o período de intervalo selecionado decorrer a partir do momento em que a configuração é guardada.|
    | **Resolução de Conflitos** | Selecione **o Hub ganhe** ou o Membro **ganhe**.<br/><br/>**A vitória** do hub significa que quando ocorrem conflitos, os dados na base de dados do hub substituem dados contraditórios na base de dados dos membros.<br/><br/>**A vitória do membro** significa que quando ocorrem conflitos, os dados na base de dados dos membros substituem dados contraditórios na base de dados do hub. |
@@ -179,10 +179,6 @@ Após a criação e implantação dos novos membros do grupo sincronizado, o **g
 
 ## <a name="faq"></a>FAQ
 
-**Com que frequência o Data Sync pode sincronizar os meus dados?**
-
-A duração mínima entre sincronizações é de cinco minutos.
-
 **O SQL Data Sync cria tabelas totalmente?**
 
 Se existirem tabelas do esquema de sincronização em falta na base de dados de destino, a Sincronização de Dados SQL cria-as com as colunas que selecionou. No entanto, isto não resulta num esquema de fidelidade total pelas seguintes razões:
@@ -241,7 +237,7 @@ Para perguntas frequentes sobre o agente cliente, consulte [o Agente FAQ.](sql-d
 
 Sim, tem de aprovar manualmente o ponto final privado gerido pelo serviço, na página de ligações de ponto final privado do portal Azure durante a implementação do grupo de sincronização ou utilizando o PowerShell.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Parabéns! Criou um grupo de sincronização que inclui uma instância sql database e uma base de dados SQL Server.
 

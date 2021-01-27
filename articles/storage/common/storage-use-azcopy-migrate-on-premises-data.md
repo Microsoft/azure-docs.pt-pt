@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Migrar dados no local para o Azure Storage com a AzCopy Microsoft Docs'
+title: 'Tutorial: Migrar dados no local para o Azure Storage com AzCopy| Microsoft Docs'
 description: Neste tutorial, utiliza o AzCopy para migrar ou copiar dados de ou para o blob, a tabela e o conteúdo do ficheiro. Migre facilmente dados do armazenamento local para o Armazenamento do Azure.
 author: normesta
 ms.service: storage
@@ -8,12 +8,12 @@ ms.date: 05/14/2019
 ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: eddee58d70cf621bd6c82d54fe75434f4e596d9e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 682394329205d74859c1af0c0a68a37539da7872
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498171"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881032"
 ---
 #  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-with-azcopy"></a>Tutorial: Migrar dados no local para armazenamento em nuvem com AzCopy
 
@@ -108,7 +108,7 @@ azcopy sync "<local-folder-path>" "https://<storage-account-name>.blob.core.wind
 
 * Substitua o `<container-name>` espaço reservado pelo nome do recipiente que criou.
 
-Para saber mais sobre o `sync` comando, consulte [ficheiros Synchronize](storage-use-azcopy-blobs.md#synchronize-files).
+Para saber mais sobre o `sync` comando, consulte [ficheiros Synchronize](./storage-use-azcopy-v10.md#transfer-data).
 
 ## <a name="create-a-scheduled-task"></a>Criar uma tarefa agendada
 
@@ -172,7 +172,7 @@ Para obter mais informações sobre como criar uma tarefa agendada no Windows, v
 
 Para validar que a tarefa agendada/tarefa Cron é executada corretamente, crie novos ficheiros no diretório `myFolder`. Aguarde cinco minutos para confirmar que os novos ficheiros foram carregados para a conta de armazenamento. Aceda ao diretório de registos para ver os registos de saída da tarefa agendada ou tarefa Cron.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre formas de mover os dados no local para o Armazenamento do Azure e vice-versa, siga esta ligação:
 
@@ -182,7 +182,7 @@ Para mais informações sobre a AzCopy, consulte qualquer um destes artigos:
 
 * [Introdução ao AzCopy](storage-use-azcopy-v10.md)
 
-* [Transferir dados com AzCopy e armazenamento de bolhas](storage-use-azcopy-blobs.md)
+* [Transferir dados com AzCopy e armazenamento de bolhas](./storage-use-azcopy-v10.md#transfer-data)
 
 * [Transferir dados com o AzCopy e armazenamento de ficheiros](storage-use-azcopy-files.md)
 

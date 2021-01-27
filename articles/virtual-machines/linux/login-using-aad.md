@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 11/17/2020
 ms.author: sandeo
-ms.openlocfilehash: b4fc6b9facc79db109c5ce5be09576b16a2abdc7
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 3e50b6209c7790853158a1d2be2f42d625b6753b
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510894"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882132"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Pré-visualização: Inicie sessão numa máquina virtual Linux em Azure utilizando a autenticação do Azure Ative Directory
 
@@ -201,7 +201,7 @@ Access denied:  to sign-in you be assigned a role with action 'Microsoft.Compute
 Access denied
 ```
 > [!NOTE]
-> Se estiver a ter problemas com atribuições de funções Azure, consulte [o Troubleshoot Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/troubleshooting#azure-role-assignments-limit).
+> Se estiver a ter problemas com atribuições de funções Azure, consulte [o Troubleshoot Azure RBAC](../../role-based-access-control/troubleshooting.md#azure-role-assignments-limit).
 
 ### <a name="continued-ssh-sign-in-prompts"></a>Continuação das solicitações de inscrição do SSH
 
@@ -219,6 +219,6 @@ Os utilizadores que herdam os direitos de acesso através de grupos aninhados ou
 
 Partilhe o seu feedback sobre este recurso de pré-visualização ou reporte problemas que o utilizem no fórum de feedback da [AD Azure](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para mais informações sobre o Diretório Ativo Azure, consulte [o que é o Diretório Ativo Azure](../../active-directory/fundamentals/active-directory-whatis.md)

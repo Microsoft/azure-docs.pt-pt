@@ -7,12 +7,12 @@ ms.date: 10/02/2020
 ms.topic: troubleshooting
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: 73984694d764234e9e1ec11e6b189a9ad85d97a8
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 52801d0d7b02bb3637b5edb03072bde04a023de9
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737409"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881793"
 ---
 # <a name="troubleshoot-azure-image-builder-service"></a>Serviço de construtores de imagem Azure de resolução de problemas
 
@@ -674,4 +674,4 @@ Support Subtopic: Azure Image Builder
 
 ## <a name="next-steps"></a>Próximos passos
 
-Para mais informações, consulte [a visão geral do Azure Image Builder](image-builder-overview.md).
+Para mais informações, consulte [a visão geral do Azure Image Builder](../image-builder-overview.md).

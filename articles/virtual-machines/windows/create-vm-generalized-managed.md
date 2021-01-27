@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: cefe427a7a6f7a46c838147f3d699423c9f19c7b
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: edcaf3fb92b78f2d1fab54cf4db21aaaff0e3d59
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201897"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881860"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>Create a VM from a managed image (Criar uma VM a partir de uma imagem personalizada)
 
@@ -20,7 +20,7 @@ Pode criar várias máquinas virtuais (VMs) a partir de uma imagem VM gerida pel
 
 Antes de criar um novo VM, terá de [criar uma imagem VM gerida](capture-image-resource.md) para usar como imagem de origem e conceder acesso à imagem a qualquer utilizador que tenha acesso à imagem. 
 
-Uma imagem gerida suporta até 20 implementações simultâneas. A tentativa de criar mais de 20 VMs simultaneamente, a partir da mesma imagem gerida, pode resultar em intervalos de provisão devido às limitações de desempenho de armazenamento de um único VHD. Para criar mais de 20 VMs simultaneamente, utilize uma imagem [das Galerias de Imagem Partilhada](shared-image-galleries.md) configurada com 1 réplica para cada 20 implementações VM simultâneas.
+Uma imagem gerida suporta até 20 implementações simultâneas. A tentativa de criar mais de 20 VMs simultaneamente, a partir da mesma imagem gerida, pode resultar em intervalos de provisão devido às limitações de desempenho de armazenamento de um único VHD. Para criar mais de 20 VMs simultaneamente, utilize uma imagem [das Galerias de Imagem Partilhada](../shared-image-galleries.md) configurada com 1 réplica para cada 20 implementações VM simultâneas.
 
 ## <a name="use-the-portal"></a>Utilizar o portal
 
@@ -59,5 +59,5 @@ New-AzVm `
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [Criar e gerir VMs do Windows com o módulo Azure PowerShell](tutorial-manage-vm.md)

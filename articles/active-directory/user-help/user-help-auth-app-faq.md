@@ -12,12 +12,12 @@ ms.topic: end-user-help
 ms.date: 01/15/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: f799ed5c18537b862a4971075ae9107b7a722fdd
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 2be1c7f76055cad1cf8b51938a65c7bbe6b2917e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251510"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881083"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Perguntas frequentes (FAQ) sobre a aplicação Microsoft Authenticator
 
@@ -32,12 +32,6 @@ A aplicação Microsoft Authenticator substituiu a aplicação Azure Authenticat
 **P:** O registo de um dispositivo que concorda em dar à empresa ou ao serviço acesso ao meu dispositivo?
 
 **R:** Registar um dispositivo dá acesso aos serviços da sua organização e não permite o acesso da sua organização ao seu dispositivo.
-
-### <a name="too-many-app-permissions"></a>Demasiadas permissões de aplicativos
-
-**P:** Porque é que a aplicação solicita tantas permissões?
-
-**R**: Aqui está a lista completa de permissões que podem ser pedidas e como são usadas pela app. As permissões específicas que vê dependerão do tipo de telefone que tem. Às vezes, a sua organização quer saber a sua **localização** antes de lhe permitir aceder a determinados recursos. A aplicação só solicitará esta permissão se a sua organização tiver uma política que exija localização.
 
 ### <a name="error-adding-account"></a>Conta de adicionar erros
 
@@ -144,7 +138,7 @@ A aplicação Microsoft Authenticator substituiu a aplicação Azure Authenticat
 
 **P:** Porque é que a aplicação solicita tantas permissões?
 
-**R**: Aqui está a lista completa de permissões que podem ser pedidas e como são usadas pela app. As permissões específicas que vê dependerão do tipo de telefone que tem.<ul><li>**Use hardware biométrico.** Alguns trabalhos e contas escolares requerem um PIN adicional sempre que verificar a sua identidade. A aplicação requer o seu consentimento para usar reconhecimento biométrico ou facial em vez de introduzir o PIN.</li><li>**A câmara.** Usado para digitalizar códigos QR quando você adiciona uma conta de trabalho, escola ou não-Microsoft.</li><li>**Contactos e telefone.** A aplicação requer esta permissão para procurar trabalho ou escola contas microsoft no seu telefone e adicioná-las à aplicação para si.</li><li>**SMS.** Usado para garantir que o seu número de telefone corresponde ao número registado quando iniciar sôs com a sua conta pessoal da Microsoft pela primeira vez. Enviamos uma mensagem de texto para o telefone no qual instalou a aplicação que inclui um código de verificação de 6-8 dígitos. Não é necessário encontrar este código e introduzi-lo porque o Autenticador o encontra automaticamente na mensagem de texto.</li><li>**Desenhe outras aplicações.** A notificação que obtém que verifica a sua identidade também é exibida em qualquer outra aplicação de execução.</li><li>**Receba os dados da internet.** Esta permissão é necessária para o envio de notificações.</li><li>**Evite que o telefone durma.** Se registar o seu dispositivo junto da sua organização, a sua organização pode alterar esta política no seu telemóvel.</li><li>**Controle a vibração.** Pode escolher se pretende uma vibração sempre que receber uma notificação para verificar a sua identidade.</li><li>**Use o hardware de impressões digitais.** Alguns trabalhos e contas escolares requerem um PIN adicional sempre que verificar a sua identidade. Para facilitar o processo, permitimos que utilize a sua impressão digital em vez de introduzir o PIN.</li><li> **Ver ligações de rede.** Quando adiciona uma conta Microsoft, a aplicação requer ligação rede/internet.</li><li>**Leia o conteúdo do seu armazenamento.** Esta permissão só é utilizada quando reporta um problema técnico através das definições da aplicação. Algumas informações do seu armazenamento são recolhidas para diagnosticar o problema.</li><li>**Acesso total à rede.** Esta permissão é necessária para o envio de notificações para verificar a sua identidade.</li><li>**Correr na startup.** Se reiniciar o seu telefone, esta permissão garante que continua a receber notificações para verificar a sua identidade.</li></ul>
+**R**: Aqui está a lista completa de permissões que podem ser pedidas e como são usadas pela app. As permissões específicas que vê dependerão do tipo de telefone que tem.<ul><li>**Localização**. Às vezes, a sua organização quer saber a sua localização antes de permitir o acesso a determinados recursos. A aplicação só solicitará esta permissão se a sua organização tiver uma política que exija localização.</li><li>**Use hardware biométrico.** Alguns trabalhos e contas escolares requerem um PIN adicional sempre que verificar a sua identidade. A aplicação requer o seu consentimento para usar reconhecimento biométrico ou facial em vez de introduzir o PIN.</li><li>**A câmara.** Usado para digitalizar códigos QR quando você adiciona uma conta de trabalho, escola ou não-Microsoft.</li><li>**Contactos e telefone.** A aplicação requer esta permissão para procurar trabalho ou escola contas microsoft no seu telefone e adicioná-las à aplicação para si.</li><li>**SMS.** Usado para garantir que o seu número de telefone corresponde ao número registado quando iniciar sôs com a sua conta pessoal da Microsoft pela primeira vez. Enviamos uma mensagem de texto para o telefone no qual instalou a aplicação que inclui um código de verificação de 6-8 dígitos. Não é necessário encontrar este código e introduzi-lo porque o Autenticador o encontra automaticamente na mensagem de texto.</li><li>**Desenhe outras aplicações.** A notificação que obtém que verifica a sua identidade também é exibida em qualquer outra aplicação de execução.</li><li>**Receba os dados da internet.** Esta permissão é necessária para o envio de notificações.</li><li>**Evite que o telefone durma.** Se registar o seu dispositivo junto da sua organização, a sua organização pode alterar esta política no seu telemóvel.</li><li>**Controle a vibração.** Pode escolher se pretende uma vibração sempre que receber uma notificação para verificar a sua identidade.</li><li>**Use o hardware de impressões digitais.** Alguns trabalhos e contas escolares requerem um PIN adicional sempre que verificar a sua identidade. Para facilitar o processo, permitimos que utilize a sua impressão digital em vez de introduzir o PIN.</li><li> **Ver ligações de rede.** Quando adiciona uma conta Microsoft, a aplicação requer ligação rede/internet.</li><li>**Leia o conteúdo do seu armazenamento.** Esta permissão só é utilizada quando reporta um problema técnico através das definições da aplicação. Algumas informações do seu armazenamento são recolhidas para diagnosticar o problema.</li><li>**Acesso total à rede.** Esta permissão é necessária para o envio de notificações para verificar a sua identidade.</li><li>**Correr na startup.** Se reiniciar o seu telefone, esta permissão garante que continua a receber notificações para verificar a sua identidade.</li></ul>
 
 ### <a name="approve-requests-without-unlocking"></a>Aprovar pedidos sem desbloquear
 

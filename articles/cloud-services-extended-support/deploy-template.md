@@ -1,6 +1,6 @@
 ---
-title: Criar um serviço de nuvem Azure (suporte alargado) - Modelos
-description: Criar um Serviço de Nuvem Azure (suporte alargado) utilizando modelos ARM
+title: Implementar um Serviço de Nuvem Azure (suporte alargado) - Modelos
+description: Implementar um Serviço de Nuvem Azure (suporte alargado) utilizando modelos ARM
 ms.topic: tutorial
 ms.service: cloud-services-extended-support
 author: gachandw
@@ -8,14 +8,14 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 3b28bc96703fa48e598bfb6f9622237e769119f2
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: f86b2a50040704aac2827c463a362a04f78ba34f
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757157"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881826"
 ---
-# <a name="create-a-cloud-service-extended-support-using-arm-templates"></a>Criar um Serviço de Nuvem (suporte alargado) utilizando modelos ARM
+# <a name="deploy-a-cloud-service-extended-support-using-arm-templates"></a>Implementar um Serviço de Nuvem (suporte alargado) utilizando modelos ARM
 
 Este tutorial explica como criar uma implementação de Cloud Service (suporte alargado) utilizando [modelos ARM](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview). 
 
@@ -39,7 +39,7 @@ Este tutorial explica como criar uma implementação de Cloud Service (suporte a
     - O Cofre de Chaves associado deve ser ativado permissões apropriadas para que o recurso Cloud Services (suporte alargado) possa obter o certificado do Key Vault. Para mais informações, consulte [Certificados e Cofre chave](certificates-and-key-vault.md)
     - O cofre da chave deve ser referenciado na secção OsProfile do modelo ARM indicado nos degraus abaixo.
 
-## <a name="create-a-cloud-service-extended-support"></a>Criar um Serviço de Nuvem (suporte alargado) 
+## <a name="deploy-a-cloud-service-extended-support"></a>Implementar um Serviço de Cloud (suporte alargado) 
 1. Criar rede virtual. O nome da rede virtual deve coincidir com as referências no ficheiro Configuração de Serviço (.cscfg). Se utilizar uma rede virtual existente, omita esta secção do modelo ARM.
 
     ```json
@@ -454,3 +454,4 @@ Este tutorial explica como criar uma implementação de Cloud Service (suporte a
 ## <a name="next-steps"></a>Próximos passos 
 - Reveja [perguntas frequentes](faq.md) para serviços cloud (suporte alargado).
 - Implementar um Serviço de Cloud (suporte alargado) utilizando o [portal Azure](deploy-portal.md), [PowerShell,](deploy-powershell.md) [Modelo](deploy-template.md) ou [Estúdio Visual](deploy-visual-studio.md).
+- Visite o [repositório](https://github.com/Azure-Samples/cloud-services-extended-support) de amostras cloud services (suporte alargado)

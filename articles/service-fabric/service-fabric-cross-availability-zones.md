@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: 82161a8f66dd717a9dc448a743b818a9ab9938db
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 3db31431c24edd3377f6299046cc31067310b2ef
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250983"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98876215"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Implementar um cluster de tecido de serviço Azure em zonas de disponibilidade
 Availability Zones in Azure é uma oferta de alta disponibilidade que protege as suas aplicações e dados contra falhas do datacenter. Uma Zona de Disponibilidade é um local físico único equipado com potência independente, arrefecimento e networking dentro de uma região de Azure.
@@ -345,7 +345,7 @@ Para ativar zonas num conjunto de escala de máquina virtual, deve incluir os se
 
 * O primeiro valor é a propriedade **zonas,** que especifica as Zonas de Disponibilidade presentes no conjunto de escala de máquina virtual.
 * O segundo valor é a propriedade "singlePlacementGroup", que deve ser definida como verdadeira. **O conjunto de escalas que se estende por 3 AZ's pode escalar até 300 VMs mesmo com "singlePlacementGroup = true".**
-* O terceiro valor é "zoneBalance", que garante um equilíbrio estrito da zona se definido como verdadeiro. Recomendamos que se ajuste ao verdadeiro, para evitar uma distribuição desequilibrada de VMs através de zonas. Leia sobre [a zonaBalancing](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones#zone-balancing).
+* O terceiro valor é "zoneBalance", que garante um equilíbrio estrito da zona se definido como verdadeiro. Recomendamos que se ajuste ao verdadeiro, para evitar uma distribuição desequilibrada de VMs através de zonas. Leia sobre [a zonaBalancing](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-balancing).
 * As sobreposições FaultDomain e UpgradeDomain não são necessárias para serem configuradas.
 
 ```json
@@ -416,9 +416,9 @@ O nó de tecido de serviçoType deve ser ativado para suportar várias zonas de 
 
 ### <a name="migration-to-the-node-type-with-multiple-availability-zones"></a>Migração para o tipo de nó com múltiplas Zonas de Disponibilidade
 Para todos os cenários de migração, um novo nóType precisa de ser adicionado que terá múltiplas zonas de disponibilidade suportadas. Um nótype existente não pode ser migrado para suportar várias zonas.
-O artigo [aqui](https://docs.microsoft.com/azure/service-fabric/service-fabric-scale-up-primary-node-type ) captura os passos detalhados de adicionar um novo nóType e também adicionar os outros recursos necessários para o novo nóType como os recursos IP e LB. O mesmo artigo também descreve agora a retirada do nótype existente após o nó deType com várias zonas de Disponibilidade ser adicionado ao cluster.
+O artigo [aqui](./service-fabric-scale-up-primary-node-type.md) captura os passos detalhados de adicionar um novo nóType e também adicionar os outros recursos necessários para o novo nóType como os recursos IP e LB. O mesmo artigo também descreve agora a retirada do nótype existente após o nó deType com várias zonas de Disponibilidade ser adicionado ao cluster.
 
-* Migração a partir de um nóType que está a utilizar recursos básicos LB e IP: Isto já está descrito [aqui](https://docs.microsoft.com/azure/service-fabric/service-fabric-cross-availability-zones#migrate-to-using-availability-zones-from-a-cluster-using-a-basic-sku-load-balancer-and-a-basic-sku-ip) para a solução com um nó por AZ. 
+* Migração a partir de um nóType que está a utilizar recursos básicos LB e IP: Isto já está descrito [aqui](#migrate-to-using-availability-zones-from-a-cluster-using-a-basic-sku-load-balancer-and-a-basic-sku-ip) para a solução com um nó por AZ. 
     Para o novo tipo de nó, a única diferença é que há apenas 1 conjunto de balança de máquina virtual e 1 nodetipo para todos os AZ's em vez de 1 cada AZ.
 * Migração a partir de um nóType que está a utilizar os recursos Standard SKU LB e IP com NSG: Siga o mesmo procedimento acima descrito com a exceção de que não há necessidade de adicionar novos recursos LB, IP e NSG, e os mesmos recursos podem ser reutilizados no novo nóType.
 

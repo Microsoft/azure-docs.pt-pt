@@ -1,17 +1,17 @@
 ---
-title: Visualização de dados do Azure Monitor Microsoft Docs
+title: Visualização de dados do Azure Monitor | Microsoft Docs
 description: Fornece um resumo dos métodos disponíveis para visualizar dados métricos e de registo armazenados no Azure Monitor.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/17/2020
-ms.openlocfilehash: f9f95a5e85ec4eebf82cca707476750595331d73
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.date: 01/25/2021
+ms.openlocfilehash: bc59c639856de6a5ce5adda1f78266eb7e4d5dd3
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95522673"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881236"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualizar dados do Azure Monitor
 Este artigo fornece um resumo dos métodos disponíveis para visualizar os dados de registo e métrica armazenados no Azure Monitor.
@@ -46,9 +46,9 @@ Aqui está um vídeo sobre a criação de dashboards.
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4AslH]
 
 ### <a name="advantages"></a>Vantagens
-- Profunda integração no Azure. As visualizações podem ser fixadas a dashboards de várias páginas Azure, incluindo Metrics Explorer, Log Analytics e Application Insights.
+- Profunda integração no Azure. As visualizações podem ser fixadas a dashboards de várias páginas Azure, incluindo [Metrics Explorer,](platform/metrics-charts.md) [Log Analytics](log-query/log-analytics-overview.md)e [Application Insights](app/app-insights-overview.md).
 - Suporta métricas e registos.
-- Combine dados de várias fontes, incluindo a saída do explorador de [métricas,](platform/metrics-charts.md) [consultas de registo,](log-query/log-query-overview.md) [mapas](app/app-map.md) e disponibilidade em Insights de Aplicação.
+- Combine dados de várias fontes, incluindo a saída do [Metrics Explorer,](platform/metrics-charts.md) [consultas de registo,](log-query/log-query-overview.md) [mapas](app/app-map.md) e disponibilidade em [Insights de Aplicação.](app/app-insights-overview.md)
 - Opção para dashboards pessoais ou partilhados. Integrado com [o controlo de acesso baseado em funções Azure (Azure RBAC)](../role-based-access-control/overview.md).
 - Refrescamento automático. A atualização das métricas depende do intervalo de tempo com um mínimo de cinco minutos. Os registos atualizam-se a cada hora, com uma opção de atualização manual a pedido clicando no ícone "refresh" numa determinada visualização, ou refrescando o painel completo.
 - Dashboards de métricas parametrizados com tempotamp e parâmetros personalizados.
@@ -57,7 +57,7 @@ Aqui está um vídeo sobre a criação de dashboards.
 
 
 ### <a name="limitations"></a>Limitações
-- Controlo limitado sobre visualizações de registos sem suporte para tabelas de dados. O número total de séries de dados é limitado a 10 com mais séries de dados agrupadas sob _outro_ balde.
+- Controlo limitado sobre visualizações de registos sem suporte para tabelas de dados. O número total de séries de dados é limitado a 50 com mais séries de dados agrupadas sob _outro_ balde.
 - Sem suporte a parâmetros personalizados para gráficos de registo.
 - As tabelas de registos estão limitadas a 30 dias.
 - As tabelas de registos só podem ser fixadas a dashboards partilhados.
@@ -137,11 +137,12 @@ Pode aceder aos dados em registo e dados métricos no Azure Monitor através da 
 - Sem suporte para consulta em vários espaços de trabalho ou aplicações application insights.
 - As consultas são limitadas no tamanho da resposta a 8MB e o tempo de execução de consulta de 110 segundos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Conheça os [dados recolhidos pelo Azure Monitor.](platform/data-platform.md)
 - Saiba mais [sobre os dashboards Azure](../azure-portal/azure-portal-dashboards.md).
-- Saiba mais [sobre as vistas no Azure Monitor](platform/view-designer.md).
+- Saiba mais [sobre o Explorador de Métricas](platform/metrics-getting-started.md)
 - Conheça [os Livros de Trabalho.](./platform/workbooks-overview.md)
 - Saiba mais sobre [os dados de registo de importação no Power BI](./platform/powerbi.md).
 - Saiba mais sobre o [plugin de fonte de dados do Grafana Azure Monitor](./platform/grafana-plugin.md).
+- Saiba mais [sobre as vistas no Azure Monitor](platform/view-designer.md).
 

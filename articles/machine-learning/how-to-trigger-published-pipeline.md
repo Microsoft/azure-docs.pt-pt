@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 12/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 9038d6bc9cd061200ef4553242889776f30d2dc1
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: a006dfd4f78f90ed323e5780b173cffb6daeac4a
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964563"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881742"
 ---
 # <a name="trigger-machine-learning-pipelines-with-azure-machine-learning-sdk-for-python"></a>Pipelines de aprendizagem de máquina de gatilho com Azure Machine Learning SDK para Python
 
@@ -27,7 +27,7 @@ Neste artigo, você vai aprender a programar programáticamente um oleoduto para
 
 * Um ambiente Python no qual está instalado o Azure Machine Learning SDK para Python. Para obter mais informações, consulte [Criar e gerir ambientes reutilizáveis para treino e implantação com a Azure Machine Learning.](how-to-use-environments.md)
 
-* Um espaço de trabalho de Machine Learning com um oleoduto publicado. Você pode usar o construído em [Criar e executar gasodutos de aprendizagem automática com Azure Machine Learning SDK](how-to-create-your-first-pipeline.md).
+* Um espaço de trabalho de Machine Learning com um oleoduto publicado. Você pode usar o construído em [Criar e executar gasodutos de aprendizagem automática com Azure Machine Learning SDK](./how-to-create-machine-learning-pipelines.md).
 
 ## <a name="initialize-the-workspace--get-data"></a>Inicialize o espaço de trabalho & obter dados
 
@@ -142,7 +142,7 @@ Se voltar a `Schedule.list(ws)` correr, deve ter uma lista vazia.
 
 Regras ou comportamentos de gatilho mais complexos podem ser criados usando uma [App Azure Logic](../logic-apps/logic-apps-overview.md).
 
-Para utilizar uma App Azure Logic para desencadear um oleoduto machine learning, você precisará do ponto final REST para um pipeline de Machine Learning publicado. [Crie e publique o seu pipeline.](how-to-create-your-first-pipeline.md) Em seguida, encontre o ponto final REST do `PublishedPipeline` seu, utilizando o ID do gasoduto:
+Para utilizar uma App Azure Logic para desencadear um oleoduto machine learning, você precisará do ponto final REST para um pipeline de Machine Learning publicado. [Crie e publique o seu pipeline.](./how-to-create-machine-learning-pipelines.md) Em seguida, encontre o ponto final REST do `PublishedPipeline` seu, utilizando o ID do gasoduto:
 
 ```python
 # You can find the pipeline ID in Azure Machine Learning studio
@@ -208,18 +208,18 @@ Uma vez que a sua App Lógica tenha sido aprovisionada, utilize estes passos par
     Utilize o `DataStoreName` seu espaço de trabalho como [pré-requisito.](#prerequisites)
      
     > [!div class="mx-imgBorder"]
-    > ![Definições de HTTP](media/how-to-trigger-published-pipeline/http-settings.png)
+    > ![Definições HTTP](media/how-to-trigger-published-pipeline/http-settings.png)
 
 1. **Selecione Save** e a sua agenda está agora pronta.
 
 > [!IMPORTANT]
 > Se estiver a utilizar o controlo de acesso baseado em funções (Azure RBAC) para gerir o acesso ao seu pipeline, [desajeitar as permissões para o seu cenário de pipeline (treino ou pontuação)](how-to-assign-roles.md#common-scenarios).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, você usou o Azure Machine Learning SDK para Python para agendar um oleoduto de duas maneiras diferentes. Um horário repete-se com base na hora do relógio decorrido. O outro horário é executado se um ficheiro for modificado num determinado `Datastore` ou dentro de um diretório nessa loja. Viu como usar o portal para examinar o oleoduto e as corridas individuais. Aprendeu a desativar um horário para que o oleoduto deixe de funcionar. Finalmente, criou uma App Azure Logic para desencadear um oleoduto. 
 
-Para obter mais informações, veja:
+Para obter mais informações, consulte:
 
 > [!div class="nextstepaction"]
 > [Utilize gasodutos de aprendizagem de máquinas Azure para pontuação de lotes](tutorial-pipeline-batch-scoring-classification.md)

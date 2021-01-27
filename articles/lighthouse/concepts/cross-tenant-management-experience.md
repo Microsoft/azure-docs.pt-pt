@@ -1,14 +1,14 @@
 ---
 title: Experiências de gestão entre inquilinos
 description: A gestão de recursos delegados Azure permite uma experiência de gestão de inquilinos cruzados.
-ms.date: 01/20/2021
+ms.date: 01/26/2021
 ms.topic: conceptual
-ms.openlocfilehash: 0e380b49f122e63113e790f4e866fed40aa9beac
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 9af90e10d889c3d30375e001891ce0dc70767ab4
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98662717"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881406"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gestão entre inquilinos
 
@@ -97,7 +97,7 @@ A maioria das tarefas e serviços podem ser realizados em recursos delegados ent
 
 - Ver alertas para subscrições delegadas, com a capacidade de visualizar e atualizar alertas em todas as subscrições
 - Ver detalhes do registo de atividade para subscrições delegadas
-- Análise de registo: Os dados de consulta de espaços de trabalho remotos em vários inquilinos (note que as contas de automação utilizadas para aceder a dados de espaços de trabalho em inquilinos de clientes devem ser criadas no mesmo inquilino)
+- [Análise de registos](../../azure-monitor/platform/service-providers.md): Os dados de consulta de espaços de trabalho remotos em vários inquilinos (note que as contas de automação utilizadas para aceder a dados de espaços de trabalho em inquilinos de clientes devem ser criadas no mesmo inquilino)
 - Crie alertas em inquilinos de clientes que desencadeiem a automação, como os runbooks da Azure Automation ou as Funções Azure, no inquilino gerente através de webhooks
 - Criar [definições de diagnóstico](../..//azure-monitor/platform/diagnostic-settings.md) nos inquilinos dos clientes para enviar registos de recursos para espaços de trabalho no inquilino gerente
 - Para cargas de trabalho SAP, [monitorize as métricas da SAP Solutions com uma visão agregada entre os inquilinos do cliente](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293)
@@ -175,7 +175,7 @@ Com todos os cenários, esteja atento às seguintes limitações atuais:
 - Embora possa embarcar subscrições e grupos de recursos que tenham bloqueios de recursos, esses bloqueios não impedirão que as ações sejam executadas pelos utilizadores no inquilino gerente. [Negar atribuições](../../role-based-access-control/deny-assignments.md) que protejam os recursos geridos pelo sistema, como as criadas pela Azure ou pela Azure Blueprints (atribuições de negação atribuídas ao sistema), impedem os utilizadores do inquilino gerente de agir em função desses recursos; no entanto, neste momento, os utilizadores do inquilino do cliente não podem criar as suas próprias atribuições de negação (atribuições de negação atribuídas pelo utilizador).
 - A delegação de assinaturas através de uma [nuvem nacional](../../active-directory/develop/authentication-national-cloud.md) e da nuvem pública de Azure, ou através de duas nuvens nacionais separadas, não é apoiada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - A bordo dos seus clientes para o Azure Lighthouse, quer [utilizando modelos de Gestor de Recursos Azure,](../how-to/onboard-customer.md) quer [publicando uma oferta de serviços geridos por empresas privadas ou públicas ao Azure Marketplace.](../how-to/publish-managed-services-offers.md)
 - [Ver e gerir clientes](../how-to/view-manage-customers.md) indo para **os meus clientes** no portal Azure.

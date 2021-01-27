@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 09/08/2020
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: b23b5d516479cb28948a601c6bd71309500e73f1
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: 56644ab6cacfd811a23fb89b9bf6a10c87542db3
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825789"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98876788"
 ---
 # <a name="quickstart-set-up-azure-spring-cloud-configuration-server"></a>Quickstart: Configurar o servidor de configuração Azure Spring Cloud
 
@@ -84,7 +84,7 @@ az spring-cloud config-server git set -n <service instance name> --uri https://g
 ::: zone-end
 
 > [!TIP]
-> Se estiver a utilizar um repositório privado para o servidor config, consulte o nosso tutorial sobre a [configuração da autenticação](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-config-server).
+> Se estiver a utilizar um repositório privado para o servidor config, consulte o nosso tutorial sobre a [configuração da autenticação](./spring-cloud-tutorial-config-server.md).
 
 ## <a name="troubleshooting-of-azure-spring-cloud-config-server"></a>Resolução de problemas do servidor de config da Cloud da primavera de Azure
 
@@ -111,7 +111,7 @@ O procedimento a seguir explica como resolver problemas as definições do servi
 
     [Estado de ![ saúde ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-health-status.png) do portal ASC ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-health-status.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste quickstart, criou recursos Azure que continuarão a acumular encargos se permanecerem na sua subscrição. Se não pretende continuar para o próximo quickstart, consulte [clean up resources](spring-cloud-quickstart-logs-metrics-tracing.md#clean-up-resources). Caso contrário, avance para o próximo arranque rápido:
 

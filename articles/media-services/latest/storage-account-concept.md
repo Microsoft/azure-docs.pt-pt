@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 01/05/2021
 ms.author: inhenkel
-ms.openlocfilehash: 36593efd4f2583f28dffbb4f5b491fbeec7ba21d
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 55a49d48af95c103d2a28d5106af5f3166605514
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916325"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882251"
 ---
 # <a name="azure-storage-accounts"></a>Contas de Armazenamento do Azure
 
@@ -56,7 +56,7 @@ Para proteger os seus ativos em repouso, os ativos devem ser encriptados pela en
 <sup>1</sup> Nos Serviços de Media v3, a encriptação de armazenamento (encriptação AES-256) só é suportada para retrocompatibilidade quando os seus ativos foram criados com os Media Services v2, o que significa que a V3 funciona com ativos encriptados de armazenamento existentes, mas não permite a criação de novos.
 
 ## <a name="double-encryption"></a>Encriptação dupla
-Os Serviços de Comunicação Social suportam a dupla encriptação.  Para saber mais sobre a dupla encriptação, consulte [a encriptação dupla Azure.](https://docs.microsoft.com/azure/security/fundamentals/double-encryption)
+Os Serviços de Comunicação Social suportam a dupla encriptação.  Para saber mais sobre a dupla encriptação, consulte [a encriptação dupla Azure.](../../security/fundamentals/double-encryption.md)
 
 ## <a name="storage-account-errors"></a>Erros da conta de armazenamento
 
@@ -73,6 +73,6 @@ Seguem-se os cenários principais que poderão resultar numa conta de Serviços 
 
 A Azure Media Services não suporta contas de armazenamento com a firewall de armazenamento Azure ou [private endpoints](../../storage/common/storage-network-security.md) ativados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber como anexar uma conta de armazenamento na sua conta de Serviços de Mídia, consulte [Criar uma conta](./create-account-howto.md).

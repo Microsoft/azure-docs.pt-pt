@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 380aa826030df14b4b88b86ac2962c988796c0f9
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 025a94cf7d163d41486ef218e70d9eb48e93d31c
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202645"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881321"
 ---
 # <a name="azure-security-baseline-for-azure-machine-learning"></a>Linha de segurança Azure para Azure Machine Learning
 
@@ -879,9 +879,9 @@ Note que a máquina virtual Azure Marketplace Imagens publicadas pela Microsoft 
 
 - [Criar uma máquina virtual Windows no portal Azure ](../virtual-machines/windows/quick-create-portal.md)
 
-- [Informações sobre como descarregar o modelo VM](../virtual-machines/windows/download-template.md)
+- [Informações sobre como descarregar o modelo VM](/previous-versions/azure/virtual-machines/windows/download-template)
 
-- [Script de exemplo para carregar um VHD para o Azure e criar uma nova VM](../virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script.md)
+- [Script de exemplo para carregar um VHD para o Azure e criar uma nova VM](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script)
 
 **Monitorização do Centro de Segurança Azure:** Não aplicável
 
@@ -911,7 +911,7 @@ A Azure Machine Learning apoia plenamente os repositórios de Git para o trabalh
 
 - [Como configurar o Azure RBAC](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
-- [Visão geral da Galeria de Imagens Partilhada](../virtual-machines/windows/shared-image-galleries.md)
+- [Visão geral da Galeria de Imagens Partilhada](../virtual-machines/shared-image-galleries.md)
 
 - [Use a Azure RBAC para a autorização de Kubernetes](../aks/manage-azure-rbac.md)
 
@@ -1196,7 +1196,7 @@ Além disso, marque subscrições usando tags e crie um sistema de nomeação pa
 
 **Responsabilidade**: Partilhada
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte a [referência de segurança Azure](../security/benchmarks/overview.md)
 - Saiba mais sobre as [linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md)

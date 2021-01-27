@@ -6,35 +6,33 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 08c0d05ac10d9e61497d36793740c8e827fbeca1
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: ba353cf41cf3876a681f8f18d4121401260ff4ff
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96903688"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98877175"
 ---
 # <a name="firewall-rules-in-azure-database-for-postgresql---single-server"></a>Regras de firewall na Base de Dados Azure para PostgreSQL - Servidor Único
-A azure Database for PostgreSQL server firewall impede todo o acesso ao seu servidor de base de dados até especificar quais os computadores que têm permissão. A firewall concede acesso ao servidor com base no endereço IP originário de cada pedido.
+A base de dados Azure para o servidor PostgreSQL é segura por predefinição impedindo todo o acesso ao seu servidor de base de dados até especificar quais os anfitriões IP que podem aceder ao mesmo. A firewall concede acesso ao servidor com base no endereço IP originário de cada pedido.
 Para configurar a firewall, crie as regras de firewall que especificam intervalos de endereços IP aceitáveis. Pode criar regras de firewall ao nível do servidor.
 
 **Regras de firewall:** Estas regras permitem que os clientes acedam a toda a sua Base de Dados Azure para o Servidor PostgreSQL, ou seja, todas as bases de dados dentro do mesmo servidor lógico. As regras de firewall ao nível do servidor podem ser configuradas utilizando o portal Azure ou utilizando comandos Azure CLI. Para criar regras de firewall ao nível do servidor, tem de ser o proprietário da subscrição ou um contribuinte de subscrição.
 
 ## <a name="firewall-overview"></a>Descrição geral das firewalls
-Todo o acesso à base de dados à base de dados do seu servidor PostgreSQL está bloqueado por padrão. Para começar a utilizar o seu servidor a partir de outro computador, tem de especificar uma ou mais regras de firewall ao nível do servidor para permitir o acesso ao seu servidor. Utilize as regras de firewall para especificar quais os endereços IP que variam a partir da Internet para permitir. O acesso ao próprio site do portal Azure não é afetado pelas regras do firewall.
-As tentativas de ligação da Internet e do Azure devem primeiro passar pela firewall antes de poderem chegar à base de dados PostgreSQL, como mostra o seguinte diagrama:
+Todo o acesso à sua Base de Dados Azure para servidor PostgreSQL está bloqueado pela firewall por padrão. Para aceder ao seu servidor a partir de outro computador/cliente ou aplicação, tem de especificar uma ou mais regras de firewall ao nível do servidor para permitir o acesso ao seu servidor. Utilize as regras de firewall para especificar os intervalos de endereços IP públicos permitidos. O acesso ao próprio site do portal Azure não é afetado pelas regras do firewall.
+As tentativas de ligação da internet e do Azure devem primeiro passar pela firewall antes de poderem chegar à base de dados PostgreSQL, como mostra o seguinte diagrama:
 
 :::image type="content" source="media/concepts-firewall-rules/1-firewall-concept.png" alt-text="Exemplo de fluxo de como a firewall funciona":::
 
 ## <a name="connecting-from-the-internet"></a>Ligar a partir da Internet
-As regras de firewall ao nível do servidor aplicam-se a todas as bases de dados da mesma Base de Dados Azure para servidor PostgreSQL. Se o endereço IP do pedido estiver dentro dos intervalos especificados nas regras de firewall ao nível do servidor, é concedida ligação.
-Se o endereço IP do pedido não estiver dentro dos intervalos especificados em nenhuma das regras de firewall ao nível do servidor, o pedido de ligação falha.
-Por exemplo, se a sua aplicação se ligar ao controlador JDBC para PostgreSQL, poderá encontrar este erro ao tentar ligar-se quando a firewall estiver a bloquear a ligação.
+As regras de firewall ao nível do servidor aplicam-se a todas as bases de dados da mesma Base de Dados Azure para servidor PostgreSQL. Se o endereço IP de origem do pedido estiver dentro de uma das gamas especificadas nas regras de firewall ao nível do servidor, a ligação é concedida de outra forma, caso contrário é rejeitada. Por exemplo, se a sua aplicação se ligar ao controlador JDBC para PostgreSQL, poderá encontrar este erro ao tentar ligar-se quando a firewall estiver a bloquear a ligação.
 > cution java.util.concurrent.ExeExceção: java.lang.RuntimeException: org.postgresql.util.PSQLExcepção: FATAL: no pg \_ hba.conf entrada para anfitrião "123.45.67.890", utilizador "adminuser", base de dados "postgresql", SSL
 
 ## <a name="connecting-from-azure"></a>Ligar a partir do Azure
 Recomenda-se que encontre o endereço IP de saída de qualquer aplicação ou serviço e permita explicitamente o acesso a esses endereços ou intervalos IP individuais. Por exemplo, pode encontrar o endereço IP de saída de um Serviço de Aplicações Azure ou utilizar um IP público ligado a uma máquina virtual ou outro recurso (ver abaixo para obter informações sobre a ligação com o IP privado de uma máquina virtual sobre os pontos finais de serviço). 
 
-Se um endereço IP de saída fixo não estiver disponível para o seu serviço Azure, pode considerar ativar ligações a partir de todos os endereços IP do datacenter Azure. Esta definição pode ser ativada a partir do portal Azure, definindo a opção **De acesso a Serviços Azure** para **ON** a partir do painel de segurança **De Ligação** e batendo **Save**. A partir do CLI Azure, uma definição de regra de firewall com endereço inicial e final igual a 0.0.0.0 faz o equivalente. Se a tentativa de ligação não for permitida, o pedido não chega à Base de Dados Azure para o servidor PostgreSQL.
+Se um endereço IP de saída fixo não estiver disponível para o seu serviço Azure, pode considerar ativar ligações a partir de todos os endereços IP do datacenter Azure. Esta definição pode ser ativada a partir do portal Azure, definindo a opção **De acesso a Serviços Azure** para **ON** a partir do painel de segurança **De Ligação** e batendo **Save**. A partir do CLI Azure, uma definição de regra de firewall com endereço inicial e final igual a 0.0.0.0 faz o equivalente. Se a tentativa de ligação for rejeitada pelas regras de firewall, não chega à Base de Dados Azure para o servidor PostgreSQL.
 
 > [!IMPORTANT]
 > A opção **de acesso a serviços Azure** configura a firewall para permitir todas as ligações a partir do Azure, incluindo ligações a partir das subscrições de outros clientes. Quando selecionar esta opção, certifique-se de que as suas permissões de início de sessão e de utilizador limitam o acesso apenas a utilizadores autorizados.
@@ -42,7 +40,7 @@ Se um endereço IP de saída fixo não estiver disponível para o seu serviço A
 
 :::image type="content" source="media/concepts-firewall-rules/allow-azure-services.png" alt-text="Configure Permitir o acesso aos serviços da Azure no portal":::
 
-### <a name="connecting-from-a-vnet"></a>Ligação a partir de um VNet
+## <a name="connecting-from-a-vnet"></a>Ligação a partir de um VNet
 Para ligar de forma segura à sua Base de Dados Azure para servidor PostgreSQL a partir de um VNet, considere utilizar [pontos finais de serviço VNet](./concepts-data-access-and-security-vnet.md). 
 
 ## <a name="programmatically-managing-firewall-rules"></a>Gerir regras de firewall programaticamente
@@ -74,7 +72,7 @@ Considere os seguintes pontos quando o acesso à Base de Dados do Microsoft Azur
 * **A regra de firewall não está disponível para o formato IPv6:** As regras de firewall devem estar no formato IPv4. Se especificar as regras de firewall no formato IPv6, apresentará o erro de validação.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Criar e gerir a Base de Dados Azure para regras de firewall postgreSQL utilizando o portal Azure](howto-manage-firewall-using-portal.md)
 * [Criar e gerir a Base de Dados de Azure para regras de firewall postgresQL usando Azure CLI](howto-manage-firewall-using-cli.md)
 * [Pontos finais de serviço VNet na Base de Dados Azure para PostgreSQL](./concepts-data-access-and-security-vnet.md)

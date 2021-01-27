@@ -3,12 +3,12 @@ title: Identidades geridas para Azure
 description: Saiba como utilizar identidades geridas para Azure com Tecido de Serviço.
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 28c992792d4572a43e12f5d32855f8411b0f4c6f
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 71fa9ef4da8081a167b68553e2e3eac8477e8aee
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96574756"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881725"
 ---
 # <a name="using-managed-identities-for-azure-with-service-fabric"></a>Utilização de identidades geridas para Azure com Tecido de Serviço
 
@@ -56,9 +56,9 @@ Os seguintes cenários não são suportados ou não recomendados; note que estas
 
 - Remover ou alterar as identidades atribuídas a uma aplicação; se tiver de estois, submeter implementações separadas para primeiro adicionar uma nova atribuição de identidade e, em seguida, remover uma já atribuída. A remoção de uma identidade de uma aplicação existente pode ter efeitos indesejáveis, incluindo deixar a sua aplicação num estado que não seja atualizável. É seguro suprimir completamente o pedido se for necessária a remoção de uma identidade; note que isto eliminará a identidade atribuída ao sistema (se assim for definida) associada à aplicação, e removerá quaisquer associações com as identidades atribuídas ao utilizador atribuídas à aplicação.
 
-- O suporte do Tecido de Serviço para identidades geridas não está integrado neste momento no [AzureServiceTokenProvider](../key-vault/general/service-to-service-authentication.md).
+- O suporte do Tecido de Serviço para identidades geridas não está integrado neste momento no [AzureServiceTokenProvider](/dotnet/api/overview/azure/service-to-service-authentication).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Implementar um novo cluster de tecidos de serviço Azure com suporte de identidade gerido](./configure-new-azure-service-fabric-enable-managed-identity.md)
 - [Permitir o suporte de identidade gerido num cluster de tecido de serviço Azure existente](./configure-existing-cluster-enable-managed-identity-token-service.md)

@@ -9,12 +9,12 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 01/19/2021
-ms.openlocfilehash: 31398a49de871ad44499a796adfef1be618ccab9
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: ae07f51a91745acdaf2601d3a50bf282129dac71
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98685179"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881810"
 ---
 # <a name="azure-time-series-insights-gen2-event-sources"></a>Azure Time Series Insights Gen2 Event Sources
 
@@ -59,7 +59,7 @@ Além das melhores práticas acima, recomendamos que implemente o seguinte para 
 
 - Aumente o seu tempo de retenção de dados IoT Hub ou Event Hub para o máximo de 7 dias.
 
-- Crie alertas ambientais no portal Azure. Os alertas [baseados nas métricas](https://docs.microsoft.com/azure/time-series-insights/how-to-monitor-tsi-reference#metrics) da plataforma permitem validar o comportamento do gasoduto de ponta a ponta. As instruções para criar e gerir alertas estão [aqui.](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency#monitor-latency-and-throttling-with-alerts) Condições de alerta sugeridas:
+- Crie alertas ambientais no portal Azure. Os alertas [baseados nas métricas](./how-to-monitor-tsi-reference.md#metrics) da plataforma permitem validar o comportamento do gasoduto de ponta a ponta. As instruções para criar e gerir alertas estão [aqui.](./time-series-insights-environment-mitigate-latency.md#monitor-latency-and-throttling-with-alerts) Condições de alerta sugeridas:
 
   - IngressReceivedMesstimeLag é maior que 5 minutos
   - IngressReceivedBytes é 0
@@ -92,7 +92,7 @@ A compensação do fuso horário deve ser formatada como uma das seguintes:
 ±HH:MM</br>
 ±HH:MMZ</br>
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Leia as [Regras de Achatamento e Fuga](./concepts-json-flattening-escaping-rules.md) do JSON para entender como os eventos serão armazenados.
 

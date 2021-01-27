@@ -5,12 +5,12 @@ services: automation
 ms.subservice: dsc
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.openlocfilehash: 55c7522ad1dc6c7f91fae608a777dab3cd67d2ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e09607dde118ce25e5d2e5311e7614f2f18a590
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86183175"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98890735"
 ---
 # <a name="configure-machines-to-a-desired-state"></a>Configurar computadores para um estado pretendido
 
@@ -42,7 +42,7 @@ Para obter mais informações sobre como as equipas podem trabalhar em conjunto 
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão na sua subscrição Azure com o [cmdlet Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount?view=azps-3.7.0) e siga as instruções no ecrã.
+Inicie sessão na sua subscrição Azure com o [cmdlet Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount) e siga as instruções no ecrã.
 
 ```powershell
 Connect-AzAccount
@@ -68,7 +68,7 @@ configuration TestConfig {
 > [!NOTE]
 > Em cenários mais avançados onde necessita de vários módulos que fornecem Recursos DSC, certifique-se de que cada módulo tem uma linha única `Import-DscResource` na sua configuração.
 
-Ligue para o [cmdlet Import-AzAutomationDscConfiguration](/powershell/module/Az.Automation/Import-AzAutomationDscConfiguration?view=azps-3.7.0) para carregar a configuração na sua conta Automation.
+Ligue para o [cmdlet Import-AzAutomationDscConfiguration](/powershell/module/Az.Automation/Import-AzAutomationDscConfiguration) para carregar a configuração na sua conta Automation.
 
 ```powershell
  Import-AzAutomationDscConfiguration -SourcePath 'C:\DscConfigs\TestConfig.ps1' -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -Published
@@ -78,7 +78,7 @@ Ligue para o [cmdlet Import-AzAutomationDscConfiguration](/powershell/module/Az.
 
 Uma configuração DSC deve ser compilada numa configuração de nó antes de poder ser atribuída a um nó. Ver [configurações de DSC](/powershell/scripting/dsc/configurations/configurations).
 
-Ligue para o [Start-AzAutomationDscCompilationJob](/powershell/module/Az.Automation/Start-AzAutomationDscCompilationJob?view=azps-3.7.0) cmdlet para compilar a `TestConfig` configuração de um nó nomeado `TestConfig.WebServer` na sua conta Demôm automação.
+Ligue para o [Start-AzAutomationDscCompilationJob](/powershell/module/Az.Automation/Start-AzAutomationDscCompilationJob) cmdlet para compilar a `TestConfig` configuração de um nó nomeado `TestConfig.WebServer` na sua conta Demôm automação.
 
 ```powershell
 Start-AzAutomationDscCompilationJob -ConfigurationName 'TestConfig' -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount'
@@ -88,7 +88,7 @@ Start-AzAutomationDscCompilationJob -ConfigurationName 'TestConfig' -ResourceGro
 
 Pode utilizar a Configuração do Estado da Automação Azure para gerir VMs Azure (Classic e Resource Manager), VMs no local, máquinas Linux, VMs AWS e máquinas físicas no local. Neste tópico, cobrimos como registar apenas VMs Azure Resource Manager. Para obter informações sobre o registo de outros tipos de máquinas, consulte [máquinas de embarque para gestão através da Azure Automation State Configuration](automation-dsc-onboarding.md).
 
-Ligue para o [cmdlet Register-AzAutomationDscNode](/powershell/module/Az.Automation/Register-AzAutomationDscNode?view=azps-3.7.0) para registar o seu VM com a Configuração do Estado da Automação Azure como um nó gerido. 
+Ligue para o [cmdlet Register-AzAutomationDscNode](/powershell/module/Az.Automation/Register-AzAutomationDscNode) para registar o seu VM com a Configuração do Estado da Automação Azure como um nó gerido. 
 
 ```powershell
 Register-AzAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -AzureVMName 'DscVm'
@@ -125,7 +125,7 @@ Isto atribui a configuração do nó nomeado `TestConfig.WebServer` para o nó D
 
 ## <a name="check-the-compliance-status-of-a-managed-node"></a>Verifique o estado de conformidade de um nó gerido
 
-Pode obter relatórios sobre o estado de conformidade de um nó gerido utilizando o [cmdlet Get-AzAutomationDscNodeReport.](/powershell/module/Az.Automation/Get-AzAutomationDscNodeReport?view=azps-3.7.0)
+Pode obter relatórios sobre o estado de conformidade de um nó gerido utilizando o [cmdlet Get-AzAutomationDscNodeReport.](/powershell/module/Az.Automation/Get-AzAutomationDscNodeReport)
 
 ```powershell
 # Get the ID of the DSC node
@@ -146,7 +146,7 @@ Se optar por remover o nó do serviço, pode fazê-lo utilizando o portal Azure 
 > [!NOTE]
 > A não registo de um nó do serviço apenas define as definições do Gestor de Configuração Local para que o nó não esteja mais ligado ao serviço.
 > Isto não afeta a configuração que é atualmente aplicada ao nó.
-> Para remover a configuração atual, utilize o [PowerShell](/powershell/module/psdesiredstateconfiguration/remove-dscconfigurationdocument?view=powershell-5.1) ou elimine o ficheiro de configuração local (esta é a única opção para os nosdes Linux).
+> Para remover a configuração atual, utilize o [PowerShell](/powershell/module/psdesiredstateconfiguration/remove-dscconfigurationdocument) ou elimine o ficheiro de configuração local (esta é a única opção para os nosdes Linux).
 
 ### <a name="azure-portal"></a>Portal do Azure
 
@@ -157,13 +157,13 @@ Na vista nó que se abre, clique em **Unregister**.
 
 ### <a name="powershell"></a>PowerShell
 
-Para não registar um nó do serviço de configuração do Estado da Automação Azure utilizando o PowerShell, siga a documentação para o cmdlet [Unregister-AzAutomationDscNode](/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-2.0.0).
+Para não registar um nó do serviço de configuração do Estado da Automação Azure utilizando o PowerShell, siga a documentação para o cmdlet [Unregister-AzAutomationDscNode](/powershell/module/az.automation/unregister-azautomationdscnode).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para começar, consulte [Começar com a Configuração do Estado da Automação Azure](automation-dsc-getting-started.md).
 - Para aprender a ativar os nós, consulte [Ativar a Configuração do Estado da Automação Azure](automation-dsc-onboarding.md).
 - Para saber sobre a compilação de configurações de DSC para que possa atribuí-las aos nós-alvo, consulte [as configurações do Compile DSC na Configuração do Estado da Automação Azure](automation-dsc-compile.md).
 - Para ver um exemplo da utilização da Configuração do Estado da Automação Azure num gasoduto de implantação contínua, consulte [Configurar uma implementação contínua com chocolateria](automation-dsc-cd-chocolatey.md).
 - Para obter informações sobre preços, consulte [os preços de configuração do Estado da Azure Automation](https://azure.microsoft.com/pricing/details/automation/).
-- Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
+- Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](/powershell/module/az.automation).

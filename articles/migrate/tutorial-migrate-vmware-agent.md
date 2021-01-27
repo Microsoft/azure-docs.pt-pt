@@ -7,19 +7,19 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: MVC
-ms.openlocfilehash: cdc22520852118c6af823b42600a2f540b89a10c
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 15bf8f4fde2128181664fa7b94f2479bac7ad5b9
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233802"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881522"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Migrar VMware VMs para Azure (baseado em agente)
 
 Este artigo mostra-lhe como migrar vMware VMs para Azure, utilizando a ferramenta [Azure Migrate:Server Migration,](migrate-services-overview.md#azure-migrate-server-migration-tool) com migração baseada em agentes.  Também pode migrar VMware VMs usando migração sem agentes. [Compare](server-migrate-overview.md#compare-migration-methods) os métodos.
 
 
- Neste tutorial, vai aprender a:
+ Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > * Prepare o Azure para trabalhar com a Azure Migrate.
 > * Preparem-se para a migração baseada em agentes. Crie uma conta VMware para que a Azure Migrate possa descobrir máquinas para migração. Crie uma conta para que o agente de serviço de Mobilidade possa instalar nas máquinas que pretende migrar e preparar uma máquina para funcionar como o aparelho de replicação.
@@ -256,7 +256,7 @@ Selecione VMs para migração.
     - Dupla encriptação com chaves geridas pela plataforma e geridas pelo cliente
 
    > [!NOTE]
-   > Para replicar VMs com CMK, terá de [criar uma encriptação de disco definida](https://go.microsoft.com/fwlink/?linkid=2151800) no Grupo de Recursos alvo. Um conjunto de conjunto de encriptação de disco mapeia Discos Geridos para um Cofre de Chaves que contém o CMK para usar para SSE.
+   > Para replicar VMs com CMK, terá de [criar uma encriptação de disco definida](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set) no Grupo de Recursos alvo. Um conjunto de conjunto de encriptação de disco mapeia Discos Geridos para um Cofre de Chaves que contém o CMK para usar para SSE.
   
 14. Em **Benefício Híbrido do Azure**:
 
@@ -382,6 +382,6 @@ Depois de verificar que a migração do teste funciona como esperado, pode migra
 
 
 
- ## <a name="next-steps"></a>Passos seguintes
+ ## <a name="next-steps"></a>Próximos passos
 
 Investigue a [jornada de migração](/azure/architecture/cloud-adoption/getting-started/migrate) em nuvem no Quadro de Azure Cloud Adopt.

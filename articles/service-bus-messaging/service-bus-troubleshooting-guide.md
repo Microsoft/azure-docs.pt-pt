@@ -1,14 +1,14 @@
 ---
-title: Guia de resolução de problemas para a Azure Service Bus Microsoft Docs
+title: Guia de resolução de problemas para a | de autocarros da Azure Service Microsoft Docs
 description: Saiba mais sobre dicas e recomendações de resolução de problemas para alguns problemas que poderá ver ao utilizar o Azure Service Bus.
 ms.topic: article
 ms.date: 09/16/2020
-ms.openlocfilehash: 8c31d252d75a2ba75528cd12d3a94bad5bd9f677
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: c5813f901f31f96633e11c2ed8162338bdd9bbf7
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98126874"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881219"
 ---
 # <a name="troubleshooting-guide-for-azure-service-bus"></a>Guia de resolução de problemas para o ônibus de serviço Azure
 Este artigo fornece dicas e recomendações de resolução de problemas para alguns problemas que você pode ver ao usar o Azure Service Bus. 
@@ -80,7 +80,7 @@ Service Bus Error: Unauthorized access. 'Send' claim\(s\) are required to perfor
 A identidade não tem permissões para aceder ao tema do Service Bus. 
 
 ### <a name="resolution"></a>Resolução
-Para resolver este erro, instale a biblioteca [Microsoft.Azure.Services.AppAuthentication.](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/)  Para mais informações, consulte [a autenticação de desenvolvimento local.](../key-vault/general/service-to-service-authentication.md#local-development-authentication) 
+Para resolver este erro, instale a biblioteca [Microsoft.Azure.Services.AppAuthentication.](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/)  Para mais informações, consulte [a autenticação de desenvolvimento local.](/dotnet/api/overview/azure/service-to-service-authentication#local-development-authentication) 
 
 Para aprender a atribuir permissões a funções, consulte [Autenticar uma identidade gerida com o Azure Ative Directory para aceder aos recursos do Azure Service Bus](service-bus-managed-service-identity.md).
 
@@ -97,7 +97,7 @@ Há um limite no número de fichas que são usadas para enviar e receber mensage
 ### <a name="resolution"></a>Resolução
 Abra uma nova ligação ao espaço de nomes do Service Bus para enviar mais mensagens.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte os seguintes artigos: 
 
 - [Exceções do Gestor de Recursos Azure](service-bus-resource-manager-exceptions.md). Lista exceções geradas ao interagir com o Azure Service Bus utilizando o Azure Resource Manager (através de modelos ou chamadas diretas).

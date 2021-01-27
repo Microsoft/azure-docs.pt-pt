@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 0d8d19256dfca21cc805c2689557099a6785f76b
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 2d531edeeae9e0dd7e392cae66d9e4d41c68dfa2
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629211"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882268"
 ---
 # <a name="migrate-from-network-attached-storage-nas-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Migrar do Armazenamento Ligado à Rede (NAS) para uma implementação em nuvem híbrida com Azure File Sync
 
@@ -208,7 +208,7 @@ Terminou de migrar uma parte/grupo de ações numa raiz ou volume comum. (Depend
 Podes tentar executar algumas destas cópias em paralelo. Recomendamos o processamento do âmbito de uma partilha de ficheiros Azure de cada vez.
 
 > [!WARNING]
-> Depois de ter transferido todos os dados do SEU NAS para o Windows Server, e a sua migração está completa: Volte a * **todos os** grupos de sincronização no portal Azure e ajuste o valor de espaço livre de nível de cloud tiering para algo mais adequado para a utilização da cache, digamos 20%. 
+> Depois de ter transferido todos os dados do SEU NAS para o Windows Server, e a sua migração está completa: Volte a ***todos os** grupos de sincronização no portal Azure e ajuste o valor de espaço livre de nível de cloud tiering para algo mais adequado para a utilização da cache, digamos 20%. 
 
 A política de espaço livre de nível de nivelamento da nuvem atua a nível de volume com pontos finais potencialmente múltiplos do servidor sincronizados a partir dele. Se se esquecer de ajustar o espaço livre num ponto final de um servidor, a sincronização continuará a aplicar a regra mais restritiva e tentará manter 99% de espaço livre em disco, fazendo com que a cache local não esteja a funcionar como seria de esperar. A menos que seja seu objetivo ter apenas o espaço de nome para um volume que apenas contém dados de arquivo raramente acedidos e você está reservando o resto do espaço de armazenamento para outro cenário.
 
@@ -222,10 +222,10 @@ Quando o seu Servidor do Windows tiver capacidade disponível suficiente, a reex
 
 Verifique o link na secção seguinte para verificar problemas de resolução de problemas problemas com o Azure File Sync.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Há mais a descobrir sobre as ações de ficheiros Azure e a Azure File Sync. Os seguintes artigos ajudam a compreender opções avançadas, boas práticas e também contêm ajuda para resolver problemas. Estes artigos ligam-se à [documentação de partilha de ficheiros Azure](storage-files-introduction.md) conforme apropriado.
 
 * [Visão geral da AFS](./storage-sync-files-planning.md)
-* [Guia de implantação da AFS](storage-files-deployment-guide.md)
+* [Guia de implantação da AFS](./storage-how-to-create-file-share.md)
 * [Resolução de problemas da AFS](storage-sync-files-troubleshoot.md)

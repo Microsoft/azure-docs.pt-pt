@@ -3,12 +3,12 @@ title: Identidades geridas para recursos Azure com Service Bus
 description: Este artigo descreve como usar identidades geridas para aceder a entidades do Azure Service Bus (filas, tópicos e subscrições).
 ms.topic: article
 ms.date: 01/21/2021
-ms.openlocfilehash: 22be57a0108b6a8511a64165ad365675d006fb8f
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: dac12820adf863a7e51457d34f9180543089fc7b
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98808255"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881572"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Autenticar uma identidade gerida com o Azure Ative Directory para aceder aos recursos do Azure Service Bus
 [As identidades geridas para os recursos Azure](../active-directory/managed-identities-azure-resources/overview.md) são uma funcionalidade cross-Azure que lhe permite criar uma identidade segura associada à implementação sob a qual o seu código de aplicação é executado. Em seguida, pode associar essa identidade a funções de controlo de acesso que concedem permissões personalizadas para aceder a recursos específicos do Azure de que a sua aplicação necessita.
@@ -137,7 +137,7 @@ Para enviar ou receber mensagens, insira o nome do espaço de nome e o nome da e
 
 
 > [!NOTE]
-> - A identidade gerida funciona apenas dentro do ambiente Azure, em serviços de Aplicações, VMs Azure e conjuntos de escala. Para aplicações .NET, a biblioteca Microsoft.Azure.Services.AppAuthentication, que é utilizada pelo pacote Service Bus NuGet, fornece uma abstração sobre este protocolo e suporta uma experiência de desenvolvimento local. Esta biblioteca também permite testar o seu código localmente na sua máquina de desenvolvimento, utilizando a sua conta de utilizador a partir do Visual Studio, Azure CLI 2.0 ou Ative Directory Integrated Authentication. Para obter mais informações sobre as opções de desenvolvimento local com esta biblioteca, consulte [a autenticação de serviço-a-serviço para Azure Key Vault utilizando .NET](../key-vault/general/service-to-service-authentication.md).  
+> - A identidade gerida funciona apenas dentro do ambiente Azure, em serviços de Aplicações, VMs Azure e conjuntos de escala. Para aplicações .NET, a biblioteca Microsoft.Azure.Services.AppAuthentication, que é utilizada pelo pacote Service Bus NuGet, fornece uma abstração sobre este protocolo e suporta uma experiência de desenvolvimento local. Esta biblioteca também permite testar o seu código localmente na sua máquina de desenvolvimento, utilizando a sua conta de utilizador a partir do Visual Studio, Azure CLI 2.0 ou Ative Directory Integrated Authentication. Para obter mais informações sobre as opções de desenvolvimento local com esta biblioteca, consulte [a autenticação de serviço-a-serviço para Azure Key Vault utilizando .NET](/dotnet/api/overview/azure/service-to-service-authentication).  
 > 
 > - Atualmente, as identidades geridas não funcionam com slots de implementação do Serviço de Aplicações.
 

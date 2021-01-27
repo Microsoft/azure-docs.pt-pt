@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: cd272e0c6ce76ff69e3e58417845836fe2f55b39
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 522ba95a5d6d97a8fde242274b1b0af969af20a5
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98745139"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881505"
 ---
 # <a name="retrieve-information-about-your-azure-cloud-service-extended-support-deployments"></a>Recupere informações sobre as suas implementações do Azure Cloud Service (suporte alargado)
 
@@ -99,4 +99,5 @@ Statuses                    : {{
 
 ## <a name="next-steps"></a>Próximos passos
 
-Para obter mais informações sobre os Serviços de Nuvem Azure (suporte alargado), consulte [a visão geral dos Serviços Azure Cloud (suporte alargado).](overview.md)
+- Para obter mais informações sobre os Serviços de Nuvem Azure (suporte alargado), consulte [a visão geral dos Serviços Azure Cloud (suporte alargado).](overview.md)
+- Visite o [repositório](https://github.com/Azure-Samples/cloud-services-extended-support) de amostras cloud services (suporte alargado)
