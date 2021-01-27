@@ -3,19 +3,19 @@ title: Método Transliterado tradutor
 titleSuffix: Azure Cognitive Services
 description: Converter texto numa língua de um script para outro script com o método de Transliteto de Tradutor.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: swmachan
-ms.openlocfilehash: 4b985d7b2eb07ca8bbd3556a237fbcaba5392fe5
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.author: lajanuar
+ms.openlocfilehash: 0d5a7f8df0c722ca52780ba254e9af9608f26b54
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95016478"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895429"
 ---
 # <a name="translator-30-transliterate"></a>Tradutor 3.0: Transliterado
 

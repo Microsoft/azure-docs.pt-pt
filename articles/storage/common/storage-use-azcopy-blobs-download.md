@@ -1,5 +1,5 @@
 ---
-title: Descarregue blobs do armazenamento Azure Blob usando AzCopy v10 Microsoft Docs
+title: Descarregue bolhas do armazenamento Azure Blob usando AzCopy v10 | Microsoft Docs
 description: Este artigo contém uma coleção de comandos de exemplo AzCopy que o ajudam a descarregar bolhas do armazenamento Azure Blob.
 author: normesta
 ms.service: storage
@@ -8,12 +8,12 @@ ms.date: 12/11/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 382adb36712fbf4bee83044c8b2d096223eb6269
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 20da05399eed4cb9c5a4b69a82b0b1e799997751
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97630042"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880123"
 ---
 # <a name="download-blobs-from-azure-blob-storage-by-using-azcopy-v10"></a>Descarregue bolhas do armazenamento Azure Blob usando AzCopy v10
 
@@ -143,7 +143,7 @@ Em seguida, use o comando [de cópia azcopia](storage-ref-azcopy-copy.md) com a 
 
 #### <a name="download-a-blob-snapshot"></a>Faça o download de um instantâneo blob
 
-Pode descarregar uma [imagem de bolha](/azure/storage/blobs/snapshots-overview) referindo o valor **DateTime** de uma imagem de bolha. 
+Pode descarregar uma [imagem de bolha](../blobs/snapshots-overview.md) referindo o valor **DateTime** de uma imagem de bolha. 
 
 |    |     |
 |--------|-----------|
@@ -158,7 +158,7 @@ Pode descarregar uma [imagem de bolha](/azure/storage/blobs/snapshots-overview) 
 
 Pode ajustar a sua operação de descarregamento utilizando bandeiras opcionais. Aqui estão alguns exemplos.
 
-|Cenário|Sinalizador|
+|Scenario|Sinalizador|
 |---|---|
 |Descompressão automática de ficheiros.|**--descompressão**|
 |Especifique o quão detalhado pretende que as suas entradas de registo relacionados com cópias sejam.|**--nível** = \[ de log \|INFORMAÇÃO DE ERRO \| DE AVISO \| NENHUMA\]|
@@ -166,7 +166,7 @@ Pode ajustar a sua operação de descarregamento utilizando bandeiras opcionais.
 
 Para obter uma lista completa, consulte [as opções.](storage-ref-azcopy-copy.md#options)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Encontre mais exemplos nestes artigos:
 

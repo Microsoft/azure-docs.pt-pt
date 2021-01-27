@@ -2,19 +2,19 @@
 title: Como gerir as configurações? - Tradutor Personalizado
 titleSuffix: Azure Cognitive Services
 description: Como gerir configurações, criar espaço de trabalho, partilhar espaço de trabalho e gerir a chave de subscrição no Custom Tradutor.
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 08/17/2020
-ms.author: swmachan
+ms.author: lajanuar
 ms.topic: conceptual
-ms.openlocfilehash: e556ca2051fd75eb9bf6411c5479e63554606d48
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 49801eddd748a88109bb7f6d075def03cd798754
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368343"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895786"
 ---
 # <a name="how-to-manage-settings"></a>Como gerir as definições
 
@@ -115,6 +115,6 @@ O seu primeiro espaço de trabalho criado é por defeito. Cada vez que iniciar s
 
     ![Espaço de trabalho pin](media/how-to/how-to-pin-workspace.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba [como criar o seu espaço de trabalho e projetos](workspace-and-project.md)

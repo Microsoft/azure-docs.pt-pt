@@ -3,115 +3,76 @@ title: Tecido de serviço Azure - Utilização da aplicação de tecido de servi
 description: Este artigo explica como usar o suporte de teclado keyVaultReference de tecido de serviço para segredos de aplicação.
 ms.topic: article
 ms.date: 09/20/2019
-ms.openlocfilehash: f2221bb3e8e3ee3181b2cff70107dccc203954cf
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: a0e4ef0decae8cc9ab4dc5f8c69dfef854af81f3
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92313799"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898601"
 ---
-# <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>Suporte keyVaultReference para aplicações de Tecido de Serviço (pré-visualização)
+# <a name="keyvaultreference-support-for-azure-deployed-service-fabric-applications"></a>Suporte keyVaultReference para aplicações de tecido de serviço implantadas pela Azure
 
-Um desafio comum ao construir aplicações em nuvem é como armazenar de forma segura os segredos exigidos pela sua aplicação. Por exemplo, é melhor guardar as credenciais de repositório do recipiente no teclado e faz referência a ela no manifesto de aplicação. Service Fabric KeyVaultReference usa A Identidade Gerida do Tecido de Serviço e facilita a referência aos segredos de teclado. O restante deste artigo detalha como usar o Service Fabric KeyVaultReference e inclui alguma utilização típica.
-
-> [!IMPORTANT]
-> A utilização desta função de pré-visualização não é recomendada em ambientes de produção.
+Um desafio comum ao construir aplicações em nuvem é como distribuir segredos de forma segura às suas aplicações. Por exemplo, é melhor utilizar uma chave de base de dados da sua aplicação sem expor a chave durante o pipeline ou no operador. O suporte de teclado de tecido de serviço Torna fácil a implementação de segredos nas suas aplicações simplesmente fazendo referência ao URL do segredo que está armazenado no Key Vault. A Service Fabric tratará de obter esse segredo em nome da identidade gerida da sua aplicação e ativar a aplicação com o segredo.
 
 > [!NOTE]
-> A funcionalidade de pré-visualização de referência keyVault suporta apenas segredos [versados.](../key-vault/general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning) Segredos sem versão não são suportados.
+> O suporte keyVaultReference para aplicações de tecido de serviço é GA (fora de pré-visualização) começando com a versão 7.2 CU5 do Tecido de Serviço. Recomenda-se que faça o upgrade para esta versão antes de utilizar esta funcionalidade.
+
+> [!NOTE]
+> O suporte keyVaultReference para aplicações de tecido de serviço suporta apenas segredos [versados.](../key-vault/general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning) Segredos sem versão não são suportados. O Cofre-Chave tem de estar na mesma subscrição que o seu conjunto de tecidos de serviço. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Identidade gerida para aplicação (MIT)
-    
-    O suporte de teclas de tecido de serviçoVaultReference utiliza a Identidade Gerida da aplicação e, portanto, as aplicações que planeiam utilizar KeyVaultReferences devem utilizar identidade gerida. Siga este [documento](concepts-managed-identity.md) para ativar a identidade gerida para a sua aplicação.
+- Identidade gerida para aplicações de tecido de serviço
+
+    O suporte de teclas de tecido de serviço Utiliza a Identidade Gerida de uma aplicação para obter segredos em nome da aplicação, pelo que a sua aplicação deve ser implementada através e atribuída uma identidade gerida. Siga este [documento](concepts-managed-identity.md) para ativar a identidade gerida para a sua aplicação.
 
 - Central Secrets Store (CSS).
 
-    Central Secrets Store (CSS) é o cache de segredos locais encriptados do Service Fabric. CSS é uma cache de loja secreta local que mantém dados sensíveis, tais como uma palavra-passe, fichas e chaves, encriptados na memória. KeyVaultReference, uma vez recolhido, está em cache em CSS.
+    Central Secrets Store (CSS) é o cache de segredos locais encriptados do Service Fabric. Esta funcionalidade utiliza O CSS para proteger e persistir segredos depois de serem recolhidos do Key Vault. Ativar este serviço de sistema opcional também é necessário consumir esta funcionalidade. Siga este [documento](service-fabric-application-secret-store.md) para ativar e configurar o CSS.
 
-    Adicione o abaixo à configuração do cluster `fabricSettings` para ativar todas as funcionalidades necessárias para o suporte keyVaultReference.
-
-    ```json
-    "fabricSettings": 
-    [
-        ...
-    {
-                "name":  "CentralSecretService",
-                "parameters":  [
-                {
-                    "name":  "IsEnabled",
-                    "value":  "true"
-                },
-                {
-                    "name":  "MinReplicaSetSize",
-                    "value":  "3"
-                },
-                {
-                    "name":  "TargetReplicaSetSize",
-                    "value":  "3"
-                }
-                ]
-            },
-            {
-                "name":  "ManagedIdentityTokenService",
-                "parameters":  [
-                {
-                    "name":  "IsEnabled",
-                    "value":  "true"
-                }
-                ]
-            }
-            ]
-    ```
-
-    > [!NOTE] 
-    > Recomenda-se a utilização de um certificado de encriptação separado para CSS. Pode adicioná-lo na secção "CentralSecretService".
-    
-
-    ```json
-        {
-            "name": "EncryptionCertificateThumbprint",
-            "value": "<EncryptionCertificateThumbprint for CSS>"
-        }
-    ```
-Para que as alterações entrem em vigor, também terá de alterar a política de atualização para especificar um reinício vigoroso do tempo de funcionamento do Tecido de Serviço em cada nó à medida que a atualização progride através do cluster. Este reinício garante que o serviço de sistema recentemente ativado seja iniciado e em funcionamento em cada nó. No corte abaixo, forceRestart é o cenário essencial; utilize os valores existentes para o resto das definições.
-```json
-"upgradeDescription": {
-    "forceRestart": true,
-    "healthCheckRetryTimeout": "00:45:00",
-    "healthCheckStableDuration": "00:05:00",
-    "healthCheckWaitDuration": "00:05:00",
-    "upgradeDomainTimeout": "02:00:00",
-    "upgradeReplicaSetCheckTimeout": "1.00:00:00",
-    "upgradeTimeout": "12:00:00"
-}
-```
 - Autorização de acesso à identidade gerida pelo pedido de subvenção ao teclado
 
-    Consulte este [documento](how-to-grant-access-other-resources.md) para ver como conceder acesso de identidade gerido ao keyvault. Note também que se estiver a utilizar a Identidade Gerida Atribuída do Sistema, a identidade gerida é criada apenas após a implementação da aplicação.
+    Consulte este [documento](how-to-grant-access-other-resources.md) para ver como conceder acesso de identidade gerido ao keyvault. Note também que se estiver a utilizar o sistema de identidade gerida atribuído, a identidade gerida é criada apenas após a implementação da aplicação. Isto pode criar condições de corrida onde a aplicação tenta aceder ao segredo antes que a identidade possa ter acesso ao cofre. O nome da identidade atribuída ao sistema será `{cluster name}/{application name}/{service name}` .
+    
+## <a name="use-keyvaultreferences-in-your-application"></a>Use KeyVaultReferences na sua aplicação
+KeyVaultReferências podem ser consumidas de várias maneiras
+- [Como uma variável ambiental](#as-an-environment-variable)
+- [Montado como um ficheiro no seu recipiente](#mounted-as-a-file-into-your-container)
+- [Como referência a uma senha de repositório de contentores](#as-a-reference-to-a-container-repository-password)
 
-## <a name="keyvault-secret-as-application-parameter"></a>Segredo keyvault como parâmetro de aplicação
-Digamos que a aplicação precisa de ler a palavra-passe da base de dados de backend armazenada no teclado, o suporte de teclado de tecido de serviço Torna-a mais fácil. A seguir, o exemplo `DBPassword` lê-se em segredo do keyvault utilizando o suporte de teclado do tecido de serviçoVaultReferência.
+### <a name="as-an-environment-variable"></a>Como uma variável ambiental
+
+```xml
+<EnvironmentVariables>
+      <EnvironmentVariable Name="MySecret" Type="KeyVaultReference" Value="<KeyVaultURL>"/>
+</EnvironmentVariables>
+```
+
+```C#
+string secret =  Environment.GetEnvironmentVariable("MySecret");
+```
+
+### <a name="mounted-as-a-file-into-your-container"></a>Montado como um ficheiro no seu recipiente
 
 - Adicione uma secção ao settings.xml
 
-    Definir `DBPassword` parâmetro com Tipo e `KeyVaultReference` Valor `<KeyVaultURL>`
+    Definir `MySecret` parâmetro com Tipo e `KeyVaultReference` Valor `<KeyVaultURL>`
 
     ```xml
-    <Section Name="dbsecrets">
-        <Parameter Name="DBPassword" Type="KeyVaultReference" Value="https://vault200.vault.azure.net/secrets/dbpassword/8ec042bbe0ea4356b9b171588a8a1f32"/>
+    <Section Name="MySecrets">
+        <Parameter Name="MySecret" Type="KeyVaultReference" Value="<KeyVaultURL>"/>
     </Section>
     ```
+
 - Referenciar a nova secção em ApplicationManifest.xml em `<ConfigPackagePolicies>`
 
     ```xml
     <ServiceManifestImport>
         <Policies>
-        <IdentityBindingPolicy ServiceIdentityRef="WebAdmin" ApplicationIdentityRef="ttkappuser" />
+        <IdentityBindingPolicy ServiceIdentityRef="MyServiceMI" ApplicationIdentityRef="MyApplicationMI" />
         <ConfigPackagePolicies CodePackageRef="Code">
             <!--Linux container example-->
-            <ConfigPackage Name="Config" SectionName="dbsecrets" EnvironmentVariableName="SecretPath" MountPoint="/var/secrets"/>
+            <ConfigPackage Name="Config" SectionName="MySecrets" EnvironmentVariableName="SecretPath" MountPoint="/var/secrets"/>
             <!--Windows container example-->
             <!-- <ConfigPackage Name="Config" SectionName="dbsecrets" EnvironmentVariableName="SecretPath" MountPoint="C:\secrets"/> -->
         </ConfigPackagePolicies>
@@ -119,49 +80,31 @@ Digamos que a aplicação precisa de ler a palavra-passe da base de dados de bac
     </ServiceManifestImport>
     ```
 
-- Utilização de KeyVaultReference na sua aplicação
+- Consumir os segredos do código de serviço
 
-    O tecido de serviço na instantânea de serviço resolverá o Parâmetro KeyVaultReference utilizando a identidade gerida da aplicação. Cada parâmetro listado será `<Section  Name=dbsecrets>` um ficheiro sob a pasta apontada por EnvironmentVariable SecretPath. Abaixo C# o código snippet mostra como ler DBPassword na sua aplicação.
+    Cada parâmetro listado será `<Section  Name=MySecrets>` um ficheiro sob a pasta apontada por EnvironmentVariable SecretPath. O snippet de código abaixo C# mostra como ler MySecret a partir da sua aplicação.
 
     ```C#
     string secretPath = Environment.GetEnvironmentVariable("SecretPath");
-    using (StreamReader sr = new StreamReader(Path.Combine(secretPath, "DBPassword"))) 
+    using (StreamReader sr = new StreamReader(Path.Combine(secretPath, "MySecret"))) 
     {
-        string dbPassword =  sr.ReadToEnd();
-        // dbPassword to connect to DB
+        string secret =  sr.ReadToEnd();
     }
     ```
     > [!NOTE] 
-    > Para o cenário do recipiente, pode utilizar o MountPoint para controlar onde o `secrets` será montado.
+    > O MountPoint controla a pasta onde serão montados os ficheiros que contêm valores secretos.
 
-## <a name="keyvault-secret-as-environment-variable"></a>Segredo keyvault como variável ambiental
+### <a name="as-a-reference-to-a-container-repository-password"></a>Como referência a uma senha de repositório de contentores
 
-As variáveis ambientais do tecido de serviço agora suportam o tipo KeyVaultReference, abaixo o exemplo mostra como ligar uma variável ambiental a um segredo armazenado em KeyVault.
-
-```xml
-<EnvironmentVariables>
-      <EnvironmentVariable Name="EventStorePassword" Type="KeyVaultReference" Value="https://ttkvault.vault.azure.net/secrets/clustercert/e225bd97e203430d809740b47736b9b8"/>
-</EnvironmentVariables>
-```
-
-```C#
-string eventStorePassword =  Environment.GetEnvironmentVariable("EventStorePassword");
-```
-## <a name="keyvault-secret-as-container-repository-password"></a>Segredo keyvault como senha de repositório de contentores
-KeyVaultReference é um tipo suportado para repositórios de contentores, abaixo o exemplo mostra como usar uma referência keyvault como senha de repositório de contentores.
 ```xml
  <Policies>
       <ContainerHostPolicies CodePackageRef="Code">
-        <RepositoryCredentials AccountName="user1" Type="KeyVaultReference" Password="https://ttkvault.vault.azure.net/secrets/containerpwd/e225bd97e203430d809740b47736b9b8"/>
+        <RepositoryCredentials AccountName="MyACRUser" Type="KeyVaultReference" Password="<KeyVaultURL>"/>
       </ContainerHostPolicies>
 ```
-## <a name="faq"></a>FAQ
-- A identidade gerida precisa de ser ativada para suporte à KeyVaultReference, a ativação da sua aplicação falhará se a KeyVaultReference for utilizada sem permitir a Identidade Gerida.
 
-- Se estiver a usar a identidade atribuída ao sistema, só é criada depois de a aplicação ser implementada e isso cria uma dependência circular. Uma vez que a sua aplicação é implementada, você pode conceder ao sistema permissão de acesso de identidade atribuído ao keyvault. Pode encontrar a identidade atribuída pelo sistema {cluster}/{nome da aplicação}/{nome de serviço}
-
-- O keyvault precisa de estar na mesma subscrição que o seu cluster de tecido de serviço. 
-
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Documentação Azure KeyVault](../key-vault/index.yml)
+* [Saiba mais sobre a Central Secret Store](service-fabric-application-secret-store.md)
+* [Saiba mais sobre identidade gerida para aplicações de tecido de serviço](concepts-managed-identity.md)

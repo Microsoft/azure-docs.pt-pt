@@ -2,19 +2,19 @@
 title: Detalhes do documento - Tradutor Personalizado
 titleSuffix: Azure Cognitive Services
 description: A página da lista de documentos mostra o primeiro documento de 10 no seu espaço de trabalho. Para cada um dos documentos, apresenta o nome, emparelhamento, tipo, idioma, carimbo de tempo de upload e o endereço de e-mail do utilizador que fez o upload do documento.
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 08/17/2020
-ms.author: swmachan
+ms.author: lajanuar
 ms.topic: conceptual
-ms.openlocfilehash: 87b999069ef9088a731a4e972c5d548cac0b917c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 56093204516e156d670097c22b4edab42db54bde
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88509581"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895616"
 ---
 # <a name="view-document-details"></a>Ver detalhes do documento
 
@@ -40,6 +40,6 @@ O utilizador deve ser um proprietário de um espaço de trabalho para apagar o d
 
     ![Eliminar confirmar](media/how-to/how-to-delete-document-confirm.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Aprenda [a treinar um modelo.](how-to-train-model.md)

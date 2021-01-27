@@ -3,14 +3,14 @@ title: Configurar relatórios do Azure Backup
 description: Configure e veja relatórios para Azure Backup usando diários de log analytics e Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 2565fa1183635c10e45b247f723788b6fe371c14
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 39d1aa17c5e92eccd34013738937e49890109561
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325252"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897280"
 ---
-# <a name="configure-azure-backup-reports"></a>Configurar relatórios do Azure Backup
+# <a name="configure-azure-backup-reports-preview"></a>Configure relatórios de backup do Azure (Pré-visualização)
 
 Um requisito comum para os administradores de backup é obter insights sobre cópias de segurança com base em dados que se estendem por um longo período de tempo. Os casos de utilização para tal solução incluem:
 
@@ -106,7 +106,7 @@ Utilize este separador para visualizar informações sobre todas as suas políti
 
    ![Separador de políticas](./media/backup-azure-configure-backup-reports/policies.png)
 
-##### <a name="optimize"></a>Otimizar
+##### <a name="optimize"></a>Otimização
 
 Use este separador para ganhar visibilidade em potenciais oportunidades de otimização de custos para as suas cópias de segurança. Seguem-se os cenários para os quais o separador Otimize fornece atualmente insights:
 
@@ -180,6 +180,6 @@ Os widgets do relatório Backup são alimentados por consultas kusto, que funcio
 
 - Além disso, o [esquema V1](./backup-azure-diagnostics-mode-data-model.md#v1-schema-vs-v2-schema) de enviar dados de diagnóstico para uma conta de armazenamento ou um espaço de trabalho de LA também está em um caminho de depreciação. Isto significa que se tiver escrito quaisquer consultas personalizadas ou automatizações com base no esquema V1, é aconselhável atualizar estas consultas para usar o esquema V2 atualmente suportado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Saiba mais sobre monitorização e reporte com a Azure Backup](./backup-azure-monitor-alert-faq.md)

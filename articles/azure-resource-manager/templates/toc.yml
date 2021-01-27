@@ -162,6 +162,8 @@
               href: ../../application-gateway/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Rede de Entrega de Conteúdos
               href: ../../cdn/create-profile-endpoint-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Proteção contra DDoS
+              href: ../../ddos-protection/manage-ddos-protection-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: DNS
               href: ../../dns/dns-get-started-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: ExpressRoute

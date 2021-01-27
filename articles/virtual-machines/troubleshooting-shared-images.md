@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/27/2020
 ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: 74e1dc12be9bfec57d76357a335b46a55912f6df
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 9a905dd61bcc267b47dcd075f54a0ed6563a3797
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500279"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879634"
 ---
 # <a name="troubleshoot-shared-image-galleries-in-azure"></a>Resolução de problemas partilhadas galerias de imagens em Azure
 
@@ -105,7 +105,7 @@ Se tiver problemas em realizar quaisquer operações em galerias de imagem parti
 
 *O EndOfLifeDate tem de ser definido para uma data futura.*  
 **Causa**: A propriedade de data de fim de vida não está devidamente formatada como uma data que é depois da data de hoje.  
-**Solução :** Forneça uma data no formato yyyy-MM-dd, yyyy-MM-dd'T'HH:mm:sszzz ou [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)-válido.
+**Solução :** Forneça uma data no formato yyyy-MM-dd, yy-MM-dd'T'HH:mm:sszzz ou [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)-válido.
 
 *argumento --<propriedade \> : valor int inválido: valor <\>*  
 **Causa:**<propriedade \> aceita apenas valores inteiros, e <valor \> não é um inteiro.  
@@ -341,6 +341,6 @@ Utilize a bandeira **replicationStatus** de expansão para verificar se a replic
 [Limites e quotas azure](../azure-resource-manager/management/azure-subscription-service-limits.md) aplicam-se a todos os recursos de galeria de imagens partilhadas, definição de imagem e versão de imagem. Certifique-se de que está dentro dos limites das suas subscrições. 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Saiba mais sobre [galerias de imagens partilhadas.](./linux/shared-image-galleries.md)
+Saiba mais sobre [galerias de imagens partilhadas.](./shared-image-galleries.md)

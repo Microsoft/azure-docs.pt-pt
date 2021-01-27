@@ -10,12 +10,12 @@ ms.date: 01/15/2021
 author: dcstwh
 ms.author: weetok
 manager: anandsub
-ms.openlocfilehash: e463328df195b5a91db8ce272d138f980d000e79
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: c3c126a96c0eb2214f63a56120d0966b9a97efed
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232068"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895395"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>Parametrizar serviços ligados na Azure Data Factory
 
@@ -27,6 +27,9 @@ Pode utilizar a UI da Fábrica de Dados no portal Azure ou uma interface de prog
 
 > [!TIP]
 > Recomendamos que não parametrize palavras-passe ou segredos. Em vez disso, guarde todas as cordas de conexão no Cofre da Chave Azure e parametize o *Nome Secreto*.
+
+> [!Note]
+> Existe um bug aberto para usar "-" em nomes de parâmetros, recomendamos usar nomes sem "-" até que o bug seja resolvido.
 
 Para uma introdução e demonstração de sete minutos desta funcionalidade, veja o seguinte vídeo:
 

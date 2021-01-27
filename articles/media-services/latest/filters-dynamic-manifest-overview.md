@@ -1,6 +1,5 @@
 ---
 title: Filtrar os seus manifestos usando o Dynamic Packager
-titleSuffix: Azure Media Services
 description: Aprenda a criar filtros utilizando o Dynamic Packager para filtrar e transmitir seletivamente os seus manifestos.
 services: media-services
 documentationcenter: ''
@@ -14,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: acb30c1659c4c29e0af83da5594bdd9a7e3465d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ffdb41752630e0e5e22303ff58ecd798595a890
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89299036"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897667"
 ---
 # <a name="filter-your-manifests-using-dynamic-packager"></a>Filtrar os seus manifestos usando o Dynamic Packager
 
@@ -141,7 +140,7 @@ Para mais informações, consulte [este post de blog.](https://azure.microsoft.c
 
 ## <a name="considerations-and-limitations"></a>Considerações e limitações
 
-- Os valores para **forceEndTimestamp**, **presentationWindowDuration**e **liveBackoffDuration** não devem ser definidos para um filtro VOD. São usados apenas para cenários de filtros vivos.
+- Os valores para **forceEndTimestamp**, **presentationWindowDuration** e **liveBackoffDuration** não devem ser definidos para um filtro VOD. São usados apenas para cenários de filtros vivos.
 - Um manifesto dinâmico opera nos limites do GOP (quadros-chave), pelo que o corte tem precisão gop.
 - Pode utilizar o mesmo nome de filtro para filtros de conta e de ativos. Os filtros de ativos têm uma precedência mais elevada e sobrepõem-se aos filtros de conta.
 - Se atualizar um filtro, pode demorar até 2 minutos para o ponto final de streaming atualizar as regras. Se utilizar filtros para servir o conteúdo (e em cache do conteúdo em proxies e caches CDN), atualizar estes filtros pode resultar em falhas do leitor. Recomendamos que limpe a cache depois de atualizar o filtro. Se esta opção não for possível, considere usar um filtro diferente.
@@ -150,7 +149,7 @@ Para mais informações, consulte [este post de blog.](https://azure.microsoft.c
     - Para determinar as propriedades das faixas num ativo, [obtenha e examine o ficheiro manifesto.](#get-and-examine-manifest-files)
     - A fórmula para definir as propriedades do carimbo de tempo do filtro do ativo é: <br/>startTimestamp = &lt; tempo de início no manifesto tempo de início do filtro esperado em &gt;  +   &lt; segundos &gt; * escala de tempo
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Os seguintes artigos mostram como criar filtros programáticamente:  
 

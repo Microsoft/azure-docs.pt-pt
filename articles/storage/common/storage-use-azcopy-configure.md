@@ -1,5 +1,5 @@
 ---
-title: Configure, otimiza e resolução de problemas AzCopy com Azure Storage / Microsoft Docs
+title: Configurar, otimizar e resolver problemas AzCopy com Azure Storage | Microsoft Docs
 description: Configurar, otimizar e resolver problemas AzCopy com Azure Storage. Altere a localização ou remova os ficheiros do plano e do registo. Altere o nível de registo predefinido.
 author: normesta
 ms.service: storage
@@ -8,12 +8,12 @@ ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 23c62562299768afb5f5d87bbcf4f7b19b3235ce
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 1a319c728b918dbad7dd5f240bc7a0bfeb0c4c09
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97897863"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881049"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurar, otimizar e resolver problemas AzCopy
 
@@ -22,7 +22,7 @@ O AzCopy é um utilitário da linha de comando que pode utilizar para copiar blo
 > [!NOTE]
 > Se procura conteúdo para ajudá-lo a começar com a AzCopy, consulte qualquer um dos seguintes artigos:
 > - [Introdução ao AzCopy](storage-use-azcopy-v10.md)
-> - [Transferir dados com AzCopy e armazenamento de bolhas](storage-use-azcopy-blobs.md)
+> - [Transferir dados com AzCopy e armazenamento de bolhas](./storage-use-azcopy-v10.md#transfer-data)
 > - [Transferir dados com o AzCopy e armazenamento de ficheiros](storage-use-azcopy-files.md)
 > - [Transfira dados com baldes AzCopy e Amazon S3](storage-use-azcopy-s3.md)
 
@@ -220,5 +220,3 @@ Os níveis de registo disponíveis são: `NONE` `DEBUG` , , e `INFO` `WARNING` `
 Se pretender remover todos os ficheiros de planos e registos da sua máquina local para economizar espaço no disco, utilize o `azcopy jobs clean` comando.
 
 Para remover o plano e registar ficheiros associados a apenas um trabalho, utilize `azcopy jobs rm <job-id>` . Substitua o `<job-id>` espaço reservado neste exemplo pelo id de trabalho do trabalho.
-
-

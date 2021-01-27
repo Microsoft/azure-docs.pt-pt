@@ -7,12 +7,12 @@ ms.author: sumuth
 ms.topic: tutorial
 ms.date: 12/10/2020
 ms.custom: mvc
-ms.openlocfilehash: 15e94b647b0f12baceffc60ad1c6ab81cc84cf22
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: b4aa23079661150f40b39ff65117b7f4229a67e2
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97631963"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880899"
 ---
 # <a name="tutorial-deploy-django-app-on-aks-with-azure-database-for-postgresql---flexible-server"></a>Tutorial: Implementar aplicativo Django em AKS com Base de Dados Azure para PostgreSQL - Servidor Flexível
 
@@ -109,7 +109,7 @@ aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.12.8
 ```
 
 ## <a name="create-an-azure-database-for-postgresql---flexible-server"></a>Criar uma base de dados Azure para PostgreSQL - Servidor Flexível
-Crie um servidor flexível com o [comando de criação de servidor flexível az postgreSQL.](/azure/postgresql/flexible-server?view=azure-cli-latest&preserve-view=true) O seguinte comando cria um servidor utilizando predefinições e valores de serviço a partir do contexto local do seu Azure CLI:
+Crie um servidor flexível com o [comando de criação de servidor flexível az postgreSQL.](./index.yml?preserve-view=true&view=azure-cli-latest) O seguinte comando cria um servidor utilizando predefinições e valores de serviço a partir do contexto local do seu Azure CLI:
 
 ```azurecli-interactive
 az postgres flexible-server create --public-access <YOUR-IP-ADDRESS>
@@ -387,7 +387,7 @@ az group delete --name django-project --yes --no-wait
 > [!NOTE]
 > Quando elimina o cluster, o principal de serviço do Azure Active Directory utilizado pelo cluster do AKS não é removido. Para obter passos sobre como remover o principal de serviço, consulte [Considerações sobre e eliminação do principal de serviço AKS](../../aks/kubernetes-service-principal.md#additional-considerations). Se usou uma identidade gerida, a identidade é gerida pela plataforma e não necessita de remoção.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba como [aceder ao painel web kubernetes](../../aks/kubernetes-dashboard.md) para o seu cluster AKS
 - Saiba como ativar a [implementação contínua](../../aks/deployment-center-launcher.md)

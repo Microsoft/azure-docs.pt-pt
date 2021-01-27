@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/25/2020
-ms.openlocfilehash: f52c0296023098c755feb1bf0baba980f2988bd7
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: a489902372b0b88a0ffec07fa685ee745ec59c50
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567706"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880462"
 ---
 # <a name="server-assessment-overview-migrate-to-azure-vmware-solution"></a>Visão geral da avaliação do servidor (migrar para a Solução VMware Azure)
 
@@ -207,7 +207,7 @@ Após a determinação do valor de utilização efetiva, o armazenamento, a rede
 
 Se utilizar *como dimensionamento no local,* a Avaliação do Servidor não considera o histórico de desempenho dos VMs e discos. Em vez disso, atribui nós AVS com base no tamanho atribuído no local. O tipo de armazenamento predefinido é vSAN em AVS.
 
-[Saiba mais](https://docs.microsoft.com/azure/migrate/tutorial-assess-vmware-azure-vmware-solution#review-an-assessment) sobre como rever uma avaliação da Solução VMware Azure.
+[Saiba mais](./tutorial-assess-vmware-azure-vmware-solution.md#review-an-assessment) sobre como rever uma avaliação da Solução VMware Azure.
 
 ## <a name="confidence-ratings"></a>Classificações de confiança
 
@@ -267,6 +267,6 @@ No relatório de preparação para o Azure da avaliação do Azure VMware Soluti
 - **VMware HCX ou Enterprise**: Para máquinas VMware, a solução VMware Hybrid Cloud Extension (HCX) é a ferramenta de migração sugerida para migrar a sua carga de trabalho no local para a sua nuvem privada Azure VMware Solution (AVS). [Saiba Mais](../azure-vmware/tutorial-deploy-vmware-hcx.md).
 - **Desconhecida**: para as máquinas virtuais importadas através de um ficheiro CSV, a ferramenta de migração predefinida é desconhecida. Embora para máquinas VMware, é aconselhável utilizar a solução VMware Hybrid Cloud Extension (HCX).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Criar uma avaliação para [VMware VMware AVS](how-to-create-azure-vmware-solution-assessment.md).

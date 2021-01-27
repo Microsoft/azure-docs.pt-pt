@@ -4,12 +4,12 @@ description: Neste quickstart, você escreve código Java usando o pacote azure-
 ms.devlang: Java
 ms.topic: quickstart
 ms.date: 11/09/2020
-ms.openlocfilehash: cd95b84c4b55279b40f95eef65cb2490a55d1780
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 46dc6bed7e51a5157d7eb42dac75c0240d440780
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97630246"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881623"
 ---
 # <a name="send-messages-to-an-azure-service-bus-topic-and-receive-messages-from-subscriptions-to-the-topic-java"></a>Envie mensagens para um tópico do Azure Service Bus e receba mensagens de subscrições ao tema (Java)
 Neste quickstart, você escreve código Java usando o pacote azure-messaging-servicebus para enviar mensagens para um tópico Azure Service Bus e, em seguida, receber mensagens de subscrições para esse tópico.
@@ -221,12 +221,12 @@ Nesta página, se selecionar uma subscrição, você chega à página **de Subsc
 
 :::image type="content" source="./media/service-bus-java-how-to-use-topics-subscriptions/active-message-count.png" alt-text="Contagem de mensagens ativas" lightbox="./media/service-bus-java-how-to-use-topics-subscriptions/active-message-count.png":::
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte a seguinte documentação e amostras:
 
 - [Biblioteca de clientes Azure Service Bus para Java - Readme](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/README.md)
-- [Exemplos no GitHub](https://docs.microsoft.com/samples/azure/azure-sdk-for-java/servicebus-samples/)
-- [Referência java API](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-messaging-servicebus/7.0.0/index.html)
+- [Exemplos no GitHub](/samples/azure/azure-sdk-for-java/servicebus-samples/)
+- [Referência da API do Java](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-messaging-servicebus/7.0.0/index.html)
 
 
 [Azure SDK for Java]: /java/api/overview/azure/

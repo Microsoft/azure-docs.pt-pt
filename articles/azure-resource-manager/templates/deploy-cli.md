@@ -2,13 +2,13 @@
 title: Implementar recursos com CLI E modelo Azure
 description: Utilize o Azure Resource Manager e o Azure CLI para mobilizar recursos para a Azure. Os recursos são definidos num modelo do Resource Manager.
 ms.topic: conceptual
-ms.date: 01/15/2021
-ms.openlocfilehash: d79a5c93bf79c5851beabbba2eb3a663c6ab5999
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.date: 01/26/2021
+ms.openlocfilehash: f01409db36ca29deb2f6938ce3118cdcb20cd1a1
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251085"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881304"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Implementar recursos com modelos ARM e Azure CLI
 
@@ -103,6 +103,18 @@ az deployment group create \
 ```
 
 O exemplo anterior requer um URI acessível ao público para o modelo, que funciona para a maioria dos cenários porque o seu modelo não deve incluir dados sensíveis. Se precisar de especificar dados sensíveis (como uma palavra-passe de administração), passe esse valor como parâmetro seguro. No entanto, se quiser gerir o acesso ao modelo, considere usar [as especificações do modelo.](#deploy-template-spec)
+
+Para implementar modelos de ligação remota com trajetória relativa que são armazenados numa conta de armazenamento, utilize `query-string` para especificar o token SAS:
+
+```azurepowershell
+az deployment group create \
+  --name linkedTemplateWithRelativePath \
+  --resource-group myResourceGroup \
+  --template-uri "https://stage20210126.blob.core.windows.net/template-staging/mainTemplate.json" \
+  --query-string $sasToken
+```
+
+Para obter mais informações, consulte [utilizar o caminho relativo para modelos ligados](./linked-templates.md#linked-template).
 
 ## <a name="deployment-name"></a>Nome de implantação
 
@@ -260,7 +272,7 @@ Para implementar um modelo com cordas ou comentários multi-linhas utilizando o 
   ],
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para voltar a uma implementação bem sucedida quando tiver um erro, consulte [o Reversão do erro para uma implementação bem sucedida](rollback-on-error.md).
 - Para especificar como lidar com os recursos que existem no grupo de recursos mas não estão definidos no modelo, consulte os [modos de implementação do Gestor de Recursos Azure](deployment-modes.md).

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 456a7e4f07b2416e1d2037205574f2e7149e70e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 03f1f1659d120a2aa1b827063cb2bc84138f3655
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86185947"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896075"
 ---
 # <a name="deploy-an-amazon-web-services-vm-with-a-runbook"></a>Implementar um VM de Serviços Web da Amazon com um livro de bordo
 
@@ -53,7 +53,7 @@ Uma vez implantado o Módulo AWS PowerShell, pode agora ser autoriado um livro d
 3. Na página Runbooks, **selecione Adicionar um livro de bordo**.
 4. No painel De adicionar um painel de runbook, selecione **Quick Create** para criar um novo runbook.
 5. No painel de propriedades runbook, escreva um nome para o seu runbook.
-6. A partir da lista de drop-down **do tipo Runbook,** selecione **PowerShell**e, em seguida, clique em **Criar**.<br><br> ![Criar painel de runbook](./media/automation-scenario-aws-deployment/runbook-quickcreate-properties.png)
+6. A partir da lista de drop-down **do tipo Runbook,** selecione **PowerShell** e, em seguida, clique em **Criar**.<br><br> ![Criar painel de runbook](./media/automation-scenario-aws-deployment/runbook-quickcreate-properties.png)
 7. Quando aparecer a página Editar PowerShell Runbook, copie e cole o script PowerShell na tela de autoria do livro de bordo.<br><br> ![Runbook PowerShell Script](./media/automation-scenario-aws-deployment/runbook-powershell-script.png)<br>
    
     Note o seguinte ao trabalhar com o exemplo Do script PowerShell:
@@ -97,10 +97,10 @@ Certifique-se de que o módulo AWS PowerShell foi importado para a Azure Automat
 7. Pode visualizar o progresso do trabalho e visualizar os fluxos de saída selecionando **Todos os Registos** no painel de trabalho do runbook.<br><br> ![Saída de fluxo](./media/automation-scenario-aws-deployment/runbook-job-streams-output.png)
 8. Para confirmar que o VM está a ser a provisionado, inicie sessão na Consola de Gestão AWS se não estiver a fazer login.<br><br> ![Consola AWS implantada VM](./media/automation-scenario-aws-deployment/aws-instances-status.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
  
 * Para saber quais os livros de execução suportados, consulte os[tipos de runbook da Azure Automation](automation-runbook-types.md).
 * Para trabalhar com runbooks, consulte [Gerir os runbooks na Azure Automation.](manage-runbooks.md)
 * Para mais detalhes sobre o PowerShell, consulte [o PowerShell Docs](/powershell/scripting/overview).
 * Para suporte ao script, consulte [o suporte para scripts Native PowerShell na Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/).
-* Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
+* Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](/powershell/module/az.automation).

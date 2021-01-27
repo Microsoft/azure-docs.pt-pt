@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services embalagens e erros de origem / Microsoft Docs
+title: Azure Media Services embalagens e erros de origem
 description: Este tópico descreve erros que poderá receber do serviço Azure Media Streaming Endpoint (Orgin).
 author: IngridAtMicrosoft
 manager: femila
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: error-reference
 ms.date: 05/07/2019
 ms.author: inhenkel
-ms.openlocfilehash: 8442c52052a2016da002d392c6fe0834b3813229
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 994e5ae0647f350e0a64f35318bd5803f4ed79b2
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89295330"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98894988"
 ---
 # <a name="streaming-endpoint-origin-errors"></a>Erros do Ponto Final de Transmissão em Fluxo (Origem)
 
@@ -198,12 +198,12 @@ O servidor não consegue receber pedidos. Este erro pode ser causado por excesso
 
 Consulte o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Media Services.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 - [Encoding error codes](/rest/api/media/jobs/get#joberrorcode) (Códigos de erro de codificação)
 - [Conceitos de Azure Media Services](concepts-overview.md)
 - [Quotas e limites](limits-quotas-constraints.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Exemplo: acesso ErrorCode e Mensagem da ApiException com .NET](configure-connect-dotnet-howto.md#connect-to-the-net-client)

@@ -5,12 +5,12 @@ ms.date: 06/10/2019
 ms.topic: conceptual
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: 41aa7f251bc12fd889a71f65da83c4730ebda9a7
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 0eedd5ce67e96c9d732cf24cbe56a8c3c5e92aaa
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98789638"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880496"
 ---
 # <a name="service-fabric-releases"></a>Lançamentos de tecido de serviço
 
@@ -41,14 +41,13 @@ Estamos entusiasmados por anunciar que o lançamento 7.2 do tempo de execução 
 - [**O apoio à governação dos recursos foi reforçado:**](./service-fabric-resource-governance.md)permitindo pedidos e limitações especificações para os recursos de cpu e memória.
 
 ### <a name="service-fabric-72-releases"></a>Lançamentos de Tecido de Serviço 7.2
-| Data da versão | Libertar | Mais informações |
+| Data da versão | Libertar | Saiba mais |
 |---|---|---|
 | 21 de outubro de 2020 | [Tecido de Serviço Azure 7.2](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-2-release/ba-p/1805653)  | [Notas de versão](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-72-releasenotes.md)|
 | 9 de novembro de 2020 | [Azure Service Fabric 7.2 Second Refresh Release](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-2-second-refresh-release/ba-p/1874738) | [Notas de versão](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-72CU2-releasenotes.md) |
 | 10 de novembro de 2020  | Azure Service Fabric 7.2 Terceiro Lançamento de Atualização | [Notas de versão](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-72CU3-releasenotes.md) |
 | 2 de dezembro de 2020 | [Azure Service Fabric 7.2 Quarto Lançamento de Atualização](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-2-fourth-refresh-release/ba-p/1950584) | [Notas de versão](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-72CU4.md)
-
-
+| 25 de janeiro de 2021 | [Azure Service Fabric 7.2 Quinto Lançamento de Atualização](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-2-fifth-refresh-release/ba-p/2096575) | [Notas de versão](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-72CU5-ReleaseNotes.md)
 
 ## <a name="previous-versions"></a>Versões anteriores
 
@@ -97,7 +96,7 @@ Também publicámos atualizações até ao fim da data de suporte para grandes l
     - Corrigir a corrupção de dados
                  
 #### <a name="service-fabric-71-releases"></a>Lançamentos de Tecido de Serviço 7.1
-| Data da versão | Libertar | Mais informações |
+| Data da versão | Libertar | Saiba mais |
 |---|---|---|
 | 20 de abril de 2020 | [Tecido de Serviço Azure 7.1](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-1-release/ba-p/1311373)  | [Notas de versão](https://github.com/microsoft/service-fabric/tree/master/release_notes/Service-Fabric-71-releasenotes.md)|
 | 16 de junho de 2020 | [Microsoft Azure Service Fabric 7.1 Primeira Atualização](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-1-first-refresh-release/ba-p/1466517) | [Notas de versão](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-71CU1-releasenotes.md)
@@ -135,7 +134,7 @@ Além disso, esta versão contém outras novidades, correções de bugs e suport
 
 #### <a name="service-fabric-70-releases"></a>Lançamentos de Tecido de Serviço 7.0
 
-| Data da versão | Libertar | Mais informações |
+| Data da versão | Libertar | Saiba mais |
 |---|---|---|
 | 18 de novembro de 2019 | [Tecido de Serviço Azure 7.0](https://techcommunity.microsoft.com/t5/Azure-Service-Fabric/Service-Fabric-7-0-Release/ba-p/1015482)  | [Notas de versão](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_70.md)|
 | 30 de janeiro de 2020 | [Azure Service Fabric 7.0 Refresh Release](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-0-second-refresh-release/ba-p/1137690)  | [Notas de versão](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-70CU2-releasenotes.md)|
@@ -175,7 +174,7 @@ Para mais detalhes, consulte as [notas de lançamento do Tecido de Serviço 6.5]
 
 #### <a name="service-fabric-65-releases"></a>Lançamentos de Tecido de Serviço 6.5
 
-| Data da versão | Libertar | Mais informações |
+| Data da versão | Libertar | Saiba mais |
 |---|---|---|
 | 11 de junho de 2019 | [Tecido de Serviço Azure 6.5](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric)  | [Notas de versão](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65.pdf)|
 | 2 de julho de 2019 | [Azure Service Fabric 6.5 Refresh Release](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric)  | [Notas de versão](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65CU1.pdf)  |
@@ -186,7 +185,7 @@ Para mais detalhes, consulte as [notas de lançamento do Tecido de Serviço 6.5]
 
 ### <a name="service-fabric-64-releases"></a>Lançamentos de Tecido de Serviço 6.4
 
-| Data da versão | Libertar | Mais informações |
+| Data da versão | Libertar | Saiba mais |
 |---|---|---|
 | 30 de novembro de 2018 | [Tecido de Serviço Azure 6.4](https://blogs.msdn.microsoft.com/azureservicefabric/2018/11/30/azure-service-fabric-6-4-release/)  | [Notas de versão](https://msdnshared.blob.core.windows.net/media/2018/12/Service-Fabric-6.4-Release.pdf)|
 | 12 de dezembro de 2018 | [Azure Service Fabric 6.4 Refresh Release para clusters Windows](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric)  | [Notas de versão](https://msdnshared.blob.core.windows.net/media/2018/12/Links.pdf)  |

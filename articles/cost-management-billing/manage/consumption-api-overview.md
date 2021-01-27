@@ -8,12 +8,12 @@ ms.subservice: cost-management
 ms.topic: reference
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: b00b5a46a0cdeb95c357da521326fe2bb678490b
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
-ms.translationtype: HT
+ms.openlocfilehash: 4b8b24bacaee87dc9868fab1d5d071201a7215b8
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132623"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897735"
 ---
 # <a name="azure-consumption-api-overview"></a>Descrição geral da API de consumo do Azure
 
@@ -37,14 +37,14 @@ Utilize a API de Detalhes de Utilização para obter os dados de utilização e 
 
 A API inclui:
 
--   **Dados de Consumo de Nível de Medição** – veja os dados, incluindo o custo de utilização, o medidor que emite o custo e a que recurso do Azure pertence o custo. Todos os registos de detalhes de utilização são mapeados para um registo diário.
--   **Controlo de acesso baseado em funções do Azure (RBAC do Azure)** – configure políticas de acesso no [portal do Azure](https://portal.azure.com), na [CLI do Azure](../../role-based-access-control/role-assignments-cli.md) ou nos [cmdlets do Azure PowerShell](/powershell/azure/) para especificar que utilizadores ou aplicações podem ter acesso aos dados de utilização da subscrição. Os chamadores devem utilizar tokens do Azure Active Directory padrão para a autenticação. Adicione o chamador à função Leitor de Faturação, Leitor, Proprietário ou Contribuidor para obter acesso aos dados de utilização de uma subscrição específica do Azure.
--   **Filtragem** – corte o conjunto de resultados da API para obter um conjunto menor de registos de detalhes de utilização com os seguintes filtros:
+-    **Dados de Consumo de Nível de Medição** – veja os dados, incluindo o custo de utilização, o medidor que emite o custo e a que recurso do Azure pertence o custo. Todos os registos de detalhes de utilização são mapeados para um registo diário.
+-    **Azure control de acesso baseado em funções (Azure RBAC)** - Configurar as políticas de acesso no [portal Azure](https://portal.azure.com), os cmdlets [Azure CLI](../../role-based-access-control/role-assignments-cli.md) ou [Azure PowerShell](/powershell/azure/) para especificar quais os utilizadores ou aplicações que podem ter acesso aos dados de utilização da subscrição. Os chamadores devem utilizar tokens do Azure Active Directory padrão para a autenticação. Adicione o chamador à função Leitor de Faturação, Leitor, Proprietário ou Contribuidor para obter acesso aos dados de utilização de uma subscrição específica do Azure.
+-    **Filtragem** – corte o conjunto de resultados da API para obter um conjunto menor de registos de detalhes de utilização com os seguintes filtros:
     - Fim de utilização/início de utilização
     - Grupo de Recursos
     - Nome do Recurso
--   **Agregação de Dados** – utilize o OData para aplicar expressões para agregar os detalhes de utilização por etiquetas ou propriedades de filtro
--   **Utilização para diferentes tipos de oferta** – as informações de detalhes de utilização estão atualmente disponíveis para clientes Enterprise e Web Direct.
+-    **Agregação de Dados** – utilize o OData para aplicar expressões para agregar os detalhes de utilização por etiquetas ou propriedades de filtro
+-    **Utilização para diferentes tipos de oferta** – as informações de detalhes de utilização estão atualmente disponíveis para clientes Enterprise e Web Direct.
 
 Para obter mais informações, veja a especificação técnica da [Usage Details API](/rest/api/consumption/usagedetails) (API de Detalhes de Utilização).
 
@@ -54,13 +54,13 @@ Utilize a API de Custos do Marketplace para obter dados de utilização e de cus
 
 A API inclui:
 
--   **Dados de Consumo de Nível de Medição** – veja os dados, incluindo o custo de utilização do Marketplace, o medidor que emite o encargo e a que recurso pertence o encargo. Todos os registos de detalhes de utilização são mapeados para um registo diário.
--   **Controlo de acesso baseado em funções do Azure (RBAC do Azure)** – configure políticas de acesso no [portal do Azure](https://portal.azure.com), na [CLI do Azure](../../role-based-access-control/role-assignments-cli.md) ou nos [cmdlets do Azure PowerShell](/powershell/azure/) para especificar que utilizadores ou aplicações podem ter acesso aos dados de utilização da subscrição. Os chamadores devem utilizar tokens do Azure Active Directory padrão para a autenticação. Adicione o chamador à função Leitor de Faturação, Leitor, Proprietário ou Contribuidor para obter acesso aos dados de utilização de uma subscrição específica do Azure.
--   **Filtragem** – corte o conjunto de resultados da API para obter um conjunto menor de registos do Marketplace com os seguintes filtros:
+-    **Dados de Consumo de Nível de Medição** – veja os dados, incluindo o custo de utilização do Marketplace, o medidor que emite o encargo e a que recurso pertence o encargo. Todos os registos de detalhes de utilização são mapeados para um registo diário.
+-    **Azure control de acesso baseado em funções (Azure RBAC)** - Configurar as políticas de acesso no [portal Azure](https://portal.azure.com), os cmdlets [Azure CLI](../../role-based-access-control/role-assignments-cli.md) ou [Azure PowerShell](/powershell/azure/) para especificar quais os utilizadores ou aplicações que podem ter acesso aos dados de utilização da subscrição. Os chamadores devem utilizar tokens do Azure Active Directory padrão para a autenticação. Adicione o chamador à função Leitor de Faturação, Leitor, Proprietário ou Contribuidor para obter acesso aos dados de utilização de uma subscrição específica do Azure.
+-    **Filtragem** – corte o conjunto de resultados da API para obter um conjunto menor de registos do Marketplace com os seguintes filtros:
     - Início de utilização/fim de utilização
     - Grupo de Recursos
     - Nome do Recurso
--   **Utilização para diferentes tipos de oferta** – as informações do Marketplace estão atualmente disponíveis para clientes Enterprise e Web Direct.
+-    **Utilização para diferentes tipos de oferta** – as informações do Marketplace estão atualmente disponíveis para clientes Enterprise e Web Direct.
 
 Para obter mais informações, veja a especificação técnica da [Marketplace Charges API](/rest/api/consumption/marketplaces) (API de Encargos do Marketplace).
 
@@ -70,8 +70,8 @@ Os clientes Enterprise podem utilizar a API de Saldos para obter um resumo mensa
 
 A API inclui:
 
--   **Controlo de acesso baseado em funções do Azure (RBAC do Azure)** – configure políticas de acesso no [portal do Azure](https://portal.azure.com), na [CLI do Azure](../../role-based-access-control/role-assignments-cli.md) ou nos [cmdlets do Azure PowerShell](/powershell/azure/) para especificar que utilizadores ou aplicações podem ter acesso aos dados de utilização da subscrição. Os chamadores devem utilizar tokens do Azure Active Directory padrão para a autenticação. Adicione o chamador à função Leitor de Faturação, Leitor, Proprietário ou Contribuidor para obter acesso aos dados de utilização de uma subscrição específica do Azure.
--   **Apenas Clientes Enterprise** – esta API está disponível apenas para clientes EA.
+-    **Azure control de acesso baseado em funções (Azure RBAC)** - Configurar as políticas de acesso no [portal Azure](https://portal.azure.com), os cmdlets [Azure CLI](../../role-based-access-control/role-assignments-cli.md) ou [Azure PowerShell](/powershell/azure/) para especificar quais os utilizadores ou aplicações que podem ter acesso aos dados de utilização da subscrição. Os chamadores devem utilizar tokens do Azure Active Directory padrão para a autenticação. Adicione o chamador à função Leitor de Faturação, Leitor, Proprietário ou Contribuidor para obter acesso aos dados de utilização de uma subscrição específica do Azure.
+-    **Apenas Clientes Enterprise** – esta API está disponível apenas para clientes EA.
     - Os clientes devem ter permissões de Administrador do Enterprise para chamar esta API
 
 Para obter mais informações, veja a especificação técnica da [Balances API](/rest/api/consumption/balances) (API de Saldos).
@@ -82,15 +82,15 @@ Os clientes Enterprise podem utilizar esta API para criar orçamentos de custo o
 
 A API inclui:
 
--   **Controlo de acesso baseado em funções do Azure (RBAC do Azure)** – configure políticas de acesso no [portal do Azure](https://portal.azure.com), na [CLI do Azure](../../role-based-access-control/role-assignments-cli.md) ou nos [cmdlets do Azure PowerShell](/powershell/azure/) para especificar que utilizadores ou aplicações podem ter acesso aos dados de utilização da subscrição. Os chamadores devem utilizar tokens do Azure Active Directory padrão para a autenticação. Adicione o chamador à função Leitor de Faturação, Leitor, Proprietário ou Contribuidor para obter acesso aos dados de utilização de uma subscrição específica do Azure.
--   **Apenas Clientes Enterprise** – esta API está apenas disponível para clientes EA.
--   **Notificações Configuráveis** – especifique os utilizadores que serão notificados quando o orçamento for ultrapassado.
--   **Orçamentos com Base na Utilização ou no Custo** – crie o seu orçamento com base no consumo ou no custo conforme a necessidade do seu cenário.
--   **Filtragem** – filtre o seu orçamento para um subconjunto menor de recursos através dos seguintes filtros configuráveis
+-    **Azure control de acesso baseado em funções (Azure RBAC)** - Configurar as políticas de acesso no [portal Azure](https://portal.azure.com), os cmdlets [Azure CLI](../../role-based-access-control/role-assignments-cli.md) ou [Azure PowerShell](/powershell/azure/) para especificar quais os utilizadores ou aplicações que podem ter acesso aos dados de utilização da subscrição. Os chamadores devem utilizar tokens do Azure Active Directory padrão para a autenticação. Adicione o chamador à função Leitor de Faturação, Leitor, Proprietário ou Contribuidor para obter acesso aos dados de utilização de uma subscrição específica do Azure.
+-    **Apenas Clientes Enterprise** – esta API está apenas disponível para clientes EA.
+-    **Notificações Configuráveis** – especifique os utilizadores que serão notificados quando o orçamento for ultrapassado.
+-    **Orçamentos com Base na Utilização ou no Custo** – crie o seu orçamento com base no consumo ou no custo conforme a necessidade do seu cenário.
+-    **Filtragem** – filtre o seu orçamento para um subconjunto menor de recursos através dos seguintes filtros configuráveis
     - Grupo de Recursos
     - Nome do Recurso
     - Medidor
--   **Períodos de tempo de orçamento configuráveis** – especifique a frequência com que o orçamento deve ser redefinido e por quanto tempo o orçamento é válido.
+-    **Períodos de tempo de orçamento configuráveis** – especifique a frequência com que o orçamento deve ser redefinido e por quanto tempo o orçamento é válido.
 
 Para obter mais informações, veja a especificação técnica da [Budgets API](/rest/api/consumption/budgets) (API de Orçamentos).
 
@@ -100,11 +100,11 @@ Utilize esta API para obter recomendações para comprar Instâncias de VM Reser
 
 A API inclui:
 
--   **Controlo de acesso baseado em funções do Azure (RBAC do Azure)** – configure políticas de acesso no [portal do Azure](https://portal.azure.com), na [CLI do Azure](../../role-based-access-control/role-assignments-cli.md) ou nos [cmdlets do Azure PowerShell](/powershell/azure/) para especificar que utilizadores ou aplicações podem ter acesso aos dados de utilização da subscrição. Os chamadores devem utilizar tokens do Azure Active Directory padrão para a autenticação. Adicione o chamador à função Leitor de Faturação, Leitor, Proprietário ou Contribuidor para obter acesso aos dados de utilização de uma subscrição específica do Azure.
--   **Filtragem** – personalize os seus resultados de recomendação com os seguintes filtros:
+-    **Azure control de acesso baseado em funções (Azure RBAC)** - Configurar as políticas de acesso no [portal Azure](https://portal.azure.com), os cmdlets [Azure CLI](../../role-based-access-control/role-assignments-cli.md) ou [Azure PowerShell](/powershell/azure/) para especificar quais os utilizadores ou aplicações que podem ter acesso aos dados de utilização da subscrição. Os chamadores devem utilizar tokens do Azure Active Directory padrão para a autenticação. Adicione o chamador à função Leitor de Faturação, Leitor, Proprietário ou Contribuidor para obter acesso aos dados de utilização de uma subscrição específica do Azure.
+-    **Filtragem** – personalize os seus resultados de recomendação com os seguintes filtros:
     - Âmbito
     - Período retroativo
--   **Informações de reserva para diferentes tipos de oferta** – as informações de reserva estão atualmente disponíveis para clientes Enterprise e Web Direct.
+-    **Informações de reserva para diferentes tipos de oferta** – as informações de reserva estão atualmente disponíveis para clientes Enterprise e Web Direct.
 
 Para obter mais informações, veja a especificação técnica da [Reservation Recommendations API](/rest/api/consumption/reservationrecommendations) (API de Recomendações de Reserva).
 
@@ -114,10 +114,10 @@ Utilize a API de Detalhes das Reservas para ver informações sobre as reservas 
 
 A API inclui:
 
--   **Controlo de acesso baseado em funções do Azure (RBAC do Azure)** – configure políticas de acesso no [portal do Azure](https://portal.azure.com), na [CLI do Azure](../../role-based-access-control/role-assignments-cli.md) ou nos [cmdlets do Azure PowerShell](/powershell/azure/) para especificar que utilizadores ou aplicações podem ter acesso aos dados de utilização da subscrição. Os chamadores devem utilizar tokens do Azure Active Directory padrão para a autenticação. Adicione o chamador à função Leitor de Faturação, Leitor, Proprietário ou Contribuidor para obter acesso aos dados de utilização de uma subscrição específica do Azure.
--   **Filtragem** – corte o conjunto de resultados da API para obter um conjunto menor de reservas com os seguintes filtros:
+-    **Azure control de acesso baseado em funções (Azure RBAC)** - Configurar as políticas de acesso no [portal Azure](https://portal.azure.com), os cmdlets [Azure CLI](../../role-based-access-control/role-assignments-cli.md) ou [Azure PowerShell](/powershell/azure/) para especificar quais os utilizadores ou aplicações que podem ter acesso aos dados de utilização da subscrição. Os chamadores devem utilizar tokens do Azure Active Directory padrão para a autenticação. Adicione o chamador à função Leitor de Faturação, Leitor, Proprietário ou Contribuidor para obter acesso aos dados de utilização de uma subscrição específica do Azure.
+-    **Filtragem** – corte o conjunto de resultados da API para obter um conjunto menor de reservas com os seguintes filtros:
     - Intervalo de datas
--   **Informações de reserva para diferentes tipos de oferta** – as informações de reserva estão atualmente disponíveis para clientes Enterprise e Web Direct.
+-    **Informações de reserva para diferentes tipos de oferta** – as informações de reserva estão atualmente disponíveis para clientes Enterprise e Web Direct.
 
 Para obter mais informações, veja a especificação técnica da [Reservation Details API](/rest/api/consumption/reservationsdetails) (API de Detalhes de Reserva).
 
@@ -127,11 +127,11 @@ Utilize esta API para ver informações agregadas sobre as reservas de VMs compr
 
 A API inclui:
 
--   **Controlo de acesso baseado em funções do Azure (RBAC do Azure)** – configure políticas de acesso no [portal do Azure](https://portal.azure.com), na [CLI do Azure](../../role-based-access-control/role-assignments-cli.md) ou nos [cmdlets do Azure PowerShell](/powershell/azure/) para especificar que utilizadores ou aplicações podem ter acesso aos dados de utilização da subscrição. Os chamadores devem utilizar tokens do Azure Active Directory padrão para a autenticação. Adicione o chamador à função Leitor de Faturação, Leitor, Proprietário ou Contribuidor para obter acesso aos dados de utilização de uma subscrição específica do Azure.
--   **Filtragem** – personalize os seus resultados com um detalhamento diário com o seguinte filtro:
+-    **Azure control de acesso baseado em funções (Azure RBAC)** - Configurar as políticas de acesso no [portal Azure](https://portal.azure.com), os cmdlets [Azure CLI](../../role-based-access-control/role-assignments-cli.md) ou [Azure PowerShell](/powershell/azure/) para especificar quais os utilizadores ou aplicações que podem ter acesso aos dados de utilização da subscrição. Os chamadores devem utilizar tokens do Azure Active Directory padrão para a autenticação. Adicione o chamador à função Leitor de Faturação, Leitor, Proprietário ou Contribuidor para obter acesso aos dados de utilização de uma subscrição específica do Azure.
+-    **Filtragem** – personalize os seus resultados com um detalhamento diário com o seguinte filtro:
     - Data de Utilização
--   **Informações de reserva para diferentes tipos de oferta** – as informações de reserva estão atualmente disponíveis para clientes Enterprise e Web Direct.
--   **Agregações diárias ou mensais** – os chamadores podem especificar se querem os seus dados de resumo de reservas com detalhamento diário ou mensal.
+-    **Informações de reserva para diferentes tipos de oferta** – as informações de reserva estão atualmente disponíveis para clientes Enterprise e Web Direct.
+-    **Agregações diárias ou mensais** – os chamadores podem especificar se querem os seus dados de resumo de reservas com detalhamento diário ou mensal.
 
 Para obter mais informações, veja a especificação técnica da [Reservation Summaries API](/rest/api/consumption/reservationssummaries) (API de Resumos de Reserva).
 
@@ -140,8 +140,8 @@ O cliente Enterprise pode utilizar esta API para obter os preços personalizados
 
 A API inclui:
 
--   **Controlo de acesso baseado em funções do Azure (RBAC do Azure)** – configure políticas de acesso no [portal do Azure](https://portal.azure.com), na [CLI do Azure](../../role-based-access-control/role-assignments-cli.md) ou nos [cmdlets do Azure PowerShell](/powershell/azure/) para especificar que utilizadores ou aplicações podem ter acesso aos dados de utilização da subscrição. Os chamadores devem utilizar tokens do Azure Active Directory padrão para a autenticação. Adicione o chamador à função Leitor de Faturação, Leitor, Proprietário ou Contribuidor para obter acesso aos dados de utilização de uma subscrição específica do Azure.
--   **Apenas Clientes Enterprise** – esta API está apenas disponível para clientes EA. Os clientes Web Direct devem utilizar a API RateCard para obter os preços.
+-    **Azure control de acesso baseado em funções (Azure RBAC)** - Configurar as políticas de acesso no [portal Azure](https://portal.azure.com), os cmdlets [Azure CLI](../../role-based-access-control/role-assignments-cli.md) ou [Azure PowerShell](/powershell/azure/) para especificar quais os utilizadores ou aplicações que podem ter acesso aos dados de utilização da subscrição. Os chamadores devem utilizar tokens do Azure Active Directory padrão para a autenticação. Adicione o chamador à função Leitor de Faturação, Leitor, Proprietário ou Contribuidor para obter acesso aos dados de utilização de uma subscrição específica do Azure.
+-    **Apenas Clientes Enterprise** – esta API está apenas disponível para clientes EA. Os clientes Web Direct devem utilizar a API RateCard para obter os preços.
 
 Para obter mais informações, veja a especificação técnica da [Price Sheet API](/rest/api/consumption/pricesheet) (API de Folha de Preços).
 
@@ -149,13 +149,13 @@ Para obter mais informações, veja a especificação técnica da [Price Sheet A
 
 Veja a seguir alguns dos cenários que se tornaram possíveis com as APIs de consumo:
 
--   **Reconciliação da Fatura** – A Microsoft faturou-me o montante correto?  De quanto é a minha fatura e posso ser eu a calculá-la?
--   **Encargos Cruzados** – Agora que sei quanto está a ser faturado, quem na minha organização terá de pagar?
--   **Otimização de Custos** – Sei o montante que me foi faturado... Como posso aproveitar ao máximo o dinheiro que estou a gastar no Azure?
--   **Controlo de Custos** – Quero ver quanto estou a gastar e como estou utilizar o Azure ao longo do tempo. Quais são as tendências? Como posso melhorar?
--   **Gastos do Azure durante o mês**  – Qual o montante dos gastos do mês atual até hoje? É necessário fazer ajustes nos meus gastos e/ou na utilização do Azure? Em que alturas do mês é maior o consumo do Azure?
--   **Configurar alertas** – Gostaria de configurar alertas de consumo baseado em recursos ou alertas monetários com base num orçamento.
+-    **Reconciliação da Fatura** – A Microsoft faturou-me o montante correto?  De quanto é a minha fatura e posso ser eu a calculá-la?
+-    **Encargos Cruzados** – Agora que sei quanto está a ser faturado, quem na minha organização terá de pagar?
+-    **Otimização de Custos** – Sei o montante que me foi faturado... Como posso aproveitar ao máximo o dinheiro que estou a gastar no Azure?
+-    **Controlo de Custos** – Quero ver quanto estou a gastar e como estou utilizar o Azure ao longo do tempo. Quais são as tendências? Como posso melhorar?
+-    **Azure gastar durante o mês** - Quanto é que o meu mês atual gasta até à data? É necessário fazer ajustes nos meus gastos e/ou na utilização do Azure? Em que alturas do mês é maior o consumo do Azure?
+-    **Configurar alertas** – Gostaria de configurar alertas de consumo baseado em recursos ou alertas monetários com base num orçamento.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para obter informações sobre como utilizar as APIs de Faturação do Azure para obter informações de forma programática sobre a utilização do Azure, veja [Descrição geral da API de Faturação do Azure](usage-rate-card-overview.md).
+- Para obter informações sobre a utilização de APIs REST para todos os serviços Azure, consulte [a visão geral dos preços de venda a retalho do Azure](/rest/api/cost-management/retail-prices/azure-retail-prices).

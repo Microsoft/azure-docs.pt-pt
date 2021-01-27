@@ -1,6 +1,5 @@
 ---
 title: Codificação de vídeo e áudio com Serviços de Media
-titleSuffix: Azure Media Services
 description: Este artigo explica sobre a codificação de vídeo e áudio com a Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -13,12 +12,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 8533c99011232385e31f4e698743bbb1c6c00bc5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 159336d3e8949739cb00dbe66ed82fa90256dcfd
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89300209"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897905"
 ---
 # <a name="encoding-video-and-audio-with-media-services"></a>Codificação de vídeo e áudio com Serviços de Media
 
@@ -154,7 +153,7 @@ Para obter mais informações, veja os [preços](https://azure.microsoft.com/pri
 
 Consulte o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Media Services.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Faça upload, codificação e transmissão utilizando os Serviços de Mídia](stream-files-tutorial-with-api.md).
 * [Codificar a partir de um URL HTTPS utilizando predefinições incorporadas](job-input-from-http-how-to.md).

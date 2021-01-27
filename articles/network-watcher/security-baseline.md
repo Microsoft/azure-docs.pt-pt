@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 598f925d939694ea47605b0e8ea2e63872db7811
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 3f16589765752a2a635ccd055e7d55de8b9ce330
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201251"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880021"
 ---
 # <a name="azure-security-baseline-for-network-watcher"></a>Linha de segurança Azure para Observador de Rede
 
@@ -429,7 +429,7 @@ Pode agilizar este processo criando definições de diagnóstico para contas de 
 
 * [Parâmetros IPSec suportados para Azure VPN Gateway](./network-watcher-diagnose-on-premises-connectivity.md)
 
-* [Como configurar uma ligação site-to-site no portal Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+* [Como configurar uma ligação site-to-site no portal Azure](../vpn-gateway/tutorial-site-to-site-portal.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
@@ -957,7 +957,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 **Responsabilidade**: Partilhada
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte a [referência de segurança Azure](../security/benchmarks/overview.md)
 - Saiba mais sobre as [linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md)

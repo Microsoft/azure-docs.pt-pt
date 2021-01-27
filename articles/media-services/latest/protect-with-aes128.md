@@ -1,25 +1,9 @@
 ---
-title: Encrypt vídeo com AES-128
-titleSuffix: Azure Media Services
-description: Saiba como encriptar o vídeo com encriptação AES de 128 bits e como utilizar o serviço de entrega chave nos Serviços Azure Media.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: tutorial
-ms.date: 08/31/2020
-ms.author: inhenkel
-ms.openlocfilehash: 5347479d32dc9f4909483dc63891e8057fd7ff86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89289348"
+título: Criptografe o vídeo com a AES-128 : Descrição do Azure Media Services: Saiba como encriptar o vídeo com encriptação AES 128-bit e como utilizar o serviço de entrega chave nos Serviços Azure Media.
+serviços: media-services documentationcenter: '' autor: IngridAtMicrosoft manager: femila editor: ''
+
+ms.service: media-services ms.workload: media ms.tgt_pltfrm: na ms.devlang: na ms.topic: tutorial ms.date: 08/31/2020 ms.author: inhenkel
+
 ---
 # <a name="tutorial-encrypt-video-with-aes-128-and-use-the-key-delivery-service"></a>Tutorial: Criptografe o vídeo com a AES-128 e use o serviço de entrega de chaves
 
@@ -128,7 +112,7 @@ Depois de concluída a codificação e de a política de chave de conteúdo esta
 
 O processo de criação do **Localizador de Streaming** chama-se publicação. Por predefinição, o **Localizador de Streaming** é válido imediatamente após a edição da API. Dura até ser apagado, a não ser que configuure os tempos de início e fim opcionais.
 
-Ao criar um [localizador de streaming,](/rest/api/media/streaminglocators)terá de especificar o **nome streamingPolicyName**desejado. Neste tutorial, estamos a usar uma das PredefinedStreamingPolicies, que diz à Azure Media Services como publicar os conteúdos para streaming. Neste exemplo, é aplicada a encriptação AES Envelope (esta encriptação também é conhecida como encriptação ClearKey porque a chave é entregue ao cliente de reprodução através de HTTPS e não de uma licença DRM).
+Ao criar um [localizador de streaming,](/rest/api/media/streaminglocators)terá de especificar o **nome streamingPolicyName** desejado. Neste tutorial, estamos a usar uma das PredefinedStreamingPolicies, que diz à Azure Media Services como publicar os conteúdos para streaming. Neste exemplo, é aplicada a encriptação AES Envelope (esta encriptação também é conhecida como encriptação ClearKey porque a chave é entregue ao cliente de reprodução através de HTTPS e não de uma licença DRM).
 
 > [!IMPORTANT]
 > Ao utilizar um [StreamingPolicy](/rest/api/media/streamingpolicies)personalizado, deverá conceber um conjunto limitado de tais políticas para a sua conta De Serviço de Media e reutilizá-las para os seus Localizadores de Streaming sempre que forem necessárias as mesmas opções e protocolos de encriptação. A conta dos Serviços de Multimédia tem uma quota para o número de entradas de StreamingPolicy. Não devias estar a criar um novo StreamingPolicy para cada Localizador de Streaming.
@@ -145,7 +129,7 @@ O ContentKeyIdentifierClaim é utilizado na **Política de Chave de Conteúdo,**
 
 ## <a name="build-a-dash-streaming-url"></a>Criar um URL de transmissão em fluxo DASH
 
-Agora que o [Localizador de Streaming](/rest/api/media/streaminglocators) foi criado, pode obter os URLs de streaming. Para construir um URL, é necessário concatenar o nome de anfitrião [streamingEndpoint](/rest/api/media/streamingendpoints) e o caminho **do localizador de streaming.** Nesta amostra, é utilizado o ponto final de streaming *predefinido.* **Streaming Endpoint** Quando criar uma conta de Serviço de Mídia, este **ponto final de streaming** *predefinido* estará num estado parado, pelo que tem de ligar para **o Start**.
+Agora que o [Localizador de Streaming](/rest/api/media/streaminglocators) foi criado, pode obter os URLs de streaming. Para construir um URL, é necessário concatenar o nome de anfitrião [streamingEndpoint](/rest/api/media/streamingendpoints) e o caminho **do localizador de streaming.** Nesta amostra, é utilizado o ponto final de streaming *predefinido.*  Quando criar uma conta de Serviço de Mídia, este **ponto final de streaming** *predefinido* estará num estado parado, pelo que tem de ligar para **o Start**.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#GetMPEGStreamingUrl)]
 
@@ -173,7 +157,7 @@ Consulte o artigo da [comunidade Azure Media Services](media-services-community.
 
 * Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e Política de Privacidade da Google, Inc.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Proteger com DRM](protect-with-drm.md)

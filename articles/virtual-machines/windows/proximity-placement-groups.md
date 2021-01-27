@@ -8,17 +8,17 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: 9ea986b338d977102d78e9c12bcbe5b2f2c510e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4de71be8c88264d2cfb513a7f0214515058b5185
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87083451"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878329"
 ---
 # <a name="deploy-vms-to-proximity-placement-groups-using-powershell"></a>Implementar VMs para grupos de colocação de proximidade usando PowerShell
 
 
-Para obter VMs o mais próximo possível, alcançando a menor latência possível, deve implantá-los dentro de um [grupo de colocação de proximidade](co-location.md#proximity-placement-groups).
+Para obter VMs o mais próximo possível, alcançando a menor latência possível, deve implantá-los dentro de um [grupo de colocação de proximidade](../co-location.md#proximity-placement-groups).
 
 Um grupo de colocação de proximidade é um agrupamento lógico usado para garantir que os recursos de computação Azure estão fisicamente localizados perto uns dos outros. Os grupos de colocação de proximidade são úteis para cargas de trabalho onde a baixa latência é um requisito.
 
@@ -171,6 +171,6 @@ Update-AzVmss -VirtualMachineScaleSet $vmss -VMScaleSetName $vmss.Name -Resource
 Start-AzVmss -VMScaleSetName $vmss.Name -ResourceGroupName $vmss.ResourceGroupName
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Também pode usar o [CLI Azure](../linux/proximity-placement-groups.md) para criar grupos de colocação de proximidade.

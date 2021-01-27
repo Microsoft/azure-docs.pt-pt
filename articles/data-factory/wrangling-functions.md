@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/19/2021
-ms.openlocfilehash: a88f9fab2b10271aa7856a6d0b5ee114f46cfb49
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 659f6527d43e1b45a11fddf774050ca6d42bfe12
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98634136"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896668"
 ---
 # <a name="transformation-functions-in-power-query-for-data-wrangling"></a>Funções de transformação na Consulta de Poder para a luta de dados
 
@@ -24,7 +24,7 @@ A disputa de dados na Azure Data Factory permite-lhe fazer a preparação de dad
 
 Atualmente nem todas as funções power query M são suportadas para a luta de dados, apesar de estarem disponíveis durante a autoria. Ao construir os seus mash-ups, será solicitado com a seguinte mensagem de erro se uma função não for suportada:
 
-`The Wrangling Data Flow is invalid. Expression.Error: The transformation logic is not supported. Please try a simpler expression.`
+`UserQuery : Expression.Error: The transformation logic is not supported as it requires dynamic access to rows of data, which cannot be scaled out.`
 
 Abaixo está uma lista de funções de Consulta de Energia M suportadas.
 
@@ -96,7 +96,7 @@ Manter e remover a parte superior, manter o alcance (funções M correspondentes
 | Table.Distinct | A remoção de linhas duplicadas não está suportada. |
 | Table.RemoveLastN | Remover as linhas inferiores não está suportada. |
 | Table.RowCount | Não suportado, mas pode ser alcançado adicionando uma coluna personalizada contendo o valor 1, em seguida, agregando essa coluna com List.Sum. O Grupo.Grupo é apoiado. | 
-| Manipulação de erros de nível de linha | Atualmente, o tratamento de erros de nível de linha não está suportado. Por exemplo, para filtrar valores não numéricos de uma coluna, uma abordagem seria transformar a coluna de texto num número. Todas as células que não se transformam estarão num estado de erro e precisam de ser filtradas. Este cenário não é possível na discussão do fluxo de dados. |
+| Manipulação de erros de nível de linha | Atualmente, o tratamento de erros de nível de linha não está suportado. Por exemplo, para filtrar valores não numéricos de uma coluna, uma abordagem seria transformar a coluna de texto num número. Todas as células que não se transformam estarão num estado de erro e precisam de ser filtradas. Este cenário não é possível em M escalado. |
 | Table.Transpose | Não suportado |
 | Table.Pivot | Não suportado |
 

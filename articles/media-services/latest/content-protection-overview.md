@@ -1,6 +1,5 @@
 ---
 title: Proteja o seu conteúdo com a encriptação dinâmica V3 dos Media Services
-titleSuffix: Azure Media Services
 description: Saiba mais sobre a proteção de conteúdos com encriptação dinâmica, protocolos de streaming e tipos de encriptação em Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -15,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 5d6530cf7b8d8611ff23a3517112cb0aa7442d6d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: edea46e86475f1731ecfae465f969ca45d63f0a2
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95971179"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897633"
 ---
 # <a name="protect-your-content-with-media-services-dynamic-encryption"></a>Proteja o seu conteúdo com encriptação dinâmica dos Media Services
 
@@ -267,7 +266,7 @@ Se tiver erros que terminam com `_NOT_SPECIFIED_IN_URL` , certifique-se de que e
 
 Consulte o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Media Services.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Proteger com encriptação AES](protect-with-aes128.md)
 * [Proteger com DRM](protect-with-drm.md)

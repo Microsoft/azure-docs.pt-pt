@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services v3 | Microsoft Docs
+title: Notas de lançamento da Azure Media Services v3
 description: Para se manter atualizado com os desenvolvimentos mais recentes, este artigo fornece-lhe as últimas atualizações sobre o Azure Media Services v3.
 services: media-services
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: inhenkel
-ms.openlocfilehash: 37e90eeaef9cb8c8e0bd927dd4d733a737c0c47f
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 2254762ec2cc9d99946afaef12f452fdfbfea9e2
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98693880"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898244"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de lançamento da Azure Media Services v3
 
@@ -434,11 +434,11 @@ As seguintes funcionalidades estão presentes no .NET SDK:
 
 Consulte o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Media Services.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 [Orientação de migração para passar dos Serviços de Comunicação v2 para v3](migrate-v-2-v-3-migration-introduction.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Descrição geral](media-services-overview.md)
 - [Atualizações de documentação v3 dos Serviços de Comunicação Social](docs-release-notes.md)

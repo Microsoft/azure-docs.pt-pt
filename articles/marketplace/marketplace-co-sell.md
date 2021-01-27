@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
 ms.date: 12/2/2020
-ms.openlocfilehash: 3693ff8ea213d0823237956c532e65d5094bf1ce
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 7969f5ffd3064a5af97a101185b6229c81c7613d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746323"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880292"
 ---
 # <a name="co-sell-partner-engagement"></a>Compromisso entre parceiros para venda conjunta
 
@@ -39,7 +39,7 @@ Ofertas que atingem **a Azure IP Co-venda** de estatuto incentivado obtenha este
 
 Esta tabela lista os passos e requisitos para obter a sua oferta de mercado Co-vender pronto ou Co-vender incentivado. Nem todos os tipos de oferta de mercado comercial são configuráveis para co-venda ainda no Partner Center. Para obter a mais recente lista de tipos de oferta que suportam co-venda, consulte [a opção Co-venda no mercado comercial.](commercial-marketplace-co-sell.md) 
 
-|Passo    |Tipo de oferta    |Requisitos    |Estatuto de co-venda    |
+|Passo    |Tipo de oferta    |Requirements    |Estatuto de co-venda    |
 |----    |-------------    |------------    |---------------   |
 |<ol start=1><li>Crie uma conta no Partner Center e publique a sua oferta no mercado comercial.</li>|Todos|<ul><li>A oferta satisfaz os requisitos de publicação do mercado comercial.</li><li>Tem um perfil de negócio completo no Partner Center.</li></ul>| No Mercado |
 |<ol start=2><li>Envie os materiais de co-venda necessários.</li>|OFERTAS IP *com* [opção co-venda no mercado comercial](commercial-marketplace-co-sell.md)|[Upload de materiais necessários no Partner Center](#how-to-submit-co-sell-materials-in-partner-center)|Co-vender pronto|
@@ -49,7 +49,7 @@ Esta tabela lista os passos e requisitos para obter a sua oferta de mercado Co-v
 ||Dynamics|<ul><li>Tem uma inscrição ativa no nível premium ISV Connect.</li></ul>|Aplicações empresariais Co-vender incentivado|
 |||
 
-Para obter mais informações sobre os requisitos para ofertas de soluções de co-venda, consulte [requisitos para o estatuto de co-venda.](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status)
+Para obter mais informações sobre os requisitos para ofertas de soluções de co-venda, consulte [requisitos para o estatuto de co-venda.](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status)
 
 ## <a name="how-to-submit-co-sell-materials-in-partner-center"></a>Como submeter Co-venda de materiais no Partner Center
 
@@ -95,7 +95,7 @@ Para ofertas com a [opção Co-venda no mercado comercial,](commercial-marketpla
  :::image type="content" source="media/co-sell/co-sell-status.png" alt-text="Esta imagem mostra o estado atual de Co-venda das ofertas.":::
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [a venda com a Microsoft.](https://partner.microsoft.com/membership/sell-with-microsoft)
 - Saiba mais sobre a [opção Co-venda no mercado comercial.](commercial-marketplace-co-sell.md)

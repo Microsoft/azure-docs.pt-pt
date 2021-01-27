@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 11/16/2020
 ms.author: cherylmc
-ms.openlocfilehash: 62ceafad0210065700e5c9734cfe9a055208ef35
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 01d87bcb5697326fa87b25b20354897049900d9d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657895"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880530"
 ---
 # <a name="configure-a-site-to-site-vpn-connection-over-expressroute-private-peering"></a>Configure uma ligação VPN site-to-site sobre o espreitamento privado ExpressRoute
 
@@ -72,7 +72,7 @@ Em ambos os exemplos, a Azure enviará tráfego para 10.0.1.0/24 sobre a ligaç�
 
 ## <a name="portal-steps"></a><a name="portal"></a>Passos do portal
 
-1. Configure uma ligação Site-to-Site. Para obter etapas, consulte o artigo [de configuração site-to-site.](vpn-gateway-howto-site-to-site-resource-manager-portal.md) Certifique-se de escolher um gateway redundante de zona SKU para o portal. 
+1. Configure uma ligação Site-to-Site. Para obter etapas, consulte o artigo [de configuração site-to-site.](./tutorial-site-to-site-portal.md) Certifique-se de escolher um gateway redundante de zona SKU para o portal. 
 
    SkUs redundantes de zona têm "AZ" no final do SKU. Por exemplo, **VpnGw1AZ**. Os gateways redundantes de zona só estão disponíveis em regiões onde o serviço de zona de disponibilidade está disponível. Para obter informações sobre as regiões em que apoiamos zonas de disponibilidade, consulte [Regiões que suportam zonas de disponibilidade.](../availability-zones/az-region.md)
 
@@ -80,7 +80,7 @@ Em ambos os exemplos, a Azure enviará tráfego para 10.0.1.0/24 sobre a ligaç�
 1. Ativar os IPs privados no gateway. Selecione **Configuração** e, em seguida, desemocione **os IPs privados** gateway para **ativados**. Selecione **Guardar** para guardar as alterações.
 1. Na página **'Vista Geral',** selecione **Ver Mais** para ver o endereço IP privado. Escreva estas informações para utilizar mais tarde nos passos de configuração.
 
-   :::image type="content" source="media/site-to-site-vpn-private-peering/gateway-overview.png" alt-text="Página geral" lightbox="media/site-to-site-vpn-private-peering/gateway-overview.png":::
+   :::image type="content" source="media/site-to-site-vpn-private-peering/gateway-overview.png" alt-text="Página de descrição geral" lightbox="media/site-to-site-vpn-private-peering/gateway-overview.png":::
 1. Para ativar **o endereço IP privado do Azure** na ligação, selecione  **Configuração**. **Desconfiem do endereço IP privado do Azure** para **ativar** e, em seguida, **selecione Guardar**.
 
    :::image type="content" source="media/site-to-site-vpn-private-peering/connection.png" alt-text="Gateway Private IPs - Habilitado":::
@@ -89,7 +89,7 @@ Em ambos os exemplos, a Azure enviará tráfego para 10.0.1.0/24 sobre a ligaç�
 
 ## <a name="powershell-steps"></a><a name="powershell"></a>Passos PowerShell
 
-1. Configure uma ligação Site-to-Site. Para etapas, consulte o [Configure um artigo de VPN site-to-site.](vpn-gateway-howto-site-to-site-resource-manager-portal.md) Certifique-se de escolher um gateway redundante de zona SKU para o portal. SkUs redundantes de zona têm "AZ" no final do SKU. Por exemplo, VpnGw1AZ.
+1. Configure uma ligação Site-to-Site. Para etapas, consulte o [Configure um artigo de VPN site-to-site.](./tutorial-site-to-site-portal.md) Certifique-se de escolher um gateway redundante de zona SKU para o portal. SkUs redundantes de zona têm "AZ" no final do SKU. Por exemplo, VpnGw1AZ.
 1. Desaponhe a bandeira para utilizar o IP privado no gateway utilizando os seguintes comandos PowerShell:
 
    ```azurepowershell-interactive

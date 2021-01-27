@@ -2,19 +2,19 @@
 title: 'Quickstart: Construa, implemente e use um modelo personalizado - Custom Tradutor'
 titleSuffix: Azure Cognitive Services
 description: Neste arranque rápido, você passa por um processo passo a passo de construção de um sistema de tradução usando o Tradutor Personalizado.
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 12/09/2019
-ms.author: swmachan
+ms.author: lajanuar
 ms.topic: quickstart
-ms.openlocfilehash: 4fbac2c2d77d838ac7fc4f3caaa73983633c3e03
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: ae417006903c8d2478126f928f05647361bad1b9
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94366065"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896211"
 ---
 # <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>Quickstart: Construa, implemente e use um modelo personalizado para tradução
 
@@ -94,6 +94,6 @@ Para trocar um modelo implantado com outro dentro de um projeto clique no botão
 
 Os modelos implantados podem ser acedidos através do Texto API V3 do Texto do Tradutor [da Microsoft, especificando a categoriaID](../reference/v3-0-translate.md?tabs=curl). Mais informações sobre a API de Texto de Tradutor podem ser encontradas na página de Referência da [API.](../reference/v3-0-reference.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba como navegar no espaço de trabalho do [Tradutor Personalizado e gerir os seus projetos.](workspace-and-project.md)

@@ -1,5 +1,5 @@
 ---
-title: Monitor Media Services registos de diagnóstico via Azure Monitor / Microsoft Docs
+title: Monitor media serviços de diagnóstico registos via Azure Monitor
 description: Este artigo demonstra como encaminhar e visualizar registos de diagnóstico através do Azure Monitor.
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e756ff0133e3d3f0f86ea2f592005f2f2986488e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c666228a8a82083c319aa6c2d7fd161f7e623f4
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707766"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897973"
 ---
 # <a name="monitor-media-services-diagnostic-logs"></a>Monitor Media Services registos de diagnóstico
 
@@ -181,12 +181,12 @@ Poderá ter de aguardar até cinco minutos para que o evento apareça na conta d
 
 * Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e Política de Privacidade da Google, Inc.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
-* [Métricas do Monitor Azure](../../azure-monitor/platform/data-platform.md)
+* [Métricas do Azure Monitor](../../azure-monitor/platform/data-platform.md)
 * [Registos de diagnóstico do monitor Azure](../../azure-monitor/platform/platform-logs-overview.md)
 * [Como recolher e consumir dados de registo dos seus recursos Azure](../../azure-monitor/platform/platform-logs-overview.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Monitorizar métricas](media-services-metrics-howto.md)

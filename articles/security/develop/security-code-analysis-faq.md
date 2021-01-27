@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: f872159e538dc85121a7a6d4d6503fd18a263628
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b851e52141cf93aba4aab9b2768658f0aac4660f
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87543049"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879920"
 ---
 # <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 Tem perguntas? Consulte as seguintes FAQ para mais informações.
@@ -26,7 +26,7 @@ Tem perguntas? Consulte as seguintes FAQ para mais informações.
 
 ### <a name="can-i-install-the-extension-on-my-visual-studio-team-foundation-server-instance-instead-of-on-an-azure-devops-instance"></a>Posso instalar a extensão no meu servidor da Fundação Visual Studio Team em vez de num caso de Azure DevOps?
 
-N.º A extensão não está disponível para download e instalação para Visual Studio Team Foundation Server.
+Não. A extensão não está disponível para download e instalação para Visual Studio Team Foundation Server.
 
 ### <a name="do-i-have-to-run-microsoft-security-code-analysis-with-my-build"></a>Tenho de executar a Microsoft Security Code Analysis com a minha construção? 
 
@@ -38,7 +38,7 @@ Para outras ferramentas como BinSkim que analisam artefactos pós-construção, 
 
 ### <a name="can-i-break-my-build-when-results-are-found"></a>Posso quebrar a minha construção quando os resultados forem encontrados?
 
-Sim. Pode introduzir uma rutura de construção quando qualquer ferramenta reporta um problema ou problema no seu ficheiro de registo. Basta adicionar a tarefa de construção pós-análise e selecionar a caixa de verificação para qualquer ferramenta para a qual pretende quebrar a construção.
+Yes. Pode introduzir uma rutura de construção quando qualquer ferramenta reporta um problema ou problema no seu ficheiro de registo. Basta adicionar a tarefa de construção pós-análise e selecionar a caixa de verificação para qualquer ferramenta para a qual pretende quebrar a construção.
 
 Na UI da tarefa De Pós-Análise, pode optar por quebrar a construção quando qualquer ferramenta reporta erros apenas ou erros e avisos.
 
@@ -55,7 +55,7 @@ Diferenças percetíveis:
 
 ### <a name="can-i-run-a-build-task-like-credential-scanner-across-multiple-repositories-in-an-azure-devops-build"></a>Posso executar uma tarefa de construção como o Scanner Credencial através de vários repositórios numa Construção de DevOps Azure?
 
-N.º Executar as ferramentas de desenvolvimento seguras através de vários repositórios num único oleoduto não é suportado.
+Não. Executar as ferramentas de desenvolvimento seguras através de vários repositórios num único oleoduto não é suportado.
 
 ### <a name="the-output-file-i-specified-isnt-being-created-or-i-cant-find-the-output-file-i-specified"></a>O ficheiro de saída que especifiquei não está a ser criado, ou não consigo encontrar o ficheiro de saída que especifiquei.
 
@@ -67,7 +67,7 @@ As tarefas de construção adicionam automaticamente caminhos de saída a este l
 
 ### <a name="can-i-queue-a-build-to-run-these-tasks-on-a-hosted-build-agent"></a>Posso fazer fila para executar estas tarefas num agente de construção hospedado? 
 
-Sim. Todas as tarefas e ferramentas da extensão podem ser executadas num agente de construção hospedado.
+Yes. Todas as tarefas e ferramentas da extensão podem ser executadas num agente de construção hospedado.
 
 >[!NOTE]
 > A tarefa de construção do Scanner Anti-Malware requer um agente de construção com o Windows Defender ativado. Acolheu o Visual Studio 2017 e mais tarde forneceu tal agente. A tarefa de construção não será executada no Visual Studio 2015 agente hospedado.
@@ -90,7 +90,7 @@ Após a sua instalação, as tarefas de construção de segurança fornecidas pe
 
 ### <a name="does-installing-the-extension-modify-my-existing-azure-pipelines"></a>A instalação da extensão modifica os meus gasodutos Azure existentes? 
 
-N.º A instalação da extensão disponibiliza as tarefas de construção de segurança para a adição aos seus oleodutos. Você ainda é obrigado a adicionar ou atualizar definições de construção, para que as ferramentas possam trabalhar com o seu processo de construção.
+Não. A instalação da extensão disponibiliza as tarefas de construção de segurança para a adição aos seus oleodutos. Você ainda é obrigado a adicionar ou atualizar definições de construção, para que as ferramentas possam trabalhar com o seu processo de construção.
 
 ## <a name="task-specific-faq"></a>FAQ específico de tarefas
 
@@ -163,7 +163,7 @@ Os seguintes recursos ajudam-no a gerir de forma segura segredos e a aceder a in
  - [Identidade de serviço gerido Azure AD (MSI)](https://azure.microsoft.com/blog/keep-credentials-out-of-code-introducing-azure-ad-managed-service-identity/)
  - [Identidades geridas para os recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md)
  - [Identidades geridas no Azure App Service e nas Funções Azure](../../app-service/overview-managed-identity.md)
- - [Biblioteca appAuthentication](../../key-vault/general/service-to-service-authentication.md)
+ - [Biblioteca appAuthentication](/dotnet/api/overview/azure/service-to-service-authentication)
 
 
 Para mais informações, consulte o post de blog [Managing Secrets Securely in the Cloud](https://devblogs.microsoft.com/visualstudio/managing-secrets-securely-in-the-cloud/).
@@ -222,7 +222,7 @@ Para obter as versões mais recentes do compilador C#, vá ao [Microsoft.Net.Com
 
 A tarefa de construção de Roslyn Analyzers precisa de consultar a Azure DevOps para o registo MSBuild a partir da tarefa de construção do MSBuild. Se a tarefa do analisador for executado imediatamente após a tarefa MSBuild, o registo ainda não estará disponível. Coloque outras tarefas entre a tarefa MSBuild e a tarefa Roslyn Analyzers. Exemplos de outras tarefas incluem BinSkim e Anti-Malware Scanner.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se precisar de assistência adicional, o Microsoft Security Code Analysis Support está disponível de segunda a sexta-feira das 9:00 às 17:00 horas do Pacífico.
 

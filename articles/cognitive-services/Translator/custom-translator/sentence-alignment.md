@@ -2,19 +2,19 @@
 title: Emparelhamento de frases e alinhamento - Tradutor Personalizado
 titleSuffix: Azure Cognitive Services
 description: Durante a execução do treino, as frases presentes em documentos paralelos são emparelhadas ou alinhadas. O Tradutor Personalizado aprende a traduzir uma frase de cada vez, lendo uma frase, a tradução desta frase. Depois alinha palavras e frases nestas duas frases uma à outra.
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 08/17/2020
-ms.author: swmachan
+ms.author: lajanuar
 ms.topic: conceptual
-ms.openlocfilehash: 7ed7c3a586f5671191e3c517b5925cab888caefb
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 0c33d766bfd3dff47ddb151e8ce4ea7b25c37548
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724311"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897956"
 ---
 # <a name="sentence-pairing-and-alignment-in-parallel-documents"></a>Emparelhamento de frases e alinhamento em documentos paralelos
 
@@ -46,6 +46,6 @@ Para que uma formação tenha sucesso, a tabela abaixo mostra o número mínimo 
 > - Sintonização e Testes são opcionais. Se não os fornecer, o sistema removerá uma percentagem adequada do Treino para utilizar para validação e teste. 
 > - Pode treinar um modelo usando apenas dados de dicionário. Consulte o [Que é Dicionário.](./what-is-dictionary.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Aprenda a usar um [dicionário](what-is-dictionary.md) em Tradutor Personalizado.

@@ -1,6 +1,5 @@
 ---
 title: Utilize a mudança de tempo e as saídas ao vivo para criar reprodução de vídeo a pedido
-titleSuffix: Azure Media Services
 description: Este artigo descreve como usar a mudança de tempo e as saídas ao vivo para gravar Live Streams e criar reprodução a pedido.
 services: media-services
 documentationcenter: ''
@@ -14,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 11485ebac449cbde0a4f31e2a099a153476577b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5b475f15a5dc751de154965e3d1e78a85fbd4c9
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89289516"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897871"
 ---
 # <a name="use-time-shifting-and-live-outputs-to-create-on-demand-video-playback"></a>Utilize a mudança de tempo e as saídas ao vivo para criar reprodução de vídeo a pedido
 
@@ -55,7 +54,7 @@ Para obter mais informações, consulte:
 > [!NOTE]
 > Quando elimina a Saída Ao Vivo, não está a excluir o ativo e o conteúdo subjacentes no ativo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Subclip seus vídeos](subclip-video-rest-howto.md).
 * [Defina filtros para os seus ativos.](filters-dynamic-manifest-rest-howto.md)

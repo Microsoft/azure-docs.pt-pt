@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/9/2020
-ms.openlocfilehash: e7dfc6db50432b19d515671fabe26edf9cfb45ef
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: c35306d3e0d874218b9ea03fbfeaaff722eacf76
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96345673"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896465"
 ---
 # <a name="service-configuration"></a>Configuração do serviço
 
@@ -34,6 +34,7 @@ Pode definir uma definição individual através da lista de Definições de Apl
 |UserAppInsightsAppId|Log de chat e telemetria|
 |UserAppInsightsKey|Log de chat e telemetria|
 |Nome do UserAppInsights|Log de chat e telemetria|
+|QNAMAKER_EXTENSION_VERSION|Sempre definido para o _mais recente_. Esta definição rubricará a extensão do site QnAMaker no Serviço de Aplicações.|
 
 É necessário **reiniciar** o serviço a partir da página **geral** do portal Azure, uma vez que esteja feito de alterações.
 
@@ -81,6 +82,6 @@ O Plano de Serviço de Aplicações não é utilizado com o QnA Maker gerido (pr
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre formatos para [documentos](reference-document-format-guidelines.md) e URLs que pretende importar para uma base de conhecimento.

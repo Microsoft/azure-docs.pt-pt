@@ -1,5 +1,5 @@
 ---
-title: Acompanhamento de Séries Tempos Insights / Microsoft Docs
+title: Monitoring Time Series Insights | Microsoft Docs
 description: Monitor Time Series Insights para disponibilidade, desempenho e funcionamento.
 author: deepakpalled
 ms.author: lyhughes
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/10/2020
 ms.custom: lyrana
-ms.openlocfilehash: cff0c54cf5aa8854273be9502f5cf6df4e0a055b
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 3fc880e238c1c9f45c663975470a6ab57267a648
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97632935"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879549"
 ---
 # <a name="monitoring-time-series-insights"></a>Insights das Séries de Tempo de Monitorização
 
@@ -27,9 +27,9 @@ A página **'Visão Geral'** no portal Azure para cada ambiente de Insights sér
 
 ## <a name="what-is-azure-monitor"></a>O que é Azure Monitor
 
-Time Series Insights cria dados de monitorização usando [o Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview), que é um serviço completo de monitorização de pilhas em Azure que fornece um conjunto completo de funcionalidades para monitorizar os seus recursos Azure, além de recursos em outras nuvens e no local.
+Time Series Insights cria dados de monitorização usando [o Azure Monitor](../azure-monitor/overview.md), que é um serviço completo de monitorização de pilhas em Azure que fornece um conjunto completo de funcionalidades para monitorizar os seus recursos Azure, além de recursos em outras nuvens e no local.
 
-Comece com o artigo [Monitorar recursos Azure com Azure Monitor,](https://docs.microsoft.com/azure/azure-monitor/insights/monitor-azure-resource)que descreve os seguintes conceitos:
+Comece com o artigo [Monitorar recursos Azure com Azure Monitor,](../azure-monitor/insights/monitor-azure-resource.md)que descreve os seguintes conceitos:
 
 - O que é o Azure Monitor?
 - Custos associados à monitorização
@@ -63,7 +63,7 @@ Pode recolher registos das seguintes categorias para Azure Time Series Insights:
 
 ## <a name="analyzing-metrics"></a>Análise de métricas
 
-Pode analisar métricas para Azure Time Series Insights, juntamente com métricas de outros serviços Azure, abrindo métricas a partir do menu Azure Monitor. Consulte [o Azure Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started) para obter detalhes sobre a utilização desta ferramenta.
+Pode analisar métricas para Azure Time Series Insights, juntamente com métricas de outros serviços Azure, abrindo métricas a partir do menu Azure Monitor. Consulte [o Azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md) para obter detalhes sobre a utilização desta ferramenta.
 
 Para obter uma lista das métricas da plataforma recolhidas, consulte a referência de dados da [Série de Tempos Azure](how-to-monitor-tsi-reference.md#metrics)
 
@@ -88,7 +88,7 @@ A Azure Time Series Insights armazena dados nas seguintes tabelas.
 |:---|:---|
 | TSIIngress | A tabela que armazena dados da categoria Ingress. A categoria Ingress rastreia erros que ocorrem no gasoduto de entrada. Esta categoria inclui erros que ocorrem ao receber eventos (tais como falhas na ligação a uma Fonte de Evento) e eventos de processamento (tais como erros ao analisar uma carga útil do evento).
 
-Para encaminhar dados para Registos do Monitor Azure, tem de criar uma definição de diagnóstico para enviar registos de recursos ou métricas de plataforma para um espaço de trabalho do Log Analytics. Para saber mais, consulte [Coleção e encaminhamento.](https://docs.microsoft.com/azure/iot-hub/monitor-iot-hub#collection-and-routing)
+Para encaminhar dados para Registos do Monitor Azure, tem de criar uma definição de diagnóstico para enviar registos de recursos ou métricas de plataforma para um espaço de trabalho do Log Analytics. Para saber mais, consulte [Coleção e encaminhamento.](../iot-hub/monitor-iot-hub.md#collection-and-routing)
 
 ## <a name="sample-queries"></a>Consultas de amostra
 
@@ -115,7 +115,7 @@ Seguem-se as consultas que pode utilizar para o ajudar a monitorizar o ambiente 
 
 ## <a name="alerts"></a>Alertas
 
-Os alertas do Azure Monitor notificam-no proativamente quando forem encontradas condições importantes nos seus dados de monitorização. Permitem identificar e resolver problemas no seu sistema antes que os seus clientes os percebam. Pode definir alertas em [métricas,](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview) [registos](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log)e no registo de [atividades](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-alerts). Diferentes tipos de alertas têm benefícios e inconvenientes.
+Os alertas do Azure Monitor notificam-no proativamente quando forem encontradas condições importantes nos seus dados de monitorização. Permitem identificar e resolver problemas no seu sistema antes que os seus clientes os percebam. Pode definir alertas em [métricas,](../azure-monitor/platform/alerts-metric-overview.md) [registos](../azure-monitor/platform/alerts-unified-log.md)e no registo de [atividades](../azure-monitor/platform/activity-log-alerts.md). Diferentes tipos de alertas têm benefícios e inconvenientes.
 
 Ao criar uma regra de alerta baseada em métricas da plataforma, esteja ciente de que para as métricas da plataforma Time Series Insights que são recolhidas em unidades de contagem, algumas agregações podem não estar disponíveis ou utilizáveis.
 

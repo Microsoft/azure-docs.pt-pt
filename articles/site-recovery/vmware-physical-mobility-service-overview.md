@@ -1,5 +1,5 @@
 ---
-title: Sobre o serviço de Mobilidade para recuperação de desastres de VMware VMs e servidores físicos com Recuperação do Site Azure Microsoft Docs
+title: Sobre o serviço de mobilidade para recuperação de desastres de VMware VMs e servidores físicos com Azure Site Recovery | Microsoft Docs
 description: Saiba mais sobre o agente de serviço de mobilidade para a recuperação de desastres de VMware VMs e servidores físicos para Azure usando o serviço de Recuperação do Local Azure.
 author: Rajeswari-Mamilla
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: ramamill
-ms.openlocfilehash: 90862a74e5fb6521a95292d50fc5cc11bd0082b5
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 8c90427e2dd4ecf23cb803c4f75dbee34c38f992
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547661"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898584"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Sobre o serviço de Mobilidade de VMware VMs e servidores físicos
 
@@ -52,7 +52,7 @@ Durante uma instalação push do serviço mobility, são executadas as seguintes
    - Se todos os pré-requisitos forem cumpridos, a instalação começa.
    - A instalação falha se um ou mais dos [pré-requisitos](vmware-physical-azure-support-matrix.md) não forem cumpridos.
 1. Como parte da instalação do agente, é instalado o fornecedor volume shadow copy service (VSS) para a recuperação do local de Azure. O fornecedor VSS é utilizado para gerar pontos de recuperação consistentes com aplicações. Se a instalação do fornecedor VSS falhar, este passo é ignorado e a instalação do agente continua.
-1. Se a instalação do agente for bem sucedida, mas a instalação do fornecedor VSS falhar, então o estado do trabalho é marcado como **Aviso** . Isto não afeta a geração de pontos de recuperação consistentes.
+1. Se a instalação do agente for bem sucedida, mas a instalação do fornecedor VSS falhar, então o estado do trabalho é marcado como **Aviso**. Isto não afeta a geração de pontos de recuperação consistentes.
 
     - Para gerar pontos de recuperação consistentes com aplicações, consulte as [nossas orientações](vmware-physical-manage-mobility-service.md#install-site-recovery-vss-provider-on-source-machine) para completar uma instalação manual do fornecedor VSS de Recuperação do Local.
     - Se não pretender gerar pontos de recuperação consistentes com aplicações, [modifique a política](vmware-azure-set-up-replication.md#create-a-policy) de replicação para desligar pontos de recuperação consistentes com aplicações.
@@ -78,22 +78,22 @@ Durante uma instalação push do serviço mobility, são executadas as seguintes
 > Não utilize o método de instalação da UI se estiver a replicar uma Infraestrutura Azure como um VM de serviço (IaaS) de uma região de Azure para outra. Utilize a instalação [do pedido de comando.](#install-the-mobility-service-using-command-prompt)
 
 1. Copie o ficheiro de instalação para a máquina e execute-o.
-1. Na **Opção de Instalação** , selecione **Instalar o serviço de mobilidade.**
+1. Na **Opção de Instalação**, selecione **Instalar o serviço de mobilidade.**
 1. Escolha o local de instalação e **selecione Instalar.**
 
     :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility1.png" alt-text="Página de opções de instalação do serviço de mobilidade.":::
 
 1. Monitorize a instalação em **"Installation Progress".** Depois de concluída a instalação, **selecione Proceder à Configuração** para registar o serviço com o servidor de configuração.
 
-    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility3.png" alt-text="Página de opções de instalação do serviço de mobilidade.":::
+    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility3.png" alt-text="Screenshot que mostra o progresso da instalação e o botão ativo Proceder à Configuração quando a instalação estiver concluída.":::
 
-1. Nos **Detalhes do Servidor de Configuração** , especifique o endereço IP e a frase de passe que configura.
+1. Nos **Detalhes do Servidor de Configuração**, especifique o endereço IP e a frase de passe que configura.
 
-    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility4.png" alt-text="Página de opções de instalação do serviço de mobilidade.":::
+    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility4.png" alt-text="Página de registo do serviço de mobilidade.":::
 
 1. **Selecione Registar-se** para terminar a inscrição.
 
-    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility5.png" alt-text="Página de opções de instalação do serviço de mobilidade.":::
+    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility5.png" alt-text="Página final do registo do serviço de mobilidade.":::
 
 ## <a name="install-the-mobility-service-using-command-prompt"></a>Instale o serviço de Mobilidade utilizando o pedido de comando
 
@@ -134,7 +134,7 @@ Syntax | `UnifiedAgent.exe /Role \<MS/MT> /InstallLocation \<Install Location> /
 Registos de configuração | `%ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log`
 `/Role` | Parâmetro de instalação obrigatório. Especifica se o serviço de mobilidade (MS) ou o alvo principal (MT) devem ser instalados.
 `/InstallLocation`| Parâmetro opcional. Especifica o local de instalação do serviço de mobilidade (qualquer pasta).
-`/Platform` | Obrigatório. Especifica a plataforma na qual o serviço mobility está instalado: <br/> **VMware** para VMware VMs/servidores físicos. <br/> **Azure** para Azure VMs.<br/><br/> Se estiver a tratar os VMs do Azure como máquinas físicas, especifique **o VMware** .
+`/Platform` | Obrigatório. Especifica a plataforma na qual o serviço mobility está instalado: <br/> **VMware** para VMware VMs/servidores físicos. <br/> **Azure** para Azure VMs.<br/><br/> Se estiver a tratar os VMs do Azure como máquinas físicas, especifique **o VMware**.
 `/Silent`| Opcional. Especifica se deve executar o instalador em modo silencioso.
 
 #### <a name="registration-settings"></a>Definições de registo
@@ -187,12 +187,12 @@ Syntax | `cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i \<CS
 
 ## <a name="azure-virtual-machine-agent"></a>Agente de máquina virtual Azure
 
-- **VMs do Windows** : Da versão 9.7.0.0 do serviço mobility, o [agente Azure VM](../virtual-machines/extensions/features-windows.md#azure-vm-agent) é instalado pelo instalador do serviço Mobility. Isto garante que quando a máquina falha em Azure, o Azure VM satisfaz o pré-requisito de instalação do agente para a utilização de qualquer extensão VM.
-- **Linux VMs** : O  [WALinuxAgent](../virtual-machines/extensions/update-linux-agent.md) deve ser instalado manualmente no Azure VM após a falha.
+- **VMs do Windows**: Da versão 9.7.0.0 do serviço mobility, o [agente Azure VM](../virtual-machines/extensions/features-windows.md#azure-vm-agent) é instalado pelo instalador do serviço Mobility. Isto garante que quando a máquina falha em Azure, o Azure VM satisfaz o pré-requisito de instalação do agente para a utilização de qualquer extensão VM.
+- **Linux VMs**: O  [WALinuxAgent](../virtual-machines/extensions/update-linux-agent.md) deve ser instalado manualmente no Azure VM após a falha.
 
 ## <a name="locate-installer-files"></a>Localizar ficheiros de instaladores
 
-No servidor de configuração aceda à pasta _%ProgramData%\ASR\home\home\svsystems\pushinstallsvc\repositório_ . Verifique qual o instalador de que necessita com base no sistema operativo. A tabela seguinte resume os ficheiros do instalador para cada VMware VM e sistema operativo de servidor físico. Antes de começar, pode rever os [sistemas operativos suportados](vmware-physical-azure-support-matrix.md#replicated-machines).
+No servidor de configuração aceda à pasta _%ProgramData%\ASR\home\home\svsystems\pushinstallsvc\repositório_. Verifique qual o instalador de que necessita com base no sistema operativo. A tabela seguinte resume os ficheiros do instalador para cada VMware VM e sistema operativo de servidor físico. Antes de começar, pode rever os [sistemas operativos suportados](vmware-physical-azure-support-matrix.md#replicated-machines).
 
 > [!NOTE]
 > Os nomes dos ficheiros utilizam a sintaxe mostrada na tabela seguinte com _versão_ e _data_ como espaços reservados para os valores reais. Os nomes dos ficheiros reais serão semelhantes a estes exemplos:
@@ -228,11 +228,11 @@ Ficheiro instalador | Sistema operativo (apenas 64 bits)
 Como **pré-requisito para atualizar ou proteger as máquinas SUSE Linux Enterprise Server 11 SP3** a partir da versão 9.36:
 
 1. Certifique-se de que o mais recente instalador de agentes de mobilidade é descarregado do Microsoft Download Center e colocado no repositório de instaladores push no servidor de configuração e em todos os servidores de processos de escala
-2. [Descarregue o](site-recovery-whats-new.md) mais recente instalador de agente SUSE Linux Enterprise Server 11 SP3. A versão mais recente do agente de mobilidade é [9.37](https://support.microsoft.com/help/4582666/)
+2. [Descarregue](site-recovery-whats-new.md) o mais recente instalador de agente SUSE Linux Enterprise Server 11 SP3.
 3. Navegue para o servidor de configuração, copie o instalador de agente SUSE Linux Enterprise Server 11 SP3 no caminho - INSTALL_DIR\home\svsystems\pushinstallsvc\repositório
 1. Depois de copiar o instalador mais recente, reinicie o serviço InMage PushInstall. 
 1. Agora, navegue para servidores de processo de escala associados, repita o passo 3 e o passo 4.
-1. **Por exemplo** , se o caminho de instalação for C:\Program Files (x86)\Microsoft Azure Site Recovery, então os diretórios acima mencionados serão
+1. **Por exemplo**, se o caminho de instalação for C:\Program Files (x86)\Microsoft Azure Site Recovery, então os diretórios acima mencionados serão
     1. C:\Ficheiros de programas (x86)\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repositório
 
 ### <a name="rhel-5-or-centos-5-server"></a>Servidor RHEL 5 ou CentOS 5
@@ -240,11 +240,11 @@ Como **pré-requisito para atualizar ou proteger as máquinas SUSE Linux Enterpr
 Como **pré-requisito para atualizar ou proteger as máquinas RHEL 5** a partir da versão 9.36:
 
 1. Certifique-se de que o mais recente instalador de agentes de mobilidade é descarregado do Microsoft Download Center e colocado no repositório de instaladores push no servidor de configuração e em todos os servidores de processos de escala
-2. [Descarregue o](site-recovery-whats-new.md) mais recente instalador de agente RHEL 5 ou CentOS 5. A versão mais recente do agente de mobilidade é [9.37](https://support.microsoft.com/help/4582666/)
+2. [Descarregue](site-recovery-whats-new.md) o mais recente instalador de agente RHEL 5 ou CentOS 5. 
 3. Navegue para servidor de configuração, copie o instalador de agente RHEL 5 ou CentOS 5 no caminho - INSTALL_DIR\home\svsystems\pushinstallsvc\repositório
 1. Depois de copiar o instalador mais recente, reinicie o serviço InMage PushInstall. 
 1. Agora, navegue para servidores de processo de escala associados, repita o passo 3 e o passo 4.
-1. **Por exemplo** , se o caminho de instalação for C:\Program Files (x86)\Microsoft Azure Site Recovery, então os diretórios acima mencionados serão
+1. **Por exemplo**, se o caminho de instalação for C:\Program Files (x86)\Microsoft Azure Site Recovery, então os diretórios acima mencionados serão
     1. C:\Ficheiros de programas (x86)\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repositório
 
 ## <a name="debian-7-server"></a>Servidor Debian 7
@@ -252,13 +252,13 @@ Como **pré-requisito para atualizar ou proteger as máquinas RHEL 5** a partir 
 Como **pré-requisito para atualizar ou proteger as máquinas Debian 7** a partir da versão 9.36:
 
 1. Certifique-se de que o mais recente instalador de agentes de mobilidade é descarregado do Microsoft Download Center e colocado no repositório de instaladores push no servidor de configuração e em todos os servidores de processos de escala
-2. [Descarregue o](site-recovery-whats-new.md) mais recente instalador de agente Debian 7. A versão mais recente do agente de mobilidade é [9.37](https://support.microsoft.com/help/4582666/)
+2. [Descarregue](site-recovery-whats-new.md) o mais recente instalador de agente Debian 7.
 3. Navegue para o servidor de configuração, copie o instalador de agente Debian 7 no caminho - INSTALL_DIR\home\svsystems\pushinstallsvc\repositório
 1. Depois de copiar o instalador mais recente, reinicie o serviço InMage PushInstall. 
 1. Agora, navegue para servidores de processo de escala associados, repita o passo 3 e o passo 4.
-1. **Por exemplo** , se o caminho de instalação for C:\Program Files (x86)\Microsoft Azure Site Recovery, então os diretórios acima mencionados serão
+1. **Por exemplo**, se o caminho de instalação for C:\Program Files (x86)\Microsoft Azure Site Recovery, então os diretórios acima mencionados serão
     1. C:\Ficheiros de programas (x86)\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repositório
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Instale a instalação push para o serviço mobility](vmware-azure-install-mobility-service.md).

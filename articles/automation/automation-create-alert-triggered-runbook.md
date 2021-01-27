@@ -5,16 +5,16 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: acf31af6d3ba3d78a6435210fa17562aaddac0a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 03f24bf4cf379504479e554b129f34d94ca423cd
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86186610"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896364"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Use um alerta para ativar um runbook da Azure Automation
 
-Pode utilizar [o Azure Monitor](../azure-monitor/overview.md?toc=%2fazure%2fautomation%2ftoc.json) para monitorizar métricas e registos de nível base para a maioria dos serviços em Azure. Pode ligar para os runbooks da Azure Automation utilizando [grupos de ação](../azure-monitor/platform/action-groups.md?toc=%2fazure%2fautomation%2ftoc.json) ou utilizando alertas clássicos para automatizar tarefas com base em alertas. Este artigo mostra-lhe como configurar e executar um runbook usando alertas.
+Pode utilizar [o Azure Monitor](../azure-monitor/overview.md) para monitorizar métricas e registos de nível base para a maioria dos serviços em Azure. Pode ligar para os runbooks da Azure Automation utilizando [grupos de ação](../azure-monitor/platform/action-groups.md) ou utilizando alertas clássicos para automatizar tarefas com base em alertas. Este artigo mostra-lhe como configurar e executar um runbook usando alertas.
 
 ## <a name="alert-types"></a>Tipos de alerta
 
@@ -31,9 +31,9 @@ Quando um alerta chama um runbook, a chamada real é um pedido HTTP POST para o 
 
 |Alerta  |Descrição|Esquema de carga útil  |
 |---------|---------|---------|
-|[Alerta comum](../azure-monitor/platform/alerts-common-schema.md?toc=%2fazure%2fautomation%2ftoc.json)|O esquema comum de alerta que normaliza a experiência de consumo para notificações de alerta hoje em Azure.|Esquema de carga útil de alerta comum|
-|[Alerta de registo de atividade](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Envia uma notificação quando qualquer novo evento no registo de atividades do Azure corresponde a condições específicas. Por exemplo, quando uma `Delete VM` operação ocorre no **myProductionResourceGroup** ou quando um novo evento de Saúde do Serviço Azure com um estado Ativo aparece.| [Esquema de carga útil de alerta de atividade](../azure-monitor/platform/activity-log-alerts-webhook.md)        |
-|[Alerta métrico perto do tempo real](../azure-monitor/platform/alerts-metric-near-real-time.md?toc=%2fazure%2fautomation%2ftoc.json)    |Envia uma notificação mais rapidamente do que os alertas métricos quando uma ou mais métricas de nível de plataforma satisfazem as condições especificadas. Por exemplo, quando o valor para **CPU %** num VM é superior a 90, e o valor para **a Rede In** é superior a 500 MB nos últimos 5 minutos.| [Esquema de carga útil de alerta métrico próximo em tempo real](../azure-monitor/platform/alerts-webhooks.md#payload-schema)          |
+|[Alerta comum](../azure-monitor/platform/alerts-common-schema.md)|O esquema comum de alerta que normaliza a experiência de consumo para notificações de alerta hoje em Azure.|Esquema de carga útil de alerta comum|
+|[Alerta de registo de atividade](../azure-monitor/platform/activity-log-alerts.md)    |Envia uma notificação quando qualquer novo evento no registo de atividades do Azure corresponde a condições específicas. Por exemplo, quando uma `Delete VM` operação ocorre no **myProductionResourceGroup** ou quando um novo evento de Saúde do Serviço Azure com um estado Ativo aparece.| [Esquema de carga útil de alerta de atividade](../azure-monitor/platform/activity-log-alerts-webhook.md)        |
+|[Alerta métrico perto do tempo real](../azure-monitor/platform/alerts-metric-near-real-time.md)    |Envia uma notificação mais rapidamente do que os alertas métricos quando uma ou mais métricas de nível de plataforma satisfazem as condições especificadas. Por exemplo, quando o valor para **CPU %** num VM é superior a 90, e o valor para **a Rede In** é superior a 500 MB nos últimos 5 minutos.| [Esquema de carga útil de alerta métrico próximo em tempo real](../azure-monitor/platform/alerts-webhooks.md#payload-schema)          |
 
 Como os dados fornecidos por cada tipo de alerta são diferentes, cada tipo de alerta é tratado de forma diferente. Na secção seguinte, aprende-se a criar um livro de bordo para lidar com diferentes tipos de alertas.
 
@@ -174,25 +174,25 @@ Os alertas utilizam grupos de ação, que são coleções de ações que são de
 1. Selecione **+ Nova regra de alerta**.
 1. Clique em **Selecionar** em **Recurso.** Na página **'Selecione' um recurso,** selecione o seu VM para alertar e clique em **'Fazer'.**
 1. Clique **em Adicionar condição** em **condição**. Selecione o sinal que pretende utilizar, por **exemplo, Percentagem CPU** e clique em **Fazer**.
-1. Na página lógica de **sinal configurar,** insira o seu **valor Threshold** na lógica **de Alerta**e clique em **'Fazer'.**
+1. Na página lógica de **sinal configurar,** insira o seu **valor Threshold** na lógica **de Alerta** e clique em **'Fazer'.**
 1. Em **grupos de Ação**, selecione Create **New**.
 1. Na página do **grupo de ação Add,** dê ao seu grupo de ação um nome e um nome curto.
 1. Dê um nome à ação. Para o tipo de ação, **selecione Automation Runbook**.
 1. Selecione **Detalhes de Edição**. Na página **Configure Runbook,** na **fonte Runbook**, selecione **User**.  
-1. Selecione a sua conta **de Subscrição** e **Automação**e, em seguida, selecione o runbook **Stop-AzureVmInResponsetoVMAlert.**  
+1. Selecione a sua conta **de Subscrição** e **Automação** e, em seguida, selecione o runbook **Stop-AzureVmInResponsetoVMAlert.**  
 1. Selecione **Sim** para **Ativar o esquema de alerta comum**.
 1. Para criar o grupo de ação, selecione **OK**.
 
     ![Adicionar página de grupo de ação](./media/automation-create-alert-triggered-runbook/add-action-group.png)
 
-    Pode utilizar este grupo de ação nos alertas de [registo de atividade e alertas](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json) de quase tempo [real](../azure-monitor/platform/alerts-overview.md?toc=%2fazure%2fautomation%2ftoc.json) que cria.
+    Pode utilizar este grupo de ação nos alertas de [registo de atividade e alertas](../azure-monitor/platform/activity-log-alerts.md) de quase tempo [real](../azure-monitor/platform/alerts-overview.md) que cria.
 
 1. Em **Detalhes de Alerta**, adicione um nome e descrição da regra de alerta e clique em Criar regra de **alerta**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para iniciar um runbook utilizando um webhook, consulte [Iniciar um livro de formulários a partir de um webhook](automation-webhooks.md).
 * Para descobrir diferentes formas de iniciar um livro de bordo, consulte [Iniciar um livro de recortes](./start-runbooks.md).
-* Para criar um alerta de registo de atividade, consulte [Criar alertas de registo de atividades](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json).
+* Para criar um alerta de registo de atividade, consulte [Criar alertas de registo de atividades](../azure-monitor/platform/activity-log-alerts.md).
 * Para aprender a criar um alerta quase em tempo real, consulte [Criar uma regra de alerta no portal Azure](../azure-monitor/platform/alerts-metric.md?toc=/azure/azure-monitor/toc.json).
-* Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
+* Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](/powershell/module/az.automation).

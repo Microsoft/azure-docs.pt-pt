@@ -2,16 +2,16 @@
 title: Problemas na resolução de problemas do runbook da Azure Automation
 description: Este artigo diz como resolver problemas e resolver problemas com os runbooks da Azure Automation.
 services: automation
+ms.subservice: ''
 ms.date: 11/03/2020
-ms.topic: conceptual
-ms.service: automation
+ms.topic: troubleshooting
 ms.custom: has-adal-ref
-ms.openlocfilehash: c7ab093f601ebcd33d184b9a9008f9de447534a1
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 116677354009c538eece02184d801cfda11574a0
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368088"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896313"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Resolver problemas de runbooks
 
@@ -680,7 +680,7 @@ Siga [o Passo 5 - Adicione a autenticação para gerir os recursos do Azure](../
 * [Execução de runbook na Azure Automation](../automation-runbook-execution.md)
 * [Iniciar um runbook na Azure Automation](../start-runbooks.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se não vir o seu problema aqui ou não conseguir resolver o seu problema, experimente um dos seguintes canais para obter mais apoio:
 

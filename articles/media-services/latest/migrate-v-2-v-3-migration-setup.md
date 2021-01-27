@@ -1,5 +1,5 @@
 ---
-title: Media Services v2 a v3 lista de verificação de migração | Microsoft Docs
+title: Media Services v2 para v3 lista de verificação de migração
 description: Este artigo é uma lista de verificação que o ajudará a migrar da Azure Media Services v2 para v3.
 services: media-services
 author: IngridAtMicrosoft
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 1/14/2021
 ms.author: inhenkel
-ms.openlocfilehash: 7d9597c16778a4ded7c1e2a7ed3ad5535b75cfde
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: bd1488a1e89bb7d5c8a3a2dedda60bd5a226e02e
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98690484"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898261"
 ---
 # <a name="step-3---set-up-to-migrate-to-the-v3-rest-api-or-client-sdk"></a>Passo 3 - Configurar para migrar para a V3 REST API ou cliente SDK
 
@@ -144,6 +144,6 @@ Descarregue o [Go](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [!INCLUDE [migration guide next steps](./includes/migration-guide-next-steps.md)]

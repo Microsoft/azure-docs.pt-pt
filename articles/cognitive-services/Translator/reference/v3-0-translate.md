@@ -3,19 +3,19 @@ title: Método de Tradução de Tradutor
 titleSuffix: Azure Cognitive Services
 description: Compreenda os parâmetros, cabeçalhos e mensagens corporais para o método de Tradução do Tradutor de Serviços Cognitivos Azure para traduzir texto.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 08/06/2020
-ms.author: swmachan
-ms.openlocfilehash: 15f20bab91a4feab056a9f8cd6b012792f036be2
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.author: lajanuar
+ms.openlocfilehash: d46fef0159b983f2685be40e2a0ab5471b96883b
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95016552"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895446"
 ---
 # <a name="translator-30-translate"></a>Tradutor 3.0: Traduzir
 
@@ -533,7 +533,7 @@ A marcação a fornecer utiliza a seguinte sintaxe.
 <mstrans:dictionary translation="translation of phrase">phrase</mstrans:dictionary>
 ```
 
-Por exemplo, considere a frase inglesa "A palavra palavra palavra palavramática é uma entrada no dicionário." Para preservar a palavra _palavra palavra-palavramática_ na tradução, envie o pedido:
+Por exemplo, considere a frase inglesa "A palavra palavramática é uma entrada no dicionário." Para preservar a palavra _palavra palavra-palavramática_ na tradução, envie o pedido:
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'The word <mstrans:dictionary translation=\"wordomatic\">word or phrase</mstrans:dictionary> is a dictionary entry.'}]"

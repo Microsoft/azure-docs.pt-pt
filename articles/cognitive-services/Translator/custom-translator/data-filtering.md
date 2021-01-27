@@ -2,19 +2,19 @@
 title: Filtragem de dados - Tradutor personalizado
 titleSuffix: Azure Cognitive Services
 description: Quando submete documentos para serem utilizados para a formação de um sistema personalizado, os documentos passam por uma série de etapas de processamento e filtragem para se prepararem para a formação.
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 08/17/2020
-ms.author: swmachan
+ms.author: lajanuar
 ms.topic: conceptual
-ms.openlocfilehash: 1076a4fe3a460fa07e061e9ec0ec41b088ec7eca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 53dea20e356f735a521dec8c22edf8cb2aa7122d
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88507268"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895871"
 ---
 # <a name="data-filtering"></a>Filtragem de dados
 
@@ -56,6 +56,6 @@ Filtragem transforma tags nãoscaped em etiquetas escapadas:
 ## <a name="invalid-characters"></a>Caracteres inválidos
 O Custom Tradutor remove as frases que contêm o personagem Unicode U+FFFD. O personagem U+FFFD indica uma conversão de codificação falhada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Treine um modelo](how-to-train-model.md) em Tradutor Personalizado.

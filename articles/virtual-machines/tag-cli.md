@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 11/11/2020
 ms.author: cynthn
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 48f906bf0025bda03df226f32db1a0d6afdb9cee
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 32d15730557c96362602b5e324254c76637ecb55
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94595069"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897447"
 ---
 # <a name="how-to-tag-a-vm-using-the-cli"></a>Como marcar um VM usando o CLI
 
@@ -46,8 +46,7 @@ az vm update \
 
 Agora que aplicámos etiquetas nos nossos recursos Azure CLI e no Portal, vamos dar uma olhada nos detalhes de utilização para ver as etiquetas no portal de faturação.
 
-
-**Próximos passos**
+### <a name="next-steps"></a>Próximos passos
 
 - Para saber mais sobre a marcação dos seus recursos Azure, consulte [a Visão Geral do Gestor de Recursos da Azure](../azure-resource-manager/management/overview.md) e [a utilização de Tags para organizar os seus Recursos Azure.](../azure-resource-manager/management/tag-resources.md)
-- Para ver como as tags podem ajudá-lo a gerir o seu uso de recursos Azure, consulte [compreender o seu Azure Bill](../cost-management-billing/understand/review-individual-bill.md) e obter informações sobre o seu consumo de recursos Microsoft [Azure](../cost-management-billing/manage/usage-rate-card-overview.md).
+- Para ver como as etiquetas podem ajudá-lo a gerir o seu uso dos recursos Azure, consulte [compreender a sua Conta de Azure.](../cost-management-billing/understand/review-individual-bill.md)

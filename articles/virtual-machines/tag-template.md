@@ -7,15 +7,14 @@ ms.workload: infrastructure-services
 ms.author: cynthn
 author: cynthn
 ms.date: 10/26/2018
-ms.openlocfilehash: d1acbe82a086574a102e7897bbd3b99683c1185e
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: e7dd75a025b76773a0bf1e3b4f752b5a77db6786
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94594983"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897379"
 ---
 # <a name="tagging-a-vm-using-a-template"></a>Marcação de um VM usando um modelo
-
 
 Este artigo descreve como marcar um VM em Azure usando um modelo de Gestor de Recursos. As etiquetas são pares chave/valor definidos pelo utilizador que podem ser colocados diretamente num recurso ou num grupo de recursos. A Azure suporta atualmente até 50 tags por grupo de recursos e recursos. As etiquetas podem ser colocadas num recurso no momento da criação ou adicionadas a um recurso existente.
 
@@ -46,8 +45,7 @@ Em seguida, na secção **De Parâmetros de Edição,** pode preencher os valore
 
 Clique em **Criar** para implementar este modelo com os seus valores de marcação.
 
-
-**Próximos passos**
+### <a name="next-steps"></a>Próximos passos
 
 - Para saber mais sobre a marcação dos seus recursos Azure, consulte [a Visão Geral do Gestor de Recursos da Azure](../azure-resource-manager/management/overview.md) e [a utilização de Tags para organizar os seus Recursos Azure.](../azure-resource-manager/management/tag-resources.md)
-- Para ver como as tags podem ajudá-lo a gerir o seu uso de recursos Azure, consulte [compreender o seu Azure Bill](../cost-management-billing/understand/review-individual-bill.md) e obter informações sobre o seu consumo de recursos Microsoft [Azure](../cost-management-billing/manage/usage-rate-card-overview.md).
+- Para ver como as etiquetas podem ajudá-lo a gerir o seu uso dos recursos Azure, consulte [compreender a sua Conta de Azure.](../cost-management-billing/understand/review-individual-bill.md)

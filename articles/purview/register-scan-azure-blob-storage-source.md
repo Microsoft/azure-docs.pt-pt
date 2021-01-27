@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/25/2020
-ms.openlocfilehash: 9fc5c115486c7cbf84fc0bd98ff7996c674f2e24
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: b27b46c68d018d2ddf79d284b20cc05b51640891
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97694817"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880646"
 ---
 # <a name="register-and-scan-azure-blob-storage"></a>Registar e analisar o Armazenamento de Blobs do Azure
 
@@ -45,7 +45,7 @@ Ao escolher **Identidade Gerida,** para configurar a ligação, tem primeiro de 
 1. Descreva a **Função** para **Storage Blob Data Reader** e introduza o nome da sua conta Azure Purview na caixa de entrada **Select.** Em seguida, **selecione Guardar** para dar esta atribuição de função à sua conta Purview.
 
 > [!Note]
-> Para mais detalhes, consulte os passos no [acesso autorizado a bolhas e filas usando o Azure Ative Directory](https://docs.microsoft.com/azure/storage/common/storage-auth-aad)
+> Para mais detalhes, consulte os passos no [acesso autorizado a bolhas e filas usando o Azure Ative Directory](../storage/common/storage-auth-aad.md)
 
 ### <a name="account-key"></a>Chave de conta
 
@@ -128,7 +128,7 @@ No ecrã **'Registar' (Azure Blob Storage),** faça o seguinte:
 
 [!INCLUDE [create and manage scans](includes/manage-scans.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Navegue no catálogo de dados Azure Purview Data](how-to-browse-catalog.md)
 - [Pesse o Catálogo de Dados da Azure Purview](how-to-search-catalog.md)

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 12/16/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: cb6a63e4ead45d7751d1d3442793478cfdcd71c0
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 55f0d2e8df36cc11f26c5ff6259ebe2215aaffc6
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98676345"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880547"
 ---
 # <a name="quickstartconnect-an-azure-purview-account-to-a-synapse-workspace"></a>QuickStart: Ligue uma conta Azure Purview a um espaço de trabalho synapse 
 
@@ -36,7 +36,7 @@ Vá  [https://web.azuresynapse.net](https://web.azuresynapse.net) e inscreva-s
 
 ## <a name="permissions-for-connecting-an-azure-purview-account"></a>Permissões para ligar uma conta Azure Purview 
 
-- Para ligar uma Conta Azure Purview a um espaço de trabalho synapse, precisa de uma função **contributiva** no espaço de trabalho synapse do portal Azure IAM e precisa de acesso a essa Conta Azure Purview.
+- Para ligar uma Conta Azure Purview a um espaço de trabalho synapse, precisa de uma função **contributiva** no espaço de trabalho synapse do portal Azure IAM e precisa de acesso a essa Conta Azure Purview. Para mais detalhes, consulte [as permissões do Azure Purview](../../purview/catalog-permissions.md).
 
 ## <a name="connect-an-azure-purview-account"></a>Ligar uma Conta do Azure Purview  
 

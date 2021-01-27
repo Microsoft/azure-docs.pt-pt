@@ -1,24 +1,10 @@
 ---
-title: Carregar multimédia
-titleSuffix: Azure Media Services
-description: Saiba como carregar os meios de comunicação para streaming ou codificação.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: ''
-ms.topic: how-to
-ms.date: 08/31/2020
-ms.author: inhenkel
-ms.openlocfilehash: 3040369e655ab91f56f271313dc4d2613f02be06
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
-ms.translationtype: MT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015858"
+título: Upload media : Descrição dos Serviços Azure Media: Saiba como carregar os meios de comunicação para streaming ou codificação.
+serviços: media-services documentationcenter: '' autor: IngridAtMicrosoft manager: femila editor: ''
+
+ms.service: media-services ms.workload: ms.topic: how-to ms.date: 08/31/2020 ms.author: inhenkel
 ---
+
 # <a name="upload-media-for-streaming-or-encoding"></a>Upload mídia para streaming ou codificação
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
@@ -49,6 +35,6 @@ Uma vez [criado um ativo utilizando o carteiro ou outro método REST e obteve o 
 <!-- add these to the tabs when available -->
 Para outros métodos consulte a [documentação de Armazenamento Azure](../../storage/blobs/index.yml) para trabalhar com bolhas em [.NET,](../../storage/blobs/storage-quickstart-blobs-dotnet.md) [Java,](../../storage/blobs/storage-quickstart-blobs-java.md) [Python](../../storage/blobs/storage-quickstart-blobs-python.md)e [JavaScript (Node.js)](../../storage/blobs/storage-quickstart-blobs-nodejs.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [Visão geral dos Serviços de Mídia](media-services-overview.md)

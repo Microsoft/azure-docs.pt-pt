@@ -3,14 +3,14 @@ title: Visão geral da Azure Automation Update Management
 description: Este artigo fornece uma visão geral da funcionalidade de Gestão de Atualização que implementa atualizações para as suas máquinas Windows e Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 01/13/2021
+ms.date: 01/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: d66d4d32c788317d8b0781f9f24120fbce2f6f8f
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 718e812a8193797ad350fa61444bb05fe5a4b724
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185619"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896906"
 ---
 # <a name="update-management-overview"></a>Descrição geral da Gestão de Atualizações
 
@@ -169,9 +169,9 @@ A tabela a seguir descreve as fontes ligadas que a Atualização de Gestão supo
 
 | Origem ligada | Suportado | Descrição |
 | --- | --- | --- |
-| Agentes do Windows |Sim |A Atualização Management recolhe informações sobre atualizações do sistema a partir de agentes do Windows e inicia a instalação das atualizações necessárias. |
-| Agentes do Linux |Sim |Update Management recolhe informações sobre atualizações do sistema de agentes linux e, em seguida, inicia a instalação de atualizações necessárias em distribuições suportadas. |
-| Grupo de gestão do Operations Manager |Sim |A Update Management recolhe informações sobre atualizações do sistema de agentes de um grupo de gestão conectado.<br/><br/>Não é necessária uma ligação direta do agente do Gestor de Operações aos registos do Monitor Azure. Os dados são reencaminhados do grupo de gestão para o espaço de trabalho Log Analytics. |
+| Agentes do Windows |Yes |A Atualização Management recolhe informações sobre atualizações do sistema a partir de agentes do Windows e inicia a instalação das atualizações necessárias. |
+| Agentes do Linux |Yes |Update Management recolhe informações sobre atualizações do sistema de agentes linux e, em seguida, inicia a instalação de atualizações necessárias em distribuições suportadas. |
+| Grupo de gestão do Operations Manager |Yes |A Update Management recolhe informações sobre atualizações do sistema de agentes de um grupo de gestão conectado.<br/><br/>Não é necessária uma ligação direta do agente do Gestor de Operações aos registos do Monitor Azure. Os dados são reencaminhados do grupo de gestão para o espaço de trabalho Log Analytics. |
 
 ### <a name="collection-frequency"></a>Frequência da recolha
 
@@ -185,16 +185,7 @@ A utilização média de dados por registos do Azure Monitor para uma máquina q
 
 ## <a name="network-planning"></a><a name="ports"></a>Planeamento da rede
 
-São necessários os seguintes endereços especificamente para a Gestão de Atualização. A comunicação a estes endereços ocorre sobre o porto 443.
-
-|Azure Público  |Azure Government  |
-|---------|---------|
-|`*.ods.opinsights.azure.com`    | `*.ods.opinsights.azure.us`        |
-|`*.oms.opinsights.azure.com`     | `*.oms.opinsights.azure.us`        |
-|`*.blob.core.windows.net` | `*.blob.core.usgovcloudapi.net`|
-|`*.azure-automation.net` | `*.azure-automation.us`|
-
-Quando criar regras de segurança do grupo de rede ou configurar o Azure Firewall para permitir o tráfego para o serviço de Automação e para o espaço de trabalho Log Analytics, utilize a [etiqueta de serviço](../../virtual-network/service-tags-overview.md#available-service-tags) **GuestAndHybridManagement** e **AzureMonitor**. Isto simplifica a gestão contínua das suas regras de segurança de rede. Para ligar ao serviço Demômes a partir dos seus VMs Azure de forma segura e privada, reveja [o Link Privado Use Azure](../how-to/private-link-security.md). Para obter a etiqueta de serviço atual e informações de alcance para incluir como parte das configurações de firewall no local, consulte [ficheiros JSON descarregados](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
+Consulte [a configuração da rede de automação Azure](../automation-network-configuration.md#hybrid-runbook-worker-and-state-configuration) para obter informações detalhadas sobre as portas, URLs e outros detalhes de rede necessários para a Gestão de Atualização.
 
 Para as máquinas Windows, também deve permitir o tráfego para quaisquer pontos finais exigidos pelo Windows Update. Pode encontrar uma lista atualizada de pontos finais necessários em [Questões relacionadas com HTTP/Proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy). Se tiver um servidor local [de Atualização do Windows,](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment)também deve permitir o tráfego para o servidor especificado na sua [tecla WSUS](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
 
@@ -227,11 +218,14 @@ A tabela seguinte define as classificações suportadas para atualizações do L
 |Outras atualizações     | Todas as outras atualizações que não são de natureza crítica ou que não são atualizações de segurança.        |
 
 >[!NOTE]
->A classificação de atualização para máquinas Linux só está disponível quando usada nas regiões de nuvem pública suportadas do Azure. Ao utilizar a Atualização de Gestão nas seguintes regiões de nuvem nacionais:
+>A classificação de atualização para máquinas Linux só está disponível quando usada em regiões de nuvem pública suportadas Azure. Não existe classificação das atualizações do Linux quando se utiliza a Atualização de Gestão nas seguintes regiões de nuvem nacionais:
+>
 >* Azure US Government
 >* 21Vianet na China
 >
-> não existem classificações de atualizações do Linux e são reportadas na categoria **Outras atualizações.** A Atualização Management utiliza dados publicados pelas distribuições suportadas, especificamente os seus ficheiros [OVAL](https://oval.mitre.org/) (Open Vulnerability and Assessment Language). Como o acesso à Internet é restrito a partir destas nuvens nacionais, a Update Management não pode aceder e consumir estes ficheiros.
+> Em vez de serem classificadas, as atualizações são reportadas na categoria **Outras atualizações.**
+>
+> A Atualização Management utiliza dados publicados pelas distribuições suportadas, especificamente os seus ficheiros [OVAL](https://oval.mitre.org/) (Open Vulnerability and Assessment Language). Como o acesso à Internet é restrito a partir destas nuvens nacionais, a Gestão de Atualização não pode aceder aos ficheiros.
 
 Para o Linux, a Update Management pode distinguir entre atualizações críticas e atualizações de segurança na nuvem sob classificação **Segurança** e **Outros**, enquanto exibe dados de avaliação devido ao enriquecimento de dados na nuvem. Para remendar, a Update Management baseia-se nos dados de classificação disponíveis na máquina. Ao contrário de outras distribuições, o CentOS não dispõe desta informação disponível na versão RTM. Se tiver máquinas CentOS configuradas para devolver dados de segurança para o seguinte comando, a Gestão de Atualização pode corrigir com base nas classificações.
 
@@ -272,7 +266,7 @@ Aqui estão as formas de permitir a gestão de atualização e selecionar máqui
 > [!NOTE]
 > A Gestão de Atualização requer a ligação de um espaço de trabalho log Analytics à sua conta de Automação. Para obter uma lista definitiva de regiões apoiadas, consulte [os mapeamentos do Espaço de Trabalho Azure.](../how-to/region-mappings.md) Os mapeamentos da região não afetam a capacidade de gerir VMs numa região separada da sua conta de Automação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter detalhes sobre o trabalho com a Gestão de Atualização, consulte [Gerir as atualizações para os seus VMs](manage-updates-for-vm.md).
 

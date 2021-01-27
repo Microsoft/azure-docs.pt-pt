@@ -2,19 +2,19 @@
 title: Glossário - Tradutor Personalizado
 titleSuffix: Azure Cognitive Services
 description: O Glossário Tradutor Personalizado irá ajudá-lo a entender os termos utilizados nos artigos enquanto aprende a usar o serviço.
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 08/17/2020
-ms.author: swmachan
+ms.author: lajanuar
 ms.topic: reference
-ms.openlocfilehash: 67af6ab9ae5c60ee8291f38ea58b3b3d9744dbc9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4043eb83e931184371bdf4e0bcdcf4c874262d99
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88506656"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895820"
 ---
 # <a name="custom-translator-glossary"></a>Glossário de Tradutor Personalizado
 
@@ -33,6 +33,6 @@ O glossário [do Tradutor Personalizado](https://portal.customtranslator.azure.a
 | Ficheiros de Formação           | Um ficheiro de treino é usado para ensinar o sistema de tradução automática a mapear de uma língua (a fonte) para uma língua-alvo (o alvo). Quanto mais dados puder fornecer, melhor será o sistema na tradução.                                                                                                                                                                                                               |
 | Ficheiros de sintonização             | Estes ficheiros são frequentemente derivados aleatoriamente do conjunto de treino (se não selecionar qualquer conjunto de sintonização). As frases auto-elecionadas são utilizadas para afinar o sistema e certificar-se de que está a funcionar corretamente. Caso decida criar os seus próprios ficheiros de sintonização, certifique-se de que são um conjunto aleatório de frases em todos os domínios se desejar criar um modelo de tradução para fins gerais.                                                                                 |
 | Ficheiros de Teste            | Estes ficheiros são frequentemente ficheiros derivados, selecionados aleatoriamente a partir do conjunto de treino (se não selecionar nenhum conjunto de testes). O objetivo destas frases é avaliar a exatidão do modelo de tradução. Estas são frases que quer certificar-se de que o sistema se traduz com precisão. Assim, pode desejar criar um conjunto de testes e carregá-lo para o tradutor para garantir que estas frases são usadas na avaliação do sistema (a geração de uma pontuação BLEU).   |
-| Arquivo combo               | Um tipo de ficheiro no qual a origem e as frases traduzidas estão contidas no mesmo ficheiro. Formatos de ficheiros suportados (".tmx", ".xliff", ".xlf", ".lcl", "xlsx").                                                                                                                                                                                                                                                                                                                       |
+| Arquivo combo               | Um tipo de ficheiro no qual a origem e as frases traduzidas estão contidas no mesmo ficheiro. Formatos de ficheiros suportados (".tmx", ".xliff", ".xlf", ".lcl", ".xlsx").                                                                                                                                                                                                                                                                                                                       |
 | Arquivo de arquivo             | Um ficheiro que contém outros ficheiros. Formatos de ficheiro suportados (zip, gz, tgz).                                                                                                                                                                                                                                                                                                                                                                                                |
 | Classificação de BLEU               | [A BLEU](what-is-bleu-score.md) é o método padrão da indústria para avaliar a "precisão" ou precisão do modelo de tradução. Embora existam outros métodos de avaliação, o Microsoft Tradutor baseia-se no método BLEU para reportar a precisão aos Proprietários do Projeto.

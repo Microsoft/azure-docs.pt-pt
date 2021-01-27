@@ -2,19 +2,19 @@
 title: O que é um dicionário? - Tradutor Personalizado
 titleSuffix: Azure Cognitive Services
 description: Um dicionário é um documento alinhado que especifica uma lista de frases ou frases (e suas traduções) que sempre pretende que o Microsoft Tradutor traduza da mesma forma. Os dicionários são por vezes também chamados glossários ou bases de termo.
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 08/17/2020
-ms.author: swmachan
+ms.author: lajanuar
 ms.topic: conceptual
-ms.openlocfilehash: 14ff76e090e628a880290bb0e9f90026260de0c7
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 160aa372cec2d018d5a3558f99e079624d965098
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368989"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895565"
 ---
 # <a name="what-is-a-dictionary"></a>O que é um dicionário?
 
@@ -43,6 +43,6 @@ Pode treinar um modelo usando apenas dados de dicionário. Para isso, selecione 
 - Ao usar um dicionário de frases, o fim da pontuação da frase é ignorado. Por exemplo, se o seu dicionário de origem contiver "esta frase termina com pontuação!", então quaisquer pedidos de tradução que contenham "esta frase termina com pontuação" corresponderiam.
 - Se uma palavra aparecer mais de uma vez num ficheiro de dicionário, o sistema utilizará sempre a última entrada fornecida. Portanto, o seu dicionário não deve conter múltiplas traduções da mesma palavra.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Leia sobre [as diretrizes sobre formatos de documentos.](document-formats-naming-convention.md)

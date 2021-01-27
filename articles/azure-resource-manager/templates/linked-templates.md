@@ -2,13 +2,13 @@
 title: Modelos de ligação para implantação
 description: Descreve como usar modelos ligados num modelo de Gestor de Recursos Azure (modelo ARM) para criar uma solução de modelo modular. Mostra como passar valores de parâmetros, especificar um ficheiro de parâmetros e URLs criados dinamicamente.
 ms.topic: conceptual
-ms.date: 01/25/2021
-ms.openlocfilehash: 7d4df67b7f69b3e58799f45ad72bd9ed68540dc2
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.date: 01/26/2021
+ms.openlocfilehash: aae3947656e475d15bc4f0da770d0398fafa13c5
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98790940"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880441"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Utilizar modelos ligados e aninhados ao implementar recursos do Azure
 
@@ -495,6 +495,91 @@ Para passar os valores dos parâmetros em linha, use a `parameters` propriedade.
 ```
 
 Não é possível utilizar os parâmetros inline e um link para um ficheiro de parâmetros. A implementação falha com um erro quando ambos `parametersLink` e `parameters` são especificados.
+
+### <a name="use-relative-path-for-linked-templates"></a>Use caminho relativo para modelos ligados
+
+A `relativePath` propriedade de torna mais fácil para o autor de `Microsoft.Resources/deployments` modelos ligados. Esta propriedade pode ser usada para implementar um modelo de ligação remota em um local relativo ao progenitor. Esta funcionalidade requer que todos os ficheiros de modelos sejam encenados e disponíveis num URI remoto, como gitHub ou conta de armazenamento Azure. Quando o modelo principal é chamado usando um URI de Azure PowerShell ou Azure CLI, o URI de implantação da criança é uma combinação do progenitor e parentePath.
+
+> [!NOTE]
+> Ao criar um modeloSpec, quaisquer modelos referenciados pela `relativePath` propriedade são embalados no recurso modeloSpec por Azure PowerShell ou Azure CLI. Não requer que os ficheiros sejam encenados. Para obter mais informações, consulte [Criar uma especificação de modelo com modelos ligados](./template-specs.md#create-a-template-spec-with-linked-templates).
+
+Assuma uma estrutura de pastas como esta:
+
+![gestor de recursos ligado modelo caminho relativo](./media/linked-templates/resource-manager-linked-templates-relative-path.png)
+
+O modelo a seguir mostra como *mainTemplate.jsem* implementações *nestedChild.js* ilustrados na imagem anterior.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "functions": [],
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2020-10-01",
+      "name": "childLinked",
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "relativePath": "children/nestedChild.json"
+        }
+      }
+    }
+  ],
+  "outputs": {}
+}
+```
+
+Na seguinte implementação, o URI do modelo ligado no modelo anterior é **https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/linked-template-relpath/children/nestedChild.json** .
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Name linkedTemplateWithRelativePath `
+  -ResourceGroupName "myResourceGroup" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/linked-template-relpath/mainTemplate.json"
+```
+
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+```azurecli
+az deployment group create \
+  --name linkedTemplateWithRelativePath \
+  --resource-group myResourceGroup \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/linked-template-relpath/mainTemplate.json"
+```
+
+---
+
+Para implementar modelos ligados com trajetória relativa armazenada numa conta de armazenamento Azure, utilize o `QueryString` / `query-string` parâmetro para especificar o token SAS a ser usado com o parâmetro TemplateUri. Este parâmetro só é suportado pela versão 2.18 ou posterior do Azure CLI e pela versão 5.4 ou posterior do Azure PowerShell.
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Name linkedTemplateWithRelativePath `
+  -ResourceGroupName "myResourceGroup" `
+  -TemplateUri "https://stage20210126.blob.core.windows.net/template-staging/mainTemplate.json" `
+  -QueryString $sasToken
+```
+
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+```azurecli
+az deployment group create \
+  --name linkedTemplateWithRelativePath \
+  --resource-group myResourceGroup \
+  --template-uri "https://stage20210126.blob.core.windows.net/template-staging/mainTemplate.json" \
+  --query-string $sasToken
+```
+
+---
+
+Certifique-se de que não há nenhuma "" de liderança na QueryString. A implantação adiciona uma ao montar o URI para as implementações.
 
 ## <a name="template-specs"></a>Especificações de modelo
 

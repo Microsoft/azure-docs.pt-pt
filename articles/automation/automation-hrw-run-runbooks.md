@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 10/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: b73fa80085cc0491c8b4d0856d0baacfef1b51c0
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 4a080505f780e724bfd2ab997f5c823e467c4bec
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96301537"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896974"
 ---
 # <a name="run-runbooks-on-a-hybrid-runbook-worker"></a>Executar runbooks numa Função de Trabalho de Runbook Híbrida
 
@@ -22,7 +22,7 @@ Quando autores de um livro de bordo para executar um Trabalhador de Runbook Híb
 
 A Azure Automation lida com empregos em Trabalhadores De Runbook Híbridos diferentes dos empregos geridos em caixas de areia Azure. Se tiver um livro de corridas de longa duração, certifique-se de que é resistente a um possível reinício. Para mais detalhes sobre o comportamento do trabalho, consulte os [trabalhos do Trabalhador de Runbook Híbrido.](automation-hybrid-runbook-worker.md#hybrid-runbook-worker-jobs)
 
-Jobs for Hybrid Runbook Workers são executados sob a conta **do Sistema** local no Windows, ou a conta **de nxautomation** no Linux. Para o Linux, verifique se a conta **de nxautomation** tem acesso ao local onde os módulos do runbook estão armazenados. Quando utilizar o cmdlet [do Módulo de Instalação, certifique-se](/powershell/module/powershellget/install-module) de especificar AllUsers para o `Scope` parâmetro para garantir que a conta de **nxautomation** tem acesso. Para obter mais informações sobre powerShell sobre Linux, consulte [Questões Conhecidas para PowerShell em plataformas não-Windows](/powershell/scripting/whats-new/what-s-new-in-powershell-70?view=powershell-7.1).
+Jobs for Hybrid Runbook Workers são executados sob a conta **do Sistema** local no Windows, ou a conta **de nxautomation** no Linux. Para o Linux, verifique se a conta **de nxautomation** tem acesso ao local onde os módulos do runbook estão armazenados. Quando utilizar o cmdlet [do Módulo de Instalação, certifique-se](/powershell/module/powershellget/install-module) de especificar AllUsers para o `Scope` parâmetro para garantir que a conta de **nxautomation** tem acesso. Para obter mais informações sobre powerShell sobre Linux, consulte [Questões Conhecidas para PowerShell em plataformas não-Windows](/powershell/scripting/whats-new/what-s-new-in-powershell-70).
 
 ## <a name="configure-runbook-permissions"></a>Configure permissões de livro de correr
 
@@ -327,4 +327,4 @@ Para ajudar a resolver problemas com os seus runbooks em execução num trabalha
 
 * Se os seus livros não estiverem a concluir com sucesso, reveja o guia de resolução de problemas para [falhas na execução do livro](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails)de corridas .
 * Para obter mais informações sobre o PowerShell, incluindo módulos de referência linguística e aprendizagem, consulte [PowerShell Docs](/powershell/scripting/overview).
-* Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](/powershell/module/az.automation#automation).
+* Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](/powershell/module/az.automation).

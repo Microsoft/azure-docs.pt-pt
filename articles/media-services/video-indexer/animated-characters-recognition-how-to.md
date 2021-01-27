@@ -11,12 +11,12 @@ ms.custom: references_regions
 ms.topic: how-to
 ms.date: 12/07/2020
 ms.author: juliako
-ms.openlocfilehash: 1ee179efbe936c742f1eb51b998c10f9349c14fb
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 29dbdb896d1a6063fec277afa33327c84cb2f0cd
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763392"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880932"
 ---
 # <a name="use-the-animated-character-detection-preview-with-portal-and-api"></a>Utilize a deteção de caracteres animados (pré-visualização) com portal e API 
 
@@ -35,7 +35,7 @@ Se possuir uma conta paga por Video Indexer, tem de ligar primeiro uma conta De 
 > [!NOTE]
 > Ambas as contas têm de estar na mesma região. A integração da Visão Personalizada não é atualmente apoiada na região japonesa.
 
-As contas pagas que tenham acesso à sua conta De Visão Personalizada podem ver os modelos e imagens marcadas lá. Saiba mais sobre [como melhorar o seu classificador em Visão Personalizada.](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier) 
+As contas pagas que tenham acesso à sua conta De Visão Personalizada podem ver os modelos e imagens marcadas lá. Saiba mais sobre [como melhorar o seu classificador em Visão Personalizada.](../../cognitive-services/custom-vision-service/getting-started-improving-your-classifier.md) 
 
 Note que a formação do modelo deve ser feita apenas através do Video Indexer, e não através do site Da Visão Personalizada. 
 
@@ -108,7 +108,7 @@ Antes de marcar e treinar o modelo, todos os personagens animados serão nomeado
 1. Apenas contas pagas: Rever os grupos em Visão Personalizada 
 
     > [!NOTE]
-    > As contas pagas que tenham acesso à sua conta De Visão Personalizada podem ver os modelos e imagens marcadas lá. Saiba mais sobre [como melhorar o seu classificador em Visão Personalizada.](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier) É importante notar que o treino do modelo deve ser feito apenas através do Video Indexer (como descrito neste topid), e não através do site Da Visão Personalizada. 
+    > As contas pagas que tenham acesso à sua conta De Visão Personalizada podem ver os modelos e imagens marcadas lá. Saiba mais sobre [como melhorar o seu classificador em Visão Personalizada.](../../cognitive-services/custom-vision-service/getting-started-improving-your-classifier.md) É importante notar que o treino do modelo deve ser feito apenas através do Video Indexer (como descrito neste topid), e não através do site Da Visão Personalizada. 
 
     1. Vá à página **Modelos Personalizados** no Índice de Vídeo e escolha o **separador caracteres Animados.** 
     1. Clique no botão Editar para o modelo em que está a trabalhar para o gerir em Visão Personalizada. 
@@ -204,6 +204,6 @@ Veja os caracteres animados no ficheiro JSON gerado.
 * As personagens que parecem ser pequenas ou distantes no vídeo podem não ser identificadas corretamente se a qualidade do vídeo for fraca.
 * A recomendação é usar um modelo por conjunto de caracteres animados (por exemplo, por uma série animada).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Descrição geral do Video Indexer](video-indexer-overview.md)

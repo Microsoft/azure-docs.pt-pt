@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.custom:
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: 5e2d21a5f9f764f260695f17c93d5a615fc62efa
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 664a43dee635fa202f69927569fc1a5297bd1997
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937217"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880815"
 ---
 # <a name="quickstart-create-a-python-function-in-azure-from-the-command-line"></a>Quickstart: Criar uma função Python em Azure a partir da linha de comando
 
@@ -37,7 +37,7 @@ Antes de começar, deve ter o seguinte:
 
     + [Versão Azure PowerShell](/powershell/azure/install-az-ps) 5.0 ou posterior.
 
-+ [Python 3.8 (64-bit)](https://www.python.org/downloads/release/python-382/), [Python 3.7 (64-bit)](https://www.python.org/downloads/release/python-375/), [Python 3.6 (64-bit)](https://www.python.org/downloads/release/python-368/), que são todos suportados pela versão 3.x de Funções Azure.
++ [Versões python que são suportadas por Azure Functions](supported-languages.md#languages-by-runtime-version)
 
 ### <a name="prerequisite-check"></a>Verificação pré-requisito
 
@@ -272,7 +272,7 @@ Numa janela de terminal separada ou no browser, volte a ligar para a função re
 
 [!INCLUDE [functions-cleanup-resources-cli](../../includes/functions-cleanup-resources-cli.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Ligue-se a uma fila de armazenamento Azure](functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-python)

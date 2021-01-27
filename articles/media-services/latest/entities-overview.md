@@ -1,6 +1,5 @@
 ---
 title: Filtragem, encomenda e paging de entidades de Serviços de Comunicação Social
-titleSuffix: Azure Media Services
 description: Saiba mais sobre filtragem, encomenda e paging de entidades V3 da Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -13,12 +12,12 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 9a8cff3685cdaad011332adf58dc76f74976cd44
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50f562927fcbcf66ca7006ac2d100520311ac917
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89300192"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897888"
 ---
 # <a name="filtering-ordering-and-paging-of-media-services-entities"></a>Filtragem, encomenda e paging de entidades de Serviços de Comunicação Social
 
@@ -47,7 +46,7 @@ Operadores de gama:
 - `ge`: Teste se um campo é *maior ou igual a* um valor constante.
 - `le`: Teste se um campo é *inferior ou igual a* um valor constante.
 
-## <a name="filter"></a>Filtrar
+## <a name="filter"></a>Filtro
 
 Utilize `$filter` para fornecer um parâmetro de filtro OData para encontrar apenas os objetos em que está interessado.
 
@@ -158,7 +157,7 @@ client.Jobs.List(config.ResourceGroup, config.AccountName, VideoAnalyzerTransfor
 
 A tabela a seguir mostra como pode aplicar as opções de filtragem e encomenda a diferentes entidades:
 
-|Nome da entidade|Nome da propriedade|Filtrar|Encomenda|
+|Nome da entidade|Nome da propriedade|Filtro|Encomenda|
 |---|---|---|---|
 |[Recursos](/rest/api/media/assets/)|name|`eq`, `gt`, `lt`, `ge`, `le`|`asc` e `desc`|
 ||propriedades.alternateId |`eq`||
@@ -169,7 +168,7 @@ A tabela a seguir mostra como pode aplicar as opções de filtragem e encomenda 
 ||propriedades.descrição    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`||
 ||propriedades.lastModified|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
 ||propriedades.policyId|`eq`, `ne`||
-|[Tarefas](/rest/api/media/jobs)| name  | `eq`            | `asc` e `desc`|
+|[Trabalhos](/rest/api/media/jobs)| name  | `eq`            | `asc` e `desc`|
 ||propriedades.estado        | `eq`, `ne`        |                         |
 ||propriedades.criadas      | `gt`, `ge`, `lt`, `le`| `asc` e `desc`|
 ||propriedades.lastModified | `gt`, `ge`, `lt`, `le` | `asc` e `desc`| 
@@ -182,7 +181,7 @@ A tabela a seguir mostra como pode aplicar as opções de filtragem e encomenda 
 || propriedades.criadas      | `gt`, `ge`, `lt`, `le`| `asc` e `desc`|
 || propriedades.lastModified | `gt`, `ge`, `lt`, `le`| `asc` e `desc`|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Listar Ativos](/rest/api/media/assets/list)
 * [Políticas chave de conteúdo da lista](/rest/api/media/contentkeypolicies/list)

@@ -2,19 +2,15 @@
 title: Problemas de resolução da Azure Automation Hybrid Runbook Worker problemas
 description: Este artigo diz como resolver problemas e resolver problemas que surgem com os Trabalhadores híbridos da Azure Automation.
 services: automation
-ms.service: automation
 ms.subservice: ''
-author: mgoedtel
-ms.author: magoedte
 ms.date: 11/25/2019
-ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 1386dd820b10b63862ddab38c441f251bea1d83d
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.topic: troubleshooting
+ms.openlocfilehash: 214501c447632232dc00b61643ea21083bd0e4ac
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428392"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896499"
 ---
 # <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Resolver problemas da Função de Trabalho de Runbook Híbrida
 
@@ -46,7 +42,7 @@ São possíveis causas:
 
 #### <a name="resolution"></a>Resolução
 
-Verifique se o computador tem acesso de saída a ** \* .azure-automation.net** na porta 443.
+Verifique se o computador tem acesso de saída a **\* .azure-automation.net** na porta 443.
 
 Os computadores que executam o Trabalhador de Runbook Híbrido devem cumprir os requisitos mínimos de hardware antes de o trabalhador ser configurado para hospedar esta funcionalidade. Os livros de execução e o processo de fundo que utilizam podem fazer com que o sistema seja usado em excesso e causar atrasos no trabalho ou intervalos de tempo.
 
@@ -58,7 +54,7 @@ Verifique o registo **de eventos microsoft-SMA** para obter um evento correspond
 
 #### <a name="issue"></a>Problema
 
-O Trabalhador De Runbook Híbrido recebe o evento 15011, indicando que um resultado de consulta não é válido. O seguinte erro aparece quando o trabalhador tenta abrir uma ligação com o [servidor SignalR](/aspnet/core/signalr/introduction?view=aspnetcore-3.1).
+O Trabalhador De Runbook Híbrido recebe o evento 15011, indicando que um resultado de consulta não é válido. O seguinte erro aparece quando o trabalhador tenta abrir uma ligação com o [servidor SignalR](/aspnet/core/signalr/introduction).
 
 ```error
 [AccountId={c7d22bd3-47b2-4144-bf88-97940102f6ca}]
@@ -194,7 +190,7 @@ Se o agente não estiver em funcionamento, executar o seguinte comando para inic
 
 ### <a name="scenario-the-specified-class-doesnt-exist"></a><a name="class-does-not-exist"></a>Cenário: A classe especificada não existe
 
-Se vir a mensagem de erro `The specified class does not exist..` em **/var/opt/microsoft/omsconfig/omsconfig.log,** o agente Log Analytics do Linux tem de ser atualizado. Executar o seguinte comando para reinstalar o agente.
+Se vir a mensagem de erro `The specified class does not exist..` em **/var/opt/microsoft/omsconfig/omsconfig.log**, o agente Log Analytics do Linux tem de ser atualizado. Executar o seguinte comando para reinstalar o agente.
 
 ```bash
 wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
@@ -226,7 +222,7 @@ No registo de **eventos de Registos de Aplicações e Serviços\Operations Manag
 
 #### <a name="cause"></a>Causa
 
-Este problema pode ser causado pelo seu proxy ou firewall de rede bloqueando a comunicação ao Microsoft Azure. Verifique se o computador tem acesso de saída a ** \* .azure-automation.net** na porta 443.
+Este problema pode ser causado pelo seu proxy ou firewall de rede bloqueando a comunicação ao Microsoft Azure. Verifique se o computador tem acesso de saída a **\* .azure-automation.net** na porta 443.
 
 #### <a name="resolution"></a>Resolução
 
@@ -238,9 +234,9 @@ Os trabalhadores híbridos enviam [produção e mensagens runbook](../automation
 
 #### <a name="issue"></a>Problema
 
-Um script que está a ser executado num Windows Hybrid Runbook Worker não pode ligar-se como esperado ao Microsoft 365 numa caixa de areia do Orquestrador. O script está a utilizar [o Connect-MsolService](/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) para ligação. 
+Um script que está a ser executado num Windows Hybrid Runbook Worker não pode ligar-se como esperado ao Microsoft 365 numa caixa de areia do Orquestrador. O script está a utilizar [o Connect-MsolService](/powershell/module/msonline/connect-msolservice) para ligação. 
 
-Se ajustar **Orchestrator.Sandbox.exe.config** para definir o proxy e a lista de bypass, a caixa de areia ainda não se conecta corretamente. Um ** ficheiroPowershell_ise.exe.config** com as mesmas definições de lista de procuração e bypass parece funcionar como espera. Os registos de Automação de Gestão de Serviços (SMA) e os registos PowerShell não fornecem qualquer informação sobre o proxy.
+Se ajustar **Orchestrator.Sandbox.exe.config** para definir o proxy e a lista de bypass, a caixa de areia ainda não se conecta corretamente. Um **ficheiroPowershell_ise.exe.config** com as mesmas definições de lista de procuração e bypass parece funcionar como espera. Os registos de Automação de Gestão de Serviços (SMA) e os registos PowerShell não fornecem qualquer informação sobre o proxy.
 
 #### <a name="cause"></a>Causa
 
@@ -250,7 +246,7 @@ A ligação aos Serviços da Federação de Diretório Ativo (AD FS) no servidor
 
 Pode resolver o problema para a caixa de areia do Orquestrador migrando o seu script para utilizar os módulos Azure Ative Directory em vez do módulo MSOnline para cmdlets PowerShell. Para mais informações, consulte [Migração de Orquestrador para Azure Automation (Beta)](../automation-orchestrator-migration.md).
 
-Se pretender continuar a utilizar os cmdlets do módulo MSOnline, altere o seu script para utilizar [o Invoke-Command](/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7). Especifique valores para os `ComputerName` parâmetros e `Credential` parâmetros. 
+Se pretender continuar a utilizar os cmdlets do módulo MSOnline, altere o seu script para utilizar [o Invoke-Command](/powershell/module/microsoft.powershell.core/invoke-command). Especifique valores para os `ComputerName` parâmetros e `Credential` parâmetros. 
 
 ```powershell
 $Credential = Get-AutomationPSCredential -Name MyProxyAccessibleCredential
@@ -353,7 +349,7 @@ Para resolver este problema:
 
 1. Tente o `sudo python /opt/microsoft/omsconfig/.../onboarding.py --register` guião python de novo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se não vir o seu problema aqui ou não conseguir resolver o seu problema, experimente um dos seguintes canais para obter apoio adicional:
 

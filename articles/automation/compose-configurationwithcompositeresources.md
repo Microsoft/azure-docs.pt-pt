@@ -6,12 +6,12 @@ services: automation
 ms.subservice: dsc
 ms.date: 08/21/2018
 ms.topic: conceptual
-ms.openlocfilehash: 9c5524d2847f59dda1f2c24f67e1e18f18d49b1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b1bbb12412deec6ecac8cf1ffd47a00f778862e
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86185573"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98894733"
 ---
 # <a name="compose-dsc-configurations"></a>Compor configurações DSC
 
@@ -40,10 +40,10 @@ Uma vez guardada a nova configuração, é submetida para compilação. Pode ver
 
 Quando a compilação tiver sido concluída com sucesso, a nova configuração aparece no separador **configurações compiladas.** Em seguida, pode atribuir a configuração a um nó gerido, utilizando os passos na [reatribuição de um nó para uma configuração diferente do nó](automation-dsc-getting-started.md#reassign-a-node-to-a-different-node-configuration).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para aprender a ativar os nós, consulte [Ativar a Configuração do Estado da Automação Azure](automation-dsc-onboarding.md).
 - Para saber sobre a compilação de configurações de DSC para que possa atribuí-las aos nós-alvo, consulte [as configurações do Compile DSC na Configuração do Estado da Automação Azure](automation-dsc-compile.md).
 - Para ver um exemplo da utilização da Configuração do Estado da Automação Azure num gasoduto de implantação contínua, consulte [Configurar uma implementação contínua com chocolateria](automation-dsc-cd-chocolatey.md).
 - Para obter informações sobre preços, consulte [os preços de configuração do Estado da Azure Automation](https://azure.microsoft.com/pricing/details/automation/).
-- Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
+- Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](/powershell/module/az.automation).

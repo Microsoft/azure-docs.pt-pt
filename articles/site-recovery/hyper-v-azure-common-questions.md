@@ -3,12 +3,12 @@ title: Questões comuns para recuperação de desastres hiper-V com recuperaçã
 description: Este artigo resume questões comuns sobre a criação de recuperação de desastres para os Hiper-V VMs para Azure no local, utilizando o site de recuperação do local de Azure.
 ms.date: 11/12/2019
 ms.topic: conceptual
-ms.openlocfilehash: e4f5ee71fc56cad247b57f94bf08a68bed8775f9
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 649bd69f14cdf8d81fe05d3a5f5cac3389419fc3
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754356"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879449"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Perguntas comuns: recuperação após desastre de Hyper-V para o Azure
 
@@ -167,7 +167,7 @@ Os VMs hiper-V podem ser replicados a cada 30 segundos (exceto para armazenament
 
 ### <a name="can-azure-site-recovery-and-hyper-v-replica-be-configured-together-on-a-hyper-v-machine"></a>A recuperação do local de Azure e a réplica do Hiper-V podem ser configuradas juntas numa máquina De Hiper-V?
 
-Sim, tanto a Recuperação do Local Azure como a Réplica Hiper-V podem ser configuradas em conjunto para uma máquina. Mas a máquina terá de ser protegida como uma máquina física e será replicada para o Azure utilizando um servidor de Configuração/Processo. Saiba mais sobre a proteção das máquinas físicas [aqui.](https://docs.microsoft.com/azure/site-recovery/physical-azure-architecture)
+Sim, tanto a Recuperação do Local Azure como a Réplica Hiper-V podem ser configuradas em conjunto para uma máquina. Mas a máquina terá de ser protegida como uma máquina física e será replicada para o Azure utilizando um servidor de Configuração/Processo. Saiba mais sobre a proteção das máquinas físicas [aqui.](./physical-azure-architecture.md)
 
 ### <a name="can-i-extend-replication"></a>Posso estender a replicação?
 Não é suportada a replicação expandida ou em cadeia. Solicite esta funcionalidade no [fórum de comentários.](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959)

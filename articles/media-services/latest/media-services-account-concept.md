@@ -1,5 +1,5 @@
 ---
-title: Gerir contas V3 da Azure Media Services Microsoft Docs
+title: Gerir contas V3 da Azure Media Services
 description: Para começar a gerir, encriptar, codificar, analisar e transmitir conteúdos de mídia em Azure, é necessário criar uma conta de Media Services. Este artigo explica como gerir as contas V3 da Azure Media Services.
 services: media-services
 author: IngridAtMicrosoft
@@ -10,12 +10,12 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 11/05/2020
 ms.author: inhenkel
-ms.openlocfilehash: 77453aa2d8989a0542beffb1c88ebe7ee53d1506
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 49cdee15923123ced03c2c6bc750e1b98dd42887
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "96008332"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896381"
 ---
 # <a name="manage-azure-media-services-v3-accounts"></a>Gerir contas V3 da Azure Media Services
 
@@ -44,6 +44,6 @@ Se precisar de mover uma conta de Serviços de Comunicação para uma nova subsc
 
 Se uma conta de Serviços de Mídia ou uma conta de Armazenamento Azure associada ficar "desligada" após o movimento do grupo de recursos, tente rodar as teclas de Conta de Armazenamento. Se a rotação das teclas 'Conta de Armazenamento' não resolver o estado "desligado" da conta Serviços de Comunicação, apresente um novo pedido de apoio do menu "Suporte + resolução de problemas" na conta dos Serviços de Comunicação.  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Criar uma conta](./create-account-howto.md)

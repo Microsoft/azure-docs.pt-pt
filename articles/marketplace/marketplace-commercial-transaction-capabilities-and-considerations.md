@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 5a2a7abf0227812826428557b86c4468f7693c82
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: b8c9af31243d8bb58a58fbc687cad68130f64f7e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600390"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880747"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Capacidades de transação de mercado comercial
 
@@ -90,7 +90,7 @@ Esta opção permite preços mais altos ou mais baixos do que a oferta publicame
 
 Cobramos uma taxa de serviço de loja padrão de 20% quando os clientes compram a sua oferta de transação no mercado comercial. Para mais informações sobre esta taxa, consulte a secção 5c do [Microsoft Publisher Agreement](https://go.microsoft.com/fwlink/?LinkID=699560).
 
-Para certas ofertas transacionáveis que publica no mercado comercial, poderá beneficiar de uma taxa reduzida de serviço de loja de 10%. Para uma oferta de qualificação, deve ter sido designada pela Microsoft como Azure IP Co-sell incentivado. A elegibilidade deve ser cumprida pelo menos cinco dias úteis antes do final de cada mês civil para receber a Taxa reduzida de Serviço do Mercado. Uma vez cumprida a elegibilidade, a taxa de serviço reduzida é atribuída a todas as transações com efeito no primeiro dia do mês seguinte até que o estatuto de Co-venda de IP Azure seja perdido. Para obter mais informações sobre a elegibilidade de co-venda de IP, consulte [requisitos para o estado de co-venda](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status).
+Para certas ofertas transacionáveis que publica no mercado comercial, poderá beneficiar de uma taxa reduzida de serviço de loja de 10%. Para uma oferta de qualificação, deve ter sido designada pela Microsoft como Azure IP Co-sell incentivado. A elegibilidade deve ser cumprida pelo menos cinco dias úteis antes do final de cada mês civil para receber a Taxa reduzida de Serviço do Mercado. Uma vez cumprida a elegibilidade, a taxa de serviço reduzida é atribuída a todas as transações com efeito no primeiro dia do mês seguinte até que o estatuto de Co-venda de IP Azure seja perdido. Para obter mais informações sobre a elegibilidade de co-venda de IP, consulte [requisitos para o estado de co-venda](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status).
 
 A Taxa reduzida de Serviço de Marketplace aplica-se à Azure IP Co-vender saaS, VMs, apps geridas e quaisquer outras soluções de IaAS transacionáveis qualificadas disponibilizadas através do mercado comercial. As ofertas pagas do SaaS associadas a uma aplicação da Microsoft Teams ou a pelo menos dois add-ins microsoft 365 (Excel, PowerPoint, Word, Outlook e SharePoint) e publicadas no Microsoft AppSource também recebem este desconto.
 
@@ -203,7 +203,7 @@ A opção de publicação de transações só está disponível para utilizaçã
 
 - **Aplicação SaaS** - Deve ser uma solução multitenante, utilizar [o Azure Ative Directory](https://azure.microsoft.com/services/active-directory/) para autenticação e integrar-se com as [APIs de Cumprimento do SaaS](partner-center-portal/pc-saas-fulfillment-api-v2.md). O uso da infraestrutura Azure é gerido e faturado diretamente para você (o parceiro), por isso você deve prestar contas das taxas de utilização da infraestrutura Azure e taxas de licenciamento de software como um item de custo único. Para obter orientações detalhadas, consulte [Criar uma nova oferta saaS no mercado comercial.](./create-new-saas-offer.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Reveja os requisitos de elegibilidade nas opções de publicação por secção de tipo oferta para finalizar a seleção e configuração da sua oferta.
 - Reveja os padrões de publicação por loja online por exemplos sobre como a sua solução mapeia para um tipo de oferta e configuração.

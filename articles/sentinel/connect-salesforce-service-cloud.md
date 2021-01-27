@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2021
 ms.author: yelevin
-ms.openlocfilehash: d323af2695a41e685e722c98603cf5df09866a15
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: 152fee2e4e72cee6a7bc1c768c0a8ca7b031ec39
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567975"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878923"
 ---
 # <a name="connect-your-salesforce-service-cloud-to-azure-sentinel"></a>Ligue a sua Nuvem de Serviço Salesforce ao Azure Sentinel
 
@@ -37,7 +37,7 @@ Este artigo explica como ligar a sua solução Salesforce Service Cloud ao Azure
 
 - Deve ter lido permissões para partilhar chaves para o espaço de trabalho. [Saiba mais sobre as teclas do espaço de trabalho.](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key)
 
-- Deve ter lido e escrito permissões para as Funções Azure para criar uma App de Função. [Saiba mais sobre as Funções Azure](/azure/azure-functions/).
+- Deve ter lido e escrito permissões para as Funções Azure para criar uma App de Função. [Saiba mais sobre as Funções Azure](../azure-functions/index.yml).
 
 - Tem de ter as seguintes credenciais de API salesforce REST: **Nome de utilizador da Salesforce API,** Password **API Salesforce,** **Salesforce Security Token,** **Salesforce Consumer Key**, **Salesforce Consumer Secret**. [Saiba mais sobre a Salesforce REST API.](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/quickstart.htm)
 
@@ -61,7 +61,7 @@ Consulte o separador **passos seguintes** na página do conector para obter algu
 
 Pode demorar até que os seus registos comecem a aparecer no Log Analytics.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste documento, aprendeu a ligar a Salesforce Service Cloud ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 

@@ -1,5 +1,5 @@
 ---
-title: empregos azcopia currículo / Microsoft Docs
+title: empregos azcopia retomar | Microsoft Docs
 description: Este artigo fornece informações de referência para os trabalhos de azcopia retomar o comando.
 author: normesta
 ms.service: storage
@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: dd25bec04d651c01d622f0652a29a65069421786
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30c0a31cc58ee6f1bbe78af017be42ae7d410fe0
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87281961"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878414"
 ---
 # <a name="azcopy-jobs-resume"></a>azcopy jobs resume
 
@@ -28,7 +28,7 @@ azcopy jobs resume [jobID] [flags]
 ## <a name="related-conceptual-articles"></a>Artigos conceptuais relacionados
 
 - [Introdução ao AzCopy](storage-use-azcopy-v10.md)
-- [Dados de transferência com armazenamento AzCopy e Blob](storage-use-azcopy-blobs.md)
+- [Dados de transferência com armazenamento AzCopy e Blob](./storage-use-azcopy-v10.md#transfer-data)
 - [Transferir dados com o AzCopy e armazenamento de ficheiros](storage-use-azcopy-files.md)
 - [Configurar, otimizar e resolver problemas AzCopy](storage-use-azcopy-configure.md)
 
@@ -50,6 +50,6 @@ azcopy jobs resume [jobID] [flags]
 |--cadeia do tipo de saída|Formato da saída do comando. As escolhas incluem: texto, json. O valor predefinido é "texto".|
 |--cadeia de sufixos de confiança da Microsoft-Sufixes   |Especifica sufixos de domínio adicionais onde podem ser enviados tokens de login do Azure Ative Directory.  O padrão é '*.core.windows.net;*. core.chinacloudapi.cn; *.core.cloudapi.de;* core.usgovcloudapi.net.' Qualquer listado aqui é adicionado ao padrão. Para a segurança, só deve colocar os domínios microsoft Azure aqui. Separe várias entradas com pontos e vírgulas.|
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 - [azcopy jobs](storage-ref-azcopy-jobs.md)

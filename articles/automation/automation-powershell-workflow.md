@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/14/2018
 ms.topic: conceptual
-ms.openlocfilehash: f175e495af8e925c0d5a6c61669a5e2f44f73ae7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 483d4c16f1b77bf7328857eb25e1571a741d144e
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86186010"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896923"
 ---
 # <a name="learn-powershell-workflow-for-azure-automation"></a>Aprenda fluxo de trabalho PowerShell para Azure Automation
 
@@ -290,10 +290,10 @@ workflow CreateTestVms
 ```
 
 > [!NOTE]
-> Para livros de execução powershell não gráficos, `Add-AzAccount` e `Add-AzureRMAccount` são pseudónimos para [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). Pode utilizar estes cmdlets ou [atualizar os seus módulos](automation-update-azure-modules.md) na sua conta Automation para as versões mais recentes. Poderá ter de atualizar os seus módulos mesmo que tenha acabado de criar uma nova conta Automation. A utilização destes cmdlets não é necessária se estiver a autenticar utilizando uma conta Run As configurada com um titular de serviço.
+> Para livros de execução powershell não gráficos, `Add-AzAccount` e `Add-AzureRMAccount` são pseudónimos para [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Pode utilizar estes cmdlets ou [atualizar os seus módulos](automation-update-azure-modules.md) na sua conta Automation para as versões mais recentes. Poderá ter de atualizar os seus módulos mesmo que tenha acabado de criar uma nova conta Automation. A utilização destes cmdlets não é necessária se estiver a autenticar utilizando uma conta Run As configurada com um titular de serviço.
 
 Para obter mais informações sobre os pontos de verificação, consulte [adicionar pontos de verificação a um fluxo de trabalho do script](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj574114(v=ws.11)).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para saber mais sobre os livros de fluxo de trabalho powerShell, consulte [Tutorial: Crie um manual de fluxo de trabalho PowerShell](learn/automation-tutorial-runbook-textual.md).

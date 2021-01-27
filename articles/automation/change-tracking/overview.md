@@ -3,14 +3,14 @@ title: Rastreio de alteração de alteração de automação Azure e visão gera
 description: Este artigo descreve a funcionalidade De Rastreio e Inventário de Alterações, que o ajuda a identificar o software e as alterações de serviço da Microsoft no seu ambiente.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 11/10/2020
+ms.date: 01/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: b5390e4b3dc6d77390c3fca6323cbd52544c638a
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 0ef821634669739ff5aed58e4404d7c21b8d8222
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445426"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896634"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Alterar rastreio e visão geral do inventário
 
@@ -32,7 +32,7 @@ O Change Tracking and Inventory utiliza [o Azure Security Center File Integrity 
 - Serviços da Microsoft
 - Daemons linux
 
-Ativar todas as funcionalidades incluídas no Change Tracking e No inventário pode causar custos adicionais. Antes de prosseguir, [reveja os preços da Automação](https://azure.microsoft.com/pricing/details/automation/) e os preços do Monitor [Azure.](https://azure.microsoft.com/pricing/details/monitor/) 
+Ativar todas as funcionalidades incluídas no Change Tracking e No inventário pode causar custos adicionais. Antes de prosseguir, [reveja os preços da Automação](https://azure.microsoft.com/pricing/details/automation/) e os preços do Monitor [Azure.](https://azure.microsoft.com/pricing/details/monitor/)
 
 O Change Tracking and Inventory encaminha os dados para os Registos do Monitor Azure, e estes dados recolhidos são armazenados num espaço de trabalho do Log Analytics. A função Desídua de Ficheiros (FIM) só está disponível quando **o Azure Defender para servidores** estiver ativado. Consulte o Azure Security Center [Pricing](../../security-center/security-center-pricing.md) para saber mais. O FIM envia dados para o mesmo espaço de trabalho do Log Analytics que o criado para armazenar dados a partir de Change Tracking e Inventory. Recomendamos que monitorize o seu espaço de trabalho linked Log Analytics para acompanhar a sua utilização exata. Para obter mais informações sobre a análise da utilização dos dados do Azure Monitor Logs, consulte [Gerir a utilização e o custo.](../../azure-monitor/platform/manage-cost-storage.md)
 
@@ -74,16 +74,7 @@ O python2 executável deve ser aliasado a *pitão.*
 
 ## <a name="network-requirements"></a>Requisitos de rede
 
-São necessários os seguintes endereços especificamente para o Rastreio de Alterações e Inventário. A comunicação a estes endereços ocorre sobre o porto 443.
-
-|Azure Público  |Azure Government  |
-|---------|---------|
-|*.ods.opinsights.azure.com    | *.ods.opinsights.azure.us         |
-|*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
-|*.blob.core.windows.net | *.blob.core.usgovcloudapi.net|
-|*.azure-automation.net | *.azure-automation.us|
-
-Quando criar regras de segurança do grupo de rede ou configurar o Azure Firewall para permitir o tráfego para o serviço de Automação e para o espaço de trabalho Log Analytics, utilize a [etiqueta de serviço](../../virtual-network/service-tags-overview.md#available-service-tags) **GuestAndHybridManagement** e **AzureMonitor**. Isto simplifica a gestão contínua das suas regras de segurança de rede. Para ligar ao serviço Demômes a partir dos seus VMs Azure de forma segura e privada, reveja [o Link Privado Use Azure](../how-to/private-link-security.md). Para obter a etiqueta de serviço atual e informações de alcance para incluir como parte das configurações de firewall no local, consulte [ficheiros JSON descarregados](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
+Consulte [a configuração da rede de automação Azure](../automation-network-configuration.md#update-management-and-change-tracking-and-inventory) para obter informações detalhadas sobre as portas, URLs e outros detalhes de rede necessários para o Rastreio e Inventário de Alterações.
 
 ## <a name="enable-change-tracking-and-inventory"></a>Ativar o Controlo de Alterações e Inventário
 
@@ -185,7 +176,7 @@ Para otimizar o desempenho, o agente Log Analytics apenas rastreia as alteraçõ
 
 Uma capacidade chave do Change Tracking and Inventory está a alertar para as alterações ao estado de configuração do seu ambiente híbrido. Muitas ações úteis estão disponíveis para desencadear em resposta a alertas. Por exemplo, ações em funções Azure, livros de automação, webhooks e similares. Alertar sobre as alterações ao ficheiro **c:\windows\system32\drivers\etc\hosts** para uma máquina é uma boa aplicação de alertas para os dados de Change Tracking e Inventory. Há muitos mais cenários para alertar também, incluindo os cenários de consulta definidos na tabela seguinte.
 
-|Consulta  |Description  |
+|Consulta  |Descrição  |
 |---------|---------|
 |ConfiguraçãoChange <br>&#124; onde ConfigChangeType == "Ficheiros" e FileSystemPath contém " c: \\ sistema de \\ janelas32 \\ controladores \\ "|Útil para rastrear alterações em ficheiros críticos do sistema.|
 |ConfiguraçãoChange <br>&#124; onde FieldsChanged contém "FileContentChecksum" e FileSystemPath == "c: \\ \\ windows system32 \\ drivers etc \\ \\ hosts"|Útil para rastrear modificações em ficheiros de configuração de chaves.|
@@ -196,7 +187,7 @@ Uma capacidade chave do Change Tracking and Inventory está a alertar para as al
 |ConfiguraçãoChange <br>&#124; onde o RegistryKey == @"HKEY_LOCAL_MACHINE \\ SOFTWARE Microsoft Windows \\ \\ \\ CurrentVersion \\ QualityCompat"| Útil para rastrear alterações em chaves antivírus cruciais.|
 |ConfiguraçãoChange <br>&#124; onde o RegistryKey contém @"HKEY_LOCAL_MACHINE \\ SYSTEM \\ CurrentControlSet \\ Services \\ SharedAccess \\ Parameters \\ FirewallPolicy"| Útil para rastrear alterações nas definições de firewall.|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para ativar a partir de uma conta de Automação, consulte [Ativar o Tracking e o Inventário de Mudança a partir de uma conta de Automação.](enable-from-automation-account.md)
 

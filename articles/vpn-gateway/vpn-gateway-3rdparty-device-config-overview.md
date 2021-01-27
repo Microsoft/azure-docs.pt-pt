@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
-ms.openlocfilehash: 01ceb067f589ef04b04ff0bf05e2971ee30f407c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 484dad65310efaa60e8744b2f122b5e44ae13565
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89400165"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880157"
 ---
 # <a name="overview-of-partner-vpn-device-configurations"></a>Visão geral das configurações do dispositivo VPN parceiro
 Este artigo fornece uma visão geral da configuração de dispositivos VPN no local para a ligação aos gateways Azure VPN. Uma amostra Azure virtual network e configuração de gateway VPN é usada para mostrar-lhe como conectar-se a diferentes configurações de dispositivos VPN no local usando os mesmos parâmetros.
@@ -27,7 +27,7 @@ A primeira configuração da amostra consiste num único túnel S2S VPN entre um
 
 ![Diagrama de um único túnel S2S VPN](./media/vpn-gateway-3rdparty-device-config-overview/singletunnel.png)
 
-Para obter instruções passo a passo para configurar um único túnel VPN, consulte [configurar uma ligação local-local](vpn-gateway-howto-site-to-site-resource-manager-portal.md). As seguintes secções especificam os parâmetros de ligação para a configuração da amostra e fornecem um script PowerShell para ajudá-lo a começar.
+Para obter instruções passo a passo para configurar um único túnel VPN, consulte [configurar uma ligação local-local](./tutorial-site-to-site-portal.md). As seguintes secções especificam os parâmetros de ligação para a configuração da amostra e fornecem um script PowerShell para ajudá-lo a começar.
 
 ### <a name="connection-parameters"></a>Parâmetros da ligação
 Esta secção lista os parâmetros para os exemplos descritos nas secções anteriores.
@@ -148,6 +148,5 @@ Ao criar a ligação S2S VPN, pode utilizar opcionalmente [o BGP para o gateway 
     New-AzVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP $True
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para obter instruções passo a passo para a configuração de gateways VPN ativas ativas, consulte [a configuração de gateways VPN ativas ativas para as instalações cruzadas e ligações VNet-to-VNet](vpn-gateway-activeactive-rm-powershell.md).
-

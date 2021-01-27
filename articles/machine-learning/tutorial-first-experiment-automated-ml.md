@@ -11,12 +11,12 @@ ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 12/21/2020
 ms.custom: automl
-ms.openlocfilehash: 90c827774f38f07b9791a6399a53b0304bbe28c8
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: ff9bd328dd98fbd614a3bb63a1edddc2027d97b2
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97695214"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879785"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Tutorial: Criar um modelo de classificação com ML automatizado em Aprendizagem automática de máquinas
 
@@ -159,7 +159,7 @@ Depois de carregar e configurar os seus dados, pode configurar a sua experiênci
 
     1. Selecione **Ver as definições de configuração adicionais** e povoar os campos da seguinte forma. Estas configurações são para controlar melhor o trabalho de treino. Caso contrário, os padrão são aplicados com base na seleção de experiências e dados.
 
-        &nbsp;Configurações adicionais|Description|Valor &nbsp; para &nbsp; tutorial
+        &nbsp;Configurações adicionais|Descrição|Valor &nbsp; para &nbsp; tutorial
         ------|---------|---
         Métrica primária| Métrica de avaliação pela que o algoritmo de aprendizagem automática será medido.|AUC_weighted
         Explicar o melhor modelo| Mostra automaticamente a explicabilidade do melhor modelo criado pela ML automatizada.| Ativar
@@ -247,12 +247,12 @@ Elimine apenas a instância de implantação do Azure Machine Learning em https:
 
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial automatizado de machine learning, usou a interface ML automatizada da Azure Machine Learning para criar e implementar um modelo de classificação. Consulte estes artigos para obter mais informações e próximos passos:
 
 > [!div class="nextstepaction"]
-> [Consumir serviços Web](https://docs.microsoft.com/power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context)
+> [Consumir serviços Web](/power-bi/connect-data/service-aml-integrate?context=azure%2fmachine-learning%2fcontext%2fml-context)
 
 + Saiba mais sobre [aprendizagem automática de máquinas.](concept-automated-ml.md)
 + Para obter mais informações sobre métricas e gráficos de classificação, consulte o artigo [de resultados automatizados de machine learning da Máquina.](how-to-understand-automated-ml.md)

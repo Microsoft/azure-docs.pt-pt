@@ -3,21 +3,21 @@ title: Serviço microsoft tradutor
 titlesuffix: Azure Cognitive Services
 description: Integre o Tradutor nas suas aplicações, websites, ferramentas e outras soluções para proporcionar experiências multi-idiomas ao utilizador.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: overview
 ms.date: 09/11/2020
-ms.author: swmachan
+ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: tradutor, tradução de texto, tradução automática, serviço de tradução
-ms.openlocfilehash: 8016c79cbe7f78bdaa18274f8873548e3982df2f
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 37f0d64879493abcf3e5b9448068b86b7a36dccb
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95016481"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896702"
 ---
 # <a name="what-is-the-translator-service"></a>O que é o serviço de Tradutor?
 

@@ -1,6 +1,5 @@
 ---
 title: Analisar ficheiros de vídeo e áudio
-titleSuffix: Azure Media Services
 description: Saiba como analisar conteúdos de áudio e vídeo utilizando AudioAnalyzerPreset e VideoAnalyzerPreset em Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -12,12 +11,12 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 10/21/2020
 ms.author: inhenkel
-ms.openlocfilehash: 61f5a470046ba3ddca157e83737a29ed936a0c3a
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 25b5c3163b657633ca78215468f4c2a2e40949b7
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97656330"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897229"
 ---
 # <a name="analyze-video-and-audio-files-with-azure-media-services"></a>Analise ficheiros de vídeo e áudio com a Azure Media Services
 
@@ -458,6 +457,6 @@ Os vídeos que contêm conteúdo adulto ou picante podem estar disponíveis apen
 }
 ] 
 ```
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Tutorial: Analyze videos with Azure Media Services](analyze-videos-tutorial-with-api.md) (Tutorial: analisar vídeos com os Serviços de Multimédia do Azure)

@@ -1,6 +1,5 @@
 ---
 title: Conformidade regulamentar dos Serviços de Mídia
-titleSuffix: Azure Media Services
 description: A Azure Media Services cumpre com o Governo Azure.
 services: media-services
 documentationcenter: ''
@@ -12,12 +11,12 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 884b1b85da5b52101ae5a0053003d47260a1134d
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 978af4754e6e083e8bf5375ade84891019abccca
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015826"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897059"
 ---
 # <a name="media-services-regulatory-compliance"></a>Conformidade regulamentar dos Serviços de Mídia
 
@@ -41,6 +40,6 @@ Se a sua organização precisar de cumprir as normas legais ou regulamentares pa
 
 Você também encontrará recursos adicionais de conformidade, tais como relatórios de auditoria, uma lista de verificação para privacidade e Regulamento Geral de Proteção de Dados (RGPD), plantas de conformidade, diretrizes nacionais e regionais, implementação e mapeamentos, bem como livros brancos e relatórios analistas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [Descrição geral dos Serviços de Multimédia do Azure](media-services-overview.md)

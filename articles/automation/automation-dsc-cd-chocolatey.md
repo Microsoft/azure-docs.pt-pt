@@ -6,12 +6,12 @@ ms.subservice: dsc
 ms.date: 08/08/2018
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: 87504625c298c4fb858ff90430d707081e87cd5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb5f7b5e8214bd3b04bd7b9544ab4bc589f6c4bf
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86186576"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896330"
 ---
 # <a name="set-up-continuous-deployment-with-chocolatey"></a>Configurar a implementação contínua com o Chocolatey
 
@@ -126,7 +126,7 @@ O exemplo incluído implementa estes passos para cChoco e xNetworking.
 
 ## <a name="step-4-add-the-node-configuration-to-the-pull-server"></a>Passo 4: Adicione a configuração do nó ao servidor pull
 
-Não há nada de especial na primeira vez que importa a sua configuração para o servidor pull e compila. Todas as importações posteriores ou compilações da mesma configuração são exatamente iguais. Sempre que atualizar o seu pacote e precisar de o empurrar para a produção, faça este passo depois de garantir que o ficheiro de configuração está correto – incluindo a nova versão do seu pacote. Aqui está o ficheiro de configuração **ISVBoxConfig.ps1: **
+Não há nada de especial na primeira vez que importa a sua configuração para o servidor pull e compila. Todas as importações posteriores ou compilações da mesma configuração são exatamente iguais. Sempre que atualizar o seu pacote e precisar de o empurrar para a produção, faça este passo depois de garantir que o ficheiro de configuração está correto – incluindo a nova versão do seu pacote. Aqui está o ficheiro de configuração **ISVBoxConfig.ps1:**
 
 ```powershell
 Configuration ISVBoxConfig
@@ -208,10 +208,10 @@ A partir daí, cabe aos VMs que dependem dessa configuração puxar a atualizaç
 * [Visão geral da Azure Automation DSC](automation-dsc-overview.md)
 * [Máquinas de embarque para gestão pela Azure Automation DSC](automation-dsc-onboarding.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter uma visão geral, consulte [a visão geral da configuração do Estado da Automação Azure](automation-dsc-overview.md).
 - Para começar a utilizar a funcionalidade, consulte [Começar com a Configuração do Estado da Automação Azure](automation-dsc-getting-started.md).
 - Para saber sobre a compilação de configurações de DSC para que possa atribuí-las aos nós-alvo, consulte [as configurações do Compile DSC na Configuração do Estado da Automação Azure](automation-dsc-compile.md).
-- Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
+- Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](/powershell/module/az.automation).
 - Para obter informações sobre preços, consulte [os preços de configuração do Estado da Azure Automation](https://azure.microsoft.com/pricing/details/automation/).

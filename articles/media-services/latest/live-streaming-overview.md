@@ -1,5 +1,5 @@
 ---
-title: Visão geral do streaming ao vivo com a Azure Media Services v3 | Microsoft Docs
+title: Visão geral do streaming ao vivo com a Azure Media Services v3
 description: Este artigo apresenta uma visão geral do streaming ao vivo utilizando o Azure Media Services v3.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 3f9fc9fd1bacce8733949969b496dc03d6c10901
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: ad3a14cff13395f4d59ab2ed59ae1cc26eaad866
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98695833"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896787"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming em direto com a Azure Media Services v3
 
@@ -123,7 +123,7 @@ O ativo a que a saída ao vivo está a arquivar, torna-se automaticamente um ati
 - [States and billing](live-event-states-billing.md) (Estados e faturação)
 - [Latência](live-event-latency.md)
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 Consulte o artigo [perguntas frequentes.](frequently-asked-questions.md#live-streaming)
 

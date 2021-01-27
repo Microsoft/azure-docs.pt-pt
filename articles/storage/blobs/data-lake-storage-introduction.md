@@ -8,12 +8,12 @@ ms.date: 02/25/2020
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 5f2f3cfc5ccbdd6a3d3d3ede5bb39a3f6f548b19
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1c4d04e25bf8f7d981c998baafb468f04b66eaf1
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95913101"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879903"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Introdução ao Azure Data Lake Storage Gen2
 
@@ -39,7 +39,7 @@ Além disso, o Data Lake Storage Gen2 é muito rentável porque é construído e
 
 ## <a name="key-features-of-data-lake-storage-gen2"></a>Principais características do Data Lake Storage Gen2
 
--   **Acesso compatível com Hadoop**: Data Lake Storage Gen2 permite-lhe gerir e aceder a dados tal como faria com um [Sistema de Ficheiros Distribuídos Hadoop (HDFS).](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html) O novo [controlador ABFS](data-lake-storage-abfs-driver.md) (usado para aceder aos dados) está disponível em todos os ambientes apache Hadoop. Estes ambientes incluem [Azure HDInsight,](../../hdinsight/index.yml)*,* [Azure Databricks,](/azure/databricks/)e [Azure Synapse Analytics](/azure/synapse-analytics).
+-   **Acesso compatível com Hadoop**: Data Lake Storage Gen2 permite-lhe gerir e aceder a dados tal como faria com um [Sistema de Ficheiros Distribuídos Hadoop (HDFS).](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html) O novo [controlador ABFS](data-lake-storage-abfs-driver.md) (usado para aceder aos dados) está disponível em todos os ambientes apache Hadoop. Estes ambientes incluem [Azure HDInsight,](../../hdinsight/index.yml) [Azure Databricks,](/azure/databricks/)e [Azure Synapse Analytics](../../synapse-analytics/index.yml).
 
 -   **Um superconjunto de permissões POSIX**: O modelo de segurança para Data Lake Gen2 suporta permissões ACL e POSIX juntamente com alguma granularidade extra específica para data lake storage gen2. As definições podem ser configuradas através do Storage Explorer ou através de estruturas como a Colmeia e a Spark.
 
@@ -82,7 +82,7 @@ Data Lake Storage gen2 suporta vários serviços Azure. Pode usá-los para inger
 
 Várias plataformas de código aberto suportam data lake storage gen2. Para obter uma lista completa, consulte [plataformas Open source que suportam a Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md).
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 - [Problemas conhecidos com Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md)
 - [Acesso multi-protocolo no Azure Data Lake Storage](data-lake-storage-multi-protocol-access.md)

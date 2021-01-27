@@ -3,23 +3,23 @@ title: Referência tradutor V3.0
 titleSuffix: Azure Cognitive Services
 description: Documentação de referência para o Tradutor V3.0. A versão 3 do Tradutor fornece uma API web moderna baseada em JSON.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 8/11/2020
-ms.author: swmachan
-ms.openlocfilehash: f8175cbd469c8a3933526d01f433e1def714783b
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.author: lajanuar
+ms.openlocfilehash: 021a65ba69b9d1909df4a86d92b660c0c1033a3b
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024505"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895463"
 ---
 # <a name="translator-v30"></a>Tradutor v3.0
 
-## <a name="whats-new"></a>Novidades
+## <a name="whats-new"></a>Novidades?
 
 A versão 3 do Tradutor fornece uma API web moderna baseada em JSON. Melhora a usabilidade e o desempenho, consolidando as funcionalidades existentes em menos operações e fornece novas funcionalidades.
 
@@ -39,9 +39,9 @@ O Microsoft Tradutor é servido a partir de vários locais do datacenter. Atualm
 
 Os pedidos ao Microsoft Tradutor são, na maioria dos casos, tratados pelo datacenter que está mais próximo do local de origem do pedido. Em caso de falha no datacenter, o pedido pode ser encaminhado para fora da geografia Azure.
 
-Para forçar o pedido a ser tratado por uma geografia específica do Azure, altere o ponto final global no pedido da API para o ponto final regional desejado:
+Para forçar o pedido a ser tratado por uma geografia específica do Azure, altere o ponto final Global no pedido da API para o ponto final geográfico pretendido:
 
-|Descrição|Geografia azul|URL Base|
+|Descrição|Geografia azul|URL de base (ponto final geográfico)|
 |:--|:--|:--|
 |Azure|Global (não regional)|   api.cognitive.microsofttranslator.com|
 |Azure|Estados Unidos da América|   api-nam.cognitive.microsofttranslator.com|
@@ -115,7 +115,7 @@ Quando utilizar uma chave secreta multi-serviço, deve incluir dois cabeçalhos 
 
 A região é necessária para a subscrição de API de texto multi-serviço. A região que seleciona é a única região que pode utilizar para tradução de texto ao utilizar a chave de subscrição multi-serviço, e deve ser a mesma região que selecionou quando se inscreveu para a sua subscrição multi-serviço através do portal Azure.
 
-As regiões disponíveis são, , , , , , , , , , , , , , , , , , , , `australiaeast` `brazilsouth` `canadacentral` `centralindia` `centralus` `centraluseuap` `eastasia` `eastus` `eastus2` `francecentral` `japaneast` `japanwest` , , , `koreacentral` `northcentralus` e `northeurope` `southcentralus` `southeastasia` `uksouth` `westcentralus` `westeurope` `westus` `westus2` `southafricanorth` .
+As regiões disponíveis `australiaeast` são, `brazilsouth` , , , `canadacentral` , `centralindia` `centralus` `centraluseuap` `eastasia` , `eastus` `eastus2` , `francecentral` `japaneast` `japanwest` `koreacentral` e `northcentralus` `northeurope` `southcentralus` `southeastasia` `uksouth` `westcentralus` `westeurope` `westus` `westus2` `southafricanorth` .
 
 Se passar a chave secreta na cadeia de consulta com o `Subscription-Key` parâmetro, então deve especificar a região com o parâmetro de consulta `Subscription-Region` .
 

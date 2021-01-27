@@ -1,5 +1,5 @@
 ---
-title: Transmitir ficheiros de vídeo com os Serviços de Multimédia do Azure – .NET | Microsoft Docs
+title: Stream de ficheiros de vídeo com a Azure Media Services - .NET
 description: Siga os passos deste tutorial para usar .NET para criar uma nova conta Azure Media Services, codificar um ficheiro e transmiti-lo ao Azure Media Player.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 530089b9c6b9544201b0f07368cac3d1a695a4f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc6b240a2d97e0b4aa313f858b3965f241dd0b08
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91268694"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898193"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---net"></a>Tutorial: Codificar um ficheiro remoto com base no URL e transmitir o vídeo - .NET
 
@@ -54,8 +54,8 @@ Abra [appsettings.jsno](https://github.com/Azure-Samples/media-services-v3-dotne
 O exemplo realiza as seguintes ações:
 
 1. Cria uma **Transformação** (em primeiro lugar, verifica se existe a Transformação especificada). 
-2. Cria uma saída **Ativo** que é usado como a saída de **Job**codificante.
-3. Cria a entrada do **Job**que se baseia num URL HTTPS.
+2. Cria uma saída **Ativo** que é usado como a saída de **Job** codificante.
+3. Cria a entrada do **Job** que se baseia num URL HTTPS.
 4. Submete o **trabalho** de codificação usando a entrada e saída que foi criada anteriormente.
 5. Verifica o estado da Tarefa.
 6. Cria um **localizador de streaming.**
@@ -113,7 +113,7 @@ Ver [códigos de erro](/rest/api/media/jobs/get#joberrorcode).
 
 Os SDKs dos Serviços de Multimédia do Azure v3 não são seguros para threads. Ao trabalhar com aplicações com vários threads, deve gerar um novo objeto AzureMediaServicesClient por thread.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Tutorial: upload, encode, and stream files](stream-files-tutorial-with-api.md) (Tutorial: carregar, codificar e transmitir ficheiros)

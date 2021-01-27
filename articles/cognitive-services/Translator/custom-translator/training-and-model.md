@@ -2,19 +2,19 @@
 title: O que é treino e modelo? - Tradutor Personalizado
 titleSuffix: Azure Cognitive Services
 description: Um modelo é o sistema, que fornece tradução para um par de idiomas específicos. O resultado de um treino bem sucedido é um modelo. Ao treinar um modelo, são necessários três conjuntos de dados de formação mutuamente exclusivos, afinação de conjunto de dados e conjunto de dados de teste.
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 08/17/2020
-ms.author: swmachan
-ms.openlocfilehash: 1765aaed3c0562da13c539845bfe19f6f85ed4ef
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.author: lajanuar
+ms.openlocfilehash: 62a444b66d50579c601077751b0700aa954b34c0
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369023"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897939"
 ---
 # <a name="what-are-trainings-and-models"></a>O que são treinos e modelos?
 

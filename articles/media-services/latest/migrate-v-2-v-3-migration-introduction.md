@@ -1,5 +1,5 @@
 ---
-title: Migrar do Azure Media Services v2 para a introdução v3 | Microsoft Docs
+title: Migrar do Azure Media Services v2 para a introdução v3
 description: Este artigo é uma introdução à migração dos Serviços de Comunicação Social v2 para v3.
 services: media-services
 author: IngridAtMicrosoft
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: fb9abd8f3186405edc31b4af48ee98482e080c68
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: d96644b4df5475192c3b7d90bd055e63bf869faa
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98690586"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898346"
 ---
 # <a name="migrate-from-media-services-v2-to-v3-introduction"></a>Migrar dos Serviços de Comunicação v2 para a introdução v3
 
@@ -80,6 +80,6 @@ A sua aplicação de Media Services V2 pode ser única. Por isso, fornecemos ori
 - [Proteção de conteúdos](migrate-v-2-v-3-migration-scenario-based-content-protection.md)
 - [Unidades reservadas para meios de comunicação (MRU)](migrate-v-2-v-3-migration-scenario-based-media-reserved-units.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [!INCLUDE [migration guide next steps](./includes/migration-guide-next-steps.md)]

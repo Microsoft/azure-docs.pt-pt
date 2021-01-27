@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 09/28/2020
 ms.custom: designer
-ms.openlocfilehash: 2e46da1657a7473d3ff8cdf4ac43e5341b143455
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: 46098b2b7ebbf219a3c17b4fa40e1fd52344f683
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97796113"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879801"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer"></a>Tutorial: Prever o preço de um automóvel com o estruturador
 
@@ -103,7 +103,7 @@ Existem vários conjuntos de dados de amostras incluídos no designer para você
 
 Pode visualizar os dados para entender o conjunto de dados que utilizará.
 
-1. Clique com o botão direito nos dados de preços do **automóvel (Raw)** e selecione **Visualize**.
+1. Clique com o botão direito nos dados de preços do **automóvel (Raw)** e selecione **Visualize**  >  **Dataset output**.
 
 1. Selecione as diferentes colunas na janela de dados para visualizar informações sobre cada uma delas.
 
@@ -284,7 +284,7 @@ Agora que o seu oleoduto está todo configurado, pode submeter uma corrida de ga
 
 Após a execução concluída, pode ver os resultados do percurso do gasoduto. Primeiro, veja as previsões geradas pelo modelo de regressão.
 
-1. Clique com o botão direito no módulo **'Modelo de pontuação'** e selecione **Visualize** para ver a sua saída.
+1. Clique com o botão direito no módulo **'Modelo de pontuação'** e selecione **visualize**  >  **o conjunto de dados marcado** para ver a sua saída.
 
     Aqui pode ver os preços previstos e os preços reais a partir dos dados de teste.
 
@@ -294,7 +294,7 @@ Após a execução concluída, pode ver os resultados do percurso do gasoduto. P
 
 Utilize o **Modelo de Avaliação** para ver como o modelo treinado foi bem executado no conjunto de dados de teste.
 
-1. Clique com o botão direito no módulo **Modelo de Avaliação** e selecione **Visualize** para ver a sua saída.
+1. Clique com o botão direito no módulo **Modelo de Avaliação** e selecione os resultados da Avaliação **visualize**  >   para ver a sua saída.
 
 As seguintes estatísticas são mostradas para o seu modelo:
 
@@ -312,7 +312,7 @@ Salte esta secção se quiser continuar com a parte 2 do tutorial, [implantando 
 
 [!INCLUDE [aml-ui-cleanup](../../includes/aml-ui-cleanup.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Na segunda parte, aprenderás a implantar o teu modelo como ponto final em tempo real.
 

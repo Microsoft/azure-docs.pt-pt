@@ -1,5 +1,5 @@
 ---
-title: Lista de atualizações aplicadas ao Azure Guest OS Microsoft Docs
+title: Lista de atualizações aplicadas ao Azure Guest OS | Microsoft Docs
 description: Este artigo lista as atualizações do Microsoft Security Response Center aplicadas a diferentes OAure Guest OS. Veja se uma atualização se aplica ao so-os convidado que está a utilizar.
 services: cloud-services
 documentationcenter: na
@@ -10,48 +10,98 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 12/21/2020
+ms.date: 1/26/2021
 ms.author: yohaddad
-ms.openlocfilehash: 7f683b5002fd31b599ae6fadeb82e5c6f5ce56a0
-ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
+ms.openlocfilehash: 7384b902e1bde46c55bcfa30b2aa46122445b05e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97708911"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98877514"
 ---
 # <a name="azure-guest-os"></a>Hóspede Azure OS
 As tabelas seguintes mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao Azure Guest OS. Pes faça uma pesquisa neste artigo para determinar se uma determinada atualização se aplica ao so-os convidado que está a utilizar. As atualizações são sempre transmitidas para a [família][family-explain] em particular em que foram introduzidas.
 
-## <a name="december-2020-guest-os"></a>Os hóspedes de dezembro de 2020
->[!NOTE] 
-
->O Sistema de Atendimento convidado de dezembro está a ser lançado para os VMs do Cloud Service que estão configurados para atualizações automáticas. Quando o lançamento estiver concluído, esta versão será disponibilizada para atualizações manuais através do portal Azure e ficheiros de configuração. Os seguintes patches estão incluídos no So do Hóspede de dezembro. Esta lista está sujeita a alterações. 
+## <a name="january-2021-guest-os"></a>Janeiro 2021 Guest OS
+>[!NOTE]
+>O Sistema operativo de janeiro está a ser lançado para os VMs do Cloud Service que estão configurados para atualizações automáticas. Quando o lançamento estiver concluído, esta versão será disponibilizada para atualizações manuais através do portal Azure e ficheiros de configuração. Os seguintes patches estão incluídos no So de Hóspede de janeiro. Esta lista está sujeita a alterações."
 
 | Product Category (Categoria de Produto) | Artigo KB dos pais | Descrição da Vulnerabilidade | SO convidado | Data Introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
-|  Rel 20-12 |  [4592440]  |  Última atualização cumulativa | 6.26 | Dez 8, 2020 |
-|  Rel 20-12 |  [4580325]  |  Atualização flash | 3.92, 4.85, 5.50, 6.26 | 13 out, 2020 |
-|  Rel 20-12 |  [4586768]  |  Atualizações Cumulativas do IE | 2.105, 3.92, 4.85 | 10 de novembro de 2020 |
-|  Rel 20-12 |  [4593226]  |  Última atualização cumulativa | 5.50 | Dez 8, 2020 |
-|  Rel 20-12 |  [4052623]  |  Defender | 5.50, 6.26 | Dez 13, 2020 |
-|  Rel 20-12 |  [4578952]  |  .Net Framework 3.5 Rollup de segurança e qualidade | 2.105 | 10 de novembro de 2020 |
-|  Rel 20-12 |  [4578955]  |  .Net Framework 4.5.2 Rollup de segurança e qualidade | 2.105 | 10 de novembro de 2020 |
-|  Rel 20-12 |  [4578953]  |  .Net Framework 3.5 Rollup de segurança e qualidade | 4.85 | 10 de novembro de 2020 |
-|  Rel 20-12 |  [4578956]  |  .Net Framework 4.5.2 Rollup de segurança e qualidade | 4.85 | 10 de novembro de 2020 |
-|  Rel 20-12 |  [4578950]  |  .Net Framework 3.5 Rollup de segurança e qualidade | 3.92 | 10 de novembro de 2020 |
-|  Rel 20-12 |  [4578954]  |  .Net Framework 4.5.2 Rollup de segurança e qualidade | 3.92 | 10 de novembro de 2020 |
-|  Rel 20-12 |  [4578966]  |  .Net Framework 3.5 e 4.7.2 Atualização Cumulativa | 6.26 | 13 out, 2020 |
-|  Rel 20-12 |  [4592471]  |  Rollup mensal | 2.105 | Dez 8, 2020 |
-|  Rel 20-12 |  [4592468]  |  Rollup mensal | 3.92 | Dez 8, 2020 |
-|  Rel 20-12 |  [4592484]  |  Rollup mensal | 4.85 | Dez 8, 2020 |
-|  Rel 20-12 |  [4566426]  |  Atualização de Stack de Manutenção | 3.92 | 14 de julho de 2020 |
-|  Rel 20-12 |  [4566425]  |  Atualização de Stack de Manutenção | 4.85 | 14 de julho de 2020 |
-|  Rel 20-12 OOB |  [4578013]  |  Atualização de segurança autónoma | 4.85 | 19 de agosto de 2020 |
-|  Rel 20-12 |  [4576750]  |  Atualização de Stack de Manutenção | 5.50 | 8 de set, 2020 |
-|  Rel 20-12 |  [4592510]  |  Atualização de Stack de Manutenção | 2.105 | Dez 8, 2020 |
-|  Rel 20-12 |  [4587735]  |  Atualização de Stack de Manutenção | 6.26 | 10 de novembro de 2020 |
-|  Rel 20-12 |  [4494175]  |  Microcódigo | 5.50 | 1 de setembro de 2020 |
-|  Rel 20-12 |  [4494174]  |  Microcódigo | 6.26 | 3 de set, 2020 |
+|  Rel 21-01 |  [4598230]  |  Última Atualização Cumulativa (LCU) | 6.27 | 12 de janeiro de 2021 |
+|  Rel 21-01 |  [4580325]  |  Atualização flash | 3.93, 4.86, 5.51, 6.27 | 13 out, 2020 |
+|  Rel 21-01 |  [4586768]  |  Atualizações Cumulativas do IE | 2.106, 3.93, 4.86 | 10 de novembro de 2020 |
+|  Rel 21-01 |  [4598243]  |  Última Atualização Cumulativa (LCU) | 5.51 | 12 de janeiro de 2021 |
+|  Rel 21-01 |  [4578952]  |  .Net Framework 3.5 Rollup de segurança e qualidade | 2.106 | 12 de janeiro de 2021 |
+|  Rel 21-01 |  [4578955]  |  .Net Framework 4.5.2 Rollup de segurança e qualidade | 2.106 | 12 de janeiro de 2021 |
+|  Rel 21-01 |  [4578953]  |  .Net Framework 3.5 Rollup de segurança e qualidade | 4.86 | 12 de janeiro de 2021 |
+|  Rel 21-01 |  [4578956]  |  .Net Framework 4.5.2 Rollup de segurança e qualidade | 4.86 | 12 de janeiro de 2021 |
+|  Rel 21-01 |  [4578950]  |  .Net Framework 3.5 Rollup de segurança e qualidade | 3.93 | 12 de janeiro de 2021 |
+|  Rel 21-01 |  [4578954]  |  .Net Framework 4.5.2 Rollup de segurança e qualidade | 3.93 | 12 de janeiro de 2021 |
+|  Rel 21-01 |  [4578966]  |  .Net Framework 3.5 e 4.7.2 Atualização Cumulativa | 6.27 | 13 out, 2020 |
+|  Rel 21-01 |  [4598279]  |  Rollup mensal | 2.106 | 12 de janeiro de 2020 |
+|  Rel 21-01 |  [4598278]  |  Rollup mensal | 3.93 | 12 de janeiro de 2020 |
+|  Rel 21-01 |  [4598285]  |  Rollup mensal | 4.86 | 12 de janeiro de 2020 |
+|  Rel 21-01 |  [4566426]  |  Atualização de Stack de Manutenção | 3.93 | 14 de julho de 2020 |
+|  Rel 21-01 |  [4566425]  |  Atualização de Stack de Manutenção | 4.86 | 14 de julho de 2020 |
+|  Rel 21-01 OOB |  [4578013]  |  Atualização de segurança autónoma | 4.86 | 19 de agosto de 2020 |
+|  Rel 21-01 |  [4576750]  |  Atualização de Stack de Manutenção | 5.51 | 8 de set, 2020 |
+|  Rel 21-01 |  [4592510]  |  Atualização de Stack de Manutenção | 2.106 | Dez 8, 2020 |
+|  Rel 21-01 |  [4598480]  |  Atualização de Stack de Manutenção | 6.27 | 12 de janeiro de 2021 |
+|  Rel 21-01 |  [4494175]  |  Microcódigo | 5.51 | 1 de setembro de 2020 |
+|  Rel 21-01 |  [4494174]  |  Microcódigo | 6.27 | 3 de set, 2020 |
+
+[4598230]: https://support.microsoft.com/kb/4598230
+[4580325]: https://support.microsoft.com/kb/4580325
+[4586768]: https://support.microsoft.com/kb/4586768
+[4598243]: https://support.microsoft.com/kb/4598243
+[4578952]: https://support.microsoft.com/kb/4578952
+[4578955]: https://support.microsoft.com/kb/4578955
+[4578953]: https://support.microsoft.com/kb/4578953
+[4578956]: https://support.microsoft.com/kb/4578956
+[4578950]: https://support.microsoft.com/kb/4578950
+[4578954]: https://support.microsoft.com/kb/4578954
+[4578966]: https://support.microsoft.com/kb/4578966
+[4598279]: https://support.microsoft.com/kb/4598279
+[4598278]: https://support.microsoft.com/kb/4598278
+[4598285]: https://support.microsoft.com/kb/4598285
+[4566426]: https://support.microsoft.com/kb/4566426
+[4566425]: https://support.microsoft.com/kb/4566425
+[4578013]: https://support.microsoft.com/kb/4578013
+[4576750]: https://support.microsoft.com/kb/4576750
+[4592510]: https://support.microsoft.com/kb/4592510
+[4598480]: https://support.microsoft.com/kb/4598480
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
+
+
+## <a name="december-2020-guest-os"></a>Os hóspedes de dezembro de 2020
+
+| Product Category (Categoria de Produto) | Artigo KB dos pais | Descrição da Vulnerabilidade | SO convidado | Data Introduzida pela primeira vez |
+| --- | --- | --- | --- | --- |
+|  Rel 20-12 |  [4592440]  |  Última atualização cumulativa | [6.26] | Dez 8, 2020 |
+|  Rel 20-12 |  [4580325]  |  Atualização flash | [3.92], [4.85], [5.50], [6.26] | 13 out, 2020 |
+|  Rel 20-12 |  [4586768]  |  Atualizações Cumulativas do IE | [2.105], [3.92], [4.85] | 10 de novembro de 2020 |
+|  Rel 20-12 |  [4593226]  |  Última atualização cumulativa | [5.50] | Dez 8, 2020 |
+|  Rel 20-12 |  [4052623]  |  Defender | [5.50], [6.26] | Dez 13, 2020 |
+|  Rel 20-12 |  [4578952]  |  .Net Framework 3.5 Rollup de segurança e qualidade | [2.105] | 10 de novembro de 2020 |
+|  Rel 20-12 |  [4578955]  |  .Net Framework 4.5.2 Rollup de segurança e qualidade | [2.105] | 10 de novembro de 2020 |
+|  Rel 20-12 |  [4578953]  |  .Net Framework 3.5 Rollup de segurança e qualidade | [4.85] | 10 de novembro de 2020 |
+|  Rel 20-12 |  [4578956]  |  .Net Framework 4.5.2 Rollup de segurança e qualidade | [4.85] | 10 de novembro de 2020 |
+|  Rel 20-12 |  [4578950]  |  .Net Framework 3.5 Rollup de segurança e qualidade | [3.92] | 10 de novembro de 2020 |
+|  Rel 20-12 |  [4578954]  |  .Net Framework 4.5.2 Rollup de segurança e qualidade | [3.92] | 10 de novembro de 2020 |
+|  Rel 20-12 |  [4578966]  |  .Net Framework 3.5 e 4.7.2 Atualização Cumulativa | [6.26] | 13 out, 2020 |
+|  Rel 20-12 |  [4592471]  |  Rollup mensal | [2.105] | Dez 8, 2020 |
+|  Rel 20-12 |  [4592468]  |  Rollup mensal | [3.92] | Dez 8, 2020 |
+|  Rel 20-12 |  [4592484]  |  Rollup mensal | [4.85] | Dez 8, 2020 |
+|  Rel 20-12 |  [4566426]  |  Atualização de Stack de Manutenção | [3.92] | 14 de julho de 2020 |
+|  Rel 20-12 |  [4566425]  |  Atualização de Stack de Manutenção | [4.85] | 14 de julho de 2020 |
+|  Rel 20-12 OOB |  [4578013]  |  Atualização de segurança autónoma | [4.85] | 19 de agosto de 2020 |
+|  Rel 20-12 |  [4576750]  |  Atualização de Stack de Manutenção | [5.50] | 8 de set, 2020 |
+|  Rel 20-12 |  [4592510]  |  Atualização de Stack de Manutenção | [2.105] | Dez 8, 2020 |
+|  Rel 20-12 |  [4587735]  |  Atualização de Stack de Manutenção | [6.26] | 10 de novembro de 2020 |
+|  Rel 20-12 |  [4494175]  |  Microcódigo | [5.50] | 1 de setembro de 2020 |
+|  Rel 20-12 |  [4494174]  |  Microcódigo | [6.26] | 3 de set, 2020 |
 
 [4592440]: https://support.microsoft.com/kb/4592440
 [4580325]: https://support.microsoft.com/kb/4580325
@@ -76,7 +126,11 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 [4587735]: https://support.microsoft.com/kb/4587735
 [4494175]: https://support.microsoft.com/kb/4494175
 [4494174]: https://support.microsoft.com/kb/4494174
-
+[2.105]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.92]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.85]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.50]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.26]: ./cloud-services-guestos-update-matrix.md#family-6-releases
 
 ## <a name="november-2020-guest-os"></a>Os convidados de novembro de 2020
 
@@ -611,16 +665,16 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 
 | Product Category (Categoria de Produto) | Artigo KB dos pais | Descrição da Vulnerabilidade | SO convidado | Data Introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
-|  Rel 19-12  |  [4530692]  |  Segurança do Windows  | [2,93] | Dez 10, 2019 |
-|  Rel 19-12  |  [4530677]  |  Internet Explorer  | [2,93] | Dez 10, 2019 |
+|  Rel 19-12  |  [4530692]  |  Segurança do Windows  | [2.93] | Dez 10, 2019 |
+|  Rel 19-12  |  [4530677]  |  Internet Explorer  | [2.93] | Dez 10, 2019 |
 |  Rel 19-12  |  [4530677]  |  Internet Explorer  | [3.80] | Dez 10, 2019 |
 |  Rel 19-12  |  [4530698]  |  Segurança do Windows  | [3.80] | Dez 10, 2019 |
 |  Rel 19-12  |  [4530730]  |  Segurança do Windows  | [4.73] | Dez 10, 2019 |
 |  Rel 19-12  |  [4530677]  |  Internet Explorer  | [4.73] | Dez 10, 2019 |
 |  Rel 19-12  |  [4530689]  |  Última atualização cumulativa  | [5.38] | Dez 10, 2019 |
 |  Rel 19-12  |  [4530715]  |  Última atualização cumulativa  | [6.14] | Dez 10, 2019 |
-|  Rel 19-12  |  [4525235]  |  Não-Segurança  | [2,93] | 12 de novembro de 2019 |
-|  Rel 19-12  |  [4531786]  |  Atualização da pilha de manutenção  | [2,93] | Dez 10, 2019 |
+|  Rel 19-12  |  [4525235]  |  Não-Segurança  | [2.93] | 12 de novembro de 2019 |
+|  Rel 19-12  |  [4531786]  |  Atualização da pilha de manutenção  | [2.93] | Dez 10, 2019 |
 |  Rel 19-12  |  [4525246]  |  Não-Segurança  | [3.80] | 12 de novembro de 2019 |
 |  Rel 19-12  |  [4523208]  |  Atualização da pilha de manutenção  | [3.80] | 12 de novembro de 2019 |
 |  Rel 19-12  |  [4525243]  |  Não-Segurança  | [4.73] | 12 de novembro de 2019 |
@@ -648,7 +702,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 [5.38]: ./cloud-services-guestos-update-matrix.md#family-5-releases
 [4.73]: ./cloud-services-guestos-update-matrix.md#family-4-releases
 [3.80]: ./cloud-services-guestos-update-matrix.md#family-3-releases
-[2,93]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[2.93]: ./cloud-services-guestos-update-matrix.md#family-2-releases
 
 
 
@@ -853,9 +907,9 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 |  Rel 19-07   |  [4506965]  |  .NET 4.5.2 Segurança   |  3,75  |  9 de julho de 2019  |
 |  Rel 19-07   |  [4506974]  |  .NET 3.5 Segurança   |  3,75  |  9 de julho de 2019  |
 |  Rel 19-07   |  [4507464]  |  Segurança do Windows   |  3,75  |  9 de julho de 2019  |
-|  Rel 19-07   |  [4506964]  |  .NET 4.5.2 Segurança   |  4.68  |  9 de julho de 2019  |
-|  Rel 19-07   |  [4506977]  |  .NET 3.5 Segurança   |  4.68  |  9 de julho de 2019  |
-|  Rel 19-07   |  [4507457]  |  Segurança do Windows   |  4.68  |  9 de julho de 2019  |
+|  Rel 19-07   |  [4506964]  |  .NET 4.5.2 Segurança   |  4,68  |  9 de julho de 2019  |
+|  Rel 19-07   |  [4506977]  |  .NET 3.5 Segurança   |  4,68  |  9 de julho de 2019  |
+|  Rel 19-07   |  [4507457]  |  Segurança do Windows   |  4,68  |  9 de julho de 2019  |
 |  Rel 19-07   |  [4507460]  |  Segurança do Windows   |  5.33  |  9 de julho de 2019  |
 |  Rel 19-07   |  [4506998]  |  .NET 3.5 & 4.7.2 Segurança   |  6.9  |  9 de julho de 2019  |
 |  Rel 19-07   |  [4507469]  |  Segurança do Windows   |  6.9  |  9 de julho de 2019  |
@@ -863,7 +917,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 |  N/D  |  [4504369]  |  Junho '19 Servicing Stack Update for (Servidor 2019)   |  6.9  |  14 de maio de 2019  |
 |  N/D  |  [4503292]  |  Junho '19 Não-Segurança (Servidor 2008 R2)   |  2.88  |  20 de maio de 2019  |
 |  N/D  |  [4503285]  |  Junho '19 Não-Segurança (Servidor 2012)   |  3,75  |  14 de maio de 2019  |
-|  N/D  |  [4503276]  |  Junho '19 Não-Segurança (Servidor 2012 R2)   |  4.68  |  14 de maio de 2019  |
+|  N/D  |  [4503276]  |  Junho '19 Não-Segurança (Servidor 2012 R2)   |  4,68  |  14 de maio de 2019  |
 
 [4507434]: https://support.microsoft.com/kb/4507434
 [4506621]: https://support.microsoft.com/kb/4506621
@@ -1565,7 +1619,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 ## <a name="april-2017-guest-os"></a>Abril 2017 Guest OS
 | Product Category (Categoria de Produto) | Artigo KB dos pais | Descrição da Vulnerabilidade | SO convidado | Data Introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
-| Rel 17-04 |  [4015217]  |Melhorias na qualidade do S.C. 2016 | 5.6 | 11 de abril de 2017 |
+| Rel 17-04 |  [4015217]  |Melhorias na qualidade do S.C. 2016 | 5,6 | 11 de abril de 2017 |
 | Rel 17-04 |  [4015546]  |Apenas segurança do Windows |2.61 | 11 de abril de 2017 |
 | Rel 17-04 |  [4015547]  |Apenas segurança do Windows |4.41 | 11 de abril de 2017 |
 | Rel 17-04 |  [4015548]  |Apenas segurança do Windows |3.48 | 11 de abril de 2017 |
@@ -1573,7 +1627,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | Rel 17-04 |  [4014550;] [4014560;] [4014562;] [4014556;] [4014574] |.NET Segurança |4.41 | 11 de abril de 2017 |
 | Rel 17-04 |  [4014564;] [4014572;] [4014549] |.NET Segurança |3.48 | 11 de abril de 2017 |
 | Rel 17-04 |  [4014566;] [4014552;] [4014573;] [4014558]  |.NET Segurança |2.61 | 11 de abril de 2017 |
-| Rel 17-04 |  [4015546;] [4015547;] [4015548;] [4015217]  |CVE-2017-0181 |5.6 | 11 de abril de 2017 |
+| Rel 17-04 |  [4015546;] [4015547;] [4015548;] [4015217]  |CVE-2017-0181 |5,6 | 11 de abril de 2017 |
 | Rel 17-04 |  [4015546;] [4015547;] [4015548;] [4015217]  |CVE-2017-0163; CVE-2017-0183; CVE-2017-0184; CVE-2017-0184; CVE-2017-0185; CVE-2017-0168 |2.61, 3.48, 4.41 | 11 de abril de 2017 |
 | Rel 17-04 |  [4015546;] [4015547;] [4015548;] [4015217]  |CVE-2017-0178; CVE-2017-0179; CVE-2017-0162; CVE-2017-0169 |4.41 | 11 de abril de 2017 |
 | Rel 17-04 |  [4015546;] [4015547;] [4015548;] [4015217]  |CVE-2017-0182; CVE-2017-0186; CVE-2017-0191 |2.61, 3.48, 4.41, 5.6 | 11 de abril de 2017 |
@@ -1585,7 +1639,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 ## <a name="march-2017-guest-os"></a>Março 2017 Guest OS
 | Product Category (Categoria de Produto) | Artigo KB dos pais | Descrição da Vulnerabilidade | SO convidado | Data Introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
-| Rel 17-03 |  [4013429] |Melhorias e correções | 5.5 | 14 de março de 2017 |
+| Rel 17-03 |  [4013429] |Melhorias e correções | 5,5 | 14 de março de 2017 |
 | Rel 17-03 |  [4012212] |Março de 2017 Apenas atualização de qualidade para Windows 7 SP1 e Windows Server 2008 R2 SP1 |2.60 |14 de março de 2017 |
 | Rel 17-03 |  [4012213] |Março de 2017 Apenas atualização de qualidade para Windows 8.1 e Windows Server 2012 R2 |4.40 |14 de março de 2017 |
 | Rel 17-03 |  [4012214] |Março de 2017 Apenas atualização de qualidade para Windows Server 2012|3.47 |14 de março de 2017 |
@@ -1594,7 +1648,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | N/D |  [3212646] |Rollup mensal de segurança de janeiro de 2017 para Windows 7 SP1 e Windows Server 2008 R2 SP1 |2.60 |14 de março de 2017 |
 | N/D |  [3205409] |Rollup mensal de qualidade de segurança de dezembro de 2016 para Windows Server 2012 |3.47 |14 de março de 2017 |
 | N/D |  [3205401] |Rollup mensal de segurança de dezembro de 2016 para Windows 8.1 e Windows Server 2012 R2 |4.40 |14 de março de 2017 |
-| N/D |  [3211320] |Atualização de pilha de manutenção para a versão 1607 do Windows 10 e Windows Server 2016: 24 de janeiro de 2017 |5.5 |14 de março de 2017 |
+| N/D |  [3211320] |Atualização de pilha de manutenção para a versão 1607 do Windows 10 e Windows Server 2016: 24 de janeiro de 2017 |5,5 |14 de março de 2017 |
 
 ## <a name="january-2017-guest-os"></a>Janeiro 2017 Guest OS
 | ID do boletim | Artigo KB dos pais | Descrição da Vulnerabilidade | SO convidado | Data Introduzida pela primeira vez |
@@ -1656,7 +1710,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | N/D |[3185278] |Rollup de atualização de setembro de 2016 para Windows 7 SP1 e Windows Server 2008 R2 SP1 |2.56 |11 de outubro de 2016 |
 | N/D |[3185280] |Rollup de atualização de setembro de 2016 para Windows Server 2012 |3.44 |11 de outubro de 2016 |
 | N/D |[3185279] |Rollup de atualização de setembro de 2016 para Windows 8.1 e Windows Server 2012 R2 |4.37 |11 de outubro de 2016 |
-| N/D |[3194798] |Atualização cumulativa para a versão 1607 do Windows 10 e do Windows Server 2016 |5.2 |11 de outubro de 2016 |
+| N/D |[3194798] |Atualização cumulativa para a versão 1607 do Windows 10 e do Windows Server 2016 |5,2 |11 de outubro de 2016 |
 
 ## <a name="september-2016-guest-os"></a>Os hóspedes de setembro de 2016
 | ID do boletim | Artigo KB dos pais | Descrição da Vulnerabilidade | SO convidado | Data Introduzida pela primeira vez |

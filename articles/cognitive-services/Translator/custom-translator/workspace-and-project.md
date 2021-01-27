@@ -3,19 +3,19 @@ title: O que é um espaço de trabalho e um projeto? - Tradutor Personalizado
 titleSuffix: Azure Cognitive Services
 description: Este artigo explicará as diferenças entre um espaço de trabalho e um projeto, bem como categorias de projetos e etiquetas para o serviço De Tradutor Personalizado.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 08/17/2020
-ms.author: swmachan
+ms.author: lajanuar
 ms.topic: conceptual
-ms.openlocfilehash: 28bc07cadf9ffea56059755e243cb3e828077588
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 0abda0307e3cdbd0e73e131bee072172375198eb
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368972"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898058"
 ---
 # <a name="what-is-a-custom-translator-workspace"></a>O que é um espaço de trabalho de tradutor personalizado?
 
@@ -45,6 +45,6 @@ Por exemplo, se quisesse permitir traduções no domínio tecnológico do inglê
 
 Se você é um prestador de serviços linguísticos e quer servir vários clientes com diferentes modelos que mantêm a mesma categoria e par de idiomas, então usar um rótulo de projeto para diferenciar entre clientes seria uma decisão sábia.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Leia sobre [Formação e modelo](training-and-model.md) para saber, como construir eficientemente um modelo de tradução.

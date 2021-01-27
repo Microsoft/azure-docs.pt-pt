@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: 16f903e34c64214d54fc01fa621f561f1786de08
-ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
+ms.openlocfilehash: 81ae46a7b6c19557eeadd2d5b28ad2fa46e77115
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97755995"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881372"
 ---
 # <a name="introduction-to-azure-defender-for-sql"></a>Introdução ao Azure Defender para o SQL
 
@@ -27,7 +27,7 @@ O Azure Defender for SQL inclui dois planos do Azure Defender que alargam o paco
 |----|:----|
 |Estado de libertação:|**Azure Defender para servidores de base de dados Azure SQL** - Geralmente disponível (GA)<br>**Azure Defender para servidores SQL em máquinas** - Geralmente disponível (GA) |
 |Preços:|Os dois planos que formam **o Azure Defender para o SQL** são faturados como mostrado na [página de preços](security-center-pricing.md)|
-|Versões SQL protegidas:|[SQL em máquinas virtuais Azure](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)<br>[Azure Arc ativou servidores SQL](https://docs.microsoft.com/sql/sql-server/azure-arc/overview)<br>Servidores SQL no local em máquinas Windows sem Arco Azure<br>Bases [de dados únicas](../azure-sql/database/single-database-overview.md) do Azure SQL e [piscinas elásticas](../azure-sql/database/elastic-pool-overview.md)<br>[Instância Gerida do SQL no Azure](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)<br>[Azure Synapse Analytics (anteriormente SQL DW) piscina SQL dedicada](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)|
+|Versões SQL protegidas:|[SQL em máquinas virtuais Azure](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)<br>[Azure Arc ativou servidores SQL](/sql/sql-server/azure-arc/overview)<br>Servidores SQL no local em máquinas Windows sem Arco Azure<br>Bases [de dados únicas](../azure-sql/database/single-database-overview.md) do Azure SQL e [piscinas elásticas](../azure-sql/database/elastic-pool-overview.md)<br>[Instância Gerida do SQL no Azure](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)<br>[Azure Synapse Analytics (anteriormente SQL DW) piscina SQL dedicada](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)|
 |Nuvens:|![Sim ](./media/icons/yes-icon.png) nuvens comerciais<br>![Sim ](./media/icons/yes-icon.png) EUA Gov<br>![Yes ](./media/icons/yes-icon.png) China Gov **(Parcial**: Subconjunto de alertas e avaliação de vulnerabilidade para servidores SQL. As proteções de ameaças comportamentais não estão disponíveis.)|
 |||
 
@@ -41,9 +41,9 @@ O Azure Defender for SQL inclui dois planos do Azure Defender que alargam o paco
     - [Piscina SQL dedicada em Azure Synapse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
 
 - **O Azure Defender para servidores SQL em máquinas** alarga as proteções para os seus SqL Servers nativos do Azure para suportar totalmente ambientes híbridos e proteger servidores SQL (todas as versões suportadas) hospedados em Azure, outros ambientes em nuvem e até mesmo máquinas no local:
-    - [SQL Server em Máquinas Virtuais](https://azure.microsoft.com/services/virtual-machines/sql-server/)
+    - [SQL Server nas Máquinas Virtuais](https://azure.microsoft.com/services/virtual-machines/sql-server/)
     - Servidores SQL no local:
-        - [SQL Server preparado para Azure Arc (pré-visualização)](https://docs.microsoft.com/sql/sql-server/azure-arc/overview)
+        - [SQL Server preparado para Azure Arc (pré-visualização)](/sql/sql-server/azure-arc/overview)
         - [SQL Server em funcionamento em máquinas Windows sem Arco Azure](../azure-monitor/platform/agent-windows.md)
 
 
@@ -70,7 +70,7 @@ Os alertas incluem detalhes do incidente que os desencadeou, bem como recomenda�
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, você aprendeu sobre Azure Defender para a SQL.
 

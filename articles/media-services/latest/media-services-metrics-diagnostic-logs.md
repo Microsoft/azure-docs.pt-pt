@@ -1,26 +1,11 @@
 ---
-title: Métricas de Serviços de Mídia e registos de diagnóstico com O Azure Monitor
-titleSuffix: Azure Media Services
-description: Saiba como monitorizar as métricas dos Serviços de Media Azure e os registos de diagnóstico através do Azure Monitor.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 11/02/2020
-ms.author: inhenkel
-ms.openlocfilehash: ed436336b9b1f9f5815938d13315e821694e5f1c
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
-ms.translationtype: MT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685193"
+título: Métricas de Serviços de Mídia e registos de diagnóstico com Azure Monitor : Descrição dos Serviços Azure Media: Saiba como monitorizar as métricas dos Serviços de Media Azure e os registos de diagnóstico via Azure Monitor.
+serviços: media-services documentationcenter: '' autor: IngridAtMicrosoft manager: femila editor: ''
+
+ms.service: media-services ms.workload: media ms.tgt_pltfrm: na ms.devlang: na ms.topic: conceptual ms.date: 11/02/2020 ms.author: inhenkel
+
 ---
+
 # <a name="monitor-media-services-metrics-and-diagnostic-logs-with-azure-monitor"></a>Monitorize métricas de Serviços de Mídia e registos de diagnóstico com o Azure Monitor
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]

@@ -1,5 +1,5 @@
 ---
-title: Exemplo do Script da CLI do Azure - Publicar um recurso | Microsoft Docs
+title: Exemplo de script do Azure CLI - Publicar um ativo
 description: Este artigo demonstra como usar o script Azure CLI para publicar um ativo.
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3b3c358a84dd74595c476f029a1c8f28bc3c901f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c283c39f1ea90275c42de1481a9cb9006f2b2c5f
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89295874"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897093"
 ---
 # <a name="cli-example-publish-an-asset"></a>Exemplo da CLI: publicar um elemento
 
@@ -38,6 +38,6 @@ O script da CLI do Azure neste artigo mostra como criar um Localizador de Transm
 
 [!code-azurecli-interactive[main](../../../cli_scripts/media-services/publish-asset/Publish-Asset.sh "Publish an asset")]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Visão geral dos Serviços de Mídia](media-services-overview.md)

@@ -2,19 +2,15 @@
 title: Problemas de agente de atualização do Windows na Azure Automation
 description: Este artigo diz como resolver problemas e resolver problemas com o agente de atualização do Windows durante a Gestão de Atualizações.
 services: automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 01/25/2020
-ms.topic: conceptual
-ms.service: automation
+ms.topic: troubleshooting
 ms.subservice: update-management
-manager: carmonm
-ms.openlocfilehash: d5c2cc014c87a345507e9c0f99c507d151d59b86
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: d4fbc566cb82eb3b728b37aa1f1cc20ff92f4fca
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762114"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896245"
 ---
 # <a name="troubleshoot-windows-update-agent-issues"></a>Resolver problemas do agente de atualização do Windows
 

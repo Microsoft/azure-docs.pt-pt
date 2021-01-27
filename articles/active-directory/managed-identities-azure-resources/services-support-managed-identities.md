@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 7ebe56b95b0c4b938c31c0ece04d27fd1b234b05
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 1861a4e75f34cfd7fe386c094cce3a638b3e1a1e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98729917"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880798"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Serviços que suportam identidades geridas para recursos da Azure
 
@@ -159,8 +159,6 @@ Consulte a seguinte lista para configurar a identidade gerida para a Azure Data 
 - [REST](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-rest-api)
 - [SDK](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-sdk)
 
-
-
 ### <a name="azure-event-grid"></a>Azure Event Grid
 
 Tipo de identidade gerido |Tudo geralmente disponível<br>Regiões Azure Globais | Azure Government | Azure Alemanha | Azure China 21Vianet |
@@ -168,13 +166,12 @@ Tipo de identidade gerido |Tudo geralmente disponível<br>Regiões Azure Globais
 | Sistema atribuído | Pré-visualizar | Pré-visualizar | Não disponível | Pré-visualizar |
 | Utilizador atribuído | Não disponível | Não disponível  | Não disponível  | Não disponível |
 
+### <a name="azure-firewall-policy"></a>Política de Firewall Azure
 
-
-
-
-
-
-
+Tipo de identidade gerido |Tudo geralmente disponível<br>Regiões Azure Globais | Azure Government | Azure Alemanha | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Sistema atribuído | Não disponível | Não disponível | Não disponível | Não disponível |
+| Utilizador atribuído | Pré-visualizar | Não disponível  | Não disponível  | Não disponível |
 
 ### <a name="azure-functions"></a>Funções do Azure
 

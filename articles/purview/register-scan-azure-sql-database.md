@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 10/02/2020
-ms.openlocfilehash: 36781e7f975ee9d4a03cf899650701bf2d3940ac
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: b3503dead21eeca32d82e896f889b99d11435642
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98555955"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879735"
 ---
 # <a name="register-and-scan-an-azure-sql-database"></a>Registe-se e digitalize uma Base de Dados Azure SQL
 
@@ -39,7 +39,7 @@ O Azure Purview não suporta a digitalização de [visualizações](/sql/relatio
 
 ### <a name="set-up-authentication-for-a-scan"></a>Configurar a autenticação para uma varredura
 
-Autenticação para digitalizar base de dados Azure SQL. Se precisar de criar uma nova autenticação, tem de autorizar o acesso à [base de dados à Base de Dados SQL.](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage) Existem três métodos de autenticação que a Purview suporta hoje:
+Autenticação para digitalizar base de dados Azure SQL. Se precisar de criar uma nova autenticação, tem de autorizar o acesso à [base de dados à Base de Dados SQL.](../azure-sql/database/logins-create-manage.md) Existem três métodos de autenticação que a Purview suporta hoje:
 
 - Autenticação do SQL
 - Principal de Serviço
@@ -88,8 +88,8 @@ Para utilizar um principal de serviço, pode utilizar um existente ou criar um n
 
 O principal do serviço ou identidade gerida deve ter permissão para obter metadados para a base de dados, esquemas e tabelas. Deve também poder consultar as tabelas a amostrar para a classificação.
 
-- [Configure e gere a autenticação AD AD com Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure)
-- Se estiver a usar identidade gerida, a sua conta Purview tem a sua própria identidade gerida, que é basicamente o seu nome Depview quando a criou. Tem de criar um utilizador AZure AD na Base de Dados Azure SQL com a identidade gerida exata da Purview ou com o seu próprio chefe de serviço, seguindo o tutorial sobre [criar o utilizador principal do serviço na Base de Dados Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-service-principal-tutorial#create-the-service-principal-user-in-azure-sql-database). Tem de atribuir a devida permissão (por `db_owner` exemplo, `db_datareader` ou) à identidade. Exemplo de sintaxe SQL para criar o utilizador e conceder permissão:
+- [Configure e gere a autenticação AD AD com Azure SQL](../azure-sql/database/authentication-aad-configure.md)
+- Se estiver a usar identidade gerida, a sua conta Purview tem a sua própria identidade gerida, que é basicamente o seu nome Depview quando a criou. Tem de criar um utilizador AZure AD na Base de Dados Azure SQL com a identidade gerida exata da Purview ou com o seu próprio chefe de serviço, seguindo o tutorial sobre [criar o utilizador principal do serviço na Base de Dados Azure SQL](../azure-sql/database/authentication-aad-service-principal-tutorial.md#create-the-service-principal-user-in-azure-sql-database). Tem de atribuir a devida permissão (por `db_owner` exemplo, `db_datareader` ou) à identidade. Exemplo de sintaxe SQL para criar o utilizador e conceder permissão:
 
     ```sql
     CREATE USER [Username] FROM EXTERNAL PROVIDER
@@ -161,7 +161,7 @@ No ecrã **'Azure SQL Database',** faça o seguinte:
 > [!NOTE]
 > A eliminação da sua verificação não elimina os seus ativos de análises anteriores da Base de Dados Azure SQL.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Navegue no catálogo de dados Azure Purview Data](how-to-browse-catalog.md)
 - [Pesse o Catálogo de Dados da Azure Purview](how-to-search-catalog.md)
