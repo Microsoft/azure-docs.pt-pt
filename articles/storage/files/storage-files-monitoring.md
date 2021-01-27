@@ -1,5 +1,5 @@
 ---
-title: Monitorar ficheiros Azure / Microsoft Docs
+title: Monitorização de ficheiros Azure | Microsoft Docs
 description: Saiba como monitorizar o desempenho e disponibilidade dos Ficheiros Azure. Monitorize os dados do Azure Files, aprenda sobre a configuração e analise dados métricos e de registo.
 author: normesta
 services: storage
@@ -10,12 +10,12 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 2af4f5467cb0f604f16d1faf841618a14d292806
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: cc1e4bf44827f82b3ca592e41fc3e6640f36e1bb
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97585739"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98875149"
 ---
 # <a name="monitoring-azure-files"></a>Monitorar ficheiros Azure
 
@@ -71,7 +71,7 @@ Para obter orientações gerais, consulte [Criar definição de diagnóstico par
 
 ### <a name="azure-portal"></a>[Portal do Azure](#tab/azure-portal)
 
-1. Inicie sessão no portal do Azure.
+1. Inicie sessão no Portal do Azure.
 
 2. Navegue até à sua conta de armazenamento.
 
@@ -575,7 +575,7 @@ Os alertas do Azure Monitor notificam-no proativamente quando forem encontradas 
 
 A tabela a seguir enumera alguns cenários de exemplo para monitorizar e a métrica adequada a utilizar para o alerta:
 
-| Cenário | Métrica para usar para alerta |
+| Scenario | Métrica para usar para alerta |
 |-|-|
 | A partilha de ficheiros está acelerada. | Métrica: Transações<br>Nome de dimensão: Tipo de resposta <br>Nome de dimensão: FileShare (apenas partilha de ficheiros premium) |
 | O tamanho da partilha de ficheiros é de 80% da capacidade. | Métrica: Capacidade de Arquivo<br>Nome de dimensão: FileShare (apenas partilha de ficheiros premium) |
@@ -671,12 +671,12 @@ A tabela a seguir enumera alguns cenários de exemplo para monitorizar e a métr
 12. Preencha os **detalhes do Alerta** como o nome da regra de **alerta**, **Descrição e **Severidade**.
 13. Clique **em Criar regra de alerta** para criar o alerta.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Azure Files monitorizando a referência de dados](storage-files-monitoring-reference.md)
 - [Monitorar recursos do Azure com o Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md)
 - [Migração de métricas de armazenamento Azure](../common/storage-metrics-migration.md)
 - [Planear uma implementação de Ficheiros do Azure](./storage-files-planning.md)
-- [Como implementar os Ficheiros do Azure](./storage-files-deployment-guide.md)
+- [Como implementar os Ficheiros do Azure](./storage-how-to-create-file-share.md)
 - [Resolução de problemas dos Ficheiros do Azure no Windows](./storage-troubleshoot-windows-file-connection-problems.md)
 - [Resolução de problemas dos Ficheiros do Azure no Linux](./storage-troubleshoot-linux-file-connection-problems.md)

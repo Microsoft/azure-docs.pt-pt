@@ -1,5 +1,5 @@
 ---
-title: Guia de resolução de problemas do Azure Storage Explorer Microsoft Docs
+title: Guia de resolução de problemas do Azure Storage Explorer | Microsoft Docs
 description: Visão geral das técnicas de depuração para o Azure Storage Explorer
 services: storage
 author: Deland-Han
@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: 4e87e99f16a89cab95f9bd07b75b80f1c13d47f1
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 9a20db58846ca48afb4fb256adae58e1fccdff3a
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97900659"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98875741"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de resolução de problemas do Explorador de Armazenamento do Azure
 
@@ -70,13 +70,13 @@ Para outros tipos de recursos, não temos atualmente uma solução relacionada c
 ### <a name="recommended-azure-built-in-roles"></a>Funções recomendadas do Azure
 
 Existem vários papéis incorporados Azure que podem fornecer as permissões necessárias para usar o Storage Explorer. Alguns desses papéis são:
-- [Proprietário](/azure/role-based-access-control/built-in-roles#owner): Gerir tudo, incluindo acesso a recursos.
-- [Contribuinte](/azure/role-based-access-control/built-in-roles#contributor): Gerir tudo, excluindo o acesso aos recursos.
-- [Leitor:](/azure/role-based-access-control/built-in-roles#reader)Leia e enuse os recursos.
-- [Contribuidor da Conta de Armazenamento](/azure/role-based-access-control/built-in-roles#storage-account-contributor): Gestão completa das contas de armazenamento.
-- [Armazenamento Blob Data Owner](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner): Acesso total aos recipientes e dados da bolha de armazenamento Azure.
-- [Armazenamento Contribuinte de Dados Blob](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor): Leia, escreva e elimine os recipientes e bolhas de armazenamento Azure.
-- [Armazenamento Blob Data Reader](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader): Leia e enuncie os recipientes e bolhas de armazenamento Azure.
+- [Proprietário](../../role-based-access-control/built-in-roles.md#owner): Gerir tudo, incluindo acesso a recursos.
+- [Contribuinte](../../role-based-access-control/built-in-roles.md#contributor): Gerir tudo, excluindo o acesso aos recursos.
+- [Leitor:](../../role-based-access-control/built-in-roles.md#reader)Leia e enuse os recursos.
+- [Contribuidor da Conta de Armazenamento](../../role-based-access-control/built-in-roles.md#storage-account-contributor): Gestão completa das contas de armazenamento.
+- [Armazenamento Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner): Acesso total aos recipientes e dados da bolha de armazenamento Azure.
+- [Armazenamento Contribuinte de Dados Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor): Leia, escreva e elimine os recipientes e bolhas de armazenamento Azure.
+- [Armazenamento Blob Data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader): Leia e enuncie os recipientes e bolhas de armazenamento Azure.
 
 > [!NOTE]
 > As funções de Proprietário, Contribuinte e Contribuinte de Conta de Armazenamento concedem acesso à chave da conta.
@@ -103,7 +103,7 @@ Se não tem certeza de onde vem o certificado, siga estes passos para encontrá-
 2. Abrir o sl.
     * Janelas: Abra o diretório de instalação, selecione **/bin/**, e, em seguida, clique duas vezes **openssl.exe**.
     * Mac e Linux: Fugir `openssl` de um terminal.
-3. Execute `s_client -showcerts -connect microsoft.com:443`.
+3. Execute o `s_client -showcerts -connect microsoft.com:443`.
 4. Procure certificados autoassinados. Se não tem a certeza de quais certificados são auto-assinados, tome nota de qualquer lugar que o sujeito `("s:")` e `("i:")` emitente sejam os mesmos.
 5. Quando encontrar certificados auto-assinados, para cada um, copie e cole tudo de (e incluindo) `-----BEGIN CERTIFICATE-----` até um novo ficheiro `-----END CERTIFICATE-----` .cer.
 6. Abrir o Explorador de Armazenamento e ir para **editar**  >  **certificados SSL**  >  **Certificados de Importação Certificados**. Em seguida, utilize o selecionador de ficheiros para encontrar, selecionar e abrir os ficheiros .cer que criou.
@@ -424,7 +424,7 @@ Se o botão **Open In Explorer** no portal Azure não funcionar, certifique-se d
 * Google Chrome
 * Microsoft Internet Explorer
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se nenhuma destas soluções funcionar para si, [abra um problema no GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues). Também pode fazê-lo selecionando a **emissão 'Relatório' para** o botão GitHub no canto inferior esquerdo.
 

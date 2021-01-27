@@ -6,12 +6,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: amgowda
-ms.openlocfilehash: b4b6c04a1e35031387a006b6350ebf6cbe502fee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51e2095b0df8fdc965926c6c612c45f582c9b9d2
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90997903"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98874489"
 ---
 # <a name="frequently-asked-questions-about-confidential-computing-nodes-on-azure-kubernetes-service-aks"></a>Perguntas frequentes sobre nós de computação confidencial no Serviço Azure Kubernetes (AKS)
 
@@ -25,6 +25,10 @@ O SLA não é fornecido durante a pré-visualização do produto, tal como defin
 
 Attestation é o processo de demonstrar e validar que uma peça de software foi corretamente instantânea na plataforma de hardware específica. Também garante que os seus elementos de prova são verificáveis para dar garantias de que está a funcionar numa plataforma segura e que não foi adulterado. [Leia mais](attestation.md) sobre como o atestado é feito para aplicações de enclave.
 
+## <a name="can-i-enable-accelerated-networking-with-azure-confidential-computing-aks-clusters"></a>Posso permitir networking acelerado com Azure com a azure computação confidencial AKS Clusters? 
+
+Não. O Networking Acelerado não é suportado em nós de computação confidencial na AKS. Certifique-se de que a rede acelerada está desativada na sua implantação. 
+
 ## <a name="can-i-bring-my-existing-containerized-applications-and-run-it-on-aks-with-azure-confidential-computing"></a>Posso trazer as minhas aplicações contentorizadas existentes e executá-la na AKS com a Azure Confidential Computing? 
 
 Sim, reveja a [página de contentores confidenciais](confidential-containers.md) para obter mais detalhes sobre os facilitadores da plataforma.
@@ -35,11 +39,11 @@ Atualmente, a Azure computação confidencial DCSv2 VMs são instaladas com Inte
 
 ## <a name="can-i-open-an-azure-support-ticket-if-i-run-into-issues"></a>Posso abrir um bilhete de apoio ao Azure se me der conta de problemas? 
 
-Sim. O suporte Azure é fornecido durante a pré-visualização. Não existe um SLA ligado porque o produto está em fase de pré-visualização.
+Yes. O suporte Azure é fornecido durante a pré-visualização. Não existe um SLA ligado porque o produto está em fase de pré-visualização.
 
 ## <a name="can-i-inject-post-install-scriptscustomize-drivers-to-the-nodes-provisioned-by-aks"></a>Posso injetar scripts/personalizar os scripts para os Nós a provisionados pela AKS? 
 
-N.º [Os nós de computação confidencial baseados no motor AKS suportam](https://github.com/Azure/aks-engine/blob/master/docs/topics/sgx.md) nós de computação confidenciais que permitem instalações personalizadas.
+Não. [Os nós de computação confidencial baseados no motor AKS suportam](https://github.com/Azure/aks-engine/blob/master/docs/topics/sgx.md) nós de computação confidenciais que permitem instalações personalizadas.
 
 ## <a name="should-i-be-using-a-docker-base-image-to-get-started-on-enclave-applications"></a>Devo usar uma imagem base do Docker para começar com aplicações de enclave? 
 
@@ -92,7 +96,7 @@ Atualmente, os DCsv2 SKU VMs de computação confidencial da Azure suportam um e
 
 ## <a name="do-you-automatically-install-any-additional-daemonsets-to-expose-the-sgx-drivers"></a>Instala automaticamente algum daemonsets adicionais para expor os controladores SGX? 
 
-Sim. O nome do daemonset é sgx-device-plugin e sgx-quote-helper. Leia mais sobre os seus respetivos propósitos [aqui.](confidential-nodes-aks-overview.md)  
+Yes. O nome do daemonset é sgx-device-plugin e sgx-quote-helper. Leia mais sobre os seus respetivos propósitos [aqui.](confidential-nodes-aks-overview.md)  
 
 ## <a name="what-is-the-vm-sku-i-should-be-choosing-for-confidential-computing-nodes"></a>O que é o VM SKU que eu deveria escolher para nós de computação confidencial? 
 
@@ -100,11 +104,11 @@ DCSv2 SKUs. Os [SKUs DCSv2](../virtual-machines/dcv2-series.md) estão disponív
 
 ## <a name="can-i-still-schedule-and-run-non-enclave-containers-on-confidential-computing-nodes"></a>Ainda posso agendar e executar contentores não-enclaves em nós de computação confidencial? 
 
-Sim. Os VMs também têm uma memória regular que pode executar cargas de trabalho padrão do contentor. Considere o modelo de segurança e ameaça das suas aplicações antes de decidir sobre os modelos de implementação.
+Yes. Os VMs também têm uma memória regular que pode executar cargas de trabalho padrão do contentor. Considere o modelo de segurança e ameaça das suas aplicações antes de decidir sobre os modelos de implementação.
 
 ## <a name="can-i-provision-aks-with-dcsv2-node-pools-through-azure-portal"></a>Posso providenciar AKS com piscinas de nó DCSv2 através do portal Azure? 
 
-Sim. O Azure CLI também pode ser usado como uma alternativa, como [documentado aqui.](confidential-nodes-aks-get-started.md)
+Yes. O Azure CLI também pode ser usado como uma alternativa, como [documentado aqui.](confidential-nodes-aks-get-started.md)
 
 ## <a name="what-ubuntu-version-and-vm-generation-is-supported"></a>Que versão Ubuntu e geração VM são suportadas? 
 
@@ -112,7 +116,7 @@ Sim. O Azure CLI também pode ser usado como uma alternativa, como [documentado 
 
 ## <a name="can-we-change-the-current-intel-sgx-dcap-diver-version-on-aks"></a>Podemos alterar a versão atual do mergulhador Intel SGX DCAP na AKS? 
 
-N.º Para realizar quaisquer instalações personalizadas, recomendamos que escolha as implementações [de nós de trabalho de computação confidencial aks-engine.](https://github.com/Azure/aks-engine/blob/master/docs/topics/sgx.md) 
+Não. Para realizar quaisquer instalações personalizadas, recomendamos que escolha as implementações [de nós de trabalho de computação confidencial aks-engine.](https://github.com/Azure/aks-engine/blob/master/docs/topics/sgx.md) 
 
 ## <a name="what-version-of-kubernetes-do-you-support-and-recommend"></a>Que versão de Kubernetes apoia e recomenda? 
 

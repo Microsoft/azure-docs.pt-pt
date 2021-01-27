@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: cbc22f9b55f8d20880b43516a2a5bc8f55d389f5
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: b4b2a3bf8c9a3a2e2ec7f1b22785a037f8dedc60
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814504"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98873965"
 ---
 # <a name="azure-security-baseline-for-azure-ddos-protection-standard"></a>Linha de base de segurança Azure para Azure DDoS Protection Standard
 
@@ -38,7 +38,7 @@ Esta linha de base de segurança aplica orientações do Benchmark de [Seguranç
 
 Ativar as definições de diagnóstico do Registo de Atividades Azure e enviar os registos para um espaço de trabalho log Analytics, hub de eventos Azure ou conta de armazenamento Azure para o arquivo. Os registos de atividade fornecem informações sobre as operações que foram realizadas na sua Cache Azure para instâncias Redis ao nível do plano de controlo. Utilizando dados de Registo de Atividades Azure, pode determinar o "o quê, quem e quando" para quaisquer operações de escrita (PUT, POST, DELETE) realizadas ao nível do plano de controlo para as suas instâncias de Proteção Azure DDoS.
 
-- [Visualização e configuração do registo de diagnóstico dDoS](../../ddos-protection/diagnostic-logging.md)
+- [Ver e configurar o registo de diagnósticos do DDoS](../../ddos-protection/diagnostic-logging.md)
 
 - [Como ativar definições de diagnóstico para registo de atividades azure](../../azure-monitor/platform/activity-log.md)
 
@@ -164,7 +164,7 @@ Além disso, para ajudá-lo a acompanhar contas administrativas dedicadas, pode 
 
 **Orientação**: Utilize uma estação de trabalho segura gerida pelo Azure com a autenticação multi-factor Ad (MFA) ativada para iniciar sessão e configurar os seus pedidos de Bloqueio de Cliente Azure.
 
-- [Implementar uma estação de trabalho segura e gerida pelo Azure](../../active-directory/devices/howto-azure-managed-workstation.md)
+- [Implementar uma estação de trabalho segura e gerida pelo Azure](/security/compass/privileged-access-deployment)
 
 - [Planear a implementação da Multi-Factor Authentication do Azure AD com base na cloud](../../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -560,7 +560,7 @@ Selecione qualquer uma das métricas de proteção DDoS disponíveis para alert�
 
 **Responsabilidade**: Partilhada
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte a [referência de segurança Azure](../benchmarks/overview.md)
 - Saiba mais sobre as [linhas de base de segurança do Azure](../benchmarks/security-baselines-overview.md)

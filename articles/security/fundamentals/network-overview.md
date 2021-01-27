@@ -1,5 +1,5 @@
 ---
-title: Conceitos e requisitos de segurança da rede em Azure Microsoft Docs
+title: Conceitos e requisitos de segurança da rede em Azure | Microsoft Docs
 description: Este artigo fornece explicações básicas sobre conceitos e requisitos de segurança da rede fundamentais, e informações sobre o que a Azure oferece em cada uma destas áreas.
 services: security
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 8a82fd6e6dc1bea0804c429f3af46884f004de69
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 17d48b6093d88a926569d5cfe84475fc0c306a0d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489773"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98874388"
 ---
 # <a name="azure-network-security-overview"></a>Descrição geral da segurança de rede do Azure
 
@@ -178,7 +178,7 @@ Uma maneira de o conseguir é utilizar uma [VPN site-to-site.](https://www.techo
 
 Saiba mais:
 
-* [Criar um VNet gestor de recursos com uma ligação VPN site-to-site utilizando o portal Azure](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+* [Criar um VNet gestor de recursos com uma ligação VPN site-to-site utilizando o portal Azure](../../vpn-gateway/tutorial-site-to-site-portal.md)
 * [Acerca do VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md)
 
 ### <a name="connect-your-on-premises-network-to-a-virtual-network-with-a-dedicated-wan-link"></a>Ligue a sua rede no local a uma rede virtual com uma ligação WAN dedicada

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: 3370215e9a69e62596f214ba4330fc4914a2837f
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 5f42b5f2b2a7660ee0de975068f64572c470503a
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539689"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98874911"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Registar e digitalizar um inquilino power BI (pré-visualização)
 
@@ -26,7 +26,7 @@ Este artigo mostra como usar o portal Azure Purview para registar e digitalizar 
 Para configurar a autenticação, crie um grupo de segurança e adicione-lhe a identidade gerida do catálogo.
 
 1. No [portal Azure,](https://portal.azure.com)procure **o Azure Ative Directory**.
-1. Crie um novo grupo de segurança no seu Azure Ative Directory, seguindo [criar um grupo básico e adicionar membros usando o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal).
+1. Crie um novo grupo de segurança no seu Azure Ative Directory, seguindo [criar um grupo básico e adicionar membros usando o Azure Ative Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
     > [!Tip]
     > Pode saltar este passo se já tiver um grupo de segurança que pretende usar.
@@ -108,7 +108,7 @@ Primeiro, adicione uma bandeira de recurso especial ao seu URL de Purview
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/save-run-power-bi-scan.png" alt-text="Guardar e executar a imagem do ecrã do Power BI":::
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Navegue no catálogo de dados Azure Purview Data](how-to-browse-catalog.md)
 - [Pesse o Catálogo de Dados da Azure Purview](how-to-search-catalog.md)

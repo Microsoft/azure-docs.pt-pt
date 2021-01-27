@@ -1,14 +1,14 @@
 ---
 title: 'Quickstart: Criar uma planta com Azure CLI'
 description: Neste arranque rápido, utiliza-se a Azure Blueprints para criar, definir e implantar artefactos utilizando o Azure CLI.
-ms.date: 10/14/2020
+ms.date: 01/26/2021
 ms.topic: quickstart
-ms.openlocfilehash: 88ccd3fe6271a79d201007954e7997b68d2dc69b
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: a0e44925bdec78b8b02a50c8b3f91db0bb764976
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920564"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98875216"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-azure-cli"></a>Quickstart: Definir e Atribuir uma Planta Azure com Azure CLI
 
@@ -16,7 +16,8 @@ Aprender a criar e atribuir plantas permite que a definição de padrões comuns
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
+- Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
+- Se nunca tenha utilizado a Azure Blueprints antes, registe o fornecedor de recursos através do Azure CLI com `az provider register --namespace Microsoft.Blueprint` .
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -371,7 +372,7 @@ Pode remover um esquema de uma subscrição. A remoção é, muitas vezes, feita
 az blueprint assignment delete --name 'assignMyBlueprint'
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido, criaste, atribuiste e removeste uma planta com o Azure CLI. Para saber mais sobre a Azure Blueprints, continue para o artigo do ciclo de vida do projeto.
 

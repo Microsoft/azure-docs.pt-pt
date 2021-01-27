@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 37753265afa7e76e87dbcdc5893595bea66798f4
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 4e9c84efe7b96cf61a69c54e3f5ecbc469ac7d8d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98610255"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98874147"
 ---
 # <a name="prepare-an-application-for-deployment-in-azure-spring-cloud"></a>Preparar uma aplicação para implantação em Azure Spring Cloud
 
@@ -146,12 +146,12 @@ A azure Spring Cloud suporta apenas aplicações Spring Boot ou versão Spring B
 
 Versão Boot de primavera | Versão Cloud de primavera
 ---|---
-2.2 | Hoxton.SR8
+2,2 | Hoxton.SR8
 2.3 | Hoxton.SR8
 2.4.1+ | 2020.0.0
 
 > [!NOTE]
-> Identificamos um problema com o Boot 2.4.0 da autenticação TLS entre as suas apps e eureka, por favor use 2.4.1 ou superior. Por favor, consulte as [nossas FAQ](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-faq?pivots=programming-language-java#development) para a solução alternativa se insistir em usar 2.4.0.
+> Identificamos um problema com o Boot 2.4.0 da autenticação TLS entre as suas apps e eureka, por favor use 2.4.1 ou superior. Por favor, consulte as [nossas FAQ](./spring-cloud-faq.md?pivots=programming-language-java#development) para a solução alternativa se insistir em usar 2.4.0.
 
 ### <a name="dependencies-for-spring-boot-version-2223"></a>Dependências para a versão 2.2/2.3 do Boot de Mola
 
@@ -310,14 +310,14 @@ Inclua a seguinte `spring-cloud-sleuth-zipkin` dependência na secção de depen
 </dependency>
 ```
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 * [Analisar registos de aplicações e métricas](./diagnostic-services.md)
 * [Configurar o Servidor de Configuração](./spring-cloud-tutorial-config-server.md)
 * [Use rastreio distribuído com Azure Spring Cloud](./spring-cloud-tutorial-distributed-tracing.md)
 * [Guia de arranque rápido de primavera](https://spring.io/quickstart)
 * [Documentação do Boot de primavera](https://spring.io/projects/spring-boot)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tópico, aprendeu a configurar a sua aplicação Java Spring para implantação na Azure Spring Cloud. Para aprender a configurar uma instância do Servidor Config, consulte [configurar uma instância do Servidor Config](spring-cloud-tutorial-config-server.md).
 

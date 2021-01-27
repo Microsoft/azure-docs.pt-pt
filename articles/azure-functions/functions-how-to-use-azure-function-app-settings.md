@@ -5,12 +5,12 @@ ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.custom: cc996988-fb4f-47, devx-track-azurecli
-ms.openlocfilehash: 4db6abeb3e6f4a07780268a6455177e0ca237205
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 5080d16a7b14506b24e07e2ee4ba862c645f83a8
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98598493"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98875454"
 ---
 # <a name="manage-your-function-app"></a>Gerir a sua aplicação de função 
 
@@ -37,6 +37,8 @@ As definições de aplicação podem ser geridas a partir do [portal Azure](func
 Estas definições são armazenadas encriptadas. Para saber mais, consulte [a segurança das definições de aplicação](security-concepts.md#application-settings).
 
 # <a name="portal"></a>[Portal](#tab/portal)
+
+Para encontrar as definições da aplicação, consulte [Começar a trabalhar no portal Azure](#get-started-in-the-azure-portal). 
 
 O **separador de definições de aplicação** mantém as definições que são utilizadas pela sua aplicação de função. Tem de selecionar **valores de 'Mostrar'** para ver os valores no portal. Para adicionar uma definição no portal, selecione **nova definição** de aplicação e adicione o novo par de valor-chave.
 
@@ -275,7 +277,7 @@ Utilize o [`az functionapp cors show`](/cli/azure/functionapp/cors#az-functionap
 Quando as funções utilizarem um gatilho HTTP, pode exigir que as chamadas sejam autenticadas primeiro. O App Service suporta a autenticação e o sômposições do Azure Ative Directory com fornecedores sociais, como facebook, Microsoft e Twitter. Para obter detalhes sobre a configuração de fornecedores de autenticação específica, consulte [a visão geral da autenticação do Azure App Service](../app-service/overview-authentication-authorization.md). 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 + [Configurações de serviço de aplicações Azure configurações](../app-service/configure-common.md)
 + [Implementação contínua para Funções do Azure](functions-continuous-deployment.md)

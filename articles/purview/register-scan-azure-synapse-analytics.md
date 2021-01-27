@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 10/22/2020
-ms.openlocfilehash: 3ba43b83166b5548dee4ea4e52c7411db48d23f5
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: 62ca32ab4e348e1488fbb87672e582436b91d05d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567273"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98875014"
 ---
 # <a name="register-and-scan-azure-synapse-analytics"></a>Registar e digitalizar Azure Synapse Analytics
 
@@ -45,7 +45,7 @@ Existem três formas de configurar a autenticação para a Azure Synapse Analyti
 
 ### <a name="managed-identity-recommended"></a>Identidade gerida (Recomendada) 
    
-A sua conta Depview tem a sua própria Identidade Gerida, que é basicamente o seu nome Depview quando a criou. Tem de criar um utilizador Azure AD em Azure Synapse Analytics (anteriormente SQL DW) com o nome exato de Identidade Gerida da Purview, seguindo os pré-requisitos e tutoriais sobre [utilizadores de AD Create Azure usando aplicações AD Azure](/azure/azure-sql/database/authentication-aad-service-principal-tutorial).
+A sua conta Depview tem a sua própria Identidade Gerida, que é basicamente o seu nome Depview quando a criou. Tem de criar um utilizador Azure AD em Azure Synapse Analytics (anteriormente SQL DW) com o nome exato de Identidade Gerida da Purview, seguindo os pré-requisitos e tutoriais sobre [utilizadores de AD Create Azure usando aplicações AD Azure](../azure-sql/database/authentication-aad-service-principal-tutorial.md).
 
 Exemplo de sintaxe SQL para criar o utilizador e conceder permissão:
 
@@ -87,7 +87,7 @@ Para utilizar a autenticação principal do serviço para digitalizações, pode
 
 #### <a name="granting-the-service-principal-access-to-your-azure-synapse-analytics-formerly-sql-dw"></a>Concessão do acesso principal do serviço ao seu Azure Synapse Analytics (anteriormente SQL DW)
 
-Além disso, deve também criar um utilizador Azure AD em Azure Synapse Analytics seguindo os pré-requisitos e tutoriais sobre [utilizadores de AD Create Azure usando aplicações AD Azure](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-service-principal-tutorial). Exemplo de sintaxe SQL para criar o utilizador e conceder permissão:
+Além disso, deve também criar um utilizador Azure AD em Azure Synapse Analytics seguindo os pré-requisitos e tutoriais sobre [utilizadores de AD Create Azure usando aplicações AD Azure](../azure-sql/database/authentication-aad-service-principal-tutorial.md). Exemplo de sintaxe SQL para criar o utilizador e conceder permissão:
 
 ```sql
 CREATE USER [ServicePrincipalName] FROM EXTERNAL PROVIDER
@@ -136,8 +136,7 @@ No ecrã **'Azure Synapse Analytics',** faça o seguinte:
 
 [!INCLUDE [create and manage scans](includes/manage-scans.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Navegue no catálogo de dados Azure Purview Data](how-to-browse-catalog.md)
 - [Pesse o Catálogo de Dados da Azure Purview](how-to-search-catalog.md)
-

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: sharrai
 ms.custom: mvc
-ms.openlocfilehash: 1c88a7e78d37556f0f1f89e16154dc1808f24323
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9cef163c1b53360222ca32a827552fa361e9dd40
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89425522"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98874252"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Utilizar o Azure Site Recovery para proteger um servidor de ficheiros 
 
@@ -66,10 +66,10 @@ Uma vez que a replicação do Site Recovery não depende da aplicação, espera-
 
 | Origem  |Para um site secundário  |Para o Azure
 |---------|---------|---------|
-|Azure|  -|Sim|
-|Hyper-V|  Sim  |Sim
-|VMware  |Sim|  Sim
-|Servidor físico|  Sim  |Sim
+|Azure|  -|Yes|
+|Hyper-V|  Yes  |Yes
+|VMware  |Yes|  Yes
+|Servidor físico|  Yes  |Yes
  
 
 > [!IMPORTANT]
@@ -77,7 +77,7 @@ Uma vez que a replicação do Site Recovery não depende da aplicação, espera-
 
 
 
-**Conectividade site a site**: tem de ser estabelecida uma ligação direta entre o site no local e a rede do Azure, para permitir a comunicação entre servidores. Utilize uma ligação VPN site a site protegida a uma rede virtual do Azure que seja utilizada como o site de recuperação após desastre. Para obter mais informações, veja [Establish a site-to-site VPN connection between an on-premises site and an Azure virtual network](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) (Estabelecer uma ligação VPN site a site entre um site no local e uma rede virtual do Azure).
+**Conectividade site a site**: tem de ser estabelecida uma ligação direta entre o site no local e a rede do Azure, para permitir a comunicação entre servidores. Utilize uma ligação VPN site a site protegida a uma rede virtual do Azure que seja utilizada como o site de recuperação após desastre. Para obter mais informações, veja [Establish a site-to-site VPN connection between an on-premises site and an Azure virtual network](../vpn-gateway/tutorial-site-to-site-portal.md) (Estabelecer uma ligação VPN site a site entre um site no local e uma rede virtual do Azure).
 
 **Active Directory**: o DFSR depende do Active Directory. Isto significa que a floresta do Active Directory com controladores de domínio local é expandida para o site de recuperação após desastre no Azure. Mesmo que não esteja a utilizar o DFSR, caso seja necessário conceder acesso ou verificar o acesso dos utilizadores, tem de seguir os passos abaixo. Para obter mais informações, veja [Extend on-premises Active Directory to Azure](./site-recovery-active-directory.md) (Expandir o Active Directory no local para o Azure).
 

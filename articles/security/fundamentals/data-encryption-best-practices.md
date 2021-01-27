@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/09/2020
 ms.author: terrylan
-ms.openlocfilehash: 3808da24c1baf6dd6e3332d4bd26fd176b761c65
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 414445f90c3be4c55166f6a0ecead25074d6ed74
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98196083"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98874118"
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Melhores práticas de segurança e encriptação de dados do Azure
 Este artigo descreve as melhores práticas para a segurança dos dados e encriptação.
@@ -102,7 +102,7 @@ Para mover dados entre a infraestrutura no local e o Azure, considere medidas de
 Seguem-se as melhores práticas específicas da utilização do Gateway Azure VPN, SSL/TLS e HTTPS.
 
 **Melhores práticas**: Acesso seguro de múltiplas estações de trabalho localizadas no local para uma rede virtual Azure.   
-**Detalhe**: Utilize [a VPN local-a-local](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+**Detalhe**: Utilize [a VPN local-a-local](../../vpn-gateway/tutorial-site-to-site-portal.md).
 
 **Melhores práticas**: Acesso seguro de uma estação de trabalho individual localizada no local para uma rede virtual Azure.   
 **Detalhe**: Utilize [VPN ponto a local](../../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md).
@@ -133,7 +133,7 @@ Esta solução de proteção de informação mantém-no no controlo dos seus dad
 
 As organizações que são fracas na classificação de [dados](https://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) e na proteção de ficheiros podem ser mais suscetíveis a fugas de dados ou uso indevido de dados. Com a proteção adequada de ficheiros, pode analisar fluxos de dados para obter informações sobre o seu negócio, detetar comportamentos de risco e tomar medidas corretivas, rastrear o acesso a documentos, e assim por diante.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte as [melhores práticas e padrões](best-practices-and-patterns.md) de segurança da Azure para obter mais boas práticas de segurança quando estiver a desenhar, implementar e gerir as suas soluções em nuvem utilizando o Azure.
 

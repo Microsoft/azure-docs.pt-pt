@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/26/2018
 ms.author: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1b29cdda66186587c43471d6d6e819dfbde658e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dacf34d7098472e98c7f68f7f60fa9bac1a4e5ec
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89075025"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98875776"
 ---
 # <a name="how-to-connect-and-sign-on-to-an-azure-virtual-machine-running-windows"></a>Como conectar e iniciar sê-lo numa máquina virtual Azure que executa o Windows
 Irá utilizar o botão **Ligar** no Portal do Azure para iniciar uma sessão de Ambiente de Trabalho Remoto (RDP) a partir de um ambiente de trabalho do Windows. Primeiro liga-se à máquina virtual e depois assina-se.
@@ -24,7 +24,7 @@ Para ligar a um VM do Windows a partir de um Mac, terá de instalar um cliente R
 1. Vá ao [portal Azure](https://portal.azure.com/) para ligar a um VM. Procure e selecione **máquinas Virtuais.**
 2. Selecione a máquina virtual na lista.
 3. No início da página de máquina virtual, selecione **Connect**.
-4. Na página de **'Ligar à máquina virtual',** selecione **RDP**e, em seguida, selecione o **endereço IP** apropriado e o número **de porta**. Na maioria dos casos, o endereço IP predefinido e a porta devem ser utilizados. Selecione **Transferir Ficheiro RDP**. Se o VM tiver uma definição de política just-in-time, primeiro tem de selecionar o botão **de acesso 'Pedir'** para solicitar acesso antes de poder descarregar o ficheiro RDP. Para obter mais informações sobre a política just-in-time, consulte [Gerir o acesso à máquina virtual utilizando a política just in time](../../security-center/security-center-just-in-time.md).
+4. Na página de **'Ligar à máquina virtual',** selecione **RDP** e, em seguida, selecione o **endereço IP** apropriado e o número **de porta**. Na maioria dos casos, o endereço IP predefinido e a porta devem ser utilizados. Selecione **Transferir Ficheiro RDP**. Se o VM tiver uma definição de política just-in-time, primeiro tem de selecionar o botão **de acesso 'Pedir'** para solicitar acesso antes de poder descarregar o ficheiro RDP. Para obter mais informações sobre a política just-in-time, consulte [Gerir o acesso à máquina virtual utilizando a política just in time](../../security-center/security-center-just-in-time.md).
 5. Abra o ficheiro RDP descarregado e selecione **Connect** quando solicitado. Receberá um aviso de que o `.rdp` ficheiro é de uma editora desconhecida. Isto era esperado. Na janela **"Ligação de Ambiente de Trabalho Remoto",** selecione **Connect** para continuar.
    
     ![Captura de ecrã de um aviso sobre um publicador desconhecido.](./media/connect-logon/rdp-warn.png)
@@ -41,7 +41,7 @@ Para ligar a um VM do Windows a partir de um Mac, terá de instalar um cliente R
 
 
    > [!TIP]
-   > Se o botão **Ligar** no portal estiver acinzentado e não estiver ligado ao Azure através de uma [ligação](../../expressroute/expressroute-introduction.md) VPN da Rota Expressa ou [do Local-a-Local,](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) terá de criar e atribuir ao seu VM um endereço IP público antes de poder utilizar o RDP. Para mais informações, consulte [endereços IP públicos em Azure.](../../virtual-network/public-ip-addresses.md)
+   > Se o botão **Ligar** no portal estiver acinzentado e não estiver ligado ao Azure através de uma [ligação](../../expressroute/expressroute-introduction.md) VPN da Rota Expressa ou [do Local-a-Local,](../../vpn-gateway/tutorial-site-to-site-portal.md) terá de criar e atribuir ao seu VM um endereço IP público antes de poder utilizar o RDP. Para mais informações, consulte [endereços IP públicos em Azure.](../../virtual-network/public-ip-addresses.md)
    > 
    > 
 
@@ -63,5 +63,5 @@ Pode também guardar o ficheiro RDP para utilização futura.
 Get-AzRemoteDesktopFile -ResourceGroupName "RgName" -Name "VmName" -LocalPath "C:\Path\to\folder"
 ```
 
-## <a name="next-steps"></a>Passos seguintes
-Se tiver dificuldade em ligar, consulte [as ligações de Ambiente de Trabalho remoto de resolução de problemas](../troubleshooting/troubleshoot-rdp-connection.md?toc=/azure/virtual-machines/windows/toc.json). 
+## <a name="next-steps"></a>Próximos passos
+Se tiver dificuldade em ligar, consulte [as ligações de Ambiente de Trabalho remoto de resolução de problemas](../troubleshooting/troubleshoot-rdp-connection.md?toc=/azure/virtual-machines/windows/toc.json).
