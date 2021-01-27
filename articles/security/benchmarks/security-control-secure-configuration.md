@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 349456b0a4de65520dd633efe0573d24ea1c89c4
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: f945699256b4de9bd87ee4ab7500268302e93089
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409030"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880174"
 ---
 # <a name="security-control-secure-configuration"></a>Controlo de Segurança: Configuração Segura
 
@@ -60,7 +60,7 @@ Utilize recomendações do Azure Security Center para manter as configurações 
 
 | Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
-| 7.3 | 5.2 | Cliente |
+| 7.3 | 5,2 | Cliente |
 
 Use a Política Azure [negar] e [implementar se não existir] para impor configurações seguras em todos os seus recursos Azure.  Além disso, pode utilizar modelos do Azure Resource Manager para manter a configuração de segurança dos seus recursos Azure exigidos pela sua organização. 
 
@@ -74,7 +74,7 @@ Use a Política Azure [negar] e [implementar se não existir] para impor configu
 
 | Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
-| 7.4 | 5.2 | Partilhado |
+| 7.4 | 5,2 | Partilhado |
 
 Siga as recomendações do Azure Security Center sobre a realização de avaliações de vulnerabilidade nos seus recursos de computação Azure.  Além disso, pode utilizar modelos de Gestor de Recursos Azure, imagens personalizadas do sistema operativo ou configuração do Estado de Automação Azure para manter a configuração de segurança do sistema operativo exigido pela sua organização.   Os modelos de máquina virtual da Microsoft combinados com a Configuração de Estado Desejada da Automatização Azure podem ajudar a cumprir e manter os requisitos de segurança. 
 
@@ -88,9 +88,9 @@ Além disso, note que as imagens de máquina virtual do Azure Marketplace public
 
 - [Criar uma máquina virtual Windows no portal Azure](../../virtual-machines/windows/quick-create-portal.md)
 
-- [Informações sobre como descarregar o modelo VM](../../virtual-machines/windows/download-template.md)
+- [Informações sobre como descarregar o modelo VM](/previous-versions/azure/virtual-machines/windows/download-template)
 
-- [Script de exemplo para carregar um VHD para o Azure e criar uma nova VM](../../virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script.md)
+- [Script de exemplo para carregar um VHD para o Azure e criar uma nova VM](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script)
 
 ## <a name="75-securely-store-configuration-of-azure-resources"></a>7.5: Armazenar de forma segura a configuração dos recursos Azure
 
@@ -118,7 +118,7 @@ Se utilizar imagens personalizadas, utilize o controlo de acesso baseado em fun�
 
 - [Como configurar o Azure RBAC](../../role-based-access-control/quickstart-assign-role-user-portal.md)
 
-- [Visão geral da Galeria de Imagens Partilhada](../../virtual-machines/windows/shared-image-galleries.md)
+- [Visão geral da Galeria de Imagens Partilhada](../../virtual-machines/shared-image-galleries.md)
 
 ## <a name="77-deploy-configuration-management-tools-for-azure-resources"></a>7.7: Implementar ferramentas de gestão de configuração para recursos Azure
 
@@ -128,7 +128,7 @@ Se utilizar imagens personalizadas, utilize o controlo de acesso baseado em fun�
 
 Defina e implemente configurações de segurança padrão para recursos Azure utilizando a Política Azure. Use pseudónimos da Azure Policy para criar políticas personalizadas para auditar ou impor a configuração de rede dos seus recursos Azure. Você também pode fazer uso de definições políticas incorporadas relacionadas com os seus recursos específicos.  Além disso, pode utilizar a Azure Automation para implementar alterações de configuração.
 
-- [Como configurar e gerir a Política de Azure](../../governance/policy/tutorials/create-and-manage.md)
+- [Como configurar e gerir o Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
 - [Como usar pseudónimos](../../governance/policy/concepts/definition-structure.md#aliases)
 
@@ -146,7 +146,7 @@ A Azure Automation State Configuration é um serviço de gestão de configuraç�
 
 | Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
-| 7.9 | 5.5 | Cliente |
+| 7,9 | 5,5 | Cliente |
 
 Utilize o Centro de Segurança Azure para realizar exames de base para os seus Recursos Azure.  Além disso, utilize a Azure Policy para alertar e auditar as configurações de recursos do Azure.
 
@@ -156,7 +156,7 @@ Utilize o Centro de Segurança Azure para realizar exames de base para os seus R
 
 | Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
-| 7.10 | 5.5 | Cliente |
+| 7.10 | 5,5 | Cliente |
 
 Utilize o Centro de Segurança Azure para efetuar as verificações de linha de base para as definições de SO e Docker para contentores.
 
@@ -166,7 +166,7 @@ Utilize o Centro de Segurança Azure para efetuar as verificações de linha de 
 
 | Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
-| 7.11 | 13.1 | Cliente |
+| 7.11 | 13,1 | Cliente |
 
 Use identidade de serviço gerido em conjunto com o Azure Key Vault para simplificar e garantir uma gestão secreta para as suas aplicações em nuvem.
 
@@ -194,11 +194,11 @@ Utilize identidades geridas para fornecer serviços Azure com uma identidade ger
 |--|--|--|
 | 7.13 | 18.1, 18.7 | Cliente |
 
-Implementar o Scanner credencial para identificar credenciais dentro do código. O Scanner Credencial também encorajará a mudança de credenciais descobertas para locais mais seguros, como o Azure Key Vault. 
+Implementar o Scanner credencial para identificar credenciais dentro do código. O Scanner de Credenciais também vai incentivar a movimentação das credenciais descobertas para localizações mais seguras, por exemplo, o Azure Key Vault. 
 
 - [Como configurar o Scanner Credencial](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Veja o próximo Controlo de Segurança:  [Defesa de Malware](security-control-malware-defense.md)

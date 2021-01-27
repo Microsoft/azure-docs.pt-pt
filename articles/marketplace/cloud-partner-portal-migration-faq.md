@@ -7,12 +7,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 8346edd0f6016f1751a392213e5d6321f875baf2
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 091feacceb510038786ae487c0895f9ff1e47aba
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96455657"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880343"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Perguntas frequentes sobre a transição do Portal do Parceiro Cloud para o Centro de Parceiros
 
@@ -75,21 +75,21 @@ Todos os tipos de oferta previamente suportados no Portal do Parceiro Cloud são
 
 Para os tipos de oferta suportados no Partner Center, todas as ofertas foram movidas independentemente do seu estatuto; rascunho, des-listado, e ofertas apenas de pré-visualização também mudou.
 
-| Tipo de oferta <img src="" width=150px>| Mudou-se para o Partner Center? <img src="" width=100px>| Passos seguintes |
+| Tipo de oferta <img src="" width=150px>| Mudou-se para o Partner Center? <img src="" width=100px>| Próximos passos |
 | --- | --- | --- |
-| SaaS | Sim | Inscreva-se no Partner Center para criar novas ofertas e gerir ofertas que foram criadas no Cloud Partner Portal. Saiba mais no [Plano uma oferta SaaS para o mercado comercial.](plan-saas-offer.md) |
-| Máquina Virtual | Sim | Inscreva-se no Partner Center para criar novas ofertas e gerir ofertas que foram criadas no Cloud Partner Portal. Saiba mais no [Plano de uma oferta de máquina virtual.](marketplace-virtual-machines.md) |
-| Aplicação Azure | Sim | Inscreva-se no Partner Center para criar novas ofertas e gerir ofertas que foram criadas no Cloud Partner Portal. Saiba mais na [Create a oferta de aplicações Azure.](create-new-azure-apps-offer.md) |
+| SaaS | Yes | Inscreva-se no Partner Center para criar novas ofertas e gerir ofertas que foram criadas no Cloud Partner Portal. Saiba mais no [Plano uma oferta SaaS para o mercado comercial.](plan-saas-offer.md) |
+| Máquina Virtual | Yes | Inscreva-se no Partner Center para criar novas ofertas e gerir ofertas que foram criadas no Cloud Partner Portal. Saiba mais no [Plano de uma oferta de máquina virtual.](marketplace-virtual-machines.md) |
+| Aplicação Azure | Yes | Inscreva-se no Partner Center para criar novas ofertas e gerir ofertas que foram criadas no Cloud Partner Portal. Saiba mais na [Create a oferta de aplicações Azure.](create-new-azure-apps-offer.md) |
 | Dynamics 365 Business Central | Sim | Inscreva-se no Partner Center para criar novas ofertas e gerir ofertas que foram criadas no Cloud Partner Portal. Saiba mais na [Create a Dynamics 365 Business Central.](partner-center-portal/create-new-business-central-offer.md) |
-| Dinâmica 365 para Envolvimento de Clientes & PowerApps | Sim | Inscreva-se no Partner Center para criar novas ofertas e gerir ofertas que foram criadas no Cloud Partner Portal. Saiba mais na [Create a Dynamics 365 para o envolvimento do cliente & oferta de PowerApps.](partner-center-portal/create-new-customer-engagement-offer.md) |
-| Dynamics 365 for Operations | Sim | Inscreva-se no Partner Center para criar novas ofertas e gerir ofertas que foram criadas no Cloud Partner Portal. Saiba mais na [Oferta Create a Dynamics 365 for Operations.](partner-center-portal/create-new-operations-offer.md) |
-| Aplicação Power BI | Sim | Inscreva-se no Partner Center para criar novas ofertas e gerir ofertas que foram criadas no Cloud Partner Portal. Saiba mais na [Create a Power BI app para AppSource.](partner-center-portal/create-power-bi-app-offer.md) |
-| Módulo IoT Edge | Sim | Inscreva-se no Partner Center para criar novas ofertas e gerir ofertas que foram criadas no Cloud Partner Portal. Saiba mais na [Create, configurar e publicar uma oferta de módulo IoT Edge no Azure Marketplace.](partner-center-portal/azure-iot-edge-module-creation.md) |
-| Contentor | Sim | Inscreva-se no Partner Center para criar novas ofertas e gerir ofertas que foram criadas no Cloud Partner Portal. Saiba mais na [Create a oferta de recipienteS Azure](./create-azure-container-offer.md). |
-| Serviço de Consultoria | Sim | Inscreva-se no Partner Center para criar novas ofertas e gerir ofertas que foram criadas no Cloud Partner Portal. Saiba mais na [Create a consulting service offer.](./create-consulting-service-offer.md) |
-| Serviço Gerido | Sim | Inscreva-se no Partner Center para criar novas ofertas e gerir ofertas que foram criadas no Cloud Partner Portal. Saiba mais na [Create a Managed Service offer](partner-center-portal/create-new-managed-service-offer.md). |
-| Serviço gerido por Navegação Dinâmica | Não | A Microsoft desenvolveu o Dynamics NAV Managed Service para [a Dynamics 365 Business Central](/dynamics365/business-central/), por isso desanumeroumos ofertas ao vivo do Serviço Gerido Dynamics NAV da AppSource. Estas ofertas já não são detetáveis pelos clientes e não foram transferidas para o Partner Center. Para disponibilizar as suas ofertas no AppSource, adapte-as às ofertas da Dynamics 365 Business Central e submeta-as no [Partner Center.](https://partner.microsoft.com/) Saiba mais na [Create a Dynamics 365 Business Central.](partner-center-portal/create-new-business-central-offer.md) |
-| Cortana Intelligence | Não | A Microsoft desenvolveu o roteiro do produto para a Cortana Intelligence, por isso desaubornamos as ofertas ao vivo da Cortana Intelligence da AppSource. Estas ofertas já não são detetáveis pelos clientes e não foram transferidas para o Partner Center. Para disponibilizar as suas ofertas no mercado comercial, adapte as suas ofertas ao Software como um Serviço (SaaS) oferece e submeta-as no [Partner Center.](https://partner.microsoft.com/) Saiba mais na [SaaS offer a lista de verificação de criação no Partner Center.](./plan-saas-offer.md) |
+| Dinâmica 365 para Envolvimento de Clientes & PowerApps | Yes | Inscreva-se no Partner Center para criar novas ofertas e gerir ofertas que foram criadas no Cloud Partner Portal. Saiba mais na [Create a Dynamics 365 para o envolvimento do cliente & oferta de PowerApps.](partner-center-portal/create-new-customer-engagement-offer.md) |
+| Dynamics 365 for Operations | Yes | Inscreva-se no Partner Center para criar novas ofertas e gerir ofertas que foram criadas no Cloud Partner Portal. Saiba mais na [Oferta Create a Dynamics 365 for Operations.](partner-center-portal/create-new-operations-offer.md) |
+| Aplicação Power BI | Yes | Inscreva-se no Partner Center para criar novas ofertas e gerir ofertas que foram criadas no Cloud Partner Portal. Saiba mais na [Create a Power BI app para AppSource.](partner-center-portal/create-power-bi-app-offer.md) |
+| Módulo IoT Edge | Yes | Inscreva-se no Partner Center para criar novas ofertas e gerir ofertas que foram criadas no Cloud Partner Portal. Saiba mais na [Create, configurar e publicar uma oferta de módulo IoT Edge no Azure Marketplace.](partner-center-portal/azure-iot-edge-module-creation.md) |
+| Contentor | Yes | Inscreva-se no Partner Center para criar novas ofertas e gerir ofertas que foram criadas no Cloud Partner Portal. Saiba mais na [Create a oferta de recipienteS Azure](./create-azure-container-offer.md). |
+| Serviço de Consultoria | Yes | Inscreva-se no Partner Center para criar novas ofertas e gerir ofertas que foram criadas no Cloud Partner Portal. Saiba mais na [Create a consulting service offer.](./create-consulting-service-offer.md) |
+| Serviço Gerido | Yes | Inscreva-se no Partner Center para criar novas ofertas e gerir ofertas que foram criadas no Cloud Partner Portal. Saiba mais na [Create a Managed Service offer](./plan-managed-service-offer.md). |
+| Serviço gerido por Navegação Dinâmica | No | A Microsoft desenvolveu o Dynamics NAV Managed Service para [a Dynamics 365 Business Central](/dynamics365/business-central/), por isso desanumeroumos ofertas ao vivo do Serviço Gerido Dynamics NAV da AppSource. Estas ofertas já não são detetáveis pelos clientes e não foram transferidas para o Partner Center. Para disponibilizar as suas ofertas no AppSource, adapte-as às ofertas da Dynamics 365 Business Central e submeta-as no [Partner Center.](https://partner.microsoft.com/) Saiba mais na [Create a Dynamics 365 Business Central.](partner-center-portal/create-new-business-central-offer.md) |
+| Cortana Intelligence | No | A Microsoft desenvolveu o roteiro do produto para a Cortana Intelligence, por isso desaubornamos as ofertas ao vivo da Cortana Intelligence da AppSource. Estas ofertas já não são detetáveis pelos clientes e não foram transferidas para o Partner Center. Para disponibilizar as suas ofertas no mercado comercial, adapte as suas ofertas ao Software como um Serviço (SaaS) oferece e submeta-as no [Partner Center.](https://partner.microsoft.com/) Saiba mais na [SaaS offer a lista de verificação de criação no Partner Center.](./plan-saas-offer.md) |
 
 ## <a name="i-cant-find-my-cloud-partner-portal-offers-in-partner-center"></a>Não encontro as ofertas do meu Portal de Parceiros Cloud no Partner Center
 

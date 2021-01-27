@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 130fcaacedc8aaea7790f6aa9ca7463b4e378e02
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: cf3a3d3fdfcd03f068224c93643d364cd2646290
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98070716"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895633"
 ---
 # <a name="select-a-vmware-migration-option"></a>Selecione uma opção de migração VMware
 
@@ -43,7 +43,7 @@ Depois de rever as limitações, compreender os passos envolvidos na implementa�
 **Tarefa** | **Detalhes** |**Sem agente** | **Baseada em agente**
 --- | --- | --- | ---
 **Implementar a aplicação do Azure Migrate** | Um aparelho leve que funciona com um VMware VM.<br/><br/> O aparelho é utilizado para descobrir e avaliar máquinas e migrar máquinas utilizando uma migração sem agentes. | Obrigatório.<br/><br/> Se já montou o aparelho para avaliação, pode utilizar o mesmo aparelho para migração sem agentes. | Não necessárias.<br/><br/> Se tiver configurado um aparelho para avaliação, pode deixá-lo no lugar ou removê-lo se tiver terminado a avaliação.
-**Utilize a ferramenta de avaliação do servidor** | Avaliar máquinas com a ferramenta Azure Migrate:Server Assessment. | Podes avaliar as máquinas antes de as migrares, mas não tens de o fazer. | A avaliação é opcional.
+**Utilize a ferramenta de avaliação do servidor** | Avaliar máquinas com a ferramenta Azure Migrate:Server Assessment. | A avaliação é opcional. | A avaliação é opcional.
 **Utilize a ferramenta de migração do servidor** | Adicione a ferramenta de migração do servidor Azure Migrate no projeto Azure Migrate. | Necessário | Necessário
 **Preparar VMware para migração** | Configurar as definições nos servidores VMware e VMs. | Necessário | Necessário
 **Instalar o serviço de Mobilidade em VMs** | O serviço de mobilidade funciona em cada VM que pretende replicar | não é necessário | Necessário
@@ -54,7 +54,7 @@ Depois de rever as limitações, compreender os passos envolvidos na implementa�
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Migrar VMware VMs](tutorial-migrate-vmware.md) com migração sem agentes.
 

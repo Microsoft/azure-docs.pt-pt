@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Implementar Azure Spring Cloud numa rede virtual
+title: Implementar Azure Spring Cloud numa rede virtual
 description: Implementar a nuvem de mola Azure numa rede virtual (injeção VNet).
 author: MikeDodaro
 ms.author: brendm
@@ -7,14 +7,14 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 9d72d60bd3a1ef23b8122b2bc5ba4f0c5c701254
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 73dd60dba50d3bd29cda0f538462884822054cf9
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97587728"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880607"
 ---
-# <a name="tutorial-deploy-azure-spring-cloud-in-a-virtual-network"></a>Tutorial: Implementar Azure Spring Cloud numa rede virtual
+# <a name="deploy-azure-spring-cloud-in-a-virtual-network"></a>Implementar Azure Spring Cloud numa rede virtual
 
 **Este artigo aplica-se a:** ✔️ Java ✔️ C #
 
@@ -25,6 +25,9 @@ A implantação permite:
 * Isolamento das aplicações Azure Spring Cloud e tempo de funcionamento da internet na sua rede corporativa.
 * Azure Spring Cloud interação com sistemas em centros de dados no local ou serviços Azure em outras redes virtuais.
 * Capacitação dos clientes para controlar as comunicações de rede de entrada e saída para a Azure Spring Cloud.
+
+> [!Note]
+> Só pode selecionar a sua rede virtual Azure quando criar uma nova instância de serviço Azure Spring Cloud. Não é possível alterar para utilizar outra rede virtual depois da criação do Azure Spring Cloud.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -63,7 +66,7 @@ Se já tem uma rede virtual para hospedar uma instância Azure Spring Cloud, sal
     |-----------------|--------------------------------------------------|
     |Subscrição     |Selecione a sua subscrição.                         |
     |Grupo de recursos   |Selecione o seu grupo de recursos ou crie um novo.  |
-    |Nome             |**Insira azure-spring-cloud-vnet**.                 |
+    |Name             |**Insira azure-spring-cloud-vnet**.                 |
     |Localização         |Selecione **East US**.                               |
 
 1. Selecione **Seguinte: Endereços IP**.
@@ -77,6 +80,7 @@ Se já tem uma rede virtual para hospedar uma instância Azure Spring Cloud, sal
 1. Selecione **Rever + criar**. Deixe o resto como padrão e selecione **Criar**.
 
 ## <a name="grant-service-permission-to-the-virtual-network"></a>Conceder permissão de serviço à rede virtual
+O Azure Spring Cloud requer permissão **do Proprietário** para a sua rede virtual, de forma a conceder um chefe de serviço dedicado e dinâmico na rede virtual para posterior implementação e manutenção.
 
 Selecione a rede virtual **azure-spring-cloud-vnet** que criou anteriormente.
 
@@ -160,9 +164,9 @@ Esses recursos de rede estão ligados à sua rede virtual criada na imagem anter
    > [!Important]
    > Os grupos de recursos são totalmente geridos pelo serviço Azure Spring Cloud. *Não* elimine manualmente ou modifique qualquer recurso no seu interior.
 
-## <a name="limitations"></a>Limitações
+## <a name="using-smaller-subnet-ranges"></a>Usando gamas de sub-redes mais pequenas
 
-Uma pequena gama de sub-redes guarda endereços IP, mas traz limitações ao número máximo de instâncias de aplicações que a instância Azure Spring Cloud pode conter.
+Esta tabela mostra o número máximo de instâncias de aplicações que o Azure Spring Cloud suporta utilizando gamas de sub-redes mais pequenas.
 
 | Sub-rede de aplicações CIDR | Total IPs | IPs disponíveis | Ocorrências máximas de aplicações                                        |
 | --------------- | --------- | ------------- | ------------------------------------------------------------ |
@@ -176,11 +180,11 @@ Para sub-redes, cinco endereços IP são reservados pela Azure, e pelo menos qua
 
 Para uma sub-rede de tempo de funcionação de serviço, o tamanho mínimo é /28. Este tamanho não tem qualquer influência no número de instâncias de aplicações.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Implementar aplicação para Azure Spring Cloud no seu VNet](https://github.com/microsoft/vnet-in-azure-spring-cloud/blob/master/02-deploy-application-to-azure-spring-cloud-in-your-vnet.md)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 - [Resolução de problemas Azure Spring Cloud em VNET](https://github.com/microsoft/vnet-in-azure-spring-cloud/blob/master/05-troubleshooting-azure-spring-cloud-in-vnet.md)
 - [Responsabilidades do cliente para correr Azure Spring Cloud em VNET](https://github.com/microsoft/vnet-in-azure-spring-cloud/blob/master/06-customer-responsibilities-for-running-azure-spring-cloud-in-vnet.md)

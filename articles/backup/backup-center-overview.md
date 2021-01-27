@@ -3,14 +3,14 @@ title: Visão geral do Backup Center
 description: Este artigo fornece uma visão geral do Backup Center for Azure.
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.openlocfilehash: 7eab2e8f9694ca83d0e050f55bc6f6dd802a7331
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: b42fcc782eb50c061ab7617ea0ef1f3344fee4e9
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173733"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98893614"
 ---
-# <a name="overview-of-backup-center"></a>Visão geral do Backup Center
+# <a name="overview-of-backup-center-preview"></a>Visão geral do Backup Center (Pré-visualização)
 
 O Backup Center proporciona uma **única experiência de gestão unificada** em Azure para que as empresas governem, monitorizem, operem e analisem backups em escala. Como tal, é consistente com as experiências de gestão nativa do Azure.
 
@@ -22,7 +22,7 @@ Alguns dos principais benefícios do Backup Center incluem:
 
 ## <a name="supported-scenarios"></a>Cenários suportados
 
-* O Backup Center é atualmente suportado para cópia de segurança Azure VM e Base de Dados Azure para backup do Servidor PostgreSQL.
+* O Backup Center é atualmente suportado para backup Azure VM, SQL em backup Azure VM, SAP HANA em backup VM Azure, backup de Ficheiros Azure e Base de Dados Azure para backup do Servidor PostgreSQL.
 * Consulte a matriz de [suporte](backup-center-support-matrix.md) para obter uma lista detalhada de cenários suportados e não apoiados.
 
 ## <a name="get-started"></a>Introdução
@@ -45,7 +45,7 @@ Veja o seguinte vídeo para entender as capacidades do Backup Center:
 
 Siga os [próximos passos](#next-steps) para entender as diferentes capacidades que o Backup Center fornece e como pode usar essas capacidades para gerir a sua propriedade de backup de forma eficiente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Monitorizar e operar backups](backup-center-monitor-operate.md)
 * [Governe a sua propriedade de reserva](backup-center-govern-environment.md)

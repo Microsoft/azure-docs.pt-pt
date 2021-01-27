@@ -7,12 +7,12 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.date: 12/07/2020
-ms.openlocfilehash: 0114c75d99d79041631e5078deb33f77863dc35a
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 84d98eedb3ea6f3faaeaecf832811f9f4c78c7c5
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98043783"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880360"
 ---
 # <a name="migration-of-co-sell-solutions-from-ocp-gtm-to-the-commercial-marketplace"></a>Migração de soluções de co-venda da OCP GTM para o mercado comercial
 
@@ -44,7 +44,7 @@ Depois de se matricular no mercado comercial, prepare-se para migrar as suas sol
 
 Siga estes passos antes de importar as suas soluções da OCP GTM:
 
-1. Visite a lista de [editores](https://partner.microsoft.com/dashboard/account/v3/publishers/list)da sua empresa. Inclui o proprietário da conta, gestores e desenvolvedores que têm acesso editorial. Saiba mais sobre [as funções de utilizador do Partner Center](/azure/marketplace/partner-center-portal/manage-account#define-user-roles-and-permissions).
+1. Visite a lista de [editores](https://partner.microsoft.com/dashboard/account/v3/publishers/list)da sua empresa. Inclui o proprietário da conta, gestores e desenvolvedores que têm acesso editorial. Saiba mais sobre [as funções de utilizador do Partner Center](./partner-center-portal/manage-account.md#define-user-roles-and-permissions).
 2. Peça a um dos contactos listados para [adicionar utilizadores](https://partner.microsoft.com/dashboard/account/usermanagement) ao mercado comercial como *gestores* ou *desenvolvedores,* uma vez que apenas estas funções podem editar e publicar soluções.
 3. Trabalhe com os seus desenvolvedores para mover as suas soluções da sua conta OCP GTM para o mercado comercial.
 4. Decida qual dos seguintes pretende fazer:
@@ -151,9 +151,8 @@ Para obter instruções detalhadas sobre as informações que necessita de forne
 6. Iremos notificá-lo quando a nossa avaliação de certificação estiver completa. Se fornecermos feedback acionável, endereçá-lo e, em seguida, selecionar **Publicar** para iniciar uma recertificação.
 7. Assim que a sua oferta passar pela certificação, faça a pré-visualização da oferta com o link fornecido e faça quaisquer ajustes finais que possa desejar. Quando estiver pronto, selecione **Go live** (ver botão acima) para publicar a sua oferta para lojas de mercado comerciais relevantes. Uma vez ao vivo, a sua oferta manterá o seu estatuto de co-venda a partir da solução original do OCP GTM.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Revenda através de Parceiros CSP](cloud-solution-providers.md)
 - [Como submeter materiais de co-venda no centro parceiro](marketplace-co-sell.md#how-to-submit-co-sell-materials-in-partner-center)
 - Ver estas [PERGUNTAS Frequentes](https://partner.microsoft.com/resources/detail/co-sell-requirements-publish-commercial-marketplace-faq-pdf) (PDF)
-

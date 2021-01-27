@@ -2,19 +2,19 @@
 title: Como carregar um documento - Tradutor Personalizado
 titleSuffix: Azure Cognitive Services
 description: A funcionalidade de upload do documento envia documentos paralelos (dois documentos em que um é a origem e o outro é a tradução) para o serviço.
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 08/17/2020
-ms.author: swmachan
+ms.author: lajanuar
 ms.topic: conceptual
-ms.openlocfilehash: 8597b3e4ffab44672e88374010fa829211fbc18b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83cce31d3eee9b5cca7b54e996e41a270fec0030
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88507334"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896399"
 ---
 # <a name="upload-a-document"></a>Carregar um documento
 
@@ -84,7 +84,7 @@ Na página de histórico de upload pode ver o histórico de todos os documentos 
 
 3. Clique em qualquer registo histórico de upload. Na página de dados do histórico do upload, pode ver os ficheiros carregados como parte do upload, o estado do upload do ficheiro, o idioma do ficheiro e a mensagem de erro (se houver algum erro no upload).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Use a [página de detalhes](how-to-view-document-details.md) do documento para rever a lista de frases extraídas.
 - [Como treinar um modelo.](how-to-train-model.md)

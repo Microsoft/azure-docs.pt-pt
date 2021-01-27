@@ -1,5 +1,5 @@
 ---
-title: Reagindo aos eventos da Azure Media Services Microsoft Docs
+title: Reagir aos eventos da Azure Media Services
 description: Este artigo descreve como usar a Azure Event Grid para subscrever eventos de Media Services.
 services: media-services
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 4ef6a920e9334c6e98b18d1db1abf39136c6f4e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d4479914ffee6cf667a5f6db2fd665baf2b857c
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89289159"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895650"
 ---
 # <a name="handling-event-grid-events"></a>A processar eventos do Event Grid
 
@@ -44,7 +44,7 @@ As aplicações que lidam com eventos de Serviços de Mídia devem seguir alguma
 > [!NOTE]
 > Os eventos estão sujeitos ao Acordo de Nível de Serviço de Grelha de [Eventos (SLA)](https://azure.microsoft.com/support/legal/sla/event-grid/v1_0/). Se pretender obter notificações de eventos utilizando APIs, consulte exemplos sobre como consumir eventos, com [.NET SDK](https://github.com/Azure-Samples/media-services-v3-dotnet) ou [Java SDK](https://github.com/Azure-Samples/media-services-v3-java).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Monitorizar eventos - portal](monitor-events-portal-how-to.md)
 * [Monitorizar eventos - CLI](job-state-events-cli-how-to.md)

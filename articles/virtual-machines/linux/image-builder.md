@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: danis
-ms.openlocfilehash: 02ce065c9eecf4b4bf616e40913fc5abd319c5a8
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 4714d9e089094e8990ac71d94107a20e0b7be776
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92442308"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98876314"
 ---
 # <a name="preview-create-a-linux-image-and-distribute-it-to-a-shared-image-gallery-by-using-azure-cli"></a>Pré-visualização: Crie uma imagem Linux e distribua-a para uma Galeria de Imagens Partilhadas utilizando o Azure CLI
 
-Este artigo mostra-lhe como pode usar o Azure Image Builder, e o Azure CLI, para criar uma versão de imagem numa [Galeria de Imagens Partilhadas,](../windows/shared-image-galleries.md)e depois distribuir a imagem globalmente. Também pode fazê-lo utilizando [a Azure PowerShell](../windows/image-builder-gallery.md).
+Este artigo mostra-lhe como pode usar o Azure Image Builder, e o Azure CLI, para criar uma versão de imagem numa [Galeria de Imagens Partilhadas,](../shared-image-galleries.md)e depois distribuir a imagem globalmente. Também pode fazê-lo utilizando [a Azure PowerShell](../windows/image-builder-gallery.md).
 
 
 Vamos usar um modelo de amostra .json para configurar a imagem. O ficheiro .json que estamos a usar está aqui: [helloImageTemplateforSIG.jsem](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json). 
@@ -296,6 +296,6 @@ Elimine o grupo de recursos.
 az group delete -n $sigResourceGroup -y
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Saiba mais sobre [galerias de imagem partilhadas Azure.](shared-image-galleries.md)
+Saiba mais sobre [galerias de imagem partilhadas Azure.](../shared-image-galleries.md)

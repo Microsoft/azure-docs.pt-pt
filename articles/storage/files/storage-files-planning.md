@@ -1,5 +1,5 @@
 ---
-title: Planejamento para uma implantação de Ficheiros Azure / Microsoft Docs
+title: Planejando uma implantação de Ficheiros Azure | Microsoft Docs
 description: Compreenda o planeamento de uma implantação de Ficheiros Azure. Pode montar diretamente uma partilha de ficheiros Azure ou partilhar ficheiros cache Azure no local com o Azure File Sync.
 author: roygara
 ms.service: storage
@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: e1b29d901630156471bbb9cb8b939bb4bb29c836
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 8a96b44a280e0aea15a6d0843f02f4ed16f8fcf4
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724238"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879852"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planear uma implementação dos Ficheiros do Azure
 [Os Ficheiros Azure](storage-files-introduction.md) podem ser implementados de duas maneiras principais: montando diretamente as ações de ficheiros Azure sem servidor ou caching Azure file shares on-in usando Azure File Sync. Qual a opção de implementação que escolhe altera as coisas que precisa de considerar como planeia para a sua implantação. 
@@ -52,7 +52,7 @@ Para os clientes que migram de servidores de ficheiros no local ou criam novas a
 
 Se pretender utilizar a chave da conta de armazenamento para aceder às suas ações de ficheiros Azure, recomendamos a utilização de pontos finais de serviço, conforme descrito na secção [Networking.](#networking)
 
-## <a name="networking"></a>Redes
+## <a name="networking"></a>Rede
 As ações de ficheiros Azure estão acessíveis a partir de qualquer lugar através do ponto final público da conta de armazenamento. Isto significa que os pedidos autenticados, tais como pedidos autorizados pela identidade de início de súmã de um utilizador, podem ter origem seguramente dentro ou fora de Azure. Em muitos ambientes de clientes, uma montagem inicial da partilha de ficheiros Azure na sua estação de trabalho no local falhará, mesmo que os suportes dos VMs Azure tenham sucesso. A razão para isso é que muitas organizações e fornecedores de serviços de internet (ISPs) bloqueiam a porta que o SMB usa para comunicar, porta 445. Para ver o resumo de ISPs que permitem ou não o acesso a partir da porta 445, aceda a [TechNet](https://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx).
 
 Para desbloquear o acesso à sua partilha de ficheiros Azure, tem duas opções principais:
@@ -129,8 +129,8 @@ Em muitos casos, não irá estabelecer uma nova partilha de ficheiros net para a
 
 O [artigo de visão geral da migração](storage-files-migration-overview.md) cobre brevemente o básico e contém uma tabela que o leva a guias de migração que provavelmente cobrem o seu cenário.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Planeamento para uma implementação de sincronização de ficheiros Azure](storage-sync-files-planning.md)
-* [Implantação de ficheiros Azure](storage-files-deployment-guide.md)
+* [Implantação de ficheiros Azure](./storage-how-to-create-file-share.md)
 * [Implementação de sincronização de ficheiros Azure](storage-sync-files-deployment-guide.md)
 * [Confira o artigo visão geral da migração para encontrar o guia de migração para o seu cenário](storage-files-migration-overview.md)

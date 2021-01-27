@@ -10,12 +10,12 @@ ms.author: peterlu
 ms.date: 06/28/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: be2921f88ad2ecf88c555daf8385f1bd6733e836
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 70f5e17c4cc42201e9aa3d36c9937f6ceb9527d0
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94554020"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880208"
 ---
 # <a name="transform-data-in-azure-machine-learning-designer"></a>Transforme dados em Azure Machine Learning designer
 
@@ -52,11 +52,7 @@ Utilize os seguintes passos para importar o conjunto de dados da amostra.
 
 1. Arraste e deixe cair o conjunto de dados de **classificação binária de rendimento do rendimento** do rendimento adulto na tela.
 
-1. Selecione o módulo de conjunto de dados **de rendimento do recenseamento adulto.**
-
-1. No painel de detalhes que aparece à direita da tela, selecione **Outputs**.
-
-1. Selecione o ícone de visualização ![visualizar ícone](media/how-to-designer-transform-data/visualize-icon.png).
+1. Clique com o botão direito no módulo de conjunto de dados **do Rendimento do Censo de Adultos** e selecione a saída do Conjunto de Dados **visualize**  >  
 
 1. Utilize a janela de pré-visualização de dados para explorar o conjunto de dados. Tome nota especial dos valores da coluna "país nativo".
 
@@ -103,13 +99,13 @@ Agora que o seu pipeline está configurado para dividir os dados, precisa de esp
 
 1. No painel de detalhes do módulo à direita da tela, desa estale as seguintes opções:
     
-    **Tipo de loja de dados** : Azure Blob Storage
+    **Tipo de loja de dados**: Azure Blob Storage
 
-    **Datastore** : Selecione uma datastore existente ou selecione "New datastore" para criar um agora.
+    **Datastore**: Selecione uma datastore existente ou selecione "New datastore" para criar um agora.
 
     **Caminho:**`/data/us-income`
 
-    **Formato de ficheiro** : csv
+    **Formato de ficheiro**: csv
 
     > [!NOTE]
     > Este artigo pressupõe que você tem acesso a uma datastore registrada no atual espaço de trabalho Azure Machine Learning. Para obter instruções sobre como configurar uma loja de dados, consulte [os serviços de armazenamento Connect to Azure](how-to-connect-data-ui.md#create-datastores).
@@ -120,13 +116,13 @@ Agora que o seu pipeline está configurado para dividir os dados, precisa de esp
 
 1. No painel de detalhes do módulo à direita da tela, desa estale as seguintes opções:
     
-    **Tipo de loja de dados** : Azure Blob Storage
+    **Tipo de loja de dados**: Azure Blob Storage
 
-    **Datastore** : Selecione a mesma loja de dados acima
+    **Datastore**: Selecione a mesma loja de dados acima
 
     **Caminho:**`/data/non-us-income`
 
-    **Formato de ficheiro** : csv
+    **Formato de ficheiro**: csv
 
 1. Confirme que o módulo **de Dados de Exportação** ligado à porta esquerda dos **Dados Divididos** tem o **Caminho** `/data/us-income` .
 
@@ -166,13 +162,13 @@ Depois de o gasoduto terminar a funcionar, pode ver os seus resultados navegando
 
 1. Verifique se a coluna "país nativo" não contém o valor "Estados Unidos".
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Salte esta secção se quiser continuar com a parte 2 deste como, [retrain modelos com o designer de Machine Learning Azure](how-to-retrain-designer.md).
 
 [!INCLUDE [aml-ui-cleanup](../../includes/aml-ui-cleanup.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu a transformar um conjunto de dados e guardá-lo para uma datastore registada.
 

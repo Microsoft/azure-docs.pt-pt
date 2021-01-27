@@ -1,24 +1,8 @@
 ---
-title: Armazenar eventos da Azure Media Services em Azure Log Analytics
-titleSuffix: Azure Media Services
-description: Saiba como armazenar eventos da Azure Media Services no Azure Log Analytics.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: ''
-ms.topic: tutorial
-ms.date: 08/24/2020
-ms.author: inhenkel
-ms.openlocfilehash: cc3060c9253b23b97089ea35625aceb26737baba
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
-ms.translationtype: MT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017000"
+título: Armazenar eventos Azure Media Services em Azure Log Analytics : Descrição dos Serviços Azure Media: Saiba como armazenar eventos da Azure Media Services em Azure Log Analytics.
+serviços: media-services documentationcenter: 'author: IngridAtMicrosoft manager: femila editor: '' ms.service: media-services ms.workload: ms.topic: tutorial ms.date: 08/24/2020 ms.author: inhenkel
 ---
+
 # <a name="tutorial-store-azure-media-services-events-in-azure-log-analytics"></a>Tutorial: Armazenar eventos da Azure Media Services em Azure Log Analytics
 
 ## <a name="azure-media-services-events"></a>Eventos Azure Media Services
@@ -55,7 +39,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 1. Selecione o **ícone De Aplicações Lógicas** para criar uma App Lógica. Isto abrirá o Logic App Designer onde pode criar o fluxo para capturar os eventos e empurrá-los para o Log Analytics. 
     > [!div class="mx-imgBorder"]
-    > ![Criar Aplicação Lógica](media/tutorial-events-log-analytics/select-logic-app-02.png)
+    > ![Criar App Lógica](media/tutorial-events-log-analytics/select-logic-app-02.png)
 
 1. Selecione o **ícone +,** selecione o inquilino que pretende utilizar e, em seguida, selecione Iniciar sôm. Verá um pedido de inscrição da Microsoft.
     > [!div class="mx-imgBorder"]
@@ -146,7 +130,7 @@ Agora que está inscrito no evento, crie uma ação.
 
 ## <a name="test"></a>Teste
 
-Para testar como realmente funciona, crie um Evento Ao Vivo nos Serviços de Media Azure. Crie um RtMP Live Event e use ffmpeg para empurrar um fluxo "live" baseado num ficheiro de amostra .mp4. Após a criação do evento, obtenha o URL de ingestão de RTMP.
+Para testar como realmente funciona, crie um Evento Ao Vivo nos Serviços de Media Azure. Crie um Evento AO Vivo RTMP e use ffmpeg para empurrar um fluxo "live" baseado num ficheiro de amostra .mp4. Após a criação do evento, obtenha o URL de ingestão de RTMP.
 
 1. Na sua conta de Media Services, selecione **Live streaming**.
     > [!div class="mx-imgBorder"]
@@ -229,6 +213,6 @@ Com o live stream, a Azure Media Services está a emitir vários eventos que est
 
 Se não quiser continuar a utilizar os recursos que criou durante este tutorial, certifique-se de que elimina todos os recursos do grupo de recursos ou continuará a ser cobrado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Pode criar diferentes consultas e salvá-las. Estes podem ser adicionados ao [Azure Dashboard](../../azure-monitor/learn/tutorial-logs-dashboards.md).

@@ -2,19 +2,19 @@
 title: Formatos de documentos e convenções de nomeação - Tradutor Personalizado
 titleSuffix: Azure Cognitive Services
 description: Este é um guia sobre formatos de documentos e convenção de nomeação em Custom Tradutor. Este conceito ajuda a gerir melhor os nomes dos documentos e a evitar nomear conflitos.
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 08/17/2020
-ms.author: swmachan
+ms.author: lajanuar
 ms.topic: conceptual
-ms.openlocfilehash: 46a19cd4396e598a74f9099727ac80d44c0a44f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9598d3c1d339d1c37b02892cc83164acae447434
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88507251"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895854"
 ---
 # <a name="document-formats-and-naming-convention-guidance"></a>Formatos de documentos e orientação da convenção de nomeação
 
@@ -51,6 +51,6 @@ Por exemplo, para carregar dois documentos paralelos dentro de um zip para um si
 
 Os ficheiros de memória de tradução (TMX, XLF, XLIFF, LCL, XLSX) não são obrigados a seguir a convenção específica de nomeação de idiomas.  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Leia sobre o [projeto](workspace-and-project.md#what-is-a-custom-translator-project) para criá-los e geri-los.

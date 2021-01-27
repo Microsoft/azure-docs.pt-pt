@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/17/2020
-ms.openlocfilehash: 0232682661387e635e6ce8bfb5fc6e03301d130c
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 4b7f71b5405708cc1988fafa5ca9c4628fe0d80b
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97694796"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882404"
 ---
 # <a name="register-and-scan-azure-data-lake-storage-gen2"></a>Registar e digitalizar Azure Data Lake Storage Gen2
 
@@ -48,7 +48,7 @@ Ao escolher **Identidade Gerida,** para configurar a ligação, tem primeiro de 
 1. Descreva a **Função** para **Storage Blob Data Reader** e introduza o nome da sua conta Azure Purview na caixa de entrada **Select.** Em seguida, **selecione Guardar** para dar esta atribuição de função à sua conta Purview.
 
 > [!Note]
-> Para mais detalhes, consulte os passos no [acesso autorizado a bolhas e filas usando o Azure Ative Directory](https://docs.microsoft.com/azure/storage/common/storage-auth-aad)
+> Para mais detalhes, consulte os passos no [acesso autorizado a bolhas e filas usando o Azure Ative Directory](../storage/common/storage-auth-aad.md)
 
 #### <a name="account-key"></a>Chave de conta
 
@@ -130,7 +130,7 @@ No ecrã **'Azure Data Lake Storage Gen2' (Azure Data Lake Storage Gen2),** faç
 
 [!INCLUDE [create and manage scans](includes/manage-scans.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Navegue no catálogo de dados Azure Purview Data](how-to-browse-catalog.md)
 - [Pesse o Catálogo de Dados da Azure Purview](how-to-search-catalog.md)

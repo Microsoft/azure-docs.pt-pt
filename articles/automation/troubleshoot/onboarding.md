@@ -2,15 +2,15 @@
 title: Problemas de resolução de problemas Azure Automation problemas de implementação
 description: Este artigo diz como resolver problemas e resolver problemas que surgem ao implementar funcionalidades da Azure Automation.
 services: automation
+ms.subservice: ''
 ms.date: 06/30/2020
-ms.topic: conceptual
-ms.service: automation
-ms.openlocfilehash: a6b8384193e821e6c41a0d4d979cda51f6c65b3a
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.topic: troubleshooting
+ms.openlocfilehash: 6668fe3c30bd5187016ac2e0c766e7e78d5b3e8c
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070491"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896516"
 ---
 # <a name="troubleshoot-feature-deployment-issues"></a>Resolver problemas de implementação de funcionalidades
 
@@ -148,7 +148,7 @@ Remova os recursos para as seguintes funcionalidades do seu espaço de trabalho 
 Depois de remover os recursos de funcionalidade, pode desvincular o seu espaço de trabalho. É importante limpar quaisquer artefactos existentes a partir destas funcionalidades do seu espaço de trabalho e da sua conta de Automação:
 
 * Para a Gestão de Atualizações, **remova as Implementações de Atualização (Agendas)** da sua conta de Automação.
-* Para iniciar/parar VMs durante o período de folga, remova **Settings**quaisquer bloqueios nos componentes de funcionalidades da sua conta de Automação em  >  **Configurações Fechaduras**. Para obter mais informações, consulte [Remover a função](../automation-solution-vm-management.md#remove-the-feature).
+* Para iniciar/parar VMs durante o período de folga, remova quaisquer bloqueios nos componentes de funcionalidades da sua conta de Automação em  >  **Configurações Fechaduras**. Para obter mais informações, consulte [Remover a função](../automation-solution-vm-management.md#remove-the-feature).
 
 ## <a name="log-analytics-for-windows-extension-failures"></a><a name="mma-extension-failures"></a>Registar Análises para falhas de extensão do Windows
 
@@ -237,7 +237,7 @@ Este tipo de erro ocorre porque o VM está sob uma carga pesada durante a instal
 
 Tente instalar o agente Log Analytics para a extensão do Windows quando o VM estiver sob uma carga mais baixa.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se não vir o seu problema aqui ou não conseguir resolver o seu problema, experimente um dos seguintes canais para obter apoio adicional:
 

@@ -4,12 +4,12 @@ description: Aprenda a criar uma função Python e, em seguida, publique o proje
 ms.topic: quickstart
 ms.date: 11/04/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 9e4ddc479b0adcb88e846b92e6603dfdf3c99baa
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 0d7b98c44b85e17d084994bbcaa285c55c7a5e4d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97967995"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880849"
 ---
 # <a name="quickstart-create-a-function-in-azure-with-python-using-visual-studio-code"></a>Quickstart: Criar uma função em Azure com Python usando Código de Estúdio Visual
 
@@ -29,40 +29,40 @@ Antes de começar, certifique-se de que tem os seguintes requisitos em vigor:
 
 + A versão 3.x [das Ferramentas Principais do Azure Functions.](functions-run-local.md#install-the-azure-functions-core-tools)
 
-+ [Python 3.8](https://www.python.org/downloads/release/python-381/), [Python 3.7](https://www.python.org/downloads/release/python-375/), [Python 3.6](https://www.python.org/downloads/release/python-368/) são suportados por Azure Functions (x64).
++ [Versões python que são suportadas por Azure Functions](supported-languages.md#languages-by-runtime-version)
 
-+ [Código visual do estúdio](https://code.visualstudio.com/) numa das [plataformas suportadas.](https://code.visualstudio.com/docs/supporting/requirements#_platforms)
++ [Visual Studio Code](https://code.visualstudio.com/) numa das [plataformas suportadas](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 
 + A [extensão Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) para Código de Estúdio Visual.  
 
-+ A [extensão de Funções Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) para Código de Estúdio Visual.
++ A [extensão das Funções do Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) para o Visual Studio Code.
 
 ## <a name="create-your-local-project"></a><a name="create-an-azure-functions-project"></a>Crie o seu projeto local
 
-Nesta secção, você usa Visual Studio Code para criar um projeto local de Funções Azure em Python. Mais tarde neste artigo, publicará o seu código de função para Azure.
+Nesta secção, você usa Visual Studio Code para criar um projeto local de Funções Azure em Python. Mais adiante neste artigo, irá publicar o seu código de função no Azure.
 
-1. Escolha o ícone Azure na barra de Atividade, em seguida, na área **Azure: Funções,** selecione o **novo projeto...** ícone.
+1. Selecione o ícone do Azure na barra de Atividade e, em seguida, na área **Azure: Funções**, selecione o ícone **Criar novo projeto...**.
 
-    ![Escolha Criar um novo projeto](./media/functions-create-first-function-vs-code/create-new-project.png)
+    ![Selecione Criar um novo projeto](./media/functions-create-first-function-vs-code/create-new-project.png)
 
-1. Escolha um local de diretório para o seu espaço de trabalho do projeto e escolha **Select**.
+1. Selecione uma localização do diretório para a área de trabalho do seu projeto e escolha **Selecionar**.
 
     > [!NOTE]
     > Estes passos foram concebidos para serem concluídos fora de um espaço de trabalho. Neste caso, não selecione uma pasta de projeto que faz parte de uma área de trabalho.
 
-1. Fornecer as seguintes informações nas instruções:
+1. Forneça as seguintes informações nos pedidos:
 
-    + **Selecione um idioma para o seu projeto de função**: Escolha `Python` .
+    + **Selecione um idioma para o seu projeto de função**: Selecione `Python`.
 
     + **Selecione um pseudónimo Python para criar um ambiente virtual**: Escolha a localização do seu intérprete Python. Se a localização não for mostrada, escreva em todo o caminho para o binário Python.  
 
-    + **Selecione um modelo para a primeira função do seu projeto**: Escolha `HTTP trigger` .
+    + **Selecione um modelo para a primeira função do seu projeto**: Selecione `HTTP trigger`.
 
-    + **Fornecer um nome de função**: `HttpExample` Digite .
+    + **Forneça um nome de função**: Escreva `HttpExample`.
 
     + **Nível de autorização**: `Anonymous` Escolha, que permite a qualquer pessoa ligar para o ponto final da sua função. Para saber mais sobre o nível de autorização, consulte [as teclas de Autorização](functions-bindings-http-webhook-trigger.md#authorization-keys).
 
-    + **Selecione como pretende abrir o seu projeto**: Escolha `Add to workspace` .
+    + **Selecione como gostaria de abrir o seu projeto**: Selecione `Add to workspace`.
 
 1. Utilizando esta informação, o Visual Studio Code gera um projeto Azure Functions com um gatilho HTTP. Pode ver os ficheiros de projeto locais no Explorer. Para saber mais sobre ficheiros que são criados, consulte [os ficheiros do projeto Gerados.](functions-develop-vs-code.md#generated-project-files)
 
@@ -83,13 +83,13 @@ Nesta secção, cria uma aplicação de função e recursos relacionados na sua 
 
     ![Publicar o projeto no Azure](./media/functions-create-first-function-vs-code/function-app-publish-project.png)
 
-1. Fornecer as seguintes informações nas instruções:
+1. Forneça as seguintes informações nos pedidos:
 
     + **Selecione pasta**: Escolha uma pasta do seu espaço de trabalho ou navegue para uma que contenha a sua aplicação de função. Não verá isto se já tiver uma aplicação de função válida aberta.
 
     + **Selecione subscrição**: Escolha a subscrição para usar. Não verá isto se tiver apenas uma assinatura.
 
-    + **Selecione App de função em Azure**: Escolha `+ Create new Function App` . (Não escolha a `Advanced` opção, que não está abrangida por este artigo.)
+    + **Selecione Aplicação de Funções no Azure**: Selecione `+ Create new Function App`. (Não escolha a `Advanced` opção, que não está abrangida por este artigo.)
 
     + **Introduza um nome globalmente único para a aplicação de função**: Escreva um nome que seja válido num caminho URL. O nome que digita é validado para se certificar de que é único em Funções Azure. 
 
@@ -115,7 +115,7 @@ Nesta secção, cria uma aplicação de função e recursos relacionados na sua 
 
 [!INCLUDE [functions-cleanup-resources-vs-code.md](../../includes/functions-cleanup-resources-vs-code.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Utilizou o Visual Studio Code para criar uma aplicação de funções com uma função simples acionada por HTTP. No artigo seguinte, expande essa função adicionando uma ligação de saída. Esta ligação escreve o string do pedido HTTP para uma mensagem numa fila de armazenamento de fila Azure. 
 

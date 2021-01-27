@@ -5,12 +5,12 @@ author: IngridAtMicrosoft
 ms.topic: how-to
 ms.author: inhenkel
 ms.date: 12/04/2020
-ms.openlocfilehash: d49f048df7a624dc490acf7cb4c8e5f33aa5f1c6
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: d23294c21d49b1c2ab83c4bf8f110d5d4bc7aafb
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060236"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878295"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>Resolução de problemas Vídeo Analytics em IoT Edge
 
@@ -66,7 +66,7 @@ Pode utilizar o portal Azure para executar um diagnóstico do gráfico de mídia
     * 500 - Ocorreu um erro no tempo de execução do IoT Edge.
 
     > [!TIP]
-    > Se sentir problemas em executar módulos Azure IoT Edge no seu ambiente, utilize **[os passos de diagnóstico padrão Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/troubleshoot?view=iotedge-2018-06&preserve-view=true)** como guia para a resolução de problemas e diagnósticos.
+    > Se sentir problemas em executar módulos Azure IoT Edge no seu ambiente, utilize **[os passos de diagnóstico padrão Azure IoT Edge](../../iot-edge/troubleshoot.md?preserve-view=true&view=iotedge-2018-06)** como guia para a resolução de problemas e diagnósticos.
 ### <a name="post-deployment-direct-method-error-code"></a>Implantação de posts: Código de erro do método direto
 1. Se obter um `501 code` estado, verifique se o nome do método direto está correto. Se o nome do método e a carga útil do pedido estiverem corretos, deverá obter resultados juntamente com o código de sucesso =200. 
 1. Se a carga útil do pedido for imprecisa, obterá um estado `400 code` e uma carga útil de resposta que indique código de erro e mensagem que deve ajudar a diagnosticar o problema com a sua chamada de método direto.
@@ -96,7 +96,7 @@ O Live Video Analytics é implantado como um módulo IoT Edge no dispositivo IoT
 * [O módulo IoT Edge é implantado com sucesso e desaparece do dispositivo](../../iot-edge/troubleshoot-common-errors.md#iot-edge-module-deploys-successfully-then-disappears-from-device).
 
     > [!TIP]
-    > Se sentir problemas em executar módulos Azure IoT Edge no seu ambiente, utilize **[os passos de diagnóstico padrão Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/troubleshoot?view=iotedge-2018-06&preserve-view=true)** como guia para a resolução de problemas e diagnósticos.
+    > Se sentir problemas em executar módulos Azure IoT Edge no seu ambiente, utilize **[os passos de diagnóstico padrão Azure IoT Edge](../../iot-edge/troubleshoot.md?preserve-view=true&view=iotedge-2018-06)** como guia para a resolução de problemas e diagnósticos.
 ### <a name="live-video-analytics-working-with-external-modules"></a>Vídeo ao vivo Analytics trabalhando com módulos externos
 
 O Live Video Analytics através dos processadores de extensão de gráficos de mídia pode estender o gráfico de mídia para enviar e receber dados de outros módulos IoT Edge utilizando protocolos HTTP ou gRPC. Como [exemplo específico,](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/httpExtension)este gráfico de mídia pode enviar quadros de vídeo como imagens para um módulo de inferência externa, como o Yolo v3 e receber resultados de análise baseados em JSON usando o protocolo HTTP . Em tal topologia, o destino para os eventos é principalmente o hub IoT. Em situações em que não se vê os eventos de inferência no centro, verifique o seguinte:
@@ -272,7 +272,7 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
 
 ``` 
 
-[O registo e diagnóstico em gRPC em .NET](https://docs.microsoft.com/aspnet/core/grpc/diagnostics?view=aspnetcore-3.1&preserve-view=true) fornece algumas orientações para a recolha de alguns registos de diagnóstico de um servidor gRPC. 
+[O registo e diagnóstico em gRPC em .NET](/aspnet/core/grpc/diagnostics?preserve-view=true&view=aspnetcore-3.1) fornece algumas orientações para a recolha de alguns registos de diagnóstico de um servidor gRPC. 
 
 ### <a name="a-failed-grpc-connection"></a>Uma ligação gRPC falhada 
 
@@ -282,7 +282,7 @@ Se um gráfico estiver ativo e em streaming a partir de uma câmara, a ligação
 
 O Live Video Analytics não monitoriza nem fornece qualquer monitorização de recursos de hardware. Os desenvolvedores terão de usar as soluções de monitorização dos fabricantes de hardware. No entanto, se utilizar recipientes Kubernetes, pode monitorizar o dispositivo utilizando o [painel kubernetes](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/). 
 
-gRPC em documentos principais .NET também compartilham algumas informações valiosas sobre [as melhores práticas de desempenho](https://docs.microsoft.com/aspnet/core/grpc/performance?view=aspnetcore-3.1&preserve-view=true) e o equilíbrio de [carga.](https://docs.microsoft.com/aspnet/core/grpc/performance?view=aspnetcore-3.1#load-balancing&preserve-view=true)  
+gRPC em documentos principais .NET também compartilham algumas informações valiosas sobre [as melhores práticas de desempenho](/aspnet/core/grpc/performance?preserve-view=true&view=aspnetcore-3.1) e o equilíbrio de [carga.](/aspnet/core/grpc/performance?preserve-view=true&view=aspnetcore-3.1#load-balancing)  
 
 ### <a name="troubleshooting-an-inference-server-when-it-does-not-receive-any-frames-and-you-are-receiving-an-unknown-protocol-error"></a>Resolução de problemas num servidor de inferência quando não recebe nenhum quadro e está a receber, um erro de protocolo "desconhecido" 
 
@@ -296,7 +296,7 @@ Há várias coisas que pode fazer para obter mais informações sobre o problema
    ```
 
    Se o comando der uma pequena sequência de texto confuso, então a telnet foi capaz de abrir uma ligação ao seu servidor de inferência e abrir um canal binário gRPC. Se não vir isto, a Telnet reportará um erro de rede. 
-* No seu servidor de inferência pode ativar a sessão de registos adicionais na biblioteca gRPC. Isto pode dar informações adicionais sobre o próprio canal gRPC. Ao fazê-lo varia de acordo com a linguagem, aqui estão as instruções para [C#](https://docs.microsoft.com/aspnet/core/grpc/diagnostics?view=aspnetcore-3.1&preserve-view=true). 
+* No seu servidor de inferência pode ativar a sessão de registos adicionais na biblioteca gRPC. Isto pode dar informações adicionais sobre o próprio canal gRPC. Ao fazê-lo varia de acordo com a linguagem, aqui estão as instruções para [C#](/aspnet/core/grpc/diagnostics?preserve-view=true&view=aspnetcore-3.1). 
 
 ### <a name="picking-more-images-from-buffer-of-grpc-without-sending-back-result-for-first-buffer"></a>Recolher mais imagens do tampão do gRPC sem enviar de volta o resultado para o primeiro tampão
 
@@ -314,6 +314,6 @@ Para utilizar o seu servidor gRPC com Live Video Analytics, a memória partilhad
 1. Em seguida, pode executar a sua lógica de processamento quando tiver o número desejado de molduras de imagem.
 1. Volte a devolver o resultado de inferencing ao Live Video Analytics quando estiver pronto.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Tutorial: Gravação de vídeo baseada em eventos para nuvem e reprodução da nuvem](event-based-video-recording-tutorial.md)

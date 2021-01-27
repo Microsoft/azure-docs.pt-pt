@@ -1,5 +1,5 @@
 ---
-title: Trabalho da Azure Media Services (codificação e análise) códigos de erro / Microsoft Docs
+title: Azure Media Services trabalho (codificação e análise) códigos de erro
 description: Este artigo liga-se ao tópico de referência de códigos de erro de trabalho e dá ligações úteis a tópicos relacionados.
 author: IngridAtMicrosoft
 manager: femila
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: error-reference
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 272f32ebdba04009a67bf03d5e830ad8f9e649f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64d8d889d3b9b55d6e47bb96afc7f9badac9e2ee
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89289567"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895378"
 ---
 # <a name="media-services-job-error-codes"></a>Códigos de erro de trabalho dos Serviços de Comunicação Social
 
@@ -34,12 +34,12 @@ O documento REST seguinte dá explicações detalhadas sobre [códigos de erro d
 
 Consulte o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Media Services.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 - [Códigos de erro de ponto final de streaming](streaming-endpoint-error-codes.md)
 - [Conceitos de Azure Media Services](concepts-overview.md)
 - [Quotas e limites](limits-quotas-constraints.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Exemplo: acesso ErrorCode e Mensagem da ApiException com .NET](configure-connect-dotnet-howto.md#connect-to-the-net-client)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 04/16/2020
-ms.openlocfilehash: 70dfccb32389d2f1fb492669c9f84a3e6ae77bbb
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 0a3188d5dc2c34c9959ae488ad5a5f962a99f02f
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621353"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880275"
 ---
 # <a name="publish-an-integrated-solution"></a>Publicar uma solução integrada
 
@@ -32,13 +32,13 @@ Para uma visão geral do programa Soluções Integradas, veja o [vídeo de visã
 ## <a name="eligibility-criteria"></a>Critérios de elegibilidade
 
 * Os parceiros participantes devem ter uma identificação de MPN.
-* Os prestadores de serviços participantes devem ser [co-vendidos prontos.](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status)
-* Os fornecedores de software participantes devem ser [co-vender ip prontos](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status).
+* Os prestadores de serviços participantes devem ser [co-vendidos prontos.](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status)
+* Os fornecedores de software participantes devem ser [co-vender ip prontos](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status).
 * Pelo menos um parceiro participante deve ter a Competência Gold numa das seguintes áreas:
     - Desenvolvimento de Aplicações
     - Integração de Aplicações
     - Gestão do Ciclo de Vida das Aplicações
-    - Plataforma Cloud
+    - Plataforma da Cloud
     - Análise de Dados
     - Datacenter
     - Plataforma de Dados
@@ -55,7 +55,7 @@ Os parceiros que queiram participar no programa devem identificar outros parceir
 
 ## <a name="develop-an-integrated-solution"></a>Desenvolver uma solução integrada
 
-Após a aprovação da sua nomeação, utilize os recursos do programa ligados para desenvolver a sua solução integrada. Siga estes passos:
+Após a aprovação da sua nomeação, utilize os recursos do programa ligados para desenvolver a sua solução integrada. Siga estes passos.
 
 1. Complete as principais discussões empresariais e técnicas num formato de workshop para definir a abordagem de solução e integração.
 
@@ -111,6 +111,6 @@ Embora existam cinco tipos de serviços disponíveis para ofertas de serviços d
 
 Quando a sua solução estiver ao vivo no Microsoft AppSource ou no Azure Marketplace, vai querer impulsionar a consciencialização e a procura através de atividades de marketing. Reveja as atividades enumeradas no [plano de projeto e na linha do tempo.](https://aka.ms/AA5qiuc) Este recurso inclui atividades que os parceiros podem conduzir dentro das suas próprias equipas e uns com os outros. Em seguida, aceda [aos benefícios do mercado](./gtm-your-marketplace-benefits.md#list-trial-and-consulting-benefits) para os parceiros que publicam no mercado. Todas as ofertas de soluções integradas são elegíveis para benefícios a nível experimental.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Formulário de nomeação de soluções integradas](https://aka.ms/AA5qicu)

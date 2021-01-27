@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: ac9a1b43ba4ffb537afd658c84edb48ed59a3694
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: a84e4e767092a1507ef0608c21ff1896cb1dde0d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98683487"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880949"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Modelos de trem com Azure Machine Learning
 
@@ -23,7 +23,7 @@ O Azure Machine Learning fornece várias formas de treinar os seus modelos, desd
 
 + [Azure Machine Learning SDK para Python](#python-sdk): O Python SDK oferece várias formas de treinar modelos, cada um com diferentes capacidades.
 
-    | Método de formação | Description |
+    | Método de formação | Descrição |
     | ----- | ----- |
     | [Configuração de execução](#run-configuration) | Uma **forma típica de treinar modelos** é usar um script de treino e configurar de execução. A configuração de execução fornece as informações necessárias para configurar o ambiente de treino utilizado para treinar o seu modelo. Pode especificar o seu script de treino, o alvo do cálculo e o ambiente Azure ML na sua configuração de execução e executar um trabalho de treino. |
     | [Aprendizagem automática automatizada](#automated-machine-learning) | A aprendizagem automática de máquinas **permite-lhe formar modelos sem uma vasta ciência de dados ou conhecimentos de programação.** Para pessoas com um fundo de ciência de dados e programação, ele fornece uma maneira de economizar tempo e recursos automatizando a seleção de algoritmos e afinação hiperparítmica. Não tem de se preocupar em definir uma configuração de execução quando se utiliza aprendizagem automática de máquinas. |
@@ -76,7 +76,7 @@ Defina as iterações, as definições do hiperparímetro, a aparição e outras
 Os gasodutos de aprendizagem automática podem utilizar os métodos de treino anteriormente mencionados. Os gasodutos são mais sobre a criação de um fluxo de trabalho, por isso englobam mais do que apenas a formação de modelos. Num oleoduto, pode treinar um modelo utilizando configurações automatizadas de aprendizagem automática ou de execução.
 
 * [O que são os oleodutos ML em Azure Machine Learning?](concept-ml-pipelines.md)
-* [Criar e executar gasodutos de aprendizagem automática com Azure Machine Learning SDK](how-to-create-your-first-pipeline.md)
+* [Criar e executar gasodutos de aprendizagem automática com Azure Machine Learning SDK](./how-to-create-machine-learning-pipelines.md)
 * [Tutorial: Use gasodutos de aprendizagem de máquinas Azure para pontuação de lotes](tutorial-pipeline-batch-scoring-classification.md)
 * [Exemplos: Exemplos do Jupyter Notebook para oleodutos de aprendizagem automática](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines)
 * [Exemplos: Pipeline com aprendizagem automática de máquinas](https://aka.ms/pl-automl)
@@ -141,6 +141,6 @@ O CLI de aprendizagem automática é uma extensão para o CLI Azure. Fornece com
 
 Pode utilizar a extensão do Código VS para executar e gerir os seus trabalhos de formação. Consulte o [guia de gestão de recursos do Código VS para](how-to-manage-resources-vscode.md#experiments) saber mais.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Aprenda a [configurar uma corrida de treino.](how-to-set-up-training-targets.md)

@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 03/11/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 562ea5e0e9e4851ed59bd3ef917be2f9c48cd2a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8454c5a5bb5b44d2a60ae0095a9b82a19ed27c8d
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86185556"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896651"
 ---
 # <a name="move-your-azure-automation-account-to-another-subscription"></a>Mude a sua conta Azure Automation para outra subscrição
 
@@ -41,7 +41,7 @@ Para desvincular o seu espaço de trabalho da sua conta Demômpa, tem de remover
 
     ![Screenshot de apagar recursos de recurso do portal Azure](../media/move-account/delete-solutions.png)
 
-Se preferir, pode eliminar os recursos utilizando o [cmdlet Remove-AzResource:](/powershell/module/Az.Resources/Remove-AzResource?view=azps-3.7.0)
+Se preferir, pode eliminar os recursos utilizando o [cmdlet Remove-AzResource:](/powershell/module/Az.Resources/Remove-AzResource)
 
 ```azurepowershell-interactive
 $workspaceName = <myWorkspaceName>
@@ -55,7 +55,7 @@ Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -Reso
 
 Para os VMs de arranque/paragem durante o horário de folga, também é necessário remover as regras de alerta criadas pela funcionalidade.
 
-1. No portal Azure, vá ao seu grupo de recursos e selecione Alertas **de Monitorização**Gerir as  >  **Alerts**  >  **regras de alerta**.
+1. No portal Azure, vá ao seu grupo de recursos e selecione Alertas **de Monitorização** Gerir as  >    >  **regras de alerta**.
 
    ![Screenshot da página alertas, mostrando a seleção de regras de alerta de Gestão](../media/move-account/alert-rules.png)
 
@@ -72,7 +72,7 @@ Para os VMs de arranque/paragem durante o horário de folga, também é necessá
     > [!NOTE]
     > Se não vir nenhuma regra de alerta na página Regras, altere o campo **'Estado** para **Deficiente'** para mostrar alertas desativado. 
 
-4. Quando remover as regras de alerta, deve remover o grupo de ação criado para VMs iniciar/parar durante as notificações fora de horas. No portal Azure, **Monitor**selecione  >  **Monitor Alerts**  >  **Gerir grupos de ação**.
+4. Quando remover as regras de alerta, deve remover o grupo de ação criado para VMs iniciar/parar durante as notificações fora de horas. No portal Azure, selecione  >  **Monitor Alerts**  >  **Gerir grupos de ação**.
 
 5. Selecione **StartStop_VM_Notification**. 
 
@@ -80,7 +80,7 @@ Para os VMs de arranque/paragem durante o horário de folga, também é necessá
 
     ![Screenshot da página do grupo Action](../media/move-account/delete-action-group.png)
 
-Se preferir, pode eliminar o seu grupo de ação utilizando o cmdlet [Remove-AzActionGroup:](/powershell/module/az.monitor/remove-azactiongroup?view=azps-3.7.0)
+Se preferir, pode eliminar o seu grupo de ação utilizando o cmdlet [Remove-AzActionGroup:](/powershell/module/az.monitor/remove-azactiongroup)
 
 ```azurepowershell-interactive
 Remove-AzActionGroup -ResourceGroupName <myResourceGroup> -Name StartStop_VM_Notification
@@ -90,7 +90,7 @@ Remove-AzActionGroup -ResourceGroupName <myResourceGroup> -Name StartStop_VM_Not
 
 Agora pode desvincular o seu espaço de trabalho:
 
-1. No portal Azure, **selecione Automatização**  >  **conta Relacionados Recursos**Linked espaço de  >  **trabalho**. 
+1. No portal Azure, **selecione Automatização**  >  **conta Relacionados Recursos** Linked espaço de  >  **trabalho**. 
 
 2. Selecione **Desvincular o espaço de trabalho** para desvincular o espaço de trabalho da sua conta Automation.
 
@@ -155,6 +155,6 @@ Quando o movimento estiver completo, verifique se as capacidades listadas abaixo
 |Gestão de atualizações|Verifique se vê as suas máquinas e que estão saudáveis.</br>Executar uma implementação de atualização de software de teste.|[Gestão de atualização de resolução de problemas](../troubleshoot/update-management.md)|
 |Recursos partilhados|Verifique se vê todos os seus recursos partilhados, tais como [credenciais](../shared-resources/credentials.md) e [variáveis.](../shared-resources/variables.md)|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para aprender sobre a movimentação de recursos em Azure, consulte [os recursos move em Azure.](../../azure-resource-manager/management/move-support-resources.md)

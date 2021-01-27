@@ -2,19 +2,19 @@
 title: Migrar o espaço de trabalho e projetos do Microsoft Tradutor Hub? - Tradutor Personalizado
 titleSuffix: Azure Cognitive Services
 description: Este artigo explica como migrar o seu espaço de trabalho do Hub e projeta para o Azure Cognitive Services Custom Tradutor.
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 05/26/2020
-ms.author: swmachan
+ms.author: lajanuar
 ms.topic: conceptual
-ms.openlocfilehash: 64c449bdefe6fb067a7c0e26b155b58b6f00c399
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 89658ce88b4f1ac9d5bacac7bd45511b4aa0a1be
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368292"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895716"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migrar espaço de trabalho do Hub e projetos para Tradutor Personalizado
 
@@ -143,7 +143,7 @@ Esta tabela compara as funcionalidades entre o Microsoft Tradutor Hub e o Custom
 
 Se você é uma comunidade ou organização que trabalha na criação de um novo sistema linguístico para tradutor, procure [custommt@microsoft.com](mailto:custommt@microsoft.com) mais informações.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Treine um modelo.](how-to-train-model.md)
 - Comece a utilizar o seu modelo de tradução personalizado implantado através [do Tradutor V3](../reference/v3-0-translate.md?tabs=curl).

@@ -1,5 +1,5 @@
 ---
-title: Visão geral da encriptação Azure / Microsoft Docs
+title: Visão geral da encriptação Azure | Microsoft Docs
 description: Saiba mais sobre opções de encriptação em Azure. Consulte as informações para encriptação em repouso, encriptação em voo e gestão de chaves com a Azure Key Vault.
 services: security
 author: msmbaldwin
@@ -9,12 +9,12 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: ff023ad98c7ffa269223b5d0b4a1cecc5fde1feb
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: d7d438b369c863660a032f101e466b6fadf639fa
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410220"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879719"
 ---
 # <a name="azure-encryption-overview"></a>Descrição geral da encriptação do Azure
 
@@ -45,7 +45,7 @@ Com a encriptação do lado do cliente, os fornecedores de serviços na nuvem n�
 
 Os três modelos de encriptação do lado do servidor oferecem diferentes características de gestão chave, que pode escolher de acordo com os seus requisitos:
 
-- **Teclas geridas pelo serviço** : Proporciona uma combinação de controlo e conveniência com sobrecargas baixas.
+- **Teclas geridas pelo serviço**: Proporciona uma combinação de controlo e conveniência com sobrecargas baixas.
 
 - **Teclas geridas pelo cliente : Dá-lhe** controlo sobre as teclas, incluindo o suporte Bring Your Own Keys (BYOK) ou permite-lhe gerar novas.
 
@@ -181,7 +181,7 @@ Pode configurar uma ligação VPN site-to-site a uma rede virtual utilizando o p
 
 Para obter mais informações, consulte:
 
-[Criar uma ligação site-a-local no portal Azure](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+[Criar uma ligação site-a-local no portal Azure](../../vpn-gateway/tutorial-site-to-site-portal.md)
 
 [Criar uma ligação site-a-local em PowerShell](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
 
@@ -199,10 +199,10 @@ Sem proteção e gestão adequadas das chaves, a encriptação torna-se inútil.
 
 Com o Key Vault as organizações poupam tempo na configuração, aplicação de patches e manutenção dos módulos de segurança de hardware (HSMs) e software de gestão de chaves. Quando se usa o Cofre de Chaves, mantém-se o controlo. A Microsoft nunca vê as suas chaves e as aplicações não têm acesso direto às mesmos. Também pode importar ou gerar chaves em HSMs.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Descrição geral da segurança do Azure](./overview.md)
-- [Visão geral da segurança da rede Azure](network-overview.md)
+- [Descrição geral da segurança de rede do Azure](network-overview.md)
 - [Visão geral da segurança da base de dados Azure](../../azure-sql/database/security-overview.md)
 - [Visão geral de segurança das máquinas virtuais Azure](virtual-machines-overview.md)
 - [Encriptação de dados inativos](encryption-atrest.md)

@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: eb31bb09c1e09e4799715fc5a1cbca4b216b28a2
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 469d7ba9e86751312ebf6a6c82b35f065ee6cb50
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922967"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880377"
 ---
 # <a name="connect-a-vpn-gateway-virtual-network-gateway-to-virtual-wan"></a>Ligue um Gateway VPN (gateway de rede virtual) ao VIRTUAL WAN
 
@@ -20,7 +20,7 @@ Este artigo ajuda-o a configurar a conectividade de um Gateway Azure VPN (gatewa
 
 De forma a minimizar uma possível confusão entre duas funcionalidades, vamos prefaciar o gateway com o nome da funcionalidade a que nos referimos. Por exemplo, gateway de rede virtual VPN Gateway e gateway Virtual WAN VPN.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Antes de começar, crie os seguintes recursos:
 
@@ -91,7 +91,7 @@ Nesta secção, descarrega o ficheiro de configuração VPN para cada um dos sit
 
 Nesta secção, cria-se duas portas de rede locais Azure VPN Gateway. Os ficheiros de configuração do passo anterior contêm as definições de configuração do gateway. Utilize estas definições para criar e configurar os gateways de rede locais Azure VPN Gateway.
 
-1. Crie o portal de rede local utilizando estas definições. Para obter informações sobre como criar uma porta de rede local VPN Gateway, consulte o artigo VPN Gateway [Criar um gateway de rede local](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway).
+1. Crie o portal de rede local utilizando estas definições. Para obter informações sobre como criar uma porta de rede local VPN Gateway, consulte o artigo VPN Gateway [Criar um gateway de rede local](../vpn-gateway/tutorial-site-to-site-portal.md#LocalNetworkGateway).
 
    * **Endereço IP** - Utilize o endereço IP Instance0 mostrado para *a configuração* de gateways a partir do ficheiro de configuração.
    * **BGP** - Se a ligação for sobre BGP, selecione **configurar as definições de BGP** e introduza a ASN '65515'. Insira o endereço IP peer BGP. Utilize 'Instance0 BgpPeeringAddresses' para *configurar gateways* a partir do ficheiro de configuração.
@@ -105,7 +105,7 @@ Nesta secção, cria-se duas portas de rede locais Azure VPN Gateway. Os ficheir
 
 ## <a name="5-create-connections"></a><a name="createlocalgateways"></a>5. Criar ligações
 
-Nesta secção, cria-se uma ligação entre os gateways de rede locais VPN Gateway e o gateway de rede virtual. Para obter etapas sobre como criar uma ligação VPN Gateway, consulte [configurar uma ligação](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#CreateConnection).
+Nesta secção, cria-se uma ligação entre os gateways de rede locais VPN Gateway e o gateway de rede virtual. Para obter etapas sobre como criar uma ligação VPN Gateway, consulte [configurar uma ligação](../vpn-gateway/tutorial-site-to-site-portal.md#CreateConnection).
 
 1. No portal, navegue para o seu gateway de rede virtual e clique em **Conexões**. No topo da página Ligações, clique em **+Adicionar** para abrir a página **Adicionar ligação**.
 2. Na página **de ligação Adicionar,** configuure os seguintes valores para a sua ligação:
@@ -138,7 +138,7 @@ Pode testar a conectividade criando duas máquinas virtuais, uma na lateral do g
 4. Clique **em OK** para criar a ligação de rede virtual.
 5. A conectividade está agora definida entre os VMs. Você deve ser capaz de ping um VM do outro, a menos que existam quaisquer firewalls ou outras políticas que bloqueiem a comunicação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter medidas para configurar uma política personalizada do IPsec, consulte [configurar uma política personalizada do IPsec para o VIRTUAL WAN](virtual-wan-custom-ipsec-portal.md).
 Para obter mais informações sobre o WAN Virtual, consulte [About Azure Virtual WAN](virtual-wan-about.md) e o [Azure Virtual WAN FAQ](virtual-wan-faq.md).

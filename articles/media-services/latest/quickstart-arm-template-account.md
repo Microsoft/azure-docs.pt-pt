@@ -1,25 +1,11 @@
 ---
-title: Modelo ARM de conta de serviços de mídia
-titleSuffix: Azure Media Services
-description: Este artigo mostra-lhe como usar um modelo ARM para criar uma conta de serviços de comunicação.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: ''
-ms.topic: quickstart
-ms.date: 11/24/2020
-ms.author: inhenkel
-ms.custom: subject-armqs
-ms.openlocfilehash: 541a4c17a3212f711be7e2cf096ce3a2d632ee64
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
-ms.translationtype: MT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879651"
+título: Modelo DE REDE DE Conta de Media Services : Descrição dos Serviços Azure Media: Este artigo mostra-lhe como usar um modelo ARM para criar uma conta de serviços de comunicação social.
+serviços: media-services documentationcenter: '' autor: IngridAtMicrosoft manager: femila editor: ''
+
+ms.service: media-services ms.workload: ms.topic: quickstart ms.date: 11/24/2020 ms.author: inhenkel ms.custom: subject-armqs
+
 ---
+
 # <a name="quickstart-media-services-account-arm-template"></a>Quickstart: Modelo ARM de conta de serviços de mídia
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]

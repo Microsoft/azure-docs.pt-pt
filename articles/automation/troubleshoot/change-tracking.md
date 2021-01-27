@@ -2,19 +2,15 @@
 title: Problemas de resolução de alterações de automação Azure
 description: Este artigo diz como resolver problemas e resolver problemas com a funcionalidade de Rastreio e Inventário de Alterações da Automação Azure.
 services: automation
-ms.service: automation
 ms.subservice: change-inventory-management
-author: mgoedtel
-ms.author: magoedte
 ms.date: 01/31/2019
-ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 3ecd4330381db1f63a40e9ba5ff63108c6fa78fe
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.topic: troubleshooting
+ms.openlocfilehash: 516f1a4e5e7c677b17a2941ee3c300db44d49a3b
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92205613"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896550"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory-issues"></a>Resolver problemas do Controlo de Alterações e Inventário
 
@@ -55,7 +51,7 @@ Se ainda precisar de ajuda, pode recolher informações de diagnóstico e suport
 
 ##### <a name="log-analytics-agent-for-windows-not-running"></a>Log Analytics agente para Windows não em execução
 
-Verifique se o agente Log Analytics do Windows** (HealthService.exe) **está a funcionar na máquina.
+Verifique se o agente Log Analytics do Windows **(HealthService.exe)** está a funcionar na máquina.
 
 ##### <a name="communication-to-automation-account-blocked"></a>Comunicação à conta de Automação bloqueada
 
@@ -114,7 +110,7 @@ O agente Log Analytics do Linux pode não estar configurado corretamente para a 
 
 A funcionalidade FIM do Azure Security Center pode estar a validar incorretamente a integridade dos seus ficheiros Linux. Verifique se o FIM está operacional e corretamente configurado para a monitorização de ficheiros Linux. Consulte [o tracking de alterações e a visão geral do inventário](../change-tracking/overview.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se não vir o seu problema aqui ou não conseguir resolver o seu problema, experimente um dos seguintes canais para obter apoio adicional:
 

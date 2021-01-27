@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 35cb7ba4523cfbc88daf958fd972b127519385ce
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 69f0da2f1528ad1f45762a8f754cc2020b4cb880
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98792407"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98901120"
 ---
 Este artigo lista as versões e funcionalidades do Azure Ative Directory Connect Provisioning Agent que foram lançados. A equipa Azure AD atualiza regularmente o Agente de Provisionamento com novas funcionalidades e funcionalidades. O Agente Provisionante é atualizado automaticamente quando uma nova versão é lançada. 
 
@@ -99,5 +99,3 @@ A Microsoft fornece suporte direto para a versão mais recente do agente e uma v
 * Renovado o Agente de Provisionamento e a arquitetura do conector para um melhor desempenho, estabilidade e fiabilidade 
 * Simplificado a configuração do Agente de Provisioning utilizando o assistente de instalação orientado para a UI 
 * Apoio adicional para atualizações automáticas de agentes
-
-

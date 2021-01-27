@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 author: cartacioS
 ms.date: 12/21/2020
 ms.custom: automl
-ms.openlocfilehash: 31e9ff3fd07a7d305c88d28629f3252db5d857c8
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 2653161b5828d89858234a9ca98fe432e0eacb5c
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97695434"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879364"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>Tutorial: Previsão da procura com aprendizagem automática de máquinas
 
@@ -148,7 +148,7 @@ Complete a configuração para a sua experiência automatizada de ML especifican
 
 1. Selecione **Ver as definições de configuração adicionais** e povoar os campos da seguinte forma. Estas definições são para controlar melhor o trabalho de treino e especificar as definições para a sua previsão. Caso contrário, os padrão são aplicados com base na seleção de experiências e dados.
 
-    &nbsp;Configurações adicionais|Description|Valor &nbsp; para &nbsp; tutorial
+    &nbsp;Configurações adicionais|Descrição|Valor &nbsp; para &nbsp; tutorial
     ------|---------|---
     Métrica primária| Métrica de avaliação pela que o algoritmo de aprendizagem automática será medido.|Raiz normalizada significa erro quadrado
     Explicar o melhor modelo| Mostra automaticamente a explicabilidade do melhor modelo criado pela ML automatizada.| Ativar
@@ -233,14 +233,14 @@ Elimine apenas a instância de implantação do estúdio Azure Machine Learning,
 
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, você usou ML automatizado no estúdio Azure Machine Learning para criar e implementar um modelo de previsão de séries temporizadas que prevê a procura de aluguer de partilha de bicicletas. 
 
 Consulte este artigo para ver como criar um esquema suportado por Power BI para facilitar o consumo do seu serviço web recém-implementado:
 
 > [!div class="nextstepaction"]
-> [Consumir serviços Web](https://docs.microsoft.com/power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context)
+> [Consumir serviços Web](/power-bi/connect-data/service-aml-integrate?context=azure%2fmachine-learning%2fcontext%2fml-context)
 
 + Saiba mais sobre [aprendizagem automática de máquinas.](concept-automated-ml.md)
 + Para obter mais informações sobre métricas e gráficos de classificação, consulte o artigo [de resultados automatizados de machine learning da Máquina.](how-to-understand-automated-ml.md)

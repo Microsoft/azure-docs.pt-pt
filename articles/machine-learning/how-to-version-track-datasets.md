@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 03/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: 3290574b26abe544c8c749165e22bef41a83ecf3
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: d72d2d094e220bd4e460cfca6b422f0609c083af
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98538162"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880072"
 ---
 # <a name="version-and-track-azure-machine-learning-datasets"></a>Versão e rastreio de conjuntos de dados de aprendizagem automática Azure
 
@@ -119,7 +119,7 @@ dataset2.register(workspace = workspace,
 
 Pode utilizar um conjunto de dados como entrada e saída de cada passo do [gasoduto ML.](concept-ml-pipelines.md) Ao reencandidatura dos gasodutos, a saída de cada etapa do gasoduto é registada como uma nova versão do conjunto de dados.
 
-Os gasodutos ML povoam a saída de cada passo numa nova pasta sempre que o gasoduto se reensala. Este comportamento permite que os conjuntos de dados de saída versados sejam reprodutíveis. Saiba mais sobre [conjuntos de dados em oleodutos.](how-to-create-your-first-pipeline.md#steps)
+Os gasodutos ML povoam a saída de cada passo numa nova pasta sempre que o gasoduto se reensala. Este comportamento permite que os conjuntos de dados de saída versados sejam reprodutíveis. Saiba mais sobre [conjuntos de dados em oleodutos.](./how-to-create-machine-learning-pipelines.md#steps)
 
 ```Python
 from azureml.core import Dataset
@@ -213,7 +213,7 @@ A seguinte vista é do painel **de conjuntos de dados** em **Ativos**. Selecione
 
 ![Modelos de conjuntos de dados de entrada](./media/how-to-version-track-datasets/dataset-models.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Preparar com conjuntos de dados](how-to-train-with-datasets.md)
 * [Mais cadernos de conjuntos de dados de amostra](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/)

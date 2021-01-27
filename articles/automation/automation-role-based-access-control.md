@@ -6,12 +6,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 07/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: efdb195ad41b036f7f470884b3a441de1db7f7f4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 320668f9596376cf7aa12ed97872671404a07658
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96003706"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895922"
 ---
 # <a name="manage-role-permissions-and-security"></a>Gerir permissões e segurança de funções
 
@@ -319,7 +319,7 @@ Pode remover a permissão de acesso para um utilizador que não esteja a gerir a
 
 Também pode configurar o acesso baseado em funções a uma conta Automation utilizando os [seguintes cmdlets Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
-[A Get-AzRoleDefinition](/powershell/module/Az.Resources/Get-AzRoleDefinition?view=azps-3.7.0) lista todas as funções Azure que estão disponíveis no Azure Ative Directory. Pode utilizar este cmdlet com o `Name` parâmetro para listar todas as ações que um papel específico pode desempenhar.
+[A Get-AzRoleDefinition](/powershell/module/Az.Resources/Get-AzRoleDefinition) lista todas as funções Azure que estão disponíveis no Azure Ative Directory. Pode utilizar este cmdlet com o `Name` parâmetro para listar todas as ações que um papel específico pode desempenhar.
 
 ```azurepowershell-interactive
 Get-AzRoleDefinition -Name 'Automation Operator'
@@ -338,7 +338,7 @@ NotActions       : {}
 AssignableScopes : {/}
 ```
 
-[A Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment?view=azps-3.7.0) lista atribuições de funções Azure no âmbito especificado. Sem parâmetros, este cmdlet devolve todas as atribuições de funções es feitas no âmbito da subscrição. Utilize o `ExpandPrincipalGroups` parâmetro para listar as atribuições de acesso para o utilizador especificado, bem como os grupos a que o utilizador pertence.
+[A Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) lista atribuições de funções Azure no âmbito especificado. Sem parâmetros, este cmdlet devolve todas as atribuições de funções es feitas no âmbito da subscrição. Utilize o `ExpandPrincipalGroups` parâmetro para listar as atribuições de acesso para o utilizador especificado, bem como os grupos a que o utilizador pertence.
 
 **Exemplo:** Utilize o cmdlet seguinte para listar todos os utilizadores e as suas funções numa conta Automation.
 
@@ -360,7 +360,7 @@ ObjectId           : 15f26a47-812d-489a-8197-3d4853558347
 ObjectType         : User
 ```
 
-Utilize [o Design New-AzRoleAss para](/powershell/module/Az.Resources/New-AzRoleAssignment?view=azps-3.7.0) atribuir acesso a utilizadores, grupos e aplicações a um determinado âmbito.
+Utilize [o Design New-AzRoleAss para](/powershell/module/Az.Resources/New-AzRoleAssignment) atribuir acesso a utilizadores, grupos e aplicações a um determinado âmbito.
 
 **Exemplo:** Utilize o seguinte comando para atribuir a função "Operador de Automação" a um utilizador no âmbito da conta Automação.
 
@@ -382,7 +382,7 @@ ObjectId           : f5ecbe87-1181-43d2-88d5-a8f5e9d8014e
 ObjectType         : User
 ```
 
-Utilize [o Remove-AzRoleAssignment](/powershell/module/Az.Resources/Remove-AzRoleAssignment?view=azps-3.7.0) para remover o acesso de um utilizador, grupo ou aplicação especificados de um determinado âmbito.
+Utilize [o Remove-AzRoleAssignment](/powershell/module/Az.Resources/Remove-AzRoleAssignment) para remover o acesso de um utilizador, grupo ou aplicação especificados de um determinado âmbito.
 
 **Exemplo:** Utilize o seguinte comando para remover o utilizador da função de Operador de Automação no âmbito da conta Automação.
 
@@ -431,7 +431,7 @@ Quando um utilizador atribuído à função de Operador de Automação no âmbit
 
 ![Só tem acesso para começar](media/automation-role-based-access-control/automation-only-start.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para saber mais sobre o Azure RBAC usando PowerShell, consulte [adicionar ou remover atribuições de funções Azure usando Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 * Para obter mais informações sobre os tipos de livros de execução, consulte os tipos de [runbook da Azure Automation](automation-runbook-types.md).

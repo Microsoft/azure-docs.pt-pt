@@ -1,5 +1,5 @@
 ---
-title: Implementar a Oracle Data Guard numa máquina virtual Azure Linux Microsoft Docs
+title: Implementar o Oracle Data Guard numa máquina virtual Azure Linux | Microsoft Docs
 description: Rapidamente coloque a Oracle Data Guard a funcionar no seu ambiente Azure.
 author: dbakevlar
 ms.service: virtual-machines-linux
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: cc7579b48307325e25d8914ea4c722a9641883f3
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 303244d153877ba71796ff1f075e2e58a5084469
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94952153"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880326"
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Implementar a Oracle Data Guard numa máquina virtual Azure Linux 
 
@@ -693,8 +693,8 @@ Quando já não precisar do VM, pode utilizar o seguinte comando para remover o 
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Tutorial: Criar máquinas virtuais altamente disponíveis](../../linux/create-cli-complete.md)
 
-[Explore amostras de CLI de implantação VM](../../linux/cli-samples.md)
+[Explore amostras de CLI de implantação VM](https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine)

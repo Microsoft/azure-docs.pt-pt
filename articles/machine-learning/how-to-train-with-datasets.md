@@ -12,18 +12,18 @@ ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: 2d6282c527293abdb8b21e0591548cb51e1339a9
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 688bec24cbcd88130470634abff0688ead8005ef
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539676"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881691"
 ---
 # <a name="train-models-with-azure-machine-learning-datasets"></a>Modelos de trem com conjuntos de dados de aprendizagem de máquinas Azure 
 
 Neste artigo, aprende-se a trabalhar com [conjuntos de dados Azure Machine Learning](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py) para treinar modelos de aprendizagem automática.  Pode utilizar conjuntos de dados no seu alvo de computação local ou remota sem se preocupar com cordas de ligação ou caminhos de dados. 
 
-Os conjuntos de dados Azure Machine Learning proporcionam uma integração perfeita com a funcionalidade de formação de aprendizagem automática Azure como [scriptRunConfig,](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) [hiperDrive](/python/api/azureml-train-core/azureml.train.hyperdrive?preserve-view=true&view=azure-ml-py) e [azure machine learning pipelines](how-to-create-your-first-pipeline.md).
+Os conjuntos de dados Azure Machine Learning proporcionam uma integração perfeita com a funcionalidade de formação de aprendizagem automática Azure como [scriptRunConfig,](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) [hiperDrive](/python/api/azureml-train-core/azureml.train.hyperdrive?preserve-view=true&view=azure-ml-py) e [azure machine learning pipelines](./how-to-create-machine-learning-pipelines.md).
 
 Se não estiver pronto para disponibilizar os seus dados para a formação de modelos, mas pretender carregar os seus dados no seu caderno para exploração de dados, consulte como [explorar os dados no seu conjunto de dados.](how-to-create-register-datasets.md#explore-data) 
 
@@ -263,7 +263,7 @@ src.run_config.source_directory_data_store = "workspaceblobstore"
 ## <a name="troubleshooting"></a>Resolução de problemas
 
 * **A inicialização do conjunto de dados falhou: Esperar que o ponto de montagem esteja pronto tem tempo esgotado**: 
-  * Se não tiver nenhuma regra do [grupo de segurança](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview) de rede de saída e estiver a utilizar , `azureml-sdk>=1.12.0` atualização e as suas `azureml-dataset-runtime` dependências para ser a mais recente versão menor específica, ou se estiver a usá-la numa corrida, recrie o seu ambiente para que possa ter o mais recente patch com a correção. 
+  * Se não tiver nenhuma regra do [grupo de segurança](../virtual-network/network-security-groups-overview.md) de rede de saída e estiver a utilizar , `azureml-sdk>=1.12.0` atualização e as suas `azureml-dataset-runtime` dependências para ser a mais recente versão menor específica, ou se estiver a usá-la numa corrida, recrie o seu ambiente para que possa ter o mais recente patch com a correção. 
   * Se estiver a `azureml-sdk<1.12.0` utilizar, atualize para a versão mais recente.
   * Se tiver regras NSG de saída, certifique-se de que existe uma regra de saída que permite todo o tráfego para a etiqueta de serviço `AzureResourceMonitor` .
 
@@ -287,10 +287,10 @@ Se estiver a utilizar a partilha de ficheiros para outras cargas de trabalho, co
     Se não incluir o corte dianteiro principal, '/', terá de pré-fixar o diretório de trabalho, por exemplo, `/mnt/batch/.../tmp/dataset` no alvo do cálculo para indicar onde pretende que o conjunto de dados seja montado.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Modelos de aprendizagem automática de máquinas](how-to-auto-train-remote.md) de comboio com Separadors.
 
 * [Treinar modelos de classificação de imagem](https://aka.ms/filedataset-samplenotebook) com FileDatasets.
 
-* [Treine com conjuntos de dados utilizando gasodutos.](how-to-create-your-first-pipeline.md)
+* [Treine com conjuntos de dados utilizando gasodutos.](./how-to-create-machine-learning-pipelines.md)

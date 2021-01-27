@@ -4,15 +4,15 @@ description: Conheça as regiões e zonas de disponibilidade em Azure para atend
 author: cynthn
 ms.service: azure
 ms.topic: article
-ms.date: 08/27/2020
+ms.date: 01/26/2021
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: b19f5c3ae0666a0b0e9b0255f848f5924d9d3910
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 0b67f113fb8ab3835419a75697e60a732d4ee390
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/27/2021
-ms.locfileid: "98874744"
+ms.locfileid: "98896058"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Regiões e Zonas de Disponibilidade em Azure
 

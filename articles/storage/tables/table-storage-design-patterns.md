@@ -1,5 +1,5 @@
 ---
-title: Padrões de design de mesa de armazenamento Azure / Microsoft Docs
+title: Padrões de design de mesa de armazenamento Azure | Microsoft Docs
 description: Reveja padrões de design apropriados para uso com soluções de serviço de mesa em Azure. Aborde questões e trocas que são discutidas noutros artigos.
 services: storage
 author: tamram
@@ -9,12 +9,12 @@ ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 20e776e649d13e435a7bc9215802fcd89efe0867
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2eb109078728b8a9070b3991733450c1da790d9e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019230"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879600"
 ---
 # <a name="table-design-patterns"></a>Padrões de design da tabela
 Este artigo descreve alguns padrões adequados para utilização com soluções de serviço de mesa. Além disso, você verá como você pode praticamente abordar algumas das questões e trade-offs discutidos em outros artigos de design de armazenamento de mesa. O diagrama seguinte resume as relações entre os diferentes padrões:  
@@ -711,7 +711,7 @@ As exceções lançadas quando a Biblioteca do Cliente de Armazenamento executa 
 Também deve considerar como o seu design afeta a forma como a sua aplicação de cliente lida com as operações de conuncy e atualização.  
 
 ### <a name="managing-concurrency"></a>Gerir a simultaneidade
-Por predefinição, o serviço de mesa implementa controlos de concordância otimistas ao nível de entidades individuais para operações **de Inserção,** **Fusão** e **Eliminação,** embora seja possível um cliente forçar o serviço de mesa a contornar estas verificações. Para obter mais informações sobre como o serviço de mesa gere a concordância, consulte  [a Managing Concurrency no Microsoft Azure Storage](../../storage/common/storage-concurrency.md).  
+Por predefinição, o serviço de mesa implementa controlos de concordância otimistas ao nível de entidades individuais para operações **de Inserção,** **Fusão** e **Eliminação,** embora seja possível um cliente forçar o serviço de mesa a contornar estas verificações. Para obter mais informações sobre como o serviço de mesa gere a concordância, consulte  [a Managing Concurrency no Microsoft Azure Storage](../blobs/concurrency-manage.md).  
 
 ### <a name="merge-or-replace"></a>Fundir ou substituir
 O método **de substituição** da classe **TableOperation** substitui sempre a entidade completa no serviço Tabela. Se não incluir um imóvel no pedido quando esse imóvel existe na entidade armazenada, o pedido retira esse imóvel da entidade armazenada. A menos que queira remover um imóvel explicitamente de uma entidade armazenada, deve incluir todos os bens no pedido.  
@@ -1125,7 +1125,7 @@ Neste exemplo assíncronos, pode ver as seguintes alterações a partir da vers�
 
 A aplicação do cliente pode chamar vários métodos assíncronos como este, e cada invocação de método será executada em um fio separado.  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Modelar relações](table-storage-design-modeling.md)
 - [Design das consultas](table-storage-design-for-query.md)

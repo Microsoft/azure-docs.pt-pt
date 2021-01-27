@@ -106,7 +106,7 @@
     - name: Exemplos de MLOps ponto a ponto
       href: 'https://github.com/microsoft/MLOps'
     - name: Open Datasets (público)
-      href: /azure/open-datasets/samples?context=azure/machine-learning/context/ml-context
+      href: ../open-datasets/samples.md?context=azure%2fmachine-learning%2fcontext%2fml-context
 - name: Conceitos
   items:
     - name: Planear e gerir custos
@@ -467,7 +467,7 @@
             - name: Utilizar uma imagem personalizada do Docker
               href: how-to-deploy-custom-docker-image.md
             - name: IoT Edge
-              href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
+              href: ../iot-edge/tutorial-deploy-machine-learning.md?context=azure%2fmachine-learning%2fservice%2fcontext%2fml-context
             - name: Inferência de FPGA
               href: how-to-deploy-fpga-web-service.md
         - name: Resolução de problemas de implementação
@@ -570,7 +570,7 @@
   items:
     - name: SDK Python
       displayName: 'api, core, package, python, class'
-      href: 'https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py'
+      href: /python/api/overview/azure/ml/intro?view=azure-ml-py
     - name: SDK para R
       displayName: 'api, core, package, R, class'
       href: 'https://azure.github.io/azureml-sdk-for-r/reference/index.html'
@@ -578,7 +578,7 @@
       displayName: 'extension, command line, command-line, az, ci/cd, automate, automated'
       href: reference-azure-machine-learning-cli.md
     - name: API REST
-      href: 'https://docs.microsoft.com/rest/api/azureml/'
+      href: /rest/api/azureml/
     - name: Referência do módulo de estruturação
       displayName: 'module, reference, algorithm, studio'
       href: algorithm-module-reference/module-reference.md
@@ -608,7 +608,7 @@
     - name: Disponibilidade regional
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Fórum de utilizadores
-      href: 'https://docs.microsoft.com/answers/topics/azure-machine-learning.html'
+      href: /answers/topics/azure-machine-learning.html
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-machine-learning-service'
     - name: Comparar os nossos produtos de ML

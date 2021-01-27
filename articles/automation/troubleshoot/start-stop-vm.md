@@ -2,19 +2,15 @@
 title: Resolução de problemas Azure Automation Start/Stop VMs durante problemas fora de horas
 description: Este artigo diz como resolver problemas e resolver problemas que surgem durante a utilização dos VMs iniciar/parar durante o período de folga.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 04/04/2019
-ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: bb8fa53fa07d666693ae545c193faaf3d6d0a30c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.topic: troubleshooting
+ms.openlocfilehash: 763e1321556ade73778b82ea70926af21a83f7ec
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187154"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896279"
 ---
 # <a name="troubleshoot-startstop-vms-during-off-hours-issues"></a>Resolução de problemas Iniciar/Parar VMs durante problemas fora de horas
 
@@ -113,7 +109,7 @@ Reveja a seguinte lista para potenciais resoluções:
   * **ScheduledStartStop_Parent**
   * **SequencedStartStop_Parent**
 
-* Verifique se a sua [conta Run As](../manage-runas-account.md) tem permissões adequadas para os VMs que está a tentar iniciar ou parar. Para saber como verificar as permissões num recurso, consulte [Quickstart: Ver funções atribuídas a um utilizador utilizando o portal Azure](../../role-based-access-control/check-access.md). Terá de fornecer o ID de aplicação para o principal serviço utilizado pela conta Run As. Pode recuperar este valor indo para a sua conta Automation no portal Azure. Selecione **Executar como contas** em **Definições de Conta**e selecione a conta Run As apropriada.
+* Verifique se a sua [conta Run As](../manage-runas-account.md) tem permissões adequadas para os VMs que está a tentar iniciar ou parar. Para saber como verificar as permissões num recurso, consulte [Quickstart: Ver funções atribuídas a um utilizador utilizando o portal Azure](../../role-based-access-control/check-access.md). Terá de fornecer o ID de aplicação para o principal serviço utilizado pela conta Run As. Pode recuperar este valor indo para a sua conta Automation no portal Azure. Selecione **Executar como contas** em **Definições de Conta** e selecione a conta Run As apropriada.
 
 * Os VMs podem não ser iniciados ou parados se estiverem a ser explicitamente excluídos. Os VMs excluídos são definidos na `External_ExcludeVMNames` variável na conta Automation a que a funcionalidade é implantada. O exemplo a seguir mostra como pode consultar esse valor com o PowerShell.
 
@@ -209,7 +205,7 @@ Se a sua conta Run As estiver mal configurada, elimine e reesconte a sua conta R
 
 Se o certificado tiver expirado para a sua conta Run As, siga os passos na [renovação do certificado auto-assinado](../manage-runas-account.md#cert-renewal) para renovar o certificado.
 
-Se faltar permissões, consulte [Quickstart: Ver funções atribuídas a um utilizador utilizando o portal Azure](../../role-based-access-control/check-access.md). Deve fornecer o ID de aplicação para o principal serviço utilizado pela conta Run As. Pode recuperar este valor indo para a sua conta Automation no portal Azure. Selecione **Executar como contas** em **Definições de Conta**e selecione a conta Run As apropriada.
+Se faltar permissões, consulte [Quickstart: Ver funções atribuídas a um utilizador utilizando o portal Azure](../../role-based-access-control/check-access.md). Deve fornecer o ID de aplicação para o principal serviço utilizado pela conta Run As. Pode recuperar este valor indo para a sua conta Automation no portal Azure. Selecione **Executar como contas** em **Definições de Conta** e selecione a conta Run As apropriada.
 
 ## <a name="scenario-my-problem-isnt-listed-here"></a><a name="other"></a>Cenário: O meu problema não está listado aqui
 
@@ -228,7 +224,7 @@ Muitas vezes os erros podem ser causados pela utilização de uma versão antiga
 
 Para resolver muitos erros, remova e [atualize VMs iniciar/parar durante as horas de folga](../automation-solution-vm-management.md#update-the-feature). Também pode verificar os [fluxos de trabalho](../automation-runbook-execution.md#job-statuses) para procurar quaisquer erros. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se não vir o seu problema aqui ou não conseguir resolver o seu problema, experimente um dos seguintes canais para obter apoio adicional:
 

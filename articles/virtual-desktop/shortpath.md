@@ -6,12 +6,12 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: bfcd8b3c482b4d429a9e3a4d7bc75e27ada63a98
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: c1cdafe2929502293aada32dbae06e342761862b
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134403"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98876703"
 ---
 # <a name="windows-virtual-desktop-rdp-shortpath-preview"></a>Windows Virtual Desktop RDP Shortpath (pré-visualização)
 
@@ -53,12 +53,12 @@ O diagrama abaixo dá uma visão geral de alto nível da ligação da rede RDP S
 
 :::image type="content" source="media/rdp-shortpath-connections.svg" alt-text="Diagrama de Ligações de Rede DE Shortpath RDP" lightbox="media/rdp-shortpath-connections.svg":::
 
-## <a name="requirements"></a>Requisitos
+## <a name="requirements"></a>Requirements
 
 Para suportar o Caminho Curto RDP, o cliente virtual do Windows desktop precisa de uma linha de visão direta para o anfitrião da sessão. Pode obter uma linha de visão direta utilizando uma das seguintes tecnologias:
 
 * [ExpressRoute private peering](../expressroute/expressroute-circuit-peerings.md)
-* [VPN site-to-site (baseado em IPsec)](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+* [VPN site-to-site (baseado em IPsec)](../vpn-gateway/tutorial-site-to-site-portal.md)
 * [VPN ponto-a-local (baseado em IPsec)](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 * [Atribuição de endereços IP públicos](../virtual-network/virtual-network-public-ip-address.md)
 
@@ -253,7 +253,7 @@ Para desativar o Caminho Curto RDP para um anfitrião de sessão específica, po
 Gostaríamos de ouvir sobre as suas experiências com esta pré-estreia pública!
 * Para perguntas, pedidos, comentários e outros comentários, [utilize este formulário de feedback](https://aka.ms/RDPShortpathFeedback).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para saber mais sobre a conectividade da rede virtual do Windows Desktop, consulte [a conectividade da rede virtual de desktop do Windows.](network-connectivity.md)
 * Para começar com a Qualidade de Serviço (QoS) para o Windows Virtual Desktop, consulte [implementar qualidade de serviço (QoS) para Windows Virtual Desktop](rdp-quality-of-service-qos.md).

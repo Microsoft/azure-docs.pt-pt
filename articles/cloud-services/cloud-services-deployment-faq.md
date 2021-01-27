@@ -8,12 +8,12 @@ ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 67c20823d1f80360b2ab23dc3f208673d36a7374
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: dd7b19a2c9e872b811c1aab6e504accb7de383b2
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98742221"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896482"
 ---
 # <a name="deployment-issues-for-azure-cloud-services-classic-frequently-asked-questions-faqs"></a>Problemas de implantação para Azure Cloud Services (clássico): Perguntas frequentes (PERGUNTAS Frequentes)
 
@@ -52,7 +52,7 @@ A implantação de um serviço em nuvem pode falhar se os recursos que são nece
 
 Também pode acompanhar a utilização/quota atual da sua subscrição no portal: Azure portal => Subscrições => \<appropriate subscription>   => "Utilização + quota".
 
-As informações relacionadas com a utilização/consumo de recursos também podem ser recuperadas através das APIs de faturação do Azure. Ver [API de utilização de recursos Azure (pré-visualização)](../cost-management-billing/manage/usage-rate-card-overview.md#azure-resource-usage-api-preview).
+As informações relacionadas com a utilização/consumo de recursos também podem ser recuperadas através das APIs de faturação do Azure. Consulte [a visão geral da API de consumo azul](../cost-management-billing/manage/consumption-api-overview.md).
 
 ## <a name="how-can-i-change-the-size-of-a-deployed-cloud-service-vm-without-redeploying-it"></a>Como posso alterar o tamanho de um VM de serviço de nuvem implantado sem recolocar?
 Não é possível alterar o tamanho VM de um serviço de nuvem implantado sem o recolocar. O tamanho VM é incorporado no CSDEF, que só pode ser atualizado com uma redistribuição.

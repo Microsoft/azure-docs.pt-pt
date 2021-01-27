@@ -3,12 +3,12 @@ title: Vídeo ao vivo analytics em IoT Edge FAQ - Azure
 description: Este artigo responde a perguntas comumente sobre live video analytics on IoT Edge.
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.openlocfilehash: f9ef26b9b64bd8a0bad7c83960f2d235ed6461cb
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 0cb378bf614582070dd1bdd0a11706b26437af53
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97762882"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880055"
 ---
 # <a name="live-video-analytics-on-iot-edge-faq"></a>Análise de vídeo ao vivo em IoT Edge FAQ
 
@@ -170,7 +170,7 @@ Com uma extensão gRPC, cada sessão é para um único feed de câmara, por isso
 
 **Todos os ProcessMediaStreams de um determinado recipiente funcionam no mesmo modelo de IA?** 
 
-N.º Iniciar ou parar chamadas do utilizador final numa instância de gráfico constitui uma sessão, ou talvez haja uma câmara desligada ou reconectar-se. O objetivo é persistir uma sessão se a câmara estiver a transmitir vídeo. 
+Não. Iniciar ou parar chamadas do utilizador final numa instância de gráfico constitui uma sessão, ou talvez haja uma câmara desligada ou reconectar-se. O objetivo é persistir uma sessão se a câmara estiver a transmitir vídeo. 
 
 * Duas câmaras que enviam vídeo para processamento criam duas sessões. 
 * Uma câmara que vai para um gráfico que tem dois nós de extensão gRPC cria duas sessões. 
@@ -230,7 +230,7 @@ Yes. Pode consumir métricas prometheus e publicá-las na sua grelha de eventos.
 
 **Posso usar o Azure Monitor para ver a saúde, as métricas e o desempenho dos meus gráficos mediáticos na nuvem ou no limite?**
 
-Sim, apoiamos esta abordagem. Para saber mais, consulte [a visão geral do Azure Monitor Metrics](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics).
+Sim, apoiamos esta abordagem. Para saber mais, consulte [a visão geral do Azure Monitor Metrics](../../azure-monitor/platform/data-platform-metrics.md).
 
 **Existem ferramentas para facilitar a monitorização do módulo IoT Edge dos Serviços de Comunicação Social?**
 
@@ -246,6 +246,6 @@ Para obter mais informações, consulte o artigo [de monitorização e registo.]
 
 Para obter detalhes de faturação, consulte [os preços dos Serviços de Comunicação Social.](https://azure.microsoft.com/pricing/details/media-services/)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Quickstart: Começa com o Live Video Analytics no IoT Edge](get-started-detect-motion-emit-events-quickstart.md)

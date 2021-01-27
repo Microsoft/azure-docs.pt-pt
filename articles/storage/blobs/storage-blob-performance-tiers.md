@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 404999cfac5037702eb61fdf74b2c5245ce9eb30
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: cf0b5d29e0dc375a07fe024ef0763c8200275055
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95526124"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880713"
 ---
 # <a name="performance-tiers-for-block-blob-storage"></a>Níveis de desempenho do armazenamento dos blobs de blocos
 
@@ -65,7 +65,7 @@ O desempenho padrão suporta diferentes níveis de acesso para armazenar [dados]
 
 Não é possível converter uma conta de armazenamento de desempenho padrão existente numa conta de armazenamento de blob com desempenho premium. Para migrar para uma conta de armazenamento de desempenho premium, você deve criar uma conta BlockBlobStorage, e migrar os dados para a nova conta. Para obter mais informações, consulte [Criar uma conta BlockBlobStorage](storage-blob-create-account-block-blob.md).
 
-Para copiar bolhas entre contas de armazenamento, pode utilizar a versão mais recente da ferramenta de linha de comando [AzCopy.](../common/storage-use-azcopy-blobs.md) Outras ferramentas como a Azure Data Factory também estão disponíveis para o movimento e transformação de dados.
+Para copiar bolhas entre contas de armazenamento, pode utilizar a versão mais recente da ferramenta de linha de comando [AzCopy.](../common/storage-use-azcopy-v10.md#transfer-data) Outras ferramentas como a Azure Data Factory também estão disponíveis para o movimento e transformação de dados.
 
 ## <a name="blob-lifecycle-management"></a>Gestão do ciclo de vida blob
 
@@ -78,7 +78,7 @@ Para saber mais, consulte [Gerir o ciclo de vida de armazenamento Azure Blob](st
 
 Não é possível mover dados que são armazenados numa conta de armazenamento de blocos premium entre camadas quentes, frias e de arquivo. No entanto, pode copiar bolhas de uma conta de armazenamento de blob de bloco para o nível de acesso quente numa conta *diferente.* Para copiar dados para uma conta diferente, utilize o [Bloco de Put From URL](/rest/api/storageservices/put-block-from-url) API ou [AzCopy v10](../common/storage-use-azcopy-v10.md). O **Bloco de Colocação da API url** copia sincronizadamente os dados no servidor. A chamada só termina depois de todos os dados terem sido transferidos da localização original do servidor para a localização do destino.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Avalie o calor, o frio e o arquivo nas contas de armazenamento GPv2 e Blob.
 

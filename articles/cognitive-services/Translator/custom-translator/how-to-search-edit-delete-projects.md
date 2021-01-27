@@ -2,19 +2,19 @@
 title: Como pesquisar, editar e apagar projeto - Custom Tradutor
 titleSuffix: Azure Cognitive Services
 description: O Custom Tradutor fornece várias formas de gerir os seus projetos de forma eficiente. Pode criar vários projetos, pesquisar com base nos seus critérios, editar os seus projetos. A eliminação de um projeto também é possível no Custom Tradutor.
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 08/17/2020
-ms.author: swmachan
+ms.author: lajanuar
 ms.topic: conceptual
-ms.openlocfilehash: 4c48a8a18a3ad0487b4c3840847c7f5edbb6d29f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 308ca25d35011c67ded7300177149cd590462952
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88510381"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896448"
 ---
 # <a name="search-edit-and-delete-projects"></a>Pesquisar, editar e apagar projetos
 
@@ -62,6 +62,6 @@ Pode apagar um projeto quando já não precisar dele. A Make the Project não te
 
    ![Apagar diálogo de confirmação](media/how-to/how-to-delete-project-confirm.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Faça upload de documentos](how-to-upload-document.md) para começar a construir o seu modelo de tradução personalizado.

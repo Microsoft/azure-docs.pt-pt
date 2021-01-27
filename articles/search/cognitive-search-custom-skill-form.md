@@ -8,12 +8,12 @@ ms.author: pafarley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: 58f1c2621165a7074c04752832c6560b2fd3e423
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a3b073cdb90e0c427bfbca15c1440b9122672610
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011970"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880140"
 ---
 # <a name="example-create-a-form-recognizer-custom-skill"></a>Exemplo: Criar uma habilidade personalizada do Reconhecimento de Formulários
 
@@ -30,7 +30,7 @@ Neste exemplo de skillset de pesquisa cognitiva Azure, você aprenderá a criar 
 
 ## <a name="train-your-model"></a>Preparar o seu modelo
 
-Terá de treinar um modelo de Reconhecimento de Formulários com os seus formulários de entrada antes de utilizar esta habilidade. Siga o arranque rápido da [cURL](../cognitive-services/form-recognizer/quickstarts/curl-train-extract.md) para aprender a treinar um modelo. Pode utilizar os formulários de amostra fornecidos nesse arranque rápido, ou pode utilizar os seus próprios dados. Uma vez treinado o modelo, copie o seu valor de ID para um local seguro.
+Terá de treinar um modelo de Reconhecimento de Formulários com os seus formulários de entrada antes de utilizar esta habilidade. Siga o arranque rápido da [cURL](../cognitive-services/form-recognizer/quickstarts/client-library.md?pivots=programming-language-rest-api) para aprender a treinar um modelo. Pode utilizar os formulários de amostra fornecidos nesse arranque rápido, ou pode utilizar os seus próprios dados. Uma vez treinado o modelo, copie o seu valor de ID para um local seguro.
 
 ## <a name="set-up-the-custom-skill"></a>Configurar a habilidade personalizada
 
@@ -160,7 +160,7 @@ Para utilizar esta habilidade num pipeline de Pesquisa Cognitiva, terá de adici
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste guia, criou uma habilidade personalizada a partir do serviço Azure Form Recogniser. Para saber mais sobre habilidades personalizadas, consulte os seguintes recursos. 
 

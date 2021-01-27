@@ -2,13 +2,13 @@
 title: Configurar vRealize Operations for Azure VMware Solution
 description: Saiba como configurar as operações vRealize para a sua nuvem privada Azure VMware Solution.
 ms.topic: how-to
-ms.date: 09/22/2020
-ms.openlocfilehash: 25469089cf1fef076711bfaf1492fad43edbcf33
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.date: 01/26/2021
+ms.openlocfilehash: c2470ecde0874b46da1236ca6e99e6b0b3eb990d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371788"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880696"
 ---
 # <a name="set-up-vrealize-operations-for-azure-vmware-solution"></a>Configurar vRealize Operations for Azure VMware Solution
 
@@ -27,8 +27,8 @@ Reveja minuciosamente [Antes de começar](#before-you-begin) e [pré-requisitos]
 * Opcionalmente, reveja a documentação do produto do controlador remoto de [operações vRealize Operações](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.vapp.doc/GUID-263F9219-E801-4383-8A59-E84F3D01ED6B.html) para gerir a opção de implementação da Solução Azure VMware. 
 
 
-
 ## <a name="prerequisites"></a>Pré-requisitos
+* [vRealize Gestor de Operações](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.vapp.doc/GUID-7FFC61A0-7562-465C-A0DC-46D092533984.html) instalado.
 * Uma VPN ou um Azure ExpressRoute configurado entre as instalações e a Azure VMware Solution SDDC.
 * Uma nuvem privada Azure VMware Solution foi implantada em Azure.
 
@@ -50,12 +50,13 @@ Para alargar as capacidades de operações vRealize à nuvem privada Azure VMwar
 
 Outra opção é implementar uma instância de vRealize Operations Manager em um cluster vSphere na nuvem privada. 
 
-:::image type="content" source="media/vrealize-operations-manager/vrealize-operations-deployment-option-2.png" alt-text="No local vRealize Operations gerindo a implementação da Solução VMware Azure" border="false":::
+>[!IMPORTANT]
+>Esta opção não é suportada atualmente pela VMware.
+
+:::image type="content" source="media/vrealize-operations-manager/vrealize-operations-deployment-option-2.png" alt-text="vRealize Operações em execução na Solução VMware Azure" border="false":::
 
 Uma vez implementada a ocorrência, pode configurar vRealize Operations para recolher dados de vCenter, ESXi, NSX-T, vSAN e HCX. 
 
-> [!TIP]
-> Consulte a [documentação VMware](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.vapp.doc/GUID-7FFC61A0-7562-465C-A0DC-46D092533984.html) para obter um guia passo a passo para a instalação do vRealize Operations Manager.
 
 
 ## <a name="known-limitations"></a>Limitações conhecidas
@@ -68,11 +69,11 @@ Uma vez implementada a ocorrência, pode configurar vRealize Operations para rec
 
 Quando ligar a Solução VMware Azure vCenter ao vRealize Operations Manager utilizando uma conta de nuvem de servidor vCenter, verá um aviso:
 
-:::image type="content" source="./media/vrealize-operations-manager/warning-adapter-instance-creation-succeeded.png" alt-text="No local vRealize Operations gerindo a implementação da Solução VMware Azure":::
+:::image type="content" source="./media/vrealize-operations-manager/warning-adapter-instance-creation-succeeded.png" alt-text="Criação de instância adaptador de aviso conseguiu":::
 
 O aviso ocorre porque o utilizador **cloudadmin \@ vsphere.local** na Azure VMware Solution não tem privilégios suficientes para fazer todas as ações do servidor vCenter necessárias para o registo. No entanto, os privilégios são suficientes para que a instância do adaptador faça a recolha de dados, como se vê abaixo:
 
-:::image type="content" source="./media/vrealize-operations-manager/adapter-instance-to-perform-data-collection.png" alt-text="No local vRealize Operations gerindo a implementação da Solução VMware Azure":::
+:::image type="content" source="./media/vrealize-operations-manager/adapter-instance-to-perform-data-collection.png" alt-text="Instância adaptador para realizar a recolha de dados":::
 
 Para obter mais informações, consulte [os privilégios necessários para configurar uma instância do adaptador vCenter](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.core.doc/GUID-3BFFC92A-9902-4CF2-945E-EA453733B426.html).
 

@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/23/2020
-ms.openlocfilehash: c29c043a3af46086751629b31ce68217e7226442
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 30176e2df850e6d2794ab9c1542bcb6a89d8f89f
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96355059"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880411"
 ---
 # <a name="best-practices-for-optimal-performance-of-your-azure-database-for-mysql---single-server"></a>Melhores práticas para um melhor desempenho da sua Base de Dados Azure para MySQL - Servidor único
 
@@ -46,11 +46,11 @@ Estabelecer uma nova ligação é sempre uma tarefa dispendiosa e morosa. Quando
 
 Uma Base de Dados Azure para as melhores práticas de desempenho do MySQL é atribuir RAM suficiente para que você esteja trabalhando conjunto reside quase completamente na memória. 
 
-- Verifique se a percentagem de memória utilizada para atingir os [limites](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers) utilizando as [métricas do servidor MySQL](https://docs.microsoft.com/azure/mysql/concepts-monitoring). 
+- Verifique se a percentagem de memória utilizada para atingir os [limites](./concepts-pricing-tiers.md) utilizando as [métricas do servidor MySQL](./concepts-monitoring.md). 
 - Configurar alertas sobre estes números para garantir que à medida que os servidores atingem limites, pode tomar ações rápidas para corrigi-lo. Com base nos limites definidos, verifique se o escalonamento da base de dados SKU - quer para um tamanho de computação mais elevado, quer para um melhor nível de preços, o que resulta num aumento dramático do desempenho. 
-- Dimensione até que os seus números de desempenho não desçam drasticamente após uma operação de escala. Para obter informações sobre a monitorização das métricas de um exemplo de [DB, consulte as métricas de DB mySQL](https://docs.microsoft.com/azure/mysql/concepts-monitoring#metrics).
+- Dimensione até que os seus números de desempenho não desçam drasticamente após uma operação de escala. Para obter informações sobre a monitorização das métricas de um exemplo de [DB, consulte as métricas de DB mySQL](./concepts-monitoring.md#metrics).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Melhores práticas para operações de servidor usando Azure Database para MySQL](concept-operation-excellence-best-practices.md) <br/>
 - [Melhores práticas para monitorizar a sua Base de Dados Azure para o MySQL](concept-monitoring-best-practices.md)<br/>

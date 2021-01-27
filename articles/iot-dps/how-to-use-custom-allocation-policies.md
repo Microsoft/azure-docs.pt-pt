@@ -3,17 +3,17 @@ title: Políticas de atribuição personalizada com serviço de fornecimento de 
 description: Como utilizar políticas de atribuição personalizada com o Serviço de Provisionamento de Dispositivos Azure IoT Hub (DPS)
 author: wesmc7777
 ms.author: wesmc
-ms.date: 11/14/2019
+ms.date: 01/26/2021
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 26615b82bb9dcbc1247bec9b7a06b579dfa1eb2b
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 4931258af0dd50d091bec98824df5da0e91dbf53
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96571645"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895769"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Como utilizar políticas de alocação personalizadas
 
@@ -66,7 +66,7 @@ Nesta secção, você usa a Azure Cloud Shell para criar um serviço de fornecim
     az group create --name contoso-us-resource-group --location westus
     ```
 
-2. Utilize o Azure Cloud Shell para criar um serviço de fornecimento de dispositivos com os [dps az iot criar](/cli/azure/iot/dps#az-iot-dps-create) comando. O serviço de prestação será adicionado ao *grupo contoso-us-resource- group*.
+2. Utilize o Azure Cloud Shell para criar um serviço de fornecimento de dispositivos (DPS) com o comando [az iot dps.](/cli/azure/iot/dps#az-iot-dps-create) O serviço de prestação será adicionado ao *grupo contoso-us-resource- group*.
 
     O exemplo a seguir cria um serviço de prestação denominado *contoso-provisioning-service-1098* no local *westus.* Deve usar um nome de serviço único. Faça o seu próprio sufixo no nome de serviço em **1098**.
 
@@ -96,6 +96,25 @@ Nesta secção, você usa a Azure Cloud Shell para criar um serviço de fornecim
 
     Este comando pode demorar alguns minutos a ser concluído.
 
+5. Os centros IoT devem estar ligados ao recurso DPS. 
+
+    Executar os dois comandos seguintes para obter as cordas de ligação para os hubs que acabou de criar:
+
+    ```azurecli-interactive 
+    hubToastersConnectionString=$(az iot hub connection-string show --hub-name contoso-toasters-hub-1098 --key primary --query connectionString -o tsv)
+    hubHeatpumpsConnectionString=$(az iot hub connection-string show --hub-name contoso-heatpumps-hub-1098 --key primary --query connectionString -o tsv)
+    ```
+
+    Executar os seguintes comandos para ligar os hubs ao recurso DPS:
+
+    ```azurecli-interactive 
+    az iot dps linked-hub create --dps-name contoso-provisioning-service-1098 --resource-group contoso-us-resource-group --connection-string $hubToastersConnectionString --location westus
+    az iot dps linked-hub create --dps-name contoso-provisioning-service-1098 --resource-group contoso-us-resource-group --connection-string $hubHeatpumpsConnectionString --location westus
+    ```
+
+
+
+
 ## <a name="create-the-custom-allocation-function"></a>Criar a função de atribuição personalizada
 
 Nesta secção, cria-se uma função Azure que implementa a sua política de atribuição personalizada. Esta função decide em que hub IoT divisional um dispositivo deve ser registado com base no facto de o seu ID de registo conter a cadeia **-contoso-tstrsd-007** ou **-contoso-hpsd-088**. Também define o estado inicial do dispositivo gémeo com base no facto de o dispositivo ser uma torradeira ou uma bomba de calor.
@@ -114,6 +133,8 @@ Nesta secção, cria-se uma função Azure que implementa a sua política de atr
 
     **Pilha de tempo de** execução : Selecione **.NET Core** a partir do drop-down.
 
+    **Versão**: Selecione **3.1** a partir do drop-down.
+
     **Região**: Selecione a mesma região que o seu grupo de recursos. Este exemplo usa **o Oeste dos EUA.**
 
     > [!NOTE]
@@ -123,19 +144,15 @@ Nesta secção, cria-se uma função Azure que implementa a sua política de atr
 
 4. Na página **Resumo,** selecione **Criar** para criar a aplicação de função. A implementação poderá demorar vários minutos. Quando estiver concluído, selecione **Ir para o recurso**.
 
-5. No painel esquerdo da página **de visão geral** da aplicação de funções, selecione ao lado de **+** **Funções** para adicionar uma nova função.
+5. No painel esquerdo da página **de visão geral** da aplicação de funções, clique em **Funções** e, em seguida, **+ Adicione** para adicionar uma nova função.
 
-    ![Adicionar uma função à App de Função](./media/how-to-use-custom-allocation-policies/create-function.png)
+6. Na página de **função Adicionar,** clique em **HTTP Trigger** e, em seguida, clique no botão **Adicionar.**
 
-6. Nas **Funções Azure para .NET - começar** página, para o passo **ESCOLHA UM AMBIENTE DE IMPLEMENTAÇÃO,** selecione o azulejo **in-portal** e, em seguida, selecione **Continue**.
+7. Na página seguinte, clique em **Código + Teste**. Isto permite-lhe editar o código para a função chamada **HttpTrigger1**. O ficheiro de código **run.csx** deve ser aberto para edição.
 
-    ![Selecione o ambiente de desenvolvimento do portal](./media/how-to-use-custom-allocation-policies/function-choose-environment.png)
+8. Referência necessária pacotes NuGet. Para criar o twin do dispositivo inicial, a função de atribuição personalizada utiliza classes que são definidas em dois pacotes NuGet que devem ser carregados no ambiente de hospedagem. Com as funções Azure, os pacotes NuGet são referenciados utilizando um ficheiro *function.proj.* Neste passo, guarde e carreje um ficheiro *function.proj* para as assembleias necessárias.  Para obter mais informações, consulte [a utilização de pacotes NuGet com Funções Azure](../azure-functions/functions-reference-csharp.md#using-nuget-packages).
 
-7. Na página seguinte, para o passo **CREATE A FUNCTION,** selecione o **teia Webhook + API** e, em seguida, selecione **Criar**. É criada uma função chamada **HttpTrigger1** e o portal exibe o conteúdo do ficheiro de código **run.csx.**
-
-8. Referência necessária pacotes NuGet. Para criar o twin do dispositivo inicial, a função de atribuição personalizada utiliza classes que são definidas em dois pacotes NuGet que devem ser carregados no ambiente de hospedagem. Com as funções Azure, os pacotes NuGet são referenciados através de um ficheiro *fun.host.* Neste passo, guarde e carreize um ficheiro *fun.host.*
-
-    1. Copie as seguintes linhas para o seu editor favorito e guarde o ficheiro no seu computador como *fun.host*.
+    1. Copie as seguintes linhas para o seu editor favorito e guarde o ficheiro no seu computador como *função.proj*.
 
         ```xml
         <Project Sdk="Microsoft.NET.Sdk">  
@@ -143,21 +160,15 @@ Nesta secção, cria-se uma função Azure que implementa a sua política de atr
                 <TargetFramework>netstandard2.0</TargetFramework>  
             </PropertyGroup>  
             <ItemGroup>  
-                <PackageReference Include="Microsoft.Azure.Devices.Provisioning.Service" Version="1.5.0" />  
-                <PackageReference Include="Microsoft.Azure.Devices.Shared" Version="1.16.0" />  
+                <PackageReference Include="Microsoft.Azure.Devices.Provisioning.Service" Version="1.16.3" />
+                <PackageReference Include="Microsoft.Azure.Devices.Shared" Version="1.27.0" />
             </ItemGroup>  
         </Project>
         ```
 
-    2. Na função **HttpTrigger1,** expanda o separador **'Ver Ficheiros'** no lado direito da janela.
+    2. Clique no botão **Upload** localizado acima do editor de código para carregar o ficheiro *funções.proj.* Depois de fazer o upload, selecione o ficheiro no editor de código usando a caixa drop down para verificar o conteúdo.
 
-        ![Ficheiros de visualização aberta](./media/how-to-use-custom-allocation-policies/function-open-view-files.png)
-
-    3. Selecione **Upload,** navegue no ficheiro **function.proj** e selecione **Open** para carregar o ficheiro.
-
-        ![Selecione o ficheiro de upload](./media/how-to-use-custom-allocation-policies/function-choose-upload-file.png)
-
-9. Substitua o código da função **HttpTrigger1** pelo seguinte código e **selecione Guardar:**
+9. Certifique-se de que *o run.csx* para **HttpTrigger1** está selecionado no editor de código. Substitua o código da função **HttpTrigger1** pelo seguinte código e **selecione Guardar:**
 
     ```csharp
     #r "Newtonsoft.Json"
@@ -314,29 +325,15 @@ Nesta secção, você vai criar um novo grupo de inscrições que usa a polític
 
     **Selecione como pretende atribuir dispositivos aos hubs**: Selecione **Custom (Use Azure Function)**.
 
+    **Subscrição**: Selecione a subscrição onde criou a sua Função Azure.
+
+    **Aplicação de função**: Selecione a sua aplicação de função pelo nome. **o contoso-function-app-1098** foi usado neste exemplo.
+
+    **Função**: Selecione a função **HttpTrigger1.**
+
     ![Adicione o grupo de inscrição de atribuição personalizada para atestado de chave simétrica](./media/how-to-use-custom-allocation-policies/create-custom-allocation-enrollment.png)
 
-4. No **Add Registration Group**, selecione Link um novo hub **IoT** para ligar ambos os seus novos hubs de IoT divisionários.
-
-    Execute este passo para ambos os seus centros IoT divisionários.
-
-    **Subscrição**: Se tiver várias subscrições, escolha a subscrição onde criou os hubs IoT divisionários.
-
-    **Hub IoT**: Selecione um dos centros de divisão que criou.
-
-    **Política de Acesso**: Escolha **iothubowner**.
-
-    ![Ligue os hubs ioT divisionários com o serviço de fornecimento](./media/how-to-use-custom-allocation-policies/link-divisional-hubs.png)
-
-5. No **Add Registration Group**, uma vez ligados os dois hubs IoT divisionais, deve selecioná-los como o grupo IoT Hub para o grupo de inscrição, como mostrado abaixo:
-
-    ![Crie o grupo de centros divisionais para a inscrição](./media/how-to-use-custom-allocation-policies/enrollment-divisional-hub-group.png)
-
-6. No **Grupo de Inscrição adicionar**, desloque-se até à secção **'Função Select Azure',** selecione a aplicação 'Função' que criou na secção anterior. Em seguida, selecione a função criada e selecione Guardar para salvar o grupo de inscrição.
-
-    ![Selecione a função e salve o grupo de inscrição](./media/how-to-use-custom-allocation-policies/save-enrollment.png)
-
-7. Depois de guardar a inscrição, reabre-a e tome nota da **Chave Primária.** Tem de guardar a inscrição primeiro para ter as chaves geradas. Esta chave será utilizada para gerar chaves de dispositivo únicas para dispositivos simulados mais tarde.
+4. Depois de guardar a inscrição, reabre-a e tome nota da **Chave Primária.** Tem de guardar a inscrição primeiro para ter as chaves geradas. Esta chave será utilizada para gerar chaves de dispositivo únicas para dispositivos simulados mais tarde.
 
 ## <a name="derive-unique-device-keys"></a>Derivar chaves de dispositivo únicas
 
@@ -386,7 +383,7 @@ Se estiver a utilizar uma estação de trabalho baseada no Windows, pode utiliza
     $REG_ID2='mainbuilding167-contoso-hpsd-088'
 
     $hmacsha256 = New-Object System.Security.Cryptography.HMACSHA256
-    $hmacsha256.key = [Convert]::FromBase64String($key)
+    $hmacsha256.key = [Convert]::FromBase64String($KEY)
     $sig1 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID1))
     $sig2 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID2))
     $derivedkey1 = [Convert]::ToBase64String($sig1)
@@ -559,7 +556,7 @@ Este código de amostra simula uma sequência de arranque do dispositivo que env
 
 A tabela seguinte mostra cenários esperados e os códigos de erro de resultados que poderá receber. Utilize esta tabela para ajudar a resolver problemas de falhas na política de atribuição personalizada com as suas Funções Azure.
 
-| Cenário | Resultado do registo do Serviço de Provisionamento | A provisionar resultados da SDK |
+| Scenario | Resultado do registo do Serviço de Provisionamento | A provisionar resultados da SDK |
 | -------- | --------------------------------------------- | ------------------------ |
 | O webhook devolve 200 OK com 'iotHubHostName' definido para um nome de anfitrião de hub IoT válido | Estado dos resultados: Atribuído  | SDK devolve PROV_DEVICE_RESULT_OK juntamente com informações do hub |
 | O webhook devolve 200 OK com 'iotHubHostName' presente na resposta, mas definido para uma corda vazia ou nulo | Estado do resultado: Falhado<br><br> Código de erro: CustomAllocationIotHubNotSpecified (400208) | SDK regressa PROV_DEVICE_RESULT_HUB_NOT_SPECIFIED |
@@ -568,7 +565,7 @@ A tabela seguinte mostra cenários esperados e os códigos de erro de resultados
 | O webhook devolve >de código de erro = 429 | A orquestração do DPS vai voltar a tentar várias vezes. A política de retenção é atualmente:<br><br>&nbsp;&nbsp;- Contagem de repetições: 10<br>&nbsp;&nbsp;- Intervalo inicial: 1s<br>&nbsp;&nbsp;- Incremento: 9s | A SDK ignorará o erro e submeterá outra mensagem de estado de obter no tempo especificado |
 | O webhook devolve qualquer outro código de estado | Estado do resultado: Falhado<br><br>Código de erro: CustomAllocationFailed (400207) | SDK regressa PROV_DEVICE_RESULT_DEV_AUTH_ERROR |
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretender continuar a trabalhar com os recursos criados neste artigo, pode deixá-los. Se não pretender continuar a utilizar os recursos, use os seguintes passos para eliminar todos os recursos criados neste artigo para evitar encargos desnecessários.
 
@@ -584,11 +581,11 @@ Para eliminar o grupo de recursos pelo nome:
 
 2. No **Filtro pelo nome...** textbox, digite o nome do grupo de recursos que contém os seus recursos, **contoso-us-resource-group**. 
 
-3. À direita do seu grupo de recursos **...** na lista de resultados, selecione... e depois **elimine o grupo de recursos**.
+3. À direita do seu grupo de recursos  na lista de resultados, selecione... e depois **elimine o grupo de recursos**.
 
 4. Ser-lhe-á pedido que confirme a supressão do grupo de recursos. Escreva novamente o nome do seu grupo de recursos para confirmar e, em seguida, selecione **Delete**. Após alguns instantes, o grupo de recursos e todos os recursos contidos no mesmo são eliminados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para saber mais Reprovisioning, consulte [conceitos de reprovisionamento do IoT Hub Device](concepts-device-reprovision.md) 
 * Para saber mais Deprovisionamento, veja [Como desprovisionar dispositivos que foram previamente autoprovisionados](how-to-unprovision-devices.md)

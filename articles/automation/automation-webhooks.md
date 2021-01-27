@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: db4f49c1b788cd7a55fd6fbbd48f845f2c94d757
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: df19f32be41b17e13a9da575e828830e29da4e55
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92073534"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98894767"
 ---
 # <a name="start-a-runbook-from-a-webhook"></a>Iniciar um runbook a partir de um webhook
 
@@ -124,7 +124,7 @@ O cliente recebe um dos seguintes códigos de devolução do `POST` pedido.
 |:--- |:--- |:--- |
 | 202 |Aceite |O pedido foi aceite, e o livro foi feito com sucesso. |
 | 400 |Pedido Incorreto |O pedido não foi aceite por uma das seguintes razões: <ul> <li>O webhook expirou.</li> <li>O webhook está desativado.</li> <li>O símbolo na URL é inválido.</li>  </ul> |
-| 404 |Não encontrado |O pedido não foi aceite por uma das seguintes razões: <ul> <li>O webhook não foi encontrado.</li> <li>O livro não foi encontrado.</li> <li>A conta não foi encontrada.</li>  </ul> |
+| 404 |Não Encontrado |O pedido não foi aceite por uma das seguintes razões: <ul> <li>O webhook não foi encontrado.</li> <li>O livro não foi encontrado.</li> <li>A conta não foi encontrada.</li>  </ul> |
 | 500 |Erro interno do servidor |A URL era válida, mas ocorreu um erro. Por favor, reenvia o pedido. |
 
 Assumindo que o pedido é bem sucedido, a resposta webhook contém o ID de trabalho no formato JSON, como mostrado abaixo. Contém um único ID de trabalho, mas o formato JSON permite potenciais melhorias futuras.
@@ -151,7 +151,7 @@ Pode estender um webhook que não atingiu o seu tempo de validade. Para estender
 O seguinte livro de amostras aceita os dados do webhook e inicia as máquinas virtuais especificadas no corpo de pedido. Para testar este livro de execução, na sua conta de Automação em **Runbooks,** clique em **Criar um runbook**. Se não sabe como criar um livro de bordo, consulte [criar um livro de recortes](automation-quickstart-create-runbook.md).
 
 > [!NOTE]
-> Para livros de execução powershell não gráficos, `Add-AzAccount` e `Add-AzureRMAccount` são pseudónimos para [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). Pode utilizar estes cmdlets ou [atualizar os seus módulos](automation-update-azure-modules.md) na sua conta Automation para as versões mais recentes. Poderá ter de atualizar os seus módulos mesmo que tenha acabado de criar uma nova conta Automation.
+> Para livros de execução powershell não gráficos, `Add-AzAccount` e `Add-AzureRMAccount` são pseudónimos para [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Pode utilizar estes cmdlets ou [atualizar os seus módulos](automation-update-azure-modules.md) na sua conta Automation para as versões mais recentes. Poderá ter de atualizar os seus módulos mesmo que tenha acabado de criar uma nova conta Automation.
 
 ```powershell
 param
@@ -242,6 +242,6 @@ A imagem que se segue mostra o pedido enviado do Windows PowerShell e a resposta
 
 ![Botão Webhooks](media/automation-webhooks/webhook-request-response.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para ativar um livro de bordo a partir de um alerta, consulte [Utilize um alerta para acionar um livro de execução da Azure Automation](automation-create-alert-triggered-runbook.md).

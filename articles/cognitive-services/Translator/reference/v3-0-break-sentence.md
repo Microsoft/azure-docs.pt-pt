@@ -3,19 +3,19 @@ title: Método de quebra de tradutor
 titleSuffix: Azure Cognitive Services
 description: O método Desenteria do Tradutor identifica o posicionamento dos limites da frase num pedaço de texto.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 08/06/2020
-ms.author: swmachan
-ms.openlocfilehash: 27069cf38da2567a3af3ed0fb65baead43665186
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.author: lajanuar
+ms.openlocfilehash: 2da614fe829d0aa82bfa57337baf44491993c68f
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369482"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895548"
 ---
 # <a name="translator-30-breaksentence"></a>Tradutor 3.0: BreakSentence
 
@@ -33,7 +33,7 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
 
 Os parâmetros de pedido passados na cadeia de consulta são:
 
-| Parâmetro de consulta | Description |
+| Parâmetro de consulta | Descrição |
 | -------| ----------- |
 | api-version <img width=200/>   | **Parâmetro de consulta exigido.**<br/>Versão da API solicitada pelo cliente. O valor deve `3.0` ser. |
 | language | **Parâmetro de consulta opcional.**<br/>Etiqueta linguística que identifica a linguagem do texto de entrada. Se um código não for especificado, aplicar-se-á a deteção automática da linguagem. |
@@ -41,7 +41,7 @@ Os parâmetros de pedido passados na cadeia de consulta são:
 
 Os cabeçalhos de pedido incluem:
 
-| Cabeçalhos | Description |
+| Cabeçalhos | Descrição |
 | ------- | ----------- |
 | Cabeçalho de autenticação <img width=200/>  | **Cabeçalho de pedido necessário**.<br/>Consulte <a href="/azure/cognitive-services/translator/reference/v3-0-reference#authentication">as opções disponíveis para autenticação.</a> |
 | Content-Type | **Cabeçalho de pedido necessário**.<br/>Especifica o tipo de conteúdo da carga útil. Os valores possíveis são: `application/json` . |
@@ -97,7 +97,7 @@ Um exemplo de resposta JSON é:
 
 <table width="100%">
   <th width="20%">Cabeçalhos</th>
-  <th>Description</th>
+  <th>Descrição</th>
   <tr>
     <td>X-RequestId</td>
     <td>Valor gerado pelo serviço para identificar o pedido. É utilizado para resolução de problemas.</td>
@@ -110,7 +110,7 @@ Seguem-se os possíveis códigos de estado HTTP que um pedido devolve.
 
 <table width="100%">
   <th width="20%">Código de Estado</th>
-  <th>Description</th>
+  <th>Descrição</th>
   <tr>
     <td>200</td>
     <td>Com êxito.</td>

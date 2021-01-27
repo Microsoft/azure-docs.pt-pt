@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 137670715af8b90d8a867459fa50249cd9be8e70
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 44b89aae2f446a13207c8e3b586892ad085bd790
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97897121"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879415"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager-in-linux"></a>Migração suportada pela plataforma de recursos iaas do clássico para o Azure Resource Manager em Linux
 
@@ -24,7 +24,7 @@ ms.locfileid: "97897121"
 
 Este artigo fornece uma visão geral sobre a ferramenta de migração suportada pela plataforma, como migrar recursos do Azure Service Manager (ASM) aka Classic para Resource Manager (ARM) e detalhes como conectar recursos dos dois modelos de implementação que coexistem na sua subscrição utilizando gateways de rede virtual para site. Pode ler mais sobre [funcionalidades e benefícios do Azure Resource Manager](../azure-resource-manager/management/overview.md). 
 
-A ASM suporta dois produtos computativos diferentes, Azure Virtual Machines (clássico) aka IaaS VMs & [Azure Cloud Services (clássico)](https://docs.microsoft.com/azure/cloud-services/) aka PaaS VMs ou Web/Worker Roles. Este documento fala apenas sobre a migração de Máquinas Virtuais Azure (clássicas).
+A ASM suporta dois produtos computativos diferentes, Azure Virtual Machines (clássico) aka IaaS VMs & [Azure Cloud Services (clássico)](../cloud-services/index.yml) aka PaaS VMs ou Web/Worker Roles. Este documento fala apenas sobre a migração de Máquinas Virtuais Azure (clássicas).
 
 ## <a name="goal-for-migration"></a>Objetivo para a migração
 O Gestor de Recursos permite a implementação de aplicações complexas através de modelos, configura máquinas virtuais utilizando extensões VM e incorpora a gestão e marcação de acesso. O Azure Resource Manager inclui uma implementação paralela e escalável para máquinas virtuais em conjuntos de disponibilidade. O novo modelo de implementação também fornece gestão do ciclo de vida do cálculo, rede e armazenamento de forma independente. Finalmente, há um foco em permitir a segurança por padrão com a aplicação de máquinas virtuais numa rede virtual.
@@ -39,7 +39,7 @@ Quase todas as funcionalidades do modelo de implementação clássica são supor
 * Contas de Armazenamento
 * Redes Virtuais
 * Gateways de VPN
-* [Gateways de rota expresso](https://docs.microsoft.com/azure/expressroute/expressroute-howto-move-arm) _(apenas na mesma subscrição que apenas a Rede Virtual)_
+* [Gateways de rota expresso](../expressroute/expressroute-howto-move-arm.md) _(apenas na mesma subscrição que apenas a Rede Virtual)_
 * Grupos de Segurança de Rede
 * Tabelas de Rota
 * IPs Reservados
@@ -145,9 +145,9 @@ As seguintes configurações não são suportadas atualmente.
 | Serviço de Aplicações do Azure |Redes virtuais que contêm ambientes de Serviço de Aplicações |Atualmente, isto não é apoiado. |
 | Azure HDInsight |Redes virtuais que contêm serviços HDInsight |Atualmente, isto não é apoiado. |
 | Serviços de ciclo de vida da Microsoft Dynamics |Redes virtuais que contêm máquinas virtuais que são geridas pela Dynamics Lifecycle Services |Atualmente, isto não é apoiado. |
-| Gestão de API do Azure |Redes virtuais que contêm implementações de Gestão API da Azure |Atualmente, isto não é apoiado. Para migrar o IaaS VNET, mude o VNET da implementação da API Management, que não é uma operação de inatividade. |
+| API Management do Azure |Redes virtuais que contêm implementações de Gestão API da Azure |Atualmente, isto não é apoiado. Para migrar o IaaS VNET, mude o VNET da implementação da API Management, que não é uma operação de inatividade. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](migration-classic-resource-manager-deep-dive.md) (Análise detalhada técnica sobre a migração suportada por plataforma da clássica para Azure Resource Manager)
 * [Planear a migração de recursos de IaaS do clássico para o Azure Resource Manager](migration-classic-resource-manager-plan.md)

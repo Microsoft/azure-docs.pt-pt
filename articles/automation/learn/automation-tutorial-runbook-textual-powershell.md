@@ -6,12 +6,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
-ms.openlocfilehash: a1b0dff9421f493958554c659043c49ff2874379
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 896b4db433164471f41aa09791ede5d677028bfb
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87015005"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896617"
 ---
 # <a name="tutorial-create-a-powershell-runbook"></a>Tutorial: Criar um livro de execução PowerShell
 
@@ -71,7 +71,7 @@ Pode escrever o código do tipo diretamente no runbook ou pode selecionar os cmd
 
 2. Guarde o runbook ao clicar em **Guardar**.
 
-## <a name="step-3---test-the-runbook"></a><a name="step-3---test-the-runbook"> </a> Passo 3 - Teste o livro de corridas
+## <a name="step-3---test-the-runbook"></a><a name="step-3---test-the-runbook"></a> Passo 3 - Teste o livro de corridas
 
 Antes de publicar o livro de bordo para o disponibilizar em produção, deverá testá-lo para se certificar de que funciona corretamente. Testar um runbook executa a sua versão Draft e permite-lhe visualizar a sua saída de forma interativa.
 
@@ -131,7 +131,7 @@ O livro de execução que criou ainda está no modo Draft. Tem de ser publicado 
 
 Testou e publicou o seu runbook, mas, até ao momento, não faz nada de útil. Deve fazer com que gira os recursos do Azure. Para isso, o livro deve ser capaz de autenticar utilizando a conta Run As que foi criada automaticamente quando criou a sua conta Demôm automação.
 
-Como mostrado no exemplo abaixo, a ligação Run As é feita com o [cmdlet Connect-AzAccount.](/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0) Se estiver a gerir recursos em várias subscrições, tem de utilizar o `AzContext` parâmetro com [o Get-AzContext](/powershell/module/Az.Accounts/Get-AzContext?view=azps-3.5.0).
+Como mostrado no exemplo abaixo, a ligação Run As é feita com o [cmdlet Connect-AzAccount.](/powershell/module/az.accounts/connect-azaccount) Se estiver a gerir recursos em várias subscrições, tem de utilizar o `AzContext` parâmetro com [o Get-AzContext](/powershell/module/Az.Accounts/Get-AzContext).
 
 > [!NOTE]
 > Para os livros powerShell, `Add-AzAccount` e `Add-AzureRMAccount` são pseudónimos para `Connect-AzAccount` . Pode utilizar estes cmdlets ou [atualizar os seus módulos](../automation-update-azure-modules.md) na sua conta Automation para as versões mais recentes. Poderá ter de atualizar os seus módulos mesmo que tenha acabado de criar uma nova conta Automation.
@@ -198,7 +198,7 @@ Como mostrado no exemplo abaixo, a ligação Run As é feita com o [cmdlet Conne
 
 Agora que o seu runbook está a autenticar a sua subscrição Azure, pode gerir recursos. Vamos adicionar um comando para iniciar uma máquina virtual. Pode escolher qualquer máquina virtual na sua subscrição Azure e apenas código rígido que nome no runbook por enquanto.
 
-1. Ao seu script de runbook, adicione o cmdlet [Start-AzVM](/powershell/module/Az.Compute/Start-AzVM?view=azps-3.5.0) para iniciar a máquina virtual. Como mostrado abaixo, o cmdlet inicia uma máquina virtual com o nome `VMName` e com um grupo de recursos chamado `ResourceGroupName` .
+1. Ao seu script de runbook, adicione o cmdlet [Start-AzVM](/powershell/module/Az.Compute/Start-AzVM) para iniciar a máquina virtual. Como mostrado abaixo, o cmdlet inicia uma máquina virtual com o nome `VMName` e com um grupo de recursos chamado `ResourceGroupName` .
 
    ```powershell
    # Ensures you do not inherit an AzContext in your runbook
@@ -272,10 +272,10 @@ O seu runbook funciona atualmente a máquina virtual que codificaste no livro de
 
 8. Quando o livro de execução estiver concluído, certifique-se de que a máquina virtual foi iniciada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter mais informações sobre o PowerShell, incluindo módulos de referência linguística e aprendizagem, consulte os [PowerShell Docs](/powershell/scripting/overview).
-* Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
+* Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](/powershell/module/az.automation).
 * Para começar com os runbooks gráficos, consulte [Criar um runbook gráfico](automation-tutorial-runbook-graphical.md).
 * Para começar com os livros de fluxo de trabalho PowerShell, consulte [Criar um manual de fluxo de trabalho PowerShell](automation-tutorial-runbook-textual.md).
 * Para saber mais sobre os tipos de runbook e as suas vantagens e limitações, consulte [os tipos de runbook da Azure Automation](../automation-runbook-types.md).

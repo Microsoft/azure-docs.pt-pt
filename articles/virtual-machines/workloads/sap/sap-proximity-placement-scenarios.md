@@ -1,5 +1,5 @@
 ---
-title: Grupos de colocação de proximidade Azure para aplicações SAP / Microsoft Docs
+title: Grupos de colocação de proximidade Azure para aplicações SAP | Microsoft Docs
 description: Descreve cenários de implantação do SAP com grupos de colocação de proximidade do Azure
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/29/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1e6aaf1b37073bf93e0aca8237161bf11af3a872
-ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
+ms.openlocfilehash: ee28f25e766940eb51e92b61fd782b97fd888705
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97827228"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879617"
 ---
 # <a name="azure-proximity-placement-groups-for-optimal-network-latency-with-sap-applications"></a>Grupos de colocação de proximidade azul para a latência ideal da rede com aplicações SAP
 As aplicações SAP baseadas na arquitetura SAP NetWeaver ou SAP S/4HANA são sensíveis à latência da rede entre o nível de aplicação SAP e o nível de base de dados SAP. Esta sensibilidade é o resultado da maior parte da lógica de negócio que funciona na camada de aplicação. Como a camada de aplicação SAP gere a lógica do negócio, emite consultas para o nível da base de dados a uma frequência elevada, a uma taxa de milhares ou dezenas de milhares por segundo. Na maioria dos casos, a natureza destas consultas é simples. Podem ser executados na base de dados em 500 microsegundos ou menos.
@@ -30,11 +30,11 @@ O tempo gasto na rede para enviar essa consulta do nível de aplicação para o 
 
 Em muitas regiões do Azure, o número de centros de dados tem crescido. Ao mesmo tempo, os clientes, especialmente para sistemas SAP de gama alta, estão a utilizar SKUs VM mais especiais da família M ou Mv2, ou HANA Large Instances. Estes tipos de máquinas virtuais Azure nem sempre estão disponíveis em todos os datacenters que complementam uma região do Azure. Estes factos podem criar oportunidades para otimizar a latência da rede entre a camada de aplicação SAP e a camada SAP DBMS.
 
-Para lhe dar a possibilidade de otimizar a latência da rede, o Azure oferece [grupos de colocação de proximidade.](../../linux/co-location.md) Os grupos de colocação de proximidade podem ser usados para forçar o agrupamento de diferentes tipos de VM num único datacenter Azure para otimizar a latência da rede entre estes diferentes tipos de VM da melhor forma possível. No processo de implantação do primeiro VM num grupo de colocação de proximidade, o VM fica ligado a um datacenter específico. Por mais apelativo que pareça esta perspetiva, a utilização da construção introduz também algumas restrições:
+Para lhe dar a possibilidade de otimizar a latência da rede, o Azure oferece [grupos de colocação de proximidade.](../../co-location.md) Os grupos de colocação de proximidade podem ser usados para forçar o agrupamento de diferentes tipos de VM num único datacenter Azure para otimizar a latência da rede entre estes diferentes tipos de VM da melhor forma possível. No processo de implantação do primeiro VM num grupo de colocação de proximidade, o VM fica ligado a um datacenter específico. Por mais apelativo que pareça esta perspetiva, a utilização da construção introduz também algumas restrições:
 
 - Não pode assumir que todos os tipos de VM do Azure estão disponíveis em todos os centros de dados Azure. Como resultado, a combinação de diferentes tipos de VM dentro de um grupo de colocação de proximidade pode ser restringida. Estas restrições ocorrem porque o hardware do anfitrião que é necessário para executar um determinado tipo VM pode não estar presente no datacenter para o qual o grupo de colocação foi implementado
 - Ao redimensionar partes dos VMs que estão dentro de um grupo de colocação de proximidade, não pode assumir automaticamente que em todos os casos o novo tipo VM está disponível no mesmo datacenter que os outros VMs que fazem parte do grupo de colocação de proximidade
-- À medida que o Azure desativa o hardware, pode forçar certos VMs de um grupo de colocação de proximidade em outro datacenter Azure. Para mais detalhes sobre este caso, leia o documento [Co-localizar recursos para uma maior latência](../../linux/co-location.md#planned-maintenance-and-proximity-placement-groups)  
+- À medida que o Azure desativa o hardware, pode forçar certos VMs de um grupo de colocação de proximidade em outro datacenter Azure. Para mais detalhes sobre este caso, leia o documento [Co-localizar recursos para uma maior latência](../../co-location.md#planned-maintenance-and-proximity-placement-groups)  
 
 > [!IMPORTANT]
 > Como resultado das potenciais restrições, devem ser utilizados grupos de colocação de proximidade:
@@ -169,7 +169,7 @@ O resultado desta implantação é:
 Se já tiver sistemas SAP implantados, talvez queira otimizar a latência da rede de alguns dos seus sistemas críticos e localizar a camada de aplicação e a camada DBMS no mesmo datacenter. Para mover os VMs de uma disponibilidade completa de Azure definida para um grupo de colocação de proximidade existente que já está traçado, você precisa desligar todos os VMs do conjunto de disponibilidade e atribuir o conjunto de disponibilidade definido para o grupo de colocação de proximidade existente através do portal Azure, PowerShell ou CLI. Se quiser mover um VM que não faça parte de uma disponibilidade definida para um grupo de colocação de proximidade existente, basta desligar o VM e atribuí-lo a um grupo de colocação de proximidade existente. 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Confira a documentação:
 
 - [Cargas de trabalho sap em Azure: lista de verificação de planeamento e implantação](./sap-deployment-checklist.md)

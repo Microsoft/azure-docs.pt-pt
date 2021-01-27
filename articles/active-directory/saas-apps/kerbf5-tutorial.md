@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure AD integração única com F5 / Microsoft Docs'
+title: 'Tutorial: Azure AD integração única com | F5 Microsoft Docs'
 description: Saiba como configurar um único sign-on (SSO) entre o Azure Ative Directory e o F5.
 services: active-directory
 author: jeevansd
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 16fff00f04c4cd57ad46759cceb50134e58d5e01
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 139366277feab0a04c47311b4f0210223b2bc8d9
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97933120"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98892037"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Tutorial: Azure Ative Directory integração única (SSO) com F5
 
@@ -493,3 +493,9 @@ Quando clicar no azulejo F5 no Painel de Acesso, deverá ser automaticamente ins
 - [Configurar f5 único sinal para aplicação baseada em cabeçalho](headerf5-tutorial.md)
 
 - [Configurar f5 único sinal para aplicação Kerberos Avançada](advance-kerbf5-tutorial.md)
+
+- [F5 BIG-IP APM e Ad AD Azure para acesso híbrido seguro](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-aad-integration)
+
+- [Tutorial para implementar F5 BIG-IP Virtual Edition VM em Azure IaaS para acesso híbrido seguro](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-bigip-deployment-guide)
+
+- [Tutorial para integração única de sign-on do Azure Ative Directory com F5 BIG-IP para VPN sem palavra-passe](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-aad-password-less-vpn)

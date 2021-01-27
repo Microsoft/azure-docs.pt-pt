@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 10/9/2020
-ms.openlocfilehash: 01a1ded570d20d175b5e8eadb3e6cc8556155a85
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 7adc7f568fb82692f2c96f610575076e397bd99c
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554966"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896117"
 ---
 # <a name="register-and-scan-azure-data-explorer"></a>Registar e digitalizar Azure Data Explorer
 
@@ -89,9 +89,9 @@ No ecrã **'Registar' (Azure Data Explorer(Kusto),,** faça o seguinte:
 
 :::image type="content" source="media/register-scan-azure-data-explorer/register-sources.png" alt-text="registar opções de fontes" border="true":::
 
-[!INCLUDE [create and manage scans](includes/manage-scans.md)]
+[!INCLUDE [create and manage scans](includes/manage-scans-azure-data-explorer.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Navegue no catálogo de dados Azure Purview Data](how-to-browse-catalog.md)
 - [Pesse o Catálogo de Dados da Azure Purview](how-to-search-catalog.md)
