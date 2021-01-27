@@ -1,5 +1,5 @@
 ---
-title: Endurecimento de rede adaptativa no Centro de Segurança Azure Microsoft Docs
+title: Endurecimento adaptativo da rede no Centro de Segurança Azure | Microsoft Docs
 description: Aprenda a usar padrões de tráfego reais para endurecer as regras dos seus grupos de segurança de rede (NSG) e melhorar ainda mais a sua postura de segurança.
 services: security-center
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/11/2020
 ms.author: memildin
-ms.openlocfilehash: e2b17e15c5548b4c9b93a62a7d4dfe62ff44404c
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: ca60d5afa38a560492c8574aadd43d6170eca253
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341758"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916189"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Endurecimento de rede adaptativa no Centro de Segurança Azure
 Aprenda a configurar o endurecimento adaptativo da rede no Centro de Segurança.
@@ -26,7 +26,7 @@ Aprenda a configurar o endurecimento adaptativo da rede no Centro de Segurança.
 ## <a name="availability"></a>Disponibilidade
 |Aspeto|Detalhes|
 |----|:----|
-|Estado de libertação:|Geralmente disponível (GA)|
+|Estado de libertação:|Disponibilidade Geral (GA)|
 |Preços:|Requer [Azure Defender para servidores](defender-for-servers-introduction.md)|
 |Funções e permissões necessárias:|Escreva permissões nos NSGs da máquina|
 |Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![No](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
@@ -60,7 +60,7 @@ Por exemplo, digamos que a regra nSG existente é permitir o tráfego a partir d
       * **Não existem dados suficientes**: Para gerar recomendações precisas de endurecimento do tráfego, o Centro de Segurança requer pelo menos 30 dias de dados de tráfego.
       * **O VM não está protegido pelo Azure Defender**: Apenas VMs protegidos com [Azure Defender para servidores](defender-for-servers-introduction.md) são elegíveis para esta funcionalidade.
 
-    :::image type="content" source="./media/security-center-adaptive-network-hardening/recommendation-details-page.png" alt-text="Aceder às ferramentas de endurecimento de rede adaptativas":::
+    :::image type="content" source="./media/security-center-adaptive-network-hardening/recommendation-details-page.png" alt-text="Página de detalhes da recomendação Recomendações de Endurecimento da Rede Adaptativa devem ser aplicadas na internet face a máquinas virtuais":::
 
 1. A partir do separador **recursos insalubres,** selecione um VM para visualizar os seus alertas e as regras de endurecimento recomendadas para aplicar.
 
@@ -78,12 +78,12 @@ Por exemplo, digamos que a regra nSG existente é permitir o tráfego a partir d
     > [!TIP]
     > Se os intervalos de IP de origem permitidas tão bem como 'Nenhum', significa que a regra recomendada é uma regra *de negação,* caso contrário, é uma regra *de permitir.*
 
-    :::image type="content" source="./media/security-center-adaptive-network-hardening/hardening-alerts.png" alt-text="Aceder às ferramentas de endurecimento de rede adaptativas":::
+    :::image type="content" source="./media/security-center-adaptive-network-hardening/hardening-alerts.png" alt-text="Gerir regras de endurecimento de rede adaptativas":::
 
       > [!NOTE]
       > As regras aplicadas são adicionadas ao NSG(s) que protege o VM. (Um VM pode ser protegido por um NSG associado ao seu NIC, ou à sub-rede em que o VM reside, ou ambos)
 
-### <a name="modify-a-rule"></a>Modificar <a name ="modify-rule"> </a> uma regra
+### <a name="modify-a-rule"></a>Modificar <a name ="modify-rule"></a> uma regra
 
 Pode querer modificar os parâmetros de uma regra que foi recomendada. Por exemplo, pode querer alterar os intervalos de IP recomendados.
 
@@ -116,7 +116,7 @@ Algumas orientações importantes para modificar uma regra de endurecimento adap
 
     ![impor regra](./media/security-center-adaptive-network-hardening/enforce-hard-rule.png)
 
-### <a name="add-a-new-rule"></a>Adicione uma <a name ="add-rule"> </a> nova regra
+### <a name="add-a-new-rule"></a>Adicione uma <a name ="add-rule"></a> nova regra
 
 Pode adicionar uma regra de "permitir" que não foi recomendada pelo Centro de Segurança.
 
@@ -139,7 +139,7 @@ Pode adicionar uma regra de "permitir" que não foi recomendada pelo Centro de S
     ![impor regra](./media/security-center-adaptive-network-hardening/enforce-hard-rule.png)
 
 
-### <a name="delete-a-rule"></a>Eliminar uma <a name ="delete-rule"> </a> regra
+### <a name="delete-a-rule"></a>Eliminar uma <a name ="delete-rule"></a> regra
 
 Quando necessário, pode eliminar uma regra recomendada para a sessão atual. Por exemplo, pode determinar que a aplicação de uma regra sugerida pode bloquear o tráfego legítimo.
 

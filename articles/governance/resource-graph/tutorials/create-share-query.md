@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Gerir consultas no portal Azure'
 description: Neste tutorial, cria-se uma Consulta de Gráfico de Recurso e partilha a nova consulta com outros no portal Azure.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: tutorial
-ms.openlocfilehash: 98d4c7d0493686a45bdfef9d85823432cb637a66
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 7240a843cfa041137b28284e396c8a4b62a81926
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057931"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916683"
 ---
 # <a name="tutorial-create-and-share-an-azure-resource-graph-query-in-the-azure-portal"></a>Tutorial: Criar e partilhar uma consulta de Gráfico de Recursos Azure no portal Azure
 
@@ -62,7 +62,7 @@ As consultas privadas são acessíveis e visíveis apenas à conta que as cria. 
 
 Ao contrário de uma consulta privada, uma consulta partilhada é um recurso de Gestor de Recursos. Este facto significa que a consulta é guardada para um grupo de recursos, pode ser gerida e controlada com o Azure RBAC, e pode até ser protegida com bloqueios de recursos. Como recurso, qualquer pessoa que tenha as permissões apropriadas pode vê-lo e usá-lo. Para criar uma nova consulta partilhada, siga estes passos:
 
-1. A partir do menu do portal, selecione **Todos os serviços**ou utilize a caixa de pesquisa Azure no topo de todas as páginas para procurar e selecionar **o Explorador de Gráficos de Recursos**.
+1. A partir do menu do portal, selecione **Todos os serviços** ou utilize a caixa de pesquisa Azure no topo de todas as páginas para procurar e selecionar **o Explorador de Gráficos de Recursos**.
 
 1. No **separador Consulta 1** na página Azure Resource Graph Explorer, insira a seguinte consulta:
 
@@ -84,11 +84,11 @@ Ao contrário de uma consulta privada, uma consulta partilhada é um recurso de 
 
 1. Altere o tipo para **consulta partilhada,** desenrânea a descrição **para Contagem de máquinas virtuais por tipo OS**, e desempenhe a **Subscrição** para especificar onde o recurso de consulta é criado.
 
-1. Deixe a Publicação para a caixa de verificação **de grupo de recursos de recursos de recursos de recursos de recursos** selecionados e a **localização do Grupo de Recursos** definida para **(EUA) West Central US**.
+1. Deixe a Publicação para a caixa de verificação **de grupo de recursos** selecionados e a **localização do Grupo de Recursos** definida para **(EUA) West Central US**.
 
 1. **Selecione Guarde** na parte inferior do painel de **consultas Save.** O título do separador muda de **Consulta 1** para **VMs de Contagem por OS**. A primeira vez que o grupo **de recursos-consultas de gráficos** é usado, o save demora mais do que o esperado à medida que o grupo de recursos é criado.
    
-   :::image type="content" source="../media/create-share-query/save-shared-query-window.png" alt-text="Guarde a nova consulta utilizando o botão de guardar" border="false":::
+   :::image type="content" source="../media/create-share-query/save-shared-query-window.png" alt-text="Guarde a nova consulta como uma consulta partilhada" border="false":::
 
    > [!NOTE] 
    > Pode limpar a caixa de verificação **de recursos de recursos-gráficos de recursos** se quiser fornecer o nome de um grupo de recursos existente para guardar a consulta partilhada. A utilização do grupo de recursos nomeado padrão para consultas torna as consultas partilhadas mais fáceis de descobrir. Torna também o objetivo desse grupo de recursos mais evidente. No entanto, poderá optar por selecionar um grupo de recursos existente por razões de segurança baseadas em permissões existentes.
@@ -97,7 +97,7 @@ Ao contrário de uma consulta privada, uma consulta partilhada é um recurso de 
 
 1. Selecione **Abrir uma consulta**. Verifique se o tipo está definido para **consulta partilhada** e a combinação de **subscrição** e jogo de **grupo de recursos** onde guardou a consulta. O **número de VMs do Conde** Guardado por OS aparece agora na lista **de Nomes de Consulta.** Selecione a ligação de título da consulta guardada para carregá-la em um novo separador com o nome dessa consulta. Como uma consulta partilhada, exibe um ícone no separador ao lado do título, denotando-o como partilhado.
 
-   :::image type="content" source="../media/create-share-query/show-saved-shared-query.png" alt-text="Guarde a nova consulta utilizando o botão de guardar" border="false":::
+   :::image type="content" source="../media/create-share-query/show-saved-shared-query.png" alt-text="Mostrar a Consulta Partilhada com ícone" border="false":::
 
    > [!NOTE] 
    > Quando uma consulta guardada estiver aberta e o separador mostrar o seu nome, o botão **Guardar** atualiza-o com quaisquer alterações que tenham sido efetuadas. Para criar uma nova consulta guardada, **selecione Save as** e proceda como se estivesse a guardar uma nova consulta.
@@ -148,11 +148,11 @@ Pode eliminar uma consulta partilhada através das seguintes interfaces:
 - Abra uma página **de consulta** no Explorador de Gráficos de Recursos
 - Página de grupos de recursos
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando terminar este tutorial, elimine as consultas privadas e partilhadas que criou se já não as quiser.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, criou consultas privadas e partilhadas. Para saber mais sobre a linguagem de gráfico de recurso, continue na página de detalhes da linguagem de consulta.
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 01/10/2021
-ms.openlocfilehash: b6836eee7e0e6ccbfa2628e0e371152f31ddf9d2
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 9d8d37e1b161dfc8344d7ff03bc0093d23f86101
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757547"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98917837"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chave gerida pelo cliente do Azure Monitor 
 
@@ -30,9 +30,6 @@ A chave gerida pelo cliente é entregue em [clusters dedicados](../log-query/log
 Os dados ingeridos nos últimos 14 dias também são mantidos em cache quente (apoiado por SSD) para um funcionamento eficiente do motor de consulta. Estes dados permanecem encriptados com as teclas da Microsoft independentemente da configuração da chave gerida pelo cliente, mas o seu controlo sobre os dados SSD adere à [revogação da chave](#key-revocation). Estamos a trabalhar para ter dados SSD encriptados com a chave gerida pelo Cliente no primeiro semestre de 2021.
 
 Log Analytics Clusters Dedicados usam um [modelo de preços de](../log-query/logs-dedicated-clusters.md#cluster-pricing-model) reserva de capacidade a partir de 1000 GB/dia.
-
-> [!IMPORTANT]
-> Devido a restrições de capacidade temporárias, exigimos que se registe antes de criar um cluster. Utilize os seus contactos na Microsoft ou abrimos o pedido de suporte para registar os IDs das suas subscrições.
 
 ## <a name="how-customer-managed-key-works-in-azure-monitor"></a>Como funciona a chave gerida pelo cliente no Azure Monitor
 
@@ -68,7 +65,6 @@ Aplicam-se as seguintes regras:
 
 ### <a name="customer-managed-key-provisioning-steps"></a>Customer-Managed principais etapas de provisionamento
 
-1. Registar a sua subscrição para permitir a criação de clusters
 1. Criar cofre de chave Azure e armazenar chave
 1. Criação de cluster
 1. Concessão de permissões ao seu Cofre-Chave
@@ -107,10 +103,6 @@ Authorization: Bearer <token>
 ```
 
 ---
-
-### <a name="allowing-subscription"></a>Permitir a subscrição
-
-Utilize os seus contactos na Microsoft ou inicie o pedido de suporte no Log Analytics para fornecer os seus IDs de subscrição.
 
 ## <a name="storing-encryption-key-kek"></a>Chave de encriptação de armazenamento (KEK)
 
@@ -432,7 +424,7 @@ Customer-Managed chave é fornecida em cluster dedicado e estas operações são
 
   - Não é possível utilizar a chave gerida pelo Cliente com identidade gerida pelo Utilizador se o seu Cofre-Chave estiver em Private-Link (vNet). Pode utilizar a identidade gerida atribuída pelo Sistema neste cenário.
 
-## <a name="troubleshooting"></a>Resolução de Problemas
+## <a name="troubleshooting"></a>Resolução de problemas
 
 - Comportamento com disponibilidade de Cofre chave
   - Em funcionamento normal- Caches de armazenamento AEK por curtos períodos de tempo e volta para Key Vault para desembrulhar periodicamente.

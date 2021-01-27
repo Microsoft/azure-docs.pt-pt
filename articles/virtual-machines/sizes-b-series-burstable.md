@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: sttsinar
-ms.openlocfilehash: 14c8584699ddc981fc24cc29b78c187288c6fb57
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 31a65cab7dfdd478560b7babba156cec7645cf33
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98203393"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98917256"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Tamanhos de máquina virtual rebentado da série B
 
@@ -27,8 +27,12 @@ A série B vem nos seguintes tamanhos VM:
 [Migração Ao Vivo](maintenance-and-updates.md): Suportado<br>
 [Atualizações de preservação da memória](maintenance-and-updates.md): Suportado<br>
 [Suporte de geração VM](generation-2.md): Geração 1 e 2<br>
+[Rede Acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): Suportado**<br>
+
+*Os VMs da série B são rebentados e, portanto, os números de ACU variam consoante as cargas de trabalho e a utilização do núcleo.<br>
+**A rede acelerada só é suportada para *Standard_B12ms,* *Standard_B16ms* e *Standard_B20ms*.
 <br>
-*Os VMs da série B são rebentados e, portanto, os números de ACU variam consoante as cargas de trabalho e a utilização do núcleo.
+<br>
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | CpU Base Perf de VM | Max CPU Perf de VM | Créditos Iniciais | Créditos bancários/hora | Créditos Max Banked | Discos de dados máximos | Produção de armazenamento em cache máximo e temporário: IOPS/MBps | Produção de disco não-abacatado por maxilar: IOPS/MBps | NICs máximos |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
@@ -59,7 +63,7 @@ Linha de Base: 270%
 
 ![Gráfico de dados de tráfego de hora em hora](./media/b-series-burstable/office-workload.png)
 
-| Cenário | Hora | Utilização do CPU (%) | Créditos acumulados<sup>1</sup> | Créditos disponíveis |
+| Scenario | Hora | Utilização do CPU (%) | Créditos acumulados<sup>1</sup> | Créditos disponíveis |
 | --- | --- | --- | --- | --- |
 | Implantação de B16ms | Implementação | Implementação  | 480 (Créditos Iniciais) | 480 |
 | Sem trânsito | 0:00 | 0 | 162 | 642 |
@@ -144,13 +148,13 @@ por exemplo, acima de exemplo, a sua linha de base é de 20% e se utilizar 10% d
 - [Com otimização de computação](sizes-compute.md)
 - [Com otimização de memória](sizes-memory.md)
 - [Com otimização de armazenamento](sizes-storage.md)
-- [Com otimização de GPU](sizes-gpu.md)
+- [Otimizada para GPU](sizes-gpu.md)
 - [Computação de elevado desempenho](sizes-hpc.md)
 
 Calculadora de preços: [Calculadora de Preços](https://azure.microsoft.com/pricing/calculator/)
 
 Mais informações sobre tipos de discos : [tipos de discos](./disks-types.md#ultra-disk)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre como [as unidades de computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho do cálculo em Azure SKUs.

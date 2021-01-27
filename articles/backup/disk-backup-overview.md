@@ -3,12 +3,12 @@ title: Visão geral da cópia de segurança do disco Azure
 description: Saiba mais sobre a solução de backup do Disco Azure.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: d73c431fdc2b2906dc1d3d9485bded9449b2f2ba
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 4db2a5f3f02322f18fcf9203c3560905cde86996
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98733035"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98915513"
 ---
 # <a name="overview-of-azure-disk-backup-in-preview"></a>Visão geral da cópia de segurança do disco Azure (na pré-visualização)
 
@@ -53,7 +53,7 @@ Considere a cópia de segurança do disco Azure em cenários onde:
 
 ## <a name="how-the-backup-and-restore-process-works"></a>Como funciona o processo de backup e restauro
 
-- O primeiro passo para configurar o backup para as ações de ficheiros Azure é criar um [cofre de reserva.](backup-vault-overview.md) O cofre dá-lhe uma visão consolidada das cópias de segurança configuradas em diferentes cargas de trabalho.
+- O primeiro passo para configurar o backup para discos geridos a Azure é criar um [cofre de reserva.](backup-vault-overview.md) O cofre dá-lhe uma visão consolidada das cópias de segurança configuradas em diferentes cargas de trabalho.
 
 - Em seguida, crie uma política de backup que lhe permita configurar a frequência de backup e a duração da retenção.
 

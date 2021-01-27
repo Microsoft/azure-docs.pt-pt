@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/10/2020
+ms.date: 01/27/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 84a3ef7b41b17e85c594213246211d45911ac56a
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: a39230cc65db6ef12b6fa4364454aeb434efddf6
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94953054"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918216"
 ---
 # <a name="tutorial-register-a-web-application-in-azure-active-directory-b2c"></a>Tutorial: Registar uma aplicação web no Azure Ative Directory B2C
 
@@ -99,7 +99,15 @@ Para uma aplicação web, você precisa criar um segredo de aplicação. Este se
 
 * * *
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="enable-id-token-implicit-grant"></a>Permitir concessão implícita de id simbólico
+
+A característica determinante da subvenção implícita é que os tokens, como o ID e os tokens de acesso, são devolvidos diretamente do Azure AD B2C à aplicação. Para aplicações web, como ASP.NET aplicações web Core [https://jwt.ms](https://jwt.ms) e, que solicitam um token de ID diretamente do ponto final de autorização, ativar o fluxo de subvenção implícita no registo da aplicação.
+
+1. No menu esquerdo, em **Manage,** **selecione Autenticação.**
+1. Sob a concessão implícita, selecione as caixas de verificação **de fichas de acesso** e **id.**
+1. Selecione **Guardar**.
+
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu a:
 

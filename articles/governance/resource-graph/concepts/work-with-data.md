@@ -1,15 +1,15 @@
 ---
 title: Trabalhar com grandes conjuntos de dados
 description: Entenda como obter, formato, página e saltar registos em grandes conjuntos de dados enquanto trabalha com o Azure Resource Graph.
-ms.date: 09/30/2020
+ms.date: 01/27/2021
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 59f69738bf9fe25cb739539b7a1f93e4499d781a
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: 1eaabfdd78712966f3b21d869259a312db31b7bc
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97826021"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98917695"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Trabalhar com grandes conjuntos de dados de recursos Azure
 
@@ -65,7 +65,7 @@ Na [API REST,](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/
 ## <a name="paging-results"></a>Resultados de paginação
 
 Quando for necessário quebrar um resultado definido em conjuntos menores de registos para processamento ou porque um conjunto de resultados excederia o valor máximo permitido de _1000_ registos devolvidos, use a paging. A [PER API](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources) 
- **QueryResponse** fornece valores que indicam que um conjunto de resultados foi quebrado: **resultados $skipToken** e **$skipToken**. **resultadoTruncado** é um valor booleano que informa o consumidor se houver registos adicionais não devolvidos na resposta. Esta condição também pode ser identificada quando a propriedade **de contagem** é inferior à propriedade **TotalRecords.** **totalRecords** define quantos registos correspondem à consulta.
+ **QueryResponse** fornece valores que indicam que um conjunto de resultados foi quebrado: **resultados $skipToken** e **$skipToken**. **resultadoTruncado** é um valor booleano que informa o consumidor se há mais registos não devolvidos na resposta. Esta condição também pode ser identificada quando a propriedade **de contagem** é inferior à propriedade **TotalRecords.** **totalRecords** define quantos registos correspondem à consulta.
 
  **resultadoSTruncado** é **verdadeiro** quando ou a paging é desativada ou não é possível porque nenhuma `id` coluna ou quando há menos recursos disponíveis do que uma consulta está solicitando. Quando **o resultado É** **verdade,** a **propriedade $skipToken** não está definida.
 
@@ -94,7 +94,7 @@ Os resultados do Azure CLI são fornecidos em JSON por padrão. Os resultados em
 
 O formato predefinido, _Table_, retorna resulta num formato JSON projetado para realçar os valores de design da coluna e linha das propriedades devolvidas pela consulta. Este formato assemelha-se muito aos dados definidos numa tabela estruturada ou numa folha de cálculo com as colunas identificadas primeiro e, em seguida, cada linha que representa dados alinhados com essas colunas.
 
-Aqui está uma amostra de um resultado de consulta com a formatação _da tabela:_
+Aqui está uma amostra de um resultado de consulta com a formatação da _tabela:_
 
 ```json
 {
@@ -168,7 +168,7 @@ request = QueryRequest(query="Resources | limit 1", subscriptions=subs_list, opt
 response = client.resources(request)
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte o idioma em uso nas [consultas de arranque](../samples/starter.md).
 - Consulte utilizações avançadas em [consultas avançadas.](../samples/advanced.md)

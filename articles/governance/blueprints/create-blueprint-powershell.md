@@ -1,14 +1,14 @@
 ---
 title: 'Quickstart: Criar uma planta com PowerShell'
 description: Neste arranque rápido, utiliza-se a Azure Blueprints para criar, definir e implantar artefactos utilizando o PowerShell.
-ms.date: 08/27/2020
+ms.date: 01/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: 339cd4628cda5f469a783db02c10f86259c93941
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 65d573d0aec7d5f292bc985483e1f12c350ae03a
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89051513"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918284"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>Quickstart: Definir e atribuir uma planta Azure com PowerShell
 
@@ -16,9 +16,9 @@ Aprender a criar e atribuir plantas permite que a definição de padrões comuns
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
-
-Se ainda não estiver instalado, siga as instruções do [módulo Az.Blueprint](./how-to/manage-assignments-ps.md#add-the-azblueprint-module) para instalar e validar o módulo **Az.Blueprint** da Galeria PowerShell.
+- Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
+- Se ainda não estiver instalado, siga as instruções do [módulo Az.Blueprint](./how-to/manage-assignments-ps.md#add-the-azblueprint-module) para instalar e validar o módulo **Az.Blueprint** da Galeria PowerShell.
+- Se nunca tenha utilizado a Azure Blueprints antes, registe o fornecedor de recursos através da Azure PowerShell com `Register-AzResourceProvider -ProviderNamespace Microsoft.Blueprint` .
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -379,7 +379,7 @@ Uma vez que uma planta é publicada usando PowerShell, é atribuível a uma subs
      > [!IMPORTANT]
      > A Azure Blueprints não gere a identidade gerida atribuída pelo utilizador. Os utilizadores são responsáveis por atribuir funções e permissões suficientes ou a atribuição do projeto falhará.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 ### <a name="unassign-a-blueprint"></a>Anular a atribuição de um esquema
 
@@ -391,7 +391,7 @@ atribuirMyBlueprint
 Remove-AzBlueprintAssignment -Name 'assignMyBlueprint'
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido, criaste, atribuiste e removeste uma planta com o PowerShell. Para saber mais sobre a Azure Blueprints, continue para o artigo do ciclo de vida do projeto.
 

@@ -1,14 +1,14 @@
 ---
 title: Visão geral da amostra de amostra de projeto HIPAA HITRUST 9.2
 description: Visão geral da amostra de planta HIPAA HITRUST 9.2. Esta amostra de planta ajuda os clientes a avaliar controlos específicos do HIPAA HITRUST 9.2.
-ms.date: 09/04/2020
+ms.date: 01/27/2021
 ms.topic: sample
-ms.openlocfilehash: 4df6f05019976b3de1172cc5127c27ac00fe3c44
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd65b6113f291457096bacc02bdbcfd92d6e0f84
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89493693"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98915551"
 ---
 # <a name="hipaa-hitrust-92-blueprint-sample"></a>Amostra de planta HIPAA HITRUST 9.2
 
@@ -18,7 +18,7 @@ A amostra de planta HIPAA HITRUST 9.2 fornece guarda-trilhos de governação uti
 
 O [mapeamento de controlo de política Azure](../../policy/samples/hipaa-hitrust-9-2.md) fornece detalhes sobre as definições de política incluídas neste projeto e como estas definições de política mapeiam para os **domínios** de conformidade e **controlos** no HIPAA HITRUST 9.2. Quando atribuídos a uma arquitetura, os recursos são avaliados pela Azure Policy para o incumprimento das definições políticas atribuídas. Para obter mais informações, veja [Azure Policy](../../policy/overview.md).
 
-## <a name="deploy"></a>Implementação
+## <a name="deploy"></a>Implementar
 
 Para implantar a amostra de planta Azure Blueprints HIPAA HITRUST 9.2, devem ser tomadas as seguintes medidas:
 
@@ -60,7 +60,7 @@ A cópia do esquema de exemplo está agora criada no seu ambiente. Está criada 
 
 ### <a name="assign-the-sample-copy"></a>Atribuir a cópia de exemplo
 
-Uma vez publicada com **sucesso**a cópia da amostra de plantas, pode ser atribuída a uma subscrição dentro do grupo de gestão a que foi guardada. É neste passo que são fornecidos os parâmetros que fazem com que cada implementação da cópia do esquema de exemplo seja única.
+Uma vez publicada com **sucesso** a cópia da amostra de plantas, pode ser atribuída a uma subscrição dentro do grupo de gestão a que foi guardada. É neste passo que são fornecidos os parâmetros que fazem com que cada implementação da cópia do esquema de exemplo seja única.
 
 1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Esquemas**.
 
@@ -161,7 +161,7 @@ A tabela seguinte mostra uma lista dos parâmetros dos artefactos de esquema:
 |Auditoria HiTRUST/HIPAA controla e implementa extensões VM específicas para apoiar os requisitos de auditoria |Firewall do Windows: Privado: Permitir resposta unicast |Especifica se o Windows Firewall com Segurança Avançada permite que o computador local receba respostas unicast às suas mensagens multicast ou de transmissão de saída; para o perfil privado. |
 |Auditoria HiTRUST/HIPAA controla e implementa extensões VM específicas para apoiar os requisitos de auditoria |Firewall do Windows: Público: Permitir resposta unicast |Especifica se o Windows Firewall com Segurança Avançada permite que o computador local receba respostas unicast às suas mensagens multicast ou de transmissão de saída; para o perfil público. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Artigos adicionais sobre esquemas e como os utilizar:
 

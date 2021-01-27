@@ -1,14 +1,14 @@
 ---
 title: Compreender o ciclo de vida de uma planta
 description: Conheça o ciclo de vida que uma definição de planta passa e detalhes sobre cada etapa, incluindo atualizar e remover atribuições de projeto.
-ms.date: 08/27/2020
+ms.date: 01/27/2021
 ms.topic: conceptual
-ms.openlocfilehash: c1de2cf869362154b112c3eef74ed1fb0db3a993
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 721a198b5732af01c6712e86bc0c8e8ef543b404
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89049711"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918522"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Compreenda o ciclo de vida de uma Planta Azure
 
@@ -55,7 +55,7 @@ Para publicar um projeto com **Alterações Não Publicadas,** use os mesmos pas
 
 ## <a name="deleting-a-specific-version-of-the-blueprint"></a>Apagar uma versão específica da planta
 
-Cada versão de uma planta é um objeto único e pode ser **publicada**individualmente. Como tal, cada versão de uma planta também pode ser eliminada. Excluir uma versão de uma planta não tem qualquer impacto noutras versões dessa planta.
+Cada versão de uma planta é um objeto único e pode ser **publicada** individualmente. Como tal, cada versão de uma planta também pode ser eliminada. Excluir uma versão de uma planta não tem qualquer impacto noutras versões dessa planta.
 
 > [!NOTE]
 > Não é possível apagar uma planta que tenha missões ativas. Elimine as atribuições primeiro e, em seguida, elimine a versão que pretende remover.
@@ -104,7 +104,7 @@ Se o projeto já não for necessário, pode ser não atribuído ao grupo de gest
 > [!NOTE]
 > Todos os recursos utilizados pela atribuição do projeto permanecem no local, mas já não estão protegidos pela Azure Blueprints.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](./parameters.md).
 - Aprenda a personalizar a [ordem de sequenciação do esquema](./sequencing-order.md).

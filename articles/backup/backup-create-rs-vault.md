@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a criar e configurar cofres dos Serviços de 
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.custom: references_regions
-ms.openlocfilehash: 3ba9f47da4a4c9719c313ba196ca121f8cde54ad
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: 51d095ab68bc9277cb610bd226039ffbde8d7ddf
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387739"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98915731"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Criar e configurar um cofre dos Serviços de Recuperação
 
@@ -46,9 +46,9 @@ A opção de restauro **Cross Region Restore (CRR)** permite-lhe restaurar os da
 
 Suporta os seguintes recursos de dados:
 
-- VMs do Azure
-- Bases de dados SQL hospedadas em VMs Azure
-- Bases de dados SAP HANA hospedadas em VMs Azure
+- VMs Azure (disponibilidade geral)
+- Bases de dados SQL hospedadas em VMs Azure (pré-visualização)
+- Bases de dados SAP HANA hospedadas em VMs Azure (pré-visualização)
 
 A utilização do Cross Region Restore permite-lhe:
 
@@ -65,11 +65,12 @@ Uma vez que este processo está ao nível de armazenamento, [existem implicaçõ
 >Antes de começar:
 >
 >- Reveja a matriz de [apoio](backup-support-matrix.md#cross-region-restore) para uma lista de tipos e regiões geridos apoiados.
->- A funcionalidade Cross Region Restore (CRR) está agora pré-visualizada em todas as regiões públicas do Azure.
+>- A funcionalidade Cross Region Restore (CRR) para VMs Azure está agora em disponibilidade geral em todas as regiões públicas do Azure.
+>- As bases de dados Cross Region Restore para as bases de dados SQL e SAP HANA estão em pré-visualização em todas as regiões públicas do Azure.
 >- CRR é uma função de opt-in de nível de abóbada para qualquer cofre GRS (desligado por defeito).
 >- Depois de optar, pode levar até 48 horas para que os itens de reserva estejam disponíveis em regiões secundárias.
 >- Atualmente, crr para VMs Azure é suportado apenas para Azure Resource Manger Azure VMs. Os VMs clássicos do Azure não serão suportados.  Quando tipos de gestão adicionais suportam CRR, então eles serão **automaticamente** matriculados.
->- O Cross Region Restore não pode ser revertido para GRS ou LRS uma vez que a proteção é iniciada pela primeira vez.
+>- O Cross Region Restore **não pode ser revertido** para GRS ou LRS uma vez que a proteção é iniciada pela primeira vez.
 
 ### <a name="configure-cross-region-restore"></a>Conigure Região Cruzada Restaurar
 

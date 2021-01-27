@@ -1,15 +1,15 @@
 ---
 title: Documentação de orientação para pedidos limitados
 description: Aprenda a agrupar, cambalear, paginar e consultar em paralelo para evitar que os pedidos sejam estrangulados pelo Azure Resource Graph.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4a8ba991d13b9be221e67f2ff1e393fb01f8a2d4
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: ddd3cf4d411733e831c94039c3bc9aeaf0e95271
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056179"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98917712"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Orientação para pedidos acelerados no Gráfico de Recursos Azure
 
@@ -156,7 +156,7 @@ while (/* Need to query more? */)
 
 ### <a name="query-in-parallel"></a>Consulta em Paralelo
 
-Embora o agrupamento seja recomendado sobre a paralelização, há momentos em que as consultas não podem ser facilmente agrupadas. Nestes casos, poderá querer consultar o Azure Resource Graph enviando várias consultas de forma paralela. Aqui está um exemplo de como _recuar_ com base em cabeçalhos estrangulantes em tais cenários:
+Embora o agrupamento seja recomendado sobre a paralelização, há momentos em que as consultas não podem ser facilmente agrupadas. Nestes casos, poderá querer consultar o Azure Resource Graph enviando várias consultas de forma paralela. Aqui está um exemplo de como _recuar_ com base em cabeçalhos de estrangulamento em tais cenários:
 
 ```csharp
 IEnumerable<IEnumerable<string>> queryGroup = /* Groups of queries  */
@@ -233,14 +233,14 @@ Uma vez que o Azure Resource Graph retorna no máximo 1000 entradas numa única 
 
 Se for estrangulado depois de exercer as recomendações acima, contacte a equipa em [resourcegraphsupport@microsoft.com](mailto:resourcegraphsupport@microsoft.com) .
 
-Fornecer estes detalhes:
+Indique estes detalhes:
 
 - O seu caso de utilização específico e o seu motorista de negócios precisam de um limite de estrangulamento mais elevado.
 - A quantos recursos tem acesso? Quantos são devolvidos de uma única consulta?
 - Que tipo de recursos está interessado?
 - Qual é o seu padrão de consulta? X consultas por Y segundos, e assim por diante.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte o idioma em uso nas [consultas de arranque](../samples/starter.md).
 - Consulte utilizações avançadas em [consultas avançadas.](../samples/advanced.md)

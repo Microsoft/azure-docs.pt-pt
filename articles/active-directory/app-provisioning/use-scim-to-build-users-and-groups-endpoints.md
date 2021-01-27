@@ -1,97 +1,32 @@
 ---
-title: Construa um ponto final SCIM para o fornecimento de utilizadores a apps a partir do Azure AD
-description: O sistema de gestão de identidade de domínio cruzado (SCIM) normaliza o fornecimento automático do utilizador. Aprenda a desenvolver um ponto final SCIM, integre a sua API SCIM com o Azure Ative Directory e comece a automatizar utilizadores e grupos de provisionamento nas suas aplicações em nuvem.
+title: Construa um ponto final SCIM para o fornecimento de utilizadores a apps do Azure Ative Directory
+description: O sistema de gestão de identidade de domínio cruzado (SCIM) normaliza o fornecimento automático do utilizador. Aprenda a desenvolver um ponto final SCIM, integre a sua API SCIM com o Azure Ative Directory e comece a automatizar utilizadores e grupos de provisionamento nas suas aplicações em nuvem com o Azure Ative Directory.
 services: active-directory
-documentationcenter: ''
-author: msmimart
+author: kenwith
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/07/2020
-ms.author: mimart
+ms.date: 01/27/2021
+ms.author: kenwith
 ms.reviewer: arvinh
-ms.custom: aaddev;it-pro;seohack1
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ae36af981b113d44ac1b8fd45a1d084760b0294
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 34fa76197c4e08cffd1d8c66d6877b3e427e9fd6
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/27/2021
-ms.locfileid: "98900245"
+ms.locfileid: "98918149"
 ---
 # <a name="tutorial-develop-a-sample-scim-endpoint"></a>Tutorial: Desenvolver uma amostra scim ponto final
 
-Ninguém quer construir um novo ponto final do zero, por isso criámos um código de [referência](https://aka.ms/scimreferencecode) para começares com o [SCIM.](https://aka.ms/scimoverview) Este tutorial descreve como implementar o código de referência SCIM em Azure e testá-lo usando carteiro ou integrando-se com o cliente Azure AD SCIM. Pode colocar o seu ponto de final do SCIM a funcionar sem código em apenas 5 minutos. Este tutorial destina-se a programadores que pretendam começar com o SCIM ou outros interessados em testar um ponto final sicm. 
+Ninguém quer construir um novo ponto final do zero, por isso criámos um código de [referência](https://aka.ms/scimreferencecode) para começares com o [SCIM.](https://aka.ms/scimoverview) Este tutorial descreve como implementar o código de referência SCIM em Azure e testá-lo usando o Carteiro ou integrando-se com o cliente Azure AD SCIM. Pode colocar o seu ponto de final do SCIM a funcionar sem código em apenas 5 minutos. Este tutorial destina-se a programadores que pretendam começar com o SCIM ou outros interessados em testar um ponto final sicm. 
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Faça o download do código de referência
 > * Implemente o seu ponto final SCIM em Azure
 > * Teste o seu ponto final SCIM
-
-As capacidades do ponto final, incluídas são:
-
-|Ponto final|Descrição|
-|---|---|
-|`/User`|Executar operações CRUD num recurso do utilizador: **Criar,** **Atualizar,** **Eliminar,** **Obter,** **Lista,** **Filtro**|
-|`/Group`|Executar operações CRUD num recurso de grupo: **Criar,** **Atualizar,** **Eliminar,** **Obter,** **Lista,** **Filtro**|
-|`/Schemas`|Recupere um ou mais esquemas suportados.<br/><br/>O conjunto de atributos de um recurso suportado por cada prestador de serviços pode variar, por exemplo, o Prestador de Serviços A suporta "nome", "título" e "e-mails" enquanto o Fornecedor de Serviços B suporta "nome", "título" e "telefoneNumbers" para os utilizadores.|
-|`/ResourceTypes`|Recupere os tipos de recursos suportados.<br/><br/>O número e tipos de recursos suportados por cada prestador de serviços pode variar, por exemplo, o Prestador de Serviços A suporta os utilizadores enquanto o Fornecedor de Serviços B suporta utilizadores e grupos.|
-|`/ServiceProviderConfig`|Configuração SCIM do prestador de serviços de recuperação<br/><br/>As funcionalidades SCIM suportadas por cada prestador de serviços podem variar, por exemplo, o Fornecedor de ServiçoS A suporta as operações de Patch, enquanto o Fornecedor de Serviços B suporta as Operações de Patch e a Schema Discovery.|
-
-## <a name="download-the-reference-code"></a>Faça o download do código de referência
-
-O [código de referência](https://github.com/AzureAD/SCIMReferenceCode) a ser descarregado inclui os seguintes projetos:
-
-- **Microsoft.SystemForCrossDomainIdentityManagement**, a API web .NET Core MVC para construir e providenciar uma API SCIM
-- **Microsoft.SCIM.WebHostSample**, um exemplo de trabalho de um ponto final SCIM
-
-Os projetos contêm as seguintes pastas e ficheiros:
-
-|Arquivo/pasta|Descrição|
-|-|-|
-|Pasta **De Esquemas**| Os modelos para os recursos **do Utilizador** e **do Grupo** juntamente com algumas classes abstratas como o Schematized para funcionalidades partilhadas.<br/><br/> Uma pasta **Atributos** que contém as definições de classe para atributos complexos de **Utilizadores** e **Grupos,** tais como endereços.|
-|Pasta **de serviço** | Contém lógica para ações relacionadas com a forma como os recursos são consultados e atualizados.<br/><br/> O código de referência tem serviços para devolver utilizadores e grupos.<br/><br/>A pasta **dos controladores** contém os vários pontos finais do SCIM. Os controladores de recursos incluem verbos HTTP para executar operações CRUD no recurso **(GET**, **POST,** **PUT,** **PATCH**, **DELETE**). Os controladores confiam nos serviços para executar as ações.|
-|**Pasta de protocolo**|Contém lógica para ações relacionadas com a forma como os recursos são devolvidos de acordo com o SCIM RFC, tais como:<br/><ul><li>Devolvendo vários recursos como lista.</li><li>Devolvendo apenas recursos específicos com base num filtro.</li><li>Transformar uma consulta numa lista de listas ligadas de filtros individuais.</li><li>Transformar um pedido PATCH numa operação com atributos relativos ao percurso de valor.</li><li>Definição do tipo de operação que pode ser usado para aplicar alterações em objetos de recursos.</li></ul>|
-|`Microsoft.SystemForCrossDomainIdentityManagement`| Código fonte de amostra.|
-|`Microsoft.SCIM.WebHostSample`| Implementação da amostra da biblioteca SCIM.|
-|*.gitignore*|Defina o que ignorar no momento de compromisso.|
-|*CHANGELOG.md*|Lista de alterações à amostra.|
-|*CONTRIBUTING.md*|Orientações para contribuir para a amostra.|
-|*README.md*|Este ficheiro **README.**|
-|*LICENÇA*|A licença para a amostra.|
-
-> [!NOTE]
-> Este código destina-se a ajudar a iniciar a construção de um ponto final SCIM e é fornecido **COMO IS**. As referências incluídas não têm garantia de manutenção ativa ou suporte.
->
-> Este projeto adotou o [Microsoft Open Source Code of Conduct (Código de Conduta do Microsoft Open Source)](https://opensource.microsoft.com/codeofconduct/). Como [tal,](https://github.com/AzureAD/SCIMReferenceCode/wiki/Contributing-Overview) as contribuições da comunidade são bem-vindas para ajudar a construir e manter o repo, e como outras contribuições de código aberto, você concordará com um Contrato de Licença de Contribuinte (CLA). Este acordo declara que tem e concede os direitos de utilização da sua contribuição, para mais detalhes, consulte [o Microsoft Open Source](https://cla.opensource.microsoft.com).
->
-> Para obter mais informações, veja a [Code of Conduct FAQ (FAQ do Código de Conduta)](https://opensource.microsoft.com/codeofconduct/faq/) ou envie um e-mail para [opencode@microsoft.com](mailto:opencode@microsoft.com) com quaisquer perguntas ou comentários adicionais.
-
-###  <a name="use-multiple-environments"></a>Use vários ambientes
-
-O código SCIM incluído utiliza um ambiente core ASP.NET para controlar a sua autorização de utilização no desenvolvimento e após a implantação, ver [Utilizar vários ambientes em ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/environments?view=aspnetcore-3.1).
-
-```csharp
-private readonly IWebHostEnvironment _env;
-...
-
-public void ConfigureServices(IServiceCollection services)
-{
-    if (_env.IsDevelopment())
-    {
-        ...
-    }
-    else
-    {
-        ...
-    }
-```
 
 ## <a name="deploy-your-scim-endpoint-in-azure"></a>Implemente o seu ponto final SCIM em Azure
 
@@ -206,7 +141,7 @@ Já está! Agora pode executar a coleção **Do Carteiro** para testar a funcion
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para desenvolver um utilizador compatível com o SCIM e ponto final de grupo com interoperabilidade para um cliente, consulte a implementação do [cliente SCIM](http://www.simplecloud.info/#Implementations2).
+Para desenvolver um utilizador compatível com SCIM e ponto final de grupo com interoperabilidade para um cliente, consulte a implementação do [cliente SCIM](http://www.simplecloud.info/#Implementations2).
 
 > [!div class="nextstepaction"]
 > [Tutorial: Desenvolver e planear o provisionamento para um ponto](use-scim-to-provision-users-and-groups.md) 

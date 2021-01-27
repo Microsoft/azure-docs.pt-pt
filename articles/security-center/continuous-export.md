@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 12/24/2020
 ms.author: memildin
-ms.openlocfilehash: 823992ba6d3b175c8d20a001f8298a5c4af9a1ae
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 845ff6f0905b232b9ec68dbe127ef7f47a6ad898
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97832714"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916794"
 ---
 # <a name="continuously-export-security-center-data"></a>Exportar continuamente dados do Centro de Segurança
 
@@ -25,6 +25,8 @@ O Centro de Segurança Azure gera alertas e recomendações de segurança detalh
 - Todos os resultados de severidade média ou superior a partir de análises de vulnerabilidade dos seus servidores SQL são enviados para um espaço de trabalho específico do Log Analytics
 - Recomendações específicas são entregues a um centro de eventos ou espaço de trabalho Log Analytics sempre que são geradas 
 - A pontuação segura de uma subscrição é enviada para um espaço de trabalho Log Analytics sempre que a pontuação para um controlo muda por 0.01 ou mais 
+
+Apesar de a funcionalidade ser chamada *de contínua,* existe também uma opção para exportar instantâneos semanais de pontuação segura ou dados de conformidade regulamentar.
 
 Este artigo descreve como configurar a exportação contínua para espaços de trabalho Log Analytics ou Azure Event Hubs.
 
@@ -39,7 +41,7 @@ Este artigo descreve como configurar a exportação contínua para espaços de t
 
 |Aspeto|Detalhes|
 |----|:----|
-|Estado de libertação:|Geralmente disponível (GA)|
+|Estado de libertação:|Disponibilidade Geral (GA)|
 |Preços:|Gratuito|
 |Funções e permissões necessárias:|<ul><li>**Administrador de segurança** ou **Proprietário** no grupo de recursos</li><li>Escreva permissões para o recurso alvo</li><li>Se estiver a utilizar as políticas de Azure 'DeployIfNotExist' descritas abaixo, também necessitará de permissões para atribuir políticas</li></ul>|
 |Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Yes](./media/icons/yes-icon.png) US Gov, Outro Gov<br>![Yes](./media/icons/yes-icon.png) China Gov (para o Centro de Eventos)|
@@ -78,6 +80,10 @@ Os passos abaixo são necessários quer esteja a configurar uma exportação con
     Aqui vê-se as opções de exportação. Há um separador para cada alvo de exportação disponível. 
 
 1. Selecione o tipo de dados que pretende exportar e escolha entre os filtros de cada tipo (por exemplo, exportar apenas alertas de alta gravidade).
+1. Selecione a frequência de exportação adequada:
+    - **Streaming** – as avaliações serão enviadas em tempo real quando o estado de saúde de um recurso for atualizado (se não ocorrerem atualizações, não serão enviados dados).
+    - **Snapshots** – uma imagem do estado atual de todas as avaliações de conformidade regulamentar será enviada todas as semanas (esta é uma funcionalidade de pré-visualização para instantâneos semanais de pontuações seguras e dados de conformidade regulamentar).
+
 1. Opcionalmente, se a sua seleção incluir uma destas recomendações, pode incluir os resultados da avaliação da vulnerabilidade juntamente com eles:
     - Os resultados da Avaliação de Vulnerabilidades nas suas bases de dados SQL devem ser remediados
     - As conclusões da Avaliação de Vulnerabilidade nos seus servidores SQL em máquinas devem ser remediadas (Pré-visualização)
@@ -223,7 +229,7 @@ Saiba mais sobre [os preços do Azure Event Hub](https://azure.microsoft.com/pri
 
 ### <a name="does-the-export-include-data-about-the-current-state-of-all-resources"></a>A exportação inclui dados sobre o estado atual de todos os recursos?
 
-N.º A exportação contínua é construída para o streaming de **eventos:**
+Não. A exportação contínua é construída para o streaming de **eventos:**
 
 - **Os alertas recebidos** antes de permitir a exportação não serão exportados.
 - **As recomendações** são enviadas sempre que o estado de conformidade de um recurso muda. Por exemplo, quando um recurso passa de saudável para insalubre. Portanto, tal como nos alertas, as recomendações para recursos que não mudaram de estado, uma vez que permitiu exportar, não serão exportadas.
@@ -249,7 +255,7 @@ Sim! Note que muitos alertas do Centro de Segurança só são fornecidos quando 
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu a configurar as exportações contínuas das suas recomendações e alertas. Também aprendeu a descarregar os seus dados de alerta como um ficheiro CSV. 
 

@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/05/2020
+ms.date: 01/27/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 980e830716b66b63c8f2dc6e641a88af26d44871
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 80be5ca22f3dfb673f09327108e66fccc9de6ddd
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027069"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918048"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Políticas de palavra-passe e restrições de conta no Azure Ative Directory
 
@@ -49,7 +49,7 @@ A política de palavra-passe AD AD não se aplica às contas de utilizador sincr
 
 São definidas as seguintes opções de política de palavra-passe AZure AD. A menos que seja notado, não pode alterar estas definições:
 
-| Propriedade | Requisitos |
+| Propriedade | Requirements |
 | --- | --- |
 | Caracteres permitidos |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li># $ % ^ & * - _ ! + = { { } &#124; \ : '' . ? / \` ~ " ( ) ;</li> <li>espaço em branco</li></ul> |
 | Caracteres não são permitidos | Caracteres unicódigo. |
@@ -75,6 +75,7 @@ A política de dois portões requer duas peças de dados de autenticação, como
   * Suporte parceiro Tier1
   * Suporte parceiro Tier2
   * Administrador do Exchange
+  * Administrador da caixa de correio
   * Administrador do Skype para Empresas
   * Administrador de utilizadores
   * Escritores de diretórios
@@ -85,10 +86,12 @@ A política de dois portões requer duas peças de dados de autenticação, como
   * Administrador de segurança
   * Administrador privilegiado
   * Administrador do Intune
+  * Azure Ad ad ad dispositivo local administrador
   * Administrador de serviço de procuração de aplicação
   * Administrador dinâmico 365
   * Administrador do serviço Power BI
   * Administrador de autenticação
+  * Administrador de palavras-passe
   * Administrador de Autenticação Privilegiada
 
 * Se tiverem decorrido 30 dias de subscrição experimental; ou
@@ -176,7 +179,7 @@ Depois de instalar o módulo, utilize os seguintes passos para completar cada ta
    > [!WARNING]
    > As palavras-passe definidas `-PasswordPolicies DisablePasswordExpiration` para a idade ainda com base no `pwdLastSet` atributo. Com base no `pwdLastSet` atributo, se alterar a expiração para `-PasswordPolicies None` , todas as palavras-passe com `pwdLastSet` mais de 90 dias exigem que o utilizador as altere da próxima vez que iniciar sôs. Esta alteração pode afetar um grande número de utilizadores.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para começar com o SSPR, consulte [Tutorial: Ative os utilizadores para desbloquearem a sua conta ou redefinirem as palavras-passe utilizando o reset da palavra-passe de autosserviço do Azure Ative Directory](tutorial-enable-sspr.md).
 

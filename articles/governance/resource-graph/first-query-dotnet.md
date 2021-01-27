@@ -1,15 +1,15 @@
 ---
 title: 'Quickstart: A sua primeira consulta .NET Core'
 description: Neste arranque rápido, siga os passos para ativar os pacotes De NuGet de Gráfico de Recurso para .NET Core e executar a sua primeira consulta.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5f825b22712956c0b94531ddb163301167f30f00
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 0135dfd499af48b3c60314679f4c9b635a5ce15a
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057472"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98917576"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-net-core"></a>Quickstart: Executar a sua primeira consulta de Gráfico de Recurso usando .NET Core
 
@@ -131,11 +131,11 @@ Em cada chamada `argQuery` para, existem variáveis que são usadas que você pr
 
 Quando a consulta final é executada várias vezes, assumindo que nada no seu ambiente está a mudar, os resultados devolvidos são consistentes e encomendados pela propriedade **Name,** mas ainda limitados aos cinco melhores resultados.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se desejar remover a aplicação da consola .NET Core e as embalagens instaladas, pode fazê-lo eliminando a pasta do `argQuery` projeto.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido, criou uma aplicação de consola .NET Core com os pacotes de Gráfico de Recursos necessários e executou a sua primeira consulta. Para saber mais sobre a linguagem Resource Graph, continue na página de detalhes da linguagem de consulta.
 

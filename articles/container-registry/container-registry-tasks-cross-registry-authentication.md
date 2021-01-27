@@ -3,12 +3,12 @@ title: Autenticação de registo cruzado da tarefa ACR
 description: Configure uma Tarefa de Registo de Contentores Azure (Tarefa ACR) para aceder a outro registo privado de contentores Azure utilizando uma identidade gerida para os recursos da Azure
 ms.topic: article
 ms.date: 07/06/2020
-ms.openlocfilehash: 0e8e2690113167ad68ef1fc0bbef322491997c76
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 789d2c141f8b7c3f2eb8daa31d99090e3d028a43
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251153"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98915833"
 ---
 # <a name="cross-registry-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Autenticação de registo cruzado numa tarefa de ACR utilizando uma identidade gerida pelo Azure 
 
@@ -55,7 +55,7 @@ Os passos para este exemplo [são](container-registry-tasks-multi-step.md) defin
 version: v1.1.0
 steps:
 # Replace mybaseregistry with the name of your registry containing the base image
-  - build: -t $Registry/hello-world:$ID  https://github.com/Azure-Samples/acr-build-helloworld-node.git -f Dockerfile-app --build-arg REGISTRY_NAME=mybaseregistry.azurecr.io
+  - build: -t $Registry/hello-world:$ID  https://github.com/Azure-Samples/acr-build-helloworld-node.git#main -f Dockerfile-app --build-arg REGISTRY_NAME=mybaseregistry.azurecr.io
   - push: ["$Registry/hello-world:$ID"]
 ```
 
@@ -231,7 +231,7 @@ Exemplo de saída:
 cf10
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre [como permitir uma identidade gerida numa tarefa ACR](container-registry-tasks-authentication-managed-identity.md).
 * Consulte a [referência ACR Tasks YAML](container-registry-tasks-reference-yaml.md)

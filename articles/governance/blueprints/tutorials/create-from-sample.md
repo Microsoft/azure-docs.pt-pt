@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Amostra de planta para novo ambiente'
 description: Neste tutorial, você usa uma amostra de planta para criar uma definição de planta que configura dois grupos de recursos e configura uma atribuição de papel para cada um.
-ms.date: 08/27/2020
+ms.date: 01/27/2021
 ms.topic: tutorial
-ms.openlocfilehash: 891240dcafe0cbfbfab4ff1fd415cba4abf682a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aea3760128221d42e092e4ca45200874d54da54a
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89048737"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98915561"
 ---
 # <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Tutorial: Criar um ambiente a partir de uma amostra de planta
 
@@ -68,7 +68,7 @@ Assim que **a definição de projeto de publicação tiver sido publicada,** a n
 
 ## <a name="assign-the-sample-copy"></a>Atribuir a cópia de exemplo
 
-Uma vez publicada com **sucesso**a cópia da amostra de plantas, pode ser atribuída a uma subscrição dentro do grupo de gestão a que foi guardada. É neste passo que são fornecidos os parâmetros que fazem com que cada implementação da cópia do esquema de exemplo seja única.
+Uma vez publicada com **sucesso** a cópia da amostra de plantas, pode ser atribuída a uma subscrição dentro do grupo de gestão a que foi guardada. É neste passo que são fornecidos os parâmetros que fazem com que cada implementação da cópia do esquema de exemplo seja única.
 
 1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Esquemas**.
 
@@ -100,17 +100,17 @@ Uma vez publicada com **sucesso**a cópia da amostra de plantas, pode ser atribu
 
      |Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Valor|Descrição|
      |-|-|-|-|-|
-     |Grupo de recursos ProdRG|Grupo de recursos|Nome|ProductionRG|Define o nome do primeiro grupo de recursos.|
-     |Grupo de recursos ProdRG|Grupo de recursos|Localização|E.U.A. Oeste 2|Define a localização do primeiro grupo de recursos.|
+     |Grupo de recursos ProdRG|Grupo de recursos|Name|ProductionRG|Define o nome do primeiro grupo de recursos.|
+     |Grupo de recursos ProdRG|O grupo de recursos|A localização|E.U.A. Oeste 2|Define a localização do primeiro grupo de recursos.|
      |Contribuinte|Atribuição de função|Utilizador ou Grupo|{O seu ID}|Define qual utilizador ou grupo para conceder a atribuição de função _de contribuinte_ dentro do primeiro grupo de recursos.|
-     |Grupo de recursos PréProdRG|Grupo de recursos|Nome|Pré-Produção|Define o nome do segundo grupo de recursos.|
-     |Grupo de recursos PréProdRG|Grupo de recursos|Localização|E.U.A. Oeste|Define a localização do segundo grupo de recursos.|
+     |Grupo de recursos PréProdRG|Grupo de recursos|Name|Pré-Produção|Define o nome do segundo grupo de recursos.|
+     |Grupo de recursos PréProdRG|O grupo de recursos|A localização|E.U.A. Oeste|Define a localização do segundo grupo de recursos.|
      |Proprietário|Atribuição de função|Utilizador ou Grupo|{O seu ID}|Define qual utilizador ou grupo para conceder a atribuição de função _do Proprietário_ dentro do segundo grupo de recursos.|
      |Leitores|Atribuição de função|Utilizador ou Grupo|{O seu ID}|Define qual utilizador ou grupo para conceder a atribuição de função aos _Leitores_ dentro do segundo grupo de recursos.|
 
 1. Depois de introduzidos todos os parâmetros, selecione **Atribuir**, na parte inferior da página.
 
-Este passo implementa os recursos definidos e configura a atribuição de **bloqueio**selecionada. As fechaduras da planta podem demorar até 30 minutos a ser aplicadas.
+Este passo implementa os recursos definidos e configura a atribuição de **bloqueio** selecionada. As fechaduras da planta podem demorar até 30 minutos a ser aplicadas.
 
 Assim que a **definição de projeto de atribuição tiver sido a** notificação do portal, passe para o passo seguinte.
 
@@ -144,7 +144,7 @@ A atribuição da planta cria e rastreia os artefactos definidos na definição 
 
 1. Selecione a atribuição de negação e, em seguida, selecione a página **Permissões Negadas** à esquerda.
 
-   A atribuição de negação está a impedir todas as operações com a **\*** configuração e **ação,** mas permite ler o acesso excluindo ** \* /ler** via **NotActions**.
+   A atribuição de negação está a impedir todas as operações com a configuração **\* *_ e _* Action,** mas permite ler o acesso excluindo **\* /ler** via **NotActions**.
 
 1. A partir do portal Azure breadcrumb, selecione **Pré-ProduçãoRG - Controlo de acesso (IAM)**. Em seguida, selecione a página **'Vista Geral'** à esquerda e, em seguida, o botão **de grupo de recursos Delete.** Introduza o nome _Pré-ProduçãoRG_ para confirmar a eliminação e **selecione Eliminar** na parte inferior do painel.
 
@@ -181,7 +181,7 @@ Quando terminar com este tutorial, elimine os seguintes recursos:
 - Grupo de recursos _Pré-ProduçãoRG_
 - Definição de _planta dois rgs-com-função-atribuições_
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, aprendeu a criar uma nova planta a partir de uma definição de amostra. Para saber mais sobre a Azure Blueprints, continue para o artigo do ciclo de vida do projeto.
 

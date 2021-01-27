@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/25/2021
+ms.date: 01/27/2021
 ms.author: memildin
-ms.openlocfilehash: ee9a20d3e5bb6974676d6d7a8285a56247756f64
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 5dd58dd5f43481184b17ca4bdd694a1df76697db
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98784953"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916473"
 ---
 # <a name="whats-new-in-azure-security-center"></a>O que há de novo no Centro de Segurança Azure?
 
@@ -46,6 +46,7 @@ As atualizações em janeiro incluem:
 - [35 recomendações de pré-visualização adicionadas para aumentar a cobertura do Benchmark de Segurança Azure](#35-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark)
 - [Exportação de CSV de lista filtrada de recomendações](#csv-export-of-filtered-list-of-recommendations)
 - [Recursos "não aplicáveis" agora reportados como "conformes" nas avaliações da Política Azure](#not-applicable-resources-now-reported-as-compliant-in-azure-policy-assessments)
+- [Exportar instantâneos semanais de pontuação segura e dados de conformidade regulamentar com exportação contínua (pré-visualização)](#export-weekly-snapshots-of-secure-score-and-regulatory-compliance-data-with-continuous-export-preview)
 
 
 ### <a name="azure-security-benchmark-is-now-the-default-policy-initiative-for-azure-security-center"></a>A Azure Security Benchmark é agora a iniciativa política padrão para o Azure Security Center
@@ -224,6 +225,18 @@ Anteriormente, os recursos que foram avaliados para uma recomendação e que se 
 O único impacto será visto na Política Azure, onde o número de recursos em conformidade aumentará. Não haverá impacto na sua pontuação segura no Centro de Segurança Azure.
 
 
+### <a name="export-weekly-snapshots-of-secure-score-and-regulatory-compliance-data-with-continuous-export-preview"></a>Exportar instantâneos semanais de pontuação segura e dados de conformidade regulamentar com exportação contínua (pré-visualização)
+
+Adicionámos uma nova funcionalidade de pré-visualização às ferramentas [de exportação contínuas](continuous-export.md) para exportar instantâneos semanais de pontuação segura e dados de conformidade regulamentar.
+
+Quando definir uma exportação contínua, defina a frequência de exportação:
+
+:::image type="content" source="media/release-notes/export-frequency.png" alt-text="Escolhendo a frequência da sua exportação contínua":::
+
+- **Streaming** – as avaliações serão enviadas em tempo real quando o estado de saúde de um recurso for atualizado (se não ocorrerem atualizações, não serão enviados dados).
+- **Snapshots** – uma imagem do estado atual de todas as avaliações de conformidade regulamentar será enviada todas as semanas (esta é uma funcionalidade de pré-visualização para instantâneos semanais de pontuações seguras e dados de conformidade regulamentar).
+
+Saiba mais sobre as capacidades completas desta funcionalidade nos dados do Centro de [Segurança de Exportação Contínua](continuous-export.md)
 
 ## <a name="december-2020"></a>Dezembro de 2020
 

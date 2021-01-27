@@ -1,14 +1,14 @@
 ---
 title: Resolver erros comuns
 description: Aprenda a resolver problemas com a criação de definições políticas, os vários SDKs e o addon para Kubernetes.
-ms.date: 12/01/2020
+ms.date: 01/26/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 6f31f6e6f8d24f83f44dc14112f1bdc90c8af859
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 0a64346188696cc7cc16d832474ec4ee6befdae2
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897076"
+ms.locfileid: "98917748"
 ---
 # <a name="troubleshoot-errors-with-using-azure-policy"></a>Erros de resolução de problemas com a utilização da Política Azure
 
@@ -36,13 +36,14 @@ Um pseudónimo incorreto ou inexistente é usado numa definição de política.
 
 #### <a name="resolution"></a>Resolução
 
-Em primeiro lugar, valide que a propriedade do Gestor de Recursos tem um pseudónimo. Para procurar os pseudónimos disponíveis, vá à [extensão da Política Azure para o Código do Estúdio Visual](../how-to/extension-for-vscode.md) ou para o SDK. Se o pseudónimo de uma propriedade do Gestor de Recursos não existir, crie um bilhete de apoio.
+Em primeiro lugar, valide que a propriedade do Gestor de Recursos tem um pseudónimo. Para procurar os pseudónimos disponíveis, vá à [extensão da Política Azure para o Código do Estúdio Visual](../how-to/extension-for-vscode.md) ou para o SDK.
+Se o pseudónimo de uma propriedade do Gestor de Recursos não existir, crie um bilhete de apoio.
 
 ### <a name="scenario-evaluation-details-arent-up-to-date"></a>Cenário: Os detalhes da avaliação não estão atualizados
 
 #### <a name="issue"></a>Problema
 
-Um recurso está no estado *de Não Iniciado,* ou os detalhes de conformidade não estão correntes.
+Um recurso está no estado _de Não Iniciado,_ ou os detalhes de conformidade não estão correntes.
 
 #### <a name="cause"></a>Causa
 
@@ -90,7 +91,8 @@ Um recurso que espera que a Azure Policy atue não está a ser atuado, e não h�
 
 #### <a name="cause"></a>Causa
 
-A atribuição da política foi configurada para uma definição [**de medida de execução**](../concepts/assignment-structure.md#enforcement-mode) de _deficientes_. Enquanto **a polícia Desativa** a mãe, o efeito da política não é aplicado, e não há entrada no registo de atividades.
+A atribuição da política foi configurada para uma definição [**de medida de execução**](../concepts/assignment-structure.md#enforcement-mode) de _deficientes_.
+Enquanto **a polícia Desativa** a mãe, o efeito da política não é aplicado, e não há entrada no registo de atividades.
 
 #### <a name="resolution"></a>Resolução
 
@@ -186,7 +188,7 @@ As definições de política anteriormente utilizadas nas definições de Implem
 
 #### <a name="resolution"></a>Resolução
 
-As definições que anteriormente causaram este problema aparecem como *[Deprecadas]* e são substituídas por definições políticas que gerem pré-requisitos sem remover identidades geridas atribuídas pelo utilizador. É necessário um passo manual. Eliminar quaisquer atribuições políticas existentes que sejam marcadas como *[Deprecadas]* e substitua-as pela iniciativa política pré-requisito atualizada e definições políticas que tenham o mesmo nome que o original.
+As definições que anteriormente causaram este problema aparecem como _\[ Deprecadas \]_, e são substituídas por definições políticas que gerem pré-requisitos sem remover identidades geridas atribuídas pelo utilizador. É necessário um passo manual. Elimine quaisquer atribuições políticas existentes que sejam marcadas como _\[ Deprecadas \]_, e substitua-as pela iniciativa política pré-requisito atualizada e definições políticas que tenham o mesmo nome que o original.
 
 Para obter uma narrativa detalhada, consulte o post de [blogSa alteração importante lançada para as políticas de auditoria de Configuração de Convidados](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316).
 
@@ -226,11 +228,11 @@ O addon não pode chegar ao ponto final do serviço Azure Policy, e devolve um d
 Este erro ocorre quando _a identidade do add-pod_ é instalada no cluster e as cápsulas do _sistema kube_ não são excluídas na _identidade aad-pod_.
 
 As cápsulas de identidade de _aad-pod -identidade_ (NMI) modificam os iptables dos nós para intercetar chamadas para o ponto final de metadados de instância Azure. Esta configuração significa que qualquer pedido feito para o ponto final dos metadados é intercetado pelo NMI, mesmo que a cápsula não utilize _a identidade aad-pod_.
-O *AzurePodIdentityException* CustomResourceDefinition (CRD) pode ser configurado para informar a _identidade aad-pod_ que quaisquer pedidos a um ponto final de metadados que tenham origem num pod que corresponda às etiquetas definidas no CRD devem ser proxiitizadas sem qualquer processamento no NMI.
+O _AzurePodIdentityException_ CustomResourceDefinition (CRD) pode ser configurado para informar a _identidade aad-pod_ que quaisquer pedidos a um ponto final de metadados que tenham origem num pod que corresponda às etiquetas definidas no CRD devem ser proxiitizadas sem qualquer processamento no NMI.
 
 #### <a name="resolution"></a>Resolução
 
-Excluir as cápsulas de sistema que têm a `kubernetes.azure.com/managedby: aks` etiqueta no espaço de nome do sistema _kube_ em _identidade aad-pod,_ configurando o CRD de *ID AzurePodIdentityException.*
+Excluir as cápsulas de sistema que têm a `kubernetes.azure.com/managedby: aks` etiqueta no espaço de nome do sistema _kube_ em _identidade aad-pod,_ configurando o CRD de _ID AzurePodIdentityException._
 
 Para obter mais informações, consulte [desativar a identidade do pod do Azure Ative (Azure AD) para uma cápsula/aplicação específica](https://azure.github.io/aad-pod-identity/docs/configure/application_exception).
 
@@ -264,11 +266,11 @@ spec:
 O addon pode chegar ao ponto final do serviço Azure Policy, mas os registos adicionais apresentam um dos seguintes erros:
 
 - `The resource provider 'Microsoft.PolicyInsights' is not registered in subscription '{subId}'. See
-https://aka.ms/policy-register-subscription for how to register subscriptions.`
+  https://aka.ms/policy-register-subscription for how to register subscriptions.`
 
 - `policyinsightsdataplane.BaseClient#CheckDataPolicyCompliance: Failure responding to request:
-StatusCode=500 -- Original Error: autorest/azure: Service returned an error. Status=500
-Code="InternalServerError" Message="Encountered an internal server error.`
+  StatusCode=500 -- Original Error: autorest/azure: Service returned an error. Status=500
+  Code="InternalServerError" Message="Encountered an internal server error.`
 
 #### <a name="cause"></a>Causa
 

@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Proteger novos recursos com fechaduras'
 description: Neste tutorial, utiliza as opções de bloqueio de recursos Azure Blueprints Leia Apenas e Não Elimine para proteger os recursos recém-implantados.
-ms.date: 08/27/2020
+ms.date: 01/27/2021
 ms.topic: tutorial
-ms.openlocfilehash: 3ed75a1dee925f2a55ac46705a171bec5fc1d30e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c671d641982ba833b54586c1b33979a97747396b
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89048575"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98915411"
 ---
 # <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Tutorial: Proteja novos recursos com bloqueios de recursos da Azure Blueprints
 
@@ -54,7 +54,7 @@ Primeiro, criar a definição de planta.
 
 1. Adicione um modelo sob o grupo de recursos:
    1. Selecione a linha **de artefacto adicionar** sob a entrada **RGtoLock.**
-   1. Selecione **o modelo do Gestor de Recursos Azure** sob o tipo De **artefacto,** desenhe **o nome do visor do artefacto** para o **StorageAccount**e deixe **a Descrição** em branco.
+   1. Selecione **o modelo do Gestor de Recursos Azure** sob o tipo De **artefacto,** desenhe **o nome do visor do artefacto** para o **StorageAccount** e deixe **a Descrição** em branco.
    1. No **separador Modelo,** cole o modelo ARM a seguir na caixa do editor. Depois de colar no modelo, **selecione Adicione** para adicionar o artefacto à planta.
 
    ```json
@@ -153,13 +153,13 @@ Após a publicação da definição de planta, pode atribuí-la a uma subscriç�
 
      |Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Valor|Descrição|
      |-|-|-|-|-|
-     |Grupo de recursos RGtoLock|Grupo de recursos|Nome|TestebPLocks|Define o nome do novo grupo de recursos para aplicar fechaduras de planta a.|
-     |Grupo de recursos RGtoLock|Grupo de recursos|Localização|E.U.A. Oeste 2|Define a localização do novo grupo de recursos para aplicar fechaduras de planta para.|
-     |StorageAccount|Modelo do Resource Manager|armazenamentoAccountType (Contagem de armazenamento)|Standard_GRS|O armazém SKU. O valor _predefinido_é Standard_LRS .|
+     |Grupo de recursos RGtoLock|Grupo de recursos|Name|TestebPLocks|Define o nome do novo grupo de recursos para aplicar fechaduras de planta a.|
+     |Grupo de recursos RGtoLock|O grupo de recursos|A localização|E.U.A. Oeste 2|Define a localização do novo grupo de recursos para aplicar fechaduras de planta para.|
+     |StorageAccount|Modelo do Resource Manager|armazenamentoAccountType (Contagem de armazenamento)|Standard_GRS|O armazém SKU. O valor _predefinido_ é Standard_LRS .|
 
 1. Depois de introduzir todos os parâmetros, **selecione Atribuir** na parte inferior da página.
 
-Este passo implementa os recursos definidos e configura a atribuição de **bloqueio**selecionada. Pode levar até 30 minutos para aplicar fechaduras de planta.
+Este passo implementa os recursos definidos e configura a atribuição de **bloqueio** selecionada. Pode levar até 30 minutos para aplicar fechaduras de planta.
 
 Depois de aparecer **a definição do projeto de atribuição de** notificação do portal, vá para o passo seguinte.
 
@@ -187,7 +187,7 @@ A atribuição cria o grupo de recursos _TestingBPLocks_ e a conta de armazename
 
 1. Selecione a atribuição de negação e, em seguida, selecione a página **Permissões Negadas** à esquerda.
 
-   A atribuição de negação está a impedir todas as operações com a **\*** configuração e **ação,** mas permite ler o acesso excluindo ** \* /ler** via **NotActions**.
+   A atribuição de negação está a impedir todas as operações com a configuração **\* *_ e _* Action,** mas permite ler o acesso excluindo **\* /ler** via **NotActions**.
 
 1. No portal Azure, selecione **TestingBPLocks - Access control (IAM)**. Em seguida, selecione a página **'Vista Geral'** à esquerda e, em seguida, o botão **de grupo de recursos Delete.** Introduza o nome **TestingBPLocks** para confirmar a eliminação e, em seguida, **selecione Eliminar** na parte inferior do painel.
 
@@ -222,7 +222,7 @@ Quando terminar este tutorial, elimine estes recursos:
 - Grupo de recursos _TestingBPLocks_
 - Definição de planta _contagem de armazenamento bloqueado_
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, aprendeu a proteger novos recursos implantados com a Azure Blueprints. Para saber mais sobre a Azure Blueprints, continue para o artigo do ciclo de vida do projeto.
 

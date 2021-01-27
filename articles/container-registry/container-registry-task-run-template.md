@@ -3,12 +3,12 @@ title: Corrida rápida de tarefa com modelo
 description: Faça fila com uma tarefa ACR para construir uma imagem usando um modelo de Gestor de Recursos Azure
 ms.topic: article
 ms.date: 04/22/2020
-ms.openlocfilehash: 7ad40d2e925d5e1443af9bce4115d45b0e8c06e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e8023c088ac328c2b6e95fccd0230c4d40325c1
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82927773"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916070"
 ---
 # <a name="run-acr-tasks-using-resource-manager-templates"></a>Executar tarefas ACR usando modelos de gestor de recursos
 
@@ -42,7 +42,7 @@ Para este exemplo, forneça valores para os seguintes parâmetros do modelo:
 |Parâmetro  |Valor  |
 |---------|---------|
 |nome de registo     |Nome único do registo que é criado         |
-|repositório     |Repositório-alvo para tarefa de construção        |
+|repository     |Repositório-alvo para tarefa de construção        |
 |taskRunName     |Nome da execução de tarefas, que especifica a etiqueta de imagem |
 |origemLocalização     |Contexto remoto para a tarefa de construção, por exemplo, https://github.com/Azure-Samples/acr-build-helloworld-node . O Dockerfile na raiz do repo constrói uma imagem de recipiente para uma pequena aplicação web Node.js. Se desejar, use o seu garfo do repo como o contexto de construção.         |
 
@@ -58,7 +58,7 @@ az deployment group create \
     registryName=mycontainerregistry \
     repository=helloworld-node \
     taskRunName=testrun \
-    sourceLocation=https://github.com/Azure-Samples/acr-build-helloworld-node.git
+    sourceLocation=https://github.com/Azure-Samples/acr-build-helloworld-node.git#main
  ```
 
 O comando anterior passa os parâmetros na linha de comando. Se desejar, passe-os num [ficheiro de parâmetros](../azure-resource-manager/templates/parameter-files.md).
@@ -182,12 +182,12 @@ Para este exemplo, forneça valores para os seguintes parâmetros do modelo:
 |Parâmetro  |Valor  |
 |---------|---------|
 |nome de registo     |Nome do registo onde a imagem é construída  |
-|repositório     |Repositório-alvo para tarefa de construção        |
+|repository     |Repositório-alvo para tarefa de construção        |
 |taskRunName     |Nome da execução de tarefas, que especifica a etiqueta de imagem |
 |utilizadorAssignedIdentity |ID de recursos de identidade atribuída ao utilizador habilitado na tarefa|
 |customRegistryDentity | ID do cliente de identidade atribuída ao utilizador habilitado na tarefa, usada para autenticar com registo personalizado |
 |customRegistry |O nome do servidor de login do registo personalizado acedido na tarefa, por exemplo, *mybaseregistry.azurecr.io*|
-|origemLocalização     |Contexto remoto para a tarefa de construção, por exemplo, * https://github.com/ \<your-GitHub-ID\> /acr-build-helloworld-node.* |
+|origemLocalização     |Contexto remoto para a tarefa de construção, por exemplo, *https://github.com/ \<your-GitHub-ID\> /acr-build-helloworld-node.* |
 |DockerFilePath | Caminho para o Dockerfile no contexto remoto, usado para construir a imagem. |
 
 ### <a name="deploy-the-template"></a>Implementar o modelo
@@ -204,7 +204,7 @@ az deployment group create \
     taskRunName=basetask \
     userAssignedIdentity=$resourceID \
     customRegistryIdentity=$clientID \
-    sourceLocation=https://github.com/<your-GitHub-ID>/acr-build-helloworld-node.git \
+    sourceLocation=https://github.com/<your-GitHub-ID>/acr-build-helloworld-node.git#main \
     dockerFilePath=Dockerfile-test \
     customRegistry=mybaseregistry.azurecr.io
 ```
@@ -233,7 +233,7 @@ basetask
 
 Para visualizar o registo de execução, consulte os passos na [secção anterior](#view-run-log).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
  * Veja mais exemplos de modelo no [repo ACR GitHub](https://github.com/Azure/acr/tree/master/docs/tasks/run-as-deployment).
  * Para obter detalhes sobre as propriedades do modelo, consulte a referência do modelo para execuções de [tarefas](/azure/templates/microsoft.containerregistry/2019-06-01-preview/registries/taskruns) e [tarefas](/azure/templates/microsoft.containerregistry/2019-06-01-preview/registries/tasks).

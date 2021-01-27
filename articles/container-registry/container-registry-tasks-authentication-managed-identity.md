@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 01/14/2020
 ms.author: danlep
-ms.openlocfilehash: f3294698f6973437a23fab798e8daf5642cc9b49
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f2749a18a5ac6aed0822553d59beaacc9060228
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77111762"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98915952"
 ---
 # <a name="use-an-azure-managed-identity-in-acr-tasks"></a>Utilize uma identidade gerida pelo Azure em Tarefas ACR 
 
@@ -58,7 +58,7 @@ Para ativar uma identidade atribuída ao sistema, passe `--assign-identity` sem 
 az acr task create \
     --image hello-world:{{.Run.ID}} \
     --name hello-world --registry MyRegistry \
-    --context https://github.com/Azure-Samples/acr-build-helloworld-node.git \
+    --context https://github.com/Azure-Samples/acr-build-helloworld-node.git#main \
     --file Dockerfile \
     --commit-trigger-enabled false \
     --assign-identity
@@ -70,7 +70,7 @@ Para ativar uma identidade atribuída ao utilizador, passe `--assign-identity` c
 az acr task create \
     --image hello-world:{{.Run.ID}} \
     --name hello-world --registry MyRegistry \
-    --context https://github.com/Azure-Samples/acr-build-helloworld-node.git \
+    --context https://github.com/Azure-Samples/acr-build-helloworld-node.git#main \
     --file Dockerfile \
     --commit-trigger-enabled false
     --assign-identity <resourceID>
@@ -84,7 +84,7 @@ Você pode obter o documento de identificação de recursos da identidade execut
 
 ### <a name="3-grant-the-identity-permissions-to-access-other-azure-resources"></a>3. Conceder as permissões de identidade para aceder a outros recursos da Azure
 
-Dependendo dos requisitos da sua tarefa, conceda as permissões de identidade para aceder a outros recursos da Azure. Alguns exemplos:
+Dependendo dos requisitos da sua tarefa, conceda as permissões de identidade para aceder a outros recursos da Azure. Os exemplos incluem:
 
 * Atribua à identidade gerida um papel com puxar, empurrar e puxar, ou outras permissões para um registo de contentores-alvo em Azure. Para obter uma lista completa das funções de registo, consulte [as funções e permissões do Registo do Contentor de Azure](container-registry-roles.md). 
 * Atribua à identidade gerida um papel para ler segredos num cofre de chaves Azure.
@@ -105,7 +105,7 @@ az role assignment create \
 
 Se a sua tarefa precisar de credenciais para puxar ou empurrar imagens para outro registo personalizado, ou para aceder a outros recursos, adicione credenciais à tarefa. Executar a [credencial de tarefa az acr adicionar][az-acr-task-credential-add] comando para adicionar credenciais, e passar o `--use-identity` parâmetro para indicar que a identidade pode aceder às credenciais. 
 
-Por exemplo, para adicionar credenciais para uma identidade atribuída ao sistema para autenticar com o registo de registo de *contentores*Azure, `use-identity [system]` passe:
+Por exemplo, para adicionar credenciais para uma identidade atribuída ao sistema para autenticar com o registo de registo de *contentores* Azure, `use-identity [system]` passe:
 
 ```azurecli
 az acr task credential add \
@@ -115,7 +115,7 @@ az acr task credential add \
     --use-identity [system]
 ```
 
-Para adicionar credenciais para uma identidade atribuída ao utilizador para autenticar com o *targetregistry*do registo, passe `use-identity` com o valor da *identificação* do cliente da identidade. Por exemplo:
+Para adicionar credenciais para uma identidade atribuída ao utilizador para autenticar com o *targetregistry* do registo, passe `use-identity` com o valor da *identificação* do cliente da identidade. Por exemplo:
 
 ```azurecli
 az acr task credential add \
@@ -131,7 +131,7 @@ Pode obter a identificação do cliente da identidade, executando o comando [de 
 
 Depois de configurar uma tarefa com uma identidade gerida, executar a tarefa. Por exemplo, para testar uma das tarefas criadas neste artigo, desencadeie-a manualmente utilizando o comando de execução de [tarefas az acr.][az-acr-task-run] Se configurar gatilhos de tarefas adicionais e automatizados, a tarefa é executada quando ativada automaticamente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu a ativar e a utilizar uma identidade gerida atribuída pelo utilizador ou atribuída ao sistema numa tarefa ACR. Para cenários de acesso a recursos seguros a partir de uma tarefa ACR utilizando uma identidade gerida, consulte:
 

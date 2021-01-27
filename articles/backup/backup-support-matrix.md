@@ -4,12 +4,12 @@ description: Fornece um resumo das definições e limitações de suporte para o
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: 833837c317d22bf031aee4608ff4c93775736a34
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 9e20c21694678acf7be13ccbbe9cce9af38c32c5
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757445"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98915714"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de suporte para backup Azure
 
@@ -114,10 +114,10 @@ O Azure Backup suporta encriptação para dados em trânsito e em repouso.
 
 **Máquina** | **Em trânsito** | **Em repouso**
 --- | --- | ---
-**Máquinas Windows no local sem DPM/MABS** | ![Sim][green] | ![Sim][green]
-**VMs do Azure** | ![Sim][green] | ![Sim][green]
-**Máquinas Windows no local ou VMs Azure com DPM** | ![Sim][green] | ![Sim][green]
-**Máquinas Windows no local ou VMs Azure com MABS** | ![Sim][green] | ![Sim][green]
+**Máquinas Windows no local sem DPM/MABS** | ![Yes][green] | ![Yes][green]
+**VMs do Azure** | ![Yes][green] | ![Yes][green]
+**Máquinas Windows no local ou VMs Azure com DPM** | ![Yes][green] | ![Yes][green]
+**Máquinas Windows no local ou VMs Azure com MABS** | ![Yes][green] | ![Yes][green]
 
 ## <a name="compression-support"></a>Suporte à compressão
 
@@ -130,7 +130,7 @@ A cópia de segurança suporta a compressão do tráfego de backup, tal como res
 --- | --- | ---
 **Backup direto das máquinas Windows no local** | ND | ![Sim][green]
 **Backup dos VMs Azure utilizando a extensão VM** | ND | ND
-**Backup nas máquinas de Azure no local utilizando MABS/DPM** | ![Sim][green] | ![Sim][green]
+**Backup nas máquinas de Azure no local utilizando MABS/DPM** | ![Yes][green] | ![Yes][green]
 
 ## <a name="retention-limits"></a>Limites de retenção
 
@@ -150,10 +150,10 @@ O Azure Backup adicionou a funcionalidade Cross Region Restore para reforçar a 
 
 | Tipo de Gestão de Backup | Suportado                                                    | Regiões apoiadas |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
-| VM do Azure               | Suportado para VMs Azure com discos geridos e não geridos. Não suportado para VMs clássicos. | Todas as regiões públicas de Azure.  |
-| SQL /SAP HANA | Sim                                                          | Todas as regiões públicas, com exceção da França |
-| Agente MARS/Nas instalações  | Não                                                           | N/D               |
-| AFS (ações de ficheiros Azure)                 | Não                                                           | N/D               |
+| VM do Azure               | Suportado para VMs Azure com discos geridos e não geridos. Não suportado para VMs clássicos. | Disponível em todas as regiões públicas do Azure, com exceção da França Central, Austrália Central, África do Sul Norte, Emirados Árabes Unidos, Suíça Norte, Alemanha Central Ocidental, Noruega Oriental. <br>Para obter informações sobre a utilização nessas regiões, contacte [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) |
+| SQL /SAP HANA | Em pré-visualização                                                      | Disponível em todas as regiões públicas do Azure, com exceção da França Central, Austrália Central, África do Sul Norte, Emirados Árabes Unidos, Suíça Norte, Alemanha Central Ocidental, Noruega Oriental. <br>Para obter informações sobre a utilização nessas regiões, contacte [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) |
+| Agente MARS/Nas instalações  | No                                                           | N/D               |
+| AFS (ações de ficheiros Azure)                 | No                                                           | N/D               |
 
 ## <a name="next-steps"></a>Próximos passos
 

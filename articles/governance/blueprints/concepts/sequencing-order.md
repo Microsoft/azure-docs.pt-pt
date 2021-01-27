@@ -1,14 +1,14 @@
 ---
 title: Compreenda a ordem de sequência de implantação
 description: Saiba mais sobre a ordem padrão em que os artefactos de planta são implantados durante uma atribuição de planta e como personalizar a ordem de implementação.
-ms.date: 08/27/2020
+ms.date: 01/27/2021
 ms.topic: conceptual
-ms.openlocfilehash: 8305e5d44caef0f35e5b4beb4b70be9736272fa7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ada7e7771e44e6f43c8546e8307fd5d2b218c009
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996054"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918233"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Compreenda a sequência de implantação em Azure Blueprints
 
@@ -35,7 +35,7 @@ Dentro de cada artefacto **de grupo de recursos,** é utilizada a seguinte ordem
 
 - Artefactos de **atribuição de funções** de criança de grupo de recursos classificados por nome de artefacto
 - Artefactos **de atribuição de política** infantil de grupo de recursos classificados pelo nome de artefacto
-- Artefactos do **gestor de recursos** da criança de grupo de recursos de recursos de recursos (modelos ARM) classificados pelo nome do artefacto
+- Artefactos do **gestor de recursos** da criança de grupo de recursos (modelos ARM) classificados pelo nome do artefacto
 
 > [!NOTE]
 > A utilização de [artefactos()](../reference/blueprint-functions.md#artifacts) cria uma dependência implícita do artefacto a que se refere.

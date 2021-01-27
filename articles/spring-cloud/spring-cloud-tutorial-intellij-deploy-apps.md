@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 03/26/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 91edbbda43365b17b8276572804ba788dbee9f13
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: a808e37c0f0aae2816eb536dc43485c125354b81
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426725"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916205"
 ---
 # <a name="use-intellij-to-deploy-azure-spring-cloud-applications"></a>Utilizar o IntelliJ para implementar aplicações do Azure Spring Cloud
 
@@ -23,8 +23,6 @@ O plug-in IntelliJ para Azure Spring Cloud suporta a implementação da aplicaç
 Antes de executar este exemplo, pode experimentar o [arranque básico](spring-cloud-quickstart.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* [JDK 8 Azul Zulu](/java/azure/jdk/java-jdk-install?preserve-view=true&view=azure-java-stable)
-* [Maven 3.5.0+](https://maven.apache.org/download.cgi)
 * [IntelliJ IDEA, Community/Ultimate Edition, versão 2020.1/2020.2](https://www.jetbrains.com/idea/download/#section=windows)
 
 ## <a name="install-the-plug-in"></a>Instale o plug-in
@@ -69,7 +67,7 @@ Para poder implementar no Azure tem de iniciar sôms com a sua conta Azure e esc
 
     ![Implantar para Azure 2](media/spring-cloud-intellij-howto/deploy-to-azure-2.png)
 
-1. Insira **o nome da App**e, em seguida, clique em **OK**.
+1. Insira **o nome da App** e, em seguida, clique em **OK**.
 
     ![Implementar para Azure OK](media/spring-cloud-intellij-howto/deploy-to-azure-2a.png)
 
@@ -103,6 +101,6 @@ Para obter os registos:
 
     ![Saída de registo de streaming](media/spring-cloud-intellij-howto/streaming-log-output.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Preparar a aplicação primavera para Azure Spring Cloud](./spring-cloud-tutorial-prepare-app-deployment.md)
 * [Saiba mais sobre o Azure Toolkit para IntelliJ](/azure/developer/java/toolkit-for-intellij/)

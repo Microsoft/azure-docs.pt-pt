@@ -4,12 +4,12 @@ description: Aprenda a configurar a rede Azure CNI (avançada) no Serviço Azure
 services: container-service
 ms.topic: article
 ms.date: 06/03/2019
-ms.openlocfilehash: 58c2c597c7a75c801af91cd735561071250bda2c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0a6ea45156477c0d0e95b9d345cffe1a75c773b6
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000577"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98917812"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configurar a rede CNI Azure no Serviço Azure Kubernetes (AKS)
 
@@ -63,7 +63,7 @@ O número máximo de cápsulas por nó num cluster AKS é de 250. O número máx
 | -- | :--: | :--: | -- |
 | CLI do Azure | 110 | 30 | Sim (até 250) |
 | Modelo do Resource Manager | 110 | 30 | Sim (até 250) |
-| Portal | 110 | 30 | Não |
+| Portal | 110 | 30 | No |
 
 ### <a name="configure-maximum---new-clusters"></a>Configurar máximo - novos clusters
 
@@ -96,6 +96,8 @@ Quando cria um cluster AKS, os seguintes parâmetros são configuráveis para a 
 **Rede virtual**: A rede virtual na qual pretende implantar o cluster Kubernetes. Se pretender criar uma nova rede virtual para o seu cluster, selecione *Criar novos* e siga os passos na secção de rede *virtual Create.* Para obter informações sobre os limites e quotas para uma rede virtual Azure, consulte [os limites de subscrição e serviços, quotas e restrições da Azure.](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits)
 
 **Sub-rede**: A sub-rede dentro da rede virtual onde pretende implantar o cluster. Se pretender criar uma nova sub-rede na rede virtual para o seu cluster, selecione *Criar novos* e siga os passos na secção *sub-redes Criar.* Para a conectividade híbrida, a gama de endereços não deve sobrepor-se a quaisquer outras redes virtuais no seu ambiente.
+
+**Plugin de rede Azure**: Quando o plugin de rede azul é utilizado, o serviço interno LoadBalancer com "externalTrafficPolicy=Local" não pode ser acedido a partir de VMs com um IP no clusterCIDR que não pertence ao cluster AKS.
 
 Gama de endereços de **serviço Kubernetes**: Este é o conjunto de IPs virtuais que kubernetes atribui a [serviços][services] internos no seu cluster. Pode utilizar qualquer gama de endereços privados que satisfaça os seguintes requisitos:
 
@@ -151,7 +153,7 @@ As seguintes perguntas e respostas aplicam-se à configuração de rede **Azure 
 
 * *Posso colocar VMs na minha sub-rede de cluster?*
 
-  Sim.
+  Yes.
 
 * *Que fonte ip os sistemas externos vêem para o tráfego que se origina numa cápsula ativada pelo Azure CNI?*
 
@@ -175,7 +177,7 @@ As seguintes perguntas e respostas aplicam-se à configuração de rede **Azure 
 
   Não é recomendado, mas esta configuração é possível. A gama de endereços de serviço é um conjunto de IPs virtuais (VIPs) que a Kubernetes atribui a serviços internos no seu cluster. O Azure Networking não tem visibilidade na gama ip de serviço do cluster Kubernetes. Devido à falta de visibilidade na gama de endereços de serviço do cluster, é possível criar mais tarde uma nova sub-rede na rede virtual do cluster que se sobreponha à gama de endereços de serviço. Se tal sobreposição ocorrer, kubernetes poderia atribuir um serviço um IP que já está em uso por outro recurso na sub-rede, causando comportamentos ou falhas imprevisíveis. Ao garantir que utiliza um intervalo de endereços fora da rede virtual do cluster, pode evitar este risco de sobreposição.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre networking em AKS nos seguintes artigos:
 

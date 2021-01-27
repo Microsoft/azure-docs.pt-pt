@@ -1,14 +1,14 @@
 ---
 title: Obter alterações do recurso
 description: Entenda como encontrar quando um recurso foi alterado, obter uma lista das propriedades que mudaram, e avaliar os diffs.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: how-to
-ms.openlocfilehash: 70213caeaf71e1adc5a11ec0e9cbadfea032dca4
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 58dcb7256b0876d5e7fa9d7569db102538f92bab
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203471"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98917427"
 ---
 # <a name="get-resource-changes"></a>Obter alterações do recurso
 
@@ -144,7 +144,7 @@ Cada evento de alteração detetado para o **recursoId** tem as seguintes propri
 - **changeId** - Este valor é exclusivo desse recurso. Embora a cadeia **changeId** possa por vezes conter outras propriedades, é apenas garantido que é único.
 - **beforeSnapshot** - Contém o **snapshotId** e **o timetamp** do instantâneo de recurso que foi tirado antes de uma mudança ser detetada.
 - **afterSnapshot** - Contém o **snapshotId** e o **timetamp** do instantâneo de recurso que foi tirado após a deteção de uma alteração.
-- **changeType** - Descreve o tipo de alteração detetada para todo o registo de alteração entre o **antes de Snapshot** e **afterSnapshot**. Os valores são: _Criar,_ _atualizar_e _eliminar_. O conjunto de **propriedadesChanges** só está incluído quando **o ChangeType** é _Update_.
+- **changeType** - Descreve o tipo de alteração detetada para todo o registo de alteração entre o **antes de Snapshot** e **afterSnapshot**. Os valores são: _Criar,_ _atualizar_ e _eliminar_. O conjunto de **propriedadesChanges** só está incluído quando **o ChangeType** é _Update_.
 - **propertyChanges** - Esta variedade de propriedades detalha todas as propriedades de recursos que foram atualizadas entre o **antes de Snapshot** e o **afterSnapshot**:
   - **nome da propriedade** - O nome da propriedade de recurso que foi alterado.
   - **changeCategoria** - Descreve o que fez a mudança. Os valores são: _Sistema_ e _Utilizador._
@@ -283,7 +283,7 @@ A resposta é semelhante a este exemplo:
 
 Para comparar os resultados, utilize a propriedade **alterações** em **recursosChanges** ou avalie a parte de **conteúdo** de cada instantâneo em **recursosChangeDetails** para determinar a diferença. Se compararmos os instantâneos, a **hora da hora** mostra sempre uma diferença, apesar de ser esperada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte o idioma em uso nas [consultas de arranque](../samples/starter.md).
 - Consulte utilizações avançadas em [consultas avançadas.](../samples/advanced.md)

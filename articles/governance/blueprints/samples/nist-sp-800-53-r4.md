@@ -1,14 +1,14 @@
 ---
 title: Descrição geral do exemplo de esquema NIST SP 800-53 R4
 description: Descrição geral do exemplo de esquema NIST SP 800-53 R4. Este exemplo de esquema ajuda os clientes a avaliar controlos NIST SP 800-53 R4 específicos.
-ms.date: 08/27/2020
+ms.date: 01/27/2021
 ms.topic: sample
-ms.openlocfilehash: f40451e1e82833aba4f626052e708f2c1136f832
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b773013c61a8bed3c5c5f4e8b24878f10889f954
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89048776"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918132"
 ---
 # <a name="nist-sp-800-53-r4-blueprint-sample"></a>Amostra de planta NIST SP 800-53 R4
 
@@ -18,7 +18,7 @@ O exemplo de esquema NIST SP 800-53 R4 fornece proteções de governação com o
 
 O [mapeamento de controlo de política Azure](../../policy/samples/nist-sp-800-53-r4.md) fornece detalhes sobre as definições de política incluídas neste projeto e como estas definições de política mapeiam para os **domínios** de conformidade e **controlos** no NIST SP 800-53 R4. Quando atribuídos a uma arquitetura, os recursos são avaliados pela Azure Policy para o incumprimento das definições políticas atribuídas. Para obter mais informações, veja [Azure Policy](../../policy/overview.md).
 
-## <a name="deploy"></a>Implementação
+## <a name="deploy"></a>Implementar
 
 Para implantar a amostra de planta Azure Blueprints NIST SP 800-53 R4, devem ser tomadas as seguintes medidas:
 
@@ -60,7 +60,7 @@ A cópia do esquema de exemplo está agora criada no seu ambiente. Está criada 
 
 ### <a name="assign-the-sample-copy"></a>Atribuir a cópia de exemplo
 
-Uma vez publicada com **sucesso**a cópia da amostra de plantas, pode ser atribuída a uma subscrição dentro do grupo de gestão a que foi guardada. É neste passo que são fornecidos os parâmetros que fazem com que cada implementação da cópia do esquema de exemplo seja única.
+Uma vez publicada com **sucesso** a cópia da amostra de plantas, pode ser atribuída a uma subscrição dentro do grupo de gestão a que foi guardada. É neste passo que são fornecidos os parâmetros que fazem com que cada implementação da cópia do esquema de exemplo seja única.
 
 1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Esquemas**.
 
@@ -119,7 +119,7 @@ A tabela seguinte mostra uma lista dos parâmetros dos artefactos de esquema:
 |Implementar definições de diagnóstico para grupos de segurança de rede|Atribuição de políticas|Prefixo de conta de armazenamento para diagnósticos de grupos de segurança de rede|Este prefixo será combinado com a localização do grupo de segurança da rede para formar o nome da conta de armazenamento criada.|
 |Implementar definições de diagnóstico para grupos de segurança de rede|Atribuição de políticas|Nome do grupo de recursos para conta de armazenamento para diagnósticos de grupos de segurança de rede (deve existir)|O grupo de recursos em que a conta de armazenamento será criada. Este grupo de recursos já deve existir.|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Artigos adicionais sobre esquemas e como os utilizar:
 

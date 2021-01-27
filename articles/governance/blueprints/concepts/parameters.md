@@ -1,14 +1,14 @@
 ---
 title: Use parâmetros para criar plantas dinâmicas
 description: Saiba sobre parâmetros estáticos e dinâmicos e como usá-los para criar plantas seguras e dinâmicas.
-ms.date: 08/27/2020
+ms.date: 01/27/2021
 ms.topic: conceptual
-ms.openlocfilehash: b6cefe7ec75ec622cb341d8f12edfd9c0cfa66e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5dbf7ec02e89eac791ec3e17202a5ab13a04b81d
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89651948"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918539"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Criar plantas dinâmicas através de parâmetros
 
@@ -28,13 +28,13 @@ Através da API REST, os parâmetros podem ser criados na própria planta. Estes
 
 ### <a name="using-securestring-and-secureobject-parameters"></a>Usando parâmetros secureString e SecureObject
 
-Enquanto um _artefacto_ do modelo ARM suporta parâmetros dos tipos **secureString** e **SecureObject,** as Plantas Azure requerem que cada um deles seja conectado com um cofre de chave Azure. Esta medida de segurança impede a prática insegura de armazenar segredos juntamente com o Plano e incentiva o emprego de padrões seguros. A Azure Blueprints suporta esta medida de segurança, detetando a inclusão de qualquer parâmetro seguro num _artefacto_do modelo ARM . Em seguida, o serviço solicita durante a atribuição das seguintes propriedades do Cofre chave por parâmetro seguro detetado:
+Enquanto um _artefacto_ do modelo ARM suporta parâmetros dos tipos **secureString** e **SecureObject,** as Plantas Azure requerem que cada um deles seja conectado com um cofre de chave Azure. Esta medida de segurança impede a prática insegura de armazenar segredos juntamente com o Plano e incentiva o emprego de padrões seguros. A Azure Blueprints suporta esta medida de segurança, detetando a inclusão de qualquer parâmetro seguro num _artefacto_ do modelo ARM . Em seguida, o serviço solicita durante a atribuição das seguintes propriedades do Cofre chave por parâmetro seguro detetado:
 
 - ID de recurso do cofre chave
 - Nome secreto do Cofre chave
 - Versão secreta do Cofre chave
 
-Se a atribuição da planta utilizar uma identidade gerida atribuída pelo sistema, o **Cofre-Chave**referenciado _deve_ existir na mesma subscrição a que a definição de planta é atribuída.
+Se a atribuição da planta utilizar uma identidade gerida atribuída pelo sistema, o **Cofre-Chave** referenciado _deve_ existir na mesma subscrição a que a definição de planta é atribuída.
 
 Se a atribuição da planta utilizar uma **identidade gerida atribuída pelo utilizador,** o Cofre de Chaves referenciado _pode_ existir numa subscrição centralizada. A identidade gerida deve ser concedida direitos apropriados no Cofre de Chaves antes da atribuição do projeto.
 
@@ -65,7 +65,7 @@ Um valor de parâmetro definido na definição de uma planta é chamado de **par
 
 1. A página **editar o Artefacto** apresenta opções de valor adequadas ao artefacto selecionado. Cada parâmetro no artefacto tem um título, uma caixa de valor e uma caixa de verificação. Desaperte a caixa para não ser verificada para torná-la um **parâmetro estático**. No exemplo abaixo, _apenas a localização_ é um **parâmetro estático,** uma vez que não é verificado e _o Nome do Grupo de Recursos_ é verificado.
 
-   :::image type="content" source="../media/parameters/static-parameter.png" alt-text="Screenshot de uma definição de planta e os parâmetros 'X de Y povoados' realçados." border="false":::
+   :::image type="content" source="../media/parameters/static-parameter.png" alt-text="Screenshot de parâmetros estáticos em um artefacto de planta." border="false":::
 
 #### <a name="setting-static-parameters-from-rest-api"></a>Definição de parâmetros estáticos da API REST
 
@@ -176,11 +176,11 @@ O oposto de um parâmetro estático é um **parâmetro dinâmico.** Este parâme
 
 1. Na página **de planta 'Atribuir',** encontre a secção **de parâmetros do Artefacto.** Cada artefacto com pelo menos um **parâmetro dinâmico** exibe o artefacto e as opções de configuração. Forneça os valores necessários aos parâmetros antes de atribuir a planta. No exemplo abaixo, _o Nome_ é um **parâmetro dinâmico** que deve ser definido para completar a atribuição do projeto.
 
-   :::image type="content" source="../media/parameters/dynamic-parameter.png" alt-text="Screenshot de uma definição de planta e os parâmetros 'X de Y povoados' realçados." border="false":::
+   :::image type="content" source="../media/parameters/dynamic-parameter.png" alt-text="Screenshot de definição de parâmetros dinâmicos durante a atribuição da planta." border="false":::
 
 #### <a name="setting-dynamic-parameters-from-rest-api"></a>Definição de parâmetros dinâmicos da REST API
 
-A definição **de parâmetros dinâmicos** durante a atribuição é feita introduzindo o valor diretamente. Em vez de utilizar uma função, como [parâmetros,,](../reference/blueprint-functions.md#parameters)o valor fornecido é uma cadeia apropriada. Os artefactos para um grupo de recursos são definidos com um "nome de modelo", **nome**e propriedades **de localização.** Todos os outros parâmetros para o artefacto incluído são definidos em **parâmetros** com um **\<name\>** par de chave de valor e **valor.** Se a planta estiver configurada para um parâmetro dinâmico que não seja fornecido durante a atribuição, a atribuição falhará.
+A definição **de parâmetros dinâmicos** durante a atribuição é feita introduzindo o valor diretamente. Em vez de utilizar uma função, como [parâmetros,,](../reference/blueprint-functions.md#parameters)o valor fornecido é uma cadeia apropriada. Os artefactos para um grupo de recursos são definidos com um "nome de modelo", **nome** e propriedades **de localização.** Todos os outros parâmetros para o artefacto incluído são definidos em **parâmetros** com um **\<name\>** par de chave de valor e **valor.** Se a planta estiver configurada para um parâmetro dinâmico que não seja fornecido durante a atribuição, a atribuição falhará.
 
 - URI da API REST
 
@@ -231,7 +231,7 @@ A definição **de parâmetros dinâmicos** durante a atribuição é feita intr
   }
   ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte a lista de [funções de planta](../reference/blueprint-functions.md).
 - Saiba mais sobre o [ciclo de vida do esquema](./lifecycle.md).

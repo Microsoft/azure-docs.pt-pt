@@ -1,14 +1,14 @@
 ---
 title: Amostra de projeto benchmark da CIS Microsoft Azure Foundations
 description: Descrição geral do exemplo de esquema CIS Microsoft Azure Foundations Benchmark. Este exemplo de esquema ajuda os clientes a avaliar controlos específicos.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: sample
-ms.openlocfilehash: 6c09e539e192db8422b25079264b9f4e8965d994
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fc9e2443cd1e413588487646d6400ae1f2185208
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005610"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918421"
 ---
 # <a name="cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Amostra de projeto benchmark da CIS Microsoft Azure Foundations
 
@@ -104,7 +104,7 @@ A tabela seguinte mostra uma lista dos parâmetros dos artefactos de esquema:
 |Auditação CIS Microsoft Azure Foundations Benchmark 1.1.0 recomendações e implementar extensões VM de suporte específicas|Atribuição de políticas|Lista de regiões onde o Observador de Rede deve ser ativado|Uma lista de regiões separadas por pontos de separá-se. Para ver uma lista completa de regiões use Get-AzLocation. Ex: Eastus; eastus2|
 |Auditação CIS Microsoft Azure Foundations Benchmark 1.1.0 recomendações e implementar extensões VM de suporte específicas|Atribuição de políticas|Lista de extensões de máquinas virtuais que são aprovadas para utilização|Uma lista de extensões separadas por pontos de separá-se. Para ver uma lista completa de extensões de máquinas virtuais, utilize a Get-AzVMExtensionImage. Ex: AzureDiskEncryption; IaaSAntimalware|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Artigos adicionais sobre esquemas e como os utilizar:
 
