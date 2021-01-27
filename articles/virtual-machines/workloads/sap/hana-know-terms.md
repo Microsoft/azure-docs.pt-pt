@@ -1,5 +1,5 @@
 ---
-title: Conheça os termos da SAP HANA em Azure (Grandes Instâncias) Microsoft Docs
+title: Conheça os termos da SAP HANA em Azure (Grandes Instâncias) | Microsoft Docs
 description: Conheça os termos da SAP HANA em Azure (Grandes Instâncias).
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 11/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c1e4e223e7932f7fc8699c04a94b079b7f16e3d5
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 326e2a436f07d841a0b3196a4abddd5ee0f8b67c
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98198905"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98873591"
 ---
 # <a name="know-the-terms"></a>Conhecer os termos
 
@@ -36,7 +36,7 @@ Várias definições comuns são amplamente utilizadas no Guia de Arquitetura e 
 - **SAP HANA em Azure (Grandes Instâncias):** Nome oficial para a oferta em Azure para executar instâncias HANA em hardware certificado SAP HANA TDI que é implantado em selos de Grande Instância em diferentes regiões de Azure. O termo relacionado *HANA Large Instance* é abreviatura para *SAP HANA on Azure (Grandes Instâncias)* e é amplamente utilizado neste guia de implementação técnica.
 - **Premissas cruzadas**: Descreve um cenário em que os VMs são implantados numa subscrição do Azure que tem conectividade site-to-site, multi-site ou Azure ExpressRoute entre centros de dados no local e Azure. Em documentação comum do Azure, este tipo de implantações também são descritos como cenários de premissas cruzadas. A razão para a ligação é alargar os domínios no local, o Azure Ative Directory/OpenLDAP e o DNS no local para a Azure. A paisagem no local é estendida aos ativos da Azure das assinaturas Azure. Com esta extensão, os VMs podem fazer parte do domínio no local. 
 
-   Os utilizadores de domínio do domínio no local podem aceder aos servidores e executar serviços nesses VMs (tais como serviços DBMS). É possível a resolução de comunicação e nome entre os VM implantados no local e os VM implantados em Azure. Este cenário é típico da forma como a maioria dos ativos SAP são implantados. Para obter mais informações, consulte [o Gateway Azure VPN](../../../vpn-gateway/vpn-gateway-about-vpngateways.md) e [Crie uma rede virtual com uma ligação site-to-site utilizando o portal Azure](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+   Os utilizadores de domínio do domínio no local podem aceder aos servidores e executar serviços nesses VMs (tais como serviços DBMS). É possível a resolução de comunicação e nome entre os VM implantados no local e os VM implantados em Azure. Este cenário é típico da forma como a maioria dos ativos SAP são implantados. Para obter mais informações, consulte [o Gateway Azure VPN](../../../vpn-gateway/vpn-gateway-about-vpngateways.md) e [Crie uma rede virtual com uma ligação site-to-site utilizando o portal Azure](../../../vpn-gateway/tutorial-site-to-site-portal.md).
 - **Inquilino**: Um cliente implantado no carimbo HANA Large Instance fica isolado num *inquilino.* Um inquilino está isolado na camada de networking, armazenamento e computação de outros inquilinos. As unidades de armazenamento e computação atribuídas aos diferentes inquilinos não podem ver-se ou comunicar entre si no nível de selo HANA Large Instance. Um cliente pode optar por ter implementações em diferentes inquilinos. Mesmo assim, não há comunicação entre inquilinos no nível de selo HANA Large Instance.
 - **Categoria SKU**: Para HANA Large Instance, são oferecidas as seguintes duas categorias de SKUs:
     - **Classe Tipo I**: S72, S72m, S96, S144, S144m, S192, S192m, S192xm, S224 e S224m

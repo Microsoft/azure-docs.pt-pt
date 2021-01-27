@@ -1,5 +1,5 @@
 ---
-title: Cenários de dados envolvendo Azure Data Lake Storage Gen2 Microsoft Docs
+title: Cenários de dados envolvendo Azure Data Lake Storage Gen2 | Microsoft Docs
 description: Compreenda os diferentes cenários e ferramentas que utilizam quais os dados que podem ingerir, processar, descarregar e visualizar na Data Lake Storage Gen2 (anteriormente conhecida como Azure Data Lake Store)
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/14/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: eea7fb073cdf99ee1f4257f6824375a6502a4fad
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bffa7894f7603f95c4840019be5e5670797881df
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95913628"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98873251"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Usando Azure Data Lake Storage Gen2 para grandes requisitos de dados
 
@@ -141,5 +141,5 @@ Aqui está uma lista de ferramentas que pode usar para descarregar dados da Data
 |---|--|
 |Azure Data Factory | [Copy Activity in Azure Data Factory](../../data-factory/copy-activity-overview.md) (Atividade de Cópia no Azure Data Factory) |
 |Apache DistCp | [Utilize o DistCp para copiar dados entre as bolhas de armazenamento Azure e a Azure Data Lake Storage Gen2](./data-lake-storage-use-distcp.md) |
-|Explorador do Storage do Azure|[Use Azure Storage Explorer to manage directories, files, and ACLs in Azure Data Lake Storage Gen2](data-lake-storage-explorer.md) (Utilizar o Explorador de Armazenamento do Azure para gerir diretórios, ficheiros e ACLs no Azure Data Lake Storage Gen2)|
-|Ferramenta AzCopy|[Dados de transferência com armazenamento AzCopy e Blob](../common/storage-use-azcopy-blobs.md)|
+|Explorador de Armazenamento do Azure|[Use Azure Storage Explorer to manage directories, files, and ACLs in Azure Data Lake Storage Gen2](data-lake-storage-explorer.md) (Utilizar o Explorador de Armazenamento do Azure para gerir diretórios, ficheiros e ACLs no Azure Data Lake Storage Gen2)|
+|Ferramenta AzCopy|[Dados de transferência com armazenamento AzCopy e Blob](../common/storage-use-azcopy-v10.md#transfer-data)|

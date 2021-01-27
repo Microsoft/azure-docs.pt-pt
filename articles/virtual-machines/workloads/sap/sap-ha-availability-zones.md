@@ -1,5 +1,5 @@
 ---
-title: Configurações de carga de trabalho SAP com Zonas de Disponibilidade Azure / Microsoft Docs
+title: Configurações de carga de trabalho SAP com Zonas de Disponibilidade Azure | Microsoft Docs
 description: Arquitetura de alta disponibilidade e cenários para SAP NetWeaver usando Zonas de Disponibilidade Azure
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 12/29/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7418e5578450367e9fa37a87adb6e7036619877b
-ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
+ms.openlocfilehash: e098256a43add6df026ab136bcd6a6b549c147e7
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97827454"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98871320"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Configurações de carga de trabalho de SAP com Zonas de Disponibilidade do Azure
 Adicionalmente para a implantação das diferentes camadas de arquitetura SAP em conjuntos de disponibilidade de Azure, as zonas de [disponibilidade Azure](../../../availability-zones/az-overview.md) mais recentemente introduzidas podem ser usadas também para implementações de carga de trabalho SAP. Uma Zona de Disponibilidade Azul é definida como: "Localizações físicas únicas dentro de uma região. Cada zona é composta por um ou mais datacenters equipados com potência, arrefecimento e networking independentes". As Zonas de Disponibilidade Azure não estão disponíveis em todas as regiões. Para as regiões de Azure que fornecem Zonas de Disponibilidade, consulte o mapa da [região de Azure.](https://azure.microsoft.com/global-infrastructure/geographies/) Este mapa vai mostrar-lhe quais as regiões que fornecem ou são anunciadas para fornecer Zonas de Disponibilidade. 
@@ -56,7 +56,7 @@ Quando implementa VMs Azure em zonas de disponibilidade e estabelece soluções 
 
 - Tem de utilizar [discos geridos Azure](https://azure.microsoft.com/services/managed-disks/) quando se implanta em Zonas de Disponibilidade Azure. 
 - O mapeamento das enumerações de zona para as zonas físicas é fixado numa base de subscrição Azure. Se estiver a utilizar diferentes subscrições para implantar os seus sistemas SAP, tem de definir as zonas ideais para cada subscrição.
-- Não é possível implantar conjuntos de disponibilidades Azure dentro de uma Zona de Disponibilidade Azure, a menos que utilize [o Grupo de Colocação de Proximidade Azure](../../linux/co-location.md). A forma como pode implantar a camada SAP DBMS e os serviços centrais através de zonas e, ao mesmo tempo, implementar a camada de aplicação SAP utilizando conjuntos de disponibilidade e ainda alcançar uma proximidade próxima dos VMs está documentada no artigo Grupos de Colocação de [Proximidade Azure para a latência ótima da rede com aplicações SAP](sap-proximity-placement-scenarios.md). Se não estiver a utilizar grupos de colocação de proximidade Azure, tem de escolher um ou outro como estrutura de implantação para máquinas virtuais.
+- Não é possível implantar conjuntos de disponibilidades Azure dentro de uma Zona de Disponibilidade Azure, a menos que utilize [o Grupo de Colocação de Proximidade Azure](../../co-location.md). A forma como pode implantar a camada SAP DBMS e os serviços centrais através de zonas e, ao mesmo tempo, implementar a camada de aplicação SAP utilizando conjuntos de disponibilidade e ainda alcançar uma proximidade próxima dos VMs está documentada no artigo Grupos de Colocação de [Proximidade Azure para a latência ótima da rede com aplicações SAP](sap-proximity-placement-scenarios.md). Se não estiver a utilizar grupos de colocação de proximidade Azure, tem de escolher um ou outro como estrutura de implantação para máquinas virtuais.
 - Não é possível utilizar um [Azure Basic Load Balancer](../../../load-balancer/load-balancer-overview.md) para criar soluções de cluster de falha com base no Cluster de Falha de Falha do Servidor do Windows ou no Linux Pacemaker. Em vez disso, tem de utilizar o SKU do [Balanceador de Carga Padrão Azure](../../../load-balancer/load-balancer-standard-availability-zones.md).
 
 
@@ -130,7 +130,7 @@ Um esquema simplificado de uma implantação ativa/ativa em duas zonas poderia s
 
 Aplicam-se as seguintes considerações a esta configuração:
 
-- Não utilizando o [Grupo de Colocação de Proximidade Azure,](../../linux/co-location.md)trata as Zonas de Disponibilidade Azure como domínios de falha e atualização para todos os VMs porque os conjuntos de disponibilidade não podem ser implantados em Zonas de Disponibilidade Azure.
+- Não utilizando o [Grupo de Colocação de Proximidade Azure,](../../co-location.md)trata as Zonas de Disponibilidade Azure como domínios de falha e atualização para todos os VMs porque os conjuntos de disponibilidade não podem ser implantados em Zonas de Disponibilidade Azure.
 - Se pretender combinar implementações zonais para a camada DBMS e serviços centrais, mas pretender utilizar conjuntos de disponibilidade do Azure para a camada de aplicação, precisa de utilizar grupos de proximidade Azure, conforme descrito no artigo [Grupos de Colocação de Proximidade Azure para uma latência de rede ótima com aplicações SAP](sap-proximity-placement-scenarios.md).
 - Para os equilibradores de carga dos clusters de failover dos Serviços Centrais SAP e da camada DBMS, é necessário utilizar o [Balanceador de Carga Standard SKU Azure](../../../load-balancer/load-balancer-standard-availability-zones.md). O Balanceador de Carga Básica não funciona em zonas.
 - A rede virtual Azure que implementou para acolher o sistema SAP, juntamente com as suas sub-redes, está estendida através de zonas. Não precisa de redes virtuais separadas para cada zona.
@@ -217,7 +217,7 @@ Aplicam-se as seguintes considerações a esta configuração:
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Aqui estão alguns próximos passos para implantação em todas as Zonas de Disponibilidade Azure:
 
 - [Cluster uma instância SAP ASCS/SCS num cluster de failover do Windows utilizando um disco partilhado em Azure](./sap-high-availability-guide-wsfc-shared-disk.md)

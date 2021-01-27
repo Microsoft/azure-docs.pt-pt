@@ -33,8 +33,6 @@
       href: spring-cloud-tutorial-custom-domain.md
     - name: Utilizar a identidade gerida para ligar o Key Vault à aplicação Azure Spring Cloud
       href: spring-cloud-tutorial-managed-identities-key-vault.md
-    - name: Implementar o Azure Spring Cloud na rede virtual
-      href: spring-cloud-tutorial-deploy-in-azure-virtual-network.md
     - name: Utilizar uma identidade gerida para invocar Funções do Azure a partir de uma aplicação do Azure Spring Cloud
       href: spring-cloud-tutorial-managed-identities-functions.md
 - name: Conceitos
@@ -101,6 +99,18 @@
           href: spring-cloud-howto-application-insights.md
         - name: Métricas do Disjuntor Automático Resilience4J
           href: spring-cloud-howto-circuit-breaker-metrics.md
+    - name: Rede
+      items:
+        - name: Implementar Azure Spring Cloud numa rede virtual
+          href: spring-cloud-tutorial-deploy-in-azure-virtual-network.md
+        - name: Aceda à sua aplicação numa rede privada
+          href: spring-cloud-access-app-virtual-network.md
+        - name: Expor aplicações à Internet
+          href: spring-cloud-expose-apps-gateway-azure-firewall.md
+        - name: Responsabilidades do cliente executando Azure Spring Cloud em VNET
+          href: spring-cloud-vnet-customer-responsibilities.md
+        - name: Resolução de problemas Azure Spring Cloud em redes virtuais
+          href: spring-cloud-troubleshooting-vnet.md
     - name: Proteger
       items:
         - name: Ativar a identidade gerida atribuída pelo sistema
@@ -140,7 +150,7 @@
         - name: Spring Boot
           href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud
         - name: Tomcat
-          href: 'https://docs.microsoft.com/azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud'
+          href: /azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud
 - name: Implementação DevOps
   items:
     - name: CI/CD com o Azure DevOps

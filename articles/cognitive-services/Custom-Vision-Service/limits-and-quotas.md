@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: pafarley
-ms.openlocfilehash: 8a8ea8d5f13f72b0da1e11a27b69da2570eda543
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 3392cc5f3ee9daef1ae8397f6829f4ca7a42373a
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97913486"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98871405"
 ---
 # <a name="limits-and-quotas"></a>Limites e quotas
 
@@ -42,6 +42,9 @@ Espera-se que o número de imagens de formação por projeto e etiquetas por pro
 |Altura/largura de imagem máxima em pixéis|10,240|10,240|
 |Tamanho de imagem max (upload de imagem de treino) |6 MB|6 MB|
 |Tamanho da imagem máxima (previsão)|4 MB|4 MB|
-|Regiões max por imagem de treino de deteção de objetos|300|300|
-|Etiquetas máximas por imagem de classificação|100|100|
+|Número máximo de regiões por imagem (deteção de objetos)|300|300|
+|Número máximo de tags por imagem (classificação)|100|100|
 
+> [!NOTE]
+> Imagens inferiores a 256 pixels serão aceites, mas de luxo.
+> Rácio de aspeto de imagem não deve ser maior que 25

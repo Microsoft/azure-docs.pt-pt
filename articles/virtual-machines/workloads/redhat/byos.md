@@ -1,5 +1,5 @@
 ---
-title: Red Hat Enterprise Linux traz imagens Azure de subscrição própria Microsoft Docs
+title: Red Hat Enterprise Linux traz imagens Azure de subscrição própria | Microsoft Docs
 description: Saiba mais sobre as imagens de trazer a sua própria subscrição para Red Hat Enterprise Linux em Azure.
 author: asinn826
 ms.service: virtual-machines-linux
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/10/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: 9a53eb1004d68045781903b71d02c3416f494be2
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 7006096154d8958e13e7a86783bd07067b95d293
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803821"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98872897"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Red Hat Enterprise Linux traz imagens de ouro em Azure
 
@@ -194,7 +194,7 @@ Para obter medidas para aplicar a encriptação do disco Azure, consulte [os cen
 
     Neste caso, contacte a Microsoft ou a Red Hat para ativar a sua subscrição.
 
-- Se modificar uma imagem de UMA IMAGEM RHEL BYOS e tentar publicar essa imagem personalizada na Galeria de [Imagens Partilhadas,](../../linux/shared-image-galleries.md)deve fornecer informações de plano que correspondam à origem original do instantâneo. Por exemplo, o comando pode ser assim:
+- Se modificar uma imagem de UMA IMAGEM RHEL BYOS e tentar publicar essa imagem personalizada na Galeria de [Imagens Partilhadas,](../../shared-image-galleries.md)deve fornecer informações de plano que correspondam à origem original do instantâneo. Por exemplo, o comando pode ser assim:
 
     ```azurecli
     az vm create –image \
@@ -209,7 +209,7 @@ Para obter medidas para aplicar a encriptação do disco Azure, consulte [os cen
 
 - Se utilizar a automatização para fornecer VMs a partir das imagens RHEL BYOS, deve fornecer parâmetros de plano semelhantes aos mostrados nos comandos da amostra. Por exemplo, se utilizar o Terraform, fornece as informações do plano num [bloco de planos.](https://www.terraform.io/docs/providers/azurerm/r/virtual_machine.html#plan)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Mais detalhes sobre o Red Hat Cloud Access estão disponíveis na [documentação da nuvem pública do Chapéu Vermelho](https://access.redhat.com/public-cloud)
 - Para guias passo a passo e detalhes do programa para o Acesso à Nuvem, consulte a [documentação do Red Hat Cloud Access](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/index).

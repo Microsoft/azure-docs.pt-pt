@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 01/11/2021
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy20q4, devx-track-python, data4ml
-ms.openlocfilehash: 7285ab338e978f0de467f79bbce1d41409683b1e
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 80a995b488f335ac2eb60ae18621acb2b1df58e2
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132958"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98871541"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>Mover dados para e entre os passos de pipeline de ML (Python)
 
@@ -53,7 +53,7 @@ Precisará:
 
 - Alguns dados pré-existentes. Este artigo mostra brevemente a utilização de um [recipiente de bolhas Azure](../storage/blobs/storage-blobs-overview.md).
 
-- Opcional: Um oleoduto de aprendizagem automática existente, como o descrito em [Criar e executar gasodutos de aprendizagem automática com Azure Machine Learning SDK](how-to-create-your-first-pipeline.md).
+- Opcional: Um oleoduto de aprendizagem automática existente, como o descrito em [Criar e executar gasodutos de aprendizagem automática com Azure Machine Learning SDK](./how-to-create-machine-learning-pipelines.md).
 
 ## <a name="use-dataset-objects-for-pre-existing-data"></a>Utilize `Dataset` objetos para dados pré-existentes 
 
@@ -154,7 +154,7 @@ ds = Dataset.get_by_name(workspace=ws, name='mnist_opendataset')
 
 ## <a name="use-outputfiledatasetconfig-for-intermediate-data"></a>Utilização `OutputFileDatasetConfig` para dados intermédios
 
-Embora `Dataset` os objetos representem apenas dados persistentes, [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true) os objetos podem ser utilizados para a produção temporária de dados a partir de etapas de pipeline **e** dados de saída persistentes. `OutputFileDatasetConfig` suporta a escrita de dados para o armazenamento de bolhas, fileshare, adlsgen1 ou adlsgen2. Suporta o modo de montagem e o modo de upload. No modo de montagem, os ficheiros escritos no diretório montado são armazenados permanentemente quando o ficheiro está fechado. No modo de upload, os ficheiros escritos no diretório de saída são carregados no final do trabalho. Se o trabalho falhar ou for cancelado, o diretório de saída não será carregado.
+Embora `Dataset` os objetos representem apenas dados persistentes, [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py) os objetos podem ser utilizados para a produção temporária de dados a partir de etapas de pipeline **e** dados de saída persistentes. `OutputFileDatasetConfig` suporta a escrita de dados para o armazenamento de bolhas, fileshare, adlsgen1 ou adlsgen2. Suporta o modo de montagem e o modo de upload. No modo de montagem, os ficheiros escritos no diretório montado são armazenados permanentemente quando o ficheiro está fechado. No modo de upload, os ficheiros escritos no diretório de saída são carregados no final do trabalho. Se o trabalho falhar ou for cancelado, o diretório de saída não será carregado.
 
  `OutputFileDatasetConfig` o comportamento padrão do objeto é escrever para a datastore padrão do espaço de trabalho. Passe os seus `OutputFileDatasetConfig` objetos para o seu `PythonScriptStep` com o `arguments` parâmetro.
 
@@ -184,7 +184,7 @@ OutputFileDatasetConfig(name="clean_data", destination=blob_store).as_upload(ove
 
 ### <a name="use-outputfiledatasetconfig-as-outputs-of-a-training-step"></a>Usar `OutputFileDatasetConfig` como saídas de um passo de treino
 
-Dentro do seu `PythonScriptStep` pipeline, pode recuperar os caminhos de saída disponíveis usando os argumentos do programa. Se este passo for o primeiro e rubricar os dados de saída, deve criar o diretório na trajetória especificada. Em seguida, pode escrever os ficheiros que pretender conter no `OutputFileDatasetConfig` .
+No `PythonScriptStep` do pipeline, pode obter os caminhos de saída disponíveis com os argumentos do programa. Se este passo for o primeiro e inicializar os dados de saída, terá de criar o diretório no caminho especificado. Em seguida, pode escrever os ficheiros que pretender conter no `OutputFileDatasetConfig` .
 
 ```python
 parser = argparse.ArgumentParser()
@@ -241,7 +241,7 @@ step1_output_ds = step1_output_data.register_on_complete(name='processed_data',
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Criar um conjunto de dados de aprendizagem de máquinas Azure](how-to-create-register-datasets.md)
-* [Criar e executar gasodutos de aprendizagem automática com Azure Machine Learning SDK](how-to-create-your-first-pipeline.md)
+* [Criar e executar gasodutos de aprendizagem automática com Azure Machine Learning SDK](./how-to-create-machine-learning-pipelines.md)

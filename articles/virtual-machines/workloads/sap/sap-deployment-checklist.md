@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ca2a844364d11dbb5ac2a244945e07d8ca725c1c
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 944e687c27d46a9cf3250cb21024b4e5a52dc62c
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98728445"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98871524"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Cargas de trabalho sap em Azure: lista de verificação de planeamento e implantação
 
@@ -137,7 +137,7 @@ Recomendamos que crie e valide uma solução HADR completa e um design de segura
         - Testar e avaliar a latência da rede entre os VMs da camada de aplicação SAP e os VMs DBMS de acordo com as notas de suporte [SAP #500235](https://launchpad.support.sap.com/#/notes/500235) e [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Avalie os resultados com a orientação de latência da rede na [nota de suporte da SAP #1100926](https://launchpad.support.sap.com/#/notes/1100926/E). A latência da rede deve estar ao alcance moderado ou bom. As exceções aplicam-se ao tráfego entre as unidades de VMs e HANA Large Instance, conforme documentado [neste artigo.](./hana-network-architecture.md#networking-architecture-for-hana-large-instance)
         - Certifique-se de que as implementações do ILB estão configurada para utilizar a Return do Servidor Direto. Esta definição reduzirá a latência quando os ILBs Azure forem utilizados para configurações de alta disponibilidade na camada DBMS.
         - Se estiver a utilizar o Azure Load Balancer juntamente com os sistemas operativos de hóspedes Linux, verifique se o parâmetro da rede Linux **net.ipv4.tcp_timestamps** está definido para **0**. Esta recomendação entra em conflito com recomendações em versões mais antigas da [nota SAP #2382421](https://launchpad.support.sap.com/#/notes/2382421). A nota SAP é agora atualizada para indicar que este parâmetro precisa de ser definido para **0** para funcionar com os equilibradores de carga Azure.
-        - Considere usar [grupos de colocação de proximidade Azure](../../linux/co-location.md) para obter a latência ideal da rede. Para obter mais informações, consulte [os grupos de colocação de proximidade do Azure para obter uma latência ótima da rede com aplicações SAP](sap-proximity-placement-scenarios.md).
+        - Considere usar [grupos de colocação de proximidade Azure](../../co-location.md) para obter a latência ideal da rede. Para obter mais informações, consulte [os grupos de colocação de proximidade do Azure para obter uma latência ótima da rede com aplicações SAP](sap-proximity-placement-scenarios.md).
    4. Alta disponibilidade e implantações de recuperação de desastres.
         - Se implementar a camada de aplicação SAP sem definir uma zona específica de disponibilidade de Azure, certifique-se de que todos os VMs que executam instâncias de diálogo SAP ou instâncias de middleware de um único sistema SAP são implantados num [conjunto de disponibilidade](../../manage-availability.md).
         - Se não necessitar de alta disponibilidade para os Serviços Centrais SAP e para o DBMS, pode implantar estes VMs no mesmo conjunto de disponibilidade que a camada de aplicação SAP.
@@ -209,7 +209,7 @@ Durante esta fase, normalmente implementa sistemas de desenvolvimento, sistemas 
 8.  Consulte [o site da SAP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) para obter novos SKUs certificados pela HANA em Azure. Compare os preços dos novos SKUs com os que planeou utilizar. Eventualmente, faça as alterações necessárias para usar os que têm a melhor relação preço/desempenho.
 9.  Adapte os scripts de implementação para utilizar novos tipos de VM e incorpore novas funcionalidades Azure que pretende utilizar.
 10. Após a implantação da infraestrutura, teste e avalia a latência da rede entre vMs de aplicação SAP e VMs DBMS, de acordo com as notas de suporte [SAP #500235](https://launchpad.support.sap.com/#/notes/500235) e [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Avalie os resultados com a orientação de latência da rede na [nota de suporte da SAP #1100926](https://launchpad.support.sap.com/#/notes/1100926/E). A latência da rede deve estar ao alcance moderado ou bom. As exceções aplicam-se ao tráfego entre as unidades de VMs e HANA Large Instance, conforme documentado [neste artigo.](./hana-network-architecture.md#networking-architecture-for-hana-large-instance) Certifique-se de que nenhuma das restrições mencionadas em [Considerações para a implantação de DBMS de máquinas virtuais Azure para cargas de trabalho SAP](./dbms_guide_general.md#azure-network-considerations) e [configurações e operações de infraestrutura SAP HANA no Azure](./hana-vm-operations.md) se aplicam à sua implantação.
-11. Certifique-se de que os seus VMs são implantados no grupo de colocação de [proximidade Azure](../../linux/co-location.md)correto, conforme descrito nos [grupos de colocação de proximidade Azure para uma latência ótima da rede com aplicações SAP](sap-proximity-placement-scenarios.md).
+11. Certifique-se de que os seus VMs são implantados no grupo de colocação de [proximidade Azure](../../co-location.md)correto, conforme descrito nos [grupos de colocação de proximidade Azure para uma latência ótima da rede com aplicações SAP](sap-proximity-placement-scenarios.md).
 11. Efetue todas as outras verificações listadas para a fase de prova de conceito antes de aplicar a carga de trabalho.
 12. À medida que a carga de trabalho se aplica, registe o consumo de recursos dos sistemas em Azure. Compare este consumo com os registos da sua antiga plataforma. Ajuste o tamanho de VM de futuras implementações se vir que tem grandes diferenças. Tenha em mente que quando reduzir, o armazenamento e as larguras de banda de VM também serão reduzidos.
     - [Tamanhos de máquinas virtuais do Windows no Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -251,7 +251,7 @@ Nesta fase, colete o que experimentou e aprendeu durante as suas implementaçõe
     - Nenhum [aparelho virtual de rede Azure](https://azure.microsoft.com/solutions/network-appliances/) está no caminho de comunicação entre a aplicação SAP e a camada DBMS de sistemas SAP baseados em SAP NetWeaver, Hybris ou S/4HANA.
     - As regras do grupo de segurança de aplicações e do grupo de segurança da rede permitem a comunicação conforme o desejado e planeado e bloqueiam a comunicação sempre que necessário.
     - As definições de tempo limite são definidas corretamente, como descrito anteriormente.
-    - Os VMs são implantados para o grupo de colocação de [proximidade Azure](../../linux/co-location.md)correto, conforme descrito em [grupos de colocação de proximidade Azure para uma latência de rede ideal com aplicações SAP](sap-proximity-placement-scenarios.md).
+    - Os VMs são implantados para o grupo de colocação de [proximidade Azure](../../co-location.md)correto, conforme descrito em [grupos de colocação de proximidade Azure para uma latência de rede ideal com aplicações SAP](sap-proximity-placement-scenarios.md).
     - A latência da rede entre vMs de aplicação SAP e VMs DBMS é testada e validada conforme descrito nas notas de suporte SAP [#500235](https://launchpad.support.sap.com/#/notes/500235) e [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Avalie os resultados com a orientação de latência da rede na [nota de suporte da SAP #1100926](https://launchpad.support.sap.com/#/notes/1100926/E). A latência da rede deve estar ao alcance moderado ou bom. As exceções aplicam-se ao tráfego entre as unidades de VMs e HANA Large Instance, conforme documentado [neste artigo.](./hana-network-architecture.md#networking-architecture-for-hana-large-instance)
     - A encriptação foi implementada sempre que necessário e com o método de encriptação apropriado.
     - Interfaces e outras aplicações podem ligar a infraestrutura recém-implantada.

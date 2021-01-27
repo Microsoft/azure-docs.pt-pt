@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: cherylmc
-ms.openlocfilehash: 2fc12385c78135269b6a73038fd0ad810ebaedd6
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 73a7d76de34d29b2d51c54569b234cd8221b08f8
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576205"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98872184"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>Configurar o trânsito do gateway de VPN para peering de rede virtual
 
@@ -43,9 +43,9 @@ Antes de começar, verifique se tem as seguintes redes e permissões virtuais:
 
 |VNet|Modelo de implementação| Gateway de rede virtual|
 |---|---|---|---|
-| Hub-RM| [Resource Manager](vpn-gateway-howto-site-to-site-resource-manager-portal.md)| [Sim](tutorial-create-gateway-portal.md)|
-| Spoke-RM | [Resource Manager](vpn-gateway-howto-site-to-site-resource-manager-portal.md)| Não |
-| Spoke-Classic | [Clássico](vpn-gateway-howto-site-to-site-classic-portal.md#CreatVNet) | Não |
+| Hub-RM| [Resource Manager](./tutorial-site-to-site-portal.md)| [Sim](tutorial-create-gateway-portal.md)|
+| Spoke-RM | [Resource Manager](./tutorial-site-to-site-portal.md)| No |
+| Spoke-Classic | [Clássico](vpn-gateway-howto-site-to-site-classic-portal.md#CreatVNet) | No |
 
 ### <a name="permissions"></a><a name="permissions"></a>Permissões
 
@@ -174,7 +174,7 @@ Add-AzVirtualNetworkPeering `
   -AllowGatewayTransit
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais acerca das [restrições e comportamentos do peering de rede virtual](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints) e das [definições do peering de rede virtual](../virtual-network/virtual-network-manage-peering.md#create-a-peering) antes de criar um peering de rede virtual para a utilização de produção.
 * Saiba como [criar uma topologia hub-and-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke#virtual-network-peering) com peering de rede virtual e trânsito do gateway.

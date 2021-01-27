@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2021
 ms.author: yelevin
-ms.openlocfilehash: 0e256f2fe4b8d4275e331e0fe1fadd67e1d96655
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: bdc9cbf942b88af93befa34f73eb3a90469cfcef
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567956"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98873506"
 ---
 # <a name="connect-your-proofpoint-on-demand-email-security-pod-solution-to-azure-sentinel"></a>Ligue o seu ponto de verificação à segurança de e-mail (POD) à Azure Sentinel
 
@@ -37,7 +37,7 @@ Este artigo explica como ligar o seu ponto de prova a pedido Enviar por email o 
 
 - Deve ter lido permissões para partilhar chaves para o espaço de trabalho. [Saiba mais sobre as teclas do espaço de trabalho.](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key)
 
-- Deve ter lido e escrito permissões para as Funções Azure para criar uma App de Função. [Saiba mais sobre as Funções Azure](/azure/azure-functions/).
+- Deve ter lido e escrito permissões para as Funções Azure para criar uma App de Função. [Saiba mais sobre as Funções Azure](../azure-functions/index.yml).
 
 - Você deve ter as seguintes credenciais websocket API: ProofpointClusterID, ProofpointToken. [Saiba mais sobre websocket API.](https://proofpointcommunities.force.com/community/s/article/Proofpoint-on-Demand-Pod-Log-API)
 
@@ -63,7 +63,7 @@ Consulte o separador **passos seguintes** na página do conector para obter algu
 
 Pode demorar até que os seus registos comecem a aparecer no Log Analytics.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste documento, aprendeu a ligar o Proofpoint On Demand Email Security ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 

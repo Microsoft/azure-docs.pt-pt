@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.subservice: workloads
 ms.date: 4/17/2020
 ms.author: jencook
-ms.openlocfilehash: 9df3d9771029e6d72e9d0092a129cddc27be6cd7
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 38bf12b46002e767bba50cf833637e2c8ace078f
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94564111"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98872337"
 ---
 # <a name="frequently-asked-questions-for-azure-confidential-computing"></a>Perguntas frequentes para Azure Confidential Computing
 
@@ -37,13 +37,21 @@ Não. As máquinas virtuais só podem ser implantadas em máquinas operativas da
 **As máquinas virtuais DCsv2 estão acinzentadas no portal e não posso selecionar uma**
 
 Com base na bolha de informação ao lado do VM, existem diferentes ações a tomar:
-   -    **Não suportadoGereração** : Mude a geração da imagem da máquina virtual para "Gen2".
-   -    **Não Disponível Para Aubstrução** : A região ainda não está disponível para a sua subscrição. Selecione uma região disponível.
+   -    **Não suportadoGereração**: Mude a geração da imagem da máquina virtual para "Gen2".
+   -    **Não Disponível Para Aubstrução**: A região ainda não está disponível para a sua subscrição. Selecione uma região disponível.
    -    **InsuficienteSQuota:** [Crie um pedido de apoio para aumentar a sua quota.](../azure-portal/supportability/per-vm-quota-requests.md) As assinaturas de teste gratuitos não têm quota para VMs de computação confidencial. 
 
 **As máquinas virtuais DCsv2 não aparecem quando tento procurá-las no seletor de tamanho do portal**
 
 Certifique-se de ter selecionado uma [região disponível.](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) Certifique-se também de que seleciona "limpar todos os filtros" no seletor de tamanhos. 
+
+**Posso permitir networking acelerado com computação confidencial Azure?**
+
+ Não. O Networking Acelerado não é suportado em máquinas virtuais DC-Series ou DCsv2-Series. O Networking Acelerado não pode ser ativado para qualquer implementação de máquinas virtuais de computação confidencial ou para a implementação do cluster do Serviço Azure Kubernetes em execução em computação confidencial.
+
+**Posso usar o Azure Dedicado Host com estas máquinas?**
+
+Yes. Azure Dedicado Host suporta máquinas virtuais da série DCsv2. O Azure Dedicated Host fornece um servidor físico de um único inquilino para executar as suas máquinas virtuais. Os utilizadores geralmente usam o Azure Dedicated Host para abordar os requisitos de conformidade em torno da segurança física, integridade dos dados e monitorização. 
 
 **Recebo um erro de falha de implementação do modelo do Azure Resource Manager: "A operação não pôde ser concluída porque resulta em exceder a quota de núcleos familiares do DcsV2 aprovado"**
 

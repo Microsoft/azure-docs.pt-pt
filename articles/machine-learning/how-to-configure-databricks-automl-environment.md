@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 10/21/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 878e6f11645a6478c0d536e9d6d6dac4518c5349
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 7c5544ec5f89cfbf2451c19430a99b64825f90bc
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740968"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98872609"
 ---
 # <a name="set-up-a-development-environment-with-azure-databricks-and-automl-in-azure-machine-learning"></a>Crie um ambiente de desenvolvimento com Azure Databricks e AutoML em Azure Machine Learning 
 
@@ -119,7 +119,7 @@ Experimente:
 + Importe estas amostras diretamente do seu espaço de trabalho. Ver abaixo: ![ Selecione Painel ](./media/how-to-configure-environment/azure-db-screenshot.png)
  ![ de Importação](./media/how-to-configure-environment/azure-db-import.png)
 
-+ Saiba como [criar um oleoduto com databricks como o computo de treino.](how-to-create-your-first-pipeline.md)
++ Saiba como [criar um oleoduto com databricks como o computo de treino.](./how-to-create-machine-learning-pipelines.md)
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
@@ -159,7 +159,7 @@ Experimente:
     * Adicione `pyarrow` a versão 0.11 ou superior.
   
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Treine um modelo](tutorial-train-models-with-aml.md) em Azure Machine Learning com o conjunto de dados MNIST.
 - Consulte o [Azure Machine Learning SDK para referência Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).

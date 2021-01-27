@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python, data4ml
-ms.openlocfilehash: 8b73676adbb9aa12e6f3b42dd26bed94b22780a8
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 9e4722933ec224712c8d649c0d9d850a9ee3e322
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539892"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98872014"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Acesso seguro a dados em Azure Machine Learning
 
@@ -101,8 +101,8 @@ Com conjuntos de dados, você pode realizar uma série de tarefas de machine lea
      + [experiências automatizadas de ML](how-to-use-automated-ml-for-ml-models.md)
      + o [designer](tutorial-designer-automobile-price-train-score.md#import-data)
      + [cadernos](how-to-train-with-datasets.md)
-     + [Oleodutos Azure Machine Learning](how-to-create-your-first-pipeline.md)
-+ Aceder a conjuntos de dados para pontuação com [inferência de lote](./tutorial-pipeline-batch-scoring-classification.md) em [gasodutos de aprendizagem automática](how-to-create-your-first-pipeline.md).
+     + [Oleodutos Azure Machine Learning](./how-to-create-machine-learning-pipelines.md)
++ Aceder a conjuntos de dados para pontuação com [inferência de lote](./tutorial-pipeline-batch-scoring-classification.md) em [gasodutos de aprendizagem automática](./how-to-create-machine-learning-pipelines.md).
 + Crie um monitor de conjunto de dados para deteção [de deriva de dados.](#drift)
 
 <a name="label"></a>
@@ -123,7 +123,7 @@ No contexto da aprendizagem automática, a deriva de dados é a mudança nos dad
 
 Consulte o artigo [do monitor do conjunto de dados,](how-to-monitor-datasets.md) para saber mais sobre como detetar e alertar para a deriva de dados em novos dados num conjunto de dados.
 
-## <a name="next-steps"></a>Passos seguintes 
+## <a name="next-steps"></a>Próximos passos 
 
 + Crie um conjunto de dados no estúdio Azure Machine Learning ou com o Python SDK [usando estes passos.](how-to-create-register-datasets.md)
 + Experimente exemplos de formação de dataset com os [nossos cadernos de amostras.](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/)

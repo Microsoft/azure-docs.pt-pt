@@ -7,20 +7,20 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 12/12/2019
 ms.author: cynthn
-ms.openlocfilehash: dc3920ac1e2269f4980ee67e2f5f82a0541ac0c2
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: fd3ace98582a414a82ed4d1007a6c7df4b36d211
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201506"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98873100"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Carregar um VHD generalizado e utilizá-lo para criar VMs novas no Azure
 
 Este artigo acompanha-o usando o PowerShell para carregar um VHD de um VM generalizado para Azure, criar uma imagem a partir do VHD, e criar um novo VM a partir dessa imagem. Você pode carregar um VHD exportado de uma ferramenta de virtualização no local ou de outra nuvem. A utilização [de Discos Geridos](../managed-disks-overview.md) para o novo VM simplifica a gestão de VM e proporciona uma melhor disponibilidade quando o VM é colocado num conjunto de disponibilidade. 
 
-Para obter um script de amostra, consulte [o script sample para carregar um VHD para Azure e criar um novo VM](../scripts/virtual-machines-windows-powershell-upload-generalized-script.md).
+Para obter um script de amostra, consulte [o script sample para carregar um VHD para Azure e criar um novo VM](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script).
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 - Antes de enviar qualquer VHD para Azure, deve seguir [Preparar um VHD ou VHDX do Windows para fazer o upload para Azure](prepare-for-upload-vhd-image.md).
 - Plano de revisão [da migração para Discos Geridos](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks) antes de iniciar a sua migração para [Discos Geridos.](../managed-disks-overview.md)
@@ -112,6 +112,6 @@ New-AzVm `
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Inscreva-se na sua nova máquina virtual. Para obter mais informações, consulte [Como ligar e iniciar sessão numa máquina virtual Azure que executa o Windows](connect-logon.md).

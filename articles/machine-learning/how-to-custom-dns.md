@@ -11,12 +11,12 @@ author: jhirono
 ms.date: 11/20/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 8d3145639d2d4fb64bdb374f1dea0a7b70e4151c
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 2215c47fcd250a9ac1d6621f7e4b434bd33b3832
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724719"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98871100"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>Como utilizar a área de trabalho com um servidor DNS personalizado
 
@@ -112,8 +112,8 @@ A informação devolvida de todos os métodos é a mesma; uma lista do FQDN e en
 >
 > Para todos estes endereços IP, utilize o mesmo endereço que as `*.api.azureml.ms` entradas devolvidas das etapas anteriores.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre a utilização do Azure Machine Learning com uma rede virtual, consulte a visão geral da [rede virtual.](how-to-network-security-overview.md)
 
-Para obter mais informações sobre a integração de Pontos Finais Privados na sua configuração DNS, consulte [a configuração do DNS do Ponto Final Privado Azure](https://docs.microsoft.com/azure/private-link/private-endpoint-dns).
+Para obter mais informações sobre a integração de Pontos Finais Privados na sua configuração DNS, consulte [a configuração do DNS do Ponto Final Privado Azure](../private-link/private-endpoint-dns.md).

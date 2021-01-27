@@ -8,12 +8,12 @@ ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: a952bfa45515b9d35549d03d18fd94103679344d
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 975f7eec31839aefcb1782f573d0210df29a4d00
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349474"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98873574"
 ---
 # <a name="cognitive-services-development-options"></a>Opções de desenvolvimento dos Serviços Cognitivos
 
@@ -125,7 +125,7 @@ As ferramentas que vai usar para treinar e configurar modelos são diferentes da
 | Pilar | Serviço | UI de personalização | Início Rápido |
 |--------|---------|------------------|------------|
 | Visão | Visão Personalizada | https://www.customvision.ai/ | [Início rápido](./custom-vision-service/quickstarts/image-classification.md?pivots=programming-language-csharp) | 
-| Visão | Reconhecedor de Formato | Ferramenta de rotulagem de amostra | [Início rápido](./form-recognizer/quickstarts/label-tool.md?tabs=v2-0) |
+| Visão | Reconhecedor de Formato | [Ferramenta de rotulagem de amostra](https://fott-preview.azurewebsites.net/) | [Início rápido](./form-recognizer/quickstarts/label-tool.md?tabs=v2-0) |
 | Decisão | Content Moderator | https://contentmoderator.cognitive.microsoft.com/dashboard | [Início rápido](./content-moderator/review-tool-user-guide/human-in-the-loop.md) |
 | Decisão | Assistente de Métricas | https://metricsadvisor.azurewebsites.net/  | [Início rápido](./metrics-advisor/quickstarts/web-portal.md) |
 | Decisão | Personalizador | A UI está disponível no portal Azure sob o seu recurso Personalizer. | [Início rápido](./personalizer/quickstart-personalizer-sdk.md) |
@@ -147,7 +147,7 @@ A Compreensão da Linguagem e o serviço de Fala oferecem soluções de integra�
 
 Muitos dos Serviços Cognitivos podem ser implantados em contentores para acesso e utilização pré-pré-m. A utilização destes recipientes confere-lhe a flexibilidade para aproximar os Serviços Cognitivos dos seus dados por razões de conformidade, segurança ou outras razões operacionais. Para obter uma lista completa dos recipientes dos Serviços Cognitivos, consulte [os recipientes on-prem para serviços cognitivos.](./cognitive-services-container-support.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 <!--
 * Learn more about low code development options for Cognitive Services -->
 * [Crie um recurso de Serviços Cognitivos e comece a construir](./cognitive-services-apis-create-account.md?tabs=multiservice%252clinux)

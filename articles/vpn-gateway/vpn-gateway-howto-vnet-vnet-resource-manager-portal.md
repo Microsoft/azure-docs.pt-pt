@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/19/2020
 ms.author: cherylmc
-ms.openlocfilehash: fe0280e302882fd5e50830950b531ea9ca169618
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 465d877da48e0d7027dbba6615302af32c6bb154
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660547"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98872405"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Configure uma ligação de gateway VNet-to-VNet VPN utilizando o portal Azure
 
@@ -44,7 +44,7 @@ Quando cria uma ligação VNet-para-VNet, o espaço de endereço de gateway de r
 
 ### <a name="site-to-site-ipsec"></a>Site a Site (IPsec)
 
-Se estiver a trabalhar com uma configuração de rede complicada, poderá preferir ligar os seus VNets utilizando uma [ligação Site-to-Site.](vpn-gateway-howto-site-to-site-resource-manager-portal.md) Quando segue os passos IPsec site-to-site, cria e configura manualmente os gateways de rede locais. O gateway de rede local para cada VNet trata a outra VNet como um site local. Estes passos permitem especificar espaços de endereço adicionais para a porta de entrada da rede local para o tráfego de rotas. Se o espaço de endereço de um VNet mudar, deve atualizar manualmente o portal de rede local correspondente.
+Se estiver a trabalhar com uma configuração de rede complicada, poderá preferir ligar os seus VNets utilizando uma [ligação Site-to-Site.](./tutorial-site-to-site-portal.md) Quando segue os passos IPsec site-to-site, cria e configura manualmente os gateways de rede locais. O gateway de rede local para cada VNet trata a outra VNet como um site local. Estes passos permitem especificar espaços de endereço adicionais para a porta de entrada da rede local para o tráfego de rotas. Se o espaço de endereço de um VNet mudar, deve atualizar manualmente o portal de rede local correspondente.
 
 ### <a name="vnet-peering"></a>VNet peering
 
@@ -76,7 +76,7 @@ Este artigo mostra-lhe como ligar VNets utilizando o tipo de ligação VNet-vNet
 * **Definições de rede virtuais**
   * **Nome**: VNet1
   * **Espaço de** endereço : 10.1.0.0/16
-  * **Subscrição**: Selecione a subscrição que pretende utilizar.
+  * **Subscrição**: selecione a subscrição que quer utilizar.
   * **Grupo de recursos**: TestRG1
   * **Localização**: Leste dos EUA
   * **Sub-rede**
@@ -104,7 +104,7 @@ Este artigo mostra-lhe como ligar VNets utilizando o tipo de ligação VNet-vNet
 * **Definições de rede virtuais**
   * **Nome**: VNet4
   * **Espaço de** endereço : 10.41.0.0/16
-  * **Subscrição**: Selecione a subscrição que pretende utilizar.
+  * **Subscrição**: selecione a subscrição que quer utilizar.
   * **Grupo de recursos**: TestRG4
   * **Localização**: West US
   * **Sub-rede**
@@ -200,7 +200,7 @@ Em seguida, crie uma ligação de VNet4 a VNet1. No portal, localize o portal de
 
 ## <a name="add-additional-connections"></a>Adicionar ligações adicionais
 
-Se pretender adicionar ligações adicionais, navegue para o gateway de rede virtual a partir do qual pretende criar a ligação e, em seguida, selecione **Connections**. Pode criar outra ligação VNet a VNet ou criar uma ligação Site a Site IPsec para uma localização no local. Certifique-se de que ajusta o **Tipo de ligação** de modo a corresponder ao tipo de ligação que quer criar. Antes de criar ligações adicionais, verifique se o espaço de endereço da sua rede virtual não se sobrepõe a nenhum dos espaços de endereço a que pretende ligar. Para obter os passos para criar uma ligação Site a Site, consulte [Criar uma ligação Site a Site](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+Se pretender adicionar ligações adicionais, navegue para o gateway de rede virtual a partir do qual pretende criar a ligação e, em seguida, selecione **Connections**. Pode criar outra ligação VNet a VNet ou criar uma ligação Site a Site IPsec para uma localização no local. Certifique-se de que ajusta o **Tipo de ligação** de modo a corresponder ao tipo de ligação que quer criar. Antes de criar ligações adicionais, verifique se o espaço de endereço da sua rede virtual não se sobrepõe a nenhum dos espaços de endereço a que pretende ligar. Para obter os passos para criar uma ligação Site a Site, consulte [Criar uma ligação Site a Site](./tutorial-site-to-site-portal.md).
 
 ## <a name="vnet-to-vnet-faq"></a>FAQ da ligação VNet a VNet
 
