@@ -1,5 +1,5 @@
 ---
-title: Passo 1 - Compreender os benefícios da migração para a API V3 dos Serviços de Comunicação Social | Microsoft Docs
+title: Passo 1 - Compreender os benefícios da migração para a API V3 dos Serviços de Comunicação Social
 description: Este artigo enumera os benefícios da migração dos Serviços de Comunicação Social v2 para v3.
 services: media-services
 author: IngridAtMicrosoft
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: c1e3fae35ff249b4435cf2fdcd2bf691bc393d56
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 5980da900cd1394d5d9a9ddf99063662cad3c88b
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98690673"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898380"
 ---
 # <a name="step-1---understand-the-benefits-of-migrating-to-media-services-api-v3"></a>Passo 1 - Compreender os benefícios da migração para a API V3 dos Serviços de Comunicação Social
 
@@ -61,6 +61,6 @@ Houve melhorias significativas nos Serviços de Comunicação social com a V3.
 | Suporte de notificação [Azure EventGrid](reacting-to-media-services-events.md) | As notificações do EventGrid são mais ricas em funcionalidades. Existem mais tipos de notificações, suporte SDK mais amplo para receber as notificações na sua própria aplicação, e mais serviços Azure existentes que podem atuar como manipuladores de eventos. |
 | [Apoio e integração do Azure Monitor no portal Azure](monitor-events-portal-how-to.md) | Isto permite que os clientes visualizem o uso da quota de conta dos Media Services, estatísticas em tempo real de pontos finais de streaming, e ingerir e arquivar estatísticas para eventos ao vivo. Os clientes podem agora definir alertas e executar as ações necessárias com base em dados métricos em tempo real. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [!INCLUDE [migration guide next steps](./includes/migration-guide-next-steps.md)]

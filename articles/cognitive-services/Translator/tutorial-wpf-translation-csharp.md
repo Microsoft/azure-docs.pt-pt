@@ -3,20 +3,20 @@ title: 'Tutorial: Criar uma aplicação de tradução com WPF, C# - Tradutor'
 titleSuffix: Azure Cognitive Services
 description: Neste tutorial, irá criar uma aplicação WPF para realizar tradução de texto, deteção de idiomas e verificação ortográfica com uma única chave de subscrição.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 05/26/2020
-ms.author: swmachan
+ms.author: lajanuar
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d239b89aaf0bc140916d38583f4263f7bf660f1a
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 9ebcbadbc8b502121b25393c7761794bcd3f07e8
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023621"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897110"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Tutorial: Criar uma aplicação de tradução com o WPF
 

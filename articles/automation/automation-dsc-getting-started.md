@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0e98078fe2799d1c524190c8ced36588f35498b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 25f5e92aa8aa211782bc238781c59b9ca0511173
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86186440"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897246"
 ---
 # <a name="get-started-with-azure-automation-state-configuration"></a>Começar com a configuração do Estado da Automação Azure
 
@@ -100,7 +100,7 @@ Para obter mais informações sobre a compilação de configurações, consulte 
 1. À esquerda, clique em **Todos os recursos** e, em seguida, o nome da sua conta Automation.
 1. Na página da conta Demômes, clique na **configuração do Estado (DSC)** em **Gestão de Configuração**.
 1. Na página de configuração do Estado (DSC), clique no **separador Configurações** e, em seguida, clique em **TestConfig**. Este é o nome da configuração anteriormente importada.
-1. No painel de configuração TestConfig, clique em **Compile**e, em seguida, clique em **Sim**. Isto começa um trabalho de compilação.
+1. No painel de configuração TestConfig, clique em **Compile** e, em seguida, clique em **Sim**. Isto começa um trabalho de compilação.
 
    ![Screenshot da página de configuração TestConfig realçando o botão de compilação](./media/automation-dsc-getting-started/CompileConfig.png)
 
@@ -231,10 +231,10 @@ Se já não pretender que um nó seja gerido pela Configuração do Estado, pode
 
     ![Screenshot da página de detalhes do nó realçando o botão Unregister](./media/automation-dsc-getting-started/UnregisterNode.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter uma visão geral, consulte [a visão geral da configuração do Estado da Automação Azure](automation-dsc-overview.md).
 - Para ativar a funcionalidade de VMs no seu ambiente, consulte [ativar a configuração do Estado da Automação Azure](automation-dsc-onboarding.md).
 - Para compreender o PowerShell DSC, consulte a visão geral da [configuração do estado desejada do Windows PowerShell](/powershell/scripting/dsc/overview/overview).
 - Para obter informações sobre preços, consulte [os preços de configuração do Estado da Azure Automation](https://azure.microsoft.com/pricing/details/automation/).
-- Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
+- Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](/powershell/module/az.automation).

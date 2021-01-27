@@ -3,19 +3,19 @@ title: Suporte linguístico - Tradutor
 titleSuffix: Azure Cognitive Services
 description: O Tradutor de Serviços Cognitivos suporta as seguintes línguas para tradução de texto para texto usando tradução automática neural (NMT).
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
-ms.author: swmachan
-ms.openlocfilehash: a359c4f0de6dab70b334da7e7d29ad4b273385ab
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.author: lajanuar
+ms.openlocfilehash: a218888a094c30b7672fd22c255f6a352422b878
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98789284"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896855"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Apoio linguístico e regional para tradução de texto e fala
 

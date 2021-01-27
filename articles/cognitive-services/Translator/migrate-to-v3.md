@@ -3,19 +3,19 @@ title: Migrar para V3 - Tradutor
 titleSuffix: Azure Cognitive Services
 description: Este artigo fornece os passos para ajudá-lo a migrar de V2 para V3 do Azure Cognitive Services Tradutor.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.author: swmachan
-ms.openlocfilehash: baaf907d2fafe23805e6b49582ecc7592ee05e0b
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.author: lajanuar
+ms.openlocfilehash: 13c4d39284fad293c945f8b7e31076dccee84fda
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028238"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896838"
 ---
 # <a name="translator-v2-to-v3-migration"></a>Tradução V2 para V3 Migração
 
@@ -43,8 +43,8 @@ A seguinte lista de métodos V2 e V3 identifica os métodos V3 e APIs que fornec
 |:----------- |:-------------|
 | `Translate`     | [Traduzir](reference/v3-0-translate.md)          |
 | `TranslateArray`      | [Traduzir](reference/v3-0-translate.md)        |
-| `GetLanguageNames`      | [Linguagens](reference/v3-0-languages.md)         |
-| `GetLanguagesForTranslate`     | [Linguagens](reference/v3-0-languages.md)       |
+| `GetLanguageNames`      | [Idiomas](reference/v3-0-languages.md)         |
+| `GetLanguagesForTranslate`     | [Idiomas](reference/v3-0-languages.md)       |
 | `GetLanguagesForSpeak`      | [Serviço de Fala da Microsoft](../speech-service/language-support.md#text-to-speech)         |
 | `Speak`     | [Serviço de Fala da Microsoft](../speech-service/text-to-speech.md)          |
 | `Detect`     | [Detetar](reference/v3-0-detect.md)         |
@@ -116,8 +116,8 @@ A tradução neural com o texto V3 API não suporta a utilização de categorias
 
 | Versão | Ponto final | Conformidade do processador do RGPD | Use Centro de Tradutor | Use tradutor personalizado (pré-visualização) |
 | :------ | :------- | :------------------------ | :----------------- | :------------------------------ |
-|Tradução Versão 2|    api.microsofttranslator.com|    Não    |Sim    |Não|
-|Tradução Versão 3|    api.cognitive.microsofttranslator.com|    Sim|    Não|    Sim|
+|Tradução Versão 2|    api.microsofttranslator.com|    No    |Yes    |No|
+|Tradução Versão 3|    api.cognitive.microsofttranslator.com|    Yes|    No|    Yes|
 
 **Tradução Versão 3**
 * Geralmente está disponível e totalmente suportado.
@@ -141,7 +141,7 @@ Nenhuma versão do Tradutor cria um registo das suas traduções. As suas tradu�
 * [Microsoft Azure Informação Jurídica](https://azure.microsoft.com/support/legal)
 * [Termos dos Serviços Online](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Ver Documentação V3.0](reference/v3-0-reference.md)

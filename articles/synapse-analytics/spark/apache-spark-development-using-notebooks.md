@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: 7bb0b9b4645be7e548fe116d9e9a2c92fae7dc96
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 57999ce53e536d422e6502a77aaccdc66b4c5077
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120959"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898499"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-notebooks-in-azure-synapse-analytics"></a>Criar, desenvolver e manter os cadernos do Estúdio Synapse em Azure Synapse Analytics
 
@@ -304,6 +304,8 @@ Não suportado.
 
 Pode usar ```%run <notebook path>``` o comando mágico para fazer referência a outro caderno no contexto do caderno atual. Todas as variáveis definidas no caderno de referência estão disponíveis no caderno atual. ```%run``` o comando mágico suporta chamadas aninhadas, mas não suporta chamadas recursivas. Receberá uma exceção se a profundidade da declaração for maior do que cinco. ```%run``` comando atualmente apenas suporta para passar um caminho de caderno como parâmetro. 
 
+Exemplo: ``` %run /path/notebookA ```.
+
 ---
 
 
@@ -496,7 +498,7 @@ Utilizando os seguintes atalhos de teclas, pode navegar e executar código mais 
 |Selecione a célula acima| Cima |
 |Selecione a célula abaixo| Baixo |
 |Insira a célula acima| A |
-|Insira a célula abaixo| N |
+|Insira a célula abaixo| B |
 |Estender as células selecionadas acima| Shift+Up |
 |Estender as células selecionadas abaixo| Shift+Down|
 |Mover a célula para cima| Ctrl+Alt+↑ |
@@ -516,7 +518,7 @@ Utilizando os seguintes atalhos de teclas, pode navegar e executar código mais 
 |Selecione célula anterior| K |
 |Selecione a próxima célula| J |
 |Insira a célula acima| A |
-|Insira a célula abaixo| N |
+|Insira a célula abaixo| B |
 |Eliminar células selecionadas| Turno+D |
 |Mude para o modo de edição| ENTER |
 
@@ -547,7 +549,7 @@ Utilizando os seguintes atalhos de teclas, pode navegar e executar código mais 
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - [Confira os cadernos da amostra da Sinapse](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks)
 - [Quickstart: Criar uma piscina Apache Spark em Azure Synapse Analytics usando ferramentas web](../quickstart-apache-spark-notebook.md)
 - [O que é Apache Spark em Azure Synapse Analytics](apache-spark-overview.md)

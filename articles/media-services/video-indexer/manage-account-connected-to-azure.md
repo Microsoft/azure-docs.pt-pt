@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 12/16/2019
+ms.date: 01/14/2021
 ms.author: juliako
-ms.openlocfilehash: 5b9ec1c04dd90af9d9380a1f4d30386c8f9cc3ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 25025efe5254442c4862563ce329cfae69e7d033
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79499663"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898448"
 ---
 # <a name="manage-a-video-indexer-account-connected-to-azure"></a>Gerir uma conta do Video Indexer ligada ao Azure
 
@@ -28,7 +28,7 @@ Este artigo demonstra como gerir uma conta de Video Indexer que está ligada à 
 
 Ligue a sua conta de Indexer de Vídeo ao Azure, conforme descrito no [Connected to Azure](connect-to-azure.md).
 
-Certifique-se de seguir [Pré-Requisitos](connect-to-azure.md#prerequisites) e rever [considerações](connect-to-azure.md#considerations) no artigo.
+Certifique-se de seguir [Pré-Requisitos](connect-to-azure.md#prerequisites-for-connecting-to-azure) e rever [considerações](connect-to-azure.md#azure-media-services-considerations) no artigo.
 
 ## <a name="examine-account-settings"></a>Examinar as definições da conta
 
@@ -58,8 +58,8 @@ Na **ligação Azure Media Services** da sua página [de Indexer](https://www.vi
 |---|---|
 |ID de assinatura Azure|O ID de subscrição pode ser recuperado a partir do portal Azure. Clique em **Todos os serviços** no painel esquerdo e procure por "subscrições". Selecione **Subscrições** e escolha o ID desejado na lista das suas subscrições.|
 |Nome do grupo de recursos Azure Media Services|O nome do grupo de recursos em que criou a conta dos Serviços de Comunicação Social.|
-|ID da Aplicação|O ID de aplicação AZure (com permissões para a conta de Serviços de Mídia especificadas) que criou para esta conta de Indexer de Vídeo. <br/><br/>Para obter o ID da aplicação, navegue para o portal Azure. Na conta dos Serviços de Comunicação Social, escolha a sua conta e vá ao **API Access.** Selecione **Connect to Media Services API com a app AD principal do serviço.**  ->  **Azure AD App** Copie os parâmetros relevantes.|
-|Chave de aplicação|A chave de aplicação AD AZure associada à sua conta de Serviços de Mídia que especificou acima. <br/><br/>Para obter a chave da aplicação, navegue para o portal Azure. Na conta dos Serviços de Comunicação Social, escolha a sua conta e vá ao **API Access.** Selecione **Connect to Media Services API com o principal serviço**Gerir os  ->  **Manage application**  ->  **certificados de aplicação & segredos.** Copie os parâmetros relevantes.|
+|ID da Aplicação|O ID de aplicação AZure (com permissões para a conta de Serviços de Mídia especificadas) que criou para esta conta de Indexer de Vídeo. <br/><br/>Para obter o ID da aplicação, navegue para o portal Azure. Na conta dos Serviços de Comunicação Social, escolha a sua conta e vá ao **API Access.** Selecione **Connect to Media Services API com a app AD principal do serviço.**  ->   Copie os parâmetros relevantes.|
+|Chave de aplicação|A chave de aplicação AD AZure associada à sua conta de Serviços de Mídia que especificou acima. <br/><br/>Para obter a chave da aplicação, navegue para o portal Azure. Na conta dos Serviços de Comunicação Social, escolha a sua conta e vá ao **API Access.** Selecione **Connect to Media Services API com o principal serviço** Gerir os  ->    ->  **certificados de aplicação & segredos.** Copie os parâmetros relevantes.|
 
 ## <a name="autoscale-reserved-units"></a>Dimensionar automaticamente unidades reservadas
 
@@ -85,7 +85,7 @@ Se a sua conta necessitar de alguns ajustes, vê erros e avisos relevantes sobre
 
     Tem de alocar Unidades Reservadas de Mídia no seu recurso Media Service para indexar vídeos. Para um melhor desempenho de indexação, recomenda-se alocar pelo menos 10 Unidades Reservadas S3. Para obter informações sobre preços, consulte a secção faq da página [de preços dos Serviços de Mídia.](https://azure.microsoft.com/pricing/details/media-services/)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Pode interagir programáticamente com a sua conta experimental ou contas de Indexer de Vídeo que estão ligadas ao Azure seguindo as instruções em: [Use APIs](video-indexer-use-apis.md).
 

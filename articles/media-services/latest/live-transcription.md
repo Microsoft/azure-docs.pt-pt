@@ -1,26 +1,9 @@
 ---
-title: Transcrição em direto
-titleSuffix: Azure Media Services
-description: Saiba mais sobre a transcrição em direto da Azure Media Services.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: ne
-ms.topic: how-to
-ms.date: 08/31/2020
-ms.author: inhenkel
-ms.openlocfilehash: c3465e294af104c4d9c3b34960f5e95cf41e7cb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89291420"
+título: Transcrição ao vivo : Descrição do Azure Media Services: Saiba mais sobre a transcrição em direto dos Azure Media Services.  
+serviços: media-services documentationcenter: 'author: IngridAtMicrosoft manager: femila editor: '' ms.service: media-services ms.workload: media ms.tgt_pltfrm: na ms.devlang: ne ms.topic: how-to ms.date: 08/31/2020 ms.author: inhenkel
+
 ---
+
 # <a name="live-transcription-preview"></a>Transcrição ao vivo (pré-visualização)
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
@@ -46,7 +29,7 @@ A transcrição ao vivo está disponível nas seguintes regiões:
 
 Esta é a lista de idiomas disponíveis que podem ser transcritas, use o código de idioma na API.
 
-| Idioma | Código do idioma |
+| Linguagem | Código do idioma |
 | -------- | ------------- |
 | Catalão  | ca-ES |
 | Dinamarquês (Dinamarca) | da-DK |
@@ -56,7 +39,7 @@ Esta é a lista de idiomas disponíveis que podem ser transcritas, use o código
 | Inglês (Reino Unido) | en-GB |
 | Inglês (Índia) | en-IN |
 | Inglês (Nova Zelândia) | en-NZ |
-| Inglês (Estados Unidos) | pt-PT |
+| Inglês (Estados Unidos) | en-PT |
 | Espanhol (Espanha) | es-ES |
 | Espanhol (México) | es-MX |
 | Finlandês (Finlândia) | fi-FI |
@@ -201,6 +184,6 @@ Para pré-visualização, são conhecidos os seguintes problemas com transcriç�
 - As aplicações precisam de utilizar as APIs de pré-visualização, descritas na [Especificação Do OpenAPI dos Serviços de Mídia v3](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2019-05-01-preview/streamingservice.json).
 - A proteção da gestão de direitos digitais (DRM) não se aplica à faixa de texto, apenas a encriptação do envelope AES é possível.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Visão geral dos Serviços de Mídia](media-services-overview.md)

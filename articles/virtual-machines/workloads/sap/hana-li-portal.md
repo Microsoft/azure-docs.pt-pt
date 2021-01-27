@@ -1,5 +1,5 @@
 ---
-title: Azure HANA Grandes Instâncias controlam através do portal Azure Microsoft Docs
+title: Azure HANA Grandes Instâncias controlam através do portal Azure | Microsoft Docs
 description: Descreve como pode identificar e interagir com Azure HANA Grandes Instâncias através do portal
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/31/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e5adb8edbeafa4d77e24bf865338e111c455cb80
-ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
+ms.openlocfilehash: b03f3f93e8f829c6ab7dec965850117895a8b52d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97827517"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882489"
 ---
 # <a name="azure-hana-large-instances-control-through-azure-portal"></a>Controlo de Grandes Instâncias do Azure HANA através do portal do Azure
 
@@ -94,7 +94,7 @@ Dados adicionais no lado direito inferior é a revisão do carimbo HANA Large In
 - Revisão 4
 
 A Revisão 4 é a mais recente arquitetura lançada de HANA Large Instances com grandes melhorias na latência da rede entre Azure VMs e HANA Unidades de grande instância implantadas na Revisão 4 selos ou linhas.
-Outra informação muito importante encontra-se no canto inferior direito da visão geral com o nome do Grupo de Colocação de Proximidade Azure que é automaticamente criado para cada unidade de Grande Instância HANA implantada. Este Grupo de Colocação de Proximidade tem de ser referenciado ao implementar os VMs Azure que acolhem a camada de aplicação SAP. Ao utilizar o [grupo de colocação de proximidade Azure](../../linux/co-location.md) associado à unidade HANA Large Instance, certifique-se de que os VMs Azure são implantados nas proximidades da unidade HANA Large Instance. A forma como os grupos de colocação de proximidade podem ser usados para localizar a camada de aplicação SAP no mesmo centro de dados Azure como revisão 4 unidades HANA Large Instance é descrita em [Grupos de Colocação de Proximidade Azure para uma latência de rede ideal com aplicações SAP](sap-proximity-placement-scenarios.md).
+Outra informação muito importante encontra-se no canto inferior direito da visão geral com o nome do Grupo de Colocação de Proximidade Azure que é automaticamente criado para cada unidade de Grande Instância HANA implantada. Este Grupo de Colocação de Proximidade tem de ser referenciado ao implementar os VMs Azure que acolhem a camada de aplicação SAP. Ao utilizar o [grupo de colocação de proximidade Azure](../../co-location.md) associado à unidade HANA Large Instance, certifique-se de que os VMs Azure são implantados nas proximidades da unidade HANA Large Instance. A forma como os grupos de colocação de proximidade podem ser usados para localizar a camada de aplicação SAP no mesmo centro de dados Azure como revisão 4 unidades HANA Large Instance é descrita em [Grupos de Colocação de Proximidade Azure para uma latência de rede ideal com aplicações SAP](sap-proximity-placement-scenarios.md).
 
 Um campo adicional na coluna direita do cabeçalho informa sobre o estado de potência da unidade HANA Large.
 
@@ -162,7 +162,7 @@ Em cada um dos diferentes tipos de problemas, é-lhe oferecida uma seleção de 
 
 À medida que respondeu às perguntas e forneceu detalhes adicionais, pode dar o passo seguinte para rever o pedido de apoio e submetê-lo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Como monitorizar o SAP HANA (grandes instâncias) em Azure](./troubleshooting-monitoring.md)
 - [Monitorizar e resolver problemas do lado do HANA](./hana-monitor-troubleshoot.md)

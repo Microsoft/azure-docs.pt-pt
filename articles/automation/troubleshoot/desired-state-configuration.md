@@ -2,19 +2,15 @@
 title: Problemas de resolução de problemas Problemas de Configuração do Estado da Automação Azure
 description: Este artigo diz como resolver problemas e resolver problemas de Configuração do Estado da Automação Azure.
 services: automation
-ms.service: automation
 ms.subservice: ''
-author: mgoedtel
-ms.author: magoedte
 ms.date: 04/16/2019
-ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 8043369ebfef23ed84ccff8e7428fbd2048e10b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.topic: troubleshooting
+ms.openlocfilehash: e6caf3fed708e89b55a88719ca5358f6174c2ac8
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187222"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896533"
 ---
 # <a name="troubleshoot-azure-automation-state-configuration-issues"></a>Problemas de resolução de problemas Problemas de Configuração do Estado da Automação Azure
 
@@ -42,7 +38,7 @@ O módulo [xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics) pode 
 
 Pode instalar o `xDscDiagnostics` módulo na sua máquina local seguindo as instruções na [Instalação do módulo de versão estável](https://github.com/PowerShell/xDscDiagnostics#install-the-stable-version-module).
 
-Para instalar o `xDscDiagnostics` módulo na sua máquina Azure, utilize [Invoke-AzVMRunCommand](/powershell/module/az.compute/invoke-azvmruncommand?view=azps-3.7.0). Também pode utilizar a opção **de comando Executar** no portal Azure seguindo os passos nos [scripts Run PowerShell no seu Windows VM com Comando de Execução](../../virtual-machines/windows/run-command.md).
+Para instalar o `xDscDiagnostics` módulo na sua máquina Azure, utilize [Invoke-AzVMRunCommand](/powershell/module/az.compute/invoke-azvmruncommand). Também pode utilizar a opção **de comando Executar** no portal Azure seguindo os passos nos [scripts Run PowerShell no seu Windows VM com Comando de Execução](../../virtual-machines/windows/run-command.md).
 
 Para obter informações sobre a utilização **de xDscDiagnostics**, consulte [utilizar xDscDiagnostics para analisar registos DSC](/powershell/scripting/dsc/troubleshooting/troubleshooting#using-xdscdiagnostics-to-analyze-dsc-logs). Consulte também [os cmdlets xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics#cmdlets).
 
@@ -66,13 +62,13 @@ Este erro é um problema temporário que está planeado para ser resolvido.
 
 ### <a name="resolution"></a>Resolução
 
-Utilize o [cmdlet Remove-AzAutomationDscConfiguration](/powershell/module/Az.Automation/Remove-AzAutomationDscConfiguration?view=azps-3.7.0) para eliminar a configuração.
+Utilize o [cmdlet Remove-AzAutomationDscConfiguration](/powershell/module/Az.Automation/Remove-AzAutomationDscConfiguration) para eliminar a configuração.
 
 ## <a name="scenario-failed-to-register-the-dsc-agent"></a><a name="failed-to-register-agent"></a>Cenário: Não registou o Agente do DSC
 
 ### <a name="issue"></a>Problema
 
-Quando [o Set-DscLocalConfigurationManager](/powershell/module/psdesiredstateconfiguration/set-dsclocalconfigurationmanager?view=powershell-5.1) ou outro cmdlet DSC, recebe o erro:
+Quando [o Set-DscLocalConfigurationManager](/powershell/module/psdesiredstateconfiguration/set-dsclocalconfigurationmanager) ou outro cmdlet DSC, recebe o erro:
 
 ```error
 Registration of the Dsc Agent with the server
@@ -111,7 +107,7 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC / 
 
 Esta questão é causada por um certificado mau ou caducado. Consulte [re-registar um nó](../automation-dsc-onboarding.md#re-register-a-node).
 
-Este problema também pode ser causado por uma configuração de procuração que não permite o acesso a ***.azure-automation.net**. Para obter mais informações, consulte [configuração de redes privadas.](../automation-dsc-overview.md#network-planning) 
+Este problema também pode ser causado por uma configuração de procuração que não permite o acesso a **_.azure-automation.net_*. Para obter mais informações, consulte [configuração de redes privadas.](../automation-dsc-overview.md#network-planning) 
 
 ### <a name="resolution"></a>Resolução
 
@@ -119,13 +115,13 @@ Utilize os seguintes passos para voltar a registar o nó DSC em falha.
 
 #### <a name="step-1-unregister-the-node"></a>Passo 1: Não registar o nó
 
-1. No portal Azure, **Home**aceda às Contas de  >  **Automação** Domiciliária > (a sua conta de Automação) > **configuração estatal (DSC)**.
-1. Selecione **Nós**e selecione o nó com problemas.
+1. No portal Azure, aceda às Contas de  >  **Automação** Domiciliária > (a sua conta de Automação) > **configuração estatal (DSC)**.
+1. Selecione **Nós** e selecione o nó com problemas.
 1. **Selecione Não registar** para não registar o nó.
 
 #### <a name="step-2-uninstall-the-dsc-extension-from-the-node"></a>Passo 2: Desinstalar a extensão DSC a partir do nó
 
-1. No portal Azure, vá para **a Máquina**Virtual Doméstica >  >  **Virtual Machine** (nó falhado) > **Extensões**.
+1. No portal Azure, vá para **a Máquina** Virtual Doméstica >  >   (nó falhado) > **Extensões**.
 1. Selecione **Microsoft.Powershell.DSC,** a extensão DSC powerShell.
 1. Selecione **Desinstalar** para desinstalar a extensão.
 
@@ -151,11 +147,11 @@ If (($certs.Count) -gt 0)
 
 #### <a name="step-4-reregister-the-failing-node"></a>Passo 4: Reregisterar o nó falhado
 
-1. No portal Azure, **Home**aceda às Contas de  >  **Automação** Domiciliária > (a sua conta de Automação) > **configuração estatal (DSC)**.
+1. No portal Azure, aceda às Contas de  >  **Automação** Domiciliária > (a sua conta de Automação) > **configuração estatal (DSC)**.
 1. Selecione **Nós**.
 1. Selecione **Adicionar**.
 1. Selecione o nó de falha.
-1. Selecione **Connect**e selecione as opções desejadas.
+1. Selecione **Connect** e selecione as opções desejadas.
 
 ## <a name="scenario-node-is-in-failed-status-with-a-not-found-error"></a><a name="failed-not-found"></a>Cenário: Nó está em estado de falha com um erro "Não encontrado"
 
@@ -176,8 +172,8 @@ Este erro ocorre normalmente quando o nó é atribuído a um nome de configuraç
 * Certifique-se de que está a atribuir o nó com o nome de configuração do nó e não o nome de configuração.
 * Pode atribuir uma configuração de nó a um nó utilizando o portal Azure ou com um cmdlet PowerShell.
 
-  * No portal Azure, **Home**aceda às Contas de  >  **Automação** Domiciliária > (a sua conta de Automação) > **configuração estatal (DSC)**. Em seguida, selecione um nó e selecione **Configuração do nó de atribuição**.
-  * Utilize o [set-AzAutomationDscNode](/powershell/module/Az.Automation/Set-AzAutomationDscNode?view=azps-3.7.0) cmdlet.
+  * No portal Azure, aceda às Contas de  >  **Automação** Domiciliária > (a sua conta de Automação) > **configuração estatal (DSC)**. Em seguida, selecione um nó e selecione **Configuração do nó de atribuição**.
+  * Utilize o [set-AzAutomationDscNode](/powershell/module/Az.Automation/Set-AzAutomationDscNode) cmdlet.
 
 ## <a name="scenario-no-node-configurations-mof-files-were-produced-when-a-configuration-was-compiled"></a><a name="no-mof-files"></a>Cenário: As configurações do nó (ficheiros MOF) foram produzidas quando uma configuração foi compilada
 
@@ -259,7 +255,7 @@ Este erro ocorre normalmente quando o nó é atribuído um nome de configuraçã
 
 ### <a name="issue"></a>Problema
 
-Quando regista um nó utilizando [o Register-AzAutomationDSCNode](/powershell/module/az.automation/register-azautomationdscnode?view=azps-3.7.0) ou [o Register-AzureRMAutomationDSCNode,](/powershell/module/azurerm.automation/register-azurermautomationdscnode?view=azurermps-6.13.0)recebe o seguinte erro:
+Quando regista um nó utilizando [o Register-AzAutomationDSCNode](/powershell/module/az.automation/register-azautomationdscnode) ou [o Register-AzureRMAutomationDSCNode,](/powershell/module/azurerm.automation/register-azurermautomationdscnode)recebe o seguinte erro:
 
 ```error
 One or more errors occurred.
@@ -338,9 +334,9 @@ As configurações de DSC que demoram muito tempo a compilar podem causar este e
 
 ### <a name="resolution"></a>Resolução
 
-Pode fazer com que as suas configurações DSC analisem mais rapidamente, incluindo explicitamente o `ModuleName` parâmetro para quaisquer chamadas [Import-DSCResource.](/powershell/scripting/dsc/configurations/import-dscresource?view=powershell-5.1)
+Pode fazer com que as suas configurações DSC analisem mais rapidamente, incluindo explicitamente o `ModuleName` parâmetro para quaisquer chamadas [Import-DSCResource.](/powershell/scripting/dsc/configurations/import-dscresource)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se não vir o seu problema aqui ou não conseguir resolver o seu problema, experimente um dos seguintes canais para obter apoio adicional:
 

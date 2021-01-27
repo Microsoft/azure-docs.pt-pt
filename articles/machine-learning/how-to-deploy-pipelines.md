@@ -11,12 +11,12 @@ author: lobrien
 ms.date: 8/25/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q1
-ms.openlocfilehash: 9eb07721f9d507d69de10b6de6c8c2a358dab020
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 5dc14873f8863332d37a6ced6ce4013e76640dea
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97034093"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879398"
 ---
 # <a name="publish-and-track-machine-learning-pipelines"></a>Publicar e rastrear gasodutos de aprendizagem de máquinas
 
@@ -32,7 +32,7 @@ Os gasodutos de aprendizagem automática são fluxos de trabalho reutilizáveis 
 
 * [Configure o seu ambiente de desenvolvimento](how-to-configure-environment.md) para instalar o Azure Machine Learning SDK, ou use uma instância [computacional de aprendizagem automática Azure](concept-compute-instance.md) com o SDK já instalado
 
-* Crie e executar um pipeline de aprendizagem automática, como por exemplo seguindo [Tutorial: Construa um oleoduto Azure Machine Learning para pontuação de lotes](tutorial-pipeline-batch-scoring-classification.md). Para outras opções, consulte [Criar e executar pipelines de aprendizagem automática com Azure Machine Learning SDK](how-to-create-your-first-pipeline.md)
+* Crie e executar um pipeline de aprendizagem automática, como por exemplo seguindo [Tutorial: Construa um oleoduto Azure Machine Learning para pontuação de lotes](tutorial-pipeline-batch-scoring-classification.md). Para outras opções, consulte [Criar e executar pipelines de aprendizagem automática com Azure Machine Learning SDK](./how-to-create-machine-learning-pipelines.md)
 
 ## <a name="publish-a-pipeline"></a>Publicar um oleoduto
 
@@ -362,7 +362,7 @@ p.disable()
 
 Pode voltar a ative-lo com `p.enable()` . Para mais informações, consulte a referência [da classe PublishedPipeline.](/python/api/azureml-pipeline-core/azureml.pipeline.core.publishedpipeline?preserve-view=true&view=azure-ml-py)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Use [estes cadernos Jupyter no GitHub](https://aka.ms/aml-pipeline-readme) para explorar ainda mais os oleodutos de aprendizagem automática.
 - Consulte a ajuda de referência SDK para o pacote [de núcleo de gasodutos azureml](/python/api/azureml-pipeline-core/?preserve-view=true&view=azure-ml-py) e o pacote [de passos de gasodutos azureml.](/python/api/azureml-pipeline-steps/?preserve-view=true&view=azure-ml-py)

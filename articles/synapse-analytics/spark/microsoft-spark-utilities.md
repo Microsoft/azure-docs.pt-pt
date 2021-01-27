@@ -10,12 +10,12 @@ ms.date: 09/10/2020
 ms.author: ruxu
 ms.reviewer: ''
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: d2e9e306e979f569819568650b25d49278997ede
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 262177d8cde3a5eee2721f2af8a0511c205da9b9
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878532"
+ms.locfileid: "98890534"
 ---
 # <a name="introduction-to-microsoft-spark-utilities"></a>Introdução aos Utilitários Microsoft Spark
 
@@ -122,13 +122,45 @@ spark.conf.set(f"fs.azure.sas.$blob_container_name.$blob_account_name.blob.core.
 
 ::: zone-end
 
-<!-- :::zone pivot = "programming-language-csharp"
+:::zone pivot = "programming-language-csharp"
+
+
+### <a name="configure-access-to-azure-blob-storage"></a>Configure acesso ao armazenamento de blob Azure  
+
+Sinaapse alavanca **assinatura de acesso compartilhado (SAS)** para aceder ao Azure Blob Storage. Para evitar expor as teclas SAS no código, recomendamos a criação de um novo serviço ligado no espaço de trabalho synapse para a conta Azure Blob Storage a que pretende aceder.
+
+Siga estes passos para adicionar um novo serviço ligado para uma conta de armazenamento Azure Blob:
+
+1. Abra o [Azure Synapse Studio](https://web.azuresynapse.net/).
+2. **Selecione Gerir** a partir do painel esquerdo e selecionar **serviços Linked** sob as **ligações Externas**.
+3. Procure no **Azure Blob Storage** no novo painel **de serviço ligado** à direita.
+4. Selecione **Continuar**.
+5. Selecione a Conta de Armazenamento Azure Blob para aceder e configurar o nome de serviço ligado. Sugerir a utilização **da tecla conta** para o **método de autenticação.**
+6. Selecione **A ligação de teste** para validar as definições estão corretas.
+7. Selecione **Criar** primeiro e clique em **Publicar tudo** para guardar as suas alterações. 
+
+Pode aceder aos dados do Azure Blob Storage com a Faísca de Sinapse através do seguinte URL:
+
+<code>wasb[s]://<container_name>@<storage_account_name>.blob.core.windows.net/<path></code>
+
+Aqui está um exemplo de código:
 
 ```csharp
+var blob_account_name = "";  // replace with your blob name
+var blob_container_name = "";     // replace with your container name
+var blob_relative_path = "";  // replace with your relative folder path
+var linked_service_name = "";    // replace with your linked service name
+var blob_sas_token = Credentials.GetConnectionStringOrCreds(linked_service_name);
+
+spark.SparkContext.GetConf().Set($"fs.azure.sas.{blob_container_name}.{blob_account_name}.blob.core.windows.net", blob_sas_token);
+
+var wasbs_path = $"wasbs://{blob_container_name}@{blob_account_name}.blob.core.windows.net/{blob_relative_path}";
+
+Console.WriteLine(wasbs_path);
 
 ```
 
-::: zone-end -->
+::: zone-end 
  
 ###  <a name="configure-access-to-azure-key-vault"></a>Configure acesso ao Cofre da Chave Azure
 

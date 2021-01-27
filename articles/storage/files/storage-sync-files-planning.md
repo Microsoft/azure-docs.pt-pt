@@ -8,12 +8,12 @@ ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: cfeb124aeb614906cef1dc710eb8485e63806539
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 28b7419dfc889d1149765b884f1a5990a1e28f03
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880580"
+ms.locfileid: "98898109"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planear uma implementação da Sincronização de Ficheiros do Azure
 
@@ -186,7 +186,7 @@ O Cluster de Falha de Falha do Servidor do Windows é suportado pelo Azure File 
 
 ### <a name="data-deduplication"></a>Eliminação de Dados Duplicados
 **Windows Server 2016 e Windows Server 2019**   
-A Deduplica de Dados é suportada em volumes com tiering de nuvem ativado no Windows Server 2016 e Windows Server 2019. Permitir a desduplicação de dados num volume com nivelamento de nuvem ativado permite cache de mais ficheiros no local sem armazenar mais armazenamento. 
+A desduplicação de dados é suportada independentemente de o tiering da nuvem estar ativado ou desativado em um ou mais pontos finais do servidor no volume do Windows Server 2016 e do Windows Server 2019. Permitir a desduplicação de dados num volume com nivelamento de nuvem ativado permite cache de mais ficheiros no local sem armazenar mais armazenamento. 
 
 Quando a Deduplicação de Dados é ativada num volume com o tiering de nuvem ativado, os ficheiros otimizados do Dedup dentro da localização do ponto final do servidor serão nivelados semelhantes a um ficheiro normal baseado nas definições da política de tiering da nuvem. Uma vez que os ficheiros otimizados do Dedup tenham sido nivelados, o trabalho de recolha de lixo de deduplica de dados será executado automaticamente para recuperar o espaço do disco, removendo pedaços desnecessários que já não são referenciados por outros ficheiros no volume.
 

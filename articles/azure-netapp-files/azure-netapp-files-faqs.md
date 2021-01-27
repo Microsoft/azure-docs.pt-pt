@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/21/2021
 ms.author: b-juche
-ms.openlocfilehash: a8286768dac33e48bc4d7c4dce0d9934da08c319
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: ec6a03673112dfb5397f6fae947f1fbf65fd6791
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736076"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881423"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>PERGUNTAS Frequentes Sobre Ficheiros Azure NetApp
 
@@ -263,7 +263,7 @@ Não. O serviço Azure Import/Export não suporta atualmente ficheiros Azure Net
 
 ### <a name="can-i-use-azure-netapp-files-nfs-or-smb-volumes-with-azure-vmware-solution-avs"></a>Posso utilizar volumes NFS ou SMB de Ficheiros Azure NetApp com Solução VMware Azure (AVS)?
 
-Pode montar volumes NFS em VMs do Azure NetApp ou em VMs do Azure NetApp. Pode mapear as ações SMB dos Ficheiros Azure NetApp em VMs do AVS Windows. Para mais detalhes, consulte [os Ficheiros Azure NetApp com Solução VMware Azure]( ../azure-vmware/net-app-files-with-azure-vmware-solution.md).  
+Pode montar volumes NFS em VMs do Azure NetApp ou em VMs do Azure NetApp. Pode mapear as ações SMB dos Ficheiros Azure NetApp em VMs do AVS Windows. Para mais detalhes, consulte [os Ficheiros Azure NetApp com Solução VMware Azure]( ../azure-vmware/netapp-files-with-azure-vmware-solution.md).  
 
 ### <a name="what-regions-are-supported-for-using-azure-netapp-files-nfs-or-smb-volumes-with-azure-vmware-solution-avs"></a>Que regiões são suportadas para a utilização de volumes NFS ou SMB de Ficheiros Azure NetApp ou SMB com Solução VMware Azure (AVS)?
 

@@ -1,21 +1,25 @@
 ---
 title: Gerir o servidor - Portal Azure - Base de Dados Azure para o MySQL
 description: Saiba como gerir uma Base de Dados Azure para o servidor MySQL a partir do portal Azure.
-author: savjani
-ms.author: pariks
+author: Bashar-MSFT
+ms.author: bahusse
 ms.service: mysql
 ms.topic: how-to
-ms.date: 3/18/2020
-ms.openlocfilehash: e29e823834ec813a8389cea220cffc7633aa7103
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.date: 1/26/2021
+ms.openlocfilehash: 83876f77e0d7ffc0ae20bc5a545c1f18f53f4a8f
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541458"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897990"
 ---
 # <a name="manage-an-azure-database-for-mysql-server-using-the-azure-portal"></a>Gerir uma base de dados Azure para servidor MySQL utilizando o portal Azure
 
 Este artigo mostra-lhe como gerir a sua Base de Dados Azure para servidores MySQL. As tarefas de gestão incluem o dimensionamento de cálculo e armazenamento, o reset da palavra-passe de administração e a visualização de detalhes do servidor.
+
+> [!NOTE]
+> Este artigo contém referências ao termo _escravo_, um termo que a Microsoft já não utiliza. Quando o termo for removido do software, vamos removê-lo deste artigo.
+>
 
 ## <a name="sign-in"></a>Iniciar sessão
 
@@ -83,6 +87,13 @@ Pode alterar a palavra-passe da função do administrador utilizando o portal Az
    :::image type="content" source="./media/howto-create-manage-server-portal/reset-password.png" alt-text="Screenshot do portal Azure para redefinir a sua palavra-passe e guardar na Base de Dados Azure para o MySQL":::
 
 3. Selecione **OK** para guardar a nova senha.
+ 
+
+> [!IMPORTANT]
+> A redefinição da palavra-passe de administração do servidor irá redefinir automaticamente os privilégios de administração do servidor para o predefinimento. Considere redefinir a palavra-passe de administração do servidor se revogou acidentalmente um ou mais privilégios de administração do servidor.
+   
+> [!NOTE]
+> O utilizador de administração do servidor tem os seguintes privilégios por predefinição: SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, CREATE USER, EVENT, TRIGGER
 
 ## <a name="delete-a-server"></a>Excluir um servidor
 

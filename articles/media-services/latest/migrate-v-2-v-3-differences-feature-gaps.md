@@ -1,5 +1,5 @@
 ---
-title: Lacunas de funcionalidades entre os serviços de mídia Azure V2 e V3 | Microsoft Docs
+title: Lacunas de características entre a Azure Media Services V2 e v3
 description: Este artigo descreve as lacunas de funcionalidade entre a Azure Media Services V2 a v3.
 services: media-services
 author: IngridAtMicrosoft
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: 0f15c2bcd921c431dba1d1cce0454a6b2e752141
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 2fa827bc2841a0bae4c9646c8a70e42dc2b500e3
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98690656"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898414"
 ---
 # <a name="feature-gaps-between-azure-media-services-v2-and-v3"></a>Lacunas de características entre a Azure Media Services V2 e v3
 
@@ -48,6 +48,6 @@ A API V3 tem as seguintes lacunas de características com a API V2. Algumas das 
 
 - A encriptação de armazenamento do lado do cliente para proteção dos ativos em repouso foi removida na API V3 e substituída pela encriptação do serviço de armazenamento para dados em repouso. As APIs V3 continuam a trabalhar com os ativos encriptados de armazenamento existentes, mas não permitem a criação de novos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [!INCLUDE [migration guide next steps](./includes/migration-guide-next-steps.md)]

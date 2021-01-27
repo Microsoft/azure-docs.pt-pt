@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
-ms.openlocfilehash: bc229974cf14ba364e5e7111dc1d2704e03c3635
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: 2ca8a814fbaf2d8c257d094f81d17a5c871793b0
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746803"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878940"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor perguntas frequentes
 
@@ -380,6 +380,12 @@ Utilize um único recurso para todos os componentes ou funções num único sist
 * Se não houver script do lado do cliente, pode [definir cookies no servidor](https://apmtips.com/posts/2016-07-09-tracking-users-in-api-apps/).
 * Se um utilizador real utilizar o seu site em diferentes navegadores, ou utilizar navegação insógina/incógnita, ou máquinas diferentes, então serão contados mais de uma vez.
 * Para identificar um utilizador com sessão registada através de máquinas e navegadores, adicione uma chamada para [definir OTexto de Utilizador/Gravador de Dados()](app/api-custom-events-metrics.md#authenticated-users).
+
+### <a name="how-does-application-insights-generate-device-information-browser-os-language-model"></a>Como é que o Application Insights gera informações sobre dispositivos (Browser, OS, Idioma, Modelo)?
+
+O navegador passa a cadeia de Agente utilizador no cabeçalho HTTP do pedido, e o serviço de ingestão de Insights de Aplicação utiliza [o UA Parser](https://github.com/ua-parser/uap-core) para gerar os campos que vê nas tabelas e experiências de dados. Como resultado, os utilizadores do Application Insights não conseguem alterar estes campos.
+
+Ocasionalmente, estes dados podem estar em falta ou imprecisos se o utilizador ou empresa desativar o envio de Agente de Utilizador nas definições do Navegador. Além disso, os [regexes UA Parser](https://github.com/ua-parser/uap-core/blob/master/regexes.yaml) podem não incluir todas as informações do dispositivo ou o Application Insights pode não ter adotado as últimas atualizações.
 
 ### <a name="have-i-enabled-everything-in-application-insights"></a><a name="q17"></a> Já capacitei tudo no Application Insights?
 | O que deve ver | Como obtê-lo | Por que quer? |

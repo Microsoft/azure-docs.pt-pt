@@ -101,13 +101,11 @@
   items:
     - name: Gerir contas do Batch
       items:
-        - name: Gerir a sua conta
-          href: batch-manage-account-basics.md
-        - name: Gerir contas do Batch com o portal
+        - name: Gerir contas batch no portal Azure
           href: batch-account-create-portal.md
         - name: Gerir contas do Batch com a Gestão de Lotes .NET
           href: batch-management-dotnet.md
-        - name: Análise de custos e orçamentos
+        - name: Obtenha análise de custos e definir orçamentos
           href: budget.md
         - name: Utilizar pontos finais privados com contas do Batch
           href: private-connectivity.md

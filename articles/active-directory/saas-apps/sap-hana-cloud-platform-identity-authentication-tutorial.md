@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/18/2020
+ms.date: 01/18/2021
 ms.author: jeedes
-ms.openlocfilehash: 5b4a1e578ffc22fbda8b2e879f1bb85f31994997
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: dc0cd57eb32baaeac0850337bbead3a73dec9292
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735662"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897350"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-cloud-platform-identity-authentication"></a>Tutorial: Azure Ative Directy integração única (SSO) com autenticação de identidade da plataforma de nuvem SAP
 
@@ -174,7 +174,7 @@ Nesta secção, você permitirá que B.Simon utilize o Azure single sign-on, con
 
 4. No portal Azure, na página de integração da **aplicação de autenticação de identidade** da plataforma de nuvem SAP, selecione **Linked Sign-on**.
 
-    ![Configurar Sign-On Ligados](./media/sap-hana-cloud-platform-identity-authentication-tutorial/linked_sign_on.png)
+    ![Configurar Sign-On Ligados](./media/sap-hana-cloud-platform-identity-authentication-tutorial/linked-sign-on.png)
 
 5. Guarde a configuração.
 

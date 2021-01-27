@@ -1,24 +1,16 @@
 ---
-title: Dados a recolher ao abrir um caso para a Microsoft Azure Automation Microsoft Docs
+title: Dados a recolher ao abrir um caso para a Microsoft Azure Automation | Microsoft Docs
 description: Este artigo descreve as informações a recolher antes de abrir um caso para a Azure Automation com o Microsoft Azure Support.
-services: virtual-machines-windows, azure-resource-manager
-documentationcenter: ''
-author: v-miegge
-manager: dcscontentpm
-editor: ''
-tags: top-support-issue, azure-resource-manager
-ms.service: virtual-machines-windows
-ms.workload: na
-ms.tgt_pltfrm: vm-windows
+services: automation
+ms.subservice: ''
 ms.topic: troubleshooting
 ms.date: 09/23/2019
-ms.author: v-miegge
-ms.openlocfilehash: d2f97d0b889186324aef9613847e3eddbfe1eb02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d2c0cf780b992d7bb464969c50d60ffa5093e8f
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83684839"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896567"
 ---
 # <a name="data-to-collect-when-opening-a-case-for-microsoft-azure-automation"></a>Dados a recolher quando abre um incidente da Automatização do Microsoft Azure
 
@@ -87,7 +79,7 @@ Para além dos [dados básicos,](#basic-data)reúna as seguintes informações:
 * Imagens de quaisquer mensagens de erro.
 * Screenshots dos módulos atuais e os seus números de versão.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se precisar de mais ajuda:
 

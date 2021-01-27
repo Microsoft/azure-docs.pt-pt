@@ -11,12 +11,12 @@ manager: jroth
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 10/18/2018
-ms.openlocfilehash: de416277de34e1c3717d581697f05c98c48d1959
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 495dda603a8ab8ce2983e010ea23856df5a094ef
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146012"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897127"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Criar um gatilho que executa um oleoduto em resposta a um evento
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -31,7 +31,7 @@ Para uma introdução e demonstração de dez minutos desta funcionalidade, veja
 
 
 > [!NOTE]
-> A integração descrita neste artigo depende da [Grelha de Eventos Azure.](https://azure.microsoft.com/services/event-grid/) Certifique-se de que a sua subscrição está registada no fornecedor de recursos da Grade de Eventos. Para obter mais informações, consulte [fornecedores e tipos de recursos.](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) Você deve ser capaz de fazer a ação *Microsoft.EventGrid/eventSubscriptions/* * Esta ação faz parte do papel integrado do Colaborador de Subscrição de Eventos Da EventGrid.
+> A integração descrita neste artigo depende da [Grelha de Eventos Azure.](https://azure.microsoft.com/services/event-grid/) Certifique-se de que a sua subscrição está registada no fornecedor de recursos da Grade de Eventos. Para obter mais informações, consulte [fornecedores e tipos de recursos.](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) Você deve ser capaz de fazer a ação *Microsoft.EventGrid/eventSubscriptions/** Esta ação faz parte do papel integrado do Colaborador de Subscrição de Eventos Da EventGrid.
 
 ## <a name="data-factory-ui"></a>IU do Data Factory
 
@@ -50,12 +50,16 @@ Esta secção mostra-lhe como criar um gatilho de evento dentro da Interface de 
 1. Selecione a sua conta de armazenamento a partir do dropdown de subscrição Azure ou utilizando manualmente o seu ID de recurso de conta de armazenamento. Escolha em que recipiente deseja que os eventos ocorram. A seleção do contentor é opcional, mas tenha em atenção que selecionar todos os recipientes pode levar a um grande número de eventos.
 
    > [!NOTE]
-   > O Event Trigger suporta atualmente apenas as contas de armazenamento do Azure Data Lake Storage Gen2 e da versão 2 para fins gerais. Deve ter pelo menos acesso *ao proprietário* na conta de armazenamento.  Devido a uma limitação da Grelha de Eventos Azure, a Azure Data Factory suporta apenas um máximo de 500 gatilhos de eventos por conta de armazenamento.
+   > O Event Trigger suporta atualmente apenas as contas de armazenamento do Azure Data Lake Storage Gen2 e da versão 2 para fins gerais. Devido a uma limitação da Grelha de Eventos Azure, a Azure Data Factory suporta apenas um máximo de 500 gatilhos de eventos por conta de armazenamento.
+
+   > [!NOTE]
+   > Para criar e modificar um novo Event Trigger, a conta Azure utilizada para iniciar sessão na Data Factory deve ter pelo menos permissão *do Proprietário* na conta de armazenamento. Não é necessária qualquer autorização adicional: O diretor de serviço da Fábrica de Dados Azure _não_ necessita de autorização especial para a conta de Armazenamento ou para a Grelha de Eventos.
 
 1. O **caminho blob começa** e o caminho **blob termina com** propriedades que lhe permitem especificar os recipientes, pastas e nomes blob para os quais deseja receber eventos. O gatilho do evento requer que pelo menos uma destas propriedades seja definida. Você pode usar variedade de padrões para ambos os **caminhos Blob começa com** e o caminho **blob termina com** propriedades, como mostrado nos exemplos mais tarde neste artigo.
 
     * **O caminho da bolha começa com:** O caminho da bolha deve começar com um caminho de pasta. Valores válidos incluem `2018/` e `2018/april/shoes.csv` . Este campo não pode ser selecionado se um recipiente não for selecionado.
     * **O caminho da bolha termina com:** O caminho da bolha deve terminar com um nome de ficheiro ou extensão. Valores válidos incluem `shoes.csv` e `.csv` . O nome do recipiente e da pasta é opcional, mas, quando especificado, deve ser separado por um `/blobs/` segmento. Por exemplo, um contentor denominado "encomendas" pode ter um valor de `/orders/blobs/2018/april/shoes.csv` . Para especificar uma pasta em qualquer recipiente, omita o caractere principal '/' principal. Por exemplo, `april/shoes.csv` irá desencadear um evento em qualquer ficheiro denominado em pasta chamada `shoes.csv` 'abril' em qualquer recipiente. 
+    * Nota: O caminho blob **começa e** **termina com** o único padrão que combina no Detonador de Eventos. Outros tipos de correspondência wildcard não são suportados para o tipo de gatilho.
 
 1. Selecione se o seu gatilho irá responder a um evento **criado pela Blob,** evento **apagado blob,** ou ambos. No local de armazenamento especificado, cada evento irá acionar os oleodutos data factory associados ao gatilho.
 
@@ -63,17 +67,17 @@ Esta secção mostra-lhe como criar um gatilho de evento dentro da Interface de 
 
 1. Selecione se o seu gatilho ignora ou não bolhas com bytes zero.
 
-1. Uma vez configurado o gatilho, clique em **Seguinte: Pré-visualização de dados** . Este ecrã mostra as bolhas existentes correspondidas pela configuração do gatilho do evento. Certifique-se de que tem filtros específicos. Configurar filtros demasiado largos pode corresponder a um grande número de ficheiros criados/eliminados e podem ter um impacto significativo no seu custo. Uma vez verificadas as condições do filtro, clique em **Terminar** .
+1. Uma vez configurado o gatilho, clique em **Seguinte: Pré-visualização de dados**. Este ecrã mostra as bolhas existentes correspondidas pela configuração do gatilho do evento. Certifique-se de que tem filtros específicos. Configurar filtros demasiado largos pode corresponder a um grande número de ficheiros criados/eliminados e podem ter um impacto significativo no seu custo. Uma vez verificadas as condições do filtro, clique em **Terminar**.
 
     ![Pré-visualização de dados de desencadeamento de eventos](media/how-to-create-event-trigger/event-based-trigger-image3.png)
 
-1. Para anexar um pipeline a este gatilho, vá à tela do gasoduto e clique em **Adicionar gatilho** e selecione **Novo/Editar** . Quando o navegador lateral aparecer, clique no **gatilho Escolha...** dropdown e selecione o gatilho que criou. Clique **em seguida: Pré-visualização de dados** para confirmar que a configuração está correta e, em seguida, a **próxima** para validar a pré-visualização de Dados está correta.
+1. Para anexar um pipeline a este gatilho, vá à tela do gasoduto e clique em **Adicionar gatilho** e selecione **Novo/Editar**. Quando o navegador lateral aparecer, clique no **gatilho Escolha...** dropdown e selecione o gatilho que criou. Clique **em seguida: Pré-visualização de dados** para confirmar que a configuração está correta e, em seguida, a **próxima** para validar a pré-visualização de Dados está correta.
 
 1. Se o seu oleoduto tiver parâmetros, pode especirá-los no navegador lateral do gatilho. O gatilho do evento captura o caminho da pasta e o nome do ficheiro da bolha nas propriedades `@triggerBody().folderPath` e `@triggerBody().fileName` . Para utilizar os valores destas propriedades num oleoduto, é necessário mapear as propriedades para os parâmetros do gasoduto. Depois de mapear as propriedades para parâmetros, pode aceder aos valores capturados pelo gatilho através da `@pipeline().parameters.parameterName` expressão em todo o pipeline. Clique **em Terminar** assim que terminar.
 
     ![Mapeamento de propriedades para parâmetros de pipeline](media/how-to-create-event-trigger/event-based-trigger-image4.png)
 
-No exemplo anterior, o gatilho é configurado para disparar quando um caminho de bolha que termina em .csv é criado no teste de eventos da pasta nos dados da amostra do recipiente. As **propriedades de pastaPath** e **fileName** captam a localização da nova bolha. Por exemplo, quando MoviesDB.csv é adicionado ao caminho de amostra-dados/testes de eventos, `@triggerBody().folderPath` tem um valor de e tem um valor de `sample-data/event-testing` `@triggerBody().fileName` `moviesDB.csv` . Estes valores são mapeados no exemplo dos parâmetros do gasoduto `sourceFolder` e que podem ser `sourceFile` utilizados em toda a tubagem como `@pipeline().parameters.sourceFolder` e `@pipeline().parameters.sourceFile` respectivamente.
+No exemplo anterior, o gatilho é configurado para disparar quando um caminho de bolha que termina em .csv é criado no teste de eventos de pasta nos dados da amostra do recipiente. As **propriedades de pastaPath** e **fileName** captam a localização da nova bolha. Por exemplo, quando MoviesDB.csv é adicionado ao caminho de amostra-dados/testes de eventos, `@triggerBody().folderPath` tem um valor de e tem um valor de `sample-data/event-testing` `@triggerBody().fileName` `moviesDB.csv` . Estes valores são mapeados no exemplo dos parâmetros do gasoduto `sourceFolder` e que podem ser `sourceFile` utilizados em toda a tubagem como `@pipeline().parameters.sourceFolder` e `@pipeline().parameters.sourceFile` respectivamente.
 
 ## <a name="json-schema"></a>Esquema JSON
 
@@ -94,7 +98,7 @@ Esta secção fornece exemplos de definições de gatilho baseadas em eventos.
 > [!IMPORTANT]
 > Tem de incluir o `/blobs/` segmento do percurso, como mostra os seguintes exemplos, sempre que especificar o recipiente e a pasta, o recipiente e o ficheiro, ou o contentor, a pasta e o ficheiro. Para **blobPathBeginsWith,** a UI da Fábrica de Dados adicionará automaticamente `/blobs/` entre a pasta e o nome do recipiente no gatilho JSON.
 
-| Propriedade | Exemplo | Description |
+| Propriedade | Exemplo | Descrição |
 |---|---|---|
 | **O caminho da bolha começa com** | `/containername/` | Recebe eventos para qualquer bolha no recipiente. |
 | **O caminho da bolha começa com** | `/containername/blobs/foldername/` | Recebe eventos para quaisquer bolhas no `containername` recipiente e `foldername` pasta. |
@@ -104,5 +108,5 @@ Esta secção fornece exemplos de definições de gatilho baseadas em eventos.
 | **O caminho da bolha termina com** | `/containername/blobs/file.txt` | Recebe eventos para uma bolha chamada `file.txt` sob `containername` recipiente. |
 | **O caminho da bolha termina com** | `foldername/file.txt` | Recebe eventos para uma bolha nomeada `file.txt` em pasta sob qualquer `foldername` recipiente. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para obter informações detalhadas sobre os gatilhos, consulte [a execução do Pipeline e os gatilhos](concepts-pipeline-execution-triggers.md#trigger-execution).

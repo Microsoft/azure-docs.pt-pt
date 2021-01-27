@@ -4,12 +4,12 @@ description: Como escolher entre os tamanhos VM disponíveis e versões de SO pa
 ms.topic: conceptual
 ms.date: 11/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8bb54a4db62f56f442f7cec81e6768241a05ffee
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 59218361c5fff51b33131fdd2455c599dd12b06a
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95895235"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897498"
 ---
 # <a name="choose-a-vm-size-and-image-for-compute-nodes-in-an-azure-batch-pool"></a>Escolha um tamanho e imagem VM para nó de computação numa piscina Azure Batch
 
@@ -35,40 +35,38 @@ As piscinas de lote na configuração da Máquina Virtual suportam quase todos o
 | DC | Não suportado |
 | Dv2, DSv2 | Todos os tamanhos |
 | Dv3 | Todos os tamanhos |
-| Dav4<sup>1</sup> | Todos os tamanhos |
-| Dasv4<sup>1</sup> | Todos os tamanhos |
+| Dav4 | Todos os tamanhos |
+| Dasv4 | Todos os tamanhos |
 | Ddv4 |  Todos os tamanhos |
 | Dv4 | Não suportado |
 | Ev3 | Todos os tamanhos, exceto E64is_v3 |
-| Eav4<sup>1</sup> | Todos os tamanhos |
-| Easv4<sup>1</sup> | Todos os tamanhos |
+| Eav4 | Todos os tamanhos |
+| Easv4 | Todos os tamanhos |
 | Edv4 |  Todos os tamanhos |
 | Ev4 | Não suportado |
 | F, Fs | Todos os tamanhos |
 | Fsv2 | Todos os tamanhos |
 | G, Gs | Todos os tamanhos |
 | H | Todos os tamanhos |
-| HB<sup>1</sup> | Todos os tamanhos |
-| HBv2<sup>1</sup> | Todos os tamanhos |
-| HC<sup>1</sup> | Todos os tamanhos |
+| HB | Todos os tamanhos |
+| HBv2 | Todos os tamanhos |
+| HC | Todos os tamanhos |
 | Ls | Todos os tamanhos |
-| Lsv2<sup>1</sup> | Todos os tamanhos |
-| M<sup>1</sup> | Todos os tamanhos |
-| Mv2<sup>1,2</sup> | Todos os tamanhos |
+| Lsv2 | Todos os tamanhos |
+| M | Todos os tamanhos |
+| Mv2<sup>1</sup> | Todos os tamanhos |
 | NC | Todos os tamanhos |
-| NCv2<sup>1</sup> | Todos os tamanhos |
-| NCv3<sup>1</sup> | Todos os tamanhos |
+| NCv2 | Todos os tamanhos |
+| NCv3 | Todos os tamanhos |
 | NCasT4_v3 | Nenhum - ainda não disponível |
-| ND<sup>1</sup> | Todos os tamanhos |
-| NDv2<sup>1</sup> | Nenhum - ainda não disponível |
+| ND | Todos os tamanhos |
+| NDv2 | Nenhum - ainda não disponível |
 | NV | Todos os tamanhos |
-| NVv3<sup>1</sup> | Todos os tamanhos |
-| NVv4<sup>1</sup> | Todos os tamanhos |
+| NVv3 | Todos os tamanhos |
+| NVv4 | Todos os tamanhos |
 | SAP HANA | Não suportado |
 
-<sup>1</sup> Estas séries VM podem ser atribuídas em piscinas de Lote na configuração da Máquina Virtual, mas você deve criar uma nova conta Batch e solicitar um aumento específico [de quota](batch-quota-limit.md#increase-a-quota). Esta limitação será eliminada uma vez que a quota vCPU por série VM seja totalmente suportada para as contas batch.
-
-<sup>2</sup> Estas séries VM só podem ser utilizadas com imagens VM de geração 2.
+<sup>1</sup> Estas séries VM só podem ser utilizadas com imagens VM de geração 2.
 
 ### <a name="using-generation-2-vm-images"></a>Usando imagens de geração 2 VM
 
@@ -105,7 +103,7 @@ Utilize uma das seguintes APIs para devolver uma lista de imagens VM Windows e L
 - PowerShell: [Get-AzBatchSupportedImage](/powershell/module/az.batch/get-azbatchsupportedimage)
 - Azure CLI: [az lote pool suportado imagens](/cli/azure/batch/pool/supported-images)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Conheça o fluxo de trabalho do [serviço Batch e os recursos primários,](batch-service-workflow-features.md) tais como piscinas, nós, empregos e tarefas.
 - Para obter informações sobre a utilização de tamanhos de VM intensivos em computação, consulte [utilize casos com capacidade de RDMA ou GPU em piscinas de Lote](batch-pool-compute-intensive-sizes.md).

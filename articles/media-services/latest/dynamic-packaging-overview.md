@@ -1,6 +1,5 @@
 ---
 title: Embalagem dinâmica em Azure Media Services v3
-titleSuffix: Azure Media Services
 description: Este artigo apresenta uma visão geral da embalagem dinâmica na Azure Media Services.
 author: myoungerman
 manager: femila
@@ -14,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: inhenkel
-ms.openlocfilehash: 7941d542ca2cab1637b9edaef057f740a9a1b7ef
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: ed2c5b4175745fa14864b2d360bcbf5e5237a495
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016830"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897650"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Embalagem dinâmica em Media Services v3
 
@@ -158,7 +157,7 @@ A embalagem dinâmica suporta múltiplas faixas de áudio com DASH ou HLS (vers�
 
 Para todos os códigos de áudio acima, o áudio codificado deve ser armazenado no formato de recipiente MP4 para funcionar com a Dynamic Packaging. O serviço não suporta formatos de ficheiros de fluxo elementar brutos no armazenamento de bolhas (por exemplo, o seguinte não seria suportado - .dts, .ac3.) 
 
-Apenas os ficheiros com a extensão .mp4a da extensão .mp4a são suportados para embalagem áudio. 
+Apenas os ficheiros com .mp4 de extensão .mp4a são suportados para embalagem áudio. 
 
 ### <a name="limitations"></a>Limitações
 
@@ -177,7 +176,7 @@ Atualmente, a embalagem dinâmica dos Media Services não suporta ficheiros que 
 
 ## <a name="manifests"></a>Manifestos
 
-Nas *embalagens dinâmicas*dos Media Services, os manifestos do cliente de streaming para HLS, MPEG-DASH e Smooth Streaming são gerados dinamicamente com base no seletor de formato no URL.  
+Nas *embalagens dinâmicas* dos Media Services, os manifestos do cliente de streaming para HLS, MPEG-DASH e Smooth Streaming são gerados dinamicamente com base no seletor de formato no URL.  
 
 Um ficheiro manifesto inclui metadados de streaming como tipo de faixa (áudio, vídeo ou texto), nome da faixa, tempo de início e fim, bitrate (qualidades), linguagens de faixa, janela de apresentação (janela deslizante de duração fixa) e código de vídeo (FourCC). Também instrui o jogador a recuperar o próximo fragmento, fornecendo informações sobre os próximos fragmentos de vídeo jogáveis que estão disponíveis e a sua localização. Fragmentos (ou segmentos) são os verdadeiros "pedaços" de conteúdo de vídeo.
 
@@ -329,6 +328,6 @@ Consulte a [comunidade Azure Media Services](media-services-community.md) para v
 
 Você pode abrir um bilhete de apoio navegando para [novo pedido de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Carregar, codificar e transmitir vídeos](stream-files-tutorial-with-api.md)

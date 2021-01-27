@@ -1,5 +1,5 @@
 ---
-title: Estados de eventos ao vivo e faturação na Azure Media Services Microsoft Docs
+title: Estados de evento ao vivo e faturação nos Serviços Azure Media
 description: Este tópico dá uma visão geral dos estados do evento ao vivo da Azure Media Services e da faturação.
 services: media-services
 documentationcenter: ''
@@ -13,18 +13,18 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: inhenkel
-ms.openlocfilehash: 2d3d3f5c56bd42aeb148c19fefebc0e7d364cd1c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c9fa12e1ee3778d0865c75662064bd4067e56d89
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782370"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897820"
 ---
 # <a name="live-event-states-and-billing"></a>Estados de evento ao vivo e faturação
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-Na Azure Media Services, um evento ao vivo começa a faturar assim que o seu estado transita para **Running** ou **StandBy** . Será cobrado mesmo que não haja vídeo a fluir através do serviço. Para impedir que o evento ao vivo faça a faturação, tem de parar o evento ao vivo. A transcrição ao vivo é cobrada da mesma forma que o evento ao vivo.
+Na Azure Media Services, um evento ao vivo começa a faturar assim que o seu estado transita para **Running** ou **StandBy**. Será cobrado mesmo que não haja vídeo a fluir através do serviço. Para impedir que o evento ao vivo faça a faturação, tem de parar o evento ao vivo. A transcrição ao vivo é cobrada da mesma forma que o evento ao vivo.
 
 Quando **o LiveEventEncodingType** no seu [evento ao vivo](/rest/api/media/liveevents) está definido para Standard ou Premium1080p, o Media Services auto desliga qualquer evento ao vivo que ainda esteja no estado de **Funcionamento** 12 horas após a perda do feed de entrada, e não há **saída ao vivo** em funcionamento. No entanto, ainda será cobrado pelo tempo em que o evento ao vivo esteve no estado **de Running.**
 
@@ -47,7 +47,7 @@ O evento ao vivo pode ser num dos seguintes estados.
 
 Pode optar por ativar transcrições ao vivo quando criar o evento ao vivo. Se o fizer, será cobrado para Transcrições ao Vivo sempre que o evento ao vivo estiver no estado **de Corrida.** Note que será cobrado mesmo que não haja áudio fluindo através do evento ao vivo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Visão geral do streaming ao vivo](live-streaming-overview.md)
 - [Tutorial de streaming ao vivo](stream-live-tutorial-with-api.md)

@@ -1,5 +1,5 @@
 ---
-title: Localizadores de streaming nos Serviços Azure Media Microsoft Docs
+title: Localizadores de streaming em Azure Media Services
 description: Este artigo dá uma explicação sobre o que são os Localizadores de Streaming e como são usados pela Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/04/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 68df5256949db44b2b347002570c64d1aa0d55ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b711b9a6923a1923562a282dcaffe7cecb0c58b
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89297965"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898143"
 ---
 # <a name="streaming-locators"></a>Localizadores de Transmissão em Fluxo
 
@@ -91,7 +91,7 @@ Ver [Filtragem, encomenda, paging de entidades de Serviços de Comunicação](en
 
 Para obter localizadores de streaming com base no nome do Ativo associado, utilize as seguintes operações:
 
-|Idioma|API|
+|Linguagem|API|
 |---|---|
 |REST|[liststreaminglocadores](/rest/api/media/assets/liststreaminglocators)|
 |CLI|[az ams lista de ativos-streaming-localizadores](/cli/azure/ams/asset?view=azure-cli-latest#az-ams-asset-list-streaming-locators)|
@@ -99,13 +99,13 @@ Para obter localizadores de streaming com base no nome do Ativo associado, utili
 |Java|[Gestor de ActivosStreamingLotor](/rest/api/media/assets/liststreaminglocators#assetstreaminglocator)|
 |Node.js|[listStreamingLocators](/javascript/api/@azure/arm-mediaservices/assets#liststreaminglocators-string--string--string--msrest-requestoptionsbase-)|
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 * [Recursos](assets-concept.md)
 * [Políticas de streaming](streaming-policy-concept.md)
 * [Políticas-chave de conteúdo](content-key-policy-concept.md)
 * [Tutorial: Carregar, codificar e transmitir vídeos usando .NET](stream-files-tutorial-with-api.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Como criar um localizador de streaming e construir URLs](create-streaming-locator-build-url.md)

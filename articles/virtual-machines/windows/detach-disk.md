@@ -6,14 +6,14 @@ ms.service: virtual-machines-windows
 ms.subservice: disks
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 01/08/2020
+ms.date: 01/26/2021
 ms.author: cynthn
-ms.openlocfilehash: cae75c88b4803912565e010f744a7757a3b98f04
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 95f6ce2fefacd20102abe9bbe818f228139ca33d
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201557"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898516"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Como desanexar um disco de dados de uma máquina virtual do Windows
 
@@ -58,6 +58,8 @@ Pode remover um disco de dados *a quente,* mas certifique-se de que nada está a
 
 O disco permanece no armazenamento mas já não está ligado a uma máquina virtual.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Se quiser reutilizar o disco de dados, pode [anexá-lo a outro VM](attach-managed-disk-portal.md)
+Se pretender reutilizar o disco de dados, pode [fixá-lo a outro VM](attach-managed-disk-portal.md).
+
+Se pretender eliminar o disco, para que não incorram mais custos de armazenamento, consulte [Localizar e eliminar discos geridos e não geridos do Azure não geridos e não geridos - portal Azure](../disks-find-unattached-portal.md).

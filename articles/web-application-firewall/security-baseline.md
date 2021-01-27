@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b44ea6f55717712cfba4045205e02bd9f2b851df
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 4bda3622c1bb1cb66e83b82df0d13cbfee9e20a3
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202662"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878126"
 ---
 # <a name="azure-security-baseline-for-azure-web-application-firewall"></a>Linha de segurança Azure para firewall de aplicação web Azure
 
@@ -406,7 +406,7 @@ Siga as recomendações do Centro de Segurança para encriptação em repouso e 
 
 O Azure WAF, em modo prevenção, bloqueia intrusões e ataques que são detetados pelas regras. O intruso recebe uma exceção de "acesso não autorizado 403" e a ligação está fechada. O modo de prevenção regista tais ataques nos registos da WAF.
 
-- [Visão geral da integração entre o Application Gateway e o Azure Security Center](../application-gateway/application-gateway-integration-security-center.md#overview)
+- [Visão geral da integração entre o Application Gateway e o Azure Security Center](../security-center/security-center-partner-integration.md)
 
 - [Modos WAF no Gateway de Aplicação](ag/ag-overview.md#waf-modes)
 
@@ -721,7 +721,7 @@ Marque claramente as subscrições (por exemplo, produção, não produção) e 
 
 **Responsabilidade**: Partilhada
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte a [referência de segurança Azure](../security/benchmarks/overview.md)
 - Saiba mais sobre as [linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md)

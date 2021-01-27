@@ -8,12 +8,12 @@ ms.date: 10/23/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: a1732f42ea95c16cdec7a1d7569c954667e52cb4
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 416f997475e35f8e784679ca0826f7af38d756c7
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96750905"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880309"
 ---
 # <a name="quickstart-deploy-your-first-azure-spring-cloud-application"></a>Quickstart: Implemente a sua primeira aplicação Azure Spring Cloud
 
@@ -29,7 +29,7 @@ Ao seguir este arranque rápido, aprenderá a:
 > * Gere um projeto básico steeltoe .NET Core
 > * Provisionar uma instância de serviço Azure Spring Cloud
 > * Construa e implemente a app com um ponto final público
-> * Registos de fluxo em tempo real
+> * Transmitir em fluxo registos em tempo real
 
 O código de aplicação utilizado neste quickstart é uma aplicação simples construída com um modelo de projeto de API web .NET Core. Quando tiver concluído este exemplo, a aplicação será acessível online e poderá ser gerida através do portal Azure e do Azure CLI.
 
@@ -216,7 +216,7 @@ O procedimento a seguir cria uma instância de Azure Spring Cloud usando o porta
 
    ![Adicionar ícone ASC](media/spring-cloud-quickstart-launch-app-portal/spring-cloud-add.png)
 
-1. Preencha o formulário na página Azure Spring Cloud **Create.**  Considere as seguintes orientações:
+1. Preencha o formulário na página Azure Spring Cloud **Create.**  Tenha em consideração as seguintes orientações:
 
    * **Subscrição**: Selecione a subscrição que pretende ser faturada para este recurso.
    * **Grupo de recursos**: Criar um novo grupo de recursos. O nome que introduzir aqui será usado em etapas posteriores como **\<resource group name\>** .
@@ -269,7 +269,7 @@ A aplicação devolve dados JSON semelhantes ao seguinte exemplo:
 [{"date":"2020-09-08T21:01:50.0198835+00:00","temperatureC":14,"temperatureF":57,"summary":"Bracing"},{"date":"2020-09-09T21:01:50.0200697+00:00","temperatureC":-14,"temperatureF":7,"summary":"Bracing"},{"date":"2020-09-10T21:01:50.0200715+00:00","temperatureC":27,"temperatureF":80,"summary":"Freezing"},{"date":"2020-09-11T21:01:50.0200717+00:00","temperatureC":18,"temperatureF":64,"summary":"Chilly"},{"date":"2020-09-12T21:01:50.0200719+00:00","temperatureC":16,"temperatureF":60,"summary":"Chilly"}]
 ```
 
-## <a name="stream-logs-in-real-time"></a>Registos de fluxo em tempo real
+## <a name="stream-logs-in-real-time"></a>Transmitir em fluxo registos em tempo real
 
 Utilize o seguinte comando para obter registos em tempo real da App.
 
@@ -332,7 +332,7 @@ Este quickstart explica como:
 > * Gerar um projeto básico de Nuvem de primavera
 > * Prestação de uma instância de serviço
 > * Construa e implemente a app com um ponto final público
-> * Registos de fluxo em tempo real
+> * Transmitir em fluxo registos em tempo real
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -351,9 +351,6 @@ https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.4
 ```
 
   ![Página inicializr](media/spring-cloud-quickstart-java/initializr-page.png)
-
-> [!NOTE]
-> Identificamos um problema com o Spring Boot 2.4 na autenticação TLS entre as suas apps e eureka e estamos atualmente a trabalhar com a comunidade spring para resolvê-lo. Por favor, consulte as nossas [FAQ](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-faq?pivots=programming-language-java#development) para a solução alternativa.
 
 1. Clique **em Gerar** quando todas as dependências estiverem definidas. Faça o download e desembale o pacote e, em seguida, crie um controlador web para uma simples aplicação web adicionando `src/main/java/com/example/hellospring/HelloController.java` o seguinte:
 
@@ -389,7 +386,7 @@ O procedimento a seguir cria uma instância de Azure Spring Cloud usando o porta
 
     ![Adicionar ícone ASC](media/spring-cloud-quickstart-launch-app-portal/spring-cloud-add.png)
 
-5. Preencha o formulário na página Azure Spring Cloud **Create.**  Considere as seguintes orientações:
+5. Preencha o formulário na página Azure Spring Cloud **Create.**  Tenha em consideração as seguintes orientações:
     - **Subscrição**: Selecione a subscrição que pretende ser faturada para este recurso.
     - **Grupo de recursos**: Criar novos grupos de recursos para novos recursos é uma boa prática. Isto será usado em etapas posteriores como **\<resource group name\>** .
     - **Dados de serviço/Nome**: Especifique o **\<service instance name\>** .  O nome deve ter entre 4 e 32 caracteres de comprimento e pode conter apenas letras minúsculas, números e hífenes.  O primeiro carácter do nome de serviço deve ser uma letra e o último caractere deve ser uma letra ou um número.
@@ -509,7 +506,7 @@ Nos passos anteriores, criou recursos Azure que continuarão a acumular encargos
 az group delete --name <your resource group name; for example: hellospring-1558400876966-rg> --yes
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste início rápido, aprendeu a:
 
@@ -517,7 +514,7 @@ Neste início rápido, aprendeu a:
 > * Gere um projeto básico de Azure Spring Cloud
 > * Prestação de uma instância de serviço
 > * Construa e implemente a app com um ponto final público
-> * Registos de fluxo em tempo real
+> * Transmitir em fluxo registos em tempo real
 
 Para aprender a usar mais capacidades da Azure Spring, avance para a série quickstart que implementa uma aplicação de amostra para Azure Spring Cloud:
 

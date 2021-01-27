@@ -1,5 +1,5 @@
 ---
-title: Media Services e Apple FairPlay suporte à licença - Azure / Microsoft Docs
+title: Media Services e suporte à licença Apple FairPlay - Azure
 description: Este tópico fornece uma visão geral dos requisitos e configurações de licença apple FairPlay.
 author: IngridAtMicrosoft
 manager: femila
@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 09068064f24594ef35a8a1bf64213b48d83873ca
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a1f93567e2502612ebdf4bc6e67de0138b18657a
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018737"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897599"
 ---
 # <a name="apple-fairplay-license-requirements-and-configuration"></a>Requisitos de licença e configuração do Apple FairPlay
 
@@ -29,7 +29,7 @@ O Azure Media Services permite-lhe encriptar o seu conteúdo HLS com **o Apple F
 
 Os Serviços de Mídia também fornecem APIs que pode utilizar para configurar as suas licenças FairPlay. Este tópico discute os requisitos de licença fairPlay e demonstra como pode configurar uma licença **FairPlay** usando APIs de Serviços de Media. 
 
-## <a name="requirements"></a>Requisitos
+## <a name="requirements"></a>Requirements
 
 São necessários os seguintes ao utilizar os Serviços de Comunicação Social para encriptar o seu conteúdo HLS com **o Apple FairPlay** e utilizar os Serviços de Media para fornecer licenças FairPlay:
 
@@ -120,6 +120,6 @@ private static ContentKeyPolicyFairPlayConfiguration ConfigureFairPlayPolicyOpti
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Confira como [proteger com DRM](protect-with-drm.md)

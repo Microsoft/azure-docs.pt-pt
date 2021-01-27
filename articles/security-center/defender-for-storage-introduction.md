@@ -7,19 +7,19 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: b338b8ee93fb24cff54968630d4ff00deca0b64b
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 675751433657a7d630d0c42482716702f520ff82
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97606730"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881389"
 ---
 # <a name="introduction-to-azure-defender-for-storage"></a>Introdução ao Azure Defender para Armazenamento
 
 
 **O Azure Defender for Storage** é uma camada nativa de inteligência de segurança Azure que deteta tentativas incomuns e potencialmente nocivas de aceder ou explorar as suas contas de armazenamento. Utiliza as capacidades avançadas da IA de segurança e da [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684) para fornecer alertas e recomendações de segurança contextuais.
 
-Os alertas de segurança são desencadeados quando ocorrem anomalias na atividade. Estes alertas estão integrados no Azure Security Center, e são também enviados por e-mail para administradores de subscrição, com detalhes de atividades suspeitas e recomendações sobre como investigar e remediar ameaças.
+Os alertas de segurança são acionados quando ocorrem anomalias de atividade. Estes alertas estão integrados no Azure Security Center, e são também enviados por e-mail para administradores de subscrição, com detalhes de atividades suspeitas e recomendações sobre como investigar e remediar ameaças.
 
 ## <a name="availability"></a>Disponibilidade
 
@@ -27,8 +27,8 @@ Os alertas de segurança são desencadeados quando ocorrem anomalias na atividad
 |----|:----|
 |Estado de libertação:|Geralmente disponível (GA)|
 |Preços:|**O Azure Defender for Storage** é faturado como mostrado [na página de preços](security-center-pricing.md)|
-|Tipos de armazenamento protegidos:|[Armazenamento blob](https://azure.microsoft.com/services/storage/blobs/)<br>[Ficheiros do Azure](../storage/files/storage-files-introduction.md)<br>[Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) (Armazenamento do Azure Data Lake Gen2)|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) US Gov<br>![Não](./media/icons/no-icon.png) China Gov, Outro Gov|
+|Tipos de armazenamento protegidos:|[Armazenamento de Blobs](https://azure.microsoft.com/services/storage/blobs/)<br>[Ficheiros do Azure](../storage/files/storage-files-introduction.md)<br>[Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) (Armazenamento do Azure Data Lake Gen2)|
+|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Outro Gov|
 |||
 
 
@@ -54,7 +54,7 @@ Alertas de segurança são acionados quando há:
 Os alertas incluem detalhes do incidente que os desencadeou, bem como recomendações sobre como investigar e remediar ameaças. Os alertas podem ser exportados para o Azure Sentinel ou para qualquer outro SIEM de terceiros ou qualquer outra ferramenta externa.
 
 > [!TIP]
-> É uma boa prática configurar o [Azure Defender para armazenamento](https://docs.microsoft.com/azure/storage/common/azure-defender-storage-configure?tabs=azure-security-center) no nível de subscrição, mas também pode [configugá-lo em contas de armazenamento individuais.](https://docs.microsoft.com/azure/storage/common/azure-defender-storage-configure?tabs=azure-portal)
+> É uma boa prática configurar o [Azure Defender para armazenamento](../storage/common/azure-defender-storage-configure.md?tabs=azure-security-center) no nível de subscrição, mas também pode [configugá-lo em contas de armazenamento individuais.](../storage/common/azure-defender-storage-configure.md?tabs=azure-portal)
 
 
 ## <a name="what-is-hash-reputation-analysis-for-malware"></a>O que é a análise de reputação de haxixe para malware?
@@ -70,7 +70,7 @@ Quando se suspeita que um ficheiro contenha malware, o Security Center apresenta
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, você aprendeu sobre Azure Defender para armazenamento.
 

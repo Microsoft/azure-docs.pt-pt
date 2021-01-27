@@ -7,15 +7,15 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 01/26/2021
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: e174a0539a75945cc0a2595e28a60d928e10acf4
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
-ms.translationtype: HT
+ms.openlocfilehash: 23e3adad12a726b03f6efe309dde0ec4a93bcd5b
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92166221"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897430"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Gerir o acesso às informações de faturação do Azure
 
@@ -38,7 +38,7 @@ O administrador da conta pode conceder acesso às informações de faturação d
 - Leitor
 - Leitor de faturação
 
-Estas funções têm acesso a informações de faturação no [portal do Azure](https://portal.azure.com/). As pessoas a quem são atribuídas estas funções também podem utilizar as [APIs de Faturação](usage-rate-card-overview.md) para obter programaticamente as faturas e os detalhes de utilização.
+Estas funções têm acesso a informações de faturação no [portal do Azure](https://portal.azure.com/). As pessoas a quem são atribuídas estas funções também podem utilizar as [APIs de Faturação](consumption-api-overview.md#usage-details-api) para obter programaticamente as faturas e os detalhes de utilização.
 
 Para atribuir funções, veja [Utilizar o portal do Azure para adicionar ou remover atribuições de funções do Azure](../../role-based-access-control/role-assignments-portal.md).
 

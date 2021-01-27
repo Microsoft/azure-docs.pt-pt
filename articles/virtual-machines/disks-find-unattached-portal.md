@@ -4,19 +4,19 @@ description: Como encontrar discos de Azure não ligados geridos e não geridos 
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 06/01/2020
+ms.date: 01/26/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 6632d65fa07788e35b24c2f957e713f824f6b091
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d31ce4b6086c44de913afd1083bae25fa3d44cd
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87542743"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898160"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks---azure-portal"></a>Localizar e apagar discos geridos e não geridos do Azure - portal Azure
 
-Quando elimina uma máquina virtual (VM) em Azure, por padrão, quaisquer discos que estejam ligados ao VM não são eliminados. Isto ajuda a prevenir a perda de dados devido à eliminação não intencional de VMs. Depois de eliminado um VM, continuará a pagar por discos não ligados. Este artigo mostra-lhe como encontrar e eliminar quaisquer discos não ligados usando o portal Azure, e reduzir custos desnecessários.
+Quando elimina uma máquina virtual (VM) em Azure, por padrão, quaisquer discos que estejam ligados ao VM não são eliminados. Isto ajuda a prevenir a perda de dados devido à eliminação não intencional de VMs. Depois de eliminado um VM, continuará a pagar por discos não ligados. Este artigo mostra-lhe como encontrar e eliminar quaisquer discos não ligados usando o portal Azure, e reduzir custos desnecessários. As eliminações são permanentes, não poderá recuperar dados uma vez que apague um disco.
 
 ## <a name="managed-disks-find-and-delete-unattached-disks"></a>Discos geridos: Localizar e apagar discos não ligados
 
@@ -45,19 +45,19 @@ Se tiver discos não geridos que não estejam ligados a um VM, já não precisa 
 
     É-lhe apresentada uma lista de todos os seus discos não geridos. Qualquer disco que tenha " **-** " na coluna **anexada** é um disco não ligado.
 
-    :::image type="content" source="media/disks-find-unattached-portal/unmanaged-disk-unattached-attached-to.png" alt-text="Screenshot de uma lâmina de discos geridos individualmente. Esta lâmina mostrar-se-á desapegado no estado do disco se não estiver presa. Pode eliminar este disco se não precisar de preservar os seus dados por mais tempo":::
+    :::image type="content" source="media/disks-find-unattached-portal/unmanaged-disk-unattached-attached-to.png" alt-text="Screenshot da lâmina dos discos não geridos. Os discos desta lâmina que têm - na coluna anexa à coluna estão desapegados.":::
 
 1. Selecione o disco não ligado que gostaria de apagar, isto traz a lâmina do disco.
 
 1. Na lâmina do disco, pode confirmar que não está ligada, uma vez que **a attached to** will still is **-** .
 
-    :::image type="content" source="media/disks-find-unattached-portal/unmanaged-disk-unattached-select-blade.png" alt-text="Screenshot de uma lâmina de discos geridos individualmente. Esta lâmina mostrar-se-á desapegado no estado do disco se não estiver presa. Pode eliminar este disco se não precisar de preservar os seus dados por mais tempo":::
+    :::image type="content" source="media/disks-find-unattached-portal/unmanaged-disk-unattached-select-blade.png" alt-text="Screenshot de uma lâmina de disco individual não gerido. Terá - como o anexo ao valor se não estiver ligado. Se já não necessitar destes dados dos discos, pode eliminá-lo.":::
 
 1. Selecione **Eliminar**.
 
-    :::image type="content" source="media/disks-find-unattached-portal/delete-unmanaged-disk-unattached.png" alt-text="Screenshot de uma lâmina de discos geridos individualmente. Esta lâmina mostrar-se-á desapegado no estado do disco se não estiver presa. Pode eliminar este disco se não precisar de preservar os seus dados por mais tempo":::
+    :::image type="content" source="media/disks-find-unattached-portal/delete-unmanaged-disk-unattached.png" alt-text="Screenshot de uma lâmina de disco individual não gerido, realçando a exclusão.":::
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se quiser uma forma automatizada de encontrar e eliminar contas de armazenamento não coladas, consulte os nossos artigos [do CLI](linux/find-unattached-disks.md) ou [da PowerShell.](windows/find-unattached-disks.md)
 

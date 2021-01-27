@@ -1,29 +1,11 @@
 ---
-title: Descrição geral dos Serviços de Multimédia do Azure v3
-titleSuffix: Azure Media Services
-description: Uma visão geral de alto nível do Azure Media Services v3 com links para quickstarts, tutoriais e amostras de código.
-services: media-services
-documentationcenter: na
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-tags: ''
-keywords: serviços de multimédia do azure, transmissão, difusão, em direto, offline
-ms.service: media-services
-ms.devlang: multiple
-ms.topic: overview
-ms.tgt_pltfrm: multiple
-ms.workload: media
-ms.date: 08/31/2020
-ms.author: inhenkel
-ms.custom: mvc
-ms.openlocfilehash: 01ec0c7c0d2d060bbd930a099fe3db54de6cb150
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
-ms.translationtype: MT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308971"
+título: Azure Media Services v3 visão geral : Descrição dos Serviços Azure Media: Uma visão geral de alto nível do Azure Media Services v3 com links para quickstarts, tutoriais e amostras de código.
+serviços: media-services documentationcenter: na author: IngridAtMicrosoft manager: femila editor: '' tags: '' palavras-chave: azure media services, stream, broadcast, live, offline
+
+ms.service: media-services ms.devlang: multiple ms.topic: overview ms.tgt_pltfrm: multiple ms.workload: media ms.date: 08/31/2020 ms.author: inhenkel ms.custom: mvc
+#<a name="customer-intent-as-a-developer-or-a-content-provider-i-want-to-encode-stream-on-demand-or-live-analyze-my-media-content-so-that-my-customers-can-view-the-content-on-a-wide-variety-of-browsers-and-devices-gain-valuable-insights-from-recorded-content"></a>Intenção do cliente: Como desenvolvedor ou fornecedor de conteúdos, quero codificar, transmitir (a pedido ou ao vivo), analisar o meu conteúdo de mídia para que os meus clientes possam: ver o conteúdo numa grande variedade de navegadores e dispositivos, obter informações valiosas a partir de conteúdos gravados.
 ---
+
 # <a name="azure-media-services-v3-overview"></a>Descrição geral dos Serviços de Multimédia do Azure v3
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
@@ -107,6 +89,6 @@ Os guias de como fazer contêm amostras de código que demonstram como completar
 
 Consulte o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Media Services.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Conheça os conceitos fundamentais](concepts-overview.md)

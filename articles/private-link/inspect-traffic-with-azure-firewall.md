@@ -8,12 +8,12 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: allensu
-ms.openlocfilehash: 5cbfd90ca65a1fb75c9cbe5602ac2a69741e378f
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 7812d0f2e42dfed6cdd661244b77969297093a5d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96017241"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879178"
 ---
 # <a name="use-azure-firewall-to-inspect-traffic-destined-to-a-private-endpoint"></a>Utilize a Firewall Azure para inspecionar o tráfego destinado a um ponto final privado
 
@@ -92,7 +92,7 @@ Há algumas limitações à implementação: uma migração para um centro e arq
 Esta arquitetura pode ser implementada se tiver conectividade configurada com a sua rede no local usando: 
 
 * [ExpressRoute](..\expressroute\expressroute-introduction.md)
-* [Site para VPN site](..\vpn-gateway\vpn-gateway-howto-site-to-site-resource-manager-portal.md) 
+* [Site para VPN site](../vpn-gateway/tutorial-site-to-site-portal.md) 
 
 Se os seus requisitos de segurança exigirem que o tráfego do cliente para serviços expostos através de pontos finais privados seja encaminhado através de um aparelho de segurança, implemente este cenário.
 
@@ -163,7 +163,7 @@ Substitua os seguintes parâmetros nos passos com as informações abaixo:
 
 ### <a name="create-virtual-machine"></a>Criar a máquina virtual
 
-1. No lado superior esquerdo do ecrã no portal Azure, selecione **Criar uma** máquina Virtual  >  **Compute de** recurso  >  **Virtual machine**.
+1. No lado superior esquerdo do ecrã no portal Azure, selecione **Criar uma** máquina Virtual  >  **Compute de** recurso  >  .
 
 2. Na **Criar uma máquina virtual - Básicos, insira** ou selecione esta informação:
 
@@ -263,7 +263,7 @@ Nesta secção, ativar os registos na firewall.
 
 Nesta secção, cria-se uma Base de Dados SQL privada.
 
-1. No lado superior esquerdo do ecrã no portal Azure, **selecione Criar uma** base de dados de recursos  >  **Databases**  >  **SQL Databases**.
+1. No lado superior esquerdo do ecrã no portal Azure, **selecione Criar uma** base de dados de recursos  >    >  **SQL Databases**.
 
 2. Na **Create SQL Database - Básicos, insira** ou selecione estas informações:
 
@@ -274,7 +274,7 @@ Nesta secção, cria-se uma Base de Dados SQL privada.
     | Grupo de recursos | Selecione **myResourceGroup**. Criou este grupo de recursos na secção anterior.|
     | **Detalhes da base de dados** |  |
     | Nome da base de dados  | Insira **a minha base de dados.**  |
-    | Server | Selecione **Criar novo** e introduza as informações abaixo.    |
+    | Servidor | Selecione **Criar novo** e introduza as informações abaixo.    |
     | Nome do servidor | **Insira o mydbserver**. Se este nome for tomado, insira um nome único.   |
     | Início de sessão de administrador do servidor | Insira o nome da sua escolha. |
     | Palavra-passe    |    Introduza uma palavra-passe à sua escolha.    |
@@ -461,12 +461,12 @@ Esta regra permite a comunicação através da firewall que criamos nos passos a
     | Ação | Insira **Permitir**. |
     | **Regras** |  |
     | **Etiquetas FQDN** | |
-    | Nome  | Deixe em branco.  |
+    | Name  | Deixe em branco.  |
     | Tipo de origem | Deixe o **endereço IP** predefinido .    |
     | Origem | Deixe em branco. |
     | Etiquetas FQDN | Deixe o **padrão 0 selecionado**. |
     | **FQDNs alvo** | |
-    | Nome | Insira **o SQLPrivateEndpoint**.    |
+    | Name | Insira **o SQLPrivateEndpoint**.    |
     | Tipo de origem | Deixe o **endereço IP** predefinido . |
     | Origem | Insira **10.1.0.0/16**. |
     | Protocolo: Porto | Insira **mssql:1433**. |
@@ -498,7 +498,7 @@ A rota envia o tráfego da sub-rede **myVM** para o espaço de endereço da rede
     | Grupo de recursos | Selecione **myResourceGroup**.  |
     | **Detalhes da instância** |  |
     | Region | Selecione **South Central US**. |
-    | Nome | Insira **VMsubnet-to-AzureFirewall**. |
+    | Name | Insira **VMsubnet-to-AzureFirewall**. |
     | Rotas de gateway de propagação | Selecione **Não**. |
 
 5. Selecione **Rever + criar**. Acedeu à página **Rever + criar**, onde o Azure valida a sua configuração.
@@ -614,7 +614,7 @@ Quando terminar de usar os recursos, elimine o grupo de recursos e todos os recu
 
 1. Introduza **o myResourceGroup** para **type the RESOURCE GROUP NAME** e selecione **Delete**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, você explorou diferentes cenários que você pode usar para restringir o tráfego entre uma máquina virtual e um ponto final privado usando Azure Firewall. 
 

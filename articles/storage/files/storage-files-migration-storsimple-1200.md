@@ -1,5 +1,5 @@
 ---
-title: StorSimple migração 1200 para Azure File Sync
+title: Migração do StorSimple 1200 para o Azure File Sync
 description: Saiba como migrar um aparelho virtual da série StorSimple 1200 para Azure File Sync.
 author: fauhse
 ms.service: storage
@@ -7,14 +7,14 @@ ms.topic: how-to
 ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 78c7953ef6432d37542a7a8b06f226a07f2b701f
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 8562d63bf227fff665c70674c7fe66922bce9992
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630486"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882285"
 ---
-# <a name="storsimple-1200-migration-to-azure-file-sync"></a>StorSimple migração 1200 para Azure File Sync
+# <a name="storsimple-1200-migration-to-azure-file-sync"></a>Migração do StorSimple 1200 para o Azure File Sync
 
 A série StorSimple 1200 é um aparelho virtual que é executado num centro de dados no local. É possível migrar os dados deste aparelho para um ambiente Azure File Sync. Azure File Sync é o serviço Azure de longo prazo padrão e estratégico para o qual os aparelhos StorSimple podem ser migrados.
 
@@ -32,7 +32,7 @@ Azure File Sync é um serviço de nuvem da Microsoft, baseado em dois componente
 
 Este artigo centra-se nos passos de migração. Se antes de migrar gostaria de saber mais sobre o Azure File Sync, recomendamos os seguintes artigos:
 
-* [Azure File Sync - visão geral](./storage-sync-files-planning.md "Descrição Geral")
+* [Azure File Sync - visão geral](./storage-sync-files-planning.md "Descrição geral")
 * [Azure File Sync - guia de implementação](storage-sync-files-deployment-guide.md)
 
 ## <a name="migration-goals"></a>Objetivos de migração
@@ -210,7 +210,7 @@ Terminou de migrar uma parte/grupo de ações numa raiz ou volume comum. (Depend
 Podes tentar executar algumas destas cópias em paralelo. Recomendamos o processamento do âmbito de uma partilha de ficheiros Azure de cada vez.
 
 > [!WARNING]
-> Depois de ter movido todos os dados do seu StorSimple para o Windows Server, e a sua migração está completa: Volte a * **todos os** grupos de sincronização no portal Azure e ajuste o valor de espaço livre de volume de nível de nuvem para algo mais adequado para a utilização da cache, digamos 20%. 
+> Depois de ter movido todos os dados do seu StorSimple para o Windows Server, e a sua migração está completa: Volte a ***todos os** grupos de sincronização no portal Azure e ajuste o valor de espaço livre de volume de nível de nuvem para algo mais adequado para a utilização da cache, digamos 20%. 
 
 A política de espaço livre de nível de nivelamento da nuvem atua a nível de volume com pontos finais potencialmente múltiplos do servidor sincronizados a partir dele. Se se esquecer de ajustar o espaço livre num ponto final de um servidor, a sincronização continuará a aplicar a regra mais restritiva e tentará manter 99% de espaço livre em disco, fazendo com que a cache local não esteja a funcionar como seria de esperar. A menos que o seu objetivo seja ter apenas o espaço de nome para um volume que apenas contém dados de arquivo raramente acedidos.
 
@@ -234,5 +234,5 @@ Conteúdo de migração:
 Conteúdo de Azure File Sync:
 
 * [Visão geral da AFS](./storage-sync-files-planning.md)
-* [Guia de implantação da AFS](storage-files-deployment-guide.md)
+* [Guia de implantação da AFS](./storage-how-to-create-file-share.md)
 * [Resolução de problemas da AFS](storage-sync-files-troubleshoot.md)

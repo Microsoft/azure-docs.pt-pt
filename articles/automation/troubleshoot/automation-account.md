@@ -2,18 +2,15 @@
 title: Problemas na conta da Azure Automation
 description: Este artigo diz como resolver problemas e resolver problemas com uma conta Azure.
 services: automation
-author: mgoedtel
-ms.author: magoedte
+ms.subservice: ''
 ms.date: 03/24/2020
-ms.topic: conceptual
-ms.service: automation
-manager: carmonm
-ms.openlocfilehash: edd57d3d77432f3bb37872ee26f414b56398cae0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.topic: troubleshooting
+ms.openlocfilehash: 06c15136e9d2fabdf50031c8b4be455cf2f7bbca
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187290"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896584"
 ---
 # <a name="troubleshoot-azure-automation-account-issues"></a>Problemas na conta da Azure Automation
 
@@ -39,7 +36,7 @@ Para registar o Fornecedor de Recursos de Automação, siga estes passos no port
 
 1. A partir do seu navegador, aceda ao [portal Azure.](https://portal.azure.com)
 
-2. Vá a **Subscrições**e selecione a sua subscrição.   
+2. Vá a **Subscrições** e selecione a sua subscrição.   
 
 3. Em **Definições**, selecione **Fornecedores de Recursos**.
 
@@ -47,7 +44,7 @@ Para registar o Fornecedor de Recursos de Automação, siga estes passos no port
 
 5. Se o fornecedor não estiver listado, registe-o como descrito no [Resolve errors for resource provider registration](../../azure-resource-manager/templates/error-register-resource-provider.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se este artigo não resolver o seu problema, experimente um dos seguintes canais para obter apoio adicional:
 

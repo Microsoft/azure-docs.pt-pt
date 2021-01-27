@@ -1,24 +1,9 @@
 ---
-title: Contas de armazenamento do Azure
-titleSuffix: Azure Media Services
-description: Saiba como criar uma conta de armazenamento Azure para usar com a Azure Media Services.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: ''
-ms.topic: conceptual
-ms.date: 01/05/2021
-ms.author: inhenkel
-ms.openlocfilehash: 55a49d48af95c103d2a28d5106af5f3166605514
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
-ms.translationtype: MT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98882251"
+# <a name="mandatory-fields-see-more-on-akamsskyeyemeta"></a>Campos obrigatórios. Veja mais na aka.ms/skyeye/meta.
+título: Contas de armazenamento Azure : Descrição do Azure Media Services: Saiba como criar uma conta de armazenamento Azure para utilizar com a Azure Media Services.
+serviços: media-services documentationcenter: 'author: IngridAtMicrosoft manager: femila editor: '' ms.service: media-services ms.workload: ms.topic: conceptual ms.date: 01/05/2021 ms.author: inhenkel
 ---
+
 # <a name="azure-storage-accounts"></a>Contas de Armazenamento do Azure
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]

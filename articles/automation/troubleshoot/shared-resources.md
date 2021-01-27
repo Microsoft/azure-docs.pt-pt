@@ -2,18 +2,15 @@
 title: Resolução de problemas Azure Automation problemas de recursos partilhados
 description: Este artigo diz como resolver problemas e resolver problemas com recursos partilhados da Azure Automation.
 services: automation
-author: mgoedtel
-ms.author: magoedte
+ms.subservice: ''
 ms.date: 03/12/2019
-ms.topic: conceptual
-ms.service: automation
-manager: carmonm
-ms.openlocfilehash: c6bdc09d37cf29458346eaea360b4cd9e0d1226f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.topic: troubleshooting
+ms.openlocfilehash: c4ede0bffedc256f4af621d4945ebbbea0f8a4b6
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187171"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896296"
 ---
 # <a name="troubleshoot-shared-resource-issues"></a>Problemas de recursos partilhados na resolução de problemas
 
@@ -33,7 +30,7 @@ Como importar módulos PowerShell é um processo complexo e multipasso, um módu
 
 #### <a name="resolution"></a>Resolução
 
-Para resolver este problema, tem de remover o módulo que está preso utilizando o [cmdlet Remove-AzAutomationModule.](/powershell/module/Az.Automation/Remove-AzAutomationModule?view=azps-3.7.0) Em seguida, pode voltar a tentar importar o módulo.
+Para resolver este problema, tem de remover o módulo que está preso utilizando o [cmdlet Remove-AzAutomationModule.](/powershell/module/Az.Automation/Remove-AzAutomationModule) Em seguida, pode voltar a tentar importar o módulo.
 
 ```azurepowershell-interactive
 Remove-AzAutomationModule -Name ModuleName -ResourceGroupName ExampleResourceGroup -AutomationAccountName ExampleAutomationAccount -Force
@@ -70,7 +67,7 @@ Algumas razões comuns para que um módulo pode não importar com sucesso para a
 * A estrutura não corresponde à estrutura de que a Automação precisa.
 * O módulo depende de outro módulo que não tenha sido implantado na sua conta de Automação.
 * O módulo está a perder as suas dependências na pasta.
-* O [cmdlet New-AzAutomationModule](/powershell/module/Az.Automation/New-AzAutomationModule?view=azps-3.7.0) está a ser utilizado para carregar o módulo, e não forneceu o caminho de armazenamento completo ou não carregou o módulo utilizando um URL acessível ao público.
+* O [cmdlet New-AzAutomationModule](/powershell/module/Az.Automation/New-AzAutomationModule) está a ser utilizado para carregar o módulo, e não forneceu o caminho de armazenamento completo ou não carregou o módulo utilizando um URL acessível ao público.
 
 #### <a name="resolution"></a>Resolução
 
@@ -97,7 +94,7 @@ Não é comum que todos os módulos AzureRM ou Az sejam necessários na mesma co
 > [!NOTE]
 > Evite importar a totalidade `Az.Automation` ou `AzureRM.Automation` módulo, que importa todos os módulos contidos.
 
-Se o processo de atualização suspender, adicione o `SimultaneousModuleImportJobCount` parâmetro aoUpdate-AzureModules.ps1script e forneça um valor inferior ao padrão de **Update-AzureModules.ps1** 10. Se implementar esta lógica, tente começar com um valor de 3 ou 5. `SimultaneousModuleImportJobCount` é um parâmetro do runbook do sistema **Update-AutomationAzureModulesForAccount** que é usado para atualizar módulos Azure. Se fizer este ajuste, o processo de atualização é mais longo, mas tem mais hipóteses de completar. O exemplo a seguir mostra o parâmetro e onde colocá-lo no livro de recortes:
+Se o processo de atualização suspender, adicione o `SimultaneousModuleImportJobCount` parâmetro aoUpdate-AzureModules.ps1script e forneça um valor inferior ao padrão de  10. Se implementar esta lógica, tente começar com um valor de 3 ou 5. `SimultaneousModuleImportJobCount` é um parâmetro do runbook do sistema **Update-AutomationAzureModulesForAccount** que é usado para atualizar módulos Azure. Se fizer este ajuste, o processo de atualização é mais longo, mas tem mais hipóteses de completar. O exemplo a seguir mostra o parâmetro e onde colocá-lo no livro de recortes:
 
  ```powershell
          $Body = @"
@@ -162,7 +159,7 @@ Connect-AzAccount -ServicePrincipal -Tenant $connection.TenantID `
 -ApplicationID $connection.ApplicationID -CertificateThumbprint $connection.CertificateThumbprint
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se este artigo não resolver o seu problema, experimente um dos seguintes canais para obter apoio adicional:
 

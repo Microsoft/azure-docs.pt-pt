@@ -1,5 +1,5 @@
 ---
-title: LiveEvent baixa definição de latência no Azure Media Services Microsoft Docs
+title: Configurações de baixa latência liveEvent nos Serviços Azure Media
 description: Este tópico dá uma visão geral das configurações de baixa latência do LiveEvent e mostra como definir a baixa latência.
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 114efe668fba47e9d83741b8fa45e1f396725198
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 023b0f4d7f0367882e0a5bb2be89c485c18bc03c
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89291522"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897837"
 ---
 # <a name="live-event-low-latency-settings"></a>Configurações de baixa latência do Evento Ao Vivo
 
@@ -78,7 +78,7 @@ As tabelas que se seguem mostram resultados típicos de latência (quando a band
 > [!NOTE]
 > A latência de ponta a ponta pode variar dependendo das condições da rede local ou introduzindo uma camada de caching CDN. Deve testar as configurações exatas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Visão geral do streaming ao vivo](live-streaming-overview.md)
 - [Tutorial de streaming ao vivo](stream-live-tutorial-with-api.md)

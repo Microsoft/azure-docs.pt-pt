@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: a47f720344a16d0f77559d6aabfb2b0245e62976
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ee4a09df0f95cb809db0e5c0e63d195ee5cfdff
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89426338"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896940"
 ---
 # <a name="migrate-from-orchestrator-to-azure-automation-beta"></a>Migrar do Orchestrator para a Automatização do Azure (Beta)
 
@@ -24,7 +24,7 @@ O primeiro passo na migração é descarregar o [Kit de Ferramentas de Migraçã
 
 ## <a name="import-the-standard-activities-module"></a>Importar o módulo de Atividades Padrão
 
-Importe o [Módulo de Atividades Padrão](/system-center/orchestrator/standard-activities?view=sc-orch-2019) para a Azure Automation. Isto inclui versões convertidas de atividades orquestradoras padrão que os livros gráficos convertidos podem usar.
+Importe o [Módulo de Atividades Padrão](/system-center/orchestrator/standard-activities) para a Azure Automation. Isto inclui versões convertidas de atividades orquestradoras padrão que os livros gráficos convertidos podem usar.
 
 ## <a name="import-orchestrator-integration-modules"></a>Módulos de integração de orquestradores de importação
 
@@ -32,7 +32,7 @@ A Microsoft fornece [pacotes de integração](/previous-versions/system-center/p
 
 ## <a name="convert-integration-packs"></a>Converter pacotes de integração
 
-Utilize o [Conversor de Pacotes de Integração](/system-center/orchestrator/orch-integration-toolkit/integration-pack-wizard?view=sc-orch-2019) para converter quaisquer pacotes de integração criados utilizando o Kit de Ferramentas de [Integração de Orquestradores (OIT)](/previous-versions/system-center/developer/hh855853(v=msdn.10)) para módulos de integração baseados em PowerShell que podem ser importados para Azure Automation ou Service Management Automation. Quando executar o Conversor de Pacotes de Integração, é-lhe apresentado um assistente que lhe permite selecionar um ficheiro de pacote de integração (.oip). Em seguida, o assistente lista as atividades incluídas nesse pacote de integração e permite-lhe selecionar quais as atividades a migrar. Quando completa o assistente, cria um módulo de integração que inclui um cmdlet correspondente para cada uma das atividades no pacote de integração original.
+Utilize o [Conversor de Pacotes de Integração](/system-center/orchestrator/orch-integration-toolkit/integration-pack-wizard) para converter quaisquer pacotes de integração criados utilizando o Kit de Ferramentas de [Integração de Orquestradores (OIT)](/previous-versions/system-center/developer/hh855853(v=msdn.10)) para módulos de integração baseados em PowerShell que podem ser importados para Azure Automation ou Service Management Automation. Quando executar o Conversor de Pacotes de Integração, é-lhe apresentado um assistente que lhe permite selecionar um ficheiro de pacote de integração (.oip). Em seguida, o assistente lista as atividades incluídas nesse pacote de integração e permite-lhe selecionar quais as atividades a migrar. Quando completa o assistente, cria um módulo de integração que inclui um cmdlet correspondente para cada uma das atividades no pacote de integração original.
 
 > [!NOTE]
 > Não é possível utilizar o Conversor de Pacotes integrais para converter pacotes de integração que não foram criados com o OIT. Existem também alguns packs de integração fornecidos pela Microsoft que não podem ser convertidos com esta ferramenta. As versões convertidas destes pacotes de integração são fornecidas para download para que possam ser instaladas na Azure Automation ou na Service Management Automation.
@@ -85,7 +85,7 @@ O Conversor runbook cria os seguintes ficheiros de registo no mesmo local que o 
 
 | Ficheiro | Conteúdos |
 |:--- |:--- |
-| Conversor de runbook - Progress.log |Passos pormenorizados da conversão, incluindo informações para cada atividade convertida com sucesso e aviso para cada atividade não convertida. |
+| Conversor de runbook - Progresso.log |Passos pormenorizados da conversão, incluindo informações para cada atividade convertida com sucesso e aviso para cada atividade não convertida. |
 | Conversor de runbook - Resumo.log |Resumo da última conversão, incluindo quaisquer advertências e tarefas de seguimento que você precisa realizar, tais como a criação de uma variável necessária para o runbook convertido. |
 
 ### <a name="export-runbooks-from-orchestrator"></a>Livros de exportação do Orquestrador
@@ -108,7 +108,7 @@ Qualquer atividade de um pacote de integração convertido é convertida se forn
 
 O Conversor runbook apenas converte livros de execução, não outros recursos orquestradores, tais como contadores, variáveis ou ligações.  Os contadores não são suportados na Azure Automation.  As variáveis e ligações são suportadas, mas deve criá-las manualmente. Os ficheiros de registo informam-no se o livro de recortes requer esses recursos e especifica os recursos correspondentes que necessita de criar na Azure Automation para que o livro de bordo convertido funcione corretamente.
 
-Por exemplo, um livro pode usar uma variável para preencher um valor particular numa atividade.  O runbook convertido converte a atividade e especifica um ativo variável na Azure Automation com o mesmo nome que a variável Orquestrador. Esta ação é notada no ficheiro **Runbook Converter - Summary.log** que é criado após a conversão. Deve criar manualmente este ativo variável na Azure Automation antes de utilizar o livro de recortes.
+Por exemplo, um livro pode usar uma variável para preencher um valor particular numa atividade.  O runbook convertido converte a atividade e especifica um ativo variável na Azure Automation com o mesmo nome que a variável Orquestrador. Esta ação é notada no Ficheiro Do Conversor de **Runbook - Resumo.log** que é criado após a conversão. Deve criar manualmente este ativo variável na Azure Automation antes de utilizar o livro de recortes.
 
 ### <a name="work-with-orchestrator-input-parameters"></a>Trabalhar com parâmetros de entrada do Orquestrador
 
@@ -118,7 +118,7 @@ A razão pela qual esta estratégia é usada é para melhor espelhar a funcional
 
 ### <a name="invoke-runbook-activity"></a>Invocar atividade de Runbook
 
-Os runbooks em Orchestrator iniciam outros livros com a `Invoke Runbook` atividade. Se o livro de execução que está a ser convertido incluir esta atividade e a `Wait for completion` opção for definida, então é criada uma atividade de runbook para ele no runbook convertido.  Se a `Wait for completion` opção não estiver definida, então é criada uma atividade de Script de Fluxo de Trabalho que utiliza [o Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) para iniciar o livro de execução. Depois de importar o livro de bordo convertido para a Azure Automation, deve modificar esta atividade com as informações especificadas na atividade.
+Os runbooks em Orchestrator iniciam outros livros com a `Invoke Runbook` atividade. Se o livro de execução que está a ser convertido incluir esta atividade e a `Wait for completion` opção for definida, então é criada uma atividade de runbook para ele no runbook convertido.  Se a `Wait for completion` opção não estiver definida, então é criada uma atividade de Script de Fluxo de Trabalho que utiliza [o Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook) para iniciar o livro de execução. Depois de importar o livro de bordo convertido para a Azure Automation, deve modificar esta atividade com as informações especificadas na atividade.
 
 ## <a name="create-orchestrator-assets"></a>Criar ativos de Orquestrador
 

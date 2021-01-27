@@ -11,12 +11,12 @@ ms.reviewer: luquinta
 ms.date: 11/25/2020
 ms.topic: troubleshooting
 ms.custom: devx-track-python, deploy, contperf-fy21q2
-ms.openlocfilehash: a879a81ae2bcb4e659c69a801f7c299c10ab3d77
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 473b2e4ac3443d204b39331d9cefaa6c71122439
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740645"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881674"
 ---
 # <a name="troubleshooting-with-a-local-model-deployment"></a>Resolução de problemas com uma implantação de modelo local
 
@@ -28,7 +28,7 @@ Experimente uma implementação de modelo local como um primeiro passo na resolu
 * [O Azure Machine Learning SDK.](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)
 * O [Azure CLI.](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)
 * A [extensão CLI para Azure Machine Learning](reference-azure-machine-learning-cli.md).
-* Para depurar localmente, pode implementar o modelo para [Azure Machine Learning Compute Instance](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-local-container-notebook-vm) ou ter uma instalação de Docker em funcionamento no seu sistema local.
+* Para depurar localmente, pode implementar o modelo para [Azure Machine Learning Compute Instance](./how-to-deploy-local-container-notebook-vm.md) ou ter uma instalação de Docker em funcionamento no seu sistema local.
 
     Para verificar a instalação do Docker, utilize o comando `docker run hello-world` a partir de um terminal ou de um pedido de comando. Para obter informações sobre a instalação do Docker, ou sobre os erros do Docker, consulte a [Documentação](https://docs.docker.com/)do Docker .
 
@@ -121,7 +121,7 @@ print(ws.webservices['mysvc'].get_logs())
 Se vires a linha `Booting worker with pid: <pid>` a ocorrer várias vezes nos registos, significa que não há memória suficiente para ligar o trabalhador.
 Pode resolver o erro aumentando o valor de `memory_gb` in `deployment_config`
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre a implementação:
 

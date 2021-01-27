@@ -1,16 +1,16 @@
 ---
-author: hophanms
-ms.author: hophan
+author: amberz
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: include
 ms.date: 1/20/2021
-ms.openlocfilehash: ac83f455d2af82c3f6970077fccb17f07e53cccc
+ms.author: amberz
+ms.openlocfilehash: bf872feae9c3a7ca94e5252872adee2b653f5524
 ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/27/2021
-ms.locfileid: "98901143"
+ms.locfileid: "98896122"
 ---
 ## <a name="creating-and-running-a-scan"></a>Criar e executar uma digitalização
 
@@ -27,19 +27,19 @@ Para criar e executar uma nova digitalização, faça o seguinte:
 
 1. Selecione a credencial para ligar à sua fonte de dados. 
 
-   :::image type="content" source="media/manage-scans/set-up-scan.png" alt-text="Configurar digitalização":::
+   :::image type="content" source="media/manage-scans/set-up-scan-data-explorer.png" alt-text="Configurar digitalização":::
 
 1. Pode analisar a sua verificação em partes específicas da fonte de dados, tais como pastas, coleções ou esquemas, verificando os itens apropriados na lista.
 
-   :::image type="content" source="media/manage-scans/scope-your-scan.png" alt-text="Coloque o seu scan":::
+   :::image type="content" source="media/manage-scans/scope-your-scan-data-explorer.png" alt-text="Coloque o seu scan":::
 
 1. Selecione uma regra de digitalização definida para o seu scan. Pode escolher entre o padrão do sistema, os personalizados existentes ou criar um novo inline.
 
-   :::image type="content" source="media/manage-scans/scan-rule-set.png" alt-text="Conjunto de regras de digitalização":::
+   :::image type="content" source="media/manage-scans/scan-rule-set-data-explorer.png" alt-text="Conjunto de regras de digitalização":::
 
 1. Escolha o seu gatilho de digitalização. Pode configurar um horário ou fazer a verificação uma vez.
 
-   :::image type="content" source="media/manage-scans/trigger-scan.png" alt-text="gatilho":::
+   :::image type="content" source="media/manage-scans/trigger-scan-data-explorer.png" alt-text="gatilho":::
 
 1. Reveja a sua digitalização e **selecione Guardar e executar**.
 

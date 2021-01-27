@@ -1,5 +1,5 @@
 ---
-title: Ligue o seu ambiente ao Power BI - Azure Time Series Insights Microsoft Docs
+title: Ligue o seu ambiente ao Power BI - Azure Time Series Insights | Microsoft Docs
 description: Saiba como ligar o Azure Time Series Insights ao Power BI para partilhar, traçar e exibir dados em toda a sua organização.
 author: shreyasharmamsft
 ms.author: shresha
@@ -8,12 +8,12 @@ services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 12/14/2020
-ms.openlocfilehash: 07e79dbde142400677901ee02903144f9a42cd6b
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: b4ed5a419df97f98b883a07825184122945e092e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740769"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879566"
 ---
 # <a name="visualize-data-from-azure-time-series-insights-in-power-bi"></a>Visualizar dados da Azure Time Series Insights em Power BI
 
@@ -112,10 +112,10 @@ Agora que importou os dados para o Power BI, está na hora de construir um relat
 Uma vez criado o seu relatório, pode publicá-lo na Power BI Reporting Services e partilhar com outros da sua organização.
 
 ## <a name="advanced-editing"></a>Edição avançada
-Se já carregou um conjunto de dados no Power BI mas gostaria de modificar a consulta (como os parâmetros de data/hora ou ID do ambiente), pode fazê-lo através da funcionalidade De Redação Avançada do Power BI. Consulte a [documentação power BI](https://docs.microsoft.com/power-bi/desktop-query-overview) para saber mais sobre como fazer alterações usando o Power **Query Editor**. 
+Se já carregou um conjunto de dados no Power BI mas gostaria de modificar a consulta (como os parâmetros de data/hora ou ID do ambiente), pode fazê-lo através da funcionalidade De Redação Avançada do Power BI. Consulte a [documentação power BI](/power-bi/desktop-query-overview) para saber mais sobre como fazer alterações usando o Power **Query Editor**. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Saiba mais sobre [o ambiente de trabalho Power BI](https://docs.microsoft.com/power-bi/desktop-query-overview).
+* Saiba mais sobre [o ambiente de trabalho Power BI](/power-bi/desktop-query-overview).
 
 * Saiba mais sobre [a consulta de dados](concepts-query-overview.md) em Azure Time Series Insights Gen2.

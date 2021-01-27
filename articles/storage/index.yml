@@ -10,12 +10,12 @@ metadata:
   author: twooley
   ms.author: twooley
   ms.date: 05/01/2020
-  ms.openlocfilehash: e7b4fc7988621c996966c77bf9dd9b74b60afe86
-  ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
-  ms.translationtype: HT
+  ms.openlocfilehash: 886f61206bdc87dc5283a46e50ff438041be1a2f
+  ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+  ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 12/02/2020
-  ms.locfileid: "96492000"
+  ms.lasthandoff: 01/27/2021
+  ms.locfileid: "98878481"
 highlightedContent:
   items:
   - title: Introdução aos principais serviços de armazenamento
@@ -95,7 +95,7 @@ additionalContent:
         text: Ver mais >
     - title: Transferência de dados online (do local para o Azure)
       links:
-      - url: ../databox-online/data-box-gateway-overview.md
+      - url: ../databox-gateway/data-box-gateway-overview.md
         text: Transferir dados sem dificuldades para o Azure (Data Box Gateway)
       - url: ../databox-online/azure-stack-edge-overview.md
         text: Processar dados localmente antes de transferir para o Azure (Azure Stack Edge)
