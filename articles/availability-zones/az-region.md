@@ -4,15 +4,15 @@ description: Para criar aplicações altamente disponíveis e resilientes no Azu
 author: cynthn
 ms.service: azure
 ms.topic: article
-ms.date: 01/26/2021
+ms.date: 12/17/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: 5883dc8b34cd1aa00ba1c5de25a09a017a130c0a
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 2a2e4ac57eec866d9857f564d6c76ad4a775d223
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896889"
+ms.locfileid: "98874613"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>Serviços do Azure que suportam as Zonas de Disponibilidade
 
@@ -58,7 +58,7 @@ Para alcançar uma ampla continuidade de negócios em Azure, construa a sua arqu
 | Oeste DOS EUA 2        |                |                      |                     |                |
 
 
-\* Para saber mais sobre As Zonas de Disponibilidade e o suporte de serviços disponíveis nestas regiões, contacte o seu representante de vendas da Microsoft ou do cliente. Para as próximas regiões que apoiarão As Zonas de Disponibilidade, consulte [geografias Azure.](https://azure.microsoft.com/en-us/global-infrastructure/geographies/)
+Para saber mais sobre As Zonas de Disponibilidade e o suporte de serviços disponíveis nestas regiões, contacte o seu representante de vendas da Microsoft ou do cliente. Para as próximas regiões que apoiarão As Zonas de Disponibilidade, consulte [geografias Azure.](https://azure.microsoft.com/en-us/global-infrastructure/geographies/)
 
 
 ## <a name="azure-services-supporting-availability-zones"></a>Serviços Azure que apoiam zonas de disponibilidade
