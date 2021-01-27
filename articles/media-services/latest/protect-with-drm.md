@@ -1,26 +1,9 @@
 ---
-title: Serviço de encriptação e entrega de licenças da Azure Media Services DRM
-titleSuffix: Azure Media Services
-description: Aprenda a usar o serviço de encriptação dinâmica DRM e entrega de licenças para fornecer streams encriptados com licenças Microsoft PlayReady, Google Widevine ou Apple FairPlay.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: tutorial
-ms.date: 08/31/2020
-ms.author: inhenkel
-ms.custom: seodec18
-ms.openlocfilehash: abaa82d6f5f33a3dc29db50ae6d029dacd3f7c13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89289372"
+título: Serviço de encriptação e entrega de licenças Azure Media Services : Descrição dos Serviços Azure Media: Saiba como utilizar o serviço de encriptação dinâmica DRM e entrega de licenças para fornecer streams encriptados com licenças Microsoft PlayReady, Google Widevine ou Apple FairPlay.
+serviços: media-services documentationcenter: '' autor: IngridAtMicrosoft manager: femila editor: ''
+
+ms.service: media-services ms.workload: media ms.tgt_pltfrm: na ms.devlang: na ms.topic: tutorial ms.date: 08/31/2020 ms.author: inhenkel ms.custom: seodec18
+
 ---
 # <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>Tutorial: Use encriptação dinâmica DRM e serviço de entrega de licenças
 
@@ -154,7 +137,7 @@ O ContentKeyIdentifierClaim é utilizado no ContentKeyPolicy, o que significa qu
 
 ## <a name="build-a-streaming-url"></a>Construir um URL de streaming
 
-Agora que o [StreamingLocator](/rest/api/media/streaminglocators) foi criado, pode obter os URLs de transmissão. Para construir um URL, é necessário concatenar o nome de anfitrião [streamingEndpoint](/rest/api/media/streamingendpoints) e o caminho **do localizador de streaming.** Nesta amostra, é utilizado o ponto final de streaming *predefinido.* **Streaming Endpoint** Quando criar uma conta de Serviço de Mídia, este **ponto final de streaming** *predefinido* estará num estado parado, pelo que tem de ligar para **o Start**.
+Agora que o [StreamingLocator](/rest/api/media/streaminglocators) foi criado, pode obter os URLs de transmissão. Para construir um URL, é necessário concatenar o nome de anfitrião [streamingEndpoint](/rest/api/media/streamingendpoints) e o caminho **do localizador de streaming.** Nesta amostra, é utilizado o ponto final de streaming *predefinido.*  Quando criar uma conta de Serviço de Mídia, este **ponto final de streaming** *predefinido* estará num estado parado, pelo que tem de ligar para **o Start**.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#GetMPEGStreamingUrl)]
 
@@ -188,7 +171,7 @@ az group delete --name amsResourceGroup
 
 Consulte o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Media Services.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Dar saída
 

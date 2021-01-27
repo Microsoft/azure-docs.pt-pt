@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 05/23/2019
-ms.openlocfilehash: d5476bf1bfe2e222e115146c13f46e776d4bb497
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 23847c164ba59a8c46c2fdd5fb954b76ea251148
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657197"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98877684"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-postgresql"></a>Arquitetura de conectividade na Base de Dados Azure para PostgreSQL
 Este artigo explica a Base de Dados Azure para a arquitetura de conectividade PostgreSQL, bem como como o tráfego é direcionado para a sua base de dados Azure para postgresQL caso de dados de clientes dentro e fora de Azure.
@@ -28,7 +28,7 @@ A ligação à sua Base de Dados Azure para PostgreSQL é estabelecida através 
 
 O serviço gateway está hospedado em grupo de nódoas apátridas sentadas atrás de um endereço IP, que o seu cliente alcançaria primeiro quando tentasse ligar-se a uma Base de Dados Azure para o servidor PostgreSQL. 
 
-Como parte da manutenção contínua do serviço, vamos atualizar periodicamente hardware compute hospedando os gateways para garantir que fornecemos a experiência mais segura e performante. Quando o hardware gateway é renovado, um novo anel dos nós computacional é construído primeiro. Este novo anel serve o tráfego de toda a recém-criada Base de Dados Azure para servidores PostgreSQL e terá um endereço IP diferente dos anéis de gateway mais antigos da mesma região para diferenciar o tráfego. Uma vez que o novo anel esteja totalmente funcional, o hardware gateway mais antigo que serve os servidores existentes está planeado para o desmantelamento. Antes de desativar um hardware gateway, os clientes que executam os seus servidores e se conectam a anéis de gateway mais antigos serão notificados por e-mail e no portal Azure, com três meses de antecedência antes do desmantelamento. O desmantelamento de gateways pode afetar a conectividade dos seus servidores se 
+Como parte da manutenção contínua do serviço, vamos atualizar periodicamente hardware compute hospedando os gateways para garantir que fornecemos a experiência de conectividade mais segura e performante. Quando o hardware gateway é renovado, um novo anel dos nós computacional é construído primeiro. Este novo anel serve o tráfego de toda a recém-criada Base de Dados Azure para servidores PostgreSQL e terá um endereço IP diferente dos anéis de gateway mais antigos da mesma região para diferenciar o tráfego. O hardware gateway mais antigo continua a servir os servidores existentes, mas estão previstos para o desmantelamento no futuro. Antes de desativar um hardware gateway, os clientes que executam os seus servidores e se conectam a anéis de gateway mais antigos serão notificados por e-mail e no portal Azure, com três meses de antecedência antes do desmantelamento. O desmantelamento de gateways pode afetar a conectividade dos seus servidores se 
 
 * Você codifica os endereços IP gateway na cadeia de ligação da sua aplicação. Não é **recomendado.** Deverá utilizar o nome de domínio totalmente qualificado (FQDN) do seu servidor no formato <servername> .postgres.database.azure.com, na cadeia de ligação para a sua aplicação. 
 * Não atualize os novos endereços IP gateway na firewall do lado do cliente para permitir que o tráfego de saída possa chegar aos nossos novos anéis de gateway.
@@ -84,7 +84,7 @@ A tabela que se segue lista os endereços IP gateway da Base de Dados Azure para
 | E.U.A. Oeste 2 | 13.66.226.202  | | |
 ||||
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Criar e gerir a Base de Dados Azure para regras de firewall postgreSQL utilizando o portal Azure](./howto-manage-firewall-using-portal.md)
 * [Criar e gerir a Base de Dados de Azure para regras de firewall postgresQL usando Azure CLI](./howto-manage-firewall-using-cli.md)

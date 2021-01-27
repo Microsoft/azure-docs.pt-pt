@@ -1,5 +1,5 @@
 ---
-title: Exemplo do Script da CLI do Azure – Criar e submeter uma tarefa | Microsoft Docs
+title: Exemplo de script do Azure CLI - Criar e submeter um emprego
 description: Neste tópico, o script da CLI do Azure mostra como submeter uma Tarefa para uma Transformação de codificação simples com o URL de HTTPs.
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0f2e1d901e674c3fecf957bd10314e51195f8b84
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e35ab78b83c0daa96e9b958d70f6e341cdcc537
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89295993"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98891425"
 ---
 # <a name="cli-example-create-and-submit-a-job"></a>Exemplo da CLI: Criar e submeter uma tarefa
 
@@ -88,6 +88,6 @@ Obtém-se uma resposta semelhante a esta:
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [az ams job (CLI)](/cli/azure/ams/job?view=azure-cli-latest)

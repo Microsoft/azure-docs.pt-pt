@@ -1,5 +1,5 @@
 ---
-title: Orientação de migração baseada em cenários de embalagem e entrega | Microsoft Docs
+title: Orientação de migração baseada em cenários de embalagem e entrega
 description: Este artigo dá-lhe orientação baseada em cenário para embalagem e entrega que o ajudará na migração da Azure Media Services v2 para v3.
 services: media-services
 author: IngridAtMicrosoft
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: 74437a4adee9e2853f7b932316d57e406b7d00be
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 78f3e6ee53d5158096882f5554054c3ff06a32b4
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98690508"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895242"
 ---
 # <a name="packaging-and-delivery-scenario-based-migration-guidance"></a>Orientação de migração baseada em cenários de embalagem e entrega
 
@@ -63,6 +63,6 @@ Consulte conceitos de publicação, tutoriais e como guiar abaixo para etapas es
 
 Também pode [comparar o código V2 e V3 nas amostras de código](migrate-v-2-v-3-migration-samples.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [!INCLUDE [migration guide next steps](./includes/migration-guide-next-steps.md)]

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: contperf-fy21q1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: d30998e0d99ba7b1eeb55bdc47cd5cc54690156f
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: f3c147b292ab21bd4e568f9e52acef07396acc28
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032920"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878227"
 ---
 # <a name="using-snat-for-outbound-connections"></a>Utilização de SNAT para ligações de saída
 
@@ -22,7 +22,7 @@ Os IPs frontend de um equilibrador de carga pública Azure podem ser usados para
 O SNAT permite **mascarar IP** da instância backend. Esta mascarada impede que fontes externas tenham um endereço direto para as instâncias de backend. A partilha de um endereço IP entre instâncias de backend reduz o custo dos IPs públicos estáticos e suporta cenários como a simplificação de IP permite listas com tráfego de IPs públicos conhecidos. 
 
 >[!Note]
-> Para aplicações com isso requerem um grande número de ligações de saída ou clientes empresariais que exigem que um único conjunto de IPs sejam usados a partir de uma determinada rede virtual, [o VIRTUAL Network NAT](../virtual-network/nat-overview.md) é a solução recomendada. A sua alocação dinâmica permite uma configuração simples e > a utilização mais eficiente das portas SNAT a partir de cada endereço IP. Também permite que todos os recursos da rede virtual partilhem um conjunto de endereços IP sem necessidade de partilhar > um equilibrador de carga.
+> Para aplicações que requerem um grande número de ligações de saída ou clientes empresariais que exigem que um único conjunto de IPs sejam usados a partir de uma determinada rede virtual, [o Virtual Network NAT](../virtual-network/nat-overview.md) é a solução recomendada. A sua alocação dinâmica permite uma configuração simples e > a utilização mais eficiente das portas SNAT a partir de cada endereço IP. Também permite que todos os recursos da rede virtual partilhem um conjunto de endereços IP sem necessidade de partilhar > um equilibrador de carga.
 
 >[!Important]
 > Mesmo sem o SNAT de saída configurado, as contas de armazenamento do Azure na mesma região continuarão a ser acessíveis e os recursos de backend continuarão a ter acesso a serviços da Microsoft, como o Windows Updates.
@@ -190,7 +190,7 @@ Para obter mais informações sobre a Rede Virtual Azure NAT, consulte [o que é
   * Uma porta TCP SNAT pode ser usada para múltiplas ligações ao mesmo destino IP, desde que as portas de destino sejam diferentes.
 *   A exaustão do SNAT ocorre quando uma instância de backend se esgota de determinadas portas SNAT. Um equilibrador de carga ainda pode ter portas SNAT não uusadas. Se as portas SNAT utilizadas por uma instância de backend excederem as portas SNAT dadas, não será possível estabelecer novas ligações de saída.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 *   [Falhas de ligação de saída de resolução de problemas por causa da exaustão do SNAT](./troubleshoot-outbound-connection.md)
 *   [Reveja as métricas SNAT](./load-balancer-standard-diagnostics.md#how-do-i-check-my-snat-port-usage-and-allocation) e familiarize-se com a forma correta de filtrar, dividir e vê-las.

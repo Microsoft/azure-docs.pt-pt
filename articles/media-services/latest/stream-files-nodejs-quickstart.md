@@ -1,5 +1,5 @@
 ---
-title: Stream de ficheiros de vídeo com a Azure Media Services - Node.js Microsoft Docs
+title: Transmita ficheiros de vídeo com a Azure Media Services - Node.js
 description: Siga os passos deste tutorial para criar uma nova conta Azure Media Services, codificar um ficheiro e transmiti-lo ao Azure Media Player.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.custom: mvc, devx-track-js
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 38207ac47d2e58c689f1933a6ade6d5c86cd44ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 711db5135345fd9b69da9aaea5bc4dbb929d27c9
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91268677"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895140"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---nodejs"></a>Tutorial: Codificar um ficheiro remoto baseado em URL e transmitir o vídeo - Node.js
 
@@ -55,8 +55,8 @@ Abra [index.js](https://github.com/Azure-Samples/media-services-v3-node-tutorial
 O exemplo realiza as seguintes ações:
 
 1. Cria uma **Transformação** (em primeiro lugar, verifica se existe a Transformação especificada). 
-2. Cria uma saída **Ativo** que é usado como a saída de **Job**codificante.
-3. Cria a entrada do **Job**que se baseia num URL HTTPS.
+2. Cria uma saída **Ativo** que é usado como a saída de **Job** codificante.
+3. Cria a entrada do **Job** que se baseia num URL HTTPS.
 4. Submete o **trabalho** de codificação usando a entrada e saída que foi criada anteriormente.
 5. Verifica o estado da Tarefa.
 6. Cria um **localizador de streaming.**
@@ -101,11 +101,11 @@ Execute o seguinte comando CLI:
 az group delete --name amsResourceGroup
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 [Códigos de erro de trabalho](/rest/api/media/jobs/get#joberrorcode).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Conceitos de Serviços de Mídia](concepts-overview.md)

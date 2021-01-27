@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 04/30/2018
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 4a790c51cd0caa2c81275e7eafdd663f2f2f0116
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: e4e80990b32175842556059d005563a220d14688
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740208"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878464"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-linux-virtual-machine-in-azure-with-tlsssl-certificates-stored-in-key-vault"></a>Tutorial: Fixe um servidor web numa máquina virtual Linux em Azure com certificados TLS/SSL armazenados no Cofre de Chaves
 Para proteger servidores web, um Segurança da Camada de Transporte (TLS), anteriormente conhecido como Secure Sockets Layer (SSL), o certificado pode ser usado para encriptar o tráfego web. Estes certificados TLS/SSL podem ser armazenados no Cofre da Chave Azure e permitem a colocação segura de certificados para máquinas virtuais Linux (VMs) em Azure. Neste tutorial, ficará a saber como:
@@ -42,7 +42,7 @@ Em vez de utilizar uma imagem de VM personalizada, que inclua certificados integ
 
 
 ## <a name="create-an-azure-key-vault"></a>Criar um Azure Key Vault
-Para poder criar um Key Vault e certificados, crie primeiro um grupo de recursos com [az group create](/cli/azure/group). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroupSecureWeb* na localização *eastus* :
+Para poder criar um Key Vault e certificados, crie primeiro um grupo de recursos com [az group create](/cli/azure/group). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroupSecureWeb* na localização *eastus*:
 
 ```azurecli-interactive 
 az group create --name myResourceGroupSecureWeb --location eastus
@@ -144,7 +144,7 @@ O site NGINX protegido é apresentado como no exemplo seguinte:
 ![Ver site NGINX seguro em execução](./media/tutorial-secure-web-server/secured-nginx.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, você garantiu um servidor web NGINX com um certificado TLS/SSL armazenado no Cofre da Chave Azure. Aprendeu a:
 
@@ -157,4 +157,4 @@ Neste tutorial, você garantiu um servidor web NGINX com um certificado TLS/SSL 
 Siga esta ligação para ver os exemplos de scripts de máquina virtual pré-criados.
 
 > [!div class="nextstepaction"]
-> [Exemplos de scripts de máquina virtual com Linux](./cli-samples.md)
+> [Exemplos de scripts de máquina virtual com Linux](https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine)

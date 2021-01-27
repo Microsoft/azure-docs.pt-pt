@@ -9,12 +9,12 @@ ms.date: 06/08/2020
 ms.custom:
 - MVC
 - fasttrack-edit
-ms.openlocfilehash: 48fe0c737cf7005676a5c803107b4402c7039141
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 9d0fa516fefefe4c3d8e67c3e6d592ec4274943c
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96752758"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878177"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Migrar VMs Hyper-V para o Azure 
 
@@ -46,7 +46,7 @@ Antes de começar este tutorial, tem de:
 2. [Revisão](migrate-support-matrix-hyper-v-migration.md#hyper-v-host-requirements) Requisitos de hospedeiro hiper-V para migração, e os URLs Azure aos quais os anfitriões e agrupamentos Hiper-V precisam de acesso para a migração de VM.
 3. [Reveja](migrate-support-matrix-hyper-v-migration.md#hyper-v-vms) os requisitos para Os Hiper-VMs que pretende migrar para Azure.
 4. Recomendamos que  [avalie os Hiper-VM](tutorial-assess-hyper-v.md) antes de os migrar para Azure, mas não é preciso.
-5. Vá ao projeto já criado ou [crie um novo projeto](https://docs.microsoft.com/azure/migrate/create-manage-projects)
+5. Vá ao projeto já criado ou [crie um novo projeto](./create-manage-projects.md)
 6. Verifique permissões para a sua conta Azure - A sua conta Azure necessita de permissões para criar um VM e escreva para um disco gerido azure.
 
 ## <a name="download-and-install-the-provider"></a>Descarregue e instale o fornecedor
@@ -54,7 +54,7 @@ Antes de começar este tutorial, tem de:
 Para migrar VMs hiper-V, a Azure Migrate:Server Migration instala fornecedores de software (Provedor de Recuperação de Sítios Microsoft Azure e agente do Serviço de Recuperação do Microsoft Azure) em anfitriões hiper-V ou nós de cluster. Note que o [aparelho Azure Migrate](migrate-appliance.md) não é utilizado para a migração de Hiper-V.
 
 1. No projeto Azure Migrate > **Servers,** em **Azure Migrate: Server Migration**, clique em **Discover**.
-2. In **Discover machines**  >  **Are your machines virtualized?** **Yes, with Hyper-V**
+2. In **Discover machines**  >  **Are your machines virtualized?** 
 3. Na **região Alvo,** selecione a região de Azure para a qual pretende migrar as máquinas.
 6. **Selecione Confirme que a região-alvo para a migração é o nome da região.**
 7. Clique **em Criar recursos.** Isto cria um cofre de recuperação do local de Azure em segundo plano.
@@ -87,7 +87,7 @@ Com a descoberta concluída, pode começar a replicação de Hiper-VMs para Azur
 > Pode replicar até 10 máquinas juntas. Se precisar de replicar mais, replique-os simultaneamente em lotes de 10.
 
 1. No projeto Azure Migrate > **Servers**, **Azure Migrate: Server Migration**, clique em **Replicar**.
-2. Em **Replicar,**> **Configurações de**  >  **Origem São virtualizadas?** **Yes, with Hyper-V** Em seguida, clique **em Seguinte: Máquinas virtuais**.
+2. Em **Replicar,**> **Configurações de**  >  **Origem São virtualizadas?**  Em seguida, clique **em Seguinte: Máquinas virtuais**.
 3. Em **Máquinas virtuais**, selecione aquelas que quer replicar.
     - Se tiver executado uma avaliação para as VMs, poderá aplicar as recomendações de dimensionamento de VMs e tipo de discos (premium/standard) nos resultados da avaliação. Para tal, em **Importar definições de migração de uma avaliação do Azure Migrate?**, selecione a opção **Sim**.
     - Se não tiver executado uma avaliação ou não quiser utilizar as definições de avaliação, selecione as opções **Não**.
@@ -130,7 +130,7 @@ Com a descoberta concluída, pode começar a replicação de Hiper-VMs para Azur
 13. Em **Analisar e iniciar a replicação**, analise as definições e clique em **Replicar** para iniciar a replicação inicial para os servidores.
 
 > [!NOTE]
-> Pode atualizar as definições de replicação a **Manage** qualquer momento antes de começar a replicação, em  >  **máquinas de replicação de gestão**. As definições não podem ser alteradas após o início da replicação.
+> Pode atualizar as definições de replicação a qualquer momento antes de começar a replicação, em  >  **máquinas de replicação de gestão**. As definições não podem ser alteradas após o início da replicação.
 
 ## <a name="provision-for-the-first-time"></a>Provisão pela primeira vez
 
@@ -227,6 +227,6 @@ Depois de verificar que a migração do teste funciona como esperado, pode migra
 -  Considere implementar o [Azure Cost Management](../cost-management-billing/cloudyn/overview.md) para monitorizar a utilização e as despesas do recurso.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Investigue a [jornada de migração](/azure/architecture/cloud-adoption/getting-started/migrate) em nuvem no Quadro de Azure Cloud Adopt.

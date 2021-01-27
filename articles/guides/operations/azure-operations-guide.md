@@ -1,5 +1,5 @@
 ---
-title: Prepare-se para o guia dos operadores de TI da Azure ! Microsoft Docs
+title: Inicie o guia para os operadores de TI da Azure | Microsoft Docs
 description: Inicie o guia para os operadores de TI da Azure
 author: RicksterCDN
 ms.author: rclaus
@@ -8,12 +8,12 @@ ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.openlocfilehash: 7b9e95c06dd48e78e42244d27d27d063bf5f0be7
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: c0269464352fa333c6447834a56c25348ecb71a3
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92327778"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895259"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Começar pelos operadores de TI da Azure
 
@@ -174,7 +174,7 @@ O Azure é construído sobre um conjunto de APIs REST que suportam o portal Azur
 
 ### <a name="azure-cloud-shell"></a>Azure Cloud Shell
 
-Os administradores podem aceder ao Azure PowerShell e ao Azure CLI através de uma experiência acessível ao navegador chamada Azure Cloud Shell. Esta interface interativa fornece uma ferramenta flexível para os administradores do Linux e do Windows utilizarem a sua interface de linha de comando de eleição, seja bash ou PowerShell. O Azure Cloud Shell pode ser acedida através do portal (como interface web autónoma [shell.azure.com](https://shell.azure.com)) ou a partir de vários outros pontos de acesso. Para mais informações, consulte [a visão geral da Azure Cloud Shell](../../cloud-shell/overview.md).
+Os administradores podem aceder ao Azure PowerShell e ao Azure CLI através de uma experiência acessível ao navegador chamada Azure Cloud Shell. Esta interface interativa fornece uma ferramenta flexível para os administradores do Linux e do Windows utilizarem a sua interface de linha de comando de eleição, seja bash ou PowerShell. O Azure Cloud Shell pode ser acedida através do portal, como uma interface web autónoma [em shell.azure.com](https://shell.azure.com), ou a partir de vários outros pontos de acesso. Para mais informações, consulte [a visão geral da Azure Cloud Shell](../../cloud-shell/overview.md).
 
 ## <a name="azure-subscriptions"></a>Subscrições do Azure
 
@@ -214,9 +214,7 @@ Além de visualizar a faturação no portal, pode aceder às informações de fa
 
 - Pode utilizar a API de Utilização Azure para recuperar os seus dados de utilização. Pode afinar as informações de utilização da faturação marcando recursos Azure relacionados. Por exemplo, você pode marcar cada um dos recursos em um grupo de recursos com um nome de departamento ou nome de projeto, e, em seguida, rastrear os custos especificamente para essa etiqueta.
 
-- Pode utilizar a API do Cartão Azure Rate para listar todos os recursos disponíveis, juntamente com os metadados e informações sobre preços sobre cada um desses recursos.
-
-Para obter mais informações, veja [Gain insights into your Microsoft Azure resource consumption](../../cost-management-billing/manage/usage-rate-card-overview.md) (Obter informações sobre o consumo de recursos do Microsoft Azure).
+- Pode utilizar a visão geral da [Azure consumption API](../../cost-management-billing/manage/consumption-api-overview.md) para listar todos os recursos disponíveis, juntamente com os metadados. Para obter mais informações sobre os preços, consulte [a visão geral dos preços de venda a retalho da Azure.](/rest/api/cost-management/retail-prices/azure-retail-prices)
 
 ### <a name="forecast-cost-with-the-pricing-calculator"></a>Custo de previsão com a calculadora de preços
 
@@ -292,7 +290,7 @@ Pode conceder acesso operacional às contas dos utilizadores num âmbito especif
 
 Para conceder acesso, atribui uma função ao utilizador ou grupo de utilizadores. Há muitos papéis predefinidos. Também pode definir os seus próprios papéis personalizados.
 
-Aqui estão alguns [papéis incorporados em Azure:](../../role-based-access-control/built-in-roles.md)
+Aqui estão alguns exemplos de [papéis embutidos em Azure:](../../role-based-access-control/built-in-roles.md)
 
 - **Proprietário**: Um utilizador com esta função pode gerir tudo, incluindo acesso.
 
@@ -372,7 +370,7 @@ A palavra *blob* é um acrónimo para *objeto binário grande.* As bolhas são f
 
 O Armazenamento do Azure suporta três tipos de blobs:
 
-- **As bolhas de bloco** são usadas para conter ficheiros comuns até 195 GB de tamanho (4 MB × 50.000 blocos). A utilização principal para blobs de blocos é o armazenamento de ficheiros que são lidos do início ao fim, como ficheiros multimédia ou ficheiros de imagem para sites. São chamadas blobs de bloco porque os ficheiros maiores que 64 MB devem ser carregados como blocos pequenos. Estes blocos são então consolidados (ou comprometidos) na bolha final.
+- **As bolhas de bloco** são usadas para conter ficheiros comuns até 195 GB de tamanho (4 MB × 50.000 blocos). A utilização principal para blobs de blocos é o armazenamento de ficheiros que são lidos do início ao fim, como ficheiros multimédia ou ficheiros de imagem para sites. São chamadas blobs de bloco porque os ficheiros maiores que 64 MB devem ser carregados como blocos pequenos. Em seguida, estes blocos são consolidados no blob final.
 
 - **As bolhas de página** são usadas para conter ficheiros de acesso aleatório até 1 TB de tamanho. As bolhas de página são usadas principalmente como armazenamento de suporte para os VHDs que fornecem discos duráveis para Máquinas Virtuais Azure, o serviço de computação IaaS em Azure. São denominados blobs de páginas pois dão um acesso aleatório de leitura/escrita para páginas de 512 bytes.
 
@@ -481,7 +479,7 @@ Existem várias opções para implantar uma rede virtual.
 
 Pode ajudar a proteger as redes virtuais do Azure utilizando um grupo de segurança de rede. Os NSGs contêm uma lista de regras de controlo de acesso (ACL) que permitem ou negam o tráfego de rede às suas instâncias VM numa rede virtual. Pode associar NSGs a sub-redes ou a instâncias VM individuais nessa sub-rede. Quando associa um NSG a uma sub-rede, as regras da ACL aplicam-se a todas as instâncias VM nessa sub-rede. Além disso, pode restringir ainda mais o tráfego a um VM individual associando um NSG diretamente com esse VM. Para obter mais informações, veja [Filtrar o tráfego de rede com grupos de segurança de rede](../../virtual-network/network-security-groups-overview.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Criar uma VM do Windows](../../virtual-machines/windows/quick-create-portal.md)
 - [Criar uma VM do Linux](../../virtual-machines/linux/quick-create-portal.md)

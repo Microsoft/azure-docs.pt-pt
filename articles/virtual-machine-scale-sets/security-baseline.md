@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 68dc7c36159523bcc46e93a4784e9d038037a919
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: b5ce8e3d6482c13a8ba02065f2a97074610c25bb
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201217"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98877719"
 ---
 # <a name="azure-security-baseline-for-virtual-machine-scale-sets"></a>Linha de base de segurança Azure para conjuntos de escala de máquina virtual
 
@@ -848,7 +848,7 @@ Atualmente, os controlos de aplicação adaptativa não estão disponíveis para
 
 * [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Informações sobre como descarregar o modelo VM](../virtual-machines/windows/download-template.md)
+* [Informações sobre como descarregar o modelo VM](/previous-versions/azure/virtual-machines/windows/download-template)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -892,7 +892,7 @@ Atualmente, os controlos de aplicação adaptativa não estão disponíveis para
 
 Para a maioria dos cenários, os modelos VM base da Microsoft combinados com a Configuração de Estado Desejada da Automação Azure podem ajudar a cumprir e manter os requisitos de segurança.
 
-* [Informações sobre como descarregar o modelo VM](../virtual-machines/windows/download-template.md)
+* [Informações sobre como descarregar o modelo VM](/previous-versions/azure/virtual-machines/windows/download-template)
 
 * [Informação sobre a criação de modelos ARM](../virtual-machines/windows/ps-template.md)
 
@@ -1196,7 +1196,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 **Responsabilidade**: Partilhada
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte a [referência de segurança Azure](../security/benchmarks/overview.md)
 - Saiba mais sobre as [linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md)

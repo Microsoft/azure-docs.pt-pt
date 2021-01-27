@@ -12,18 +12,19 @@ ms.date: 01/12/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 63bd44140ea5c355c3bb1a891a21e6c2e73ab041
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: bf1057276a543c18b746bb60b7e7a54bf28dec6f
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98679505"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98892575"
 ---
-# <a name="tutorial---build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Tutorial - Construa um ponto final SCIM e configuure o fornecimento de utilizadores com Azure AD
+# <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint"></a>Tutorial: Desenvolver e planear o provisionamento para um ponto final do SCIM
 
 Como desenvolvedor de aplicações, pode utilizar a API de gestão de identidade de controlo de identidade de domínio cruzado (SCIM) para permitir o fornecimento automático de utilizadores e grupos entre a sua aplicação e a Azure AD. Este artigo descreve como construir um ponto final SCIM e integrar-se com o serviço de fornecimento AZURE AD. A especificação SCIM fornece um esquema comum de utilização para o provisionamento. Quando usado em conjunto com padrões da federação como SAML ou OpenID Connect, o SCIM dá aos administradores uma solução baseada em padrões para a gestão de acessos.
 
-SCIM é uma definição padronizada de dois pontos finais: a /Utilizadores ponto final e um ponto final /Grupos. Utiliza verbos rest comuns para criar, atualizar e apagar objetos, e um esquema pré-definido para atributos comuns como nome de grupo, nome de utilizador, nome de primeiro nome, apelido e e-mail. As aplicações que oferecem uma API SCIM 2.0 REST podem reduzir ou eliminar a dor de trabalhar com uma API de gestão de utilizadores proprietário. Por exemplo, qualquer cliente SCIM em conformidade sabe como fazer um POST HTTP de um objeto JSON ao ponto final /Utilizadores para criar uma nova entrada no utilizador. Em vez de precisar de uma API ligeiramente diferente para as mesmas ações básicas, as aplicações que estão em conformidade com a norma SCIM podem instantaneamente tirar partido dos clientes, ferramentas e código pré-existentes. 
+SCIM é uma definição padronizada de dois pontos finais: um `/Users` ponto final e um ponto `/Groups` final. Utiliza verbos rest comuns para criar, atualizar e apagar objetos, e um esquema pré-definido para atributos comuns como nome de grupo, nome de utilizador, nome de primeiro nome, apelido e e-mail. As aplicações que oferecem uma API SCIM 2.0 REST podem reduzir ou eliminar a dor de trabalhar com uma API de gestão de utilizadores proprietário. Por exemplo, qualquer cliente SCIM em conformidade sabe como fazer um HTTP POST de um objeto JSON para o `/Users` ponto final para criar uma nova entrada no utilizador. Em vez de precisar de uma API ligeiramente diferente para as mesmas ações básicas, as aplicações que estão em conformidade com a norma SCIM podem instantaneamente tirar partido dos clientes, ferramentas e código pré-existentes. 
 
 ![Provisionamento de Azure AD para uma app com SCIM](media/use-scim-to-provision-users-and-groups/scim-provisioning-overview.png)
 
@@ -748,7 +749,9 @@ O serviço de prestação de AD Azure opera atualmente ao abrigo dos Intervalos 
 
 Agora que concebeu o seu esquema e compreendeu a implementação do Azure AD SCIM, pode começar a desenvolver o seu ponto final SCIM. Em vez de começar do zero e construir a implementação completamente por conta própria, você pode confiar em uma série de bibliotecas SCIM de código aberto publicadas pela comunidade SCIM.
 
-O código de [referência](https://aka.ms/SCIMReferenceCode) open source .NET Core publicado pela equipa de provisionamento Azure AD é um desses recursos que podem saltar para iniciar o seu desenvolvimento. Depois de ter construído o seu ponto final SCIM, vai querer testá-lo. Pode utilizar a recolha de testes de [carteiro](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) fornecidos como parte do código de referência ou passar pelos pedidos/respostas da amostra fornecidos [acima.](#user-operations)  
+Para obter orientações sobre como construir um ponto final SCIM, incluindo exemplos, consulte [Desenvolver uma amostra do ponto final SCIM](use-scim-to-build-users-and-groups-endpoints.md).
+
+O exemplo de [código de referência](https://aka.ms/SCIMReferenceCode) de código de azure é um desses recursos que podem saltar para iniciar o seu desenvolvimento. Depois de ter construído o seu ponto final SCIM, vai querer testá-lo. Pode utilizar a recolha de testes de [carteiro](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) fornecidos como parte do código de referência ou passar pelos pedidos/respostas da amostra fornecidos [acima.](#user-operations)  
 
    > [!Note]
    > O código de referência destina-se a ajudá-lo a começar a construir o seu ponto final SCIM e é fornecido "AS IS". As contribuições da comunidade são bem-vindas para ajudar a construir e manter o código.
@@ -1127,11 +1130,17 @@ As aplicações que suportam o perfil SCIM descrito neste artigo podem ser ligad
 
 1. Inscreva-se no [portal Azure Ative Directory](https://aad.portal.azure.com). Note que pode ter acesso gratuito a um teste gratuito para O Diretório Ativo Azure com licenças P2 ao inscrever-se no [programa de desenvolvedores](https://developer.microsoft.com/office/dev-program)
 2. Selecione **aplicações** Enterprise a partir do painel esquerdo. É mostrada uma lista de todas as aplicações configuradas, incluindo aplicações que foram adicionadas da galeria.
-3. Selecione **+ Nova aplicação**  >  **Todas as**  >  **aplicações non-gallery.**
-4. Introduza um nome para a sua aplicação e **selecione Adicionar** para criar um objeto de aplicação. A nova aplicação é adicionada à lista de aplicações empresariais e abre-se ao seu ecrã de gestão de aplicações.
+3. Selecione **+ Nova aplicação**  >  **+ Crie a sua própria aplicação.**
+4. Introduza um nome para a sua aplicação, escolha a opção "*integrar qualquer outra aplicação que não encontre na galeria*" e selecione **Adicionar** para criar um objeto de aplicação. A nova aplicação é adicionada à lista de aplicações empresariais e abre-se ao seu ecrã de gestão de aplicações.
 
-   ![Screenshot mostra a galeria de aplicações AZure AD](media/use-scim-to-provision-users-and-groups/scim-figure-2a.png)<br/>
-   *Galeria de aplicações AZure AD*
+   ![Screenshot mostra a galeria de aplicações Azure AD ](media/use-scim-to-provision-users-and-groups/scim-figure-2b-1.png)
+    *galeria de aplicações Azure AD*
+
+   > [!NOTE]
+   > Se estiver a utilizar a experiência antiga da galeria de aplicações, siga o guia de ecrã abaixo.
+   
+   ![Screenshot mostra a antiga galeria de aplicações Azure AD experiência ](media/use-scim-to-provision-users-and-groups/scim-figure-2a.png)
+    *Azure AD antiga galeria de aplicações*
 
 5. No ecrã de gestão de aplicações, selecione **Provisioning** no painel esquerdo.
 6. No menu **Modo de Provisionamento,** selecione **Automatic**.
@@ -1235,6 +1244,7 @@ Para ajudar a impulsionar a consciencialização e a procura da nossa integraç�
 
 ## <a name="related-articles"></a>Artigos relacionados
 
+* [Desenvolver uma amostra do ponto final DO SCIM](use-scim-to-build-users-and-groups-endpoints.md)
 * [Automatizar o fornecimento e desprovisionamento de utilizadores para aplicações SaaS](user-provisioning.md)
 * [Personalize os mapeamentos de atributos para o fornecimento do utilizador](customize-application-attributes.md)
 * [Expressãos de escrita para mapeamentos de atributos](functions-for-customizing-application-data.md)

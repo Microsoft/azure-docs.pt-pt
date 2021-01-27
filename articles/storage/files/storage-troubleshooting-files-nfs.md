@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: jeffpatt
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 2a37c86268d2424971058021044c60185a25348f
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: ed86cc76984388618c177590b3f6358421f09f65
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916461"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878498"
 ---
 # <a name="troubleshoot-azure-nfs-file-shares"></a>Resolução de problemas Azure NFS ações de ficheiros
 
@@ -25,7 +25,7 @@ Este artigo enumera alguns problemas comuns relacionados com as ações de fiche
 Os Ficheiros Azure não permite uid/GID alfanumérico. Portanto, o idmapping deve ser desativado. 
 
 ### <a name="cause-2-idmapping-was-disabled-but-got-re-enabled-after-encountering-bad-filedir-name"></a>Causa 2: o idmapping foi desativado, mas foi reativado depois de encontrar o nome de ficheiro/dir mau
-Mesmo que o idmapping tenha sido corretamente desativado, as definições para desativar o idmapping são ultrapassadas em alguns casos. Por exemplo, quando os Ficheiros Azure encontram um mau nome de ficheiro, envia de volta um erro. Ao ver este código de erro em particular, o cliente NFS v 4.1 Linux decide voltar a permitir o idmapping e os pedidos futuros são enviados novamente com UID/GID alfanumérico. Para obter uma lista de caracteres não suportados em Ficheiros Azure, consulte este [artigo](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#:~:text=The%20Azure%20File%20service%20naming%20rules%20for%20directory,be%20no%20more%20than%20255%20characters%20in%20length). O cólon é um dos personagens não apoiados. 
+Mesmo que o idmapping tenha sido corretamente desativado, as definições para desativar o idmapping são ultrapassadas em alguns casos. Por exemplo, quando os Ficheiros Azure encontram um mau nome de ficheiro, envia de volta um erro. Ao ver este código de erro em particular, o cliente NFS v 4.1 Linux decide voltar a permitir o idmapping e os pedidos futuros são enviados novamente com UID/GID alfanumérico. Para obter uma lista de caracteres não suportados em Ficheiros Azure, consulte este [artigo](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata). O cólon é um dos personagens não apoiados. 
 
 ### <a name="workaround"></a>Solução
 Verifique se o idmapping está desativado e nada está a reativar e, em seguida, executar o seguinte:
@@ -68,7 +68,7 @@ O NFS só está disponível nas contas de armazenamento com a seguinte configura
 - Nível - Premium
 - Tipo de Conta - Arquivamento de Ficheiros
 - Redundância - LRS
-- Regiões - [Lista de regiões apoiadas](https://docs.microsoft.com/azure/storage/files/storage-files-how-to-create-nfs-shares?tabs=azure-portal#regional-availability)
+- Regiões - [Lista de regiões apoiadas](./storage-files-how-to-create-nfs-shares.md?tabs=azure-portal#regional-availability)
 
 #### <a name="solution"></a>Solução
 

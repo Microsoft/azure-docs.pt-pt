@@ -1,5 +1,5 @@
 ---
-title: Problemas de resolução de problemas Problemas de ligação Azure VM RDP por ID de eventos Microsoft Docs
+title: Problemas de resolução de problemas Problemas Azure VM RDP problemas de conexão por | de ID de evento Microsoft Docs
 description: Utilize iDs de eventos para resolver problemas que impedem a ligação de um protocolo de ambiente de trabalho remoto (RDP) a uma Máquina Virtual Azure (VM).
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
-ms.openlocfilehash: 507cd6cfe9f251dbc304b579d634ff986b001264
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c293945a52dd810975b36144f224278163166ba8
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87088602"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878448"
 ---
 # <a name="troubleshoot-azure-vm-rdp-connection-issues-by-event-id"></a>Resolver problemas de ligação de RDP da VM do Azure por ID de Evento 
 
@@ -160,15 +160,15 @@ Se não puder renovar o certificado, siga estes passos para tentar apagar o cert
 
 2. No menu **Ficheiro,** **selecione Adicionar/Remover Snap-in**.
 
-3. Na lista **de snap-Ins disponíveis,** selecione **Certificados**e, em seguida, selecione **Adicionar**.
+3. Na lista **de snap-Ins disponíveis,** selecione **Certificados** e, em seguida, selecione **Adicionar**.
 
-4. Selecione **a conta de Computador**e, em seguida, selecione **Seguinte**.
+4. Selecione **a conta de Computador** e, em seguida, selecione **Seguinte**.
 
-5. Selecione **Outro computador**e, em seguida, adicione o endereço IP do VM que tem problemas.
+5. Selecione **Outro computador** e, em seguida, adicione o endereço IP do VM que tem problemas.
    >[!Note]
    >Tente utilizar a rede interna para evitar a utilização de um endereço IP virtual.
 
-6. **Selecione Terminar**e, em seguida, selecione **OK**.
+6. **Selecione Terminar** e, em seguida, selecione **OK**.
 
    ![Selecione Computador](./media/event-id-troubleshoot-vm-rdp-connecton/select-computer.png)
 
@@ -235,7 +235,7 @@ Esta questão é causada por políticas de segurança. Quando as versões mais a
 
 O RDP utiliza o TLS 1.0 como protocolo predefinido. No entanto, o protocolo pode ser alterado para TLS 1.1, que é a nova norma.
 
-Para resolver este problema, consulte [os erros de autenticação da Resolução de Problemas quando utilizar o RDP para ligar ao Azure VM](troubleshoot-authentication-error-rdp-vm.md#tls-version).
+Para resolver este problema, consulte [os erros de autenticação da Resolução de Problemas quando utilizar o RDP para ligar ao Azure VM](/troubleshoot/azure/virtual-machines/cannot-connect-rdp-azure-vm#tls-version).
 
 ## <a name="scenario-3"></a>Cenário 3
 

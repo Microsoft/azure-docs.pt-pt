@@ -1,5 +1,5 @@
 ---
-title: Codificadores de streaming ao vivo recomendados pela Media Services - Azure Microsoft Docs
+title: Codificadores de streaming ao vivo recomendados pela Media Services - Azure
 description: Saiba mais sobre transmissão em direto nos locais recomendados pelos Media Services
 services: media-services
 keywords: codificação;codificadores;meios de comunicação
@@ -9,12 +9,12 @@ ms.author: johndeu
 ms.date: 11/10/2020
 ms.topic: conceptual
 ms.service: media-services
-ms.openlocfilehash: 88de41ae62e3a81fdb51981afe42135649bf34b4
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 6d54a4167739775d3c09740f25a883314e048c65
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94734315"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895174"
 ---
 # <a name="verified-on-premises-live-streaming-encoders"></a>Codificadores de streaming verificados no local
 
@@ -117,10 +117,10 @@ Para reproduzir conteúdo, tanto um stream de áudio como de vídeo deve estar p
 > [!IMPORTANT]
 > Observe a condição física da máquina (CPU / Memória / etc) pois o upload de fragmentos para a nuvem envolve operações de CPU e IO. Se alterar quaisquer definições no codificador, certifique-se de que repor os canais /evento ao vivo para que a alteração produza efeitos.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 [Streaming em direto com media services v3](live-streaming-overview.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Como verificar o seu codificação](become-on-premises-encoder-partner.md)

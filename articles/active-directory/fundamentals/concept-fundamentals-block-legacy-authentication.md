@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 01/26/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: b50c942d2e05d7f5234a17f1cf36137309c7ce97
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 24640254f32270b8c96c790dca7db31e285cc27f
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95973716"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895293"
 ---
 # <a name="blocking-legacy-authentication"></a>Bloquear a autenticação do legado
  
@@ -33,10 +33,11 @@ Hoje, a maioria de todas as tentativas de inscrição comprometedoras provêm da
 Antes de bloquear a autenticação do legado no seu diretório, tem de primeiro compreender se os seus utilizadores têm aplicações que utilizam a autenticação antiga e como isso afeta o seu diretório geral. Os registos de login AD do Azure podem ser utilizados para entender se está a utilizar a autenticação antiga.
 
 1. Navegue para o **portal**  >  **Azure Ative Directory**  >  **Ins**.
-1. Adicione a coluna **'App' cliente** se não for mostrada clicando na App do Cliente  **das Colunas.**   >  **Client App**
+1. Adicione a coluna **'App' cliente** se não for mostrada clicando na App do Cliente  **das Colunas.**   >  ****
 1. Filter by **Client App** > verificar todas as opções de Clientes de Autenticação Legacy **apresentadas.**
 1. Filtrar por **Status**  >  **Success**. 
 1. Aumente o seu intervalo de datas, se necessário, utilizando o filtro **Data.**
+1. Se tiver ativado a [pré-visualização dos novos relatórios de atividade de inscrição,](../reports-monitoring/concept-all-sign-ins.md)repita os passos acima também no separador **'Iniciar ins') do Utilizador (não interativo).**
 
 A filtragem só lhe mostrará tentativas de entrada bem sucedidas que foram feitas pelos protocolos de autenticação de legados selecionados. Clicar em cada tentativa de inscrição individual irá mostrar-lhe detalhes adicionais. A coluna da App cliente ou o campo de Aplicação do Cliente no separador Informações Básicas após a seleção de uma linha individual de dados indicará qual o protocolo de autenticação legado utilizado. Estes registos indicam quais os utilizadores que ainda estão dependentes da autenticação antiga e quais as aplicações que estão a utilizar protocolos legados para fazer pedidos de autenticação. Para os utilizadores que não aparecem nestes registos e que se confirmam não estar a utilizar a autenticação antiga, implemente uma política de Acesso Condicional ou permita a política de Base: bloqueie a autenticação de legado apenas para estes utilizadores.
 
@@ -96,8 +97,8 @@ Os passos para permitir a autenticação moderna podem ser encontrados nos segui
 * [Como configurar o Exchange Server no local para utilizar a autenticação moderna híbrida](/office365/enterprise/configure-exchange-server-for-hybrid-modern-authentication)
 * [Como utilizar a Autenticação Moderna (ADAL) com o Skype para o negócio](/skypeforbusiness/manage/authentication/use-adal)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Como configurar o Exchange Server no local para utilizar a autenticação moderna híbrida](/office365/enterprise/configure-exchange-server-for-hybrid-modern-authentication)
 - [Como utilizar a Autenticação Moderna (ADAL) com o Skype para o negócio](/skypeforbusiness/manage/authentication/use-adal)
-- [Bloquear a autenticação legada](../conditional-access/block-legacy-authentication.md)
+- [Bloquear a autenticação do legado](../conditional-access/block-legacy-authentication.md)

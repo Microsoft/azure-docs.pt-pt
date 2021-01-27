@@ -1,5 +1,5 @@
 ---
-title: lista de empregos azcopia / Microsoft Docs
+title: lista de empregos azcopia | Microsoft Docs
 description: Este artigo fornece informações de referência para o comando da lista de empregos de azcopia.
 author: normesta
 ms.service: storage
@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 438e1c8a4dafc30bca55770d4a229055685de715
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50af05c7d59b9d25e0f97ad9bdee73d12848dc3a
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87275892"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878261"
 ---
 # <a name="azcopy-jobs-list"></a>azcopy jobs list
 
@@ -28,7 +28,7 @@ azcopy jobs list [flags]
 ## <a name="related-conceptual-articles"></a>Artigos conceptuais relacionados
 
 - [Introdução ao AzCopy](storage-use-azcopy-v10.md)
-- [Dados de transferência com armazenamento AzCopy e Blob](storage-use-azcopy-blobs.md)
+- [Dados de transferência com armazenamento AzCopy e Blob](./storage-use-azcopy-v10.md#transfer-data)
 - [Transferir dados com o AzCopy e armazenamento de ficheiros](storage-use-azcopy-files.md)
 - [Configurar, otimizar e resolver problemas AzCopy](storage-use-azcopy-configure.md)
 
@@ -46,6 +46,6 @@ azcopy jobs list [flags]
 |--cadeia do tipo de saída|Formato da saída do comando. As escolhas incluem: texto, json. O valor predefinido é "texto".|
 |--cadeia de sufixos de confiança da Microsoft-Sufixes   | Especifica sufixos de domínio adicionais onde podem ser enviados tokens de login do Azure Ative Directory.  O padrão é '*.core.windows.net;*. core.chinacloudapi.cn; *.core.cloudapi.de;* core.usgovcloudapi.net.' Qualquer listado aqui é adicionado ao padrão. Para a segurança, só deve colocar os domínios microsoft Azure aqui. Separe várias entradas com pontos e vírgulas.|
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 - [azcopy jobs](storage-ref-azcopy-jobs.md)

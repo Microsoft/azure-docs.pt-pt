@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: bed5373cbb9967bd1d86bb80bb3a449430c3b6ae
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 2a37e716b7804b11ab396909f746af84294bb4e3
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98044786"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895276"
 ---
 # <a name="drawing-package-requirements"></a>Requisitos de pacote do desenho
 
@@ -106,7 +106,7 @@ Não importa quantos desenhos de entidades estejam na camada exterior, o [conjun
 * Os exteriores devem ser desenhados como Polygon, PolyLine (fechado), Circle ou Elipse (fechado).
 * Os exteriores podem sobrepor-se, mas são dissolvidos numa geometria.
 * A característica de nível resultante deve ser de pelo menos 4 metros quadrados.
-* A característica de nível resultante não deve ser superior a 400 metros quadrados.
+* A característica de nível resultante não deve ser superior a 400.000 metros quadrados.
 
 Se a camada contiver polilines sobrepostos múltiplos, os PolyLines são dissolvidos numa única função de Nível. Alternativamente, se a camada contiver múltiplos PoliLines não sobrepostos, a função nível resultante tem uma representação multi-poligonal.
 
@@ -198,7 +198,7 @@ As secções seguintes detalham os requisitos para cada objeto.
 
 ### `directoryInfo`
 
-| Propriedade  | Tipo | Obrigatório | Descrição |
+| Propriedade  | Tipo | Necessário | Descrição |
 |-----------|------|----------|-------------|
 | `name`      | cadeia (de carateres) | true   |  Nome do prédio. |
 | `streetAddress`|    string |    false    | Endereço do edifício. |
@@ -219,7 +219,7 @@ As secções seguintes detalham os requisitos para cada objeto.
 
 O `buildingLevels` objeto contém uma matriz JSON de níveis de edifícios.
 
-| Propriedade  | Tipo | Obrigatório | Descrição |
+| Propriedade  | Tipo | Necessário | Descrição |
 |-----------|------|----------|-------------|
 |`levelName`    |cadeia (de carateres)    |true |    Nome de nível descritivo. Por exemplo: Piso 1, Lobby, Estacionamento Azul ou Cave.|
 |`ordinal` | número inteiro |    true | Determina a ordem vertical dos níveis. Todas as instalações devem ter um nível com ordinal 0. |
@@ -229,7 +229,7 @@ O `buildingLevels` objeto contém uma matriz JSON de níveis de edifícios.
 
 ### `georeference`
 
-| Propriedade  | Tipo | Obrigatório | Descrição |
+| Propriedade  | Tipo | Necessário | Descrição |
 |-----------|------|----------|-------------|
 |`lat`    | numeric |    true |    Representação decimal de graus de latitude na origem do desenho da instalação. As coordenadas de origem devem estar no WGS84 Web Mercator `EPSG:3857` ().|
 |`lon`    |numeric|    true|    Representação decimal de graus de longitude na origem do desenho da instalação. As coordenadas de origem devem estar no WGS84 Web Mercator `EPSG:3857` (). |
@@ -237,7 +237,7 @@ O `buildingLevels` objeto contém uma matriz JSON de níveis de edifícios.
 
 ### `dwgLayers`
 
-| Propriedade  | Tipo | Obrigatório | Descrição |
+| Propriedade  | Tipo | Necessário | Descrição |
 |-----------|------|----------|-------------|
 |`exterior`    |matriz de cadeias (de carateres)|    true|    Nomes de camadas que definem o perfil de construção exterior.|
 |`unit`|    matriz de cadeias (de carateres)|    true|    Nomes de camadas que definem unidades.|
@@ -251,7 +251,7 @@ O `buildingLevels` objeto contém uma matriz JSON de níveis de edifícios.
 
 O `unitProperties` objeto contém uma matriz JSON de propriedades de unidade.
 
-| Propriedade  | Tipo | Obrigatório | Descrição |
+| Propriedade  | Tipo | Necessário | Descrição |
 |-----------|------|----------|-------------|
 |`unitName`    |cadeia (de carateres)    |true    |Nome da unidade para associar a este `unitProperty` registo. Este registo só é válido quando uma etiqueta correspondente `unitName` é encontrada nas `unitLabel` camadas. |
 |`categoryName`|    string|    false    |Nome da categoria. Para obter uma lista completa de categorias, consulte [as categorias](https://aka.ms/pa-indoor-spacecategories). |
@@ -271,7 +271,7 @@ O `unitProperties` objeto contém uma matriz JSON de propriedades de unidade.
 
 O `zoneProperties` objeto contém uma matriz JSON de propriedades de zona.
 
-| Propriedade  | Tipo | Obrigatório | Descrição |
+| Propriedade  | Tipo | Necessário | Descrição |
 |-----------|------|----------|-------------|
 |zoneName        |string    |true    |Nome da zona para associar ao `zoneProperty` registo. Este registo só é válido quando uma etiqueta correspondente `zoneName` é encontrada na camada da `zoneLabel` zona.  |
 |categoriaName|    string|    false    |Nome da categoria. Para obter uma lista completa de categorias, consulte [as categorias](https://aka.ms/pa-indoor-spacecategories). |
@@ -412,7 +412,7 @@ Abaixo está o ficheiro manifesto para o pacote de desenho da amostra. Para desc
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Quando o seu pacote Desenhá-lo satisfaz os requisitos, pode utilizar o [serviço de Conversão Azure Maps](/rest/api/maps/conversion) para converter o pacote num conjunto de dados do mapa. Em seguida, pode utilizar o conjunto de dados para gerar um mapa interior utilizando o módulo de mapas interiores.
 

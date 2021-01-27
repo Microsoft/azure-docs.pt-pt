@@ -1,25 +1,11 @@
 ---
-title: Desenvolver com V3 APIs
-titleSuffix: Azure Media Services
-description: Conheça as regras aplicáveis às entidades e APIs no desenvolvimento com os Serviços de Comunicação Social v3.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: ''
-ms.topic: conceptual
-ms.date: 10/23/2020
-ms.author: inhenkel
-ms.custom: seodec18
-ms.openlocfilehash: 416fb9fc4ce0622a710f2c119942edc4986ddd06
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
-ms.translationtype: MT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790581"
+# <a name="mandatory-fields-see-more-on-akamsskyeyemeta"></a>Campos obrigatórios. Veja mais na aka.ms/skyeye/meta.
+título: Desenvolver com v3 APIs : Descrição dos Serviços Azure Media: Conheça as regras aplicáveis às entidades e APIs ao desenvolver com os Media Services v3. serviços: media-services documentationcenter: '' autor: IngridAtMicrosoft manager: femila editor: ''
+
+ms.service: media-services ms.workload: ms.topic: conceptual ms.date: 10/23/2020 ms.author: inhenkel ms.custom: seodec18
+
 ---
+
 # <a name="develop-with-media-services-v3-apis"></a>Programar com as APIs dos Serviços de Multimédia v3
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
@@ -32,10 +18,10 @@ Este artigo discute regras que se aplicam a entidades e APIs quando se desenvolv
 
 Para obter autorização para aceder aos recursos dos Serviços de Multimédia e à API dos Serviços de Multimédia, primeiro tem de se autenticar. Os Serviços de Multimédia suportam a autenticação baseada no [Azure Active Directory (AAD)](../../active-directory/fundamentals/active-directory-whatis.md). As duas opções de autenticação comuns são:
  
-* **Autenticação do principal de serviço** : utilizada para autenticar um serviço (por exemplo: aplicações Web, aplicações de funções, aplicações lógicas, API e microsserviços). As aplicações que normalmente utilizam este método de autenticação são aplicações que executam serviços daemon, serviços de camada média ou tarefas agendadas. Por exemplo, para aplicações web deve haver sempre um nível médio que se conecta aos Serviços de Mídia com um Principal de Serviço.
-* **Autenticação do utilizador** : utilizada para autenticar uma pessoa que está a utilizar a aplicação para interagir com os recursos dos Serviços de Multimédia. A aplicação interativa deve primeiro pedir ao utilizador as suas credenciais. Um exemplo é uma aplicação da consola de gestão utilizada pelos utilizadores autorizados para monitorizar as tarefas de codificação ou a transmissão em direto.
+* **Autenticação do principal de serviço**: utilizada para autenticar um serviço (por exemplo: aplicações Web, aplicações de funções, aplicações lógicas, API e microsserviços). As aplicações que normalmente utilizam este método de autenticação são aplicações que executam serviços daemon, serviços de camada média ou tarefas agendadas. Por exemplo, para aplicações web deve haver sempre um nível médio que se conecta aos Serviços de Mídia com um Principal de Serviço.
+* **Autenticação do utilizador**: utilizada para autenticar uma pessoa que está a utilizar a aplicação para interagir com os recursos dos Serviços de Multimédia. A aplicação interativa deve primeiro pedir ao utilizador as suas credenciais. Um exemplo é uma aplicação da consola de gestão utilizada pelos utilizadores autorizados para monitorizar as tarefas de codificação ou a transmissão em direto.
 
-A API dos Serviços de Multimédia exige que o utilizador ou a aplicação que faz os pedidos da API REST tenha acesso ao recurso da conta dos Serviços de Multimédia e utilize uma função de **Contribuidor** ou **Proprietário** . É possível aceder à API com a função de **Leitor** , mas estarão disponíveis apenas as operações **Obter** ou **Listar** . Para obter mais informações, consulte [o controlo de acesso baseado em funções (Azure RBAC) para contas de Serviços de Comunicação Social](rbac-overview.md).
+A API dos Serviços de Multimédia exige que o utilizador ou a aplicação que faz os pedidos da API REST tenha acesso ao recurso da conta dos Serviços de Multimédia e utilize uma função de **Contribuidor** ou **Proprietário**. É possível aceder à API com a função de **Leitor**, mas estarão disponíveis apenas as operações **Obter** ou **Listar**.Para obter mais informações, consulte [o controlo de acesso baseado em funções (Azure RBAC) para contas de Serviços de Comunicação Social](rbac-overview.md).
 
 Em vez de criar um principal de serviço, considere utilizar identidades geridas para os recursos do Azure para aceder à API dos Serviços de Multimédia através do Azure Resource Manager. Para saber mais sobre as identidades geridas dos recursos do Azure, veja [O que são identidades geridas dos recursos do Azure?](../../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -129,7 +115,7 @@ Apenas uma operação de longa duração é suportada para um determinado Evento
 |[SDK Go](https://aka.ms/ams-v3-go-sdk) |[Referência a Go](https://aka.ms/ams-v3-go-ref)|
 |[SDK Ruby](https://aka.ms/ams-v3-ruby-sdk)||
 
-### <a name="see-also"></a>Ver também
+### <a name="see-also"></a>Veja também
 
 - [EventGrid .NET SDK que inclui eventos de Media Service](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
 - [Definições de eventos de Serviços de Mídia](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
@@ -148,11 +134,11 @@ Consulte [a filtragem, encomenda, paging de entidades da Azure Media Services](e
 
 Consulte o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Media Services.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 Para obter todos os valores necessários, consulte [a Access Azure Media Services API](./access-api-howto.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Ligue-se aos Serviços de Comunicação Social com a Java](configure-connect-java-howto.md)
 * [Ligar aos Serviços de Mídia com .NET](configure-connect-dotnet-howto.md)

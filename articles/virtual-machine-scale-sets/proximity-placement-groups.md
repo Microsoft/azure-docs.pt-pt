@@ -9,22 +9,22 @@ ms.subservice: availability
 ms.date: 07/01/2019
 ms.reviewer: zivr
 ms.custom: mimckitt
-ms.openlocfilehash: 1525ef7c1e19aa9821df3f111fdce3518d37afd5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3a7b50c82b3deffa7526bfcfe799972c3b02762
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87011061"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98877871"
 ---
 # <a name="preview-creating-and-using-proximity-placement-groups-using-powershell"></a>Pré-visualização: Criar e utilizar grupos de colocação de proximidade utilizando o PowerShell
 
-Para obter VMs o mais próximo possível, alcançando a menor latência possível, deve implementar a sua escala definida dentro de um [grupo de colocação de proximidade](co-location.md#preview-proximity-placement-groups).
+Para obter VMs o mais próximo possível, alcançando a menor latência possível, deve implementar a sua escala definida dentro de um [grupo de colocação de proximidade](../virtual-machines/co-location.md#proximity-placement-groups).
 
 Um grupo de colocação de proximidade é um agrupamento lógico usado para garantir que os recursos de computação Azure estão fisicamente localizados perto uns dos outros. Os grupos de colocação de proximidade são úteis para cargas de trabalho onde a baixa latência é um requisito.
 
 > [!IMPORTANT]
 > Grupos de Colocação de Proximidade estão atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
 > Os grupos de colocação de proximidade não estão disponíveis nestas regiões durante a pré-visualização: **Japão Leste,** **Austrália Oriental** e **Índia Central.**
 
@@ -81,6 +81,6 @@ Pode ver a instância no grupo de colocação usando o [Get-AzProximityPlacement
    -Property VirtualMachineScaleSets
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Também pode usar o [CLI Azure](../virtual-machines/linux/proximity-placement-groups.md) para criar grupos de colocação de proximidade.

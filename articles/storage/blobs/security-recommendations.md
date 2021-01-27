@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/13/2021
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: e3cfede444b65ee6990afd006d3b174d65f9cfad
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 05fdf681b7cdc3b8145a30041e261eece420e560
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98179168"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878092"
 ---
 # <a name="security-recommendations-for-blob-storage"></a>Recomendações de segurança para armazenamento blob
 
@@ -30,8 +30,8 @@ O Azure Security Center analisa periodicamente o estado de segurança dos seus r
 | Recomendação | Comentários | Centro de Segurança |
 |-|----|--|
 | Utilize o modelo de implementação do Gestor de Recursos Azure | Criar novas contas de armazenamento utilizando o modelo de implementação do Azure Resource Manager para melhorias importantes de segurança, incluindo controlo de acesso baseado em funções superiores a Azure (Azure RBAC) e auditoria, implementação e governação baseadas em recursos, acesso a identidades geridas, acesso ao Cofre chave Azure para segredos, e autenticação baseada em Azure e autorização de acesso a dados e recursos de Armazenamento Azure. Se possível, migrar as contas de armazenamento existentes que utilizam o modelo clássico de implementação para utilizar o Azure Resource Manager. Para obter mais informações sobre o Azure Resource Manager, consulte [a visão geral do Azure Resource Manager](../../azure-resource-manager/management/overview.md). | - |
-| Ativar o Azure Defender para todas as suas contas de armazenamento | O Azure Defender for Azure Storage fornece uma camada adicional de inteligência de segurança que deteta tentativas incomuns e potencialmente nocivas de aceder ou explorar contas de armazenamento. Os alertas de segurança são desencadeados no Centro de Segurança do Azure quando ocorrem anomalias na atividade e são também enviados por e-mail para administradores de subscrição, com detalhes de atividades suspeitas e recomendações sobre como investigar e remediar ameaças. Para mais informações, consulte [o Configure Azure Defender para armazenamento Azure](../common/azure-defender-storage-configure.md). | [Sim](../../security-center/security-center-sql-service-recommendations.md) |
-| Ligue a eliminação suave para bolhas | A eliminação suave para bolhas permite-lhe recuperar dados de bolhas depois de ter sido eliminado. Para obter mais informações sobre a eliminação suave para bolhas, consulte [Soft delete para blobs de armazenamento Azure](./soft-delete-blob-overview.md). | - |
+| Ativar o Azure Defender para todas as suas contas de armazenamento | O Azure Defender for Azure Storage fornece uma camada adicional de inteligência de segurança que deteta tentativas incomuns e potencialmente nocivas de aceder ou explorar contas de armazenamento. Os alertas de segurança são desencadeados no Centro de Segurança do Azure quando ocorrem anomalias na atividade e são também enviados por e-mail para administradores de subscrição, com detalhes de atividades suspeitas e recomendações sobre como investigar e remediar ameaças. Para mais informações, consulte [o Configure Azure Defender para armazenamento Azure](../common/azure-defender-storage-configure.md). | [Sim](../../security-center/security-center-remediate-recommendations.md) |
+| Ativar a eliminação recuperável para blobs | A eliminação suave para bolhas permite-lhe recuperar dados de bolhas depois de ter sido eliminado. Para obter mais informações sobre a eliminação suave para bolhas, consulte [Soft delete para blobs de armazenamento Azure](./soft-delete-blob-overview.md). | - |
 | Ligue a eliminação suave para recipientes | A eliminação suave para recipientes permite-lhe recuperar um recipiente depois de ter sido eliminado. Para obter mais informações sobre a eliminação suave dos recipientes, consulte [a eliminação suave para recipientes (pré-visualização)](./soft-delete-container-overview.md). | - |
 | Bloquear conta de armazenamento para evitar a eliminação acidental de conta | Pode bloquear os recursos de Azure Resource Manager, como uma subscrição, grupo de recursos ou conta de armazenamento, para evitar que outros utilizadores da sua organização o apaguem ou modifiquem acidentalmente. O bloqueio de uma conta de armazenamento não impede que os dados dentro dessa conta sejam eliminados. Só impede que a própria conta seja apagada. Para obter mais informações, consulte [os recursos de bloqueio para evitar alterações inesperadas](../../azure-resource-manager/management/lock-resources.md).
 | Armazenar dados críticos do negócio em bolhas imutáveis | Configure as políticas legais de retenção e as políticas de retenção baseadas no tempo para armazenar dados blob num estado WORM (Write Once, Read Many). As bolhas armazenadas imutavelmente podem ser lidas, mas não podem ser modificadas ou eliminadas durante o intervalo de retenção. Para obter mais informações, consulte [os dados de blob críticos de negócio da Loja com armazenamento imutável](storage-blob-immutable-storage.md). | - |
@@ -53,7 +53,7 @@ O Azure Security Center analisa periodicamente o estado de segurança dos seus r
 | Se um serviço SAS não estiver associado a uma política de acesso armazenada, então decida o prazo de validade para uma hora ou menos | Um serviço SAS que não esteja associado a uma política de acesso armazenada não pode ser revogado. Por esta razão, recomenda-se a limitação do tempo de validade para que o SAS seja válido por uma hora ou menos. | - |
 | Desativar o público anónimo ler acesso a contentores e bolhas | O público anónimo leu o acesso a um contentor e as suas bolhas concedem acesso apenas a esses recursos a qualquer cliente. Evite permitir o acesso à leitura pública, a menos que o seu cenário o exija. Para aprender a desativar o acesso público anónimo a uma conta de armazenamento, consulte [o público anónimo Configure acesso a contentores e bolhas.](anonymous-read-access-configure.md)  | - |
 
-## <a name="networking"></a>Redes
+## <a name="networking"></a>Rede
 
 | Recomendação | Comentários | Centro de Segurança |
 |-|----|--|
@@ -63,7 +63,7 @@ O Azure Security Center analisa periodicamente o estado de segurança dos seus r
 | Permitir serviços fidedignos da Microsoft para aceder à conta de armazenamento | A ligação das regras de firewall para a sua conta de armazenamento bloqueia os pedidos de dados por padrão, a menos que os pedidos sejam originários de um serviço que opera dentro de uma Rede Virtual Azure (VNet) ou de endereços IP públicos permitidos. Os pedidos que estão bloqueados incluem os de outros serviços Azure, do portal Azure, de serviços de registo e métricas, e assim por diante. Pode permitir pedidos de outros serviços da Azure adicionando uma exceção para permitir que serviços confiáveis da Microsoft acedam à conta de armazenamento. Para obter mais informações sobre a adição de uma exceção para serviços de confiança da Microsoft, consulte [firewalls de armazenamento Configure Azure e redes virtuais](../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).| - |
 | Utilizar pontos finais privados | Um ponto final privado atribui um endereço IP privado da sua Rede Virtual Azure (VNet) à conta de armazenamento. Protege todo o tráfego entre o seu VNet e a conta de armazenamento por uma ligação privada. Para obter mais informações sobre os pontos finais privados, consulte [Connect private a uma conta de armazenamento utilizando o Azure Private Endpoint](../../private-link/tutorial-private-endpoint-storage-portal.md). | - |
 | Utilize tags de serviço VNet | Uma etiqueta de serviço representa um grupo de prefixos de endereço IP de um determinado serviço Azure. A Microsoft gere os prefixos de endereços englobados pela etiqueta de serviço e atualiza automaticamente a etiqueta de serviço à medida que os endereços mudam. Para obter mais informações sobre etiquetas de serviço suportadas pelo Azure Storage, consulte [as etiquetas de serviço Azure.](../../virtual-network/service-tags-overview.md) Para um tutorial que mostre como usar tags de serviço para criar regras de rede de saída, consulte [restringir o acesso aos recursos do PaaS](../../virtual-network/tutorial-restrict-network-access-to-resources.md). | - |
-| Limitar o acesso à rede a redes específicas | Limitar o acesso à rede a redes que aloquem clientes que necessitem de acesso reduz a exposição dos seus recursos a ataques de rede. | [Sim](../../security-center/security-center-sql-service-recommendations.md) |
+| Limitar o acesso à rede a redes específicas | Limitar o acesso à rede a redes que aloquem clientes que necessitem de acesso reduz a exposição dos seus recursos a ataques de rede. | [Sim](../../security-center/security-center-remediate-recommendations.md) |
 | Configurar preferência de encaminhamento de rede | Pode configurar a preferência de encaminhamento de rede para a sua conta de armazenamento Azure para especificar como o tráfego de rede é encaminhado para a sua conta a partir de clientes através da Internet utilizando a rede global da Microsoft ou o encaminhamento da Internet. Para obter mais informações, consulte a preferência de [encaminhamento de rede Configure para o Armazenamento Azure](../common/network-routing-preference.md). | - |
 
 ## <a name="loggingmonitoring"></a>Registo/Monitorização
@@ -73,7 +73,7 @@ O Azure Security Center analisa periodicamente o estado de segurança dos seus r
 | Acompanhe como os pedidos são autorizados | Habilitar o registo de armazenamento Azure para acompanhar como cada pedido feito contra o Azure Storage foi autorizado. Os registos indicam se um pedido foi feito de forma anónima, utilizando um token OAuth 2.0, utilizando a Chave Partilhada, ou utilizando uma assinatura de acesso partilhado (SAS). Para obter mais informações, consulte [o armazenamento de Azure Blob com Azure Monitor](monitor-blob-storage.md) ou [Azure Storage analytics com Monitorização Clássica.](../common/storage-analytics-logging.md) | - |
 | Configurar alertas no Azure Monitor | Configure os alertas de registo para avaliar os registos de recursos numa frequência definida e dispare um alerta com base nos resultados. Para obter mais informações, consulte [os alertas de registo no Azure Monitor](../../azure-monitor/platform/alerts-unified-log.md). | - |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Documentação de segurança do Azure](../../security/index.yml)
 - [Documentação de desenvolvimento segura.](../../security/develop/index.yml)

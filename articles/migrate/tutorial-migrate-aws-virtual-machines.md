@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: cab7bc7f79cccb1704d7046f79a2000028ffb729
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 430ece58bd3dc1651ac391ba0e29515085ee507b
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233258"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878193"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>Detetar, avaliar e migrar VMs do Amazon Web Services (AWS) para o Azure
 
@@ -80,7 +80,7 @@ Prepare o Azure para a migração com a Azure Migrate: ferramenta de migração 
 
 **Tarefa** | **Detalhes**
 --- | ---
-**Criar um projeto do Azure Migrate** | A sua conta Azure necessita de permissões de Colaborador ou Proprietário para [criar um novo projeto.](https://docs.microsoft.com/azure/migrate/create-manage-projects)
+**Criar um projeto do Azure Migrate** | A sua conta Azure necessita de permissões de Colaborador ou Proprietário para [criar um novo projeto.](./create-manage-projects.md)
 **Verifique permissões para a sua conta Azure** | A sua conta Azure necessita de permissões para criar um VM e escrever para um disco gerido pelo Azure.
 
 ### <a name="assign-permissions-to-create-project"></a>Atribuir permissões para criar projeto
@@ -256,7 +256,7 @@ Um agente de serviço de mobilidade deve ser instalado na fonte AWS VMs para ser
     - Dupla encriptação com chaves geridas pela plataforma e geridas pelo cliente
 
    > [!NOTE]
-   > Para replicar VMs com CMK, terá de [criar uma encriptação de disco definida](https://go.microsoft.com/fwlink/?linkid=2151800) no Grupo de Recursos alvo. Um conjunto de conjunto de encriptação de disco mapeia Discos Geridos para um Cofre de Chaves que contém o CMK para usar para SSE.
+   > Para replicar VMs com CMK, terá de [criar uma encriptação de disco definida](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set) no Grupo de Recursos alvo. Um conjunto de conjunto de encriptação de disco mapeia Discos Geridos para um Cofre de Chaves que contém o CMK para usar para SSE.
   
 12. Em **Benefício Híbrido do Azure**:
 
@@ -399,6 +399,6 @@ Depois de verificar que a migração do teste funciona como esperado, pode migra
 **Resposta:** Os VMs que executam o Amazon Linux não podem ser migrados como é, uma vez que o Amazon Linux OS é apenas suportado em AWS.
 Para migrar cargas de trabalho em execução no Amazon Linux, você pode girar um CentOS/RHEL VM em Azure e migrar a carga de trabalho em execução na máquina AWS Linux usando uma abordagem de migração de carga de trabalho relevante. Por exemplo, dependendo da carga de trabalho, pode existir ferramentas específicas da carga de trabalho para ajudar na migração – como por exemplo, para bases de dados ou ferramentas de implementação no caso de servidores web.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Investigue a [jornada de migração](/azure/architecture/cloud-adoption/getting-started/migrate) em nuvem no Quadro de Azure Cloud Adopt.

@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services produção metadados esquema de metadados / Microsoft Docs
+title: Esquema de metadados de metadados de saída do Azure Media Services
 description: Este artigo apresenta uma visão geral do esquema de metadados de saída V3 da Azure Media Services.
 author: IngridAtMicrosoft
 manager: femila
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: aa6d4edc4348fa850eeb7e8d91ce0791ee4c7170
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a27db81866760bff56c900a908162f356c01a66
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336416"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895208"
 ---
 # <a name="output-metadata"></a>Metadados de saída
 
@@ -55,8 +55,8 @@ Cada AssetFile físico pode conter nele zero ou mais vídeos faixas intercaladas
 | **FourCC**<br />Necessário | Código de vídeo Código FourCC que é reportado por ffmpeg.  <br /><br />Exemplo: `"FourCC": "avc1"`|
 | **Perfil** |Perfil H264 (apenas aplicável ao código H264).  <br /><br />Exemplo: `"Profile": "High"` |
 | **Nível** |Nível H264 (apenas aplicável ao código H264).  <br /><br />Exemplo: `"Level": "3.2"`|
-| **Largura**<br />Necessário |Largura de vídeo codificada em pixels.  <br /><br />Exemplo: `"Width": "1280"`|
-| **Altura**<br />Necessário |A altura de vídeo codificada em pixels.  <br /><br />Exemplo: `"Height": "720"`|
+| **Width**<br />Necessário |Largura de vídeo codificada em pixels.  <br /><br />Exemplo: `"Width": "1280"`|
+| **Height**<br />Necessário |A altura de vídeo codificada em pixels.  <br /><br />Exemplo: `"Height": "720"`|
 | **DisplayAspectRatioNumerator**<br />Necessário|Numerador de aspeto de visualização de vídeo.  <br /><br />Exemplo: `"DisplayAspectRatioNumerator": 16.0`|
 | **DisplayAspectRatioDenominador**<br />Necessário |Denominador de rácio de aspeto do visualização de vídeo.  <br /><br />Exemplo: `"DisplayAspectRatioDenominator": 9.0`|
 | **Taxa de fotogramas**<br />Necessário |Taxa de fotogramas de vídeo medida em formato .3f.  <br /><br />Exemplo: `"Framerate": 29.970`|
@@ -71,7 +71,7 @@ Cada ActivoFile físico pode conter nele zero ou mais faixas de áudio intercala
 | --- | --- |
 | **ID**<br />Necessário  |Índice baseado em zero desta faixa de áudio. **Nota:**  Este não é necessariamente o TrackID usado num ficheiro MP4.  <br /><br />Exemplo: `"Id": 2`|
 | **Codec**  |Cadeia de codec de faixa de áudio.  <br /><br />Exemplo: `"Codec": "aac"`|
-| **Idioma**|Exemplo: `"Language": "eng"`|
+| **Linguagem**|Exemplo: `"Language": "eng"`|
 | **Channels** (Canais)<br />Necessário|Número de canais de áudio.  <br /><br />Exemplo: `"Channels": 2`|
 | **AmostragemRate**<br />Necessário |Taxa de amostragem de áudio em amostras/seg ou Hz.  <br /><br />Exemplo: `"SamplingRate": 48000`|
 | **Bitrate**<br />Necessário |Taxa média de bits de áudio em bits por segundo, calculada a partir do AssetFile. Conta apenas a carga de fluxo elementar, e não inclui a sobrecarga da embalagem.  <br /><br />Exemplo: `"Bitrate": 128041`|
@@ -260,6 +260,6 @@ Cada ActivoFile físico pode conter nele zero ou mais faixas de áudio intercala
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Criar uma entrada de trabalho a partir de um URL HTTPS](job-input-from-http-how-to.md)

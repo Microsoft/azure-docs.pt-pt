@@ -4,19 +4,19 @@ description: Este artigo mostra como adicionar uma identidade gerida a um tipo d
 ms.topic: how-to
 ms.date: 11/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: 00e679b07a44b799b6ac6677201bb59eeddcd6cf
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 9edcf75451f43f2a00cd01d5ca7f385704b1ea7f
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96841565"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878431"
 ---
 # <a name="add-a-managed-identity-to-a-service-fabric-managed-cluster-node-type-preview"></a>Adicione uma identidade gerida a um tipo de nó de cluster gerido por Tecido de Serviço (pré-visualização)
 
-Cada tipo de nó num cluster gerido por Tecido de Serviço é apoiado por um conjunto de escala de máquina virtual. Para permitir a utilização de identidades geridas com um tipo de nó de cluster gerido, foi adicionada uma propriedade `vmManagedIdentity` às definições do tipo nó que contém uma lista de identidades que podem ser utilizadas, `userAssignedIdentities` . A funcionalidade espelha como as identidades geridas podem ser usadas em clusters não geridos, tais como a utilização de uma identidade gerida com a [extensão de conjunto de escala de máquina virtual Azure Key Vault](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows).
+Cada tipo de nó num cluster gerido por Tecido de Serviço é apoiado por um conjunto de escala de máquina virtual. Para permitir a utilização de identidades geridas com um tipo de nó de cluster gerido, foi adicionada uma propriedade `vmManagedIdentity` às definições do tipo nó que contém uma lista de identidades que podem ser utilizadas, `userAssignedIdentities` . A funcionalidade espelha como as identidades geridas podem ser usadas em clusters não geridos, tais como a utilização de uma identidade gerida com a [extensão de conjunto de escala de máquina virtual Azure Key Vault](../virtual-machines/extensions/key-vault-windows.md).
 
 
-Para um exemplo de uma implementação de cluster gerida por tecido de serviço que faz uso da identidade gerida num tipo de nó, consulte [este modelo](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-1-NT-MI). Para obter uma lista de regiões apoiadas, consulte o [cluster gerido FAQ](https://docs.microsoft.com/azure/service-fabric/faq-managed-cluster#what-regions-are-supported-in-the-preview).
+Para um exemplo de uma implementação de cluster gerida por tecido de serviço que faz uso da identidade gerida num tipo de nó, consulte [este modelo](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-1-NT-MI). Para obter uma lista de regiões apoiadas, consulte o [cluster gerido FAQ](./faq-managed-cluster.md#what-regions-are-supported-in-the-preview).
 
 > [!NOTE]
 > Atualmente, apenas as identidades atribuídas ao utilizador são suportadas para esta funcionalidade.
@@ -26,7 +26,7 @@ Para um exemplo de uma implementação de cluster gerida por tecido de serviço 
 Antes de começar:
 
 * Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
-* Se pretender utilizar o PowerShell, [instale](https://docs.microsoft.com/cli/azure/install-azure-cli) o CLI Azure para executar comandos de referência CLI.
+* Se pretender utilizar o PowerShell, [instale](/cli/azure/install-azure-cli) o CLI Azure para executar comandos de referência CLI.
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Criar uma identidade gerida atribuída pelo utilizador 
 
@@ -54,10 +54,10 @@ Adicione uma atribuição de função à identidade gerida com a aplicação Ser
 
 Os seguintes valores devem ser utilizados, se for caso disso:
 
-|Nome|Valor correspondente do Fornecedor de Recursos de Tecido de Serviço|
+|Name|Valor correspondente do Fornecedor de Recursos de Tecido de Serviço|
 |----|-------------------------------------|
-|ID da aplicação|74cb6831-0dbb-4be1-8206-fd4df301cdc2|
-|ID de objeto|fbc587f2-66f5-4459-a027-bcd908b9d278|
+|ID da Aplicação|74cb6831-0dbb-4be1-8206-fd4df301cdc2|
+|ID do Objeto|fbc587f2-66f5-4459-a027-bcd908b9d278|
 
 
 |Nome de definição de função|ID de definição de papel|
@@ -131,4 +131,4 @@ A não adição correta de uma atribuição de funções será satisfeita com o 
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Implementar uma aplicação para um cluster gerido por Tecido de Serviço](https://docs.microsoft.com/azure/service-fabric/tutorial-managed-cluster-deploy-app) 
+> [Implementar uma aplicação para um cluster gerido por Tecido de Serviço](./tutorial-managed-cluster-deploy-app.md)

@@ -3,12 +3,12 @@ title: Monitorização e exploração madeireira - Azure
 description: Este artigo fornece uma visão geral da monitorização e início de sessão em Live Video Analytics no IoT Edge.
 ms.topic: reference
 ms.date: 04/27/2020
-ms.openlocfilehash: 6a7251b62421642ad9f5dba4f4c2a15ce74cd5cf
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 6dc0a6d499d06c95bdccbc9e386d7f9288971ee8
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97900880"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878109"
 ---
 # <a name="monitoring-and-logging"></a>Monitorização e registos
 
@@ -208,7 +208,7 @@ Os tipos de eventos são atribuídos a um espaço de nome de acordo com este esq
 
 #### <a name="event-classes"></a>Classes de eventos
 
-|Nome da classe|Description|
+|Nome da classe|Descrição|
 |---|---|
 |Análise  |Eventos gerados como parte da análise de conteúdo.|
 |Diagnóstico    |Eventos que ajudam no diagnóstico de problemas e desempenho.|
@@ -230,7 +230,7 @@ O tempo do evento é formatado numa corda ISO 8601. Representa o momento em que 
 
 Estas métricas serão reportadas a partir do live video analytics no módulo IoT Edge:  
 
-|Nome da métrica|Tipo|Etiqueta|Description|
+|Nome da métrica|Tipo|Etiqueta|Descrição|
 |-----------|----|-----|-----------|
 |lva_active_graph_instances|Medidor|Iothub, edge_device, module_name, graph_topology|Número total de gráficos ativos por topologia.|
 |lva_received_bytes_total|Contador|Iothub, edge_device, module_name, graph_topology, graph_instance graph_node|Número total de bytes recebidos por um nó. Suportado apenas para fontes RTSP.|
@@ -269,7 +269,7 @@ Siga estes passos para permitir a recolha de métricas do módulo Live Video Ana
 
 1. Utilize comandos Docker CLI para construir o ficheiro Docker e publicar a imagem no seu registo de contentores Azure.
     
-   Para obter mais informações sobre a utilização do CLI do Docker para empurrar para um registo de contentores, consulte [Push e puxe imagens do Docker](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli). Para obter mais informações sobre o Registo do Contentor Azure, consulte a [documentação.](https://docs.microsoft.com/azure/container-registry/)
+   Para obter mais informações sobre a utilização do CLI do Docker para empurrar para um registo de contentores, consulte [Push e puxe imagens do Docker](../../container-registry/container-registry-get-started-docker-cli.md). Para obter mais informações sobre o Registo do Contentor Azure, consulte a [documentação.](../../container-registry/index.yml)
 
 
 1. Depois de ter concluído o pedido de inscrição para o registo do contentor Azure, adicione o seguinte nó ao seu ficheiro manifesto de implantação:
@@ -359,6 +359,6 @@ O módulo irá agora escrever registos de depuração num formato binário para 
 
 Se tiver dúvidas, consulte a [monitorização e as métricas faq.](faq.md#monitoring-and-metrics)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Gravação de vídeo contínua](continuous-video-recording-tutorial.md)

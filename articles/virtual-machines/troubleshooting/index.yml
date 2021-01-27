@@ -10,12 +10,12 @@ metadata:
   author: genlin
   ms.author: genli
   ms.date: 09/09/2019
-  ms.openlocfilehash: 4f1fd0f88c7165a409644029f247b090df285138
-  ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
-  ms.translationtype: HT
+  ms.openlocfilehash: ad47bde23a7125bac60c9f61687e3ff4e94b7a01
+  ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+  ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/11/2020
-  ms.locfileid: "94506044"
+  ms.lasthandoff: 01/27/2021
+  ms.locfileid: "98877701"
 landingContent:
 - title: Resolver falhas de implementação
   linkLists:
@@ -48,7 +48,7 @@ landingContent:
     - text: Resolver problemas de ligação de RDP da VM do Azure por ID de Evento
       url: ./event-id-troubleshoot-vm-rdp-connecton.md
     - text: Resolver problemas de autenticação quando utiliza o protocolo RDP (Remote Desktop Protocol) para se ligar à VM do Azure
-      url: ./troubleshoot-authentication-error-rdp-vm.md
+      url: /troubleshoot/azure/virtual-machines/cannot-connect-rdp-azure-vm
     - text: A placa de rede de convidado da VM está desativada
       url: ./troubleshoot-rdp-nic-disabled.md
 - title: Reposição de palavras-passe
