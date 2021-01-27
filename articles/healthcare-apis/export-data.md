@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 1/21/2021
 ms.author: cavoeg
-ms.openlocfilehash: 48dbd0892c9ec02f203edba55d1104f1ab0118a8
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 8ad5ee78a525b3798bbf613168ff74a9e21fe99b
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737613"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920262"
 ---
 # <a name="how-to-export-fhir-data"></a>Como exportar dados do FHIR
 
@@ -46,13 +46,14 @@ Há dois parâmetros de cabeça exigidos que devem ser definidos para $export po
 
 ### <a name="query-parameters"></a>Parâmetros de consulta
 A Azure API para FHIR suporta os seguintes parâmetros de consulta. Todos estes parâmetros são opcionais:
+
 |Parâmetro de consulta        | Definido pela Especificação FHIR?    |  Descrição|
 |------------------------|---|------------|
-| \_outputFormat | Sim | Atualmente suporta três valores para alinhar com a FHIR Spec: application/fhir+ndjson, application/ndjson, ou just ndjson. Todos os postos de trabalho de exportação regressarão `ndjson` e o valor passado não tem qualquer efeito sobre o comportamento do código. |
-| \_desde | Sim | Permite-lhe apenas exportar recursos que foram modificados desde o tempo fornecido |
-| \_tipo | Sim | Permite especificar quais tipos de recursos serão incluídos. Por exemplo, \_ type=Paciente devolveria apenas recursos do paciente|
-| \_typefilter | Sim | Para solicitar uma filtragem de grãos mais finos, pode utilizar \_ o typefilter juntamente com o parâmetro do \_ tipo. O valor do parâmetro _typeFilter é uma lista separada por vírgula de consultas de FHIR que restringem ainda mais os resultados |
-| \_recipiente | Não |  Especifica o contentor dentro da conta de armazenamento configurada onde os dados devem ser exportados. Se um recipiente for especificado, os dados serão exportados para esse recipiente numa nova pasta com o nome. Se o recipiente não for especificado, será exportado para um novo recipiente utilizando o tempotando e a identificação do trabalho. |
+| \_outputFormat | Yes | Atualmente suporta três valores para alinhar com a FHIR Spec: application/fhir+ndjson, application/ndjson, ou just ndjson. Todos os postos de trabalho de exportação regressarão `ndjson` e o valor passado não tem qualquer efeito sobre o comportamento do código. |
+| \_desde | Yes | Permite-lhe apenas exportar recursos que foram modificados desde o tempo fornecido |
+| \_tipo | Yes | Permite especificar quais tipos de recursos serão incluídos. Por exemplo, \_ type=Paciente devolveria apenas recursos do paciente|
+| \_typefilter | Yes | Para solicitar uma filtragem de grãos mais finos, pode utilizar \_ o typefilter juntamente com o parâmetro do \_ tipo. O valor do parâmetro _typeFilter é uma lista separada por vírgula de consultas de FHIR que restringem ainda mais os resultados |
+| \_recipiente | No |  Especifica o contentor dentro da conta de armazenamento configurada onde os dados devem ser exportados. Se um recipiente for especificado, os dados serão exportados para esse recipiente numa nova pasta com o nome. Se o recipiente não for especificado, será exportado para um novo recipiente utilizando o tempotando e a identificação do trabalho. |
 
 
 ## <a name="next-steps"></a>Próximos passos

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: lajanuar
-ms.openlocfilehash: a218888a094c30b7672fd22c255f6a352422b878
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 935a9e92de88c2519dc1a1042315d204e8f60099
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896855"
+ms.locfileid: "98919923"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Apoio linguístico e regional para tradução de texto e fala
 
@@ -68,6 +68,7 @@ O tradutor apoia as seguintes línguas para tradução de texto para texto.
 | Húngaro | `hu` |
 | Islandês | `is` |
 | Indonésio | `id` |
+| Inuktitut | `iu` |
 | Irlandês | `ga` |
 | Italiano | `it` |
 | Japonês | `ja` |

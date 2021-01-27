@@ -3,12 +3,12 @@ title: Controlos de segurança para Azure Relay
 description: Estes artigos fornecem uma lista de controlos de segurança incorporados para avaliar o Azure Relay.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 5d55026bfb6e3d6fe955a540b7596a85707398d6
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: ce5053366ac1d3536a152610d8ed7f76fad62b84
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133349"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919583"
 ---
 # <a name="security-controls-for-azure-relay"></a>Controlos de segurança para Azure Relay
 
@@ -20,8 +20,8 @@ Este artigo documenta os controlos de segurança incorporados no Azure Relay.
 
 | Controlo de segurança | Sim/Não | Notas | Documentação |
 |---|---|--|--|
-| Suporte privado de ponto final| Não |  |   |
-| Isolamento de rede e suporte de firewall| Não |  |   |
+| Suporte privado de ponto final| Yes |  |   |
+| Isolamento de rede e suporte de firewall| Yes |  |   |
 | Suporte de túneis forçados| N/D | Relé é o túnel TLS  |   |
 
 ## <a name="monitoring--logging"></a>Monitorização & registos
@@ -44,7 +44,7 @@ Este artigo documenta os controlos de segurança incorporados no Azure Relay.
 | Controlo de segurança | Sim/Não | Notas | Documentação |
 |---|---|--|--|
 | Encriptação do lado do servidor em repouso: teclas geridas pela Microsoft |  N/D | O retransmissor é uma tomada web e não persiste em dados. |   |
-| Encriptação do lado do servidor em repouso: teclas geridas pelo cliente (BYOK) | Não | Utiliza apenas certificados Microsoft TLS.  |   |
+| Encriptação do lado do servidor em repouso: teclas geridas pelo cliente (BYOK) | No | Utiliza apenas certificados Microsoft TLS.  |   |
 | Encriptação de nível de coluna (Serviços de Dados Azure)| N/D | |   |
 | Encriptação em trânsito (como encriptação ExpressRoute, na encriptação VNet e encriptação VNet-VNet)| Yes | O serviço requer TLS. |   |
 | Chamadas da API encriptadas| Yes | HTTPS. |
@@ -56,6 +56,6 @@ Este artigo documenta os controlos de segurança incorporados no Azure Relay.
 |---|---|--|--|
 | Suporte de gestão de configuração (versão da configuração, etc.)| Yes | Através do [Gestor de Recursos Azure.](../azure-resource-manager/index.yml)|   |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre os [controlos de segurança incorporados nos serviços da Azure.](../security/fundamentals/security-controls.md)

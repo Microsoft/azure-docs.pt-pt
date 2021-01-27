@@ -1,14 +1,14 @@
 ---
 title: Descrição Geral do Azure Blueprints
 description: Compreenda como o serviço Azure Blueprints lhe permite criar, definir e implantar artefactos no seu ambiente Azure.
-ms.date: 09/30/2020
+ms.date: 01/27/2021
 ms.topic: overview
-ms.openlocfilehash: 0dbf5ab54b694399c9d15cce84e8eca34a5d924e
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: f4ba77f5fcb376bf600d94997b0d6ba569f04f82
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91892732"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919347"
 ---
 # <a name="what-is-azure-blueprints"></a>O que é o Azure Blueprints?
 
@@ -31,7 +31,7 @@ Quase tudo o que pretende incluir para implantação em Azure Blueprints pode se
 
 Com a Azure Blueprints, a relação entre a definição de planta (o que _deve ser_ implementada) e a atribuição do projeto (que _foi_ implantado) é preservada. Esta ligação suporta procedimentos melhorados de controlo e auditoria para implementações. O Azure Blueprints também pode atualizar várias subscrições ao mesmo tempo que são regidas pelo mesmo plano.
 
-Não há necessidade de escolher entre um modelo ARM e uma planta. Cada planta pode consistir em _artefactos_de modelo de arma zero ou mais. Este suporte significa que os esforços anteriores para desenvolver e manter uma biblioteca de modelos ARM são reutilizáveis em Azure Blueprints.
+Não há necessidade de escolher entre um modelo ARM e uma planta. Cada planta pode consistir em _artefactos_ de modelo de arma zero ou mais. Este suporte significa que os esforços anteriores para desenvolver e manter uma biblioteca de modelos ARM são reutilizáveis em Azure Blueprints.
 
 ## <a name="how-its-different-from-azure-policy"></a>Como difere do Azure Policy
 
@@ -70,7 +70,7 @@ Para obter mais informações, veja [parâmetros de esquema](./concepts/paramete
 ### <a name="blueprint-publishing"></a>Publicação do esquema
 
 Quando um esquema é criado, considera-se que está no modo de **Rascunho**. Quando estiver pronto para ser atribuído, tem de ser **Publicado**. A publicação exige a definição de uma cadeia de **Versão** (letras, números e hífenes com um comprimento máximo de 20 carateres), juntamente com **Notas de alteração** opcionais. A **Versão** distingue-o de futuras alterações ao mesmo esquema e permite a atribuição de cada versão. Isto também significa que diferentes **Versões** do mesmo esquema podem ser atribuídas à mesma subscrição. Quando são feitas alterações adicionais ao projeto, a Versão **Publicada** 
- **Version** ainda existe, assim como as **alterações não publicadas**. Quando as alterações estiverem concluídas, o esquema atualizado é **Publicado** com uma **Versão** nova e exclusiva, que agora também pode ser atribuída.
+  ainda existe, assim como as **alterações não publicadas**. Quando as alterações estiverem concluídas, o esquema atualizado é **Publicado** com uma **Versão** nova e exclusiva, que agora também pode ser atribuída.
 
 ## <a name="blueprint-assignment"></a>Atribuição do esquema
 
@@ -126,10 +126,10 @@ Existem as seguintes limitações para determinados campos:
 
 |Objeto|Campo|Personagens permitidos|Um máximo de Comprimento|
 |-|-|-|-|
-|Planta|Nome|letras, números, hífens e períodos|48|
+|Planta|Name|letras, números, hífens e períodos|48|
 |Planta|Versão|letras, números, hífens e períodos|20|
-|Atribuição do esquema|Nome|letras, números, hífens e períodos|90|
-|Artefacto de planta|Nome|letras, números, hífens e períodos|48|
+|Atribuição do esquema|Name|letras, números, hífens e períodos|90|
+|Artefacto de planta|Name|letras, números, hífens e períodos|48|
 
 ## <a name="video-overview"></a>Descrição geral em vídeo
 
@@ -137,7 +137,7 @@ A seguinte visão geral da Azure Blueprints é da Azure Fridays. Para download d
 
 > [!VIDEO https://www.youtube.com/embed/cQ9D-d6KkMY]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Criar uma planta - Portal](./create-blueprint-portal.md).
 - [Criar uma planta - PowerShell](./create-blueprint-powershell.md).

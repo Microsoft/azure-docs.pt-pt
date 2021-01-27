@@ -3,13 +3,13 @@ title: Ativar a encriptação baseada no anfitrião no Serviço Azure Kubernetes
 description: Saiba como configurar uma encriptação baseada no anfitrião num cluster Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 07/10/2020
-ms.openlocfilehash: 531d1dc4169b5f4adecfb29c3e116049cb99c3c9
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.date: 01/27/2021
+ms.openlocfilehash: 1d071305b457cddde56a11982e08c9331e1d5463
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98787829"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919653"
 ---
 # <a name="host-based-encryption-on-azure-kubernetes-service-aks-preview"></a>Encriptação baseada no anfitrião no Serviço Azure Kubernetes (AKS) (pré-visualização)
 
@@ -25,7 +25,7 @@ Esta funcionalidade só pode ser definida no tempo de criação de cluster ou de
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-- Certifique-se de que tem a `aks-preview` extensão CLI v0.4.55 ou superior instalada
+- Certifique-se de que tem a `aks-preview` extensão CLI v0.4.73 ou superior instalada
 - Certifique-se de que tem a `EnableEncryptionAtHostPreview` bandeira de recurso `Microsoft.ContainerService` ativada.
 
 Para poder utilizar a encriptação no anfitrião para os seus VMs ou conjuntos de escala de máquinas virtuais, tem de obter a funcionalidade ativada na sua subscrição. Envie um e-mail para encryptionAtHost@microsoft .com com os seus Ids de subscrição para obter a funcionalidade ativada para as suas subscrições.
@@ -35,18 +35,18 @@ Para poder utilizar a encriptação no anfitrião para os seus VMs ou conjuntos 
 > [!IMPORTANT]
 > Tem de enviar um e-mail encryptionAtHost@microsoft .com com os seus Ids de subscrição para obter a funcionalidade ativada para recursos de computação. Não pode permitir por esses recursos. Pode ative-lo no serviço de contentores.
 
-Para criar um cluster AKS que utilize encriptação baseada no anfitrião, tem de ativar as `EnableEncryptionAtHostPreview` bandeiras e `EncryptionAtHost` apresentar bandeiras na sua subscrição.
+Para criar um cluster AKS que utilize encriptação baseada no anfitrião, tem de ativar a bandeira de `EncryptionAtHost` funcionalidade na sua subscrição.
 
 Registe a bandeira de `EncryptionAtHost` características utilizando o comando [de registo de recurso az,][az-feature-register] como mostra o seguinte exemplo:
 
 ```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService"  --name "EnableEncryptionAtHostPreview"
+az feature register --namespace "Microsoft.ContainerService"  --name "EnableEncryptionAtHost"
 ```
 
 Demora alguns minutos para que o estado seja *apresentado.* Pode verificar o estado de registo utilizando o comando [da lista de recursos az:][az-feature-list]
 
 ```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableEncryptionAtHostPreview')].{Name:name,State:properties.state}"
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableEncryptionAtHost')].{Name:name,State:properties.state}"
 ```
 
 Quando estiver pronto, reaprovi o registo dos `Microsoft.ContainerService` fornecedores e `Microsoft.Compute` dos recursos utilizando o comando de registo do fornecedor [az:][az-provider-register]
@@ -80,7 +80,7 @@ az extension update --name aks-preview
 Configure os nós do agente de cluster para usar encriptação baseada no hospedeiro quando o cluster é criado. Use a `--aks-custom-headers` bandeira para definir o `EnableEncryptionAtHost` cabeçalho.
 
 ```azurecli-interactive
-az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS2_v2 -l westus2 --aks-custom-headers EnableEncryptionAtHost=true
+az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS2_v2 -l westus2 --aks-custom-headers --enable-encryption-at-host
 ```
 
 Se pretender criar clusters sem encriptação baseada no anfitrião, pode fazê-lo omitindo o `--aks-custom-headers` parâmetro personalizado.
@@ -90,7 +90,7 @@ Se pretender criar clusters sem encriptação baseada no anfitrião, pode fazê-
 Pode ativar a encriptação baseada no anfitrião nos clusters existentes adicionando um novo conjunto de nós ao seu cluster. Configure um novo conjunto de nós para usar encriptação baseada no hospedeiro usando a `--aks-custom-headers` bandeira.
 
 ```azurecli
-az aks nodepool add --name hostencrypt --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_DS2_v2 -l westus2 --aks-custom-headers EnableEncryptionAtHost=true
+az aks nodepool add --name hostencrypt --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_DS2_v2 -l westus2 --aks-custom-headers --enable-encryption-at-host
 ```
 
 Se pretender criar novos grupos de nó sem a função de encriptação baseada no anfitrião, pode fazê-lo omitindo o `--aks-custom-headers` parâmetro personalizado.

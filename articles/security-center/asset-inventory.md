@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 12/22/2020
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: d5820af1efd91efd79fb2a860d6aad8d2eeed80d
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 5b8d167992e57cd0fae35c57212ea700cd677afa
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740883"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920431"
 ---
 # <a name="explore-and-manage-your-resources-with-asset-inventory"></a>Explore e gere os seus recursos com o inventário de ativos
 
@@ -40,7 +40,7 @@ As possibilidades de gestão de ativos para esta ferramenta são substanciais e 
 
 |Aspeto|Detalhes|
 |----|:----|
-|Estado de libertação:|Geralmente disponível (GA)|
+|Estado de libertação:|Disponibilidade Geral (GA)|
 |Preços:|Gratuito|
 |Funções e permissões necessárias:|Todos os utilizadores|
 |Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Yes](./media/icons/yes-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
@@ -150,7 +150,7 @@ Quando a monitorização de preços ou agentes não é relevante para um recurso
 
 :::image type="content" source="./media/asset-inventory/agent-pricing-blanks.png" alt-text="Alguns recursos mostram informações em branco na monitorização do agente ou colunas do Azure Defender":::
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Este artigo descreveu a página de inventário de ativos do Azure Security Center.
 

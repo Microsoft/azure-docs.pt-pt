@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.custom: sfrev, devx-track-azurepowershell
-ms.openlocfilehash: c252a1dc86c50327e32816abd99bc206f3b74608
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 07482fe41cdf7700fddd516c1a71eca5beebb4c6
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96902889"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920178"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Preparar o ambiente de desenvolvimento no Windows
 
@@ -62,8 +62,8 @@ Se apenas precisa do SDK, pode instalar este pacote:
 
 As versões atuais são:
 
-* Serviço Fabric SDK e ferramentas 4.2.445
-* Tempo de funcionação do tecido de serviço 7.2.445
+* SDK de tecido de serviço e ferramentas 4.2.452
+* Tempo de funcionação do tecido de serviço 7.2.452
 
 Para obter uma lista de versões suportadas, consulte as [versões Service Fabric](service-fabric-versions.md)
 
@@ -82,7 +82,7 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 
 [Service Fabric é um orquestrador de contentores](service-fabric-containers-overview.md) para implantar microserviços através de um conjunto de máquinas. Para executar aplicações de contentores do Windows no seu cluster de desenvolvimento local, tem primeiro de instalar o Docker para o Windows. Obtenha [Docker CE para windows (estável)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Depois de instalar e iniciar o Docker, clique com o botão direito do rato no ícone de tabuleiro e selecione **Mudar para os contentores do Windows**. Este passo é necessário para executar imagens do Docker baseadas no Windows.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que o ambiente de desenvolvimento está configurado, pode começar a criar e executar aplicações.
 

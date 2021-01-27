@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 5b91d6e58f4ae93bbf020f202991f878e7773114
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 643a52c9be04fb325b8e1d088faeb68e473aa673
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222960"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919957"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking-using-azure-cli"></a>Criar uma máquina virtual do Linux com Rede Acelerada com a CLI do Azure
 
@@ -56,11 +56,9 @@ As seguintes distribuições são suportadas fora da caixa da Galeria Azure:
 ## <a name="limitations-and-constraints"></a>Limitações e Restrições
 
 ### <a name="supported-vm-instances"></a>Instâncias VM apoiadas
-O Networking Acelerado é suportado na maioria dos tamanhos de instância otimizados para o cálculo com 2 ou mais vCPUs.  Estas séries suportadas são: D/DSv2 e F/Fs
+O Networking Acelerado é suportado na maioria dos tamanhos de instância otimizados para o cálculo com 2 ou mais vCPUs. Em casos que suportam a hiper-leitura, o Networking Acelerado é suportado em instâncias VM com 4 ou mais vCPUs. 
 
-Em casos que suportam a hiper-leitura, o Networking Acelerado é suportado em instâncias VM com 4 ou mais vCPUs. As séries apoiadas são: D/Dsv3, D/Dsv4, Dd/Ddv4, Da/Dasv4, E/Esv3, E/Esv4, Ed/Edsv4, Ea/Easv4, Fsv2, Lsv2, Ms/Mms e Ms/Mmsv2.
-
-Para obter mais informações sobre os casos de VM, consulte os [tamanhos do Linux VM](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+O suporte para networking acelerado pode ser encontrado na documentação de [tamanhos de máquinas virtuais](../virtual-machines/sizes.md) individuais. 
 
 ### <a name="custom-images"></a>Imagens Personalizadas
 Se estiver a utilizar uma imagem personalizada e a sua imagem suportar rede acelerada, certifique-se de que tem os controladores necessários para trabalhar com mellanox ConnectX-3 e ConnectX-4 Lx NICs no Azure.

@@ -1,5 +1,5 @@
 ---
-title: Recursos úteis ao trabalhar com a Azure Sentinel. Microsoft Docs
+title: Recursos úteis ao trabalhar com Azure Sentinel| Microsoft Docs
 description: Este documento fornece-lhe uma lista de recursos úteis ao trabalhar com a Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/02/2019
+ms.date: 01/27/2021
 ms.author: yelevin
-ms.openlocfilehash: 2465cf74dbf4fbf074aed8f8e4097a236e628425
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 11c5c77623fcc693210d5a42bf94c968e884fec3
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660649"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920025"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel"></a>Recursos úteis para trabalhar com Azure Sentinel
 
@@ -28,7 +28,7 @@ ms.locfileid: "94660649"
 
 Este artigo lista recursos que podem ajudá-lo a obter mais informações sobre o trabalho com a Azure Sentinel.
 
-Conectores Azure Logic Apps: <https://docs.microsoft.com/connectors/>
+- **Conectores Azure Logic Apps**: <https://docs.microsoft.com/connectors/>
 
 
 ## <a name="auditing-and-reporting"></a>Auditoria e reporte
@@ -86,10 +86,25 @@ Pode visualizar estes dados transmitindo-os a partir do login da Azure Activity 
 
 ## <a name="blogs-and-forums"></a>Blogs e fóruns
 
-Publique as suas perguntas no [espaço TechCommunity](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bd-p/AzureSentinel) para O Azure Sentinel.
+Adoramos ouvir dos nossos utilizadores!
 
-Ver posts de blog do Azure Sentinel da [TechCommunity](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bg-p/AzureSentinelBlog) e [microsoft Azure](https://azure.microsoft.com/blog/tag/azure-sentinel/).
+- **Publique as suas perguntas** no [espaço TechCommunity](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bd-p/AzureSentinel) para O Azure Sentinel. 
+
+- **Envie sugestões para melhorias** através do nosso programa [Voz do Utilizador.](https://feedback.azure.com/forums/920458-azure-sentinel)
+
+- **Ver e comentar** as nossas publicações de blogue do Azure Sentinel:
+
+    - [TechCommunity](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bg-p/AzureSentinelBlog) 
+    - [Microsoft Azure](https://azure.microsoft.com/blog/tag/azure-sentinel/)
+
+Para obter mais informações sobre segurança e conformidade da Azure, consulte o [blog Microsoft Azure Security and Compliance](https://techcommunity.microsoft.com/t5/microsoft-security-and/bg-p/MicrosoftSecurityandCompliance).
 
 
 ## <a name="next-steps"></a>Próximos passos
-Neste documento, você tem uma lista de recursos que são úteis quando você está trabalhando com Azure Sentinel. Encontrará informações adicionais sobre segurança e conformidade da Azure no [blog Microsoft Azure Security and Compliance](/archive/blogs/azuresecurity/).
+
+> [!div class="nextstepaction"]
+> [Certifica-se!](/learn/paths/security-ops-sentinel/)
+
+> [!div class="nextstepaction"]
+> [Leia as histórias de casos de uso do cliente](https://customers.microsoft.com/en-us/search?sq=%22Azure%20Sentinel%20%22&ff=&p=0&so=story_publish_date%20desc)
+

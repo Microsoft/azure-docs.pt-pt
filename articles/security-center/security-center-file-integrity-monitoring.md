@@ -1,5 +1,5 @@
 ---
-title: Monitorização da integridade dos ficheiros no Azure Security Center Microsoft Docs
+title: Monitorização da integridade dos ficheiros no Centro de Segurança Azure | Microsoft Docs
 description: Saiba como configurar a monitorização da integridade do ficheiro (FIM) no Azure Security Center utilizando este walkthrough.
 services: security-center
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: ab173f47ed09dbe77c12cad844d8a1f3654f4a9b
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: 90f0cd913a191f345afd8acc3f3449b87e4cbfaf
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97734764"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918611"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitorização da integridade do ficheiro no Centro de Segurança Azure
 Saiba como configurar a monitorização da integridade do ficheiro (FIM) no Azure Security Center utilizando este walkthrough.
@@ -28,7 +28,7 @@ Saiba como configurar a monitorização da integridade do ficheiro (FIM) no Azur
 
 |Aspeto|Detalhes|
 |----|:----|
-|Estado de libertação:|Geralmente disponível (GA)|
+|Estado de libertação:|Disponibilidade Geral (GA)|
 |Preços:|Requer [Azure Defender para servidores](defender-for-servers-introduction.md).<br>O FIM envia dados para o espaço de trabalho do Log Analytics. Os encargos de dados aplicam-se, com base na quantidade de dados que envia. Consulte [os preços do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) para saber mais.|
 |Funções e permissões necessárias:|**O proprietário do espaço de trabalho** pode ativar/desativar o FIM (para mais informações, consulte [Azure Roles for Log Analytics](/services-hub/health/azure-roles#azure-roles)).<br>**O leitor** pode ver resultados.|
 |Nuvens:|![Sim ](./media/icons/yes-icon.png) nuvens comerciais<br>![Sim ](./media/icons/yes-icon.png) Nacional/Soberano (Eua Gov, China Gov, Outro Gov)<br>Suportado apenas em regiões onde a Azure Automation está disponível.<br>Consulte [regiões apoiadas para o espaço de trabalho do Log Analytics ligado.](../automation/how-to/region-mappings.md)<br>[Saiba mais sobre o rastreio de mudanças.](../automation/change-tracking/overview.md)|
@@ -212,7 +212,7 @@ Em **Edição para Rastreio de Alterações** pode:
 
    ![Adicione um novo item para monitorizar][14]
 
-3. Selecione **Add** (Adicionar). **Adicione para o Change Tracking** abre.
+3. Selecione **Adicionar**. **Adicione para o Change Tracking** abre.
 
    ![Insira informações solicitadas][15]
 
@@ -257,7 +257,7 @@ Pode desativar o FIM. A FIM utiliza a solução Azure Change Tracking para rastr
 
 4. Selecione **Remover** para desativar.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste artigo, aprendeu a utilizar a monitorização da integridade dos ficheiros (FIM) no Centro de Segurança. Para saber mais sobre o Centro de Segurança, consulte as seguintes páginas:
 
 * [Definição de políticas de segurança](tutorial-security-policy.md) -- Saiba como configurar políticas de segurança para as suas subscrições e grupos de recursos Azure.

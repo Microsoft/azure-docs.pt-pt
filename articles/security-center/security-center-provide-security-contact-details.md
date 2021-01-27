@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/01/2020
 ms.author: memildin
-ms.openlocfilehash: 85dffd4d96a78bab9dd890d9ad37572f3e524f06
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 72ded01b141aafb7fd3e4d761882a10eaf0c4b33
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96487937"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920414"
 ---
 # <a name="configure-email-notifications-for-security-alerts"></a>Configure notificações de email para alertas de segurança 
 
@@ -41,10 +41,10 @@ Para evitar cansaço de alerta, o Centro de Segurança limita o volume de mensag
 
 |Aspeto|Detalhes|
 |----|:----|
-|Estado de libertação:|Geralmente disponível (GA)|
+|Estado de libertação:|Disponibilidade Geral (GA)|
 |Preços:|Gratuito|
 |Funções e permissões necessárias:|**Administrador de Segurança**<br>**Proprietário de Assinatura** |
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
+|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Yes](./media/icons/yes-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
 |||
 
 
@@ -62,7 +62,7 @@ Pode enviar notificações por e-mail a indivíduos ou a todos os utilizadores c
 1. Para aplicar as informações de contacto de segurança à sua subscrição, **selecione Guardar**.
 
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 Para saber mais sobre alertas de segurança, consulte as seguintes páginas:
 
 - [Alertas de segurança - um guia](alerts-reference.md)de referência --Saiba mais sobre os alertas de segurança que pode ver no módulo de Proteção de Ameaças do Centro de Segurança Azure

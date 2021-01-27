@@ -1,14 +1,14 @@
 ---
 title: Descrição geral do Azure Resource Graph
 description: Compreenda como o serviço Azure Resource Graph permite uma consulta complexa de recursos em escala através de subscrições e inquilinos.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: overview
-ms.openlocfilehash: 8e61dadc44a2b07066f7bac761c366c746cef1f1
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: b5df124d07b8ecfb20f5dec08830d8156e8df2cd
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057778"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919146"
 ---
 # <a name="what-is-azure-resource-graph"></a>O que é o Azure Resource Graph?
 
@@ -23,7 +23,7 @@ Nesta documentação, vamos abordar cada funcionalidade de forma detalhada.
 
 > [!NOTE]
 > O Azure Resource Graph alimenta a barra de pesquisa do portal Azure, a nova experiência de navegação de 'Todos os recursos' e a história visual de [Mudança](../policy/how-to/determine-non-compliance.md#change-history)da Azure 
->  _visual diff_Policy. É projetado para ajudar os clientes a gerir ambientes de grande escala.
+>  Policy. É projetado para ajudar os clientes a gerir ambientes de grande escala.
 
 [!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
 
@@ -44,7 +44,7 @@ Com o Azure Resource Graph, pode:
 ## <a name="how-resource-graph-is-kept-current"></a>Como o Gráfico de Recursos é mantido atual
 
 Quando um recurso Azure é atualizado, o Gráfico de Recursos é notificado pelo Gestor de Recursos da alteração.
-O Gráfico de Recursos atualiza então a sua base de dados. O Gráfico de Recursos também faz uma _varredura completa_regular. Esta verificação garante que os dados do Gráfico de Recurso estão em vigor se houver notificações perdidas ou quando um recurso for atualizado fora do Gestor de Recursos.
+O Gráfico de Recursos atualiza então a sua base de dados. O Gráfico de Recursos também faz uma _varredura completa_ regular. Esta verificação garante que os dados do Gráfico de Recurso estão em vigor se houver notificações perdidas ou quando um recurso for atualizado fora do Gestor de Recursos.
 
 > [!NOTE]
 > O Resource Graph utiliza uma `GET` a mais recente API não pré-visualização de cada fornecedor de recursos para recolher propriedades e valores. Como resultado, o imóvel esperado pode não estar disponível. Em alguns casos, a versão API utilizada foi ultrapassada para fornecer propriedades mais atuais ou amplamente utilizadas nos resultados. Consulte a [versão Show API para cada](./samples/advanced.md#apiversion) amostra do tipo de recurso para obter uma lista completa no seu ambiente.
@@ -93,7 +93,7 @@ O Resource Graph suporta Azure CLI, Azure PowerShell, Azure SDK para Python, e m
 - [Azure PowerShell](./first-query-powershell.md#add-the-resource-graph-module)
 - [Python](./first-query-python.md#add-the-resource-graph-library)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre a [língua de consulta.](./concepts/query-language.md)
 - Consulte o idioma em uso nas [consultas de arranque](./samples/starter.md).

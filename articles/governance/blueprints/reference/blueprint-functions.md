@@ -1,14 +1,14 @@
 ---
 title: Funções de Plantas Azure
 description: Descreve as funções disponíveis para utilização com artefactos de planta em definições e atribuições de Plantas Azure.
-ms.date: 08/27/2020
+ms.date: 01/27/2021
 ms.topic: reference
-ms.openlocfilehash: fe984ee7664b0d50fb891d946f9f40a200ccce09
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92cb906e87179073b7a69aa0bd4eab22c77087f9
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89050765"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919279"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>Funções para utilização com Plantas Azure
 
@@ -36,7 +36,7 @@ Devolve um objeto de propriedades povoadas com as saídas de artefactos de plant
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| nome de artefactos |Sim |string |O nome de um artefacto de planta. |
+| nome de artefactos |Yes |string |O nome de um artefacto de planta. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -109,10 +109,10 @@ Alguns exemplos de obtenção de dados da amostra _myTemplateArtifact_ são:
 | Expression | Tipo | Valor |
 |:---|:---|:---|
 |`[artifacts("myTemplateArtifact").outputs.myArray]` | Matriz | \["Primeiro", "segundo"\] |
-|`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | Cadeia | "Primeiro" |
-|`[artifacts("myTemplateArtifact").outputs.myString]` | Cadeia | "o meu valor de corda" |
+|`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | String | "Primeiro" |
+|`[artifacts("myTemplateArtifact").outputs.myString]` | String | "o meu valor de corda" |
 |`[artifacts("myTemplateArtifact").outputs.myObject]` | Objeto | { "myproperty": "my value", "anotherProperty": true } |
-|`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | Cadeia | "o meu valor" |
+|`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | String | "o meu valor" |
 |`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | Booleano | Verdadeiro |
 
 ## <a name="concat"></a>concat
@@ -125,8 +125,8 @@ Combina vários valores de corda e devolve a corda concatenated.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| string1 |Sim |string |O primeiro valor para a concatenação. |
-| argumentos adicionais |Não |string |Valores adicionais na ordem sequencial para a concatenação |
+| string1 |Yes |string |O primeiro valor para a concatenação. |
+| argumentos adicionais |No |string |Valores adicionais na ordem sequencial para a concatenação |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -150,7 +150,7 @@ Devolve um valor de parâmetro de planta. O nome do parâmetro especificado deve
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| nome de parâmetroName |Sim |string |O nome do parâmetro para voltar. |
+| nome de parâmetroName |Yes |string |O nome do parâmetro para voltar. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -271,7 +271,7 @@ Devolve um objeto que representa o artefacto do grupo de recursos especificado. 
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| nome de espaço reservado |Sim |string |O nome reservado do artefacto do grupo de recursos para regressar. |
+| nome de espaço reservado |Yes |string |O nome reservado do artefacto do grupo de recursos para regressar. |
 
 ### <a name="return-value"></a>Valor devolvido
 

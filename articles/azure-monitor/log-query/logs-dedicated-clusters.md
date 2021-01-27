@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: a5cbbed3881433121f5ab811082969bc3c6c4f7f
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: adcc894db630bba11e84e2f277705d2f31caf7dc
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98609949"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920228"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Azure Monitor Logs Clusters Dedicados
 
@@ -25,9 +25,6 @@ As capacidades que requerem agrupamentos dedicados são:
 - **[Multi-workspace](../log-query/cross-workspace-query.md)** - Se um cliente estiver a usar mais do que um espaço de trabalho para a produção, pode fazer sentido usar cluster dedicado. As consultas de espaço de trabalho cruzado serão mais rápidas se todos os espaços de trabalho estiverem no mesmo aglomerado. Poderia também ser mais rentável utilizar o cluster dedicado, uma vez que os níveis de reserva de capacidade atribuídos têm em conta toda a ingestão de clusters e se aplicam a todos os seus espaços de trabalho, mesmo que alguns deles sejam pequenos e não elegíveis para desconto de reserva de capacidade.
 
 Os clusters dedicados exigem que os clientes se comprometam com uma capacidade de pelo menos 1 TB de ingestão de dados por dia. A migração para um cluster dedicado é simples. Não há perda de dados ou interrupção de serviço. 
-
-> [!IMPORTANT]
-> Os clusters dedicados são aprovados e totalmente apoiados para implantações de produção. No entanto, devido a restrições de capacidade temporárias, exigimos que o seu pré-registo utilize a funcionalidade. Utilize os seus contactos na Microsoft para fornecer os seus IDs de subscrições.
 
 ## <a name="management"></a>Gestão 
 
@@ -570,7 +567,7 @@ Utilize a seguinte chamada REST para eliminar um cluster:
   -  404- Espaço de trabalho não encontrado. O espaço de trabalho especificado não existe ou foi apagado.
   -  409 - Ligação do espaço de trabalho ou operação de desvinculação em processo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [a faturação dedicada do cluster do Log Analytics](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters)
 - Conheça o [design adequado dos espaços de trabalho do Log Analytics](../platform/design-logs-deployment.md)

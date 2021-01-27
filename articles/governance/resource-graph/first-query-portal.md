@@ -1,14 +1,14 @@
 ---
 title: 'Quickstart: A sua primeira consulta de portal'
 description: Neste arranque rápido, siga os passos para executar a sua primeira consulta a partir do portal Azure usando o Azure Resource Graph Explorer.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: b5f5203b3842ebc3edbd97bca1ca3c101f47e397
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: cb62a1ae3a29a7aae793fcee6fd896fe0260dc10
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057387"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920104"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Quickstart: Executar a sua primeira consulta de gráfico de recurso usando O Explorador de Gráficos de Recursos Azure
 
@@ -94,7 +94,7 @@ Para fornecer exemplos de consultas de gráficos de recursos e como o Resource G
 
 - [Explorador de gráficos de recurso - painel de amostras #2](https://github.com/Azure-Samples/Governance/blob/master/src/resource-graph/portal-dashboards/sample-2/resourcegraphexplorer-sample-2.json)
 
-  :::image type="content" source="./media/arge-sample2-small.png" alt-text="Imagem de exemplo para amostra de dashboard #1" lightbox="./media/arge-sample2-large.png":::
+  :::image type="content" source="./media/arge-sample2-small.png" alt-text="Imagem de exemplo para amostra de dashboard #2" lightbox="./media/arge-sample2-large.png":::
 
 > [!NOTE]
 > As contagens e gráficos nas imagens do painel de instrumentos acima variam consoante o seu ambiente Azure.
@@ -103,11 +103,11 @@ Para fornecer exemplos de consultas de gráficos de recursos e como o Resource G
 
 1. No portal Azure, selecione **Dashboard** a partir do painel esquerdo.
 
-1. Selecione **Upload**e, em seguida, localize e selecione o ficheiro do painel de instrumentos de amostra descarregado. Em seguida, **selecione Abrir**.
+1. Selecione **Upload** e, em seguida, localize e selecione o ficheiro do painel de instrumentos de amostra descarregado. Em seguida, **selecione Abrir**.
 
 O painel de instrumentos importado é exibido automaticamente. Uma vez que existe agora no seu portal Azure, pode explorar e fazer alterações conforme necessário ou criar novos dashboards a partir do exemplo para partilhar com as suas equipas. Para obter mais informações sobre o trabalho com os dashboards, consulte [Criar e partilhar dashboards no portal Azure.](../../azure-portal/azure-portal-dashboards.md)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se desejar remover os dashboards de gráficos de recursos da amostra do seu ambiente do portal Azure, pode fazê-lo com os seguintes passos:
 
@@ -117,7 +117,7 @@ Se desejar remover os dashboards de gráficos de recursos da amostra do seu ambi
 
 1. Selecione **Eliminar** do menu do painel de instrumentos na parte superior do painel de instrumentos e selecione **Ok** para confirmar.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste quickstart, usou o Azure Resource Graph Explorer para executar a sua primeira consulta e analisou exemplos de dashboards alimentados por Resource Graph. Para saber mais sobre a linguagem Resource Graph, continue na página de detalhes da linguagem de consulta.
 

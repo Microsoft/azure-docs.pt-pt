@@ -1,14 +1,14 @@
 ---
 title: 'Quickstart: A sua primeira consulta ruby'
 description: Neste arranque rápido, siga os passos para ativar a gema de Gráfico de Recurso para Ruby e executar a sua primeira consulta.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: 4ffd7f33fb83b7a1f247f687b77dd2ef9c8e5bc9
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 41769359eaa1f930d34b0a182f35da38a6f5109d
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057319"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920042"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-ruby"></a>Quickstart: Executar a sua primeira consulta de Gráfico de Recurso usando Ruby
 
@@ -122,7 +122,7 @@ Em cada chamada `argQuery` para, existem variáveis que são usadas que você pr
 
 Quando a consulta final é executada várias vezes, assumindo que nada no seu ambiente está a mudar, os resultados devolvidos são consistentes e encomendados pela propriedade **Name,** mas ainda limitados aos cinco melhores resultados.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se desejar remover as joias instaladas do seu ambiente Ruby, pode fazê-lo utilizando o seguinte comando:
 
@@ -134,7 +134,7 @@ gem uninstall azure_mgmt_resourcegraph
 > [!NOTE]
 > A joia `azure_mgmt_resourcegraph` tem dependências como `ms_rest` e que também podem ter sido `ms_rest_azure` instaladas dependendo do seu ambiente. Pode desinstalar estas joias também se já não for necessário.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido, adicionou as joias do Gráfico de Recurso ao seu ambiente Ruby e executou a sua primeira consulta. Para saber mais sobre a linguagem Resource Graph, continue na página de detalhes da linguagem de consulta.
 

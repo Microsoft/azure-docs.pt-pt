@@ -11,12 +11,12 @@ author: anumjs
 ms.author: anjangsh
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: 423fd0f91de3e936e2920d57e5bc606bb86a2437
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 74343b2f05bb4a59e475449c87524ff66cdd605d
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92786722"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919549"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Começar com Ferramentas elásticas de base de dados
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -85,13 +85,15 @@ Para descarregar e executar a amostra, siga estes passos:
 
 1. Descarregue as [Ferramentas Elásticas DB para Azure SQL - Obter Amostra de Início](https://github.com/Azure/elastic-db-tools). Desaperte a amostra para um local que escolher.
 
-2. Para criar um projeto, abra a solução *ElasticScaleStarterKit.sln* a partir do diretório *C#.*
+2. Para criar um projeto, abra o *ElasticDatabaseTools.sln* solução a partir do *diretório de instrumentos elásticos-db-ferramentas-master.* 
 
-3. Na solução para o projeto da amostra, abra o ficheiro *app.config.* Em seguida, siga as instruções do ficheiro para adicionar o nome do servidor e as informações de inscrição (nome de utilizador e palavra-passe).
+3. Desaponte o projeto *ElasticScaleStarterKit* como o Projeto Startup.
 
-4. Compile e execute a aplicação. Quando for solicitado, ative o Visual Studio para restaurar os pacotes NuGet da solução. Esta ação descarrega a versão mais recente da biblioteca de clientes de base de dados elástica do NuGet.
+4. No projeto *ElasticScaleStarterKit,* abra o ficheiro *App.config.* Em seguida, siga as instruções do ficheiro para adicionar o nome do servidor e as informações de inscrição (nome de utilizador e palavra-passe).
 
-5. Para saber mais sobre as capacidades da biblioteca do cliente, experimente as várias opções. Note os passos que a aplicação toma na saída da consola e sinta-se livre para explorar o código nos bastidores.
+5. Compile e execute a aplicação. Quando for solicitado, ative o Visual Studio para restaurar os pacotes NuGet da solução. Esta ação descarrega a versão mais recente da biblioteca de clientes de base de dados elástica do NuGet.
+
+6. Para saber mais sobre as capacidades da biblioteca do cliente, experimente as várias opções. Note os passos que a aplicação toma na saída da consola e sinta-se livre para explorar o código nos bastidores.
 
    ![Progresso][4]
 
@@ -102,17 +104,17 @@ Parabéns! Construiu e executou com sucesso a sua primeira aplicação de sharde
 
 ## <a name="key-pieces-of-the-code-sample"></a>Peças-chave da amostra de código
 
-* **Gestão de fragmentos e mapas de fragmentos** : O código ilustra como trabalhar com fragmentos, gamas e mapeamentos no ficheiro *ShardManagementUtils.cs.* Para obter mais informações, consulte [bases de dados de escala com o gestor de mapas de fragmentos.](https://go.microsoft.com/?linkid=9862595)  
+* **Gestão de fragmentos e mapas de fragmentos**: O código ilustra como trabalhar com fragmentos, gamas e mapeamentos no ficheiro *ShardManagementUtils.cs.* Para obter mais informações, consulte [bases de dados de escala com o gestor de mapas de fragmentos.](https://go.microsoft.com/?linkid=9862595)  
 
-* **Encaminhamento dependente de dados** : O encaminhamento de transações para o fragmento certo é indicado no ficheiro *DataDependentRoutingSample.cs.* Para obter mais informações, consulte [o encaminhamento dependente de dados](https://go.microsoft.com/?linkid=9862596).
+* **Encaminhamento dependente de dados**: O encaminhamento de transações para o fragmento certo é indicado no ficheiro *DataDependentRoutingSample.cs.* Para obter mais informações, consulte [o encaminhamento dependente de dados](https://go.microsoft.com/?linkid=9862596).
 
-* **Consulta sobre vários fragmentos** : A consulta através de fragmentos é ilustrada no ficheiro *MultiShardQuerySample.cs.* Para obter mais informações, consulte [a consulta multi-fragmentos.](https://go.microsoft.com/?linkid=9862597)
+* **Consulta sobre vários fragmentos**: A consulta através de fragmentos é ilustrada no ficheiro *MultiShardQuerySample.cs.* Para obter mais informações, consulte [a consulta multi-fragmentos.](https://go.microsoft.com/?linkid=9862597)
 
-* **Adicionar fragmentos vazios** : A adição iterativa de novos fragmentos vazios é efetuada pelo código no ficheiro *CreateShardSample.cs.* Para obter mais informações, consulte [bases de dados de escala com o gestor de mapas de fragmentos.](https://go.microsoft.com/?linkid=9862595)
+* **Adicionar fragmentos vazios**: A adição iterativa de novos fragmentos vazios é efetuada pelo código no ficheiro *CreateShardSample.cs.* Para obter mais informações, consulte [bases de dados de escala com o gestor de mapas de fragmentos.](https://go.microsoft.com/?linkid=9862595)
 
 ## <a name="other-elastic-scale-operations"></a>Outras operações à escala elástica
 
-* **Divisão de um fragmento existente** : A capacidade de dividir fragmentos é fornecida pela ferramenta de fusão dividida. Para obter mais informações, consulte [dados de deslocação entre bases de dados de nuvem escalonadas](elastic-scale-overview-split-and-merge.md).
+* **Divisão de um fragmento existente**: A capacidade de dividir fragmentos é fornecida pela ferramenta de fusão dividida. Para obter mais informações, consulte [dados de deslocação entre bases de dados de nuvem escalonadas](elastic-scale-overview-split-and-merge.md).
 
 * **Os fragmentos existentes** também são efetuados através da ferramenta de fusão de divisões. Para obter mais informações, consulte [dados de deslocação entre bases de dados de nuvem escalonadas](elastic-scale-overview-split-and-merge.md).
 
@@ -124,7 +126,7 @@ Por exemplo, a aplicação da amostra cria novas bases de dados. O custo desta c
 
 Para obter informações sobre preços, consulte [os detalhes dos preços da Base de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre as Ferramentas de Base de Dados Elásticas, consulte os seguintes artigos:
 

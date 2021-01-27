@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: tutorial
 ms.date: 11/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: e7e65d5d2941765df98b3bf3b7fb8ff2e89b7e9f
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 1876ab86e6f4c46edc23361dd884d8b32328f36c
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94411206"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919074"
 ---
 # <a name="tutorial-create-a-user-vpn-connection-using-azure-virtual-wan"></a>Tutorial: Criar uma ligação VPN do utilizador utilizando a Azure Virtual WAN
 
@@ -24,6 +24,7 @@ Neste tutorial, ficará a saber como:
 > * Criar uma WAN Virtual
 > * Criar uma configuração P2S
 > * Criar um hub virtual
+> * Escolha piscinas de endereços de cliente
 > * Especificar servidores DNS
 > * Gerei o pacote de configuração do perfil do cliente VPN
 > * Configurar clientes VPN
@@ -49,9 +50,14 @@ Uma configuração ponto-a-local (P2S) define os parâmetros para ligar clientes
 
 [!INCLUDE [Create hub](../../includes/virtual-wan-p2s-hub-include.md)]
 
+
+## <a name="choose-p2s-client-address-pools"></a><a name="chooseclientpools"></a> Escolha piscinas de endereços de cliente P2S
+
+[!INCLUDE [Choose pools](../../includes/virtual-wan-allocating-p2s-pools.md)]
+
 ## <a name="specify-dns-server"></a><a name="dns"></a>Especificar o servidor DNS
 
-Pode configurar esta definição quando criar o hub ou modificá-lo mais tarde. Para modificar, localize o centro virtual. Em **VPN do utilizador (ponto a site)** , selecione **Configurar** e introduza o endereço IP do servidor DNS na caixa de texto **dos Servidores DNS** personalizados(es). Pode especificar até 5 Servidores DNS.
+Pode configurar esta definição quando criar o hub ou modificá-lo mais tarde. Para modificar, localize o centro virtual. Em **VPN do utilizador (ponto a site)**, selecione **Configurar** e introduza o endereço IP do servidor DNS na caixa de texto **dos Servidores DNS** personalizados(es). Pode especificar até 5 Servidores DNS.
 
    :::image type="content" source="media/virtual-wan-point-to-site-portal/custom-dns.png" alt-text="DNS personalizado" lightbox="media/virtual-wan-point-to-site-portal/custom-dns-expand.png":::
 
@@ -74,7 +80,9 @@ Uma vez terminada a configuração do seu cliente, pode ligar-se.
 1. Na página **'Visão Geral',** cada ponto no mapa representa um hub.
 1. Na secção **Hubs e conexões,** pode ver o estado do hub, site, região, estado de ligação VPN e bytes dentro e fora.
 
-## <a name="clean-up-resources"></a><a name="cleanup"></a>Limpar recursos
+
+
+## <a name="clean-up-resources"></a><a name="cleanup"></a>Limpar os recursos
 
 Quando já não precisar desses recursos, pode utilizar [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) para remover o grupo de recursos e todos os recursos que o mesmo contém. Substitua "myResourceGroup" pelo nome do grupo de recursos e execute o seguinte comando do PowerShell:
 
@@ -82,7 +90,7 @@ Quando já não precisar desses recursos, pode utilizar [Remove-AzureRmResourceG
 Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Em seguida, para saber mais sobre O WAN Virtual, consulte:
 

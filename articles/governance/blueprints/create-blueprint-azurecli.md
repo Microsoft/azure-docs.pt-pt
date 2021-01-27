@@ -1,14 +1,14 @@
 ---
 title: 'Quickstart: Criar uma planta com Azure CLI'
 description: Neste arranque rápido, utiliza-se a Azure Blueprints para criar, definir e implantar artefactos utilizando o Azure CLI.
-ms.date: 01/26/2021
+ms.date: 01/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: a0e44925bdec78b8b02a50c8b3f91db0bb764976
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 6ce3031c93f973c2efb251fad371a6f3750ae0fd
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/27/2021
-ms.locfileid: "98875216"
+ms.locfileid: "98920245"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-azure-cli"></a>Quickstart: Definir e Atribuir uma Planta Azure com Azure CLI
 
@@ -167,6 +167,9 @@ O primeiro passo na definição de um padrão de conformidade é compor um esque
         --parameters artifacts\policyTags.json
      ```
 
+     > [!NOTE]
+     > Ao utilizar `az blueprint` num Mac, substitua `\` por `/` valores de parâmetros que incluam o caminho. Neste caso, o valor dos **parâmetros** torna-se `artifacts/policyTags.json` .
+
 1. Adicione outra atribuição de política para a etiqueta de Armazenamento (reutilizando o parâmetro _storageAccountType_) na subscrição. Este artefacto de atribuição de política adicional demonstra que um parâmetro definido no esquema é utilizável por mais do que um artefacto. No exemplo, o **storageAccountType** é utilizado para definir uma etiqueta no grupo de recursos. Este valor apresenta informações sobre a conta de armazenamento que é criada no passo seguinte. Este exemplo utiliza a etiqueta Apply e o _seu valor padrão para grupos_ de recursos integrados com um GUID de `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71` .
 
    - Ficheiro JSON - artifacts\policyStorageTags.jsem
@@ -193,6 +196,9 @@ O primeiro passo na definição de um padrão de conformidade é compor um esque
         --description 'Apply storage tag and the parameter also used by the template to resource groups' \
         --parameters artifacts\policyStorageTags.json
      ```
+
+     > [!NOTE]
+     > Ao utilizar `az blueprint` num Mac, substitua `\` por `/` valores de parâmetros que incluam o caminho. Neste caso, o valor dos **parâmetros** torna-se `artifacts/policyStorageTags.json` .
 
 1. Adicione um modelo no grupo de recursos. O parâmetro **do modelo** para um modelo ARM inclui os componentes JSON normais do modelo. O modelo também reutiliza os parâmetros de esquema **storageAccountType**, **tagName** e **tagValue** ao passar cada um para o modelo. Os parâmetros da planta estão disponíveis para o modelo usando **parâmetros** e dentro do modelo JSON que o par de valores-chave é usado para injetar o valor. Os nomes de parâmetros da planta e do modelo podem ser os mesmos.
 
@@ -276,6 +282,9 @@ O primeiro passo na definição de um padrão de conformidade é compor um esque
         --parameters artifacts\templateStorageParams.json \
         --resource-group-art 'storageRG'
      ```
+
+     > [!NOTE]
+     > Ao utilizar `az blueprint` num Mac, substitua `\` por `/` valores de parâmetros que incluam o caminho. Neste caso, o valor para o **modelo** torna-se `artifacts/templateStorage.json` e os **parâmetros** tornam-se `artifacts/templateStorageParams.json` .
 
 1. Adicione atribuição de função no grupo de recursos. À semelhança da entrada de atribuição de função anterior, o exemplo abaixo utiliza o identificador de definição para a função **Proprietário** e fornece-lhe um parâmetro diferente do esquema. Este exemplo utiliza a função incorporada _do Proprietário_ com um GUID de `8e3af657-a8ff-443c-a75c-2fe8c4bcb635` .
 

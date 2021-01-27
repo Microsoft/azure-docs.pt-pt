@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 02/02/2019
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1c5bc4400e99fb1c24e321e623aaee523b9c7383
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e1565d4f7792dca5242965d11c58faa90e2222d3
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85210988"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920380"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Utilize horários de manutenção para gerir atualizações de serviços e manutenção
 
@@ -38,7 +38,7 @@ A integração com as notificações de Saúde do Serviço e o Monitor de Verifi
 Uma notificação antecipada de 24 horas precede todos os eventos de manutenção que não são para os níveis DWC400c e inferiores.
 
 > [!NOTE]
-> No caso de sermos obrigados a implementar uma atualização crítica de tempo, os tempos de notificação avançados podem ser significativamente reduzidos.
+> No caso de sermos obrigados a implementar uma atualização crítica de tempo, os tempos de notificação avançados podem ser significativamente reduzidos. Isto pode ocorrer fora de uma janela de manutenção identificada devido à natureza crítica da atualização.
 
 Se recebeu a notificação antecipada de que a manutenção será feita, mas a manutenção não pode ser realizada durante o período de tempo na notificação, receberá uma notificação de cancelamento. A manutenção será retomada durante o próximo período de manutenção programado.
 
@@ -94,7 +94,7 @@ Durante a pré-visualização, algumas regiões podem ainda não suportar o conj
 
    ![Mensagem sobre disponibilidade da região](./media/maintenance-scheduling/maintenance-not-active-toast.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Saiba mais](../../azure-monitor/platform/alerts-metric.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) sobre a criação, visualização e gestão de alertas utilizando o Azure Monitor.
 - [Saiba mais](../..//azure-monitor/platform/alerts-log-webhook.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) sobre as ações de webhook para regras de alerta de registo.

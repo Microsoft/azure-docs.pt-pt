@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: rohink
-ms.openlocfilehash: 3adbf34e4c19a76c2b5b2b1968c7821f37965929
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: c72e17e601ebf87b0f344a4723159ae22abc81d1
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965634"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919889"
 ---
 # <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>Configurar DNS invertidos para serviços hospedados em Azure
 
@@ -33,7 +33,7 @@ Antes de ler este artigo, deve estar familiarizado com esta [visão geral do DNS
 No Azure DNS, os recursos de computação (tais como máquinas virtuais, conjuntos de escala de máquinas virtuais ou clusters de tecido de serviço) são expostos através de um recurso PublicIpAddress. As pesquisas de DNS inversas são configuradas usando a propriedade 'ReverseFqdn' do PublicIpAddress.
 
 
-O DNS inverso não é atualmente suportado para o Serviço de Aplicações Azure.
+O DNS invertido não é atualmente suportado para o Serviço de Aplicações Azure e Gateway de aplicações.
 
 ## <a name="validation-of-reverse-dns-records"></a>Validação de registos DNS invertidos
 
@@ -219,7 +219,7 @@ São de graça!  Não há custo adicional para registos ou consultas de DNS inve
 
 ### <a name="will-my-reverse-dns-records-resolve-from-the-internet"></a>Os meus registos DNS invertidos vão resolver-se a partir da internet?
 
-Sim. Uma vez definida a propriedade DNS inversa para o seu serviço Azure, a Azure gere todas as delegações de DNS e zonas DNS necessárias para garantir que o registo de DNS invertido resolve para todos os utilizadores da Internet.
+Yes. Uma vez definida a propriedade DNS inversa para o seu serviço Azure, a Azure gere todas as delegações de DNS e zonas DNS necessárias para garantir que o registo de DNS invertido resolve para todos os utilizadores da Internet.
 
 ### <a name="are-default-reverse-dns-records-created-for-my-azure-services"></a>Os registos DNS invertidos padrão são criados para os meus serviços Azure?
 
@@ -249,7 +249,7 @@ Não. Atualmente, o Azure suporta DNS invertidos apenas para recursos IPv4 Publi
 
 A capacidade técnica de enviar e-mails diretamente de uma implementação Azure depende do tipo de subscrição. Independentemente do tipo de subscrição, a Microsoft recomenda a utilização de serviços de retransmissão de correio fidedignos para enviar correio de saída. Para mais detalhes, consulte [Segurança Azure Reforçada para envio de E-mails – Atualização de novembro de 2017](../virtual-network/troubleshoot-outbound-smtp-connectivity.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre DNS invertidos, consulte [a pesquisa reversa do DNS na Wikipédia.](https://en.wikipedia.org/wiki/Reverse_DNS_lookup)
 <br>

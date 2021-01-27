@@ -4,12 +4,12 @@ description: Neste arranque rápido, você ativa eventos de Grade de Evento para
 ms.topic: article
 ms.date: 08/23/2018
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 2d13dd0ec5e50086e674b215d93917d6173d5af9
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: b4038bb232c14278e838f2c34706dcc103def7e4
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97694395"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919668"
 ---
 # <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Quickstart: Enviar eventos do registo privado de contentores para a Grade de Eventos
 
@@ -144,7 +144,7 @@ Agora que a aplicação da amostra está a funcionar e que subscreveu o seu regi
 Execute o seguinte comando Azure CLI para construir uma imagem de contentor a partir do conteúdo de um repositório GitHub. Por predefinição, a ACR Tasks empurra automaticamente uma imagem construída com sucesso para o seu registo, o que gera o `ImagePushed` evento.
 
 ```azurecli-interactive
-az acr build --registry $ACR_NAME --image myimage:v1 -f Dockerfile https://github.com/Azure-Samples/acr-build-helloworld-node.git
+az acr build --registry $ACR_NAME --image myimage:v1 -f Dockerfile https://github.com/Azure-Samples/acr-build-helloworld-node.git#main
 ```
 
 Deve ver a saída semelhante à seguinte enquanto a ACR Tasks constrói e, em seguida, empurra a sua imagem. A seguinte produção de amostra foi truncada para a brevidade.
@@ -218,7 +218,7 @@ Pode encontrar a referência de mensagem do registo do registo do contentor Azur
 
 [Esquema de evento de Azure Event Grid para registo de contentores](../event-grid/event-schema-container-registry.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste quickstart, você implantou um registo de contentores, construiu uma imagem com tarefas ACR, apagou-a e consumiu os eventos do seu registo a partir da Grade de Eventos com uma aplicação de amostragem. Em seguida, passe para o tutorial de tarefas ACR para saber mais sobre a construção de imagens de contentores na nuvem, incluindo construções automatizadas na atualização da imagem base:
 

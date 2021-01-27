@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 09/10/2020
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: 1ca2ded69b0279a60d8ed83cf310a58dadf1a337
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 12cc2de6cd1a8e9ddf40b358c94b720b8b2cf594
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751993"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920448"
 ---
 # <a name="suppress-alerts-from-azure-defender"></a>Alertas de Supressão do Azure Defender
 
@@ -23,10 +23,10 @@ Esta página explica como pode usar regras de supressão de alertas para suprimi
 
 |Aspeto|Detalhes|
 |----|:----|
-|Estado de libertação:| Disponível em Geral |
+|Estado de libertação:|Disponibilidade Geral (GA)|
 |Preços:|Gratuito<br>(A maioria dos alertas de segurança só estão disponíveis com o Azure Defender)|
 |Funções e permissões necessárias:|**Administração de segurança** e **Proprietário** pode criar/eliminar regras.<br>**O leitor de segurança** e **o Reader** podem ver as regras.|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
+|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Yes](./media/icons/yes-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
 |||
 
 
@@ -142,7 +142,7 @@ Os métodos HTTP relevantes para as regras de supressão na API REST são:
 Para obter todos os detalhes e exemplos de utilização, consulte a documentação da [API.](/rest/api/securitycenter/) 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Este artigo descreveu as regras de supressão no Azure Security Center que automaticamente descartam alertas indesejados.
 

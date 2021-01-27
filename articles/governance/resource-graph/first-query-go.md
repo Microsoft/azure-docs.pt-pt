@@ -1,14 +1,14 @@
 ---
 title: 'Quickstart: A sua primeira consulta go'
 description: Neste arranque rápido, siga os passos para ativar o pacote De Gráfico de Recurso para Go e executar a sua primeira consulta.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: e09bbb63b56fd30eb3aa9e7e527acdd8691d3ee6
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 4949801b3dc97904680d09e685fd225812a0e14d
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97655803"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920067"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-go"></a>Quickstart: Executar a sua primeira consulta de Gráfico de Recurso usando Go
 
@@ -144,7 +144,7 @@ go clean -i github.com/Azure/azure-sdk-for-go/services/resourcegraph/mgmt/2019-0
 go clean -i github.com/Azure/go-autorest/autorest/azure/auth
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido, adicionou os pacotes de Gráfico de Recurso ao ambiente Go e executou a sua primeira consulta. Para saber mais sobre a linguagem Resource Graph, continue na página de detalhes da linguagem de consulta.
 

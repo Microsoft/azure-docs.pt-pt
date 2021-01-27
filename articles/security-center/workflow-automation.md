@@ -1,5 +1,5 @@
 ---
-title: Automação de fluxo de trabalho no Centro de Segurança Azure Microsoft Docs
+title: Automação de fluxo de trabalho em Azure Security Center | Microsoft Docs
 description: Saiba como criar e automatizar fluxos de trabalho no Centro de Segurança Azure
 services: security-center
 author: memildin
@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 10/27/2020
 ms.author: memildin
-ms.openlocfilehash: a7341362183aee4a23556a164677bc320babdfec
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 674ba1cf03f48eb1c746b115d981740b5b938aab
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900832"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919532"
 ---
 # <a name="automate-responses-to-security-center-triggers"></a>Automatizar respostas aos gatilhos do Centro de Segurança
 
@@ -26,23 +26,23 @@ Este artigo descreve a funcionalidade de automatização do fluxo de trabalho do
 
 |Aspeto|Detalhes|
 |----|:----|
-|Estado de libertação:|Geralmente disponível (GA)|
+|Estado de libertação:|Disponibilidade Geral (GA)|
 |Preços:|Gratuito|
 |Funções e permissões necessárias:|**Papel de administrador de segurança** ou **Proprietário** no grupo de recursos<br>Também deve ter permissões de escrita para o recurso alvo<br><br>Para trabalhar com fluxos de trabalho Azure Logic Apps, também deve ter as seguintes funções/permissões de Aplicações Lógicas:<br> - As permissões [do Operador de Aplicações Lógicas](../role-based-access-control/built-in-roles.md#logic-app-operator) são necessárias ou o acesso à Aplicação Lógica /gatilho (esta função não pode criar ou editar aplicações lógicas; apenas *executar* as existentes)<br> - As permissões [de Contribuidores de Aplicações Lógicas](../role-based-access-control/built-in-roles.md#logic-app-contributor) são necessárias para a criação e modificação de Aplicações Lógicas<br>Se quiser utilizar conectores Logic App, poderá precisar de credenciais adicionais para iniciar sôm nos respetivos serviços (por exemplo, as suas instâncias Outlook/Teams/Slack)|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
+|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Yes](./media/icons/yes-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
 |||
 
 
 
 ## <a name="create-a-logic-app-and-define-when-it-should-automatically-run"></a>Crie uma aplicação lógica e defina quando deve ser executado automaticamente 
 
-1. A partir da barra lateral do Centro de Segurança, selecione **a automatização do fluxo de trabalho** .
+1. A partir da barra lateral do Centro de Segurança, selecione **a automatização do fluxo de trabalho**.
 
     :::image type="content" source="./media/workflow-automation/list-of-workflow-automations.png" alt-text="Lista de automatizações de fluxos de trabalho":::
 
     A partir desta página pode criar novas regras de automatização, bem como ativar, desativar ou eliminar as existentes.
 
-1. Para definir um novo fluxo de trabalho, clique em **Adicionar automatização de fluxo de trabalho** . 
+1. Para definir um novo fluxo de trabalho, clique em **Adicionar automatização de fluxo de trabalho**. 
 
     Um painel aparece com as opções para a sua nova automatização. Aqui pode introduzir:
     1. Um nome e descrição para a automação.
@@ -53,7 +53,7 @@ Este artigo descreve a funcionalidade de automatização do fluxo de trabalho do
 
     1. A Aplicação Lógica que será executada quando as condições do gatilho estiverem reunidas. 
 
-        :::image type="content" source="./media/workflow-automation/add-workflow.png" alt-text="Lista de automatizações de fluxos de trabalho":::
+        :::image type="content" source="./media/workflow-automation/add-workflow.png" alt-text="Adicione painel de automatizações de fluxo de trabalho":::
 
 1. A partir da secção Ações, clique em **Criar um novo** para iniciar o processo de criação da App Lógica.
 
@@ -61,7 +61,7 @@ Este artigo descreve a funcionalidade de automatização do fluxo de trabalho do
 
     [![Criação de uma nova App Lógica](media/workflow-automation/logic-apps-create-new.png)](media/workflow-automation/logic-apps-create-new.png#lightbox)
 
-1. Insira um nome, grupo de recursos e localização, e clique em **Criar** .
+1. Insira um nome, grupo de recursos e localização, e clique em **Criar**.
 
 1. Na sua nova aplicação lógica, pode escolher entre modelos incorporados e predefinidos da categoria de segurança. Ou pode definir um fluxo personalizado de eventos que ocorram quando este processo é desencadeado.
 
@@ -90,7 +90,7 @@ Este artigo descreve a funcionalidade de automatização do fluxo de trabalho do
 
 Também pode executar As Aplicações Lógicas manualmente ao visualizar qualquer alerta de segurança ou recomendação.
 
-Para executar manualmente uma Aplicação Lógica, abra um alerta ou uma recomendação e clique em **Trigger Logic App** :
+Para executar manualmente uma Aplicação Lógica, abra um alerta ou uma recomendação e clique em **Trigger Logic App**:
 
 [![Desencadear manualmente uma Aplicação Lógica](media/workflow-automation/manually-trigger-logic-app.png)](media/workflow-automation/manually-trigger-logic-app.png#lightbox)
 
@@ -116,11 +116,11 @@ Implementar estas políticas:
     > [!TIP]
     > Também pode encontrá-las pesquisando a Política de Azure:
     > 1. Política aberta do Azure.
-    > :::image type="content" source="./media/continuous-export/opening-azure-policy.png" alt-text="Lista de automatizações de fluxos de trabalho":::
+    > :::image type="content" source="./media/continuous-export/opening-azure-policy.png" alt-text="Aceder à Política de Azure":::
     > 2. A partir do menu Azure Policy, selecione **Definições** e procure-as pelo nome. 
 
-1. Na página política Azure relevante, selecione **Atribuir** .
-    :::image type="content" source="./media/workflow-automation/export-policy-assign.png" alt-text="Lista de automatizações de fluxos de trabalho":::
+1. Na página política Azure relevante, selecione **Atribuir**.
+    :::image type="content" source="./media/workflow-automation/export-policy-assign.png" alt-text="Atribuição da Política Azure":::
 
 1. Abra cada separador e desabrohe os parâmetros conforme desejado:
     1. No separador **Básico,** estabeleça a margem de manobra para a apólice. Para utilizar a gestão centralizada, atribua a política ao Grupo de Gestão contendo as subscrições que utilizarão a configuração de automatização do fluxo de trabalho. 
@@ -129,11 +129,11 @@ Implementar estas políticas:
         > Cada parâmetro tem uma ponta de ferramenta explicando as opções disponíveis para si.
         >
         > O separador de parâmetros da Azure Policy (1) fornece acesso a opções de configuração semelhantes à página de automação de fluxo de trabalho do Security Center (2).
-        > :::image type="content" source="./media/workflow-automation/azure-policy-next-to-workflow-automation.png" alt-text="Lista de automatizações de fluxos de trabalho" lightbox="./media/workflow-automation/azure-policy-next-to-workflow-automation.png":::
+        > :::image type="content" source="./media/workflow-automation/azure-policy-next-to-workflow-automation.png" alt-text="Comparar os parâmetros na automatização do fluxo de trabalho com a Política Azure" lightbox="./media/workflow-automation/azure-policy-next-to-workflow-automation.png":::
 
     1. Opcionalmente, para aplicar esta atribuição às subscrições existentes, abrir o separador **Remediação** e selecionar a opção de criar uma tarefa de remediação.
 
-1. Reveja a página de resumo e **selecione Criar** .
+1. Reveja a página de resumo e **selecione Criar**.
 
 
 ## <a name="data-types-schemas"></a>Esquemas de tipos de dados
@@ -151,7 +151,7 @@ Para cada automatização ativa, recomendamos que crie uma automatização idên
 
 Saiba mais sobre [a continuidade do Negócio e recuperação de desastres para a Azure Logic Apps.](../logic-apps/business-continuity-disaster-recovery-guidance.md)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu a criar Aplicações Lógicas, automatizando a sua execução no Centro de Segurança e executando-as manualmente. 
 

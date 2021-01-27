@@ -2,13 +2,13 @@
 title: Tutorial - Ambientes de peer on-in para uma nuvem privada
 description: Saiba como criar o ExpressRoute Global Reach olhando para uma nuvem privada numa Solução VMware Azure.
 ms.topic: tutorial
-ms.date: 1/5/2021
-ms.openlocfilehash: 613aece6ed548f70840349e017de4416883d6cf3
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.date: 01/27/2021
+ms.openlocfilehash: e7b1e349f67fe63f63183c0ff6d1522498c65f8c
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97913163"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918725"
 ---
 # <a name="tutorial-peer-on-premises-environments-to-a-private-cloud"></a>Tutorial: Ambientes de pares no local para uma nuvem privada
 
@@ -16,7 +16,7 @@ O ExpressRoute Global Reach liga o seu ambiente no local à sua nuvem privada Az
 
 O circuito ExpressRoute que utiliza quando [configura a rede de nuvem Azure-to-private](tutorial-configure-networking.md) requer que crie e utilize chaves de autorização.  Já terá usado uma chave de autorização do circuito ExpressRoute, e neste tutorial, criará uma segunda para espreitar com o circuito ExpressRoute no local.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar uma segunda chave de autorização para _o circuito 2_, o circuito expressRoute em nuvem privada
@@ -33,7 +33,7 @@ Antes de permitir a conectividade entre dois circuitos ExpressRoute utilizando o
 - Estabeleceu conectividade de e para uma nuvem privada Azure VMware Solution com o seu circuito ExpressRoute espreitado com uma porta de entrada ExpressRoute numa rede virtual Azure (VNet) – que é _o circuito 2_ a partir dos procedimentos de observação.  
 - Um circuito ExpressRoute separado e funcional usado para ligar ambientes no local ao Azure – que é o _circuito 1_ do ponto de vista dos procedimentos de perspíria.
 - Um bloco de [endereços](../expressroute/expressroute-routing.md#ip-addresses-used-for-peerings) de rede não sobreposto /29 para o olho do ExpressRoute Global Reach.
-- Certifique-se de que todos os routers, incluindo o serviço do prestador ExpressRoute, suportam o Número de Sistema Autónomo (ASN) de 4 bytes. A Azure VMware Solution utiliza ASNs públicos de 4 bytes para anunciar rotas.
+- Certifique-se de que todos os gateways, incluindo o serviço do prestador ExpressRoute, suportam o Número do Sistema Autónomo de 4 byte (ASN). A Azure VMware Solution utiliza ASNs públicos de 4 byte para rotas publicitárias.
 
 > [!TIP]
 > No contexto destes pré-requisitos, o circuito ExpressRoute no local é _o circuito 1_, e o circuito expressRoute em nuvem privada está num circuito de subscrição e de marca _2_. 
@@ -72,7 +72,7 @@ Agora que criou uma chave de autorização para o circuito expressRoute em nuvem
    - Selecione o circuito ExpressRoute da lista.
    - Se tiver uma identificação de circuito, copie-o e cole-o.
 
-1. Selecione **Connect** (Ligar). A nova ligação mostra-se na lista de ligações em nuvem no local.  
+1. Selecione **Ligar**. A nova ligação mostra-se na lista de ligações em nuvem no local.  
 
 >[!TIP]
 >Pode eliminar ou desligar uma ligação da lista selecionando **Mais**.  
@@ -103,7 +103,7 @@ Aumentámos os [comandos do CLI](../expressroute/expressroute-howto-set-global-r
 > Pode eliminar o espreguiçadamento que acabou de criar seguindo a [conectividade de desativação entre as](../expressroute/expressroute-howto-set-global-reach-cli.md#disable-connectivity-between-your-on-premises-networks) instruções das redes no local.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, aprendeu a criar uma segunda chave de autorização para o circuito expressRoute em nuvem privada. Também aprendeu a permitir o olhar do ExpressRoute Global Reach no local. 
 

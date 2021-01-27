@@ -1,14 +1,14 @@
 ---
 title: Resolver erros comuns
 description: Aprenda a resolver problemas criando, atribuindo e removendo plantas como violações de políticas e funções de parâmetros de planta.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: a1689141f95aaac9183391af79edb0cabf5343b6
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 65cf8ef9a5dcba0165aad8522f91ff1eb2c963a8
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058289"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918849"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Erros de resolução de problemas usando plantas Azure
 
@@ -77,7 +77,7 @@ Uma atribuição de plantas pode ficar presa num estado não terminal quando eli
 
 As atribuições de plantas num estado não terminal são automaticamente **marcadas Falha após** um intervalo _de seis horas._ Uma vez que o tempo limite tenha ajustado o estado da atribuição da planta, a eliminação pode ser novamente experimentada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se não viu o seu problema ou não conseguir resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 

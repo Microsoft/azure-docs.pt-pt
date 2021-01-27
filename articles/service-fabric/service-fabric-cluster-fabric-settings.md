@@ -3,12 +3,12 @@ title: Alterar configurações de cluster de tecido de serviço Azure
 description: Este artigo descreve as definições de tecido e as políticas de upgrade de tecido que pode personalizar.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: c055ad1dad8b9574c8d811284a34619ee3648a10
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 34a63a86bc10a787ef077b9067c3fba5a9e4da25
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095275"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919787"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalizar as definições do cluster do Service Fabric
 Este artigo descreve as várias definições de tecido para o seu cluster de Tecido de Serviço que pode personalizar. Para os clusters alojados no Azure, pode personalizar as definições através do [portal Azure](https://portal.azure.com) ou utilizando um modelo de Gestor de Recursos Azure. Para obter mais informações, consulte [atualizar a configuração de um cluster Azure](service-fabric-cluster-config-upgrade-azure.md). Para clusters autónomos, personaliza as definições atualizando o *ClusterConfig.jsno* ficheiro e executando uma atualização de configuração no seu cluster. Para obter mais informações, consulte [atualizar a configuração de um cluster autónomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -521,7 +521,7 @@ Segue-se uma lista de configurações de Tecido que pode personalizar, organizad
 |AutoDetectAvailableResources|bool, o padrão é VERDADEIRO|Estático|Este config irá desencadear a deteção automática dos recursos disponíveis no nó (CPU e Memória) Quando este config estiver definido como verdadeiro - vamos ler capacidades reais e corrigi-las se o utilizador especificar capacidades de nó mau ou não os definir de todo Se esta config estiver definida como falsa - vamos rastrear um aviso de que o utilizador especificou capacidades de nó mau; mas não vamos corrigi-los; o que significa que o utilizador quer ter as capacidades especificadas como > do que o nó realmente tem ou se as capacidades são indefinidas; assumirá capacidade ilimitada |
 |BalanceDelayAfterNewNode | Tempo em segundos, o padrão é 120 |Dinâmica|Especifique a timepan em segundos. Não comece a equilibrar as atividades dentro deste período após a adição de um novo nó. |
 |BalancingDelayAfterNodeDown | Tempo em segundos, o padrão é 120 |Dinâmica|Especifique a timepan em segundos. Não comece a equilibrar as atividades dentro deste período após um evento de nó para baixo. |
-|BlockNodeInUpgradeConstraintPriority | Int, o padrão é 0 |Dinâmica|Determina a prioridade da restrição de capacidade: 0: Difícil; 1: Macio; negativo: Ignorar  |
+|BlockNodeInUpgradeConstraintPriority | Int, o padrão é -1 |Dinâmica|Determina a prioridade da restrição de capacidade: 0: Difícil; 1: Macio; negativo: Ignorar  |
 |CapacidadeConstrataPrioridade | Int, o padrão é 0 | Dinâmica|Determina a prioridade da restrição de capacidade: 0: Difícil; 1: Macio; negativo: Ignorar. |
 |Gotas consecutivasMovementsHealthReportLimit | Int, o padrão é 20 | Dinâmica|Define o número de vezes consecutivas que os movimentos emitidos pelo ResourceBalancer são eliminados antes de serem realizados os diagnósticos e emitidos avisos sanitários. Negativo: Não são emitidos avisos nesta condição. |
 |RestriçãoFixPartialDelayAfterNewNode | Tempo em segundos, o padrão é 120 |Dinâmica| Especifique a timepan em segundos. DDo não corrige falhas Demômína e UpgradeDomain violações de restrições dentro deste período após a adição de um novo nó. |
@@ -920,5 +920,5 @@ Segue-se uma lista de configurações de Tecido que pode personalizar, organizad
 | --- | --- | --- | --- |
 |Grupo de Propriedades| UserServiceMetricCapacitiesMap, predefinição é nenhum | Estático | Uma recolha de limites de governação de recursos de serviços de utilizador precisa de ser estática, uma vez que afeta a lógica de AutoDetecção |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para obter mais informações, consulte [atualizar a configuração de um cluster Azure](service-fabric-cluster-config-upgrade-azure.md) e [atualizar a configuração de um cluster autónomo](service-fabric-cluster-config-upgrade-windows-server.md).

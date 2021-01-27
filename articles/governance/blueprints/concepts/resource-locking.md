@@ -1,14 +1,14 @@
 ---
 title: Compreender o bloqueio de recursos
 description: Saiba mais sobre as opções de bloqueio nas Plantas Azure para proteger os recursos ao atribuir uma planta.
-ms.date: 10/05/2020
+ms.date: 01/27/2021
 ms.topic: conceptual
-ms.openlocfilehash: 01f69cbfebe203407287392c2433181396b541b2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b2004ad294ae0eec1b4f2fc6f49308efd32d652e
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996105"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920195"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Compreender o bloqueio de recursos em Azure Blueprints
 
@@ -179,7 +179,7 @@ Tal como [excluir um principal](#exclude-a-principal-from-a-deny-assignment) num
 
 Embora **os Prncipals excluídos** devam ser explícitos, as entradas **excluídas deacções** podem utilizar `*` para a correspondência de wildcard das operações do fornecedor de recursos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Siga o tutorial [de novos recursos.](../tutorials/protect-new-resources.md)
 - Saiba mais sobre o [ciclo de vida do esquema](./lifecycle.md).

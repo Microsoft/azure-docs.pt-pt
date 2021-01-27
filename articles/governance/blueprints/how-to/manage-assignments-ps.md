@@ -1,14 +1,14 @@
 ---
 title: Como gerir atribuições com a PowerShell
 description: Aprenda a gerir as atribuições de plantas com o módulo oficial Azure Blueprints PowerShell, Az.Blueprint.
-ms.date: 08/27/2020
+ms.date: 01/27/2021
 ms.topic: how-to
-ms.openlocfilehash: 3bcb3731bd1270497945fa86406d08b2f9750c85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d60fb887e07b4697b8e86a4e2fd74a735ac0bb58
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89051411"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919381"
 ---
 # <a name="how-to-manage-assignments-with-powershell"></a>Como gerir atribuições com a PowerShell
 
@@ -250,7 +250,7 @@ Para um exemplo do ficheiro de definição de atribuição JSON para uma identid
 
 ## <a name="update-blueprint-assignments"></a>Atualizar atribuições de plantas
 
-Às vezes é necessário atualizar uma atribuição de plantas que já foi criada. O `Set-AzBlueprintAssignment` cmdlet lida com esta ação. O cmdlet leva a maioria dos mesmos parâmetros que o `New-AzBlueprintAssignment` cmdlet faz, permitindo que tudo o que foi definido na atribuição seja atualizado. As exceções são o _Nome,_ _Planta_e _Subscrição._ Apenas os valores fornecidos são atualizados.
+Às vezes é necessário atualizar uma atribuição de plantas que já foi criada. O `Set-AzBlueprintAssignment` cmdlet lida com esta ação. O cmdlet leva a maioria dos mesmos parâmetros que o `New-AzBlueprintAssignment` cmdlet faz, permitindo que tudo o que foi definido na atribuição seja atualizado. As exceções são o _Nome,_ _Planta_ e _Subscrição._ Apenas os valores fornecidos são atualizados.
 
 Para entender o que acontece ao atualizar uma atribuição de projeto, consulte [regras para atualizar atribuições](./update-existing-assignments.md#rules-for-updating-assignments).
 

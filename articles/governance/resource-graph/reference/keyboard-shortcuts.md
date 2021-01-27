@@ -1,15 +1,15 @@
 ---
 title: Atalhos de teclado no portal Azure para Azure Resource Graph Explorer
 description: O Azure Resource Graph Explorer no portal Azure suporta atalhos de teclado para o ajudar a executar ações e navegar.
-ms.date: 10/21/2020
+ms.date: 01/27/2021
 ms.topic: reference
 ms.custom: accessibility
-ms.openlocfilehash: fdb53e079adf2f65180c15ab93da4f8343e3bab5
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 70777db630a654dc61aad697561583a02c0ccc25
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340126"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919096"
 ---
 # <a name="keyboard-shortcuts-for-azure-resource-graph-explorer"></a>Atalhos de teclado para Azure Resource Graph Explorer
 
@@ -62,7 +62,7 @@ Este artigo lista os atalhos de teclado que funcionam na página Azure Resource 
 |Mudar para gráfico de barras  |<kbd>ALT</kbd> + <kbd>B</kbd> | <kbd>Opção</kbd> + <kbd>B</kbd> |
 |Mude para gráfico de mapa  |<kbd>ALT</kbd> + <kbd>N</kbd> | <kbd>Opção</kbd> + <kbd>M</kbd> |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Atalhos de teclado no portal do Azure](../../../azure-portal/azure-portal-keyboard-shortcuts.md)
 - [Linguagem de consulta para gráfico de recursos](../concepts/query-language.md)

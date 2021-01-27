@@ -6,12 +6,12 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: 161e3e7fbc5b343ee73142f0e968367c3cbfaa6b
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 7245b0c0fb1e96959ef5dca4992cf52a38accb58
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927418"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920295"
 ---
 # <a name="azure-functions-binding-expression-patterns"></a>Padrões de expressão de ligação Azure Functions
 
@@ -164,6 +164,7 @@ Por exemplo, um gatilho de armazenamento da Fila Azure suporta as seguintes prop
 Estes valores de metadados estão acessíveis em *function.jsnas* propriedades dos ficheiros. Por exemplo, suponha que use um gatilho de fila e a mensagem da fila contenha o nome de uma bolha que pretende ler. Na *function.jsem* ficheiro, pode utilizar `queueTrigger` a propriedade metadados na propriedade blob, como mostra o seguinte `path` exemplo:
 
 ```json
+{
   "bindings": [
     {
       "name": "myQueueItem",
@@ -179,6 +180,7 @@ Estes valores de metadados estão acessíveis em *function.jsnas* propriedades d
       "connection": "MyStorageConnection"
     }
   ]
+}
 ```
 
 Os detalhes das propriedades dos metadados para cada gatilho são descritos no artigo de referência correspondente. Por exemplo, consulte [os metadados do gatilho da fila](functions-bindings-storage-queue-trigger.md#message-metadata). A documentação também está disponível no **separador Integrado** do portal, na secção **documentação** abaixo da área de configuração de encadernação.  
@@ -292,7 +294,7 @@ public class BlobName
 
 ## <a name="create-guids"></a>Criar GUIDs
 
-A `{rand-guid}` expressão de ligação cria um GUID. O caminho da bolha que se segue num `function.json` ficheiro cria uma bolha com um nome como *50710cb5-84b9-4d87-9d83-a03d6976a682.txt* .
+A `{rand-guid}` expressão de ligação cria um GUID. O caminho da bolha que se segue num `function.json` ficheiro cria uma bolha com um nome como *50710cb5-84b9-4d87-9d83-a03d6976a682.txt*.
 
 ```json
 {
@@ -305,7 +307,7 @@ A `{rand-guid}` expressão de ligação cria um GUID. O caminho da bolha que se 
 
 ## <a name="current-time"></a>Tempo atual
 
-A expressão vinculativa `DateTime` `DateTime.UtcNow` resolve-se a . O caminho da bolha que se segue num `function.json` ficheiro cria uma bolha com um nome como *2018-02-16T17-59-55Z.txt* .
+A expressão vinculativa `DateTime` `DateTime.UtcNow` resolve-se a . O caminho da bolha que se segue num `function.json` ficheiro cria uma bolha com um nome como *2018-02-16T17-59-55Z.txt*.
 
 ```json
 {
@@ -319,6 +321,6 @@ A expressão vinculativa `DateTime` `DateTime.UtcNow` resolve-se a . O caminho d
 
 Em C# e outras línguas .NET, pode utilizar um padrão de ligação imperativo, em oposição às encadernações declarativas em *function.js* e atributos. A ligação imperativa é útil quando os parâmetros de ligação precisam de ser calculados em tempo de execução em vez de tempo de conceção. Para saber mais, consulte a referência do [desenvolvedor C#](functions-dotnet-class-library.md#binding-at-runtime) ou a referência do [desenvolvedor de scripts C#](functions-reference-csharp.md#binding-at-runtime).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 > [!div class="nextstepaction"]
 > [Utilizando o valor de retorno da função Azure](./functions-bindings-return-value.md)

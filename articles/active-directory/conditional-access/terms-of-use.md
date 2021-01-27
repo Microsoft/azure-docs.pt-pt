@@ -1,22 +1,22 @@
 ---
-title: Termos de utilização - Azure Ative Directory / Microsoft Docs
+title: Termos de utilização - Azure Ative Directory | Microsoft Docs
 description: Começa a usar os termos de uso do Azure Ative Directory para apresentar informações aos colaboradores ou hóspedes antes de ter acesso.
 services: active-directory
 ms.service: active-directory
 ms.subservice: compliance
 ms.topic: how-to
-ms.date: 12/02/2020
+ms.date: 01/27/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3e64b0af455ab1f84653093b26654530ee3dfab
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 95fe70c774b933113c94125d227976e32a9e353f
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232782"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919634"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Termos de utilização do Diretório Ativo Azure
 
@@ -26,7 +26,7 @@ Os termos de utilização da AD AZure fornecem um método simples que as organiz
 
 ## <a name="overview-videos"></a>Vídeos de visão geral
 
-O vídeo a seguir fornece uma visão geral rápida dos termos das políticas de utilização.
+O vídeo a seguir fornece uma visão geral rápida das políticas da ToU.
 
 >[!VIDEO https://www.youtube.com/embed/tj-LK0abNao]
 
@@ -94,8 +94,8 @@ Uma vez finalizado o documento de política de utilização, utilize o seguinte 
 
    | Expire a partir de | Frequência | Resultado |
    | --- | --- | --- |
-   | Data de hoje  | Mensal | A partir de hoje, os utilizadores devem aceitar os termos da política de utilização e depois readcetar todos os meses. |
-   | Data no futuro  | Mensal | A partir de hoje, os utilizadores devem aceitar os termos da política de utilização. Quando a data futura ocorrer, os consentimentos expirarão e, em seguida, os utilizadores devem reacetitar todos os meses.  |
+   | Data de hoje  | Mensalmente | A partir de hoje, os utilizadores devem aceitar os termos da política de utilização e depois readcetar todos os meses. |
+   | Data no futuro  | Mensalmente | A partir de hoje, os utilizadores devem aceitar os termos da política de utilização. Quando a data futura ocorrer, os consentimentos expirarão e, em seguida, os utilizadores devem reacetitar todos os meses.  |
 
    Por exemplo, se definir o prazo de início de validade para **1 de janeiro** e a frequência para **Mensal,** eis como podem ocorrer expirações para dois utilizadores:
 
@@ -183,7 +183,7 @@ Para começar com os registos de auditoria da AZure AD, utilize o seguinte proce
 
 ## <a name="what-terms-of-use-looks-like-for-users"></a>Que termos de uso se parecem para os utilizadores
 
-Uma vez criada e aplicada uma política de utilização, os utilizadores, que estão no âmbito, verão o seguinte ecrã durante a sposição.
+Uma vez criada e aplicada uma política tou, os utilizadores, que estão no âmbito, verão o seguinte ecrã durante a entrada.
 
 ![Exemplo de uso que aparece quando um utilizador assina em](./media/terms-of-use/user-tou.png)
 
@@ -191,7 +191,7 @@ Os utilizadores podem ver os termos da política de utilização e, se necessár
 
 ![Vista dos termos de utilização com botões de zoom](./media/terms-of-use/zoom-buttons.png)
 
-O ecrã que se segue mostra como os termos de política de utilização são analisados nos dispositivos móveis.
+O ecrã que se segue mostra como uma política tou fica nos dispositivos móveis.
 
 ![Exemplo de uso que aparece quando um utilizador assina num dispositivo móvel](./media/terms-of-use/mobile-tou.png)
 
@@ -226,7 +226,7 @@ Pode editar alguns detalhes dos termos das políticas de utilização, mas não 
     - (Pré-visualização) Pode atualizar um documento **de utilização existente**
     - Pode adicionar uma língua a uma ToU existente
 
-   Se houver outras configurações que gostaria de alterar, como o documento PDF, exigir que os utilizadores consintam em cada dispositivo, expirem consentimentos, duração antes de reacetar ou política de Acesso Condicional, deve criar uma nova política de utilização.
+   Se houver outras configurações que gostaria de alterar, como o documento PDF, exigir que os utilizadores consintam em cada dispositivo, expirem consentimentos, duração antes de reacetar ou política de Acesso Condicional, deve criar uma nova política de ToU.
 
     ![Editar mostrando diferentes opções linguísticas ](./media/terms-of-use/edit-terms-use.png)
 
@@ -249,7 +249,7 @@ Pode editar alguns detalhes dos termos das políticas de utilização, mas não 
 7.  Depois de ter carregado o seu novo pdf e decidido a reapreciar, clique em Adicionar na parte inferior do painel.
 8.  Verá agora a versão mais recente sob a coluna Documento.
 
-## <a name="view-previous-versions-of-a-terms-of-use"></a>Ver versões anteriores de um termos de utilização
+## <a name="view-previous-versions-of-a-tou"></a>Ver versões anteriores de um ToU
 
 1.  Inicie sessão no Azure e navegue para **Termos de utilização** em https://aka.ms/catou.
 2.  Selecione os termos da política de utilização para os quais deseja visualizar um histórico de versão.
@@ -266,12 +266,12 @@ Pode editar alguns detalhes dos termos das políticas de utilização, mas não 
 2.  Para ver quem aceitou atualmente o ToU clique no número sob a coluna **Aceite** para o ToU que deseja.
 3.  Por padrão, a página seguinte irá mostrar-lhe o estado atual de cada aceitação de utilizadores para a ToU
 4.  Se quiser ver os eventos de consentimento anteriores, pode selecionar **All** from the **Current State** drop-down. Agora pode ver cada utilizadores em detalhes sobre cada versão e o que aconteceu.
-5.  Em alternativa, pode selecionar uma versão específica da **versão**  drop down para ver quem aceitou essa versão específica.
+5.  Em alternativa, pode selecionar uma versão específica do drop-down da **versão**  para ver quem aceitou essa versão específica.
 
 
-## <a name="add-a-terms-of-use-language"></a>Adicionar um termos de linguagem de uso
+## <a name="add-a-tou-language"></a>Adicione uma língua ToU
 
-O procedimento a seguir descreve como adicionar um idioma de utilização.
+O procedimento a seguir descreve como adicionar uma língua ToU.
 
 1. Inicie sessão no Azure e navegue para **Termos de utilização** em [https://aka.ms/catou](https://aka.ms/catou).
 1. Selecione os termos da política de utilização que pretende editar.
@@ -295,10 +295,10 @@ Aqui está uma lista das plataformas e software suportados.
 > [!div class="mx-tableFixed"]
 > |  | iOS | Android | Windows 10 | Outro |
 > | --- | --- | --- | --- | --- |
-> | **Aplicação nativa** | Sim | Sim | Sim |  |
-> | **Microsoft Edge** | Sim | Sim | Sim |  |
-> | **Internet Explorer** | Sim | Sim | Sim |  |
-> | **Cromado (com extensão)** | Sim | Sim | Sim |  |
+> | **Aplicação nativa** | Yes | Yes | Yes |  |
+> | **Microsoft Edge** | Yes | Yes | Yes |  |
+> | **Internet Explorer** | Yes | Yes | Yes |  |
+> | **Cromado (com extensão)** | Yes | Yes | Yes |  |
 
 Os termos de utilização por dispositivo têm os seguintes constrangimentos:
 
@@ -344,9 +344,13 @@ Pode eliminar as antigas políticas de utilização utilizando o seguinte proced
 
    Não deve mais ver os seus termos de política de uso.
 
-## <a name="deleted-users-and-active-terms-of-use"></a>Utilizadores eliminados e termos de utilização ativos
+## <a name="user-acceptance-record-deletion"></a>Supressão do registo de aceitação do utilizador
 
-Por predefinição, um utilizador eliminado fica num estado eliminado no Azure AD durante um período de 30 dias, durante o qual pode ser restaurado por um administrador, se necessário. Após 30 dias, esse utilizador é eliminado permanentemente. Além disso, através do portal do Azure Active Directory, um Administrador Global pode explicitamente [eliminar permanentemente um utilizador recentemente eliminado](../fundamentals/active-directory-users-restore.md) antes desse período de tempo ser atingido. Um utilizador foi permanentemente eliminado, os dados subsequentes sobre esse utilizador serão removidos dos termos ativos da política de utilização. As informações de auditoria sobre os utilizadores eliminados permanecem no registo de auditoria.
+Os registos de aceitação do utilizador são eliminados:
+
+- Quando o administrador elimina explicitamente a ToU. Quando isto acontece, todos os registos de aceitação associados a essa ToU específica também são eliminados.
+- Quando o inquilino perder a licença Azure Ative Directory Premium.
+- Quando o inquilino é apagado.
 
 ## <a name="policy-changes"></a>Alterações de política
 
@@ -432,6 +436,6 @@ R: Se tiver configurado os termos de utilização do AZure AD e os [termos e con
 **P: Que pontos finais utiliza os termos do serviço de utilização para autenticação?**<br />
 R: Os termos de utilização utilizam os seguintes pontos finais para a autenticação: https://tokenprovider.termsofuse.identitygovernance.azure.com e https://account.activedirectory.windowsazure.com . Se a sua organização tiver uma lista de sinais de admissão de URLs para inscrição, terá de adicionar estes pontos finais à sua lista de indicações, juntamente com os pontos finais AZURE AD para a sua inscrição.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Quickstart: Exigir que os termos de uso sejam aceites antes de aceder a aplicações na nuvem](require-tou.md)

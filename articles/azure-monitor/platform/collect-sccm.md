@@ -1,20 +1,23 @@
 ---
-title: Connect Configuration Manager ao Azure Monitor / Microsoft Docs
+title: Ligue o Gestor de Configuração ao monitor Azure | Microsoft Docs
 description: Este artigo mostra os passos para ligar o Gestor de Configuração ao espaço de trabalho no Azure Monitor e começar a analisar dados.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/28/2019
-ms.openlocfilehash: 20d55de7ef0f7b7f49b922409f8cb61874fae0f6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 11/30/2020
+ms.openlocfilehash: ec19396d782bf34e85001892159c0ce785487f09
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96008978"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918894"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Ligue o Gestor de Configuração ao Monitor Azure
 Pode ligar o ambiente do Microsoft Endpoint Configuration Manager ao Azure Monitor para sincronizar os dados de recolha de dispositivos e fazer referência a estas coleções no Azure Monitor e na Azure Automation.  
+
+> [!IMPORTANT]
+> A partir da versão De Configuração Manager 2010, esta funcionalidade é depreciada.<!-- 8269855 --> Para obter mais informações, consulte [funcionalidades removidas e preprecadas para o Gestor de Configuração](/mem/configmgr/core/plan-design/changes/deprecated/removed-and-deprecated-cmfeatures).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -147,7 +150,7 @@ Depois de importadas as coleções, pode ver quantos computadores com membros de
 
 Quando clica em qualquer um, o editor de consulta de registos abre a exibição de todos os grupos importados ou de todos os computadores que pertencem a cada grupo. Utilizando [a Pesquisa de Registo,](../log-query/log-query-overview.md)pode efetuar uma análise mais aprofundada dos dados de membros da recolha.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Utilize [a Pesquisa de Registo](../log-query/log-query-overview.md) para ver informações detalhadas sobre os dados do seu Gestor de Configuração.
 

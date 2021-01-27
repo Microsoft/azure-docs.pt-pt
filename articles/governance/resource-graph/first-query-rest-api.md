@@ -1,14 +1,14 @@
 ---
 title: 'Quickstart: A sua primeira consulta de API REST'
 description: Neste arranque rápido, siga os passos para ligar para o ponto final do Gráfico de Recursos para API REST e executar a sua primeira consulta.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: eafbd0b408ab50f901d52e59efcfbd5f89b46fe5
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 670ceba95d937be278c44c34704cb844eead480d
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566083"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920076"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-rest-api"></a>Quickstart: Execute a sua primeira consulta de Gráfico de Recursos usando a API REST
 
@@ -30,7 +30,7 @@ Para as especificações do Gráfico de Recurso Azure, consulte [a API do Gráfi
 
 ### <a name="rest-api-and-powershell"></a>API REST e PowerShell
 
-Se ainda não tem uma ferramenta para fazer chamadas à API REST, considere utilizar o PowerShell para estas instruções. A seguinte amostra de código recebe um cabeçalho para autenticar com Azure. Gere um cabeçalho de autenticação, por vezes denominado **Token de portador** , e forneça o URI da API REST para ligar a parâmetros ou um **Corpo do Pedido** :
+Se ainda não tem uma ferramenta para fazer chamadas à API REST, considere utilizar o PowerShell para estas instruções. A seguinte amostra de código recebe um cabeçalho para autenticar com Azure. Gere um cabeçalho de autenticação, por vezes denominado **Token de portador**, e forneça o URI da API REST para ligar a parâmetros ou um **Corpo do Pedido**:
 
 ```azurepowershell-interactive
 # Log in first with Connect-AzAccount if not using Cloud Shell
@@ -50,7 +50,7 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
 ```
 
 Substitua `{subscriptionId}` na `$restUri` variável para obter informações sobre a sua subscrição.
-A `$response` variável detém o resultado do `Invoke-RestMethod` cmdlet, que pode ser analisado com cmdlets como [ConvertFrom-Json](/powershell/module/microsoft.powershell.utility/convertfrom-json). Se o ponto final de serviço da API REST esperar um **Corpo do Pedido** , forneça uma variável com o formato JSON para o parâmetro `-Body` de `Invoke-RestMethod`.
+A `$response` variável detém o resultado do `Invoke-RestMethod` cmdlet, que pode ser analisado com cmdlets como [ConvertFrom-Json](/powershell/module/microsoft.powershell.utility/convertfrom-json). Se o ponto final de serviço da API REST esperar um **Corpo do Pedido**, forneça uma variável com o formato JSON para o parâmetro `-Body` de `Invoke-RestMethod`.
 
 ## <a name="run-your-first-resource-graph-query"></a>Executar a primeira consulta do Resource Graph
 
@@ -127,11 +127,11 @@ Quando a consulta final é executada várias vezes, assumindo que nada no seu am
 
 Para obter mais exemplos de pedidos de API de REST para Gráfico de Recursos [Azure,](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources#examples)consulte os exemplos de REPOUSO do Gráfico de Recursos Azure .
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Rest A API não tem bibliotecas ou módulos para desinstalar. Se instalar uma ferramenta como _ARMClient_ ou _Carteiro_ para escruissar as chamadas e deixar de precisar, pode desinstalar a ferramenta agora.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido, você chamou o ponto final do Recurso Graph REST API e executou a sua primeira consulta. Para saber mais sobre a linguagem Resource Graph, continue na página de detalhes da linguagem de consulta.
 

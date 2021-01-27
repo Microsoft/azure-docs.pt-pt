@@ -1,5 +1,5 @@
 ---
-title: Desativar a PTA ao utilizar o Azure AD Connect "Não configurar" Microsoft Docs
+title: Desative a PTA ao utilizar o Azure AD Connect "Não configurar" | Microsoft Docs
 description: Este artigo descreve como desativar a PTA com a função Azure AD Connect "não configurar".
 services: active-directory
 author: billmath
@@ -11,16 +11,21 @@ ms.date: 04/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5db99f5e8ed2ea5844acba5500bc94d8fb0db2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26112b1e799cbde3145e7137c686b4b336db4bab
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85358349"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919940"
 ---
-# <a name="disable-pta-when-using-azure-ad-connect-do-not-configure"></a>Desative a PTA ao utilizar o Azure AD Connect "Não configurar"
+# <a name="disable-pta-when-using-azure-ad-connect"></a>Desative a PTA ao utilizar o Azure AD Connect
 
-Se estiver a utilizar a Autenticação Pass-through com Azure AD Connect e a tiver definida para "Não configurar", pode desativá-la. A desativação da AP pode ser feita utilizando os seguintes cmdlets. 
+Se estiver a utilizar a Autenticação Pass-through com Azure AD Connect e a tiver definida para **"Não configurar",** pode desativá-la. 
+
+>[!NOTE]
+>Se tiver PHS já habilitado, então a desativação da AP resultará na recaída do inquilino para PHS.
+
+A desativação da AP pode ser feita utilizando os seguintes cmdlets. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 São necessários os seguintes pré-requisitos:
@@ -53,6 +58,6 @@ Se não tiver uma máquina de agente, pode utilizar o comando seguinte para inst
 2. Instalar a funcionalidade: `.\AADConnectAuthAgentSetup.exe` ou `.\AADConnectAuthAgentSetup.exe ENVIRONMENTNAME=<identifier>`
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Início de sessão do utilizador com a Autenticação Pass-through do Azure Active Directory](how-to-connect-pta.md)

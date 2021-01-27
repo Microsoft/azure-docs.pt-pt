@@ -1,18 +1,18 @@
 ---
 title: Descrição geral do exemplo de esquema da Referência de Segurança do Azure
 description: Descrição geral do exemplo de esquema da Referência de Segurança do Azure. Este exemplo de esquema ajuda os clientes a avaliar controlos específicos.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: sample
-ms.openlocfilehash: 6b147ffd4efbf814b6119f5d7e90dc7af2ea2687
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 38a50970999965b6a86b8ce8882006c169f2dc5a
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057591"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919243"
 ---
 # <a name="azure-security-benchmark-blueprint-sample"></a>Amostra de projeto de benchmark de segurança Azure
 
-O exemplo de esquema da Referência de Segurança do Azure disponibiliza proteções de governação com o [Azure Policy](../../policy/overview.md) que ajudam a avaliar controlos específicos da [Referência de Segurança do Azure](../../../security/benchmarks/overview.md). Este esquema ajuda os clientes a implementar um conjunto essencial de políticas para qualquer arquitetura implementada no Azure na qual queiram implementar controlos da Referência de Segurança do Azure.
+A amostra de projeto Azure Security Benchmark fornece guarda-carris de governação usando [a Política Azure](../../policy/overview.md) que o ajudam a avaliar controlos específicos [de benchmark de segurança azure v1.](../../../security/benchmarks/overview.md) Este esquema ajuda os clientes a implementar um conjunto essencial de políticas para qualquer arquitetura implementada no Azure na qual queiram implementar controlos da Referência de Segurança do Azure.
 
 ## <a name="control-mapping"></a>Mapeamento de controlo
 
@@ -37,7 +37,7 @@ Primeiro, crie um esquema novo no ambiente utilizando o exemplo como ponto de pa
 
 1. Na página **Começar** à esquerda, selecione o botão **Criar** em _Criar um esquema_.
 
-1. Encontre a amostra de projeto **Azure Security Benchmark** em _Outras Amostras_ e selecione o nome para selecionar esta amostra.
+1. Encontre a amostra de **projeto Azure Security Benchmark v1** em _Outras Amostras_ e selecione o nome para selecionar esta amostra.
 
 1. Introduza as _Informações Básicas_ do esquema de exemplo:
 
@@ -60,7 +60,7 @@ A cópia do esquema de exemplo está agora criada no seu ambiente. Está criada 
 
 ### <a name="assign-the-sample-copy"></a>Atribuir a cópia de exemplo
 
-Uma vez publicada com **sucesso**a cópia da amostra de plantas, pode ser atribuída a uma subscrição dentro do grupo de gestão a que foi guardada. É neste passo que são fornecidos os parâmetros que fazem com que cada implementação da cópia do esquema de exemplo seja única.
+Uma vez publicada com **sucesso** a cópia da amostra de plantas, pode ser atribuída a uma subscrição dentro do grupo de gestão a que foi guardada. É neste passo que são fornecidos os parâmetros que fazem com que cada implementação da cópia do esquema de exemplo seja única.
 
 1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Esquemas**.
 
@@ -114,7 +114,7 @@ A tabela seguinte mostra uma lista dos parâmetros dos artefactos de esquema:
 |Auditar recomendações de Benchmark de Segurança Azure e implementar extensões específicas de suporte VM|Atribuição de políticas|Versão mais recente do Windows Python|Versão python suportada mais recente para Serviços de Aplicações|
 |Auditar recomendações de Benchmark de Segurança Azure e implementar extensões específicas de suporte VM|Atribuição de políticas|Última versão Linux Python|Versão python suportada mais recente para Serviços de Aplicações|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Artigos adicionais sobre esquemas e como os utilizar:
 

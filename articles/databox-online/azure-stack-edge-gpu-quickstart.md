@@ -1,20 +1,20 @@
 ---
-title: Quickstart para configurar e implementar GPU Azure Stack Edge Microsoft Docs
+title: Arranque rápido para configurar e implementar GPU Azure Stack Edge | Microsoft Docs
 description: Começa com a implementação do GPU Azure Stack Edge depois de o dispositivo ser recebido.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: quickstart
-ms.date: 09/17/2020
+ms.date: 01/27/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to quickly deploy Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 200e7f191cb19588fa79ba685c91a75dabd0156a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2d1bd7d2a4f066311ea01046a8d71e6ecb52c3f5
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91349121"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919816"
 ---
 # <a name="quickstart-get-started-with-azure-stack-edge-pro-with-gpu"></a>Quickstart: Começa com o Azure Stack Edge Pro com GPU 
 
@@ -75,7 +75,7 @@ Antes de partir, certifique-se de que estão em vigor os seguintes pré-requisit
 
 Está pronto para implementar cargas de trabalho computacional no seu dispositivo [via IoT Edge,](azure-stack-edge-gpu-deploy-sample-module-marketplace.md) [via `kubectl` ](azure-stack-edge-gpu-create-kubernetes-cluster.md) ou [via Azure Arc ativado kubernetes](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md)! Se tiver algum problema durante a configuração, aceda a [problemas de dispositivos de resolução de problemas,]() [questões de encomenda,](azure-stack-edge-gpu-troubleshoot.md) [problemas de certificados](azure-stack-edge-j-series-certificate-troubleshooting.md)ou problemas com Kubernetes. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Instalar Azure Stack Edge Pro GPU](./azure-stack-edge-gpu-deploy-install.md)
 

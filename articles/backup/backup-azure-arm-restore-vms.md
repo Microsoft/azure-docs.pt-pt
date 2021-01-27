@@ -4,12 +4,12 @@ description: Restaurar uma máquina virtual Azure a partir de um ponto de recupe
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: a82e8031f118f48f7c19cfc283c1be13d5d6f89d
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 56bd41aaa607a3bc0f319f46ce5d0c3f8c78d27a
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757598"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919612"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Como restaurar os dados do Azure VM no portal Azure
 
@@ -25,6 +25,7 @@ O Azure Backup fornece várias maneiras de restaurar uma VM.
 **Restaurar disco** | Restaura um disco da VM, que pode ser utilizado para criar uma nova VM.<br/><br/> O Azure Backup fornece um modelo para ajudar a personalizar e criar uma VM. <br/><br> O trabalho de restauro gera um modelo que pode descarregar e usar para especificar as definições de VM personalizadas e criar um VM.<br/><br/> Os discos são copiados para o Grupo de Recursos que especificar.<br/><br/> Em alternativa, pode ligar o disco a um VM existente ou criar um novo VM utilizando o PowerShell.<br/><br/> Esta opção é útil se quiser personalizar a VM, adicionar definições de configuração que esta não tinha quando foi criada a cópia de segurança ou adicionar definições que têm de ser configuradas através do modelo ou do PowerShell.
 **Substituir existente** | Pode restaurar um disco e usá-lo para substituir um disco no VM existente.<br/><br/> A VM atual tem de existir. Se tiver sido apagada, esta opção não pode ser utilizada.<br/><br/> O Azure Backup tira uma fotografia do VM existente antes de substituir o disco e armazena-o no local de preparação que especifica. Os discos existentes e ligados à VM são substituídos pelo ponto de restauro selecionado.<br/><br/> O instantâneo é copiado para o cofre, e mantido de acordo com a política de retenção. <br/><br/> Após a operação do disco de substituição, o disco original é mantido no grupo de recursos. Pode optar por eliminar manualmente os discos originais se não forem necessários. <br/><br/>A substituição existente é suportada por VMs geridos não encriptados, incluindo VMs [criados com imagens personalizadas](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/). Não é suportado para VMs clássicos.<br/><br/> Se o ponto de restauro tiver mais ou menos discos do que o VM atual, então o número de discos no ponto de restauração só refletirá a configuração VM.<br><br> A substituição dos atuais também é suportada por VMs por recursos ligados, como identidade gerida atribuída pelo utilizador ou [Cofre-Chave](../active-directory/managed-identities-azure-resources/overview.md) . [](../key-vault/general/overview.md)
 **Entre regiões (região secundária)** | A restauração da Região Transversal pode ser usada para restaurar os VMs Azure na região secundária, que é uma [região emparelhada Azure.](../best-practices-availability-paired-regions.md#what-are-paired-regions)<br><br> Pode restaurar todos os VMs Azure para o ponto de recuperação selecionado se a cópia de segurança for feita na região secundária.<br><br> Durante o backup, os instantâneos não são replicados na região secundária. Apenas os dados armazenados no cofre são replicados. Assim, os restauros da região secundária são apenas restauros [de nível de abóbada.](about-azure-vm-restore.md#concepts) O tempo de restauro para a região secundária será quase o mesmo que o tempo de restauração do nível do cofre para a região primária.  <br><br> Esta funcionalidade está disponível para as seguintes opções:<br> <li> [Criar uma VM](#create-a-vm) <br> <li> [Restaurar discos](#restore-disks) <br><br> Atualmente, não apoiamos a opção [Substituir discos existentes.](#replace-existing-disks)<br><br> Permissões<br> A operação de restauro na região secundária pode ser realizada por administradores de backup e administradores de aplicações.
+**Restauro transversal** | A restauração transversal pode ser usada para restaurar [vMs fixados](https://docs.microsoft.com/azure/virtual-machines/windows/create-portal-availability-zone) zona azul em quaisquer [zonas](https://docs.microsoft.com/azure/availability-zones/az-overview) de disponibilidade da mesma região. <br> <br> Pode restaurar todos os VMs fixados na zona Azure para o ponto de recuperação selecionado que foram apoiados após o lançamento desta funcionalidade, para a zona à sua escolha. Por predefinição, irá restaurar na mesma zona que foi apoiada. <br> <br> Isto pode ser usado durante cenários de recuperação de desastres, se a zona fixa do VM ficar indisponível.
 
 > [!NOTE]
 > Também pode recuperar ficheiros e pastas específicos num VM Azure. [Saiba mais](backup-azure-restore-files-from-vm.md).
@@ -138,7 +139,7 @@ Como uma das opções de [restauro,](#restore-options)pode substituir um disco V
 
 Como uma das opções de [restauro,](#restore-options)o Cross Region Restore (CRR) permite restaurar os VMs Azure numa região secundária, que é uma região emparelhada Azure.
 
-Para embarcar na funcionalidade durante a pré-visualização, leia a [secção Antes de Começar](./backup-create-rs-vault.md#set-cross-region-restore).
+Para começar a utilizar a função, leia a [secção Antes de Começar](./backup-create-rs-vault.md#set-cross-region-restore).
 
 Para ver se a CRR está ativada, siga as instruções no [Configure Cross Region Restore](backup-create-rs-vault.md#configure-cross-region-restore).
 
@@ -160,6 +161,8 @@ Se o CRR estiver ativado, pode ver os itens de reserva na região secundária.
 
 A região secundária restaurará a experiência do utilizador será semelhante à região primária restaurar a experiência do utilizador. Ao configurar detalhes no painel de configuração restaurar para configurar a sua restauração, será solicitado que forneça apenas parâmetros de região secundária.
 
+Atualmente, a [RPO](azure-backup-glossary.md#rpo-recovery-point-objective) da região secundária está a 12 horas da região primária, embora a replicação [de armazenamento geo-redundante de acesso de leitura (RA-GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy#redundancy-in-a-secondary-region) seja de 15 minutos.
+
 ![Escolha VM para restaurar](./media/backup-azure-arm-restore-vms/sec-restore.png)
 
 ![Selecione ponto de restauro](./media/backup-azure-arm-restore-vms/sec-rp.png)
@@ -176,6 +179,14 @@ A região secundária restaurará a experiência do utilizador será semelhante 
 >- Após o restauro ser desencadeado e na fase de transferência de dados, o trabalho de restauro não pode ser cancelado.
 >- A função Cross Region Restore restaura os CMK (chaves geridas pelo cliente) ativados por VMs Azure, que não são apoiados num cofre de Serviços de Recuperação ativado pela CMK, uma vez que os VMs não habilitados pela CMK na região secundária.
 >- Os papéis do Azure necessários para restaurar na região secundária são os mesmos que na região primária.
+
+## <a name="cross-zonal-restore"></a>Restauro transversal
+
+A restauração transversal pode ser usada para restaurar [vMs fixados](https://docs.microsoft.com/azure/virtual-machines/windows/create-portal-availability-zone) zona azul em quaisquer [zonas](https://docs.microsoft.com/azure/availability-zones/az-overview) de disponibilidade da mesma região.
+
+No processo de restauro, você verá a opção **Zona de Disponibilidade.** Verá a sua zona padrão primeiro. Para escolher uma zona diferente, escolha o número da zona à sua escolha. Escolha uma zona diferente se a zona de disponibilidade padrão não estiver disponível devido a uma paragem, ou por qualquer outra razão que escolha restaurar em uma zona diferente.
+
+![Escolha a zona de disponibilidade](./media/backup-azure-arm-restore-vms/cross-zonal-restore.png)
 
 ### <a name="monitoring-secondary-region-restore-jobs"></a>Monitorização da região secundária restabelece postos de trabalho
 

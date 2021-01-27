@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: 1cbd4c92ec4c124cfd384f45a4cd6f47fdc60be6
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 3821ef790728117df52bf534d75729347a0d8c9f
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98180171"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919906"
 ---
 # <a name="dcsv2-series"></a>Série DCsv2
 
@@ -26,6 +26,7 @@ Os casos de uso de exemplo incluem: partilha de dados multipartidários confiden
 [Migração ao Vivo](maintenance-and-updates.md): Não Suportado<br>
 [Atualizações de preservação da memória](maintenance-and-updates.md): Não suportado<br>
 [Suporte vm geração](generation-2.md): Geração 2<br>
+[Rede Acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): Suportado<br>
 
 *Exceto por Standard_DC8_v2
 
@@ -48,7 +49,7 @@ Os casos de uso de exemplo incluem: partilha de dados multipartidários confiden
 - [Fins gerais](sizes-general.md)
 - [Com otimização de memória](sizes-memory.md)
 - [Com otimização de armazenamento](sizes-storage.md)
-- [Com otimização de GPU](sizes-gpu.md)
+- [Otimizada para GPU](sizes-gpu.md)
 - [Computação de elevado desempenho](sizes-hpc.md)
 - [Gerações anteriores](sizes-previous-gen.md)
 
@@ -56,6 +57,6 @@ Calculadora de preços: [Calculadora de Preços](https://azure.microsoft.com/pri
 
 Mais informações sobre tipos de discos : [tipos de discos](./disks-types.md#ultra-disk)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre como [as unidades de computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho do cálculo em Azure SKUs.
