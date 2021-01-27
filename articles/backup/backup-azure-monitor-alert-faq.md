@@ -4,12 +4,12 @@ description: Neste artigo, descubra respostas a perguntas comuns sobre o Alerta 
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: cf6929b9b926a6e6469f3fa789a19e60d5883d21
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e2585009b531512e54ffa889a05ec50038dd619
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89181498"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98805867"
 ---
 # <a name="azure-backup-monitoring-alert---faq"></a>Alerta de monitorização de backup Azure - FAQ
 
@@ -60,15 +60,15 @@ Um alerta é levantado dentro de 20 minutos da falha do Backup Azure.
 
 ### <a name="is-there-a-case-where-an-email-wont-be-sent-if-notifications-are-configured"></a>Existe algum caso em que um e-mail não será enviado se as notificações estiverem configuradas?
 
-Sim. Nas seguintes situações, as notificações não são enviadas:
+Yes. Nas seguintes situações, as notificações não são enviadas:
 
 * Se as notificações forem configuradas de hora em hora, e um alerta for levantado e resolvido dentro de uma hora
 * Quando um trabalho é cancelado
 * Se um segundo trabalho de reserva falhar porque o trabalho de reserva original está em andamento
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Leia as outras FAQs:
 
-* [Perguntas comuns](backup-azure-vm-backup-faq.md) sobre cópias de segurança de VMs do Azure.
+* [Perguntas comuns](backup-azure-vm-backup-faq.yml) sobre cópias de segurança de VMs do Azure.
 * [Perguntas comuns](backup-azure-file-folder-backup-faq.md) sobre o agente do Azure Backup

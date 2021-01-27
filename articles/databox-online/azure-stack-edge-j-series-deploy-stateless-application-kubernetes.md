@@ -1,19 +1,19 @@
 ---
-title: Implementar aplicação apátrida da Kubernetes no dispositivo GPU Azure Stack Edge Pro usando kubectl Microsoft Docs
+title: Implemente a aplicação apátrida da Kubernetes no dispositivo GPU Azure Stack Edge Pro usando kubectl| Microsoft Docs
 description: Descreve como criar e gerir uma aplicação apátrida kubernetes usando kubectl num dispositivo Microsoft Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 01/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 6356089daed02270a14903639afee8001153b195
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: b199fdbac4aca7637e07a18383cc7e254f702019
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447374"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98804845"
 ---
 # <a name="deploy-a-kubernetes-stateless-application-via-kubectl-on-your-azure-stack-edge-pro-gpu-device"></a>Implemente uma aplicação apátrida Kubernetes através de kubectl no seu dispositivo GPU Azure Stack Edge Pro
 
@@ -25,7 +25,7 @@ Antes de criar um cluster Kubernetes e utilizar a `kubectl` ferramenta de linha 
 
 - Tem credenciais de entrada num dispositivo Azure Stack Edge Pro de 1 nó.
 
-- O Windows PowerShell 5.0 ou mais tarde é instalado num sistema de clientes Windows para aceder ao dispositivo Azure Stack Edge Pro. Também pode ter qualquer outro cliente com um sistema operativo suportado. Este artigo descreve o procedimento quando se utiliza um cliente Windows. Para descarregar a versão mais recente do Windows PowerShell, aceda à [instalação do Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
+- O Windows PowerShell 5.0 ou mais tarde é instalado num sistema de clientes Windows para aceder ao dispositivo Azure Stack Edge Pro. Também pode ter qualquer outro cliente com um sistema operativo suportado. Este artigo descreve o procedimento quando se utiliza um cliente Windows. Para descarregar a versão mais recente do Windows PowerShell, aceda à [instalação do Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7&preserve-view=true).
 
 - O Compute está ativado no dispositivo Azure Stack Edge Pro. Para ativar o cálculo, aceda à página **compute** na UI local do dispositivo. Em seguida, selecione uma interface de rede que deseja ativar para calcular. Selecione **Ativar**. Permitir a computação resulta na criação de um interruptor virtual no seu dispositivo nessa interface de rede. Para obter mais informações, consulte [Enable compute network no seu Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
 
@@ -55,7 +55,7 @@ Para verificar a versão `kubectl` de:
    kubectl version
    ```
     
-   Aqui está um exemplo da saída:
+   Um exemplo da saída é mostrado abaixo:
     
    ```powershell
    PS C:\WINDOWS\system32> C:\windows\system32\kubectl.exe version
@@ -63,7 +63,7 @@ Para verificar a versão `kubectl` de:
    Server Version: version.Info{Major:"1", Minor:"15", GitVersion:"v1.15.1", GitCommit:"4485c6f18cee9a5d3c3b4e523bd27972b1b53892", GitTreeState:"clean", BuildDate:"2019-07-18T09:09:21Z", GoVersion:"go1.12.5", Compiler:"gc", Platform:"linux/amd64"}
    ```
 
-   Neste caso, a versão cliente do kubectl é v1.15.2 e é compatível para prosseguir.
+   Neste caso, a versão cliente do kubectl é v1.15.2 e é compatível para continuar.
 
 2. Obtenha uma lista das cápsulas em execução no seu cluster Kubernetes. Uma cápsula é um recipiente de aplicação, ou processo, que funciona no seu cluster Kubernetes.
 
@@ -71,7 +71,7 @@ Para verificar a versão `kubectl` de:
    kubectl get pods -n <namespace-string>
    ```
     
-   Aqui está um exemplo de utilização do comando:
+   Um exemplo de utilização do comando é mostrado abaixo:
     
    ```powershell
    PS C:\WINDOWS\system32> kubectl get pods -n "test1"
@@ -103,7 +103,7 @@ Para verificar a versão `kubectl` de:
 
 ### <a name="create-a-stateless-application-using-a-deployment"></a>Criar uma aplicação apátrida usando uma implantação
 
-Agora que verificou que a versão da linha de comando kubectl está correta e tem os ficheiros de configuração necessários, pode criar uma implementação de aplicação apátrida.
+Agora que verificou que a versão da linha de comando kubectl está correta e que tem os ficheiros de configuração necessários, pode criar uma implementação de aplicação apátrida.
 
 Uma cápsula é a unidade de execução básica de uma aplicação Kubernetes, a unidade mais pequena e simples no modelo de objeto Kubernetes que cria ou implementa. Uma cápsula também encapsula recursos de armazenamento, um IP de rede único, e opções que regem como o(s) contentor(s) deve funcionar.
 
@@ -123,7 +123,7 @@ Siga estes passos para criar uma implementação nginx:
 
    Neste exemplo, o caminho para o ficheiro YAML da aplicação é uma fonte externa.
 
-   Aqui está uma amostra de utilização do comando e saída:
+   Aqui está uma amostra de utilização do comando e sua saída:
 
    ```powershell
    PS C:\WINDOWS\system32> kubectl apply -f https://k8s.io/examples/application/deployment.yaml -n "test1"
@@ -131,7 +131,7 @@ Siga estes passos para criar uma implementação nginx:
    deployment.apps/nginx-deployment created
    ```
 
-   Em alternativa, pode guardar a seguinte marcação para a sua máquina local e substituir o caminho e o nome de ficheiro no parâmetro *-f.* Por exemplo, "C:\Kubernetes\deployment.yaml". Aqui está a configuração para a implementação da aplicação:
+   Em alternativa, pode guardar a seguinte marcação para a sua máquina local e substituir o caminho e o nome de ficheiro no parâmetro *-f.* Por exemplo, "C:\Kubernetes\deployment.yaml". A configuração para a implementação da aplicação seria:
 
    ```markdown
    apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
@@ -163,7 +163,7 @@ Siga estes passos para criar uma implementação nginx:
    kubectl describe deployment nginx-deployment -n <namespace-string>
    ```
 
-   Aqui está a utilização da amostra do comando e da saída:
+   Abaixo é mostrada uma utilização da amostra do comando, com saída:
     
    ```powershell
    PS C:\Users\user> kubectl describe deployment nginx-deployment -n "test1"
@@ -203,13 +203,13 @@ Siga estes passos para criar uma implementação nginx:
      Normal  ScalingReplicaSet  2m22s  deployment-controller  Scaled up replica set nginx-deployment-5754944d6c to 2
    ```
 
-   Se olhar atentamente para a definição de *réplicas,* verá:
+   Para a definição de *réplicas,* verá:
     
    ```powershell
    Replicas:               2 desired | 2 updated | 2 total | 2 available | 0 unavailable
    ```
 
-   A definição *de réplicas* indica que a sua especificação de implantação exigia duas cápsulas, que as cápsulas onde foram criadas e atualizadas, e que estão prontas para utilizar.
+   A definição *de réplicas* indica que a especificação de implementação requer duas cápsulas e que essas cápsulas foram criadas e atualizadas e estão prontas para utilizar.
 
    > [!NOTE]
    > Um conjunto de réplicas substitui as cápsulas que são eliminadas ou terminadas por qualquer motivo, como no caso de falha no nó do dispositivo ou de uma atualização disruptiva do dispositivo. Por esta razão, recomendamos que utilize um conjunto de réplicas mesmo que a sua aplicação exija apenas uma única cápsula.
@@ -220,7 +220,7 @@ Siga estes passos para criar uma implementação nginx:
    kubectl get pods -l app=nginx -n <namespace-string>
    ```
     
-   Aqui está a utilização da amostra do comando e da saída:
+   Abaixo é mostrada uma utilização da amostra do comando, com saída:
     
    ```powershell
    PS C:\Users\user> kubectl get pods -l app=nginx -n "test1"
@@ -238,7 +238,7 @@ Siga estes passos para criar uma implementação nginx:
    kubectl describe pod <podname-string> -n <namespace-string>
    ```
 
-   Aqui está a utilização da amostra do comando e da saída:
+  Abaixo é mostrada uma utilização da amostra do comando, com saída:
 
    ```powershell
    PS C:\Users\user> kubectl describe pod "nginx-deployment-5754944d6c-7wqjd" -n "test1"
@@ -295,14 +295,14 @@ Siga estes passos para criar uma implementação nginx:
 
 ### <a name="rescale-the-application-deployment-by-increasing-the-replica-count"></a>Reescalifique a implementação da aplicação aumentando a contagem de réplicas
 
-Cada cápsula deve executar uma única instância de uma determinada aplicação. Se pretender escalar a sua aplicação horizontalmente para executar várias instâncias, pode aumentar o número de cápsulas, uma para cada instância. Em Kubernetes, isto é referido como replicação.
+Cada cápsula deve executar uma única instância de uma determinada aplicação. Se pretender escalar a sua aplicação horizontalmente para executar várias instâncias, pode aumentar o número de cápsulas para uma para cada instância. Em Kubernetes, isto é referido como replicação.
 Pode aumentar o número de cápsulas na sua implementação de aplicação aplicando um novo ficheiro YAML. O ficheiro YAML altera a definição de réplicas para 4, o que aumenta o número de cápsulas na sua implementação para quatro cápsulas. Para aumentar o número de cápsulas de 2 para 4:
 
 ```powershell
 PS C:\WINDOWS\system32> kubectl apply -f https://k8s.io/examples/application/deployment-scale.yaml -n "test1"
 ```
 
-Em alternativa, pode guardar a seguinte marcação na sua máquina local e substituir o caminho e o nome de ficheiro para o parâmetro *-f* para `kubectl apply` . Por exemplo, "C:\Kubernetes\deployment-scale.yaml". Aqui está a configuração para a escala de implementação da aplicação:
+Em alternativa, pode guardar a seguinte marcação na sua máquina local e substituir o caminho e o nome de ficheiro para o parâmetro *-f* para `kubectl apply` . Por exemplo, "C:\Kubernetes\deployment-scale.yaml". A configuração para a escala de implementação da aplicação seria:
 
 ```markdown
 apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
@@ -332,7 +332,7 @@ Para verificar se a implantação tem quatro cápsulas:
 kubectl get pods -l app=nginx
 ```
 
-Aqui está a saída por exemplo para uma implantação de rescalamento de duas a quatro cápsulas:
+Abaixo é mostrada a saída de exemplo para uma implantação de rescalamento de duas a quatro cápsulas:
 
 ```powershell
 PS C:\WINDOWS\system32> kubectl get pods -l app=nginx
@@ -354,13 +354,13 @@ Para eliminar a implementação, incluindo todas as cápsulas, é necessário ex
    kubectl delete deployment nginx-deployment -n <namespace-string>
    ```
 
-Aqui está um exemplo de utilização e saída de comando:
+Um exemplo de utilização do comando, com saída, é mostrado abaixo:
 
 ```powershell
 PS C:\Users\user> kubectl delete deployment nginx-deployment -n "test1"
 deployment.extensions "nginx-deployment" deleted
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Visão geral de Kubernetes](azure-stack-edge-gpu-kubernetes-overview.md)

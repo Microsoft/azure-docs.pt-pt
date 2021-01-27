@@ -1,5 +1,5 @@
 ---
-title: Explore os dados no armazenamento de blob Azure com pandas - Processo de Ciência de Dados de Equipa
+title: Explore dados em Azure Blob Storage com pandas - Processo de Ciência de Dados de Equipa
 description: Como explorar dados que são armazenados no recipiente de bolhas Azure usando o pacote pandas Python.
 services: machine-learning
 author: marktab
@@ -11,14 +11,14 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3d80ff9f5f96bbc642aed6598c86cb682d606695
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 855998b887f1d446ee8d196ff4628e066cb5d675
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410679"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98805680"
 ---
-# <a name="explore-data-in-azure-blob-storage-with-pandas"></a>Explore os dados no armazenamento de bolhas Azure com pandas
+# <a name="explore-data-in-azure-blob-storage-with-pandas"></a>Explore os dados no Azure Blob Storage com pandas
 
 Este artigo abrange como explorar dados que são armazenados no recipiente blob Azure usando o pacote [pandas](https://pandas.pydata.org/) Python.
 
@@ -28,7 +28,7 @@ Esta tarefa é um passo no [Processo de Ciência de Dados](overview.md)da Equipa
 Este artigo assume que tem:
 
 * Criei uma conta de armazenamento Azure. Se precisar de instruções, consulte [Criar uma conta de Armazenamento Azure](../../storage/common/storage-account-create.md)
-* Guarde os seus dados numa conta de armazenamento de blob Azure. Se precisar de instruções, consulte [a mudança de dados de e para o Armazenamento Azure](../../storage/common/storage-choose-data-transfer-solution.md)
+* Guarde os seus dados numa conta de Armazenamento Azure Blob. Se precisar de instruções, consulte [a mudança de dados de e para o Armazenamento Azure](../../storage/common/storage-choose-data-transfer-solution.md)
 
 ## <a name="load-the-data-into-a-pandas-dataframe"></a>Carregue os dados num DataFrame de pandas
 Para explorar e manipular um conjunto de dados, deve primeiro ser descarregado da fonte blob para um ficheiro local, que pode ser carregado num DataFrame de pandas. Aqui estão os passos a seguir para este procedimento:

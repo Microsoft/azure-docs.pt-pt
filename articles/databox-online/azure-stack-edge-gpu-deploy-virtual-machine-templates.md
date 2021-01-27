@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/16/2020
+ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: 69d5a0a69bcd820fd59da0a18b3838b65a6a0460
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 66d537b79819aecab4ce88a56ed465679363f421
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763439"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98805208"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-templates"></a>Implemente VMs no seu dispositivo GPU Azure Stack Edge Pro através de modelos
 
@@ -29,7 +29,7 @@ Para implantar VMs Azure Stack Edge Pro em muitos dispositivos, pode utilizar um
 
 O resumo de alto nível do fluxo de trabalho de implantação utilizando modelos é o seguinte:
 
-1. **Configure pré-requisitos** - Existem 3 tipos de pré-requisitos; dispositivo, cliente, e para o VM.
+1. **Configure pré-requisitos** - Existem três tipos de pré-requisitos: dispositivo, cliente e para o VM.
 
     1. **Pré-requisitos do dispositivo**
 
@@ -47,7 +47,7 @@ O resumo de alto nível do fluxo de trabalho de implantação utilizando modelos
         1. Crie um grupo de recursos na localização do dispositivo que contenha todos os recursos VM.
         1. Crie uma conta de armazenamento para carregar o VHD usado para criar imagem VM.
         1. Adicione a conta de armazenamento local URI ao DNS ou ficheiro de anfitriões no cliente que acede ao seu dispositivo.
-        1. Instale o certificado de armazenamento blob no dispositivo, bem como no cliente local que aceda ao seu dispositivo. Instale opcionalmente o certificado de armazenamento de bolhas no Explorador de Armazenamento.
+        1. Instale o certificado de armazenamento de bolhas no dispositivo e no cliente local que aceda ao seu dispositivo. Instale opcionalmente o certificado de armazenamento de bolhas no Explorador de Armazenamento.
         1. Crie e carrema um VHD para a conta de armazenamento criada anteriormente.
 
 2. **Criar VM a partir de modelos**
@@ -71,7 +71,7 @@ Configure estes pré-requisitos no seu cliente que serão utilizados para aceder
 
 ## <a name="vm-prerequisites"></a>Pré-requisitos VM
 
-Configure estes pré-requisitos para a criação de recursos que serão necessários para a criação de VM. 
+Configure estes pré-requisitos para criar os recursos necessários para a criação de VM. 
 
     
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
@@ -101,7 +101,7 @@ PS C:\windows\system32>
 
 ### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
-Criar uma nova conta de armazenamento utilizando o grupo de recursos criado no passo anterior. Esta é uma **conta de armazenamento local** que será usada para carregar a imagem virtual do disco para o VM.
+Criar uma nova conta de armazenamento utilizando o grupo de recursos criado no passo anterior. Esta conta é uma **conta de armazenamento local** que será usada para carregar a imagem de disco virtual para o VM.
 
 ```powershell
 New-AzureRmStorageAccount -Name <Storage account name> -ResourceGroupName <Resource group name> -Location DBELocal -SkuName Standard_LRS
@@ -195,7 +195,7 @@ Copie quaisquer imagens de disco a serem usadas em bolhas de página na conta de
 
 7. Reveja o **resumo da Ligação** e selecione **Connect**.
 
-8. A conta de armazenamento aparece no painel esquerdo. Selecione e expanda a conta de armazenamento. Selecione **recipientes Blob,** clique à direita e selecione **Criar o Recipiente Blob**. Forneça um nome para o seu recipiente de bolhas.
+8. A conta de armazenamento aparece no painel esquerdo. Selecione e expanda a conta de armazenamento. Selecione **recipientes Blob,** clique à direita e selecione **Create Blob Container**. Forneça um nome para o seu recipiente de bolhas.
 
 9. Selecione o recipiente que acabou de criar e no painel direito, selecione **upload > carregar ficheiros**. 
 
@@ -209,7 +209,7 @@ Copie quaisquer imagens de disco a serem usadas em bolhas de página na conta de
 
     ![Carregar ficheiro VHD 3](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/upload-vhd-file-3.png)
 
-12. Copie e guarde o **Uri** como utilizará nos passos posteriores.
+12. Copie e guarde o **Uri,** que utilizará em passos posteriores.
 
     ![Copiar URI](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/copy-uri-1.png)
 
@@ -237,7 +237,7 @@ O ficheiro `CreateImage.parameters.json` toma os seguintes parâmetros:
     }
 ```
 
-Edite o ficheiro `CreateImage.parameters.json` para incluir o seguinte para o seu dispositivo Azure Stack Edge Pro:
+Edite o ficheiro `CreateImage.parameters.json` para incluir os seguintes valores para o seu dispositivo Azure Stack Edge Pro:
 
 1. Forneça o tipo de SO correspondente ao VHD que irá carregar. O tipo de SO pode ser Windows ou Linux.
 
@@ -250,16 +250,17 @@ Edite o ficheiro `CreateImage.parameters.json` para incluir o seguinte para o se
 
 2. Altere o URI de imagem para o URI da imagem que carregou no passo anterior:
 
-    ```json
-    "imageUri": {
-        "value": "https://myasegpusavm.blob.myasegpu1.wdshcsso.com/windows/WindowsServer2016Datacenter.vhd"
-        },
-    ```
-    Se estiver a utilizar *http* com o Storage Explorer, altere-o para um *URI http.*
+   ```json
+   "imageUri": {
+       "value": "https://myasegpusavm.blob.myasegpu1.wdshcsso.com/windows/WindowsServer2016Datacenter.vhd"
+       },
+   ```
+
+   Se estiver a utilizar *http* com o Storage Explorer, altere o URI para um URI *http.*
 
 3. Fornecer um nome de imagem único. Esta imagem é usada para criar VM nos passos posteriores. 
 
-    Aqui está uma amostra json que é usada neste artigo.
+   Aqui está uma amostra json que é usada neste artigo.
 
     ```json
     {
@@ -278,6 +279,7 @@ Edite o ficheiro `CreateImage.parameters.json` para incluir o seguinte para o se
       }
     }
     ```
+
 5. Guarde o ficheiro de parâmetros.
 
 
@@ -586,6 +588,6 @@ Siga estes passos para ligar a um Linux VM.
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-[Cmdlets do Gestor de Recursos Azure](/powershell/module/azurerm.resources/?view=azurermps-6.13.0)
+[Cmdlets do Gestor de Recursos Azure](/powershell/module/azurerm.resources/?view=azurermps-6.13.0&preserve-view=true)

@@ -85,8 +85,12 @@
       items:
         - name: Referência de Segurança do Azure
           href: ./samples/azure-security-benchmark.md
+        - name: Referência de referência de segurança Azure v1
+          href: ./samples/azure-security-benchmarkv1.md
         - name: CIS Microsoft Azure Foundations Benchmark 1.1.0
           href: ./samples/cis-azure-1-1-0.md
+        - name: CMMC Nível 3
+          href: ./samples/cmmc-l3.md
         - name: HIPAA HITRUST 9.2
           href: ./samples/hipaa-hitrust-9-2.md
         - name: NIST SP 800-53 R4

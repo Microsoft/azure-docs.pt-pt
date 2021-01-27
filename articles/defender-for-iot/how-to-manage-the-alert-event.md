@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.service: azure
 ms.topic: how-to
-ms.openlocfilehash: 023b33732b80198c4ed187328e8d18314f385f94
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: ad09bcb1ea4aa32bdd04af47d3503f74c850a10b
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97841865"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98803509"
 ---
 # <a name="manage-alert-events"></a>Gerir eventos de alerta
 
@@ -108,6 +108,4 @@ Quando um evento é silenciado, é ignorado sempre que a fonte envia um cabeçal
 
 ## <a name="see-also"></a>Veja também
 
-[Gerar relatórios](how-to-generate-reports.md)
-
-[Controlar o tráfego que é monitorizado](how-to-control-what-traffic-is-monitored.md)
+[Controlar que tráfego é monitorizado](how-to-control-what-traffic-is-monitored.md)

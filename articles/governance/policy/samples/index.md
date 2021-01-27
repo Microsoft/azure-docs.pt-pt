@@ -1,14 +1,14 @@
 ---
 title: Índice de exemplos de política
 description: Índice de incorporações do Azure Policy. Etiquetas de categorias, Conformidade regulamentar, Key Vault, Kubernetes, Configuração do convidado e muito mais.
-ms.date: 10/14/2020
+ms.date: 01/25/2021
 ms.topic: sample
-ms.openlocfilehash: 0c73273f94822873c410564f13ba43f0b679f0ff
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
-ms.translationtype: HT
+ms.openlocfilehash: a7492f6b12e8adffc6ba28da750e51ecdeb1878f
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077920"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98805580"
 ---
 # <a name="azure-policy-samples"></a>Exemplos do Azure Policy
 
@@ -37,8 +37,10 @@ Seguem-se exemplos de diferentes padrões utilizando a linguagem e os operadores
 
 Seguem-se as incorporações de [Conformidade Regulamentar](../concepts/regulatory-compliance.md):
 
-- [Referência de Segurança do Azure](./azure-security-benchmark.md)
+- [Referência de referência de segurança Azure v2](./azure-security-benchmark.md)
+- [Referência de referência de segurança Azure v1](./azure-security-benchmarkv1.md)
 - [CIS Microsoft Azure Foundations Benchmark v1.1.0](./cis-azure-1-1-0.md)
+- [CMMC Nível 3](./cmmc-l3.md)
 - [HIPAA HITRUST 9.2](./hipaa-hitrust-9-2.md)
 - [NIST SP 800-53 R4](./nist-sp-800-53-r4.md)
 - [NIST SP 800-171 R2](./nist-sp-800-171-r2.md)

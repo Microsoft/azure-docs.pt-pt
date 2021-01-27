@@ -1,5 +1,5 @@
 ---
-title: Melhorar a resolução do nome do porto e do VLAN
+title: Melhorar a resolução de nomes de porta e VLAN
 description: Personalize os nomes de porta e VLAN nos seus sensores para enriquecer a resolução do dispositivo.
 author: shhazam-ms
 manager: rkarlin
@@ -7,14 +7,14 @@ ms.author: shhazam
 ms.date: 12/13/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 1747af77468ebe41f59892dea4bb49ce24757f37
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 9c976671bccb420ae24d8def7a6574098d86ce6d
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97842428"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98803580"
 ---
-# <a name="enhance-port-and-vlan-name-resolution"></a>Melhorar a resolução do nome do porto e do VLAN
+# <a name="enhance-port-and-vlan-name-resolution"></a>Melhorar a resolução de nomes de porta e VLAN
 
 Pode personalizar nomes de porta e VLAN nos seus sensores para enriquecer a resolução do dispositivo.
 
@@ -82,9 +82,10 @@ Para configurar VLANs:
 
 3. Adicione um nome único ao lado de cada ID VLAN.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Ver informações sobre dispositivos enriquecidos nos relatórios relativos ao inventário do dispositivo e à mineração de dados:
+Veja a informação do dispositivo enriquecido em vários relatórios:
 
-- [Investigar deteções de sensores num inventário de dispositivos](how-to-investigate-sensor-detections-in-a-device-inventory.md)
-- [Gerar relatórios](how-to-generate-reports.md)
+- [Investigar as deteções do sensor num inventário de dispositivos](how-to-investigate-sensor-detections-in-a-device-inventory.md)
+- [Tendências dos sensores e relatórios estatísticos](how-to-create-trends-and-statistics-reports.md)
+- [Consultas de mineração de dados de sensores](how-to-create-data-mining-queries.md)

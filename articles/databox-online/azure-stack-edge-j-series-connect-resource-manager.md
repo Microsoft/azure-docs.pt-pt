@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: 6bf0da8716233178889d47ec3d57e9b29bc2658f
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 54aad90cf86f1a20d76f04f3a829f29c47023558
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763222"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98805790"
 ---
 # <a name="connect-to-azure-resource-manager-on-your-azure-stack-edge-pro-device"></a>Ligue ao Gestor de Recursos Azure no seu dispositivo Azure Stack Edge Pro
 
@@ -138,9 +138,9 @@ O seu cliente Windows deve cumprir os seguintes requisitos:
 
     Compare a versão **Major** e certifique-se de que é 5.0 ou mais tarde.
 
-    Se tem uma versão desatualizada, veja [Atualizar o Windows PowerShell existente](/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell).
+    Se tem uma versão desatualizada, veja [Atualizar o Windows PowerShell existente](/powershell/scripting/install/installing-windows-powershell?view=powershell-6&preserve-view=true#upgrading-existing-windows-powershell).
 
-    Se \' não tiver PowerShell 5.0, siga [instalar o Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6).
+    Se \' não tiver PowerShell 5.0, siga [instalar o Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6&preserve-view=true).
 
     É apresentada abaixo uma saída de exemplo.
 
@@ -156,7 +156,7 @@ O seu cliente Windows deve cumprir os seguintes requisitos:
     
 2. Pode aceder à Galeria PowerShell.
 
-    Executar powerShell como administrador. Verifique se a PSGallery está registada como um repositório.
+    Executar powerShell como administrador. Verifique se o `PSGallery` está registado como repositório.
 
     ```powershell
     Import-Module -Name PowerShellGet -ErrorAction Stop
@@ -175,7 +175,7 @@ O seu cliente Windows deve cumprir os seguintes requisitos:
     PSGallery                 Trusted              https://www.powershellgallery.com/api/v2
     ```
     
-Se o seu repositório não for de confiança ou precisar de mais informações, consulte [validar a acessibilidade da PowerShell Gallery](/azure-stack/operator/azure-stack-powershell-install?view=azs-1908#2-validate-the-powershell-gallery-accessibility).
+Se o seu repositório não for de confiança ou precisar de mais informações, consulte [validar a acessibilidade da PowerShell Gallery](/azure-stack/operator/azure-stack-powershell-install?view=azs-1908&preserve-view=true&preserve-view=true#2-validate-the-powershell-gallery-accessibility).
 
 ## <a name="step-4-set-up-azure-powershell-on-the-client"></a>Passo 4: Configurar a Azure PowerShell no cliente 
 
@@ -327,7 +327,7 @@ Defina o ambiente de Gestor de Recursos Azure e verifique se o seu dispositivo p
     Set-AzureRMEnvironment -Name <Environment Name>
     ```
     
-    Para mais informações, aceda ao [Set-AzureRMEnvironment](/powershell/module/azurerm.profile/set-azurermenvironment?view=azurermps-6.13.0).
+    Para mais informações, aceda ao [Set-AzureRMEnvironment](/powershell/module/azurerm.profile/set-azurermenvironment?view=azurermps-6.13.0&preserve-view=true).
 
     - Defina o ambiente em linha para cada cmdlet que executa. Isto garante que todas as chamadas da API estão a passar pelo ambiente correto. Por padrão, as chamadas passariam pelo público do Azure, mas quer que estas passem pelo ambiente que definiu para o dispositivo Azure Stack Edge Pro.
 
@@ -458,6 +458,6 @@ ExtendedProperties : {}
 ```
 Mudou agora para o ambiente pretendido.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Coloque VMs no seu dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md).

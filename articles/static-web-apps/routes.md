@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 8abbe575e855347714c19c40155d890af484d5d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0cece3f531d50356fdefb81a598109d7c067c5ed
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91822325"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98805943"
 ---
 # <a name="routes-in-azure-static-web-apps-preview"></a>Rotas em Azure Static Web Apps Preview
 
@@ -36,10 +36,10 @@ A tabela que se segue lista a localização adequada para colocar o seu _routes.
 
 |Quadro / biblioteca | Localização  |
 |---------|----------|
-| Angular | _ativos_   |
-| React   | _public_  |
-| Svelte  | _public_   |
-| Vue     | _public_ |
+| Angular | _recursos_   |
+| React   | _público_  |
+| Svelte  | _público_   |
+| Vue     | _público_ |
 | Blazor  | _wwwroot_ |
 
 A tabela acima é apenas representativa de alguns quadros e bibliotecas compatíveis com Azure Static Web Apps. Consulte as [estruturas frontais e bibliotecas de configuração](./front-end-frameworks.md) para obter mais informações.
@@ -50,10 +50,10 @@ As rotas são definidas no _routes.jsarquivado_ como uma série de regras de rot
 
 | Propriedade de regra  | Necessário | Valor predefinido | Comentário                                                      |
 | -------------- | -------- | ------------- | ------------------------------------------------------------ |
-| `route`        | Sim      | n/a          | O padrão de rota solicitado pelo chamador.<ul><li>[Os wildcards](#wildcards) são suportados no final dos caminhos de rota. Por exemplo, a rota _ \* admin/corresponde_ a qualquer rota sob o caminho _administrativo._<li>O ficheiro predefinido de uma rota é _index.html_.</ul>|
-| `serve`        | Não       | n/a          | Define o ficheiro ou caminho devolvido do pedido. O caminho e o nome do ficheiro podem ser diferentes do caminho solicitado. Se um `serve` valor não for definido, então o caminho solicitado é usado. Os parâmetros de consulta não são suportados; `serve` os valores devem apontar para ficheiros reais.  |
-| `allowedRoles` | Não       | anónimo     | Uma série de nomes de papéis. <ul><li>Os caracteres válidos `a-z` `A-Z` incluem, , e `0-9` `_` .<li>O papel incorporado `anonymous` aplica-se a todos os utilizadores não autenticados.<li>A função incorporada `authenticated` aplica-se a qualquer utilizador com sessão iniciada.<li>Os utilizadores devem pertencer a pelo menos uma função.<li>As funções são correspondidas numa base _de OR._ Se um utilizador estiver em alguma das funções listadas, então o acesso é concedido.<li>Os utilizadores individuais estão associados a funções através de [convites.](authentication-authorization.md)</ul> |
-| `statusCode`   | Não       | 200           | A resposta [do código de estado HTTP](https://wikipedia.org/wiki/List_of_HTTP_status_codes) para o pedido. |
+| `route`        | Yes      | n/a          | O padrão de rota solicitado pelo chamador.<ul><li>[Os wildcards](#wildcards) são suportados no final dos caminhos de rota. Por exemplo, a rota _\* admin/corresponde_ a qualquer rota sob o caminho _administrativo._<li>O ficheiro predefinido de uma rota é _index.html_.</ul>|
+| `serve`        | No       | n/a          | Define o ficheiro ou caminho devolvido do pedido. O caminho e o nome do ficheiro podem ser diferentes do caminho solicitado. Se um `serve` valor não for definido, então o caminho solicitado é usado. Os parâmetros de consulta não são suportados; `serve` os valores devem apontar para ficheiros reais.  |
+| `allowedRoles` | No       | anónimo     | Uma série de nomes de papéis. <ul><li>Os caracteres válidos `a-z` `A-Z` incluem, , e `0-9` `_` .<li>O papel incorporado `anonymous` aplica-se a todos os utilizadores não autenticados.<li>A função incorporada `authenticated` aplica-se a qualquer utilizador com sessão iniciada.<li>Os utilizadores devem pertencer a pelo menos uma função.<li>As funções são correspondidas numa base _de OR._ Se um utilizador estiver em alguma das funções listadas, então o acesso é concedido.<li>Os utilizadores individuais estão associados a funções através de [convites.](authentication-authorization.md)</ul> |
+| `statusCode`   | No       | 200           | A resposta [do código de estado HTTP](https://wikipedia.org/wiki/List_of_HTTP_status_codes) para o pedido. |
 
 ## <a name="securing-routes-with-roles"></a>Assegurar rotas com funções
 
@@ -210,7 +210,7 @@ Fornecendo um valor para um cabeçalho adiciona ou modifica o cabeçalho. Fornec
 }
 ```
 
-No exemplo acima, é adicionado um novo `content-security-policy` cabeçalho, modifica `cache-control` o valor predefinido do servidor e o `x-dns-prefectch-control` cabeçalho é removido.
+No exemplo acima, é adicionado um novo `content-security-policy` cabeçalho, modifica `cache-control` o valor predefinido do servidor e o `x-dns-prefetch-control` cabeçalho é removido.
 
 As seguintes considerações são importantes porque trabalha com cabeçalhos:
 
@@ -222,7 +222,7 @@ As seguintes considerações são importantes porque trabalha com cabeçalhos:
 
 ## <a name="example-route-file"></a>Arquivo de rota de exemplo
 
-O exemplo a seguir mostra como construir regras de rotas para conteúdo estático e APIs numa _routes.jsem_ arquivo. Algumas rotas utilizam a pasta do sistema [ _/.auth_ ](authentication-authorization.md) que acede aos pontos finais relacionados com a autenticação.
+O exemplo a seguir mostra como construir regras de rotas para conteúdo estático e APIs numa _routes.jsem_ arquivo. Algumas rotas utilizam a pasta do sistema [ _/.auth_](authentication-authorization.md) que acede aos pontos finais relacionados com a autenticação.
 
 ```json
 {
@@ -290,9 +290,9 @@ Os exemplos a seguir descrevem o que acontece quando um pedido corresponde a uma
 | Pedidos para... | Resultado em... |
 |--|--|--|
 | _/perfil_ | Os utilizadores autenticados são servidos o ficheiro _/perfil/index.html._ Utilizadores não autenticados redirecionados para _/login_. |
-| _/administração/relatórios_ | Os utilizadores autenticados na função de administradores são _servidos_ o ficheiro _/administrador/reports/index.html._ Os utilizadores autenticados que não estão na função de administrador são _servidos_ um erro 401<sup>2</sup>. Utilizadores não autenticados redirecionados para _/login_. |
+| _/administração/relatórios_ | Os utilizadores autenticados na função de administradores são _servidos_ o ficheiro _/administrador/reports/index.html._ Os utilizadores autenticados que não estão na função de administrador são _servidos_ um erro 401 <sup>2</sup>. Utilizadores não autenticados redirecionados para _/login_. |
 | _/api/administrador_ | Os pedidos de utilizadores autenticados na função de administradores são _enviados_ para a API. Os utilizadores autenticados que não estão na função _de administrador_ e os utilizadores não autenticados são notificados de um erro de 401. |
-| _/clientes/contoso_ | Os utilizadores autenticados que pertençam às funções de administradores ou _clientes \_ são_ _servidos_ os _/clientes/contoso/index.html_ file<sup>2</sup>. Os utilizadores autenticados que não estão nas funções de administradores ou _clientes \_ _ são _servidos_ um erro de 401. Utilizadores não autenticados redirecionados para _/login_. |
+| _/clientes/contoso_ | Os utilizadores autenticados que pertençam às funções de administradores ou _clientes \_ são_ _servidos_ os _/clientes/contoso/index.html_ file <sup>2</sup>. Os utilizadores autenticados que não estão nas funções de administradores ou _clientes \__ são _servidos_ um erro de 401. Utilizadores não autenticados redirecionados para _/login_. |
 | _/login_ | Os utilizadores não autenticados são desafiados a autenticar com o GitHub. |
 | _/.auth/login/twitter_ | A autorização com o Twitter é desativada. O servidor responde com um erro 404. |
 | _/logout_ | Os utilizadores são registados fora de qualquer fornecedor de autenticação. |
@@ -314,7 +314,7 @@ Todas as respostas incluem os `content-security-policy` cabeçalhos com um valor
 
 Consulte o [artigo Quotas](quotas.md) para restrições e limitações gerais.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Autenticação e autorização de instalação](authentication-authorization.md)

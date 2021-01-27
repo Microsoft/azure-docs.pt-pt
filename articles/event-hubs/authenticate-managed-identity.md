@@ -2,14 +2,14 @@
 title: Autenticação de identidade gerida com Diretório Ativo Azure
 description: Este artigo fornece informações sobre a autenticação de uma identidade gerida com o Azure Ative Directory para aceder aos recursos do Azure Event Hubs
 ms.topic: conceptual
-ms.date: 06/23/2020
+ms.date: 01/25/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c6b43cc48663be28d12fa788d92286be6f47ef08
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2070cfd94b39a08afb86ffd3579f1116faac72d5
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95993538"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98805303"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-event-hubs-resources"></a>Autenticar uma identidade gerida com o Azure Ative Directory para aceder aos Recursos dos Hubs de Eventos
 A Azure Event Hubs suporta a autenticação do Azure Ative Directory (Azure AD) com [identidades geridas para recursos Azure](../active-directory/managed-identities-azure-resources/overview.md). Identidades geridas para recursos Azure podem autorizar o acesso aos recursos do Event Hubs utilizando credenciais AD Azure a partir de aplicações executadas em Azure Virtual Machines (VMs), apps de funções, conjuntos de escala de máquina virtual e outros serviços. Ao utilizar identidades geridas para recursos Azure juntamente com a autenticação Azure AD, pode evitar armazenar credenciais com as suas aplicações que funcionam na nuvem.
@@ -41,11 +41,12 @@ Assim que a aplicação for criada, siga estes passos:
 1. Selecione o **Estado** a ser **ligado**. 
 1. Selecione **Guardar** para guardar a definição. 
 
-    ![Identidade gerida para uma aplicação web](./media/authenticate-managed-identity/identity-web-app.png)
+    :::image type="content" source="./media/authenticate-managed-identity/identity-web-app.png" alt-text="Identidade gerida para uma aplicação web":::
+4. Selecione **Sim** na mensagem de informação. 
 
-Uma vez ativada esta definição, é criada uma nova identidade de serviço no seu Azure Ative Directory (Azure AD) e configurada no anfitrião do Serviço de Aplicações.
+    Uma vez ativada esta definição, é criada uma nova identidade de serviço no seu Azure Ative Directory (Azure AD) e configurada no anfitrião do Serviço de Aplicações.
 
-Agora, atribua esta identidade de serviço a um papel no âmbito exigido nos recursos do Event Hubs.
+    Agora, atribua esta identidade de serviço a um papel no âmbito exigido nos recursos do Event Hubs.
 
 ### <a name="to-assign-azure-roles-using-the-azure-portal"></a>Atribuir funções de Azure utilizando o portal Azure
 Para atribuir um papel aos recursos do Event Hubs, navegue para esse recurso no portal Azure. Mostrar as definições do Controlo de Acesso (IAM) para o recurso e seguir estas instruções para gerir as atribuições de funções:
@@ -56,15 +57,20 @@ Para atribuir um papel aos recursos do Event Hubs, navegue para esse recurso no 
 1. No portal Azure, navegue no espaço de nomes do Event Hubs e exiba a **Visão Geral** para o espaço de nomes. 
 1. Selecione **Access Control (IAM)** no menu esquerdo para exibir as definições de controlo de acesso para o centro de eventos.
 1.  Selecione o **separador funções** para ver a lista de atribuições de funções.
-3.  **Selecione Adicionar** para adicionar um novo papel.
-4.  Na página **de atribuição de funções Adicionar,** selecione as funções De Centros de Evento que pretende atribuir. Em seguida, procure para localizar a identidade de serviço que tinha registado para atribuir a função.
+3.  **Selecione Adicionar** e, em seguida, selecione **Adicionar a atribuição de função** _.
+4.  Na página _ *Adicionar função** página, siga estes passos:
+    1. Para **Role**, selecione o papel de Centros de Eventos que pretende atribuir. Neste exemplo, é **o Azure Event Hubs Data Owner**.
+    1. Para o acesso ao campo **de atribuição,** selecione **o Serviço de Aplicações** em **Sistema atribuído à identidade gerida.** 
+    1. Selecione a **subscrição** na qual foi criada a identidade gerida para a aplicação web.
+    1. Selecione a **identidade gerida** para a aplicação web que criou. O nome padrão para a identidade é o mesmo que o nome da aplicação web. 
+    1. Em seguida, **selecione Save**. 
     
-    ![Adicionar página de atribuição de funções](./media/authenticate-managed-identity/add-role-assignment-page.png)
-5.  Selecione **Guardar**. A identidade a quem atribuiu o papel aparece listada nessa função. Por exemplo, a imagem a seguir mostra que a identidade do serviço tem o proprietário de Dados do Event Hubs.
-    
-    ![Identidade atribuída a um papel](./media/authenticate-managed-identity/role-assigned.png)
+        ![Adicionar página de atribuição de funções](./media/authenticate-managed-identity/add-role-assignment-page.png)
 
-Uma vez atribuído o papel, a aplicação web terá acesso aos recursos do Event Hubs sob o âmbito definido. 
+    Uma vez atribuído o papel, a aplicação web terá acesso aos recursos do Event Hubs sob o âmbito definido. 
+
+    > [!NOTE]
+    > Para uma lista de serviços que suportam identidades geridas, consulte [serviços que suportem identidades geridas para recursos Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md).
 
 ### <a name="test-the-web-application"></a>Testar a aplicação Web
 1. Crie um espaço de nomes de Event Hubs e um centro de eventos. 
@@ -149,7 +155,7 @@ Pode utilizar as aplicações Apache Kafka para enviar mensagens e receber mensa
 - [Event Hubs for Kafka - enviar e receber mensagens usando identidade gerida OAuth](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/managedidentity)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Veja o seguinte artigo para conhecer identidades geridas para recursos Azure: [O que são identidades geridas para os recursos do Azure?](../active-directory/managed-identities-azure-resources/overview.md)
 - Consulte os seguintes artigos relacionados:
     - [Autenticar pedidos aos Azure Event Hubs a partir de uma aplicação utilizando o Azure Ative Directory](authenticate-application.md)

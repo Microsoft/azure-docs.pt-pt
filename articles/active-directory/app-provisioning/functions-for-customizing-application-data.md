@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 02/05/2020
 ms.author: kenwith
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 462f60bbae9fd7b61993a2ccccd40fa5ca4ccc28
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: e87211789280c3439d71d8fa63da09416eaaf18e
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98012972"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98805127"
 ---
 # <a name="reference-for-writing-expressions-for-attribute-mappings-in-azure-ad"></a>Referência para expressões de escrita para mapeamentos de atributos em Azure AD
 
@@ -181,7 +181,7 @@ Devoluções "cn=Joe,dc=contoso,dc=com"
 
 | Name | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
-| **value** |Necessário | Date | Data AD a converter para o tipo DateTime |
+| **value** |Necessário | Data | Data AD a converter para o tipo DateTime |
 
 **Exemplo:**
 `DateFromNum([lastLogonTimestamp])`
@@ -483,7 +483,7 @@ Devolve "Joh".
  - Esta é uma função de alto nível, não pode ser aninhada.
  - Esta função não pode ser aplicada a atributos que tenham precedência correspondente.   
  - Esta função destina-se apenas a ser utilizada para criações de entrada. Ao usá-lo com um atributo, desaje a propriedade **Apply Mapping** para Apenas durante a **criação de objetos**.
- - Atualmente, esta função é suportada apenas para "Workday to Ative Directory User Provisioning". Não pode ser utilizado com outros pedidos de provisionamento. 
+ - Atualmente, esta função é suportada apenas para "Workday to Ative Directory User Provisioning" e "SuccessFactors to Ative Directory User Provisioning". Não pode ser utilizado com outros pedidos de provisionamento. 
 
 
 **Parâmetros:** 
@@ -516,7 +516,7 @@ Devolve "Joh".
 | Name | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **fonte** |Necessário |String |valor **de origem** para atualizar. |
-| **delimitador** |Necessário |String |Especifica o carácter que será usado para dividir a corda (exemplo: "") |
+| **delimiter** |Necessário |String |Especifica o carácter que será usado para dividir a corda (exemplo: "") |
 
 ---
 ### <a name="stripspaces"></a>StripSpaces

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/05/2021
+ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: d601c6191da9d555e54c1d58c122420510d288fc
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 8b233211f47250d4742d35cd0782cdd241839496
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955557"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98804868"
 ---
 # <a name="deploy-custom-script-extension-on-vms-running-on-your-azure-stack-edge-pro-device"></a>Implemente a extensão de script personalizado em VMs em execução no seu dispositivo Azure Stack Edge Pro
 
@@ -62,13 +62,13 @@ If your script is on a local server, then you may still need additional firewall
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-1. [Descarregue os modelos e os ficheiros de parâmetros VM](https://aka.ms/ase-vm-templates) para a sua máquina de clientes. Desaperte-o num diretório que usarás como diretório de trabalho.
+1. [Descarregue os modelos e os ficheiros de parâmetros VM](https://aka.ms/ase-vm-templates) para a sua máquina de clientes. Desaperte o download para um diretório que usará como diretório de trabalho.
 
-1. Deverá ter um VM criado e implantado no seu dispositivo. Para criar VMs, siga todos os passos no [VM de implantação no seu Azure Stack Edge Pro utilizando modelos](azure-stack-edge-gpu-deploy-virtual-machine-templates.md).
+1. Deverá ter um VM criado e implantado no seu dispositivo. Para criar VMs, siga todos os passos em [Implementar VM no seu Azure Stack Edge Pro utilizando modelos](azure-stack-edge-gpu-deploy-virtual-machine-templates.md).
 
-    Se precisar de descarregar um script externamente, como no GitHub ou no Azure Storage, enquanto configura a rede de computação, ative a porta que está ligada à Internet, para calcular. Isto permite-lhe descarregar o script.
+    Se precisar de descarregar um script como no GitHub ou no Azure Storage externamente, enquanto configura a rede de computação, ative a porta que está ligada à Internet para calcular. Isto permite-lhe descarregar o script.
 
-    Aqui está um exemplo onde o Porto 2 estava ligado à internet e foi usado para permitir a rede de computação. Se identificou que kubernetes não é necessário no passo anterior, pode saltar o nó de Kubernetes IP e a atribuição ip de serviço externo.    
+    No exemplo seguinte, o Porto 2 estava ligado à internet e foi utilizado para permitir a rede de computação. Se identificar que kubernetes não é necessário no passo anterior, pode saltar o nó de Kubernetes IP e a atribuição ip de serviço externo.
 
     ![Ativar definições de cálculo na porta ligada à internet](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/enable-compute-network-1.png)
 
@@ -115,7 +115,7 @@ O ficheiro `addCSExtWindowsVM.parameters.json` toma os seguintes parâmetros:
 ```
 Forneça o seu nome VM, nome para a extensão e o comando que pretende executar.
 
-Aqui está um arquivo de parâmetros de amostra que foi usado neste artigo. 
+Aqui está o ficheiro do parâmetro da amostra que foi usado neste artigo.
 
 ```powershell
 {
@@ -158,7 +158,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile $tem
 > [!NOTE]
 > A extensão é um trabalho de longa duração e leva cerca de 10 minutos para ser concluída.
 
-Eis uma saída de exemplo:
+Aqui está uma amostra de saída:
 
 ```powershell
 PS C:\WINDOWS\system32> $templateFile = "C:\12-09-2020\ExtensionTemplates\addCSExtensiontoVM.json"
@@ -196,7 +196,7 @@ Para verificar o estado de implantação das extensões para um determinado VM, 
 ```powershell
 Get-AzureRmVMExtension -ResourceGroupName <Name of resource group> -VMName <Name of VM> -Name <Name of the extension>
 ```
-Eis uma saída de exemplo:
+Aqui está uma amostra de saída:
 
 ```powershell
 PS C:\WINDOWS\system32> Get-AzureRmVMExtension -ResourceGroupName myasegpuvm1 -VMName VM5 -Name CustomScriptExtension
@@ -281,7 +281,7 @@ O ficheiro `addCSExtLinuxVM.parameters.json` toma os seguintes parâmetros:
 ```
 Forneça o seu nome VM, nome para a extensão e o comando que pretende executar.
 
-Aqui está um arquivo de parâmetros de amostra que foi usado neste artigo:
+Aqui está um ficheiro de parâmetro de amostra que foi usado neste artigo:
 
 ```powershell
 $templateFile = "<Path to addCSExtensionToVM.json file>"
@@ -293,7 +293,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile $tem
 > [!NOTE]
 > A extensão é um trabalho de longa duração e leva cerca de 10 minutos para ser concluída.
 
-Eis uma saída de exemplo:
+Aqui está uma amostra de saída:
 
 ```powershell
 PS C:\WINDOWS\system32> $templateFile = "C:\12-09-2020\ExtensionTemplates\addCSExtensionToVM.json"
@@ -342,7 +342,7 @@ A implementação do modelo é um trabalho de longa duração. Para verificar o 
 ```powershell
 Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName <VM Name> -Name <Extension Name>
 ```
-Eis uma saída de exemplo: 
+Aqui está uma amostra de saída: 
 
 ```powershell
 PS C:\WINDOWS\system32> Get-AzureRmVMExtension -ResourceGroupName myasegpuvm1 -VMName VM5 -Name CustomScriptExtension
@@ -381,7 +381,7 @@ Para remover a extensão do script personalizado, utilize o seguinte comando:
 
 `Remove-AzureRmVMExtension -ResourceGroupName <Resource group name> -VMName <VM name> -Name <Extension name>`
 
-Eis uma saída de exemplo:
+Aqui está uma amostra de saída:
 
 ```powershell
 PS C:\WINDOWS\system32> Remove-AzureRmVMExtension -ResourceGroupName myasegpuvm1 -VMName VM6 -Name LinuxCustomScriptExtension
@@ -394,6 +394,6 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-[Cmdlets do Gestor de Recursos Azure](/powershell/module/azurerm.resources/?view=azurermps-6.13.0)
+[Cmdlets do Gestor de Recursos Azure](/powershell/module/azurerm.resources/?view=azurermps-6.13.0&preserve-view=true)

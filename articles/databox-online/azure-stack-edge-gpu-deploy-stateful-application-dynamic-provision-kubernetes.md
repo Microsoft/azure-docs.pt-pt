@@ -1,19 +1,19 @@
 ---
-title: Use kubectl para implementar a app stateful da Kubernetes através de uma partilha dinamicamente aprovisionada no dispositivo GPU Azure Stack Edge Pro/ Microsoft Docs
+title: Use kubectl para implementar a aplicação stateful kubernetes através de uma partilha dinamicamente aprovisionada no dispositivo GPU Azure Stack Edge Pro| Microsoft Docs
 description: Descreve como criar e gerir uma implementação de aplicações stateful Kubernetes através de uma partilha dinamicamente atada usando kubectl num dispositivo GPU Microsoft Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/26/2020
+ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: 81a52b26c5291f788ac81caeb2ca5416a2f58d36
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: e009369f6223e171984d1142419101fdd82879b0
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448881"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98804920"
 ---
 # <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-storageclass-on-your-azure-stack-edge-pro-gpu-device"></a>Use kubectl para executar uma aplicação stateful Kubernetes com StorageClass no seu dispositivo GPU Azure Stack Edge Pro
 
@@ -24,7 +24,7 @@ Este procedimento destina-se a quem tenha revisto o [armazenamento kubernetes no
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de poder implementar a aplicação imponente, certifique-se de que completou os seguintes pré-requisitos no seu dispositivo e no cliente que utilizará para aceder ao dispositivo:
+Antes de poder implementar a aplicação imponente, preencha os seguintes pré-requisitos no seu dispositivo e o cliente que utilizará para aceder ao dispositivo:
 
 ### <a name="for-device"></a>Para o dispositivo
 
@@ -35,7 +35,7 @@ Antes de poder implementar a aplicação imponente, certifique-se de que complet
 ### <a name="for-client-accessing-the-device"></a>Para o cliente aceder ao dispositivo
 
 - Tem um sistema de clientes Windows que será utilizado para aceder ao dispositivo Azure Stack Edge Pro.
-    - O cliente está a executar o Windows PowerShell 5.0 ou mais tarde. Para descarregar a versão mais recente do Windows PowerShell, aceda à [Instalação do Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
+    - O cliente está a executar o Windows PowerShell 5.0 ou mais tarde. Para descarregar a versão mais recente do Windows PowerShell, aceda à [Instalação do Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7&preserve-view=true).
     
     - Também pode ter qualquer outro cliente com um [sistema operativo suportado.](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) Este artigo descreve o procedimento quando se utiliza um cliente Windows. 
     
@@ -66,7 +66,7 @@ Todos os `kubectl` comandos que utiliza para criar e gerir implementações de a
    kubectl get pods -n <your-namespace>
    ```
     
-   Aqui está um exemplo de utilização do comando:
+   Aqui está um exemplo de uso do comando:
     
    ```powershell
     C:\Users\user>kubectl get pods -n "userns1"
@@ -157,7 +157,7 @@ Todos os `kubectl` comandos que utiliza para criar e gerir implementações de a
     persistentvolumeclaim/mysql-pv-claim-sc created
     C:\Users\user>
     ```
-   Note o nome do PVC criado, aqui `mysql-pv-claim-sc` está. Vais usá-lo mais tarde. 
+   Note o nome do PVC criado - neste exemplo, `mysql-pv-claim-sc` . Vais usá-lo mais tarde.
 
 4. Implemente o conteúdo do `mysql-deployment.yml` ficheiro.
 
@@ -324,6 +324,6 @@ C:\Users\user>
 ```                                                                                         
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para entender como configurar a rede através do kubectl, consulte [implementar uma aplicação apátrida num dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md)

@@ -3,12 +3,12 @@ title: Recuar e recuperar VMs Azure com PowerShell
 description: Descreve como fazer backup e recuperar VMs Azure usando Azure Backup com PowerShell
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 610049ec14243abb296aef431eb37533c6169817
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: 90bb6f60712fc59aec05ff2e85364fccf00ff1df
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97797065"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98804798"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Recuar e restaurar VMs Azure com PowerShell
 
@@ -228,7 +228,7 @@ NewPolicy           AzureVM            AzureVM              4/24/2016 1:30:00 AM
 Uma vez definida a política de proteção, ainda deve ativar a política para um item. Utilize [Enable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) para permitir a proteção. Permitir a proteção requer dois objetos - o item e a política. Uma vez que a política tenha sido associada ao cofre, o fluxo de trabalho de backup é acionado no momento definido no calendário de política.
 
 > [!IMPORTANT]
-> Ao utilizar o PowerShell para ativar a cópia de segurança de vários VMs de uma só vez, certifique-se de que uma única política não tem mais de 100 VMs associados. Esta é uma [boa prática recomendada.](./backup-azure-vm-backup-faq.md#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy) Atualmente, o cliente PowerShell não bloqueia explicitamente se houver mais de 100 VMs, mas o cheque está previsto para ser adicionado no futuro.
+> Ao utilizar o PowerShell para ativar a cópia de segurança de vários VMs de uma só vez, certifique-se de que uma única política não tem mais de 100 VMs associados. Esta é uma [boa prática recomendada.](./backup-azure-vm-backup-faq.yml#is-there-a-limit-on-number-of-vms-that-can-be-associated-with-the-same-backup-policy) Atualmente, o cliente PowerShell não bloqueia explicitamente se houver mais de 100 VMs, mas o cheque está previsto para ser adicionado no futuro.
 
 Os exemplos a seguir permitem a proteção do artigo V2VM, utilizando a política, a NewPolicy. Os exemplos diferem com base no facto de o VM estar encriptado e de que tipo de encriptação.
 
@@ -893,6 +893,6 @@ Depois de copiar os ficheiros [necessários, utilize Disable-AzRecoveryServicesB
 Disable-AzRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0] -VaultId $targetVault.ID
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se preferir utilizar o PowerShell para se envolver com os seus recursos Azure, consulte o artigo PowerShell, [Implementar e Gerir a cópia de segurança para o Servidor do Windows](backup-client-automation.md). Se gerir backups DPM, consulte o artigo, [Implementar e Gerir a Cópia de Segurança para DPM](backup-dpm-automation.md).

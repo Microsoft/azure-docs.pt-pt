@@ -12,18 +12,18 @@ ms.date: 01/21/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1dc5b8dc8930d75456f307324ef97bd60e78eca9
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 96772020e70aeb32fa1a8ae18bf3818396887877
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98660162"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98805242"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Gerir Azure AD B2C com o Microsoft Graph
 
 O Microsoft Graph permite-lhe gerir recursos no seu diretório Azure AD B2C. As seguintes operações de API do Microsoft Graph são suportadas para a gestão de recursos Azure AD B2C, incluindo utilizadores, fornecedores de identidade, fluxos de utilizadores, políticas personalizadas e chaves de política. Cada link nas seguintes secções tem como alvo a página correspondente na referência API do Microsoft Graph para essa operação. 
 
-## <a name="perquisites"></a>Perquisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para utilizar a MS Graph API e interagir com os recursos no seu inquilino Azure AD B2C, precisa de um registo de pedido que conceda as permissões para o fazer. Siga os passos no [Manage Azure AD B2C com](microsoft-graph-get-started.md) o artigo microsoft Graph para criar um registo de aplicação que a sua aplicação de gestão pode usar. 
 

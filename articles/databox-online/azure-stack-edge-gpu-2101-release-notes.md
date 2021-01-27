@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 01/19/2021
 ms.author: alkohli
-ms.openlocfilehash: d0b7f871b2ea62c810a6d20f6e20a5e8d3f6306e
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 8158868a39bf8a1fe03a620f37e4dcb1c9adc14e
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791918"
+ms.locfileid: "98805189"
 ---
 # <a name="azure-stack-edge-2101-release-notes"></a>Notas de lançamento do Azure Stack Edge 2101
 
@@ -45,12 +45,12 @@ A tabela seguinte fornece um resumo das questões conhecidas na versão de 2101.
 |**1.**|Funcionalidades de pré-visualização |Para esta versão, as seguintes funcionalidades: Local Azure Resource Manager, VMs, Gestão em nuvem de VMs, Azure Arc habilitado Kubernetes, VPN para Azure Stack Edge Pro R e Azure Stack Edge Mini R, serviço multi-processo (MPS) para GPU Azure Stack Edge Pro - estão todos disponíveis na pré-visualização.  |Estas funcionalidades estarão geralmente disponíveis em lançamentos posteriores. |
 |**2.**|Painel de Kubernetes | O ponto final *https* para o Painel Kubernetes com certificado SSL não é suportado. | |
 |**3.**|Utilizar o Kubernetes |O registo do contentor de borda não funciona quando o proxy web está ativado.|A funcionalidade estará disponível num futuro lançamento. |
-|**4.**|Utilizar o Kubernetes |O registo do contentor edge não funciona com módulos IoT Edge.| |
+|**4.**|Utilizar o Kubernetes |O registo do contentor de borda não funciona com módulos IoT Edge.| |
 |**5.**|Utilizar o Kubernetes |Kubernetes não suporta " em nomes variáveis ambientais que são usados por aplicações .NET. Isto também é necessário para que o módulo IoT Edge da grelha de evento funcione no dispositivo Azure Stack Edge e outras aplicações. Para mais informações, consulte [ASP.NET documentação principal.](/aspnet/core/fundamentals/configuration/?tabs=basicconfiguration&view=aspnetcore-3.1&preserve-view=true#environment-variables)|Substitua " por duplo sublinhado. Para mais informações,consulte [a edição de Kubernetes](https://github.com/kubernetes/kubernetes/issues/53201)|
-|**6.** |Aglomerado Azure Arc + Kubernetes |Por padrão, quando os recursos `yamls` são eliminados do repositório git, os recursos correspondentes não são eliminados do cluster Kubernetes.  |É necessário definir `--sync-garbage-collection` no Arc OperatorParams para permitir a eliminação de recursos quando são eliminados do repositório de git. Para obter mais informações, consulte [Eliminar uma configuração](../azure-arc/kubernetes/use-gitops-connected-cluster.md#additional-parameters). |
-|**7.**|NFS |As aplicações que utilizam suportes de partilha NFS no seu dispositivo para escrever dados devem utilizar a escrita exclusiva. A utilização de escrita exclusiva garante que as escritas são escritas para o disco.| |
+|**6.** |Aglomerado Azure Arc + Kubernetes |Por predefinição, quando os recursos `yamls` são eliminados do repositório git, os recursos correspondentes não são eliminados do cluster Kubernetes.  |É necessário definir `--sync-garbage-collection`  no Arc OperatorParams para permitir a supressão de recursos quando eliminado do repositório de git. Para obter mais informações, consulte [Eliminar uma configuração](../azure-arc/kubernetes/use-gitops-connected-cluster.md#additional-parameters). |
+|**7.**|NFS |As aplicações que utilizam suportes de partilha NFS no seu dispositivo para escrever dados devem utilizar a escrita exclusiva. Isto garante que as escritas são escritas para o disco.| |
 |**8.**|Configuração do cálculo |A configuração do cálculo falha nas configurações de rede onde gateways ou switches ou routers respondem aos pedidos do Address Resolution Protocol (ARP) para sistemas que não existem na rede.| |
-|**9.**|Computação e Kubernetes |Se a Kubernetes for configurada primeiro no seu dispositivo, reclama todas as GPUs disponíveis. Por isso, não é possível criar VMs Azure Resource Manager usando GPUs após a configuração dos Kubernetes. |Se o seu dispositivo tiver 2 GPUs, então pode criar 1 VM que usa a GPU e, em seguida, configurar Kubernetes. Neste caso, a Kubernetes utilizará os restantes 1 GPU disponíveis. |
+|**9.**|Computação e Kubernetes |Se a Kubernetes for configurada primeiro no seu dispositivo, reclama todas as GPUs disponíveis. Assim, não é possível criar VMs Azure Resource Manager usando GPUs após a configuração dos Kubernetes. |Se o seu dispositivo tiver 2 GPUs, então pode criar 1 VM que usa a GPU e, em seguida, configurar Kubernetes. Neste caso, a Kubernetes utilizará os restantes 1 GPU disponíveis. |
 
 
 ## <a name="known-issues-from-previous-releases"></a>Questões conhecidas de lançamentos anteriores

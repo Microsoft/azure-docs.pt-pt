@@ -1,18 +1,18 @@
 ---
 title: Definições políticas incorporadas para o Azure IoT Hub
 description: Lista definições políticas incorporadas da Azure Policy para O Hub Azure IoT. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 01/21/2021
+ms.date: 01/25/2021
 ms.topic: reference
 author: robinsh
 ms.author: robinsh
 ms.service: iot-hub
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 772d50ad4e8ba5b1df4e94c3146a7582f746c012
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: b6e62898826f685e15433097548a37c076c9299c
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98703157"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98803335"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-iot-hub"></a>Definições incorporadas da Política Azure para o Azure IoT Hub
 
