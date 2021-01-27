@@ -9,16 +9,16 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 090b041c605c2328add8b46a97b6f151bae268c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec589848625e1114dedd8c58b41f7ecbc991f311
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87501087"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881979"
 ---
 # <a name="create-a-vm-from-a-generalized-image-version-using-the-cli"></a>Criar um VM a partir de uma versão de imagem generalizada usando o CLI
 
-Crie um VM a partir de uma [versão de imagem generalizada](./linux/shared-image-galleries.md#generalized-and-specialized-images) armazenada numa Galeria de Imagens Partilhadas. Se pretender criar um VM utilizando uma imagem especializada, consulte [Criar um VM a partir de uma imagem especializada.](vm-specialized-image-version-powershell.md) 
+Crie um VM a partir de uma [versão de imagem generalizada](./shared-image-galleries.md#generalized-and-specialized-images) armazenada numa Galeria de Imagens Partilhadas. Se pretender criar um VM utilizando uma imagem especializada, consulte [Criar um VM a partir de uma imagem especializada.](vm-specialized-image-version-powershell.md) 
 
 
 ## <a name="get-the-image-id"></a>Obtenha a imagem ID
@@ -57,6 +57,6 @@ az vm create\
 
 Também pode utilizar uma versão específica utilizando o ID da versão de imagem para o `--image` parâmetro. Por exemplo, para utilizar a versão de imagem *1.0.0* tipo: `--image "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"` .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-[O Azure Image Builder (pré-visualização)](./linux/image-builder-overview.md) pode ajudar a automatizar a criação de versão de imagem, podendo até usá-la para atualizar e [criar uma nova versão de imagem a partir de uma versão de imagem existente.](./linux/image-builder-gallery-update-image-version.md) 
+[O Azure Image Builder (pré-visualização)](./image-builder-overview.md) pode ajudar a automatizar a criação de versão de imagem, podendo até usá-la para atualizar e [criar uma nova versão de imagem a partir de uma versão de imagem existente.](./linux/image-builder-gallery-update-image-version.md)

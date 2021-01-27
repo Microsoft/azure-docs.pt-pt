@@ -1,5 +1,5 @@
 ---
-title: Armazenamento mount Azure Blob utilizando o protocolo NFS 3.0 (pré-visualização) Microsoft Docs
+title: Armazenamento mount Azure Blob utilizando o protocolo NFS 3.0 (pré-visualização) | Microsoft Docs
 description: Saiba como montar um recipiente no armazenamento Blob a partir de uma Máquina Virtual Azure (VM) ou de um cliente que funciona no local utilizando o protocolo NFS 3.0.
 author: normesta
 ms.subservice: blobs
@@ -9,12 +9,12 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: b61ce696c28a2c72a2cd3d0eb2d2fde0022dbb01
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: db946dcc0fc8571f7b6aa191909155baccf7d1a2
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97897744"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878583"
 ---
 # <a name="mount-blob-storage-by-using-the-network-file-system-nfs-30-protocol-preview"></a>Armazenamento do Monte Blob utilizando o protocolo Sistema de Ficheiros de Rede (NFS) 3.0 (pré-visualização)
 
@@ -88,7 +88,7 @@ Ao configurar a conta, escolha estes valores:
 |Replicação|Armazenamento localmente redundante (LRS)| Armazenamento localmente redundante (LRS)
 |Método de conectividade|Ponto final público (redes selecionadas) ou ponto final privado |Ponto final público (redes selecionadas) ou ponto final privado
 |Transferência segura necessária|Desativado|Desativado
-|Espaço hierárquico de nomes|Ativado|Ativado
+|Espaço de nomes hierárquico|Ativado|Ativado
 |NFS V3|Ativado |Ativado 
 
 Pode aceitar os valores predefinidos para todas as outras definições. 
@@ -100,7 +100,7 @@ Crie um recipiente na sua conta de armazenamento utilizando qualquer uma destas 
 |Ferramentas|SDKs|
 |---|---|
 |[Portal do Azure](https://portal.azure.com)|[.NET](data-lake-storage-directory-file-acl-dotnet.md#create-a-container)|
-|[AzCopy](../common/storage-use-azcopy-blobs.md#create-a-container)|[Java](data-lake-storage-directory-file-acl-java.md#create-a-container)|
+|[AzCopy](../common/storage-use-azcopy-v10.md#transfer-data)|[Java](data-lake-storage-directory-file-acl-java.md)|
 |[PowerShell](data-lake-storage-directory-file-acl-powershell.md#create-a-container)|[Python](data-lake-storage-directory-file-acl-python.md#create-a-container)|
 |[CLI do Azure](data-lake-storage-directory-file-acl-cli.md#create-a-container)|[JavaScript](data-lake-storage-directory-file-acl-javascript.md)|
 ||[REST](/rest/api/storageservices/create-container)|

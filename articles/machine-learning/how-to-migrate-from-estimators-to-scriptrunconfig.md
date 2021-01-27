@@ -1,5 +1,5 @@
 ---
-title: Migrar de Estimadores para ScriptRunConfig
+title: Migrar dos Avaliadores para ScriptRunConfig
 titleSuffix: Azure Machine Learning
 description: Guia de migração para migração de Estimadores para ScriptRunConfig para configurar trabalhos de formação.
 services: machine-learning
@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 12/14/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: 64c03b1c9fc18a4e78af9914b893599683069ced
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: d603a12f851dac5b7cefc5bad728d42967bb27dc
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97633012"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878600"
 ---
 # <a name="migrating-from-estimators-to-scriptrunconfig"></a>Migrando de Estimadores para ScriptRunConfig
 
@@ -30,7 +30,7 @@ Este artigo abrange considerações comuns ao migrar de Estimadores para ScriptR
 > Para migrar para ScriptRunConfig de Estimadores, certifique-se de que está a usar >= 1.15.0 do Python SDK.
 
 ## <a name="scriptrunconfig-documentation-and-samples"></a>Documentação e amostras do ScriptRunConfig
-A documentação e amostras de Machine Learning Azure foram atualizadas para utilizar [o ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig?view=azure-ml-py&preserve-view=true) para configuração e submissão de emprego.
+A documentação e amostras de Machine Learning Azure foram atualizadas para utilizar [o ScriptRunConfig](/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig?preserve-view=true&view=azure-ml-py) para configuração e submissão de emprego.
 
 Para obter informações sobre a utilização do ScriptRunConfig, consulte a seguinte documentação:
 * [Configurar e enviar execuções de preparação](how-to-set-up-training-targets.md)
@@ -104,10 +104,10 @@ src.run_config.data_references = {data_ref.data_reference_name: data_ref.to_conf
 ```
 
 Para obter mais informações sobre a utilização de dados para formação, consulte:
-* [Treine com conjuntos de dados em Azure ML](https://docs.microsoft.com/azure/machine-learning/how-to-train-with-datasets)
+* [Treine com conjuntos de dados em Azure ML](./how-to-train-with-datasets.md)
 
 ## <a name="distributed-training"></a>Preparação distribuída
-Se precisar de configurar um trabalho distribuído para a formação, faça-o especificando o `distributed_job_config` parâmetro no construtor ScriptRunConfig. Passe numa [Configuração de Mpi,](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py&preserve-view=true) [PyTorchConfiguration,](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?view=azure-ml-py&preserve-view=true)ou [TensorflowConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration?view=azure-ml-py&preserve-view=true) para trabalhos distribuídos dos respetivos tipos.
+Se precisar de configurar um trabalho distribuído para a formação, faça-o especificando o `distributed_job_config` parâmetro no construtor ScriptRunConfig. Passe numa [Configuração de Mpi,](/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?preserve-view=true&view=azure-ml-py) [PyTorchConfiguration,](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?preserve-view=true&view=azure-ml-py)ou [TensorflowConfiguration](/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration?preserve-view=true&view=azure-ml-py) para trabalhos distribuídos dos respetivos tipos.
 
 O exemplo a seguir configura um trabalho de formação PyTorch para utilizar a formação distribuída com MPI/Horovod:
 ```python
@@ -120,7 +120,7 @@ src = ScriptRunConfig(source_directory='.',
                       distributed_job_config=MpiConfiguration(node_count=2, process_count_per_node=2))
 ```
 
-Para obter mais informações, veja:
+Para obter mais informações, consulte:
 * [Preparação distribuída com o PyTorch](how-to-train-pytorch.md#distributed-training)
 * [Treino distribuído com TensorFlow](how-to-train-tensorflow.md#distributed-training)
 
@@ -130,6 +130,6 @@ Se precisar de aceder ao objeto RunConfiguration subjacente por um ScriptRunConf
 src.run_config
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Configurar e enviar execuções de preparação](how-to-set-up-training-targets.md)

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/01/2020
 ms.author: radeltch
-ms.openlocfilehash: 525c705db81dc0f152c8dbc55de5ebac841e5d57
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 62b235fa9ea84409a5c29609a5dc0fde1671684c
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201744"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878770"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Conectividade de ponto final público para máquinas virtuais usando O Balançador de Carga Padrão Azure em cenários de alta disponibilidade SAP
 
@@ -45,8 +45,8 @@ Os sistemas SAP contêm frequentemente dados empresariais sensíveis. Raramente 
 
 Exemplos de cenários que exigem acesso ao ponto final público do Azure são:  
 - Agente da Cerca de Azure requer acesso a **management.azure.com** e **login.microsoftonline.com**  
-- [Azure Backup](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db#set-up-network-connectivity)
-- [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-urls)  
+- [Azure Backup](../../../backup/tutorial-backup-sap-hana-db.md#set-up-network-connectivity)
+- [Azure Site Recovery](../../../site-recovery/azure-to-azure-about-networking.md#outbound-connectivity-for-urls)  
 - Utilização de repositório público para remendar o sistema Operativo
 - O fluxo de dados da aplicação SAP pode exigir conectividade de saída ao ponto final público
 
@@ -227,7 +227,7 @@ Se o tráfego de saída for encaminhado por terceiros, o proxy de firewall basea
 - se utilizar o agente de cerca Azure certifique-se de que a configuração da firewall permite a conectividade de saída à API de gestão Azure: `https://management.azure.com``https://login.microsoftonline.com`   
 - se utilizar a infraestrutura de atualização de nuvem pública Azure da SUSE para aplicar atualizações e patches, consulte [a Infraestrutura de Atualização da Nuvem Pública do Azure 101](https://suse.com/c/azure-public-cloud-update-infrastructure-101/)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Saiba como configurar o Pacemaker na SUSE em Azure](./high-availability-guide-suse-pacemaker.md)
 * [Saiba como configurar pacemaker no Chapéu Vermelho em Azure](./high-availability-guide-rhel-pacemaker.md)

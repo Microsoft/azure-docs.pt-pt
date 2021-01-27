@@ -1,5 +1,5 @@
 ---
-title: Não é possível ligar-se com o RDP a um VM do Windows em Azure Microsoft Docs
+title: Não é possível ligar-se com o RDP a um Windows VM em Azure | Microsoft Docs
 description: Problemas de resolução de problemas quando não consegue ligar-se à sua máquina virtual Do Windows no Azure utilizando o Remote Desktop
 keywords: Erro remoto no ambiente de trabalho,erro de ligação ao ambiente de trabalho remoto, não pode ligar-se a VM,resolução remota de problemas no ambiente de trabalho
 services: virtual-machines-windows
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/23/2018
 ms.author: akjosh
-ms.openlocfilehash: 66e4ea622f546981d1f0651b20368590e59056d3
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 33bd7c82568f836e498a05411d2b3cf1c6a950b9
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201625"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878634"
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Resolução de problemas Ligações de ambiente de trabalho remoto a uma máquina virtual Azure
 A ligação RDP (Remote Desktop Protocol) à sua máquina virtual (VM) do Azure baseada em Windows pode falhar por várias razões, impedindo o seu acesso à VM. O problema poderá estar no serviço Ambiente de Trabalho Remoto na VM, na ligação de rede ou no cliente do Ambiente de Trabalho Remoto no computador anfitrião. Este artigo serve de orientação ao longo de alguns dos métodos mais comuns para resolver problemas de ligação RDP. 
@@ -46,7 +46,7 @@ Após cada passo de resolução de problemas, tente voltar a ligar-se ao VM:
 Continuar a ler Se precisar de passos e explicações mais detalhados. Verifique se os equipamentos de rede locais, tais como routers e firewalls, não estão a bloquear a porta TCP de saída 3389, como se nota em [cenários detalhados de resolução de problemas rdp](detailed-troubleshoot-rdp.md).
 
 > [!TIP]
-> Se o botão **'Ligar'** para o seu VM estiver acinzentado no portal e não estiver ligado ao Azure através de uma [rota expressa](../../expressroute/expressroute-introduction.md) ou de uma ligação [VPN local-a-local,](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) tem de criar e atribuir ao seu VM um endereço IP público antes de poder utilizar o RDP. Pode ler mais sobre [endereços IP públicos no Azure](../../virtual-network/public-ip-addresses.md).
+> Se o botão **'Ligar'** para o seu VM estiver acinzentado no portal e não estiver ligado ao Azure através de uma [rota expressa](../../expressroute/expressroute-introduction.md) ou de uma ligação [VPN local-a-local,](../../vpn-gateway/tutorial-site-to-site-portal.md) tem de criar e atribuir ao seu VM um endereço IP público antes de poder utilizar o RDP. Pode ler mais sobre [endereços IP públicos no Azure](../../virtual-network/public-ip-addresses.md).
 
 
 ## <a name="ways-to-troubleshoot-rdp-issues"></a>Formas de resolver problemas de PDR

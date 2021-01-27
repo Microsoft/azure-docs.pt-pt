@@ -39,8 +39,6 @@
       href: restart-resize-error-troubleshooting.md
     - name: 'Reiniciar, Encerrar ou Parar serviços'
       href: boot-error-troubleshoot-windows.md
-    - name: Problemas com um disco de SO completo numa máquina virtual do Linux
-      href: os-disk-full-linux.md
 - name: Reinício inesperado
   items:
     - name: Reinícios inesperados de VMs com VHDs ligadas
@@ -153,7 +151,7 @@
         - name: Resolver problemas relacionados com um erro geral
           href: troubleshoot-rdp-general-error.md
         - name: Resolver erros de autenticação
-          href: troubleshoot-authentication-error-rdp-vm.md
+          href: /troubleshoot/azure/virtual-machines/cannot-connect-rdp-azure-vm
         - name: Resolver problemas de ligação de RDP da VM do Azure por ID de Evento
           href: event-id-troubleshoot-vm-rdp-connecton.md
         - name: Resolver problema de erro RDP na VM devido a IP estático

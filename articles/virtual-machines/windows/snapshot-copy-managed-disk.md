@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 255b34fc683628846d2776d9db7a0fbe8fe32a45
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: dd19729f8b119946a12220d4b0c434f0b039989a
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202084"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879668"
 ---
 # <a name="create-a-snapshot-using-the-portal-or-powershell"></a>Crie um instantâneo utilizando o portal ou PowerShell
 
@@ -80,6 +80,6 @@ Os passos a seguir mostram como copiar o disco VHD e criar a configuração inst
    ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Crie uma máquina virtual a partir de um instantâneo criando um disco gerido a partir de um instantâneo e, em seguida, anexando o novo disco gerido como o disco DE. Para obter mais informações, consulte a amostra em [Criar um VM a partir de uma foto com PowerShell](./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md).
+Crie uma máquina virtual a partir de um instantâneo criando um disco gerido a partir de um instantâneo e, em seguida, anexando o novo disco gerido como o disco DE. Para obter mais informações, consulte a amostra em [Criar um VM a partir de uma foto com PowerShell](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot).

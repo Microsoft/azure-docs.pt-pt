@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 01/17/2021
-ms.openlocfilehash: aede7e3dec886d6a6213c64b386cacd725dd74f5
-ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
+ms.openlocfilehash: 1b2e914057aa72934524cc4977e3d2292394d0b7
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98562799"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882074"
 ---
 # <a name="how-to-manually-fix-sync-problems"></a>Como corrigir manualmente problemas de sincronização
 
@@ -22,16 +22,16 @@ Utilize o seguinte processo de sincronização para reativar a ligação e refre
 
 1. Procure a solução no banner de pesquisa superior e, em seguida, selecione as soluções relevantes
 
-    ![Screenshot que mostra o banner de pesquisa superior e onde selecionar as soluções relevantes.](media/itsmc-resync-servicenow/solution-search-8bit.png)
+    ![Screenshot que mostra o banner de pesquisa superior e onde selecionar as soluções relevantes.](media/itsmc-resync-servicenow/solution-search-8-bit.png)
 
 1. No ecrã da solução, escolha "Select All" no filtro de subscrição e, em seguida, filtre por "ServiceDesk"
 
-    ![Screenshot que mostra onde escolher Select All e onde filtrar por ServiceDesk.](media/itsmc-resync-servicenow/solutions-list-8bit.png)
+    ![Screenshot que mostra onde escolher Select All e onde filtrar por ServiceDesk.](media/itsmc-resync-servicenow/solutions-list-8-bit.png)
 
 1. Selecione a solução da sua ligação ITSM.
 1. Selecione a ligação ITSM no banner esquerdo.
 
-    ![Screenshot que mostra onde selecionar ligações ITSM.](media/itsmc-resync-servicenow/itsm-connector-8bit.png)
+    ![Screenshot que mostra onde selecionar ligações ITSM.](media/itsmc-resync-servicenow/itsm-connector-8-bit.png)
 
 1. Selecione cada conector da lista. 
     1. Clique no nome do Conector para o configurar
@@ -41,10 +41,10 @@ Utilize o seguinte processo de sincronização para reativar a ligação e refre
 
     1. Clique em sincronização
 
-       ![Screenshot que realça o botão Sync.](media/itsmc-resync-servicenow/resync-8bit2.png)
+       ![Screenshot que realça o botão Sync.](media/itsmc-resync-servicenow/resync-8-bit-2.png)
 
     1. Clique em guardar
 
-        ![Nova ligação](media/itsmc-resync-servicenow/save-8bit.png)
+        ![Nova ligação](media/itsmc-resync-servicenow/save-8-bit.png)
 
 f.    Reveja as notificações para ver se o processo começou.

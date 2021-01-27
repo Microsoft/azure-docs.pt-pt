@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 11/24/2020
 ms.author: inhenkel
 ms.custom: subject-armqs
-ms.openlocfilehash: 6a23c3a20e79fe6fff7de8faccf4e4ef78f02585
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 541a4c17a3212f711be7e2cf096ce3a2d632ee64
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185046"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879651"
 ---
 # <a name="quickstart-media-services-account-arm-template"></a>Quickstart: Modelo ARM de conta de serviços de mídia
 
@@ -41,7 +41,7 @@ Os leitores experientes com modelos ARM podem continuar a [secção de implanta�
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-Se nunca implementou um modelo ARM antes, é útil ler sobre [os modelos Azure ARM](https://docs.microsoft.com/azure/azure-resource-manager/templates/) e passar pelo [tutorial](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-tutorial-create-first-template?tabs=azure-powershell).
+Se nunca implementou um modelo ARM antes, é útil ler sobre [os modelos Azure ARM](../../azure-resource-manager/templates/index.yml) e passar pelo [tutorial](../../azure-resource-manager/templates/template-tutorial-create-first-template.md?tabs=azure-powershell).
 
 ## <a name="review-the-template"></a>Rever o modelo
 
@@ -118,8 +118,8 @@ The syntax for the JSON code fence is:
 
 Três tipos de recursos Azure são definidos no modelo:
 
-- [Microsoft.Media/mediaservices](https://docs.microsoft.com/azure/templates/microsoft.media/mediaservices): criar uma conta de Media Services
-- [Microsoft.Storage/storageAstas:](https://docs.microsoft.com/azure/templates/microsoft.storage/storageaccounts)criar uma conta de armazenamento
+- [Microsoft.Media/mediaservices](/azure/templates/microsoft.media/mediaservices): criar uma conta de Media Services
+- [Microsoft.Storage/storageAstas:](/azure/templates/microsoft.storage/storageaccounts)criar uma conta de armazenamento
 
 ## <a name="set-the-account"></a>Definir a conta
 
@@ -262,7 +262,7 @@ No portal Azure, confirme que os seus recursos foram criados.
 
 ![recursos quickstart criados](./media/quickstart-arm-template-account/quickstart-arm-template-resources.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se não está a planear utilizar os recursos que acabou de criar, pode eliminar o grupo de recursos.
 
@@ -272,9 +272,9 @@ az group delete --name {name of the resource group}
 
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre a utilização de um modelo ARM seguindo o processo de criação de um modelo com parâmetros, variáveis e muito mais, tente
 
 > [!div class="nextstepaction"]
-> [Tutorial: Crie e implemente o seu primeiro modelo ARM](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [Tutorial: Crie e implemente o seu primeiro modelo ARM](../../azure-resource-manager/templates/template-tutorial-create-first-template.md)

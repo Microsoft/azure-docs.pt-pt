@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: quickstart
 ms.date: 11/23/2020
-ms.openlocfilehash: 7db546ec9038403bd9e34f637e9d9de368277d52
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 0698295688a4587a704e8cdba0a4796e8d1e6fcd
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400307"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880004"
 ---
 # <a name="quickstart-create-an-azure-purview-account-using-azure-powershellazure-cli"></a>Quickstart: Criar uma conta Azure Purview utilizando Azure PowerShell/Azure CLI
 
@@ -27,9 +27,9 @@ Neste Quickstart, cria uma conta Azure Purview utilizando o Azure PowerShell/Azu
 
 * A conta de utilizador que utiliza para iniciar seduca no Azure deve ser membro da função de contribuinte ou proprietário, ou administrador da subscrição Azure.
 
-* O seu próprio [inquilino do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant).
+* O seu próprio [inquilino do Azure Active Directory](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
 
-* Instale o Azure PowerShell ou o Azure CLI na sua máquina de cliente para implementar o modelo: [implantação da linha de comando](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-tutorial-create-first-template?tabs=azure-cli#command-line-deployment)
+* Instale o Azure PowerShell ou o Azure CLI na sua máquina de cliente para implementar o modelo: [implantação da linha de comando](../azure-resource-manager/templates/template-tutorial-create-first-template.md?tabs=azure-cli#command-line-deployment)
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -160,7 +160,7 @@ Se necessário, siga estes passos para configurar a sua subscrição para permit
 
 1. O comando de implantação retorna os resultados. Procure `ProvisioningState` para ver se o destacamento foi bem sucedido.
     
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido, aprendeu a criar uma conta Azure Purview.
 
