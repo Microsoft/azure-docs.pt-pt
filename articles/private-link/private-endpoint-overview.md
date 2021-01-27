@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: ac4763a2d79059eb2608595b616c945af274627e
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 88d44f4f8cedbad604eb59cde91f4eed79918c0f
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928516"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806654"
 ---
 # <a name="what-is-azure-private-endpoint"></a>O que é o Ponto Final Privado do Azure?
 
@@ -78,7 +78,7 @@ Um recurso de ligação privada é o alvo de destino de um determinado ponto fin
 |**Azure Event Grid** | Microsoft.EventGrid/tópicos    | tópico |
 |**Azure Event Grid** | Microsoft.EventGrid/domínios    | domínio |
 |**Serviço de Aplicações do Azure** | Microsoft.Web/sites    | sites |
-|**Azure Machine Learning** | Microsoft.MachineLearningServices/workspaces    | área de trabalho |
+|**Azure Machine Learning** | Microsoft.MachineLearningServices/workspaces    | espaço amlwork |
 |**SignalR** | Microsoft.SignalrService/Signalr    | sinalR |
 |**Azure Monitor** | Microsoft.Insights/privateLinkScopes    | azuremonitor |
 |**Serviços Cognitivos** | (Microsoft.CognitiveServices/contas    | conta |
@@ -132,7 +132,7 @@ A tabela a seguir inclui uma lista de limitações conhecidas ao utilizar pontos
 |As regras do Grupo de Segurança de Rede (NSG) e as rotas definidas pelo utilizador não se aplicam ao Ponto Final Privado    |O NSG não é suportado em pontos finais privados. Embora as sub-redes que contenham o ponto final privado possam ter NSG associada, as regras não serão eficazes no tráfego processado pelo ponto final privado. Deve ter [políticas de rede desativadas](disable-private-endpoint-network-policy.md) para implantar pontos finais privados numa sub-rede. O NSG ainda é aplicado em outras cargas de trabalho alojoadas na mesma sub-rede. As rotas em qualquer sub-rede de clientes usarão um prefixo /32, alterando o comportamento de encaminhamento padrão requer um UDR semelhante  | Controle o tráfego utilizando as regras NSG para tráfego de saída em clientes de origem. Implementar rotas individuais com prefixo /32 para substituir rotas privadas de ponto final. Os registos do NSG Flow e as informações de monitorização das ligações de saída ainda são suportados e podem ser utilizados        |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - [Criar um ponto final privado para base de dados SQL utilizando o portal](create-private-endpoint-portal.md)
 - [Criar um ponto final privado para base de dados SQL utilizando PowerShell](create-private-endpoint-powershell.md)
 - [Criar um ponto final privado para base de dados SQL utilizando CLI](create-private-endpoint-cli.md)

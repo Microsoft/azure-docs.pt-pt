@@ -796,6 +796,10 @@
       href: /python/api/overview/azure/datafactory
 - name: Recursos
   items:
+    - name: Visão geral reservada do fluxo de dados
+      href: data-flow-reserved-capacity-overview.md
+    - name: Fluxo de dados compreende os encargos de reserva
+      href: data-flow-understand-reservation-charges.md
     - name: Documentos técnicos
       href: whitepapers.md
     - name: FAQ

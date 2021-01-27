@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/08/2020
+ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: fd55110bbfaed72051bfc388692421cd8209609d
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 0985779aeb14fd4f3d6a12cf152e4c63c909d613
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763869"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806671"
 ---
 # <a name="create-custom-vm-images-for-your-azure-stack-edge-pro-device"></a>Crie imagens VM personalizadas para o seu dispositivo Azure Stack Edge Pro
 
@@ -23,7 +23,7 @@ Para implementar VMs no seu dispositivo Azure Stack Edge Pro, precisa de ser cap
 
 ## <a name="vm-image-workflow"></a>Fluxo de trabalho de imagem VM
 
-O fluxo de trabalho requer que você crie uma máquina virtual em Azure, personalize o VM, generalize e, em seguida, descarregue o VHD correspondente ao VM. Este VHD generalizado é carregado para Azure Stack Edge Pro, o disco gerido é criado a partir desse VHD, a imagem é criada a partir de disco gerido, e finalmente os VMs são criados a partir dessa imagem.   
+O fluxo de trabalho requer que você crie uma máquina virtual em Azure, personalize o VM, generalize e, em seguida, descarregue o VHD correspondente ao VM. Este VHD generalizado é enviado para Azure Stack Edge Pro. Um disco gerido é criado a partir desse VHD. Uma imagem é criada a partir do disco gerido. E, finalmente, os VMs são criados a partir dessa imagem.
 
 Para obter mais informações, aceda a [implementar um VM no seu dispositivo Azure Stack Edge Pro utilizando a Azure PowerShell](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md).
 
@@ -71,14 +71,14 @@ Faça os seguintes passos para criar uma imagem Linux VM.
 
 Utilize este VHD para agora criar e implementar um VM no seu dispositivo Azure Stack Edge Pro. Pode utilizar as seguintes duas imagens do Azure Marketplace para criar imagens personalizadas do Linux:
 
-|Nome do item  |Description  |Publisher  |
+|Nome do item  |Descrição  |Publisher  |
 |---------|---------|---------|
 |[Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.ubuntuserver) |O Ubuntu Server é o Linux mais popular do mundo para ambientes em nuvem.|Canónico|
 |[Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.debian) |Debian GNU/Linux é uma das distribuições linux mais populares.     |credativ|
 
-Para obter uma lista completa de imagens do Azure Marketplace que possam funcionar (atualmente não [testadas), aceda aos itens do Azure Marketplace disponíveis para o Azure Stack Hub](/azure-stack/operator/azure-stack-marketplace-azure-items?view=azs-1910).
+Para obter uma lista completa de imagens do Azure Marketplace que possam funcionar (atualmente não [testadas), aceda aos itens do Azure Marketplace disponíveis para o Azure Stack Hub](/azure-stack/operator/azure-stack-marketplace-azure-items?view=azs-1910&preserve-view=true).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Coloque VMs no seu dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md).

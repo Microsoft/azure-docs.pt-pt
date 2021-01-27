@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: 0542d7e0ea204d1e9279e89c9f36b9bc6c6c88fa
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: c34410fcb5e1992f8b7a358801a354a1e1cf190c
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165863"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98808011"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Azure SQL Database migração de tráfego para gateways mais recentes
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -27,6 +27,13 @@ Os clientes serão notificados via e-mail e no portal Azure com muita antecedên
 ## <a name="status-updates"></a>Atualizações de estado
 
 # <a name="in-progress"></a>[Em curso](#tab/in-progress-ip)
+## <a name="february-2021"></a>fevereiro de 2021
+Novos Gateways SQL estão a ser adicionados às seguintes regiões:
+
+- Centro dos EUA : 13.89.169.20
+
+Estes SQL Gateways começarão a aceitar o tráfego de clientes no dia 28 de fevereiro de 2021.
+
 ## <a name="january-2021"></a>Janeiro de 2021
 Novos Gateways SQL estão a ser adicionados às seguintes regiões:
 
@@ -41,7 +48,7 @@ Novos Gateways SQL estão a ser adicionados às seguintes regiões:
 - Coreia Central : 52.231.17.22 ,52.231.17.23
 - Índia Oeste : 104.211.144.4
 
-Estes GATEWAYS SQL devem começar a aceitar o tráfego de clientes em 31 de janeiro de 2021
+Estes GATEWAYS SQL começarão a aceitar o tráfego de clientes no dia 31 de janeiro de 2021.
 
 # <a name="completed"></a>[Concluído](#tab/completed-ip)
 As seguintes migrações de gateway estão completas: 
@@ -141,6 +148,6 @@ As ligações efetuadas a partir de aplicações que utilizam o Controlador Micr
 
 Se a mitigação acima não funcionar, arquive um pedido de suporte para a Base de Dados SQL ou para a SQL Gestão de Instâncias utilizando o seguinte URL: https://aka.ms/getazuresupport
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [a Azure SQL Connectivity Architecture](connectivity-architecture.md)

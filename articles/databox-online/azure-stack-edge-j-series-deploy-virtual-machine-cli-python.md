@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/07/2020
+ms.date: 01/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 54a4a938be18d39993652cecb87b3604e268fcef
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: daf44afbb322cb30ab3a663dce4e935aefa7be13
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98678958"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98808060"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-using-azure-cli-and-python"></a>Implemente VMs no seu dispositivo GPU Azure Stack Edge Pro usando Azure CLI e Python
 
@@ -70,9 +70,9 @@ Antes de começar a criar e gerir um VM no seu dispositivo Azure Stack Edge Pro 
 
 3. Criou e instalou todos os certificados no seu dispositivo Azure Stack Edge Pro e na loja de confiança do seu cliente. Siga o procedimento descrito no [Passo 2: Criar e instalar certificados](azure-stack-edge-j-series-connect-resource-manager.md#step-2-create-and-install-certificates).
 
-4. Criou um certificado de *.cer* codificado Base-64 (formato PEM) para o seu dispositivo Azure Stack Edge Pro. Isto já está carregado como cadeia de assinaturas no dispositivo e instalado na loja de raiz fidedigna no seu cliente. Este certificado também é exigido em formato *pem* para python trabalhar neste cliente.
+4. Criou um certificado de *.cer* codificado Base-64 (formato PEM) para o seu dispositivo Azure Stack Edge Pro. Este certificado já está carregado como cadeia de assinatura no dispositivo e instalado na loja de raiz fidedigna no seu cliente. Este certificado também é exigido em formato *pem* para python trabalhar neste cliente.
 
-    Converta este certificado em formato pem utilizando o `certutil` comando. Tem de executar este comando no diretório que contém o seu certificado.
+    Converta este certificado em `pem` formato utilizando o `certutil` comando. Tem de executar este comando no diretório que contém o seu certificado.
 
     ```powershell
     certutil.exe <SourceCertificateName.cer> <DestinationCertificateName.pem>
@@ -86,9 +86,9 @@ Antes de começar a criar e gerir um VM no seu dispositivo Azure Stack Edge Pro 
     CertUtil: -encode command completed successfully.
     PS C:\Certificates>
     ```    
-    Você também vai adicionar este pem à loja Python mais tarde.
+    Você também vai adicionar isto `pem` à loja Python mais tarde.
 
-5. Atribuiu o IP do dispositivo na sua página **de Rede** na UI web local do dispositivo. Precisa adicionar este IP a:
+5. Atribuiu o IP do dispositivo na sua página **de Rede** na UI web local do dispositivo. Adicione este IP a:
 
     - O ficheiro do anfitrião no cliente, OU,
     - A configuração do servidor DNS
@@ -117,11 +117,11 @@ Antes de começar a criar e gerir um VM no seu dispositivo Azure Stack Edge Pro 
 
 ### <a name="verify-profile-and-install-azure-cli"></a>Verifique o perfil e instale o Azure CLI
 
-<!--1. Verify the API profile of the client and identify which version of the modules and libraries to include on your client. In this example, the client system will be running Azure Stack 1904 or later. For more information, see [Azure Resource Manager API profiles](/azure-stack/user/azure-stack-version-profiles?view=azs-1908#azure-resource-manager-api-profiles).-->
+<!--1. Verify the API profile of the client and identify which version of the modules and libraries to include on your client. In this example, the client system will be running Azure Stack 1904 or later. For more information, see [Azure Resource Manager API profiles](/azure-stack/user/azure-stack-version-profiles?view=azs-1908&preserve-view=true#azure-resource-manager-api-profiles).-->
 
 1. Instale o Azure CLI no seu cliente. Neste exemplo, foi instalado o Azure CLI 2.0.80. Para verificar a versão de Azure CLI, verifique o `az --version` comando.
 
-    Segue-se uma amostra de saída do comando acima referido:
+    Segue-se a saída da amostra do comando acima referido:
 
     ```output
     PS C:\windows\system32> az --version
@@ -149,7 +149,7 @@ Antes de começar a criar e gerir um VM no seu dispositivo Azure Stack Edge Pro 
 
     Se não tiver O CLI Azure, faça o download e [instale o Azure CLI no Windows](/cli/azure/install-azure-cli-windows). Pode executar O Azure CLI utilizando o pedido de comando do Windows ou através do Windows PowerShell.
 
-2. Tome nota da localização da CLI Python. Precisa disto para determinar a localização da loja de certificados de raiz fidedigna para o Azure CLI.
+2. Tome nota da localização da CLI Python. Precisa da localização python para determinar a localização da loja de certificados de raiz fidedigna para o Azure CLI.
 
 3. Para executar o script de amostra utilizado neste artigo, você precisará das seguintes versões da biblioteca Python:
 
@@ -203,7 +203,7 @@ Antes de começar a criar e gerir um VM no seu dispositivo Azure Stack Edge Pro 
 
 1. Encontre a localização do certificado na sua máquina. A localização pode variar dependendo do local onde `az cli` instalou. Executar o Windows PowerShell como administrador. Mude para o caminho onde `az cli` a Python instalada: `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\python.exe` .
 
-    Para obter o certificado de localização, digite o seguinte comando:
+    Para obter o local do certificado, digite o seguinte comando:
 
     ```powershell
     .\python -c "import certifi; print(certifi.where())"
@@ -266,7 +266,7 @@ Antes de começar a criar e gerir um VM no seu dispositivo Azure Stack Edge Pro 
     $ENV:ADAL_PYTHON_SSL_NO_VERIFY = 1
     ```
 
-2. Definir variáveis ambientais para o ponto final do Azure Resource Manager, localização onde os recursos são criados e o caminho para onde a fonte VHD está localizada. A localização dos recursos é fixada em todos os dispositivos Azure Stack Edge Pro e está definida para `dbelocal` . Também tem de especificar os prefixos do endereço e o endereço IP privado. Todas as seguintes variáveis ambientais são valores baseados nos seus valores, com exceção de `AZURE_RESOURCE_LOCATION` , que deve ser codificado para `"dbelocal"` .
+2. Definir variáveis ambientais para o ponto final do Azure Resource Manager, localização onde os recursos são criados e o caminho para onde a fonte VHD está localizada. A localização dos recursos é fixada em todos os dispositivos Azure Stack Edge Pro e está definida para `dbelocal` . Também tem de especificar os prefixos do endereço e o endereço IP privado. Todas as seguintes variáveis ambientais são valores baseados nos seus `AZURE_RESOURCE_LOCATION` valores, exceto, que devem ser codificados para `"dbelocal"` .
 
     ```powershell
     $ENV:ARM_ENDPOINT = "https://management.team3device.teatraining1.com"
@@ -319,9 +319,9 @@ Antes de começar a criar e gerir um VM no seu dispositivo Azure Stack Edge Pro 
     ```powershell
     PS C:\Certificates> az login -u EdgeARMuser
     ```
-   Depois de utilizar o comando de início de sessão, é solicitado uma palavra-passe. Forneça a senha do Gestor de Recursos Azure.
+   Depois de utilizar o comando de início de sessão, é-lhe solicitada uma palavra-passe. Forneça a senha do Gestor de Recursos Azure.
 
-   O seguinte mostra a saída da amostra para um sinal bem sucedido após o fornecimento da palavra-passe:  
+   O seguinte mostra a saída da amostra para um sing-in bem sucedido após o fornecimento da palavra-passe:  
    
    ```output
    PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> az login -u EdgeARMuser
@@ -342,7 +342,7 @@ Antes de começar a criar e gerir um VM no seu dispositivo Azure Stack Edge Pro 
    ]
    PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2>
    ```
-   Tome nota dos `id` `tenantId` valores e valores que correspondem ao ID de subscrição do gestor de recursos Azure e ao ID do Gestor de Recursos Azure, respectivamente, e será utilizado no passo posterior.
+   Tome nota dos `id` `tenantId` valores e valores, uma vez que estes valores correspondem ao ID de subscrição do gestor de recursos Azure e ao ID do Gestor de Recursos Azure, respectivamente, e será utilizado no passo posterior.
        
    As seguintes variáveis ambientais devem ser definidas como *principais de serviço:*
 
@@ -427,6 +427,6 @@ Um script Python é-lhe fornecido para criar um VM. Dependendo se está inscrito
     ``` 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Comandos Comuns de CLI Az para máquinas virtuais Linux](../virtual-machines/linux/cli-manage.md)

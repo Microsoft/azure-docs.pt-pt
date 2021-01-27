@@ -2,13 +2,13 @@
 title: Identidades geridas para recursos Azure com Service Bus
 description: Este artigo descreve como usar identidades geridas para aceder a entidades do Azure Service Bus (filas, tópicos e subscrições).
 ms.topic: article
-ms.date: 10/21/2020
-ms.openlocfilehash: 1efcd3c48e7e4a431a0c72c4b3b84531b44e973e
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.date: 01/21/2021
+ms.openlocfilehash: 22be57a0108b6a8511a64165ad365675d006fb8f
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425523"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98808255"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Autenticar uma identidade gerida com o Azure Ative Directory para aceder aos recursos do Azure Service Bus
 [As identidades geridas para os recursos Azure](../active-directory/managed-identities-azure-resources/overview.md) são uma funcionalidade cross-Azure que lhe permite criar uma identidade segura associada à implementação sob a qual o seu código de aplicação é executado. Em seguida, pode associar essa identidade a funções de controlo de acesso que concedem permissões personalizadas para aceder a recursos específicos do Azure de que a sua aplicação necessita.
@@ -107,23 +107,25 @@ Para atribuir uma função a um espaço de nomes de Service Bus, navegue para o 
 1. No portal Azure, navegue no seu espaço de nomes do Service Bus e apresente a **Visão Geral** para o espaço de nomes. 
 1. Selecione **Access Control (IAM)** no menu esquerdo para exibir as definições de controlo de acesso para o espaço de nomes do Service Bus.
 1.  Selecione o **separador funções** para ver a lista de atribuições de funções.
-3.  **Selecione Adicionar** para adicionar um novo papel.
-4.  Na página **de atribuição de funções Add,** selecione as funções de Azure Service Bus que pretende atribuir. Em seguida, procure para localizar a identidade de serviço que tinha registado para atribuir a função.
-    
-    ![Adicionar página de atribuição de funções](./media/service-bus-managed-service-identity/add-role-assignment-page.png)
-5.  Selecione **Guardar**. A identidade a quem atribuiu o papel aparece listada nessa função. Por exemplo, a imagem a seguir mostra que a identidade do serviço tem o proprietário de Dados de Autocarros da Azure Service.
-    
-    ![Identidade atribuída a um papel](./media/service-bus-managed-service-identity/role-assigned.png)
+3.  **Selecione Adicionar** e, em seguida, selecione **Adicionar a atribuição de função**.
+4.  Na página **de atribuição de funções Adicionar,** siga estes passos:
+    1. Para **Role**, selecione a função Service Bus que pretende atribuir. Neste exemplo, é dono de dados de autocarros da **Azure Service.**
+    1. Para o acesso ao campo **de atribuição,** selecione **o Serviço de Aplicações** em **Sistema atribuído à identidade gerida.** 
+    1. Selecione a **subscrição** na qual foi criada a identidade gerida para a aplicação web.
+    1. Selecione a **identidade gerida** para a aplicação web que criou. O nome padrão para a identidade é o mesmo que o nome da aplicação web. 
+    1. Em seguida, **selecione Save**.
+        
+        ![Adicionar página de atribuição de funções](./media/service-bus-managed-service-identity/add-role-assignment-page.png)
 
-Uma vez atribuído o papel, a aplicação web terá acesso às entidades do Service Bus sob o âmbito definido. 
+    Uma vez atribuído o papel, a aplicação web terá acesso às entidades do Service Bus sob o âmbito definido. 
 
-
-
+    > [!NOTE]
+    > Para uma lista de serviços que suportam identidades geridas, consulte [serviços que suportem identidades geridas para recursos Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md).
 
 ### <a name="run-the-app"></a>Executar a aplicação
 Agora, modifique a página predefinição da aplicação ASP.NET que criou. Pode utilizar o código de aplicação web a partir [deste repositório GitHub.](https://github.com/Azure-Samples/app-service-msi-servicebus-dotnet)  
 
-A página Default.aspx é a sua página de aterragem. O código pode ser encontrado no ficheiro Default.aspx.cs. O resultado é uma aplicação web mínima com alguns campos de entrada, e com botões **de envio** e **receção** que se conectam ao Service Bus para enviar ou receber mensagens.
+A página padrão.aspx é a sua página de aterragem. O código pode ser encontrado no ficheiro Default.aspx.cs. O resultado é uma aplicação web mínima com alguns campos de entrada, e com botões **de envio** e **receção** que se conectam ao Service Bus para enviar ou receber mensagens.
 
 Note como o objeto [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) é inicializado. Em vez de utilizar o fornecedor de token de acesso partilhado (SAS), o código cria um fornecedor simbólico para a identidade gerida com a `var msiTokenProvider = TokenProvider.CreateManagedIdentityTokenProvider();` chamada. Como tal, não há segredos para reter e usar. O fluxo do contexto de identidade gerido para Service Bus e o aperto de mão de autorização são automaticamente manuseados pelo provedor de fichas. É um modelo mais simples do que usar SAS.
 
@@ -139,7 +141,7 @@ Para enviar ou receber mensagens, insira o nome do espaço de nome e o nome da e
 > 
 > - Atualmente, as identidades geridas não funcionam com slots de implementação do Serviço de Aplicações.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre as mensagens do Service Bus, consulte os seguintes tópicos:
 

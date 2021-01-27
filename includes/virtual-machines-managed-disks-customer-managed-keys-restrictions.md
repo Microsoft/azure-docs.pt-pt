@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/24/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: b660d3a0d49de80ed85cfbdcdf8e28b9828cbf26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75acbb30c2bf811b7ae72d6939b9f164554fdd32
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91544999"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98859535"
 ---
 - Apenas [o software e as teclas HSM RSA](../articles/key-vault/keys/about-keys.md) dos tamanhos de 2.048 bits, 3.072 bits e 4.096 bits são suportadas, sem outras chaves ou tamanhos.
     - As chaves [HSM](../articles/key-vault/keys/hsm-protected-keys.md) requerem o nível **premium** dos cofres da Chave Azure.
@@ -22,5 +22,5 @@ ms.locfileid: "91544999"
 - Todos os recursos relacionados com as chaves geridas pelo cliente (Cofres chave Azure, conjuntos de encriptação de discos, VMs, discos e instantâneos) devem estar na mesma subscrição e região.
 - Discos, instantâneos e imagens encriptadas com chaves geridas pelo cliente não podem mover-se para outro grupo de recursos e subscrição.
 - Os discos geridos atualmente ou previamente encriptados utilizando a Encriptação do Disco Azure não podem ser encriptados utilizando chaves geridas pelo cliente.
-- Só pode criar até 50 conjuntos de encriptação de disco por região por subscrição.
+- Só pode criar até 1000 conjuntos de encriptação de disco por região por subscrição.
 - Para obter informações sobre a utilização de chaves geridas pelo cliente com galerias de imagens partilhadas, consulte [Preview: Utilize chaves geridas pelo cliente para encriptar imagens](../articles/virtual-machines/image-version-encryption.md).

@@ -2,13 +2,13 @@
 title: Restrições de nomeação de recursos
 description: Mostra as regras e restrições para nomear recursos Azure.
 ms.topic: conceptual
-ms.date: 12/29/2020
-ms.openlocfilehash: bd8ba72d43b7e3e5a9145d756741436f0a49e18b
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.date: 01/26/2021
+ms.openlocfilehash: d298688dbd13cc32c9cca078b5e20e6a5f054450
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762482"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806884"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Regras de nomenclatura e restrições para recursos do Azure
 
@@ -635,7 +635,7 @@ Nas tabelas seguintes, o termo alfanumérico refere-se:
 > | --- | --- | --- | --- |
 > | managedInstances | global | 1-63 | Letras minúsculas, números e hífenes.<br><br>Não se pode começar ou acabar com hífen. <br><br> Não se pode ter personagens especiais, `@` como. |
 > | servidores | global | 1-63 | Letras minúsculas, números e hífenes.<br><br>Não se pode começar ou acabar com hífen. |
-> | servidores / administradores | servidor |  | Deve `ActiveDirectory` ser. <br><br> Não se pode ter personagens especiais, `@` como.|
+> | servidores / administradores | servidor |  | Deve `ActiveDirectory` ser. |
 > | servidores / bases de dados | servidor | 1-128 | Não posso usar:<br>`<>*%&:\/?`<br><br>Não pode terminar com período ou espaço. |
 > | servidores / bases de dados / syncGroups | base de dados | 1-150 | Alfanuméricos, hífens e sublinhados. |
 > | servidores / elásticos | servidor | 1-128 | Não posso usar:<br>`<>*%&:\/?`<br><br>Não pode terminar com período ou espaço. |

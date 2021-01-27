@@ -1,5 +1,5 @@
 ---
-title: SAP BusinessObjects Implantação de plataforma bi em Azure para Linux Microsoft Docs
+title: SAP BusinessObjects Implantação de plataforma bi em Azure para linux | Microsoft Docs
 description: Implementar e configurar a PLATAFORMA DE BI SAP BusinessObjects em Azure para o Linux
 services: virtual-machines-windows,virtual-network,storage,azure-netapp-files,azure-files,mysql
 documentationcenter: saponazure
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: da04e7704274336f7f92237c1d7c30459caa7bc8
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: a7361dafce30b07e76d971bdcda41cf4b3cd9e6e
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936486"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806178"
 ---
 # <a name="sap-businessobjects-bi-platform-deployment-guide-for-linux-on-azure"></a>Guia de implementação da plataforma de BI SAP BusinessObjects para Linux no Azure
 
@@ -37,7 +37,7 @@ Neste exemplo, abaixo a versão do produto e o layout do sistema de ficheiros é
 - Base de Dados Azure para MySQL (Versão: 8.0.15)
 - Conector MySQL C API - libmysqlclient (versão: 6.1.11)
 
-| Sistema de Ficheiros        | Descrição                                                                                                               | Tamanho (GB)             | Proprietário  | Grupo  | Armazenamento                    |
+| Sistema de Ficheiros        | Descrição                                                                                                               | Tamanho (GB)             | Proprietário  | Group  | Armazenamento                    |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------|-----------------------|--------|--------|----------------------------|
 | /usr/seiva           | O sistema de ficheiros para instalação de caso SAP BOBI, aplicação web tomcat predefinido e controladores de base de dados (se necessário) | Diretrizes de Dimensionamento SAP | bl1adm | sapsys | Disco Premium Gerido - SSD |
 | /usr/seiva/frsinput  | O diretório de montagem é para os ficheiros partilhados em todos os anfitriões BOBI que serão usados como Diretório de Repositório de Ficheiros de Entrada  | Necessidade de Negócios         | bl1adm | sapsys | Azure NetApp Files         |
@@ -555,7 +555,7 @@ A secção seguinte descreve como implementar a estratégia de backup e restauro
 
 Em Azure, a forma mais simples de fazer backup dos servidores de aplicações e de todos os discos anexos é utilizando o [Serviço de Backup Azure.](../../../backup/backup-overview.md) Fornece cópias de segurança independentes e isoladas para proteger a destruição não intencional dos dados nos seus VMs. As cópias de segurança são armazenadas num cofre dos Serviços de Recuperação com gestão de pontos de recuperação incorporada. A configuração e o dimensionamento são simples, as cópias de segurança são otimizadas e podem ser restauradas facilmente quando necessário.
 
-Como parte do processo de backup, o instantâneo é recolhido e os dados são transferidos para o cofre do Serviço de Recuperação sem impacto nas cargas de trabalho de produção. O instantâneo proporciona um nível de consistência diferente como descrito no artigo [de consistência instantânea.](../../../backup/backup-azure-vms-introduction.md#snapshot-consistency) Também pode optar por fazer backup do subconjunto dos discos de dados em VM, utilizando a cópia de segurança dos discos seletivos e restaurando a funcionalidade. Para obter mais informações, consulte o documento [de backup Azure VM](../../../backup/backup-azure-vms-introduction.md) e [FAQs - Backup Azure VMs](../../../backup/backup-azure-vm-backup-faq.md).
+Como parte do processo de backup, o instantâneo é recolhido e os dados são transferidos para o cofre do Serviço de Recuperação sem impacto nas cargas de trabalho de produção. O instantâneo proporciona um nível de consistência diferente como descrito no artigo [de consistência instantânea.](../../../backup/backup-azure-vms-introduction.md#snapshot-consistency) Também pode optar por fazer backup do subconjunto dos discos de dados em VM, utilizando a cópia de segurança dos discos seletivos e restaurando a funcionalidade. Para obter mais informações, consulte o documento [de backup Azure VM](../../../backup/backup-azure-vms-introduction.md) e [FAQs - Backup Azure VMs](../../../backup/backup-azure-vm-backup-faq.yml).
 
 #### <a name="backup--restore-for-file-repository-server"></a>Backup & restaurar para servidor de repositório de ficheiros
 
@@ -691,7 +691,7 @@ Segue-se a recomendação para a recuperação de catástrofes de cada nível ut
 | Azure NetApp Files        | Ferramenta de cópia baseada em ficheiros para replicar dados para região secundária **ou** replicação da região transversal ANF (pré-visualização) |
 | Base de Dados do Azure para MySQL  | Cruze a região leia réplicas **ou** restaure o backup de backups geo-redundantes.                             |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Configurar a recuperação de desastres para uma implementação de aplicativos SAP de vários níveis](../../../site-recovery/site-recovery-sap.md)
 - [Azure Virtual Machines planejamento e implementação para SAP](planning-guide.md)

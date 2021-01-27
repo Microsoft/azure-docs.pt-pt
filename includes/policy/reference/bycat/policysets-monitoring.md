@@ -2,17 +2,18 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 01/21/2021
+ms.date: 01/25/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 3b02d236f6e8560f3752a908549aa75a40320324
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 0e5edcfad636c76107adc7e72b50ea61249aa00a
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98704004"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98807116"
 ---
 |Nome |Descrição |Políticas |Versão |
 |---|---|---|---|
+|[Implementar - Configurar pré-requisitos para permitir agentes de segurança Azure Monitor e Azure em máquinas virtuais](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Monitoring/AzureMonitoring_Prerequisites.json) |Configure as máquinas para instalar automaticamente os agentes Azure Monitor e Azure Security. O Security Center recolhe eventos dos agentes e utiliza-os para fornecer alertas de segurança e tarefas de endurecimento personalizadas (recomendações). Crie um grupo de recursos e log Analytics espaço de trabalho na mesma região que a máquina para armazenar registos de auditoria. Esta política aplica-se apenas aos VM em algumas regiões. |5 |1.0.0-pré-visualização |
 |[Ativar monitor de Azure para conjuntos de balanças de máquinas virtuais](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Monitoring/AzureMonitor_VMSS.json) |Ativar o Monitor Azure para os conjuntos de balanças de máquinas virtuais no âmbito especificado (Grupo de gestão, subscrição ou grupo de recursos). Toma o espaço de trabalho log Analytics como parâmetro. Nota: se a sua atualização de escala definir A política está definida como Manual, tem de aplicar a extensão a todos os VMs do conjunto, chamando-lhes a atualização. No CLI, esta seria az vmss atualização-instâncias. |6 |1.0.1 |
 |[Ativar monitor Azure para VMs](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Monitoring/AzureMonitor_VM.json) |Ativar o Azure Monitor para as máquinas virtuais (VMs) no âmbito especificado (grupo de gestão, subscrição ou grupo de recursos). Toma o espaço de trabalho log Analytics como parâmetro. |10 |2.0.0 |

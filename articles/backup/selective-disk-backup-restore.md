@@ -4,12 +4,12 @@ description: Neste artigo, aprenda sobre a cópia de segurança seletiva do disc
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: references_regions , devx-track-azurecli
-ms.openlocfilehash: 1f4d27563cf292632c6b14c82e36542b86c5d356
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 38ead1591bf2ecadc8bfca5875ac1fa3e69d56ef
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127724"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806374"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Backup seletivo de disco e restauro para máquinas virtuais Azure
 
@@ -334,7 +334,7 @@ As funcionalidades de backup seletiva do disco permitem economizar no custo de a
 
 A funcionalidade de backup de disco seletiva é uma capacidade fornecida em cima da solução de backup da máquina virtual Azure. Atualmente, a cópia de segurança Azure VM não suporta VMs com disco ultra-disco ou disco partilhado ligado a eles.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Matriz de suporte para a cópia de segurança da VM do Azure](backup-support-matrix-iaas.md)
-- [Perguntas frequentes-Back up Azure VMs](backup-azure-vm-backup-faq.md)
+- [Perguntas frequentes-Back up Azure VMs](backup-azure-vm-backup-faq.yml)

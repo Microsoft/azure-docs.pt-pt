@@ -12,14 +12,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/24/2021
+ms.date: 01/26/2021
 ms.author: memildin
-ms.openlocfilehash: 3ed290cc35195dfb02db9fbb72f092f6f4688291
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 9f39988375f58f75dad2b623cd3d937022a072e7
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757310"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806188"
 ---
 # <a name="what-is-azure-security-center"></a>O que é o Centro de Segurança do Azure?
 
@@ -105,9 +105,8 @@ A proteção contra ameaças do Security Center inclui análises de cadeia de mo
 
 ### <a name="integration-with-microsoft-defender-for-endpoint"></a>Integração com o Microsoft Defender para Endpoint
 
-O Security Center inclui integração automática e nativa com o Microsoft Defender para o Endpoint. Isto significa que, sem qualquer configuração, as suas máquinas Windows e Linux estão totalmente integradas com as recomendações e avaliações do Security Center.
+O Azure Defender para servidores inclui integração automática e nativa com o Microsoft Defender para Endpoint. Saiba mais, [Proteja os seus pontos finais com a solução EDR integrada do Security Center: Microsoft Defender for Endpoint](security-center-wdatp.md)
 
-Além disso, o Security Center permite automatizar as políticas de controlo de aplicações em ambientes de servidores. Os controlos de aplicações adaptativos no Security Center permitem a listagem de aprovação de aplicações de ponta a ponta nos servidores do Windows. Não precisas de criar as regras e verificar violações, é tudo feito automaticamente para ti.
 
 ### <a name="protect-paas"></a>Proteger PaaS
 

@@ -1,16 +1,16 @@
 ---
 title: Opções de rede das Funções do Azure
 description: Uma visão geral de todas as opções de networking disponíveis em Funções Azure.
-author: jeffhollan
+author: cachai2
 ms.topic: conceptual
-ms.date: 10/27/2020
-ms.author: jehollan
-ms.openlocfilehash: f4d7611f285535680469f3a334ab889b0b644bfe
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.date: 1/21/2021
+ms.author: cachai
+ms.openlocfilehash: 2c3f207e98f574bb6c43f87d34b0a404e263e83c
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936880"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806985"
 ---
 # <a name="azure-functions-networking-options"></a>Opções de rede das Funções do Azure
 
@@ -85,12 +85,9 @@ Para fornecer um nível de segurança mais elevado, pode restringir uma série d
 
 Para saber mais, consulte [os pontos finais do serviço de rede Virtual.](../virtual-network/virtual-network-service-endpoints-overview.md)
 
-## <a name="restrict-your-storage-account-to-a-virtual-network-preview"></a>Restringir a sua conta de armazenamento a uma rede virtual (pré-visualização)
+## <a name="restrict-your-storage-account-to-a-virtual-network"></a>Restringir a sua conta de armazenamento a uma rede virtual 
 
-Quando criar uma aplicação de função, deve criar ou ligar para uma conta de Armazenamento Azure de uso geral que suporte o armazenamento de Blob, Queue e Table.  Pode substituir esta conta de armazenamento por uma que esteja segura com pontos finais de serviço ou ponto final privado.  Atualmente, esta funcionalidade de pré-visualização apenas funciona com planos Do Windows Premium na Europa Ocidental.  Para criar uma função com uma conta de armazenamento restrita a uma rede privada:
-
-> [!NOTE]
-> Restringir a conta de armazenamento só funciona atualmente para funções Premium usando Windows na Europa Ocidental
+Quando criar uma aplicação de função, deve criar ou ligar para uma conta de Armazenamento Azure de uso geral que suporte o armazenamento de Blob, Queue e Table.  Pode substituir esta conta de armazenamento por uma que esteja segura com pontos finais de serviço ou ponto final privado.  Atualmente, esta funcionalidade apenas funciona com planos do Windows Premium.  Para criar uma função com uma conta de armazenamento restrita a uma rede privada:
 
 1. Crie uma função com uma conta de armazenamento que não tenha pontos finais de serviço ativados.
 1. Configure a função para ligar à sua rede virtual.
@@ -187,7 +184,7 @@ As seguintes APIs permitem gerir programáticamente integrações de redes virtu
 
 [!INCLUDE [app-service-web-vnet-troubleshooting](../../includes/app-service-web-vnet-troubleshooting.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre networking e Funções Azure:
 
