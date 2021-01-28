@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/22/2020
 ms.author: mbullwin
-ms.openlocfilehash: 7969e2011a242152e27d7c1aa67b36d99d92adfe
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: ee4dc926269d3ac66243a3953d7e41eb3a30198c
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94371626"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98948123"
 ---
 Começa com a biblioteca de clientes do Detetor de Anomalias para .NET. Siga estes passos para instalar o pacote comece a usar os algoritmos fornecidos pelo serviço. O serviço Detetor de Anomalias permite-lhe encontrar anomalias nos dados da sua série de tempo utilizando automaticamente os modelos mais adequados, independentemente da indústria, cenário ou volume de dados.
 
@@ -81,7 +81,7 @@ No método da `main()` aplicação, crie variáveis para a localização Azure d
 
 O cliente do Detetor de Anomalias é um objeto [AnomalyDetectorClient](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.anomalydetectorclient) que autentica a Azure usando [ApiKeyServiceClientCredentials](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.apikeyserviceclientcredentials), que contém a sua chave. O cliente pode fazer a deteção de anomalias em todo um conjunto de dados utilizando [o WholeDetectAsync()](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.anomalydetectorclientextensions.entiredetectasync)ou no último ponto de dados usando [o LastDetectAsync()](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.anomalydetectorclientextensions.lastdetectasync). O método [ChangePointDetectAsync](https://aka.ms/anomaly-detector-dotnet-ref) deteta pontos que marcam alterações numa tendência.
 
-Os dados da série de tempo são enviados como uma série de [pontos](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.request.series?view=azure-dotnet-preview#Microsoft_Azure_CognitiveServices_AnomalyDetector_Models_Request_Series) num objeto [Request.](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.request) O `Request` objeto contém propriedades para descrever os dados[(Granularidade,](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.request.granularity) por exemplo), e parâmetros para a deteção de anomalias.
+Os dados da série de tempo são enviados como uma série de [pontos](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.request.series#Microsoft_Azure_CognitiveServices_AnomalyDetector_Models_Request_Series) num objeto [Request.](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.request) O `Request` objeto contém propriedades para descrever os dados[(Granularidade,](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.request.granularity) por exemplo), e parâmetros para a deteção de anomalias.
 
 A resposta do Detetor de Anomalias é ou um [TotalDetectResponse](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.entiredetectresponse), [LastDetectResponse,](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.lastdetectresponse)ou alterar o [objetoPointDetectResponse,](https://aka.ms/anomaly-detector-dotnet-ref) dependendo do método utilizado.
 
@@ -97,7 +97,7 @@ Estes fragmentos de código mostram-lhe como fazer o seguinte com a biblioteca d
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
-Num novo método, instantaneamente um cliente com o seu ponto final e chave. Crie um objeto [ApiKeyServiceClientCredentials](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.apikeyserviceclientcredentials?view=azure-dotnet-preview) com a sua chave e use-o com o seu ponto final para criar um objeto [AnomalyDetectorClient.](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.anomalydetectorclient?view=azure-dotnet-preview)
+Num novo método, instantaneamente um cliente com o seu ponto final e chave. Crie um objeto [ApiKeyServiceClientCredentials](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.apikeyserviceclientcredentials) com a sua chave e use-o com o seu ponto final para criar um objeto [AnomalyDetectorClient.](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.anomalydetectorclient)
 
 [!code-csharp[Client authentication function](~/samples-anomaly-detector/quickstarts/sdk/csharp-sdk-sample.cs?name=createClient)]
 
@@ -106,25 +106,25 @@ Num novo método, instantaneamente um cliente com o seu ponto final e chave. Cri
 Descarregue os dados de exemplo para este arranque rápido do [GitHub:](https://github.com/Azure-Samples/AnomalyDetector/blob/master/example-data/request-data.csv)
 1. No seu navegador, clique com o botão direito **Raw.**
 2. Clique **em Guardar link como**.
-3. Guarde o ficheiro para o seu diretório de candidaturas, como ficheiro .csv.
+3. Guarde o ficheiro para o seu diretório de candidaturas, como um ficheiro .csv.
 
-Estes dados da série de tempo são formatados como um ficheiro .csv, e serão enviados para a API do Detetor de Anomalias.
+Estes dados da série de tempo são formatados como um ficheiro .csv e serão enviados para a API do Detetor de Anomalias.
 
-Crie um novo método para ler os dados da série de tempo e adicioná-lo a um objeto [Request.](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.request?view=azure-dotnet-preview) Ligue `File.ReadAllLines()` com o caminho do ficheiro e crie uma lista de objetos [point](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.point?view=azure-dotnet-preview) e despoja quaisquer caracteres de linha nova. Extraia os valores e separe o datestamp do seu valor numérico e adicione-os a um novo `Point` objeto.
+Crie um novo método para ler os dados da série de tempo e adicioná-lo a um objeto [Request.](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.request) Ligue `File.ReadAllLines()` com o caminho do ficheiro e crie uma lista de objetos [point](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.point) e despoja quaisquer caracteres de linha nova. Extraia os valores e separe o datestamp do seu valor numérico e adicione-os a um novo `Point` objeto.
 
-Faça um `Request` objeto com a série de pontos, e para a `Granularity.Daily` [Granularidade](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.granularity?view=azure-dotnet-preview) (ou periodicidade) dos pontos de dados.
+Faça um `Request` objeto com a série de pontos, e para a `Granularity.Daily` [Granularidade](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.granularity) (ou periodicidade) dos pontos de dados.
 
 [!code-csharp[load the time series data file](~/samples-anomaly-detector/quickstarts/sdk/csharp-sdk-sample.cs?name=GetSeriesFromFile)]
 
 ## <a name="detect-anomalies-in-the-entire-data-set"></a>Detetar anomalias em todo o conjunto de dados
 
-Crie um método para ligar para o método [WholeDetectAsync do](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.anomalydetectorclientextensions.entiredetectasync?view=azure-dotnet-preview#Microsoft_Azure_CognitiveServices_AnomalyDetector_AnomalyDetectorClientExtensions_EntireDetectAsync_Microsoft_Azure_CognitiveServices_AnomalyDetector_IAnomalyDetectorClient_Microsoft_Azure_CognitiveServices_AnomalyDetector_Models_Request_System_Threading_CancellationToken_) cliente com o `Request` objeto e aguardar a resposta como um objeto [TotalDetectResponse.](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.entiredetectresponse?view=azure-dotnet-preview) Se a série de tempos contiver anomalias, itera através dos valores [IsAnomaly](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.entiredetectresponse.isanomaly?view=azure-dotnet-preview) da resposta e imprima-as que sejam `true` . Estes valores correspondem ao índice de pontos de dados anómalos, caso se encontrem.
+Crie um método para ligar para o método [WholeDetectAsync do](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.anomalydetectorclientextensions.entiredetectasync#Microsoft_Azure_CognitiveServices_AnomalyDetector_AnomalyDetectorClientExtensions_EntireDetectAsync_Microsoft_Azure_CognitiveServices_AnomalyDetector_IAnomalyDetectorClient_Microsoft_Azure_CognitiveServices_AnomalyDetector_Models_Request_System_Threading_CancellationToken_) cliente com o `Request` objeto e aguardar a resposta como um objeto [TotalDetectResponse.](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.entiredetectresponse) Se a série de tempos contiver anomalias, itera através dos valores [IsAnomaly](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.entiredetectresponse.isanomaly) da resposta e imprima-as que sejam `true` . Estes valores correspondem ao índice de pontos de dados anómalos, caso se encontrem.
 
 [!code-csharp[EntireDetectSampleAsync() function](~/samples-anomaly-detector/quickstarts/sdk/csharp-sdk-sample.cs?name=entireDatasetExample)]
 
 ## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>Detetar o estado de anomalia do último ponto de dados
 
-Crie um método para ligar para o método [LastDetectAsync](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.anomalydetectorclientextensions.lastdetectasync?view=azure-dotnet-preview#Microsoft_Azure_CognitiveServices_AnomalyDetector_AnomalyDetectorClientExtensions_LastDetectAsync_Microsoft_Azure_CognitiveServices_AnomalyDetector_IAnomalyDetectorClient_Microsoft_Azure_CognitiveServices_AnomalyDetector_Models_Request_System_Threading_CancellationToken_) do cliente com o `Request` objeto e aguardar a resposta como um objeto [LastDetectResponse.](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.lastdetectresponse?view=azure-dotnet-preview) Verifique o atributo [IsAnomaly](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.lastdetectresponse.isanomaly?view=azure-dotnet-preview) da resposta para determinar se o último ponto de dados enviado foi ou não uma anomalia.
+Crie um método para ligar para o método [LastDetectAsync](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.anomalydetectorclientextensions.lastdetectasync#Microsoft_Azure_CognitiveServices_AnomalyDetector_AnomalyDetectorClientExtensions_LastDetectAsync_Microsoft_Azure_CognitiveServices_AnomalyDetector_IAnomalyDetectorClient_Microsoft_Azure_CognitiveServices_AnomalyDetector_Models_Request_System_Threading_CancellationToken_) do cliente com o `Request` objeto e aguardar a resposta como um objeto [LastDetectResponse.](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.lastdetectresponse) Verifique o atributo [IsAnomaly](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.lastdetectresponse.isanomaly) da resposta para determinar se o último ponto de dados enviado foi ou não uma anomalia.
 
 [!code-csharp[LastDetectSampleAsync() function](~/samples-anomaly-detector/quickstarts/sdk/csharp-sdk-sample.cs?name=latestPointExample)]
 

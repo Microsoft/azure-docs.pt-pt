@@ -1,18 +1,15 @@
 ---
 title: 'Tutorial: Configurar notificações de email apache Ambari em Azure HDInsight'
 description: Este artigo descreve como usar a SendGrid com Apache Ambari para notificações por e-mail.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 03/10/2020
-ms.openlocfilehash: bdce735bdacbe7ff0752650c6949fdb361342c73
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 63d0f87925f14fddf3dbd722fa72326ee8b04f31
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92542561"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946969"
 ---
 # <a name="tutorial-configure-apache-ambari-email-notifications-in-azure-hdinsight"></a>Tutorial: Configurar notificações de email apache Ambari em Azure HDInsight
 
@@ -34,7 +31,7 @@ Neste tutorial, ficará a saber como:
 
 1. A partir do [portal Azure,](https://portal.azure.com)navegue para o seu recurso SendGrid.
 
-1. A partir da página 'Vista Geral', **selecione Gerir** , para ir à página do SendGrid para a sua conta.
+1. A partir da página 'Vista Geral', **selecione Gerir**, para ir à página do SendGrid para a sua conta.
 
     ![Visão geral do SendGrid no portal Azure](./media/apache-ambari-email/azure-portal-sendgrid-manage.png)
 
@@ -64,7 +61,7 @@ Neste tutorial, ficará a saber como:
     |Grupos|Configurar como desejado.|
     |Gravidade|Configurar como desejado.|
     |Descrição|Opcional.|
-    |Método|Deixe no **EMAIL** .|
+    |Método|Deixe no **EMAIL**.|
     |E-mail para|Forneça e-mails para receber notificações separadas por uma vírgula.|
     |Servidor SMTP|`smtp.sendgrid.net`|
     |Porto SMTP|25 ou 587 (para ligações não encriptadas/TLS).|
@@ -77,11 +74,11 @@ Neste tutorial, ficará a saber como:
 
     ![A screenshot mostra a caixa de diálogo de aviso de criar.](./media/apache-ambari-email/ambari-create-alert-notification.png)
 
-    Selecione **Guardar** . Regressará à janela **de Notificações de Alerta de Gestão.**
+    Selecione **Guardar**. Regressará à janela **de Notificações de Alerta de Gestão.**
 
-1. A partir da janela **'Notificações de Alerta de Gestão',** selecione **Fechar** .
+1. A partir da janela **'Notificações de Alerta de Gestão',** selecione **Fechar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, aprendeu a configurar notificações de e-mail apache Ambari usando a SendGrid. Use o seguinte para saber mais sobre Apache Ambari:
 

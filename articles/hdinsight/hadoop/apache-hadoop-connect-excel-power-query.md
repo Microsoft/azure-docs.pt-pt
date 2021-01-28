@@ -1,19 +1,16 @@
 ---
 title: Conecte Excel a Apache Hadoop com Consulta de Potência - Azure HDInsight
 description: Aprenda a tirar partido dos componentes de inteligência empresarial e use a Power Query para o Excel aceder aos dados armazenados em Hadoop em HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
-ms.openlocfilehash: 8664efd40bb5392f56803515f09cccc800fdf21c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bcca511bcb61ceab8395ee56b377efa99f095586
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397118"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946706"
 ---
 # <a name="connect-excel-to-apache-hadoop-by-using-power-query"></a>Conecte o Excel a Apache Hadoop utilizando a Consulta de Energia
 
@@ -49,11 +46,11 @@ O add-in power-in para o Excel facilita a importação de dados do seu cluster H
 
    * Excel 2013/2010
 
-     * **Selecione a consulta**de energia a partir de  >  **Azure**da Microsoft  >  **Azure HDInsight**.
+     * **Selecione a consulta** de energia a partir de  >  **Azure** da Microsoft  >  **Azure HDInsight**.
 
        ![O HDI. PowerQuery.SelectHdiSource](./media/apache-hadoop-connect-excel-power-query/powerquery-selecthdisource.png)
 
-       **Nota:** Se não vir o menu **'Consulta de Energia',** aceda aos **File**  >  Add-ins**de Opções**  >  **de Ficheiros**e selecione **Add-ins COM** da caixa De **gestão** de down-down na parte inferior da página. Selecione o botão **Go...** e verifique se a caixa para a consulta de alimentação para o add-in do Excel foi verificada.
+       **Nota:** Se não vir o menu **'Consulta de Energia',** aceda aos   >  Add-ins **de Opções**  >  **de Ficheiros** e selecione **Add-ins COM** da caixa De **gestão** de down-down na parte inferior da página. Selecione o botão **Go...** e verifique se a caixa para a consulta de alimentação para o add-in do Excel foi verificada.
 
        **Nota:** A Consulta de Energia também permite importar dados de HDFS selecionando **De Outras Fontes.**
 
@@ -71,7 +68,7 @@ O add-in power-in para o Excel facilita a importação de dados do seu cluster H
 
     ![Tabela importada de consulta de energia HDI Excel](./media/apache-hadoop-connect-excel-power-query/powerquery-importedtable.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu a usar a Power Query para recuperar dados de HDInsight para Excel. Da mesma forma, pode obter dados de HDInsight para Azure SQL Database. Também é possível enviar dados para o HDInsight. Para saber mais, leia os artigos seguintes:
 

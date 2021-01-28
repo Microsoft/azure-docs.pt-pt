@@ -1,19 +1,16 @@
 ---
 title: Apache Spark & Apache Kafka com Cosmos DB - Azure HDInsight
 description: Aprenda a usar o Apache Spark Structured Streaming para ler dados da Apache Kafka e, em seguida, armazene-os em Azure Cosmos DB. Neste exemplo, transmite dados usando um Caderno Jupyter de Spark on HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 11/18/2019
-ms.openlocfilehash: 0f07cf563a3b1ce9d105fc5ca5c4f2869b13d2da
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: e14784459a3c7733af274197507b76341d68477e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97821779"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946906"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Use o Fluxo Estruturado de Faíscas Apache com Apache Kafka e Azure Cosmos DB
 
@@ -156,7 +153,7 @@ Uma vez que os ficheiros tenham sido carregados, selecione a entrada __Stream-ta
 
 Na página inicial do [Jupyter Notebook,](https://jupyter.org/) selecione a entrada __Stream-data-from-Kafka-to-Cosmos-DB.ipynb.__ Siga os passos no caderno para transmitir dados de Kafka e para a Azure Cosmos DB usando o Spark Structured Streaming.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que aprendeu a usar o Apache Spark Structured Streaming, veja os seguintes documentos para saber mais sobre trabalhar com Apache Spark, Apache Kafka e Azure Cosmos DB:
 

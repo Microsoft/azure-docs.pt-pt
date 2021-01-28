@@ -8,12 +8,12 @@ ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: d38e631a5a12381b407dca4dd9e2f2ae63365453
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 61b396cbcc8c91c75c961f702de7ed6a33e676e4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98882457"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98947015"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Configurar uma instância e autenticação Azure Digital Twins (portal)
 
@@ -40,7 +40,7 @@ Procure *por Azure Digital Twins* na caixa de pesquisa e escolha o serviço **Az
 
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins.png" alt-text="Selecionando 'Criar' a partir da página de serviço Azure Digital Twins":::
 
-Na página *de Criar Recursos,* preencha os valores abaixo indicados:
+Na página **de Criar Recursos,** preencha os valores abaixo indicados:
 * **Subscrição**: A subscrição Azure que está a usar
   - **Grupo de recursos**: Um grupo de recursos para implantar o caso. Se ainda não tiver um grupo de recursos existente em mente, pode criar um aqui selecionando o novo link *Create* e introduzindo um nome para um novo grupo de recursos
 * **Localização**: Uma região ativada por Gémeos Digitais Azure para a implantação. Para mais detalhes sobre o apoio regional, visite [*os produtos Azure disponíveis por região (Azure Digital Twins)*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
@@ -48,11 +48,21 @@ Na página *de Criar Recursos,* preencha os valores abaixo indicados:
 
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins-2.png" alt-text="Preenchendo os valores descritos para criar um recurso Azure Digital Twins":::
 
-Quando terminar, selecione _Review + create_. Isto irá levá-lo a uma página de resumo, onde pode rever os detalhes de casos introduzidos e bater _Create_. 
+Quando terminar, pode selecionar **Review + criar** se não quiser configurar mais definições para o seu exemplo. Isto irá levá-lo a uma página de resumo, onde pode rever os detalhes de instância que inseriu e terminar com **a Create**. 
+
+Se quiser configurar mais detalhes para o seu exemplo, a secção seguinte descreve os separadores de configuração restantes.
+
+### <a name="additional-setup-options"></a>Opções de configuração adicionais
+
+Aqui estão as opções adicionais que pode configurar durante a configuração, utilizando os outros separadores no processo **Criar Recursos.**
+
+* **Networking**: Neste separador, pode permitir que pontos finais privados com [Azure Private Link](../private-link/private-link-overview.md) eliminem a exposição da rede pública ao seu caso. Para obter instruções, consulte [*Como fazer: Ative o acesso privado com o Link Privado*](how-to-enable-private-link.md#add-a-private-endpoint-during-instance-creation).
+* **Avançado**: Neste separador, pode ativar uma [identidade gerida pelo sistema,](../active-directory/managed-identities-azure-resources/overview.md) para o seu exemplo, que pode ser utilizada ao encaminhar eventos para [pontos finais](concepts-route-events.md). Para obter instruções, consulte [*Como fazer: Ative as identidades geridas para eventos de encaminhamento*](how-to-enable-managed-identities.md).
+* **Tags**: Neste separador, pode adicionar tags ao seu caso para ajudá-lo a organizá-lo entre os seus recursos Azure. Para obter mais informações sobre as etiquetas de recursos da Azure, consulte [*os recursos tag, grupos de recursos e subscrições para organização lógica.*](../azure-resource-manager/management/tag-resources.md)
 
 ### <a name="verify-success-and-collect-important-values"></a>Verifique o sucesso e colete valores importantes
 
-Depois de empurrar *Criar,* pode visualizar o estado da implementação do seu caso nas notificações do Azure ao longo da barra de ícones do portal. A notificação indicará quando a implementação foi bem sucedida, e poderá selecionar o botão _De recurso para_ visualizar a sua instância criada.
+Depois de terminar a configuração do seu caso selecionando **Criar,** pode visualizar o estado da sua aplicação nas notificações do Azure ao longo da barra de ícones do portal. A notificação indicará quando a implementação foi bem sucedida, e poderá selecionar o botão _De recurso para_ visualizar a sua instância criada.
 
 :::image type="content" source="media/how-to-set-up-instance/portal/notifications-deployment.png" alt-text="Vista das notificações do Azure mostrando uma implementação bem sucedida e destacando o botão 'Ir para o recurso'":::
 

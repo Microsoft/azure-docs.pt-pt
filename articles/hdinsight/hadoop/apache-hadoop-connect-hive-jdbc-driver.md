@@ -1,19 +1,16 @@
 ---
 title: Consulta Apache Hive através do motorista JDBC - Azure HDInsight
 description: Utilize o controlador JDBC a partir de uma aplicação Java para submeter consultas de Hive Apache a Hadoop em HDInsight. Ligue programáticamente e a partir do cliente SQuirrel SQL.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: 183bc416dde941f11bd94cfcff3bf738b35f876f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d23b376384262c208fed70306e62634592d0b46b
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996084"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946768"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Query Apache Hive through the JDBC driver in HDInsight (Consultar o Apache Hive através do controlador JDBC no HDInsight)
 
@@ -161,7 +158,7 @@ at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 
 **Resolução**: Evite utilizar o controlador JDBC/ODBC para descarregar enormes quantidades de dados. Em vez disso, copie os dados diretamente do armazenamento do blob.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que aprendeu a usar o JDBC para trabalhar com a Hive, use os seguintes links para explorar outras formas de trabalhar com a Azure HDInsight.
 

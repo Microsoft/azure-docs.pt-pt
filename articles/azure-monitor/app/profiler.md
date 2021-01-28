@@ -1,17 +1,17 @@
 ---
-title: Perfil ao vivo Aplicativos Azure App Service com Application Insights / Microsoft Docs
+title: Perfil ao vivo Aplicativos Azure App Service com Application Insights | Microsoft Docs
 description: Perfil aplicativo ao vivo no Azure App Service com Perfil de Insights de Aplicação.
 ms.topic: conceptual
 author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 41aec98c2a8776ae128389679ad0acb324596ec4
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: b1158a614da9ba32f628aba5dd2ed2cc71b4b455
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96546833"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98947038"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Perfil ao vivo Aplicativos Azure App Service com Insights de Aplicações
 
@@ -50,7 +50,7 @@ Aqui estão as definições necessárias para ativar o perfil:
 |DiagnosticServices_EXTENSION_VERSION | ~3 |
 
 
-Pode definir estes valores utilizando [modelos de gestores de recursos Azure,](./azure-web-apps.md#app-service-application-settings-with-azure-resource-manager) [Azure PowerShell,](/powershell/module/az.websites/set-azwebapp)  [Azure CLI](/cli/azure/webapp/config/appsettings?view=azure-cli-latest).
+Pode definir estes valores utilizando [modelos de gestores de recursos Azure,](./azure-web-apps.md#app-service-application-settings-with-azure-resource-manager) [Azure PowerShell,](/powershell/module/az.websites/set-azwebapp)  [Azure CLI](/cli/azure/webapp/config/appsettings).
 
 ### <a name="enabling-profiler-for-other-clouds-manually"></a>Habilitação do Profiler para outras nuvens manualmente
 
@@ -72,7 +72,7 @@ Recomendamos que tenha o Profiler habilitado em todas as suas aplicações para 
 Os ficheiros do profiler podem ser eliminados quando utilizar o WebDeploy para implementar alterações na sua aplicação web. Pode evitar a eliminação excluindo a pasta App_Data de ser eliminada durante a colocação. 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Trabalhar com o Application Insights no Visual Studio](./visual-studio.md)
 

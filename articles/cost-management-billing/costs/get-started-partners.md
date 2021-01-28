@@ -3,18 +3,18 @@ title: Começar a utilizar o Azure Cost Management para parceiros
 description: Este artigo explica como os parceiros utilizam as funcionalidades do Azure Cost Management e como ativam o acesso ao Cost Management para os clientes.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/19/2021
+ms.date: 01/27/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 8a04cb2c590bc4f0104a93ac7c7c2cf7b71a4662
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
-ms.translationtype: HT
+ms.openlocfilehash: 40c683d98a13bf4810ec4575af3fba5ae64961f0
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602182"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946982"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Começar a utilizar o Azure Cost Management para parceiros
 
@@ -22,7 +22,7 @@ O Azure Cost Management está disponível de forma nativa para os parceiros dire
 
 No caso dos parceiros diretos e fornecedores indiretos, o administrador global e os agentes de administração podem aceder ao Cost Management no inquilino do parceiro e gerir os custos aos preços faturados.
 
-Os revendedores e clientes podem aceder ao Cost Management no inquilino do cliente e ver os custos das subscrições, onde os custos são calculados e apresentados às taxas de retalho. No entanto, têm de ter acesso RBAC do Azure à subscrição no inquilino do cliente para verem os custos. A política de visibilidade dos custos tem de ser ativada pelo fornecedor para o inquilino do cliente.
+Os revendedores e clientes podem aceder à Cost Management no cliente inquilino e ver os custos de consumo das subscrições, onde os custos são calculados e mostrados a preços de venda a retalho. No entanto, têm de ter acesso RBAC do Azure à subscrição no inquilino do cliente para verem os custos. A política de visibilidade dos custos tem de ser ativada pelo fornecedor para o inquilino do cliente.
 
 Os clientes podem utilizar as funcionalidades do Cost Management quando estas forem ativadas pelo parceiro CSP.
 
@@ -56,6 +56,8 @@ O Azure Cost Management requer acesso de leitura à conta de faturação ou à s
 Para obter mais informações sobre a ativação e a atribuição de acesso ao Azure Cost Management para uma conta de faturação, veja [Assign users roles and permissions](/partner-center/permissions-overview) (Atribuir funções e permissões de utilizadores). As funções **Administrador global** e **Agente de administração** podem gerir os custos de uma conta de faturação.
 
 Para aceder ao Azure Cost Management no âmbito da subscrição, qualquer utilizador com acesso RBAC do Azure a uma subscrição pode ver os custos nas tarifas de retalho (pay as you go). No entanto, a [política de visibilidade dos custos do inquilino do cliente](#enable-the-policy-to-view-azure-usage-charges) tem de estar ativada. Para ver uma lista completa dos tipos de contas suportados, veja [Compreender os dados do Cost Management](understand-cost-mgt-data.md).
+
+Ao transferir os contratos de faturação existentes para um novo parceiro, as capacidades de gestão de custos só estão disponíveis para a atual relação de faturação com o parceiro. Os custos históricos antes da transferência para o novo parceiro não passam para a nova conta de faturação. No entanto, o histórico de custos mantém-se com a conta de faturação associada original.
 
 ## <a name="how-cost-management-uses-scopes"></a>Como o Cost Management utiliza os âmbitos
 

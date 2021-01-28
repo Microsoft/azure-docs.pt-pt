@@ -1,18 +1,15 @@
 ---
 title: Alertas apache Ambari em Azure HDInsight
 description: Discussão e análise de possíveis razões e soluções para alertas apache Ambari em HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
-ms.openlocfilehash: 9564e149055dcabf205694b3cf6c3ddc03163037
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: e31e5d5a5b27f4dcb267905eae6329666fc3292c
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533840"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946722"
 ---
 # <a name="scenario-apache-ambari-stale-alerts-in-azure-hdinsight"></a>Cenário: Alertas apache ambari em Azure HDInsight
 
@@ -47,16 +44,16 @@ Pode aumentar o valor de um intervalo de alerta individual, com base no tempo de
 1. No Apache Ambari UI, selecione o **separador Alertas.**
 1. Selecione o nome de definição de alerta que deseja.
 1. A partir da definição, **selecione Editar.**
-1. Aumente o valor **do intervalo de verificação** e, em seguida, selecione **Guardar** .
+1. Aumente o valor **do intervalo de verificação** e, em seguida, selecione **Guardar**.
 
 ### <a name="increase-the-alert-interval-time-for-ambari-server-alerts"></a>Aumente o intervalo de alerta para alertas de servidores Ambari
 
 1. No Apache Ambari UI, selecione o **separador Alertas.**
-1. Na lista de **grupos** de down-down, selecione **AMBARI Predefinido** .
+1. Na lista de **grupos** de down-down, selecione **AMBARI Predefinido**.
 1. Selecione o alerta **de alertas do servidor Ambari.**
 1. A partir da definição, **selecione Editar.**
 1. Aumente o valor **do Intervalo de Verificação.**
-1. Aumente o valor **multiplicador de intervalo** e, em seguida, selecione **Guardar** .
+1. Aumente o valor **multiplicador de intervalo** e, em seguida, selecione **Guardar**.
 
 ### <a name="disable-and-reenable-the-alert"></a>Desativar e reenuendível o alerta
 
@@ -65,10 +62,10 @@ Para descartar um alerta velho, desative-o e, em seguida, reensipe-o:
 1. No Apache Ambari UI, selecione o **separador Alertas.**
 1. Selecione o nome de definição de alerta que deseja.
 1. A partir da definição, **selecione Ativado** na parte extrema-direita da UI.
-1. Na janela pop-up **de confirmação,** selecione **Confirmar Desativar** .
+1. Na janela pop-up **de confirmação,** selecione **Confirmar Desativar**.
 1. Aguarde alguns segundos para que todas as "instâncias" de alerta mostradas na página sejam apuradas.
 1. A partir da definição, **selecione Disabled** na parte extrema-direita da UI.
-1. Na janela pop-up **de confirmação,** selecione **Confirmar Ativar** .
+1. Na janela pop-up **de confirmação,** selecione **Confirmar Ativar**.
 
 ### <a name="increase-the-alert-grace-period"></a>Aumente o período de alerta
 
@@ -76,7 +73,7 @@ Há um período de graça antes de um agente de Ambari relatar que um alerta con
 
 O valor predefinido `alert_grace_period` é de 5 segundos. Pode configurar esta definição em /etc/ambari-agent/conf/ambari-agent.ini. Para os anfitriões em que os alertas obsoletos ocorrem em intervalos regulares, tente aumentar o valor para 10. Então, reinicie o agente Ambari.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se o seu problema não foi mencionado aqui ou se não conseguir resolvê-lo, visite um dos seguintes canais para obter mais apoio:
 
@@ -84,6 +81,6 @@ Se o seu problema não foi mencionado aqui ou se não conseguir resolvê-lo, vis
 
 * Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) no Twitter. Esta é a conta oficial da Microsoft Azure para melhorar a experiência do cliente. Liga a comunidade Azure aos recursos certos: respostas, apoio e especialistas.
 
-* Se precisar de mais ajuda, envie um pedido de apoio do [portal Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Para lá chegar, selecione Ajuda **(?** ) do menu do portal ou abra o painel **de suporte Help +.** Para mais informações, consulte Como criar um pedido de [suporte Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). 
+* Se precisar de mais ajuda, envie um pedido de apoio do [portal Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Para lá chegar, selecione Ajuda **(?**) do menu do portal ou abra o painel **de suporte Help +.** Para mais informações, consulte Como criar um pedido de [suporte Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). 
 
   O suporte para gestão de subscrição e faturação está incluído na sua subscrição Microsoft Azure. O suporte técnico está disponível através dos [Planos de Apoio Azure.](https://azure.microsoft.com/support/plans/)

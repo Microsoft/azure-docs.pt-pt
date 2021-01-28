@@ -1,19 +1,16 @@
 ---
 title: Visualizar dados da Colmeia Apache com Power BI - Azure HDInsight
 description: Saiba como usar o Microsoft Power BI para visualizar os dados da Hive processados pelo Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: e66329b93ebd7d90258ab4670b77ca849a28189b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a5732c2dc0a92bd5727eeff39a529630e45683d7
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024066"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946678"
 ---
 # <a name="visualize-apache-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>Visualizar o dados do Apache Hive com o Microsoft Power BI através do ODBC no Azure HDInsight
 
@@ -42,7 +39,7 @@ Consulte [a fonte de dados da Hive ODBC](apache-hadoop-connect-excel-hive-odbc-d
 
 ## <a name="load-data-from-hdinsight"></a>Carregar dados a partir de HDInsight
 
-A mesa **hive hive hive hive hive** vem com todos os clusters HDInsight.
+A mesa **hive hive** vem com todos os clusters HDInsight.
 
 1. Inicie o Power BI Desktop.
 
@@ -70,7 +67,7 @@ Continue a partir do último procedimento.
 
 1. Expanda o mapa.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu a visualizar dados a partir de HDInsight usando Power BI.  Para saber mais, leia os artigos seguintes:
 
