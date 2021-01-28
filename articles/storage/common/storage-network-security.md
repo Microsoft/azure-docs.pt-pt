@@ -5,20 +5,20 @@ services: storage
 author: santoshc
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/08/2020
-ms.author: tamram
+ms.date: 01/27/2021
+ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 9032576f3705c360ebf53d8fdb4d6c15f77f450e
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 5a1ad898b745bbb49421c1bc0b5a9b2e5c8ec0f6
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98703509"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986006"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurar as firewalls e as redes virtuais do Armazenamento do Microsoft Azure
 
-O Armazenamento do Microsoft Azure proporciona um modelo de segurança em camadas. Este modelo permite-lhe proteger e controlar o nível de acesso às contas de armazenamento que as aplicações e os ambientes empresariais exigem, com base no tipo e no subconjunto das redes utilizadas. Quando as regras de rede são configuradas, apenas as aplicações que solicitam dados sobre o conjunto especificado de redes podem aceder a uma conta de armazenamento. Pode limitar o acesso à sua conta de armazenamento a pedidos originários de endereços IP especificados, intervalos IP ou de uma lista de sub-redes numa Rede Virtual Azure (VNet).
+O Armazenamento do Azure fornece um modelo de segurança em camadas. Este modelo permite-lhe garantir e controlar o nível de acesso às suas contas de armazenamento que as suas aplicações e ambientes empresariais exigem, com base no tipo e subconjunto de redes ou recursos utilizados. Quando as regras de rede são configuradas, apenas as aplicações que solicitam dados sobre o conjunto especificado de redes ou através do conjunto especificado de recursos Azure podem aceder a uma conta de armazenamento. Pode limitar o acesso à sua conta de armazenamento a pedidos originários de endereços IP especificados, intervalos IP, sub-redes numa Rede Virtual Azure (VNet) ou instâncias de recursos de alguns serviços Azure.
 
 As contas de armazenamento têm um ponto final público que é acessível através da internet. Também pode criar [Pontos Finais Privados para a sua conta de armazenamento,](storage-private-endpoints.md)que atribui um endereço IP privado do seu VNet à conta de armazenamento, e protege todo o tráfego entre o seu VNet e a conta de armazenamento por um link privado. A firewall de armazenamento Azure fornece controlo de acesso para o ponto final público da sua conta de armazenamento. Também pode utilizar a firewall para bloquear todo o acesso através do ponto final público quando utilizar pontos finais privados. A configuração da firewall de armazenamento também permite selecionar serviços de plataforma fidedignas Azure para aceder à conta de armazenamento de forma segura.
 
@@ -27,7 +27,7 @@ Uma aplicação que acede a uma conta de armazenamento quando as regras da rede 
 > [!IMPORTANT]
 > A ligação das regras de firewall para a sua conta de armazenamento bloqueia os pedidos de dados por padrão, a menos que os pedidos sejam originários de um serviço que opera dentro de uma Rede Virtual Azure (VNet) ou de endereços IP públicos permitidos. Os pedidos que estão bloqueados incluem os de outros serviços Azure, do portal Azure, de serviços de registo e métricas, e assim por diante.
 >
-> Pode conceder acesso aos serviços Azure que operam a partir de um VNet, permitindo o tráfego a partir da sub-rede que hospeda a instância de serviço. Também pode ativar um número limitado de cenários através do mecanismo [de Exceções](#exceptions) descrito abaixo. Para aceder aos dados da conta de armazenamento através do portal Azure, teria de estar numa máquina dentro do limite fidedigno (IP ou VNet) que configura.
+> Pode conceder acesso aos serviços Azure que operam a partir de um VNet, permitindo o tráfego a partir da sub-rede que hospeda a instância de serviço. Também pode ativar um número limitado de cenários através do mecanismo de exceções descrito abaixo. Para aceder aos dados da conta de armazenamento através do portal Azure, teria de estar numa máquina dentro do limite fidedigno (IP ou VNet) que configura.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -47,7 +47,7 @@ O tráfego de discos de máquinas virtuais (incluindo operações de montagem e 
 
 As contas de armazenamento clássicas não suportam firewalls e redes virtuais.
 
-Pode utilizar discos não geridos em contas de armazenamento com regras de rede aplicadas para fazer backup e restaurar VMs criando uma exceção. Este processo está documentado na secção [exceções](#exceptions) deste artigo. As exceções à firewall não são aplicáveis com discos geridos, uma vez que já são geridos pelo Azure.
+Pode utilizar discos não geridos em contas de armazenamento com regras de rede aplicadas para fazer o back up e restaurar vMs criando uma exceção. Este processo está documentado na secção ['Gerir Excepções'](#manage-exceptions) deste artigo. As exceções à firewall não são aplicáveis com discos geridos, uma vez que já são geridos pelo Azure.
 
 ## <a name="change-the-default-network-access-rule"></a>Change the default network access rule (Alterar a regra de acesso de rede predefinida)
 
@@ -60,59 +60,62 @@ Por predefinição, as contas de armazenamento aceitam ligações de clientes em
 
 Pode gerir as regras de acesso à rede padrão para contas de armazenamento através do portal Azure, PowerShell ou CLIv2.
 
-#### <a name="azure-portal"></a>Portal do Azure
+#### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Aceda à conta de armazenamento que pretende proteger.
 
-1. Clique no menu de definições chamado **Networking**.
+2. Selecione no menu de definições chamado **Networking**.
 
-1. Para negar o acesso por padrão, opte por permitir o acesso a partir de **redes Selecionadas.** Para permitir tráfego de todas as redes, opte por permitir o acesso a partir de **Todas as redes**.
+3. Para negar o acesso por padrão, opte por permitir o acesso a partir de **redes Selecionadas.** Para permitir tráfego de todas as redes, opte por permitir o acesso a partir de **Todas as redes**.
 
-1. Clique em **Guardar** para aplicar as suas alterações.
+4. Selecione **Guardar** para aplicar as suas alterações.
 
-#### <a name="powershell"></a>PowerShell
+<a id="powershell"></a>
+
+#### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 1. Instale o [Azure PowerShell](/powershell/azure/install-Az-ps) e [inscreva-se em](/powershell/azure/authenticate-azureps).
 
-1. Mostrar o estado da regra predefinida para a conta de armazenamento.
+2. Mostrar o estado da regra predefinida para a conta de armazenamento.
 
     ```powershell
     (Get-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").DefaultAction
     ```
 
-1. Desacorde a regra padrão para negar o acesso à rede por predefinição.
+3. Desacorde a regra padrão para negar o acesso à rede por predefinição.
 
     ```powershell
     Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Deny
     ```
 
-1. Desafine a regra padrão para permitir o acesso à rede por predefinição.
+4. Desafine a regra padrão para permitir o acesso à rede por predefinição.
 
     ```powershell
     Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Allow
     ```
 
-#### <a name="cliv2"></a>CLIv2
+#### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 1. Instale o [Azure CLI](/cli/azure/install-azure-cli) e [inscreva-se .](/cli/azure/authenticate-azure-cli)
 
-1. Mostrar o estado da regra predefinida para a conta de armazenamento.
+2. Mostrar o estado da regra predefinida para a conta de armazenamento.
 
     ```azurecli
     az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkRuleSet.defaultAction
     ```
 
-1. Desacorde a regra padrão para negar o acesso à rede por predefinição.
+3. Desacorde a regra padrão para negar o acesso à rede por predefinição.
 
     ```azurecli
     az storage account update --resource-group "myresourcegroup" --name "mystorageaccount" --default-action Deny
     ```
 
-1. Desafine a regra padrão para permitir o acesso à rede por predefinição.
+4. Desafine a regra padrão para permitir o acesso à rede por predefinição.
 
     ```azurecli
     az storage account update --resource-group "myresourcegroup" --name "mystorageaccount" --default-action Allow
     ```
+---
 
 ## <a name="grant-access-from-a-virtual-network"></a>Conceder acesso a partir de uma rede virtual
 
@@ -144,42 +147,42 @@ A conta de armazenamento e as redes virtuais de acesso podem estar em diferentes
 
 Pode gerir as regras de rede virtuais para contas de armazenamento através do portal Azure, PowerShell ou CLIv2.
 
-#### <a name="azure-portal"></a>Portal do Azure
+#### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Aceda à conta de armazenamento que pretende proteger.
 
-1. Clique no menu de definições chamado **Networking**.
+2. Selecione no menu de definições chamado **Networking**.
 
-1. Verifique se selecionou para permitir o acesso a partir de **redes selecionadas.**
+3. Verifique se selecionou para permitir o acesso a partir de **redes selecionadas.**
 
-1. Para conceder acesso a uma rede virtual com uma nova regra de rede, em **redes Virtuais,** clique em **Adicionar rede virtual existente,** selecione **redes virtuais** e opções **de Subnets** e, em seguida, clique em **Adicionar**. Para criar uma nova rede virtual e conceder-lhe acesso, clique em **Adicionar nova rede virtual.** Forneça as informações necessárias para criar a nova rede virtual e, em seguida, clique em **Criar**.
+4. Para conceder acesso a uma rede virtual com uma nova regra de rede, em **redes Virtuais**, selecione Adicionar rede **virtual existente,** selecione **redes virtuais** e opções **de Subnets** e, em seguida, selecione **Adicionar**. Para criar uma nova rede virtual e conceder-lhe acesso, **selecione Adicionar nova rede virtual.** Forneça as informações necessárias para criar a nova rede virtual e, em seguida, selecione **Criar**.
 
     > [!NOTE]
     > Se um ponto final de serviço para o Azure Storage não foi previamente configurado para a rede virtual e sub-redes selecionadas, pode configurá-lo como parte desta operação.
     >
     > Atualmente, apenas as redes virtuais pertencentes ao mesmo inquilino do Azure Ative Directory são mostradas para seleção durante a criação de regras. Para conceder acesso a uma sub-rede numa rede virtual pertencente a outro inquilino, utilize as APIs powershell, CLI ou REST.
 
-1. Para remover uma regra de rede virtual ou sub-rede, clique **em ...** para abrir o menu de contexto para a rede virtual ou sub-rede, e clique em **Remover**.
+5. Para remover uma regra de rede virtual ou sub-rede, selecione... para abrir o menu de contexto para a rede virtual ou sub-rede e selecione **Remover**. 
 
-1. Clique em **Guardar** para aplicar as suas alterações.
+6. **selecione Guardar** para aplicar as suas alterações.
 
-#### <a name="powershell"></a>PowerShell
+#### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 1. Instale o [Azure PowerShell](/powershell/azure/install-Az-ps) e [inscreva-se em](/powershell/azure/authenticate-azureps).
 
-1. Listar as regras de rede virtual.
+2. Listar as regras de rede virtual.
 
     ```powershell
     (Get-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").VirtualNetworkRules
     ```
 
-1. Ativar o ponto final do serviço para o Azure Storage numa rede virtual e numa sub-rede existentes.
+3. Ativar o ponto final do serviço para o Azure Storage numa rede virtual e numa sub-rede existentes.
 
     ```powershell
     Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Set-AzVirtualNetworkSubnetConfig -Name "mysubnet" -AddressPrefix "10.0.0.0/24" -ServiceEndpoint "Microsoft.Storage" | Set-AzVirtualNetwork
     ```
 
-1. Adicione uma regra de rede para uma rede virtual e sub-rede.
+4. Adicione uma regra de rede para uma rede virtual e sub-rede.
 
     ```powershell
     $subnet = Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzVirtualNetworkSubnetConfig -Name "mysubnet"
@@ -189,7 +192,7 @@ Pode gerir as regras de rede virtuais para contas de armazenamento através do p
     > [!TIP]
     > Para adicionar uma regra de rede para uma sub-rede num VNet pertencente a outro inquilino AD Azure, utilize um parâmetro **VirtualNetworkResourceId** totalmente qualificado no formulário "/subscrições/subscrições/subscrição-ID/resourceGroups/resourceGroup/providers/Microsoft.Network/virtualNetworks/vNet-name/subnets/subnet-name".
 
-1. Remova uma regra de rede para uma rede virtual e sub-rede.
+5. Remova uma regra de rede para uma rede virtual e sub-rede.
 
     ```powershell
     $subnet = Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzVirtualNetworkSubnetConfig -Name "mysubnet"
@@ -199,23 +202,23 @@ Pode gerir as regras de rede virtuais para contas de armazenamento através do p
 > [!IMPORTANT]
 > Certifique-se de [que define a regra padrão](#change-the-default-network-access-rule) para **negar**, ou as regras de rede não têm efeito.
 
-#### <a name="cliv2"></a>CLIv2
+#### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 1. Instale o [Azure CLI](/cli/azure/install-azure-cli) e [inscreva-se .](/cli/azure/authenticate-azure-cli)
 
-1. Listar as regras de rede virtual.
+2. Listar as regras de rede virtual.
 
     ```azurecli
     az storage account network-rule list --resource-group "myresourcegroup" --account-name "mystorageaccount" --query virtualNetworkRules
     ```
 
-1. Ativar o ponto final do serviço para o Azure Storage numa rede virtual e numa sub-rede existentes.
+3. Ativar o ponto final do serviço para o Azure Storage numa rede virtual e numa sub-rede existentes.
 
     ```azurecli
     az network vnet subnet update --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --service-endpoints "Microsoft.Storage"
     ```
 
-1. Adicione uma regra de rede para uma rede virtual e sub-rede.
+4. Adicione uma regra de rede para uma rede virtual e sub-rede.
 
     ```azurecli
     subnetid=$(az network vnet subnet show --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --query id --output tsv)
@@ -227,7 +230,7 @@ Pode gerir as regras de rede virtuais para contas de armazenamento através do p
     >
     > Pode utilizar o parâmetro **de subscrição** para recuperar o ID da sub-rede para um VNet pertencente a outro inquilino AD AZure.
 
-1. Remova uma regra de rede para uma rede virtual e sub-rede.
+5. Remova uma regra de rede para uma rede virtual e sub-rede.
 
     ```azurecli
     subnetid=$(az network vnet subnet show --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --query id --output tsv)
@@ -236,6 +239,8 @@ Pode gerir as regras de rede virtuais para contas de armazenamento através do p
 
 > [!IMPORTANT]
 > Certifique-se de [que define a regra padrão](#change-the-default-network-access-rule) para **negar**, ou as regras de rede não têm efeito.
+
+---
 
 ## <a name="grant-access-from-an-internet-ip-range"></a>Conceder acesso a partir de um intervalo de IP da Internet
 
@@ -268,49 +273,49 @@ Se estiver a utilizar o [ExpressRoute](../../expressroute/expressroute-introduct
 
 Pode gerir as regras da rede IP para contas de armazenamento através do portal Azure, PowerShell ou CLIv2.
 
-#### <a name="azure-portal"></a>Portal do Azure
+#### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Aceda à conta de armazenamento que pretende proteger.
 
-1. Clique no menu de definições chamado **Networking**.
+2. Selecione no menu de definições chamado **Networking**.
 
-1. Verifique se selecionou para permitir o acesso a partir de **redes selecionadas.**
+3. Verifique se selecionou para permitir o acesso a partir de **redes selecionadas.**
 
-1. Para conceder acesso a uma gama IP da Internet, insira o endereço IP ou o intervalo de endereços (em formato CIDR) no Âmbito de **Endereços de Firewall**  >  .
+4. Para conceder acesso a uma gama IP da Internet, insira o endereço IP ou o intervalo de endereços (em formato CIDR) no Âmbito de **Endereços de Firewall**  >  .
 
-1. Para remover uma regra de rede IP, clique no ícone do caixote do lixo ao lado da gama de endereços.
+5. Para remover uma regra de rede IP, selecione o ícone do caixote do lixo ao lado do intervalo de endereços.
 
-1. Clique em **Guardar** para aplicar as suas alterações.
+6. Selecione **Guardar** para aplicar as suas alterações.
 
-#### <a name="powershell"></a>PowerShell
+#### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 1. Instale o [Azure PowerShell](/powershell/azure/install-Az-ps) e [inscreva-se em](/powershell/azure/authenticate-azureps).
 
-1. Listar as regras da rede IP.
+2. Listar as regras da rede IP.
 
     ```powershell
     (Get-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").IPRules
     ```
 
-1. Adicione uma regra de rede para um endereço IP individual.
+3. Adicione uma regra de rede para um endereço IP individual.
 
     ```powershell
     Add-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.19"
     ```
 
-1. Adicione uma regra de rede para um intervalo de endereços IP.
+4. Adicione uma regra de rede para um intervalo de endereços IP.
 
     ```powershell
     Add-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.0/24"
     ```
 
-1. Remova uma regra de rede para um endereço IP individual.
+5. Remova uma regra de rede para um endereço IP individual.
 
     ```powershell
     Remove-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.19"
     ```
 
-1. Remova uma regra de rede para um intervalo de endereços IP.
+6. Remova uma regra de rede para um intervalo de endereços IP.
 
     ```powershell
     Remove-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.0/24"
@@ -319,7 +324,7 @@ Pode gerir as regras da rede IP para contas de armazenamento através do portal 
 > [!IMPORTANT]
 > Certifique-se de [que define a regra padrão](#change-the-default-network-access-rule) para **negar**, ou as regras de rede não têm efeito.
 
-#### <a name="cliv2"></a>CLIv2
+#### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 1. Instale o [Azure CLI](/cli/azure/install-azure-cli) e [inscreva-se .](/cli/azure/authenticate-azure-cli)
 
@@ -329,25 +334,25 @@ Pode gerir as regras da rede IP para contas de armazenamento através do portal 
     az storage account network-rule list --resource-group "myresourcegroup" --account-name "mystorageaccount" --query ipRules
     ```
 
-1. Adicione uma regra de rede para um endereço IP individual.
+2. Adicione uma regra de rede para um endereço IP individual.
 
     ```azurecli
     az storage account network-rule add --resource-group "myresourcegroup" --account-name "mystorageaccount" --ip-address "16.17.18.19"
     ```
 
-1. Adicione uma regra de rede para um intervalo de endereços IP.
+3. Adicione uma regra de rede para um intervalo de endereços IP.
 
     ```azurecli
     az storage account network-rule add --resource-group "myresourcegroup" --account-name "mystorageaccount" --ip-address "16.17.18.0/24"
     ```
 
-1. Remova uma regra de rede para um endereço IP individual.
+4. Remova uma regra de rede para um endereço IP individual.
 
     ```azurecli
     az storage account network-rule remove --resource-group "myresourcegroup" --account-name "mystorageaccount" --ip-address "16.17.18.19"
     ```
 
-1. Remova uma regra de rede para um intervalo de endereços IP.
+5. Remova uma regra de rede para um intervalo de endereços IP.
 
     ```azurecli
     az storage account network-rule remove --resource-group "myresourcegroup" --account-name "mystorageaccount" --ip-address "16.17.18.0/24"
@@ -356,19 +361,199 @@ Pode gerir as regras da rede IP para contas de armazenamento através do portal 
 > [!IMPORTANT]
 > Certifique-se de [que define a regra padrão](#change-the-default-network-access-rule) para **negar**, ou as regras de rede não têm efeito.
 
-## <a name="exceptions"></a>Exceções
+---
 
-As regras de rede ajudam a criar um ambiente seguro para ligações entre as suas aplicações e os seus dados para a maioria dos cenários. No entanto, algumas aplicações dependem de serviços Azure que não podem ser isolados exclusivamente através de regras de rede virtual ou endereço IP. Mas esses serviços devem ser concedidos ao armazenamento para permitir a funcionalidade completa da aplicação. Nestas situações, pode utilizar os serviços **_Permitir serviços de confiança da Microsoft..._* _ definição para permitir que esses serviços acedam aos seus dados, registos ou análises.
+<a id="grant-access-specific-instances"></a>
 
-### <a name="trusted-microsoft-services"></a>Serviços confiáveis da Microsoft
+## <a name="grant-access-from-azure-resource-instances-preview"></a>Conceder acesso a partir de instâncias de recursos Azure (pré-visualização)
 
-Alguns serviços da Microsoft operam a partir de redes que não podem ser incluídas nas suas regras de rede. Pode conceder a um subconjunto de serviços da Microsoft de confiança o acesso à conta de armazenamento, mantendo as regras de rede para outras aplicações. Estes serviços fidedignos utilizarão então uma autenticação forte para se ligarem à sua conta de armazenamento de forma segura. Permitimos dois modos de acesso fidedigno para os serviços da Microsoft.
+Em alguns casos, uma aplicação pode depender de recursos Azure que não podem ser isolados através de uma rede virtual ou uma regra de endereço IP. No entanto, ainda gostaria de garantir e restringir o acesso da conta de armazenamento apenas aos recursos Azure da sua aplicação. Pode configurar contas de armazenamento para permitir o acesso a casos específicos de recursos de alguns serviços Azure, criando uma regra de instância de recursos. 
 
-- Recursos de alguns serviços, _*quando registados na sua subscrição**, podem aceder à sua conta de armazenamento **na mesma subscrição** para operações selecionadas, como escrever registos ou backup.
-- Os recursos de alguns serviços podem ser concedidos acesso explícito à sua conta de **armazenamento, atribuindo uma função Azure** à sua identidade gerida atribuída pelo sistema.
+Os tipos de operações que uma instância de recursos pode realizar nos dados da conta de armazenamento são determinados pelas atribuições de [funções Azure](storage-auth-aad.md#assign-azure-roles-for-access-rights) da instância de recursos. As instâncias de recursos devem ser do mesmo inquilino que a sua conta de armazenamento, mas podem pertencer a qualquer subscrição no arrendatário.
 
+A lista de serviços Azure suportados aparece no [acesso Fidedigno com base na](#trusted-access-system-assigned-managed-identity) secção de identidade gerida atribuída pelo sistema deste artigo.
 
-Quando ativa os **serviços da Microsoft fidedignos...** definição, os recursos dos seguintes serviços registados na mesma subscrição que a sua conta de armazenamento têm acesso a um conjunto limitado de operações conforme descrito:
+> [!NOTE]
+> Esta funcionalidade está em pré-visualização pública e está disponível em todas as regiões de nuvem pública. 
+
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
+Pode adicionar ou remover as regras da rede de recursos no portal Azure.
+
+1. Inscreva-se no [portal Azure](https://portal.azure.com/) para começar.
+
+2. Localize a sua conta de armazenamento e apresente a visão geral da conta.
+
+3. Selecione **Networking** para exibir a página de configuração para networking.
+
+4. Na lista de drop-down **do tipo de recurso,** escolha o tipo de recurso da sua instância de recursos. 
+
+5. Na lista de drop-down de **nomes de instância,** escolha a instância de recurso. Também pode optar por incluir todas as instâncias de recursos no inquilino ativo, subscrição ou grupo de recursos.
+
+6. Selecione **Guardar** para aplicar as suas alterações. A instância de recursos aparece na secção **de instâncias de recursos** da página de definições de rede. 
+
+Para remover a instância do recurso, selecione o ícone de eliminação :::image type="icon" source="media/storage-network-security/delete-icon.png"::: () ao lado da instância do recurso.
+
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Pode utilizar comandos PowerShell para adicionar ou remover as regras da rede de recursos.
+
+> [!IMPORTANT]
+> Certifique-se de [que define a regra padrão](#change-the-default-network-access-rule) para **negar**, ou as regras de rede não têm efeito.
+
+#### <a name="install-the-preview-module"></a>Instale o módulo de pré-visualização
+
+Instale a versão mais recente do módulo PowershellGet. Em seguida, feche e reabra a consola PowerShell.
+
+```powershell
+install-Module PowerShellGet –Repository PSGallery –Force  
+```
+
+Instale o módulo de pré-visualização **do armazenamento Az.**
+
+```powershell
+Install-Module Az.Storage -Repository PsGallery -RequiredVersion 3.0.1-preview -AllowClobber -AllowPrerelease -Force 
+```
+
+Para obter mais informações sobre como instalar módulos PowerShell, consulte [instalar o módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)
+
+#### <a name="grant-access"></a>Conceder acesso
+
+Adicione uma regra de rede que concede acesso a partir de uma instância de recursos.
+
+```powershell
+$resourceId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.DataFactory/factories/myDataFactory"
+$tenantId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+$resourceGroupName = "myResourceGroup"
+$accountName = "mystorageaccount"
+
+Add-AzStorageAccountNetworkRule -ResourceGroupName $resourceGroupName -Name $accountName -TenantId $tenantId -ResourceId $resourceId
+
+```
+
+Especifique vários casos de recursos de uma só vez modificando o conjunto de regras de rede.
+
+```powershell
+$resourceId1 = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.DataFactory/factories/myDataFactory"
+$resourceId2 = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/mySQLServer"
+$tenantId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+$resourceGroupName = "myResourceGroup"
+$accountName = "mystorageaccount"
+
+Update-AzStorageAccountNetworkRuleSet -ResourceGroupName $resourceGroupName -Name $accountName -ResourceAccessRule (@{ResourceId=$resourceId1;TenantId=$tenantId},@{ResourceId=$resourceId2;TenantId=$tenantId}) 
+```
+
+#### <a name="remove-access"></a>Remover o acesso
+
+Remova uma regra de rede que concede acesso a partir de uma instância de recursos.
+
+```powershell
+$resourceId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.DataFactory/factories/myDataFactory"
+$tenantId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+$resourceGroupName = "myResourceGroup"
+$accountName = "mystorageaccount"
+
+Remove-AzStorageAccountNetworkRule -ResourceGroupName $resourceGroupName -Name $accountName -TenantId $tenantId -ResourceId $resourceId  
+```
+
+Remova todas as regras de rede que concedem acesso a instâncias de recursos.
+
+```powershell
+$resourceGroupName = "myResourceGroup"
+$accountName = "mystorageaccount"
+
+Update-AzStorageAccountNetworkRuleSet -ResourceGroupName $resourceGroupName -Name $accountName -ResourceAccessRule @()  
+```
+
+#### <a name="view-a-list-of-allowed-resource-instances"></a>Ver uma lista de instâncias de recursos permitidas
+
+Veja uma lista completa de casos de recursos a quem foi concedido acesso à conta de armazenamento.
+
+```powershell
+$resourceGroupName = "myResourceGroup"
+$accountName = "mystorageaccount"
+
+$rule = Get-AzStorageAccountNetworkRuleSet -ResourceGroupName $resourceGroupName -Name $accountName
+$rule.ResourceAccessRules 
+```
+
+### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+Pode utilizar comandos Azure CLI para adicionar ou remover as regras da rede de recursos.
+
+#### <a name="install-the-preview-extension"></a>Instale a extensão de pré-visualização
+
+1. Abra o [Azure Cloud Shell](../../cloud-shell/overview.md), ou se [instalou](/cli/azure/install-azure-cli) o Azure CLI localmente, abra uma aplicação de consola de comando como o Windows PowerShell.
+
+2. Em seguida, verifique se a versão do Azure CLI que instalou é `2.13.0` ou superior utilizando o seguinte comando.
+
+   ```azurecli
+   az --version
+   ```
+
+   Se a sua versão do Azure CLI for inferior `2.13.0` a , então instale uma versão posterior. Consulte [a Instalação do Azure CLI](/cli/azure/install-azure-cli).
+
+3. Digite o seguinte comando para instalar a extensão de pré-visualização.
+
+   ```azurecli
+   az extension add -n storage-preview
+   ```
+
+#### <a name="grant-access"></a>Conceder acesso
+
+Adicione uma regra de rede que concede acesso a partir de uma instância de recursos.
+
+```azurecli
+az storage account network-rule add \
+    --resource-id /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Synapse/workspaces/testworkspace \
+    --tenant-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
+    -g myResourceGroup \
+    --account-name mystorageaccount
+```
+
+#### <a name="remove-access"></a>Remover o acesso
+
+Remova uma regra de rede que concede acesso a partir de uma instância de recursos.
+
+```azurecli
+az storage account network-rule remove \
+    --resource-id /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Synapse/workspaces/testworkspace \
+    --tenant-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
+    -g myResourceGroup \
+    --account-name mystorageaccount
+```
+
+#### <a name="view-a-list-of-allowed-resource-instances"></a>Ver uma lista de instâncias de recursos permitidas
+
+Veja uma lista completa de casos de recursos a quem foi concedido acesso à conta de armazenamento.
+
+```azurecli
+az storage account network-rule list \
+    -g myResourceGroup \
+    --account-name mystorageaccount
+```
+
+---
+
+<a id="exceptions"></a>
+<a id="trusted-microsoft-services"></a>
+
+## <a name="grant-access-to-azure-services"></a>Conceder acesso aos serviços da Azure 
+
+Alguns serviços Azure operam a partir de redes que não podem ser incluídas nas suas regras de rede. Pode conceder a um subconjunto de serviços Azure de confiança o acesso à conta de armazenamento, mantendo ao mesmo tempo regras de rede para outras aplicações. Estes serviços fidedignos utilizarão então uma autenticação forte para se ligarem de forma segura à sua conta de armazenamento. 
+
+Pode conceder acesso a serviços de Azure confiáveis criando uma exceção à regra da rede. Para obter orientação passo a passo, consulte a secção [de exceções](#manage-exceptions) de Gestão deste artigo. 
+
+Quando concede acesso a serviços fidedignos da Azure, concede os seguintes tipos de acesso:
+
+- Acesso fidedigno para operações selecionadas a recursos registados na sua subscrição.
+- Acesso confiável a recursos baseados na identidade gerida atribuída pelo sistema.
+
+<a id="trusted-access-resources-in-subscription"></a>
+
+### <a name="trusted-access-for-resources-registered-in-your-subscription"></a>Acesso confiável para recursos registados na sua subscrição
+
+Os recursos de alguns serviços, **quando registados na sua subscrição,** podem aceder à sua conta de armazenamento **na mesma subscrição** para operações selecionadas, como escrever registos ou backup.  A tabela seguinte descreve cada serviço e as operações permitidas. 
 
 | Serviço                  | Nome do fornecedor de recursos     | Operações permitidas                 |
 |:------------------------ |:-------------------------- |:---------------------------------- |
@@ -384,7 +569,15 @@ Quando ativa os **serviços da Microsoft fidedignos...** definição, os recurso
 | Rede Azure         | Microsoft.Network          | Armazenar e analisar registos de tráfego de rede, incluindo através dos serviços de Network Watcher e Traffic Analytics. [Saiba mais](../../network-watcher/network-watcher-nsg-flow-logging-overview.md). |
 | Azure Site Recovery      | Microsoft.SiteRecovery     | Ativar a replicação para a recuperação de desastres de máquinas virtuais Azure IaaS quando utilizar contas de armazenamento ativadas por firewall ou alvo.  [Saiba mais](../../site-recovery/azure-to-azure-tutorial-enable-replication.md). |
 
-A **definição de Permitir serviços da Microsoft fidedignos...** a definição também permite que uma determinada instância dos serviços abaixo aceda à conta de armazenamento, se atribuir explicitamente [uma função Azure](storage-auth-aad.md#assign-azure-roles-for-access-rights) à [identidade gerida atribuída pelo sistema](../../active-directory/managed-identities-azure-resources/overview.md) para esse caso de recurso. Neste caso, o âmbito de acesso, por exemplo, corresponde à função Azure atribuída à identidade gerida.
+<a id="trusted-access-system-assigned-managed-identity"></a>
+
+### <a name="trusted-access-based-on-system-assigned-managed-identity"></a>Acesso fidedigno com base na identidade gerida atribuída pelo sistema
+
+A tabela que se segue lista os serviços que podem ter acesso aos dados da sua conta de armazenamento se os casos de recursos desses serviços receberem a permissão adequada. Para conceder permissão, deve atribuir explicitamente [uma função Azure](storage-auth-aad.md#assign-azure-roles-for-access-rights) à [identidade gerida atribuída pelo sistema](../../active-directory/managed-identities-azure-resources/overview.md) para cada instância de recursos. Neste caso, o âmbito de acesso, por exemplo, corresponde à função Azure atribuída à identidade gerida. 
+
+> [!TIP]
+> A forma recomendada de conceder acesso a recursos específicos é utilizar regras de instância de recursos. Para conceder acesso a instâncias específicas de recursos, consulte o acesso do Grant a partir da secção [de instâncias de recursos Azure (pré-visualização)](#grant-access-specific-instances) deste artigo.
+
 
 | Serviço                        | Nome do fornecedor de recursos                 | Objetivo            |
 | :----------------------------- | :------------------------------------- | :----------------- |
@@ -402,44 +595,45 @@ A **definição de Permitir serviços da Microsoft fidedignos...** a definição
 | Azure Stream Analytics         | Microsoft.StreamAnalytics             | Permite que os dados de um trabalho de streaming sejam escritos para o armazenamento blob. [Saiba mais](../../stream-analytics/blob-output-managed-identity.md). |
 | Azure Synapse Analytics        | Microsoft.Synapse/workspaces          | Permite o acesso aos dados no Azure Storage a partir da Azure Synapse Analytics. |
 
+## <a name="grant-access-to-storage-analytics"></a>Conceder acesso à análise de armazenamento
 
-### <a name="storage-analytics-data-access"></a>Acesso de dados de análise de armazenamento
+Em alguns casos, o acesso a registos de recursos e métricas de leitura é necessário fora do limite da rede. Ao configurar o acesso de serviços fidedignos à conta de armazenamento, pode permitir o acesso de leitura para os ficheiros de registo, tabelas de métricas ou ambos, criando uma exceção à regra da rede. Para obter orientação passo a passo, consulte a secção **de exceções de Gestão** abaixo. Para saber mais sobre como trabalhar com a análise de armazenamento, consulte [a analítica de armazenamento Azure para recolher dados de registos e métricas.](./storage-analytics.md) 
 
-Em alguns casos, o acesso a registos de recursos e métricas de leitura é necessário fora do limite da rede. Ao configurar o acesso de serviços fidedignos à conta de armazenamento, pode permitir o acesso de leitura para os ficheiros de registo, tabelas de métricas ou ambas. [Saiba mais sobre trabalhar com a análise de armazenamento.](./storage-analytics.md)
+<a id="manage-exceptions"></a>
 
-### <a name="managing-exceptions"></a>Gestão de exceções
+## <a name="manage-exceptions"></a>Gerir exceções
 
 Pode gerir exceções de regras de rede através do portal Azure, PowerShell ou Azure CLI v2.
 
-#### <a name="azure-portal"></a>Portal do Azure
+#### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Aceda à conta de armazenamento que pretende proteger.
 
-1. Clique no menu de definições chamado **Networking**.
+2. Selecione no menu de definições chamado **Networking**.
 
-1. Verifique se selecionou para permitir o acesso a partir de **redes selecionadas.**
+3. Verifique se selecionou para permitir o acesso a partir de **redes selecionadas.**
 
-1. Em **Exceções,** selecione as exceções que pretende conceder.
+4. Em **Exceções,** selecione as exceções que pretende conceder.
 
-1. Clique em **Guardar** para aplicar as suas alterações.
+5. Selecione **Guardar** para aplicar as suas alterações.
 
-#### <a name="powershell"></a>PowerShell
+#### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 1. Instale o [Azure PowerShell](/powershell/azure/install-Az-ps) e [inscreva-se em](/powershell/azure/authenticate-azureps).
 
-1. Exiba as exceções para as regras da rede de conta de armazenamento.
+2. Exiba as exceções para as regras da rede de conta de armazenamento.
 
     ```powershell
     (Get-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount").Bypass
     ```
 
-1. Configure as exceções às regras da rede de contas de armazenamento.
+3. Configure as exceções às regras da rede de contas de armazenamento.
 
     ```powershell
     Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -Bypass AzureServices,Metrics,Logging
     ```
 
-1. Remova as exceções às regras da rede de conta de armazenamento.
+4. Remova as exceções às regras da rede de conta de armazenamento.
 
     ```powershell
     Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -Bypass None
@@ -448,23 +642,23 @@ Pode gerir exceções de regras de rede através do portal Azure, PowerShell ou 
 > [!IMPORTANT]
 > Certifique-se de [que define a regra de incumprimento](#change-the-default-network-access-rule) para **negar,** ou remover exceções não tem efeito.
 
-#### <a name="cliv2"></a>CLIv2
+#### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 1. Instale o [Azure CLI](/cli/azure/install-azure-cli) e [inscreva-se .](/cli/azure/authenticate-azure-cli)
 
-1. Exiba as exceções para as regras da rede de conta de armazenamento.
+2. Exiba as exceções para as regras da rede de conta de armazenamento.
 
     ```azurecli
     az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkRuleSet.bypass
     ```
 
-1. Configure as exceções às regras da rede de contas de armazenamento.
+3. Configure as exceções às regras da rede de contas de armazenamento.
 
     ```azurecli
     az storage account update --resource-group "myresourcegroup" --name "mystorageaccount" --bypass Logging Metrics AzureServices
     ```
 
-1. Remova as exceções às regras da rede de conta de armazenamento.
+4. Remova as exceções às regras da rede de conta de armazenamento.
 
     ```azurecli
     az storage account update --resource-group "myresourcegroup" --name "mystorageaccount" --bypass None
@@ -473,7 +667,9 @@ Pode gerir exceções de regras de rede através do portal Azure, PowerShell ou 
 > [!IMPORTANT]
 > Certifique-se de [que define a regra de incumprimento](#change-the-default-network-access-rule) para **negar,** ou remover exceções não tem efeito.
 
-## <a name="next-steps"></a>Próximos passos
+---
+
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre os pontos finais do serviço Azure Network nos [pontos finais do Serviço](../../virtual-network/virtual-network-service-endpoints-overview.md).
 

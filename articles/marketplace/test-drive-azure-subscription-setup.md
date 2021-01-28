@@ -7,12 +7,12 @@ ms.topic: article
 author: trkeya
 ms.author: trkeya
 ms.date: 11/09/2020
-ms.openlocfilehash: 6f74f3b1f5aad153903ba5d290a290973203a875
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 60eeceac916a7f8c64214b7a74a8cf60fd1ec8ac
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489391"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986129"
 ---
 # <a name="set-up-an-azure-marketplace-subscription-for-hosted-test-drives"></a>Configurar uma subscrição do Azure Marketplace para test drives hospedados
 
@@ -43,7 +43,7 @@ Este artigo explica como configurar uma subscrição do Azure Marketplace e **a 
     5. Nos tipos de conta suportados, selecione **Conta em qualquer diretório de organização e contas pessoais da Microsoft.**
     6. Selecione **Criar** e esperar que a sua aplicação seja criada.
     7. Uma vez criada a aplicação, note o ID da **aplicação** exibido no ecrã geral. Mais tarde, necessitará deste valor ao configurar o seu test drive.
-    8. Para adicionar um URI de redirecionamento de inclinação nativa, selecione a lâmina **de autenticação.** Na **configuração da Plataforma** , selecione Adicionar o azulejo da aplicação Mobile Desktop da **Add Platform**  >  **Mobile**  >  **Desktop** Plataforma. Escolha o URI de redirecionamento de **autóctones** e selecione **Configure**.
+    8. Para adicionar um URI de redirecionamento de inclinação nativa, selecione a lâmina **de autenticação.** Na **configuração da Plataforma**, selecione Adicionar o azulejo da aplicação Mobile Desktop da   >    >   Plataforma. Escolha o URI de redirecionamento de **autóctones** e selecione **Configure**.
 
         :::image type="content" source="./media/test-drive/configure-desktop-devices.png" alt-text="Adicionando um URI de redirecionamento de direcionado nativo.":::
 
@@ -70,7 +70,7 @@ Este artigo explica como configurar uma subscrição do Azure Marketplace e **a 
 
             :::image type="content" source="./media/test-drive/add-client-secret.png" alt-text="Adicionando um segredo de cliente.":::
 
-5. Por vezes, demora mais tempo do que o esperado para sincronizar um utilizador do Azure AD para uma instância crm. Para ajudar com isso, adicionámos um processo para forçar o utilizador de sincronização, mas requer que a aplicação AD AZure seja whitelisted pelo Partner Center. Para isso, consulte [a sincronização do Utilizador para a instância de Envolvimento do Cliente.](https://github.com/microsoft/AppSource/blob/master/Microsoft%20Hosted%20Test%20Drive/CDS_Utility_to_ForceUserSync_in_CRM_Instance.md)
+5. Por vezes, demora mais tempo do que o esperado para sincronizar um utilizador do Azure AD para uma instância crm. Para ajudar com isso, adicionámos um processo para forçar o utilizador de sincronização, mas requer que a aplicação AD AZure seja permitida pelo Partner Center. Para isso, consulte [a sincronização do Utilizador para a instância de Envolvimento do Cliente.](https://github.com/microsoft/AppSource/blob/master/Microsoft%20Hosted%20Test%20Drive/CDS_Utility_to_ForceUserSync_in_CRM_Instance.md)
 6. Adicione o papel principal do Serviço à aplicação para permitir que a app Azure AD remova os utilizadores do seu inquilino Azure.
     1. Abra uma solicitação de comando PowerShell de nível administrativo.
     2. Install-Module MSOnline (executar este comando se o MSOnline não estiver instalado).

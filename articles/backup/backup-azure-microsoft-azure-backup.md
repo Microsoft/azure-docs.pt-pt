@@ -3,12 +3,12 @@ title: Use o Servidor de Backup Azure para fazer backup de cargas de trabalho
 description: Neste artigo, aprenda a preparar o seu ambiente para proteger e fazer backup de cargas de trabalho utilizando o Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 1be2af43f4d923a27fd96c5c0888a234725775a3
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: d476c228a619f03f798c1a2cd6854a8d603c3637
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056706"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98987027"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instale e atualize o Servidor de Backup do Azure
 
@@ -243,7 +243,7 @@ O MABS utiliza o agente de proteção de dados do System Center Data Protection 
 
 As seguintes secções descrevem como atualizar agentes de proteção para computadores clientes.
 
-1. Na consola de administrador do servidor de cópia de segurança, selecione Agentes **de Gestão**  >  **Agents**.
+1. Na consola de administrador do servidor de cópia de segurança, selecione Agentes **de Gestão**  >  .
 
 2. No painel de visualização, selecione os computadores clientes para os quais pretende atualizar o agente de proteção.
 
@@ -294,22 +294,27 @@ Assim que conhecer o estado da conectividade Azure e da subscrição do Azure, p
 
 | Estado de Conectividade | Subscrição do Azure | Criar uma cópia de segurança no Azure | Voltar ao disco | Restauro de Azure | Restaurar a partir do disco |
 | --- | --- | --- | --- | --- | --- |
-| Ligada |Ativa |Permitido |Permitido |Permitido |Permitido |
+| Ligada |Ativo |Permitido |Permitido |Permitido |Permitido |
 | Ligada |Fora do prazo |Parada |Parada |Permitido |Permitido |
 | Ligada |Desprovisionado |Parada |Parada |Pontos de recuperação parados e Azure eliminados |Parada |
-| Conectividade perdida > 15 dias |Ativa |Parada |Parada |Permitido |Permitido |
+| Conectividade perdida > 15 dias |Ativo |Parada |Parada |Permitido |Permitido |
 | Conectividade perdida > 15 dias |Fora do prazo |Parada |Parada |Permitido |Permitido |
 | Conectividade perdida > 15 dias |Desprovisionado |Parada |Parada |Pontos de recuperação parados e Azure eliminados |Parada |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Recuperação da perda de conectividade
 
-Se tiver uma firewall ou um representante que esteja a impedir o acesso ao Azure, tem de permitir os seguintes endereços de domínio no perfil de firewall/proxy:
+Se a sua máquina tiver acesso limitado à Internet, certifique-se de que as definições de firewall na máquina ou procuração permitem os seguintes endereços URLs e IP:
 
-* `http://www.msftncsi.com/ncsi.txt`
-* \*.Microsoft.com
-* \*.WindowsAzure.com
-* \*.microsoftonline.com
-* \*.windows.net
+* URLs
+  * `www.msftncsi.com`
+  * `*.Microsoft.com`
+  * `*.WindowsAzure.com`
+  * `*.microsoftonline.com`
+  * `*.windows.net`
+  * `www.msftconnecttest.com`
+* Endereços IP
+  * 20.190.128.0/18
+  * 40.126.0.0/18
 
 Se estiver a utilizar o peering ExpressRoute Microsoft, selecione os seguintes serviços/regiões:
 

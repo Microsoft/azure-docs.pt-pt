@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 09/30/2020
-ms.openlocfilehash: bd9199bc73e56ec36343b30d9b24f0b48799835e
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 06614fc33910eda44bf6bf8369c4ad4b3c0b25fe
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96445184"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986027"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Use um modelo de Gestor de Recursos Azure para criar um espaço de trabalho para a aprendizagem de máquinas Azure
 
@@ -73,7 +73,7 @@ O modelo de exemplo tem dois parâmetros **necessários:**
 > [!TIP]
 > Enquanto o modelo associado a este documento cria um novo registo de contentores Azure, também pode criar um novo espaço de trabalho sem criar um registo de contentores. Um deles será criado quando efetuar uma operação que requer um registo de contentores. Por exemplo, treinar ou implementar um modelo.
 >
-> Também pode fazer referência a um registo de contentores ou uma conta de armazenamento existente no modelo Azure Resource Manager, em vez de criar uma nova. No entanto, o registo do contentor que utiliza deve ter a __conta de administração__ ativada. Para obter informações sobre a habilitação da conta de administração, consulte [a conta Admin](../container-registry/container-registry-authentication.md#admin-account).
+> Também pode fazer referência a um registo de contentores ou uma conta de armazenamento existente no modelo Azure Resource Manager, em vez de criar uma nova. Ao fazê-lo, deve [utilizar uma identidade gerida](how-to-use-managed-identities.md) (pré-visualização) ou [ativar a conta de administração](../container-registry/container-registry-authentication.md#admin-account) para o registo do contentor.
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 

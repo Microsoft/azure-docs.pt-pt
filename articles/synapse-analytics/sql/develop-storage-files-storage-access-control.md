@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9e3fe0f8c14fdcfa9b3e97a02331d777abca2600
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: e884ceab652136c505ce7032f0e78588fb20be89
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954264"
+ms.locfileid: "98986959"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Acesso de conta de armazenamento de controlo para piscina SQL sem servidor em Azure Synapse Analytics
 
@@ -102,9 +102,10 @@ Para aceder ao armazenamento que está protegido com a firewall através da Iden
 Siga estes passos para configurar a firewall da sua conta de armazenamento e adicione uma exceção para o espaço de trabalho da Synapse.
 
 1. Abrir powerShell ou [instalar PowerShell](/powershell/scripting/install/installing-powershell-core-on-windows?preserve-view=true&view=powershell-7.1)
-2. Instale o Az atualizado. Módulo de armazenamento: 
+2. Instale o módulo Az.Storage 3.0.1 e Az.Synapse 0.7.0: 
     ```powershell
     Install-Module -Name Az.Storage -RequiredVersion 3.0.1-preview -AllowPrerelease
+    Install-Module -Name Az.Synapse -RequiredVersion 0.7.0
     ```
     > [!IMPORTANT]
     > Certifique-se de que utiliza a **versão 3.0.1**. Pode consultar a sua versão Az.Storage executando este comando:  
@@ -121,16 +122,23 @@ Siga estes passos para configurar a firewall da sua conta de armazenamento e adi
     - Nome do grupo de recursos - você pode encontrá-lo no portal Azure em visão geral do espaço de trabalho synapse.
     - Nome da conta - nome da conta de armazenamento que está protegida pelas regras de firewall.
     - ID do inquilino - você pode encontrar isso no portal Azure em Azure Ative Diretório em informações de inquilino.
-    - ID de recursos - você pode encontrá-lo no portal Azure em visão geral do espaço de trabalho synapse.
+    - Nome do espaço de trabalho - Nome do espaço de trabalho synapse.
 
     ```powershell
         $resourceGroupName = "<resource group name>"
         $accountName = "<storage account name>"
         $tenantId = "<tenant id>"
-        $resourceId = "<Synapse workspace resource id>"
+        $workspaceName = "<synapse workspace name>"
+        
+        $workspace = Get-AzSynapseWorkspace -Name $workspaceName
+        $resourceId = $workspace.Id
+        $index = $resourceId.IndexOf("/resourceGroups/", 0)
+        # Replace G with g - /resourceGroups/ to /resourcegroups/
+        $resourceId = $resourceId.Substring(0,$index) + "/resourcegroups/" + $resourceId.Substring($index + "/resourceGroups/".Length)
+        $resourceId
     ```
     > [!IMPORTANT]
-    > Certifique-se de que o id de recurso corresponde a este modelo.
+    > Certifique-se de que o id do recurso corresponde a este modelo na impressão da variável resourceId.
     >
     > É importante escrever **grupos de recursos** em minúsculas.
     > Exemplo de um id de recurso: 
@@ -145,7 +153,14 @@ Siga estes passos para configurar a firewall da sua conta de armazenamento e adi
 6. Verifique se a regra foi aplicada na sua conta de armazenamento: 
     ```powershell
         $rule = Get-AzStorageAccountNetworkRuleSet -ResourceGroupName $resourceGroupName -Name $accountName
-        $rule.ResourceAccessRules
+        $rule.ResourceAccessRules | ForEach-Object { 
+        if ($_.ResourceId -cmatch "\/subscriptions\/(\w\-*)+\/resourcegroups\/(.)+") { 
+            Write-Host "Storage account network rule is successfully configured." -ForegroundColor Green
+            $rule.ResourceAccessRules
+        } else {
+            Write-Host "Storage account network rule is not configured correctly. Remove this rule and follow the steps in detail." -ForegroundColor Red
+            $rule.ResourceAccessRules
+        }
     ```
 
 #### <a name="managed-identity"></a>Identidade Gerida

@@ -3,12 +3,12 @@ title: Instalar Azure Backup Server no Azure Stack
 description: Neste artigo, aprenda a usar o Azure Backup Server para proteger ou fazer backup de cargas de trabalho em Azure Stack.
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 7153e2ff03a4f78ee1cc92ca04054fb2955d11a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12dfd15c2bd43816dd361fdf45995bcbcd6fba56
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90970237"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98987010"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Instalar Azure Backup Server no Azure Stack
 
@@ -112,7 +112,7 @@ A opção de replicação do armazenamento do cofre dos Serviços de Recuperaç�
 Para editar a definição de replicação de armazenamento:
 
 1. Selecione o seu cofre para abrir o painel de abóbada e o menu Definições. Se o menu **Definições** não abrir, selecione **Todas as definições** no painel de instrumentos do cofre.
-2. No menu **Definições,** selecione a configuração de backup de backup da **infraestrutura**  >  **Backup Configuration** para abrir o menu **de configuração de cópia de segurança.** No menu **Configuração de Cópia de Segurança,** escolha a opção de replicação de armazenamento para o seu cofre.
+2. No menu **Definições,** selecione a configuração de backup de backup da **infraestrutura**  >   para abrir o menu **de configuração de cópia de segurança.** No menu **Configuração de Cópia de Segurança,** escolha a opção de replicação de armazenamento para o seu cofre.
 
     ![Lista de cofres de cópia de segurança](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
 
@@ -159,7 +159,7 @@ Existem duas formas de descarregar o instalador do Azure Backup Server. Pode des
 
     ![O centro de descarregamento abre](./media/backup-mabs-install-azure-stack/mabs-download-center-page.png)
 
-9. O instalador do Servidor de Backup Azure é composto por oito ficheiros - um instalador e sete ficheiros .bin. Verifique **o nome do ficheiro** para selecionar todos os ficheiros necessários e selecione **Seguinte**. Descarregue todos os ficheiros para a mesma pasta.
+9. O instalador do Azure Backup Server é composto por oito ficheiros - um instalador e sete ficheiros .bin. Verifique **o nome do ficheiro** para selecionar todos os ficheiros necessários e selecione **Seguinte**. Descarregue todos os ficheiros para a mesma pasta.
 
     ![Baixar centro, ficheiros selecionados](./media/backup-mabs-install-azure-stack/download-center-selected-files.png)
 
@@ -326,22 +326,28 @@ Assim que conhecer o estado da conectividade Azure e da subscrição do Azure, p
 
 | Estado de Conectividade | Subscrição do Azure | Criar uma cópia de segurança no Azure | Voltar ao disco | Restauro de Azure | Restaurar a partir do disco |
 | --- | --- | --- | --- | --- | --- |
-| Ligada |Ativa |Permitido |Permitido |Permitido |Permitido |
+| Ligada |Ativo |Permitido |Permitido |Permitido |Permitido |
 | Ligada |Fora do prazo |Parada |Parada |Permitido |Permitido |
 | Ligada |Desprovisionado |Parada |Parada |Pontos de recuperação parados e Azure eliminados |Parada |
-| Conectividade perdida > 15 dias |Ativa |Parada |Parada |Permitido |Permitido |
+| Conectividade perdida > 15 dias |Ativo |Parada |Parada |Permitido |Permitido |
 | Conectividade perdida > 15 dias |Fora do prazo |Parada |Parada |Permitido |Permitido |
 | Conectividade perdida > 15 dias |Desprovisionado |Parada |Parada |Pontos de recuperação parados e Azure eliminados |Parada |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Recuperação da perda de conectividade
 
-Se uma firewall ou um representante estiver a impedir o acesso ao Azure, adicione os seguintes endereços de domínio na lista de autorizações de firewall/proxy:
+Se a sua máquina tiver acesso limitado à Internet, certifique-se de que as definições de firewall na máquina ou procuração permitem os seguintes endereços URLs e IP:
 
-- `http://www.msftncsi.com/ncsi.txt`
-- \*.Microsoft.com
-- \*.WindowsAzure.com
-- \*.microsoftonline.com
-- \*.windows.net
+* URLs
+  * `www.msftncsi.com`
+  * `*.Microsoft.com`
+  * `*.WindowsAzure.com`
+  * `*.microsoftonline.com`
+  * `*.windows.net`
+  * `www.msftconnecttest.com`
+* Endereços IP
+  * 20.190.128.0/18
+  * 40.126.0.0/18
+
 
 Uma vez que a conectividade com o Azure é restaurada para o Servidor de Backup Azure, o estado de subscrição Azure determina as operações que podem ser realizadas. Uma vez que o servidor esteja **ligado,** utilize a tabela na [conectividade da Rede](backup-mabs-install-azure-stack.md#network-connectivity) para ver as operações disponíveis.
 

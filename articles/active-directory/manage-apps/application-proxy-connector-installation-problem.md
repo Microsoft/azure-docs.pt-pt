@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 05/21/2018
+ms.date: 01/28/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 0b7fee330f93097b561714ecc938eaf3fee8f2b5
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 04c26609b046f7525c513796622be74633a20e91
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657334"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986773"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problema ao instalar o Conector do Agente do Proxy de Aplicações
 
@@ -24,7 +24,7 @@ Microsoft Azure Ative Directory Application Proxy Connector é um componente de 
 
 ## <a name="general-problem-areas-with-connector-installation"></a>Áreas de problemas gerais com instalação do conector
 
-Quando a instalação de um conector falha, a causa raiz é geralmente uma das seguintes áreas:
+Quando a instalação de um conector falha, a causa raiz é geralmente uma das seguintes áreas. **Como precursor de qualquer resolução de problemas, certifique-se de reiniciar o conector.**
 
 1.  **Conectividade** – para concluir uma instalação bem sucedida, o novo conector precisa de registar e estabelecer futuras propriedades fidediárias. Isto é feito ligando-se ao serviço de cloud Proxy da Aplicação Proxy do Azure Ative.
 
@@ -109,9 +109,9 @@ Para saber mais sobre o comando Register-AppProxyConnector, consulte [Criar um s
 
 **Para verificar as credenciais estão corretas:**
 
-Ligue-se `https://login.microsoftonline.com` e use as mesmas credenciais. Certifique-se de que o login é bem sucedido. Pode verificar a função do utilizador indo para Utilizadores e **Grupos de Diretório Azure Ative**  - &gt; **Users and Groups**  - &gt; **Todos os Utilizadores**. 
+Ligue-se `https://login.microsoftonline.com` e use as mesmas credenciais. Certifique-se de que o login é bem sucedido. Pode verificar a função do utilizador indo para Utilizadores e **Grupos de Diretório Azure Ative**  - &gt;   - &gt; **Todos os Utilizadores**. 
 
 Selecione a sua conta de utilizador e, em seguida, "Papel de Diretório" no menu resultante. Verifique se a função selecionada é "Administrador de Aplicação". Se não conseguir aceder a nenhuma das páginas ao longo destes degraus, não tem o papel necessário.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Compreenda os conectores Proxy de aplicação AD Azure](application-proxy-connectors.md)

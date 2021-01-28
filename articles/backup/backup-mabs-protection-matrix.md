@@ -3,12 +3,12 @@ title: Matriz de proteção MABS (Azure Backup Server) V3 UR1
 description: Este artigo fornece uma matriz de suporte que lista todas as cargas de trabalho, tipos de dados e instalações que o Azure Backup Server protege.
 ms.date: 03/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: d37d51ee781dfbc5bcd56fa3158a622202a979c6
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 2c7caad1d377070d4d4ac8436c1d8c08e786dc44
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754186"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986841"
 ---
 # <a name="mabs-azure-backup-server-v3-ur1-protection-matrix"></a>Matriz de proteção MABS (Azure Backup Server) V3 UR1
 
@@ -65,11 +65,17 @@ Pode fazer o back up dos seus dados através do Azure ExpressRoute com o espreit
 
 Com o acompanhamento público: Garantir o acesso aos seguintes domínios/endereços:
 
-* `http://www.msftncsi.com/ncsi.txt`
-* `microsoft.com`
-* `.WindowsAzure.com`
-* `.microsoftonline.com`
-* `.windows.net`
+* URLs
+  * `www.msftncsi.com`
+  * `*.Microsoft.com`
+  * `*.WindowsAzure.com`
+  * `*.microsoftonline.com`
+  * `*.windows.net`
+  * `www.msftconnecttest.com`
+* Endereços IP
+  * 20.190.128.0/18
+  * 40.126.0.0/18
+
 
 Com o estomamento da Microsoft, selecione os seguintes serviços/regiões e valores comunitários relevantes:
 

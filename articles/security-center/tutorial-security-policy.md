@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2021
 ms.author: memildin
-ms.openlocfilehash: 7ea871428fffe685cc9d43dd698bfefb8d8a511a
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 19128f0372f9a5bda0d16155167a507eccaf436a
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756677"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986622"
 ---
 # <a name="manage-security-policies"></a>Manage security policies (Gerir políticas de segurança)
 
@@ -54,7 +54,7 @@ Para ver as suas políticas de segurança no Centro de Segurança:
 
 1. Aparece a página de política de segurança para esse grupo de subscrição ou gestão. Mostra as políticas disponíveis e atribuídas.
 
-   ![página de política](./media/tutorial-security-policy/security-policy-page.png)
+    :::image type="content" source="./media/tutorial-security-policy/security-policy-page.png" alt-text="Página de política de segurança do Centro de Segurança" lightbox="./media/tutorial-security-policy/security-policy-page.png":::
 
     > [!NOTE]
     > Se houver um rótulo "MG Herdado" ao lado da sua política de incumprimento, significa que a apólice foi atribuída a um grupo de gestão e herdada pela subscrição que está a ver.
@@ -102,7 +102,7 @@ Para obter mais informações sobre recomendações, consulte [recomendações d
 
 1. No Centro de Segurança, a partir da secção **de Conformidade & Política,** selecione **a política de Segurança**.
 
-   ![gestão de políticas](./media/tutorial-security-policy/policy-management.png)
+    :::image type="content" source="./media/tutorial-security-policy/policy-management.png" alt-text="Iniciar o processo de gestão de políticas no Azure Security Center":::
 
 2. Selecione o grupo de subscrição ou gestão para o qual pretende desativar a recomendação.
 
@@ -111,7 +111,7 @@ Para obter mais informações sobre recomendações, consulte [recomendações d
 
 1. **Selecione Ver política eficaz**.
 
-   ![ver política](./media/tutorial-security-policy/view-effective-policy.png)
+    :::image type="content" source="./media/tutorial-security-policy/view-effective-policy.png" alt-text="Como abrir a política eficaz atribuída à sua subscrição":::
 
 1. Selecione a política atribuída.
 
@@ -126,10 +126,8 @@ Para obter mais informações sobre recomendações, consulte [recomendações d
    > [!NOTE]
    > As alterações à política de desativação podem demorar até 12 horas a produzir efeitos.
 
-
-
-## <a name="next-steps"></a>Próximos passos
-Este artigo explicava as políticas de segurança. Para obter informações relacionadas, consulte os seguintes artigos:
+## <a name="next-steps"></a>Passos seguintes
+Esta página explicou as políticas de segurança. Para obter informações relacionadas, consulte as seguintes páginas:
 
 - [Saiba como definir políticas usando o PowerShell](../governance/policy/assign-policy-powershell.md) - 
 - [Saiba como editar uma política de segurança na Política Azure](../governance/policy/tutorials/create-and-manage.md) - 

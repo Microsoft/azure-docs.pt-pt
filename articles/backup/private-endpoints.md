@@ -3,12 +3,12 @@ title: Pontos Finais Privados
 description: Compreenda o processo de criação de pontos finais privados para o Azure Backup e os cenários em que a utilização de pontos finais privados ajuda a manter a segurança dos seus recursos.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 3ed71e49ebc550cb7bc2041e25aa6b9bde77b1ef
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: b1412a79fa6137ce1f8c73d5875e52b6382048fa
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629719"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986976"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Pontos finais privados para backup Azure
 
@@ -148,7 +148,7 @@ Uma vez aprovados os pontos finais privados criados para o cofre no seu VNet, po
 Uma vez que o ponto final privado é criado e aprovado, não são necessárias alterações adicionais do lado do cliente para utilizar o ponto final privado. Toda a comunicação e transferência de dados da sua rede segura para o cofre será realizada através do ponto final privado.
 No entanto, se remover pontos finais privados para o cofre depois de um servidor (SQL/SAP HANA) ter sido registado no seu registo, terá de voltar a registar o contentor com o cofre. Não precisas de parar de proteção para eles.
 
-### <a name="backup-and-restore-through-mars-agent"></a>Backup e restauro através do Agente MARS
+### <a name="backup-and-restore-through-mars-agent"></a>Backup e restauro através do agente MARS
 
 Ao utilizar o Agente MARS para fazer o back up dos seus recursos no local, certifique-se de que a sua rede no local (contendo os seus recursos a serem apoiados) é espremiada com o Azure VNet que contém um ponto final privado para o cofre, para que possa usá-lo. Em seguida, pode continuar a instalar o agente MARS e configurar a cópia de segurança conforme detalhado aqui. No entanto, deve garantir que todas as comunicações de backup acontecem apenas através da rede de esprevação.
 

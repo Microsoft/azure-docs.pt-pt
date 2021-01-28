@@ -13,12 +13,12 @@ ms.date: 01/04/2021
 ms.author: ryanwi
 ms.custom: aaddev, content-perf, FY21Q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 2529c6c3b0f9d188e1ce8062c05f62f3e980ef50
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 19330af5e4c0e4962993d0ed89ec9bcd4a50514a
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805226"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986418"
 ---
 # <a name="configure-token-lifetime-policies-preview"></a>Configure políticas de vida útil simbólicas (pré-visualização)
 Pode especificar o tempo de vida útil de um token de acesso, SAML ou ID emitido pela plataforma de identidade Microsoft. Pode definir durações de tokens para todas as aplicações existentes na sua organização, para uma aplicação multi-inquilino (com várias organizações) ou para um principal de serviço específico na sua organização. Para mais informações, leia [as vidas simbólicas configuráveis.](active-directory-configurable-token-lifetimes.md)
@@ -38,7 +38,7 @@ Para começar, faça os seguintes passos:
 1. Para ver todas as políticas que foram criadas na sua organização, gere o [cmdlet Get-AzureADPolicy.](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true)  Quaisquer resultados com valores de propriedade definidos que diferem dos incumprimentos acima indicados estão no âmbito da reforma.
 
     ```powershell
-    Get-AzureADPolicy -All
+    Get-AzureADPolicy -All $true
     ```
 
 1. Para ver quais aplicações e principais serviços estão ligados a uma política específica que identificou executar o seguinte [Get-AzureADPolicyAppliedObject](/powershell/module/azuread/get-azureadpolicyappliedobject?view=azureadps-2.0-preview&preserve-view=true) cmdlet, substituindo **1a37dad8-5da7-4cc8-87c7-efbc0326cf20** por qualquer um dos seus IDs de política. Em seguida, pode decidir se configurar a frequência de acesso condicional ou permanecer com as predefinições Azure AD.
@@ -210,5 +210,5 @@ Neste exemplo, cria-se algumas políticas para aprender como funciona o sistema 
 
     Tem agora a política original ligada ao seu principal de serviço, e a nova política está definida como a política de incumprimento da sua organização. É importante lembrar que as políticas aplicadas aos principais serviços têm prioridade sobre as políticas de incumprimento da organização.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre [as capacidades de gestão da sessão de autenticação](../conditional-access/howto-conditional-access-session-lifetime.md) no Acesso Condicionado Azure AD.

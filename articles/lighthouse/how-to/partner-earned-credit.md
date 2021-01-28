@@ -1,18 +1,18 @@
 ---
 title: Ligue o seu parceiro de ID para acompanhar o seu impacto em recursos delegados
 description: Saiba como associar o seu parceiro ID a receber o parceiro de crédito adquirido (PEC) sobre os recursos do cliente que gere através do Farol Azure.
-ms.date: 10/30/2020
+ms.date: 01/28/2021
 ms.topic: how-to
-ms.openlocfilehash: fcbcc70e380116b8e9f9b1c1e365dee1adb87a99
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 46338b925b1ad44019c9cc95e4b7f8c0963c07c4
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93080282"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98985976"
 ---
 # <a name="link-your-partner-id-to-track-your-impact-on-delegated-resources"></a>Ligue o seu parceiro de ID para acompanhar o seu impacto em recursos delegados 
 
-Se for membro da [Microsoft Partner Network,](https://partner.microsoft.com/)pode ligar o ID do seu parceiro com as credenciais utilizadas para gerir os recursos do cliente delegado. Partner Admin Link (PAL) permite à Microsoft identificar e reconhecer parceiros que impulsionam o sucesso do cliente da Azure. Este link também permite que os parceiros [da CSP (Cloud Solution Provider)](/partner-center/csp-overview) recebam [crédito adquirido pelos serviços geridos (PEC)](/partner-center/partner-earned-credit) para clientes que [assinaram o Microsoft Customer Agreement (MCA)](/partner-center/confirm-customer-agreement) e estão [ao abrigo do plano Azure.](/partner-center/azure-plan-get-started)
+Se for membro da [Microsoft Partner Network,](https://partner.microsoft.com/)pode ligar o ID do seu parceiro às credenciais utilizadas para gerir os recursos delegados do cliente, permitindo à Microsoft identificar e reconhecer parceiros que impulsionam o sucesso do cliente da Azure. Este link também permite que os parceiros [da CSP (Cloud Solution Provider)](/partner-center/csp-overview) recebam [crédito adquirido pelos serviços geridos (PEC)](/partner-center/partner-earned-credit) para clientes que [assinaram o Microsoft Customer Agreement (MCA)](/partner-center/confirm-customer-agreement) e estão [ao abrigo do plano Azure.](/partner-center/azure-plan-get-started)
 
 Se você estiver [a bordo de clientes com ofertas de Serviço Gerido no Azure Marketplace,](publish-managed-services-offers.md)a ligação acontece automaticamente usando o ID MPN associado à conta Partner Center utilizada para publicar as ofertas. Não são necessárias mais medidas para acompanhar o seu impacto para estes clientes.
 
@@ -30,7 +30,7 @@ Para simplificar, recomendamos a criação de uma conta principal de serviço no
 
 Ao seguir estes passos, todos os inquilinos que gere estarão associados ao seu parceiro ID. A Conta de Automação do Fornecedor não necessita de autenticar ou realizar quaisquer ações no cliente inquilino.
 
-:::image type="content" source="../media/lighthouse-pal.jpg" alt-text="Diagrama mostrando o processo PAL com Farol Azure.":::
+:::image type="content" source="../media/lighthouse-pal.jpg" alt-text="Diagrama mostrando o processo de ligação do parceiro com o Farol Azure.":::
 
 ## <a name="add-your-partner-id-to-previously-onboarded-customers"></a>Adicione o seu ID do seu parceiro a clientes previamente a bordo
 

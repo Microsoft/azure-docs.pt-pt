@@ -3,12 +3,12 @@ title: Começar com Live Video Analytics em IoT Edge - Azure
 description: Este quickstart mostra como começar com live video analytics em IoT Edge. Aprenda a detetar movimento num vídeo transmitido ao vivo.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 2ae8292375c0b85cc4c771c1fe7d853c5fcd3afd
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: fde82dde7df3fa9756c145940178f35ed255ce37
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955771"
+ms.locfileid: "98986552"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>Quickstart: Get start - Live Video Analytics on IoT Edge
 
@@ -31,7 +31,7 @@ Pode ver o seguinte vídeo com passos detalhados sobre como começar com o Live 
   > Você precisará de uma subscrição Azure com permissões para criar principais serviços **(a função do proprietário** fornece isso). Se não tiver as permissões certas, contacte o administrador da sua conta para lhe conceder as permissões certas.  
 
 * [Código de estúdio visual](https://code.visualstudio.com/) na sua máquina de desenvolvimento. Certifique-se de que tem a [extensão Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
-* Certifique-se de que a rede de que a sua máquina de desenvolvimento está ligada permite o Protocolo avançado de Fila de Mensagens (AMQP) sobre a porta 5671. Esta configuração permite que as ferramentas Azure IoT se comuniquem com o Azure IoT Hub.
+* Certifique-se de que a rede de que a sua máquina de desenvolvimento está ligada permite o Protocolo avançado de Fila de Mensagens (AMQP) sobre a porta 5671 para o tráfego de saída. Esta configuração permite que as ferramentas Azure IoT se comuniquem com o Azure IoT Hub.
 
 > [!TIP]
 > Pode ser solicitado que instale o Docker enquanto instala a extensão Azure IoT Tools. Sinta-se livre para ignorar o pedido.
@@ -67,7 +67,7 @@ Para este arranque rápido, recomendamos que utilize o [script de configuração
     1. **Interface de rede** - Isto permite que uma Máquina Virtual Azure comunique com internet, Azure e outros recursos.
     1. **Ligação de bastião** - Isto permite-lhe ligar-se à sua máquina virtual utilizando o seu navegador e o portal Azure.
     1. **Endereço IP público** - Isto permite que os recursos do Azure comuniquem à Internet e aos serviços Azure virados para o público
-    1. **Rede virtual** - Isto permite que muitos tipos de recursos Azure, como a sua máquina virtual, comuniquem de forma segura entre si, a internet e as redes no local. Saiba mais sobre [redes Virtuais](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
+    1. **Rede virtual** - Isto permite que muitos tipos de recursos Azure, como a sua máquina virtual, comuniquem de forma segura entre si, a internet e as redes no local. Saiba mais sobre [redes Virtuais.](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
     1. **IoT Hub** - Este funciona como um centro de mensagens central para comunicação bidis entre a sua aplicação IoT, os módulos IoT Edge e os dispositivos que gere.
     1. **Conta de serviço de** mídia - Isto ajuda na gestão e streaming de conteúdos de mídia em Azure.
     1. **Conta de armazenamento** - Tem de ter uma conta de armazenamento primário e pode ter qualquer número de contas de armazenamento secundária associadas à sua conta de Serviços de Comunicação Social. Para mais informações, consulte [as contas do Azure Storage com as contas da Azure Media Services](https://docs.microsoft.com/azure/media-services/latest/storage-account-concept).
@@ -165,7 +165,7 @@ Para enumerar todas as [topologias de gráficos](media-graph-concept.md#media-gr
 
 ### <a name="invoke-graphtopologyset"></a>Invocar o GraphTopologySet
 
-Utilizando os passos para `GraphTopologyList` invocar, pode invocar `GraphTopologySet` para definir uma [topologia de gráficos.](media-graph-concept.md#media-graph-topologies-and-instances) Utilize o seguinte JSON como carga útil.
+Como fizemos antes, pode agora invocar `GraphTopologySet` para definir uma [topologia de gráficos.](media-graph-concept.md#media-graph-topologies-and-instances) Utilize o seguinte JSON como carga útil.
 
 ```
 {

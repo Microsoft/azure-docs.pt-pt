@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 01/25/2019
 ms.author: duau
-ms.openlocfilehash: c8127a60a4685a615bc07e21a1efb4dd216c5b8c
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 837d1f78a9fde72137383e6c22adb8870997dc9b
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201057"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986044"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Configurar o Monitor de Desempenho de Rede para o ExpressRoute
 
@@ -59,7 +59,7 @@ Crie um espaço de trabalho na subscrição que tenha a ligação VNets ao circu
 
    ![portal](./media/how-to-npm/3.png)<br><br>
 2. Na parte inferior da página principal do Monitor de Desempenho da **Rede,** clique em **Criar** para abrir o Monitor de Desempenho da Rede - Criar nova página **de solução.** Clique **em Log Analytics Workspace - selecione um espaço de trabalho** para abrir a página workspaces. Clique **+ Crie um novo espaço de trabalho** para abrir a página workspace.
-3. Na página do **espaço de trabalho Log Analytics,** selecione Create **New**e, em seguida, configure as seguintes definições:
+3. Na página do **espaço de trabalho Log Analytics,** selecione Create **New** e, em seguida, configure as seguintes definições:
 
    * Log Analytics Workspace - Digite um nome para o seu espaço de trabalho.
    * Subscrição - Se tiver várias subscrições, escolha a que pretende associar-se ao novo Espaço de Trabalho.
@@ -104,7 +104,7 @@ Recomendamos que instale pelo menos dois agentes em cada lado da ligação Expre
    * Se optar por ligar ao **Azure Log Analytics,** cole a chave **de ID** do Espaço de Trabalho e **espaço de trabalho** (Chave Primária) que copiou no Bloco de Notas na secção anterior. Em seguida, clique **em Seguinte**.
 
      ![ID e Chave](./media/how-to-npm/8.png)
-   * Se optar por ligar ao **Gestor de Operações,** na página de Configuração do **Grupo de Gestão,** digite o **Nome do Grupo de Gestão,** **o Servidor de Gestão**e a Porta do **Servidor de Gestão**. Em seguida, clique **em Seguinte**.
+   * Se optar por ligar ao **Gestor de Operações,** na página de Configuração do **Grupo de Gestão,** digite o **Nome do Grupo de Gestão,** **o Servidor de Gestão** e a Porta do **Servidor de Gestão**. Em seguida, clique **em Seguinte**.
 
      ![Operations Manager](./media/how-to-npm/9.png)
    * Na página Conta de Ação do **Agente,** escolha a conta **do Sistema Local,** ou **o Domínio ou a Conta Informática Local.** Em seguida, clique **em Seguinte**.
@@ -169,7 +169,7 @@ Para obter mais informações sobre o NSG, consulte [grupos de segurança de red
 
 ## <a name="step-4-discover-peering-connections"></a><a name="setupmonitor"></a>Passo 4: Descubra ligações de espreitar
 
-1. Navegue para o azulejo geral do Monitor de Desempenho da Rede indo para a página **De Todos os Recursos** e, em seguida, clique no espaço de trabalho NPM listado em branco.
+1. Navegue para o azulejo geral do Monitor de Desempenho da Rede indo para a página **De Todos os Recursos** e, em seguida, clique no espaço de trabalho NPM permitido.
 
    ![npm espaço de trabalho](./media/how-to-npm/npm.png)
 2. Clique no azulejo geral do **Monitor de Desempenho** da Rede para levantar o painel de instrumentos. O painel contém uma página ExpressRoute, que mostra que o ExpressRoute está num "estado não configurado". Clique na **configuração do recurso** para abrir a página de configuração do Monitor de Desempenho da Rede.

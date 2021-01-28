@@ -4,12 +4,12 @@ description: Este artigo mostra-lhe como autenticar o acesso aos recursos do Eve
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 26c921213168e1028f311eabaa417efdb76f5c97
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: ff141fc1bb681e2356a4471dfdc808d622fd76b5
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510095"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986500"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>Autenticar o acesso aos recursos do Event Hubs utilizando assinaturas de acesso partilhado (SAS)
 A assinatura de acesso partilhado (SAS) dá-lhe controlo granular sobre o tipo de acesso que concede aos clientes que têm a assinatura de acesso partilhado. Aqui estão alguns dos controlos que pode definir num SAS: 
@@ -203,7 +203,7 @@ Por exemplo, para definir as regras de autorização que se resumem apenas ao en
 
 
 > [!NOTE]
-> Embora não seja recomendado, é possível equipar dispositivos com fichas que dêem acesso a um centro de eventos ou a um espaço de nome. Qualquer dispositivo que detenha este token pode enviar mensagens diretamente para o centro de eventos. Além disso, o dispositivo não pode ser colocado na lista negra do envio para o centro de eventos.
+> Embora não seja recomendado, é possível equipar dispositivos com fichas que dêem acesso a um centro de eventos ou a um espaço de nome. Qualquer dispositivo que detenha este token pode enviar mensagens diretamente para o centro de eventos. Além disso, o dispositivo não pode ser bloqueado de envio para o centro de eventos.
 > 
 > É sempre recomendado dar miras específicas e granulares.
 

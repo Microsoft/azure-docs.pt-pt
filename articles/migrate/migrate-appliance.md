@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: f3357fcc070ca4ca2212cf0424e4baf8208a3ca1
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 17ac10fd4e48043b79db5448fad2f29c5eb3f2a3
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754135"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986824"
 ---
 # <a name="azure-migrate-appliance"></a>Aplicação do Azure Migrate
 
@@ -45,7 +45,7 @@ A tabela que se segue resume os requisitos do aparelho Azure Migrate para o VMwa
 
 **Requisito** | **VMware** 
 --- | ---
-**Permissões** | Para aceder à aplicação web do aparelho local ou remotamente, é necessário ser administrador de domínio ou administrador local na máquina do aparelho.
+**Permissões** | Para aceder à aplicação web do aparelho local ou remotamente, é necessário ter uma conta de utilizador local ou de domínio com privilégios administrativos no servidor do aparelho.
 **Componentes do aparelho** | O aparelho tem os seguintes componentes:<br/><br/> - **Aplicação de gestão**: Esta é uma aplicação web para a entrada do utilizador durante a implementação do aparelho. Usado na avaliação de máquinas para migração para Azure.<br/> - **Agente de** descoberta: O agente recolhe dados de configuração da máquina. Usado na avaliação de máquinas para migração para Azure.<br/>- **Agente de recolha**: O agente recolhe dados de desempenho. Usado na avaliação de máquinas para migração para Azure.<br/>- **Serviço de atualização automática**: Atualiza os componentes do aparelho (funciona a cada 24 horas).<br/>- **Agente DRA**: Orquestra a replicação VM e coordena a comunicação entre máquinas replicadas e Azure. Utilizado apenas na replicação de VMware VMs para Azure usando migração sem agente.<br/>- **Gateway**: Envia dados replicados para Azure. Utilizado apenas na replicação de VMware VMs para Azure usando migração sem agente.
 **Implantação suportada** | Implemente como VMware VM utilizando o modelo OVA.<br/><br/> Implemente como VMware VM ou máquina física utilizando o script de instalação PowerShell.
 **Apoio ao projeto** |  Um aparelho pode ser associado a um único projeto. <br/> Qualquer número de aparelhos pode ser associado a um único projeto.<br/> 
@@ -65,7 +65,7 @@ A tabela que se segue resume os requisitos do aparelho Azure Migrate para o VMwa
 
 **Requisito** | **Hyper-V** 
 --- | ---
-**Permissões** | Para aceder à aplicação web do aparelho local ou remotamente, é necessário ser administrador de domínio ou administrador local na máquina do aparelho.
+**Permissões** | Para aceder à aplicação web do aparelho local ou remotamente, é necessário ter uma conta de utilizador local ou de domínio com privilégios administrativos no servidor do aparelho.
 **Componentes do aparelho** | O aparelho tem os seguintes componentes:<br/><br/>- **Aplicação de gestão**: Esta é uma aplicação web para a entrada do utilizador durante a implementação do aparelho. Usado na avaliação de máquinas para migração para Azure.<br/> - **Agente de** descoberta: O agente recolhe dados de configuração da máquina. Usado na avaliação de máquinas para migração para Azure.<br/>- **Agente de recolha**: O agente recolhe dados de desempenho. Usado na avaliação de máquinas para migração para Azure.<br/>- **Serviço de atualização automática**: Atualiza os componentes do aparelho (funciona a cada 24 horas).
 **Implantação suportada** | Implemente como Hyper-V VM utilizando um modelo VHD.<br/><br/> Implemente como um VM Hiper-V ou uma máquina física utilizando um script de instalação PowerShell.
 **Apoio ao projeto** |  Um aparelho pode ser associado a um único projeto. <br/> Qualquer número de aparelhos pode ser associado a um único projeto.<br/> 
@@ -82,7 +82,7 @@ _ *Requisitos de Hiper-V** | Se colocar o aparelho com o modelo VHD, o aparelho 
 
 **Requisito** | **Físico** 
 --- | ---
-**Permissões** | Para aceder à aplicação web do aparelho local ou remotamente, é necessário ser administrador de domínio ou administrador local na máquina do aparelho.
+**Permissões** | Para aceder à aplicação web do aparelho local ou remotamente, é necessário ter uma conta de utilizador local ou de domínio com privilégios administrativos no servidor do aparelho.
 **Componentes do aparelho** | O aparelho tem os seguintes componentes: <br/><br/> - **Aplicação de gestão**: Esta é uma aplicação web para a entrada do utilizador durante a implementação do aparelho. Usado na avaliação de máquinas para migração para Azure.<br/> - **Agente de** descoberta: O agente recolhe dados de configuração da máquina. Usado na avaliação de máquinas para migração para Azure.<br/>- **Agente de recolha**: O agente recolhe dados de desempenho. Usado na avaliação de máquinas para migração para Azure.<br/>- **Serviço de atualização automática**: Atualiza os componentes do aparelho (funciona a cada 24 horas).
 **Implantação suportada** | Implemente como uma máquina física dedicada, ou um VM, utilizando um script de instalação PowerShell. O script está disponível para download a partir do portal.
 **Apoio ao projeto** |  Um aparelho pode ser associado a um único projeto. <br/> Qualquer número de aparelhos pode ser associado a um único projeto.<br/> 
@@ -499,7 +499,7 @@ Para verificar no gestor de configuração do aparelho:
 
 Para verificar no Painel de Controlo:
 
-1. No aparelho, clique em **Iniciar** Programas e  >  **Control Panel**  >  **Funcionalidades** do Painel de Controlo
+1. No aparelho, clique em **Iniciar** Programas e  >    >  **Funcionalidades** do Painel de Controlo
 2. Verifique as versões de serviços do aparelho na lista.
 
     ![Ver versão no Painel de Controlo](./media/migrate-appliance/programs-features.png)
@@ -521,7 +521,7 @@ Se estiver a executar uma versão mais antiga para qualquer um dos componentes, 
 
 5. Verifique se a saída do comando corresponde à entrada de valor hash para o serviço no ficheiro (por exemplo, o valor do hash MD5 acima).
 6. Agora, executar o MSI para instalar o serviço. É uma instalação silenciosa, e a janela de instalação fecha depois de ter terminado.
-7. Após a instalação estar concluída, **Control panel** verifique a versão do serviço em  >  **Programas e Funcionalidades** do Painel de Controlo . A versão de serviço deve agora ser atualizada para as mais recentes mostradas no ficheiro JSON.
+7. Após a instalação estar concluída, verifique a versão do serviço em  >  **Programas e Funcionalidades** do Painel de Controlo . A versão de serviço deve agora ser atualizada para as mais recentes mostradas no ficheiro JSON.
 
 
 

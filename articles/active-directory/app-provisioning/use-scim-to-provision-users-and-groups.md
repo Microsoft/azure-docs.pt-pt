@@ -13,12 +13,12 @@ ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf1057276a543c18b746bb60b7e7a54bf28dec6f
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 44e14bed3158fac1f8bed15f913dc8b7eddbbb96
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98892575"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98985959"
 ---
 # <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint"></a>Tutorial: Desenvolver e planear o provisionamento para um ponto final do SCIM
 
@@ -1198,7 +1198,7 @@ A especificação SCIM não define um regime específico scim para a autenticaç
 |--|--|--|--|
 |Nome de utilizador e palavra-passe (não recomendado ou suportado pelo Azure AD)|Fácil de implementar|Inseguro - [O seu pa$$word não importa](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/your-pa-word-doesn-t-matter/ba-p/731984)|Suportado caso a caso para aplicações de galeria. Não suportado para aplicações não-galeria.|
 |Ficha de portador de longa data|Fichas de longa duração não requerem a presença de um utilizador. São fáceis de utilizar para os administradores na configuração do provisionamento.|Fichas de longa duração podem ser difíceis de partilhar com um administrador sem usar métodos inseguros como e-mail. |Suportado para apps de galeria e não galeria. |
-|Concessão de código de autorização OAu|Os tokens de acesso são muito mais curtos do que as palavras-passe, e têm um mecanismo automatizado de atualização que os tokens portadores de longa duração não têm.  Um utilizador real deve estar presente durante a autorização inicial, adicionando um nível de prestação de contas. |Requer que um utilizador esteja presente. Se o utilizador sair da organização, o token é inválido e a autorização terá de ser concluída novamente.|Suportado para apps de galeria, mas não para aplicações não-galeria. No entanto, você pode fornecer um token de acesso na UI como o símbolo secreto para fins de teste de curto prazo. O apoio à concessão de códigos OAuth na não-galeria está nos nossos atrasos.|
+|Concessão de código de autorização OAu|Os tokens de acesso são muito mais curtos do que as palavras-passe, e têm um mecanismo automatizado de atualização que os tokens portadores de longa duração não têm.  Um utilizador real deve estar presente durante a autorização inicial, adicionando um nível de prestação de contas. |Requer que um utilizador esteja presente. Se o utilizador sair da organização, o token é inválido e a autorização terá de ser concluída novamente.|Suportado para apps de galeria, mas não para aplicações não-galeria. No entanto, você pode fornecer um token de acesso na UI como o símbolo secreto para fins de teste de curto prazo. O suporte para a concessão de código OAuth em não-galeria está no nosso atraso, além do suporte para URLs de auth/token configuráveis na aplicação da galeria.|
 |Concessão de credenciais de cliente oauth|Os tokens de acesso são muito mais curtos do que as palavras-passe, e têm um mecanismo automatizado de atualização que os tokens portadores de longa duração não têm. Tanto a concessão do código de autorização como as credenciais do cliente concedem criam o mesmo tipo de sinal de acesso, pelo que a deslocação entre estes métodos é transparente para a API.  O provisionamento pode ser completamente automatizado, e novos tokens podem ser solicitados silenciosamente sem a interação do utilizador. ||Não suportado para apps de galeria e não-galeria. O apoio está nos nossos atrasos.|
 
 > [!NOTE]

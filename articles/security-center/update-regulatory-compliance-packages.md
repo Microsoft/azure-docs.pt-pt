@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2021
 ms.author: memildin
-ms.openlocfilehash: 6fb2e5c0193bc4e66f8fb4215732a69c43731146
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 5f70f74accba5df439351547fda7497656e2c06e
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756624"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986689"
 ---
 # <a name="customizing-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Personalizar o conjunto de padrões no seu painel de conformidade regulamentar
 
@@ -73,9 +73,11 @@ Os seguintes passos explicam como adicionar um pacote para monitorizar o seu cum
 
     - **NIST SP 800-53 R4**
     - **NIST SP 800 171 R2**
-    - **SWIFT CSP CSCF-v2020**
+    - **SWIFT CSP-CSCF v2020**
     - **UKO e UK NHS**
-    - **Canadá PBMM**
+    - **Canada Federal PBMM**
+    - **HIPAA HITRUST**
+    - **Azure CIS 1.1.0**
     
     ![Adicionar normas regulamentares ao painel de conformidade regulamentar do Azure Security Center](./media/update-regulatory-compliance-packages/dynamic-regulatory-compliance-additional-standards.png)
 
@@ -88,8 +90,7 @@ Os seguintes passos explicam como adicionar um pacote para monitorizar o seu cum
     > [!NOTE]
     > Pode levar algumas horas para que um padrão recém-adicionado apareça no painel de conformidade.
 
-    [![Painel de conformidade regulamentar mostrando o antigo e novo Azure CIS](media/update-regulatory-compliance-packages/regulatory-compliance-dashboard-with-benchmark-small.png)](media/update-regulatory-compliance-packages/regulatory-compliance-dashboard-with-benchmark.png#lightbox)
-
+    :::image type="content" source="./media/security-center-compliance-dashboard/compliance-dashboard.png" alt-text="Painel de conformidade regulamentar" lightbox="./media/security-center-compliance-dashboard/compliance-dashboard.png":::
 
 ## <a name="removing-a-standard-from-your-dashboard"></a>Remover um padrão do seu painel
 
@@ -115,7 +116,7 @@ Para remover uma norma:
 1. Selecione **Yes** (Sim). O padrão será removido. 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a **adicionar padrões de conformidade** para monitorizar o cumprimento das normas regulamentares e industriais.
 

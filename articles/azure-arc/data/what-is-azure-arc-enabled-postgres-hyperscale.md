@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 17c0e63b02d61b3aecf70624bc97a468d18f66fe
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 10f21067f48155a394ac20337d77e3e82aae64d8
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97607512"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98985942"
 ---
 # <a name="what-is-azure-arc-enabled-postgresql-hyperscale"></a>O que é a hiperescala pós-SQL ativada por Azure?
 
@@ -26,7 +26,7 @@ A azure Arc ativado PostgreSQL Hyperscale é um dos serviços de base de dados d
 - Suporte de cenário desligado
 
 Leia mais detalhes em:
-- [O que são os serviços de Dados preparados para Azure Arc](overview.md)
+- [O que são serviços de dados habilitados a Azure Arc](overview.md)
 - [Modos e requisitos de conectividade](connectivity.md)
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
@@ -48,13 +48,13 @@ Este é o fator de forma de hiperescala do motor de base de dados Postgres dispo
 Este é o fator de forma de hiperescala do motor de base de dados Postgres que está disponível com serviços de dados habilitados a Azure Arc. Também é alimentado pela extensão Citus que permite a experiência de hiperescala. Neste fator de forma, os nossos clientes fornecem a infraestrutura que acolhe os sistemas e os opera.
 
 ## <a name="next-steps"></a>Passos seguintes
-- **Criar**
-   > **Só quer experimentar as coisas? Não tem um cluster Kubernetes disponível? Fornecemos-lhe uma caixa de areia:**  
-   > Inicie-se rapidamente com [o Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) no Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) ou num Azure VM.
+- **Experimente.** Inicie-se rapidamente com [o Azure Arc Jumpstart](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) no Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) ou num Azure VM. 
 
-   - **Criar:**
-      - [Instale as ferramentas do cliente](install-client-tools.md)
-      - [Criar o controlador de dados Azure Arc](create-data-controller.md) (requer a instalação das ferramentas do cliente primeiro)
-      - [Crie uma base de dados Azure para o grupo de servidores de hiperescala PostgreSQL em Azure Arc](create-postgresql-hyperscale-server-group.md) (requer a criação de um controlador de dados Azure Arc primeiro.)
-- [**Ler mais sobre serviços de dados habilitados a Azure Arc**](https://azure.microsoft.com/services/azure-arc/hybrid-data-services)
-- [**Leia sobre Azure Arc**](https://aka.ms/azurearc)
+- **Crie o seu próprio.** Siga estes passos para criar no seu próprio cluster Kubernetes: 
+   1. [Instale as ferramentas do cliente](install-client-tools.md)
+   2. [Criar o controlador de dados Azure Arc](create-data-controller.md)
+   3. [Criar uma base de dados de Azure para o grupo de servidores de hiperescala PostgreSQL em Azure Arc](create-postgresql-hyperscale-server-group.md) 
+
+- **Learn**
+   - [Ler mais sobre serviços de dados habilitados a Azure Arc](https://azure.microsoft.com/services/azure-arc/hybrid-data-services)
+   - [Leia sobre Azure Arc](https://aka.ms/azurearc)

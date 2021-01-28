@@ -1,5 +1,5 @@
 ---
-title: Mover uma conta de Armazenamento Azure para outra região Microsoft Docs
+title: Mover uma conta de Armazenamento Azure para outra região | Microsoft Docs
 description: Mostra-lhe como mover uma conta de Armazenamento Azure para outra região.
 services: storage
 author: normesta
@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: b70beb90fae794eb5512cb8b466524169c4c7b53
-ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
+ms.openlocfilehash: 76482266f0bbb1f80c1699c736048c705b90b4dc
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "92792995"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986925"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Mover uma conta de Armazenamento Azure para outra região
 
@@ -35,7 +35,7 @@ Neste artigo, vai aprender a:
 
 - Garanta que os serviços e as funcionalidades que a conta utiliza são suportados na região de destino.
 
-- Para as funcionalidades de pré-visualização, garanta que a subscrição está na lista de permissões da região de destino.
+- Para funcionalidades de pré-visualização, certifique-se de que a sua subscrição está na lista de visualização para a região alvo.
 
 <a id="prepare"></a>
 
@@ -137,7 +137,7 @@ Para implementar o modelo utilizando o portal Azure:
          "location": "centralus"
          }]          
     ```
-    Para obter códigos de localização da região, consulte [as localizações do Azure.](https://azure.microsoft.com/global-infrastructure/locations/)  O código para uma região é o nome da região sem espaços, **central dos EUA central.**  =  **centralus**
+    Para obter códigos de localização da região, consulte [as localizações do Azure.](https://azure.microsoft.com/global-infrastructure/locations/)  O código para uma região é o nome da região sem espaços, **central dos EUA central.**  =  
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -268,7 +268,7 @@ Remove-AzStorageAccount -ResourceGroupName  $resourceGroup -AccountName $storage
 ```
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você mudou uma conta de armazenamento Azure de uma região para outra e limpou os recursos de origem.  Para saber mais sobre a movimentação de recursos entre regiões e recuperação de desastres em Azure, consulte:
 

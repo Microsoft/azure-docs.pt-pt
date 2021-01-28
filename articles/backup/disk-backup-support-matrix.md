@@ -4,12 +4,12 @@ description: Fornece um resumo das definições de suporte e limitações Azure 
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 08d2ac8451e88dd8d40ed5faee0368ff7739cd16
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 6046c5e05db60b51d803d6391a655ced80b0be6e
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954703"
+ms.locfileid: "98986791"
 ---
 # <a name="azure-disk-backup-support-matrix-in-preview"></a>Matriz de suporte de backup do disco Azure (na pré-visualização)
 
@@ -22,7 +22,7 @@ Pode utilizar [a cópia de segurança do Azure](./backup-overview.md) para prote
 
 ## <a name="supported-regions"></a>Regiões suportadas
 
-A azure Disk Backup está disponível em pré-visualização nas seguintes regiões: West Central US, East US2, Korea Central, Korea South, Japan West, UAE North. 
+A azure Disk Backup está disponível em pré-visualização nas seguintes regiões: Eua Ocidental, West Central EUA, East US2, Korea Central, Korea South, Japan West, East Asia, UAE North. 
 
 Serão anunciadas mais regiões quando estiverem disponíveis.
 

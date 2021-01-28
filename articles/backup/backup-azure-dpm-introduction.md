@@ -3,12 +3,12 @@ title: Prepare o servidor DPM para fazer o back-ups
 description: Neste artigo, aprenda a preparar-se para backups do System Center Data Protection Manager (DPM) para a Azure, utilizando o serviço de Backup Azure.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 0089c3d86eb36b82287570ecdfd6e8c782e6fb8a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 823b23d99959df5f2eed20cf4136254e1702fe89
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002869"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98985636"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Prepare-se para apoiar cargas de trabalho para Azure com O Centro de SistemaS DPM
 
@@ -48,7 +48,7 @@ Tipos de ficheiros suportados | Estes tipos de ficheiros podem ser apoiados com 
 Tipos de ficheiros não suportados | <li>Servidores em sistemas de ficheiros sensíveis a casos<li> links rígidos (ignorados)<li> reparse pontos (ignorado)<li> encriptado e comprimido (ignorado)<li> encriptado e escasso (ignorado)<li> Fluxo comprimido<li> fluxo de parse
 Armazenamento local | Cada máquina que pretende fazer back-up deve ter armazenamento gratuito local que é pelo menos 5% do tamanho dos dados que estão sendo apoiados. Por exemplo, o backup de 100 GB de dados requer um mínimo de 5 GB de espaço livre na localização do risco.
 Armazenamento de cofre | Não há limite para a quantidade de dados que pode fazer até um cofre de backup Azure, mas o tamanho de uma fonte de dados (por exemplo, uma máquina virtual ou base de dados) não deve exceder 54.400 GB.
-Azure ExpressRoute | Pode fazer o back up dos seus dados através do Azure ExpressRoute com o espreitamento público (disponível para circuitos antigos) e o espreitamento da Microsoft. Backup sobre olhando privado não é apoiado.<br/><br/> **Com o olhar público**: Garantir o acesso aos seguintes domínios/endereços:<br/><br/>- `http://www.msftncsi.com/ncsi.txt` <br/><br/>- `microsoft.com` <br/><br/>-`.WindowsAzure.com`<br/><br/>-`.microsoftonline.com`<br/><br/>-`.windows.net`<br/><br/> **Com o espreguio da Microsoft,** selecione os seguintes serviços/regiões e valores comunitários relevantes:<br/><br/>- Diretório Ativo Azure (12076:5060)<br/><br/>- Região microsoft Azure (de acordo com a localização do cofre dos Serviços de Recuperação)<br/><br/>- Azure Storage (de acordo com a localização do cofre dos Serviços de Recuperação)<br/><br/>Para obter mais informações, consulte [os requisitos de encaminhamento ExpressRoute](../expressroute/expressroute-routing.md).<br/><br/>**Nota:** O olhar público é precotado para novos circuitos.
+Azure ExpressRoute | Pode fazer o back up dos seus dados através do Azure ExpressRoute com o espreitamento público (disponível para circuitos antigos) e o espreitamento da Microsoft. Backup sobre olhando privado não é apoiado.<br/><br/> **Com o olhar público**: Garantir o acesso aos seguintes domínios/endereços:<br/><br/> URLs:<br> `www.msftncsi.com` <br> .Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>`www.msftconnecttest.com`<br><br>Endereços IP<br>  20.190.128.0/18 <br>  40.126.0.0/18<br> <br/>**Com o espreguio da Microsoft,** selecione os seguintes serviços/regiões e valores comunitários relevantes:<br/><br/>- Diretório Ativo Azure (12076:5060)<br/><br/>- Região microsoft Azure (de acordo com a localização do cofre dos Serviços de Recuperação)<br/><br/>- Azure Storage (de acordo com a localização do cofre dos Serviços de Recuperação)<br/><br/>Para obter mais informações, consulte [os requisitos de encaminhamento ExpressRoute](../expressroute/expressroute-routing.md).<br/><br/>**Nota:** O olhar público é precotado para novos circuitos.
 Agente do Backup do Azure | Se o DPM estiver em funcionamento no System Center 2012 SP1, instale o Rollup 2 ou mais tarde para o DPM SP1. Isto é necessário para a instalação do agente.<br/><br/> Este artigo descreve como implementar a versão mais recente do agente Azure Backup, também conhecido como o agente do Microsoft Azure Recovery Service (MARS). Se tiver uma versão anterior implementada, atualize a versão mais recente para garantir que a cópia de segurança funciona como esperado.
 
 Antes de começar, precisa de uma conta Azure com a funcionalidade Azure Backup ativada. Se não tiver uma conta, pode criar uma de avaliação gratuita em apenas alguns minutos. Leia mais sobre os [preços do Microsoft Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
@@ -103,7 +103,7 @@ Descarregue o ficheiro de credenciais do cofre para uma máquina local da seguin
 
     ![Abrir o menu do cofre](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
 
-4. Em **Properties**  >  **Credenciais de backup de propriedades**, selecione **Download**. O portal gera o ficheiro credencial do cofre usando uma combinação do nome do cofre e da data atual, e disponibiliza-o para download.
+4. Em   >  **Credenciais de backup de propriedades**, selecione **Download**. O portal gera o ficheiro credencial do cofre usando uma combinação do nome do cofre e da data atual, e disponibiliza-o para download.
 
     ![Baixar credenciais](./media/backup-azure-dpm-introduction/vault-credentials.png)
 

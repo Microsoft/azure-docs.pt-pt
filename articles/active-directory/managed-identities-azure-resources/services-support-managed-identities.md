@@ -4,19 +4,19 @@ description: Lista de serviços que suportam identidades geridas para recursos A
 services: active-directory
 author: barclayn
 ms.author: barclayn
-ms.date: 10/07/2020
+ms.date: 01/28/2021
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 1861a4e75f34cfd7fe386c094cce3a638b3e1a1e
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 0f7c97e5d84b3ee2d40c714625d0158fe60f2c95
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880798"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986078"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Serviços que suportam identidades geridas para recursos da Azure
 
@@ -113,6 +113,14 @@ Tipo de identidade gerido | Tudo geralmente disponível<br>Regiões Azure Globai
 | Utilizador atribuído | Não disponível | Não disponível | Não disponível | Não disponível |
 
 
+### <a name="azure-communication-services"></a>Azure Communication Services
+
+Tipo de identidade gerido | Tudo geralmente disponível<br>Regiões Azure Globais | Azure Government | Azure Alemanha | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Sistema atribuído | ![Disponível][check] | Não disponível | Não disponível | Não disponível |
+| Utilizador atribuído | ![Disponível][check] | Não disponível | Não disponível | Não disponível |
+
+
 ### <a name="azure-container-instances"></a>Azure Container Instances
 
 Tipo de identidade gerido | Tudo geralmente disponível<br>Regiões Azure Globais | Azure Government | Azure Alemanha | Azure China 21Vianet |
@@ -158,6 +166,17 @@ Consulte a seguinte lista para configurar a identidade gerida para a Azure Data 
 - [PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-powershell)
 - [REST](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-rest-api)
 - [SDK](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-sdk)
+
+### <a name="azure-digital-twins"></a>Azure Digital Twins
+
+Tipo de identidade gerido | Tudo geralmente disponível<br>Regiões Azure Globais | Azure Government | Azure Alemanha | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Sistema atribuído | ![Disponível][check] | Não disponível | Não disponível | Não disponível |
+| Utilizador atribuído | Não disponível | Não disponível | Não disponível | Não disponível |
+
+Consulte a seguinte lista para configurar a identidade gerida para as Gémeas Digitais Azure (nas regiões onde disponível):
+
+- [Portal do Azure](~/articles/digital-twins/how-to-enable-managed-identities.md)
 
 ### <a name="azure-event-grid"></a>Azure Event Grid
 

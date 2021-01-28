@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: b8c9af31243d8bb58a58fbc687cad68130f64f7e
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 59768e4fc04613a5ecac6a76059382499b7aaa86
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880747"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986467"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Capacidades de transação de mercado comercial
 
@@ -84,7 +84,7 @@ Para cenários de publicação de transações, pode disponibilizar gratuitament
 
 Além de usar tipos de oferta e modelos de faturação para rentabilizar uma oferta, você pode transagir uma oferta privada, completa com preços negociados, específicos do negócio ou configurações personalizadas. As ofertas privadas são apoiadas pelas três opções de publicação de transações.
 
-Esta opção permite preços mais altos ou mais baixos do que a oferta publicamente disponível. Você pode usar ofertas privadas para desconto ou adicionar um prémio a uma oferta. Pode disponibilizar ofertas privadas a um ou mais clientes, listando a sua subscrição Azure ao nível da oferta.
+Esta opção permite preços mais altos ou mais baixos do que a oferta publicamente disponível. Você pode usar ofertas privadas para desconto ou adicionar um prémio a uma oferta. Pode disponibilizar ofertas privadas a um ou mais clientes, permitindo a sua subscrição Azure ao nível da oferta.
 
 ### <a name="commercial-marketplace-service-fees"></a>Taxas de serviço de mercado comercial
 
@@ -203,7 +203,7 @@ A opção de publicação de transações só está disponível para utilizaçã
 
 - **Aplicação SaaS** - Deve ser uma solução multitenante, utilizar [o Azure Ative Directory](https://azure.microsoft.com/services/active-directory/) para autenticação e integrar-se com as [APIs de Cumprimento do SaaS](partner-center-portal/pc-saas-fulfillment-api-v2.md). O uso da infraestrutura Azure é gerido e faturado diretamente para você (o parceiro), por isso você deve prestar contas das taxas de utilização da infraestrutura Azure e taxas de licenciamento de software como um item de custo único. Para obter orientações detalhadas, consulte [Criar uma nova oferta saaS no mercado comercial.](./create-new-saas-offer.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Reveja os requisitos de elegibilidade nas opções de publicação por secção de tipo oferta para finalizar a seleção e configuração da sua oferta.
 - Reveja os padrões de publicação por loja online por exemplos sobre como a sua solução mapeia para um tipo de oferta e configuração.

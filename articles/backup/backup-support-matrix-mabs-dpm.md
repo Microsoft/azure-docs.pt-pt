@@ -3,12 +3,12 @@ title: Matriz de suporte DPM do MABS & System Center
 description: Este artigo resume o suporte de backup do Azure quando utiliza o Microsoft Azure Backup Server (MABS) ou o System Center DPM para fazer backup nas instalações e recursos VM Azure.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 0180135da793aaf7869441ee290f6125ea88fc88
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: aaa68dba0bbd1f3f5ffb5480a2bdb0a48ae85656
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92276959"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986061"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Matriz de suporte para backup com o Microsoft Azure Backup Server ou System Center DPM
 
@@ -80,7 +80,7 @@ O Azure Backup pode fazer backup de instâncias DPM/MABS que estão a executar q
 
 ## <a name="management-support"></a>Apoio à gestão
 
-**Problema** | **Detalhes**
+**Emissão** | **Detalhes**
 --- | ---
 **Instalação** | Instale o DPM/MABS numa máquina de uso único.<br/><br/> Não instale DPM/MABS num controlador de domínio, numa máquina com a instalação de função do Servidor de Aplicações, numa máquina que está a executar o Microsoft Exchange Server ou o System Center Operations Manager, ou num nó de cluster.<br/><br/> [Reveja todos os requisitos do sistema DPM.](/system-center/dpm/prepare-environment-for-dpm#dpm-server)
 **Domínio** | DPM/MABS deve ser associado a um domínio. Instale primeiro e, em seguida, junte o DPM/MABS a um domínio. Mover o DPM/MABS para um novo domínio após a implementação não é suportado.
@@ -111,13 +111,18 @@ Pode implementar o MABS num VM Azure Stack para que possa gerir a cópia de segu
 
 ### <a name="url-access"></a>Acesso a URL
 
-O servidor DPM/MABS necessita de acesso a estes URLs:
+O servidor DPM/MABS necessita de acesso a estes URLs e endereços IP:
 
-- `http://www.msftncsi.com/ncsi.txt`
-- `*.Microsoft.com`
-- `*.WindowsAzure.com`
-- `*.microsoftonline.com`
-- `*.windows.net`
+* URLs
+  * `www.msftncsi.com`
+  * `*.Microsoft.com`
+  * `*.WindowsAzure.com`
+  * `*.microsoftonline.com`
+  * `*.windows.net`
+  * `www.msftconnecttest.com`
+* Endereços IP
+  * 20.190.128.0/18
+  * 40.126.0.0/18:
 
 ### <a name="azure-expressroute-support"></a>Suporte Azure ExpressRoute
 
@@ -125,11 +130,16 @@ Pode fazer o back up dos seus dados através do Azure ExpressRoute com o espreit
 
 Com o acompanhamento público: Garantir o acesso aos seguintes domínios/endereços:
 
-- `http://www.msftncsi.com/ncsi.txt`
-- `microsoft.com`
-- `.WindowsAzure.com`
-- `.microsoftonline.com`
-- `.windows.net`
+* URLs
+  * `www.msftncsi.com`
+  * `*.Microsoft.com`
+  * `*.WindowsAzure.com`
+  * `*.microsoftonline.com`
+  * `*.windows.net`
+  * `www.msftconnecttest.com`
+* Endereços IP
+  * 20.190.128.0/18
+  * 40.126.0.0/18
 
 Com o estomamento da Microsoft, selecione os seguintes serviços/regiões e valores comunitários relevantes:
 
@@ -148,9 +158,9 @@ A conectividade com o serviço de backup Azure é necessária para que as cópia
 
 **MABS para Azure** | **Subscrição** | **Backup/Restaurar**
 --- | --- | ---
-Ligada | Ativa | Volte ao disco DPM/MABS.<br/><br/> De volta a Azure.<br/><br/> Restaurar do disco.<br/><br/> Restaurar de Azure.
+Ligada | Ativo | Volte ao disco DPM/MABS.<br/><br/> De volta a Azure.<br/><br/> Restaurar do disco.<br/><br/> Restaurar de Azure.
 Ligada | Expirado/desprovisionado | Sem cópia de segurança no disco ou no Azure.<br/><br/> Se a subscrição expirar, pode restaurar a partir do disco ou do Azure.<br/><br/> Se a subscrição for desativada, não poderá restaurar do disco ou do Azure. Os pontos de recuperação do Azure são eliminados.
-Sem conectividade por mais de 15 dias | Ativa | Sem cópia de segurança no disco ou no Azure.<br/><br/> Pode restaurar do disco ou do Azure.
+Sem conectividade por mais de 15 dias | Ativo | Sem cópia de segurança no disco ou no Azure.<br/><br/> Pode restaurar do disco ou do Azure.
 Sem conectividade por mais de 15 dias | Expirado/desprovisionado | Sem cópia de segurança no disco ou no Azure.<br/><br/> Se a subscrição expirar, pode restaurar a partir do disco ou do Azure.<br/><br/> Se a subscrição for desativada, não poderá restaurar do disco ou do Azure. Os pontos de recuperação do Azure são eliminados.
 
 ## <a name="domain-and-domain-trusts-support"></a>Domínio e Domínio confia no suporte
