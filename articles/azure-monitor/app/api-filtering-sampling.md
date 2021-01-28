@@ -1,15 +1,15 @@
 ---
-title: Filtragem e pré-processamento no SDK application Insights Microsoft Docs
+title: Filtragem e pré-processamento no | SDK de Insights de Aplicação Microsoft Docs
 description: Escreva processadores de telemetria e iniciais de telemetria para o SDK filtrar ou adicionar propriedades aos dados antes de a telemetria ser enviada para o portal Application Insights.
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: b3ccc3516d5b31f4c119c2d5a2bd11a63dbdc611
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb9159b98b219c6fb04beb7bbbaade64fc72a30b
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91758035"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927744"
 ---
 # <a name="filter-and-preprocess-telemetry-in-the-application-insights-sdk"></a>Filtrar e pré-processar telemetria no SDK Application Insights
 
@@ -80,7 +80,7 @@ Para filtrar a telemetria, escreve-se um processador de telemetria e regista-o c
 
 2. Adicione o seu processador.
 
-aplicativos **apps** ASP.NET
+aplicativos  ASP.NET
 
 Insira este corte em ApplicationInsights.config:
 
@@ -497,7 +497,7 @@ public void Initialize(ITelemetry telemetry)
 
 #### <a name="add-information-from-httpcontext"></a>Adicionar informações do HttpContext
 
-O seguinte inicializador da amostra lê [`HttpContext`](/aspnet/core/fundamentals/http-context?view=aspnetcore-3.1) dados e anexa-os a um `RequestTelemetry` exemplo. O `IHttpContextAccessor` é fornecido automaticamente através da injeção de dependência do construtor.
+O seguinte inicializador da amostra lê [`HttpContext`](/aspnet/core/fundamentals/http-context) dados e anexa-os a um `RequestTelemetry` exemplo. O `IHttpContextAccessor` é fornecido automaticamente através da injeção de dependência do construtor.
 
 ```csharp
 public class HttpContextRequestTelemetryInitializer : ITelemetryInitializer
@@ -550,7 +550,7 @@ Qual é a diferença entre processadores de telemetria e inicializadores de tele
 * [ASP.NET SDK](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [SDK JavaScript](https://github.com/Microsoft/ApplicationInsights-JS)
 
-## <a name="next-steps"></a><a name="next"></a>Passos seguintes
+## <a name="next-steps"></a><a name="next"></a>Próximos passos
 * [Eventos de pesquisa e registos](./diagnostic-search.md)
 * [amostragem](./sampling.md)
 * [Resolução de problemas](../faq.md)

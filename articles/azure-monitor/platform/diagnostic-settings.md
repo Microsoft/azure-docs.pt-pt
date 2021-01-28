@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: 29e50a5c9b306d0e4491852fd08ecdf73026ebc2
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: c25c53159fd0504956eed2cf7f968c573e9fc289
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882250"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927727"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Criar definições de diagnóstico para enviar registos e métricas da plataforma para destinos diferentes
 [Os registos da plataforma](platform-logs-overview.md) em Azure, incluindo os registos de atividades Azure e registos de recursos, fornecem informações detalhadas de diagnóstico e auditoria para os recursos do Azure e para a plataforma Azure em que dependem. [As métricas da plataforma](data-platform-metrics.md) são recolhidas por padrão e normalmente armazenadas na base de dados de métricas do Azure Monitor. Este artigo fornece detalhes sobre a criação e configuração de configurações de diagnóstico para enviar métricas de plataforma e registos de plataforma para diferentes destinos.
@@ -43,9 +43,9 @@ O vídeo que se segue acompanha-o através de registos de plataformas de encamin
 ## <a name="destinations"></a>Destinos
 Os registos e métricas da plataforma podem ser enviados para os destinos na tabela seguinte. 
 
-| Destino | Description |
+| Destino | Descrição |
 |:---|:---|
-| [Área de trabalho do Log Analytics](design-logs-deployment.md) | O envio de registos e métricas para um espaço de trabalho do Log Analytics permite analisá-los com outros dados de monitorização recolhidos pelo Azure Monitor utilizando consultas de registos poderosas e também para alavancar outras funcionalidades do Azure Monitor, tais como alertas e visualizações. |
+| [Log Analytics espaço de trabalho](design-logs-deployment.md) | O envio de registos e métricas para um espaço de trabalho do Log Analytics permite analisá-los com outros dados de monitorização recolhidos pelo Azure Monitor utilizando consultas de registos poderosas e também para alavancar outras funcionalidades do Azure Monitor, tais como alertas e visualizações. |
 | [Hubs de eventos](../../event-hubs/index.yml) | O envio de registos e métricas para Os Centros de Eventos permite-lhe transmitir dados para sistemas externos, tais como SIEMs de terceiros e outras soluções de análise de registo.  |
 | [Conta de armazenamento Azure](../../storage/blobs/index.yml) | Arquivar registos e métricas para uma conta de armazenamento Azure é útil para auditoria, análise estática ou backup. Em comparação com os Registos do Monitor Azure e um espaço de trabalho log Analytics, o armazenamento do Azure é mais barato e os registos podem ser mantidos lá indefinidamente.  |
 
@@ -54,7 +54,7 @@ Os registos e métricas da plataforma podem ser enviados para os destinos na tab
 
 Quaisquer destinos para a definição de diagnóstico devem ser criados antes de criar as definições de diagnóstico. O destino não tem de estar na mesma subscrição que os registos de envio de recursos, desde que o utilizador que configura a definição tenha acesso RBAC adequado a ambas as subscrições. O quadro seguinte fornece requisitos únicos para cada destino, incluindo quaisquer restrições regionais.
 
-| Destino | Requisitos |
+| Destino | Requirements |
 |:---|:---|
 | Área de trabalho do Log Analytics | O espaço de trabalho não precisa de estar na mesma região que o recurso que está a ser monitorizado.|
 | Hubs de Eventos | A política de acesso partilhado para o espaço de nome define as permissões que o mecanismo de streaming tem. O streaming para Os Centros de Eventos requer permissões de Gestão, Envio e Escuta. Para atualizar a definição de diagnóstico para incluir o streaming, tem de ter a permissão ListKey nessa regra de autorização do Event Hubs.<br><br>O espaço de nome do centro de eventos tem de estar na mesma região que o recurso que está a ser monitorizado se o recurso for regional. |
@@ -149,7 +149,7 @@ Set-AzDiagnosticSetting -Name KeyVault-Diagnostics -ResourceId /subscriptions/xx
 
 ## <a name="create-using-azure-cli"></a>Criar usando O Azure CLI
 
-Utilize as [definições de diagnóstico do monitor az criar](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) comando para criar uma definição de diagnóstico com [Azure CLI](/cli/azure/monitor?view=azure-cli-latest). Consulte a documentação deste comando para descrições dos seus parâmetros.
+Utilize as [definições de diagnóstico do monitor az criar](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) comando para criar uma definição de diagnóstico com [Azure CLI](/cli/azure/monitor). Consulte a documentação deste comando para descrições dos seus parâmetros.
 
 > [!IMPORTANT]
 > Não é possível utilizar este método para o registo de Atividade Azure. Em vez disso, utilize [criar a definição de diagnóstico no Monitor Azure utilizando um modelo de Gestor de Recursos](../samples/resource-manager-diagnostic-settings.md) para criar um modelo de Gestor de Recursos e implantá-lo com OCli.
@@ -177,6 +177,6 @@ Consulte [Definições de diagnóstico](/rest/api/monitor/diagnosticsettings) pa
 Uma vez que é necessário criar uma definição de diagnóstico para cada recurso Azure, a Política Azure pode ser usada para criar automaticamente uma definição de diagnóstico à medida que cada recurso é criado. Consulte [o Monitor Azure em escala utilizando a Política Azure](../deploy-scale.md) para obter detalhes.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Ler mais sobre Logs da plataforma Azure](platform-logs-overview.md)

@@ -1,19 +1,16 @@
 ---
 title: Implementar e gerir as topologias da Tempestade Apache em Azure HDInsight
 description: Aprenda a implantar, monitorizar e gerir as topologias da Tempestade Apache utilizando o Painel de Tempestade em HDInsight baseado em Linux. Use ferramentas Hadoop para Estúdio Visual.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
-ms.openlocfilehash: 9b190b5847c7412344e2bb09fd4000985816219b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 417819cad3bc2ee258381426dfcee7c800b69d42
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995595"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98929180"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Implementar e gerir as topologias da Tempestade Apache em Azure HDInsight
 
@@ -266,7 +263,7 @@ Os pedidos à API REST devem utilizar *a autenticação básica,* pelo que tem d
 
 As informações que são devolvidas da API REST só podem ser utilizáveis dentro do cluster. Por exemplo, o nome de domínio totalmente qualificado (FQDN) devolvido para servidores [Apache ZooKeeper](https://zookeeper.apache.org/) não está acessível a partir da internet.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como [desenvolver topologias baseadas em Java usando Apache Maven.](apache-storm-develop-java-topology.md)
 

@@ -1,17 +1,17 @@
 ---
-title: Apagar e recuperar o espaço de trabalho do Azure Log Analytics Microsoft Docs
+title: Elimine e recupere o espaço de trabalho do Azure Log Analytics | Microsoft Docs
 description: Saiba como eliminar o seu espaço de trabalho Log Analytics se criou um numa subscrição pessoal ou reestruturar o seu modelo de espaço de trabalho.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/20/2020
-ms.openlocfilehash: ed5e4d05a693ff9b0bf8823ba31de17d000d0fb6
-ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
+ms.openlocfilehash: 5bb072d0ea710e35b4f741836aed143e962a326e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97706886"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927695"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>Apagar e recuperar o espaço de trabalho do Azure Log Analytics
 
@@ -34,14 +34,14 @@ Deve ter cuidado ao eliminar um espaço de trabalho porque pode haver dados e co
 
 A operação de eliminação suave elimina o recurso do espaço de trabalho e a permissão de qualquer utilizadores associados é quebrada. Se os utilizadores estiverem associados a outros espaços de trabalho, então podem continuar a usar o Log Analytics com esses outros espaços de trabalho.
 
-## <a name="soft-delete-behavior"></a>Comportamento de eliminação suave
+## <a name="soft-delete-behavior"></a>Comportamento de eliminação recuperável
 
 A operação de eliminação do espaço de trabalho remove o recurso do Gestor de Recursos do espaço de trabalho, mas a sua configuração e dados são mantidos durante 14 dias, ao mesmo tempo que dá a aparência de que o espaço de trabalho é eliminado. Quaisquer grupos de gestão de agentes e gestores de operações do System Center configurados para reportar ao espaço de trabalho permanecem em estado órfão durante o período de eliminação suave. O serviço fornece ainda um mecanismo para a recuperação do espaço de trabalho eliminado, incluindo os seus dados e recursos conectados, essencialmente desfazendo a supressão.
 
 > [!NOTE] 
 > As soluções instaladas e os serviços ligados como a sua conta Azure Automation são permanentemente removidos do espaço de trabalho em tempo de eliminação e não podem ser recuperados. Estes devem ser reconfigurados após a operação de recuperação para levar o espaço de trabalho ao seu estado previamente configurado.
 
-Pode eliminar um espaço de trabalho utilizando [o PowerShell,](/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0&preserve-view=true) [REST API](/rest/api/loganalytics/workspaces/delete)ou no [portal Azure](https://portal.azure.com).
+Pode eliminar um espaço de trabalho utilizando [o PowerShell,](/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace) [REST API](/rest/api/loganalytics/workspaces/delete)ou no [portal Azure](https://portal.azure.com).
 
 ### <a name="azure-portal"></a>Portal do Azure
 
@@ -81,7 +81,7 @@ Pode recuperar o seu espaço de trabalho durante o período de eliminação suav
 - ID da subscrição
 - Nome do Grupo de Recursos
 - Nome da área de trabalho
-- Região
+- Region
 
 > [!IMPORTANT]
 > Se o seu espaço de trabalho foi eliminado como parte da operação de eliminação do grupo de recursos, deve primeiro recriar o grupo de recursos.

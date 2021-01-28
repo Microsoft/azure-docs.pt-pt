@@ -1,19 +1,16 @@
 ---
 title: Depurar trabalhos do Apache Spark em execução no Azure HDInsight
 description: Use o servidor YARN UI, Spark UI e Spark History para rastrear e depurar empregos em execução num cluster spark em Azure HDInsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: 366c77ff94773163b71845b1ccbc6072c503734a
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: f332416a10aa86cb7e0bc7ba560537955d9f2faa
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97822306"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98930585"
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Depurar trabalhos do Apache Spark em execução no Azure HDInsight
 

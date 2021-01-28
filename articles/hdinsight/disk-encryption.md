@@ -2,18 +2,15 @@
 title: Dupla encriptação para dados em repouso
 titleSuffix: Azure HDInsight
 description: Este artigo descreve as duas camadas de encriptação disponíveis para os dados em repouso nos clusters Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: 4e895cdba1bfc16eac0450bd05271f0e41985b7b
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: c9e50885a7283d3f7fcd231bf222415389212a93
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359764"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927334"
 ---
 # <a name="azure-hdinsight-double-encryption-for-data-at-rest"></a>Encriptação dupla Azure HDInsight para dados em repouso
 
@@ -104,7 +101,7 @@ HDInsight suporta apenas o Cofre da Chave Azure. Se tiveres o teu próprio cofre
     |Propriedade |Descrição|
     |---|---|
     |Permissões-chave|**Selecione Obter**, **Desembrulhar a tecla** e **embrulhar a tecla**.|
-    |Permissões Secretas|**Selecione Obter,** **Definir** e **Eliminar**.|
+    |Permissões de Segredos|**Selecione Obter,** **Definir** e **Eliminar**.|
     |Selecione principal|Selecione a identidade gerida atribuída pelo utilizador que criou anteriormente.|
 
     ![Definir O principal selecionado para a política de acesso a aacaure key vault](./media/disk-encryption/azure-portal-add-access-policy.png)
@@ -412,7 +409,7 @@ Uma vez que apenas as teclas ativadas "Soft Delete" são suportadas, se as tecla
 
 **Se um cluster for dimensionado, os novos nós suportam as chaves geridas pelo cliente sem problemas?**
 
-Sim. O cluster precisa de acesso à chave no cofre durante a escala. A mesma chave é usada para encriptar tanto discos geridos como discos de recursos no cluster.
+Yes. O cluster precisa de acesso à chave no cofre durante a escala. A mesma chave é usada para encriptar tanto discos geridos como discos de recursos no cluster.
 
 **As chaves geridas pelo cliente estão disponíveis na minha localização?**
 
@@ -476,7 +473,7 @@ az hdinsight create -t spark -g MyResourceGroup -n MyCluster \\
 --storage-account MyStorageAccount --encryption-at-host true
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter mais informações sobre o Cofre da Chave Azure, consulte [o cofre da chave Azure](../key-vault/general/overview.md).
 * [Visão geral da segurança da empresa em Azure HDInsight](./domain-joined/hdinsight-security-overview.md).

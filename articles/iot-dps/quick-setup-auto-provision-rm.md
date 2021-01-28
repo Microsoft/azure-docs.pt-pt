@@ -3,17 +3,17 @@ title: Quickstart - Criar um serviço de fornecimento de dispositivos de hub IoT
 description: Azure quickstart - Aprenda a criar um Serviço de Provisionamento de Dispositivos Azure IoT Hub (DPS) utilizando o modelo Azure Resource Manager (modelo ARM).
 author: wesmc7777
 ms.author: wesmc
-ms.date: 12/03/2020
+ms.date: 01/27/2021
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc, subject-armqs, devx-track-azurecli
-ms.openlocfilehash: 73beed4e4262d911f68c2b4b33bc0c1ee24164f8
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: cc55d1569c85dd0873d0132833acc99bd5d06136
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746216"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928945"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-dps-with-an-arm-template"></a>Quickstart: Configurar o Serviço de Provisionamento de Dispositivos IoT Hub (DPS) com um modelo ARM
 
@@ -35,6 +35,9 @@ Se o seu ambiente satisfaça os pré-requisitos e já estiver familiarizado com 
 ## <a name="review-the-template"></a>Rever o modelo
 
 O modelo utilizado neste início rápido pertence aos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-iothub-device-provisioning/).
+
+> [!NOTE]
+> Atualmente não existe suporte ao modelo ARM para criar inscrições com novos recursos DPS. Trata-se de um pedido comum e compreendido que está a ser considerado para implementação.
 
 :::code language="json" source="~/quickstart-templates/101-iothub-device-provisioning/azuredeploy.json":::
 
@@ -148,7 +151,7 @@ Inicie sessão na sua conta do Azure e selecione a sua subscrição.
     Reparem nos centros que estão ligados ao `iotHubs` membro.
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Outros guias de introdução desta coleção têm por base este guia de introdução. Se pretender continuar a trabalhar com guias de introdução subsequentes ou com os tutoriais, não limpe os recursos criados neste guia de introdução. Se não pretender continuar, pode utilizar o portal Azure ou o Azure CLI para eliminar o grupo de recursos e todos os seus recursos.
 
@@ -162,7 +165,7 @@ az group delete --name "${projectName}rg"
 
 Também pode eliminar grupos de recursos e recursos individuais utilizando o portal Azure, PowerShell ou REST APIs, bem como com SDKs de plataforma suportada publicados para O Azure Resource Manager ou IoT Hub Device Provisioning Service.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste quickstart, você implantou um hub IoT e uma instância de Serviço de Provisionamento de Dispositivos, e ligou os dois recursos. Para aprender a usar esta configuração para forrá um dispositivo, continue a iniciar o quickstart para criar um dispositivo.
 

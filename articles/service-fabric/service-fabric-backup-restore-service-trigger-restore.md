@@ -5,12 +5,12 @@ author: aagup
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: 3d881033b8dde6cc55a9720ec94084bd876116f1
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 8566d82ef0d91caff47ff17a9cb12fcdc8241884
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207398"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928015"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Restaurar a cópia de segurança no Tecido de Serviço Azure
 
@@ -28,11 +28,16 @@ Por exemplo, pode configurar um serviço para fazer o back up dos seus dados par
 - Para desencadear uma restauração, o _Serviço de Análise de Falhas (FAS)_ tem de ser ativado para o cluster.
 - O _Serviço de Restauro de Cópias de Segurança (BRS)_ criou a cópia de segurança.
 - O restauro só pode ser desencadeado numa partição.
-- Instale microsoft.serviceFabric.Powershell.Http Module [In Preview] para fazer chamadas de configuração.
+- Instale microsoft.serviceFabric.Powershell.Http Module (Preview) para fazer chamadas de configuração.
 
 ```powershell
     Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
 ```
+
+> [!NOTE]
+> Se a versão PowerShellGet for inferior a 1.6.0, terá de atualizar para adicionar suporte à bandeira *-AllowPrerelease:*
+>
+> `Install-Module -Name PowerShellGet -Force`
 
 - Certifique-se de que o Cluster está ligado utilizando o `Connect-SFCluster` comando antes de escoar qualquer pedido de configuração utilizando o Módulo Microsoft.ServiceFabric.Powershell.Http.
 
@@ -205,7 +210,7 @@ Pode desencadear uma restauração do Service Fabric Explorer. Certifique-se de 
 
     ![Trigger Partition Restore Fileshare][3]
 
-### <a name="data-restore-for-_data-corruption__data-loss_"></a>Recuperação de dados para perda de _dados_de / _corrupção de dados_
+### <a name="data-restore-for-_data-corruption__data-loss_"></a>Recuperação de dados para perda de _dados_ de / _corrupção de dados_
 
 Para a perda de _dados_ ou corrupção de _dados,_ as divisórias apoiadas para serviços estatais fiáveis e divisórias de atores fiáveis podem ser restauradas em qualquer uma das cópias de segurança escolhidas.
 
@@ -213,7 +218,7 @@ O exemplo a seguir é a continuação da [reserva periódica para um serviço es
 
 Selecione uma cópia de segurança da saída do  [GetBackupAPI](service-fabric-backuprestoreservice-quickstart-azurecluster.md#list-backups). Neste cenário, a cópia de segurança é gerada a partir do mesmo cluster que antes.
 
-Para ativar a restauração, escolha uma cópia de segurança da lista. Para a corrupção de _dados_de perda de / _dados_em vigor, selecione a seguinte cópia de segurança:
+Para ativar a restauração, escolha uma cópia de segurança da lista. Para a corrupção de _dados_ de perda de / _dados_ em vigor, selecione a seguinte cópia de segurança:
 
 ```
 BackupId                : b0035075-b327-41a5-a58f-3ea94b68faa4
@@ -331,7 +336,7 @@ Pode configurar o serviço Reliable Stateful e as divisórias Reliable Actors no
 - [Referência da API do RestorePartition](/rest/api/servicefabric/sfclient-api-restorepartition)
 - [Referência API GetPartitionRestoreProgress](/rest/api/servicefabric/sfclient-api-getpartitionrestoreprogress)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - [Compreender a configuração da cópia de segurança periódica](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
 - [Backup restaurar referência API REST](/rest/api/servicefabric/sfclient-index-backuprestore)
 

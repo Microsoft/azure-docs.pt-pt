@@ -1,5 +1,5 @@
 ---
-title: Criar um recurso Azure Cognitive Services usando modelos ARM Microsoft Docs
+title: Crie um recurso Azure Cognitive Services utilizando modelos ARM | Microsoft Docs
 description: Crie um recurso de Serviço Cognitivo Azure com modelo ARM.
 keywords: serviços cognitivos, soluções cognitivas, inteligência cognitiva, inteligência artificial cognitiva
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 09/14/2020
 ms.author: aahi
 ms.custom: subject-armqs, devx-track-azurecli
-ms.openlocfilehash: 4afaad77fdff7a1ba80a385e9f2c3d8ddef8ab96
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 856fd86b08dfe74925e682661df0d20692839bd5
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842112"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928652"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-an-arm-template"></a>Quickstart: Criar um recurso de Serviços Cognitivos usando um modelo ARM
 
@@ -73,9 +73,9 @@ No modelo, está definido um recurso do Azure:
 # <a name="azure-cli"></a>[CLI do Azure](#tab/CLI)
 
 > [!NOTE]
-> `az deployment group` criar requer Azure CLI versão 2.6 ou mais tarde. Para visualizar o tipo de versão `az --version` . Para mais informações, consulte a [documentação.](/cli/azure/deployment/group)
+> `az deployment group` criar requer Azure CLI versão 2.6 ou mais tarde. Para visualizar o tipo de versão `az --version` . Para obter mais informações, consulte a [documentação](/cli/azure/deployment/group).
 
-Execute o seguinte script utilizando a Interface da Linha de Comando Azure (CLI) [na sua máquina local,](/cli/azure/install-azure-cli?view=azure-cli-latest)ou num browser com o botão **Tente.a.** Introduza um nome e localização (por `centralus` exemplo) para um novo grupo de recursos, e o modelo ARM será usado para implantar um recurso de Serviços Cognitivos dentro dele. Lembre-se do nome que usa. Irá usá-lo mais tarde para validar a implementação.
+Execute o seguinte script utilizando a Interface da Linha de Comando Azure (CLI) [na sua máquina local,](/cli/azure/install-azure-cli)ou num browser com o botão **Tente.a.** Introduza um nome e localização (por `centralus` exemplo) para um novo grupo de recursos, e o modelo ARM será usado para implantar um recurso de Serviços Cognitivos dentro dele. Lembre-se do nome que usa. Irá usá-lo mais tarde para validar a implementação.
 
 
 ```azurecli-interactive
@@ -137,7 +137,7 @@ az group delete --name $resourceGroupName
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Autenticar pedidos aos Serviços Cognitivos da Azure](authentication.md)
 * [O que é a Azure Cognitive Services?](./what-are-cognitive-services.md)

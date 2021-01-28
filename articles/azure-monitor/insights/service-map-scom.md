@@ -1,17 +1,17 @@
 ---
-title: Integrar monitor de Azure para mapa de VMs com Gestor de Operações Microsoft Docs
+title: Integre o Monitor Azure para o mapa de VMs com o gestor de operações | Microsoft Docs
 description: O Azure Monitor para VMs descobre automaticamente componentes de aplicações em sistemas Windows e Linux e mapeia a comunicação entre serviços. Este artigo discute a utilização da funcionalidade Mapa para criar automaticamente diagramas de aplicações distribuídos no Gestor de Operações.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/12/2019
-ms.openlocfilehash: 489b4bfee1eaa2c381b16e88dbcc0bcb7fd8555f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 288e3f0c048bddb3f3378226889dc519de27764b
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91441513"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927888"
 ---
 # <a name="integrate-system-center-operations-manager-with-azure-monitor-for-vms-map-feature"></a>Integrar gestor de operações do Centro de Sistema com Monitor Azure para funcionalidade de Mapa de VMs
 
@@ -57,7 +57,7 @@ Para configurar o Monitor Azure para a integração do Mapa VMs, faça o seguint
 
     ![O espaço de trabalho de configuração do gestor de operações](media/service-map-scom/scom-config-workspace.png)
 
-4. Na janela **de seleção do grupo de máquinas,** escolha quais grupos de máquinas de mapa de serviço pretende sincronizar com o Gestor de Operações. Clique em **Adicionar/Remover Grupos de Máquinas,** escolha grupos na lista de grupos de **máquinas disponíveis**e clique em **Adicionar**.  Quando terminar de selecionar grupos, clique em **Ok** para terminar.
+4. Na janela **de seleção do grupo de máquinas,** escolha quais grupos de máquinas de mapa de serviço pretende sincronizar com o Gestor de Operações. Clique em **Adicionar/Remover Grupos de Máquinas,** escolha grupos na lista de grupos de **máquinas disponíveis** e clique em **Adicionar**.  Quando terminar de selecionar grupos, clique em **Ok** para terminar.
 
     ![Os grupos de máquinas de configuração do gestor de operações](media/service-map-scom/scom-config-machine-groups.png)
 
@@ -106,7 +106,7 @@ A pasta Mapa de Serviço tem quatro nóns:
 
 ## <a name="edit-or-delete-the-workspace"></a>Editar ou apagar o espaço de trabalho
 
-Pode editar ou eliminar o espaço de trabalho configurado através do painel de visão geral do **mapa de serviços** **(painel de administração** > mapa de serviço **da Suite de Gestão de Operações).**  >  **Service Map**
+Pode editar ou eliminar o espaço de trabalho configurado através do painel de visão geral do **mapa de serviços** **(painel de administração** > mapa de serviço **da Suite de Gestão de Operações).**  >  
 
 > [!NOTE]
 > [O Suíte de Gestão de Operações foi uma coleção de serviços](../terminology.md#april-2018---retirement-of-operations-management-suite-brand) que incluía o Log Analytics, que agora faz parte do [Azure Monitor.](../overview.md)
@@ -139,7 +139,7 @@ O desenho atual apresenta as seguintes questões e limitações:
 Para documentação oficial da Azure sobre a criação de um diretor de serviço, consulte:
 
 * [Criar um principal de serviço utilizando o PowerShell](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
-* [Criar um principal de serviço utilizando o Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)
+* [Criar um principal de serviço utilizando o Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli)
 * [Criar um principal de serviço utilizando o portal Azure](../../active-directory/develop/howto-create-service-principal-portal.md)
 
 ### <a name="suggestions"></a>Sugestões

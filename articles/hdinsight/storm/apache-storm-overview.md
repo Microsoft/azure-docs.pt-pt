@@ -1,19 +1,16 @@
 ---
 title: O que é o Apache Storm - Azure HDInsight
 description: O Apache Storm permite-lhe processar fluxos de dados em tempo real. O Azure HDInsight permite-lhe criar facilmente clusters do Storm na cloud do Azure. Com o Visual Studio, pode criar soluções Storm com c# e implementar nos seus clusters do HDInsight Storm.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: 97b1466e6ac1f2c2dfb931655b64b0f9937ba21d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a2bca34f683df27c97b131d57c6c3278f7cb175e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "82183267"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928901"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>O que é o Apache Storm no Azure HDInsight?
 
@@ -91,7 +88,7 @@ Seguem-se alguns cenários comuns nos quais poderá utilizar o Storm no HDInsigh
 * Análise social
 * Extração, transformação e carregamento (ETL)
 * Monitorização de rede
-* Pesquisa
+* Pesquisar
 * Mobile Engagement
 
 Para obter informações sobre cenários no mundo real, veja [como as empresas estão a usar](https://storm.apache.org/Powered-By.html) o documento Da Tempestade Apache.
@@ -146,7 +143,7 @@ A tempestade usa Apache Log4j 2 para registar informações. Por predefinição,
 
 Para uma topologia de exemplo que demonstra como configurar o registo, veja o exemplo [WordCount baseado em Java](apache-storm-develop-java-topology.md) para Storm no HDInsight.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre soluções de análise em tempo real com Apache Storm em HDInsight:
 

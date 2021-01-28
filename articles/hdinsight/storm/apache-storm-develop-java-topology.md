@@ -1,19 +1,16 @@
 ---
 title: Apache Storm exemplo Java topologia - Azure HDInsight
 description: Aprenda a criar topologias da Tempestade Apache em Java criando um exemplo de topologia de contagem de palavras.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017,seoapr2020,devx-track-java
 ms.date: 04/27/2020
-ms.openlocfilehash: 881ec4aa36261958b566dc2d7c4d06475a76bad4
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 620a4e1627b25af22db68173f35924376e26f5f8
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545502"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98929122"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Criar uma topologia da Tempestade Apache em Java
 
@@ -41,9 +38,9 @@ mkdir C:\HDI
 cd C:\HDI
 ```
 
-## <a name="create-a-maven-project"></a>Criar um projeto Maven
+## <a name="create-a-maven-project"></a>Criar um projeto do Maven
 
-Insira o seguinte comando para criar um projeto Maven chamado **WordCount** :
+Insira o seguinte comando para criar um projeto Maven chamado **WordCount**:
 
 ```cmd
 mvn archetype:generate -DarchetypeArtifactId=maven-archetype-quickstart -DgroupId=com.microsoft.example -DartifactId=WordCount -DinteractiveMode=false
@@ -151,7 +148,7 @@ Na hora da compilação, Maven usa esta informação para procurar `storm-core` 
 > [!NOTE]  
 > Reparem `<scope>provided</scope>` na linha desta secção. Esta definição diz ao Maven para excluir **o núcleo de tempestade de** quaisquer ficheiros JAR que são criados, porque é fornecido pelo sistema.
 
-## <a name="build-configuration"></a>Configuração de construção
+## <a name="build-configuration"></a>Compilar a configuração
 
 Os plug-ins maven permitem-lhe personalizar as fases de construção do projeto. Por exemplo, como o projeto é compilado ou como embalá-lo em um arquivo JAR. In `pom.xml` , adicione o seguinte texto diretamente acima da `</project>` linha.
 
@@ -199,9 +196,9 @@ Esta secção é usada para adicionar plug-ins, recursos e outras opções de co
 
     Outro plug-in útil é o [`Apache Maven Compiler Plugin`](https://maven.apache.org/plugins/maven-compiler-plugin/) , que é usado para alterar opções de compilação. Altere a versão Java que Maven usa para a origem e o alvo para a sua aplicação.
 
-  * Para HDInsight __3.4 ou anterior__ , defina a versão de origem e java alvo para __1.7__ .
+  * Para HDInsight __3.4 ou anterior__, defina a versão de origem e java alvo para __1.7__.
 
-  * Para HDInsight __3.5__ , defina a versão de origem e java alvo para __1.8__ .
+  * Para HDInsight __3.5__, defina a versão de origem e java alvo para __1.8__.
 
   Adicione o texto a seguir na `<plugins>` secção do ficheiro para incluir o `pom.xml` plugin Apache Maven Compiler. Este exemplo especifica 1.8, pelo que a versão target HDInsight é 3.5.
 
@@ -237,11 +234,11 @@ Este exemplo adiciona o diretório de recursos na raiz do projeto `${basedir}` c
 
 Uma topologia da Tempestade Apache baseada em Java consiste em três componentes que deve ser autor (ou referência) como uma dependência.
 
-* **Bicos** : Lê dados de fontes externas e emite fluxos de dados para a topologia.
+* **Bicos**: Lê dados de fontes externas e emite fluxos de dados para a topologia.
 
-* **Parafusos** : O processamento em correntes emitidas por bicos ou outros parafusos e emite um ou mais fluxos.
+* **Parafusos**: O processamento em correntes emitidas por bicos ou outros parafusos e emite um ou mais fluxos.
 
-* **Topologia** : Define como os bicos e parafusos são organizados, e fornece o ponto de entrada para a topologia.
+* **Topologia**: Define como os bicos e parafusos são organizados, e fornece o ponto de entrada para a topologia.
 
 ### <a name="create-the-spout"></a>Criar o bico
 
@@ -327,9 +324,9 @@ public class RandomSentenceSpout extends BaseRichSpout {
 
 Os parafusos tratam o processamento de dados. Os parafusos podem fazer qualquer coisa, por exemplo, computação, persistência ou falar com componentes externos. Esta topologia usa dois parafusos:
 
-* **SplitSentence** : Divide as frases emitidas pela **RandomSentenceSpout** em palavras individuais.
+* **SplitSentence**: Divide as frases emitidas pela **RandomSentenceSpout** em palavras individuais.
 
-* **WordCount** : Conta quantas vezes cada palavra ocorreu.
+* **WordCount**: Conta quantas vezes cada palavra ocorreu.
 
 #### <a name="splitsentence"></a>Frase dividida
 

@@ -1,19 +1,16 @@
 ---
 title: 'Quickstart: Criar/gerir a topologia da Tempestade Apache - Azure HDInsight'
 description: No arranque rápido, aprenda a criar e monitorizar uma topologia da Tempestade Apache em Azure HDInsight.
-author: hrasheed-msft
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 06/14/2019
-ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: 8f13c813eee9bcfde578ba210c5aa2f2fe1cac2c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: fe7b1cdc96ae95ac361183342ea491432c3ab4b4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86045030"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928861"
 ---
 # <a name="quickstart-create-and-monitor-an-apache-storm-topology-in-azure-hdinsight"></a>Quickstart: Criar e monitorizar uma topologia da Tempestade Apache em Azure HDInsight
 
@@ -25,7 +22,7 @@ Neste quickstart, você usa um exemplo do projeto de arranque da [tempestade](ht
 
 * Um aglomerado de tempestade Apache em HDInsight. Consulte [os clusters Apache Hadoop utilizando o portal Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selecione **Storm** for **Cluster type**.
 
-* Um cliente SSH. Para obter mais informações, consulte [Connect to HDInsight (Apache Hadoop) utilizando SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* Um cliente SSH. Para obter mais informações, veja [Ligar ao HDInsight (Apache Hadoop) através de SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="create-the-topology"></a>Criar a topologia
 
@@ -99,13 +96,13 @@ Neste exemplo, a palavra **sete** ocorreu 1493957 vezes. Esta contagem refere-se
 
 Regresse à página **Resumo da topologia** para aceder à topologia da contagem de palavras e, em seguida, selecione o botão **Eliminar** na secção **Ações de topologia**. Quando lhe for solicitado, introduza 10 para os segundos a aguardar antes de parar a topologia. Após o período de tempo limite, a topologia deixará de ser apresentada quando visitar a secção **IU do Storm** do dashboard.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Depois de completar o arranque rápido, é possível que queira eliminar o cluster. Com o HDInsight, os dados são armazenados no Storage do Azure, pelo que pode eliminar um cluster em segurança quando este não está a ser utilizado. Também lhe é cobrado o valor de um cluster do HDInsight mesmo quando não o está a utilizar. Uma vez que os custos do cluster são muito superiores aos custos do armazenamento, faz sentido do ponto de vista económico eliminar os clusters quando não estiverem a ser utilizados.
 
 Para eliminar um cluster, consulte [Eliminar um cluster HDInsight utilizando o seu navegador, PowerShell ou o Azure CLI](../hdinsight-delete-cluster.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste quickstart, você usou um exemplo do projeto de arranque da [tempestade](https://github.com/apache/storm/tree/v2.0.0/examples/storm-starter) Apache para criar e monitorizar uma topologia da Tempestade Apache para um aglomerado de tempestade Apache existente. Avance para o próximo artigo para aprender os fundamentos da gestão e monitorização das topologias da Tempestade Apache.
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: allensu
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 43b2c8271090d2254bcb4834c3b566c3601a104b
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 8d14b8b83fd784956091e738a38d6851d5edacd9
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223249"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927143"
 ---
 # <a name="create-a-nat-gateway-using-azure-cli"></a>Criar um portal NAT usando O Azure CLI
 
@@ -74,7 +74,7 @@ Esta secção detalha como pode criar e configurar os seguintes componentes do s
   - Um pool IP público e prefixo IP público para usar para fluxos de saída traduzidos pelo recurso de gateway NAT.
   - Altere o tempo de inatividade do padrão de 4 minutos para 10 minutos.
 
-Crie uma porta de entrada Azure NAT global com [a az network nat gateway criar](/cli/azure/network/nat?view=azure-cli-latest) chamado **myNATgateway**. O comando utiliza o endereço IP público **myPublicIP** e o prefixo ip público **myPpo.** O comando muda o tempo de inatividade para **10** minutos.
+Crie uma porta de entrada Azure NAT global com [a az network nat gateway criar](/cli/azure/network/nat) chamado **myNATgateway**. O comando utiliza o endereço IP público **myPublicIP** e o prefixo ip público **myPpo.** O comando muda o tempo de inatividade para **10** minutos.
 
 ```azurecli-interactive
   az network nat gateway create \
@@ -134,7 +134,7 @@ Criamos um IP público para ser usado para aceder ao VM.  Utilize [a rede az pub
 
 ### <a name="create-an-nsg-for-vm"></a>Criar um NSG para VM
 
-Como os endereços IP públicos standard são "seguros por padrão", precisamos de criar um NSG para permitir o acesso à entrada para acesso à SSH. Utilize [a rede az nsg criar](/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create) para criar um recurso NSG chamado **myNSG** no **myResourceGroupNAT**.
+Como os endereços IP públicos standard são "seguros por padrão", precisamos de criar um NSG para permitir o acesso à entrada para acesso à SSH. Utilize [a rede az nsg criar](/cli/azure/network/nsg#az-network-nsg-create) para criar um recurso NSG chamado **myNSG** no **myResourceGroupNAT**.
 
 ```azurecli-interactive
   az network nsg create \
@@ -144,7 +144,7 @@ Como os endereços IP públicos standard são "seguros por padrão", precisamos 
 
 ### <a name="expose-ssh-endpoint-on-source-vm"></a>Expor o ponto final do SSH na fonte VM
 
-Criamos uma regra no NSG para acesso SSH à fonte vm. Utilize [a regra nsg de rede az criar](/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create) para criar uma regra NSG chamada **ssh** no NSG nomeado **myNSG** no **myResourceGroupNAT**.
+Criamos uma regra no NSG para acesso SSH à fonte vm. Utilize [a regra nsg de rede az criar](/cli/azure/network/nsg/rule#az-network-nsg-rule-create) para criar uma regra NSG chamada **ssh** no NSG nomeado **myNSG** no **myResourceGroupNAT**.
 
 ```azurecli-interactive
   az network nsg rule create \
@@ -213,7 +213,7 @@ ssh <ip-address-destination>
 
 Está agora pronto para usar o serviço NAT.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não é necessário, pode utilizar o comando de eliminação do [grupo az](/cli/azure/group#az-group-delete) para remover o grupo de recursos e todos os recursos contidos no seu interior.
 
@@ -222,7 +222,7 @@ Quando já não é necessário, pode utilizar o comando de eliminação do [grup
     --name myResourceGroupNAT
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, criou uma porta DE NAT e um VM para usá-lo. 
 

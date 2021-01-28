@@ -4,12 +4,12 @@ description: Insira algumas linhas de código no seu dispositivo ou aplicação 
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 8fecca4875ba291da093bf1eea596eef290f80c8
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 72e79ff90422a6f055d5b883ba208555244687b3
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98678117"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927817"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API do Application Insights para métricas e eventos personalizados
 
@@ -1098,8 +1098,8 @@ Para determinar a duração dos dados, consulte [a retenção de dados e a priva
 
 ## <a name="reference-docs"></a>Documentos de referência
 
-* [referência ASP.NET](/dotnet/api/overview/azure/insights?view=azure-dotnet)
-* [Java reference](/java/api/overview/azure/appinsights?view=azure-java-stable/) (Referência de Java)
+* [referência ASP.NET](/dotnet/api/overview/azure/insights)
+* [Java reference](/java/api/overview/azure/appinsights) (Referência de Java)
 * [Referência JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 
 ## <a name="sdk-code"></a>Código do SDK 
@@ -1120,7 +1120,7 @@ Para determinar a duração dos dados, consulte [a retenção de dados e a priva
 
     Sim, os [dados acedem à API.](https://dev.applicationinsights.io/) Outras formas de extrair dados incluem [a exportação da Analytics para o Power BI](./export-power-bi.md) e a [exportação contínua.](./export-telemetry.md)
 
-## <a name="next-steps"></a><a name="next"></a>Passos seguintes
+## <a name="next-steps"></a><a name="next"></a>Próximos passos
 
 * [Eventos de pesquisa e registos](./diagnostic-search.md)
 * [Resolução de problemas](../faq.md)

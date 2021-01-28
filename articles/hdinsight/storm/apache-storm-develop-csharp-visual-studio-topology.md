@@ -2,19 +2,16 @@
 title: Apache Storm toplogies com Visual Studio e C# - Azure HDInsight
 description: Aprenda a criar topologias storm em C#. Crie uma topologia de contagem de palavras em Estúdio Visual utilizando as ferramentas Hadoop para Estúdio Visual.
 ROBOTS: NOINDEX
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/31/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 271f62625433a6651ba0e3230a62be51e5147f3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a81f2b21545a5362168482f3f0a65fbbbf381c10
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89000197"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98929157"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Desenvolver topologias C# para a Tempestade Apache utilizando as ferramentas data lake para o Estúdio Visual
 
@@ -59,30 +56,30 @@ using System;
 using System.IO;
 namespace ConsoleApplication2
 {
-   class Program
-   {
-       static void Main(string[] args)
-       {
-           string javaHome = Environment.GetEnvironmentVariable("JAVA_HOME");
-           if (!string.IsNullOrEmpty(javaHome))
-           {
-               string jarExe = Path.Combine(javaHome + @"\bin", "jar.exe");
-               if (File.Exists(jarExe))
-               {
-                   Console.WriteLine("JAVA Is Installed properly");
-                    return;
-               }
-               else
-               {
-                   Console.WriteLine("A valid JAVA JDK is not found. Looks like JRE is installed instead of JDK.");
-               }
-           }
-           else
-           {
-             Console.WriteLine("A valid JAVA JDK is not found. JAVA_HOME environment variable is not set.");
-           }
-       }  
-   }
+   class Program
+   {
+       static void Main(string[] args)
+       {
+           string javaHome = Environment.GetEnvironmentVariable("JAVA_HOME");
+           if (!string.IsNullOrEmpty(javaHome))
+           {
+               string jarExe = Path.Combine(javaHome + @"\bin", "jar.exe");
+               if (File.Exists(jarExe))
+               {
+                   Console.WriteLine("JAVA Is Installed properly");
+                    return;
+               }
+               else
+               {
+                   Console.WriteLine("A valid JAVA JDK is not found. Looks like JRE is installed instead of JDK.");
+               }
+           }
+           else
+           {
+             Console.WriteLine("A valid JAVA JDK is not found. JAVA_HOME environment variable is not set.");
+           }
+       }  
+   }
 }
 ```
 
@@ -342,7 +339,7 @@ O bico emite frases que são distribuídas em instâncias do parafuso Splitter. 
 
 Como a instância contra a página de contador detém a contagem de palavras localmente, pretende certificar-se de que as palavras específicas fluem para a mesma instância do parafuso de contador. Cada caso acompanha palavras específicas. Uma vez que o parafuso Splitter não mantém nenhum estado, não importa qual o caso do divisa que recebe qual sentença.
 
-Abra *Program.cs.* O método importante é `GetTopologyBuilder` , que é usado para definir a topologia que é submetida a Tempestade. Substitua o conteúdo do `GetTopologyBuilder` seguinte código para implementar a topologia descrita anteriormente:
+Abra o *Program.cs*. O método importante é `GetTopologyBuilder` , que é usado para definir a topologia que é submetida a Tempestade. Substitua o conteúdo do `GetTopologyBuilder` seguinte código para implementar a topologia descrita anteriormente:
 
 ```csharp
 // Create a new topology named 'WordCount'
@@ -406,7 +403,7 @@ return topologyBuilder;
 
 Está agora pronto para submeter a topologia ao seu cluster HDInsight.
 
-1. Navegue para **ver o**Explorador  >  **do Servidor**.
+1. Navegue para **ver o** Explorador  >  **do Servidor**.
 
 1. Clique com o botão direito **Azure**, **selecione Connect to Microsoft Azure Subscription...** e complete o processo de inscrição.
 
@@ -687,10 +684,10 @@ Embora seja fácil implantar uma topologia num cluster, em alguns casos, você p
 
 1. Guarde as alterações e, em seguida, selecione **F5** ou escolha **Debug**  >  **Start Debugging** para iniciar o projeto. Deve aparecer uma janela da consola e registar o estado dos testes. Quando `Tests finished` aparecer, selecione qualquer chave para fechar a janela.
 
-1. Utilize o **Windows Explorer** para localizar o diretório que contém o seu projeto. (Por exemplo: *C: \\ Utilizadores \\ \<your_user_name> \\ origem \\ repos \\ WordCount \\ WordCount*.) Em seguida, neste diretório, abra *o Bin*e, em seguida, selecione *Debug*. Deve ver os ficheiros de texto que foram produzidos quando os testes foram realizados: *sentences.txt*, *counter.txt*e *splitter.txt*. Abra cada ficheiro de texto e inspecione os dados.
+1. Utilize o **Windows Explorer** para localizar o diretório que contém o seu projeto. (Por exemplo: *C: \\ Utilizadores \\ \<your_user_name> \\ origem \\ repos \\ WordCount \\ WordCount*.) Em seguida, neste diretório, abra *o Bin* e, em seguida, selecione *Debug*. Deve ver os ficheiros de texto que foram produzidos quando os testes foram realizados: *sentences.txt*, *counter.txt* e *splitter.txt*. Abra cada ficheiro de texto e inspecione os dados.
 
    > [!NOTE]  
-   > Os dados de cadeia persistem como uma série de valores decimais nestes ficheiros. Por exemplo, `[[97,103,111]]` no ** ficheirosplitter.txt** representa a palavra *atrás*.
+   > Os dados de cadeia persistem como uma série de valores decimais nestes ficheiros. Por exemplo, `[[97,103,111]]` no **ficheirosplitter.txt** representa a palavra *atrás*.
 
 > [!NOTE]  
 > Certifique-se de que devolve o **tipo de Projeto** à Biblioteca de **Classes** nas propriedades do projeto antes de se implantar num cluster Storm on HDInsight.
@@ -738,9 +735,9 @@ As submissões podem falhar por várias razões:
 Se o ficheiro de registo *hdinsight-scpwebapi.out* contiver `FileNotFoundException` um, a exceção pode ser causada pelas seguintes condições:
 
 * O JDK não está no caminho do ambiente de desenvolvimento. Verifique se o JDK está instalado no ambiente de desenvolvimento, e que `%JAVA_HOME%/bin` está no caminho.
-* Falta-te uma dependência java. Certifique-se de que está a incluir quaisquer ficheiros de frascos necessários como parte da submissão.
+* Falta-te uma dependência java. Certifique-se de que está a incluir quaisquer ficheiros .jar necessários como parte da submissão.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para um exemplo de processamento de dados de Centros de Eventos, consulte [eventos de processo de Azure Event Hubs com Storm on HDInsight](apache-storm-develop-csharp-event-hub-topology.md).
 

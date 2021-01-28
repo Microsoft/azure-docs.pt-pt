@@ -3,12 +3,12 @@ title: Backup periódico/restauro em tecido de serviço autónomo Azure
 description: Utilize a cópia de segurança periódica de um Serviço autónomo e restabeleça a funcionalidade de restauro para permitir a cópia de segurança periódica dos dados da sua aplicação.
 ms.topic: conceptual
 ms.date: 5/24/2019
-ms.openlocfilehash: d20882ba5f7f31ef453c5d28f8bc37155cc99abd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4abf1cd4561a40aaafa5c01865eb12882884422
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91538590"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927956"
 ---
 # <a name="periodic-backup-and-restore-in-a-standalone-service-fabric"></a>Backup periódico e restauro em um tecido de serviço autónomo
 > [!div class="op_single_selector"]
@@ -47,11 +47,16 @@ O Service Fabric fornece um conjunto de APIs para obter a seguinte funcionalidad
 * Certificado X.509 para encriptação de segredos necessários para ligar ao armazenamento para armazenar backups. Consulte [o artigo](service-fabric-windows-cluster-x509-security.md) para saber como adquirir ou criar um certificado X.509 auto-assinado.
 
 * Aplicação Stateful fiável do tecido de serviço construída com a versão 3.0 ou superior do Service Fabric. Para aplicações que se direcionam para o .NET Core 2.0, a aplicação deve ser construída utilizando a versão 3.1 ou posterior do Service Fabric SDK.
-* Instale microsoft.serviceFabric.PowerShell.Http Module [In Preview] para fazer chamadas de configuração.
+* Instale microsoft.serviceFabric.PowerShell.Http Module (Preview) para fazer chamadas de configuração.
 
 ```powershell
     Install-Module -Name Microsoft.ServiceFabric.PowerShell.Http -AllowPrerelease
 ```
+
+> [!NOTE]
+> Se a versão PowerShellGet for inferior a 1.6.0, terá de atualizar para adicionar suporte à bandeira *-AllowPrerelease:*
+>
+> `Install-Module -Name PowerShellGet -Force`
 
 * Certifique-se de que o Cluster está ligado utilizando o `Connect-SFCluster` comando antes de escoar qualquer pedido de configuração utilizando o Módulo Microsoft.ServiceFabric.PowerShell.Http.
 
@@ -284,7 +289,7 @@ Para visualizar cópias de segurança no Service Fabric Explorer, navegue para u
 - Os cmdlets PowerShell do tecido de serviço estão em modo de pré-visualização.
 - Sem suporte para clusters de tecido de serviço em Linux.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - [Compreender a configuração da cópia de segurança periódica](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
 - [Backup restaurar referência API REST](/rest/api/servicefabric/sfclient-index-backuprestore)
 

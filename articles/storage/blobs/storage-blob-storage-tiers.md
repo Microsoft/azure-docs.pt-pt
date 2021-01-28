@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: klaasl
-ms.openlocfilehash: 570fd7f356969bbd37ef6b661334501a062c36df
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: 67534e70904c70f7bf9dda44502e723916bdce93
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165693"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928810"
 ---
 # <a name="access-tiers-for-azure-blob-storage---hot-cool-and-archive"></a>Níveis de acesso para Azure Blob Storage - quente, fresco e arquivo
 
@@ -86,7 +86,7 @@ Os cenários de utilização de exemplo para o nível de acesso ao arquivo inclu
 - Dados de conformidade e arquivo que precisam de ser armazenados por muito tempo e que quase nunca são acedidos
 
 > [!NOTE]
-> O nível de arquivo não é suportado para contas ZRS, GZRS ou RA-GZRS.
+> O nível de arquivo não é suportado para contas ZRS, GZRS ou RA-GZRS. A migração de LRS para GRS não é suportada se a conta de armazenamento contiver bolhas no nível de arquivo.
 
 ## <a name="account-level-tiering"></a>Tiering de nível de conta
 
@@ -178,7 +178,7 @@ Todas as contas de armazenamento utilizam um modelo de preços para armazenament
 
 Diferentes níveis de acesso, juntamente com o nível de nível de bolhas, estão disponíveis em regiões selecionadas. Para obter uma lista completa, veja [Produtos do Azure disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=storage).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como gerir bolhas e contas através dos níveis de acesso.
 

@@ -1,17 +1,17 @@
 ---
-title: Azure Monitor HTTP Data Collector API Microsoft Docs
+title: Azure Monitor HTTP Data Collector API | Microsoft Docs
 description: Pode utilizar a Azure Monitor HTTP Data Collector API para adicionar dados POST JSON a um espaço de trabalho Log Analytics de qualquer cliente que possa ligar para a API REST. Este artigo descreve como usar a API, e tem exemplos de como publicar dados usando diferentes linguagens de programação.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/14/2020
-ms.openlocfilehash: ab0ed536bd23aaf15d85af85e4f924bc2f51f3d4
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: bdbb4307f46566d1cac259cbdc4c81d1dfba5c7e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96006632"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927783"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Envie dados de registo para O Monitor de Azure com a API do Colecionador de Dados HTTP (pré-visualização pública)
 Este artigo mostra-lhe como utilizar a API de Retorno de Dados HTTP para enviar dados de registo para o Azure Monitor a partir de um cliente REST API.  Descreve como formatar dados recolhidos pelo seu script ou aplicação, incluí-lo num pedido, e ter esse pedido autorizado pelo Azure Monitor.  Exemplos são fornecidos para PowerShell, C#e Python.
@@ -66,7 +66,7 @@ Aqui está o formato para o cabeçalho de autorização:
 Authorization: SharedKey <WorkspaceID>:<Signature>
 ```
 
-*WorkspaceID* é o identificador único para o espaço de trabalho Log Analytics. *Signature* é um [Código de Autenticação de Mensagens (HMAC) baseado em Hash](/dotnet/api/system.security.cryptography.hmacsha256?view=netcore-3.1) que é construído a partir do pedido e depois calculado utilizando o [algoritmo SHA256](/dotnet/api/system.security.cryptography.sha256?view=netcore-3.1). Em seguida, codifica-se utilizando a codificação Base64.
+*WorkspaceID* é o identificador único para o espaço de trabalho Log Analytics. *Signature* é um [Código de Autenticação de Mensagens (HMAC) baseado em Hash](/dotnet/api/system.security.cryptography.hmacsha256) que é construído a partir do pedido e depois calculado utilizando o [algoritmo SHA256](/dotnet/api/system.security.cryptography.sha256). Em seguida, codifica-se utilizando a codificação Base64.
 
 Utilize este formato para codificar a cadeia **de assinaturas SharedKey:**
 
@@ -196,7 +196,7 @@ Esta tabela lista o conjunto completo de códigos de estado que o serviço pode 
 | 400 |Mau pedido |MissingLogType |O tipo de registo de valor necessário não foi especificado. |
 | 400 |Mau pedido |Não suportadoContentType |O tipo de conteúdo não foi definido para **aplicação/json**. |
 | 403 |Proibido |InvalidAuthorization |O serviço não autuou o pedido. Verifique se o ID do espaço de trabalho e a chave de ligação são válidos. |
-| 404 |Não encontrado | | Ou o URL fornecido está incorreto, ou o pedido é muito grande. |
+| 404 |Não Encontrado | | Ou o URL fornecido está incorreto, ou o pedido é muito grande. |
 | 429 |Muitos pedidos | | O serviço está a experimentar um elevado volume de dados da sua conta. Por favor, re-tentar o pedido mais tarde. |
 | 500 |Erro interno do servidor |Circulador não especificado |O serviço encontrou um erro interno. Por favor, re-recandidam o pedido. |
 | 503 |Serviço Indisponível |ServiceUnavailable |O serviço não está disponível para receber pedidos. Por favor, relemisse o seu pedido. |
@@ -654,7 +654,7 @@ Embora a API do Colecionador de Dados deva cobrir a maioria das suas necessidade
 | [Azure Data Explorer](/azure/data-explorer/ingest-data-overview) | Azure Data Explorer (ADX) é a plataforma de dados que alimenta o Application Insights Analytics e o Azure Monitor Logs. Agora geralmente disponível ("GA"), utilizando a plataforma de dados na sua forma bruta, proporciona-lhe total flexibilidade (mas requerendo a sobrecarga de gestão) sobre o cluster (Kubernetes RBAC, taxa de retenção, esquema, e assim por diante). O ADX fornece muitas [opções de ingestão,](/azure/data-explorer/ingest-data-overview#ingestion-methods) incluindo [ficheiros CSV, TSV e JSON.](/azure/kusto/management/mappings?branch=master) | <ul><li> Dados que não serão correlacionados com quaisquer outros dados no âmbito de Insights de Aplicação ou Registos. </li><li> Dados que requerem capacidades avançadas de ingestão ou processamento não disponíveis hoje em dia nos Registos do Monitor Azure. </li></ul> |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Utilize a [API de Pesquisa de Registo](../log-query/log-query-overview.md) para obter dados do espaço de trabalho Do Log Analytics.
 
 - Saiba mais sobre como [criar um pipeline de dados com a API do Colecionador de Dados](create-pipeline-datacollector-api.md) utilizando o fluxo de trabalho de Apps Lógicas para o Azure Monitor.

@@ -1,18 +1,15 @@
 ---
 title: InvalidNetworkConfigurationErrCode error - Azure HDInsight
 description: Várias razões para criações falhadas de cluster com InvalidNetconfigurationErrOrCode em Azure HDInsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/12/2021
-ms.openlocfilehash: 82e1c6bdcd508bf1844223b331bf8363efa7b573
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 83d4819ecb1da91bda5fb4f1cb445bbc34fd007f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98555326"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927005"
 ---
 # <a name="cluster-creation-fails-with-invalidnetworkconfigurationerrorcode-in-azure-hdinsight"></a>A criação de cluster falha com o InvalidNetworkConfigurationErrOrCode em Azure HDInsight
 
@@ -157,7 +154,7 @@ Utilize os parâmetros válidos para `Get-AzVirtualNetwork` os documentos do [Az
 
 ---
 
-### <a name="next-steps"></a>Passos seguintes
+### <a name="next-steps"></a>Próximos passos
 
 Se não viu o seu problema ou não conseguir resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 

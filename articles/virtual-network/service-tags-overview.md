@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 965795b96deda03531504952fc8afbea0acb41bf
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 39645e8bd370dfd518d570c3088c56a22aa77748
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98221957"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927042"
 ---
 # <a name="virtual-network-service-tags"></a>Tags de serviço de rede virtual
 <a name="network-service-tags"></a>
@@ -129,8 +129,8 @@ Pode obter a etiqueta de serviço atual e as informações de alcance para inclu
 Pode recuperar programáticamente a lista atual de tags de serviço juntamente com detalhes do intervalo de endereços IP:
 
 - [REST](/rest/api/virtualnetwork/servicetags/list)
-- [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag?view=azps-2.8.0&viewFallbackFrom=azps-2.3.2)
-- [CLI do Azure](/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags)
+- [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag?viewFallbackFrom=azps-2.3.2)
+- [CLI do Azure](/cli/azure/network#az-network-list-service-tags)
 
 > [!NOTE]
 > Enquanto está em pré-visualização pública, a API discovery pode devolver informações menos atuais do que a informação devolvida pelos downloads JSON. (Ver a secção seguinte.)
@@ -153,5 +153,5 @@ Os intervalos de endereço IP nestes ficheiros estão na notação CIDR.
 - Pode detetar atualizações de uma publicação para outra, observando valores de *alteração* aumentados no ficheiro JSON. Cada subsecção (por exemplo, **Storage.WestUS)** tem a sua própria *alteração Número de números* que é incrementada à medida que as mudanças ocorrem. O nível superior da alteração do ficheiro *Número de alterações* é incrementado quando qualquer uma das subsecções é alterada.
 - Por exemplo, como analisar as informações da etiqueta de serviço (por exemplo, obter todas as gamas de endereços para armazenamento em WestUS), consulte a documentação da [API PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag?viewFallbackFrom=azps-2.3.2) da Marca de Serviço.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Saiba como [criar um grupo de segurança de rede.](tutorial-filter-network-traffic.md)
