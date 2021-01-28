@@ -1,16 +1,16 @@
 ---
-title: Canais de telemetria em Azure Application Insights / Microsoft Docs
+title: Canais de telemetria em Azure Application Insights | Microsoft Docs
 description: Como personalizar canais de telemetria em Azure Application Insights SDKs para .NET e .NET Core.
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.custom: devx-track-csharp
 ms.reviewer: mbullwin
-ms.openlocfilehash: fec7bfc16e2cc36d19c84b93b5b93c3c1365b166
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a22a0d112671019d73eb4c9a3853462e4e9c8c75
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90564020"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937358"
 ---
 # <a name="telemetry-channels-in-application-insights"></a>Canais de telemetria em Insights de Aplicação
 
@@ -18,7 +18,7 @@ Os canais de telemetria são parte integrante dos [SDKs Azure Application Insigh
 
 ## <a name="what-are-telemetry-channels"></a>O que são canais de telemetria?
 
-Os canais de telemetria são responsáveis pela tamponagem de itens de telemetria e pelo envio para o serviço Application Insights, onde estão armazenados para consulta e análise. Um canal de telemetria é qualquer classe que implemente a [`Microsoft.ApplicationInsights.ITelemetryChannel`](/dotnet/api/microsoft.applicationinsights.channel.itelemetrychannel?view=azure-dotnet) interface.
+Os canais de telemetria são responsáveis pela tamponagem de itens de telemetria e pelo envio para o serviço Application Insights, onde estão armazenados para consulta e análise. Um canal de telemetria é qualquer classe que implemente a [`Microsoft.ApplicationInsights.ITelemetryChannel`](/dotnet/api/microsoft.applicationinsights.channel.itelemetrychannel) interface.
 
 O `Send(ITelemetry item)` método de um canal de telemetria é chamado depois de todos os inicializadores de telemetria e processadores de telemetria serem chamados. Então, quaisquer itens deixados por um processador de telemetria não chegam ao canal. `Send()` não costuma enviar os itens para a parte de trás instantaneamente. Tipicamente, tampona-os na memória e envia-os em lotes, para uma transmissão eficiente.
 
@@ -177,7 +177,7 @@ Leia mais sobre [proteção de dados e privacidade.](data-retention-privacy.md#d
 ## <a name="open-source-sdk"></a>SDK de código aberto
 Como todos os SDK para Insights de Aplicações, os canais são de código aberto. Leia e contribua para o código, ou reporte problemas, [no repo oficial do GitHub.](https://github.com/Microsoft/ApplicationInsights-dotnet)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Amostragem](./sampling.md)
 * [Resolução de problemas da SDK](./asp-net-troubleshoot-no-data.md)

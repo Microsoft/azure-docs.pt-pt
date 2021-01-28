@@ -1,19 +1,16 @@
 ---
 title: O que é Apache Hive e HiveQL - Azure HDInsight
 description: Apache Hive é um sistema de armazém de dados para Apache Hadoop. Pode consultar os dados armazenados na Hive usando o HiveQL, que se assemecia ao Transact-SQL. Neste documento, aprenda a usar Hive e HiveQL com Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
-ms.openlocfilehash: d2e59b35a30bd838eab2b05dcacf83d8b2c21236
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 4e8c6b25055dfc38d56509e1744b8c7fcac40700
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92540402"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944289"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>O que é Apache Hive e HiveQL em Azure HDInsight?
 
@@ -72,14 +69,14 @@ Para obter mais informações sobre formatos de ficheiros suportados pela Hive, 
 
 Existem dois tipos de tabelas que pode criar com a Colmeia:
 
-* __Interno__ : Os dados são armazenados no armazém de dados da Colmeia. O armazém de dados está localizado `/hive/warehouse/` no armazenamento padrão para o cluster.
+* __Interno__: Os dados são armazenados no armazém de dados da Colmeia. O armazém de dados está localizado `/hive/warehouse/` no armazenamento padrão para o cluster.
 
     Utilize tabelas internas quando se aplicar uma das seguintes condições:
 
     * Os dados são temporários.
     * Quer que a Hive gere o ciclo de vida da tabela e dos dados.
 
-* __Externo__ : Os dados são armazenados fora do armazém de dados. Os dados podem ser armazenados em qualquer armazenamento acessível pelo cluster.
+* __Externo__: Os dados são armazenados fora do armazém de dados. Os dados podem ser armazenados em qualquer armazenamento acessível pelo cluster.
 
     Utilize tabelas externas quando se aplicar uma das seguintes condições:
 
@@ -92,7 +89,7 @@ Para mais informações, consulte o post de blog de [Introdução de Mesas Inter
 
 ## <a name="user-defined-functions-udf"></a>Funções definidas pelo utilizador (UDF)
 
-A colmeia também pode ser estendida através **de funções definidas pelo utilizador (UDF)** . Um UDF permite-lhe implementar funcionalidade ou lógica que não é facilmente modelada no HiveQL. Para um exemplo de utilização de UDFs com Colmeia, consulte os seguintes documentos:
+A colmeia também pode ser estendida através **de funções definidas pelo utilizador (UDF)**. Um UDF permite-lhe implementar funcionalidade ou lógica que não é facilmente modelada no HiveQL. Para um exemplo de utilização de UDFs com Colmeia, consulte os seguintes documentos:
 
 * [Utilize uma função definida pelo utilizador Java com a Colmeia Apache](../hadoop/apache-hadoop-hive-java-udf.md)
 
@@ -137,8 +134,8 @@ No exemplo anterior, as declarações da HiveQL realizam as seguintes ações:
 |CRIAR TABELA EXTERNA|Cria uma nova tabela **externa** na Colmeia. As mesas externas armazenam apenas a definição de tabela na Colmeia. Os dados são deixados no local original e no formato original.|
 |FORMATO DE LINHA|Diz à Hive como os dados são formatados. Neste caso, os campos em cada tronco são separados por um espaço.|
 |ARMAZENADO COMO LOCALIZAÇÃO DE FICHEIRO DE TEXTO|Diz à Hive onde os dados são armazenados (o `example/data` diretório) e que é armazenado como texto. Os dados podem estar num ficheiro ou difundir-se em vários ficheiros dentro do diretório.|
-|SELECIONAR|Seleciona uma contagem de todas as linhas onde a coluna **t4** contém o valor **[ERROR]** . Esta afirmação devolve um valor de **3** porque existem três linhas que contêm este valor.|
-|INPUT__FILE__NAME como 'log'.|A Colmeia tenta aplicar o esquema a todos os ficheiros do diretório. Neste caso, o diretório contém ficheiros que não correspondem ao esquema. Para prevenir dados de lixo nos resultados, esta declaração diz à Hive que devemos apenas devolver dados de ficheiros que terminam em .log.|
+|SELECIONAR|Seleciona uma contagem de todas as linhas onde a coluna **t4** contém o valor **[ERROR]**. Esta afirmação devolve um valor de **3** porque existem três linhas que contêm este valor.|
+|INPUT__FILE__NAME como '%.log'|A Colmeia tenta aplicar o esquema a todos os ficheiros do diretório. Neste caso, o diretório contém ficheiros que não correspondem ao esquema. Para prevenir dados de lixo nos resultados, esta declaração diz à Hive que devemos apenas devolver dados de ficheiros que terminam em .log.|
 
 > [!NOTE]  
 > As tabelas externas devem ser utilizadas quando se espera que os dados subjacentes sejam atualizados por uma fonte externa. Por exemplo, um processo automatizado de upload de dados ou operação MapReduce.
@@ -207,7 +204,7 @@ Para mais informações, consulte a documentação do [Azure Feature Pack.](/sql
 
 Apache Oozie é um sistema de trabalho e coordenação que gere os empregos de Hadoop. Para obter mais informações sobre a utilização de Oozie com Hive, consulte o [Use Apache Oozie para definir e executar um](../hdinsight-use-oozie-linux-mac.md) documento de fluxo de trabalho.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que aprendeu o que é a Hive e como usá-la com Hadoop em HDInsight, use os seguintes links para explorar outras formas de trabalhar com a Azure HDInsight.
 

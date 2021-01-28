@@ -1,19 +1,16 @@
 ---
 title: Utilize um PC Windows com Hadoop em HDInsight - Azure
 description: Trabalhe a partir de um PC Windows em Hadoop em HDInsight. Gerir e consultar agrupamentos com ferramentas PowerShell, Visual Studio e Linux. Desenvolver soluções de big data com .NET.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/20/2019
-ms.openlocfilehash: 770c73cb6f1309e64cd44c5a1b1570899108e4e7
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: d0d389e8d9458cd6b43b50e24cec030baca740af
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97821048"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945325"
 ---
 # <a name="work-in-the-apache-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Trabalhar no ecossistema Apache Hadoop em HDInsight a partir de um PC windows
 
@@ -92,7 +89,7 @@ Se encontrar uma situação em que deve utilizar uma ferramenta ou tecnologia qu
 
 A interface de linha de comandos (CLI) do Azure é a experiência de linha de comandos entre plataformas da Microsoft para gerir os recursos do Azure.  Para mais informações, consulte [Azure Command-Line Interface (CLI)](/cli/azure/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se é novo a trabalhar em clusters baseados em Linux, consulte os seguintes artigos:
 * [Configurar Apache Hadoop, Apache Kafka, Apache Spark, ou outros clusters](hdinsight-hadoop-provision-linux-clusters.md)

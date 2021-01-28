@@ -1,5 +1,5 @@
 ---
-title: Perfil ao vivo Azure Cloud Services com Insights de Aplicações / Microsoft Docs
+title: Profile live Azure Cloud Services com Insights de Aplicação | Microsoft Docs
 description: Ativar o Profiler de Insights de Aplicações para serviços em nuvem Azure.
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
@@ -7,12 +7,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 69a9ba316a1fda14a2e85d4d981321d4b2f9f289
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75927534bf62fa4733bb552906ffa7e3a6e76286
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88930320"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98935609"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>Perfil ao vivo Serviços em Nuvem Azure com Insights de Aplicações
 
@@ -42,7 +42,7 @@ O Profiler Application Insights está instalado com a extensão Azure Diagnostic
 
       ![Localização do ficheiro config de diagnóstico](./media/profiler-cloudservice/cloudservice-solutionexplorer.png)  
 
-      Se não conseguir encontrar o ficheiro, consulte [configurar diagnósticos para serviços de nuvem azure e máquinas virtuais.](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines?view=vs-2019)
+      Se não conseguir encontrar o ficheiro, consulte [configurar diagnósticos para serviços de nuvem azure e máquinas virtuais.](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)
 
     b. Adicione a seguinte `SinksConfig` secção como elemento infantil `WadCfg` de:  
 
@@ -64,12 +64,12 @@ O Profiler Application Insights está instalado com a extensão Azure Diagnostic
     > * A chave que é usada pela pia ApplicationInsights. 
     > * A chave que é usada pelo sinker ApplicationInsightsProfiler. 
     >
-    > Pode encontrar o valor real da chave de instrumentação que é usado pela `ApplicationInsights` pia na Configuração de * \* Serviço. ficheiros cscfg.* 
+    > Pode encontrar o valor real da chave de instrumentação que é usado pela `ApplicationInsights` pia na Configuração de *\* Serviço. ficheiros cscfg.* 
     > Após o lançamento do Visual Studio 15.5 Azure SDK, apenas as teclas de instrumentação utilizadas pela aplicação e a pia ApplicationInsightsProfiler precisam de combinar entre si.
 
 1. Implemente o seu serviço com a nova configuração de Diagnóstico e o Application Insights Profiler está configurado para executar no seu serviço.
  
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Gere tráfego para a sua aplicação (por exemplo, lance um [teste de disponibilidade).](monitor-web-app-availability.md) Em seguida, aguarde 10 a 15 minutos para que os vestígios comecem a ser enviados para a instância De Insights de Aplicação.
 * Consulte [os vestígios do Profiler](profiler-overview.md?toc=/azure/azure-monitor/toc.json) no portal Azure.

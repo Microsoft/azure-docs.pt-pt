@@ -1,19 +1,16 @@
 ---
 title: Utilizar o Azure Data Lake Storage Gen2 com clusters do Azure HDInsight
 description: Aprenda a usar a Azure Data Lake Storage Gen2 com clusters Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020, devx-track-azurecli
 ms.date: 04/24/2020
-ms.openlocfilehash: cc17cd23ae197db25fed440eb249f2cf069d4859
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 2bbfbd2d953ea663453f0092ff366e95f6dd5ea7
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744586"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945369"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Utilizar o Azure Data Lake Storage Gen2 com clusters do Azure HDInsight
 
@@ -66,19 +63,19 @@ Para definir permissões para os utilizadores consultarem os dados, utilize os g
 
 Existem várias formas de aceder aos ficheiros em Data Lake Storage Gen2 a partir de um cluster HDInsight.
 
-* **Utilizar o nome completamente qualificado** . Com esta abordagem, fornece o caminho completo para o ficheiro ao qual pretende aceder.
+* **Utilizar o nome completamente qualificado**. Com esta abordagem, fornece o caminho completo para o ficheiro ao qual pretende aceder.
 
     ```
     abfs://<containername>@<accountname>.dfs.core.windows.net/<file.path>/
     ```
 
-* **Utilizando o formato de caminho abreviado** . Com esta abordagem, você substitui o caminho até a raiz do cluster com:
+* **Utilizando o formato de caminho abreviado**. Com esta abordagem, você substitui o caminho até a raiz do cluster com:
 
     ```
     abfs:///<file.path>/
     ```
 
-* **Utilizar o caminho relativo** . Com esta abordagem, fornece apenas o caminho relativo para o ficheiro ao qual pretende aceder.
+* **Utilizar o caminho relativo**. Com esta abordagem, fornece apenas o caminho relativo para o ficheiro ao qual pretende aceder.
 
     ```
     /<file.path>/
@@ -141,7 +138,7 @@ LOCATION 'abfs:///example/data/';
 LOCATION '/example/data/';
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Integração Azure HDInsight com pré-visualização da Data Lake Storage Gen2 - ACL e atualização de segurança](https://azure.microsoft.com/blog/azure-hdinsight-integration-with-data-lake-storage-gen-2-preview-acl-and-security-update/)
 * [Introdução ao Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)

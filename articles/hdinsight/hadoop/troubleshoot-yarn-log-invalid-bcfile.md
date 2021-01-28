@@ -1,18 +1,15 @@
 ---
 title: Incapaz de ler log Apache Yarn em Azure HDInsight
 description: Etapas de resolução de problemas e possíveis resoluções para problemas ao interagir com os clusters Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/23/2020
-ms.openlocfilehash: b6bd7d807916ef53177b11df6ed9ce0b22f530be
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 02a79de8aee169f5f702d5fae67194c62363e8c4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533347"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943040"
 ---
 # <a name="scenario-unable-to-read-apache-yarn-log-in-azure-hdinsight"></a>Cenário: Incapaz de ler log Apache Yarn em Azure HDInsight
 
@@ -34,7 +31,7 @@ O log Apache Yarn é agregado em `IndexFile` formato, o que não é suportado pe
 
 1. A partir de um navegador web, navegue `https://CLUSTERNAME.azurehdinsight.net` para, onde `CLUSTERNAME` está o nome do seu cluster.
 
-1. A partir da UI Ambari, navegue até **yarn**  >  **Configs**  >  **Advanced**  >  **Yarn Advanced yarn-site** .
+1. A partir da UI Ambari, navegue até **yarn**  >  **Configs**  >  **Advanced**  >  **Yarn Advanced yarn-site**.
 
 1. Para o armazenamento WASB: O valor padrão para `yarn.log-aggregation.file-formats` é `IndexedFormat,TFile` . Altere o valor para `TFile` .
 
@@ -42,7 +39,7 @@ O log Apache Yarn é agregado em `IndexFile` formato, o que não é suportado pe
 
 1. Guarde a alteração e reinicie todos os serviços afetados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se não viu o seu problema ou não conseguir resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 

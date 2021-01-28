@@ -1,19 +1,16 @@
 ---
 title: 'Tutorial: Operações ETL com Consulta Interativa - Azure HDInsight'
 description: Tutorial - Saiba como extrair dados de um conjunto de dados CSV bruto. Transforme-o com consulta interativa em HDInsight. Em seguida, carregue os dados transformados em Azure SQL Database utilizando o Apache Sqoop.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc
 ms.date: 07/02/2019
-ms.openlocfilehash: 730a6bfa627eafcab799fc811db4e20a1d4cec48
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 13b6b8658aa2d896ec154cfa3c7a961e37df6cbf
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534588"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98935913"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-interactive-query-in-azure-hdinsight"></a>Tutorial: Extrair, transformar e carregar dados usando Consulta Interativa em Azure HDInsight
 
@@ -30,11 +27,11 @@ Este tutorial abrange as seguintes tarefas:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um cluster de consultainternação em HDInsight. Consulte [os clusters Apache Hadoop utilizando o portal Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selecione **Consulta Interativa** para **o tipo cluster** .
+* Um cluster de consultainternação em HDInsight. Consulte [os clusters Apache Hadoop utilizando o portal Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selecione **Consulta Interativa** para **o tipo cluster**.
 
 * Uma base de dados na Base de Dados Azure SQL. Utiliza a base de dados como uma loja de dados de destino. Se não tiver uma base de dados na Base de Dados Azure SQL, consulte [criar uma base de dados na Base de Dados Azure SQL no portal Azure](../../azure-sql/database/single-database-create-quickstart.md).
 
-* Um cliente SSH. Para obter mais informações, consulte [Connect to HDInsight (Apache Hadoop) utilizando SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* Um cliente SSH. Para obter mais informações, veja [Ligar ao HDInsight (Apache Hadoop) através de SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="download-the-flight-data"></a>Transferir os dados de voos
 
@@ -42,19 +39,19 @@ Este tutorial abrange as seguintes tarefas:
 
 2. Na página, limpe todos os campos e, em seguida, selecione os seguintes valores:
 
-   | Nome | Valor |
+   | Name | Valor |
    | --- | --- |
    | Filtrar Ano |2019 |
    | Filtrar Período |Janeiro |
    | Campos |`Year, FlightDate, Reporting_Airline, DOT_ID_Reporting_Airline, Flight_Number_Reporting_Airline, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay`. |
 
-3. Selecione **Transferir** . Vai obter um ficheiro .zip com os campos de dados que selecionou.
+3. Selecione **Transferir**. Vai obter um ficheiro .zip com os campos de dados que selecionou.
 
 ## <a name="upload-data-to-an-hdinsight-cluster"></a>Carregar os dados para um cluster do HDInsight
 
 Existem muitas formas de carregar dados para o armazenamento associado a um cluster do HDInsight. Nesta secção, vai utilizar `scp` para carregar os dados. Para ver outras formas de carregar dados, veja [Upload data to HDInsight](../hdinsight-upload-data.md) (Carregar dados para o HDInsight).
 
-1. Faça o upload do ficheiro .zip para o nó de cabeça do cluster HDInsight. Edite o comando abaixo substituindo-o pelo `FILENAME` nome do ficheiro .zip e pelo nome `CLUSTERNAME` do cluster HDInsight. Em seguida, abra um pedido de comando, desabrocha o seu diretório de trabalho para o local do ficheiro e, em seguida, insira o comando.
+1. Faça o upload do ficheiro .zip para o nó de cabeça do cluster HDInsight. Edite o comando abaixo substituindo `FILENAME` pelo nome do ficheiro .zip e pelo nome do cluster `CLUSTERNAME` HDInsight. Em seguida, abra um pedido de comando, desabrocha o seu diretório de trabalho para o local do ficheiro e, em seguida, insira o comando.
 
     ```cmd
     scp FILENAME.zip sshuser@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.zip
@@ -97,7 +94,7 @@ Existem muitas formas de executar um trabalho do Hive num cluster do HDInsight. 
 
 Como parte do trabalho do Hive, importe os dados do ficheiro .csv para uma tabela do Hive com o nome **Delays** (Atrasos).
 
-1. A partir do pedido SSH que já tem para o cluster HDInsight, use o seguinte comando para criar, e edite um novo ficheiro chamado **flightdelays.hql** :
+1. A partir do pedido SSH que já tem para o cluster HDInsight, use o seguinte comando para criar, e edite um novo ficheiro chamado **flightdelays.hql**:
 
     ```bash
     nano flightdelays.hql
@@ -167,7 +164,7 @@ Como parte do trabalho do Hive, importe os dados do ficheiro .csv para uma tabel
 
 3. Para guardar o ficheiro, prima **Ctrl + X,** em seguida, **y,** e depois introduza.
 
-4. Para iniciar o Hive e executar o ficheiro **flightdelays.hql** , utilize o seguinte comando:
+4. Para iniciar o Hive e executar o ficheiro **flightdelays.hql**, utilize o seguinte comando:
 
     ```bash
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -f flightdelays.hql
@@ -293,7 +290,7 @@ Depois de concluir o tutorial, pode pretender eliminar o cluster. Com o HDInsigh
 
 Para eliminar um cluster, consulte [Eliminar um cluster HDInsight utilizando o seu navegador, PowerShell ou o Azure CLI](../hdinsight-delete-cluster.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, pegou num ficheiro de dados CSV bruto, importou-o num armazenamento de cluster HDInsight e depois transformou os dados usando a Interactive Query em Azure HDInsight.  Avance para o próximo tutorial para saber sobre o Conector do Armazém da Colmeia Apache.
 

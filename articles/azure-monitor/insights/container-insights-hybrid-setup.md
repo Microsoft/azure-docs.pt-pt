@@ -1,14 +1,14 @@
 ---
-title: Configure Híbrido Kubernetes clusters com Monitor Azure para contentores Microsoft Docs
+title: Configure agrupamentos Híbridos Kubernetes com Monitor Azure para recipientes | Microsoft Docs
 description: Este artigo descreve como pode configurar o Azure Monitor para contentores para monitorizar os aglomerados de Kubernetes alojados em Azure Stack ou em outro ambiente.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: d481af07013c0a5b4c5a381527c6f555400a2559
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 12901b1d2d7edd85fbe1650600856d09105c15b2
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92890467"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98936418"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>Configure híbrido Kubernetes clusters com Monitor Azure para contentores
 
@@ -21,7 +21,7 @@ As seguintes configurações são oficialmente suportadas com o Azure Monitor pa
 - Ambientes:
 
     - Kubernetes no local
-    - Motor AKS em Azure e Azure Stack. Para mais informações, consulte [o motor AKS em Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908&preserve-view=true)
+    - Motor AKS em Azure e Azure Stack. Para mais informações, consulte [o motor AKS em Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview)
     - [Versão OpenShift](https://docs.openshift.com/container-platform/4.3/welcome/index.html) 4 e superior, no local ou outros ambientes em nuvem.
 
 - As versões de Kubernetes e a política de suporte são as mesmas que as versões [suportadas pela AKS.](../../aks/supported-kubernetes-versions.md)
@@ -108,7 +108,7 @@ Para primeiro identificar o ID completo do seu espaço de trabalho Log Analytics
     Microsoft Azure                       AzureCloud   0fb60ef2-03cc-4290-b595-e71108e8f4ce  Enabled  True
     ```
 
-    Copie o valor para **SubscriçãoId** .
+    Copie o valor para **SubscriçãoId**.
 
 2. Mude para a subscrição que hospeda o espaço de trabalho Log Analytics utilizando o seguinte comando:
 
@@ -202,7 +202,7 @@ Para primeiro identificar o ID completo do seu espaço de trabalho Log Analytics
     }
     ```
 
-7. Editar os valores para **workspaceResourceId** utilizando o valor copiado no passo 3, e para o **espaço de trabalho Aregiona** o valor da **Região** depois de executar o show de espaço de trabalho de [log-analytics do](/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest#az-monitor-log-analytics-workspace-list&preserve-view=true)comando Azure CLI monitor.
+7. Editar os valores para **workspaceResourceId** utilizando o valor copiado no passo 3, e para o **espaço de trabalho Aregiona** o valor da **Região** depois de executar o show de espaço de trabalho de [log-analytics do](/cli/azure/monitor/log-analytics/workspace#az-monitor-log-analytics-workspace-list&preserve-view=true)comando Azure CLI monitor.
 
 8. Guarde este ficheiro à medida que containerSolutionParams.jsnuma pasta local.
 
@@ -258,7 +258,7 @@ Nesta secção instale o agente contentorizado para o Azure Monitor para recipie
 
     `az monitor log-analytics workspace list --resource-group <resourceGroupName>`
 
-    Na saída, encontre o nome do espaço de trabalho sob o **nome** de campo e, em seguida, copie o ID do espaço de trabalho desse log analytics sob o **cliente de campoID** .
+    Na saída, encontre o nome do espaço de trabalho sob o **nome** de campo e, em seguida, copie o ID do espaço de trabalho desse log analytics sob o **cliente de campoID**.
 
 2. Executar o seguinte comando para identificar a chave primária para o espaço de trabalho:
 
@@ -370,6 +370,6 @@ Para executar com a Azure PowerShell, utilize os seguintes comandos na pasta que
 .\TroubleshootError_nonAzureK8s.ps1 - azureLogAnalyticsWorkspaceResourceId </subscriptions/<subscriptionId>/resourceGroups/<resourcegroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName> -kubeConfig <kubeConfigFile> -clusterContextInKubeconfig <clusterContext>
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Com a monitorização habilitada a recolher a saúde e a utilização de recursos do seu cluster híbrido Kubernetes e cargas de trabalho em execução sobre eles, aprenda [a usar](container-insights-analyze.md) o Azure Monitor para recipientes.

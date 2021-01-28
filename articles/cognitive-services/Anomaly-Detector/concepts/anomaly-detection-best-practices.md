@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 01/22/2021
 ms.author: mbullwin
-ms.openlocfilehash: b0869335c386712e6b759bb0ced459ebd1bf383c
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 43ccde054a9630b251aa6c206028d29c7c699316
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98702731"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98936195"
 ---
 # <a name="best-practices-for-using-the-anomaly-detector-api"></a>Melhores práticas para a utilização do Detetor de AnomaliaS API
 
@@ -52,7 +52,7 @@ Abaixo está o mesmo conjunto de dados usando a deteção de anomalias de lote. 
 
 ## <a name="data-preparation"></a>Preparação de dados
 
-A API do Detetor de Anomalias aceita dados de séries de tempo formatados num objeto de pedido JSON. Uma série de tempo pode ser qualquer dado numérico registado ao longo do tempo em ordem sequencial. Pode enviar janelas dos dados da série de tempo para o ponto final da API do Detetor de Anomalias para melhorar o desempenho da API. O número mínimo de pontos de dados que pode enviar é de 12, e o máximo é de 8640 pontos. [A granularidade](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.granularity?view=azure-dotnet-preview) é definida como a taxa em que os seus dados são recolhidos. 
+A API do Detetor de Anomalias aceita dados de séries de tempo formatados num objeto de pedido JSON. Uma série de tempo pode ser qualquer dado numérico registado ao longo do tempo em ordem sequencial. Pode enviar janelas dos dados da série de tempo para o ponto final da API do Detetor de Anomalias para melhorar o desempenho da API. O número mínimo de pontos de dados que pode enviar é de 12, e o máximo é de 8640 pontos. [A granularidade](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.granularity) é definida como a taxa em que os seus dados são recolhidos. 
 
 Os pontos de dados enviados para a API do Detetor de Anomalias devem ter uma timetamp universal coordenada válida (UTC) e um valor numérico. 
 

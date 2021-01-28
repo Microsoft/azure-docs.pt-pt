@@ -3,16 +3,13 @@ title: Exceções outOfMemoryError para Apache Spark em Azure HDInsight
 description: Várias exceções outOfMemoryError para o cluster Apache Spark em Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.date: 08/15/2019
-ms.openlocfilehash: 156d3ce4b7f8b6eaa297f2cddd0d5a93f382f78e
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a15d79f2ae9c3d20a73ec557c57a5c189b18111b
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547287"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946351"
 ---
 # <a name="outofmemoryerror-exceptions-for-apache-spark-in-azure-hdinsight"></a>Exceções outOfMemoryError para Apache Spark em Azure HDInsight
 
@@ -60,7 +57,7 @@ A causa mais provável desta exceção é que não há memória suficiente para 
 
 1. Determine o tamanho máximo dos dados que a aplicação Spark vai processar. Faça uma estimativa do tamanho com base no tamanho máximo dos dados de entrada, os dados intermédios produzidos através da transformação dos dados de entrada e dos dados de saída produzidos transformando ainda mais os dados intermédios. Se a estimativa inicial não for suficiente, aumente ligeiramente o tamanho e itere até que os erros de memória diminuam.
 
-1. Confirme que o cluster do HDInsight a ser utilizado tem recursos suficientes em termos de memória, assim como núcleos, para alojar a aplicação Spark. Isto pode ser determinado visualizando a secção de Métricas de Cluster do UI YARN do cluster para os valores de **Memória Utilizada** vs. **Memory Total** e **VCores Usado** vs. **VCores Total** .
+1. Confirme que o cluster do HDInsight a ser utilizado tem recursos suficientes em termos de memória, assim como núcleos, para alojar a aplicação Spark. Isto pode ser determinado visualizando a secção de Métricas de Cluster do UI YARN do cluster para os valores de **Memória Utilizada** vs. **Memory Total** e **VCores Usado** vs. **VCores Total**.
 
     ![visão de memória núcleo de fios](./media/apache-spark-ts-outofmemory/yarn-core-memory-view.png)
 
@@ -243,7 +240,7 @@ Elimine todas as entradas utilizando passos detalhados abaixo.
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se não viu o seu problema ou não conseguir resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 

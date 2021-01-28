@@ -4,12 +4,12 @@ description: Registos de pesquisa gerados por Trace, NLog ou Log4Net.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/08/2019
-ms.openlocfilehash: 90777da4d0b67587afebaa7111e3503af2afcb9a
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 083ddbd06561550f89e414d6c679cdc6433fa338
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920339"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937551"
 ---
 # <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>Explore registos de traços .NET/.NET e Python em Insights de Aplicação
 
@@ -85,7 +85,7 @@ Se preferir log4net ou NLog, use:
 ```
 
 ## <a name="use-eventsource-events"></a>Use eventos EventSource
-Pode configurar [os eventos System.Diagnostics.Tracing.EventSource](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1) a enviar para o Application Insights como vestígios. Primeiro, instale o `Microsoft.ApplicationInsights.EventSourceListener` pacote NuGet. Em seguida, edite a `TelemetryModules` secção do ficheiro [ApplicationInsights.config.](./configuration-with-applicationinsights-config.md)
+Pode configurar [os eventos System.Diagnostics.Tracing.EventSource](/dotnet/api/system.diagnostics.tracing.eventsource) a enviar para o Application Insights como vestígios. Primeiro, instale o `Microsoft.ApplicationInsights.EventSourceListener` pacote NuGet. Em seguida, edite a `TelemetryModules` secção do ficheiro [ApplicationInsights.config.](./configuration-with-applicationinsights-config.md)
 
 ```xml
     <Add Type="Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule, Microsoft.ApplicationInsights.EventSourceListener">
@@ -203,8 +203,8 @@ Se estiver a utilizar o Java SDK, utilize os [adaptadores de registo Java](./jav
 
 ### <a name="theres-no-log-adapter-option-in-the-configuration-tool"></a>Não há opção de adaptador de registo na ferramenta de configuração
 * Instale primeiro a estrutura de registo.
-* Se estiver a utilizar o System.Diagnostics.Trace, certifique-se de que o tem [configurado em *web.config*](/dotnet/api/system.diagnostics.eventlogtracelistener?view=dotnet-plat-ext-3.1).
-* Certifique-se de que tem a versão mais recente do Application Insights. No Estúdio Visual, **Tools** vá a  >  **Extensões e Atualizações de Ferramentas** e abra o **separador Atualizações.** Se **o Desenvolvedor Analytics Tools** estiver lá, selecione-o para atualizá-lo.
+* Se estiver a utilizar o System.Diagnostics.Trace, certifique-se de que o tem [configurado em *web.config*](/dotnet/api/system.diagnostics.eventlogtracelistener).
+* Certifique-se de que tem a versão mais recente do Application Insights. No Estúdio Visual, vá a  >  **Extensões e Atualizações de Ferramentas** e abra o **separador Atualizações.** Se **o Desenvolvedor Analytics Tools** estiver lá, selecione-o para atualizá-lo.
 
 ### <a name="i-get-the-instrumentation-key-cannot-be-empty-error-message"></a><a name="emptykey"></a>Recebo a mensagem de erro "Instrumentação não pode ser vazia"
 Provavelmente instalou o pacote NuGet do adaptador de registo sem instalar o Application Insights. No Solution Explorer, *clique* ApplicationInsights.configà direita e selecione **Update Application Insights**. Será solicitado que entre no Azure e crie um recurso Application Insights ou reutilizar um existente. Isto deve resolver o problema.
@@ -218,7 +218,7 @@ Vários fatores afetam a quantidade de dados que são retidos. Para mais informa
 ### <a name="i-dont-see-some-log-entries-that-i-expected"></a>Não vejo algumas entradas de registo que esperava.
 Se a sua aplicação enviar quantidades volumosas de dados e estiver a utilizar o SDK Application Insights para ASP.NET versão 2.0.0-beta3 ou posterior, a função de amostragem adaptativa pode funcionar e enviar apenas uma parte da sua telemetria. [Saiba mais sobre amostragem.](./sampling.md)
 
-## <a name="next-steps"></a><a name="add"></a>Passos seguintes
+## <a name="next-steps"></a><a name="add"></a>Próximos passos
 
 * [Diagnosticar falhas e exceções em ASP.NET][exceptions]
 * [Saiba mais sobre pesquisar][diagnostic]

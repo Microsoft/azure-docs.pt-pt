@@ -296,8 +296,8 @@
         - name: Azure Monitor para contentores
           href: ../azure-monitor/insights/container-insights-overview.md
           maintainContext: true
-        - name: Ver os registos de componente principal
-          href: view-master-logs.md
+        - name: Ver os registos dos componentes do plano de controlo
+          href: view-control-plane-logs.md
         - name: Ver os registos kubelet
           href: kubelet-logs.md
         - name: Ver dados de contentor em tempo real

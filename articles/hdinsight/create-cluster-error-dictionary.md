@@ -3,17 +3,16 @@ title: Azure HDInsight Criar um cluster - dicionário de erro
 description: Saiba como resolver erros que ocorrem ao criar clusters Azure HDInsight
 author: karkrish
 ms.author: v-todmc
-ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 08/24/2020
-ms.openlocfilehash: 97cad12ad1854df37b54ff663385fe79ca15b7c2
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 6b8c0069d619d3ebd87e3c54b4f653812199f590
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543105"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943336"
 ---
 # <a name="azure-hdinsight-cluster-creation-errors"></a>Azure HDInsight: Erros de criação de cluster
 
@@ -24,7 +23,7 @@ Este artigo descreve resoluções a erros que poderá encontrar ao criar cluster
 
 ## <a name="error-codedeploymentdocument-csmdocument_2_0-failed-the-validation"></a>Código de erro: O 'CsmDocument_2_0' de implementação falhou na validação
 
-**Erro** : "O local de ação do script não pode ser acedido uri: \<SCRIPT ACTION URL\> "
+**Erro**: "O local de ação do script não pode ser acedido uri: \<SCRIPT ACTION URL\> "
 
 ### <a name="error-message-1"></a>Mensagem de erro 1
 
@@ -161,7 +160,7 @@ Não forneceu as permissões necessárias para gerir a identidade. A identidade 
 
 1. Abra o portal do Azure.
 1. Vá para a sua conta de armazenamento.
-1. Procure no **Controlo de Acesso (IAM)** .
+1. Procure no **Controlo de Acesso (IAM)**.
 1. Certifique-se de que o utilizador tem a função de Contribuinte de Dados blob de armazenamento ou a função de Proprietário de Dados blob de armazenamento que lhes foi atribuída.
 
 Para obter mais informações, consulte [configurar permissões para a identidade gerida na conta da Data Lake Storage Gen2.](hdinsight-hadoop-use-data-lake-storage-gen2.md)
@@ -220,7 +219,7 @@ Se estiver a utilizar o grupo de segurança de rede VNet personalizado (NSGs) e 
 
 ---
 
-## <a name="error-code-deployments-failed-due-to-policy-violation-resource-resource-uri-was-disallowed-by-policy-policy-identifiers-policyassignmentnamepolicy-name-idprovidersmicrosoftmanagementmanagementgroupsmanagement-group-name-providersmicrosoftauthorizationpolicyassignmentspolicy-namepolicydefinition-policy-definition"></a>Código de erro: As implementações falharam devido à violação da política: 'Recurso' <Resource URI> foi proibido pela política. Identificadores de política: <Policy Name> "[{"policyAssignment":{"name":"""""""""id":"/providers/Microsoft.Management/managementGroups/providers/Microsoft.Authorization/policyAssignments/ <Management Group Name> <Policy Name> "}"policyDefinition": <Policy Definition>
+## <a name="error-code-deployments-failed-due-to-policy-violation-resource-resource-uri-was-disallowed-by-policy-policy-identifiers-policyassignmentnamepolicy-name-idprovidersmicrosoftmanagementmanagementgroupsmanagement-group-name-providersmicrosoftauthorizationpolicyassignmentspolicy-namepolicydefinition-policy-definition"></a>Código de erro: As implementações falharam devido à violação da política: 'Recurso' <Resource URI> foi proibido pela política. Identificadores de política: <Policy Name> "[{"policyAssignment":{"name":""id":"/providers/Microsoft.Management/managementGroups/providers/Microsoft.Authorization/policyAssignments/ <Management Group Name> <Policy Name> "}"policyDefinition": <Policy Definition>
 
 ### <a name="cause"></a>Causa
 
@@ -238,6 +237,6 @@ Elimine ou desative a atribuição da Política Azure baseada em subscrições e
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre erros de resolução de problemas na criação de [clusters, consulte falhas de criação de clusters de resolução de problemas com Azure HDInsight](./hadoop/hdinsight-troubleshoot-cluster-creation-fails.md).

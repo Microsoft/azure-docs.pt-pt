@@ -5,25 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/19/2021
+ms.date: 01/27/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9442489efd2a84ac8a31dfb2efb5718e1fd4f594
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 112ad0714c84cd3be08788b3277f52372f6d0373
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621798"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938464"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Registo combinado de informações de segurança para a visão geral do Azure Ative Directory
 
 Antes do registo combinado, os utilizadores registaram métodos de autenticação para autenticação multi-factor Azure AD e autosserviço de autosserviço reset (SSPR) separadamente. As pessoas confundiram-se com o facto de métodos semelhantes terem sido usados para autenticação multi-factor e SSPR, mas tiveram de se registar para ambas as funcionalidades. Agora, com o registo combinado, os utilizadores podem registar-se uma vez e obter os benefícios tanto da Autenticação Multi-Factor como da SSPR.
 
 > [!NOTE]
-> A partir de 15 de agosto de 2020, todos os novos inquilinos da AD Azure serão automaticamente habilitados para o registo combinado. A partir de 14 de dezembro de 2020, todos os inquilinos da AZure AD com um utilizador serão automaticamente habilitados para registo combinado.
+> A partir de 15 de agosto de 2020, todos os novos inquilinos da AD Azure serão automaticamente habilitados para o registo combinado. 
 
 Este artigo descreve o que é o registo de segurança combinado. Para começar com o registo combinado de segurança, consulte o seguinte artigo:
 
@@ -53,16 +53,16 @@ O registo combinado suporta os seguintes métodos e ações de autenticação:
 
 | Método | Registar | Alterar | Eliminar |
 | --- | --- | --- | --- |
-| Microsoft Authenticator | Sim (máximo de 5) | Não | Sim |
-| Outra aplicação autenticadora | Sim (máximo de 5) | Não | Sim |
-| Ficha de hardware | Não | Não | Sim |
-| Telefone | Sim | Sim | Sim |
-| Telefone alternativo | Sim | Sim | Sim |
-| Telefone do escritório | Sim | Sim | Sim |
-| E-mail | Sim | Sim | Sim |
-| Perguntas de segurança | Sim | Não | Sim |
-| Palavras-passe da aplicação | Sim | Não | Sim |
-| Chaves de segurança FIDO2<br />*Modo gerido apenas a partir da página [de informações de Segurança](https://mysignins.microsoft.com/security-info)*| Sim | Sim | Sim |
+| Microsoft Authenticator | Sim (máximo de 5) | No | Yes |
+| Outra aplicação autenticadora | Sim (máximo de 5) | No | Yes |
+| Ficha de hardware | No | No | Yes |
+| Telefone | Yes | Yes | Yes |
+| Telefone alternativo | Yes | Yes | Yes |
+| Telefone do escritório | Yes | Yes | Yes |
+| E-mail | Yes | Yes | Yes |
+| Perguntas de segurança | Yes | No | Yes |
+| Palavras-passe da aplicação | Yes | No | Yes |
+| Chaves de segurança FIDO2<br />*Modo gerido apenas a partir da página [de informações de Segurança](https://mysignins.microsoft.com/security-info)*| Yes | Yes | Yes |
 
 > [!NOTE]
 > As palavras-passe da aplicação estão disponíveis apenas para utilizadores que tenham sido aplicados para autenticação multi-factor. As palavras-passe da aplicação não estão disponíveis para utilizadores que estejam habilitados para autenticação multi-factor através de uma política de Acesso Condicional.
@@ -140,7 +140,7 @@ Um utilizador que já criou pelo menos um método navega para [https://aka.ms/my
 
 Um utilizador que já criou pelo menos um método que pode ser utilizado para a autenticação multi-factor para [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) . O utilizador altera o método de predefinição atual para um método padrão diferente. Quando terminado, o utilizador vê o novo método predefinido na página de informações de Segurança.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para começar, consulte os tutoriais para permitir o [reset da palavra-passe de autosserviço](tutorial-enable-sspr.md) e [ativar a autenticação multi-factor AD Azure](tutorial-enable-azure-mfa.md).
 

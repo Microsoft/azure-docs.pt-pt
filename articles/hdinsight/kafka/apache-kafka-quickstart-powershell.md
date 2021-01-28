@@ -1,19 +1,16 @@
 ---
 title: 'Quickstart: Criar Apache Kafka com Azure PowerShell - HDInsight'
 description: Neste guia de início rápido, irá aprender a criar um cluster do Apache Kafka no Azure HDInsight com o Azure PowerShell. Também irá saber mais sobre tópicos, subscritores e consumidores do Kafka.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: 57cbfa356961aca778032b6e3552cffb88b6ab3d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 74fa512711dfb9226fcc88d949f5ddfeb0f9812b
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533007"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942621"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-powershell"></a>Quickstart: Criar cluster Apache Kafka em Azure HDInsight usando PowerShell
 
@@ -33,7 +30,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 * O Módulo PowerShell [Az](/powershell/azure/) instalado.
 
-* Um cliente SSH. Para obter mais informações, consulte [Connect to HDInsight (Apache Hadoop) utilizando SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* Um cliente SSH. Para obter mais informações, veja [Ligar ao HDInsight (Apache Hadoop) através de SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -232,15 +229,15 @@ Nesta secção, obtém-se a informação do anfitrião da API Apache Ambari REST
 
 ## <a name="manage-apache-kafka-topics"></a>Gerir tópicos do Apache Kafka
 
-O Kafka armazena fluxos de dados em *tópicos* . Pode utilizar o utilitário `kafka-topics.sh` para gerir os tópicos.
+O Kafka armazena fluxos de dados em *tópicos*. Pode utilizar o utilitário `kafka-topics.sh` para gerir os tópicos.
 
-* **Para criar um tópico** , utilize o seguinte comando na ligação SSH:
+* **Para criar um tópico**, utilize o seguinte comando na ligação SSH:
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS
     ```
 
-    Este comando liga ao Zookeeper com as informações do anfitrião armazenadas em `$KAFKAZKHOSTS`. Em seguida, cria um tópico do Kafka denominado **teste** . 
+    Este comando liga ao Zookeeper com as informações do anfitrião armazenadas em `$KAFKAZKHOSTS`. Em seguida, cria um tópico do Kafka denominado **teste**. 
 
     * Os dados armazenados neste tópico estão particionados em oito partições.
 
@@ -262,7 +259,7 @@ O Kafka armazena fluxos de dados em *tópicos* . Pode utilizar o utilitário `ka
 
         * Aumentar verticalmente um cluster
 
-* **Para listar os tópicos** , utilize o seguinte comando:
+* **Para listar os tópicos**, utilize o seguinte comando:
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $KAFKAZKHOSTS
@@ -270,7 +267,7 @@ O Kafka armazena fluxos de dados em *tópicos* . Pode utilizar o utilitário `ka
 
     Este comando apresenta uma lista de tópicos disponíveis no cluster do Kafka.
 
-* **Para eliminar um tópico** , utilize o seguinte comando:
+* **Para eliminar um tópico**, utilize o seguinte comando:
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --topic topicname --zookeeper $KAFKAZKHOSTS
@@ -289,7 +286,7 @@ Para obter mais informações sobre os comandos disponíveis com o utilitário `
 
 ## <a name="produce-and-consume-records"></a>Produzir e consumir registos
 
-O Kafka armazena *registos* nos tópicos. Os registos são produzidos por *produtores* e consumidos por *consumidores* . Os produtores e consumidores comunicam com o serviço do *mediador do Kafka* . Cada nó de trabalho no cluster do HDInsight é um anfitrião do mediador do Kafka.
+O Kafka armazena *registos* nos tópicos. Os registos são produzidos por *produtores* e consumidos por *consumidores*. Os produtores e consumidores comunicam com o serviço do *mediador do Kafka*. Cada nó de trabalho no cluster do HDInsight é um anfitrião do mediador do Kafka.
 
 Utilize os seguintes passos para armazenar os registos no tópico de teste criado anteriormente e, em seguida, leia-os através de um consumidor:
 
@@ -330,7 +327,7 @@ Remove-AzResourceGroup -Name $resourceGroup
 > 
 > Eliminar um cluster do Kafka no HDInsight elimina quaisquer dados armazenados no Kafka.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Use a Faísca Apache com Apache Kafka](../hdinsight-apache-kafka-spark-structured-streaming.md)

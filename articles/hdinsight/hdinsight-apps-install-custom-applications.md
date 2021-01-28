@@ -1,19 +1,16 @@
 ---
 title: Instale as suas aplicações personalizadas Apache Hadoop no Azure HDInsight
 description: Saiba como instalar aplicações HDInsight para clusters Apache Hadoop em Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: dca248d217f4fb90d41c0a98a42b5eda4783913f
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: 9591551b7d5657803e770bd71b47acb141b40fb6
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825219"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942690"
 ---
 # <a name="install-custom-apache-hadoop-applications-on-azure-hdinsight"></a>Instale aplicações personalizadas da Apache Hadoop no Azure HDInsight
 
@@ -139,7 +136,7 @@ Se uma instalação de aplicação falhar, pode ver as mensagens de erro e depur
 az hdinsight application delete --name NAME --cluster-name CLUSTERNAME --resource-group RESOURCEGROUP
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [MSDN: instalar uma aplicação do HDInsight](/rest/api/hdinsight/hdinsight-application): saiba como desenvolver modelos do Azure Resource Manager para a implementação de aplicações do HDInsight.
 * [Instalar aplicações HDInsight](hdinsight-apps-install-applications.md): Saiba como instalar aplicações HDInsight nos clusters.

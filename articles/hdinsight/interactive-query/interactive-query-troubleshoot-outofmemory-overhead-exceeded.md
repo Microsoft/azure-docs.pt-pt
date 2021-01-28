@@ -3,16 +3,13 @@ title: Junta-se à Colmeia Apache leva a erro outOfMemory - Azure HDInsight
 description: Lidar com erros outOfMemory "Limite de sobrecarga GC ultrapassado erro"
 ms.service: hdinsight
 ms.topic: troubleshooting
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.date: 07/30/2019
-ms.openlocfilehash: c227758e31b3b17768b8140475872245b2f34e52
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 0c396cde38d8cba8e1f3eaf8527429647868a0c8
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92532956"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98935952"
 ---
 # <a name="scenario-joins-in-apache-hive-leads-to-an-outofmemory-error-in-azure-hdinsight"></a>Cenário: Junta-se à Colmeia Apache leva a um erro outOfMemory em Azure HDInsight
 
@@ -38,7 +35,7 @@ Evite que a Colmeia carrene as tabelas na memória em juntas (em vez de executar
 hive.auto.convert.join=false
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se a definição deste valor não resolveu o seu problema, visite um dos seguintes...
 

@@ -3,17 +3,16 @@ title: Criar Azure HDInsight - Azure Data Lake Storage Gen2 - portal
 description: Aprenda a usar o Azure Data Lake Storage Gen2 com clusters Azure HDInsight usando o portal.
 author: guyhay
 ms.author: guyhay
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 09/17/2020
-ms.openlocfilehash: 104424c1e3bd1df69106db7da45b744755b51e82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d54c005ffb17571be172b5716723febb742253a3
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91858796"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945389"
 ---
 # <a name="create-a-cluster-with-data-lake-storage-gen2-using-the-azure-portal"></a>Criar um cluster com data lake storage gen2 usando o portal Azure
 
@@ -96,7 +95,7 @@ Consulte [Eliminar um cluster HDInsight utilizando o seu navegador, PowerShell o
 
 Caso se depare com problemas com a criação de clusters do HDInsight, veja [aceder aos requisitos de controlo](./hdinsight-hadoop-customize-cluster-linux.md#access-control).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Criou com sucesso um cluster HDInsight. Agora aprende a trabalhar com o teu grupo.
 

@@ -2,18 +2,15 @@
 title: Analise Azure Data Lake Storage Gen1 com HDInsight Apache Spark
 description: Executar empregos apache spark para analisar dados armazenados em Azure Data Lake Storage Gen1
 ms.service: hdinsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/13/2019
-ms.openlocfilehash: 42b9958678c76c1d0eed67cc9d97361c84f1dea9
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: ad8239b3403d37a9e4c79de481fb9cb26306e243
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97821167"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946335"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-storage-gen1"></a>Use o cluster HDInsight Spark para analisar dados na Data Lake Storage Gen1
 
@@ -141,7 +138,7 @@ Se criou um cluster HDInsight com o Data Lake Storage como armazenamento adicion
 8. Depois de terminar a execução da aplicação, deve encerrar o bloco de notas para libertar os recursos. Para o fazer, no menu **Ficheiro** do bloco de notas, clique em **Fechar e Parar**. Deste modo, o bloco de notas é encerrado e fechado.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Crie uma aplicação Scala autónoma para executar no cluster Apache Spark](apache-spark-create-standalone-application.md)
 * [Utilize ferramentas HDInsight em Azure Toolkit para IntelliJ para criar aplicações Apache Spark para cluster HDInsight Spark Linux](apache-spark-intellij-tool-plugin.md)

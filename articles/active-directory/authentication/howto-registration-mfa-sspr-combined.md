@@ -5,25 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 12/04/2020
+ms.date: 01/27/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29a577b50a561cb5b829e453c523e0bd18a70e1a
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: dcfaef2f518028762958477a5b0d326acc237d1f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741682"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938444"
 ---
 # <a name="enable-combined-security-information-registration-in-azure-active-directory"></a>Permitir o registo combinado de informações de segurança no Azure Ative Directory
 
 Antes do registo combinado, os utilizadores registaram métodos de autenticação para autenticação multi-factor Azure AD e autosserviço de autosserviço reset (SSPR) separadamente. As pessoas confundiram-se com o facto de métodos semelhantes terem sido usados para autenticação multi-factor Azure AD e SSPR, mas tiveram de se registar para ambas as funcionalidades. Agora, com o registo combinado, os utilizadores podem registar-se uma vez e obter os benefícios tanto da Autenticação Multi-Factor AD Azure como da SSPR.
 
 > [!NOTE]
-> A partir de 15 de agosto de 2020, todos os novos inquilinos da AD Azure serão automaticamente habilitados para o registo combinado. A partir de 14 de dezembro de 2020, todos os inquilinos da AZure AD com um utilizador serão automaticamente habilitados para registo combinado.
+> A partir de 15 de agosto de 2020, todos os novos inquilinos da AD Azure serão automaticamente habilitados para o registo combinado. 
 
 Para se certificar de que compreende a funcionalidade e os efeitos antes de ativar a nova experiência, consulte os [conceitos combinados de registo de informações de segurança.](concept-registration-mfa-sspr-combined.md)
 
@@ -34,7 +34,7 @@ Para se certificar de que compreende a funcionalidade e os efeitos antes de ativ
 Para permitir o registo combinado, complete estes passos:
 
 1. Inscreva-se no portal Azure como administrador de utilizador ou administrador global.
-2. Vá às definições do Utilizador **do Diretor Ativo Azure**  >  **User settings**  >  **Gerir as definições de pré-visualização da funcionalidade do utilizador**.
+2. Vá às definições do Utilizador **do Diretor Ativo Azure**  >    >  **Gerir as definições de pré-visualização da funcionalidade do utilizador**.
 3. No âmbito **do Utilizadores pode utilizar a experiência de registo de informações de segurança combinada,** opte por ativar um grupo **selecionado** de utilizadores ou para **todos os** utilizadores.
 
    ![Ativar a experiência de informação de segurança combinada para os utilizadores](media/howto-registration-mfa-sspr-combined/enable-the-combined-security-info.png)
@@ -65,7 +65,7 @@ Para obter mais informações sobre a criação de localizações fidedignas no 
 
 Preencha as seguintes etapas para criar uma política que se aplique a todos os utilizadores selecionados que tentem registar-se utilizando a experiência de registo combinado, e bloqueie o acesso a menos que estejam a ligar-se a partir de um local marcado como rede fidedigna:
 
-1. No **portal Azure,** navegue pelo **Azure Ative Directory**  >  **Security**  >  **Security Conditional Access**.
+1. No **portal Azure,** navegue pelo **Azure Ative Directory**  >    >  **Security Conditional Access**.
 1. Selecione **+ Nova política**.
 1. Introduza um nome para esta política, como *Registo de Informações de Segurança Combinadas em Redes Fidedignas*.
 1. Em **Atribuições**, selecione **Utilizadores e grupos**. Escolha os utilizadores e grupos a que pretende que esta política se aplique e, em seguida, selecione **Fazer**.
@@ -86,7 +86,7 @@ Preencha as seguintes etapas para criar uma política que se aplique a todos os 
 1. Defina **Ativar política** como **Ativado**.
 1. Para finalizar a política, **selecione Criar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se precisar de ajuda, consulte o [registo combinado de informações de segurança combinadas](howto-registration-mfa-sspr-combined-troubleshoot.md) ou saiba [qual é a condição de localização no Acesso Condicional AD Azure?](../conditional-access/location-condition.md)
 

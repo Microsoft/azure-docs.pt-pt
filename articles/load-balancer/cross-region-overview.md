@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: fb03d0f8c2dc1f3812d417bc5a5d49857f3c1051
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 89bf920a5a5dd833425f1b41bd206beaae9d30fd
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737681"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946253"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Balanceador de carga transversal (Pré-visualização)
 
@@ -142,6 +142,8 @@ O balançador de carga transversal encaminha o tráfego para o equilibrador regi
 * As configurações IP frontend IPv6 de região cruzada não são suportadas. 
 
 * Uma sonda de saúde não pode ser configurada atualmente. Uma sonda de saúde predefinida recolhe automaticamente informações de disponibilidade sobre o balançador regional de carga a cada 20 segundos. 
+
+* A Azure kubernetes Service (AKS) não pode atualmente ser integrado com o Balancer de Carga cross-region. A perda de conectividade deve ser esperada ao criar um Balanceador de Carga cross-region em frente a um Balanceador de Carga Pública implantado com AKS.
 
 ## <a name="pricing-and-sla"></a>Preços e SLA
 Balanceador de carga transversal, partilha o [SLA](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/ ) do balanceador de carga padrão.

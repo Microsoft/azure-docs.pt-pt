@@ -1,19 +1,16 @@
 ---
 title: Executar consultas da Base Apache em Azure HDInsight com Apache Phoenix
 description: Aprenda a usar Apache Zeppelin para executar consultas da Base Apache com Phoenix.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 10/14/2019
-ms.openlocfilehash: e85226e7a2544cda01f40a1c1be6be32f11d9dfc
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 50a72d0400b23162e05b17b37bdad48783261072
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92542799"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944763"
 ---
 # <a name="use-apache-zeppelin-to-run-apache-phoenix-queries-over-apache-hbase-in-azure-hdinsight"></a>Use Apache Zeppelin para executar apaches Phoenix consultas sobre Apache HBase em Azure HDInsight
 
@@ -40,13 +37,13 @@ Um aglomerado Apache HBase em HDInsight. Ver [Começar com Apache HBase](./apach
     - Nota: Introduza um nome para a nota.
     - Intérprete predefinido: Selecione **jdbc** da lista de drop-down.
 
-    Em seguida, **selecione Criar Nota** .
+    Em seguida, **selecione Criar Nota**.
 
 1. Certifique-se de que o cabeçalho do caderno mostra um estado ligado. É denotado por um ponto verde no canto superior direito.
 
     ![Estado do caderno zeppelin](./media/apache-hbase-phoenix-zeppelin/hbase-zeppelin-connected.png "Estado do caderno zeppelin")
 
-1. Crie uma tabela HBase. Introduza o seguinte comando e, em seguida, prima **Shift + Enter** :
+1. Crie uma tabela HBase. Introduza o seguinte comando e, em seguida, prima **Shift + Enter**:
 
     ```sql
     %jdbc(phoenix)
@@ -96,7 +93,7 @@ Um aglomerado Apache HBase em HDInsight. Ver [Começar com Apache HBase](./apach
     DROP TABLE dbo.Company;
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Apache Phoenix agora apoia Zeppelin em Azure HDInsight](/archive/blogs/ashish/apache-phoenix-now-supports-zeppelin-in-azure-hdinsight)
 - [Gramática de Apache Phoenix](https://phoenix.apache.org/language/index.html)

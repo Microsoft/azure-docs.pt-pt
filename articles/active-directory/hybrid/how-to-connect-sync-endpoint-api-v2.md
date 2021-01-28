@@ -12,12 +12,12 @@ ms.date: 12/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0067ed618f95e7f83fc041fe214bbc4d715a504f
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: 0ecfd277f2cc86102d59b201e7b43fa8519bdd3a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567623"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937610"
 ---
 # <a name="azure-ad-connect-sync-v2-endpoint-api"></a>API de ponto final do Azure AD Connect sync V2 
 A Microsoft implementou um novo ponto final (API) para o Azure AD Connect que melhora o desempenho das operações de serviço de sincronização para o Azure Ative Directory. Utilizando o novo ponto final V2, irá experimentar ganhos de desempenho notáveis na exportação e importação para a Azure AD. Este novo ponto final suporta o seguinte:
@@ -176,9 +176,9 @@ Se tiver ativado o ponto final v2 e precisar de ser revoado, siga estes passos:
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes  
  
 **Quando é que o novo ponto final se tornará o padrão para upgrades e novas instalações?**  
-</br>Estamos a planear um novo lançamento do AADConnect para download em janeiro de 2021. Esta versão utilizará o ponto de final V2 por predefinição e permitirá a sincronização de grupos maiores do que 50K sem qualquer configuração adicional. A versão THis será posteriormente publicada para upgrade automático para servidores elegíveis.
+</br>Estamos a planear um novo lançamento do AADConnect para download em fevereiro de 2021. Esta versão utilizará o ponto de final V2 por predefinição e permitirá a sincronização de grupos maiores do que 50K sem qualquer configuração adicional. Esta versão será posteriormente publicada para atualização automática para servidores elegíveis.
  
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Azure AD Connect sync: Entenda e personalize a sincronização](how-to-connect-sync-whatis.md)
 * [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md)

@@ -1,19 +1,16 @@
 ---
 title: Consultar dados a partir do armazenamento do Azure compatível com HDFS - Azure HDInsight
 description: Saiba como consultar dados do armazenamento Azure e do Azure Data Lake Storage para armazenar os resultados da sua análise.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: ead9b775b8c61d0d89abd4821bef2b1aaaea0d76
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: cedc0ff1b3c2aa64f32445eabc800748a753981d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547440"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945435"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Utilizar o armazenamento do Azure com clusters do Azure HDInsight
 
@@ -31,9 +28,9 @@ Neste artigo, ficará a saber como o Armazenamento do Azure funciona com cluster
 
 | Tipo de conta de armazenamento | Serviços suportados | Níveis de desempenho suportados |Níveis de desempenho não suportados| Níveis de acesso suportados |
 |----------------------|--------------------|-----------------------------|---|------------------------|
-| StorageV2 (fins gerais v2)  | Blob     | Standard                    |Premium| Quente, Fresco, Arquivo\*   |
-| Armazenamento (v1 de fins gerais)   | Blob     | Standard                    |Premium| N/D                    |
-| BlobStorage                    | Blob     | Standard                    |Premium| Quente, Fresco, Arquivo\*   |
+| StorageV2 (fins gerais v2)  | Blobs     | Standard                    |Premium| Quente, Fresco, Arquivo\*   |
+| Armazenamento (v1 de fins gerais)   | Blobs     | Standard                    |Premium| N/D                    |
+| BlobStorage                    | Blobs     | Standard                    |Premium| Quente, Fresco, Arquivo\*   |
 
 Não recomendamos que utilize o recipiente de bolhas predefinidos para armazenar dados de negócio. Eliminar o contentor de blobs predefinido depois de cada utilização para reduzir o custo de armazenamento é uma prática recomendada. O recipiente predefinido contém registos de aplicações e sistemas. Certifique-se de que obtém os registos antes de eliminar o contentor.
 
@@ -46,21 +43,21 @@ A partilha de um recipiente blob como o sistema de ficheiros predefinidos para v
 
 Existem várias formas de aceder aos ficheiros no Armazenamento do Lago de Dados a partir de um cluster HDInsight. O regime URI proporciona acesso não encriptado (com o *wasb:* prefixo) e acesso encriptado TLS (com *wasbs).* Recomendamos a utilização de *wasbs* sempre que possível, mesmo ao aceder a dados que se encontrem dentro da mesma região no Azure.
 
-* **Utilizar o nome completamente qualificado** . Com esta abordagem, fornece o caminho completo para o ficheiro ao qual pretende aceder.
+* **Utilizar o nome completamente qualificado**. Com esta abordagem, fornece o caminho completo para o ficheiro ao qual pretende aceder.
 
     ```
     wasb://<containername>@<accountname>.blob.core.windows.net/<file.path>/
     wasbs://<containername>@<accountname>.blob.core.windows.net/<file.path>/
     ```
 
-* **Utilizando o formato de caminho abreviado** . Com esta abordagem, você substitui o caminho até a raiz do cluster com:
+* **Utilizando o formato de caminho abreviado**. Com esta abordagem, você substitui o caminho até a raiz do cluster com:
 
     ```
     wasb:///<file.path>/
     wasbs:///<file.path>/
     ```
 
-* **Utilizar o caminho relativo** . Com esta abordagem, fornece apenas o caminho relativo para o ficheiro ao qual pretende aceder.
+* **Utilizar o caminho relativo**. Com esta abordagem, fornece apenas o caminho relativo para o ficheiro ao qual pretende aceder.
 
     ```
     /<file.path>/
@@ -166,7 +163,7 @@ Ao criar um cluster do HDInsight, especifica a conta de armazenamento do Azure q
 > [!WARNING]  
 > Não é suportado utilizar uma conta de armazenamento adicional numa localização diferente do cluster do HDInsight.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu a utilizar o armazenamento do Azure compatível com HDFS através do HDInsight. Este armazenamento permite-lhe construir soluções de aquisição de dados adaptáveis, a longo prazo, arquivando soluções de aquisição de dados e utilizar o HDInsight para desbloquear a informação dentro dos dados estruturados e não estruturados armazenados.
 

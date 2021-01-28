@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 7d34039a5d56feb42473b1a2b24def5244ec3e04
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 984b85ff831146060f1642b9eeec7079ff966db3
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756135"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937835"
 ---
 # <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>Tutorial: Construa um daemon multi-inquilino que usa a plataforma de identidade da Microsoft
 
@@ -109,7 +109,7 @@ Se não quiser utilizar a automatização, utilize os passos nas seguintes secç
 1. Selecione **Registar** para criar a aplicação.
 1. Na **página** geral da aplicação, encontre o valor de **ID da Aplicação (cliente)** e grave-o para utilização posterior. Vai precisar dele para configurar o ficheiro de configuração do Estúdio Visual para este projeto.
 1. Em **Gestão**, **selecione Autenticação**.
-1. Desatado **URL de logout** para `https://localhost:44316/Account/EndSession` .
+1. Desa estação **URL de logotipo do canal** frontal para `https://localhost:44316/Account/EndSession` .
 1. Na secção **de concessão implícita,** selecione **Tokens de acesso** e **fichas de identificação**. Esta amostra requer que o [fluxo de subvenção implícito](v2-oauth2-implicit-grant-flow.md) seja habilitado a assinar no utilizador e a chamar uma API.
 1. Selecione **Guardar**.
 1. Em **Gerir**, selecione **Certificados e segredos**.
@@ -227,7 +227,7 @@ O Visual Studio publicará o projeto e abrirá automaticamente um navegador para
 1. Volte para o <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure.</a>
 1. No painel esquerdo, selecione o serviço **Azure Ative Directory** e, em seguida, selecione **registos de Aplicações**.
 1. Selecione a aplicação **dotnet-web-daemon-v2.**
-1. Na página **autenticação** para a sua aplicação, atualize os campos URL do **Logoto** com o endereço do seu serviço. Por exemplo, usar `https://dotnet-web-daemon-v2-contoso.azurewebsites.net` .
+1. Na página **autenticação** para a sua aplicação, atualize os campos **URL de logotipo do canal frontal** com o endereço do seu serviço. Por exemplo, usar `https://dotnet-web-daemon-v2-contoso.azurewebsites.net/Account/EndSession` .
 1. A partir do menu **Branding,** atualize o **URL da página inicial** para o endereço do seu serviço. Por exemplo, usar `https://dotnet-web-daemon-v2-contoso.azurewebsites.net` .
 1. Guarde a configuração.
 1. Adicione o mesmo URL na lista de valores do menu  >  **URIs de redirecionamento de** autenticação. Se tiver urLs de redirecionamento múltiplo, certifique-se de que há uma nova entrada que utiliza o URI do serviço de aplicações para cada URL de redirecionamento.

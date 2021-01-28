@@ -1,19 +1,16 @@
 ---
 title: Analise os dados do Twitter com a Apache Hive - Azure HDInsight
 description: Aprenda a usar Apache Hive e Apache Hadoop em HDInsight para transformar dados de TWitter crus numa tabela de Colmeia pesmável.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.date: 12/16/2019
-ms.openlocfilehash: fe511ed2d6b724c1215f9986c9d6c50aae076935
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 74a18be37608b2ac0c8a64655fa833753111706a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95971914"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942781"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-and-apache-hadoop-on-hdinsight"></a>Analise os dados do Twitter usando Apache Hive e Apache Hadoop em HDInsight
 
@@ -308,7 +305,7 @@ Estes comandos armazenam os dados num local a que todos os nós do cluster podem
     > [!NOTE]  
     > Se tiver mudado o filtro no `gettweets.py` script, substitua **o Azure** por um dos filtros utilizados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Aprendeste a transformar um conjunto de dados JSON não estruturado numa estrutura da tabela [da Colmeia Apache.](https://hive.apache.org/) Para saber mais sobre a Colmeia em HDInsight, consulte os seguintes documentos:
 

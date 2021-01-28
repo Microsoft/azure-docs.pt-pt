@@ -1,19 +1,16 @@
 ---
 title: Use data lake storage Gen1 com Hadoop em Azure HDInsight
 description: Saiba como consultar os dados da Azure Data Lake Storage Gen1 e armazenar os resultados da sua análise.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: 5949bab7bdf11b11e0ff71f9054098ed83d95ab4
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 35941f585a0ae5c0d3915c769db5b18737b299f0
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92539841"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945407"
 ---
 # <a name="use-data-lake-storage-gen1-with-azure-hdinsight-clusters"></a>Use data lake storage Gen1 com clusters Azure HDInsight
 
@@ -62,7 +59,7 @@ Quando o HDInsight é implementado com o Data Lake Storage Gen1 como armazenamen
 * Cluster1 pode utilizar o caminho `adl://mydatalakestore/cluster1storage`
 * Cluster2 pode utilizar o caminho `adl://mydatalakestore/cluster2storage`
 
-Note que ambos os clusters usam a mesma conta de armazenamento de dados Da Gen1 **mydatalakestore** . Cada cluster tem acesso ao seu próprio sistema de ficheiros raiz no Armazenamento do Lago de Dados. A experiência de implantação do portal Azure leva-o a utilizar um nome de pasta como **/clusters/ \<clustername>** para o caminho da raiz.
+Note que ambos os clusters usam a mesma conta de armazenamento de dados Da Gen1 **mydatalakestore**. Cada cluster tem acesso ao seu próprio sistema de ficheiros raiz no Armazenamento do Lago de Dados. A experiência de implantação do portal Azure leva-o a utilizar um nome de pasta como **/clusters/ \<clustername>** para o caminho da raiz.
 
 Para utilizar a Data Lake Storage Gen1 como armazenamento predefinido, deve conceder ao serviço acesso principal aos seguintes caminhos:
 
@@ -137,19 +134,19 @@ Para obter mais informações sobre o modelo de controlo de acesso, consulte o [
 
 Existem várias formas de aceder aos ficheiros no Armazenamento do Lago de Dados a partir de um cluster HDInsight.
 
-* **Utilizar o nome completamente qualificado** . Com esta abordagem, fornece o caminho completo para o ficheiro ao qual pretende aceder.
+* **Utilizar o nome completamente qualificado**. Com esta abordagem, fornece o caminho completo para o ficheiro ao qual pretende aceder.
 
     ```
     adl://<data_lake_account>.azuredatalakestore.net/<cluster_root_path>/<file_path>
     ```
 
-* **Utilizando o formato de caminho abreviado** . Com esta abordagem, você substitui o caminho até a raiz do cluster com:
+* **Utilizando o formato de caminho abreviado**. Com esta abordagem, você substitui o caminho até a raiz do cluster com:
 
     ```
     adl:///<file path>
     ```
 
-* **Utilizar o caminho relativo** . Com esta abordagem, fornece apenas o caminho relativo para o ficheiro ao qual pretende aceder.
+* **Utilizar o caminho relativo**. Com esta abordagem, fornece apenas o caminho relativo para o ficheiro ao qual pretende aceder.
 
     ```
     /<file.path>/
@@ -299,7 +296,7 @@ Invoke-AzResourceAction `
     -Force
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, você aprendeu a usar Azure Data Lake Storage Gen1 compatível com HDFS com HDInsight. Este armazenamento permite-lhe construir soluções de aquisição de dados adaptáveis, a longo prazo, arquivando soluções de aquisição de dados. E use o HDInsight para desbloquear a informação dentro dos dados estruturados e não estruturados armazenados.
 

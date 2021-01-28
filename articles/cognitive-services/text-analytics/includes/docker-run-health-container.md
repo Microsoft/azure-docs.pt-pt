@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 11/12/2020
 ms.author: aahi
-ms.openlocfilehash: 82c33c038a1f8eaba540c9906efcffa0a9214762
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: af8fec56c32b52e2af584e59f08db6cc7129c9c5
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98689758"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98947276"
 ---
 ## <a name="install-the-container"></a>Instale o recipiente
 
@@ -112,7 +112,7 @@ az webapp config appsettings set -g $resource_group_name -n $appservice_name --s
 
 Também pode utilizar uma Instância de Contentores Azure (ACI) para facilitar a implantação. O ACI é um recurso que permite executar contentores Docker a pedido num ambiente Azure gerido e sem servidor. 
 
-Veja [como utilizar as instâncias do contentor Azure](../how-tos/text-analytics-how-to-use-container-instances.md) para etapas na implantação de um recurso ACI utilizando o portal Azure. Também pode utilizar o script abaixo do PowerShell utilizando o Azure CLI, que criará um ACI na sua subscrição utilizando a imagem do recipiente.  Aguarde que o script esteja completo (aproximadamente 25-30 minutos) antes de submeter o primeiro pedido.  Devido ao limite do número máximo de CPUs por recurso ACI, não selecione esta opção se espera submeter mais de 5 documentos grandes (aproximadamente 5000 caracteres cada) por pedido.
+Veja [como utilizar as instâncias do contentor Azure](../../containers/azure-container-instance-recipe.md) para etapas na implantação de um recurso ACI utilizando o portal Azure. Também pode utilizar o script abaixo do PowerShell utilizando o Azure CLI, que criará um ACI na sua subscrição utilizando a imagem do recipiente.  Aguarde que o script esteja completo (aproximadamente 25-30 minutos) antes de submeter o primeiro pedido.  Devido ao limite do número máximo de CPUs por recurso ACI, não selecione esta opção se espera submeter mais de 5 documentos grandes (aproximadamente 5000 caracteres cada) por pedido.
 Consulte o artigo de apoio regional da [ACI](../../../container-instances/container-instances-region-availability.md) para obter informações sobre a disponibilidade. 
 
 > [!NOTE] 
@@ -146,7 +146,7 @@ az container create --resource-group $resource_group_name --name $azure_containe
 Por predefinição, não existe qualquer garantia quando se utiliza a ACI com API de contentores. Isto porque normalmente os contentores funcionam como parte de uma cápsula que é protegida do exterior por uma ponte de rede. No entanto, pode modificar um recipiente com um componente frontal, mantendo o ponto final do recipiente em privado. Os exemplos a seguir usam [o NGINX](https://www.nginx.com) como porta de entrada para suportar a autenticação HTTPS/SSL e o certificado de cliente.
 
 > [!NOTE]
-> NGINX é um servidor HTTP de código aberto e de alto desempenho e procuração. Um recipiente NGINX pode ser utilizado para pôr termo a uma ligação TLS para um único recipiente. São também possíveis soluções de rescisão TLS baseadas em ingres em NGINX mais complexas.
+> NGINX é um servidor HTTP de código aberto e de alto desempenho e procuração. Um recipiente NGINX pode ser utilizado para pôr termo a uma ligação TLS para um único recipiente. São também possíveis soluções de rescisão TLS baseadas em ingresss em NGINX mais complexas.
 
 #### <a name="set-up-nginx-as-an-ingress-gateway"></a>Configurar o NGINX como um portal de entrada
 
@@ -213,4 +213,3 @@ docker-compose up
 ```
 
 Para mais informações, consulte a documentação da NGINX sobre a rescisão do [NGINX SSL](https://docs.nginx.com/nginx/admin-guide/security-controls/terminating-ssl-http/).
-

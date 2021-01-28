@@ -4,12 +4,12 @@ description: Configurar testes Web no Application Insights. Receber alertas se u
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 1b51c70dcebbfad5417a8478f4a956fb5d0608b1
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: b0f66608c6e0f23b861e207d0dea07a546b41c2a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98198667"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937413"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>Monitorize a disponibilidade de qualquer website
 
@@ -23,12 +23,12 @@ Existem três tipos de testes de disponibilidade:
 
 * [Teste de ping do URL](#create-a-url-ping-test): um teste simples que pode criar no Portal do Azure.
 * [Teste web em várias etapas](availability-multistep.md): Uma gravação de uma sequência de pedidos web, que pode ser reproduzida para testar cenários mais complexos. Os testes web em várias etapas são criados na Visual Studio Enterprise e enviados para o portal para execução.
-* [Testes de disponibilidade de faixas personalizadas](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability?view=azure-dotnet): Se decidir criar uma aplicação personalizada para realizar testes de disponibilidade, o `TrackAvailability()` método pode ser usado para enviar os resultados para o Application Insights.
+* [Testes de disponibilidade de faixas personalizadas](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability): Se decidir criar uma aplicação personalizada para realizar testes de disponibilidade, o `TrackAvailability()` método pode ser usado para enviar os resultados para o Application Insights.
 
 **Pode criar até 100 testes de disponibilidade por recurso Application Insights.**
 
 > [!IMPORTANT]
-> Ambos, [teste de URL ping](#create-a-url-ping-test) e teste web em [várias etapas](availability-multistep.md) dependem da infraestrutura pública de DNS da internet para resolver os nomes de domínio dos pontos finais testados. Isto significa que, se estiver a utilizar o DNS Privado, deve certificar-se de que todos os nomes de domínio do seu teste também são resolúveis pelos servidores de nomes de domínio público ou, quando não é possível, pode utilizar [testes de disponibilidade de faixas personalizadas.](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability?view=azure-dotnet)
+> Ambos, [teste de URL ping](#create-a-url-ping-test) e teste web em [várias etapas](availability-multistep.md) dependem da infraestrutura pública de DNS da internet para resolver os nomes de domínio dos pontos finais testados. Isto significa que, se estiver a utilizar o DNS Privado, deve certificar-se de que todos os nomes de domínio do seu teste também são resolúveis pelos servidores de nomes de domínio público ou, quando não é possível, pode utilizar [testes de disponibilidade de faixas personalizadas.](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability)
 
 ## <a name="create-an-application-insights-resource"></a>Criar um recurso do Application Insights
 
@@ -165,7 +165,7 @@ Além dos resultados brutos, pode também ver duas métricas chave de disponibil
 
 Artigo dedicado [à resolução de problemas.](troubleshoot-availability.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Alertas de Disponibilidade](availability-alerts.md)
 * [Testes Web com vários passos](availability-multistep.md)

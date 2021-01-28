@@ -1,19 +1,16 @@
 ---
 title: Executar Apache Hadoop MapReduce exemplos em HDInsight - Azure
 description: Começa a usar amostras do MapReduce em ficheiros de frascos incluídos no HDInsight. Use o SSH para ligar ao cluster e, em seguida, use o comando Hadoop para executar trabalhos de amostragem.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/12/2019
-ms.openlocfilehash: cc0918f3d9739a214e682d7faa460b6cc519cb0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e75a39b1f9e8503097914b0c9e735915f9ae667
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86207846"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943219"
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>Executar os exemplos MapReduce incluídos no HDInsight
 
@@ -25,7 +22,7 @@ Aprenda a executar os exemplos mapReduce incluídos com Apache Hadoop em HDInsig
 
 * Um aglomerado Apache Hadoop em HDInsight. Ver [Começar com HDInsight no Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
-* Um cliente SSH. Para obter mais informações, consulte [Connect to HDInsight (Apache Hadoop) utilizando SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* Um cliente SSH. Para obter mais informações, veja [Ligar ao HDInsight (Apache Hadoop) através de SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="the-mapreduce-examples"></a>Os exemplos mapReduce
 
@@ -212,7 +209,7 @@ Utilize os seguintes passos para gerar dados, classificar e, em seguida, validar
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teravalidate -Dmapred.map.tasks=50 -Dmapred.reduce.tasks=25 /example/data/10GB-sort-output /example/data/10GB-sort-validate
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 A partir deste artigo, aprendeu a executar as amostras incluídas com os clusters HDInsight baseados em Linux. Para tutoriais sobre a utilização de Porco, Colmeia e MapReduce com HDInsight, consulte os seguintes tópicos:
 

@@ -1,19 +1,16 @@
 ---
 title: 'Tutorial: Use R num contexto computo Spark em Azure HDInsight'
 description: Tutorial - Começa com r e faísca num cluster de serviços de machine learning Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/21/2019
-ms.openlocfilehash: 6e727bc7ad8b7f0b8a04c48f3abd1f1ac0806c66
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: bd6015529fb521e3b157e46ee808aea43e993dee
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545910"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98935669"
 ---
 # <a name="tutorial-use-r-in-a-spark-compute-context-in-azure-hdinsight"></a>Tutorial: Use R num contexto computo Spark em Azure HDInsight
 
@@ -33,7 +30,7 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um cluster de serviços de machine learning Azure HDInsight. Vá para [criar clusters Apache Hadoop utilizando o portal Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e, para o **tipo Cluster,** selecione **ML Services** .
+* Um cluster de serviços de machine learning Azure HDInsight. Vá para [criar clusters Apache Hadoop utilizando o portal Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e, para o **tipo Cluster,** selecione **ML Services**.
 
 ## <a name="connect-to-rstudio-server"></a>Ligar ao RStudio Server
 
@@ -43,7 +40,7 @@ O RStudio Server funciona no nó de borda do cluster. Vá ao seguinte site (onde
 https://CLUSTERNAME.azurehdinsight.net/rstudio/
 ```
 
-A primeira vez que entras, autenticas duas vezes. Na primeira instrução de autenticação, forneça o nome de utilizador e a palavra-passe do administrador do cluster (o padrão é *administrador).* Na segunda instrução de autenticação, forneça o nome de utilizador SSH e a palavra-passe (o padrão é *sshuser* ). Os inserções subsequentes requerem apenas as credenciais SSH.
+A primeira vez que entras, autenticas duas vezes. Na primeira instrução de autenticação, forneça o nome de utilizador e a palavra-passe do administrador do cluster (o padrão é *administrador).* Na segunda instrução de autenticação, forneça o nome de utilizador SSH e a palavra-passe (o padrão é *sshuser*). Os inserções subsequentes requerem apenas as credenciais SSH.
 
 ## <a name="download-the-sample-data-to-local-storage"></a>Faça o download dos dados da amostra para o armazenamento local
 
@@ -57,7 +54,7 @@ O *Conjunto de Dados On-Time da Companhia Aérea 2012* é composto por 12 fichei
     remoteDir <- "https://packages.revolutionanalytics.com/datasets/AirOnTimeCSV2012" # location of data
     ```
 
-1. No painel direito, selecione o **separador Ambiente.** As variáveis são apresentadas em **Valores** .
+1. No painel direito, selecione o **separador Ambiente.** As variáveis são apresentadas em **Valores**.
 
     ![HdInsight R consola web estúdio](./media/ml-services-tutorial-spark-compute/hdinsight-rstudio-image.png)
 
@@ -361,7 +358,7 @@ Depois de completar o tutorial, é melhor apagar o cluster. Com o HDInsight, os 
 
 Para eliminar um cluster, consulte [Eliminar um cluster HDInsight utilizando o seu navegador, PowerShell ou o Azure CLI](../hdinsight-delete-cluster.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, aprendeu a usar funções R em Apache Spark que estão a funcionar num cluster de serviços de aprendizagem automática HDInsight. Para obter mais informações, veja os seguintes artigos:
 

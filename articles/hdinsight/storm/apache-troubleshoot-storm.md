@@ -2,19 +2,16 @@
 title: Tempestade de resolução de problemas usando Azure HDInsight
 description: Obtenha respostas a perguntas comuns sobre a utilização de Apache Storm com Azure HDInsight.
 keywords: Azure HDInsight, Tempestade, FAQ, guia de resolução de problemas, problemas comuns
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 11/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: fc08adb2f71c49fad3c8574e9cfd5315f13d7f44
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c81084c77b355a5d60c72564c58a98e08da14312
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95982267"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946309"
 ---
 # <a name="troubleshoot-apache-storm-by-using-azure-hdinsight"></a>Resolução de problemas Tempestade Apache usando Azure HDInsight
 
@@ -178,7 +175,7 @@ Para resolver, o utilizador poderá ter de arquivar um bilhete para reiniciar/re
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se não viu o seu problema ou não conseguir resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 

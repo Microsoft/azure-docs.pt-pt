@@ -11,12 +11,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: 77521150e73014c5568003597059a9d32f6e80ee
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: eea2e587a075d774a25f479ec61575a002b57f75
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98752973"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937817"
 ---
 # <a name="validation-differences-by-supported-account-types-signinaudience"></a>Diferenças de validação por tipos de conta suportados (signInAudience)
 
@@ -24,9 +24,9 @@ Ao registar uma aplicação na plataforma de identidade da Microsoft para progra
 
 As opções incluem:
 
-- *AzureADMyOrg*: Apenas contas no diretório organizacional onde a aplicação está registada (inquilino único)
-- *AzureADMultipleOrgs*: Contas em qualquer diretório organizacional (multi-inquilino)
-- *AzureADandPersonalMicrosoftAccount*: Contas em qualquer diretório organizacional (multi-inquilino) e contas pessoais da Microsoft (por exemplo, Skype, Xbox e Outlook.com)
+- **AzureADMyOrg**: Apenas contas no diretório organizacional onde a aplicação está registada (inquilino único).
+- **AzureADMultipleOrgs**: Contas em qualquer diretório organizacional (multi-inquilino).
+- **AzureADandPersonalMicrosoftAccount**: Contas em qualquer diretório organizacional (multi-inquilino) e contas pessoais da Microsoft (por exemplo, Skype, Xbox e Outlook.com).
 
 Para aplicações registadas, pode encontrar o valor para tipos de conta suportados na secção **autenticação** de uma aplicação. Você também pode encontrá-lo sob a `signInAudience` propriedade no **Manifesto.**
 
@@ -44,11 +44,11 @@ Consulte a tabela seguinte para as diferenças de validação de vários imóvei
 | Âmbitos definidos por esta API ( `oauth2Permissions` ) | Comprimento máximo do nome do âmbito de 120 caracteres <br><br> Sem limite* no número de âmbitos definidos | Comprimento máximo do nome do âmbito de 120 caracteres <br><br> Sem limite* no número de âmbitos definidos |  Comprimento máximo do nome do âmbito de 40 caracteres <br><br> Máximo de 100 âmbitos definidos | 
 | Pedidos de cliente autorizados `preAuthorizedApplications` () | Sem limite* | Sem limite* | Máximo total de 500 <br><br> Máximo de 100 aplicações de cliente definidas <br><br> Máximo de 30 âmbitos definidos por cliente | 
 | appRoles | Suportado <br> Sem limite* | Suportado <br> Sem limite* | Não suportado | 
-| Logout URL | http://localhost é permitido <br><br> Comprimento máximo de 255 caracteres | http://localhost é permitido <br><br> Comprimento máximo de 255 caracteres | <br><br> https://localhost é permitido, http://localhost falha para MSA <br><br> Comprimento máximo de 255 caracteres <br><br> O regime HTTP não é permitido <br><br> Wildcards não são suportados | 
+| URL de logout de canal frontal | https://localhost é permitido <br><br> `http` esquema não é permitido <br><br> Comprimento máximo de 255 caracteres | https://localhost é permitido <br><br> `http` esquema não é permitido <br><br> Comprimento máximo de 255 caracteres | <br><br> https://localhost é permitido, http://localhost falha para MSA <br><br> Comprimento máximo de 255 caracteres <br><br> `http` esquema não é permitido <br><br> Wildcards não são suportados | 
 
-*Existe um limite global de cerca de 1000 itens em todas as propriedades de recolha no objeto da aplicação
+*Existe um limite global de cerca de 1000 itens em todas as propriedades de recolha no objeto da aplicação.
 
 ## <a name="next-steps"></a>Próximos passos
 
-- Saiba mais sobre [o registo de candidaturas](app-objects-and-service-principals.md)
-- Conheça o [manifesto da Candidatura](reference-app-manifest.md)
+- Saiba mais sobre [o registo de candidaturas.](app-objects-and-service-principals.md)
+- Conheça o [manifesto da Candidatura.](reference-app-manifest.md)

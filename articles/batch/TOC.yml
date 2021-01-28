@@ -289,16 +289,18 @@
       href: 'https://azure.microsoft.com/updates/'
     - name: Comunidade do Batch
       href: 'https://github.com/Azure/Batch'
+    - name: Batch Explorer
+      href: 'https://azure.github.io/BatchExplorer/'
     - name: Comentários do Batch
       href: 'https://feedback.azure.com/forums/269742-batch'
-    - name: Página de perguntas das Perguntas e Respostas da Microsoft sobre o Batch
-      href: /answers/topics/azure-batch.html
     - name: Batch Shipyard
       href: 'https://github.com/Azure/batch-shipyard'
     - name: Blogue
       href: /archive/blogs/windowshpc/
     - name: HPC no Azure
       href: /azure/architecture/topics/high-performance-computing/
+    - name: Página de perguntas das Perguntas e Respostas da Microsoft sobre o Batch
+      href: /answers/topics/azure-batch.html
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/batch/'
     - name: Calculadora de preços

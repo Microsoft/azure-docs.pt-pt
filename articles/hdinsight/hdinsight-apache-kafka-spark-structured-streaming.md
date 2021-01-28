@@ -1,19 +1,16 @@
 ---
 title: 'Tutorial: Apache Spark Streaming & Apache Kafka - Azure HDInsight'
 description: Saiba como utilizar a transmissão em fluxo do Apache Spark para introduzir ou extrair dados do Apache Kafka. Neste tutorial, transmite dados usando um Caderno Jupyter de Spark on HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,seodec18,seoapr2020
 ms.date: 04/22/2020
-ms.openlocfilehash: 9af0349326cf82ed9d050c367b6ed784c9ea9ce9
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: d352fc86f4451f60951b84929ad5d9450c1003d6
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97821133"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942788"
 ---
 # <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>Tutorial: Utilizar a Transmissão em Fluxo Estruturada do Apache Spark com o Apache Kafka no HDInsight
 
@@ -21,7 +18,7 @@ Este tutorial demonstra como usar [o Apache Spark Structured Streaming](https://
 
 Spark Structured Streaming é um motor de processamento de fluxo construído em Spark SQL. Permite-lhe expressar computações de transmissão em fluxo, tal como a computação em lotes o faz em dados estáticos.  
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Use um modelo de Gestor de Recursos Azure para criar clusters
@@ -143,8 +140,8 @@ Para criar uma Rede Virtual do Azure e, em seguida, criar os clusters do Kafka e
     | Definição | Valor |
     | --- | --- |
     | Subscrição | A sua subscrição do Azure |
-    | O grupo de recursos | O grupo de recursos que contém os recursos. |
-    | A localização | A região do Azure na qual os recursos são criados. |
+    | Grupo de recursos | O grupo de recursos que contém os recursos. |
+    | Localização | A região do Azure na qual os recursos são criados. |
     | Nome de Cluster do Spark | O nome do cluster do Spark. Os primeiros seis carateres devem ser diferentes do nome do cluster do Kafka. |
     | Nome do Cluster do Kafka | O nome do cluster do Kafka. Os primeiros seis carateres devem ser diferentes do nome do cluster do Spark. |
     | Nome de Utilizador de Início de Sessão do Cluster | O nome de utilizador administrador para os clusters. |
@@ -329,7 +326,7 @@ Para remover o grupo de recursos através do Portal do Azure:
 >
 > Eliminar um cluster do Kafka no HDInsight elimina quaisquer dados armazenados no Kafka.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, aprendeu a usar o Apache Spark Structured Streaming. Para escrever e ler dados de Apache Kafka em HDInsight. Use o seguinte link para aprender a usar a Tempestade Apache com Kafka.
 

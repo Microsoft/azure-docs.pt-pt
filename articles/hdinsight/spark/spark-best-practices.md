@@ -1,18 +1,15 @@
 ---
 title: Diretrizes apache spark em Azure HDInsight
 description: Aprenda as diretrizes para a utilização do Apache Spark em Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: a93b3e0da7b881b80f7613907e40af509bffadbd
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: f81435abbedec25cb8abe0b958065a493c15ce4c
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545570"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938805"
 ---
 # <a name="apache-spark-guidelines"></a>Diretrizes apache spark
 
@@ -56,7 +53,7 @@ Este artigo fornece várias diretrizes para a utilização do Apache Spark no Az
 | Colmeia Apache em HDInsight | [Integre a Faísca Apache e a Colmeia Apache com o Conector do Armazém da Colmeia](../interactive-query/apache-hive-warehouse-connector.md) |
 | Apache HBase no HDInsight | [Utilizar o Apache Spark para ler e escrever dados do Apache HBase](../hdinsight-using-spark-query-hbase.md) |
 | Apache Kafka em HDInsight | [Tutorial: Utilizar a Transmissão em Fluxo Estruturada do Apache Spark com o Apache Kafka no HDInsight](../hdinsight-apache-kafka-spark-structured-streaming.md) |
-| Azure Cosmos DB | [Ligação Azure Synapse para Azure Cosmos DB](../../cosmos-db/synapse-link.md) |
+| Azure Cosmos DB | [Azure Synapse Link para o Azure Cosmos DB](../../cosmos-db/synapse-link.md) |
 
 ## <a name="what-are-my-storage-options"></a>Quais são as minhas opções de armazenamento?
 
@@ -66,7 +63,7 @@ Este artigo fornece várias diretrizes para a utilização do Apache Spark no Az
 | Armazenamento do Azure Data Lake Ger1 | [Use Azure Data Lake Storage Gen1 com clusters Azure HDInsight](../hdinsight-hadoop-use-data-lake-storage-gen1.md) |
 | Armazenamento de Blobs do Azure | [Utilizar o armazenamento do Azure com clusters do Azure HDInsight](../hdinsight-hadoop-use-blob-storage.md) |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Configurar as definições do Apache Spark](apache-spark-settings.md)
 * [Otimizar os empregos da Apache Spark em HDInsight](apache-spark-perf.md)

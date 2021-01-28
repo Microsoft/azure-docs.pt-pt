@@ -1,19 +1,16 @@
 ---
 title: CpU Core pedido de aumento de quota - Azure HDInsight
 description: Aprenda o processo para solicitar um aumento para os núcleos do CPU atribuídos à sua subscrição.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 05/07/2020
-ms.openlocfilehash: 93c07b47e03bde20d494feb1c86179cd9a24ba26
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a539acc423feeab500830fb33262d1b824101072
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92539416"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98935834"
 ---
 # <a name="requesting-quota-increases-for-azure-hdinsight"></a>Pedido de aumento de quota para Azure HDInsight
 
@@ -30,7 +27,7 @@ Se recebeu um erro que indica que atingiu um limite de quota, utilize o processo
 
     1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
     1. Navegue para a página **de visão geral** para o cluster HDInsight.
-    1. No menu à esquerda, **selecione Os limites de Quota** . A página apresenta o número de núcleos em utilização, o número de núcleos disponíveis e o total de núcleos.
+    1. No menu à esquerda, **selecione Os limites de Quota**. A página apresenta o número de núcleos em utilização, o número de núcleos disponíveis e o total de núcleos.
 
 Para solicitar um aumento de quota, faça as seguintes etapas:
 
@@ -39,16 +36,16 @@ Para solicitar um aumento de quota, faça as seguintes etapas:
 
     ![botão de ajuda e suporte](./media/quota-increase-request/help-support-button.png)
 
-1. Selecione **Novo pedido de suporte** .
-1. Na página **Novo pedido de suporte** , no separador **Básicos** , selecione as seguintes opções:
+1. Selecione **Novo pedido de suporte**.
+1. Na página **Novo pedido de suporte**, no separador **Básicos**, selecione as seguintes opções:
 
-   - **Tipo de emissão** : **Limites de serviço e de subscrição (quotas)**
-   - **Subscrição** : a subscrição que pretende modificar
+   - **Tipo de emissão**: **Limites de serviço e de subscrição (quotas)**
+   - **Subscrição**: a subscrição que pretende modificar
    - **Tipo de** quota : **HDInsight**
 
      ![Crie um pedido de apoio para aumentar a quota de base HDInsight](./media/quota-increase-request/hdinsight-quota-support-request.png)
 
-1. Selecione **Seguinte: Soluções >>** .
+1. Selecione **Seguinte: Soluções >>**.
 1. Na página **Detalhes,** introduza uma descrição do problema, selecione a gravidade do problema, o seu método de contacto preferido e outros campos necessários. Utilize o modelo listado abaixo, para garantir que fornece as informações necessárias. Os pedidos de aumento de quota são avaliados pela equipa de capacidade da Azure, e não pela equipa de produtos HDInsight. Quanto mais completa for a informação, mais provável será o seu pedido.
 
     ```
@@ -61,7 +58,7 @@ Para solicitar um aumento de quota, faça as seguintes etapas:
 
     ![detalhes do problema](./media/quota-increase-request/problem-details.png)
 
-1. Selecione **Seguinte: Revisão + criar >>** .
+1. Selecione **Seguinte: Revisão + criar >>**.
 1. No **separador 'Rever + criar',** selecione **Criar.**
 
 > [!NOTE]  
@@ -71,7 +68,7 @@ Pode [contactar o suporte para solicitar um aumento de quota.](../azure-portal/s
 
 Há alguns limites de quota fixa. Por exemplo, uma única subscrição do Azure pode ter no máximo 10.000 núcleos. Para obter mais informações sobre estes limites, consulte [os limites de subscrição e serviços da Azure, quotas e constrangimentos.](../azure-resource-manager/management/azure-subscription-service-limits.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Configurar clusters em HDInsight com Apache Hadoop, Spark, Kafka, e muito mais](hdinsight-hadoop-provision-linux-clusters.md): Aprenda a configurar e configurar clusters em HDInsight.
 * [Monitor cluster performance](hdinsight-key-scenarios-to-monitor.md): Saiba mais sobre cenários-chave para monitorizar o seu cluster HDInsight que pode afetar a capacidade do seu cluster.

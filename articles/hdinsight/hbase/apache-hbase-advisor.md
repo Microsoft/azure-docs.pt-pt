@@ -4,16 +4,15 @@ titleSuffix: Azure HDInsight
 description: Otimize o Apache HBase para recomendações de consultor de cluster em Azure HDInsight.
 author: ramkrish86
 ms.author: ramvasu
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/03/2021
-ms.openlocfilehash: 73af7e2a1920e6cfdad9245d965908255ef95a1f
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: acb7a6aeb4084949be3b0ad40e770a414a13ab6d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964597"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943021"
 ---
 # <a name="apache-hbase-advisories-in-azure-hdinsight"></a>Avisos Apache HBase em Azure HDInsight
 
@@ -92,6 +91,6 @@ O aviso completo de digitalização da tabela indica que mais de 75% dos exames 
    scan#setCaching(false)
    ```
    
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Otimizar Apache HBase usando Ambari](../optimize-hbase-ambari.md)

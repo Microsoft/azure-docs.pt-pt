@@ -1,18 +1,15 @@
 ---
 title: Pacote de segurança da empresa para Azure HDInsight
 description: Aprenda os componentes e versões do Pacote de Segurança Empresarial em Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: d77d9877fbc49fbb147965b30e299b75b60ccce3
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 442c21c92ef2124ebef1889f99a8d2b806c8ce10
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546658"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943297"
 ---
 # <a name="enterprise-security-package-for-azure-hdinsight"></a>Pacote de segurança da empresa para Azure HDInsight
 
@@ -59,7 +56,7 @@ O Pacote de Segurança Empresarial suporta a utilização do Azure Data Lake Sto
 
 Para obter informações sobre preços e SLA para o Pacote de Segurança [Empresarial, consulte os preços da HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Configuração de cluster para Apache Hadoop, Spark, e muito mais em HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 * [Trabalhar em Apache Hadoop em HDInsight a partir de um PC windows](hdinsight-hadoop-windows-tools.md)

@@ -1,15 +1,15 @@
 ---
-title: Contadores de desempenho em Insights de Aplicação / Microsoft Docs
+title: Contadores de desempenho em | de Insights de Aplicação Microsoft Docs
 description: Monitorar o sistema e os contadores de desempenho .NET personalizados em Application Insights.
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4da8aef69b6a83c17fa8a20a80b2c485378e0aef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f772b129e20fbaaade7305d84064a713dd734199
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88918524"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937391"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Contadores de desempenho do sistema em Insights de Aplicações
 
@@ -41,7 +41,7 @@ Se o contador de desempenho que deseja não estiver incluído na lista de métri
 
     `Get-Counter -ListSet *`
 
-    (Ver [`Get-Counter`](/powershell/module/microsoft.powershell.diagnostics/get-counter?view=powershell-5.1) .)
+    (Ver [`Get-Counter`](/powershell/module/microsoft.powershell.diagnostics/get-counter) .)
 2. Abra ApplicationInsights.config.
 
    * Se adicionou Insights de Aplicação à sua aplicação durante o desenvolvimento, edite ApplicationInsights.config no seu projeto e, em seguida, reenfectue-o para os seus servidores.
@@ -150,7 +150,7 @@ Suporte para contadores de desempenho em ASP.NET Core é limitado:
 ## <a name="alerts"></a>Alertas
 Tal como outras métricas, pode [definir um alerta](../platform/alerts-log.md) para o avisar se um contador de desempenho sair do limite especificado. Abra o painel de alertas e clique em Adicionar Alerta.
 
-## <a name="next-steps"></a><a name="next"></a>Passos seguintes
+## <a name="next-steps"></a><a name="next"></a>Próximos passos
 
 * [Rastreio de dependência](./asp-net-dependencies.md)
 * [Rastreio de exceções](./asp-net-exceptions.md)

@@ -12,20 +12,20 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b6240f88d309cbf4f26375c5f961d716b472755d
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 7f7be27e67bfa266c368927227f1b8d1083a5124
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756277"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937873"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>Aplicação web que assina nos utilizadores: Registo de aplicações
 
-Este artigo explica as especificações de registo de aplicações para uma aplicação web que assina nos utilizadores.
+Este artigo explica as etapas de registo de aplicações para uma aplicação web que assina nos utilizadores.
 
 Para registar a sua aplicação, pode utilizar:
 
-- A [aplicação web começa rapidamente.](#register-an-app-by-using-the-quickstarts) Além de ser uma grande primeira experiência com a criação de uma aplicação, os quickstarts no portal Azure contêm um botão chamado **Make this change for me**. Pode utilizar este botão para definir as propriedades de que necessita, mesmo para uma aplicação existente. Você precisará adaptar os valores destas propriedades ao seu próprio caso. Em particular, o URL da API web para a sua aplicação provavelmente será diferente do padrão proposto, o que também afetará o URI de sinalização.
+- A [aplicação web começa rapidamente.](#register-an-app-by-using-the-quickstarts) Além de ser uma grande primeira experiência com a criação de uma aplicação, os quickstarts no portal Azure contêm um botão chamado **Make this change for me**. Pode utilizar este botão para definir as propriedades de que necessita, mesmo para uma aplicação existente. Adapte os valores destas propriedades ao seu próprio caso. Em particular, o URL da API web para a sua aplicação provavelmente será diferente do padrão proposto, o que também afetará o URI de sinalização.
 - O portal Azure para registar a [sua aplicação manualmente](#register-an-app-by-using-the-azure-portal).
 - Ferramentas powerShell e linha de comando.
 
@@ -56,8 +56,8 @@ Pode utilizar estes links para a criação da sua aplicação web:
    1. Selecione **Registar**.
 1. Em **Gestão**, selecione **Autenticação** e adicione as seguintes informações:
    1. Na secção **Web,** adicione `https://localhost:44321/signin-oidc` como **URI de redirecionamento**.
-   1. Adicione `https://localhost:44321/signout-oidc` como URL **logout.**
-   1. Em **Concessão implícita**, selecione **Tokens de ID**.
+   1. No **URL de logout do canal** frontal, insira `https://localhost:44321/signout-oidc` .
+   1. Sob **subvenção implícita e fluxos híbridos,** selecione **fichas de identificação**.
    1. Selecione **Guardar**.
    
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
@@ -65,10 +65,10 @@ Pode utilizar estes links para a criação da sua aplicação web:
 1. Quando aparecer a **página de inscrição,** insira as informações de registo do seu pedido:
    1. Introduza um **Nome** para a sua aplicação, por `MailApp-openidconnect-v2` exemplo. Os utilizadores da sua aplicação podem ver este nome, e pode alterá-lo mais tarde.
    1. Escolha os tipos de conta suportados para a sua aplicação. (Ver [tipos de conta suportado.)](./v2-supported-account-types.md)
-   1. Na secção **URI de redirecionamento (opcional),** selecione **Web** na caixa de combinação e introduza o seguinte redireccionamento URI: **https://localhost:44326/** .
+   1. Na secção **URI de redirecionamento (opcional),** selecione **Web** na caixa de combinação e introduza um **URI de redirecionamento** de `https://localhost:44326/` .
    1. Selecione **Registar** para criar a aplicação.
 1. Em **Gestão**, **selecione Autenticação**.
-1. Na secção **de concessão implícita,** selecione **fichas de identificação**. Esta amostra requer que o [fluxo de subvenção implícito](v2-oauth2-implicit-grant-flow.md) seja ativado para assinar no utilizador.
+1. Na secção **de fluxos implícitos e híbridos,** selecione **fichas de identificação**. Esta amostra requer que o [fluxo de subvenção implícito](v2-oauth2-implicit-grant-flow.md) seja ativado para assinar no utilizador.
 1. Selecione **Guardar**.
 
 # <a name="java"></a>[Java](#tab/java)
@@ -81,10 +81,10 @@ Pode utilizar estes links para a criação da sua aplicação web:
 1. Selecione **Web**.
 1. Para **redirecionar uri**, introduza o mesmo anfitrião e número de porta, seguido `/msal4jsample/secure/aad` da página de entrada. 
 1. Selecione **Configurar**.
-1. Na secção **Web,** utilize o número de anfitrião e porta, seguido de **/msal4jsample/graph/me** como um **URI de redirecionamento** para a página de informação do utilizador.
+1. Na secção **Web,** utilize o anfitrião e o número de porta, seguido `/msal4jsample/graph/me` de um **URI de redirecionamento** para a página de informações do utilizador.
 Por predefinição, a amostra utiliza:
-   - **http://localhost:8080/msal4jsample/secure/aad**
-   - **http://localhost:8080/msal4jsample/graph/me**
+   - `http://localhost:8080/msal4jsample/secure/aad`
+   - `http://localhost:8080/msal4jsample/graph/me`
 
 1. Selecione **Guardar**.
 1. Em **Gerir**, selecione **Certificados e segredos**.
@@ -100,7 +100,7 @@ Por predefinição, a amostra utiliza:
 1. Quando aparecer a **página de inscrição,** insira as informações de registo do seu pedido:
    1. Introduza um **Nome** para a sua aplicação, por `python-webapp` exemplo. Os utilizadores da sua aplicação podem ver este nome, e pode alterá-lo mais tarde.
    1. Alterar **tipos de conta suportadas** para contas em qualquer **diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox, Outlook.com)**.
-   1. Na secção **URI de redirecionamento (opcional),** selecione **Web** na caixa de combinação e introduza o seguinte redireccionamento URI: **http://localhost:5000/getAToken** .
+   1. Na secção **URI de redirecionamento (opcional),** selecione **Web** na caixa de combinação e introduza o seguinte redireccionamento URI: `http://localhost:5000/getAToken` .
    1. Selecione **Registar** para criar a aplicação.
 1. Na **página** geral da aplicação, encontre o valor de **ID da Aplicação (cliente)** e grave-o para mais tarde. Vai precisar dele para configurar o ficheiro de configuração do Estúdio Visual para este projeto.
 1. Em **Gerir**, selecione **Certificados e segredos**.

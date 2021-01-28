@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 5b0b86321f7f2b320c3fea8e7c5bfa45bd936b77
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: f8fa5532a5664741c9ddb9b78b35d5eed8e2e4e0
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98752996"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937847"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>Aplicação web que assina nos utilizadores: Iniciar s-in e iniciar sê-out
 
@@ -222,19 +222,19 @@ Para saber mais, consulte a secção Enviar uma secção [de pedido de sinaliza�
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Durante o registo do pedido, regista-se um URI pós-logout. No nosso tutorial, registou-se `https://localhost:44321/signout-oidc` no campo **URL logout** da secção **Definições Avançadas** na página **autenticação.** Para mais informações, consulte [registar a aplicação webApp.](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg#register-the-webapp-app-webapp)
+Durante o registo da inscrição, regista-se um URL de logotipo de canal frontal. No nosso tutorial, `https://localhost:44321/signout-oidc` **registou-se** no campo URL de logótipo do canal frontal na página **de Autenticação.** Para mais informações, consulte [registar a aplicação webApp.](scenario-web-app-sign-user-app-registration.md#register-an-app-by-using-the-azure-portal)
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
-Durante o registo do pedido, regista-se um URI pós-logout. No nosso tutorial, registou-se `https://localhost:44308/Account/EndSession` no campo **URL logout** da secção **Definições Avançadas** na página **autenticação.** Para mais informações, consulte [registar a aplicação webApp.](https://github.com/Azure-Samples/active-directory-dotnet-web-single-sign-out#register-the-service-app-webapp-distributedsignout-dotnet)
+Durante o registo da inscrição, não precisa de registar um URL de logout de canal frontal extra. A aplicação será chamada de volta no seu URL principal. 
 
 # <a name="java"></a>[Java](#tab/java)
 
-Durante o registo do pedido, regista-se um URI pós-logout. No nosso tutorial, registou-se `http://localhost:8080/msal4jsample/sign_out` no campo **URL logout** da secção **Definições Avançadas** na página **autenticação.**
+Não é necessário um URL de logout de canal frontal no registo da aplicação.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Durante o registo da inscrição, não precisa de registar um URL de logout extra. A aplicação será chamada de volta no seu URL principal.
+Durante o registo da inscrição, não precisa de registar um URL de logout de canal frontal extra. A aplicação será chamada de volta no seu URL principal.
 
 ---
 
@@ -336,7 +336,7 @@ Em versões anteriores dos ASP.NET modelos de núcleo, o `Account` controlador f
 - Chamadas `Signout()` , que permite que o middleware OpenID Connect contacte o ponto final da plataforma de identidade da `logout` Microsoft. O ponto final, então:
 
   - Limpa o cookie de sessão do navegador.
-  - Chama de volta a URL logout. Por predefinição, o URL logout apresenta a página de visualização assinada [SignedOut.cshtml.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Pages/Account/SignedOut.cshtml.cs). Esta página também é fornecida como parte de MIcrosoft.Identity.Web.
+  - Chama de volta o reorientar uri pós-logout. Por predefinição, o reorientar o URI pós-logout exibe a página de visualização assinada [SignedOut.cshtml.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Pages/Account/SignedOut.cshtml.cs). Esta página também é fornecida como parte do Microsoft.Identity.Web.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 

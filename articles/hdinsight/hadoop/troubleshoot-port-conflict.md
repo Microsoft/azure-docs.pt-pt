@@ -1,18 +1,15 @@
 ---
 title: Conflito portuário ao iniciar serviços em Azure HDInsight
 description: Etapas de resolução de problemas e possíveis resoluções para problemas de conflito portuário ao interagir com clusters Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/23/2020
-ms.openlocfilehash: c07cddb0999e6f3424527828be4b10ed0168a2ff
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: f42e84d5d9c1dd49d9bf5604fe2f967eae0b6276
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533330"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943099"
 ---
 # <a name="scenario-port-conflict-when-starting-services-in-azure-hdinsight"></a>Cenário: Conflito portuário ao iniciar serviços no Azure HDInsight
 
@@ -44,7 +41,7 @@ Então inicie o serviço.
 
 Reinicie o nó.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se não viu o seu problema ou não conseguir resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 

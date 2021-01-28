@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 12/02/2020
 ms.author: mnayak
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c3ce69dc9364d71a501f122a7150ad4a59869422
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 82057fa689692643e3cf9733dd70795e1030fa06
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96534017"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98934253"
 ---
 # <a name="configure-routing-preference-for-a-public-ip-address-using-azure-cli"></a>Configure a preferência de encaminhamento para um endereço IP público usando O Azure CLI
 
@@ -52,7 +52,7 @@ Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-gr
 ```
 ## <a name="create-a-public-ip-address"></a>Crie um endereço IP público
 
-Crie um Endereço IP Público com preferência de encaminhamento do tipo de **Internet** utilizando a [rede de comandos az public-ip create,](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create)com o formato como mostrado abaixo.
+Crie um Endereço IP Público com preferência de encaminhamento do tipo de **Internet** utilizando a [rede de comandos az public-ip create,](/cli/azure/network/public-ip#az-network-public-ip-create)com o formato como mostrado abaixo.
 
 O seguinte comando cria um novo IP público com preferência por encaminhamento de **Internet** na região **de Azure leste dos EUA.**
 
@@ -72,7 +72,7 @@ az network public-ip create \
 
 Pode associar o endereço IP público acima criado a uma máquina virtual [Windows](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Linux.](../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Utilize a secção CLI na página tutorial: [Associe um endereço IP público a uma máquina virtual](associate-public-ip-address-vm.md#azure-cli) para associar o IP público ao seu VM. Também pode associar o endereço IP público acima criado com um [Balançador de Carga Azure,](../load-balancer/load-balancer-overview.md)atribuindo-o à configuração frontal do balançador **de** carga. O endereço IP público serve como endereço IP virtual (VIP) com balanceamento de carga.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [a preferência de encaminhamento em endereços IP públicos.](routing-preference-overview.md) 
 - [Configure a preferência de encaminhamento para um VM utilizando o Azure CLI](configure-routing-preference-virtual-machine-cli.md).

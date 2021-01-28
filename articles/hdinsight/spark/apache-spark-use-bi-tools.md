@@ -1,25 +1,22 @@
 ---
 title: 'Tutorial: Analise os dados do Apache Spark Azure HDInsight com o Power BI'
 description: Tutorial - Use o Microsoft Power BI para visualizar os dados do Apache Spark armazenados em clusters HDInsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc,seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 1f56bb5e3ed8c953b67f1e88fc16846accaed995
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: 285c6c05a1a216303ee9d8019093c963cad60aa0
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97821286"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946487"
 ---
 # <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>Tutorial: Analise os dados do Apache Spark utilizando o Power BI em HDInsight
 
 Neste tutorial, aprende-se a usar o Microsoft Power BI para visualizar dados num cluster Apache Spark em Azure HDInsight.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > * Utilizar o Power BI para ver dados do Spark
 
@@ -175,7 +172,7 @@ Depois de concluir o tutorial, pode pretender eliminar o cluster. Com o HDInsigh
 
 Para eliminar um cluster, consulte [Eliminar um cluster HDInsight utilizando o seu navegador, PowerShell ou o Azure CLI](../hdinsight-delete-cluster.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, aprendeu a usar o Microsoft Power BI para visualizar dados num cluster Apache Spark em Azure HDInsight. Avance para o próximo artigo para ver se pode criar uma aplicação de machine learning.
 

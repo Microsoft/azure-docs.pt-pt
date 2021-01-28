@@ -3,16 +3,13 @@ title: Apache Ambari UI mostra anfitriões e serviços em Azure HDInsight
 description: Resolução de problemas num problema de IA apache Ambari quando mostra anfitriões e serviços em Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.date: 08/02/2019
-ms.openlocfilehash: 9c9676fa1457be014098b8190986c617262e628d
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 0d3a393dc1cbd51b83edc0b6989bb5e7a5670a29
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286494"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943276"
 ---
 # <a name="scenario-apache-ambari-ui-shows-down-hosts-and-services-in-azure-hdinsight"></a>Cenário: Apache Ambari UI mostra anfitriões e serviços em Azure HDInsight
 
@@ -37,6 +34,6 @@ $>telnet headnodehost 8440
 
 Normalmente, reiniciar o headnode ativo irá atenuar este problema. Caso contrário contacte a equipa de suporte da HDInsight.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]

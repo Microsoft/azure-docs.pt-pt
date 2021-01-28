@@ -9,14 +9,14 @@ ms.subservice: metrics-advisor
 ms.topic: include
 ms.date: 11/09/2020
 ms.author: mbullwin
-ms.openlocfilehash: d191396d62d6ac2889e50d21abd8e6606d699983
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: 668255486b1c53c062907aba9a679cf7a84bc3ca
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97844756"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98947440"
 ---
-[Documentação de referência](/java/api/overview/azure/ai-metricsadvisor-readme?view=azure-java-preview)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/metricsadvisor/ai-metrics-advisor/README.md)  |  [Pacote (npm)](https://www.npmjs.com/package/@azure/ai-metrics-advisor)  |  [Amostras](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/metricsadvisor/ai-metrics-advisor/samples)
+[Documentação de referência](/java/api/overview/azure/ai-metricsadvisor-readme)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/metricsadvisor/ai-metrics-advisor/README.md)  |  [Pacote (npm)](https://www.npmjs.com/package/@azure/ai-metrics-advisor)  |  [Amostras](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/metricsadvisor/ai-metrics-advisor/samples)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

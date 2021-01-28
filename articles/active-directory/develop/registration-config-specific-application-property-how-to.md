@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
 ROBOTS: NOINDEX
-ms.openlocfilehash: 222c961f9e5587cd5526778e6ef1c800f5085a69
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 6da6187e59bf028101eac2ea6f09fb1530821bfd
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064305"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937863"
 ---
 # <a name="azure-portal-registration-fields-for-custom-developed-apps"></a>Campos de registo no portal do Azure para aplicações personalizadas
 
@@ -43,7 +43,7 @@ Este artigo dá-lhe uma breve descrição de todos os campos disponíveis no for
 
 Depois de ter preenchido os campos acima, a aplicação está registada no portal Azure e é redirecionada para a página geral da aplicação. As páginas de definições no painel esquerdo em **Manage** têm mais campos para você personalizar a sua aplicação. As tabelas abaixo descrevem todos os campos. Você só veria um subconjunto destes campos, dependendo se você criou uma aplicação web ou uma aplicação de cliente público.
 
-### <a name="overview"></a>Descrição Geral
+### <a name="overview"></a>Descrição geral
 
 | Campo           | Descrição        |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -61,7 +61,7 @@ Depois de ter preenchido os campos acima, a aplicação está registada no porta
 
 | Campo           | Descrição        |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Logout URL      | Este é o URL de logout de assinatura única. A Azure AD envia um pedido de logout a este URL quando o utilizador esvazia a sessão com a Azure AD utilizando qualquer outra aplicação registada.|
+| URL de logout de canal frontal      | Este é o URL de logout de assinatura única. A Azure AD envia um pedido de logout a este URL quando o utilizador esvazia a sessão com a Azure AD utilizando qualquer outra aplicação registada.|
 | Tipos de conta suportados  | Este interruptor especifica se a aplicação pode ser usada por vários inquilinos. Normalmente, isto significa que as organizações externas podem usar a sua aplicação registando-a no seu inquilino e concedendo acesso aos dados da sua organização.|
 | URLs de Redirecionamento      | O redirecionamento, ou resposta, URLs são os pontos finais onde a Azure AD devolve quaisquer fichas que a sua candidatura solicite. Para aplicações nativas, é aqui que o utilizador é enviado após uma autorização bem sucedida. A Azure AD verifica se o redirecionamento uri que a sua aplicação fornece no pedido OAuth 2.0 corresponde a um dos valores registados no portal.|
 

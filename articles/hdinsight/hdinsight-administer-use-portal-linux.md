@@ -1,19 +1,16 @@
 ---
 title: Gerir clusters Apache Hadoop em HDInsight usando o portal Azure
 description: Aprenda a criar e gerir clusters Azure HDInsight utilizando o portal Azure.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/24/2020
-ms.openlocfilehash: 7c644583e994e51f11bdf7991755a6ea94b01e76
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5d308bfbe605e5ec3bed3bf5d6506ccafc53836e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012817"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942826"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gerir os clusters Apache Hadoop em HDInsight utilizando o portal Azure
 
@@ -112,7 +109,7 @@ A partir da página inicial do [cluster,](#homePage)em **Definições** selecion
 |Sistema Operativo|Ou **Windows** ou **Linux.**|
 |TIPO|Hadoop, HBase, Storm, Spark.|
 |Versão|Consulte [as versões HDInsight](hdinsight-component-versioning.md).|
-|Versão TLS mínima|A versão TLS.|
+|Versão mínima do TLS|A versão TLS.|
 |SUBSCRIÇÃO|Nome da assinatura.|
 |FONTE DE DADOS PREDEFINIDO|O sistema de ficheiros de cluster predefinido.|
 |Tamanhos dos nódoas do trabalhador|O tamanho VM selecionado dos nós operários.|
@@ -228,7 +225,7 @@ A palavra-passe é alterada em todos os nós do cluster.
    | Campo | Valor |
    | --- | --- |
    | Tipo de script | Selecione **- Personalizado** da lista de drop-down.|
-   | Nome |"Alterar credenciais de ssh" |
+   | Name |"Alterar credenciais de ssh" |
    | URI de guião de bash |O URI para o ficheiro changecredentials.sh |
    | Tipo de nó:(Cabeça, Trabalhador, Nimbus, Supervisor ou Zookeeper.) |✓ para todos os tipos de nós listados |
    | Parâmetros |Insira o nome de utilizador SSH e, em seguida, a nova palavra-passe. Deve haver um espaço entre o nome de utilizador e a senha. |
@@ -264,7 +261,7 @@ O azulejo do tamanho do **cluster** da página inicial do [cluster](#homePage) e
 - [Use a Colmeia Apache com HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md)
 - [Utilizar SSH com o HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu algumas funções administrativas básicas. Para saber mais, leia os artigos seguintes:
 

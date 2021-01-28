@@ -1,19 +1,16 @@
 ---
 title: Visão geral do armazenamento Azure em HDInsight
 description: Visão geral do Azure Storage em HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 40e1fdae5cdb1ec806e67dcacc70510a63093a82
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: f171ab9619f2bcb8ecf15c4bfb3b17146ab5a0ff
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92539467"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938941"
 ---
 # <a name="azure-storage-overview-in-hdinsight"></a>Visão geral do armazenamento Azure em HDInsight
 
@@ -21,7 +18,7 @@ O Azure Storage é uma solução de armazenamento de uso geral robusto que se in
 
 Recomendamos a utilização de recipientes de armazenamento separados para o armazenamento padrão do seu cluster e os dados do seu negócio. A separação consiste em isolar os registos HDInsight e ficheiros temporários dos seus próprios dados de negócio. Recomendamos também a eliminação do recipiente de bolhas predefinidos, que contém registos de aplicação e sistema, após cada utilização para reduzir os custos de armazenamento. Certifique-se de que obtém os registos antes de eliminar o contentor.
 
-Se optar por proteger a sua conta de armazenamento com as restrições **de Firewalls e redes virtuais** em redes **selecionadas,** certifique-se de ativar a exceção **Permitir serviços de Microsoft confiáveis...** . A exceção é para que o HDInsight possa aceder à sua conta de armazenamento.
+Se optar por proteger a sua conta de armazenamento com as restrições **de Firewalls e redes virtuais** em redes **selecionadas,** certifique-se de ativar a exceção **Permitir serviços de Microsoft confiáveis...**. A exceção é para que o HDInsight possa aceder à sua conta de armazenamento.
 
 ## <a name="hdinsight-storage-architecture"></a>Arquitetura de armazenamento do HDInsight
 
@@ -75,7 +72,7 @@ Certos trabalhos e pacotes mapReduce podem criar resultados intermédios que nã
 > [!NOTE]  
 > A maioria dos comandos HDFS (por `ls` exemplo, `copyFromLocal` , e ) funcionam como esperado no `mkdir` Azure Storage. Apenas os comandos específicos da implementação de HDFS nativo (que é referido como DFS), tais como `fschk` `dfsadmin` e, mostram comportamentos diferentes no Azure Storage.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Introdução ao Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)
 * [Introdução ao Armazenamento do Azure](../storage/common/storage-introduction.md)

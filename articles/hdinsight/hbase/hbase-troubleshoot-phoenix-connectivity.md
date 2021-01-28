@@ -3,16 +3,13 @@ title: Problemas de conectividade Apache Phoenix em Azure HDInsight
 description: Problemas de conectividade entre Apache HBase e Apache Phoenix em Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.date: 08/14/2019
-ms.openlocfilehash: ed12c9629506fa8defb23b987fe672bb3b384418
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 2cc6556f681ece170bdfe02b985f56274c0faa1e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92540096"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98936970"
 ---
 # <a name="scenario-apache-phoenix-connectivity-issues-in-azure-hdinsight"></a>Cenário: Problemas de conectividade Apache Phoenix em Azure HDInsight
 
@@ -28,7 +25,7 @@ IP incorreto do nó do Zookeeper ativo.
 
 ### <a name="resolution"></a>Resolução
 
-O IP do nó zookeeper ativo pode ser identificado a partir do UI Ambari seguindo as ligações com **HBase**  >  **Quick Links**  >  **ZK (Ative)**  >  **Zookeeper Info** . Corrija o IP conforme necessário.
+O IP do nó zookeeper ativo pode ser identificado a partir do UI Ambari seguindo as ligações com **HBase**  >  **Quick Links**  >  **ZK (Ative)**  >  **Zookeeper Info**. Corrija o IP conforme necessário.
 
 ---
 
@@ -50,7 +47,7 @@ ERROR: org.apache.hadoop.hbase.NotServingRegionException: Region SYSTEM.CATALOG,
 
 A partir do Apache Ambari UI, complete os seguintes passos para reiniciar o serviço HMaster em todos os nós do ZooKeeper:
 
-1. A partir da secção **Sumária** da HBase, vá ao **HBase**  >  **Ative HBase Master** .
+1. A partir da secção **Sumária** da HBase, vá ao **HBase**  >  **Ative HBase Master**.
 
 1. A partir da secção **Componentes,** reinicie o serviço HBase Master.
 
@@ -58,7 +55,7 @@ A partir do Apache Ambari UI, complete os seguintes passos para reiniciar o serv
 
 Pode levar até cinco minutos para o serviço HBase Master estabilizar e terminar a recuperação. Depois de a `SYSTEM.CATALOG` tabela voltar ao normal, a questão da conectividade com a Apache Phoenix deve ser resolvida automaticamente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se não viu o seu problema ou não conseguir resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 

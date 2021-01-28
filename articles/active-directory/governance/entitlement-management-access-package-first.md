@@ -3,7 +3,7 @@ title: Tutorial - Criar pacote de acesso - Gestão de direitos AZure AD
 description: Tutorial passo a passo para como criar o seu primeiro pacote de acesso na gestão de direitos do Azure Ative Directory.
 services: active-directory
 documentationCenter: ''
-author: barclayn
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.subservice: compliance
 ms.date: 09/30/2020
-ms.author: barclayn
+ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e8d68643b5cc0002467f738dd60343fb2c42dc6
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 2625b1e0ccc4c3129f412eff144f47d9dc97b961
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97631295"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937890"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Tutorial: Crie o seu primeiro pacote de acesso na gestão de direitos Azure AD
 
@@ -70,7 +70,7 @@ Um diretório de recursos tem um ou mais recursos para partilhar. Neste passo, v
     | Name | Função de diretório |
     | --- | --- |
     | **Administrador1** | Administrador global<br/>-ou-<br/>Administrador de utilizadores |
-    | **Requestor1** | Utilizador |
+    | **Requestor1** | User |
 
 1. Criar um grupo de segurança Azure AD chamado **Recursos de Marketing** com um tipo de membro de **Atribuídos**.
 
@@ -119,7 +119,7 @@ Um pacote de *acesso* é um pacote de recursos que uma equipa ou projeto precisa
     ![Novo pacote de acesso - Separador de funções de recursos](./media/entitlement-management-access-package-first/resource-roles.png)
 
     >[!IMPORTANT]
-    >Os grupos atribuíveis a funções adicionados a um pacote de acesso serão indicados utilizando o sub tipo **atribuível às funções**. Consulte a [Criação de um grupo atribuível a funções](../roles/groups-create-eligible.md) no Azure Ative Directory para obter mais detalhes sobre grupos atribuíveis às funções AZure AD. Se não vir um grupo atribuível a um papel que pretenda adicionar ou não conseguir adicioná-lo, certifique-se de que tem o papel de AD Azure e o papel de gestão de direitos necessários para executar esta operação. Pode ser necessário perguntar a alguém com as funções necessárias que adicione o recurso ao seu catálogo. Para obter mais informações, consulte [as funções necessárias para adicionar recursos a um catálogo.](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)
+    >Os grupos atribuíveis a funções adicionados a um pacote de acesso serão indicados utilizando o sub tipo **atribuível às funções**. Consulte a [Criação de um grupo atribuível a funções](../roles/groups-create-eligible.md) no Azure Ative Directory para obter mais detalhes sobre grupos atribuíveis às funções AZure AD. Tenha em mente que uma vez que um grupo atribuível a funções esteja presente num catálogo de pacotes de acesso, os utilizadores administrativos que sejam capazes de gerir na gestão de direitos, incluindo administradores globais, administradores de utilizadores e proprietários de catálogos do catálogo, poderão controlar os pacotes de acesso no catálogo, permitindo-lhes escolher quem pode ser adicionado a esses grupos. Se não vir um grupo atribuível a um papel que pretenda adicionar ou não conseguir adicioná-lo, certifique-se de que tem o papel de AD Azure e o papel de gestão de direitos necessários para executar esta operação. Pode ser necessário perguntar a alguém com as funções necessárias que adicione o recurso ao seu catálogo. Para obter mais informações, consulte [as funções necessárias para adicionar recursos a um catálogo.](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)
 
     >[!NOTE]
     > Ao utilizar [grupos dinâmicos,](../enterprise-users/groups-create-rule.md) não verá outras funções disponíveis para além do proprietário. Esta ação é propositada.
@@ -267,7 +267,7 @@ Neste passo, remove as alterações que esou e elimina o pacote de acesso **à C
 
 1. Eliminar o grupo **de recursos de Marketing.**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Avance para o próximo artigo para conhecer os passos comuns do cenário na gestão de direitos.
 > [!div class="nextstepaction"]

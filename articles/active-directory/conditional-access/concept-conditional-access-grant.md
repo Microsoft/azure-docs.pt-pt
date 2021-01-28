@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c065b7a7269c8da42493ede50466f44f7dd2658
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 5f0a84af0c7a4105327405cfb809f5101ab42931
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219951"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938382"
 ---
 # <a name="conditional-access-grant"></a>Acesso Condicional: Concessão
 
@@ -121,7 +121,9 @@ Na sua política de Acesso Condicional, pode exigir que uma [política de prote�
 
 Para alavancar este controlo de subvenção, o Conditional Access exige que o dispositivo seja registado no Azure Ative Directory, o que requer a utilização de uma aplicação de corretor. A aplicação de mediador pode ser o Microsoft Authenticator para iOS ou o Portal da Empresa da Microsoft para dispositivos Android. Se uma aplicação de corretor não for instalada no dispositivo quando o utilizador tentar autenticar, o utilizador é redirecionado para a loja de aplicações para instalar a aplicação do corretor.
 
-Esta definição aplica-se às seguintes aplicações de clientes:
+As candidaturas são necessárias para que o **Intune SDK** com **a Policy Assurance** seja implementado e satisfaça certos outros requisitos para apoiar esta definição. Os desenvolvedores que implementam aplicações com o Intune SDK podem encontrar mais informações na documentação SDK sobre estes requisitos.
+
+Foram confirmadas as seguintes aplicações de clientes para apoiar esta definição:
 
 - Microsoft Cortana
 - Microsoft Edge
@@ -169,7 +171,7 @@ Existe uma restrição de casal quando configura uma política usando o controlo
 
 Se a sua organização criou termos de utilização, opções adicionais podem ser visíveis sob controlo de subvenção. Estas opções permitem que os administradores exijam o reconhecimento dos termos de utilização como condição de acesso aos recursos protegidos pela política. Mais informações sobre os termos de utilização podem ser encontradas no artigo, [termos de utilização do Azure Ative Directory](terms-of-use.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Acesso Condicional: Controlos de sessão](concept-conditional-access-session.md)
 

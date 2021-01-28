@@ -3,7 +3,7 @@ title: Delegação e funções na gestão de direitos - Azure AD
 description: Saiba como delegar a governação de acesso de administradores de TI a gestores de departamentos e gestores de projetos para que eles possam gerir o acesso a si mesmos.
 services: active-directory
 documentationCenter: ''
-author: barclayn
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 12/23/2020
-ms.author: barclayn
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cf3784cc5f6014b04b4668517faf3f319ce55d5
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: 7a5812d4dbbd1a63b16d5bee77bb018ea18dd1d6
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746682"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937684"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Delegação e funções na gestão dos direitos da AD Azure
 
@@ -65,18 +65,18 @@ O diagrama seguinte mostra catálogos com recursos para os departamentos de mark
 
 Após a delegação, o departamento de marketing poderá ter funções semelhantes à tabela seguinte.
 
-| Utilizador | Papel de trabalho | Papel de AD AZure | Papel de gestão de direitos |
+| User | Papel de trabalho | Papel de AD AZure | Papel de gestão de direitos |
 | --- | --- | --- | --- |
 | Hana | Administrador de TI | Administrador global ou administrador de utilizadores |  |
-| Mamta | Gestor de marketing | Utilizador | Criador de catálogo e proprietário de catálogo |
-| Bob | Chumbo de marketing | Utilizador | Proprietário do catálogo |
-| Jéssica | Gestor de projetos de marketing | Utilizador | Gestor de pacotes de acesso |
+| Mamta | Gestor de marketing | User | Criador de catálogo e proprietário de catálogo |
+| Bob | Chumbo de marketing | User | Proprietário do catálogo |
+| Jéssica | Gestor de projetos de marketing | User | Gestor de pacotes de acesso |
 
 ## <a name="entitlement-management-roles"></a>Funções de gestão de direitos
 
 A gestão de direitos tem as seguintes funções específicas para a gestão de direitos.
 
-| Papel de gestão de direitos | Description |
+| Papel de gestão de direitos | Descrição |
 | --- | --- |
 | Criador de catálogos | Criar e gerir catálogos. Tipicamente um administrador de TI que não é um administrador global, ou um proprietário de recursos para uma recolha de recursos. A pessoa que cria um catálogo torna-se automaticamente o primeiro proprietário do catálogo, e pode adicionar proprietários adicionais de catálogos. Um criador de catálogos não consegue gerir ou ver catálogos que não possuem e não pode adicionar recursos que não possuem a um catálogo. Se o criador do catálogo precisar de gerir outro catálogo ou adicionar recursos que não possuam, podem solicitar para ser coproprietário desse catálogo ou recurso. |
 | Proprietário do catálogo | Editar e gerir os catálogos existentes. Normalmente, um administrador de TI ou proprietários de recursos, ou um utilizador que o proprietário do catálogo designou. |
@@ -85,7 +85,7 @@ A gestão de direitos tem as seguintes funções específicas para a gestão de 
 
 Além disso, um aprovador designado e um solicitador de um pacote de acesso também têm direitos, embora não sejam funções.
 
-| Direita | Description |
+| Direita | Descrição |
 | --- | --- |
 | Aprovador | Autorizados por uma política para aprovar ou negar pedidos de acesso a pacotes, embora não possam alterar as definições do pacote de acesso. |
 | Requerente | Autorizado por uma política de um pacote de acesso para solicitar esse pacote de acesso. |
@@ -118,7 +118,7 @@ A tabela que se segue enumera as tarefas que as funções de gestão de direitos
 
 ## <a name="required-roles-to-add-resources-to-a-catalog"></a>Funções necessárias para adicionar recursos a um catálogo
 
-Um administrador global pode adicionar ou remover qualquer grupo (grupos de segurança criados na nuvem ou grupos Microsoft 365), aplicação ou site SharePoint Online num catálogo. Um administrador do Utilizador pode adicionar ou remover qualquer grupo ou aplicação num catálogo, exceto para um grupo configurado como atribuível a uma função de diretório.
+Um administrador global pode adicionar ou remover qualquer grupo (grupos de segurança criados na nuvem ou grupos Microsoft 365), aplicação ou site SharePoint Online num catálogo. Um administrador do Utilizador pode adicionar ou remover qualquer grupo ou aplicação num catálogo, exceto para um grupo configurado como atribuível a uma função de diretório. Note que um administrador de utilizador pode gerir pacotes de acesso num catálogo que inclui grupos configurados como atribuíveis a uma função de diretório.
 
 Para um utilizador que não seja um administrador global ou um administrador do Utilizador, para adicionar grupos, aplicações ou sites SharePoint Online a um catálogo, esse utilizador deve ter *tanto* a função de diretório AD AD exigida como a função de gestão de direitos do proprietário do catálogo. A tabela que se segue lista as combinações de funções que são necessárias para adicionar recursos a um catálogo. Para remover recursos de um catálogo, você deve ter as mesmas funções.
 
@@ -132,14 +132,14 @@ Para um utilizador que não seja um administrador global ou um administrador do 
 | [Administrador do SharePoint](../roles/permissions-reference.md) | Proprietário do catálogo |  | :heavy_check_mark: |  | :heavy_check_mark: |
 | [Administrador de aplicação](../roles/permissions-reference.md) | Proprietário do catálogo |  |  | :heavy_check_mark: |  |
 | [Administrador de aplicação em nuvem](../roles/permissions-reference.md) | Proprietário do catálogo |  |  | :heavy_check_mark: |  |
-| Utilizador | Proprietário do catálogo | Só se o dono do grupo | Só se o dono do grupo | Só se o proprietário da aplicação |  |
+| User | Proprietário do catálogo | Só se o dono do grupo | Só se o dono do grupo | Só se o proprietário da aplicação |  |
 
 > [!NOTE]
 > Se um utilizador adicionar um grupo de segurança ou um grupo Microsoft 365, então o grupo não pode ser atribuível a funções. Se o utilizador adicionar um grupo que seja atribuível a funções quando criar o pacote de acesso, então eles também devem ser o proprietário desse grupo atribuível a função. Para mais informações, consulte [criar um grupo atribuível a funções no Diretório Ativo Azure](../roles/groups-create-eligible.md).
 
 Para determinar o papel menos privilegiado para uma tarefa, também pode referenciar [as funções de Administrador através da tarefa de administração no Diretório Ativo Azure](../roles/delegate-by-task.md#entitlement-management).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Delegar governação de acesso aos criadores de catálogos](entitlement-management-delegate-catalog.md)
 - [Criar e gerir um catálogo de recursos](entitlement-management-catalog-create.md)

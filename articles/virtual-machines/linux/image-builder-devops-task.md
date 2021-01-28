@@ -3,16 +3,16 @@ title: Tarefa de devOps de devops de serviço de construtor de imagem Azure
 description: A azure DevOps tarefa de injetar artefactos de construção em uma imagem VM para que você possa instalar e configurar a sua aplicação e SO.
 author: danielsollondon
 ms.author: danis
-ms.date: 08/10/2020
+ms.date: 01/27/2021
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: 634fc183cc27db1ae949959c3ae7fae8eda5b644
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: df97ecd1668dcc0e21408b7d39b0973e8f0d8fbf
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684547"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98934276"
 ---
 # <a name="azure-image-builder-service-devops-task"></a>Tarefa de devOps de devops de serviço de construtor de imagem Azure
 
@@ -154,6 +154,12 @@ O exemplo a seguir explica como isto funciona:
     & 'c:\buildArtifacts\webapp\webconfig.ps1'
     ```
 
+   Pode fazer referência a vários scripts ou adicionar mais comandos, por exemplo:
+
+       ```PowerShell
+       & 'c:\buildArtifacts\webapp\webconfig.ps1'
+       & 'c:\buildArtifacts\webapp\installAgent.ps1'
+       ```
 * Linux - Nos sistemas Linux os artefactos de construção são colocados no `/tmp` diretório. No entanto, em muitos OSs Linux, num reboot, os conteúdos do diretório /tmp são eliminados. Se quiser que os artefactos existam na imagem, deve criar outro diretório e copiá-los.  Por exemplo:
 
     ```bash
@@ -306,7 +312,7 @@ Atualmente, não neste momento.
 
 ### <a name="can-i-specify-the-image-template-name"></a>Posso especificar o nome do modelo de imagem?
 
-N.º Um nome de modelo único é usado e, em seguida, apagado.
+Não. Um nome de modelo único é usado e, em seguida, apagado.
 
 ### <a name="the-image-builder-failed-how-can-i-troubleshoot"></a>O construtor de imagens falhou. Como posso resolver problemas?
 
@@ -333,6 +339,6 @@ template name:  t_1556938436xxx
 O artefacto do recurso do modelo de imagem está no grupo de recursos especificado inicialmente na tarefa. Quando acabares de resolver problemas, apaga o artefacto. Se eliminar utilizando o portal Azure, dentro do grupo de recursos, selecione **Mostrar Tipos Ocultos,** para visualizar o artefacto.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para mais informações, consulte [a visão geral do Azure Image Builder](../image-builder-overview.md).

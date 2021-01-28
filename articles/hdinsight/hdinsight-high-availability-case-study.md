@@ -1,19 +1,16 @@
 ---
 title: Azure HDInsight estudo de caso de arquitetura de solução altamente disponível
 description: Este artigo é um estudo de caso fictício de uma possível arquitetura de solução Azure HDInsight altamente disponível.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 keywords: hadoop alta disponibilidade
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2020
-ms.openlocfilehash: 4b98b03c2d7eb4a0403b4595c1376656ed42511b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0616694d05e3fc9d2255ad97647ebe3bce545a93
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91855043"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945357"
 ---
 # <a name="azure-hdinsight-highly-available-solution-architecture-case-study"></a>Azure HDInsight estudo de caso de arquitetura de solução altamente disponível
 
@@ -68,7 +65,7 @@ Um sistema de controlo de versão integrado num Azure Pipelines e alojado fora d
 
 A imagem a seguir mostra a arquitetura de recuperação de desastres de alta disponibilidade da Contoso Retail.
 
-:::image type="content" source="./media/hdinsight-high-availability-case-study/contoso-solution.png" alt-text="Arquitetura de retalho Contoso":::
+:::image type="content" source="./media/hdinsight-high-availability-case-study/contoso-solution.png" alt-text="Solução Contoso":::
 
 **Kafka** usa a replicação [ativa – passiva](hdinsight-business-continuity-architecture.md#apache-kafka) para espelhar os tópicos kafka da região primária para a região secundária. Uma alternativa à replicação de Kafka poderia ser produzir para Kafka em ambas as regiões.
 
@@ -82,7 +79,7 @@ Durante uma época de pico de compras, todo o gasoduto secundário está sempre 
 
 Nenhuma solução de failover precisa de ser projetada para relatórios internos, uma vez que não é fundamental para a continuidade do negócio.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre os itens discutidos neste artigo, consulte:
 

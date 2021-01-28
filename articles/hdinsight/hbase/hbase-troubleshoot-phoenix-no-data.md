@@ -3,16 +3,13 @@ title: Atualização da HDP não & dados nas vistas da Apache Phoenix em Azure H
 description: Atualização da HDP não causa dados nas vistas da Apache Phoenix em Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.date: 08/08/2019
-ms.openlocfilehash: c3f4a532607fed242ac0351b0cc1cfc592771084
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: f68e227e10a85b7e1d98dcabbfb870933059ec04
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92540046"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98936928"
 ---
 # <a name="scenario-hdp-upgrade-causes-no-data-in-apache-phoenix-views-in-azure-hdinsight"></a>Cenário: Atualização do HDP não causa dados nas vistas da Apache Phoenix em Azure HDInsight
 
@@ -30,7 +27,7 @@ A tabela de índices para visualizações (todos os índices de visualização s
 
 Largue e recrie todos os índices de visualização após a atualização.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se não viu o seu problema ou não conseguir resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 
