@@ -1,18 +1,15 @@
 ---
 title: Migrar cargas de carga Apache Kafka para Azure HDInsight 4.0
 description: Saiba como migrar cargas de trabalho apache Kafka em HDInsight 3.6 a HDInsight 4.0.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/18/2019
-ms.openlocfilehash: 0a31c6cf32222277e033aacf7d04622c54aef9ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3967a5d96c35e4bac88dcd9a6c1fa95b78a6b2b1
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80437005"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98939117"
 ---
 # <a name="migrate-apache-kafka-workloads-to-azure-hdinsight-40"></a>Migrar cargas de carga Apache Kafka para Azure HDInsight 4.0
 
@@ -82,7 +79,7 @@ Para completar a migração, faça os seguintes passos:
 
 1. **Retire o aglomerado antigo e as aplicações de teste conforme necessário.** Uma vez que o interruptor esteja completo e funcionando corretamente, remova o antigo cluster HDInsight 3.6 Kafka e os produtores e consumidores utilizados no teste, conforme necessário.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Otimização de desempenho para os clusters do HDInsight no Apache Kafka](apache-kafka-performance-tuning.md)
 * [Quickstart: Criar cluster Apache Kafka em Azure HDInsight usando o portal Azure](apache-kafka-get-started.md)

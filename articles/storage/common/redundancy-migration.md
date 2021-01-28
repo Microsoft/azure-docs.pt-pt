@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 01/27/2021
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 228595bf633ef0545a13abe19308e49da82cf75a
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 38978982baea41d23958a857b19a1edf2e454f37
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844017"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938727"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Alterar a forma como uma conta de armazenamento é replicada
 
@@ -39,16 +39,17 @@ A tabela a seguir fornece uma visão geral de como mudar de cada tipo de replica
 
 | Comutação | ... para o LRS | ... a GRS/RA-GRS | ... para ZRS | ... para GZRS/RA-GZRS |
 |--------------------|----------------------------------------------------|---------------------------------------------------------------------|----------------------------------------------------|---------------------------------------------------------------------|
-| <b>... do LRS</b> | N/D | Utilize o portal Azure, PowerShell ou CLI para alterar a definição de replicação<sup>1</sup> | Realizar uma migração manual <br /><br /> OR <br /><br /> Solicite uma migração ao vivo | Realizar uma migração manual <br /><br /> OR <br /><br /> Mude primeiro para GRS/RA-GRS e, em seguida, solicite uma migração ao vivo<sup>1</sup> |
+| <b>... do LRS</b> | N/D | Utilize o portal Azure, PowerShell ou CLI para alterar a definição de replicação<sup>1,2</sup> | Realizar uma migração manual <br /><br /> OR <br /><br /> Solicite uma migração ao vivo | Realizar uma migração manual <br /><br /> OR <br /><br /> Mude primeiro para GRS/RA-GRS e, em seguida, solicite uma migração ao vivo<sup>1</sup> |
 | <b>... de GRS/RA-GRS</b> | Use o portal Azure, PowerShell ou CLI para alterar a definição de replicação | N/D | Realizar uma migração manual <br /><br /> OR <br /><br /> Mude primeiro para LRS e, em seguida, solicite uma migração ao vivo | Realizar uma migração manual <br /><br /> OR <br /><br /> Solicite uma migração ao vivo |
-| <b>... da ZRS</b> | Realizar uma migração manual | Realizar uma migração manual | N/D | Utilize o portal Azure, PowerShell ou CLI para alterar a definição de replicação<sup>1,2</sup> |
+| <b>... da ZRS</b> | Realizar uma migração manual | Realizar uma migração manual | N/D | Utilize o portal Azure, PowerShell ou CLI para alterar a definição de replicação<sup>1,3</sup> |
 | <b>... de GZRS/RA-GZRS</b> | Realizar uma migração manual | Realizar uma migração manual | Use o portal Azure, PowerShell ou CLI para alterar a definição de replicação | N/D |
 
 <sup>1</sup> Incorre numa carga de saída única.<br />
-<sup>2</sup> A conversão de ZRS para GZRS/RA-GZRS ou vice-versa não é apoiada nas seguintes regiões: US East 2, US East, Europe West.
+<sup>2</sup> A migração de LRS para GRS não é suportada se a conta de armazenamento contiver bolhas no nível de arquivo.<br />
+<sup>3</sup> A conversão de ZRS para GZRS/RA-GZRS ou vice-versa não é apoiada nas seguintes regiões: US East 2, US East, Europe West.
 
 > [!CAUTION]
-> Se tiver feito uma falha de [conta](storage-disaster-recovery-guidance.md) na sua conta (RA-)GRS ou (RA-)GZRS, a conta é localmente redundante na nova região primária após o failover. A migração ao vivo para ZRS ou GZRS para uma conta LRS resultante de um failover não é suportada. Isto é verdade mesmo no caso das chamadas operações de repusão. Por exemplo, se efetuar uma falha de conta de RA-GZRS para o LRS na região secundária, e depois configurá-la novamente para RA-GRS e executar outra falha de conta para a região primária original, não pode contactar o suporte para a migração original ao vivo para RA-GZRS na região primária. Em vez disso, terá de realizar uma migração manual para ZRS ou GZRS.
+> Se tiver feito uma falha de [conta](storage-disaster-recovery-guidance.md) na sua conta (RA-)GRS ou (RA-)GZRS, a conta é localmente redundante (LRS) na nova região primária após a falência. A migração ao vivo para ZRS ou GZRS para uma conta LRS resultante de um failover não é suportada. Isto é verdade mesmo no caso das chamadas operações de repusão. Por exemplo, se efetuar uma falha de conta de RA-GZRS para o LRS na região secundária, e depois configurá-la novamente para RA-GRS e executar outra falha de conta para a região primária original, não pode contactar o suporte para a migração original ao vivo para RA-GZRS na região primária. Em vez disso, terá de realizar uma migração manual para ZRS ou GZRS.
 
 ## <a name="change-the-replication-setting"></a>Alterar a definição de replicação
 
@@ -198,7 +199,7 @@ Se migrar a sua conta de armazenamento de GRS para LRS, não há custo adicional
 > [!IMPORTANT]
 > Se migrar a sua conta de armazenamento de RA-GRS para GRS ou LRS, essa conta é faturada como RA-GRS por mais 30 dias além da data em que foi convertida.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 - [Redundância do Armazenamento do Azure](storage-redundancy.md)
 - [Verifique a propriedade da Última Hora do Sincronização para obter uma conta de armazenamento](last-sync-time-get.md)

@@ -1,5 +1,5 @@
 ---
-title: Orientação de migração baseada em cenários de proteção de conteúdos
+title: Orientação de migração de proteção de conteúdos
 description: Este artigo dá-lhe orientação baseada em cenário de proteção de conteúdos que irá ajudá-lo a migrar de Azure Media Services v2 para v3.
 services: media-services
 author: IngridAtMicrosoft
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: d1e8c8d1f7f710acff75fa1d78aab68df03c954d
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 9c0040c0ad34b019eaa90bbd1571377ad3539578
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98898295"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98940115"
 ---
 # <a name="content-protection-scenario-based-migration-guidance"></a>Orientação de migração baseada em cenários de proteção de conteúdos
 

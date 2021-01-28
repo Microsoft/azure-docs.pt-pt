@@ -1,19 +1,16 @@
 ---
 title: O que é Azure HDInsight
 description: Uma introdução ao HDInsight, e a pilha e componentes da tecnologia Apache Hadoop e Apache Spark, incluindo Kafka, Hive, Storm e HBase para análise de big data.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: overview
 ms.custom: contperf-fy21q1
 ms.date: 08/21/2020
-ms.openlocfilehash: a1ef441943ec3c29770e0964b3c1132f86239b42
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: d1c32bf749850ac40e23c1a9cb9c5cd7755d45c6
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127418"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98939434"
 ---
 # <a name="what-is-azure-hdinsight"></a>O que é o Azure HDInsight?
 
@@ -136,7 +133,7 @@ Kafka e HBase armazenam os dados dos clientes. Estes dados são automaticamente 
 
 Ferramentas familiares de inteligência empresarial (BI) recuperam, analisam e reportam dados que são integrados com HDInsight utilizando o add-in de Consulta de Energia ou o Controlador ODBC da Microsoft Hive.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Criar aglomerado Apache Hadoop em HDInsight](./hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md)
 * [Criar um cluster do Apache Spark - Portal](./spark/apache-spark-jupyter-spark-sql-use-portal.md)

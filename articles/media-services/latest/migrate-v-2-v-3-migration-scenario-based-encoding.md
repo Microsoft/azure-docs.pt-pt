@@ -1,5 +1,5 @@
 ---
-title: Orientação de migração baseada em cenários de codificação
+title: Orientação de migração codificada
 description: Este artigo dá-lhe orientações baseadas em cenários que o ajudarão a migrar da Azure Media Services v2 para v3.
 services: media-services
 author: IngridAtMicrosoft
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: f8d25a14593c3c4a26ecafa33f7cc9fe6c4d580a
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: ab819239572fd99fdf5ff3bf23f81eb3cdff3b9a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98898363"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98940099"
 ---
 # <a name="encoding-scenario-based-migration-guidance"></a>Orientação de migração baseada em cenários de codificação
 

@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/13/2019
 ms.author: allensu
-ms.openlocfilehash: 3b86f9bcbc863a78fd5f8f748e973a20ea709636
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 2e32faad698fbf316d51123cc8b7845a3b262c7f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96573175"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938657"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Criar, alterar ou eliminar um prefixo de endereço IP público
 
 Saiba mais sobre um prefixo de endereço IP público e como criar, alterar e apagar um. Um prefixo de endereço IP público é um leque contíguo de endereços baseados no número de endereços IP públicos que especifica. Os endereços são atribuídos à sua subscrição. Ao criar um recurso de endereço IP público, pode atribuir um endereço IP público estático a partir do prefixo e associar o endereço a máquinas virtuais, equilibradores de carga ou outros recursos, para permitir a conectividade da Internet. Se não estiver familiarizado com os prefixos do endereço IP público, consulte a [visão geral do prefixo do endereço IP público](public-ip-address-prefix.md)
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -48,11 +48,11 @@ Os prefixos de endereço IP públicos têm uma taxa. Para mais detalhes, consult
 
    |Definição|Necessário?|Detalhes|
    |---|---|---|
-   |Subscrição|Sim|Deve existir na mesma [subscrição](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) que o recurso a que pretende associar o endereço IP público.|
-   |Grupo de recursos|Sim|Pode existir no mesmo grupo de [recursos,](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) ou diferente, que o recurso a que pretende associar o endereço IP público.|
-   |Name|Sim|O nome deve ser único dentro do grupo de recursos que seleciona.|
-   |Região|Sim|Deve existir na mesma [região](https://azure.microsoft.com/regions)que os endereços IP públicos que irá atribuir endereços do intervalo.|
-   |Tamanho do prefixo|Sim| O tamanho do prefixo que precisa. A /28 ou 16 endereços IP é o predefinido.
+   |Subscrição|Yes|Deve existir na mesma [subscrição](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) que o recurso a que pretende associar o endereço IP público.|
+   |Grupo de recursos|Yes|Pode existir no mesmo grupo de [recursos,](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) ou diferente, que o recurso a que pretende associar o endereço IP público.|
+   |Name|Yes|O nome deve ser único dentro do grupo de recursos que seleciona.|
+   |Region|Yes|Deve existir na mesma [região](https://azure.microsoft.com/regions)que os endereços IP públicos que irá atribuir endereços do intervalo.|
+   |Tamanho do prefixo|Yes| O tamanho do prefixo que precisa. A /28 ou 16 endereços IP é o predefinido.
 
 **Comandos**
 
@@ -74,16 +74,16 @@ Uma vez criado um prefixo, deve criar endereços IP estáticos a partir do prefi
 
    |Definição|Necessário?|Detalhes|
    |---|---|---|
-   |Name|Sim|O nome do endereço IP público deve ser único dentro do grupo de recursos que seleciona.|
-   |Tempo de 20 minutos (minutos)|Não|Quantos minutos para manter aberta uma ligação TCP ou HTTP sem depender dos clientes para enviar mensagens de vida. |
-   |Etiqueta de nome DNS|Não|Deve ser único na região Azure em que cria o nome (em todas as subscrições e todos os clientes). O Azure regista automaticamente o nome e o endereço IP no seu DNS para que possa ligar-se a um recurso com o nome. O Azure anexa uma sub-rede predefinida, como *location.cloudapp.azure.com* (onde a localização é a localização selecionada) para o nome que fornece, para criar o nome DNS totalmente qualificado. Para mais informações, consulte [O Azure DNS com um endereço IP público Azure](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).|
+   |Name|Yes|O nome do endereço IP público deve ser único dentro do grupo de recursos que seleciona.|
+   |Tempo de 20 minutos (minutos)|No|Quantos minutos para manter aberta uma ligação TCP ou HTTP sem depender dos clientes para enviar mensagens de vida. |
+   |Etiqueta de nome DNS|No|Deve ser único na região Azure em que cria o nome (em todas as subscrições e todos os clientes). O Azure regista automaticamente o nome e o endereço IP no seu DNS para que possa ligar-se a um recurso com o nome. O Azure anexa uma sub-rede predefinida, como *location.cloudapp.azure.com* (onde a localização é a localização selecionada) para o nome que fornece, para criar o nome DNS totalmente qualificado. Para mais informações, consulte [O Azure DNS com um endereço IP público Azure](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).|
 
 Em alternativa, pode utilizar os comandos CLI e PS abaixo com os parâmetros --public-ip-prefix (CLI) e -PublicIpPrefix (PS), para criar um recurso de endereço IP público. 
 
 |Ferramenta|Comando|
 |---|---|
-|CLI|[az network public-ip create](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create)|
-|PowerShell|[New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress?view=azps-2.0.0)|
+|CLI|[az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create)|
+|PowerShell|[New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)|
 
 ## <a name="view-or-delete-a-prefix"></a>Ver ou apagar um prefixo
 
@@ -111,6 +111,6 @@ Para executar tarefas em prefixos de endereços IP públicos, a sua conta deve s
 | Microsoft.Network/publicIPPrefixes/delete                         | Eliminar um prefixo de endereço IP público                              |
 |Microsoft.Network/publicIPPrefixes/join/action                     | Criar um endereço IP público a partir de um prefixo |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba sobre cenários e benefícios de usar um [prefixo IP público](public-ip-address-prefix.md)

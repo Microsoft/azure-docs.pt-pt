@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/11/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: c20685c0c392ece68dc80b57afc6680f2efd9e35
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 05e14b5bdc2f603ffe802b12ed33b7b57be25b69
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754518"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938201"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Quickstart: Adicione o início de sôs-in com a Microsoft a uma aplicação web core ASP.NET
 
@@ -56,13 +56,13 @@ Veja [como funciona a amostra](#how-the-sample-works) para uma ilustração.
 > 1. Selecione **Registar**.
 > 1. Em **Gestão**, **selecione Autenticação**.
 > 1. Em **Redirecionar URIs**, selecione **Add URI** e, em seguida, insira `https://localhost:44321/signin-oidc` .
-> 1. Introduza um **URL logout** de `https://localhost:44321/signout-oidc` .
+> 1. Introduza um **URL de logout** de canal frontal de `https://localhost:44321/signout-oidc` .
 > 1. Em **Concessão implícita**, selecione **Tokens de ID**.
 > 1. Selecione **Guardar**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Passo 1: Configurar a sua candidatura no portal Azure
-> Para que a amostra de código para este arranque rápido funcione, é necessário adicionar URLs de resposta como `https://localhost:44321/` e , adicione o URL `https://localhost:44321/signin-oidc` logoto como , e `https://localhost:44321/signout-oidc` solicite fichas de identificação para serem emitidas pelo ponto final de autorização.
+> O código de amostra deste quickstart requer um **URI de redirecionamento** `https://localhost:44321/` de e um URL de logotipo de canal `https://localhost:44321/signin-oidc` **frontal** de `https://localhost:44321/signout-oidc` . Os tokens de ID do pedido serão emitidos pelo ponto final de autorização.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Fazer esta alteração por mim]()
 >

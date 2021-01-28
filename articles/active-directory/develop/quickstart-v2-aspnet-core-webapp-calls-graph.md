@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 8e54f71ef58b3ea76a5fe55347a1caa173046320
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 675a5526bfd741876de16fe41c969c09a4ed0ad7
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754502"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938227"
 ---
 # <a name="quickstart-aspnet-core-web-app-that-signs-in-users-and-calls-microsoft-graph-on-their-behalf"></a>Quickstart: ASP.NET web web do Core que assina nos utilizadores e chama o Microsoft Graph em seu nome
 
@@ -55,7 +55,7 @@ Veja [como funciona a amostra](#how-the-sample-works) para uma ilustração.
 > 1. Introduza um **URI de redirecionamento** de `https://localhost:44321/signin-oidc` .
 > 1. Selecione **Registar**.
 > 1. Em **Gestão**, **selecione Autenticação**.
-> 1. Introduza um **URL logout** de `https://localhost:44321/signout-oidc` .
+> 1. Introduza um **URL de logout** de canal frontal de `https://localhost:44321/signout-oidc` .
 > 1. Selecione **Guardar**.
 > 1. Under **Manage**, selecione **Certificados & segredos**  >  **Novo segredo do cliente**.
 > 1. Introduza uma **Descrição,** por exemplo `clientsecret1` .
@@ -64,7 +64,7 @@ Veja [como funciona a amostra](#how-the-sample-works) para uma ilustração.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Passo 1: Configurar a sua candidatura no portal Azure
-> Para que a amostra de código para este arranque rápido funcione, é necessário adicionar URLs de resposta como `https://localhost:44321/signin-oidc` , adicione o URL logoto como `https://localhost:44321/signout-oidc` .
+> O código de amostra deste quickstart requer um URL de **logótipo de redirecionamento e** de linha `https://localhost:44321/signin-oidc` **frontal** no registo `https://localhost:44321/signout-oidc` da aplicação.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Fazer esta alteração por mim]()
 >

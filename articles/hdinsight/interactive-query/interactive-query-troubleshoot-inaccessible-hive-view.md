@@ -3,16 +3,13 @@ title: Ligações Apache Hive ao Apache Zookeeper - Azure HDInsight
 description: Apache Hive View inacessível devido a problemas do Zookeeper Apache em Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.date: 07/30/2019
-ms.openlocfilehash: 1ac237edeea777225b7cf99946d359c921331b18
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 42fb9f5389cbc31e772dc9cf36b6a975c5e18d3c
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288915"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98939310"
 ---
 # <a name="scenario-apache-hive-fails-to-establish-a-connection-to-apache-zookeeper-in-azure-hdinsight"></a>Cenário: A Colmeia Apache não estabelece uma ligação ao Zookeeper Apache em Azure HDInsight
 
@@ -43,6 +40,6 @@ ERROR [Curator-Framework-0]: curator.ConnectionState (ConnectionState.java:check
 
 1. Para restabelecer a conectividade, reinicie os nós do Zookeeper e reinicie o HiveServer2.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]

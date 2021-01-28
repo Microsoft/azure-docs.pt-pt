@@ -1,19 +1,16 @@
 ---
 title: Planeie uma rede virtual para a Azure HDInsight
 description: Saiba como planear uma implementação da Rede Virtual Azure para ligar o HDInsight a outros recursos na nuvem ou recursos no seu datacenter.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 01/12/2021
-ms.openlocfilehash: 429f0b2ffe486279a1c429fc7a153e6528642f54
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: fe974a96b7f349c9d525d0cd0bb01a83ace57a4f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131666"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98939282"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Planeie uma rede virtual para a Azure HDInsight
 
@@ -206,7 +203,7 @@ Para ligar ao Apache Ambari e a outras páginas web através da rede virtual, ut
 
 Quando cria um cluster HDInsight, também é criado um equilibrador de carga. O tipo deste equilibrador de carga está no [nível básico de SKU,](../load-balancer/skus.md)que tem certos constrangimentos. Um desses constrangimentos é que se tiver duas redes virtuais em diferentes regiões, não pode ligar-se aos equilibradores básicos de carga. Consulte [as redes virtuais FAQ: restrições no perspípeso global de vnet,](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)para obter mais informações.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter amostras de código e exemplos de criação de Redes Virtuais Azure, consulte [criar redes virtuais para clusters Azure HDInsight](hdinsight-create-virtual-network.md).
 * Para obter um exemplo de configuração hdinsight para ligar a uma rede no local, consulte [Connect HDInsight a uma rede no local](./connect-on-premises-network.md).

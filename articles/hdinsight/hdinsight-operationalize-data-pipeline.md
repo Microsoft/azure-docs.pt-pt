@@ -1,19 +1,16 @@
 ---
 title: Operacionalizar um pipeline de análise de dados - Azure
 description: Crie e execute um pipeline de dados de exemplo que é desencadeado por novos dados e produz resultados concisos.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/25/2019
-ms.openlocfilehash: 1e73c403a03eef9a47bc0550b37769db302a599c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a306890560497b0c7196f1286de3f73039821ea2
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89504423"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98939517"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>Operacionalizar um pipeline de análise de dados
 
@@ -39,7 +36,7 @@ O diagrama que se segue ilustra o gasoduto exemplo.
 
 Este oleoduto utiliza Apache Oozie a funcionar num cluster HDInsight Hadoop.
 
-A Oozie descreve os seus oleodutos em termos de *ações,* *fluxos de trabalho*e *coordenadores.* As ações determinam o trabalho real a realizar, como executar uma consulta de Colmeia. Os fluxos de trabalho definem a sequência de ações. Os coordenadores definem o horário para quando o fluxo de trabalho é executado. Os coordenadores também podem aguardar a disponibilidade de novos dados antes de lançar uma instância do fluxo de trabalho.
+A Oozie descreve os seus oleodutos em termos de *ações,* *fluxos de trabalho* e *coordenadores.* As ações determinam o trabalho real a realizar, como executar uma consulta de Colmeia. Os fluxos de trabalho definem a sequência de ações. Os coordenadores definem o horário para quando o fluxo de trabalho é executado. Os coordenadores também podem aguardar a disponibilidade de novos dados antes de lançar uma instância do fluxo de trabalho.
 
 O diagrama que se segue mostra o design de alto nível deste pipeline exemplo Oozie.
 
@@ -53,7 +50,7 @@ Este oleoduto requer uma Base de Dados Azure SQL e um cluster HDInsight Hadoop n
 
 1. Criar uma Base de Dados Azure SQL. Consulte [a Criação de uma Base de Dados Azure SQL no portal Azure](../azure-sql/database/single-database-create-quickstart.md).
 
-1. Para garantir que o seu cluster HDInsight pode aceder à base de dados Azure SQL conectada, configurar as regras de firewall da Base de Dados Azure SQL para permitir que os serviços e recursos da Azure possam aceder ao servidor. Pode ativar esta opção no portal Azure selecionando a **firewall do servidor set**e selecionando **ON** por **baixo, permitir que os serviços e recursos do Azure acedam a este servidor** para Azure SQL Database. Para obter mais informações, consulte [Criar e gerir as regras de firewall IP](../azure-sql/database/firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules).
+1. Para garantir que o seu cluster HDInsight pode aceder à base de dados Azure SQL conectada, configurar as regras de firewall da Base de Dados Azure SQL para permitir que os serviços e recursos da Azure possam aceder ao servidor. Pode ativar esta opção no portal Azure selecionando a **firewall do servidor set** e selecionando **ON** por **baixo, permitir que os serviços e recursos do Azure acedam a este servidor** para Azure SQL Database. Para obter mais informações, consulte [Criar e gerir as regras de firewall IP](../azure-sql/database/firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules).
 
 1. Utilize [o editor de consulta](../azure-sql/database/single-database-create-quickstart.md#query-the-database) para executar as seguintes declarações SQL para criar a tabela que `dailyflights` armazenará os dados resumidos de cada execução do pipeline.
 
@@ -234,7 +231,7 @@ Em seguida, atualize os valores para o seu ambiente específico. A tabela abaixo
     | --- | --- |
     | nomeNode | O caminho completo para o recipiente de armazenamento Azure ligado ao seu cluster HDInsight. |
     | jobTracker | O nome de hospedeiro interno do nó de cabeça yarn do seu cluster ativo. Na página inicial do Ambari, selecione YARN da lista de serviços e, em seguida, escolha Ative Resource Manager. O nome de anfitrião URI é exibido no topo da página. Apêndi-lo o porto 8050. |
-    | nome de fila | O nome da fila YARN usado ao agendar as ações da Colmeia. Deixe como padrão. |
+    | nome de fila | O nome da fila YARN usado ao agendar as ações da Colmeia. Não altere a predefinição. |
     | oozie.use.system.libpath | Deixe como verdade. |
     | appBase | O caminho para a sub-página no Azure Storage onde implementa o fluxo de trabalho Oozie e ficheiros de suporte. |
     | oozie.wf.application.path | A localização do fluxo de trabalho de Oozie `workflow.xml` para executar. |
@@ -416,11 +413,11 @@ Utilize o SCP da sua sessão de festa para implementar o seu fluxo de trabalho O
     oozie job -config job.properties -run
     ```
 
-1. Observe o estado utilizando a Consola Web Oozie. De dentro de Ambari, selecione **Oozie,** **Quick Links**e, em seguida, **Oozie Web Console**. No **separador Workflow Jobs,** selecione **All Jobs**.
+1. Observe o estado utilizando a Consola Web Oozie. De dentro de Ambari, selecione **Oozie,** **Quick Links** e, em seguida, **Oozie Web Console**. No **separador Workflow Jobs,** selecione **All Jobs**.
 
     ![hdi oozie web consola fluxos de trabalho](./media/hdinsight-operationalize-data-pipeline/hdi-oozie-web-console-workflows.png)
 
-1. Quando o estado for BEM SUCEDIDO, consulte a tabela SQL Database para visualizar as linhas inseridas. Utilizando o portal Azure, navegue no painel para a sua Base de Dados SQL, selecione **Ferramentas**e abra o **Editor de Consulta**.
+1. Quando o estado for BEM SUCEDIDO, consulte a tabela SQL Database para visualizar as linhas inseridas. Utilizando o portal Azure, navegue no painel para a sua Base de Dados SQL, selecione **Ferramentas** e abra o **Editor de Consulta**.
 
     ```sql
     SELECT * FROM dailyflights
@@ -604,6 +601,6 @@ Para executar o oleoduto com um coordenador, proceda de forma semelhante ao flux
 
     Cada ação desta lista corresponde a uma instância do fluxo de trabalho que processa o valor de um dia de dados, onde o início desse dia é indicado pela hora nominal.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Documentação Apache Oozie](https://oozie.apache.org/docs/4.2.0/index.html)

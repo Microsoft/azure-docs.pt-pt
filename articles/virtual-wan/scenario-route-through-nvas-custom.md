@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 122e76e4bde96823ff18207bc24df4a8e91afb1c
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 8e51d7d00120f6facb0fb53a8e379d157ae79ea4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517973"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938565"
 ---
 # <a name="scenario-route-traffic-through-nvas-by-using-custom-settings"></a>Cenário: Encaminhar o tráfego através de NVAs utilizando configurações personalizadas
 
@@ -58,6 +58,9 @@ Existem três padrões distintos de conectividade, que se traduz em três tabela
   * Tabela de rotas associada: **Padrão**
   * Propagação para tabelas de rotas: **RT_SHARED** e **Padrão**
 
+> [!NOTE] 
+> Certifique-se de que os VNets falados não se propagam à etiqueta Predefinido. Isto garante que o tráfego de sucursais para VNets falados será encaminhado para as NVAs.
+
 Estas rotas estáticas asseguram que o tráfego de e para a rede virtual e sucursal passa pela NVA no VNet de serviço (VNet 4):
 
 | Descrição | Tabela de rota | Rota estática              |
@@ -80,7 +83,7 @@ Aqui está um diagrama da arquitetura descrito anteriormente no artigo.
 
 Há um centro, chamado **Hub 1.**
 
-* **O Hub 1** está diretamente ligado aos VNet **4** e **VNet 5**da NVA VNet .
+* **O Hub 1** está diretamente ligado aos VNet **4** e **VNet 5** da NVA VNet .
 
 * Espera-se que o tráfego entre as VNets 1, 2 e 3 e os balcões se despassem através do **VNet 4 NVA** 10.4.0.5.
 
@@ -120,9 +123,9 @@ Para configurar o encaminhamento via NVA, aqui estão os passos a considerar:
 
    * **Propagação a partir de:** Certifique-se de que a opção para os balcões (VPN/ER/P2S) é selecionada, certificando-se de que as ligações no local estão a propagar rotas para a tabela de rotas predefinido.
 
-:::image type="content" source="./media/routing-scenarios/nva-custom/figure-2.png" alt-text="Diagrama de arquitetura de rede." lightbox="./media/routing-scenarios/nva-custom/figure-2.png":::
+:::image type="content" source="./media/routing-scenarios/nva-custom/figure-2.png" alt-text="Diagrama de fluxo de trabalho." lightbox="./media/routing-scenarios/nva-custom/figure-2.png":::
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter mais informações sobre o VIRTUAL WAN, consulte as [FAQ.](virtual-wan-faq.md)
 * Para obter mais informações sobre o encaminhamento de hubs virtuais, consulte [sobre o encaminhamento do hub virtual](about-virtual-hub-routing.md).

@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 12/04/2020
+ms.date: 01/27/2021
 ms.author: aahi
-ms.openlocfilehash: 3b6c2a5a50cedadd8818eae735df55b661e794ef
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 8fa10164ae2d697f68156777f224b92f0562475f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97034025"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98940054"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Configurar redes virtuais dos Serviços Cognitivos do Azure
 
@@ -341,9 +341,6 @@ Forneça intervalos de endereços de internet permitidos utilizando [a notação
 
 As regras da rede IP só são permitidas para endereços IP **de internet pública.** Os intervalos de endereços IP reservados para redes privadas (tal como definido no [RFC 1918)](https://tools.ietf.org/html/rfc1918#section-3)não são permitidos nas regras de IP. As redes privadas incluem endereços que começam com `10.*` `172.16.*`  -  `172.31.*` , e `192.168.*` .
 
-   > [!NOTE]
-   > As regras da rede IP não têm qualquer efeito sobre os pedidos originários da mesma região do Azure que o recurso serviços cognitivos. Utilize [regras de rede virtuais](#grant-access-from-a-virtual-network) para permitir pedidos da mesma região.
-
 Neste momento, apenas os endereços IPV4 são suportados. Cada recurso de Serviços Cognitivos suporta até 100 regras de rede IP, que podem ser combinadas com [regras de rede Virtual](#grant-access-from-a-virtual-network).
 
 ### <a name="configuring-access-from-on-premises-networks"></a>Configurar o acesso a partir de redes no local
@@ -542,7 +539,7 @@ Para obter mais informações sobre a configuração do seu próprio servidor DN
 
 Para obter detalhes sobre os preços, consulte [os preços do Azure Private Link](https://azure.microsoft.com/pricing/details/private-link).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Explore os vários [Serviços Cognitivos Azure](./what-are-cognitive-services.md)
 * Saiba mais sobre [os pontos finais do Serviço de Rede Virtual Azure](../virtual-network/virtual-network-service-endpoints-overview.md)

@@ -3,16 +3,13 @@ title: Não há domínios de avaria suficientes no erro da região em Azure HDIn
 description: A criação de cluster falhou devido a domínios de avarias não suficientes na região em Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.date: 08/09/2019
-ms.openlocfilehash: 070ba5ecb6f151099c13082eee650c5720e63b2a
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 3f7d866d1c9b8c8437bc0f84acca47e0b8631895
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92532599"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98939044"
 ---
 # <a name="scenario-cluster-creation-failed-due-to-not-sufficient-fault-domains-in-region-in-azure-hdinsight"></a>Cenário: A criação de cluster falhou devido ao `not sufficient fault domains in region` Azure HDInsight
 
@@ -34,7 +31,7 @@ Em HDInsight, os clusters Kafka são obrigados a ser a provisionados numa regiã
 
 Se a região que pretende criar o cluster não tiver domínios de avaria suficientes, contacte a equipa do produto para permitir o provisionamento do cluster, mesmo que não existam três domínios de avaria.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se não viu o seu problema ou não conseguir resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 

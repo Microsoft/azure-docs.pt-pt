@@ -1,18 +1,15 @@
 ---
 title: Secure and isolate Azure HDInsight clusters com Private Link (pré-visualização)
 description: Aprenda a isolar os clusters Azure HDInsight numa rede virtual utilizando o Azure Private Link.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: 219f8728eb90101e7437cbb82b44a1f7124ef14d
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: bc7834a0f8272da3f8954c7dd9f3e18163795cba
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98556431"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98939363"
 ---
 # <a name="secure-and-isolate-azure-hdinsight-clusters-with-private-link-preview"></a>Secure and isolate Azure HDInsight clusters com Private Link (pré-visualização)
 
@@ -107,7 +104,7 @@ Para utilizar o PowerShell, consulte o exemplo [aqui.](/powershell/module/az.hdi
 ### <a name="use-azure-cli"></a>Utilizar a CLI do Azure
 Para utilizar o Azure CLI, veja o exemplo [aqui.](/cli/azure/hdinsight#az_hdinsight_create-examples)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Pacote de segurança da empresa para Azure HDInsight](enterprise-security-package.md)
 * [Informações e orientações gerais de segurança da empresa em Azure HDInsight](./domain-joined/general-guidelines.md)

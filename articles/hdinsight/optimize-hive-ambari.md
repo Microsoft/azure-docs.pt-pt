@@ -1,18 +1,15 @@
 ---
 title: Otimizar a Colmeia Apache com Apache Ambari em Azure HDInsight
 description: Use a UI da web Apache Ambari para configurar e otimizar a Colmeia Apache.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/04/2020
-ms.openlocfilehash: 33c2ee7bc477d3c9d3823642dbdd974650017822
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 349f58720e6fff52191dfff65108cd1320e41eed
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86084363"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98939259"
 ---
 # <a name="optimize-apache-hive-with-apache-ambari-in-azure-hdinsight"></a>Otimizar a Colmeia Apache com Apache Ambari em Azure HDInsight
 
@@ -100,7 +97,7 @@ A Colmeia processa os dados linha a linha. Vectorização direciona a Colmeia pa
 
 Por padrão, a Hive segue um conjunto de regras para encontrar um plano de execução de consulta ideal. A otimização baseada em custos (CBO) avalia vários planos para executar uma consulta. E atribui um custo a cada plano, e depois determina o plano mais barato para executar uma consulta.
 
-Para ativar o CBO, navegue nas definições **de Hive**  >  **Configs**  >  e encontre o **Optimizador Baseado em Custos,** em seguida, altere o botão de alternação para **On**.**Settings**
+Para ativar o CBO, navegue nas definições **de Hive**  >  **Configs**  >  e encontre o **Optimizador Baseado em Custos,** em seguida, altere o botão de alternação para **On**.
 
 ![Otimizador baseado em custos HDInsight](./media/optimize-hive-ambari/hdinsight-cbo-config.png)
 
@@ -134,10 +131,10 @@ Os tipos de compressão disponíveis são:
 
 | Formato | Ferramenta | Algoritmo | Extensão de arquivo | Dividi-se? |
 | --- | --- | --- | --- | --- |
-| Rio Gzip | Rio Gzip | ESVAZIAR | `.gz` | Não |
-| Rio Bzip2 | Rio Bzip2 | Rio Bzip2 |`.bz2` | Sim |
+| Rio Gzip | Rio Gzip | ESVAZIAR | `.gz` | No |
+| Rio Bzip2 | Rio Bzip2 | Rio Bzip2 |`.bz2` | Yes |
 | LZO | `Lzop` | LZO | `.lzo` | Sim, se indexado |
-| Snappy | N/D | Snappy | Snappy | Não |
+| Snappy | N/D | Snappy | Snappy | No |
 
 Regra geral, ter o método de compressão splittable é importante, caso contrário poucos mappers serão criados. Se os dados de entrada forem texto, `bzip2` é a melhor opção. Para o formato ORC, snappy é a opção de compressão mais rápida.
 
@@ -152,7 +149,7 @@ Regra geral, ter o método de compressão splittable é importante, caso contrá
 
 1. Para adicionar uma definição personalizada:
 
-    a. Navegue para **hive**  >  **Configs**  >  **Advanced**  >  **Advanced Custom hive-site**.
+    a. Navegue para **hive**  >  **Configs**  >    >  **Advanced Custom hive-site**.
 
     b. **Selecione Adicionar Propriedade...** na parte inferior do painel personalizado do site da colmeia.
 
@@ -193,7 +190,7 @@ A colmeia permite criar divisórias dinâmicas ao inserir registos numa tabela, 
 
 1. Para a Colmeia fazer divisórias dinâmicas, o valor do `hive.exec.dynamic.partition` parâmetro deve ser verdadeiro (o padrão).
 
-1. Mude o modo de partição dinâmica para *rigoroso*. Em modo rigoroso, pelo menos uma divisória tem de ser estática. Esta definição evita consultas sem o filtro de partição na cláusula WHERE, isto é, *rigorosamente* impede consultas que digitalizam todas as divisórias. Navegue até ao separador Hive **Configs** e, em seguida, desafie-o. `hive.exec.dynamic.partition.mode` **strict** O valor **predefinido é não-esticado.**
+1. Mude o modo de partição dinâmica para *rigoroso*. Em modo rigoroso, pelo menos uma divisória tem de ser estática. Esta definição evita consultas sem o filtro de partição na cláusula WHERE, isto é, *rigorosamente* impede consultas que digitalizam todas as divisórias. Navegue até ao separador Hive **Configs** e, em seguida, desafie-o. `hive.exec.dynamic.partition.mode`  O valor **predefinido é não-esticado.**
 
 1. Para limitar o número de divisórias dinâmicas a criar, modifique o `hive.exec.max.dynamic.partitions` parâmetro. O valor predefinido é 5000.
 
@@ -241,7 +238,7 @@ Recomendações adicionais para otimizar o motor de execução da Colmeia:
 | `tez.am.container.idle.release-timeout-min.millis` | 20000+ | 10000 |
 | `tez.am.container.idle.release-timeout-max.millis` | 40000+ | 20 000 |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Gerir clusters HDInsight com a Web UI Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 * [Apache Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)
