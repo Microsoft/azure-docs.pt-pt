@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 01/13/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 25685d7e933c9d171e1547be2f5899c08443321a
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: 92bf066c9769cc4b2525923b9e18ed3c0e9c577a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98246575"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937141"
 ---
 # <a name="identify-required-appliances"></a>Identificar as aplicações necessárias
 
@@ -109,7 +109,7 @@ Esta secção descreve especificações de hardware para os seguintes aparelhos:
 
 ### <a name="appliance-bom"></a>Aparelho BOM
 
-| PN | Description | Quantidade |
+| PN | Descrição | Quantidade |
 |--|--|--|
 | P19766-B21 | HPE DL360 Gen10 8SFF NC CTO Server | 1 |
 | P19766-B21 | Europa - Localização Multilíngue | 1 |
@@ -180,7 +180,7 @@ Esta secção descreve especificações de hardware para os seguintes aparelhos:
 
 ### <a name="appliance-bom"></a>Aparelho BOM
 
-| PN | Description | Quantidade |
+| PN | Descrição | Quantidade |
 |--|--|--|
 | P06961-B21 | HPE DL20 Gen10 NHP 2LFF CTO Server | 1 |
 | P06961-B21 | HPE DL20 Gen10 NHP 2LFF CTO Server | 1 |
@@ -209,7 +209,7 @@ Esta secção descreve especificações de hardware para os seguintes aparelhos:
 
 | Tipo | Grandes Empresas |
 |--|--|
-| Description | Aparelho virtual para tipos de implementação de empresas |
+| Descrição | Aparelho virtual para tipos de implementação de empresas |
 | vCPU | 8 |
 | Memória | 32 GB |
 | Armazenamento | 1.8 TB |
@@ -225,7 +225,7 @@ Esta secção detalha aparelhos adicionais que foram certificados pela Microsoft
 | Imagem | :::image type="content" source="media/how-to-prepare-your-network/deployment-type-enterprise-for-azure-defender-for-iot-v2.png" alt-text="Tipo de implementação da empresa."::: |
 | Modelação | Dell PowerEdge R340 XL |
 | Portas de monitorização | Até nove RJ45 ou seis OPT |
-| Largura de banda Max [1](#anchortext2)| 1G Mb/seg |
+| Largura de banda Max [1](#anchortext2)| 1 Gb/seg |
 | Dispositivos max protegidos | 10,000 |
 
 <a id="anchortext2">1.</a> A capacidade de largura de banda pode variar, dependendo da distribuição de protocolos.
@@ -255,7 +255,7 @@ Depois de adquirir o aparelho, aceda ao **Defender para** obter  >  **sensores d
 
 :::image type="content" source="media/how-to-prepare-your-network/enterprise-deployment-for-azure-defender-for-iot-dell-r340-bom.png" alt-text="Dell R340 BOM.":::
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Sobre o Azure Defender para a instalação IoT](how-to-install-software.md)
 

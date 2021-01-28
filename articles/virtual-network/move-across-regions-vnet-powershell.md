@@ -6,12 +6,12 @@ ms.service: virtual-network
 ms.topic: how-to
 ms.date: 08/26/2019
 ms.author: allensu
-ms.openlocfilehash: bc504034f8d4565dd365b8d92dc2b2e6eadc1dae
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: fa89a458b23d18bc6fddfca9cf6d9f2a16f91669
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223334"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98934932"
 ---
 # <a name="move-an-azure-virtual-network-to-another-region-by-using-azure-powershell"></a>Mover uma rede virtual Azure para outra região usando a Azure PowerShell
 
@@ -42,19 +42,19 @@ Nesta secção, prepara-se a rede virtual para o movimento utilizando um modelo 
 
 Para exportar a rede virtual e implementar a rede virtual alvo utilizando o PowerShell, faça o seguinte:
 
-1. Inscreva-se na sua subscrição Azure com o comando [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) e, em seguida, siga as instruções no ecrã:
+1. Inscreva-se na sua subscrição Azure com o comando [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) e, em seguida, siga as instruções no ecrã:
     
     ```azurepowershell-interactive
     Connect-AzAccount
     ```
 
-1. Obtenha o ID de recursos da rede virtual que pretende mover-se para a região alvo e, em seguida, colocá-lo numa variável utilizando [a Get-AzVirtualNetwork:](/powershell/module/az.network/get-azvirtualnetwork?view=azps-2.6.0)
+1. Obtenha o ID de recursos da rede virtual que pretende mover-se para a região alvo e, em seguida, colocá-lo numa variável utilizando [a Get-AzVirtualNetwork:](/powershell/module/az.network/get-azvirtualnetwork)
 
     ```azurepowershell-interactive
     $sourceVNETID = (Get-AzVirtualNetwork -Name <source-virtual-network-name> -ResourceGroupName <source-resource-group-name>).Id
     ```
 
-1. Exporte a rede virtual de origem para um ficheiro .json no diretório onde executa o comando [Export-AzResourceGroup](/powershell/module/az.resources/export-azresourcegroup?view=azps-2.6.0):
+1. Exporte a rede virtual de origem para um ficheiro .json no diretório onde executa o comando [Export-AzResourceGroup](/powershell/module/az.resources/export-azresourcegroup):
    
    ```azurepowershell-interactive
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceVNETID -IncludeParameterDefaultValue
@@ -98,7 +98,7 @@ Para exportar a rede virtual e implementar a rede virtual alvo utilizando o Powe
 
     ```
   
-1. Para obter códigos de localização da região, pode utilizar o cmdlet [Get-AzLocation AzUre](/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) PowerShell executando o seguinte comando:
+1. Para obter códigos de localização da região, pode utilizar o cmdlet [Get-AzLocation AzUre](/powershell/module/az.resources/get-azlocation) PowerShell executando o seguinte comando:
 
     ```azurepowershell-interactive
 
@@ -195,20 +195,20 @@ Para exportar a rede virtual e implementar a rede virtual alvo utilizando o Powe
 
 1. Guarde o ficheiro *\<resource-group-name> .json.*
 
-1. Criar um grupo de recursos na região alvo para que a rede virtual-alvo seja implantada através da utilização [do New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0):
+1. Criar um grupo de recursos na região alvo para que a rede virtual-alvo seja implantada através da utilização [do New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup):
     
     ```azurepowershell-interactive
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
     
-1. Implemente o ficheiro *\<resource-group-name> .json* editado para o grupo de recursos que criou no passo anterior, utilizando o [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
+1. Implemente o ficheiro *\<resource-group-name> .json* editado para o grupo de recursos que criou no passo anterior, utilizando o [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment):
 
     ```azurepowershell-interactive
 
     New-AzResourceGroupDeployment -ResourceGroupName <target-resource-group-name> -TemplateFile <source-resource-group-name>.json
     ```
 
-1. Para verificar se os recursos foram criados na região alvo, utilize o [Get-AzResourceGroup](/powershell/module/az.resources/get-azresourcegroup?view=azps-2.6.0) e [o Get-AzVirtualNetwork:](/powershell/module/az.network/get-azvirtualnetwork?view=azps-2.6.0)
+1. Para verificar se os recursos foram criados na região alvo, utilize o [Get-AzResourceGroup](/powershell/module/az.resources/get-azresourcegroup) e [o Get-AzVirtualNetwork:](/powershell/module/az.network/get-azvirtualnetwork)
     
     ```azurepowershell-interactive
 
@@ -224,7 +224,7 @@ Para exportar a rede virtual e implementar a rede virtual alvo utilizando o Powe
 
 Depois de ter implantado a rede virtual, para recomeçar ou descartar a rede virtual na região alvo, elimine o grupo de recursos que criou na região alvo, e a rede virtual movida será eliminada. 
 
-Para remover o grupo de recursos, utilize [o Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0):
+Para remover o grupo de recursos, utilize [o Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup):
 
 ```azurepowershell-interactive
 
@@ -235,20 +235,20 @@ Remove-AzResourceGroup -Name <target-resource-group-name>
 
 Para cometer as suas alterações e completar o movimento de rede virtual, faça qualquer uma das seguintes alterações:
 
-* Eliminar o grupo de recursos utilizando [o Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0):
+* Eliminar o grupo de recursos utilizando [o Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup):
 
     ```azurepowershell-interactive
 
     Remove-AzResourceGroup -Name <source-resource-group-name>
     ```
 
-* Elimine a rede virtual de origem utilizando [a Remove-AzVirtualNetwork:](/powershell/module/az.network/remove-azvirtualnetwork?view=azps-2.6.0)  
+* Elimine a rede virtual de origem utilizando [a Remove-AzVirtualNetwork:](/powershell/module/az.network/remove-azvirtualnetwork)  
     ``` azurepowershell-interactive
 
     Remove-AzVirtualNetwork -Name <source-virtual-network-name> -ResourceGroupName <source-resource-group-name>
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, você moveu uma rede virtual de uma região para outra usando PowerShell e, em seguida, limpou os recursos de origem não necessários. Para saber mais sobre a movimentação de recursos entre regiões e recuperação de desastres em Azure, consulte:
 

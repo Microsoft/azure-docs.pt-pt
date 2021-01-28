@@ -3,17 +3,14 @@ title: Criar, configurar clusters de pacotes de segurança empresarial - Azure
 description: Saiba como criar e configurar clusters de pacotes de segurança empresarial em Azure HDInsight
 services: hdinsight
 ms.service: hdinsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 12/10/2019
-ms.openlocfilehash: 07bd92e17b827dfeede5958587cecbdc97694329
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 914acfab3935bc81e7d8382163ca9283c7f71a53
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96003927"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98934041"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>Criar e configurar clusters de pacotes de segurança empresarial em Azure HDInsight
 
@@ -72,7 +69,7 @@ Nesta secção irá criar os utilizadores que terão acesso ao cluster HDInsight
     1. Introduza a palavra-passe que escolheu para a conta de administração.
     1. Selecione **OK**.
 
-1. A partir do painel de controlador de controlador de domínio **Server Manager,** navegue para **Tools**  >  **utilizadores e computadores de Diretório Ativo** de Ferramentas .
+1. A partir do painel de controlador de controlador de domínio **Server Manager,** navegue para   >  **utilizadores e computadores de Diretório Ativo** de Ferramentas .
 
     ![No painel de instrumentos do Gestor do Servidor, abra a Gestão do Diretório Ativo](./media/apache-domain-joined-create-configure-enterprise-security-cluster/server-manager-active-directory-screen.png)
 
@@ -118,7 +115,7 @@ Os utilizadores serão sincronizados com Azure AD.
 
 ### <a name="create-an-azure-ad-directory"></a>Criar um diretório AD Azure
 
-1. Inicie sessão no portal do Azure.
+1. Inicie sessão no Portal do Azure.
 1. Selecione **Criar um recurso** e escrever `directory` . Selecione **Azure Ative Directory**  >  **Create**.
 1. Sob **o nome da Organização,** insira `HDIFabrikam` .
 1. No **nome de domínio inicial,** insira `HDIFabrikamoutlook` .
@@ -159,7 +156,7 @@ Criar um administrador de inquilino do Ative Directory.
     |Propriedade |Descrição |
     |---|---|
     |Nome de utilizador|`fabrikamazureadmin`Insira na caixa de texto. A partir da lista de drop-down de nome de domínio, selecione `hdifabrikam.com`|
-    |Nome| Introduza `fabrikamazureadmin`.|
+    |Name| Introduza `fabrikamazureadmin`.|
 
     **Palavra-passe**
     1. Selecione **Deixe-me criar a palavra-passe.**
@@ -208,14 +205,14 @@ Criar um administrador de inquilino do Ative Directory.
    ![A página "Configuração completa"](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0078.png)
 
 1. Após a conclusão da sincronização, confirme que os utilizadores que criou no diretório iaaS estão sincronizados com o Azure AD.
-   1. Inicie sessão no portal do Azure.
-   1. Selecione Utilizadores do **Azure Ative Directory**  >  **HDIFabrikam**  >  **Users**.
+   1. Inicie sessão no Portal do Azure.
+   1. Selecione Utilizadores do **Azure Ative Directory**  >  **HDIFabrikam**  >  .
 
 ### <a name="create-a-user-assigned-managed-identity"></a>Criar uma identidade gerida atribuída pelo utilizador
 
 Crie uma identidade gerida atribuída ao utilizador que possa utilizar para configurar os Serviços de Domínio Azure AD (Azure AD DS). Para obter mais informações, consulte [Criar, listar, excluir ou atribuir uma função a uma identidade gerida atribuída pelo utilizador utilizando o portal Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
 
-1. Inicie sessão no portal do Azure.
+1. Inicie sessão no Portal do Azure.
 1. Selecione **Criar um recurso** e escrever `managed identity` . Selecione **Utilizador Atribuído Identidade Gerida**  >  **Criar**.
 1. Para o **Nome de Recursos,** insira `HDIFabrikamManagedIdentity` .
 1. Selecione a sua subscrição.
@@ -247,7 +244,7 @@ Siga estes passos para ativar a Azure AD DS. Para obter mais informações, cons
     $virtualNetwork | Set-AzVirtualNetwork
     ```
 
-1. Inicie sessão no portal do Azure.
+1. Inicie sessão no Portal do Azure.
 1. **Selecione Criar recurso,** insira `Domain services` e selecione **Azure AD Domain Services**  >  **Create**.
 1. Na página **Basics:**
     1. Sob **o nome do Diretório,** selecione o diretório AD Azure que criou: **HDIFabrikam**.
@@ -281,7 +278,7 @@ Utilize os seguintes passos para configurar a sua rede virtual Azure AD DS **(HD
 
 1. Localize os endereços IP dos seus servidores DNS personalizados.
     1. Selecione o `HDIFabrikam.com` recurso Azure AD DS.
-    1. Em **Gestão**, selecione **Propriedades**.
+    1. Em **Gerir**, selecione **Propriedades**.
     1. Encontre os endereços IP no **endereço IP na rede virtual.**
 
     ![Localizar endereços IP DNS personalizados para Azure AD DS](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0096.png)
@@ -322,7 +319,7 @@ Verifique se o certificado está instalado na loja **pessoal** do computador:
 
 1. Iniciar a Consola de Gestão da Microsoft (MMC).
 1. Adicione o snap-in **certificados** que gere os certificados no computador local.
-1. Expandir **Certificados (Computador Local)**  >  Certificados **Pessoais.**  >  **Certificates** Deve existir um novo certificado na loja **Personal.** Este certificado é emitido para o nome de anfitrião totalmente qualificado.
+1. Expandir **Certificados (Computador Local)**  >  Certificados **Pessoais.**  >   Deve existir um novo certificado na loja **Personal.** Este certificado é emitido para o nome de anfitrião totalmente qualificado.
 
     ![Verificar a criação de certificados locais](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0102.png)
 
@@ -358,7 +355,7 @@ Verifique se o certificado está instalado na loja **pessoal** do computador:
         | Protocolo | Qualquer |
         | Ação | Permitir |
         | Prioridade | \<Desired number> |
-        | Nome | Port_LDAP_636 |
+        | Name | Port_LDAP_636 |
 
     ![A caixa de diálogo "Adicionar regra de segurança de entrada"](./media/apache-domain-joined-create-configure-enterprise-security-cluster/add-inbound-security-rule.png)
 
@@ -390,7 +387,7 @@ Este passo requer os seguintes pré-requisitos:
 1. Crie uma nova conta Azure Data Lake Storage Gen2 chamada **Hdigen2store**. Configure a conta com a identidade gerida pelo utilizador **HDIFabrikamManagedIdentity**. Para obter mais informações, consulte [Use Azure Data Lake Storage Gen2 com clusters Azure HDInsight](../hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
 1. Configurar DNS personalizados na rede virtual **HDIFabrikam-AADDSVNET.**
-    1. Aceda ao portal Azure > **grupos de recursos** Nos servidores DNS do portal AzdVRG  >  **OnPremADVRG**  >  **HDIFabrikam-AADDSVNET**  >  **DNS servers**.
+    1. Aceda ao portal Azure > **grupos de recursos** Nos servidores DNS do portal AzdVRG  >    >  **HDIFabrikam-AADDSVNET**  >  .
     1. Selecione **Custom** e introduza *10.0.0.4* e *10.0.0.5*.
     1. Selecione **Guardar**.
 
@@ -424,6 +421,6 @@ Este passo requer os seguintes pré-requisitos:
 
 Se puder iniciar sômpa com esta conta, configura o seu cluster ESP corretamente para sincronizar com o seu caso ative diretório no local.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Leia [Uma introdução à segurança apache Hadoop com ESP.](hdinsight-security-overview.md)

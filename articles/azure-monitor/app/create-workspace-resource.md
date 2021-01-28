@@ -1,14 +1,14 @@
 ---
-title: Criar um novo recurso baseado no espaço de trabalho do Azure Monitor Insights Microsoft Docs
+title: Crie um novo recurso baseado em sistemas de trabalho Azure Monitor Insights | Microsoft Docs
 description: Conheça os passos necessários para permitir os novos recursos baseados no espaço de trabalho do Azure Monitor Application Insights.
 ms.topic: conceptual
 ms.date: 10/06/2020
-ms.openlocfilehash: ecbac02bcb4d9b4f0db36eab854a91366c774d6c
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 9d1ef158b8096c12c36673b62f87e1d02be69175
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95536919"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98936466"
 ---
 # <a name="workspace-based-application-insights-resources"></a>Recursos de Insights de Aplicação baseados no espaço de trabalho
 
@@ -112,7 +112,7 @@ az monitor app-insights component create --app
 az monitor app-insights component create --app demoApp --location eastus --kind web -g my_resource_group --workspace "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/test1234/providers/microsoft.operationalinsights/workspaces/test1234555"
 ```
 
-Para obter a documentação completa do Azure CLI para este comando, consulte a documentação do [Azure CLI](/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-create).
+Para obter a documentação completa do Azure CLI para este comando, consulte a documentação do [Azure CLI](/cli/azure/ext/application-insights/monitor/app-insights/component#ext-application-insights-az-monitor-app-insights-component-create).
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -209,7 +209,7 @@ A funcionalidade de exportação contínua do legado não é suportada por recur
 > Atualmente, não existem encargos adicionais para a exportação de telemetria. As informações sobre os preços desta funcionalidade estarão disponíveis na página de preços do [Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).  Antes do início da faturação, serão enviadas notificações. Caso opte por continuar a utilizar <feature name> após o período de pré-aviso, será cobrado à taxa aplicável. 
  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Explorar métricas](../platform/metrics-charts.md)
 * [Escrever consultas da Análise](../log-query/log-query-overview.md)

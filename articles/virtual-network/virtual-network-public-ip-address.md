@@ -17,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: kumud
-ms.openlocfilehash: 36b7c5caf54001abba1f17500c680f96934657eb
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: d52430c87d99f8837c78fcff89d8b214e45350ff
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98216789"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98934944"
 ---
 # <a name="manage-public-ip-addresses"></a>Gerir endereços IP públicos
 
@@ -30,7 +30,7 @@ Saiba mais sobre um endereço IP público e como criar, alterar e apagar um. Um 
 - Comunicação de entrada da Internet para o recurso, tais como Azure Virtual Machines (VM), Azure Application Gateways, Azure Load Balancers, Azure VPN Gateways, entre outros. Você ainda pode comunicar com alguns recursos, tais como VMs, da Internet, se um VM não tiver um endereço IP público atribuído a ele, desde que o VM faça parte de um pool de back-end do balanceador de carga, e o equilibrador de carga é atribuído um endereço IP público. Para determinar se um recurso para um serviço Azure específico pode ser atribuído um endereço IP público, ou se pode ser comunicado através do endereço IP público de um recurso Azure diferente, consulte a documentação do serviço.
 - Conectividade de saída para a Internet usando um endereço IP previsível. Por exemplo, uma máquina virtual pode comunicar saída para a Internet sem um endereço IP público que lhe seja atribuído, mas o seu endereço é o endereço de rede traduzido pelo Azure para um endereço público imprevisível, por padrão. A atribuição de um endereço IP público a um recurso permite-lhe saber qual o endereço IP utilizado para a ligação de saída. Embora previsível, o endereço pode mudar, dependendo do método de atribuição escolhido. Para mais informações, consulte [Criar um endereço IP público.](#create-a-public-ip-address) Para saber mais sobre as ligações de saída a partir dos recursos Azure, consulte [as ligações de saída.](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -91,15 +91,15 @@ Para obter mais detalhes sobre os atributos específicos de um endereço IP púb
 
 |Recurso|Portal do Azure|Azure PowerShell|CLI do Azure|
 |---|---|---|---|
-|[Máquina virtual](./remove-public-ip-address-vm.md)|Selecione **Dissociar** para dissociar o endereço IP a partir da configuração NIC e, em seguida, selecione **Delete**.|[Set-AzPublicIpAddress](/powershell/module/az.network/set-azpublicipaddress) para dissociar o endereço IP da configuração NIC; [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) para eliminar|[a atualização az rede pública-ip --remover](/cli/azure/network/public-ip#az-network-public-ip-update) para dissociar o endereço IP da configuração NIC; [az rede público-ip apagar](/cli/azure/network/public-ip#az-network-public-ip-delete) para eliminar |
-|Frontend de balançador de carga | Navegue para um endereço IP público não utilizado e selecione **Associate** e escolha o Balanceador de Carga com a configuração IP frontal relevante para substituí-lo (em seguida, o ip antigo pode ser eliminado usando o mesmo método que para VM)  | [Set-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/set-azloadbalancerfrontendipconfig) para associar o novo Frontend IP config com o Balancer de Carga Pública; [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) para eliminar; também pode usar [Remove-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/remove-azloadbalancerfrontendipconfig) para remover Frontend IP Config se houver mais de um |[az network lb frontend-ip update](/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az_network_lb_frontend_ip_update) para associar novo Frontend IP config com Public Load Balancer; [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) para eliminar; também pode usar [a az rede lb frontend-ip apagar](/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az_network_lb_frontend_ip_delete) para remover Frontend IP Config se houver mais de um|
+|[Máquina Virtual](./remove-public-ip-address-vm.md)|Selecione **Dissociar** para dissociar o endereço IP a partir da configuração NIC e, em seguida, selecione **Delete**.|[Set-AzPublicIpAddress](/powershell/module/az.network/set-azpublicipaddress) para dissociar o endereço IP da configuração NIC; [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) para eliminar|[a atualização az rede pública-ip --remover](/cli/azure/network/public-ip#az-network-public-ip-update) para dissociar o endereço IP da configuração NIC; [az rede público-ip apagar](/cli/azure/network/public-ip#az-network-public-ip-delete) para eliminar |
+|Frontend de balançador de carga | Navegue para um endereço IP público não utilizado e selecione **Associate** e escolha o Balanceador de Carga com a configuração IP frontal relevante para substituí-lo (em seguida, o ip antigo pode ser eliminado usando o mesmo método que para VM)  | [Set-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/set-azloadbalancerfrontendipconfig) para associar o novo Frontend IP config com o Balancer de Carga Pública; [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) para eliminar; também pode usar [Remove-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/remove-azloadbalancerfrontendipconfig) para remover Frontend IP Config se houver mais de um |[az network lb frontend-ip update](/cli/azure/network/lb/frontend-ip#az_network_lb_frontend_ip_update) para associar novo Frontend IP config com Public Load Balancer; [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) para eliminar; também pode usar [a az rede lb frontend-ip apagar](/cli/azure/network/lb/frontend-ip#az_network_lb_frontend_ip_delete) para remover Frontend IP Config se houver mais de um|
 |Firewall|N/D| [Deallocate()](../firewall/firewall-faq.yml#how-can-i-stop-and-start-azure-firewall) para negociar firewall e remover todas as configurações IP | [az firewall ip-config eliminar](/cli/azure/ext/azure-firewall/network/firewall/ip-config#ext_azure_firewall_az_network_firewall_ip_config_delete) para remover IP (mas deve usar PowerShell para negociar primeiro)|
 
 ## <a name="virtual-machine-scale-sets"></a>Conjuntos de Dimensionamento de Máquinas Virtuais
 
 Ao utilizar uma balança de máquina virtual definida com IPs públicos, não existem objetos IP públicos separados associados às instâncias individuais da máquina virtual. No entanto, um objeto prefixo IP público [pode ser usado para gerar o caso IPs](https://azure.microsoft.com/resources/templates/101-vmms-with-public-ip-prefix/).
 
-Para listar os IPs públicos num conjunto de escala de máquina virtual, pode utilizar PowerShell[(Get-AzPublicIpAddress -VirtualMachineScaleSetName)](/powershell/module/az.network/get-azpublicipaddress)ou CLI[(az vmss list-instance-public-ips).](/cli/azure/vmss?view=azure-cli-latest#az_vmss_list_instance_public_ips)
+Para listar os IPs públicos num conjunto de escala de máquina virtual, pode utilizar PowerShell[(Get-AzPublicIpAddress -VirtualMachineScaleSetName)](/powershell/module/az.network/get-azpublicipaddress)ou CLI[(az vmss list-instance-public-ips).](/cli/azure/vmss#az_vmss_list_instance_public_ips)
 
 Para obter mais informações, consulte [conjuntos de balanças de máquinas virtuais Azure](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine).
 
@@ -124,7 +124,7 @@ Para executar tarefas em endereços IP públicos, a sua conta deve ser atribuíd
 | Microsoft.Network/publicIPAddresses/delete                         | Eliminar um endereço IP público                                     |
 | Microsoft.Network/publicIPAddresses/join/action                    | Associar um endereço IP público a um recurso                    |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Crie um endereço IP público utilizando scripts de [amostras powerShell](powershell-samples.md) ou [Azure CLI,](cli-samples.md) ou usando [modelos de Gestor de Recursos](template-samples.md) Azure
 - Criar e atribuir [definições de Política Azure](./policy-reference.md) para endereços IP públicos

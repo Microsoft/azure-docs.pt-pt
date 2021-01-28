@@ -4,12 +4,12 @@ description: Transferir coleções de imagens ou outros artefactos de um registo
 ms.topic: article
 ms.date: 10/07/2020
 ms.custom: ''
-ms.openlocfilehash: fd2cee972ef173853572b871bc80b92b28c505cd
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: ab6657ecd335a6de8c6c93e3c2ff392ac54c487c
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932605"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98935351"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>Transferir artefactos para outro registo
 
@@ -312,7 +312,7 @@ az storage blob list \
 
 ## <a name="transfer-blob-optional"></a>Bolha de transferência (opcional) 
 
-Utilize a ferramenta AzCopy ou outros métodos para [transferir dados blob](../storage/common/storage-use-azcopy-blobs.md#copy-blobs-between-storage-accounts) da conta de armazenamento de origem para a conta de armazenamento alvo.
+Utilize a ferramenta AzCopy ou outros métodos para [transferir dados blob](../storage/common/storage-use-azcopy-v10.md#transfer-data) da conta de armazenamento de origem para a conta de armazenamento alvo.
 
 Por exemplo, o seguinte [`azcopy copy`](../storage/common/storage-ref-azcopy-copy.md) comando copia o myblob do contentor de *transferência* na conta de origem para o contentor *de transferência* na conta-alvo. Se a bolha existe na conta alvo, está substituída. A autenticação utiliza fichas SAS com permissões apropriadas para os recipientes de origem e alvo. (Não são mostradas etapas para criar fichas.)
 
@@ -428,7 +428,7 @@ az resource delete \
   * Para outras questões relacionadas com o gasoduto, fornecer o ID de [correlação](../azure-resource-manager/templates/deployment-history.md) de implantação da execução de exportação ou a importação para a equipa de registo de contentores de Azure.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para importar imagens de um único contentor para um registo de contentores Azure a partir de um registo público ou de outro registo privado, consulte a referência do comando [de importação az acr.][az-acr-import]
 

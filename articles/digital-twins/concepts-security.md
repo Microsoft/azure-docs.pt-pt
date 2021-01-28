@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: d62e7566038af6647cab2992b02184a4ea5ba30b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: bf92765431ea6b0f80b96ab7d61e8e830220dc82
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96344152"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98934549"
 ---
 # <a name="secure-azure-digital-twins"></a>Secure Azure Digital Twins
 
@@ -49,7 +49,7 @@ Com identidades geridas, a plataforma Azure gere esta identidade de tempo de exe
 
 A Azure fornece **duas funções incorporadas para** autorizar o acesso ao plano de dados Azure Digital Twins [APIs](how-to-use-apis-sdks.md#overview-data-plane-apis). Pode consultar as funções pelo nome ou por ID:
 
-| Papel incorporado | Descrição | ID | 
+| Papel incorporado | Description | ID | 
 | --- | --- | --- |
 | Proprietário de dados Azure Digital Twins | Dá acesso total sobre os recursos da Azure Digital Twins | bcd981a7-7f74-457b-83e1-cceb9e632ffe |
 | Leitor de dados de gémeos digitais Azure | Dá acesso apenas à leitura dos recursos da Azure Digital Twins | d57506d4-4c8d-48b1-8587-93c323f6a5a3 |
@@ -89,17 +89,50 @@ A lista que se segue descreve os níveis em que pode aceder aos recursos da Azur
 
 Se um utilizador tentar executar uma ação não permitida pela sua função, poderá receber um erro da leitura do pedido de serviço `403 (Forbidden)` . Para obter mais informações e etapas de resolução de problemas, consulte [*Resolução de Problemas: Pedido de Gémeos Digitais Azure falhou com o Estado: 403 (Proibido)*](troubleshoot-error-403.md).
 
+## <a name="managed-identity-for-accessing-other-resources-preview"></a>Identidade gerida para aceder a outros recursos (pré-visualização)
+
+A criação de uma **identidade gerida** pelo [Azure Ative (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) para uma instância Azure Digital Twins pode permitir que o caso aceda facilmente a outros recursos protegidos pela AZure, como [o Azure Key Vault](../key-vault/general/overview.md). A identidade é gerida pela plataforma Azure, e não requer que forneça ou rode quaisquer segredos. Para obter mais sobre identidades geridas em Azure AD, consulte  [*identidades geridas para recursos Azure*](../active-directory/managed-identities-azure-resources/overview.md). 
+
+O Azure suporta dois tipos de identidades geridas: atribuídas pelo sistema e atribuídas pelo utilizador. Atualmente, a Azure Digital Twins suporta apenas **identidades atribuídas ao sistema.** 
+
+Pode utilizar uma identidade gerida atribuída ao sistema para a sua Instância Digital Azure para autenticar num [ponto final definido sob medida.](concepts-route-events.md#create-an-endpoint) A Azure Digital Twins suporta a autenticação baseada no sistema para pontos finais para destinos [de Event Hub](../event-hubs/event-hubs-about.md) e Service [Bus](../service-bus-messaging/service-bus-messaging-overview.md)e para um ponto final   do [Azure Storage Container](../storage/blobs/storage-blobs-introduction.md)para   [eventos com letras mortas.](concepts-route-events.md#dead-letter-events) [Grelha de eventos](../event-grid/overview.md)   os pontos finais não são atualmente suportados para identidades geridas.
+
+Para obter instruções sobre como ativar uma identidade gerida pelo sistema para as Gémeas Digitais Azure e usá-la para encaminhar eventos, consulte [*Como-a: Habilitar uma identidade gerida para eventos de encaminhamento (pré-visualização)*](how-to-enable-managed-identities.md).
+
+## <a name="private-network-access-with-azure-private-link-preview"></a>Acesso à rede privada com Link Privado Azure (pré-visualização)
+
+[O Azure Private Link](../private-link/private-link-overview.md) é um serviço que lhe permite aceder aos recursos da Azure (como [a Azure Event Hubs,](../event-hubs/event-hubs-about.md) [Azure Storage](../storage/common/storage-introduction.md)e [Azure Cosmos DB](../cosmos-db/introduction.md)) e serviços de clientes e parceiros hospedados pela Azure sobre um ponto final privado na sua [Rede Virtual Azure (VNet).](../virtual-network/virtual-networks-overview.md) 
+
+Da mesma forma, pode utilizar pontos finais privados para a sua instância Azure Digital Twin para permitir que os clientes localizados na sua rede virtual acedam de forma segura à ocorrência sobre o Private Link. 
+
+O ponto final privado utiliza um endereço IP a partir do seu espaço de endereço Azure VNet. O tráfego de rede entre um cliente na sua rede privada e a instância Azure Digital Twins atravessa o VNet e uma Ligação Privada na rede de espinha dorsal da Microsoft, eliminando a exposição à internet pública. Aqui está uma representação visual deste sistema:
+
+:::image type="content" source="media/concepts-security/private-link.png" alt-text="Um diagrama que mostra uma rede para uma empresa PowerGrid que é um VNET protegido sem acesso à internet/nuvem pública, conectando-se através de Private Link a uma instância Azure Digital Twins chamada CityOfTwins.":::
+
+Configurar um ponto final privado para a sua instância Azure Digital Twins permite-lhe proteger a sua instância Azure Digital Twins e eliminar a exposição pública, bem como evitar a exfiltração de dados a partir do seu VNet.
+
+Para obter instruções sobre como configurar o Link Privado para Gémeos Digitais Azure, consulte [*Como-a-fazer: Ative o acesso privado com o Link Privado (pré-visualização)*](how-to-enable-private-link.md).
+
+### <a name="design-considerations"></a>Considerações de conceção 
+
+Ao trabalhar com o Private Link for Azure Digital Twins, aqui estão alguns fatores que você deve considerar:
+* **Preços**: Para obter detalhes sobre os preços, consulte  [os preços do Azure Private Link](https://azure.microsoft.com/pricing/details/private-link). 
+* **Disponibilidade regional**: Para a Azure Digital Twins, esta funcionalidade está disponível em todas as regiões do Azure Digital Twins. 
+* **Número máximo de pontos finais privados por exemplo das Gémeas Digitais Azure**: 10
+
+Para obter informações sobre os limites do Link Privado, consulte a documentação do [Link Privado Azure: Limitações](../private-link/private-link-service-overview.md#limitations).
+
 ## <a name="service-tags"></a>Etiquetas de serviço
 
 Uma etiqueta de **serviço** representa um grupo de prefixos de endereço IP de um determinado serviço Azure. A Microsoft gere os prefixos de endereços englobados pela etiqueta de serviço e atualiza automaticamente a etiqueta de serviço à medida que os endereços mudam, minimizando a complexidade das atualizações frequentes às regras de segurança da rede. Para obter mais informações sobre etiquetas de serviço, consulte  [*tags de rede Virtual*](../virtual-network/service-tags-overview.md). 
 
-Pode utilizar tags de serviço para definir controlos de acesso à rede em [grupos de segurança](../virtual-network/network-security-groups-overview.md#security-rules)de rede   ou [Azure Firewall,](../firewall/service-tags.md)utilizando tags de serviço em vez de endereços IP específicos quando criar regras de segurança. Ao especificar o nome da etiqueta de serviço (neste caso, **AzureDigitalTwins)** no campo de *origem* ou destino adequado   de uma *destination*   regra, pode permitir ou negar o tráfego para o serviço correspondente. 
+Pode utilizar tags de serviço para definir controlos de acesso à rede em [grupos de segurança](../virtual-network/network-security-groups-overview.md#security-rules)de rede   ou [Azure Firewall,](../firewall/service-tags.md)utilizando tags de serviço em vez de endereços IP específicos quando criar regras de segurança. Ao especificar o nome da etiqueta de serviço (neste caso, **AzureDigitalTwins)** no campo de *origem* ou destino adequado   de uma **   regra, pode permitir ou negar o tráfego para o serviço correspondente. 
 
 Abaixo estão os detalhes da etiqueta de serviço **AzureDigitalTwins.**
 
 | Etiqueta | Objetivo | Pode usar entrada ou saída? | Pode ser regional? | Pode usar com Azure Firewall? |
 | --- | --- | --- | --- | --- |
-| AzureDigitalTwins | Azure Digital Twins<br>Nota: Esta etiqueta ou os endereços IP abrangidos por esta etiqueta podem ser utilizados para restringir o acesso aos pontos finais configurados para [as rotas do evento](concepts-route-events.md). | Entrada | Não | Sim |
+| AzureDigitalTwins | Azure Digital Twins<br>Nota: Esta etiqueta ou os endereços IP abrangidos por esta etiqueta podem ser utilizados para restringir o acesso aos pontos finais configurados para [as rotas do evento](concepts-route-events.md). | Entrada | No | Yes |
 
 ### <a name="using-service-tags-for-accessing-event-route-endpoints"></a>Utilização de etiquetas de serviço para aceder aos pontos finais da rota do evento 
 
@@ -113,7 +146,7 @@ Aqui estão os passos para aceder aos pontos finais [da rota](concepts-route-eve
 
 4. Desaprote os filtros IP nos recursos externos utilizando as gamas IP do *Passo 2*.  
 
-5. Atualize os intervalos de IP periodicamente conforme necessário. As gamas podem mudar ao longo do tempo, por isso é uma boa ideia verificar estas regularmente e refrescá-las quando necessário. A frequência destas atualizações pode variar, mas é uma boa ideia verificá-las uma vez por semana.
+5. Atualize os intervalos de IP periodicamente conforme necessário. As gamas podem mudar ao longo do tempo, por isso é uma boa ideia verificá-las regularmente e refrescá-las quando necessário. A frequência destas atualizações pode variar, mas é uma boa ideia verificá-las uma vez por semana.
 
 ## <a name="encryption-of-data-at-rest"></a>Encriptação de dados em repouso
 
@@ -123,11 +156,11 @@ A Azure Digital Twins fornece encriptação de dados em repouso e em trânsito, 
 
 A Azure Digital Twins não suporta atualmente **a partilha de recursos cross-origin (CORS)**. Como resultado, se estiver a chamar uma API REST a partir de uma aplicação de navegador, uma interface [de Gestão API (APIM)](../api-management/api-management-key-concepts.md) ou um conector [Power Apps,](/powerapps/powerapps-overview) poderá ver um erro de política.
 
-Para resolver este erro, pode fazer um dos seguintes:
+Para resolver este erro, pode fazer uma das seguintes ações:
 * Retire o cabeçalho CORS `Access-Control-Allow-Origin` da mensagem. Este cabeçalho indica se a resposta pode ser partilhada. 
 * Em alternativa, crie um proxy CORS e faça o pedido de API para as Gémeas Digitais Azure. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Consulte estes conceitos em ação em [*Como-a: Configurar um caso e autenticação.*](how-to-set-up-instance-portal.md)
 

@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: d19190723ebc415e9cf3053b929788dff68aeb0e
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: fe54c4495e589459fe734f315138cafa8d7cd033
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734544"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98934732"
 ---
 # <a name="spatial-analysis-operations"></a>Operações de análise espacial
 
@@ -61,7 +61,7 @@ Estes são os parâmetros exigidos por cada uma destas operações de análise e
 |---------|---------|
 | ID da Operação | O Identificador da Operação da tabela acima.|
 | ativado | Boolean: verdadeiro ou falso|
-| VIDEO_URL| O url RTSP para o dispositivo da câmara (Exemplo: `rtsp://username:password@url` ). A análise espacial suporta o fluxo codificado H.264 através de RTSP, http ou mp4. Video_URL pode ser fornecido como um valor de cadeia base 64 obfuscado usando encriptação AES, e se o url de vídeo é obfuscado `KEY_ENV` então e `IV_ENV` precisa ser fornecido como variáveis ambientais. O utilitário de amostra para gerar chaves e encriptação pode ser encontrado [aqui.](/dotnet/api/system.security.cryptography.aesmanaged?preserve-view=true&view=net-5.0) |
+| VIDEO_URL| O url RTSP para o dispositivo da câmara (Exemplo: `rtsp://username:password@url` ). A análise espacial suporta o fluxo codificado H.264 através de RTSP, http ou mp4. Video_URL pode ser fornecido como um valor de cadeia base 64 obfuscado usando encriptação AES, e se o url de vídeo é obfuscado `KEY_ENV` então e `IV_ENV` precisa ser fornecido como variáveis ambientais. O utilitário de amostra para gerar chaves e encriptação pode ser encontrado [aqui.](/dotnet/api/system.security.cryptography.aesmanaged) |
 | VIDEO_SOURCE_ID | Um nome amigável para o dispositivo da câmara ou transmissão de vídeo. Isto será devolvido com a saída do evento JSON.|
 | VIDEO_IS_LIVE| Verdade para dispositivos de câmara; falso para vídeos gravados.|
 | VIDEO_DECODE_GPU_INDEX| Que GPU para descodificar a moldura de vídeo. Por defeito é 0. Deve ser o mesmo que `gpu_index` no outro nó config `VICA_NODE_CONFIG` como, . `DETECTOR_NODE_CONFIG` .|

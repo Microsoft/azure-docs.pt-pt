@@ -3,12 +3,12 @@ title: Monitor com testes web em várias etapas - Azure Application Insights
 description: Confiúdedo de testes web em várias etapas para monitorizar as suas aplicações web com Azure Application Insights
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.openlocfilehash: 2df8b7450423c901665090608da83f68b43b30e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0031971dc2ccd2a9e681220dd835f46d33e36dbb
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87024781"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98934860"
 ---
 # <a name="multi-step-web-tests"></a>Testes Web com vários passos
 
@@ -25,7 +25,7 @@ Pode monitorizar uma sequência gravada de URLs e interações com um website at
 * Visual Studio 2017 Enterprise ou maior.
 * Visual Studio web performance e ferramentas de teste de carga.
 
-Para localizar as ferramentas de teste, é pré-requisito. Lançar o **Instalador de Estúdio Visual**  >  **Componentes Individuais**  >  **Depurar e testar**o desempenho web e  >  **ferramentas de teste de carga**.
+Para localizar as ferramentas de teste, é pré-requisito. Lançar o **Instalador de Estúdio Visual**  >  **Componentes Individuais**  >  **Depurar e testar** o desempenho web e  >  **ferramentas de teste de carga**.
 
 ![Screenshot do instalador visual Doe uI com componentes individuais selecionados com uma caixa de verificação ao lado do item para o desempenho web e ferramentas de teste de carga](./media/availability-multistep/web-performance-load-testing.png)
 
@@ -37,11 +37,11 @@ Para localizar as ferramentas de teste, é pré-requisito. Lançar o **Instalado
 > [!WARNING]
 > Já não recomendamos a utilização do gravador em várias etapas. O gravador foi desenvolvido para páginas estáticas de HTML com interações básicas, e não fornece uma experiência funcional para páginas web modernas.
 
-Para obter orientações sobre a criação de testes web do Visual Studio consulte a documentação oficial do [Visual Studio 2019](/visualstudio/test/how-to-create-a-web-service-test?view=vs-2019).
+Para obter orientações sobre a criação de testes web do Visual Studio consulte a documentação oficial do [Visual Studio 2019](/visualstudio/test/how-to-create-a-web-service-test).
 
 ## <a name="upload-the-web-test"></a>Faça o upload do teste web
 
-1. No portal 'Insights de Aplicações' no painel de disponibilidade **selecione Criar**teste de teste de teste web  >  **tipo**de  >  **teste multi-passo .**
+1. No portal 'Insights de Aplicações' no painel de disponibilidade **selecione Criar** teste de teste de teste web  >  **tipo** de  >  **teste multi-passo .**
 
 2. Desa cos assimte os locais de teste, a frequência e os parâmetros de alerta.
 
@@ -66,7 +66,7 @@ Para obter orientações sobre a criação de testes web do Visual Studio consul
 |----|----|----|
 |**Quase em tempo real (Pré-visualização)** | Recomendamos a utilização de alertas de quase-tempo real. Configurar este tipo de alerta é feito após a criação do teste de disponibilidade.  |
 |**Clássico** | Já não recomendamos o uso de alertas clássicos para novos testes de disponibilidade.|
-|**Limiar de localização de alerta**|Recomendamos um mínimo de 3/5 locais. A relação ideal entre o limiar de localização de alerta e o número de locais de teste é o número de **localização**de alerta  =  **dos locais de teste - 2, com um mínimo de cinco locais de ensaio.**|
+|**Limiar de localização de alerta**|Recomendamos um mínimo de 3/5 locais. A relação ideal entre o limiar de localização de alerta e o número de locais de teste é o número de **localização** de alerta  =  **dos locais de teste - 2, com um mínimo de cinco locais de ensaio.**|
 
 ## <a name="configuration"></a>Configuração
 
@@ -143,7 +143,7 @@ Parametrizar os tokens definindo o parâmetro quando o token é devolvido do aut
 
 Artigo dedicado [à resolução de problemas.](troubleshoot-availability.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Alertas de Disponibilidade](availability-alerts.md)
 * [Testes web de url ping](monitor-web-app-availability.md)

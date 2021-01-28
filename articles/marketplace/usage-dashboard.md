@@ -1,5 +1,5 @@
 ---
-title: Painel de utilização em análise de mercado comercial / Mercado Azure
+title: Painel de uso em análise de mercado comercial | Mercado Azure
 description: Saiba como aceder a todas as métricas de faturação de uso e medido para ofertas publicadas no Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 563ccdb0633f94acccf3ade9faf1c40c28f108ac
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9f798751065d4889569f4b798ac864342f3e54ef
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462933"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98934392"
 ---
 # <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>Dashboard de utilização na análise do mercado comercial
 
@@ -122,12 +122,12 @@ _**Quadro 1: Dicionário de termos de dados**_
 | Id de assinatura de mercado | ID de assinatura de mercado | O identificador único associado à subscrição Azure que o cliente usou para adquirir a sua oferta de mercado comercial. ID foi anteriormente a Azure Subscription GUID. |
 | MêsStartDate | Data de Início do Mês | A Data de Início do Mês representa o mês de Compra. |
 | Tipo de Oferta | Tipo de Oferta | O tipo de oferta de mercado comercial. |
-| Tipo de Licença Azure | Tipo de Licença Azure | O tipo de contrato de licenciamento usado pelos clientes para comprar a Azure. Também conhecido como o Canal. Os valores possíveis são:<ui><li>Provedor de solução cloud</li><li>Enterprise</li><li>Empresa através de Revendedor</li><li>Pague como você vai</li></ul> |
+| Tipo de Licença Azure | Tipo de Licença Azure | O tipo de contrato de licenciamento usado pelos clientes para comprar a Azure. Também conhecido como o Canal. Os valores possíveis são:<ui><li>Provedor de solução cloud</li><li>Grandes Empresas</li><li>Empresa através de Revendedor</li><li>Pague como você vai</li></ul> |
 | Tipo de Licença de Mercado | Tipo de Licença de Mercado | O método de faturação da oferta de mercado comercial. Os valores possíveis são:<ul><li>Faturado através de Azure</li><li>Traga a sua própria licença</li><li>Gratuito</li><li>Microsoft como Revendedor</li></ul> |
 | SKU | SKU | O plano associado à oferta. |
 | País do Cliente | País/Região do Cliente | O nome país/região fornecido pelo cliente. O país/região poderia ser diferente do país/região na subscrição Azure de um cliente. |
 | É pré-visualização SKU | É pré-visualização SKU | O valor mostra se marcou o SKU como "pré-visualização". O valor será "Sim" se o SKU tiver sido marcado em conformidade, e apenas as subscrições Azure autorizadas por você pode implementar e usar esta imagem. O valor será "Não" se o SKU não tiver sido identificado como "pré-visualização". |
-| Tipo de faturação SKU | Tipo de faturação SKU | O tipo de Faturação associado a cada SKU na oferta. Os valores possíveis são:<ul><li>Gratuito</li><li>Pago</li></ul> |
+| Tipo de faturação SKU | Tipo de faturação SKU | O tipo de Faturação associado a cada SKU na oferta. Os valores possíveis são:<ul><li>Gratuito</li><li>Paga</li></ul> |
 | IsInternal | Preterido | Preterido |
 | Tamanho da VM | Tamanho da máquina virtual | Para os tipos de oferta baseada em VM, esta entidade significa o tamanho do VM associado ao SKU da oferta. |
 | Nome da instância da nuvem | Nome da instância da nuvem | A Cloud Microsoft em que ocorreu uma implementação em VM. |
@@ -135,7 +135,7 @@ _**Quadro 1: Dicionário de termos de dados**_
 | Nome da Oferta | Nome da Oferta | O nome da oferta do mercado comercial. |
 | ImplantaçãoMethod | Preterido | Precatado (mesma definição do tipo oferta)
  |
-| Nome da empresa do cliente | Nome da empresa do cliente | O nome da empresa fornecido pelo cliente. O nome pode ser diferente da cidade na assinatura Azure de um cliente. |
+| Nome da empresa do cliente | Nome da empresa do cliente | O nome da empresa fornecido pelo cliente. O nome pode ser diferente do nome na subscrição Azure de um cliente. |
 | Data de Utilização | Data de Utilização | A data de geração de eventos de utilização para ativos baseados no uso. |
 | IsMultisolution | É Multissolução | Significa se a oferta é um tipo de oferta multissolução. |
 | É novo cliente | Preterido | Preterido |
@@ -186,7 +186,7 @@ Se tiver várias ofertas que usam medidores personalizados, o relatório de util
 > [!TIP]
 > Pode utilizar o ícone de descarregamento no canto superior direito de qualquer widget para descarregar os dados. Pode fornecer feedback sobre cada um dos widgets clicando no ícone "polegares para cima" ou "polegares para baixo".
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter uma visão geral dos relatórios de análise disponíveis no mercado comercial, consulte os [relatórios analíticos do Access para o mercado comercial no Partner Center.](./partner-center-portal/analytics.md)
 - Para gráficos, tendências e valores de dados agregados que resumem a atividade do mercado para a sua oferta, consulte [o Painel De Resumo em análise de mercado comercial.](./summary-dashboard.md)

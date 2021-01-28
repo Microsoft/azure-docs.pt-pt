@@ -2,19 +2,19 @@
 title: Tutorial - Azure Toolkit para IntelliJ (aplicação Spark)
 description: Tutorial - Utilize o Kit de Ferramentas Azure para IntelliJ para desenvolver aplicações Spark, que são escritas em Scala, e submetê-las a uma piscina Apache Spark sem servidor.
 services: synapse-analytics
-author: hrasheed-msft
+author: jejiang
 ms.author: jejiang
 ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 04/15/2020
-ms.openlocfilehash: 39f39b6f53944510b5f3692bb8b3fdd472004454
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 04faaa05cf51f740958238ece0a9a211c43fca41
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121231"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98935443"
 ---
 # <a name="tutorial-create-an-apache-spark-application-with-intellij-using-a-synapse-workspace"></a>Tutorial: Criar uma aplicação Apache Spark com IntelliJ usando um espaço de trabalho synapse
 
@@ -24,7 +24,7 @@ Este tutorial mostra-lhe como usar o Azure Toolkit para o plug-in IntelliJ para 
 - Aceda aos recursos das suas piscinas Spark.
 - Desenvolver e executar uma aplicação Scala Spark localmente.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 >
 > - Utilize o kit de ferramentas Azure para o plug-in IntelliJ
@@ -270,7 +270,7 @@ Pode querer ver o resultado do script enviando algum código para a consola loca
 
    ![Enviar Seleção para consola Spark](./media/intellij-tool-synapse/send-selection-to-console.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Azure Synapse Analytics](../overview-what-is.md)
 - [Crie uma nova piscina Apache Spark para um espaço de trabalho Azure Synapse Analytics](../../synapse-analytics/quickstart-create-apache-spark-pool-studio.md)
