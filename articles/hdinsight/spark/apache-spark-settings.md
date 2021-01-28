@@ -1,19 +1,16 @@
 ---
 title: Configurar definições de faísca - Azure HDInsight
 description: Como visualizar e configurar configurações apache spark para um cluster Azure HDInsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: f74307cc7f074788ac12712b3722dc0ad7fa71b6
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: 148ba2ce256b11b623bf28cf7723dbb0cce60830
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97821150"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98929755"
 ---
 # <a name="configure-apache-spark-settings"></a>Configurar as definições do Apache Spark
 
@@ -149,7 +146,7 @@ O código abaixo mostra como alterar a configuração de uma aplicação em exec
 
 Monitorize as definições de configuração do núcleo para garantir que os seus trabalhos de Spark funcionam de forma previsível e performante. Estas definições ajudam a determinar a melhor configuração do cluster Spark para as suas cargas de trabalho específicas.  Também terá de monitorizar a execução de execuções de empregos de longa duração e de consumo de recursos.  Os desafios mais comuns centram-se em torno da pressão da memória de configurações impróprias, tais como executores de tamanho incorreto. Além disso, operações de longa duração, e tarefas, que resultam em operações cartesianas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Componentes e versões Apache Hadoop disponíveis com HDInsight?](../hdinsight-component-versioning.md)
 * [Gerir recursos para um cluster Apache Spark em HDInsight](apache-spark-resource-manager.md)

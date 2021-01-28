@@ -1,18 +1,15 @@
 ---
 title: Use SparkCruise em Azure HDInsight para acelerar as consultas de Apache Spark
 description: Saiba como usar a plataforma de otimização SparkCruise para melhorar a eficiência das consultas de Apache Spark.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 07/27/2020
-ms.openlocfilehash: 1a73b4707f83d6a23dffc20d95aa7b8a0fa465b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f07ea3007d2e72c179abe38cca56178b564bc231
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88649062"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928283"
 ---
 # <a name="sparkcruise-on-azure-hdinsight"></a>SparkCruise em Azure HDInsight
 
@@ -146,7 +143,7 @@ Os ficheiros de feedback, os subplanos materializados e os registos de consultas
 sudo /opt/peregrine/analyze/peregrine.sh clean
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Utilize o caderno de insights de trabalho para determinar os benefícios da SparkCruise](https://github.com/Azure-Samples/azure-sparkcruise-samples/tree/main/SparkCruise)
 * [Melhorar o desempenho das cargas de trabalho da Apache Spark utilizando a cache IO IO do Azure HDInsight](apache-spark-improve-performance-iocache.md)

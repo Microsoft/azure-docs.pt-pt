@@ -1,19 +1,16 @@
 ---
 title: Resolução de problemas HDFS em Azure HDInsight
 description: Obtenha respostas a perguntas comuns sobre trabalhar com HDFS e Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 04/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: add8bc14c1810d4b0d5894a840f2b815230f31cc
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 0be7805493e5acc41254c57ca912b5a2ecf02dae
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288995"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931469"
 ---
 # <a name="troubleshoot-apache-hadoop-hdfs-by-using-azure-hdinsight"></a>Resolver problemas do HDFS do Apache Hadoop com o Azure HDInsight
 
@@ -62,7 +59,7 @@ Aceda ao HDFS local a partir da linha de comando e código de aplicação em vez
     }
     ```
 
-3. Executar o ficheiro .jar compilado (por exemplo, um ficheiro `java-unit-tests-1.0.jar` nomeado) no cluster HDInsight com o seguinte comando:
+3. Executar o ficheiro de .jar compilado (por exemplo, um ficheiro `java-unit-tests-1.0.jar` nomeado) no cluster HDInsight com o seguinte comando:
 
     ```apache
     hadoop jar java-unit-tests-1.0.jar JavaUnitTests

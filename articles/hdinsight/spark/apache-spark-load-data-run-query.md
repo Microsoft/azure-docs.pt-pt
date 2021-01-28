@@ -1,25 +1,22 @@
 ---
 title: 'Tutorial: Carregar dados & executar consultas com Apache Spark - Azure HDInsight'
 description: Tutorial - Aprenda a carregar dados e executar consultas interativas em clusters Spark em Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc
 ms.date: 02/12/2020
-ms.openlocfilehash: 85c4298c0c83480c244cc12238c21160a4a4282e
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: d3c8a08a14b23492c4bf032dd2b722c59bdf80ff
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97822119"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98930096"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Tutorial: Carregar dados e executar consultas num cluster do Apache Spark no Azure HDInsight
 
 Neste tutorial, você aprende a criar um dataframe a partir de um ficheiro csv, e como executar consultas interativas spark SQL contra um cluster [Apache Spark](https://spark.apache.org/) em Azure HDInsight. No Spark, um pacote de dados é uma coleção distribuída de dados organizados em colunas com nomes. Do ponto de vista conceptual, o pacote de dados equivale a uma tabela numa base de dados relacional ou a um pacote de dados em R/Python.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > * Criar um pacote de dados a partir de um ficheiro CSV
 > * Executar consultas no pacote de dados
@@ -103,7 +100,7 @@ Abra o cluster no portal do Azure e, em seguida, selecione **Eliminar**.
 
 Também pode selecionar o nome do grupo de recursos para abrir a página do grupo de recursos e, em seguida, selecionar **Eliminar grupo de recursos**. Ao eliminar o grupo de recursos, está a eliminar o cluster do Spark no HDInsight e a conta de armazenamento predefinida.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, você aprendeu a criar um dataframe a partir de um ficheiro csv, e como executar consultas interativas spark SQL contra um cluster Apache Spark em Azure HDInsight. Avance para o próximo artigo para ver como os dados registados no Apache Spark podem ser puxados para uma ferramenta de análise de BI, como o Power BI.
 

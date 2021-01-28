@@ -2,7 +2,7 @@
 title: 'Quickstart: Enviar telemetria para Azure IoT Hub com Java'
 description: Neste início rápido, irá executar duas aplicações Java de exemplo para enviar telemetria simulada para um hub IoT e ler telemetria do mesmo para processamento na cloud.
 author: wesmc7777
-manager: philmea
+manager: lizross
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
@@ -15,13 +15,13 @@ ms.custom:
 - mqtt
 - devx-track-java
 - devx-track-azurecli
-ms.date: 05/26/2020
-ms.openlocfilehash: 8ac2ada18cdb3c9af4902b28d16fef640f979101
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.date: 01/27/2021
+ms.openlocfilehash: c0f1272bf195c6d5ef2dfe88cc6541f731fa51c8
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121452"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928558"
 ---
 # <a name="quickstart-send-telemetry-to-an-azure-iot-hub-and-read-it-with-a-java-application"></a>Quickstart: Envie telemetria para um hub Azure IoT e leia-o com uma aplicação Java
 
@@ -33,7 +33,7 @@ Neste arranque rápido, você envia telemetria para Azure IoT Hub e lê-lo com u
 
 * Uma conta Azure com uma subscrição ativa. [Crie um de graça.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 
-* Kit de Desenvolvimento Java SE 8. Em [Java, suporte a longo prazo para Azure e Azure Stack,](/java/azure/jdk/?view=azure-java-stable)sob **suporte a longo prazo,** selecione Java **8**.
+* Kit de Desenvolvimento Java SE 8. Em [Java, suporte a longo prazo para Azure e Azure Stack,](/java/azure/jdk/?view=azure-java-stable&preserve-view=true)sob **suporte a longo prazo,** selecione Java **8**.
 
     Pode verificar qual a versão atual do Java no seu computador de desenvolvimento através do seguinte comando:
 
@@ -49,7 +49,9 @@ Neste arranque rápido, você envia telemetria para Azure IoT Hub e lê-lo com u
     mvn --version
     ```
 
-* [Um projeto java de amostra.](https://github.com/Azure-Samples/azure-iot-samples-java/archive/master.zip)
+* Faça o download ou clone do repositório azure-iot-samples-java utilizando o botão **código** na página do [repositório azure-iot-samples-java](https://github.com/Azure-Samples/azure-iot-samples-java). 
+
+    Este artigo utiliza as [amostras de mensagens simuladas](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Quickstarts/simulated-device) e [de leitura-d2c](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Quickstarts/read-d2c-messages) do repositório.
 
 * Porta 8883 aberta na sua firewall. A amostra do dispositivo neste arranque rápido utiliza o protocolo MQTT, que comunica sobre a porta 8883. Este porto pode ser bloqueado em alguns ambientes de rede corporativa e educacional. Para obter mais informações e formas de contornar esta questão, consulte [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
@@ -113,6 +115,16 @@ A aplicação de dispositivo simulado liga-se a um ponto final específico do di
 
     Substitua o valor da `connString` variável pela cadeia de ligação do dispositivo que fez uma nota anterior. Em seguida, guarde as suas alterações para **SimulatedDevice.java**.
 
+    ```java
+    public class SimulatedDevice {
+      // The device connection string to authenticate the device with your IoT hub.
+      // Using the Azure CLI:
+      // az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyJavaDevice --output table
+
+      //private static String connString = "{Your device connection string here}";    
+      private static String connString = "HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyJavaDevice;SharedAccessKey={YourSharedAccessKey}";    
+     ```
+
 3. Na janela do terminal local, execute os seguintes comandos para instalar as bibliotecas exigidas e compile a aplicação de dispositivo simulado:
 
     ```cmd/sh
@@ -143,6 +155,23 @@ A aplicação back-end liga-se ao ponto final de **eventos** do lado do serviço
     | `EVENT_HUBS_COMPATIBLE_PATH`     | Substitua o valor da variável pelo caminho compatível com Os Centros de Eventos que fez uma nota anterior. |
     | `IOT_HUB_SAS_KEY`                | Substitua o valor da variável pela chave primária de serviço que fez uma nota de anterior. |
 
+    ```java
+    public class ReadDeviceToCloudMessages {
+    
+      private static final String EH_COMPATIBLE_CONNECTION_STRING_FORMAT = "Endpoint=%s/;EntityPath=%s;"
+          + "SharedAccessKeyName=%s;SharedAccessKey=%s";
+    
+      // az iot hub show --query properties.eventHubEndpoints.events.endpoint --name {your IoT Hub name}
+      private static final String EVENT_HUBS_COMPATIBLE_ENDPOINT = "{your Event Hubs compatible endpoint}";
+    
+      // az iot hub show --query properties.eventHubEndpoints.events.path --name {your IoT Hub name}
+      private static final String EVENT_HUBS_COMPATIBLE_PATH = "{your Event Hubs compatible name}";
+    
+      // az iot hub policy show --name service --query primaryKey --hub-name {your IoT Hub name}
+      private static final String IOT_HUB_SAS_KEY = "{your service primary key}";    
+    ```
+
+
 3. Na janela do terminal local, execute os seguintes comandos para instalar as bibliotecas exigidas e compilar a aplicação back-end:
 
     ```cmd/sh
@@ -159,11 +188,11 @@ A aplicação back-end liga-se ao ponto final de **eventos** do lado do serviço
 
     ![Saída como aplicação back-end recebe telemetria enviada para o seu hub IoT](media/quickstart-send-telemetry-java/read-device-to-cloud.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste quickstart, você montou um hub IoT, registou um dispositivo, enviou telemetria simulada para o hub usando uma aplicação Java, e leu a telemetria do hub usando uma simples aplicação de back-end.
 

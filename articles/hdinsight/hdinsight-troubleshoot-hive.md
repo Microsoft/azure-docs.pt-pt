@@ -3,17 +3,14 @@ title: Resolução de problemas Colmeia usando Azure HDInsight
 description: Obtenha respostas a perguntas comuns sobre trabalhar com Apache Hive e Azure HDInsight.
 keywords: Azure HDInsight, Hive, FAQ, guia de resolução de problemas, questões comuns
 ms.service: hdinsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: f1a26e3323e4d1db2e9b2bda9afaa2756307749b
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: a76974b8daddf225b0d9b8b581475d657322847e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288959"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931446"
 ---
 # <a name="troubleshoot-apache-hive-by-using-azure-hdinsight"></a>Troubleshoot Apache Hive by using Azure HDInsight (Utilizar o Azure HDInsight para resolver problemas do Apache Hive)
 
@@ -31,9 +28,9 @@ Conheça as principais questões e as suas resoluções ao trabalhar com as carg
     for d in `hive -e "show databases"`; do echo "create database $d; use $d;" >> alltables.sql ; for t in `hive --database $d -e "show tables"` ; do ddl=`hive --database $d -e "show create table $t"`; echo "$ddl ;" >> alltables.sql ; echo "$ddl" | grep -q "PARTITIONED\s*BY" && echo "MSCK REPAIR TABLE $t ;" >> alltables.sql ; done; done
     ```
 
-   Este comando gera um ficheiro chamado allatables.sql.
+   Este comando gera um ficheiro chamado a allatables.sql.
 
-3. Copie o ficheiro alltables.sql para o novo cluster HDInsight e, em seguida, executar o seguinte comando:
+3. Copie os alltables de ficheiros.sql para o novo cluster HDInsight e, em seguida, executar o seguinte comando:
 
     ```apache
     hive -f alltables.sql
@@ -120,17 +117,17 @@ O código nas etapas de resolução pressupõe que os caminhos de dados no novo 
    Deve fornecer um programa de exemplo como primeiro argumento.
 
    Os nomes válidos do programa incluem:
-    - **ContainerReuseAnalyzer** : Imprimir detalhes de reutilização de contentores num DAG
-    - **CriticalPath** : Encontre o caminho crítico de um DAG
-    - **LocalidadeAnalyzer** : Imprima detalhes da localidade num DAG
-    - **ShuffleTimeAnalyzer** : Analise os detalhes do tempo de baralhar num DAG
-    - **SkewAnalyzer** : Analise os detalhes distorcidos num DAG
-    - **SlowNodeAnalyzer** : Imprima detalhes do nó num DAG
-    - **SlowTaskIdentifier** : Imprima detalhes de tarefas lentas num DAG
-    - **SlowestVertexAnalyzer** : Imprima detalhes vértuosos mais lentos num DAG
-    - **SpillAnalyzer** : Imprima detalhes de derrame num DAG
-    - **TaskConcurrencyAnalyzer** : Imprima os detalhes da conusciência da tarefa num DAG
-    - **VertexLevelCriticalPathAnalyzer** : Encontre o caminho crítico ao nível do vértice num DAG
+    - **ContainerReuseAnalyzer**: Imprimir detalhes de reutilização de contentores num DAG
+    - **CriticalPath**: Encontre o caminho crítico de um DAG
+    - **LocalidadeAnalyzer**: Imprima detalhes da localidade num DAG
+    - **ShuffleTimeAnalyzer**: Analise os detalhes do tempo de baralhar num DAG
+    - **SkewAnalyzer**: Analise os detalhes distorcidos num DAG
+    - **SlowNodeAnalyzer**: Imprima detalhes do nó num DAG
+    - **SlowTaskIdentifier**: Imprima detalhes de tarefas lentas num DAG
+    - **SlowestVertexAnalyzer**: Imprima detalhes vértuosos mais lentos num DAG
+    - **SpillAnalyzer**: Imprima detalhes de derrame num DAG
+    - **TaskConcurrencyAnalyzer**: Imprima os detalhes da conusciência da tarefa num DAG
+    - **VertexLevelCriticalPathAnalyzer**: Encontre o caminho crítico ao nível do vértice num DAG
 
 ### <a name="additional-reading"></a>Leitura adicional
 
@@ -161,6 +158,6 @@ Existem duas formas de recolher os dados do Tez DAG:
 
 [Conecte-se a um cluster HDInsight utilizando O SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [!INCLUDE [troubleshooting next steps](../../includes/hdinsight-troubleshooting-next-steps.md)]

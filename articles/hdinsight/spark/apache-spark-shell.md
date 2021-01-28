@@ -1,19 +1,16 @@
 ---
 title: Use uma concha de faísca interativa em Azure HDInsight
 description: Uma Spark Shell interativa fornece um processo de impressão de execução de leitura para executar o Spark comanda um de cada vez e vê os resultados.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/10/2020
-ms.openlocfilehash: 84298c9073f00f0388a9bcb7405369d7c60bcce1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 324852a967b5de015a9b1e9b465d4b4703e573cb
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86081184"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98929678"
 ---
 # <a name="run-apache-spark-from-the-spark-shell"></a>Executar Apache Spark da Concha de Faísca
 
@@ -112,9 +109,9 @@ O comando Spark Shell `spark-shell` (, ou `pyspark` ) suporta muitos parâmetros
 | -mestre MASTER_URL | Especifica a URL principal. Em HDInsight, este valor é sempre `yarn` . | `--master yarn`|
 | -jarros JAR_LIST | Lista separada por vírgula de frascos locais para incluir nos caminhos de classe do condutor e executor. No HDInsight, esta lista é composta por caminhos para o sistema de ficheiros predefinido no Armazenamento Azure ou no Armazenamento do Lago de Dados. | `--jars /path/to/examples.jar` |
 | ...pacotes MAVEN_COORDS | Lista separada por vírgula de coordenadas de frascos para incluir nos caminhos de classe do condutor e do executor. Procure o repo maven local, em seguida maven central, em seguida, quaisquer repositórios remotos adicionais especificados com `--repositories` . O formato das coordenadas é *groupId*:*artifactId*:*versão*. | `--packages "com.microsoft.azure:azure-eventhubs:0.14.0"`|
-| --py-files LIST | Apenas para Python, uma lista separada por vírgula de .zip, .egg, ou .py files para colocar no PYTHONPATH. | `--pyfiles "samples.py"` |
+| --py-files LIST | Apenas para Python, uma lista separada por vírgula de .zip, .egg, ou .py ficheiros para colocar no PYTHONPATH. | `--pyfiles "samples.py"` |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte [a Introdução ao Apache Spark em Azure HDInsight](apache-spark-overview.md) para obter uma visão geral.
 - Consulte [Criar um cluster Apache Spark em Azure HDInsight](apache-spark-jupyter-spark-sql.md) para trabalhar com clusters Spark e SparkSQL.

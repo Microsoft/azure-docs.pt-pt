@@ -1,19 +1,16 @@
 ---
 title: Otimizar o armazenamento de dados para Apache Spark - Azure HDInsight
 description: Aprenda a otimizar o armazenamento de dados para uso com Apache Spark em Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: ad09cdc2c0054c9d9a58e6bfa00252862f1e8c0f
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 10f99bdc4a5d418ae1b432a6799c5979e473c5ed
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97028228"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98926979"
 ---
 # <a name="data-storage-optimization-for-apache-spark"></a>Otimização de armazenamento de dados para Apache Spark
 
@@ -57,11 +54,11 @@ Quando criar um novo cluster Spark, pode selecionar o Azure Blob Storage ou o Az
 
 | Store Type | Sistema de Ficheiros | Velocidade | Transitório | Casos de Utilização |
 | --- | --- | --- | --- | --- |
-| Armazenamento de Blobs do Azure | **wasb:**//url/ | **Standard** | Sim | Aglomerado transitório |
-| Armazenamento Azure Blob (seguro) | **wasbs:**//url/ | **Standard** | Sim | Aglomerado transitório |
-| Azure Data Lake Storage Gen2| **abfs:**//url/ | **Mais rápido** | Sim | Aglomerado transitório |
-| Azure Data Lake Storage Gen 1| **adl:**//url/ | **Mais rápido** | Sim | Aglomerado transitório |
-| HDFs locais | **hdfs:**//url/ | **Mais rápido** | Não | Cluster interativo 24/7 |
+| Armazenamento de Blobs do Azure | **wasb:**//url/ | **Standard** | Yes | Aglomerado transitório |
+| Armazenamento Azure Blob (seguro) | **wasbs:**//url/ | **Standard** | Yes | Aglomerado transitório |
+| Azure Data Lake Storage Gen2| **abfs:**//url/ | **Mais rápido** | Yes | Aglomerado transitório |
+| Azure Data Lake Storage Gen 1| **adl:**//url/ | **Mais rápido** | Yes | Aglomerado transitório |
+| HDFs locais | **hdfs:**//url/ | **Mais rápido** | No | Cluster interativo 24/7 |
 
 Para obter uma descrição completa das opções de armazenamento, consulte opções de [armazenamento compare para utilização com clusters Azure HDInsight](../hdinsight-hadoop-compare-storage-options.md).
 
@@ -101,7 +98,7 @@ Algumas características avançadas de balde são:
 
 Pode usar divisórias e baldes ao mesmo tempo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Otimizar o processamento de dados para Apache Spark](optimize-cluster-configuration.md)
 * [Otimizar o uso da memória para Apache Spark](optimize-memory-usage.md)

@@ -1,18 +1,15 @@
 ---
 title: Diretrizes gerais de segurança da empresa em Azure HDInsight
 description: Algumas boas práticas que devem facilitar a implementação e gestão do Pacote de Segurança Empresarial.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: 8d97886232eecc369746e33df484cbfb9d40da72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92ad8362f75cdf0613d4ee95f39c23aa6d4819bb
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87530270"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98933562"
 ---
 # <a name="enterprise-security-general-information-and-guidelines-in-azure-hdinsight"></a>Informações e orientações gerais de segurança da empresa em Azure HDInsight
 
@@ -171,7 +168,7 @@ Razões mais comuns:
 
 Para obter uma lista completa das propriedades Ambari que afetam a sua configuração do cluster HDInsight, consulte [a Configuração de Autenticação Ambari LDAP](https://ambari.apache.org/1.2.1/installing-hadoop-using-ambari/content/ambari-chap2-4.html).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Configurações de pacotes de segurança da empresa com serviços de domínio de diretório ativo Azure em HDInsight](./apache-domain-joined-configure-using-azure-adds.md)
 

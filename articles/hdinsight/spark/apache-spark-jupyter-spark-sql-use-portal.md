@@ -1,19 +1,16 @@
 ---
 title: 'Quickstart: Criar cluster Spark em HDInsight usando o portal Azure'
 description: Este quickstart mostra como usar o portal Azure para criar um cluster Apache Spark em Azure HDInsight, e executar uma consulta Spark SQL.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/25/2020
-ms.openlocfilehash: 6554d112e494a129fa2cc811c2acf1959ff79f8b
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: 18225703b2a390f64b4bebd58b0167dd77c454d0
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97822272"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98930371"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-azure-portal"></a>Quickstart: Criar cluster Apache Spark em Azure HDInsight usando o portal Azure
 
@@ -47,9 +44,9 @@ Você usa o portal Azure para criar um cluster HDInsight que usa Azure Storage B
     |Propriedade  |Descrição  |
     |---------|---------|
     |Subscrição  | A partir da lista de drop-down, selecione a subscrição Azure que é usada para o cluster. |
-    |O grupo de recursos | A partir da lista de drop-down, selecione o seu grupo de recursos existente ou selecione **Criar novo**.|
+    |Grupo de recursos | A partir da lista de drop-down, selecione o seu grupo de recursos existente ou selecione **Criar novo**.|
     |Nome do cluster | Introduza um nome globalmente exclusivo.|
-    |Região   | A partir da lista de drop-down, selecione uma região onde o cluster é criado. |
+    |Region   | A partir da lista de drop-down, selecione uma região onde o cluster é criado. |
     |Tipo de cluster| Selecione Selecionar o tipo de cluster para abrir uma lista. Na lista, selecione **Spark**.|
     |Versão cluster|Este campo irá preencher automaticamente a versão predefinitiva uma vez selecionado o tipo de cluster.|
     |Nome de utilizador de início de sessão do cluster| Introduza o nome de utilizador de início de sessão do cluster.  O nome predefinido é **administrador.** Utilize esta conta para iniciar sessão no Jupyter Notebook mais tarde no quickstart. |
@@ -135,7 +132,7 @@ Regresse ao portal do Azure e selecione **Eliminar**.
 
 Também pode selecionar o nome do grupo de recursos para abrir a página do grupo de recursos e, em seguida, selecionar **Eliminar grupo de recursos**. Ao eliminar o grupo de recursos, elimina tanto o cluster HDInsight como a conta de armazenamento predefinido.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste quickstart, você aprendeu a criar um cluster Apache Spark em HDInsight e executar uma consulta básica spark SQL. Avance para o próximo tutorial para aprender a usar um cluster HDInsight para executar consultas interativas em dados de amostras.
 

@@ -1,19 +1,17 @@
 ---
 title: Sincronizar os utilizadores do Azure Ative Directory para o cluster HDInsight
 description: Sincronizar os utilizadores autenticados do Azure Ative Directory para um cluster HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/21/2019
-ms.openlocfilehash: 19466174faeef20b8ac29882b047d74ad2adc5ff
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a3307c5d677028c17717c0d591790f0373f131d6
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92535183"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931634"
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Sincronizar utilizadores do Azure Active Directory num cluster do HDInsight
 
@@ -29,7 +27,7 @@ Para ver os seus anfitriões, abra a UI da Web Ambari. Cada nó será atualizado
 
 1. A partir do [portal Azure,](https://portal.azure.com)navegue até ao diretório AD Azure associado ao seu cluster ESP.
 
-2. Selecione **Todos os utilizadores** do menu à esquerda e, em seguida, selecione **Novo utilizador** .
+2. Selecione **Todos os utilizadores** do menu à esquerda e, em seguida, selecione **Novo utilizador**.
 
     ![Utilizadores e grupos do portal Azure](./media/hdinsight-sync-aad-users-to-cluster/users-and-groups-new.png)
 
@@ -37,7 +35,7 @@ Para ver os seus anfitriões, abra a UI da Web Ambari. Cada nó será atualizado
 
     ![Painel de utilizadores do portal Azure seleciona grupos](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-new-user-form.png)
 
-4. Selecione **Criar** .
+4. Selecione **Criar**.
 
 ## <a name="use-the-apache-ambari-rest-api-to-synchronize-users"></a>Utilize a API Apache Ambari REST para sincronizar os utilizadores
 
@@ -120,7 +118,7 @@ O seguinte método utiliza POST com a API Ambari REST. Para obter mais informaç
     }
     ```
 
-1. Este resultado mostra que o estado é **COMPLETO** , um novo utilizador foi criado, e o utilizador foi atribuído a uma adesão. Neste exemplo, o utilizador é atribuído ao grupo LDAP sincronizado "HiveUsers", uma vez que o utilizador foi adicionado ao mesmo grupo em Azure AD.
+1. Este resultado mostra que o estado é **COMPLETO**, um novo utilizador foi criado, e o utilizador foi atribuído a uma adesão. Neste exemplo, o utilizador é atribuído ao grupo LDAP sincronizado "HiveUsers", uma vez que o utilizador foi adicionado ao mesmo grupo em Azure AD.
 
     > [!NOTE]  
     > O método anterior apenas sincroniza os grupos AZure AD especificados na propriedade do grupo de **utilizadores Access** das definições de domínio durante a criação do cluster. Para obter mais informações, consulte  [criar um cluster HDInsight](./domain-joined/apache-domain-joined-configure-using-azure-adds.md).
@@ -146,7 +144,7 @@ Abra o [Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md) para verificar 
 Quando o novo utilizador (ou qualquer outro utilizador de domínio) entra em Ambari, utiliza o seu nome de utilizador completo Azure AD e credenciais de domínio.  Ambari exibe um pseudónimo do utilizador, que é o nome de exibição do utilizador em Azure AD.
 O novo utilizador de exemplo tem o nome de `hiveuser3@contoso.com` utilizador. Em Ambari, este novo utilizador aparece como `hiveuser3` mas o utilizador entra em Ambari como `hiveuser3@contoso.com` .
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 * [Configure as políticas da Colmeia Apache em HDInsight com ESP](./domain-joined/apache-domain-joined-run-hive.md)
 * [Gerir clusters HDInsight com ESP](./domain-joined/apache-domain-joined-manage.md)

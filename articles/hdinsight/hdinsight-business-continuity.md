@@ -1,19 +1,16 @@
 ---
 title: Continuidade do negócio Azure HDInsight
 description: Este artigo apresenta uma visão geral das melhores práticas, disponibilidade de uma região única e opções de otimização para o planeamento de continuidade de negócios Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 keywords: hadoop alta disponibilidade
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2020
-ms.openlocfilehash: f83f5aec264aeae1a729e81932843825a0ce6673
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 74f8bdd26e000b89bfae84102077c241f85abf7e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546947"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98933319"
 ---
 # <a name="azure-hdinsight-business-continuity"></a>Continuidade do negócio Azure HDInsight
 
@@ -53,7 +50,7 @@ Um sistema HDInsight básico tem os seguintes componentes. Todos os componentes 
 
 Existem outros serviços opcionais que podem ser usados, como a Azure Key Vault e a Azure Data Factory.
 
-:::image type="content" source="media/hdinsight-business-continuity/hdinsight-components.png" alt-text="transformação de dados e camadas de serviço de dados":::
+:::image type="content" source="media/hdinsight-business-continuity/hdinsight-components.png" alt-text="Componentes HDInsight":::
 
 ### <a name="azure-hdinsight-cluster-compute"></a>Cluster Azure HDInsight (computação)
 
@@ -124,7 +121,7 @@ Melhorar a continuidade das empresas utilizando a recuperação de desastres de 
 |Funcionalidade do negócio |Exigindo a funcionalidade de negócio completa do primário no secundário |Avalie se pode executar com o subconjunto crítico mínimo da funcionalidade do negócio no secundário.|
 |Conectividade |Que requer todos os sistemas a montante e a jusante do primário para ligar ao secundário também|Limite a conectividade secundária a um subconjunto crítico mínimo.|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre os itens discutidos neste artigo, consulte:
 

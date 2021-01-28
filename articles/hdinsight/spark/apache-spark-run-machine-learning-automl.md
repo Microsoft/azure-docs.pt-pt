@@ -1,22 +1,19 @@
 ---
 title: Executar cargas de trabalho de aprendizagem de máquinas Azure em Apache Spark em HDInsight
 description: Aprenda a executar cargas de trabalho de aprendizagem automática do Azure Machine Learning com machine learning automatizado (AutoML) em Apache Spark in Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/13/2019
-ms.openlocfilehash: 3397c57f793c6994847786ff8247e5ccfa453ec0
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: 4087341a9a96ae56c00972f886ce3cc8891750a5
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97821252"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98929738"
 ---
 # <a name="run-azure-machine-learning-workloads-with-automated-machine-learning-on-apache-spark-in-hdinsight"></a>Executar cargas de trabalho de aprendizagem automática da Azure Machine Learning com aprendizagem automática de máquinas em Apache Spark em HDInsight
 
-A Azure Machine Learning simplifica e acelera o edifício, formação e implementação de modelos de aprendizagem automática. No machine learning automatizado (AutoML), começa-se com dados de treino que têm uma característica-alvo definida e depois iteram através de combinações de algoritmos e seleções de recursos para selecionar automaticamente o melhor modelo para os seus dados com base nas pontuações de treino. O HDInsight permite que os clientes provisem clusters com centenas de nós. O autoML que funciona na Spark num cluster HDInsight permite que os utilizadores utilizem a capacidade de computação através destes nós para executar trabalhos de formação em escala, e executar múltiplos trabalhos de formação em paralelo. Isto permite que os utilizadores executem experiências AutoML enquanto partilham o cálculo com as suas outras grandes cargas de trabalho de dados.
+A Azure Machine Learning simplifica e acelera o edifício, formação e implementação de modelos de aprendizagem automática. No machine learning automatizado (AutoML), começa-se com dados de treino que têm uma característica-alvo definida e depois iteram através de combinações de algoritmos e seleções de recursos para selecionar automaticamente o melhor modelo para os seus dados com base nas pontuações de treino. O HDInsight permite que os clientes provisem clusters com centenas de nós. O autoML que funciona na Spark num cluster HDInsight permite que os utilizadores utilizem a capacidade de computação através destes nós para executar trabalhos de formação de formação em escala, e executar múltiplos trabalhos de formação em paralelo. Isto permite que os utilizadores executem experiências AutoML enquanto partilham o cálculo com as suas outras grandes cargas de trabalho de dados.
 
 ## <a name="install-azure-machine-learning-on-an-hdinsight-cluster"></a>Instale a Azure Machine Learning num cluster HDInsight
 
@@ -73,7 +70,7 @@ Também pode registar a datastore com o espaço de trabalho usando um registo ú
 
 Na [configuração automatizada de machine learning,](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig)a propriedade `spark_context` deve ser definida para que a embalagem seja executada no modo distribuído. A propriedade `concurrent_iterations` , que é o número máximo de iterações executadas em paralelo, deve ser definida como um número inferior aos núcleos executor da app Spark.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter mais informações sobre a motivação por trás da aprendizagem automática de [máquinas, consulte os modelos De lançamento ao ritmo utilizando a aprendizagem automática de máquinas da Microsoft!](https://azure.microsoft.com/blog/release-models-at-pace-using-microsoft-s-automl/)
 * Para obter mais informações sobre a utilização de capacidades ML automatizadas Azure ML, consulte [novas capacidades automatizadas de aprendizagem automática em Azure Machine Learning](https://azure.microsoft.com/blog/new-automated-machine-learning-capabilities-in-azure-machine-learning-service/)

@@ -1,5 +1,5 @@
 ---
-title: Media Services v2 para v3 cenário de migração baseado em orientação para streaming ao vivo
+title: Media Services v2 a v3 orientação de migração para streaming ao vivo
 description: Este artigo dá-lhe orientação baseada em cenários de streaming ao vivo que o ajudarão a migrar do Azure Media Services v2 para v3.
 services: media-services
 author: IngridAtMicrosoft
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: 65b1c8906463002e144ee520855121ce18693e03
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 02ae0f7e8723e9c4543a4ef681e3a1164b183a7a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98898278"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927124"
 ---
 # <a name="live-streaming-scenario-based-migration-guidance"></a>Orientação de migração baseada em cenário de streaming ao vivo
 

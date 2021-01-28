@@ -1,19 +1,16 @@
 ---
 title: Registos do Monitor Azure para Apache Kafka - Azure HDInsight
 description: Aprenda a usar registos do Azure Monitor para analisar registos do cluster Apache Kafka no Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/17/2020
-ms.openlocfilehash: 5128ac7608dfce08471f7a7f97ed28a7971e62b2
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: d577e96c3ae95103a412b96eba3e1293142f1acd
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534452"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932774"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Analyze logs for Apache Kafka on HDInsight (Analisar registos do Apache Kafka no HDInsight)
 
@@ -30,14 +27,14 @@ Os troncos Apache Kafka no aglomerado estão localizados em `/var/log/kafka` . O
 |kafka.out|stdout e stderr do processo Kafka. Você vai encontrar logs de arranque e encerramento de Kafka neste ficheiro.|
 |servidor.log|O registo principal do servidor Kafka. Todos os registos de corretores kafka acabam aqui.|
 |controlador.log|O controlador regista registos se o corretor estiver a agir como controlador.|
-|statechange.log|Todos os eventos de alteração de estado para corretores são registados neste ficheiro.|
+|mudança de estado.log|Todos os eventos de alteração de estado para corretores são registados neste ficheiro.|
 |kafka-gc.log|Estatísticas da Coleção de Lixo de Kafka.|
 
 ## <a name="enable-azure-monitor-logs-for-apache-kafka"></a>Ativar registos do Monitor Azure para Apache Kafka
 
 Os passos para permitir os registos do Monitor Azure para HDInsight são os mesmos para todos os clusters HDInsight. Utilize os seguintes links para entender como criar e configurar os serviços necessários:
 
-1. Crie um espaço de trabalho Log Analytics. Para mais informações, consulte o documento ['Logs in Azure Monitor'.](../../azure-monitor/platform/data-platform-logs.md)
+1. Criar uma área de trabalho do Log Analytics. Para mais informações, consulte o documento ['Logs in Azure Monitor'.](../../azure-monitor/platform/data-platform-logs.md)
 
 2. Crie um Kafka no cluster HDInsight. Para mais informações, consulte o Início com Apache Kafka no documento [HDInsight.](apache-kafka-get-started.md)
 
@@ -50,7 +47,7 @@ Os passos para permitir os registos do Monitor Azure para HDInsight são os mesm
 
 1. A partir do [portal Azure,](https://portal.azure.com)selecione o seu espaço de trabalho Log Analytics.
 
-2. A partir do menu esquerdo, em **Geral,** selecione **Logs** . A partir daqui, pode pesquisar os dados recolhidos de Kafka. Introduza uma consulta na janela de consulta e, em seguida, selecione **Executar** . Seguem-se algumas pesquisas por exemplo:
+2. A partir do menu esquerdo, em **Geral,** selecione **Logs**. A partir daqui, pode pesquisar os dados recolhidos de Kafka. Introduza uma consulta na janela de consulta e, em seguida, selecione **Executar**. Seguem-se algumas pesquisas por exemplo:
 
 * Utilização do disco:
 
@@ -96,13 +93,13 @@ Os passos para permitir os registos do Monitor Azure para HDInsight são os mesm
 
     | Tipo de registo | Descrição |
     | ---- | ---- |
-    | log \_ kafkaserver \_ CL | Servidor de corretor de Kafka.log |
+    | log \_ kafkaserver \_ CL | Servidor de corretor kafka.log |
     | log \_ kafkacontroller \_ CL | Controlador de corretor kafka.log |
     | métricas \_ kafka \_ CL | Métricas Kafka JMX |
 
     ![Apache kafka log analytics uso cpu](./media/apache-kafka-log-analytics-operations-management/apache-kafka-cpu-usage.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre o Azure Monitor, consulte [a visão geral do Monitor Azure](../../azure-monitor/overview.md)e [os registos do Monitor Desatado para monitorizar os clusters HDInsight](../hdinsight-hadoop-oms-log-analytics-use-queries.md).
 

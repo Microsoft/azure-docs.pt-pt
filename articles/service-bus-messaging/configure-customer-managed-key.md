@@ -2,26 +2,20 @@
 title: Configure a sua própria chave para encriptar os dados do Azure Service Bus em repouso
 description: Este artigo fornece informações sobre como configurar a sua própria chave para encriptar o repouso de dados do Azure Service Bus.
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: 3e8f3a599ee5fe40c85a93dd58d36e6cd611c9ea
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.date: 01/26/2021
+ms.openlocfilehash: 132ee3883b818dcc5a5d8e0cc7b372daee41e273
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98631771"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928096"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Configure as chaves geridas pelo cliente para encriptar os dados do Azure Service Bus em repouso utilizando o portal Azure
-A Azure Service Bus Premium fornece encriptação de dados em repouso com a Encriptação do Serviço de Armazenamento Azure (Azure SSE). O Service Bus Premium conta com o Azure Storage para armazenar os dados e, por padrão, todos os dados que são armazenados com o Azure Storage são encriptados utilizando as teclas geridas pela Microsoft. 
+A Azure Service Bus Premium fornece encriptação de dados em repouso com a Encriptação do Serviço de Armazenamento Azure (Azure SSE). Service Bus Premium utiliza o Azure Storage para armazenar os dados. Todos os dados armazenados com O Azure Storage são encriptados utilizando as teclas geridas pela Microsoft. Se utilizar a sua própria chave (também designada por Bring Your Own Key (BYOK) ou tecla gerida pelo cliente), os dados ainda são encriptados utilizando a chave gerida pela Microsoft, mas além disso a chave gerida pela Microsoft será encriptada utilizando a chave gerida pelo cliente. Esta funcionalidade permite-lhe criar, rodar, desativar e revogar o acesso às chaves geridas pelo cliente que são utilizadas para encriptar as chaves geridas pela Microsoft. Ativar a função BYOK é um processo de configuração de uma única vez no seu espaço de nome.
 
-## <a name="overview"></a>Descrição geral
-A Azure Service Bus suporta agora a opção de encriptar dados em repouso com as teclas geridas pela Microsoft ou com teclas geridas pelo cliente (Bring Your Own Key - BYOK). esta funcionalidade permite-lhe criar, rodar, desativar e revogar o acesso às chaves geridas pelo cliente que são usadas para encriptar o Azure Service Bus em repouso.
-
-Ativar a função BYOK é um processo de configuração de uma única vez no seu espaço de nome.
-
-> [!NOTE]
-> Existem algumas ressalvas para a chave gerida pelo cliente para encriptação do lado do serviço. 
->   * Esta funcionalidade é suportada pelo nível [Azure Service Bus Premium.](service-bus-premium-messaging.md) Não pode ser ativado para espaços de nome de ônibus de nível padrão.
->   * A encriptação só pode ser ativada para espaços novos ou vazios. Se o espaço de nomes contiver quaisquer filas ou tópicos, então a operação de encriptação falhará.
+Existem algumas ressalvas para a chave gerida pelo cliente para encriptação do lado do serviço. 
+- Esta funcionalidade é suportada pelo nível [Azure Service Bus Premium.](service-bus-premium-messaging.md) Não pode ser ativado para espaços de nome de ônibus de nível padrão.
+- A encriptação só pode ser ativada para espaços novos ou vazios. Se o espaço de nomes contiver quaisquer filas ou tópicos, então a operação de encriptação falhará.
 
 Pode utilizar o Azure Key Vault para gerir as suas chaves e auditar o uso da chave. Pode criar as suas próprias chaves e armazená-las num cofre de chaves, ou pode usar as APIs do Cofre de Chaves Azure para gerar chaves. Para mais informações sobre o Azure Key Vault, veja [o que é o Cofre da Chave Azure?](../key-vault/general/overview.md)
 
@@ -70,13 +64,13 @@ Depois de ativar as chaves geridas pelo cliente, tem de associar a chave gerida 
         > [!NOTE]
         > Para redundância, pode somar até 3 chaves. No caso de uma das teclas ter expirado ou não estar acessível, as outras teclas serão utilizadas para encriptação.
         
-    1. Preencha os detalhes da chave e clique em **Selecionar**. Isto permitirá a encriptação de dados em repouso no espaço de nomes com uma chave gerida pelo cliente. 
+    1. Preencha os detalhes da chave e clique em **Selecionar**. Isto permitirá a encriptação da chave gerida pela Microsoft com a sua chave (chave gerida pelo cliente). 
 
 
     > [!IMPORTANT]
-    > Se procura utilizar a chave gerida pelo Cliente juntamente com a recuperação de desastres geo, por favor reveja abaixo - 
+    > Se procura utilizar a chave gerida pelo Cliente juntamente com a recuperação de desastres da Geo, por favor reveja esta secção. 
     >
-    > Para permitir a encriptação em repouso com a chave gerida pelo cliente, é criada uma política de [acesso](../key-vault/general/secure-your-key-vault.md) para a identidade gerida do Service Bus no Azure KeyVault especificado. Isto garante acesso controlado ao Azure KeyVault a partir do espaço de nomes do Azure Service Bus.
+    > Para permitir a encriptação da chave gerida pela Microsoft com uma chave gerida pelo cliente, é criada uma política de [acesso](../key-vault/general/secure-your-key-vault.md) para a identidade gerida do Service Bus no Azure KeyVault especificado. Isto garante acesso controlado ao Azure KeyVault a partir do espaço de nomes do Azure Service Bus.
     >
     > Devido a isto:
     > 
@@ -319,7 +313,7 @@ Neste passo, irá atualizar o espaço de nomes do Service Bus com informações 
     ```
     
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte os seguintes artigos:
 - [Visão geral do ônibus de serviço](service-bus-messaging-overview.md)
 - [Visão geral do cofre de chaves](../key-vault/general/overview.md)

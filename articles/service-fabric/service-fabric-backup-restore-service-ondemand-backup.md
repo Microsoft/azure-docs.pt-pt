@@ -5,27 +5,32 @@ author: aagup
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: 04d8bb4a9f8157a229751d073e8d351f5448fa68
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7986c8cd8d0714215c7b4dc57170be346e627ed
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86247902"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928045"
 ---
 # <a name="on-demand-backup-in-azure-service-fabric"></a>Backup a pedido no Azure Service Fabric
 
 Pode fazer o back up dados de serviços estatais fiáveis e de atores fiáveis para abordar cenários de desastres ou perda de dados.
 
-O Azure Service Fabric possui funcionalidades para a [cópia de segurança periódica dos dados](service-fabric-backuprestoreservice-quickstart-azurecluster.md) e a cópia de segurança dos dados numa base de necessidade. O backup a pedido é útil porque protege contra a corrupção de dados de _perda_de / _dados_ devido a alterações planeadas no serviço subjacente ou no seu ambiente.
+O Azure Service Fabric possui funcionalidades para a [cópia de segurança periódica dos dados](service-fabric-backuprestoreservice-quickstart-azurecluster.md) e a cópia de segurança dos dados numa base de necessidade. O backup a pedido é útil porque protege contra a corrupção de dados de _perda_ de / _dados_ devido a alterações planeadas no serviço subjacente ou no seu ambiente.
 
 As funcionalidades de backup a pedido são úteis para capturar o estado dos serviços antes de desencadear manualmente uma operação de ambiente de serviço ou de serviço. Por exemplo, se fizer uma alteração nos binários de serviço ao atualizar ou degradar o serviço. Neste caso, o backup a pedido pode ajudar a proteger os dados contra a corrupção através de erros de código de aplicação.
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Instale microsoft.serviceFabric.Powershell.Http Module [In Preview] para fazer chamadas de configuração.
+- Instale microsoft.serviceFabric.Powershell.Http Module (Preview) para fazer chamadas de configuração.
 
 ```powershell
     Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
 ```
+
+> [!NOTE]
+> Se a versão PowerShellGet for inferior a 1.6.0, terá de atualizar para adicionar suporte à bandeira *-AllowPrerelease:*
+>
+> `Install-Module -Name PowerShellGet -Force`
 
 - Certifique-se de que o Cluster está ligado utilizando o `Connect-SFCluster` comando antes de escoar qualquer pedido de configuração utilizando o Módulo Microsoft.ServiceFabric.Powershell.Http.
 
@@ -181,7 +186,7 @@ Os pedidos de backup a pedido podem estar nos seguintes Estados:
     FailureError            : @{Code=FABRIC_E_TIMEOUT; Message=The request of backup has timed out.}
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Compreender a configuração de backup periódica](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
 - [Referência API backupRestore REST](/rest/api/servicefabric/sfclient-index-backuprestore)

@@ -1,19 +1,16 @@
 ---
 title: Kernels para Jupyter Notebook em clusters spark em Azure HDInsight
 description: Conheça o PySpark, PySpark3 e Spark kernels para Jupyter Notebook disponível com clusters Spark em Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: b1139ce2358d5e5b3b52376892524e7ee0dd5611
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: a16ec623d7475a80e546df43495db1a357a5fa66
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97822238"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98930389"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Kernels para Jupyter Notebook em aglomerados Apache Spark em Azure HDInsight
 
@@ -70,7 +67,7 @@ Aqui estão alguns benefícios de usar os novos núcleos com o Jupyter Notebook 
 
     A tabela que se segue lista as diferentes magias disponíveis através dos núcleos.
 
-   | Magia | Exemplo | Description |
+   | Magia | Exemplo | Descrição |
    | --- | --- | --- |
    | Ajuda |`%%help` |Gera uma tabela de todas as magias disponíveis com exemplo e descrição |
    | informações |`%%info` |Informações da sessão de saídas para o atual ponto final da Livy |
@@ -78,7 +75,7 @@ Aqui estão alguns benefícios de usar os novos núcleos com o Jupyter Notebook 
    | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |Executa uma consulta de Colmeia contra o sqlContext. Se o `-o` parâmetro for aprovado, o resultado da consulta é persistido no contexto python %%local como um dataframe [pandas.](https://pandas.pydata.org/) |
    | local |`%%local`<br>`a=1` |Todo o código em linhas posteriores é executado localmente. O código deve ser o código Python2 válido, independentemente do núcleo que estiver a usar. Assim, mesmo que tenha selecionado **miolos PySpark3** ou **Spark** enquanto cria o caderno, se usar a `%%local` magia numa célula, essa célula deve ter apenas um código Python2 válido. |
    | registos |`%%logs` |Outputs os registos para a atual sessão livy. |
-   | delete |`%%delete -f -s <session number>` |Elimina uma sessão específica do atual ponto final da Livy. Não pode apagar a sessão que começa para o próprio núcleo. |
+   | eliminação |`%%delete -f -s <session number>` |Elimina uma sessão específica do atual ponto final da Livy. Não pode apagar a sessão que começa para o próprio núcleo. |
    | limpeza |`%%cleanup -f` |Elimina todas as sessões para o atual ponto final da Livy, incluindo a sessão deste caderno. A bandeira da força -f é obrigatória. |
 
    > [!NOTE]  
@@ -90,7 +87,7 @@ Aqui estão alguns benefícios de usar os novos núcleos com o Jupyter Notebook 
 
 A `%%sql` magia suporta diferentes parâmetros que podes usar para controlar o tipo de saída que recebes quando fazes consultas. A tabela a seguir lista a saída.
 
-| Parâmetro | Exemplo | Description |
+| Parâmetro | Exemplo | Descrição |
 | --- | --- | --- |
 | -o |`-o <VARIABLE NAME>` |Utilize este parâmetro para persistir o resultado da consulta, no contexto python %%local, como um dataframe [pandas.](https://pandas.pydata.org/) O nome da variável dataframe é o nome variável que especifica. |
 | -q |`-q` |Utilize este parâmetro para desligar as visualizações para a célula. Se não quiser visualizar automaticamente o conteúdo de uma célula e apenas pretender capturá-lo como um dataframe, então use `-q -o <VARIABLE>` . Se quiser desligar as visualizações sem capturar os resultados (por exemplo, para executar uma consulta SQL, como uma `CREATE TABLE` declaração), utilize `-q` sem especificar um `-o` argumento. |
@@ -141,7 +138,7 @@ Os cadernos Jupyter em clusters Spark HDInsight são suportados apenas no Google
 
 Os novos núcleos estão em evolução e irão amadurecer com o tempo. Assim, as APIs podem mudar à medida que estes núcleos amadurecem. Agradecemos qualquer feedback que tenha enquanto utiliza estes novos núcleos. O feedback é útil na formação da libertação final destes núcleos. Pode deixar os seus comentários/feedback na secção **De Feedback** na parte inferior deste artigo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Descrição geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
 - [Use cadernos Apache Zeppelin com um cluster Apache Spark em HDInsight](apache-spark-zeppelin-notebook.md)

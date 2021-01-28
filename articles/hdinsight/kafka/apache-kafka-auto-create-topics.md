@@ -1,19 +1,17 @@
 ---
 title: Permitir a criação automática de tópicos em Apache Kafka - Azure HDInsight
 description: Aprenda a configurar Apache Kafka em HDInsight para criar automaticamente tópicos. Você pode configurar Kafka `auto.create.topics.enable` definindo-se como verdadeiro através de Ambari. Ou durante a criação de clusters através de modelos PowerShell ou Resource Manager.
-author: hrasheed-msft
-ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: 829f91452725615af4d444426e25ffad62d6ab6d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b416623d6637cfe8e2c1cd795dd62553f8c0aed4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087510"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98933217"
 ---
 # <a name="how-to-configure-apache-kafka-on-hdinsight-to-automatically-create-topics"></a>Como configurar Apache Kafka em HDInsight para criar automaticamente tópicos
 
@@ -49,7 +47,7 @@ Para permitir a criação automática de tópicos num cluster existente através
 
     ![Imagem do auto.create.topics.enable entry](./media/apache-kafka-auto-create-topics/auto-create-topics-enable.png)
 
-1. Selecione o serviço Kafka, __selecione Restart__e, em seguida, selecione Reiniciar todos __os afetados__. Quando solicitado, __selecione Confirme reiniciar tudo__.
+1. Selecione o serviço Kafka, __selecione Restart__ e, em seguida, selecione Reiniciar todos __os afetados__. Quando solicitado, __selecione Confirme reiniciar tudo__.
 
     !['Apache Ambari reinicia todos os afetados'](./media/apache-kafka-auto-create-topics/restart-all-affected.png)
 

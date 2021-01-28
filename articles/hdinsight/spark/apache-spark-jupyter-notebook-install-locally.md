@@ -1,19 +1,16 @@
 ---
 title: Instale o Jupyter localmente e ligue-se à Spark em Azure HDInsight
 description: Aprenda a instalar o Jupyter Notebook localmente no seu computador e conecte-o a um cluster Apache Spark.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020, devx-track-python
 ms.date: 04/23/2020
-ms.openlocfilehash: de11e6f9fd9acc81f7be6d23bb1019f88f9e1322
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: d5915316ee9d393b2481eeca6a5da7923b271d9f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657214"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98930419"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Instale o Bloco de Notas Jupyter no seu computador e ligue-se ao Apache Spark em HDInsight
 
@@ -174,7 +171,7 @@ Razões para instalar o Jupyter no seu computador e, em seguida, conectá-lo a u
 > [!WARNING]  
 > Com o Jupyter instalado no seu computador local, vários utilizadores podem executar o mesmo portátil no mesmo cluster Spark ao mesmo tempo. Em tal situação, várias sessões livy são criadas. Se tiver um problema e quiser depurar isso, será uma tarefa complexa para rastrear a sessão da Livy a que utilizador pertence.  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Descrição geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
 * [Kernels para Jupyter Notebook em Apache Spark](apache-spark-jupyter-notebook-kernels.md)

@@ -1,19 +1,16 @@
 ---
 title: Azure HDInsight arquiteturas de continuidade de negócios
 description: Este artigo discute as diferentes arquiteturas possíveis de continuidade de negócios para a HDInsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 keywords: hadoop alta disponibilidade
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: 0275fa4cc46dff8781d73563fd250b1ec62ddd56
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: f74309370f1489714013344116e7feb9551fbfd5
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96344118"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98933455"
 ---
 # <a name="azure-hdinsight-business-continuity-architectures"></a>Azure HDInsight arquiteturas de continuidade de negócios
 
@@ -204,7 +201,7 @@ Replicar as políticas dos Rangers entre o primário e o secundário pode fazer 
 
 :::image type="content" source="./media/hdinsight-business-continuity-architecture/hdinsight-enterprise-security-package.png" alt-text="HdInsight Enterprise Security Package arquitetura":::
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre os itens discutidos neste artigo, consulte:
 

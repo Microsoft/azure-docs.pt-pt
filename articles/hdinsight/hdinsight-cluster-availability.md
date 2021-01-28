@@ -1,19 +1,16 @@
 ---
 title: Como monitorizar a disponibilidade de clusters com Apache Ambari em Azure HDInsight
 description: Saiba como usar o Apache Ambari para monitorizar a saúde e disponibilidade do cluster.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 05/01/2020
-ms.openlocfilehash: 5cfc2abad828a3974c04074a4cde062a479f673f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 34f752d4c3d50d5f680e317b2724b1e631537f32
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533568"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98933198"
 ---
 # <a name="how-to-monitor-cluster-availability-with-apache-ambari-in-azure-hdinsight"></a>Como monitorizar a disponibilidade de clusters com Apache Ambari em Azure HDInsight
 
@@ -84,7 +81,7 @@ Será aberto um diálogo para a gestão das notificações de alerta. Selecione 
 > [!TIP]
 > A configuração de notificações por e-mail Ambari pode ser uma boa maneira de receber alertas num só local quando se gerem muitos clusters HDInsight.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Disponibilidade e fiabilidade dos clusters Apache Hadoop em HDInsight](./hdinsight-business-continuity.md)
 - [Disponibilidade do cluster - Registos do Azure Monitor](./cluster-availability-monitor-logs.md)

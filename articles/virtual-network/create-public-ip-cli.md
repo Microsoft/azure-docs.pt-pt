@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: blehr
-ms.openlocfilehash: 70fb502e45a6cdcc196f5fb97ee4c8c59ba6c27d
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 4d2f339f5a1339b5f249172170fed54c91f1dc24
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223555"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927191"
 ---
 # <a name="quickstart-create-a-public-ip-address-using-azure-cli"></a>Quickstart: Criar um endereço IP público utilizando O Azure CLI
 
@@ -30,7 +30,7 @@ Este artigo mostra-lhe como criar um recurso de endereço IP público usando Azu
 
 Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos.
 
-Crie um grupo de recursos com [o grupo AZ criar](/cli/azure/group?view=azure-cli-latest#az-group-create) o **myResourceGroup** na localização **eastus2.**
+Crie um grupo de recursos com [o grupo AZ criar](/cli/azure/group#az-group-create) o **myResourceGroup** na localização **eastus2.**
 
 ```azurecli-interactive
   az group create \
@@ -46,7 +46,7 @@ Crie um grupo de recursos com [o grupo AZ criar](/cli/azure/group?view=azure-cli
 >[!NOTE]
 >O seguinte comando funciona para a versão API 2020-08-01 ou posterior.  Para obter mais informações sobre a versão API atualmente utilizada, consulte os [Fornecedores e Tipos de Recursos.](../azure-resource-manager/management/resource-providers-and-types.md)
 
-Utilize [a rede az public-ip criar](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) para criar um endereço IP público redundante de zona padrão chamado **myStandardZRPublicIP** no **myResourceGroup**.
+Utilize [a rede az public-ip criar](/cli/azure/network/public-ip#az-network-public-ip-create) para criar um endereço IP público redundante de zona padrão chamado **myStandardZRPublicIP** no **myResourceGroup**.
 
 ```azurecli-interactive
   az network public-ip create \
@@ -76,7 +76,7 @@ Note que as opções acima para zonas são apenas seleções válidas em regiõe
 >[!NOTE]
 >O seguinte comando funciona para a versão API 2020-08-01 ou posterior.  Para obter mais informações sobre a versão API atualmente utilizada, consulte os [Fornecedores e Tipos de Recursos.](../azure-resource-manager/management/resource-providers-and-types.md)
 
-Utilize [a rede az public-ip criar](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) para criar um endereço IP público padrão como um recurso não-zonal chamado **myStandardPublicIP** no **myResourceGroup**.
+Utilize [a rede az public-ip criar](/cli/azure/network/public-ip#az-network-public-ip-create) para criar um endereço IP público padrão como um recurso não-zonal chamado **myStandardPublicIP** no **myResourceGroup**.
 
 ```azurecli-interactive
   az network public-ip create \
@@ -88,7 +88,7 @@ Esta seleção é válida em todas as regiões e é a seleção padrão para end
 
 # <a name="basic-sku"></a>[**SKU Básico**](#tab/option-create-public-ip-basic)
 
-Utilize [a rede az public-ip criar](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) para criar um endereço IP público estático básico chamado **myBasicPublicIP** no **myResourceGroup**.  Os IPs públicos básicos não têm o conceito de zonas de disponibilidade.
+Utilize [a rede az public-ip criar](/cli/azure/network/public-ip#az-network-public-ip-create) para criar um endereço IP público estático básico chamado **myBasicPublicIP** no **myResourceGroup**.  Os IPs públicos básicos não têm o conceito de zonas de disponibilidade.
 
 ```azurecli-interactive
   az network public-ip create \
@@ -105,7 +105,7 @@ Se for aceitável que o endereço IP se altere ao longo do tempo, a atribuição
 
 Para obter mais detalhes sobre as variáveis individuais listadas acima, consulte [Gerir os endereços IP públicos](./virtual-network-public-ip-address.md#create-a-public-ip-address).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Associar um [endereço IP público a uma Máquina Virtual.](./associate-public-ip-address-vm.md#azure-portal)
 - Saiba mais sobre [endereços IP públicos](./public-ip-addresses.md#public-ip-addresses) em Azure.
 - Saiba mais sobre todas as [definições de endereços IP públicos](virtual-network-public-ip-address.md#create-a-public-ip-address).

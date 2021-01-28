@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 08/27/2020
 ms.custom: cog-serv-seo-aug-2020
 keywords: personalização, personalizador Azure, machine learning
-ms.openlocfilehash: 33c1770c5c8722a55d8f1df4aff9b1637d903977
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: 913b4d989865a50b23d58c5493368997248f8db8
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028782"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928551"
 ---
 # <a name="what-is-personalizer"></a>O que é o Personalizador?
 
@@ -115,13 +115,13 @@ Depois de ter tido a oportunidade de começar com o serviço Personalizar, exper
 
 ## <a name="reference"></a>Referência 
 
-* [Personalizar C#/.NET SDK](/dotnet/api/overview/azure/cognitiveservices/client/personalizer?view=azure-dotnet)
+* [Personalizar C#/.NET SDK](/dotnet/api/overview/azure/cognitiveservices/client/personalizer)
 * [Personaler Go SDK](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview)
-* [Personalizer JavaScript SDK](/javascript/api/@azure/cognitiveservices-personalizer/?view=azure-node-latest)
-* [Personaler Python SDK](/python/api/overview/azure/cognitiveservices/personalizer?view=azure-python)
+* [Personalizer JavaScript SDK](/javascript/api/@azure/cognitiveservices-personalizer/)
+* [Personaler Python SDK](/python/api/overview/azure/cognitiveservices/personalizer)
 * [APIs REST](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Como funciona](how-personalizer-works.md) 

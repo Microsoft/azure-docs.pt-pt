@@ -7,13 +7,13 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 09/02/2020
-ms.openlocfilehash: 869009d7dd26685842da3c948fbdc058a38feb21
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
-ms.translationtype: HT
+ms.date: 01/27/2021
+ms.openlocfilehash: 4f6187ccb143f065fed236495128add7a2ab1ee4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89398431"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928527"
 ---
 # <a name="reservation-recommendations"></a>Recomendações da reserva
 
@@ -25,11 +25,11 @@ Os passos seguintes definem como são calculadas as recomendações:
 2. Com base nos dados de utilização, o motor simula os custos com e sem reservas.
 3. Os custos são simulados para diferentes quantidades, e é recomendada a quantidade que maximiza a poupança.
 4. Se os recursos forem encerrados regularmente, a simulação não encontrará poupanças e não é fornecida nenhuma recomendação de compra.
-5. O cálculo das recomendações inclui todos os descontos especiais que possa ter nas suas taxas de utilização a pedido.
+5. Os cálculos da recomendação incluem quaisquer descontos especiais que possa ter nas suas tarifas de utilização a pedido.
 
 ## <a name="recommendations-in-the-azure-portal"></a>Recomendações no portal do Azure
 
-As recomendações de compras de reservas também são apresentadas no portal do Azure na experiência de compra. As recomendações são apresentadas com a **Quantidade Recomendada**. Quando são compradas, a quantidade que o Azure recomenda dará a poupança máxima possível. Embora possa comprar a quantidade que pretenda, caso compre uma quantidade que não a recomendada, as poupanças não serão as ideais.
+As recomendações de compras de reservas também são apresentadas no portal do Azure na experiência de compra. As recomendações são apresentadas com a **Quantidade Recomendada**. Quando são compradas, a quantidade que o Azure recomenda dará a poupança máxima possível. Embora possa comprar qualquer quantidade que goste, se comprar uma quantidade diferente, as suas poupanças não serão ótimas.
 
 Vejamos alguns exemplos do porquê.
 
@@ -37,13 +37,13 @@ Na imagem de exemplo seguinte relativa à recomendação selecionada, o Azure re
 
 :::image type="content" source="./media/reserved-instance-purchase-recommendations/recommended-quantity.png" alt-text="Exemplo que mostra uma recomendação de compra de reserva" lightbox="./media/reserved-instance-purchase-recommendations/recommended-quantity.png" :::
 
-Se selecionar a ligação **Ver detalhes**, são mostradas mais informações sobre a recomendação. A imagem seguinte mostra os detalhes da recomendação. A quantidade recomendada é calculada para a utilização máxima possível, com base no seu histórico de utilização. Se a utilização for inconsistente, a recomendação poderá não ser para 100% de utilização. No exemplo, repare que a utilização flutuou ao longo do tempo. É apresentada a reserva, as poupanças possíveis e a percentagem de utilização.
+Mais informações sobre a recomendação aparecem quando seleciona **Ver detalhes**. A imagem seguinte mostra os detalhes da recomendação. A quantidade recomendada é calculada para o maior uso possível e baseia-se no seu uso histórico. Se a utilização for inconsistente, a recomendação poderá não ser para 100% de utilização. No exemplo, note-se que a utilização oscilou ao longo do tempo. É apresentada a reserva, as poupanças possíveis e a percentagem de utilização.
 
-:::image type="content" source="./media/reserved-instance-purchase-recommendations/recommended-quantity-details.png" alt-text="Exemplo que mostra os detalhes de uma recomendação de compra de reserva" :::
+:::image type="content" source="./media/reserved-instance-purchase-recommendations/recommended-quantity-details.png" alt-text="Exemplo mostrando detalhes para uma recomendação de compra de reserva " :::
 
-Quando aumenta ou diminui a quantidade da reserva para lá da recomendação, o gráfico e os valores estimados alteram-se. Ao aumentar a quantidade da reserva, as poupanças baixam porque acabará com uma utilização da reserva reduzida. Por outras palavras, pagará por reservas que não serão totalmente utilizadas.
+O gráfico e os valores estimados mudam quando aumenta a quantidade recomendada. Ao aumentar a quantidade de reserva, as suas poupanças serão reduzidas porque acabará com uma redução do uso da reserva. Por outras palavras, pagará por reservas que não serão totalmente utilizadas.
 
-Se diminuir a quantidade da reserva, as poupanças também serão reduzidas. Embora tenha aumentado a utilização, haverá provavelmente períodos em que as reservas não cobrirão completamente a utilização. A utilização que exceda a quantidade da reserva será utilizada por recursos pay as you go mais caros. A imagem do exemplo seguinte ilustra esta lógica. Reduzimos a quantidade da reserva para 4 manualmente. A utilização da reserva é aumentada, mas as poupanças gerais reduzidas, porque estão presentes custos pay as you go.
+Se baixar a quantidade de reserva, as suas poupanças também serão reduzidas. Embora tenha aumentado a utilização, haverá provavelmente períodos em que as reservas não cobrirão completamente a utilização. A utilização que exceda a quantidade da reserva será utilizada por recursos pay as you go mais caros. A imagem do exemplo seguinte ilustra esta lógica. Reduzimos a quantidade da reserva para 4 manualmente. A utilização da reserva é aumentada, mas as poupanças globais são reduzidas porque os custos de pagamento esmuido estão presentes.
 
 :::image type="content" source="./media/reserved-instance-purchase-recommendations/recommended-quantity-details-changed.png" alt-text="Exemplo que mostra os detalhes de uma recomendação de compra de reserva alterada" :::
 
@@ -53,11 +53,12 @@ Para maximizar as poupanças com as reservas, tente comprar as reservas o mais p
 
 As recomendações de compra de reservas estão disponíveis no Assistente do Azure. Tenha em consideração os seguintes pontos:
 
-- O Assistente tem apenas recomendações de âmbito de subscrição única. Se quiser ver as recomendações para todo o âmbito da faturação (conta de faturação ou perfil de faturação), aceda ao Portal do Azure > Reservas > Adicionar e selecione o tipo para o qual pretende as recomendações.
-- Recomendações disponíveis na tendência de utilização do assistente de supervisor após 30 dias.
-- As quantidades recomendadas e as poupanças são para reservas de 3 anos, sempre que disponíveis. Se não for vendida uma reserva de 3 anos para o serviço, a recomendação é calculada com base no preço da reserva de 1 ano.
-- Os cálculos das recomendações incluem todos os descontos especiais que possa ter nas suas taxas de utilização a pedido.
-- Se comprar uma reserva de âmbito partilhado, as recomendações de compra de reservas do Assistente podem demorar até 5 dias a desaparecer.
+- O Assistente tem apenas recomendações de âmbito de subscrição única. Se quiser ver recomendações para todo o âmbito de faturação (conta de faturação ou perfil de faturação), então:
+  -  No portal Azure, navegue para **Reservas**  >  **Adicionar** e, em seguida, selecione o tipo para o qual deseja ver as recomendações.
+- Recomendações disponíveis no Advisor considerem a sua tendência de utilização de 30 dias.
+- A quantidade e a poupança das recomendações destinam-se a uma reserva de três anos, sempre que disponível. Se uma reserva de três anos não for vendida para o serviço, a recomendação é calculada usando o preço de reserva de um ano.
+- Os cálculos da recomendação incluem quaisquer descontos especiais que possa ter nas suas tarifas de utilização a pedido.
+- Se comprar uma reserva de âmbito partilhado, as recomendações de compra de reservas do Advisor podem demorar até cinco dias a desaparecer.
 
 ## <a name="other-expected-api-behavior"></a>Outro comportamento esperado da API
 

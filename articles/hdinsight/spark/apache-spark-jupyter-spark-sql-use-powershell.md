@@ -1,19 +1,16 @@
 ---
 title: 'Quickstart: Crie o cluster Apache Spark em Azure HDInsight com Azure PowerShell'
 description: Este guia de início rápido mostra como pode utilizar o Azure PowerShell para criar um cluster do Apache Spark no Azure HDInsight e executar uma consulta simples do Spark SQL.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 06/12/2019
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 14b6dd8f8db00469be49c2f57e12d3c15302f8a6
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: 7a04d65d5032e37433fb61c73e5f64fe89bb2d2c
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97822221"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98930494"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-powershell"></a>Quickstart: Criar cluster Apache Spark em Azure HDInsight usando PowerShell
 
@@ -48,7 +45,7 @@ Quando executar o script PowerShell, é-lhe solicitado que introduza os seguinte
 |Parâmetro|Valor|
 |------|------|
 |Nome do grupo de recursos do Azure | Indique um nome exclusivo para o grupo de recursos.|
-|A localização| Especifique a região do Azure, por exemplo "E.U.A. Central". |
+|Localização| Especifique a região do Azure, por exemplo "E.U.A. Central". |
 |Nome predefinido da conta de armazenamento | Indique um nome único para a conta de armazenamento. |
 |Nome do cluster | Forneça um nome único para o cluster HDInsight.|
 |Credenciais de início de sessão do cluster | Esta conta é utilizada para se ligar ao dashboard do cluster mais adiante no guia de início rápido.|
@@ -226,7 +223,7 @@ Remove-AzResourceGroup `
     -Name $resourceGroupName
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste quickstart, você aprendeu a criar um cluster Apache Spark em HDInsight e executar uma consulta básica spark SQL. Avance para o próximo tutorial para aprender a usar um cluster HDInsight para executar consultas interativas em dados de amostras.
 

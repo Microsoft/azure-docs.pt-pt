@@ -3,16 +3,13 @@ title: RpcTimeoutException para Apache Spark thrift - Azure HDInsight
 description: Você vê 502 erros ao processar grandes conjuntos de dados usando o servidor Apache Spark thrift
 ms.service: hdinsight
 ms.topic: troubleshooting
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.date: 07/29/2019
-ms.openlocfilehash: b4b5268bef71bd6b23df6049fd3ac8af973d4385
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: c2975599272474fed9d61702fc1dbceb946c1190
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287750"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932710"
 ---
 # <a name="scenario-rpctimeoutexception-for-apache-spark-thrift-server-in-azure-hdinsight"></a>Cenário: RpcTimeoutException para apache spark thrift servidor em Azure HDInsight
 
@@ -44,6 +41,6 @@ Aumente o tamanho do cluster adicionando mais nós operários ou aumentando a ca
 
 Controla `spark.network.timeout` o tempo limite para todas as ligações de rede. Aumentar o tempo limite de rede pode dar mais tempo para algumas operações críticas terminarem, mas isso não resolverá completamente o problema.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]

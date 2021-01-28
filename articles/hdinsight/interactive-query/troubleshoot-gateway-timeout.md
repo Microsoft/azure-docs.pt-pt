@@ -1,18 +1,15 @@
 ---
 title: Exceção ao executar consultas de Apache Ambari Hive View em Azure HDInsight
 description: Etapas de resolução de problemas ao executar consultas apache Hive através de Apache Ambari Hive View em Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 12/23/2019
-ms.openlocfilehash: aeedda5c26a2e9dc0fa2b228285cfda45d880d29
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 40ef380cd2bd4743b92daf44a0a5b70ade1cbb35
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547389"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98933011"
 ---
 # <a name="exception-when-running-queries-from-apache-ambari-hive-view-in-azure-hdinsight"></a>Exceção ao executar consultas de Apache Ambari Hive View em Azure HDInsight
 
@@ -54,17 +51,17 @@ Algumas recomendações gerais para melhorar a situação:
 
 * Se utilizar uma metástaria de colmeia externa, verifique as métricas DB e certifique-se de que a base de dados não está sobrecarregada. Considere escalar a camada de base de dados de metastagem.
 
-* Certifique-se de que as operações paralelas estão ligadas (isto permite que as linhas do manipulador HTTP corram paralelamente). Para verificar o valor, lance [Apache Ambari](../hdinsight-hadoop-manage-ambari.md) e navegue até **Hive**  >  **Configs**  >  hive-site **hive**  >  **Advanced Custom Hive** Configs. O valor para `hive.server2.parallel.ops.in.session` deve ser `true` .
+* Certifique-se de que as operações paralelas estão ligadas (isto permite que as linhas do manipulador HTTP corram paralelamente). Para verificar o valor, lance [Apache Ambari](../hdinsight-hadoop-manage-ambari.md) e navegue até   >    >  hive-site **hive**  >  **Advanced Custom Hive** Configs. O valor para `hive.server2.parallel.ops.in.session` deve ser `true` .
 
 * Certifique-se de que o VM SKU do cluster não é muito pequeno para a carga. Considere dividir o trabalho entre vários aglomerados. Para obter mais informações, consulte [Escolha um tipo de cluster.](../hdinsight-capacity-planning.md#choose-a-cluster-type)
 
 * Se o Ranger estiver instalado no cluster, verifique se há demasiadas políticas ranger que precisam de ser avaliadas para cada consulta. Procure políticas duplicadas ou não necessidades.
 
-* Verifique o valor do tamanho do **heap hiveServer2** de Ambari. Navegue para a otimização de configurações de configurações **da Hive**  >  **Configs**  >  **Settings**  >  **Optimization** . Certifique-se de que o valor é superior a 10 GB. Ajuste conforme necessário para otimizar o desempenho.
+* Verifique o valor do tamanho do **heap hiveServer2** de Ambari. Navegue para a otimização de configurações de configurações **da Hive**  >  **Configs**  >    >  . Certifique-se de que o valor é superior a 10 GB. Ajuste conforme necessário para otimizar o desempenho.
 
 * Certifique-se de que a consulta da Colmeia está bem afinada. Para obter mais informações, consulte [as consultas de Otimize Apache Hive em Azure HDInsight](../hdinsight-hadoop-optimize-hive-query.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se não viu o seu problema ou não conseguir resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 

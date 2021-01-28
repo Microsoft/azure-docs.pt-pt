@@ -68,7 +68,7 @@
             - name: Noções básicas
               href: data-lake-analytics-u-sql-get-started.md
             - name: Referência de linguagem
-              href: 'https://docs.microsoft.com/u-sql'
+              href: /u-sql
             - name: Catálogo
               href: data-lake-analytics-u-sql-catalog.md
             - name: Operadores definidos pelo utilizador

@@ -1,19 +1,16 @@
 ---
 title: 'Quickstart: Criar cluster Apache Spark usando o modelo - Azure HDInsight'
 description: Este quickstart mostra como usar o modelo de Gestor de Recursos para criar um cluster Apache Spark em Azure HDInsight, e executar uma consulta Spark SQL.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/13/2020
-ms.openlocfilehash: 50cf756f56da0ad636ccc865f31f3ddf4974847c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1bbf3cbffe2ab51f10e86dc3b9fe4ea6040a7911
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91854465"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98930268"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-arm-template"></a>Quickstart: Criar cluster Apache Spark em Azure HDInsight usando o modelo ARM
 
@@ -137,7 +134,7 @@ A partir do portal Azure, navegue até ao seu cluster e selecione **Delete**.
 
 Também pode selecionar o nome do grupo de recursos para abrir a página do grupo de recursos e, em seguida, selecionar **Eliminar grupo de recursos**. Ao eliminar o grupo de recursos, elimina tanto o cluster HDInsight como a conta de armazenamento predefinido.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste quickstart, você aprendeu a criar um cluster Apache Spark em HDInsight e executar uma consulta básica spark SQL. Avance para o próximo tutorial para aprender a usar um cluster HDInsight para executar consultas interativas em dados de amostras.
 

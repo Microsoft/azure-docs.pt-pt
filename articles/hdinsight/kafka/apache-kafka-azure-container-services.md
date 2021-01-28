@@ -1,19 +1,16 @@
 ---
 title: Use o serviço Azure Kubernetes com Kafka em HDInsight
 description: Saiba como usar Kafka em HDInsight a partir de imagens de contentores hospedadas no Serviço Azure Kubernetes (AKS).
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/04/2019
-ms.openlocfilehash: ab87f181f78158d2ea0dd6575a30e6087600f60c
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d807b591229644984f6658cdacd0bf447759f292
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92485686"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98933020"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>Use o serviço Azure Kubernetes com Apache Kafka em HDInsight
 
@@ -69,11 +66,11 @@ Se ainda não tiver um cluster AKS, utilize um dos seguintes documentos para apr
 
 2. A partir do grupo de recursos, selecione o recurso __de rede Virtual.__ Anote o nome para utilização posterior.
 
-3. Em **Definições**, selecione __Espaço de endereço__. Note o espaço de endereço listado.
+3. Em **Definições**, selecione __Espaço de endereços__. Note o espaço de endereço listado.
 
 ### <a name="create-virtual-network"></a>Criar a rede virtual
 
-1. Para criar uma rede virtual para HDInsight, navegue para __+ Criar uma__rede virtual  >  __de rede de rede de__  >  __Virtual network__recursos.
+1. Para criar uma rede virtual para HDInsight, navegue para __+ Criar uma__ rede virtual  >  __de rede de rede de__  >  recursos.
 
 1. Criar a rede utilizando as seguintes diretrizes para determinadas propriedades:
 
@@ -150,7 +147,7 @@ Utilize os seguintes passos para configurar Kafka para anunciar endereços IP em
 
 11. Para desativar o modo de manutenção, utilize o botão __Ações de Serviço__ e selecione __Desligue o Modo de Manutenção__. Selecione **OK** para concluir esta operação.
 
-## <a name="test-the-configuration"></a>Testar a configuração
+## <a name="test-the-configuration"></a>Teste a configuração.
 
 Neste momento, o Serviço Kafka e Azure Kubernetes estão em comunicação através das redes virtuais. Para testar esta ligação, utilize os seguintes passos:
 
@@ -223,7 +220,7 @@ Neste momento, o Serviço Kafka e Azure Kubernetes estão em comunicação atrav
     > [!WARNING]  
     > Pode receber várias cópias de uma mensagem. Este problema geralmente acontece quando você atualiza o seu navegador após a ligação, ou abre várias ligações de navegador à aplicação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Utilize as seguintes ligações para saber como utilizar o Apache Kafka no HDInsight:
 

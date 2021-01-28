@@ -1,19 +1,16 @@
 ---
 title: Executar trabalhos apache Sqoop usando .NET e HDInsight - Azure
 description: Saiba como utilizar o HDInsight .NET SDK para gerir a importação e exportação da Apache Sqoop entre um cluster Apache Hadoop e uma Base de Dados Azure SQL.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, hdiseo17may2017, devx-track-csharp
 ms.date: 01/14/2020
-ms.openlocfilehash: bc4b3019cb8308ea19d86eea7bf886063ea28563
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a06326f5b4cf34a06475c10e368c6dcbb49ca9e4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89008289"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928340"
 ---
 # <a name="run-apache-sqoop-jobs-by-using-net-sdk-for-apache-hadoop-in-hdinsight"></a>Executar apaches sqoop empregos usando .NET SDK para Apache Hadoop em HDInsight
 
@@ -37,7 +34,7 @@ O HDInsight .NET SDK fornece bibliotecas de clientes .NET, de modo que é mais f
 
 1. Inicie o Visual Studio e crie uma aplicação de consola C#.
 
-1. Navegue para **ferramentas**  >  **nuGet package manager**package manager  >  **consola** e executar o seguinte comando:
+1. Navegue para **ferramentas**  >  **nuGet package manager** package manager  >  **consola** e executar o seguinte comando:
 
     ```
     Install-Package Microsoft.Azure.Management.HDInsight.Job
@@ -139,7 +136,7 @@ A HDInsight baseada em Linux apresenta as seguintes limitações:
 
 * Lote: Ao utilizar o interruptor, a `-batch` Sqoop executa múltiplas inserções em vez de emqualamento das operações de inserção.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora aprendeste a usar o Sqoop. Para saber mais, veja:
 

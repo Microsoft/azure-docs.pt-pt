@@ -1,19 +1,16 @@
 ---
 title: Spark Streaming & processamento de eventos exatamente uma vez - Azure HDInsight
 description: Como configurar o Apache Spark Streaming para processar um evento uma vez e só uma vez.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 11/15/2018
-ms.openlocfilehash: 8e0037f6aea4aef53efc192066027e0a0143bda1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ba7df665b24a3eba2cd185d85a17bd0ef456b0b
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86086182"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98929662"
 ---
 # <a name="create-apache-spark-streaming-jobs-with-exactly-once-event-processing"></a>Criar empregos em streaming de Faíscas Apache Com processamento de eventos exatamente uma vez
 
@@ -87,7 +84,7 @@ Por exemplo, pode utilizar um procedimento armazenado com base de dados Azure SQ
 
 Outro exemplo é usar um sistema de ficheiros dividido, como bolhas de armazenamento Azure ou armazenamento de data de Azure. Neste caso, a sua lógica de sumidouro não precisa de verificar a existência de um ficheiro. Se o ficheiro que representa o evento existir, é simplesmente substituído com os mesmos dados. Caso contrário, um novo ficheiro é criado no caminho calculado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Visão geral do fluxo de faíscas de Apache Spark](apache-spark-streaming-overview.md)
 * [Criação de empregos altamente disponíveis em Apache Spark Streaming em Apache Hadoop YARN](apache-spark-streaming-high-availability.md)

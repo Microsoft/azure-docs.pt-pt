@@ -11,16 +11,16 @@ ms.topic: tutorial
 ms.date: 05/26/2020
 ms.author: lajanuar
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9ebcbadbc8b502121b25393c7761794bcd3f07e8
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: dd5b83908ae7c6d62acd3391933028685facf755
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897110"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927481"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Tutorial: Criar uma aplicação de tradução com o WPF
 
-Neste tutorial, você vai construir uma aplicação [da Windows Presentation Foundation (WPF)](/visualstudio/designers/getting-started-with-wpf?view=vs-2019) que utiliza os Serviços Cognitivos Azure para tradução de texto, deteção de idiomas e verificação ortográfica com uma única chave de subscrição. Especificamente, a sua aplicação irá ligar para APIs do Tradutor e [Bing Spell Check](https://azure.microsoft.com/services/cognitive-services/spell-check/).
+Neste tutorial, você vai construir uma aplicação [da Windows Presentation Foundation (WPF)](/visualstudio/designers/getting-started-with-wpf) que utiliza os Serviços Cognitivos Azure para tradução de texto, deteção de idiomas e verificação ortográfica com uma única chave de subscrição. Especificamente, a sua aplicação irá ligar para APIs do Tradutor e [Bing Spell Check](https://azure.microsoft.com/services/cognitive-services/spell-check/).
 
 O que é WPF? É uma estrutura de UI que cria aplicações de clientes de desktop. A plataforma de desenvolvimento WPF suporta um vasto conjunto de funcionalidades de desenvolvimento de aplicações, incluindo um modelo de aplicações, recursos, controlos, gráficos, layout, ligação de dados, documentos e segurança. É um subconjunto do Quadro .NET, por isso, se já construiu aplicações com o Quadro .NET utilizando ASP.NET ou Formas do Windows, a experiência de programação deve ser familiar. O WPF utiliza a aplicação extensível Markup Language (XAML) para fornecer um modelo declarativo para a programação de aplicações, que iremos rever nas próximas secções.
 
@@ -90,7 +90,7 @@ Vamos adicionar conjuntos ao nosso projeto para serializar e deserizar objetos, 
 1. Depois de adicionar estas referências ao seu projeto, pode clicar **em OK** para fechar **o Reference Manager**.
 
 > [!NOTE]
-> Se quiser saber mais sobre referências de montagem, consulte [Como: Adicionar ou remover referências utilizando o Gestor de Referência](/visualstudio/ide/how-to-add-or-remove-references-by-using-the-reference-manager?view=vs-2019).
+> Se quiser saber mais sobre referências de montagem, consulte [Como: Adicionar ou remover referências utilizando o Gestor de Referência](/visualstudio/ide/how-to-add-or-remove-references-by-using-the-reference-manager).
 
 ### <a name="install-newtonsoftjson"></a>Instale NewtonSoft.Jsem
 

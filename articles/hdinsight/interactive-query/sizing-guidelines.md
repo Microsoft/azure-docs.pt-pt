@@ -1,18 +1,15 @@
 ---
 title: Guia de dimensionamento de agrupamento de consultas interativas em Azure HDInsight
 description: Guia de tamanhos de consulta interativa em Azure HDInsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: a81eff1dcf48996c319933aa4dd46170043b943b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a7baa9340a1f0a99b94bfcbe535c73d0b502e2a0
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83664936"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98933056"
 ---
 # <a name="interactive-query-cluster-sizing-guide-in-azure-hdinsight"></a>Guia de dimensionamento de agrupamento de consultas interativas em Azure HDInsight
 
@@ -155,7 +152,7 @@ Para D14 v2, é recomendado definir este valor para **2048 MB**.
 
 Recomendamos que se ajuste este valor adequado para a sua carga de trabalho, uma vez que a definição deste valor demasiado baixo pode não utilizar uma função de autoconvertes. Defini-lo demasiado alto pode resultar em pausas de GC, o que pode afetar negativamente o desempenho da consulta.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Diretrizes gateway](gateway-best-practices.md)
 * [Demistificar Apache Tez Memory Afinação - Passo a passo](https://community.cloudera.com/t5/Community-Articles/Demystify-Apache-Tez-Memory-Tuning-Step-by-Step/ta-p/245279)

@@ -1,19 +1,16 @@
 ---
 title: Streaming em escala em Azure HDInsight
 description: Como utilizar o streaming de dados com clusters Apache escaláveis em Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
-ms.openlocfilehash: a04ce77c7e81a3a73b87eaf5790b383dece35d86
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2b2dfe9da55548f2648f847a9d7c2cb3478e6bad
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022722"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931711"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>Transmissão em fluxo em escala no HDInsight
 
@@ -61,7 +58,7 @@ A Apache Spark utiliza três parâmetros-chave para configurar o seu ambiente, d
 
 Estes três parâmetros podem ser configurados ao nível do cluster, para todas as aplicações que funcionam no cluster, e também podem ser especificados para cada aplicação individual. Para obter mais informações, consulte [a Gestão de Recursos para clusters Apache Spark](spark/apache-spark-resource-manager.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Criar e monitorizar uma topologia da Tempestade Apache em Azure HDInsight](storm/apache-storm-quickstart.md)
 * [Topologias de exemplo para Apache Storm no HDInsight](storm/apache-storm-example-topology.md)

@@ -1,19 +1,16 @@
 ---
 title: Use Apache Kafka em HDInsight com Azure IoT Hub
 description: Aprenda a usar Apache Kafka em HDInsight com Azure IoT Hub. O projeto Kafka Connect Azure IoT Hub fornece um conector de origem e pia para Kafka. O conector de origem pode ler dados do IoT Hub, e o conector da pia escreve para o IoT Hub.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/26/2019
-ms.openlocfilehash: 0722119b35ecebf3ed1e7a377707de02a6c127bf
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: 7980003dd63e5e51d87f85542029a1f25e7223df
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825199"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932873"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Use Apache Kafka em HDInsight com Azure IoT Hub
 
@@ -122,7 +119,7 @@ Desde a sua ligação SSH até ao nó de borda, utilize os seguintes passos para
     |---|---|---|
     |`bootstrap.servers=localhost:9092`|Substitua o `localhost:9092` valor pelos anfitriões do corretor do passo anterior|Configura a configuração autónoma para o nó de borda encontrar os corretores Kafka.|
     |`key.converter=org.apache.kafka.connect.json.JsonConverter`|`key.converter=org.apache.kafka.connect.storage.StringConverter`|Esta alteração permite-lhe testar utilizando o produtor de consola incluído com Kafka. Pode precisar de diferentes conversores para outros produtores e consumidores. Para obter informações sobre a utilização de outros valores de conversor, consulte [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md) .|
-    |`value.converter=org.apache.kafka.connect.json.JsonConverter`|`value.converter=org.apache.kafka.connect.storage.StringConverter`|O mesmo que acima.|
+    |`value.converter=org.apache.kafka.connect.json.JsonConverter`|`value.converter=org.apache.kafka.connect.storage.StringConverter`|Mesmo que acima.|
     |N/D|`consumer.max.poll.records=10`|Adicione ao fim do ficheiro. Esta alteração é para evitar intervalos de tempo no conector da pia, limitando-o a 10 registos de cada vez. Para obter mais informações, veja [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).|
 
 1. Para guardar o ficheiro, utilize __Ctrl + X,__ __Y,__ e, em seguida, __Insira__.
@@ -157,7 +154,7 @@ Para recuperar as informações do hub IoT utilizadas pelo conector, utilize os 
 
          * __Nome compatível com Hub de Evento__
          * __Ponto final compatível com o Centro de Eventos__
-         * __Partições__
+         * __Divisórias__
 
         > [!IMPORTANT]  
         > O valor do ponto final do portal pode conter texto extra que não é necessário neste exemplo. Extrair o texto que corresponde a este `sb://<randomnamespace>.servicebus.windows.net/` padrão.
@@ -354,7 +351,7 @@ Para enviar mensagens através do conector, utilize os seguintes passos:
 
 Para obter mais informações sobre a utilização do conector da pia, consulte [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md) .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste documento, aprendeu a usar a API Apache Kafka Connect para iniciar o IoT Kafka Connector em HDInsight. Use os seguintes links para descobrir outras formas de trabalhar com Kafka:
 

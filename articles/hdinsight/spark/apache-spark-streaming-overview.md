@@ -1,19 +1,16 @@
 ---
 title: Streaming de faíscas em Azure HDInsight
 description: Como utilizar aplicações de Streaming Apache Spark em clusters HDInsight Spark.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: a88d4893daa12ff2c35ee7cf8f4e5b7569f854f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bde6c5b2bad12df8642dd3c9b4a49548f7bc9a6d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86086199"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98929518"
 ---
 # <a name="overview-of-apache-spark-streaming"></a>Visão geral do Fluxo de Faíscas Apache
 
@@ -251,7 +248,7 @@ Normalmente constrói uma aplicação Spark Streaming localmente num ficheiro JA
 
 O estado de todos os pedidos também pode ser verificado com um pedido GET contra um ponto final LIVY. Finalmente, pode terminar um pedido de execução emitindo um pedido de DELETE contra o ponto final LIVY. Para mais detalhes sobre a API LIVY, consulte [trabalhos remotos com Apache LIVY](apache-spark-livy-rest-interface.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Criar um cluster Apache Spark em HDInsight](../hdinsight-hadoop-create-linux-clusters-portal.md)
 * [Guia de programação de streaming de faíscas apache spark](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html)

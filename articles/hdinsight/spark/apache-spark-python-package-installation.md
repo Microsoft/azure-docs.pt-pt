@@ -1,19 +1,16 @@
 ---
 title: Ação de script para pacotes Python com Jupyter em Azure HDInsight
 description: Instruções passo a passo sobre como usar a ação do script para configurar cadernos Jupyter disponíveis com clusters HDInsight Spark para usar pacotes de python externos.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-python
 ms.date: 04/29/2020
-ms.openlocfilehash: 21423f7200d25c9a5b3b63d2371e56977cd9d227
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: 8fbbe137ece7aac2dd2196c5ebec435e118297ad
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97821380"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98929813"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>Gerir com segurança o ambiente do Python no Azure HDInsight com a Ação de Script
 
@@ -164,7 +161,7 @@ Há um bug conhecido para a versão Anaconda, `4.7.11` `4.7.12` e `4.8.0` . Se v
 
 Para verificar a sua versão Anaconda, pode SSH para o nó do cabeçalho do cluster e correr `/usr/bin/anaconda/bin/conda --v` .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Descrição geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
 * [Pacotes externos com cadernos Jupyter em Apache Spark](apache-spark-jupyter-notebook-use-external-packages.md)

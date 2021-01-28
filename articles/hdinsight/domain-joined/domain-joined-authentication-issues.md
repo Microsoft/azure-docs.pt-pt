@@ -1,18 +1,15 @@
 ---
 title: Problemas de autenticação no Azure HDInsight
 description: Problemas de autenticação no Azure HDInsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/24/2020
-ms.openlocfilehash: 9f10597023314aed8640ee5a7499a77f952c3694
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: a0ca7cb8797b90d8cf933733c48be299e79be8aa
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93284439"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98933619"
 ---
 # <a name="authentication-issues-in-azure-hdinsight"></a>Problemas de autenticação no Azure HDInsight
 
@@ -212,6 +209,6 @@ Este erro ocorre intermitentemente quando os utilizadores tentam aceder à ADLS 
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
-ms.openlocfilehash: 6201a4e0551f0f75dde65b2bc4b8b560a0f5ea20
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d424a22a26119dcb3ef6a0e5c4f3dc0c13b1aa4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87008001"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927577"
 ---
 # <a name="azure-diagnostics-extension-overview"></a>Descrição geral da extensão do Diagnóstico do Azure
 A extensão Azure Diagnostics é um [agente no Azure Monitor](agents-overview.md) que recolhe dados de monitorização do sistema operativo convidado de recursos compute da Azure, incluindo máquinas virtuais. Este artigo fornece uma visão geral da extensão do Azure Diagnostics, incluindo funcionalidade específica que suporta e opções de instalação e configuração. 
@@ -50,7 +50,7 @@ As tabelas que se seguem listam os dados que podem ser recolhidos pela extensão
 | Contadores de desempenho | Valores numéricos que medem o desempenho de diferentes aspetos do sistema operativo e cargas de trabalho. |
 | Registos do IIS             | Informações de utilização para sites IIS em execução no sistema operativo do hóspede. |
 | Registos de aplicações     | Trace mensagens escritas pela sua aplicação. |
-| Registos .NET EventSource |Eventos de escrita de código usando a classe .NET [EventSource](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1) |
+| Registos .NET EventSource |Eventos de escrita de código usando a classe .NET [EventSource](/dotnet/api/system.diagnostics.tracing.eventsource) |
 | [Registos ETW baseados em manifesto](/windows/desktop/etw/about-event-tracing) |Rastreio de eventos para eventos Windows gerados por qualquer processo. |
 | Despejos de colisão (troncos)   | Informação sobre o estado do processo se uma aplicação falhar. |
 | Registos baseados em ficheiros    | Registos criados pela sua aplicação ou serviço. |
@@ -74,7 +74,7 @@ Configure um ou mais *sumidouros de dados* para enviar dados para outros destino
 
 | Destino | Descrição |
 |:---|:---|
-| Métricas do Monitor Azure | Recolher dados de desempenho para Azure Monitor Metrics. Consulte [as métricas do Guest OS para a base de dados métrica do Azure Monitor](collect-custom-metrics-guestos-resource-manager-vm.md).  |
+| Métricas do Azure Monitor | Recolher dados de desempenho para Azure Monitor Metrics. Consulte [as métricas do Guest OS para a base de dados métrica do Azure Monitor](collect-custom-metrics-guestos-resource-manager-vm.md).  |
 | Hubs de Eventos | Utilize os Hubs de Eventos Azure para enviar dados para fora do Azure. Ver [dados de streaming Azure Diagnostics para Centros de Eventos](diagnostics-extension-stream-event-hubs.md) |
 | Bolhas de armazenamento Azure | Escreva para os dados para bolhas no Azure Storage, além de tabelas. |
 | Application Insights | Recolher dados de aplicações em execução no seu VM para Application Insights para integrar-se com outra monitorização de aplicações. Consulte [Enviar dados de diagnóstico para Insights de Aplicação](diagnostics-extension-to-application-insights.md). |
@@ -89,7 +89,7 @@ Lad escreve dados para tabelas no Azure Storage. Suporta os lavatórios na mesa 
 |:---|:---|
 | Hubs de Eventos | Utilize os Hubs de Eventos Azure para enviar dados para fora do Azure. |
 | Bolhas de armazenamento Azure | Escreva para os dados para bolhas no Azure Storage, além de tabelas. |
-| Métricas do Monitor Azure | Instale o agente Telegraf para além do LAD. Consulte [recolher métricas personalizadas para um Linux VM com o agente InfluxData Telegraf](collect-custom-metrics-linux-telegraf.md).
+| Métricas do Azure Monitor | Instale o agente Telegraf para além do LAD. Consulte [recolher métricas personalizadas para um Linux VM com o agente InfluxData Telegraf](collect-custom-metrics-linux-telegraf.md).
 
 
 ## <a name="installation-and-configuration"></a>Instalação e configuração
@@ -112,7 +112,7 @@ Consulte os seguintes artigos para obter mais informações sobre a instalação
 ### <a name="azure-service-fabric"></a>Azure Service Fabric
 - [Monitorizar e diagnosticar serviços numa configuração de desenvolvimento do computador local](../../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 
 * Aprenda a [utilizar contadores de desempenho em diagnósticos Azure](../../cloud-services/diagnostics-performance-counters.md).

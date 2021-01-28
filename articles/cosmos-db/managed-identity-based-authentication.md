@@ -9,12 +9,12 @@ ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cfef6ce0fb38f074f854d5ceb77677843e44b91b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 4d9845fad8c9013bd20499c45a8d1714e30e9dbf
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96345734"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927412"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>Utilize identidades geridas atribuídas ao sistema para aceder aos dados do Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -31,7 +31,7 @@ Neste passo, irá atribuir uma identidade gerida pelo sistema à sua aplicação
 
 1. No [portal Azure,](https://portal.azure.com/)abra o painel **Azure Function** e vá para a sua aplicação de função. 
 
-1. Abra o **separador identidade** da  >  **Identity** Plataforma: 
+1. Abra o **separador identidade** da  >   Plataforma: 
 
    :::image type="content" source="./media/managed-identity-based-authentication/identity-tab-selection.png" alt-text="Screenshot mostrando funcionalidades da Plataforma e opções de identidade para a aplicação de função.":::
 
@@ -130,7 +130,7 @@ namespace Monitor
 }
 ```
 
-Você usará a biblioteca [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) para obter o token de identidade gerido atribuído pelo sistema. Para aprender outras formas de obter o token e descobrir mais informações sobre a `Microsoft.Azure.Service.AppAuthentication` biblioteca, consulte o artigo [de autenticação serviço-a-serviço.](../key-vault/general/service-to-service-authentication.md)
+Você usará a biblioteca [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) para obter o token de identidade gerido atribuído pelo sistema. Para aprender outras formas de obter o token e descobrir mais informações sobre a `Microsoft.Azure.Service.AppAuthentication` biblioteca, consulte o artigo [de autenticação serviço-a-serviço.](/dotnet/api/overview/azure/service-to-service-authentication)
 
 
 ```csharp
@@ -216,7 +216,7 @@ namespace Monitor
 
 Está agora pronto para implementar a [sua aplicação de função.](../azure-functions/create-first-function-vs-code-csharp.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Autenticação baseada em certificados com Azure Cosmos DB e Azure Ative Directory](certificate-based-authentication.md)
 * [Chaves DB Secure Azure Cosmos usando cofre de chave Azure](access-secrets-from-keyvault.md)

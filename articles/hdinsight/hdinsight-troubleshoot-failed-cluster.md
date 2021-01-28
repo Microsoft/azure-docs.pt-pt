@@ -1,19 +1,16 @@
 ---
 title: Resolução de problemas num trabalho lento ou falhado no cluster Azure HDInsight
 description: Diagnosticar e resolver problemas num aglomerado Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: 4fea7719d0aa375aad3d2795d240006222b6486c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: de5fa6c881f808bcd580f6fae3329d579573d876
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022705"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931537"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Resolver problemas de um trabalho lento ou com falhas num cluster HDInsight
 
@@ -259,7 +256,7 @@ Para ajudar a diagnosticar a origem de um erro de cluster, inicie um novo cluste
 5. Continue até que todos os passos corram sem erros.
 6. Quando terminar de depurar o cluster de teste, elimine-o.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Manage HDInsight clusters by using the Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md) (Gerir clusters do HDInsight através da IU da Web do Apache Ambari)
 * [Analisar registos HDInsight](./hdinsight-troubleshoot-guide.md)

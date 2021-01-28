@@ -1,19 +1,16 @@
 ---
 title: Alta disponibilidade com Apache Kafka - Azure HDInsight
 description: Saiba como garantir a elevada disponibilidade com o Apache Kafka no Azure HDInsight. Saiba como reequilibrar réplicas da partição no Kafka para que fiquem localizadas em domínios de falhas diferentes dentro da região do Azure que contém o HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/09/2019
-ms.openlocfilehash: 4504463fa35d5fececbb2ab5895de2965ca4e647
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: e3f31bc1876a0c1f90ad4882ff782be25b4b6ed6
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534418"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932753"
 ---
 # <a name="high-availability-of-your-data-with-apache-kafka-on-hdinsight"></a>Elevada disponibilidade dos seus dados com o Apache Kafka no HDInsight
 
@@ -51,7 +48,7 @@ Utilize a [ferramenta de reequilíbrio de partição Apache Kafka](https://githu
 
 Para obter mais informações sobre a ligação ao HDInsight através do SSH, consulte o documento [Utilizar o SSH com o HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Escalabilidade de Apache Kafka em HDInsight](apache-kafka-scalability.md)
 * [Espelhamento com Apache Kafka em HDInsight](apache-kafka-mirroring.md)
