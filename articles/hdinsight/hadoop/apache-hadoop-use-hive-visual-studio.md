@@ -1,19 +1,16 @@
 ---
 title: Apache Hive & ferramentas do Data Lake para Estúdio Visual - Azure HDInsight
 description: Aprenda a usar as ferramentas do Data Lake para o Estúdio Visual para executar consultas de Hive Apache com Apache Hadoop em Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: c8645ae9cb901b9fc95f00665d73e223a24fda63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e54991f6afd2ace19bf7b70e57bda6f551f7780
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86076458"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943169"
 ---
 # <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Executar consultas do Apache Hive com as ferramentas do Data Lake para Visual Studio
 
@@ -62,7 +59,7 @@ As consultas ad hoc podem ser executadas no modo **Batch** ou **Interactive.**
 
 7. Na barra de ferramentas de consulta (a área abaixo do separador de consulta e acima do texto de consulta), selecione **Enviar,** ou selecione a seta de pulldown ao lado de **Enviar** e escolher **Advanced** da lista de retirada. Se selecionar a última opção,
 
-8. Se selecionou a opção de submissão avançada, configurar **o Nome do Trabalho,** **Argumentos,** **Configurações Adicionais**e **Diretório de Estado** na caixa de diálogo do Script de **Submissão.** Em seguida, **selecione Enviar por isso .**
+8. Se selecionou a opção de submissão avançada, configurar **o Nome do Trabalho,** **Argumentos,** **Configurações Adicionais** e **Diretório de Estado** na caixa de diálogo do Script de **Submissão.** Em seguida, **selecione Enviar por isso .**
 
     ![Envie a caixa de diálogo do Script, consulta hdInsight Hadoop Hive](./media/apache-hadoop-use-hive-visual-studio/vs-tools-submit-jobs-advanced.png)
 
@@ -70,7 +67,7 @@ As consultas ad hoc podem ser executadas no modo **Batch** ou **Interactive.**
 
 Para executar uma consulta de Colmeia criando uma aplicação de Colmeia, siga estes passos:
 
-1. **Estúdio Visual**Aberto .
+1. **Estúdio Visual** Aberto .
 
 2. Na janela **Iniciar,** **selecione Criar um novo projeto.**
 
@@ -106,7 +103,7 @@ Para executar uma consulta de Colmeia criando uma aplicação de Colmeia, siga e
 
     * `SELECT`: Selecione uma contagem de todas as linhas onde a coluna `t4` contém o valor `[ERROR]` . Esta afirmação devolve um valor `3` de, porque três linhas contêm este valor.
 
-    * `INPUT__FILE__NAME LIKE '%.log'`: Diz à Hive apenas para devolver dados de ficheiros que terminam em .log. Esta cláusula restringe a pesquisa ao ficheiro *sample.log* que contém os dados.
+    * `INPUT__FILE__NAME LIKE '%.log'`: Diz à Hive apenas para devolver dados de ficheiros que terminam em .log. Esta cláusula restringe a pesquisa ao ficheiro *.log amostra* que contém os dados.
 
 6. A partir da barra de ferramentas de ficheiro de consulta (que tem uma aparência semelhante à barra de ferramentas de consulta ad-hoc), selecione o cluster HDInsight que pretende utilizar para esta consulta. Em seguida, **altere Interactive** para **Batch** (se necessário) e selecione **Submeter-se** para executar as declarações como uma tarefa de Colmeia.
 
@@ -143,9 +140,9 @@ O exemplo a seguir baseia-se na `log4jLogs` tabela criada no procedimento anteri
 
 3. Altere **interactive** para **lote,** se necessário, em seguida, selecione **Enviar .**
 
-4. Para verificar se o trabalho criou a tabela, vá ao **Server Explorer** e expanda **o Azure**  >  **HDInsight**. Expanda o seu cluster HDInsight e, em seguida, expanda o padrão das **Bases de Dados de Colmeia**  >  **default**. A tabela **ErrorLogs** e a tabela **log4jLogs** estão listadas.
+4. Para verificar se o trabalho criou a tabela, vá ao **Server Explorer** e expanda **o Azure**  >  **HDInsight**. Expanda o seu cluster HDInsight e, em seguida, expanda o padrão das **Bases de Dados de Colmeia**  >  . A tabela **ErrorLogs** e a tabela **log4jLogs** estão listadas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Como pode ver, as ferramentas HDInsight para Visual Studio fornecem uma maneira fácil de trabalhar com consultas de Hive em HDInsight.
 

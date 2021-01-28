@@ -1,19 +1,17 @@
 ---
 title: 'Benefícios: Migrar no local Apache Hadoop para Azure HDInsight'
 description: Aprenda a motivação e os benefícios para migrar no local os clusters Hadoop para Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
 ms.reviewer: ashishth
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 11/15/2019
-ms.openlocfilehash: 595bf6f921265e9e8dbc0e0e065fe835efea14bc
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 975d72df32027888e217d5da9171dba0ba61f257
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331656"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943253"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Migrar para as instalações apache Hadoop clusters para Azure HDInsight - motivação e benefícios
 
@@ -101,7 +99,7 @@ Esta secção fornece questionários de modelo para ajudar a recolher informaç�
 |Configuração do nó mestre|m/y, cpu, disco, etc.|
 |Configuração de nó de dados|m/y, cpu, disco, etc.|
 |Configuração de nó de borda|m/y, cpu, disco, etc.|
-|Encriptação HDFS?|Sim|
+|Encriptação HDFS?|Yes|
 |Elevada Disponibilidade|HDFS HA, Metasteiros HA|
 |Recuperação de desastres / Backup|Aglomerado de reserva?|  
 |Sistemas dependentes do Cluster|SQL Server, Teradata, Power BI, MongoDB|
@@ -167,8 +165,8 @@ Esta secção fornece questionários de modelo para ajudar a recolher informaç�
 |---|---|---|
 |**Tópico**: **Infraestrutura** |||
 | Região Preferida|E.U.A Leste||
-|VNet preferido?|Sim||
-|HA / DR Necessário?|Sim||
+|VNet preferido?|Yes||
+|HA / DR Necessário?|Yes||
 |Integração com outros serviços em nuvem?|ADF||
 |**Tópico**:   **Movimento de Dados**  |||
 |Preferência inicial de carga|DistCp, Caixa de Dados, ADF, WANDisco||
@@ -177,25 +175,25 @@ Esta secção fornece questionários de modelo para ajudar a recolher informaç�
 |**Tópico**:   **Alerta de & de monitorização** |||
 |Utilize & de monitorização do Azure alertando vs Integrar monitorização de terceiros|Utilizar alerta de & de monitorização Azure||
 |**Tópico**:   **Preferências de segurança** |||
-|Oleoduto de dados privado e protegido?|Sim||
-|Cluster de domínios unidos (ESP)?|     Sim||
-|Sincronização de anúncios no local para cloud?|     Sim||
+|Oleoduto de dados privado e protegido?|Yes||
+|Cluster de domínios unidos (ESP)?|     Yes||
+|Sincronização de anúncios no local para cloud?|     Yes||
 |Número de utilizadores de AD para sincronizar?|          100||
-|Ok para sincronizar senhas para a nuvem?|    Sim||
-|Cloud apenas Utilizadores?|                 Sim||
-|MFA necessária?|                       Não|| 
-|Requisitos de autorização de dados?|  Sim||
-|Controlo de acesso baseado em funções?|        Sim||
-|Auditoria necessária?|                  Sim||
-|Encriptação de dados em repouso?|          Sim||
-|Encriptação de dados em trânsito?|       Sim||
+|Ok para sincronizar senhas para a nuvem?|    Yes||
+|Cloud apenas Utilizadores?|                 Yes||
+|MFA necessária?|                       No|| 
+|Requisitos de autorização de dados?|  Yes||
+|Controlo de acesso baseado em funções?|        Yes||
+|Auditoria necessária?|                  Yes||
+|Encriptação de dados em repouso?|          Yes||
+|Encriptação de dados em trânsito?|       Yes||
 |**Tópico**:   **Preferências de re-arquitetura** |||
 |Cluster único vs Tipos específicos de cluster|Tipos específicos de cluster||
 |Armazenamento cotado vs armazenamento remoto?|Armazenamento remoto||
 |O tamanho do cluster menor à medida que os dados são armazenados remotamente?|Tamanho menor do cluster||
 |Utilizar múltiplos aglomerados menores em vez de um único aglomerado grande?|Use vários aglomerados menores||
-|Usar uma metásta remota?|Sim||
-|Partilhar metas-lojas entre diferentes clusters?|Sim||
+|Usar uma metásta remota?|Yes||
+|Partilhar metas-lojas entre diferentes clusters?|Yes||
 |Desconstruir cargas de trabalho?|Substitua os empregos de Colmeia por empregos de faíscas||
 |Utilizar a ADF para orquestração de dados?|Não||
 

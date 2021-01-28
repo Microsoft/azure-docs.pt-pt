@@ -6,12 +6,12 @@ ms.author: ofmanor
 ms.topic: reference
 ms.date: 03/16/2020
 ms.subservice: alerts
-ms.openlocfilehash: d86c6d8b67546aede86a3fc3c905f6feb40d92db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 856aeb4dabc64edc2ade2869fddc3d14cb21a81b
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91403420"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942162"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-alerts"></a>Problemas de resolução de problemas nos alertas do Monitor Azure
 
@@ -245,9 +245,9 @@ Se tiver recebido um erro ao tentar criar, atualizar ou eliminar uma [regra de a
 
 1. **Verificou os parâmetros da regra de ação?**  
 
-    Verifique a documentação da [regra de ação,](alerts-action-rules.md)ou a regra de [ação PowerShell Set-AzActionRule](/powershell/module/az.alertsmanagement/set-azactionrule?view=azps-3.5.0) command. 
+    Verifique a documentação da [regra de ação,](alerts-action-rules.md)ou a regra de [ação PowerShell Set-AzActionRule](/powershell/module/az.alertsmanagement/set-azactionrule) command. 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Se utilizar um alerta de registo, consulte também [alertas de registo de resolução de problemas](./alerts-troubleshoot-log.md).
 - Volte ao [portal Azure](https://portal.azure.com) para verificar se resolveu o seu problema com orientação acima 

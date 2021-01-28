@@ -1,19 +1,16 @@
 ---
 title: 'Quickstart: Criar cluster Apache HBase usando o modelo - Azure HDInsight'
 description: Este quickstart mostra como usar o modelo de Gestor de Recursos para criar um cluster Apache HBase em Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/12/2020
-ms.openlocfilehash: ee69148f7dfe7a0ba39b4103a736ea09d3f57c13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a6b55ee2d665ee38df9a0e0f58260e97f3b81f5
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91855791"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942950"
 ---
 # <a name="quickstart-create-apache-hbase-cluster-in-azure-hdinsight-using-arm-template"></a>Quickstart: Criar cluster Apache HBase em Azure HDInsight usando o modelo ARM
 
@@ -78,7 +75,7 @@ A partir do portal Azure, navegue até ao seu cluster e selecione **Delete**.
 
 Também pode selecionar o nome do grupo de recursos para abrir a página do grupo de recursos e, em seguida, selecionar **Eliminar grupo de recursos**. Ao eliminar o grupo de recursos, elimina tanto o cluster HDInsight como a conta de armazenamento predefinido.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido, aprendeu a criar um cluster Apache HBase em HDInsight usando um modelo ARM. No artigo seguinte, aprende-se a consultar a HBase em HDInsight com a HBase Shell.
 

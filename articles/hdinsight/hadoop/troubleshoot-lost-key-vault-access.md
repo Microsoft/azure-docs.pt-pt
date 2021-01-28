@@ -1,18 +1,15 @@
 ---
 title: Aglomerados Azure HDInsight com encriptação de disco perdem acesso ao Cofre da Chave
 description: Etapas de resolução de problemas e possíveis resoluções para problemas de acesso ao Cofre chave ao interagir com clusters Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/30/2020
-ms.openlocfilehash: bc8162f3a7ca8744a94aba039996275b5f13c727
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: ce2929ca84746de1ab8b51882f3004c3699f17ca
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533415"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943114"
 ---
 # <a name="scenario-azure-hdinsight-clusters-with-disk-encryption-lose-key-vault-access"></a>Cenário: Clusters Azure HDInsight com encriptação de disco perdem acesso ao Cofre da Chave
 
@@ -26,7 +23,7 @@ O alerta do Centro de Saúde de Recursos (RHC), `The HDInsight cluster is unable
 
 O alerta garante que o KV está acessível a partir dos nós do cluster, garantindo assim a ligação da rede, a saúde do KV e a política de acesso ao utilizador designado Identidade Gerida. Este alerta é apenas um aviso de encerramento de corretor iminente em reboots de nó posteriores, o cluster continua a funcionar até que os nós reiniciem.
 
-Navegue até Apache Ambari UI para encontrar mais informações sobre o alerta a partir do estado do cofre da chave de **encriptação do disco** . Este alerta terá detalhes sobre o motivo da falha de verificação.
+Navegue até Apache Ambari UI para encontrar mais informações sobre o alerta a partir do estado do cofre da chave de **encriptação do disco**. Este alerta terá detalhes sobre o motivo da falha de verificação.
 
 ## <a name="resolution"></a>Resolução
 
@@ -80,7 +77,7 @@ Regularmente auditar e testar políticas de acesso.
 * Utilize uma chave sem qualquer conjunto de validade.
 * Se tiver de ser definida a validade, rode as teclas antes da data de validade.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se não viu o seu problema ou não conseguir resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 

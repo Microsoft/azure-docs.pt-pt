@@ -3,16 +3,15 @@ title: Migrar Azure HDInsight 3.6 Cargas de trabalho de colmeia para HDInsight 4
 description: Saiba como migrar cargas de trabalho da Hive Apache em HDInsight 3.6 a HDInsight 4.0.
 author: msft-tacox
 ms.author: tacox
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/13/2019
-ms.openlocfilehash: bcc0faa8fdbd61ab3e3e0886256f7c796e5a98e2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 93dc565055c6eb413a0c277a9891e5fcfab50345
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011511"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98941348"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Migrar Azure HDInsight 3.6 Cargas de trabalho de colmeia para HDInsight 4.0
 
@@ -44,7 +43,7 @@ Utilize os valores na tabela mais abaixo. `SQLSERVERNAME DATABASENAME USERNAME P
 |Propriedade | Valor |
 |---|---|
 |Tipo de script|- Personalizado|
-|Nome|Upgrade de colmeia|
+|Name|Upgrade de colmeia|
 |URI de guião de bash|`https://hdiconfigactions.blob.core.windows.net/hivemetastoreschemaupgrade/launch-schema-upgrade.sh`|
 |Tipo de nó(s)|Head|
 |Parâmetros|SQLSERVERNAME PALAVRA-PASSE DE NOME DE UTILIZADOR|
@@ -212,7 +211,7 @@ Existem duas formas de executar e depurar consultas de Hive/LLAP dentro de um cl
 
 Em HDInsight 4.0, HiveCLI foi substituído por Beeline. A vista Tez/Hive proporciona um fluxo de trabalho baseado em GUI. A HiveCLI é cliente da Hiveserver 1, e a Beeline é um cliente JDBC que dá acesso à Hiveserver 2. Beeline também pode ser usado para ligar a qualquer outro ponto final de base de dados compatível com JDBC. A Beeline está disponível fora de caixa no HDInsight 4.0 sem necessidade de qualquer instalação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [HdInsight 4.0 Anúncio](../hdinsight-version-release.md)
 * [HDInsight 4.0 mergulho profundo](https://azure.microsoft.com/blog/deep-dive-into-azure-hdinsight-4-0/)

@@ -1,19 +1,16 @@
 ---
 title: Executar trabalhos apache Sqoop usando PowerShell e Azure HDInsight
 description: Saiba como usar a Azure PowerShell a partir de uma estação de trabalho para gerir a importação e exportação apache Sqoop entre um cluster Apache Hadoop e Azure SQL Database.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 05/14/2020
-ms.openlocfilehash: 781c19edb9261b13f31bebecb6bc74bf2b616b47
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 7d1f0a4982402a7854841f17c1915625e2f01cc1
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546981"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943138"
 ---
 # <a name="run-apache-sqoop-jobs-with-azure-powershell-in-hdinsight"></a>Executar empregos apache Sqoop com Azure PowerShell em HDInsight
 
@@ -275,7 +272,7 @@ A HDInsight baseada em Linux apresenta as seguintes limitações:
 
 * Lote: Ao utilizar o `-batch` interruptor quando executa inserções, a Sqoop executa múltiplas inserções em vez de lotar as operações de inserção.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora aprendeste a usar o Sqoop. Para saber mais, veja:
 

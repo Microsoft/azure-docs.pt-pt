@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: e5e344aa84bfc6912266720083f0cd15f575883c
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 76e7b061670f603007cefd6d7aed503e0e0d3d6b
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95740255"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98941778"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Tutorial: Reconhecer logotipos de serviço Azure em imagens de câmara
 
@@ -36,7 +36,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 - [Estúdio Visual 2017 ou mais tarde](https://www.visualstudio.com/downloads/)
 - A carga de trabalho de Xamarin para Estúdio Visual (ver [Instalação de Xamarin)](/xamarin/cross-platform/get-started/installation/windows)
 - Um emulador iOS ou Android para Estúdio Visual
-- O [Azure CLI](/cli/azure/install-azure-cli-windows?view=azure-cli-latest) (opcional)
+- O [Azure CLI](/cli/azure/install-azure-cli-windows) (opcional)
 
 ## <a name="get-the-source-code"></a>Obter o código-fonte
 
@@ -178,7 +178,7 @@ Se seguiu todos os passos deste cenário e utilizou a app para implantar os serv
 
 Se planeia criar o seu próprio projeto de deteção de objetos com a Visão Personalizada, é melhor eliminar o projeto de deteção de logotipo que criou neste tutorial. Uma subscrição gratuita para a Custom Vision permite apenas dois projetos. Para eliminar o projeto de deteção de logotipo, no site da [Visão Personalizada,](https://customvision.ai)abra **Projetos** e, em seguida, selecione o ícone do lixo no **âmbito do My New Project**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, você montou e explorou uma aplicação full-featured Xamarin.Forms que usa o serviço Custom Vision para detetar logotipos em imagens de câmaras móveis. Em seguida, aprenda as melhores práticas para construir um modelo de Visão Personalizada para que quando criar um para a sua própria app, possa torná-lo poderoso e preciso.
 

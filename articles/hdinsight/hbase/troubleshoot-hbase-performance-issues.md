@@ -1,18 +1,15 @@
 ---
 title: Resolver problemas de desempenho do Apache HBase no Azure HDInsight
 description: Várias diretrizes e dicas de afinação de desempenho apache HBase para obter o melhor desempenho em Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 09/24/2019
-ms.openlocfilehash: 5be3f02a80524d9c4b633e1e34d581fc26bfd32d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 466fac524601e2d569bfa0ccf90179fe9419210d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547899"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942888"
 ---
 # <a name="troubleshoot-apache-hbase-performance-issues-on-azure-hdinsight"></a>Resolver problemas de desempenho do Apache HBase no Azure HDInsight
 
@@ -73,9 +70,9 @@ Seguem-se alguns dos outros parâmetros específicos que afinamos, e que parecia
 
 - Aumente `memstore` o tamanho de 128 MB para 256 MB. Normalmente, esta definição é recomendada para cenários de escrita pesada.
 
-- Aumente o número de fios dedicados à compactação, da definição predefinição de **1** a **4** . Esta definição é relevante se observarmos pequenas compactações frequentes.
+- Aumente o número de fios dedicados à compactação, da definição predefinição de **1** a **4**. Esta definição é relevante se observarmos pequenas compactações frequentes.
 
-- Evite bloquear o `memstore` autoclismo por causa do limite da loja. Para fornecer este tampão, aumente a `Hbase.hstore.blockingStoreFiles` regulação para **100** .
+- Evite bloquear o `memstore` autoclismo por causa do limite da loja. Para fornecer este tampão, aumente a `Hbase.hstore.blockingStoreFiles` regulação para **100**.
 
 - Para controlar as descargas, utilize as seguintes definições:
 
@@ -110,13 +107,13 @@ Seguem-se alguns dos outros parâmetros específicos que afinamos, e que parecia
 
 Seguem-se parâmetros adicionais a considerar a sintonização:
 
-- `Hbase.rs.cacheblocksonwrite` – por padrão no HDI, esta definição é definida como **verdadeira** .
+- `Hbase.rs.cacheblocksonwrite` – por padrão no HDI, esta definição é definida como **verdadeira**.
 
 - Configurações que permitem adiar uma pequena compactação para mais tarde.
 
 - Configurações experimentais, tais como ajustar percentagens de filas reservadas para pedidos de leitura e escrita.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se o seu problema não for resolvido, visite um dos seguintes canais para obter mais apoio:
 

@@ -2,13 +2,13 @@
 title: Funções do modelo - implantação
 description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure (modelo ARM) para recuperar informações de implantação.
 ms.topic: conceptual
-ms.date: 11/18/2020
-ms.openlocfilehash: e63caef669a2c28d29cd0bbd649b0997cea14ee1
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.date: 01/27/2021
+ms.openlocfilehash: 438afc947b07ac7425de365a2d63c427cf53e2ff
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920513"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943480"
 ---
 # <a name="deployment-functions-for-arm-templates"></a>Funções de implantação para modelos ARM
 
@@ -33,6 +33,7 @@ Devolve informações sobre a operação de implantação atual.
 
 Esta função devolve o objeto que é passado durante a implantação. As propriedades no objeto devolvido diferem com base no facto de ser:
 
+* implantando um modelo ou uma especificação de modelo.
 * implantando um modelo que é um arquivo local ou implantando um modelo que é um ficheiro remoto acedido através de um URI.
 * implantação num grupo de recursos ou implantação para um dos outros âmbitos[(assinatura Azure,](deploy-to-subscription.md) [grupo de gestão,](deploy-to-management-group.md)ou [inquilino).](deploy-to-tenant.md)
 
@@ -66,6 +67,31 @@ Ao implementar um modelo remoto para um grupo de recursos: a função devolve o 
   "properties": {
     "templateLink": {
       "uri": ""
+    },
+    "template": {
+      "$schema": "",
+      "contentVersion": "",
+      "parameters": {},
+      "variables": {},
+      "resources": [],
+      "outputs": {}
+    },
+    "templateHash": "",
+    "parameters": {},
+    "mode": "",
+    "provisioningState": ""
+  }
+}
+```
+
+Ao implementar uma especificação de modelo para um grupo de recursos: a função devolve o seguinte formato:
+
+```json
+{
+  "name": "",
+  "properties": {
+    "templateLink": {
+      "id": ""
     },
     "template": {
       "$schema": "",
@@ -297,7 +323,7 @@ Devolve um valor de parâmetro. O nome do parâmetro especificado deve ser defin
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| nome de parâmetroName |Sim |string |O nome do parâmetro para voltar. |
+| nome de parâmetroName |Yes |string |O nome do parâmetro para voltar. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -428,11 +454,11 @@ A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| stringOutput | Cadeia | opção 1 |
+| stringOutput | String | opção 1 |
 | intOutput | int | 1 |
 | objetoOutput | Objeto | {"one": "a", "two": "b"} |
 | intervalo de matriz | Matriz | [1, 2, 3] |
-| crossOutput | Cadeia | opção 1 |
+| crossOutput | String | opção 1 |
 
 Para obter mais informações sobre a utilização de parâmetros, consulte [parâmetros nos modelos ARM](template-parameters.md).
 
@@ -566,13 +592,13 @@ A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| exemploOutput1 | Cadeia | myVariable |
+| exemploOutput1 | String | myVariable |
 | exemploOutput2 | Matriz | [1, 2, 3, 4] |
-| exemploOutput3 | Cadeia | myVariable |
+| exemploOutput3 | String | myVariable |
 | exemploOutput4 |  Objeto | {"property1": "value1", "property2": "value2"} |
 
 Para obter mais informações sobre a utilização de variáveis, consulte [Variáveis no modelo ARM](template-variables.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter uma descrição das secções num modelo ARM, consulte [a estrutura e a sintaxe dos modelos ARM](template-syntax.md).

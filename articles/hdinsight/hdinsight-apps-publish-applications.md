@@ -1,19 +1,16 @@
 ---
 title: Publicar aplicações Azure HDInsight
 description: Aprenda a criar uma aplicação HDInsight e, em seguida, publique-a no Azure Marketplace.
-author: hrasheed-msft
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 05/14/2018
-ms.author: hrasheed
-ms.openlocfilehash: ca84cb6cdd6b47976eadbc5298701a46fe677426
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 73d291fd76d9adbe2a095406b56bd879d497d3b5
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96007142"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942652"
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Publicar uma aplicação HDInsight no Azure Marketplace
 Pode instalar uma aplicação Azure HDInsight num cluster HDInsight baseado em Linux. Neste artigo, aprenda a publicar uma aplicação HDInsight no Azure Marketplace. Para obter informações gerais sobre a publicação no Azure Marketplace, consulte [publicar uma oferta no Azure Marketplace](../marketplace/overview.md).
@@ -96,7 +93,7 @@ Para publicar uma aplicação HDInsight:
 8. Faça o upload do ficheiro .zip que criou quando embalou a aplicação.  
 9. Selecione **Certificação de Pedidos.** A equipa de certificação da Microsoft analisa os ficheiros e certifica a topologia.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Saiba como [instalar aplicações HDInsight](hdinsight-apps-install-applications.md) nos seus clusters.
 * Aprenda a [instalar aplicações HDInsight personalizadas](hdinsight-apps-install-custom-applications.md) e implemente uma aplicação HDInsight não publicada para o HDInsight.
 * Aprenda a usar a [Script Action para personalizar clusters HDInsight baseados em Linux](hdinsight-hadoop-customize-cluster-linux.md) e adicionar mais aplicações. 

@@ -6,15 +6,15 @@ ms.reviewer: baolcsva
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 11/11/2020
+ms.date: 01/27/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: f5555662c6cb5f44be3959ec3d22d1cf1953674d
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
-ms.translationtype: HT
+ms.openlocfilehash: 7aa57fa20c3a043cdb210ccd8a5ddbf61323716d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97030098"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943695"
 ---
 # <a name="azure-enterprise-transfers"></a>Transferências do Azure Enterprise
 
@@ -55,22 +55,22 @@ Considera-se uma transferência de inscrição quando:
 - Uma inscrição se encontra no estado expirado/alargado e é negociado um novo contrato.
 - Tem várias inscrições e pretende combinar todas as contas e a faturação numa única inscrição.
 
-Esta secção destina-se a fins meramente informativos, pois a ação não pode ser executada por administradores da empresa. É necessário um pedido de suporte para transferir uma inscrição empresarial para uma nova.
+Esta secção destina-se a fins meramente informativos, pois a ação não pode ser executada por administradores da empresa. É necessário um pedido de apoio para transferir uma inscrição de uma empresa para uma nova, a menos que a inscrição se qualifique para [a transferência de inscrição automática.](#auto-enrollment-transfer)
 
 Quando pede a transferência de uma inscrição corporativa inteira para uma inscrição, ocorrem as seguintes ações:
 
 - Todos os serviços, subscrições, contas, departamentos e toda a estrutura de inscrição, incluindo todos os administradores de departamentos do EA, são transferidos para uma inscrição de destino nova.
 - O estado da inscrição é definido para _Transferida_. A inscrição transferida está disponível apenas para fins de relatório de histórico de utilização.
-- Não pode adicionar funções ou subscrições a uma inscrição transferida. O estado Transferida impede a utilização adicional em relação à inscrição.
+- Não pode adicionar funções ou subscrições a uma inscrição transferida. O estado de transferência impede uma maior utilização contra a inscrição.
 - Perderá todo o saldo do Pré-pagamento do Azure restante no contrato, incluindo os termos futuros.
--    Se a inscrição da qual está a transferir tiver compras de RIs, a taxa das compras de RIs permanecerá na inscrição de origem. No entanto, os benefícios das RIs serão transferidos para utilização na nova inscrição.
--    A taxa de compra única do marketplace e todas as taxas fixas mensais já incorridas na antiga inscrição não serão transferidas para a nova inscrição. As taxas do marketplace baseadas no consumo serão transferidas.
+-    Se a inscrição que você está transferindo tem compras ri, a taxa de compra RI permanecerá na inscrição de fonte, no entanto todos os benefícios ri serão transferidos para uso na nova inscrição.
+-    A taxa de compra única do mercado e quaisquer taxas fixas mensais já incorridas na matrícula antiga não são transferidas para a nova matrícula. As taxas do marketplace baseadas no consumo serão transferidas.
 
 ### <a name="effective-transfer-date"></a>Data de transferência efetiva
 
 O dia da transferência efetiva pode ser na data de início da inscrição de destino ou numa data posterior.
 
-A utilização da inscrição de origem é cobrada como Pré-pagamento do Azure ou utilização excedida. A utilização que ocorre após a data de transferência efetiva é transferida para a nova inscrição e cobrada em conformidade.
+A utilização da inscrição de origem é cobrada como Pré-pagamento do Azure ou utilização excedida. O uso que ocorre após a data de transferência efetiva é transferido para a nova inscrição e cobrado.
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
@@ -78,13 +78,24 @@ Ao pedir uma transferência de inscrição, forneça as seguintes informações:
 
 - Relativamente à inscrição de origem, o número de inscrição.
 - Relativamente à inscrição de destino, o número de inscrição para o qual transferir.
-- Relativamente à data efetiva da transferência de inscrição, pode ser uma data na ou após a data de início da inscrição de destino. A data escolhida não pode afetar a utilização de nenhuma fatura de utilização excedida já emitida.
+- Relativamente à data efetiva da transferência de inscrição, pode ser uma data na ou após a data de início da inscrição de destino. A data escolhida não pode afetar o uso de qualquer fatura de excesso já emitida.
 
 Outros pontos a ter em mente antes de uma transferência de inscrição:
 
 - É necessária a aprovação dos Administradores EA da inscrição de origem e de destino.
 - Se uma transferência de inscrição não atender aos seus requisitos, considere uma transferência de conta.
 - O estado da inscrição de origem será atualizado para transferido e só estará disponível para fins de relatório de histórico de utilização.
+
+### <a name="auto-enrollment-transfer"></a>Transferência de inscrição automática
+
+Pode ver que uma inscrição tem o Estado **transferido,** mesmo que não tenha enviado um bilhete de apoio para solicitar uma transferência de inscrição. O estado **transferido** resulta do processo de transferência de inscrição automática. Para que o processo de transferência de inscrição automática ocorra durante a frase de renovação, existem alguns itens que devem ser incluídos no novo acordo:
+
+- Número de inscrição prévia (deve existir no portal EA)
+- A data de validade do número de matrículas prévia é um dia antes da data de início efetiva do novo acordo
+- O novo acordo tem uma ordem de pré-pagamento faturada do Azure que tem uma data atual ou está atrasada
+- A nova inscrição é criada no portal da EA
+
+Se não houver dados de utilização em falta no portal da EA entre a inscrição prévia e a nova inscrição, então não terá de criar um bilhete de apoio à transferência.
 
 ### <a name="azure-prepayment"></a>Pré-pagamento do Azure
 

@@ -2,19 +2,16 @@
 title: Colmeia Apache consulta com ODBC Driver & PowerShell - Azure HDInsight
 description: Utilize o controlador ODBC da Microsoft Hive e o PowerShell para consultar os clusters Apache Hive no Azure HDInsight.
 keywords: colmeia,colmeia odbc,powershell
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 06/27/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 211b23db56b6deebb519b9eaac4164ea83edabac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a6274ce36878af6cfbae04be935485c462bc86a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89078576"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98941369"
 ---
 # <a name="tutorial-query-apache-hive-with-odbc-and-powershell"></a>Tutorial: Consulta Apache Hive com ODBC e PowerShell
 
@@ -49,7 +46,7 @@ Os passos seguintes mostram-lhe como criar uma fonte de dados Apache Hive ODBC.
 
 1. A partir do **separador DSN do utilizador,** selecione **Adicionar** para abrir a janela **Criar Nova Fonte de Dados.**
 
-1. Selecione **Microsoft Hive ODBC Driver**e, em seguida, selecione **Finish** para abrir a janela **de configuração DSN do controlador do Microsoft Hive ODBC.**
+1. Selecione **Microsoft Hive ODBC Driver** e, em seguida, selecione **Finish** para abrir a janela **de configuração DSN do controlador do Microsoft Hive ODBC.**
 
 1. Escreva ou selecione os seguintes valores:
 
@@ -125,7 +122,7 @@ Get-ODBC-Data -query $query -dsn $dsn
 
 Quando já não for necessário, elimine o grupo de recursos, o cluster HDInsight e a conta de armazenamento. Para tal, selecione o grupo de recursos onde o cluster foi criado e clique em **Eliminar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, aprendeu a usar o controlador ODBC da Microsoft Hive e o PowerShell para obter dados do seu cluster de consultas interativas Azure HDInsight.
 

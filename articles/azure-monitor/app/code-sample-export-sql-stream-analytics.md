@@ -1,14 +1,14 @@
 ---
-title: Exportação para SQL a partir de Azure Application Insights / Microsoft Docs
+title: Exportação para SQL da Azure Application Insights | Microsoft Docs
 description: Exportar continuamente dados de Insights de Aplicação para SQL usando Stream Analytics.
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.openlocfilehash: 90aab1794a9b412de2498edcc4d221f4bcc86968
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5fb7093dd9945893b17f1b8f5e596cfe5181c3b6
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979445"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942427"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Walkthrough: Exportação para SQL a partir de Insights de Aplicação usando Stream Analytics
 Este artigo mostra como mover os seus dados de telemetria da [Azure Application Insights][start] para a Base de Dados Azure SQL utilizando [a Continuação exportação][export] e [o Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
@@ -64,7 +64,7 @@ A exportação contínua produz sempre dados para uma conta de Armazenamento Azu
 1. Deixe alguns dados acumularem-se. Sente-se e deixe as pessoas usarem a sua aplicação por um tempo. A telemetria chegará e verá gráficos estatísticos em [exploradores métricos](../platform/metrics-charts.md) e eventos individuais em [pesquisa de diagnóstico.](./diagnostic-search.md) 
    
     Além disso, os dados serão exportadas para o seu armazenamento. 
-2. Inspecione os dados exportados, seja no portal - escolha **procurar, selecione**a sua conta de armazenamento e, em seguida, **Contentores** - ou no Estúdio Visual. No Estúdio Visual, escolha **View / Cloud Explorer,** e abra O Azure / Storage. (Se não tiver esta opção de menu, tem de instalar o Azure SDK: Abra o diálogo do Novo Projeto e abra o Visual C# / Cloud / Obtenha o Microsoft Azure SDK para .NET.)
+2. Inspecione os dados exportados, seja no portal - escolha **procurar, selecione** a sua conta de armazenamento e, em seguida, **Contentores** - ou no Estúdio Visual. No Estúdio Visual, escolha **View / Cloud Explorer,** e abra O Azure / Storage. (Se não tiver esta opção de menu, tem de instalar o Azure SDK: Abra o diálogo do Novo Projeto e abra o Visual C# / Cloud / Obtenha o Microsoft Azure SDK para .NET.)
    
     ![No Estúdio Visual, abra o Browser do Servidor, Azure, Armazenamento](./media/code-sample-export-sql-stream-analytics/087-explorer.png)
    
@@ -82,9 +82,9 @@ Certifique-se de que o servidor permite o acesso aos serviços Azure:
 ![Procurar, Servidores, o seu servidor, Definições, Firewall, Permitir acesso ao Azure](./media/code-sample-export-sql-stream-analytics/100-sqlaccess.png)
 
 ## <a name="create-a-table-in-azure-sql-database"></a>Criar uma tabela na Base de Dados Azure SQL
-Ligue à base de dados criada na secção anterior com a sua ferramenta de gestão preferida. Nesta passagem, estaremos a utilizar [ferramentas de gestão de servidores SQL](/sql/ssms/sql-server-management-studio-ssms?view=sql-server-ver15) (SSMS).
+Ligue à base de dados criada na secção anterior com a sua ferramenta de gestão preferida. Nesta passagem, estaremos a utilizar [ferramentas de gestão de servidores SQL](/sql/ssms/sql-server-management-studio-ssms) (SSMS).
 
-![Ligar à Base de Dados SQL do Azure](./media/code-sample-export-sql-stream-analytics/31-sql-table.png)
+![Ligar à Base de Dados SQL do Azure](./media/code-sample-export-sql-stream-analytics/31-sql-table.png)
 
 Crie uma nova consulta e execute o seguinte T-SQL:
 

@@ -1,18 +1,15 @@
 ---
 title: Use Grafana em Azure HDInsight
 description: Saiba como aceder ao dashboard grafana com clusters Apache Hadoop em Azure HDInsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/27/2019
-ms.openlocfilehash: 7750544367044cab2a0243577c200025bb9ff693
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd2a09b6c3196302dcb74fd363481706021a4d4d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86083037"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98940894"
 ---
 # <a name="access-grafana-in-azure-hdinsight"></a>Aceder ao Grafana no Azure HDInsight
 
@@ -24,7 +21,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="create-an-apache-hadoop-cluster"></a>Criar um aglomerado Apache Hadoop
 
-Consulte [os clusters Apache Hadoop utilizando o portal Azure](../hdinsight-hadoop-create-linux-clusters-portal.md). Para **o tipo cluster**, selecione **Spark,** **Kafka,** **HBase**ou **Consulta Interativa**.
+Consulte [os clusters Apache Hadoop utilizando o portal Azure](../hdinsight-hadoop-create-linux-clusters-portal.md). Para **o tipo cluster**, selecione **Spark,** **Kafka,** **HBase** ou **Consulta Interativa**.
 
 ## <a name="access-the-grafana-dashboard"></a>Aceda ao painel grafana
 
@@ -48,9 +45,9 @@ Se não continuar a utilizar esta aplicação, elimine o cluster que criou com o
 
 1. Na lista de clusters HDInsight que aparecem, selecione o **...** ao lado do cluster que criou.
 
-1. Selecione **Eliminar**. Selecione **Sim**.
+1. Selecione **Eliminar**. Selecione **Yes** (Sim).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre como analisar os dados com o HDInsight, veja os seguintes artigos:
 

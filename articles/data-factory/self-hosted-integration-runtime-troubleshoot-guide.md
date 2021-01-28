@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 01/25/2021
 ms.author: lle
-ms.openlocfilehash: e81a12f4c5d817670fe1f7968184bcc97e78a53c
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 8a722550d12d019e25ff39de27cc0df2c2762a01
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757683"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942047"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Resolução de problemas de integração auto-acolagem
 
@@ -198,7 +198,7 @@ No erro seguinte, pode ver claramente que o *conjunto System.ValueTuple* está e
  
 " \<LogProperties> \<ErrorInfo> [{"Code":0,"Mensagem":"O tipo de inicializador de 'Npgsql.PoolManager' lançou uma exceção.""EventType":0,"Categoria":5,"Dados": {} "MsgId":nulo,"ExceptionType":"System.TypeInitializationExcepção","Fonte":"Npgsql","StackTrace":""InnerEventInfos":[{"Code":0,"Mensagem":"Não podia carregar ficheiro ou montagem 'System.ValueTuple, Versão=4.0.2.0, Cultura=neutra, PublicKeyToken=XXXXXXXX' ou uma das suas dependências. O sistema não pode encontrar o ficheiro especificado.""EventType":0,"Categoria":5"Dados": {} "MsgId":nulo,"ExceptionType":"System.IO.FileNotFoundException","Source":"Npgsql","StackTrace":""InnerEventInfos":[} \</ErrorInfo> \</LogProperties>
  
-Para obter mais informações sobre o GAC, consulte [a Cache de Montagem Global.](https://docs.microsoft.com/dotnet/framework/app-domains/gac)
+Para obter mais informações sobre o GAC, consulte [a Cache de Montagem Global.](/dotnet/framework/app-domains/gac)
 
 
 ### <a name="self-hosted-integration-runtime-authentication-key-is-missing"></a>Falha a chave de autenticação em tempo de execução de integração auto-hospedada

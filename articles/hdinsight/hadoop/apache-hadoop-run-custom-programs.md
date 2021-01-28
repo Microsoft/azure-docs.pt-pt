@@ -1,19 +1,16 @@
 ---
 title: Executar programas personalizados MapReduce - Azure HDInsight
 description: Quando e como executar programas apache mapreduce personalizados em clusters Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/01/2020
-ms.openlocfilehash: 1dcc2a944fc527e4cbc8c7c1072503377ecb5798
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f7a3676db14dbf61d3976690c8f9c71a660f889
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89505272"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943229"
 ---
 # <a name="run-custom-mapreduce-programs"></a>Executar programas MapReduce personalizados
 
@@ -70,7 +67,7 @@ Os programas MapReduce mais comuns são escritos em Java e compilados num fichei
 
     Este comando submete o trabalho de MapReduce ao YARN. O ficheiro de entrada é `/example/data/sample.log` , e o diretório de saída é `/example/data/logoutput` . O ficheiro de entrada e quaisquer ficheiros de saída são armazenados no armazenamento predefinido para o cluster.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Use C# com mapReduce streaming em Apache Hadoop em HDInsight](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 * [Desenvolver programas Java MapReduce para Apache Hadoop em HDInsight](apache-hadoop-develop-deploy-java-mapreduce-linux.md)

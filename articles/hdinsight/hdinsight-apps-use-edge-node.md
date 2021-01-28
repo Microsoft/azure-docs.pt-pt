@@ -1,19 +1,16 @@
 ---
 title: Use os nódrupes de borda vazia nos clusters Apache Hadoop em Azure HDInsight
 description: Como adicionar um nó de borda vazia a um cluster HDInsight. Usado como cliente e, em seguida, testar ou hospedar as suas aplicações HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/16/2020
-ms.openlocfilehash: ddd1a6fa2fc25add30664da5b739338e87e7e74f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4061df2dfcfb4cf993e2312fb3438de66863a476
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010117"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942670"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>Use os nódrupes de borda vazios em aglomerados Apache Hadoop em HDInsight
 
@@ -162,7 +159,7 @@ Pode apagar um nó de borda do portal Azure.
 4. Clique com o botão direito no nó de borda que pretende eliminar e, em seguida, **selecione Delete**.
 5. Selecione **Sim** para confirmar.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu a adicionar um nó de borda e como aceder ao nó de borda. Para saber mais, leia os artigos seguintes:
 

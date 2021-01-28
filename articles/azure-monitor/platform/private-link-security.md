@@ -6,12 +6,12 @@ ms.author: noakuper
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.subservice: ''
-ms.openlocfilehash: 5008da99b63cabba41dade9a745fbd5853345737
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 637e66956eadf57199d2e5191368d6355e2cd118
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734971"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98941894"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Utilizar o Azure Private Link para se ligar em segurança a redes do Azure Monitor
 
@@ -217,13 +217,13 @@ Restringir o acesso desta forma só se aplica aos dados do recurso Application I
 
 Pode automatizar o processo descrito anteriormente utilizando modelos de Gestor de Recursos Azure, rest e interfaces de linha de comando.
 
-Para criar e gerir os âmbitos de ligação privados, utilize o [REST API](/rest/api/monitor/private%20link%20scopes%20(preview)) ou [o Azure CLI (az monitor-link-scope)](/cli/azure/monitor/private-link-scope?view=azure-cli-latest).
+Para criar e gerir os âmbitos de ligação privados, utilize o [REST API](/rest/api/monitor/private%20link%20scopes%20(preview)) ou [o Azure CLI (az monitor-link-scope)](/cli/azure/monitor/private-link-scope).
 
-Para gerir o acesso à rede, utilize as bandeiras `[--ingestion-access {Disabled, Enabled}]` e nos espaços de trabalho do Log `[--query-access {Disabled, Enabled}]` [Analytics](/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest) ou nos componentes do [Application Insights](/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest).
+Para gerir o acesso à rede, utilize as bandeiras `[--ingestion-access {Disabled, Enabled}]` e nos espaços de trabalho do Log `[--query-access {Disabled, Enabled}]` [Analytics](/cli/azure/monitor/log-analytics/workspace) ou nos componentes do [Application Insights](/cli/azure/ext/application-insights/monitor/app-insights/component).
 
 ## <a name="collect-custom-logs-over-private-link"></a>Colete registos personalizados sobre o Link Privado
 
-As contas de armazenamento são utilizadas no processo de ingestão de registos personalizados. Por predefinição, são utilizadas contas de armazenamento geridas pelo serviço. No entanto, para ingerir registos personalizados em links privados, deve utilizar as suas próprias contas de armazenamento e associá-las ao espaço de trabalho log Analytics. Consulte mais detalhes sobre como configurar tais contas utilizando a [linha de comando](/cli/azure/monitor/log-analytics/workspace/linked-storage?view=azure-cli-latest).
+As contas de armazenamento são utilizadas no processo de ingestão de registos personalizados. Por predefinição, são utilizadas contas de armazenamento geridas pelo serviço. No entanto, para ingerir registos personalizados em links privados, deve utilizar as suas próprias contas de armazenamento e associá-las ao espaço de trabalho log Analytics. Consulte mais detalhes sobre como configurar tais contas utilizando a [linha de comando](/cli/azure/monitor/log-analytics/workspace/linked-storage).
 
 Para obter mais informações sobre como trazer a sua própria conta de armazenamento, consulte [as contas de armazenamento do cliente para ingestão de registos](private-storage.md)
 
@@ -252,7 +252,7 @@ Para utilizar experiências do portal Azure Monitor, como Application Insights e
 
 ### <a name="programmatic-access"></a>Acesso programático
 
-Para utilizar o REST API, [CLI](/cli/azure/monitor?view=azure-cli-latest) ou PowerShell com O Azure Monitor em redes [privadas,](../../virtual-network/service-tags-overview.md)adicione as tags de serviço **AzureActiveDirectory** e **AzureResourceManager** à sua firewall.  
+Para utilizar o REST API, [CLI](/cli/azure/monitor) ou PowerShell com O Azure Monitor em redes [privadas,](../../virtual-network/service-tags-overview.md)adicione as tags de serviço **AzureActiveDirectory** e **AzureResourceManager** à sua firewall.  
 
 A adição destas tags permite-lhe executar ações como consultar dados de registo, criar e gerir espaços de trabalho do Log Analytics e componentes de IA.
 

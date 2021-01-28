@@ -1,19 +1,16 @@
 ---
 title: Use Apache Maven para construir um cliente Java HBase para Azure HDInsight
 description: Aprenda a usar o Apache Maven para construir uma aplicação Apache HBase baseada em Java e, em seguida, implante-a para a HBase no Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seodec18, devx-track-java
 ms.date: 12/24/2019
-ms.openlocfilehash: 61b8aaf9ea61ebe85eac6708d7390c386dea2696
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 13616cf99db39ec4dac1d13e3dcd2cefc5a44614
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547916"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942962"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Construa aplicações Java para Apache HBase
 
@@ -29,7 +26,7 @@ Os passos neste documento usam [Apache Maven](https://maven.apache.org/) para cr
 
 * [Apache Maven](https://maven.apache.org/download.cgi) devidamente [instalado de](https://maven.apache.org/install.html) acordo com Apache.  Maven é um sistema de construção de projetos para projetos java.
 
-* Um cliente SSH. Para obter mais informações, consulte [Connect to HDInsight (Apache Hadoop) utilizando SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* Um cliente SSH. Para obter mais informações, veja [Ligar ao HDInsight (Apache Hadoop) através de SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 * Se utilizar o PowerShell, necessitará do [Módulo AZ](/powershell/azure/).
 
@@ -46,9 +43,9 @@ IF NOT EXIST C:\HDI MKDIR C:\HDI
 cd C:\HDI
 ```
 
-## <a name="create-a-maven-project"></a>Criar um projeto Maven
+## <a name="create-a-maven-project"></a>Criar um projeto do Maven
 
-1. Insira o seguinte comando para criar um projeto Maven chamado **hbaseapp** :
+1. Insira o seguinte comando para criar um projeto Maven chamado **hbaseapp**:
 
     ```cmd
     mvn archetype:generate -DgroupId=com.microsoft.examples -DartifactId=hbaseapp -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -107,7 +104,7 @@ Esta secção indica que o projeto necessita de componentes **hbase-cliente** e 
 
 Para obter mais informações sobre versões e componentes HDInsight, consulte [quais são os diferentes componentes Apache Hadoop disponíveis com HDInsight](../hdinsight-component-versioning.md).
 
-### <a name="build-configuration"></a>Configuração de construção
+### <a name="build-configuration"></a>Compilar a configuração
 
 Os plug-ins maven permitem-lhe personalizar as fases de construção do projeto. Esta secção é usada para adicionar plug-ins, recursos e outras opções de configuração de construção.
 
@@ -707,6 +704,6 @@ Os passos seguintes utilizam o módulo Azure PowerShell [AZ](/powershell/azure/n
 
 Utilize o `-showErr` parâmetro para visualizar o erro padrão (STDERR) que é produzido durante a execução do trabalho.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Saiba como usar o SQLLine com o Apache HBase](apache-hbase-query-with-phoenix.md)

@@ -1,19 +1,16 @@
 ---
 title: 'Azure Toolkit para IntelliJ: Debug Spark apps com SSH - HDInsight'
 description: Orientações passo a passo sobre como usar ferramentas HDInsight em Azure Toolkit para IntelliJ para depurar as aplicações remotamente em clusters HDInsight através de SSH
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/23/2019
-ms.openlocfilehash: 7a2044e9bb0110eda666d12e29a715547381e2be
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: ccd642578c8c35ac6b5f23397788ad1e7f83a1f5
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97822340"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942608"
 ---
 # <a name="debug-apache-spark-applications-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>Aplicações Debug Apache Spark em um cluster HDInsight com Azure Toolkit para IntelliJ através de SSH
 
@@ -151,7 +148,7 @@ Este artigo fornece orientações passo a passo sobre como usar ferramentas HDIn
 
    ![Intellij Debug Remote Spark Job sem exceção](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-debug-without-exception.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Descrição geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
 

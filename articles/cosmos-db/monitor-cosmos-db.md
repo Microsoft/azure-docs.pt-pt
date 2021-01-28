@@ -1,5 +1,5 @@
 ---
-title: Monitor Azure Cosmos DB / Microsoft Docs
+title: Monitor Azure Cosmos DB | Microsoft Docs
 description: Saiba como monitorizar o desempenho e disponibilidade do Azure Cosmos DB.
 author: SnehaGunda
 services: cosmos-db
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/01/2020
 ms.author: sngun
 ms.custom: subject-monitoring
-ms.openlocfilehash: f7cc9d4062ad9a49ff84db6ac035ff53934ae0a0
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: d5cfdca24193b899926bd30995063ed55b3dd3eb
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96532062"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943454"
 ---
 # <a name="monitor-azure-cosmos-db"></a>Monitorizar o Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -67,7 +67,7 @@ A Azure Cosmos DB recolhe os mesmos tipos de dados de monitorização que outros
 
 A página **geral** no portal Azure para cada base de dados Azure Cosmos inclui uma breve visão da utilização da base de dados, incluindo o seu pedido e o uso da faturação horária. Esta é uma informação útil, mas apenas uma pequena quantidade dos dados de monitorização disponíveis. Alguns destes dados são recolhidos automaticamente e disponíveis para análise assim que criar a base de dados, enquanto pode ativar a recolha adicional de dados com alguma configuração.
 
-:::image type="content" source="media/monitor-cosmos-db/overview-page.png" alt-text="Página geral":::
+:::image type="content" source="media/monitor-cosmos-db/overview-page.png" alt-text="Página de descrição geral":::
 
 ## <a name="collection-and-routing"></a>Recolha e encaminhamento
 
@@ -90,7 +90,7 @@ Todas as métricas para Azure Cosmos DB estão no nome **cosmos DB métricas pad
 * CollectionName
 * DatabaseName
 * Tipo de Operação
-* Região
+* Region
 * Código de Estado
 
 Para referência, pode ver uma lista de [todas as métricas de recursos suportadas no Azure Monitor](../azure-monitor/platform/metrics-supported.md).
@@ -129,7 +129,7 @@ Os dados em Registos monitores Azure são armazenados em tabelas que cada mesa t
 
 Todos os registos de recursos no Azure Monitor têm os mesmos campos seguidos por campos específicos de serviço. O esquema comum é delineado no [esquema de registo de recursos do Azure Monitor](../azure-monitor/platform/resource-logs-schema.md#top-level-common-schema). Para obter uma lista dos tipos de registos de recursos recolhidos para a Azure Cosmos DB, consulte [a referência de dados DB do Azure Cosmos](monitor-cosmos-db-reference.md#resource-logs).
 
-O [registo de Atividades](/azure/azure-monitor/platform/activity-log) é um Azure de login de plataforma que fornece informações sobre eventos de nível de subscrição. Pode vê-lo de forma independente ou encaminhá-lo para Registos do Monitor Azure, onde pode fazer consultas muito mais complexas usando o Log Analytics.  
+O [registo de Atividades](../azure-monitor/platform/activity-log.md) é um Azure de login de plataforma que fornece informações sobre eventos de nível de subscrição. Pode vê-lo de forma independente ou encaminhá-lo para Registos do Monitor Azure, onde pode fazer consultas muito mais complexas usando o Log Analytics.  
 
 A Azure Cosmos DB armazena dados nas seguintes tabelas.
 
@@ -204,7 +204,7 @@ https://management.azure.com/subscriptions/{SubscriptionId}/resourceGroups/{Reso
 
 Para saber mais, consulte o artigo [da Azure monitoring REST API.](../azure-monitor/platform/rest-api-walkthrough.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Consulte [a referência de dados de monitorização do Azure Cosmos DB](monitor-cosmos-db-reference.md) para uma referência dos registos e métricas criados pela Azure Cosmos DB.
 * Consulte [os recursos de Monitor Azure com o Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md) para obter informações sobre a monitorização dos recursos do Azure.

@@ -1,19 +1,16 @@
 ---
 title: Migrar um cluster HBase para uma nova versão - Azure HDInsight
 description: Como migrar os clusters Apache HBase para uma versão mais recente em Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
-ms.openlocfilehash: 8ce25780e197c26e0e5b102670e093031e1a2582
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 24a0c09ba78c668dab017ec80adda19f59d89a4f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94697667"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942976"
 ---
 # <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>Migrar um cluster Apache HBase para uma nova versão
 
@@ -243,7 +240,7 @@ Para atualizar o seu cluster Apache HBase no Azure HDInsight, complete os seguin
 
 1. Se o novo cluster for satisfatório, elimine o cluster original.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre [o Apache HBase](https://hbase.apache.org/) e a atualização dos clusters HDInsight, consulte os seguintes artigos:
 

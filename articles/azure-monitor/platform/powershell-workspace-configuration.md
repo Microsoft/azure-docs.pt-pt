@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: d0bbde0ee4fd0eaf7387abaf6d548dc563e5b715
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34ece92e4603c0c74190003745d55be0aea5cdb0
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86515449"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98941762"
 ---
 # <a name="create-and-configure-a-log-analytics-workspace-in-azure-monitor-using-powershell"></a>Criar e configurar um espaço de trabalho Log Analytics no Monitor Azure utilizando o PowerShell
 Este artigo fornece duas amostras de código que mostram como criar e configurar um espaço de trabalho Log Analytics no Azure Monitor.  
@@ -193,7 +193,7 @@ New-AzOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -
 ```
 
 > [!NOTE]
-> O formato para o parâmetro **CustomLogRawJson** que define a configuração para um registo personalizado pode ser complexo. Utilize [o Get-AzOperationalInsightsDataSource](/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource?view=azps-3.2.0) para recuperar a configuração de um Registo Personalizado existente. A propriedade **Properties** é a configuração necessária para o parâmetro **CustomLogRawJson.**
+> O formato para o parâmetro **CustomLogRawJson** que define a configuração para um registo personalizado pode ser complexo. Utilize [o Get-AzOperationalInsightsDataSource](/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource) para recuperar a configuração de um Registo Personalizado existente. A propriedade **Properties** é a configuração necessária para o parâmetro **CustomLogRawJson.**
 
 No exemplo acima, o regexDelimiter foi definido como " \\ n" para newline. O delimiter de log também pode ser uma estamp de tempo.  Estes são os formatos suportados:
 
@@ -215,10 +215,10 @@ No exemplo acima, o regexDelimiter foi definido como " \\ n" para newline. O del
 Quando cria um espaço de trabalho que foi eliminado nos últimos 14 dias e em [estado de eliminação suave,](./delete-workspace.md#soft-delete-behavior)a operação pode ter resultados diferentes dependendo da configuração do seu espaço de trabalho:
 1. Se fornecer o mesmo nome do espaço de trabalho, grupo de recursos, subscrição e região como no espaço de trabalho eliminado, o seu espaço de trabalho será recuperado, incluindo os seus dados, configuração e agentes conectados.
 2. Se utilizar o mesmo nome do espaço de trabalho, mas diferente grupo de recursos, subscrição ou região, obterá um erro *O nome do espaço de trabalho 'workspace-name' não é único*, ou *conflito*. Para anular o soft-delete e eliminar permanentemente o seu espaço de trabalho e criar um novo espaço de trabalho com o mesmo nome, siga estes passos para recuperar primeiro o espaço de trabalho e realizar a eliminação permanente:
-   * [Recupere](./delete-workspace.md#recover-workspace) o seu espaço de trabalho
-   * [Elimine permanentemente](./delete-workspace.md#permanent-workspace-delete) o seu espaço de trabalho
+   * [Recuperar](./delete-workspace.md#recover-workspace) a área de trabalho
+   * [Eliminar de forma permanente](./delete-workspace.md#permanent-workspace-delete) a área de trabalho
    * Criar um novo espaço de trabalho usando o mesmo nome do espaço de trabalho
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Rever os cmdlets PowerShell do Log Analytics](/powershell/module/az.operationalinsights/) para obter informações adicionais sobre a utilização do PowerShell para a configuração do Log Analytics.

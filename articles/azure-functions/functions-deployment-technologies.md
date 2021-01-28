@@ -4,12 +4,12 @@ description: Saiba as diferentes formas de implantar código para as Funções A
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 51a76adcf25d5d1bc4025eab12073df0886fde3d
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 4a65a00c28a20c9381d3dcc6fd7545137528d5c0
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98681835"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943629"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologias de implantação em Funções Azure
 
@@ -106,7 +106,7 @@ Os seguintes métodos de implantação estão disponíveis em Funções Azure.
 
 Pode utilizar um URL de pacote externo para fazer referência a um ficheiro de pacote remoto (.zip) que contenha a sua aplicação de função. O ficheiro é descarregado a partir do URL fornecido, e a aplicação é executada no modo [Run From Package.](run-functions-from-deployment-package.md)
 
->__Como usá-lo:__ Adicione `WEBSITE_RUN_FROM_PACKAGE` às definições da sua aplicação. O valor desta definição deve ser um URL (a localização do ficheiro de pacote específico que pretende executar). Pode adicionar definições [no portal](functions-how-to-use-azure-function-app-settings.md#settings) ou utilizando o [CLI Azure](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set).
+>__Como usá-lo:__ Adicione [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package) às definições da sua aplicação. O valor desta definição deve ser um URL (a localização do ficheiro de pacote específico que pretende executar). Pode adicionar definições [no portal](functions-how-to-use-azure-function-app-settings.md#settings) ou utilizando o [CLI Azure](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set).
 >
 >Se utilizar o armazenamento Azure Blob, utilize um recipiente privado com uma [assinatura de acesso partilhado (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) para dar às Funções acesso ao pacote. Sempre que a aplicação reinicia, recolhe uma cópia do conteúdo. A sua referência deve ser válida para o tempo de vida do pedido.
 
@@ -118,7 +118,7 @@ Utilize o zip implementar para empurrar um ficheiro .zip que contenha a sua apli
 
 >__Como usá-lo:__ Implemente utilizando a sua ferramenta cliente favorita: [Visual Studio Code](functions-develop-vs-code.md#publish-to-azure), Visual [Studio,](functions-develop-vs.md#publish-to-azure)ou a partir da linha de comando utilizando as [Ferramentas Principais de Funções Azure](functions-run-local.md#project-file-deployment). Por predefinição, estas ferramentas utilizam a implementação de zíper e [funcionam a partir do pacote](run-functions-from-deployment-package.md). As Ferramentas Core e a extensão visual Studio Code permitem a [construção remota](#remote-build) ao implementar em Linux. Para implementar manualmente um ficheiro .zip na sua aplicação de função, siga as instruções em [Implementar a partir de um ficheiro de .zip ou URL](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
 
->Quando implementar utilizando o zip, pode definir a sua aplicação para executar a [partir do pacote](run-functions-from-deployment-package.md). Para correr a partir da embalagem, defina o valor de definição da `WEBSITE_RUN_FROM_PACKAGE` aplicação para `1` . Recomendamos a colocação de zíper. Produz tempos de carregamento mais rápidos para as suas aplicações, e é o padrão para VS Code, Visual Studio e o Azure CLI.
+>Quando implementar utilizando o zip, pode definir a sua aplicação para executar a [partir do pacote](run-functions-from-deployment-package.md). Para executar a partir do pacote, defina o `WEBSITE_RUN_FROM_PACKAGE` valor de definição de aplicação .md#website_run_from_package para `1` . Recomendamos a colocação de zíper. Produz tempos de carregamento mais rápidos para as suas aplicações, e é o padrão para VS Code, Visual Studio e o Azure CLI.
 
 >__Quando usá-lo:__ A implementação zip é a tecnologia de implantação recomendada para funções Azure.
 
@@ -181,7 +181,7 @@ Pode utilizar o FTP para transferir diretamente ficheiros para as Funções Azur
 
 No editor baseado no portal, pode editar diretamente os ficheiros que estão na sua aplicação de função (essencialmente implantando cada vez que guarda as suas alterações).
 
->__Como usá-lo:__ Para poder editar as suas funções no portal Azure, deve ter [criado as suas funções no portal](./functions-get-started.md). Para preservar uma única fonte de verdade, a utilização de qualquer outro método de implantação torna a sua função apenas lida e impede a edição contínua do portal. Para voltar a um estado em que pode editar os seus ficheiros no portal Azure, pode voltar a ligar manualmente o modo de edição `Read/Write` e remover quaisquer definições de aplicação relacionadas com a implementação (como). `WEBSITE_RUN_FROM_PACKAGE`
+>__Como usá-lo:__ Para poder editar as suas funções no portal Azure, deve ter [criado as suas funções no portal](./functions-get-started.md). Para preservar uma única fonte de verdade, a utilização de qualquer outro método de implantação torna a sua função apenas lida e impede a edição contínua do portal. Para voltar a um estado em que pode editar os seus ficheiros no portal Azure, pode voltar a ligar manualmente o modo de edição `Read/Write` e remover quaisquer definições de aplicação relacionadas com a implementação (como [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package) .
 
 >__Quando usá-lo:__ O portal é uma boa maneira de começar com as Funções Azure. Para um trabalho de desenvolvimento mais intenso, recomendamos que utilize uma das seguintes ferramentas de cliente:
 >
@@ -214,7 +214,7 @@ Se precisar de mais controlo sobre esta transição, deve utilizar slots de impl
 
 Quando implementar a sua aplicação de função para Azure, pode implementar para uma ranhura de implementação separada em vez de diretamente para a produção. Para obter mais informações sobre slots de implementação, consulte a documentação das [ranhuras de implantação de funções Azure](functions-deployment-slots.md) para obter mais detalhes.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Leia estes artigos para saber mais sobre a implementação das suas aplicações de função:
 

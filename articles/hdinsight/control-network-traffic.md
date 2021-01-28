@@ -1,18 +1,15 @@
 ---
 title: Tráfego de rede de controlo em Azure HDInsight
 description: Aprenda técnicas para controlar o tráfego de entrada e saída para clusters Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 348b9b80c74f085ce31ecce93753a253782fe3ea
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 0cbda0b533a64e627bfeef9589ab95c4163ae73e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543173"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943376"
 ---
 # <a name="control-network-traffic-in-azure-hdinsight"></a>Tráfego de rede de controlo em Azure HDInsight
 
@@ -64,7 +61,7 @@ Para obter uma lista de portas para serviços específicos, consulte os [Ports u
 
 Para obter mais informações sobre as regras de firewall para aparelhos virtuais, consulte o documento [de cenário do aparelho virtual.](../virtual-network/virtual-network-scenario-udr-gw-nva.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter amostras de código e exemplos de criação de Redes Virtuais Azure, consulte [criar redes virtuais para clusters Azure HDInsight](hdinsight-create-virtual-network.md).
 * Para obter um exemplo de configuração hdinsight para ligar a uma rede no local, consulte [Connect HDInsight a uma rede no local](./connect-on-premises-network.md).

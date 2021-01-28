@@ -1,19 +1,16 @@
 ---
 title: Apache Sqoop com Apache Hadoop - Azure HDInsight
 description: Saiba como usar o Apache Sqoop para importar e exportar entre a Apache Hadoop na HDInsight e a Azure SQL Database.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/28/2019
-ms.openlocfilehash: 6cd522192c498d628490430c46c18c8ae08ad2e2
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 2d0d38dee15817e56c2784981365ea331b6a8459
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547015"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943157"
 ---
 # <a name="use-apache-sqoop-to-import-and-export-data-between-apache-hadoop-on-hdinsight-and-azure-sql-database"></a>Utilize o Apache Sqoop para importar e exportar dados entre a Apache Hadoop na HDInsight e a Azure SQL Database
 
@@ -25,7 +22,7 @@ Aprenda a usar o Apache Sqoop para importar e exportar entre um cluster Apache H
 
 * Conclusão do ambiente de teste de [configuração](./hdinsight-use-sqoop.md#create-cluster-and-sql-database) da [Utilização de Apache Sqoop com Hadoop em HDInsight](./hdinsight-use-sqoop.md).
 
-* Um cliente SSH. Para obter mais informações, consulte [Connect to HDInsight (Apache Hadoop) utilizando SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* Um cliente SSH. Para obter mais informações, veja [Ligar ao HDInsight (Apache Hadoop) através de SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 * Familiaridade com Sqoop. Para mais informações, consulte [o Guia do Utilizador sqoop.](https://sqoop.apache.org/docs/1.4.7/SqoopUserGuide.html)
 
@@ -154,7 +151,7 @@ Do SQL ao armazenamento Azure.
 
 * Poderá ter de configurar o SQL Server para aceitar ligações remotas. Para obter mais informações, consulte a [resolução de problemas da ligação ao documento do motor do motor de base de dados do SQL Server.](https://social.technet.microsoft.com/wiki/contents/articles/2102.how-to-troubleshoot-connecting-to-the-sql-server-database-engine.aspx)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora aprendeste a usar o Sqoop. Para saber mais, veja:
 

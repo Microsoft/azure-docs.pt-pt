@@ -3,16 +3,15 @@ title: Conector do Armazém hive - Apache Zeppelin usando Livy - Azure HDInsight
 description: Saiba como integrar o Conector do Armazém da Hive com o Apache Zeppelin no Azure HDInsight.
 author: nis-goel
 ms.author: nisgoel
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: bccf2b9a3dfe42ca439a45eb1e35cfaff58d0208
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 4859ff098bf3fdffbecc70608cb147d17d9d7f59
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426959"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98941163"
 ---
 # <a name="integrate-apache-zeppelin-with-hive-warehouse-connector-in-azure-hdinsight"></a>Integre Apache Zeppelin com Conector de Armazém de Colmeia em Azure HDInsight
 
@@ -49,7 +48,7 @@ As configurações seguintes são necessárias para aceder a mesas de colmeia de
 
 1. A partir de um navegador web, navegue `https://LLAPCLUSTERNAME.azurehdinsight.net/#/main/services/HDFS/configs` até onde LLAPCLUSTERNAME é o nome do seu cluster de consultainterna.
 
-1. Navegue **Advanced**para o  >  **núcleo avançado personalizado.** Selecione **Adicionar Propriedade...** para adicionar as seguintes configurações:
+1. Navegue para o  >  **núcleo avançado personalizado.** Selecione **Adicionar Propriedade...** para adicionar as seguintes configurações:
 
     | Configuração                 | Valor |
     | ----------------------------- |-------|
@@ -142,7 +141,7 @@ hive.executeQuery("select * from testers").show()
 
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Operações do HWC e do Apache Spark](./apache-hive-warehouse-connector-operations.md)
 * [Integração do HWC no Apache Spark e no Apache Hive](./apache-hive-warehouse-connector.md)

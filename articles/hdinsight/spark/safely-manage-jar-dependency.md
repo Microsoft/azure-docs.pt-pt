@@ -1,19 +1,16 @@
 ---
 title: Gerir com segurança as dependências dos frascos - Azure HDInsight
 description: Este artigo discute as melhores práticas para gerir as dependências do Java Archive (JAR) para aplicações HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 02/05/2020
-ms.openlocfilehash: 5834d3512c95e77e6ce45472ff8f2e1b4b2ed456
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 9868e32665c89bbe9aadc06f1c2834704e6534e1
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545587"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942390"
 ---
 # <a name="safely-manage-jar-dependencies"></a>Gerir dependências jar com segurança
 
@@ -77,7 +74,7 @@ assemblyShadeRules in assembly := Seq(
 
 Depois podes correr `sbt clean` e construir o ficheiro do frasco `sbt assembly` sombreado. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Use ferramentas HDInsight IntelliJ](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)
 

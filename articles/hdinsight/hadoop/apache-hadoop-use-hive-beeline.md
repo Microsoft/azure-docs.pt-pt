@@ -1,19 +1,16 @@
 ---
 title: Use Apache Beeline com Apache Hive - Azure HDInsight
 description: Aprenda a usar o cliente Beeline para executar consultas de Colmeia com Hadoop em HDInsight. Beeline é uma utilidade para trabalhar com a HiveServer2 em vez de JDBC.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 10/28/2020
 ms.custom: contperf-fy21q1, contperf-fy21q2
-ms.openlocfilehash: 70fbbdfc5d8f1bac5fa27175ea25be1503a77594
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: e8b7478ba64da0f99a9b7a710222ff2953795adf
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97031900"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943193"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Utilizar o cliente do Apache Beeline com o Apache Hive
 
@@ -211,7 +208,7 @@ Este exemplo é uma continuação do exemplo anterior. Utilize os seguintes pass
     3 rows selected (0.813 seconds)
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter informações mais gerais sobre a Colmeia em HDInsight, consulte [Use Apache Hive com Apache Hadoop em HDInsight](hdinsight-use-hive.md)
 

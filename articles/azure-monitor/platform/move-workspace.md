@@ -1,17 +1,17 @@
 ---
-title: Mover um espaço de trabalho log Analytics no Azure Monitor Microsoft Docs
+title: Mova um espaço de trabalho log analytics em Azure Monitor | Microsoft Docs
 description: Saiba como mover o seu espaço de trabalho Log Analytics para outro grupo de subscrição ou recursos.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/12/2020
-ms.openlocfilehash: 8d7fde6661a4a133f689016559f010767c662417
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 4915fd69940450f22548ae326879b5729b687248
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94699751"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942083"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Mover um espaço de trabalho Log Analytics para diferentes grupos de subscrição ou recursos
 
@@ -66,7 +66,7 @@ Utilize o seguinte procedimento para remover as soluções utilizando o portal A
 
 ### <a name="delete-using-powershell"></a>Eliminar usando PowerShell
 
-Para remover as soluções utilizando o PowerShell, utilize o cmdlet [Remove-AzResource,](/powershell/module/az.resources/remove-azresource?view=azps-2.8.0) como mostra o seguinte exemplo:
+Para remover as soluções utilizando o PowerShell, utilize o cmdlet [Remove-AzResource,](/powershell/module/az.resources/remove-azresource) como mostra o seguinte exemplo:
 
 ``` PowerShell
 Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -ResourceName "ChangeTracking(<workspace-name>)" -ResourceGroupName <resource-group-name>
@@ -85,7 +85,7 @@ Para remover a solução **Iniciar/Parar VMs,** também é necessário remover a
    - ScheduledStartStop_Parent
    - SequencedStartStop_Parent
 
-    ![Excluir regras](media/move-workspace/delete-rules.png)
+    ![Eliminar regras](media/move-workspace/delete-rules.png)
 
 ## <a name="unlink-automation-account"></a>Desvincular a conta de Automação
 Utilize o seguinte procedimento para desvincular a conta de Automação do espaço de trabalho utilizando o portal Azure:
@@ -120,5 +120,5 @@ Move-AzResource -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000
 > Após a operação de deslocação, as soluções removidas e a ligação de conta Automation devem ser reconfiguradas para trazer o espaço de trabalho de volta ao seu estado anterior.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Para obter uma lista de recursos que apoiam o movimento, consulte [o suporte de operação move para recursos](../../azure-resource-manager/management/move-support-resources.md).

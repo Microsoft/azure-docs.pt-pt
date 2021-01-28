@@ -1,19 +1,16 @@
 ---
 title: Temas do Mirror Apache Kafka - Azure HDInsight
 description: Aprenda a usar a função de espelhamento de Apache Kafka para manter uma réplica de um kafka no cluster HDInsight, espelhando tópicos para um cluster secundário.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: d4a2be6719fdaaa9dc859df21cc030478e474210
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: c2fce6d4ee95a56cc087d50184fcd69ac113620f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428246"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98940845"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>Use MirrorMaker to replicate Apache Kafka topics with Kafka on HDInsight (Utilizar o MirrorMaker para replicar tópicos do Apache Kafka com o Kafka no HDInsight)
 
@@ -116,7 +113,7 @@ Configure a publicidade IP para permitir que um cliente se conecte usando endere
     
 1. Mantenha-se no **separador Configs** em **Serviços**  >  **Kafka**. Na secção **Kafka Broker** definir a propriedade dos **ouvintes** para `PLAINTEXT://0.0.0.0:9092` .
 1. Selecione **Guardar**.
-1. **Selecione Reiniciar**e **confirmar reiniciar tudo**.
+1. **Selecione Reiniciar** e **confirmar reiniciar tudo**.
 
 ### <a name="record-broker-ip-addresses-and-zookeeper-addresses-for-primary-cluster"></a>Endereços IP do Corretor de Registos e endereços zookeeper para cluster primário.
 
@@ -249,7 +246,7 @@ Configure a publicidade IP para permitir que um cliente se conecte usando endere
 
         `testtopic`Substitua-o pelo nome do tópico a criar.
 
-    * **Configure o cluster para a criação automática**de tópicos : Esta opção permite ao MirrorMaker criar automaticamente tópicos, no entanto pode criá-los com um número diferente de divisões ou fator de replicação do que o tópico primário.
+    * **Configure o cluster para a criação automática** de tópicos : Esta opção permite ao MirrorMaker criar automaticamente tópicos, no entanto pode criá-los com um número diferente de divisões ou fator de replicação do que o tópico primário.
 
         Para configurar o cluster secundário para criar automaticamente tópicos, execute estes passos:
 
@@ -257,7 +254,7 @@ Configure a publicidade IP para permitir que um cliente se conecte usando endere
         1. Clique **em Serviços**  >  **Kafka**. Clique no **separador Configs.**
         1. No campo __Filtro,__ insira um valor de `auto.create` . Isto filtra a lista de propriedades e apresenta a `auto.create.topics.enable` definição.
         1. Mude o valor de `auto.create.topics.enable` verdade e, em seguida, selecione __Guardar__. Adicione uma nota e, em seguida, __selecione Guardar__ novamente.
-        1. Selecione o serviço __Kafka,__ __selecione Restart__e, em seguida, selecione __Reiniciar todos os afetados__. Quando solicitado, __selecione Confirme reiniciar tudo__.
+        1. Selecione o serviço __Kafka,__ __selecione Restart__ e, em seguida, selecione __Reiniciar todos os afetados__. Quando solicitado, __selecione Confirme reiniciar tudo__.
 
         ![kafka permitir criar automaticamente tópicos](./media/apache-kafka-mirroring/kafka-enable-auto-create-topics.png)
 
@@ -303,7 +300,7 @@ Configure a publicidade IP para permitir que um cliente se conecte usando endere
 
 Os passos neste documento criaram clusters em diferentes grupos de recursos Azure. Para eliminar todos os recursos criados, pode eliminar os dois grupos de recursos criados: **kafka-primary-rg** e **kafka-secondary_rg**. A eliminação dos grupos de recursos remove todos os recursos criados seguindo este documento, incluindo clusters, redes virtuais e contas de armazenamento.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste documento, aprendeu a usar [o MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) para criar uma réplica de um cluster [Apache Kafka.](https://kafka.apache.org/) Use os seguintes links para descobrir outras formas de trabalhar com Kafka:
 

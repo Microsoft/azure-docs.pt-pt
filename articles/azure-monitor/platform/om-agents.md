@@ -1,23 +1,23 @@
 ---
-title: Connect Operations Manager ao Azure Monitor / Microsoft Docs
+title: Connect Operations Manager a Azure Monitor | Microsoft Docs
 description: Para manter o seu investimento existente no System Center Operations Manager e utilizar as capacidades expandidas com o Log Analytics, pode integrar o Operations Manager com a área de trabalho.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2020
-ms.openlocfilehash: 2a4f24da51b9e9e78c3df3e7d1437a380306e300
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 571dcd41da9be578e69d9a8ad40ed05784ae26a8
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95975582"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98941975"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Connect Operations Manager ao Azure Monitor
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Para manter o investimento existente no Gestor de [Operações do System Center](/system-center/scom/key-concepts?view=sc-om-1807) e utilizar capacidades estendidas com o Azure Monitor, pode integrar o Gestor de Operações com o seu espaço de trabalho Log Analytics. Isto permite-lhe aproveitar as oportunidades de registos no Azure Monitor, enquanto continua a utilizar o Gestor de Operações para:
+Para manter o investimento existente no Gestor de [Operações do System Center](/system-center/scom/key-concepts) e utilizar capacidades estendidas com o Azure Monitor, pode integrar o Gestor de Operações com o seu espaço de trabalho Log Analytics. Isto permite-lhe aproveitar as oportunidades de registos no Azure Monitor, enquanto continua a utilizar o Gestor de Operações para:
 
 * Monitorizar o estado de funcionamento dos serviços de TI com o Operations Manager
 * Manter a integração com as soluções ITSM que suportam a gestão de incidentes e problemas
@@ -72,15 +72,15 @@ As informações abaixo listam as informações de configuração de procuraçã
 |Recurso | Número da porta| Inspeção de HTTP Direto|  
 |---------|------|-----------------------|  
 |**Agente**|||  
-|\*.ods.opinsights.azure.com| 443 |Sim|  
-|\*.oms.opinsights.azure.com| 443|Sim|  
-|\*.blob.core.windows.net| 443|Sim|  
-|\*.azure-automation.net| 443|Sim|  
+|\*.ods.opinsights.azure.com| 443 |Yes|  
+|\*.oms.opinsights.azure.com| 443|Yes|  
+|\*.blob.core.windows.net| 443|Yes|  
+|\*.azure-automation.net| 443|Yes|  
 |**Servidor de gestão**|||  
 |\*.service.opinsights.azure.com| 443||  
-|\*.blob.core.windows.net| 443| Sim|  
-|\*.ods.opinsights.azure.com| 443| Sim|  
-|*.azure-automation.net | 443| Sim|  
+|\*.blob.core.windows.net| 443| Yes|  
+|\*.ods.opinsights.azure.com| 443| Yes|  
+|*.azure-automation.net | 443| Yes|  
 |**Consola do Gestor de Operações para o Azure Monitor**|||  
 |service.systemcenteradvisor.com| 443||  
 |\*.service.opinsights.azure.com| 443||  
@@ -342,7 +342,7 @@ No futuro, se planeia reconectar o seu grupo de gestão a um espaço de trabalho
 * No suporte de dados de origem na pasta `\ManagementPacks` do System Center 2016 – Operations Manager e superior.
 * No rollup de atualizações mais recentes aplicado ao grupo de gestão. Para Gestor de Operações 2012, a pasta de origem é `%ProgramFiles%\Microsoft System Center 2012\Operations Manager\Server\Management Packs for Update Rollups` e para 2012 R2, está localizada em `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups` .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para adicionar funcionalidade e recolher dados, consulte [as soluções Add Azure Monitor da Galeria soluções.](../insights/solutions.md)
 

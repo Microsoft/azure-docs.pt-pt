@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 12/16/2019
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bc0caaf30db0384da3fa9c5abea6360206a3fb8e
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: 5194dab21842e47d2bf2445c69ccaeec3cb78e4f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97831980"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943421"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-sdk-for-c"></a>Quickstart: Verifique a ortografia com o SDK de verificação ortográfica de Bing para C #
 
@@ -104,10 +104,10 @@ Para adicionar o Bing Spell Check SDK ao seu projeto, **selecione Gerir pacotes 
 
 Construa e execute o seu projeto. Se estiver a utilizar o Visual Studio, prima **F5** para depurar o ficheiro.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Criar uma aplicação Web de página única](tutorials/spellcheck.md)
 
 - [O que é a API de Verificação Ortográfica do Bing?](overview.md)
-- [Bing Spell Check C# Guia de referência SDK](/dotnet/api/overview/azure/cognitiveservices/bing-spell-check-readme?view=azure-dotnet)
+- [Bing Spell Check C# Guia de referência SDK](/dotnet/api/overview/azure/cognitiveservices/bing-spell-check-readme)

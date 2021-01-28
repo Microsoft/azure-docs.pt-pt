@@ -1,18 +1,15 @@
 ---
 title: Como utilizar a replicação da Colmeia Apache em clusters Azure HDInsight
 description: Aprenda a usar a replicação da Colmeia em clusters HDInsight para replicar a metástore da Colmeia e o lago de dados Azure Data Lake De armazenamento Gen 2.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2020
-ms.openlocfilehash: af74392b3368a25e5d238f774292c80de5f91c65
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3dd894a46b666703f64e44336c0bf022da8a063a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91857746"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98941344"
 ---
 # <a name="how-to-use-apache-hive-replication-in-azure-hdinsight-clusters"></a>Como utilizar a replicação da Colmeia Apache em clusters Azure HDInsight
 
@@ -140,7 +137,7 @@ A replicação incremental segue o mesmo processo, e requer o último ID do even
 
 A replicação é normalmente configurada de uma forma unidirecional entre o primário e o secundário, onde o principal atende a ler e escrever pedidos. O agrupamento secundário serve apenas para ler pedidos. As gravações são permitidas no secundário se houver um desastre, mas a replicação inversa precisa de ser configurada de volta para as primárias.
 
-:::image type="content" source="media/apache-hive-replication/replication-pattern.png" alt-text="Diagrama de replicação da colmeia":::
+:::image type="content" source="media/apache-hive-replication/replication-pattern.png" alt-text="Padrão de replicação da colmeia":::
 
 Existem muitos padrões adequados para a replicação da Colmeia, incluindo Primário – Secundário, Hub e Falado, e Retransmissor.
 
@@ -220,7 +217,7 @@ A seguinte sequência de código fornece um exemplo de como a colocação de bot
    |-|
    |2960|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre os itens discutidos neste artigo, consulte:
 

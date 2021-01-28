@@ -2,19 +2,16 @@
 title: Ambiente interativo PySpark com Ferramentas Azure HDInsight
 description: Aprenda a usar as Ferramentas Azure HDInsight para Código do Estúdio Visual para criar e submeter consultas e scripts.
 keywords: VScode,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Consulta Interativa
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-python
 ms.date: 04/23/2020
-ms.openlocfilehash: 7cf86824bef5b6f521df0f0446d5337e2b7c418a
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 337a9f3f2ea25e5a4d4fa4204a0f3fa4dcc9369b
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130141"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98940644"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>Configurar o ambiente interativo PySpark para o Código do Estúdio Visual
 
@@ -53,7 +50,7 @@ sudo apt-get install python-dev
 
 Reinicie o VSCode e, em seguida, volte ao editor VSCode e execute o comando **Spark: PySPark Interactive.**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 ### <a name="demo"></a>Demonstração
 

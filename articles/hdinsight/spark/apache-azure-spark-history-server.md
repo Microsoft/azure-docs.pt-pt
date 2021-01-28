@@ -1,23 +1,20 @@
 ---
 title: Utilize as funcionalidades estendidas no Apache Spark History Server para depurar aplicações - Azure HDInsight
 description: Utilize as funcionalidades estendidas no Apache Spark History Server para depurar e diagnosticar aplicações Spark - Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/25/2019
-ms.openlocfilehash: d8dd9aaeaadf13fa48577cf2853e7bcf58badb41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d53d9e9ee2a7fa6588ea0993b3bebdb2a287351
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86079297"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98941041"
 ---
 # <a name="use-the-extended-features-of-the-apache-spark-history-server-to-debug-and-diagnose-spark-applications"></a>Utilize as funcionalidades estendidas do Servidor histórico de faíscas Apache para depurar e diagnosticar aplicações Spark
 
-Este artigo mostra-lhe como utilizar as funcionalidades estendidas do Apache Spark History Server para depurar e diagnosticar aplicações Spark completas ou executando. A extensão inclui um separador **de Dados,** um **separador Gráfico** e um separador **de Diagnóstico.** No separador **Dados,** pode verificar os dados de entrada e saída do trabalho Spark. No **separador Gráfico,** pode verificar o fluxo de dados e reproduzir o gráfico de trabalho. No separador **Diagnóstico,** pode consultar as funções **data Skew,** **Time Skew**e **Executor Usage Analysis.**
+Este artigo mostra-lhe como utilizar as funcionalidades estendidas do Apache Spark History Server para depurar e diagnosticar aplicações Spark completas ou executando. A extensão inclui um separador **de Dados,** um **separador Gráfico** e um separador **de Diagnóstico.** No separador **Dados,** pode verificar os dados de entrada e saída do trabalho Spark. No **separador Gráfico,** pode verificar o fluxo de dados e reproduzir o gráfico de trabalho. No separador **Diagnóstico,** pode consultar as funções **data Skew,** **Time Skew** e **Executor Usage Analysis.**
 
 ## <a name="get-access-to-the-spark-history-server"></a>Obtenha acesso ao Servidor histórico de faíscas
 
@@ -42,7 +39,7 @@ A UI web do Spark History Server pode parecer semelhante a esta imagem:
 
 Selecione o ID do trabalho e, em seguida, selecione **Dados** no menu da ferramenta para ver a vista de dados.
 
-+ Rever **Entradas,** **Saídas**e **Operações de Tabela** selecionando os separadores individuais.
++ Rever **Entradas,** **Saídas** e **Operações de Tabela** selecionando os separadores individuais.
 
     ![Separadores de dados na página Data for Spark Application.](./media/apache-azure-spark-history-server/apache-spark-data-tabs.png)
 
@@ -97,7 +94,7 @@ Selecione o ID do trabalho e, em seguida, selecione **Dados** no menu da ferrame
    ![O mapa de calor na página spark Application & Job Graph.](./media/apache-azure-spark-history-server/sparkui-graph-heatmap.png)
 
 
-    |Color |Descrição |
+    |Cor |Descrição |
     |---|---|
     |Green|O trabalho terminou com sucesso.|
     |Laranja|A tarefa falhou, mas isso não afeta o resultado final do trabalho. Estas tarefas duplicaram ou relembrou casos que podem ter sucesso mais tarde.|
@@ -151,9 +148,9 @@ Selecione o ID do trabalho e, em seguida, selecione **Dados** no menu da ferrame
 
 ## <a name="use-the-diagnosis-tab-in-the-spark-history-server"></a>Utilize o separador diagnóstico no Servidor histórico de faíscas
 
-Selecione o ID do trabalho e, em seguida, selecione **Diagnóstico** no menu da ferramenta para ver a vista do diagnóstico de trabalho. O **separador de Diagnóstico** inclui data **skew,** **time skew**e **análise de utilização do executor**.
+Selecione o ID do trabalho e, em seguida, selecione **Diagnóstico** no menu da ferramenta para ver a vista do diagnóstico de trabalho. O **separador de Diagnóstico** inclui data **skew,** **time skew** e **análise de utilização do executor**.
 
-+ Reveja **o distorce de dados,** **o distorcer do tempo**e a análise de **utilização do executor** selecionando os separadores respectivamente.
++ Reveja **o distorce de dados,** **o distorcer do tempo** e a análise de **utilização do executor** selecionando os separadores respectivamente.
 
     ![O separador Data Skew dentro do separador Diagnóstico.](./media/apache-azure-spark-history-server/sparkui-diagnosis-tabs.png)
 
@@ -193,7 +190,7 @@ Quando selecionar **o Distorcer de Tempo,** o resultado filtrado aparece na sec�
 
 O **Gráfico de Utilização do Executor** apresenta a atribuição e o estado de execução do executor real do trabalho.  
 
-Quando seleciona **a Análise de Utilização do Executor,** são redigidas quatro curvas diferentes sobre a utilização do executor: **Executores Alocados,** **Executores em Execução,** **Executores inativos**e **Max Executor Instances**. Cada **executor adicionado** ou **executor removido** evento aumentará ou diminuirá os executores atribuídos. Pode consultar a **Timeline do Evento** no separador **Jobs** para obter mais comparações.
+Quando seleciona **a Análise de Utilização do Executor,** são redigidas quatro curvas diferentes sobre a utilização do executor: **Executores Alocados,** **Executores em Execução,** **Executores inativos** e **Max Executor Instances**. Cada **executor adicionado** ou **executor removido** evento aumentará ou diminuirá os executores atribuídos. Pode consultar a **Timeline do Evento** no separador **Jobs** para obter mais comparações.
 
 ![O separador de Análise de Utilização do Executor dentro do separador Diagnóstico.](./media/apache-azure-spark-history-server/sparkui-diagnosis-executors.png)
 
@@ -221,7 +218,7 @@ Para voltar à versão comunitária, faça os seguintes passos.
 
     ![A vista sumária em Apache Ambari.](./media/apache-azure-spark-history-server/apache-spark-restart1.png)
 
-1. Para reiniciar o Servidor histórico de faíscas, selecione o botão **Iniciar** para a direita do **Spark2 History Server**e, em seguida, selecione **Restart** a partir do menu suspenso.
+1. Para reiniciar o Servidor histórico de faíscas, selecione o botão **Iniciar** para a direita do **Spark2 History Server** e, em seguida, selecione **Restart** a partir do menu suspenso.
 
     ![Reinicie o Servidor histórico de faíscas em Apache Ambari.](./media/apache-azure-spark-history-server/apache-spark-restart2.png)  
 
@@ -310,7 +307,7 @@ Se quiser atualizar com um hotfix, utilize o seguinte script, que irá atualizar
     |Propriedade |Valor |
     |---|---|
     |Tipo de script|- Personalizado|
-    |Nome|UpgradeJar|
+    |Name|UpgradeJar|
     |URI de guião de bash|`https://hdinsighttoolingstorage.blob.core.windows.net/shsscriptactions/upgrade_spark_enhancement.sh`|
     |Tipo de nó(s)|Cabeça, Trabalhador|
     |Parâmetros|`https://${account_name}.blob.core.windows.net/packages/jars/spark-enhancement-${version}.jar`|
@@ -323,7 +320,7 @@ Se quiser atualizar com um hotfix, utilize o seguinte script, que irá atualizar
 
 + Os dados de entrada e saída que utilizem RDD não serão apresentados no separador **Dados.**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 + [Gerir recursos para um cluster Apache Spark em HDInsight](apache-spark-resource-manager.md)
 + [Configurar as definições do Apache Spark](apache-spark-settings.md)

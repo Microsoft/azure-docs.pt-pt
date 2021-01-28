@@ -1,19 +1,16 @@
 ---
 title: Analisar registos de Insight de Aplicação com Spark - Azure HDInsight
 description: Aprenda a exportar registos de Insight de aplicação para armazenamento de bolhas e, em seguida, analise os registos com Spark on HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
-ms.openlocfilehash: 1ddf2b6879d8d33f99281daba6fb1040e24a37af
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fbca4b23b6fc414727ea1b5a4012d2847d6b8d78
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86078804"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98940465"
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-apache-spark-on-hdinsight"></a>Analisar registos de telemetria de Insights de Aplicação com Faísca Apache em HDInsight
 
@@ -371,7 +368,7 @@ Para adicionar a Conta de Armazenamento Azure a um cluster existente, utilize as
     +---------+
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais exemplos de utilização da Apache Spark para trabalhar com dados e serviços em Azure, consulte os seguintes documentos:
 

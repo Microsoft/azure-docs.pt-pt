@@ -1,19 +1,16 @@
 ---
 title: 'Quickstart: Apache Hive in Azure HDInsight with Apache Zeppelin'
 description: Neste arranque rápido, aprende-se a usar o Apache Zeppelin para executar consultas de Colmeia Apache.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: hdinsightactive
 ms.date: 12/03/2019
-ms.openlocfilehash: 49b576fd511d17616880e5d981fd3f649de797df
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1199fee82532eacf1f0ef41b877b970d7d9f2cf5
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "79367929"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98941065"
 ---
 # <a name="quickstart-execute-apache-hive-queries-in-azure-hdinsight-with-apache-zeppelin"></a>Quickstart: Execute consultas apache hive em Azure HDInsight com Apache Zeppelin
 
@@ -108,13 +105,13 @@ Um cluster de consulta interativa HDInsight. Consulte [criar cluster](../hadoop/
 
 Reveja o [manual de linguagem Hive](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) para obter sintaxe adicional.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Depois de completar o arranque rápido, é possível que queira eliminar o cluster. Com o HDInsight, os seus dados são armazenados no Azure Storage, para que possa eliminar com segurança um cluster quando este não estiver a ser utilizado. Também é cobrado por um cluster HDInsight, mesmo quando não está a ser utilizado. Uma vez que as taxas para o cluster são muitas vezes mais do que os encargos de armazenamento, faz sentido económico apagar clusters quando não estão a ser utilizados.
 
 Para eliminar um cluster, consulte [Eliminar um cluster HDInsight utilizando o seu navegador, PowerShell ou o Azure CLI](../hdinsight-delete-cluster.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste quickstart, você aprendeu a usar Apache Zeppelin para executar consultas apache Hive em Azure HDInsight. Para saber mais sobre as consultas da Hive, o próximo artigo irá mostrar-lhe como executar consultas com o Visual Studio.
 

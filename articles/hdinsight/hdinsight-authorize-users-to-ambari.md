@@ -1,19 +1,16 @@
 ---
 title: Autorizar utilizadores para vistas Ambari - Azure HDInsight
 description: Como gerir permissões de utilizador e grupo Ambari para clusters HDInsight com ESP ativados.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: b1cd6d93ff45d7fb40ae7ca1874343486bd0b8cb
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 0b6d4dacf43d80f371a2a4d286af1972198c3be3
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547933"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942702"
 ---
 # <a name="authorize-users-for-apache-ambari-views"></a>Autorizar utilizadores para as Vistas do Apache Ambari
 
@@ -40,9 +37,9 @@ Para chegar à **página de gestão Ambari** no [Apache Ambari Web UI,](hdinsigh
 
     ![Utilizadores da página de gestão Apache Ambari](./media/hdinsight-authorize-users-to-ambari/apache-ambari-management-page-users.png)
 
-1. Selecione **+ Criar Utilizador Local** .
+1. Selecione **+ Criar Utilizador Local**.
 
-1. Fornecer **nome de utilizador** e **senha** . Selecione **guardar** .
+1. Fornecer **nome de utilizador** e **senha**. Selecione **guardar**.
 
 ### <a name="add-users-through-powershell"></a>Adicionar utilizadores através do PowerShell
 
@@ -191,14 +188,14 @@ Ambari vem com exemplos de visualização para [Apache Hive](https://hive.apache
 
    * Selecione ou termine a dactilografia, o nome de utilizador. Para adicionar este nome de utilizador como um novo utilizador, selecione o botão **Novo.**
 
-   * Para guardar as alterações, selecione a **caixa de verificação azul** .
+   * Para guardar as alterações, selecione a **caixa de verificação azul**.
 
      ![Apache Ambari concede permissões aos utilizadores](./media/hdinsight-authorize-users-to-ambari/user-entered-permissions.png)
 
 1. Para adicionar um grupo, selecione o botão **Adicionar Grupo.**
 
    * Comece a escrever o nome do grupo. O processo de seleção de um nome de grupo existente, ou a adição de um novo grupo, é o mesmo que para adicionar utilizadores.
-   * Para guardar as alterações, selecione a **caixa de verificação azul** .
+   * Para guardar as alterações, selecione a **caixa de verificação azul**.
 
      ![Apache Ambari concede permissões](./media/hdinsight-authorize-users-to-ambari/ambari-group-entered.png)
 
@@ -266,7 +263,7 @@ Atribuímos o nosso utilizador de domínio Azure AD "hiveuser2" à função *de 
 
 ![Ecrã do painel Apache Ambari](./media/hdinsight-authorize-users-to-ambari/user-cluster-user-role.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Configure as políticas da Colmeia Apache em HDInsight com ESP](./domain-joined/apache-domain-joined-run-hive.md)
 * [Gerir clusters ESP HDInsight](./domain-joined/apache-domain-joined-manage.md)
