@@ -9,12 +9,12 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
-ms.openlocfilehash: fc4830e89d71c387afc1c7bc7fbc81608dfeb592
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 7f1fe99cab46f8d3b87a5c1ef8397cf5f305b11c
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98109304"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98948333"
 ---
 <a name="HOLTop"></a>
 
@@ -76,9 +76,9 @@ As seguintes classes e interfaces lidam com algumas das principais característi
 
 |Nome|Descrição|
 |---|---|
-|[ComputerVisionClientOperationsMixin](/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.operations.computervisionclientoperationsmixin?view=azure-python)| Esta classe lida diretamente com todas as operações de imagem, tais como análise de imagem, deteção de texto e geração de miniaturas.|
-| [ComputadorVisionClient](/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python) | Esta classe é necessária para todas as funcionalidades de Visão de Computador. Você instantanea-o com as suas informações de subscrição, e você usá-lo para produzir instâncias de outras classes. Implementa **ComputerVisionClientOperationsMixin.**|
-|[VisualFeatureTypes](/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.models.visualfeaturetypes?view=azure-python)| Este enum define os diferentes tipos de análise de imagem que podem ser feitos numa operação de Análise padrão. Especifica um conjunto de **valores VisualFeatureTypes** dependendo das suas necessidades. |
+|[ComputerVisionClientOperationsMixin](/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.operations.computervisionclientoperationsmixin)| Esta classe lida diretamente com todas as operações de imagem, tais como análise de imagem, deteção de texto e geração de miniaturas.|
+| [ComputadorVisionClient](/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient) | Esta classe é necessária para todas as funcionalidades de Visão de Computador. Você instantanea-o com as suas informações de subscrição, e você usá-lo para produzir instâncias de outras classes. Implementa **ComputerVisionClientOperationsMixin.**|
+|[VisualFeatureTypes](/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.models.visualfeaturetypes)| Este enum define os diferentes tipos de análise de imagem que podem ser feitos numa operação de Análise padrão. Especifica um conjunto de **valores VisualFeatureTypes** dependendo das suas necessidades. |
 
 ## <a name="code-examples"></a>Exemplos de código
 
@@ -90,7 +90,7 @@ Estes snippets de código mostram-lhe como fazer as seguintes tarefas com a bibl
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
-Instantiar um cliente com o seu ponto final e chave. Crie um objeto [CognitiveServicesCredentials](/python/api/msrest/msrest.authentication.cognitiveservicescredentials?view=azure-python) com a sua chave e use-o com o seu ponto final para criar um objeto [ComputerVisionClient.](/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python)
+Instantiar um cliente com o seu ponto final e chave. Crie um objeto [CognitiveServicesCredentials](/python/api/msrest/msrest.authentication.cognitiveservicescredentials) com a sua chave e use-o com o seu ponto final para criar um objeto [ComputerVisionClient.](/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient)
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_client)]
 
@@ -104,7 +104,7 @@ Use o seu objeto cliente para analisar as características visuais de uma imagem
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_remoteimage)]
 
 > [!TIP]
-> Também pode analisar uma imagem local. Consulte os [métodos ComputerVisionClientOperationsMixin,](/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.operations.computervisionclientoperationsmixin?view=azure-python) tais como **analyze_image_in_stream**. Ou, consulte o código de amostra no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ComputerVisionQuickstart.py) para cenários que envolvam imagens locais.
+> Também pode analisar uma imagem local. Consulte os [métodos ComputerVisionClientOperationsMixin,](/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.operations.computervisionclientoperationsmixin) tais como **analyze_image_in_stream**. Ou, consulte o código de amostra no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ComputerVisionQuickstart.py) para cenários que envolvam imagens locais.
 
 ### <a name="get-image-description"></a>Obtenha a descrição da imagem
 
@@ -186,7 +186,7 @@ Em primeiro lugar, utilize o seguinte código para ligar para o método **de lei
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_read_call)]
 
 > [!TIP]
-> Também pode ler texto a partir de uma imagem local. Consulte os [métodos ComputerVisionClientOperationsMixin,](/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.operations.computervisionclientoperationsmixin?view=azure-python) tais como **read_in_stream**. Ou, consulte o código de amostra no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ComputerVisionQuickstart.py) para cenários que envolvam imagens locais.
+> Também pode ler texto a partir de uma imagem local. Consulte os [métodos ComputerVisionClientOperationsMixin,](/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.operations.computervisionclientoperationsmixin) tais como **read_in_stream**. Ou, consulte o código de amostra no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ComputerVisionQuickstart.py) para cenários que envolvam imagens locais.
 
 ### <a name="get-read-results"></a>Obter resultados de Leitura
 
@@ -208,7 +208,7 @@ python quickstart-file.py
 > [!div class="nextstepaction"]
 > [Corri o requerimento](?success=run-the-application#clean-up-resources) [que encontrei.](https://www.research.net/r/7QYZKHL?issue=run-the-application)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados.
 
@@ -218,7 +218,7 @@ Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode el
 > [!div class="nextstepaction"]
 > [Limpei os recursos](?success=clean-up-resources#next-steps) [que encontrei num problema.](https://www.research.net/r/7QYZKHL?issue=clean-up-resources)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido, aprendeu a usar a biblioteca de Visão de Computador para Python para fazer tarefas de base. Em seguida, explore a documentação de referência para saber mais sobre a biblioteca.
 

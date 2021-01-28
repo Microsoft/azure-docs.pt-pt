@@ -8,19 +8,19 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/27/2020
 ms.author: aahi
-ms.openlocfilehash: 82ceb5b45a2c2bfe754995d3c1b39e46181830ae
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: 70f97b73b5cc6a06caf8f1dac4dec61b6ad6de29
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97844800"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98948201"
 ---
 Começa com a biblioteca de clientes Bing Custom Search para C#. Siga estes passos para instalar a embalagem e experimente o código de exemplo para tarefas básicas. A API de Pesquisa Personalizada Bing permite-lhe criar experiências de pesquisa personalizadas e sem anúncios para tópicos que lhe interessam. O código-fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingCustomWebSearch).
 
 Utilize a biblioteca de clientes Bing Custom Search para C# para:
 * Encontre os resultados da pesquisa na web, a partir da sua instância de Pesquisa Personalizada Bing.
 
-[Documentação de referência](/dotnet/api/overview/azure/cognitiveservices/bing-custom-search-readme?view=azure-dotnet)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingCustomSearch)  |  [Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0)  |  [Amostras](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples)
+[Documentação de referência](/dotnet/api/overview/azure/cognitiveservices/bing-custom-search-readme)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingCustomSearch)  |  [Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0)  |  [Amostras](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples)
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -88,7 +88,7 @@ Utilize a biblioteca de clientes Bing Custom Search para C# para:
     }
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Construa um aplicativo web de pesquisa personalizada](../../tutorials/custom-search-web-page.md)

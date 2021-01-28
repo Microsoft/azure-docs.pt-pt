@@ -2,19 +2,16 @@
 title: Configurar clusters para integração do Azure Ative Directory
 titleSuffix: Azure HDInsight
 description: Aprenda a configurar e configurar um cluster HDInsight integrado com o Ative Directory utilizando os Serviços de Domínio do Diretório Ativo Azure e a funcionalidade Pacote de Segurança Empresarial.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seodec18,seoapr2020, contperf-fy21q2
 ms.date: 10/30/2020
-ms.openlocfilehash: c5c5db892f417f2e2ef3fde3535d806d39342327
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 15869a547ec5debee939c956d7495bfa58357555
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97631555"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946916"
 ---
 # <a name="configure-hdinsight-clusters-for-azure-active-directory-integration-with-enterprise-security-package"></a>Configurar clusters HDInsight para integração do Azure Ative Directory com pacote de segurança empresarial
 
@@ -147,7 +144,7 @@ A identidade gerida que criou pode ser escolhida a partir da lista de abandono d
 
 ![Azure HDInsight ESP Ative Directory Domain Services geriu identidade](./media/apache-domain-joined-configure-using-azure-adds/azure-portal-cluster-security-networking-identity.png).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para configurar as políticas de Colmeia e executar consultas de Colmeia, consulte [as políticas de colmeia Apache configuradas para clusters HDInsight com ESP](apache-domain-joined-run-hive.md).
 * Para utilizar o SSH para ligar aos clusters HDInsight com ESP, consulte [Use SSH com Apache Hadoop baseado em Linux em HDInsight de Linux, Unix ou OS X](../hdinsight-hadoop-linux-use-ssh-unix.md#authentication-domain-joined-hdinsight).

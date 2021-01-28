@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/14/2020
 ms.author: nitinme
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: cef5aaae58797e38745b3f5164c171581a005562
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 080b9dac8dad099f2901f2b820da58501310471b
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94371895"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98947823"
 ---
 [O Immersive Reader](https://www.onenote.com/learningtools) é uma ferramenta inclusivamente concebida que implementa técnicas comprovadas para melhorar a compreensão da leitura para novos leitores, aprendizes de línguas e pessoas com diferenças de aprendizagem como a dislexia. Pode utilizar o Leitor Imersivo nas suas aplicações para isolar texto para melhorar o foco, exibir imagens para palavras comumente usadas, destacar partes da fala, ler texto selecionado em voz alta, traduzir palavras e frases em tempo real, e muito mais.
 
@@ -42,7 +42,7 @@ Crie um novo projeto no Visual Studio, utilizando o modelo de aplicação web co
 
 ### <a name="configure-authentication-values"></a>Configurar valores de autenticação
 
-Clique com o botão direito no projeto no _Solution Explorer_ e escolha Gerir **os Segredos do Utilizador.** Isto abrirá um ficheiro chamado _secrets.js._ Este ficheiro não é controlado pelo controlo de fontes. Sabia mais [aqui](/aspnet/core/security/app-secrets?preserve-view=true&tabs=windows&view=aspnetcore-3.1). Substitua o conteúdo de _secrets.js_ pelo seguinte, fornecendo os valores dados quando criou o seu recurso Leitor Imersivo.
+Clique com o botão direito no projeto no _Solution Explorer_ e escolha Gerir **os Segredos do Utilizador.** Isto abrirá um ficheiro chamado _secrets.js._ Este ficheiro não é controlado pelo controlo de fontes. Saiba mais [aqui.](/aspnet/core/security/app-secrets?tabs=windows) Substitua o conteúdo de _secrets.js_ pelo seguinte, fornecendo os valores dados quando criou o seu recurso Leitor Imersivo.
 
 ```json
 {
@@ -65,7 +65,7 @@ Abra a consola NuGet Package Manager a partir de **Ferramentas -> NuGet Package 
 
 ### <a name="update-the-controller-to-acquire-the-token"></a>Atualizar o controlador para adquirir o token 
 
-Abra _os controladores\HomeController.cs_ , e adicione o seguinte código após a _utilização_ das declarações na parte superior do ficheiro.
+Abra _os controladores\HomeController.cs_, e adicione o seguinte código após as declarações _de utilização_ na parte superior do ficheiro.
 
 ```csharp
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
@@ -218,7 +218,7 @@ Note que todo o texto tem um atributo **lang,** que descreve as línguas do text
 
 ## <a name="add-javascript-to-handle-launching-immersive-reader"></a>Adicione JavaScript para lidar com o lançamento do Leitor Imersivo
 
-A biblioteca Immersive Reader fornece funcionalidades como o lançamento do Leitor Imersivo e a renderização de botões imersivos reader. Sabia mais [aqui](../../reference.md).
+A biblioteca Immersive Reader fornece funcionalidades como o lançamento do Leitor Imersivo e a renderização de botões imersivos reader. Saiba mais [aqui.](../../reference.md)
 
 Na parte inferior do _Views\Home\Index.cshtml,_ adicione o seguinte código:
 
@@ -292,7 +292,7 @@ Na parte inferior do _Views\Home\Index.cshtml,_ adicione o seguinte código:
 
 ## <a name="build-and-run-the-app"></a>Compilar e executar a aplicação
 
-A partir da barra de menus, selecione **Debug > Start Debugging** , ou prima **F5** para iniciar a aplicação.
+A partir da barra de menus, selecione **Debug > Start Debugging**, ou prima **F5** para iniciar a aplicação.
 
 No seu navegador, deverá ver:
 
@@ -304,6 +304,6 @@ Ao clicar no botão "Leitor Imersivo", verá o Leitor Imersivo lançado com o co
 
 ![Leitor Imersivo - C #](../../media/quickstart-csharp/5-viewimmersivereader.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Explore o [SDK do leitor imersivo](https://github.com/microsoft/immersive-reader-sdk) e a [referência SDK do leitor imersivo](../../reference.md)

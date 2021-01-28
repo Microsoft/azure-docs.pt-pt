@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 8ca42367db5607faedb4497f0a0fb0ca160464bc
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: a4d29dfb2a57dde2bb21244b2e5335f1a8ea1fcf
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98698027"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98947760"
 ---
 > [!IMPORTANT]
 > * O código deste artigo utiliza métodos sincronizados e armazenamento de credenciais não garantidos por razões de simplicidade. Consulte a documentação de referência abaixo. 
@@ -134,7 +134,7 @@ Pode utilizar o Form Recogniser para reconhecer tabelas, linhas e palavras em do
 
 
 > [!TIP]
-> Também pode obter conteúdo de um ficheiro local. Consulte os métodos [FormRecognizerClient,](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient?view=azure-node-latest) tais como **startRecognizeContent**. Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) para cenários que envolvam imagens locais.
+> Também pode obter conteúdo de um ficheiro local. Consulte os métodos [FormRecognizerClient,](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient) tais como **startRecognizeContent**. Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) para cenários que envolvam imagens locais.
 
 ### <a name="output"></a>Saída
 
@@ -161,7 +161,7 @@ Para reconhecer os recibos de um URI, utilize o `beginRecognizeReceiptsFromUrl` 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_receipts)]
 
 > [!TIP]
-> Também pode reconhecer imagens de recibo local. Consulte os métodos [FormRecognizerClient,](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient?view=azure-node-latest) tais como **startRecognizeReceipts**. Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) para cenários que envolvam imagens locais.
+> Também pode reconhecer imagens de recibo local. Consulte os métodos [FormRecognizerClient,](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient) tais como **startRecognizeReceipts**. Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) para cenários que envolvam imagens locais.
 
 ### <a name="output"></a>Saída
 
@@ -281,7 +281,7 @@ Vais usar o `beginRecognizeCustomFormsFromUrl` método. O valor devolvido é uma
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_analyze)]
 
 > [!TIP]
-> Também pode analisar ficheiros locais. Consulte os métodos [FormRecognizerClient,](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient?view=azure-node-latest) tais como **startRecognizeCustomForms**. Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) para cenários que envolvam imagens locais.
+> Também pode analisar ficheiros locais. Consulte os métodos [FormRecognizerClient,](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient) tais como **startRecognizeCustomForms**. Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) para cenários que envolvam imagens locais.
 
 
 ### <a name="output"></a>Saída
@@ -435,14 +435,14 @@ export DEBUG=azure*
 
 Para obter instruções mais detalhadas sobre como ativar os registos, consulte os [ @azure/logger documentos de embalagem](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/core/logger).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido, usou a biblioteca de clientes Do Reconhecimento de Formulários JavaScript para treinar modelos e analisar formas de diferentes maneiras. Em seguida, aprenda dicas para criar um melhor conjunto de dados de treino e produzir modelos mais precisos.
 
 > [!div class="nextstepaction"]
 > [Criar um conjunto de dados de preparação](../../build-training-data-set.md)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 * [O que é o Reconhecedor de Formato?](../../overview.md)
 * O código de amostra deste guia pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/FormRecognizer/FormRecognizerQuickstart.js).

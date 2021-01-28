@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 10/07/2020
 ms.author: v-jawe
 ms.custom: references_regions
-ms.openlocfilehash: a8a34a483390e12ba49123e26d2071d3aa667c89
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 08e4dbb4d16317efe33b308474ce5c32a7c47862
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94424755"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98947902"
 ---
 Neste arranque rápido, você aprende padrões básicos de design para reconhecimento de alto-falante usando o SDK do discurso, incluindo:
 
@@ -84,7 +84,7 @@ Adicione a seguinte função de ajudante para ler ficheiros de áudio em streams
 
 :::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/speech/speaker-recognition.js" id="helpers":::
 
-Nesta função, utiliza os métodos [AudioInputStream.createPushStream](/javascript/api/microsoft-cognitiveservices-speech-sdk/audioinputstream?preserve-view=true&view=azure-node-latest#createpushstream-audiostreamformat-) e [AudioConfig.fromStreamInput](/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?preserve-view=true&view=azure-node-latest#fromstreaminput-audioinputstream---pullaudioinputstreamcallback-) para criar um objeto [AudioConfig.](/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?preserve-view=true&view=azure-node-latest) Este `AudioConfig` objeto representa um fluxo de áudio. Utilizará vários `AudioConfig` destes objetos durante as seguintes tarefas.
+Nesta função, utiliza os métodos [AudioInputStream.createPushStream](/javascript/api/microsoft-cognitiveservices-speech-sdk/audioinputstream#createpushstream-audiostreamformat-) e [AudioConfig.fromStreamInput](/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig#fromstreaminput-audioinputstream---pullaudioinputstreamcallback-) para criar um objeto [AudioConfig.](/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig) Este `AudioConfig` objeto representa um fluxo de áudio. Utilizará vários `AudioConfig` destes objetos durante as seguintes tarefas.
 
 ## <a name="text-dependent-verification"></a>Verificação dependente de texto
 
@@ -96,7 +96,7 @@ Comece por criar a `TextDependentVerification` função.
 
 :::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/speech/speaker-recognition.js" id="text_dependent_verification":::
 
-Esta função cria um objeto [VoiceProfile](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofile?preserve-view=true&view=azure-node-latest) com o método [VoiceProfileClient.createProfileAsync.](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient?preserve-view=true&view=azure-node-latest#createprofileasync-voiceprofiletype--string---e--voiceprofile-----void---e--string-----void-) Note que existem três [tipos](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofiletype?preserve-view=true&view=azure-node-latest) `VoiceProfile` de:
+Esta função cria um objeto [VoiceProfile](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofile) com o método [VoiceProfileClient.createProfileAsync.](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient#createprofileasync-voiceprofiletype--string---e--voiceprofile-----void---e--string-----void-) Note que existem três [tipos](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofiletype) `VoiceProfile` de:
 
 - Identificação de textos
 - TextDependentVerification
@@ -104,7 +104,7 @@ Esta função cria um objeto [VoiceProfile](/javascript/api/microsoft-cognitives
 
 Neste caso, passa-se `VoiceProfileType.TextDependentVerification` `VoiceProfileClient.createProfileAsync` para.
 
-Em seguida, ligue para duas funções de ajudante que definirá a seguir, `AddEnrollmentsToTextDependentProfile` e `SpeakerVerify` . Por fim, ligue para [VoiceProfileClient.deleteProfileAsync](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient?preserve-view=true&view=azure-node-latest#deleteprofileasync-voiceprofile---response--voiceprofileresult-----void---e--string-----void-) para remover o perfil.
+Em seguida, ligue para duas funções de ajudante que definirá a seguir, `AddEnrollmentsToTextDependentProfile` e `SpeakerVerify` . Por fim, ligue para [VoiceProfileClient.deleteProfileAsync](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient#deleteprofileasync-voiceprofile---response--voiceprofileresult-----void---e--string-----void-) para remover o perfil.
 
 ### <a name="addenrollmentstotextdependentprofile-function"></a>Função AddEnrollmentsToTextDependentProfile
 
@@ -112,7 +112,7 @@ Defina a seguinte função para inscrever um perfil de voz.
 
 :::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/speech/speaker-recognition.js" id="add_enrollments_dependent":::
 
-Nesta função, você chama a `GetAudioConfigFromFile` função que definiu anteriormente para criar `AudioConfig` objetos a partir de amostras de áudio. Estas amostras de áudio contêm uma frase como "A minha voz é o meu passaporte, verifica-me." Em seguida, inscreva estas amostras de áudio utilizando o método [VoiceProfileClient.enrollProfileAsync.](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient?preserve-view=true&view=azure-node-latest#enrollprofileasync-voiceprofile--audioconfig---e--voiceprofileenrollmentresult-----void---e--string-----void-)
+Nesta função, você chama a `GetAudioConfigFromFile` função que definiu anteriormente para criar `AudioConfig` objetos a partir de amostras de áudio. Estas amostras de áudio contêm uma frase como "A minha voz é o meu passaporte, verifica-me." Em seguida, inscreva estas amostras de áudio utilizando o método [VoiceProfileClient.enrollProfileAsync.](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient#enrollprofileasync-voiceprofile--audioconfig---e--voiceprofileenrollmentresult-----void---e--string-----void-)
 
 ### <a name="speakerverify-function"></a>Função SpeakerVerify
 
@@ -120,9 +120,9 @@ Defina `SpeakerVerify` o seguinte.
 
 :::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/speech/speaker-recognition.js" id="speaker_verify":::
 
-Nesta função, cria-se um objeto [SpeakerVerificationModel](/javascript/api/microsoft-cognitiveservices-speech-sdk/speakerverificationmodel?preserve-view=true&view=azure-node-latest) com o método [SpeakerVerificationModel.FromProfile,](/javascript/api/microsoft-cognitiveservices-speech-sdk/speakerverificationmodel?preserve-view=true&view=azure-node-latest#fromprofile-voiceprofile-) passando no objeto [VoiceProfile](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofile?preserve-view=true&view=azure-node-latest) que criou anteriormente.
+Nesta função, cria-se um objeto [SpeakerVerificationModel](/javascript/api/microsoft-cognitiveservices-speech-sdk/speakerverificationmodel) com o método [SpeakerVerificationModel.FromProfile,](/javascript/api/microsoft-cognitiveservices-speech-sdk/speakerverificationmodel#fromprofile-voiceprofile-) passando no objeto [VoiceProfile](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofile) que criou anteriormente.
 
-Em seguida, ligue para o método [SpeechRecognizer.recogniseOnceAsync](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?preserve-view=true&view=azure-node-latest#recognizeonceasync--e--speechrecognitionresult-----void---e--string-----void-) para validar uma amostra de áudio que contenha a mesma frase de passe que as amostras de áudio que inscreveu anteriormente. `SpeechRecognizer.recognizeOnceAsync` retorna um objeto [SpeakerRecognitionResult,](/javascript/api/microsoft-cognitiveservices-speech-sdk/speakerrecognitionresult?preserve-view=true&view=azure-node-latest) cuja `score` propriedade contém uma pontuação de semelhança que varia entre 0.0 e 1.0. O `SpeakerRecognitionResult` objeto também contém uma propriedade do tipo `reason` [ResultReason.](/javascript/api/microsoft-cognitiveservices-speech-sdk/resultreason?preserve-view=true&view=azure-node-latest) Se a verificação foi bem sucedida, a `reason` propriedade deve ter `RecognizedSpeaker` valor.
+Em seguida, ligue para o método [SpeechRecognizer.recogniseOnceAsync](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer#recognizeonceasync--e--speechrecognitionresult-----void---e--string-----void-) para validar uma amostra de áudio que contenha a mesma frase de passe que as amostras de áudio que inscreveu anteriormente. `SpeechRecognizer.recognizeOnceAsync` retorna um objeto [SpeakerRecognitionResult,](/javascript/api/microsoft-cognitiveservices-speech-sdk/speakerrecognitionresult) cuja `score` propriedade contém uma pontuação de semelhança que varia entre 0.0 e 1.0. O `SpeakerRecognitionResult` objeto também contém uma propriedade do tipo `reason` [ResultReason.](/javascript/api/microsoft-cognitiveservices-speech-sdk/resultreason) Se a verificação foi bem sucedida, a `reason` propriedade deve ter `RecognizedSpeaker` valor.
 
 ## <a name="text-independent-verification"></a>Verificação independente de texto
 
@@ -137,11 +137,11 @@ Comece por criar a `TextIndependentVerification` função.
 
 :::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/speech/speaker-recognition.js" id="text_independent_verification":::
 
-Tal como a `TextDependentVerification` função, esta função cria um objeto [VoiceProfile](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofile?preserve-view=true&view=azure-node-latest) com o método [VoiceProfileClient.createProfileAsync.](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient?preserve-view=true&view=azure-node-latest#createprofileasync-voiceprofiletype--string---e--voiceprofile-----void---e--string-----void-)
+Tal como a `TextDependentVerification` função, esta função cria um objeto [VoiceProfile](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofile) com o método [VoiceProfileClient.createProfileAsync.](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient#createprofileasync-voiceprofiletype--string---e--voiceprofile-----void---e--string-----void-)
 
 Neste caso, passa-se `VoiceProfileType.TextIndependentVerification` `createProfileAsync` para.
 
-Em seguida, chama duas funções de ajudante: `AddEnrollmentsToTextIndependentProfile` que definirá a seguir, e `SpeakerVerify` que já definiu. Por fim, ligue para [VoiceProfileClient.deleteProfileAsync](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient?preserve-view=true&view=azure-node-latest#deleteprofileasync-voiceprofile---response--voiceprofileresult-----void---e--string-----void-) para remover o perfil.
+Em seguida, chama duas funções de ajudante: `AddEnrollmentsToTextIndependentProfile` que definirá a seguir, e `SpeakerVerify` que já definiu. Por fim, ligue para [VoiceProfileClient.deleteProfileAsync](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient#deleteprofileasync-voiceprofile---response--voiceprofileresult-----void---e--string-----void-) para remover o perfil.
 
 ### <a name="addenrollmentstotextindependentprofile"></a>AddEnrollmentsToTextIndependentProfile
 
@@ -149,7 +149,7 @@ Defina a seguinte função para inscrever um perfil de voz.
 
 :::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/speech/speaker-recognition.js" id="add_enrollments_independent":::
 
-Nesta função, você chama a `GetAudioConfigFromFile` função que definiu anteriormente para criar `AudioConfig` objetos a partir de amostras de áudio. Em seguida, inscreva estas amostras de áudio utilizando o método [VoiceProfileClient.enrollProfileAsync.](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient?preserve-view=true&view=azure-node-latest#enrollprofileasync-voiceprofile--audioconfig---e--voiceprofileenrollmentresult-----void---e--string-----void-)
+Nesta função, você chama a `GetAudioConfigFromFile` função que definiu anteriormente para criar `AudioConfig` objetos a partir de amostras de áudio. Em seguida, inscreva estas amostras de áudio utilizando o método [VoiceProfileClient.enrollProfileAsync.](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient#enrollprofileasync-voiceprofile--audioconfig---e--voiceprofileenrollmentresult-----void---e--string-----void-)
 
 ## <a name="speaker-identification"></a>Identificação de orador
 
@@ -161,11 +161,11 @@ Comece por criar a `TextIndependentIdentification` função.
 
 :::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/speech/speaker-recognition.js" id="text_independent_indentification":::
 
-Tal como as `TextDependentVerification` `TextIndependentVerification` funções, esta função cria um objeto [VoiceProfile](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofile?preserve-view=true&view=azure-node-latest) com o método [VoiceProfileClient.createProfileAsync.](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient?preserve-view=true&view=azure-node-latest#createprofileasync-voiceprofiletype--string---e--voiceprofile-----void---e--string-----void-)
+Tal como as `TextDependentVerification` `TextIndependentVerification` funções, esta função cria um objeto [VoiceProfile](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofile) com o método [VoiceProfileClient.createProfileAsync.](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient#createprofileasync-voiceprofiletype--string---e--voiceprofile-----void---e--string-----void-)
 
 Neste caso, passa-se `VoiceProfileType.TextIndependentIdentification` `VoiceProfileClient.createProfileAsync` para.
 
-Em seguida, chama duas funções de ajudante: `AddEnrollmentsToTextIndependentProfile` que já definiu, e `SpeakerIdentify` , que definirá a seguir. Por fim, ligue para [VoiceProfileClient.deleteProfileAsync](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient?preserve-view=true&view=azure-node-latest#deleteprofileasync-voiceprofile---response--voiceprofileresult-----void---e--string-----void-) para remover o perfil.
+Em seguida, chama duas funções de ajudante: `AddEnrollmentsToTextIndependentProfile` que já definiu, e `SpeakerIdentify` , que definirá a seguir. Por fim, ligue para [VoiceProfileClient.deleteProfileAsync](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient#deleteprofileasync-voiceprofile---response--voiceprofileresult-----void---e--string-----void-) para remover o perfil.
 
 ### <a name="speakeridentify-function"></a>Função de identificação de altifalantes
 
@@ -173,10 +173,10 @@ Defina a `SpeakerIdentify` função da seguinte forma.
 
 :::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/speech/speaker-recognition.js" id="speaker_identify":::
 
-Nesta função, cria-se um objeto [SpeakerIdentificationModel](/javascript/api/microsoft-cognitiveservices-speech-sdk/speakeridentificationmodel?preserve-view=true&view=azure-node-latest) com o método [SpeakerIdentificationModel.fromProfiles,](/javascript/api/microsoft-cognitiveservices-speech-sdk/speakeridentificationmodel?preserve-view=true&view=azure-node-latest#fromprofiles-voiceprofile---) passando no objeto [VoiceProfile](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofile?preserve-view=true&view=azure-node-latest) que criou anteriormente.
+Nesta função, cria-se um objeto [SpeakerIdentificationModel](/javascript/api/microsoft-cognitiveservices-speech-sdk/speakeridentificationmodel) com o método [SpeakerIdentificationModel.fromProfiles,](/javascript/api/microsoft-cognitiveservices-speech-sdk/speakeridentificationmodel#fromprofiles-voiceprofile---) passando no objeto [VoiceProfile](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofile) que criou anteriormente.
 
-Em seguida, ligue para o método [SpeechRecognizer.recogniseOnceAsync](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?preserve-view=true&view=azure-node-latest#recognizeonceasync--e--speechrecognitionresult-----void---e--string-----void-) e passe numa amostra de áudio.
-`SpeechRecognizer.recognizeOnceAsync` tenta identificar a voz desta amostra de áudio com base nos `VoiceProfile` objetos utilizados para criar o `SpeakerIdentificationModel` . Devolve um objeto [SpeakerRecognitionResult,](/javascript/api/microsoft-cognitiveservices-speech-sdk/speakerrecognitionresult?preserve-view=true&view=azure-node-latest) cuja `profileId` propriedade identifica a `VoiceProfile` correspondência, se houver, enquanto a `score` propriedade contém uma pontuação de semelhança que varia entre 0,0 e 1.0.
+Em seguida, ligue para o método [SpeechRecognizer.recogniseOnceAsync](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer#recognizeonceasync--e--speechrecognitionresult-----void---e--string-----void-) e passe numa amostra de áudio.
+`SpeechRecognizer.recognizeOnceAsync` tenta identificar a voz desta amostra de áudio com base nos `VoiceProfile` objetos utilizados para criar o `SpeakerIdentificationModel` . Devolve um objeto [SpeakerRecognitionResult,](/javascript/api/microsoft-cognitiveservices-speech-sdk/speakerrecognitionresult) cuja `profileId` propriedade identifica a `VoiceProfile` correspondência, se houver, enquanto a `score` propriedade contém uma pontuação de semelhança que varia entre 0,0 e 1.0.
 
 ## <a name="main-function"></a>Função principal
 
@@ -184,4 +184,4 @@ Finalmente, defina a `main` função da seguinte forma.
 
 :::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/speech/speaker-recognition.js" id="main":::
 
-Esta função cria um objeto [VoiceProfileClient,](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient?preserve-view=true&view=azure-node-latest) que é usado para criar, inscrever e eliminar perfis de voz. Em seguida, chama as funções que definiu anteriormente.
+Esta função cria um objeto [VoiceProfileClient,](/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient) que é usado para criar, inscrever e eliminar perfis de voz. Em seguida, chama as funções que definiu anteriormente.

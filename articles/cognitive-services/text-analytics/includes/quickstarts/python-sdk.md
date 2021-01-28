@@ -5,18 +5,18 @@ ms.subservice: text-analytics
 ms.topic: include
 ms.date: 12/11/2020
 ms.author: aahi
-ms.openlocfilehash: 1f99eb203cf4124f3249ab1b74989708bea93c51
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 15c8a517c1fd56964f46b72f9c1902efde90eb5b
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97820594"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98947359"
 ---
 <a name="HOLTop"></a>
 
 # <a name="version-31-preview"></a>[Visualização da versão 3.1](#tab/version-3-1)
 
-[v3.1 Documentação](/python/api/azure-ai-textanalytics/azure.ai.textanalytics?preserve-view=true&view=azure-python-preview)  |  de referência [v3.1 Código](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics)  |  fonte da biblioteca [v3.1 Pacote (PiPy)](https://pypi.org/project/azure-ai-textanalytics/)  |  [v3.1 Amostras](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples)
+[v3.1 Documentação](/python/api/azure-ai-textanalytics/azure.ai.textanalytics)  |  de referência [v3.1 Código](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics)  |  fonte da biblioteca [v3.1 Pacote (PiPy)](https://pypi.org/project/azure-ai-textanalytics/)  |  [v3.1 Amostras](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples)
 
 # <a name="version-30"></a>[Versão 3.0](#tab/version-3)
 

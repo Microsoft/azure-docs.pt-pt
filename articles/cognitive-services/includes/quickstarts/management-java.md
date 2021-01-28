@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/01/2020
 ms.author: pafarley
-ms.openlocfilehash: 62726b9da5166d365c6e386363d0a65007259f10
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 555a6410418232ff164a441dbc90eb10236b9f36
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97956519"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98948176"
 ---
-[Documentação de referência](/java/api/com.microsoft.azure.management.cognitiveservices?view=azure-java-stable)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/mgmt-v2017_04_18/src/main/java/com/microsoft/azure/management/cognitiveservices/v2017_04_18)  |  [Pacote (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-mgmt-cognitiveservices)
+[Documentação de referência](/java/api/com.microsoft.azure.management.cognitiveservices)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/mgmt-v2017_04_18/src/main/java/com/microsoft/azure/management/cognitiveservices/v2017_04_18)  |  [Pacote (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-mgmt-cognitiveservices)
 
 ## <a name="java-prerequisites"></a>Pré-requisitos de Java
 
@@ -122,9 +122,9 @@ O seguinte método elimina o recurso especificado do grupo de recursos dado.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/azure_management_service/quickstart.java?name=snippet_delete)]
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
-* [Documentação de referência da Azure Management SDK](/java/api/com.microsoft.azure.management.cognitiveservices?view=azure-java-stable)
+* [Documentação de referência da Azure Management SDK](/java/api/com.microsoft.azure.management.cognitiveservices)
 * [O que são os Serviços Cognitivos Azure?](../../what-are-cognitive-services.md)
 * [Autenticar pedidos aos Serviços Cognitivos da Azure](../../authentication.md)
 * [Criar um novo recurso utilizando o portal do Azure](../../cognitive-services-apis-create-account.md)

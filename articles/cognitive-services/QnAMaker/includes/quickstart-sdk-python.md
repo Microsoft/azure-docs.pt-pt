@@ -3,12 +3,12 @@ title: 'Quickstart: Biblioteca de clientes QnA Maker para Python'
 description: Este quickstart mostra como começar com a biblioteca de clientes QnA Maker para Python.
 ms.topic: include
 ms.date: 06/18/2020
-ms.openlocfilehash: 70d55bd6fba209119efa0d3828cad91c2de09f82
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: cf3afcb9575f09b8c8d7b0b272dd738936756801
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98792410"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98948512"
 ---
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (lançamento estável)](#tab/version-1)
 
@@ -23,7 +23,7 @@ Utilize a biblioteca cliente do QnA Maker para: python para:
 * Obtenha uma resposta de uma base de conhecimento
 * Eliminar base de conhecimento
 
-[Documentação de referência](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker?view=azure-python)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-knowledge-qnamaker)  |  [Pacote (PyPi)](https://pypi.org/project/azure-cognitiveservices-knowledge-qnamaker/0.2.0/)  |  [Amostras de python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/QnAMaker/sdk/quickstart.py)
+[Documentação de referência](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-knowledge-qnamaker)  |  [Pacote (PyPi)](https://pypi.org/project/azure-cognitiveservices-knowledge-qnamaker/0.2.0/)  |  [Amostras de python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/QnAMaker/sdk/quickstart.py)
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerido (pré-visualização)](#tab/version-2)
 
@@ -37,7 +37,7 @@ Utilize a biblioteca cliente do QnA Maker para: python para:
 * Obtenha uma resposta de uma base de conhecimento
 * Eliminar base de conhecimento
 
-[Documentação de referência](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker?view=azure-python)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-knowledge-qnamaker)  |  [Pacote (PyPi)](https://pypi.org/project/azure-cognitiveservices-knowledge-qnamaker/)  |  [Amostras de python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/QnAMaker/sdk/preview-sdk/quickstart.py)
+[Documentação de referência](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-knowledge-qnamaker)  |  [Pacote (PyPi)](https://pypi.org/project/azure-cognitiveservices-knowledge-qnamaker/)  |  [Amostras de python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/QnAMaker/sdk/preview-sdk/quickstart.py)
 
 ---
 
@@ -131,13 +131,13 @@ Crie variáveis para o ponto final e chave Azure do seu recurso.
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (lançamento estável)](#tab/version-1)
 
-[O Fabricante QnA](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker?view=azure-python) usa dois modelos de objetos diferentes:
+[O Fabricante QnA](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker) usa dois modelos de objetos diferentes:
 * **[QnAMakerClient](#qnamakerclient-object-model)** é o objeto para criar, gerir, publicar e descarregar a base de conhecimentos.
 * **[QnAMakerRuntime](#qnamakerruntimeclient-object-model)** é o objeto para consultar a base de conhecimento com a API GenerateAnswer e enviar novas perguntas sugeridas usando a API do comboio (como parte da [aprendizagem ativa).](../concepts/active-learning-suggestions.md)
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerido (pré-visualização)](#tab/version-2)
 
-[O Fabricante QnA](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker?view=azure-python) utiliza o seguinte modelo de objeto:
+[O Fabricante QnA](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker) utiliza o seguinte modelo de objeto:
 * **[QnAMakerClient](#qnamakerclient-object-model)** é o objeto para criar, gerir, publicar, transferir e consultar a base de conhecimentos.
 
 ---
@@ -146,29 +146,29 @@ Crie variáveis para o ponto final e chave Azure do seu recurso.
 
 ### <a name="qnamakerclient-object-model"></a>Modelo de objeto QnAMakerClient
 
-O cliente da autoria do QnA Maker é um objeto [QnAMakerClient](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.qn_amaker_client.qnamakerclient?view=azure-python) que autentica a Azure usando microsoft.rest.ServiceClientCredentials, que contém a sua chave.
+O cliente da autoria do QnA Maker é um objeto [QnAMakerClient](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.qn_amaker_client.qnamakerclient) que autentica a Azure usando microsoft.rest.ServiceClientCredentials, que contém a sua chave.
 
-Assim que o cliente for criado, utilize a propriedade [Base de Conhecimento](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.operations.knowledgebase_operations.knowledgebaseoperations?view=azure-python) para criar, gerir e publicar a sua base de conhecimentos.
+Assim que o cliente for criado, utilize a propriedade [Base de Conhecimento](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.operations.knowledgebase_operations.knowledgebaseoperations) para criar, gerir e publicar a sua base de conhecimentos.
 
-Gerencie a sua base de conhecimento enviando um objeto JSON. Para operações imediatas, um método normalmente devolve um objeto JSON indicando o estado. Para operações de longa duração, a resposta é a identificação da operação. Ligue para o [método operations.get_details](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.operations.knowledgebase_operations.knowledgebaseoperations?view=azure-python#get-details-kb-id--custom-headers-none--raw-false----operation-config-) com o ID de operação para determinar o estado [do pedido](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.operationstatetype?view=azure-python).
+Gerencie a sua base de conhecimento enviando um objeto JSON. Para operações imediatas, um método normalmente devolve um objeto JSON indicando o estado. Para operações de longa duração, a resposta é a identificação da operação. Ligue para o [método operations.get_details](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.operations.knowledgebase_operations.knowledgebaseoperations#get-details-kb-id--custom-headers-none--raw-false----operation-config-) com o ID de operação para determinar o estado [do pedido](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.operationstatetype).
 
 ### <a name="qnamakerruntimeclient-object-model"></a>Modelo de objeto QnAMakerRuntimeClient
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (lançamento estável)](#tab/version-1)
 
-O cliente QnA Maker de previsão é um `QnAMakerRuntimeClient` objeto que autentica para o Azure usando microsoft.Rest.ServiceClientCredentials, que contém a sua chave de tempo de previsão, devolvida a partir da chamada do cliente de autoria, [cliente. EndpointKeysOperations.get_keys](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.operations.endpoint_keys_operations.endpointkeysoperations?view=azure-python#get-keys-custom-headers-none--raw-false----operation-config-) depois da base de conhecimentos ser publicada.
+O cliente QnA Maker de previsão é um `QnAMakerRuntimeClient` objeto que autentica para o Azure usando microsoft.Rest.ServiceClientCredentials, que contém a sua chave de tempo de previsão, devolvida a partir da chamada do cliente de autoria, [cliente. EndpointKeysOperations.get_keys](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.operations.endpoint_keys_operations.endpointkeysoperations#get-keys-custom-headers-none--raw-false----operation-config-) depois da base de conhecimentos ser publicada.
 
 Utilize o `generate_answer` método para obter uma resposta a partir do tempo de funcionação da consulta.
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerido (pré-visualização)](#tab/version-2)
 
-Um recurso gerido pelo QnA Maker não requer a utilização do objeto QnAMakerRuntimeClient. Em vez disso, ligue para [generate_answer](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.operations.knowledgebase_operations.knowledgebaseoperations?view=azure-python#generate-answer-kb-id--generate-answer-payload--custom-headers-none--raw-false----operation-config-) diretamente no objeto [QnAMakerClient.](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.qn_amaker_client.qnamakerclient?view=azure-python)
+Um recurso gerido pelo QnA Maker não requer a utilização do objeto QnAMakerRuntimeClient. Em vez disso, ligue para [generate_answer](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.operations.knowledgebase_operations.knowledgebaseoperations#generate-answer-kb-id--generate-answer-payload--custom-headers-none--raw-false----operation-config-) diretamente no objeto [QnAMakerClient.](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.qn_amaker_client.qnamakerclient)
 
 ---
 
 ## <a name="authenticate-the-client-for-authoring-the-knowledge-base"></a>Autenticar o cliente para a autoria da base de conhecimentos
 
-Instantiar um cliente com o seu ponto final e chave. Crie um objeto CognitiveServicesCredentials com a sua chave e use-o com o seu ponto final para criar um objeto [QnAMakerClient.](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.qn_amaker_client.qnamakerclient?view=azure-python)
+Instantiar um cliente com o seu ponto final e chave. Crie um objeto CognitiveServicesCredentials com a sua chave e use-o com o seu ponto final para criar um objeto [QnAMakerClient.](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.qn_amaker_client.qnamakerclient)
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (lançamento estável)](#tab/version-1)
 
@@ -182,16 +182,16 @@ Instantiar um cliente com o seu ponto final e chave. Crie um objeto CognitiveSer
 
 ## <a name="create-a-knowledge-base"></a>Criar uma base de dados de conhecimento
 
-Use o objeto do cliente para obter um objeto [de operações de base de conhecimento.](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.operations.knowledgebaseoperations?view=azure-python)
+Use o objeto do cliente para obter um objeto [de operações de base de conhecimento.](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.operations.knowledgebaseoperations)
 
-Uma base de conhecimento armazena pares de perguntas e respostas para o objeto [CreateKbDTO](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.createkbdto?view=azure-python) de três fontes:
+Uma base de conhecimento armazena pares de perguntas e respostas para o objeto [CreateKbDTO](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.createkbdto) de três fontes:
 
-* Para **conteúdos editoriais,** utilize o objeto [QnADTO.](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.qnadto?view=azure-python)
+* Para **conteúdos editoriais,** utilize o objeto [QnADTO.](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.qnadto)
     * Para utilizar metadados e pedidos de acompanhamento, utilize o contexto editorial, porque estes dados são adicionados ao nível de pares QnA individuais.
-* Para **ficheiros,** utilize o objeto [FileDTO.](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.filedto?view=azure-python) O FileDTO inclui o nome de ficheiro, bem como o URL público para chegar ao ficheiro.
+* Para **ficheiros,** utilize o objeto [FileDTO.](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.filedto) O FileDTO inclui o nome de ficheiro, bem como o URL público para chegar ao ficheiro.
 * Para **URLs,** utilize uma lista de cordas para representar URLs disponíveis ao público.
 
-Ligue para o método [de criação](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.operations.knowledgebaseoperations?view=azure-python#create-create-kb-payload--custom-headers-none--raw-false----operation-config-) e, em seguida, passe o ID de operação devolvido para o método [Operations.getDetails](#get-status-of-an-operation) para sondar o estado.
+Ligue para o método [de criação](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.operations.knowledgebaseoperations#create-create-kb-payload--custom-headers-none--raw-false----operation-config-) e, em seguida, passe o ID de operação devolvido para o método [Operations.getDetails](#get-status-of-an-operation) para sondar o estado.
 
 A linha final do seguinte código devolve o ID da base de conhecimento da resposta da MonitorOperation.
 
@@ -209,7 +209,7 @@ Certifique-se de que a [`_monitor_operation`](#get-status-of-an-operation) funç
 
 ## <a name="update-a-knowledge-base"></a>Atualizar uma base de dados de conhecimento
 
-Pode atualizar uma base de conhecimentos transmitindo o ID da base de conhecimento e um [UpdateKbOperationDTO](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.updatekboperationdto?view=azure-python) contendo [adicionar,](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.updatekboperationdtoadd?view=azure-python) [atualizar](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.updatekboperationdtoupdate?view=azure-python)e [eliminar](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.updatekboperationdtodelete?view=azure-python) objetos DTO para o método de [atualização.](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.operations.knowledgebase_operations.knowledgebaseoperations?view=azure-python) Utilize o método [Operation.getDetail](#get-status-of-an-operation) para determinar se a atualização foi bem sucedida.
+Pode atualizar uma base de conhecimentos transmitindo o ID da base de conhecimento e um [UpdateKbOperationDTO](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.updatekboperationdto) contendo [adicionar,](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.updatekboperationdtoadd) [atualizar](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.updatekboperationdtoupdate)e [eliminar](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.updatekboperationdtodelete) objetos DTO para o método de [atualização.](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.operations.knowledgebase_operations.knowledgebaseoperations) Utilize o método [Operation.getDetail](#get-status-of-an-operation) para determinar se a atualização foi bem sucedida.
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (lançamento estável)](#tab/version-1)
 
@@ -225,7 +225,7 @@ Certifique-se de que inclui a [`_monitor_operation`](#get-status-of-an-operation
 
 ## <a name="download-a-knowledge-base"></a>Descarregue uma base de conhecimento
 
-Utilize o método [de descarregamento](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.operations.knowledgebaseoperations?view=azure-python) para descarregar a base de dados como uma lista de [QnADocumentsDTO](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.qnadocumentsdto?view=azure-python). Isto _não_ é equivalente à exportação do portal QnA Maker a partir da página **Definições** porque o resultado deste método não é um ficheiro TSV.
+Utilize o método [de descarregamento](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.operations.knowledgebaseoperations) para descarregar a base de dados como uma lista de [QnADocumentsDTO](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.qnadocumentsdto). Isto _não_ é equivalente à exportação do portal QnA Maker a partir da página **Definições** porque o resultado deste método não é um ficheiro TSV.
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (lançamento estável)](#tab/version-1)
 
@@ -239,7 +239,7 @@ Utilize o método [de descarregamento](/python/api/azure-cognitiveservices-knowl
 
 ## <a name="publish-a-knowledge-base"></a>Publicar uma base de dados de conhecimento
 
-Publique a base de conhecimentos utilizando o método [de publicação.](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.operations.knowledgebaseoperations?view=azure-python#publish-kb-id--custom-headers-none--raw-false----operation-config-) Isto pega no modelo atual guardado e treinado, referenciado pela base de conhecimento ID, e publica-o num ponto final.
+Publique a base de conhecimentos utilizando o método [de publicação.](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.operations.knowledgebaseoperations#publish-kb-id--custom-headers-none--raw-false----operation-config-) Isto pega no modelo atual guardado e treinado, referenciado pela base de conhecimento ID, e publica-o num ponto final.
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (lançamento estável)](#tab/version-1)
 
@@ -259,7 +259,7 @@ Publique a base de conhecimentos utilizando o método [de publicação.](/python
 
 Uma vez publicada uma base de conhecimento, precisa da chave de tempo de consulta para consultar o tempo de execução. Esta não é a mesma chave usada para criar o objeto cliente original.
 
-Utilize o método [EndpointKeysOperations.get_keys](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.operations.endpointkeysoperations?view=azure-python#get-keys-custom-headers-none--raw-false----operation-config-) para obter a classe [EndpointKeysDTO.](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.endpointkeysdto?view=azure-python)
+Utilize o método [EndpointKeysOperations.get_keys](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.operations.endpointkeysoperations#get-keys-custom-headers-none--raw-false----operation-config-) para obter a classe [EndpointKeysDTO.](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.endpointkeysdto)
 
 Utilize qualquer uma das propriedades chave devolvidas no objeto para consultar a base de conhecimentos.
 
@@ -267,7 +267,7 @@ Utilize qualquer uma das propriedades chave devolvidas no objeto para consultar 
 
 ### <a name="authenticate-the-runtime-for-generating-an-answer"></a>Autenticar o tempo de execução para gerar uma resposta
 
-Crie um [QnAMakerRuntimeClient](/javascript/api/@azure/cognitiveservices-qnamaker-runtime/qnamakerruntimeclient?view=azure-node-latest) para consultar a base de conhecimento para gerar uma resposta ou treinar a partir de uma aprendizagem ativa.
+Crie um [QnAMakerRuntimeClient](/javascript/api/@azure/cognitiveservices-qnamaker-runtime/qnamakerruntimeclient) para consultar a base de conhecimento para gerar uma resposta ou treinar a partir de uma aprendizagem ativa.
 
 [!code-python[Authenticate the runtime](~/cognitive-services-quickstart-code/python/QnAMaker/sdk/quickstart.py?name=AuthorizationQuery)]
 
@@ -275,7 +275,7 @@ Utilize o QnAMakerRuntimeClient para obter uma resposta do conhecimento ou para 
 
 ### <a name="generate-an-answer-from-the-knowledge-base"></a>Gerar uma resposta a partir da base de conhecimento
 
-Gere uma resposta a partir de uma base de conhecimento publicada utilizando o método QnAMakerRuntimeClient.runtime.generate_answer. Este método aceita o ID da base de conhecimento e o [QueryDTO](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.querydto?view=azure-python). Aceda a propriedades adicionais do QueryDTO, tal Top e Context para usar no seu chat bot.
+Gere uma resposta a partir de uma base de conhecimento publicada utilizando o método QnAMakerRuntimeClient.runtime.generate_answer. Este método aceita o ID da base de conhecimento e o [QueryDTO](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.querydto). Aceda a propriedades adicionais do QueryDTO, tal Top e Context para usar no seu chat bot.
 
 [!code-python[Generate an answer from a knowledge base](~/cognitive-services-quickstart-code/python/QnAMaker/sdk/quickstart.py?name=GenerateAnswer)]
 
@@ -283,7 +283,7 @@ Gere uma resposta a partir de uma base de conhecimento publicada utilizando o m�
 
 ### <a name="generate-an-answer-from-the-knowledge-base"></a>Gerar uma resposta a partir da base de conhecimento
 
-Gere uma resposta a partir de uma base de conhecimento publicada utilizando o método [generate_answer.](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.operations.knowledgebaseoperations?view=azure-python#generate-answer-kb-id--generate-answer-payload--custom-headers-none--raw-false----operation-config-) Este método aceita o ID da base de conhecimento e o [QueryDTO](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.querydto?view=azure-python). Aceda a propriedades adicionais do QueryDTO, tal Top e Context para usar no seu chat bot.
+Gere uma resposta a partir de uma base de conhecimento publicada utilizando o método [generate_answer.](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.operations.knowledgebaseoperations#generate-answer-kb-id--generate-answer-payload--custom-headers-none--raw-false----operation-config-) Este método aceita o ID da base de conhecimento e o [QueryDTO](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.querydto). Aceda a propriedades adicionais do QueryDTO, tal Top e Context para usar no seu chat bot.
 
 [!code-python[Generate an answer from a knowledge base](~/cognitive-services-quickstart-code/python/QnAMaker/sdk/preview-sdk/quickstart.py?name=GenerateAnswer)]
 
@@ -293,7 +293,7 @@ Este é um simples exemplo de consulta da base de conhecimento. Para compreender
 
 ## <a name="delete-a-knowledge-base"></a>Eliminar uma base de dados de conhecimento
 
-Elimine a base de conhecimento utilizando o método [de eliminação](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.operations.knowledgebaseoperations?view=azure-python#delete-kb-id--custom-headers-none--raw-false----operation-config-) com um parâmetro do ID da base de conhecimento.
+Elimine a base de conhecimento utilizando o método [de eliminação](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.operations.knowledgebaseoperations#delete-kb-id--custom-headers-none--raw-false----operation-config-) com um parâmetro do ID da base de conhecimento.
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (lançamento estável)](#tab/version-1)
 
@@ -307,7 +307,7 @@ Elimine a base de conhecimento utilizando o método [de eliminação](/python/ap
 
 ## <a name="get-status-of-an-operation"></a>Obter o estado de uma operação
 
-Alguns métodos, como criar e atualizar, podem levar tempo suficiente para que, em vez de esperar que o processo termine, uma [operação](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.operation(class)?view=azure-python) seja devolvida. Utilize o ID de funcionamento da operação para a sondagem (com lógica de repetição) para determinar o estado do método original.
+Alguns métodos, como criar e atualizar, podem levar tempo suficiente para que, em vez de esperar que o processo termine, uma [operação](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.operation(class)) seja devolvida. Utilize o ID de funcionamento da operação para a sondagem (com lógica de repetição) para determinar o estado do método original.
 
 A chamada _setTimeout_ no bloco de códigos seguinte é usada para simular código assíncronos. Substitua-o por uma lógica de re-tentar.
 

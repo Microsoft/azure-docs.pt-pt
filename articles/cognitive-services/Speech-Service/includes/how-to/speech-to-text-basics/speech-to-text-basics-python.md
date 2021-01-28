@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: f28eeb43a3b69b1931bf032741ded69a08b08dad
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 891d86f9429031be48ed17f83a3a5005cadb1ec1
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96912358"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98947483"
 ---
 Uma das características centrais do serviço de fala é a capacidade de reconhecer e transcrever a fala humana (muitas vezes referida como discurso-a-texto). Neste arranque rápido, aprende-se a usar o Speech SDK nas suas apps e produtos para realizar conversão de fala a texto de alta qualidade.
 
@@ -45,13 +45,13 @@ import azure.cognitiveservices.speech as speechsdk
 
 ## <a name="create-a-speech-configuration"></a>Criar uma configuração de discurso
 
-Para ligar para o serviço de discurso usando o SDK de discurso, precisa de criar um [`SpeechConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python) . Esta classe inclui informações sobre a sua subscrição, como a sua chave e região associada, ponto final, anfitrião ou token de autorização. Crie uma [`SpeechConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python) utilização da sua chave e região. Consulte as [teclas e a](../../../overview.md#find-keys-and-region) página da região para encontrar o seu par de regiões-chave.
+Para ligar para o serviço de discurso usando o SDK de discurso, precisa de criar um [`SpeechConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig) . Esta classe inclui informações sobre a sua subscrição, como a sua chave e região associada, ponto final, anfitrião ou token de autorização. Crie uma [`SpeechConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig) utilização da sua chave e região. Consulte as [teclas e a](../../../overview.md#find-keys-and-region) página da região para encontrar o seu par de regiões-chave.
 
 ```Python
 speech_config = speechsdk.SpeechConfig(subscription="<paste-your-subscription-key>", region="<paste-your-region>")
 ```
 
-Há algumas outras formas de inicializar [`SpeechConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python) uma:
+Há algumas outras formas de inicializar [`SpeechConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig) uma:
 
 * Com um ponto final: passe num ponto final de serviço de discurso. Uma chave ou sinal de autorização é opcional.
 * Com um anfitrião: passe em um endereço de anfitrião. Uma chave ou sinal de autorização é opcional.
@@ -82,7 +82,7 @@ Se pretender utilizar um dispositivo de entrada de áudio *específico,* tem de 
 
 ## <a name="recognize-from-file"></a>Reconhecer a partir de arquivo
 
-Se quiser reconhecer a fala a partir de um ficheiro áudio em vez de utilizar um microfone, crie um [`AudioConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audio.audioconfig?preserve-view=true&view=azure-python) e utilize o `filename` parâmetro.
+Se quiser reconhecer a fala a partir de um ficheiro áudio em vez de utilizar um microfone, crie um [`AudioConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audio.audioconfig) e utilize o `filename` parâmetro.
 
 ```Python
 import azure.cognitiveservices.speech as speechsdk
@@ -100,7 +100,7 @@ from_file()
 
 ## <a name="error-handling"></a>Processamento de erros
 
-Os exemplos anteriores simplesmente obtêm o texto reconhecido `result.text` de , mas para lidar com erros e outras respostas, terá de escrever algum código para lidar com o resultado. O seguinte código avalia o [`result.reason`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.resultreason?view=azure-python) imóvel e:
+Os exemplos anteriores simplesmente obtêm o texto reconhecido `result.text` de , mas para lidar com erros e outras respostas, terá de escrever algum código para lidar com o resultado. O seguinte código avalia o [`result.reason`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.resultreason) imóvel e:
 
 * Imprime o resultado do reconhecimento: `speechsdk.ResultReason.RecognizedSpeech`
 * Se não houver correspondência de reconhecimento, informe o utilizador: `speechsdk.ResultReason.NoMatch `
@@ -122,9 +122,9 @@ elif result.reason == speechsdk.ResultReason.Canceled:
 
 Os exemplos anteriores usam o reconhecimento de um único tiro, que reconhece uma única expressão. O fim de uma única expressão é determinado ouvindo o silêncio no final ou até que um máximo de 15 segundos de áudio seja processado.
 
-Em contrapartida, o reconhecimento contínuo é utilizado quando se pretende **controlar** quando se deve deixar de reconhecer. Requer que se conecte ao `EventSignal` para obter os resultados de reconhecimento, e para parar o reconhecimento, deve chamar [stop_continuous_recognition()](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#stop-continuous-recognition--) ou [stop_continuous_recognition()](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#stop-continuous-recognition-async--). Aqui está um exemplo de como o reconhecimento contínuo é realizado num ficheiro de entrada de áudio.
+Em contrapartida, o reconhecimento contínuo é utilizado quando se pretende **controlar** quando se deve deixar de reconhecer. Requer que se conecte ao `EventSignal` para obter os resultados de reconhecimento, e para parar o reconhecimento, deve chamar [stop_continuous_recognition()](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer#stop-continuous-recognition--) ou [stop_continuous_recognition()](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer#stop-continuous-recognition-async--). Aqui está um exemplo de como o reconhecimento contínuo é realizado num ficheiro de entrada de áudio.
 
-Comecemos por definir a entrada e inicializar [`SpeechRecognizer`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer?preserve-view=true&view=azure-python) um:
+Comecemos por definir a entrada e inicializar [`SpeechRecognizer`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer) um:
 
 ```Python
 audio_config = speechsdk.audio.AudioConfig(filename=weatherfilename)
@@ -140,7 +140,7 @@ done = False
 Agora, vamos criar uma chamada para parar o reconhecimento contínuo quando um `evt` é recebido. Há algumas coisas a ter em mente.
 
 * Quando um `evt` é recebido, a `evt` mensagem é impressa.
-* Depois de `evt` recebido, [stop_continuous_recognition é](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#stop-continuous-recognition--) chamado a parar o reconhecimento.
+* Depois de `evt` recebido, [stop_continuous_recognition é](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer#stop-continuous-recognition--) chamado a parar o reconhecimento.
 * O estado de reconhecimento é alterado para `True` .
 
 ```Python
@@ -151,13 +151,13 @@ def stop_cb(evt):
     done = True
 ```
 
-Esta amostra de código mostra como ligar as chamadas a eventos enviados a partir do [`SpeechRecognizer`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#start-continuous-recognition--) .
+Esta amostra de código mostra como ligar as chamadas a eventos enviados a partir do [`SpeechRecognizer`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer#start-continuous-recognition--) .
 
-* [`recognizing`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#recognizing): Sinal para eventos que contenham resultados intermédios de reconhecimento.
-* [`recognized`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#recognized): Sinal para eventos que contenham resultados finais de reconhecimento (indicando uma tentativa de reconhecimento bem sucedida).
-* [`session_started`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#session-started): Sinal para eventos que indiquem o início de uma sessão de reconhecimento (operação).
-* [`session_stopped`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#session-stopped): Sinal para eventos que indiquem o fim de uma sessão de reconhecimento (operação).
-* [`canceled`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#canceled): Sinal para eventos que contenham resultados de reconhecimento cancelados (indicando uma tentativa de reconhecimento que foi cancelada em resultado ou um pedido de cancelamento direto ou, em alternativa, uma falha de transporte ou protocolo).
+* [`recognizing`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer#recognizing): Sinal para eventos que contenham resultados intermédios de reconhecimento.
+* [`recognized`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer#recognized): Sinal para eventos que contenham resultados finais de reconhecimento (indicando uma tentativa de reconhecimento bem sucedida).
+* [`session_started`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer#session-started): Sinal para eventos que indiquem o início de uma sessão de reconhecimento (operação).
+* [`session_stopped`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer#session-stopped): Sinal para eventos que indiquem o fim de uma sessão de reconhecimento (operação).
+* [`canceled`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer#canceled): Sinal para eventos que contenham resultados de reconhecimento cancelados (indicando uma tentativa de reconhecimento que foi cancelada em resultado ou um pedido de cancelamento direto ou, em alternativa, uma falha de transporte ou protocolo).
 
 ```Python
 speech_recognizer.recognizing.connect(lambda evt: print('RECOGNIZING: {}'.format(evt)))
@@ -170,7 +170,7 @@ speech_recognizer.session_stopped.connect(stop_cb)
 speech_recognizer.canceled.connect(stop_cb)
 ```
 
-Com tudo configurado, podemos chamar [start_continuous_recognition()](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#session-stopped).
+Com tudo configurado, podemos chamar [start_continuous_recognition()](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer#session-stopped).
 
 ```Python
 speech_recognizer.start_continuous_recognition()
@@ -182,7 +182,7 @@ while not done:
 
 Ao utilizar o reconhecimento contínuo, pode ativar o processamento de ditados utilizando a função correspondente de "ativar o ditado". Este modo fará com que a instância config da fala interprete descrições de palavras de estruturas de frases como a pontuação. Por exemplo, a expressão "Vives no ponto de interrogação da cidade" seria interpretada como o texto "Vives na cidade?".
 
-Para ativar o modo de ditado, utilize o [`enable_dictation()`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python#enable-dictation--) método no seu [`SpeechConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?preserve-view=true&view=azure-python) .
+Para ativar o modo de ditado, utilize o [`enable_dictation()`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig#enable-dictation--) método no seu [`SpeechConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig) .
 
 ```Python 
 SpeechConfig.enable_dictation()
@@ -196,7 +196,7 @@ Uma tarefa comum para o reconhecimento da fala é especificar a linguagem de ent
 speech_config.speech_recognition_language="de-DE"
 ```
 
-[`speech_recognition_language`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python#speech-recognition-language) é um parâmetro que toma uma corda como argumento. Pode fornecer qualquer valor na lista de [locais/idiomas suportados.](../../../language-support.md)
+[`speech_recognition_language`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig#speech-recognition-language) é um parâmetro que toma uma corda como argumento. Pode fornecer qualquer valor na lista de [locais/idiomas suportados.](../../../language-support.md)
 
 ## <a name="improve-recognition-accuracy"></a>Melhorar a precisão do reconhecimento
 
@@ -209,9 +209,9 @@ Palavras simples ou frases completas podem ser adicionadas a uma Lista de Frases
 > [!IMPORTANT]
 > A funcionalidade Lista de Frases está disponível nos seguintes idiomas: en-US, de-DE, en-AU, en-CA, en-GB, es-ES, es-MX, fr-CA, fr-FR, it-IT, ja-JP, ko-KR, pt-BR, zh-CN
 
-Para utilizar uma lista de frases, primeiro crie um [`PhraseListGrammar`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.phraselistgrammar?preserve-view=true&view=azure-python) objeto e, em seguida, adicione palavras e frases específicas com [`addPhrase`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.phraselistgrammar?view=azure-python#addphrase-phrase--str-) .
+Para utilizar uma lista de frases, primeiro crie um [`PhraseListGrammar`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.phraselistgrammar) objeto e, em seguida, adicione palavras e frases específicas com [`addPhrase`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.phraselistgrammar#addphrase-phrase--str-) .
 
-Quaisquer alterações que [`PhraseListGrammar`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.phraselistgrammar?preserve-view=true&view=azure-python) entrem em vigor no próximo reconhecimento ou após uma reconexão ao serviço Discurso.
+Quaisquer alterações que [`PhraseListGrammar`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.phraselistgrammar) entrem em vigor no próximo reconhecimento ou após uma reconexão ao serviço Discurso.
 
 ```Python
 phrase_list_grammar = speechsdk.PhraseListGrammar.from_recognizer(reco)

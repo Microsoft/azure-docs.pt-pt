@@ -6,12 +6,12 @@ ms.date: 04/04/2020
 ms.topic: include
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 9c0a0cb2cf6e291c42d72d6f46ff28b4d3fbf405
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: a895af0f1a10796ad49898e37551f37d38418784
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98109467"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98948323"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -48,7 +48,7 @@ Insira este código no bloco de tentativa/captura `main()` em . Certifique-se de
 
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=27)]
 
-Esta amostra utiliza o `FromSubscription()` método para construir o `SpeechConfig` . Para obter uma lista completa dos métodos disponíveis, consulte [a Aula deConfig da Fala](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?preserve-view=true&view=azure-dotnet).
+Esta amostra utiliza o `FromSubscription()` método para construir o `SpeechConfig` . Para obter uma lista completa dos métodos disponíveis, consulte [a Aula deConfig da Fala](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig).
 
 O SDK de discurso não reconhecerá a utilização do linguístico para a língua, consulte especificar a [língua de origem para falar para texto](../../../../how-to-specify-source-language.md) para obter informações sobre a escolha da língua de origem.
 
@@ -114,6 +114,6 @@ Neste ponto, o seu código deve ser assim:
 Prima <kbd>F11,</kbd>ou selecione **Run**  >  **Debug**.
 Os próximos 15 segundos de entrada de voz do microfone serão reconhecidos e registados na janela da consola.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [!INCLUDE [footer](./footer.md)]

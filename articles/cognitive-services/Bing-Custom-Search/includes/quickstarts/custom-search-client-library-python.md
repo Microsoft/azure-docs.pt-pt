@@ -8,19 +8,19 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/27/2020
 ms.author: aahi
-ms.openlocfilehash: 92df45e38a926b4a791315f731e1d1cb078d5852
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 3019881c42e0f7b64cc766b8b9e575eb60612432
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94371860"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98948058"
 ---
 Começa com a biblioteca de clientes Bing Custom Search para Python. Siga estes passos para instalar a embalagem e experimente o código de exemplo para tarefas básicas. A API de Pesquisa Personalizada Bing permite-lhe criar experiências de pesquisa personalizadas e sem anúncios para tópicos que lhe interessam. O código-fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/custom_search_samples.py).
 
 Utilize a biblioteca de clientes Bing Custom Search para Python para:
 * Encontre os resultados da pesquisa na web, a partir da sua instância de Pesquisa Personalizada Bing.
 
-[Documentação de referência](/python/api/azure-cognitiveservices-search-customsearch/?view=azure-python)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-search-customsearch)  |  [Pacote (PyPi)](https://pypi.org/project/azure-cognitiveservices-search-customsearch/)  |  [Amostras](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/)
+[Documentação de referência](/python/api/azure-cognitiveservices-search-customsearch/)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-search-customsearch)  |  [Pacote (PyPi)](https://pypi.org/project/azure-cognitiveservices-search-customsearch/)  |  [Amostras](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/)
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -84,7 +84,7 @@ else:
     print("Didn't see any web data..")
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Construa um aplicativo web de pesquisa personalizada](../../tutorials/custom-search-web-page.md)

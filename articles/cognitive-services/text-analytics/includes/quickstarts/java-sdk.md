@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Text Analytics v3 biblioteca de clientes para Java / Microsoft Docs'
+title: 'Quickstart: Text Analytics v3 biblioteca de clientes para Java | Microsoft Docs'
 description: Começa com a biblioteca de clientes v3 Text Analytics para a Java.
 author: aahill
 manager: nitinme
@@ -10,22 +10,22 @@ ms.date: 12/11/2020
 ms.custom: devx-track-java
 ms.author: aahi
 ms.reviewer: tasharm, assafi, sumeh
-ms.openlocfilehash: e68a46070f03154092d148552fffbb99ae82bcfd
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 33d5989103911d6299806b16979d1caeba286a76
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97612716"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98948291"
 ---
 <a name="HOLTop"></a>
 
 # <a name="version-31-preview"></a>[Visualização da versão 3.1](#tab/version-3-1)
 
-[Documentação de referência](/java/api/overview/azure/ai-textanalytics-readme?view=azure-java-stable)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-textanalytics_5.1.0-beta.3/sdk/textanalytics/azure-ai-textanalytics)  |  [Pacote](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.1.0-beta.3)  |  [Amostras](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.1.0-beta.3/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
+[Documentação de referência](/java/api/overview/azure/ai-textanalytics-readme)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-textanalytics_5.1.0-beta.3/sdk/textanalytics/azure-ai-textanalytics)  |  [Pacote](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.1.0-beta.3)  |  [Amostras](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.1.0-beta.3/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
 
 # <a name="version-30"></a>[Versão 3.0](#tab/version-3)
 
-[Documentação de referência](/java/api/overview/azure/ai-textanalytics-readme?view=azure-java-stable)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-textanalytics_5.0.0/sdk/textanalytics/azure-ai-textanalytics)  |  [Pacote](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.0.0)  |  [Amostras](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.0.0/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
+[Documentação de referência](/java/api/overview/azure/ai-textanalytics-readme)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-textanalytics_5.0.0/sdk/textanalytics/azure-ai-textanalytics)  |  [Pacote](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.0.0)  |  [Amostras](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.0.0/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
 
 # <a name="version-21"></a>[Versão 2.1](#tab/version-2)
 
@@ -153,10 +153,10 @@ O cliente Text Analytics é um `TextAnalyticsClient` objeto que autentica a Azur
 * [Autenticar o cliente](#authenticate-the-client)
 * [Análise de Sentimentos](#sentiment-analysis) 
 * [Mineração de opinião](#opinion-mining)
-* [Deteção de idioma](#language-detection)
+* [Deteção linguística](#language-detection)
 * [Reconhecimento de entidade nomeada](#named-entity-recognition-ner)
 * [Ligação de entidades](#entity-linking)
-* [Extração de expressões-chave](#key-phrase-extraction)
+* [Extração de frase-chave](#key-phrase-extraction)
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 

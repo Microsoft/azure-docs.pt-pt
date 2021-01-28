@@ -6,12 +6,12 @@ ms.service: azure-quantum
 ms.topic: include
 ms.date: 01/08/2021
 ms.author: dasto
-ms.openlocfilehash: c312ee63f9f00e4eef726924fc01f2862ba2884f
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 2106a48a583f120f8b4dde4eb32a30f1a1b1d85b
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98920478"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98947207"
 ---
 ### <a name="provider-limits--quota"></a>Quota de & limites de fornecedores
 
@@ -32,11 +32,11 @@ Se estiver a utilizar o Learn & Develop SKU, **não pode** solicitar um aumento 
 
 #### <a name="performance-at-scale-sku"></a>Desempenho na Escala SKU
 
-| Recurso | Limite |
-| --- | --- |
-| Empregos simultâneos baseados na CPU | até 100 empregos simultâneos |
-| Empregos simultâneos baseados na FPGA | até 10 empregos simultâneos |
-| Horas de solucionador | 50.000 horas por mês  |
+| Recurso | Limite Predefinido | Limite Máximo |
+| --- | --- | --- |
+| Empregos simultâneos baseados na CPU | até 100 empregos simultâneos | mesmo que limite de incumprimento |
+| Empregos simultâneos baseados na FPGA | até 10 empregos simultâneos | mesmo que limite de incumprimento |
+| Horas de solucionador | 1.000 horas por mês  | até 50.000 horas por mês |
 
 Se precisar de solicitar um aumento de limite, contacte o Suporte Azure. 
 

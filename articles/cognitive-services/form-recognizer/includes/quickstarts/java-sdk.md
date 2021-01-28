@@ -10,17 +10,17 @@ ms.topic: include
 ms.date: 09/21/2020
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: 01ac7c01d449cfe794fcdb6c26a8162d3cffd695
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 3923f3d0a65412c23d5fc32d7a4cea8648686df4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98697972"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98947896"
 ---
 > [!IMPORTANT]
 > O código deste artigo utiliza métodos sincronizados e armazenamento de credenciais não garantidos por razões de simplicidade.
 
-[Documentação de referência](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src)  |  [Pacote (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer)  |  [Amostras](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)
+[Documentação de referência](/java/api/overview/azure/ai-formrecognizer-readme)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src)  |  [Pacote (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer)  |  [Amostras](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -209,7 +209,7 @@ Para reconhecer o conteúdo de um ficheiro num dado URL, utilize o método **sta
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_getcontent_call)]
 
 > [!TIP]
-> Também pode obter conteúdo de um ficheiro local. Consulte os métodos [FormRecognizerClient,](/java/api/com.azure.ai.formrecognizer.formrecognizerclient?view=azure-java-stable) tais como **startRecognizeContent**. Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) para cenários que envolvam imagens locais.
+> Também pode obter conteúdo de um ficheiro local. Consulte os métodos [FormRecognizerClient,](/java/api/com.azure.ai.formrecognizer.formrecognizerclient) tais como **startRecognizeContent**. Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) para cenários que envolvam imagens locais.
 
 O valor devolvido é uma coleção de objetos **FormPage:** um para cada página no documento submetido. O código seguinte itera através destes objetos e imprime os pares de chave/valor extraídos e os dados de tabela.
 
@@ -242,7 +242,7 @@ Para reconhecer os recibos de um URI, utilize o método **startRecognizeReceipts
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_receipts_call)]
 
 > [!TIP]
-> Também pode reconhecer imagens de recibo local. Consulte os métodos [FormRecognizerClient,](/java/api/com.azure.ai.formrecognizer.formrecognizerclient?view=azure-java-stable) tais como **startRecognizeReceipts**. Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) para cenários que envolvam imagens locais.
+> Também pode reconhecer imagens de recibo local. Consulte os métodos [FormRecognizerClient,](/java/api/com.azure.ai.formrecognizer.formrecognizerclient) tais como **startRecognizeReceipts**. Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) para cenários que envolvam imagens locais.
 
 O valor devolvido é uma coleção de objetos **RecognizedReceipt:** um para cada página no documento submetido. O próximo bloco de códigos iteração através dos recibos e imprime os seus dados para a consola.
 
@@ -285,7 +285,7 @@ Para reconhecer cartões de visita de um URL, utilize o `beginRecognizeBusinessC
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_bc_call)]
 
 > [!TIP]
-> Também pode reconhecer imagens de cartões de visita locais. Consulte os métodos [FormRecognizerClient,](/java/api/com.azure.ai.formrecognizer.formrecognizerclient?view=azure-java-stable) tais como **startRecognizeBusinessCards**. Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) para cenários que envolvam imagens locais.
+> Também pode reconhecer imagens de cartões de visita locais. Consulte os métodos [FormRecognizerClient,](/java/api/com.azure.ai.formrecognizer.formrecognizerclient) tais como **startRecognizeBusinessCards**. Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) para cenários que envolvam imagens locais.
 
 O valor devolvido é uma coleção de objetos **RecognizedForm:** um para cada cartão no documento. O código seguinte processa o cartão de visita no dado URI e imprime os principais campos e valores para a consola.
 
@@ -309,7 +309,7 @@ Para reconhecer cartões de visita de um URL, utilize o `beginRecognizeInvoicesF
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_invoice_call)]
 
 > [!TIP]
-> Também pode reconhecer faturas locais. Consulte os métodos [FormRecognizerClient,](/java/api/com.azure.ai.formrecognizer.formrecognizerclient?view=azure-java-stable) tais como **startRecognizeInvoices**. Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) para cenários que envolvam imagens locais.
+> Também pode reconhecer faturas locais. Consulte os métodos [FormRecognizerClient,](/java/api/com.azure.ai.formrecognizer.formrecognizerclient) tais como **startRecognizeInvoices**. Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) para cenários que envolvam imagens locais.
 
 O valor devolvido é uma coleção de objetos **RecognizedForm:** um para cada fatura no documento. O código seguinte processa o cartão de visita no dado URI e imprime os principais campos e valores para a consola.
 
@@ -406,7 +406,7 @@ Utilizará o método **startRecognizeCustomFormsFromUrl.**
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_analyze_call)]
 
 > [!TIP]
-> Também pode analisar um ficheiro local. Consulte os métodos [FormRecognizerClient,](/java/api/com.azure.ai.formrecognizer.formrecognizerclient?view=azure-java-stable) tais como **startRecognizeCustomForms**. Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) para cenários que envolvam imagens locais.
+> Também pode analisar um ficheiro local. Consulte os métodos [FormRecognizerClient,](/java/api/com.azure.ai.formrecognizer.formrecognizerclient) tais como **startRecognizeCustomForms**. Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) para cenários que envolvam imagens locais.
 
 O valor devolvido é uma coleção de objetos **RecognizedForm:** um para cada página no documento submetido. O código seguinte imprime os resultados da análise para a consola. Imprime cada campo reconhecido e valor correspondente, juntamente com uma pontuação de confiança.
 

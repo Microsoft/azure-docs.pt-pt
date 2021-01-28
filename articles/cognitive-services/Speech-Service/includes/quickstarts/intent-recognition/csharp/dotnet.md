@@ -7,12 +7,12 @@ ms.topic: include
 ms.author: trbye
 ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: c14dfadfb7e8724c196b125e9b93c439fac249c3
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 0cbe7e1aa5657de45f304dcec6df2a957ce47b5a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98109398"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98948101"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -53,7 +53,7 @@ Insira este código no `RecognizeIntentAsync()` método. Certifique-se de atuali
 
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=26)]
 
-Esta amostra utiliza o `FromSubscription()` método para construir o `SpeechConfig` . Para obter uma lista completa dos métodos disponíveis, consulte [a Aula deConfig da Fala](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?preserve-view=true&view=azure-dotnet).
+Esta amostra utiliza o `FromSubscription()` método para construir o `SpeechConfig` . Para obter uma lista completa dos métodos disponíveis, consulte [a Aula deConfig da Fala](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig).
 
 O SDK de discurso não reconhecerá a utilização do linguístico para a língua, consulte especificar a [língua de origem para falar para texto](../../../../how-to-specify-source-language.md) para obter informações sobre a escolha da língua de origem.
 
@@ -114,6 +114,6 @@ Agora está pronto para construir a sua app e testar o nosso reconhecimento de v
 2. **Inicie a sua aplicação** - A partir da barra de menus, escolha **Debug**  >  **Start Debugging** ou prima <kbd>F5</kbd>.
 3. **Comece a reconhecer** - Vai levá-lo a falar uma frase em inglês. O seu discurso é enviado para o serviço de discurso, transcrito como texto, e renderizado na consola.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [!INCLUDE [footer](./footer.md)]

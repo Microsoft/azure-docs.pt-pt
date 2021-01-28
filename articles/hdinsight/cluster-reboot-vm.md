@@ -1,19 +1,16 @@
 ---
 title: Reinicie VMs para clusters Azure HDInsight
 description: Aprenda a reiniciar VMs sem resposta para clusters Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 06/22/2020
-ms.openlocfilehash: 725b616fec9c2bc4a0540a7941098377e01732e2
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a61735dba60860459d007eb54d4655f41d5ae51a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546471"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946872"
 ---
 # <a name="reboot-vms-for-hdinsight-clusters"></a>Reinicie VMs para clusters HDInsight
 
@@ -60,7 +57,7 @@ Pode utilizar a função **'Tentar'** no doc API para enviar pedidos para o HDIn
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/listHosts?api-version=2018-06-01-preview
     ```
 
-1. Reinicie os anfitriões. Depois de obter os nomes dos nós que pretende reiniciar, reinicie os nós utilizando a API REST para reiniciar os nós. O nome do nó segue o padrão de *NodeType (wn/hn/zk/gw)*  +  *x*  +  *primeiros seis caracteres de nome de cluster* . Para obter mais informações, consulte [o reinício do HDInsight para receber a operação REST API](/rest/api/hdinsight/virtualmachines/restarthosts).
+1. Reinicie os anfitriões. Depois de obter os nomes dos nós que pretende reiniciar, reinicie os nós utilizando a API REST para reiniciar os nós. O nome do nó segue o padrão de *NodeType (wn/hn/zk/gw)*  +  *x*  +  *primeiros seis caracteres de nome de cluster*. Para obter mais informações, consulte [o reinício do HDInsight para receber a operação REST API](/rest/api/hdinsight/virtualmachines/restarthosts).
 
     ```
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/restartHosts?api-version=2018-06-01-preview
@@ -75,7 +72,7 @@ Os nomes reais dos nós que pretende reiniciar estão especificados numa matriz 
 ]
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Restart-AzHDInsightHost](/powershell/module/az.hdinsight/restart-azhdinsighthost)
 * [HdInsight máquinas virtuais REST API](/rest/api/hdinsight/virtualmachines)
