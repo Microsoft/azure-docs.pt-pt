@@ -3,12 +3,12 @@ title: Criar um novo recurso Azure Application Insights | Microsoft Docs
 description: Configurar manualmente a monitorização do Application Insights para uma nova aplicação ao vivo.
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 2924ccbbf591020d7872d3e9cca62a9c271db7c0
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: adc40db493c701a21fd30d10a4452edee1b87ab9
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944603"
+ms.locfileid: "98951276"
 ---
 # <a name="create-an-application-insights-resource"></a>Criar um recurso do Application Insights
 
@@ -36,6 +36,7 @@ Inscreva-se no [portal Azure](https://portal.azure.com)e crie um recurso Applica
 
 Introduza os valores adequados nos campos necessários e, em seguida, selecione **Review + create**.
 
+[!div class="mx-imgBorder"]
 ![Introduza valores em campos necessários e, em seguida, selecione "review + create".](./media/create-new-resource/review-create.png)
 
 Quando a sua aplicação foi criada, abre-se um novo painel. Este painel é onde você vê dados de desempenho e utilização sobre a sua aplicação monitorizada. 
@@ -153,7 +154,7 @@ az monitor app-insights component create --app demoApp --location eastus --kind 
 
 Para obter a documentação completa do Azure CLI para este comando, e para aprender a recuperar a chave de instrumentação consulte a documentação do [Azure CLI](/cli/azure/ext/application-insights/monitor/app-insights/component#ext-application-insights-az-monitor-app-insights-component-create).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Pesquisa de Diagnóstico](./diagnostic-search.md)
 * [Explorar métricas](../platform/metrics-charts.md)
 * [Escrever consultas da Análise](../log-query/log-query-overview.md)

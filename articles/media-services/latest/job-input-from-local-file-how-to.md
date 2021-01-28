@@ -1,5 +1,5 @@
 ---
-title: Crie uma entrada de trabalho da Azure Media Services a partir de um ficheiro local
+title: Criar uma entrada de trabalho a partir de um arquivo local
 description: Este artigo demonstra como criar uma entrada de trabalho da Azure Media Services a partir de um ficheiro local.
 services: media-services
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 2121807405849b74b354d9e638a79948c1501da5
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 75cd5922804eb1724eaca0157f2c242a86406aab
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98895344"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98951383"
 ---
 # <a name="create-a-job-input-from-a-local-file"></a>Criar uma entrada de trabalho a partir de um arquivo local
 
@@ -50,6 +50,6 @@ O seguinte código snippet submete um trabalho de codificação:
 
 Ver [códigos de erro](/rest/api/media/jobs/get#joberrorcode).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Crie uma entrada de trabalho a partir de um URL HTTPS](job-input-from-http-how-to.md).

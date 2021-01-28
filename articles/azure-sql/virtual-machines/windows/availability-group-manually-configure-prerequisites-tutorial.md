@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 33233e8a6aa54e65094e0cc6130e804241d7201c
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 869c4ac5cde7d1e50be0f2f738d8a0ce6de5e625
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98044293"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98951722"
 ---
 # <a name="tutorial-prerequisites-for-creating-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Tutorial: Pré-requisitos para criar grupos de disponibilidade no SQL Server em Azure Virtual Machines
 
@@ -91,9 +91,9 @@ Para criar a rede virtual no portal Azure:
    | **Campo** | Valor |
    | --- | --- |
    | **Nome** |autoHAVNET |
-   | **Espaço de endereços** |10.33.0.0/24 |
-   | **Nome da sub-rede** |Administrador |
-   | **Intervalo de endereços da sub-rede** |10.33.0.0/29 |
+   | **Espaço de endereços** |10.0.0.0/24 |
+   | **Nome da sub-rede** |Admin |
+   | **Intervalo de endereços da sub-rede** |10.0.0.0/29 |
    | **Subscrição** |Especifique a subscrição que pretende utilizar. **A subscrição** está em branco se tiver apenas uma subscrição. |
    | **Grupo de recursos** |Escolha **Utilizar o nome existente** e escolher o nome do grupo de recursos. |
    | **Localização** |Especifique a localização do Azure. |

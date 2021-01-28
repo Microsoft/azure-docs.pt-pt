@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services V2 para v3 API diferenças de acesso
+title: Acesso à API dos Serviços de Comunicação Social V2 vs v3
 description: Este artigo descreve as diferenças de acesso da API entre a Azure Media Services V2 a V3.
 services: media-services
 documentationcenter: na
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: 59347d2ff797cbbd2f91410c3ec713b544d7fd08
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 831bc737fbd54685cdc8358642bc37e7b2df2c42
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/28/2021
-ms.locfileid: "98928203"
+ms.locfileid: "98953721"
 ---
 # <a name="api-access-differences-between-azure-media-services-v2-to-v3-api"></a>Diferenças de acesso da API entre Azure Media Services V2 a V3 API
 
@@ -49,6 +49,6 @@ Todos os .NET, CLI e outros SDKs terão como alvo as mais recentes API 2020-05-0
 > [!NOTE]
 > As novas contas criadas com a API 2020-05-01 não podem utilizar APIs V2.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [!INCLUDE [migration guide next steps](./includes/migration-guide-next-steps.md)]

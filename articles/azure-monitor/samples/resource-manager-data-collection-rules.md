@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2020
-ms.openlocfilehash: 12e6aa85f7d8c2c4aebe80efc92f771917e6a1d5
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 4983e4b7f76c627cb3cb3081bc12e27111b2b521
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746017"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98951466"
 ---
 # <a name="resource-manager-template-samples-for-data-collection-rules-in-azure-monitor"></a>Amostras de modelo do gestor de recursos para regras de recolha de dados no Azure Monitor
 Este artigo inclui [modelos de gestor de recursos Azure](../../azure-resource-manager/templates/template-syntax.md) para implantar e configurar o [agente Log Analytics](../platform/log-analytics-agent.md) e a [extensão de diagnóstico](../platform/diagnostics-extension-overview.md) para máquinas virtuais no Azure Monitor. Cada amostra inclui um ficheiro de modelo e um ficheiro de parâmetros com valores de amostra para fornecer ao modelo.
@@ -80,7 +80,7 @@ A amostra que se segue instala o agente Azure Monitor numa máquina virtual Wind
 }
 ```
 
-## <a name="create-association-ith-azure-arc"></a>Criar associação ith Azure Arc
+## <a name="create-association-with-azure-arc"></a>Criar associação com a Azure Arc
 
 A amostra que se segue instala o agente Azure Monitor numa máquina virtual Windows Azure. Uma associação é criada entre uma máquina de servidor ativada pelo Arco Azure e uma regra de recolha de dados.
 

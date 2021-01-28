@@ -7,18 +7,18 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/03/2020
-ms.openlocfilehash: fcc3e487d949a9450f792a6cc230b64e7dbe950a
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: bfb808c634ba946e1a4825d7828db6df8963352c
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202951"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98951247"
 ---
 # <a name="tutorial-use-the-rest-apis"></a>Tutorial: Use as APIs REST
 
 Neste tutorial, você aprende a usar as APIs de repouso Azure Purview. Quem quiser submeter dados a um Catálogo Azure Purview, incluir o catálogo como parte de um processo automatizado, ou construir a sua própria experiência de utilizador no catálogo pode usar as APIs REST para o fazer.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 >
@@ -92,7 +92,7 @@ Para configurar a Azure Purview para confiar no seu novo diretor de serviço:
 
 1. Para **atribuir acesso para** deixar o padrão, **utilizador, grupo ou principal de serviço**
 
-1. Para **Selecionar insira** o nome do utilizador, do grupo Azure Ative Directory ou do principal de serviço que pretende atribuir e, em seguida, clique no seu nome no painel de resultados.
+1. Para **Selecionar insira** o nome do principal de serviço criado previosly que deseja atribuir e, em seguida, clique no seu nome no painel de resultados.
 
 1. Clique em **Guardar**
 

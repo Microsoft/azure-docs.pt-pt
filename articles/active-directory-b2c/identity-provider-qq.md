@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/15/2021
+ms.date: 01/27/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 5b7c6a229cfee5b543d1169b30be336cc97ba7ed
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 8bc2cddf4d0380e5dc22e8250b6ee26f4d005b8a
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98538086"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98952432"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-qq-account-using-azure-active-directory-b2c"></a>Configurar inscrição e inscrição com uma conta QQ utilizando o Azure Ative Directory B2C
 
@@ -66,6 +66,16 @@ Para permitir o acesso aos utilizadores com uma conta QQ no Azure Ative Director
 1. Para o segredo do **Cliente,** insira a CHAVE APP que gravou.
 1. Selecione **Guardar**.
 
+## <a name="add-qq-identity-provider-to-a-user-flow"></a>Adicionar fornecedor de identidade QQ a um fluxo de utilizador 
+
+1. No seu inquilino Azure AD B2C, selecione **fluxos de utilizador**.
+1. Clique no fluxo do utilizador que pretende adicionar ao fornecedor de identidade QQ.
+1. Sob os **fornecedores de identidade social,** selecione **QQ**.
+1. Selecione **Guardar**.
+1. Para testar a sua política, selecione **Executar o fluxo do utilizador**.
+1. Para **Aplicação**, selecione a aplicação web chamada *testapp1* que registou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms` .
+1. Clique **no fluxo do utilizador executar**
+
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
@@ -85,9 +95,9 @@ Você precisa armazenar o segredo do cliente que você já gravou no seu inquili
 9. Para **a utilização da chave**, selecione `Signature` .
 10. Clique em **Criar**.
 
-## <a name="add-a-claims-provider"></a>Adicione um fornecedor de sinistros
+## <a name="configure-qq-as-an-identity-provider"></a>Configure qQ como fornecedor de identidade
 
-Se quiser que os utilizadores entrem através de uma conta QQ, tem de definir a conta como um fornecedor de sinistros com o qual o Azure AD B2C pode comunicar através de um ponto final. O ponto final fornece um conjunto de reclamações que são usadas pelo Azure AD B2C para verificar se um utilizador específico foi autenticado.
+Para permitir que os utilizadores assinem através de uma conta QQ, é necessário definir a conta como um fornecedor de sinistros com o qual o Azure AD B2C pode comunicar através de um ponto final. O ponto final fornece um conjunto de reclamações que são usadas pelo Azure AD B2C para verificar se um utilizador específico foi autenticado.
 
 Pode definir uma conta QQ como fornecedor de sinistros adicionando-a ao elemento **ClaimsProviders** no ficheiro de extensão da sua política.
 
@@ -100,7 +110,7 @@ Pode definir uma conta QQ como fornecedor de sinistros adicionando-a ao elemento
       <Domain>qq.com</Domain>
       <DisplayName>QQ (Preview)</DisplayName>
       <TechnicalProfiles>
-        <TechnicalProfile Id="QQ-OAUTH">
+        <TechnicalProfile Id="QQ-OAuth2">
           <DisplayName>QQ</DisplayName>
           <Protocol Name="OAuth2" />
           <Metadata>
@@ -138,79 +148,28 @@ Pode definir uma conta QQ como fornecedor de sinistros adicionando-a ao elemento
 4. **Desa** esta client_id ao ID do pedido a partir do registo do pedido.
 5. Guarde o ficheiro.
 
-### <a name="upload-the-extension-file-for-verification"></a>Faça o upload do ficheiro de extensão para verificação
+[!INCLUDE [active-directory-b2c-add-identity-provider-to-user-journey](../../includes/active-directory-b2c-add-identity-provider-to-user-journey.md)]
 
-Por esta altura, já configuraste a tua política para que o Azure AD B2C saiba comunicar com a tua conta QQ. Tente carregar o ficheiro de extensão da sua apólice apenas para confirmar que não tem quaisquer problemas até agora.
 
-1. Na página **'Políticas Personalizadas'** no seu inquilino Azure AD B2C, selecione **'Política de Upload'.**
-2. Ativar **a política em caso de existência** e, em seguida, navegar e selecionar o ficheiro *TrustFrameworkExtensions.xml.*
-3. Clique em **Carregar**.
-
-## <a name="register-the-claims-provider"></a>Registar o fornecedor de sinistros
-
-Neste momento, o fornecedor de identidade foi criado, mas não está disponível em nenhum dos ecrãs de inscrição/inscrição. Para disponibilizá-lo, cria uma duplicação de uma viagem de utilizador de modelo existente e, em seguida, modifica-a de modo a que também tenha o fornecedor de identidade QQ.
-
-1. Abra o ficheiro *TrustFrameworkBase.xml* do pacote de arranque.
-2. Encontre e copie todo o conteúdo do elemento **UserJourney** que inclui `Id="SignUpOrSignIn"` .
-3. Abra a *TrustFrameworkExtensions.xml* e encontre o elemento **UserJourneys.** Se o elemento não existir, adicione um.
-4. Cole todo o conteúdo do elemento **UserJourney** que copiou em criança do elemento **UserJourneys.**
-5. Mude o nome da identificação da viagem de utilizador. Por exemplo, `SignUpSignInQQ`.
-
-### <a name="display-the-button"></a>Mostrar o botão
-
-O elemento **ClaimsProviderSelection** é análogo a um botão de fornecedor de identidade num ecrã de inscrição/inscrição. Se adicionar um elemento **ClaimsProviderSelection** para uma conta QQ, um novo botão aparece quando um utilizador pousa na página.
-
-1. Encontre o elemento **OrchestrationStep** que inclui `Order="1"` na jornada de utilizador que criou.
-2. Em **ClaimsProviderSelects**, adicione o seguinte elemento. Definir o valor do **TargetClaimsExchangeId** para um valor apropriado, por `QQExchange` exemplo:
-
-    ```xml
+```xml
+<OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
+  <ClaimsProviderSelections>
+    ...
     <ClaimsProviderSelection TargetClaimsExchangeId="QQExchange" />
-    ```
+  </ClaimsProviderSelections>
+  ...
+</OrchestrationStep>
 
-### <a name="link-the-button-to-an-action"></a>Ligue o botão a uma ação
+<OrchestrationStep Order="2" Type="ClaimsExchange">
+  ...
+  <ClaimsExchanges>
+    <ClaimsExchange Id="QQExchange" TechnicalProfileReferenceId="QQ-OAuth2" />
+  </ClaimsExchanges>
+</OrchestrationStep>
+```
 
-Agora que tens um botão no lugar, tens de o ligar a uma ação. A ação, neste caso, é que a Azure AD B2C comunique com uma conta QQ para receber um token.
+[!INCLUDE [active-directory-b2c-configure-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
 
-1. Encontre a **OrquestraçãoStep** que inclui `Order="2"` na viagem do utilizador.
-2. Adicione o seguinte elemento **ClaimsExchange** certificando-se de que utiliza o mesmo valor para iD que utilizou para **TargetClaimsExchangeId**:
-
-    ```xml
-    <ClaimsExchange Id="QQExchange" TechnicalProfileReferenceId="QQ-OAuth" />
-    ```
-
-    Atualizar o valor do **TécnicoProfileReferenceD** para o ID do perfil técnico que criou anteriormente. Por exemplo, `QQ-OAuth`.
-
-3. Guarde o ficheiro *TrustFrameworkExtensions.xml* e faça o upload novamente para verificação.
-
-::: zone-end
-
-::: zone pivot="b2c-user-flow"
-
-## <a name="add-qq-identity-provider-to-a-user-flow"></a>Adicionar fornecedor de identidade QQ a um fluxo de utilizador 
-
-1. No seu inquilino Azure AD B2C, selecione **fluxos de utilizador**.
-1. Clique no fluxo do utilizador que pretende adicionar ao fornecedor de identidade QQ.
-1. Sob os **fornecedores de identidade social,** selecione **QQ**.
-1. Selecione **Guardar**.
-1. Para testar a sua política, selecione **Executar o fluxo do utilizador**.
-1. Para **Aplicação**, selecione a aplicação web chamada *testapp1* que registou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms` .
-1. Clique **no fluxo do utilizador executar**
-
-::: zone-end
-
-::: zone pivot="b2c-custom-policy"
-
-## <a name="update-and-test-the-relying-party-file"></a>Atualizar e testar o ficheiro do partido que conta
-
-Atualize o ficheiro do partido de funções (RP) que inicia a jornada do utilizador que criou.
-
-1. Faça uma cópia de *SignUpOrSignIn.xml* no seu diretório de trabalho, e mude o nome. Por exemplo, mude-o para *SignUpSignInQQ.xml*.
-1. Abra o novo ficheiro e atualize o valor do atributo **PolicyId** para **a TrustFrameworkPolicy** com um valor único. Por exemplo, `SignUpSignInQQ`.
-1. Atualize o valor da **PublicPolicyUri** com o URI para a apólice. Por exemplo,`http://contoso.com/B2C_1A_signup_signin_QQ`
-1. Atualize o valor do atributo **ReferenceId** no **DefaultUserJourney** para corresponder ao ID da nova jornada de utilizador que criou (SignUpSignQQQ).
-1. Guarde as suas alterações, faça o upload do ficheiro.
-1. De acordo com **as políticas personalizadas,** selecione **B2C_1A_signup_signin**.
-1. Para **Select Application**, selecione a aplicação web chamada *testapp1* que registou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms` .
-1. Selecione **Executar agora** e selecione QQ para iniciar sins com QQ e testar a política personalizada.
+[!INCLUDE [active-directory-b2c-test-relying-party-policy](../../includes/active-directory-b2c-test-relying-party-policy-user-journey.md)]
 
 ::: zone-end

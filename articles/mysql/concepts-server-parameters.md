@@ -1,17 +1,17 @@
 ---
 title: Parâmetros do servidor - Base de Dados Azure para MySQL
 description: Este tópico fornece diretrizes para configurar parâmetros do servidor na Base de Dados Azure para o MySQL.
-author: savjani
-ms.author: pariks
+author: Bashar-MSFT
+ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 6/25/2020
-ms.openlocfilehash: 0fddc1e8f80e257548d0dda91758273eb8c8ac78
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.date: 1/26/2021
+ms.openlocfilehash: 9485d346384344bd7c35d0577245419ca1f56574
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94534913"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98951315"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Parâmetros do servidor na Base de Dados Azure para o MySQL
 
@@ -261,6 +261,18 @@ Reveja a documentação do [MySQL](https://dev.mysql.com/doc/refman/5.7/en/serve
 |Otimizada para Memória|8|16777216|1024|536870912|
 |Otimizada para Memória|16|16777216|1024|1073741824|
 |Otimizada para Memória|32|16777216|1024|1073741824|
+
+### <a name="innodb-buffer-pool-warmup"></a>Aquecimento da piscina tampão Innodb
+Depois de reiniciar a Base de Dados Azure para o servidor MySQL, as páginas de dados que residem no disco são carregadas à medida que as tabelas são consultadas. Isto leva a um aumento da latência e de um desempenho mais lento para a primeira execução das consultas. Isto pode não ser aceitável para cargas de trabalho sensíveis à latência. A utilização do aquecimento do pool de tampão InnoDB encurta o período de aquecimento recarregando as páginas de disco que estavam na piscina tampão antes do reinício, em vez de esperar que as operações DML ou SELECT acedam às linhas correspondentes.
+
+Pode reduzir o período de aquecimento após reiniciar a sua Base de Dados Azure para o servidor MySQL, o que representa uma vantagem de desempenho configurando [os parâmetros do servidor do conjunto de tampão InnoDB](https://dev.mysql.com/doc/refman/8.0/en/innodb-preload-buffer-pool.html). O InnoDB guarda uma percentagem das páginas mais usadas para cada piscina tampão no fecho do servidor e restaura estas páginas no arranque do servidor.
+
+Também é importante notar que um melhor desempenho vem à custa de tempo de arranque mais longo para o servidor. Quando este parâmetro estiver ativado, espera-se que o início do servidor e o tempo de reinicie aumentem dependendo do IOPS previsto no servidor. Recomendamos testar e monitorizar o tempo de reinicio para garantir que o desempenho do arranque/reinicio é aceitável, uma vez que o servidor não está disponível durante esse período. Não é aconselhável utilizar este parâmetro quando o IOPS forvisionado for inferior a 1000 IOPS (ou seja, quando o armazenamento previsto é inferior a 335GB.
+
+Para salvar o estado da piscina tampão no parâmetro do servidor de paragem do servidor `innodb_buffer_pool_dump_at_shutdown` para `ON` . Da mesma forma, desace o parâmetro do servidor `innodb_buffer_pool_load_at_startup` para restaurar o estado do pool de `ON` tampão no arranque do servidor. Pode controlar o impacto no arranque/reinício reduzindo e finamente afinando o valor do parâmetro do servidor `innodb_buffer_pool_dump_pct` , Por predefinição, este parâmetro está definido para `25` .
+
+> [!Note]
+> Os parâmetros de aquecimento do pool de tampão InnoDB só são suportados em servidores de armazenamento de finalidade geral com armazenamento até 16-TB. Saiba mais sobre [a Base de Dados Azure para as opções de armazenamento MySQL aqui.](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage)
 
 ### <a name="time_zone"></a>time_zone
 
