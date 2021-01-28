@@ -1,5 +1,5 @@
 ---
-title: Ligação privada Azure para Azure Data Factory
+title: Azure Private Link para o Azure Data Factory
 description: Saiba como funciona a Azure Private Link na Azure Data Factory.
 services: data-factory
 ms.author: abnarain
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
-ms.openlocfilehash: 5d13a6a77ede6277eebc7fdab7cd42165cb602fa
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 6fb460c65d37723b03c1dfd4fba2c353c19455bd
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746374"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944585"
 ---
-# <a name="azure-private-link-for-azure-data-factory"></a>Ligação privada Azure para Azure Data Factory
+# <a name="azure-private-link-for-azure-data-factory"></a>Azure Private Link para o Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-xxx-md.md)]
 
@@ -37,7 +37,7 @@ Também pode instalar um tempo de integração auto-hospedado numa máquina no l
 
 São necessários vários canais de comunicação entre a Azure Data Factory e a rede virtual do cliente, como mostra o seguinte quadro:
 
-| Domínio | Porta | Description |
+| Domínio | Porta | Descrição |
 | ---------- | -------- | --------------- |
 | `adf.azure.com` | 443 | Um avião de controlo, exigido pela data factory de autoria e monitorização. |
 | `*.{region}.datafactory.azure.net` | 443 | Requerido pelo tempo de integração auto-hospedado para ligar ao serviço Data Factory. |
@@ -67,7 +67,7 @@ Ativar o serviço Private Link para cada um dos canais de comunicação anterior
 > Quando criar um serviço ligado, certifique-se de que as suas credenciais estão guardadas num cofre de chaves Azure. Caso contrário, as credenciais não funcionarão quando ativar o Private Link na Azure Data Factory.
 
 ## <a name="dns-changes-for-private-endpoints"></a>Alterações no DNS para Pontos Finais Privados
-Quando cria um ponto final privado, o registo de recursos DNS CNAME para a Data Factory é atualizado para um pseudónimo num subdomínio com o prefixo 'privatelink'. Por padrão, também criamos uma [zona privada de DNS,](https://docs.microsoft.com/azure/dns/private-dns-overview)correspondente ao subdomínio 'privatelink', com os registos de recursos DNS A para os pontos finais privados.
+Quando cria um ponto final privado, o registo de recursos DNS CNAME para a Data Factory é atualizado para um pseudónimo num subdomínio com o prefixo 'privatelink'. Por padrão, também criamos uma [zona privada de DNS,](../dns/private-dns-overview.md)correspondente ao subdomínio 'privatelink', com os registos de recursos DNS A para os pontos finais privados.
 
 Quando resolve o URL de ponto final da fábrica de dados de fora do VNet com o ponto final privado, resolve-se para o ponto final público do serviço de fábrica de dados. Quando resolvido a partir do VNet que hospeda o ponto final privado, o URL do ponto final de armazenamento resolve-se para o endereço IP do ponto final privado.
 
@@ -89,8 +89,8 @@ Os registos de recursos DNS para DataFactoryA, quando resolvidos no VNet que alb
 Se estiver a utilizar um servidor DNS personalizado na sua rede, os clientes devem ser capazes de resolver o FQDN para o ponto final da Data Factory para o endereço IP do ponto final privado. Deverá configurar o seu servidor DNS para delegar o seu subdomínio de ligação privada para a zona privada de DNS para o VNet, ou configurar os registos A para ' DataFactoryA. {region}.privatelink.datafactory.azure.net' com o endereço IP do ponto final privado.
 
 Para obter mais informações sobre a configuração do seu próprio servidor DNS para suportar pontos finais privados, consulte os seguintes artigos:
-- [Name resolution for resources in Azure virtual networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server) (Resolução de nomes para recursos em redes virtuais do Azure)
-- [Configuração DE DNS para pontos finais privados](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration)
+- [Name resolution for resources in Azure virtual networks](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) (Resolução de nomes para recursos em redes virtuais do Azure)
+- [Configuração DE DNS para pontos finais privados](../private-link/private-endpoint-overview.md#dns-configuration)
 
 
 ## <a name="set-up-private-link-for-azure-data-factory"></a>Configurar link privado para a fábrica de dados Azure
@@ -117,7 +117,7 @@ Se pretender criar um ponto final privado para a autoria e monitorização da f�
 > [!NOTE]
 > Ainda é possível aceder ao portal Azure Data Factory através de uma rede pública depois de criar um ponto final privado para o portal.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Criar uma fábrica de dados utilizando a UI da Azure Data Factory](quickstart-create-data-factory-portal.md)
 - [Introdução ao Azure Data Factory](introduction.md)

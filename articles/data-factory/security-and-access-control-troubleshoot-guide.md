@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 01/05/2021
 ms.author: lle
 ms.reviewer: craigg
-ms.openlocfilehash: 3b7b405e34b6ca82da593507ad6103d360c5df1e
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 70e4d0c1a9f26f83924c1343e4e8e51c5595b324
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968590"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944506"
 ---
 # <a name="troubleshoot-azure-data-factory-security-and-access-control-issues"></a>Resolução de problemas Azure Data Factory questões de segurança e controlo de acessos
 
@@ -49,13 +49,13 @@ O problema é geralmente causado por um dos seguintes fatores:
 
 * Se estiver a utilizar um **IR auto-hospedado,** verifique as definições de procuração, firewall e rede, porque a ligação à mesma datastore pode ter sucesso se estiver a utilizar um Azure IR. Para resolver este cenário, consulte:
 
-   * [Portas e firewalls auto-hospedados](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#ports-and-firewalls)
-   * [Conector de armazenamento do lago de dados Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store)
+   * [Portas e firewalls auto-hospedados](./create-self-hosted-integration-runtime.md#ports-and-firewalls)
+   * [Conector de armazenamento do lago de dados Azure](./connector-azure-data-lake-store.md)
   
 * Se estiver a utilizar um **Azure IR,** tente desativar a definição de firewall da datastore. Esta abordagem pode resolver as questões nas duas situações seguintes:
   
-   * [Os endereços IP Azure](https://docs.microsoft.com/azure/data-factory/azure-integration-runtime-ip-addresses) NÃO estão na lista de autorizações.
-   * O *Allow trust microsoft services to access this storage account* feature is des desligado para [Azure Blob Storage](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#supported-capabilities) e [Azure Data Lake Storage Gen 2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#supported-capabilities).
+   * [Os endereços IP Azure](./azure-integration-runtime-ip-addresses.md) NÃO estão na lista de autorizações.
+   * O *Allow trust microsoft services to access this storage account* feature is des desligado para [Azure Blob Storage](./connector-azure-blob-storage.md#supported-capabilities) e [Azure Data Lake Storage Gen 2](./connector-azure-data-lake-storage.md#supported-capabilities).
    * O *acesso ao acesso a Azure não* está habilitado para a Azure Data Lake Storage Gen1.
 
 Se nenhum dos métodos anteriores funcionar, contacte a Microsoft para obter ajuda.
@@ -88,7 +88,7 @@ Para verificar se o nome de domínio totalmente qualificado (FQDN) da Data Facto
 #### <a name="resolution"></a>Resolução
 
 Para resolver a questão, faça o seguinte:
-- Consulte o Azure Private Link para o artigo [da Azure Data Factory.](https://docs.microsoft.com/azure/data-factory/data-factory-private-link#dns-changes-for-private-endpoints) A instrução é para configurar a zona ou servidor privado de DNS para resolver o FQDN da Data Factory para um endereço IP privado.
+- Consulte o Azure Private Link para o artigo [da Azure Data Factory.](./data-factory-private-link.md#dns-changes-for-private-endpoints) A instrução é para configurar a zona ou servidor privado de DNS para resolver o FQDN da Data Factory para um endereço IP privado.
 
 - Recomendamos a utilização de um DNS personalizado como solução a longo prazo. No entanto, se não quiser configurar a zona ou servidor privado de DNS, experimente a seguinte solução temporária:
 
@@ -108,7 +108,7 @@ Para resolver a questão, faça o seguinte:
 
 Não é possível registar a chave de autenticação IV no VM auto-hospedado porque o link privado está ativado. Recebe a seguinte mensagem de erro:
 
-"Falhando na obter o token de serviço do serviço ADF com a chave ** e o custo de tempo é: 0.12500079 segundos, o código de erro é: InvalidGatewayKey, activityId é: XXXXXX E a mensagem de erro detalhada é o endereço IP do cliente não é válido por ip fábrica de dados não poderia aceder à rede pública, assim, não conseguir chegar à nuvem para fazer a ligação com sucesso."
+"Falhando na obter o token de serviço do serviço ADF com a chave *** e o custo de tempo é: 0.12500079 segundos, o código de erro é: InvalidGatewayKey, activityId é: XXXXXX E a mensagem de erro detalhada é o endereço IP do cliente não é válido por ip fábrica de dados não poderia aceder à rede pública, assim, não conseguir chegar à nuvem para fazer a ligação com sucesso."
 
 #### <a name="cause"></a>Causa
 
@@ -120,7 +120,7 @@ O problema pode ser causado pelo VM em que está a tentar instalar o IR auto-hos
  
 Para resolver a questão, faça o seguinte:
 
-1. Vá às [Fábricas - Página de atualização.](https://docs.microsoft.com/rest/api/datafactory/Factories/Update)
+1. Vá às [Fábricas - Página de atualização.](/rest/api/datafactory/Factories/Update)
 
 1. No canto superior direito, selecione o botão **Tente-o.**
 1. Nos **Parâmetros,** complete as informações necessárias. 
@@ -146,13 +146,13 @@ Para resolver a questão, faça o seguinte:
 
 **Solução 2**
 
-Para resolver o problema, vá ao [Azure Private Link for Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-private-link).
+Para resolver o problema, vá ao [Azure Private Link for Azure Data Factory](./data-factory-private-link.md).
 
 Tente permitir o acesso à rede pública na interface do utilizador, como mostra a seguinte imagem:
 
 ![Screenshot do controlo "Ativado" para "Permitir o acesso à rede pública" no painel de networking.](media/self-hosted-integration-runtime-troubleshoot-guide/enable-public-network-access.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais ajuda na resolução de problemas, experimente os seguintes recursos:
 

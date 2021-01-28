@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: mjbrown
-ms.openlocfilehash: 950a3c03d5c2c76ad417634833c473ee65adb9b9
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 2a5ec03bcd7d5002f85d32ed63614d277e95cfa0
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636644"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943752"
 ---
 # <a name="azure-role-based-access-control-in-azure-cosmos-db"></a>Controlo de acesso baseado em funções Azure em Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -112,7 +112,7 @@ Para ativar a utilização do Azure PowerShell, utilize o comando abaixo:
 Update-AzCosmosDBAccount -ResourceGroupName [ResourceGroupName] -Name [CosmosDBAccountName] -DisableKeyBasedMetadataWriteAccess true
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [O que é o controlo de acesso baseado em funções Azure (Azure RBAC)](../role-based-access-control/overview.md)
 - [Funções personalizadas do Azure](../role-based-access-control/custom-roles.md)

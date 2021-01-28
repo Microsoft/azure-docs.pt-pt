@@ -1,19 +1,16 @@
 ---
 title: Enviar empregos de R Tools for Visual Studio - Azure HDInsight
 description: Submeta trabalhos R da sua máquina de Estúdio Visual local para um cluster HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.openlocfilehash: 08426c74b26c18b15466578d9921520da1e9c923
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c5a0b2d21f7d42b8ce96f72d58e5d0a8ab0c572c
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95993793"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943936"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Submeter tarefas a partir das Ferramentas R para o Visual Studio
 
@@ -21,7 +18,7 @@ ms.locfileid: "95993793"
 
 O RTVS melhora o seu fluxo de trabalho R oferecendo ferramentas como a [janela R Interactive](/visualstudio/rtvs/interactive-repl) (REPL), intellisense (conclusão de código), [visualização de enredo](/visualstudio/rtvs/visualizing-data) através de bibliotecas R como ggplot2 e ggviz, [depuração de código R,](/visualstudio/rtvs/debugging)e muito mais.
 
-## <a name="set-up-your-environment"></a>Configurar o seu ambiente
+## <a name="set-up-your-environment"></a>Configurar o ambiente
 
 1. Instale [ferramentas R para Estúdio Visual](/visualstudio/rtvs/installing-r-tools-for-visual-studio).
 
@@ -131,7 +128,7 @@ Utilizando um Microsoft ML Server/Microsoft R Client a partir de um computador W
     rxStopEngine(mySparkCluster)
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Opções de contexto computacional para serviços ML em HDInsight](r-server-compute-contexts.md)
 * [A combinação da ScaleR e da SparkR](../hdinsight-hadoop-r-scaler-sparkr.md) fornece um exemplo das previsões de atrasos de voo da companhia aérea.

@@ -7,12 +7,12 @@ ms.author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
 ms.date: 12/04/2020
-ms.openlocfilehash: d078d4b106136c95d67eb467bc16e22e2bb91c5c
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: ccb43c3e7efb9289450ad9a71c003f54e5362b66
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96747361"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945208"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-in-the-azure-portal"></a>Tutorial: Criar uma ligação Site-a-Local no portal Azure
 
@@ -85,7 +85,7 @@ Criar um gateway VPN utilizando os seguintes valores:
 
 Pode ver o endereço IP público gateway na página **'Vista Geral'** para o seu gateway.
 
-:::image type="content" source="./media/tutorial-create-gateway-portal/address.png" alt-text="Página geral":::
+:::image type="content" source="./media/tutorial-create-gateway-portal/address.png" alt-text="Página de descrição geral":::
 
 Para ver informações adicionais sobre o objeto de endereço IP público, clique no link de endereço nome/IP ao lado **do endereço IP Público.**
 
@@ -153,7 +153,7 @@ Repor o gateway de VPN do Azure é útil se perder a conectividade VPN em vário
 
 [!INCLUDE [reset a gateway](../../includes/vpn-gateway-reset-gw-portal-include.md)]
 
-### <a name="additional-configuration-considerations"></a><a name="connectVM"></a>Considerações de configuração adicionais
+### <a name="additional-configuration-considerations"></a><a name="additional"></a>Considerações de configuração adicionais
 
 As configurações S2S podem ser personalizadas de várias maneiras. Para obter mais informações, veja os seguintes artigos:
 
@@ -163,7 +163,7 @@ As configurações S2S podem ser personalizadas de várias maneiras. Para obter 
 * Para obter informações sobre como limitar o tráfego de rede para os recursos numa rede virtual, veja [Segurança da rede](../virtual-network/network-security-groups-overview.md).
 * Para obter informações sobre a forma como o Azure encaminha o tráfego entre os recursos do Azure, do local e da Internet veja [Encaminhamento de tráfego da rede virtual](../virtual-network/virtual-networks-udr-overview.md).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se não continuar a utilizar esta aplicação ou ir ao próximo tutorial, elimine estes recursos utilizando os seguintes passos:
 
@@ -173,7 +173,7 @@ Se não continuar a utilizar esta aplicação ou ir ao próximo tutorial, elimin
 
 1. Introduza o seu grupo de recursos para **TYPE THE RESOURCE GROUP NAME** e selecione **Delete**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Depois de configurar uma ligação S2S, pode adicionar uma ligação P2S ao mesmo portal.
 

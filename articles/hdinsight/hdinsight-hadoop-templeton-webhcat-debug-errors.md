@@ -1,19 +1,16 @@
 ---
 title: Compreender e resolver erros do WebHCat no HDInsight - Azure
 description: Saiba como lidar com erros comuns devolvidos pelo WebHCat no HDInsight e como resolvê-los.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive
 ms.date: 04/14/2020
-ms.openlocfilehash: 951dba6e64561301dc7dbb6ebd6fd6b641c90a47
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: ce7a21a2b5401c68c6b58bc934fb20b0225ba8ad
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285690"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945469"
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>Understand and resolve errors received from WebHCat on HDInsight (Compreender e resolver erros recebidos do WebHCat no HDInsight)
 
@@ -39,7 +36,7 @@ Se os seguintes valores predefinidos forem ultrapassados, pode degradar o desemp
 
 ## <a name="too-many-requests"></a>Muitos pedidos
 
-**Código de estado HTTP** : 429
+**Código de estado HTTP**: 429
 
 | Causa | Resolução |
 | --- | --- |
@@ -47,7 +44,7 @@ Se os seguintes valores predefinidos forem ultrapassados, pode degradar o desemp
 
 ## <a name="server-unavailable"></a>Servidor indisponível
 
-**Código de estado HTTP** : 503
+**Código de estado HTTP**: 503
 
 | Causa | Resolução |
 | --- | --- |
@@ -55,7 +52,7 @@ Se os seguintes valores predefinidos forem ultrapassados, pode degradar o desemp
 
 ## <a name="bad-request-content-could-not-find-job"></a>Mau pedido Conteúdo: Não consegui encontrar emprego
 
-**CÓDIGO DE ESTADO HTTP** : 400
+**CÓDIGO DE ESTADO HTTP**: 400
 
 | Causa | Resolução |
 | --- | --- |
@@ -65,7 +62,7 @@ Se os seguintes valores predefinidos forem ultrapassados, pode degradar o desemp
 
 ## <a name="bad-gateway"></a>Mau portal
 
-**CÓDIGO DE ESTADO HTTP** : 502
+**CÓDIGO DE ESTADO HTTP**: 502
 
 | Causa | Resolução |
 | --- | --- |
@@ -75,7 +72,7 @@ Se os seguintes valores predefinidos forem ultrapassados, pode degradar o desemp
 | O serviço WebHCat está em baixo durante o failover headNode |Espere dois minutos e relemisça a operação |
 | Existem mais de 500 postos de trabalho pendentes submetidos através do WebHCat |Aguarde até que os postos de trabalho pendentes tenham concluído antes de apresentar mais empregos |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [!INCLUDE [troubleshooting next steps](../../includes/hdinsight-troubleshooting-next-steps.md)]
 

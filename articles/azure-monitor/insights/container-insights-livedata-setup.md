@@ -1,15 +1,15 @@
 ---
-title: Configurar o Azure Monitor para contentores Live Data (pré-visualização) Microsoft Docs
+title: Configurar o Azure Monitor para contentores Live Data (pré-visualização) | Microsoft Docs
 description: Este artigo descreve como configurar a visão em tempo real dos troncos de contentores (stdout/stderr) e eventos sem utilizar kubectl com O Azure Monitor para contentores.
 ms.topic: conceptual
 ms.date: 01/08/2020
 ms.custom: references_regions
-ms.openlocfilehash: d5b978e7138e10ed88f5748b84ff62ddd22bebec
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 3c176b2db659577d585ac077eebe0484203eb9cf
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98050787"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943857"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>Como configurar a funcionalidade Dados Ao Vivo (pré-visualização)
 
@@ -19,7 +19,7 @@ Esta funcionalidade suporta os seguintes métodos para controlar o acesso aos re
 
 - AKS sem autorização DECC RBAC de Kubernetes habilitada
 - AKS habilitado com autorização do RBAC da Kubernetes
-    - AKS configurado com o cluster de ligação de funções de **[clusterMonitoringUser](/rest/api/aks/managedclusters/listclustermonitoringusercredentials?view=azurermps-5.2.0&preserve-view=true)**
+    - AKS configurado com o cluster de ligação de funções de **[clusterMonitoringUser](/rest/api/aks/managedclusters/listclustermonitoringusercredentials)**
 - AKS ativado com Azure Ative Directory (AD) com base em saml
 
 Estas instruções requerem tanto acesso administrativo ao seu cluster Kubernetes, como se configurar a utilização do Azure Ative Directory (AD) para autenticação do utilizador, acesso administrativo ao Azure AD.
@@ -136,6 +136,6 @@ Cada conta AZure AD deve ser autorizada às APIs apropriadas em Kubernetes para 
 
 Para obter ajuda adicional para configurar o cluster AKS **ClusterRoleBinding**, consulte [a ligação do CREATE Kubernetes RBAC](../../aks/azure-ad-integration-cli.md#create-kubernetes-rbac-binding).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que tem a autenticação de configuração, pode ver [métricas,](container-insights-livedata-metrics.md) [Implementações](container-insights-livedata-deployments.md)e [eventos e registos](container-insights-livedata-overview.md) em tempo real a partir do seu cluster.

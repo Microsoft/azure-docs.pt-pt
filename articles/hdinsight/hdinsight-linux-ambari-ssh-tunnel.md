@@ -1,19 +1,16 @@
 ---
 title: Use túneis SSH para aceder a Azure HDInsight
 description: Aprenda a usar um túnel SSH para navegar de forma segura nos recursos web alojados nos seus nós HDInsight baseados em Linux.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/14/2020
-ms.openlocfilehash: 09fef350a0ff8cc8c2481acd7b8f74cee15d1b9d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5bbc770fa6ae5ac69b2aa939f9d2c70bb01f5403
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86075557"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945288"
 ---
 # <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-uis"></a>Use túneis SSH para aceder a Apache Ambari web UI, JobHistory, NameNode, Apache Oozie, e outros UIs
 
@@ -42,7 +39,7 @@ Os serviços instalados com Script Actions que expõem um serviço web exigirão
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um cliente SSH. Para obter mais informações, consulte [Connect to HDInsight (Apache Hadoop) utilizando SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
+* Um cliente SSH. Para obter mais informações, veja [Ligar ao HDInsight (Apache Hadoop) através de SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 * Um navegador web que pode ser configurado para usar um proxy SOCKS5.
 
@@ -97,7 +94,7 @@ Uma vez terminado o comando, o tráfego enviado para a porta 9876 no computador 
 
     ![HDInsight criar sessão de putty](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-create-putty-session.png)
 
-1. Na secção **categoria** à esquerda do diálogo, expanda a **Ligação,** expanda o **SSH**e, em seguida, selecione **Túneis**.
+1. Na secção **categoria** à esquerda do diálogo, expanda a **Ligação,** expanda o **SSH** e, em seguida, selecione **Túneis**.
 
 1. Fornecer as seguintes informações sobre as **opções que controlam o formulário de encaminhamento da porta SSH:**
 
@@ -156,7 +153,7 @@ Uma vez estabelecido o cluster, utilize os seguintes passos para verificar se po
     > [!NOTE]  
     > Note o URL para esta página; deve ser semelhante a `http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster` . Este URI está a utilizar o nome de domínio interno totalmente qualificado (FQDN) do nó, e só é acessível quando se utiliza um túnel SSH.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que aprendeu a criar e usar um túnel SSH, consulte o seguinte documento para outras formas de usar Ambari:
 

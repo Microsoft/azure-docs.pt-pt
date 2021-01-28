@@ -1,19 +1,16 @@
 ---
 title: Registos do Monitor de Consulta Azure para monitorizar os clusters Azure HDInsight
 description: Aprenda a executar consultas nos registos do Azure Monitor para monitorizar os trabalhos em execução num cluster HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/02/2019
-ms.openlocfilehash: c2ddcd8ea3524b4afdfa7f70d21f0cba96975f72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9213f36ec33939c3df3b56d21822aa3b6a17c03
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085366"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945614"
 ---
 # <a name="query-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Registos do Monitor de Consulta Azure para monitorizar clusters HDInsight
 
@@ -121,13 +118,13 @@ O primeiro passo para criar um alerta é chegar a uma consulta com base na qual 
 
 1. Selecione o alerta que pretende editar ou apagar.
 
-1. Tem as seguintes opções: **Guardar,** **Descartar,** **desativar**e **Eliminar**.
+1. Tem as seguintes opções: **Guardar,** **Descartar,** **desativar** e **Eliminar**.
 
     ![HDInsight Azure Monitor alerta eliminar edição](media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png)
 
 Para obter mais informações, consulte [Criar, ver e gerir alertas métricos utilizando o Azure Monitor](../azure-monitor/platform/alerts-metric.md).
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 * [Introdução às consultas de registos no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 * [Crie vistas personalizadas utilizando o View Designer no Azure Monitor](../azure-monitor/platform/view-designer.md)

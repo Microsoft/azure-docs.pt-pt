@@ -1,19 +1,16 @@
 ---
 title: 'Tutorial: Use os runbooks da Azure Automation para criar clusters - Azure HDInsight'
 description: Aprenda a criar e eliminar clusters Azure HDInsight com scripts que funcionam na nuvem utilizando os runbooks da Azure Automation.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 12/27/2019
-ms.openlocfilehash: 05c0aaf6cc33442fa4f36eb38eb0d6d593fc6c1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 255542d820d135d1a88e193a8ef13ae590ce4016
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75553514"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944048"
 ---
 # <a name="tutorial-create-azure-hdinsight-clusters-with-azure-automation"></a>Tutorial: Criar clusters Azure HDInsight com Azure Automation
 
@@ -167,7 +164,7 @@ Elimine o cluster selecionando o `hdinsight-cluster-delete` livro de recortes qu
 
 Quando já não for necessário, elimine a Conta de Automação Azure que foi criada para evitar encargos não intencionais. Para tal, navegue no portal Azure, selecione o grupo de recursos onde criou a Conta de Automação Azure, selecione a Conta De Automação e, em seguida, selecione **Delete**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Gerir os clusters Apache Hadoop em HDInsight utilizando a Azure PowerShell](hdinsight-administer-use-powershell.md)

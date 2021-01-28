@@ -1,14 +1,14 @@
 ---
-title: Configure Azure Red Hat OpenShift v4.x com Monitor Azure para contentores / Microsoft Docs
+title: Configure Azure Red Hat OpenShift v4.x com Monitor Azure para recipientes | Microsoft Docs
 description: Este artigo descreve como configurar a monitorização para um cluster Kubernetes com o Azure Monitor que está hospedado na versão 4 ou mais tarde do Azure Red Hat OpenShift.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: e9f31d1b71122c53a67dc40af31d33255e2e98d8
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 8cd551a028f2fc67c26f8e32d59c0e0650aa1e54
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994541"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944528"
 ---
 # <a name="configure-azure-red-hat-openshift-v4x-with-azure-monitor-for-containers"></a>Configure Azure Red Hat OpenShift v4.x com Monitor Azure para recipientes
 
@@ -20,7 +20,7 @@ O Azure Monitor para contentores proporciona uma rica experiência de monitoriza
 
 Pode ativar o Azure Monitor para contentores para uma ou mais implementações existentes do Azure Red Hat OpenShift v4.x utilizando os métodos suportados descritos neste artigo.
 
-Para um cluster existente, execute este [script Bash no Azure CLI](/cli/azure/openshift?view=azure-cli-latest#az-openshift-create&preserve-view=true).
+Para um cluster existente, execute este [script Bash no Azure CLI](/cli/azure/openshift#az-openshift-create&preserve-view=true).
 
 ## <a name="supported-and-unsupported-features"></a>Funcionalidades suportadas e não apoiadas
 
@@ -111,7 +111,7 @@ Se não tiver um espaço de trabalho para especificar, pode saltar para a Secç�
     az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json
     ```
 
-1. Na saída, encontre o nome do espaço de trabalho e, em seguida, copie o ID completo do recurso daquele espaço de trabalho Log Analytics sob o **ID**de campo .
+1. Na saída, encontre o nome do espaço de trabalho e, em seguida, copie o ID completo do recurso daquele espaço de trabalho Log Analytics sob o **ID** de campo .
 
 1. Para ativar a monitorização, executar o seguinte comando. Substitua os valores do `azureAroV4ClusterResourceId` `logAnalyticsWorkspaceResourceId` , e `kubeContext` parâmetros.
 
@@ -133,7 +133,7 @@ Nesta secção, você pode ativar a monitorização para o seu cluster Azure Red
 
 Neste exemplo, não é obrigado a pré-criar ou especificar um espaço de trabalho existente. Este comando simplifica o processo para si, criando um espaço de trabalho predefinido no grupo de recursos predefinidos da subscrição do cluster, caso já não exista na região.
 
-O espaço de trabalho predefinido que é criado está no formato *defaultWorkspace- \<GUID> - \<Region> *.  
+O espaço de trabalho predefinido que é criado está no formato *defaultWorkspace- \<GUID> - \<Region>*.  
 
 Substitua os valores para os `azureAroV4ClusterResourceId` `kubeContext` parâmetros e parâmetros.
 
@@ -164,7 +164,7 @@ A vista multi-cluster no Azure Monitor para contentores destaca os seus clusters
 
     Pode identificar os resultados da lista procurando o valor **ARO** na coluna **Cluster Type.** Depois de selecionar **Enable,** é redirecionado para este artigo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Agora que permitiu a monitorização para recolher a saúde e a utilização de recursos do seu cluster RedHat OpenShift 4.x e das cargas de trabalho que estão a funcionar sobre eles, aprenda [a usar](container-insights-analyze.md) o Azure Monitor para recipientes.
 

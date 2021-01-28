@@ -1,23 +1,20 @@
 ---
 title: Use ScaleR e SparkR com Azure HDInsight
 description: Use ScaleR e SparkR para manipulação de dados e desenvolvimento de modelos com serviços ML em Azure HDInsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/26/2019
-ms.openlocfilehash: c12398ceacf8495a05037422a6501dc8138abc10
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: 95fcca289b0776cc19464b13eb7d243ca4f8d5ed
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92628699"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945513"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Combine Scaler e SparkR em HDInsight
 
-Este documento mostra como prever atrasos na chegada de voo usando um modelo de regressão logística **scaleR.** O exemplo utiliza dados de atraso de voo e meteorologia, unidos através do **SparkR** .
+Este documento mostra como prever atrasos na chegada de voo usando um modelo de regressão logística **scaleR.** O exemplo utiliza dados de atraso de voo e meteorologia, unidos através do **SparkR**.
 
 Apesar de ambos os pacotes funcionarem no motor de execução spark da Apache Hadoop, estão bloqueados da partilha de dados na memória, uma vez que cada um deles requer as suas respetivas sessões de Spark. Até que este problema seja abordado numa próxima versão do ML Server, a solução alternativa é manter sessões de Spark não sobrepostas e trocar dados através de ficheiros intermédios. As instruções aqui demonstram que estes requisitos são simples de alcançar.
 

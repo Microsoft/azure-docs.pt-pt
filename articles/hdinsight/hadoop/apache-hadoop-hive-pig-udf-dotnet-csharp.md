@@ -1,19 +1,16 @@
 ---
 title: C#, Apache Hive & Apache Pig em Apache Hadoop - Azure HDInsight
 description: 'Saiba como utilizar funções definidas pelo utilizador C #(UDF) com o streaming Apache Hive e Apache Pig em Azure HDInsight.'
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/06/2019
-ms.openlocfilehash: e99d68d31f1da4dcb3ef1086a2bbd90f0ab30410
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 97b23a2b9e3b95a5ea0efcd27d0ec185b1c456f1
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023130"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946542"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-on-apache-hadoop-in-hdinsight"></a>Use funções definidas pelo utilizador C# com Apache Hive e Apache Pig em Apache Hadoop em HDInsight
 
@@ -269,7 +266,7 @@ Você também pode executar um trabalho de porco que usa a sua aplicação Pig U
 
 5. Use `exit` para sair de porco.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste documento, aprendeu a usar uma aplicação .NET Framework da Hive and Pig on HDInsight. Se você gostaria de aprender a usar Python com Colmeia e Porco, consulte [Use Python com Apache Hive e Apache Pig em HDInsight](python-udf-hdinsight.md).
 

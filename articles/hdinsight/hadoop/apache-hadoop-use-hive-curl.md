@@ -1,19 +1,16 @@
 ---
 title: Use a colmeia Apache Hadoop com Curl in HDInsight - Azure
 description: Aprenda a enviar remotamente trabalhos de Porco Apache para Azure HDInsight usando Curl.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/06/2020
-ms.openlocfilehash: 956406ec5ac99be5973f1928bbb89db10e68b339
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 124661c57f779b9f8a639debcc093ed15e717694
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000505"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946462"
 ---
 # <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>Executar consultas de Colmeia Apache com Apache Hadoop em HDInsight usando REST
 
@@ -187,7 +184,7 @@ $clusterName
 
     Pode listar e descarregar estes ficheiros utilizando o [Azure CLI](/cli/azure/install-azure-cli). Para obter mais informações sobre a utilização do Azure CLI com armazenamento Azure, consulte o [Use Azure CLI com](../../storage/blobs/storage-quickstart-blobs-cli.md) o documento de armazenamento Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter informações sobre outras formas de trabalhar com Hadoop em HDInsight:
 

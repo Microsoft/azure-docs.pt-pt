@@ -1,14 +1,14 @@
 ---
-title: Configure Azure Red Hat OpenShift v3.x com Monitor Azure para contentores / Microsoft Docs
+title: Configure Azure Red Hat OpenShift v3.x com Monitor Azure para recipientes | Microsoft Docs
 description: Este artigo descreve como configurar a monitorização de um cluster Kubernetes com o Azure Monitor hospedado na versão 3 e superior do Azure Red Hat OpenShift.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 5141ef3a96d39f16a2a9f005dd580b952046e7bf
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: f21a338a06d4a0947e2623854d828c720fb2d4bb
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97695670"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944554"
 ---
 # <a name="configure-azure-red-hat-openshift-v3-with-azure-monitor-for-containers"></a>Configure Azure Red Hat OpenShift v3 com Monitor Azure para contentores
 
@@ -30,7 +30,7 @@ O Azure Monitor para contentores proporciona uma experiência de monitorização
 O Monitor Azure para contentores pode ser ativado para novas ou mais implementações existentes do Azure Red Hat OpenShift utilizando os seguintes métodos suportados:
 
 - Para um cluster existente a partir do portal Azure ou usando o modelo de Gestor de Recursos Azure.
-- Para um novo cluster usando o modelo Azure Resource Manager, ou enquanto cria um novo cluster usando o [Azure CLI](/cli/azure/openshift?view=azure-cli-latest#az-openshift-create).
+- Para um novo cluster usando o modelo Azure Resource Manager, ou enquanto cria um novo cluster usando o [Azure CLI](/cli/azure/openshift#az-openshift-create).
 
 ## <a name="supported-and-unsupported-features"></a>Funcionalidades suportadas e não apoiadas
 
@@ -244,7 +244,7 @@ Se optar por utilizar o Azure CLI, primeiro tem de instalar e utilizar o CLI loc
     provisioningState       : Succeeded
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Com a monitorização habilitada a recolher a saúde e a utilização de recursos do seu cluster RedHat OpenShift e cargas de trabalho em execução, aprenda [a utilizar o](container-insights-analyze.md) Azure Monitor para recipientes.
 

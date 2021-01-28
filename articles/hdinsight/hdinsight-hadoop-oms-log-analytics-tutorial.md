@@ -1,19 +1,16 @@
 ---
 title: Utilize registos do Monitor Azure para monitorizar os clusters Azure HDInsight
 description: Aprenda a usar registos do Azure Monitor para monitorizar os trabalhos em execução num cluster HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-azurecli, devx-track-azurepowershell
 ms.date: 05/13/2020
-ms.openlocfilehash: 775e2fad573832dd29fc45985c6d6bd0a50fdf3c
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 5f849248021de3c17b69517d214f6f3fd6e4ee3a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546097"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945629"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Use Azure Monitor logs to monitor HDInsight clusters (Utilizar registos do Azure Monitor para monitorizar clusters do HDInsight)
 
@@ -53,13 +50,13 @@ Nesta secção, você configura um cluster hdinsight Hadoop existente para usar 
 
 1. A partir do [portal Azure,](https://portal.azure.com/)selecione o seu cluster. O cluster é aberto numa nova página do portal.
 
-1. A partir da esquerda, em **Monitorização,** selecione **Azure Monitor** .
+1. A partir da esquerda, em **Monitorização,** selecione **Azure Monitor**.
 
-1. A partir da vista principal, no âmbito da **Integração do Monitor Azure,** selecione **Enable** .
+1. A partir da vista principal, no âmbito da **Integração do Monitor Azure,** selecione **Enable**.
 
 1. A partir da lista de drop-down do espaço de **trabalho,** selecione um espaço de trabalho log analytics existente.
 
-1. Selecione **Guardar** .  Leva alguns momentos para salvar a configuração.
+1. Selecione **Guardar**.  Leva alguns momentos para salvar a configuração.
 
     ![Permitir a monitorização dos clusters HDInsight](./media/hdinsight-hadoop-oms-log-analytics-tutorial/azure-portal-monitoring.png "Permitir a monitorização dos clusters HDInsight")
 
@@ -158,7 +155,7 @@ Auditoria de cluster de suporte HDInsight com registos Azure Monitor, importando
 * `log_ambari_audit_CL` - esta tabela fornece registos de auditoria de Ambari.
 * `log_ranger_audti_CL` - esta tabela fornece registos de auditoria da Apache Ranger em aglomerados ESP.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Registos do Monitor de Consulta Azure para monitorizar clusters HDInsight](hdinsight-hadoop-oms-log-analytics-use-queries.md)
 * [Como monitorizar a disponibilidade do cluster com os registos Apache Ambari e Azure Monitor](./hdinsight-cluster-availability.md)

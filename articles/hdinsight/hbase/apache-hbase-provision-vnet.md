@@ -1,19 +1,16 @@
 ---
 title: Criar clusters HBase numa Rede Virtual - Azure
 description: Começa a usar hbase em Azure HDInsight. Saiba como criar clusters HDInsight HBase na Rede Virtual Azure.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/23/2019
-ms.openlocfilehash: 82e3374491aa119d9985ea7ef31e180c920511d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f179981aa39402681b4830d58a29f5b1259c7e2
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087746"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946129"
 ---
 # <a name="create-apache-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Criar clusters Apache HBase em HDInsight na Rede Virtual Azure
 
@@ -58,7 +55,7 @@ Nesta secção, você cria um cluster Apache HBase baseado em Linux com a conta 
     |Propriedade |Valor |
     |---|---|
     |Subscrição|Selecione uma subscrição Azure usada para criar o cluster HDInsight, a conta de Armazenamento dependente e a rede virtual Azure.|
-    Grupo de recursos|Selecione **Criar novo**e especifique um novo nome de grupo de recursos.|
+    Grupo de recursos|Selecione **Criar novo** e especifique um novo nome de grupo de recursos.|
     |Localização|Selecione uma localização para o grupo de recursos.|
     |Nome do Cluster|Insira um nome para o cluster Hadoop a ser criado.|
     |Nome de utilizador e senha de login do cluster|O nome de utilizador predefinido é **administrador.** Forneça uma senha.|
@@ -144,7 +141,7 @@ Para utilizar estas informações numa aplicação Java, pode seguir os passos e
 > [!NOTE]  
 > Para obter mais informações sobre a resolução de nomes em redes virtuais Azure, incluindo como utilizar o seu próprio servidor DNS, consulte [a Resolução de Nomes (DNS)](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu a criar um cluster Apache HBase. Para saber mais, veja:
 

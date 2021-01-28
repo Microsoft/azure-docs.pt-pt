@@ -1,19 +1,16 @@
 ---
 title: Carregamento a granel em Apache Phoenix usando psql - Azure HDInsight
 description: Utilize a ferramenta psql para carregar dados de carga a granel nas tabelas Apache Phoenix em Azure HDInsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
-ms.openlocfilehash: 513d48114d73b2c91ebecf06f9492a6ebf0ba1cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d56c9b33d53be0e30769aef8934a2dbf43d06867
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89504711"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944841"
 ---
 # <a name="bulk-load-data-into-apache-phoenix-using-psql"></a>Carregamento de dados em massa para o Apache Phoenix com psql
 
@@ -23,7 +20,7 @@ ms.locfileid: "89504711"
 
 Existem várias formas de obter dados em HBase, incluindo a utilização de APIs do cliente, um trabalho MapReduce com TableOutputFormat, ou inserir os dados manualmente utilizando a concha HBase. A Phoenix fornece dois métodos para carregar dados de CSV nas tabelas Phoenix: uma ferramenta de carregamento de clientes chamada `psql` , e uma ferramenta de carga a granel baseada no MapReduce.
 
-A `psql` ferramenta é de rosca única e é mais adequada para carregar megabytes ou gigabytes de dados. Todos os ficheiros CSV a serem carregados devem ter a extensão do ficheiro '.csv'.  Também pode especificar ficheiros de script SQL na linha de `psql` comando com a extensão de ficheiro '.sql'.
+A `psql` ferramenta é de rosca única e é mais adequada para carregar megabytes ou gigabytes de dados. Todos os ficheiros CSV a serem carregados devem ter a extensão de ficheiro ".csv".  Também pode especificar ficheiros de script SQL na linha de `psql` comando com a extensão de ficheiro '.sql'.
 
 O carregamento a granel com o MapReduce é usado para volumes de dados muito maiores, tipicamente em cenários de produção, uma vez que o MapReduce utiliza vários fios.
 
@@ -181,7 +178,7 @@ Para uma carga de maior produção distribuída sobre o cluster, utilize a ferra
 
 * Evite pontos de acesso ao servidor da região. Se a tecla de linha estiver a aumentar monotonicamente, as gravações sequenciais da HBase podem induzir o hotspotting do servidor da região. *Salgar* a tecla de linha reduz as gravações sequenciais. Phoenix fornece uma maneira de salgar transparentemente a chave da linha com um byte de salga para uma determinada tabela, como referenciado abaixo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Carregamento de dados em massa com Apache Phoenix](https://phoenix.apache.org/bulk_dataload.html)
 * [Use Apache Phoenix com clusters Apache HBase baseados em Linux em HDInsight](../hbase/apache-hbase-query-with-phoenix.md)

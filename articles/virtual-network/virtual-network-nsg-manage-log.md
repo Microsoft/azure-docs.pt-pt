@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: kumud
-ms.openlocfilehash: 5d06c251ce16aff56a3645f5032cce4e27d5fc9e
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 412556f3bd517539fc8ccad94c4de52226f16597
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98216908"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946221"
 ---
 # <a name="resource-logging-for-a-network-security-group"></a>Registo de recursos para um grupo de segurança de rede
 
@@ -93,7 +93,7 @@ Ver e analisar registos. Para obter mais informações, consulte [Ver e analisar
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-Pode executar os comandos que seguem na [Azure Cloud Shell,](https://shell.azure.com/bash)ou executando o CLI Azure a partir do seu computador. O Azure Cloud Shell é uma concha interativa gratuita. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Se executar o CLI a partir do computador, precisa da versão 2.0.38 ou posterior. Corra `az --version` no seu computador, para encontrar a versão instalada. Se precisar de atualizar, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). Se estiver a executar o CLI localmente, também tem de correr `az login` para entrar no Azure com uma conta que tenha as [permissões necessárias.](virtual-network-network-interface.md#permissions)
+Pode executar os comandos que seguem na [Azure Cloud Shell,](https://shell.azure.com/bash)ou executando o CLI Azure a partir do seu computador. O Azure Cloud Shell é uma concha interativa gratuita. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Se executar o CLI a partir do computador, precisa da versão 2.0.38 ou posterior. Corra `az --version` no seu computador, para encontrar a versão instalada. Se precisar de atualizar, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli). Se estiver a executar o CLI localmente, também tem de correr `az login` para entrar no Azure com uma conta que tenha as [permissões necessárias.](virtual-network-network-interface.md#permissions)
 
 Para ativar a extração de recursos, precisa do ID de um NSG existente. Se não tiver um NSG existente, pode criar um com [a az network nsg criar](/cli/azure/network/nsg#az-network-nsg-create).
 
@@ -204,7 +204,7 @@ Para saber como ver os dados do registo de recursos, consulte [a visão geral do
   - Registo de eventos no seguinte caminho: `insights-logs-networksecuritygroupevent/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`
   - Registo de contador de regras no seguinte caminho: `insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [o registo de atividades.](../azure-monitor/platform/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) O registo de atividade é ativado por padrão para NSGs criados através de um modelo de implementação Azure. Para determinar quais as operações que foram concluídas em NSGs no registo de atividade, procure entradas que contenham os seguintes tipos de recursos:
   - Microsoft.ClassicNetwork/networkSecurityGroups

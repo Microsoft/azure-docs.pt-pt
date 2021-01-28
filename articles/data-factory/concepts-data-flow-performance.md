@@ -7,12 +7,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 12/18/2020
-ms.openlocfilehash: d23b2f65f25b704beaee12c53e47706653dcc208
-ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
+ms.openlocfilehash: 9706bee07f028c36b4d03311a7abbb969a1be685
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97858591"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944994"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Mapeamento de dados flui desempenho e guia de afinação
 
@@ -161,7 +161,7 @@ A Azure SQL Database tem uma opção de partição única chamada partição 'So
 
 #### <a name="isolation-level"></a>Nível de isolamento
 
-O nível de isolamento da leitura num sistema de origem Azure SQL tem um impacto no desempenho. A escolha de 'Ler não comprometido' proporcionará o desempenho mais rápido e evitará quaisquer bloqueios de bases de dados. Para saber mais sobre os níveis de isolamento do SQL, consulte [os níveis de isolamento da Compreensão.](https://docs.microsoft.com/sql/connect/jdbc/understanding-isolation-levels)
+O nível de isolamento da leitura num sistema de origem Azure SQL tem um impacto no desempenho. A escolha de 'Ler não comprometido' proporcionará o desempenho mais rápido e evitará quaisquer bloqueios de bases de dados. Para saber mais sobre os níveis de isolamento do SQL, consulte [os níveis de isolamento da Compreensão.](/sql/connect/jdbc/understanding-isolation-levels)
 
 #### <a name="read-using-query"></a>Ler usando consulta
 
@@ -208,7 +208,7 @@ Ambos podem ser feitos de forma nativa utilizando scripts Pré e Post-SQL dentro
 ![Índices de desativação](media/data-flow/disable-indexes-sql.png "Índices de desativação")
 
 > [!WARNING]
-> Ao desativar os índices, o fluxo de dados está efetivamente a assumir o controlo de uma base de dados e é pouco provável que as consultas sejam bem sucedidas neste momento. Como resultado, muitos postos de trabalho da ETL são desencadeados a meio da noite para evitar este conflito. Para mais informações, saiba sobre os [constrangimentos dos índices incapacitantes](https://docs.microsoft.com/sql/relational-databases/indexes/disable-indexes-and-constraints)
+> Ao desativar os índices, o fluxo de dados está efetivamente a assumir o controlo de uma base de dados e é pouco provável que as consultas sejam bem sucedidas neste momento. Como resultado, muitos postos de trabalho da ETL são desencadeados a meio da noite para evitar este conflito. Para mais informações, saiba sobre os [constrangimentos dos índices incapacitantes](/sql/relational-databases/indexes/disable-indexes-and-constraints)
 
 #### <a name="scaling-up-your-database"></a>Escalonar a sua base de dados
 
@@ -216,7 +216,7 @@ Agende um redimensionamento da sua fonte e afunde o Azure SQL DB e o DW antes do
 
 ### <a name="azure-synapse-analytics-sinks"></a>Azure Synapse Analytics afunda
 
-Ao escrever para a Azure Synapse Analytics, certifique-se de que **a encenação enable** está definida como verdadeira. Isto permite que a ADF escreva usando [o SQL Copy Command](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql) que efetivamente carrega os dados a granel. Você precisará de fazer referência a uma conta de armazenamento do Lago de Dados Azure gen2 ou Azure Blob Para a realização dos dados ao utilizar a Staging.
+Ao escrever para a Azure Synapse Analytics, certifique-se de que **a encenação enable** está definida como verdadeira. Isto permite que a ADF escreva usando [o SQL Copy Command](/sql/t-sql/statements/copy-into-transact-sql) que efetivamente carrega os dados a granel. Você precisará de fazer referência a uma conta de armazenamento do Lago de Dados Azure gen2 ou Azure Blob Para a realização dos dados ao utilizar a Staging.
 
 Além da Encenação, as mesmas boas práticas aplicam-se ao Azure Synapse Analytics como Base de Dados Azure SQL.
 
@@ -318,7 +318,7 @@ Os fluxos de dados permitem-lhe agrupar os sumidouros em grupos a partir do sepa
 
 No gasoduto execute a atividade de fluxo de dados sob a secção "Propriedades do Lavatório" é uma opção para ligar o carregamento paralelo do lavatório. Quando ativa "correr em paralelo", está a instruir os fluxos de dados a escrever em pias ligadas ao mesmo tempo e não de forma sequencial. Para utilizar a opção paralela, os lavatórios devem ser agrupados e ligados ao mesmo fluxo através de um Novo Ramo ou Divisão Condicional.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte outros artigos do Fluxo de Dados relacionados com o desempenho:
 

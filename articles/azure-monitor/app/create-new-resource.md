@@ -1,14 +1,14 @@
 ---
-title: Criar um novo recurso Azure Application Insights / Microsoft Docs
+title: Criar um novo recurso Azure Application Insights | Microsoft Docs
 description: Configurar manualmente a monitorização do Application Insights para uma nova aplicação ao vivo.
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 3fd05e6bd68be89b964fe1ad32029bf44f3352ea
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 2924ccbbf591020d7872d3e9cca62a9c271db7c0
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96906374"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944603"
 ---
 # <a name="create-an-application-insights-resource"></a>Criar um recurso do Application Insights
 
@@ -94,7 +94,7 @@ SamplingPercentage :
 TenantId           : {subid}
 ```
 
-Para obter a documentação completa da PowerShell para este cmdlet, e para aprender a recuperar a chave de instrumentação consulte a [documentação Azure PowerShell](/powershell/module/az.applicationinsights/new-azapplicationinsights?view=azps-2.5.0).
+Para obter a documentação completa da PowerShell para este cmdlet, e para aprender a recuperar a chave de instrumentação consulte a [documentação Azure PowerShell](/powershell/module/az.applicationinsights/new-azapplicationinsights).
 
 ### <a name="azure-cli-preview"></a>Azure CLI (pré-visualização)
 
@@ -151,9 +151,9 @@ az monitor app-insights component create --app demoApp --location eastus --kind 
 }
 ```
 
-Para obter a documentação completa do Azure CLI para este comando, e para aprender a recuperar a chave de instrumentação consulte a documentação do [Azure CLI](/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-create).
+Para obter a documentação completa do Azure CLI para este comando, e para aprender a recuperar a chave de instrumentação consulte a documentação do [Azure CLI](/cli/azure/ext/application-insights/monitor/app-insights/component#ext-application-insights-az-monitor-app-insights-component-create).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Pesquisa de Diagnóstico](./diagnostic-search.md)
 * [Explorar métricas](../platform/metrics-charts.md)
 * [Escrever consultas da Análise](../log-query/log-query-overview.md)

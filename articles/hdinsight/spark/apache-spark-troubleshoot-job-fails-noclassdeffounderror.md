@@ -3,16 +3,13 @@ title: NoClassDefFoundError - Apache Spark com dados apache kafka em Azure HDIns
 description: O trabalho de streaming apache Spark que lê dados de um cluster Apache Kafka falha com um NoClassDefFoundErroror em Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.date: 07/29/2019
-ms.openlocfilehash: c523dbc4612ebfcebf3923900b31f3a2a7b0c5c6
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 4d00cbcb0151da39feb0cb015660291af544d7f4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287767"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946380"
 ---
 # <a name="apache-spark-streaming-job-that-reads-apache-kafka-data-fails-with-noclassdeffounderror-in-hdinsight"></a>Trabalho de streaming Apache Spark que lê dados de Apache Kafka falha com NoClassDefFoundError em HDInsight
 
@@ -48,6 +45,6 @@ spark-submit \
 
 Utilize o comando Spark-submit com a `–packages` opção e certifique-se de que a versão do ficheiro de jarro spark-streaming-kafka é a mesma que a versão do cluster Kafka que está a executar.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]

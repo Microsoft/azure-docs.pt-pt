@@ -2,19 +2,16 @@
 title: Corrija uma Colmeia fora de erro de memória em Azure HDInsight
 description: Corrija uma Colmeia com um erro de memória em HDInsight. O cenário do cliente é uma consulta em muitas mesas grandes.
 keywords: fora do erro de memória, OOM, configurações de Colmeia
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive
 ms.date: 11/28/2019
-ms.openlocfilehash: d91da1aa6f7079069541ac955fce8331591a3bc6
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c0810d33f3ac939b9382bf321448ed72b6d87474
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546182"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945720"
 ---
 # <a name="fix-an-apache-hive-out-of-memory-error-in-azure-hdinsight"></a>Corrija uma Colmeia Apache fora de erro de memória em Azure HDInsight
 
@@ -91,7 +88,7 @@ As nossas equipas de apoio e engenharia encontraram juntos um dos problemas que 
 
 "Quando hive.auto.convert.join.noconditionaltask = verdadeiro verificamos não o tamanho do não-especial.e se a soma dos tamanhos das tabelas na junção do mapa for inferior a nãoconditionaltask.size o plano geraria uma junção de mapa, a questão é que o cálculo não tem em conta a sobrecarga introduzida pela implementação de ísselo diferente como resultado se a soma dos tamanhos de entrada for menor do que o tamanho de não-condicionaltask por uma pequena margem consultas atingirá a OOM."
 
-O **ficheiro hive.auto.convert.join.noconditionaltask** no hive-site.xml ficheiro foi definido como **verdadeiro** :
+O **ficheiro hive.auto.convert.join.noconditionaltask** no hive-site.xml ficheiro foi definido como **verdadeiro**:
 
 ```xml
 <property>
@@ -109,10 +106,10 @@ O **ficheiro hive.auto.convert.join.noconditionaltask** no hive-site.xml ficheir
 
 ![Diagrama de memória do recipiente Tez: Colmeia fora do erro de memória](./media/hdinsight-hadoop-hive-out-of-memory-error-oom/hive-out-of-memory-error-oom-tez-container-memory.png)
 
-Como sugere o post do blog, as duas definições de memória que se seguem definem a memória do recipiente para a pilha: **hive.tez.container.size** e **hive.tez.java.opts** . Pela nossa experiência, a exceção fora da memória não significa que o tamanho do contentor é muito pequeno. Significa que o tamanho da pilha de Java (hive.tez.java.opts) é muito pequeno. Assim, sempre que vir fora da memória, pode tentar aumentar **a hive.tez.java.opts** . Se necessário, poderá ter de aumentar **o tamanho da colmeia.tez.container** . A definição **de java.opts** deve ser de cerca de 80% do tamanho do **contentor.**
+Como sugere o post do blog, as duas definições de memória que se seguem definem a memória do recipiente para a pilha: **hive.tez.container.size** e **hive.tez.java.opts**. Pela nossa experiência, a exceção fora da memória não significa que o tamanho do contentor é muito pequeno. Significa que o tamanho da pilha de Java (hive.tez.java.opts) é muito pequeno. Assim, sempre que vir fora da memória, pode tentar aumentar **a colmeia.tez.java.opts**. Se necessário, poderá ter de aumentar **o tamanho da colmeia.tez.container**. A definição **de java.opts** deve ser de cerca de 80% do tamanho do **contentor.**
 
 > [!NOTE]  
-> A configuração **hive.tez.java.opts** deve ser sempre menor do que **hive.tez.container.size** .
+> A configuração **do hive.tez.java.opts** deve ser sempre menor do que **o tamanho de hive.tez.container**.
 
 Como uma máquina D12 tem memória de 28 GB, decidimos usar um tamanho de contentor de 10 GB (10240 MB) e atribuir 80% a java.opts:
 
@@ -123,6 +120,6 @@ SET hive.tez.java.opts=-Xmx8192m
 
 Com as novas definições, a consulta foi com sucesso em menos de 10 minutos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Obter um erro OOM não significa necessariamente que o tamanho do recipiente é muito pequeno. Em vez disso, deve configurar as definições de memória de modo a que o tamanho da pilha seja aumentado e seja pelo menos 80% do tamanho da memória do recipiente. Para otimizar as consultas de Colmeia, consulte [as consultas de Hive Otimize Apache para Apache Hadoop em HDInsight.](hdinsight-hadoop-optimize-hive-query.md)

@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.subservice: alerts
-ms.openlocfilehash: 9df5d702019063ffba6d79cc63370cd25a7242fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60a721af9acf980e88ad60504e75d2488c8a4d81
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91358789"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944473"
 ---
 # <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>Preparar as suas aplicações lógicas e runbooks para a migração de regras de alerta clássicas
 
@@ -30,7 +30,7 @@ A tabela a seguir é uma referência às interfaces programáticas tanto para al
 | Tipo de script de implementação | Alertas clássicos | Novos alertas métricos |
 | ---------------------- | -------------- | ----------------- |
 |API REST     | [microsoft.insights/alertars](/rest/api/monitor/alertrules)         | [microsoft.insights/metricalerts](/rest/api/monitor/metricalerts)       |
-|CLI do Azure     | [alerta de monitor az](/cli/azure/monitor/alert?view=azure-cli-latest)        | [alerta de métricas de monitor az](/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
+|CLI do Azure     | [alerta de monitor az](/cli/azure/monitor/alert)        | [alerta de métricas de monitor az](/cli/azure/monitor/metrics/alert)        |
 |PowerShell      | [Referência](/powershell/module/az.monitor/add-azmetricalertrule)       |  [Referência](/powershell/module/az.monitor/add-azmetricalertrulev2)    |
 | Modelo Azure Resource Manager | [Para alertas clássicos](./alerts-enable-template.md)|[Para novos alertas métricos](./alerts-metric-create-templates.md)|
 
@@ -53,7 +53,7 @@ Utilize a seguinte tabela para mapear os campos de carga útil webhook do format
 | Agregação de tempo (como a métrica é agregada sobre a janela de avaliação)| **contexto.condição.timeAggregation** | **contexto.condição.timeAggregation** |
 | Período de avaliação | **contexto.condition.windowSize** | **data.context.condition.windowSize** |
 | Operador (como o valor métrico agregado é comparado com o limiar) | **contexto.condição.operador** | **data.context.condition.operator** |
-| Limiar | **contexto.condição.limiar** | **data.context.condition.allOf[0].threshold** |
+| Limite | **contexto.condição.limiar** | **data.context.condition.allOf[0].threshold** |
 | Valor métrico | **contexto.condition.metricValue** | **data.context.condition.allOf[0].metricValue** |
 | ID da subscrição | **context.subscriptionId** | **data.context.subscriptionId** |
 | Grupo de recursos do recurso afetado | **context.resourceGroup** | **data.context.resourceGroup** |
@@ -70,7 +70,7 @@ As cargas são semelhantes, como pode ver. A seguinte secção oferece:
 
 ## <a name="modify-a-logic-app-to-receive-a-metric-alert-notification"></a>Modifique uma aplicação lógica para receber uma notificação de alerta métrico
 
-Se estiver a utilizar aplicações lógicas com alertas clássicos, tem de modificar o seu código de aplicação lógica para analisar a carga útil dos novos alertas métricos. Siga estes passos:
+Se estiver a utilizar aplicações lógicas com alertas clássicos, tem de modificar o seu código de aplicação lógica para analisar a carga útil dos novos alertas métricos. Siga estes passos.
 
 1. Crie uma nova aplicação lógica.
 
@@ -161,7 +161,7 @@ A maioria dos [nossos parceiros que se integram com alertas clássicos](./partne
 
 Se estiver a utilizar uma integração de parceiros que não está listada aqui, confirme com o fornecedor de integração que a integração funciona com novos alertas métricos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Como utilizar a ferramenta de migração](alerts-using-migration-tool.md)
 - [Compreender como funciona a ferramenta de migração](alerts-understand-migration.md)

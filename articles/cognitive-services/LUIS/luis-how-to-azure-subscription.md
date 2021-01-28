@@ -7,12 +7,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 19c27dc80f9af013c458663c9c7afb0033683acd
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: d8944c9e49bde8c452a10a1886cae316a0f7a33f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97348072"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945070"
 ---
 # <a name="create-luis-resources"></a>Criar recursos LUIS
 
@@ -173,7 +173,7 @@ Pode controlar quem pode ver a tecla de ponto final de previsão LUIS, chamando-
 
 ### <a name="create-resources-in-the-azure-cli"></a>Criar recursos no CLI Azure
 
-Utilize o [CLI Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) para criar cada recurso individualmente.
+Utilize o [CLI Azure](/cli/azure/install-azure-cli) para criar cada recurso individualmente.
 
 `kind`Recurso:
 
@@ -316,7 +316,7 @@ Se quiser saber quando atingir um determinado limiar de transação, por exemplo
 
 Adicione um alerta métrico para a métrica total das **chamadas** durante um determinado período de tempo. Adicione endereços de e-mail de todas as pessoas que devem receber o alerta. Adicione webhooks para todos os sistemas que devem receber o alerta. Também pode executar uma aplicação lógica quando o alerta é desencadeado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Aprenda [a usar versões](luis-how-to-manage-versions.md) para controlar o ciclo de vida da sua aplicação.
 * Migrar para o novo [recurso de autoria.](luis-migration-authoring.md)

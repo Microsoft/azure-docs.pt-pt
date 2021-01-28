@@ -1,19 +1,16 @@
 ---
 title: Autenticação não interativa .NET aplicação - Azure HDInsight
 description: Saiba como criar aplicações microsoft .NET de autenticação não interativa no Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/23/2019
-ms.openlocfilehash: a696ba4f7bab85f2353e80d028220688531b3b69
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 121c5850ef47999f54d206b95b69e10775d3e5c9
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89021770"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946083"
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>Criar uma aplicação de autenticação não interativa .NET HDInsight
 
@@ -119,7 +116,7 @@ Atribua à sua aplicação AZure AD um [papel,](../role-based-access-control/bui
     }
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Criar um Azure Ative Directory e um diretor de serviço no portal Azure.](../active-directory/develop/howto-create-service-principal-portal.md)
 * Saiba como [autenticar um diretor de serviço com o Azure Resource Manager.](../active-directory/develop/howto-authenticate-service-principal-powershell.md)

@@ -1,19 +1,16 @@
 ---
 title: Criar redes virtuais para clusters Azure HDInsight
 description: Saiba como criar uma Rede Virtual Azure para ligar o HDInsight a outros recursos em nuvem, ou recursos no seu datacenter.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 04/16/2020
-ms.openlocfilehash: 4f604ba2edcc63a245a5e87d3dcb6fdd16a9d050
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 43d57eac94cabb5c648183911e0c0bf72889946d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741447"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946071"
 ---
 # <a name="create-virtual-networks-for-azure-hdinsight-clusters"></a>Criar redes virtuais para clusters Azure HDInsight
 
@@ -370,7 +367,7 @@ Este exemplo faz os seguintes pressupostos:
 
 Após completar estes passos, pode ligar-se a recursos na rede virtual utilizando nomes de domínio totalmente qualificados (FQDN). Agora pode instalar o HDInsight na rede virtual.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter um exemplo completo de configurar o HDInsight para ligar a uma rede no local, consulte [Connect HDInsight a uma rede no local](./connect-on-premises-network.md).
 * Para configurar os clusters Apache HBase em redes virtuais Azure, consulte [criar clusters Apache HBase em HDInsight na Rede Virtual Azure](hbase/apache-hbase-provision-vnet.md).

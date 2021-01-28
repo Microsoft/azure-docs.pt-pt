@@ -1,18 +1,15 @@
 ---
 title: Migrar Azure HDInsight 3.6 Apache Storm to HDInsight 4.0 Apache Spark
 description: As diferenças e o fluxo migratório para a migração das cargas de carga da Tempestade Apache para o Streaming de Faíscas ou Para o Streaming Estruturado de Faíscas.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/16/2019
-ms.openlocfilehash: e1262a4699bc42cb5b9a4398be2254854c5d5ff2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa57c01558cfdcf069b17fad9e86f7640553dcfd
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86081201"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944793"
 ---
 # <a name="migrate-azure-hdinsight-36-apache-storm-to-hdinsight-40-apache-spark"></a>Migrar Azure HDInsight 3.6 Apache Storm to HDInsight 4.0 Apache Spark
 
@@ -39,8 +36,8 @@ O Apache Storm pode fornecer diferentes níveis de processamento garantido de me
 |---|---|---|---|
 |**Garantia de processamento de eventos**|Pelo menos uma vez. <br> Exatamente uma vez (Tridente) |[Exatamente uma vez](https://spark.apache.org/docs/latest/streaming-programming-guide.html)|[Exatamente uma vez](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)|
 |**Modelo de processamento**|Em tempo real <br> Micro Lote (Tridente) |Micro Lote |Micro Lote |
-|**Suporte de tempo do evento**|[Sim](https://storm.apache.org/releases/2.0.0/Windowing.html)|Não|[Sim](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)|
-|**Linguagens**|Java, etc.|Scala, Java, Python|Python, R, Scala, Java, SQL|
+|**Suporte de tempo do evento**|[Sim](https://storm.apache.org/releases/2.0.0/Windowing.html)|No|[Sim](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)|
+|**Idiomas**|Java, etc.|Scala, Java, Python|Python, R, Scala, Java, SQL|
 
 ### <a name="spark-streaming-vs-spark-structured-streaming"></a>Streaming de faísca vs Spark streaming estruturado
 
@@ -147,7 +144,7 @@ Para migrar a sua aplicação de Storm para uma das APIs de streaming spark, fa�
     > [!div class="mx-imgBorder"]
     > ![remover clusters HDInsight antigos, conforme necessário](./media/migrate-storm-to-spark/remove-old-clusters1.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre Storm, Spark Streaming e Spark Structured Streaming, consulte os seguintes documentos:
 

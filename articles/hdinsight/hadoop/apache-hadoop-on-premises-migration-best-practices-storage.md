@@ -1,19 +1,17 @@
 ---
 title: 'Armazenamento: Migrar para as instalações apache Hadoop para Azure HDInsight'
 description: Aprenda as melhores práticas de armazenamento para migrar no local os clusters Hadoop para Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
 ms.reviewer: ashishth
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/10/2019
-ms.openlocfilehash: 0594774533f306421f6f3d1260d074bd92b9c919
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 8d87d2164a5131b71a2000243c37553610497750
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544873"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944853"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight"></a>Migrar para o local aglomerados Apache Hadoop para Azure HDInsight
 
@@ -23,7 +21,7 @@ Este artigo dá recomendações para armazenamento de dados em sistemas Azure HD
 
 A estrutura de diretório do Sistema de Ficheiros Apache Hadoop (HDFS) no local pode ser recriada no armazenamento de Azure Blob ou no Azure Data Lake Storage. Em seguida, pode eliminar com segurança os clusters HDInsight que são utilizados para a computação sem perder os dados do utilizador. Ambos os serviços podem ser utilizados como o sistema de ficheiros predefinidos e um sistema de ficheiros adicional para um cluster HDInsight. O cluster HDInsight e a conta de armazenamento devem ser alojados na mesma região.
 
-### <a name="azure-storage"></a>Armazenamento do Azure
+### <a name="azure-storage"></a>Storage do Azure
 
 Os clusters HDInsight podem utilizar o recipiente blob no Azure Storage como o sistema de ficheiros predefinido ou um sistema de ficheiros adicional. A conta de armazenamento standard tier é suportada para utilização com clusters HDInsight. O primeiro escalão não é apoiado. O contentor de blobs predefinido armazena informações específicas do cluster, como o histórico de tarefas e os registos. A partilha de um recipiente blob como o sistema de ficheiros predefinidos para vários clusters não é suportado.
 
@@ -98,15 +96,15 @@ Uma característica fundamental do Data Lake Storage Gen2 é a adição de um [e
 
 No passado, a análise baseada na nuvem teve de se comprometer em áreas de desempenho, gestão e segurança. As principais características do Azure Data Lake Storage (ADLS) Gen2 são as seguintes:
 
-- **Acesso compatível com Hadoop** : Azure Data Lake Storage Gen2 permite-lhe gerir e aceder a dados tal como faria com um [Sistema de Ficheiros Distribuídos Hadoop (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). O novo [controlador ABFS](../../storage/blobs/data-lake-storage-abfs-driver.md) está disponível em todos os ambientes Apache Hadoop que estão incluídos no [Azure HDInsight](../index.yml). Este controlador permite-lhe aceder aos dados armazenados na Data Lake Storage Gen2.
+- **Acesso compatível com Hadoop**: Azure Data Lake Storage Gen2 permite-lhe gerir e aceder a dados tal como faria com um [Sistema de Ficheiros Distribuídos Hadoop (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). O novo [controlador ABFS](../../storage/blobs/data-lake-storage-abfs-driver.md) está disponível em todos os ambientes Apache Hadoop que estão incluídos no [Azure HDInsight](../index.yml). Este controlador permite-lhe aceder aos dados armazenados na Data Lake Storage Gen2.
 
-- **Um superconjunto de permissões POSIX** : O modelo de segurança para Data Lake Gen2 suporta totalmente permissões ACL e POSIX, juntamente com alguma granularidade extra específica para data lake storage gen2. As definições podem ser configuradas através de ferramentas de administração ou através de estruturas como a Colmeia e a Spark.
+- **Um superconjunto de permissões POSIX**: O modelo de segurança para Data Lake Gen2 suporta totalmente permissões ACL e POSIX, juntamente com alguma granularidade extra específica para data lake storage gen2. As definições podem ser configuradas através de ferramentas de administração ou através de estruturas como a Colmeia e a Spark.
 
-- **Custo-eficácia** : Data Lake Storage Gen2 possui capacidade de armazenamento de baixo custo e transações. À medida que os dados transitam através do seu ciclo de vida completo, as taxas de faturação mudam para minimizar os custos através de funcionalidades incorporadas, como [o ciclo de vida de armazenamento Azure Blob](../../storage/blobs/storage-lifecycle-management-concepts.md).
+- **Custo-eficácia**: Data Lake Storage Gen2 possui capacidade de armazenamento de baixo custo e transações. À medida que os dados transitam através do seu ciclo de vida completo, as taxas de faturação mudam para minimizar os custos através de funcionalidades incorporadas, como [o ciclo de vida de armazenamento Azure Blob](../../storage/blobs/storage-lifecycle-management-concepts.md).
 
-- **Trabalha com ferramentas de armazenamento Blob, estruturas e aplicações** : Data Lake Storage Gen2 continua a trabalhar com um vasto leque de ferramentas, estruturas e aplicações que existem hoje para armazenamento blob.
+- **Trabalha com ferramentas de armazenamento Blob, estruturas e aplicações**: Data Lake Storage Gen2 continua a trabalhar com um vasto leque de ferramentas, estruturas e aplicações que existem hoje para armazenamento blob.
 
-- **Controlador otimizado** : O controlador de ficheiros Azure Blob (ABFS) está [otimizado especificamente](../../storage/blobs/data-lake-storage-abfs-driver.md) para análise de big data. As APIs de REST correspondentes são emergidas através do ponto final dfs, dfs.core.windows.net.
+- **Controlador otimizado**: O controlador de ficheiros Azure Blob (ABFS) está [otimizado especificamente](../../storage/blobs/data-lake-storage-abfs-driver.md) para análise de big data. As APIs de REST correspondentes são emergidas através do ponto final dfs, dfs.core.windows.net.
 
 Um dos seguintes formatos pode ser usado para aceder a dados que são armazenados na ADLS Gen2:
 - `abfs:///`: Aceda ao armazenamento predefinido do Data Lake para o cluster.
@@ -173,11 +171,11 @@ O HDInsight por padrão tem acesso total aos dados nas contas de Armazenamento A
 
 6. Utilize os seguintes valores para os campos **Chave** e **Valor:**
 
-    **Tecla** : `fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net` **Valor** : A chave SAS devolvida pela aplicação Python a partir do passo 4 acima.
+    **Tecla**: `fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net` **Valor**: A chave SAS devolvida pela aplicação Python a partir do passo 4 acima.
 
-7. Clique no botão **Adicionar** para guardar esta tecla e valor e, em seguida, clique no botão **Guardar** para guardar as alterações de configuração. Quando solicitado, adicione uma descrição da alteração ("adicionar acesso ao armazenamento SAS" por exemplo) e, em seguida, clique em **Guardar** .
+7. Clique no botão **Adicionar** para guardar esta tecla e valor e, em seguida, clique no botão **Guardar** para guardar as alterações de configuração. Quando solicitado, adicione uma descrição da alteração ("adicionar acesso ao armazenamento SAS" por exemplo) e, em seguida, clique em **Guardar**.
 
-8. Na UI web Ambari, selecione HDFS da lista à esquerda e, em seguida, **selecione Restart All Affected** from the Service Actions drop down list à direita. Quando solicitado, **selecione ConfirmE Reinício Tudo** .
+8. Na UI web Ambari, selecione HDFS da lista à esquerda e, em seguida, **selecione Restart All Affected** from the Service Actions drop down list à direita. Quando solicitado, **selecione ConfirmE Reinício Tudo**.
 
 9. Repita este processo para MapReduce2 e YARN.
 
@@ -220,6 +218,6 @@ A conta de armazenamento adicional pode ser adicionada de uma sobre as seguintes
 
 Para obter mais informações, veja [Adicionar mais contas de armazenamento ao HDInsight](../hdinsight-hadoop-add-storage.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Leia o artigo seguinte nesta série: [As melhores práticas de migração de dados para a migração de Azure HDInsight Hadoop](apache-hadoop-on-premises-migration-best-practices-data-migration.md).

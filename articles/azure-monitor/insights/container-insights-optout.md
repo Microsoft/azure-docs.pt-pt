@@ -1,15 +1,15 @@
 ---
-title: Como parar de monitorizar o seu cluster de serviçoS Azure Kubernetes Microsoft Docs
+title: Como parar de monitorizar o seu cluster de serviço Azure Kubernetes | Microsoft Docs
 description: Este artigo descreve como pode descontinuar a monitorização do seu cluster Azure AKS com o Azure Monitor para contentores.
 ms.topic: conceptual
 ms.date: 08/19/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 99c4ecb6c8b77f1576f25816ba486ed262249c32
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 476934d84d8ffc63336ec620432db3507b2cbb34
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97695709"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943846"
 ---
 # <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>Como parar a monitorização do Azure Kubernetes Service (AKS) com o Azure Monitor para contentores
 
@@ -18,7 +18,7 @@ Depois de ativar a monitorização do seu cluster AKS, pode parar de monitorizar
 
 ## <a name="azure-cli"></a>CLI do Azure
 
-Utilize o comando [az aks para desativar os addons](/cli/azure/aks?view=azure-cli-latest#az-aks-disable-addons) para desativar o Monitor Azure para recipientes. O comando remove o agente dos nós do cluster, não remove a solução ou os dados já recolhidos e armazenados no seu recurso Azure Monitor.  
+Utilize o comando [az aks para desativar os addons](/cli/azure/aks#az-aks-disable-addons) para desativar o Monitor Azure para recipientes. O comando remove o agente dos nós do cluster, não remove a solução ou os dados já recolhidos e armazenados no seu recurso Azure Monitor.  
 
 ```azurecli
 az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG
@@ -163,6 +163,6 @@ ProvisioningState       : Succeeded
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se o espaço de trabalho foi criado apenas para suportar a monitorização do cluster e já não é necessário, tem de o eliminar manualmente. Se não estiver familiarizado com a forma de eliminar um espaço de trabalho, consulte [Eliminar um espaço de trabalho Azure Log Analytics com o portal Azure](../platform/delete-workspace.md). Não te esqueças do **ID do Espaço de Trabalho** copiado mais cedo no passo 4, vais precisar disso.

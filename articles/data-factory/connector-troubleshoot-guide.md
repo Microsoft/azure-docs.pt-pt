@@ -9,12 +9,12 @@ ms.date: 01/07/2021
 ms.author: jingwang
 ms.reviewer: craigg
 ms.custom: has-adal-ref
-ms.openlocfilehash: 68547b8fb673cd54b7c21963ede122553bbbc390
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 4b586b95232af2a154993523402f81ee88a22cda
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97967128"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946160"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Resolver Problemas dos Conectores do Azure Data Factory
 
@@ -121,7 +121,7 @@ Este artigo explora métodos comuns de resolução de problemas para conectores 
 
 - **Causa**: CosmosDbSqlApi operação atingiu problema.
 
-- **Recomendação**: Verifique o erro em detalhes. Consulte o [documento de ajuda cosmosDb](https://docs.microsoft.com/azure/cosmos-db/troubleshoot-dot-net-sdk). Contacte a equipa da CosmosDb se precisar de ajuda.
+- **Recomendação**: Verifique o erro em detalhes. Consulte o [documento de ajuda cosmosDb](../cosmos-db/troubleshoot-dot-net-sdk.md). Contacte a equipa da CosmosDb se precisar de ajuda.
 
 
 ## <a name="azure-data-lake-storage-gen1"></a>Armazenamento do Azure Data Lake Ger1
@@ -198,7 +198,7 @@ Este artigo explora métodos comuns de resolução de problemas para conectores 
 
     - Verifique se existe alguma definição de rede especial como o ExpressRoute e certifique-se de que a rede tem largura de banda suficiente. Sugere-se que reduza a definição de postos de trabalho simultâneos em termos de IR, quando a largura de banda global é baixa, através da qual pode evitar a concorrência de recursos de rede em vários postos de trabalho simultâneos.
 
-    - Utilize um tamanho de bloco menor para uma cópia não binária para atenuar tal erro de tempo limite se o tamanho do ficheiro for moderado ou pequeno. Consulte o [Bloco de Colocação de Armazenamento blob](https://docs.microsoft.com/rest/api/storageservices/put-block).
+    - Utilize um tamanho de bloco menor para uma cópia não binária para atenuar tal erro de tempo limite se o tamanho do ficheiro for moderado ou pequeno. Consulte o [Bloco de Colocação de Armazenamento blob](/rest/api/storageservices/put-block).
 
        Para especificar o tamanho do bloco personalizado, pode editar a propriedade em .json editor:
         ```
@@ -243,7 +243,7 @@ Este artigo explora métodos comuns de resolução de problemas para conectores 
 
 - **Causa**: Se a mensagem de erro contiver "SqlException", a Base de Dados SQL lança o erro indicando que alguma operação específica falhou.
 
-- **Recomendação**: Procure por código de erro SQL neste doc de referência para mais detalhes: https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors . Se precisar de mais ajuda, contacte o suporte da Azure SQL.
+- **Recomendação**: Procure por código de erro SQL neste doc de referência para mais detalhes: https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors . Se precisar de mais ajuda, contacte o suporte do SQL do Azure.
 
 - **Causa**: Se se trata de um problema transitório (por exemplo, ligação de rede instáctica), adicione novamente a política de atividade para atenuar.
 
@@ -260,13 +260,13 @@ Este artigo explora métodos comuns de resolução de problemas para conectores 
 
 - **Causa**: Se a mensagem de erro contiver "SqlException", a Base de Dados SQL lança o erro indicando que alguma operação específica falhou.
 
-- **Recomendação**: Se o erro sql não for claro, tente alterar a base de dados para o nível de compatibilidade mais recente '150'. Pode lançar erros SQL de versão mais recentes. Consulte o [doc de pormenor](/sql/t-sql/statements/alter-database-transact-sql-compatibility-level#backwardCompat).
+- **Recomendação**: Se o erro sql não for claro, tente alterar a base de dados para o nível de compatibilidade mais recente '150'. Pode gerar erros de SQL da versão mais recente. Consulte o [doc de pormenor](/sql/t-sql/statements/alter-database-transact-sql-compatibility-level#backwardCompat).
 
-    Para obter problemas de resolução de problemas de SQL, procure por código de erro SQL neste doc de referência para mais detalhes: https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors . Se precisar de mais ajuda, contacte o suporte da Azure SQL.
+    Para obter problemas de resolução de problemas de SQL, procure por código de erro SQL neste doc de referência para mais detalhes: https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors . Se precisar de mais ajuda, contacte o suporte do SQL do Azure.
 
 - **Causa**: Se a mensagem de erro contiver "PdwManagedToNativeInteropException", normalmente é causada por desfasamento entre os tamanhos das colunas de origem e pia.
 
-- **Recomendação**: Verifique o tamanho das colunas de origem e de lavatório. Se precisar de mais ajuda, contacte o suporte da Azure SQL.
+- **Recomendação**: Verifique o tamanho das colunas de origem e de lavatório. Se precisar de mais ajuda, contacte o suporte do SQL do Azure.
 
 - **Causa**: Se a mensagem de erro contiver "InvalidOperationException", normalmente é causada por dados de entrada inválidos.
 
@@ -486,7 +486,7 @@ Este artigo explora métodos comuns de resolução de problemas para conectores 
 
 - **Resolução**: Tentar seguir os passos para corrigir o problema:
 
-    1. Aplicar a [tolerância à falha do](https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance)lavatório SQL, especialmente "redirecionar As Sobrancelhas Incompatíveis" para a resolução de problemas que as linhas têm o problema.
+    1. Aplicar a [tolerância à falha do](./copy-activity-fault-tolerance.md)lavatório SQL, especialmente "redirecionar As Sobrancelhas Incompatíveis" para a resolução de problemas que as linhas têm o problema.
 
         > [!NOTE]
         > Por favor, note-se que a tolerância a falhas pode introduzir um tempo adicional de execução, o que pode levar a custos mais elevados.
@@ -496,7 +496,7 @@ Este artigo explora métodos comuns de resolução de problemas para conectores 
     3. Atualizar o esquema da tabela em conformidade.
 
 
-## <a name="azure-table-storage"></a>Table Storage do Azure
+## <a name="azure-table-storage"></a>Armazenamento de Tabelas do Azure
 
 ### <a name="error-code--azuretableduplicatecolumnsfromsource"></a>Código de erro: AzureTableDuplicateColumnsFromSource
 
@@ -1055,7 +1055,7 @@ Este artigo explora métodos comuns de resolução de problemas para conectores 
     3. Reinicie a máquina de tempo de execução de integração auto-hospedada.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais ajuda para resolver problemas, experimente estes recursos:
 

@@ -1,19 +1,16 @@
 ---
 title: Conecte-se ou instale Apache Beeline - Azure HDInsight
 description: Saiba como se conectar com o cliente Apache Beeline para executar consultas de Hive com Hadoop em HDInsight. Beeline é uma utilidade para trabalhar com a HiveServer2 em vez de JDBC.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: contperf-fy21q1
 ms.date: 05/27/2020
-ms.openlocfilehash: a0a693b2dc2c236cbac79ec4789b2a480ce65427
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: ab5dedf6718dad4f16fde59d905e2e59be5c495f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97028942"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944467"
 ---
 # <a name="connect-to-apache-beeline-on-hdinsight-or-install-it-locally"></a>Conecte-se ao Apache Beeline no HDInsight ou instale-o localmente
 
@@ -162,7 +159,7 @@ Embora a Beeline esteja incluída nos nós da cabeça, é melhor instalá-la loc
 
 1. Teste a sua ligação. Utilize o formato de ligação a partir de [pontos finais públicos ou privados,](#over-public-or-private-endpoints)acima.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Por exemplo, utilizando o cliente Beeline com a Colmeia Apache, consulte [Use Apache Beeline com Apache Hive](apache-hadoop-use-hive-beeline.md)
 * Para obter informações mais gerais sobre a Colmeia em HDInsight, consulte [Use Apache Hive com Apache Hadoop em HDInsight](hdinsight-use-hive.md)

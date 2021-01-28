@@ -4,17 +4,16 @@ description: Perguntas frequentes sobre HDInsight
 keywords: perguntas frequentes, faq
 author: Ramakoni1
 ms.author: ramakoni
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 11/20/2019
-ms.openlocfilehash: 120a73c7bf2ea9ee61d1fe1aef9ffa39a3cb3f76
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 13282962886d8682b6056d10f8f0cc5a7f626d60
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882403"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946017"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: Frequently asked questions (Autenticação Pass-through: Perguntas mais frequentes)
 
@@ -77,7 +76,7 @@ Não, não é possível executar Apache Kafka e Apache Spark no mesmo aglomerado
 ### <a name="how-do-i-change-timezone-in-ambari"></a>Como mudo o tempo de ausso em Ambari?
 
 1. Abra o Ambari Web UI em `https://CLUSTERNAME.azurehdinsight.net` , onde CLUSTERNAME é o nome do seu cluster.
-2. No canto superior direito, selecione administrador / Configurações. 
+2. No canto superior direito, selecione administrador | Configurações. 
 
    ![Definições Ambari](media/hdinsight-faq/ambari-settings.png)
 
@@ -178,7 +177,7 @@ Para juntar VMs a um domínio, tem de ter um controlador de domínio. Azure AD D
 
 ### <a name="can-i-use-a-self-signed-certificate-in-an-aad-ds-secure-ldap-setup-and-provision-an-esp-cluster"></a>Posso usar um certificado auto-assinado numa configuração LDAP segura da AAD-DS e providenciar um cluster ESP?
 
-Recomenda-se a utilização de um certificado emitido por uma autoridade de certificados. Mas a utilização de um certificado auto-assinado também é apoiada em ESP. Para obter mais informações, veja:
+Recomenda-se a utilização de um certificado emitido por uma autoridade de certificados. Mas a utilização de um certificado auto-assinado também é apoiada em ESP. Para obter mais informações, consulte:
 
 - [Ativar o Azure Active Directory Domain Services](domain-joined/apache-domain-joined-configure-using-azure-adds.md#enable-azure-ad-ds)
 
@@ -255,14 +254,14 @@ done
 
 Atualmente, não existe nenhum plugin Ranger para armazenamento de bolhas e Azure Data Lake Storage Gen1 ou Gen2. Para clusters ESP, você deve usar Azure Data Lake Storage. Pode pelo menos definir permissões de grãos finos manualmente ao nível do sistema de ficheiros utilizando ferramentas HDFS. Além disso, ao utilizar o Azure Data Lake Storage, os clusters ESP farão parte do controlo de acesso ao sistema de ficheiros utilizando o Azure Ative Directory ao nível do cluster. 
 
-Pode atribuir políticas de acesso a dados aos grupos de segurança dos seus utilizadores utilizando o Azure Storage Explorer. Para obter mais informações, veja:
+Pode atribuir políticas de acesso a dados aos grupos de segurança dos seus utilizadores utilizando o Azure Storage Explorer. Para obter mais informações, consulte:
 
 - [Como posso definir permissões para os utilizadores de Azure AD consultarem dados na Data Lake Storage Gen2 utilizando a Hive ou outros serviços?](hdinsight-hadoop-use-data-lake-storage-gen2.md#how-do-i-set-permissions-for-azure-ad-users-to-query-data-in-data-lake-storage-gen2-by-using-hive-or-other-services)
 - [Definir permissões de arquivo e nível de diretório usando Azure Storage Explorer com Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-explorer.md)
 
 ### <a name="can-i-increase-hdfs-storage-on-a-cluster-without-increasing-the-disk-size-of-worker-nodes"></a>Posso aumentar o armazenamento de HDFS num cluster sem aumentar o tamanho do disco dos nós dos trabalhadores?
 
-N.º Não se pode aumentar o tamanho do disco de qualquer nó de trabalhador. Assim, a única maneira de aumentar o tamanho do disco é largar o cluster e recriá-lo com VMs maiores. Não utilize o HDFS para armazenar nenhum dos seus dados HDInsight, porque os dados são eliminados se eliminar o seu cluster. Em vez disso, guarde os seus dados em Azure. A ampliação do cluster também pode adicionar capacidade adicional ao seu cluster HDInsight.
+Não. Não se pode aumentar o tamanho do disco de qualquer nó de trabalhador. Assim, a única maneira de aumentar o tamanho do disco é largar o cluster e recriá-lo com VMs maiores. Não utilize o HDFS para armazenar nenhum dos seus dados HDInsight, porque os dados são eliminados se eliminar o seu cluster. Em vez disso, guarde os seus dados em Azure. A ampliação do cluster também pode adicionar capacidade adicional ao seu cluster HDInsight.
 
 ## <a name="edge-nodes"></a>Nós periféricos
 

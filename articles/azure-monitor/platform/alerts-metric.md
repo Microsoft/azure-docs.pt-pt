@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 01/11/2021
 ms.subservice: alerts
-ms.openlocfilehash: 0518d3a2e1b67b33b9cb6bceb9754df302710f70
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 6919040308dcd3a80c3c0b05ec729744099b6d8f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071039"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944497"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Criar, ver e gerir alertas de métricas com o Azure Monitor
 
@@ -91,7 +91,7 @@ Pode ver e gerir as regras de alerta métricas utilizando a lâmina 'Gerir regra
 
 ## <a name="with-azure-cli"></a>Com a CLI do Azure
 
-As secções anteriores descreveram como criar, visualizar e gerir regras de alerta métricas usando o portal Azure. Esta secção descreverá como fazer o mesmo utilizando o [Azure CLI](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)da plataforma transversal . A forma mais rápida de começar a usar o Azure CLI é através da [Azure Cloud Shell](../../cloud-shell/overview.md?view=azure-cli-latest). Para este artigo, usaremos a Cloud Shell.
+As secções anteriores descreveram como criar, visualizar e gerir regras de alerta métricas usando o portal Azure. Esta secção descreverá como fazer o mesmo utilizando o [Azure CLI](/cli/azure/get-started-with-azure-cli)da plataforma transversal . A forma mais rápida de começar a usar o Azure CLI é através da [Azure Cloud Shell](../../cloud-shell/overview.md). Para este artigo, usaremos a Cloud Shell.
 
 1. Vá ao portal Azure, clique em **Cloud Shell**.
 
@@ -152,7 +152,7 @@ As regras de alerta métrico têm cmdlets powerShell dedicados disponíveis:
 - [Atualização](/rest/api/monitor/metricalerts/update): Atualizar uma regra de alerta métrico.
 - [Excluir](/rest/api/monitor/metricalerts/delete): Elimine uma regra de alerta métrico.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Criar alertas métricos usando modelos de gestor de recursos Azure](./alerts-metric-create-templates.md)
 - [Entenda como os alertas métricos funcionam](alerts-metric-overview.md)

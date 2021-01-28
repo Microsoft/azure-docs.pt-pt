@@ -6,12 +6,12 @@ ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.date: 01/20/2020
-ms.openlocfilehash: d2b1afea746410e966b43bef01a039a8471d4ae7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: eccd4010d796e541e4a0a2c0b0c485b5f18f0366
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96008825"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943724"
 ---
 # <a name="windows-diagnostics-extension-schema"></a>Esquema de extensão de diagnóstico do Windows
 A extensão Azure Diagnostics é um agente no Azure Monitor que recolhe dados de monitorização do sistema operativo convidado e cargas de trabalho dos recursos de computação Azure. Este artigo detalha o esquema utilizado para a configuração da extensão de diagnóstico em máquinas virtuais do Windows e outros recursos computacional.
@@ -157,7 +157,7 @@ O elemento de nível superior do ficheiro de configuração de diagnóstico.
 
 |Elementos Subordinados|Descrição|  
 |--------------------|-----------------|  
-|**EtwEventSourceProviderConfiguration**|Configura a recolha de eventos gerados a partir da [Classe EventSource.](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1) Atributo requerido:<br /><br /> **fornecedor** - O nome de classe do evento EventSource.<br /><br /> Os atributos opcionais são:<br /><br /> - **ProgramadoTransferLogLevelFilter** - O nível mínimo de gravidade para transferir para a sua conta de armazenamento.<br /><br /> - **ProgramadoTransferPeriod** - O intervalo entre transferências programadas para armazenamento arredondado até ao minuto mais próximo. O valor é um [XML "Tipo de Dados de Duração".](https://www.w3schools.com/xml/schema_dtypes_date.asp) |  
+|**EtwEventSourceProviderConfiguration**|Configura a recolha de eventos gerados a partir da [Classe EventSource.](/dotnet/api/system.diagnostics.tracing.eventsource) Atributo requerido:<br /><br /> **fornecedor** - O nome de classe do evento EventSource.<br /><br /> Os atributos opcionais são:<br /><br /> - **ProgramadoTransferLogLevelFilter** - O nível mínimo de gravidade para transferir para a sua conta de armazenamento.<br /><br /> - **ProgramadoTransferPeriod** - O intervalo entre transferências programadas para armazenamento arredondado até ao minuto mais próximo. O valor é um [XML "Tipo de Dados de Duração".](https://www.w3schools.com/xml/schema_dtypes_date.asp) |  
 |**EtwManifestProviderConfiguration**|Atributo requerido:<br /><br /> **fornecedor** - O GUIA do fornecedor de eventos<br /><br /> Os atributos opcionais são:<br /><br /> - **ProgramadoTransferLogLevelFilter** - O nível mínimo de gravidade para transferir para a sua conta de armazenamento.<br /><br /> - **ProgramadoTransferPeriod** - O intervalo entre transferências programadas para armazenamento arredondado até ao minuto mais próximo. O valor é um [XML "Tipo de Dados de Duração".](https://www.w3schools.com/xml/schema_dtypes_date.asp) |  
 
 
@@ -165,7 +165,7 @@ O elemento de nível superior do ficheiro de configuração de diagnóstico.
 ## <a name="etweventsourceproviderconfiguration-element"></a>EtwEventSourceProviderConfiguration Element  
  *Árvore: Raiz -Configuration de Diagnóstico - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders- EtwEventSourceProviderConfiguration*
 
- Configura a recolha de eventos gerados a partir da [Classe EventSource.](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1)  
+ Configura a recolha de eventos gerados a partir da [Classe EventSource.](/dotnet/api/system.diagnostics.tracing.eventsource)  
 
 |Elementos Subordinados|Descrição|  
 |--------------------|-----------------|  
@@ -208,7 +208,7 @@ O elemento de nível superior do ficheiro de configuração de diagnóstico.
 
 |Elemento infantil|Descrição|  
 |-------------------|-----------------|  
-|**Realização de DesempenhoConiguration**|São necessários os seguintes atributos:<br /><br /> - **contraSpecificador** - O nome do contador de desempenho. Por exemplo, `\Processor(_Total)\% Processor Time`. Para obter uma lista de contadores de desempenho no seu anfitrião, faça o comando `typeperf` .<br /><br /> - **sampleRate** - Com que frequência o contador deve ser amostrado.<br /><br /> Atributo opcional:<br /><br /> **unidade** - A unidade de medida do balcão. Os valores estão disponíveis na [Classe UnitType](/dotnet/api/microsoft.azure.management.sql.models.unittype?view=azure-dotnet) |
+|**Realização de DesempenhoConiguration**|São necessários os seguintes atributos:<br /><br /> - **contraSpecificador** - O nome do contador de desempenho. Por exemplo, `\Processor(_Total)\% Processor Time`. Para obter uma lista de contadores de desempenho no seu anfitrião, faça o comando `typeperf` .<br /><br /> - **sampleRate** - Com que frequência o contador deve ser amostrado.<br /><br /> Atributo opcional:<br /><br /> **unidade** - A unidade de medida do balcão. Os valores estão disponíveis na [Classe UnitType](/dotnet/api/microsoft.azure.management.sql.models.unittype) |
 |**pias** | Adicionado em 1,5. Opcional. Aponta para um local de pia para também enviar dados de diagnóstico. Por exemplo, Azure Monitor ou Centros de Eventos. Note que precisa adicionar a propriedade *resourceId* sob o elemento *Metrics* se quiser que os eventos enviados para Os Centros de Eventos tenham um ID de recursos.|    
 
 
@@ -284,7 +284,7 @@ O elemento de nível superior do ficheiro de configuração de diagnóstico.
 
 |Elemento|Tipo|Descrição|  
 |-------------|----------|-----------------|  
-|**Channel**|string|Consulte a descrição em outro lugar nesta página.|  
+|**Canal**|string|Consulte a descrição em outro lugar nesta página.|  
 
 ## <a name="channel-element"></a>Elemento do Canal
  *Árvore: Raiz - DiagnósticoConfiguration - PublicConfig - WadCFG - SinksConfig - SinksConfig - Sink - Canais - Canal*

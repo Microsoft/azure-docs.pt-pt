@@ -1,19 +1,16 @@
 ---
 title: Personalize os clusters Azure HDInsight utilizando ações de script
 description: Adicione componentes personalizados aos clusters HDInsight utilizando ações de script. As ações do script são scripts Bash que podem ser usados para personalizar a configuração do cluster. Ou adicione serviços e utilidades adicionais como Hue, Solr ou R.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-azurecli, contperf-fy21q2
 ms.date: 09/02/2020
-ms.openlocfilehash: 70918d1dc829ff0114a8c1019524feb934c9f915
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 46be3349490f04660d4fc8b69e4cdc295d8ecc1c
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97630943"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945797"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Personalize os clusters Azure HDInsight utilizando ações de script
 
@@ -331,7 +328,7 @@ Para um exemplo de utilização do .NET SDK para recuperar o histórico de scrip
 > [!NOTE]  
 > Este exemplo também demonstra como instalar uma aplicação HDInsight utilizando o .NET SDK.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Desenvolver scripts de ação de script para HDInsight](hdinsight-hadoop-script-actions-linux.md)
 * [Adicione armazenamento adicional a um cluster HDInsight](hdinsight-hadoop-add-storage.md)

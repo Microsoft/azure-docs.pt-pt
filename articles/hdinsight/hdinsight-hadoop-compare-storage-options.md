@@ -1,19 +1,16 @@
 ---
 title: Compare as opções de armazenamento para utilização com clusters Azure HDInsight
 description: Fornece uma visão geral dos tipos de armazenamento e como funcionam com a Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 34eeeed2b3c44336cd4aa1219d54b1811c6988f5
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: b6dd0fd95280a65615d38ab11a2f9814f58586f5
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94952323"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945855"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Compare as opções de armazenamento para utilização com clusters Azure HDInsight
 
@@ -32,11 +29,11 @@ A tabela a seguir resume os serviços de Armazenamento Azure que são suportados
 | Serviço de armazenamento | Tipo de conta | Tipo de espaço de nome | Serviços suportados | Níveis de desempenho suportados | Níveis de acesso suportados | Versão HDInsight | Tipo de cluster |
 |---|---|---|---|---|---|---|---|
 |Armazenamento do Azure Data Lake Ger2| V2 de uso geral | Hierárquico (sistema de ficheiros) | Blobs | Standard | Quente, Fresco, Arquivo | 3.6+ | Todos exceto Spark 2.1 e 2.2|
-|Armazenamento do Azure| V2 de uso geral | Objeto | Blobs | Standard | Quente, Fresco, Arquivo | 3.6+ | Todos |
-|Armazenamento do Azure| V1 de uso geral | Objeto | Blobs | Standard | N/D | Todos | Todos |
-|Armazenamento do Azure| Blob Storage** | Objeto | Blob de Bloco | Standard | Quente, Fresco, Arquivo | Todos | Todos |
+|Storage do Azure| V2 de uso geral | Objeto | Blobs | Standard | Quente, Fresco, Arquivo | 3.6+ | Todos |
+|Storage do Azure| V1 de uso geral | Objeto | Blobs | Standard | N/D | Todos | Todos |
+|Storage do Azure| Blob Storage** | Objeto | Blob de Bloco | Standard | Quente, Fresco, Arquivo | Todos | Todos |
 |Armazenamento do Azure Data Lake Ger1| N/D | Hierárquico (sistema de ficheiros) | N/D | N/D | N/D | 3.6 Apenas | Todos, exceto HBase |
-|Armazenamento do Azure| Blob de Bloco| Objeto | Blob de Bloco | Premium | N/D| 3.6+ | Apenas HBase com escritas aceleradas|
+|Storage do Azure| Blob de Bloco| Objeto | Blob de Bloco | Premium | N/D| 3.6+ | Apenas HBase com escritas aceleradas|
 |Armazenamento do Azure Data Lake Ger2| Blob de Bloco| Hierárquico (sistema de ficheiros) | Blob de Bloco | Premium | N/D| 3.6+ | Apenas HBase com escritas aceleradas|
 
 **Para os clusters HDInsight, apenas as contas de armazenamento secundário podem ser do tipo BlobStorage e Page Blob não é uma opção de armazenamento suportado.
@@ -71,7 +68,7 @@ A Azure HDInsight não armazena os dados do cliente. Os principais meios de arma
 
 Pode validar que o HDInsight está devidamente configurado para armazenar dados numa única região, garantindo que a conta de armazenamento associada ao seu HDInsight é LRS ou outra opção de armazenamento mencionada no [Trust Center.](https://azuredatacentermap.azurewebsites.net)
  
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Visão geral do armazenamento Azure em HDInsight](./overview-azure-storage.md)
 * [Visão geral do Azure Data Lake Storage Gen1 em HDInsight](./overview-data-lake-storage-gen1.md)

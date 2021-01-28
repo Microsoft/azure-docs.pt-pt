@@ -1,18 +1,15 @@
 ---
 title: Desenvolver ações de script para personalizar clusters Azure HDInsight
 description: Aprenda a usar scripts Bash para personalizar clusters HDInsight. As ações de script permitem executar scripts durante ou após a criação do cluster para alterar as definições de configuração do cluster ou instalar software adicional.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/28/2019
-ms.openlocfilehash: f7959b639b75d912d44670c8b00a7327cb7857d6
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: b6705728fddc9a5a3c9cb8eb2f1811412fb3a290
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629447"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945480"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Desenvolvimento de ação de script com HDInsight
 
@@ -146,7 +143,7 @@ Os clusters HDInsight baseados em Linux fornecem dois nós de cabeça que estão
 
 Os componentes que instala no cluster podem ter uma configuração predefinida que utiliza o armazenamento do Sistema de Ficheiros Distribuídos Apache Hadoop (HDFS). O HDInsight utiliza o Azure Storage ou o Data Lake Storage como o armazenamento predefinido. Ambos fornecem um sistema de ficheiros compatível com HDFS que persiste em dados mesmo que o cluster seja eliminado. Pode ser necessário configurar os componentes que instalou para utilizar WASB ou ADL em vez de HDFS.
 
-Para a maioria das operações, não precisa de especificar o sistema de ficheiros. Por exemplo, as seguintes cópias do ficheiro hadoop-common.jar do sistema de ficheiros local para o armazenamento do agrupamento:
+Para a maioria das operações, não precisa de especificar o sistema de ficheiros. Por exemplo, as seguintes cópias do ficheiro hadoop-comum.jar do sistema de ficheiros local para o armazenamento de agrupamentos:
 
 ```bash
 hdfs dfs -put /usr/hdp/current/hadoop-client/hadoop-common.jar /example/jars/
@@ -256,7 +253,7 @@ Esta secção fornece orientações sobre a implementação de alguns dos padrõ
 
 Em alguns casos, o seu script pode requerer parâmetros. Por exemplo, pode precisar da palavra-passe de administração para o cluster ao utilizar a API Ambari REST.
 
-Os parâmetros passados para o script são conhecidos como *parâmetros posicionais* , e são atribuídos `$1` para o primeiro parâmetro, para o `$2` segundo, e assim-on. `$0` contém o nome do próprio guião.
+Os parâmetros passados para o script são conhecidos como *parâmetros posicionais*, e são atribuídos `$1` para o primeiro parâmetro, para o `$2` segundo, e assim-on. `$0` contém o nome do próprio guião.
 
 Os valores passados para o guião como parâmetros devem ser incluídos por cotações únicas ('). Ao fazê-lo, garante que o valor passado é tratado como literal.
 
@@ -338,7 +335,7 @@ Os seguintes são erros que pode encontrar ao utilizar scripts que desenvolveu:
 
 Este problema ocorre mais frequentemente quando o script é da autoria num ambiente Windows, uma vez que CRLF é uma linha comum que termina para muitos editores de texto no Windows.
 
-*Resolução* : Se for uma opção no seu editor de texto, selecione o formato Unix ou LF para o final da linha. Pode também utilizar os seguintes comandos num sistema Unix para alterar o CRLF para um LF:
+*Resolução*: Se for uma opção no seu editor de texto, selecione o formato Unix ou LF para o final da linha. Pode também utilizar os seguintes comandos num sistema Unix para alterar o CRLF para um LF:
 
 > [!NOTE]  
 > Os seguintes comandos são aproximadamente equivalentes na forma como devem alterar as terminações da linha CRLF para LF. Selecione um com base nos utilitários disponíveis no seu sistema.
@@ -352,9 +349,9 @@ Este problema ocorre mais frequentemente quando o script é da autoria num ambie
 
 **Erro:** `line 1: #!/usr/bin/env: No such file or directory` .
 
-*Causa* : Este erro ocorre quando o script foi guardado como UTF-8 com uma Marca de Ordem Byte (BOM).
+*Causa*: Este erro ocorre quando o script foi guardado como UTF-8 com uma Marca de Ordem Byte (BOM).
 
-*Resolução* : Guarde o ficheiro como ASCII, ou como UTF-8 sem um BOM. Pode também utilizar o seguinte comando num sistema Linux ou Unix para criar um ficheiro sem o BOM:
+*Resolução*: Guarde o ficheiro como ASCII, ou como UTF-8 sem um BOM. Pode também utilizar o seguinte comando num sistema Linux ou Unix para criar um ficheiro sem o BOM:
 
 ```bash
 awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
@@ -362,7 +359,7 @@ awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
 
 `INFILE`Substitua-a pelo ficheiro que contém o BOM. `OUTFILE` deve ser um novo nome de ficheiro, que contém o script sem o BOM.
 
-## <a name="next-steps"></a><a name="seeAlso"></a>Passos seguintes
+## <a name="next-steps"></a><a name="seeAlso"></a>Próximos passos
 
 * Saiba como [personalizar clusters HDInsight usando ação de script](hdinsight-hadoop-customize-cluster-linux.md)
 * Utilize a [referência HDInsight .NET SDK](/dotnet/api/overview/azure/hdinsight) para saber mais sobre a criação de aplicações .NET que gerem o HDInsight

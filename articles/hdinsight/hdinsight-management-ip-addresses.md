@@ -1,19 +1,16 @@
 ---
 title: Endereços IP de gestão Azure HDInsight
 description: Saiba quais os endereços IP a partir dos quais deve permitir o tráfego de entrada, de modo a configurar adequadamente os grupos de segurança da rede e as rotas definidas pelo utilizador para a ligação em rede virtual com o Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
-ms.openlocfilehash: 9fa38e045bbe29e5d45587adf0d277c1414fee4c
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 89d749a04c22967198be217350ff38751336fe67
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96549043"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944103"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>Gestão de endereços IP do HDInsight
 
@@ -59,7 +56,7 @@ Permitir o tráfego dos endereços IP listados para os serviços de saúde e ges
 | Ásia | Ásia Leste | 23.102.235.122</br>52.175.38.134 | \*:443 | Entrada |
 | &nbsp; | Sudeste Asiático | 13.76.245.160</br>13.76.136.249 | \*:443 | Entrada |
 | Austrália | Leste da Austrália | 104.210.84.115</br>13.75.152.195 | \*:443 | Entrada |
-| &nbsp; | Sudeste da Austrália | 13.77.2.56</br>13.77.2.94 | \*:443 | Entrada |
+| &nbsp; | Austrália Sudeste | 13.77.2.56</br>13.77.2.94 | \*:443 | Entrada |
 | Brasil | Sul do Brasil | 191.235.84.104</br>191.235.87.113 | \*:443 | Entrada |
 | Canadá | Leste do Canadá | 52.229.127.96</br>52.229.123.172 | \*:443 | Entrada |
 | &nbsp; | Canadá Central | 52.228.37.66</br>52.228.45.222 |\*: 443 | Entrada |
@@ -80,7 +77,7 @@ Permitir o tráfego dos endereços IP listados para os serviços de saúde e ges
 | &nbsp; | Sul da Coreia do Sul | 52.231.203.16</br>52.231.205.214 | \*:443 | Entrada
 | Reino Unido | Oeste do Reino Unido | 51.141.13.110</br>51.141.7.20 | \*:443 | Entrada |
 | &nbsp; | Sul do Reino Unido | 51.140.47.39</br>51.140.52.16 | \*:443 | Entrada |
-| Estados Unidos | E.U.A. Central | 13.89.171.122</br>13.89.171.124 | \*:443 | Entrada |
+| Estados Unidos da América | E.U.A. Central | 13.89.171.122</br>13.89.171.124 | \*:443 | Entrada |
 | &nbsp; | E.U.A. Leste | 13.82.225.233</br>40.71.175.99 | \*:443 | Entrada |
 | &nbsp; | E.U.A. Centro-Norte | 157.56.8.38</br>157.55.213.99 | \*:443 | Entrada |
 | &nbsp; | E.U.A. Centro-Oeste | 52.161.23.15</br>52.161.10.167 | \*:443 | Entrada |
@@ -95,7 +92,7 @@ Para obter mais informações, consulte [o tráfego da rede de controlo.](./cont
 
 Se estiver a utilizar rotas definidas pelo utilizador (UDRs), deve especificar uma rota e permitir o tráfego de saída da rede virtual para os IPs acima com o próximo conjunto de lúpulo definido para "Internet".
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Criar redes virtuais para clusters Azure HDInsight](hdinsight-create-virtual-network.md)
 * [Etiquetas de serviço do grupo de segurança de rede (NSG) para Azure HDInsight](hdinsight-service-tags.md)

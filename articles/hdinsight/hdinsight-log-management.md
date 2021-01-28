@@ -1,19 +1,16 @@
 ---
 title: Gerir registos para um cluster HDInsight - Azure HDInsight
 description: Determine os tipos, tamanhos e políticas de retenção para ficheiros de registo de atividades HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/05/2020
-ms.openlocfilehash: c2aa33ac9e92f6763c0d89f0a049409c1a6a4049
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 0a6e837284917129bb56c6230e68927b79e95dac
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546029"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945279"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Gerir registos de um cluster do HDInsight
 
@@ -77,11 +74,11 @@ Um cluster típico de HDInsight utiliza vários serviços e pacotes de software 
 
 Apache Ambari simplifica a gestão, configuração e monitorização de um cluster HDInsight fornecendo uma UI web e uma API REST. Ambari está incluído em clusters HDInsight baseados em Linux. Selecione o painel **de painel do cluster** na página HDInsight do portal Azure para abrir a página de link do Cluster **Dashboards.**  Em seguida, selecione o painel **de painel de painel hdInsight** para abrir o UI Ambari.  É solicitado para as suas credenciais de login.
 
-Para abrir uma lista de visualizações de serviço, selecione o painel **Ambari Views** na página do portal Azure para HDInsight.  Esta lista varia, dependendo das bibliotecas que instalou.  Por exemplo, pode ver YARN Queue Manager, Hive View e Tez View.  Selecione qualquer link de serviço para ver a configuração e informações de serviço.  A página Ambari UI **Stack and Version** fornece informações sobre o histórico de configuração e versão de serviço dos serviços de cluster. Para navegar nesta secção da UI Ambari, selecione o menu **Admin** e, em seguida, **Stacks e Versões** .  Selecione o separador **Versões** para ver as informações da versão de serviço.
+Para abrir uma lista de visualizações de serviço, selecione o painel **Ambari Views** na página do portal Azure para HDInsight.  Esta lista varia, dependendo das bibliotecas que instalou.  Por exemplo, pode ver YARN Queue Manager, Hive View e Tez View.  Selecione qualquer link de serviço para ver a configuração e informações de serviço.  A página Ambari UI **Stack and Version** fornece informações sobre o histórico de configuração e versão de serviço dos serviços de cluster. Para navegar nesta secção da UI Ambari, selecione o menu **Admin** e, em seguida, **Stacks e Versões**.  Selecione o separador **Versões** para ver as informações da versão de serviço.
 
 ![Apache Ambari admin Stack e versões](./media/hdinsight-log-management/ambari-stack-versions.png)
 
-Utilizando o UI Ambari, pode descarregar a configuração para qualquer (ou todos) serviços em execução num determinado anfitrião (ou nó) no cluster.  Selecione o menu **Anfitriões** e, em seguida, o link para o anfitrião de interesse. Na página do anfitrião, selecione o botão **Ações de Anfitrião** e, em seguida, **Baixe o Cliente Configs** .
+Utilizando o UI Ambari, pode descarregar a configuração para qualquer (ou todos) serviços em execução num determinado anfitrião (ou nó) no cluster.  Selecione o menu **Anfitriões** e, em seguida, o link para o anfitrião de interesse. Na página do anfitrião, selecione o botão **Ações de Anfitrião** e, em seguida, **Baixe o Cliente Configs**.
 
 ![Apache Ambari descarrega cliente anfitrião configs](./media/hdinsight-log-management/download-client-configs.png)
 
@@ -144,7 +141,7 @@ A UI YARN ResourceManager funciona no nó de cabeça de cluster, e é acedida at
 
 1. Num browser, navegue até `https://CLUSTERNAME.azurehdinsight.net`. Substitua CLUSTERNAME pelo nome do cluster do HDInsight.
 2. Da lista de serviços à esquerda, selecione YARN.
-3. A partir do dropdown de Links Rápidos, selecione um dos nós da cabeça do cluster e, em seguida, selecione **registos ResourceManager** . É-lhe apresentada uma lista de links para registos DE FIOS.
+3. A partir do dropdown de Links Rápidos, selecione um dos nós da cabeça do cluster e, em seguida, selecione **registos ResourceManager**. É-lhe apresentada uma lista de links para registos DE FIOS.
 
 ## <a name="step-4-forecast-log-volume-storage-sizes-and-costs"></a>Passo 4: Previsão de tamanhos e custos de armazenamento de volume de registo
 
@@ -184,7 +181,7 @@ Também pode verificar se a exploração madeireira DEBUG está ativada para um 
 
 Para recolher os registos de todos os nós para uma localização central, pode criar um fluxo de dados, como ingerir todas as entradas de registo em Solr.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Prática de Monitorização e Registo para HDInsight](/previous-versions/msp-n-p/dn749790(v=pandp.10))
 * [Aceder a registos de aplicações Apache Hadoop YARN em HDInsight baseado em Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)

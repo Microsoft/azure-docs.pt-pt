@@ -1,19 +1,16 @@
 ---
 title: Otimizar consultas de Colmeia em Azure HDInsight
 description: Este artigo descreve como otimizar as suas consultas de Hive Apache em Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 10/28/2020
-ms.openlocfilehash: 840c481a54451e1f8374aec4799df10b96fb2e4d
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: a15c3e0fb3550c6e50b3fba2279611fdba25bc84
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92910887"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945568"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Optimize Apache Hive queries in Azure HDInsight (Otimizar as consultas do Apache Hive no Azure HDInsight)
 
@@ -53,9 +50,9 @@ Para obter mais informações sobre o escalonamento hdInsight, consulte [cluster
 
 Tez é mais rápido porque:
 
-* **Execute o Gráfico Acíclico Direcionado (DAG) como um único trabalho no motor MapReduce** . O DAG exige que cada conjunto de mappers seja seguido por um conjunto de redutores. Este requisito faz com que vários trabalhos de MapReduce sejam desviados para cada consulta da Colmeia. Tez não tem tal restrição e pode processar o complexo DAG como um trabalho minimizando a sobrecarga de startups de emprego.
+* **Execute o Gráfico Acíclico Direcionado (DAG) como um único trabalho no motor MapReduce**. O DAG exige que cada conjunto de mappers seja seguido por um conjunto de redutores. Este requisito faz com que vários trabalhos de MapReduce sejam desviados para cada consulta da Colmeia. Tez não tem tal restrição e pode processar o complexo DAG como um trabalho minimizando a sobrecarga de startups de emprego.
 * **Evita escritos desnecessários.** Vários trabalhos são usados para processar a mesma consulta de Hive no motor MapReduce. A saída de cada trabalho do MapReduce é escrita para HDFS para dados intermédios. Uma vez que tez minimiza o número de empregos para cada consulta da Colmeia, é capaz de evitar escritos desnecessários.
-* **Minimiza os atrasos de arranque** . O Tez é mais capaz de minimizar o atraso no arranque, reduzindo o número de mappers que precisa de iniciar e melhorando também a otimização ao longo de todo.
+* **Minimiza os atrasos de arranque**. O Tez é mais capaz de minimizar o atraso no arranque, reduzindo o número de mappers que precisa de iniciar e melhorando também a otimização ao longo de todo.
 * **Reutiliza recipientes.** Sempre que possível, a Tez reutilizará os recipientes para garantir que a latência do arranque dos contentores seja reduzida.
 * **Técnicas de otimização contínua.** Tradicionalmente, a otimização foi feita durante a fase de compilação. No entanto, mais informações sobre as entradas estão disponíveis que permitem uma melhor otimização durante o tempo de funcionaamento. O Tez utiliza técnicas de otimização contínua que lhe permitem otimizar o plano ainda mais na fase de tempo de funcionaamento.
 
@@ -132,8 +129,8 @@ Para mais informações, consulte [As Tabelas Partitioned.](https://cwiki.apache
 
 A Hive suporta diferentes formatos de ficheiros. Por exemplo:
 
-* **Texto** : o formato de ficheiro predefinido e funciona com a maioria dos cenários.
-* **Avro** : funciona bem para cenários de interoperabilidade.
+* **Texto**: o formato de ficheiro predefinido e funciona com a maioria dos cenários.
+* **Avro**: funciona bem para cenários de interoperabilidade.
 * **ORC/Parquet:** mais adequado para o desempenho.
 
 O formato ORC (Coluna de Linha Otimizada) é uma forma altamente eficiente de armazenar dados da Hive. Em comparação com outros formatos, o ORC tem as seguintes vantagens:
@@ -199,9 +196,9 @@ Existem mais métodos de otimização que pode considerar, por exemplo:
 
 * **Balde de colmeia:** uma técnica que permite agrupar ou segmentar grandes conjuntos de dados para otimizar o desempenho da consulta.
 * **Junte-se à otimização:** otimização do planeamento de execução de consultas da Hive para melhorar a eficiência das juntas e reduzir a necessidade de sugestões do utilizador. Para obter mais informações, consulte [a otimização do Join](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+JoinOptimization#LanguageManualJoinOptimization-JoinOptimization).
-* **Aumentar os Redutores** .
+* **Aumentar os Redutores**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, você aprendeu vários métodos comuns de otimização de consulta de Colmeia. Para saber mais, leia os artigos seguintes:
 

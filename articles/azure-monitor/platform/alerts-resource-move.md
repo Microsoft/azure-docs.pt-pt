@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/26/2020
 ms.subservice: alerts
-ms.openlocfilehash: 4ea5c8552d35db67a1d2caf20c0143c74cdd642e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36cf5882913426062e281194b61a8c760141512a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86505487"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944161"
 ---
 # <a name="how-to-update-alert-rules-or-action-rules-when-their-target-resource-moves-to-a-different-azure-region"></a>Como atualizar regras de alerta ou regras de ação quando o seu recurso-alvo se desloca para uma região de Azure diferente
 
@@ -106,10 +106,10 @@ Se **apenas alguns** dos recursos no âmbito se deslocaram, é necessário retir
 
 ### <a name="change-the-scope-of-a-rule-using-azure-cli"></a>Alterar o âmbito de uma regra utilizando o Azure CLI
 
-1.  Obtenha a regra existente[(alertas métricos, alertas](/cli/azure/monitor/metrics/alert?view=azure-cli-latest#az-monitor-metrics-alert-show) [de registo de atividade).](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list)
+1.  Obtenha a regra existente[(alertas métricos, alertas](/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-show) [de registo de atividade).](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list)
 2.  Atualizar o âmbito de regras diretamente[(alertas métricos,](/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-update) [alertas de registo de atividade)](/cli/azure/monitor/activity-log/alert/scope)
 3.  Se necessário, divida em duas regras (relevantes para alguns casos de alertas métricos, como referido acima).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba a resolução de outros problemas com [notificações de alerta,](alerts-troubleshoot.md) [alertas métricos](alerts-troubleshoot-metric.md)e alertas de [registo.](alerts-troubleshoot-log.md) 

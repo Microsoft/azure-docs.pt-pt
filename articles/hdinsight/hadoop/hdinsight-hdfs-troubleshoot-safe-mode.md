@@ -3,16 +3,13 @@ title: HDFS local preso em modo de segurança no cluster Azure HDInsight
 description: Resolução de problemas Apache HDFS preso em modo de segurança no cluster Apache em Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.date: 08/14/2019
-ms.openlocfilehash: 0f4a7702c4f85c162b0485e06cabc99b963ff210
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d34bf8d82aee14f5ba835f68a061555d24ee2621
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96014708"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944440"
 ---
 # <a name="scenario-local-hdfs-stuck-in-safe-mode-on-azure-hdinsight-cluster"></a>Cenário: HDFS local preso em modo de segurança no cluster Azure HDInsight
 
@@ -56,6 +53,6 @@ O cluster HDInsight foi reduzido para muito poucos nós abaixo, ou o número de 
     hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -safemode leave
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]

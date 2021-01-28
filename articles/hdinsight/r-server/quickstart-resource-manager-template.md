@@ -1,19 +1,16 @@
 ---
 title: 'Quickstart: Criar cluster de serviços ML usando o modelo - Azure HDInsight'
 description: Este quickstart mostra como usar o modelo de Gestor de Recursos para criar um cluster ML Services em Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/13/2020
-ms.openlocfilehash: ad1b08110e91457f1c9031f864ba67086872f22e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c15e06d959510d74078a738db2606778d313ad65
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91855569"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943985"
 ---
 # <a name="quickstart-create-ml-services-cluster-in-azure-hdinsight-using-arm-template"></a>Quickstart: Criar cluster ML Services em Azure HDInsight usando o modelo ARM
 
@@ -77,7 +74,7 @@ A partir do portal Azure, navegue até ao seu cluster e selecione **Delete**.
 
 Também pode selecionar o nome do grupo de recursos para abrir a página do grupo de recursos e, em seguida, selecionar **Eliminar grupo de recursos**. Ao eliminar o grupo de recursos, elimina tanto o cluster HDInsight como a conta de armazenamento predefinido.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido, aprendeu a criar um cluster ML Services em HDInsight usando um modelo ARM. No artigo seguinte, aprende-se a executar um script R com O Servidor RStudio que demonstra a utilização do Spark para computações R distribuídas..
 

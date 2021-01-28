@@ -1,19 +1,16 @@
 ---
 title: Monitor cluster performance - Azure HDInsight
 description: Como monitorizar a saúde e o desempenho dos clusters Apache Hadoop em Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/09/2020
-ms.openlocfilehash: 1da86e36cf20dc15152aea74be6c43a4cb43d3b4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f910054c803093eb62db494a596219c50791d136
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96014249"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945347"
 ---
 # <a name="monitor-cluster-performance-in-azure-hdinsight"></a>Monitor desempenho do cluster em Azure HDInsight
 
@@ -122,7 +119,7 @@ Para obter mais informações sobre problemas no espaço do disco, consulte [for
 > [!NOTE]  
 > Se tiver ficheiros grandes que pretende manter, mas que estão a contribuir para o problema de espaço em disco baixo, tem de aumentar o seu cluster HDInsight e reiniciar os seus serviços. Depois de completar este procedimento e esperar por alguns minutos, você vai notar que o armazenamento é libertado e o desempenho habitual do nó é restaurado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Visite os seguintes links para obter mais informações sobre a resolução de problemas e monitorização dos seus clusters:
 

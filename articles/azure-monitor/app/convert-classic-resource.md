@@ -1,14 +1,14 @@
 ---
-title: Migrar um recurso clássico da Aplicação Azure Monitor Insights para um recurso baseado no espaço de trabalho Microsoft Docs
+title: Migrar um recurso clássico de Aplicação Azure Monitor Insights para um recurso baseado no espaço de trabalho | Microsoft Docs
 description: Conheça os passos necessários para atualizar o seu recurso clássico Azure Monitor Application Insights para o novo modelo baseado no espaço de trabalho.
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 709cff1326bb6393a14c594ea434a6c16fb80860
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 5316bf5b919fe8b24ea1dd601214df62aa034f37
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95536528"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945107"
 ---
 # <a name="migrate-to-workspace-based-application-insights-resources"></a>Migrar para recursos de Insights de Aplicação baseados no espaço de trabalho
 
@@ -114,7 +114,7 @@ az monitor app-insights component update --app
 az monitor app-insights component update --app your-app-insights-resource-name -g your_resource_group --workspace "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/test1234/providers/microsoft.operationalinsights/workspaces/test1234555"
 ```
 
-Para obter a documentação completa do Azure CLI para este comando, consulte a documentação do [Azure CLI](/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-update).
+Para obter a documentação completa do Azure CLI para este comando, consulte a documentação do [Azure CLI](/cli/azure/ext/application-insights/monitor/app-insights/component#ext-application-insights-az-monitor-app-insights-component-update).
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -209,7 +209,7 @@ A partir do painel de recursos Do Application Insights, selecione **Propriedades
 
 **Mensagem de erro:** *O espaço de trabalho selecionado está configurado com o modo de acesso baseado no espaço de trabalho. Algumas funcionalidades de APM podem ser impactadas. Selecione outro espaço de trabalho ou permita o acesso baseado em recursos nas definições do espaço de trabalho. Pode anular este erro utilizando o CLI.* 
 
-Para que o seu recurso Application Insights baseado no espaço de trabalho funcione corretamente, é necessário alterar o modo de controlo de acesso do seu espaço de trabalho target Log Analytics para a definição de **permissões de recursos ou espaço de trabalho.** Esta definição está localizada no espaço de trabalho do Log Analytics UI no modo de controlo de acesso **ao properties**  >  **Access control mode**. Para obter instruções detalhadas, consulte a orientação do modo de controlo de acesso de [configuração do Log Analytics](../platform/manage-access.md#configure-access-control-mode). Se o seu modo de controlo de acesso estiver definido para a definição exclusiva **de permissões de espaço de trabalho,** a migração através da experiência de migração do portal permanecerá bloqueada.
+Para que o seu recurso Application Insights baseado no espaço de trabalho funcione corretamente, é necessário alterar o modo de controlo de acesso do seu espaço de trabalho target Log Analytics para a definição de **permissões de recursos ou espaço de trabalho.** Esta definição está localizada no espaço de trabalho do Log Analytics UI no modo de controlo de acesso **ao properties**  >  . Para obter instruções detalhadas, consulte a orientação do modo de controlo de acesso de [configuração do Log Analytics](../platform/manage-access.md#configure-access-control-mode). Se o seu modo de controlo de acesso estiver definido para a definição exclusiva **de permissões de espaço de trabalho,** a migração através da experiência de migração do portal permanecerá bloqueada.
 
 Se não conseguir alterar o modo de controlo de acesso por razões de segurança para o seu espaço de trabalho alvo atual, recomendamos a criação de um novo espaço de trabalho log Analytics para utilizar para a migração. 
 
@@ -239,7 +239,7 @@ Não tem de fazer quaisquer alterações antes de migrar, mas esta mensagem é p
 
 Pode verificar as definições de retenção atuais para Log Analytics em Uso **Geral**  >  **e custos estimados**  >  **Retenção** de Dados a partir do UI do Log Analytics. Esta definição terá impacto quanto tempo quaisquer novos dados ingeridos são armazenados assim que migrar o seu recurso Application Insights.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Explorar métricas](../platform/metrics-charts.md)
 * [Escrever consultas da Análise](../log-query/log-query-overview.md)

@@ -1,19 +1,16 @@
 ---
 title: Matiz com Hadoop em clusters baseados em HDInsight Linux - Azure
 description: Aprenda a instalar o Hue em clusters HDInsight e use túneis para encaminhar os pedidos para Hue. Use a Tonalidade para navegar no armazenamento e executar Hive ou Pig.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 03/31/2020
-ms.openlocfilehash: e80df5d1c3d2b2195e76622964406cc65c933a63
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 8d4663aac6af4abb8d9855d2f972965e997d9c92
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546199"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945679"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Instale e utilize o Hue nos clusters hdInsight Hadoop
 
@@ -45,7 +42,7 @@ Utilize as informações na tabela abaixo para a sua Ação do Script. Consulte 
 |Propriedade |Valor |
 |---|---|
 |Tipo de script:|- Personalizado|
-|Nome|Instalar Matiz|
+|Name|Instalar Matiz|
 |URI de guião de bash|`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`|
 |Tipo de nó(s):|Head|
 
@@ -127,6 +124,6 @@ Só pode ter uma conta de utilizador com o Hue em agrupamentos regulares. Para a
 
 1. Hue compreende webHDFS enquanto os clusters HDInsight usam o Azure Storage usando `wasbs://` . Assim, o script personalizado usado com ação de script instala WebWasb, que é um serviço compatível com WebHDFS para falar com WASB. Assim, mesmo que o portal Hue diga HDFS em lugares (como quando move o rato sobre o **Browser de Ficheiros),** deve ser interpretado como WASB.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Instale R em clusters HDInsight](./r-server/r-server-overview.md). Utilize a personalização do cluster para instalar R nos clusters HDInsight Hadoop. R é uma linguagem e ambiente de código aberto para a computação estatística. Fornece centenas de funções estatísticas incorporadas e a sua própria linguagem de programação que combina aspetos da programação funcional e orientada para os objetos. Também fornece extensas capacidades gráficas.

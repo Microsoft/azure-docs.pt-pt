@@ -7,12 +7,12 @@ ms.date: 12/15/2020
 ms.topic: troubleshooting
 ms.author: susabat
 ms.reviewer: susabat
-ms.openlocfilehash: 0ceee3c65e8c4df5d843bb441fb6426a0f4eb696
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 1a5f665627da1b08ec57b04863a58f227c673af4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98220257"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944900"
 ---
 # <a name="troubleshoot-pipeline-orchestration-and-triggers-in-azure-data-factory"></a>Resolução de problemas da orquestração e desencadeamentos de gasodutos na Fábrica de Dados do Azure
 
@@ -60,7 +60,7 @@ Mensagem de erro:
 Type=Microsoft.DataTransfer.Execution.Core.ExecutionException,Message=There are substantial concurrent MappingDataflow executions which is causing failures due to throttling under Integration Runtime 'AutoResolveIntegrationRuntime'.
 `
 
-**Porque:** Atingiste o limite de capacidade do tempo de integração. Você pode estar executando uma grande quantidade de fluxo de dados usando o mesmo tempo de integração ao mesmo tempo. Consulte [limites de subscrição e serviço da Azure, quotas e constrangimentos](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#version-2) para mais detalhes.
+**Porque:** Atingiste o limite de capacidade do tempo de integração. Você pode estar executando uma grande quantidade de fluxo de dados usando o mesmo tempo de integração ao mesmo tempo. Consulte [limites de subscrição e serviço da Azure, quotas e constrangimentos](../azure-resource-manager/management/azure-subscription-service-limits.md#version-2) para mais detalhes.
 
 **Resolução:**
  
@@ -76,17 +76,17 @@ A Azure Data Factory avalia o resultado de todas as atividades ao nível das fol
 **Resolução**
 
 1. Implementar controlos ao nível da atividade seguindo [como lidar com falhas e erros](https://techcommunity.microsoft.com/t5/azure-data-factory/understanding-pipeline-failures-and-error-handling/ba-p/1630459)do gasoduto .
-1. Utilize aplicações lógicas Azure para monitorizar os gasodutos em intervalos regulares após [consulta por fábrica](https://docs.microsoft.com/rest/api/datafactory/pipelineruns/querybyfactory).
+1. Utilize aplicações lógicas Azure para monitorizar os gasodutos em intervalos regulares após [consulta por fábrica](/rest/api/datafactory/pipelineruns/querybyfactory).
 
 ## <a name="monitor-pipeline-failures-in-regular-intervals"></a>Monitorizar falhas do gasoduto em intervalos regulares
 
 Pode ser necessário monitorizar os oleodutos falhados da Data Factory em intervalos, digamos, 5 minutos. Pode consultar e filtrar o gasoduto a partir de uma fábrica de dados utilizando o ponto final. 
 
-Crie uma aplicação lógica Azure para consultar todos os oleodutos falhados a cada 5 minutos, conforme descrito em [Consulta Por Fábrica](https://docs.microsoft.com/rest/api/datafactory/pipelineruns/querybyfactory). Então, pode reportar incidentes ao nosso sistema de bilhética.
+Crie uma aplicação lógica Azure para consultar todos os oleodutos falhados a cada 5 minutos, conforme descrito em [Consulta Por Fábrica](/rest/api/datafactory/pipelineruns/querybyfactory). Então, pode reportar incidentes ao nosso sistema de bilhética.
 
 Para mais informações, aceda ao [Envio de Notificações da Data Factory, Parte 2](https://www.mssqltips.com/sqlservertip/5962/send-notifications-from-an-azure-data-factory-pipeline--part-2/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais ajuda para resolver problemas, experimente estes recursos:
 

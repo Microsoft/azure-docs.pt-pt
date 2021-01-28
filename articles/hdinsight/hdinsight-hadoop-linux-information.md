@@ -1,19 +1,16 @@
 ---
 title: Dicas para usar Hadoop em HDInsight - Azure baseado em Linux
 description: Obtenha dicas de implementação para usar clusters HDInsight (Hadoop) baseados em Linux num ambiente linux familiar que funciona na nuvem Azure.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 04/29/2020
-ms.openlocfilehash: 0f0073c72c28395d89cec74a489cbc36a8f3ffe7
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 2d2619c7bd7bc09eeab3845599758db7134b4134
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546114"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945643"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informações sobre como utilizar o HDInsight no Linux
 
@@ -24,9 +21,9 @@ Os clusters Azure HDInsight fornecem Apache Hadoop num ambiente linux familiar, 
 Muitos dos passos deste documento utilizam os seguintes utilitários, que podem ter de ser instalados no seu sistema.
 
 * [cURL](https://curl.haxx.se/) - usado para comunicar com serviços baseados na web.
-* **jq** , um processador JSON de linha de comando.  [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/)Ver.
+* **jq**, um processador JSON de linha de comando.  [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/)Ver.
 * [Azure CLI](/cli/azure/install-azure-cli) - usado para gerir remotamente os serviços Azure.
-* **Um cliente SSH** . Para obter mais informações, consulte [Connect to HDInsight (Apache Hadoop) utilizando SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
+* **Um cliente SSH**. Para obter mais informações, veja [Ligar ao HDInsight (Apache Hadoop) através de SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="users"></a>Utilizadores
 
@@ -92,8 +89,8 @@ Para mais informações, consulte os [Ports utilizados pelos serviços Apache Ha
 
 Os ficheiros relacionados com hadoop podem ser encontrados nos nós de cluster em `/usr/hdp` . Este diretório contém as seguintes subdireções:
 
-* **2.6.5.3009-43** : O nome do diretório é a versão da plataforma Hadoop utilizada pela HDInsight. O número do seu aglomerado pode ser diferente do listado aqui.
-* **corrente** : Este diretório contém ligações a subdireções ao abrigo do diretório **2.6.5.3009-43.** Este diretório existe para que não tenha que se lembrar do número da versão.
+* **2.6.5.3009-43**: O nome do diretório é a versão da plataforma Hadoop utilizada pela HDInsight. O número do seu aglomerado pode ser diferente do listado aqui.
+* **corrente**: Este diretório contém ligações a subdireções ao abrigo do diretório **2.6.5.3009-43.** Este diretório existe para que não tenha que se lembrar do número da versão.
 
 Os dados de exemplo e os ficheiros JAR podem ser encontrados no Sistema de Ficheiros Distribuídos Hadoop em `/example` e `/HdiSamples` .
 
@@ -247,7 +244,7 @@ Para utilizar uma versão diferente de um componente, faça o upload da versão 
 >
 > Os componentes personalizados recebem suporte comercialmente razoável para ajudá-lo a resolver o problema. Isto pode resultar na resolução do problema ou pedir-lhe para envolver canais disponíveis para as tecnologias de código aberto onde se encontram conhecimentos profundos para essa tecnologia. Por exemplo, existem muitos sites comunitários que podem ser usados, como: [Microsoft Q&Uma página de perguntas para HDInsight](/answers/topics/azure-hdinsight.html), [https://stackoverflow.com](https://stackoverflow.com) . Também os projetos Apache têm sites de projeto em [https://apache.org](https://apache.org) , por exemplo: [Hadoop,](https://hadoop.apache.org/) [Spark](https://spark.apache.org/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Gerir os clusters HDInsight utilizando a API Apache Ambari REST](./hdinsight-hadoop-manage-ambari-rest-api.md)
 * [Use a Colmeia Apache com HDInsight](hadoop/hdinsight-use-hive.md)

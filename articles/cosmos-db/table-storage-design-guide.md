@@ -8,12 +8,12 @@ ms.date: 06/19/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 709b83ad3e71a932202cebb9c9cb6187feae4ed7
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 812d4976a0c6afe646c329ee483be20c33416381
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93080010"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943883"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Guia de conceção de tabela do armazenamento de Tabelas do Azure: Tabelas dimensionáveis e com bom desempenho
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
@@ -138,7 +138,7 @@ No armazenamento de mesa, um nó individual presta uma ou mais divisórias compl
 Para obter mais informações sobre os detalhes internos do armazenamento da mesa, e em particular a forma como gere as divisórias, consulte [o Microsoft Azure Storage: Um serviço de armazenamento em nuvem altamente disponível com forte consistência](/archive/blogs/windowsazurestorage/sosp-paper-windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency).  
 
 ### <a name="entity-group-transactions"></a>Transações de grupos de entidades
-No armazenamento de mesas, as transações de grupos de entidades (EGTs) são o único mecanismo incorporado para a realização de atualizações atómicas em várias entidades. Os EGTs são também referidos como *transações de lote* . As EGTs só podem operar em entidades armazenadas na mesma partição (partilhando a mesma chave de partição numa tabela específica), por isso, sempre que precisar de comportamento transacional atómico entre várias entidades, certifique-se de que essas entidades estão na mesma divisão. Esta é frequentemente uma razão para manter vários tipos de entidades na mesma tabela (e partição), e não usar várias tabelas para diferentes tipos de entidades. Um único EGT pode operar no máximo 100 entidades.  Se submeter vários EGTs simultâneos para processamento, é importante garantir que esses EGTs não operam em entidades que são comuns em todos os EGTs. Caso contrário, arrisca-se a atrasar o processamento.
+No armazenamento de mesas, as transações de grupos de entidades (EGTs) são o único mecanismo incorporado para a realização de atualizações atómicas em várias entidades. Os EGTs são também referidos como *transações de lote*. As EGTs só podem operar em entidades armazenadas na mesma partição (partilhando a mesma chave de partição numa tabela específica), por isso, sempre que precisar de comportamento transacional atómico entre várias entidades, certifique-se de que essas entidades estão na mesma divisão. Esta é frequentemente uma razão para manter vários tipos de entidades na mesma tabela (e partição), e não usar várias tabelas para diferentes tipos de entidades. Um único EGT pode operar no máximo 100 entidades.  Se submeter vários EGTs simultâneos para processamento, é importante garantir que esses EGTs não operam em entidades que são comuns em todos os EGTs. Caso contrário, arrisca-se a atrasar o processamento.
 
 Os EGTs também introduzem uma potencial compensação para que possa avaliar no seu design. A utilização de mais divisórias aumenta a escalabilidade da sua aplicação, porque o Azure tem mais oportunidades para pedidos de equilíbrio de carga em nós. Mas isso pode limitar a capacidade da sua aplicação de realizar transações atómicas e manter uma forte consistência para os seus dados. Além disso, existem alvos específicos de escalabilidade ao nível de uma partição que podem limitar o rendimento das transações que se pode esperar de um único nó.
 
@@ -211,7 +211,7 @@ Aqui estão algumas diretrizes gerais para a conceção de consultas de armazena
 * Uma tomografia de *mesa* não inclui o , e `PartitionKey` é ineficiente porque procura todas as divisórias que compõem a sua mesa para quaisquer entidades correspondentes. Executa uma verificação de mesa independentemente de o filtro utilizar ou não o `RowKey` . Por exemplo: `$filter=LastName eq 'Jones'`.  
 * Consultas de armazenamento de mesa Azure que devolvem várias entidades classificam-nas `PartitionKey` e `RowKey` encomendam. Para evitar recorrer às entidades do cliente, escolha uma `RowKey` que defina a ordem de classificação mais comum. Os resultados de consulta devolvidos pela Azure Table API em Azure Cosmos DB não são classificados por chave de partição ou chave de linha. Para obter uma lista detalhada das diferenças de características, consulte [as diferenças entre a Tabela API no Azure Cosmos DB e o armazenamento da tabela Azure](table-api-faq.md#table-api-vs-table-storage).
 
-Usar um " **ou** " para especificar um filtro com base `RowKey` em valores resulta numa varredura de partição, e não é tratado como uma consulta de alcance. Por isso, evite consultas que utilizem filtros como: `$filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')` .  
+Usar um "**ou**" para especificar um filtro com base `RowKey` em valores resulta numa varredura de partição, e não é tratado como uma consulta de alcance. Por isso, evite consultas que utilizem filtros como: `$filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')` .  
 
 Por exemplo, o código do lado do cliente que utiliza a Biblioteca do Cliente de Armazenamento para executar consultas eficientes, consulte:  
 
@@ -253,7 +253,7 @@ Os resultados da consulta de armazenamento de mesas ordenados em ordem ascendent
 > [!NOTE]
 > Os resultados de consulta devolvidos pela Azure Table API em Azure Cosmos DB não são classificados por chave de partição ou chave de linha. Para obter uma lista detalhada das diferenças de características, consulte [as diferenças entre a Tabela API no Azure Cosmos DB e o armazenamento da tabela Azure](table-api-faq.md#table-api-vs-table-storage).
 
-As teclas no armazenamento da mesa são valores de corda. Para garantir que os valores numéricos se classificam corretamente, deve convertê-los num comprimento fixo e remá-los com zeros. Por exemplo, se o valor de identificação do empregado que usa como valor inteiro, deve converter o `RowKey` ID do empregado **123** a **00000123** . 
+As teclas no armazenamento da mesa são valores de corda. Para garantir que os valores numéricos se classificam corretamente, deve convertê-los num comprimento fixo e remá-los com zeros. Por exemplo, se o valor de identificação do empregado que usa como valor inteiro, deve converter o `RowKey` ID do empregado **123** a **00000123**. 
 
 Muitas aplicações têm requisitos para usar dados classificados em diferentes ordens: por exemplo, classificar os colaboradores pelo nome, ou aderir à data. Os seguintes padrões na secção [Os padrões de design](#table-design-patterns) da tabela abordam como alternar ordens de classificação para as suas entidades:  
 
@@ -321,7 +321,7 @@ Este exemplo mostra também uma entidade de departamento e as suas entidades ass
 
 Uma abordagem alternativa é desnormalizar os seus dados e armazenar apenas entidades de empregados com dados desnormalizados do departamento, como mostra o exemplo seguinte. Neste cenário específico, esta abordagem desnormalizada pode não ser a melhor se tiver a obrigação de poder alterar os detalhes de um gerente de departamento. Para isso, precisaria de atualizar todos os funcionários do departamento.  
 
-:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE02.png" alt-text="Gráfico mostrando uma entidade de departamento e uma entidade de empregados":::
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE02.png" alt-text="Gráfico de entidade de colaborador que mostra como desnormalizar os seus dados, e armazenar apenas entidades de empregados com dados de departamento desnormalizados.":::
 
 Para mais informações, consulte o [padrão de desnormalização](#denormalization-pattern) mais tarde neste guia.  
 
@@ -398,18 +398,18 @@ Por exemplo, se tiver pequenas tabelas que contenham dados que não mudam freque
 ### <a name="inheritance-relationships"></a>Relações de herança
 Se a sua aplicação ao cliente utilizar um conjunto de classes que fazem parte de uma relação de herança para representar entidades empresariais, pode facilmente persistir essas entidades no armazenamento de mesa. Por exemplo, pode ter o seguinte conjunto de aulas definidas na sua aplicação de cliente, onde `Person` é uma classe abstrata.
 
-:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE03.png" alt-text="Gráfico mostrando uma entidade de departamento e uma entidade de empregados":::
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE03.png" alt-text="Diagrama de relações de herança":::
 
 Pode persistir casos das duas classes de betão no armazenamento de mesa utilizando uma única `Person` tabela. Utilize entidades que se pareçam com o seguinte:  
 
-:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE04.png" alt-text="Gráfico mostrando uma entidade de departamento e uma entidade de empregados":::
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE04.png" alt-text="Entidade de clientes de exibição gráfica e entidade de colaboradores":::
 
 Para obter mais informações sobre o trabalho com vários tipos de entidades na mesma tabela no código do cliente, consulte [Trabalhar com tipos de entidades heterogéneas](#work-with-heterogeneous-entity-types) mais tarde neste guia. Isto fornece exemplos de como reconhecer o tipo de entidade no código do cliente.  
 
 ## <a name="table-design-patterns"></a>Padrões de design da tabela
 Em secções anteriores, aprendeu sobre como otimizar o design da sua tabela tanto para recuperar dados da entidade, utilizando consultas, como para inserir, atualizar e eliminar dados da entidade. Esta secção descreve alguns padrões adequados para utilização com armazenamento de mesa. Além disso, você verá como você pode praticamente abordar algumas das questões e trade-offs levantadas anteriormente neste guia. O diagrama seguinte resume as relações entre os diferentes padrões:  
 
-:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE05.png" alt-text="Gráfico mostrando uma entidade de departamento e uma entidade de empregados":::
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE05.png" alt-text="Diagrama de padrões de design de mesa":::
 
 O mapa de padrões destaca algumas relações entre padrões (azul) e anti-padrões (laranja) que são documentados neste guia. Há, naturalmente, muitos outros padrões que vale a pena considerar. Por exemplo, um dos cenários-chave para o armazenamento da mesa é usar o padrão de [vista materializado](/previous-versions/msp-n-p/dn589782(v=pandp.10)) a partir do padrão de segregação de [responsabilidade de comando.](/previous-versions/msp-n-p/jj554200(v=pandp.10))  
 
@@ -419,14 +419,14 @@ Armazenar várias cópias de cada entidade utilizando `RowKey` valores diferente
 #### <a name="context-and-problem"></a>Contexto e problema
 O armazenamento de mesa indexa automaticamente as entidades utilizando os `PartitionKey` valores e `RowKey` valores. Isto permite que uma aplicação do cliente recupere uma entidade de forma eficiente utilizando estes valores. Por exemplo, utilizando a seguinte estrutura de tabela, uma aplicação de cliente pode usar uma consulta de ponto para recuperar uma entidade de colaborador individual, utilizando o nome do departamento e o ID do empregado (os `PartitionKey` `RowKey` valores). Um cliente também pode recuperar entidades classificadas por identificação de funcionários dentro de cada departamento.
 
-:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE06.png" alt-text="Gráfico mostrando uma entidade de departamento e uma entidade de empregados":::
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE06.png" alt-text="Gráfico da entidade do colaborador onde uma aplicação do cliente pode usar uma consulta de ponto para recuperar uma entidade de colaborador individual, utilizando o nome do departamento e o ID do empregado (os valores PartitionKey e RowKey).":::
 
 Se também quiser encontrar uma entidade de colaboradores com base no valor de outra propriedade, como endereço de e-mail, deve utilizar uma verificação de partição menos eficiente para encontrar uma correspondência. Isto porque o armazenamento de mesa não fornece índices secundários. Além disso, não há opção de solicitar uma lista de funcionários classificados numa ordem diferente da `RowKey` encomenda.  
 
 #### <a name="solution"></a>Solução
 Para contornar a falta de índices secundários, pode armazenar várias cópias de cada entidade, com cada cópia usando um `RowKey` valor diferente. Se armazenar uma entidade com as seguintes estruturas, poderá recuperar eficientemente entidades de colaboradores com base em endereço de e-mail ou ID do funcionário. Os valores do prefixo para `RowKey` `empid_` , e `email_` permitem-lhe consultar um único empregado, ou uma série de colaboradores, utilizando uma série de endereços de e-mail ou IDs de funcionários.  
 
-:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE07.png" alt-text="Gráfico mostrando uma entidade de departamento e uma entidade de empregados":::
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE07.png" alt-text="Entidade de colaboradores de exibição gráfica com valores RowKey variados":::
 
 Os dois critérios de filtro a seguir (um olhando para cima por ID do empregado, e um procurando por endereço de e-mail) ambos especificam consultas de ponto:  
 
@@ -450,7 +450,7 @@ Na altura de decidir como implementar este padrão, considere os seguintes ponto
 * Os valores numéricos de enchimento no `RowKey` (por exemplo, o ID 000223 do empregado) permitem a triagem e filtragem corretas com base nos limites superior e inferior.  
 * Não precisa necessariamente de duplicar todas as propriedades da sua entidade. Por exemplo, se as consultas que procuram as entidades utilizando o endereço de e-mail `RowKey` nunca precisar da idade do trabalhador, estas entidades podem ter a seguinte estrutura:
 
-  :::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE08.png" alt-text="Gráfico mostrando uma entidade de departamento e uma entidade de empregados":::
+  :::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE08.png" alt-text="Gráfico da entidade dos colaboradores":::
 
 * Normalmente, é melhor armazenar dados duplicados e garantir que pode recuperar todos os dados de que necessita com uma única consulta, do que usar uma consulta para localizar uma entidade e outra para procurar os dados necessários.  
 
@@ -477,7 +477,7 @@ Armazenar várias cópias de cada entidade utilizando `RowKey` valores diferente
 #### <a name="context-and-problem"></a>Contexto e problema
 O armazenamento de mesa indexa automaticamente as entidades utilizando os `PartitionKey` valores e `RowKey` valores. Isto permite que uma aplicação do cliente recupere uma entidade de forma eficiente utilizando estes valores. Por exemplo, utilizando a seguinte estrutura de tabela, uma aplicação de cliente pode usar uma consulta de ponto para recuperar uma entidade de colaborador individual, utilizando o nome do departamento e o ID do empregado (os `PartitionKey` `RowKey` valores). Um cliente também pode recuperar entidades classificadas por identificação de funcionários dentro de cada departamento.  
 
-:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE09.png" alt-text="Gráfico mostrando uma entidade de departamento e uma entidade de empregados"::: [9]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE09.png" alt-text="Gráfico da estrutura da entidade do colaborador que, quando utilizado, uma aplicação de cliente pode usar uma consulta de ponto para recuperar uma entidade de colaborador individual, utilizando o nome do departamento e o ID do funcionário (os valores PartitionKey e RowKey)."::: [9]
 
 Se também quiser encontrar uma entidade de colaboradores com base no valor de outra propriedade, como endereço de e-mail, deve utilizar uma verificação de partição menos eficiente para encontrar uma correspondência. Isto porque o armazenamento de mesa não fornece índices secundários. Além disso, não há opção de solicitar uma lista de funcionários classificados numa ordem diferente da `RowKey` encomenda.  
 
@@ -486,7 +486,7 @@ Está a antecipar um grande volume de transações contra estas entidades, e que
 #### <a name="solution"></a>Solução
 Para contornar a falta de índices secundários, pode armazenar várias cópias de cada entidade, com cada cópia usando `PartitionKey` valores e `RowKey` valores diferentes. Se armazenar uma entidade com as seguintes estruturas, poderá recuperar eficientemente entidades de colaboradores com base em endereço de e-mail ou ID do funcionário. Os valores do prefixo para `PartitionKey` `empid_` , e `email_` permitem-lhe identificar qual o índice que pretende utilizar para uma consulta.  
 
-:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE10.png" alt-text="Gráfico mostrando uma entidade de departamento e uma entidade de empregados":::
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE10.png" alt-text="Entidade de colaboradores de exposição gráfica com índice primário e entidade de empregados com índice secundário":::
 
 Os dois critérios de filtro a seguir (um olhando para cima por ID do empregado, e um procurando por endereço de e-mail) ambos especificam consultas de ponto:  
 
@@ -495,7 +495,7 @@ Os dois critérios de filtro a seguir (um olhando para cima por ID do empregado,
 
 Se consultar uma série de entidades de colaboradores, pode especificar um intervalo classificado na ordem de identificação do empregado ou um intervalo ordenado por encomenda de endereço de e-mail. Consulta para entidades com o prefixo apropriado no `RowKey` .  
 
-* Para encontrar todos os colaboradores do departamento de Vendas com um ID de empregado na gama **000100** a **000199** , classificados em ordem de ID dos funcionários, utilize: $filter=(PartitionKey eq 'empid_Sales') e (RowKey ge '000100') e (RowKey le '000199')  
+* Para encontrar todos os colaboradores do departamento de Vendas com um ID de empregado na gama **000100** a **000199**, classificados em ordem de ID dos funcionários, utilize: $filter=(PartitionKey eq 'empid_Sales') e (RowKey ge '000100') e (RowKey le '000199')  
 * Para encontrar todos os colaboradores do departamento de Vendas com um endereço de e-mail que comece com "a", classificado em ordem de endereço de e-mail, use: $filter=(PartitionKey eq 'email_Sales') e (RowKey ge 'a') e (RowKey lt 'b')  
 
 Note que a sintaxe do filtro utilizada nos exemplos anteriores é da API DE ARMAZENAMENTO DE MESA. Para mais informações, consulte [as entidades de Consulta.](/rest/api/storageservices/Query-Entities)  
@@ -509,7 +509,7 @@ Na altura de decidir como implementar este padrão, considere os seguintes ponto
 * Os valores numéricos de enchimento no `RowKey` (por exemplo, o ID 000223 do empregado) permitem a triagem e filtragem corretas com base nos limites superior e inferior.  
 * Não precisa necessariamente de duplicar todas as propriedades da sua entidade. Por exemplo, se as consultas que procuram as entidades utilizando o endereço de e-mail `RowKey` nunca precisar da idade do trabalhador, estas entidades podem ter a seguinte estrutura:
   
-  :::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE11.png" alt-text="Gráfico mostrando uma entidade de departamento e uma entidade de empregados":::
+  :::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE11.png" alt-text="Entidade de colaborador de exposição gráfica com índice secundário":::
 
 * Normalmente, é melhor armazenar dados duplicados e garantir que pode recuperar todos os dados de que necessita com uma única consulta, do que usar uma consulta para localizar uma entidade utilizando o índice secundário e outra para procurar os dados necessários no índice primário.  
 
@@ -549,7 +549,7 @@ Para ilustrar esta abordagem, assuma que tem a obrigação de arquivar ex-entida
 
 Mas não pode usar um EGT para realizar estas duas operações. Para evitar o risco de uma falha fazer com que uma entidade apareça em ambas ou em nenhuma das tabelas, a operação de arquivo deve ser eventualmente consistente. O diagrama de sequência a seguir descreve os passos desta operação.  
 
-:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE12.png" alt-text="Gráfico mostrando uma entidade de departamento e uma entidade de empregados":::
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE12.png" alt-text="Diagrama de solução para uma eventual consistência":::
 
 Um cliente inicia a operação de arquivo colocando uma mensagem numa fila Azure (neste exemplo, para arquivar #456 dos colaboradores). Um papel de trabalhador sonda a fila para novas mensagens; quando encontra um, lê a mensagem e deixa uma cópia escondida na fila. A função do trabalhador em seguida recolhe uma cópia da entidade da tabela **Corrente,** insere uma cópia na tabela **Archive** e, em seguida, elimina o original da tabela **Current.** Finalmente, se não houve erros dos passos anteriores, o papel do trabalhador elimina a mensagem escondida da fila.  
 
@@ -589,7 +589,7 @@ Manter entidades indexadas para permitir pesquisas eficientes que devolvam lista
 #### <a name="context-and-problem"></a>Contexto e problema
 O armazenamento de mesa indexa automaticamente as entidades utilizando os `PartitionKey` valores e `RowKey` valores. Isto permite que uma aplicação do cliente recupere uma entidade de forma eficiente utilizando uma consulta de ponto. Por exemplo, utilizando a seguinte estrutura de tabela, uma aplicação do cliente pode recuperar eficientemente uma entidade de colaborador individual utilizando o nome do departamento e o ID do funcionário (o `PartitionKey` e `RowKey` ).  
 
-:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE13.png" alt-text="Gráfico mostrando uma entidade de departamento e uma entidade de empregados":::
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE13.png" alt-text="Gráfico da estrutura da entidade dos colaboradores onde uma aplicação do cliente pode recuperar eficientemente uma entidade de colaborador individual usando o nome do departamento e o ID do empregado (o PartitionKey e RowKey).":::
 
 Se também quiser ser capaz de recuperar uma lista de entidades de colaboradores com base no valor de outra propriedade não única, como o apelido, deve utilizar uma verificação de partição menos eficiente. Esta digitalização encontra fósforos, em vez de usar um índice para os procurar diretamente. Isto porque o armazenamento de mesa não fornece índices secundários.  
 
@@ -608,7 +608,14 @@ Opção 2: Criar entidades indexárias na mesma partição
 
 Utilize entidades indexárias que armazenam os seguintes dados:  
 
-:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE14.png" alt-text="Gráfico mostrando uma entidade de departamento e uma entidade de empregados" e `RowKey` valor "Jones"). O EGT faz isso adicionando o novo ID do funcionário à lista no campo Dos Colaboradores. Para obter mais informações sobre EGTs, consulte [as transações do grupo Entity](#entity-group-transactions).  
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE14.png" alt-text="Entidade de colaboradores de exibição gráfica, com uma cadeia contendo uma lista de IDs de funcionário com o mesmo apelido":::
+
+A `EmployeeIDs` propriedade contém uma lista de IDs de empregados para funcionários com o último nome armazenado no `RowKey` .  
+
+Os seguintes passos descrevem o processo que deve seguir quando estiver a adicionar um novo funcionário. Neste exemplo, estamos adicionando um empregado com ID 000152 e sobrenome Jones no departamento de Vendas:  
+
+1. Recupere a entidade indexa com um `PartitionKey` valor "Vendas", e o `RowKey` valor "Jones". Guarde o ETag desta entidade para utilizar no passo 2.  
+2. Criar uma transação de grupo de entidades (isto é, uma operação de lote) que insira a nova entidade de empregados `PartitionKey` (valor "Vendas" e `RowKey` valor "000152"), e atualiza a entidade indexada `PartitionKey` (valor "Vendas" e `RowKey` valor "Jones"). O EGT faz isso adicionando o novo ID do funcionário à lista no campo Dos Colaboradores. Para obter mais informações sobre EGTs, consulte [as transações do grupo Entity](#entity-group-transactions).  
 3. Se o EGT falhar devido a um erro de concordância otimista (ou seja, alguém modificou a entidade de índice), então tem de começar de novo no passo 1.  
 
 Pode usar uma abordagem semelhante para eliminar um empregado se estiver a usar a segunda opção. Mudar o apelido de um colaborador é um pouco mais complexo, pois é necessário executar um EGT que atualiza três entidades: a entidade de colaboradores, a entidade indexa para o apelido antigo e a entidade indexa para o novo apelido. Tem de recuperar cada entidade antes de efetuar quaisquer alterações, de modo a recuperar os valores ETag que pode utilizar para executar as atualizações utilizando a concordância otimista.  
@@ -623,7 +630,7 @@ Opção 3: Criar entidades indexárias numa divisória ou tabela separada
 
 Para esta opção, utilize entidades indexárias que armazenem os seguintes dados:  
 
-:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE15.png" alt-text="Gráfico mostrando uma entidade de departamento e uma entidade de empregados":::
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE15.png" alt-text="Screenshot que mostra a entidade do índice do Empregado que contém uma lista de IDs de empregados para funcionários com o último nome armazenado no RowKey e PartitionKey.":::
 
 A `EmployeeIDs` propriedade contém uma lista de IDs de empregados para funcionários com o último nome armazenado no e `RowKey` `PartitionKey` .  
 
@@ -655,12 +662,12 @@ Combine dados relacionados numa única entidade para que possa recuperar todos o
 #### <a name="context-and-problem"></a>Contexto e problema
 Numa base de dados relacional, normalmente normaliza os dados para remover a duplicação que ocorre quando as consultas recuperam dados de várias tabelas. Se normalizar os seus dados nas tabelas Azure, deve efetuar várias viagens de ida e volta do cliente ao servidor para recuperar os seus dados relacionados. Por exemplo, com a seguinte estrutura de mesa, você precisa de duas viagens de ida e volta para recuperar os detalhes para um departamento. Uma viagem vai buscar a entidade do departamento que inclui o ID do gerente, e a segunda viagem recolhe os detalhes do gestor numa entidade de empregados.  
 
-:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE16.png" alt-text="Gráfico mostrando uma entidade de departamento e uma entidade de empregados":::
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE16.png" alt-text="Gráfico de entidade de departamento e entidade de empregados":::
 
 #### <a name="solution"></a>Solução
 Em vez de armazenar os dados em duas entidades distintas, desnormalizar os dados e guardar uma cópia dos detalhes do gestor na entidade do departamento. Por exemplo:  
 
-:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE17.png" alt-text="Gráfico mostrando uma entidade de departamento e uma entidade de empregados":::
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE17.png" alt-text="Gráfico de entidade de departamento desnormalizada e combinada":::
 
 Com entidades de departamento armazenadas com estas propriedades, você pode agora recuperar todos os detalhes que você precisa sobre um departamento usando uma consulta de ponto.  
 
@@ -688,18 +695,18 @@ Numa base de dados relacional, é natural usar juntas em consultas para devolver
 
 Assuma que está a armazenar entidades de empregados no armazenamento de mesa utilizando a seguinte estrutura:  
 
-:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE18.png" alt-text="Gráfico mostrando uma entidade de departamento e uma entidade de empregados":::
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE18.png" alt-text="Gráfico da estrutura da entidade dos colaboradores que deve utilizar para armazenar entidades de empregados no armazenamento de mesa.":::
 
 Também precisa de armazenar dados históricos relativos a avaliações e desempenho para cada ano que o colaborador tenha trabalhado para a sua organização, e precisa de ter acesso a esta informação por ano. Uma opção é criar outra tabela que armazena entidades com a seguinte estrutura:  
 
-:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE19.png" alt-text="Gráfico mostrando uma entidade de departamento e uma entidade de empregados":::
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE19.png" alt-text="Gráfico da entidade de revisão de funcionários":::
 
 Com esta abordagem, poderá decidir duplicar algumas informações (como o primeiro nome e apelido) na nova entidade, para que possa recuperar os seus dados com um único pedido. No entanto, não é possível manter uma forte consistência porque não pode usar um EGT para atualizar as duas entidades atomicamente.  
 
 #### <a name="solution"></a>Solução
 Armazenar um novo tipo de entidade na sua tabela original utilizando entidades com a seguinte estrutura:  
 
-:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE20.png" alt-text="Gráfico mostrando uma entidade de departamento e uma entidade de empregados":::
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE20.png" alt-text="Gráfico da entidade do empregado com chave composta":::
 
 Note como `RowKey` a é agora uma chave composta, composta pela identificação do empregado e pelo ano dos dados de revisão. Isto permite-lhe recuperar o desempenho do colaborador e rever os dados com um único pedido para uma única entidade.  
 
@@ -710,7 +717,7 @@ $filter=(PartitionKey eq 'Sales') e (RowKey ge 'empid_000123') e (RowKey lt 'emp
 #### <a name="issues-and-considerations"></a>Problemas e considerações
 Na altura de decidir como implementar este padrão, considere os seguintes pontos:  
 
-* Deve utilizar um carácter separador adequado que facilite a análise do `RowKey` valor: por exemplo, **000123_2012** .  
+* Deve utilizar um carácter separador adequado que facilite a análise do `RowKey` valor: por exemplo, **000123_2012**.  
 * Também está a armazenar esta entidade na mesma divisão que outras entidades que contêm dados relacionados para o mesmo funcionário. Isto significa que pode usar EGTs para manter uma forte consistência.
 * Deve considerar a frequência com que irá consultar os dados para determinar se este padrão é apropriado. Por exemplo, se aceder aos dados de revisão com pouca frequência, e os principais dados dos colaboradores frequentemente, deverá mantê-los como entidades separadas.  
 
@@ -771,7 +778,7 @@ Muitas aplicações eliminam dados antigos que já não precisam de estar dispon
 
 Um dos projetos possíveis é utilizar a data e a hora do pedido de inscrição no `RowKey` :  
 
-:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE21.png" alt-text="Gráfico mostrando uma entidade de departamento e uma entidade de empregados":::
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE21.png" alt-text="Gráfico da entidade de tentativa de login":::
 
 Esta abordagem evita hotspots de partição, porque a aplicação pode inserir e eliminar entidades de inscrição para cada utilizador numa divisória separada. No entanto, esta abordagem pode ser dispendiosa e morosa se tiver um grande número de entidades. Primeiro, é necessário efetuar uma verificação de tabelas para identificar todas as entidades para eliminar, e depois deve eliminar cada entidade antiga. Pode reduzir o número de viagens de ida e volta ao servidor necessárias para eliminar as entidades antigas, desemargando vários pedidos de eliminação em EGTs.  
 
@@ -801,14 +808,14 @@ Armazenar séries de dados completas numa única entidade para minimizar o núme
 #### <a name="context-and-problem"></a>Contexto e problema
 Um cenário comum é uma aplicação para armazenar uma série de dados que normalmente precisa para recuperar tudo de uma vez. Por exemplo, a sua aplicação pode registar quantas mensagens IM cada funcionário envia a cada hora e, em seguida, usar esta informação para traçar quantas mensagens cada utilizador enviou nas 24 horas anteriores. Um dos projetos poderá ser armazenar 24 entidades para cada colaborador:  
 
-:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE22.png" alt-text="Gráfico mostrando uma entidade de departamento e uma entidade de empregados":::
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE22.png" alt-text="Gráfico da entidade de estatísticas de mensagens":::
 
 Com este design, pode localizar e atualizar facilmente a entidade para atualizar para cada colaborador sempre que a aplicação precisar de atualizar o valor da contagem de mensagens. No entanto, para recuperar a informação para traçar um gráfico da atividade nas 24 horas anteriores, deve recuperar 24 entidades.  
 
 #### <a name="solution"></a>Solução
 Utilize o seguinte design, com uma propriedade separada para armazenar a contagem de mensagens para cada hora:  
 
-:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE23.png" alt-text="Gráfico mostrando uma entidade de departamento e uma entidade de empregados":::
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE23.png" alt-text="Entidade de estatísticas de mensagem de exibição gráfica com propriedades separadas":::
 
 Com este design, pode utilizar uma operação de fusão para atualizar a contagem de mensagens para um empregado durante uma hora específica. Agora, pode recuperar toda a informação que precisa para traçar o gráfico usando um pedido para uma única entidade.  
 
@@ -837,7 +844,7 @@ Uma entidade individual não pode ter mais de 252 propriedades (excluindo as pro
 #### <a name="solution"></a>Solução
 Ao utilizar o armazenamento de mesa, pode armazenar várias entidades para representar um único objeto de negócio grande com mais de 252 propriedades. Por exemplo, se pretender armazenar uma contagem do número de mensagens IM enviadas por cada colaborador nos últimos 365 dias, pode utilizar o seguinte design que utiliza duas entidades com esquemas diferentes:  
 
-:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE24.png" alt-text="Gráfico mostrando uma entidade de departamento e uma entidade de empregados":::
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE24.png" alt-text="Entidade de estatísticas de mensagem de exibição gráfica com Rowkey 01 e entidade de estatísticas de mensagens com Rowkey 02":::
 
 Se precisar de fazer uma alteração que exija atualizar ambas as entidades para mantê-las sincronizadas entre si, pode utilizar um EGT. Caso contrário, pode utilizar uma única operação de fusão para atualizar a contagem de mensagens para um dia específico. Para recuperar todos os dados para um funcionário individual, deve recuperar ambas as entidades. Pode fazê-lo com dois pedidos eficientes que usam um `PartitionKey` valor e um `RowKey` valor.  
 
@@ -864,7 +871,7 @@ Uma entidade individual não pode armazenar mais de 1 MB de dados no total. Se u
 #### <a name="solution"></a>Solução
 Se a sua entidade exceder 1 MB de tamanho porque uma ou mais propriedades contêm uma grande quantidade de dados, pode armazenar dados no armazenamento Blob e, em seguida, armazenar o endereço da bolha numa propriedade da entidade. Por exemplo, pode armazenar a foto de um empregado no armazém da Blob e armazenar um link para a foto na `Photo` propriedade da sua entidade colaboradora:  
 
-:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE25.png" alt-text="Gráfico mostrando uma entidade de departamento e uma entidade de empregados":::
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE25.png" alt-text="Entidade de colaborador de exibição gráfica com string para foto apontando para o armazenamento blob":::
 
 #### <a name="issues-and-considerations"></a>Problemas e considerações
 Na altura de decidir como implementar este padrão, considere os seguintes pontos:  
@@ -889,12 +896,12 @@ Quando tiver um grande volume de inserções, aumente a escalabilidade espalhand
 #### <a name="context-and-problem"></a>Contexto e problema
 A premissão ou a anexação de entidades às suas entidades armazenadas normalmente resulta na adição de novas entidades à primeira ou última partição de uma sequência de divisórias. Neste caso, todas as inserções em qualquer momento estão a decorrer na mesma partição, criando um hotspot. Isto impede o armazenamento da mesa de inserções de equilíbrio de carga em vários nós, e possivelmente faz com que a sua aplicação atinja os alvos de escalabilidade para a partição. Por exemplo, considere o caso de uma aplicação que regista o acesso à rede e ao acesso de recursos por parte dos colaboradores. Uma estrutura de entidades como a seguinte pode resultar em que a partição da hora atual se torne um hotspot, se o volume de transações atingir o objetivo de escalabilidade para uma partição individual:  
 
-:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE26.png" alt-text="Gráfico mostrando uma entidade de departamento e uma entidade de empregados":::
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE26.png" alt-text="Gráfico de uma estrutura de entidade que pode resultar em que a partição da hora atual se torne um hotspot, se o volume de transações atingir o alvo de escalabilidade para uma partição individual.":::
 
 #### <a name="solution"></a>Solução
 A seguinte estrutura de entidade alternativa evita um hotspot em qualquer partição específica, uma vez que a aplicação regista eventos:  
 
-:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE27.png" alt-text="Gráfico mostrando uma entidade de departamento e uma entidade de empregados":::
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE27.png" alt-text="Entidade de colaboradores de exibição gráfica com RowKey composto o Ano, Mês, Dia, Hora e ID do Evento":::
 
 Note com este exemplo como ambas as `PartitionKey` `RowKey` teclas e são compostas. Usa `PartitionKey` o departamento e a identificação dos funcionários para distribuir o registo através de várias divisórias.  
 
@@ -920,13 +927,13 @@ Normalmente, deve utilizar o armazenamento blob em vez do armazenamento de mesa 
 #### <a name="context-and-problem"></a>Contexto e problema
 Um caso de utilização comum para os dados de registo é recuperar uma seleção de entradas de registo para um intervalo específico de data/hora. Por exemplo, pretende encontrar todos os erros e mensagens críticas que a sua aplicação registou entre as 15:04 e as 15:06 numa data específica. Não pretende utilizar a data e a hora da mensagem de registo para determinar a partição para a qual guarda entidades de registo. Isto resulta numa partição quente porque em qualquer momento específico, todas as entidades de log partilharão o mesmo `PartitionKey` valor (ver [prepend/append anti-padrão).](#prepend-append-anti-pattern) Por exemplo, o esquema de entidade a seguir para uma mensagem de registo resulta numa partição quente, porque a aplicação escreve todas as mensagens de registo para a partição para a data e hora em atuais:  
 
-:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE28.png" alt-text="Gráfico mostrando uma entidade de departamento e uma entidade de empregados":::
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE28.png" alt-text="Gráfico que mostra um esquema de entidade para uma mensagem de registo resulta numa partição quente.":::
 
 Neste exemplo, `RowKey` inclui a data e a hora da mensagem de registo para garantir que as mensagens de registo são classificadas na ordem data/hora. O `RowKey` também inclui um ID de mensagem, caso várias mensagens de registo partilhem a mesma data e hora.  
 
 Outra abordagem é usar uma `PartitionKey` que garanta que a aplicação escreve mensagens em várias divisórias. Por exemplo, se a origem da mensagem de registo fornecer uma forma de distribuir mensagens em muitas divisórias, pode utilizar o seguinte esquema de entidade:  
 
-:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE29.png" alt-text="Gráfico mostrando uma entidade de departamento e uma entidade de empregados":::
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE29.png" alt-text="Gráfico da entidade de mensagem de registo":::
 
 No entanto, o problema com este esquema é que para recuperar todas as mensagens de registo por um período de tempo específico, você deve pesquisar todas as divisões na tabela.
 
@@ -937,7 +944,7 @@ Esta secção descreve como a Analytics de Armazenamento armazena dados de regis
 
 A análise de armazenamento armazena mensagens de registo num formato delimitado em várias bolhas. O formato delimitado facilita a análise dos dados na mensagem de registo.  
 
-A análise de armazenamento utiliza uma convenção de nomeação para bolhas que lhe permite localizar a bolha (ou bolhas) que contêm as mensagens de registo para as quais está a pesquisar. Por exemplo, uma bolha chamada "queue/2014/07/31/1800/000001.log" contém mensagens de registo que dizem respeito ao serviço de fila para a hora a partir das 18:00 de 31 de julho de 2014. O "000001" indica que este é o primeiro ficheiro de registo deste período. A análise de armazenamento também regista os termos tempotamos das primeira e últimas mensagens de registo armazenadas no ficheiro, como parte dos metadados da bolha. A API para armazenamento Blob permite localizar bolhas num recipiente com base num prefixo de nome. Para localizar todas as bolhas que contêm dados de registo de fila para a hora a partir das 18:00, pode utilizar o prefixo "fila/2014/07/31/1800".  
+A análise de armazenamento utiliza uma convenção de nomeação para bolhas que lhe permite localizar a bolha (ou bolhas) que contêm as mensagens de registo para as quais está a pesquisar. Por exemplo, uma bolha chamada "fila/2014/07/31/1800/000001.log" contém mensagens de registo que dizem respeito ao serviço de fila para a hora a partir das 18:00 do dia 31 de julho de 2014. O "000001" indica que este é o primeiro ficheiro de registo deste período. A análise de armazenamento também regista os termos tempotamos das primeira e últimas mensagens de registo armazenadas no ficheiro, como parte dos metadados da bolha. A API para armazenamento Blob permite localizar bolhas num recipiente com base num prefixo de nome. Para localizar todas as bolhas que contêm dados de registo de fila para a hora a partir das 18:00, pode utilizar o prefixo "fila/2014/07/31/1800".  
 
 Os buffers de análise de armazenamento registam as mensagens internamente e, em seguida, atualiza periodicamente a bolha apropriada ou cria uma nova com o mais recente lote de entradas de registo. Isto reduz o número de escritos que deve executar para o armazenamento blob.  
 
@@ -1102,7 +1109,7 @@ As exceções lançadas quando a Biblioteca do Cliente de Armazenamento executa 
 Também deve considerar como o seu design afeta a forma como a sua aplicação de cliente lida com as operações de conuncy e atualização.  
 
 #### <a name="managing-concurrency"></a>Gerir a simultaneidade
-Por predefinição, o armazenamento de mesa implementa controlos de concordância otimistas ao nível de entidades individuais para inserir, fundir e apagar operações, embora seja possível para um cliente forçar o armazenamento da Mesa a contornar estas verificações. Para obter mais informações, consulte [Managing concurrency no Microsoft Azure Storage](../storage/common/storage-concurrency.md).  
+Por predefinição, o armazenamento de mesa implementa controlos de concordância otimistas ao nível de entidades individuais para inserir, fundir e apagar operações, embora seja possível para um cliente forçar o armazenamento da Mesa a contornar estas verificações. Para obter mais informações, consulte [Managing concurrency no Microsoft Azure Storage](../storage/blobs/concurrency-manage.md).  
 
 #### <a name="merge-or-replace"></a>Fundir ou substituir
 O `Replace` método da classe substitui sempre a entidade completa no armazenamento de `TableOperation` mesa. Se não incluir um imóvel no pedido quando esse imóvel existe na entidade armazenada, o pedido retira esse imóvel da entidade armazenada. A menos que queira remover um imóvel explicitamente de uma entidade armazenada, deve incluir todos os bens no pedido.  

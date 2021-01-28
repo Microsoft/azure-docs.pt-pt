@@ -1,25 +1,22 @@
 ---
 title: Componentes de alta disponibilidade em Azure HDInsight
 description: Visão geral dos vários componentes de alta disponibilidade utilizados pelos clusters HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: 1ff7932f0afb128f6e7568ecdae602c6471db0bd
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 336fe91174a8fc6d73d6e45c5fd1e2bf244eda52
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92539722"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945310"
 ---
 # <a name="high-availability-services-supported-by-azure-hdinsight"></a>Serviços de alta disponibilidade suportados pela Azure HDInsight
 
 De forma a proporcionar-lhe os níveis ideais de disponibilidade para os seus componentes de análise, o HDInsight foi desenvolvido com uma arquitetura única para garantir alta disponibilidade (HA) de serviços críticos. Alguns componentes desta arquitetura foram desenvolvidos pela Microsoft para fornecer failover automático. Outros componentes são componentes Apache standard que são implantados para suportar serviços específicos. Este artigo explica a arquitetura do modelo de serviço HA em HDInsight, como a HDInsight suporta o failover para os serviços HA, e as melhores práticas para recuperar de outras interrupções de serviço.
 
 > [!NOTE]
-> Este artigo contém referências ao termo *escravo* , um termo que a Microsoft já não utiliza. Quando o termo for removido do software, vamos removê-lo deste artigo.
+> Este artigo contém referências ao termo *escravo*, um termo que a Microsoft já não utiliza. Quando o termo for removido do software, vamos removê-lo deste artigo.
 
 ## <a name="high-availability-infrastructure"></a>Infraestrutura de alta disponibilidade
 
@@ -49,7 +46,7 @@ As seguintes secções fornecerão mais detalhes sobre como estes serviços func
 
 ## <a name="hdinsight-high-availability-services"></a>Serviços de alta disponibilidade HDInsight
 
-A Microsoft fornece suporte para os quatro serviços Apache na tabela seguinte em clusters HDInsight. Para distingui-los dos serviços de alta disponibilidade suportados por componentes da Apache, são chamados *serviços HDInsight HA* .
+A Microsoft fornece suporte para os quatro serviços Apache na tabela seguinte em clusters HDInsight. Para distingui-los dos serviços de alta disponibilidade suportados por componentes da Apache, são chamados *serviços HDInsight HA*.
 
 | Serviço | Nós do cluster | Tipos de cluster | Objetivo |
 |---|---|---|---|
@@ -65,7 +62,7 @@ A Microsoft fornece suporte para os quatro serviços Apache na tabela seguinte e
 
 Cada cluster HDInsight tem dois headnodes em modos ativos e de espera, respectivamente. Os serviços HDInsight HA funcionam apenas com headnodes. Estes serviços devem estar sempre a funcionar no headnode ativo, e parados e colocados em modo de manutenção no headnode de espera.
 
-Para manter os estados corretos dos serviços ha e fornecer uma rápida falha, o HDInsight utiliza o Apache ZooKeeper, que é um serviço de coordenação para aplicações distribuídas, para realizar uma eleição de headnode ativa. O HDInsight também prevê alguns processos java de fundo, que coordenam o procedimento de failover para os serviços HDInsight HA. Estes serviços são os seguintes: o controlador mestre de failover, o controlador de failover escravo, o *master-ha-service* , e o *slave-ha-service* .
+Para manter os estados corretos dos serviços ha e fornecer uma rápida falha, o HDInsight utiliza o Apache ZooKeeper, que é um serviço de coordenação para aplicações distribuídas, para realizar uma eleição de headnode ativa. O HDInsight também prevê alguns processos java de fundo, que coordenam o procedimento de failover para os serviços HDInsight HA. Estes serviços são os seguintes: o controlador mestre de failover, o controlador de failover escravo, o *master-ha-service*, e o *slave-ha-service*.
 
 ### <a name="apache-zookeeper"></a>Apache ZooKeeper
 
@@ -134,7 +131,7 @@ A alta disponibilidade do Yarn ResourceManager é independente do NameNode e de 
 
 Os clusters HDInsight HBase suportam a alta disponibilidade do HBase Master. Ao contrário de outros serviços ha, que funcionam em headnodes, o HBase Masters funciona nos três nós zookeeper, onde um deles é o mestre ativo e os outros dois estão em espera. Tal como o NameNode, o HBase Master coordena com o Apache Zookeeper para a eleição de líder e faz falhas automáticas quando o atual mestre ativo tem problemas. Há apenas um HBase Master ativo a qualquer momento.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Disponibilidade e fiabilidade dos clusters Apache Hadoop em HDInsight](./hdinsight-business-continuity.md)
 - [Arquitetura de rede virtual Azure HDInsight](hdinsight-virtual-network-architecture.md)

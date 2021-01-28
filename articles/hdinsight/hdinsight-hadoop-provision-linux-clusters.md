@@ -1,19 +1,16 @@
 ---
 title: Configurar clusters no HDInsight com Apache Hadoop, Apache Spark, Apache Kafka e muito mais
 description: Configurar os clusters Hadoop, Kafka, Spark, HBase, R Server ou Storm para HDInsight a partir de um navegador, o clássico Azure CLI, Azure PowerShell, REST ou SDK.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.date: 08/06/2020
-ms.openlocfilehash: 6ce5de354583da04905f9f889cfabe36e6da6667
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 4e81ccb541b188fedfefd150233082e9cb1f8c22
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546131"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945551"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Configurar clusters no HDInsight com Apache Hadoop, Apache Spark, Apache Kafka e muito mais
 
@@ -43,7 +40,7 @@ A tabela a seguir mostra os diferentes métodos que pode utilizar para configura
 
 Este artigo acompanha-o através da configuração no [portal Azure,](https://portal.azure.com)onde pode criar um cluster HDInsight.
 
-## <a name="basics"></a>Noções básicas
+## <a name="basics"></a>Informações básicas
 
 ![hdinsight criar opções personalizadas rápido](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-basics-blank-fs.png)
 
@@ -63,7 +60,7 @@ Os nomes do cluster HDInsight têm as seguintes restrições:
 * O cluster naming scope é para todo o Azure, em todas as subscrições. Assim, o nome do cluster deve ser único em todo o mundo.
 * Os primeiros seis caracteres devem ser únicos dentro de uma rede virtual
 
-#### <a name="region"></a>Região
+#### <a name="region"></a>Region
 
 Não é necessário especificar explicitamente a localização do cluster: O cluster encontra-se no mesmo local que o armazenamento predefinido. Para obter uma lista de regiões apoiadas, selecione a lista de drop-down da **Região** nos [preços hdInsight](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
@@ -92,21 +89,21 @@ Escolha a versão de HDInsight para este cluster. Para obter mais informações,
 
 Com clusters HDInsight, pode configurar duas contas de utilizador durante a criação do cluster:
 
-* Nome de utilizador de login do cluster: O nome de utilizador predefinido é *administrador* . Utiliza a configuração básica no portal Azure. Às vezes chama-se "Utilizador do Cluster", ou "utilizador HTTP".
+* Nome de utilizador de login do cluster: O nome de utilizador predefinido é *administrador*. Utiliza a configuração básica no portal Azure. Às vezes chama-se "Utilizador do Cluster", ou "utilizador HTTP".
 * Nome de utilizador Secure Shell (SSH): Usado para ligar ao cluster através de SSH. Para obter mais informações, consulte [Use SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 O nome de utilizador HTTP tem as seguintes restrições:
 
 * Personagens especiais permitidos: `_` e `@`
-* Caracteres não permitidos: #;."', \/ '!*?$)[]<>{} [&-=+^^
+* Caracteres não permitidos: #;."', \/ {} '!*?$)[]<>|&--=+%~^espaço
 * Comprimento máximo: 20
 
 O nome de utilizador SSH tem as seguintes restrições:
 
 * Personagens especiais permitidos: `_` e `@`
-* Caracteres não permitidos: #;."', \/ '!*?$)[]<>{} [&-=+^^
+* Caracteres não permitidos: #;."', \/ {} '!*?$)[]<>|&--=+%~^espaço
 * Comprimento máximo: 64
-* Nomes reservados: hadoop, utilizadores, oozie, colmeia, maped, ambari-qa, zookeeper, tez, hdfs, sqoop, yarn, hcat, ams, hbase, storm, administrador, administrador, administrador, administrador, admin, user1, test, user2, test1, user3, admin1, 1, 123, a, actuser, adm, admin2, aspnet, backup, consola, david, convidado, john, proprietário, raiz, servidor, sql, suporte, support_388945a0, sys, test2, test3, user4, user, user5, spark,
+* Nomes reservados: hadoop, utilizadores, oozie, colmeia, maped, ambari-qa, zookeeper, tez, hdfs, sqoop, yarn, hcat, ams, hbase, storm, administrador, administrador, admin, user1, test, user2, test1, user3, admin1, 1, 123, a, actuser, adm, admin2, aspnet, backup, consola, david, convidado, john, proprietário, raiz, servidor, sql, suporte, support_388945a0, sys, test2, test3, user4, user, user5, spark,
 
 ## <a name="storage"></a>Armazenamento
 
@@ -153,7 +150,7 @@ Se pretender reter as suas tabelas De Colmeia depois de eliminar um cluster HDIn
 Uma metásta de HDInsight criada para uma versão hdInsight cluster não pode ser partilhada em diferentes versões de cluster HDInsight. Para obter uma lista de versões HDInsight, consulte [as versões HDInsight suportadas](hdinsight-component-versioning.md#supported-hdinsight-versions).
 
 > [!IMPORTANT]
-> A metástore predefinida fornece uma Base de Dados Azure SQL com um **limite básico de DTU de nível 5 (não atualizável)** ! Adequado para fins básicos de teste. Para cargas de trabalho grandes ou de produção, recomendamos migrar para uma meta-loja externa.
+> A metástore predefinida fornece uma Base de Dados Azure SQL com um **limite básico de DTU de nível 5 (não atualizável)**! Adequado para fins básicos de teste. Para cargas de trabalho grandes ou de produção, recomendamos migrar para uma meta-loja externa.
 
 #### <a name="sql-database-for-oozie"></a>Base de dados SQL para Oozie
 
@@ -261,7 +258,7 @@ A maioria das aplicações HDInsight são instaladas num nó de borda vazia.  Um
 
 ### <a name="script-actions"></a>Ações de script
 
-Pode instalar componentes adicionais ou personalizar a configuração do cluster utilizando scripts durante a criação. Tais scripts são invocados através do **Script Action** , que é uma opção de configuração que pode ser usada a partir do portal Azure, cmdlets HDInsight Windows PowerShell ou o HDInsight .NET SDK. Para obter mais informações, consulte [o cluster HdInsight personalize usando a Ação script](hdinsight-hadoop-customize-cluster-linux.md).
+Pode instalar componentes adicionais ou personalizar a configuração do cluster utilizando scripts durante a criação. Tais scripts são invocados através do **Script Action**, que é uma opção de configuração que pode ser usada a partir do portal Azure, cmdlets HDInsight Windows PowerShell ou o HDInsight .NET SDK. Para obter mais informações, consulte [o cluster HdInsight personalize usando a Ação script](hdinsight-hadoop-customize-cluster-linux.md).
 
 Alguns componentes nativos de Java, como Apache Mahout e Cascading, podem ser executados no cluster como ficheiros Java Archive (JAR). Estes ficheiros JAR podem ser distribuídos para Azure Storage e submetidos a clusters HDInsight com mecanismos de submissão de emprego Hadoop. Para obter mais informações, consulte [os trabalhos de Submissão da Apache Hadoop programáticamente.](hadoop/submit-apache-hadoop-jobs-programmatically.md)
 
@@ -290,7 +287,7 @@ Por vezes, pretende-se configurar os seguintes ficheiros de configuração duran
 
 Para obter mais informações, consulte [os clusters HDInsight personalizados utilizando o Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Falhas na criação de clusters de resolução de problemas com Azure HDInsight](./hadoop/hdinsight-troubleshoot-cluster-creation-fails.md)
 * [O que são HDInsight, o ecossistema Apache Hadoop e os aglomerados hadoop?](hadoop/apache-hadoop-introduction.md)

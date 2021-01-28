@@ -1,19 +1,16 @@
 ---
 title: Use C# com MapReduce em Hadoop em HDInsight - Azure
 description: Saiba como usar o C# para criar soluções MapReduce com Apache Hadoop em Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, seoapr2020, devx-track-csharp
 ms.date: 04/28/2020
-ms.openlocfilehash: 4153b612b4b15883f28517d806acf6b340a94e49
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 6948491091f558aa7f317d519b0f92c63cac4788
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543054"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946637"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>Use C# com mapReduce streaming em Apache Hadoop em HDInsight
 
@@ -55,7 +52,7 @@ Para obter mais informações sobre o streaming, consulte [o Hadoop Streaming.](
 
 ## <a name="create-the-mapper"></a>Criar o mapper
 
-No Visual Studio, crie uma nova aplicação de consola .NET Framework chamada *mapper* . Utilize o seguinte código para a aplicação:
+No Visual Studio, crie uma nova aplicação de consola .NET Framework chamada *mapper*. Utilize o seguinte código para a aplicação:
 
 ```csharp
 using System;
@@ -92,7 +89,7 @@ Depois de criar a aplicação, construa-a para produzir o ficheiro */bin/Debug/m
 
 ## <a name="create-the-reducer"></a>Criar o redutor
 
-No Visual Studio, crie uma nova aplicação de consola .NET Framework chamada *redutor* . Utilize o seguinte código para a aplicação:
+No Visual Studio, crie uma nova aplicação de consola .NET Framework chamada *redutor*. Utilize o seguinte código para a aplicação:
 
 ```csharp
 using System;
@@ -147,15 +144,15 @@ Depois de criar a aplicação, construa-a para produzir o ficheiro */bin/Debug/r
 
 Em seguida, você precisa carregar as aplicações *mapper* e *redutor* para o armazenamento HDInsight.
 
-1. No Estúdio Visual, selecione **Ver**  >  **Explorador de Servidor** .
+1. No Estúdio Visual, selecione **Ver**  >  **Explorador de Servidor**.
 
-1. Clique com o botão direito **Azure** , **selecione Connect to Microsoft Azure Subscription...** e complete o processo de inscrição.
+1. Clique com o botão direito **Azure**, **selecione Connect to Microsoft Azure Subscription...** e complete o processo de inscrição.
 
 1. Expanda o cluster HDInsight para o que pretende implementar esta aplicação. Uma entrada com o texto **(Conta de Armazenamento Padrão)** é listada.
 
    ![Conta de armazenamento, cluster HDInsight, Server Explorer, Visual Studio](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-storage-account.png)
 
-   * Se a entrada **(Conta de Armazenamento Predefinido)** puder ser expandida, está a utilizar uma **Conta de Armazenamento Azure** como armazenamento predefinido para o cluster. Para visualizar os ficheiros no armazenamento predefinido para o cluster, expanda a entrada e, em seguida, clique duas vezes **(Recipiente Padrão)** .
+   * Se a entrada **(Conta de Armazenamento Predefinido)** puder ser expandida, está a utilizar uma **Conta de Armazenamento Azure** como armazenamento predefinido para o cluster. Para visualizar os ficheiros no armazenamento predefinido para o cluster, expanda a entrada e, em seguida, clique duas vezes **(Recipiente Padrão)**.
 
    * Se a entrada **(Conta de Armazenamento Predefinido)** não puder ser expandida, está a utilizar **o Azure Data Lake Storage** como o armazenamento predefinido para o cluster. Para visualizar os ficheiros no armazenamento predefinido para o cluster, clique duas vezes na entrada **(Conta de Armazenamento Predefinido).**
 
@@ -165,9 +162,9 @@ Em seguida, você precisa carregar as aplicações *mapper* e *redutor* para o a
 
         ![HdInsight ícone de upload para mapper, Visual Studio](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-upload-icon.png)
 
-        Na caixa de diálogo **de novo ficheiro de upload,** em nome de **ficheiro,** selecione **Procurar** . Na caixa de diálogo **Upload Blob,** vá à pasta *bin\debug* para o projeto *do mapper* e, em seguida, escolha o ficheiro *mapper.exe.* Por fim, selecione **Open** e, em seguida, **OK** para completar o upload.
+        Na caixa de diálogo **de novo ficheiro de upload,** em nome de **ficheiro,** selecione **Procurar**. Na caixa de diálogo **Upload Blob,** vá à pasta *bin\debug* para o projeto *do mapper* e, em seguida, escolha o ficheiro *mapper.exe.* Por fim, selecione **Open** e, em seguida, **OK** para completar o upload.
 
-    * Para **o Azure Data Lake Storage,** clique com o botão direito numa área vazia na listagem de ficheiros e, em seguida, selecione **Upload** . Por fim, selecione o ficheiro *mapper.exe* e, em seguida, selecione **Abrir** .
+    * Para **o Azure Data Lake Storage,** clique com o botão direito numa área vazia na listagem de ficheiros e, em seguida, selecione **Upload**. Por fim, selecione o ficheiro *mapper.exe* e, em seguida, selecione **Abrir**.
 
     Uma vez terminada a *mapper.exe* upload, repita o processo de upload para o ficheiro *reducer.exe.*
 
@@ -253,7 +250,7 @@ Use o seguinte script PowerShell para executar um trabalho MapReduce e descarreg
 
 [!code-powershell[main](../../../powershell_scripts/hdinsight/use-csharp-mapreduce/use-csharp-mapreduce.ps1?range=5-87)]
 
-Este script solicita-lhe o nome e palavra-passe da conta de login do cluster, juntamente com o nome do cluster HDInsight. Uma vez concluído o trabalho, a saída é transferida para um ficheiro chamado *output.txt* . O texto a seguir é um exemplo dos dados do `output.txt` ficheiro:
+Este script solicita-lhe o nome e palavra-passe da conta de login do cluster, juntamente com o nome do cluster HDInsight. Uma vez concluído o trabalho, a saída é transferida para um ficheiro chamado *output.txt*. O texto a seguir é um exemplo dos dados do `output.txt` ficheiro:
 
 ```output
 you     1128
@@ -267,7 +264,7 @@ yourselves      3
 youth   17
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Use MapReduce em Apache Hadoop em HDInsight](hdinsight-use-mapreduce.md).
 * [Utilize uma função C# definida pelo utilizador com a Colmeia Apache e o Porco Apache](apache-hadoop-hive-pig-udf-dotnet-csharp.md).

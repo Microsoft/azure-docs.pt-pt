@@ -1,17 +1,17 @@
 ---
-title: Endereços IP utilizados por Insights de Aplicação e | de Análise de Registos Microsoft Docs
+title: Endereços IP utilizados pelo Azure Monitor
 description: Exceções de firewall do servidor exigidas por Insights de Aplicação
 ms.topic: conceptual
-ms.date: 09/15/2020
-ms.openlocfilehash: eb0739cb44b9f67258069a574ed0bedb95eac5a4
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.date: 01/27/2020
+ms.openlocfilehash: 5a6cc190f84b74cc8a1d4ff24d10cbfa07f3c2fb
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625187"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945048"
 ---
-# <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Endereços IP utilizados pelo Application Insights e pela Análise de Registos
-O serviço [Azure Application Insights](./app-insights-overview.md) utiliza vários endereços IP. Poderá necessitar de saber estes endereços se a aplicação que está a monitorizar estiver hospedada atrás de uma firewall.
+# <a name="ip-addresses-used-by-azure-monitor"></a>Endereços IP utilizados pelo Azure Monitor
+[O Azure Monitor](../overview.md) utiliza vários endereços IP. O Azure Monitor é composto por métricas de plataforma central e log além de Log Analytics e Application Insights. Poderá necessitar de saber estes endereços se a aplicação ou infraestrutura que está a monitorizar estiver atrás de uma firewall.
 
 > [!NOTE]
 > Embora estes endereços sejam estáticos, é possível que tenhamos que mudá-los de vez em quando. Todo o tráfego de Informações de Aplicação representa tráfego de saída, com exceção da monitorização da disponibilidade e webhooks que requerem regras de firewall de entrada.

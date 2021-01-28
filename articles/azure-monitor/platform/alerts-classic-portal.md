@@ -5,12 +5,12 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/18/2018
-ms.openlocfilehash: 613620ddf4889efb7cf3df95150be97f79724a98
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4b0d3acda56c3f45128d1cc7cefcc4eb938281a0
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013110"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943793"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Criar, ver e gerir alertas métricos clássicos usando o Azure Monitor
 
@@ -56,7 +56,7 @@ Depois de criar um alerta, pode selecioná-lo e fazer uma das seguintes tarefas:
 
 ## <a name="with-azure-cli"></a>Com a CLI do Azure
 
-As secções anteriores descreveram como criar, visualizar e gerir regras de alerta métricas utilizando o portal Azure. Esta secção descreverá como fazer o mesmo utilizando o [Azure CLI](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)da plataforma transversal . A forma mais rápida de começar a usar o Azure CLI é através da [Azure Cloud Shell](../../cloud-shell/overview.md?view=azure-cli-latest).
+As secções anteriores descreveram como criar, visualizar e gerir regras de alerta métricas utilizando o portal Azure. Esta secção descreverá como fazer o mesmo utilizando o [Azure CLI](/cli/azure/get-started-with-azure-cli)da plataforma transversal . A forma mais rápida de começar a usar o Azure CLI é através da [Azure Cloud Shell](../../cloud-shell/overview.md).
 
 ### <a name="get-all-classic-metric-alert-rules-in-a-resource-group"></a>Obtenha todas as regras clássicas de alerta métrico em um grupo de recursos
 
@@ -132,7 +132,7 @@ Estas secções mostram como usar os comandos PowerShell criam, vêem e gerem al
 
 8. As regras clássicas de alerta já não podem ser criadas através do PowerShell. Para criar uma regra de alerta, é necessário utilizar o novo comando ['Add-AzMetricAlertRule'.](/powershell/module/az.monitor/add-azmetricalertrule)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Crie um alerta métrico clássico com um modelo de Gestor de Recursos.](./alerts-enable-template.md)
 - [Tenha um alerta métrico clássico que notifique um sistema não-Azure utilizando um webhook](./alerts-webhooks.md).

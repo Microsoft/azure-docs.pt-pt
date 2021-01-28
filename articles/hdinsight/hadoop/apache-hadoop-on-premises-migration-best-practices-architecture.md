@@ -1,19 +1,17 @@
 ---
 title: 'Arquitetura: No local Apache Hadoop a Azure HDInsight'
 description: Aprenda as melhores práticas de arquitetura para migrar no local os clusters Hadoop para Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
 ms.reviewer: ashishth
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: af9b1f42140c5656c5f55a98c2d635d59e130db5
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: eb01f2fabb89c6928dc4919987efa27df36a8a7a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533738"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946436"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>Migrar nos locais apaches aglomerados de Hadoop para Azure HDInsight - melhores práticas de arquitetura
 
@@ -118,7 +116,7 @@ Algumas boas práticas de metástasias hdInsight hive são as seguintes:
 - Considere usar ranger RBAC em mesas de colmeia e auditoria.
 - Considere usar o CosmosDB no lugar de MongoDB ou Cassandra.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Leia o próximo artigo desta série:
 

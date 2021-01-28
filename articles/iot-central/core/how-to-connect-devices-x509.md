@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: d36cf2344891bb70ab5499e77699b111429a936b
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: bffff099e8df2b944cbef50a074ef625267ed238
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96121829"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944637"
 ---
 # <a name="how-to-connect-devices-with-x509-certificates-using-nodejs-device-sdk-for-iot-central-application"></a>Como ligar dispositivos com certificados X.509 utilizando Node.js dispositivo SDK para aplicação central IoT
 
@@ -199,7 +199,7 @@ O dispositivo está agora a provisionado com certificado X.509.
 
 1. Copie os ficheiros _mytestselfcertprimary_key.pem_ e _mytestselfcertprimary_cert.pem_ para a pasta _azure-iot-sdk-node/dispositivo/samples/pnp_ que contém a aplicação **simple_thermostat.js.** Utilizou esta aplicação quando completou o [tutorial de dispositivo Connect a (JavaScript).](./tutorial-connect-device.md)
 
-1. Modifique as variáveis ambientais em que usou da seguinte forma:
+1. Modifique as variáveis ambientais utilizadas na amostra acima:
 
     ```cmd/sh
     set IOTHUB_DEVICE_DPS_DEVICE_ID=mytestselfcertprimary
@@ -219,6 +219,6 @@ O dispositivo está agora a provisionado com certificado X.509.
 
 Pode repetir os passos acima para _o certificado de certificação_ do meu desempenho também.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que aprendeu a ligar dispositivos usando certificados X.509, o próximo passo sugerido é aprender a monitorizar a conectividade do [dispositivo usando o Azure CLI](howto-monitor-devices-azure-cli.md)

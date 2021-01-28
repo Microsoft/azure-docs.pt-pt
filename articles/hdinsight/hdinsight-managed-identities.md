@@ -1,19 +1,16 @@
 ---
 title: Identidades geridas em Azure HDInsight
 description: Fornece uma visão geral da implementação de identidades geridas em Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/15/2020
-ms.openlocfilehash: 87bc2338ecc48f1115a406c276ef221cb185a4c5
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: f2b7f6e8421a735db131bc05605936e8cb2d87eb
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98118630"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944132"
 ---
 # <a name="managed-identities-in-azure-hdinsight"></a>Identidades geridas em Azure HDInsight
 
@@ -64,6 +61,6 @@ então deve atribuir as funções e permissões necessárias para os cenários a
 
 O seu cluster vai encontrar problemas quando a identidade gerida for necessária. Não existe atualmente nenhuma forma de atualizar ou alterar uma identidade gerida após a criação do cluster. Portanto, a nossa recomendação é garantir que a identidade gerida não seja eliminada durante o tempo de funcionação do cluster. Ou pode recriar o cluster e atribuir uma nova identidade gerida.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [O que são identidades geridas para os recursos do Azure?](../active-directory/managed-identities-azure-resources/overview.md)

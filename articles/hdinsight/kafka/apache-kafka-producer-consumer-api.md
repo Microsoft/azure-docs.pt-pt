@@ -1,19 +1,16 @@
 ---
 title: 'Tutorial: Apache Kafka Producer & Consumer APIs - Azure HDInsight'
 description: Saiba como utilizar as APIs de Produtor e de Consumidor de Apache Kafka com o Kafka no HDInsight. Neste tutorial, irá aprender a utilizar estas APIs com o Kafka no HDInsight a partir de uma aplicação Java.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 05/19/2020
-ms.openlocfilehash: b942fb321d2bceef64930bea0c660f66747508b6
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: e5a635a8837aadaf423c6f3a0925dbac4080e60f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629311"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945181"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Tutorial: Utilizar as APIs de Produtor e de Consumidor de Apache Kafka
 
@@ -36,7 +33,7 @@ Para obter mais informações sobre as APIs, veja a documentação do Apache ded
 * Apache Kafka no aglomerado HDInsight. Para aprender a criar o cluster, consulte [Start with Apache Kafka on HDInsight](apache-kafka-get-started.md).
 * [Java Developer Kit (JDK) versão 8](/azure/developer/java/fundamentals/java-jdk-long-term-support) ou equivalente, como OpenJDK.
 * [Apache Maven](https://maven.apache.org/download.cgi) devidamente [instalado de](https://maven.apache.org/install.html) acordo com Apache.  Maven é um sistema de construção de projetos para projetos java.
-* Um cliente da SSH como o Putty. Para obter mais informações, consulte [Connect to HDInsight (Apache Hadoop) utilizando SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* Um cliente da SSH como o Putty. Para obter mais informações, veja [Ligar ao HDInsight (Apache Hadoop) através de SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="understand-the-code"></a>Compreender o código
 
@@ -73,7 +70,7 @@ Seguem-se os aspetos importantes a compreender em relação ao ficheiro `pom.xml
 
 ### <a name="producerjava"></a>Producer.Java
 
-O produtor comunica com os anfitriões de mediador (nós de trabalho) de Kafka e envia os dados para um tópico do Kafka. O seguinte corte de código é do ficheiro [Producer.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Producer.java) do [repositório GitHub](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) e mostra como definir as propriedades do produtor. Para os agrupamentos habilitados para a segurança empresarial deve ser adicionada uma propriedade adicional "propriedades.setProperty(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SASL_PLAINTEXT");"
+O produtor comunica com os anfitriões de mediador (nós de trabalho) de Kafka e envia os dados para um tópico do Kafka. O seguinte corte de código é do .java do [produtor](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Producer.java) do [repositório GitHub](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) e mostra como definir as propriedades do produtor. Para os agrupamentos habilitados para a segurança empresarial deve ser adicionada uma propriedade adicional "propriedades.setProperty(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SASL_PLAINTEXT");"
 
 ```java
 Properties properties = new Properties();
@@ -87,7 +84,7 @@ KafkaProducer<String, String> producer = new KafkaProducer<>(properties);
 
 ### <a name="consumerjava"></a>Consumer.Java
 
-O consumidor comunica com os anfitriões de mediador (nós de trabalho) de Kafka e lê os registos de forma cíclica. O seguinte código do ficheiro [Consumer.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Consumer.java) define as propriedades do consumidor. Para os agrupamentos habilitados para a segurança empresarial deve ser adicionada uma propriedade adicional "propriedades.setProperty(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SASL_PLAINTEXT");"
+O consumidor comunica com os anfitriões de mediador (nós de trabalho) de Kafka e lê os registos de forma cíclica. O seguinte código de corte do [ficheiro .java Consumidor](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Consumer.java) define as propriedades do consumidor. Para os agrupamentos habilitados para a segurança empresarial deve ser adicionada uma propriedade adicional "propriedades.setProperty(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SASL_PLAINTEXT");"
 
 ```java
 KafkaConsumer<String, String> consumer;
@@ -111,7 +108,7 @@ Neste código, o consumidor está configurado para ler a partir do início do t�
 
 ### <a name="runjava"></a>Run.Java
 
-O ficheiro [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Run.java) fornece uma interface de linha de comando que executa o código de produtor ou de consumo. Tem de fornecer as informações do anfitrião de mediador de Kafka como um parâmetro. Pode opcionalmente incluir um valor de ID de grupo, que é usado pelo processo de consumo. Se criar várias instâncias de consumo usando o mesmo ID do grupo, eles carregarão a leitura do equilíbrio a partir do tópico.
+O ficheiro [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Run.java) fornece uma interface de linha de comando que executa o código do produtor ou do consumidor. Tem de fornecer as informações do anfitrião de mediador de Kafka como um parâmetro. Pode opcionalmente incluir um valor de ID de grupo, que é usado pelo processo de consumo. Se criar várias instâncias de consumo usando o mesmo ID do grupo, eles carregarão a leitura do equilíbrio a partir do tópico.
 
 ## <a name="build-and-deploy-the-example"></a>Criar e implementar o exemplo
 
@@ -125,7 +122,7 @@ scp kafka-producer-consumer*.jar sshuser@CLUSTERNAME-ssh.azurehdinsight.net:kafk
 
 ### <a name="build-the-jar-files-from-code"></a>Construa os ficheiros JAR a partir do código
 
-Se você quiser saltar este passo, os frascos pré-construídos podem ser descarregados a partir do `Prebuilt-Jars` subdiretório. Baixe o kafka-produtor-consumidor.jar. Se o seu cluster estiver ativado no **Pacote de Segurança Empresarial (ESP),** utilize kafka-produtor-consumidor-esp.jar. Execute o passo 3 para copiar o jarro para o seu cluster HDInsight.
+Se você quiser saltar este passo, os frascos pré-construídos podem ser descarregados a partir do `Prebuilt-Jars` subdiretório. Descarregue o kafka-produtor-consumidor.jar. Se o seu cluster estiver ativado no **Pacote de Segurança Empresarial (ESP),** utilize kafka-produtor-consumidor-esp.jar. Execute o passo 3 para copiar o jarro para o seu cluster HDInsight.
 
 1. Descarregue e extraia os exemplos de [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) .
 
@@ -213,13 +210,13 @@ O consumo pelos clientes dentro do mesmo grupo é processado pelas partições d
 > [!IMPORTANT]  
 > Não podem existir mais instâncias de consumidor num grupo de consumidores do que partições. Neste exemplo, um grupo de consumidores pode incluir até oito consumidores, pois esse é o número de partições no tópico. Também pode ter vários grupos de consumidores, em que cada grupo não tem mais do que oito consumidores.
 
-Os registos armazenados em Kafka são armazenados na ordem em que são recebidos dentro de uma divisória. Para obter uma entrega por ordem dos registos *dentro de uma partição* , crie um grupo de consumidores em que o número de instâncias de consumidor corresponde ao número de partições. Para obter uma entrega por ordem dos registos *dentro do tópico* , crie um grupo de consumidores com apenas uma instância de consumidor.
+Os registos armazenados em Kafka são armazenados na ordem em que são recebidos dentro de uma divisória. Para obter uma entrega por ordem dos registos *dentro de uma partição*, crie um grupo de consumidores em que o número de instâncias de consumidor corresponde ao número de partições. Para obter uma entrega por ordem dos registos *dentro do tópico*, crie um grupo de consumidores com apenas uma instância de consumidor.
 
 ## <a name="common-issues-faced"></a>Questões Comuns enfrentadas
 
 1. **Criação de tópicos falha** Se o seu cluster estiver ativado no Pack de Segurança Empresarial, utilize os [ficheiros JAR pré-construídos para produtor e consumidor.](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Prebuilt-Jars/kafka-producer-consumer-esp.jar) O frasco ESP pode ser construído a partir do código na [ `DomainJoined-Producer-Consumer` subdireção](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer). O produtor e as propriedades de consumo têm uma propriedade adicional `CommonClientConfigs.SECURITY_PROTOCOL_CONFIG` para clusters habilitados pela ESP.
 
-2. **Falha nos clusters ativados por ESP** : Se as operações de produção e consumo falharem e estiver a utilizar um cluster ativado por ESP, verifique se o utilizador `kafka` está presente em todas as políticas ranger. Se não estiver presente, adicione-o a todas as políticas dos Rangers.
+2. **Falha nos clusters ativados por ESP**: Se as operações de produção e consumo falharem e estiver a utilizar um cluster ativado por ESP, verifique se o utilizador `kafka` está presente em todas as políticas ranger. Se não estiver presente, adicione-o a todas as políticas dos Rangers.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
@@ -227,11 +224,11 @@ Para limpar os recursos criados por este tutorial, pode eliminar o grupo de recu
 
 Para remover o grupo de recursos através do Portal do Azure:
 
-1. No Portal do Azure, expanda o menu no lado esquerdo para abrir o menu de serviços e, em seguida, escolha __Grupos de Recursos__ , para apresentar a lista dos seus grupos de recursos.
+1. No Portal do Azure, expanda o menu no lado esquerdo para abrir o menu de serviços e, em seguida, escolha __Grupos de Recursos__, para apresentar a lista dos seus grupos de recursos.
 2. Encontre o grupo de recursos a eliminar e, em seguida, clique com o botão direito do rato em __Mais__ (...) no lado direito da lista.
 3. Selecione __Eliminar grupo de recursos__ e, em seguida, confirme.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste documento, aprendeu a usar a Apache Kafka Producer and Consumer API com a Kafka na HDInsight. Utilize o seguinte para obter mais informações sobre como trabalhar com o Kafka:
 

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 11/02/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro device so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 04ba9777fe9e8470e6f02c83f3996d098023e05e
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: a48abb34a201928185130fbe8fdf9592e77492d9
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763460"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944957"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-the-azure-portal"></a>Implemente VMs no seu dispositivo GPU Azure Stack Edge Pro através do portal Azure
 
@@ -22,6 +22,9 @@ Pode criar e gerir máquinas virtuais (VMs) num dispositivo Azure Stack Edge uti
 
 Este artigo aplica-se aos dispositivos Azure Stack Edge Pro GPU, Azure Stack Edge Pro R e Azure Stack Edge Mini R. 
 
+> [!IMPORTANT] 
+> Recomendamos que permita a autenticação multifactor para o utilizador que gere VMs que são implantados no seu dispositivo a partir da nuvem.
+        
 ## <a name="vm-deployment-workflow"></a>Fluxo de trabalho de implantação VM
 
 O resumo de alto nível do fluxo de trabalho de implantação é o seguinte:
@@ -79,7 +82,7 @@ Siga estes passos para criar uma máquina virtual no seu dispositivo Azure Stack
 
     ![Adicionar imagem VM 3](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-3.png)
 
-1. Na lâmina **de imagem Adicionar,** introduza os seguintes parâmetros. Selecione **Add** (Adicionar).
+1. Na lâmina **de imagem Adicionar,** introduza os seguintes parâmetros. Selecione **Adicionar**.
 
 
     |Parâmetro  |Descrição  |
@@ -200,6 +203,6 @@ Siga estes passos para ligar a um VM do Windows.
 
 [!INCLUDE [azure-stack-edge-gateway-connect-vm](../../includes/azure-stack-edge-gateway-connect-virtual-machine-windows.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para aprender a administrar o seu dispositivo Azure Stack Edge Pro, consulte[utilizar o UI web local para administrar um Azure Stack Edge Pro](azure-stack-edge-manage-access-power-connectivity-mode.md).

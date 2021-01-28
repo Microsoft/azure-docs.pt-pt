@@ -1,18 +1,15 @@
 ---
 title: Problemas com JDBC/ODBC & quadro Apache Thrift - Azure HDInsight
 description: Não é possível descarregar grandes conjuntos de dados usando a estrutura de software JDBC/ODBC e Apache Thrift em Azure HDInsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 05/14/2020
-ms.openlocfilehash: aa97d5caf481502cf6dc6e0aa26742c26d47a02e
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 0b96bc9f6a78d07e091e791b769056859183da0d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538991"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945125"
 ---
 # <a name="unable-to-download-large-data-sets-using-jdbcodbc-and-apache-thrift-software-framework-in-hdinsight"></a>Não é possível descarregar grandes conjuntos de dados usando a estrutura de software JDBC/ODBC e Apache Thrift em HDInsight
 
@@ -38,7 +35,7 @@ Aumente o `Kryoserializer` valor do tampão. Adicione uma chave com o nome `spar
 > [!IMPORTANT]
 > O valor `spark.kryoserializer.buffer.max` deve ser inferior a 2048. Os valores fracionados não são suportados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se não viu o seu problema ou não conseguir resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 

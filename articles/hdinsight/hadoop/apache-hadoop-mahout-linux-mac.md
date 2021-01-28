@@ -1,19 +1,16 @@
 ---
 title: Gerar recomendações usando Apache Mahout em Azure HDInsight
 description: Aprenda a usar a biblioteca de machine learning Apache Mahout para gerar recomendações de filme com HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 05/14/2020
-ms.openlocfilehash: a4e4a45519526dd0eeb938a3b83e737d82589c1e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c31ffaf094801bdd49e5800bd338a15d8b8315f6
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86207679"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946494"
 ---
 # <a name="generate-recommendations-using-apache-mahout-in-azure-hdinsight"></a>Gerar recomendações usando Apache Mahout em Azure HDInsight
 
@@ -170,9 +167,9 @@ Os dados contidos `user-ratings.txt` têm uma estrutura `userID` `movieID` de, e
 
     Este comando analisa as recomendações geradas para o ID 4 do utilizador.
 
-   * O ** ficheirouser-ratings.txt** é usado para recuperar filmes que foram classificados.
+   * O **ficheirouser-ratings.txt** é usado para recuperar filmes que foram classificados.
 
-   * O ** ficheiromoviedb.txt** é usado para recuperar os nomes dos filmes.
+   * O **ficheiromoviedb.txt** é usado para recuperar os nomes dos filmes.
 
    * O **recommendations.txt** é usado para recuperar as recomendações do filme para este utilizador.
 
@@ -203,7 +200,7 @@ hdfs dfs -rm -f -r /temp/mahouttemp
 >
 > `hdfs dfs -rm -f -r /example/data/mahoutout`
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que aprendeu a usar o Mahout, descubra outras formas de trabalhar com dados em HDInsight:
 

@@ -1,19 +1,16 @@
 ---
 title: Arquitetura Apache Hadoop - Azure HDInsight
 description: Descreve o armazenamento e processamento da Apache Hadoop nos clusters Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/07/2020
-ms.openlocfilehash: 389aee77ac56407f3a116d42ad62fbd94de1bb4e
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 6f291e5aa440a3e6e45a1dcdb872e18c8d4557ce
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92541949"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945910"
 ---
 # <a name="apache-hadoop-architecture-in-hdinsight"></a>Arquitetura do Apache Hadoop no HDInsight
 
@@ -37,7 +34,7 @@ Quando uma aplicação MapReduce funciona num cluster, o ResourceManager fornece
 
 O ResourceManager também executa um processo de servidor web que fornece uma interface de utilizador web para monitorizar o estado das aplicações.
 
-Quando um utilizador submete uma aplicação MapReduce para executar no cluster, a aplicação é submetida ao ResourceManager. Por sua vez, o ResourceManager atribui um contentor nos nós NodeManager disponíveis. Os nós NodeManager são onde a aplicação realmente executa. O primeiro contentor atribuído executa uma aplicação especial chamada ApplicationMaster. Este ApplicationMaster é responsável pela aquisição de recursos, sob a forma de contentores subsequentes, necessários para executar a aplicação submetida. O ApplicationMaster examina as fases da aplicação, como a fase do mapa e reduz a fase, e fatores na quantidade de dados que precisam de ser processados. O ApplicationMaster solicita então ( *negoceia* ) os recursos do ResourcesManager em nome da aplicação. O ResourceManager, por sua vez, concede recursos dos NodeManagers no cluster ao ApplicationMaster para que possa utilizar na execução da aplicação.
+Quando um utilizador submete uma aplicação MapReduce para executar no cluster, a aplicação é submetida ao ResourceManager. Por sua vez, o ResourceManager atribui um contentor nos nós NodeManager disponíveis. Os nós NodeManager são onde a aplicação realmente executa. O primeiro contentor atribuído executa uma aplicação especial chamada ApplicationMaster. Este ApplicationMaster é responsável pela aquisição de recursos, sob a forma de contentores subsequentes, necessários para executar a aplicação submetida. O ApplicationMaster examina as fases da aplicação, como a fase do mapa e reduz a fase, e fatores na quantidade de dados que precisam de ser processados. O ApplicationMaster solicita então (*negoceia*) os recursos do ResourcesManager em nome da aplicação. O ResourceManager, por sua vez, concede recursos dos NodeManagers no cluster ao ApplicationMaster para que possa utilizar na execução da aplicação.
 
 Os NodeManagers executam as tarefas que compõem a aplicação, reportam o seu progresso e estatuto de volta ao ApplicationMaster. O ApplicationMaster, por sua vez, informa o estado da aplicação de volta ao ResourceManager. O ResourceManager devolve quaisquer resultados ao cliente.
 
@@ -51,7 +48,7 @@ Todos os tipos de cluster HDInsight implementam YARN. O ResourceManager é impla
 
 Para desembrulhá-lo da sua Conta de Armazenamento, consulte:
 
-### <a name="azure-storage"></a>Armazenamento do Azure
+### <a name="azure-storage"></a>Storage do Azure
 
 * [Eliminação de forma recuperável dos blobs do Armazenamento do Microsoft Azure](../storage/blobs/soft-delete-blob-overview.md)
 * [Undelete Blob](/rest/api/storageservices/undelete-blob)
@@ -68,7 +65,7 @@ Para desembrulhá-lo da sua Conta de Armazenamento, consulte:
 
 A `fs.trash.interval` propriedade do **hdfs**  >  **Advanced core-site** deve permanecer no valor padrão porque você não deve armazenar `0` quaisquer dados no sistema de ficheiros local. Este valor não afeta as contas de armazenamento remoto (WASB, ADLS GEN1, ABFS)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Utilizar o MapReduce no Apache Hadoop no HDInsight](hadoop/hdinsight-use-mapreduce.md)
 * [Introdução ao Azure HDInsight](hadoop/apache-hadoop-introduction.md)

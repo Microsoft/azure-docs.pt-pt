@@ -1,18 +1,15 @@
 ---
 title: Executar empregos Apache Sqoop com Azure HDInsight (Apache Hadoop)
 description: Saiba como usar a Azure PowerShell a partir de uma estação de trabalho para executar a importação e exportação da Sqoop entre um cluster Hadoop e uma base de dados Azure SQL.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/06/2019
-ms.openlocfilehash: c09a910ea5f6ac5c66a94c73bda49d1f65630708
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 1c34b673cd970a9e7577b7ff01d27eb0e4cc1ac1
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545230"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946429"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>Utilizar o Apache Sqoop com o Hadoop no HDInsight
 
@@ -99,7 +96,7 @@ O cluster, base de dados SQL e outros objetos são criados através do portal Az
 
 3. **Selecione Concordo com os termos e condições acima indicados.**
 
-4. Selecione **Comprar** . Você vê um novo azulejo intitulado Submissão para implementação de modelo. A criação do cluster e da SQL Database demora cerca de 20 minutos.
+4. Selecione **Comprar**. Você vê um novo azulejo intitulado Submissão para implementação de modelo. A criação do cluster e da SQL Database demora cerca de 20 minutos.
 
 ## <a name="run-sqoop-jobs"></a>Executar empregos sqoop
 
@@ -116,7 +113,7 @@ HDInsight pode executar trabalhos sqoop usando uma variedade de métodos. Use a 
 * Exportação a granel - Com o HDInsight baseado em Linux, o conector Sqoop utilizado para exportar dados para o Microsoft SQL Server ou SQL Database não suporta atualmente inserções a granel.
 * Loteamento - Com o HDInsight baseado em Linux, quando utiliza o `-batch` interruptor ao efetuar inserções, a Sqoop executa múltiplas inserções em vez de lotar as operações de inserção.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora aprendeste a usar o Sqoop. Para saber mais, veja:
 

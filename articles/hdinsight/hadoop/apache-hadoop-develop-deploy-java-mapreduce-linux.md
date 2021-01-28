@@ -1,19 +1,16 @@
 ---
 title: Criar Java MapReduce para Apache Hadoop - Azure HDInsight
 description: Aprenda a usar Apache Maven para criar uma aplicação MapReduce baseada em Java e, em seguida, executá-la com Hadoop em Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017, devx-track-java
 ms.date: 01/16/2020
-ms.openlocfilehash: 8b80616806f846951ebbaffcb2bf31ad77b96266
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7c1a6623883cbee46ba98982808f3c392dc50ffa
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996037"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946649"
 ---
 # <a name="develop-java-mapreduce-programs-for-apache-hadoop-on-hdinsight"></a>Desenvolver programas Java MapReduce para Apache Hadoop em HDInsight
 
@@ -36,7 +33,7 @@ IF NOT EXIST C:\HDI MKDIR C:\HDI
 cd C:\HDI
 ```
 
-## <a name="create-a-maven-project"></a>Criar um projeto Maven
+## <a name="create-a-maven-project"></a>Criar um projeto do Maven
 
 1. Insira o seguinte comando para criar um projeto Maven chamado **wordcountjava:**
 
@@ -98,7 +95,7 @@ O `<scope>provided</scope>` diz a Maven que estas dependências não devem ser e
 > [!IMPORTANT]
 > A versão utilizada deve coincidir com a versão de Hadoop presente no seu cluster. Para obter mais informações sobre versões, consulte o documento [de versão do componente HDInsight.](../hdinsight-component-versioning.md)
 
-### <a name="build-configuration"></a>Configuração de construção
+### <a name="build-configuration"></a>Compilar a configuração
 
 Os plug-ins maven permitem-lhe personalizar as fases de construção do projeto. Esta secção é usada para adicionar plug-ins, recursos e outras opções de configuração de construção.
 
@@ -281,7 +278,7 @@ Os passos seguintes usam `scp` para copiar o JAR para o nó de cabeça primária
     zenith  2
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste documento, aprendeu a desenvolver um trabalho java MapReduce. Consulte os seguintes documentos para outras formas de trabalhar com a HDInsight.
 

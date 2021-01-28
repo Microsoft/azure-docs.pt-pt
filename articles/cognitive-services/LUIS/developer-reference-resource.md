@@ -6,12 +6,12 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 01/12/2021
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: db9a915749799ee366d645994bd0d18c53530f40
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 08a1965aadf8f50625e54d7c5e3b3f6a44c0bbd4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98730909"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946176"
 ---
 # <a name="sdk-rest-and-cli-developer-resources-for-language-understanding-luis"></a>Recursos de desenvolvimento de SDK, REST e CLI para a Compreensão da Linguagem (LUIS)
 
@@ -25,7 +25,7 @@ Encontre documentação de referência com base na ferramenta:
 
 * [CLI do Azure](/cli/azure/cognitiveservices#az-cognitiveservices-list)
 
-* [Azure RM PowerShell](/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services)
+* [Azure RM PowerShell](/powershell/module/azurerm.cognitiveservices/#cognitive_services)
 
 
 ## <a name="language-understanding-authoring-and-prediction-requests"></a>Pedidos de autoria e previsão de compreensão linguística
@@ -88,10 +88,10 @@ O [esquema da aplicação](app-schema-definition.md) é importado e exportado em
 
 |Linguagem |Documentação de referência|Pacote|Guias de Início Rápido|
 |--|--|--|--|
-|C#|[Criação](/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring?view=azure-dotnet)</br>[Previsão](/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime?view=azure-dotnet)|[Autoria nuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)<br>[Previsão do NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/)|[Criação](./client-libraries-rest-api.md?pivots=rest-api)<br>[Previsão de consulta](./client-libraries-rest-api.md?pivots=rest-api)|
+|C#|[Criação](/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring)</br>[Previsão](/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime)|[Autoria nuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)<br>[Previsão do NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/)|[Criação](./client-libraries-rest-api.md?pivots=rest-api)<br>[Previsão de consulta](./client-libraries-rest-api.md?pivots=rest-api)|
 |Go|[Autoria e previsão](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/luis)|[SDK](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.0/luis)||
-|Java|[Autoria e previsão](/java/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-java-stable)|[Autoria de Maven](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-authoring)<br>[Previsão de Maven](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-runtime)|
-|JavaScript|[Criação](/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest)<br>[Previsão](/javascript/api/@azure/cognitiveservices-luis-runtime/?view=azure-node-latest)|[Autoria do NPM](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring)<br>[Previsão de NPM](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime)|[Criação](./client-libraries-rest-api.md?pivots=rest-api)<br>[Previsão](./client-libraries-rest-api.md?pivots=rest-api)|
+|Java|[Autoria e previsão](/java/api/overview/azure/cognitiveservices/client/languageunderstanding)|[Autoria de Maven](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-authoring)<br>[Previsão de Maven](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-runtime)|
+|JavaScript|[Criação](/javascript/api/@azure/cognitiveservices-luis-authoring/)<br>[Previsão](/javascript/api/@azure/cognitiveservices-luis-runtime/)|[Autoria do NPM](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring)<br>[Previsão de NPM](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime)|[Criação](./client-libraries-rest-api.md?pivots=rest-api)<br>[Previsão](./client-libraries-rest-api.md?pivots=rest-api)|
 |Python|[Autoria e previsão](./client-libraries-rest-api.md?pivots=rest-api)|[Pip](https://pypi.org/project/azure-cognitiveservices-language-luis/)|[Criação](./client-libraries-rest-api.md?pivots=rest-api)<br>[Previsão](./client-libraries-rest-api.md?pivots=rest-api)|
 
 

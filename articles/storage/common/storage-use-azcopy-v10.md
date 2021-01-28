@@ -8,12 +8,12 @@ ms.date: 12/08/2020
 ms.author: normesta
 ms.subservice: common
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 87cc8af9206daa1f1e959b8abd8beb3e7f8ff2f2
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: bec221f762213fa8576ccef30e9b6a27aa708f01
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880999"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944144"
 ---
 # <a name="get-started-with-azcopy"></a>Introdução ao AzCopy
 
@@ -105,7 +105,7 @@ Para encontrar comandos de exemplo, consulte qualquer um destes artigos.
 
 | Serviço | Artigo |
 |--------|-----------|
-|Armazenamento de Blobs do Azure |[Faça upload de ficheiros para o armazenamento do Azure Blob](storage-use-azcopy-blobs-upload.md)<br><br>[Descarregue bolhas do armazenamento Azure Blob](storage-use-azcopy-blobs-download.md)<br><br>[Bolhas de cópia entre contas de armazenamento Azure](storage-use-azcopy-blobs-copy.md)<br><br>[Sincronizar com o armazenamento da Azure Blob](storage-use-azcopy-blobs-synchronize.md)|
+|Armazenamento de Blobs do Azure |[Faça upload de ficheiros para o armazenamento de Azure Blob](storage-use-azcopy-blobs-upload.md)<br><br>[Baixar bolhas do Azure Blob Storage](storage-use-azcopy-blobs-download.md)<br><br>[Bolhas de cópia entre contas de armazenamento Azure](storage-use-azcopy-blobs-copy.md)<br><br>[Sincronizar com o armazenamento da bolha Azure](storage-use-azcopy-blobs-synchronize.md)|
 |Ficheiros do Azure |[Transferir dados com o AzCopy e armazenamento de ficheiros](storage-use-azcopy-files.md)|
 |Amazon S3|[Transfira dados com baldes AzCopy e Amazon S3](storage-use-azcopy-s3.md)|
 |Armazenamento Azure Stack|[Transferir dados com armazenamento AzCopy e Azure Stack](/azure-stack/user/azure-stack-storage-transfer#azcopy)|

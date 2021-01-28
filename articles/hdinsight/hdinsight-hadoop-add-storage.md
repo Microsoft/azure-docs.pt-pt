@@ -1,19 +1,16 @@
 ---
 title: Adicione contas adicionais de Armazenamento Azure ao HDInsight
 description: Saiba como adicionar contas adicionais de Armazenamento Azure a um cluster HDInsight existente.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 51977c00dc8c9932def89d54ec1b6ec34afad652
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 11852046442901c70112b5e80fef371671546412
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92542000"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945939"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Adicione contas de armazenamento adicionais ao HDInsight
 
@@ -97,7 +94,7 @@ foreach ($name in $value ) { $name.Name.Split(".")[4]}
 
 1. A partir de um navegador web, navegue `https://CLUSTERNAME.azurehdinsight.net` para, onde `CLUSTERNAME` está o nome do seu cluster.
 
-1. Navegue para **o núcleo** avançado de  >  **hdfs Configs.**  >  **Advanced**  >  **Custom core-site**
+1. Navegue para **o núcleo** avançado de  >  **hdfs Configs.**  >    >  
 
 1. Observe as chaves que começam `fs.azure.account.key` com . O nome da conta será uma parte da chave vista nesta imagem de amostra:
 
@@ -107,7 +104,7 @@ foreach ($name in $value ) { $name.Name.Split(".")[4]}
 
 1. A partir de um navegador web, navegue `https://CLUSTERNAME.azurehdinsight.net` para, onde `CLUSTERNAME` está o nome do seu cluster.
 
-1. Navegue para **o núcleo** avançado de  >  **hdfs Configs.**  >  **Advanced**  >  **Custom core-site**
+1. Navegue para **o núcleo** avançado de  >  **hdfs Configs.**  >    >  
 
 1. Retire as seguintes teclas:
     * `fs.azure.account.key.<STORAGE_ACCOUNT_NAME>.blob.core.windows.net`
@@ -134,6 +131,6 @@ Para contornar este problema:
 > [!IMPORTANT]  
 > Não é suportada a chave de armazenamento da conta de armazenamento primária anexada a um cluster.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Aprendeu a adicionar contas de armazenamento adicionais a um cluster HDInsight existente. Para obter mais informações sobre as ações de script, consulte [os clusters HDInsight baseados em Linux utilizando ação de script](hdinsight-hadoop-customize-cluster-linux.md)

@@ -1,19 +1,16 @@
 ---
 title: Opções de contexto de computação para serviços ML em HDInsight - Azure
 description: Conheça as diferentes opções de contexto computacional disponíveis para utilizadores com Serviços ML em HDInsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
-ms.openlocfilehash: 21781015aa91c9c953d716b9b3399851f25be9b5
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 71ce0d87faa33bd7d533242edfcf3b131c8f7e47
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92536339"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943955"
 ---
 # <a name="compute-context-options-for-ml-services-on-hdinsight"></a>Opções de contexto computacional para serviços ML em HDInsight
 
@@ -59,7 +56,7 @@ Tendo em conta estes princípios, as seguintes secções oferecem algumas regras
 
 ### <a name="local"></a>Local
 
-- Se a quantidade de dados a analisar for pequena e não necessitar de análise repetida, em seguida, transmita-a diretamente para a rotina de análise *utilizando* local ou *localpar* .
+- Se a quantidade de dados a analisar for pequena e não necessitar de análise repetida, em seguida, transmita-a diretamente para a rotina de análise *utilizando* local ou *localpar*.
 - Se a quantidade de dados a analisar for pequena ou média e necessitar de análise repetida, copie-os para o sistema de ficheiros local, importe-os para XDF e analise-os através de *localidade* ou *local.*
 
 ### <a name="apache-spark"></a>Apache Spark
@@ -79,7 +76,7 @@ Para obter mais informações e exemplos de contextos de computação RevoScaleR
 
 Também pode consultar a [visão geral](/machine-learning-server/r/how-to-revoscaler-distributed-computing) da computação distribuída na [documentação do Servidor de Aprendizagem automática](/machine-learning-server/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, você aprendeu sobre as opções que estão disponíveis para especificar se e como a execução é paralelamente através de núcleos do nó de borda ou cluster HDInsight. Para saber mais sobre como utilizar os Serviços ML com clusters HDInsight, consulte os seguintes tópicos:
 

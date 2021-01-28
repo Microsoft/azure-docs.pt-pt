@@ -1,14 +1,14 @@
 ---
-title: Ativar o Monitor Azure para contentores Microsoft Docs
+title: Ativar o Monitor Azure para contentores | Microsoft Docs
 description: Este artigo descreve como ativar e configurar o Azure Monitor para contentores para que possa entender como o seu recipiente está a funcionar e quais as questões relacionadas com o desempenho que foram identificadas.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 69022643e3346444eee95f4487eeed292c4ef139
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: f598b42f1a8d9fcb42f09d17e40850cf3a1282be
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994073"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943827"
 ---
 # <a name="enable-azure-monitor-for-containers"></a>Ativar o Monitor Azure para contentores
 
@@ -21,7 +21,7 @@ Este artigo fornece uma visão geral das opções disponíveis para a criação 
 
 Também pode monitorizar o desempenho das cargas de trabalho que são implantadas em clusters Kubernetes auto-geridos hospedados em:
 - Azure, usando o [motor AKS](https://github.com/Azure/aks-engine)
-- [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1910) ou no local, utilizando o motor AKS.
+- [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview) ou no local, utilizando o motor AKS.
 
 Pode ativar o Azure Monitor para contentores para uma nova implantação ou para uma ou mais implantações existentes de Kubernetes utilizando qualquer um dos seguintes métodos suportados:
 
@@ -51,7 +51,7 @@ Antes de começar, certifique-se de que cumpriu os seguintes requisitos:
 
 - É membro do grupo *de contribuintes Log Analytics* para permitir a monitorização do contentor. Para obter mais informações sobre como controlar o acesso a um espaço de trabalho do Log Analytics, consulte [Gerir espaços de trabalho.](../platform/manage-access.md)
 
-- Você é membro do grupo [ *Proprietário* ](../../role-based-access-control/built-in-roles.md#owner) no recurso de cluster AKS.
+- Você é membro do grupo [ *Proprietário*](../../role-based-access-control/built-in-roles.md#owner) no recurso de cluster AKS.
 
    [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
@@ -63,7 +63,7 @@ Antes de começar, certifique-se de que cumpriu os seguintes requisitos:
 
 O Azure Monitor para contentores suporta oficialmente as seguintes configurações:
 
-- Ambientes: Azure Red Hat OpenShift, Kubernetes no local e o motor AKS em Azure e Azure Stack. Para mais informações, consulte [o motor AKS no Azure Stack.](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908)
+- Ambientes: Azure Red Hat OpenShift, Kubernetes no local e o motor AKS em Azure e Azure Stack. Para mais informações, consulte [o motor AKS no Azure Stack.](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview)
 - As versões de Kubernetes e a política de suporte são as mesmas que são [suportadas no Serviço Azure Kubernetes (AKS)](../../aks/supported-kubernetes-versions.md). 
 
 ## <a name="network-firewall-requirements"></a>Requisitos de firewall de rede
@@ -80,7 +80,7 @@ A tabela que se segue lista as informações de configuração de procuração e
 
 A tabela a seguir lista as informações de configuração proxy e firewall para Azure China 21Vianet:
 
-|Recursos do agente|Porta |Description | 
+|Recursos do agente|Porta |Descrição | 
 |--------------|------|-------------|
 | `*.ods.opinsights.azure.cn` | 443 | Ingestão de dados |
 | `*.oms.opinsights.azure.cn` | 443 | OMS a bordo |
@@ -88,7 +88,7 @@ A tabela a seguir lista as informações de configuração proxy e firewall para
 
 A tabela a seguir lista as informações de configuração de procuração e firewall para o Governo dos EUA:
 
-|Recursos do agente|Porta |Description | 
+|Recursos do agente|Porta |Descrição | 
 |--------------|------|-------------|
 | `*.ods.opinsights.azure.us` | 443 | Ingestão de dados |
 | `*.oms.opinsights.azure.us` | 443 | OMS a bordo |
@@ -117,7 +117,7 @@ Para ativar o Azure Monitor para recipientes, utilize um dos métodos descritos 
 | Novo cluster Kubernetes | [Criar um cluster AKS utilizando o CLI Azure](../../aks/kubernetes-walkthrough.md#create-aks-cluster)| Pode ativar a monitorização de um novo cluster AKS que cria utilizando o Azure CLI. |
 | | [Criar um cluster AKS utilizando o Terraform](container-insights-enable-new-cluster.md#enable-using-terraform)| Pode ativar a monitorização de um novo cluster AKS que cria utilizando a ferramenta de código aberto Terraform. |
 | | [Crie um cluster OpenShift usando um modelo de Gestor de Recursos Azure](container-insights-azure-redhat-setup.md#enable-for-a-new-cluster-using-an-azure-resource-manager-template) | Pode ativar a monitorização de um novo cluster OpenShift que cria utilizando um modelo pré-configurado do Gestor de Recursos Azure. |
-| | [Criar um cluster OpenShift utilizando o CLI Azure](/cli/azure/openshift?view=azure-cli-latest#az-openshift-create) | Pode ativar a monitorização quando implementar um novo cluster OpenShift utilizando o Azure CLI. |
+| | [Criar um cluster OpenShift utilizando o CLI Azure](/cli/azure/openshift#az-openshift-create) | Pode ativar a monitorização quando implementar um novo cluster OpenShift utilizando o Azure CLI. |
 | Cluster Kubernetes existente | [Permitir a monitorização de um cluster AKS utilizando o CLI Azure](container-insights-enable-existing-clusters.md#enable-using-azure-cli) | Pode ativar a monitorização de um cluster AKS que já foi implantado utilizando o Azure CLI. |
 | |[Ativar o cluster AKS utilizando o Terraform](container-insights-enable-existing-clusters.md#enable-using-terraform) | Pode ativar a monitorização de um cluster AKS que já foi implantado utilizando a ferramenta de código aberto Terraform. |
 | | [Ativar o cluster AKS a partir do Azure Monitor](container-insights-enable-existing-clusters.md#enable-from-azure-monitor-in-the-portal)| Pode ativar a monitorização de um ou mais clusters AKS que já estão implantados a partir da página multi-cluster no Azure Monitor. |
@@ -128,6 +128,6 @@ Para ativar o Azure Monitor para recipientes, utilize um dos métodos descritos 
 | | [Ative o cluster OpenShift utilizando um modelo de Gestor de Recursos Azure](container-insights-azure-redhat-setup.md#enable-using-an-azure-resource-manager-template) | Pode ativar a monitorização de um cluster OpenShift existente utilizando um modelo pré-configurado do Gestor de Recursos Azure. |
 | | [Ativar o cluster OpenShift a partir do Azure Monitor](container-insights-azure-redhat-setup.md#from-the-azure-portal) | Pode ativar a monitorização de um ou mais clusters OpenShift que já estão implantados a partir da página multicluster no Azure Monitor. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que ativou a monitorização, pode começar a analisar o desempenho dos seus clusters Kubernetes que estão hospedados no Azure Kubernetes Service (AKS), Azure Stack ou noutro ambiente. Para aprender a utilizar o Azure Monitor para recipientes, consulte [o desempenho do cluster Kubernetes](container-insights-analyze.md).
