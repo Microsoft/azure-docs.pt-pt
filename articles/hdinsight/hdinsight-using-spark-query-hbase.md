@@ -1,19 +1,16 @@
 ---
 title: Use spark para ler e escrever dados HBase - Azure HDInsight
 description: Utilize o Conector Spark HBase para ler e escrever dados de um cluster Spark para um cluster HBase.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 08/12/2020
-ms.openlocfilehash: eb62cf099d7ccc133a207a843a8be3debf5c5454
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 344caf4080380f5d9dfdaf452798ada6d1dc9f1c
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91308423"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931216"
 ---
 # <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>Utilizar o Apache Spark para ler e escrever dados do Apache HBase
 
@@ -163,7 +160,7 @@ Como exemplo, a tabela a seguir lista duas versões e os comandos correspondente
     |Versão spark| Versão HDI HBase  | Versão SHC    |  Comando  |
     | :-----------:| :----------: | :-----------: |:----------- |
     |      2.1    | HDI 3.6 (HBase 1.1) | 1.1.1-2.1-s_2.11    | `spark-shell --packages com.hortonworks:shc-core:1.1.1-2.1-s_2.11 --repositories https://repo.hortonworks.com/content/groups/public/` |
-    |      2.4    | HDI 4.0 (HBase 2.0) | 1.1.0.3.1.2.2-1  | `spark-shell --packages com.hortonworks.shc:shc-core:1.1.0.3.1.2.2-1 --repositories http://repo.hortonworks.com/content/groups/public/` |
+    |      2,4    | HDI 4.0 (HBase 2.0) | 1.1.0.3.1.2.2-1  | `spark-shell --packages com.hortonworks.shc:shc-core:1.1.0.3.1.2.2-1 --repositories http://repo.hortonworks.com/content/groups/public/` |
 
 2. Mantenha esta instância de concha spark aberta e continue a [definir um catálogo e consulta.](#define-a-catalog-and-query) Se não encontrar os frascos que correspondem às suas versões no repositório SHC Core, continue a ler. 
 
@@ -343,6 +340,6 @@ Neste passo, você define um objeto de catálogo que mapeia o esquema de Apache 
     :q
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Conector Apache Spark HBase](https://github.com/hortonworks-spark/shc)

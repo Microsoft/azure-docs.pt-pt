@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/5/2020
-ms.openlocfilehash: 1ce78e02c652777b524964559b579530f3e022fa
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 215399e4b131162097e54c15b84cb6fa7dac72e3
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97561312"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932538"
 ---
 # <a name="continuous-integration-and-continuous-delivery-workflows-for-luis-devops"></a>Integração Contínua e Fluxos de Trabalho de Entrega Contínua para DEVOps LUIS
 
@@ -41,7 +41,7 @@ Utilize as seguintes ferramentas para a construção de fluxos de trabalho de au
 
 * [Bot Framework Tools LUIS CLI](https://github.com/microsoft/botbuilder-tools/tree/master/packages/LUIS) para trabalhar com apps e versões LUIS, treinar, testar e publicá-las dentro do serviço LUIS.
 
-* [Azure CLI](/cli/azure/?view=azure-cli-latest) para consultar subscrições da Azure, buscar chaves de autoria e previsão luis, e criar um [principal de serviço](/cli/azure/ad/sp?view=azure-cli-latest) Azure usado para a autenticação de automação.
+* [Azure CLI](/cli/azure/) para consultar subscrições da Azure, buscar chaves de autoria e previsão luis, e criar um [principal de serviço](/cli/azure/ad/sp) Azure usado para a autenticação de automação.
 
 * [A NLU. Ferramenta DevOps](https://github.com/microsoft/NLU.DevOps) para [testar uma aplicação LUIS](luis-concept-devops-testing.md) e analisar os resultados dos testes.
 
@@ -96,7 +96,7 @@ Outras opções para implementar uma versão de aplicação incluem:
 
 Geralmente recomendamos que faça entregas contínuas apenas aos seus ambientes de não produção, tais como desenvolvimento e encenação. A maioria das equipas requer um processo manual de revisão e aprovação para implantação num ambiente de produção. Para uma implantação de produção, talvez queira certificar-se de que isso acontece quando pessoas-chave da equipa de desenvolvimento estão disponíveis para apoio, ou durante períodos de tráfego reduzido.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba como [implementar DevOps para LUIS com GitHub](luis-how-to-devops-with-github.md)
 * Aprenda a escrever um fluxo de [trabalho gitHub actions com nlu. DevOps](https://github.com/Azure-Samples/LUIS-DevOps-Template/blob/master/docs/4-pipeline.md)

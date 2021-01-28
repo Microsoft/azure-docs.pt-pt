@@ -1,18 +1,15 @@
 ---
 title: Arquitetura de rede virtual Azure HDInsight
 description: Aprenda os recursos disponíveis quando criar um cluster HDInsight numa Rede Virtual Azure.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/14/2020
-ms.openlocfilehash: ad0e0250b32f2bdef4944e6e148be3215f3822f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5b8bdf5577642290cee7250e0f21f8a69dfd248
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81390213"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931158"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Arquitetura de rede virtual Azure HDInsight
 
@@ -82,6 +79,6 @@ Os endereços IP públicos também são fornecidos aos dois pontos finais que pe
 1. Um IP público é atribuído ao equilibrador de carga para o nome de domínio totalmente qualificado (FQDN) para utilizar ao ligar ao cluster a partir da internet `CLUSTERNAME.azurehdinsight.net` .
 1. O segundo endereço IP público é utilizado para o único nome de domínio SSH `CLUSTERNAME-ssh.azurehdinsight.net` .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Tráfego de entrada segura para clusters HDInsight em uma rede virtual com ponto final privado](https://azure.microsoft.com/blog/secure-incoming-traffic-to-hdinsight-clusters-in-a-vnet-with-private-endpoint/)

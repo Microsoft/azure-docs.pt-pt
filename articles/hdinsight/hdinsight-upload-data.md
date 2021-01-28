@@ -1,19 +1,16 @@
 ---
 title: Upload de dados para empregos apache Hadoop em HDInsight
 description: Saiba como carregar e aceder a dados para empregos apache Hadoop em HDInsight. Use O Clássico CLI, Azure Storage Explorer, Azure PowerShell, a linha de comando Hadoop ou Sqoop.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdiseo17may2017,seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 47262e0dc7247e1d514eeb64512c21ff1ae527ab
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a8d21b88298b6092c869b89d48fe4c259c2365b6
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534826"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931349"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>Upload de dados para empregos apache Hadoop em HDInsight
 
@@ -80,7 +77,7 @@ Existem também várias aplicações que fornecem uma interface gráfica para tr
 | Cliente | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
 | [Ferramentas de estúdio visual da Microsoft para HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources) |✔ |✔ |✔ |
-| [Explorador de Armazenamento do Azure](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) |✔ |✔ |✔ |
+| [Explorador do Storage do Azure](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) |✔ |✔ |✔ |
 | [`Cerulea`](https://www.cerebrata.com/products/cerulean/features/azure-storage) | | |✔ |
 | [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer) | | |✔ |
 | [CloudBerry Explorer para Microsoft Azure](https://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | |✔ |
@@ -121,7 +118,7 @@ O Azure Storage também pode ser acedido através de um Azure SDK a partir das s
 
 Para obter mais informações sobre a instalação dos Azure SDKs, consulte [os downloads do Azure](https://azure.microsoft.com/downloads/)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que entende como obter dados em HDInsight, leia os seguintes artigos para aprender a análise:
 

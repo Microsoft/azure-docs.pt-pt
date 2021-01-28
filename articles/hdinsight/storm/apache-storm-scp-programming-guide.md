@@ -1,19 +1,16 @@
 ---
 title: SCP.NET guia de programação para tempestade em Azure HDInsight
 description: Aprenda a usar SCP.NET para criar. Topologias de tempestade baseadas em NET para uso com tempestade em execução em Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 01/13/2020
-ms.openlocfilehash: d54a06c457451fc5323ae37b34b53411cdd6abda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd52157e2f0e20e9282d944b07f656c08d9e57da
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89000146"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932633"
 ---
 # <a name="scp-programming-guide-for-apache-storm-in-azure-hdinsight"></a>Guia de programação SCP para Apache Storm em Azure HDInsight
 
@@ -95,7 +92,7 @@ public interface ISCPSpout : ISCPPlugin
 
 Quando **o NextTuple** for chamado, o seu código C# pode emitir um ou mais tuples. Se não há nada a emitir, este método deve voltar sem emitir nada.
 
-Os métodos **NextTuple**, **Ack**e **Fail** são todos chamados num loop apertado num único fio de um processo C#. Quando não houver tuples para emitir, ter **NextTuple** durma por um curto período de tempo como 10 milissegundos. Este sono ajuda a evitar desperdiçar a disponibilidade de CPU.
+Os métodos **NextTuple**, **Ack** e **Fail** são todos chamados num loop apertado num único fio de um processo C#. Quando não houver tuples para emitir, ter **NextTuple** durma por um curto período de tempo como 10 milissegundos. Este sono ajuda a evitar desperdiçar a disponibilidade de CPU.
 
 Os métodos **Ack** e **Fail** são chamados apenas quando um ficheiro de especificação permite o mecanismo de reconhecimento. O *parâmetro seqId* identifica o tuple que é reconhecido ou falhou. Se o reconhecimento for ativado numa topologia não transacional, deve ser utilizada a seguinte função **Emit** num bico:
 
@@ -133,7 +130,7 @@ public interface ISCPTxSpout : ISCPPlugin
 }
 ```
 
-Tal como os seus homólogos não transacionais, **NextTx**, **Ack**e **Fail** são todos chamados num loop apertado num único fio de um processo C#. Quando não houver tuples para emitir, ter **NextTx** dormir por um curto período de tempo como 10 milissegundos. Este sono ajuda a evitar desperdiçar a disponibilidade de CPU.
+Tal como os seus homólogos não transacionais, **NextTx**, **Ack** e **Fail** são todos chamados num loop apertado num único fio de um processo C#. Quando não houver tuples para emitir, ter **NextTx** dormir por um curto período de tempo como 10 milissegundos. Este sono ajuda a evitar desperdiçar a disponibilidade de CPU.
 
 Quando **o NextTx** é chamado para iniciar uma nova transação, o parâmetro de saída *seqId* identifica a transação. A transação também é utilizada em **Ack** and **Fail**. O seu método **NextTx** pode emitir dados para o lado de Java. Os dados são armazenados no ZooKeeper para suportar a repetição. Como o ZooKeeper tem capacidade limitada, o seu código deve emitir apenas metadados e não dados em massa num bico transacional.
 
@@ -161,7 +158,7 @@ SCP.NET cria um novo objeto **ISCPBatchBolt** para processar cada objeto **Storm
 
 ## <a name="object-model"></a>Modelo de objeto
 
-SCP.NET também fornece um conjunto simples de objetos chave para os desenvolvedores para programar. Os objetos são **Context,** **StateStore**e **SCPRuntime**. São discutidos nesta secção.
+SCP.NET também fornece um conjunto simples de objetos chave para os desenvolvedores para programar. Os objetos são **Context,** **StateStore** e **SCPRuntime**. São discutidos nesta secção.
 
 ### <a name="context"></a>Contexto
 
@@ -373,7 +370,7 @@ O método **Initialize** inicializa o ambiente de execução SCP. Neste método,
 
 O método **LaunchPlugin** inicia o ciclo de processamento de mensagens. Neste ciclo, o plug-in C# recebe mensagens do lado java. Estas mensagens incluem tuples e sinais de controlo. O plug-in processa então as mensagens, talvez ligando para o método de interface fornecido pelo seu código.
 
-O parâmetro de entrada para **LaunchPlugin** é um delegado. O método pode devolver um objeto que implementa a interface **ISCPSpout,** **ISCPBolt,** **ISCPTxSpout**ou **ISCPBatchBolt.**
+O parâmetro de entrada para **LaunchPlugin** é um delegado. O método pode devolver um objeto que implementa a interface **ISCPSpout,** **ISCPBolt,** **ISCPTxSpout** ou **ISCPBatchBolt.**
 
 ```csharp
 public delegate ISCPPlugin newSCPPlugin(Context ctx, Dictionary<string, Object> parms);
@@ -437,12 +434,12 @@ SCP.NET adicionou as seguintes funções para definir topologias transacionais:
 | Nova função | Parâmetros | Descrição |
 | --- | --- | --- |
 | **tx-toplopy** |*nome de topologia*<br />*mapa de bicos*<br />*mapa de parafusos* |Define uma topologia transacional com o nome topologia, mapa de definição de bicos e mapa de definição de parafusos. |
-| **scp-tx-bico** |*nome executivo*<br />*args*<br />*campos* |Define um bico transacional. A função executa a aplicação especificada pelo *nome executivo* e utiliza *args*.<br /><br />O parâmetro *dos campos* especifica os campos de saída para o bico. |
-| **scp-tx-lote-bolt** |*nome executivo*<br />*args*<br />*campos* |Define um parafuso de lote transacional. A função executa a aplicação especificada pelo *nome executivo* e usa *args.*<br /><br />O parâmetro *dos campos* especifica os campos de saída para o parafuso. |
-| **scp-tx-commit-bolt** |*nome executivo*<br />*args*<br />*campos* |Define um parafuso de compromisso transacional. A função executa a aplicação especificada pelo *nome executivo* e utiliza *args*.<br /><br />O parâmetro *dos campos* especifica os campos de saída para o parafuso. |
+| **scp-tx-bico** |*nome executivo*<br />*args*<br />*fields* |Define um bico transacional. A função executa a aplicação especificada pelo *nome executivo* e utiliza *args*.<br /><br />O parâmetro *dos campos* especifica os campos de saída para o bico. |
+| **scp-tx-lote-bolt** |*nome executivo*<br />*args*<br />*fields* |Define um parafuso de lote transacional. A função executa a aplicação especificada pelo *nome executivo* e usa *args.*<br /><br />O parâmetro *dos campos* especifica os campos de saída para o parafuso. |
+| **scp-tx-commit-bolt** |*nome executivo*<br />*args*<br />*fields* |Define um parafuso de compromisso transacional. A função executa a aplicação especificada pelo *nome executivo* e utiliza *args*.<br /><br />O parâmetro *dos campos* especifica os campos de saída para o parafuso. |
 | **nontx-topologia** |*nome de topologia*<br />*mapa de bicos*<br />*mapa de parafusos* |Define uma topologia não transacional com o nome de topologia, mapa de definição de bicos e mapa de definição de parafusos. |
-| **scp-bico** |*nome executivo*<br />*args*<br />*campos*<br />*parâmetros* |Define um bico não transacional. A função executa a aplicação especificada pelo *nome executivo* e utiliza *args*.<br /><br />O parâmetro *dos campos* especifica os campos de saída para o bico.<br /><br />O parâmetro *dos parâmetros* é opcional. Utilize-o para especificar parâmetros como "nontransactional.ack.enabled". |
-| **scp-bolt** |*nome executivo*<br />*args*<br />*campos*<br />*parâmetros* |Define um parafuso não transacional. A função executa a aplicação especificada pelo *nome executivo* e utiliza *args*.<br /><br />O parâmetro *dos campos* especifica os campos de saída para o parafuso<br /><br />O parâmetro *dos parâmetros* é opcional. Utilize-o para especificar parâmetros como "nontransactional.ack.enabled". |
+| **scp-bico** |*nome executivo*<br />*args*<br />*fields*<br />*parâmetros* |Define um bico não transacional. A função executa a aplicação especificada pelo *nome executivo* e utiliza *args*.<br /><br />O parâmetro *dos campos* especifica os campos de saída para o bico.<br /><br />O parâmetro *dos parâmetros* é opcional. Utilize-o para especificar parâmetros como "nontransactional.ack.enabled". |
+| **scp-bolt** |*nome executivo*<br />*args*<br />*fields*<br />*parâmetros* |Define um parafuso não transacional. A função executa a aplicação especificada pelo *nome executivo* e utiliza *args*.<br /><br />O parâmetro *dos campos* especifica os campos de saída para o parafuso<br /><br />O parâmetro *dos parâmetros* é opcional. Utilize-o para especificar parâmetros como "nontransactional.ack.enabled". |
 
 SCP.NET define as seguintes palavras-chave:
 
@@ -458,7 +455,7 @@ SCP.NET também define estes parâmetros frequentemente utilizados:
 
 | Parâmetro | Descrição |
 | --- | --- |
-| "plugin.name" |O nome do ficheiro .exe do plug-in C# |
+| "plugin.name" |O .exe nome do ficheiro do plug-in C# |
 | "plugin.args" |Os argumentos plug-in |
 | "output.schema" |O esquema de saída |
 | "nontransactional.ack.enabled" |Se o reconhecimento é habilitado para uma topologia não transacional |
@@ -508,7 +505,7 @@ Os desenvolvedores devem garantir que os tuples emitidos obedecem ao esquema def
 
 ### <a name="multistream-support"></a>Suporte multistream
 
-O SCP permite que o seu código emita ou receba de vários fluxos distintos ao mesmo tempo. O **Context** objeto contextualmente reflete este suporte como o parâmetro de ID de fluxo opcional do método **Emit.**
+O SCP permite que o seu código emita ou receba de vários fluxos distintos ao mesmo tempo. O  objeto contextualmente reflete este suporte como o parâmetro de ID de fluxo opcional do método **Emit.**
 
 Foram adicionados dois métodos no objeto **de contexto** SCP.NET. Emitem um ou mais tuples para riachos específicos. O parâmetro *streamId* é uma corda. O seu valor deve ser o mesmo tanto no código C# como na especificação de definição de topologia.
 
@@ -789,7 +786,7 @@ Esta topologia contém um bico java e um parafuso C#. Utiliza a implementação 
 
 Este exemplo é essencialmente o mesmo que o HelloWorld. A única diferença é que o seu código é compilado como um DLL e a topologia é submetida usando SCPHost.exe. Consulte a secção de modo anfitrião SCP para obter uma explicação mais detalhada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Por exemplo, as topologias da Tempestade Apache criadas com recurso ACP, consulte os seguintes artigos:
 

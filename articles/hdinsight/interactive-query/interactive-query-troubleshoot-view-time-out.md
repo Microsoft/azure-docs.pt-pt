@@ -3,16 +3,13 @@ title: Apache Hive View vezes fora do resultado da consulta - Azure HDInsight
 description: Apache Hive View vezes fora ao obter um resultado de consulta em Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.date: 07/30/2019
-ms.openlocfilehash: c642760a5f6bfa7e59d42237e1583617e322ece3
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 474fa5e084acfa508a4391075b3c78d96b01aa46
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288821"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98930740"
 ---
 # <a name="scenario-apache-hive-view-times-out-when-fetching-a-query-result-in-azure-hdinsight"></a>Cenário: Apache Hive View times out when fetching a questionry result in Azure HDInsight
 
@@ -43,6 +40,6 @@ views.ambari.hive.<HIVE_VIEW_INSTANCE_NAME>.result.fetch.timeout=300000
 
 O valor `HIVE_VIEW_INSTANCE_NAME` está disponível no final do URL Hive View.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]

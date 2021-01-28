@@ -1,19 +1,16 @@
 ---
 title: 'Tutorial: Criar um oleoduto ETL de ponta a ponta para obter insights de vendas em Azure HDInsight'
 description: Aprenda a usar os oleodutos ETL com Azure HDInsight para obter insights a partir de dados de vendas utilizando clusters spark on-demand e Power BI.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 04/15/2020
-ms.openlocfilehash: 1031c34a44a253c7458ef78c6371b88014e882ed
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 7d026d93ebe6f6a0bd9afbd277294d58d7a2a69b
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746472"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932041"
 ---
 # <a name="tutorial-create-an-end-to-end-data-pipeline-to-derive-sales-insights-in-azure-hdinsight"></a>Tutorial: Criar um pipeline de dados de ponta a ponta para obter insights de vendas em Azure HDInsight
 
@@ -110,7 +107,7 @@ A palavra-passe padrão para o acesso do SSH aos clusters é `Thisisapassword1` 
 
 ### <a name="verify-deployment-and-collect-resource-information"></a>Verificar a implementação e recolher informações sobre recursos
 
-1. Se quiser verificar o estado da sua implantação, vá ao grupo de recursos do portal Azure. Em **Definições** , selecione **Implementações** e, em seguida, a sua implantação. Aqui pode ver os recursos que foram implementados com sucesso e os recursos que ainda estão em curso.
+1. Se quiser verificar o estado da sua implantação, vá ao grupo de recursos do portal Azure. Em **Definições**, selecione **Implementações** e, em seguida, a sua implantação. Aqui pode ver os recursos que foram implementados com sucesso e os recursos que ainda estão em curso.
 
 1. Para ver os nomes dos clusters, insira o seguinte comando:
 
@@ -214,7 +211,7 @@ Para acionar o oleoduto, pode:
 
     Ou
 
-* Abra a fábrica de dados e selecione **Author & Monitor** . Dispare o `IngestAndTransform` oleoduto do portal. Para obter informações sobre o desencadeamento de gasodutos através do portal, consulte [crie clusters Apache Hadoop a pedido em HDInsight utilizando a Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md#trigger-a-pipeline).
+* Abra a fábrica de dados e selecione **Author & Monitor**. Dispare o `IngestAndTransform` oleoduto do portal. Para obter informações sobre o desencadeamento de gasodutos através do portal, consulte [crie clusters Apache Hadoop a pedido em HDInsight utilizando a Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md#trigger-a-pipeline).
 
 Para verificar se o gasoduto está a funcionar, pode tomar qualquer um dos seguintes passos:
 
@@ -252,19 +249,19 @@ Para outras formas de transformar dados utilizando o HDInsight, consulte [este a
 
 1. Abra o Power BI Desktop.
 
-1. A partir do menu, navegue para **obter mais dados...**  >  **More...**  >  **Rio Azure**  >  **Consulta Interativa HDInsight** .
+1. A partir do menu, navegue para **obter mais dados...**  >    >  **Rio Azure**  >  **Consulta Interativa HDInsight**.
 
-1. Selecione **Ligar** .
+1. Selecione **Ligar**.
 
 1. Do diálogo **de consulta interativa HDInsight:**
     1. Na caixa de texto do **Servidor,** insira o nome do seu cluster LLAP no formato de `https://LLAPCLUSTERNAME.azurehdinsight.net` .
     1. Na caixa de texto da **base de dados,** insira `default` .
-    1. Selecione **OK** .
+    1. Selecione **OK**.
 
 1. Do diálogo **AzureHive:**
     1. Na caixa de texto **do nome do utilizador,** insira `admin` .
     1. Na caixa de texto da **palavra-passe,** insira `Thisisapassword1` .
-    1. Selecione **Ligar** .
+    1. Selecione **Ligar**.
 
 1. A partir do **Navigator,** selecione `sales` e/ou `sales_raw` para pré-visualizar os dados. Depois de os dados estiverem carregados, pode experimentar com o painel de instrumentos que pretende criar. Consulte os seguintes links para começar com os dashboards Power BI:
 
@@ -288,7 +285,7 @@ Se não vai continuar a utilizar esta aplicação, elimine todos os recursos uti
     az ad sp delete --id $servicePrincipal
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Extrair, transformar e carregar (ETL) em escala](./hadoop/apache-hadoop-etl-at-scale.md)

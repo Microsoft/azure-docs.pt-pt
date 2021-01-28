@@ -1,19 +1,16 @@
 ---
 title: 'Azure Toolkit para IntelliJ: Spark app - HDInsight'
 description: Utilize o Kit de Ferramentas Azure para IntelliJ para desenvolver aplicações Spark escritas em Scala e submetê-las a um cluster HDInsight Spark.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/13/2020
-ms.openlocfilehash: b70de1915e6c068bd658dff60776085075412789
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0b2c2a91ba9d029bcf24b0980d0a2339194e6d8a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024015"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931029"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-hdinsight-cluster"></a>Use o Azure Toolkit para IntelliJ para criar aplicações Apache Spark para cluster HDInsight
 
@@ -100,7 +97,7 @@ Passos para instalar o plugin Scala:
 
     a. Do Project, navegue até ao **myApp**  >  **src**  >  **main**  >  **scala.**  
 
-    b. Scala **scala** com clique à direita e, em seguida, navegue para a Classe **New**  >  **Scala**.
+    b. Scala com clique à direita e, em seguida, navegue para a Classe **New**  >  **Scala**.
 
    ![Comandos para a criação de uma classe Scala do Projeto](./media/apache-spark-intellij-tool-plugin/hdi-spark-scala-code.png)
 
@@ -236,7 +233,7 @@ Depois de criar uma aplicação Scala, pode submetê-la ao cluster.
     |----|----|
     |Aglomerados de faíscas (apenas Linux)|Selecione o cluster HDInsight Spark no qual pretende executar a sua aplicação.|
     |Selecione um artefacto para submeter|Deixe a definição predefinida.|
-    |Nome da classe principal|O valor predefinido é a classe principal do ficheiro selecionado. Pode alterar a classe selecionando a elipse.**...**  e escolher outra classe.|
+    |Nome da classe principal|O valor predefinido é a classe principal do ficheiro selecionado. Pode alterar a classe selecionando a elipse.  e escolher outra classe.|
     |Configurações de trabalho|Pode alterar as teclas predefinidos e, ou valores. Para mais informações, consulte [a Apache Livy REST API.](https://livy.incubator.apache.org/docs/latest/rest-api.html)|
     |Argumentos de linha de comando|Pode introduzir argumentos separados por espaço para a classe principal, se necessário.|
     |Frascos referenciados e ficheiros referenciados|Pode introduzir os caminhos para os frascos e ficheiros referenciados, se houver. Também pode navegar em ficheiros no sistema de ficheiros virtuais Azure, que atualmente apenas suporta o cluster ADLS Gen 2. Para mais informações: [Configuração de faíscas Apache](https://spark.apache.org/docs/latest/configuration.html#runtime-environment).  Ver também, [Como carregar recursos para cluster.](../../storage/blobs/storage-quickstart-blobs-storage-explorer.md)|
@@ -309,7 +306,7 @@ Pode executar a Consola Local Spark (Scala) ou executar a Consola De Sessão Int
 
 Certifique-se de ter satisfeito o pré-requisito WINUTILS.EXE.
 
-1. A partir da barra **Run** de menu, navegue para  >  **configurações de edição de execução...**.
+1. A partir da barra de menu, navegue para  >  **configurações de edição de execução...**.
 
 2. A partir da janela **configurações Run/Debug,** no painel esquerdo, navegue até **Apache Spark em HDInsight**  >  **[Spark on HDInsight] myApp**.
 
@@ -319,7 +316,7 @@ Certifique-se de ter satisfeito o pré-requisito WINUTILS.EXE.
 
     |Propriedade |Valor |
     |----|----|
-    |Classe principal de emprego|O valor predefinido é a classe principal do ficheiro selecionado. Pode alterar a classe selecionando a elipse.**...**  e escolher outra classe.|
+    |Classe principal de emprego|O valor predefinido é a classe principal do ficheiro selecionado. Pode alterar a classe selecionando a elipse.  e escolher outra classe.|
     |Variáveis de ambiente|Certifique-se de que o valor para HADOOP_HOME está correto.|
     |WINUTILS.exe localização|Certifique-se de que o caminho está correto.|
 
@@ -341,7 +338,7 @@ Certifique-se de ter satisfeito o pré-requisito WINUTILS.EXE.
 
 ### <a name="spark-livy-interactive-session-consolescala"></a>Consola de sessão interativa Spark Livy (Scala)
 
-1. A partir da barra **Run** de menu, navegue para  >  **configurações de edição de execução...**.
+1. A partir da barra de menu, navegue para  >  **configurações de edição de execução...**.
 
 2. A partir da janela **configurações Run/Debug,** no painel esquerdo, navegue até **Apache Spark em HDInsight**  >  **[Spark on HDInsight] myApp**.
 
@@ -352,7 +349,7 @@ Certifique-se de ter satisfeito o pré-requisito WINUTILS.EXE.
     |Propriedade |Valor |
     |----|----|
     |Aglomerados de faíscas (apenas Linux)|Selecione o cluster HDInsight Spark no qual pretende executar a sua aplicação.|
-    |Nome da classe principal|O valor predefinido é a classe principal do ficheiro selecionado. Pode alterar a classe selecionando a elipse.**...**  e escolher outra classe.|
+    |Nome da classe principal|O valor predefinido é a classe principal do ficheiro selecionado. Pode alterar a classe selecionando a elipse.  e escolher outra classe.|
 
     ![Configuração do conjunto de consolas interativas](./media/apache-spark-intellij-tool-plugin/interactive-console-configuration.png)
 
@@ -478,7 +475,7 @@ Se não continuar a utilizar esta aplicação, elimine o cluster que criou com o
 
 ![Portal Azure elimina cluster HDInsight](./media/apache-spark-intellij-tool-plugin/hdinsight-azure-portal-delete-cluster.png "Excluir o cluster HDInsight")
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu a usar o Azure Toolkit para o plug-in IntelliJ para desenvolver aplicações Apache Spark escritas em [Scala.](https://www.scala-lang.org/) Em seguida, submeteu-os a um cluster HDInsight Spark diretamente do ambiente de desenvolvimento integrado IntelliJ (IDE). Avance para o próximo artigo para ver como os dados registados no Apache Spark podem ser puxados para uma ferramenta de análise de BI, como o Power BI.
 

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/07/2021
-ms.openlocfilehash: ee6105376f5e8dc884f13e04db51126c039328e9
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 203782ef2d95cd2b47082f630fa12531a110d49e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968896"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98933931"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Desempenho da atividade da cópia de resolução de problemas
 
@@ -53,7 +53,7 @@ Como referência, atualmente as dicas de afinação de desempenho fornecem suges
 
 Os detalhes e durações de execução na parte inferior da visualização de monitorização da atividade da cópia descrevem as fases-chave pela qual a sua atividade de cópia passa (ver exemplo no início deste artigo), o que é especialmente útil para resolver problemas no desempenho da cópia. O estrangulamento da sua cópia é o que tem a maior duração. Consulte a tabela seguinte na definição de cada etapa e aprenda a lidar com a atividade de [cópia de resolução de problemas na](#troubleshoot-copy-activity-on-azure-ir) atividade de cópia Azure IR e [Troubleshoot copy em IR auto-hospedado](#troubleshoot-copy-activity-on-self-hosted-ir) com tais informações.
 
-| Fase           | Description                                                  |
+| Fase           | Descrição                                                  |
 | --------------- | ------------------------------------------------------------ |
 | Fila           | O tempo decorrido até que a atividade da cópia realmente comece no tempo de integração. |
 | Script pré-cópia | O tempo decorrido entre a atividade de cópia a partir do IR e a atividade de cópia terminando a execução do script pré-cópia na loja de dados do lavatório. Aplicar quando configurar o script pré-cópia para lavatórios de base de dados, por exemplo, ao escrever dados na Base de Dados Azure SQL, limpe antes de copiar novos dados. |
@@ -194,7 +194,7 @@ O tempo de execução da atividade varia quando o conjunto de dados é baseado e
 
     - O nível de base de dados Azure SQL não é alto o suficiente.
 
-    - O uso de DTU de base de dados Azure SQL está perto de 100%. Pode [monitorizar o desempenho](https://docs.microsoft.com/azure/azure-sql/database/monitor-tune-overview) e considerar atualizar o nível de base de dados Azure SQL.
+    - O uso de DTU de base de dados Azure SQL está perto de 100%. Pode [monitorizar o desempenho](../azure-sql/database/monitor-tune-overview.md) e considerar atualizar o nível de base de dados Azure SQL.
 
     - Os índices não estão definidos corretamente. Remova todos os índices antes da carga dos dados e recrie-os após a conclusão da carga.
 
@@ -202,7 +202,6 @@ O tempo de execução da atividade varia quando o conjunto de dados é baseado e
 
     - Em vez de inserção a granel, o procedimento armazenado está a ser utilizado, o que se espera que tenha um desempenho pior. 
 
-- **Resolução**: Consulte o [desempenho da atividade da cópia de resolução de problemas](https://docs.microsoft.com/azure/data-factory/copy-activity-performance-troubleshooting).
 
 ### <a name="timeout-or-slow-performance-when-parsing-large-excel-file"></a>Tempo limite ou desempenho lento ao analisar grande ficheiro Excel
 
@@ -238,7 +237,7 @@ Aqui está a monitorização de desempenho e afinação de referências para alg
 * SQL Server: [Monitor e sintonizar para o desempenho](/sql/relational-databases/performance/monitor-and-tune-for-performance).
 * Servidor de ficheiros no local: [Ajuste de desempenho para servidores de ficheiros](/previous-versions//dn567661(v=vs.85)).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte os outros artigos de atividade de cópia:
 
 - [Visão geral da atividade da cópia](copy-activity-overview.md)

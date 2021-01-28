@@ -1,18 +1,16 @@
 ---
 title: Etiquetas de serviço do grupo de segurança de rede (NSG) para Azure HDInsight
 description: Utilize tags de serviço HDInsight para permitir o tráfego de entrada para o seu cluster a partir de nós de serviços de saúde e gestão, sem adicionar endereços IP aos seus NSGs.
-author: hrasheed-msft
-ms.author: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
-ms.openlocfilehash: 1a90bc6636dcb3aa81f09b0489850c1a95b3256d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d17d067b88add3006bc5c7fb10caa6b80a80a827
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022756"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931758"
 ---
 # <a name="nsg-service-tags-for-azure-hdinsight"></a>Etiquetas de serviço NSG para Azure HDInsight
 
@@ -59,7 +57,7 @@ Se o seu cluster estiver localizado numa região listada nesta tabela, só preci
 | Country | Region | Etiqueta de serviço |
 | ---- | ---- | ---- |
 | Austrália | Leste da Austrália | HDInsight.AustraliaEast |
-| &nbsp; | Sudeste da Austrália | HDInsight.AustraliaSoutheast |
+| &nbsp; | Austrália Sudeste | HDInsight.AustraliaSoutheast |
 | &nbsp; | Austrália Central | HDInsight.AustraliaCentral |
 | China | China Leste 2 | HDInsight.ChinaEast2 |
 | &nbsp; | China Norte 2 | HDInsight.ChinaNorth2 |
@@ -123,7 +121,7 @@ Os agrupamentos nas regiões do *Gov Iowa dos EUA* e do Governo dos *EUA, a Virg
 
 Os aglomerados nas regiões da *Alemanha Central* e Alemanha *O Nordeste* tem de permitir duas etiquetas de serviço: `HDInsight.GermanyCentral` e `HDInsight.GermanyNortheast` .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Grupos de segurança da rede: tags de serviço](../virtual-network/network-security-groups-overview.md#security-rules)
 - [Criar redes virtuais para clusters Azure HDInsight](hdinsight-create-virtual-network.md)

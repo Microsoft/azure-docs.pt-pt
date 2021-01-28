@@ -1,19 +1,16 @@
 ---
 title: Configure restrição de tráfego de rede de saída - Azure HDInsight
 description: Saiba como configurar a restrição de tráfego de rede de saída para clusters Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/17/2020
-ms.openlocfilehash: 4c703fc1ddac4af2e3cf8716764a21da7e870b19
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 79e3349f009f71c5cd387a7c7265ad4904f2a40d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98048679"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932131"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Configure o tráfego de rede de saída para clusters Azure HDInsight usando firewall
 
@@ -69,13 +66,13 @@ Crie uma coleção de regras de aplicação que permita ao cluster enviar e rece
 
     **Secção de tags FQDN**
 
-    | Nome | Endereço de origem | Tag FQDN | Notas |
+    | Name | Endereço de origem | Tag FQDN | Notas |
     | --- | --- | --- | --- |
     | Rule_1 | * | WindowsUpdate e HDInsight | Obrigatório para os serviços de HDI |
 
     **Seção FQDNs alvo**
 
-    | Nome | Endereços de origem | Protocolo:Porta | Alvo FQDNS | Notas |
+    | Name | Endereços de origem | Protocolo:Porta | Alvo FQDNS | Notas |
     | --- | --- | --- | --- | --- |
     | Rule_2 | * | https:443 | login.windows.net | Permite atividade de login do Windows |
     | Rule_3 | * | https:443 | login.microsoftonline.com | Permite atividade de login do Windows |
@@ -103,7 +100,7 @@ Crie as regras de rede para configurar corretamente o seu cluster HDInsight.
 
     **Secção de Etiquetas de Serviço**
 
-    | Nome | Protocolo | Endereços de Origem | Etiquetas de Serviço | Portos de Destino | Notas |
+    | Name | Protocolo | Endereços de Origem | Etiquetas de Serviço | Portos de Destino | Notas |
     | --- | --- | --- | --- | --- | --- |
     | Rule_5 | TCP | * | SQL | 1433 | Se estiver a utilizar os servidores sql predefinidos fornecidos pela HDInsight, configuure uma regra de rede na secção Tags de Serviço para SQL que lhe permitirá registar e auditar o tráfego DE SQL. A menos que tenha configurado pontos de final de serviço para o SQL Server na sub-rede HDInsight, que irá contornar a firewall. Se estiver a utilizar o servidor SQL personalizado para as metástases Ambari, Oozie, Ranger e Hive, então só precisa de permitir o tráfego para os seus próprios Servidores SQL personalizados.|
     | Rule_6 | TCP | * | Azure Monitor | * | (opcional) Os clientes que pretendam utilizar a função de escala automática devem adicionar esta regra. |
@@ -178,7 +175,7 @@ Depois de ter a firewall configurada com sucesso, pode utilizar o ponto final in
 
 Para utilizar o ponto final público ( `https://CLUSTERNAME.azurehdinsight.net` ) ou ponto final ssh ( ), `CLUSTERNAME-ssh.azurehdinsight.net` certifique-se de que tem as rotas certas na tabela de rotas e regras NSG para evitar a questão do encaminhamento assimétrico [aqui](../firewall/integrate-lb.md)explicado. Especificamente neste caso, você precisa permitir o endereço IP do cliente nas regras NSG de entrada e também adicioná-lo à tabela de rota definida pelo utilizador com o próximo conjunto de lúpulo como `internet` . Se o encaminhamento não estiver corretamente configurado, verá um erro de tempo limite.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Arquitetura de rede virtual Azure HDInsight](hdinsight-virtual-network-architecture.md)
 * [Configurar aplicação virtual de rede](./network-virtual-appliance.md)

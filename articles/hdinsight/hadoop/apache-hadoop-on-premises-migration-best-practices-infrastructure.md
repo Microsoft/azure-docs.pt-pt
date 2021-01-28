@@ -1,19 +1,16 @@
 ---
 title: 'Infraestrutura: No local Apache Hadoop a Azure HDInsight'
 description: Aprenda as melhores práticas de infraestrutura para migrar nos locais dos clusters Hadoop para Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: e412b82be911f0b4ba2e5cda51495cdcd7826917
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: f66e13046a34bddfd27912e23ce51f75006fd9fa
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92542306"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932153"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Migrar para as instalações apache Hadoop clusters para Azure HDInsight - melhores práticas de infraestrutura
 
@@ -66,7 +63,7 @@ Aplicações ou componentes que estavam disponíveis em clusters no local, mas q
 |NiFi|IaaS 
 |Presto|Nó de borda iaaS ou HDInsight
 |Python 2|PaaS 
-|Python 3|PaaS 
+|Python 3|PaaS 
 |R|PaaS 
 |SAS|IaaS 
 |Vertica|IaaS (SQLDW uma alternativa em Azure)
@@ -80,7 +77,7 @@ Para mais informações, consulte o artigo [Componentes Apache Hadoop disponíve
 
 ## <a name="customize-hdinsight-clusters-using-script-actions"></a>Personalize clusters HDInsight usando ações de script
 
-O HDInsight fornece um método de configuração de cluster chamado **ação de script** . Uma ação de script é o script Bash que executa os nós num cluster HDInsight e pode ser usado para instalar componentes adicionais e alterar definições de configuração.
+O HDInsight fornece um método de configuração de cluster chamado **ação de script**. Uma ação de script é o script Bash que executa os nós num cluster HDInsight e pode ser usado para instalar componentes adicionais e alterar definições de configuração.
 
 As ações do script devem ser armazenadas num URI acessível a partir do cluster HDInsight. Podem ser utilizados durante ou após a criação do cluster e também podem ser restringidos a funcionar apenas em certos tipos de nós.
 
@@ -196,6 +193,6 @@ O HDInsight pode ser ligado à rede no local utilizando redes virtuais Azure e u
 
 Para mais informações, consulte o artigo [Connect HDInsight para a sua rede no local](../connect-on-premises-network.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Leia o artigo seguinte nesta série: [Armazenamento das melhores práticas para a migração de Azure HDInsight Hadoop](apache-hadoop-on-premises-migration-best-practices-storage.md).

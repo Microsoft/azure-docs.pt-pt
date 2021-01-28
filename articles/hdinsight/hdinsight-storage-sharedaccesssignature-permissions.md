@@ -1,19 +1,16 @@
 ---
 title: Restringir o acesso usando assinaturas de acesso compartilhado - Azure HDInsight
 description: Saiba como utilizar assinaturas de acesso partilhado para restringir o acesso hdInsight aos dados armazenados no armazenamento de Azure Blob.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020, devx-track-azurecli
 ms.date: 04/28/2020
-ms.openlocfilehash: 141db7feee987b7fffc578e19c60bd94ad56d239
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 647ac363dd81604f0a5a1d750d98a3349beb19c0
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97511642"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931724"
 ---
 # <a name="use-azure-blob-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Use Azure Blob armazenamento Assinaturas de acesso compartilhados para restringir o acesso a dados em HDInsight
 
@@ -228,7 +225,7 @@ Utilize uma Assinatura de Acesso Partilhado para limitar o acesso ao contentor. 
 
 ### <a name="create-a-cluster-that-uses-the-sas"></a>Criar um cluster que usa o SAS
 
-`CLUSTERNAME`Substitua, `RESOURCEGROUP` e pelos `DEFAULTSTORAGEACCOUNT` `STORAGECONTAINER` `STORAGEACCOUNT` `TOKEN` valores apropriados. Insira os comandos PowerShell:
+`CLUSTERNAME`Substitua, , , , , , e pelos `RESOURCEGROUP` `DEFAULTSTORAGEACCOUNT` `STORAGECONTAINER` `STORAGEACCOUNT` `TOKEN` valores apropriados. Insira os comandos PowerShell:
 
 ```powershell
 $clusterName = 'CLUSTERNAME'
@@ -433,7 +430,7 @@ Utilize os seguintes passos para verificar se só pode ler e listar itens na con
 
     Desta vez, a operação deve estar concluída com sucesso.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que aprendeu a adicionar armazenamento de acesso limitado ao seu cluster HDInsight, aprenda outras formas de trabalhar com dados no seu cluster:
 

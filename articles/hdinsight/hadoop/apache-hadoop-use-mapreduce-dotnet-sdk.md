@@ -1,19 +1,16 @@
 ---
 title: Enviar trabalhos mapReduce usando HDInsight .NET SDK - Azure
 description: Saiba como submeter os trabalhos de MapReduce ao Azure HDInsight Apache Hadoop usando HDInsight .NET SDK.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 01/15/2020
-ms.openlocfilehash: ddb14c321962c65d09be420d8da15f1e547aa282
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 8fbcb66be11c7c77a9bfaf0e6ec790622dcbbda7
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489545"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932176"
 ---
 # <a name="run-mapreduce-jobs-using-hdinsight-net-sdk"></a>Executar tarefas MapReduce com o SDK .NET do HDInsight
 
@@ -36,7 +33,7 @@ O HDInsight .NET SDK fornece bibliotecas de clientes .NET, que facilitam o traba
 
 1. Inicie o Visual Studio e crie uma aplicação de consola C#.
 
-1. Navegue para **ferramentas**  >  **nuGet package manager**package manager  >  **consola** e insira o seguinte comando:
+1. Navegue para **ferramentas**  >  **nuGet package manager** package manager  >  **consola** e insira o seguinte comando:
 
     ```   
     Install-Package Microsoft.Azure.Management.HDInsight.Job
@@ -167,7 +164,7 @@ Para voltar a gerir o trabalho, tem de alterar o nome da pasta de saída de trab
 
 Quando o trabalho termina com sucesso, a aplicação imprime o conteúdo do ficheiro de saída `part-r-00000` .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu várias formas de criar um cluster HDInsight. Para saber mais, leia os artigos seguintes:
 

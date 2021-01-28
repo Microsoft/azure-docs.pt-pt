@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 0466105ab99d191b5dd9beab1d5d5b61f4b3225e
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 68d88ef667da9f22d3e3a17f10036693fcca0c3f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98790889"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932515"
 ---
 # <a name="devops-practices-for-luis"></a>Práticas de DevOps para LUIS
 
@@ -18,7 +18,7 @@ Os engenheiros de software que estão a desenvolver uma aplicação de Compreens
 
 ## <a name="source-control-and-branch-strategies-for-luis"></a>Estratégias de controlo de fontes e de sucursais para o LUIS
 
-Um dos factores-chave de que o sucesso dos DevOps depende é do [controlo de fontes.](/azure/devops/user-guide/source-control?view=azure-devops) Um sistema de controlo de fontes permite que os desenvolvedores colaborem no código e rastreiem as alterações. O uso de sucursais permite que os desenvolvedores alterem entre diferentes versões da base de código, e trabalhem independentemente de outros membros da equipa. Quando os desenvolvedores levantam um pedido de [puxar](https://help.github.com/github/collaborating-with-issues-and-pull-requests/about-pull-requests) (PR) para propor atualizações de um ramo para outro, ou quando as alterações são fundidas, estas podem ser o gatilho para [construções automatizadas](luis-concept-devops-automation.md) para construir e testar continuamente código.
+Um dos factores-chave de que o sucesso dos DevOps depende é do [controlo de fontes.](/azure/devops/user-guide/source-control) Um sistema de controlo de fontes permite que os desenvolvedores colaborem no código e rastreiem as alterações. O uso de sucursais permite que os desenvolvedores alterem entre diferentes versões da base de código, e trabalhem independentemente de outros membros da equipa. Quando os desenvolvedores levantam um pedido de [puxar](https://help.github.com/github/collaborating-with-issues-and-pull-requests/about-pull-requests) (PR) para propor atualizações de um ramo para outro, ou quando as alterações são fundidas, estas podem ser o gatilho para [construções automatizadas](luis-concept-devops-automation.md) para construir e testar continuamente código.
 
 Ao utilizar os conceitos e orientações descritos neste documento, pode desenvolver uma aplicação LUIS enquanto rastreia alterações num sistema de controlo de fontes e siga estas melhores práticas de engenharia de software:
 
@@ -42,7 +42,7 @@ Ao utilizar os conceitos e orientações descritos neste documento, pode desenvo
 
 ## <a name="source-control"></a>Controlo de código fonte
 
-Para manter a [definição](./app-schema-definition.md) de esquema de aplicação de uma aplicação LUIS num sistema de gestão de código fonte, utilize o [formato LUDown ( `.lu` )](/azure/bot-service/file-format/bot-builder-lu-file-format?view=azure-bot-service-4.0)  representação da aplicação. `.lu` o formato é preferido para `.json` o formato porque é legível pelo homem, o que facilita a revisão e a revisão de alterações nos PRs.
+Para manter a [definição](./app-schema-definition.md) de esquema de aplicação de uma aplicação LUIS num sistema de gestão de código fonte, utilize o [formato LUDown ( `.lu` )](/azure/bot-service/file-format/bot-builder-lu-file-format)  representação da aplicação. `.lu` o formato é preferido para `.json` o formato porque é legível pelo homem, o que facilita a revisão e a revisão de alterações nos PRs.
 
 ### <a name="save-a-luis-app-using-the-ludown-format"></a>Guarde uma aplicação LUIS utilizando o formato LUDown
 
@@ -81,7 +81,7 @@ Não inclua chaves de subscrição ou valores confidenciais semelhantes em fiche
 - Chaves de autoria e previsão da LUIS
 - Pontos finais de autoria e previsão da LUIS
 - Chaves de assinatura Azure
-- Fichas de acesso, como o símbolo de um [diretor de serviço](/cli/azure/ad/sp?view=azure-cli-latest) Azure usado para autenticação automação
+- Fichas de acesso, como o símbolo de um [diretor de serviço](/cli/azure/ad/sp) Azure usado para autenticação automação
 
 #### <a name="strategies-for-securely-managing-secrets"></a>Estratégias para gerir segredos de forma segura
 
@@ -183,7 +183,7 @@ Uma aplicação LUIS em formato LUDown é legível para o homem, que suporta a c
 
 ## <a name="versioning"></a>Controlo de versões
 
-Uma aplicação consiste em vários componentes que podem incluir coisas como um bot em execução no [Azure Bot Service](/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0), [QnA Maker,](https://www.qnamaker.ai/) [Azure Speech service](../speech-service/overview.md), e muito mais. Para atingir o objetivo de aplicações pouco acopladas, utilize o controlo de [versão](/azure/devops/learn/git/what-is-version-control) para que cada componente de uma aplicação seja versão independente, permitindo que os desenvolvedores detetem alterações ou atualizações de rutura apenas olhando para o número da versão. É mais fácil ver a sua app LUIS independentemente de outros componentes se a mantiver no seu próprio repo.
+Uma aplicação consiste em vários componentes que podem incluir coisas como um bot em execução no [Azure Bot Service](/azure/bot-service/bot-service-overview-introduction), [QnA Maker,](https://www.qnamaker.ai/) [Azure Speech service](../speech-service/overview.md), e muito mais. Para atingir o objetivo de aplicações pouco acopladas, utilize o controlo de [versão](/azure/devops/learn/git/what-is-version-control) para que cada componente de uma aplicação seja versão independente, permitindo que os desenvolvedores detetem alterações ou atualizações de rutura apenas olhando para o número da versão. É mais fácil ver a sua app LUIS independentemente de outros componentes se a mantiver no seu próprio repo.
 
 A aplicação LUIS para o ramo principal deve ter um esquema de versão aplicada. Quando fundir atualizações para `.lu` uma aplicação LUIS em principal, irá então importar essa fonte atualizada para uma nova versão na app LUIS para o ramo principal.
 

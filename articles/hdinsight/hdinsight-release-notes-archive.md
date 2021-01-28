@@ -1,19 +1,16 @@
 ---
 title: Notas de versão arquivadas do Azure HDInsight
 description: Notas de lançamento arquivadas para Azure HDInsight. Obtenha dicas de desenvolvimento e detalhes para Hadoop, Spark, R Server, Hive e muito mais.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 10/07/2020
-ms.openlocfilehash: d5103cbbeb5a8ab12f9ce497ee4ed227ca180728
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 8e6f27c378a6cea8fffbdcda58c4fc3bb865e51e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350301"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932162"
 ---
 # <a name="archived-release-notes"></a>Notas de versão arquivadas
 
@@ -470,7 +467,7 @@ Os VMs da série A podem causar problemas de cluster ESP devido à capacidade re
 O HDInsight continua a fazer melhorias na fiabilidade do cluster e no desempenho. 
 
 ### <a name="component-version-change"></a>Alteração da versão do componente
-Não existe qualquer alteração na versão componente para esta versão. Pode encontrar aqui as versões componentes atuais para HDInsight 4.0 e HDInsight 3.6 [here](./hdinsight-component-versioning.md).
+Não existe qualquer alteração na versão componente para esta versão. Pode encontrar aqui as versões componentes atuais para HDInsight 4.0 e HDInsight 3.6 [](./hdinsight-component-versioning.md).
 
 
 ## <a name="release-date-08072019"></a>Data de Lançamento: 08/07/2019
@@ -668,7 +665,7 @@ Esta versão fornece Hadoop Common 2.7.3 e as seguintes manchas Apache:
 
 -   [HADOOP-15265](https://issues.apache.org/jira/browse/HADOOP-15265): exclua o json-smart explicitamente do hadoop-auth pom.xml.
 
--   [HDFS-7922](https://issues.apache.org/jira/browse/HDFS-7922): O fecho do ShortCircuitCache \# não está a libertar Os Executivos DeExecutores DeExecutores DeExecutores DeExecutores DeExecutores DeExequim.
+-   [HDFS-7922](https://issues.apache.org/jira/browse/HDFS-7922): O fecho do ShortCircuitCache \# não está a libertar Os Executivos DeExecutores DeExequim.
 
 -   [HDFS-8496](https://issues.apache.org/jira/browse/HDFS-8496): Chamada stopWriter() com o bloqueio FSDatasetImpl pode bloquear outros fios (cmccabe).
 
@@ -1861,11 +1858,11 @@ As questões fixas representam problemas selecionados que foram previamente regi
 
 |**Componente Apache**|**Apache JIRA**|**Resumo**|**Detalhes**|
 |--|--|--|--|
-|**Faísca 2.3** |**N/D** |**Alterações como documentado nas notas de lançamento do Apache Spark** |- Há um documento de "depreciação" e um guia de "Mudança de Comportamento", https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations<br /><br />- Para a parte SQL, há outro guia detalhado "Migração" (de 2,2 a 2,3), https://spark.apache.org/docs/latest/sql-programming-guide.html#upgrading-from-spark-sql-22-to-23|
+|**Faísca 2.3** |**N/A** |**Alterações como documentado nas notas de lançamento do Apache Spark** |- Há um documento de "depreciação" e um guia de "Mudança de Comportamento", https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations<br /><br />- Para a parte SQL, há outro guia detalhado "Migração" (de 2,2 a 2,3), https://spark.apache.org/docs/latest/sql-programming-guide.html#upgrading-from-spark-sql-22-to-23|
 |Spark |[**HIVE-12505**](https://issues.apache.org/jira/browse/HIVE-12505) |O trabalho de faísca completa com sucesso, mas há um erro completo da quota de disco HDFS |**Cenário:** O **encaixe de execução substitui** quando uma quota é definida na pasta lixo do utilizador que dirige o comando.<br /><br />**Comportamento anterior:** O trabalho tem sucesso mesmo que não consiga mover os dados para o Lixo. O resultado pode conter erradamente alguns dos dados anteriormente presentes na tabela.<br /><br />**Novo Comportamento:** Quando a mudança para a pasta Lixo falha, os ficheiros são permanentemente eliminados.|
-|**Kafka 1.0**|**N/D**|**Alterações como documentado nas notas de lançamento do Apache Spark** |https://kafka.apache.org/10/documentation.html#upgrade_100_notable|
+|**Kafka 1.0**|**N/A**|**Alterações como documentado nas notas de lançamento do Apache Spark** |https://kafka.apache.org/10/documentation.html#upgrade_100_notable|
 |**Colmeia/ Ranger** | |Políticas adicionais de colmeias de rangers necessárias para inserir OVERWRITE |**Cenário:** Políticas adicionais de colmeias de rangers necessárias para **inserir OVERWRITE**<br /><br />**Comportamento anterior:** As consultas de SUBSTITUIÇÃO DE HIVE **INWRITE** têm sucesso, como de costume.<br /><br />**Novo comportamento:** As consultas **de HIVE INSERT OVERWRITE** estão a falhar inesperadamente após a atualização para HDP-2.6.x com o erro:<br /><br />Erro ao compilar declaração: FAILed: HiveAccessControlException Permissão negada: jdoe utilizador não tem privilégio WRITE em /tmp/ \* (estado=42000,código=40000)<br /><br />A partir de HDP-2.6.0, as consultas **de HIVE INSERT OVERWRITE** requerem uma política Ranger URI para permitir operações de escrita, mesmo que o utilizador tenha privilégios de escrita concedidos através da política HDFS.<br /><br />**Solução alternativa/esperada ação do cliente:**<br /><br />1. Criar uma nova política no âmbito do repositório da Colmeia.<br />2. No dropdown onde vê a Base de Dados, selecione URI.<br />3. Atualizar o caminho (Exemplo: /tmp/*)<br />4. Adicione os utilizadores e agrupe e guarde.<br />5. Volte a tentar a consulta de inserção.|
-|**HDFS**|**N/D** |HDFS deve suportar vários KMS Uris |**Comportamento anterior:** dfs.encryption.key.provider.uri property foi usado para configurar o caminho do fornecedor KMS.<br /><br />**Novo Comportamento:** dfs.encryption.key.provider.uri é agora depreciado a favor de hadoop.security.key.provider.path para configurar o caminho do fornecedor KMS.|
+|**HDFS**|**N/A** |HDFS deve suportar vários KMS Uris |**Comportamento anterior:** dfs.encryption.key.provider.uri property foi usado para configurar o caminho do fornecedor KMS.<br /><br />**Novo Comportamento:** dfs.encryption.key.provider.uri é agora depreciado a favor de hadoop.security.key.provider.path para configurar o caminho do fornecedor KMS.|
 |**Zeppelin**|[**ZEPPELIN-3271**](https://issues.apache.org/jira/browse/ZEPPELIN-3271)|Opção para desativar o programador |**Componente afetado:** Zeppelin-Server<br /><br />**Comportamento anterior:** Em lançamentos anteriores de Zeppelin, não havia opção para desativar o programador.<br /><br />**Novo Comportamento:** Por predefinição, os utilizadores deixarão de ver o programador, uma vez que este é desativado por padrão.<br /><br />**Solução alternativa/esperada ação do cliente:** Se quiser ativar o agendador, terá de adicionar azeppelin.notebook.cron.enable com valor de verdade no site de zeppelin personalizado nas definições de Zeppelin a partir de Ambari.|
 
 ### <a name="known-issues"></a>Problemas conhecidos
@@ -1997,7 +1994,7 @@ As questões fixas representam problemas selecionados que foram previamente regi
 
     -   <https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations>
 
-### <a name="upgrading"></a>Modernização
+### <a name="upgrading"></a>Atualizar
 
 Todas estas funcionalidades estão disponíveis no HDInsight 3.6. Para obter a versão mais recente de Spark, Kafka e R Server (Machine Learning Services), escolha a versão Spark, Kafka, ML Services quando [criar um cluster HDInsight 3.6](./hdinsight-hadoop-provision-linux-clusters.md). Para obter suporte para ADLS, pode escolher o tipo de armazenamento ADLS como opção. Os clusters existentes não serão atualizados automaticamente para estas versões.
 

@@ -3,17 +3,16 @@ title: Use fluxos de trabalho Hadoop Oozie em Azure HDInsight baseado em Linux
 description: Use Hadoop Oozie em HDInsight baseado em Linux. Aprenda a definir um fluxo de trabalho Oozie e submeta um trabalho Oozie.
 author: omidm1
 ms.author: omidm
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 7b0d3ac4775ca057856c28ab42197bb734f149d6
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 41c42009252169c141bec5d3dc2ea5c6308d6812
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534945"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931292"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Utilizar o Apache Oozie com o Apache Hadoop para definir e executar um fluxo de trabalho no Azure HDInsight baseado em Linux
 
@@ -31,11 +30,11 @@ Você também pode usar Oozie para agendar trabalhos específicos de um sistema,
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Um cluster Hadoop em HDInsight** . Ver [Começar com HDInsight no Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
+* **Um cluster Hadoop em HDInsight**. Ver [Começar com HDInsight no Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
-* **Um cliente SSH** . Consulte [Connect to HDInsight (Apache Hadoop) utilizando SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
+* **Um cliente SSH**. Consulte [Connect to HDInsight (Apache Hadoop) utilizando SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* **Uma Base de Dados Azure SQL** .  Consulte [a Base de Dados Azure SQL no portal Azure](../azure-sql/database/single-database-create-quickstart.md).  Este artigo utiliza uma base de dados chamada **oozietest** .
+* **Uma Base de Dados Azure SQL**.  Consulte [a Base de Dados Azure SQL no portal Azure](../azure-sql/database/single-database-create-quickstart.md).  Este artigo utiliza uma base de dados chamada **oozietest**.
 
 * O esquema URI para o armazenamento primário dos seus clusters. `wasb://` para o Azure Storage, `abfs://` para Azure Data Lake Storage Gen2 ou `adl://` para Azure Data Lake Storage Gen1. Se a transferência segura estiver ativada para o Armazenamento Azure, o URI será `wasbs://` . Consulte também, [transferência segura.](../storage/common/storage-require-secure-transfer.md)
 
@@ -64,7 +63,7 @@ O fluxo de trabalho utilizado neste documento contém duas ações. As ações s
 
 ## <a name="create-the-working-directory"></a>Criar o diretório de trabalho
 
-Oozie espera que guarde todos os recursos necessários para um trabalho no mesmo diretório. Este exemplo `wasbs:///tutorials/useoozie` utiliza. Para criar este diretório, complete os seguintes passos:
+Oozie espera que guarde todos os recursos necessários para um trabalho no mesmo diretório. Este exemplo utiliza `wasbs:///tutorials/useoozie`. Para criar este diretório, complete os seguintes passos:
 
 1. Edite o código abaixo para substituir `sshuser` pelo nome de utilizador SSH para o cluster e `CLUSTERNAME` substitua-o pelo nome do cluster.  Em seguida, introduza o código para ligar ao cluster HDInsight [utilizando SSH](hdinsight-hadoop-linux-use-ssh-unix.md).  
 
@@ -130,7 +129,7 @@ Use os seguintes passos para criar um script de linguagem de consulta de Colmeia
 
      O ficheiro de definição de fluxo de trabalho, workflow.xml neste artigo, transmite estes valores a este script HiveQL em tempo de execução.
 
-1. Para guardar o ficheiro, selecione **Ctrl+X,** introduza **Y** e, em seguida, selecione **Enter** .  
+1. Para guardar o ficheiro, selecione **Ctrl+X,** introduza **Y** e, em seguida, selecione **Enter**.  
 
 1. Utilize o seguinte comando para copiar `useooziewf.hql` `wasbs:///tutorials/useoozie/useooziewf.hql` para:
 
@@ -215,7 +214,7 @@ As definições de fluxo de trabalho Oozie são escritas na Hadoop Process Defin
 
      Note também a `<archive>mssql-jdbc-7.0.0.jre8.jar</archive>` entrada na secção Sqoop. Esta entrada instrui a Oozie a disponibilizar este arquivo para o Sqoop quando esta ação for executado.
 
-3. Para guardar o ficheiro, selecione **Ctrl+X,** introduza **Y** e, em seguida, selecione **Enter** .  
+3. Para guardar o ficheiro, selecione **Ctrl+X,** introduza **Y** e, em seguida, selecione **Enter**.  
 
 4. Utilize o seguinte comando para copiar o `workflow.xml` ficheiro `/tutorials/useoozie/workflow.xml` para:
 
@@ -382,7 +381,7 @@ A definição de trabalho descreve onde encontrar o workflow.xml. Também descre
 
 4. Após a abertura do nano editor, cole o XML editado como o conteúdo do ficheiro.
 
-5. Para guardar o ficheiro, selecione **Ctrl+X,** introduza **Y** e, em seguida, selecione **Enter** .
+5. Para guardar o ficheiro, selecione **Ctrl+X,** introduza **Y** e, em seguida, selecione **Enter**.
 
 ## <a name="submit-and-manage-the-job"></a>Submeter e gerir o trabalho
 
@@ -489,9 +488,9 @@ Para obter mais informações sobre o comando Oozie, consulte [a ferramenta de l
 
 Com a API Oozie REST, pode construir as suas próprias ferramentas que funcionam com a Oozie. As seguintes informações específicas do HDInsight sobre a utilização da API Oozie REST:
 
-* **URI** : Pode aceder à API REST a partir de fora do cluster em `https://CLUSTERNAME.azurehdinsight.net/oozie` .
+* **URI**: Pode aceder à API REST a partir de fora do cluster em `https://CLUSTERNAME.azurehdinsight.net/oozie` .
 
-* **Autenticação** : Para autenticar, utilize a conta API HTTP (administrador) e senha. Por exemplo:
+* **Autenticação**: Para autenticar, utilize a conta API HTTP (administrador) e senha. Por exemplo:
 
     ```bash
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/oozie/versions
@@ -517,11 +516,11 @@ Para aceder à UI web Oozie, complete os seguintes passos:
 
 2. Depois de criar um túnel, abra o UI web Ambari no seu navegador web usando URI `http://headnodehost:8080` .
 
-3. Do lado esquerdo da página, selecione **Oozie**  >  **Quick Links**  >  **Oozie Web UI** .
+3. Do lado esquerdo da página, selecione **Oozie**  >  **Quick Links**  >  **Oozie Web UI**.
 
     ![Apache Ambari oozie web ui passos](./media/hdinsight-use-oozie-linux-mac/hdi-oozie-web-ui-steps.png)
 
-4. O UI web Oozie não apresenta os trabalhos de fluxo de trabalho em funcionamento. Para ver todos os trabalhos de fluxo de trabalho, selecione **All Jobs** .
+4. O UI web Oozie não apresenta os trabalhos de fluxo de trabalho em funcionamento. Para ver todos os trabalhos de fluxo de trabalho, selecione **All Jobs**.
 
     ![Trabalho de fluxo de trabalho da consola web Oozie](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-jobs.png)
 
@@ -529,13 +528,13 @@ Para aceder à UI web Oozie, complete os seguintes passos:
 
     ![Informações de trabalho de HDInsight Apache Oozie](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-info.png)
 
-6. A partir do separador **Job Info,** pode ver as informações básicas do trabalho e as ações individuais dentro do trabalho. Pode utilizar os separadores na parte superior para visualizar a Definição de **Emprego,** Configuração de **Emprego,** aceder ao Registo de **Emprego,** ou ver um gráfico acíclico direcionado (DAG) do trabalho no **âmbito do Job DAG** .
+6. A partir do separador **Job Info,** pode ver as informações básicas do trabalho e as ações individuais dentro do trabalho. Pode utilizar os separadores na parte superior para visualizar a Definição de **Emprego,** Configuração de **Emprego,** aceder ao Registo de **Emprego,** ou ver um gráfico acíclico direcionado (DAG) do trabalho no **âmbito do Job DAG**.
 
-   * **Início de Trabalho** : Selecione o botão **Obter Registos** para obter todos os registos para a função, ou utilize o campo **'Filtro de pesquisa de entrada'** para filtrar os registos.
+   * **Início de Trabalho**: Selecione o botão **Obter Registos** para obter todos os registos para a função, ou utilize o campo **'Filtro de pesquisa de entrada'** para filtrar os registos.
 
        ![Diário de trabalho de HDInsight Apache Oozie](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-log.png)
 
-   * **Job DAG** : O DAG é uma visão geral gráfica dos caminhos de dados percorridos através do fluxo de trabalho.
+   * **Job DAG**: O DAG é uma visão geral gráfica dos caminhos de dados percorridos através do fluxo de trabalho.
 
        !['HDInsight Apache Oozie job dag'](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-dag.png)
 
@@ -576,7 +575,7 @@ Pode utilizar o coordenador para especificar um início, um fim e a frequência 
     > * `${coordTimezone}`: Os postos de trabalho dos coordenadores encontram-se num fuso horário fixo sem horário de verão, normalmente representado pela utilização da UTC. Este fuso horário é referido como o *fuso horário de processamento de Oozie.*
     > * `${wfPath}`: O caminho para a workflow.xml.
 
-2. Para guardar o ficheiro, selecione **Ctrl+X,** introduza **Y** e, em seguida, selecione **Enter** .
+2. Para guardar o ficheiro, selecione **Ctrl+X,** introduza **Y** e, em seguida, selecione **Enter**.
 
 3. Para copiar o ficheiro para o diretório de trabalho para este trabalho, utilize o seguinte comando:
 
@@ -631,7 +630,7 @@ Pode utilizar o coordenador para especificar um início, um fim e a frequência 
 
        Estes valores definem a hora de início para as 12:00 horas de 10 de maio de 2018 e o fim para 12 de maio de 2018. O intervalo para executar este trabalho está definido para diariamente. A frequência é em minutos, então 24 horas x 60 minutos = 1440 minutos. Finalmente, o fuso horário está definido para UTC.
 
-5. Para guardar o ficheiro, selecione **Ctrl+X,** introduza **Y** e, em seguida, selecione **Enter** .
+5. Para guardar o ficheiro, selecione **Ctrl+X,** introduza **Y** e, em seguida, selecione **Enter**.
 
 6. Para submeter e iniciar o trabalho, utilize o seguinte comando:
 
@@ -654,7 +653,7 @@ Pode utilizar o coordenador para especificar um início, um fim e a frequência 
 
     ![Separador de informações de trabalho de consola web OOzie](./media/hdinsight-use-oozie-linux-mac/coordinator-action-job.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu a definir um fluxo de trabalho Oozie e como gerir um trabalho oozie. Para saber mais sobre como trabalhar com a HDInsight, consulte os seguintes artigos:
 

@@ -3,16 +3,13 @@ title: Erro do intérprete Apache Hive Zeppelin - Azure HDInsight
 description: O Intérprete Da Colmeia Apache Zeppelin JDBC está apontando para o URL errado em Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.date: 07/30/2019
-ms.openlocfilehash: 8e66db96f895d0d29d6c5018478e98c1f39e62ad
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 2d6e660459d9f350cc5c63fb8d312bcbcb300a64
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288703"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98930744"
 ---
 # <a name="scenario-apache-hive-zeppelin-interpreter-gives-a-zookeeper-error-in-azure-hdinsight"></a>Cenário: Intérprete de Hive Zeppelin Apache dá um erro de Zookeeper em Azure HDInsight
 
@@ -40,6 +37,6 @@ O Intérprete Zeppelin Hive JDBC está a apontar para a URL errada.
 
 1. Salve, em seguida, re-tentar a consulta
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]

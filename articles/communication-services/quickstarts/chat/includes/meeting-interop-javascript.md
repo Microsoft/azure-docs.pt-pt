@@ -5,12 +5,12 @@ ms.author: askaur
 ms.date: 12/08/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 0c41771af81989ff965098a762338216db54fd27
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 780ef2bbb7851d8bef5fc52a51421a7938043ecb
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97578146"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932315"
 ---
 ## <a name="join-the-meeting-chat"></a>Junte-se ao chat da reunião 
 
@@ -21,7 +21,7 @@ Uma vez ativada a interoperabilidade das Equipas, um utilizador dos Serviços de
 Primeiro, instantâneo a `ChatThreadClient` para o fio de conversação da reunião. Analise o link de reunião ou use as APIs do gráfico com o ID da reunião para obter o ID do fio. 
 
 - Um link de encontro de equipas é o seguinte: `https://teams.microsoft.com/l/meetup-join/meeting_chat_thread_id/1606337455313?context=some_context_here` . O ID do fio será onde `meeting_chat_thread_id` está nesse link. 
-- Se tiver o ID da reunião, pode utilizar [a API do Gráfico](https://docs.microsoft.com/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta) para obter o ID do fio. A resposta [get API](https://docs.microsoft.com/graph/api/onlinemeeting-get?view=graph-rest-beta&tabs=http%22%20%5C) terá um `chatInfo` objeto que contém o `threadID` . 
+- Se tiver o ID da reunião, pode utilizar [a API do Gráfico](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta) para obter o ID do fio. A resposta [get API](/graph/api/onlinemeeting-get?tabs=http%22+%5c&view=graph-rest-beta) terá um `chatInfo` objeto que contém o `threadID` . 
 
 Assim que tiver o ID do fio de chat, pode obter cliente de linha de chat usando a biblioteca do cliente de chat JavaScript: 
 
@@ -44,4 +44,3 @@ Para obter mais informações sobre os tipos de mensagens, consulte [aqui.](../.
 
 **Nota** - Atualmente apenas o envio e receção de mensagens é suportado para cenários de interoperabilidade com equipas. Outras funcionalidades, como indicadores de dactilografia e serviços de comunicação que adicionam ou retiram outros utilizadores da reunião das Equipas ainda não são suportadas.  
 
- 

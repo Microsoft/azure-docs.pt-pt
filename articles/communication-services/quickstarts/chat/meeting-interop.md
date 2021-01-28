@@ -7,12 +7,12 @@ ms.author: askaur
 ms.date: 12/08/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 1ad6b7241c7167c6da8952e7db2797fa275b7246
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 59e259df5d9e564e11dbebd416569727c3857632
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251939"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932310"
 ---
 # <a name="quickstart-join-your-chat-app-to-a-teams-meeting"></a>Quickstart: Junte-se à sua app de chat para uma reunião de Equipas
 
@@ -22,7 +22,7 @@ Inicie-se com os Serviços de Comunicação Azure ligando a sua solução de cha
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
-1. Uma [colocação de equipas.](https://docs.microsoft.com/deployoffice/teams-install) 
+1. Uma [colocação de equipas.](/deployoffice/teams-install) 
 2. Uma [aplicação](./get-started.md)de chat de trabalho. 
 
 ## <a name="enable-teams-interoperability"></a>Ativar a interoperabilidade das equipas 
@@ -33,7 +33,7 @@ Deve ser membro da organização proprietária de ambas as entidades para utiliz
 
 [!INCLUDE [Join Teams meetings](./includes/meeting-interop-javascript.md)]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretender limpar e remover uma assinatura de Serviços de Comunicação, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados. Saiba mais sobre [a limpeza de recursos.](../create-communication-resource.md#clean-up-resources)
 

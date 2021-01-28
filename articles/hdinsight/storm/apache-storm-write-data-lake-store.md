@@ -2,18 +2,15 @@
 title: 'Tutorial: HDInsight Apache Storm to Storage - Azure/Data Lake'
 description: Tutorial - Aprenda a usar a Tempestade Apache para escrever ao armazenamento compatível com HDFS para Azure HDInsight.
 ms.service: hdinsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/24/2019
-ms.openlocfilehash: 8cdcc60e6eeec22e202d670c3fc057711bd432a6
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 4e648c57be699620e669ce7db0845dad2b876095
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545451"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932556"
 ---
 # <a name="tutorial-write-to-apache-hadoop-hdfs-from-apache-storm-on-azure-hdinsight"></a>Tutorial: Escreva para Apache Hadoop HDFS da Tempestade Apache em Azure HDInsight
 
@@ -36,7 +33,7 @@ Neste tutorial, ficará a saber como:
 
 * [Apache Maven](https://maven.apache.org/download.cgi) devidamente [instalado de](https://maven.apache.org/install.html) acordo com Apache.  Maven é um sistema de construção de projetos para projetos java.
 
-* Um cliente SSH. Para obter mais informações, consulte [Connect to HDInsight (Apache Hadoop) utilizando SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* Um cliente SSH. Para obter mais informações, veja [Ligar ao HDInsight (Apache Hadoop) através de SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 * O [esquema URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) para o armazenamento primário dos seus clusters. Isto seria `wasb://` para o Azure Storage, `abfs://` para Azure Data Lake Storage Gen2 ou `adl://` para Azure Data Lake Storage Gen1. Se a transferência segura estiver ativada para o Armazenamento Azure, o URI será `wasbs://` .  Consulte também, [transferência segura.](../../storage/common/storage-require-secure-transfer.md)
 
@@ -160,7 +157,7 @@ Para obter informações sobre a utilização deste script com o seu cluster, co
     hdfs.url: wasbs:///
     ```
 
-    Para guardar o ficheiro, utilize __ctrl + X,__ em __seguida, Y__ , e finalmente __Insira__ . Os valores deste ficheiro definem o URL de armazenamento e o nome do diretório a que os dados estão escritos.
+    Para guardar o ficheiro, utilize __ctrl + X,__ em __seguida, Y__, e finalmente __Insira__. Os valores deste ficheiro definem o URL de armazenamento e o nome do diretório a que os dados estão escritos.
 
 1. Utilize o seguinte comando para iniciar a topologia:
 
@@ -205,11 +202,11 @@ Para limpar os recursos criados por este tutorial, pode eliminar o grupo de recu
 
 Para remover o grupo de recursos através do Portal do Azure:
 
-1. No Portal do Azure, expanda o menu no lado esquerdo para abrir o menu de serviços e, em seguida, escolha __Grupos de Recursos__ , para apresentar a lista dos seus grupos de recursos.
+1. No Portal do Azure, expanda o menu no lado esquerdo para abrir o menu de serviços e, em seguida, escolha __Grupos de Recursos__, para apresentar a lista dos seus grupos de recursos.
 2. Encontre o grupo de recursos a eliminar e, em seguida, clique com o botão direito do rato em __Mais__ (...) no lado direito da lista.
 3. Selecione __Eliminar grupo de recursos__ e, em seguida, confirme.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, aprendeu a usar a Apache Storm para escrever dados para o armazenamento compatível com HDFS usado pela Apache Storm em HDInsight.
 

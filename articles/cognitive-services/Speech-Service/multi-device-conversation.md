@@ -1,7 +1,7 @@
 ---
 title: Conversação multi-dispositivo (Pré-visualização) - Serviço de Fala
 titleSuffix: Azure Cognitive Services
-description: ''
+description: A conversação multi-dispositivo torna fácil criar uma conversa de fala ou texto entre vários clientes e coordenar as mensagens que são enviadas entre eles.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: 3c2dbaf8f65208126c52617d4b89d901b3670dac
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 7b38bc390b28788003c2de757f45e8ecdfd5c89a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025179"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932413"
 ---
 # <a name="what-is-multi-device-conversation-preview"></a>O que é Conversa multi-dispositivo (Pré-visualização)?
 
@@ -37,7 +37,7 @@ Enquanto [**a Transcrição de Conversa funciona**](conversation-transcription.m
 ## <a name="key-features"></a>Principais funcionalidades
 
 - **Transcrição** em tempo real – Todos receberão uma transcrição da conversa, para que possam seguir o texto em tempo real ou guardá-lo para mais tarde.
-- **Tradução em tempo real** – Com mais de 60 [idiomas suportados](language-support.md#text-languages) para tradução de texto, os utilizadores podem traduzir a conversa para o seu(s) idiomas preferidos).
+- **Tradução em tempo real** – Com mais de 70 [idiomas suportados](language-support.md#text-languages) para tradução de texto, os utilizadores podem traduzir a conversa para o seu(s) idiomas preferidos).
 - **Transcrições legíveis** – A transcrição e a tradução são fáceis de seguir, com pontuação e quebras de frases.
 - **Entrada de voz ou texto** – Cada utilizador pode falar ou escrever no seu próprio dispositivo, dependendo das capacidades de suporte linguístico ativadas para o idioma escolhido pelo participante. Consulte o [suporte linguístico.](language-support.md#speech-to-text)
 - **Retransmissão de mensagens** - O serviço de conversação multi-dispositivo distribuirá mensagens enviadas por um cliente a todos os outros, no(s) idioma(s) à sua escolha.
@@ -58,9 +58,6 @@ A transcrição e tradução em tempo real podem ajudar a tornar as conversas ac
 ### <a name="presentations"></a>Apresentações
 
 Também pode fornecer legendas para apresentações e palestras tanto no ecrã como nos próprios dispositivos dos membros do público. Depois de o público se juntar ao código de conversação, podem ver a transcrição na sua língua preferida, no seu próprio dispositivo.
-
-> [!NOTE]
-> Para ver um exemplo, consulte o [Tradutor de Apresentação,](https://www.microsoft.com/translator/apps/presentation-translator/)um add-in PowerPoint que utiliza o serviço de conversação multi-dispositivos. Pode transferi-lo [aqui](https://download.cnet.com/s/powerpoint-add-in/).
 
 ## <a name="how-it-works"></a>Como funciona
 
