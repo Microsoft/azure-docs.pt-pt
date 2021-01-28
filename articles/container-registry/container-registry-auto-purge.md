@@ -3,18 +3,18 @@ title: Purgue etiquetas e manifestos
 description: Utilize um comando de purga para eliminar várias tags e manifestos de um registo de contentores Azure baseado na idade e num filtro de etiquetas, e agendar opcionalmente operações de purga.
 ms.topic: article
 ms.date: 01/27/2021
-ms.openlocfilehash: ab1a925092784effd07431d75e4ec1535c53ed33
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 11750965ac563d1d5b7ad5ac7b52cf996e791e56
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/28/2021
-ms.locfileid: "98927270"
+ms.locfileid: "98954043"
 ---
 # <a name="automatically-purge-images-from-an-azure-container-registry"></a>Purgar automaticamente imagens de um registo de contentores Azure
 
 Quando utiliza um registo de contentores Azure como parte de um fluxo de trabalho de desenvolvimento, o registo pode rapidamente encher-se de imagens ou outros artefactos que não são necessários após um curto período de tempo. É possível que seja melhor apagar todas as etiquetas mais antigas do que uma determinada duração ou corresponder a um filtro de nome especificado. Para eliminar rapidamente vários artefactos, este artigo introduz o `acr purge` comando que pode executar como uma tarefa ACR a pedido ou [programada.](container-registry-tasks-scheduled.md) 
 
-O `acr purge` comando é atualmente distribuído numa imagem de contentor público , `mcr.microsoft.com/acr/acr-cli:0.4` construído a partir do código fonte no repo [acr-cli](https://github.com/Azure/acr-cli) em GitHub.
+O `acr purge` comando é atualmente distribuído numa imagem de contentor público , `mcr.microsoft.com/acr/acr-cli:0.3` construído a partir do código fonte no repo [acr-cli](https://github.com/Azure/acr-cli) em GitHub.
 
 Pode utilizar o Azure Cloud Shell ou uma instalação local do CLI Azure para executar os exemplos de tarefas ACR neste artigo. Se quiser usá-lo localmente, é necessário utilizar a versão 2.0.76 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli-install]. 
 
@@ -45,7 +45,6 @@ No mínimo, especifique o seguinte quando `acr purge` correr:
 * `--untagged`- Especifica que os manifestos que não têm tags associadas *(manifestos não com marcação) são eliminados.*
 * `--dry-run` - Especifica que nenhum dado é eliminado, mas a saída é a mesma que se o comando for executado sem esta bandeira. Este parâmetro é útil para testar um comando de purga para se certificar de que não apaga inadvertidamente os dados que pretende preservar.
 * `--keep` - Especifica que o último x número de tags a eliminar é mantido.
-* `--concurrency` - Especifica que as tarefas de purga x são processadas simultaneamente. Um valor predefinido será utilizado se este parâmetro não for fornecido.
 
 Para parâmetros adicionais, corra `acr purge --help` . 
 
@@ -167,7 +166,7 @@ az acr task create --name weeklyPurgeTask \
 
 Executar o comando [de programa de tarefas az acr][az-acr-task-show] para ver se o gatilho do temporizador está configurado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre outras opções para [eliminar dados](container-registry-delete.md) de imagem no Registo do Contentor Azure.
 

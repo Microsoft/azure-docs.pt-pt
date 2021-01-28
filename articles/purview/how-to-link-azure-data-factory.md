@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/22/2020
-ms.openlocfilehash: dbd7937667a3c4d5af9f13e15cdd4ff2081241f0
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 0e993cb1e53645f7081a20fc6a2785b8cfef1cce
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98723885"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954192"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Como ligar a Azure Data Factory e a Azure Purview
 
@@ -69,12 +69,22 @@ Siga os passos abaixo para ligar as contas existentes da Data Factory ao seu Cat
 >[!Note]
 >Agora apoiamos a adição de não mais de 10 Fábricas de Dados ao mesmo tempo. Se quiser adicionar mais de 10 Fábricas de Dados de uma só vez, por favor preencha um bilhete de apoio.
 
+### <a name="how-does-the-authentication-work"></a>Como funciona a autenticação?
+
+Quando um utilizador da Purview regista uma Fábrica de Dados à qual têm acesso, o seguinte acontece no backend:
+
+1. O **MSI da Data Factory** é adicionado ao papel de Purview RBAC: **Purview Data Curator**.
+
+    :::image type="content" source="./media/how-to-link-azure-data-factory/adf-msi.png" alt-text="Screenshot mostrando Azure Data Factory MSI." lightbox="./media/how-to-link-azure-data-factory/adf-msi.png":::
+     
+2. O gasoduto Data Factory precisa de ser executado novamente para que os metadados da linhagem possam ser empurrados de volta para a Purview.
+3. Após a execução, os metadados da Data Factory são empurrados para a Purview.
 
 ### <a name="remove-data-factory-connections"></a>Remover ligações de fábrica de dados
 Para remover uma ligação à fábrica de dados, faça o seguinte:
 
 1. Na página de ligação data **factory,** selecione o botão **Remover** ao lado de uma ou mais ligações de fábrica de dados.
-1. **Selecione Confirme** no popup para eliminar as ligações de fábrica de dados selecionadas.
+2. **Selecione Confirme** no popup para eliminar as ligações de fábrica de dados selecionadas.
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png" alt-text="Screenshot mostrando como selecionar fábricas de dados para remover a ligação." lightbox="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png":::
 
@@ -99,27 +109,27 @@ A integração entre a Data Factory e a Purview suporta apenas um subconjunto do
 
 | Sistema de armazenamento de dados | Suportado como fonte | Suportado como pia |
 | ------------------- | ------------------- | ----------------- |
-| ADLS Gen1 | Sim | Sim (apenas cópia não binária) |
-| ADLS Gen2 | Sim | Sim |
-| Blob do Azure | Sim | Sim |
-| Azure Cosmos DB (SQL API) | Sim | Sim |
-| Azure Cosmos DB (Mongo API) | Sim | Sim |
-| Azure Cognitive Search | Sim | Sim |
-| Azure Data Explorer | Sim | Sim |
-| Base de Dados Azure para Maria DB \* | Sim | Sim |
-| Base de Dados Azure para MYSQL \* | Sim | Sim |
-| Base de Dados Azure para PostgreSQL \* | Sim | Sim |
-| Armazenamento de Ficheiros do Azure | Sim | Sim |
-| Armazenamento de Tabelas do Azure | Sim | Sim |
-| Base de Dados Azure SQL \* | Sim | Sim |
-| Azure SQL MI \* | Sim | Sim |
-| Azure Synapse Analytics (anteriormente SQL DW) \* | Sim | Sim |
-| SQL Server On-prem (SHIR obrigatório) \* | Sim | Sim |
-| Amazon S3 | Sim | Sim |
-| Teradata | Sim | Sim |
-| SAP s4 Hana | Sim | Sim |
-| SAP ECC | Sim | Sim |
-| Hive | Sim | Sim |
+| ADLS Gen1 | Yes | Sim (apenas cópia não binária) |
+| ADLS Gen2 | Yes | Yes |
+| Blob do Azure | Yes | Yes |
+| Azure Cosmos DB (SQL API) | Yes | Yes |
+| Azure Cosmos DB (Mongo API) | Yes | Yes |
+| Azure Cognitive Search | Yes | Yes |
+| Azure Data Explorer | Yes | Yes |
+| Base de Dados Azure para Maria DB \* | Yes | Yes |
+| Base de Dados Azure para MYSQL \* | Yes | Yes |
+| Base de Dados Azure para PostgreSQL \* | Yes | Yes |
+| Armazenamento de Ficheiros do Azure | Yes | Sim |
+| Armazenamento de Tabelas do Azure | Yes | Yes |
+| Base de Dados Azure SQL \* | Yes | Yes |
+| Azure SQL MI \* | Yes | Yes |
+| Azure Synapse Analytics (anteriormente SQL DW) \* | Yes | Yes |
+| SQL Server On-prem (SHIR obrigatório) \* | Yes | Yes |
+| Amazon S3 | Yes | Yes |
+| Teradata | Yes | Yes |
+| SAP s4 Hana | Yes | Yes |
+| SAP ECC | Yes | Yes |
+| Hive | Yes | Yes |
 
 > [!Note]
 > A funcionalidade de linhagem tem uma certa sobrecarga de desempenho na atividade de cópia da Data Factory. Para aqueles que configuram ligações de fábrica de dados em Purview, você pode observar certos trabalhos de cópia demorando mais tempo a completar. A maior parte do impacto não é insignificante. Por favor contacte o suporte com a comparação de tempo se os trabalhos de cópia demorarem significativamente mais tempo a terminar do que o habitual.
@@ -128,24 +138,24 @@ A integração entre a Data Factory e a Purview suporta apenas um subconjunto do
 
 | Sistema de armazenamento de dados | Suportado |
 | ------------------- | ------------------- | ----------------- |
-| ADLS Gen1 | Sim |
-| ADLS Gen2 | Sim |
-| Blob do Azure | Sim |
-| Base de Dados Azure SQL \* | Sim |
-| Azure Synapse Analytics (anteriormente SQL DW) \* | Sim |
+| ADLS Gen1 | Yes |
+| ADLS Gen2 | Yes |
+| Blob do Azure | Yes |
+| Base de Dados Azure SQL \* | Yes |
+| Azure Synapse Analytics (anteriormente SQL DW) \* | Yes |
 
 ### <a name="data-factory-execute-ssis-package-support"></a>Data Factory Executa suporte ao pacote SSIS
 
 | Sistema de armazenamento de dados | Suportado |
 | ------------------- | ------------------- | ----------------- |
-| Blob do Azure | Sim |
-| ADLS Gen1 | Sim |
-| ADLS Gen2 | Sim |
-| Base de Dados Azure SQL \* | Sim |
-| Azure SQL MI \*| Sim |
-| Azure Synapse Analytics (anteriormente SQL DW) \* | Sim |
-| SQL Server On-prem \* | Sim |
-| Armazenamento de Ficheiros do Azure | Sim |
+| Blob do Azure | Yes |
+| ADLS Gen1 | Yes |
+| ADLS Gen2 | Yes |
+| Base de Dados Azure SQL \* | Yes |
+| Azure SQL MI \*| Yes |
+| Azure Synapse Analytics (anteriormente SQL DW) \* | Yes |
+| SQL Server On-prem \* | Yes |
+| Armazenamento de Ficheiros do Azure | Yes |
 
 *\* Para cenários SQL (Azure e no local), o Azure Purview não suporta procedimentos ou scripts armazenados para linhagem ou digitalização. A linhagem é limitada apenas a fontes de mesa e visualização.*
 
@@ -212,7 +222,7 @@ No exemplo seguinte, um conjunto de recursos Azure Data Lake Gen2 é produzido a
 
 :::image type="content" source="./media/how-to-link-azure-data-factory/adf-resource-set-lineage.png" alt-text="Screenshot mostrando a linhagem para um conjunto de recursos." lightbox="./media/how-to-link-azure-data-factory/adf-resource-set-lineage.png":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Guia do utilizador da linhagem do catálogo](catalog-lineage-user-guide.md)
 - [Link para Azure Data Share para linhagem](how-to-link-azure-data-share.md)

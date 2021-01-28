@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 6aeded077c20e59b3f9b3863a9956596382d3a82
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 1b5dd2fb4ef8cb3f6fd169477d9ee82e912c146e
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97531855"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98956346"
 ---
 ### <a name="examine-and-edit-the-sample-files"></a>Examine e edite os ficheiros de amostra
 
@@ -53,6 +53,12 @@ Como parte dos pré-requisitos, descarregou o código de amostra para uma pasta.
     
     ![Definir cadeia de conexão do hub IoT](../../../media/quickstarts/set-iotconnection-string.png)
 
+> [!NOTE]
+> Pode ser-lhe pedido que forneça informações sobre o ponto final incorporado para o IoT Hub. Para obter essa informação, no portal Azure, navegue até ao seu Hub IoT e procure a opção **de pontos finais incorporados** no painel de navegação esquerdo. Clique lá e procure o **ponto final compatível com o Event Hub** na secção de ponto final **compatível com o Event Hub.** Copie e use o texto na caixa. O ponto final será mais ou menos assim:  
+    ```
+    Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+    ```
+
 1. Clique à direita *src/edge/config/ deployment.yolov3.amd64.js* e selecione **Criar Implementação para dispositivo único**. 
 
     ![Criar implementação para dispositivo único](../../../media/quickstarts/create-deployment-single-device.png)
@@ -62,6 +68,15 @@ Como parte dos pré-requisitos, descarregou o código de amostra para uma pasta.
 
     * O módulo Live Video Analytics, chamado **LvaEdge**
     * O **módulo rtspsim,** que simula um servidor RTSP e funciona como a fonte de um feed de vídeo ao vivo
+        > [!NOTE]
+        > Os passos acima estão assumindo que está a usar a máquina virtual criada pelo script de configuração. Se estiver a utilizar o seu próprio dispositivo de borda, vá ao seu dispositivo de borda e execute os seguintes comandos com **direitos de administração**, para puxar e armazenar o ficheiro de vídeo de amostra utilizado para este arranque rápido:  
+        
+        ```
+        mkdir /home/lvaadmin/samples
+        mkdir /home/lvaadmin/samples/input    
+        curl https://lvamedia.blob.core.windows.net/public/camera-300s.mkv > /home/lvaadmin/samples/input/camera-300s.mkv  
+        chown -R lvaadmin /home/lvaadmin/samples/  
+        ```
     * O módulo **yolov3,** que é o modelo de deteção de objetos YOLOv3 que aplica visão computacional às imagens e devolve várias classes de tipos de objetos
  
       ![Módulos que são implantados no dispositivo de borda](../../../media/quickstarts/yolov3.png)

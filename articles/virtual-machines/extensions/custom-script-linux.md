@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: mimckitt
-ms.openlocfilehash: 24d1992db5f1826045fdb47397e44dc2e2fbdaf9
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 94506c4107a157c2b3265a28ffdf5d1eedddd256
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94962166"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954771"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Utilizar a Versão 2 da Extensão de Script Personalizado do Azure com as máquinas virtuais do Linux
 A versão de extensão de scripts personalizada 2 descarrega e executa scripts em máquinas virtuais Azure. Esta extensão é útil para configuração pós-implantação, instalação de software ou qualquer outra tarefa de configuração/gestão. Você pode baixar scripts a partir de Azure Storage ou outro local de internet acessível, ou você pode fornecer-lhes para o tempo de execução da extensão. 
@@ -59,7 +59,7 @@ Se o seu script estiver num servidor local, poderá ainda necessitar de portas a
 * Não é aconselhável executar um script que irá causar uma paragem ou atualização do Agente VM. Isto pode deixar a extensão num estado de transição e levar a um tempo limite.
 * Se tiver um script que irá causar um reboot, então instale aplicações e execute scripts, etc. Você deve agendar o reboot usando um trabalho cron, ou usando ferramentas como DSC, ou Chef, extensões de marionetas.
 * A extensão só irá executar um script uma vez, se quiser executar um script em cada bota, então você pode usar [a imagem cloud-init](../linux/using-cloud-init.md) e usar um módulo [Scripts Per Boot.](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot) Em alternativa, pode utilizar o script para criar uma unidade de serviço SystemD.
-* Só é possível ter uma versão de uma extensão aplicada ao VM. Para executar um segundo script personalizado, você precisa remover a extensão de script personalizado e reaplicá-lo novamente com o script atualizado. 
+* Só é possível ter uma versão de uma extensão aplicada ao VM. Para executar um segundo script personalizado, pode atualizar a extensão existente com nova configuração. Em alternativa, pode remover a extensão do script personalizado e reaplicá-la novamente com o script atualizado.
 * Se quiser agendar quando um script será executado, deve usar a extensão para criar um trabalho cron. 
 * Quando o script estiver em execução, verá apenas um estado de extensão "em transição" no portal ou na CLI do Azure. Se quiser atualizações de estado mais frequentes de um script de execução, terá de criar a sua própria solução.
 * A extensão de Script personalizado não suporta de forma nativa servidores proxy, no entanto pode utilizar uma ferramenta de transferência de ficheiros que suporta servidores proxy dentro do seu script, como *o Curl*. 
@@ -113,7 +113,7 @@ Estes itens devem ser tratados como dados sensíveis e especificados na configur
 
 ### <a name="property-values"></a>Valores patrimoniais
 
-| Nome | Valor / Exemplo | Tipo de Dados | 
+| Name | Valor / Exemplo | Tipo de Dados | 
 | ---- | ---- | ---- |
 | apiVersion | 2019-03-01 | data |
 | publicador | Microsoft.Compute.Extensions | string |

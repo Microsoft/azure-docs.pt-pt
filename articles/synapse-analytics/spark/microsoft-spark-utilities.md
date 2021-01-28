@@ -10,12 +10,12 @@ ms.date: 09/10/2020
 ms.author: ruxu
 ms.reviewer: ''
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: 262177d8cde3a5eee2721f2af8a0511c205da9b9
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: d36086052f4e5719fd17989e3326a4b5728ee3ca
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98890534"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954298"
 ---
 # <a name="introduction-to-microsoft-spark-utilities"></a>Introdução aos Utilitários Microsoft Spark
 
@@ -39,10 +39,6 @@ Pode aceder aos dados da ADLS Gen2 com a Synapse Spark através do seguinte URL:
 
 <code>abfss://<container_name>@<storage_account_name>.dfs.core.windows.net/<path></code>
 
-<!-- ### Configure access to Azure Blob Storage  -->
-
-:::zone pivot = "programming-language-python"
-
 ### <a name="configure-access-to-azure-blob-storage"></a>Configure acesso ao armazenamento de blob Azure  
 
 Sinaapse alavanca **assinatura de acesso compartilhado (SAS)** para aceder ao Azure Blob Storage. Para evitar expor as teclas SAS no código, recomendamos a criação de um novo serviço ligado no espaço de trabalho synapse para a conta Azure Blob Storage a que pretende aceder.
@@ -62,6 +58,8 @@ Pode aceder aos dados do Azure Blob Storage com a Faísca de Sinapse através do
 <code>wasb[s]://<container_name>@<storage_account_name>.blob.core.windows.net/<path></code>
 
 Aqui está um exemplo de código:
+
+:::zone pivot = "programming-language-python"
 
 ```python
 from pyspark.sql import SparkSession
@@ -86,26 +84,6 @@ print('Remote blob path: ' + wasb_path)
 
 :::zone pivot = "programming-language-scala"
 
-### <a name="configure-access-to-azure-blob-storage"></a>Configure acesso ao armazenamento de blob Azure  
-
-Sinaapse alavanca **assinatura de acesso compartilhado (SAS)** para aceder ao Azure Blob Storage. Para evitar expor as teclas SAS no código, recomendamos a criação de um novo serviço ligado no espaço de trabalho synapse para a conta Azure Blob Storage a que pretende aceder.
-
-Siga estes passos para adicionar um novo serviço ligado para uma conta de armazenamento Azure Blob:
-
-1. Abra o [Azure Synapse Studio](https://web.azuresynapse.net/).
-2. **Selecione Gerir** a partir do painel esquerdo e selecionar **serviços Linked** sob as **ligações Externas**.
-3. Procure no **Azure Blob Storage** no novo painel **de serviço ligado** à direita.
-4. Selecione **Continuar**.
-5. Selecione a Conta de Armazenamento Azure Blob para aceder e configurar o nome de serviço ligado. Sugerir a utilização **da tecla conta** para o **método de autenticação.**
-6. Selecione **A ligação de teste** para validar as definições estão corretas.
-7. Selecione **Criar** primeiro e clique em **Publicar tudo** para guardar as suas alterações. 
-
-Pode aceder aos dados do Azure Blob Storage com a Faísca de Sinapse através do seguinte URL:
-
-<code>wasb[s]://<container_name>@<storage_account_name>.blob.core.windows.net/<path></code>
-
-Aqui está um exemplo de código:
-
 ```scala
 val blob_account_name = "" // replace with your blob name
 val blob_container_name = "" //replace with your container name
@@ -123,27 +101,6 @@ spark.conf.set(f"fs.azure.sas.$blob_container_name.$blob_account_name.blob.core.
 ::: zone-end
 
 :::zone pivot = "programming-language-csharp"
-
-
-### <a name="configure-access-to-azure-blob-storage"></a>Configure acesso ao armazenamento de blob Azure  
-
-Sinaapse alavanca **assinatura de acesso compartilhado (SAS)** para aceder ao Azure Blob Storage. Para evitar expor as teclas SAS no código, recomendamos a criação de um novo serviço ligado no espaço de trabalho synapse para a conta Azure Blob Storage a que pretende aceder.
-
-Siga estes passos para adicionar um novo serviço ligado para uma conta de armazenamento Azure Blob:
-
-1. Abra o [Azure Synapse Studio](https://web.azuresynapse.net/).
-2. **Selecione Gerir** a partir do painel esquerdo e selecionar **serviços Linked** sob as **ligações Externas**.
-3. Procure no **Azure Blob Storage** no novo painel **de serviço ligado** à direita.
-4. Selecione **Continuar**.
-5. Selecione a Conta de Armazenamento Azure Blob para aceder e configurar o nome de serviço ligado. Sugerir a utilização **da tecla conta** para o **método de autenticação.**
-6. Selecione **A ligação de teste** para validar as definições estão corretas.
-7. Selecione **Criar** primeiro e clique em **Publicar tudo** para guardar as suas alterações. 
-
-Pode aceder aos dados do Azure Blob Storage com a Faísca de Sinapse através do seguinte URL:
-
-<code>wasb[s]://<container_name>@<storage_account_name>.blob.core.windows.net/<path></code>
-
-Aqui está um exemplo de código:
 
 ```csharp
 var blob_account_name = "";  // replace with your blob name
@@ -945,7 +902,7 @@ Env.GetClusterId()
 
 ::: zone-end
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Confira os cadernos da amostra da Sinapse](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks)
 - [Quickstart: Criar uma piscina Apache Spark em Azure Synapse Analytics usando ferramentas web](../quickstart-apache-spark-notebook.md)

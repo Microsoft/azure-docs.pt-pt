@@ -1,5 +1,5 @@
 ---
-title: Visão geral do streaming ao vivo com a Azure Media Services v3
+title: Visão geral do streaming ao vivo
 description: Este artigo apresenta uma visão geral do streaming ao vivo utilizando o Azure Media Services v3.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: ad3a14cff13395f4d59ab2ed59ae1cc26eaad866
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: b552dcc0e6766316e55e9cdda6e462b2d4abfd2b
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896787"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955924"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming em direto com a Azure Media Services v3
 
@@ -131,7 +131,7 @@ Consulte o artigo [perguntas frequentes.](frequently-asked-questions.md#live-str
 
 Consulte o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Media Services.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Arranque rápido de streaming ao vivo](live-events-wirecast-quickstart.md)
 * [Tutorial de streaming ao vivo](stream-live-tutorial-with-api.md)

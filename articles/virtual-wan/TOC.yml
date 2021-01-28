@@ -41,22 +41,22 @@
       items:
         - name: Acerca do encaminhamento do hub virtual
           href: about-virtual-hub-routing.md
-        - name: Cenários de encaminhamento
-          items:
-            - name: Conectividade any-to-any
-              href: scenario-any-to-any.md
-            - name: Isolar VNets
-              href: scenario-isolate-vnets.md
-            - name: Isolar VNets - personalizado
-              href: scenario-isolate-vnets-custom.md
-            - name: VNets de Serviços Partilhados
-              href: scenario-shared-services-vnet.md
-            - name: Encaminhar através de uma NVA
-              href: scenario-route-through-nva.md
-            - name: Encaminhar através de uma NVA - personalizado
-              href: scenario-route-through-nvas-custom.md
-            - name: Azure Firewall - personalizado
-              href: scenario-route-between-vnets-firewall.md
+    - name: Cenários de encaminhamento
+      items:
+        - name: Conectividade any-to-any
+          href: scenario-any-to-any.md
+        - name: Isolar VNets
+          href: scenario-isolate-vnets.md
+        - name: Isolar VNets - personalizado
+          href: scenario-isolate-vnets-custom.md
+        - name: VNets de Serviços Partilhados
+          href: scenario-shared-services-vnet.md
+        - name: Encaminhar através de uma NVA
+          href: scenario-route-through-nva.md
+        - name: Encaminhar através de uma NVA - personalizado
+          href: scenario-route-through-nvas-custom.md
+        - name: Azure Firewall - personalizado
+          href: scenario-route-between-vnets-firewall.md
     - name: Monitorização
       items:
         - name: Acerca das Informações do Azure Monitor para a WAN Virtual

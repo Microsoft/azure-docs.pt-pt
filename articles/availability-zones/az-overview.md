@@ -1,18 +1,19 @@
 ---
 title: Regiões e Zonas de Disponibilidade em Azure
 description: Conheça as regiões e zonas de disponibilidade em Azure para atender aos seus requisitos técnicos e regulamentares.
-author: cynthn
+author: prsandhu
 ms.service: azure
-ms.topic: article
-ms.date: 08/27/2020
-ms.author: cynthn
+ms.topic: conceptual
+ms.date: 01/26/2021
+ms.author: prsandhu
+ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: b19f5c3ae0666a0b0e9b0255f848f5924d9d3910
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: dae5319e6c8b87d6a9eef98875ad7e8da623e65c
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98874744"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955805"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Regiões e Zonas de Disponibilidade em Azure
 
@@ -22,7 +23,7 @@ Os serviços microsoft Azure estão disponíveis globalmente para conduzir as su
 
 Para melhor entender as regiões e as Zonas de Disponibilidade em Azure, ajuda a compreender termos ou conceitos chave.
 
-| Termo ou conceito | Descrição |
+| Termo ou conceito | Description |
 | --- | --- |
 | region | Um conjunto de datacenters implantados dentro de um perímetro definido pela latência e ligados através de uma rede regional dedicada de baixa latência. |
 | geografia | Uma área do mundo contendo pelo menos uma região de Azure. As geografias definem um mercado discreto que preserva os limites de residência de dados e conformidade. As localizações geográficas permitem que os clientes com uma residência de dados e necessidades de conformidade específicas mantenham os respetivos dados e aplicações próximos. As geografias são tolerantes a falhas para resistir ao fracasso total da região através da sua ligação à nossa dedicada infraestrutura de rede de alta capacidade. |
@@ -155,7 +156,7 @@ Como mencionado anteriormente, a Azure classifica os serviços em três categori
 > |                                       | WAN Virtual                                       |                                                      |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Regiões que suportam Zonas de Disponibilidade em Azure](az-region.md)
 - [Modelos de início rápido](https://aka.ms/azqs)

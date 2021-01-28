@@ -96,6 +96,8 @@
           href: ./cicd/continuous-integration-deployment.md
         - name: Segurança
           items:
+            - name: Controlos de Segurança por Política Azure
+              href: ./security-controls-policy.md
             - name: Encriptação
               href: ./security/workspaces-encryption.md
             - name: Segurança de Rede
@@ -392,7 +394,7 @@
                   displayname: 'transparent, data, encryption'
         - name: Gestão de cargas de trabalho
           items:
-            - name: Descrição Geral
+            - name: Descrição geral
               href: ./sql-data-warehouse/sql-data-warehouse-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
               displayname: 'workload, management'
             - name: Classificação da carga de trabalho

@@ -8,12 +8,12 @@ ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 61b396cbcc8c91c75c961f702de7ed6a33e676e4
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 5e0c2541c398f2e135b8763cc753ec8c20c3967d
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/28/2021
-ms.locfileid: "98947015"
+ms.locfileid: "98953755"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Configurar uma instância e autenticação Azure Digital Twins (portal)
 
@@ -56,8 +56,8 @@ Se quiser configurar mais detalhes para o seu exemplo, a secção seguinte descr
 
 Aqui estão as opções adicionais que pode configurar durante a configuração, utilizando os outros separadores no processo **Criar Recursos.**
 
-* **Networking**: Neste separador, pode permitir que pontos finais privados com [Azure Private Link](../private-link/private-link-overview.md) eliminem a exposição da rede pública ao seu caso. Para obter instruções, consulte [*Como fazer: Ative o acesso privado com o Link Privado*](how-to-enable-private-link.md#add-a-private-endpoint-during-instance-creation).
-* **Avançado**: Neste separador, pode ativar uma [identidade gerida pelo sistema,](../active-directory/managed-identities-azure-resources/overview.md) para o seu exemplo, que pode ser utilizada ao encaminhar eventos para [pontos finais](concepts-route-events.md). Para obter instruções, consulte [*Como fazer: Ative as identidades geridas para eventos de encaminhamento*](how-to-enable-managed-identities.md).
+* **Networking**: Neste separador, pode permitir que pontos finais privados com [Azure Private Link](../private-link/private-link-overview.md) eliminem a exposição da rede pública ao seu caso. Para obter instruções, consulte [*Como fazer: Ative o acesso privado com o Link Privado (pré-visualização)*](how-to-enable-private-link.md#add-a-private-endpoint-during-instance-creation).
+* **Avançado**: Neste separador, pode ativar uma [identidade gerida pelo sistema,](../active-directory/managed-identities-azure-resources/overview.md) para o seu exemplo, que pode ser utilizada ao encaminhar eventos para [pontos finais](concepts-route-events.md). Para obter instruções, consulte [*Como fazer: Ative as identidades geridas para eventos de encaminhamento (pré-visualização)*](how-to-enable-managed-identities.md#add-a-system-managed-identity-during-instance-creation).
 * **Tags**: Neste separador, pode adicionar tags ao seu caso para ajudá-lo a organizá-lo entre os seus recursos Azure. Para obter mais informações sobre as etiquetas de recursos da Azure, consulte [*os recursos tag, grupos de recursos e subscrições para organização lógica.*](../azure-resource-manager/management/tag-resources.md)
 
 ### <a name="verify-success-and-collect-important-values"></a>Verifique o sucesso e colete valores importantes
@@ -108,7 +108,7 @@ Pode ver a atribuição de funções que estabeleceu no controlo de *acesso (IAM
 
 Tem agora uma instância Azure Digital Twins pronta a ser executada, e atribuiu permissões para geri-lo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Teste as chamadas individuais da API REST no seu caso utilizando os comandos CLI dos Gémeos Digitais Azure: 
 * [az dt referência](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest)

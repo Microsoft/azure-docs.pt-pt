@@ -1,5 +1,5 @@
 ---
-title: Faixas de áudio descritivas de sinal com Azure Media Services v3
+title: Faixas de áudio descritivas de sinal com Media Services v3
 description: Siga os passos deste tutorial para fazer o upload de um ficheiro, codificar o vídeo, adicionar faixas de áudio descritivas e transmitir o seu conteúdo com o Media Services v3.
 services: media-services
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 155e79f8d42988d8498c52c0f930bc03bc599cf0
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 3d029f23a094646d20dd6ae8cb6560aeef4aed54
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98898227"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954517"
 ---
 # <a name="signal-descriptive-audio-tracks"></a>Faixas de áudio descritivas de sinal
 
@@ -243,6 +243,6 @@ Para testar a transmissão, este artigo utiliza o Leitor de Multimédia do Azure
 
 O Leitor de Multimédia do Azure pode ser utilizado para fins de teste, mas não deve ser utilizado num ambiente de produção. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Analisar vídeos](analyze-videos-tutorial-with-api.md)

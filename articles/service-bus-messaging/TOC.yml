@@ -210,14 +210,20 @@
               href: service-bus-auto-forwarding.md
             - name: Processamento de transações
               href: service-bus-transactions.md
-        - name: Rastreio e diagnóstico de ponto a ponto
-          href: service-bus-end-to-end-tracing.md
         - name: Criar uma aplicação do Service Bus de multicamadas
           href: service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
     - name: Migrar
       items:
         - name: Migrar do ActiveMQ para o Azure Service Bus
           href: migrate-jms-activemq-to-servicebus.md
+    - name: Monitor
+      items:
+        - name: Rastreio e diagnóstico de ponto a ponto
+          href: service-bus-end-to-end-tracing.md
+        - name: Registos de diagnósticos
+          href: service-bus-diagnostic-logs.md
+        - name: Métricas do Monitor Azure
+          href: service-bus-metrics-azure-monitor.md
     - name: Integrar
       items:
         - name: Integrar no RabbitMQ
@@ -228,12 +234,8 @@
           href: automate-update-messaging-units.md
         - name: Utilizar o Azure PowerShell para aprovisionar entidades
           href: service-bus-manage-with-ps.md
-        - name: Monitorizar o Service Bus com o Azure Monitor
-          href: service-bus-metrics-azure-monitor.md
         - name: Bibliotecas de gestão do Service Bus
           href: service-bus-management-libraries.md
-        - name: Registos do recurso
-          href: service-bus-diagnostic-logs.md
         - name: Suspender e reativar as entidades de mensagens
           href: entity-suspend.md
         - name: Utilizar o Service Bus Explorer para realizar operações de dados no Service Bus

@@ -1,5 +1,5 @@
 ---
-title: Gerem miniaturas utilizando o Media Services Encoder Standard com .NET
+title: Gerem miniaturas utilizando o Media Encoder Standard .NET
 description: Este artigo mostra como usar .NET para codificar um ativo e gerar miniaturas ao mesmo tempo usando o Media Encoder Standard.
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 12/01/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fe051ceec43ec919ddf92a4d7f7e4bfab0b351f5
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 551574685ec9a2f9eb1ef569fbec7c9a104353ff
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/28/2021
-ms.locfileid: "98938762"
+ms.locfileid: "98955873"
 ---
 # <a name="how-to-generate-thumbnails-using-encoder-standard-with-net"></a>Como gerar miniaturas usando o Encoder Standard com .NET
 
@@ -95,5 +95,5 @@ private static Transform EnsureTransformExists(IAzureMediaServicesClient client,
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Gerenas de miniaturas usando REST](media-services-generate-thumbnails-rest.md)

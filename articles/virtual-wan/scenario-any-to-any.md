@@ -6,19 +6,19 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 01/27/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 09dddad24794491b53a11f7b0e4347f43f11598b
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: a866c21e067293481a52dd563873892de8b5444c
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92440489"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955280"
 ---
 # <a name="scenario-any-to-any"></a>Cenário: Qualquer-para-qualquer
 
-Ao trabalhar com o encaminhamento virtual do hub virtual WAN, existem alguns cenários disponíveis. Em qualquer cenário, qualquer fala pode chegar a outro falado. Quando existem vários hubs, o encaminhamento hub-to-hub (também conhecido como inter-hub) é ativado por padrão em NORMAL VIRTUAL WAN. Para obter mais informações sobre o encaminhamento de hubs virtuais, consulte [sobre o encaminhamento do hub virtual](about-virtual-hub-routing.md).
+Ao trabalhar com o encaminhamento virtual do hub virtual WAN, existem alguns cenários disponíveis. Em qualquer cenário, qualquer fala pode chegar a outro falado. Quando existem vários hubs, o encaminhamento hub-to-hub (também conhecido como inter-hub) é ativado por padrão em NORMAL VIRTUAL WAN. Pode criar esta configuração utilizando uma variedade de métodos diferentes, como o portal Azure, ou um [Modelo de Arranque Rápido Azure.](https://azure.microsoft.com/resources/templates/201-virtual-wan-with-all-gateways/) Para obter mais informações sobre o encaminhamento de hubs virtuais, consulte [sobre o encaminhamento do hub virtual](about-virtual-hub-routing.md). 
 
 ## <a name="design"></a><a name="design"></a>Design
 
@@ -58,7 +58,7 @@ Estas ligações (por padrão na criação) estão associadas à tabela de rotas
 
 ## <a name="workflow"></a><a name="workflow"></a>Fluxo de trabalho
 
-Este cenário é ativado por padrão para STANDARD Virtual WAN. Se a definição de ramo-a-ramo for desativada na configuração WAN, isso irá desativar a conectividade entre os raios-ramos. VPN/ExpressRoute/User VPN são considerados porta-vozes de sucursais em VIRTUAL WAN
+Este cenário é ativado por padrão para STANDARD Virtual WAN. Se as definições de ramo-a-ramo forem desativadas na configuração WAN, isso irá desativar a conectividade entre os raios-ramos. VPN/ExpressRoute/User VPN são considerados porta-vozes de sucursais em VIRTUAL WAN
 
 ## <a name="next-steps"></a>Passos seguintes
 

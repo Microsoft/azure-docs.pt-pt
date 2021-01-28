@@ -13,12 +13,12 @@ ms.date: 01/25/2021
 ms.author: marsma
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 47576265c9b1a20f801231abe2fb37a929d5a27c
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: da36ce0a956e0c3ed369a676960bdb9b5c5b1199
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98763537"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954839"
 ---
 # <a name="logging-in-msalnet"></a>Registos no MSAL.NET
 
@@ -63,6 +63,6 @@ class Program
 > [!TIP]
  > Consulte o [wiki MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki) para amostras de MSAL.NET de madeira e muito mais.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais amostras de código, consulte [as amostras de código da plataforma de identidade da Microsoft)](sample-v2-code.md).
+Para obter mais amostras de código, consulte [as amostras de código da plataforma de identidade da Microsoft.](sample-v2-code.md)

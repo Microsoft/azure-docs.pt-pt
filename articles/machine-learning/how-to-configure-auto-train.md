@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperf-fy21q1, automl
-ms.openlocfilehash: 9021d933e3808867ec784ad3c6d0f8810d608ea3
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 6971d67204beb39ff0afa6c68dbecf278d86b299
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600069"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954720"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurar experimentações do ML automatizado no Python
 
@@ -203,15 +203,53 @@ Classificação | Regressão | Previsão de Série Temporal
 ### <a name="primary-metric"></a>Métrica Primária
 O `primary metric` parâmetro determina a métrica a ser usada durante o treino do modelo para otimização. As métricas disponíveis que pode selecionar são determinadas pelo tipo de tarefa que escolher, e a tabela seguinte apresenta métricas primárias válidas para cada tipo de tarefa.
 
+Escolher uma métrica primária para aprendizagem automática de máquinas para otimizar depende de muitos fatores. Recomendamos que a sua principal consideração seja escolher uma métrica que melhor represente as suas necessidades de negócio. Em seguida, considere se a métrica é adequada para o seu perfil de conjunto de dados (tamanho de dados, gama, distribuição de classes, etc.).
+
 Conheça as definições específicas destas métricas na Compreensão dos [resultados automatizados de aprendizagem automática de máquinas.](how-to-understand-automated-ml.md)
 
 |Classificação | Regressão | Previsão de Série Temporal
 |--|--|--
-|accuracy| spearman_correlation | spearman_correlation
-|AUC_weighted | normalized_root_mean_squared_error | normalized_root_mean_squared_error
-|average_precision_score_weighted | r2_score | r2_score
-|norm_macro_recall | normalized_mean_absolute_error | normalized_mean_absolute_error
-|precision_score_weighted |
+|`accuracy`| `spearman_correlation` | `spearman_correlation`
+|`AUC_weighted` | `normalized_root_mean_squared_error` | `normalized_root_mean_squared_error`
+|`average_precision_score_weighted` | `r2_score` | `r2_score`
+|`norm_macro_recall` | `normalized_mean_absolute_error` | `normalized_mean_absolute_error`
+|`precision_score_weighted` |
+
+### <a name="primary-metrics-for-classification-scenarios"></a>Métricas primárias para cenários de classificação 
+
+As métricas limiares postais, `accuracy` `average_precision_score_weighted` como, `norm_macro_recall` , e podem `precision_score_weighted` não otimizar tão bem para conjuntos de dados que são muito pequenos, têm uma inclinação de classe muito grande (desequilíbrio de classe), ou quando o valor métrico esperado é muito próximo de 0,0 ou 1.0. Nesses casos, `AUC_weighted` pode ser uma escolha melhor para a métrica primária. Após a conclusão automatizada da aprendizagem automática de máquinas, pode escolher o modelo vencedor com base na métrica mais adequada às necessidades do seu negócio.
+
+| Metric | Casos de uso de exemplo |
+| ------ | ------- |
+| `accuracy` | Classificação de imagem, análise de sentimento, previsão de Churn |
+| `AUC_weighted` | Deteção de fraudes, classificação de imagem, deteção de anomalias/deteção de spam |
+| `average_precision_score_weighted` | Análise de sentimentos |
+| `norm_macro_recall` | Previsão de churn |
+| `precision_score_weighted` |  |
+
+### <a name="primary-metrics-for-regression-scenarios"></a>Métricas primárias para cenários de regressão
+
+Métricas como `r2_score` e podem representar melhor a qualidade do modelo quando a escala do `spearman_correlation` valor-a-prever cobre muitas ordens de magnitude. Por exemplo, a estimativa salarial, onde muitas pessoas têm um salário de 20 mil a 100 mil dólares, mas a escala vai muito alta com alguns salários na faixa dos 100 milhões de dólares. 
+
+`normalized_mean_absolute_error` e trataria um erro de previsão de `normalized_root_mean_squared_error` 20 mil dólares o mesmo para um trabalhador com um salário de 30 mil dólares como um trabalhador a ganhar 20 milhões de dólares. Embora, na realidade, prever apenas 20 mil dólares de desconto de um salário de 20 milhões de dólares é muito próximo (uma pequena diferença relativa de 0,1%), enquanto 20 mil dólares de desconto de 30 mil dólares não é próximo (uma grande diferença relativa de 67%). `normalized_mean_absolute_error` e `normalized_root_mean_squared_error` são úteis quando os valores a prever estão numa escala semelhante.
+
+| Metric | Casos de uso de exemplo |
+| ------ | ------- |
+| `spearman_correlation` | |
+| `normalized_root_mean_squared_error` | Previsão de preços (casa/produto/ponta), Previsão da pontuação da revisão |
+| `r2_score` | Atraso da companhia aérea, estimativa salarial, tempo de resolução de bugs |
+| `normalized_mean_absolute_error` |  |
+
+### <a name="primary-metrics-for-time-series-forecasting-scenarios"></a>Métricas primárias para cenários de previsão de séries de tempo
+
+Consulte notas de regressão, acima.
+
+| Metric | Casos de uso de exemplo |
+| ------ | ------- |
+| `spearman_correlation` | |
+| `normalized_root_mean_squared_error` | Previsão de preços (previsão), otimização de inventário, previsão da procura |
+| `r2_score` | Previsão de preços (previsão), otimização de inventário, previsão da procura |
+| `normalized_mean_absolute_error` | |
 
 ### <a name="data-featurization"></a>A exibição de dados
 
@@ -219,7 +257,7 @@ Em todas as experiências automatizadas de machine learning, os seus dados são 
 
 Ao configurar as suas experiências no `AutoMLConfig` seu objeto, pode ativar/desativar a definição `featurization` . A tabela a seguir mostra as definições aceites para a exibição no [objeto AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig). 
 
-|Configuração de exibição | Descrição |
+|Configuração de exibição | Description |
 | ------------- | ------------- |
 |`"featurization": 'auto'`| Indica que, como parte do pré-processamento, [os guarda-dados e as etapas de exibição](how-to-configure-auto-features.md#featurization) são executados automaticamente. **Definição padrão**.|
 |`"featurization": 'off'`| Indica que o passo de exibição não deve ser feito automaticamente.|
@@ -265,7 +303,7 @@ Para alterar o comportamento do conjunto padrão, existem múltiplos argumentos 
 
 Os seguintes parâmetros aplicam-se apenas aos modelos **StackEnsemble:** 
 
-* `stack_meta_learner_type`: o meta-aprendiz é um modelo treinado na saída dos modelos heterogéneos individuais. Os meta-aprendizes predefinidos são `LogisticRegression` para tarefas de classificação (ou `LogisticRegressionCV` se a validação cruzada estiver ativada) e para `ElasticNet` tarefas de regressão/previsão (ou `ElasticNetCV` se a validação cruzada estiver ativada). Este parâmetro pode ser uma das seguintes cordas: `LogisticRegression` `LogisticRegressionCV` , ou `LightGBMClassifier` `ElasticNet` `ElasticNetCV` `LightGBMRegressor` `LinearRegression` .
+* `stack_meta_learner_type`: o meta-aprendiz é um modelo treinado na saída dos modelos heterogéneos individuais. Os meta-aprendizes predefinidos são `LogisticRegression` para tarefas de classificação (ou `LogisticRegressionCV` se a validação cruzada estiver ativada) e para `ElasticNet` tarefas de regressão/previsão (ou `ElasticNetCV` se a validação cruzada estiver ativada). Este parâmetro pode ser uma das seguintes cordas: `LogisticRegression` , , , , , , , ou `LogisticRegressionCV` `LightGBMClassifier` `ElasticNet` `ElasticNetCV` `LightGBMRegressor` `LinearRegression` .
 
 * `stack_meta_learner_train_percentage`: especifica a proporção do conjunto de formação (na escolha do tipo de formação de comboio e validação) a reservar para a formação do metaapresador. O valor predefinido é `0.2`. 
 
@@ -443,7 +481,7 @@ Para obter informações gerais sobre como as explicações dos modelos e a impo
   * Para a conda local, primeiro certifique-se de que automl_setup tem funcionada com sucesso.
   * Certifique-se de que o subscription_id está correto. Encontre o subscription_id no portal Azure selecionando Todos os Serviços e, em seguida, Subscrições. Os caracteres "<" e ">" não devem ser incluídos no valor subscription_id. Por exemplo, `subscription_id = "12345678-90ab-1234-5678-1234567890abcd"` tem o formato válido.
   * Garantir ao Contribuinte ou ao Proprietário o acesso à Subscrição.
-  * Verifique se a região é uma das regiões apoiadas: `eastus2` `eastus` , `westcentralus` `southeastasia` `westeurope` `australiaeast` `westus2` . `southcentralus`
+  * Verifique se a região é uma das regiões apoiadas: `eastus2` , , , , , , `eastus` `westcentralus` `southeastasia` `westeurope` `australiaeast` `westus2` . `southcentralus`
   * Garantir o acesso à região através do portal Azure.
   
 * falhas : Houve alterações de pacotes na versão automática de machine learning 1.0.76, que exigem que a versão anterior seja **`import AutoMLConfig` desinstalada** antes da atualização para a nova versão. Se o for `ImportError: cannot import name AutoMLConfig` encontrado após a atualização de uma versão SDK antes de v1.0.76 para v1.0.76 ou posterior, resolva o erro correndo: `pip uninstall azureml-train automl` e depois `pip install azureml-train-auotml` . O automl_setup.cmd script faz isto automaticamente. 

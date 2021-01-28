@@ -1,5 +1,5 @@
 ---
-title: Crie um localizador de streaming e construa URLs - Azure Media Services
+title: Criar um localizador de transmissão e compilar URLs
 description: Este artigo demonstra como criar um localizador de streaming e construir URLs.
 services: media-services
 documentationcenter: ''
@@ -12,18 +12,18 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 916defd652ff9f4b3f372c609055d2a974126916
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ecbc42237326cb895c47e96eda13bbddcdeb558f
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89295721"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98956128"
 ---
 # <a name="create-a-streaming-locator-and-build-urls"></a>Criar um localizador de transmissão e compilar URLs
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-No Azure Media Services, para construir um URL de streaming, é necessário primeiro criar um [Localizador de Streaming.](streaming-locators-concept.md) Em seguida, concatena o nome do anfitrião [streaming Endpoint](/rest/api/media/streamingendpoints) e o caminho **do localizador de streaming.** Nesta amostra, é utilizado o ponto final de streaming *predefinido.* **Streaming Endpoint** Quando criar uma conta de Serviço de Mídia, este **Ponto Final de Streaming** *predefinido* estará num estado parado, pelo que precisa de ligar para **iniciar** o streaming.
+No Azure Media Services, para construir um URL de streaming, é necessário primeiro criar um [Localizador de Streaming.](streaming-locators-concept.md) Em seguida, concatena o nome do anfitrião [streaming Endpoint](/rest/api/media/streamingendpoints) e o caminho **do localizador de streaming.** Nesta amostra, é utilizado o ponto final de streaming *predefinido.*  Quando criar uma conta de Serviço de Mídia, este **Ponto Final de Streaming** *predefinido* estará num estado parado, pelo que precisa de ligar para **iniciar** o streaming.
 
 Este artigo demonstra como criar um localizador de streaming e construir um URL de streaming usando Java e .NET SDKs.
 
@@ -163,7 +163,7 @@ private static async Task<IList<string>> GetStreamingUrlsAsync(
 
 Consulte a amostra de código completa: [Codificação ComMESPredefinedPredefinedPredeset](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/Program.cs)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * [Criar filtros com .NET](filters-dynamic-manifest-dotnet-howto.md)
 * [Criar filtros com REST](filters-dynamic-manifest-rest-howto.md)

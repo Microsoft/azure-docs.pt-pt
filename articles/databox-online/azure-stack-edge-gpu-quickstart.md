@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 01/27/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to quickly deploy Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 2d1bd7d2a4f066311ea01046a8d71e6ecb52c3f5
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 642ab348cd2bb5cd2cedd2b481b0d06fb6c4b425
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98919816"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98953942"
 ---
 # <a name="quickstart-get-started-with-azure-stack-edge-pro-with-gpu"></a>Quickstart: Começa com o Azure Stack Edge Pro com GPU 
 
@@ -28,7 +28,7 @@ O procedimento total deve demorar aproximadamente 1,5 horas a ser concluído. Pa
 Antes de partir, certifique-se de que estão em vigor os seguintes pré-requisitos:
 
 1. O dispositivo GPU Azure Stack Edge Pro é entregue no seu site, [desembalado](azure-stack-edge-gpu-deploy-install.md#unpack-the-device) e [montado na cremalheira](azure-stack-edge-gpu-deploy-install.md#rack-the-device). 
-1. Configure a sua rede de modo a que o seu dispositivo possa alcançar os [padrões e portas dos URLs listados](azure-stack-edge-gpu-system-requirements.md#networking-port-requirements). 
+1. Configure a sua rede de modo a que o seu dispositivo possa alcançar os [padrões e portas de URL listados](azure-stack-edge-gpu-system-requirements.md#networking-port-requirements). 
 1. Tem acesso ao proprietário ou colaborador da assinatura Azure.
 1. No portal Azure, aceda a **Subscrições de > Domiciliários > os fornecedores de recursos > de subscrição da sua subscrição.** Procure `Microsoft.DataBoxEdge` e registe o fornecedor de recursos. Repita para se registar `Microsoft.Devices` se criar um recurso IoT Hub para implementar cargas de trabalho computacional.
 1. Certifique-se de que tem um mínimo de 2 IPs livres, estáticos e contíguos para nós Kubernetes e pelo menos 1 IP estático para o serviço IoT Edge. Para cada módulo ou serviço externo, você implementará, você precisará de 1 IP adicional.
@@ -75,7 +75,7 @@ Antes de partir, certifique-se de que estão em vigor os seguintes pré-requisit
 
 Está pronto para implementar cargas de trabalho computacional no seu dispositivo [via IoT Edge,](azure-stack-edge-gpu-deploy-sample-module-marketplace.md) [via `kubectl` ](azure-stack-edge-gpu-create-kubernetes-cluster.md) ou [via Azure Arc ativado kubernetes](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md)! Se tiver algum problema durante a configuração, aceda a [problemas de dispositivos de resolução de problemas,]() [questões de encomenda,](azure-stack-edge-gpu-troubleshoot.md) [problemas de certificados](azure-stack-edge-j-series-certificate-troubleshooting.md)ou problemas com Kubernetes. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Instalar Azure Stack Edge Pro GPU](./azure-stack-edge-gpu-deploy-install.md)
 

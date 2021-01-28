@@ -11,12 +11,12 @@ ms.reviewer: luquinta
 ms.date: 11/25/2020
 ms.topic: troubleshooting
 ms.custom: devx-track-python, deploy, contperf-fy21q2
-ms.openlocfilehash: 473b2e4ac3443d204b39331d9cefaa6c71122439
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 225cb8d7bc35491ceefe444664afe175c7f7ea01
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881674"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954940"
 ---
 # <a name="troubleshooting-with-a-local-model-deployment"></a>Resolução de problemas com uma implantação de modelo local
 
@@ -25,12 +25,14 @@ Experimente uma implementação de modelo local como um primeiro passo na resolu
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma **subscrição do Azure**. Experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
-* [O Azure Machine Learning SDK.](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)
-* O [Azure CLI.](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)
-* A [extensão CLI para Azure Machine Learning](reference-azure-machine-learning-cli.md).
-* Para depurar localmente, pode implementar o modelo para [Azure Machine Learning Compute Instance](./how-to-deploy-local-container-notebook-vm.md) ou ter uma instalação de Docker em funcionamento no seu sistema local.
-
-    Para verificar a instalação do Docker, utilize o comando `docker run hello-world` a partir de um terminal ou de um pedido de comando. Para obter informações sobre a instalação do Docker, ou sobre os erros do Docker, consulte a [Documentação](https://docs.docker.com/)do Docker .
+* Opção A (**Recomendado)**- Debug localmente em Azure Machine Learning Compute Instance
+   * Um espaço de trabalho de aprendizagem de máquina azure com [instância de computação](how-to-deploy-local-container-notebook-vm.md) em execução
+* Opção B - Debug localmente no seu cálculo
+   * [O Azure Machine Learning SDK.](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)
+   * O [Azure CLI.](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)
+   * A [extensão CLI para Azure Machine Learning](reference-azure-machine-learning-cli.md).
+   * Tenha uma instalação docker funcionando no seu sistema local. 
+   * Para verificar a instalação do Docker, utilize o comando `docker run hello-world` a partir de um terminal ou de um pedido de comando. Para obter informações sobre a instalação do Docker, ou sobre os erros do Docker, consulte a [Documentação](https://docs.docker.com/)do Docker .
 
 ## <a name="debug-locally"></a>Debug localmente
 
@@ -121,7 +123,7 @@ print(ws.webservices['mysvc'].get_logs())
 Se vires a linha `Booting worker with pid: <pid>` a ocorrer várias vezes nos registos, significa que não há memória suficiente para ligar o trabalhador.
 Pode resolver o erro aumentando o valor de `memory_gb` in `deployment_config`
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre a implementação:
 

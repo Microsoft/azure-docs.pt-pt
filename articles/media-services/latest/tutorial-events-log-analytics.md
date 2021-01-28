@@ -1,8 +1,23 @@
 ---
-título: Armazenar eventos Azure Media Services em Azure Log Analytics : Descrição dos Serviços Azure Media: Saiba como armazenar eventos da Azure Media Services em Azure Log Analytics.
-serviços: media-services documentationcenter: 'author: IngridAtMicrosoft manager: femila editor: '' ms.service: media-services ms.workload: ms.topic: tutorial ms.date: 08/24/2020 ms.author: inhenkel
+title: Store Media Services eventos em Azure Log Analytics
+description: Saiba como armazenar eventos da Azure Media Services no Azure Log Analytics.
+services: media-services
+documentationcenter: ''
+author: IngridAtMicrosoft
+manager: femila
+editor: ''
+ms.service: media-services
+ms.workload: ''
+ms.topic: tutorial
+ms.date: 08/24/2020
+ms.author: inhenkel
+ms.openlocfilehash: 2bfd1064a02f0fb4982c9d2747b85707e98b5bcd
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954534"
 ---
-
 # <a name="tutorial-store-azure-media-services-events-in-azure-log-analytics"></a>Tutorial: Armazenar eventos da Azure Media Services em Azure Log Analytics
 
 ## <a name="azure-media-services-events"></a>Eventos Azure Media Services
@@ -213,6 +228,6 @@ Com o live stream, a Azure Media Services está a emitir vários eventos que est
 
 Se não quiser continuar a utilizar os recursos que criou durante este tutorial, certifique-se de que elimina todos os recursos do grupo de recursos ou continuará a ser cobrado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Pode criar diferentes consultas e salvá-las. Estes podem ser adicionados ao [Azure Dashboard](../../azure-monitor/learn/tutorial-logs-dashboards.md).

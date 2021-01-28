@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 40d2f957ce115b43a1dcc138b86e05ec9cc47384
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: c5c1fd202b52c8708ab067ca802481f4d4bb4e27
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060614"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98956340"
 ---
 Este tutorial requer os seguintes recursos Azure:
 
@@ -26,7 +26,19 @@ Para este arranque rápido, recomendamos que utilize o [script de configuração
     bash -c "$(curl -sL https://aka.ms/lva-edge/setup-resources-for-samples)"
     ```
     
-    Após a conclusão com sucesso do script, deverá ver todos os recursos necessários na sua subscrição.
+    Após a conclusão com sucesso do script, deverá ver todos os recursos necessários na sua subscrição. Um total de 12 recursos serão configurados pelo script:
+    1. **Streaming Endpoint** - Isto ajudará na reprodução do ativo AMS gravado.
+    1. **Máquina virtual** - Esta é uma máquina virtual que funcionará como o seu dispositivo de borda.
+    1. **Disco** - Este é um disco de armazenamento que está ligado à máquina virtual para armazenar meios e artefactos.
+    1. **Grupo de segurança de rede** - Isto é usado para filtrar o tráfego de rede de e para os recursos Azure numa rede virtual Azure.
+    1. **Interface de rede** - Isto permite que uma Máquina Virtual Azure comunique com internet, Azure e outros recursos.
+    1. **Ligação de bastião** - Isto permite-lhe ligar-se à sua máquina virtual utilizando o seu navegador e o portal Azure.
+    1. **Endereço IP público** - Isto permite que os recursos do Azure comuniquem à Internet e aos serviços Azure virados para o público
+    1. **Rede virtual** - Isto permite que muitos tipos de recursos Azure, como a sua máquina virtual, comuniquem de forma segura entre si, a internet e as redes no local. Saiba mais sobre [redes Virtuais](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
+    1. **IoT Hub** - Este funciona como um centro de mensagens central para comunicação bidis entre a sua aplicação IoT, os módulos IoT Edge e os dispositivos que gere.
+    1. **Conta de serviço de** mídia - Isto ajuda na gestão e streaming de conteúdos de mídia em Azure.
+    1. **Conta de armazenamento** - Tem de ter uma conta de armazenamento primário e pode ter qualquer número de contas de armazenamento secundária associadas à sua conta de Serviços de Comunicação Social. Para mais informações, consulte [as contas do Azure Storage com as contas da Azure Media Services](https://docs.microsoft.com/azure/media-services/latest/storage-account-concept).
+    1. **Registo de contentores** - Isto ajuda a armazenar e gerir as imagens privadas do seu contentor Docker e artefactos relacionados.
 1. Depois de terminar o script, selecione os suportes encaracolados para expor a estrutura da pasta. Você verá alguns ficheiros no *diretório de amostras ~/clouddrive/Lva.* De interesse neste arranque rápido são:
 
      * ***~/clouddrive/lva-sample/edge-deployment/.env** _ - Este ficheiro contém propriedades que o Código do Estúdio Visual utiliza para implantar módulos num dispositivo de borda.

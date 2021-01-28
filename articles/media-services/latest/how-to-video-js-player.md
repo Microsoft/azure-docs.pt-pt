@@ -1,5 +1,5 @@
 ---
-title: Como utilizar o jogador Video.js com a Azure Media Services
+title: Use o jogador de Video.js com a Azure Media Services
 description: Este artigo explica como usar o objeto de vídeo HTML e JavaScript com Azure Media Services
 services: media-services
 documentationcenter: ''
@@ -13,18 +13,18 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-js
-ms.openlocfilehash: 99e17db99842546b7f595d62f82f8bacb0ee6a8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0b357705de04ed4c2be3223f9dd07f61f75d970
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329708"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954585"
 ---
 # <a name="how-to-use-the-videojs-player-with-azure-media-services"></a>Como utilizar o jogador Video.js com a Azure Media Services
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Video.js é um leitor de vídeo sonoro construído para um mundo HTML5. Reproduz formatos de mídia adaptativo (como DASH e HLS) num browser, sem usar plugins ou Flash. Em vez disso, Video.js utiliza as extensões de MediaSource e extensões de mídia encriptadas. Além disso, suporta a reprodução de vídeo em desktops e dispositivos móveis.
 
@@ -148,7 +148,7 @@ Para apoiar a proteção drm, deve adicionar a extensão oficial [videojs-contri
 Para adquirir o URL de licença, pode:
 
 - Consulte a configuração do seu fornecedor DRM
-- ou, se estiver a utilizar a amostra, consulte o `output.json` documento gerado quando executou osetup-vod.ps1script PowerShell para VODs, ou o script *start-live.ps1* para streams ao vivo. *setup-vod.ps1* Também encontrará os KIDs dentro deste ficheiro.
+- ou, se estiver a utilizar a amostra, consulte o `output.json` documento gerado quando executou osetup-vod.ps1script PowerShell para VODs, ou o script *start-live.ps1* para streams ao vivo.  Também encontrará os KIDs dentro deste ficheiro.
 
 #### <a name="using-tokenized-drm"></a>Utilização de DRM tokenized
 

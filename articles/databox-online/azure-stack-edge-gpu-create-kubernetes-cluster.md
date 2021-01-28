@@ -1,19 +1,19 @@
 ---
-title: Criar e gerir um cluster Kubernetes no dispositivo GPU Azure Stack Edge Pro/ Microsoft Docs
+title: Crie e gere um cluster Kubernetes no dispositivo GPU Azure Stack Edge Pro| Microsoft Docs
 description: Descreve como criar e gerir um cluster Kubernetes no dispositivo GPU Azure Stack Edge Pro através da interface Windows PowerShell.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 01/27/2021
 ms.author: alkohli
-ms.openlocfilehash: 6f6d2b126cd9a0acbbbdb8d17ce7345bbf17b556
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: bf73640c1a4014b61809f407e1873686c229273f
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94635913"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954636"
 ---
 # <a name="connect-to-and-manage-a-kubernetes-cluster-via-kubectl-on-your-azure-stack-edge-pro-gpu-device"></a>Ligue e gere um cluster Kubernetes através de kubectl no seu dispositivo GPU Azure Stack Edge Pro
 
@@ -165,9 +165,9 @@ Agora pode implementar as suas aplicações no espaço de nomes e, em seguida, v
 
 ## <a name="remove-kubernetes-cluster"></a>Remover o cluster Kubernetes
 
-Para remover o cluster Kubernetes, terá de remover a configuração do cálculo.
+Para remover o cluster Kubernetes, terá de remover a configuração IoT Edge.
 
-Para obter instruções detalhadas, aceda à [configuração do cálculo Remover](azure-stack-edge-j-series-manage-compute.md#remove-compute-configuration).
+Para obter instruções detalhadas, aceda à [configuração remove ioT Edge](azure-stack-edge-j-series-manage-compute.md#remove-iot-edge-service).
    
 
 ## <a name="next-steps"></a>Passos seguintes

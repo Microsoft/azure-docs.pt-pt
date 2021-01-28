@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/15/2021
+ms.date: 01/27/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 8a0d69ea57eb5b8b2a074c37d4798a99c576ce95
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: ea4def3cfaa19e27dc05e955bf97b41976ec2190
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98538183"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98953925"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-azure-ad-b2c-account-from-another-azure-ad-b2c-tenant"></a>Configurar inscrição e inscrição com uma conta Azure AD B2C de outro inquilino Azure AD B2C
 
@@ -107,6 +107,17 @@ Para criar uma aplicação.
 
 1. Selecione **Guardar**.
 
+## <a name="add-azure-ad-b2c-identity-provider-to-a-user-flow"></a>Adicione o fornecedor de identidade Azure AD B2C a um fluxo de utilizador 
+
+1. No seu inquilino Azure AD B2C, selecione **fluxos de utilizador**.
+1. Clique no fluxo do utilizador que pretende adicionar ao fornecedor de identidade Azure AD B2C.
+1. Sob os **fornecedores de identidade social,** selecione **Fabrikam**.
+1. Selecione **Guardar**.
+1. Para testar a sua política, selecione **Executar o fluxo do utilizador**.
+1. Para **Aplicação**, selecione a aplicação web chamada *testapp1* que registou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms` .
+1. Clique **no fluxo do utilizador executar**
+1. A partir da página de inscrição ou inscrição, selecione *Fabrikam* para iniciar sação com o outro inquilino Azure AD B2C.
+
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
@@ -125,9 +136,9 @@ Você precisa armazenar a chave de aplicação que você criou anteriormente no 
 1. Para **a utilização da chave**, selecione `Signature` .
 1. Selecione **Criar**.
 
-## <a name="add-a-claims-provider"></a>Adicione um fornecedor de sinistros
+## <a name="configure-azure-ad-b2c-as-an-identity-provider"></a>Configure Azure AD B2C como fornecedor de identidade
 
-Se quiser que os utilizadores entrem em súb9 utilizando o outro Azure AD B2C (Fabrikam), tem de definir o outro Azure AD B2C como um fornecedor de reclamações com o qual o Azure AD B2C pode comunicar através de um ponto final. O ponto final fornece um conjunto de reclamações que são usadas pelo Azure AD B2C para verificar se um utilizador específico foi autenticado.
+Para permitir que os utilizadores assinem através de uma conta de outro inquilino Azure AD B2C (Fabrikam), é necessário definir o outro Azure AD B2C como um fornecedor de sinistros com o qual o Azure AD B2C pode comunicar através de um ponto final. O ponto final fornece um conjunto de reclamações que são usadas pelo Azure AD B2C para verificar se um utilizador específico foi autenticado.
 
 Pode definir o Azure AD B2C como fornecedor de sinistros adicionando Azure AD B2C ao elemento **ClaimsProvider** no ficheiro de extensão da sua política.
 
@@ -139,7 +150,7 @@ Pode definir o Azure AD B2C como fornecedor de sinistros adicionando Azure AD B2
       <Domain>fabrikam.com</Domain>
       <DisplayName>Federation with Fabrikam tenant</DisplayName>
       <TechnicalProfiles>
-        <TechnicalProfile Id="Fabrikam-OpenIdConnect">
+        <TechnicalProfile Id="AzureADB2CFabrikam-OpenIdConnect">
         <DisplayName>Fabrikam</DisplayName>
         <Protocol Name="OpenIdConnect"/>
         <Metadata>
@@ -188,83 +199,29 @@ Pode definir o Azure AD B2C como fornecedor de sinistros adicionando Azure AD B2
     |Chaves Criptográficas| Atualize o valor do **StorageReferenceId** para o nome da chave de política que criou anteriormente. Por exemplo, `B2C_1A_FabrikamAppSecret`.| 
     
 
-### <a name="upload-the-extension-file-for-verification"></a>Faça o upload do ficheiro de extensão para verificação
-
-Por esta altura, já configuraram a sua política para que a Azure AD B2C saiba comunicar com o outro inquilino Azure AD B2C. Tente carregar o ficheiro de extensão da sua apólice apenas para confirmar que não tem quaisquer problemas até agora.
-
-1. Na página **'Políticas Personalizadas'** no seu inquilino Azure AD B2C, selecione **'Política de Upload'.**
-1. Ativar **a política em caso de existência** e, em seguida, navegar e selecionar o ficheiro *TrustFrameworkExtensions.xml.*
-1. Clique em **Carregar**.
-
-## <a name="register-the-claims-provider"></a>Registar o fornecedor de sinistros
-
-Neste momento, o fornecedor de identidade foi criado, mas ainda não está disponível em nenhuma das páginas de inscrição/inscrição. Para disponibilizá-lo, crie uma duplicação de uma viagem de utilizador de modelo existente e, em seguida, modifique-a de modo a que também tenha o fornecedor de identidade AZure AD:
-
-1. Abra o ficheiro *TrustFrameworkBase.xml* do pacote de arranque.
-1. Encontre e copie todo o conteúdo do elemento **UserJourney** que inclui `Id="SignUpOrSignIn"` .
-1. Abra a *TrustFrameworkExtensions.xml* e encontre o elemento **UserJourneys.** Se o elemento não existir, adicione um.
-1. Cole todo o conteúdo do elemento **UserJourney** que copiou em criança do elemento **UserJourneys.**
-1. Mude o nome da identificação da viagem de utilizador. Por exemplo, `SignUpSignInFabrikam`.
-
-### <a name="display-the-button"></a>Mostrar o botão
-
-O elemento **ClaimsProviderSelection** é análogo a um botão de fornecedor de identidade numa página de inscrição/inscrição. Se adicionar um elemento **ClaimsProviderSelection** para Azure AD B2C, um novo botão aparece quando um utilizador pousa na página.
-
-1. Encontre o elemento **OrchestrationStep** que inclui `Order="1"` na jornada de utilizador que criou em *TrustFrameworkExtensions.xml*.
-1. Em **SinistrosProviderSeles**, adicione o seguinte elemento. Definir o valor do **TargetClaimsExchangeId** para um valor apropriado, por `FabrikamExchange` exemplo:
-
-    ```xml
-    <ClaimsProviderSelection TargetClaimsExchangeId="FabrikamExchange" />
-    ```
-
-### <a name="link-the-button-to-an-action"></a>Ligue o botão a uma ação
-
-Agora que tens um botão no lugar, tens de o ligar a uma ação. A ação, neste caso, é que a Azure AD B2C comunique com o outro Azure AD B2C para receber um token. Ligue o botão a uma ação ligando o perfil técnico do fornecedor de sinistros Azure AD B2C:
-
-1. Encontre a **OrquestraçãoStep** que inclui `Order="2"` na viagem do utilizador.
-1. Adicione o seguinte elemento **ClaimsExchange** certificando-se de que utiliza o mesmo valor para **ID** que utilizou para **TargetClaimsExchangeId**:
-
-    ```xml
-    <ClaimsExchange Id="FabrikamExchange" TechnicalProfileReferenceId="Fabrikam-OpenIdConnect" />
-    ```
-
-    Atualize o valor do **TechnicalProfileReferenceD** para o **ID** do perfil técnico que criou anteriormente. Por exemplo, `Fabrikam-OpenIdConnect`.
-
-1. Guarde o ficheiro *TrustFrameworkExtensions.xml* e faça o upload novamente para verificação.
-
-::: zone-end
-
-::: zone pivot="b2c-user-flow"
-
-## <a name="add-azure-ad-b2c-identity-provider-to-a-user-flow"></a>Adicione o fornecedor de identidade Azure AD B2C a um fluxo de utilizador 
-
-1. No seu inquilino Azure AD B2C, selecione **fluxos de utilizador**.
-1. Clique no fluxo do utilizador que pretende adicionar ao fornecedor de identidade Azure AD B2C.
-1. Sob os **fornecedores de identidade social,** selecione **Fabrikam**.
-1. Selecione **Guardar**.
-1. Para testar a sua política, selecione **Executar o fluxo do utilizador**.
-1. Para **Aplicação**, selecione a aplicação web chamada *testapp1* que registou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms` .
-1. Clique **no fluxo do utilizador executar**
-1. A partir da página de inscrição ou inscrição, selecione *Fabrikam* para iniciar sação com o outro inquilino Azure AD B2C.
-
-::: zone-end
-
-::: zone pivot="b2c-custom-policy"
+[!INCLUDE [active-directory-b2c-add-identity-provider-to-user-journey](../../includes/active-directory-b2c-add-identity-provider-to-user-journey.md)]
 
 
-## <a name="update-and-test-the-relying-party-file"></a>Atualizar e testar o ficheiro do partido que conta
+```xml
+<OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
+  <ClaimsProviderSelections>
+    ...
+    <ClaimsProviderSelection TargetClaimsExchangeId="AzureADB2CFabrikamExchange" />
+  </ClaimsProviderSelections>
+  ...
+</OrchestrationStep>
 
-Atualize o ficheiro do partido de funções (RP) que inicia a jornada do utilizador que criou.
+<OrchestrationStep Order="2" Type="ClaimsExchange">
+  ...
+  <ClaimsExchanges>
+    <ClaimsExchange Id="AzureADB2CFabrikamExchange" TechnicalProfileReferenceId="AzureADB2CFabrikam-OpenIdConnect" />
+  </ClaimsExchanges>
+</OrchestrationStep>
+```
 
-1. Faça uma cópia de *SignUpOrSignIn.xml* no seu diretório de trabalho, e mude o nome. Por exemplo, mude-o para *SignUpSignInFabrikam.xml*.
-1. Abra o novo ficheiro e atualize o valor do atributo **PolicyId** para **a TrustFrameworkPolicy** com um valor único. Por exemplo, `SignUpSignInFabrikam`.
-1. Atualize o valor da **PublicPolicyUri** com o URI para a apólice. Por exemplo, `http://contoso.com/B2C_1A_signup_signin_fabrikam`.
-1. Atualize o valor do atributo **ReferenceId** no **DefaultUserJourney** para corresponder ao ID da jornada do utilizador que criou anteriormente. Por exemplo, *SignUpSignInFabrikam*.
-1. Guarde as suas alterações e carrete o ficheiro.
-1. De acordo com **as políticas personalizadas,** selecione a nova política da lista.
-1. No drop-down da **aplicação Select,** selecione a aplicação Azure AD B2C que criou anteriormente. Por exemplo, *testapp1*.
-1. Selecione **Executar agora** 
-1. A partir da página de inscrição ou inscrição, selecione *Fabrikam* para iniciar sação com o outro inquilino Azure AD B2C.
+[!INCLUDE [active-directory-b2c-configure-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
+
+[!INCLUDE [active-directory-b2c-test-relying-party-policy](../../includes/active-directory-b2c-test-relying-party-policy-user-journey.md)]
 
 ::: zone-end
 

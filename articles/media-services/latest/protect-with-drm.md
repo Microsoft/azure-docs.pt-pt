@@ -1,9 +1,25 @@
 ---
-título: Serviço de encriptação e entrega de licenças Azure Media Services : Descrição dos Serviços Azure Media: Saiba como utilizar o serviço de encriptação dinâmica DRM e entrega de licenças para fornecer streams encriptados com licenças Microsoft PlayReady, Google Widevine ou Apple FairPlay.
-serviços: media-services documentationcenter: '' autor: IngridAtMicrosoft manager: femila editor: ''
-
-ms.service: media-services ms.workload: media ms.tgt_pltfrm: na ms.devlang: na ms.topic: tutorial ms.date: 08/31/2020 ms.author: inhenkel ms.custom: seodec18
-
+title: Encriptação e entrega de licenças drm dos Serviços de Media DRM
+description: Aprenda a usar o serviço de encriptação dinâmica DRM e entrega de licenças para fornecer streams encriptados com licenças Microsoft PlayReady, Google Widevine ou Apple FairPlay.
+services: media-services
+documentationcenter: ''
+author: IngridAtMicrosoft
+manager: femila
+editor: ''
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: tutorial
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.custom: seodec18
+ms.openlocfilehash: a4f5810f76af7116421bac3953b4eb65370055e3
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955185"
 ---
 # <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>Tutorial: Use encriptação dinâmica DRM e serviço de entrega de licenças
 
@@ -171,7 +187,7 @@ az group delete --name amsResourceGroup
 
 Consulte o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Media Services.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Dar saída
 

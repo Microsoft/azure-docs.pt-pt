@@ -1,11 +1,25 @@
 ---
-título: Métricas de Serviços de Mídia e registos de diagnóstico com Azure Monitor : Descrição dos Serviços Azure Media: Saiba como monitorizar as métricas dos Serviços de Media Azure e os registos de diagnóstico via Azure Monitor.
-serviços: media-services documentationcenter: '' autor: IngridAtMicrosoft manager: femila editor: ''
-
-ms.service: media-services ms.workload: media ms.tgt_pltfrm: na ms.devlang: na ms.topic: conceptual ms.date: 11/02/2020 ms.author: inhenkel
-
+title: Métricas e registos de diagnóstico com monitor Azure
+description: Saiba como monitorizar as métricas dos Serviços de Media Azure e os registos de diagnóstico através do Azure Monitor.
+services: media-services
+documentationcenter: ''
+author: IngridAtMicrosoft
+manager: femila
+editor: ''
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: conceptual
+ms.date: 11/02/2020
+ms.author: inhenkel
+ms.openlocfilehash: 35b0d9c2937024341be6183ac1438b7c4500d6ef
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954991"
 ---
-
 # <a name="monitor-media-services-metrics-and-diagnostic-logs-with-azure-monitor"></a>Monitorize métricas de Serviços de Mídia e registos de diagnóstico com o Azure Monitor
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
@@ -29,7 +43,7 @@ Os Serviços de Comunicação Social apoiam métricas de monitorização dos seg
 
 Pode monitorizar as seguintes métricas de conta.
 
-|Nome da métrica|Nome a apresentar|Descrição|
+|Nome da métrica|Nome a apresentar|Description|
 |---|---|---|
 |Conta de Ativos|Contagem de ativos|Bens na sua conta.|
 |AssetQuota|Quota de ativos|Quota de ativo na sua conta.|
@@ -47,7 +61,7 @@ Deve também rever [as quotas e limites de conta.](limits-quotas-constraints.md)
 
 São suportadas as [seguintes métricas de serviços](/rest/api/media/streamingendpoints) de streaming de media:
 
-|Nome da métrica|Nome a apresentar|Descrição|
+|Nome da métrica|Nome a apresentar|Description|
 |---|---|---|
 |Pedidos|Pedidos|Fornece o número total de pedidos HTTP servidos pelo Streaming Endpoint.|
 |Saída|Saída|Egress bytes total por minuto por streaming Endpoint.|
@@ -100,7 +114,7 @@ Algumas coisas que pode examinar com os principais registos de diagnóstico de e
 
 Ver [como monitorizar os registos de diagnóstico do Media Service](media-services-diagnostic-logs-howto.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Como recolher e consumir dados de registo dos seus recursos Azure](../../azure-monitor/platform/platform-logs-overview.md)
 * [Criar, ver e gerir alertas de métricas com o Azure Monitor](../../azure-monitor/platform/alerts-metric.md)

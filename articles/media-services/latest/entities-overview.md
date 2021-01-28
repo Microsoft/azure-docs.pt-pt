@@ -1,5 +1,5 @@
 ---
-title: Filtragem, encomenda e paging de entidades de Serviços de Comunicação Social
+title: Filtragem, encomenda e paging de entidades
 description: Saiba mais sobre filtragem, encomenda e paging de entidades V3 da Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 50f562927fcbcf66ca7006ac2d100520311ac917
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 19febc833f087afdfecde3274a1044598d082521
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897888"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955314"
 ---
 # <a name="filtering-ordering-and-paging-of-media-services-entities"></a>Filtragem, encomenda e paging de entidades de Serviços de Comunicação Social
 
@@ -181,7 +181,7 @@ A tabela a seguir mostra como pode aplicar as opções de filtragem e encomenda 
 || propriedades.criadas      | `gt`, `ge`, `lt`, `le`| `asc` e `desc`|
 || propriedades.lastModified | `gt`, `ge`, `lt`, `le`| `asc` e `desc`|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Listar Ativos](/rest/api/media/assets/list)
 * [Políticas chave de conteúdo da lista](/rest/api/media/contentkeypolicies/list)

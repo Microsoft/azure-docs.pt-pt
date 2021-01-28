@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services v3 nuvens e disponibilidade de regiões
+title: Disponibilidade de regiões Azure Media Services v3
 description: Este artigo fala sobre nuvens e regiões do Azure Media Services v3.
 services: media-services
 author: IngridAtMicrosoft
@@ -8,12 +8,12 @@ ms.service: media-services
 ms.topic: reference
 ms.date: 10/28/2020
 ms.author: inhenkel
-ms.openlocfilehash: 20c025cfabf6ed3cedd838f8be964bec06ad595e
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 91df515703b4b6b368b07482fad1aa8b781281f6
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242717"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954451"
 ---
 # <a name="azure-media-services-v3-clouds-and-regions-availability"></a>Azure Media Services v3 nuvens e disponibilidade de regiões
 
@@ -63,10 +63,10 @@ Utilize a navegação no direito de encontrar a região em que está interessado
 
 [Regiões em que o serviço Azure Media Services é implantado](https://azure.microsoft.com/global-infrastructure/services/?products=media-services)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * [Regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/)
-* [Nomes de código regionais e pontos finais](azure-regions-code-names.md)
+* [Nomes de códigos regionais e pontos finais](azure-regions-code-names.md)
 * [Geografias do Azure](https://azure.microsoft.com/global-infrastructure/geographies/)
 * [Locais azuis](https://azure.microsoft.com/global-infrastructure/locations/)
 

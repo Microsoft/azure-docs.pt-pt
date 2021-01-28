@@ -456,7 +456,7 @@
   items:
     - name: Tamanhos
       items:
-        - name: Descrição geral
+        - name: Descrição Geral
           href: sizes.md
         - name: Alterar o tamanho VM
           items:
@@ -712,7 +712,7 @@
           href: ./windows/winrm.md
     - name: Extensões
       items:
-        - name: Descrição geral
+        - name: Descrição Geral
           href: ./extensions/overview.md
         - name: Linux
           items:
@@ -913,7 +913,7 @@
           href: ./windows/client-images.md
     - name: Imagens personalizadas de Linux
       items:
-        - name: Descrição geral
+        - name: Descrição Geral
           href: ./linux/imaging.md
         - name: Provisão de Linux
           href: ./linux/provisioning.md
@@ -1252,7 +1252,7 @@
                   href: ./windows/disk-encryption-faq.md
             - name: Encriptação do Disco Azure - versão anterior
               items:
-                - name: Descrição geral
+                - name: Descrição Geral
                   items:
                     - name: Linux
                       href: ./linux/disk-encryption-overview-aad.md
@@ -1435,7 +1435,7 @@
               href: 'https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-snapshot-from-vhd.md'
 - name: Rede
   items:
-    - name: Descrição geral
+    - name: Descrição Geral
       href: network-overview.md
     - name: Criar a rede virtual
       href: ../virtual-network/quick-create-cli.md?context=/azure/virtual-machines/context/context
@@ -1481,7 +1481,7 @@
       href: ../security-center/security-center-just-in-time.md
     - name: Política
       items:
-        - name: Descrição geral
+        - name: Descrição Geral
           href: security-policy.md
         - name: Controlos por política
           displayName: 'regulatory, compliance, standards, domains'
@@ -1496,7 +1496,7 @@
               href: ./windows/policy.md
     - name: Bastion
       items:
-        - name: Descrição geral
+        - name: Descrição Geral
           href: ../bastion/bastion-overview.md
         - name: Criar um anfitrião do Bastion
           items:
@@ -1549,7 +1549,7 @@
       href: ./linux/login-using-aad.md
 - name: Manutenção e atualizações
   items:
-    - name: Descrição geral
+    - name: Descrição Geral
       href: maintenance-and-updates.md
     - name: Aplicação de patches automática de convidado da VM (pré-visualização)
       href: ./windows/automatic-vm-guest-patching.md
@@ -1720,7 +1720,7 @@
       href: boot-diagnostics.md
 - name: Cópia de segurança e recuperação
   items:
-    - name: Descrição geral
+    - name: Descrição Geral
       href: backup-recovery.md
     - name: Interrupções de serviço
       href: virtual-machines-disaster-recovery-guidance.md
@@ -1741,7 +1741,7 @@
         - name: Fazer uma cópia de segurança de várias VMs
           href: ../backup/tutorial-backup-vm-at-scale.md
         - name: Opções de restauro
-          href: /backup/backup-azure-arm-restore-vms.md
+          href: ../backup/backup-azure-arm-restore-vms.md
         - name: Matriz de suporte
           href: ../backup/backup-support-matrix-iaas.md
         - name: Preços
@@ -1750,7 +1750,7 @@
           href: ../backup/backup-azure-vm-backup-faq.yml
     - name: Recuperação após desastre
       items:
-        - name: Descrição geral
+        - name: Descrição Geral
           href: ../site-recovery/site-recovery-overview.md
         - name: Permitir a recuperação de desastres
           items:
@@ -1791,7 +1791,7 @@
               href: ../site-recovery/migrate-overview.md?context=/azure/virtual-machines/context/context
 - name: Automatização de infraestruturas
   items:
-    - name: Descrição geral
+    - name: Descrição Geral
       href: infrastructure-automation.md
     - name: Dados personalizados
       href: custom-data.md

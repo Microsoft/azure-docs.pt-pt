@@ -5,12 +5,12 @@ ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a41a5828a82d81c5e7e8749fee70cd15e17bb9d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f05afb3c23fc720bb0100a751a6943d7bb03453f
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84697695"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954788"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Otimizar o desempenho e fiabilidade das Funções do Azure
 
@@ -112,7 +112,7 @@ Para as funções C#, pode alterar o tipo para uma matriz fortemente dotada.  Po
 
 O `host.json` ficheiro na aplicação de função permite a configuração do tempo de execução do anfitrião e comportamentos de desencadeamento.  Além dos comportamentos de loteamento, pode gerir a concordância para uma série de gatilhos. Muitas vezes, a adaptação dos valores nestas opções pode ajudar cada instância a escalar adequadamente para as exigências das funções invocadas.
 
-As definições no host.jsno ficheiro aplicam-se em todas as funções dentro da aplicação, num *único caso* da função. Por exemplo, se tivesse uma aplicação de função com duas funções HTTP e [`maxConcurrentRequests`](functions-bindings-http-webhook-output.md#hostjson-settings) pedidos definidos para 25, um pedido para um ou outro detonador HTTP contaria para os 25 pedidos simultâneos partilhados.  Quando esta aplicação de função é dimensionada para 10 instâncias, as duas funções permitem efetivamente 250 pedidos simultâneos (10 instâncias * 25 pedidos simultâneos por exemplo). 
+As definições no host.jsno ficheiro aplicam-se em todas as funções dentro da aplicação, num *único caso* da função. Por exemplo, se tivesse uma aplicação de função com duas funções HTTP e [`maxConcurrentRequests`](functions-bindings-http-webhook-output.md#hostjson-settings) pedidos definidos para 25, um pedido para um ou outro detonador HTTP contaria para os 25 pedidos simultâneos partilhados.  Quando esta aplicação de função é dimensionada para 10 instâncias, as dez funções permitem efetivamente 250 pedidos simultâneos (10 instâncias * 25 pedidos simultâneos por exemplo). 
 
 Outras opções de configuração do anfitrião encontram-se no [host.jsno artigo de configuração](functions-host-json.md).
 

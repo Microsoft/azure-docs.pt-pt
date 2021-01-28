@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 01/27/2021
 ms.author: alkohli
-ms.openlocfilehash: 915146cd17b90272daea4ce57f5243baf1d49cb3
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 8ecd1a99d41dc1391e6dba129d50eb53a67843d1
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578795"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955386"
 ---
 # <a name="set-azure-resource-manager-password-on-azure-stack-edge-pro-gpu-device"></a>Definir palavra-passe do Gestor de Recursos Azure no dispositivo GPU Azure Stack Edge Pro
 
@@ -21,53 +21,55 @@ ms.locfileid: "94578795"
 
 Este artigo descreve como definir a sua senha do Gestor de Recursos Azure. Tem de definir esta palavra-passe quando estiver a ligar-se às APIs locais do dispositivo através do Gestor de Recursos Azure.
 
-O procedimento para definir a palavra-passe pode ser diferente consoante utiliza o portal do Azure ou os cmdlets do PowerShell. Cada um destes procedimentos é descrito nas seguintes secções.
+<!--The procedure to set the password can be different depending upon whether you use the Azure portal or the PowerShell cmdlets. Each of these procedures is described in the following sections.-->
 
 
 ## <a name="reset-password-via-the-azure-portal"></a>Redefinir a palavra-passe através do portal Azure
 
-1. No portal Azure, aceda ao recurso Azure Stack Edge que criou para gerir o seu dispositivo. Vá ao **Edge compute > Começar**.
-
-2. No painel direito, na barra de comandos, selecione **Repor palavra-passe do ARM Edge**. 
+1. No portal Azure, aceda ao recurso Azure Stack Edge que criou para gerir o seu dispositivo. Aceda aos **serviços Edge > gateway de armazenamento cloud**.
 
     ![Redefinir a palavra-passe do utilizador EdgeARM 1](media/azure-stack-edge-j-series-set-azure-resource-manager-password/set-edgearm-password-1.png)
 
-3. Na lâmina de senha do **utilizador Reset EdgeArm,** forneça uma palavra-passe para ligar ao seu dispositivo APIs local através do Gestor de Recursos Azure. Confirme a palavra-passe e **selecione Reset**.
+2. No painel direito, na barra de comandos, selecione **Repor palavra-passe do ARM Edge**. 
 
     ![Redefinir a senha de utilizador do EdgeARM 2](media/azure-stack-edge-j-series-set-azure-resource-manager-password/set-edgearm-password-2.png)
 
+3. Na lâmina de senha do **utilizador Reset EdgeArm,** forneça uma palavra-passe para ligar ao seu dispositivo APIs local através do Gestor de Recursos Azure. Confirme a palavra-passe e **selecione Reset**.
+
+    ![Redefinir a senha de utilizador do EdgeARM 3](media/azure-stack-edge-j-series-set-azure-resource-manager-password/set-edgearm-password-3.png)
 
 
-## <a name="reset-password-via-powershell"></a>Redefinir a palavra-passe via PowerShell
 
-1. No Portal Azure, aceda ao recurso Azure Stack Edge que criou para gerir o seu dispositivo. Tome nota dos seguintes parâmetros na página **'Vista Geral'.**
+<!--## Reset password via PowerShell
 
-    - Nome de recurso Azure Stack Edge
-    - ID da subscrição
+1. In the Azure Portal, go to the Azure Stack Edge resource you created to manage your device. Make a note of the following parameters in the **Overview** page.
 
-2. Ir para **Configurações > Propriedades**. Tome nota dos seguintes parâmetros na página **Propriedades.**
+    - Azure Stack Edge resource name
+    - Subscription ID
 
-    - Grupo de recursos
-    - Chave de encriptação CIK: Selecione a vista e, em seguida, copie a **chave de encriptação**.
+2. Go to **Settings > Properties**. Make a note of the following parameters in the **Properties** page.
 
-    ![Obtenha a chave de encriptação CIK](media/azure-stack-edge-j-series-set-azure-resource-manager-password/get-cik-portal.png)
+    - Resource group
+    - CIK encryption key: Select view and then copy the **Encryption Key**.
+
+    ![Get CIK encryption key](media/azure-stack-edge-j-series-set-azure-resource-manager-password/get-cik-portal.png)
  
-3. Identifique uma palavra-passe que utilizará para ligar ao Gestor de Recursos Azure.
+3. Identify a password that you will use to connect to Azure Resource Manager.
 
-4. Inicie a casca da nuvem. Selecione no ícone no canto superior direito:
+4. Start the cloud shell. Select on the icon in the top right corner:
 
-    ![Iniciar casca de nuvem](media/azure-stack-edge-j-series-set-azure-resource-manager-password/start-cloud-shell.png) 
+    ![Start cloud shell](media/azure-stack-edge-j-series-set-azure-resource-manager-password/start-cloud-shell.png) 
 
-    Uma vez iniciada a casca de nuvem, poderá ter de mudar para PowerShell.
+    Once the cloud shell has started, you may need to switch to PowerShell.
 
     ![Cloud shell](media/azure-stack-edge-j-series-set-azure-resource-manager-password/cloud-shell.png)   
 
 
-5. Contexto definido. Escreva:
+5. Set context. Type:
 
     `Set-AzContext -SubscriptionId <Subscription ID>`
 
-    Eis uma saída de exemplo:
+    Here is a sample output:
 
     
     ```azurepowershell
@@ -80,11 +82,11 @@ O procedimento para definir a palavra-passe pode ser diferente consoante utiliza
         PS Azure:/
     ```
     
-5.  Se tiver algum módulo PS antigo, tem de os instalar.
+5.  If you have any old PS modules, you need to install those.
 
     `Remove-Module  Az.DataBoxEdge -force`
 
-    Aqui está uma amostra de saída. Neste exemplo, não havia módulos antigos para serem instalados.
+    Here is a sample output. In this example, there were no old modules to be installed.
 
     
     ```azurepowershell
@@ -99,7 +101,7 @@ O procedimento para definir a palavra-passe pode ser diferente consoante utiliza
         PS Azure:\
     ```
 
-6. O próximo conjunto de comandos irá descarregar e executar um script para instalar módulos PowerShell.
+6. Next set of commands will download and run a script to install PowerShell modules.
     
     ```azurepowershell
         cd ~/clouddrive
@@ -108,7 +110,7 @@ O procedimento para definir a palavra-passe pode ser diferente consoante utiliza
         Import-Module ~/clouddrive/Az.DataBoxEdge/Az.DataBoxEdge.psd1 -Force
     ```
 
-7. No próximo conjunto de comandos, terá de fornecer o nome do recurso, o nome do grupo de recursos, a chave de encriptação e a palavra-passe que identificou no passo anterior.
+7. In the next set of commands, you'll need to provide the resource name, resource group name, encryption key, and the password you identified in the previous step.
 
     ```azurepowershell
     $devicename = "<Azure Stack Edge resource name>"
@@ -116,18 +118,18 @@ O procedimento para definir a palavra-passe pode ser diferente consoante utiliza
     $cik = "<Encryption key>"
     $password = "<Password>"
     ```
-    A palavra-passe e os parâmetros das chaves de encriptação devem ser passados como cadeias seguras. Utilize os seguintes cmdlets para converter a palavra-passe e a chave de encriptação para fixar as cordas.
+    The password and encryption key parameters must be passed as secure strings. Use the following cmdlets to convert the password and encryption key to secure strings.
 
     ```azurepowershell
     $pass = ConvertTo-SecureString $password -AsPlainText -Force
     $key = ConvertTo-SecureString $cik -AsPlainText -Force
     ```
-    Utilize as cordas de segurança acima geradas como parâmetros no Set-AzDataBoxEdgeUser cmdlet para redefinir a palavra-passe. Utilize o mesmo grupo de recursos que utilizou ao criar o recurso Azure Stack Edge Pro/Data Box Gateway.
+    Use the above generated secure strings as parameters in the Set-AzDataBoxEdgeUser cmdlet to reset the password. Use the same resource group that you used when creating the Azure Stack Edge Pro/Data Box Gateway resource.
 
     ```azurepowershell
     Set-AzDataBoxEdgeUser -ResourceGroupName $resourceGroup -DeviceName $devicename -Name EdgeARMUser  -Password $pass -EncryptionKey $key
     ```
-    Aqui está a saída da amostra.
+    Here is the sample output.
     
     ```azurepowershell
     PS /home/aseuser/clouddrive> $devicename = "myaseresource"
@@ -144,7 +146,7 @@ O procedimento para definir a palavra-passe pode ser diferente consoante utiliza
     
         PS /home/aseuser/clouddrive>
     ```
-Utilize a nova palavra-passe para ligar ao Gestor de Recursos Azure.
+Use the new password to connect to Azure Resource Manager.-->
 
 ## <a name="next-steps"></a>Passos seguintes
 

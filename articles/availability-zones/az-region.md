@@ -1,18 +1,19 @@
 ---
 title: Serviços do Azure que suportam as Zonas de Disponibilidade
 description: Para criar aplicações altamente disponíveis e resilientes no Azure, as Zonas de Disponibilidade fornecem locais fisicamente separados que pode utilizar para executar os seus recursos.
-author: cynthn
+author: prsandhu
 ms.service: azure
-ms.topic: article
-ms.date: 12/17/2020
-ms.author: cynthn
+ms.topic: conceptual
+ms.date: 01/26/2021
+ms.author: prsandhu
+ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: 2a2e4ac57eec866d9857f564d6c76ad4a775d223
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: e8e62d92afb70ec9d4df40f677de05583ef472b0
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98874613"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955788"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>Serviços do Azure que suportam as Zonas de Disponibilidade
 
@@ -58,7 +59,7 @@ Para alcançar uma ampla continuidade de negócios em Azure, construa a sua arqu
 | Oeste DOS EUA 2        |                |                      |                     |                |
 
 
-Para saber mais sobre As Zonas de Disponibilidade e o suporte de serviços disponíveis nestas regiões, contacte o seu representante de vendas da Microsoft ou do cliente. Para as próximas regiões que apoiarão As Zonas de Disponibilidade, consulte [geografias Azure.](https://azure.microsoft.com/en-us/global-infrastructure/geographies/)
+\* Para saber mais sobre As Zonas de Disponibilidade e o suporte de serviços disponíveis nestas regiões, contacte o seu representante de vendas da Microsoft ou do cliente. Para as próximas regiões que apoiarão As Zonas de Disponibilidade, consulte [geografias Azure.](https://azure.microsoft.com/en-us/global-infrastructure/geographies/)
 
 
 ## <a name="azure-services-supporting-availability-zones"></a>Serviços Azure que apoiam zonas de disponibilidade
@@ -152,7 +153,7 @@ Para saber mais sobre As Zonas de Disponibilidade e o suporte de serviços dispo
 |-----------------------------------------------|:-------------------:|
 |     DNS do Azure                                 |     :globe_with_meridians:             |
 |     Diretório Ativo Azure                  |     :globe_with_meridians:             |
-|     Azure Advisor                             |     :globe_with_meridians:             |
+|     Assistente do Azure                             |     :globe_with_meridians:             |
 |     Azure Bot Services                        |     :globe_with_meridians:             |
 |     Azure Defender para IoT                  |     :globe_with_meridians:             |
 |     Proteção de Informação Azure            |     :globe_with_meridians:             |
@@ -194,7 +195,7 @@ Não há custo adicional para máquinas virtuais implantadas numa Zona de Dispon
 - [Criar um cluster de serviço Azure Kubernetes (AKS) que utiliza Zonas de Disponibilidade](../aks/availability-zones.md)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Regiões e Zonas de Disponibilidade no Azure](az-overview.md)

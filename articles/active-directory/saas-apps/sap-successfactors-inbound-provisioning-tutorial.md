@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 01/19/2021
 ms.author: chmutali
-ms.openlocfilehash: ce48d87c6e04e6c349b681e953647feb5e7ddda5
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+ms.openlocfilehash: 7b59e0ae2fbb73f341d5254fd2804d50ad141a19
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98570121"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98953806"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning"></a>Tutorial: Configurar os sap successFactors para o provisionamento do utilizador do Ative Directory 
 O objetivo deste tutorial é mostrar os passos que você precisa para executar para os utilizadores de SuccessFactors Employee Central em Ative Directory (AD) e Azure AD, com a write-back opcional de endereço de e-mail para SuccessFactors. 
@@ -186,7 +186,7 @@ Esta secção fornece passos para o fornecimento de conta de utilizador de Succe
 
 Para o fornecimento ao Ative Directory no local, o agente Provisioning deve ser instalado num servidor ligado a domínios que tenha acesso à rede ao ou dos domínios do Diretório Ativo pretendidos.
 
-Transfira o instalador de agente descarregado para o anfitrião do servidor e siga os passos listados [na secção do agente de instalação](../cloud-provisioning/how-to-install.md) para completar a configuração do agente.
+Transfira o instalador de agente descarregado para o anfitrião do servidor e siga os passos listados [na secção do agente de instalação](../cloud-sync/how-to-install.md) para completar a configuração do agente.
 
 ### <a name="part-3-in-the-provisioning-app-configure-connectivity-to-successfactors-and-active-directory"></a>Parte 3: Na app de provisionamento, configurar a conectividade com os SuccessFactors e o Ative Directory
 Neste passo, estabelecemos conectividade com o SuccessFactors e Diretório Ativo no portal Azure. 
@@ -209,12 +209,12 @@ Neste passo, estabelecemos conectividade com o SuccessFactors e Diretório Ativo
         > Esta definição só entra em jogo para criações de conta de utilizador se o atributo *nome parental* não estiver configurado nos mapeamentos do atributo. Esta definição não é utilizada para operações de pesquisa ou atualização do utilizador. Toda a sub-árvore de domínio cai no âmbito da operação de busca.
 
    * **E-mail de notificação –** Insira o seu endereço de e-mail e verifique a caixa de verificação "enviar e-mail se ocorrer falha".
-    > [!NOTE]
-    > O Serviço de Provisionamento Azure AD envia uma notificação por e-mail se o trabalho de provisionamento entrar em estado de [quarentena.](../app-provisioning/application-provisioning-quarantine-status.md)
+     > [!NOTE]
+     > O Serviço de Provisionamento Azure AD envia uma notificação por e-mail se o trabalho de provisionamento entrar em estado de [quarentena.](../app-provisioning/application-provisioning-quarantine-status.md)
 
    * Clique no botão **De Ligação de Teste.** Se o teste de ligação for bem sucedido, clique no botão **Guardar** na parte superior. Se falhar, verifique duas vezes se as credenciais do SuccessFactors e as credenciais de AD configuradas na configuração do agente são válidas.
-    >[!div class="mx-imgBorder"]
-    >![Portal do Azure](./media/sap-successfactors-inbound-provisioning/sf2ad-provisioning-creds.png)
+     >[!div class="mx-imgBorder"]
+     >![Portal do Azure](./media/sap-successfactors-inbound-provisioning/sf2ad-provisioning-creds.png)
 
    * Uma vez guardadas as credenciais com sucesso, a secção **mappings** apresentará o mapeamento padrão sincronizar os **utilizadores do SuccessFactors para o Diretório Ativo das Instalações**
 
@@ -250,9 +250,8 @@ Nesta secção, irá configurar como os dados dos utilizadores fluem de SuccessF
 
 1. Na secção **de mapeamentos do Atributo,** pode definir como os SuccessFactors individuais atribuem o mapa aos atributos ative directory.
 
-  >[!NOTE]
-  >Para a lista completa de atributos SuccessFactors suportados pela aplicação, consulte a [Referência de Atributos SuccessFactors](../app-provisioning/sap-successfactors-attribute-reference.md)
-
+     >[!NOTE]
+     >Para a lista completa de atributos SuccessFactors suportados pela aplicação, consulte a [Referência de Atributos SuccessFactors](../app-provisioning/sap-successfactors-attribute-reference.md)
 
 1. Clique num mapeamento de atributos existente para atualizá-lo ou clique em **Adicionar novo mapeamento** na parte inferior do ecrã para adicionar novos mapeamentos. Um mapeamento de atributos individuais suporta estas propriedades:
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: adcc894db630bba11e84e2f277705d2f31caf7dc
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 1222108694ff7274e5d8fd063635b70a76ffc59c
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98920228"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954754"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Azure Monitor Logs Clusters Dedicados
 
@@ -81,10 +81,12 @@ Devem ser especificadas as seguintes propriedades:
 
 Depois de criar o seu recurso *Cluster,* pode editar propriedades adicionais como *sku*, *keyVaultProperties ou *BillingType*. Veja mais detalhes abaixo.
 
+Você pode ter até 2 clusters ativos por subscrição por região. Se o cluster for eliminado, ainda está reservado por 14 dias. Pode ter até 4 clusters reservados por subscrição por região (ativos ou recentemente eliminados).
+
 > [!WARNING]
 > A criação de clusters desencadeia a atribuição e o provisionamento de recursos. Esta operação pode levar até uma hora para ser concluída. Recomenda-se executá-lo assíncronos.
 
-A conta de utilizador que cria os clusters deve ter a permissão padrão de criação de recursos Azure: `Microsoft.Resources/deployments/*` e permissão de escrita de cluster `(Microsoft.OperationalInsights/clusters/write)` .
+A conta de utilizador que cria os clusters deve ter a permissão padrão de criação de recursos Azure: `Microsoft.Resources/deployments/*` e a permissão de escrita de cluster `Microsoft.OperationalInsights/clusters/write` por ter nas suas atribuições de papel esta ação específica ou `Microsoft.OperationalInsights/*` ou `*/write` .
 
 ### <a name="create"></a>Criar 
 
@@ -503,7 +505,9 @@ Utilize a seguinte chamada REST para eliminar um cluster:
 
 ## <a name="limits-and-constraints"></a>Limites e constrangimentos
 
-- O número máximo de cluster por região e subscrição é de 2
+- O número máximo de aglomerados ativos por região e subscrição é de 2
+
+- O número máximo de aglomerados reservados (ativos ou recentemente eliminados) por região e subscrição é de 4 
 
 - O máximo de espaços de trabalho ligados ao cluster é 1000
 
@@ -567,7 +571,7 @@ Utilize a seguinte chamada REST para eliminar um cluster:
   -  404- Espaço de trabalho não encontrado. O espaço de trabalho especificado não existe ou foi apagado.
   -  409 - Ligação do espaço de trabalho ou operação de desvinculação em processo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [a faturação dedicada do cluster do Log Analytics](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters)
 - Conheça o [design adequado dos espaços de trabalho do Log Analytics](../platform/design-logs-deployment.md)

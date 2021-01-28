@@ -4,12 +4,12 @@ description: Fornece um resumo das definições de suporte e limitações Azure 
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 5281a5f0b833759c2594b6748cf06f2e12c03822
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 08d2ac8451e88dd8d40ed5faee0368ff7739cd16
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757479"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954703"
 ---
 # <a name="azure-disk-backup-support-matrix-in-preview"></a>Matriz de suporte de backup do disco Azure (na pré-visualização)
 
@@ -66,6 +66,8 @@ Serão anunciadas mais regiões quando estiverem disponíveis.
 
 - O suporte [de Links Privados](../virtual-machines/disks-enable-private-links-for-import-export-portal.md) para discos geridos permite-lhe restringir a exportação e importação de discos geridos para que ocorra apenas dentro da sua rede virtual Azure. A Azure Disk Backup suporta a cópia de segurança dos discos que têm pontos finais privados ativados. Isto não inclui os dados de backup ou instantâneos para serem acessíveis através do ponto final privado.
 
-## <a name="next-steps"></a>Próximos passos
+- Durante a pré-visualização, não é possível desativar a cópia de segurança, pelo que a opção para parar a **cópia de segurança e reter dados de backup** não é suportada. Pode eliminar uma instância de backup, que não só irá parar a cópia de segurança como também eliminar todos os dados de backup.
+
+## <a name="next-steps"></a>Passos seguintes
 
 - [Back up Azure Managed Disks](backup-managed-disks.md)

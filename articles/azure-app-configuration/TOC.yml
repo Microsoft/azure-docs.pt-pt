@@ -104,6 +104,8 @@
           href: overview-managed-identity.md
         - name: Linha de base de segurança
           href: security-baseline.md
+        - name: Controlos de segurança do Azure Policy
+          href: ./security-controls-policy.md
     - name: Elevada disponibilidade
       items:
         - name: Resiliência e recuperação após desastre

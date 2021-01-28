@@ -1,5 +1,5 @@
 ---
-title: Stream Widevine Android Offline com Azure Media Services v3
+title: Stream Widevine Android offline
 description: Este tópico mostra como configurar a sua conta Azure Media Services v3 para o streaming offline de conteúdos protegidos de Widevine.
 services: media-services
 keywords: DASH, DRM, Widevine Offline Mode, ExoPlayer, Android
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: willzhan
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b8c4bed81a73957cc80318064f2aa2a58b3cfe11
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c7adab9c14075e12cf5656f9e798e78ff26ff0b
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91597069"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955212"
 ---
 # <a name="offline-widevine-streaming-for-android-with-media-services-v3"></a>Streaming offline Widevine para Android com Media Services v3
 
@@ -109,14 +109,14 @@ A versão ExoPlayer 2.6 e superior inclui muitas classes que suportam a reprodu�
 
 A seguinte lista de classes facilita o modo offline no ExoPlayer SDK para Android:
 
-- biblioteca/core/src/main/java/com/google/android/exoplayer2/drm/OfflineLicenseHelper.java  
-- biblioteca/core/src/main/java/com/google/android/exoplayer2/drm/DefaultDrmSession.java
-- biblioteca/core/src/main/java/com/google/android/exoplayer2/drm/DefaultDrmSessionManager.java
-- biblioteca/core/src/main/java/com/google/android/exoplayer2/drm/DrmSession.java
-- biblioteca/core/src/main/java/com/google/android/exoplayer2/drm/ErrorStateDrmSession.java
-- biblioteca/core/src/main/java/com/google/android/exoplayer2/drm/ExoMediaDrm.java
+- biblioteca/núcleo/src/main/java/com/google/android/exoplayer2/drm/OfflineLicenseHelper.java  
+- biblioteca/núcleo/src/main/java/com/google/android/exoplayer2/drm/DefaultDrmSession.java
+- biblioteca/núcleo/src/main/java/com/google/android/exoplayer2/drm/DefaultDrmSessionManager.java
+- biblioteca/núcleo/src/main/java/com/google/android/exoplayer2/drm/DrmSession.java
+- biblioteca/núcleo/src/main/java/com/google/android/exoplayer2/drm/ErrorStateDrmSession.java
+- biblioteca/núcleo/src/main/java/com/google/android/exoplayer2/drm/ExoMediaDrm.java
 - biblioteca/núcleo/src/main/java/com/google/android/exoplayer2/offline/SegmentDownloader.java
-- biblioteca/core/src/main/java/com/google/android/exoplayer2/offline/DownloaderConstructorHelper.java 
+- biblioteca/núcleo/src/main/java/com/google/android/exoplayer2/offline/DownloaderConstructorHelper.java 
 - biblioteca/núcleo/src/main/java/com/google/android/exoplayer2/offline/Downloader.java
 - biblioteca/dash/src/main/java/com/google/android/exoplayer2/source/dash/offline/DashDownloader.java 
 
@@ -124,7 +124,7 @@ Os desenvolvedores devem fazer referência ao [Guia de Desenvolvimento do ExoPla
 
 ### <a name="working-with-older-android-devices"></a>Trabalhar com dispositivos Android mais antigos
 
-Para alguns dispositivos Android mais antigos, deve definir valores para as seguintes propriedades **policy_overrides** (definidas no [modelo de licença Widevine](widevine-license-template-overview.md): **rental_duration_seconds**, **playback_duration_seconds**e **license_duration_seconds**. Em alternativa, pode defini-los a zero, o que significa duração infinita/ilimitada.  
+Para alguns dispositivos Android mais antigos, deve definir valores para as seguintes propriedades **policy_overrides** (definidas no [modelo de licença Widevine](widevine-license-template-overview.md): **rental_duration_seconds**, **playback_duration_seconds** e **license_duration_seconds**. Em alternativa, pode defini-los a zero, o que significa duração infinita/ilimitada.  
 
 Os valores devem ser definidos para evitar que um inseto inteiro transborde. Para mais explicações sobre o assunto, consulte https://github.com/google/ExoPlayer/issues/3150 https://github.com/google/ExoPlayer/issues/3112 e. <br/>Se não definir explicitamente os valores para  **PlaybackDurationRemaining** e **LicenseDurationRemaining** será atribuído, (por exemplo, 9223372036854775807, que é o valor máximo positivo para um número inteiro de 64 bits). Como resultado, a licença Widevine aparece caducada e, portanto, a desencriptação não vai acontecer. 
 

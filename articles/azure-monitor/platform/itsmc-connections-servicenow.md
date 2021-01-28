@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 12/21/2020
-ms.openlocfilehash: 7d1b4b3542f6914d413a5e29e57baa15e7a53346
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 3cc38fad6f26bf6f382b4a275638c450c8333a04
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98012789"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955737"
 ---
 # <a name="connect-servicenow-with-it-service-management-connector"></a>Conecte o ServiceNow com o conector de gestão de serviços de TI
 
@@ -122,7 +122,7 @@ Utilize o seguinte procedimento para criar uma ligação ServiceNow.
    | --- | --- |
    | **Nome de conexão**   | Insira um nome para o caso ServiceNow que pretende ligar-se ao ITSMC. Utilize este nome mais tarde no Log Analytics quando configurar itens de trabalho ITSM e ver análises detalhadas. |
    | **Tipo de Parceiro**   | Selecione **ServiceNow**. |
-   | **URL do Servidor**   | Introduza o URL da instância ServiceNow que pretende ligar ao ITSMC. O URL deve apontar para uma versão SaaS suportada com o *sufixo .servicenow.com*.|
+   | **URL do Servidor**   | Introduza o URL da instância ServiceNow que pretende ligar ao ITSMC. O URL deve apontar para uma versão SaaS suportada com o *sufixo .servicenow.com* (por exemplo https://XXXXX.service-now.com/) .|
    | **Nome de Utilizador**   | Introduza o nome de utilizador de integração que criou na app ServiceNow para suportar a ligação ao ITSMC.|
    | **Palavra-passe**   | Introduza a palavra-passe associada a este nome de utilizador. **Nota:** O nome de utilizador e a palavra-passe são utilizados apenas para gerar fichas de autenticação. Não estão guardados em nenhum lugar dentro do serviço ITSMC.  |
    | **ID do cliente**   | Insira o ID do cliente que pretende utilizar para a autenticação OAuth2, que gerou anteriormente. Para obter mais informações sobre a geração de um ID do cliente e um segredo, consulte [Configurar OAuth](https://wiki.servicenow.com/index.php?title=OAuth_Setup). |
@@ -142,7 +142,7 @@ Quando estiver ligado e sincronizado com sucesso:
 > [!NOTE]
 > O ServiceNow tem um limite de tarifa para pedidos por hora. Para configurar o limite, defina **a taxa de API de entrada REST limitando** na instância ServiceNow.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Visão geral do conector ITSM](itsmc-overview.md)
 * [Crie itens de trabalho ITSM a partir de alertas Azure](./itsmc-definition.md#create-itsm-work-items-from-azure-alerts)

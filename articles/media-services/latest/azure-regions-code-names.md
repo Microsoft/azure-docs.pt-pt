@@ -1,5 +1,5 @@
 ---
-title: Nuvens e regiões em que o Azure Media Services v3 está disponível
+title: Nuvens e regiões para Azure Media Services v3
 description: Este artigo fala sobre os URLs utilizados para os pontos finais e código para as regiões.
 services: media-services
 author: IngridAtMicrosoft
@@ -8,14 +8,14 @@ ms.service: media-services
 ms.topic: reference
 ms.date: 10/28/2020
 ms.author: inhenkel
-ms.openlocfilehash: c17eeda91af46c4159f7c4b1747416298f24c703
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 74f30ebb766ea34603c0a30455837c47222967c0
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319642"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954332"
 ---
-# <a name="regional-code-names-and-endpoints"></a>Nomes de código regionais e pontos finais
+# <a name="regional-code-names-and-endpoints"></a>Nomes de códigos regionais e pontos finais
 
 ### <a name="region-code-name"></a>Nome do código da região
 
@@ -84,7 +84,7 @@ Os seguintes pontos finais são importantes para saber ao ligar-se às contas do
 ## <a name="see-also"></a>Ver também
 
 * [Regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/)
-* [Nomes de código regionais e pontos finais](azure-regions-code-names.md)
+* [Nomes de códigos regionais e pontos finais](azure-regions-code-names.md)
 * [Geografias do Azure](https://azure.microsoft.com/global-infrastructure/geographies/)
 * [Locais azuis](https://azure.microsoft.com/global-infrastructure/locations/)
 

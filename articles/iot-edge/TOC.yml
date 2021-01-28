@@ -110,7 +110,7 @@
         - name: Certificados do IoT Edge
           href: iot-edge-certs.md
         - name: Computação confidencial
-          href: deploy-trusted-applications.md
+          href: deploy-confidential-applications.md
     - name: Suporte da plataforma
       href: support.md
     - name: Lista de verificação da implementação de produção

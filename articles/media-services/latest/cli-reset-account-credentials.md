@@ -1,5 +1,5 @@
 ---
-title: Exemplo de script do Azure CLI - Repor as credenciais da sua conta
+title: Redefinir as suas credenciais de conta -CLI
 description: Utilize o script da CLI do Azure para repor as credenciais da sua conta e voltar às definições de app.config.
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2b9b95af79b8aac11f56fe576f860d719b5fb50e
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 6fe958c9300d6a6feeb6926f84dbecf565dfafc1
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897684"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954349"
 ---
 # <a name="azure-cli-example-reset-the-account-credentials"></a>Exemplo do Azure CLI: Redefinir as credenciais de conta
 
@@ -46,7 +46,7 @@ az ams account sp reset-credentials \
   --resource-group $resourceGroup
  ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [az ams](/cli/azure/ams)
 * [Repor credenciais](/cli/azure/ams/account/sp#az-ams-account-sp-reset-credentials)

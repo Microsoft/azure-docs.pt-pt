@@ -1,5 +1,5 @@
 ---
-title: Streaming Offline FairPlay para iOS com Azure Media Services v3
+title: Media Services v3 offline FairPlay Streaming para iOS
 description: Este tópico dá uma visão geral e mostra como usar o Azure Media Services v3 para encriptar dinamicamente o seu conteúdo HTTP Live Streaming (HLS) com o Apple FairPlay no modo offline.
 services: media-services
 keywords: HLS, DRM, FairPlay Streaming (FPS), Offline, iOS 10
@@ -16,12 +16,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: willzhan
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 886a8aa1a6f062b5fe01476e387742f34efc0c56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 399f9b0184217db8180fcec38e4f78917d5c9bc8
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90532244"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955243"
 ---
 # <a name="offline-fairplay-streaming-for-ios-with-media-services-v3"></a>Streaming Offline FairPlay para iOS com Media Services v3
 
@@ -129,11 +129,11 @@ O suporte ao modo offline FPS só está disponível no iOS 10 e posteriormente. 
 * Documento: "Reprodução offline com FairPlay Streaming e HTTP Live Streaming." Apple, 14 de setembro de 2016. Na versão 4.0 do FPS Server SDK, este documento é fundido no documento principal do FPS.
 * Código de amostra: amostra de HLSCatalog (parte do SDK do Servidor FPS da Apple) para o modo offline FPS na versão SDK do servidor de streaming \FairPlay 3.1\Development\Client\HLSCatalog_With_FPS\HLSCatalog\. Na aplicação de amostra HLSCatalog, são utilizados os seguintes ficheiros de código para implementar funcionalidades de modo offline:
 
-    - Ficheiro de código AssetPersistenceManager.swift: AssetPersistenceManager é a classe principal desta amostra que demonstra como:
+    - Ficheiro de código .swift AssetPersistenceManager é a classe principal desta amostra que demonstra como:
 
         - Gerir o download de streams HLS, como as APIs usadas para iniciar e cancelar transferências e eliminar os ativos existentes fora dos dispositivos.
         - Monitorize o progresso do download.
-    - AssetListTableViewController.swift e AssetListTableViewCell.swift code files: AssetListTableViewController é a interface principal desta amostra. Fornece uma lista de ativos que a amostra pode usar para reproduzir, transferir, eliminar ou cancelar um download. 
+    - AssetListTableViewController.swift e Ficheiros de código AssetListTableViewCell.swift: AssetListTableViewController é a interface principal desta amostra. Fornece uma lista de ativos que a amostra pode usar para reproduzir, transferir, eliminar ou cancelar um download. 
 
 Estes passos mostram como configurar um leitor de iOS em execução. Assumindo que começa a partir da amostra HLSCatalog na versão 4.0.1 do FPS Server SDK, efetua as seguintes alterações de código:
 
@@ -170,7 +170,7 @@ Em HLSCatalog\Shared\Managers\ContentKeyDelegate.swift, implemente o método `re
     return ckcData
 ```
 
-Em HLSCatalog\Shared\Managers\ContentKeyDelegate.swift, implemente o método `requestApplicationCertificate()` . Esta implementação depende se incorpora o certificado (apenas na chave pública) com o dispositivo ou se hospeda o certificado na web. A seguinte implementação utiliza o certificado de pedido hospedado utilizado nas amostras de ensaio. Deixe o "certUrl" ser uma variável que contenha o URL do certificado de candidatura.
+No HLSCatalog\Shared\Managers\ContentKeyDelegate.swift, implemente o método `requestApplicationCertificate()` . Esta implementação depende se incorpora o certificado (apenas na chave pública) com o dispositivo ou se hospeda o certificado na web. A seguinte implementação utiliza o certificado de pedido hospedado utilizado nas amostras de ensaio. Deixe o "certUrl" ser uma variável que contenha o URL do certificado de candidatura.
 
 ```swift
 func requestApplicationCertificate() throws -> Data {

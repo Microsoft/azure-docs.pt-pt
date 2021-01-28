@@ -1,5 +1,5 @@
 ---
-title: Configure Carteiro para Azure Media Services v3 REST API calls
+title: Configure Carteiro para Azure Media Services v3 REST API
 description: Este artigo mostra-lhe como configurar o Carteiro para que possa ser usado para chamar APIs de REST da Azure Media Services (AMS).
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: aa10cb207011051c30866a3a3ed693e7113b5882
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b0a521ddeee6d93ce809e5e6e85eefa1f01a3f12
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89297723"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98953976"
 ---
 # <a name="configure-postman-for-media-services-v3-rest-api-calls"></a>Configure Carteiro para Serviços de Mídia v3 REST Chamadas API
 
@@ -99,7 +99,7 @@ Antes de começar a manipular os recursos AMS v3, precisa de obter e definir Azu
 * Se a sua aplicação falhar com "HTTP 504: Gateway Timeout", certifique-se de que a variável de localização não foi explicitamente definida para outro valor que não a localização esperada da conta Serviços de Comunicação. 
 * Se obtém um erro de "conta não encontrada", verifique também se a propriedade de localização na mensagem Body JSON está definida para o local onde se encontra a conta dos Serviços de Comunicação Social. 
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 - [Criar filtros com Serviços de Mídia - REST](filters-dynamic-manifest-rest-howto.md)
 - [API REST baseada no Azure Resource Manager](https://github.com/Azure-Samples/media-services-v3-arm-templates)

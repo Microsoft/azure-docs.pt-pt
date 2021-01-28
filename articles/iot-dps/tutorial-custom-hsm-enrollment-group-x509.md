@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 64064a584681d84eb6ba023c4777c0fdc4e6ec3d
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 566563dde26d2dd36f4358bc8c6dcdcfb5ba8465
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791934"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954872"
 ---
 # <a name="tutorial-provision-multiple-x509-devices-using-enrollment-groups"></a>Tutorial: Fornecimento de vários dispositivos X.509 utilizando grupos de inscrição
 
@@ -353,6 +353,9 @@ Em dispositivos não Windows, pode passar a cadeia de certificados do código co
 
 Nos dispositivos baseados no Windows, deve adicionar os certificados de assinatura (raiz e intermédio) a uma [loja de certificados](/windows/win32/secauthn/certificate-stores)Windows . Caso contrário, os certificados de assinatura não serão transportados para DPS por um canal seguro com Segurança da Camada de Transporte (TLS).
 
+> [!TIP]
+> Também é possível utilizar o OpenSSL em vez de um canal seguro (Schannel) com o C SDK. Para obter mais informações sobre a utilização do OpenSSL, consulte [utilizar o OpenSSL no SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#using-openssl-in-the-sdk).
+
 Para adicionar os certificados de assinatura à loja de certificados em dispositivos baseados no Windows:
 
 1. Num pedido de festa de Git, navegue para o `certs` subdiretório que contém os seus certificados de assinatura e converta-os da `.pfx` seguinte forma.
@@ -462,7 +465,7 @@ Quando terminar de testar e explorar esta amostra do cliente do dispositivo, use
 1. Clique em **Certificados** em DPS. Para cada certificado que carregou e verificou neste tutorial, clique no certificado e clique no botão **Apagar** para o remover.
 1. A partir do menu à esquerda no portal Azure, selecione **Todos os recursos** e, em seguida, selecione o seu hub IoT. Abra **os dispositivos IoT** para o seu hub. Selecione a caixa de verificação ao lado do *ID* do dispositivo que registou neste tutorial. Clique no botão **Eliminar** na parte superior do painel.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você a forte um dispositivo X.509 usando um HSM personalizado para o seu hub IoT. Para aprender a providenciar dispositivos IoT para vários centros, continue para o próximo tutorial. 
 

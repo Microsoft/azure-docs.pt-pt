@@ -113,6 +113,8 @@
           href: reference-data-guidelines.md
     - name: Formato de apresentação
       href: reference-markdown-format.md
+    - name: Links Privados
+      href: reference-private-endpoint.md
     - name: Formato de testes em lote
       href: reference-tsv-format-batch-testing.md
     - name: Encriptação

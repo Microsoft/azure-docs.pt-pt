@@ -1,9 +1,24 @@
 ---
-título: Eventos ao vivo e conceitos de saídas ao vivo em Azure Media Services v3 : Descrição do Azure Media Services: Este tópico fornece uma visão geral de eventos ao vivo e saídas ao vivo no Azure Media Services v3.
-serviços: media-services documentationcenter: '' autor: IngridAtMicrosoft manager: femila editor: ''
-
-ms.service: media-services ms.workload: media ms.tgt_pltfrm: na ms.devlang: ne ms.topic: conceptual ms.date: 10/23/2020 ms.author: inhenkel
-
+title: Eventos ao vivo e conceitos de saídas ao vivo
+description: Este tópico fornece uma visão geral de eventos ao vivo e saídas ao vivo no Azure Media Services v3.
+services: media-services
+documentationcenter: ''
+author: IngridAtMicrosoft
+manager: femila
+editor: ''
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: ne
+ms.topic: conceptual
+ms.date: 10/23/2020
+ms.author: inhenkel
+ms.openlocfilehash: 0b223fcedfdead991f7ce374f7f7814749388f90
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955958"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Eventos ao vivo e saídas ao vivo nos Serviços de Media
 
@@ -197,6 +212,6 @@ Consulte o artigo [perguntas frequentes.](frequently-asked-questions.md#live-str
 
 Consulte o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Media Services.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Tutorial de streaming ao vivo](stream-live-tutorial-with-api.md)

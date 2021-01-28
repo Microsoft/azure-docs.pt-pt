@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 01/19/2021
 ms.author: chmutali
-ms.openlocfilehash: 8e83841031593d0d1af4499f3ef9a15400ce7794
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+ms.openlocfilehash: a34881901fd8642fff9ac37512cd2ef260ad9d1c
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98569610"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954226"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configurar o Dia de Trabalho para o fornecimento automático de utilizadores
 
@@ -157,7 +157,7 @@ Neste passo, você concederá permissões políticas de "segurança de domínio"
 
 1. Procure e selecione o grupo de segurança criado no passo anterior. 
    >[!div class="mx-imgBorder"]
-   >![Selecione Grupo de Segurança](./media/workday-inbound-tutorial/select-security-group-msft-wdad.png)
+   >![Selecione Grupo de Segurança](./media/workday-inbound-tutorial/select-security-group-workday.png)
 
 1. Clique na elipse (...) ao lado do nome do grupo e do menu, selecione **Grupo de Segurança > Mantenha permissões de domínio para grupo de segurança**
    >[!div class="mx-imgBorder"]
@@ -228,7 +228,7 @@ Neste passo, você concederá permissões políticas de "segurança do processo 
 
 ## <a name="provisioning-agent-installation-prerequisites"></a>Pré-requisitos de instalação do Agente de Provisioning
 
-Reveja os [pré-requisitos de instalação](../cloud-provisioning/how-to-prerequisites.md) do agente de provisionamento antes de avançar para a secção seguinte. 
+Reveja os [pré-requisitos de instalação](../cloud-sync/how-to-prerequisites.md) do agente de provisionamento antes de avançar para a secção seguinte. 
 
 ## <a name="configuring-user-provisioning-from-workday-to-active-directory"></a>Configurar o fornecimento de utilizadores de Workday a Ative Directory
 
@@ -267,7 +267,7 @@ Esta secção fornece passos para o fornecimento de conta de utilizador de Workd
 
 Para o fornecimento ao Ative Directory no local, o agente Provisioning deve ser instalado num servidor ligado a domínios que tenha acesso à rede ao ou dos domínios do Diretório Ativo pretendidos.
 
-Transfira o instalador de agente descarregado para o anfitrião do servidor e siga os passos listados [na secção de agente **instalar**](../cloud-provisioning/how-to-install.md) para completar a configuração do agente.
+Transfira o instalador de agente descarregado para o anfitrião do servidor e siga os passos listados [na secção de agente **instalar**](../cloud-sync/how-to-install.md) para completar a configuração do agente.
 
 ### <a name="part-3-in-the-provisioning-app-configure-connectivity-to-workday-and-active-directory"></a>Parte 3: Na aplicação de provisionamento, configurar a conectividade ao Workday e ao Ative Directory
 Neste passo, estabelecemos conectividade com o Workday e o Ative Directory no portal Azure. 
@@ -284,9 +284,9 @@ Neste passo, estabelecemos conectividade com o Workday e o Ative Directory no po
 
      | Formato do URL | Versão API da WWS usada | Alterações XPATH necessárias |
      |------------|----------------------|------------------------|
-     | https://####.workday.com/ccx/service/tenantName | v21.1 | Não |
-     | https://####.workday.com/ccx/service/tenantName/Human_Resources | v21.1 | Não |
-     | https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# | v## . # | Sim |
+     | https://####.workday.com/ccx/service/tenantName | v21.1 | No |
+     | https://####.workday.com/ccx/service/tenantName/Human_Resources | v21.1 | No |
+     | https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# | v## . # | Yes |
 
       > [!NOTE]
      > Se nenhuma informação de versão for especificada no URL, a aplicação utiliza o Workday Web Services (WWS) v21.1 e não são necessárias alterações nas expressões API padrão enviadas com a aplicação. Para utilizar uma versão API da WWS específica, especifique o número da versão no URL <br>
@@ -336,7 +336,7 @@ Nesta secção, irá configurar como os dados dos utilizadores fluem do Workday 
       * Operador: NÃO É NULO
 
    > [!TIP]
-   > Quando estiver a configurar a app de provisionamento pela primeira vez, terá de testar e verificar os mapeamentos e expressões do seu atributo para se certificar de que está a dar-lhe o resultado desejado. A Microsoft recomenda a utilização dos filtros de deteção no **âmbito do objeto de origem** para testar os seus mapeamentos com alguns utilizadores de teste do Workday. Depois de verificar que os mapeamentos funcionam, pode remover o filtro ou expandi-lo gradualmente para incluir mais utilizadores.
+   > Quando estiver a configurar a app de provisionamento pela primeira vez, terá de testar e verificar os mapeamentos e expressões do seu atributo para se certificar de que está a dar-lhe o resultado desejado. A Microsoft recomenda a utilização de filtros de deteção no âmbito do Âmbito de [Objetos](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md) **de Origem** e [provisão a pedido](../app-provisioning/provision-on-demand.md) para testar os seus mapeamentos com alguns utilizadores de teste do Workday. Depois de verificar que os mapeamentos funcionam, pode remover o filtro ou expandi-lo gradualmente para incluir mais utilizadores.
 
    > [!CAUTION] 
    > O comportamento predefinido do motor de provisionamento é desativar/eliminar utilizadores que ficam fora de alcance. Isto pode não ser desejável no seu dia de trabalho para a integração da AD. Para anular este comportamento padrão consulte o artigo [Ignorar a eliminação das contas de utilizador que ficam fora de alcance](../app-provisioning/skip-out-of-scope-deletions.md)
@@ -1065,7 +1065,8 @@ No que diz respeito à retenção de dados, o serviço de fornecimento de Ad Azu
 
 ## <a name="next-steps"></a>Passos seguintes
 
+* [Saiba mais sobre os cenários de integração do AZure AD e do Workday e as chamadas de serviço web](../app-provisioning/workday-integration-reference.md)
 * [Saiba como analisar os registos e obter relatórios sobre a atividade de aprovisionamento](../app-provisioning/check-status-user-account-provisioning.md)
 * [Saiba como configurar um único sign-on entre workday e Azure Ative Directory](workday-tutorial.md)
-* [Saiba como integrar outras aplicações saaS com o Azure Ative Directory](tutorial-list.md)
+* [Saiba como configurar o Writeback workday](workday-writeback-tutorial.md)
 * [Saiba como utilizar as APIs do Microsoft Graph para gerir configurações de provisionamento](/graph/api/resources/synchronization-overview)

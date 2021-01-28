@@ -3,12 +3,12 @@ title: Crie um novo recurso baseado em sistemas de trabalho Azure Monitor Insigh
 description: Conheça os passos necessários para permitir os novos recursos baseados no espaço de trabalho do Azure Monitor Application Insights.
 ms.topic: conceptual
 ms.date: 10/06/2020
-ms.openlocfilehash: 9d1ef158b8096c12c36673b62f87e1d02be69175
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: f1cc7db7eea4485ad40062a0e11a76dc14234b41
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/28/2021
-ms.locfileid: "98936466"
+ms.locfileid: "98956055"
 ---
 # <a name="workspace-based-application-insights-resources"></a>Recursos de Insights de Aplicação baseados no espaço de trabalho
 
@@ -33,6 +33,7 @@ O Workspace Application Insights permite-lhe tirar partido das mais recentes cap
 
 Inscreva-se no [portal Azure](https://portal.azure.com)e crie um recurso Application Insights:
 
+[!div class="mx-imgBorder"]
 ![Recurso de Insights de Aplicação baseado em espaço de trabalho](./media/create-workspace-resource/create-workspace-based.png)
 
 Se ainda não tiver um espaço de trabalho log analytics existente, [consulte a documentação de criação do espaço de trabalho Log Analytics](../learn/quick-create-workspace.md).
@@ -209,7 +210,7 @@ A funcionalidade de exportação contínua do legado não é suportada por recur
 > Atualmente, não existem encargos adicionais para a exportação de telemetria. As informações sobre os preços desta funcionalidade estarão disponíveis na página de preços do [Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).  Antes do início da faturação, serão enviadas notificações. Caso opte por continuar a utilizar <feature name> após o período de pré-aviso, será cobrado à taxa aplicável. 
  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Explorar métricas](../platform/metrics-charts.md)
 * [Escrever consultas da Análise](../log-query/log-query-overview.md)

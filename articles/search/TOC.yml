@@ -91,7 +91,7 @@
     - name: Amostras de Python
       href: samples-python.md
     - name: Exemplos REST
-      href: /samples/browse/?expanded=azure&languages=http&products=azure-cognitive-search
+      href: samples-rest.md
 - name: Conceitos
   items:
     - name: Pesquisa em texto completo

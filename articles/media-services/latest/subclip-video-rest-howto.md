@@ -1,5 +1,5 @@
 ---
-title: Subclip um vídeo ao codificar com a Azure Media Services REST
+title: Subclip um vídeo ao codificar com os Media Services REST
 description: Este tópico descreve como subclip um vídeo ao codificar com a Azure Media Services usando REST
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: how-to
 ms.date: 06/10/2019
 ms.author: inhenkel
-ms.openlocfilehash: 524da91d55bad29a5f7c6dcec0eecc245b9954fd
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 6c287e168289082b2bd717a2706dd011c7115691
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97511914"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955671"
 ---
 # <a name="subclip-a-video-when-encoding-with-media-services---rest"></a>Subclip um vídeo ao codificar com os Media Services - REST
 

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.workload: identity
 ms.date: 01/18/2021
 ms.author: chmutali
-ms.openlocfilehash: 251e1d4249373ec52afb3d7edaa2325c992b66f1
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+ms.openlocfilehash: 38a93d5db6f8331da6e7afdef3e91b2764537459
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98570167"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954026"
 ---
 # <a name="how-azure-active-directory-provisioning-integrates-with-workday"></a>Como o provisionamento do Diretório Ativo Azure se integra com o Workday
 
@@ -43,7 +43,7 @@ Para garantir ainda mais a conectividade entre o serviço de fornecimento AZure 
 1. Copie todas as gamas de endereços IP listadas no endereço de *elementoPrefixos* e use o intervalo para construir a sua lista de endereços IP.
 1. Faça login no portal de administração workday. 
 1. Aceda à tarefa **Keep IP Ranges** para criar uma nova gama IP para centros de dados Azure. Especifique as gamas IP (utilizando a notação CIDR) como uma lista separada por vírgula.  
-1. Aceda à tarefa **'Gerir Políticas de Autenticação'** para criar uma nova política de autenticação. Na política de autenticação, utilize a **Autenticação Whitelist** para especificar a gama IP Azure E o grupo de segurança que terá acesso a partir desta gama IP. Guarde as alterações. 
+1. Aceda à tarefa **'Gerir Políticas de Autenticação'** para criar uma nova política de autenticação. Na política de autenticação, utilize a lista de autenticação para especificar a gama IP Azure E o grupo de segurança que terá acesso a partir desta gama IP. Guarde as alterações. 
 1. Aceda à tarefa **'Ativar todas as alterações de autenticação pendentes'** para confirmar alterações.
 
 ### <a name="limiting-access-to-worker-data-in-workday-using-constrained-security-groups"></a>Limitar o acesso aos dados dos trabalhadores no Dia de Trabalho utilizando grupos de segurança limitados
@@ -348,7 +348,7 @@ Se alguma das consultas acima retorna uma contratação futura, então o seguint
 </Get_Workers_Request>
 ```
 
-### <a name="retrieving-worker-data-attributes"></a>Recuperação de atributos de dados dos trabalhadores
+## <a name="retrieving-worker-data-attributes"></a>Recuperação de atributos de dados dos trabalhadores
 
 A *Get_Workers* API pode devolver diferentes conjuntos de dados associados a um trabalhador. Dependendo das [expressões XPATH API](workday-attribute-reference.md) configuradas no esquema de provisionamento, o serviço de fornecimento Azure AD determina quais os conjuntos de dados a obter do Dia de Trabalho. Assim, as bandeiras *Response_Group* estão colocadas no *pedido Get_Workers.* 
 
@@ -356,52 +356,55 @@ A tabela abaixo fornece orientações sobre a configuração de mapeamento para 
 
 | \# | Entidade do dia de trabalho                       | Incluído por padrão | Padrão XPATH para especificar no mapeamento para buscar entidades não-padrão             |
 |----|--------------------------------------|---------------------|-------------------------------------------------------------------------------|
-| 1  | Dados Pessoais                        | Sim                 | wd:Dados do \_ Trabalhador/wd:Dados Pessoais \_                                             |
-| 2  | Dados do Emprego                      | Sim                 | wd:Dados dos \_ trabalhadores/wd:Dados do emprego \_                                           |
-| 3  | Dados adicionais de trabalho                  | Sim                 | wd:Dados do \_ Trabalhador/wd:Dados de \_ emprego/wd:Trabalho \_ \_ dos Trabalhadores \[ @wd:Primary \_ Emprego=0\]|
-| 4  | Dados da Organização                    | Sim                 | wd:Dados dos \_ trabalhadores/wd:Dados da organização \_                                         |
-| 5  | Dados da cadeia de gestão                | Sim                 | wd:Dados dos \_ trabalhadores/wd:Dados da cadeia de gestão \_ \_                                    |
-| 6  | Organização de Supervisão             | Sim                 | «SUPERVISÃO»                                                                 |
-| 7  | Empresa                              | Sim                 | 'EMPRESA'                                                                     |
-| 8  | Unidade de Negócio                        | Não                  | 'UNIDADE DE \_ NEGÓCIO'                                                              |
-| 9  | Hierarquia da Unidade de Negócios              | Não                  | «HIERARQUIA \_ DA UNIDADE DE \_ NEGÓCIO»                                                   |
-| 10 | Hierarquia da Empresa                    | Não                  | "HIERARQUIA \_ DA EMPRESA"                                                          |
+| 1  | Dados Pessoais                        | Yes                 | wd:Dados do \_ Trabalhador/wd:Dados Pessoais \_                                             |
+| 2  | Dados do Emprego                      | Yes                 | wd:Dados dos \_ trabalhadores/wd:Dados do emprego \_                                           |
+| 3  | Dados adicionais de trabalho                  | Yes                 | wd:Dados do \_ Trabalhador/wd:Dados de \_ emprego/wd:Trabalho \_ \_ dos Trabalhadores \[ @wd:Primary \_ Emprego=0\]|
+| 4  | Dados da Organização                    | Yes                 | wd:Dados dos \_ trabalhadores/wd:Dados da organização \_                                         |
+| 5  | Dados da cadeia de gestão                | Yes                 | wd:Dados dos \_ trabalhadores/wd:Dados da cadeia de gestão \_ \_                                    |
+| 6  | Organização de Supervisão             | Yes                 | «SUPERVISÃO»                                                                 |
+| 7  | Empresa                              | Yes                 | 'EMPRESA'                                                                     |
+| 8  | Unidade de Negócio                        | No                  | 'UNIDADE DE \_ NEGÓCIO'                                                              |
+| 9  | Hierarquia da Unidade de Negócios              | No                  | «HIERARQUIA \_ DA UNIDADE DE \_ NEGÓCIO»                                                   |
+| 10 | Hierarquia da Empresa                    | No                  | "HIERARQUIA \_ DA EMPRESA"                                                          |
 | 11 | Centro de Custos                          | Não                  | 'COST \_ CENTER'                                                                |
-| 12 | Hierarquia do Centro de Custos                | Não                  | 'HIERARQUIA DO \_ CENTRO \_ DE CUSTOS'                                                     |
-| 13 | Fundo                                 | Não                  | 'FUNDO'                                                                        |
-| 14 | Hierarquia do Fundo                       | Não                  | "HIERARQUIA \_ DO FUNDO"                                                             |
-| 15 | Presente                                 | Não                  | 'PRESENTE'                                                                        |
-| 16 | Hierarquia do Presente                       | Não                  | 'HIERARQUIA \_ DO PRESENTE'                                                             |
-| 17 | Concessão                                | Não                  | 'SUBVENÇÃO'                                                                       |
-| 18 | Hierarquia grant                      | Não                  | "HIERARQUIA \_ DE SUBVENÇÕES"                                                            |
-| 19 | Hierarquia do Site de Negócios              | Não                  | "HIERARQUIA \_ DO SITE DE \_ NEGÓCIOS"                                                   |
-| 20 | Organização Matrix                  | Não                  | 'MATRIX'                                                                      |
-| 21 | Grupo De Pagamento                            | Não                  | 'PAY \_ GROUP'                                                                  |
-| 22 | Programas                             | Não                  | 'PROGRAMAS'                                                                    |
-| 23 | Hierarquia do Programa                    | Não                  | 'HIERARQUIA \_ DO PROGRAMA'                                                          |
-| 24 | Região                               | Não                  | «HIERARQUIA DA \_ REGIÃO»                                                           |
-| 25 | Hierarquia de Localização                   | Não                  | «HIERARQUIA \_ DA LOCALIZAÇÃO»                                                         |
-| 26 | Dados de Provisão de Conta            | Não                  | wd:Dados do \_ Trabalhador/wd:Dados \_ de Provisionamento de Conta \_                                |
-| 27 | Dados de verificação de antecedentes                | Não                  | wd:Dados do \_ trabalhador/wd:Dados de verificação de \_ \_ antecedentes                                    |
-| 28 | Benefício Dados de Elegibilidade             | Não                  | wd:Dados do \_ Trabalhador/wd:Dados \_ de elegibilidade do benefício \_                                 |
-| 29 | Dados de Inscrição de Benefícios              | Não                  | wd:Dados do \_ Trabalhador/wd:Dados de inscrição de \_ \_ benefícios                                  |
-| 30 | Dados de Carreira                          | Não                  | wd:Dados do \_ Trabalhador/wd:Dados de carreira \_                                               |
-| 31 | Dados de Compensação                    | Não                  | wd:Dados do \_ Trabalhador/wd:Dados de compensação \_                                         |
-| 32 | Dados da Autoridade Tributária Do Trabalhador Contingente | Não                  | wd:Dados do \_ Trabalhador/wd:Autoridade \_ \_ Tributária Contingente \_ Formulário \_ \_ Dados do Tipo \_       |
-| 33 | Dados de artigos de desenvolvimento                | Não                  | wd:Dados do \_ Trabalhador/wd:Dados de produto de desenvolvimento \_ \_                                    |
-| 34 | Dados dos Contratos de Trabalhadores              | Não                  | wd:Dados do \_ Trabalhador/wd:Dados \_ dos contratos de trabalho \_                                  |
-| 35 | Dados de Revisão dos Colaboradores                 | Não                  | wd:Dados dos \_ trabalhadores/wd:Dados de revisão dos \_ \_ trabalhadores                                     |
-| 36 | Feedback Dados Recebidos               | Não                  | wd:Dados do \_ Trabalhador/wd:Feedback \_ \_ Dados recebidos                                   |
-| 37 | Dados do objetivo do trabalhador                     | Não                  | wd:Dados do \_ Trabalhador/wd:Dados da meta do trabalhador \_ \_                                         |
-| 38 | Dados fotográficos                           | Não                  | wd:Dados do \_ Trabalhador/wd:Dados \_ fotográficos                                                |
-| 39 | Dados de Qualificação                   | Não                  | wd:Dados do \_ Trabalhador/wd:Dados de qualificação \_                                        |
-| 40 | Dados de Pessoas Relacionadas                 | Não                  | wd:Dados do \_ Trabalhador/wd:Dados \_ de pessoas \_ relacionadas                                     |
-| 41 | Dados de Função                            | Não                  | wd:Dados do \_ Trabalhador/wd:Dados de função \_                                                 |
-| 42 | Dados de Competências                           | Não                  | wd:Dados do \_ Trabalhador/wd:Dados de \_ competências                                                |
-| 43 | Dados do perfil de sucessão              | Não                  | wd:Dados do \_ trabalhador/wd:Dados de perfil de sucessão \_ \_                                  |
-| 44 | Dados de Avaliação de Talentos               | Não                  | wd:Dados dos \_ trabalhadores/wd:Dados \_ de avaliação de \_ talentos                                   |
-| 45 | Dados da Conta do Utilizador                    | Não                  | wd:Dados do \_ Trabalhador/wd:Dados da conta do utilizador \_ \_                                        |
-| 46 | Dados do Documento do Trabalhador                 | Não                  | wd:Dados do \_ Trabalhador/wd:Dados do documento do trabalhador \_ \_                                     |
+| 12 | Hierarquia do Centro de Custos                | No                  | 'HIERARQUIA DO \_ CENTRO \_ DE CUSTOS'                                                     |
+| 13 | Fundo                                 | No                  | 'FUNDO'                                                                        |
+| 14 | Hierarquia do Fundo                       | No                  | "HIERARQUIA \_ DO FUNDO"                                                             |
+| 15 | Presente                                 | No                  | 'PRESENTE'                                                                        |
+| 16 | Hierarquia do Presente                       | No                  | 'HIERARQUIA \_ DO PRESENTE'                                                             |
+| 17 | Concessão                                | No                  | 'SUBVENÇÃO'                                                                       |
+| 18 | Hierarquia grant                      | No                  | "HIERARQUIA \_ DE SUBVENÇÕES"                                                            |
+| 19 | Hierarquia do Site de Negócios              | No                  | "HIERARQUIA \_ DO SITE DE \_ NEGÓCIOS"                                                   |
+| 20 | Organização Matrix                  | No                  | 'MATRIX'                                                                      |
+| 21 | Grupo De Pagamento                            | No                  | 'PAY \_ GROUP'                                                                  |
+| 22 | Programas                             | No                  | 'PROGRAMAS'                                                                    |
+| 23 | Hierarquia do Programa                    | No                  | 'HIERARQUIA \_ DO PROGRAMA'                                                          |
+| 24 | Region                               | No                  | «HIERARQUIA DA \_ REGIÃO»                                                           |
+| 25 | Hierarquia de Localização                   | No                  | «HIERARQUIA \_ DA LOCALIZAÇÃO»                                                         |
+| 26 | Dados de Provisão de Conta            | No                  | wd:Dados do \_ Trabalhador/wd:Dados \_ de Provisionamento de Conta \_                                |
+| 27 | Dados de verificação de antecedentes                | No                  | wd:Dados do \_ trabalhador/wd:Dados de verificação de \_ \_ antecedentes                                    |
+| 28 | Benefício Dados de Elegibilidade             | No                  | wd:Dados do \_ Trabalhador/wd:Dados \_ de elegibilidade do benefício \_                                 |
+| 29 | Dados de Inscrição de Benefícios              | No                  | wd:Dados do \_ Trabalhador/wd:Dados de inscrição de \_ \_ benefícios                                  |
+| 30 | Dados de Carreira                          | No                  | wd:Dados do \_ Trabalhador/wd:Dados de carreira \_                                               |
+| 31 | Dados de Compensação                    | No                  | wd:Dados do \_ Trabalhador/wd:Dados de compensação \_                                         |
+| 32 | Dados da Autoridade Tributária Do Trabalhador Contingente | No                  | wd:Dados do \_ Trabalhador/wd:Autoridade \_ \_ Tributária Contingente \_ Formulário \_ \_ Dados do Tipo \_       |
+| 33 | Dados de artigos de desenvolvimento                | No                  | wd:Dados do \_ Trabalhador/wd:Dados de produto de desenvolvimento \_ \_                                    |
+| 34 | Dados dos Contratos de Trabalhadores              | No                  | wd:Dados do \_ Trabalhador/wd:Dados \_ dos contratos de trabalho \_                                  |
+| 35 | Dados de Revisão dos Colaboradores                 | No                  | wd:Dados dos \_ trabalhadores/wd:Dados de revisão dos \_ \_ trabalhadores                                     |
+| 36 | Feedback Dados Recebidos               | No                  | wd:Dados do \_ Trabalhador/wd:Feedback \_ \_ Dados recebidos                                   |
+| 37 | Dados do objetivo do trabalhador                     | No                  | wd:Dados do \_ Trabalhador/wd:Dados da meta do trabalhador \_ \_                                         |
+| 38 | Dados fotográficos                           | No                  | wd:Dados do \_ Trabalhador/wd:Dados \_ fotográficos                                                |
+| 39 | Dados de Qualificação                   | No                  | wd:Dados do \_ Trabalhador/wd:Dados de qualificação \_                                        |
+| 40 | Dados de Pessoas Relacionadas                 | No                  | wd:Dados do \_ Trabalhador/wd:Dados \_ de pessoas \_ relacionadas                                     |
+| 41 | Dados de Função                            | No                  | wd:Dados do \_ Trabalhador/wd:Dados de função \_                                                 |
+| 42 | Dados de Competências                           | No                  | wd:Dados do \_ Trabalhador/wd:Dados de \_ competências                                                |
+| 43 | Dados do perfil de sucessão              | No                  | wd:Dados do \_ trabalhador/wd:Dados de perfil de sucessão \_ \_                                  |
+| 44 | Dados de Avaliação de Talentos               | No                  | wd:Dados dos \_ trabalhadores/wd:Dados \_ de avaliação de \_ talentos                                   |
+| 45 | Dados da Conta do Utilizador                    | No                  | wd:Dados do \_ Trabalhador/wd:Dados da conta do utilizador \_ \_                                        |
+| 46 | Dados do Documento do Trabalhador                 | No                  | wd:Dados do \_ Trabalhador/wd:Dados do documento do trabalhador \_ \_                                     |
+
+>[!NOTE]
+>Cada entidade do Dia de Trabalho listada na tabela está protegida por uma **Política de Segurança de Domínio** no Dia de Trabalho. Se não conseguir recuperar qualquer atributo associado à entidade após a definição do XPATH certo, consulte o seu administrador workday para garantir que a política de segurança de domínio adequada está configurada para o utilizador do sistema de integração associado à aplicação de provisionamento. Por exemplo, para recuperar *dados de habilidades,* *obtém-se* acesso no domínio do trabalho *Dados do Trabalhador: Competências e Experiência*. 
 
 Aqui estão alguns exemplos sobre como pode alargar a integração do Workday para satisfazer requisitos específicos. 
 

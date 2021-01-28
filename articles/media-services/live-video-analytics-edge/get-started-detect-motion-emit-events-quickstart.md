@@ -3,12 +3,12 @@ title: Começar com Live Video Analytics em IoT Edge - Azure
 description: Este quickstart mostra como começar com live video analytics em IoT Edge. Aprenda a detetar movimento num vídeo transmitido ao vivo.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: cbe4b1280897064938222680fc932cfe289d2f32
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 2ae8292375c0b85cc4c771c1fe7d853c5fcd3afd
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98631941"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955771"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>Quickstart: Get start - Live Video Analytics on IoT Edge
 
@@ -59,7 +59,21 @@ Para este arranque rápido, recomendamos que utilize o [script de configuração
     bash -c "$(curl -sL https://aka.ms/lva-edge/setup-resources-for-samples)"
     ```
     
-Após a conclusão com sucesso do script, deverá ver todos os recursos necessários na sua subscrição. Na saída do script, uma tabela de recursos lista o nome do hub IoT. Procure o tipo de recurso **`Microsoft.Devices/IotHubs`** e anotar o nome. Vai precisar deste nome no próximo passo.  
+    Após a conclusão com sucesso do script, deverá ver todos os recursos necessários na sua subscrição. Um total de 12 recursos serão configurados pelo script:
+    1. **Streaming Endpoint** - Isto ajudará na reprodução do ativo AMS gravado.
+    1. **Máquina virtual** - Esta é uma máquina virtual que funcionará como o seu dispositivo de borda.
+    1. **Disco** - Este é um disco de armazenamento que está ligado à máquina virtual para armazenar meios e artefactos.
+    1. **Grupo de segurança de rede** - Isto é usado para filtrar o tráfego de rede de e para os recursos Azure numa rede virtual Azure.
+    1. **Interface de rede** - Isto permite que uma Máquina Virtual Azure comunique com internet, Azure e outros recursos.
+    1. **Ligação de bastião** - Isto permite-lhe ligar-se à sua máquina virtual utilizando o seu navegador e o portal Azure.
+    1. **Endereço IP público** - Isto permite que os recursos do Azure comuniquem à Internet e aos serviços Azure virados para o público
+    1. **Rede virtual** - Isto permite que muitos tipos de recursos Azure, como a sua máquina virtual, comuniquem de forma segura entre si, a internet e as redes no local. Saiba mais sobre [redes Virtuais](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
+    1. **IoT Hub** - Este funciona como um centro de mensagens central para comunicação bidis entre a sua aplicação IoT, os módulos IoT Edge e os dispositivos que gere.
+    1. **Conta de serviço de** mídia - Isto ajuda na gestão e streaming de conteúdos de mídia em Azure.
+    1. **Conta de armazenamento** - Tem de ter uma conta de armazenamento primário e pode ter qualquer número de contas de armazenamento secundária associadas à sua conta de Serviços de Comunicação Social. Para mais informações, consulte [as contas do Azure Storage com as contas da Azure Media Services](https://docs.microsoft.com/azure/media-services/latest/storage-account-concept).
+    1. **Registo de contentores** - Isto ajuda a armazenar e gerir as imagens privadas do seu contentor Docker e artefactos relacionados.
+
+Na saída do script, uma tabela de recursos lista o nome do hub IoT. Procure o tipo de recurso **`Microsoft.Devices/IotHubs`** e anotar o nome. Vai precisar deste nome no próximo passo.  
 
 > [!NOTE]
 > O script também gera alguns ficheiros de configuração no **_~/clouddrive/lva-sample/_* _ diretório. Vai precisar destes ficheiros mais tarde no início rápido.
@@ -101,6 +115,12 @@ Siga estas instruções para ligar ao seu hub IoT utilizando a extensão Azure I
 1. No canto inferior esquerdo do **separador Explorer,** selecione **Azure IoT Hub**.
 1. Selecione o ícone **Mais Opções** para ver o menu de contexto. Em seguida, selecione **set IoT Hub Connection String**.
 1. Quando aparecer uma caixa de entrada, introduza a sua cadeia de ligação IoT Hub. Na Cloud Shell, pode obter a cadeia de ligação a partir de *~/clouddrive/lva-sample/appsettings.js.*
+
+> [!NOTE]
+> Pode ser-lhe pedido que forneça informações sobre o ponto final incorporado para o IoT Hub. Para obter essa informação, no portal Azure, navegue até ao seu Hub IoT e procure a opção **de pontos finais incorporados** no painel de navegação esquerdo. Clique lá e procure o **ponto final compatível com o Event Hub** na secção de ponto final **compatível com o Event Hub.** Copie e use o texto na caixa. O ponto final será mais ou menos assim:  
+    ```
+    Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+    ```
 
 Se a ligação for bem sucedida, aparece a lista de dispositivos de borda. Deve ver pelo menos um dispositivo chamado **lva-sample-device**. Agora pode gerir os seus dispositivos IoT Edge e interagir com o Azure IoT Hub através do menu de contexto. Para visualizar os módulos implantados no dispositivo de borda, sob **o dispositivo de amostra de Lva,** expanda o nó de **Módulos.**
 

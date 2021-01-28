@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: e693bd15e5255fda135a7a1dc416dd67f24f7f25
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 9e3fe0f8c14fdcfa9b3e97a02331d777abca2600
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120415"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954264"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Acesso de conta de armazenamento de controlo para piscina SQL sem servidor em Azure Synapse Analytics
 
@@ -107,7 +107,7 @@ Siga estes passos para configurar a firewall da sua conta de armazenamento e adi
     Install-Module -Name Az.Storage -RequiredVersion 3.0.1-preview -AllowPrerelease
     ```
     > [!IMPORTANT]
-    > Certifique-se de que utiliza a versão 3.0.1 ou mais recente. Pode consultar a sua versão Az.Storage executando este comando:  
+    > Certifique-se de que utiliza a **versão 3.0.1**. Pode consultar a sua versão Az.Storage executando este comando:  
     > ```powershell 
     > Get-Module -ListAvailable -Name  Az.Storage | select Version
     > ```
@@ -187,7 +187,7 @@ O nome CREDENCIAL ao nível do servidor deve corresponder ao caminho completo da
 | Fonte de Dados Externos       | Prefixo | Caminho da conta de armazenamento                                |
 | -------------------------- | ------ | --------------------------------------------------- |
 | Armazenamento de Blobs do Azure         | https  | <storage_account>.blob.core.windows.net             |
-| Azure Data Lake Storage Gen1 | https  | <storage_account>.azuredatalakestore.net/webhdfs/v1 |
+| Armazenamento do Azure Data Lake Ger1 | https  | <storage_account>.azuredatalakestore.net/webhdfs/v1 |
 | Armazenamento do Azure Data Lake Ger2 | https  | <storage_account>.dfs.core.windows.net              |
 
 Credenciais de âmbito do servidor permitem o acesso ao armazenamento Azure utilizando os seguintes tipos de autenticação:

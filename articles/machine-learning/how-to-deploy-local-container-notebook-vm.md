@@ -11,12 +11,12 @@ ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
 ms.date: 03/05/2020
-ms.openlocfilehash: 17b2d717ac6f244cb3ddddfdbc2f29581aa1f59f
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: d8b1c2a5384e479e39d169d368554f16c300a33e
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95527314"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954551"
 ---
 # <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>Implementar um modelo para a Azure Machine Learning computação de instâncias
 
@@ -38,11 +38,12 @@ Aprenda a usar a Azure Machine Learning para implementar um modelo como um servi
 
 Um caderno de exemplo que demonstra implementações locais está incluído na sua instância de computação. Utilize os seguintes passos para carregar o caderno e implementar o modelo como um serviço web no VM:
 
-1. A partir do [estúdio Azure Machine Learning,](https://ml.azure.com)selecione as suas instâncias de cálculo Azure Machine Learning.
+1. A partir do [estúdio Azure Machine Learning](https://ml.azure.com), selecione "Notebooks", e, em seguida, selecione como usar-azureml/deploy/deploy-to-local/register-model-deploy-local.ipynb em "Sample notebooks". Clone este caderno para a pasta do utilizador.
 
-1. Abra a `samples-*` subdiretória e, em seguida, abra `how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local.ipynb` . Uma vez aberto, executar o caderno.
+1. Encontre o caderno clonado no passo 1, escolha ou crie uma Instância computacional para executar o caderno.
 
     ![Screenshot do serviço local em execução no caderno](./media/how-to-deploy-local-container-notebook-vm/deploy-local-service.png)
+
 
 1. O portátil apresenta o URL e a porta em que o serviço está em funcionamento. Por exemplo, `https://localhost:6789`. Também pode executar a célula que contém `print('Local service port: {}'.format(local_service.port))` para exibir a porta.
 

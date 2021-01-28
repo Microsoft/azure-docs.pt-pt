@@ -1,5 +1,5 @@
 ---
-title: Lista de verificação de pré-despreocupação para implantar dispositivo GPU Azure Stack Edge Pro / Microsoft Docs
+title: Lista de verificação de pré-despreocupação para implantar o dispositivo GPU Azure Stack Edge Pro | Microsoft Docs
 description: Este artigo descreve as informações que podem ser recolhidas antes de implementar o seu dispositivo GPU Azure Stack Edge Pro.
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 09/29/2020
 ms.author: alkohli
-ms.openlocfilehash: 251b15f72c3216ad3ff4b2983c8cbbd2d9ec6579
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3497551616b96dc04e2dbdec28d0bf84a11afde0
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91618255"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954602"
 ---
 # <a name="deployment-checklist-for-your-azure-stack-edge-pro-gpu-device"></a>Lista de verificação de implementação para o seu dispositivo GPU Azure Stack Edge Pro  
 
@@ -41,7 +41,7 @@ Utilize a seguinte lista de verificação para garantir que tem estas informaç�
 | Ativação  | Requerer a chave de ativação a partir do recurso Azure Stack Edge Pro/ Data Box Gateway.    | Uma vez gerada, a chave expira em 3 dias. |
 
 <!--
-| (Optional) MAC Address            | If MAC address needs to be whitelisted, get the address of the connected port from local UI of the device. |                                                                                                                   |
+| (Optional) MAC Address            | If MAC address needs to be on the allowed list, get the address of the connected port from local UI of the device. |                                                                                                                   |
 | (Optional) Network switch port    | Device hosts Hyper-V VMs for compute. Some network switch port configurations don’t accommodate these setups by default.                                                                                                        |                                                                                                                   |-->
 
 

@@ -5,12 +5,12 @@ author: IngridAtMicrosoft
 ms.topic: how-to
 ms.author: inhenkel
 ms.date: 12/04/2020
-ms.openlocfilehash: d23294c21d49b1c2ab83c4bf8f110d5d4bc7aafb
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: d519193d55c9535dc71206d2d9f72661d7a40d71
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878295"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954417"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>Resolução de problemas Vídeo Analytics em IoT Edge
 
@@ -97,6 +97,17 @@ O Live Video Analytics é implantado como um módulo IoT Edge no dispositivo IoT
 
     > [!TIP]
     > Se sentir problemas em executar módulos Azure IoT Edge no seu ambiente, utilize **[os passos de diagnóstico padrão Azure IoT Edge](../../iot-edge/troubleshoot.md?preserve-view=true&view=iotedge-2018-06)** como guia para a resolução de problemas e diagnósticos.
+
+Também pode encontrar problemas ao executar o **[script de configuração de recursos live video analytics](https://github.com/Azure/live-video-analytics/tree/master/edge/setup)**. Algumas questões comuns incluem:
+
+* Utilizar uma subscrição onde não tenha privilégios de proprietário. Isto fará com que o script falhe com um **ForbiddenError** ou um erro **de AutorizaçãoFailed.**
+    * Para ultrapassar este problema, certifique-se de que tem privilégios **OWNER** para a subscrição que pretende utilizar. Se não puder fazê-lo sozinho, por favor contacte o administrador de subscrição para conceder os privilégios certos.
+* **A implementação do modelo falhou devido à violação de políticas.**
+    * Para passar este problema, trabalhe com o seu administrador de TI para garantir que a(s) chamada(s) para criar uma máquina virtual para contornar a autenticação de bloqueio ssh. Isto não será necessário, uma vez que estamos a utilizar uma rede de Bastião segura que requer um nome de utilizador e uma palavra-passe para comunicar com os recursos do Azure. Estas credenciais serão armazenadas no ficheiro **~/clouddrive/lva-sample/vm-edge-device-credentials.txt** em Cloud Shell, uma vez que a máquina virtual é criada, implantada e ligada ao Hub IoT com sucesso.
+* O script de configuração não pode criar um principal serviço e/ou recursos Azure.
+    * Para ultrapassar este problema, verifique se a sua subscrição e o inquilino da Azure não atingiram os seus limites máximos de serviço. Saiba mais sobre [os limites e restrições de serviço Azure AD](https://docs.microsoft.com/azure/active-directory/enterprise-users/directory-service-limits-restrictions) e [os limites de subscrição e serviço da Azure, quotas e restrições.](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)
+
+
 ### <a name="live-video-analytics-working-with-external-modules"></a>Vídeo ao vivo Analytics trabalhando com módulos externos
 
 O Live Video Analytics através dos processadores de extensão de gráficos de mídia pode estender o gráfico de mídia para enviar e receber dados de outros módulos IoT Edge utilizando protocolos HTTP ou gRPC. Como [exemplo específico,](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/httpExtension)este gráfico de mídia pode enviar quadros de vídeo como imagens para um módulo de inferência externa, como o Yolo v3 e receber resultados de análise baseados em JSON usando o protocolo HTTP . Em tal topologia, o destino para os eventos é principalmente o hub IoT. Em situações em que não se vê os eventos de inferência no centro, verifique o seguinte:
@@ -314,6 +325,6 @@ Para utilizar o seu servidor gRPC com Live Video Analytics, a memória partilhad
 1. Em seguida, pode executar a sua lógica de processamento quando tiver o número desejado de molduras de imagem.
 1. Volte a devolver o resultado de inferencing ao Live Video Analytics quando estiver pronto.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Tutorial: Gravação de vídeo baseada em eventos para nuvem e reprodução da nuvem](event-based-video-recording-tutorial.md)

@@ -1,17 +1,17 @@
 ---
-title: Use o portal para carregar, codificar e transmitir conteúdo - Azure
+title: Utilizar o portal para carregar, codificar e transmitir conteúdo em fluxo
 description: Este quickstart mostra-lhe como usar o portal para carregar, codificar e transmitir conteúdo com a Azure Media Services.
 ms.topic: quickstart
 ms.date: 08/31/2020
 author: IngridAtMicrosoft
 ms.author: inhenkel
 manager: femila
-ms.openlocfilehash: 0793c8abee27ca415feba313efb029daf092bec9
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 3831892b6cd241643b3e5753689f768d59e27704
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94683034"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955975"
 ---
 # <a name="quickstart-upload-encode-and-stream-content-with-portal"></a>Quickstart: Carregar, codificar e transmitir conteúdo com portal
 
@@ -22,7 +22,7 @@ Este quickstart mostra-lhe como usar o portal Azure para carregar, codificar e t
 > [!NOTE]
 > Certifique-se de rever: [as limitações do portal Azure para os Serviços de Comunicação Social v3](frequently-asked-questions.md#what-are-the-azure-portal-limitations-for-media-services-v3).
   
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 * Para começar a gerir, encriptar, codificar, analisar e transmitir conteúdos de mídia em Azure, é necessário criar uma conta de Media Services e enviar o seu ficheiro de meios digitais de alta qualidade para um **ativo.** 
     
@@ -114,6 +114,6 @@ Ou, copie o URL de streaming e use-o no seu leitor cliente.
 
 Se pretende experimentar os outros quickstarts, deve manter os recursos criados. Caso contrário, vá ao portal Azure, navegue pelos seus grupos de recursos, selecione o grupo de recursos sob o qual executou este arranque rápido e elimine todos os recursos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Utilizar o portal para encriptar conteúdo](encrypt-content-quickstart.md)

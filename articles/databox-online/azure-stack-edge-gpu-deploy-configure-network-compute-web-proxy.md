@@ -1,20 +1,20 @@
 ---
-title: Tutorial para configurar definições de rede para dispositivo Azure Stack Edge Pro com GPU no portal Azure Microsoft Docs
+title: Tutorial para configurar definições de rede para dispositivo Azure Stack Edge Pro com GPU no portal Azure | Microsoft Docs
 description: Tutorial para implementar Azure Stack Edge Pro GPU instrui-o a configurar a rede, a rede de cálculo e as definições de procuração web para o seu dispositivo físico.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 12/07/2020
+ms.date: 01/27/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 640098e118db87214d7364132a5119e35cb94c0a
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: ac64233467166ca6567f1601c3b90f80fdba3dcf
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96778721"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954652"
 ---
 # <a name="tutorial-configure-network-for-azure-stack-edge-pro-with-gpu"></a>Tutorial: Rede de configuração para Azure Stack Edge Pro com GPU
 
@@ -104,7 +104,7 @@ Siga estes passos para permitir a computação e configurar a rede de computaç�
     
 1. Atribuir **IPs de nó kubernetes**. Estes endereços IP estáticos são para o VM compute.  
 
-    Para *n* um dispositivo n-node, uma gama contígua de um mínimo de endereços *N+1* IPv4 (ou mais) são fornecidos para o VM compute usando os endereços IP de início e fim. Dado que a Azure Stack Edge é um dispositivo de 1 nó, são fornecidos no mínimo 2 endereços IPv4 contíguos.
+    Para um dispositivo n-node, uma gama contígua de um mínimo de endereços *N+1* IPv4 (ou mais) são fornecidos para o VM compute usando os endereços IP de início e fim. Dado que a Azure Stack Edge é um dispositivo de 1 nó, são fornecidos no mínimo 2 endereços IPv4 contíguos.
 
     > [!IMPORTANT]
     > Kubernetes em Azure Stack Edge utiliza sub-rede 172.27.0.0/16 para pod e sub-rede 172.28.0.0/16 para o serviço. Certifique-se de que estes não estão a ser utilizados na sua rede. Se estas sub-redes já estiverem a ser utilizadas na sua rede, pode alterar estas sub-redes executando o `Set-HcsKubeClusterNetworkInfo` cmdlet a partir da interface PowerShell do dispositivo. Para obter mais informações, consulte [a cápsula Change Kubernetes e as sub-redes de serviço.](azure-stack-edge-gpu-connect-powershell-interface.md#change-kubernetes-pod-and-service-subnets)
@@ -132,7 +132,8 @@ Esta é uma configuração opcional.
 
 > [!IMPORTANT]
 > * Se ativar o módulo IoT Edge no seu dispositivo Azure Stack Edge Pro, recomendamos que desementa da web como **Nenhum**. O NTLM não é suportado.
->* Os ficheiros Proxy-auto config (PAC) não são suportados. Um ficheiro PAC define como os navegadores web e outros agentes do utilizador podem escolher automaticamente o servidor proxy apropriado (método de acesso) para obter um determinado URL. Os proxies que tentam intercetar e ler todo o tráfego (em seguida, re-assinar tudo com a sua própria certificação) não são compatíveis uma vez que o certificado de procuração não é confiável. Os proxies tipicamente transparentes funcionam bem com o Azure Stack Edge Pro. Os proxies web não transparentes não são suportados.
+> * Os ficheiros Proxy-auto config (PAC) não são suportados. Um ficheiro PAC define como os navegadores web e outros agentes do utilizador podem escolher automaticamente o servidor proxy apropriado (método de acesso) para obter um determinado URL. 
+> * Os proxies transparentes funcionam bem com o Azure Stack Edge Pro. Para proxies não transparentes que intercetam e leiam todo o tráfego (através dos seus próprios certificados instalados no servidor proxy), carrece a chave pública do certificado de procuração como a cadeia de assinaturas no seu dispositivo Azure Stack Edge Pro. Em seguida, pode configurar as definições do servidor proxy no seu dispositivo Azure Stack Edge. Para mais informações, consulte [traga os seus próprios certificados e faça o upload através da UI local.](azure-stack-edge-gpu-deploy-configure-certificates.md#bring-your-own-certificates)  
 
 <!--1. Go to the **Get started** page in the local web UI of your device.
 2. On the **Network** tile, configure your web proxy server settings. Although web proxy configuration is optional, if you use a web proxy, you can configure it on this page only.

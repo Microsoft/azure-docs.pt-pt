@@ -3,19 +3,19 @@ title: Identidades geridas para recursos Azure com Service Bus
 description: Este artigo descreve como usar identidades geridas para aceder a entidades do Azure Service Bus (filas, tópicos e subscrições).
 ms.topic: article
 ms.date: 01/21/2021
-ms.openlocfilehash: dac12820adf863a7e51457d34f9180543089fc7b
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: bd985acd9b775d6baef0abf488952e28c17aef2a
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881572"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954315"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Autenticar uma identidade gerida com o Azure Ative Directory para aceder aos recursos do Azure Service Bus
 [As identidades geridas para os recursos Azure](../active-directory/managed-identities-azure-resources/overview.md) são uma funcionalidade cross-Azure que lhe permite criar uma identidade segura associada à implementação sob a qual o seu código de aplicação é executado. Em seguida, pode associar essa identidade a funções de controlo de acesso que concedem permissões personalizadas para aceder a recursos específicos do Azure de que a sua aplicação necessita.
 
 Com identidades geridas, a plataforma Azure gere esta identidade de tempo de execução. Não precisa de armazenar e proteger as chaves de acesso no seu código de aplicação ou configuração, quer para a própria identidade, quer para os recursos a que necessita. Uma aplicação de clientes Service Bus que funciona dentro de uma aplicação do Azure App Service ou numa máquina virtual com entidades geridas ativadas para suporte a recursos Azure não precisa de lidar com as regras e chaves da SAS, ou quaisquer outros tokens de acesso. A aplicação do cliente só precisa do endereço final do espaço de nome de mensagens de serviço. Quando a aplicação se conecta, a Service Bus liga o contexto da entidade gerida ao cliente numa operação que é mostrada num exemplo mais tarde neste artigo. Uma vez associado a uma identidade gerida, o seu cliente Service Bus pode fazer todas as operações autorizadas. A autorização é concedida associando uma entidade gerida com funções de Service Bus. 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Quando um principal de segurança (um utilizador, grupo ou aplicação) tenta aceder a uma entidade do Service Bus, o pedido deve ser autorizado. Com o Azure AD, o acesso a um recurso é um processo em duas etapas. 
 
  1. Primeiro, a identidade do diretor de segurança é autenticada, e um token OAuth 2.0 é devolvido. O nome do recurso para solicitar um token é `https://servicebus.azure.net` .
@@ -138,10 +138,8 @@ Para enviar ou receber mensagens, insira o nome do espaço de nome e o nome da e
 
 > [!NOTE]
 > - A identidade gerida funciona apenas dentro do ambiente Azure, em serviços de Aplicações, VMs Azure e conjuntos de escala. Para aplicações .NET, a biblioteca Microsoft.Azure.Services.AppAuthentication, que é utilizada pelo pacote Service Bus NuGet, fornece uma abstração sobre este protocolo e suporta uma experiência de desenvolvimento local. Esta biblioteca também permite testar o seu código localmente na sua máquina de desenvolvimento, utilizando a sua conta de utilizador a partir do Visual Studio, Azure CLI 2.0 ou Ative Directory Integrated Authentication. Para obter mais informações sobre as opções de desenvolvimento local com esta biblioteca, consulte [a autenticação de serviço-a-serviço para Azure Key Vault utilizando .NET](/dotnet/api/overview/azure/service-to-service-authentication).  
-> 
-> - Atualmente, as identidades geridas não funcionam com slots de implementação do Serviço de Aplicações.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre as mensagens do Service Bus, consulte os seguintes tópicos:
 

@@ -4,15 +4,15 @@ description: Saiba como utilizar a injeção de dependência para registar e uti
 author: ggailey777
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 08/15/2020
+ms.date: 01/27/2021
 ms.author: glenga
 ms.reviewer: jehollan
-ms.openlocfilehash: 70ec9248db002823e969fa5f4fba8bf1074a9af7
-ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
+ms.openlocfilehash: 66e2cd22f4bcb95be65d6d04345dcac622436a04
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97706937"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955093"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Utilizar a injeção de dependências nas Funções do Azure do .NET
 
@@ -256,6 +256,24 @@ public class HttpTrigger
 ```
 
 Consulte o [padrão de Opções em ASP.NET Core](/aspnet/core/fundamentals/configuration/options) para obter mais detalhes sobre o trabalho com opções.
+
+## <a name="using-aspnet-core-user-secrets"></a>Usando ASP.NET segredos do utilizador do núcleo
+
+Ao desenvolver localmente, ASP.NET Core fornece uma [ferramenta Secret Manager](/aspnet/core/security/app-secrets#secret-manager) que lhe permite armazenar informações secretas fora da raiz do projeto. Torna menos provável que os segredos sejam acidentalmente comprometidos com o controlo de fontes. Azure Functions Core Tools (versão 3.0.3233 ou posterior) lê automaticamente segredos criados pelo ASP.NET Core Secret Manager.
+
+Para configurar um projeto .NET Azure Functions para utilizar segredos do utilizador, executar o seguinte comando na raiz do projeto.
+
+```bash
+dotnet user-secrets init
+```
+
+Em seguida, use o `dotnet user-secrets set` comando para criar ou atualizar segredos.
+
+```bash
+dotnet user-secrets set MySecret "my secret value"
+```
+
+Para aceder aos valores dos segredos dos utilizadores no código da aplicação da sua função, utilize `IConfiguration` ou `IOptions` .
 
 ## <a name="customizing-configuration-sources"></a>Personalizar fontes de configuração
 

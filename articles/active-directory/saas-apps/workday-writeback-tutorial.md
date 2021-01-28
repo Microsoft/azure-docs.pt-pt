@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar a gravação do Workday no Azure Ative Directory / Microsoft Docs'
+title: 'Tutorial: Configurar a gravação do Workday no Azure Ative Directory | Microsoft Docs'
 description: Saiba como configurar a gravação do atributo Azure a Workday
 services: active-directory
 author: cmmdesai
@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: chmutali
-ms.openlocfilehash: c65fddcc90b25f70759fb038a72dad0facfa99a9
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 3a623a487dd31caf8c85b18771d90e3a6306df68
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359736"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954009"
 ---
 # <a name="tutorial-configure-attribute-writeback-from-azure-ad-to-workday"></a>Tutorial: Configurar a gravação do atributo Azure AD para o Workday
 O objetivo deste tutorial é mostrar os passos que precisa de executar para escrever atributos de Azure AD a Workday. A aplicação de writeback Workday suporta atribuir valores aos seguintes atributos workday:
@@ -26,7 +26,7 @@ O objetivo deste tutorial é mostrar os passos que precisa de executar para escr
 * Número de telemóvel de trabalho (incluindo código de país, código de área, número)
 * Trabalhar bandeira primária móvel
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Depois de configurar a integração de provisionamento de entrada utilizando a aplicação de provisionamento [de AD no local](workday-inbound-tutorial.md) ou a aplicação de provisionamento do [Workday a Azure,](workday-inbound-cloud-only-tutorial.md) pode configurar opcionalmente a aplicação Workday Writeback para escrever informações de contacto, como e-mail de trabalho e número de telefone para Workday. 
 
@@ -144,7 +144,7 @@ Uma vez concluídas as configurações da aplicação de provisionamento workday
 
 1. No **separador Provisioning,** desa fixação do **Estado de Provisionamento** para **On**.
 
-1. No **dropdown Scope,** **selecione Sync todos os utilizadores e grupos**. Com esta opção, a aplicação Writeback irá escrever atributos mapeados de todos os utilizadores de Azure AD a Workday, sujeitos às regras de deteção definidas no Âmbito do Objeto fonte **de Mapeamentos.**  ->  **Source Object Scope** 
+1. No **dropdown Scope,** **selecione Sync todos os utilizadores e grupos**. Com esta opção, a aplicação Writeback irá escrever atributos mapeados de todos os utilizadores de Azure AD a Workday, sujeitos às regras de deteção definidas no Âmbito do Objeto fonte **de Mapeamentos.**  ->   
 
    > [!div class="mx-imgBorder"]
    > ![Selecione o âmbito de writeback](./media/sap-successfactors-inbound-provisioning/select-writeback-scope.png)
@@ -172,6 +172,7 @@ Uma vez concluídas as configurações da aplicação de provisionamento workday
 
 ## <a name="next-steps"></a>Passos seguintes
 
+* [Saiba mais sobre os cenários de integração do AZure AD e do Workday e as chamadas de serviço web](../app-provisioning/workday-integration-reference.md)
 * [Saiba como analisar os registos e obter relatórios sobre a atividade de aprovisionamento](../app-provisioning/check-status-user-account-provisioning.md)
 * [Saiba como configurar um único sign-on entre workday e Azure Ative Directory](workday-tutorial.md)
 * [Saiba como integrar outras aplicações saaS com o Azure Ative Directory](tutorial-list.md)

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 01/19/2021
+ms.date: 01/27/2021
 ms.author: alkohli
-ms.openlocfilehash: 8158868a39bf8a1fe03a620f37e4dcb1c9adc14e
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 6fff5b9d41c960ebe37098695c694725de0226e0
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805189"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954619"
 ---
 # <a name="azure-stack-edge-2101-release-notes"></a>Notas de lançamento do Azure Stack Edge 2101
 
@@ -40,7 +40,7 @@ As seguintes novas funcionalidades estão disponíveis na versão Azure Stack Ed
 
 A tabela seguinte fornece um resumo das questões conhecidas na versão de 2101.
 
-| Não. | Funcionalidade | Problema | Soluções/comentários |
+| N.º | Funcionalidade | Problema | Soluções/comentários |
 | --- | --- | --- | --- |
 |**1.**|Funcionalidades de pré-visualização |Para esta versão, as seguintes funcionalidades: Local Azure Resource Manager, VMs, Gestão em nuvem de VMs, Azure Arc habilitado Kubernetes, VPN para Azure Stack Edge Pro R e Azure Stack Edge Mini R, serviço multi-processo (MPS) para GPU Azure Stack Edge Pro - estão todos disponíveis na pré-visualização.  |Estas funcionalidades estarão geralmente disponíveis em lançamentos posteriores. |
 |**2.**|Painel de Kubernetes | O ponto final *https* para o Painel Kubernetes com certificado SSL não é suportado. | |
@@ -57,7 +57,7 @@ A tabela seguinte fornece um resumo das questões conhecidas na versão de 2101.
 
 O quadro seguinte fornece um resumo das questões conhecidas transitadas das versões anteriores.
 
-| Não. | Funcionalidade | Problema | Soluções/comentários |
+| N.º | Funcionalidade | Problema | Soluções/comentários |
 | --- | --- | --- | --- |
 | **1.** |Azure Stack Edge Pro + Azure SQL | A criação da base de dados SQL requer acesso ao Administrador.   |Faça os seguintes passos em vez dos passos 1-2 em [https://docs.microsoft.com/azure/iot-edge/tutorial-store-data-sql-server#create-the-sql-database](../iot-edge/tutorial-store-data-sql-server.md#create-the-sql-database) . <ul><li>Na UI local do seu dispositivo, ative a interface compute. **Selecione Compute > Port # > Ative para calcular > Apply.**</li><li>Faça o download `sqlcmd` na sua máquina de clientes a partir de https://docs.microsoft.com/sql/tools/sqlcmd-utility </li><li>Ligue-se ao endereço IP da interface de computação (a porta que estava ativada), adicionando um "1401" ao final do endereço.</li><li>O comando final será assim: sqlcmd -S {Interface IP},1401 -U SA -P "Forte! Passw0rd".</li>Depois disso, os passos 3-4 da documentação atual devem ser idênticos. </li></ul> |
 | **2.** |Atualizar| Alterações incrementais nas bolhas restauradas via **Refresh** NÃO são suportadas |No caso dos pontos finais blob, as atualizações parciais de blobs após uma Atualização, podem resultar em que as atualizações não sejam carregadas na nuvem. Por exemplo, sequência de ações como:<ul><li>Crie bolha na nuvem. Ou elimine uma bolha previamente carregada do dispositivo.</li><li>Refresque a bolha da nuvem para o aparelho utilizando a funcionalidade de atualização.</li><li>Atualize apenas uma parte da bolha utilizando APIs de REST Azure SDK.</li></ul>Estas ações podem resultar em secções atualizadas da bolha para não ser atualizada na nuvem. <br>**Solução alternativa**: Utilize ferramentas como robocopia, ou cópia de ficheiro regular através do Explorer ou da linha de comando, para substituir bolhas inteiras.|
@@ -77,13 +77,12 @@ O quadro seguinte fornece um resumo das questões conhecidas transitadas das ver
 |**16.**|Certificados |Em certos casos, o estado de certificação na UI local pode demorar vários segundos a ser atualizado. |Os seguintes cenários na UI local podem ser afetados.<ul><li>**Coluna de estado** na página **de Certificados.**</li><li>**Azulejo** de segurança na página **Get start.**</li><li>Azulejo de **configuração** na página **overview.**</li></ul>  |
 |**17.**|IoT Edge |Os módulos implantados através do IoT Edge não podem utilizar a rede de anfitriões. | |
 |**18.**|Computação + Kubernetes |Compute/Kubernetes não suporta proxy web NTLM. ||
-|**19.**|Compute + web proxy + atualização |Se tiver computado configurado com procuração web, então a atualização do cálculo pode falhar. |Recomendamos que desative o cálculo antes da atualização. |
-|**20.**|Kubernetes + atualização |Versões de software anteriores, como lançamentos de 2008, têm um problema de atualização de condições de raça que faz com que a atualização falhe com o ClusterConnectionException. |A utilização das construções mais recentes deve ajudar a evitar este problema. Se ainda vir esta questão, a solução é voltar a tentar a atualização, e deve funcionar.|
+|**19.**|Kubernetes + atualização |Versões de software anteriores, como lançamentos de 2008, têm um problema de atualização de condições de raça que faz com que a atualização falhe com o ClusterConnectionException. |A utilização das construções mais recentes deve ajudar a evitar este problema. Se ainda vir esta questão, a solução é voltar a tentar a atualização, e deve funcionar.|
 
 
 <!--|**18.**|Azure Private Edge Zone (Preview) |There is a known issue with Virtual Network Function VM if the VM was created on Azure Stack Edge device running earlier preview builds such as 2006/2007b and then the device was updated to 2009 GA release. The issue is that the VNF information can't be retrieved or any new VNFs can't be created unless the VNF VMs are deleted before the device is updated.  |Before you update Azure Stack Edge device to 2009 release, use the PowerShell command `get-mecvnf` followed by `remove-mecvnf <VNF guid>` to remove all Virtual Network Function VMs one at a time. After the upgrade, you will need to redeploy the same VNFs.|-->
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Atualizar o seu dispositivo](azure-stack-edge-gpu-install-update.md)

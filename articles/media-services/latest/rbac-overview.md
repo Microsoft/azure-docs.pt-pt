@@ -1,5 +1,5 @@
 ---
-title: Controlo de acesso baseado em funções Azure para contas de Serviços de Media - Azure
+title: Controlo de acesso baseado em funções para contas de Serviços de Media
 description: Este artigo discute o controlo de acesso baseado em funções (Azure RBAC) para contas Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 1fab743c647c3628a79fffb3bf1060983c34d0aa
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 7c9edce71e0d0565de80153bfd5b3d5f1edb2e8f
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98895191"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955161"
 ---
 # <a name="azure-role-based-access-control-azure-rbac-for-media-services-accounts"></a>Controlo de acesso baseado em funções Azure (Azure RBAC) para contas de Serviços de Media
 
@@ -47,7 +47,7 @@ Consulte os seguintes artigos para obter mais informações:
 - [Utilizar a API REST para adicionar ou remover atribuições de funções do Azure](../../role-based-access-control/role-assignments-rest.md)
 - [Operações de prestadores de recursos dos Serviços de Mídia](../../role-based-access-control/resource-provider-operations.md#microsoftmedia)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Desenvolvimento com Serviços de Mídia v3 APIs](media-services-apis-overview.md)
 - [Obtenha a política de chave de conteúdo usando os Media Services .NET](get-content-key-policy-dotnet-howto.md)
