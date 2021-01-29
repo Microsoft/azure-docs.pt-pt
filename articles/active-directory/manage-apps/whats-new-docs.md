@@ -9,12 +9,12 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-ms.openlocfilehash: bad312b777c57a48c3205de588325d477b5773af
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: ea2e08db91d23e9523b7bc95e01b7adc9c93b3cc
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563403"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054826"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Gestão de aplicações do Azure Ative Directory: Quais as novidades
 
@@ -67,7 +67,7 @@ Bem-vindos às novidades da documentação de gestão de aplicações do Azure A
 ### <a name="new-articles"></a>Artigos novos
 - [Quickstart: Configurar um único sign-on (SSO) baseado no OIDC para uma aplicação no seu inquilino Azure Ative (Azure AD)](add-application-portal-setup-oidc-sso.md)
 - [Quickstart: Atribua os utilizadores a uma app que está a usar o AZure AD como fornecedor de identidade](add-application-portal-assign-users.md)
-- [O que há de novo nos médicos?](whats-new-docs.md)
+- [Novidades no Docs?](whats-new-docs.md)
 
 
 ### <a name="updated-articles"></a>Artigos atualizados
@@ -90,7 +90,7 @@ Bem-vindos às novidades da documentação de gestão de aplicações do Azure A
 - [Como utilizar o acesso a aplicações self-service](access-panel-manage-self-service-access.md)
 - [Problemas de resolução de problemas inscrevem-se numa aplicação da Azure AD My Apps](application-sign-in-other-problem-access-panel.md)
 - [Resolver problemas de início de sessão único baseado em palavra-passe no Microsoft Azure AD](troubleshoot-password-based-sso.md)
-- [Planeie um Azure Ative Directory My Apps](access-panel-deployment-plan.md)
+- [Planeie um Azure Ative Directory My Apps](my-apps-deployment-plan.md)
 - [O que é o Início de Sessão Único (SSO)?](what-is-single-sign-on.md)
 - [Tomar medidas sobre aplicações sobreprivilevasas ou suspeitas no Azure Ative Directory](manage-application-permissions.md)
 - [Quickstart: Configure propriedades para uma aplicação no seu inquilino Azure Ative (Azure AD)](add-application-portal-configure.md)

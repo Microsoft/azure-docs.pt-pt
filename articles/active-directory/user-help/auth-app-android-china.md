@@ -1,5 +1,5 @@
 ---
-title: Disponibilidade e limitações do Microsoft Authenticator para Android na China Microsoft Docs
+title: Disponibilidade e limitações do Microsoft Authenticator para Android na China | Microsoft Docs
 description: Saiba como obter a app Microsoft Authenticator - disponibilidade na China
 services: active-directory
 author: curtand
@@ -9,20 +9,19 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 12/08/2020
+ms.date: 01/27/2021
 ms.author: curtand
-ms.openlocfilehash: 7b3af7c5bd55e748b1d1f4cf8f192797187da30a
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: d499417414e560bdaa3fcd0a12255946aca413d9
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96901801"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054844"
 ---
 # <a name="microsoft-authenticator-for-android-in-the-public-cloud-in-china"></a>Microsoft Authenticator para Android na nuvem pública na China
 
 O aplicativo Microsoft Authenticator para Android está disponível para download na China. A Google Play Store não se encontra disponível na China, pelo que a aplicação deve ser descarregada a partir de outros mercados de aplicações chinesas. A aplicação Microsoft Authenticator para Android está atualmente disponível nas seguintes lojas na China:
 
-- [Baidu](https://shouji.baidu.com/software/26638379.html)
 - [Lenovo](https://www.lenovomm.com/appdetail/com.azure.authenticator/20197724)
 - [Huawei](https://appgallery.cloud.huawei.com/uowap/index.html#/detailApp/C100262999?source=appshare&subsource=C100262999&shareTo=weixin&locale=zh_CN)
 - [Samsung Galaxy Store](http://apps.samsung.com/appquery/appDetail.as?appId=com.azure.authenticator)
@@ -50,13 +49,13 @@ Em vez de utilizarem notificações push para autenticação multi-factor, os ut
 
 Funcionalidade autenticadora da Microsoft | Disponibilidade na China
 ------------------------------- | ---------------------
-Registo de MFA utilizando notificações push | Não
-Conta MFA pré-existente que verifica a identidade usando notificações push | Não
-Conta MFA pré-existente que realiza verificação manual de notificações | Sim
-Registo/autenticação de MFA apenas através de códigos TOTP/verificação | Sim
-Registo de inscrição no telefone | Não
-Inscrição de telefone existente usando notificações push | Não
-Verificação de entrada de telefone existente através da verificação manual dos pedidos de autenticação | Sim
+Registo de MFA utilizando notificações push | No
+Conta MFA pré-existente que verifica a identidade usando notificações push | No
+Conta MFA pré-existente que realiza verificação manual de notificações | Yes
+Registo/autenticação de MFA apenas através de códigos TOTP/verificação | Yes
+Registo de inscrição no telefone | No
+Inscrição de telefone existente usando notificações push | No
+Verificação de entrada de telefone existente através da verificação manual dos pedidos de autenticação | Yes
 Suporte para a aplicação Authenticator para contas pessoais da Microsoft | Não
 
 ## <a name="next-steps"></a>Próximos passos

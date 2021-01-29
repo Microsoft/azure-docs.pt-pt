@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 61a8dbbdde87af792bb4337660d4d3c34f7cf802
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
-ms.translationtype: HT
+ms.openlocfilehash: 729444b1d1ccf55f34e54a4b59508131458c472b
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132300"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054809"
 ---
 # <a name="understand-and-work-with-scopes"></a>Compreender e trabalhar com âmbitos
 
@@ -114,7 +114,7 @@ As subscrições do Azure criadas a partir de ofertas individuais como de Pay As
 
     Tipo de recurso: Não aplicável
 
-Os administradores de contas de subscrição do Azure podem ver e gerir dados de faturação, como faturas e pagamentos, a partir do [Centro de Contas do Azure](https://account.azure.com/subscriptions). Contudo, não podem ver dados de custos nem gerir recursos no portal do Azure. Para conceder acesso ao administrador da conta, utilize as funções do Cost Management mencionadas anteriormente.
+Os administradores de conta de subscrição individual Azure podem ver e gerir dados de faturação, tais como faturas e pagamentos, a partir do [portal Azure](https://portal.azure.com)  >  **As assinaturas** > selecionar uma subscrição.
 
 Ao contrário do EA, os administradores de contas de subscrição do Azure podem ver as faturas deles no portal do Azure. Lembre-se de que as funções de Leitor do Cost Management e Contribuidor do Cost Management não fornecem acesso a faturas. Para obter mais informações, veja [Como conceder acesso a faturas](../manage/manage-billing-access.md#give-read-only-access-to-billing).
 

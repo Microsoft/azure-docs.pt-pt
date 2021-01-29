@@ -12,12 +12,12 @@ ms.date: 11/04/2019
 ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e56968250c10bb46553e618fd278df7d642683f
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 9fd102bad45bf482cb9a9750bf05e862b9c91e8e
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659085"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055217"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>Conceder consentimento de administrador ao nível do inquilino a uma aplicação
 
@@ -93,7 +93,7 @@ Como sempre, reveja cuidadosamente as permissões que um pedido de pedido antes 
 > [!WARNING]
 > A concessão do consentimento administrativo através desta URL revogará quaisquer permissões que tivessem sido previamente concedidas a todo o inquilino. As permissões que tenham sido previamente concedidas pelos utilizadores em seu próprio nome não serão afetadas. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Configurar a forma como os utilizadores finais concedem consentimento às aplicações](configure-user-consent.md)
 
@@ -101,4 +101,4 @@ Como sempre, reveja cuidadosamente as permissões que um pedido de pedido antes 
 
 [Permissões e consentimento na plataforma de identidade da Microsoft](../develop/v2-permissions-and-consent.md)
 
-[Azure AD no StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+[Azure AD no Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html)

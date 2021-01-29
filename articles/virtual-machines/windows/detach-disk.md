@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 01/26/2021
 ms.author: cynthn
-ms.openlocfilehash: 95f6ce2fefacd20102abe9bbe818f228139ca33d
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: a995cd1d02438ae3be7091ba55e945549558829d
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98898516"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055200"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Como desanexar um disco de dados de uma máquina virtual do Windows
 
@@ -53,12 +53,12 @@ Pode remover um disco de dados *a quente,* mas certifique-se de que nada está a
 1. No menu esquerdo, selecione **Máquinas Virtuais.**
 1. Selecione a máquina virtual que tem o disco de dados que pretende desmontar.
 1. Em **Definições**, selecione **Discos**.
-1. No painel **Discos,** à extrema direita do disco de dados que gostaria de desmontar, clique no botão **X** delete.
+1. No painel **Discos,** à extrema direita do disco de dados que gostaria de desmontar, clique no botão **X Detach.**
 1. **Selecione Guardar** na parte superior da página para guardar as suas alterações.
 
 O disco permanece no armazenamento mas já não está ligado a uma máquina virtual.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se pretender reutilizar o disco de dados, pode [fixá-lo a outro VM](attach-managed-disk-portal.md).
 

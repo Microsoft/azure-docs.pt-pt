@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Azure Blob storage library v12 - Java'
-description: Neste arranque rápido, aprende-se a usar a versão 12 da biblioteca de clientes de armazenamento Azure Blob para que a Java crie um recipiente e uma bolha no armazenamento blob (objeto). Em seguida, vai aprender a transferir o blob para o computador local e a listar todos os blobs num contentor.
+title: 'Quickstart: Azure Blob Storage library v12 - Java'
+description: Neste arranque rápido, aprende-se a usar a versão 12 da biblioteca do cliente Azure Blob Storage para a Java criar um recipiente e uma bolha no armazenamento blob (objeto). Em seguida, vai aprender a transferir o blob para o computador local e a listar todos os blobs num contentor.
 author: mhopkins-msft
 ms.custom: devx-track-java
 ms.author: mhopkins
@@ -8,12 +8,12 @@ ms.date: 12/01/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 02752af77d443e19278a96206bb7516fedd59d7f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: b5c34cea5d8222a246462bfadde66fd8a5ddbec7
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501129"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054708"
 ---
 # <a name="quickstart-manage-blobs-with-java-v12-sdk"></a>Quickstart: Gerir bolhas com Java v12 SDK
 
@@ -37,7 +37,7 @@ Recursos adicionais:
 
 ## <a name="setting-up"></a>Configuração
 
-Esta secção acompanha-o através da preparação de um projeto para trabalhar com a biblioteca de clientes de armazenamento Azure Blob v12 para Java.
+Esta secção acompanha-o através da preparação de um projeto para trabalhar com a biblioteca de clientes Azure Blob Storage v12 para Java.
 
 ### <a name="create-the-project"></a>Criar o projeto
 
@@ -163,7 +163,7 @@ public class App
 
 ## <a name="object-model"></a>Modelo de objeto
 
-O armazenamento Azure Blob está otimizado para armazenar quantidades massivas de dados não estruturados. Os dados não estruturados são dados que não seguem uma definição ou um modelo de dados em particular, como por exemplo, texto ou dados binários. O armazenamento blob oferece três tipos de recursos:
+O Azure Blob Storage está otimizado para armazenar quantidades massivas de dados não estruturados. Os dados não estruturados são dados que não seguem uma definição ou um modelo de dados em particular, como por exemplo, texto ou dados binários. O armazenamento blob oferece três tipos de recursos:
 
 * A conta de armazenamento
 * Um recipiente na conta de armazenamento
@@ -183,7 +183,7 @@ Utilize as seguintes classes java para interagir com estes recursos:
 
 ## <a name="code-examples"></a>Exemplos de código
 
-Estes excertos de código de exemplo mostram-lhe como executar o seguinte com a biblioteca de clientes de armazenamento Azure Blob para Java:
+Estes excertos de código de exemplo mostram-lhe como executar o seguinte com a biblioteca de clientes Azure Blob Storage para Java:
 
 * [Obter a cadeia de ligação](#get-the-connection-string)
 * [Criar um contentor](#create-a-container)
@@ -199,7 +199,7 @@ O código abaixo recupera a cadeia de ligação para a conta de armazenamento a 
 Adicione este código dentro do `Main` método:
 
 ```java
-System.out.println("Azure Blob storage v12 - Java quickstart sample\n");
+System.out.println("Azure Blob Storage v12 - Java quickstart sample\n");
 
 // Retrieve the connection string for use with the application. The storage
 // connection string is stored in an environment variable on the machine
@@ -342,7 +342,7 @@ mvn exec:java -Dexec.mainClass="com.blobs.quickstart.App" -Dexec.cleanupDaemonTh
 A saída da app é semelhante ao seguinte exemplo:
 
 ```output
-Azure Blob storage v12 - Java quickstart sample
+Azure Blob Storage v12 - Java quickstart sample
 
 Uploading to Blob storage as blob:
         https://mystorageacct.blob.core.windows.net/quickstartblobsf9aa68a5-260e-47e6-bea2-2dcfcfa1fd9a/quickstarta9c3a53e-ae9d-4863-8b34-f3d807992d65.txt
@@ -371,7 +371,7 @@ Neste quickstart, aprendeu a carregar, descarregar e listar bolhas usando Java.
 Para ver as aplicações de amostra de armazenamento Blob, continue a:
 
 > [!div class="nextstepaction"]
-> [Amostras de SDK v12 Java de armazenamento Azure Blob](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob)
+> [Amostras de Azure Blob Storage SDK v12 Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob)
 
 * Para saber mais, consulte o [Azure SDK para Java.](https://github.com/Azure/azure-sdk-for-java/blob/master/README.md)
 * Para tutoriais, amostras, quickstarts e outra documentação, visite [Azure para desenvolvedores de nuvem java.](/azure/developer/java/)

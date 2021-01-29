@@ -4,12 +4,12 @@ description: Aprenda a usar a Azure Custom Vision para construir um modelo conte
 ms.topic: tutorial
 ms.date: 09/08/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: de788c337ce8030b73538565e4f374ffc7db55b8
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 0b5d011ac7832436edf1f5c898b1fe1e239d0aea
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060524"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055369"
 ---
 # <a name="tutorial-analyze-live-video-with-live-video-analytics-on-iot-edge-and-azure-custom-vision"></a>Tutorial: Analise vídeo ao vivo com vídeo ao vivo analíticos em IoT Edge e Azure Custom Vision
 
@@ -51,7 +51,6 @@ Leia os seguintes artigos antes de começar:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [prerequisites](includes/custom-vision-tutorial/csharp/prerequisites.md)]
 ::: zone-end
@@ -59,6 +58,10 @@ Leia os seguintes artigos antes de começar:
 ::: zone pivot="programming-language-python"
 [!INCLUDE [prerequisites](includes/custom-vision-tutorial/python/prerequisites.md)]
 ::: zone-end
+
+> [!IMPORTANT]
+> Este módulo Custom Vision suporta apenas arquiteturas **Intel x86 e amd64.** Verifique a arquitetura do seu dispositivo de borda antes de continuar.
+
 ## <a name="review-the-sample-video"></a>Reveja o vídeo da amostra
 
 Este tutorial usa um ficheiro [de vídeo de inferência de carro de brinquedo](https://lvamedia.blob.core.windows.net/public/t2.mkv) para simular um fluxo ao vivo. Pode examinar o vídeo através de uma aplicação como o [leitor de mídia VLC](https://www.videolan.org/vlc/). Selecione **Ctrl+N**, e, em seguida, cole um link para o [vídeo de inferência](https://lvamedia.blob.core.windows.net/public/t2.mkv) do carro de brinquedo para iniciar a reprodução. Ao ver o vídeo, note que no marcador de 36 segundos um caminhão de brinquedo aparece no vídeo. O modelo personalizado foi treinado para detetar este caminhão de brinquedo específico. 
@@ -67,7 +70,7 @@ Este tutorial usa um ficheiro [de vídeo de inferência de carro de brinquedo](h
 
 Neste tutorial, você usará live video analytics no IoT Edge para detetar tais caminhões de brinquedo e publicar eventos de inferência associados ao hub IoT Edge.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/custom-vision-tutorial/topology-custom-vision.svg" alt-text="Diagrama que mostra uma visão geral personalizada.":::
@@ -81,6 +84,9 @@ O nó de extensão HTTP desempenha o papel de um representante.  Ele amostra os 
 Como o nome Custom Vision sugere, pode usá-lo para construir o seu próprio detetor de objetos personalizado ou classificador na nuvem. Fornece uma interface simples, fácil de usar e intuitiva para construir modelos de Visão Personalizada que podem ser implantados na nuvem ou na borda através de contentores.
 
 Para construir um detetor de camiões de brinquedo, siga os passos em [Quickstart: Construa um detetor de objetos com o site Custom Vision](../../cognitive-services/custom-vision-service/get-started-build-detector.md).
+
+> [!IMPORTANT]
+> Este módulo Custom Vision suporta apenas arquiteturas **Intel x86 e amd64.** Verifique a arquitetura do seu dispositivo de borda antes de continuar.
 
 Notas adicionais:
  

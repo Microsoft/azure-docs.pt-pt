@@ -1,5 +1,5 @@
 ---
-title: Resolução de problemas da conectividade SMTP em Azure Microsoft Docs
+title: Conectividade SMTP de saída de resolução de problemas em Azure | Microsoft Docs
 description: Aprenda o método recomendado para o envio de e-mail e como resolver problemas com a conectividade SMTP de saída em Azure.
 services: virtual-network
 author: genlin
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: genli
-ms.openlocfilehash: e1e7e78cab1f3a240737b5e25e0dff28c420add8
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 518b8e33ac9adfdd1aa121e0cb8d1558545980e7
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97883117"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054859"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-problems-in-azure"></a>Problemas de conectividade SMTP de resolução de problemas em Azure
 
@@ -27,7 +27,7 @@ Esta mudança de comportamento aplica-se apenas a subscrições e implementaçõ
 
 ## <a name="recommended-method-of-sending-email"></a>Método recomendado de envio de e-mail
 
-Recomendamos que utilize serviços de retransmissão SMTP autenticados para enviar e-mails da Azure VMs ou do Azure App Service. (Estes serviços de retransmissão normalmente ligam-se através da porta TCP 587 ou 443, mas suportam outras portas.) Estes serviços são utilizados para manter a reputação de IP ou de domínio para minimizar a possibilidade de os fornecedores de e-mail de terceiros rejeitarem mensagens. [SendGrid](https://sendgrid.com/partners/azure/) é um desses serviços de retransmissão SMTP, mas há outros. Também pode ter um serviço de retransmissão SMTP seguro que pode utilizar no local.
+Recomendamos que utilize serviços de retransmissão SMTP autenticados para enviar e-mails da Azure VMs ou do Azure App Service. (Estes serviços de retransmissão normalmente ligam-se através da porta TCP 587, mas suportam outras portas.) Estes serviços são utilizados para manter a reputação de IP ou de domínio para minimizar a possibilidade de os fornecedores de e-mail de terceiros rejeitarem mensagens. [SendGrid](https://sendgrid.com/partners/azure/) é um desses serviços de retransmissão SMTP, mas há outros. Também pode ter um serviço de retransmissão SMTP seguro que pode utilizar no local.
 
 A utilização destes serviços de entrega de e-mail não é restrita no Azure, independentemente do tipo de subscrição.
 

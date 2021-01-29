@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 05/15/2020
-ms.openlocfilehash: a36b9d20fa20df56ec53e090976ea86e689ac74b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 799e879b4d9fd54367d54c17b3d275acfc5f34c1
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322517"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054776"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalar o gateway de dados no local para o Azure Logic Apps
 
@@ -97,7 +97,7 @@ Este artigo mostra como descarregar, instalar e configurar o seu portal de dados
 
    A instalação do gateway pode ligar-se a apenas uma conta Azure.
 
-1. **Selecione Registar uma nova porta de entrada neste computador**Em  >  **seguida**. Este passo regista a sua instalação gateway com o [serviço de nuvem gateway](#gateway-cloud-service).
+1. **Selecione Registar uma nova porta de entrada neste computador** Em  >  **seguida**. Este passo regista a sua instalação gateway com o [serviço de nuvem gateway](#gateway-cloud-service).
 
    ![Registar porta de entrada no computador local](./media/logic-apps-gateway-install/register-gateway-local-computer.png)
 
@@ -138,9 +138,15 @@ Este artigo mostra como descarregar, instalar e configurar o seu portal de dados
 
 1. Agora [crie o recurso Azure para a sua instalação gateway](../logic-apps/logic-apps-gateway-connection.md).
 
+<a name="communication-settings"></a>
+
 ## <a name="check-or-adjust-communication-settings"></a>Verifique ou ajuste as definições de comunicação
 
-O gateway de dados no local depende da [Azure Service Bus Messaging](../service-bus-messaging/service-bus-messaging-overview.md) para a conectividade na nuvem e estabelece as conexões de saída correspondentes à região de Azure associada do gateway. Se o seu ambiente de trabalho exigir que o tráfego passe por um proxy ou firewall para aceder à internet, esta restrição pode impedir que o portal de dados no local se conecte ao serviço de cloud gateway e a Azure Service Bus Messaging. O gateway tem várias definições de comunicação, que pode ajustar. Para obter mais informações, veja estes tópicos:
+O gateway de dados no local depende da [Azure Service Bus Messaging](../service-bus-messaging/service-bus-messaging-overview.md) para a conectividade na nuvem e estabelece as conexões de saída correspondentes à região de Azure associada do gateway. Se o seu ambiente de trabalho exigir que o tráfego passe por um proxy ou firewall para aceder à internet, esta restrição pode impedir que o portal de dados no local se conecte ao serviço de cloud gateway e a Azure Service Bus Messaging. O gateway tem várias definições de comunicação, que pode ajustar.
+
+Um cenário exemplo é o de utilizar conectores personalizados que acedem aos recursos no local utilizando o recurso de gateway de dados no local em Azure. Se também tiver uma firewall que limite o tráfego a endereços IP específicos, tem de configurar a instalação gateway para permitir o acesso aos *[respetivos endereços IP](logic-apps-limits-and-config.md#outbound)geridos geridos.* *Todas as* aplicações lógicas da mesma região utilizam os mesmos intervalos de endereços IP.
+
+Para obter mais informações, veja estes tópicos:
 
 * [Ajustar as definições de comunicação do gateway de dados no local](/data-integration/gateway/service-gateway-communication)
 * [Configurar as definições de proxy do gateway de dados no local](/data-integration/gateway/service-gateway-proxy)
@@ -171,7 +177,7 @@ Se tiver de alterar a localização do seu gateway, mover a instalação do gate
 
 1. Depois de o instalador abrir, inscreva-se com a mesma conta Azure que foi utilizada para instalar o gateway.
 
-1. **Selecione Migrar, restaurar ou adquirir um gateway existente**Em  >  **seguida,** por exemplo:
+1. **Selecione Migrar, restaurar ou adquirir um gateway existente** Em  >  **seguida,** por exemplo:
 
    ![Selecione "Migrar, restaurar ou adquirir uma porta de entrada existente"](./media/logic-apps-gateway-install/migrate-recover-take-over-gateway.png)
 

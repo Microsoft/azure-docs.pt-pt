@@ -2,15 +2,16 @@
 title: Ativar a gestão da atualização da automação Azure a partir de runbook
 description: Este artigo diz como ativar a Gestão de Atualização a partir de um livro de bordo.
 services: automation
+ms.subservice: update-management
 ms.topic: conceptual
 ms.date: 11/24/2020
 ms.custom: mvc
-ms.openlocfilehash: 5a9f12a823a22bfb48ccb4482d3402464aa77fea
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 219efe05b399677c60922542f3d7acd76ca37d26
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95908370"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054894"
 ---
 # <a name="enable-update-management-from-a-runbook"></a>Ativar a Gestão de Atualizações a partir de um runbook
 
@@ -54,7 +55,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 É necessário atualizar os módulos Azure mais recentes e importar o módulo [AzureRM.OperationalInsights](/powershell/module/azurerm.operationalinsights) para permitir com sucesso a Gestão de Atualização para os seus VMs com o runbook.
 
-1. Na sua conta Demômes, selecione Módulos em **Recursos Partilhados.** **Modules**
+1. Na sua conta Demômes, selecione Módulos em **Recursos Partilhados.** 
 
 2. Selecione **Atualizar Módulos do Azure** para atualizar os módulos do Azure para a versão mais recente.
 

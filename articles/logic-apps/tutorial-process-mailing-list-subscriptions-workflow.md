@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 10/07/2020
-ms.openlocfilehash: 102b1946021aff7f8ab5491ed70fbc6cf772e3a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1690b8d143b86e5caa691f5f8f479f715f57f0c8
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842438"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054657"
 ---
 # <a name="tutorial-create-automated-approval-based-workflows-by-using-azure-logic-apps"></a>Tutorial: Criar fluxos de trabalho automatizados baseados em aprovação utilizando apps Azure Logic
 
@@ -44,6 +44,8 @@ Quando terminar, a aplicação lógica é semelhante a este fluxo de trabalho a 
 
 * Uma conta de e-mail no Office 365 Outlook ou Outlook.com, que suporta fluxos de trabalho de aprovação. Este tutorial utiliza o Outlook do Office 365. Se utilizar outra conta de e-mail, os passos gerais são os mesmos, mas a IU poderá ser ligeiramente diferente.
 
+* Se a sua aplicação lógica necessitar de comunicar através de uma firewall que limite o tráfego a endereços IP específicos, essa firewall precisa de permitir o acesso tanto aos endereços IP [de entrada](logic-apps-limits-and-config.md#inbound) *como* [de saída](logic-apps-limits-and-config.md#outbound) utilizados pelo serviço De aplicações lógicas ou ao tempo de funcionamento na região de Azure, onde existe a sua aplicação lógica. Se a sua aplicação lógica também utilizar [conectores geridos](../connectors/apis-list.md#managed-api-connectors)– como o conector Office 365 Outlook ou o conector SQL, ou utilizar [conectores personalizados](/connectors/custom-connectors/)– a firewall também precisa de permitir o acesso de *todos os* [endereços IP de saída geridos](logic-apps-limits-and-config.md#outbound) do conector na região Azure da sua aplicação lógica.
+
 ## <a name="create-your-logic-app"></a>Criar uma aplicação lógica
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com as credenciais da sua conta do Azure. Na página inicial do Azure, selecione **Criar um recurso**.
@@ -58,10 +60,10 @@ Quando terminar, a aplicação lógica é semelhante a este fluxo de trabalho a 
 
    | Propriedade | Valor | Descrição |
    |----------|-------|-------------|
-   | **Subscrição** | <*Nome de subscrição Azure*> | O nome da subscrição do Azure. Este exemplo `Pay-As-You-Go` utiliza. |
+   | **Subscrição** | <*Nome de subscrição Azure*> | O nome da subscrição do Azure. Este exemplo utiliza `Pay-As-You-Go`. |
    | **Grupo de recursos** | LA-MailingList-RG | O nome para o [grupo de recursos Azure,](../azure-resource-manager/management/overview.md)que é usado para organizar recursos relacionados. Este exemplo cria um novo grupo de recursos chamado `LA-MailingList-RG` . |
-   | **Nome** | LA-MailingList | O nome da sua aplicação lógica, que contém apenas letras, números, hífenes `-` (), sublinha `_` (), parênteses ( `(` , ) e `)` períodos `.` (). Este exemplo `LA-MailingList` utiliza. |
-   | **Localização** | E.U.A. Oeste | A região onde armazenar a sua informação lógica de aplicações. Este exemplo `West US` utiliza. |
+   | **Nome** | LA-MailingList | O nome da sua aplicação lógica, que contém apenas letras, números, hífenes `-` (), sublinha `_` (), parênteses ( `(` , ) e `)` períodos `.` (). Este exemplo utiliza `LA-MailingList`. |
+   | **Localização** | E.U.A. Oeste | A região onde armazenar a sua informação lógica de aplicações. Este exemplo utiliza `West US`. |
    | **Log Analytics** | Desligado | Mantenha a definição **Desativado** para o registo de diagnósticos. |
    ||||
 
@@ -194,9 +196,9 @@ Adicione agora uma ação que adicione o membro aprovado à sua lista de correio
 
    | Propriedade | Necessário | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | **ID da Lista** | Sim | <*nome da lista de correio*> | Selecione o nome da sua lista de correio mailChimp. Este exemplo `test-members-ML` utiliza. |
-   | **Endereço de e-mail** | Sim | <*novo membro-endereço de e-mail*> | Na lista de conteúdos dinâmicos que abre, a partir da secção **Quando chega um novo email,** selecione **From**, que é saída do gatilho e especifica o endereço de e-mail para o novo membro. |
-   | **Estado** | Sim | <*estatuto de subscrição de membros*> | Selecione o estado de subscrição a definir para o novo membro. Este exemplo `subscribed` seleciona. <p>Para obter mais informações, veja [Manage subscribers with the MailChimp API](https://developer.mailchimp.com/documentation/mailchimp/guides/manage-subscribers-with-the-mailchimp-api/) (Grir subscritores com a API do MailChimp). |
+   | **ID da Lista** | Yes | <*nome da lista de correio*> | Selecione o nome da sua lista de correio mailChimp. Este exemplo utiliza `test-members-ML`. |
+   | **Endereço de e-mail** | Yes | <*novo membro-endereço de e-mail*> | Na lista de conteúdos dinâmicos que abre, a partir da secção **Quando chega um novo email,** selecione **From**, que é saída do gatilho e especifica o endereço de e-mail para o novo membro. |
+   | **Estado** | Yes | <*estatuto de subscrição de membros*> | Selecione o estado de subscrição a definir para o novo membro. Este exemplo `subscribed` seleciona. <p>Para obter mais informações, veja [Manage subscribers with the MailChimp API](https://developer.mailchimp.com/documentation/mailchimp/guides/manage-subscribers-with-the-mailchimp-api/) (Grir subscritores com a API do MailChimp). |
    |||||
 
    Para obter mais informações sobre o **membro Adicionar para listar** propriedades de ação, consulte a referência do [conector MailChimp](/connectors/mailchimp/).
@@ -249,9 +251,9 @@ Em seguida, crie os e-mails para enviar quando o membro aprovado tiver sucesso o
 
    | Propriedade | Necessário | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | **Corpo** | Sim | <*sucesso-e-mail-corpo*> | O conteúdo do corpo do e-mail de êxito. Para este tutorial, siga estes passos: <p>1. Introduza este texto com um espaço de fuga: `New member has joined "test-members-ML":` <p>2. Da lista de conteúdos dinâmicos que aparece, selecione a propriedade **'Email Address'.** <p>**Nota:** Se esta propriedade não aparecer, junto ao membro adicionar ao cabeçalho da secção **de lista,** selecione **Ver mais**. <p>3. Na linha seguinte, insira este texto com um espaço de fuga: `Member opt-in status: ` <p>4. Da lista de conteúdos dinâmicos, em **lista de adição a lista,** selecione a propriedade **Status.** |
-   | **Assunto** | Sim | <*sucesso-e-mail-assunto*> | O assunto do e-mail de êxito. Para este tutorial, siga estes passos: <p>1. Introduza este texto com um espaço de fuga: `Success! Member added to "test-members-ML": ` <p>2. Da lista de conteúdos dinâmicos, em **lista de adicionar ao membro,** selecione a propriedade **'Endereço de e-mail'.** |
-   | **Para** | Sim | <*seu endereço de e-mail*> | O endereço de e-mail para onde enviar o e-mail de êxito. Para fins de teste, pode utilizar o seu próprio endereço de e-mail. |
+   | **Corpo** | Yes | <*sucesso-e-mail-corpo*> | O conteúdo do corpo do e-mail de êxito. Para este tutorial, siga estes passos: <p>1. Introduza este texto com um espaço de fuga: `New member has joined "test-members-ML":` <p>2. Da lista de conteúdos dinâmicos que aparece, selecione a propriedade **'Email Address'.** <p>**Nota:** Se esta propriedade não aparecer, junto ao membro adicionar ao cabeçalho da secção **de lista,** selecione **Ver mais**. <p>3. Na linha seguinte, insira este texto com um espaço de fuga: `Member opt-in status: ` <p>4. Da lista de conteúdos dinâmicos, em **lista de adição a lista,** selecione a propriedade **Status.** |
+   | **Assunto** | Yes | <*sucesso-e-mail-assunto*> | O assunto do e-mail de êxito. Para este tutorial, siga estes passos: <p>1. Introduza este texto com um espaço de fuga: `Success! Member added to "test-members-ML": ` <p>2. Da lista de conteúdos dinâmicos, em **lista de adicionar ao membro,** selecione a propriedade **'Endereço de e-mail'.** |
+   | **Para** | Yes | <*seu endereço de e-mail*> | O endereço de e-mail para onde enviar o e-mail de êxito. Para fins de teste, pode utilizar o seu próprio endereço de e-mail. |
    |||||
 
 1. Guarde a sua aplicação lógica.
@@ -274,9 +276,9 @@ Em seguida, crie os e-mails para enviar quando o membro aprovado tiver sucesso o
 
    | Propriedade | Necessário | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | **Corpo** | Sim | <*corpo-para-falha-e-mail*> | O conteúdo do corpo do e-mail de falha. Neste tutorial, introduza este texto: <p>`Member might already exist. Check your MailChimp account.` |
-   | **Assunto** | Sim | <*assunto-para-falha-e-mail*> | O assunto do e-mail de falha. Para este tutorial, siga estes passos: <p>1. Introduza este texto com um espaço de fuga: `Failed, member not added to "test-members-ML": ` <p>2. Da lista de conteúdos dinâmicos, em **lista de adicionar ao membro,** selecione a propriedade **'Endereço de e-mail'.** |
-   | **Para** | Sim | <*seu endereço de e-mail*> | O endereço de e-mail para onde enviar o e-mail de falha. Para fins de teste, pode utilizar o seu próprio endereço de e-mail. |
+   | **Corpo** | Yes | <*corpo-para-falha-e-mail*> | O conteúdo do corpo do e-mail de falha. Neste tutorial, introduza este texto: <p>`Member might already exist. Check your MailChimp account.` |
+   | **Assunto** | Yes | <*assunto-para-falha-e-mail*> | O assunto do e-mail de falha. Para este tutorial, siga estes passos: <p>1. Introduza este texto com um espaço de fuga: `Failed, member not added to "test-members-ML": ` <p>2. Da lista de conteúdos dinâmicos, em **lista de adicionar ao membro,** selecione a propriedade **'Endereço de e-mail'.** |
+   | **Para** | Yes | <*seu endereço de e-mail*> | O endereço de e-mail para onde enviar o e-mail de falha. Para fins de teste, pode utilizar o seu próprio endereço de e-mail. |
    |||||
 
 1. Guarde a sua aplicação lógica. 
@@ -321,7 +323,7 @@ A sua aplicação lógica continua a funcionar até desativar ou eliminar a apli
    > [!TIP]
    > Se a página inicial do Azure mostrar o grupo de recursos sob **recursos recentes,** pode selecionar o grupo na página inicial.
 
-1. No menu do grupo de recursos, verifique **se a visão geral** está selecionada. Na barra de **ferramentas** do painel de ferramentas do painel de ferramentas do painel de ferramentas, selecione **Delete resource group**.
+1. No menu do grupo de recursos, verifique **se a visão geral** está selecionada. Na barra de **ferramentas** do painel de ferramentas, selecione **Delete resource group**.
 
    ![Screenshot que mostra o painel "Visão Geral" do grupo de recursos e na barra de ferramentas do painel, "Delete resource group" é selecionado.](./media/tutorial-process-mailing-list-subscriptions-workflow/delete-resource-group.png)
 

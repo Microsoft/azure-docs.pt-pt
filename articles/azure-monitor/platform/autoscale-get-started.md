@@ -1,20 +1,20 @@
 ---
 title: Começar com autoescala em Azure
-description: Saiba como escalar o seu recurso Web App, Cloud Service, Virtual Machine ou Virtual Machine Scale definido em Azure.
+description: Saiba como escalar o seu recurso Web App, Cloud Service, Virtual Machine ou Virtual Machine set in Azure.
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: ee36db3f657365036bb68f641be53fd434f1b64b
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 9bbd4da77d2892064906dc7ae272bcc770b6bdc4
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97694930"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055285"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Introdução ao dimensionamento automático no Azure
 Este artigo descreve como configurar as suas definições de Autoscale para o seu recurso no portal Microsoft Azure.
 
-A autoescala do Azure Monitor aplica-se apenas a [conjuntos de escalas de máquinas virtuais,](https://azure.microsoft.com/services/virtual-machine-scale-sets/) [serviços de nuvem,](https://azure.microsoft.com/services/cloud-services/) [serviço de aplicações - Web Apps](https://azure.microsoft.com/services/app-service/web/)e [serviços de Gestão API.](../../api-management/api-management-key-concepts.md)
+A autoescala do Azure Monitor aplica-se apenas a [conjuntos de escala de máquina virtual,](https://azure.microsoft.com/services/virtual-machine-scale-sets/) [Serviços cloud,](https://azure.microsoft.com/services/cloud-services/) [Serviço de Aplicações - Aplicações Web](https://azure.microsoft.com/services/app-service/web/)e [serviços de Gestão API.](../../api-management/api-management-key-concepts.md)
 
 ## <a name="discover-the-autoscale-settings-in-your-subscription"></a>Descubra as definições de Autoscale na sua subscrição
 
@@ -115,36 +115,9 @@ Pode sempre voltar à Autoescala clicando em **Ativar a autoescala** e, em segui
 
 ## <a name="route-traffic-to-healthy-instances-app-service"></a>Encaminhar o tráfego para instâncias saudáveis (Serviço de Aplicações)
 
-Quando você é dimensionado para várias instâncias, o App Service pode realizar verificações de saúde nas suas instâncias para encaminhar o tráfego apenas para as instâncias saudáveis. Para tal, abra o Portal ao seu Serviço de Aplicações e, em seguida, selecione **Verificação de Saúde** em **Monitorização**. **Selecione Ative** e forneça um caminho URL válido na sua aplicação, como `/health` ou `/api/health` . Clique em **Guardar**.
+<a id="health-check-path"></a>
 
-Para ativar a funcionalidade com os modelos ARM, desacorda a `healthcheckpath` propriedade do recurso para o caminho de `Microsoft.Web/sites` verificação de saúde no seu site, por exemplo: `"/api/health/"` . Para desativar a função, volte a colocar a propriedade na cadeia `""` vazia.
-
-### <a name="health-check-path"></a>Caminho de verificação de saúde
-
-O caminho deve responder dentro de um minuto com um código de estado entre 200 e 299 (inclusive). Se o caminho não responder dentro de um minuto, ou devolver um código de estado fora do alcance, então a instância é considerada "insalubre". O Serviço de Aplicações não segue os redirecionamentos de 30x (301, 302, 307, etc.) na via de verificação de saúde -- estes códigos de estado são considerados **insalubres**. O Health Check integra-se com as funcionalidades de autenticação e autorização do Serviço de Aplicações, o sistema chegará ao ponto final mesmo que estas funcionalidades de segurança estejam ativadas. Se estiver a utilizar o seu próprio sistema de autenticação, o caminho de verificação de saúde deve permitir o acesso anónimo. Se o site tiver HTTP **S**-Apenas ativado, o pedido de verificação de saúde será enviado através de HTTP **S**.
-
-A via de verificação de saúde deve verificar os componentes críticos da sua aplicação. Por exemplo, se a sua aplicação depender de uma base de dados e de um sistema de mensagens, o ponto final do controlo de saúde deve ligar-se a esses componentes. Se a aplicação não conseguir ligar-se a um componente crítico, então o caminho deve devolver um código de resposta de 500 níveis para indicar que a aplicação não é saudável.
-
-#### <a name="security"></a>Segurança 
-
-As equipas de desenvolvimento das grandes empresas precisam frequentemente de aderir aos requisitos de segurança para as suas APIs expostas. Para garantir o ponto final do healthcheck, deve primeiro utilizar funcionalidades como [restrições IP,](../../app-service/app-service-ip-restrictions.md#set-an-ip-address-based-rule) [certificados](../../app-service/app-service-ip-restrictions.md#set-an-ip-address-based-rule)de cliente ou uma Rede Virtual para restringir o acesso à aplicação. Pode assegurar o próprio ponto final do healthcheck, exigindo que `User-Agent` o pedido de entrada corresponda `ReadyForRequest/1.0` . O User-Agent não pode ser falsificado, uma vez que o pedido já estava assegurado pelas funcionalidades de segurança anteriores.
-
-### <a name="behavior"></a>Comportamento
-
-Quando o caminho de verificação de saúde é fornecido, o Serviço de Aplicações irá fazer o caminho em todas as instâncias. Se um código de resposta bem sucedido não for recebido após 5 pings, este caso é considerado "insalubre". Casos pouco saudáveis serão excluídos da rotação do balançador de carga se for escalonado para 2 ou mais instâncias e utilizar [o nível básico](../../app-service/overview-hosting-plans.md) ou superior. Pode configurar o número necessário de pings falhados com a definição da `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` aplicação. Esta definição de aplicação pode ser definida para qualquer inteiro entre 2 e 10. Por exemplo, se isto for definido `2` para , as suas instâncias serão removidas do equilibrador de carga após dois pings falhados. Além disso, quando estiver a escalonar ou sair, o Serviço de Aplicações irá verificar o caminho da verificação de saúde para garantir que as novas instâncias estão prontas para pedidos antes de serem adicionadas ao equilibrador de carga.
-
-> [!NOTE]
-> Lembre-se que o seu Plano de Serviço de Aplicações deve ser dimensionado para 2 ou mais instâncias e ser **de nível básico ou superior** para que a exclusão do balançador de carga ocorra. Se tiver apenas 1 instância, não será removido do equilibrador de carga, mesmo que não seja saudável. 
-
-Além disso, a via de verificação de saúde é pingada quando as ocorrências são adicionadas ou reiniciadas, tais como durante operações de escala, reiniciamento manual ou implementação de código através do site SCM. Se o exame de saúde falhar durante estas operações, as ocorrências de falha não serão adicionadas ao balançador de carga. Isto evita que estas operações impactem negativamente a disponibilidade da sua aplicação.
-
-Ao utilizar o healthcheck, os seus casos saudáveis restantes podem experimentar um aumento da carga. Para evitar sobrecarregar as restantes instâncias, não mais de metade dos seus casos serão excluídos. Por exemplo, se um Plano de Serviço de Aplicações for dimensionado para 4 instâncias e 3 não saudáveis, no máximo 2 serão excluídos da rotação do loadbalancer. As outras 2 instâncias (1 saudável e 1 insalubre) continuarão a receber pedidos. No pior dos cenários, em que todos os casos não são saudáveis, nenhum será excluído. Se quiser anular este comportamento, pode definir a definição da `WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT` aplicação para um valor entre `0` e `100` . Defini-lo para um valor mais elevado significa que mais casos insalubres serão removidos (o valor predefinido é de 50).
-
-Se os controlos de saúde falharem em todas as aplicações de uma instância durante uma hora, o caso será substituído. No máximo, um caso será substituído por hora, com um máximo de três instâncias por dia por Plano de Serviço de Aplicação.
-
-### <a name="monitoring"></a>Monitorização
-
-Depois de fornecer o caminho de verificação de saúde da sua aplicação, pode monitorizar a saúde do seu site usando o Azure Monitor. A partir da lâmina **de verificação de saúde** no Portal, clique nas **Métricas** na barra de ferramentas superior. Isto abrirá uma nova lâmina onde poderá ver o estado histórico de saúde do site e criar uma nova regra de alerta. Para obter mais informações sobre a monitorização dos seus sites, [consulte o guia no Azure Monitor](../../app-service/web-sites-monitor.md).
+Quando a sua aplicação web Azure é dimensionada para várias instâncias, o Serviço de Aplicações pode realizar verificações de saúde nas suas instâncias para encaminhar o tráfego para as instâncias saudáveis. Para saber mais, consulte [este artigo sobre a verificação do Serviço de Aplicações Health.](../../app-service/monitor-instances-health-check.md)
 
 ## <a name="moving-autoscale-to-a-different-region"></a>Mover autoescala para uma região diferente
 Esta secção descreve como mover a autoescala do Azure para outra região sob a mesma Subscrição e Grupo de Recursos. Pode utilizar a API REST para mover configurações de autoescala.

@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: eaba099725530f24dcd6aa5da7eb59cb233efd46
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: e64f8cded851427636a19e16cccd78932dd6baac
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98695650"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054962"
 ---
 # <a name="azure-functions-http-trigger"></a>Azure Funções HTTP Trigger
 
@@ -448,7 +448,7 @@ Aqui está a *function.jsarquivada:*
         {
             "type": "http",
             "direction": "out",
-            "name": "res"
+            "name": "$return"
         }
     ]
 }
@@ -547,13 +547,13 @@ Os atributos não são suportados pela Python.
 
 A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `HttpTrigger` atributo.
 
-|function.jsna propriedade | Propriedade de atributo |Descrição|
+|function.jsna propriedade | Propriedade de atributo |Description|
 |---------|---------|----------------------|
 | **tipo** | n/a| Necessário - deve ser definido para `httpTrigger` . |
 | **direção** | n/a| Necessário - deve ser definido para `in` . |
 | **nome** | n/a| Requerido - o nome variável utilizado no código de função para o órgão de pedido ou pedido. |
 | <a name="http-auth"></a>**authLevel** |  **AuthLevel** |Determina quais as teclas, se houver, que precisam de estar presentes no pedido para invocar a função. O nível de autorização pode ser um dos seguintes valores: <ul><li><code>anonymous</code>&mdash;Não é necessária nenhuma chave API.</li><li><code>function</code>&mdash;É necessária uma chave API específica para a função. Este é o valor padrão se nenhum for fornecido.</li><li><code>admin</code>&mdash;A chave principal é necessária.</li></ul> Para mais informações, consulte a secção sobre [as chaves de autorização.](#authorization-keys) |
-| **methods** |**Métodos** | Uma matriz dos métodos HTTP aos quais a função responde. Se não for especificado, a função responde a todos os métodos HTTP. Consulte [personalizar o ponto final HTTP](#customize-the-http-endpoint). |
+| **métodos** |**Métodos** | Uma matriz dos métodos HTTP aos quais a função responde. Se não for especificado, a função responde a todos os métodos HTTP. Consulte [personalizar o ponto final HTTP](#customize-the-http-endpoint). |
 | **route** | **Rota** | Define o modelo de rota, controlando a que pedido URLs a sua função responde. O valor predefinido se nenhum for fornecido é `<functionname>` . Para mais informações, consulte [personalizar o ponto final HTTP](#customize-the-http-endpoint). |
 | **webHookType** | **WebHookType** | _Suportado apenas para a versão 1.x tempo de execução._<br/><br/>Configura o gatilho HTTP para funcionar como um recetor [webhook](https://en.wikipedia.org/wiki/Webhook) para o fornecedor especificado. Não desateia a `methods` propriedade se você definir esta propriedade. O tipo webhook pode ser um dos seguintes valores:<ul><li><code>genericJson</code>&mdash;Um ponto final webhook de uso geral sem lógica para um fornecedor específico. Esta definição restringe os pedidos apenas a quem utiliza HTTP POST e com o `application/json` tipo de conteúdo.</li><li><code>github</code>&mdash;A função responde a [webhooks GitHub](https://developer.github.com/webhooks/). Não utilize a propriedade  _authLevel_ com webhooks GitHub. Para mais informações, consulte a secção de webhooks do GitHub mais tarde neste artigo.</li><li><code>slack</code>&mdash;A função responde a [webhooks Slack](https://api.slack.com/outgoing-webhooks). Não utilize a propriedade _authLevel_ com webhooks Slack. Para mais informações, consulte a secção De webhooks Slack mais tarde neste artigo.</li></ul>|
 
@@ -927,6 +927,6 @@ O comprimento do pedido HTTP é limitado a 100 MB (104.857.600 bytes), e o compr
 Se uma função que utiliza o gatilho HTTP não estiver concluída dentro de 230 segundos, o Balançador de [Carga Azure](../app-service/faq-availability-performance-application-issues.md#why-does-my-request-time-out-after-230-seconds) irá esgotar-se e devolver-lhe um erro HTTP 502. A função continuará a funcionar mas não poderá devolver uma resposta HTTP. Para funções de longa duração, recomendamos que siga os padrões async e devolva um local onde possa verificar o estado do pedido. Para obter informações sobre quanto tempo uma função pode funcionar, consulte [Escala e hospedagem - Plano de consumo](functions-scale.md#timeout).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Devolver uma resposta HTTP de uma função](./functions-bindings-http-webhook-output.md)

@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: fa699163fdf445624c918e714fda890a41a67f07
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: e2623ebf929f6a24cfc977896acea514634ffb23
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98682652"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054518"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gerir pontos finais e rotas em Azure Digital Twins (APIs e CLI)
 
@@ -20,7 +20,7 @@ ms.locfileid: "98682652"
 
 Em Azure Digital Twins, você pode encaminhar notificações de eventos para serviços a [jusante](how-to-interpret-event-data.md) ou recursos de computação conectados. Isto é feito ao, em primeiro lugar, configurar **pontos finais** que podem receber os eventos. Em seguida, pode criar  [**rotas de eventos**](concepts-route-events.md) que especifiquem quais os eventos gerados pela Azure Digital Twins que são entregues a que pontos finais.
 
-Este artigo acompanha-o através do processo de criação de pontos finais e rotas com as [APIs rotas de eventos,](/rest/api/digital-twins/dataplane/eventroutes)o [.NET (C#) SDK,](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)e o [Azure Digital Twins CLI](how-to-use-cli.md).
+Este artigo acompanha-o através do processo de criação de pontos finais e rotas com as [APIs REST,](/rest/api/azure-digitaltwins/)a [.NET (C#) SDK,](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)e o [Azure Digital Twins CLI](how-to-use-cli.md).
 
 Em alternativa, também pode gerir pontos finais e rotas com o [portal Azure.](https://portal.azure.com) Para uma versão deste artigo que utiliza o portal, consulte [*Como fazer: Gerir pontos finais e rotas (portal)*](how-to-manage-routes-portal.md).
 
@@ -42,51 +42,31 @@ Estes são os tipos suportados de pontos finais que pode criar, para o seu exemp
 
 Para obter mais informações sobre os diferentes tipos de pontos [*finais, consulte Escolha entre os serviços de mensagens Azure.*](../event-grid/compare-messaging-services.md)
 
-Para ligar um ponto final à Azure Digital Twins, o tópico da grelha de eventos, o centro de eventos ou o Service Bus que está a usar para o ponto final já precisa de existir. 
+Esta secção explica como criar estes pontos finais utilizando o Azure CLI. Também pode gerir pontos finais com o [avião de controlo DigitalTwinsEndpoint APIs](/rest/api/digital-twins/controlplane/endpoints).
 
-### <a name="create-an-event-grid-endpoint"></a>Criar um ponto final de Grade de Eventos
+[!INCLUDE [digital-twins-endpoint-resources.md](../../includes/digital-twins-endpoint-resources.md)]
 
-O exemplo a seguir mostra como criar um ponto final do tipo de grelha de evento usando o Azure CLI.
+### <a name="create-the-endpoint"></a>Criar o ponto final
 
-Primeiro, criar um tópico de grelha de eventos. Pode utilizar o seguinte comando ou ver os passos mais detalhadamente visitando [a secção *de tópicos personalizados*](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) dos eventos Event Grid *Custom.*
+Uma vez criados os recursos do ponto final, podes usá-los para um ponto final da Azure Digital Twins. Os exemplos a seguir mostram como criar pontos finais utilizando o `az dt endpoint create` comando para o [CLI das Gémeas Digitais Azure](how-to-use-cli.md). Substitua os espaços reservados nos comandos com os detalhes dos seus próprios recursos.
 
-```azurecli-interactive
-az eventgrid topic create -g <your-resource-group-name> --name <your-topic-name> -l <region>
-```
-
-> [!TIP]
-> Para obter uma lista de nomes da região de Azure que podem ser passados em comandos no CLI Azure, executar este comando:
-> ```azurecli-interactive
-> az account list-locations -o table
-> ```
-
-Uma vez criado o tópico, pode ligá-lo à Azure Digital Twins com o seguinte [comando CLI Azure Digital Twins](how-to-use-cli.md):
+Para criar um ponto final de Grade de Eventos:
 
 ```azurecli-interactive
 az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
-Agora, o tópico da grelha de eventos está disponível como ponto final dentro da Azure Digital Twins, sob o nome especificado com o `--endpoint-name` argumento. Normalmente, você usará esse nome como alvo de uma rota de **eventos**, que irá criar [mais tarde neste artigo](#create-an-event-route) usando o serviço Azure Digital Twins API.
+Para criar um ponto final do Event Hubs:
+```azurecli-interactive
+az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --eventhub-resource-group <Event-Hub-resource-group> --eventhub-namespace <Event-Hub-namespace> --eventhub <Event-Hub-name> --eventhub-policy <Event-Hub-policy> -n <your-Azure-Digital-Twins-instance-name>
+```
 
-### <a name="create-an-event-hubs-or-service-bus-endpoint"></a>Crie um centro de eventos ou ponto final de ônibus de serviço
-
-O processo de criação de Centros de Eventos ou pontos finais de autocarros de serviço é semelhante ao processo de Grelha de Eventos acima mostrado.
-
-Primeiro, crie os seus recursos que usará como ponto final. Aqui está o que é necessário:
-* Service Bus: _Service Bus namespace_, _Service Bus topic_, Regra de _autorização_
-* Centros de eventos: _Espaço de nomes de Centros de Eventos,_ _centro de eventos,_ regra _de autorização_
-
-Em seguida, utilize os seguintes comandos para criar os pontos finais em Azure Digital Twins: 
-
-* Adicionar ponto final de tópico de ônibus de serviço (requer um recurso de service bus pré-criado)
+Para criar um ponto final de ônibus de serviço:
 ```azurecli-interactive 
 az dt endpoint create servicebus --endpoint-name <Service-Bus-endpoint-name> --servicebus-resource-group <Service-Bus-resource-group-name> --servicebus-namespace <Service-Bus-namespace> --servicebus-topic <Service-Bus-topic-name> --servicebus-policy <Service-Bus-topic-policy> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
-* Adicionar ponto final do Event Hubs (requer recurso de Centros de Eventos pré-criado)
-```azurecli-interactive
-az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --eventhub-resource-group <Event-Hub-resource-group> --eventhub-namespace <Event-Hub-namespace> --eventhub <Event-Hub-name> --eventhub-policy <Event-Hub-policy> -n <your-Azure-Digital-Twins-instance-name>
-```
+Depois de executar com sucesso estes comandos, a grelha de eventos, o centro de eventos ou o tópico Service Bus estarão disponíveis como ponto final dentro da Azure Digital Twins, sob o nome que forneceu com o `--endpoint-name` argumento. Normalmente, você usará esse nome como alvo de uma rota de **eventos**, que irá criar [mais tarde neste artigo.](#create-an-event-route)
 
 ### <a name="create-an-endpoint-with-dead-lettering"></a>Criar um ponto final com letras mortas
 
@@ -121,15 +101,15 @@ Siga os passos abaixo para configurar estes recursos de armazenamento na sua con
     
 #### <a name="configure-the-endpoint"></a>Configure o ponto final
 
-Para criar um ponto final que tenha a inscrição ativada, terá de criar o ponto final utilizando as APIs do Gestor de Recursos Azure. 
+Para criar um ponto final que tenha a inscrição ativada, pode criar o ponto final utilizando as APIs do Gestor de Recursos Azure. 
 
 1. Em primeiro lugar, utilize a [documentação apis do Gestor de Recursos Azure](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) para configurar um pedido de criação de um ponto final e preencher os parâmetros de pedido necessários. 
 
-1. Em seguida, adicione um `deadLetterSecret` campo ao objeto de propriedades no **corpo** do pedido. Deite este valor de acordo com o modelo abaixo, que cria um URL a partir do nome da conta de armazenamento, nome do recipiente e valor simbólico SAS que recolheu na [secção anterior](#set-up-storage-resources).
+2. Em seguida, adicione um `deadLetterSecret` campo ao objeto de propriedades no **corpo** do pedido. Deite este valor de acordo com o modelo abaixo, que cria um URL a partir do nome da conta de armazenamento, nome do recipiente e valor simbólico SAS que recolheu na [secção anterior](#set-up-storage-resources).
       
   :::code language="json" source="~/digital-twins-docs-samples/api-requests/deadLetterEndpoint.json":::
 
-1. Envie o pedido para criar o ponto final.
+3. Envie o pedido para criar o ponto final.
 
 Para obter mais informações sobre a estruturação deste pedido, consulte a documentação API do Azure Digital Twins REST: [Endpoints - DigitalTwinsEndpoint CreateOrUpdate](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate).
 
@@ -169,10 +149,6 @@ Aqui está um exemplo de uma mensagem de letra morta para uma [notificação de 
 
 ## <a name="create-an-event-route"></a>Criar uma rota de eventos
 
-Para enviar dados da Azure Digital Twins para um ponto final, terá de definir uma rota de **eventos.** Azure Digital Twins **EventRoutes APIs** permitem aos desenvolvedores ligar o fluxo de eventos, em todo o sistema e para serviços a jusante. Leia mais sobre as rotas de eventos em [*Conceitos: Eventos de Roteamento Azure Digital Twins*](concepts-route-events.md).
-
-As amostras desta secção utilizam o [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true).
-
 **Pré-requisito**: É necessário criar pontos finais, conforme descrito anteriormente neste artigo, antes de poder passar a criar uma rota. Pode proceder à criação de uma rota de eventos assim que os seus pontos finais terminarem a sua configuração.
 
 > [!NOTE]
@@ -180,9 +156,7 @@ As amostras desta secção utilizam o [.NET (C#) SDK](/dotnet/api/overview/azure
 >
 > Se estiver a escrever este fluxo, é melhor prestar contas por isso construindo em 2-3 minutos de tempo de espera para o serviço de ponto final terminar a implantação antes de seguir para a configuração da rota.
 
-### <a name="creation-code-with-apis-and-the-c-sdk"></a>Código de criação com APIs e o C# SDK
-
-As rotas do evento são definidas usando [APIs de plano de dados.](how-to-use-apis-sdks.md#overview-data-plane-apis) 
+Para enviar dados da Azure Digital Twins para um ponto final, terá de definir uma rota de **eventos.** As rotas do evento são usadas para ligar o fluxo de eventos, em todo o sistema e para os serviços a jusante.
 
 Uma definição de rota pode conter estes elementos:
 * O nome da rota que pretende usar
@@ -193,6 +167,12 @@ Se não houver nome de rota, nenhuma mensagem é encaminhada para fora da Azure 
 
 Uma rota deve permitir a seleção de várias notificações e tipos de eventos. 
 
+As rotas de eventos podem ser criadas com os comandos apis do plano de dados Azure Digital Twins [ **EventRoutes**](/rest/api/digital-twins/dataplane/eventroutes) ou [com os comandos CLI **da rota az dt**](/cli/azure/ext/azure-iot/dt/route?view=azure-cli-latest&preserve-view=true). O resto desta secção percorre o processo de criação.
+
+### <a name="create-routes-with-the-apis-and-c-sdk"></a>Criar rotas com as APIs e C# SDK
+
+Uma forma de definir rotas de eventos é com as APIs do [plano de dados.](how-to-use-apis-sdks.md#overview-data-plane-apis) As amostras desta secção utilizam o [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true).
+
 `CreateOrReplaceEventRouteAsync` é a chamada SDK que é usada para adicionar uma rota de evento. Aqui está um exemplo da sua utilização:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/eventRoute_operations.cs" id="CreateEventRoute":::
@@ -200,11 +180,17 @@ Uma rota deve permitir a seleção de várias notificações e tipos de eventos.
 > [!TIP]
 > Todas as funções SDK vêm em versões sincronizadas e assíncronos.
 
-### <a name="event-route-sample-code"></a>Código de amostra de rota de evento
+#### <a name="event-route-sample-sdk-code"></a>Código SDK de amostra de rota de evento
 
-O seguinte método de amostra mostra como criar, listar e eliminar uma rota de eventos:
+O seguinte método de amostra mostra como criar, listar e eliminar uma rota de eventos com o C# SDK:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/eventRoute_operations.cs" id="FullEventRouteSample":::
+
+### <a name="create-routes-with-the-cli"></a>Criar rotas com o CLI
+
+As rotas também podem ser geridas usando os comandos [de rota az dt](/cli/azure/ext/azure-iot/dt/route?view=azure-cli-latest&preserve-view=true) para o CLI das Gémeas Digitais Azure. 
+
+Para obter mais informações sobre a utilização do CLI e quais os comandos disponíveis, consulte [*Como-a-fazer: Use o CLI das Gémeas Digitais Azure*](how-to-use-cli.md).
 
 ## <a name="filter-events"></a>Filtrar eventos
 
@@ -222,10 +208,6 @@ Para adicionar um filtro, pode utilizar um pedido PUT para *https://{Your-azure-
 Aqui estão os filtros de rota suportados. Utilize o detalhe na coluna *de esquema de texto do filtro* para substituir o espaço reservado no corpo de pedido `<filter-text>` acima.
 
 [!INCLUDE [digital-twins-route-filters](../../includes/digital-twins-route-filters.md)]
-
-## <a name="manage-endpoints-and-routes-with-cli"></a>Gerir pontos finais e rotas com CLI
-
-Os pontos finais e as rotas também podem ser geridos usando o CLI das Gémeas Digitais Azure. Para obter mais informações sobre a utilização do CLI e quais os comandos disponíveis, consulte [*Como-a-fazer: Use o CLI das Gémeas Digitais Azure*](how-to-use-cli.md).
 
 [!INCLUDE [digital-twins-route-metrics](../../includes/digital-twins-route-metrics.md)]
 

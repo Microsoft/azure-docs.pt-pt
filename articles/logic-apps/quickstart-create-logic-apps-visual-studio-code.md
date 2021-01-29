@@ -7,12 +7,12 @@ ms.reviewer: jonfan, deli, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/28/2020
-ms.openlocfilehash: 170a919ca184c959800e62cb0d8ede8659c96df4
-ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
+ms.openlocfilehash: f46c093bffcc26b5f7975d25ccaca648bdc527da
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97708996"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054691"
 ---
 # <a name="quickstart-create-and-manage-logic-app-workflow-definitions-by-using-visual-studio-code"></a>Quickstart: Criar e gerir as definições do fluxo de trabalho das aplicações lógicas com o Visual Studio Code
 
@@ -23,6 +23,8 @@ Embora possa executar essas mesmas tarefas no [portal Azure](https://portal.azur
 Para este artigo, pode criar a mesma aplicação lógica a partir deste [quickstart](../logic-apps/quickstart-create-first-logic-app-workflow.md), que se foca mais nos conceitos básicos. Também pode [aprender a criar a aplicação de exemplo no Visual Studio,](quickstart-create-logic-apps-with-visual-studio.md)e aprender a criar e gerir [aplicações através da Interface Azure Command-Line (Azure CLI)](quickstart-logic-apps-azure-cli.md). No Código do Estúdio Visual, a aplicação lógica parece este exemplo:
 
 ![Exemplo de definição de fluxo de trabalho de aplicativos de lógica](./media/quickstart-create-logic-apps-visual-studio-code/visual-studio-code-overview.png)
+
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, certifique-se de que dispõe destes itens:
 
@@ -49,6 +51,8 @@ Antes de começar, certifique-se de que dispõe destes itens:
     ![Confirme a extensão corretamente instalada](./media/quickstart-create-logic-apps-visual-studio-code/confirm-installed-visual-studio-code-extension.png)
 
     Para mais informações, consulte [o Mercado de Extensão.](https://code.visualstudio.com/docs/editor/extension-gallery) Para contribuir para a versão aberta desta extensão, visite a [extensão Azure Logic Apps para o Código do Estúdio Visual no GitHub](https://github.com/Microsoft/vscode-azurelogicapps).
+
+* Se a sua aplicação lógica necessitar de comunicar através de uma firewall que limite o tráfego a endereços IP específicos, essa firewall precisa de permitir o acesso tanto aos endereços IP [de entrada](logic-apps-limits-and-config.md#inbound) *como* [de saída](logic-apps-limits-and-config.md#outbound) utilizados pelo serviço De aplicações lógicas ou ao tempo de funcionamento na região de Azure, onde existe a sua aplicação lógica. Se a sua aplicação lógica também utilizar [conectores geridos](../connectors/apis-list.md#managed-api-connectors)– como o conector Office 365 Outlook ou o conector SQL, ou utilizar [conectores personalizados](/connectors/custom-connectors/)– a firewall também precisa de permitir o acesso de *todos os* [endereços IP de saída geridos](logic-apps-limits-and-config.md#outbound) do conector na região Azure da sua aplicação lógica.
 
 <a name="access-azure"></a>
 

@@ -99,6 +99,8 @@
           href: spring-cloud-howto-application-insights.md
         - name: Métricas do Disjuntor Automático Resilience4J
           href: spring-cloud-howto-circuit-breaker-metrics.md
+        - name: Registo de aplicações estruturado
+          href: spring-cloud-structured-app-log.md
     - name: Rede
       items:
         - name: Implementar Azure Spring Cloud numa rede virtual

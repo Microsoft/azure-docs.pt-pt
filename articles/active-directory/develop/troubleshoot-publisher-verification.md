@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: troubleshooting
 ms.workload: identity
-ms.date: 05/08/2020
+ms.date: 01/28/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 10609f2706d257dbe5d8f43b85da5f06cb986cae
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: dd1edc001e51bf20f3ff7745baa520b3844c139b
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756189"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054674"
 ---
 # <a name="troubleshoot-publisher-verification"></a>Resolver problemas da verificação do publicador
 Se não conseguir completar o processo ou estiver a experimentar comportamentos inesperados com [a verificação do editor,](publisher-verification-overview.md)deve começar por fazer o seguinte se estiver a receber erros ou a ver comportamentos inesperados: 
@@ -149,89 +149,97 @@ HTTP/1.1 200 OK
 
 Segue-se uma lista dos potenciais códigos de erro que poderá receber, quer quando se desresem os problemas com o Microsoft Graph, quer através do processo no portal de registo de aplicações.
 
-### <a name="mpnaccountnotfoundornoaccess"></a>MPNAccountNotFoundOrNoAccess     
+### <a name="mpnaccountnotfoundornoaccess"></a>MPNAccountNotFoundOrNoAccess
 
-O ID MPN que forneceu <MPNID> não existe, ou não tem acesso a ele. Forneça um ID MPN válido e tente novamente.
+O ID MPN que forneceu `MPNID` não existe, ou não tem acesso a ele. Forneça um ID MPN válido e tente novamente.
     
 Mais frequentemente causado pelo utilizador inscrito não ser membro do papel adequado para a conta MPN no Partner Center- ver [requisitos](publisher-verification-overview.md#requirements) para uma lista de funções elegíveis e ver [questões comuns](#common-issues) para mais informações. Também pode ser causado pelo inquilino a aplicação está registada em não ser adicionada à conta MPN, ou um ID MPN inválido.
 
-### <a name="mpnglobalaccountnotfound"></a>MPNGlobalAccountNotFound     
+### <a name="mpnglobalaccountnotfound"></a>MPNGlobalAccountNotFound
 
-O ID MPN que forneceu <MPNID> não é válido. Forneça um ID MPN válido e tente novamente.
+O ID MPN que forneceu `MPNID` não é válido. Forneça um ID MPN válido e tente novamente.
     
 Causada mais frequentemente quando um ID MPN é fornecido que corresponde a uma Conta de Localização de Parceiro (PLA). Apenas as Contas Globais de Parceiros são suportadas. Consulte [a estrutura da conta partner Center](/partner-center/account-structure) para obter mais detalhes.
 
-### <a name="mpnaccountinvalid"></a>MPNAccountInvalid    
+### <a name="mpnaccountinvalid"></a>MPNAccountInvalid
 
-O ID MPN que forneceu <MPNID> não é válido. Forneça um ID MPN válido e tente novamente.
+O ID MPN que forneceu `MPNID` não é válido. Forneça um ID MPN válido e tente novamente.
     
 Mais frequentemente causada pela identificação de MPN errada.
 
-### <a name="mpnaccountnotvetted"></a>MPNAccountNotVetted  
+### <a name="mpnaccountnotvetted"></a>MPNAccountNotVetted
 
-O MPN ID ( <MPNID> ) que forneceu não completou o processo de verificação. Complete este processo no Partner Center e tente novamente. 
+O MPN ID ( `MPNID` ) que forneceu não completou o processo de verificação. Complete este processo no Partner Center e tente novamente. 
     
 Mais frequentemente causada por quando a conta MPN não tiver concluído o processo [de verificação.](/partner-center/verification-responses)
 
-### <a name="nopublisheridonassociatedmpnaccount"></a>NoPublisherIdOnAssociatedMPNAccount  
+### <a name="nopublisheridonassociatedmpnaccount"></a>NoPublisherIdOnAssociatedMPNAccount
 
-O ID MPN que forneceu <MPNID> não é válido. Forneça um ID MPN válido e tente novamente. 
+O ID MPN que forneceu `MPNID` não é válido. Forneça um ID MPN válido e tente novamente. 
    
 Mais frequentemente causada pela identificação de MPN errada.
 
-### <a name="mpniddoesnotmatchassociatedmpnaccount"></a>MPNIdDoesNotMatchAssociatedMPNAccount    
+### <a name="mpniddoesnotmatchassociatedmpnaccount"></a>MPNIdDoesNotMatchAssociatedMPNAccount
 
-O ID MPN que forneceu <MPNID> não é válido. Forneça um ID MPN válido e tente novamente.
+O ID MPN que forneceu `MPNID` não é válido. Forneça um ID MPN válido e tente novamente.
     
 Mais frequentemente causada pela identificação de MPN errada.
 
-### <a name="applicationnotfound"></a>AplicaçãoNotFound  
+### <a name="applicationnotfound"></a>AplicaçãoNotFound
 
-O pedido-alvo <AppId> () não pode ser encontrado. Forneça um ID de aplicação válido e tente novamente.
+O pedido-alvo `AppId` () não pode ser encontrado. Forneça um ID de aplicação válido e tente novamente.
     
 A maior parte das vezes causada quando a verificação é realizada através da API do gráfico, e o id da aplicação fornecida é incorreto. Nota: o id do pedido deve ser fornecido, não o AppId/ClientId.
 
-### <a name="b2ctenantnotallowed"></a>B2CTenantNotAllowed  
+### <a name="b2ctenantnotallowed"></a>B2CTenantNotAllowed
 
-Esta capacidade não é suportada num inquilino Azure AD B2C. 
+Esta capacidade não é suportada num inquilino Azure AD B2C.
 
-### <a name="emailverifiedtenantnotallowed"></a>EmailVerifiedTenantNotAllowed    
+### <a name="emailverifiedtenantnotallowed"></a>EmailVerifiedTenantNotAllowed
 
-Esta capacidade não é suportada num inquilino verificado por e-mail. 
+Esta capacidade não é suportada num inquilino verificado por e-mail.
 
-### <a name="nopublisherdomainonapplication"></a>NoPublisherDomainOnApplication   
+### <a name="nopublisherdomainonapplication"></a>NoPublisherDomainOnApplication
 
-A aplicação-alvo \<AppId\> () deve ter um conjunto de Domínio editor. Desaça um domínio de editor e tente novamente.
+A aplicação-alvo `AppId` () deve ter um conjunto de Domínio editor. Desaça um domínio de editor e tente novamente.
 
 Ocorre quando um [Domínio de Editor](howto-configure-publisher-domain.md) não está configurado na aplicação.
 
-### <a name="publisherdomainmismatch"></a>PublisherDomainMismatch  
+### <a name="publisherdomainmismatch"></a>PublisherDomainMismatch
 
-O domínio de editor da aplicação-alvo <publisherDomain> () não corresponde ao domínio utilizado para efetuar a verificação de e-mail no Partner Center ( <pcDomain> ). Certifique-se de que estes domínios coincidem e tente novamente. 
+O domínio de editor da aplicação-alvo `publisherDomain` () não corresponde ao domínio utilizado para efetuar a verificação de e-mail no Partner Center ( `pcDomain` ). Certifique-se de que estes domínios coincidem e tente novamente. 
     
 Ocorre quando nem o Domínio de [Editor da](howto-configure-publisher-domain.md) aplicação nem um dos [domínios personalizados adicionados](../fundamentals/add-custom-domain.md) ao inquilino AD AZure correspondem ao domínio utilizado para realizar a verificação de e-mail no Partner Center.
 
-### <a name="notauthorizedtoverifypublisher"></a>Não éautorizadoToVerifyPublisher   
+### <a name="notauthorizedtoverifypublisher"></a>Não éautorizadoToVerifyPublisher
 
-Não está autorizado a definir o imóvel de editor verificado a pedido <AppId> () 
+Não está autorizado a definir o imóvel de editor verificado a pedido `AppId` (<) 
   
 Mais frequentemente causado pelo utilizador inscrito não ser membro do papel adequado para a conta MPN em Azure AD- ver [requisitos](publisher-verification-overview.md#requirements) para uma lista de funções elegíveis e ver [questões comuns](#common-issues) para mais informações.
 
-### <a name="mpnidwasnotprovided"></a>MPNIdWasNotProvided  
+### <a name="mpnidwasnotprovided"></a>MPNIdWasNotProvided
 
-O ID MPN não foi fornecido no órgão de pedido ou o tipo de conteúdo do pedido não era "aplicação/json". 
+O ID MPN não foi fornecido no órgão de pedido ou o tipo de conteúdo do pedido não era "aplicação/json".
 
-### <a name="msanotsupported"></a>MSANotSupportado  
+### <a name="msanotsupported"></a>MSANotSupportado 
 
 Esta funcionalidade não é suportada para contas de consumidores da Microsoft. Apenas as aplicações registadas no Azure AD por um utilizador AZure AD são suportadas.
 
 ### <a name="interactionrequired"></a>InteracçãoRequired
 
-Ocorre quando a autenticação de vários fatores não foi realizada antes de tentar adicionar um editor verificado à aplicação. Consulte [as questões comuns](#common-issues) para mais informações. Nota: O MFA deve ser realizado na mesma sessão quando se tenta adicionar um editor verificado. Se o MFA estiver ativado mas não for necessário para ser realizado na sessão, o pedido falhará.   
+Ocorre quando a autenticação de vários fatores não foi realizada antes de tentar adicionar um editor verificado à aplicação. Consulte [as questões comuns](#common-issues) para mais informações. Nota: O MFA deve ser realizado na mesma sessão quando se tenta adicionar um editor verificado. Se o MFA estiver ativado mas não for necessário para ser realizado na sessão, o pedido falhará. 
 
 A mensagem de erro exibida será: "Devido a uma alteração de configuração feita pelo seu administrador, ou porque se mudou para um novo local, deve utilizar a autenticação de vários fatores para prosseguir."
 
-## <a name="next-steps"></a>Próximos passos
+### <a name="unabletoaddpublisher"></a>ImperávelToAddPublisher
+
+A mensagem de erro apresentada é: "Um editor verificado não pode ser adicionado a esta aplicação. Por favor contacte o seu administrador para obter assistência."
+
+Primeiro, verifique se cumpriu os requisitos de verificação da [editora.](publisher-verification-overview.md#requirements)
+
+Quando um pedido de adição de um editor verificado é feito, um número de sinais são usados para fazer uma avaliação de risco de segurança. Se o pedido for determinado como arriscado, será devolvido um erro. Por razões de segurança, a Microsoft não divulga os critérios específicos utilizados para determinar se um pedido é arriscado ou não.
+
+## <a name="next-steps"></a>Passos seguintes
 
 Se tiver revisto todas as informações anteriores e ainda estiver a receber um erro do Microsoft Graph, recolha o máximo de informações possíveis relacionadas com o pedido de falha e contacte o suporte da [Microsoft.](developer-support-help-options.md#open-a-support-request)
 

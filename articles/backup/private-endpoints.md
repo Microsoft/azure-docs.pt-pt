@@ -3,12 +3,12 @@ title: Pontos Finais Privados
 description: Compreenda o processo de criação de pontos finais privados para o Azure Backup e os cenários em que a utilização de pontos finais privados ajuda a manter a segurança dos seus recursos.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: b1412a79fa6137ce1f8c73d5875e52b6382048fa
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: 0d9d77c139896f9067f73943dbb213fc655f00f6
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98986976"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054877"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Pontos finais privados para backup Azure
 
@@ -32,7 +32,7 @@ Este artigo irá ajudá-lo a entender o processo de criação de pontos finais p
 
 Enquanto os pontos finais privados estão habilitados para o cofre, eles são usados para backup e restauro de cargas de cargas DE SQL e SAP HANA apenas em um backup de VM e agente MARS Azure. Pode utilizar o cofre para cópias de segurança de outras cargas de trabalho também (no entanto, não exigirão pontos finais privados). Além da cópia de segurança das cargas de trabalho DA SQL e SAP HANA e da cópia de segurança utilizando o agente MARS, os pontos finais privados também são utilizados para realizar a recuperação de ficheiros para a cópia de segurança do Azure VM. Para mais informações, consulte a seguinte tabela:
 
-| Backup de cargas de trabalho em Azure VM (SQL, SAP HANA), Backup usando o Agente MARS | Recomenda-se a utilização de pontos finais privados para permitir a cópia de segurança e a restauração sem necessidade de permitir a lista de quaisquer IPs/FQDNs para Azure Backup ou Azure Storage a partir das suas redes virtuais. |
+| Backup de cargas de trabalho em Azure VM (SQL, SAP HANA), Backup usando o Agente MARS | Recomenda-se a utilização de pontos finais privados para permitir a cópia de segurança e a restauração sem necessidade de permitir a lista de quaisquer IPs/FQDNs para Azure Backup ou Azure Storage a partir das suas redes virtuais. Nesse cenário, certifique-se de que os VMs que acolhem bases de dados SQL podem chegar a IPs AD ou FQDNs Azure. |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | **Backup Azure VM**                                         | A cópia de segurança VM não requer que permita o acesso a quaisquer IPs ou FQDNs. Portanto, não requer pontos finais privados para cópia de segurança e restauro de discos.  <br><br>   No entanto, a recuperação de ficheiros de um cofre contendo pontos finais privados seria restrita a redes virtuais que contenham um ponto final privado para o cofre. <br><br>    Ao utilizar discos não geridos da ACL, certifique-se de que a conta de armazenamento que contém os discos permite o acesso a **serviços de confiança** da Microsoft se for ACL'ed. |
 | **Backup de Ficheiros Azure**                                      | As cópias de segurança do Azure Files são armazenadas na conta de armazenamento local. Portanto, não requer pontos finais privados para apoio e restauro. |
@@ -386,7 +386,7 @@ $privateEndpoint = New-AzPrivateEndpoint `
 
 #### <a name="create-dns-zones-for-custom-dns-servers"></a>Criar zonas DNS para servidores DNS personalizados
 
-Precisa de criar três zonas privadas de DNS e ligá-las à sua rede virtual.
+Precisa de criar três zonas privadas de DNS e ligá-las à sua rede virtual. Tenha em mente que, ao contrário de Blob e Queue, os URLs públicos de serviço de cópia de segurança não se registam no Azure Public DNS para a reorientação para as zonas DNS de Ligação Privada. 
 
 | **Zona**                                                     | **Serviço** |
 | ------------------------------------------------------------ | ----------- |

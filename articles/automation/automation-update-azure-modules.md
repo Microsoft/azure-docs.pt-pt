@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 413293cdefd39285c57b58d4555d3d703492ea96
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: f05c3247ecdd77fe4cf02db70c7ba4b2c534f959
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98894852"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055353"
 ---
 # <a name="update-azure-powershell-modules"></a>Atualizar módulos do Azure PowerShell
 
@@ -23,7 +23,7 @@ Os módulos PowerShell mais comuns são fornecidos por padrão em cada conta Aut
 
 Para evitar impactos nos seus livros de execução e nos processos que automatizam, certifique-se de testar e validar à medida que faz atualizações. Se não tiver uma conta de Automação dedicada destinada a este fim, considere criar uma para que possa testar vários cenários diferentes durante o desenvolvimento dos seus runbooks. Este teste deve incluir alterações iterativas, tais como a atualização dos módulos PowerShell.
 
-Certifique-se de que a sua conta Automation tem uma [credencial de conta Azure Como](manage-runas-account.md) foi criada.
+Certifique-se de que a sua conta Automation tem uma [conta Azure Run Como](automation-security-overview.md#run-as-accounts) foi criada.
 
 Se desenvolver os seus scripts localmente, recomenda-se ter as mesmas versões de módulo localmente que tem na sua conta de Automação ao testar para garantir que recebe os mesmos resultados. Depois de validados os resultados e de ter aplicado quaisquer alterações necessárias, pode mover as alterações para a produção.
 
@@ -48,7 +48,7 @@ Para utilizar este livro de recortes em nuvens soberanas, utilize o `AzEnvironme
 
 Se pretender utilizar uma versão específica do módulo Azure PowerShell em vez do módulo mais recente disponível na PowerShell Gallery, passe estas versões para o parâmetro opcional `ModuleVersionOverrides` do runbook **Update-AutomationAzureModulesForAccount.** Por exemplo, consulte o  [Update-AutomationAzureModulesForAccount.ps1](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update/blob/master/Update-AutomationAzureModulesForAccount.ps1) livro. Os módulos Azure PowerShell que não são mencionados no `ModuleVersionOverrides` parâmetro são atualizados com as versões mais recentes do módulo na PowerShell Gallery. Se não passar nada ao `ModuleVersionOverrides` parâmetro, todos os módulos serão atualizados com as versões mais recentes do módulo na PowerShell Gallery. Este comportamento é o mesmo para o botão **'Azure Modules'** de atualização no portal Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter mais informações sobre a utilização de módulos, consulte [Gerir os módulos na Azure Automation.](shared-resources/modules.md)
 * Para obter informações sobre o runbook de atualização, consulte o runbook de [módulos Update Azure](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update).

@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 39645e8bd370dfd518d570c3088c56a22aa77748
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: b353fad64b08f5fc50af2b8d31abab77cd797e25
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98927042"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055047"
 ---
 # <a name="virtual-network-service-tags"></a>Tags de serviço de rede virtual
 <a name="network-service-tags"></a>
@@ -58,7 +58,7 @@ Por padrão, as etiquetas de serviço refletem as gamas para toda a nuvem. Algum
 | **AzureBotService** | Serviço Azure Bot. | Saída | No | No |
 | **AzureCloud** | Todos os [endereços IP públicos do datacenter](https://www.microsoft.com/download/details.aspx?id=56519). | Saída | Yes | Yes |
 | **AzureCognitiveSearch** | Pesquisa Cognitiva Azure. <br/><br/>Esta etiqueta ou os endereços IP abrangidos por esta etiqueta podem ser utilizados para conceder aos indexantes acesso seguro a fontes de dados. Consulte a documentação de ligação do [indexante](../search/search-indexer-troubleshooting.md#connection-errors) para obter mais detalhes. <br/><br/> *Nota*: O IP do serviço de pesquisa não está incluído na lista de gamas IP para esta etiqueta de serviço e **também precisa de ser adicionado** à firewall IP de fontes de dados. | Entrada | No | No |
-| **AzureConnectors** | Conectores Azure Logic Apps para ligações sonda/back-end. | Entrada | Yes | Yes |
+| **AzureConnectors** | Esta etiqueta representa os endereços IP utilizados para conectores geridos que fazem chamadas webhook de entrada para o serviço Azure Logic Apps e chamadas de saída para os respetivos serviços, por exemplo, Azure Storage ou Azure Event Hubs. | Entrada / Saída | Yes | Yes |
 | **AzureContainerRegistry** | Registo de Contentores Azure. | Saída | Yes | Yes |
 | **AzureCosmosDB** | Azure Cosmos DB. | Saída | Yes | Yes |
 | **AzureDatabricks** | Azure Databricks. | Ambos | No | No |
@@ -153,5 +153,5 @@ Os intervalos de endereço IP nestes ficheiros estão na notação CIDR.
 - Pode detetar atualizações de uma publicação para outra, observando valores de *alteração* aumentados no ficheiro JSON. Cada subsecção (por exemplo, **Storage.WestUS)** tem a sua própria *alteração Número de números* que é incrementada à medida que as mudanças ocorrem. O nível superior da alteração do ficheiro *Número de alterações* é incrementado quando qualquer uma das subsecções é alterada.
 - Por exemplo, como analisar as informações da etiqueta de serviço (por exemplo, obter todas as gamas de endereços para armazenamento em WestUS), consulte a documentação da [API PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag?viewFallbackFrom=azps-2.3.2) da Marca de Serviço.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Saiba como [criar um grupo de segurança de rede.](tutorial-filter-network-traffic.md)

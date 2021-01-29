@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
 ms.date: 02/27/2020
-ms.openlocfilehash: 7e58dcf8206ae9feab4d8a09517bf9efda244dd5
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 95cc13a79f39888a5be10e423bda4c7cd7c84cb3
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96451570"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054792"
 ---
 # <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>Tutorial: Automatizar tarefas para processar e-mails utilizando apps Azure Logic, Funções Azure e Armazenamento Azure
 
@@ -36,7 +36,7 @@ Quando terminar, a aplicação lógica é semelhante a este fluxo de trabalho a 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/).
+* Uma conta e subscrição do Azure. Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/).
 
 * Uma conta de e-mail de um fornecedor de e-mail que o Logic Apps suporte, como o Outlook do Office 365, o Outlook.com ou o Gmail. Para outros fornecedores, [consulte a lista de conectores aqui](/connectors/).
 
@@ -46,6 +46,8 @@ Quando terminar, a aplicação lógica é semelhante a este fluxo de trabalho a 
   > Se quiser utilizar o conector do Gmail, apenas as contas de negócios da G-Suite podem utilizar este conector sem restrições em aplicações lógicas. Se tiver uma conta de consumo do Gmail, pode utilizar este conector apenas com serviços específicos aprovados pela Google, ou pode [criar uma aplicação para clientes da Google para utilizar para autenticação com o seu conector Gmail.](/connectors/gmail/#authentication-and-bring-your-own-application) Para obter mais informações, consulte [as políticas de segurança de dados e privacidade para conectores google em Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
 * Transferir e instalar o [Explorador de Armazenamento do Microsoft Azure](https://storageexplorer.com/) gratuito. Esta ferramenta ajuda-o a verificar se o seu contentor de armazenamento está configurado corretamente.
+
+* Se a sua aplicação lógica necessitar de comunicar através de uma firewall que limite o tráfego a endereços IP específicos, essa firewall precisa de permitir o acesso tanto aos endereços IP [de entrada](logic-apps-limits-and-config.md#inbound) *como* [de saída](logic-apps-limits-and-config.md#outbound) utilizados pelo serviço De aplicações lógicas ou ao tempo de funcionamento na região de Azure, onde existe a sua aplicação lógica. Se a sua aplicação lógica também utilizar [conectores geridos](../connectors/apis-list.md#managed-api-connectors)– como o conector Office 365 Outlook ou o conector SQL, ou utilizar [conectores personalizados](/connectors/custom-connectors/)– a firewall também precisa de permitir o acesso de *todos os* [endereços IP de saída geridos](logic-apps-limits-and-config.md#outbound) do conector na região Azure da sua aplicação lógica.
 
 ## <a name="set-up-storage-to-save-attachments"></a>Configurar o armazenamento para guardar anexos
 
@@ -86,7 +88,7 @@ Pode guardar os e-mails e anexos recebidos como blobs num [contentor de armazena
 
       ![Copie e cole o nome e a chave da conta de armazenamento](./media/tutorial-process-email-attachments-workflow/copy-save-storage-name-key.png)
 
-   Para obter a chave de acesso à sua conta de armazenamento, também pode utilizar o [Azure PowerShell](/powershell/module/az.storage/get-azstorageaccountkey) ou a [CLI do Azure](/cli/azure/storage/account/keys?view=azure-cli-latest.md#az-storage-account-keys-list).
+   Para obter a chave de acesso à sua conta de armazenamento, também pode utilizar o [Azure PowerShell](/powershell/module/az.storage/get-azstorageaccountkey) ou a [CLI do Azure](/cli/azure/storage/account/keys.md#az-storage-account-keys-list).
 
 1. Crie um contentor de armazenamento de blobs para os anexos de e-mails.
 
@@ -102,7 +104,7 @@ Pode guardar os e-mails e anexos recebidos como blobs num [contentor de armazena
 
       ![Contentor de armazenamento terminado](./media/tutorial-process-email-attachments-workflow/created-storage-container.png)
 
-   Para criar um recipiente de armazenamento, também pode utilizar [a Azure PowerShell](/powershell/module/az.storage/new-azstoragecontainer) ou [a Azure CLI](/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create).
+   Para criar um recipiente de armazenamento, também pode utilizar [a Azure PowerShell](/powershell/module/az.storage/new-azstoragecontainer) ou [a Azure CLI](/cli/azure/storage/container#az-storage-container-create).
 
 Depois, ligue o Explorador de Armazenamento à conta de armazenamento.
 
@@ -278,8 +280,8 @@ Em seguida, adicione um [acionador](../logic-apps/logic-apps-overview.md#logic-a
       | Definição | Valor | Descrição |
       | ------- | ----- | ----------- |
       | **Pasta** | A Receber | A pasta de e-mail a verificar |
-      | **Tem Anexo** | Sim | Obter apenas os e-mails com anexos. <p>**Nota:** o acionador não remove e-mails da sua conta; verifica apenas as mensagens novas e só processa os e-mails que correspondam ao filtro do assunto. |
-      | **Incluir Anexos** | Sim | Obter os anexos como entrada para o seu fluxo de trabalho em vez de verificar apenas os anexos. |
+      | **Tem Anexo** | Yes | Obter apenas os e-mails com anexos. <p>**Nota:** o acionador não remove e-mails da sua conta; verifica apenas as mensagens novas e só processa os e-mails que correspondam ao filtro do assunto. |
+      | **Incluir Anexos** | Yes | Obter os anexos como entrada para o seu fluxo de trabalho em vez de verificar apenas os anexos. |
       | **Intervalo** | 1 | O número de intervalos de espera entre verificações |
       | **Frequência** | Minuto | A unidade de tempo para cada intervalo entre verificações |
       ||||
@@ -480,7 +482,7 @@ Agora, teste se a sua aplicação lógica processa os e-mails da forma que espec
 
 1. Confirme que a aplicação lógica guardou o e-mail no contentor de armazenamento correto.
 
-   1. No Explorador de Armazenamento, expandir os anexos de anexos de contas de armazenamento **locais &**  >  **Storage Accounts**  >  **anexados (Chave)**  >  **anexos de contentores blob**  >  **attachments**.
+   1. No Explorador de Armazenamento, expandir os anexos de anexos de contas de armazenamento **locais &**  >    >  **anexados (Chave)**  >  **anexos de contentores blob**  >  .
 
    1. Verifique o contentor **attachments** relativamente ao e-mail.
 
@@ -563,7 +565,7 @@ Em seguida, teste se a sua aplicação lógica processa os anexos da forma que e
 
 1. Confirme que a aplicação lógica guardou o e-mail e os anexos no contentor de armazenamento correto.
 
-   1. No Explorador de Armazenamento, expandir os anexos de anexos de contas de armazenamento **locais &**  >  **Storage Accounts**  >  **anexados (Chave)**  >  **anexos de contentores blob**  >  **attachments**.
+   1. No Explorador de Armazenamento, expandir os anexos de anexos de contas de armazenamento **locais &**  >    >  **anexados (Chave)**  >  **anexos de contentores blob**  >  .
 
    1. Verifique o contentor **attachments** relativamente ao e-mail e aos anexos.
 
@@ -602,8 +604,8 @@ Em seguida, adicione uma ação para que a sua aplicação lógica envia um e-ma
    | Definição | Valor | Notas |
    | ------- | ----- | ----- |
    | **Para** | <*destinatário-endereço de e-mail*> | Para fins de teste, pode utilizar o seu próprio endereço de e-mail. |
-   | **Assunto**  | ```ASAP - Review applicant for position:``` **Assunto** | O assunto do e-mail que pretende incluir. Clique no interior desta caixa, introduza o texto de exemplo e, na lista de conteúdo dinâmico, selecione o campo **Assunto** em **Quando é recebido um novo e-mail**. |
-   | **Corpo** | ```Please review new applicant:``` <p>```Applicant name:```**De** <p>```Application file location:``` **Caminho** <p>```Application email content:``` **Corpo** | O conteúdo do corpo do e-mail. Clique no interior desta caixa, introduza o texto de exemplo e, na lista de conteúdo dinâmico, selecione estes campos: <p>- **From**, em **When a new email arrives** </br>- **Path**, em **Create blob for email body** </br>- **Body**, em **Call RemoveHTMLFunction to clean email body** |
+   | **Assunto**  | ```ASAP - Review applicant for position:```**Sujeito** | O assunto do e-mail que pretende incluir. Clique no interior desta caixa, introduza o texto de exemplo e, na lista de conteúdo dinâmico, selecione o campo **Assunto** em **Quando é recebido um novo e-mail**. |
+   | **Corpo** | ```Please review new applicant:``` <p>```Applicant name:``` **De** <p>```Application file location:``` **Caminho** <p>```Application email content:``` **Corpo** | O conteúdo do corpo do e-mail. Clique no interior desta caixa, introduza o texto de exemplo e, na lista de conteúdo dinâmico, selecione estes campos: <p>- **From**, em **When a new email arrives** </br>- **Path**, em **Create blob for email body** </br>- **Body**, em **Call RemoveHTMLFunction to clean email body** |
    ||||
 
    > [!NOTE]

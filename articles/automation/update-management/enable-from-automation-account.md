@@ -2,15 +2,16 @@
 title: Ativar a gestão da atualização de automação Azure a partir da conta Demótica
 description: Este artigo diz como ativar a Gestão de Atualização a partir de uma conta Demôm automação.
 services: automation
+ms.subservice: update-management
 ms.date: 11/09/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: b97e1e61401697204f79004e4678e6f2286f4a98
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 06a29cd07a870e7553d599b5f719943acb259c2a
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380543"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054928"
 ---
 # <a name="enable-update-management-from-an-automation-account"></a>Ativar a Gestão de Atualizações a partir de uma conta de Automatização
 
@@ -22,7 +23,7 @@ Este artigo descreve como pode utilizar a sua conta Dempaça para ativar a funci
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Subscrição do Azure. Se ainda não tiver um, pode [ativar os benefícios do seu assinante MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se numa [conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Conta de automatização](../index.yml) para gerir máquinas.
+* [Conta de automatização](../automation-security-overview.md) para gerir máquinas.
 * Uma [máquina virtual Azure](../../virtual-machines/windows/quick-create-portal.md), ou VM ou servidor registado com servidores ativados pelo Arc. Os VMs ou servidores não-Azure precisam de ter o [agente Log Analytics](../../azure-monitor/platform/log-analytics-agent.md) para Windows ou Linux instalado e reportar no espaço de trabalho ligado à Gestão de Atualização da conta de Automação. Recomendamos a instalação do agente Log Analytics para Windows ou Linux ligando primeiro a sua máquina aos [servidores ativados do Azure Arc](../../azure-arc/servers/overview.md), e depois utilizar a Política Azure para atribuir o agente Deploy Log Analytics às [máquinas de *Aríaco Linux* ou *Windows* Azure Arc incorporadas.](../../governance/policy/samples/built-in-policies.md#monitoring) Em alternativa, se planeia monitorizar as máquinas com O Monitor Azure para VMs, em vez disso, utilize o Enable Azure Monitor para a iniciativa [VMs.](../../governance/policy/samples/built-in-initiatives.md#monitoring)
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
@@ -76,7 +77,7 @@ Máquinas ou máquinas instaladas manualmente que já reportam ao seu espaço de
 
 6. Para ativar a função para uma ou mais máquinas, selecione **Ative em máquinas selecionadas** e selecione **Adicione** ao lado de cada máquina. Esta tarefa adiciona os nomes de máquinas selecionados ao grupo de computador que guardou a consulta de pesquisa para a funcionalidade.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para utilizar a Gestão de Atualização para VMs, consulte [Gerir atualizações e patches para os seus VMs](manage-updates-for-vm.md).
 

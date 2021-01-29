@@ -14,12 +14,12 @@ ms.subservice: roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12f262347938720a9d5a95e070d792a83ac9188c
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: e38ca27606ecf04b08bd29867894ba269148260c
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740810"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055251"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Proteção de acesso privilegiado para implementações híbridas e na cloud no Azure AD
 
@@ -147,9 +147,10 @@ Se os seus administradores globais iniciais reutilizarem as suas credenciais de 
 
 As contas de email pessoais são regularmente phished por ciberataques, um risco que torna os endereços de e-mail pessoais inaceitáveis para contas de administradores globais. Para ajudar a separar os riscos da Internet dos privilégios administrativos, crie contas dedicadas para cada utilizador com privilégios administrativos.
 
-* Certifique-se de criar contas separadas para os utilizadores fazerem tarefas de administração global
-* Certifique-se de que os seus administradores globais não abrem acidentalmente e-mails ou executam programas com as suas contas de administração
-* Certifique-se de que essas contas têm o seu e-mail reencaminhado para uma caixa de correio funcionando
+* Certifique-se de criar contas separadas para que os utilizadores façam tarefas de administração global.
+* Certifique-se de que os seus administradores globais não abrem acidentalmente e-mails ou executam programas com as suas contas de administração.
+* Certifique-se de que essas contas têm o seu e-mail reencaminhado para uma caixa de correio de trabalho.
+* As contas do Administrador Global (e de outros grupos privilegiados) devem ser contas apenas na nuvem, sem ligações ao Ative Directory no local.
 
 #### <a name="ensure-the-passwords-of-administrative-accounts-have-recently-changed"></a>Certifique-se de que as palavras-passe das contas administrativas mudaram recentemente
 
@@ -464,7 +465,7 @@ Para obter mais informações sobre como o Microsoft Office 365 lida com inciden
 
 **Resposta:** Utilize contas não privilegiadas para todos os utilizadores e a maioria dos administradores. Comece por desenvolver uma pegada da organização para determinar quais as poucas contas de administrador que devem ser privilegiadas. E monitor para utilizadores administrativos recém-criados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Microsoft Trust Center for Product Security](https://www.microsoft.com/trustcenter/security) – Funcionalidades de segurança dos produtos e serviços da Microsoft na nuvem
 

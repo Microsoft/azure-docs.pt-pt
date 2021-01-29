@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/21/2020
-ms.openlocfilehash: f6ec6bced9c84e4e5b0f04cc32eebb438052bd6c
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: cdf029e0dd9ae126310842b8919c818f4721218e
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348292"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054742"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Base de Dados Azure para MySQL - Servidor Flexível (Pré-visualização)
 
@@ -22,7 +22,7 @@ A azure Database for MySQL alimentado pela edição comunitária MySQL está dis
 
 Neste artigo, forneceremos uma visão geral e introdução aos conceitos fundamentais do modelo flexível de implementação do servidor. Para obter informações sobre como decidir qual a opção de implementação adequada para a sua carga de trabalho, consulte [a escolha da opção de servidor MySQL certa em Azure](./../select-right-deployment-type.md).
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 A Azure Database for MySQL Flexible Server é um serviço de base de dados totalmente gerido projetado para fornecer mais controlo granular e flexibilidade sobre funções de gestão de bases de dados e configurações de configuração. Em geral, o serviço proporciona mais flexibilidade e personalizações de configuração do servidor com base nos requisitos do utilizador. A arquitetura flexível do servidor permite que os utilizadores optem pela alta disponibilidade dentro de uma única zona de disponibilidade e em várias zonas de disponibilidade. Os servidores flexíveis também fornecem controlos de otimização de custos melhores com a capacidade de parar/iniciar o seu servidor e skus rebentados, ideais para cargas de trabalho que não necessitam de capacidade de computação completa continuamente. O serviço suporta atualmente a versão comunitária do MySQL 5.7. O serviço está atualmente em pré-visualização, disponível hoje em grande variedade de regiões de [Azure.](https://azure.microsoft.com/global-infrastructure/services/)
 
@@ -132,20 +132,22 @@ O serviço executa a versão comunitária do MySQL. Isto permite a compatibilida
 
 Uma das vantagens de executar a sua carga de trabalho em Azure é o seu alcance global. O servidor flexível da Azure Database for MySQL está disponível hoje nas seguintes regiões de Azure:
 
-- Europa Ocidental
-- Europa do Norte
-- Sul do Reino Unido
-- E.U.A. Leste 2
-- E.U.A. Oeste 2
-- E.U.A. Central
-- E.U.A. Leste
-- Canadá Central
-- Sudeste Asiático
-- Coreia do Sul Central
-- Leste do Japão
-- Leste da Austrália
+| Region | Elevada Disponibilidade | 
+| --- | --- |
+| Europa Ocidental | :heavy_check_mark: | 
+| Europa do Norte | :heavy_check_mark: | 
+| Sul do Reino Unido | :x: | 
+| E.U.A. Leste 2 | :heavy_check_mark: | 
+| E.U.A. Oeste 2 | :heavy_check_mark: | 
+| E.U.A. Central | :x: | 
+| E.U.A. Leste | :heavy_check_mark: | 
+| Canadá Central | :x: | 
+| Sudeste Asiático | :heavy_check_mark: | 
+| Coreia do Sul Central | :x: | 
+| Leste do Japão | :x: | 
+| Leste da Austrália | :heavy_check_mark: |
 
-Estamos a trabalhar para adicionar novos servidores em breve.
+Estamos a trabalhar para adicionar novas regiões em breve.
 
 ## <a name="contacts"></a>Contactos
 Para quaisquer perguntas ou sugestões que possa ter na Base de Dados Azure para o servidor flexível MySQL, envie um e-mail para a Base de Dados Azure para a Equipa MySQL ([ @Ask Azure DB para o MySQL).](mailto:AskAzureDBforMySQL@service.microsoft.com) Este endereço de e-mail não é um pseudónimo de suporte técnico.
@@ -156,7 +158,7 @@ Além disso, considere os seguintes pontos de contacto, conforme adequado:
 - Para corrigir um problema na sua conta, crie um [pedido de suporte](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) no portal do Azure.
 - Para enviar comentários ou pedir novas funcionalidades, crie uma entrada através do [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Agora que leu uma introdução à Base de Dados Azure para o modo de implementação de um único servidor MySQL, está pronto para:
 
 - Crie o seu primeiro servidor. 

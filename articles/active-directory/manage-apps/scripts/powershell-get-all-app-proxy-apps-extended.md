@@ -11,16 +11,18 @@ ms.topic: sample
 ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 330bd9b78c2f550ab40f1f4f3679b6c9788ddb64
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 62dae175b529bd54b2f139eece89bbde6f98cd38
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96859385"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055013"
 ---
 # <a name="get-all-application-proxy-apps-and-list-extended-information"></a>Obtenha todas as aplicações Proxy de aplicação e liste informações estendidas
 
-Este exemplo de script PowerShell lista informações sobre todas as aplicações de procuração de aplicações Azure Ative (Azure AD), incluindo o ID de aplicação (AppId), nome (DisplayName), URL externo (ExternalUrl), URL interno (InternalUrl) e tipo de autenticação (ExternalAuthenticationType).
+Este exemplo de script PowerShell lista informações sobre todas as aplicações de procuração de aplicações Azure Ative (Azure AD), incluindo o ID de aplicação (AppId), nome (DisplayName), URL externo (ExternalUrl), URL interno (InternalUrl), tipo de autenticação (ExternalAuthenticationType), modo SSO e outras definições.
+
+Alterar o valor da variável $ssoMode permite uma saída filtrada pelo modo SSO. Mais detalhes estão documentados no script.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -28,7 +30,7 @@ Este exemplo de script PowerShell lista informações sobre todas as aplicaçõe
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-Esta amostra requer o [AzureAD V2 PowerShell para módulo Graph](/powershell/azure/active-directory/install-adv2) (AzureAD) ou o [AzureAD V2 PowerShell para a versão de pré-visualização do módulo Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview) (AzureADPreview).
+Esta amostra requer o [AzureAD V2 PowerShell para módulo Graph](/powershell/azure/active-directory/install-adv2) (AzureAD).
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -40,7 +42,7 @@ Esta amostra requer o [AzureAD V2 PowerShell para módulo Graph](/powershell/azu
 |---|---|
 |[Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) | Arranja um diretor de serviço. |
 |[Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication) | Obtém uma aplicação AD Azure. |
-|[Get-AzureADApplicationProxyApplicationApplicationApplication](/powershell/module/azuread/get-azureadapplicationproxyapplication) | Recupera uma aplicação configurada para Procuração de Aplicação em Azure AD. |
+|[Get-AzureADApplicationProxyApplication](/powershell/module/azuread/get-azureadapplicationproxyapplication) | Recupera uma aplicação configurada para Procuração de Aplicação em Azure AD. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

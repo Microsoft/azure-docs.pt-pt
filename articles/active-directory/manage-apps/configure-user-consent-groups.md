@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: d14e4808d5bec03dff9406f37e63ee4c76e601f8
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: b318ed0d5cd97ca7c020097dff25516f0783c70e
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033226"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055302"
 ---
 # <a name="configure-group-owner-consent-to-apps-accessing-group-data"></a>Configure o consentimento do proprietário do grupo para apps que acedam aos dados do grupo
 
@@ -74,7 +74,7 @@ Pode utilizar o módulo de pré-visualização Azure AD PowerShell, [AzureADPrev
 
 1. Compreenda os valores de definição. Existem dois valores de definição que definem quais os utilizadores que seriam capazes de permitir que uma aplicação acedesse aos dados do seu grupo:
 
-    | Definição       | Tipo         | Descrição  |
+    | Definição       | Tipo         | Description  |
     | ------------- | ------------ | ------------ |
     | _Ativar oGroupSpecificConsent_   | Booleano | Bandeira indicando se os proprietários de grupos são autorizados a conceder permissões específicas do grupo. |
     | _RestriçãoGroupSpecificConsentToMemembersOfGroupId_ | GUID | Se _o EnableGroupSpecificConsent_ estiver definido como "Verdadeiro" e este valor definido para o ID de objeto de um grupo, os membros do grupo identificado serão autorizados a conceder permissões específicas do grupo aos grupos que possuem. |
@@ -124,4 +124,4 @@ Para saber mais:
 * [Permissões e consentimento na plataforma de identidade da Microsoft](../develop/v2-permissions-and-consent.md)
 
 Para obter ajuda ou encontrar respostas às suas perguntas:
-* [Azure AD no StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+* [Azure AD no Microsoft Q&A ](https://docs.microsoft.com/answers/topics/azure-active-directory.html)

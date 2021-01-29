@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla, rarayudu
 ms.topic: conceptual
 ms.date: 01/20/2021
-ms.openlocfilehash: 337e242e3c194c8ec9f66e1888926e6a8f6a8375
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: a74868beea6e5903b6b17a7bc0c82cc822fcd36f
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98633083"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055183"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Acesso seguro e dados em Azure Logic Apps
 
@@ -198,8 +198,8 @@ Para ativar o Azure AD OAuth para a sua aplicação lógica no portal Azure, sig
 
    | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
-   | **Nome da política** | Sim | O nome que quer usar para a política de autorização |
-   | **Pedidos** | Sim | Os tipos e valores de reclamação que a sua aplicação lógica aceita a partir de chamadas de entrada. O valor de reclamação é limitado a um [número máximo de caracteres](logic-apps-limits-and-config.md#authentication-limits). Aqui estão os tipos de reclamação disponíveis: <p><p>- **Emitente** <br>- **Público** <br>- **Assunto** <br>- **JWT ID** (JSON Web ToKen ID) <p><p>No mínimo, a lista **de Reclamações** deve incluir a **reclamação do Emitente,** que tem um valor que começa com `https://sts.windows.net/` ou como `https://login.microsoftonline.com/` iD do emitente Azure AD. Para obter mais informações sobre estes tipos de reclamações, consulte [as fichas de segurança Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). Também pode especificar o seu próprio tipo de reclamação e valor. |
+   | **Nome da política** | Yes | O nome que quer usar para a política de autorização |
+   | **Pedidos** | Yes | Os tipos e valores de reclamação que a sua aplicação lógica aceita a partir de chamadas de entrada. O valor de reclamação é limitado a um [número máximo de caracteres](logic-apps-limits-and-config.md#authentication-limits). Aqui estão os tipos de reclamação disponíveis: <p><p>- **Emitente** <br>- **Público** <br>- **Assunto** <br>- **JWT ID** (JSON Web ToKen ID) <p><p>No mínimo, a lista **de Reclamações** deve incluir a **reclamação do Emitente,** que tem um valor que começa com `https://sts.windows.net/` ou como `https://login.microsoftonline.com/` iD do emitente Azure AD. Para obter mais informações sobre estes tipos de reclamações, consulte [as fichas de segurança Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). Também pode especificar o seu próprio tipo de reclamação e valor. |
    |||
 
 1. Para adicionar outra reclamação, selecione a partir destas opções:
@@ -326,12 +326,12 @@ Quando utiliza o portal para restringir os endereços IP de entrada para a sua a
    
      Esta opção escreve um conjunto vazio para o seu recurso de aplicação lógica e requer que apenas chamadas de aplicações lógicas dos pais que usam a ação **de Azure Logic Apps** incorporadas possam desencadear a app lógica aninhada.
 
-   * Para tornar a sua aplicação lógica callable apenas como uma app aninhada utilizando a ação HTTP, selecione **gamas IP específicas**, e *não* **apenas outras aplicações lógicas**. Quando o IP varia para a caixa **de gatilhos** aparecer, insira os [endereços IP de saída](../logic-apps/logic-apps-limits-and-config.md#outbound)da aplicação lógica principal . Uma gama IP válida utiliza estes formatos: *x.x.x.x/x* ou *x.x.x-x.x.x*.
+   * Para tornar a sua aplicação lógica callable apenas como uma app aninhada utilizando a ação HTTP, selecione **gamas IP específicas**, e *não* **apenas outras aplicações lógicas**. Quando o IP varia para a caixa **de gatilhos** aparecer, insira os [endereços IP de saída](../logic-apps/logic-apps-limits-and-config.md#outbound)da aplicação lógica principal . Uma gama IP válida utiliza estes formatos: *x.x.x.x/x* ou *x.x.x-x.x.x.x.x.x*.
    
      > [!NOTE]
      > Se utilizar a única opção **de Aplicações Lógicas** e a ação HTTP para ligar para a sua aplicação lógica aninhada, a chamada está bloqueada e obtém um erro "401 Não Autorizado".
         
-   * Para cenários em que pretende restringir as chamadas de entrada de outros IPs, quando os **intervalos IP para a** caixa de gatilhos aparecem, especifique os intervalos de endereço IP que o gatilho aceita. Uma gama IP válida utiliza estes formatos: *x.x.x.x/x* ou *x.x.x-x.x.x*.
+   * Para cenários em que pretende restringir as chamadas de entrada de outros IPs, quando os **intervalos IP para a** caixa de gatilhos aparecem, especifique os intervalos de endereço IP que o gatilho aceita. Uma gama IP válida utiliza estes formatos: *x.x.x.x/x* ou *x.x.x-x.x.x.x.x.x*.
 
 1. Opcionalmente, em **Chamadas Restrict para obter mensagens de entrada e saída do histórico de execução para os endereços IP fornecidos,** pode especificar os intervalos de endereço IP para chamadas de entrada que podem aceder a mensagens de entrada e saída no histórico de execução.
 
@@ -339,7 +339,7 @@ Quando utiliza o portal para restringir os endereços IP de entrada para a sua a
 
 #### <a name="restrict-inbound-ip-ranges-in-azure-resource-manager-template"></a>Restringir as gamas IP de entrada no modelo do Gestor de Recursos Azure
 
-Se [automatizar a implementação de aplicações lógicas utilizando modelos de Gestor de Recursos,](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)pode especificar os intervalos de endereço IP de entrada permitidos na definição de recursos da sua aplicação lógica utilizando a `accessControl` secção. Nesta secção, utilize as `triggers` `actions` secções , e as `contents` secções opcionais, conforme apropriado, incluindo a `allowedCallerIpAddresses` secção com a propriedade e `addressRange` desavere o valor da propriedade para a gama IP permitida em formato *x.x.x.x/x.* 
+Se [automatizar a implementação de aplicações lógicas utilizando modelos de Gestor de Recursos,](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)pode especificar os intervalos de endereço IP de entrada permitidos na definição de recursos da sua aplicação lógica utilizando a `accessControl` secção. Nesta secção, utilize as `triggers` `actions` secções , e as `contents` secções opcionais, conforme apropriado, incluindo a `allowedCallerIpAddresses` secção com a propriedade e `addressRange` desavere o valor da propriedade para a gama IP permitida em formato *x.x.x.x/x.x.x.x.* 
 
 * Se a sua aplicação lógica aninhada utilizar a opção **Only other Logic Apps,** que permite chamadas de entrada apenas de outras aplicações lógicas que usam a ação Azure Logic Apps, definir a `addressRange` propriedade para um conjunto vazio **([]**).
 
@@ -866,7 +866,7 @@ Aqui estão mais formas de ajudar a proteger pontos finais que lidam com chamada
 
 * Restringir o acesso a partir de endereços IP de aplicações lógicas.
 
-  Todas as chamadas para pontos finais de aplicações lógicas têm origem em endereços IP designados específicos que são baseados nas regiões das suas aplicações lógicas. Pode adicionar filtragem que aceita pedidos apenas a partir desses endereços IP. Para obter estes endereços IP, consulte [Limites e configuração para Azure Logic Apps](logic-apps-limits-and-config.md#configuration).
+  Todas as chamadas para pontos finais de aplicações lógicas têm origem em endereços IP designados específicos que são baseados nas regiões das suas aplicações lógicas. Pode adicionar filtragem que aceita pedidos apenas a partir desses endereços IP. Para obter estes endereços IP, consulte [Limites e configuração para Azure Logic Apps](logic-apps-limits-and-config.md#firewall-ip-configuration).
 
 * Melhorar a segurança das ligações aos sistemas no local.
 
@@ -934,9 +934,9 @@ Se a opção [Basic](../active-directory-b2c/secure-rest-api.md) estiver dispon�
 
 | Propriedade (designer) | Propriedade (JSON) | Necessário | Valor | Descrição |
 |---------------------|-----------------|----------|-------|-------------|
-| **Autenticação** | `type` | Sim | Básico | O tipo de autenticação a utilizar |
-| **Nome de Utilizador** | `username` | Sim | <*nome do utilizador*>| O nome de utilizador para autenticar o acesso ao ponto final do serviço alvo |
-| **Palavra-passe** | `password` | Sim | <*senha*> | A palavra-passe para autenticar o acesso ao ponto final do serviço alvo |
+| **Autenticação** | `type` | Yes | Básico | O tipo de autenticação a utilizar |
+| **Nome de Utilizador** | `username` | Yes | <*nome do utilizador*>| O nome de utilizador para autenticar o acesso ao ponto final do serviço alvo |
+| **Palavra-passe** | `password` | Yes | <*senha*> | A palavra-passe para autenticar o acesso ao ponto final do serviço alvo |
 ||||||
 
 Quando utilizar [parâmetros seguros](#secure-action-parameters) para manusear e proteger informações sensíveis, por exemplo, num [modelo do Azure Resource Manager para automatizar a implementação,](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)pode utilizar expressões para aceder a estes valores de parâmetros em tempo de execução. Este exemplo de definição de ação HTTP especifica a autenticação `type` como e utiliza a `Basic` [função parâmetros()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) para obter os valores dos parâmetros:
@@ -965,9 +965,9 @@ Se estiver disponível a opção ['Cliente's](../active-directory/authentication
 
 | Propriedade (designer) | Propriedade (JSON) | Necessário | Valor | Descrição |
 |---------------------|-----------------|----------|-------|-------------|
-| **Autenticação** | `type` | Sim | **Certificado de Cliente** <br>ou <br>`ClientCertificate` | O tipo de autenticação a utilizar. Pode gerir certificados com [a Azure API Management.](../api-management/api-management-howto-mutual-certificates.md) <p></p>**Nota:** Os conectores personalizados não suportam a autenticação baseada em certificados tanto para chamadas de entrada como para saída. |
-| **Pfx** | `pfx` | Sim | <*codificado-pfx-file-conteúdo*> | O conteúdo codificado de base64 a partir de um ficheiro de Troca de Informações Pessoais (PFX) <p><p>Para converter o ficheiro PFX em formato codificado base64, pode utilizar o PowerShell seguindo estes passos: <p>1. Guarde o conteúdo do certificado numa variável: <p>   `$pfx_cert = get-content 'c:\certificate.pfx' -Encoding Byte` <p>2. Converter o conteúdo do certificado utilizando a `ToBase64String()` função e guardar esse conteúdo num ficheiro de texto: <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` <p><p>**Resolução de problemas**: Se utilizar o `cert mmc/PowerShell` comando, poderá obter este erro: <p><p>`Could not load the certificate private key. Please check the authentication certificate password is correct and try again.` <p><p>Para resolver este erro, tente converter o ficheiro PFX num ficheiro PEM e de volta utilizando o `openssl` comando: <p><p>`openssl pkcs12 -in certificate.pfx -out certificate.pem` <br>`openssl pkcs12 -in certificate.pem -export -out certificate2.pfx` <p><p>Depois, quando obtém a cadeia codificada base64 para o novo ficheiro PFX convertido do certificado, a cadeia funciona agora em Azure Logic Apps. |
-| **Palavra-passe** | `password`| Não | <*password-para-pfx-file*> | A senha de acesso ao ficheiro PFX |
+| **Autenticação** | `type` | Yes | **Certificado de Cliente** <br>ou <br>`ClientCertificate` | O tipo de autenticação a utilizar. Pode gerir certificados com [a Azure API Management.](../api-management/api-management-howto-mutual-certificates.md) <p></p>**Nota:** Os conectores personalizados não suportam a autenticação baseada em certificados tanto para chamadas de entrada como para saída. |
+| **Pfx** | `pfx` | Yes | <*codificado-pfx-file-conteúdo*> | O conteúdo codificado de base64 a partir de um ficheiro de Troca de Informações Pessoais (PFX) <p><p>Para converter o ficheiro PFX em formato codificado base64, pode utilizar o PowerShell seguindo estes passos: <p>1. Guarde o conteúdo do certificado numa variável: <p>   `$pfx_cert = get-content 'c:\certificate.pfx' -Encoding Byte` <p>2. Converter o conteúdo do certificado utilizando a `ToBase64String()` função e guardar esse conteúdo num ficheiro de texto: <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` <p><p>**Resolução de problemas**: Se utilizar o `cert mmc/PowerShell` comando, poderá obter este erro: <p><p>`Could not load the certificate private key. Please check the authentication certificate password is correct and try again.` <p><p>Para resolver este erro, tente converter o ficheiro PFX num ficheiro PEM e de volta utilizando o `openssl` comando: <p><p>`openssl pkcs12 -in certificate.pfx -out certificate.pem` <br>`openssl pkcs12 -in certificate.pem -export -out certificate2.pfx` <p><p>Depois, quando obtém a cadeia codificada base64 para o novo ficheiro PFX convertido do certificado, a cadeia funciona agora em Azure Logic Apps. |
+| **Palavra-passe** | `password`| No | <*password-para-pfx-file*> | A senha de acesso ao ficheiro PFX |
 |||||
 
 Quando utilizar [parâmetros seguros](#secure-action-parameters) para manusear e proteger informações sensíveis, por exemplo, num [modelo do Azure Resource Manager para automatizar a implementação,](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)pode utilizar expressões para aceder a estes valores de parâmetros em tempo de execução. Este exemplo de definição de ação HTTP especifica a autenticação `type` como e utiliza a `ClientCertificate` [função parâmetros()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) para obter os valores dos parâmetros:
@@ -1004,12 +1004,12 @@ Nos detonadores de pedidos, pode utilizar [a Azure Ative Directory Open Authenti
 
 | Propriedade (designer) | Propriedade (JSON) | Necessário | Valor | Descrição |
 |---------------------|-----------------|----------|-------|-------------|
-| **Autenticação** | `type` | Sim | **Diretório Ativo OAuth** <br>ou <br>`ActiveDirectoryOAuth` | O tipo de autenticação a utilizar. As Aplicações Lógicas seguem atualmente o [protocolo OAuth 2.0](../active-directory/develop/v2-overview.md). |
-| **Autoridade** | `authority` | Não | <*URL-para-autoridade-emitente-simbólico*> | A URL para a autoridade que fornece o token de acesso. Por predefinição, este valor é `https://login.windows.net` . |
-| **Inquilino** | `tenant` | Sim | <*inquilino-ID*> | A iD do inquilino para o inquilino da Ad Azure |
-| **Audiência** | `audience` | Sim | <*recursos para autorizar*> | O recurso que pretende utilizar para autorização, por exemplo, `https://management.core.windows.net/` |
-| **ID de Cliente** | `clientId` | Sim | <*iD cliente*> | O ID do cliente para a app solicitando autorização |
-| **Tipo credencial** | `credentialType` | Sim | Certificado <br>ou <br>Segredo | O tipo de credencial que o cliente usa para solicitar autorização. Esta propriedade e valor não aparecem na definição subjacente da sua aplicação lógica, mas determina as propriedades que aparecem para o tipo de credencial selecionado. |
+| **Autenticação** | `type` | Yes | **Diretório Ativo OAuth** <br>ou <br>`ActiveDirectoryOAuth` | O tipo de autenticação a utilizar. As Aplicações Lógicas seguem atualmente o [protocolo OAuth 2.0](../active-directory/develop/v2-overview.md). |
+| **Autoridade** | `authority` | No | <*URL-para-autoridade-emitente-simbólico*> | A URL para a autoridade que fornece o token de acesso. Por predefinição, este valor é `https://login.windows.net` . |
+| **Inquilino** | `tenant` | Yes | <*inquilino-ID*> | A iD do inquilino para o inquilino da Ad Azure |
+| **Audiência** | `audience` | Yes | <*recursos para autorizar*> | O recurso que pretende utilizar para autorização, por exemplo, `https://management.core.windows.net/` |
+| **ID de Cliente** | `clientId` | Yes | <*iD cliente*> | O ID do cliente para a app solicitando autorização |
+| **Tipo credencial** | `credentialType` | Yes | Certificado <br>ou <br>Segredo | O tipo de credencial que o cliente usa para solicitar autorização. Esta propriedade e valor não aparecem na definição subjacente da sua aplicação lógica, mas determina as propriedades que aparecem para o tipo de credencial selecionado. |
 | **Segredo** | `secret` | Sim, mas só para o tipo de credencial "Secreto". | <*cliente-segredo*> | O segredo do cliente para solicitar autorização |
 | **Pfx** | `pfx` | Sim, mas apenas para o tipo credencial "Certificado". | <*codificado-pfx-file-conteúdo*> | O conteúdo codificado de base64 a partir de um ficheiro de Troca de Informações Pessoais (PFX) |
 | **Palavra-passe** | `password` | Sim, mas apenas para o tipo credencial "Certificado". | <*password-para-pfx-file*> | A senha de acesso ao ficheiro PFX |
@@ -1058,8 +1058,8 @@ No gatilho ou ação que suporta a autenticação bruta, especifique estes valor
 
 | Propriedade (designer) | Propriedade (JSON) | Necessário | Valor | Descrição |
 |---------------------|-----------------|----------|-------|-------------|
-| **Autenticação** | `type` | Sim | Não processado | O tipo de autenticação a utilizar |
-| **Valor** | `value` | Sim | <*valor de autorização-cabeçalho*> | O valor do cabeçalho de autorização a utilizar para a autenticação |
+| **Autenticação** | `type` | Yes | Não processado | O tipo de autenticação a utilizar |
+| **Valor** | `value` | Yes | <*valor de autorização-cabeçalho*> | O valor do cabeçalho de autorização a utilizar para a autenticação |
 ||||||
 
 Quando utilizar [parâmetros seguros](#secure-action-parameters) para manusear e proteger informações sensíveis, por exemplo, num [modelo do Azure Resource Manager para automatizar a implementação,](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)pode utilizar expressões para aceder a estes valores de parâmetros em tempo de execução. Este exemplo de definição de ação HTTP especifica a autenticação `type` como , e utiliza a `Raw` [função parâmetros()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) para obter os valores dos parâmetros:
@@ -1095,9 +1095,9 @@ Quando a opção [de identidade gerida](../active-directory/managed-identities-a
 
    | Propriedade (designer) | Propriedade (JSON) | Necessário | Valor | Descrição |
    |---------------------|-----------------|----------|-------|-------------|
-   | **Autenticação** | `type` | Sim | **Identidade Gerida** <br>ou <br>`ManagedServiceIdentity` | O tipo de autenticação a utilizar |
-   | **Identidade Gerida** | `identity` | Sim | * **Identidade gerida atribuída ao sistema** <br>ou <br>`SystemAssigned` <p><p>* <*nome de identidade atribuído pelo utilizador*> | A identidade gerida para usar |
-   | **Audiência** | `audience` | Sim | <*destino-recursos-ID*> | O ID de recursos para o recurso-alvo a que pretende aceder. <p>Por exemplo, `https://storage.azure.com/` torna os [tokens de acesso para](../active-directory/develop/access-tokens.md) autenticação válidos para todas as contas de armazenamento. No entanto, também pode especificar um URL de serviço de raiz, como por exemplo `https://fabrikamstorageaccount.blob.core.windows.net` para uma conta de armazenamento específica. <p>**Nota:** A propriedade **do Público** pode estar escondida em alguns gatilhos ou ações. Para tornar esta propriedade visível, no gatilho ou ação, abra a nova lista **de parâmetros** e selecione **Audience**. <p><p>**Importante**: Certifique-se de que este ID de recurso-alvo *corresponde exatamente* ao valor que a Azure AD espera, incluindo quaisquer cortes de rasto necessários. Assim, a identificação de `https://storage.azure.com/` recursos para todas as contas de Armazenamento Azure Blob requer um corte de fuga. No entanto, a identificação de recursos para uma conta de armazenamento específica não requer um corte de fuga. Para encontrar estes IDs de recursos, consulte [os serviços Azure que suportam a Azure AD.](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) |
+   | **Autenticação** | `type` | Yes | **Identidade Gerida** <br>ou <br>`ManagedServiceIdentity` | O tipo de autenticação a utilizar |
+   | **Identidade Gerida** | `identity` | Yes | * **Identidade gerida atribuída ao sistema** <br>ou <br>`SystemAssigned` <p><p>* <*nome de identidade atribuído pelo utilizador*> | A identidade gerida para usar |
+   | **Audiência** | `audience` | Yes | <*destino-recursos-ID*> | O ID de recursos para o recurso-alvo a que pretende aceder. <p>Por exemplo, `https://storage.azure.com/` torna os [tokens de acesso para](../active-directory/develop/access-tokens.md) autenticação válidos para todas as contas de armazenamento. No entanto, também pode especificar um URL de serviço de raiz, como por exemplo `https://fabrikamstorageaccount.blob.core.windows.net` para uma conta de armazenamento específica. <p>**Nota:** A propriedade **do Público** pode estar escondida em alguns gatilhos ou ações. Para tornar esta propriedade visível, no gatilho ou ação, abra a nova lista **de parâmetros** e selecione **Audience**. <p><p>**Importante**: Certifique-se de que este ID de recurso-alvo *corresponde exatamente* ao valor que a Azure AD espera, incluindo quaisquer cortes de rasto necessários. Assim, a identificação de `https://storage.azure.com/` recursos para todas as contas de Armazenamento Azure Blob requer um corte de fuga. No entanto, a identificação de recursos para uma conta de armazenamento específica não requer um corte de fuga. Para encontrar estes IDs de recursos, consulte [os serviços Azure que suportam a Azure AD.](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) |
    |||||
 
    Quando utilizar [parâmetros seguros](#secure-action-parameters) para manusear e proteger informações sensíveis, por exemplo, num [modelo do Azure Resource Manager para automatizar a implementação,](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)pode utilizar expressões para aceder a estes valores de parâmetros em tempo de execução. Por exemplo, esta definição de ação HTTP especifica a autenticação `type` como e utiliza a `ManagedServiceIdentity` [função parâmetros()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) para obter os valores dos parâmetros:
@@ -1122,8 +1122,8 @@ Quando a opção [de identidade gerida](../active-directory/managed-identities-a
 
    | Propriedade (designer) | Necessário | Valor | Descrição |
    |---------------------|----------|-------|-------------|
-   | **Nome da ligação** | Sim | <*nome de conexão*> ||
-   | **Identidade gerida** | Sim | **Identidade gerida atribuída pelo sistema** <br>ou <br> <*nome de identidade gerido pelo utilizador*> | O tipo de autenticação a utilizar |
+   | **Nome da ligação** | Yes | <*nome de conexão*> ||
+   | **Identidade gerida** | Yes | **Identidade gerida atribuída pelo sistema** <br>ou <br> <*nome de identidade gerido pelo utilizador*> | O tipo de autenticação a utilizar |
    |||||
 
 

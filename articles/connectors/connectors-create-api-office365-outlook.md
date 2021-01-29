@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 11/13/2020
 tags: connectors
-ms.openlocfilehash: 9caf69a7f78c7872f0a5f8a2ed07bdc749a29023
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 790879894c3b268fcd55aafc96507319b29fe1e5
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94683000"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055081"
 ---
 # <a name="manage-email-contacts-and-calendars-in-office-365-outlook-by-using-azure-logic-apps"></a>Gerir e-mails, contactos e calendários no Outlook do Office 365 com o Azure Logic Apps
 
@@ -92,17 +92,19 @@ Uma [ação](../logic-apps/logic-apps-overview.md#logic-app-concepts) é uma ope
 
 ## <a name="connect-using-other-accounts"></a>Conecte-se usando outras contas
 
-Se tentar ligar o Outlook utilizando uma conta diferente da que está atualmente assinada no Azure, poderá obter [erros de sso únicos.sso.](../active-directory/manage-apps/what-is-single-sign-on.md) Este problema acontece quando se inscreve no portal Azure com uma conta, mas utiliza uma conta diferente para criar a ligação. O Logic App Designer espera utilizar a conta que está assinada no Azure. Para resolver este problema, tem estas opções:
+Se tentar ligar o Outlook utilizando uma conta diferente da que está atualmente assinada no Azure, poderá obter [erros de sso únicos.sso.](../active-directory/manage-apps/what-is-single-sign-on.md) Este problema acontece quando se inscreve no portal Azure com uma conta, mas utiliza uma conta diferente para criar a ligação. O designer espera que utilize a conta que está assinada no portal Azure. Para resolver este problema, tem estas opções:
 
-* Crie a outra conta como **Contribuinte** para o grupo de recursos da sua aplicação lógica.
+* Crie a outra conta com o papel **do Contribuinte** no grupo de recursos da sua aplicação lógica.
 
-  1. No menu do grupo de recursos da sua aplicação lógica, selecione **Access control (IAM)**. Criar a outra conta com a **função Contribuinte.** Para obter mais informações, veja [Utilizar o portal do Azure para adicionar ou remover atribuições de funções do Azure](../role-based-access-control/role-assignments-portal.md).
+  1. No menu do grupo de recursos da sua aplicação lógica, selecione **Access control (IAM)**. Criar a outra conta com a **função Contribuinte.** 
+  
+     Para obter mais informações, veja [Utilizar o portal do Azure para adicionar ou remover atribuições de funções do Azure](../role-based-access-control/role-assignments-portal.md).
 
-  1. Se você está inscrito no portal Azure com o seu trabalho ou conta escolar, assine e inscreva-se novamente com a sua outra conta. Pode agora criar uma ligação ao Outlook utilizando a outra conta.
+  1. Depois de configurar esta função, inscreva-se no portal Azure com a conta que agora tem permissões de Contribuinte. Agora pode utilizar esta conta para criar a ligação ao Outlook.
 
 * Crie a outra conta para que o seu trabalho ou conta escolar tenha permissões de "enviar as".
 
-   Se tiver permissões de administração, na caixa de correio da conta de serviço, crie-o como trabalho ou conta escolar com **o Envio** ou Envio em **nome das** permissões. Para obter mais informações, consulte [Dar permissões na caixa de correio a outro utilizador - Ajuda de administração](/microsoft-365/admin/add-users/give-mailbox-permissions-to-another-user). Em seguida, pode criar a ligação utilizando o seu trabalho ou conta escolar. Agora, em gatilhos ou ações onde pode especificar o remetente, pode utilizar o endereço de e-mail da conta de serviço.
+   Se tiver permissões de administração, na caixa de correio da conta de serviço, crie a sua conta de trabalho ou escola com **o Envio** ou Envio em **nome das** permissões. Para obter mais informações, consulte [Dar permissões na caixa de correio a outro utilizador - Ajuda de administração](/microsoft-365/admin/add-users/give-mailbox-permissions-to-another-user). Em seguida, pode criar a ligação utilizando o seu trabalho ou conta escolar. Agora, em gatilhos ou ações onde pode especificar o remetente, pode utilizar o endereço de e-mail da conta de serviço.
 
    Por exemplo, a ação **Enviar um email** tem um parâmetro opcional, a partir de **(Enviar como)** que pode adicionar à ação e utilizar o endereço de e-mail da sua conta de serviço como remetente. Para adicionar este parâmetro, siga estes passos:
 
@@ -114,6 +116,6 @@ Se tentar ligar o Outlook utilizando uma conta diferente da que está atualmente
 
 Para obter detalhes técnicos sobre este conector, tais como gatilhos, ações e limites, conforme descrito pelo ficheiro Swagger do conector, consulte a [página de referência do conector](/connectors/office365/). 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [outros conectores de Apps Lógicas](../connectors/apis-list.md)

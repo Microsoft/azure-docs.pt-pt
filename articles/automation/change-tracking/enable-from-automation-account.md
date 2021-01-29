@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 50188ad5fea0ee34a6896f0045e3bbcbfb553aaa
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 64eace72b6ea203d4052c39404bcbd7ce4c4bfa0
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677291"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055166"
 ---
 # <a name="enable-change-tracking-and-inventory-from-an-automation-account"></a>Ativar o Controlo de Alterações e Inventário a partir de uma conta de Automatização
 
@@ -22,7 +22,7 @@ Este artigo descreve como pode utilizar a sua conta Demômessa para ativar o Tra
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Subscrição do Azure. Se ainda não tiver um, pode [ativar os benefícios do seu assinante MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se numa [conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Conta de automatização](../index.yml) para gerir máquinas.
+* [Conta de automatização](../automation-security-overview.md) para gerir máquinas.
 * Uma [máquina virtual.](../../virtual-machines/windows/quick-create-portal.md)
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
@@ -53,7 +53,7 @@ As máquinas que não estão no Azure precisam de ser adicionadas manualmente. R
 
 1. A partir da sua conta Demômes automática **selecione Inventário** ou **Rastreio de Alteração** sob **Gestão de Configuração.**
 
-2. Clique **em Adicionar máquina não-Azure** . Esta ação abre uma nova janela do navegador com [instruções para instalar e configurar o agente Log Analytics para o Windows para](../../azure-monitor/platform/log-analytics-agent.md) que a máquina possa começar a reportar operações de Rastreio e Inventário de Alterações. Se está a habilitar uma máquina que é atualmente gerida pelo Gestor de Operações, não é necessário um novo agente e a informação do espaço de trabalho é inserida no agente existente.
+2. Clique **em Adicionar máquina não-Azure**. Esta ação abre uma nova janela do navegador com [instruções para instalar e configurar o agente Log Analytics para o Windows para](../../azure-monitor/platform/log-analytics-agent.md) que a máquina possa começar a reportar operações de Rastreio e Inventário de Alterações. Se está a habilitar uma máquina que é atualmente gerida pelo Gestor de Operações, não é necessário um novo agente e a informação do espaço de trabalho é inserida no agente existente.
 
 ## <a name="enable-machines-in-the-workspace"></a>Ativar máquinas no espaço de trabalho
 
@@ -61,13 +61,13 @@ Máquinas ou máquinas instaladas manualmente que já reportam ao seu espaço de
 
 1. A partir da sua conta Demômes, selecione **Inventário** ou **Alteração de Rastreio** sob **Gestão de Configuração.**
 
-2. **Selecione Gerir máquinas** . A opção **'Gerir máquinas'** pode ser acinzentada se tiver optado previamente pela opção **Ativar todas as máquinas disponíveis e futuras**
+2. **Selecione Gerir máquinas**. A opção **'Gerir máquinas'** pode ser acinzentada se tiver optado previamente pela opção **Ativar todas as máquinas disponíveis e futuras**
 
     ![Pesquisas guardadas](media/enable-from-automation-account/manage-machines.png)
 
 3. Para ativar o Rastreio de Alterações e o Inventário de todas as máquinas disponíveis, selecione **Ative em todas as máquinas disponíveis** na página **'Gerir Máquinas'.** Esta ação desativa o controlo para adicionar máquinas individualmente e adiciona todas as máquinas que reportam ao espaço de trabalho ao grupo de computador que guardou a consulta de pesquisa. Quando selecionada, esta ação desativa a opção **'Gerir máquinas'.**
 
-4. Para ativar a funcionalidade para todas as máquinas e máquinas futuras disponíveis, selecione **Ative em todas as máquinas disponíveis e futuras** . Esta opção elimina a configuração de pesquisa e alcance guardada do espaço de trabalho e abre a funcionalidade para todas as máquinas Azure e não-Azure que estão a reportar para o espaço de trabalho. Quando selecionada, esta ação desativa permanentemente a opção **'Gerir máquinas',** uma vez que não existe nenhuma configuração de âmbito.
+4. Para ativar a funcionalidade para todas as máquinas e máquinas futuras disponíveis, selecione **Ative em todas as máquinas disponíveis e futuras**. Esta opção elimina a configuração de pesquisa e alcance guardada do espaço de trabalho e abre a funcionalidade para todas as máquinas Azure e não-Azure que estão a reportar para o espaço de trabalho. Quando selecionada, esta ação desativa permanentemente a opção **'Gerir máquinas',** uma vez que não existe nenhuma configuração de âmbito.
 
     > [!NOTE]
     > Uma vez que esta opção elimina a configuração de pesquisa e alcance guardada no Log Analytics, é importante remover quaisquer bloqueios de eliminação no espaço de trabalho do Log Analytics antes de selecionar esta opção. Caso não o faça, a opção não removerá as configurações e deve removê-las manualmente.
