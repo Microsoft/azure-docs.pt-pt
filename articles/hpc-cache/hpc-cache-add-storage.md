@@ -4,14 +4,14 @@ description: Como definir alvos de armazenamento para que o seu Cache Azure HPC 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 01/28/2021
 ms.author: v-erkel
-ms.openlocfilehash: b2497a49703ab675bde50c7845995c92de32f376
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: b4df5863cc746490f13685a8d412232217af3bc8
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657181"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054370"
 ---
 # <a name="add-storage-targets"></a>Adicionar destinos de armazenamento
 
@@ -165,19 +165,21 @@ Um alvo de armazenamento NFS tem configurações diferentes de um alvo de armaze
 
 Quando cria um alvo de armazenamento que aponta para um sistema de armazenamento NFS, tem de escolher o modelo de utilização para esse alvo. Este modelo determina como os seus dados são em cache.
 
+Os modelos de utilização incorporados permitem-lhe escolher como equilibrar a resposta rápida com o risco de obter dados antigos. Se pretender otimizar a velocidade de leitura do ficheiro, pode não se importar se os ficheiros da cache são verificados contra os ficheiros de fundo. Por outro lado, se quiser certificar-se de que os seus ficheiros estão sempre atualizados com o armazenamento remoto, escolha um modelo que verifique com frequência.
+
 Existem três opções:
 
 * **Leia escritas pesadas e pouco frequentes** - Utilize esta opção se quiser acelerar o acesso de leitura a ficheiros que são estáticos ou raramente alterados.
 
-  Esta opção caches ficheiros que os clientes lêem, mas passa a escrever para o armazenamento back-end imediatamente. Os ficheiros armazenados na cache nunca são comparados com os ficheiros do volume de armazenamento NFS.
+  Esta opção caches ficheiros que os clientes lêem, mas passa a escrever para o armazenamento back-end imediatamente. Os ficheiros armazenados na cache não são automaticamente comparados com os ficheiros do volume de armazenamento NFS. (Leia a nota abaixo sobre a verificação de back-end para saber mais.)
 
-  Não utilize esta opção se existir o risco de um ficheiro poder ser modificado diretamente no sistema de armazenamento sem antes o escrever para a cache. Se isso acontecer, a versão em cache do ficheiro nunca será atualizada com alterações a partir da parte de trás, e o conjunto de dados pode tornar-se inconsistente.
+  Não utilize esta opção se existir o risco de um ficheiro poder ser modificado diretamente no sistema de armazenamento sem antes o escrever para a cache. Se isso acontecer, a versão em cache do ficheiro estará dessincronizada com o ficheiro back-end.
 
 * **Mais de 15% escreve** - Esta opção acelera tanto a leitura como a gravação. Ao utilizar esta opção, todos os clientes devem aceder aos ficheiros através da Cache Azure HPC em vez de montarem o armazenamento de back-end diretamente. Os ficheiros em cache terão alterações recentes que não são armazenadas na parte de trás.
 
-  Neste modelo de utilização, os ficheiros na cache não são verificados com os ficheiros no armazenamento de back-end. Presume-se que a versão em cache do ficheiro é mais atual. Um ficheiro modificado na cache é escrito no sistema de armazenamento de back-end depois de ter estado na cache durante uma hora sem alterações adicionais.
+  Neste modelo de utilização, os ficheiros na cache só são verificados com os ficheiros de armazenamento de back-end a cada oito horas. Presume-se que a versão em cache do ficheiro é mais atual. Um ficheiro modificado na cache é escrito no sistema de armazenamento de back-end depois de ter estado na cache durante uma hora sem alterações adicionais.
 
-* **Os clientes escrevem para o alvo NFS, contornando a cache** - Escolha esta opção se algum cliente no seu fluxo de trabalho escrever dados diretamente para o sistema de armazenamento sem primeiro escrever para a cache. Os ficheiros que os clientes solicitam estão em cache, mas quaisquer alterações nesses ficheiros do cliente são imediatamente repercutidos no sistema de armazenamento back-end.
+* **Os clientes escrevem para o alvo NFS, contornando a cache** - Escolha esta opção se algum cliente no seu fluxo de trabalho escrever dados diretamente para o sistema de armazenamento sem primeiro escrever para a cache, ou se pretende otimizar a consistência dos dados. Os ficheiros que os clientes solicitam estão em cache, mas quaisquer alterações nesses ficheiros do cliente são imediatamente repercutidos no sistema de armazenamento back-end.
 
   Com este modelo de utilização, os ficheiros na cache são frequentemente verificados com as versões back-end para obter atualizações. Esta verificação permite que os ficheiros sejam alterados fora da cache, mantendo a consistência dos dados.
 
@@ -186,8 +188,11 @@ Esta tabela resume as diferenças do modelo de utilização:
 | Modelo de utilização                   | Modo caching | Verificação de back-end | Atraso máximo de desatrada |
 |-------------------------------|--------------|-----------------------|--------------------------|
 | Leia escritos pesados e pouco frequentes | Ler         | Nunca                 | Nenhum                     |
-| Mais de 15% escreve       | Leitura/escrita   | Nunca                 | Uma hora                   |
+| Mais de 15% escreve       | Leitura/escrita   | 8 horas               | Uma hora                   |
 | Os clientes contornam a cache      | Ler         | 30 segundos            | Nenhum                     |
+
+> [!NOTE]
+> O valor **de verificação back-end** mostra quando o cache compara automaticamente os seus ficheiros com ficheiros de origem no armazenamento remoto. No entanto, pode forçar a Azure HPC Cache a comparar ficheiros através da realização de uma operação de diretório que inclui um pedido de readdirplus. Readdirplus é uma API padrão NFS (também chamada de leitura estendida) que devolve metadados de diretório, o que faz com que a cache compare e atualize ficheiros.
 
 ### <a name="create-an-nfs-storage-target"></a>Criar um alvo de armazenamento NFS
 
@@ -343,7 +348,7 @@ $
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de criar metas de armazenamento, continue com estas tarefas para ter o seu cache pronto a usar:
 

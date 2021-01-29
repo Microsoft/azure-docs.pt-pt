@@ -1,5 +1,5 @@
 ---
-title: Configure o fluxo de trabalho de consentimento administrativo - Azure Ative Directory / Microsoft Docs
+title: Configure o fluxo de trabalho de consentimento administrativo - Azure Ative Directory | Microsoft Docs
 description: Saiba como configurar uma forma de os utilizadores finais solicitarem o acesso a aplicações que requerem consentimento administrativo.
 services: active-directory
 author: kenwith
@@ -12,12 +12,12 @@ ms.date: 10/29/2019
 ms.author: kenwith
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7fc688ca0981024e5e08c9fb20ecb6704efbd7f2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9552d1a0c7bdb73dbcf739144a3ab9f746705664
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997499"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053368"
 ---
 # <a name="configure-the-admin-consent-workflow-preview"></a>Configure o fluxo de trabalho de consentimento administrativo (pré-visualização)
 
@@ -118,7 +118,7 @@ O quadro abaixo descreve os cenários e os valores de auditoria disponíveis par
 > O contexto de utilizador do ator de auditoria está atualmente desaparecido em todos os cenários. Esta é uma limitação conhecida na versão de pré-visualização.
 
 
-|Cenário  |Serviço de Auditoria  |Categoria de Auditoria  |Atividade de Auditoria  |Ator de Auditoria  |Limitações do registo de auditoria  |
+|Scenario  |Serviço de Auditoria  |Categoria de Auditoria  |Atividade de Auditoria  |Ator de Auditoria  |Limitações do registo de auditoria  |
 |---------|---------|---------|---------|---------|---------|
 |Administração que permite o fluxo de trabalho do pedido de consentimento        |Revisões de Acesso           |Gestão de Utilizador           |Criar modelo de política de governação          |Contexto de aplicativo            |Atualmente não é possível encontrar o contexto do utilizador            |
 |Administração desativando o fluxo de trabalho do pedido de consentimento       |Revisões de Acesso           |Gestão de Utilizador           |Eliminar o modelo de política de governação          |Contexto de aplicativo            |Atualmente não é possível encontrar o contexto do utilizador           |
@@ -159,4 +159,4 @@ Para obter mais informações sobre o consentimento dos pedidos, consulte [o qua
 
 [Permissões e consentimento na plataforma de identidade da Microsoft](../develop/v2-permissions-and-consent.md)
 
-[Azure AD no StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+[Azure AD no Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html)

@@ -2,19 +2,15 @@
 title: Mude a sua conta Azure Automation para outra subscrição
 description: Este artigo diz como mover a sua conta Automation para outra subscrição.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
-ms.date: 03/11/2019
+ms.date: 01/07/2021
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 8454c5a5bb5b44d2a60ae0095a9b82a19ed27c8d
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: a86d876a723c89eb8dcdf18c8318f2a9c740a229
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896651"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051029"
 ---
 # <a name="move-your-azure-automation-account-to-another-subscription"></a>Mude a sua conta Azure Automation para outra subscrição
 
@@ -108,7 +104,7 @@ Pode agora mover a sua conta Automation e os seus runbooks.
 
 ## <a name="re-create-run-as-accounts"></a>Recriar Run As accounts
 
-[Executar Como as contas](../manage-runas-account.md) criam um principal serviço no Azure Ative Directory para autenticar com recursos Azure. Quando altera as subscrições, a conta Automation deixou de utilizar a conta Run As existente. Para recriar as contas Run As:
+[Executar Como as contas](../automation-security-overview.md#run-as-accounts) criam um principal serviço no Azure Ative Directory para autenticar com recursos Azure. Quando altera as subscrições, a conta Automation deixou de utilizar a conta Run As existente. Para recriar as contas Run As:
 
 1. Aceda à sua conta de Automação na nova subscrição e selecione **Executar como contas** em **Definições de Conta**. Verá que as contas run as mostram como incompletas agora.
 
@@ -117,7 +113,7 @@ Pode agora mover a sua conta Automation e os seus runbooks.
 2. Elimine as contas Run As, uma de cada vez, selecionando **Eliminar** na página **Propriedades.** 
 
     > [!NOTE]
-    > Se não tiver permissões para criar ou ver as contas Run As, vê a seguinte mensagem: `You do not have permissions to create an Azure Run As account (service principal) and grant the Contributor role to the service principal.` Para mais informações, consulte [permissões necessárias para configurar executar como contas](../manage-runas-account.md#permissions).
+    > Se não tiver permissões para criar ou ver as contas Run As, vê a seguinte mensagem: `You do not have permissions to create an Azure Run As account (service principal) and grant the Contributor role to the service principal.` Para mais informações, consulte [permissões necessárias para configurar executar como contas](../automation-security-overview.md#permissions).
 
 3. Depois de eliminar as contas Run As, selecione **Criar** na **conta Azure Run As**. 
 
@@ -155,6 +151,6 @@ Quando o movimento estiver completo, verifique se as capacidades listadas abaixo
 |Gestão de atualizações|Verifique se vê as suas máquinas e que estão saudáveis.</br>Executar uma implementação de atualização de software de teste.|[Gestão de atualização de resolução de problemas](../troubleshoot/update-management.md)|
 |Recursos partilhados|Verifique se vê todos os seus recursos partilhados, tais como [credenciais](../shared-resources/credentials.md) e [variáveis.](../shared-resources/variables.md)|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para aprender sobre a movimentação de recursos em Azure, consulte [os recursos move em Azure.](../../azure-resource-manager/management/move-support-resources.md)

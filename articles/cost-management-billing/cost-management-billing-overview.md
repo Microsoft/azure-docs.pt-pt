@@ -4,17 +4,17 @@ description: Utilize as funcionalidades do Azure Cost Management + Faturação p
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/26/2020
+ms.date: 01/28/2021
 ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: common
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 34034a99641d75e44783cb5b87af8948b4db1628
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
-ms.translationtype: HT
+ms.openlocfilehash: a070b2329777accab6f62b767f74dbc28e5d2623
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029945"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051098"
 ---
 # <a name="what-is-azure-cost-management--billing"></a>O que é o Azure Cost Management + Faturação?
 
@@ -43,11 +43,11 @@ Ao inscrever-se para utilizar o Azure, é criada uma conta de faturação. Utili
 
 O portal do Azure suporta atualmente os seguintes tipos de contas de faturação:
 
-- **Programa Microsoft Online Services**: é criada uma conta de faturação individual para um Programa Microsoft Online Services quando se inscrever no Azure através do site do Azure. Por exemplo, quando se inscreve numa Conta Gratuita do Azure, conta com tarifas pay as you go ou como subscritor do Visual Studio.
+- **Programa Microsoft Online Services**: é criada uma conta de faturação individual para um Programa Microsoft Online Services quando se inscrever no Azure através do site do Azure. Por exemplo, quando se inscreve numa [Conta Azure Free](./manage/create-free-services.md), conta com tarifas pagas ou como assinante do estúdio Visual.
 
 - **Contrato Enterprise**: uma conta de faturação para um Contrato Enterprise é criada quando a sua organização assina um Contrato Enterprise (EA) para utilizar o Azure.
 
-- **Contrato de Cliente da Microsoft**: uma conta de faturação para um Contrato de Cliente Microsoft é criada quando a sua organização trabalha com um representante da Microsoft para assinar um Contrato de Cliente da Microsoft. Alguns clientes em determinadas regiões, que se inscrevem no site do Azure numa conta com tarifas pay as you go ou atualizam a respetiva Conta Gratuita do Azure, também podem ter uma conta de faturação para um Contrato de Cliente da Microsoft.
+- **Contrato de Cliente da Microsoft**: uma conta de faturação para um Contrato de Cliente Microsoft é criada quando a sua organização trabalha com um representante da Microsoft para assinar um Contrato de Cliente da Microsoft. Alguns clientes em determinadas regiões, que se inscrevem no site do Azure numa conta com tarifas pay as you go ou atualizam a respetiva [Conta Gratuita do Azure](./manage/create-free-services.md), também podem ter uma conta de faturação para um Contrato de Cliente da Microsoft.
 
 ### <a name="scopes-for-billing-accounts"></a>Âmbitos de contas de faturação
 Um âmbito é um nó numa conta de faturação que utiliza para ver e gerir a faturação. É onde gere os dados de faturação, os pagamentos, as faturas e onde realiza a gestão global da conta.

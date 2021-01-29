@@ -1,5 +1,5 @@
 ---
-title: Cenários comuns de gestão de aplicações para o Azure Ative Directory Microsoft Docs
+title: Cenários comuns de gestão de aplicações para o Azure Ative Directory | Microsoft Docs
 description: Centralizar a gestão de aplicações com a Azure AD
 documentationcenter: ''
 author: kenwith
@@ -15,12 +15,12 @@ ms.date: 03/02/2019
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b78562bc3590bdf5b15e4061ba23e1284b07c16
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 882770fefbb48524ad5f11a56089132b319470aa
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94835497"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053351"
 ---
 # <a name="centralize-application-management-with-azure-ad"></a>Centralizar a gestão de aplicações com a Azure AD
 
@@ -43,7 +43,7 @@ Chega de gerir a senha. Aceda de forma segura todos os recursos necessários com
 |Funcionalidade  | Descrição | Recomendação |
 |---------|---------|---------|
 |SSO|SSO federado baseado em padrões usando padrões de indústria fidedignas.|Utilize sempre [o SAML /OIDC](../develop/v2-howto-app-gallery-listing.md) para ativar o SSO quando a sua aplicação o suporta.|
-|As Minhas Aplicações|Ofereça aos seus utilizadores um simples hub para descobrir e aceder a todas as suas aplicações. Capacitá-los a serem mais produtivos com capacidades de self-service, como solicitar acesso a apps e grupos, ou gerir o acesso a recursos em nome de outros.| Implemente [as Minhas Apps](./access-panel-deployment-plan.md) na sua organização assim que tiver integrado as suas aplicações com Azure AD para SSO.|
+|As Minhas Aplicações|Ofereça aos seus utilizadores um simples hub para descobrir e aceder a todas as suas aplicações. Capacitá-los a serem mais produtivos com capacidades de self-service, como solicitar acesso a apps e grupos, ou gerir o acesso a recursos em nome de outros.| Implemente [as Minhas Apps](my-apps-deployment-plan.md) na sua organização assim que tiver integrado as suas aplicações com Azure AD para SSO.|
 
 ## <a name="scenario-2-automate-provisioning-and-deprovisioning"></a>Cenário 2: Automatizar o provisionamento e a desprovisionamento 
 

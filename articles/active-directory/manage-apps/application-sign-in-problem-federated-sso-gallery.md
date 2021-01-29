@@ -12,17 +12,17 @@ ms.date: 02/18/2019
 ms.author: kenwith
 ms.reviewer: luleon, asteen
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 596af29fe72a41b5a86a09e4e6d5072d63b6ac71
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 62b828a23805c6d3ab544dd2b9f78b45a3327cde
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97586351"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053402"
 ---
 # <a name="problems-signing-in-to-saml-based-single-sign-on-configured-apps"></a>Problemas ao iniciar sessão em aplicações configuradas com o início de sessão único com base no SAML
 Para resolver os problemas de inscrição abaixo, recomendamos o seguinte para um melhor diagnóstico e automatizar as etapas de resolução:
 
-- Instale a [Extensão de Browser Seguro das Minhas Aplicações](./access-panel-deployment-plan.md) para ajudar o Azure Active Directory (AAD) a proporcionar melhores diagnósticos e resoluções ao utilizar a experiência de teste no portal do Azure.
+- Instale a [Extensão de Browser Seguro das Minhas Aplicações](my-apps-deployment-plan.md) para ajudar o Azure Active Directory (AAD) a proporcionar melhores diagnósticos e resoluções ao utilizar a experiência de teste no portal do Azure.
 - Reproduza o erro com a experiência de teste na página de configuração da aplicação no portal do Azure. Saiba mais sobre [aplicações únicas baseadas em Debug SAML](./debug-saml-sso-issues.md)
 
 Se utilizar a experiência de [teste](./debug-saml-sso-issues.md) no portal Azure com a Extensão do Navegador Seguro das Minhas Aplicações, não precisa de seguir manualmente os passos abaixo para abrir a página de configuração única baseada em SAML.

@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/27/2020
-ms.openlocfilehash: ff195f7a0071c06d5309f95f77e32ae75f584f82
-ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
+ms.openlocfilehash: 8181097425045e5b1ed838c5fcc08b0069185908
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96749169"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051962"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Quickstart: Criar tarefas, processos e fluxos de trabalho automatizados com o Azure Logic Apps – Visual Studio
 
@@ -60,6 +60,8 @@ Neste arranque rápido, cria-se a mesma aplicação lógica com o Visual Studio 
   > [!IMPORTANT]
   > Se quiser utilizar o conector do Gmail, apenas as contas de negócios da G-Suite podem utilizar este conector sem restrições em aplicações lógicas. Se tiver uma conta de consumo do Gmail, pode utilizar este conector apenas com serviços específicos aprovados pela Google, ou pode [criar uma aplicação para clientes da Google para utilizar para autenticação com o seu conector Gmail.](/connectors/gmail/#authentication-and-bring-your-own-application) Para obter mais informações, consulte [as políticas de segurança de dados e privacidade para conectores google em Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
+* Se a sua aplicação lógica necessitar de comunicar através de uma firewall que limite o tráfego a endereços IP específicos, essa firewall precisa de permitir o acesso tanto aos endereços IP [de entrada](logic-apps-limits-and-config.md#inbound) *como* [de saída](logic-apps-limits-and-config.md#outbound) utilizados pelo serviço De aplicações lógicas ou ao tempo de funcionamento na região de Azure, onde existe a sua aplicação lógica. Se a sua aplicação lógica também utilizar [conectores geridos](../connectors/apis-list.md#managed-api-connectors)– como o conector Office 365 Outlook ou o conector SQL, ou utilizar [conectores personalizados](/connectors/custom-connectors/)– a firewall também precisa de permitir o acesso de *todos os* [endereços IP de saída geridos](logic-apps-limits-and-config.md#outbound) do conector na região Azure da sua aplicação lógica.
+
 <a name="azure-government"></a>
 
 ## <a name="set-up-visual-studio-for-azure-government"></a>Configurar o Visual Studio para o Azure Government
@@ -72,7 +74,7 @@ Pode utilizar a [extensão Azure Environment Seletor Visual Studio,](https://dev
 
 Para trabalhar com subscrições do Governo Azure em Azure Logic Apps, você precisa [adicionar um ponto final de descoberta para Azure Government Cloud ao Visual Studio](../azure-government/documentation-government-connect-vs.md). No entanto, *antes de iniciar seduca no Visual Studio com a sua conta do Governo Azure,* tem de mudar o nome do ficheiro JSON gerado depois de adicionar o ponto final da descoberta seguindo estes passos:
 
-1. Close Visual Studio.
+1. Feche o Visual Studio.
 
 1. Encontre o ficheiro JSON gerado nomeado `Azure U.S. Government-A3EC617673C6C70CC6B9472656832A26.Configuration` neste local:
 
@@ -140,7 +142,7 @@ Quando tiver o seu projeto Azure Resource Group, crie a sua aplicação lógica 
 
    ![Selecionar a subscrição do Azure, o grupo de recursos e a localização dos recursos](./media/quickstart-create-logic-apps-with-visual-studio/select-azure-subscription-resource-group-location.png)
 
-   | Definições | Valor de exemplo | Description |
+   | Definição | Valor de exemplo | Description |
    | ------- | ------------- | ----------- |
    | Conta de utilizador | Fabrikam <br> sophia-owen@fabrikam.com | A conta que usou quando se inscreveu no Visual Studio |
    | **Subscrição** | "Pay As You Go" <br> (sophia-owen@fabrikam.com) | O nome da sua subscrição do Azure e a conta associada |
@@ -216,7 +218,7 @@ Quando tiver um projeto do Grupo de Recursos Azure existente, pode adicionar uma
 
    ![Adicionar recurso](./media/quickstart-create-logic-apps-with-visual-studio/add-logic-app-resource.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando terminar a sua aplicação lógica, elimine o grupo de recursos que contém a sua aplicação lógica e recursos relacionados.
 

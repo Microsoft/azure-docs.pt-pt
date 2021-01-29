@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 161272fe35ee9ea1e0880b991273e5d1a79eafb4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec74ca19978a4164289276d44b34eb14b694687f
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90987335"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051586"
 ---
 # <a name="author-graphical-runbooks-in-azure-automation"></a>Livros gráficos do autor na Azure Automation
 
@@ -34,7 +34,7 @@ O controlo de tela permite-lhe conceber o seu runbook. Pode adicionar atividades
 
 O controlo da Biblioteca permite-lhe selecionar [atividades](#use-activities) para adicionar ao seu runbook. Adicione-os à tela, onde pode ligá-los a outras atividades. O controlo da Biblioteca inclui as secções definidas na tabela seguinte.
 
-| Section | Descrição |
+| Section | Description |
 |:--- |:--- |
 | Cmdlets |Todos os cmdlets que podem ser usados no seu runbook. Os cmdlets são organizados por módulo. Todos os módulos que instalou na sua conta Demôm automação estão disponíveis. |
 | Runbooks |Os livros na sua conta de Automação. Pode adicionar estes livros à tela para serem usados como livros infantis. Apenas são apresentados livros de bordo do mesmo tipo de núcleo que o livro de bordo que está a ser editado. Para livros gráficos, apenas são apresentados livros de execução baseados em PowerShell. Para os livros gráficos de fluxo de trabalho powerShell, apenas são apresentados livros de execução baseados em fluxos de trabalho powerShell. |
@@ -69,7 +69,7 @@ No exemplo seguinte, o [cmdlet Get-AzVM](/powershell/module/az.compute/get-azvm?
 
 Quando especificar um valor para um parâmetro, selecione uma fonte de dados para determinar como o valor é especificado. As fontes de dados disponíveis para um determinado parâmetro dependem dos valores válidos para esse parâmetro. Por exemplo, Null não é uma opção disponível para um parâmetro que não permite valores nulos.
 
-| Origem de dados | Descrição |
+| Origem de dados | Description |
 |:--- |:--- |
 | Valor Constante |Digite um valor para o parâmetro. Esta fonte de dados só está disponível para os seguintes tipos de dados: Int32, Int64, String, Boolean, DateTime, Switch. |
 | Saída de Atividade |Utilize a produção de uma atividade que precede a atividade atual no fluxo de trabalho. Todas as atividades válidas estão listadas. Para o valor do parâmetro, utilize apenas a atividade que produz a saída. Se a atividade der um objeto com múltiplas propriedades, pode digitar o nome de uma propriedade específica após a seleção da atividade. |
@@ -95,7 +95,7 @@ Quando ativar a repetição de uma atividade, pode definir um atraso e uma condi
 
 A condição de relemissão é uma expressão PowerShell que é avaliada após cada vez que a atividade é executado. Se a expressão se resolver para True, a atividade volta a funcionar. Se a expressão se resolver para Falso, a atividade não volta a funcionar e o livro passa para a atividade seguinte.
 
-:::image type="content" source="media/automation-graphical-authoring-intro/retry-condition.png" alt-text="Screenshot das definições de funcionalidade de relíndi ativação.":::
+:::image type="content" source="media/automation-graphical-authoring-intro/retry-condition.png" alt-text="Screenshot mostrando a Retry até que esta condição seja um campo verdadeiro e exemplos de expressões PowerShell que podem ser usadas na condição de relemissão.":::
 
 A condição de retagem pode usar uma variável nomeada `RetryData` que dá acesso à informação sobre as retrações da atividade. Esta variável tem as propriedades no quadro seguinte:
 
@@ -151,7 +151,7 @@ Pode criar uma ligação entre duas atividades selecionando a atividade de orige
 
 Selecione o link para configurar as suas propriedades na lâmina de configuração. As propriedades incluem o tipo de ligação, que é descrito na tabela seguinte.
 
-| Tipo de ligação | Descrição |
+| Tipo de ligação | Description |
 |:--- |:--- |
 | Pipeline |A atividade de destino é executado uma vez para cada saída de objeto da atividade de origem. A atividade de destino não funciona se a atividade de origem não resultar em saída. A saída da atividade de origem está disponível como um objeto. |
 | Sequence |A atividade de destino funciona apenas uma vez quando recebe a produção da atividade de origem. A saída da atividade da fonte está disponível como uma variedade de objetos. |
@@ -257,7 +257,7 @@ Cada parâmetro de entrada é definido pelas propriedades no quadro seguinte:
 | Propriedade | Descrição |
 |:--- |:--- |
 | Nome | Obrigatório. O nome do parâmetro. O nome deve ser único dentro do livro de bordo. Deve começar com uma letra e conter apenas letras, números e sublinhados. O nome não pode conter um espaço. |
-| Descrição |Opcional. Descrição da finalidade para o parâmetro de entrada. |
+| Description |Opcional. Descrição da finalidade para o parâmetro de entrada. |
 | Tipo | Opcional. Tipo de dados esperado para o valor do parâmetro. O portal Azure fornece um controlo adequado para o tipo de dados para cada parâmetro quando solicita a entrada. Os parâmetros suportados são String, Int32, Int64, Decimal, Boolean, DateTime e Object. Se um tipo de dado não for selecionado, predefinitivo ao String.|
 | Obrigatório | Opcional. Definição que especifica se deve ser fornecido um valor para o parâmetro. Se `yes` escolher, deve ser fornecido um valor quando o livro de recortes for iniciado. Se `no` escolher, não é necessário um valor quando o livro de execução é iniciado e pode ser utilizado um valor predefinido. O livro de execuções não pode arrancar se não fornecer um valor para cada parâmetro obrigatório que não tenha um valor padrão definido. |
 | Valor Predefinido | Opcional. O valor utilizado para um parâmetro se não for passado quando o livro de bordo for iniciado. Para definir um valor predefinido, escolha `Custom` . Selecione `None` se não quiser fornecer qualquer valor predefinido. |
@@ -373,7 +373,7 @@ O exemplo a seguir utiliza a saída de uma atividade chamada `Get Twitter Connec
 
 ## <a name="authenticate-to-azure-resources"></a>Autenticar recursos da Azure
 
-Os runbooks na Azure Automation que gerem os recursos da Azure requerem autenticação ao Azure. A [conta Run As](./manage-runas-account.md), também referida como principal de serviço, é o mecanismo padrão que um runbook Automation usa para aceder aos recursos do Azure Resource Manager na sua subscrição. Pode adicionar esta funcionalidade a um runbook gráfico adicionando o `AzureRunAsConnection` ativo de ligação, que utiliza o cmdlet PowerShell [Get-AutomationConnection,](/system-center/sma/manage-global-assets) à tela. Também pode adicionar o [cmdlet Connect-AzAccount.](/powershell/module/az.accounts/connect-azaccount) Este cenário é ilustrado no exemplo seguinte.
+Os runbooks na Azure Automation que gerem os recursos da Azure requerem autenticação ao Azure. A [conta Run As](./automation-security-overview.md), também referida como principal de serviço, é o mecanismo padrão que um runbook Automation usa para aceder aos recursos do Azure Resource Manager na sua subscrição. Pode adicionar esta funcionalidade a um runbook gráfico adicionando o `AzureRunAsConnection` ativo de ligação, que utiliza o cmdlet PowerShell [Get-AutomationConnection,](/system-center/sma/manage-global-assets) à tela. Também pode adicionar o [cmdlet Connect-AzAccount.](/powershell/module/az.accounts/connect-azaccount) Este cenário é ilustrado no exemplo seguinte.
 
 ![Executar como atividades de autenticação](media/automation-graphical-authoring-intro/authenticate-run-as-account.png)
 

@@ -2,19 +2,15 @@
 title: Começar com a configuração do Estado da Automação Azure
 description: Este artigo diz como fazer as tarefas mais comuns na Configuração do Estado da Automação Azure.
 services: automation
-ms.service: automation
 ms.subservice: dsc
-author: mgoedtel
-ms.author: magoedte
 ms.date: 04/15/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 25f5e92aa8aa211782bc238781c59b9ca0511173
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 95072970004ae53663f130a78af36a84a6fab685
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897246"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051503"
 ---
 # <a name="get-started-with-azure-automation-state-configuration"></a>Começar com a configuração do Estado da Automação Azure
 
@@ -26,7 +22,7 @@ Se quiser um ambiente de amostra que já esteja configurado sem seguir os passos
 
 Para completar os exemplos deste artigo, são necessários os seguintes:
 
-- Uma conta de Automatização do Azure. Para obter instruções sobre como criar uma conta Run As de Automatização do Azure, veja [Conta Run As do Azure](./manage-runas-account.md).
+- Uma conta de Automatização do Azure. Para saber mais sobre uma conta De Automação e seus requisitos, consulte [a visão geral da autenticação da Conta de Automação.](./automation-security-overview.md)
 - Um VM (não Clássico) gestor de recursos Azure com um [sistema operativo suportado.](automation-dsc-overview.md#operating-system-requirements) Para obter instruções sobre como criar uma VM, veja [Criar a sua primeira máquina virtual do Windows no portal do Azure](../virtual-machines/windows/quick-create-portal.md)
 
 ## <a name="create-a-dsc-configuration"></a>Criar uma configuração DSC
@@ -231,7 +227,7 @@ Se já não pretender que um nó seja gerido pela Configuração do Estado, pode
 
     ![Screenshot da página de detalhes do nó realçando o botão Unregister](./media/automation-dsc-getting-started/UnregisterNode.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter uma visão geral, consulte [a visão geral da configuração do Estado da Automação Azure](automation-dsc-overview.md).
 - Para ativar a funcionalidade de VMs no seu ambiente, consulte [ativar a configuração do Estado da Automação Azure](automation-dsc-onboarding.md).

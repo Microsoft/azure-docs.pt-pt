@@ -12,12 +12,12 @@ metadata:
   author: kenwith
   ms.author: kenwith
   manager: celested
-  ms.openlocfilehash: aa77188b8784c2106daf2f35d15e165b3964b56f
-  ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+  ms.openlocfilehash: e3f258813fd937fa82ce108150b84e9ce78f77aa
+  ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/23/2021
-  ms.locfileid: "98730460"
+  ms.lasthandoff: 01/29/2021
+  ms.locfileid: "99052267"
 landingContent:
 - title: Sobre a gestão de aplicações
   linkLists:
@@ -96,7 +96,7 @@ landingContent:
   - linkListType: learn
     links:
     - text: Planear uma implementação de As Minhas Aplicações
-      url: access-panel-deployment-plan.md
+      url: my-apps-deployment-plan.md
     - text: Criar coleções
       url: access-panel-collections.md
 - title: Desenvolver novas aplicações

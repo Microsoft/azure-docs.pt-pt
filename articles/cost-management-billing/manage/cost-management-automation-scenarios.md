@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: reference
 ms.date: 01/26/2021
 ms.author: banders
-ms.openlocfilehash: 40eb6bbb952596e015be7c1ed29dbefb3fb6016d
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 12c13b8a65296fb0ee74e0ee0449b604facf2f48
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897718"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051266"
 ---
 # <a name="automation-scenarios-for-billing-and-cost-management"></a>Cenários de automatização para faturação e gestão de custos
 
@@ -49,8 +49,8 @@ Pode utilizar as APIs de faturação e gestão de custos em vários cenários pa
 | Detalhes de Utilização               |             X             |         X        |           X          |         X        |          X         |     X     |
 | Períodos de Faturação             |             X             |         X        |           X          |         X        |                    |           |
 | Faturas                    |             X             |         X        |           X          |         X        |                    |           |
-| RateCard                    |             X             |                  |           X          |         X        |          X         |           |
-| Utilização sem Classificação               |             X             |                  |           X          |                  |          X         |           |
+| Preços de retalho Azure                    |             X             |                  |           X          |         X        |                    |           |
+
 
 > [!NOTE]
 > O mapeamento de cenário para API não inclui as APIs de Consumo do Enterprise. Sempre que possível, utilize as APIs de Consumo geral nos novos cenários de desenvolvimento.
@@ -74,9 +74,7 @@ Os clientes Web Direct e Enterprise podem utilizar todas as APIs que se seguem, 
 
 -    [API Detalhes de Utilização](/rest/api/consumption/usagedetails): Obtenha informações de custos e utilização em todos os recursos do Azure da Microsoft. As informações estão na forma de registos de detalhes de utilização, que atualmente são emitidos uma vez por dia para cada medidor. Pode utilizar as informações para somar os custos em todos os recursos ou para investigar os custos/utilização em recursos específicos.
 
--    [API RateCard](/previous-versions/azure/reference/mt219005(v=azure.100)): Obtenha tarifas de medição se for um cliente Web Direct. Em seguida, pode utilizar as informações devolvidas com as informações de utilização dos recursos para calcular manualmente a fatura esperada.
-
--    [API de Utilização sem Classificação](/previous-versions/azure/reference/mt219003(v=azure.100)): Obtenha informações brutas de utilização antes que o Azure faça qualquer medição/faturação.
+-    [Preços de venda a retalho Azure](/rest/api/cost-management/retail-prices/azure-retail-prices): Obtenha preços de contador com preços de pagamento. Em seguida, pode utilizar as informações devolvidas com as informações de utilização dos recursos para calcular manualmente a fatura esperada.
 
 ### <a name="billing"></a>Faturação
 -    [API de Períodos de Faturação](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods): Determine um período de faturação a analisar, juntamente com as IDs de fatura para esse período. Pode utilizar IDs de fatura com a API de Faturas.
@@ -107,16 +105,6 @@ Estas APIs têm um conjunto de funcionalidades semelhante e podem responder ao m
 
 - As APIs de Consumo estão disponíveis para todos os clientes, com algumas exceções. Para obter mais informações, veja [Descrição geral da API de consumo do Azure](consumption-api-overview.md) e a [ referência da API de Consumo do Azure](/rest/api/consumption/). Recomendamos as APIs fornecidas como a solução para os cenários de desenvolvimento mais recentes.
 
-### <a name="whats-the-difference-between-the-usage-details-api-and-the-usage-api"></a>Qual é a diferença entre a API de Detalhes de Utilização e a API de Utilização?
-Estas APIs fornecem dados fundamentalmente diferentes:
-
-- A [API de Detalhes de Utilização](/rest/api/consumption/usagedetails) fornece informações de utilização e custo do Azure por instância de medidor. Os dados fornecidos já passaram pelo sistema de medição de custos no Azure e foram-lhes aplicados os custos, juntamente com outras alterações possíveis:
-
-   - Alterações à conta para a utilização de montantes pré-pagos do Pré-pagamento do Azure
-   - Alterações à conta para discrepâncias de utilização descobertas pelo Azure
-
-- A [API de utilização](/previous-versions/azure/reference/mt219003(v=azure.100)) fornece informações brutas de utilização do Azure antes de passar pelo sistema de medição de custos no Azure. Estes dados podem não ter nenhuma correlação com a utilização ou o montante de faturação que é visto após o sistema de medição de carga do Azure.
-
 ### <a name="whats-the-difference-between-the-invoice-api-and-the-usage-details-api"></a>Qual é a diferença entre a API de Fatura e a API de Detalhes de Utilização?
 Estas APIs fornecem uma vista diferente dos mesmos dados:
 
@@ -129,7 +117,7 @@ Estas APIs fornecem conjuntos de dados semelhantes, mas têm públicos diferente
 
 - A [API da Folha de Preços](/rest/api/consumption/pricesheet) fornece os preços personalizados que foram negociados para um cliente Enterprise.
 
-- A [API do RateCard ](/previous-versions/azure/reference/mt219005(v=azure.100)) fornece os preços destinados ao público que se aplicam aos clientes Web Direct.
+- A [Azure Retail Prices API](/rest/api/cost-management/retail-prices/azure-retail-prices) fornece preços de pagamento virados para o público que se aplica aos clientes Web Direct.
 
 ## <a name="next-steps"></a>Passos seguintes
 

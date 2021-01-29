@@ -3,22 +3,18 @@ title: 'Quickstart: Criar uma conta de Automação - Modelo Azure'
 titleSuffix: Azure Automation
 description: Este quickstart mostra como criar uma conta Demôm automação utilizando o modelo Azure Resource Manager.
 services: automation
-documentationcenter: na
-author: mgoedtel
 Customer intent: I want to create an Automation account by using an Azure Resource Manager template so that I can automate processes with runbooks.
-ms.service: automation
-ms.devlang: na
 ms.topic: quickstart
 ms.workload: infrastructure-services
-ms.date: 07/23/2020
+ms.date: 01/07/2021
 ms.author: magoedte
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: 9315b898e290dc758c300f9b74006b4b08888e9e
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: d0582876a08b433a10106b97179ab603d4ec5762
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078957"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050673"
 ---
 # <a name="quickstart-create-an-automation-account-by-using-arm-template"></a>Quickstart: Criar uma conta de Automação utilizando o modelo ARM
 
@@ -44,7 +40,7 @@ Este modelo de amostra executa o seguinte:
 * Adiciona livros de amostra de automatização à conta.
 
 >[!NOTE]
->Criação da automatização Executada Como a conta não é suportada quando se está a utilizar um modelo ARM. Para criar uma conta Run As manualmente a partir do portal ou com o PowerShell, consulte [Gerir como contas](manage-runas-account.md).
+>Criação da automatização Executada Como a conta não é suportada quando se está a utilizar um modelo ARM. Para criar uma conta Run As manualmente a partir do portal ou com o PowerShell, consulte [a conta Criar Como](create-run-as-account.md).
 
 Depois de completar estes passos, precisa de [configurar as definições](automation-manage-send-joblogs-log-analytics.md) de diagnóstico para a sua conta Demôm automação para enviar o estado de trabalho do runbook e os fluxos de trabalho para o espaço de trabalho do Log Analytics ligado.
 
@@ -116,7 +112,7 @@ Se é novo na Azure Automation e Azure Monitor, é importante que compreenda os 
 
     ![Conta de automação ligada ao espaço de trabalho Log Analytics](./media/quickstart-create-automation-account-template/automation-account-linked-workspace.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não precisar deles, desvincular a conta Desvinculação do espaço de trabalho Do Log Analytics e, em seguida, eliminar a conta de Automação e espaço de trabalho.
 

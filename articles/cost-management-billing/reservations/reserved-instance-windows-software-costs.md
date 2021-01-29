@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 01/28/2021
 ms.author: banders
-ms.openlocfilehash: 625c40ea17cf20449f1be241a1605a80bf6a73f1
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
-ms.translationtype: HT
+ms.openlocfilehash: 464e129314a369c14dcc6bc6c16eadf5f8bcf01f
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353005"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052994"
 ---
 # <a name="software-costs-not-included-with-azure-reserved-vm-instances"></a>Custos do software não incluídos no Azure Reserved VM Instances
 
@@ -61,7 +61,7 @@ A instância de máquina virtual reservada e os descontos de capacidade reservad
 
 ## <a name="get-rates-for-azure-meters"></a>Obter as tarifas dos medidores do Azure
 
-Pode obter o custo de cada um destes medidores com a API RateCard do Azure. Para obter informações sobre como obter as tarifas de um medidor do Azure, veja [Get price and metadata information for resources used in an Azure subscription](/previous-versions/azure/reference/mt219004(v=azure.100)) (Obter informações de preço e metadados dos recursos utilizados numa subscrição do Azure).
+Você pode obter o custo de cada um dos contadores com a AZure Retail Prices API. Para obter informações sobre como obter as tarifas de um medidor Azure, consulte [a visão geral dos preços de venda a retalho do Azure](/rest/api/cost-management/retail-prices/azure-retail-prices).
 
 ## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre as reservas do Azure, veja os seguintes artigos:

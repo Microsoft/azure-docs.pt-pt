@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/30/2020
-ms.openlocfilehash: aad271875abb9024a1ecc7f45018c04d8c79ce95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95275e68d0c7674caf4dd2b20f5586db5193fd03
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842568"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054064"
 ---
 # <a name="tutorial-create-schedule-based-and-recurring-automation-workflows-with-azure-logic-apps"></a>Tutorial: Criar fluxos de trabalho de automatização baseados em horários e recorrentes com apps Azure Logic
 
@@ -43,6 +43,8 @@ Quando terminar, a aplicação lógica é semelhante a este fluxo de trabalho a 
 
 * Para obter o tempo de deslocação para um percurso, precisa de uma chave de acesso para a API do Mapas Bing. Para obter esta chave, siga os passos em [How to get a Bing Maps key](/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key) (Como obter uma chave do Mapas Bing).
 
+* Se a sua aplicação lógica necessitar de comunicar através de uma firewall que limite o tráfego a endereços IP específicos, essa firewall precisa de permitir o acesso tanto aos endereços IP [de entrada](logic-apps-limits-and-config.md#inbound) *como* [de saída](logic-apps-limits-and-config.md#outbound) utilizados pelo serviço De aplicações lógicas ou ao tempo de funcionamento na região de Azure, onde existe a sua aplicação lógica. Se a sua aplicação lógica também utilizar [conectores geridos](../connectors/apis-list.md#managed-api-connectors)– como o conector Office 365 Outlook ou o conector SQL, ou utilizar [conectores personalizados](/connectors/custom-connectors/)– a firewall também precisa de permitir o acesso de *todos os* [endereços IP de saída geridos](logic-apps-limits-and-config.md#outbound) do conector na região Azure da sua aplicação lógica.
+
 ## <a name="create-your-logic-app"></a>Criar uma aplicação lógica
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com as credenciais da sua conta do Azure. Na página inicial do Azure, selecione **Criar um recurso**.
@@ -57,10 +59,10 @@ Quando terminar, a aplicação lógica é semelhante a este fluxo de trabalho a 
 
    | Propriedade | Valor | Descrição |
    |----------|-------|-------------|
-   | **Subscrição** | <*Nome de subscrição Azure*> | O nome da subscrição do Azure. Este exemplo `Pay-As-You-Go` utiliza. |
+   | **Subscrição** | <*Nome de subscrição Azure*> | O nome da subscrição do Azure. Este exemplo utiliza `Pay-As-You-Go`. |
    | **Grupo de recursos** | LA-TravelTime-RG | O nome para o [grupo de recursos Azure,](../azure-resource-manager/management/overview.md)que é usado para organizar recursos relacionados. Este exemplo cria um novo grupo de recursos chamado `LA-TravelTime-RG` . |
-   | **Nome** | LA-TravelTime | O nome da sua aplicação lógica, que contém apenas letras, números, hífenes `-` (), sublinha `_` (), parênteses ( `(` , ) e `)` períodos `.` (). Este exemplo `LA-TravelTime` utiliza. |
-   | **Localização** | E.U.A. Oeste | A região onde armazenar a sua informação lógica de aplicações. Este exemplo `West US` utiliza. |
+   | **Nome** | LA-TravelTime | O nome da sua aplicação lógica, que contém apenas letras, números, hífenes `-` (), sublinha `_` (), parênteses ( `(` , ) e `)` períodos `.` (). Este exemplo utiliza `LA-TravelTime`. |
+   | **Localização** | E.U.A. Oeste | A região onde armazenar a sua informação lógica de aplicações. Este exemplo utiliza `West US`. |
    | **Log Analytics** | Desligado | Mantenha a definição **Desativado** para o registo de diagnósticos. |
    ||||
 
@@ -92,8 +94,8 @@ Em seguida, adicione o [gatilho](../logic-apps/logic-apps-overview.md#logic-app-
 
    | Propriedade | Necessário | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | **Intervalo** | Sim | 1 | O número de intervalos de espera entre verificações |
-   | **Frequência** | Sim | Semana | A unidade de tempo a utilizar para a periodicidade |
+   | **Intervalo** | Yes | 1 | O número de intervalos de espera entre verificações |
+   | **Frequência** | Yes | Semana | A unidade de tempo a utilizar para a periodicidade |
    |||||
 
 1. Em **Intervalo** e **Frequência,** abra a nova lista **de parâmetros add** e selecione estas propriedades para adicionar ao gatilho.
@@ -141,15 +143,15 @@ Agora que tem um acionador, adicione uma [ação](../logic-apps/logic-apps-overv
 
    | Propriedade | Necessário | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | **Nome de conexão** | Sim | BingMapsConnection | Indique um nome para a ligação. Este exemplo `BingMapsConnection` utiliza. |
-   | **Chave de API** | Sim | <*Bing-Maps-API-chave*> | Insira a chave API Bing Maps que recebeu anteriormente. Se não tiver uma chave do Mapas Bing, saiba [como obtê-la](/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key). |
+   | **Nome de conexão** | Yes | BingMapsConnection | Indique um nome para a ligação. Este exemplo utiliza `BingMapsConnection`. |
+   | **Chave de API** | Yes | <*Bing-Maps-API-chave*> | Insira a chave API Bing Maps que recebeu anteriormente. Se não tiver uma chave do Mapas Bing, saiba [como obtê-la](/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key). |
    |||||
 
 1. Rebatize a ação com esta descrição: `Get route and travel time with traffic` .
 
-1. Na ação, abra a **nova lista de parâmetros Add**e selecione estas propriedades.
+1. Na ação, abra a **nova lista de parâmetros Add** e selecione estas propriedades.
 
-   * **Otimizar**
+   * **Otimização**
    * **Distance unit**
    * **Travel mode**
 
@@ -161,11 +163,11 @@ Agora que tem um acionador, adicione uma [ação](../logic-apps/logic-apps-overv
 
    | Propriedade | Necessário | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | **Waypoint 1** | Sim | <*localização inicial*> | A origem da sua rota. Este exemplo especifica um endereço inicial de exemplo. |
-   | **Waypoint 2** | Sim | <*localização final*> | O destino da sua rota. Este exemplo especifica um endereço de destino exemplo. |
-   | **Otimizar** | Não | timeWithTraffic | Um parâmetro para otimizar o percurso, por exemplo, a distância, o tempo de deslocação com o tráfego atual e assim sucessivamente. Selecione o valor do parâmetro, **timeWithTraffic**. |
-   | **Distance unit** | Não | <*sua preferência*> | A unidade de distância do percurso. Este exemplo usa **Mile** como unidade. |
-   | **Travel mode** | Não | Driving | O modo de deslocação para o percurso. Selecione o modo **de condução.** |
+   | **Waypoint 1** | Yes | <*localização inicial*> | A origem da sua rota. Este exemplo especifica um endereço inicial de exemplo. |
+   | **Waypoint 2** | Yes | <*localização final*> | O destino da sua rota. Este exemplo especifica um endereço de destino exemplo. |
+   | **Otimização** | No | timeWithTraffic | Um parâmetro para otimizar o percurso, por exemplo, a distância, o tempo de deslocação com o tráfego atual e assim sucessivamente. Selecione o valor do parâmetro, **timeWithTraffic**. |
+   | **Distance unit** | No | <*sua preferência*> | A unidade de distância do percurso. Este exemplo usa **Mile** como unidade. |
+   | **Travel mode** | No | Driving | O modo de deslocação para o percurso. Selecione o modo **de condução.** |
    |||||
 
    Para obter mais informações sobre estes parâmetros e valores, consulte [calcular uma rota.](/bingmaps/rest-services/routes/calculate-a-route)
@@ -192,9 +194,9 @@ Por predefinição, a ação **de rota Get** devolve o tempo de viagem atual com
 
    | Propriedade | Necessário | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | **Nome** | Sim | travelTime | O nome para a sua variável. Este exemplo `travelTime` utiliza. |
-   | **Tipo** | Sim | Número inteiro | O tipo de dados da variável |
-   | **Valor** | Não | Uma expressão que converte o tempo de viagem atual de segundos para minutos (ver os passos por baixo desta tabela). | O valor iniciar da variável |
+   | **Nome** | Yes | travelTime | O nome para a sua variável. Este exemplo utiliza `travelTime`. |
+   | **Tipo** | Yes | Número inteiro | O tipo de dados da variável |
+   | **Valor** | No | Uma expressão que converte o tempo de viagem atual de segundos para minutos (ver os passos por baixo desta tabela). | O valor iniciar da variável |
    |||||
 
    1. Para criar a expressão para a propriedade **Valor,** clique dentro da caixa para que a lista de conteúdos dinâmicos apareça. Se necessário, aumente o seu navegador até que a lista dinâmica apareça. Na lista de conteúdos dinâmicos, selecione **Expression**, que mostra o editor de expressão.
@@ -367,7 +369,7 @@ A sua aplicação lógica continua a funcionar até desativar ou eliminar a apli
    > [!TIP]
    > Se a página inicial do Azure mostrar o grupo de recursos sob **recursos recentes,** pode selecionar o grupo na página inicial.
 
-1. No menu do grupo de recursos, verifique **se a visão geral** está selecionada. Na barra de **ferramentas** do painel de ferramentas do painel de ferramentas do painel de ferramentas, selecione **Delete resource group**.
+1. No menu do grupo de recursos, verifique **se a visão geral** está selecionada. Na barra de **ferramentas** do painel de ferramentas, selecione **Delete resource group**.
 
    ![Screenshot que mostra o painel "Visão Geral" do grupo de recursos e na barra de ferramentas do painel, "Delete resource group" é selecionado.](./media/tutorial-build-scheduled-recurring-logic-app-workflow/delete-resource-group.png)
 

@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 01/29/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b980624ebf55c3666bcc7dd1d60f681d788c95ae
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: 866af8b992374492286f47357f108a01f35e560b
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98987063"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051046"
 ---
 # <a name="azure-active-directory-b2c-service-limits-and-restrictions"></a>Limites e restrições de serviço Azure Ative Directory B2C
 
@@ -40,17 +40,15 @@ O quadro que se segue lista os limites de configuração administrativa no servi
 |Categoria  |Limite  |
 |---------|---------|
 |Número de pedidos por inquilino Azure AD B2C   |250           |
-|Número de políticas por inquilino Azure AD B2C       |200          |
-|Tamanho máximo do ficheiro de política      |400 KB          |
 |Número de âmbitos por aplicação        |1000          |
-|Número de atributos personalizados por utilizador <sup>1</sup>       |100         |
+|Número de [atributos personalizados](user-profile-attributes.md#extension-attributes)   por utilizador <sup>1</sup>       |100         |
 |Número de URLs de redirecionamento por aplicação       |100         |
 |Número de URLs por aplicação        |1          |
 |Limite de corda por atributo      |250 Chars          |
 |Número de inquilinos B2C por subscrição      |20         |
 |Níveis de [herança](custom-policy-overview.md#inheritance-model) em políticas personalizadas     |10         |
-|Número de políticas por inquilino Azure AD B2C      |200         |
-|Tamanho máximo do ficheiro de política      |400 KB         |
+|Número de políticas por inquilino Azure AD B2C      |200          |
+|Tamanho máximo do ficheiro de política      |400 KB          |
 
 <sup>1</sup> Consulte também [os limites e restrições de serviço AZure AD](../active-directory/enterprise-users/directory-service-limits-restrictions.md).
 

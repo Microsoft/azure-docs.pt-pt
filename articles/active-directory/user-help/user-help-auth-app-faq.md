@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 01/15/2020
+ms.date: 01/28/2021
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 2be1c7f76055cad1cf8b51938a65c7bbe6b2917e
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 369ec11050fa7dbc09159d88793685ad5fbdb3e5
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881083"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053965"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Perguntas frequentes (FAQ) sobre a aplicação Microsoft Authenticator
 
@@ -67,7 +67,11 @@ A aplicação Microsoft Authenticator substituiu a aplicação Azure Authenticat
 
 **P:** Que dados o Autenticador armazena em meu nome e como posso eliminá-lo?
 
-**R**: A aplicação Authenticator recolhe três tipos de informação:<ul><li>Informações de conta que fornece quando adiciona a sua conta. Estes dados podem ser removidos removendo a sua conta.</li><li>Dados de registo de diagnóstico que permanecem apenas na aplicação até que selecione **Enviar Registos** do menu **de Ajuda** da aplicação para enviar registos para a Microsoft. Estes registos podem conter dados pessoais, tais como endereços de e-mail, endereços de servidor ou endereços IP. Também podem conter dados do dispositivo, como o nome do dispositivo e a versão do sistema operativo. Todos os dados pessoais recolhidos estão limitados a informações necessárias para ajudar a resolver problemas com as aplicações. Pode navegar nestes ficheiros de registo na aplicação a qualquer momento para ver a informação a ser recolhida. Se enviar os seus ficheiros de registo, os engenheiros de aplicações de autenticação utilizarão apenas para resolver problemas reportados pelo cliente.</li><li>Dados de utilização não pessoalmente identificáveis, tais "começaram a adicionar fluxo de conta/conta adicionada com sucesso", ou "notificação aprovada". Estes dados são parte integrante das nossas decisões de engenharia. O seu uso ajuda-nos a determinar onde podemos melhorar as aplicações de formas que são importantes para si. Vê uma notificação desta recolha de dados quando utiliza a app pela primeira vez. Informa-o então que pode ser desligado na página **de Definições** da aplicação. Pode ligar ou desligar esta definição a qualquer momento.</li></ul>
+**R**: A aplicação Authenticator recolhe três tipos de informação:
+
+- Informações de conta que fornece quando adiciona a sua conta. Estes dados podem ser removidos removendo a sua conta.
+- Dados de registo de diagnóstico que permanecem apenas na aplicação até **enviar feedback** no menu principal da aplicação para enviar registos para a Microsoft. Estes registos podem conter dados pessoais, tais como endereços de e-mail, endereços de servidor ou endereços IP. Também podem conter dados do dispositivo, como o nome do dispositivo e a versão do sistema operativo. Todos os dados pessoais recolhidos estão limitados a informações necessárias para ajudar a resolver problemas com as aplicações. Pode navegar nestes ficheiros de registo na aplicação a qualquer momento para ver a informação a ser recolhida. Se enviar os seus ficheiros de registo, os engenheiros de aplicações de autenticação utilizarão apenas para resolver problemas reportados pelo cliente.
+- Dados de utilização não pessoalmente identificáveis, tais "começaram a adicionar fluxo de conta/conta adicionada com sucesso", ou "notificação aprovada". Estes dados são parte integrante das nossas decisões de engenharia. O seu uso ajuda-nos a determinar onde podemos melhorar as aplicações de formas que são importantes para si. Vê uma notificação desta recolha de dados quando utiliza a app pela primeira vez. Informa-o de que pode ser desligado na página **de Definições** da aplicação.   Pode ligar ou desligar esta definição a qualquer momento.
 
 ### <a name="codes-in-the-app"></a>Códigos na aplicação
 
@@ -102,7 +106,7 @@ A aplicação Microsoft Authenticator substituiu a aplicação Azure Authenticat
 
 **P:** Por que só recebo notificações quando a aplicação está aberta? Quando a aplicação está fechada, não recebo notificações.
 
-**R:** Se estiver a receber notificações, mas não um alerta, mesmo com o seu toque ligado, deverá verificar as definições da sua aplicação. Certifique-se de que a aplicação está ligada para usar som ou para vibrar para notificações. Se não receber notificações, deverá verificar as seguintes condições:<ul><li>O seu telefone está no modo "Não Perturbar ou Acalmar"? Estes modos podem impedir que as aplicações enviem notificações.</li><li>Pode receber notificações de outras aplicações? Caso contrário, pode ser um problema com as ligações de rede no seu telemóvel, ou com o canal de notificações do Android ou da Apple. Pode tentar resolver as suas ligações de rede através das definições do seu telefone. Poderá ter de falar com o seu fornecedor de serviços para ajudar no canal de notificações Android ou Apple.</li><li>Pode receber notificações de algumas contas na app, mas não noutras? Se sim, remova a conta problemática da sua app, adicione-a novamente permitindo notificações e veja se isso corrige o problema.</li></ul>Se tentou todos estes passos e ainda está com problemas, recomendamos o envio dos seus ficheiros de registo para diagnósticos. Abra a aplicação, vá para **Ajudar** e, em seguida, selecione **Enviar registos**. Depois disso, vá ao fórum da [aplicação Microsoft Authenticator](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) e diga-nos o problema que está a ver e os passos que tentou.
+**R:** Se estiver a receber notificações, mas não um alerta, mesmo com o seu toque ligado, deverá verificar as definições da sua aplicação. Certifique-se de que a aplicação está ligada para usar som ou para vibrar para notificações. Se não receber notificações, deverá verificar as seguintes condições:<ul><li>O seu telefone está no modo "Não Perturbar ou Acalmar"? Estes modos podem impedir que as aplicações enviem notificações.</li><li>Pode receber notificações de outras aplicações? Caso contrário, pode ser um problema com as ligações de rede no seu telemóvel, ou com o canal de notificações do Android ou da Apple. Pode tentar resolver as suas ligações de rede através das definições do seu telefone. Poderá ter de falar com o seu fornecedor de serviços para ajudar no canal de notificações Android ou Apple.</li><li>Pode receber notificações de algumas contas na app, mas não noutras? Se sim, remova a conta problemática da sua app, adicione-a novamente permitindo notificações e veja se isso corrige o problema.</li></ul>Se tentou todos estes passos e ainda está com problemas, recomendamos o envio dos seus ficheiros de registo para diagnósticos. Abra a aplicação, vá ao menu de topo da app e, em seguida, selecione **Enviar feedback**. Depois disso, vá ao fórum da [aplicação Microsoft Authenticator](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) e diga à Microsoft o problema que está a ver e os passos que tentou.
 
 ### <a name="switch-to-push-notifications"></a>Mudar para notificações push
 
@@ -204,13 +208,13 @@ A aplicação Microsoft Authenticator substituiu a aplicação Azure Authenticat
 
 **P:** A minha aplicação de acompanhante apple watch despenhou-se. Posso enviar-lhe os meus registos de acidentes para que possa investigar?
 
-**R:** Primeiro tem de se certificar de que escolheu partilhar as suas análises connosco. Se é utilizador do TestFlight, já se inscreveu. Caso contrário, pode ir a **Definições > Privacidade > Analytics** e selecionar tanto a análise do **iPhone & Watch partilhada** como a partilha com as opções de **Desenvolvedores de Aplicações.**<br>Depois de se inscrever, pode tentar reproduzir o seu acidente para que os seus registos de acidentes sejam automaticamente enviados para nós para investigação. No entanto, se não conseguir reproduzir o seu crash, pode copiar manualmente os seus ficheiros de registo e enviá-los para nós.<ol><li>Abra a aplicação Watch no seu telefone, vá a **Definições > General**, e, em seguida, clique em **Copy Watch Analytics**.</li><li>Encontre a falha correspondente em **Definições > Privacidade > Analytics > Analytics Data**, e, em seguida, copie manualmente todo o texto.</li><li>Abra o Autenticador no seu telemóvel e cole esse texto copiado para a caixa de texto **Partilhar com Programadores de Aplicações** na página **Enviar registos.**</li></ol>
+**R:** Primeiro tem de se certificar de que escolheu partilhar as suas análises connosco. Se é utilizador do TestFlight, já se inscreveu. Caso contrário, pode ir a **Definições > Privacidade > Analytics** e selecionar tanto a análise do **iPhone & Watch partilhada** como a partilha com as opções de **Desenvolvedores de Aplicações.**<br>Depois de se inscrever, pode tentar reproduzir o seu acidente para que os seus registos de acidentes sejam automaticamente enviados para nós para investigação. No entanto, se não conseguir reproduzir o seu crash, pode copiar manualmente os seus ficheiros de registo e enviá-los para nós.<ol><li>Abra a aplicação Watch no seu telefone, vá a **Definições > General**, e, em seguida, clique em **Copy Watch Analytics**.</li><li>Encontre a falha correspondente em **Definições > Privacidade > Analytics > Analytics Data**, e, em seguida, copie manualmente todo o texto.</li><li>Abra o Autenticador no seu telemóvel e cole esse texto copiado para a  ****  **Descrever o problema em que está a enfrentar a** caixa em que está a ter **problemas?** </li></ol>
 
-## <a name="autofill-for-consumers"></a>Preenchimento automático para consumidores
+## <a name="autofill-with-authenticator"></a>Preenchimento automático com Autenticador
 
-**P:** O que é autofill no Autenticador?
+**P:** O que é autofill com autenticador?
 
-**R**: A aplicação Authenticator agora armazena e preencha automaticamente senhas em aplicações e websites que visita no seu telefone. Pode utilizar o Preenchimento Automático para sincronizar e preencher automaticamente as suas palavras-passe nos seus dispositivos iOS e Android. Depois de configurar a aplicação Authenticator como fornecedor de preenchimento automático no seu telemóvel, oferece-se para guardar as suas palavras-passe quando as insere numa página de sposição de site ou aplicação. As palavras-passe são guardadas como parte da [sua conta Microsoft](https://account.microsoft.com/account) e também estão disponíveis quando iniciar sôs o teste no Microsoft Edge com a sua conta Microsoft.
+**R**: A aplicação Authenticator agora armazena e preencha automaticamente senhas em aplicações e websites que visita no seu telefone. Pode utilizar o Preenchimento Automático para sincronizar e preencher automaticamente as suas palavras-passe nos seus dispositivos iOS e Android. Depois de configurar a aplicação Authenticator como fornecedor de preenchimento automático no seu telemóvel, oferece-se para guardar as suas palavras-passe quando as insere num site ou numa página de sposição de aplicações. As palavras-passe são guardadas como parte da [sua conta pessoal](https://account.microsoft.com/account) da Microsoft e também estão disponíveis quando iniciar sôs o teste no Microsoft Edge com a sua conta pessoal da Microsoft.
 
 **P:** Que informação pode preencher automaticamente o autenticador para mim?
 
@@ -221,23 +225,22 @@ A aplicação Microsoft Authenticator substituiu a aplicação Azure Authenticat
 **A**: Siga estes passos:
 
 1. Abra a aplicação Authenticator.
-1. Nas **Definições** em **Versão Beta,** ligue o **preenchimento automático**.
 1. No separador **Palavras-passe** no Autenticador, selecione **Iniciar sôr-se com a Microsoft** e iniciar sôm-se utilizando a sua conta [Microsoft.](https://account.microsoft.com/account) Atualmente, esta funcionalidade suporta apenas contas da Microsoft e ainda não suporta contas de trabalho ou escolas.
 
 **P:** Como faço do Autenticador o fornecedor de preenchimento automático predefinido no meu telefone?
 
 **A**: Siga estes passos:
 
-1. Abra **as definições** do autenticador e, em **Versão Beta,** ligue **o preenchimento automático**.
-1. No **separador Palavras-Passe** dentro da aplicação, inscreva-se na utilização [da sua conta Microsoft.](https://account.microsoft.com/account)
+1. Abra a aplicação Authenticator.
+1. No **separador Palavras-Passe** dentro da aplicação, selecione **Iniciar sômposições com a Microsoft** e inscreva-se na sua conta [Microsoft.](https://account.microsoft.com/account)
 1. Faça um dos seguintes:
 
    - No iOS, em **Definições**, selecione Como ligar o **Preenchimento Automático** na secção de definições de preenchimento automático para aprender a configurar o Autenticador como o fornecedor de preenchimento automático predefinido.
-   - No Android, em **Definições**, selecione **set as Autofill provider** na secção de definições de preenchimento automático para definir o Autenticador como o fornecedor de preenchimento automático predefinido.
+   - No Android, em **Definições**, selecione **set as Autofill provider** na secção de definições de preenchimento automático.
 
-**P:** E se o interruptor **de preenchimento automático** estiver acinzentado para mim em Definições?
+**P:** E se o interruptor **de preenchimento automático** não estiver disponível para mim em Definições?
 
-**R**: O preenchimento automático encontra-se atualmente em versão beta e ainda não foi habilitado para todas as organizações ou tipos de contas. Se o interruptor **de preenchimento automático** nas **Definições** estiver acinzentado para si, é provável que esteja a utilizar a aplicação Authenticator com a sua conta de trabalho. Pode utilizar esta funcionalidade num dispositivo onde a sua conta de trabalho não é adicionada. Se a sua organização funcionar com a Microsoft, o interruptor **de preenchimento automático** será ativado mesmo quando uma conta de trabalho é adicionada ao Autenticador.
+**R**: Se o Preenchimento Automático não estiver disponível para si no Authenticator, pode ser porque o preenchimento automático ainda não foi permitido para a sua organização ou tipo de conta. Pode utilizar esta funcionalidade num dispositivo onde o seu trabalho ou conta escolar não é adicionado. Para saber mais sobre como permitir o preenchimento automático para a sua organização, consulte [Autofill para administrações de TI.](#autofill-for-it-admins)
 
 **P:** Como paro de sincronizar palavras-passe?
 
@@ -247,28 +250,24 @@ A aplicação Microsoft Authenticator substituiu a aplicação Azure Authenticat
 
 **R**: A aplicação Authenticator já fornece um alto nível de segurança para a autenticação de vários fatores e gestão de conta, e a mesma barra de alta segurança também é estendida para gerir as suas palavras-passe.
 
-- **A autenticação forte é necessária pela aplicação Authenticator**: A inscrição no Autenticador requer um segundo fator. Isto significa que as suas palavras-passe dentro da aplicação Authenticator não podem ser acedidas mesmo que alguém tenha a sua palavra-passe da conta Microsoft.
-- **Os dados de preenchimento automático estão protegidos com biometria e senha**: Antes de poder preencher automaticamente a palavra-passe numa aplicação ou site, o Autenticador requer uma senha biométrica ou de dispositivo. Isto garante que, mesmo que alguém tenha acesso ao seu dispositivo, não pode preencher ou ver a sua palavra-passe, uma vez que não poderá fornecer o PIN biométrico ou dispositivo. Além disso, um utilizador não pode abrir a página Passwords a menos que forneça biométrico ou PIN, mesmo que desativam o Bloqueio de Aplicações nas definições de aplicações.
-- **Palavras-passe encriptadas no dispositivo**: As palavras-passe no dispositivo são encriptadas e as chaves de encriptação/desencriptação nunca são armazenadas e geradas sempre no ar. As palavras-passe só são desencriptadas quando o utilizador quiser, isto é, durante o preenchimento automático ou quando o utilizador quer ver a palavra-passe, ambas requerem biométrico ou PIN.
-- **Segurança na nuvem e na rede**: As suas palavras-passe na nuvem são encriptadas e desencriptadas apenas quando chegam ao seu dispositivo. As palavras-passe são sincronizadas sobre uma ligação HTTPS protegida pelo SSL, que garante que nenhum intruso pode escutar dados sensíveis quando está a ser sincronizado. Também garantimos que verificamos a sanidade dos dados que estão a ser sincronizados através da rede utilizando funções de hashed criptográfico (especificamente, código de autenticação de mensagens baseadas em haxixe).
+- **A autenticação forte é necessária pela aplicação Authenticator**: A inscrição no Autenticador requer um segundo fator. Isto significa que as suas palavras-passe dentro da aplicação Authenticator estão protegidas mesmo que alguém tenha a sua senha de conta Microsoft.
+- **Os dados de preenchimento automático estão protegidos com biometria e senha**: Antes de poder preencher automaticamente a palavra-passe numa aplicação ou site, o Autenticador requer uma senha biométrica ou de dispositivo. Isto ajuda a adicionar segurança extra para que, mesmo que alguém tenha acesso ao seu dispositivo, não possa preencher ou ver a sua palavra-passe, porque não consegue fornecer a entrada PIN biométrica ou do dispositivo. Além disso, um utilizador não pode abrir a página Palavras-Passe a menos que forneça biométrico ou PIN, mesmo que desativam o Bloqueio de Aplicações nas definições da aplicação.
+- **Palavras-passe encriptadas no dispositivo**: As palavras-passe no dispositivo são encriptadas e as chaves de encriptação/desencriptação nunca são armazenadas e geradas sempre quando necessário. As palavras-passe só são desencriptadas quando o utilizador quiser, isto é, durante o preenchimento automático ou quando o utilizador quer ver a palavra-passe, ambas requerem biométrico ou PIN.
+- **Segurança na nuvem e na rede**: As suas palavras-passe na nuvem são encriptadas e desencriptadas apenas quando chegam ao seu dispositivo. As palavras-passe são sincronizadas sobre uma ligação HTTPS protegida pelo SSL, o que ajuda a evitar que um intruso ouça dados sensíveis quando está a ser sincronizado. Também garantimos que verificamos a sanidade dos dados que estão a ser sincronizados através da rede utilizando funções de hashed criptográfico (especificamente, código de autenticação de mensagens baseadas em haxixe).
 
 ## <a name="autofill-for-it-admins"></a>Preenchimento automático para administradores de TI
 
 **P:** Os meus funcionários ou alunos poderão utilizar o preenchimento automático de passwords na aplicação Authenticator?
 
-**A:** Não. A funcionalidade de preenchimento automático encontra-se atualmente em versão beta e ainda não foi ativada para todas as organizações ou tipos de contas. Se o seu funcionário ou aluno tiver adicionado a sua conta de trabalho ou escola na aplicação Microsoft Authenticator, as palavras-passe não serão acessíveis a eles. A única exceção a esta restrição é quando o seu empregado ou aluno adiciona a sua conta de trabalho ou escola na autenticação multi-factor baseada na nuvem da Microsoft como [uma conta externa ou de terceiros.](user-help-auth-app-add-non-ms-account.md)
-
-**P:** Posso disponibilizar o recurso de preenchimento automático aos meus funcionários (ou estudantes)?
-
-**A:** Sim. Para ativar os seus funcionários ou alunos, a sua empresa ou escola pode ser adicionada a uma lista de autorizações. Contacte o seu suporte ou o contacto da Microsoft para ser adicionado à lista de autorizações. Além disso, se for administrador de TI para a sua organização, também pode preencher um formulário para expressar o seu interesse em aderir à [empresa de lista de admissão para preenchimento automático em Autenticador.](https://aka.ms/RequestAutofillInAuthenticator)
+**R:** Sim, o Preenchimento automático funciona agora para a maioria dos utilizadores da empresa, mesmo quando uma conta de trabalho ou escola é adicionada à aplicação Authenticator. Pode preencher um formulário para configurar (permitir ou negar) Preenchimento automático para a sua organização e [enviá-lo para a equipa autenticadora](https://aka.ms/ConfigureAutofillInAuthenticator).
 
 **P:** O trabalho dos meus utilizadores ou a palavra-passe da conta escolar será automaticamente sincronizado?
 
 **A:** Não. O preenchimento automático da palavra-passe não sincroniza o trabalho ou a senha de conta escolar para os seus utilizadores. Quando os utilizadores visitam um site ou uma aplicação, o Autenticador oferecerá para guardar a palavra-passe para esse site ou app, e a palavra-passe é guardada apenas quando o utilizador o escolher.
   
-**P:** Posso permitir a lista apenas de certos utilizadores da minha organização para o Autofill?
+**P:** Posso permitir a lista de apenas certos utilizadores da minha organização para o Autofill?
 
-**A:** Não. As empresas só podem permitir o preenchimento automático de senhas para todos ou nenhum dos seus empregados neste momento. Vamos expandir gradualmente estes controlos.
+**A:** Não. As empresas só podem permitir o preenchimento automático de senhas para todos ou nenhum dos seus empregados neste momento.
 
 **P:** E se o meu funcionário ou aluno tiver múltiplas contas de trabalho ou escola? Por exemplo, o meu empregado tem contas de várias empresas ou escolas no seu Autenticador Microsoft.
 

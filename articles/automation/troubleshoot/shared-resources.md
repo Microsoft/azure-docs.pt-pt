@@ -3,14 +3,14 @@ title: Resolução de problemas Azure Automation problemas de recursos partilhad
 description: Este artigo diz como resolver problemas e resolver problemas com recursos partilhados da Azure Automation.
 services: automation
 ms.subservice: ''
-ms.date: 03/12/2019
+ms.date: 01/27/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: c4ede0bffedc256f4af621d4945ebbbea0f8a4b6
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 1a822166ae4c2bf793e0fa50e93018f499fcc27a
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896296"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053625"
 ---
 # <a name="troubleshoot-shared-resource-issues"></a>Problemas de recursos partilhados na resolução de problemas
 
@@ -131,7 +131,7 @@ Não tem as permissões necessárias para criar ou atualizar a conta Run As, ou 
 
 #### <a name="resolution"></a>Resolução
 
-Para criar ou atualizar uma conta Run As, tem de ter permissões adequadas para os vários recursos [utilizados](../manage-runas-account.md#permissions) pela conta Run As. 
+Para criar ou atualizar uma conta Run As, tem de ter permissões adequadas para os vários recursos [utilizados](../automation-security-overview.md#permissions) pela conta Run As.
 
 Se o problema for devido a uma fechadura, verifique se a fechadura pode ser removida. Em seguida, aceda ao recurso que está bloqueado no portal Azure, clique com o botão direito no bloqueio e selecione **Delete**.
 
@@ -147,7 +147,7 @@ Unable to find an entry point named 'GetPerAdapterInfo' in DLL 'iplpapi.dll'
 
 #### <a name="cause"></a>Causa
 
-Este erro é provavelmente causado por uma [conta Run As](../manage-runas-account.md)incorretamente configurada .
+Este erro é provavelmente causado por uma [conta Run As](../automation-security-overview.md)incorretamente configurada .
 
 #### <a name="resolution"></a>Resolução
 
@@ -159,11 +159,10 @@ Connect-AzAccount -ServicePrincipal -Tenant $connection.TenantID `
 -ApplicationID $connection.ApplicationID -CertificateThumbprint $connection.CertificateThumbprint
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se este artigo não resolver o seu problema, experimente um dos seguintes canais para obter apoio adicional:
 
 * Obtenha respostas de especialistas da Azure através dos [Fóruns Azure.](https://azure.microsoft.com/support/forums/)
 * Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) . Esta é a conta oficial da Microsoft Azure para ligar a comunidade Azure aos recursos certos: respostas, suporte e especialistas.
 * Arquive um incidente de apoio ao Azure. Vá ao [site de suporte do Azure](https://azure.microsoft.com/support/options/)e selecione Obter **Apoio**.
-

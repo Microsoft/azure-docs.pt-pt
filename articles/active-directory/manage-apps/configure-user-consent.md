@@ -12,12 +12,12 @@ ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: c279b7f4ec2d70e7eb6a97abf02cfbf4f2ef87f0
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 184263badc909881f597213a222272bd675fc362
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033617"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051979"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>Configurar a forma como os utilizadores finais concedem consentimento às aplicações
 
@@ -81,7 +81,7 @@ Para permitir o consentimento do utilizador, escolha qual a política de consent
 
 `{consent-policy-id}`Substitua-o pela identificação da apólice que gostaria de aplicar. Pode escolher uma [política de consentimento de aplicações personalizadas](manage-app-consent-policies.md#create-a-custom-app-consent-policy) que criou ou pode escolher entre as seguintes políticas incorporadas:
 
-| ID | Descrição |
+| ID | Description |
 |:---|:------------|
 | microsoft-user-default-low | **Permitir o consentimento do utilizador para apps de editores verificados, para permissões selecionadas**<br /> Permitir o consentimento limitado do utilizador apenas para apps de editores e aplicações verificadas registadas no seu inquilino, e apenas para permissões que classifica como "Baixo impacto". (Não se esqueça de [classificar permissões](configure-permission-classifications.md) para selecionar quais as permissões a que os utilizadores estão autorizados a consentir.) |
 | microsoft-user-default-legacy | **Permitir o consentimento do utilizador para apps**<br /> Esta opção permite que todos os utilizadores consintam em qualquer permissão que não exija consentimento administrativo, para qualquer aplicação |
@@ -145,7 +145,7 @@ Pode utilizar o módulo de pré-visualização Azure AD PowerShell, [AzureADPrev
 
 1. Compreender o valor das definições:
 
-    | Definição       | Tipo         | Descrição  |
+    | Definição       | Tipo         | Description  |
     | ------------- | ------------ | ------------ |
     | _BlockUserConsentForRiskyApps_   | Booleano |  Sinalização indicando se o consentimento do utilizador será bloqueado quando for detetado um pedido de risco. |
 
@@ -185,4 +185,4 @@ Para saber mais:
 * [Permissões e consentimento na plataforma de identidade da Microsoft](../develop/v2-permissions-and-consent.md)
 
 Para obter ajuda ou encontrar respostas às suas perguntas:
-* [Azure AD no StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+* [Azure AD no Microsoft Q&A.](https://docs.microsoft.com/answers/topics/azure-active-directory.html)

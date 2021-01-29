@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 03f24bf4cf379504479e554b129f34d94ca423cd
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 03814766d7bc873855df261a50a40b8d342fa69b
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896364"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054251"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Use um alerta para ativar um runbook da Azure Automation
 
@@ -29,7 +29,7 @@ Pode utilizar livros de automatização com três tipos de alerta:
 
 Quando um alerta chama um runbook, a chamada real é um pedido HTTP POST para o webhook. O corpo do pedido POST contém um objeto em formatado JSON que tem propriedades úteis que estão relacionadas com o alerta. A tabela que se segue lista as ligações ao esquema de carga útil para cada tipo de alerta:
 
-|Alerta  |Descrição|Esquema de carga útil  |
+|Alerta  |Description|Esquema de carga útil  |
 |---------|---------|---------|
 |[Alerta comum](../azure-monitor/platform/alerts-common-schema.md)|O esquema comum de alerta que normaliza a experiência de consumo para notificações de alerta hoje em Azure.|Esquema de carga útil de alerta comum|
 |[Alerta de registo de atividade](../azure-monitor/platform/activity-log-alerts.md)    |Envia uma notificação quando qualquer novo evento no registo de atividades do Azure corresponde a condições específicas. Por exemplo, quando uma `Delete VM` operação ocorre no **myProductionResourceGroup** ou quando um novo evento de Saúde do Serviço Azure com um estado Ativo aparece.| [Esquema de carga útil de alerta de atividade](../azure-monitor/platform/activity-log-alerts-webhook.md)        |
@@ -45,7 +45,7 @@ Como descrito na secção anterior, cada tipo de alerta tem um esquema diferente
 
 Este exemplo usa um alerta de um VM. Recupera os dados VM da carga útil e, em seguida, utiliza essa informação para parar o VM. A ligação deve ser configurada na conta Automation onde o livro é executado. Ao utilizar alertas para ativar os runbooks, é importante verificar o estado de alerta no livro de verificação que é acionado. O livro de bordo dispara cada vez que o estado de alerta muda de estado. Os alertas têm vários estados, sendo os dois mais comuns ativados e resolvidos. Verifique se está o estado na sua lógica de runbook para garantir que o livro de recortes não funciona mais do que uma vez. O exemplo neste artigo mostra como procurar alertas apenas com estado ativado.
 
-O runbook utiliza o ativo de ligação `AzureRunAsConnection` [Run As account](./manage-runas-account.md) to authenticate with Azure to execute a ação de gestão contra o VM.
+O runbook utiliza o ativo de ligação `AzureRunAsConnection` [Run As account](./automation-security-overview.md) to authenticate with Azure to execute a ação de gestão contra o VM.
 
 Utilize este exemplo para criar um livro de recortes chamado **Stop-AzureVmInResponsetoVMAlert**. Pode modificar o script PowerShell e usá-lo com muitos recursos diferentes.
 
@@ -189,7 +189,7 @@ Os alertas utilizam grupos de ação, que são coleções de ações que são de
 
 1. Em **Detalhes de Alerta**, adicione um nome e descrição da regra de alerta e clique em Criar regra de **alerta**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para iniciar um runbook utilizando um webhook, consulte [Iniciar um livro de formulários a partir de um webhook](automation-webhooks.md).
 * Para descobrir diferentes formas de iniciar um livro de bordo, consulte [Iniciar um livro de recortes](./start-runbooks.md).

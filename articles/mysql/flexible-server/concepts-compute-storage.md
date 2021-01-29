@@ -1,17 +1,17 @@
 ---
 title: Opções de computação e armazenamento - Azure Database for MySQL - Servidor Flexível
 description: Este artigo descreve as opções de cálculo e armazenamento na Base de Dados Azure para MySQL - Servidor Flexível.
-author: savjani
-ms.author: pariks
+author: Bashar-MSFT
+ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/27/2021
-ms.openlocfilehash: 267b362c94b04b3be634f7e61c2b6d67604d7854
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.date: 1/28/2021
+ms.openlocfilehash: b1e8093a1991a97220060c2b6936368f9a4be796
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954686"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052351"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-mysql---flexible-server-preview"></a>Opções de computação e armazenamento em Azure Database para MySQL - Servidor Flexível (Pré-visualização)
 
@@ -72,7 +72,7 @@ As especificações detalhadas dos tipos de servidores disponíveis são as segu
 Para obter mais detalhes sobre a série computacional disponível, consulte a documentação Azure VM para [Burstable (série B)](../../virtual-machines/sizes-b-series-burstable.md), [Final Geral (série Ddsv4)](../../virtual-machines/ddv4-ddsv4-series.md)e [Memory Optimized (série Edsv4)](../../virtual-machines/edv4-edsv4-series.md).
 
 >[!NOTE]
->Para o nível de cálculo [Burstable (série B)](../../virtual-machines/sizes-b-series-burstable.md) quando o servidor é reiniciado por qualquer motivo como a manutenção iniciada, planeada ou não planeada, o crédito acumulado pode perder-se. A razão é que sempre que a Base de Dados Azure para o MySQL reiniciá-la, permanecerá no mesmo nó, o crédito acumulado será mantido. Contrariamente, sempre que a Base de Dados Azure para o servidor MySQL começa fresca num novo nó, recebe um crédito inicial. Para mais informações, leia [as FAQ burstable (Série B).](https://docs.microsoft.com/azure/virtual-machines/sizes-b-series-burstable#q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart)
+>Para [o nível de cálculo Burstable (série B)](../../virtual-machines/sizes-b-series-burstable.md) se o VM for iniciado/parado ou reiniciado, os créditos podem ser perdidos. Para obter mais informações, consulte [as FAQ burstable (Série B).](https://docs.microsoft.com/azure/virtual-machines/sizes-b-series-burstable#q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart)
 
 ## <a name="storage"></a>Armazenamento
 

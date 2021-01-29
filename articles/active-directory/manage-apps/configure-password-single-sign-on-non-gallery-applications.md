@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: kenwith
-ms.openlocfilehash: 7f9d29fee78c01dd3b1ee79d564297fa0cef14d3
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 2bb190ea01098e8e7b21a00f54fc37cd817f3743
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219883"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053284"
 ---
 # <a name="understand-password-based-single-sign-on"></a>Compreender o sign-on único baseado em palavra-passe
 
@@ -37,7 +37,7 @@ O SSO baseado em palavras-passe é uma ótima maneira de começar a integrar as 
 
 -   Permitir que um administrador especifique um nome de utilizador e uma palavra-passe para ser usado por indivíduos ou grupos quando iniciar a sua sção na aplicação com a funcionalidade 'Credenciais de Atualização' 
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 A utilização do Azure AD como seu Fornecedor de Identidade (IdP) e configurar um único sign-on (SSO) pode ser simples ou complexo dependendo da aplicação que está a ser utilizada. Algumas aplicações podem ser configuradas com apenas algumas ações. Outros requerem uma configuração aprofundada. Para aumentar rapidamente o conhecimento, caminhe pela [série quickstart](view-applications-portal.md) sobre gestão de aplicações. Se a aplicação que está a adicionar é simples, então provavelmente não precisa ler este artigo. Se a aplicação que está a adicionar necessitar de configuração personalizada e precisar de utilizar SSO baseado em palavra-passe, então este artigo é para si.
 
@@ -54,7 +54,7 @@ A utilização do Azure AD como seu Fornecedor de Identidade (IdP) e configurar 
 Na [série quickstart](view-applications-portal.md), aprendeu a adicionar uma app ao seu inquilino, o que permite ao Azure AD saber que está a ser usado como Fornecedor de Identidade (IdP) para a aplicação. Algumas aplicações já estão pré-configuradas e mostram na galeria AZure AD. Outras aplicações não estão na galeria e você tem que criar uma app genérica e configugá-la manualmente. Dependendo da aplicação, a opção SSO baseada em palavra-passe pode não estar disponível. Se não vir a lista de opções baseada em Palavra-Passe na página de s registação única da aplicação, então não está disponível.
 
 > [!IMPORTANT]
-> A extensão do navegador My Apps é necessária para SSO baseado em palavras-passe. Para saber mais, consulte [a implementação do Plano a Minhas Aplicações.](access-panel-deployment-plan.md)
+> A extensão do navegador My Apps é necessária para SSO baseado em palavras-passe. Para saber mais, consulte [a implementação do Plano a Minhas Aplicações.](my-apps-deployment-plan.md)
 
 A página de configuração para SSO baseado em palavra-passe é simples. Inclui apenas o URL da página de inscrição que a aplicação utiliza. Esta cadeia deve ser a página que inclui o campo de entrada do nome de utilizador.
 

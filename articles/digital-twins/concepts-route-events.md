@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: aa3466456b99664b1b39bd415680a6a291f85acd
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: c51f8c894c9a88b6ae81460623eec616d29b62ff
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98049291"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050520"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Rotas eventos dentro e fora de Azure Digital Twins
 
@@ -50,12 +50,12 @@ Para percorrer o processo de criação de uma função Azure para processar even
 
 ## <a name="create-an-endpoint"></a>Criar um ponto final
 
-Para definir uma rota de eventos, os desenvolvedores primeiro devem definir pontos finais. Um **ponto final** é um destino fora da Azure Digital Twins que suporta uma ligação de rota. Os destinos suportados incluem:
+Para definir uma rota de evento, primeiro os programadores têm de definir pontos finais. Um **ponto final** é um destino fora da Azure Digital Twins que suporta uma ligação de rota. Os destinos suportados incluem:
 * Tópicos personalizados da Grelha de Eventos
 * Hub de Eventos
 * Service Bus
 
-Para criar um ponto final, pode utilizar o plano de controlo Azure Digital Twins [**APIs,**](how-to-manage-routes-apis-cli.md#create-an-endpoint-for-azure-digital-twins) [**comandos CLI**](how-to-manage-routes-apis-cli.md#manage-endpoints-and-routes-with-cli)ou o [**portal Azure**](how-to-manage-routes-portal.md#create-an-endpoint-for-azure-digital-twins). 
+Para criar um ponto final, pode utilizar as [APIs DE REST, comandos CLI](how-to-manage-routes-apis-cli.md#create-an-endpoint-for-azure-digital-twins)ou o [portal Azure](how-to-manage-routes-portal.md#create-an-endpoint-for-azure-digital-twins).
 
 Ao definir um ponto final, terá de fornecer:
 * O nome do ponto final
@@ -71,7 +71,7 @@ As APIs de ponta que estão disponíveis no plano de controlo são:
 
 ## <a name="create-an-event-route"></a>Criar uma rota de eventos
  
-Para criar uma rota de eventos, pode utilizar o plano de dados Azure Digital Twins [**APIs,**](how-to-manage-routes-apis-cli.md#create-an-event-route) [**comandos CLI**](how-to-manage-routes-apis-cli.md#manage-endpoints-and-routes-with-cli)ou o [**portal Azure**](how-to-manage-routes-portal.md#create-an-event-route). 
+Para criar uma rota de eventos, pode utilizar as APIs de REPOUSO Azure Digital [Twins, comandos CLI](how-to-manage-routes-apis-cli.md#create-an-event-route)ou o [portal Azure](how-to-manage-routes-portal.md#create-an-event-route).
 
 Aqui está um exemplo de criação de uma rota de evento dentro de uma aplicação de cliente, usando a chamada `CreateOrReplaceEventRouteAsync` [.NET (C#) SDK:](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) 
 
@@ -85,8 +85,6 @@ Aqui está um exemplo de criação de uma rota de evento dentro de uma aplicaç�
 
 > [!TIP]
 > Todas as funções SDK vêm em versões sincronizadas e assíncronos.
-
-As rotas também podem ser criadas usando o [CLI das Gémeas Digitais Azure.](how-to-use-cli.md)
 
 ## <a name="dead-letter-events"></a>Eventos de cartas mortas
 

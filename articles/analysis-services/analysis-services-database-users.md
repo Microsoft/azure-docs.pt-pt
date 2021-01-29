@@ -1,5 +1,5 @@
 ---
-title: Gerir funções de base de dados e utilizadores em Azure Analysis Services Microsoft Docs
+title: Gerir funções de base de dados e utilizadores em Azure Analysis Services | Microsoft Docs
 description: Saiba como gerir as funções de base de dados e os utilizadores num servidor de Serviços de Análise em Azure.
 author: minewiskan
 ms.service: azure-analysis-services
@@ -8,12 +8,12 @@ ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 56f98d41fc73cdd2be0923de66a5af09c875a050
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 31910e92ba4d5cbb1f133eaff6880fafb809b772
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013598"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054098"
 ---
 # <a name="manage-database-roles-and-users"></a>Gerir funções de base de dados e utilizadores
 
@@ -30,9 +30,11 @@ Ao criar um projeto de modelo tabular, cria funções e adiciona utilizadores ou
 
 Ao adicionar um **grupo de segurança,** utilize `obj:groupid@tenantid` .
 
+Ao adicionar uma utilização **principal de serviço** `app:appid@tenantid` .
+
 ## <a name="to-add-or-manage-roles-and-users-in-visual-studio"></a>Adicionar ou gerir papéis e utilizadores em Visual Studio  
   
-1.  No **Tabular Model Explorer,** **funções**de clique à direita .  
+1.  No **Tabular Model Explorer,** **funções** de clique à direita .  
   
 2.  Em **Role Manager,** clique em **New**.  
   
@@ -65,7 +67,7 @@ Ao adicionar um **grupo de segurança,** utilize `obj:groupid@tenantid` .
 
 Para adicionar funções e utilizadores a uma base de dados de modelos implementada, tem de estar ligado ao servidor como administrador do Servidor ou já numa função de base de dados com permissões de administrador.
 
-1. In Object Exporer, **papel**de clique direito  >  **Novo Papel**.
+1. In Object Exporer, **papel** de clique direito  >  **Novo Papel**.
 
 2. In **Create Role**, insira um nome e descrição de funções.
 
@@ -77,7 +79,7 @@ Para adicionar funções e utilizadores a uma base de dados de modelos implement
    |**Process database**|Os membros podem executar Processo e Processo Todas as operações. Não é possível modificar o esquema do modelo e não pode consultar dados.|  
    |**Ler**|Os membros podem consultar dados (com base em filtros de linha) mas não podem modificar o esquema do modelo.|  
   
-4. Clique **em Adesão**e, em seguida, insira um utilizador ou grupo no seu inquilino Azure AD por endereço de e-mail.
+4. Clique **em Adesão** e, em seguida, insira um utilizador ou grupo no seu inquilino Azure AD por endereço de e-mail.
 
      ![Adicionar utilizador](./media/analysis-services-database-users/aas-roles-adduser-ssms.png)
 
@@ -139,7 +141,7 @@ Os filtros de linha aplicam-se às linhas especificadas e linhas relacionadas. Q
   
 |Tabela|Expressão DAX|  
 |-----------|--------------------|  
-|Região|=Região[País]="EUA"|  
+|Region|=Região[País]="EUA"|  
 |ProductCategory|=ProductCategory[Nome]="Bicicletas"|  
 |Transações|=Transações[Ano]=2016|  
   

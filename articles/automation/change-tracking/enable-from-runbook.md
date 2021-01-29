@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 842b0a92ba4a2cb6b3ceb54675ef95f9c8275311
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 9f7a37fa2101e4a386c9c6f2338f185b3ecdc986
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92210080"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052622"
 ---
 # <a name="enable-change-tracking-and-inventory-from-a-runbook"></a>Ativar o Controlo de alterações e Inventário a partir de um runbook
 
@@ -54,7 +54,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 É necessário atualizar os módulos Azure mais recentes e importar o módulo [Az.OperationalInsights](/powershell/module/az.operationalinsights) para ativar com sucesso a Gestão de Atualização para os seus VMs com o livro de aplicação.
 
-1. Na sua conta Demômes, selecione Módulos em **Recursos Partilhados.** **Modules**
+1. Na sua conta Demômes, selecione Módulos em **Recursos Partilhados.** 
 
 2. Selecione **Atualizar Módulos do Azure** para atualizar os módulos do Azure para a versão mais recente.
 

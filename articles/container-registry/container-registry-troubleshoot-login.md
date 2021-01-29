@@ -3,12 +3,12 @@ title: Início de sessão de resolução de problemas para o registo
 description: Sintomas, causas e resolução de problemas comuns ao iniciar sessão num registo de contentores Azure
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 5499c64bef8ce36a5f622c4d847b417ef49a5a03
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 5deb1717cf3886d8ea9c021d92afa358946b16dc
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379507"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052083"
 ---
 # <a name="troubleshoot-registry-login"></a>Login de registo de resolução de problemas
 
@@ -39,6 +39,8 @@ Pode incluir um ou mais dos seguintes:
 Faça o comando [de check-health az acr](/cli/azure/acr#az-acr-check-health) para obter mais informações sobre a saúde do ambiente de registo e acesso opcional a um registo-alvo. Por exemplo, diagnosticar erros de configuração do Docker ou problemas de login do Azure Ative Directory. 
 
 Consulte [a saúde de um registo de contentores Azure](container-registry-check-health.md) para obter exemplos de comando. Se forem reportados erros, reveja a [referência de erro](container-registry-health-error-reference.md) e as seguintes secções para obter soluções recomendadas.
+
+Se tiver problemas usando o serviço de registo wih Azure Kubernetes, verifique o comando [az aks check-acr](/cli/azure/aks#az_aks_check_acr) para validar que o registo está acessível a partir do cluster AKS.
 
 > [!NOTE]
 > Alguns erros de autenticação ou autorização também podem ocorrer se houver configurações de firewall ou rede que impeçam o acesso ao registo. Consulte [problemas de rede de resolução de problemas com registo](container-registry-troubleshoot-access.md).
@@ -79,7 +81,7 @@ Verifique a validade das credenciais que utiliza para o seu cenário, ou foi-lhe
 * Se utilizar um diretor de serviço de Diretório Ativo, certifique-se de que utiliza as credenciais corretas no inquilino ative directory:
   * Nome do utilizador - ID de aplicação principal de serviço (também chamado *ID do cliente)*
   * Palavra-passe - senha principal do serviço (também chamada *de segredo do cliente)*
-* Se utilizar um serviço Azure como o Serviço Azure Kubernetes ou o Azure DevOps para aceder ao registo, confirme a configuração do registo do seu serviço.
+* Se utilizar um serviço Azure como o Serviço Azure Kubernetes ou o Azure DevOps para aceder ao registo, confirme a configuração do registo do seu serviço. 
 * Se tiver corrido `az acr login` com a `--expose-token` opção, que permite o login de registo sem utilizar o daemon Docker, certifique-se de que autentica com o nome de utilizador `00000000-0000-0000-0000-000000000000` .
 * Se o seu registo estiver configurado para [acesso anónimo,](container-registry-faq.md#how-do-i-enable-anonymous-pull-access)as credenciais existentes do Docker armazenadas a partir de um login anterior do Docker podem impedir o acesso anónimo. Corra `docker logout` antes de tentar uma operação de atração anónima no registo.
 
@@ -143,7 +145,7 @@ Se não resolver o seu problema aqui, consulte as seguintes opções.
 
 * Outros tópicos de resolução de problemas do registo incluem:
   * [Problemas de rede de resolução de problemas com registo](container-registry-troubleshoot-access.md)
-  * [Resolver problemas de desempenho de registo](container-registry-troubleshoot-performance.md)
+  * [Desempenho do registo de resolução de problemas](container-registry-troubleshoot-performance.md)
 * [Opções de apoio comunitário](https://azure.microsoft.com/support/community/)
 * [Perguntas e Respostas da Microsoft](/answers/products/)
 * [Abra um bilhete de apoio](https://azure.microsoft.com/support/create-ticket/) - com base nas informações que fornece, pode ser executado um diagnóstico rápido para falhas de autenticação no seu registo

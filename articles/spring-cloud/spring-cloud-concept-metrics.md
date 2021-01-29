@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: a4838dd6e8f9f4959fc1e4d0dc8dbc2218a30f30
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 119b00e67cf8337123028840ec6a7ecd29e97a05
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98755472"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051605"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Compreenda as métricas para Azure Spring Cloud
 
@@ -121,6 +121,7 @@ As tabelas que se seguem mostram as métricas e detalhes disponíveis.
 >| Contagem de Gen 0 GC  | gen-0-gc-contagem | de palavras        | Número de recolhas de lixo da Geração 0 por segundo. |
 >| Contagem de Gen 1 GC  | gen-1-gc-contagem | de palavras        | Número de recolhas de lixo da Geração 1 por segundo. |
 >| Contagem de Gen 2 GC  | gen-2-gc-contagem | de palavras        | Número de recolhas de lixo da Geração 2 por segundo. |
+>| Tempo em GC      | timein-gc      | Percentagem      | A percentagem de tempo na recolha de lixo desde a última recolha de lixo. |
 >| Tamanho da pilha gen 0 | género-0 tamanho     | Bytes        | Geração 0 tamanho de pilha. |
 >| Tamanho da pilha gen 1 | tamanho gen-1     | Bytes        | Tamanho de pilha de geração 1. |
 >| Tamanho da pilha Gen 2 | tamanho gen-2     | Bytes        | Tamanho do monte geração 2. |
@@ -168,7 +169,7 @@ Para mais informações, consulte [os contadores dotnet.](/dotnet/core/diagnosti
 >| tomcat.sessions.rejeitado | tomcat.sessions.rejeitado | de palavras | Número de sessões que não foram criadas porque o número máximo de sessões ativas atingiu. |
 >| tomcat.sessions.ative.current | tomcat.sessions.ative.current | de palavras | Contagem ativa da sessão de Tomcat |
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 * [Quickstart: Monitorização de aplicativos Azure Spring Cloud com registos, métricas e rastreio](spring-cloud-quickstart-logs-metrics-tracing.md)
 
@@ -176,7 +177,7 @@ Para mais informações, consulte [os contadores dotnet.](/dotnet/core/diagnosti
 
 * [Analisar registos e métricas com definições de diagnóstico](./diagnostic-services.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Tutorial: Monitorar recursos da Nuvem de primavera usando alertas e grupos de ação](./spring-cloud-tutorial-alerts-action-groups.md)
 

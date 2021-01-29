@@ -1,5 +1,5 @@
 ---
-title: Inscreva-se para edições premium - Azure Ative Directory / Microsoft Docs
+title: Inscreva-se para edições premium - Azure Ative Directory| Microsoft Docs
 description: Instruções sobre como se inscrever para as edições Azure Ative Directory Premium.
 services: active-directory
 author: ajburnle
@@ -13,18 +13,15 @@ ms.author: ajburnle
 ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 425809339cf4c468293801460fdeb79d9e467968
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 562162e0bd42b0a46b2b0c6d44ca9b37f1841750
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89565604"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052865"
 ---
 # <a name="sign-up-for-azure-active-directory-premium-editions"></a>Inscrever-se nas edições Premium do Azure Active Directory
 Pode adquirir e associar edições premium do Azure Ative Directory (Azure AD) com a sua assinatura Azure. Se tiver de criar uma subscrição nova do Azure, também terá de ativar o plano de licenciamento e o acesso ao serviço Microsoft Azure AD.
-
-> [!NOTE]
->As edições Premium e Básica do Azure AD estão disponíveis para clientes na China que utilizem a instância mundial do Azure Active Directory. As edições do Azure AD Premium e Básico não são atualmente suportadas pelo serviço do Azure operado pela 21Vianet na China. Para obter mais informações, contacte-nos através do [Fórum do Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 Para se inscrever no Active Directory Premium 1 ou Premium 2, tem de determinar primeiro que subscrição ou plano existente planeia utilizar:
 

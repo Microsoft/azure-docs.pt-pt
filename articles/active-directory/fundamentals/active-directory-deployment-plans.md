@@ -1,5 +1,5 @@
 ---
-title: Planos de implantação - Azure Ative Directory / Microsoft Docs
+title: Planos de implantação - Azure Ative Directory | Microsoft Docs
 description: Orientação de ponta a ponta sobre como implementar muitas capacidades do Azure Ative Directory.
 services: active-directory
 author: BarbaraSelden
@@ -12,12 +12,12 @@ ms.date: 12/01/2020
 ms.author: baselden
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ca2ade1775d7224ce55ee1c51dfdd2ae417151e
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 4185ffd644d54c419f42c78326ca10bf100443c3
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97672386"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051435"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Planos de implementação do Azure Active Directory
 Procura orientação de ponta a ponta sobre a implementação de capacidades do Azure Ative Directory (Azure AD) ? Os planos de implementação da AD AZure percorrem o valor do negócio, as considerações de planeamento e os procedimentos operacionais necessários para implementar com sucesso as capacidades comuns da AD Azure.
@@ -39,7 +39,7 @@ A partir de qualquer uma das páginas do plano, use a capacidade de Impressão d
 | Funcionalidade | Description|
 | -| - |
 | [Início de sessão único](../manage-apps/plan-sso-deployment.md)| O único sessão de sessão ajuda os seus utilizadores a aceder às apps e recursos de que necessitam para fazer negócios enquanto fazem a sessão apenas uma vez. Depois de se terem assinado, podem ir do Microsoft Office para SalesForce para Box para aplicações internas sem serem obrigados a introduzir credenciais uma segunda vez. |
-| [Painel de acesso](../manage-apps/access-panel-deployment-plan.md)| Ofereça aos seus utilizadores um simples hub para descobrir e aceder a todas as suas aplicações. Capacitá-los a serem mais produtivos com capacidades de self-service, como solicitar acesso a apps e grupos, ou gerir o acesso a recursos em nome de outros. |
+| [As Minhas Aplicações](../manage-apps/my-apps-deployment-plan.md)| Ofereça aos seus utilizadores um simples hub para descobrir e aceder a todas as suas aplicações. Capacitá-los a serem mais produtivos com capacidades de self-service, como solicitar acesso a apps e grupos, ou gerir o acesso a recursos em nome de outros. |
 | [Dispositivos](../devices/plan-device-deployment.md) | Este artigo ajuda-o a avaliar os métodos para integrar o seu dispositivo com a Azure AD, escolher o plano de implementação e fornecer links-chave para ferramentas de gestão de dispositivos suportados. |
 
 
@@ -73,7 +73,7 @@ Ao iniciar o seu planeamento de implementação para uma nova capacidade, é imp
 
 As funções podem incluir os seguintes 
 
-|Função |Descrição |
+|Função |Description |
 |-|-|
 |Utilizador final|Um grupo representativo de utilizadores para o qual a capacidade será implementada. Muitas vezes pré-visualiza as alterações num programa piloto.
 |Gestor de Suporte de TI|Representante da organização de suporte de TI que pode fornecer informações sobre a capacidade de apoio desta mudança numa perspetiva de helpdesk.  

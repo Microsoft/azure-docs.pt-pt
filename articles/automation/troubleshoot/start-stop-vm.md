@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/04/2019
 ms.topic: troubleshooting
-ms.openlocfilehash: 763e1321556ade73778b82ea70926af21a83f7ec
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: ff2ef8970afa21c0218da20a5b79ea2fb782dd5c
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896279"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053589"
 ---
 # <a name="troubleshoot-startstop-vms-during-off-hours-issues"></a>Resolução de problemas Iniciar/Parar VMs durante problemas fora de horas
 
@@ -109,7 +109,7 @@ Reveja a seguinte lista para potenciais resoluções:
   * **ScheduledStartStop_Parent**
   * **SequencedStartStop_Parent**
 
-* Verifique se a sua [conta Run As](../manage-runas-account.md) tem permissões adequadas para os VMs que está a tentar iniciar ou parar. Para saber como verificar as permissões num recurso, consulte [Quickstart: Ver funções atribuídas a um utilizador utilizando o portal Azure](../../role-based-access-control/check-access.md). Terá de fornecer o ID de aplicação para o principal serviço utilizado pela conta Run As. Pode recuperar este valor indo para a sua conta Automation no portal Azure. Selecione **Executar como contas** em **Definições de Conta** e selecione a conta Run As apropriada.
+* Verifique se a sua [conta Run As](../automation-security-overview.md#run-as-accounts) tem permissões adequadas para os VMs que está a tentar iniciar ou parar. Para saber como verificar as permissões num recurso, consulte [Quickstart: Ver funções atribuídas a um utilizador utilizando o portal Azure](../../role-based-access-control/check-access.md). Terá de fornecer o ID de aplicação para o principal serviço utilizado pela conta Run As. Pode recuperar este valor indo para a sua conta Automation no portal Azure. Selecione **Executar como contas** em **Definições de Conta** e selecione a conta Run As apropriada.
 
 * Os VMs podem não ser iniciados ou parados se estiverem a ser explicitamente excluídos. Os VMs excluídos são definidos na `External_ExcludeVMNames` variável na conta Automation a que a funcionalidade é implantada. O exemplo a seguir mostra como pode consultar esse valor com o PowerShell.
 
@@ -201,7 +201,7 @@ Este problema pode ser causado por uma conta Run As configurada ou caducada inde
 
 Para verificar se a sua conta Run As está devidamente configurada, aceda à sua conta de Automação no portal Azure e selecione **Executar como contas** em **Definições de Conta**. Se uma conta Run As estiver configurada ou caducada incorretamente, o estado mostra a condição.
 
-Se a sua conta Run As estiver mal configurada, elimine e reesconte a sua conta Run As. Para obter mais informações, consulte [Gerir a Gestão da Automação Azure Executar como contas.](../manage-runas-account.md)
+Se a sua conta Run As estiver mal configurada, elimine e reesconte a sua conta Run As. Para mais informações, consulte [a Azure Automation Run As contas](../automation-security-overview.md#run-as-accounts).
 
 Se o certificado tiver expirado para a sua conta Run As, siga os passos na [renovação do certificado auto-assinado](../manage-runas-account.md#cert-renewal) para renovar o certificado.
 
@@ -224,7 +224,7 @@ Muitas vezes os erros podem ser causados pela utilização de uma versão antiga
 
 Para resolver muitos erros, remova e [atualize VMs iniciar/parar durante as horas de folga](../automation-solution-vm-management.md#update-the-feature). Também pode verificar os [fluxos de trabalho](../automation-runbook-execution.md#job-statuses) para procurar quaisquer erros. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se não vir o seu problema aqui ou não conseguir resolver o seu problema, experimente um dos seguintes canais para obter apoio adicional:
 

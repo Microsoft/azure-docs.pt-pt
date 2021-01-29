@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: a998491729a1d3bd472ecc3de9722c142f8dc182
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 65d3badc02efbb02df50189885c28a8abe851415
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98953789"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050452"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-twitter-account-using-azure-active-directory-b2c"></a>Configurar inscrição e inscrição com uma conta no Twitter utilizando o Azure Ative Directory B2C
 
@@ -45,7 +45,7 @@ Para ativar o sessão de sessão para utilizadores com uma conta no Twitter em A
 1. Em **definições de autenticação**, selecione **Editar**
     1. Selecione **Ative Enable 3-legged OAuth** checkbox.
     1. Selecione Enviar por email o artigo Solicitação da caixa de verificação **dos utilizadores.**
-    1. Para os **URLs callback, insira** `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-user-flow-Id/oauth1/authresp` . `your-tenant`Substitua-o pelo nome do seu inquilino e `your-user-flow-Id` pelo identificador do seu fluxo de utilizador. Por exemplo, `b2c_1A_signup_signin_twitter`. Utilize todas as letras minúsculas ao introduzir o nome do seu inquilino e o id de fluxo do utilizador mesmo que sejam definidos com letras maiúsculas em Azure AD B2C.
+    1. Para os **URLs callback, insira** `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-user-flow-Id/oauth1/authresp` . `your-tenant`Substitua-o pelo nome do seu inquilino e `your-user-flow-Id` pelo identificador do seu fluxo de utilizador. Por exemplo, `b2c_1a_signup_signin_twitter`. Utilize todas as letras minúsculas ao introduzir o nome do seu inquilino e o id de fluxo do utilizador mesmo que sejam definidos com letras maiúsculas em Azure AD B2C.
     1. Para o URL do **site,** insira `https://your-tenant.b2clogin.com` . `your-tenant`Substitua-o pelo nome do seu inquilino. Por exemplo, `https://contosob2c.b2clogin.com`.
     1. Introduza um URL para os **Termos de Serviço,** por `http://www.contoso.com/tos` exemplo. O URL de política é uma página que mantém para fornecer termos e condições para a sua aplicação.
     1. Introduza um URL para a **política de Privacidade,** por `http://www.contoso.com/privacy` exemplo. O URL de política é uma página que mantém para fornecer informações de privacidade para a sua aplicação.

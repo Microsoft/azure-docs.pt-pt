@@ -143,6 +143,8 @@
           href: batch-sig-images.md
         - name: Criar um conjunto com um recurso de imagem gerida
           href: batch-custom-images.md
+        - name: Criar uma piscina através de Zonas de Disponibilidade
+          href: create-pool-availability-zones.md
         - name: Criar um conjunto com a encriptação de disco ativada
           href: disk-encryption.md
         - name: Criar um conjunto numa rede virtual

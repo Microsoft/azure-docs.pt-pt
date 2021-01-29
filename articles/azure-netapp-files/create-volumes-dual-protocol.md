@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 01/22/2020
+ms.date: 01/28/2020
 ms.author: b-juche
-ms.openlocfilehash: 47aefecce846f58128335768018ba59d3520bd87
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 70b42fb5522b31b5e7e15b5715717f0d010d56dc
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98726685"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052418"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Criar um volume de duplo protocolo (NFSv3 e SMB) para ficheiros Azure NetApp
 
@@ -51,6 +51,7 @@ O Azure NetApp Files suporta a criação de volumes utilizando NFSv3 (NFSv3 e NF
     | `Unix`    | NFS   | Bits de modo NFSv3   | UNIX  | NFS e Windows   |
     | `Ntfs`    | Windows   | NTFS ACLs     | NTFS  |NFS e Windows|
 * Os utilizadores unix que montam o volume de estilo de segurança NTFS utilizando o NFS serão autenticados como utilizador do Windows `root` para o UNIX `root` e para todos `pcuser` os outros utilizadores. Certifique-se de que estas contas de utilizador existem no seu Ative Directory antes de montar o volume quando utilizar o NFS. 
+* Se tiver grandes topologias e utilizar o `Unix` estilo de segurança com um volume de dois protocolos ou LDAP com grupos alargados, o Azure NetApp Files pode não conseguir aceder a todos os servidores nas suas topologias.  Se esta situação ocorrer, contacte a sua equipa de conta para obter assistência.  <!-- NFSAAS-15123 --> 
 * Não precisa de um certificado de CA raiz de servidor para criar um volume de protocolo duplo. Só é necessário se o LDAP sobre o TLS estiver ativado.
 
 
@@ -136,7 +137,7 @@ Tem de definir os seguintes atributos para utilizadores LDAP e grupos LDAP:
 
 Siga as instruções em [Configurar um cliente NFS para a Azure NetApp Files](configure-nfs-clients.md) para configurar o cliente NFS.  
 
-## <a name="next-steps"></a>Próximos passos  
+## <a name="next-steps"></a>Passos seguintes  
 
 * [Configurar um cliente NFS para o Azure NetApp Files](configure-nfs-clients.md)
 * [Resolver problemas de volumes de protocolo duplo](troubleshoot-dual-protocol-volumes.md)

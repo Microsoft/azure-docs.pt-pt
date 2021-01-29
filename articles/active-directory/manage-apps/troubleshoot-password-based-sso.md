@@ -10,19 +10,19 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
-ms.openlocfilehash: d122cedbad41d6984614a0edccb2fd98269710f2
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 84aec5031dd8d19f8f2ad0aa32185002add378b1
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96618081"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053984"
 ---
 # <a name="troubleshoot-password-based-single-sign-on-in-azure-ad"></a>Resolver problemas de início de sessão único baseado em palavra-passe no Microsoft Azure AD
 
 Para utilizar o sign-on único baseado em palavra-passe (SSO) nas Minhas Apps, a extensão do navegador deve ser instalada. A extensão descarrega automaticamente quando seleciona uma aplicação configurada para SSO baseado em palavras-passe. Para aprender a utilizar as Minhas Apps numa perspetiva de utilizador final, consulte [o portal My Apps.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="my-apps-browser-extension-not-installed"></a>A extensão do navegador My Apps não instalada
-Certifique-se de que a extensão do navegador está instalada. Para saber mais, consulte [Plan a Azure Ative Directory My Apps deployment](access-panel-deployment-plan.md). 
+Certifique-se de que a extensão do navegador está instalada. Para saber mais, consulte [Plan a Azure Ative Directory My Apps deployment](my-apps-deployment-plan.md). 
 
 ## <a name="single-sign-on-not-configured"></a>Único sinal não configurado
 Certifique-se de que o único sinal baseado em palavra-passe está configurado. Para saber mais, consulte [configurar o sign-on único baseado em palavras-passe.](configure-password-single-sign-on-non-gallery-applications.md)
@@ -80,7 +80,7 @@ Existem duas formas de capturar campos de inscrição para as suas aplicações 
 
 - **A captura automática de campo de entrada funciona** bem com a maioria das páginas de entrada ativadas por HTML, se *utilizarem iDs DIV bem conhecidos* para o nome de utilizador e os campos de palavra-passe. O HTML na página é raspado para encontrar IDs DIV que correspondam a determinados critérios. Esses metadados são guardados para que possa ser reproduzido na aplicação mais tarde.
 
-- **A captura manual do campo de entrada** é utilizada se o fornecedor de aplicações não *rotular os campos de entrada de entrada de entrada de entrada de entrada* de entrada . A captura manual também é utilizada se o fornecedor *renderizar vários campos que não podem ser detetados automaticamente.* O Azure Ative Directory (Azure AD) pode armazenar dados para o maior número de campos que existem na página de inscrição, se lhe disser onde esses campos estão na página.
+- **A captura manual do campo de entrada** é utilizada se o fornecedor de aplicações não *rotular os campos de entrada de entrada de entrada* de entrada . A captura manual também é utilizada se o fornecedor *renderizar vários campos que não podem ser detetados automaticamente.* O Azure Ative Directory (Azure AD) pode armazenar dados para o maior número de campos que existem na página de inscrição, se lhe disser onde esses campos estão na página.
 
 Em geral, se a captura automática de campo de inscrição não funcionar, experimente a opção manual.
 
@@ -117,7 +117,7 @@ Para configurar o SSO baseado em palavra-passe para uma aplicação utilizando a
 7. Depois de carregar a aplicação, selecione **Single sign-on no** painel de navegação do lado esquerdo.
 8. Selecione o modo **de acesso baseado em palavras-passe.**
 9. Introduza o **URL de entrada de inscrição,** que é a página onde os utilizadores introduzem o seu nome de utilizador e palavra-passe para iniciar sposição. *Certifique-se de que os campos de inscrição estão visíveis na página para o URL que fornece*.
-10. Selecione **Configurar configurar *&lt; configurar configurações &gt;* únicas de sinalização de assinatura**.
+10. Selecione **Configurar *&lt; &gt;* configurações únicas de sinalização de assinatura**.
 11. Selecione **os campos de inscrição de deteção manual**.
 14. Selecione **OK**.
 15. Selecione **Guardar**.
@@ -247,4 +247,4 @@ As seguintes informações explicam o que cada item de notificação significa e
 
 ## <a name="next-steps"></a>Passos seguintes
 * [Quickstart Series em Gestão de Aplicações](view-applications-portal.md)
-* [Planear uma implementação de As Minhas Aplicações](access-panel-deployment-plan.md)
+* [Planear uma implementação de As Minhas Aplicações](my-apps-deployment-plan.md)

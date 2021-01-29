@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 04/22/2020
 ms.author: errobin
-ms.openlocfilehash: e9f46b11d9c0b5251ee4d52f64d657926f6f9c5e
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 38054d983b0a9f01f396b7379fec37de452d03b7
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222994"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051877"
 ---
 # <a name="load-balancer-frequently-asked-questions"></a>Balanceador de Carga frequentemente fez perguntas
 
@@ -48,6 +48,10 @@ Ao utilizar o comando nslookup, pode enviar uma consulta DNS para o nome myip.op
  
 ## <a name="can-i-add-a-vm-from-the-same-availability-set-to-different-backend-pools-of-a-load-balancer"></a>Posso adicionar um VM da mesma disponibilidade definida para diferentes piscinas de backend de um Balancer de Carga?
 Não, isto não é possível.
+
+## <a name="what-is-the-maximum-data-throughput-that-can-be-achieved-via-an-azure-load-balancer"></a>Qual é o rendimento máximo de dados que pode ser alcançado através de um Balançador de Carga Azure?
+Uma vez que o Azure LB é um equilibrador de carga de rede, as limitações de produção são ditadas pelo tipo de máquina virtual utilizada na piscina de backend. Para saber mais sobre outras informações relacionadas com o produção de rede, consulte o [rendimento da rede virtual de máquinas](../virtual-network/virtual-machine-network-throughput.md).
+
 
 ## <a name="how-do-connections-to-azure-storage-in-the-same-region-work"></a>Como funcionam as ligações com o Azure Storage na mesma região?
 Ter conectividade de saída através dos cenários acima não é necessário ligar ao Armazenamento na mesma região que o VM. Se não quiser, utilize grupos de segurança de rede (NSGs) como explicado acima. Para a conectividade com o Armazenamento noutras regiões, é necessária conectividade de saída. Por favor, note que ao ligar ao Armazenamento a partir de um VM na mesma região, o endereço IP de origem nos registos de diagnóstico de Armazenamento será um endereço interno do fornecedor, e não o endereço IP público do seu VM. Se pretender restringir o acesso à sua conta de Armazenamento a VMs numa ou mais sub-redes de Rede Virtual na mesma região, utilize [os pontos finais do serviço de Rede Virtual](../virtual-network/virtual-network-service-endpoints-overview.md) e não o endereço IP público ao configurar a firewall da sua conta de armazenamento. Uma vez configurados os pontos finais do serviço, verá o seu endereço IP privado da Rede Virtual nos seus registos de diagnóstico de Armazenamento e não no endereço do fornecedor interno.

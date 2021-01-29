@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
 ROBOTS: NOINDEX
-ms.openlocfilehash: a075cfa921a17d47cbef84f1e7e8ec8e306c38d5
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 9564727cfe59f243fd1096c93d7eadf1d830be9e
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063030"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052554"
 ---
 # <a name="how-to-configure-a-new-multi-tenant-application"></a>Como configurar uma nova aplicação multi-inquilino
 
@@ -28,5 +28,5 @@ Aqui está uma lista de tópicos recomendados para saber mais sobre aplicações
 - Obtenha uma visão geral passo a passo de como o quadro de [consentimento Azure AD é usado para implementar o consentimento](./quickstart-register-app.md), que é necessário para aplicações multi-inquilinos
 - Para obter mais profundidade, saiba [como uma aplicação multi-arrendatário é configurada e codificada de ponta a ponta,](./howto-convert-app-to-be-multi-tenant.md)incluindo como registar- se, usar o ponto final "comum", implementar o consentimento "utilizador" e "administrador", como implementar cenários multi-camadas mais avançados
 
-## <a name="next-steps"></a>Próximos passos
-[Fluxo de stack AzureAD](https://stackoverflow.com/questions/tagged/azure-active-directory)
+## <a name="next-steps"></a>Passos seguintes
+[AzureAD Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html)

@@ -7,19 +7,19 @@ ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: article
 ms.service: digital-twins
-ms.openlocfilehash: 87061d378be97bf669fd569c0408f247b9e8dc5d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 165fa23cf3965d3017b15c27fedc2846f97d8d11
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091791"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054404"
 ---
-# <a name="service-limits"></a>Limites do serviço
+# <a name="azure-digital-twins-service-limits"></a>Limites de serviço Azure Digital Twins
 
 Estes são os limites de serviço da Azure Digital Twins.
 
 > [!NOTE]
-> Algumas áreas deste serviço têm limites ajustáveis. Isto está representado nas tabelas abaixo com a coluna *ajustável?* Quando o limite pode ser ajustado, o valor *ajustável* é *Sim* .
+> Algumas áreas deste serviço têm limites ajustáveis. Isto está representado nas tabelas abaixo com a coluna *ajustável?* Quando o limite pode ser ajustado, o valor *ajustável* é *Sim*.
 >
 > Se a sua empresa necessitar de elevar um limite ou quota ajustável acima do limite de incumprimento, pode solicitar recursos adicionais [abrindo um bilhete de apoio.](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 

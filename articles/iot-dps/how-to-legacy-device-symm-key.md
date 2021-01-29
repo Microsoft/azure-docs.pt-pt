@@ -3,17 +3,17 @@ title: Dispositivos de provisão que utilizem chaves simétricas - Serviço de P
 description: Como utilizar chaves simétricas para o fornecimento de dispositivos com a sua instância do Serviço de Provisionamento de Dispositivos (DPS)
 author: wesmc7777
 ms.author: wesmc
-ms.date: 07/13/2020
+ms.date: 01/28/2021
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: eliotga
-ms.openlocfilehash: dc33dcd2c80b2a6d4a1cc27778e49dc06ac48b34
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+manager: lizross
+ms.openlocfilehash: a4c16347d1883e1522fda18c2382f2d67b8ace80
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967317"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051114"
 ---
 # <a name="how-to-provision-devices-using-symmetric-key-enrollment-groups"></a>Como providenciar dispositivos que utilizem grupos de inscrição chave simétricos
 
@@ -21,9 +21,7 @@ Este artigo demonstra como providenciar de forma segura múltiplos dispositivos 
 
 Alguns dispositivos podem não ter um certificado, TPM ou qualquer outra funcionalidade de segurança que possa ser usada para identificar de forma segura o dispositivo. O serviço de provisionamento de dispositivos inclui a [chave simétrica.](concepts-symmetric-key-attestation.md) A teta de teclas simétricas pode ser usada para identificar um dispositivo baseado em informações únicas como o endereço MAC ou um número de série.
 
-Se conseguir instalar facilmente um [módulo de segurança de hardware (HSM)](concepts-service.md#hardware-security-module) e um certificado, então essa pode ser uma melhor abordagem para identificar e a provisionar os seus dispositivos. Uma vez que esta abordagem pode permitir-lhe contornar a atualização do código implantado em todos os seus dispositivos, e não teria uma chave secreta incorporada na imagem do seu dispositivo.
-
-Este artigo pressupõe que nem um HSM nem um certificado é uma opção viável. No entanto, presume-se que tem algum método de atualizar o código do dispositivo para utilizar o Serviço de Provisionamento de Dispositivos para o fornecimento destes dispositivos. 
+Se conseguir instalar facilmente um [módulo de segurança de hardware (HSM)](concepts-service.md#hardware-security-module) e um certificado, então essa pode ser uma melhor abordagem para identificar e a provisionar os seus dispositivos. A utilização de um HSM permitir-lhe-á contornar a atualização do código implantado em todos os seus dispositivos, e não teria uma chave secreta incorporada nas imagens do seu dispositivo. Este artigo pressupõe que nem um HSM nem um certificado é uma opção viável. No entanto, presume-se que tem algum método de atualizar o código do dispositivo para utilizar o Serviço de Provisionamento de Dispositivos para o fornecimento destes dispositivos. 
 
 Este artigo também assume que a atualização do dispositivo ocorre num ambiente seguro para impedir o acesso não autorizado à chave do grupo principal ou à chave do dispositivo derivado.
 
@@ -32,7 +30,7 @@ Este artigo é orientado para uma estação de trabalho baseada no Windows. No e
 > [!NOTE]
 > A amostra utilizada neste artigo está escrita em C. Existe também uma [amostra de chave simétrica de dispositivo C#](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/SymmetricKeySample) disponível. Para utilizar esta amostra, faça o download ou clone do [repositório azure-iot-samples-csharp](https://github.com/Azure-Samples/azure-iot-samples-csharp) e siga as instruções em linha no código de amostra. Pode seguir as instruções deste artigo para criar um grupo de inscrição de chaves simétricas utilizando o portal e para encontrar o ID Scope e as chaves primárias e secundárias do grupo de inscrição necessárias para executar a amostra. Também pode criar inscrições individuais utilizando a amostra.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Será definido um ID de registo único para cada dispositivo com base em informações que identifiquem esse dispositivo. Por exemplo, o endereço MAC ou um número de série.
 
@@ -142,39 +140,18 @@ Neste exemplo, usamos uma combinação de um endereço MAC e número de série f
 sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
 ```
 
-Crie um ID de registo único para o seu dispositivo. Os caracteres válidos são alfanuméricos minúsculos e traços ('-').
+Crie IDs de registo únicos para cada dispositivo. Os caracteres válidos são alfanuméricos minúsculos e traços ('-').
 
 
 ## <a name="derive-a-device-key"></a>Derivar uma chave de dispositivo 
 
-Para gerar a chave do dispositivo, utilize a chave principal do grupo para calcular um [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) do ID de registo único para o dispositivo e converter o resultado em formato Base64.
+Para gerar chaves do dispositivo, utilize a chave principal do grupo de inscrição para calcular um [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) do ID de registo de cada dispositivo. O resultado é então convertido em formato Base64 para cada dispositivo.
 
 > [!WARNING]
-> O código do dispositivo deve incluir apenas a chave do dispositivo derivado para cada dispositivo. Não inclua a chave principal de grupo no código do dispositivo. Uma chave-mestre comprometida tem o potencial de comprometer a segurança de todos os dispositivos que estão a ser autenticados com ele.
+> O código do dispositivo para cada dispositivo deve incluir apenas a chave do dispositivo derivado correspondente para este dispositivo. Não inclua a chave principal de grupo no código do dispositivo. Uma chave-mestre comprometida tem o potencial de comprometer a segurança de todos os dispositivos que estão a ser autenticados com ele.
 
 
-#### <a name="linux-workstations"></a>Estações de trabalho linux
-
-Se estiver a utilizar uma estação de trabalho Linux, pode utilizar o openssl para gerar a chave do dispositivo derivado, como mostra o exemplo seguinte.
-
-Substitua o valor da **CHAVE** pela **Chave Primária** que observou anteriormente.
-
-Substitua o valor da **REG_ID** pelo seu ID de registo.
-
-```bash
-KEY=8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw==
-REG_ID=sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
-
-keybytes=$(echo $KEY | base64 --decode | xxd -p -u -c 1000)
-echo -n $REG_ID | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64
-```
-
-```bash
-Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
-```
-
-
-#### <a name="windows-based-workstations"></a>Estações de trabalho baseadas em janelas
+# <a name="windows"></a>[Windows](#tab/windows)
 
 Se estiver a utilizar uma estação de trabalho baseada no Windows, pode utilizar o PowerShell para gerar a chave do dispositivo derivado, como mostra o exemplo a seguir.
 
@@ -197,8 +174,29 @@ echo "`n$derivedkey`n"
 Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 ```
 
+# <a name="linux"></a>[Linux](#tab/linux)
 
-O seu dispositivo utilizará a chave do dispositivo derivado com o seu ID de registo único para realizar o atestado de chave simétrica com o grupo de inscrição durante o provisionamento.
+Se estiver a utilizar uma estação de trabalho Linux, pode utilizar o openssl para gerar a chave do dispositivo derivado, como mostra o exemplo seguinte.
+
+Substitua o valor da **CHAVE** pela **Chave Primária** que observou anteriormente.
+
+Substitua o valor da **REG_ID** pelo seu ID de registo.
+
+```bash
+KEY=8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw==
+REG_ID=sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
+
+keybytes=$(echo $KEY | base64 --decode | xxd -p -u -c 1000)
+echo -n $REG_ID | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64
+```
+
+```bash
+Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
+```
+
+---
+
+Cada dispositivo utiliza a sua chave de dispositivo derivada e iD de registo único para realizar atetação de chave simétrica com o grupo de inscrição durante o provisionamento.
 
 
 
@@ -206,7 +204,7 @@ O seu dispositivo utilizará a chave do dispositivo derivado com o seu ID de reg
 
 Nesta secção, irá atualizar uma amostra de provisões denominada **\_ \_ \_ prov dev cliente** localizada no Azure IoT C SDK que configuraste anteriormente. 
 
-Este código de amostra simula uma sequência de arranque do dispositivo que envia o pedido de provisionamento para a sua instância de Serviço de Provisionamento de Dispositivos. A sequência de arranque fará com que o dispositivo seja reconhecido e atribuído ao hub IoT que configuraste no grupo de inscrição.
+Este código de amostra simula uma sequência de arranque do dispositivo que envia o pedido de provisionamento para a sua instância de Serviço de Provisionamento de Dispositivos. A sequência de arranque fará com que o dispositivo seja reconhecido e atribuído ao hub IoT que configuraste no grupo de inscrição. Isto seria concluído para cada dispositivo que seria provisionado usando o grupo de inscrição.
 
 1. No portal do Azure, selecione o separador **Descrição Geral** do Serviço de Aprovisionamento de Dispositivos e anote o valor de **_Âmbito do ID_**.
 
@@ -280,10 +278,7 @@ Este código de amostra simula uma sequência de arranque do dispositivo que env
 
 ## <a name="security-concerns"></a>Preocupações com a segurança
 
-Esteja ciente de que isto deixa a chave do dispositivo derivado incluída como parte da imagem, o que não é uma melhor prática de segurança recomendada. Esta é uma das razões pelas quais a segurança e a facilidade de utilização são trocas. 
-
-
-
+Esteja ciente de que isto deixa a chave do dispositivo derivado incluída como parte da imagem para cada dispositivo, o que não é uma melhor prática de segurança recomendada. Esta é uma das razões pelas quais a segurança e a facilidade de utilização são muitas vezes compensações. Deve rever totalmente a segurança dos seus dispositivos com base nos seus próprios requisitos.
 
 
 ## <a name="next-steps"></a>Passos seguintes

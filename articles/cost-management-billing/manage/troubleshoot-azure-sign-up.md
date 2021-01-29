@@ -8,14 +8,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 08/20/2020
+ms.date: 01/28/2021
 ms.author: v-miegge
-ms.openlocfilehash: 85f6e64cb20a14b9cd03776d138872d6a4191535
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
-ms.translationtype: HT
+ms.openlocfilehash: 015e6058236190a04df152573621f0e57030d23b
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96344492"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054166"
 ---
 # <a name="troubleshoot-issues-when-you-sign-up-for-a-new-account-in-azure-portal-or-azure-account-center"></a>Resolução de problemas quando se inscreve numa nova conta no portal do Azure ou no centro de contas do Azure
 
@@ -139,19 +139,18 @@ Complete o Contrato.
 
 ## <a name="other-issues"></a>Outros problemas
 
-### <a name="cant-activate-azure-benefit-plan-like-msdn-bizspark-bizsparkplus-or-mpn"></a>Não consegue ativar o plano de vantagens do Azure como MSDN, BizSpark, BizSparkPlus ou MPN
+### <a name="cant-activate-azure-benefit-plan-like-visual-studio-bizspark-bizsparkplus-or-mpn"></a>Não é possível ativar o plano de benefícios da Azure como Visual Studio, BizSpark, BizSparkPlus ou MPN
 
 Verifique se está a utilizar as informações de início de sessão corretas. Em seguida, verifique o programa de benefícios para confirmar se é elegível.
-- MSDN
-  - Verifique o seu estado de elegibilidade na [página da sua conta MSDN](https://msdn.microsoft.com/subscriptions/manage/default.aspx).
-  - Se não conseguir verificar o seu estado, contacte os [Centros de Suporte ao Cliente das Subscrições do MSDN](/previous-versions/mappoint/aa493452(v=msdn.10)).
+- Visual Studio
+  - Verifique o seu estado de elegibilidade na sua [página de conta Visual Studio](https://my.visualstudio.com/Benefits).
+  - Se não conseguir verificar o seu estado, contacte [o Suporte à Subscrição do Estúdio Visual](https://visualstudio.microsoft.com/subscriptions/support/).
 - Microsoft para Startups
   - Inicie sessão no [portal Microsoft para Startups portal](https://startups.microsoft.com/#start-two) para verificar o seu estado de elegibilidade relativo à Microsoft para Startups.
   - Se não conseguir verificar o seu estado, pode obter ajuda nos [fóruns da Microsoft para Startups](https://www.microsoftpartnercommunity.com/t5/Microsoft-for-Startups/ct-p/Microsoft_Startups).
 - MPN
   - Inicie sessão no [portal do MPN](https://mspartner.microsoft.com/Pages/Locale.aspx) para verificar o seu estado de elegibilidade. Se tiver as [Competências da Plataforma da Cloud](https://mspartner.microsoft.com/pages/membership/cloud-platform-competency.aspx) adequadas, poderá ser elegível para vantagens adicionais.
   - Se não conseguir verificar o seu estado, contacte o [Suporte do MPN](https://mspartner.microsoft.com/Pages/Support/Premium/contact-support.aspx).
-
 
 ### <a name="cant-activate-new-azure-in-open-subscription"></a>Não é possível ativar uma nova subscrição do Azure no Open
 

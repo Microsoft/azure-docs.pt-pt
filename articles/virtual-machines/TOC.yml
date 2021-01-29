@@ -957,8 +957,6 @@
               href: ./linux/cloudinit-configure-swapfile.md
             - name: Executar script de bash existente
               href: ./linux/cloudinit-bash-script.md
-            - name: Preparar VM existente para inicialização em cloud
-              href: ./linux/cloudinit-prepare-custom-image.md
         - name: Criar imagens Linux sem um agente de provisionamento
           href: ./linux/no-agent.md
         - name: Desativar o aprovisionamento do Agente do Linux
@@ -1070,6 +1068,10 @@
               href: ./windows/image-builder.md
         - name: PowerShell
           href: ./windows/image-builder-powershell.md
+        - name: Segurança
+          items:
+            - name: Controlos de segurança do Azure Policy
+              href: ./security-controls-policy-image-builder.md
         - name: Utilizar uma VNET
           items:
             - name: CLI
@@ -1508,7 +1510,6 @@
               href: ../bastion/create-host-cli.md
             - name: Ligação Bastion SSH
               href: ../bastion/bastion-connect-vm-ssh.md
-              items: null
             - name: Ligação Bastion RDP
               href: ../bastion/bastion-connect-vm-rdp.md
         - name: Utilizar controlos de acesso

@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/30/2020
-ms.openlocfilehash: 9d402599c4d6732ce92b8c64af6f660bcedbc4ba
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: d90b9e38158d951990fffc21a43317c688da12c9
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96455054"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052047"
 ---
 # <a name="quickstart-create-your-first-logic-apps-workflow---azure-portal"></a>Quickstart: Crie o seu primeiro fluxo de trabalho de Apps Lógicas - Portal Azure
 
@@ -30,11 +30,14 @@ Se quiser aprender a criar e gerir a sua primeira aplicação lógica através d
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma subscrição do Azure. Se não tiver uma, [inscreva-se numa conta Azure gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Uma conta e subscrição do Azure. Se não tiver uma, [inscreva-se numa conta Azure gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+
 * Uma conta de e-mail de um serviço que é suportado por Aplicações Lógicas (como Office 365 Outlook ou Outlook.com). Para outros fornecedores de e-mail apoiados, [reveja a lista de conectores.](/connectors/)
 
     > [!IMPORTANT]
     > Se estiver a utilizar o conector do [Gmail,](/connectors/gmail/)note que apenas as contas G Suite podem utilizar este conector sem restrições em Aplicações Lógicas. Se tiver uma conta gmail de consumo, só pode utilizar este conector com serviços específicos aprovados pela Google, a menos que [crie uma aplicação para clientes da Google para utilizar para autenticação com o seu conector Gmail](/connectors/gmail/#authentication-and-bring-your-own-application). Para obter mais informações, consulte [as políticas de segurança de dados e privacidade para conectores google em Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
+
+* Se a sua aplicação lógica necessitar de comunicar através de uma firewall que limite o tráfego a endereços IP específicos, essa firewall precisa de permitir o acesso tanto aos endereços IP [de entrada](logic-apps-limits-and-config.md#inbound) *como* [de saída](logic-apps-limits-and-config.md#outbound) utilizados pelo serviço De aplicações lógicas ou ao tempo de funcionamento na região de Azure, onde existe a sua aplicação lógica. Se a sua aplicação lógica também utilizar [conectores geridos](../connectors/apis-list.md#managed-api-connectors)– como o conector Office 365 Outlook ou o conector SQL, ou utilizar [conectores personalizados](/connectors/custom-connectors/)– a firewall também precisa de permitir o acesso de *todos os* [endereços IP de saída geridos](logic-apps-limits-and-config.md#outbound) do conector na região Azure da sua aplicação lógica.
 
 <a name="create-logic-app"></a>
 
@@ -51,7 +54,7 @@ Se quiser aprender a criar e gerir a sua primeira aplicação lógica através d
    ![Screenshot da página de serviço de Aplicações Lógicas no portal Azure, mostrando lista de aplicações lógicas e botão selecionado, "Add".](./media/quickstart-create-first-logic-app-workflow/add-new-logic-app.png)
 
 1. No painel **de aplicações lógicas,** forneça detalhes básicos e configurações para a sua aplicação lógica. Crie um novo [grupo de recursos](../azure-resource-manager/management/overview.md#terminology) para efeitos desta aplicação lógica de exemplo.
-    
+
    | Propriedade | Valor | Descrição |
    |----------|-------|-------------|
    | **Nome** | <*lógica-app-nome*> | O nome da sua aplicação lógica, que deve ser única em todas as regiões. O nome só pode conter letras, números, hífens `-` (), sublinhados `_` ( , parênteses ( `(` , ) e `)` períodos `.` (). Este exemplo utiliza "My-First-Logic-App". |

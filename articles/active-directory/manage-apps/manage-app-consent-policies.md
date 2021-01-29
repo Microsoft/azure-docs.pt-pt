@@ -12,12 +12,12 @@ ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 3587beaeb788665c68c1fcb6376af40566b6c35e
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: f8fe027b350968a99aab5458fc2d7c1699fb50e3
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032784"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052520"
 ---
 # <a name="manage-app-consent-policies"></a>Gerir as políticas de consentimento da aplicação
 
@@ -115,7 +115,7 @@ Uma vez criada a política de consentimento da aplicação, pode [permitir o con
 
 ## <a name="delete-a-custom-app-consent-policy"></a>Excluir uma política de consentimento de aplicações personalizadas
 
-1. O seguinte mostra como pode eliminar uma política de consentimento de aplicações personalizadas. **Esta ação não pode ser desfeita.**
+1. O seguinte mostra como pode eliminar uma política de consentimento de aplicações personalizadas. **Esta ação não pode ser anulada.**
 
    ```powershell
    Remove-AzureADMSPermissionGrantPolicy -Id "my-custom-policy"
@@ -130,7 +130,7 @@ Uma vez criada a política de consentimento da aplicação, pode [permitir o con
 
 A tabela seguinte fornece a lista de condições suportadas para políticas de consentimento de aplicações.
 
-| Condição | Descrição|
+| Condição | Description|
 |:---------------|:----------|
 | Classificação de Permissões | A classificação de [permissão](configure-permission-classifications.md) para a permissão concedida, ou "todos" para corresponder a qualquer classificação de permissão (incluindo permissões que não são classificadas). O padrão é "tudo". |
 | Tipo de permissão | O tipo de permissão que está a ser concedida. Utilize "aplicação" para permissões de candidatura (por exemplo.app funções) ou "delegada" para permissões delegadas. <br><br>**Nota:** O valor "delegadoUserConsentable" indica permissões delegadas que não foram configuradas pelo editor da API para exigir o consentimento administrativo — este valor pode ser usado em políticas de concessão de permissões incorporadas, mas não pode ser utilizado em políticas de concessão de permissão personalizadas. Obrigatório. |
@@ -152,4 +152,4 @@ Para saber mais:
 * [Permissões e consentimento na plataforma de identidade da Microsoft](../develop/v2-permissions-and-consent.md)
 
 Para obter ajuda ou encontrar respostas às suas perguntas:
-* [Azure AD no StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+* [Azure AD no StackOverflow](https://docs.microsoft.com/answers/topics/azure-active-directory.html)

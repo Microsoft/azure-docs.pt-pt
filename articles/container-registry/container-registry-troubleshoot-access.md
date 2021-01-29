@@ -3,12 +3,12 @@ title: Problemas de rede de resolução de problemas com registo
 description: Sintomas, causas e resolução de problemas comuns ao aceder a um registo de contentores Azure numa rede virtual ou atrás de uma firewall
 ms.topic: article
 ms.date: 10/01/2020
-ms.openlocfilehash: 95b32b839d1b3b804a2035b797e1146a09d5236a
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 2f15eb8a830ce93ecf942663fc8a44b9df86d6d6
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351798"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052166"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>Problemas de rede de resolução de problemas com registo
 
@@ -40,6 +40,8 @@ Pode incluir um ou mais dos seguintes:
 Faça o comando [de check-health az acr](/cli/azure/acr#az-acr-check-health) para obter mais informações sobre a saúde do ambiente de registo e acesso opcional a um registo-alvo. Por exemplo, diagnosticar certos problemas de conectividade ou configuração da rede. 
 
 Consulte [a saúde de um registo de contentores Azure](container-registry-check-health.md) para obter exemplos de comando. Se forem reportados erros, reveja a [referência de erro](container-registry-health-error-reference.md) e as seguintes secções para obter soluções recomendadas.
+
+Se tiver problemas usando o serviço de registo wih Azure Kubernetes, verifique o comando [az aks check-acr](/cli/azure/aks#az_aks_check_acr) para validar que o registo está acessível a partir do cluster AKS.
 
 > [!NOTE]
 > Alguns sintomas de conectividade da rede também podem ocorrer quando há problemas com autenticação ou autorização de registo. Consulte [o registo de resolução de problemas](container-registry-troubleshoot-login.md).
@@ -136,7 +138,7 @@ Se não resolver o seu problema aqui, consulte as seguintes opções.
 
 * Outros tópicos de resolução de problemas do registo incluem:
   * [Login de registo de resolução de problemas](container-registry-troubleshoot-login.md) 
-  * [Resolver problemas de desempenho de registo](container-registry-troubleshoot-performance.md)
+  * [Desempenho do registo de resolução de problemas](container-registry-troubleshoot-performance.md)
 * [Opções de apoio comunitário](https://azure.microsoft.com/support/community/)
 * [Perguntas e Respostas da Microsoft](/answers/products/)
 * [Abrir um pedido de suporte](https://azure.microsoft.com/support/create-ticket/)

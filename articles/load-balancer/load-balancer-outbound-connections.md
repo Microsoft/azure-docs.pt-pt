@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: contperf-fy21q1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: f3c147b292ab21bd4e568f9e52acef07396acc28
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: d1632c66791dd5e697b95a2c5aaaddea81629abf
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878227"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052827"
 ---
 # <a name="using-snat-for-outbound-connections"></a>Utilização de SNAT para ligações de saída
 
@@ -66,7 +66,7 @@ Quando [o cenário 2](#scenario2) abaixo estiver configurado, o anfitrião de ca
  | Equilibrador de carga pública ou autónomo | [SNAT (Tradução de endereços de rede de origem)](#snat) </br> não usado. | TCP (Protocolo de Controlo de Transmissão) </br> UDP (Protocolo de Datagrama do Utilizador) </br> ICMP (Protocolo de Mensagem de Controlo de Internet) </br> ESP (Encapsulamento da Carga útil de segurança) |
 
 
- #### <a name="description"></a>Descrição
+ #### <a name="description"></a>Description
 
 
  O Azure utiliza o IP público atribuído à configuração IP do NIC da instância para todos os fluxos de saída. O caso tem todas as portas efémeras disponíveis. Não importa se o VM é equilibrado ou não. Este cenário tem precedência sobre os outros. 
@@ -80,10 +80,10 @@ Quando [o cenário 2](#scenario2) abaixo estiver configurado, o anfitrião de ca
 
  | Associações | Método | Protocolos IP |
  | ------------ | ------ | ------------ |
- | Balanceador de carga público | Utilização de IPs frontend do balançador de carga para [SNAT](#snat).| TCP </br> UDP |
+ | Balanceador de carga pública padrão | Utilização de IPs frontend do balançador de carga para [SNAT](#snat).| TCP </br> UDP |
 
 
- #### <a name="description"></a>Descrição
+ #### <a name="description"></a>Description
 
 
  O recurso do balançador de carga é configurado com uma regra de saída ou uma regra de equilíbrio de carga que permite o SNAT predefinido. Esta regra é usada para criar uma ligação entre o frontend IP público com o pool backend. 
@@ -103,15 +103,25 @@ Quando [o cenário 2](#scenario2) abaixo estiver configurado, o anfitrião de ca
 
  Neste contexto, as portas efémeras utilizadas para o SNAT são chamadas portas SNAT. Recomenda-se vivamente que uma [regra de saída](./outbound-rules.md) seja explicitamente configurada. Se utilizar o SNAT predefinido através de uma regra de equilíbrio de carga, as portas SNAT são pré-atribuídas conforme descrito no [quadro de atribuição de portas SNAT predefinido](#snatporttable).
 
+ ### <a name="scenario-3-virtual-machine-without-public-ip-and-behind-standard-internal-load-balancer"></a><a name="scenario3"></a>Cenário 3: Máquina virtual sem IP público e atrás do Balanceador de Carga Interno Standard
 
- ### <a name="scenario-3-virtual-machine-without-public-ip-and-behind-basic-load-balancer"></a><a name="scenario3"></a>Cenário 3: Máquina virtual sem IP público e por trás do Balanceador de Carga Básico
+
+ | Associações | Método | Protocolos IP |
+ | ------------ | ------ | ------------ |
+ | Balanceador de carga interno padrão | Sem conectividade na Internet.| Nenhum |
+
+ #### <a name="description"></a>Description
+ 
+Ao utilizar um balanceador interno standard não existe qualquer utilização de endereços IP efémeros para SNAT. Isto é para apoiar a segurança por padrão e garantir que todos os endereços IP utilizados por recursos são configuráveis e podem ser reservados. A fim de alcançar a conectividade de saída para a internet quando utilizar um balanceador de carga interno Standard, configurar um endereço IP público de nível de instância para seguir o comportamento em (cenário 1)[#scenario1] ou adicionar as instâncias de backend a um balanceador de carga pública Standard com uma regra de saída configurada em adubo ao equilibrador de carga interno para seguir o comportamento em (cenário 2)[#scenario2]. 
+
+ ### <a name="scenario-4-virtual-machine-without-public-ip-and-behind-basic-load-balancer"></a><a name="scenario4"></a>Cenário 4: Máquina virtual sem IP público e por trás do Balanceador de Carga Básico
 
 
  | Associações | Método | Protocolos IP |
  | ------------ | ------ | ------------ |
  |Nenhum </br> Balanceador de carga básico | [SNAT](#snat) com endereço IP dinâmico de nível de instância| TCP </br> UDP | 
 
- #### <a name="description"></a>Descrição
+ #### <a name="description"></a>Description
 
 
  Quando o VM cria um fluxo de saída, o Azure traduz o endereço IP de origem para um endereço IP de fonte pública dinamicamente atribuído. Este endereço IP público **não é configurável** e não pode ser reservado. Este endereço não conta com o limite de recursos IP públicos da subscrição. 
@@ -126,7 +136,6 @@ Quando [o cenário 2](#scenario2) abaixo estiver configurado, o anfitrião de ca
 
 
  Não utilize este cenário para adicionar IPs a uma lista de autorizações. Use o cenário 1 ou 2 onde declara explicitamente o comportamento de saída. As portas [SNAT](#snat) são pré-locadas como descrito na [tabela de atribuição de portas SNAT predefinido](#snatporttable).
-
 
 ## <a name="exhausting-ports"></a><a name="scenarios"></a> Portas exaustivas
 
@@ -190,7 +199,7 @@ Para obter mais informações sobre a Rede Virtual Azure NAT, consulte [o que é
   * Uma porta TCP SNAT pode ser usada para múltiplas ligações ao mesmo destino IP, desde que as portas de destino sejam diferentes.
 *   A exaustão do SNAT ocorre quando uma instância de backend se esgota de determinadas portas SNAT. Um equilibrador de carga ainda pode ter portas SNAT não uusadas. Se as portas SNAT utilizadas por uma instância de backend excederem as portas SNAT dadas, não será possível estabelecer novas ligações de saída.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 *   [Falhas de ligação de saída de resolução de problemas por causa da exaustão do SNAT](./troubleshoot-outbound-connection.md)
 *   [Reveja as métricas SNAT](./load-balancer-standard-diagnostics.md#how-do-i-check-my-snat-port-usage-and-allocation) e familiarize-se com a forma correta de filtrar, dividir e vê-las.

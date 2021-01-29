@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/16/2020
+ms.date: 01/28/2021
 ms.author: jeedes
-ms.openlocfilehash: 329e0fbfdea43f3933333744f89ed1c03ef0ed13
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: d0c8364cc85cfce900021272d17456527919122b
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98729335"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050808"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-timeclock-365-saml"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com relógio timeclock 365 SAML
 
@@ -70,7 +70,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. No portal Azure, na página de integração da aplicação **Timeclock 365 SAML,** encontre a secção **Gerir** e selecione um único sinal de **sação**.
 1. Na página de método **de inscrição** única, selecione **SAML**.
-1. No **set-on único com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
+1. No **set-on único com** a página SAML, clique no ícone de lápis para **configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -109,7 +109,15 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 ## <a name="configure-timeclock-365-saml-sso"></a>Configurar o Relógio 365 SAML SSO
 
-1. Abra um novo separador no seu navegador e inscreva-se no site da empresa Timeclock 365 SAML como administrador.
+1. Para automatizar a configuração dentro do Timeclock 365 SAML, é necessário instalar a **extensão do navegador 'As aplicações' Secure Sign-in** clicando **em instalar a extensão**.
+
+    ![Extensão das minhas aplicações](common/install-myappssecure-extension.png)
+
+2. Depois de adicionar extensão ao navegador, clique em **Configurar o Timeclock 365 SAML** irá direcioná-lo para a aplicação TIMEClock 365 SAML. A partir daí, forneça as credenciais de administração para assinar no Relógio 365 SAML. A extensão do navegador configurará automaticamente a aplicação para si e automatizará os passos 3-4.
+
+    ![Configuração de configuração](common/setup-sso.png)
+
+3. Se pretender configurar manualmente o Timeclock 365 SAML, numa janela diferente do navegador web, inscreva-se no site da empresa Timeclock 365 SAML como administrador.
 
 1. Execute os passos abaixo mencionados.
 
@@ -146,6 +154,6 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 * Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo DOM 365 do Relógio Tempo nas Minhas Aplicações, este será redirecionado para o URL de inscrição de 365 SAML do Relógio Tempo. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](../user-help/my-apps-portal-end-user-access.md)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Uma vez configurado o Relógio 365 SAML, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

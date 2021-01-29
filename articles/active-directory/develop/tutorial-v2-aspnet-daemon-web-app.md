@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 984b85ff831146060f1642b9eeec7079ff966db3
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: bc7893746cbb98a2d4adc4dabb39e22d015ab2c8
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937835"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050401"
 ---
 # <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>Tutorial: Construa um daemon multi-inquilino que usa a plataforma de identidade da Microsoft
 
@@ -237,9 +237,9 @@ Quando já não for necessário, elimine o objeto da aplicação que criou no Pa
 
 ## <a name="get-help"></a>Obter ajuda
 
-Use [Stack Overflow](http://stackoverflow.com/questions/tagged/msal) para obter apoio da comunidade.
-Faça as suas perguntas sobre Stack Overflow primeiro, e navegue em questões existentes para ver se alguém já fez a sua pergunta antes.
-Certifique-se de que as suas perguntas ou comentários estão marcados com "adal", "msal" e "dotnet".
+Use [o Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-ad-msal.html) para obter apoio da comunidade.
+Faça as suas perguntas sobre o Microsoft Q&A primeiro, e navegue nos problemas existentes para ver se alguém já fez a sua pergunta antes.
+Certifique-se de que as suas perguntas ou comentários estão marcados com "azure-ad-adal-depreciação", "azure-ad-msal" e "dotnet-standard".
 
 Se encontrar um bug na amostra, por favor levante a questão sobre [questões do GitHub](https://github.com/Azure-Samples/ms-identity-aspnet-daemon-webapp/issues).
 
@@ -247,7 +247,7 @@ Se encontrar um bug no MSAL.NET, por favor levante a questão sobre [MSAL.NET Pr
 
 Para fornecer uma recomendação, aceda à [página Voz](https://feedback.azure.com/forums/169401-azure-active-directory)do Utilizador .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre a construção de aplicações daemon que usam a plataforma de identidade da Microsoft para aceder a APIs web protegidas:
 

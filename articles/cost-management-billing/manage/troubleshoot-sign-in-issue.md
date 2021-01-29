@@ -10,12 +10,12 @@ ms.subservice: billing
 ms.topic: troubleshooting
 ms.date: 08/20/2020
 ms.author: v-miegge
-ms.openlocfilehash: 2e9b14fa264f3286134913e3c279c4400ce5bcc3
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
-ms.translationtype: HT
+ms.openlocfilehash: 915b4fb289b6af6f4aac84d8bfa4d491a7f77efe
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132334"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050475"
 ---
 # <a name="troubleshoot-azure-subscription-sign-in-issues"></a>Resolver problemas relativos a início de sessão da subscrição do Azure
 
@@ -32,7 +32,7 @@ Se a página do browser encravar, tente cada um dos passos a seguir até que con
 - Utilize um browser diferente.
 - Utilize o modo de navegação privada do browser.
 
-   - **Microsoft Edge:** abra as **Definições** (os três pontos junto à imagem do seu perfil), selecione **Nova janela InPrivate** e navegue e inicie sessão no [portal do Azure](https://portal.azure.com/) ou no [centro de contas do Azure](https://account.azure.com/Subscriptions). 
+   - **Borda:** Abrir **Definições** (os três pontos pela sua imagem de perfil), selecionar **a janela New InPrivate**, e, em seguida, navegar e iniciar sessão no portal [Azure](https://portal.azure.com/). 
    - **Chrome:** escolha o modo de navegação **anónima**.
    - **Safari:** escolha **Ficheiro** e **Nova janela privada**.
 
@@ -53,7 +53,7 @@ Para resolver o problema, experimente um dos métodos seguintes:
    - **Chrome:** escolha **Definições** e selecione **Limpar dados de navegação** em **Privacidade e segurança**.
 - Reponha as predefinições do browser.
 - Utilize o modo de navegação privada do browser. 
-   - **Microsoft Edge:** abra as **Definições** (os três pontos junto à imagem do seu perfil), selecione **Nova janela InPrivate** e navegue e inicie sessão no [portal do Azure](https://portal.azure.com/) ou no [centro de contas do Azure](https://account.azure.com/Subscriptions). 
+   - **Borda:** Abrir **Definições** (os três pontos pela sua imagem de perfil), selecionar **a janela New InPrivate**, e, em seguida, navegar e iniciar sessão no portal [Azure](https://portal.azure.com/). 
    - **Chrome:** escolha o modo de navegação **anónima**.
    - **Safari:** escolha **Ficheiro** e **Nova janela privada**.
 

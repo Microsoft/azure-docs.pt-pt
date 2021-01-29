@@ -3,12 +3,12 @@ title: Endereços IP utilizados pelo Azure Monitor
 description: Exceções de firewall do servidor exigidas por Insights de Aplicação
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: 5a6cc190f84b74cc8a1d4ff24d10cbfa07f3c2fb
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 78ef6f90f76afa613fdc3d039f3ae4e38e70ae9a
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945048"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050605"
 ---
 # <a name="ip-addresses-used-by-azure-monitor"></a>Endereços IP utilizados pelo Azure Monitor
 [O Azure Monitor](../overview.md) utiliza vários endereços IP. O Azure Monitor é composto por métricas de plataforma central e log além de Log Analytics e Application Insights. Poderá necessitar de saber estes endereços se a aplicação ou infraestrutura que está a monitorizar estiver atrás de uma firewall.
@@ -27,7 +27,7 @@ Em alternativa, pode subscrever esta página como um feed RSS adicionando https:
 
 | Objetivo | URL | IP | Portas |
 | --- | --- | --- | --- |
-| Telemetria |dc.applicationinsights.azure.com<br/>dc.applicationinsights.microsoft.com<br/>dc.services.visualstudio.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244<br/>40.85.218.175<br/>104.211.92.54<br/>52.175.198.74<br/>51.140.6.23<br/>40.71.12.231<br/>13.69.65.22<br/>13.78.108.165<br/>13.70.72.233<br/>20.44.8.7<br/>13.86.218.248<br/>40.79.138.41<br/>52.231.18.241<br/>13.75.38.7<br/>102.133.155.50<br/>52.162.110.67<br/>191.233.204.248<br/>13.69.66.140<br/>13.77.52.29<br/>51.107.59.180<br/>40.71.12.235<br/>20.44.8.10<br/>40.71.13.169<br/>13.66.141.156<br/>40.71.13.170<br/>13.69.65.23<br/>20.44.17.0<br/>20.36.114.207 <br/>51.116.155.246 <br/>51.107.155.178 <br/>51.140.212.64 <br/>13.86.218.255 <br/>20.37.74.240 <br/>65.52.250.236 <br/>13.69.229.240 <br/>52.236.186.210<br/>52.167.107.65<br/>40.71.12.237<br/>40.78.229.32<br/>40.78.229.33<br/>51.105.67.161<br/>40.124.64.192<br/>20.44.12.194<br/>20.189.172.0 | 443 |
+| Telemetria |dc.applicationinsights.azure.com<br/>dc.applicationinsights.microsoft.com<br/>dc.services.visualstudio.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244<br/>40.85.218.175<br/>104.211.92.54<br/>52.175.198.74<br/>51.140.6.23<br/>40.71.12.231<br/>13.69.65.22<br/>13.78.108.165<br/>13.70.72.233<br/>20.44.8.7<br/>13.86.218.248<br/>40.79.138.41<br/>52.231.18.241<br/>13.75.38.7<br/>102.133.155.50<br/>52.162.110.67<br/>191.233.204.248<br/>13.69.66.140<br/>13.77.52.29<br/>51.107.59.180<br/>40.71.12.235<br/>20.44.8.10<br/>40.71.13.169<br/>13.66.141.156<br/>40.71.13.170<br/>13.69.65.23<br/>20.44.17.0<br/>20.36.114.207 <br/>51.116.155.246 <br/>51.107.155.178 <br/>51.140.212.64 <br/>13.86.218.255 <br/>20.37.74.240 <br/>65.52.250.236 <br/>13.69.229.240 <br/>52.236.186.210<br/>52.167.107.65<br/>40.71.12.237<br/>40.78.229.32<br/>40.78.229.33<br/>51.105.67.161<br/>40.124.64.192<br/>20.44.12.194<br/>20.189.172.0<br/>13.69.106.208<br/>40.78.253.199<br/>40.78.253.198<br/>40.78.243.19 | 443 |
 | Live Metrics Stream | live.applicationinsights.azure.com<br/>rt.applicationinsights.microsoft.com<br/>rt.services.visualstudio.com|23.96.28.38<br/>13.92.40.198<br/>40.112.49.101<br/>40.117.80.207<br/>157.55.177.6<br/>104.44.140.84<br/>104.215.81.124<br/>23.100.122.113| 443 |
 
 ## <a name="status-monitor"></a>Monitor de Estado
@@ -245,7 +245,35 @@ Nota: *.loganalytics.io domínio é propriedade da equipa log Analytics.
 
 | Objetivo | IP | Portas
 | --- | --- | --- |
-| Alertas | 13.72.19.232 <br/>13.106.57.181<br/>13.106.54.3<br/>13.106.54.19<br/>13.106.38.142<br/>13.106.38.148<br/>13.106.57.196<br/>13.106.57.197<br/>52.244.68.117<br/>52.244.65.137<br/>52.183.31.0<br/>52.184.145.166<br/>51.4.138.199<br/>51.5.148.86<br/>51.5.149.19 | 443 |
+| Alertas | 13.66.60.119/32<br/>13.66.143.220/30<br/>13.66.202.14/32<br/>13.66.248.225/32<br/>13.66.249.211/32<br/>13.67.10.124/30<br/>13.69.109.132/30<br/>13.71.199.112/30<br/>13.77.53.216/30<br/>13.77.172.102/32<br/>13.77.183.209/32<br/>13.78.109.156/30<br/>13.84.49.247/32<br/>13.84.51.172/32<br/>13.84.52.58/32<br/>13.86.221.220/30<br/>13.106.38.142/32<br/>13.106.38.148/32<br/>13.106.54.3/32<br/>13.106.54.19/32<br/>13.106.57.181/32<br/>13.106.57.196/31<br/>20.38.149.132/30<br/>20.42.64.36/30<br/>20.43.121.124/30<br/>20.44.17.220/30<br/>20.45.123.236/30<br/>20.72.27.152/30<br/>20.150.172.228/30<br/>20.192.238.124/30<br/>20.193.202.4/30<br/>40.68.195.137/32<br/>40.68.201.58/32<br/>40.68.201.65/32<br/>40.68.201.206/32<br/>40.68.201.211/32<br/>40.68.204.18/32<br/>40.115.37.106/32<br/>40.121.219.215/32<br/>40.121.221.62/32<br/>40.121.222.201/32<br/>40.121.223.186/32<br/>51.104.9.100/30<br/>52.183.20.244/32<br/>52.183.31.0/32<br/>52.183.94.59/32<br/>52.184.145.166/32<br/>191.233.50.4/30<br/>191.233.207.64/26<br/>2603:1000:4:402::178/125<br/>2603:1000:104:402::178/125<br/>2603:1010:6:402::178/125<br/>2603:1010:101:402::178/125<br/>2603:1010:304:402::178/125<br/>2603:1010:404:402::178/125<br/>2603:1020:5:402::178/125<br/>2603:1020:206:402::178/125<br/>2603:1020:305:402::178/125<br/>2603:1020:405:402::178/125<br/>2603:1020:605:402::178/125<br/>2603:1020:705:402::178/125<br/>2603:1020:805:402::178/125<br/>2603:1020:905:402::178/125<br/>2603:1020:a04:402::178/125<br/>2603:1020:b04:402::178/125<br/>2603:1020:c04:402::178/125<br/>2603:1020:d04:402::178/125<br/>2603:1020:e04:402::178/125<br/>2603:1020:f04:402::178/125<br/>2603:1020:1004:800::f8/125<br/>2603:1020:1104:400::178/125<br/>2603:1030:f:400::978/125<br/>2603:1030:10:402::178/125<br/>2603:1030:104:402::178/125<br/>2603:1030:107:400::f0/125<br/>2603:1030:210:402::178/125<br/>2603:1030:40b:400::978/125<br/>2603:1030:40c:402::178/125<br/>2603:1030:504:802::f8/125<br/>2603:1030:608:402::178/125<br/>2603:1030:807:402::178/125<br/>2603:1030:a07:402::8f8/125<br/>2603:1030:b04:402::178/125<br/>2603:1030:c06:400::978/125<br/>2603:1030:f05:402::178/125<br/>2603:1030:1005:402::178/125<br/>2603:1040:5:402::178/125<br/>2603:1040:207:402::178/125<br/>2603:1040:407:402::178/125<br/>2603:1040:606:402::178/125<br/>2603:1040:806:402::178/125<br/>2603:1040:904:402::178/125<br/>2603:1040:a06:402::178/125<br/>2603:1040:b04:402::178/125<br/>2603:1040:c06:402::178/125<br/>2603:1040:d04:800::f8/125<br/>2603:1040:f05:402::178/125<br/>2603:1040:1104:400::178/125<br/>2603:1050:6:402::178/125<br/>2603:1050:403:400::1f8/125<br/> | 443 |
+
+Para receber atualizações sobre alterações a estes endereços IP, recomendamos que configuize um alerta de Saúde de Serviço, que monitoriza notificações informativas sobre o serviço Grupos de Ação.
+
+### <a name="action-groups-service-tag"></a>Tag de serviço de grupos de ação
+Gerir as alterações nos endereços IP source pode ser bastante demorado. A utilização de **Tags de Serviço** elimina a necessidade de atualizar a sua configuração. Uma etiqueta de serviço representa um grupo de prefixos de endereço IP de um determinado serviço Azure. A Microsoft gere os endereços IP e atualiza automaticamente a etiqueta de serviço à medida que os endereços mudam, eliminando a necessidade de atualizar as regras de segurança da rede para um Grupo de Ação.
+
+1. No portal Azure no âmbito da pesquisa dos Serviços Azure para *o Grupo de Segurança da Rede.*
+2. Clique em **Adicionar** e crie um Grupo de Segurança de Rede.
+
+   1. Adicione o Nome do Grupo de Recursos e, em seguida, introduza *detalhes de instância*.
+   1. Clique em **'Rever + Criar'** e, em seguida, clique em *Criar.*
+   
+   :::image type="content" source="../platform/media/action-groups/action-group-create-security-group.png" alt-text="Exemplo sobre como criar um Grupo de Segurança de Rede."border="true":::
+
+3. Vá ao Grupo de Recursos e, em seguida, clique no *Grupo de Segurança da Rede* que criou.
+
+    1. Selecione *Regras de Segurança de Entrada*.
+    1. Clique em **Adicionar**.
+    
+    :::image type="content" source="../platform/media/action-groups/action-group-add-service-tag.png" alt-text="Exemplo sobre como adicionar uma etiqueta de serviço."border="true":::
+
+4. Uma nova janela abrir-se-á no painel direito.
+    1.  Selecione Fonte: **Tag de serviço**
+    1.  Etiqueta de serviço de origem: **ActionGroup**
+    1.  Clique em **Adicionar**.
+    
+    :::image type="content" source="../platform/media/action-groups/action-group-service-tag.png" alt-text="Exemplo sobre como adicionar etiqueta de serviço."border="true":::
+
 
 ## <a name="profiler"></a>Gerador de perfis
 

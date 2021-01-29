@@ -1,5 +1,5 @@
 ---
-title: Como obter o AppSource certificado para O Azure Ative Directory Microsoft Docs
+title: Como obter o AppSource certificado para O Azure Ative Directory| Microsoft Docs
 description: Detalhes sobre como obter a sua aplicação AppSource certificada para Azure Ative Directory.
 services: active-directory
 author: rwike77
@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 85c4488c4e8e1e2f9591b7d734c522c34ea4ba2d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15a4dd56b509571094ef202fbce781104bda9188
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88116330"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052249"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Como obter AppSource Certificado para Azure Ative Directory
 
@@ -113,9 +113,9 @@ Para obter mais informações sobre a experiência de teste appSource, consulte 
 
 ## <a name="get-support"></a>Obter suporte
 
-Para a integração da AD Azure, [usamos Stack Overflow](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource) com a comunidade para fornecer suporte.
+Para a integração do AD Azure, usamos [o Microsoft Q&A](https://docs.microsoft.com/answers/products/) com a comunidade para fornecer suporte.
 
-Recomendamos vivamente que faça as suas perguntas sobre Stack Overflow primeiro e navegue em questões existentes para ver se alguém já fez a sua pergunta antes. Certifique-se de que as suas perguntas ou comentários estão marcados [ `[azure-active-directory]` com e `[appsource]` ](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource).
+Recomendamos vivamente que faça as suas perguntas sobre o Microsoft Q&A primeiro e navegue nos problemas existentes para ver se alguém já fez a sua pergunta antes. Certifique-se de que as suas perguntas ou comentários estão marcados com [`[azure-active-directory]`](https://docs.microsoft.com/answers/topics/azure-active-directory.html) .
 
 Utilize a secção de comentários a seguir para fornecer feedback e ajude-nos a aperfeiçoar e moldar o nosso conteúdo.
 

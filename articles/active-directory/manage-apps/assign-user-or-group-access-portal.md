@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/21/2020
 ms.author: kenwith
 ms.reviewer: luleon
-ms.openlocfilehash: 22acfc5095b1ffcad382fa2b665a86d382645e7a
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 59c69e88fb64cbb00063534be9fd41b86dce0b62
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861682"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053385"
 ---
 # <a name="manage-user-assignment-for-an-app-in-azure-active-directory"></a>Gerir a atribuição de utilizadores para uma aplicação no Azure Active Directory
 
@@ -49,7 +49,7 @@ Para exigir a atribuição do utilizador para uma aplicação:
 2. Selecione **Azure Active Directory**. No menu de navegação à esquerda, selecione **aplicações Enterprise**.
 3. Selecione a inscrição na lista. Se não vir a aplicação, comece a escrever o seu nome na caixa de pesquisa. Ou utilize os comandos do filtro para selecionar o tipo de aplicação, o estado ou a visibilidade e, em seguida, **selecione Apply**.
 4. No menu de navegação à esquerda, selecione **Propriedades.**
-5. Certifique-se de que a atribuição do **Yes** **Utilizador necessária?**
+5. Certifique-se de que a atribuição do  **Utilizador necessária?**
    > [!NOTE]
    > Se a atribuição do **Utilizador não** estiver disponível, pode utilizar o PowerShell para definir a propriedade appRoleAssignmentRequired no principal de serviço.
 6. Selecione o botão **Guardar** na parte superior do ecrã.
@@ -148,7 +148,7 @@ Este exemplo atribui o utilizador Britta Simon à aplicação [Microsoft Workpla
 ## <a name="related-articles"></a>Artigos relacionados
 
 - [Saiba mais sobre o acesso do utilizador final às aplicações](end-user-experiences.md)
-- [Planeie uma implementação de Azure AD My Apps](access-panel-deployment-plan.md)
+- [Planeie uma implementação de Azure AD My Apps](my-apps-deployment-plan.md)
 - [Gerir o acesso a aplicações](what-is-access-management.md)
  
 ## <a name="next-steps"></a>Passos seguintes

@@ -5,12 +5,12 @@ author: IngridAtMicrosoft
 ms.topic: how-to
 ms.author: inhenkel
 ms.date: 12/04/2020
-ms.openlocfilehash: d519193d55c9535dc71206d2d9f72661d7a40d71
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: ee5ae7ca8b52d44f21c35df23ef92f61d38fc3c3
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954417"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051300"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>Resolução de problemas Vídeo Analytics em IoT Edge
 
@@ -107,7 +107,8 @@ Também pode encontrar problemas ao executar o **[script de configuração de re
 * O script de configuração não pode criar um principal serviço e/ou recursos Azure.
     * Para ultrapassar este problema, verifique se a sua subscrição e o inquilino da Azure não atingiram os seus limites máximos de serviço. Saiba mais sobre [os limites e restrições de serviço Azure AD](https://docs.microsoft.com/azure/active-directory/enterprise-users/directory-service-limits-restrictions) e [os limites de subscrição e serviço da Azure, quotas e restrições.](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)
 
-
+> [!TIP]
+> Se houver algum problema adicional com o quais possa precisar de ajuda, por favor **[recolha registos e envie um bilhete de apoio](#collect-logs-for-submitting-a-support-ticket)**. Você também pode nos contactar enviando um e-mail para **[amshelp@microsoft.com](mailto:amshelp@microsoft.com)** .
 ### <a name="live-video-analytics-working-with-external-modules"></a>Vídeo ao vivo Analytics trabalhando com módulos externos
 
 O Live Video Analytics através dos processadores de extensão de gráficos de mídia pode estender o gráfico de mídia para enviar e receber dados de outros módulos IoT Edge utilizando protocolos HTTP ou gRPC. Como [exemplo específico,](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/httpExtension)este gráfico de mídia pode enviar quadros de vídeo como imagens para um módulo de inferência externa, como o Yolo v3 e receber resultados de análise baseados em JSON usando o protocolo HTTP . Em tal topologia, o destino para os eventos é principalmente o hub IoT. Em situações em que não se vê os eventos de inferência no centro, verifique o seguinte:

@@ -6,12 +6,12 @@ ms.subservice: ''
 ms.date: 11/03/2020
 ms.topic: troubleshooting
 ms.custom: has-adal-ref
-ms.openlocfilehash: 116677354009c538eece02184d801cfda11574a0
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: e154284df8eaad798c5cfaf4de69c40601863cf4
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896313"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053674"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Resolver problemas de runbooks
 
@@ -134,7 +134,7 @@ Run Login-AzureRMAccount to login.
 
 ### <a name="cause"></a>Causa
 
-Este erro pode ocorrer quando não estiver a utilizar uma conta Run As ou a conta Run As expirou. Para obter mais informações, consulte [Gerir a Gestão da Automação Azure Executar como contas.](../manage-runas-account.md)
+Este erro pode ocorrer quando não estiver a utilizar uma conta Run As ou a conta Run As expirou. Para mais informações, consulte [a Azure Automation Run Como visão geral das contas.](../automation-security-overview.md#run-as-accounts)
 
 Este erro tem duas causas primárias:
 
@@ -680,7 +680,7 @@ Siga [o Passo 5 - Adicione a autenticação para gerir os recursos do Azure](../
 * [Execução de runbook na Azure Automation](../automation-runbook-execution.md)
 * [Iniciar um runbook na Azure Automation](../start-runbooks.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se não vir o seu problema aqui ou não conseguir resolver o seu problema, experimente um dos seguintes canais para obter mais apoio:
 

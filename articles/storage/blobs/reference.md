@@ -1,6 +1,6 @@
 ---
-title: Referência de armazenamento de Blobs do Azure
-description: Encontre referência API de armazenamento Azure Blob, readme ficheiros e pacotes de biblioteca de clientes.
+title: Referência de armazenamento Azure Blob
+description: Encontre referência AZure Blob Storage API, readme ficheiros e pacotes de biblioteca de clientes.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 09/10/2020
@@ -8,25 +8,25 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: ripohane
-ms.openlocfilehash: 04eca391fd02e18d4faed5e4f435e44e5675c4bd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 70178a955fe4afcfc0c695d34e3c1466773d802d
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95912285"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054081"
 ---
-# <a name="azure-blob-storage-reference"></a>Referência de armazenamento de Blobs do Azure
+# <a name="azure-blob-storage-reference"></a>Referência de armazenamento Azure Blob
 
 Encontre referência API de armazenamento Azure Blob, pacotes de biblioteca, ficheiros de leitura e começar artigos.
 
 ## <a name="net-client-libraries"></a>Bibliotecas de clientes .NET
 
-O quadro que se segue lista a referência e a documentação da amostra para o armazenamento Azure Blob .NET APIs.
+O quadro que se segue lista a referência e a documentação da amostra para Azure Blob Storage .NET APIs.
 
 |  Versão  | Documentação de referência | Pacote | Início Rápido |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12.x | [Biblioteca de clientes de armazenamento Azure Blob para .NET](/dotnet/api/overview/azure/storage.blobs-readme) | [Pacote (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs/) | [Início Rápido: biblioteca de cliente do armazenamento de blobs do Azure v12 para .NET](./storage-quickstart-blobs-dotnet.md) |
-| 11.x | [Microsoft.Azure.Storage.Blob Namespace](/dotnet/api/microsoft.azure.storage.blob) | [Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/) | [Quickstart: Azure Blob storage client library v11 for .NET](./storage-quickstart-blobs-dotnet-legacy.md) |
+| 12.x | [Biblioteca de clientes Azure Blob Storage para .NET](/dotnet/api/overview/azure/storage.blobs-readme) | [Pacote (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs/) | [Quickstart: Azure Blob Storage client library v12 for .NET](./storage-quickstart-blobs-dotnet.md) |
+| 11.x | [Microsoft.Azure.Storage.Blob Namespace](/dotnet/api/microsoft.azure.storage.blob) | [Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/) | [Quickstart: Azure Blob Storage client library v11 for .NET](./storage-quickstart-blobs-dotnet-legacy.md) |
 
 ### <a name="storage-management"></a>Gestão de armazenamento
 
@@ -63,7 +63,7 @@ A tabela que se segue lista a documentação de referência para a gestão de ar
 
 ## <a name="python-client-libraries"></a>Bibliotecas de clientes Python
 
-A tabela que se segue lista a referência e a documentação da amostra para as APIs python de armazenamento de Azure Blob.
+A tabela que se segue lista a referência e a documentação da amostra para as APIs de Armazenamento de Azure Blob Python.
 
 |  Versão  | Documentação de referência | Pacote | Início Rápido |
 | :-------: | ----------------------- | ------- | ---------- |
@@ -72,7 +72,7 @@ A tabela que se segue lista a referência e a documentação da amostra para as 
 
 ## <a name="javascript-client-libraries"></a>Bibliotecas de clientes JavaScript
 
-A tabela que se segue lista a referência e a documentação da amostra para o armazenamento javaScript APIs de armazenamento Azure Blob.
+A tabela que se segue lista a referência e a documentação da amostra para as APIs javaScript de armazenamento de Azure Blob.
 
 |  Versão  | Documentação de referência | Pacote | Início Rápido |
 | :-------: | ----------------------- | ------- | ---------- |
@@ -83,7 +83,7 @@ A tabela que se segue lista a referência e a documentação da amostra para o a
 
 A tabela que se segue lista a referência e a documentação da amostra para as APIs de armazenamento de Azure Blob.
 
-| Documentação de referência | Descrição geral |
+| Documentação de referência | Descrição Geral |
 | ----------------------- | -------- |
 | [Serviço blob REST API](/rest/api/storageservices/blob-service-rest-api) | [Conceitos do serviço Blob](/rest/api/storageservices/blob-service-concepts) |
 

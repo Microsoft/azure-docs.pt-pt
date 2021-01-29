@@ -13,12 +13,12 @@ ms.date: 08/07/2020
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 3a1428f05d1a5f7563b2715a9142cf73dc5063a9
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 3280952636a915cca4bade40d3e56b795050c321
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063659"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053470"
 ---
 # <a name="migrate-applications-to-the-microsoft-authentication-library-msal"></a>Migrar aplicações para a Biblioteca de Autenticação da Microsoft (MSAL)
 
@@ -49,7 +49,7 @@ Os seguintes artigos podem ajudá-lo a migrar para o MSAL:
 - [Migrar para MSAL Python](migrate-python-adal-msal.md)
 - [Migrar aplicações Xamarin com mediadores para o MSAL.NET](msal-net-migration-ios-broker.md)
 
-## <a name="frequently-asked-questions-faq"></a>Perguntas mais frequentes (FAQ)
+## <a name="frequently-asked-questions-faq"></a>Perguntas Mais Frequentes (FAQ)
 
 __P: A ADAL está a ser depreciada?__  
 R: Sim. A partir de 30 de junho de 2020, deixaremos de adicionar novas funcionalidades à ADAL. Continuaremos a adicionar correções críticas de segurança à ADAL até 30 de junho de 2022. Após esta data, as suas aplicações que usam ADAL continuarão a funcionar, mas recomendamos o upgrade para o MSAL para tirar partido das funcionalidades mais recentes e manter-se seguro.
@@ -73,9 +73,9 @@ __P: Como funciona a MSAL com a AD FS?__
 R: MSAL.NET apoia certos cenários para autenticar contra a AD FS 2019. Se a sua aplicação precisar de adquirir fichas diretamente da versão anterior do AD FS, deverá permanecer no ADAL. [Saiba mais](msal-net-adfs-support.md).
 
 __P: Como consigo ajuda a migrar a minha candidatura?__  
-R: Consulte a secção de orientação para a [migração](#migration-guidance) deste artigo. Se, depois de ler o guia para a plataforma da sua aplicação, tiver perguntas adicionais, pode publicar no Stack Overflow com a etiqueta `[adal-deprecation]` ou abrir um problema no repositório GitHub da biblioteca. Consulte a secção [de Línguas e Quadros](msal-overview.md#languages-and-frameworks) do artigo de visão geral do MSAL para obter links para o repo de cada biblioteca.
+R: Consulte a secção de orientação para a [migração](#migration-guidance) deste artigo. Se, depois de ler o guia da plataforma da sua aplicação, tiver perguntas adicionais, pode publicar no Microsoft Q&A com a etiqueta `[azure-ad-adal-deprecation]` ou abrir um problema no repositório GitHub da biblioteca. Consulte a secção [de Línguas e Quadros](msal-overview.md#languages-and-frameworks) do artigo de visão geral do MSAL para obter links para o repo de cada biblioteca.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Atualize as suas aplicações para utilizar a Microsoft Authentication Library e a Microsoft Graph API](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/update-your-applications-to-use-microsoft-authentication-library/ba-p/1257363)
 - [Visão geral da plataforma de identidade da Microsoft](v2-overview.md)

@@ -3,12 +3,12 @@ title: Tópicos do sistema na Grelha de Eventos Azure
 description: Descreve tópicos do sistema na Grelha de Eventos Azure.
 ms.topic: conceptual
 ms.date: 09/24/2020
-ms.openlocfilehash: b3a6e7528da2a11c2f91007425ab8beecaf920c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1fbecb1e372602f9c252d43d2a1f93524ef1846
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91297288"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052970"
 ---
 # <a name="system-topics-in-azure-event-grid"></a>Tópicos do sistema na Grelha de Eventos Azure
 Um tópico de sistema em Event Grid representa um ou mais eventos publicados pelos serviços da Azure, tais como Azure Storage e Azure Event Hubs. Por exemplo, um tópico do sistema pode representar **todos os eventos blob** ou apenas eventos **blob criados** e **blob eliminados** publicados para uma **conta de armazenamento específica**. Neste exemplo, quando uma bolha é carregada para a conta de armazenamento, o serviço Azure Storage publica um evento **criado blob** para o tópico do sistema em Event Grid, que depois encaminha o evento para [os subscritores](event-handlers.md) do tópico que recebem e processam o evento. 
@@ -34,6 +34,7 @@ Aqui está a lista atual de serviços Azure que suportam a criação de tópicos
 - [Azure Service Bus](event-schema-service-bus.md)
 - [Azure SignalR](event-schema-azure-signalr.md)
 - [Subscrições do Azure](event-schema-subscriptions.md)
+- [Cache do Azure para Redis](event-schema-azure-cache.md)
 
 ## <a name="system-topics-as-azure-resources"></a>Tópicos do sistema como recursos Azure
 No passado, um tópico do sistema estava implícito e não estava exposto à simplicidade. Os tópicos do sistema são agora visíveis como recursos Azure e fornecem as seguintes capacidades:
@@ -49,7 +50,7 @@ Pode criar um tópico de sistema de duas formas:
 - Crie uma [subscrição de eventos num recurso Azure como recurso de extensão,](/rest/api/eventgrid/version2020-06-01/eventsubscriptions/createorupdate)que cria automaticamente um tópico de sistema com o nome no formato: `<Azure resource name>-<GUID>` . O tópico do sistema criado desta forma é automaticamente eliminado quando a última subscrição do evento para o tópico é eliminada. 
 - Crie um tópico de sistema para um recurso Azure e, em seguida, crie uma subscrição de eventos para esse tópico do sistema. Quando utilizar este método, pode especificar um nome para o tópico do sistema. O tópico do sistema não é eliminado automaticamente quando a última subscrição do evento é eliminada. Tem de apagar manualmente. 
 
-    Quando utilizar o portal Azure, está sempre a utilizar este método. Quando cria uma subscrição de eventos utilizando a página [ **Eventos** de um recurso Azure,](blob-event-quickstart-portal.md#subscribe-to-the-blob-storage)o tópico do sistema é criado primeiro e, em seguida, a subscrição para o tópico é criada. Primeiro, pode criar um tópico de sistema utilizando a página [ **Tópicos do Sistema de Grelha de Eventos** ](create-view-manage-system-topics.md#create-a-system-topic) e, em seguida, criar uma subscrição para esse tópico. 
+    Quando utilizar o portal Azure, está sempre a utilizar este método. Quando cria uma subscrição de eventos utilizando a página [ **Eventos** de um recurso Azure,](blob-event-quickstart-portal.md#subscribe-to-the-blob-storage)o tópico do sistema é criado primeiro e, em seguida, a subscrição para o tópico é criada. Primeiro, pode criar um tópico de sistema utilizando a página [ **Tópicos do Sistema de Grelha de Eventos**](create-view-manage-system-topics.md#create-a-system-topic) e, em seguida, criar uma subscrição para esse tópico. 
 
 Quando utilizar o modelo [CLI,](create-view-manage-system-topics-cli.md) [REST](/rest/api/eventgrid/version2020-06-01/eventsubscriptions/createorupdate)ou [Azure Resource Manager,](create-view-manage-system-topics-arm.md)pode escolher qualquer um dos métodos acima referidos. Recomendamos que crie primeiro um tópico de sistema e depois crie uma subscrição sobre o tema, uma vez que esta é a mais recente forma de criar tópicos do sistema.
 

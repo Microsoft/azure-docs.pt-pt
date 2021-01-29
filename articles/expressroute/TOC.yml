@@ -4,7 +4,7 @@
   items:
     - name: O que é o ExpressRoute?
       href: expressroute-introduction.md
-- name: Guias de Introdução
+- name: Guias de Início Rápido
   items:
     - name: Criar um circuito do ExpressRoute - Portal
       href: expressroute-howto-circuit-portal-resource-manager.md
@@ -131,7 +131,7 @@
     - name: Configurar o Alcance Global do ExpressRoute
       items:
         - name: Portal do Azure
-          href: expressroute-howto-set-global-reach.md
+          href: expressroute-howto-set-global-reach-portal.md
         - name: Azure PowerShell
           href: expressroute-howto-set-global-reach.md
         - name: CLI do Azure

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 743710ea0d40eb31375236d4e59b0b138a217518
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 8174529def5e3924086e49f36c225f07a4da2648
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895550"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051656"
 ---
 # <a name="best-practices-for-azure-maps-route-service"></a>Melhores práticas para o serviço Azure Maps Route
 
@@ -59,10 +59,10 @@ Aqui está uma comparação para mostrar algumas capacidades das Direções de R
 
 | Azure Maps API | Número máximo de consultas no pedido | Evitar áreas | Encaminhamento de caminhão e veículo elétrico | Waypoints e otimização do Vendedor Itinerante | Pontos de apoio |
 | :--------------: |  :--------------: |  :--------------: | :--------------: | :--------------: | :--------------: |
-| Obter Direções de Rota | 1 | | X | X | |
-| Direções da Rota dos Correios | 1 | X | X | X | X |
-| Lote de Direções de Rota pós-rota | 700 | | X | X | |
-| Matriz de rota pós-rota | 700 | | X | | |
+| Obter Direções de Rota | 1 | | ✔ | ✔ | |
+| Direções da Rota dos Correios | 1 | ✔ | ✔ | ✔ | ✔ |
+| Lote de Direções de Rota pós-rota | 700 | | ✔ | ✔ | |
+| Matriz de rota pós-rota | 700 | | ✔ | | |
 
 Para saber mais sobre as capacidades de encaminhamento de veículos elétricos, consulte o nosso tutorial sobre como [encaminhar veículos elétricos usando Cadernos Azure com Python.](tutorial-ev-routing.md)
 
@@ -140,7 +140,7 @@ Expandir o `point` elemento para ver a lista de coordenadas para o caminho:
 
 ![Elemento de pontos expandido](media/how-to-use-best-practices-for-routing/points-list-img.png)
 
-As APIs de Direções de Rota suportam diferentes formatos de instruções que podem ser utilizadas especificando o parâmetro **de instruçõesType.** Para formatar instruções para um fácil processamento do computador, utilize **instruçõesType=codificado** . Use **instruçõesType=marcado** para apresentar instruções como texto para o utilizador. Além disso, as instruções podem ser formatadas como texto onde alguns elementos das instruções estão marcados, e a instrução é apresentada com formatação especial. Para obter mais informações, consulte a [lista de tipos de instruções suportados.](/rest/api/maps/route/postroutedirections#routeinstructionstype)
+As APIs de Direções de Rota suportam diferentes formatos de instruções que podem ser utilizadas especificando o parâmetro **de instruçõesType.** Para formatar instruções para um fácil processamento do computador, utilize **instruçõesType=codificado**. Use **instruçõesType=marcado** para apresentar instruções como texto para o utilizador. Além disso, as instruções podem ser formatadas como texto onde alguns elementos das instruções estão marcados, e a instrução é apresentada com formatação especial. Para obter mais informações, consulte a [lista de tipos de instruções suportados.](/rest/api/maps/route/postroutedirections#routeinstructionstype)
 
 Quando as instruções são solicitadas, a resposta devolve um novo elemento denominado `guidance` . O `guidance` elemento contém duas informações: direções turn-by-turn e instruções resumidas.
 
@@ -214,7 +214,7 @@ A Azure Maps fornece atualmente duas formas de otimização de rotas:
 
 Para o encaminhamento multi-stop, podem ser especificados até 150 pontos de passagem num único pedido de rota. Os locais de coordenadas de partida e final podem ser os mesmos, como seria o caso de uma viagem de ida e volta. Mas precisa fornecer pelo menos um ponto de passagem adicional para fazer o cálculo da rota. Os pontos de passagem podem ser adicionados à consulta entre as coordenadas de origem e destino.
 
-Se quiser otimizar a melhor ordem para visitar os pontos de passagem dados, então precisa de especificar **o computeBestOrder=verdadeiro** . Este cenário também é conhecido como o problema de otimização do vendedor itinerante.
+Se quiser otimizar a melhor ordem para visitar os pontos de passagem dados, então precisa de especificar **o computeBestOrder=verdadeiro**. Este cenário também é conhecido como o problema de otimização do vendedor itinerante.
 
 ### <a name="sample-query"></a>Consulta de exemplo
 

@@ -2,14 +2,14 @@
 title: Quotas e limites do serviço
 description: Saiba mais sobre as quotas, limites e restrições do Lote Azure padrão e como solicitar aumentos de quota
 ms.topic: conceptual
-ms.date: 12/29/2020
+ms.date: 01/28/2021
 ms.custom: seodec18
-ms.openlocfilehash: 11c9ad1e916ad7e64b59cc13c0967d2b9daed4aa
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 433272c76b9ff27d9cad542cf65a8ec0d8fc0378
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814640"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052385"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quotas e limites do serviço Batch
 
@@ -31,21 +31,9 @@ Note-se também que as quotas não são valores garantidos. As quotas podem vari
 
 ## <a name="core-quotas"></a>Quotas nucleares
 
-### <a name="cores-quotas-in-batch-service-mode"></a>Quotas de núcleos no modo de serviço de lote
+### <a name="cores-quotas-in-batch-service-mode"></a>Quotas de núcleos no modo de serviço Batch
 
-A aplicação de quotas nucleares dedicadas está a ser melhorada, com as alterações a serem disponibilizadas por etapas e concluídas para todas as contas do Batch até ao final de janeiro de 2021.
-
-Existem quotas principais para cada série VM suportada pelo Batch e são exibidas na página **Quotas** no portal. Os limites de quota da série VM podem ser atualizados com um pedido de apoio, conforme descrito abaixo.
-
-Com a eliminação progressiva do mecanismo existente, os limites de quota para as séries VM não são verificados, apenas é aplicado o limite total de quota para a conta. Isto significa que pode ser possível atribuir mais núcleos para uma série de VM do que o indicado pela quota da série VM, até ao limite total do contingente de conta.
-
-O mecanismo atualizado aplicará as quotas da série VM, para além da quota total da conta. Como parte da transição para o novo mecanismo, os valores de quota da série VM podem ser atualizados para evitar falhas de atribuição - qualquer série VM utilizada nos últimos meses terá a sua quota de série VM atualizada para corresponder ao contingente total da conta. Esta alteração não permitirá a utilização de mais capacidade do que já estava disponível.
-
-É possível determinar se a execução das quotas da série VM foi habilitada para uma conta batch, verificando:
-
-* A conta Batch deu a propriedade [dedicadaCoreQuotaPerVMFamilyEnforced](/rest/api/batchmanagement/batchaccount/get#batchaccount) API.
-
-* Texto na página **De Quotas** da conta Lote no portal.
+Existem quotas principais para cada série VM suportada pelo Batch e são exibidas na página **Quotas** no portal. Os limites de quota da série VM podem ser atualizados com um pedido de apoio, conforme descrito abaixo. Para os nós dedicados, o Batch impõe um limite de quota de base para cada série VM, bem como um limite total de quota de base para toda a conta Batch. Para os nós de baixa prioridade, o Batch aplica apenas uma quota de base total para a conta Batch sem qualquer distinção entre diferentes séries de VM.
 
 ### <a name="cores-quotas-in-user-subscription-mode"></a>Quotas de núcleos no modo de subscrição do utilizador
 

@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 14520c7c448231045b36e025c2c92332f9daac53
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 5f207a0b5f829e952c92133a66313f49e9352f51
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658728"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053213"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planear uma implementação de início de sessão único
 
@@ -32,7 +32,7 @@ Muitas organizações confiam no software como aplicações de serviço (SaaS), 
 
 O Azure Marketplace tem mais de 3000 aplicações com ligações SSO pré-integradas, facilitando a sua integração no seu inquilino.
 
-## <a name="licensing"></a>Licenciamento
+## <a name="licensing"></a>Licensing
 
 - **O licenciamento Azure AD** - SSO para aplicações SaaS pré-integradas é gratuito. No entanto, o número de objetos no seu diretório e as funcionalidades que pretende implementar podem necessitar de licenças adicionais. Para obter uma lista completa dos requisitos de licença, consulte [o Azure Ative Directory Pricing](https://azure.microsoft.com/pricing/details/active-directory/).
 - **Licenciamento de pedidos** - Você precisará das licenças apropriadas para seus pedidos SaaS para atender às suas necessidades de negócio. Trabalhe com o titular da aplicação para determinar se os utilizadores afetados à aplicação têm as licenças adequadas para as suas funções dentro da aplicação. Se a Azure AD gerir o provisionamento automático com base em funções, as funções atribuídas no Azure AD devem alinhar-se com o número de licenças detidas dentro da aplicação. O número indevido de licenças detidas no pedido pode resultar em erros durante o provisionamento/atualização de um utilizador.
@@ -62,7 +62,7 @@ Existem duas formas primárias de permitir que os seus utilizadores se inscrevam
 
 A utilização do Azure AD para SSO baseado em palavras-passe requer a implementação de uma extensão do navegador que irá recuperar as credenciais de forma segura e preencher os formulários de login. Defina um mecanismo para implantar a extensão em escala com [navegadores suportados.](../user-help/my-apps-portal-end-user-access.md) As opções incluem:
 
-- [Política de Grupo para Internet Explorer](./access-panel-deployment-plan.md)
+- [Política de Grupo para Internet Explorer](my-apps-deployment-plan.md)
 - [Gestor de configuração para Internet Explorer](/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
 - [Descarregamento e configuração conduzidos pelo utilizador para Chrome, Firefox, Microsoft Edge ou IE](../user-help/my-apps-portal-end-user-access.md)
 
@@ -203,7 +203,7 @@ Implemente o seu plano de comunicação. Certifique-se de que está a informar o
 
 Pode utilizar os seguintes casos de teste para realizar testes em dispositivos pessoais e corporativos para garantir que as suas configurações SSO estão a funcionar como esperado. Os cenários abaixo assumem que um utilizador está a navegar para um URL de aplicação e a passar por um fluxo de autenticação iniciado pelo prestador de serviços (fluxo de auth iniciado pela SP).
 
-| Cenário | Resultado esperado no fluxo de auth iniciado pelo SP pelo utilizador |
+| Scenario | Resultado esperado no fluxo de auth iniciado pelo SP pelo utilizador |
 |----------|---------------------------------------------------|
 | Faça login para aplicação com IE enquanto em corpnet. | A autenticação integrada do Windows (IWA) ocorre sem solicitações adicionais. |
 | Faça login para aplicação com IE enquanto desligado da corpnet com nova tentativa de login. | Solicitação baseada em formulários no AD FS Server. O utilizador inicia sessão com sucesso e solicita o mFA. |
@@ -303,7 +303,7 @@ Os seguintes links apresentam cenários de resolução de problemas. Pode querer
 
 - [Problema com SSO federado para candidaturas NÃO listados na Galeria de Aplicações Azure](./application-sign-in-problem-federated-sso-gallery.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Depuração SSO baseada em SAML](./debug-saml-sso-issues.md)
 

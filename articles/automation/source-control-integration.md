@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: c2ddb0143bb9cba0dc2fc48ff9b9df94dc55c29c
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: e7a6b6d3e753352820cdcb910dcbfa9362793493
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579458"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050775"
 ---
 # <a name="use-source-control-integration"></a>Utilizar a integração do controlo de código fonte
 
@@ -29,7 +29,7 @@ A Azure Automation suporta três tipos de controlo de origem:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Um repositório de controlo de fontes (GitHub ou Azure Repos)
-* Uma [conta Run As](manage-runas-account.md)
+* Uma [conta Run As](automation-security-overview.md#run-as-accounts)
 * Os [mais recentes módulos Azure](automation-update-azure-modules.md) na sua conta Automation, incluindo o `Az.Accounts` módulo (módulo Az equivalente `AzureRM.Profile` a)
 
 > [!NOTE]
@@ -62,14 +62,14 @@ Utilize este procedimento para configurar o controlo de origem utilizando o port
     |Folder path     | Pasta que contém os livros para sincronizar, por exemplo, **/Runbooks**. Apenas os livros de execução na pasta especificada são sincronizados. A recursão não é apoiada.        |
     |Auto Sincronização<sup>1</sup>     | Regulação que liga ou desliga a sincronização automática quando um compromisso é feito no repositório de controlo de origem.        |
     |Publicar Runbook     | Definição de On se os runbooks forem automaticamente publicados após a sincronização do controlo de origem, e desligado de outra forma.           |
-    |Descrição     | Texto especificando detalhes adicionais sobre o controlo de origem.        |
+    |Description     | Texto especificando detalhes adicionais sobre o controlo de origem.        |
 
     <sup>1</sup> Para ativar o Auto Sync ao configurar a integração do controlo de fonte com o Azure Repos, tem de ser administrador de projeto.
 
    ![Resumo do controlo de origem](./media/source-control-integration/source-control-summary.png)
 
 > [!NOTE]
-> O login do seu repositório de controlo de origem pode ser diferente do seu login para o portal Azure. Certifique-se de que está a iniciar sessão com a conta correta para o seu repositório de controlo de origem ao configurar o controlo de origem. Em caso de dúvida, abra um novo separador no seu browser, faça login a partir de **dev.azure.com** , **visualstudio.com** ou **github.com** , e tente reconectar-se ao controlo de origem.
+> O login do seu repositório de controlo de origem pode ser diferente do seu login para o portal Azure. Certifique-se de que está a iniciar sessão com a conta correta para o seu repositório de controlo de origem ao configurar o controlo de origem. Em caso de dúvida, abra um novo separador no seu browser, faça login a partir de **dev.azure.com**, **visualstudio.com** ou **github.com**, e tente reconectar-se ao controlo de origem.
 
 ### <a name="configure-source-control-in-powershell"></a>Configure o controlo de fontes na PowerShell
 
@@ -86,7 +86,7 @@ New-AzAutomationSourceControl -Name SCGitHub -RepoUrl https://github.com/<accoun
 #### <a name="create-source-control-connection-for-azure-repos-git"></a>Criar ligação de controlo de origem para Azure Repos (Git)
 
 > [!NOTE]
-> Azure Repos (Git) usa um URL que acede **dev.azure.com** em vez de **visualstudio.com** , usado em formatos anteriores. O formato URL mais antigo `https://<accountname>.visualstudio.com/<projectname>/_git/<repositoryname>` é precotado, mas ainda suportado. O novo formato é preferido.
+> Azure Repos (Git) usa um URL que acede **dev.azure.com** em vez de **visualstudio.com**, usado em formatos anteriores. O formato URL mais antigo `https://<accountname>.visualstudio.com/<projectname>/_git/<repositoryname>` é precotado, mas ainda suportado. O novo formato é preferido.
 
 
 ```powershell-interactive
@@ -96,7 +96,7 @@ New-AzAutomationSourceControl -Name SCReposGit -RepoUrl https://dev.azure.com/<a
 #### <a name="create-source-control-connection-for-azure-repos-tfvc"></a>Criar ligação de controlo de fontes para Azure Repos (TFVC)
 
 > [!NOTE]
-> Azure Repos (TFVC) utiliza um URL que acede **dev.azure.com** em vez de **visualstudio.com** , usado em formatos anteriores. O formato URL mais antigo `https://<accountname>.visualstudio.com/<projectname>/_versionControl` é precotado, mas ainda suportado. O novo formato é preferido.
+> Azure Repos (TFVC) utiliza um URL que acede **dev.azure.com** em vez de **visualstudio.com**, usado em formatos anteriores. O formato URL mais antigo `https://<accountname>.visualstudio.com/<projectname>/_versionControl` é precotado, mas ainda suportado. O novo formato é preferido.
 
 ```powershell-interactive
 New-AzAutomationSourceControl -Name SCReposTFVC -RepoUrl https://dev.azure.com/<accountname>/<adoprojectname>/_git/<repositoryname> -SourceType VsoTfvc -AccessToken <secureStringofPAT> -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName> -FolderPath "/Runbooks"
@@ -209,4 +209,4 @@ Atualmente, não é possível utilizar o portal Azure para atualizar o PAT no co
 ## <a name="next-steps"></a>Passos seguintes
 
 * Para integrar o controlo de origem na Azure Automation, consulte [a Azure Automation: Source Control Integration in Azure Automation](https://azure.microsoft.com/blog/azure-automation-source-control-13/).  
-* Para integrar o controlo de origem do runbook com o Visual Studio Online, consulte [a Azure Automation: Integrando o Runbook Source Control utilizando o Visual Studio Online](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/).
+* Para integrar o controlo de origem do runbook com os Espaços de Código do Estúdio Visual, consulte [a Azure Automation: Integrando o Runbook Source Control utilizando espaços de código do estúdio visual](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/).

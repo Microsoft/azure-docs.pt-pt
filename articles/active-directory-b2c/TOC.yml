@@ -188,14 +188,17 @@
       items:
         - name: Configurar a entrada do utilizador
           href: configure-user-input.md
-        - name: Personalizar a IU com a imagem corporativa da empresa
-          href: company-branding.md
+        - name: Personalizar a IU
+          displayName: company branding
+          href: customize-ui.md
         - name: Personalizar a IU com o modelo HTML
+          displayName: content definitions
           href: customize-ui-with-html.md
         - name: JavaScript e esquemas de página
           href: javascript-and-page-layout.md
         - name: Personalizar idioma
           href: language-customization.md
+          displayName: localization
         - name: Complexidade da palavra-passe
           href: password-complexity.md
         - name: Desativar a verificação do e-mail
@@ -259,12 +262,13 @@
           items:
             - name: Recolher registos com o Application Insights
               href: troubleshoot-with-application-insights.md
-              displayName: troubleshooting
+              displayName: 'troubleshooting, app insights'
             - name: Validação de políticas
               href: troubleshoot-custom-policies.md
               displayName: troubleshooting
         - name: Análise de utilização
           href: analytics-with-application-insights.md
+          displayName: 'application insights, app insights'
         - name: Referência
           items:
             - name: TrustFrameworkPolicy

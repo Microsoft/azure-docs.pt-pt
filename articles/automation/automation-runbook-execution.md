@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 10/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6ac7d99f4a47711f9974d30d877a3237eec15443
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 71273c456b14fa4ea289e2a48d441de99ce8a4b1
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078838"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053912"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Execução de runbooks na Automatização do Azure
 
@@ -112,7 +112,7 @@ Os registos disponíveis para o agente Log Analytics e a conta **de nxautomation
 
 ## <a name="runbook-permissions"></a>Permissões do Runbook
 
-Um livro de aplicação necessita de permissões para autenticação ao Azure, através de credenciais. Ver [Gerir a Azure Automation Run Como contas](manage-runas-account.md).
+Um livro de aplicação necessita de permissões para autenticação ao Azure, através de credenciais. Consulte [a visão geral da autenticação da Azure Automation](automation-security-overview.md).
 
 ## <a name="modules"></a>Módulos
 
@@ -139,6 +139,7 @@ A tabela seguinte descreve os estatutos que são possíveis para um trabalho. Po
 
 | Estado | Descrição |
 |:--- |:--- |
+| Ativação |O trabalho está a ser ativado. |
 | Concluído |A tarefa foi concluída com êxito. |
 | Com falhas |Um livro gráfico ou powerShell Workflow não conseguiu compilar. Um livro de corridas da PowerShell não começou ou o trabalho teve uma exceção. Consulte os [tipos de runbook da Azure Automation](automation-runbook-types.md).|
 | Falhado, à espera de recursos |O trabalho falhou porque atingiu o limite [de quota justa](#fair-share) três vezes e começou a partir do mesmo ponto de verificação ou desde o início do livro de cada vez. |
@@ -214,7 +215,7 @@ Os erros de não rescisão permitem que um script continue mesmo depois de ocorr
 
 ## <a name="calling-processes"></a>Processos de chamada
 
-Os runbooks que funcionam em caixas de areia Azure não suportam processos de chamada, tais como executáveis **(ficheiros .exe)** ou subprocessos. A razão para isso é que uma caixa de areia Azure é um processo compartilhado executado em um recipiente que pode não ser capaz de aceder a todas as APIs subjacentes. Para cenários que exijam software de terceiros ou chamadas para subprocessos, deverá executar um livro de execução num [Trabalhador de Runbook Híbrido](automation-hybrid-runbook-worker.md).
+Os runbooks que funcionam em caixas de areia Azure não suportam processos de chamada, tais como executáveis **(.exe** ficheiros) ou subprocessos. A razão para isso é que uma caixa de areia Azure é um processo compartilhado executado em um recipiente que pode não ser capaz de aceder a todas as APIs subjacentes. Para cenários que exijam software de terceiros ou chamadas para subprocessos, deverá executar um livro de execução num [Trabalhador de Runbook Híbrido](automation-hybrid-runbook-worker.md).
 
 ## <a name="device-and-application-characteristics"></a>Características do dispositivo e da aplicação
 

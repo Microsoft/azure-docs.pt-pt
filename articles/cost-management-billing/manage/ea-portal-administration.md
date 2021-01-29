@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: e25b2aeee46617bd62a72d204e1a4bdbc31d08ea
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
-ms.translationtype: HT
+ms.openlocfilehash: 3ce13a103b605ea7b6066e8b2868fa974f4e64e5
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97030829"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050571"
 ---
 # <a name="azure-ea-portal-administration"></a>Administração do Azure EA Portal
 
@@ -347,7 +347,7 @@ Para adicionar uma subscrição:
 
 As novas subscrições podem demorar até 24 horas até surgirem na lista de subscrições. Depois de ter criado uma subscrição, pode:
 
-- [Editar os detalhes da subscrição](https://account.azure.com/Subscriptions)
+- [Editar os detalhes da subscrição](https://portal.azure.com)
 - [Gerir os serviços da subscrição](https://portal.azure.com/#home)
 
 ## <a name="delete-subscription"></a>Eliminar subscrição

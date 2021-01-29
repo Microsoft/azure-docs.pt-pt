@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Azure Blob storage library v12 - Python'
-description: Neste arranque rápido, você aprende a usar a versão 12 da biblioteca de clientes de armazenamento Azure Blob para python para criar um recipiente e uma bolha no armazenamento blob (objeto). Em seguida, vai aprender a transferir o blob para o computador local e a listar todos os blobs num contentor.
+title: 'Quickstart: Azure Blob Storage library v12 - Python'
+description: Neste arranque rápido, aprende-se a usar a versão 12 da biblioteca do cliente Azure Blob Storage para a Python para criar um recipiente e uma bolha no armazenamento blob (objeto). Em seguida, vai aprender a transferir o blob para o computador local e a listar todos os blobs num contentor.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 07/24/2020
@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: dbac832165c57e14e737372e12c4f4b2f3039c0d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b35144c1ff4de9324086629bc764caea4bef98b6
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995267"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052741"
 ---
 # <a name="quickstart-manage-blobs-with-python-v12-sdk"></a>Quickstart: Gerir bolhas com Python v12 SDK
 
@@ -36,7 +36,7 @@ Recursos adicionais:
 
 ## <a name="setting-up"></a>Configuração
 
-Esta secção acompanha-o através da preparação de um projeto para trabalhar com a biblioteca de clientes de armazenamento Azure Blob v12 para Python.
+Esta secção acompanha-o através da preparação de um projeto para trabalhar com a biblioteca de clientes Azure Blob Storage v12 para Python.
 
 ### <a name="create-the-project"></a>Criar o projeto
 
@@ -62,13 +62,13 @@ Crie uma aplicação Python chamada *blob-quickstart-v12*.
 
 ### <a name="install-the-package"></a>Instale o pacote
 
-Enquanto ainda está no diretório de aplicações, instale a biblioteca de clientes de armazenamento Azure Blob para pacote Python utilizando o `pip install` comando.
+Enquanto ainda está no diretório de aplicações, instale a biblioteca de clientes Azure Blob Storage para pacote Python utilizando o `pip install` comando.
 
 ```console
 pip install azure-storage-blob
 ```
 
-Este comando instala a biblioteca de clientes de armazenamento Azure Blob para pacote Python e todas as bibliotecas de que depende. Neste caso, esta é apenas a biblioteca central de Azure para Python.
+Este comando instala a biblioteca cliente Azure Blob Storage para pacote Python e todas as bibliotecas de que depende. Neste caso, esta é apenas a biblioteca central de Azure para Python.
 
 ### <a name="set-up-the-app-framework"></a>Configurar o quadro de aplicações
 
@@ -85,7 +85,7 @@ Do diretório do projeto:
     from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient, __version__
 
     try:
-        print("Azure Blob storage v" + __version__ + " - Python quickstart sample")
+        print("Azure Blob Storage v" + __version__ + " - Python quickstart sample")
         # Quick start code goes here
     except Exception as ex:
         print('Exception:')
@@ -98,7 +98,7 @@ Do diretório do projeto:
 
 ## <a name="object-model"></a>Modelo de objeto
 
-O armazenamento Azure Blob está otimizado para armazenar quantidades massivas de dados não estruturados. Os dados não estruturados são dados que não seguem uma definição ou um modelo de dados em particular, como por exemplo, texto ou dados binários. O armazenamento blob oferece três tipos de recursos:
+O Azure Blob Storage está otimizado para armazenar quantidades massivas de dados não estruturados. Os dados não estruturados são dados que não seguem uma definição ou um modelo de dados em particular, como por exemplo, texto ou dados binários. O armazenamento blob oferece três tipos de recursos:
 
 * A conta de armazenamento
 * Um recipiente na conta de armazenamento
@@ -116,7 +116,7 @@ Utilize as seguintes classes Python para interagir com estes recursos:
 
 ## <a name="code-examples"></a>Exemplos de código
 
-Estes excertos de código de exemplo mostram-lhe como executar o seguinte com a biblioteca de clientes de armazenamento Azure Blob para Python:
+Estes excertos de código de exemplo mostram-lhe como executar o seguinte com a biblioteca de clientes Azure Blob Storage para Python:
 
 * [Obter a cadeia de ligação](#get-the-connection-string)
 * [Criar um contentor](#create-a-container)
@@ -261,7 +261,7 @@ python blob-quickstart-v12.py
 A saída da app é semelhante ao seguinte exemplo:
 
 ```output
-Azure Blob storage v12 - Python quickstart sample
+Azure Blob Storage v12 - Python quickstart sample
 
 Uploading to Azure Storage as blob:
         quickstartcf275796-2188-4057-b6fb-038352e35038.txt
@@ -290,7 +290,7 @@ Neste quickstart, aprendeu a carregar, descarregar e listar bolhas usando Python
 Para ver as aplicações de amostra de armazenamento Blob, continue a:
 
 > [!div class="nextstepaction"]
-> [Amostras de SDK v12 Python de armazenamento de Azure Blob](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob/samples)
+> [Amostras de Azure Blob Storage SDK v12 Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob/samples)
 
 * Para saber mais, consulte as [bibliotecas de clientes do Azure Storage para Python.](/azure/developer/python/sdk/storage/overview)
 * Para tutoriais, amostras, quickstarts e outra documentação, visite [Azure for Python Developers](/azure/python/).

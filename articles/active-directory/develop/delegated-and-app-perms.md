@@ -1,5 +1,5 @@
 ---
-title: Diferenças entre permissões delegadas e de aplicações Rio Azure
+title: Diferenças entre permissões delegadas e de aplicações | Rio Azure
 description: Saiba mais sobre permissões delegadas e de aplicação, como são usadas pelos clientes e expostas por recursos para aplicações que está a desenvolver com a Azure AD
 services: active-directory
 author: rwike77
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4d9011a69d9c3389f73097e65d509e463f1f5280
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 40d89cad595673a535ebcd526d747d81ce6ad08f
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063812"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051928"
 ---
 # <a name="how-to-recognize-differences-between-delegated-and-application-permissions"></a>Como reconhecer diferenças entre permissões delegadas e de candidatura
 
@@ -27,5 +27,5 @@ ms.locfileid: "98063812"
 - Consulte instruções passo a passo sobre como [configurar os pedidos de permissão de um pedido de cliente](quickstart-configure-app-access-web-apis.md)
 - Para obter mais profundidade, saiba como as aplicações de recursos expõem [os âmbitos](developer-glossary.md#scopes) e funções de [aplicação](developer-glossary.md#roles) às aplicações dos clientes, que se manifestam como permissões delegadas e de candidatura, respectivamente, no portal Azure. 
 
-## <a name="next-steps"></a>Próximos passos
-[Fluxo de stack AzureAD](https://stackoverflow.com/questions/tagged/azure-active-directory)
+## <a name="next-steps"></a>Passos seguintes
+[AzureAD Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
