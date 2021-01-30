@@ -4,12 +4,12 @@ description: Não ver dados em Azure Application Insights? Tente aqui.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/21/2020
-ms.openlocfilehash: 26ba586715c7b76ff8972c6574c3c29b837713a1
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: e41b0a9ce1ff86bc6010e12fdf5d3320f303fd87
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96904470"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092456"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>Resolução de problemas sem dados - Insights de aplicação para .NET/.NET Core
 
@@ -76,7 +76,7 @@ _When clicar com o botão direito de um projeto existente no Solution Explorer, 
 
 * Nem todos os tipos de projeto .NET são suportados pelas ferramentas. Os projetos Web e WCF são apoiados. Para outros tipos de projetos, como aplicações de desktop ou serviço, ainda pode [adicionar um SDK Application Insights ao seu projeto manualmente](./windows-desktop.md).
 * Certifique-se de que tem [Visual Studio 2013 Update 3 ou mais tarde](/visualstudio/releasenotes/vs2013-update3-rtm-vs). Vem pré-instalado com ferramentas Developer Analytics, que fornecem o Application Insights SDK.
-* Selecione **Ferramentas, Extensões e Atualizações** e verifique se **as Ferramentas de Análise do Programador** estão instaladas e ativadas. **Tools** Em caso afirmativo, clique em **Atualizações** para ver se existe uma atualização disponível.
+* Selecione **Ferramentas, Extensões e Atualizações** e verifique se **as Ferramentas de Análise do Programador** estão instaladas e ativadas.  Em caso afirmativo, clique em **Atualizações** para ver se existe uma atualização disponível.
 * Abra o diálogo new project e escolha ASP.NET aplicação Web. Se vir a opção Application Insights, as ferramentas são instaladas. Caso contrário, tente desinstalar e, em seguida, reinstalar as Ferramentas de Análise do Desenvolvedor.
 
 ## <a name="adding-application-insights-failed"></a><a name="q02"></a>A adição de Insights de Aplicação falhou
@@ -116,7 +116,7 @@ Causas prováveis:
 Correção:
 
 * Certifique-se de que a sua versão Visual Studio é atualização 3 ou mais tarde de 2013.
-* Selecione **Ferramentas, Extensões e Atualizações** e verifique se **as ferramentas do Developer Analytics** estão instaladas e ativadas. **Tools** Em caso afirmativo, clique em **Atualizações** para ver se existe uma atualização disponível.
+* Selecione **Ferramentas, Extensões e Atualizações** e verifique se **as ferramentas do Developer Analytics** estão instaladas e ativadas.  Em caso afirmativo, clique em **Atualizações** para ver se existe uma atualização disponível.
 * Clique com o botão direito no seu projeto no Solution Explorer. Se vir o comando **Application Insights > Configurar Insights de Aplicação,** utilize-o para ligar o seu projeto ao recurso no serviço Application Insights.
 
 Caso contrário, o seu tipo de projeto não é suportado diretamente pelas ferramentas Developer Analytics. Para ver a sua telemetria, inscreva-se no [portal Azure,](https://portal.azure.com)escolha Insights de Aplicação na barra de navegação à esquerda e selecione a sua aplicação.
@@ -188,7 +188,7 @@ Os dados de desempenho (CPU, taxa IO, e assim por diante) estão disponíveis pa
 * Verifique se copiou toda a Microsoft. ApplicationInsights DLLs para o servidor, juntamente com Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll
 * Na sua firewall, poderá ter de [abrir algumas portas TCP.](./ip-addresses.md)
 * Se tiver de usar um representante para enviar para fora da sua rede corporativa, desaprote [oProxy em](/previous-versions/dotnet/netframework-1.1/aa903360(v=vs.71)) Web.config
-* Windows Server 2008: Certifique-se de que instalou as seguintes atualizações: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).
+* Windows Server 2008: Certifique-se de que instalou as seguintes atualizações: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://web.archive.org/web/20150129090641/http://support.microsoft.com/kb/2600217).
 
 ## <a name="i-used-to-see-data-but-it-has-stopped"></a>Costumava ver dados, mas parou.
 * Já atingiu a sua quota mensal de pontos de dados? Abra as Definições/Quota e Preços para descobrir. Em caso afirmativo, pode atualizar o seu plano ou pagar por uma capacidade adicional. Consulte o [regime de preços.](https://azure.microsoft.com/pricing/details/application-insights/)

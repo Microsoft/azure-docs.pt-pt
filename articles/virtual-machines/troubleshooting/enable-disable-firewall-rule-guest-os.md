@@ -1,5 +1,5 @@
 ---
-title: Ativar ou desativar uma regra de firewall num so convidado em Azure VM ; Microsoft Docs
+title: Ative ou desative uma regra de firewall de um SO convidado em Azure VM | Microsoft Docs
 description: Aprenda a utilizar ferramentas remotas on-line ou offline ou configurações de registo para ativar ou desativar as regras de firewall do OS do hóspede num Azure VM remoto.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 17616a223292ec07186b0a3fba264400423977ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ee27f429dbfd1e550a45bbc26413a1c259c4fbe
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87058755"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092373"
 ---
 # <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>Ativar ou desativar uma regra de firewall num SO convidado da VM do Azure
 
@@ -95,7 +95,7 @@ Se o VM estiver online e puder ser acedido em outro VM na mesma rede virtual, po
 
 #### <a name="mitigation-4-remote-registry"></a>Mitigação 4: Registo remoto
 
-Se o VM estiver online e puder ser acedido em outro VM na mesma rede virtual, pode utilizar o [Registo Remoto](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry) no outro VM.
+Se o VM estiver online e puder ser acedido em outro VM na mesma rede virtual, pode utilizar o [Registo Remoto](https://www.betaarchive.com/wiki/index.php?title=Microsoft_KB_Archive/314837) no outro VM.
 
 1.  No VM de resolução de problemas, inicie o Editor de Registo (regedit.exe) e, em seguida, selecione Registo de Rede de Ligação **de**  >  **Ficheiros**.
 
@@ -135,14 +135,14 @@ Antes de seguir estes passos, tire uma foto do disco do sistema do VM afetado co
 
 5.  No VM de resolução de problemas, inicie o Editor de Registo (regedit.exe).
 
-6.  Realce a **tecla HKEY_LOCAL_MACHINE** e, em seguida, selecione a Colmeia de Carga de **Ficheiros**  >  **Load Hive** no menu.
+6.  Realce a **tecla HKEY_LOCAL_MACHINE** e, em seguida, selecione a Colmeia de Carga de **Ficheiros**  >   no menu.
 
     ![Regedit](./media/enable-or-disable-firewall-rule-guest-os/load-registry-hive.png)
 
 7.  Localize e, em seguida, abra o ficheiro \windows\system32\config\SYSTEM. 
 
     > [!Note]
-    > É solicitado um nome. Insira **o BROKENSYSTEM**e, em seguida, expanda **HKEY_LOCAL_MACHINE**. Verá agora uma chave adicional chamada **BROKENSYSTEM**. Para esta resolução de problemas, estamos a montar estas colmeias problemáticas como **BROKENSYSTEM**.
+    > É solicitado um nome. Insira **o BROKENSYSTEM** e, em seguida, expanda **HKEY_LOCAL_MACHINE**. Verá agora uma chave adicional chamada **BROKENSYSTEM**. Para esta resolução de problemas, estamos a montar estas colmeias problemáticas como **BROKENSYSTEM**.
 
 8.  Es faça as seguintes alterações no ramo BROKENSYSTEM:
 
@@ -164,7 +164,7 @@ Antes de seguir estes passos, tire uma foto do disco do sistema do VM afetado co
         
         `v2.22|Action=Allow|Active=FALSE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|`
 
-9.  Realce **o BROKENSYSTEM**e, em seguida, selecione A Colmeia de Descarregamento de **File**  >  **Ficheiros** a partir do menu.
+9.  Realce **o BROKENSYSTEM** e, em seguida, selecione A Colmeia de Descarregamento de   >  **Ficheiros** a partir do menu.
 
 10. [Retire o disco do sistema e recobri o VM](troubleshoot-recovery-disks-portal-windows.md).
 
