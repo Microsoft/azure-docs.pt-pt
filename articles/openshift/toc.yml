@@ -16,6 +16,10 @@
       href: tutorial-delete-cluster.md
 - name: Guias de procedimentos
   items:
+    - name: Operações de cluster
+      items:
+        - name: Atualizar um cluster ARO
+          href: howto-upgrade.md
     - name: Rede
       items:
         - name: Criar um cluster do ARO privado
@@ -28,6 +32,8 @@
           href: howto-create-a-storageclass.md
         - name: Utilizar o registo de contentor incorporado
           href: built-in-container-registry.md
+        - name: Use o registo do contentor Azure
+          href: howto-use-acr-with-aro.md
     - name: Segurança e autenticação
       items:
         - name: Configurar a autenticação do Azure Active Directory (CLI)

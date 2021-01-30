@@ -10,13 +10,13 @@ metadata:
   ms.collection: collection
   author: KumudD
   ms.author: kumud
-  ms.date: 08/28/2019
-  ms.openlocfilehash: 7bf639fb7bc89ec218b280bcf7d02c76c7bde277
-  ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
-  ms.translationtype: HT
+  ms.date: 01/28/2021
+  ms.openlocfilehash: 11e3de57bdf2853e94ec61a21ab54ae085f4f6b1
+  ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+  ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/14/2021
-  ms.locfileid: "98223606"
+  ms.lasthandoff: 01/29/2021
+  ms.locfileid: "99062151"
 landingContent:
 - title: Sobre a Rede Virtual
   linkLists:
@@ -27,7 +27,7 @@ landingContent:
   - linkListType: concept
     links:
     - text: FAQ da Rede Virtual
-      url: virtual-networks-overview.md
+      url: virtual-networks-faq.md
 - title: Introdução
   linkLists:
   - linkListType: quickstart

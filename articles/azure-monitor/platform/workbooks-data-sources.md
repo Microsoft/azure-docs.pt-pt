@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor resulta em fontes de dados Docs da Microsoft
+title: Azure Monitor resulta em fontes de dados | Docs da Microsoft
 description: Simplificar relatórios complexos com livros de trabalho azure monitor pré-construídos e personalizados construídos a partir de múltiplas fontes de dados
 services: azure-monitor
 documentationcenter: ''
@@ -8,12 +8,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/29/2020
-ms.openlocfilehash: d41629dd9a56272af89a06cb55e9bd88b604baee
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 3d94aca51d3d305b70c8c555e2b41e3d0ab857b3
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927911"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99061967"
 ---
 # <a name="azure-monitor-workbooks-data-sources"></a>Fontes de dados de livros do Azure Monitor
 
@@ -59,7 +59,7 @@ Para fazer um controlo de consulta utilizar esta fonte de dados, utilize a fonte
 
 ## <a name="azure-data-explorer"></a>Azure Data Explorer
 
-Os livros de trabalho têm agora suporte para consulta a partir de clusters [Azure Data Explorer](/azure/data-explorer/) com a poderosa linguagem de consulta [Kusto.](/azure/kusto/query/index)   
+Os livros de trabalho têm agora suporte para consulta a partir de clusters [Azure Data Explorer](/azure/data-explorer/) com a poderosa linguagem de consulta [Kusto.](/azure/kusto/query/index)
 
 ![Screenshot da janela de consulta de Kusto](./media/workbooks-overview/data-explorer.png)
 
@@ -79,9 +79,43 @@ Para fazer um controlo de consulta utilizar esta fonte de dados, utilize o **tip
 
 ![Screenshot de consulta de alertas que mostra as listas de filtros de saúde.](./media/workbooks-overview/resource-health.png)
 
+## <a name="change-analysis-preview"></a>Análise de Alterações (pré-visualização)
+
+Para escoar um controlo de consulta utilizando a Análise de Alteração de [Aplicação](../app/change-analysis.md) como fonte de dados, utilize a *fonte de dados* para baixo e escolha *a Análise de Alteração (pré-visualização)* e selecione um único recurso. Podem ser apresentadas alterações até aos últimos 14 dias. A queda *de nível* pode ser usada para filtrar entre alterações "Importante", "Normal" e "Barulhenta", e esta queda suporta parâmetros de livro de [queda](workbooks-dropdowns.md).
+
+> [!div class="mx-imgBorder"]
+> ![Uma imagem de um livro com a Change Analysis](./media/workbooks-data-sources/change-analysis-data-source.png)
+
+## <a name="merge-data-from-different-sources"></a>Fundir dados de diferentes fontes
+
+Muitas vezes é necessário reunir dados de diferentes fontes que melhorem a experiência de insights. Um exemplo é aumentar a informação de alerta ativo com dados métricos relacionados. Isto permite que os utilizadores vejam não só o efeito (um alerta ativo), mas também potenciais causas (por exemplo, alta utilização do CPU). O domínio de monitorização tem numerosas fontes de dados correlacionadas que são muitas vezes críticas para a triagem e o fluxo de trabalho de diagnóstico.
+
+Os livros de trabalho permitem não só a consulta de diferentes fontes de dados, mas também fornece controlos simples que permitem fundir ou juntar os dados para fornecer insights ricos. O `merge` controlo é a maneira de alcançá-lo.
+
+O exemplo abaixo combina dados de alerta com dados de desempenho VM de análise de registo para obter uma grelha de insights rica.
+
+> [!div class="mx-imgBorder"]
+> ![Uma imagem de um livro com um controlo de fusão que combina dados de alerta e de analítica de registo](./media/workbooks-data-sources/merge-control.png)
+
+Os livros de trabalho suportam uma variedade de fusões:
+
+* Unidos únicos interiores
+* União interior completa
+* Associação externa completa
+* Associação externa à esquerda
+* Associação externa à direita
+* Semi-aderir à esquerda
+* Semi-aderir à direita
+* Esquerda anti-aderir
+* Direito anti-aderir
+* União
+* Tabela duplicada
+
 ## <a name="json"></a>JSON
 
 O provedor JSON permite-lhe criar um resultado de consulta a partir do conteúdo estático do JSON. É mais comumente usado em Parâmetros para criar parâmetros de dropdown de valores estáticos. As matrizes ou objetos simples do JSON serão automaticamente convertidos em linhas e colunas de grelha.  Para comportamentos mais específicos, pode utilizar o separador Resultados e as definições de JSONPath para configurar colunas.
+
+Este fornecedor suporta [o JSONPath.](workbooks-jsonpath.md)
 
 ## <a name="alerts-preview"></a>Alertas (pré-visualização)
 
@@ -100,12 +134,14 @@ Para fazer um controlo de consulta utilizar esta fonte de dados, utilize a fonte
 
 Os livros de trabalho suportam obter dados de qualquer fonte externa. Se os seus dados viverem fora do Azure, pode levá-lo aos Livros de Trabalho utilizando este tipo de fonte de dados.
 
-Para então um controlo de consulta utilizar esta fonte de dados, utilize a fonte de _dados_ para escolher o _ponto de finalização personalizado_ . Fornecer os parâmetros adequados tais `Http method` `url` `headers` como, `url parameters` e/ou `body` . . Certifique-se de que a sua fonte de dados suporta [o CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) caso contrário, o pedido falhará.
+Para então um controlo de consulta utilizar esta fonte de dados, utilize a fonte de _dados_ para escolher o _ponto de finalização personalizado_. Fornecer os parâmetros adequados tais `Http method` `url` `headers` como, `url parameters` e/ou `body` . . Certifique-se de que a sua fonte de dados suporta [o CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) caso contrário, o pedido falhará.
 
-Para evitar fazer chamadas automaticamente para anfitriões não confiáveis quando utilizar modelos, o utilizador precisa de marcar os anfitriões usados como confiáveis. Isto pode ser feito clicando no botão _Add como_ trust, ou adicionando-o como um anfitrião de confiança nas definições do Livro de Trabalho. Estas configurações serão guardadas nos navegadores que suportam o IndexDb com os trabalhadores da web, mais informações [aqui.](https://caniuse.com/#feat=indexeddb)
+Para evitar fazer chamadas automaticamente para anfitriões não confiáveis quando utilizar modelos, o utilizador precisa de marcar os anfitriões usados como confiáveis. Isto pode ser feito clicando no botão _Add como_ trust, ou adicionando-o como um anfitrião de confiança nas definições do Livro de Trabalho. Estas configurações serão guardadas em [navegadores que suportam IndexDb com trabalhadores da web.](https://caniuse.com/#feat=indexeddb)
 
 > [!NOTE]
 > Não escreva segredos em nenhum dos campos, `headers` `parameters` uma vez que `body` `url` serão visíveis para todos os utilizadores do Livro.
+
+Este fornecedor suporta [o JSONPath.](workbooks-jsonpath.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

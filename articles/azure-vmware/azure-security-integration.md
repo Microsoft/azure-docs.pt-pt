@@ -3,12 +3,12 @@ title: Proteja o seu VMS de Solução VMware Azure com integração do Centro de
 description: Aprenda a proteger os seus VMS Azure VMware Solution com as ferramentas de segurança nativas da Azure a partir de um único dashboard no Azure Security Center.
 ms.topic: how-to
 ms.date: 11/06/2020
-ms.openlocfilehash: e461e7e49619f7063c0583975f36a2e3dfe5a724
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 66270c5abef48f9d9f30ed1b262a6b4f2f8144c8
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937343"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99061469"
 ---
 # <a name="protect-your-azure-vmware-solution-vms-with-azure-security-center-integration"></a>Proteja o seu VMS de Solução VMware Azure com integração do Centro de Segurança Azure
 
@@ -45,7 +45,7 @@ Pode configurar o espaço de trabalho Log Analytics com o Azure Sentinel para de
 
 ## <a name="create-a-log-analytics-workspace"></a>Criar uma área de trabalho do Log Analytics
 
-Você precisará de um espaço de trabalho Log Analytics para recolher dados de várias fontes. Consulte os passos em [Criar um espaço de trabalho Log Analytics a partir do portal Azure](../azure-monitor/learn/quick-create-workspace.md). 
+Você precisará de um espaço de trabalho Log Analytics para recolher dados de várias fontes. Para obter mais informações, consulte [Criar um espaço de trabalho Log Analytics a partir do portal Azure.](../azure-monitor/learn/quick-create-workspace.md) 
 
 ## <a name="deploy-security-center-and-configure-azure-vmware-solution-vms"></a>Implementar Centro de Segurança e configurar VMs de Solução VMware Azure
 
@@ -78,7 +78,7 @@ O Azure Defender estende a proteção avançada de ameaças do Azure Security Ce
 5. No separador **Detalhes de Recursos,** preencha os seguintes detalhes: 
     - Subscrição
     - Grupo de recursos
-    - Região 
+    - Region 
     - Sistema operativo
     - Detalhes do Servidor Proxy
     

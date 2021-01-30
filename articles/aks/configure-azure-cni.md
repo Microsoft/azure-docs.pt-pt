@@ -4,12 +4,12 @@ description: Aprenda a configurar a rede Azure CNI (avançada) no Serviço Azure
 services: container-service
 ms.topic: article
 ms.date: 06/03/2019
-ms.openlocfilehash: 0a6ea45156477c0d0e95b9d345cffe1a75c773b6
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: afb98acf903f90ead137c9b372d33ce82b89f7b5
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98917812"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062222"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configurar a rede CNI Azure no Serviço Azure Kubernetes (AKS)
 
@@ -63,7 +63,7 @@ O número máximo de cápsulas por nó num cluster AKS é de 250. O número máx
 | -- | :--: | :--: | -- |
 | CLI do Azure | 110 | 30 | Sim (até 250) |
 | Modelo do Resource Manager | 110 | 30 | Sim (até 250) |
-| Portal | 110 | 30 | No |
+| Portal | 110 | 110 (configurado no separador Piscinas de Nó) | No |
 
 ### <a name="configure-maximum---new-clusters"></a>Configurar máximo - novos clusters
 
@@ -177,7 +177,7 @@ As seguintes perguntas e respostas aplicam-se à configuração de rede **Azure 
 
   Não é recomendado, mas esta configuração é possível. A gama de endereços de serviço é um conjunto de IPs virtuais (VIPs) que a Kubernetes atribui a serviços internos no seu cluster. O Azure Networking não tem visibilidade na gama ip de serviço do cluster Kubernetes. Devido à falta de visibilidade na gama de endereços de serviço do cluster, é possível criar mais tarde uma nova sub-rede na rede virtual do cluster que se sobreponha à gama de endereços de serviço. Se tal sobreposição ocorrer, kubernetes poderia atribuir um serviço um IP que já está em uso por outro recurso na sub-rede, causando comportamentos ou falhas imprevisíveis. Ao garantir que utiliza um intervalo de endereços fora da rede virtual do cluster, pode evitar este risco de sobreposição.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre networking em AKS nos seguintes artigos:
 

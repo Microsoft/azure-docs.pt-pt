@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
-ms.openlocfilehash: 6fb460c65d37723b03c1dfd4fba2c353c19455bd
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: a1b5ba56d30124bea7a814c2ffcf0cfff28903aa
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944585"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062193"
 ---
 # <a name="azure-private-link-for-azure-data-factory"></a>Azure Private Link para o Azure Data Factory
 
@@ -37,7 +37,7 @@ Também pode instalar um tempo de integração auto-hospedado numa máquina no l
 
 São necessários vários canais de comunicação entre a Azure Data Factory e a rede virtual do cliente, como mostra o seguinte quadro:
 
-| Domínio | Porta | Descrição |
+| Domínio | Porta | Description |
 | ---------- | -------- | --------------- |
 | `adf.azure.com` | 443 | Um avião de controlo, exigido pela data factory de autoria e monitorização. |
 | `*.{region}.datafactory.azure.net` | 443 | Requerido pelo tempo de integração auto-hospedado para ligar ao serviço Data Factory. |
@@ -48,7 +48,7 @@ Com o apoio do Private Link for Azure Data Factory, pode:
 * Crie um ponto final privado na sua rede virtual.
 * Ativar a ligação privada a uma instância específica da fábrica de dados. 
 
-As comunicações ao serviço Azure Data Factory passam pelo Private Link e ajudam a fornecer conectividade privada segura. Não precisa de configurar o domínio e a porta anteriores numa rede virtual ou na sua firewall corporativa para fornecer uma forma mais segura de proteger os seus recursos.  
+As comunicações ao serviço Azure Data Factory passam pelo Private Link e ajudam a fornecer conectividade privada segura. 
 
 ![Diagrama de Ligação Privada para a arquitetura da Azure Data Factory.](./media/data-factory-private-link/private-link-architecture.png)
 
@@ -62,6 +62,9 @@ Ativar o serviço Private Link para cada um dos canais de comunicação anterior
 
    > [!NOTE]
    > Para funcionalidades que não são suportadas atualmente, ainda precisa configurar o domínio e a porta anteriormente mencionados na rede virtual ou na firewall corporativa. 
+
+   > [!NOTE]
+   > A ligação à Azure Data Factory através de um ponto final privado só é aplicável ao tempo de integração auto-hospedado na fábrica de dados. Não é apoiado em Sinapse.
 
 > [!WARNING]
 > Quando criar um serviço ligado, certifique-se de que as suas credenciais estão guardadas num cofre de chaves Azure. Caso contrário, as credenciais não funcionarão quando ativar o Private Link na Azure Data Factory.
@@ -117,7 +120,7 @@ Se pretender criar um ponto final privado para a autoria e monitorização da f�
 > [!NOTE]
 > Ainda é possível aceder ao portal Azure Data Factory através de uma rede pública depois de criar um ponto final privado para o portal.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar uma fábrica de dados utilizando a UI da Azure Data Factory](quickstart-create-data-factory-portal.md)
 - [Introdução ao Azure Data Factory](introduction.md)

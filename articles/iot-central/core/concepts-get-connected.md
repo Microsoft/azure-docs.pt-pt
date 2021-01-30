@@ -1,8 +1,8 @@
 ---
 title: Conectividade do dispositivo em Azure IoT Central | Microsoft Docs
 description: Este artigo introduz conceitos-chave relativos à conectividade do dispositivo na Azure IoT Central
-author: TheJasonAndrew
-ms.author: v-anjaso
+author: dominicbetts
+ms.author: dobett
 ms.date: 1/15/2020
 ms.topic: conceptual
 ms.service: iot-central
@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: c633b488fab521947e4f34abb95ada2342dc2eb3
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 028088087b16ded182042aadec4be08a4b8a9589
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98789775"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062683"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Ligar-se ao Azure IoT Central
 
@@ -234,11 +234,8 @@ Os SDKs do dispositivo Azure oferecem a forma mais fácil de implementar o códi
 Toda a comunicação do dispositivo com o IoT Hub utiliza as seguintes opções de conectividade IoT Hub:
 
 - [Mensagens dispositivo-a-nuvem](../../iot-hub/iot-hub-devguide-messages-d2c.md)
-- [Mensagens cloud-to-device](../../iot-hub/iot-hub-csharp-csharp-c2d.md)
+- [Mensagens nuvem-para-dispositivo](../../iot-hub/iot-hub-devguide-messages-c2d.md)
 - [Gémeos do dispositivo](../../iot-hub/iot-hub-devguide-device-twins.md)
-
-> [!NOTE]
-> Azure agora apoia
 
 A tabela a seguir resume como o dispositivo Azure IoT Central apresenta o mapa nas características do IoT Hub:
 
@@ -266,7 +263,7 @@ Se o seu dispositivo não puder utilizar nenhum dos protocolos suportados, utili
 
 Todos os dados trocados entre dispositivos e o seu Azure IoT Central estão encriptados. O IoT Hub autentica todos os pedidos de um dispositivo que se conecta a qualquer um dos pontos finais do IoT Hub virado para o dispositivo. Para evitar a troca de credenciais por cima do fio, um dispositivo utiliza fichas assinadas para autenticar. Para mais informações, consulte, [Controle o acesso ao IoT Hub](../../iot-hub/iot-hub-devguide-security.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se você é um desenvolvedor de dispositivos, alguns passos sugeridos seguintes são:
 

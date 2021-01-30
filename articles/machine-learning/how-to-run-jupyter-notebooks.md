@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: d6832238b0c76059079e2a1330d31eed3212b242
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 46e0687056d697afc2d4355bdf900af138273eaf
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98685583"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99061839"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Como executar os Jupyter Notebooks na área de trabalho
 
@@ -255,89 +255,6 @@ Um indicador ao lado da queda do **Kernel** mostra o seu estado.
 |---------|---------|
 |  Green |Kernel conectado, ocioso, ocupado|
 |  Cinzento |Kernel não ligado |
-
-## <a name="shortcut-keys"></a>Chaves de atalho
-Semelhante aos Cadernos Jupyter, os cadernos Azure Machine Learning Studio têm uma interface de utilizador modal. O teclado faz coisas diferentes dependendo do modo em que a célula de portátil está. Os cadernos Azure Machine Learning Studio suportam os seguintes dois modos para uma determinada célula de código: modo de comando e modo de edição.
-
-### <a name="command-mode-shortcuts"></a>Atalhos do modo de comando
-
-Uma célula está no modo de comando quando não há cursor de texto que lhe ordene a escrever. Quando uma célula está no modo Comando, pode editar o caderno como um todo, mas não digitar em células individuais. Introduza o modo de comando premindo `ESC` ou utilizando o rato para selecionar fora da área de editor de uma célula.  A borda esquerda da célula ativa é azul e sólida, e o botão **Run** é azul.
-
-   :::image type="content" source="media/how-to-run-jupyter-notebooks/command-mode.png" alt-text="Célula de portátil no modo de comando ":::
-
-| Atalho                      | Description                          |
-| ----------------------------- | ------------------------------------|
-| ENTER                         | Entrar no modo de edição             |        
-| Shift + Enter                 | Executar célula, selecione abaixo         |     
-| Controlo/Comando + Introdução       | Célula de execução                            |
-| Alt + Entrar                   | Executar célula, inserir célula de código abaixo    |
-| Controlo/Comando + Alt + Entrar | Executar célula, inserir a célula de marcação abaixo|
-| Alt + R                       | Executar tudo      |                       
-| Y                             | Converter célula em código    |                         
-| M                             | Converter célula para marcação  |                       
-| Up/K                          | Selecione a célula acima    |               
-| Down/J                        | Selecione a célula abaixo    |               
-| A                             | Insira a célula de código acima  |            
-| B                             | Insira a célula de código abaixo   |           
-| Controlo/Comando + Mudança + A   | Insira a célula de marcação acima    |      
-| Controlo/Comando + Mudança + B   | Insira a célula de marcação abaixo   |       
-| X                             | Corte a célula selecionada    |               
-| C                             | Copiar célula selecionada   |               
-| Mudança + V                     | Colar célula selecionada acima           |
-| V                             | Colar célula selecionada abaixo    |       
-| D D                           | Excluir célula selecionada|                
-| O                             | Saída de alternância         |              
-| Mudança + O                     | Deslocamento de saída de alternância   |          
-| I I                           | Interromper o núcleo |                   
-| 0 0                           | Reiniciar o núcleo |                     
-| Mudança + Espaço                 | Rolar para cima  |                         
-| Espaço                         | Rolar para baixo|
-| Tecla de Tabulação                           | Mude o foco para o próximo item focalizável (quando a armadilha do separador for desativada)|
-| Controlo/Comando + S           | Salvar caderno |                      
-| 1                             | Mudar para h1|                       
-| 2                             | Mudar para h2|                        
-| 3                             | Mudar para h3|                        
-| 4                             | Mudar para h4 |                       
-| 5                             | Mudar para h5 |                       
-| 6                             | Alteração para h6 |                       
-
-### <a name="edit-mode-shortcuts"></a>Atalhos de modo de edição
-
-O modo de edição é indicado por um cursor de texto que o leva a escrever na área do editor. Quando uma célula está em modo de edição, pode digitar na célula. Introduza o modo de edição premindo `Enter` ou utilizando o rato para selecionar na área de editor de uma célula. A fronteira esquerda da célula ativa é verde e eclodida, e o botão **Run** é verde. Também vê o cursor no modo editar na célula.
-
-   :::image type="content" source="media/how-to-run-jupyter-notebooks/edit-mode.png" alt-text="Célula de portátil no modo de edição":::
-
-Utilizando os seguintes atalhos de teclas, pode navegar e executar código mais facilmente em cadernos Azure Machine Learning quando estiver no modo Editar.
-
-| Atalho                      | Description|                                     
-| ----------------------------- | ----------------------------------------------- |
-| Esc                        | Insira o modo de comando|  
-| Controlo/Comando + Espaço       | Ativar o IntelliSense |
-| Shift + Enter                 | Executar célula, selecione abaixo |                         
-| Controlo/Comando + Introdução       | Célula de execução  |                                      
-| Alt + Entrar                   | Executar célula, inserir célula de código abaixo  |              
-| Controlo/Comando + Alt + Entrar | Executar célula, inserir a célula de marcação abaixo  |          
-| Alt + R                       | Executar todas as células     |                              
-| Cima                            | Mover cursor para cima ou célula anterior    |             
-| Baixo                          | Mover cursor para baixo ou próxima célula |                  
-| Controlo/Comando + S           | Salvar caderno   |                                
-| Controlo/Comando + Up          | Vá para o início da célula   |                             
-| Controlo/Comando + Para baixo        | Ir para o fim da cela |                                 
-| Tecla de Tabulação                           | Conclusão do código ou travessão (se a patilha estiver ativada) |
-| Controlo/Comando + M           | Ativar/desativar a armadilha do separador  |                       
-| Controlo/Comando + ]           | Travessão |                                         
-| Controlo/Comando +           | Dedent  |                                        
-| Controlo/Comando + A           | Selecionar tudo|                                      
-| Controlo/Comando + Z           | Anular |                                           
-| Controlo/Comando + Mudança + Z   | Refazer |                                           
-| Controlo/Comando + Y           | Refazer |                                           
-| Controlo/Comando + Casa        | Vá para o início da célula|                                
-| Controlo/Comando + Fim         | Ir para o fim da cela   |                               
-| Controlo/Comando + Esquerda        | Vai uma palavra à esquerda |                               
-| Controlo/Comando + Direito       | Vai uma palavra à direita |                              
-| Controlo/Comando + Backspace   | Apagar palavra antes |                             
-| Controlo/Comando + Eliminar      | Apagar palavra depois |                              
-| Controlo/Comando + /           | Toggle comentário sobre cu
 
 ## <a name="find-compute-details"></a>Encontre detalhes do cálculo
 

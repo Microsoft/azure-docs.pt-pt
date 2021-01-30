@@ -1,19 +1,19 @@
 ---
-title: Azure Stack Edge Pro GPU dispositivo de acesso, potência e conectividade Microsoft Docs
+title: Acesso ao dispositivo GPU Azure Stack Edge Pro, modo de potência e conectividade | Microsoft Docs
 description: Descreve como gerir o modo de acesso, energia e conectividade para o dispositivo GPU Azure Stack Edge Pro que ajuda a transferir dados para o Azure
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/04/2020
+ms.date: 01/28/2021
 ms.author: alkohli
-ms.openlocfilehash: 38dcb32b2993838f8c3f13334e0bc44e9146f113
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: b1b5c236c147f060ca1c05e8ed9de12e7e88cf68
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448562"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99061817"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge-pro-gpu"></a>Gerir o modo de acesso, potência e conectividade para o seu GPU Azure Stack Edge Pro
 
@@ -54,7 +54,7 @@ O fluxo de trabalho de reset não requer que o utilizador relembre a senha antig
 
 1. No portal Azure, **aceda à visão geral > redefinir a palavra-passe de administração**.
 
-    ![A screenshot mostra o dispositivo com a palavra-passe do dispositivo Reset selecionada.](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-1.png)
+    ![A screenshot mostra o dispositivo com a palavra-passe do dispositivo Reset selecionada.](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/reset-password-1.png)
 
 
 2. Introduza a nova senha e, em seguida, confirme-a. A palavra-passe fornecida deve ter entre 8 e 16 caracteres. A palavra-passe deve ter 3 dos seguintes caracteres: maiúsculas, minúsculas, numéricas e caracteres especiais. Selecione **Repor**.

@@ -3,12 +3,12 @@ title: Perguntas mais frequentes
 description: Fornece respostas a algumas das perguntas comuns sobre a Azure VMware Solution.
 ms.topic: conceptual
 ms.date: 1/14/2021
-ms.openlocfilehash: 8245cd8da983ce48ba88d7faef76ab9b7ceb8c26
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 090b29b1e013ffbceb9296250fed99a04d15a82c
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98218591"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062092"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Perguntas frequentes sobre Azure VMware Solution
 
@@ -36,7 +36,7 @@ Pode encontrar informações sobre a compatibilidade do sistema operativo dos h�
 
 ### <a name="do-i-use-the-same-tools-that-i-use-now-to-manage-private-cloud-resources"></a>Uso as mesmas ferramentas que uso agora para gerir recursos privados em nuvem?
 
-Sim. O portal Azure é utilizado para implantação e várias operações de gestão. vCenter e NSX Manager são usados para gerir recursos vSphere e NSX-T.
+Yes. O portal Azure é utilizado para implantação e várias operações de gestão. vCenter e NSX Manager são usados para gerir recursos vSphere e NSX-T.
 
 ### <a name="can-i-manage-a-private-cloud-with-my-on-premises-vcenter"></a>Posso gerir uma nuvem privada com o meu vCenter no local?
 
@@ -48,7 +48,7 @@ Integrações específicas e casos de utilização podem ser avaliados caso a ca
 
 ### <a name="can-i-migrate-vsphere-vms-from-on-premises-environments-to-azure-vmware-solution-private-clouds"></a>Posso migrar vSphere VMs de ambientes no local para nuvens privadas Azure VMware Solution?
 
-Sim. A migração vM e vMotion podem ser usadas para mover VMs para uma nuvem privada se os requisitos padrão de vCenter [vCenter vMotion forem cumpridos.](https://kb.vmware.com/s/article/2106952?lang=en_US&queryTerm=2106952)
+Yes. A migração vM e vMotion podem ser usadas para mover VMs para uma nuvem privada se os requisitos padrão de vCenter [vCenter vMotion forem cumpridos.](https://kb.vmware.com/s/article/2106952?lang=en_US&queryTerm=2106952)
 
 ### <a name="is-a-specific-version-of-vsphere-required-in-on-premises-environments"></a>É necessária uma versão específica da vSphere em ambientes no local?
 
@@ -63,7 +63,7 @@ As atualizações feitas ao próprio serviço seguem o processo padrão de gest�
 Com a nova Azure VMware Solution, a Microsoft e a VMware têm uma parceria direta com fornecedores de nuvem. A nova solução é totalmente projetada, construída e suportada pela Microsoft, e endossada pela VMware. Em termos arquitetónicos, as soluções são consistentes, com a pilha de tecnologia VMware a funcionar numa infraestrutura dedicada Azure.
 
 ### <a name="can-azure-vmware-solution-vms-be-managed-by-vmrc"></a>Os VMS de Solução VMware Azure podem ser geridos pela VMRC?
-Sim. Desde que o sistema instalado possa aceder ao vCenter de nuvem privada e esteja a utilizar DNS público para resolver os hostnames ESXi.
+Yes. Desde que o sistema instalado possa aceder ao vCenter de nuvem privada e esteja a utilizar DNS público para resolver os hostnames ESXi.
 
 ### <a name="are-there-special-instructions-for-installing-and-using-vmrc-with-azure-vmware-solution-vms"></a>Existem instruções especiais para instalar e utilizar VMRC com VMS de Solução VMware Azure?
 N.º Para cumprir os pré-requisitos VM siga as [instruções fornecidas pela VMware](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-89E7E8F0-DB2B-437F-8F70-BA34C505053F.html). 
@@ -78,7 +78,7 @@ Azure Bastion é o serviço recomendado para ligar à caixa de salto para evitar
 N.º Azure Load Balancer suporta apenas VMs Azure IaaS. O Azure Load Balancer não suporta piscinas de backend baseadas em IP; apenas VMs Azure ou conjuntos de balança de máquina virtual em que VMs de Solução VMware Azure não são objetos Azure.
 
 ### <a name="can-an-existing-expressroute-gateway-be-used-to-connect-to-azure-vmware-solution"></a>Pode ser utilizado um Gateway ExpressRoute existente para ligar à Solução VMware Azure?
-Sim. Utilize um Gateway ExpressRoute existente para ligar à Solução VMware Azure desde que não exceda o limite de quatro circuitos ExpressRoute por rede virtual. Para aceder à Azure VMware Solution a partir das instalações através do ExpressRoute, tem de ter o ExpressRoute Global Reach uma vez que o Portal ExpressRoute não fornece um encaminhamento transitório entre os seus circuitos conectados.
+Yes. Utilize um Gateway ExpressRoute existente para ligar à Solução VMware Azure desde que não exceda o limite de quatro circuitos ExpressRoute por rede virtual. Para aceder à Azure VMware Solution a partir das instalações através do ExpressRoute, tem de ter o ExpressRoute Global Reach uma vez que o Portal ExpressRoute não fornece um encaminhamento transitório entre os seus circuitos conectados.
 
 ## <a name="compute-network-storage-and-backup"></a>Computação, rede, armazenamento e backup
 
@@ -194,11 +194,11 @@ N.º O tráfego de rede que está a chegar da internet diretamente para as nuven
 
 ### <a name="do-i-need-to-restrict-internet-access-from-vms-on-logical-networks-to-the-internet"></a>Preciso de restringir o acesso à Internet de VMs em redes lógicas para a internet?
 
-Sim. Terá de usar o gestor NSX-T para criar uma firewall para restringir o acesso de VM à internet.
+Yes. Terá de usar o gestor NSX-T para criar uma firewall para restringir o acesso de VM à internet.
 
 
 ### <a name="can-azure-vmware-solution-use-azure-virtual-wan-hosted-expressroute-gateways"></a>A Azure VMware Solution pode usar Azure Virtual WAN hospedado ExpressRoute Gateways?
-Sim.
+Yes.
 
 ### <a name="can-transit-connectivity-be-established-between-on-premises-and-azure-vmware-solution-through-azure-virtual-wan-over-expressroute-global-reach"></a>Pode a conectividade de trânsito ser estabelecida entre as instalações e a Solução Azure VMware através do Azure Virtual WAN sobre o ExpressRoute Global Reach?
 AZure Virtual WAN não fornece encaminhamento transitório entre dois circuitos ExpressRoute conectados e o GATEWAY WAN ExpressRoute não virtual. A utilização do ExpressRoute Global Reach permite a conectividade entre as instalações e a Azure VMware Solution, mas passa pela rede global da Microsoft em vez do Virtual WAN Hub.
@@ -258,7 +258,7 @@ A VMware HCX Enterprise está disponível com a Azure VMware Solution como funç
 
 ### <a name="how-do-i-request-a-host-quota-increase-for-azure-vmware-solution"></a>Como solicito um aumento da quota de anfitrião para a Azure VMware Solution?
 
-Para as subscrições geridas pela CSP, o cliente deve submeter o pedido ao parceiro. A equipa parceira envolve-se então com a Microsoft para que a quota aumente para a subscrição. Veja [como ativar o artigo de recurso Azure VMware Solution](enable-azure-vmware-solution.md) para os detalhes. 
+Para as subscrições geridas pela CSP, o cliente deve submeter o pedido ao parceiro. A equipa parceira envolve-se então com a Microsoft para que a quota aumente para a subscrição. Para obter mais informações, consulte [Como ativar o recurso Azure VMware Solution](enable-azure-vmware-solution.md). 
 
 Para as assinaturas EA, utilize o seguinte procedimento. Primeiro, vai precisar de:
 
@@ -303,7 +303,7 @@ Antes de poder criar o seu recurso Azure VMware Solution, submeterá um bilhete 
 
 ### <a name="are-reserved-instances-available-for-purchasing-through-the-cloud-solution-provider-csp-program"></a>Estão disponíveis instâncias reservadas para compra através do programa Cloud Solution Provider (CSP) ?
 
-Sim. A CSP pode adquirir instâncias reservadas para os seus clientes. Para obter mais informações, consulte [Economize os custos com um caso reservado.](reserved-instance.md) 
+Yes. A CSP pode adquirir instâncias reservadas para os seus clientes. Para obter mais informações, consulte [Economize os custos com um caso reservado.](reserved-instance.md) 
 
 ### <a name="does-azure-vmware-solution-offer-multi-tenancy-for-hosting-csp-partners"></a>A Azure VMware Solution oferece vários arrendamentos para hospedar parceiros CSP?
 

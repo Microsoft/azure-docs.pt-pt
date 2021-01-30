@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 11/23/2020
-ms.openlocfilehash: 9cfe8c7e7d2484649bf458524032365b692c9243
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 6d1fd873de3313678875a8c167b90fafb8ede7ae
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97093524"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99061653"
 ---
 # <a name="network-concepts-for-azure-red-hat-openshift-aro"></a>Conceitos de rede para Azure Red Hat OpenShift (ARO)
 
@@ -68,12 +68,15 @@ O OpenShift Software Defined Networking [(SDN)](https://docs.openshift.com/conta
 
 ## <a name="networking--for-azure-red-hat-openshift"></a>Networking para Azure Red Hat OpenShift
 
-As seguintes funcionalidades de networking são específicas do Azure Red Hat OpenShift:
+As seguintes funcionalidades de networking são específicas do Azure Red Hat OpenShift:  
 * Os utilizadores podem criar o seu cluster ARO numa rede virtual existente ou criar uma rede virtual ao criar o seu cluster ARO.
 * Os CIDRs da Rede pod e serviço são configuráveis.
 * Nós e mestres estão em diferentes sub-redes.
 * As sub-redes de rede virtual de nós e masters devem ser mínimas /27.
-* O POD CIDR deve ter um tamanho mínimo /18 (a rede de cápsulas é iPs não roteable, e só é utilizada dentro do SDN OpenShift).
+* O CIDR do Casulo Padrão é de 10.128.0.0/14.
+* O CIDR de Serviço Predefinido é de 172.30.0.0/16.
+* Os CIDRs da Rede pod e serviço não devem sobrepor-se a outros intervalos de endereços utilizados na sua rede, e não devem estar dentro do intervalo de endereços IP da rede virtual do seu cluster.
+* O POD CIDR deve ter um tamanho mínimo /18. (A rede de cápsulas é iPs não-encaminháveis, e só é usada dentro do SDN OpenShift.)
 * Cada nó é atribuído /23 sub-redes (512 IPs) para as suas cápsulas. Este valor não pode ser alterado.
 * Não é possível anexar uma cápsula a várias redes.
 * Não é possível configurar o IP estático da Egress. (Esta é uma funcionalidade OpenShift. Para obter informações, consulte [configurar iPs](https://docs.openshift.com/container-platform/4.5/networking/openshift_sdn/assigning-egress-ips.html)de saída de edição ).

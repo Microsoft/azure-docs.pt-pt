@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: eafa2187308c0324b85596ce25e8310fd8506a97
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: e373556d189e9fffc0626d19250e79c09962a004
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98249607"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062108"
 ---
 # <a name="tutorial-scan-data-with-azure-purview-preview"></a>Tutorial: Digitalizar dados com Azure Purview (Pré-visualização)
 
@@ -32,7 +32,7 @@ Na primeira parte desta série tutorial, você:
 
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 * Uma [conta Azure Purview](create-catalog-portal.md).
-* [O kit de arranque](https://download.microsoft.com/download/9/7/9/979db3b1-0916-4997-a7fb-24e3d8f83174/PurviewStarterKitV4.zip) que irá implantar o seu espólio de dados.
+* [O kit de arranque](https://github.com/Azure/Purview-Samples/blob/master/PurviewStarterKitV4.zip) que irá implantar o seu espólio de dados.
 
 > [!NOTE]
 > O kit de arranque só está disponível para o Windows.
