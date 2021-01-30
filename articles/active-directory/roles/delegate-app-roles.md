@@ -14,18 +14,18 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e36a29048d97798c2e1621fbdc957bde51b5a383
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: b5cb7e1521c649be4abc155d9f28a49b43a11e6d
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740606"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071273"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Delegar permissões de registo de aplicativos no Azure Ative Directory
 
 Este artigo descreve como utilizar permissões concedidas por funções personalizadas no Azure Ative Directory (Azure AD) para atender às necessidades de gestão da sua aplicação. Em Azure AD, pode delegar permissões de criação e gestão de aplicações das seguintes formas:
 
-- [Restringir quem pode criar aplicações](#restrict-who-can-create-applications) e gerir as aplicações que criam. Por padrão no Azure AD, todos os utilizadores podem registar registos de candidaturas e gerir todos os aspetos das aplicações que criam. Isto pode ser restringido apenas para permitir pessoas selecionadas que permissão.
+- [Restringir quem pode criar aplicações](#restrict-who-can-create-applications) e gerir as aplicações que criam. Por padrão no Azure AD, todos os utilizadores podem registar aplicações e gerir todos os aspetos das aplicações que criam. Isto pode ser restringido apenas para permitir pessoas selecionadas que permissão.
 - [Atribuir um ou mais proprietários a uma aplicação.](#assign-application-owners) Esta é uma forma simples de conceder a alguém a capacidade de gerir todos os aspetos da configuração AD Azure para uma aplicação específica.
 - [Atribuindo uma função administrativa incorporada](#assign-built-in-application-admin-roles) que concede acesso à configuração de gestão em Azure AD para todas as aplicações. Esta é a forma recomendada de conceder aos especialistas em TI acesso para gerir permissões de configuração de aplicações amplas sem dar acesso à gestão de outras partes do AD Azure não relacionadas com a configuração da aplicação.
 - [Criar um papel personalizado](#create-and-assign-a-custom-role-preview) que defina permissões muito específicas e atribuí-la a alguém quer ao âmbito de uma única aplicação como proprietário limitado, quer ao âmbito do diretório (todas as aplicações) como administrador limitado.
@@ -34,7 +34,7 @@ Este artigo descreve como utilizar permissões concedidas por funções personal
 
 ## <a name="restrict-who-can-create-applications"></a>Restringir quem pode criar aplicações
 
-Por padrão no Azure AD, todos os utilizadores podem registar registos de candidaturas e gerir todos os aspetos das aplicações que criam. Todos também têm a capacidade de consentir que as aplicações acedam aos dados da empresa em seu nome. Pode optar por conceder seletivamente essas permissões, definindo os interruptores globais para 'Não' e adicionando os utilizadores selecionados à função de Desenvolvedor de Aplicações.
+Por padrão no Azure AD, todos os utilizadores podem registar aplicações e gerir todos os aspetos das aplicações que criam. Todos também têm a capacidade de consentir que as aplicações acedam aos dados da empresa em seu nome. Pode optar por conceder seletivamente essas permissões, definindo os interruptores globais para 'Não' e adicionando os utilizadores selecionados à função de Desenvolvedor de Aplicações.
 
 ### <a name="to-disable-the-default-ability-to-create-application-registrations-or-consent-to-applications"></a>Desativar a capacidade padrão de criar registos de aplicações ou consentimento para aplicações
 
@@ -101,7 +101,7 @@ Dicas ao criar e utilizar funções personalizadas para delegar a gestão de apl
 
 Para obter mais informações sobre o básico das funções personalizadas, consulte a visão geral das [funções personalizadas,](custom-overview.md)bem como como [criar um papel personalizado](custom-create.md) e como atribuir um [papel.](custom-assign-powershell.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Subtipos e permissões de registo de pedidos](custom-available-permissions.md)
 - [Referência de função de administrador da AD Azure](permissions-reference.md)

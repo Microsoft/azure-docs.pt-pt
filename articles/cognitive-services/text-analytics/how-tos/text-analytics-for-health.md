@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 12/17/2020
+ms.date: 01/21/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 8159010486371d619aa14a845050a0eb38aaeda8
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: d7f71afd1cf47ab1a94d984090e8fb52ee69c6b4
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97683527"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99088943"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>Como: Utilizar o Text Analytics para a saúde (pré-visualização)
 
@@ -26,8 +26,8 @@ ms.locfileid: "97683527"
 
 Text Analytics for health é uma característica do serviço de API text Analytics que extrai e rotula informações médicas relevantes de textos não estruturados, tais como notas de médico, resumos de descarga, documentos clínicos e registos de saúde eletrónicos.  Existem duas formas de utilizar este serviço: 
 
-* A API baseada na web (assíncrono) 
-* Um recipiente Docker (sincronizado)   
+* [A API baseada na web (assíncrono)](#structure-the-api-request-for-the-hosted-asynchronous-web-api)
+* [Um recipiente Docker (sincronizado)](#hosted-asynchronous-web-api-response)   
 
 > [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Introducing-Text-Analytics-for-Health/player]
 
@@ -136,7 +136,7 @@ Uma vez que este pedido DE POST é usado para submeter um trabalho para a opera�
 
 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/health/jobs/<jobID>`
 
-Para verificar o estado do trabalho, faça um pedido GET ao URL no valor do cabeçalho CHAVE de localização de operação da resposta POST.  Os seguintes Estados são utilizados para refletir o estatuto de trabalho: `NotStarted` `running` , e `succeeded` `failed` `rejected` `cancelling` `cancelled` .  
+Para verificar o estado do trabalho, faça um pedido GET ao URL no valor do cabeçalho CHAVE de localização de operação da resposta POST.  Os seguintes Estados são utilizados para refletir o estatuto de trabalho: `NotStarted` , , , , , e `running` `succeeded` `failed` `rejected` `cancelling` `cancelled` .  
 
 Pode cancelar um trabalho com um `NotStarted` ou estado com uma chamada DELETE HTTP para o mesmo URL que o pedido `running` GET.  Mais informações sobre a chamada DELETE estão disponíveis no [Text Analytics para referência de API hospedada em saúde](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/CancelHealthJob).
 
@@ -436,7 +436,7 @@ A saída de extração de relação contém referências URI à *origem* da rela
 ]
 ```
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 * [Descrição geral da Análise de Texto](../overview.md)
 * [Categorias de entidades nomeadas](../named-entity-types.md)

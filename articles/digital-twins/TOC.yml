@@ -4,8 +4,6 @@
   items:
     - name: Acerca do Azure Digital Twins
       href: overview.md
-    - name: Diferenças em relação à versão anterior
-      href: overview-differences.md
 - name: Guias de Início Rápido
   expanded: true
   items:
@@ -169,6 +167,8 @@
           href: 'https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins'
     - name: Pedidos de dados do cliente
       href: resources-customer-data-requests.md
+    - name: Diferenças de lançamento original
+      href: resources-compare-original-release.md
     - name: APIs e SDKs
       items:
         - name: Plano de controlo

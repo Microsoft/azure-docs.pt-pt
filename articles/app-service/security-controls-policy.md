@@ -1,16 +1,16 @@
 ---
 title: Controlos de conformidade regulamentar da política Azure para o Serviço de Aplicações Azure
 description: Lista controlos de conformidade regulamentar da política Azure disponíveis para o Serviço de Aplicações Azure. Estas definições políticas incorporadas fornecem abordagens comuns para gerir o cumprimento dos seus recursos Azure.
-ms.date: 01/25/2021
+ms.date: 01/29/2021
 ms.topic: sample
 ms.service: app-service
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: af99c000b13aed3a4cb31830d7f4dc8a81553299
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: dcd396c2c5dcdf292eff54bc034ff220511af166
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98796177"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99089459"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-app-service"></a>Controlos de conformidade regulamentar da política Azure para o Serviço de Aplicações Azure
 
@@ -20,7 +20,7 @@ ms.locfileid: "98796177"
 
 [!INCLUDE [azure-policy-compliancecontrols-appservice](../../includes/policy/standards/byrp/microsoft.web.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [a Conformidade Regulamentar da Política Azure.](../governance/policy/concepts/regulatory-compliance.md)
 - Veja as incorporações no [repositório do GitHub do Azure Policy](https://github.com/Azure/azure-policy).

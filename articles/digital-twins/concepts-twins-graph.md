@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: a4875c2c75b133f0ab4046266d6aac36d5478fe4
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 105128af60b90324e93bcad1bd9900a55461378f
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98664049"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071720"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Compreenda os gémeos digitais e o seu gráfico gémeo
 
-Numa solução Azure Digital Twins, as entidades do seu ambiente são representadas por **gémeos digitais** Azure. Um gémeo digital é um exemplo de um dos seus [modelos personalizados.](concepts-models.md) Pode ser conectado a outros gémeos digitais através de **relações** para formar um **gráfico gémeo**: este gráfico gémeo é a representação de todo o seu ambiente.
+Numa solução Azure Digital Twins, as entidades do seu ambiente são representadas por **gémeos digitais.** Um gémeo digital é um exemplo de um dos seus [modelos personalizados.](concepts-models.md) Pode ser conectado a outros gémeos digitais através de **relações** para formar um **gráfico gémeo**: este gráfico gémeo é a representação de todo o seu ambiente.
 
 > [!TIP]
 > "Azure Digital Twins" refere-se a este serviço Azure como um todo. "Digital twin(s)" ou apenas "twin(s)" refere-se a nódoas gémeas individuais dentro do seu caso do serviço.

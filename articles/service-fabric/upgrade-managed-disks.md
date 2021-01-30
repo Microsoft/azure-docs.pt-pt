@@ -3,12 +3,12 @@ title: Atualizar os nosdes de cluster para usar discos geridos a Azure
 description: Eis como atualizar um cluster de Tecido de Serviço existente para utilizar discos geridos Azure com pouco ou nenhum tempo de inatividade do seu cluster.
 ms.topic: how-to
 ms.date: 4/07/2020
-ms.openlocfilehash: 36896a6cf471ff0c9312ab454465419471bb164d
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: c374c4536309a13abcf8c882b041a9c5357878e5
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92316149"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090659"
 ---
 # <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Atualizar os nosdes de cluster para usar discos geridos a Azure
 
@@ -30,11 +30,11 @@ Este artigo irá acompanhá-lo através dos passos de atualização do tipo de n
 > [!CAUTION]
 > Só irá experimentar uma paragem com este procedimento se tiver dependências do cluster DNS (como ao aceder ao [Service Fabric Explorer).](service-fabric-visualizing-your-cluster.md) As [melhores práticas arquitetónicas para serviços front-end](/azure/architecture/microservices/design/gateway) é ter algum tipo de [equilibrador](/azure/architecture/guide/technology-choices/load-balancing-overview) de carga na frente dos seus tipos de nó para tornar possível a troca de nó sem uma paragem.
 
-Aqui estão os [modelos e cmdlets](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage) para O Gestor de Recursos Azure que usaremos para completar o cenário de upgrade. As alterações do modelo serão explicadas na [Implementação de uma escala atualizada definida para o tipo de nó primário](#deploy-an-upgraded-scale-set-for-the-primary-node-type)  abaixo.
+Aqui estão os [modelos e cmdlets](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade) para O Gestor de Recursos Azure que usaremos para completar o cenário de upgrade. As alterações do modelo serão explicadas na [Implementação de uma escala atualizada definida para o tipo de nó primário](#deploy-an-upgraded-scale-set-for-the-primary-node-type)  abaixo.
 
 ## <a name="set-up-the-test-cluster"></a>Configurar o cluster de teste
 
-Vamos configurar o cluster inicial de testes de tecido de serviço. Em primeiro lugar, [descarregue](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage) os modelos de amostra do Azure Resource Manager que usaremos para completar este cenário.
+Vamos configurar o cluster inicial de testes de tecido de serviço. Em primeiro lugar, [descarregue](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade) os modelos de amostra do Azure Resource Manager que usaremos para completar este cenário.
 
 Em seguida, inscreva-se na sua conta Azure.
 
@@ -158,7 +158,7 @@ Com isso, estamos prontos para iniciar o procedimento de atualização.
 
 Para atualizar, ou *verticalmente,* um tipo de nó, precisamos de implantar uma cópia do conjunto de balanças virtuais do tipo nó, que é idêntico ao conjunto de escala original (incluindo referência ao mesmo `nodeTypeRef` , e ) `subnet` `loadBalancerBackendAddressPools` exceto que inclui a atualização/alterações desejadas e a sua própria sub-rede separada e piscina de endereços NAT de entrada. Como estamos a atualizar um tipo de nó primário, o conjunto de nova escala será marcado como primário ( `isPrimary: true` ), tal como o conjunto de escala original. (Para atualizações não primárias do tipo de nó, simplesmente omita isto.)
 
-Por conveniência, as alterações necessárias já foram feitas para si nos [ficheiros](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Upgrade-1NodeType-2ScaleSets-ManagedDisks.json) e *modelos de parâmetros upgrade-1NodeType-2ScaleSets-ManagedDisks.* [parameters](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Upgrade-1NodeType-2ScaleSets-ManagedDisks.parameters.json)
+Por conveniência, as alterações necessárias já foram feitas para si nos [ficheiros](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Upgrade-1NodeType-2ScaleSets-ManagedDisks.json) e *modelos de parâmetros upgrade-1NodeType-2ScaleSets-ManagedDisks.* [](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Upgrade-1NodeType-2ScaleSets-ManagedDisks.parameters.json)
 
 As seguintes secções explicarão as alterações do modelo em detalhe. Se preferir, pode ignorar a explicação e continuar para [o próximo passo do procedimento de atualização](#obtain-your-key-vault-references).
 
@@ -263,7 +263,7 @@ Depois de implementar todas as alterações nos ficheiros do seu modelo e parâm
 
 Para implementar a configuração atualizada, primeiro obterá várias referências ao seu certificado de cluster armazenado no seu Cofre de Chaves. A maneira mais fácil de encontrar estes valores é através do portal Azure. Precisará:
 
-* **O URL do Cofre chave do seu certificado de cluster.** A partir do seu Cofre chave no portal Azure, selecione **Certificados**  >  *O seu certificado*  >  **identificador secreto**pretendido:
+* **O URL do Cofre chave do seu certificado de cluster.** A partir do seu Cofre chave no portal Azure, selecione **Certificados**  >  *O seu certificado*  >  **identificador secreto** pretendido:
 
     ```powershell
     $certUrlValue="https://sftestupgradegroup.vault.azure.net/secrets/sftestupgradegroup20200309235308/dac0e7b7f9d4414984ccaa72bfb2ea39"
@@ -275,7 +275,7 @@ Para implementar a configuração atualizada, primeiro obterá várias referênc
     $thumb = "BB796AA33BD9767E7DA27FE5182CF8FDEE714A70"
     ```
 
-* **A identificação de recursos do seu Cofre de Chaves.** A partir do seu Cofre chave no portal Azure, selecione **O**  >  **ID de Recursos de**Propriedades :
+* **A identificação de recursos do seu Cofre de Chaves.** A partir do seu Cofre chave no portal Azure, selecione **O**  >  **ID de Recursos de** Propriedades :
 
     ```powershell
     $sourceVaultValue = "/subscriptions/########-####-####-####-############/resourceGroups/sftestupgradegroup/providers/Microsoft.KeyVault/vaults/sftestupgradegroup"
@@ -343,7 +343,7 @@ Remove-AzVmss `
 Write-Host "Removed scale set $scaleSetName"
 ```
 
-No Service Fabric Explorer, os nós removidos (e, portanto, o *Estado de Saúde*do Cluster) aparecerão agora no estado *de Erro.*
+No Service Fabric Explorer, os nós removidos (e, portanto, o *Estado de Saúde* do Cluster) aparecerão agora no estado *de Erro.*
 
 ![Explorador de tecido de serviço mostrando nódoas desativadas no estado de erro](./media/upgrade-managed-disks/service-fabric-explorer-disabled-nodes-error-state.png)
 
@@ -373,6 +373,6 @@ Aprenda a:
 
 Veja também:
 
-* [Amostra: Atualizar os nosdes de cluster para utilizar discos geridos a Azure](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage)
+* [Amostra: Atualizar os nosdes de cluster para utilizar discos geridos a Azure](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade)
 
 * [Considerações de escala vertical](service-fabric-best-practices-capacity-scaling.md#vertical-scaling-considerations)

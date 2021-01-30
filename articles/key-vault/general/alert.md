@@ -1,5 +1,5 @@
 ---
-title: Azure Key Vault monitorização e alerta Microsoft Docs
+title: Monitorização e alerta | do Azure Key Vault Microsoft Docs
 description: Crie um painel de instrumentos para monitorizar a saúde do seu cofre e configurar alertas.
 services: key-vault
 author: ShaneBala-keyvault
@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.date: 04/06/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to learn the options available to monitor the health of my vaults
-ms.openlocfilehash: 5946a5d6d1adb5f609f497b4c2194582f624fe24
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 1b447e907bca3f8d21f522d888632aa687fd0f91
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934599"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99070666"
 ---
 # <a name="monitoring-and-alerting-for-azure-key-vault"></a>Monitorização e alerta para Azure Key Vault
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Uma vez que tenha começado a usar o cofre chave para armazenar os seus segredos de produção, é importante monitorizar a saúde do seu cofre chave para garantir que o seu serviço funciona como pretendido. À medida que começa a escalar o seu serviço, o número de pedidos enviados para o seu cofre-chave aumentará. Isto tem um potencial para aumentar a latência dos seus pedidos e, em casos extremos, fazer com que os seus pedidos sejam estrangulados, o que irá afetar o desempenho do seu serviço. Também precisa de ser alertado se o cofre da chave estiver a enviar um número incomum de códigos de erro, para que possa ser rapidamente notificado de qualquer política de acesso ou problemas de configuração de firewall. Este documento abordará os seguintes tópicos:
 
@@ -203,12 +203,13 @@ Consulte os seguintes parâmetros de configuração.
 
 7. Criar o alerta 
 
+### <a name="example-email-alert"></a>Exemplo alerta de e-mail 
+
+> [!div class="mx-imgBorder"]
+> ![Screenshot que destaca as informações necessárias para configurar um alerta de e-mail.](../media/alert-20.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Parabéns, criou agora com sucesso um painel de monitorização e alertas configurados para o seu cofre chave! Depois de ter seguido todos os passos acima, deverá receber alertas de e-mail quando o cofre-chave satisfaça os critérios de alerta configurados. Apresentamos um exemplo abaixo. Utilize as ferramentas que criou neste artigo para monitorizar ativamente a saúde do seu cofre de chaves. 
 
-### <a name="example-email-alert"></a>Exemplo alerta de e-mail 
 
-> [!div class="mx-imgBorder"]
-> ![Screenshot que destaca as informações necessárias para configurar um alerta de e-mail.](../media/alert-20.png)

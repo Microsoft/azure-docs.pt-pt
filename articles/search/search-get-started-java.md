@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 09/25/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 2ab87dfdeb18f97265c3bb2f34616c942a345c1e
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 8c688b1ba80050c49b9e2a36696ed7a2fb863e3f
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94698952"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99089398"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-java-using-rest-apis"></a>Quickstart: Criar um índice de pesquisa cognitiva Azure em Java usando APIs de REST
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "94698952"
 > * [Python](search-get-started-python.md)
 > * [REST](search-get-started-rest.md)
 
-Crie uma aplicação de consola Java que cria, carrega e consulta um índice de pesquisa usando [IntelliJ](https://www.jetbrains.com/idea/), [Java 11 SDK,](/java/azure/jdk/)e a [API de Pesquisa Cognitiva Azure](/rest/api/searchservice/). Este artigo fornece instruções passo a passo para a criação da aplicação. Em alternativa, pode [descarregar e executar a aplicação completa.](/samples/azure-samples/azure-search-java-samples/java-sample-quickstart/)
+Crie uma aplicação de consola Java que cria, carrega e consulta um índice de pesquisa usando [IntelliJ](https://www.jetbrains.com/idea/), [Java 11 SDK,](/java/azure/jdk/)e a [API de Pesquisa Cognitiva Azure](/rest/api/searchservice/). Este artigo fornece instruções passo a passo para a criação da aplicação. Em alternativa, pode [descarregar e executar a aplicação completa.](https://developers.google.com/sheets/api/quickstart/java)
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -35,7 +35,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Utilizamos o seguinte software e serviços para construir e testar este arranque rápido:
 
-+ [Ideia Intellij](https://www.jetbrains.com/idea/)
++ [IntelliJ IDEA](https://www.jetbrains.com/idea/)
 
 + [Java 11 SDK](/java/azure/jdk/)
 
@@ -74,8 +74,8 @@ Comece por abrir o IntelliJ IDEA e criar um novo projeto.
 
 ### <a name="specify-maven-dependencies"></a>Especificar dependências de Maven
 
-1. Selecione **File**  >  **Definições de ficheiros**.
-1. Na janela **Definições,** selecione **Construção, Execução, Implementação**  >  **Ferramentas de Construção**  >  **Maven**  >  **Maven Importando**.
+1. Selecione   >  **Definições de ficheiros**.
+1. Na janela **Definições,** selecione **Construção, Execução, Implementação**  >  **Ferramentas de Construção**  >    >  **Maven Importando**.
 1. Selecione os  **projetos Import Maven** verifique automaticamente a caixa e clique **em OK** para fechar a janela. Os plugins maven e outras dependências serão automaticamente sincronizados quando atualizar o ficheiro pom.xml no passo seguinte.
 
     :::image type="content" source="media/search-get-started-java/java-quickstart-settings-import-maven-auto.png" alt-text="Opções de importação de Maven nas definições de IntelliJ" border="false":::
@@ -133,7 +133,7 @@ Comece por abrir o IntelliJ IDEA e criar um novo projeto.
 
 ### <a name="set-up-the-project-structure"></a>Configurar a estrutura do projeto
 
-1. Selecione **File**  >  **estrutura de projeto de arquivo**.
+1. Selecione   >  **estrutura de projeto de arquivo**.
 1. Selecione **Módulos** e expanda a árvore de origem para aceder ao conteúdo da `src`  >   `main` pasta.
 1. Na `src`  >   `main`  >  `java` pasta, adicione `app` e adicione as `service` pastas. Para isso, selecione a `java` pasta, prima Alt + Insira e, em seguida, introduza o nome da pasta.
 1. Na `src`  >   `main`  > `resources` pasta, adicione `app` e adicione as `service` pastas.
@@ -511,7 +511,7 @@ A definição de índice de hotéis contém campos simples e um campo complexo. 
     }
     ```
 
-    O nome do índice será "hotels-quickstart". Os atributos nos campos de índice determinam como os dados indexados podem ser pesquisados numa aplicação. Para melhor, todos os casos, é a sua mensagem na pesquisa por `IsSearchable` texto. Pode pesquisar por palavras ou frases ou frases ou frases ou frases ou frases ou frases ou frases ou frases ou frases ou frases da semana. Para saber mais sobre atributos, consulte [a coleção Fields e os atributos de campo.](search-what-is-an-index.md#fields-collection)
+    O nome do índice será "hotels-quickstart". Os atributos nos campos de índice determinam como os dados indexados podem ser pesquisados numa aplicação. Para melhor, todos os casos, é a sua mensagem na pesquisa por `IsSearchable` texto. Pode pesquisar por palavras ou frases da semana. Para saber mais sobre atributos, consulte [a coleção Fields e os atributos de campo.](search-what-is-an-index.md#fields-collection)
     
     O `Description` campo neste índice usa a propriedade opcional para anular o `analyzer` analisador de linguagem Lucene padrão. O `Description_fr` campo está a usar o analisador francês Lucene porque armazena texto `fr.lucene` francês. Está `Description` a usar o analisador de idioma opcional da Microsoft en.lucene. Para saber mais sobre os analisadores, consulte [os Analisadores para processamento de texto na Pesquisa Cognitiva Azure.](search-analyzers.md)
 

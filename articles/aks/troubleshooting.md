@@ -4,12 +4,12 @@ description: Saiba como resolver problemas e resolver problemas comuns ao utiliz
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: 02ff1581bafe62a092be87d16df51c7ca8c020b4
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: 7dfb9e34daeb92d57a61c570055695867c4a8107
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97830943"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071872"
 ---
 # <a name="aks-troubleshooting"></a>Resolução de problemas do AKS
 
@@ -20,11 +20,11 @@ Quando cria ou gere os clusters do Serviço Azure Kubernetes (AKS), poderá ocas
 Experimente o [guia oficial para resolver os aglomerados de Kubernetes.](https://kubernetes.io/docs/tasks/debug-application-cluster/troubleshooting/)
 Há também um guia de [resolução de problemas](https://github.com/feiskyer/kubernetes-handbook/blob/master/en/troubleshooting/index.md), publicado por um engenheiro da Microsoft para resolução de problemas de pods, nós, clusters e outras funcionalidades.
 
-## <a name="im-getting-a-quota-exceeded-error-during-creation-or-upgrade-what-should-i-do"></a>Estou a receber um erro de "quota excedido" durante a criação ou atualização. O que devo fazer? 
+## <a name="im-getting-a-quota-exceeded-error-during-creation-or-upgrade-what-should-i-do"></a>Estou a ter um erro durante a `quota exceeded` criação ou atualização. O que devo fazer? 
 
  [Solicite mais núcleos.](../azure-portal/supportability/resource-manager-core-quotas-request.md)
 
-## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>Estou a receber um erro insuficiente de SubnetSize enquanto implanto um cluster AKS com rede avançada. O que devo fazer?
+## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>Estou a ter um `insufficientSubnetSize` erro ao implantar um cluster AKS com rede avançada. O que devo fazer?
 
 Este erro indica que uma sub-rede em uso para um cluster já não tem IPs disponíveis no seu CIDR para uma atribuição bem sucedida de recursos. Para os clusters Kubenet, o requisito é espaço IP suficiente para cada nó no cluster. Para os agrupamentos CNI Azure, a exigência é espaço IP suficiente para cada nó e vagem no cluster.
 Leia mais sobre o [design da Azure CNI para atribuir IPs a cápsulas](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).

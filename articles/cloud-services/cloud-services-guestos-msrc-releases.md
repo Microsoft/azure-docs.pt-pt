@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 1/26/2021
 ms.author: yohaddad
-ms.openlocfilehash: 7384b902e1bde46c55bcfa30b2aa46122445b05e
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: d7873a1b9fa8a404285f39736a4e6ba758fbf22b
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98877514"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99089212"
 ---
 # <a name="azure-guest-os"></a>Hóspede Azure OS
 As tabelas seguintes mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao Azure Guest OS. Pes faça uma pesquisa neste artigo para determinar se uma determinada atualização se aplica ao so-os convidado que está a utilizar. As atualizações são sempre transmitidas para a [família][family-explain] em particular em que foram introduzidas.
@@ -1578,7 +1578,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | N/D | [4014511] |Pode .NET não-segurança rollup |2.63 |9 de maio de 2017 |
 | N/D | [4014514] |Pode .NET não-segurança rollup |2.63 |9 de maio de 2017 |
 | N/D | [4019216] |Pode não-segurança rollup |3.50 |9 de maio de 2017 |
-| N/D | [4014503] |Pode .NET não-segurança rollup |3.50 |9 de maio de 2017 |
+| N/D | 4014503 |Pode .NET não-segurança rollup |3.50 |9 de maio de 2017 |
 | N/D | [4014506] |Pode .NET não-segurança rollup |3.50 |9 de maio de 2017 |
 | N/D | [4014509] |Pode .NET não-segurança rollup |3.50 |9 de maio de 2017 |
 | N/D | [4014513] |Pode .NET não-segurança rollup |3.50 |9 de maio de 2017 |
@@ -1776,7 +1776,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | MS16-080 |[3164302] |Atualização de segurança para Microsoft Windows PDF |4.33, 3.40 |14 de junho de 2016 |
 | MS16-081 |[3160352] |Atualização de Segurança para Diretório Ativo |4.33, 3.40, 2.52 |14 de junho de 2016 |
 | N/D |[2922223] |Não é possível alterar o tempo do sistema se a entrada no registo RealTimeIsUniversal estiver ativada no Windows |2.52 |14 de junho de 2016 |
-| N/D |[3121255] |"0x000000024" Erro de paragem no FsRtlNotifyFilterReportChange e ficheiro de cópia pode falhar no Windows |2.52 |14 de junho de 2016 |
+| N/D |[3121255] |"0x00000024" Erro de paragem no FsRtlNotifyFilterReportChange e ficheiro de cópia pode falhar no Windows |2.52 |14 de junho de 2016 |
 | N/D |[3125424] |Os impasses do LSASS fazem com que o Windows Server 2012 R2 ou o Windows Server 2012 não respondam |4.33, 3.40 |14 de junho de 2016 |
 | N/D |[3125574] |Atualização de rollup de conveniência para Windows 7 SP1 e Windows Server 2008 R2 SP1 |2.52 |14 de junho de 2016 |
 | N/D |[3140245] |Atualização para ativar TLS 1.1 e TLS 1.2 como protocolos seguros predefinidos no WinHTTP no Windows |3.40, 2.52 |14 de junho de 2016 |
@@ -2327,7 +2327,6 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 [4014511]: https://support.microsoft.com/kb/4014511
 [4014514]: https://support.microsoft.com/kb/4014514
 [4019216]: https://support.microsoft.com/kb/4019216
-[4014503]: https://support.microsoft.com/kb/4014503
 [4014506]: https://support.microsoft.com/kb/4014506
 [4014509]: https://support.microsoft.com/kb/4014509
 [4014513]: https://support.microsoft.com/kb/4014513
@@ -2679,7 +2678,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 [3035126]: https://support.microsoft.com/kb/3035126
 
 [3049563]:https://support.microsoft.com/kb/3049563
-[3057110]:https://support.microsoft.com/kb/3057110
+[3057110]:https://mskb.pkisolutions.com/kb/3057110
 [3046002]:https://support.microsoft.com/kb/3046002
 [3057134]:https://support.microsoft.com/kb/3057134
 [3055642]:https://support.microsoft.com/kb/3055642
@@ -2689,7 +2688,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 [3051768]:https://support.microsoft.com/kb/3051768
 [3061518]:https://support.microsoft.com/kb/3061518
 
-[3038314]:https://support.microsoft.com/kb/3038314
+[3038314]:https://web.archive.org/web/20180920122209/https:/support.microsoft.com/en-us/help/3038314/ms15-032-cumulative-security-update-for-internet-explorer-april-14-201
 [3042553]:https://support.microsoft.com/kb/3042553
 [3046306]:https://support.microsoft.com/kb/3046306
 [3046269]:https://support.microsoft.com/kb/3046269

@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/15/2021
+ms.date: 01/29/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: f550f96a8bd2e402556089061604654b11d47844
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: b62e341d35a4ff7fd5a7ddd6d9f19b138aaf0aa9
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762904"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071652"
 ---
 # <a name="perform-a-point-in-time-restore-on-block-blob-data"></a>Execute uma restauração pontual em dados de blob de bloco
 
@@ -187,6 +187,17 @@ az storage blob restore \
     --no-wait
 ```
 
+Para verificar as propriedades de uma operação de restauro, ligue para [a conta de armazenamento az](/cli/azure/storage/account#az_storage_account_show) e expanda a propriedade **blobRestoreStatus.** O exemplo a seguir mostra como verificar a propriedade **do estado.**
+
+```azurecli
+az storage account show \
+    --name <storage-account> \
+    --resource-group <resource_group> \ 
+    --expand blobRestoreStatus \
+    --query blobRestoreStatus.status \
+    --output tsv
+```
+
 Para executar a **bolha de armazenamento az restaurar** o comando sincronizado e bloquear a execução até que a operação de restauro esteja completa, omita o `--no-wait` parâmetro.
 
 ---
@@ -301,7 +312,7 @@ Para executar a **bolha de armazenamento az restaurar** o comando sincronizado e
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Restauro pontual para bolhas de bloco](point-in-time-restore-overview.md)
 - [Eliminação recuperável](./soft-delete-blob-overview.md)

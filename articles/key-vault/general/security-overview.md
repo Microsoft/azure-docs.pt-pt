@@ -9,22 +9,21 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/05/2021
 ms.author: mbaldwin
-ms.openlocfilehash: c4e9f0cd6a7421f5be29200816bb00a56b141367
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: c7635fdc2012ab404709733d8f5849465c2ee82f
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937765"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071575"
 ---
-# <a name="azure-key-vault-security-overview"></a>Visão geral da segurança do Cofre de Chaves Azure
+# <a name="azure-key-vault-security"></a>Segurança do Azure Key Vault
 
 Você usa o Cofre de Chaves Azure para proteger chaves de encriptação e segredos como certificados, cadeias de conexão e senhas na nuvem. Ao armazenar dados críticos sensíveis e empresariais, é necessário tomar medidas para maximizar a segurança dos seus cofres e os dados armazenados nos mesmos.
 
-Este artigo fornece uma visão geral das funcionalidades de segurança e das melhores práticas para o Azure Key Vault. Para obter uma lista completa de recomendações, com base no [Benchmark de Segurança Azure,](../../security/benchmarks/introduction.md)consulte a [linha de base de segurança para o Cofre da Chave Azure](security-baseline.md).
+Este artigo fornece uma visão geral das funcionalidades de segurança e das melhores práticas para o Azure Key Vault. 
 
-## <a name="general-guidance"></a>Documentação de orientação geral
-
-A nossa recomendação é utilizar um cofre por aplicação por ambiente (Desenvolvimento, Pré-Produção e Produção). Isto ajuda-o a não partilhar segredos em ambientes e também reduz a ameaça em caso de violação.
+> [!NOTE]
+> Para obter uma lista completa das recomendações de segurança do Azure Key Vault consulte a [linha de base de segurança para o Cofre da Chave Azure](security-baseline.md).
 
 ## <a name="network-security"></a>Segurança da rede
 
@@ -109,20 +108,9 @@ A proteção para eliminar e limpar o cofre da Azure Key permite-lhe recuperar c
 
 Também deve fazer back ups regulares do seu cofre em atualização/exclusão/criação de objetos dentro de um Cofre.  
 
-Comandos de backup Azure PowerShell:
-
-* [Certificado de Reserva](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultCertificate)
-* [Chave de reserva](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultKey)
-* [Segredo de Reserva](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultSecret)
-
-Comandos de backup do Azure CLI
-
-* [Certificado de Reserva](/cli/azure/keyvault/certificate#az-keyvault-certificate-backup)
-* [Chave de reserva](/cli/azure/keyvault/key#az-keyvault-key-backup)
-* [Segredo de Reserva](/cli/azure/keyvault/secret#az-keyvault-secret-backup)
-
-
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Pontos finais de serviço de rede virtual para Azure Key Vault](overview-vnet-service-endpoints.md)
+- [Linha de segurança Azure Key Vault](security-baseline.md)
+- [As melhores práticas do Azure Key Vault](security-baseline.md)
+- [Pontos finais de serviço de rede virtual para o Azure Key Vault](overview-vnet-service-endpoints.md)
 - [Azure RBAC: Papéis incorporados](../../role-based-access-control/built-in-roles.md)

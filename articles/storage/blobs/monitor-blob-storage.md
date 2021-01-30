@@ -1,6 +1,6 @@
 ---
-title: Monitorização do armazenamento do Blob Azure / Microsoft Docs
-description: Saiba como monitorizar o desempenho e disponibilidade do armazenamento Azure Blob. Monitorize os dados de armazenamento do Azure Blob, aprenda sobre a configuração e analise dados métricos e de registo.
+title: Monitorização do armazenamento de blob Azure | Microsoft Docs
+description: Saiba como monitorizar o desempenho e disponibilidade do Azure Blob Storage. Monitorize os dados de Armazenamento Azure Blob, aprenda sobre a configuração e analise dados métricos e de registo.
 author: normesta
 services: storage
 ms.service: storage
@@ -9,16 +9,16 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 9224d02e36dbca96d3e54946330d3135ff811829
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 76f266ec915754b5746f06a340b21146b84fa711
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97590771"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071669"
 ---
-# <a name="monitoring-azure-blob-storage"></a>Monitorização do armazenamento do Azure Blob
+# <a name="monitoring-azure-blob-storage"></a>Monitorização do armazenamento do blob Azure
 
-Quando você tem aplicações críticas e processos de negócio que dependem de recursos Azure, você quer monitorizar esses recursos para sua disponibilidade, desempenho e funcionamento. Este artigo descreve os dados de monitorização gerados pelo armazenamento Azure Blob e como pode utilizar as funcionalidades do Azure Monitor para analisar alertas sobre estes dados.
+Quando você tem aplicações críticas e processos de negócio que dependem de recursos Azure, você quer monitorizar esses recursos para sua disponibilidade, desempenho e funcionamento. Este artigo descreve os dados de monitorização gerados pelo Azure Blob Storage e como pode utilizar as funcionalidades do Azure Monitor para analisar alertas sobre estes dados.
 
 > [!NOTE]
 > Os registos de armazenamento Azure no Azure Monitor estão em pré-visualização pública e estão disponíveis para testes de pré-visualização em todas as regiões de nuvem pública. Esta pré-visualização permite registos para bolhas (que inclui Azure Data Lake Storage Gen2), ficheiros, filas e tabelas. Esta funcionalidade encontra-se disponível para todas as contas de armazenamento que são criadas com o modelo de implementação do Azure Resource Manager. Consulte [a visão geral da conta de armazenamento](../common/storage-account-overview.md).
@@ -28,7 +28,7 @@ Quando você tem aplicações críticas e processos de negócio que dependem de 
 A página **geral** no portal Azure para cada recurso de armazenamento Blob inclui uma breve visão da utilização do recurso, tais como pedidos e faturação horária. Esta informação é útil, mas apenas uma pequena quantidade dos dados de monitorização está disponível. Alguns destes dados são recolhidos automaticamente e estão disponíveis para análise assim que criar o recurso. Pode ativar tipos adicionais de recolha de dados com alguma configuração.
 
 ## <a name="what-is-azure-monitor"></a>O que é o Azure Monitor?
-O armazenamento Azure Blob cria dados de monitorização utilizando [o Azure Monitor,](../../azure-monitor/overview.md)que é um serviço de monitorização de pilhas completa em Azure. O Azure Monitor fornece um conjunto completo de funcionalidades para monitorizar os seus recursos e recursos Azure em outras nuvens e no local. 
+O Azure Blob Storage cria dados de monitorização utilizando [o Azure Monitor,](../../azure-monitor/overview.md)que é um serviço de monitorização de pilhas completa em Azure. O Azure Monitor fornece um conjunto completo de funcionalidades para monitorizar os seus recursos e recursos Azure em outras nuvens e no local. 
 
 Comece com o artigo [Monitorar os recursos do Azure com o Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md) que descreve o seguinte:
 
@@ -42,9 +42,9 @@ As seguintes secções baseiam-se neste artigo descrevendo os dados específicos
 
 ## <a name="monitoring-data"></a>Monitorizar dados
 
-O armazenamento Azure Blob recolhe os mesmos tipos de dados de monitorização que outros recursos Azure, que são descritos em [dados de monitorização a partir de recursos Azure](../../azure-monitor/insights/monitor-azure-resource.md#monitoring-data). 
+O Azure Blob Storage recolhe os mesmos tipos de dados de monitorização que outros recursos Azure, que são descritos na [monitorização de dados a partir de recursos Azure](../../azure-monitor/insights/monitor-azure-resource.md#monitoring-data). 
 
-Consulte [a referência de dados de monitorização de armazenamento Azure Blob](monitor-blob-storage-reference.md) para obter informações detalhadas sobre as métricas de métricas e registos criadas pelo armazenamento Azure Blob.
+Consulte [a referência de dados de monitorização do armazenamento Azure Blob](monitor-blob-storage-reference.md) para obter informações detalhadas sobre as métricas de métricas e registos criadas pelo Azure Blob Storage.
 
 Métricas e registos no Azure Monitor suportam apenas contas de armazenamento do Gestor de Recursos Azure. O Azure Monitor não suporta contas clássicas de armazenamento. Se quiser utilizar métricas ou registos numa conta de armazenamento clássica, tem de migrar para uma conta de armazenamento do Azure Resource Manager. Consulte [a Migração para o Gestor de Recursos Azure](../../virtual-machines/migration-classic-resource-manager-overview.md).
 
@@ -76,7 +76,7 @@ Para obter orientações gerais, consulte [Criar definição de diagnóstico par
 
 ### <a name="azure-portal"></a>[Portal do Azure](#tab/azure-portal)
 
-1. Inicie sessão no portal do Azure.
+1. Inicie sessão no Portal do Azure.
 
 2. Navegue até à sua conta de armazenamento.
 
@@ -279,12 +279,12 @@ Para métricas que suportam dimensões, pode filtrar a métrica com o valor de d
 
 Para obter uma lista completa das dimensões que o Azure Storage suporta, consulte [as dimensões das Métricas.](monitor-blob-storage-reference.md#metrics-dimensions)
 
-As métricas para o armazenamento do Azure Blob estão nestes espaços de nome: 
+As métricas para o armazenamento de blob Azure estão nestes espaços de nome: 
 
 - Microsoft.Storage/storageAcontas
 - Microsoft.Storage/storageAcontas/blobServices
 
-Para obter uma lista de todas as métricas de suporte do Azure Monitor, que inclui o armazenamento do Azure Blob, consulte [as métricas suportadas pelo Monitor Azure.](../../azure-monitor/platform/metrics-supported.md)
+Para obter uma lista de todas as métricas de suporte do Azure Monitor, que inclui o armazenamento Azure Blob, consulte [as métricas suportadas pelo Monitor Azure.](../../azure-monitor/platform/metrics-supported.md)
 
 
 ### <a name="accessing-metrics"></a>Métricas de acesso
@@ -601,6 +601,6 @@ N.º O Azure Compute suporta as métricas nos discos. Para obter mais informaç�
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para obter uma referência dos registos e métricas criados pelo armazenamento Azure Blob, consulte [a referência de dados de monitorização do armazenamento Azure Blob](monitor-blob-storage-reference.md).
+- Para obter uma referência dos registos e métricas criados pela Azure Blob Storage, consulte [a referência de dados de monitorização do armazenamento de blob Azure.](monitor-blob-storage-reference.md)
 - Para obter informações sobre a monitorização dos recursos do Azure, consulte [os recursos do Monitor Azure com o Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md).
 - Para obter mais informações sobre a migração de métricas, consulte [a migração das métricas de Armazenamento Azure.](../common/storage-metrics-migration.md)

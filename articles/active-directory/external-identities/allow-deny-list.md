@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b87650f364f8ccfd3a531d710bfbdc4715f0ac5a
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 0cc336781e9a55bbcb6c51677b01bfc402126f4a
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92442189"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071905"
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Permitir ou bloquear convites para utilizadores B2B de organizações específicas
 
@@ -42,7 +42,7 @@ Este é o cenário mais típico, onde a sua organização quer trabalhar com qua
 Para adicionar uma lista de negação:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Selecione as definições do utilizador do **Diretório Ativo Azure**  >  **Users**  >  **User settings**.
+2. Selecione as definições do utilizador do **Diretório Ativo Azure**  >    >  .
 3. Em **utilizadores externos,** **selecione Gerir as definições de colaboração externa**.
 4. Sob **restrições de colaboração**, selecione **Negue convites para os domínios especificados.**
 5. Em **DOMÍNIOS ALVO,** insira o nome de um dos domínios que pretende bloquear. Para vários domínios, insira cada domínio numa nova linha. Por exemplo:
@@ -63,7 +63,7 @@ Se quiser utilizar uma lista de autorizações, certifique-se de que gasta tempo
 Para adicionar uma lista de admissão:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Selecione as definições do utilizador do **Diretório Ativo Azure**  >  **Users**  >  **User settings**.
+2. Selecione as definições do utilizador do **Diretório Ativo Azure**  >    >  .
 3. Em **utilizadores externos,** **selecione Gerir as definições de colaboração externa**.
 4. Sob **restrições de colaboração**, selecione **Permitir convites apenas para os domínios especificados (mais restritivos)**.
 5. Em **DOMÍNIOS ALVO,** insira o nome de um dos domínios que pretende permitir. Para vários domínios, insira cada domínio numa nova linha. Por exemplo:
@@ -126,7 +126,7 @@ Se o módulo não estiver instalado, ou não tiver uma versão necessária, faç
 
 ### <a name="use-the-azureadpolicy-cmdlets-to-configure-the-policy"></a>Use os cmdlets AzureADPolicy para configurar a política
 
-Para criar uma lista de permitir ou negar, utilize o [cmdlet New-AzureADPolicy.](/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview) O exemplo a seguir mostra como definir uma lista de negação que bloqueia o domínio "live.com".
+Para criar uma lista de permitir ou negar, utilize o [cmdlet New-AzureADPolicy.](/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) O exemplo a seguir mostra como definir uma lista de negação que bloqueia o domínio "live.com".
 
 ```powershell 
 $policyValue = @("{`"B2BManagementPolicy`":{`"InvitationsAllowedAndBlockedDomainsPolicy`":{`"AllowedDomains`": [],`"BlockedDomains`": [`"live.com`"]}}}")
@@ -140,19 +140,19 @@ O que se segue mostra o mesmo exemplo, mas com a definição de política em lin
 New-AzureADPolicy -Definition @("{`"B2BManagementPolicy`":{`"InvitationsAllowedAndBlockedDomainsPolicy`":{`"AllowedDomains`": [],`"BlockedDomains`": [`"live.com`"]}}}") -DisplayName B2BManagementPolicy -Type B2BManagementPolicy -IsOrganizationDefault $true 
 ```
 
-Para definir a política de permitir ou negar a lista, utilize o [cmdlet Set-AzureADPolicy.](/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview) Por exemplo:
+Para definir a política de permitir ou negar a lista, utilize o [cmdlet Set-AzureADPolicy.](/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) Por exemplo:
 
 ```powershell   
 Set-AzureADPolicy -Definition $policyValue -Id $currentpolicy.Id 
 ```
 
-Para obter a apólice, use o [cmdlet Get-AzureADPolicy.](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview) Por exemplo:
+Para obter a apólice, use o [cmdlet Get-AzureADPolicy.](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) Por exemplo:
 
 ```powershell
-$currentpolicy = Get-AzureADPolicy | ?{$_.Type -eq 'B2BManagementPolicy'} | select -First 1 
+$currentpolicy = Get-AzureADPolicy -All $true | ?{$_.Type -eq 'B2BManagementPolicy'} | select -First 1 
 ```
 
-Para remover a política, utilize o [cmdlet Remove-AzureADPolicy.](/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview) Por exemplo:
+Para remover a política, utilize o [cmdlet Remove-AzureADPolicy.](/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) Por exemplo:
 
 ```powershell
 Remove-AzureADPolicy -Id $currentpolicy.Id 

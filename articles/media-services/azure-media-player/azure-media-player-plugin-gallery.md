@@ -6,22 +6,22 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 04/20/2020
-ms.openlocfilehash: 6d592064729bbdd64e485e0bd0373b2d471597e0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 71fa79cb8847d16ac0890f9aba647cb8f5e2e444
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87282488"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99089347"
 ---
 # <a name="azure-media-player-plugin-gallery"></a>Galeria Plugin Azure Media Player #
 
 ## <a name="plugins"></a>Plug-ins ##
 
-| Nome plugin                         | URL de demonstração                    | Código fonte                | Descrição    |
+| Nome plugin                         | URL de demonstração                    | Código fonte                | Description    |
 |-------------------------------------|-----------------------------|----------------------------|----------------|
 | Características adicionais                 | | | |
 | **Novo!** AMP360Video                | [Demonstração](http://www.babylonjs.com/demos/amp360video/)                        | [GitHub](https://github.com/BabylonJS/Extensions/tree/master/Amp360Video)                     | O plugin permite visualizar 360 vídeos em Amp, quer no seu ambiente de trabalho, quer em dispositivos compatíveis com VR. A documentação completa está disponível [aqui:](https://doc.babylonjs.com/extensions/amp360video) |
-|  Ponta sprite                         | [Demonstração](http://www.skymedia.tv/asset/sprite)                        | [GitHub](https://github.com/RickShahid/SpriteTip)                    | Plugin Azure Media Player (AMP) para renderização de linha do tempo de um sprite de imagem de miniatura de vídeo que é gerado a partir de Azure Media Services (AMS) Media Encoder Standard (MES). |
+|  Ponta sprite                         | [Demonstração](https://www.smwcentral.net/?p=section&a=details&id=10301)                        | [GitHub](https://github.com/RickShahid/SpriteTip)                    | Plugin Azure Media Player (AMP) para renderização de linha do tempo de um sprite de imagem de miniatura de vídeo que é gerado a partir de Azure Media Services (AMS) Media Encoder Standard (MES). |
 | Sobreposição de Diagnósticos                 | [Demonstração](https://openidconnectweb.azurewebsites.net/Diagnoverlay.html)                        | [GitHub](https://github.com/willzhan/diagnoverlay)                     | Este plugin exibe: Todos os parâmetros-chave, estatísticas de vídeo, todos os eventos no ciclo de vida da reprodução de vídeo e informações de proteção drm, tais como ID chave, URLs de aquisição de licença, se protegidos.                                                                                                                                                                      |
 | Taxa de fotogramas e calculadora de código de tempo | Não há demonstração disponível | [GitHub](https://github.com/mconverti/media-services-javascript-azure-media-player-framerate-timecode-calculator-plugin)                     | Este plugin calcula a taxa de fotogramas de vídeo com base nas `tfhd` / `trun` caixas MP4 do primeiro fragmento de vídeo MPEG-DASH, analisa o valor da escala de tempo do manifesto do cliente MPEG-DASH, e também fornece uma forma de gerar o cronograma por um determinado tempo absoluto do jogador (bem como fornece ao jogador tempo absoluto dado o código de tempo) |
 | <strike>Velocidade de reprodução</strike>                      | [Demonstração](https://azure-samples.github.io/media-services-javascript-Azure-Media-Player-playback-rate-plugin/)                        | [GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-time-tip-plugin)                     | Este plugin permite aos espectadores controlar a velocidade do vídeo. *Note que esta funcionalidade está automaticamente disponível na versão AMP v2.0.0+ mas desativada por padrão.* Para aprender como capacitá-lo, confira as nossas amostras [aqui](https://github.com/Azure-Samples/azure-media-player-samples) |

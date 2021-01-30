@@ -43,9 +43,11 @@
   items:
     - name: Conceitos básicos
       href: basic-concepts.md
+    - name: Melhores práticas
+      href: best-practices.md
     - name: Segurança
       items:
-        - name: Descrição geral da segurança
+        - name: Descrição geral
           href: security-overview.md
         - name: Acesso seguro a um cofre de chaves
           href: secure-your-key-vault.md
