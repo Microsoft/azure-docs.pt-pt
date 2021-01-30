@@ -3,25 +3,25 @@ title: Analisar custos com a Aplicação Power BI
 description: Este artigo explica como instalar e utilizar a Aplicação Power BI do Azure Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/09/2020
+ms.date: 1/29/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: benshy
-ms.openlocfilehash: 1c5adf58f670f3cadcedbe710568551004b77b78
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
-ms.translationtype: HT
+ms.openlocfilehash: d3439f5a86c445898d95191a32496b5f0c86be0b
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413246"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99070162"
 ---
 # <a name="analyze-cost-with-the-azure-cost-management-power-bi-app-for-enterprise-agreements-ea"></a>Analisar o custo com a Aplicação Power BI do Azure Cost Management para Contratos Enterprise (EA)
 
 Este artigo explica como instalar e utilizar a aplicação Power BI do Azure Cost Management. A aplicação ajuda-o a analisar e gerir os seus custos do Azure no Power BI. Pode utilizar a aplicação para monitorizar custos, tendências de utilização e identificar opções de otimização de custos para reduzir as suas despesas.
 
-Pode utilizar a aplicação tal como está ou modificá-la para expandir os filtros, as vistas e as visualizações predefinidos para personalizar de acordo com as suas necessidades. Em seguida, utilize-a para associar dados adicionais para criar relatórios personalizados para obter perspetivas holísticas do custo global do seu negócio.
+A aplicação Azure Cost Management Power BI suporta atualmente apenas clientes com um [Acordo Empresarial.](https://azure.microsoft.com/pricing/enterprise-agreement/)
 
-Atualmente, a Aplicação Power BI do Azure Cost Management suporta apenas clientes com um [Contrato Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/).
+A aplicação limita a personalização. Se pretender modificar e alargar os filtros, vistas e visualizações predefinidos para personalizar para as suas necessidades, utilize o [conector Azure Cost Management no Power BI Desktop.](/power-bi/connect-data/desktop-connect-azure-cost-management) Com o conector Azure Cost Management pode juntar dados adicionais de outras fontes para criar relatórios personalizados para obter uma visão holística do seu custo de negócio global. O conector também suporta os Acordos de Cliente da Microsoft.
 
 > [!NOTE]
 > As aplicações de modelo do Power BI não suportam a transferência do ficheiro PBIX.
@@ -38,11 +38,11 @@ Para instalar a aplicação:
 1. Abra a [Aplicação Power BI do Azure Cost Management](https://aka.ms/costmgmt/ACMApp).
 2. Na página Power BI AppSource, selecione **Obter agora**.
 3. Selecione **Continuar** para concordar com os termos de utilização e a política de privacidade.
-4. Na caixa **Instalar esta aplicação do Power BI** , selecione **Instalar**.
+4. Na caixa **Instalar esta aplicação do Power BI**, selecione **Instalar**.
 5. Se necessário, crie uma área de trabalho e selecione **Continuar**.
 6. Quando a instalação estiver concluída, é apresentada uma notificação a indicar que a sua nova aplicação está pronta.
 7. Selecione **Ir para a aplicação**.
-8. Em **Comece já com a sua nova aplicação** , em **Ligar os dados** , selecione **Ligar**.  
+8. Em **Comece já com a sua nova aplicação**, em **Ligar os dados**, selecione **Ligar**.  
   ![Comece já com a sua nova aplicação - Ligar](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/connect-data2.png)
 9. Na caixa de diálogo que aparece, introduza o seu número de inscrição de EA em **BillingProfileIdOrEnrollmentNumber**. Especifique o número de meses de dados a obter. Mantenha o valor de **Âmbito** predefinido **Enrollment Number** e, em seguida, selecione **Seguinte**.  
   ![Introduzir informações de inscrição de EA](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png)  
@@ -80,7 +80,7 @@ Os seguintes relatórios estão disponíveis na aplicação.
 
 ![Relatório completo dos Benefícios Híbridos do Azure](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ahb-report-full.png)
 
-O relatório também identifica as VMs do Windows nas quais o Benefício Híbrido está **ativado** , mas há _menos do que_ 8 vCPUs. Mostra também as VMs nas quais o Benefício Híbrido não está **ativado** , que tenham 8 _ou mais_ vCPUs. Esta informação ajuda-o a utilizar totalmente o seu Benefício Híbrido. Aplique o benefício às suas máquinas virtuais mais caras para maximizar as suas poupanças potenciais.
+O relatório também identifica as VMs do Windows nas quais o Benefício Híbrido está **ativado**, mas há _menos do que_ 8 vCPUs. Mostra também as VMs nas quais o Benefício Híbrido não está **ativado**, que tenham 8 _ou mais_ vCPUs. Esta informação ajuda-o a utilizar totalmente o seu Benefício Híbrido. Aplique o benefício às suas máquinas virtuais mais caras para maximizar as suas poupanças potenciais.
 
 ![Benefícios Híbridos do Azure – Menos de 8 vCPUs e vCPUs não ativadas](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ahb-report.png)
 

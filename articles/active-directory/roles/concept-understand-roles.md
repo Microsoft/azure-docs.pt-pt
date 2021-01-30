@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b46262e34f57b3ff9aeb6bd4ea671ec611b99df
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 3101cf3650fcfb7f9313b13c1c07a03dd734e9dd
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740351"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99089229"
 ---
 # <a name="understand-roles-in-azure-active-directory"></a>Compreender papéis no Azure Ative Directory
 
@@ -61,10 +61,10 @@ O quadro seguinte é oferecido como um auxílio à compreensão destas categoria
 Categoria | Função
 ---- | ----
 Funções específicas da AD Azure | Administrador da Aplicação<br>Programador de Aplicações<br>Administrador de Autenticação<br>Administrador do keyset B2C IEF<br>Administrador de Política B2C IEF<br>Administrador de Aplicações na Cloud<br>Administrador de dispositivos de nuvem<br>Administrador de acesso condicional<br>Administradores de Dispositivos<br>Leitores de Diretório<br>Contas de Sincronização do Diretório<br>Escritores do Diretório<br>Administrador de fluxo de id externo<br>Administrador de atributo de fluxo de id do utilizador externo<br>Administrador de fornecedor de identidade externa<br>Administrador de Grupos<br>Convidado Convidado<br>Administrador helpdesk<br>Administrador de Identidade Híbrida<br>Administrador de Licença<br>Suporte parceiro Tier1<br>Suporte parceiro Tier2<br>Administrador de password<br>Administrador de Autenticação Privilegiada<br>Administrador privilegiado<br>Leitor de Relatórios<br>Administrador de Conta de Utilizador
-Funções de cross-service | Administrador da Empresa<br>Administrador de Conformidade<br>Administrador de Dados de Conformidade<br>Leitor Global<br>Administrador de Segurança<br>Operador de Segurança<br>Leitor de Segurança<br>Administrador de Suporte de Serviço
+Funções de cross-service | Administrador Global<br>Administrador de Conformidade<br>Administrador de Dados de Conformidade<br>Leitor Global<br>Administrador de Segurança<br>Operador de Segurança<br>Leitor de Segurança<br>Administrador de Suporte de Serviço
 Funções específicas do serviço | Administrador da Azure DevOps<br>Administrador de Proteção de Informação da Azure<br>Administrador de Faturação<br>Administrador de serviço crm<br>Aprovação de acesso ao cliente LockBox<br>Administrador de Análise de Desktop<br>Administrador de Serviço de Intercâmbio<br>Administrador de Insights<br>Insights Business Leader<br>Administrador de Serviços do Intune<br>Administrador kaizala<br>Administrador de Serviço Lync<br>Leitor de Privacidade do Centro de Mensagens<br>Leitor do Centro de Mensagens<br>Utilizador de Comércio Moderno<br>Administrador de rede<br>Administrador de Aplicações de Escritório<br>Administrador do Serviço Power BI<br>Administrador da Plataforma de Energia<br>Administrador de impressora<br>Técnico de Impressora<br>Administrador de Pesquisa<br>Editor de Pesquisa<br>Administrador de serviço do SharePoint<br>Administrador de Comunicações de Equipas<br>Engenheiro de Suporte de Comunicações de Equipas<br>Especialista em Apoio às Comunicações das Equipas<br>Administrador de dispositivos de equipas<br>Administrador de Serviço de Equipas
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Visão geral do controlo de acesso baseado em funções da Azure AD](custom-overview.md)
 - Criar atribuições de funções utilizando [o portal Azure, Azure AD PowerShell e API de gráficos](custom-create.md)

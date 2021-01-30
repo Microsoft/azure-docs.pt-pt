@@ -3,12 +3,12 @@ title: Conceitos - Armazenamento
 description: Saiba mais sobre as principais capacidades de armazenamento em nuvens privadas Azure VMware Solution.
 ms.topic: conceptual
 ms.date: 11/03/2020
-ms.openlocfilehash: 394b755f5dc8fdbcaa6092419e9451ae1691aa67
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 8ad1fc3ff2e514330a9ffc680494b5564b1184e4
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289258"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062800"
 ---
 #  <a name="azure-vmware-solution-storage-concepts"></a>Conceitos de armazenamento de solução Azure VMware
 
@@ -32,7 +32,7 @@ vSAN datastores usam encriptação de dados em repouso por padrão. A solução 
 
 ## <a name="scaling"></a>Dimensionamento
 
-A capacidade de armazenamento de clusters nativo é dimensionada adicionando hospedeiros a um cluster. Para os agrupamentos que utilizam hospedeiros HE, a capacidade bruta de cluster é aumentada em 15,4 TB com cada hospedeiro adicional. Os clusters que são construídos com anfitriões GP têm a sua capacidade bruta aumentada em 7,7 TB com cada hospedeiro adicional. Em ambos os tipos de aglomerados, os anfitriões demoram cerca de 10 minutos a serem adicionados a um cluster. Consulte o [tutorial de nuvem privada][tutorial-scale-private-cloud] de escala para obter instruções sobre aglomerados de escala.
+A capacidade de armazenamento de clusters nativo é dimensionada adicionando hospedeiros a um cluster. Para os agrupamentos que utilizam hospedeiros HE, a capacidade bruta de cluster é aumentada em 15,4 TB com cada hospedeiro adicional. Os clusters que são construídos com anfitriões GP têm a sua capacidade bruta aumentada em 7,7 TB com cada hospedeiro adicional. Em ambos os tipos de aglomerados, os anfitriões demoram cerca de 10 minutos a serem adicionados a um cluster. Para obter instruções sobre aglomerados de escala, consulte o [tutorial de nuvem privada de escala.][tutorial-scale-private-cloud]
 
 ## <a name="azure-storage-integration"></a>Integração de armazenamento azul
 

@@ -8,19 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 12/02/2020
+ms.date: 01/27/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 625fe5f53318ebc641d102e679ef7fd0607ef683
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 3f403308c77e5ee0dfc066ec3dc53100e520d274
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97652853"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090676"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>O que há de novo na API de Análise de Texto?
 
 A API text Analytics é atualizada numa base contínua. Para se manter atualizado com os recentes desenvolvimentos, este artigo fornece-lhe informações sobre novos lançamentos e funcionalidades.
+
+## <a name="january-2021"></a>Janeiro de 2021
+
+* A `2021-01-15` versão modelo para Reconhecimento de Entidade [Nomeada](how-tos/text-analytics-how-to-entity-linking.md) v3.x, que fornece 
+  * Apoio linguístico alargado para [várias categorias de entidades gerais.](named-entity-types.md) 
+  * Melhor qualidade de IA das categorias de entidades gerais para todas as línguas v3 suportadas. 
+
+* A `2021-01-05` versão-modelo para [deteção de idiomas,](how-tos/text-analytics-how-to-language-detection.md)que fornece [suporte linguístico](language-support.md?tabs=language-detection)adicional.
 
 ## <a name="december-2020"></a>Dezembro de 2020
 
@@ -29,7 +37,7 @@ A API text Analytics é atualizada numa base contínua. Para se manter atualizad
 ## <a name="november-2020"></a>Novembro de 2020
 
 * Um [novo ponto final](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Analyze) com API API de Análise de Texto v3.1-preview.3 para a nova [API de análise](how-tos/text-analytics-how-to-call-api.md?tabs=analyze)assíncrono, que suporta o processamento de lotes para NER, PII e operações de extração de frases-chave.
-* Um [novo ponto final](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Health) com API de Análise de Texto v3.1-preview.3 para o novo Text Analytics assíncrono para a [saúde](how-tos/text-analytics-for-health.md) hospedado API com suporte para processamento de lotes.
+* Um [novo ponto final](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Health) com API API API de Análise de Texto v3.1-preview.3 para o novo Text Analytics assíncrono para a [saúde](how-tos/text-analytics-for-health.md) hospedado API com suporte para processamento de lotes.
 * Ambas as novas funcionalidades acima enumeradas só estão disponíveis nas seguintes regiões: `West US 2` `East US 2` , , e `Central US` `North Europe` `West Europe` regiões.
 * O português (Brasil) `pt-BR` é agora apoiado na Análise de [Sentimento](how-tos/text-analytics-how-to-sentiment-analysis.md) v3.x, começando pela versão `2020-04-01` modelo. Acrescenta ao apoio existente `pt-PT` ao português.
 * Bibliotecas de clientes atualizadas, que incluem análise assíncronea, e Análise de Texto para operações de saúde. Pode encontrar exemplos no GitHub:
@@ -66,7 +74,7 @@ A API text Analytics é atualizada numa base contínua. Para se manter atualizad
 ### <a name="text-analytics-for-health-container-updates"></a>Análise de texto para atualizações de recipientes de saúde
 
 As seguintes atualizações são específicas para a versão de setembro do Text Analytics apenas para recipientes de saúde.
-* Uma nova imagem de recipiente com etiqueta `1.1.013530001-amd64-preview` com a nova versão modelo foi lançada para o `2020-09-03` repositório de prescrição de contentores. 
+* Uma nova imagem de recipiente com etiqueta `1.1.013530001-amd64-preview` com a nova versão modelo foi lançada para o `2020-09-03` repositório de pré-visualização do recipiente. 
 * Esta versão modelo fornece melhorias no reconhecimento de entidades, deteção de abreviaturas e melhorias de latência.
 
 > [!div class="nextstepaction"]
@@ -230,7 +238,7 @@ A ligação de entidade suporta inglês e espanhol. O suporte linguístico NER v
     * Rotulagem automática para diferentes sentimentos em texto.
     * Análise de sentimento e saída no nível de documento e frase. 
 
-Apoia o inglês ( `en` japonês `ja` ), chinês simplificado ( `zh-Hans` , chinês tradicional ( ) e alemão , `zh-Hant` e está `fr` `it` `es` `nl` `pt` `de` disponível nas seguintes regiões: `Australia East` , `Central Canada` `Central US` e `East Asia` `East US` `East US 2` `North Europe` `Southeast Asia` `South Central US` `UK South` `West Europe` `West US 2` . 
+Apoia o inglês ( `en` japonês `ja` ), chinês simplificado ( `zh-Hans` , chinês tradicional ( ( ( ( ) e alemão , `zh-Hant` e `fr` está `it` `es` `nl` `pt` `de` disponível nas seguintes regiões: `Australia East` , , , , , , , , `Central Canada` , , , , , `Central US` e `East Asia` `East US` `East US 2` `North Europe` `Southeast Asia` `South Central US` `UK South` `West Europe` `West US 2` . 
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre a Análise de Sentimento v3](how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features)
@@ -240,6 +248,6 @@ Apoia o inglês ( `en` japonês `ja` ), chinês simplificado ( `zh-Hans` , chin�
 * [O que é a API de Análise de Texto?](overview.md)  
 * [Cenários de utilizador acionáveis](text-analytics-user-scenarios.md)
 * [Análise de sentimento](how-tos/text-analytics-how-to-sentiment-analysis.md)
-* [Deteção de idioma](how-tos/text-analytics-how-to-language-detection.md)
+* [Deteção linguística](how-tos/text-analytics-how-to-language-detection.md)
 * [Reconhecimento de entidades](how-tos/text-analytics-how-to-entity-linking.md)
-* [Extração de expressões-chave](how-tos/text-analytics-how-to-keyword-extraction.md)
+* [Extração de frase-chave](how-tos/text-analytics-how-to-keyword-extraction.md)

@@ -4,12 +4,12 @@ description: Saiba como ligar a sua aplicação de função a Application Insigh
 ms.date: 8/31/2020
 ms.topic: how-to
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 73ed679288d9d03b81a0b01670aa0f574a14839f
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: e24f2b1a61d77dafd7a23b04d225d0301f82ca59
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684713"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99070145"
 ---
 # <a name="how-to-configure-monitoring-for-azure-functions"></a>Como configurar a monitorização para as funções do Azure
 
@@ -271,6 +271,30 @@ Se um recurso Application Insights não foi criado com a sua aplicação de fun�
 
 > [!NOTE]
 > As primeiras versões de Funções utilizadas na monitorização incorporada, que já não é recomendada. Ao ativar a integração do Application Insights para uma aplicação de tal função, também deve [desativar a sessão embutimento.](#disable-built-in-logging)  
+
+## <a name="query-scale-controller-logs"></a>Registos do controlador de escala de consulta
+
+Depois de permitir a integração tanto do Controlador de Escala como do Application Insights, pode utilizar a pesquisa de registo de insights de aplicação para consultar os registos do controlador de escala emitido. Os registos do controlador de escala são guardados na `traces` coleção na categoria **ScaleControllerLogs.**
+
+A seguinte consulta pode ser usada para procurar todos os registos do controlador de escala para a aplicação de função atual dentro do período de tempo especificado:
+
+```kusto
+traces 
+| extend CustomDimensions = todynamic(tostring(customDimensions))
+| where CustomDimensions.Category == "ScaleControllerLogs"
+```
+
+A consulta que se segue expande-se na consulta anterior para mostrar como obter apenas registos indicando uma alteração na escala:
+
+```kusto
+traces 
+| extend CustomDimensions = todynamic(tostring(customDimensions))
+| where CustomDimensions.Category == "ScaleControllerLogs"
+| where message == "Instance count changed"
+| extend Reason = CustomDimensions.Reason
+| extend PreviousInstanceCount = CustomDimensions.PreviousInstanceCount
+| extend NewInstanceCount = CustomDimensions.CurrentInstanceCount
+```
 
 ## <a name="disable-built-in-logging"></a>Desativar o registo integrado
 

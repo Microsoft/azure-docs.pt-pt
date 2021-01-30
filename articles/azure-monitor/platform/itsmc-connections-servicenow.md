@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 12/21/2020
-ms.openlocfilehash: 3cc38fad6f26bf6f382b4a275638c450c8333a04
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 221678da819d32539d0078b72a87c61851ed3e8f
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955737"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99089263"
 ---
 # <a name="connect-servicenow-with-it-service-management-connector"></a>Conecte o ServiceNow com o conector de gestão de serviços de TI
 
@@ -125,7 +125,7 @@ Utilize o seguinte procedimento para criar uma ligação ServiceNow.
    | **URL do Servidor**   | Introduza o URL da instância ServiceNow que pretende ligar ao ITSMC. O URL deve apontar para uma versão SaaS suportada com o *sufixo .servicenow.com* (por exemplo https://XXXXX.service-now.com/) .|
    | **Nome de Utilizador**   | Introduza o nome de utilizador de integração que criou na app ServiceNow para suportar a ligação ao ITSMC.|
    | **Palavra-passe**   | Introduza a palavra-passe associada a este nome de utilizador. **Nota:** O nome de utilizador e a palavra-passe são utilizados apenas para gerar fichas de autenticação. Não estão guardados em nenhum lugar dentro do serviço ITSMC.  |
-   | **ID do cliente**   | Insira o ID do cliente que pretende utilizar para a autenticação OAuth2, que gerou anteriormente. Para obter mais informações sobre a geração de um ID do cliente e um segredo, consulte [Configurar OAuth](https://wiki.servicenow.com/index.php?title=OAuth_Setup). |
+   | **ID do cliente**   | Insira o ID do cliente que pretende utilizar para a autenticação OAuth2, que gerou anteriormente. Para obter mais informações sobre a geração de um ID do cliente e um segredo, consulte [Configurar OAuth](https://old.wiki/index.php/OAuth_Setup). |
    | **Segredo do Cliente**   | Insira o segredo do cliente gerado para esta identificação.   |
    | **Âmbito de sincronização de dados (em dias)** | Insira o número de dias passados de onde deseja os dados. O limite é de 120 dias. |
    | **Artigos de trabalho para sincronizar**   | Selecione os itens de trabalho ServiceNow que pretende sincronizar com o Azure Log Analytics, através do ITSMC. Os valores selecionados são importados para o Log Analytics. As opções são incidentes e pedidos de alteração.|

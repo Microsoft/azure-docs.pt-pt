@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 07/31/2020
-ms.openlocfilehash: 3a474228776c689dbbd6f15ddd926f29383400ce
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 69417945bcd5234a0e5e8d2d6aee42859bc95c20
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964716"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071057"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Azure Red Hat OpenShift FAQ
 
@@ -41,15 +41,15 @@ O Azure Red Hat OpenShift 3.11 tem um limite de 50 pod-per-node e um limite de 2
 
 ### <a name="can-a-cluster-have-compute-nodes-across-multiple-azure-regions"></a>Um cluster pode ter nóns computacional em várias regiões do Azure?
 
-Não. Todos os nós de um aglomerado Azure Red Hat OpenShift devem ter origem na mesma região de Azure.
+N.º Todos os nós de um aglomerado Azure Red Hat OpenShift devem ter origem na mesma região de Azure.
 
 ### <a name="can-a-cluster-be-deployed-across-multiple-availability-zones"></a>Um cluster pode ser implantado em várias zonas de disponibilidade?
 
-Sim. Isto acontece automaticamente se o seu cluster for implantado numa região do Azure que suporte zonas de disponibilidade. Para mais informações, consulte [as zonas de disponibilidade.](../availability-zones/az-overview.md#availability-zones)
+Yes. Isto acontece automaticamente se o seu cluster for implantado numa região do Azure que suporte zonas de disponibilidade. Para mais informações, consulte [as zonas de disponibilidade.](../availability-zones/az-overview.md#availability-zones)
 
 ### <a name="are-control-plane-nodes-abstracted-away-as-they-are-with-azure-kubernetes-service-aks"></a>Os nós dos aviões de controlo são abstraídos como estão com o Serviço Azure Kubernetes (AKS)?
 
-Não. Todos os recursos, incluindo os nós principais do cluster, funcionam na subscrição do seu cliente. Estes tipos de recursos são colocados num grupo de recursos apenas de leitura.
+N.º Todos os recursos, incluindo os nós principais do cluster, funcionam na subscrição do seu cliente. Estes tipos de recursos são colocados num grupo de recursos apenas de leitura.
 
 ### <a name="does-the-cluster-reside-in-a-customer-subscription"></a>O cluster reside numa subscrição de cliente? 
 
@@ -81,7 +81,7 @@ Os nós são reiniciados como parte de uma atualização.
 
 ### <a name="can-i-use-prometheus-to-monitor-my-applications"></a>Posso usar o Prometeu para monitorizar as minhas aplicações?
 
-Prometheus vem pré-instalado e configurado para aglomerados Azure Red Hat OpenShift 4.x. Leia mais sobre [a monitorização do cluster.](https://docs.openshift.com/container-platform/3.11/install_config/prometheus_cluster_monitoring.html)
+Prometheus vem pré-instalado e configurado para aglomerados Azure Red Hat OpenShift 4.x. Leia mais sobre [a monitorização do cluster.](https://docs.openshift.com/container-platform/4.6/operators/operator_sdk/osdk-monitoring-prometheus.html)
 
 Para os agrupamentos Azure Red Hat OpenShift 3.11, pode implantar Prometheus no seu espaço de nome e monitorizar aplicações no seu espaço de nome. Para obter mais informações, consulte [a instância Prometeu em Azure Red Hat OpenShift cluster](howto-deploy-prometheus.md).
 
@@ -97,7 +97,7 @@ Os registos dos VM subjacentes são tratados pelo serviço gerido e não estão 
 
 ### <a name="how-can-a-customer-get-access-to-metrics-like-cpumemory-at-the-node-level-to-take-action-to-scale-debug-issues-etc-i-cannot-seem-to-run-kubectl-top-on-an-azure-red-hat-openshift-cluster"></a>Como pode um cliente ter acesso a métricas como CPU/memória ao nível do nó para tomar medidas à escala, depurar problemas, etc.? Não consigo correr o top kubectl num aglomerado Azure Red Hat OpenShift.
 
-Para os clusters Azure Red Hat OpenShift 4.x, a consola web OpenShift contém todas as métricas ao nível do nó. Para obter mais informações, consulte a documentação do Chapéu Vermelho sobre [a visualização de informações sobre o cluster.](https://docs.openshift.com/aro/4/web_console/using-dashboard-to-get-cluster-information.html)
+Para os clusters Azure Red Hat OpenShift 4.x, a consola web OpenShift contém todas as métricas ao nível do nó. Para obter mais informações, consulte a documentação do Chapéu Vermelho sobre [a visualização de informações sobre o cluster.](https://docs.openshift.com/container-platform/4.6/web_console/using-dashboard-to-get-cluster-information.html)
 
 Para os clusters Azure Red Hat OpenShift 3.11, os clientes podem aceder às métricas CPU/Memória ao nível do nó utilizando o comando `oc adm top nodes` ou com o papel de cluster de `kubectl top nodes` administração do cliente. Os clientes também podem aceder às métricas CPU/Memória de `pods` com o comando ou `oc adm top pods` `kubectl top pods` .
 
@@ -116,18 +116,18 @@ Deve ser utilizado um cuidado ao utilizar etiquetas específicas:
 - O nome de hospedeiro não deve ser utilizado. O nome anfitrião é rodado frequentemente com atualizações e atualizações e é garantido que vai ser alterado.
 - Se o cliente tiver um pedido de etiquetas específicas ou uma estratégia de implantação, isso poderia ser realizado, mas exigiria esforços de engenharia e não é apoiado hoje.
 
-Para obter mais informações, consulte [a colocação do casulo de controlo.](https://docs.openshift.com/aro/4/nodes/scheduling/nodes-scheduler-about.html)
+Para obter mais informações, consulte [a colocação do casulo de controlo.](https://docs.openshift.com/container-platform/4.6/nodes/scheduling/nodes-scheduler-about.html)
 
 ### <a name="is-the-image-registry-available-externally-so-i-can-use-tools-such-as-jenkins"></a>O registo de imagens está disponível externamente para que eu possa usar ferramentas como o Jenkins?
 
 Para agrupamentos de 4.x, é necessário expor um registo seguro e configurar a autenticação. Para mais informações, consulte a seguinte documentação do Chapéu Vermelho:
 
-- [Expondo um registo](https://docs.openshift.com/aro/4/registry/securing-exposing-registry.html)
-- [Acesso ao registo](https://docs.openshift.com/aro/4/registry/accessing-the-registry.html)
+- [Expondo um registo](https://docs.openshift.com/container-platform/4.6/registry/securing-exposing-registry.html)
+- [Acesso ao registo](https://docs.openshift.com/container-platform/4.6/registry/accessing-the-registry.html)
 
 Para 3.11 clusters, o registo de imagem docker está disponível. O registo do Docker está disponível a partir de `https://docker-registry.apps.<clustername>.<region>.azmosa.io/` . Também pode utilizar o Registo do Contentor Azure.
 
-## <a name="networking"></a>Redes
+## <a name="networking"></a>Rede
 
 ### <a name="can-i-deploy-a-cluster-into-an-existing-virtual-network"></a>Posso colocar um cluster numa rede virtual existente?
 
@@ -163,15 +163,15 @@ O Azure Red Hat OpenShift utiliza o Balanceador de Carga Standard Azure, e não 
 
 ### <a name="can-an-admin-manage-users-and-quotas"></a>Pode um administrador gerir utilizadores e quotas?
 
-Sim. Um administrador Azure Red Hat OpenShift pode gerir utilizadores e quotas para além de aceder a todos os projetos criados pelo utilizador.
+Yes. Um administrador Azure Red Hat OpenShift pode gerir utilizadores e quotas para além de aceder a todos os projetos criados pelo utilizador.
 
 ### <a name="can-i-restrict-a-cluster-to-only-certain-azure-ad-users"></a>Posso restringir um cluster a apenas certos utilizadores de AD Azure?
 
-Sim. Pode restringir quais os utilizadores AZure AD que podem iniciar súpido num cluster configurando a Aplicação AD Azure. Para mais detalhes, consulte [Como: Restringir a sua aplicação a um conjunto de utilizadores.](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md)
+Yes. Pode restringir quais os utilizadores AZure AD que podem iniciar súpido num cluster configurando a Aplicação AD Azure. Para mais detalhes, consulte [Como: Restringir a sua aplicação a um conjunto de utilizadores.](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md)
 
 ### <a name="can-i-restrict-users-from-creating-projects"></a>Posso restringir os utilizadores à criação de projetos?
 
-Sim. Inicie sessão no seu cluster como administrador e execute este comando:
+Yes. Inicie sessão no seu cluster como administrador e execute este comando:
 
 ```
 oc adm policy \
@@ -181,24 +181,24 @@ oc adm policy \
 
 Para obter mais informações, consulte a documentação openshift sobre a desativação do auto-fornecimento para a sua versão de cluster:
 
-- [Desativação do auto-fornecimento em 4,3 clusters](https://docs.openshift.com/aro/4/applications/projects/configuring-project-creation.html#disabling-project-self-provisioning_configuring-project-creation)
+- [Desativação do auto-fornecimento em 4,6 clusters](https://docs.openshift.com/container-platform/4.6/applications/projects/configuring-project-creation.html#disabling-project-self-provisioning_configuring-project-creation)
 - [Desativação do auto-fornecimento em 3,11 agrupamentos](https://docs.openshift.com/container-platform/3.11/admin_guide/managing_projects.html#disabling-self-provisioning)
 
 ### <a name="which-unix-rights-in-iaas-are-available-for-mastersinfraapp-nodes"></a>Quais os direitos UNIX (em IaaS) disponíveis para os nós Masters/Infra/App?
 
-Para clusters de 4.x, o acesso ao nó está disponível através da função de administração de cluster. Para mais informações, consulte [a visão geral do RBAC de Kubernetes.](https://docs.openshift.com/container-platform/4.3/authentication/using-rbac.html)
+Para clusters de 4.x, o acesso ao nó está disponível através da função de administração de cluster. Para mais informações, consulte [a visão geral do RBAC de Kubernetes.](https://docs.openshift.com/container-platform/4.6/authentication/using-rbac.html)
 
 Para 3.11 agrupamentos, é proibido o acesso ao nó.
 
 ### <a name="which-ocp-rights-do-we-have-cluster-admin-project-admin"></a>Que direitos oCP temos? Administrador de agrupamento? Administrador de projetos?
 
-Para clusters de 4.x, o papel de administrador de cluster está disponível. Para mais informações, consulte [a visão geral do RBAC de Kubernetes.](https://docs.openshift.com/container-platform/4.3/authentication/using-rbac.html)
+Para clusters de 4.x, o papel de administrador de cluster está disponível. Para mais informações, consulte [a visão geral do RBAC de Kubernetes.](https://docs.openshift.com/container-platform/4.6/authentication/using-rbac.html)
 
 Para obter 3.11 clusters, consulte a [visão geral](https://docs.openshift.com/aro/admin_guide/index.html) da administração do cluster para obter mais detalhes.
 
 ### <a name="which-identity-providers-are-available"></a>Que fornecedores de identidade estão disponíveis?
 
-Para agrupamentos de 4,x, configura o seu próprio fornecedor de identidade. Para obter mais informações, consulte a documentação do Chapéu Vermelho sobre [a configuração de prodivers de identidade](https://docs.openshift.com/aro/4/authentication/identity_providers/configuring-ldap-identity-provider.html).
+Para agrupamentos de 4,x, configura o seu próprio fornecedor de identidade. Para obter mais informações, consulte a documentação do Chapéu Vermelho sobre [a configuração dos fornecedores de identidade.](https://docs.openshift.com/container-platform/4.6/authentication/identity_providers/configuring-ldap-identity-provider.html)
 
 Para 3.11 clusters, você pode usar a integração AD AZure. 
 
@@ -210,16 +210,16 @@ Por padrão, os dados são encriptados em repouso. A plataforma Azure Storage en
 
 ### <a name="is-data-stored-in-etcd-encrypted-on-azure-red-hat-openshift"></a>Os dados são armazenados em etc encriptados no Azure Red Hat OpenShift?
 
-Para os clusters Azure Red Hat OpenShift 4, os dados não são encriptados por padrão, mas tem a opção de ativar a encriptação. Para mais informações, consulte o guia sobre [encriptação etc.](https://docs.openshift.com/container-platform/4.3/authentication/encrypting-etcd.html)
+Para os clusters Azure Red Hat OpenShift 4, os dados não são encriptados por padrão, mas tem a opção de ativar a encriptação. Para mais informações, consulte o guia sobre [encriptação etc.](https://docs.openshift.com/container-platform/4.6/security/encrypting-etcd.html)
 
 Para 3.11 clusters, os dados não são encriptados no nível etc. A opção de ligar a encriptação não é atualmente suportada. O OpenShift suporta esta funcionalidade, mas são necessários esforços de engenharia para fazê-lo no roteiro. Os dados são encriptados ao nível do disco. Consulte os [dados de encriptação na camada de datastore](https://docs.openshift.com/container-platform/3.11/admin_guide/encrypting_data.html) para obter mais informações.
 
 ### <a name="can-we-choose-any-persistent-storage-solution-like-ocs"></a>Podemos escolher qualquer solução de armazenamento persistente, como o OCS? 
 
-Para clusters de 4.x, o Disco Azure (Premium_LRS) é configurado como a classe de armazenamento predefinido. Para fornecedores de armazenamento adicionais e para detalhes de configuração (incluindo O Arquivo Azure), consulte a documentação do Chapéu Vermelho sobre [o armazenamento persistente](https://docs.openshift.com/aro/4/storage/understanding-persistent-storage.html).
+Para clusters de 4.x, o Disco Azure (Premium_LRS) é configurado como a classe de armazenamento predefinido. Para fornecedores de armazenamento adicionais e para detalhes de configuração (incluindo O Arquivo Azure), consulte a documentação do Chapéu Vermelho sobre [o armazenamento persistente](https://docs.openshift.com/container-platform/4.6/storage/understanding-persistent-storage.html).
 
 Para 3.11 agrupamentos, duas classes de armazenamento são fornecidas por padrão: uma para disco Azure (Premium_LRS) e outra para Ficheiro Azure.
 
 ## <a name="does-aro-store-any-customer-data-outside-of-the-clusters-region"></a>A ARO armazena algum dado de cliente fora da região do cluster?
 
-Não. Todos os dados criados num cluster ARO são mantidos dentro da região do cluster.
+N.º Todos os dados criados num cluster ARO são mantidos dentro da região do cluster.

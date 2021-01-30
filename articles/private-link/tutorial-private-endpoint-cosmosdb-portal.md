@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 9/25/2020
-ms.openlocfilehash: 477856bd5772cdc0a9ec00d81adf9c50847afdd0
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 3a7e75641f6bb84b490231fcd06e04c3cbad06d3
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97631954"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99063471"
 ---
 # <a name="tutorial-connect-to-an-azure-cosmos-account-using-an-azure-private-endpoint"></a>Tutorial: Ligue-se a uma conta Azure Cosmos usando um Azure Private Endpoint
 
@@ -53,7 +53,7 @@ O hospedeiro de bastião será utilizado para ligar de forma segura à máquina 
     | Grupo de Recursos   | Selecione **myResourceGroup** |
     | **Detalhes da instância** |                                                                 |
     | Name             | Insira **myVNet**                                    |
-    | Região           | Selecione **E.U.A. Leste**. |
+    | Region           | Selecione **E.U.A. Leste**. |
 
 3. Selecione o separador **endereços IP** ou selecione o botão **Seguinte: Endereços IP** na parte inferior da página.
 
@@ -104,7 +104,7 @@ Nesta secção, irá criar uma máquina virtual que será usada para testar o po
     | Grupo de Recursos | Selecione **myResourceGroup** |
     | **Detalhes da instância** |  |
     | Nome da máquina virtual | Insira **o myVM** |
-    | Região | Selecione **E.U.A. Leste**. |
+    | Region | Selecione **E.U.A. Leste**. |
     | Opções de Disponibilidade | Selecione **Não é necessário um despedimento de infraestrutura** |
     | Imagem | Selecione **Windows Server 2019 Datacenter - Gen1** |
     | Instância do Azure Spot | Selecione **Não** |
@@ -218,19 +218,19 @@ Nesta secção, você usará a máquina virtual que criou no passo anterior para
 
 1. Selecione **grupos** de recursos no painel de navegação à esquerda.
 
-2. Selecione **myResourceGroup**.
+1. Selecione **myResourceGroup**.
 
-3. Selecione **myVM**.
+1. Selecione **myVM**.
 
-4. Na página geral do **myVM,** selecione **Connect** e, em **seguida, Bastion**.
+1. Na página geral do **myVM,** selecione **Connect** e, em **seguida, Bastion**.
 
-5. Selecione o botão **azul Use Bastion.**
+1. Selecione o botão **azul Use Bastion.**
 
-6. Introduza o nome de utilizador e a palavra-passe que introduziu durante a criação da máquina virtual.
+1. Introduza o nome de utilizador e a palavra-passe que introduziu durante a criação da máquina virtual.
 
-7. Abra o Windows PowerShell no servidor depois de ligar.
+1. Abra o Windows PowerShell no servidor depois de ligar.
 
-8. Introduza `nslookup <cosmosdb-account-name>.documents.azure.com`. **\<cosmosdb-account-name>** Substitua-o pelo nome da conta Cosmos DB que criou nos passos anteriores. 
+1. Insira `nslookup <cosmosdb-account-name>.documents.azure.com` e valide a resolução de nomes. **\<cosmosdb-account-name>** Substitua-o pelo nome da conta Cosmos DB que criou nos passos anteriores. 
 
     ```powershell
     Server:  UnKnown
@@ -241,28 +241,31 @@ Nesta secção, você usará a máquina virtual que criou no passo anterior para
     Address:  10.1.0.5
     Aliases:  mycosmosdb8675.documents.azure.com
     ```
-
     Um endereço IP privado de **10.1.0.5** é devolvido para o nome da conta Cosmos DB.  Este endereço encontra-se na sub-rede da rede virtual que criou anteriormente.
+    
+1. Obtenha a sua cadeia de ligação primária Azure Cosmos DB do portal. Uma cadeia de ligação válida está no formato:
+   
+   Para contas da API SQL: `https://<accountName>.documents.azure.com:443/;AccountKey=<accountKey>;` Para Azure Cosmos DB API para MongoDB: `mongodb://<accountName>:<accountKey>@cdbmongo36.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false`
 
-9. Instale o [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows&toc=%2fazure%2fstorage%2fblobs%2ftoc.json) na máquina virtual.
+1. Instale o [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows&toc=%2fazure%2fstorage%2fblobs%2ftoc.json) na máquina virtual.
 
-10. **Selecione Terminar** depois de instalado o **Microsoft Azure Storage Explorer.**  Deixe a caixa verificada para abrir o pedido.
+1. **Selecione Terminar** depois de instalado o **Microsoft Azure Storage Explorer.**  Deixe a caixa verificada para abrir o pedido.
 
-11. No ecrã **de armazenamento 'Ligar a Azure',** selecione **Cancelar**.
+1. No ecrã **de armazenamento 'Ligar a Azure',** selecione **Cancelar**.
 
-12. No Storage Explorer, selecione o botão do rato certo nas **contas DB cosmos** e selecione **Connect to Cosmos DB**.
+1. No Storage Explorer, selecione o botão do rato certo nas **contas DB cosmos** e selecione **Connect to Cosmos DB**.
 
-13. Deixe o padrão de **SQL** em **Select API**.
+1. Deixe o padrão de **SQL** em **Select API**.
 
-14. Na caixa em **Connection String,** cole a cadeia de ligação da conta Cosmos DB que copiou nos passos anteriores.
+1. Na caixa em **Connection String,** cole a cadeia de ligação da conta Cosmos DB que copiou nos passos anteriores.
 
-15. Selecione **Seguinte**.
+1. Selecione **Seguinte**.
 
-16. Verifique se as definições estão corretas no **Resumo da Ligação**.  
+1. Verifique se as definições estão corretas no **Resumo da Ligação**.  
 
-17. Selecione **Ligar**.
+1. Selecione **Ligar**.
 
-18. Feche a ligação ao **myVM**.
+1. Feche a ligação ao **myVM**.
 
 
 ## <a name="clean-up-resources"></a>Limpar os recursos

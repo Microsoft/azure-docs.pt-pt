@@ -1,22 +1,21 @@
 ---
-title: 'Quickstart: Definir & ver certificados Azure Key Vault – Azure CLI'
+title: Quickstart - Definir & ver certificados Azure Key Vault com Azure CLI
 description: Quickstart mostrando como definir e recuperar um certificado do Azure Key Vault usando Azure CLI
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-azurecli
-ms.date: 09/03/2019
+ms.date: 01/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 2bb718d038dd7b3f5aa6f3bac1ce1de572c8e829
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 56e51d74358bcda96a6859a481e53710a6f78ec3
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936367"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99072426"
 ---
 # <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-azure-cli"></a>Quickstart: set and recuperar um certificado do Azure Key Vault usando Azure CLI
 
@@ -30,30 +29,11 @@ Neste arranque rápido, você cria um cofre chave em Azure Key Vault com Azure C
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos. O exemplo seguinte cria um grupo de recursos com o nome *ContosoResourceGroup* na localização *eastus*.
+[!INCLUDE [Create a resource group](../../../includes/key-vault-cli-rg-creation.md)]
 
-```azurecli
-az group create --name "ContosoResourceGroup" --location eastus
-```
+## <a name="create-a-key-vault"></a>Criar um cofre de chaves
 
-## <a name="create-a-key-vault"></a>Criar um Key Vault
-
-A seguir, vai criar um Key Vault no grupo de recursos criado no passo anterior. Terá de fornecer algumas informações:
-
-- Para este início rápido, utilizamos **Contoso-vault2**. Tem de fornecer um nome exclusivo no teste.
-- Nome de grupo de recursos **ContosoResourceGroup**.
-- **E.U.A. Leste** como a localização.
-
-```azurecli
-az keyvault create --name "Contoso-Vault2" --resource-group "ContosoResourceGroup" --location eastus
-```
-
-O resultado deste cmdlet mostra as propriedades do Key Vault recém-criado. Tome nota das duas propriedades listadas abaixo:
-
-- **Nome do Cofre**: no exemplo, o nome é **Contoso-Vault2**. Irá utilizar este nome para outros comandos do Key Vault.
-- **URI do Cofre**: no exemplo, isto é https://contoso-vault2.vault.azure.net/. As aplicações que utilizam o cofre através da respetiva API têm de utilizar este URI.
-
-Nesta altura, a sua conta do Azure é a única autorizada a realizar quaisquer operações neste novo cofre.
+[!INCLUDE [Create a key vault](../../../includes/key-vault-cli-kv-creation.md)]
 
 ## <a name="add-a-certificate-to-key-vault"></a>Adicione um certificado ao Cofre de Chaves
 
@@ -62,33 +42,28 @@ Para adicionar um certificado ao cofre, só precisa dar alguns passos adicionais
 Digite os comandos abaixo para criar um certificado auto-assinado com política padrão chamada **ExemploCertificate** :
 
 ```azurecli
-az keyvault certificate create --vault-name "Contoso-Vault2" -n ExampleCertificate -p "$(az keyvault certificate get-default-policy)"
+az keyvault certificate create --vault-name "<your-unique-keyvault-name>" -n ExampleCertificate -p "$(az keyvault certificate get-default-policy)"
 ```
 
-Pode agora fazer referência a este certificado que adicionou ao Azure Key Vault utilizando o seu URI. Use **' https://Contoso-Vault2.vault.azure.net/certificates/ExampleCertificate para** obter a versão atual. 
+Pode agora fazer referência a este certificado que adicionou ao Azure Key Vault utilizando o seu URI. Utilize **'https://<o seu nome exclusivo-keyvault>.vault.azure.net/certificates/ExampleCertificate'** para obter a versão atual. 
 
 Para ver o certificado previamente armazenado:
 
 ```azurecli
 
-az keyvault certificate show --name "ExampleCertificate" --vault-name "Contoso-Vault2"
+az keyvault certificate show --name "ExampleCertificate" --vault-name "<your-unique-keyvault-name>"
 ```
 
 Criaste um Cofre-Chave, armazenaste um certificado e recuperaste-o.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Outros inícios rápidos e tutoriais desta coleção têm por base este início rápido. Se quiser continuar a trabalhar com os inícios rápidos e tutoriais subsequentes, pode manter estes recursos.
-Quando já não forem necessários, pode utilizar o comando [az group delete](/cli/azure/group) para remover o grupo de recursos e todos os recursos relacionados. Pode eliminar os recursos da seguinte forma:
-
-```azurecli
-az group delete --name ContosoResourceGroup
-```
+[!INCLUDE [Create a key vault](../../../includes/key-vault-cli-delete-resources.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Neste quickstart criou um Cofre-Chave e guardou um certificado nele. Para saber mais sobre o Key Vault e como integrá-lo com as suas aplicações, continue para os artigos abaixo.
 
 - Leia uma [visão geral do cofre da chave Azure](../general/overview.md)
-- Consulte a referência para os [comandos Azure CLI az keyvault](/cli/azure/keyvault?view=azure-cli-latest)
+- Consulte a referência para os [comandos Azure CLI az keyvault](/cli/azure/keyvault)
 - Reveja a visão geral da [segurança do Cofre-Chave](../general/security-overview.md)

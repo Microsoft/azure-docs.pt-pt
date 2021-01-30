@@ -6,16 +6,16 @@ ms.author: jiangma
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: 9ed53721b66dc03bad24e0510e0c8a970c61aec1
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 79b74c9dccd68ac3abfd9ae6cb2d0c345e45d4bf
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492425"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99070615"
 ---
 # <a name="configure-built-in-container-registry-for-azure-red-hat-openshift-4"></a>Configurar o registo de contentor incorporado para o Azure Red Hat OpenShift 4
 
-O Azure Red Hat OpenShift fornece um registo integrado de imagem de contentor chamado [Registo de Contentores Desonciado (OCR)](https://docs.openshift.com/aro/4/registry/architecture-component-imageregistry.html) que adiciona a capacidade de fornecer automaticamente novos repositórios de imagem a pedido. Isto fornece aos utilizadores uma localização incorporada para as suas incorporações de aplicações para empurrar as imagens resultantes.
+O Azure Red Hat OpenShift fornece um registo integrado de imagem de contentor chamado [Registo de Contentores Desonciado (OCR)](https://docs.openshift.com/container-platform/4.6/registry/architecture-component-imageregistry.html) que adiciona a capacidade de fornecer automaticamente novos repositórios de imagem a pedido. Isto fornece aos utilizadores uma localização incorporada para as suas incorporações de aplicações para empurrar as imagens resultantes.
 
 Neste artigo, você irá configurar o registo de imagem de recipiente incorporado para um cluster Azure Red Hat OpenShift (ARO) 4. Vai aprender a:
 
@@ -24,7 +24,7 @@ Neste artigo, você irá configurar o registo de imagem de recipiente incorporad
 > * Configurar o OpenID Connect
 > * Aceda ao registo de imagem do contentor incorporado
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Este artigo assumiu que tem um aglomerado ARO existente. Se precisar de um cluster ARO, consulte o tutorial da ARO, [Crie um cluster Azure Red Hat OpenShift 4](./tutorial-create-cluster.md). Certifique-se de criar o cluster com o `--pull-secret` argumento para `az aro create` .  Isto é necessário para configurar a autenticação do Azure Ative Directory e o registo de contentores incorporados.
 

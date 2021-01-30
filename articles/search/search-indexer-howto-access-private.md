@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: ff8aa6688d8a838fa2e06d2eef546025cdd9213f
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 762db9d165358f3347fc9b7f3aaaf39f0c762308
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340058"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99063201"
 ---
 # <a name="make-indexer-connections-through-a-private-endpoint"></a>Faça ligações indexantes através de um ponto final privado
 
@@ -47,7 +47,7 @@ A tabela que se segue lista os recursos Azure para os quais pode criar pontos fi
 
 Também pode consultar os recursos Azure para os quais as ligações de ponto final privado de saída são suportadas utilizando a [lista de APIs suportados.](/rest/api/searchmanagement/privatelinkresources/listsupported)
 
-No restante deste artigo, é utilizada uma mistura de [APIs ARMClient](https://github.com/projectkudu/ARMClient) e [Carteiro](https://www.postman.com/) para demonstrar as chamadas DE API.
+No restante deste artigo, é utilizada uma mistura do [Azure CLI](https://docs.microsoft.com/cli/azure/) (ou [ARMClient,](https://github.com/projectkudu/ARMClient) se preferir) e [do Carteiro](https://www.postman.com/) (ou de qualquer outro cliente HTTP como [o curl,](https://curl.se/) se preferir) para demonstrar as chamadas REST API.
 
 > [!NOTE]
 > Os exemplos deste artigo baseiam-se nos seguintes pressupostos:
@@ -69,7 +69,11 @@ Configure a conta de armazenamento para [permitir o acesso apenas a partir de su
 
 ### <a name="step-1-create-a-shared-private-link-resource-to-the-storage-account"></a>Passo 1: Criar um recurso de ligação privada partilhado para a conta de armazenamento
 
-Para solicitar a Azure Cognitive Search para criar uma ligação de ponto final privado de saída à conta de armazenamento, faça a seguinte chamada API: 
+Para solicitar a Azure Cognitive Search para criar uma ligação de ponto final privado de saída à conta de armazenamento, faça a seguinte chamada API, por exemplo com o [Azure CLI](https://docs.microsoft.com/cli/azure/): 
+
+`az rest --method put --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01 --body @create-pe.json`
+
+Ou se preferir usar [ARMClient:](https://github.com/projectkudu/ARMClient)
 
 `armclient PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01 create-pe.json`
 
@@ -100,6 +104,10 @@ Como em todas as operações assíncronas do Azure, a `PUT` chamada devolve um v
 
 Pode sondar este URI periodicamente para obter o estado da operação. Antes de prosseguir, recomendamos que aguarde até que o estado da operação de recurso de ligação privada partilhada atinja um estado terminal (ou seja, o estado da operação é *bem sucedido).*
 
+`az rest --method get --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe/operationStatuses/08586060559526078782?api-version=2020-08-01`
+
+Ou usando o ARMClient:
+
 `armclient GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe/operationStatuses/08586060559526078782?api-version=2020-08-01"`
 
 ```json
@@ -119,7 +127,7 @@ Pode sondar este URI periodicamente para obter o estado da operação. Antes de 
 
    ![Screenshot do portal Azure, mostrando o painel "Ligações de ponto final privado".](media\search-indexer-howto-secure-access\storage-privateendpoint-approval.png)
 
-1. Selecione o ponto final privado que a Azure Cognitive Search criou. Na coluna **private endpoint,** identifique a ligação de ponto final privado pelo nome especificado na API anterior, selecione **Aprovar**e, em seguida, introduza uma mensagem apropriada. O conteúdo da mensagem não é significativo. 
+1. Selecione o ponto final privado que a Azure Cognitive Search criou. Na coluna **private endpoint,** identifique a ligação de ponto final privado pelo nome especificado na API anterior, selecione **Aprovar** e, em seguida, introduza uma mensagem apropriada. O conteúdo da mensagem não é significativo. 
 
    Certifique-se de que a ligação do ponto final privado aparece como mostrado na imagem a seguir. Pode levar um a dois minutos para que o estado seja atualizado no portal.
 
@@ -130,6 +138,10 @@ Após a aprovação do pedido de ligação de ponto final privado, o tráfego é
 ### <a name="step-2b-query-the-status-of-the-shared-private-link-resource"></a>Passo 2b: Consultar o estado do recurso de ligação privada partilhada
 
 Para confirmar que o recurso de ligação privada partilhada foi atualizado após aprovação, obtenha o seu estatuto utilizando a [API GET](/rest/api/searchmanagement/sharedprivatelinkresources/get).
+
+`az rest --method get --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01`
+
+Ou usando o ARMClient:
 
 `armclient GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01`
 

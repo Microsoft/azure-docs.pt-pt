@@ -7,12 +7,12 @@ ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 11/19/2020
 tags: connectors
-ms.openlocfilehash: 4997853fea97d14491bd9e9101f79f324807a6a1
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 83ffccb7bae4fabc10796c36e782e72c661bd346
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920821"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99063017"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Receber e responder a pedidos HTTPS de entrada em Azure Logic Apps
 
@@ -56,8 +56,8 @@ A sua aplicação lógica mantém um pedido de entrada aberto apenas por um [tem
 
    | Nome da propriedade | Nome da propriedade JSON | Obrigatório | Descrição |
    |---------------|--------------------|----------|-------------|
-   | **HTTP POST URL** | {nenhum} | Sim | O URL de ponto final que é gerado depois de salvar a aplicação lógica e é usado para chamar a sua app lógica |
-   | **Pedido corpo JSON Schema** | `schema` | Não | O esquema JSON que descreve as propriedades e valores no corpo de pedido de entrada |
+   | **HTTP POST URL** | {nenhum} | Yes | O URL de ponto final que é gerado depois de salvar a aplicação lógica e é usado para chamar a sua app lógica |
+   | **Pedido corpo JSON Schema** | `schema` | No | O esquema JSON que descreve as propriedades e valores no corpo de pedido de entrada |
    |||||
 
 1. Na caixa **de esquema JSON do Corpo de Pedido,** insira opcionalmente um esquema JSON que descreve o corpo no pedido de entrada, por exemplo:
@@ -163,8 +163,8 @@ A sua aplicação lógica mantém um pedido de entrada aberto apenas por um [tem
 
    | Nome da propriedade | Nome da propriedade JSON | Obrigatório | Descrição |
    |---------------|--------------------|----------|-------------|
-   | **Método** | `method` | Não | O método que o pedido de entrada deve usar para ligar para a aplicação lógica |
-   | **Caminho relativo** | `relativePath` | Não | O caminho relativo para o parâmetro que o URL de ponta da aplicação lógica pode aceitar |
+   | **Método** | `method` | No | O método que o pedido de entrada deve usar para ligar para a aplicação lógica |
+   | **Caminho relativo** | `relativePath` | No | O caminho relativo para o parâmetro que o URL de ponta da aplicação lógica pode aceitar |
    |||||
 
    Este exemplo adiciona a propriedade **Method:**
@@ -216,7 +216,7 @@ Quando utilizar o gatilho 'Pedido' para lidar com pedidos de entrada, pode model
 > Se uma ação de resposta incluir estes cabeçalhos, as Aplicações Lógicas removem estes cabeçalhos da mensagem de resposta gerada sem mostrar qualquer aviso ou erro:
 >
 > * `Allow`
-> * `Content-*` com estas exceções: `Content-Disposition` `Content-Encoding` , e `Content-Type`
+> * `Content-*` cabeçalhos exceto `Content-Disposition` , e quando você usa `Content-Encoding` `Content-Type` operações POST e PUT, mas não estão incluídos para operações GET
 > * `Cookie`
 > * `Expires`
 > * `Last-Modified`
@@ -255,9 +255,9 @@ Quando utilizar o gatilho 'Pedido' para lidar com pedidos de entrada, pode model
 
    | Nome da propriedade | Nome da propriedade JSON | Obrigatório | Descrição |
    |---------------|--------------------|----------|-------------|
-   | **Código de Estado** | `statusCode` | Sim | O código de estado para devolver na resposta |
-   | **Cabeçalhos** | `headers` | Não | Um objeto JSON que descreve um ou mais cabeçalhos para incluir na resposta |
-   | **Corpo** | `body` | Não | O corpo de resposta |
+   | **Código de Estado** | `statusCode` | Yes | O código de estado para devolver na resposta |
+   | **Cabeçalhos** | `headers` | No | Um objeto JSON que descreve um ou mais cabeçalhos para incluir na resposta |
+   | **Corpo** | `body` | No | O corpo de resposta |
    |||||
 
 1. Para especificar propriedades adicionais, como um esquema JSON para o corpo de resposta, abra a nova lista **de parâmetros add** e selecione os parâmetros que pretende adicionar.

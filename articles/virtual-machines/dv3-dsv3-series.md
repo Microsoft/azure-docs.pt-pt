@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: jushiman
-ms.openlocfilehash: d38b395ec4e4a3e9f3550e6a891ad4785dae8597
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 215f907edb01cc35ffa4e9bb683964f8eda11d94
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98919753"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99089330"
 ---
 # <a name="dv3-and-dsv3-series"></a>Séries Dv3 e Dsv3
 
@@ -35,6 +35,7 @@ Os VMs da série Dv3 apresentam Tecnologia ® Hyper-Threading Intel.
 [Atualizações de preservação da memória](maintenance-and-updates.md): Suportado<br>
 [Suporte de geração VM](generation-2.md): Geração 1<br>
 [Rede Acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): Suportado<br>
+[Discos EFÉMEROS :](ephemeral-os-disks.md)Não Suportados <br>
 <br>
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Produção de armazenamento temporário máximo: IOPS/Read MBps/Write MBps | Largura de banda Max NICs/Rede |
@@ -60,6 +61,7 @@ Os VMs da série Dsv3 apresentam Tecnologia intel® Hyper-Threading.
 [Atualizações de preservação da memória](maintenance-and-updates.md): Suportado<br>
 [Suporte de geração VM](generation-2.md): Geração 1 e 2<br>
 [Rede Acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): Suportado<br>
+[Discos EFÉMEROS](ephemeral-os-disks.md): Suportados <br>
 <br>
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Produção de armazenamento em cache máximo e temporário: IOPS/MBps (tamanho da cache em GiB) | Produção de armazenamento em cache de rajada máxima e temporária: IOPS/MBps<sup>1</sup> | Produção de disco não-abacatado por maxilar: IOPS/MBps | Saída de disco sem rutura de max: IOPS/MBps<sup>1</sup> | Largura de banda de rede Max NICs/Expect (Mbps) |
@@ -87,6 +89,6 @@ Os VMs da série Dsv3 apresentam Tecnologia intel® Hyper-Threading.
 - [Calculadora de Preços](https://azure.microsoft.com/pricing/calculator/)
 - Para obter mais informações sobre os tipos de discos, consulte [que tipos de disco estão disponíveis no Azure?](disks-types.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre como [as unidades de computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho do cálculo em Azure SKUs.

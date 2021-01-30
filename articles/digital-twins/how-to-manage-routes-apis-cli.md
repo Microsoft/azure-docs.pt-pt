@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e2623ebf929f6a24cfc977896acea514634ffb23
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: d25a429873ccf8b546c0919456c97e64445f184c
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054518"
+ms.locfileid: "99071703"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gerir pontos finais e rotas em Azure Digital Twins (APIs e CLI)
 
@@ -48,7 +48,7 @@ Esta secção explica como criar estes pontos finais utilizando o Azure CLI. Tam
 
 ### <a name="create-the-endpoint"></a>Criar o ponto final
 
-Uma vez criados os recursos do ponto final, podes usá-los para um ponto final da Azure Digital Twins. Os exemplos a seguir mostram como criar pontos finais utilizando o `az dt endpoint create` comando para o [CLI das Gémeas Digitais Azure](how-to-use-cli.md). Substitua os espaços reservados nos comandos com os detalhes dos seus próprios recursos.
+Uma vez criados os recursos do ponto final, podes usá-los para um ponto final da Azure Digital Twins. Os exemplos a seguir mostram como criar pontos finais utilizando o [ponto final az dt criar](/cli/azure/ext/azure-iot/dt/endpoint/create?view=azure-cli-latest&preserve-view=true) comando para o [CLI das Gémeas Digitais Azure](how-to-use-cli.md). Substitua os espaços reservados nos comandos com os detalhes dos seus próprios recursos.
 
 Para criar um ponto final de Grade de Eventos:
 
@@ -56,21 +56,39 @@ Para criar um ponto final de Grade de Eventos:
 az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
-Para criar um ponto final do Event Hubs:
+Para criar um ponto final do Event Hubs (autenticação baseada em chaves):
 ```azurecli-interactive
 az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --eventhub-resource-group <Event-Hub-resource-group> --eventhub-namespace <Event-Hub-namespace> --eventhub <Event-Hub-name> --eventhub-policy <Event-Hub-policy> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
-Para criar um ponto final de ônibus de serviço:
+Para criar um ponto final de ônibus de serviço (autenticação baseada em chaves):
 ```azurecli-interactive 
 az dt endpoint create servicebus --endpoint-name <Service-Bus-endpoint-name> --servicebus-resource-group <Service-Bus-resource-group-name> --servicebus-namespace <Service-Bus-namespace> --servicebus-topic <Service-Bus-topic-name> --servicebus-policy <Service-Bus-topic-policy> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
 Depois de executar com sucesso estes comandos, a grelha de eventos, o centro de eventos ou o tópico Service Bus estarão disponíveis como ponto final dentro da Azure Digital Twins, sob o nome que forneceu com o `--endpoint-name` argumento. Normalmente, você usará esse nome como alvo de uma rota de **eventos**, que irá criar [mais tarde neste artigo.](#create-an-event-route)
 
+#### <a name="create-an-endpoint-with-identity-based-authentication"></a>Criar um ponto final com autenticação baseada na identidade
+
+Também pode criar um ponto final que tenha autenticação baseada na identidade, para utilizar o ponto final com uma [identidade gerida.](concepts-security.md#managed-identity-for-accessing-other-resources-preview) Esta opção só está disponível para pontos finais do tipo Event Hub e Service Bus (não é suportado para a Grelha de Eventos).
+
+O comando CLI para criar este tipo de ponto final está abaixo. Necessitará dos seguintes valores para ligar aos espaços reservados no comando:
+* o ID de recurso Azure da sua instância Azure Digital Twins
+* um nome de ponto final
+* um tipo de ponto final
+* o espaço de nome do recurso endpoint
+* o nome do centro de eventos ou tópico de Service Bus
+* a localização da sua instância Azure Digital Twins
+
+```azurecli-interactive
+az resource create --id <Azure-Digital-Twins-instance-Azure-resource-ID>/endpoints/<endpoint-name> --properties '{\"properties\": { \"endpointType\": \"<endpoint-type>\", \"authenticationType\": \"IdentityBased\", \"endpointUri\": \"sb://<endpoint-namespace>.servicebus.windows.net\", \"entityPath\": \"<name-of-event-hub-or-Service-Bus-topic>\"}, \"location\":\"<instance-location>\" }' --is-full-object
+```
+
 ### <a name="create-an-endpoint-with-dead-lettering"></a>Criar um ponto final com letras mortas
 
 Quando um ponto final não consegue entregar um evento dentro de um determinado período de tempo ou depois de tentar entregar o evento um certo número de vezes, pode enviar o evento não entregue para uma conta de armazenamento. Este processo é conhecido como **letra morta.**
+
+Os pontos finais com letras mortas ativadas podem ser configurados com o [CLI](how-to-use-cli.md) das Gémeas Digitais Azure ou [com as APIs do avião de controlo](how-to-use-apis-sdks.md#overview-control-plane-apis).
 
 Para saber mais sobre letras [*mortas, consulte Conceitos: Rotas do evento.*](concepts-route-events.md#dead-letter-events) Para instruções sobre como configurar um ponto final com letras mortas, continue através do resto desta secção.
 
@@ -78,7 +96,7 @@ Para saber mais sobre letras [*mortas, consulte Conceitos: Rotas do evento.*](co
 
 Antes de definir o local da letra morta, deve ter uma [conta de armazenamento](../storage/common/storage-account-create.md?tabs=azure-portal) com um [recipiente](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) configurado na sua conta Azure. 
 
-Você fornecerá o URL para este recipiente ao criar o ponto final mais tarde. O local da carta morta será fornecido ao ponto final como URL de contentor com um [símbolo SAS](../storage/common/storage-sas-overview.md). Esse símbolo precisa de `write` permissão para o contentor de destino dentro da conta de armazenamento. O URL totalmente formado será no formato de: `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>` .
+Você fornecerá o URI para este recipiente ao criar o ponto final mais tarde. O local da carta morta será fornecido ao ponto final como um contentor URI com um [token SAS](../storage/common/storage-sas-overview.md). Esse símbolo precisa de `write` permissão para o contentor de destino dentro da conta de armazenamento. A letra morta totalmente formada **SAS URI** estará no formato de: `https://<storage-account-name>.blob.core.windows.net/<container-name>?<SAS-token>` .
 
 Siga os passos abaixo para configurar estes recursos de armazenamento na sua conta Azure, para preparar a configuração da ligação de ponto final na secção seguinte.
 
@@ -99,25 +117,44 @@ Siga os passos abaixo para configurar estes recursos de armazenamento na sua con
 
     :::image type="content" source="./media/how-to-manage-routes-apis-cli/copy-sas-token.png" alt-text="Copiar o símbolo da SAS para usar no segredo da letra morta." lightbox="./media/how-to-manage-routes-apis-cli/copy-sas-token.png":::
     
-#### <a name="configure-the-endpoint"></a>Configure o ponto final
+#### <a name="create-the-dead-letter-endpoint"></a>Criar o ponto final da letra morta
 
-Para criar um ponto final que tenha a inscrição ativada, pode criar o ponto final utilizando as APIs do Gestor de Recursos Azure. 
+Para criar um ponto final que tenha a letra ativada, adicione o seguinte parâmetro de letra morta ao [ponto final az dt criar](/cli/azure/ext/azure-iot/dt/endpoint/create?view=azure-cli-latest&preserve-view=true) comando para o [CLI das Gémeas Digitais Azure](how-to-use-cli.md).
 
-1. Em primeiro lugar, utilize a [documentação apis do Gestor de Recursos Azure](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) para configurar um pedido de criação de um ponto final e preencher os parâmetros de pedido necessários. 
+O valor para o parâmetro é a **letra morta SAS URI** composta pelo nome da conta de armazenamento, nome do recipiente e sinal SAS que recolheu na [secção anterior.](#set-up-storage-resources) Este parâmetro cria o ponto final com a autenticação baseada em teclas.
 
-2. Em seguida, adicione um `deadLetterSecret` campo ao objeto de propriedades no **corpo** do pedido. Deite este valor de acordo com o modelo abaixo, que cria um URL a partir do nome da conta de armazenamento, nome do recipiente e valor simbólico SAS que recolheu na [secção anterior](#set-up-storage-resources).
-      
-  :::code language="json" source="~/digital-twins-docs-samples/api-requests/deadLetterEndpoint.json":::
+```azurecli
+--deadletter-sas-uri https://<storage-account-name>.blob.core.windows.net/<container-name>?<SAS-token>
+```
 
-3. Envie o pedido para criar o ponto final.
+Adicione este parâmetro ao fim dos comandos de criação de ponto final a partir da secção [*'Criar o ponto final'*](#create-the-endpoint) anteriormente para criar um ponto final do tipo pretendido que tenha a letra morta ativada.
 
-Para obter mais informações sobre a estruturação deste pedido, consulte a documentação API do Azure Digital Twins REST: [Endpoints - DigitalTwinsEndpoint CreateOrUpdate](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate).
+Em alternativa, pode criar pontos finais de cartas mortas utilizando o [avião de controlo Azure Digital Twins APIs](how-to-use-apis-sdks.md#overview-control-plane-apis) em vez do CLI. Para isso, consulte a [documentação digitalTwinsEndpoint](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) para ver como estruturar o pedido e adicionar os parâmetros da letra morta.
 
-### <a name="message-storage-schema"></a>Esquema de armazenamento de mensagens
+#### <a name="create-a-dead-letter-endpoint-with-identity-based-authentication"></a>Criar um ponto final com autenticação baseada na identidade
+
+Também pode criar um ponto final de letras mortas que tenha autenticação baseada na identidade, para utilizar o ponto final com uma [identidade gerida.](concepts-security.md#managed-identity-for-accessing-other-resources-preview) Esta opção só está disponível para pontos finais do tipo Event Hub e Service Bus (não é suportado para a Grelha de Eventos).
+
+Para criar este tipo de ponto final, utilize o mesmo comando CLI de antes para [criar um ponto final com autenticação baseada na identidade,](#create-an-endpoint-with-identity-based-authentication)com um campo extra na carga útil JSON para um `deadLetterUri` .
+
+Aqui estão os valores que precisará de ligar aos espaços reservados no comando:
+* o ID de recurso Azure da sua instância Azure Digital Twins
+* um nome de ponto final
+* um tipo de ponto final
+* o espaço de nome do recurso endpoint
+* o nome do centro de eventos ou tópico de Service Bus
+* **detalhes da letra morta SAS URI:** nome da conta de armazenamento, nome do recipiente
+* a localização da sua instância Azure Digital Twins
+
+```azurecli-interactive
+az resource create --id <Azure-Digital-Twins-instance-Azure-resource-ID>/endpoints/<endpoint-name> --properties '{\"properties\": { \"endpointType\": \"<endpoint-type>\", \"authenticationType\": \"IdentityBased\", \"endpointUri\": \"sb://<endpoint-namespace>.servicebus.windows.net\", \"entityPath\": \"<name-of-event-hub-or-Service-Bus-topic>\", \"deadLetterUri\": \"https://<storage-account-name>.blob.core.windows.net/<container-name>\"}, \"location\":\"<instance-location>\" }' --is-full-object
+```
+
+#### <a name="message-storage-schema"></a>Esquema de armazenamento de mensagens
 
 Uma vez configurado o ponto final com letras mortas, as mensagens com letras mortas serão armazenadas no seguinte formato na sua conta de armazenamento:
 
-`{container}/{endpointName}/{year}/{month}/{day}/{hour}/{eventId}.json`
+`{container}/{endpoint-name}/{year}/{month}/{day}/{hour}/{event-ID}.json`
 
 As mensagens com letras mortas corresponderão ao esquema do evento original que se destinava a ser entregue no seu ponto final original.
 
@@ -128,7 +165,7 @@ Aqui está um exemplo de uma mensagem de letra morta para uma [notificação de 
   "specversion": "1.0",
   "id": "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "type": "Microsoft.DigitalTwins.Twin.Create",
-  "source": "<yourInstance>.api.<yourregion>.da.azuredigitaltwins-test.net",
+  "source": "<your-instance>.api.<your-region>.da.azuredigitaltwins-test.net",
   "data": {
     "$dtId": "<yourInstance>xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "$etag": "W/\"xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxxxxx\"",

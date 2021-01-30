@@ -9,6 +9,8 @@
   items:
     - name: CLI
       href: quick-create-cli.md
+    - name: PowerShell
+      href: quick-create-powershell.md
     - name: Modelo Azure Resource Manager
       href: quick-create-template.md
 - name: Tutorials (Tutoriais)

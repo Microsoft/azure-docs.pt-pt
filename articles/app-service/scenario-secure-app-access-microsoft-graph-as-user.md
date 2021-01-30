@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Web app acede ao Microsoft Graph como utilizador Rio Azure
+title: Tutorial - Web app acede ao Microsoft Graph como o utilizador | Rio Azure
 description: Neste tutorial, aprende-se a aceder a dados no Microsoft Graph para um utilizador inscrito.
 services: microsoft-graph, app-service-web
 author: rwike77
@@ -7,16 +7,16 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 11/30/2020
+ms.date: 01/28/2021
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.custom: azureday1
-ms.openlocfilehash: e07ec17a4e14f0099d82bd444f2ee8d37abe9908
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 3413c1a3f27b48c60ae730ad230c653928702faa
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96435013"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99063387"
 ---
 # <a name="tutorial-access-microsoft-graph-from-a-secured-app-as-the-user"></a>Tutorial: Aceda ao Microsoft Graph a partir de uma aplicação segura como utilizador
 
@@ -85,7 +85,7 @@ Para ver este código como parte de uma aplicação de amostra, consulte a [amos
 
 ### <a name="install-client-library-packages"></a>Instalar pacotes de bibliotecas de clientes
 
-Instale os pacotes [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web/) e [Microsoft.Graph](https://www.nuget.org/packages/Microsoft.Graph) NuGet no seu projeto utilizando a interface de linha de comando .NET Core ou a Consola de Gestor de Pacotes em Estúdio Visual.
+Instale os pacotes [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web/) e [Microsoft.Identity.Web.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) NuGet no seu projeto utilizando a interface de linha de comando .NET Core ou a Consola de Gestor de Pacotes em Estúdio Visual.
 
 # <a name="command-line"></a>[Linha de comandos](#tab/command-line)
 
@@ -94,7 +94,7 @@ Abra uma linha de comando e mude para o diretório que contém o seu ficheiro de
 Executar os comandos de instalação.
 
 ```dotnetcli
-dotnet add package Microsoft.Graph
+dotnet add package Microsoft.Identity.Web.MicrosoftGraph
 
 dotnet add package Microsoft.Identity.Web
 ```
@@ -105,7 +105,7 @@ Abra o projeto/solução no Estúdio Visual e abra a consola utilizando o comand
 
 Executar os comandos de instalação.
 ```powershell
-Install-Package Microsoft.Graph
+Install-Package Microsoft.Identity.Web.MicrosoftGraph
 
 Install-Package Microsoft.Identity.Web
 ```

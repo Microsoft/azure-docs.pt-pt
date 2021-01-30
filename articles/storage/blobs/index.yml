@@ -1,9 +1,9 @@
 ### YamlMime:Landing
-title: Documentação do Armazenamento de Blobs do Azure
-summary: O Armazenamento de Blobs do Azure é a solução de armazenamento de objetos da Microsoft para a cloud. O Armazenamento de blobs está otimizado para armazenar quantidades em grande escala de dados não estruturados.
+title: Documentação de armazenamento Azure Blob
+summary: Azure Blob Storage é a solução de armazenamento de objetos da Microsoft para a nuvem. O armazenamento de blobs está otimizado para armazenar quantidades em grande escala de dados não estruturados.
 metadata:
-  title: Documentação do Armazenamento de Blobs do Azure
-  description: O Armazenamento de Blobs do Azure é a solução de armazenamento de objetos da Microsoft para a cloud. O Armazenamento de blobs está otimizado para armazenar quantidades em grande escala de dados não estruturados.
+  title: Documentação de armazenamento Azure Blob
+  description: Azure Blob Storage é a solução de armazenamento de objetos da Microsoft para a nuvem. O Armazenamento de blobs está otimizado para armazenar quantidades em grande escala de dados não estruturados.
   services: storage
   ms.service: storage
   ms.subservice: blobs
@@ -12,18 +12,18 @@ metadata:
   author: normesta
   ms.author: normesta
   ms.date: 08/20/2019
-  ms.openlocfilehash: 38cf63766195c1e91662d725aeb1b21c06257ed9
-  ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-  ms.translationtype: HT
+  ms.openlocfilehash: d85631cd7ace8aa5b9b0725920f477e2447e78c0
+  ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+  ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/25/2020
-  ms.locfileid: "95912353"
+  ms.lasthandoff: 01/29/2021
+  ms.locfileid: "99072023"
 landingContent:
 - title: Acerca do Armazenamento de Blobs do Azure
   linkLists:
   - linkListType: overview
     links:
-    - text: O que é o armazenamento de Blobs do Azure?
+    - text: O que é Azure Blob Storage?
       url: storage-blobs-overview.md
 - title: Introdução
   linkLists:
@@ -91,15 +91,15 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Armazenamento de Blobs do Azure para .NET
+    - text: Armazenamento Azure Blob para .NET
       url: storage-quickstart-blobs-dotnet.md
-    - text: Armazenamento de Blobs do Azure para Java
+    - text: Armazenamento Azure Blob para Java
       url: storage-quickstart-blobs-java.md
-    - text: Armazenamento de Blobs do Azure para Python
+    - text: Armazenamento Azure Blob para Python
       url: storage-quickstart-blobs-python.md
-    - text: Armazenamento de Blobs do Azure para JavaScript com Node.js
+    - text: Armazenamento Azure Blob para JavaScript usando Node.js
       url: storage-quickstart-blobs-nodejs.md
-    - text: Armazenamento de Blobs do Azure para JavaScript num browser
+    - text: Armazenamento Azure Blob para JavaScript em um navegador
       url: quickstart-blobs-javascript-browser.md
     - text: Encaminhar eventos para um ponto final Web
       url: ../../event-grid/blob-event-quickstart-portal.md

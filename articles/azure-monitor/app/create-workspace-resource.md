@@ -3,12 +3,12 @@ title: Crie um novo recurso baseado em sistemas de trabalho Azure Monitor Insigh
 description: Conheça os passos necessários para permitir os novos recursos baseados no espaço de trabalho do Azure Monitor Application Insights.
 ms.topic: conceptual
 ms.date: 10/06/2020
-ms.openlocfilehash: f1cc7db7eea4485ad40062a0e11a76dc14234b41
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 23994190df89b47d9c7e90ed62a724545389b1fe
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98956055"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99063371"
 ---
 # <a name="workspace-based-application-insights-resources"></a>Recursos de Insights de Aplicação baseados no espaço de trabalho
 
@@ -33,8 +33,8 @@ O Workspace Application Insights permite-lhe tirar partido das mais recentes cap
 
 Inscreva-se no [portal Azure](https://portal.azure.com)e crie um recurso Application Insights:
 
-[!div class="mx-imgBorder"]
-![Recurso de Insights de Aplicação baseado em espaço de trabalho](./media/create-workspace-resource/create-workspace-based.png)
+> [!div class="mx-imgBorder"]
+> ![Recurso de Insights de Aplicação baseado em espaço de trabalho](./media/create-workspace-resource/create-workspace-based.png)
 
 Se ainda não tiver um espaço de trabalho log analytics existente, [consulte a documentação de criação do espaço de trabalho Log Analytics](../learn/quick-create-workspace.md).
 

@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 12/02/2020
+ms.date: 01/20/2021
 ms.author: aahi
 keywords: mineração de texto, análise de sentimento, análise de texto
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-text-analytics
-ms.openlocfilehash: d6bad5b8957df2a5d5668aab193de0c0851ac195
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 78d2f0a7b247ac6a9b7bdf5f4fc8b6c7b5ef6eea
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98953772"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090715"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library-and-rest-api"></a>Quickstart: Use a biblioteca de clientes Text Analytics e REST API
 

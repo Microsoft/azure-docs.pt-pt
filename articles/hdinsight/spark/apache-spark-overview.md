@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: contperf-fy21q1
 ms.topic: overview
 ms.date: 09/21/2020
-ms.openlocfilehash: 9f5121feebbb516e148b0476d6c8280d461237bc
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: fdc3a94c081d8a02725f145fc6b20ace4c1731ce
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98929981"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090558"
 ---
 # <a name="what-is-apache-spark-in-azure-hdinsight"></a>O que é o Apache Spark no Azure HDInsight
 
@@ -50,7 +50,7 @@ Os clusters Apache Spark em HDInsight incluem os seguintes componentes que estã
 * [Bloco de Notas do Jupyter](https://jupyter.org)
 * [Caderno Apache Zeppelin](http://zeppelin-project.org/)
 
-HDInsight Spark agrupa um [controlador ODBC](https://go.microsoft.com/fwlink/?LinkId=616229) para a conectividade a partir de ferramentas BI, como o Microsoft Power BI.
+HDInsight Spark agrupa um [controlador ODBC](/sql/connect/odbc/download-odbc-driver-for-sql-server?view=sql-server-ver15) para a conectividade a partir de ferramentas BI, como o Microsoft Power BI.
 
 ## <a name="spark-cluster-architecture"></a>Arquitetura de cluster do Spark
 

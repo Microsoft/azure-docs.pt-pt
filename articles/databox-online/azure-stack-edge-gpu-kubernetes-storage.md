@@ -1,19 +1,19 @@
 ---
-title: Compreenda a gestão de armazenamento da Kubernetes no dispositivo Azure Stack Edge Pro Microsoft Docs
+title: Compreenda a gestão de armazenamento da Kubernetes no dispositivo Azure Stack Edge Pro| Microsoft Docs
 description: Descreve como a gestão de armazenamento de Kubernetes ocorre num dispositivo Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 11/04/2020
+ms.date: 01/28/2021
 ms.author: alkohli
-ms.openlocfilehash: 34165071238ca3edf78ab9cca43639c23ce5ed2a
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 2d079f2fa3e67f1ec915a02de3e195ccac538209
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448699"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99063321"
 ---
 # <a name="kubernetes-storage-management-on-your-azure-stack-edge-pro-gpu-device"></a>Gestão de armazenamento kubernetes no seu dispositivo GPU Azure Stack Edge Pro
 
@@ -79,11 +79,11 @@ Os seguintes passos ocorrem:
 
 No dispositivo Azure Stack Edge Pro, o fornecimento estático `PersistentVolumes` é criado utilizando as capacidades de armazenamento do dispositivo. Quando disponibiliza uma ação e utiliza a partilha com a opção **de computação Edge,** esta ação cria um recurso PV automaticamente no cluster Kubernetes.
 
-![Criação de ações locais no portal Azure para o provisionamento estático](./media/azure-stack-edge-gpu-kubernetes-storage/static-provisioning-azure-portal-2.png)
+![Criação de ações locais no portal Azure para o provisionamento estático](./media/azure-stack-edge-gpu-kubernetes-storage/static-provisioning-azure-portal-1.png)
 
 Para utilizar o tiering de nuvem, pode criar uma partilha de nuvem Edge com a opção de computação Utilização com edge. Um PV é novamente criado automaticamente para esta partilha. Quaisquer dados de aplicação que escreva para a partilha Edge estão nivelados para a nuvem. 
 
-![Criação de partilha de nuvem no portal Azure para provisão estática](./media/azure-stack-edge-gpu-kubernetes-storage/static-provisioning-azure-portal-1.png)
+![Criação de partilha de nuvem no portal Azure para provisão estática](./media/azure-stack-edge-gpu-kubernetes-storage/static-provisioning-azure-portal-2.png)
 
 Pode criar partilhas de SMB e NFS para provisões estáticas de PVs no dispositivo Azure Stack Edge Pro. Uma vez que o PV é a provisionado, você submeterá um PVC para reclamar este armazenamento. Aqui está um exemplo de uma implementação de PVC `yaml` que reclama o armazenamento e utiliza as ações que austei.
 

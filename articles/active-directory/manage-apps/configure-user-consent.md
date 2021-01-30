@@ -12,12 +12,12 @@ ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 184263badc909881f597213a222272bd675fc362
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 992f082c5157521ea7f0d8a681557d6c7cc3dc04
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99051979"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99089990"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>Configurar a forma como os utilizadores finais concedem consentimento às aplicações
 
@@ -48,7 +48,7 @@ Ao escolher quais as políticas de consentimento da aplicação aplicáveis a to
 
 Para configurar as definições de consentimento do utilizador através do portal Azure:
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) como [Administrador Global.](../roles/permissions-reference.md#global-administrator--company-administrator)
+1. Inscreva-se no [portal Azure](https://portal.azure.com) como [Administrador Global.](../roles/permissions-reference.md#global-administrator)
 1. Selecione **Azure Ative Directory**  >  **Enterprise aplicações**  >  **Consent and permissions** User consent  >  **settings**.
 1. De acordo com **o consentimento do Utilizador para aplicações,** selecione qual a definição de consentimento que pretende configurar para todos os utilizadores.
 1. **Selecione Guardar** para guardar as suas definições.

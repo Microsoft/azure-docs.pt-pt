@@ -3,12 +3,12 @@ title: Gestão do ciclo de vida da Azure VMware Solution VMs
 description: Aprenda a gerir todos os aspetos do ciclo de vida dos VMS da sua Solução VMware Azure com ferramentas nativas do Microsoft Azure.
 ms.topic: conceptual
 ms.date: 09/11/2020
-ms.openlocfilehash: ff1032900fa936895f3adfcb0d8a872f24948aca
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 5bba9cbbc8783cc285ff09f790ee1b35b20ba358
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96326816"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062901"
 ---
 # <a name="lifecycle-management-of-azure-vmware-solution-vms"></a>Gestão do ciclo de vida da Azure VMware Solution VMs
 
@@ -81,13 +81,13 @@ O Centro de Segurança Azure não necessita de implantação. Para obter mais in
 
 A Azure Arc estende a gestão do Azure a qualquer infraestrutura, incluindo a Azure VMware Solution, no local ou outras plataformas em nuvem.
 
-- Consulte [as máquinas híbridas Connect para Azure em escala](../azure-arc/servers/onboard-service-principal.md) para ativar servidores ativados pelo Azure Arc para vários Windows ou Linux VMs.
+- Para obter informações sobre como ativar os servidores ativados do Azure Arc para vários Windows ou VMs Linux, consulte [as máquinas híbridas Connect para Azure à escala](../azure-arc/servers/onboard-service-principal.md).
 
 ### <a name="onboard-hybrid-kubernetes-clusters-with-arc-enabled-kubernetes"></a>Aglomerados híbridos de Kubernetes a bordo com Arc habilitados Kubernetes
 
 Pode anexar um cluster Kubernetes alojado no seu ambiente Azure VMware Solution utilizando Kubernetes ativados pelo Arco Azure. 
 
-- Consulte [criar um diretor de serviço de bordo ativado pelo Arco Azure](../azure-arc/kubernetes/create-onboarding-service-principal.md).
+- Para obter mais informações, consulte [Criar um diretor de serviço de bordo ativado pelo Arco Azure.](../azure-arc/kubernetes/create-onboarding-service-principal.md)
 
 ### <a name="deploy-the-log-analytics-agent"></a>Implementar o agente Log Analytics
 

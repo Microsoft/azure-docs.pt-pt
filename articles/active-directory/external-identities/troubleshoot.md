@@ -1,5 +1,5 @@
 ---
-title: Resolução de problemas da colaboração B2B - Azure Ative Directory Microsoft Docs
+title: Resolução de problemas da colaboração B2B - Azure Ative Directory | Microsoft Docs
 description: Remédios para problemas comuns com a colaboração B2B do Azure Ative Directory
 services: active-directory
 ms.service: active-directory
@@ -14,12 +14,12 @@ ms.custom:
 - it-pro
 - seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ebe34de0fa7847a23d9335dcdb0a38a33e006fdc
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: aa0d0d032c2ab6ae1d6c5e6b1c8b1793a6b3bd7c
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355210"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090642"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Resolução de problemas Azure Ative Directy B2B colaboração
 
@@ -92,7 +92,7 @@ Um utilizador que tenha uma conta de hóspedes não pode iniciar sessão e está
     AADSTS65005: Using application 'AppName' is currently not supported for your organization contoso.com because it is in an unmanaged state. An administrator needs to claim ownership of the company by DNS validation of contoso.com before the application AppName can be provisioned.
 ```
 
-O utilizador tem uma conta de utilizador Azure e é um inquilino viral que foi abandonado ou não gerido. Além disso, não existem administradores globais ou de empresas no arrendatário.
+O utilizador tem uma conta de utilizador Azure e é um inquilino viral que foi abandonado ou não gerido. Além disso, não existem administradores globais no inquilino.
 
 Para resolver este problema, tem de tomar conta do inquilino abandonado. Consulte a  [tomada de posse de um diretório não gerido como administrador no Azure Ative Directory](../enterprise-users/domains-admin-takeover.md). Também deve aceder ao DNS virado para a Internet para o sufixo de domínio em questão, de modo a fornecer provas diretas de que está a controlar o espaço de nome. Depois de o arrendatário ser devolvido a um estado gerido, por favor discuta com o cliente se deixar os utilizadores e o nome de domínio verificado é a melhor opção para a sua organização.
 

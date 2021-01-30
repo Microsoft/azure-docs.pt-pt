@@ -1,18 +1,18 @@
 ---
 title: Controlos de conformidade regulamentar da política Azure para configuração de aplicativos Azure
 description: Lista controlos de conformidade regulamentar da política Azure disponíveis para configuração de aplicação Azure. Estas definições políticas incorporadas fornecem abordagens comuns para gerir o cumprimento dos seus recursos Azure.
-ms.date: 01/27/2021
+ms.date: 01/29/2021
 ms.topic: sample
 author: AlexandraKemperMS
 ms.author: alkemper
 ms.service: azure-app-configuration
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: ad2bd4a76c6532f15f6e00fb71f8f755d7ebe1bd
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: c589452e74adc96c626143ed13ca459e0df60c5f
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98956659"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99091176"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-app-configuration"></a>Controlos de conformidade regulamentar da política Azure para configuração de aplicativos Azure
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Diretório Ativo Azure com a Ponte Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com a Bridge | Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e a Bridge.
 services: active-directory
 author: jeevansd
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/08/2019
 ms.author: jeedes
-ms.openlocfilehash: c3221063469315b2324c5039a46db622109826aa
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 0b337225c5909563ef4aeb49cf0754e11075a6fb
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673628"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090057"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bridge"></a>Tutorial: Integração do Diretório Ativo Azure com Bridge
 
@@ -106,7 +106,7 @@ Para configurar a Azure AD single sign-on com Bridge, execute os seguintes passo
     b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão: `https://<company name>.bridgeapp.com`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o sinal real no URL e no identificador. Contacte [a equipa de suporte do Cliente bridge](https://community.bridgeapp.com/community/help) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    > Estes valores não são reais. Atualize estes valores com o sinal real no URL e no identificador. Contacte [a equipa de suporte do Cliente bridge](https://community.bridgeapp.com/hc/en-us/community/topics) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
 5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Raw)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
@@ -124,7 +124,7 @@ Para configurar a Azure AD single sign-on com Bridge, execute os seguintes passo
 
 ### <a name="configure-bridge-single-sign-on"></a>Configure ponte single Sign-On
 
-Para configurar um único sinal no lado **da Ponte,** é necessário enviar o **Certificado (Raw)** descarregado e urls copiados apropriados do portal Azure para a equipa de [suporte da Ponte.](https://community.bridgeapp.com/community/help) Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
+Para configurar um único sinal no lado **da Ponte,** é necessário enviar o **Certificado (Raw)** descarregado e urls copiados apropriados do portal Azure para a equipa de [suporte da Ponte.](https://community.bridgeapp.com/hc/en-us/community/topics) Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD 
 
@@ -179,7 +179,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 ### <a name="create-bridge-test-user"></a>Criar utilizador de teste de ponte
 
-Nesta secção, cria-se um utilizador chamado Britta Simon in Bridge. Trabalhe com [a equipa de apoio](https://community.bridgeapp.com/community/help) bridge para adicionar os utilizadores na plataforma Bridge. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
+Nesta secção, cria-se um utilizador chamado Britta Simon in Bridge. Trabalhe com [a equipa de apoio](https://community.bridgeapp.com/hc/en-us/community/topics) bridge para adicionar os utilizadores na plataforma Bridge. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único
 

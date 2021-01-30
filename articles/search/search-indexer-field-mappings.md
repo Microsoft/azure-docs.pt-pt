@@ -3,19 +3,17 @@ title: Mapeamentos de campo nos indexadores
 titleSuffix: Azure Cognitive Search
 description: Configurar mapeamentos de campo num indexante para ter em conta as diferenças nos nomes de campo e nas representações de dados.
 manager: nitinme
-author: mattmsft
-ms.author: magottei
-ms.devlang: rest-api
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/11/2020
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 579d0e334b4e60815b3a5efc877833ab75a3375d
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.date: 01/28/2021
+ms.openlocfilehash: efee1e1cda7767620931ef81825708d94a1925c3
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358937"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99063184"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Mapeamentos e transformações de campo usando indexantes de pesquisa cognitiva Azure
 
@@ -46,7 +44,7 @@ Os mapeamentos de campo são adicionados à `fieldMappings` matriz da definiçã
 > [!NOTE]
 > Se não forem adicionados mapeamentos de campo, os indexantes assumem que os campos de origem de dados devem ser mapeados para indexar campos com o mesmo nome. A adição de um mapeamento de campo remove estes mapeamentos de campo predefinidos para o campo de origem e alvo. Alguns indexantes, como [o indexante de armazenamento de bolhas,](search-howto-indexing-azure-blob-storage.md)adicionam mapeamentos de campo predefinidos para o campo de chaves de índice.
 
-## <a name="map-fields-using-the-rest-api"></a>Campos de mapas usando a API REST
+## <a name="map-fields-using-rest"></a>Campos de mapas usando REST
 
 Pode adicionar mapeamentos de campo ao criar um novo indexante utilizando o pedido de API [Create Indexer.](/rest/api/searchservice/create-Indexer) Pode gerir os mapeamentos de campo de um indexante existente utilizando o pedido de API [do Indexer de Atualização.](/rest/api/searchservice/update-indexer)
 
@@ -77,9 +75,8 @@ Um campo de origem pode ser referenciado em vários mapeamentos de campo. O exem
 > [!NOTE]
 > A Azure Cognitive Search usa comparação caso-insensível para resolver o campo e nomes de funções em mapeamentos de campo. Isto é conveniente (você não precisa obter todo o invólucro certo), mas significa que a sua fonte de dados ou índice não pode ter campos que diferem apenas por caso.  
 >
->
 
-## <a name="map-fields-using-the-net-sdk"></a>Campos de mapas usando o .NET SDK
+## <a name="map-fields-using-net"></a>Campos de mapas usando .NET
 
 Você define mapeamentos de campo no .NET SDK usando a classe [FieldMapping,](/dotnet/api/azure.search.documents.indexes.models.fieldmapping) que tem as propriedades `SourceFieldName` e , e uma referência `TargetFieldName` `MappingFunction` opcional.
 

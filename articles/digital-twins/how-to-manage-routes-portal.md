@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 083d868f2d2652be9480227c29dfb289564056d6
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 0f705aa61f1fe627dc0c8227242538e01ffce1d5
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94533791"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99070829"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Gerir pontos finais e rotas em Azure Digital Twins (portal)
 
 [!INCLUDE [digital-twins-route-selector.md](../../includes/digital-twins-route-selector.md)]
 
-Em Azure Digital Twins, você pode encaminhar notificações de eventos para serviços a [jusante](how-to-interpret-event-data.md) ou recursos de computação conectados. Isto é feito primeiro através da criação **de pontos finais** que podem receber os eventos. Em seguida, pode criar [**rotas de eventos**](concepts-route-events.md) que especifiquem quais os eventos gerados pela Azure Digital Twins que são entregues a que pontos finais.
+Em Azure Digital Twins, você pode encaminhar notificações de eventos para serviços a [jusante](how-to-interpret-event-data.md) ou recursos de computação conectados. Isto é feito ao, em primeiro lugar, configurar **pontos finais** que podem receber os eventos. Em seguida, pode criar [**rotas de eventos**](concepts-route-events.md) que especifiquem quais os eventos gerados pela Azure Digital Twins que são entregues a que pontos finais.
 
 Este artigo acompanha-o através do processo de criação de pontos finais e rotas utilizando o [portal Azure.](https://portal.azure.com)
 
@@ -33,11 +33,11 @@ Em alternativa, também pode gerir pontos finais e rotas com as [APIs rotas](/re
 
 Pode encontrar estes detalhes no [portal Azure](https://portal.azure.com) depois de configurar o seu caso. Inicie sessão no portal e procure o nome do seu caso na barra de pesquisa do portal.
  
-:::image type="content" source="media/how-to-manage-routes-portal/search-field-portal.png" alt-text="Screenshot da barra de pesquisa do portal Azure.":::
+:::image type="content" source="media/how-to-manage-routes-portal/search-field-portal.png" alt-text="Screenshot da barra de pesquisa do portal Azure." lightbox="media/how-to-manage-routes-portal/search-field-portal.png":::
 
-Selecione a sua instância a partir dos resultados para ver a página de detalhes para o seu exemplo:
+Selecione a sua instância a partir dos resultados para ver estes detalhes na Visão Geral, para o seu exemplo:
 
-:::image type="content" source="media/how-to-manage-routes-portal/instance-details.png" alt-text="Screenshot dos detalhes da instância ADT." border="false":::
+:::image type="content" source="media/how-to-manage-routes-portal/instance-details.png" alt-text="Screenshot da página overview para uma instância Azure Digital Twins. O nome e o grupo de recursos estão em destaque.":::
 
 ## <a name="create-an-endpoint-for-azure-digital-twins"></a>Criar um ponto final para a Azure Digital Twins
 
@@ -48,89 +48,65 @@ Estes são os tipos suportados de pontos finais que pode criar, para o seu exemp
 
 Para obter mais informações sobre os diferentes tipos de pontos [*finais, consulte Escolha entre os serviços de mensagens Azure.*](../event-grid/compare-messaging-services.md)
 
-Para ligar um ponto final à Azure Digital Twins, o tópico da grelha de eventos, o centro de eventos ou o Service Bus que está a usar para o ponto final já precisa de existir. 
+Esta secção explica como criar um destes pontos finais no [portal Azure](https://portal.azure.com).
 
-### <a name="create-an-event-grid-endpoint"></a>Criar um ponto final de Grade de Eventos
+[!INCLUDE [digital-twins-endpoint-resources.md](../../includes/digital-twins-endpoint-resources.md)]
 
-**Pré-requisito** : Crie um tópico de grelha de eventos seguindo os passos na [secção Criar um tópico *personalizado*](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) dos eventos Event Grid *Custom eventos* quickstart.
+### <a name="create-the-endpoint"></a>Criar o ponto final 
 
-Uma vez criado o tópico, pode ligá-lo à Azure Digital Twins a partir da página da sua instância Azure Digital Twins no [portal Azure](https://portal.azure.com) (pode encontrar a instância introduzindo o seu nome na barra de pesquisa do portal).
+Uma vez criados os recursos do ponto final, podes usá-los para um ponto final da Azure Digital Twins. Para criar um novo ponto final, aceda à página do seu caso no [portal Azure](https://portal.azure.com) (pode encontrar a instância introduzindo o seu nome na barra de pesquisa do portal).
 
-A partir do menu de exemplos, selecione _Endpoints_. Em seguida, a partir da página *Endpoints* que se segue, selecione *+ Crie um ponto final*. 
+1. A partir do menu de exemplos, selecione _Endpoints_. Em seguida, a partir da página *Endpoints* que se segue, selecione *+ Crie um ponto final*. Isto abrirá a página *'Criar' um ponto final,* onde preencherá os campos nos seguintes passos.
 
-Na página *'Criar'* que se abre, pode criar um ponto final de grelha de _evento tipo,_ selecionando o botão de rádio correspondente. Complete os outros detalhes: insira um nome para o seu ponto final no campo _Nome,_ escolha a sua _Subscrição_ a partir do dropdown e escolha o tópico de grelha de  _evento_ pré-criado a partir do terceiro dropdown.
+    :::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-grid.png" alt-text="Screenshot de criar um ponto final do tipo Desferição de Grelha de Eventos." lightbox="media/how-to-manage-routes-portal/create-endpoint-event-grid.png":::
 
-Em seguida, crie o seu ponto final batendo _Save_.
+1. Insira um **Nome** para o seu ponto final e escolha o **tipo ponto final**.
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-grid.png" alt-text="Screenshot de criar um ponto final do tipo Desferição de Grelha de Eventos.":::
+1. Complete os outros detalhes necessários para o seu tipo de ponto final, incluindo a sua subscrição e os recursos de ponto final [acima descritos](#prerequisite-create-endpoint-resources).
+    1. Apenas para pontos finais do Event Hub e do Service Bus, tem de selecionar um **tipo de autenticação**. Pode utilizar a autenticação baseada em chaves com uma regra de autorização pré-criada ou autenticação baseada na identidade se utilizar o ponto final com uma [identidade gerida](concepts-security.md#managed-identity-for-accessing-other-resources-preview) para a sua instância Azure Digital Twins. 
 
-Pode verificar se o ponto final foi criado com sucesso, verificando o ícone de notificação na barra de portal Azure superior: 
+    :::row:::
+        :::column:::
+            :::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-hub-authentication.png" alt-text="Screenshot de criar um ponto final do tipo Event Hub." lightbox="media/how-to-manage-routes-portal/create-endpoint-event-hub-authentication.png":::
+        :::column-end:::
+        :::column:::
+        :::column-end:::
+    :::row-end:::
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-notifications.png" alt-text="Screenshot da notificação para verificar a criação do ponto final." border="false":::
+1. Termine de criar o seu ponto final selecionando _Save_.
+
+>[!IMPORTANT]
+> Para utilizar com sucesso a autenticação baseada na identidade para o seu ponto final, terá de criar uma identidade gerida para o seu exemplo, seguindo os passos em [*Como-a: Habilitar uma identidade gerida para eventos de encaminhamento (pré-visualização)*](how-to-enable-managed-identities.md).
+
+Depois de criar o seu ponto final, pode verificar se o ponto final foi criado com sucesso, verificando o ícone de notificação na barra superior do portal Azure: 
+
+:::row:::
+    :::column:::
+        :::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-notifications.png" alt-text="Screenshot da notificação para verificar a criação do ponto final. O ícone em forma de sino da barra superior do portal é selecionado, e há uma notificação que diz &quot;Endpoint ADT-eh-endpoint com sucesso criado&quot;.":::
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+:::row-end:::
+
+Se a criação do ponto final falhar, observe a mensagem de erro e redaça após alguns minutos.
 
 Também pode ver o ponto final que foi criado de volta na página *Endpoints* para a sua instância Azure Digital Twins.
 
-Se a criação do ponto final falhar, observe a mensagem de erro e redaça após alguns minutos.
-
-Agora, o tópico da grelha de eventos está disponível como ponto final dentro de Azure Digital Twins, sob o nome especificado no campo _Nome._ Normalmente, você usará esse nome como alvo de uma rota de **eventos** , que irá criar [mais tarde neste artigo.](#create-an-event-route)
-
-### <a name="create-an-event-hubs-endpoint"></a>Criar um ponto final de Centro de Eventos
-
-**Pré-requisitos:** 
-* Você precisará de um espaço de _nomes de Event Hubs_ e um _centro de eventos._ Crie ambos seguindo os passos nos Centros de Eventos Crie um centro de [*eventos*](../event-hubs/event-hubs-create.md) de arranque rápido.
-* Vai precisar de uma _regra de autorização._ Para criar isto, consulte os Centros de Eventos autorizando o acesso aos recursos do Event Hubs utilizando o artigo [*Assinaturas de Acesso Partilhado.*](../event-hubs/authorize-access-shared-access-signature.md)
-
-Aceda à página de detalhes para a sua instância Azure Digital Twins no [portal Azure](https://portal.azure.com) (pode encontrá-lo introduzindo o seu nome na barra de pesquisa do portal).
-
-A partir do menu de exemplos, selecione _Endpoints_. Em seguida, a partir da página *Endpoints* que se segue, selecione *+ Crie um ponto final*. 
-
-Na página *'Criar'* que se abre, pode criar um ponto final do Tipo _Event Hub_ selecionando o botão de rádio correspondente. Insira um nome para o seu ponto final no campo _Nome._ Em seguida, selecione a sua _Subscrição_ , e o seu espaço de _nome de hub de evento_ pré-criado, Centro de _Eventos_ e Regra de _Autorização_ a partir das respetivas reduções.
-
-Em seguida, crie o seu ponto final batendo _Save_.
-
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-hub.png" alt-text="Screenshot de criar um ponto final de tipo Event Hubs.":::
-
-Pode verificar se o ponto final foi criado com sucesso, verificando o ícone de notificação na barra de portal Azure superior. 
-
-Se a criação do ponto final falhar, observe a mensagem de erro e redaça após alguns minutos.
-
-Agora, o hub do Evento está disponível como ponto final dentro das Gémeas Digitais Azure, sob o nome especificado no campo _Nome._ Normalmente, você usará esse nome como alvo de uma rota de **eventos** , que irá criar [mais tarde neste artigo.](#create-an-event-route)
-
-### <a name="create-a-service-bus-endpoint"></a>Criar um ponto final de ônibus de serviço
-
-**Pré-requisitos:** 
-* Você precisará de um _espaço de nome de service bus_ e um tópico de service _bus_. Crie ambos seguindo os passos no Service Bus [*Criar tópicos e subscrições*](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md) de forma rápida. Não é necessário completar as [*subscrições criar para a*](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md#create-subscriptions-to-the-topic) secção de tópicos.
-* Vai precisar de uma _regra de autorização._ Para criar isto, consulte o artigo [*de Autenticação e Autorização*](../service-bus-messaging/service-bus-authentication-and-authorization.md#shared-access-signature) do Autocarro de Serviço.
-
-Aceda à página de detalhes para a sua instância Azure Digital Twins no [portal Azure](https://portal.azure.com) (pode encontrá-lo introduzindo o seu nome na barra de pesquisa do portal).
-
-A partir do menu de exemplos, selecione _Endpoints_. Em seguida, a partir da página *Endpoints* que se segue, selecione *+ Crie um ponto final*. 
-
-Na página *'Criar'* que se abre, pode criar um ponto final do tipo _Service Bus_ selecionando o botão de rádio correspondente. Insira um nome para o seu ponto final no campo _Nome._ Em seguida, selecione a sua _Subscrição_ , e o seu espaço de _nomes_ de Service Bus pré-criado, _tópico de ônibus_ de serviço e regra de _autorização_ a partir das respetivas reduções.
-
-Em seguida, crie o seu ponto final batendo _Save_.
-
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-service-bus.png" alt-text="Screenshot de criar um ponto final do tipo Service Bus.":::
-
-Pode verificar se o ponto final foi criado com sucesso, verificando o ícone de notificação na barra de portal Azure superior. 
-
-Se a criação do ponto final falhar, observe a mensagem de erro e redaça após alguns minutos.
-
-Agora, o tópico do Service Bus está disponível como ponto final dentro da Azure Digital Twins, sob o nome especificado no campo _Nome._ Normalmente, você usará esse nome como alvo de uma rota de **eventos** , que irá criar [mais tarde neste artigo.](#create-an-event-route)
+Agora, a grelha de eventos, o centro de eventos ou o tópico Service Bus estão disponíveis como ponto final dentro da Azure Digital Twins, com o nome que escolheu para o ponto final. Normalmente, você usará esse nome como alvo de uma rota de **eventos**, que irá criar [mais tarde neste artigo.](#create-an-event-route)
 
 ### <a name="create-an-endpoint-with-dead-lettering"></a>Criar um ponto final com letras mortas
 
 Quando um ponto final não consegue entregar um evento dentro de um determinado período de tempo ou depois de tentar entregar o evento um certo número de vezes, pode enviar o evento não entregue para uma conta de armazenamento. Este processo é conhecido como **letra morta.**
 
-Para criar um ponto final com letras mortas ativadas, deve utilizar as [APIs ARM](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) para criar o seu ponto final, em vez do portal Azure.
+Para criar um ponto final com letras mortas ativadas, deve utilizar os [comandos CLI](how-to-use-cli.md) ou [aviões de controlo APIs](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) para criar o seu ponto final, em vez do portal Azure.
 
-Para obter instruções sobre como fazê-lo com as APIs, consulte as [*APIs e a*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering) versão CLI deste artigo.
+Para obter instruções sobre como fazê-lo com estas ferramentas, consulte as [*APIs e a*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering) versão CLI deste artigo.
 
 ## <a name="create-an-event-route"></a>Criar uma rota de eventos
 
 Para enviar dados da Azure Digital Twins para um ponto final, terá de definir uma rota de **eventos.** Estas rotas permitem que os desenvolvedores liguem o fluxo de eventos, em todo o sistema e para os serviços a jusante. Leia mais sobre as rotas de eventos em [*Conceitos: Eventos de Roteamento Azure Digital Twins*](concepts-route-events.md).
 
-**Pré-requisito** : É necessário criar pontos finais, conforme descrito anteriormente neste artigo, antes de poder passar a criar uma rota. Pode proceder à criação de uma rota de eventos assim que os seus pontos finais terminarem a sua configuração.
+**Pré-requisito**: É necessário criar pontos finais, conforme descrito anteriormente neste artigo, antes de poder passar a criar uma rota. Pode proceder à criação de uma rota de eventos assim que os seus pontos finais terminarem a sua configuração.
 
 >[!NOTE]
 >Se implementou recentemente os seus pontos finais, valide que terminaram de ser implementados **antes** de tentar usá-los para uma nova rota de eventos. Se não conseguir configurar a rota porque os pontos finais não estão prontos, aguarde alguns minutos e tente novamente.
@@ -140,7 +116,7 @@ Para enviar dados da Azure Digital Twins para um ponto final, terá de definir u
 Uma definição de rota de evento contém estes elementos:
 * O nome da rota que pretende usar
 * O nome do ponto final que quer usar
-* Um filtro que define quais os eventos enviados para o ponto final
+* Um filtro que define que eventos são enviados para o ponto final
     - Para desativar a rota para que não sejam enviados eventos, use um valor de filtro de `false`
     - Para ativar uma rota que não tenha filtragem específica, use um valor de filtro de `true`
     - Para obter mais informações sobre qualquer outro tipo de filtro, consulte a secção [*de eventos do Filtro*](#filter-events) abaixo.

@@ -13,12 +13,12 @@ ms.date: 05/08/2020
 ms.author: rolyon
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 304d88dfcf0c72769f27911186df04c66224419e
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 501fe17734be1e73ffc516a7b94300445c331e86
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740147"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090948"
 ---
 # <a name="manage-your-users-with-my-staff-preview"></a>Gerir os seus utilizadores com o Meu Pessoal (pré-visualização)
 
@@ -89,7 +89,7 @@ As seguintes funções têm permissão para redefinir a palavra-passe de um util
 
 - [Administrador de autenticação](permissions-reference.md#authentication-administrator)
 - [Administrador de autenticação privilegiada](permissions-reference.md#privileged-authentication-administrator)
-- [Administrador global](permissions-reference.md#global-administrator--company-administrator)
+- [Administrador global](permissions-reference.md#global-administrator)
 - [Administrador da Helpdesk](permissions-reference.md#helpdesk-administrator)
 - [Administrador de utilizadores](permissions-reference.md#user-administrator)
 - [Administrador de palavras-passe](permissions-reference.md#password-administrator)
@@ -117,7 +117,7 @@ Para gerir o número de telefone de um utilizador, deve ser-lhe atribuída uma d
 
 - [Administrador de autenticação](permissions-reference.md#authentication-administrator)
 - [Administrador de autenticação privilegiada](permissions-reference.md#privileged-authentication-administrator)
-- [Administrador global](permissions-reference.md#global-administrator--company-administrator)
+- [Administrador global](permissions-reference.md#global-administrator)
 
 ## <a name="search"></a>Pesquisar
 
@@ -129,7 +129,7 @@ Também pode pesquisar por um utilizador dentro de uma AU. Para isso, utilize a 
 
 Pode ver os registos de auditoria das ações tomadas no Meu Pessoal no portal Azure Ative Directory. Se um registo de auditoria foi gerado por uma ação tomada no My Staff, verá isso indicado em DETALHES ADICIONAIS no evento de auditoria.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Documentação do [meu pessoal](../user-help/my-staff-team-manager.md) 
  [Documentação das unidades administrativas](administrative-units.md)

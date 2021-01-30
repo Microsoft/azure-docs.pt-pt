@@ -12,12 +12,12 @@ ms.date: 09/23/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40
-ms.openlocfilehash: aa8c00d1ee2a0dc3d019cc75b4e411ede984e74a
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 570314bcaedb86cc593846ffc1d6846d1d2fe335
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756055"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090192"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform"></a>Permissões e consentimento na plataforma de identidade da Microsoft
 
@@ -164,7 +164,7 @@ Se o pedido solicitar permissões de pedido e um administrador conceder estas pe
 
 Depois de usar o ponto final de consentimento administrativo para conceder o consentimento administrativo, está acabado. Os utilizadores não precisam de tomar mais medidas. Após o consentimento administrativo ser concedido, os utilizadores podem obter um token de acesso através de um fluxo típico de auth. O token de acesso resultante tem as permissões consentidas.
 
-Quando um administrador da empresa utiliza a sua aplicação e é direcionado para o ponto final autorizado, a plataforma de identidade da Microsoft deteta o papel do utilizador. Pergunta se o administrador da empresa quer consentir em nome de todo o inquilino para as permissões que pediu. Em vez disso, você poderia usar um ponto final de consentimento de administração dedicado para solicitar proativamente a um administrador para conceder permissão em nome de todo o inquilino. Este ponto final também é necessário para solicitar permissões de pedido. As permissões de inscrição não podem ser solicitadas utilizando o ponto final autorizado.
+Quando um Administrador Global utiliza a sua aplicação e é direcionado para o ponto final autorizado, a plataforma de identidade da Microsoft deteta o papel do utilizador. Pergunta se o Administrador Global quer consentir em nome de todo o inquilino para as permissões que pediu. Em vez disso, você poderia usar um ponto final de consentimento de administração dedicado para solicitar proativamente a um administrador para conceder permissão em nome de todo o inquilino. Este ponto final também é necessário para solicitar permissões de pedido. As permissões de inscrição não podem ser solicitadas utilizando o ponto final autorizado.
 
 Se seguir estes passos, a sua aplicação pode solicitar permissões para todos os utilizadores de um inquilino, incluindo âmbitos restritos a administradores. Esta operação é altamente privilegiada. Utilize a operação apenas se necessário para o seu cenário.
 
@@ -355,7 +355,7 @@ Alguns URIs de recursos têm um corte para a frente, por exemplo, `https://conto
 
 Para obter etapas de resolução de problemas, consulte [erro inesperado ao efetuar o consentimento de uma aplicação](../manage-apps/application-sign-in-unexpected-user-consent-error.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Fichas de ID na plataforma de identidade da Microsoft](id-tokens.md)
 * [Fichas de acesso na plataforma de identidade da Microsoft](access-tokens.md)

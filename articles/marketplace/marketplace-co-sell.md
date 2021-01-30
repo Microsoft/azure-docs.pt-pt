@@ -3,16 +3,16 @@ title: Co-venda de compromisso de parceiros - Mercado comercial da Microsoft
 description: O programa de co-venda do Microsoft Partner Center para parceiros pode ajudá-lo a alcançar uma vasta base de clientes e gerar novas vendas.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 12/2/2020
-ms.openlocfilehash: 7969f5ffd3064a5af97a101185b6229c81c7613d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.date: 1/29/2021
+ms.openlocfilehash: 84d37def6aa519eabf26a72ded7b0ab70994c430
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880292"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99063084"
 ---
 # <a name="co-sell-partner-engagement"></a>Compromisso entre parceiros para venda conjunta
 
@@ -22,7 +22,7 @@ O programa co-venda está disponível para **software construído com a sua prop
 
 - As ofertas **prontas de co-venda** estão expostas aos vendedores de campo da Microsoft. Ao trabalhar com os vendedores da Microsoft, o programa Co-sell ajuda-o a chegar a uma vasta comunidade de clientes geridos pela Microsoft para colaborar em oportunidades de vendas que aceleram o crescimento do seu negócio.
 
-    ![Diagrama mostrando como co-vender acontece quando os leads de vendas são partilhados, aceites e ganhos contra clientes geridos pela Microsoft.](./media/marketplace-publishers-guide/marketplace-co-sell-v2.png)
+    :::image type="content" source="./media/marketplace-publishers-guide/marketplace-co-sell-v2.png" alt-text="Diagrama mostrando como co-vender acontece quando os leads de vendas são partilhados, aceites e ganhos contra clientes geridos pela Microsoft.":::
 
 - **Co-venda incentivada** As ofertas IP podem ganhar incentivos para os vendedores de campo da Microsoft quando são vendidas em colaboração com as equipas de vendas da Microsoft, além dos benefícios do mercado listados abaixo.</li></ul>
 
@@ -39,7 +39,7 @@ Ofertas que atingem **a Azure IP Co-venda** de estatuto incentivado obtenha este
 
 Esta tabela lista os passos e requisitos para obter a sua oferta de mercado Co-vender pronto ou Co-vender incentivado. Nem todos os tipos de oferta de mercado comercial são configuráveis para co-venda ainda no Partner Center. Para obter a mais recente lista de tipos de oferta que suportam co-venda, consulte [a opção Co-venda no mercado comercial.](commercial-marketplace-co-sell.md) 
 
-|Passo    |Tipo de oferta    |Requirements    |Estatuto de co-venda    |
+|Passo    |Tipo de oferta    |Requisitos    |Estatuto de co-venda    |
 |----    |-------------    |------------    |---------------   |
 |<ol start=1><li>Crie uma conta no Partner Center e publique a sua oferta no mercado comercial.</li>|Todos|<ul><li>A oferta satisfaz os requisitos de publicação do mercado comercial.</li><li>Tem um perfil de negócio completo no Partner Center.</li></ul>| No Mercado |
 |<ol start=2><li>Envie os materiais de co-venda necessários.</li>|OFERTAS IP *com* [opção co-venda no mercado comercial](commercial-marketplace-co-sell.md)|[Upload de materiais necessários no Partner Center](#how-to-submit-co-sell-materials-in-partner-center)|Co-vender pronto|
@@ -63,7 +63,7 @@ Inicie a sua viagem de Co-venda diretamente no Partner Center seguindo os passos
 
 1. No menu à esquerda, selecione **Co-venda com a Microsoft**.
 
-    :::image type="content" source="media/co-sell/co-sell-with-microsoft-tab.png" alt-text="Esta imagem mostra a localização da Co-venda com o separador Microsoft.":::
+    [![Esta imagem mostra a localização da Co-venda com o separador Microsoft.](media/co-sell/co-sell-with-microsoft-tab.png)](media/co-sell/co-sell-with-microsoft-tab.png#lightbox)
 
 1. Forneça detalhes básicos da listagem para ajudar os vendedores da Microsoft a classificar rapidamente e descobrir a sua oferta na secção **De listagem.** *(Obrigatório: todos os campos.*)
 
@@ -71,31 +71,22 @@ Inicie a sua viagem de Co-venda diretamente no Partner Center seguindo os passos
 
 1. Forneça detalhes sobre a sua oferta e carrene a garantia na secção **Documentos.** Os vendedores da Microsoft usarão esta informação para recomendar e vender a sua oferta. *(Requerido: Solução/oferta de um pager e deck de pitch solution/offer. Necessário para atingir o estatuto de Co-venda Azure IP Co-venda: Diagrama de arquitetura de referência.)*
 
-    :::image type="content" source="media/co-sell/co-sell-documents-section.png" alt-text="Esta imagem mostra a secção documentos no separador Co-venda.":::
+    [![Esta imagem mostra a secção documentos no separador Co-venda.](media/co-sell/co-sell-documents-section.png)](media/co-sell/co-sell-documents-section.png#lightbox)
 
 1. Faça upload de informações de contacto de vendas na secção **Contactos.** Os vendedores da Microsoft podem contactar estes contactos para solicitar informações adicionais sobre a sua oferta. *(Requerido: um contacto para cada geografia em que a sua oferta é disponibilizada.*)
 
-    :::image type="content" source="media/co-sell/co-sell-contacts-section.png" alt-text="Esta imagem mostra a secção Contactos no separador Co-venda.":::
+    [![Esta imagem mostra a secção Contactos no separador Co-venda.](media/co-sell/co-sell-contacts-section.png)](media/co-sell/co-sell-contacts-section.png#lightbox)
 
 1. Guarde o rascunho antes de continuar.
 1. Depois de ter concluído todas as secções necessárias da oferta, pode submetê-la para revisão e publicação. No canto superior direito, selecione **'Rever e publicar.** Reveja os detalhes da oferta e, em seguida, **selecione Publicar**.
-1. Depois de garantir que cumpriu os [critérios para o estatuto de Co-venda que está a perseguir,](#co-sell-publishing-steps-and-requirements)siga as orientações abaixo para nomear a sua oferta para Co-venda:
-    1. **Se tiver um Gestor de Parceiros da Microsoft (por exemplo, PDM):** contacte o seu Partner Manager para obter assistência. Irão guiá-lo através do processo de nomeação para Co-vender o estado pronto e Azure IP Co-vender ou Aplicações Empresariais Co-vender (se aplicável).
-
-    1. **Se não tiver um Gestor de Parceiros da Microsoft (por exemplo, PDM):** [auto-nomeado através do Cloud Enablement Desk (CED)](https://aka.ms/cednominate). Selecione "Becoming Co-sell ready" no âmbito do dropdown "Desired CED Services":
-
-        :::image type="content" source="media/co-sell/co-sell-request-review.png" alt-text="Esta imagem mostra a queda do CED para solicitar uma revisão de Co-venda.":::
-
-    O CED contactar-lhe-á para concluir o processo.
 
 ## <a name="see-your-offers-co-sell-status"></a>Consulte o estado de Co-venda da sua oferta
 
 Para ofertas com a [opção Co-venda no mercado comercial,](commercial-marketplace-co-sell.md)pode ver o estado atual de Co-venda da sua oferta na página 'Oferta Geral':
 
- :::image type="content" source="media/co-sell/co-sell-status.png" alt-text="Esta imagem mostra o estado atual de Co-venda das ofertas.":::
+[![Esta imagem mostra o estado atual de Co-venda das ofertas.](media/co-sell/co-sell-status.png)](media/co-sell/co-sell-status.png#lightbox)
 
-
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [a venda com a Microsoft.](https://partner.microsoft.com/membership/sell-with-microsoft)
 - Saiba mais sobre a [opção Co-venda no mercado comercial.](commercial-marketplace-co-sell.md)

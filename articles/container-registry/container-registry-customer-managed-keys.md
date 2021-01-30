@@ -4,12 +4,12 @@ description: Saiba mais sobre encriptação no resto do seu registo de contentor
 ms.topic: article
 ms.date: 12/03/2020
 ms.custom: ''
-ms.openlocfilehash: 708a42a4f965f484060d42d89ea4f535c4365a10
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: fb30610457e539250c33d7d9726fe10f9c0f8c5a
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96620457"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062733"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>Registo encriptado usando uma chave gerida pelo cliente
 
@@ -281,14 +281,14 @@ Em alternativa, utilize [o Azure RBAC para Key Vault](../key-vault/general/rbac-
 Opcionalmente criar uma chave no cofre chave para usar para encriptar o registo. Siga estes passos se quiser selecionar uma versão chave específica como uma chave gerida pelo cliente. 
 
 1. Navegue para o cofre da chave.
-1. Selecione **Settings**  >  **Teclas de definições**.
+1. Selecione   >  **Teclas de definições**.
 1. Selecione **+Gerar/Importar** e introduza um nome único para a chave.
 1. Aceite os valores predefinidos restantes e **selecione Criar**.
 1. Após a criação, selecione a chave e, em seguida, selecione a versão atual. Copie o **identificador chave** para a versão chave.
 
 ### <a name="create-azure-container-registry"></a>Criar um registo de contentor do Azure
 
-1. **Selecione Criar um** registo  >  **de contentores de**  >  **Container Registry** recursos.
+1. **Selecione Criar um** registo  >  **de contentores de**  >  recursos.
 1. No **separador Básicos,** selecione ou crie um grupo de recursos e introduza um nome de registo. No **SKU,** selecione **Premium**.
 1. No **separador Encriptação,** na **tecla gerida pelo Cliente,** selecione **Enabled**.
 1. Em **Identidade,** selecione a identidade gerida que criou.
@@ -533,7 +533,7 @@ Pode configurar a identidade gerida atribuída pelo sistema de um registo para a
 Para ativar a identidade atribuída ao sistema do registo no portal:
 
 1. No portal, navegue para o seu registo.
-1. Selecione **Settings**  >   **Definições Identidade**.
+1. Selecione   >   **Definições Identidade**.
 1. No **Sistema atribuído**, definir **estado** para **On**. Selecione **Guardar**.
 1. Copie o **ID** do objeto da identidade.
 
@@ -556,7 +556,7 @@ Para atualizar as definições de encriptação do registo para utilizar a ident
 Para aceder a um cofre de chaves configurado com uma firewall key Vault, o registo deve contornar a firewall. Certifique-se de que o cofre da chave está configurado para permitir o acesso por qualquer [serviço de confiança](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services). O Registo de Contentores Azure é um dos serviços de confiança.
 
 1. No portal, navegue para o cofre da chave.
-1. Selecione **Rede de Definições**  >  **Networking**.
+1. Selecione **Rede de Definições**  >  .
 1. Confirme, atualize ou adicione definições de rede virtuais. Para obter etapas detalhadas, consulte [as firewalls Configure Key Vault e redes virtuais](../key-vault/general/network-security.md).
 1. Para **permitir que os Serviços Fidedignos da Microsoft contornem esta firewall**, selecione **Sim**. 
 
@@ -566,21 +566,31 @@ Depois de completar os passos anteriores, rode a chave para uma nova chave no co
 
 ## <a name="troubleshoot"></a>Resolução de problemas
 
-### <a name="removing-user-assigned-identity"></a>Remoção da identidade atribuída ao utilizador
+### <a name="removing-managed-identity"></a>Remoção da identidade gerida
 
-Se tentar remover uma identidade atribuída ao utilizador de um registo que é utilizado para encriptação, poderá ver uma mensagem de erro semelhante a:
+
+Se tentar remover uma identidade gerida atribuída pelo utilizador ou pelo sistema a partir de um registo que seja utilizado para configurar a encriptação, poderá ver uma mensagem de erro semelhante a:
  
 ```
 Azure resource '/subscriptions/xxxx/resourcegroups/myGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry' does not have access to identity 'xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx' Try forcibly adding the identity to the registry <registry name>. For more information on bring your own key, please visit 'https://aka.ms/acr/cmk'.
 ```
  
-Também não poderá alterar (rodar) a chave de encriptação. Se ocorrer este problema, desatribua primeiro a identidade utilizando o GUID visualizado na mensagem de erro. Por exemplo:
+Também não poderá alterar (rodar) a chave de encriptação. Os passos de resolução dependem do tipo de identidade utilizado para a encriptação.
+
+**Identidade atribuída ao utilizador**
+
+Se este problema ocorrer com uma identidade atribuída ao utilizador, desatribua primeiro a identidade utilizando o GUID apresentado na mensagem de erro. Por exemplo:
 
 ```azurecli
 az acr identity assign -n myRegistry --identities xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx
 ```
         
 Em seguida, depois de alterar a chave e atribuir uma identidade diferente, pode remover a identidade original atribuída ao utilizador.
+
+**Identidade atribuída ao sistema**
+
+Se este problema ocorrer com uma identidade atribuída ao sistema, por favor [crie um bilhete de apoio Azure](https://azure.microsoft.com/support/create-ticket/) para assistência para restaurar a identidade.
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

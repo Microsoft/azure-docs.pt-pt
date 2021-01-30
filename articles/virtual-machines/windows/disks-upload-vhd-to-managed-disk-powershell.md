@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: 1655c48eeb9227bf934c7fd9bb37610327b2b98c
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: a3474d62a28ea8c2214a9da5d517c679ba976130
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736276"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090405"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-powershell"></a>Faça o upload de um VHD para Azure ou copie um disco gerido para outra região - Azure PowerShell
 
@@ -49,7 +49,7 @@ Agora, na sua concha local, crie um HDD padrão vazio para carregar especificand
 Substituir `<yourdiskname>` `<yourresourcegroupname>` , `<yourregion>` e, em seguida, executar os seguintes comandos:
 
 > [!TIP]
-> Se estiver a criar um disco DE, adicione -HyperVGeneration <yourGeneration> ' para `New-AzDiskConfig` .
+> Se estiver a criar um disco DE, adicione `-HyperVGeneration '<yourGeneration>'` a `New-AzDiskConfig` .
 
 ```powershell
 $vhdSizeBytes = (Get-Item "<fullFilePathHere>").length
@@ -133,7 +133,7 @@ Revoke-AzDiskAccess -ResourceGroupName $sourceRG -DiskName $sourceDiskName
 Revoke-AzDiskAccess -ResourceGroupName $targetRG -DiskName $targetDiskName 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que fez o upload de um VHD com sucesso para um disco gerido, pode ligar o disco a um VM e começar a usá-lo.
 

@@ -7,12 +7,12 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 09/14/2020
 tags: connectors
-ms.openlocfilehash: f005bdfa5643ea187fb2973cac065563c4cc2ee6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2835bda8ac7242b7a3ea4ea63401f26b9c8e426
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91292460"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99063000"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Chamar pontos finais de serviço através de HTTP ou HTTPS a partir do Azure Logic Apps
 
@@ -48,7 +48,7 @@ Este gatilho incorporado faz uma chamada HTTP para o URL especificado para um po
 
 1. Sob a caixa de pesquisa do designer, selecione **Built-in**. Na caixa de pesquisa, introduza `http` como filtro. Na lista **de gatilhos,** selecione o gatilho **HTTP.**
 
-   ![Selecione Acionador HTTP](./media/connectors-native-http/select-http-trigger.png)
+   ![Selecione o gatilho HTTP](./media/connectors-native-http/select-http-trigger.png)
 
    Este exemplo renomea o gatilho para "HTTP trigger" para que o passo tenha um nome mais descritivo. Além disso, o exemplo adiciona mais tarde uma ação HTTP, e ambos os nomes devem ser únicos.
 
@@ -104,7 +104,7 @@ Esta ação incorporada faz uma chamada HTTP para o URL especificado para um pon
 
 Aqui está mais informações sobre as saídas de um gatilho http ou ação, que devolve esta informação:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Tipo | Description |
 |----------|------|-------------|
 | `headers` | Objeto JSON | Os cabeçalhos do pedido |
 | `body` | Objeto JSON | O objeto com o conteúdo do corpo do pedido |
@@ -118,7 +118,7 @@ Aqui está mais informações sobre as saídas de um gatilho http ou ação, que
 | 400 | Mau pedido |
 | 401 | Não autorizado |
 | 403 | Proibido |
-| 404 | Não encontrado |
+| 404 | Não Encontrado |
 | 500 | Erro interno do servidor. Ocorreu um erro desconhecido. |
 |||
 
@@ -249,7 +249,7 @@ Se um gatilho ou ação HTTP incluir estes cabeçalhos, as Aplicações Lógicas
 
 * `Accept-*` cabeçalhos, exceto para `Accept-version`
 * `Allow`
-* `Content-*` com estas exceções: `Content-Disposition` `Content-Encoding` , e `Content-Type`
+* `Content-*` cabeçalhos exceto `Content-Disposition` , e quando você usa `Content-Encoding` `Content-Type` operações POST e PUT, mas não estão incluídos para operações GET
 * `Cookie`
 * `Expires`
 * `Host`

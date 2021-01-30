@@ -1,5 +1,5 @@
 ---
-title: Considerações de segurança para a Azure AD Application Proxy / Microsoft Docs
+title: Considerações de segurança para a Azure AD Application Proxy | Microsoft Docs
 description: Cobre considerações de segurança para a utilização do Azure AD Application Proxy
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 794c4e1a0859fc8a36b0abf4fcc9d5243c8bd308
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: b1c0e91b08fff80c0308c0ead5fabce903421adc
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94649573"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090125"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Considerações de segurança para aceder remotamente a apps com Proxy de aplicações AD AZure
 
@@ -108,7 +108,7 @@ O conector utiliza um certificado de cliente para autenticar o serviço de Procu
 Quando o conector é configurado pela primeira vez, ocorrem os seguintes eventos de fluxo:
 
 1. O registo do conector ao serviço ocorre como parte da instalação do conector. Os utilizadores são solicitados a introduzir as suas credenciais de administração Azure AD. O símbolo adquirido a partir desta autenticação é então apresentado ao serviço de Procuração de Aplicações AD Azure.
-2. O serviço Application Proxy avalia o símbolo. Verifica se o utilizador é administrador da empresa no arrendatário. Se o utilizador não for administrador, o processo será encerrado.
+2. O serviço Application Proxy avalia o símbolo. Verifica se o utilizador é administrador global no inquilino. Se o utilizador não for administrador, o processo será encerrado.
 3. O conector gera um pedido de certificado de cliente e passa-o, juntamente com o token, para o serviço Application Proxy. O serviço, por sua vez, verifica o token e assina o pedido de certificado do cliente.
 4. O conector utiliza o certificado de cliente para futura comunicação com o serviço Application Proxy.
 5. O conector realiza uma retirada inicial dos dados de configuração do sistema a partir do serviço utilizando o seu certificado de cliente, estando agora pronto para receber pedidos.
@@ -178,7 +178,7 @@ Depois de receber uma resposta, o conector faz uma ligação de saída ao servi�
 Pode ocorrer aqui algum processamento da aplicação. Se configurar o Application Proxy para traduzir cabeçalhos ou URLs na sua aplicação, esse processamento acontece conforme necessário durante este passo.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Considerações de topologia de rede ao utilizar o Proxy de Aplicação AD AZure](application-proxy-network-topology.md)
 

@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: ''
 ms.date: 09/21/2020
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: 77ed71d74e75abfdf7f84aee9b116f1d9d2ccc9d
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: f42db48e0fa0e85d919d6894e5476b7ef5380698
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94985863"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99089296"
 ---
 # <a name="tutorial-secure-a-database-in-azure-sql-database"></a>Tutorial: Proteger uma base de dados na Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -48,7 +48,7 @@ Para saber mais, consulte a visão geral de segurança da [Base de Dados Azure S
 
 Para completar o tutorial, certifique-se de que tem os seguintes pré-requisitos:
 
-- [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
+- [O SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
 - Um [servidor](logical-servers.md) e uma única base de dados
   - Crie-os com o [portal Azure,](single-database-create-quickstart.md) [CLI](az-cli-script-samples-content-guide.md)ou [PowerShell](powershell-script-content-guide.md)
 
@@ -124,7 +124,7 @@ Para definir o administrador AD Azure:
     ![selecionar o active directory](./media/secure-database-tutorial/admin-settings.png)  
 
     > [!IMPORTANT]
-    > Tem de ser um "Administrador da Empresa" ou "Administrador Global" para executar esta tarefa.
+    > Tem de ser um "Administrador Global" para executar esta tarefa.
 
 1. Na página **de administração Adicionar,** procure e selecione o utilizador ou grupo AD e escolha **Select**. Todos os membros e grupos do seu Diretório Ativo estão listados, e as entradas acinzentadas não são suportadas como administradores da AD Azure. Consulte [as funcionalidades e limitações da AD Azure](authentication-aad-overview.md#azure-ad-features-and-limitations).
 
@@ -276,7 +276,7 @@ Para permitir a auditoria:
 
 1. Nas definições **de Auditoria,** defina os seguintes valores:
 
-   1. Defina a opção **Auditoria** como **Ativar**.
+   1. Defina a opção **Auditoria** como **ATIVAR**.
 
    1. Selecione **destino de registo de auditoria** como qualquer um dos seguintes:
 
@@ -338,7 +338,7 @@ Para ativar ou verificar encriptação:
 > [!NOTE]
 > Para visualizar o estado de encriptação, ligue-se à base de dados utilizando [SSMS](connect-query-ssms.md) e consulte a `encryption_state` coluna da vista [sys.dm_database_encryption_keys.](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql) Um estado indica `3` que a base de dados está encriptada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a melhorar a segurança da sua base de dados com apenas alguns passos simples. Aprendeu a:
 

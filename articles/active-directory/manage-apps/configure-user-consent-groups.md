@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: b318ed0d5cd97ca7c020097dff25516f0783c70e
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 719bdd6a4d629bb4a35e7e11631670b0340e72a6
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99055302"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090018"
 ---
 # <a name="configure-group-owner-consent-to-apps-accessing-group-data"></a>Configure o consentimento do proprietário do grupo para apps que acedam aos dados do grupo
 
@@ -31,7 +31,7 @@ Pode configurar quais os utilizadores que estão autorizados a consentir em apli
 
 Siga estas medidas para gerir o consentimento do proprietário do grupo para aplicações que acedam aos dados do grupo:
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) como [Administrador Global.](../roles/permissions-reference.md#global-administrator--company-administrator)
+1. Inscreva-se no [portal Azure](https://portal.azure.com) como [Administrador Global.](../roles/permissions-reference.md#global-administrator)
 2. Selecione **Azure Ative Directory**  >  **Enterprise aplicações**  >  **Consent and permissions** User consent  >  **settings**.
 3. Sob **o consentimento do proprietário do Grupo para aplicações que acedam a dados** selecione a opção que gostaria de ativar.
 4. **Selecione Guardar** para guardar as suas definições.

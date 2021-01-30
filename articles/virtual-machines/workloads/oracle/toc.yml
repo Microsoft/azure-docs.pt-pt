@@ -30,6 +30,12 @@
       href: oracle-reference-architecture.md
     - name: Arquitetar uma base de dados Oracle
       href: oracle-design.md
+    - name: Estratégias de backup da Oracle Database
+      href: oracle-database-backup-strategies.md
+    - name: Backup da Oracle Database usando armazenamento Azure
+      href: oracle-database-backup-azure-storage.md
+    - name: Backup da Oracle Database usando backup Azure
+      href: oracle-database-backup-azure-backup.md
     - name: Opções de recuperação após desastre da Oracle
       href: oracle-disaster-recovery.md
 - name: Guias de procedimentos
