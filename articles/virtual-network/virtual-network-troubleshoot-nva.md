@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: 18f2128b6869b4047cc6f35e1638aca81233a014
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: fe4c17b74cd786d03bd19257dea190a21ecaa9f5
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219288"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99095646"
 ---
 # <a name="network-virtual-appliance-issues-in-azure"></a>Problemas de aparelhos virtuais em rede em Azure
 
@@ -30,7 +30,7 @@ Pode experimentar problemas e erros de conectividade VM ou VPN ao utilizar um ap
 O suporte técnico para NVAs de terceiros e a sua integração com a plataforma Azure são fornecidos pelo fornecedor NVA.
 
 > [!NOTE]
-> Se tiver um problema de conectividade ou encaminhamento que envolva um NVA, deverá contactar diretamente [o fornecedor da NVA.](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines)
+> Se tiver um problema de conectividade ou encaminhamento que envolva um NVA, deverá contactar diretamente [o fornecedor da NVA.](https://mskb.pkisolutions.com/kb/2984655)
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -52,7 +52,7 @@ O suporte técnico para NVAs de terceiros e a sua integração com a plataforma 
 
 ## <a name="check-the-minimum-configuration-requirements-for-nvas-on-azure"></a>Verifique os requisitos mínimos de configuração para NVAs em Azure
 
-Cada NVA tem requisitos básicos de configuração para funcionar corretamente no Azure. A secção seguinte fornece os passos para verificar estas configurações básicas. Para mais informações, [contacte o fornecedor da NVA.](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines)
+Cada NVA tem requisitos básicos de configuração para funcionar corretamente no Azure. A secção seguinte fornece os passos para verificar estas configurações básicas. Para mais informações, [contacte o fornecedor da NVA.](https://mskb.pkisolutions.com/kb/2984655)
 
 **Verifique se o encaminhamento IP está ativado na NVA**
 
@@ -112,17 +112,17 @@ Utilizar o PowerShell
     ```console
    netstat -an | grep -i listen
     ```
-2. Se não vir a porta TCP que é utilizada pelo software NVA que está listado nos resultados, tem de configurar a aplicação na NVA e VM para ouvir e responder ao tráfego que chega a essas portas. [Contacte o fornecedor NVA para obter assistência, se necessário.](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines)
+2. Se não vir a porta TCP que é utilizada pelo software NVA que está listado nos resultados, tem de configurar a aplicação na NVA e VM para ouvir e responder ao tráfego que chega a essas portas. [Contacte o fornecedor NVA para obter assistência, se necessário.](https://mskb.pkisolutions.com/kb/2984655)
 
 ## <a name="check-nva-performance"></a>Verifique o desempenho da NVA
 
 ### <a name="validate-vm-cpu"></a>Validar CPU VM
 
-Se o uso do CPU se aproximar dos 100%, poderá experimentar problemas que afetam as quedas de pacotes de rede. O seu VM reporta cpu médio por um período de tempo específico no portal Azure. Durante um pico de CPU, investigue qual o processo no VM convidado que está a causar o alto CPU, e atenuá-lo, se possível. Também pode ter de redimensionar o VM para um tamanho SKU maior ou, para conjunto de escala de máquina virtual, aumentar a contagem de instâncias ou definir para escala automática na utilização do CPU. Para qualquer uma destas questões, [contacte o fornecedor NVA para obter assistência,](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines)se necessário.
+Se o uso do CPU se aproximar dos 100%, poderá experimentar problemas que afetam as quedas de pacotes de rede. O seu VM reporta cpu médio por um período de tempo específico no portal Azure. Durante um pico de CPU, investigue qual o processo no VM convidado que está a causar o alto CPU, e atenuá-lo, se possível. Também pode ter de redimensionar o VM para um tamanho SKU maior ou, para conjunto de escala de máquina virtual, aumentar a contagem de instâncias ou definir para escala automática na utilização do CPU. Para qualquer uma destas questões, [contacte o fornecedor NVA para obter assistência,](https://mskb.pkisolutions.com/kb/2984655)se necessário.
 
 ### <a name="validate-vm-network-statistics"></a>Validar estatísticas da Rede VM
 
-Se a rede VM utilizar picos ou mostrar períodos de alta utilização, também poderá ter de aumentar o tamanho SKU do VM para obter capacidades de produção mais elevadas. Também pode recolocar o VM com ativação de rede acelerada. Para verificar se o NVA suporta a funcionalidade de Rede Acelerada, [contacte o fornecedor NVA para obter assistência,](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines)se necessário.
+Se a rede VM utilizar picos ou mostrar períodos de alta utilização, também poderá ter de aumentar o tamanho SKU do VM para obter capacidades de produção mais elevadas. Também pode recolocar o VM com ativação de rede acelerada. Para verificar se o NVA suporta a funcionalidade de Rede Acelerada, [contacte o fornecedor NVA para obter assistência,](https://mskb.pkisolutions.com/kb/2984655)se necessário.
 
 ## <a name="advanced-network-administrator-troubleshooting"></a>Resolução avançada de problemas do administrador de rede
 
@@ -146,4 +146,4 @@ Capture um traço de rede simultâneo na origem VM, na NVA e no VM de destino en
 
 Se não vir os pacotes a chegar ao traço VM de backend, é provável que uma interferência de NSG ou UDR ou as tabelas de encaminhamento NVA estejam incorretas.
 
-Se vir que os pacotes estão a ser enviados, mas que não há resposta, poderá ter de resolver um problema da aplicação de VM ou de firewall. Para qualquer uma destas questões, [contacte o fornecedor NVA para obter assistência, se necessário.](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines)
+Se vir que os pacotes estão a ser enviados, mas que não há resposta, poderá ter de resolver um problema da aplicação de VM ou de firewall. Para qualquer uma destas questões, [contacte o fornecedor NVA para obter assistência, se necessário.](https://mskb.pkisolutions.com/kb/2984655)

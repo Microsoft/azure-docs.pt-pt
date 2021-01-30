@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/21/2020
 keywords: puxar segredo, aro, openshift, chapéu vermelho
-ms.openlocfilehash: 769b7589fb6496fc2f4123665ad1f6fe61d0cce2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1a8e45a2eab1b7b4c8a5936049f404d5bd3441c
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89294752"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071091"
 ---
 # <a name="add-or-update-your-red-hat-pull-secret-on-an-azure-red-hat-openshift-4-cluster"></a>Adicione ou atualize o seu chapéu vermelho puxe segredo em um cluster Azure Red Hat OpenShift 4
 
@@ -231,6 +231,6 @@ Se não vir os Operadores Certificados e Operadores de Chapéu Vermelho, aguarde
 Para garantir que o seu segredo de retirada foi atualizado e está a funcionar corretamente, abra o OperatorHub e verifique se existe qualquer Operador verificado pelo Chapéu Vermelho. Por exemplo, verifique se o Operador de Armazenamento de Contentores OpenShift está disponível e veja se tem permissões para instalar.
 
 ## <a name="next-steps"></a>Passos seguintes
-Para saber mais sobre o Chapéu Vermelho, consulte [Usando segredos de imagem.](https://docs.openshift.com/container-platform/4.5/openshift_images/managing_images/using-image-pull-secrets.html)
+Para saber mais sobre o Chapéu Vermelho, consulte [Usando segredos de imagem.](https://docs.openshift.com/container-platform/4.6/openshift_images/managing_images/using-image-pull-secrets.html)
 
-Para saber mais sobre o Red Hat OpenShift 4, consulte [O Azure Red Hat OpenShift 4](https://docs.openshift.com/aro/4/welcome/index.html).
+Para saber mais sobre o Red Hat OpenShift 4, consulte a documentação da plataforma do [recipiente openshift do chapéu vermelho.](https://docs.openshift.com/container-platform/4.6/welcome/index.html)

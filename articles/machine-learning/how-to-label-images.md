@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
 ms.custom: data4ml
-ms.openlocfilehash: eb8c69a6bf009543e104a472469c243638726f60
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 5ba399418d8f93204b168c1058be20ffc775ef70
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060372"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99096970"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Identifie imagens em um projeto de rotulagem 
 
@@ -63,11 +63,7 @@ O Azure ativa o botão **Enviar** quando tiver marcado todas as imagens na pági
 
 Depois de submeter tags para os dados em questão, o Azure atualiza a página com um novo conjunto de imagens da fila de trabalho.
 
-### <a name="assisted-machine-learning-preview"></a>Aprendizagem assistida de máquinas (pré-visualização) 
-
-> [!IMPORTANT]
-> A aprendizagem de máquinas assistida está atualmente em visualização pública.
-> A versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+### <a name="assisted-machine-learning"></a>Aprendizagem de máquina assistida
 
 Os algoritmos de aprendizagem automática podem ser desencadeados. Se estes algoritmos estiverem ativados no seu projeto, poderá ver o seguinte:
 
@@ -75,7 +71,14 @@ Os algoritmos de aprendizagem automática podem ser desencadeados. Se estes algo
 
 * Mais tarde, poderá ver **Tasks pré-etiquetadas** ao lado do nome do projeto.  As imagens aparecerão então com um rótulo sugerido que provém de um modelo de classificação de machine learning. Nenhum modelo de aprendizagem automática tem 100% de precisão. Embora utilizemos apenas imagens para as quais o modelo está confiante, estas imagens ainda podem estar incorretamente pré-etiquetadas.  Quando vir estas etiquetas, corrija as etiquetas erradas antes de enviar a página.  
 
-* Para modelos de deteção de objetos, pode ver caixas e etiquetas já presentes.  Corrija qualquer que esteja incorreta antes de enviar a página.
+* Para modelos de identificação de objetos, pode ver caixas e etiquetas já presentes.  Corrija qualquer que esteja incorreta antes de enviar a página.
+
+* Para modelos de segmentação, pode ver polígonos e rótulos já presentes.  Corrija qualquer que esteja incorreta antes de enviar a página. 
+
+    > [!IMPORTANT]
+    > As funcionalidades listadas com (pré-visualização) estão em pré-visualização pública.   
+    > A versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 Especialmente no início de um projeto de rotulagem, o modelo de machine learning só pode ser preciso o suficiente para pré-lobel um pequeno subconjunto de imagens. Uma vez rotuladas estas imagens, o projeto de rotulagem voltará à rotulagem manual para recolher mais dados para a próxima ronda de formação de modelos. Com o passar do tempo, o modelo ficará mais confiante sobre uma maior proporção de imagens, resultando em tarefas mais pré-escritas mais tarde no projeto.
 

@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 509a3ac383cebd91821e9c4b872c253ab3b0a947
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6a321b2eb79ea01bbf94e1a413c189ac7f4614ad
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005865"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99096428"
 ---
 # <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Recuperação após desastre e ativação pós-falha do dispositivo para a Matriz Virtual do StorSimple através do portal do Azure
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Este artigo descreve a recuperação de desastres para o seu Microsoft Azure StorSimple Virtual Array, incluindo os passos detalhados para falhar em outra matriz virtual. Uma falha permite-lhe mover os seus dados de um dispositivo de *origem* no datacenter para um dispositivo *alvo.* O dispositivo-alvo pode estar localizado na mesma localização geográfica ou numa localização geográfica diferente. A falha do dispositivo é para todo o dispositivo. Durante o failover, os dados da nuvem do dispositivo de origem alteram a propriedade do dispositivo alvo.
 
 Este artigo é aplicável apenas a Arrays Virtuais StorSimple. Para falhar mais de um dispositivo da série 8000, vá ao dispositivo de failover e à [recuperação de desastres do seu dispositivo StorSimple](./storsimple-8000-device-failover-disaster-recovery.md).
@@ -156,7 +156,7 @@ Execute os seguintes passos para restaurar o dispositivo num dispositivo virtual
     1. Selecione e clique no dispositivo StorSimple que foi usado como o dispositivo alvo para o processo de falha.
     2. Aceda a **Definições > Management > Shares** (ou **Volumes** se o servidor iSCSI). Na lâmina **Shares,** pode visualizar todas as ações (volumes) do dispositivo antigo.
         ![Screenshot da lâmina dos dispositivos. O dispositivo alvo está listado com um estado de Online.](./media/storsimple-virtual-array-failover-dr/failover9.png)
-14. Será necessário [criar um pseudónimo DNS](https://support.microsoft.com/kb/168322) para que todas as aplicações que estão a tentar ligar possam ser redirecionadas para o novo dispositivo.
+14. Será necessário [criar um pseudónimo DNS](https://web.archive.org/web/20150307000707/http://support.microsoft.com:80/kb/168322) para que todas as aplicações que estão a tentar ligar possam ser redirecionadas para o novo dispositivo.
 
 ## <a name="errors-during-dr"></a>Erros durante o DR
 

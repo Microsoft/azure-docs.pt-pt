@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com o ServiceNow Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com o ServiceNow | Microsoft Docs'
 description: Saiba como configurar um único sinal de inscrição entre o Azure Ative Directory e o ServiceNow.
 services: active-directory
 author: jeevansd
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jeedes
-ms.openlocfilehash: 7a15248300150c9b79c4678701f81fac923d56a3
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: c90234249f3cf7eb6ed4793110d61e1f8190ed60
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353617"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092637"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>Tutorial: Azure Ative Directy integração única (SSO) com o ServiceNow
 
@@ -36,7 +36,7 @@ Para começar, precisa dos seguintes itens:
 * Uma assinatura ativada por ServiceNow (SSO).
 * Para o ServiceNow, um caso ou inquilino do ServiceNow apoia as versões Calgary, Kingston, Londres, Madrid, Nova Iorque, Orlando e Paris ou mais tarde.
 * Para o ServiceNow Express, uma instância do ServiceNow Express, versão Helsínquia ou posterior.
-* O inquilino do ServiceNow deve ter o [sinal único de fornecedor múltiplo no plugin.](https://wiki.servicenow.com/index.php?title=Multiple_Provider_Single_Sign-On#gsc.tab=0)
+* O inquilino do ServiceNow deve ter o [sinal único de fornecedor múltiplo no plugin.](https://old.wiki/index.php/Multiple_Provider_Single_Sign-On#gsc.tab=0)
 * Para a configuração automática, ative o plugin multi-fornecedor para o ServiceNow.
 * Para instalar a aplicação ServiceNow Classic (Mobile), vá à loja apropriada e procure a aplicação ServiceNow Classic. Então, descarregue.
 
@@ -127,7 +127,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 Nesta secção, irá criar um utilizador de teste, chamado B.Simon, no portal Azure.
 
-1. A partir do painel esquerdo no portal Azure, selecione **Utilizadores do Diretório Ativo Azure**  >  **Users**  >  **Todos os utilizadores**.
+1. A partir do painel esquerdo no portal Azure, selecione **Utilizadores do Diretório Ativo Azure**  >    >  **Todos os utilizadores**.
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
    1. Para **nome,** insira `B.Simon` .  
@@ -230,7 +230,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     * Para **ativar a registo de depuragem para a integração SSO de vários fornecedores,** selecione **Sim**.
 
-    * Para o campo na mesa de **email** **utilizadores que...**
+    * Para o campo na mesa de  **utilizadores que...**
   
     * Selecione **Guardar**.
 
@@ -248,7 +248,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     1. Inscreva-se na sua aplicação ServiceNow como administrador.
 
-       * Na configuração automática, todas as definições necessárias estão configuradas no lado **do ServiceNow,** mas o **Certificado X.509** não é ativado por predefinição e dá o valor **do Script Sign-On único** como **MultiSSOv2_SAML2_custom**. Tem de mapear manualmente o seu fornecedor de identidade no ServiceNow. Siga estes passos:
+       * Na configuração automática, todas as definições necessárias estão configuradas no lado **do ServiceNow,** mas o **Certificado X.509** não é ativado por predefinição e dá o valor **do Script Sign-On único** como **MultiSSOv2_SAML2_custom**. Tem de mapear manualmente o seu fornecedor de identidade no ServiceNow. Siga estes passos.
 
          1. No painel esquerdo, procure a secção **SSO multi-fornecedor** da caixa de pesquisa e selecione **Fornecedores de Identidade**.
 
@@ -340,7 +340,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
         e. Selecione **Avançadas**. No **Campo do Utilizador,** insira **o e-mail**.
 
         > [!NOTE]
-        > Pode configurar a Azure AD para emitir o ID do utilizador Azure (nome principal do utilizador) ou o endereço de e-mail como o identificador único no token SAML. Faça-o indo **ServiceNow** para a secção de  >  **Attributes**  >  **sinalização ServiceNow Atributos Únicos** do portal Azure e mapeando o campo desejado para o atributo **nameidentifier.** O valor armazenado para o atributo selecionado em Azure AD (por exemplo, nome principal do utilizador) deve corresponder ao valor armazenado no ServiceNow para o campo introduzido (por exemplo, user_name).
+        > Pode configurar a Azure AD para emitir o ID do utilizador Azure (nome principal do utilizador) ou o endereço de e-mail como o identificador único no token SAML. Faça-o indo para a secção de  >    >  **sinalização ServiceNow Atributos Únicos** do portal Azure e mapeando o campo desejado para o atributo **nameidentifier.** O valor armazenado para o atributo selecionado em Azure AD (por exemplo, nome principal do utilizador) deve corresponder ao valor armazenado no ServiceNow para o campo introduzido (por exemplo, user_name).
 
         exemplo, Selecione **a ligação** de teste no canto superior direito da página.
 
@@ -376,7 +376,7 @@ O objetivo desta secção é criar um utilizador chamado B.Simon in ServiceNow. 
 
     b. Toggle **Enable debug logging para a integração SSO de vários fornecedores** à direita.
 
-    c. **No campo da mesa de utilizadores que user_name...** **user_name**
+    c. **No campo da mesa de utilizadores que user_name...** 
 
 4. Na **caixa de** diálogo de inscrição única, selecione **Adicionar Novo Certificado**.
 
@@ -446,7 +446,7 @@ O objetivo desta secção é criar um utilizador chamado B.Simon in ServiceNow. 
     e. Para **o Campo do Utilizador,** introduza o **e-mail**.
 
     > [!NOTE]
-    > Pode configurar a Azure AD para emitir o ID do utilizador Azure (nome principal do utilizador) ou o endereço de e-mail como o identificador único no token SAML. Faça-o indo **ServiceNow** para a secção de  >  **Attributes**  >  **sinalização ServiceNow Atributos Únicos** do portal Azure e mapeando o campo desejado para o atributo **nameidentifier.** O valor armazenado para o atributo selecionado em Azure AD (por exemplo, nome principal do utilizador) deve corresponder ao valor armazenado no ServiceNow para o campo introduzido (por exemplo, user_name).
+    > Pode configurar a Azure AD para emitir o ID do utilizador Azure (nome principal do utilizador) ou o endereço de e-mail como o identificador único no token SAML. Faça-o indo para a secção de  >    >  **sinalização ServiceNow Atributos Únicos** do portal Azure e mapeando o campo desejado para o atributo **nameidentifier.** O valor armazenado para o atributo selecionado em Azure AD (por exemplo, nome principal do utilizador) deve corresponder ao valor armazenado no ServiceNow para o campo introduzido (por exemplo, user_name).
 
     f. Selecione **Guardar**.
 

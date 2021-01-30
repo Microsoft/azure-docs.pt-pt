@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b750d4cc911dc72b60974171dd884b373921fad5
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 3e123ab6d5b9d801908112239cf3e9cb72b4abbb
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734601"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99093970"
 ---
 # <a name="azure-security-baseline-for-azure-signalr-service"></a>Linha de segurança Azure para o Serviço Azure SignalR
 
@@ -220,7 +220,7 @@ A Proteção Avançada Contra Ameaças (ATP) do Azure é uma solução de segura
 
 **Orientação**: As funções mais críticas em formação são o Azure Ative Directory (Azure AD) são o Administrador Global e o Administrador de Função Privilegiado, uma vez que os utilizadores designados para estas duas funções podem delegar funções de administrador:
 
-- Administrador Global / Administrador da Empresa: Os utilizadores com esta função têm acesso a todas as funcionalidades administrativas em Azure AD, bem como serviços que utilizam identidades AZure AD.
+- Administrador Global: Os utilizadores com esta função têm acesso a todas as funcionalidades administrativas em Azure AD, bem como serviços que utilizam identidades AZure AD.
 
 - Administrador privilegiado: Os utilizadores com esta função podem gerir atribuições de funções no Azure Ative Directory (Azure AD), bem como na Azure AD Privileged Identity Management (PIM). Além disso, esta função permite a gestão de todos os aspetos da PIM e das unidades administrativas.
 

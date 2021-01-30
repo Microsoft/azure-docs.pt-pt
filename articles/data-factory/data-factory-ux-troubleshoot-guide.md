@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 09/03/2020
 ms.author: ceespino
 ms.reviewer: daperlov
-ms.openlocfilehash: 0bd0421a74679ff0c9498540d722a74ebf3d58af
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 8bb4ff3198764a35bebc124ee1ce99a93428693d
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632572"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99095960"
 ---
 # <a name="troubleshoot-azure-data-factory-ux-issues"></a>Problemas de resolução de dados Azure Data Factory UX Problemas
 
@@ -28,7 +28,7 @@ Este artigo explora métodos comuns de resolução de problemas para a Azure Dat
 
 ### <a name="third-party-cookies-blocked"></a>Cookies de terceiros bloqueados
 
-O ADF UX utiliza cookies de navegador para persistir na sessão do utilizador e permitir experiências de desenvolvimento e monitorização interativas. É possível que o seu navegador bloqueie cookies de terceiros porque está a usar uma sessão incógnita ou tem um bloqueador de anúncios ativado. Bloquear cookies de terceiros pode causar problemas ao carregar o portal, como ser redirecionado para uma página em branco, https://adf.azure.com/accesstoken.html ou receber uma mensagem de aviso dizendo que os cookies de terceiros estão bloqueados. Para resolver este problema, ative as opções de cookies de terceiros no seu navegador utilizando os seguintes passos:
+O ADF UX utiliza cookies de navegador para persistir na sessão do utilizador e permitir experiências de desenvolvimento e monitorização interativas. É possível que o seu navegador bloqueie cookies de terceiros porque está a usar uma sessão incógnita ou tem um bloqueador de anúncios ativado. Bloquear cookies de terceiros pode causar problemas ao carregar o portal, como ser redirecionado para uma página em branco, https://adf.azure.com/accesstoken.html ', ', ou receber uma mensagem de aviso dizendo que os cookies de terceiros estão bloqueados. Para resolver este problema, ative as opções de cookies de terceiros no seu navegador utilizando os seguintes passos:
 
 ### <a name="google-chrome"></a>Google Chrome
 
@@ -71,7 +71,7 @@ Se não quiser permitir todos os cookies, pode opcionalmente apenas permitir ADF
 
 ## <a name="connection-failed-on-adf-ux"></a>A ligação falhou no ADF UX
 
-Por vezes, veria erros de "Ligação falhada" no ADF UX semelhantes à imagem abaixo depois de clicar em **Test Connection** , **Preview** , etc.
+Por vezes, veria erros de "Ligação falhada" no ADF UX semelhantes à imagem abaixo depois de clicar em **Test Connection**, **Preview**, etc.
 
 ![A ligação falhou](media/data-factory-ux-troubleshoot-guide/connection-failed.png)
 
@@ -81,7 +81,7 @@ Se ainda não estiver a funcionar, no browser, prima F12 para abrir **ferramenta
 
 ![Pedido falhado](media/data-factory-ux-troubleshoot-guide/failed-request.png)
 
-Em seguida, encontre o **nome do anfitrião** (neste caso, **dpnortheurope.svc.datafactory.azure.com** ) a partir do URL de **pedido** do pedido falhado.
+Em seguida, encontre o **nome do anfitrião** (neste caso, **dpnortheurope.svc.datafactory.azure.com**) a partir do URL de **pedido** do pedido falhado.
 
 Digite o nome do **anfitrião** diretamente na barra de endereço do seu navegador. Se vir 404 no navegador, isto normalmente significa que o lado do cliente está bem e o problema está no lado do serviço ADF. Arquivar um bilhete de suporte com o **ID** de atividade a partir da mensagem de erro ADF UX.
 
@@ -91,7 +91,7 @@ Se não ou vir um erro semelhante abaixo no navegador, isto geralmente significa
 
 ![Erro do lado do cliente](media/data-factory-ux-troubleshoot-guide/client-side-error.png)
 
-Abrir **o comando rápido** e escrever **nslookup dpnortheurope.svc.datafactory.azure.com** . Uma resposta normal deve parecer abaixo:
+Abrir **o comando rápido** e escrever **nslookup dpnortheurope.svc.datafactory.azure.com**. Uma resposta normal deve parecer abaixo:
 
 ![Resposta de comando 1](media/data-factory-ux-troubleshoot-guide/command-response-1.png)
 
@@ -119,5 +119,5 @@ Para obter mais ajuda para resolver problemas, experimente estes recursos:
 * [Pedidos de recursos da Data Factory](https://feedback.azure.com/forums/270578-data-factory)
 * [Stack Overflow Forum para a Fábrica de Dados](https://stackoverflow.com/questions/tagged/azure-data-factory)
 * [Informações do Twitter sobre a Data Factory](https://twitter.com/hashtag/DataFactory)
-* [Vídeos Azure](https://azure.microsoft.com/resources/videos/index/)
+* [Vídeos do Azure](https://azure.microsoft.com/resources/videos/index/)
 * [Microsoft Q&Uma página de perguntas](/answers/topics/azure-data-factory.html)

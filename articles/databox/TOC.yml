@@ -76,6 +76,8 @@
               items:
                 - name: Linha de base de segurança
                   href: security-baseline.md
+                - name: Controlos de segurança do Azure Policy
+                  href: ./security-controls-policy.md
                 - name: Rever a segurança
                   href: data-box-security.md
             - name: Transferir ACLs e metadados

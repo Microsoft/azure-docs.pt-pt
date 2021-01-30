@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: d1360589fe2c2ec13c341dd14793db0ca8b809c4
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 9afe50e419f9c180b0b5efcd6182eb693dc6622a
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358882"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99094014"
 ---
 # <a name="migration-overview-sql-server-to-sql-managed-instance"></a>Visão geral da migração: SQL Server para SQL Managed Instance
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -32,7 +32,7 @@ Pode migrar o SQL Server a funcionar no local ou em:
 
 Para outros cenários, consulte o [Guia de Migração da Base de Dados.](https://datamigration.microsoft.com/) 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 [Azure SQL Managed Instance](../../managed-instance/sql-managed-instance-paas-overview.md) é uma opção-alvo recomendada para cargas de trabalho do SQL Server que requerem um serviço totalmente gerido sem ter de gerir máquinas virtuais ou seus sistemas operativos. A SQL Managed Instance permite-lhe levantar e transferir as suas aplicações no local para Azure com alterações mínimas de aplicação ou de base de dados, ao mesmo tempo que tem isolamento total das suas instâncias com suporte a redes virtuais nativas (VNet). 
 
@@ -172,7 +172,7 @@ Os logins SQL do servidor SQL de origem podem ser transferidos para Azure SQL Ma
 
 Por padrão, o Azure Database Migration Service suporta apenas logins SQL migratórios. No entanto, pode ativar a capacidade de migrar os logins do Windows através de:
 
-Garantindo que o target SQL Managed Instance tem acesso de leitura AZure AD, que pode ser configurado através do portal Azure por um utilizador com o **Administrador da Empresa** ou uma função de Administrador **Global.**
+Garantindo que o sql Managed Instance tem acesso de leitura AZure AD, que pode ser configurado através do portal Azure por um utilizador com a função **De Administrador Global.**
 Configurar a sua instância do Serviço de Migração de Bases de Dados Azure para permitir migrações de login de utilizador/grupo do Windows, que é configurada através do portal Azure, na página De Configuração. Depois de ativar esta definição, reinicie o serviço para que as alterações entrem em vigor.
 
 Depois de reiniciar o serviço, os logins de utilizador/grupo do Windows aparecem na lista de logins disponíveis para migração. Para quaisquer logins de utilizador/grupo do Windows que migrar, é solicitado que forneça o nome de domínio associado. As contas de utilizadores de serviço (conta com nome de domínio NT AUTHORITY) e contas de utilizador virtuais (nome de conta com nome de domínio NT SERVICE) não são suportadas.
@@ -203,7 +203,7 @@ Algumas funcionalidades só estão disponíveis quando o [nível de compatibilid
 
 Para assistência adicional, consulte os seguintes recursos que foram desenvolvidos para projetos de migração no mundo real.
 
-|Recurso  |Descrição  |
+|Recurso  |Description  |
 |---------|---------|
 |[Modelo e ferramenta de avaliação da carga de trabalho de dados](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool)| Esta ferramenta fornece plataformas-alvo sugeridas "melhor ajuste", prontidão na nuvem e nível de remediação de aplicações/bases de dados para uma determinada carga de trabalho. Oferece um cálculo simples e de um clique e uma geração de relatórios que ajuda a acelerar as grandes avaliações imobiliárias, fornecendo e automatizada e uniforme processo de decisão da plataforma-alvo.|
 |[Utilidade DBLoader](https://github.com/microsoft/DataMigrationTeam/tree/master/DBLoader%20Utility)|O DBLoader pode ser usado para carregar dados de ficheiros de texto delimitados para o SQL Server. Este utilitário de consola Windows utiliza a interface de volume de pessoal do cliente nativo do SQL Server, que funciona em todas as versões do SQL Server, incluindo O SQL MI.|

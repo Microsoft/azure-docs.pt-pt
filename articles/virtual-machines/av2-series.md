@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: b3419b54fa18058583d81909f7fca0f20dc4b0dd
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: d0972c9ed48f56a495804052c1ffc2b28e1db083
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98917138"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99095329"
 ---
 # <a name="av2-series"></a>Série Av2
 
@@ -25,6 +25,7 @@ Os VMs da série Av2 podem ser implantados numa variedade de tipos e processador
 [Atualizações de preservação da memória](maintenance-and-updates.md): Suportado <br>
 [Suporte de geração VM](generation-2.md): Geração 1 <br>
 [Rede Acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): Não Suportado<br>
+[Discos EFÉMEROS :](ephemeral-os-disks.md)Não Suportados <br>
 <br>
 
 | Tamanho | vCore | Memória: GiB | Armazenamento (SSD) temporário GiB | Produção de armazenamento temporário máximo: IOPS/Read MBps/Write MBps | Discos de dados/produção de dados máximos: IOPS | NICs máximos | Largura de banda de rede esperada (Mbps)
@@ -52,6 +53,6 @@ Calculadora de preços : [Calculadora de Preços](https://azure.microsoft.com/pr
 
 Mais informações sobre tipos de discos : [tipos de discos](./disks-types.md#ultra-disk)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre como [as unidades de computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho do cálculo em Azure SKUs.

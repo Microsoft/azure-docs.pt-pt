@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: bc7893746cbb98a2d4adc4dabb39e22d015ab2c8
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: d4f8ab190d0418fbb25dad2cd7af231eabfe0f02
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050401"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090259"
 ---
 # <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>Tutorial: Construa um daemon multi-inquilino que usa a plataforma de identidade da Microsoft
 
@@ -45,7 +45,7 @@ A aplicação foi construída como uma aplicação MVC ASP.NET. Utiliza o middle
 
 O componente "daemon" desta amostra é um controlador API, `SyncController.cs` . Quando o controlador é chamado, ele puxa uma lista de utilizadores no inquilino Azure Ative Directory (Azure AD) do cliente do Microsoft Graph. `SyncController.cs` é desencadeada por uma chamada AJAX na aplicação web. Utiliza a [Microsoft Authentication Library (MSAL) para .NET](msal-overview.md) adquirir um token de acesso para o Microsoft Graph.
 
-Uma vez que a aplicação é uma aplicação multi-inquilina para clientes empresariais da Microsoft, deve fornecer uma forma de os clientes se "inscreverem" ou "ligarem" a aplicação aos dados da empresa. Durante o fluxo de ligação, um administrador da empresa concede primeiro permissões de aplicação diretamente à app para que possa aceder aos *dados* da empresa de forma não interativa, sem a presença de um utilizador inscrito. A maior parte da lógica desta amostra mostra como alcançar este fluxo de conexão utilizando o ponto final de consentimento da plataforma de [identidade.](v2-permissions-and-consent.md#using-the-admin-consent-endpoint)
+Uma vez que a aplicação é uma aplicação multi-inquilina para clientes empresariais da Microsoft, deve fornecer uma forma de os clientes se "inscreverem" ou "ligarem" a aplicação aos dados da empresa. Durante o fluxo de ligação, um Administrador Global concede primeiro permissões de aplicação diretamente à app para que possa aceder aos *dados* da empresa de forma não interativa, sem a presença de um utilizador inscrito. A maior parte da lógica desta amostra mostra como alcançar este fluxo de conexão utilizando o ponto final de consentimento da plataforma de [identidade.](v2-permissions-and-consent.md#using-the-admin-consent-endpoint)
 
 ![O diagrama mostra a App UserSync com três itens locais ligados ao Azure, com o Start dot Auth a adquirir um símbolo interativamente para ligar ao Azure A D, o AccountController obter o consentimento administrativo para ligar ao Azure A D e o utilizador de leitura SyncController para se ligar ao Microsoft Graph.](./media/tutorial-v2-aspnet-daemon-webapp/topology.png)
 

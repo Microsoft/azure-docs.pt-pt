@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 08/07/2020
-ms.openlocfilehash: 62cb8db094cf1bfd7d81b1da06dd7a1b743ec045
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 23af7b3f7cfd5ec0531c5cac73cf8a334ef4aa62
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93347487"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99096445"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Criar uma oferta de módulo do IoT Edge
 
@@ -78,7 +78,7 @@ Ao publicar a sua oferta no mercado com o Partner Center, pode conectá-la opcio
 
 Aqui estão alguns recursos adicionais de gestão de chumbo:
 
-- [O cliente lidera a partir da sua oferta de mercado comercial](commercial-marketplace-get-customer-leads.md)
+- [Oportunidades potenciais da oferta do marketplace comercial](commercial-marketplace-get-customer-leads.md)
 - [Questões comuns sobre gestão de chumbo](../lead-management-faq.md#common-questions-about-lead-management)
 - [Erros de configuração de chumbo de resolução de problemas](../lead-management-faq.md#publishing-config-errors)
 - [Visão geral da gestão de chumbo](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (Certifique-se de que o seu bloqueador pop-up está desligado).
@@ -131,7 +131,7 @@ Aqui definirá os detalhes da oferta que são apresentados no mercado. Isto incl
 > [!NOTE]
 > Os detalhes da oferta não são necessários para estar em inglês se a descrição da oferta começar com a frase: "Esta aplicação está disponível apenas em [língua não inglesa]." Também é normal fornecer um Link Útil para oferecer conteúdo num idioma diferente do usado na listagem de detalhes da Oferta.
 
-### <a name="name"></a>Nome
+### <a name="name"></a>Name
 
 O nome que aqui entra apresenta como título da sua oferta. Este campo está pré-preenchido com o texto que inseriu na caixa **de pseudónimos Oferta** quando criou a oferta. Pode alterar este nome posteriormente.
 
@@ -149,7 +149,7 @@ Forneça uma breve descrição da sua oferta. Isto pode ter até 100 caracteres 
 
 Forneça uma descrição mais detalhada da sua oferta. Isto pode ter até 256 caracteres de comprimento e é usado em resultados de pesquisa no mercado.
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
@@ -184,7 +184,7 @@ Deve fornecer o nome, e-mail e número de telefone para um **contacto de Suporte
 
 Na secção **de contacto de Apoio,** forneça o endereço web do **site de Apoio** onde os parceiros possam encontrar suporte para a sua oferta com base no facto de a oferta estar disponível no Global Azure, Azure Government, ou ambos.
 
-Na secção de contacto do **Programa CSP,** forneça o link **(CSP Program Marketing Materials** ) onde os parceiros da CSP possam encontrar materiais de marketing para a sua oferta.
+Na secção de contacto do **Programa CSP,** forneça o link **(CSP Program Marketing Materials**) onde os parceiros da CSP possam encontrar materiais de marketing para a sua oferta.
 
 #### <a name="additional-marketplace-listing-resources"></a>Recursos de listagem de mercado adicionais
 
@@ -234,9 +234,9 @@ Aqui está um exemplo de como a oferta de informação aparece no Azure Marketpl
 3. Endereço de suporte (link)
 4. Termos e condições
 5. Endereço de política de privacidade (link)
-6. Nome
+6. Name
 7. Resumo
-8. Descrição
+8. Description
 9. Ligações úteis
 10. Screenshots/vídeos
 
@@ -305,8 +305,8 @@ Depois de criar os seus planos, o separador **De visão geral** do Plano mostra:
 
 As ações disponíveis no Resumo do Plano variam consoante o estado atual do seu plano. Estas incluem:
 
-- **Eliminar rascunho** : Se o estado do plano for um Projeto.
-- **Plano de venda** : Se o estado do plano for publicado em direto.
+- **Eliminar rascunho**: Se o estado do plano for um Projeto.
+- **Plano de venda**: Se o estado do plano for publicado em direto.
 
 ### <a name="create-new-plan"></a>Criar novo plano
 
@@ -403,15 +403,15 @@ Pode direcionar várias plataformas e fornecer várias versões da imagem do seu
 
 Irá fornecer as seguintes informações no separador detalhes do **repositório de imagem.**
 
-**Selecione a fonte de imagem** : Selecione a opção registo do contentor **Azure.**
+**Selecione a fonte de imagem**: Selecione a opção registo do contentor **Azure.**
 
-**ID de assinatura Azure** : Forneça o ID de subscrição onde o uso do recurso é reportado e os serviços são faturados para o Registo do Contentor Azure que inclui a sua imagem de recipiente. Pode encontrar este ID na [página de Subscrições](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) no portal Azure.
+**ID de assinatura Azure**: Forneça o ID de subscrição onde o uso do recurso é reportado e os serviços são faturados para o Registo do Contentor Azure que inclui a sua imagem de recipiente. Pode encontrar este ID na [página de Subscrições](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) no portal Azure.
 
-**Nome do grupo de recursos Azure** : Forneça o nome do [grupo de recursos](../../azure-resource-manager/management/manage-resource-groups-portal.md) que contém o Registo do Contentor Azure com a sua imagem de recipiente. O grupo de recursos deve estar acessível no ID de assinatura (acima). Pode encontrar o nome na página [dos grupos de Recursos](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) no portal Azure.
+**Nome do grupo de recursos Azure**: Forneça o nome do [grupo de recursos](../../azure-resource-manager/management/manage-resource-groups-portal.md) que contém o Registo do Contentor Azure com a sua imagem de recipiente. O grupo de recursos deve estar acessível no ID de assinatura (acima). Pode encontrar o nome na página [dos grupos de Recursos](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) no portal Azure.
 
-**Nome do registo do contentor Azure** : Forneça o nome do Registo do [Contentor Azure](../../container-registry/container-registry-intro.md) que tem a sua imagem de recipiente. O registo do contentor deve estar presente no grupo de recursos Azure que forneceu anteriormente. Forneça apenas o nome do registo, não o nome completo do servidor de login. Certifique-se de omitir **azurecr.io** do nome. Pode encontrar o nome do registo na [página de Registos de Contentores](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries) no portal Azure.
+**Nome do registo do contentor Azure**: Forneça o nome do Registo do [Contentor Azure](../../container-registry/container-registry-intro.md) que tem a sua imagem de recipiente. O registo do contentor deve estar presente no grupo de recursos Azure que forneceu anteriormente. Forneça apenas o nome do registo, não o nome completo do servidor de login. Certifique-se de omitir **azurecr.io** do nome. Pode encontrar o nome do registo na [página de Registos de Contentores](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries) no portal Azure.
 
-**Nome de utilizador admin para o registo do contentor Azure** : Forneça o [nome de utilizador administrativo](../../container-registry/container-registry-authentication.md#admin-account)) associado ao Registo do Contentor Azure que tem a sua imagem de recipiente. O nome de utilizador e a palavra-passe são necessários para garantir que a sua empresa tem acesso ao registo. Para obter o nome de utilizador e a **palavra-passe** de administrador, desafine a propriedade ativada por administração para **True** utilizando a Interface Azure Command-Line (CLI). Pode configurar opcionalmente **o utilizador de Administração** para **ativar** no portal Azure.
+**Nome de utilizador admin para o registo do contentor Azure**: Forneça o [nome de utilizador administrativo](../../container-registry/container-registry-authentication.md#admin-account)) associado ao Registo do Contentor Azure que tem a sua imagem de recipiente. O nome de utilizador e a palavra-passe são necessários para garantir que a sua empresa tem acesso ao registo. Para obter o nome de utilizador e a **palavra-passe** de administrador, desafine a propriedade ativada por administração para **True** utilizando a Interface Azure Command-Line (CLI). Pode configurar opcionalmente **o utilizador de Administração** para **ativar** no portal Azure.
 
 :::image type="content" source="media/example-iot-update-container-registry.png" alt-text="Ilustra a caixa de diálogo do registo do contentor De atualização.":::
 
@@ -419,7 +419,7 @@ Irá fornecer as seguintes informações no separador detalhes do **repositório
 
 1. Utilizador administrador
 
-<br>**Palavra-passe para o Registo do Contentor Azure** : Forneça a palavra-passe para o nome de utilizador admin que está associado ao Registo do Contentor Azure e tem a sua imagem de recipiente. O nome de utilizador e a palavra-passe são necessários para garantir que a sua empresa tem acesso ao registo. Pode obter a palavra-passe do portal Azure indo para as Chaves de Acesso ao **Registo de Contentores**  >  **Access Keys** ou com o Azure CLI utilizando o comando do [show.](/cli/azure/acr/credential#az-acr-credential-show)
+<br>**Palavra-passe para o Registo do Contentor Azure**: Forneça a palavra-passe para o nome de utilizador admin que está associado ao Registo do Contentor Azure e tem a sua imagem de recipiente. O nome de utilizador e a palavra-passe são necessários para garantir que a sua empresa tem acesso ao registo. Pode obter a palavra-passe do portal Azure indo para as Chaves de Acesso ao **Registo de Contentores**  >   ou com o Azure CLI utilizando o comando do [show.](/cli/azure/acr/credential#az-acr-credential-show)
 
 :::image type="content" source="media/example-iot-access-keys.png" alt-text="Ilustra o ecrã da chave de acesso no portal Azure.":::
 
@@ -429,7 +429,10 @@ Irá fornecer as seguintes informações no separador detalhes do **repositório
 2. Nome de utilizador
 3. Palavra-passe
 
-**Nome do repositório no registo do contentor Azure**. Forneça o nome do repositório do Registo do Contentor Azure que tenha a sua imagem. Especifica o nome do repositório quando empurra a imagem para o registo. Pode encontrar o nome do repositório [Container Registry](https://azure.microsoft.com/services/container-registry/)indo para a página de  >  **Repositórios de Registo de Contentores.** Para mais informações, consulte [os repositórios de registo de contentores no portal Azure.](../../container-registry/container-registry-repositories.md) Depois do nome estar definido, não pode ser mudado. Use um nome único para cada oferta na sua conta.
+**Nome do repositório no registo do contentor Azure**. Forneça o nome do repositório do Registo do Contentor Azure que tenha a sua imagem. Especifica o nome do repositório quando empurra a imagem para o registo. Pode encontrar o nome do repositório [](https://azure.microsoft.com/services/container-registry/)indo para a página de  >  **Repositórios de Registo de Contentores.** Para mais informações, consulte [os repositórios de registo de contentores no portal Azure.](../../container-registry/container-registry-repositories.md) Depois do nome estar definido, não pode ser mudado. Use um nome único para cada oferta na sua conta.
+
+> [!NOTE]
+> Não apoiamos o registo de contentores Azure encriptados para certificação de módulos de borda. O Registo do Contentor Azure deve ser criado sem encriptação ativada.
 
 ### <a name="image-tags-for-new-versions-of-your-offer"></a>Etiquetas de imagem para novas versões da sua oferta
 
@@ -490,6 +493,6 @@ Para submeter a oferta de publicação, **selecione Publicar**.
 
 Enviaremos um e-mail para informá-lo quando uma versão de pré-visualização da oferta estiver disponível para revisão e aprovação. Para publicar a sua oferta ao público, vá ao Partner Center e selecione **Go-live**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Atualizar uma oferta existente no mercado comercial](update-existing-offer.md)

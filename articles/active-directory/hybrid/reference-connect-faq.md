@@ -1,5 +1,5 @@
 ---
-title: Azure Ative Directy Connect FAQ - / Microsoft Docs
+title: Azure Ative Directory Connect FAQ - | Microsoft Docs
 description: Este artigo responde a perguntas frequentes sobre Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff2651d2fed9c307bbb90623572b4a74d750d3a4
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 1fa195fd8d40c6b67a9c446f0b2320fe47d75259
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94836075"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092671"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Diretório Ativo Azure Conecta FAQ
 
@@ -52,7 +52,7 @@ A instalação Azure AD Connect só é suportada quando utilizar o assistente de
 A partir das construções de fevereiro de 2016, este cenário é apoiado.
 
 **P: O agente de saúde Azure Ative Directory Domain Services (Azure AD DS) funciona no núcleo do servidor?**  
-Sim. Depois de instalar o agente, pode concluir o processo de registo utilizando o seguinte cmdlet PowerShell: 
+Yes. Depois de instalar o agente, pode concluir o processo de registo utilizando o seguinte cmdlet PowerShell: 
 
 `Register-AzureADConnectHealthADDSAgent -Credentials $cred`
 
@@ -117,7 +117,7 @@ Segue-se um documento informativo que apresenta algumas das melhores práticas q
 - Mantenha a consistência da versão entre os Servidores AD AD do Azure tanto quanto possível 
 
 **P: Posso permitir que o Azure AD Connect crie a conta Azure AD Connector na máquina do Grupo de Trabalho?**
-Não.  Para permitir que o Azure AD Connect crie automaticamente a conta Azure AD Connector, a máquina deve ser ligada ao domínio.  
+N.º  Para permitir que o Azure AD Connect crie automaticamente a conta Azure AD Connector, a máquina deve ser ligada ao domínio.  
 
 ## <a name="network"></a>Rede
 **P: Tenho uma firewall, dispositivo de rede, ou outra coisa que limita o tempo que as ligações podem permanecer abertas na minha rede. Qual deve ser o limite de tempo do lado do cliente quando eu usar O AZure AD Connect?**  
@@ -147,10 +147,10 @@ Utilize as orientações descritas no artigo [renovar certificados.](how-to-conn
 
 ## <a name="environment"></a>Ambiente
 **P: É suportado para renomear o servidor depois de Azure AD Connect ter sido instalado?**  
-Não. A alteração do nome do servidor torna o motor de sincronização incapaz de se ligar à instância da base de dados SQL e o serviço não pode ser iniciado.
+N.º A alteração do nome do servidor torna o motor de sincronização incapaz de se ligar à instância da base de dados SQL e o serviço não pode ser iniciado.
 
 **P: As regras de sincronização cryptográficas de próxima geração (NGC) são suportadas numa máquina ativada por FIPS?**  
-Não.  Não são suportadas.
+N.º  Não são suportadas.
 
 **Q. Se desativei um dispositivo sincronizado (por exemplo: HAADJ) no portal Azure, por que é reativado?**<br>
 Os dispositivos sincronizados podem ser da autoria ou dominados nas instalações. Se um dispositivo sincronizado estiver ativado no local, poderá ser reativado no portal Azure, mesmo que tenha sido previamente desativado por um administrador. Para desativar um dispositivo sincronizado, utilize o Ative Directory no local para desativar a conta do computador.
@@ -162,8 +162,8 @@ Os utilizadores sincronizados podem ser da autoria ou dominados no local. Se a c
 **P: Porque é que o atributo userPrincipalName (UPN) em Azure AD não corresponde à UPN no local?**  
 Para obter informações, consulte estes artigos:
 
-* [Os nomes de utilizador no Microsoft 365, Azure ou Intune não correspondem ao UPN no local ou ao ID de login alternativo](https://support.microsoft.com/kb/2523192)
-* [As alterações não são sincronizadas pela ferramenta de sincronização do Azure Ative Directory depois de alterar a UPN de uma conta de utilizador para utilizar um domínio federado diferente](https://support.microsoft.com/kb/2669550)
+* [Os nomes de utilizador no Microsoft 365, Azure ou Intune não correspondem ao UPN no local ou ao ID de login alternativo](https://mskb.pkisolutions.com/kb/2523192)
+* [As alterações não são sincronizadas pela ferramenta de sincronização do Azure Ative Directory depois de alterar a UPN de uma conta de utilizador para utilizar um domínio federado diferente](https://mskb.pkisolutions.com/kb/2669550)
 
 Também pode configurar a AD Azure para permitir que o motor de sincronização atualize a UPN, conforme descrito nas [funções de serviço de sincronização Azure AD Connect](how-to-connect-syncservice-features.md).
 
@@ -178,7 +178,7 @@ Não, definir manualmente o atributo ImmutableId num grupo AD Azure existente ou
 Com exceção dos cmdlets que estão documentados neste site, outros cmdlets PowerShell encontrados no Azure AD Connect não são suportados para uso do cliente.
 
 **P: Posso utilizar a opção "Exportação/importação de servidores" encontrada no Gestor de Serviços de Sincronização para mover a configuração entre servidores?**  
-Não. Esta opção não recupera todas as definições de configuração e não deve ser utilizada. Em vez disso, utilize o assistente para criar a configuração base no segundo servidor e use o editor de regras de sincronização para gerar scripts PowerShell para mover qualquer regra personalizada entre servidores. Para mais informações, consulte [a migração swing.](how-to-upgrade-previous-version.md#swing-migration)
+N.º Esta opção não recupera todas as definições de configuração e não deve ser utilizada. Em vez disso, utilize o assistente para criar a configuração base no segundo servidor e use o editor de regras de sincronização para gerar scripts PowerShell para mover qualquer regra personalizada entre servidores. Para mais informações, consulte [a migração swing.](how-to-upgrade-previous-version.md#swing-migration)
 
 **P: As palavras-passe podem ser em cache para a página de início de Sação Azure, e este cache pode ser evitado porque contém um elemento de entrada de palavra-passe com o atributo *autocomplete = atributo "falso"?***  
 Atualmente, a modificação dos atributos HTML do campo **Palavra-Passe,** incluindo a etiqueta autocompleta, não é suportada. Estamos neste momento a trabalhar numa funcionalidade que permite o JavaScript personalizado, que permite adicionar qualquer atributo ao campo **Palavra-Passe.**
@@ -187,7 +187,7 @@ Atualmente, a modificação dos atributos HTML do campo **Palavra-Passe,** inclu
 Atualmente, a modificação dos atributos HTML do campo de entrada **password,** incluindo a etiqueta autocompleta, não é suportada. Estamos neste momento a trabalhar numa funcionalidade que permite o JavaScript personalizado, que permite adicionar qualquer atributo ao campo **Palavra-Passe.**
 
 **P: Existe uma maneira de prevenir sessões simultâneas?**  
-Não.
+N.º
 
 ## <a name="auto-upgrade"></a>Atualização automática
 
@@ -218,7 +218,7 @@ Sim, ainda precisa de atualizar para a versão 1.1.750.0 ou mais tarde. Ativar o
 Não precisa de saber o nome de utilizador e a palavra-passe que foi inicialmente utilizado para atualizar o Azure AD Connect. Utilize qualquer conta AD Azure que tenha o papel de Administrador Global.
 
 **P: Como posso encontrar qual versão do Azure AD Connect estou a usar?**  
-Para verificar qual a versão do Azure AD Connect instalada no seu servidor, vá ao Painel de Controlo **Programs** e procure a versão instalada do Microsoft Azure AD Connect selecionando  >  **Programas e Funcionalidades**, como mostrado aqui:
+Para verificar qual a versão do Azure AD Connect instalada no seu servidor, vá ao Painel de Controlo e procure a versão instalada do Microsoft Azure AD Connect selecionando  >  **Programas e Funcionalidades**, como mostrado aqui:
 
 ![Versão Azure AD Connect no Painel de Controlo](./media/reference-connect-faq/faq1.png)
 

@@ -8,16 +8,16 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.custom: references_regions
-ms.openlocfilehash: 0d1b2bd039f3e110c83d7ad4bf32f1e53e4c7a79
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: a2b26ae8debf1c52693018ce9a758bfa9b029fa2
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98610153"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99093381"
 ---
-# <a name="microsoft-azure-attestation-preview"></a>Microsoft Azure Attestation (pré-visualização)
+# <a name="microsoft-azure-attestation"></a>Microsoft Azure Attestation 
 
-O Microsoft Azure Attestation (pré-visualização) é uma solução unificada para verificar remotamente a fiabilidade de uma plataforma e integridade dos binários que estão dentro dela. O serviço suporta a certificação das plataformas apoiadas por Módulos de Plataforma Fidedigna (TPMs) juntamente com a capacidade de atestar o estado de Ambientes de Execução Fidedigna (TEEs) como [enclaves de Extensões de Redes de Software intel®](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html) (SGX) e enclaves de Segurança (VBS) [baseados em Virtualização.](/windows-hardware/design/device-experiences/oem-vbs) 
+O Microsoft Azure Attestation é uma solução unificada para verificar remotamente a fiabilidade de uma plataforma e integridade dos binários que estão dentro dela. O serviço suporta a certificação das plataformas apoiadas por Módulos de Plataforma Fidedigna (TPMs) juntamente com a capacidade de atestar o estado de Ambientes de Execução Fidedigna (TEEs) como [enclaves de Extensões de Redes de Software intel®](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html) (SGX) e enclaves de Segurança (VBS) [baseados em Virtualização.](/windows-hardware/design/device-experiences/oem-vbs) 
 
 Attestation é um processo para demonstrar que binários de software foram corretamente instantâneos numa plataforma de confiança. As partes de confiança remota podem então ganhar confiança de que apenas esse software pretendido está a ser gerido em hardware de confiança. O Azure Attestation é um serviço unificado virado para o cliente e enquadramento para a atestada.
 

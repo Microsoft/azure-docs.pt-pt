@@ -12,12 +12,12 @@ author: dalechen
 ms.author: ninarn
 ms.reviewer: sstein, vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: f8c94e36a1a6d1f675e9d6a7dde456dbf6eb8897
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9f2e755047910aefa89c2f187cda956aca608b98
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791363"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99093762"
 ---
 # <a name="troubleshoot-transient-connection-errors-in-sql-database-and-sql-managed-instance"></a>Resolução de erros de conexão transitórios na Base de Dados SQL e na SQL Gestd instance
 
@@ -31,7 +31,7 @@ Este artigo descreve como prevenir, resolver problemas, diagnosticar e mitigar e
 
 Um erro transitório, também conhecido como uma falha transitória, tem uma causa subjacente que logo se resolve. Uma causa ocasional de erros transitórios é quando o sistema Azure rapidamente transfere recursos de hardware para um melhor equilíbrio de carga várias cargas de trabalho. A maioria destes eventos de reconfiguração terminam em menos de 60 segundos. Durante este período de tempo de reconfiguração, poderá ter problemas em ligar-se à sua base de dados na Base de Dados SQL. As aplicações que se ligam à sua base de dados devem ser construídas para esperar estes erros transitórios. Para lidar com os mesmos, implementar a lógica de reação no seu código em vez de os apresentar aos utilizadores como erros de aplicação.
 
-Se o seu programa de clientes utilizar ADO.NET, o seu programa é informado sobre o erro transitório pelo lançamento da **SqlException** .
+Se o seu programa de clientes utilizar ADO.NET, o seu programa é informado sobre o erro transitório pelo lançamento da **SqlException**.
 
 <a id="connection-versus-command" name="connection-versus-command"></a>
 
@@ -134,9 +134,9 @@ Se o seu programa de clientes ligar à sua base de dados na Base de Dados SQL ut
 
 Quando construir a [cadeia de ligação](/dotnet/api/system.data.sqlclient.sqlconnection.connectionstring) para o seu objeto **SqlConnection,** coordene os valores entre os seguintes parâmetros:
 
-- **ConnectRetryCount** : &nbsp; &nbsp; O padrão é 1. O intervalo é de 0 a 255.
+- **ConnectRetryCount**: &nbsp; &nbsp; O padrão é 1. O intervalo é de 0 a 255.
 - **ConnectRetryInterval:** &nbsp; &nbsp; O padrão é de 10 segundos. O intervalo é de 1 a 60.
-- **Intervalo de ligação** : &nbsp; &nbsp; O predefinido é de 15 segundos. O intervalo é de 0 a 2147483647.
+- **Intervalo de ligação**: &nbsp; &nbsp; O predefinido é de 15 segundos. O intervalo é de 0 a 2147483647.
 
 Especificamente, os seus valores escolhidos devem tornar a igualdade verdadeira: Intervalo de ligação = ConnectRetryCount * ConnectionRetryInterval
 
@@ -276,7 +276,7 @@ A Enterprise Library 6 (EntLib60) oferece aulas geridas .NET para ajudar na expl
 
 Aqui estão algumas declarações Do Transt-SQL SELECT que consultam registos de erros e outras informações.
 
-| Consulta de log | Descrição |
+| Consulta de log | Description |
 |:--- |:--- |
 | `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |A [sys.event_log](/sql/relational-databases/system-catalog-views/sys-event-log-azure-sql-database) visão oferece informações sobre eventos individuais, que inclui alguns que podem causar erros transitórios ou falhas de conectividade.<br/><br/>Idealmente, pode correlacionar os valores **start_time** ou **end_time** com informações sobre quando o seu programa de cliente sofre problemas.<br/><br/>Tem de se ligar à base de *dados principal* para executar esta consulta. |
 | `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |A [visão sys.database_connection_stats](/sql/relational-databases/system-catalog-views/sys-database-connection-stats-azure-sql-database) oferece contagens agregadas de tipos de eventos para diagnósticos adicionais.<br/><br/>Tem de se ligar à base de *dados principal* para executar esta consulta. |
@@ -331,13 +331,13 @@ A Enterprise Library 6 (EntLib60) é um quadro de classes .NET que o ajuda a imp
 A lógica de recandidúz para lidar com erros transitórios é uma área em que o EntLib60 pode ajudar. Para mais informações, consulte [4 - Perseverança, segredo de todos os triunfos: Utilize o Bloco de Aplicação de Tratamento de Avarias Transitórios](/previous-versions/msp-n-p/dn440719(v=pandp.60)).
 
 > [!NOTE]
-> O código fonte do EntLib60 está disponível para download público a partir do [Centro de Descarregamento.](https://go.microsoft.com/fwlink/p/?LinkID=290898) A Microsoft não tem planos para fazer mais atualizações de funcionalidades ou atualizações de manutenção para o EntLib.
+> O código fonte do EntLib60 está disponível para download público a partir do [Centro de Descarregamento.](https://github.com/MicrosoftArchive/enterprise-library) A Microsoft não tem planos para fazer mais atualizações de funcionalidades ou atualizações de manutenção para o EntLib.
 
 <a id="entlib60-classes-for-transient-errors-and-retry" name="entlib60-classes-for-transient-errors-and-retry"></a>
 
 ### <a name="entlib60-classes-for-transient-errors-and-retry"></a>Aulas de EntLib60 para erros transitórios e redandimento
 
-As seguintes aulas de EntLib60 são particularmente úteis para a lógica de relcurá-lo. Todas estas classes encontram-se dentro ou sob o espaço de nome **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling** .
+As seguintes aulas de EntLib60 são particularmente úteis para a lógica de relcurá-lo. Todas estas classes encontram-se dentro ou sob o espaço de nome **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling**.
 
 No espaço de **nomes Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling:**
 

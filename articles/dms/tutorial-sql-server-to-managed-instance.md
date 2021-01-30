@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019,fasttrack-edit
 ms.topic: tutorial
 ms.date: 01/08/2020
-ms.openlocfilehash: 210d5b06cfe417f581995ad5b356d62e1c35a6d2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 995fe7bc81b0fae75ebf93338722c21bd12bde49
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95972624"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99095578"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-offline-using-dms"></a>Tutorial: Migrar o SQL Server para um Azure SQL Managed Instance offline usando DMS
 
@@ -25,7 +25,7 @@ Pode utilizar o Azure Database Migration Service para migrar as bases de dados d
 
 Neste tutorial, migra a base de **dados Adventureworks2012** de uma instância no local do SQL Server para um SQL Managed Instance utilizando o Azure Database Migration Service.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 >
 > - Crie uma instância do Azure Database Migration Service.
@@ -66,7 +66,7 @@ Para concluir este tutorial, precisa de:
     >[!NOTE]
     >Por padrão, o Azure Database Migration Service suporta apenas logins SQL migratórios. No entanto, pode ativar a capacidade de migrar os logins do Windows através de:
     >
-    >- Garantindo que o target SQL Managed Instance tem acesso de leitura AAD, que pode ser configurado através do portal Azure por um utilizador com o **Administrador da Empresa** ou uma função de Administrador **Global.**
+    >- Garantindo que o target SQL Managed Instance tem acesso de leitura AAD, que pode ser configurado através do portal Azure por um utilizador com a função **de Administrador Global.**
     >- Configurar a sua instância do Serviço de Migração de Bases de Dados Azure para permitir migrações de login de utilizador/grupo do Windows, que é configurada através do portal Azure, na página De Configuração. Depois de ativar esta definição, reinicie o serviço para que as alterações entrem em vigor.
     >
     > Depois de reiniciar o serviço, os logins de utilizador/grupo do Windows aparecem na lista de logins disponíveis para migração. Para quaisquer logins de utilizador/grupo do Windows que migrar, é solicitado que forneça o nome de domínio associado. As contas de utilizadores de serviço (conta com nome de domínio NT AUTHORITY) e contas de utilizador virtuais (nome de conta com nome de domínio NT SERVICE) não são suportadas.

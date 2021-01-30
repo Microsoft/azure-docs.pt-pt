@@ -9,25 +9,25 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 11/05/2020
+ms.date: 01/29/2020
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 535b49cb20d60bd9ab294543b82bdb24b040eb7b
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 5f0c8d237e270177ef38c60c523364054bae15af
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879482"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090863"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões da função de administrador no Azure Active Directory
 
 Utilizando o Azure Ative Directory (Azure AD), pode designar administradores limitados para gerir tarefas de identidade em funções menos privilegiadas. Os administradores podem ser designados para fins como adicionar ou alterar utilizadores, atribuir funções administrativas, redefinir palavras-passe do utilizador, gerir licenças de utilizador e gerir nomes de domínio. As [permissões do utilizador predefinidas](../fundamentals/users-default-permissions.md) só podem ser alteradas nas definições do utilizador em Azure AD.
 
-## <a name="limit-use-of-global-administrator"></a>Limitar a utilização do administrador global
+## <a name="limit-use-of-global-administrator"></a>Limitar a utilização do Administrador Global
 
-Os utilizadores que estão atribuídos à função de administrador global podem ler e modificar todas as configurações administrativas da sua organização AZure AD. Por padrão, quando um utilizador se inscreve para um serviço de cloud da Microsoft, é criado um inquilino AZure AD e o utilizador é nomeado membro do papel de Administrador Global. Quando adiciona uma subscrição a um inquilino existente, não está atribuído ao papel de Administrador Global. Apenas administradores globais e administradores de funções privilegiadas podem delegar funções de administrador. Para reduzir o risco para o seu negócio, recomendamos que atribua este papel ao menor número possível de pessoas na sua organização.
+Os utilizadores que estão atribuídos à função de Administrador Global podem ler e modificar todas as definições administrativas da sua organização AZure AD. Por padrão, quando um utilizador se inscreve para um serviço de cloud da Microsoft, é criado um inquilino AZure AD e o utilizador é nomeado membro do papel de Administrador Global. Quando adiciona uma subscrição a um inquilino existente, não está atribuído ao papel de Administrador Global. Apenas administradores globais e administradores de funções privilegiadas podem delegar funções de administrador. Para reduzir o risco para o seu negócio, recomendamos que atribua este papel ao menor número possível de pessoas na sua organização.
 
 Como uma boa prática, recomendamos que atribua este papel a menos de cinco pessoas na sua organização. Se tiver mais de cinco administradores atribuídos ao papel de Administrador Global na sua organização, eis algumas formas de reduzir o seu uso.
 
@@ -35,9 +35,9 @@ Como uma boa prática, recomendamos que atribua este papel a menos de cinco pess
 
 Se é frustrante para si encontrar o papel que precisa de uma lista de muitos papéis, a Azure AD pode mostrar-lhe subconjuntos dos papéis baseados em categorias de papéis. Consulte o nosso novo filtro **Tipo** para [Funções AD Azure e administradores](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators) para mostrar apenas as funções no tipo selecionado.
 
-### <a name="a-role-exists-now-that-didnt-exist-when-you-assigned-the-global-administrator-role"></a>Existe agora um papel que não existia quando atribuíste o papel de administrador global
+### <a name="a-role-exists-now-that-didnt-exist-when-you-assigned-the-global-administrator-role"></a>Existe agora um papel que não existia quando atribuíste o papel de Administrador Global
 
-É possível que um papel ou funções foram adicionados ao Azure AD que fornecem mais permissões granulares que não eram uma opção quando elevou alguns utilizadores para administrador global. Com o tempo, estamos a desenvolver papéis adicionais que realizam tarefas que só o papel de administrador global poderia fazer antes. Pode ver estes refletidos nas seguintes [funções Disponíveis.](#available-roles)
+É possível que um papel ou funções foram adicionados ao Azure AD que fornecem mais permissões granulares que não eram uma opção quando elevou alguns utilizadores ao Administrador Global. Com o tempo, estamos a desenvolver papéis adicionais que realizam tarefas que só o papel de Administrador Global poderia fazer antes. Pode ver estes refletidos nas seguintes [funções Disponíveis.](#available-roles)
 
 ## <a name="assign-or-remove-administrator-roles"></a>Atribuir ou remover funções de administrador
 
@@ -166,7 +166,7 @@ Os utilizadores com esta função têm a capacidade de gerir as definições de 
 
 ### <a name="customer-lockbox-access-approver"></a>[Aprovador de acesso ao bloqueio do cliente](#customer-lockbox-access-approver-permissions)
 
-Gere os [pedidos de Lockbox do Cliente](/office365/admin/manage/customer-lockbox-requests) na sua organização. Recebem notificações por e-mail para pedidos de Bloqueio de Clientes e podem aprovar e negar pedidos do centro de administração microsoft 365. Também podem ligar ou desligar a função 'Lockbox' do cliente. Só os administradores globais podem redefinir as palavras-passe das pessoas afetadas a este papel.
+Gere os [pedidos de Lockbox do Cliente](/office365/admin/manage/customer-lockbox-requests) na sua organização. Recebem notificações por e-mail para pedidos de Bloqueio de Clientes e podem aprovar e negar pedidos do centro de administração microsoft 365. Também podem ligar ou desligar a função 'Lockbox' do cliente. Apenas os Administradores Globais podem redefinir as palavras-passe das pessoas afetadas a esta função.
 
 ### <a name="desktop-analytics-administrator"></a>[Administrador de Análise de Desktop](#desktop-analytics-administrator-permissions)
 
@@ -222,18 +222,13 @@ Este administrador gere a federação entre organizações AD da Azure e fornece
 * Azure AD organizações para colaboradores e parceiros: A adição de uma federação (por exemplo, com o Gmail) terá imediatamente impacto em todos os convites de hóspedes ainda não resgatados. Consulte [a adição do Google como um fornecedor de identidade para utilizadores convidados B2B](../external-identities/google-federation.md).
 * Organizações Azure Ative Directory B2C: A adição de uma federação (por exemplo, com o Facebook, ou com outra organização AZure AD) não afeta imediatamente os fluxos de utilizador final até que o fornecedor de identidade seja adicionado como uma opção num fluxo de utilizador (também chamado de política incorporada). Consulte [configurar uma conta Microsoft como um fornecedor de identidade,](../../active-directory-b2c/identity-provider-microsoft-account.md) por exemplo. Para alterar os fluxos dos utilizadores, é necessária a função limitada de "Administrador de Fluxo de Utilizador B2C".
 
-### <a name="global-administrator--company-administrator"></a>[Administrador Global / Administrador da Empresa](#company-administrator-permissions)
+### <a name="global-administrator"></a>[Administrador Global](#global-administrator-permissions)
 
-Os utilizadores com esta função têm acesso a todas as funcionalidades administrativas no Azure Ative Directory, bem como serviços que utilizam identidades do Azure Ative Directory como o Microsoft 365 security center, o Microsoft 365 compliance center, o Exchange Online, o SharePoint Online e o Skype para business online. Além disso, a Global Admins pode [elevar o seu acesso](../../role-based-access-control/elevate-access-global-admin.md) para gerir todas as subscrições e grupos de gestão da Azure. Isto permite que os Administradores Globais tenham acesso total a todos os recursos Azure usando o respetivo Azure AD Tenant. A pessoa que se inscreve na organização AZure AD torna-se um administrador global. Pode haver mais de um administrador global na sua empresa. Os administradores globais podem redefinir a palavra-passe para qualquer utilizador e todos os outros administradores.
-
-> [!NOTE]
-> No Microsoft Graph API e Azure AD PowerShell, esta função é identificada como "Administrador da Empresa". É "Administrador Global" no [portal Azure.](https://portal.azure.com)
->
->
+Os utilizadores com esta função têm acesso a todas as funcionalidades administrativas no Azure Ative Directory, bem como serviços que utilizam identidades do Azure Ative Directory como o Microsoft 365 security center, o Microsoft 365 compliance center, o Exchange Online, o SharePoint Online e o Skype para business online. Além disso, os Administradores Globais podem [elevar o seu acesso](../../role-based-access-control/elevate-access-global-admin.md) para gerir todas as subscrições e grupos de gestão da Azure. Isto permite que os Administradores Globais tenham acesso total a todos os recursos Azure usando o respetivo Azure AD Tenant. A pessoa que se inscreve na organização AZure AD torna-se administradora global. Pode haver mais do que um Administrador Global na sua empresa. Os Administradores Globais podem redefinir a palavra-passe para qualquer utilizador e todos os outros administradores.
 
 ### <a name="global-reader"></a>[Leitor Global](#global-reader-permissions)
 
-Os utilizadores desta função podem ler definições e informações administrativas em todos os serviços da Microsoft 365, mas não podem tomar ações de gestão. O leitor global é a contrapartida apenas de leitura para administrador global. Atribua o leitor global em vez de administrador global para planeamento, auditorias ou investigações. Use o leitor Global em combinação com outras funções de administração limitadas, como o Exchange Administrator, para facilitar o trabalho sem atribuir o papel de Administrador Global. O leitor global trabalha com o Microsoft 365 admin center, Exchange admin center, SharePoint admin center, Teams admin center, Security center, Compliance center, Azure AD admin center e Device Management admin center.
+Os utilizadores desta função podem ler definições e informações administrativas em todos os serviços da Microsoft 365, mas não podem tomar ações de gestão. O leitor global é a contrapartida apenas de leitura para o Administrador Global. Atribua o leitor global em vez de Administrador Global para planeamento, auditorias ou investigações. Use o leitor Global em combinação com outras funções de administração limitadas, como o Exchange Administrator, para facilitar o trabalho sem atribuir o papel de Administrador Global. O leitor global trabalha com o Microsoft 365 admin center, Exchange admin center, SharePoint admin center, Teams admin center, Security center, Compliance center, Azure AD admin center e Device Management admin center.
 
 > [!NOTE]
 > O papel de leitor global tem algumas limitações agora -
@@ -326,8 +321,8 @@ Os utilizadores com a função de Utilizador de Comércio Moderno normalmente t�
 **Quando é atribuída a função de Utilizador do Comércio Moderno?**
 
 * **A compra de self-service no Microsoft 365 admin center** – A compra de self-service dá aos utilizadores a oportunidade de experimentar novos produtos comprando ou inscrevendo-se por conta própria. Estes produtos são geridos no centro de administração. Os utilizadores que fazem uma compra de self-service são atribuídos a um papel no sistema de comércio, e o papel de Utilizador do Comércio Moderno para que possam gerir as suas compras no centro de administração. Os administradores podem bloquear as compras de self-service (para Power BI, Power Apps, Power automat) através [do PowerShell](/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell). Para obter mais informações, veja [Self-service purchase FAQ](/microsoft-365/commerce/subscriptions/self-service-purchase-faq) (FAQ da compra personalizada).  
-* **Compras no mercado comercial da Microsoft**  – Semelhante à compra de self-service, quando um utilizador compra um produto ou serviço ao Microsoft AppSource ou ao Azure Marketplace, a função de Utilizador de Comércio Moderno é atribuída se não tiver o papel de administrador global ou de administração billing. Em alguns casos, os utilizadores podem estar impedidos de fazer estas compras. Para mais informações, consulte [o mercado comercial da Microsoft.](../../marketplace/marketplace-faq-publisher-guide.md#what-could-block-a-customer-from-completing-a-purchase)
-* **Propostas da Microsoft**  – Uma proposta é uma oferta formal da Microsoft para a sua organização comprar produtos e serviços da Microsoft. Quando a pessoa que está a aceitar a proposta não tem um papel de administrador global ou de administração billing em Azure AD, é-lhes atribuído um papel específico do comércio para completar a proposta e o papel de Utilizador do Comércio Moderno para aceder ao centro de administração. Quando acedem ao centro de administração, só podem usar funcionalidades que são autorizadas pelo seu papel específico do comércio.
+* **Compras no mercado comercial da Microsoft**  – Semelhante à compra de self-service, quando um utilizador compra um produto ou serviço ao Microsoft AppSource ou ao Azure Marketplace, a função de Utilizador de Comércio Moderno é atribuída se não tiver o papel de administrador global ou administrador de faturação. Em alguns casos, os utilizadores podem estar impedidos de fazer estas compras. Para mais informações, consulte [o mercado comercial da Microsoft.](../../marketplace/marketplace-faq-publisher-guide.md#what-could-block-a-customer-from-completing-a-purchase)
+* **Propostas da Microsoft**  – Uma proposta é uma oferta formal da Microsoft para a sua organização comprar produtos e serviços da Microsoft. Quando a pessoa que está a aceitar a proposta não tem um papel de administrador global ou administrador de faturação no Ad AD Azure, é-lhes atribuído um papel específico do comércio para completar a proposta e o papel de Utilizador do Comércio Moderno para aceder ao centro de administração. Quando acedem ao centro de administração, só podem usar funcionalidades que são autorizadas pelo seu papel específico do comércio.
 * **Funções específicas do comércio** – Alguns utilizadores têm funções específicas do comércio. Se um utilizador não for um administrador global ou de faturação, obtém o papel de Utilizador do Comércio Moderno para que possa aceder ao centro de administração.  
 
 Se a função de Utilizador do Comércio Moderno não for atribuído a um utilizador, perde o acesso ao centro de administração microsoft 365. Se eles estavam a gerir quaisquer produtos, para si ou para a sua organização, eles não serão capazes de geri-los. Isto pode incluir a atribuição de licenças, alteração de métodos de pagamento, pagamento de contas ou outras tarefas para a gestão de subscrições.
@@ -376,7 +371,7 @@ Os utilizadores com esta função podem registar impressoras e gerir o estado da
 
 ### <a name="privileged-authentication-administrator"></a>[Administrador de Autenticação Privilegiada](#privileged-authentication-administrator-permissions)
 
-Os utilizadores com esta função podem definir ou redefinir credenciais de não-senha para todos os utilizadores, incluindo administradores globais, e podem atualizar palavras-passe para todos os utilizadores. Os Administradores de Autenticação Privilegiada podem forçar os utilizadores a re-registarem-se contra a credencial não-senha existente (como MFA ou FIDO) e revogar "lembrem-se de MFA no dispositivo", solicitando para MFA na próxima entrada de todos os utilizadores. A [função de administrador de autenticação](#authentication-administrator) pode forçar o reensimin e MFA apenas para não administradores e utilizadores atribuídos às seguintes funções AD Azure:
+Os utilizadores com esta função podem definir ou redefinir credenciais de não-senha para todos os utilizadores, incluindo Administradores Globais, e podem atualizar palavras-passe para todos os utilizadores. Os Administradores de Autenticação Privilegiada podem forçar os utilizadores a re-registarem-se contra a credencial não-senha existente (como MFA ou FIDO) e revogar "lembrem-se de MFA no dispositivo", solicitando para MFA na próxima entrada de todos os utilizadores. A [função de administrador de autenticação](#authentication-administrator) pode forçar o reensimin e MFA apenas para não administradores e utilizadores atribuídos às seguintes funções AD Azure:
 
 * Administrador de Autenticação
 * Leitores de Diretório
@@ -444,7 +439,7 @@ Os utilizadores com esta função têm acesso global apenas à leitura sobre fun
 Em | Pode fazer
 --- | ---
 [Centro de segurança Microsoft 365](https://protection.office.com) | Ver políticas relacionadas com segurança em todos os serviços da Microsoft 365<br>Ver ameaças de segurança e alertas<br>Ver relatórios
-Centro de Proteção de Identidade | Leia todos os relatórios de segurança e definições de informações para funcionalidades de segurança<br><ul><li>Anti-correio publicitário não-<li>Encriptação<li>Prevenção de perda de dados<li>Anti-malware<li>Proteção avançada contra ameaças<li>Anti-phishing<li>Regras de fluxo de correio
+Centro de Proteção de Identidade | Leia todos os relatórios de segurança e definições de informações para funcionalidades de segurança<br><ul><li>Anti-correio publicitário não-correio publicitário não-correio publicitário não-<li>Encriptação<li>Prevenção de perda de dados<li>Anti-malware<li>Proteção avançada contra ameaças<li>Anti-phishing<li>Regras de fluxo de correio
 [Privileged Identity Management](../privileged-identity-management/pim-configure.md) | Tem acesso apenas de leitura a todas as informações surgidas na Azure AD Privileged Identity Management: Políticas e relatórios para atribuições de funções AD AZure e revisões de segurança.<br>**Não é possível** inscrever-se na Azure AD Privileged Identity Management ou fazer quaisquer alterações à sua. No portal de Gestão de Identidade Privilegiada ou via PowerShell, alguém nesta função pode ativar funções adicionais (por exemplo, Administrador Global ou Administrador de Função Privilegiada), se o utilizador for elegível para eles.
 [Escritório 365 Centro de Conformidade & de Segurança](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Ver as políticas de segurança<br>Ver e investigar ameaças à segurança<br>Ver relatórios
 Windows Defender ATP e EDR | Ver e investigar alertas. Quando liga o controlo de acesso baseado em funções no Windows Defender ATP, os utilizadores com permissões apenas de leitura, como a função de leitor de Segurança Ad Ad Azure, perdem acesso até serem atribuídos a uma função ATP do Windows Defender.
@@ -747,9 +742,9 @@ Acesso total a dispositivos de gestão em Azure AD.
 | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar Azure Service Health. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Leia e configuure a Microsoft 365 Service Health. |
 
-### <a name="company-administrator-permissions"></a>Permissões de Administrador da Empresa
+### <a name="global-administrator-permissions"></a>Permissões globais de administrador
 
-Pode gerir todos os aspetos dos serviços Azure AD e Microsoft que utilizam identidades AZure AD. Este papel também é conhecido como o papel de Administrador Global. 
+Pode gerir todos os aspetos dos serviços Azure AD e Microsoft que utilizam identidades AZure AD.
 
 > [!NOTE]
 > Esta função tem permissões adicionais fora do Azure Ative Directory. Para mais informações, consulte a descrição da função acima.
@@ -1749,10 +1744,12 @@ Cria e gere eventos de segurança.
 | microsoft.directy/cloudAppSecurity/allProperties/allTasks | Leia e configuure a Microsoft Cloud App Security. |
 | microsoft.diretório/identidadeProteção/todas as ofertas/ler | Leia todos os recursos em microsoft.aad.identityProtection. |
 | microsoft.diretório/privilegiadoIdmentManagement/allProperties/read | Leia todos os recursos em microsoft.aad.privilegedIdentityManagement. |
+| microsoft.diretório/provisioningLogs/allProperties/read | Leia todas as propriedades dos registos de provisionamento. |
 | microsoft.intune/allEntities/allTasks | Gerir todos os aspetos do Intune. |
 | microsoft.office365.securityComplianceCenter/allEntities/allTasks | Leia e configuure o Centro de Conformidade & de Segurança. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerir os bilhetes de apoio do Office 365. |
 | microsoft.windows.defenderAdvancedThreatProtection/allEntities/read | Leia e configuure a proteção avançada de ameaças do Windows Defender. |
+
 
 ### <a name="security-reader-permissions"></a>Permissões do Leitor de Segurança
 
@@ -2068,7 +2065,7 @@ Utilizador restrito de hóspedes | Não mostrado porque não pode ser usado | ND
 User | Não mostrado porque não pode ser usado | ND
 Aderir ao dispositivo de trabalho | Preterido | [Documentação de papéis precotados](permissions-reference.md#deprecated-roles)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre como atribuir um utilizador como administrador de uma subscrição do Azure, consulte [Adicionar ou remover atribuições de funções Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)
 * Para saber mais sobre como o acesso a recursos é controlado no Microsoft Azure, consulte [Compreender as diferentes funções](../../role-based-access-control/rbac-and-directory-admin-roles.md)

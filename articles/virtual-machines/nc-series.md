@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 40eed41dbaa3314c00faebf1c2452aaa6fb46dc9
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 759ae69784e9e9e1c472ffa7f00ae07e28f9b37e
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98920109"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99091702"
 ---
 # <a name="nc-series"></a>Série NC
 
@@ -24,6 +24,7 @@ Os VMs da série NC são alimentados pelo cartão [NVIDIA Tesla K80](https://www
 [Atualizações de preservação da memória](maintenance-and-updates.md): Não suportado<br>
 [Suporte de geração VM](generation-2.md): Geração 1<br>
 [Rede Acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): Não Suportado<br>
+[Discos EFÉMEROS :](ephemeral-os-disks.md)Não Suportados <br>
 Nvidia NVLink Interconnect: Não suportado<br>
 <br>
 
@@ -57,6 +58,6 @@ Se optar por instalar manualmente os controladores da NVIDIA GPU, consulte a [co
 - [Computação de elevado desempenho](sizes-hpc.md)
 - [Gerações anteriores](sizes-previous-gen.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre como [as unidades de computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho do cálculo em Azure SKUs.

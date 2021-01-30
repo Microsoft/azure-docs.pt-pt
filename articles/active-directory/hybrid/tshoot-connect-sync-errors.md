@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Erros de resolução de problemas durante a sincronização Microsoft Docs'
+title: 'Azure AD Connect: Erros de resolução de problemas durante a sincronização | Microsoft Docs'
 description: Explica como resolver os problemas encontrados durante a sincronização com o Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.date: 10/29/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a668fa9bf0ef4fd3b5451ff4c815b676fe237e51
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 88fda4ec810d0b410dcd75ac9c6be69bd54b16d9
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410628"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092654"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Erros de resolução de problemas durante a sincronização
 Podem ocorrer erros quando os dados de identidade são sincronizados do Windows Server Ative Directory (AD DS) para o Azure Ative Directory (Azure AD). Este artigo fornece uma visão geral de diferentes tipos de erros de sincronização, alguns dos cenários possíveis que causam esses erros e formas potenciais de corrigir os erros. Este artigo inclui os tipos de erros comuns e pode não cobrir todos os erros possíveis.
@@ -34,7 +34,7 @@ A partir de 1 de setembro de 2016, a funcionalidade [duplicada de atributos do A
 A Azure AD Connect realiza três tipos de operações a partir dos diretórios que mantém em sincronização: Importação, Sincronização e Exportação. Erros podem ocorrer em todas as operações. Este artigo centra-se principalmente em erros durante a Exportação para Azure AD.
 
 ## <a name="errors-during-export-to-azure-ad"></a>Erros durante a exportação para Azure AD
-A secção seguinte descreve diferentes tipos de erros de sincronização que podem ocorrer durante a operação de exportação para Azure AD utilizando o conector AZURE AD. Este conector pode ser identificado pelo formato de nome sendo "contoso". *onmicrosoft.com* ".
+A secção seguinte descreve diferentes tipos de erros de sincronização que podem ocorrer durante a operação de exportação para Azure AD utilizando o conector AZURE AD. Este conector pode ser identificado pelo formato de nome sendo "contoso". *onmicrosoft.com*".
 Erros durante a Exportação para Azure AD indicam que a operação \( adicionar, atualizar, excluir etc. \) tentativa do Azure AD Connect \( Sync Engine no \) Azure Ative Directory falhou.
 
 ![Visão geral dos erros de exportação](./media/tshoot-connect-sync-errors/Export_Errors_Overview_01.png)
@@ -195,13 +195,13 @@ Para um utilizador sincronizado, o sufixo de Nome Do UtilizadorPrincipal foi alt
 4. O nome de utilizador do BobPrincipalName não é atualizado e resulta num erro de sincronização "FederatedDomainChangeError".
 
 #### <a name="how-to-fix"></a>Como corrigir
-Se o sufixo do Nome De Utilizador de um utilizador foi atualizado de bob@ **contoso.com** para bob \@ **fabrikam.com** , onde tanto **contoso.com** como **fabrikam.com** são **domínios federados** , siga estes passos para corrigir o erro de sincronização
+Se o sufixo do Nome De Utilizador de um utilizador foi atualizado de bob@**contoso.com** para bob \@ **fabrikam.com**, onde tanto **contoso.com** como **fabrikam.com** são **domínios federados**, siga estes passos para corrigir o erro de sincronização
 
 1. Atualize o Nome Do UtilizadorPrincipalName em Azure AD de bob@contoso.com bob@contoso.onmicrosoft.com . Pode utilizar o seguinte comando PowerShell com o Módulo AD PowerShell Azure: `Set-MsolUserPrincipalName -UserPrincipalName bob@contoso.com -NewUserPrincipalName bob@contoso.onmicrosoft.com`
 2. Deixe o próximo ciclo de sincronização tentar a sincronização. Desta vez, a sincronização será bem sucedida e atualizará o Nome Do UtilizadorPrincipal de Bob bob@fabrikam.com como esperado.
 
 #### <a name="related-articles"></a>Artigos Relacionados
-* [As alterações não são sincronizadas pela ferramenta Azure Ative Directory Sync depois de alterar a UPN de uma conta de utilizador para utilizar um domínio federado diferente](https://support.microsoft.com/help/2669550/changes-aren-t-synced-by-the-azure-active-directory-sync-tool-after-you-change-the-upn-of-a-user-account-to-use-a-different-federated-domain)
+* [As alterações não são sincronizadas pela ferramenta Azure Ative Directory Sync depois de alterar a UPN de uma conta de utilizador para utilizar um domínio federado diferente](/azure/active-directory/hybrid/howto-troubleshoot-upn-changes)
 
 ## <a name="largeobject"></a>Grande Polícia
 ### <a name="description"></a>Description
