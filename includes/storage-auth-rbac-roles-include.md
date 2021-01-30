@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: storage
 author: tamram
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: a4a2034d44d98de9696b435c68c97a8a54a1c351
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f014ce55dc40723faf1b60f908814f9fa0428b8e
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96026884"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99215205"
 ---
 A Azure fornece as seguintes funções incorporadas Azure para autorizar o acesso a dados de blob e fila utilizando Azure AD e OAuth:
 
@@ -31,4 +31,4 @@ Apenas as funções explicitamente definidas para o acesso aos dados permitem a 
 Para obter informações detalhadas sobre as funções incorporadas da Azure para o Azure Storage tanto para os serviços de dados como para o serviço de gestão, consulte a secção **de Armazenamento** em funções incorporadas para o [Azure RBAC](../articles/role-based-access-control/built-in-roles.md#storage). Além disso, para obter informações sobre os diferentes tipos de funções que fornecem permissões no Azure, consulte [as funções de administrador de subscrição Clássica, funções Azure e AD AZure](../articles/role-based-access-control/rbac-and-directory-admin-roles.md).
 
 > [!IMPORTANT]
-> As atribuições de funções azure podem demorar até cinco minutos a propagar-se.
+> As atribuições de funções azure podem demorar até 30 minutos a propagar-se.

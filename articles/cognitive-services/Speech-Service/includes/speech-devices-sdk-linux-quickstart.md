@@ -5,12 +5,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
-ms.openlocfilehash: 3c093539301f3f4e3309094f0b53a1f0e8393150
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 39cead8306ece6638f85813efc318dd41a6faf8c
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95098431"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99214440"
 ---
 Neste arranque rápido, aprenderá a usar o SDK de Dispositivos de Fala para o Linux para construir um produto ativado pela fala ou usá-lo como dispositivo [de transcrição de conversação.](../conversation-transcription.md) Atualmente apenas o [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/) é suportado.
 
@@ -100,7 +100,7 @@ Se pretender utilizar as intenções, precisará de uma subscrição do [Serviç
         <dependency>
              <groupId>com.microsoft.cognitiveservices.speech</groupId>
              <artifactId>client-sdk</artifactId>
-             <version>1.14.0</version>
+             <version>1.15.0</version>
         </dependency>
     </dependencies>
    ```
@@ -163,7 +163,7 @@ Se pretender utilizar as intenções, precisará de uma subscrição do [Serviç
 
    ![Screenshot que mostra uma aplicação e opções de exemplo SDK de dispositivos de fala.](../media/speech-devices-sdk/java-sample-app-linux.png)
 
-1. Experimente a nova demonstração de **Transcrição** de Conversação. Comece a transcrever com **início de sessão**  >  **Start**. Por defeito, todos são convidados. No entanto, se tiver as assinaturas de voz dos participantes, podem ser colocadas `participants.properties` no **alvo/classes** da pasta do projeto . Para gerar a assinatura de voz, veja [as conversas transcrever (SDK)](../how-to-use-conversation-transcription.md).
+1. Experimente a nova demonstração de **Transcrição** de Conversação. Comece a transcrever com **início de sessão**  >  . Por defeito, todos são convidados. No entanto, se tiver as assinaturas de voz dos participantes, podem ser colocadas `participants.properties` no **alvo/classes** da pasta do projeto . Para gerar a assinatura de voz, veja [as conversas transcrever (SDK)](../how-to-use-conversation-transcription.md).
 
    ![Screenshot que mostra uma aplicação de transcrição de conversação de demonstração.](../media/speech-devices-sdk/cts-sample-app-linux.png)
 

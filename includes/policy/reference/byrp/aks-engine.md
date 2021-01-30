@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 01/25/2021
+ms.date: 01/29/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 5c07f7ee8f6da208fc09b8631e32906f7dec3943
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: b5e784684da916517a153c5dd4687d98f09ae84e
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805519"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99214137"
 ---
-|Name<br /><sub>(Portal Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Não permitir contentores com privilégios no cluster do Kubernetes](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F95edb821-ddaf-4404-9732-666045e056b4) |Esta política não permite a criação de contentores privilegiados num aglomerado de Kubernetes. Esta política está geralmente disponível para o Serviço Kubernetes (AKS), e pré-visualização para AKS Engine e Azure Arc habilitado a Kubernetes. Para obter instruções sobre a utilização desta política, visite [https://aka.ms/kubepolicydoc](https://aka.ms/kubepolicydoc) . |auditoria, negação, desativado |[5.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/ContainerNoPrivilege.json) |
 |[Impor entrada HTTPS no cluster do Kubernetes](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1a5b4dca-0b6f-4cf5-907c-56316bc1bf3d) |Esta política aplica a entrada https num cluster kubernetes. Esta política está geralmente disponível para o Serviço Kubernetes (AKS), e pré-visualização para AKS Engine e Azure Arc habilitado a Kubernetes. Para obter instruções sobre a utilização desta política, visite [https://aka.ms/kubepolicydoc](https://aka.ms/kubepolicydoc) . |auditoria, negação, desativado |[5.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/IngressHttpsOnly.json) |

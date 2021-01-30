@@ -5,12 +5,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
-ms.openlocfilehash: c9ed54f11cade20af67a1c9bfe948b03e9d7b0d3
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 7ff53a700ab1b158d94af84907940f56afa74eb5
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95095781"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99214516"
 ---
 Neste arranque rápido, aprenderá a usar o SDK de Dispositivos de Fala para o Windows para construir um produto ativado por discurso ou usá-lo como dispositivo [de transcrição de conversação.](../conversation-transcription.md) Para a Transcrição de Conversação apenas o [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/) é suportado. Para outros suportes de microfone linear de uso de fala que fornecem uma geometria da matriz do microfone são suportados.
 
@@ -74,7 +74,7 @@ Se pretender utilizar as intenções, precisará de uma subscrição do [Serviç
         <dependency>
              <groupId>com.microsoft.cognitiveservices.speech</groupId>
              <artifactId>client-sdk</artifactId>
-             <version>1.14.0</version>
+             <version>1.15.0</version>
         </dependency>
     </dependencies>
    ```
@@ -121,7 +121,7 @@ Se pretender utilizar as intenções, precisará de uma subscrição do [Serviç
 
 ## <a name="run-the-sample-application-from-eclipse"></a>Executar a aplicação da amostra a partir de Eclipse
 
-1. A partir da **Run** barra de menus Eclipse,  >  **corra como**  >  **aplicação java**. Em seguida, selecione **FunctionsList** e **OK**.
+1. A partir da barra de menus Eclipse,  >  **corra como**  >  **aplicação java**. Em seguida, selecione **FunctionsList** e **OK**.
 
    ![Screenshot da aplicação Select Java](../media/speech-devices-sdk/eclipse-run-sample.png)
 
@@ -129,7 +129,7 @@ Se pretender utilizar as intenções, precisará de uma subscrição do [Serviç
 
    ![Screenshot de uma aplicação e opções SDK de dispositivos de fala de amostra.](../media/speech-devices-sdk/java-sample-app-windows.png)
 
-1. Experimente a nova demonstração de **Transcrição** de Conversação. Comece a transcrever com **início de sessão**  >  **Start**. Por defeito, todos são convidados. No entanto, se tiver as assinaturas de voz dos participantes, podem ser colocadas num ficheiro `participants.properties` no **alvo/classes** da pasta do projeto . Para gerar a assinatura de voz, veja [as conversas transcrever (SDK)](../how-to-use-conversation-transcription.md).
+1. Experimente a nova demonstração de **Transcrição** de Conversação. Comece a transcrever com **início de sessão**  >  . Por defeito, todos são convidados. No entanto, se tiver as assinaturas de voz dos participantes, podem ser colocadas num ficheiro `participants.properties` no **alvo/classes** da pasta do projeto . Para gerar a assinatura de voz, veja [as conversas transcrever (SDK)](../how-to-use-conversation-transcription.md).
 
    ![Screenshot de uma aplicação de transcrição de conversação de demonstração.](../media/speech-devices-sdk/cts-sample-app-windows.png)
 

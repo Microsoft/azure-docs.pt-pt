@@ -4,15 +4,13 @@ ms.service: multiple
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: gwallace
-ms.openlocfilehash: 3590b8fdb67b25e0d4389e814aefcc4d18b1193c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5bc00f4de95d22eec71f9b1b2504b00f506232dc
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96015435"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99213748"
 ---
-Os clientes do Azure podem desbloquear 25 000 mensagens de e-mail gratuitas por mês. Estes 25.000 e-mails mensais gratuitos dar-lhe-ão acesso a relatórios e análises avançados e [a todas as APIs][all APIs] (Web, SMTP, Event, Parse, entre outras). Para obter informações sobre os serviços adicionais fornecidos pela SendGrid, visite a página [Soluções SendGrid][SendGrid Solutions].
-
 ### <a name="to-sign-up-for-a-sendgrid-account"></a>Para se inscrever numa conta SendGrid
 1. Inicie sessão no [portal do Azure][Azure portal].
 2. No menu do portal Azure ou na página inicial, selecione **Criar um recurso**.
@@ -30,7 +28,7 @@ Os clientes do Azure podem desbloquear 25 000 mensagens de e-mail gratuitas por 
 8. Crie um novo **Grupo de recursos** ou utilize um existente.
 9. Na secção **Escalão de preço**, selecione o plano SendGrid no qual pretende inscrever-se.
 
-    ![Screenshot do novo diálogo da Conta EnviarGrid com a secção Escolha o seu nível de preços aberto e selecionado o nível de preços Gratuito.][sendgrid-pricing]
+    ![Screenshot do novo diálogo da conta SendGrid com a secção Escolha o seu nível de preços aberto][sendgrid-pricing]
 10. Introduza um **Código de Promoção** se tiver um.
 11. Insira as suas **Informações de Contacto.**
 12. Leia e aceite os **Termos legais**.

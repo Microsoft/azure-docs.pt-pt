@@ -1,27 +1,27 @@
 ---
-title: Gerir projetos de migração em escala com a Azure Migrate
+title: Gerir projetos da Azure Migrate em escala com o Farol de Azure
 description: Saiba como utilizar eficazmente a Azure Migrate em recursos de clientes delegados.
-ms.date: 12/4/2020
+ms.date: 01/29/2021
 ms.topic: how-to
-ms.openlocfilehash: 53f7c390d9f16dcbccbb1d09f46e63fec13eee2d
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 8e8ba21881ea5dad36ae640632b6307cd9a22a73
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98788948"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99093613"
 ---
-# <a name="manage-migration-projects-at-scale-with-azure-migrate"></a>Gerir projetos de migração em escala com a Azure Migrate
+# <a name="manage-azure-migrate-projects-at-scale-with-azure-lighthouse"></a>Gerir projetos da Azure Migrate em escala com o Farol de Azure
 
-Como prestador de serviços, pode ter a bordo vários inquilinos de clientes para o [Farol de Azure.](../overview.md) O Azure Lighthouse permite que os prestadores de serviços realizem operações em escala em vários inquilinos do Azure Ative Directory (Azure AD) de uma só vez, tornando as tarefas de gestão mais eficientes.
+Este tópico fornece uma visão geral de como [o Farol Azure](../overview.md) pode ajudá-lo a usar [Azure Migrate](../../migrate/migrate-services-overview.md) de uma forma escalável através de vários inquilinos do Azure Ative Directory (Azure AD).
 
-[A Azure Migrate](../../migrate/migrate-services-overview.md) fornece um hub centralizado para avaliar e migrar para Azure nos servidores, infraestruturas, aplicações e dados. Normalmente, os parceiros que realizam avaliações e migração em escala para vários clientes devem aceder individualmente a cada subscrição do cliente utilizando o [modelo de subscrição CSP (Cloud Solution Provider)](/partner-center/customers-revoke-admin-privileges) ou [criando um utilizador convidado no cliente inquilino.](../../active-directory/external-identities/what-is-b2b.md)
+O Azure Lighthouse permite que os prestadores de serviços realizem operações em escala em vários inquilinos ao mesmo tempo, tornando as tarefas de gestão mais eficientes.
+
+A Azure Migrate fornece um hub centralizado para avaliar e migrar para Azure nos servidores, infraestruturas, aplicações e dados. Normalmente, os parceiros que realizam avaliações e migração em escala para vários clientes devem aceder individualmente a cada subscrição do cliente utilizando o [modelo de subscrição CSP (Cloud Solution Provider)](/partner-center/customers-revoke-admin-privileges) ou [criando um utilizador convidado no cliente inquilino.](../../active-directory/external-identities/what-is-b2b.md)
 
 A integração do Azure Lighthouse com a Azure Migrate permite que os prestadores de serviços descubram, avaliem e migram cargas de trabalho para diferentes clientes em escala, permitindo ao mesmo tempo que os clientes tenham total visibilidade e controlo dos seus ambientes. Através da gestão de recursos delegada da Azure, os prestadores de serviços têm uma visão única de todos os projetos da Azure Migrate que gerem através de vários inquilinos de clientes.
 
 > [!NOTE]
 > Através do Farol Azure, os parceiros podem realizar descobertas, avaliação e migração para VMware VMs no local, VMs Hiper-V, servidores físicos e instâncias AWS/GCP. Existem duas opções para [a migração VMware VM.](../../migrate/server-migrate-overview.md) Atualmente, apenas o método de migração baseado em agentes pode ser utilizado quando se trabalha num projeto de migração numa subscrição de clientes delegados; a migração utilizando a replicação sem agente não é suportada atualmente através do acesso delegado ao âmbito do cliente.
-
-Este tópico fornece uma visão geral de como usar [Azure Migrate](../../migrate/migrate-services-overview.md) de uma forma escalável.
 
 > [!TIP]
 > Embora nos refiramos a prestadores de serviços e clientes neste tópico, esta orientação também se aplica às [empresas que utilizam o Farol Azure para gerir vários inquilinos.](../concepts/enterprise.md)
@@ -72,11 +72,11 @@ NOTA: Tem de modificar o ficheiro de parâmetros para refletir o seu ambiente an
 
 ## <a name="partner-recognition-for-customer-migrations"></a>Reconhecimento de parceiros para migrações de clientes
 
-Como membro da [Microsoft Partner Network,](https://partner.microsoft.com)pode ligar o ID do seu parceiro às credenciais utilizadas para gerir os recursos do cliente delegado. Através do Partner Admin Link (PAL), a Microsoft pode atribuir influência e a Azure consumiu receitas à sua organização com base nas tarefas que executa para os clientes, incluindo projetos de migração.
+Como membro da [Microsoft Partner Network,](https://partner.microsoft.com)pode ligar o ID do seu parceiro às credenciais utilizadas para gerir os recursos do cliente delegado. Isto permite à Microsoft atribuir influência e a Azure consumiu receitas à sua organização com base nas tarefas que executa para os clientes, incluindo projetos de migração.
 
 Para obter mais informações, veja [Ligar o seu ID de parceiro para controlar o impacto nos recursos delegados](partner-earned-credit.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre [Azure Migrate.](../../migrate/migrate-services-overview.md)
-- Conheça as [experiências de gestão de inquilinos cruzados.](../concepts/cross-tenant-management-experience.md)
+- Saiba mais sobre [a Azure Migrate.](../../migrate/migrate-services-overview.md)
+- Conheça outras [experiências de gestão de inquilinos cruzadas apoiadas](../concepts/cross-tenant-management-experience.md) pelo Farol de Azure.

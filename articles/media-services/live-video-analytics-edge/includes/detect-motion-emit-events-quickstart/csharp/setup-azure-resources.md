@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 729839c8e881f507e103c4644c012d8dffc5c8c6
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 67d6155d35f366429bf0210f18f052d9b6187820
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/28/2021
-ms.locfileid: "98956345"
+ms.locfileid: "99214984"
 ---
 Este tutorial requer os seguintes recursos Azure:
 
@@ -15,7 +15,7 @@ Este tutorial requer os seguintes recursos Azure:
 
 Para este arranque rápido, recomendamos que utilize o [script de configuração de recursos live video analytics](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) para implementar os recursos necessários na sua subscrição Azure. Para tal, siga estes passos:
 
-1. Abra o [Azure Cloud Shell](https://shell.azure.com).
+1. Abra o [Azure Cloud Shell](https://ms.portal.azure.com/#cloudshell/).
 1. Se estiver a utilizar a Cloud Shell pela primeira vez, será solicitado que selecione uma subscrição para criar uma conta de armazenamento e uma partilha de Ficheiros Microsoft Azure. Selecione **Criar armazenamento** para criar uma conta de armazenamento para as informações da sessão Cloud Shell. Esta conta de armazenamento é separada da conta que o script criará para utilizar com a sua conta Azure Media Services.
 1. No menu suspenso no lado esquerdo da janela Cloud Shell, selecione **Bash** como seu ambiente.
 
