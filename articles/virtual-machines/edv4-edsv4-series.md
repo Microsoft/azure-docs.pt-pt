@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.openlocfilehash: 53b4b09a95d99bc0fb84f495d1105653f61010c1
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: fc410ef903ac7eca2457516df2c71260a4b19b89
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98920363"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99097494"
 ---
 # <a name="edv4-and-edsv4-series"></a>Séries Edv4 e Edsv4
 
@@ -31,6 +31,7 @@ Os tamanhos da série Edv4 são executados nos processadores Intel &reg; Xeon &r
 [Atualizações de preservação da memória](maintenance-and-updates.md): Suportado<br>
 [Suporte de geração VM](generation-2.md): Geração 1 e 2<br>
 [Rede Acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): Suportado<br>
+[Discos EFÉMEROS :](ephemeral-os-disks.md)Não Suportados <br>
 <br>
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | <sup>**</sup> Produção de armazenamento em cache máximo e temporário: IOPS/MBps | NICs máximos|Largura de banda esperada da rede (Mbps) |
@@ -58,6 +59,7 @@ Os tamanhos da série Edsv4 são executados nos processadores Intel &reg; Xeon &
 [Atualizações de preservação da memória](maintenance-and-updates.md): Suportado<br>
 [Suporte de geração VM](generation-2.md): Geração 1 e 2<br>
 [Rede Acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): Suportado<br>
+[Discos EFÉMEROS](ephemeral-os-disks.md): Suportados <br>
 <br>
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | <sup>**</sup> Produção de armazenamento em cache máximo e temporário: IOPS/MBps (tamanho da cache em GiB) | Produção de disco não-abacatado por maxilar: IOPS/MBps | NICs máximos|Largura de banda esperada da rede (Mbps) |
@@ -92,6 +94,6 @@ Calculadora de preços: [Calculadora de Preços](https://azure.microsoft.com/pri
 Mais informações sobre tipos de discos : [tipos de discos](./disks-types.md#ultra-disk)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre como [as unidades de computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho do cálculo em Azure SKUs.

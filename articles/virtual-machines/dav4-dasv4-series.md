@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 06440c49971c1347e2bad11fcc186220b21e0145
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: e5ce9597802f88bacbe03cffac77fdfbee3a9357
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98917471"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99097611"
 ---
 # <a name="dav4-and-dasv4-series"></a>Séries Dav4 e Dasv4
 
@@ -27,6 +27,7 @@ As séries Dav4 e Dasv4 são novos tamanhos utilizando o processador EPYC TM 745
 [Atualizações de preservação da memória](maintenance-and-updates.md): Suportado<br>
 [Suporte de geração VM](generation-2.md): Geração 1<br>
 [Rede Acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): Suportado<br>
+[Discos EFÉMEROS :](ephemeral-os-disks.md)Não Suportados <br>
 <br>
 
 Os tamanhos da série Dav4 são baseados no processador AMD EPYC<sup>TM</sup> 7452 de 2.35Ghz que pode alcançar uma frequência máxima aumentada de 3,35GHz. Os tamanhos da série Dav4 oferecem uma combinação de vCPU, memória e armazenamento temporário para a maioria das cargas de trabalho de produção. O armazenamento de discos de dados são cobrados em separado das máquinas virtuais. Para utilizar SSD premium, utilize os tamanhos Dasv4. Os preços e os contadores de faturação para tamanhos Dasv4 são os mesmos que a série Dav4.
@@ -51,6 +52,7 @@ Os tamanhos da série Dav4 são baseados no processador AMD EPYC<sup>TM</sup> 74
 [Atualizações de preservação da memória](maintenance-and-updates.md): Suportado<br>
 [Suporte de geração VM](generation-2.md): Geração 1 e 2<br>
 [Rede Acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): Suportado<br>
+[Discos EFÉMEROS :](ephemeral-os-disks.md)Não Suportados <br>
 <br>
 
 Os tamanhos da série Dasv4 baseiam-se no processador 2.35Ghz AMD EPYC<sup>TM</sup> 7452 que pode alcançar uma frequência máxima aumentada de 3,35GHz e utilizar SSD premium. Os tamanhos da série Dasv4 oferecem uma combinação de vCPU, memória e armazenamento temporário para a maioria das cargas de trabalho de produção.
@@ -81,6 +83,6 @@ Calculadora de preços: [Calculadora de Preços](https://azure.microsoft.com/pri
 
 Mais informações sobre tipos de discos : [tipos de discos](./disks-types.md#ultra-disk)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre como [as unidades de computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho do cálculo em Azure SKUs.

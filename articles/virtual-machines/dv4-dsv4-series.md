@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 96bcf70d2f5ec8301b16de5d23d94ad8a7e27b5a
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: aea0a79d1ae27d987a6a30cfefe91e875f9a8382
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98920346"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99097511"
 ---
 # <a name="dv4-and-dsv4-series"></a>Séries Dv4 e Dsv4
 
@@ -35,6 +35,7 @@ O armazenamento remoto do disco de dados é faturado separadamente das máquinas
 [Atualizações de preservação da memória](maintenance-and-updates.md): Suportado<br>
 [Suporte de geração VM](generation-2.md): Geração 1<br>
 [Rede Acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): Suportado<br>
+[Discos EFÉMEROS :](ephemeral-os-disks.md)Não Suportados <br>
 <br>
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | NICs máximos|Largura de banda esperada da rede (Mbps) |
@@ -58,6 +59,7 @@ Os tamanhos da série Dsv4 são executados no Intel &reg; Xeon &reg; Platinum 82
 [Atualizações de preservação da memória](maintenance-and-updates.md): Suportado<br>
 [Suporte de geração VM](generation-2.md): Geração 1 e 2<br>
 [Rede Acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): Suportado<br>
+[Discos EFÉMEROS :](ephemeral-os-disks.md)Não Suportados <br>
 <br>
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Produção de disco não-abacatado por maxilar: IOPS/MBps | NICs máximos|Largura de banda esperada da rede (Mbps) |

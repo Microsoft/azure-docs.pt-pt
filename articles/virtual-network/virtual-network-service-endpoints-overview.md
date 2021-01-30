@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
-ms.openlocfilehash: 93feaef01b234eeb7ac363c18d8e9d8f52b009de
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 5e97a35a272684a99e1ca21cbec9c8f3edef253c
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98216534"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99097427"
 ---
 # <a name="virtual-network-service-endpoints"></a>Pontos finais de serviço de Rede Virtual
 
@@ -30,7 +30,7 @@ Esta funcionalidade está disponível para os seguintes serviços e regiões Azu
 
 - **[Azure Storage](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)** *(Microsoft.Storage):* Geralmente disponível em todas as regiões Azure.
 - **[Base de Dados Azure SQL](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** *(Microsoft.Sql):* Geralmente disponível em todas as regiões do Azure.
-- **[Azure Synapse Analytics](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** *(Microsoft.Sql):* Geralmente disponível em todas as regiões do Azure.
+- **[Azure Synapse Analytics](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** *(Microsoft.Sql*): Geralmente disponível em todas as regiões Azure para piscinas SQL dedicadas (anteriormente SQL DW).
 - **[Base de Dados Azure para servidor PostgreSQL](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** *(Microsoft.Sql*): Geralmente disponível nas regiões de Azure onde o serviço de base de dados está disponível.
 - **[Base de Dados Azure para servidor MySQL](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** *(Microsoft.Sql*): Geralmente disponível nas regiões de Azure onde o serviço de base de dados está disponível.
 - **[Base de Dados Azure para MariaDB](../mariadb/concepts-data-access-security-vnet.md)** *(Microsoft.Sql):* Geralmente disponível nas regiões de Azure onde o serviço de base de dados está disponível.
