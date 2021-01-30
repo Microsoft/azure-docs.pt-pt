@@ -1,5 +1,5 @@
 ---
-title: Desative o visitante OS Firewall em Azure VM / Microsoft Docs
+title: Desative o oss-firewall do hóspede em Azure VM | Microsoft Docs
 description: Aprenda um método de resolução de problemas para resolver problemas em que uma firewall do sistema operativo de hóspedes está a filtrar o tráfego parcial ou completo para um VM.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: c0426c5359e4d82d0316613586b9298596d82605
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74d06d3d4aaa0d76b80257d2148fb62f71c3fdb0
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87009769"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99093200"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Desativar a Firewall do SO convidado na VM do Azure
 
@@ -47,7 +47,7 @@ Se tiver um agente Azure em funcionamento, pode utilizar [a extensão de script 
 >   ```
 > * Se a firewall for definida através de uma política de Diretório Ativo, pode utilizar o seguinte script para acesso temporário. 
 >   ```
->   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\DomainProfile' -name "EnableFirewall" -Value 0
+>   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\DomainProfile' -name "EnableFirewall" -Value 0
 >   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\PublicProfile' -name "EnableFirewall" -Value 0
 >   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\StandardProfile' -name "EnableFirewall" -Value 0
 >   Restart-Service -Name mpssvc
@@ -88,7 +88,7 @@ Se tiver um agente Azure em funcionamento, pode utilizar [a extensão de script 
 
 #### <a name="mitigation-4-remote-registry"></a>Mitigação 4: Registo remoto 
 
-Siga estes passos para utilizar o [Registo Remoto.](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry)
+Siga estes passos para utilizar o [Registo Remoto.](https://www.betaarchive.com/wiki/index.php?title=Microsoft_KB_Archive/314837)
 
 1.  No VM de resolução de problemas, inicie o registo editor e, em seguida, vá ao Registo de Rede **De Ligação de**  >  **Ficheiros**.
 
@@ -126,7 +126,7 @@ Se tiver uma situação em que não consiga chegar ao VM por qualquer método, a
 
 4.  Antes de escoar quaisquer alterações, crie uma cópia da pasta \windows\system32\config no caso de ser necessário um reversão das alterações.
 
-5.  No VM de resolução de problemas, inicie o editor de registo (regedit.exe). 
+5.  No VM de resolução de problemas, inicie o editor de registo (regedit.exe). 
 
 6.  Para este procedimento de resolução de problemas, estamos a montar as colmeias como BROKENSYSTEM e BROKENSOFTWARE.
 

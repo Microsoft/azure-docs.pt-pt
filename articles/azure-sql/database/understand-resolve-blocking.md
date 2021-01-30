@@ -14,12 +14,12 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: ''
 ms.date: 1/14/2020
-ms.openlocfilehash: b73e72969a851428034499d447ecb162a61aa9ab
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 1341d0e64a01ff428fe42735d198c5e6b74b0ce8
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98725791"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99093313"
 ---
 # <a name="understand-and-resolve-azure-sql-database-blocking-problems"></a>Compreender e resolver problemas de bloqueio da base de dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -286,8 +286,8 @@ As `wait_type` `open_transaction_count` colunas , e `status` colunas referem-se 
 |:-|:-|:-|:-|:-|:-|--|
 | 1 | NÃO NULO | >= 0 | runnable | Sim, quando a consulta terminar. | Em sys.dm_exec_sessions, **lê-se,** **cpu_time** e/ou **colunas memory_usage** aumentarão ao longo do tempo. A duração da consulta será elevada quando concluída. |
 | 2 | NULL | \>0 | dormir | Não, mas a SPID pode ser morta. | Pode ser visto um sinal de atenção na sessão do Evento Alargado para este SPID, indicando que ocorreu uma hora de tempo de consulta ou cancelamento. |
-| 3 | NULL | \>= 0 | runnable | Não. Não resolverá até que o cliente pegue todas as linhas ou feche a ligação. O SPID pode ser morto, mas pode levar até 30 segundos. | Se open_transaction_count = 0, e o SPID mantiver fechaduras enquanto o nível de isolamento de transação é padrão (READ COMMMITTED), esta é uma causa provável. |  
-| 4 | Varia | \>= 0 | runnable | Não. Não resolverá até que o cliente cancele consultas ou feche as ligações. Os SPIDs podem ser mortos, mas podem levar até 30 segundos. | A coluna **de nome de anfitrião** em sys.dm_exec_sessions para o SPID na cabeça de uma cadeia de bloqueio será a mesma que uma das SPID que está bloqueando. |  
+| 3 | NULL | \>= 0 | runnable | N.º Não resolverá até que o cliente pegue todas as linhas ou feche a ligação. O SPID pode ser morto, mas pode levar até 30 segundos. | Se open_transaction_count = 0, e o SPID mantiver fechaduras enquanto o nível de isolamento de transação é padrão (READ COMMMITTED), esta é uma causa provável. |  
+| 4 | Varia | \>= 0 | runnable | N.º Não resolverá até que o cliente cancele consultas ou feche as ligações. Os SPIDs podem ser mortos, mas podem levar até 30 segundos. | A coluna **de nome de anfitrião** em sys.dm_exec_sessions para o SPID na cabeça de uma cadeia de bloqueio será a mesma que uma das SPID que está bloqueando. |  
 | 5 | NULL | \>0 | reversão | Yes. | Pode ser visto um sinal de atenção na sessão de Eventos Prolongados para este SPID, indicando que ocorreu uma hora de tempo de consulta ou cancelamento, ou simplesmente foi emitida uma declaração de reversão. |  
 | 6 | NULL | \>0 | dormir | Eventualmente. Quando o Windows NT determinar que a sessão já não está ativa, a ligação Azure SQL Database será quebrada. | O `last_request_start_time` valor em sys.dm_exec_sessions é muito mais cedo do que o tempo atual. |
 
@@ -369,9 +369,9 @@ Os seguintes cenários irão expandir-se nestes cenários.
     KILL 99
     ```
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
-* [Otimização da monitorização e do desempenho na Base de Dados SQL do Azure e no Azure SQL Managed Instance](/monitor-tune-overview.md)
+* [Otimização da monitorização e do desempenho na Base de Dados SQL do Azure e no Azure SQL Managed Instance](/azure/azure-sql/database/monitor-tune-overview)
 * [Monitorização do desempenho utilizando a Loja de Consultas](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)
 * [Guia de Controlo de Versão de Linha e Bloqueio de Transações](/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide)
 * [NÍVEL DE ISOLAMENTO DE TRANSAÇÃO DEFINIDO](/sql/t-sql/statements/set-transaction-isolation-level-transact-sql)

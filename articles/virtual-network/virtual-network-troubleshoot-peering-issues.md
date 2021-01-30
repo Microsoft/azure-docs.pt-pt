@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: 75b62eb00b1a1a534be01f9f118b4d5066e44a37
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: cb5ce421b6a38edcb8d92866f749a544eff927d6
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222892"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99096394"
 ---
 # <a name="troubleshoot-virtual-network-peering-issues"></a>Resolver problemas de peering de rede virtual
 
@@ -87,7 +87,7 @@ Siga os passos em: [Configurar o trânsito de gateway VPN para o olhar da rede v
 Para obter mais informações, consulte [o chaining de serviço.](./virtual-network-peering-overview.md#service-chaining)
 
 > [!Note]
-> Se necessitar de ajuda para configurar um NVA, [contacte o fornecedor NVA](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
+> Se necessitar de ajuda para configurar um NVA, [contacte o fornecedor NVA](https://mskb.pkisolutions.com/kb/2984655).
 
 Para obter ajuda na resolução de problemas da configuração e encaminhamento do dispositivo NVA, consulte [os problemas do aparelho virtual da Rede em Azure](./virtual-network-troubleshoot-nva.md).
 
@@ -190,7 +190,7 @@ Para ligações ponto a local:
 
 Uma rede de hub deve incluir um NVA. Configure os UDRs em raios que têm um conjunto de NVA como o próximo salto, e permitem permitir o **tráfego reencaminhado** na rede virtual do hub.
 
-Para mais informações, consulte [acorrente de Serviço](./virtual-network-peering-overview.md#service-chaining)e discuta estes requisitos com o [fornecedor NVA](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) à sua escolha.
+Para mais informações, consulte [acorrente de Serviço](./virtual-network-peering-overview.md#service-chaining)e discuta estes requisitos com o [fornecedor NVA](https://mskb.pkisolutions.com/kb/2984655) à sua escolha.
 
 ## <a name="troubleshoot-a-hub-spoke-network-connectivity-issue-between-spoke-virtual-networks-in-different-regions"></a>Resolução de problemas um problema de conectividade de rede falado entre redes virtuais faladas em diferentes regiões
 

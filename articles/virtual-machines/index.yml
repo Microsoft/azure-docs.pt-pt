@@ -10,12 +10,12 @@ metadata:
   author: cynthn
   ms.author: cynthn
   ms.date: 11/05/2020
-  ms.openlocfilehash: 2672ad70ad76e12870a2a176331e58579443b952
-  ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+  ms.openlocfilehash: a3b96f5ffb2bd9be758d08b53032eedf12836c92
+  ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/22/2021
-  ms.locfileid: "98707955"
+  ms.lasthandoff: 01/30/2021
+  ms.locfileid: "99091065"
 landingContent:
 - title: Funcionalidades mais recentes
   linkLists:
@@ -66,7 +66,7 @@ landingContent:
     - text: Linux VM não arranque
       url: ./troubleshooting/boot-error-troubleshoot-linux.md
     - text: Windows VM não arranque
-      url: /troubleshooting/boot-error-troubleshoot.md
+      url: /azure/virtual-machines/troubleshooting/boot-error-troubleshoot
     - text: Microsoft Q&A
       url: /answers/topics/azure-virtual-machines.html
 - title: Recursos

@@ -1,18 +1,18 @@
 ---
 title: Controlos de conformidade regulamentar da Política Azure para a Base de Dados Azure para MariaDB
 description: Lista controlos de conformidade regulamentar da política Azure disponíveis para a Base de Dados Azure para MariaDB. Estas definições políticas incorporadas fornecem abordagens comuns para gerir o cumprimento dos seus recursos Azure.
-ms.date: 01/25/2021
+ms.date: 01/29/2021
 ms.topic: sample
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 9d1a74ce6655b11684ad5d5100d64d19ff6642b5
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: a24d42592b4b2d1ab651f0a3402e963fc1dfead8
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98796142"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99093145"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-database-for-mariadb"></a>Controlos de conformidade regulamentar da Política Azure para a Base de Dados Azure para MariaDB
 
@@ -22,7 +22,7 @@ ms.locfileid: "98796142"
 
 [!INCLUDE [azure-policy-compliancecontrols-mariadb](../../includes/policy/standards/byrp/microsoft.dbformariadb.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [a Conformidade Regulamentar da Política Azure.](../governance/policy/concepts/regulatory-compliance.md)
 - Veja as incorporações no [repositório do GitHub do Azure Policy](https://github.com/Azure/azure-policy).

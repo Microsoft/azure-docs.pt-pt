@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 06/09/2020
 ms.author: rolyon
-ms.openlocfilehash: 6e57e495d34a265b5e0691106996206029656c5a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 850d50bc9e427ff559782d587d74b33089332a8d
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371125"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99091668"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Elevate access to manage all Azure subscriptions and management groups (Elevar o acesso para gerir todas as subscrições e grupos de gestão do Azure)
 
@@ -33,7 +33,7 @@ Se for administrador global, pode haver momentos em que pretende fazer as seguin
 
 ## <a name="how-does-elevated-access-work"></a>Como funciona o acesso elevado?
 
-Os recursos Azure AD e Azure são protegidos independentemente uns dos outros. Ou seja, as atribuições de funções da Azure AD não concedem acesso aos recursos da Azure, e as atribuições de funções da Azure não concedem acesso à Azure AD. No entanto, se for [administrador global](../active-directory/roles/permissions-reference.md#company-administrator-permissions) em Azure AD, pode atribuir-se acesso a todas as subscrições e grupos de gestão da Azure no seu diretório. Utilize esta capacidade se não tiver acesso aos recursos de subscrição do Azure, como máquinas virtuais ou contas de armazenamento, e pretende utilizar o seu privilégio de Administrador Global para ter acesso a esses recursos.
+Os recursos Azure AD e Azure são protegidos independentemente uns dos outros. Ou seja, as atribuições de funções da Azure AD não concedem acesso aos recursos da Azure, e as atribuições de funções da Azure não concedem acesso à Azure AD. No entanto, se for [administrador global](../active-directory/roles/permissions-reference.md#global-administrator-permissions) em Azure AD, pode atribuir-se acesso a todas as subscrições e grupos de gestão da Azure no seu diretório. Utilize esta capacidade se não tiver acesso aos recursos de subscrição do Azure, como máquinas virtuais ou contas de armazenamento, e pretende utilizar o seu privilégio de Administrador Global para ter acesso a esses recursos.
 
 Quando elevar o seu acesso, será atribuída a função [de Administrador de Acesso](built-in-roles.md#user-access-administrator) ao Utilizador em Azure no âmbito raiz `/` ().Isto permite-lhe visualizar todos os recursos e atribuir acesso em qualquer grupo de subscrição ou gestão no diretório. As atribuições de funções de administrador de acesso ao utilizador podem ser removidas usando Azure PowerShell, Azure CLI ou a API REST.
 
@@ -53,7 +53,7 @@ Siga estes passos para elevar o acesso a um Administrador Global utilizando o po
 
 1. Abra **o Diretório Ativo Azure**.
 
-1. Em **Gestão**, selecione **Propriedades**.
+1. Em **Gerir**, selecione **Propriedades**.
 
    ![Selecione Propriedades para propriedades do Azure Ative Directory - screenshot](./media/elevate-access-global-admin/azure-active-directory-properties.png)
 

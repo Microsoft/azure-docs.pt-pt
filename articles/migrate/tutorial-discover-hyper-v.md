@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: 7c3bca9e5ad87c681fc38a5c618331a3f7a97ae1
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 8b46d08da87565d133962c23e8281b221544d9ca
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897514"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092521"
 ---
 # <a name="tutorial-discover-hyper-v-vms-with-server-assessment"></a>Tutorial: Descubra VMs hiper-V com avaliação do servidor
 
@@ -87,7 +87,7 @@ Verificar os requisitos do anfitrião | Verifica se o anfitrião está a executa
 Verificar a versão PowerShell | Verifica se está a executar o script numa versão suportada do PowerShell. | Verifique se está a executar a versão 4.0 do PowerShell ou mais tarde no anfitrião Hyper-V.
 Criar uma conta | Verifica se tem as permissões corretas no anfitrião Do Hiper-V.<br/><br/> Permite-lhe criar uma conta de utilizador local com as permissões corretas. | Opção 1: Preparar uma conta com o acesso do Administrador à máquina de anfitrião Hyper-V.<br/><br/> Opção 2: Preparar uma conta de administração local, ou conta Dedmin de Domínio, e adicionar a conta a estes grupos: Utilizadores de Gestão Remota, Administradores de Hiper-V e Utilizadores de Monitores de Desempenho.
 Ativar a remoing powerShell | Ativa a remoagem powerShell no hospedeiro, de modo a que o aparelho Azure Migrate possa executar comandos PowerShell no hospedeiro, sobre uma ligação WinRM. | Para configurar, em cada anfitrião, abra uma consola PowerShell como administrador, e executar este comando: ``` powershell Enable-PSRemoting -force ```
-Criar serviços de integração Hyper-V | Verifica se os Serviços de Integração Hiper-V estão ativados em todos os VM geridos pelo anfitrião. | [Ativar serviços de integração de hiper-V](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services.md) em cada VM.<br/><br/> Se estiver a executar o Windows Server 2003, [siga estas instruções](prepare-windows-server-2003-migration.md).
+Criar serviços de integração Hyper-V | Verifica se os Serviços de Integração Hiper-V estão ativados em todos os VM geridos pelo anfitrião. | [Ativar serviços de integração de hiper-V](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) em cada VM.<br/><br/> Se estiver a executar o Windows Server 2003, [siga estas instruções](prepare-windows-server-2003-migration.md).
 Credenciais de delegado se os discos VM estiverem localizados em ações remotas de SMB | Credenciais de delegados | Executar este comando para permitir que o CredSSP delegue credenciais em anfitriões que executam VMs Hiper-V com discos em ações SMB: ```powershell Enable-WSManCredSSP -Role Server -Force ```<br/><br/> Pode executar este comando remotamente em todos os anfitriões Do Hiper-V.<br/><br/> Se adicionar novos nós de anfitrião num cluster, são automaticamente adicionados para serem descobertos, mas precisa de ativar o CredSSP manualmente.<br/><br/> Ao configurar o aparelho, termine de configurar o CredSSP, [colocando-o no aparelho](#delegate-credentials-for-smb-vhds). 
 
 ### <a name="run-the-script"></a>Executar o script
@@ -293,7 +293,7 @@ Após o fim da descoberta, pode verificar se os VMs aparecem no portal.
 1. Abra o dashboard do Azure Migrate.
 2. Em **Azure Migrate - Servidores**  >  **Azure Migrate:** Página de Avaliação do servidor, clique no ícone que exibe a contagem para **servidores descobertos**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Avaliar VMs hiper-V](tutorial-assess-hyper-v.md) para migração para VMs Azure.
 - [Reveja os dados](migrate-appliance.md#collected-data---hyper-v) que o aparelho recolhe durante a descoberta.

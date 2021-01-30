@@ -10,12 +10,12 @@ metadata:
   author: JBCook
   ms.author: jencook
   ms.date: 09/22/2020
-  ms.openlocfilehash: 0d3a800b376edfe7f5c9380fd5b198d4a46362e6
-  ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
-  ms.translationtype: HT
+  ms.openlocfilehash: e4e9819820b9ebd711dc6789d43fd9bbd83d1b8a
+  ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+  ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/16/2020
-  ms.locfileid: "92124348"
+  ms.lasthandoff: 01/30/2021
+  ms.locfileid: "99096682"
 landingContent:
 - title: Acerca da computação confidencial do Azure
   linkLists:
@@ -86,7 +86,7 @@ landingContent:
     - text: Exemplos de Contentor Confidencial (contentores não modificados no SGX)
       url: https://github.com/Azure-Samples/confidential-container-samples
     - text: Exemplos de Contentor com Suporte para Enclave
-      url: https://github.com/Azure-Samples/enclave-aware-container-samples
+      url: https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/confidential-computing/enclave-aware-containers.md
   - linkListType: reference
     links:
     - text: FAQ dos nós confidenciais no AKS
@@ -108,7 +108,7 @@ landingContent:
     - text: Demonstração para Funcionalidades Confidenciais de Cuidados de Saúde no AKS
       url: https://github.com/Azure-Samples/confidential-container-samples
     - text: TLS Mútuo Atestado com Open Enclave no AKS
-      url: https://github.com/Azure-Samples/enclave-aware-container-samples
+      url: https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/confidential-computing/enclave-aware-containers.md
   - linkListType: reference
     links:
     - text: Open Enclave (OE) SDK

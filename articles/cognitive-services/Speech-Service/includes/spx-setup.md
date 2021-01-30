@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 87af99d5136a8bed93854e9396895cddeb22549a
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 68362b61aa0d919bd0e95f3cebb1cf1189f9f0f3
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98540473"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99095191"
 ---
 ## <a name="download-and-install"></a>Transferir e instalar
 
@@ -19,9 +19,15 @@ ms.locfileid: "98540473"
 Siga estes passos para instalar o CLI do discurso no Windows:
 
 1. No Windows, precisa do [Microsoft Visual C++ Redistributable para Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) para a sua plataforma. A instalação desta situação pela primeira vez pode exigir um reinício.
-2. Descarregue o [arquivo zip](https://aka.ms/speech/spx-zips.zip)do Speech CLI e, em seguida, extraia-o.
-3. Vá ao diretório onde `spx-zips` extraiu. Esta pasta contém ficheiros de programas para o CLI do Discurso em várias plataformas. 
-4. Extrair os ficheiros para a sua plataforma `spx-net471` (para .NET Framework 4.7, ou `spx-netcore-win-x64` para .NET Core 3.0 num CPU x64). Lembre-se que vai fugir `spx` deste diretório.
+1. Instalar [.NET Core 3.1](/dotnet/core/install/linux.md).
+2. Instale o CLI do discurso utilizando o NuGet introduzindo este comando:
+
+    `dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI --version 1.15.0`
+
+Escreva `spx` para ver ajuda para o CLI do discurso.
+
+> [!NOTE]
+> Como alternativa ao NuGet, pode descarregar e extrair o [arquivo zip](https://aka.ms/speech/spx-zips.zip)do Speech CLI, encontrar e extrair a sua plataforma do `spx-zips` diretório e adicionar o caminho à variável PATH do `spx` seu sistema. 
 
 ### <a name="run-the-speech-cli"></a>Executar o Discurso CLI
 
@@ -43,15 +49,16 @@ Se você des output para um ficheiro, um editor de texto como o Notepad ou um na
 
 Siga estes passos para instalar o CLI da fala no Linux num CPU x64:
 
-1. Instalar [.NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0).
-2. Descarregue o [arquivo zip](https://aka.ms/speech/spx-zips.zip)do Speech CLI e, em seguida, extraia-o.
-3. Vá ao diretório de raiz `spx-zips` que extraiu do download, e extraia `spx-netcore-30-linux-x64` para um novo `~/spx` diretório.
-4. Num terminal, digite estes comandos:
-   1. `cd ~/spx`
-   2. `sudo chmod +r+x spx`
-   3. `PATH=~/spx:$PATH`
+1. Instalar [.NET Core 3.1](/dotnet/core/install/linux.md).
+2. Instale o CLI do discurso utilizando o NuGet introduzindo este comando:
+
+    `dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI --version 1.15.0`
 
 Escreva `spx` para ver ajuda para o CLI do discurso.
+
+> [!NOTE]
+> Como alternativa ao NuGet, pode baixar as binários no [arquivo zip,](https://aka.ms/speech/spx-zips.zip)extrair `spx-netcore-30-linux-x64` para um novo `~/spx` diretório, `sudo chmod +r+x spx` digitar no binário e adicionar o `~/spx` caminho à variável do seu sistema PATH.
+
 
 #### <a name="docker-install-windows-linux-macos"></a>[Instalação do Docker (Windows, Linux, macOS)](#tab/dockerinstall)
 

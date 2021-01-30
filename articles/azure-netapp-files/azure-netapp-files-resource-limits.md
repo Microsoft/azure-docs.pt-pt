@@ -1,5 +1,5 @@
 ---
-title: Limites de recursos para ficheiros Azure NetApp Microsoft Docs
+title: Limites de recursos para ficheiros Azure NetApp | Microsoft Docs
 description: Descreve limites para os recursos do Azure NetApp Files e como solicitar o aumento do limite de recursos.
 services: azure-netapp-files
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/01/2020
+ms.date: 01/29/2021
 ms.author: b-juche
-ms.openlocfilehash: aaffc63690894f43329763064ae89a105274953c
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: c82e834c0af3737c1e5ef19c7aa789b94d87f6d8
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511938"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99095396"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Limites de recurso para os Azure NetApp Files
 
@@ -29,25 +29,27 @@ Compreender os limites de recursos dos Ficheiros Azure NetApp ajuda-o a gerir os
 
 A tabela que se segue descreve os limites de recursos para ficheiros Azure NetApp:
 
-|  Resource  |  Limite predefinido  |  Ajustável através de pedido de apoio  |
+|  Recurso  |  Limite predefinido  |  Ajustável através de pedido de apoio  |
 |----------------|---------------------|--------------------------------------|
-|  Número de contas do NetApp por região de Azure por subscrição  |  10    |  Sim   |
-|  Número de piscinas de capacidade por conta NetApp   |    25     |   Sim   |
-|  Número de volumes por subscrição   |    500     |   Sim   |
-|  Número de volumes por piscina de capacidade     |    500   |    Sim     |
-|  Número de instantâneos por volume       |    255     |    Não        |
-|  Número de sub-redes delegadas em Ficheiros Azure NetApp (Microsoft.NetApp/volumes) por Rede Virtual Azure    |   1   |    Não    |
-|  Número de IPs usados num VNet (incluindo VNets imediatamente espreitados) com ficheiros Azure NetApp   |    1000   |    Não   |
-|  Tamanho mínimo de uma piscina de capacidade única   |  4 TiB     |    Não  |
-|  Tamanho máximo de uma piscina de capacidade única    |  500 TiB   |   Não   |
-|  Tamanho mínimo de um único volume    |    100 GiB    |    Não    |
-|  Tamanho máximo de um único volume     |    100 TiB    |    Não    |
-|  Tamanho máximo de um único ficheiro     |    16 TiB    |    Não    |    
-|  Tamanho máximo dos metadados do diretório num único diretório      |    320 MB    |    Não    |    
-|  Número máximo de ficheiros[(maxfiles)](#maxfiles)por volume     |    100 milhões    |    Sim    |    
-|  Produção mínima atribuída para um volume QoS manual     |    1 MiB/s   |    Não    |    
-|  Produção máxima atribuída para um volume QoS manual     |    4.500 MiB/s    |    Não    |    
-|  Número de volumes de proteção de dados de replicação entre regiões (volumes de destino)     |    5    |    Sim    |     
+|  Número de contas do NetApp por região de Azure por subscrição  |  10    |  Yes   |
+|  Número de piscinas de capacidade por conta NetApp   |    25     |   Yes   |
+|  Número de volumes por subscrição   |    500     |   Yes   |
+|  Número de volumes por piscina de capacidade     |    500   |    Yes     |
+|  Número de instantâneos por volume       |    255     |    No        |
+|  Número de sub-redes delegadas em Ficheiros Azure NetApp (Microsoft.NetApp/volumes) por Rede Virtual Azure    |   1   |    No    |
+|  Número de IPs usados num VNet (incluindo VNets imediatamente espreitados) com ficheiros Azure NetApp   |    1000   |    No   |
+|  Tamanho mínimo de uma piscina de capacidade única   |  4 TiB     |    No  |
+|  Tamanho máximo de uma piscina de capacidade única    |  500 TiB   |   No   |
+|  Tamanho mínimo de um único volume    |    100 GiB    |    No    |
+|  Tamanho máximo de um único volume     |    100 TiB    |    No    |
+|  Tamanho máximo de um único ficheiro     |    16 TiB    |    No    |    
+|  Tamanho máximo dos metadados do diretório num único diretório      |    320 MB    |    No    |    
+|  Número máximo de ficheiros[(maxfiles)](#maxfiles)por volume     |    100 milhões    |    Yes    |    
+|  Produção mínima atribuída para um volume QoS manual     |    1 MiB/s   |    No    |    
+|  Produção máxima atribuída para um volume QoS manual     |    4.500 MiB/s    |    No    |    
+|  Número de volumes de proteção de dados de replicação entre regiões (volumes de destino)     |    5    |    Yes    |     
+
+Para ver se um diretório está a aproximar-se do limite máximo de tamanho para metadados de diretório (320 MB), ver [como determino se um diretório se aproxima do tamanho limite](azure-netapp-files-faqs.md#how-do-i-determine-if-a-directory-is-approaching-the-limit-size).   
 
 Para mais informações, consulte [as PERGUNTAS Frequentes de Gestão de Capacidade.](azure-netapp-files-faqs.md#capacity-management-faqs)
 
@@ -83,7 +85,7 @@ Do plano de navegação do portal Azure:
 4. No separador Detalhes:
     1. Na caixa Descrição, forneça as seguintes informações para o tipo de recurso correspondente:
 
-        |  Resource  |    Recursos-mãe      |    Novos limites solicitados     |    Motivo para o aumento de quota       |
+        |  Recurso  |    Recursos-mãe      |    Novos limites solicitados     |    Motivo para o aumento de quota       |
         |----------------|------------------------------|---------------------------------|------------------------------------------|
         |  Conta |  *ID da Subscrição*   |  *Novo número de **conta** máxima solicitado*    |  *Que cenário ou caso de utilização motivou o pedido?*  |
         |  Conjunto    |  *ID de subscrição, conta NetApp URI*  |  *Solicitado novo número máximo **de piscina***   |  *Que cenário ou caso de utilização motivou o pedido?*  |

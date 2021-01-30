@@ -3,16 +3,16 @@ title: Use o Azure Service Bus Explorer para realizar operações de dados no Se
 description: Este artigo fornece informações sobre como usar o Azure Service Bus Explorer baseado no portal para aceder aos dados do Azure Service Bus.
 ms.topic: conceptual
 ms.date: 01/20/2020
-ms.openlocfilehash: eb6610945ba4b09543308ab351d3a36ec7e587dd
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 06bc2ffffc6b467aa730e16599099bc95117dac9
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684846"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092222"
 ---
 # <a name="use-service-bus-explorer-to-perform-data-operations-on-service-bus-preview"></a>Utilize o Service Bus Explorer para realizar operações de dados no Service Bus (Preview)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 A Azure Service Bus permite que as aplicações de clientes remetentes e recetores dissolvam a sua lógica de negócio com o uso da semântica familiar ponto-a-ponto (Fila) e subscreva a semântica de subscrição de tópicos.
 
@@ -37,9 +37,9 @@ Para utilizar a ferramenta Service Bus Explorer, terá de fazer as seguintes tar
     - [Quickstart - Criar filas](service-bus-quickstart-portal.md)
     - [Quickstart - Criar Tópicos](service-bus-quickstart-topics-subscriptions-portal.md)
 - Certifique-se de que é membro de uma destas funções no espaço de nomes: 
-    - [Proprietário de dados de ônibus de serviço](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner) 
-    - [Contribuinte](../role-based-access-control/built-in-roles.md#contributor) 
-    - [Proprietário](/role-based-access-control/built-in-roles.md#owner)
+    - [Proprietário de dados de ônibus de serviço](/azure/role-based-access-control/built-in-roles#azure-service-bus-data-owner) 
+    - [Contribuinte](/azure/role-based-access-control/built-in-roles#contributor) 
+    - [Proprietário](/azure/role-based-access-control/built-in-roles#owner)
 
 
 ## <a name="using-the-service-bus-explorer"></a>Utilização do Explorador de Autocarros de Serviço

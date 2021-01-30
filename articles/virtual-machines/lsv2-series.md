@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: a08b5db19aab19402aa3c93cfa23ce7b39a0a838
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 2416c0b4002f560e272393c95a86c543cb5f1009
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98918693"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99097847"
 ---
 # <a name="lsv2-series"></a>Série Lsv2
 
@@ -33,6 +33,7 @@ A série Lsv2 apresenta alta produção, baixa latência, armazenamento NVMe loc
 [Suporte de geração VM](generation-2.md): Geração 1 e 2<br>
 Rebentamento: Suportado<br>
 [Rede Acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): Suportado<br>
+[Discos EFÉMEROS :](ephemeral-os-disks.md)Não Suportados <br>
 <br>
 
 | Tamanho | vCPU | Memória (GiB) | Disco temporário<sup>1</sup> (GiB) | Discos NVMe<sup>2</sup> | Produção de disco NVMe<sup>3</sup> (Ler IOPS/MBps) | Produção de disco de dados não colada (IOPs/MBps)<sup>4</sup> | Max rebenta desatado de saída de disco de dados (IOPs/MBps)<sup>5</sup>| Discos de dados max | NICs máximos | Largura de banda de rede esperada (Mbps) |
@@ -88,6 +89,6 @@ Calculadora de preços: [Calculadora de Preços](https://azure.microsoft.com/pri
 Mais informações sobre tipos de discos : [tipos de discos](./disks-types.md#ultra-disk)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre como [as unidades de computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho do cálculo em Azure SKUs.

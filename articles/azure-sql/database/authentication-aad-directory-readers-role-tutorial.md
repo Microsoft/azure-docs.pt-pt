@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: 88483b29c8951f8e3f38f7cdc5bbdfb80eeca2b1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: bc809cf02b827b7498890cb7d929c44bd360ab53
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370139"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99094746"
 ---
 # <a name="tutorial-assign-directory-readers-role-to-an-azure-ad-group-and-manage-role-assignments"></a>Tutorial: Atribuir papel de Leitores de Diretório a um grupo AD Azure e gerir atribuições de funções
 
@@ -23,7 +23,7 @@ ms.locfileid: "92370139"
 > [!NOTE]
 > A atribuição do papel **de Diretoria de Leitores** a um grupo neste artigo está em **pré-visualização pública.** 
 
-Este artigo guia-o através da criação de um grupo no Azure Ative Directory (Azure AD), e atribuindo esse grupo o papel [**de Leitores de Diretório.**](../../active-directory/roles/permissions-reference.md#directory-readers) As permissões do Diretório leitores permitem aos proprietários do grupo adicionar membros adicionais ao grupo, tais como uma [identidade gerida](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) da Base de [Dados Azure SQL,](sql-database-paas-overview.md) [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md), e [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). Isto ignora a necessidade de um [Administrador Global](../../active-directory/roles/permissions-reference.md#global-administrator--company-administrator) ou Administrador [de Função Privilegiado](../../active-directory/roles/permissions-reference.md#privileged-role-administrator) atribuir diretamente o papel de Leitores de Diretório para cada identidade lógica do servidor Azure SQL no arrendatário.
+Este artigo guia-o através da criação de um grupo no Azure Ative Directory (Azure AD), e atribuindo esse grupo o papel [**de Leitores de Diretório.**](../../active-directory/roles/permissions-reference.md#directory-readers) As permissões do Diretório leitores permitem aos proprietários do grupo adicionar membros adicionais ao grupo, tais como uma [identidade gerida](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) da Base de [Dados Azure SQL,](sql-database-paas-overview.md) [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md), e [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). Isto ignora a necessidade de um [Administrador Global](../../active-directory/roles/permissions-reference.md#global-administrator) ou Administrador [de Função Privilegiado](../../active-directory/roles/permissions-reference.md#privileged-role-administrator) atribuir diretamente o papel de Leitores de Diretório para cada identidade lógica do servidor Azure SQL no arrendatário.
 
 Este tutorial utiliza a funcionalidade introduzida nos [grupos de nuvem Use para gerir atribuições de funções no Azure Ative Directory (pré-visualização)](../../active-directory/roles/groups-concept.md). 
 
@@ -38,7 +38,7 @@ Para obter mais informações sobre os benefícios de atribuir o papel de Leitor
 
 ### <a name="create-a-new-group-and-assign-owners-and-role"></a>Criar um novo grupo e atribuir proprietários e papel
 
-1. É necessário um utilizador com permissões [de Administrador Global](../../active-directory/roles/permissions-reference.md#global-administrator--company-administrator) ou Administrador de [Função Privilegiada](../../active-directory/roles/permissions-reference.md#privileged-role-administrator) para esta configuração inicial.
+1. É necessário um utilizador com permissões [de Administrador Global](../../active-directory/roles/permissions-reference.md#global-administrator) ou Administrador de [Função Privilegiada](../../active-directory/roles/permissions-reference.md#privileged-role-administrator) para esta configuração inicial.
 1. Tenha o utilizador privilegiado a entrar no [portal Azure](https://portal.azure.com).
 1. Aceda ao recurso **Azure Ative Directory.** Under **Managed**, vá a **Grupos.** Selecione **Novo grupo** para criar um novo grupo.
 1. Selecione **a Segurança** como o tipo de grupo e preencha o resto dos campos. Certifique-se de que as funções AD de definição **podem ser atribuídas ao grupo (Preview)** é comutada para **Sim**. Em seguida, atribua o papel **de leitores do Ad Directory** Azure para o grupo.
@@ -55,7 +55,7 @@ Para obter mais informações sobre os benefícios de atribuir o papel de Leitor
 
 Para verificar e gerir o grupo que foi criado, volte ao painel **de grupos** no portal Azure e procure o nome do seu grupo. Proprietários e membros adicionais podem ser adicionados no menu **Proprietários** e **Membros** da definição de **Manage** após a seleção do seu grupo. Também pode rever as **funções atribuídas** para o grupo.
 
-:::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-group-created.png" alt-text="aad-novo grupo":::
+:::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-group-created.png" alt-text="Screenshot de um painel de grupo com os links que abrem os menus Definições para Membros, Proprietários e Funções Atribuídas (Preview) em destaque.":::
 
 ### <a name="add-azure-sql-managed-identity-to-the-group"></a>Adicione Azure SQL identidade gerida ao grupo
 
@@ -68,17 +68,17 @@ Para os passos seguintes, o administrador global ou utilizador de administrador 
 
 1. Encontre o nome do seu recurso **de instância gerido SQL** no portal Azure.
 
-   :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-managed-instance.png" alt-text="aad-novo grupo":::
+   :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-managed-instance.png" alt-text="Screenshot do ecrã de instâncias gerido SQL com o nome sql nome ssomitest e o nome subnet ManagedInstance realçado.":::
 
    Durante a criação do seu SQL Managed Instance, foi criada uma identidade Azure para o seu exemplo. A identidade criada tem o mesmo nome que o prefixo do seu nome SQL Managed Instance. Pode encontrar o principal de serviço para a sua identidade SQL Managed Instance que criou como uma Aplicação AD Azure seguindo estes passos:
 
     - Aceda ao recurso **Azure Ative Directory.** Na definição **'Gerir',** selecione **aplicações Enterprise**. O **ID do objeto** é a identidade do caso.
     
-    :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-managed-instance-service-principal.png" alt-text="aad-novo grupo":::
+    :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-managed-instance-service-principal.png" alt-text="Screenshot da página de aplicações da Enterprise para um recurso do Azure Ative Directory com o ID do Objeto da instância gerida SQL realçada.":::
 
 1. Aceda ao recurso **Azure Ative Directory.** Under **Managed**, vá a **Grupos.** Selecione o grupo que criou. Sob a definição **gerida** do seu grupo, selecione **Membros**. **Selecione Adicionar os membros** e adicione o seu principal de serviço SQL Managed Instance como membro do grupo, procurando o nome acima encontrado.
 
-   :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-add-managed-instance-service-principal.png" alt-text="aad-novo grupo":::
+   :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-add-managed-instance-service-principal.png" alt-text="Screenshot da página dos Membros para um recurso do Azure Ative Directory com as opções realçadas para adicionar um sql de instância gerida como um novo membro.":::
 
 > [!NOTE]
 > Pode levar alguns minutos para propagar as permissões principais do serviço através do sistema Azure, e permitir o acesso à Azure AD Graph API. Poderá ter de esperar alguns minutos antes de providenciar um administrador AD Azure para a SQL Managed Instance.
@@ -94,7 +94,7 @@ A atribuição do papel **de Leitores** de Diretório à identidade do servidor 
 ## <a name="directory-readers-role-assignment-using-powershell"></a>Atribuição de função de diretoria de leitores usando PowerShell
 
 > [!IMPORTANT]
-> Um [Administrador Global](../../active-directory/roles/permissions-reference.md#global-administrator--company-administrator) ou Administrador [privilegiado](../../active-directory/roles/permissions-reference.md#privileged-role-administrator) terá de executar estes passos iniciais. Além do PowerShell, o AD AZure oferece a Microsoft Graph API para [criar um grupo atribuível a papéis em Ad AZure](../../active-directory/roles/groups-create-eligible.md#using-microsoft-graph-api).
+> Um [Administrador Global](../../active-directory/roles/permissions-reference.md#global-administrator) ou Administrador [privilegiado](../../active-directory/roles/permissions-reference.md#privileged-role-administrator) terá de executar estes passos iniciais. Além do PowerShell, o AD AZure oferece a Microsoft Graph API para [criar um grupo atribuível a papéis em Ad AZure](../../active-directory/roles/groups-create-eligible.md#using-microsoft-graph-api).
 
 1. Descarregue o módulo PowerShell de pré-visualização Azure AD utilizando os seguintes comandos. Pode ter de executar o PowerShell como administrador.
 

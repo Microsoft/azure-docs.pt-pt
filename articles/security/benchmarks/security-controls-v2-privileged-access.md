@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 619f2c2670d8e376ad0bca7cf8b93b971be067a0
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: fd39f5e0af34c702cddc8e08b6a94e428c7f0167
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880730"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092055"
 ---
 # <a name="security-control-v2-privileged-access"></a>Controlo de Segurança V2: Acesso Privilegiado
 
@@ -26,7 +26,7 @@ O Acesso Privilegiado cobre controlos para proteger o acesso privilegiado ao seu
 
 Limite o número de contas de utilizador altamente privilegiadas e proteja estas contas a um nível elevado. As funções mais críticas incorporadas no AD Azure são o Administrador Global e o Administrador de Função Privilegiado, porque os utilizadores atribuídos a estas duas funções podem delegar funções de administrador. Com estes privilégios, os utilizadores podem ler e modificar, direta ou indiretamente, todos os recursos do seu ambiente Azure:
 
-- Administrador Global / Administrador da Empresa: Os utilizadores com esta função têm acesso a todas as funcionalidades administrativas em Azure AD, bem como serviços que utilizam identidades AZure AD.
+- Administrador Global: Os utilizadores com esta função têm acesso a todas as funcionalidades administrativas em Azure AD, bem como serviços que utilizam identidades AZure AD.
 
 - Administrador privilegiado: Os utilizadores com esta função podem gerir atribuições de funções em Azure AD, bem como dentro da Azure AD Privileged Identity Management (PIM). Além disso, esta função permite a gestão de todos os aspetos da PIM e das unidades administrativas.
 

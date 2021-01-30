@@ -18,18 +18,18 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-js
-ms.openlocfilehash: 34962686ae36764a6dc16b164e91004be9ef038d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a7ef6ef85ea9d256303852e4b281071da455ebb0
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91250424"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99097678"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Envio de notificações push com a Azure Notification Hubs e Node.js
 
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 > [!IMPORTANT]
 > Para concluir este tutorial, tem de ter uma conta ativa do Azure. Se não tiver uma conta, crie uma conta de teste gratuita em apenas alguns minutos através do [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-nodejs-how-to-use-notification-hubs).
@@ -83,7 +83,7 @@ var notificationHubService = azure.createNotificationHubService('hubname','conne
 Obtenha o valor de ligação `connectionstring` a partir do portal [Azure] realizando os seguintes passos:
 
 1. No painel de navegação esquerdo, clique em **Procurar**.
-2. Selecione **Os Centros de Notificação**e, em seguida, encontre o hub que deseja utilizar para a amostra. Pode consultar o tutorial da [Windows Store Getting Started](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) se precisar de ajuda para criar um novo Hub de Notificação.
+2. Selecione **Os Centros de Notificação** e, em seguida, encontre o hub que deseja utilizar para a amostra. Pode consultar o tutorial da [Windows Store Getting Started](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) se precisar de ajuda para criar um novo Hub de Notificação.
 3. Selecione **Definições**.
 4. Clique em **Políticas de Acesso.** Vê cordas de ligação partilhadas e de acesso total.
 
@@ -109,7 +109,7 @@ O `GcmService` objeto fornece um método que pode ser usado para enviar `send` n
 - **Carga útil** - a mensagem é JSON ou carga de carga de corda bruta.
 - **Callback** - a função de retorno.
 
-Para obter mais informações sobre o formato de carga útil, consulte a [documentação da carga útil.](https://distriqt.github.io/ANE-PushNotifications/m.FCM-GCM%20Payload)
+Para obter mais informações sobre o formato de carga útil, consulte a [documentação da carga útil.](https://payload.readthedocs.io/en/latest/)
 
 O código que se segue utiliza o `GcmService` caso exposto pelo enviado uma `NotificationHubService` notificação push a todos os clientes registados.
 

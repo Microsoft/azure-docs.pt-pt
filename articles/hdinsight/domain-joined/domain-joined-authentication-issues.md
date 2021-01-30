@@ -4,12 +4,12 @@ description: Problemas de autenticação no Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/24/2020
-ms.openlocfilehash: a0ca7cb8797b90d8cf933733c48be299e79be8aa
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: b5a55b3b5f9affcd9f34e1c0d4c439a7ada8c0b9
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98933619"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99095129"
 ---
 # <a name="authentication-issues-in-azure-hdinsight"></a>Problemas de autenticação no Azure HDInsight
 
@@ -35,7 +35,7 @@ O código de erro 50126 da AD Azure significa que a `AllowCloudPasswordValidatio
 
 ### <a name="resolution"></a>Resolução
 
-O Administrador da Empresa do inquilino Azure AD deve permitir que a Azure AD utilize hashes de palavra-passe para utilizadores apoiados pela ADFS.  Aplique o `AllowCloudPasswordValidationPolicy` como mostrado no artigo Use Pacote de Segurança [Empresarial em HDInsight](../domain-joined/apache-domain-joined-architecture.md).
+O Administrador Global do inquilino Azure AD deve permitir que a Azure AD utilize hashes de palavra-passe para utilizadores apoiados pela ADFS.  Aplique o `AllowCloudPasswordValidationPolicy` como mostrado no artigo Use Pacote de Segurança [Empresarial em HDInsight](../domain-joined/apache-domain-joined-architecture.md).
 
 ---
 
@@ -209,6 +209,6 @@ Este erro ocorre intermitentemente quando os utilizadores tentam aceder à ADLS 
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]

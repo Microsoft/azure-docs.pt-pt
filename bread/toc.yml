@@ -273,8 +273,8 @@
       topicHref: /azure/partner-solutions/
       items:
         - name: Apache Kafka para Nuvem Confluente
-          tocHref: /azure/partner-solutions/apache-kafka-confluent-cloud
-          topicHref: /azure/partner-solutions/apache-kafka-confluent-cloud
+          tocHref: /azure/partner-solutions/apache-kafka-confluent-cloud/overview
+          topicHref: /azure/partner-solutions/apache-kafka-confluent-cloud/overview
     - name: Serviço SignalR
       tocHref: /azure/azure-signalr/
       topicHref: /azure/azure-signalr/

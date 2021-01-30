@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2019
 ms.author: TomSh
-ms.openlocfilehash: 49c4f7888150446316a04710bc5de5e618cd66eb
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 68f3b9f9cfa8ea74a8240fab6e47bf737788081f
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413314"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99094329"
 ---
 # <a name="azure-best-practices-for-network-security"></a>Melhores práticas do Azure para segurança de rede
 Este artigo discute uma coleção de boas práticas da Azure para aumentar a segurança da sua rede. Estas boas práticas derivam da nossa experiência com o networking da Azure e as experiências de clientes como você.
@@ -49,22 +49,22 @@ As redes virtuais Azure são semelhantes às DEN na sua rede no local. A ideia p
 
 As melhores práticas para segmentar logicamente sub-redes incluem:
 
-**Melhores práticas** : Não atribua regras de permitir com amplas gamas (por exemplo, permitir 0.0.0.0 a 255.255.255.255.255).  
+**Melhores práticas**: Não atribua regras de permitir com amplas gamas (por exemplo, permitir 0.0.0.0 a 255.255.255.255.255).  
 **Pormenor:** Assegurar que os procedimentos de resolução de problemas desencorajam ou proíbem a criação deste tipo de regras. Estas regras permitem que as regras conduzam a uma falsa sensação de segurança e são frequentemente encontradas e exploradas por equipas vermelhas.
 
-**Melhores práticas** : Segmentar o espaço de endereço maior em sub-redes.   
-**Detalhe** : Utilize princípios de sub-rede baseados em [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)para criar as suas sub-redes.
+**Melhores práticas**: Segmentar o espaço de endereço maior em sub-redes.   
+**Detalhe**: Utilize princípios de sub-rede baseados em [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)para criar as suas sub-redes.
 
-**Melhores práticas** : Criar controlos de acesso à rede entre sub-redes. O encaminhamento entre sub-redes acontece automaticamente e não é necessário configurar manualmente as tabelas de encaminhamento. Por predefinição, não existem controlos de acesso à rede entre as sub-redes que cria numa rede virtual Azure.   
-**Detalhe** : Utilize um [grupo de segurança](../../virtual-network/virtual-network-vnet-plan-design-arm.md) de rede para proteger contra o tráfego não solicitado nas sub-redes Azure. Os grupos de segurança da rede são simples e imponentes dispositivos de inspeção de pacotes que utilizam a abordagem de 5 tuple (fonte IP, porta de origem, porto de destino, porta de destino e protocolo de camada 4) para criar regras de permitir/negar para o tráfego de rede. Você permite ou nega tráfego de e para um único endereço IP, de e para vários endereços IP, ou de e para sub-redes inteiras.
+**Melhores práticas**: Criar controlos de acesso à rede entre sub-redes. O encaminhamento entre sub-redes acontece automaticamente e não é necessário configurar manualmente as tabelas de encaminhamento. Por predefinição, não existem controlos de acesso à rede entre as sub-redes que cria numa rede virtual Azure.   
+**Detalhe**: Utilize um [grupo de segurança](../../virtual-network/virtual-network-vnet-plan-design-arm.md) de rede para proteger contra o tráfego não solicitado nas sub-redes Azure. Os grupos de segurança da rede são simples e imponentes dispositivos de inspeção de pacotes que utilizam a abordagem de 5 tuple (fonte IP, porta de origem, porto de destino, porta de destino e protocolo de camada 4) para criar regras de permitir/negar para o tráfego de rede. Você permite ou nega tráfego de e para um único endereço IP, de e para vários endereços IP, ou de e para sub-redes inteiras.
 
 Quando utiliza grupos de segurança de rede para controlo de acesso à rede entre sub-redes, pode colocar recursos que pertencem à mesma zona de segurança ou papel nas suas próprias sub-redes.
 
-**Melhores práticas** : Evite pequenas redes virtuais e sub-redes para garantir a simplicidade e flexibilidade.   
-**Detalhe** : A maioria das organizações adiciona mais recursos do que inicialmente previsto, e a reafectação de endereços é intensiva em termos de mão de obra. A utilização de pequenas sub-redes adiciona um valor de segurança limitado e o mapeamento de um grupo de segurança de rede a cada sub-rede adiciona sobrecarga. Defina sub-redes em geral para garantir que tem flexibilidade para o crescimento.
+**Melhores práticas**: Evite pequenas redes virtuais e sub-redes para garantir a simplicidade e flexibilidade.   
+**Detalhe**: A maioria das organizações adiciona mais recursos do que inicialmente previsto, e a reafectação de endereços é intensiva em termos de mão de obra. A utilização de pequenas sub-redes adiciona um valor de segurança limitado e o mapeamento de um grupo de segurança de rede a cada sub-rede adiciona sobrecarga. Defina sub-redes em geral para garantir que tem flexibilidade para o crescimento.
 
-**Boas práticas** : Simplificar a gestão das regras do grupo de segurança da rede definindo [grupos de segurança de aplicações.](https://azure.microsoft.com/blog/applicationsecuritygroups/)  
-**Detalhe** : Defina um Grupo de Segurança de Aplicações para listas de endereços IP que pensa poderem mudar no futuro ou ser utilizados em muitos grupos de segurança de rede. Certifique-se de nomear os Grupos de Segurança da Aplicação claramente para que outros possam entender o seu conteúdo e propósito.
+**Boas práticas**: Simplificar a gestão das regras do grupo de segurança da rede definindo [grupos de segurança de aplicações.](https://azure.microsoft.com/blog/applicationsecuritygroups/)  
+**Detalhe**: Defina um Grupo de Segurança de Aplicações para listas de endereços IP que pensa poderem mudar no futuro ou ser utilizados em muitos grupos de segurança de rede. Certifique-se de nomear os Grupos de Segurança da Aplicação claramente para que outros possam entender o seu conteúdo e propósito.
 
 ## <a name="adopt-a-zero-trust-approach"></a>Adotar uma abordagem Zero Trust
 As redes baseadas em perímetros operam partindo do pressuposto de que todos os sistemas dentro de uma rede podem ser confiáveis. Mas os colaboradores de hoje acedem aos recursos da sua organização a partir de qualquer lugar em uma variedade de dispositivos e aplicações, o que torna os controlos de segurança do perímetro irrelevantes. As políticas de controlo de acesso que se concentram apenas em quem pode aceder a um recurso não são suficientes. Para dominar o equilíbrio entre segurança e produtividade, os administradores de segurança também precisam de ter em conta a *forma como* um recurso está a ser acedido.
@@ -73,14 +73,14 @@ As redes precisam de evoluir a partir das defesas tradicionais porque as redes p
 
 As melhores práticas são:
 
-**Melhores práticas** : Dar Acesso Condicional aos recursos com base no dispositivo, identidade, garantia, localização da rede e muito mais.  
-**Detalhe** : [O Acesso Condicionado AZURE AD](../../active-directory/conditional-access/overview.md) permite-lhe aplicar os controlos de acesso certos implementando decisões automatizadas de controlo de acesso com base nas condições exigidas. Para mais informações, consulte [Gerir o acesso à gestão do Azure com Acesso Condicional.](../../active-directory/conditional-access/howto-conditional-access-policy-azure-management.md)
+**Melhores práticas**: Dar Acesso Condicional aos recursos com base no dispositivo, identidade, garantia, localização da rede e muito mais.  
+**Detalhe**: [O Acesso Condicionado AZURE AD](../../active-directory/conditional-access/overview.md) permite-lhe aplicar os controlos de acesso certos implementando decisões automatizadas de controlo de acesso com base nas condições exigidas. Para mais informações, consulte [Gerir o acesso à gestão do Azure com Acesso Condicional.](../../active-directory/conditional-access/howto-conditional-access-policy-azure-management.md)
 
-**Melhores práticas** : Permitir o acesso à porta apenas após a aprovação do fluxo de trabalho.  
-**Detalhe** : Pode utilizar [o acesso VM just-in-time no Azure Security Center](../../security-center/security-center-just-in-time.md) para bloquear o tráfego de entrada nos seus VMs Azure, reduzindo a exposição a ataques, proporcionando fácil acesso à ligação aos VM quando necessário.
+**Melhores práticas**: Permitir o acesso à porta apenas após a aprovação do fluxo de trabalho.  
+**Detalhe**: Pode utilizar [o acesso VM just-in-time no Azure Security Center](../../security-center/security-center-just-in-time.md) para bloquear o tráfego de entrada nos seus VMs Azure, reduzindo a exposição a ataques, proporcionando fácil acesso à ligação aos VM quando necessário.
 
-**Boas práticas** : Conceda permissões temporárias para executar tarefas privilegiadas, o que impede que utilizadores maliciosos ou não autorizados tenham acesso após o termo das permissões. O acesso só é concedido quando os utilizadores precisam.  
-**Detalhe** : Utilize acesso just-in-time na Gestão de Identidade Privilegiada Azure AD ou numa solução de terceiros para conceder permissões para executar tarefas privilegiadas.
+**Boas práticas**: Conceda permissões temporárias para executar tarefas privilegiadas, o que impede que utilizadores maliciosos ou não autorizados tenham acesso após o termo das permissões. O acesso só é concedido quando os utilizadores precisam.  
+**Detalhe**: Utilize acesso just-in-time na Gestão de Identidade Privilegiada Azure AD ou numa solução de terceiros para conceder permissões para executar tarefas privilegiadas.
 
 Zero Trust é a próxima evolução na segurança da rede. O estado dos ciberataques leva as organizações a assumirem a mentalidade de "assumir a violação", mas esta abordagem não deve ser limitada. As redes Zero Trust protegem os dados e recursos corporativos, garantindo ao mesmo tempo que as organizações podem construir um local de trabalho moderno, utilizando tecnologias que capacitam os colaboradores a serem produtivos a qualquer momento, em qualquer lugar, de qualquer forma.
 
@@ -147,7 +147,7 @@ Esta distribuição de tráfego aumenta a disponibilidade porque se um dos servi
 
 Recomendamos que utilize o equilíbrio de carga sempre que puder e, conforme apropriado para os seus serviços. Seguem-se cenários tanto a nível da rede virtual Azure como a nível global, juntamente com opções de equilíbrio de carga para cada um.
 
-**Cenário** : Tem uma aplicação que:
+**Cenário**: Tem uma aplicação que:
 
 - Requer pedidos da mesma sessão utilizador/cliente para chegar à mesma máquina virtual de back-end. Exemplos disso são aplicações de carrinhos de compras e servidores de correio web.
 - Aceita apenas uma ligação segura, por isso a comunicação não encriptada para o servidor não é uma opção aceitável.
@@ -155,17 +155,17 @@ Recomendamos que utilize o equilíbrio de carga sempre que puder e, conforme apr
 
 **Opção de equilíbrio de** cargas : Utilize [o Azure Application Gateway](../../application-gateway/overview.md), um equilibrador de carga de tráfego web HTTP. O Application Gateway suporta encriptação TLS de ponta a ponta e [a terminação TLS](../../application-gateway/overview.md) no gateway. Os servidores web podem então ser descarregados da encriptação e desencriptação e o tráfego fluindo desencriptado para os servidores de back-end.
 
-**Cenário** : É necessário carregar as ligações de entrada de equilíbrio a partir da internet entre os seus servidores localizados numa rede virtual Azure. Os cenários são quando:
+**Cenário**: É necessário carregar as ligações de entrada de equilíbrio a partir da internet entre os seus servidores localizados numa rede virtual Azure. Os cenários são quando:
 
 - Ter aplicações apátridas que aceitam pedidos de entrada da internet.
 - Não requer sessões pegajosas ou descarga de TLS. Sessões pegajosas é um método usado com o Equilíbrio de Carga de Aplicação, para alcançar a afinidade do servidor.
 
-**Opção de equilíbrio de cargas** : Utilize o portal Azure para [criar um balanceador de carga externo](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) que difunde pedidos de entrada em vários VMs para proporcionar um nível de disponibilidade mais elevado.
+**Opção de equilíbrio de cargas**: Utilize o portal Azure para [criar um balanceador de carga externo](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) que difunde pedidos de entrada em vários VMs para proporcionar um nível de disponibilidade mais elevado.
 
-**Cenário** : É necessário carregar ligações de equilíbrio a partir de VMs que não estejam na internet. Na maioria dos casos, as ligações que são aceites para o equilíbrio de carga são iniciadas por dispositivos numa rede virtual Azure, tais como casos de SQL Server ou servidores web internos.   
-**Opção de equilíbrio de cargas** : Utilize o portal Azure para [criar um equilibrador de carga interno](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) que difunde pedidos de entrada em vários VMs para proporcionar um nível de disponibilidade mais elevado.
+**Cenário**: É necessário carregar ligações de equilíbrio a partir de VMs que não estejam na internet. Na maioria dos casos, as ligações que são aceites para o equilíbrio de carga são iniciadas por dispositivos numa rede virtual Azure, tais como casos de SQL Server ou servidores web internos.   
+**Opção de equilíbrio de cargas**: Utilize o portal Azure para [criar um equilibrador de carga interno](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) que difunde pedidos de entrada em vários VMs para proporcionar um nível de disponibilidade mais elevado.
 
-**Cenário** : Precisa de um equilíbrio global da carga porque:
+**Cenário**: Precisa de um equilíbrio global da carga porque:
 
 - Tenha uma solução de nuvem que é amplamente distribuída por várias regiões e requer o mais alto nível de uptime (disponibilidade) possível.
 - Precisa do mais alto nível possível de tempo para se certificar de que o seu serviço está disponível mesmo que todo um datacenter fique indisponível.
@@ -181,33 +181,33 @@ O potencial problema de segurança com a utilização destes protocolos através
 
 Recomendamos que desative o acesso direto de RDP e SSH às suas máquinas virtuais Azure a partir da internet. Depois de o acesso direto de RDP e SSH a partir da internet ser desativado, tem outras opções que pode utilizar para aceder a estes VMs para gestão remota.
 
-**Cenário** : Permitir que um único utilizador se conecte a uma rede virtual Azure através da internet.   
-**Opção** : [VPN ponto-a-local](../../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md) é outro termo para uma ligação cliente/servidor VPN de acesso remoto. Após a ligação ponto-a-local, o utilizador pode utilizar RDP ou SSH para ligar a quaisquer VMs localizados na rede virtual Azure a que o utilizador ligou através de VPN ponto-a-local. Isto pressupõe que o utilizador está autorizado a chegar a esses VMs.
+**Cenário**: Permitir que um único utilizador se conecte a uma rede virtual Azure através da internet.   
+**Opção**: [VPN ponto-a-local](../../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md) é outro termo para uma ligação cliente/servidor VPN de acesso remoto. Após a ligação ponto-a-local, o utilizador pode utilizar RDP ou SSH para ligar a quaisquer VMs localizados na rede virtual Azure a que o utilizador ligou através de VPN ponto-a-local. Isto pressupõe que o utilizador está autorizado a chegar a esses VMs.
 
 A VPN ponto-a-local é mais segura do que as ligações RDP ou SSH diretas porque o utilizador tem de autenticar duas vezes antes de ligar a um VM. Em primeiro lugar, o utilizador precisa de autenticar (e ser autorizado) para estabelecer a ligação VPN ponto a local. Em segundo lugar, o utilizador precisa de autenticar (e ser autorizado) para estabelecer a sessão RDP ou SSH.
 
-**Cenário** : Permitir que os utilizadores da sua rede no local se conectem a VMs na sua rede virtual Azure.   
-**Opção** : Uma [VPN site-to-site](../../vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal.md) liga toda uma rede a outra rede através da internet. Pode utilizar uma VPN site-to-site para ligar a sua rede no local a uma rede virtual Azure. Os utilizadores na sua rede no local ligam-se utilizando o protocolo RDP ou SSH sobre a ligação VPN site-to-site. Não é preciso permitir o acesso direto do RDP ou do SSH através da internet.
+**Cenário**: Permitir que os utilizadores da sua rede no local se conectem a VMs na sua rede virtual Azure.   
+**Opção**: Uma [VPN site-to-site](../../vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal.md) liga toda uma rede a outra rede através da internet. Pode utilizar uma VPN site-to-site para ligar a sua rede no local a uma rede virtual Azure. Os utilizadores na sua rede no local ligam-se utilizando o protocolo RDP ou SSH sobre a ligação VPN site-to-site. Não é preciso permitir o acesso direto do RDP ou do SSH através da internet.
 
-**Cenário** : Utilize uma ligação WAN dedicada para fornecer funcionalidades semelhantes à VPN site-to-site.   
-**Opção** : Use [ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/). Fornece funcionalidades semelhantes à VPN site-to-site. As principais diferenças são:
+**Cenário**: Utilize uma ligação WAN dedicada para fornecer funcionalidades semelhantes à VPN site-to-site.   
+**Opção**: Use [ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/). Fornece funcionalidades semelhantes à VPN site-to-site. As principais diferenças são:
 
 - A ligação dedicada wan não atravessa a internet.
 - As ligações WAN dedicadas são tipicamente mais estáveis e têm um melhor desempenho.
 
 ## <a name="secure-your-critical-azure-service-resources-to-only-your-virtual-networks"></a>Proteja os seus recursos críticos de serviço Azure apenas para as suas redes virtuais
-Utilize pontos finais de serviço de rede virtual para estender o espaço de endereço privado da sua rede virtual e a identidade da sua rede virtual para os serviços Azure, através de uma ligação direta. Os pontos finais permitem-lhe obter os seus recursos críticos de serviço do Azure apenas para as suas redes virtuais. O tráfego da sua rede virtual para o serviço Azure permanece sempre na rede de espinha dorsal do Microsoft Azure.
+Utilize o Azure Private Link para aceder aos Serviços Azure PaaS (por exemplo, Azure Storage e SQL Database) sobre um ponto final privado na sua rede virtual. Os Private Endpoints permitem-lhe assegurar os seus recursos críticos de serviço Azure apenas às suas redes virtuais. O tráfego da sua rede virtual para o serviço Azure permanece sempre na rede de espinha dorsal do Microsoft Azure. Expor a sua rede virtual à internet pública já não é necessário consumir os Serviços Azure PaaS. 
 
-Os pontos finais de serviço oferecem as seguintes vantagens:
+A Azure Private Link fornece os seguintes benefícios:
+- **Segurança melhorada para os seus recursos de serviço Azure**: Com a Azure Private Link, os recursos de serviço Azure podem ser protegidos à sua rede virtual utilizando o ponto final privado. Garantir recursos de serviço a um ponto final privado na rede virtual proporciona uma segurança melhorada, removendo totalmente o acesso público à Internet aos recursos, e permitindo o tráfego apenas a partir de um ponto final privado na sua rede virtual.
+- **Aceda privadamente aos recursos de serviço Azure na plataforma Azure**: Ligue a sua rede virtual a serviços em Azure utilizando pontos finais privados. Não há necessidade de um endereço IP público. A plataforma Private Link tratará da conectividade entre o consumidor e os serviços através da rede de espinha dorsal Azure.
+- **Acesso a partir de instalações e redes vigiadas**: Serviços de acesso em funcionamento em Azure a partir de instalações através de peering privado ExpressRoute, túneis VPN e redes virtuais espreitadas usando pontos finais privados. Não há necessidade de configurar o ExpressRoute Microsoft a espreitar ou a atravessar a internet para chegar ao serviço. O Private Link fornece uma forma segura de migrar cargas de trabalho para Azure.
+- **Proteção contra fugas de dados**: Um ponto final privado é mapeado para uma instância de um recurso PaaS em vez de todo o serviço. Os consumidores só podem ligar-se ao recurso específico. O acesso a qualquer outro recurso no serviço está bloqueado. Este mecanismo fornece proteção contra riscos de fuga de dados.
+- **Alcance global**: Conecte-se privadamente aos serviços que correm noutras regiões. A rede virtual do consumidor pode estar na região A e pode ligar-se aos serviços na região B.
+- **Simples de configurar e gerir**: Já não precisa de endereços IP públicos reservados nas suas redes virtuais para garantir os recursos do Azure através de uma firewall IP. Não existem dispositivos NAT ou gateway necessários para configurar os pontos finais privados. Os pontos finais privados são configurados através de um simples fluxo de trabalho. No lado de serviço, também pode gerir com facilidade os pedidos de ligação no seu recurso de serviço Azure. A Azure Private Link trabalha para consumidores e serviços pertencentes a diferentes inquilinos do Azure Ative Directory também. 
+    
+Para saber mais sobre os pontos finais privados e os serviços e regiões Azure para os quais os pontos finais privados estão disponíveis, consulte [a Azure Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview).
 
-- **Segurança dos recursos de serviço do Azure melhorada** : com os pontos finais de serviço, pode proteger os recursos de serviço do Azure na rede virtual. A proteção dos recursos de serviço numa rede virtual oferece segurança melhorada ao remover totalmente o acesso de Internet pública a estes recursos e ao permitir o tráfego apenas a partir da rede virtual.
-- **O roteiro ideal para o tráfego de serviçoS Azure da sua rede virtual** : Quaisquer rotas da sua rede virtual que forcem o tráfego de internet para os seus aparelhos no local e/ou aparelhos virtuais, conhecidos como túneis forçados, também forçam o tráfego de serviço Azure a tomar a mesma rota que o tráfego da internet. Os pontos finais de serviço fornecem encaminhamento ótimo para o tráfego do Azure.
-
-  Os pontos finais levam sempre o tráfego de serviço diretamente da sua rede virtual para o serviço na rede de espinha dorsal Azure. Manter o tráfego na rede de espinha dorsal Azure permite-lhe continuar a auditar e monitorizar o tráfego de internet de saída a partir das suas redes virtuais, através de túneis forçados, sem afetar o tráfego de serviços. Saiba mais sobre [rotas definidas pelo utilizador e túneis forçados.](../../virtual-network/virtual-networks-udr-overview.md)
-
-- **Simples de configurar com menos gestão :** Já não precisa de endereços IP públicos reservados nas suas redes virtuais para garantir os recursos do Azure através de uma firewall IP. Não são necessários dispositivos NAT ou de gateway para configurar os pontos finais de serviço. Basta um clique numa sub-rede para configurar os pontos finais de serviço. Não há despesas adicionais para manter os pontos finais.
-
-Para saber mais sobre os pontos finais de serviço e os serviços e regiões Azure para os quais os pontos finais de serviço estão disponíveis, consulte [os pontos finais do serviço de rede Virtual.](../../virtual-network/virtual-network-service-endpoints-overview.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 Consulte as [melhores práticas e padrões](best-practices-and-patterns.md) de segurança da Azure para obter mais boas práticas de segurança quando estiver a desenhar, implementar e gerir as suas soluções em nuvem utilizando o Azure.

@@ -190,6 +190,8 @@
           href: how-to-delete-project.md
         - name: Trabalhar com a versão anterior do Azure Migrate
           href: migrate-v1.md
+        - name: Gerir projetos de migração com o Farol de Azure
+          href: ../lighthouse/how-to/migration-at-scale.md?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
 - name: Resolução de problemas
   items:
     - name: Geral

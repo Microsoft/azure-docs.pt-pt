@@ -1,5 +1,5 @@
 ---
-title: Gestão gerida da gestão de funções de plano de dados HSM - Azure Key Vault / Microsoft Docs
+title: Gestão gerida da gestão da função do plano de dados HSM - Azure Key Vault | Microsoft Docs
 description: Utilize este artigo para gerir atribuições de funções para o seu HSM gerido
 services: key-vault
 author: amitbapat
@@ -8,12 +8,12 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 78d4d9a8b5023731530c5e348f5c9ba72815d410
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 594dd2fd154b37eed49c069cef1b539e13ca6876
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445647"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99094246"
 ---
 # <a name="managed-hsm-role-management"></a>Gestão de funções do HSM Gerido
 
@@ -81,6 +81,9 @@ Todas as atribuições de funções ao nível do HSM para um utilizador **user1@
 ```azurecli-interactive
 az keyvault role assignment list --hsm-name ContosoMHSM --assignee user@contoso.com
 ```
+
+> [!NOTE]
+> Quando o âmbito é / (ou /chaves) o comando da lista apenas lista todas as atribuições de funções no nível superior e não mostra atribuições de funções a nível de chave individual.
 
 Todas as atribuições de funções para um utilizador específico **user2@contoso.com** para uma oportunidade **de** chave específica .
 

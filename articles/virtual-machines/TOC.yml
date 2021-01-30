@@ -1742,7 +1742,7 @@
         - name: Fazer uma cópia de segurança de várias VMs
           href: ../backup/tutorial-backup-vm-at-scale.md
         - name: Opções de restauro
-          href: ../backup/backup-azure-arm-restore-vms.md
+          href: /azure/backup/backup-azure-arm-restore-vms
         - name: Matriz de suporte
           href: ../backup/backup-support-matrix-iaas.md
         - name: Preços

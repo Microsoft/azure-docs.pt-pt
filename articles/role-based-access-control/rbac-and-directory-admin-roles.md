@@ -15,12 +15,12 @@ ms.date: 01/04/2021
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 3c320b8faf5ccb0b1aec521909b152dff171cbd7
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 0b43f30c25767a135b98b756d61ed2535e1fbd22
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862602"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092205"
 ---
 # <a name="classic-subscription-administrator-roles-azure-roles-and-azure-ad-roles"></a>Funções clássicas de administrador de subscrição, funções de Azure e Azure AD
 
@@ -99,7 +99,7 @@ As funções AD do Azure são usadas para gerir os recursos Azure AD num diretó
 
 | Papel de AD AZure | Permissões | Notas |
 | --- | --- | --- |
-| [Administrador Global](../active-directory/roles/permissions-reference.md#company-administrator-permissions) | <ul><li>Gerir o acesso a todas as funcionalidades administrativas no Azure Active Directory, bem como serviços com federação para o Azure Active Directory</li><li>Atribuir funções de administrador a outras pessoas</li><li>Repor a palavra-passe para qualquer utilizador e todos os outros administradores</li></ul> | A pessoa que se inscreve no inquilino do Azure Active Directory torna-se um Administrador Global. |
+| [Administrador Global](../active-directory/roles/permissions-reference.md#global-administrator-permissions) | <ul><li>Gerir o acesso a todas as funcionalidades administrativas no Azure Active Directory, bem como serviços com federação para o Azure Active Directory</li><li>Atribuir funções de administrador a outras pessoas</li><li>Repor a palavra-passe para qualquer utilizador e todos os outros administradores</li></ul> | A pessoa que se inscreve no inquilino do Azure Active Directory torna-se um Administrador Global. |
 | [Administrador do Utilizador](../active-directory/roles/permissions-reference.md#user-administrator) | <ul><li>Criar e gerir todos os aspetos de utilizadores e grupos</li><li>Gerir pedidos de suporte</li><li>Monitorizar o estado de funcionamento do serviço</li><li>Alterar palavras-passe para utilizadores, administradores de suporte técnico e outros Administradores de Utilizadores</li></ul> |  |
 | [Administrador de Faturação](../active-directory/roles/permissions-reference.md#billing-administrator) | <ul><li>Efetuar compras</li><li>Gerir subscrições</li><li>Gerir pedidos de suporte</li><li>Monitoriza o estado de funcionamento do serviço</li></ul> |  |
 
@@ -107,7 +107,7 @@ No portal Azure, pode ver a lista de funções AD Azure na lâmina **de Funçõe
 
 ![Funções de AD AD no portal Azure](./media/rbac-and-directory-admin-roles/directory-admin-roles.png)
 
-## <a name="differences-between-azure-roles-and-azure-ad-roles"></a>Diferenças entre os papéis de Azure e os papéis de Ad Azure
+## <a name="differences-between-azure-roles-and-azure-ad-roles"></a>Diferenças entre as funções do Azure e as funções do Azure AD
 
 A um nível elevado, as funções Azure controlam permissões para gerir os recursos do Azure, enquanto as funções AZure AD controlam permissões para gerir os recursos do Azure Ative Directory. A tabela seguinte compara algumas das diferenças.
 
@@ -129,5 +129,5 @@ Vários funções de AD Azure abrangem Azure AD e Microsoft 365, tais como as fu
 ## <a name="next-steps"></a>Passos seguintes
 
 - [O que é o controlo de acesso baseado em funções do Azure (Azure RBAC)?](overview.md)
-- [Administrator role permissions in Azure Active Directory](../active-directory/roles/permissions-reference.md) (Permissões de cargos de administrador no Azure Active Directory)
+- [Permissões da função de administrador no Azure Active Directory](../active-directory/roles/permissions-reference.md)
 - [Administradores de subscrição clássicos do Azure](classic-administrators.md)

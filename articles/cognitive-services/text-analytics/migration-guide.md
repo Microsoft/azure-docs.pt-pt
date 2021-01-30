@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 12/17/2020
+ms.date: 01/22/2021
 ms.author: aahi
-ms.openlocfilehash: 6a71bcbfb8341098711e330cebf8545e1fd2751c
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 0faa7a6f5a3d2efc8bbef11308b308e3305a00d5
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97656959"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99096326"
 ---
 # <a name="migrate-to-version-3x-of-the-text-analytics-api"></a>Migrar para a versão 3.x da API text Analytics
 
@@ -46,9 +46,6 @@ Consulte a documentação de referência para exemplos da resposta do JSON.
 
 ### <a name="feature-changes"></a>Alterações de recursos
 
-> [!NOTE] 
-> Atualmente, [as categorias de entidades V3](named-entity-types.md) só são devolvidas em texto inglês e espanhol. A API devolve os resultados da versão 2.1 para pedidos noutros idiomas, desde que sejam suportados na versão 2.1.
-
 Na versão 2.1, a API text Analytics utiliza um ponto final para reconhecimento de entidades nomeadas (NER) e ligação de entidades. A versão 3 fornece deteção de entidades nomeadas expandidas e utiliza pontos finais separados para NER e entidade que ligam pedidos. A partir de v3.1-preview.1, NER pode ainda detetar informações pessoais `pii` e de `phi` saúde. 
 
 ### <a name="steps-to-migrate"></a>Passos para migrar
@@ -74,7 +71,36 @@ Consulte a documentação de referência para exemplos da resposta do JSON.
 
 [!INCLUDE [Client library migration information](includes/client-library-migration-section.md)]
 
-## <a name="language-detection"></a>[Deteção de idioma](#tab/language-detection)
+#### <a name="version-21-entity-categories"></a>Categorias de entidades da versão 2.1
+
+A tabela que se segue lista as categorias de entidades devolvidas para NER v2.1.
+
+| Categoria   | Descrição                          |
+|------------|--------------------------------------|
+| Pessoa   |   Nomes de pessoas.  |
+|Localização    | Marcos naturais e humanos, estruturas, características geográficas e entidades geopolíticas |
+|Organização | Empresas, grupos políticos, bandas musicais, clubes desportivos, organismos governamentais e organizações públicas. As nacionalidades e religiões não estão incluídas neste tipo de entidade. |
+| PhoneNumber | Números de telefone (apenas números de telefone dos EUA e da UE). |
+| E-mail | Endereços de e-mail. |
+| URL | URLs para sites. |
+| IP | Endereços IP de rede. |
+| DateTime | Datas e horas do dia.| 
+| Data | Datas de Calender. |
+| Hora | Horas do dia |
+| Intervalo de Datas | Intervalos de data. |
+| Intervalo de Tempo | Intervalos de tempo. |
+| Duração | As durações. |
+| Definir | Set, vezes repetidas. |
+| Quantidade | Números e quantidades numéricas. |
+| Número | Números. |
+| Percentagem | Percentagens.|
+| Ordinal | Números ordinais. |
+| Idade | Idades. |
+| Moeda | Moedas, moedas. |
+| Dimensão | Dimensões e medições. |
+| Temperatura | As temperaturas. |
+
+## <a name="language-detection"></a>[Deteção linguística](#tab/language-detection)
 
 ### <a name="feature-changes"></a>Alterações de recursos 
 
@@ -95,7 +121,7 @@ Consulte a documentação de referência para exemplos da resposta do JSON.
 
 [!INCLUDE [Client library migration information](includes/client-library-migration-section.md)]
 
-## <a name="key-phrase-extraction"></a>[Extração de expressões-chave](#tab/key-phrase-extraction)
+## <a name="key-phrase-extraction"></a>[Extração de frase-chave](#tab/key-phrase-extraction)
 
 ### <a name="feature-changes"></a>Alterações de recursos 
 

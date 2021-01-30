@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: 3821ef790728117df52bf534d75729347a0d8c9f
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: fecd707d96b03eef4f093c0b256e32f11bb8a3f7
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98919906"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99095861"
 ---
 # <a name="dcsv2-series"></a>Série DCsv2
 
@@ -27,6 +27,7 @@ Os casos de uso de exemplo incluem: partilha de dados multipartidários confiden
 [Atualizações de preservação da memória](maintenance-and-updates.md): Não suportado<br>
 [Suporte vm geração](generation-2.md): Geração 2<br>
 [Rede Acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): Suportado<br>
+[Discos EFÉMEROS](ephemeral-os-disks.md): Suportados <br>
 
 *Exceto por Standard_DC8_v2
 
@@ -57,6 +58,6 @@ Calculadora de preços: [Calculadora de Preços](https://azure.microsoft.com/pri
 
 Mais informações sobre tipos de discos : [tipos de discos](./disks-types.md#ultra-disk)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre como [as unidades de computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho do cálculo em Azure SKUs.

@@ -1,17 +1,17 @@
 ---
 title: Visão geral da zona redundante alta disponibilidade com Base de Dados Azure para MySQL Flexible Server
 description: Conheça os conceitos de zona redundante alta disponibilidade com Base de Dados Azure para MySQL Flexible Server
-author: mksuni
-ms.author: sumuth
+author: ambhatna
+ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/21/2020
-ms.openlocfilehash: cd7be998c49a710ee7652cf18c35bed743606ffd
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.date: 01/29/2021
+ms.openlocfilehash: f01a0869f7786ee6197835610456f4bb1cbd6b03
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93241189"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99097122"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mysql-flexible-server-preview"></a>Conceitos de alta disponibilidade na Base de Dados Azure para o MySQL Flexible Server (Pré-visualização)
 
@@ -48,7 +48,7 @@ Aqui ficam algumas vantagens para a utilização da funcionalidade HA de redund�
 -   A réplica de standby será implantada numa configuração VM exata como a de vCores, armazenamento, definições de rede (VNET, Firewall), etc.
 -   Capacidade de remover réplica de espera desativando alta disponibilidade.
 -   As cópias de segurança automáticas são baseadas em imagens, realizadas a partir do servidor de base de dados primário e armazenadas numa zona de armazenamento redundante.
--   Se houver um evento de failover, uma nova réplica de espera é a provisionada na zona de disponibilidade primária original.
+-   Em caso de falha, a Base de Dados Azure para o servidor flexível MySQL falhará automaticamente para a réplica de standby se estiver ativada uma elevada disponibilidade. A configuração de alta disponibilidade irá monitorizar o servidor primário e trazê-lo de volta on-line.
 -   Os clientes ligam-se sempre ao servidor de base de dados primário.
 -   Se houver uma falha na base de dados ou falha no nó, o reinício será tentado primeiro no mesmo nó. Se isso falhar, a falha automática é acionada.
 -   Capacidade de reiniciar o servidor para captar quaisquer alterações estáticas do parâmetro do servidor.

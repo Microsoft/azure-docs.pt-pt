@@ -6,12 +6,12 @@ ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 8105988cd2036f44d214befad3365cf9ee96ee0d
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 07df391e664fe04b9c7d2eda34960666c44a2e06
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98015985"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99094093"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Nível de compatibilidade para empregos Azure Stream Analytics
 
@@ -43,7 +43,7 @@ Para atualizar o nível de compatibilidade do trabalho no portal Azure:
 4. Escolha o valor de nível de compatibilidade que deseja.
 5. **Selecione Guarde** na parte inferior da página.
 
-![Nível de compatibilidade do Stream Analytics no portal Azure](media/stream-analytics-compatibility-level/stream-analytics-compatibility.png)
+![Nível de compatibilidade do Stream Analytics no portal Azure](media/stream-analytics-compatibility-level/stream-analytics-compat-level-1-2.png)
 
 Ao atualizar o nível de compatibilidade, o compilador T valida o trabalho com a sintaxe que corresponde ao nível de compatibilidade selecionado.
 
@@ -148,7 +148,7 @@ Introduzem-se as seguintes grandes alterações no nível de compatibilidade 1.1
 
 **Nível 1.1:** Não existe conversão automática de valores de cadeia com informação de data/hora/fuso para o tipo DATETIME. Como resultado, as informações sobre o azono e a formatação original são mantidas. No entanto, se o campo NVARCHAR(MAX) for utilizado na consulta como parte de uma expressão DATETIME (função DATEADD, por exemplo), é convertido para tipo DATETIME para executar o cálculo e perde a sua forma original.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Resolução de problemas Azure Stream Analytics](stream-analytics-troubleshoot-input.md)
 * [Saúde do recurso stream Analytics](./stream-analytics-troubleshoot-query.md)
