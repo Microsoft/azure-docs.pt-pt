@@ -6,12 +6,12 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: 4c0017a36d84973a4d99c49a5ea33faeb189b35f
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: e4149864e16196b695d38a8c46ab5af835453412
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94639339"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221215"
 ---
 # <a name="understanding-windows-virtual-desktop-network-connectivity"></a>Compreender a conectividade da rede virtual do Windows Desktop
 
@@ -50,7 +50,7 @@ Sequência de ligação do cliente descrita abaixo:
 
 ## <a name="connection-security"></a>Segurança da Ligação
 
-O TLS 1.2 é utilizado para todas as ligações iniciadas a partir dos clientes e anfitriões de sessão para os componentes de infraestrutura virtual do Windows Desktop.
+O TLS 1.2 é utilizado para todas as ligações iniciadas a partir dos clientes e anfitriões de sessão para os componentes de infraestrutura virtual do Windows Desktop. O Windows Virtual Desktop utiliza as mesmas cifras TLS 1.2 que [a Porta Frontal Azure](../frontdoor/front-door-faq.md#what-are-the-current-cipher-suites-supported-by-azure-front-door). É importante garantir que tanto os computadores clientes como os anfitriões de sessão podem usar estas cifras.
 Para o transporte de ligação inversa, tanto o cliente como o anfitrião de sessão ligam-se ao gateway virtual do Windows. Depois de estabelecer a ligação TCP, o cliente ou anfitrião de sessão valida o certificado do Windows Virtual Desktop Gateway.
 Após a criação do transporte de base, o RDP estabelece uma ligação TLS aninhada entre o cliente e o anfitrião da sessão utilizando os certificados do anfitrião da sessão. Por predefinição, o certificado utilizado para a encriptação RDP é autogerido pelo SO durante a implementação. Se desejar, os clientes podem utilizar certificados geridos centralmente emitidos pela autoridade de certificação da empresa. Para obter mais informações sobre a configuração dos certificados, consulte a [documentação do Windows Server](/troubleshoot/windows-server/remote/remote-desktop-listener-certificate-configurations).
 

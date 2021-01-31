@@ -10,12 +10,12 @@ ms.service: storage
 ms.subservice: common
 services: storage
 tags: ''
-ms.openlocfilehash: 5f04a20b347e2672d9699551885f5dd16ceaa99c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 1e6033f9a8f4cecd2429eca67a3d58e54d7ae1f6
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785600"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221113"
 ---
 # <a name="troubleshoot-latency-using-storage-analytics-logs"></a>Resolver problemas de latência com os registos da Análise de Armazenamento
 
@@ -27,7 +27,7 @@ Os seguintes passos demonstram como identificar e resolver problemas de latênci
 
 ## <a name="recommended-steps"></a>Passos recomendados
 
-1. Descarregue os [registos Storage Analytics](./storage-analytics-logging.md#download-storage-logging-log-data).
+1. Descarregue os [registos Storage Analytics](./manage-storage-analytics-logs.md#download-storage-logging-log-data).
 
 2. Utilize o seguinte script PowerShell para converter os registos de formato bruto em formato tabular:
 
@@ -97,12 +97,12 @@ Os seguintes passos demonstram como identificar e resolver problemas de latênci
 
    A tabela a seguir fornece informações sobre os resultados da Operação De Alta LatênciaType e RequestStatus:
 
-   | Tipo Blob |PedidoStatus=<br>Success|PedidoStatus=<br>(SAS) NetworkError|Recomendação|
+   | Tipo Blob |PedidoStatus=<br>Com êxito|PedidoStatus=<br>(SAS) NetworkError|Recomendação|
    |---|---|---|---|
-   |GetBlob|Sim|Não|[**Operação GetBlob:** RequestStatus = Sucesso](#getblob-operation-requeststatus--success)|
-   |GetBlob|Não|Sim|[**Operação GetBlob:** RequestStatus = (SAS)NetworkError](#getblob-operation-requeststatus--sasnetworkerror)|
-   |PutBlob|Sim|Não|[**Colocar operação:** RequestStatus = Sucesso](#put-operation-requeststatus--success)|
-   |PutBlob|Não|Sim|[**Colocar operação:** RequestStatus = (SAS)NetworkError](#put-operation-requeststatus--sasnetworkerror)|
+   |GetBlob|Yes|No|[**Operação GetBlob:** RequestStatus = Sucesso](#getblob-operation-requeststatus--success)|
+   |GetBlob|No|Yes|[**Operação GetBlob:** RequestStatus = (SAS)NetworkError](#getblob-operation-requeststatus--sasnetworkerror)|
+   |PutBlob|Yes|No|[**Colocar operação:** RequestStatus = Sucesso](#put-operation-requeststatus--success)|
+   |PutBlob|No|Yes|[**Colocar operação:** RequestStatus = (SAS)NetworkError](#put-operation-requeststatus--sasnetworkerror)|
 
 ## <a name="status-results"></a>Resultados do estado
 
@@ -114,7 +114,7 @@ Verifique os seguintes valores mencionados no passo 5 da secção "Etapas Recome
 * Server-Latency
 * Client-Latency
 
-Numa **Operação GetBlob** com **RequestStatus = Sucesso** , se **o tempo max** for gasto em **Cliente-Latência** , isto indica que o Azure Storage está a gastar um grande volume de tempo a escrever dados ao cliente. Este atraso indica uma questão de Client-Side.
+Numa **Operação GetBlob** com **RequestStatus = Sucesso**, se **o tempo max** for gasto em **Cliente-Latência**, isto indica que o Azure Storage está a gastar um grande volume de tempo a escrever dados ao cliente. Este atraso indica uma questão de Client-Side.
 
 **Recomendação:**
 
@@ -129,7 +129,7 @@ Verifique os seguintes valores mencionados no passo 5 da secção "Etapas Recome
 * Server-Latency
 * Client-Latency
 
-Numa **Operação GetBlob** com **RequestStatus = (SAS)NetworkError** , se o **tempo máximo** for gasto em **Cliente-Latência** , a questão mais comum é que o cliente está a desligar-se antes de expirar um intervalo no serviço de armazenamento.
+Numa **Operação GetBlob** com **RequestStatus = (SAS)NetworkError**, se o **tempo máximo** for gasto em **Cliente-Latência**, a questão mais comum é que o cliente está a desligar-se antes de expirar um intervalo no serviço de armazenamento.
 
 **Recomendação:**
 
@@ -144,7 +144,7 @@ Verifique os seguintes valores mencionados no passo 5 da secção "Etapas Recome
 * Server-Latency
 * Client-Latency
 
-Numa **Operação Put** with **RequestStatus = Sucesso** , se o tempo **máximo** for gasto em **Cliente-Latência,** isto indica que o Cliente está a demorar mais tempo a enviar dados para o Azure Storage. Este atraso indica uma questão de Client-Side.
+Numa **Operação Put** with **RequestStatus = Sucesso**, se o tempo **máximo** for gasto em **Cliente-Latência,** isto indica que o Cliente está a demorar mais tempo a enviar dados para o Azure Storage. Este atraso indica uma questão de Client-Side.
 
 **Recomendação:**
 
@@ -159,7 +159,7 @@ Verifique os seguintes valores mencionados no passo 5 da secção "Etapas Recome
 * Server-Latency
 * Client-Latency
 
-Numa **Operação PutBlob** com **RequestStatus = (SAS)NetworkError** , se o **tempo máximo** for gasto em **Cliente-Latência** , a questão mais comum é que o cliente está a desligar-se antes de expirar um intervalo no serviço de armazenamento.
+Numa **Operação PutBlob** com **RequestStatus = (SAS)NetworkError**, se o **tempo máximo** for gasto em **Cliente-Latência**, a questão mais comum é que o cliente está a desligar-se antes de expirar um intervalo no serviço de armazenamento.
 
 **Recomendação:**
 

@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Construir políticas para impor o cumprimento'
 description: Neste tutorial, você usa políticas para impor padrões, controlar custos, manter a segurança, e impor princípios de design em larga escala da empresa.
-ms.date: 10/05/2020
+ms.date: 01/29/2021
 ms.topic: tutorial
-ms.openlocfilehash: bf3da82abcdcada1fc38df29efc988a1805c3020
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a643e7ccede4966719972694ea29eeb77789595e
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005440"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221198"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Tutorial: Criar e gerir políticas para impor o cumprimento
 
@@ -71,6 +71,10 @@ O primeiro passo para impor a conformidade com o Azure Policy consiste em atribu
 1. Deixar **Criar uma tarefa de remediação** sem controlo. Esta caixa permite-lhe criar uma tarefa para alterar os recursos existentes, além de recursos novos ou atualizados. Para mais informações, consulte [os recursos remediar.](../how-to/remediate-resources.md)
 
 1. **A Criação de uma Identidade Gerida** é verificada automaticamente uma vez que esta definição de política utiliza o efeito [modificação.](../concepts/effects.md#modify) **As permissões** são definidas automaticamente para _o Contribuinte_ com base na definição de política. Para obter mais informações, veja [identidades geridas](../../../active-directory/managed-identities-azure-resources/overview.md) e [como funciona a segurança de remediação](../how-to/remediate-resources.md#how-remediation-security-works).
+
+1. Selecione o separador **mensagens de não conformidade** na parte superior do assistente.
+
+1. Desaprovar a **mensagem de incumprimento** _para este recurso não tem a etiqueta necessária_. Esta mensagem personalizada é exibida quando um recurso é negado ou para recursos não conformes durante a avaliação regular.
 
 1. Selecione o **separador 'Rever +'** na parte superior do assistente.
 

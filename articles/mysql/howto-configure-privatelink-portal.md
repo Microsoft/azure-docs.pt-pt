@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: fbc75df0b22ba452b8c91dfcb21ca13aaed557a3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ce916336ea47cd223c10a8f664b2dc9806ed0a17
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95998571"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221031"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-portal"></a>Criar e gerir o Link Privado para Azure Database para o MySQL utilizando o Portal
 
@@ -32,7 +32,7 @@ Nesta secção, irá criar rede virtual e a sub-rede para hospedar o VM que é u
 ### <a name="create-the-virtual-network"></a>Criar a rede virtual
 Nesta secção, irá criar uma Rede Virtual e a sub-rede para hospedar o VM que é utilizado para aceder ao seu recurso De Ligação Privada.
 
-1. No lado superior esquerdo do ecrã, **selecione Criar uma** rede virtual  >  **de rede de rede de** recursos  >  **Virtual network**.
+1. No lado superior esquerdo do ecrã, **selecione Criar uma** rede virtual  >  **de rede de rede de** recursos  >  .
 2. Na **Criar rede virtual,** insira ou selecione esta informação:
 
     | Definição | Valor |
@@ -49,7 +49,7 @@ Nesta secção, irá criar uma Rede Virtual e a sub-rede para hospedar o VM que 
 
 ### <a name="create-virtual-machine"></a>Criar máquina virtual
 
-1. No lado superior esquerdo do ecrã no portal Azure, selecione **Criar uma** máquina virtual  >  **compute de** recurso  >  **Virtual Machine**.
+1. No lado superior esquerdo do ecrã no portal Azure, selecione **Criar uma** máquina virtual  >  **compute de** recurso  >  .
 
 2. Na **Criar uma máquina virtual - Básicos, insira** ou selecione esta informação:
 
@@ -130,7 +130,7 @@ Nesta secção, irá criar uma Base de Dados Azure para o servidor MySQL em Azur
 
 Nesta secção, irá criar um servidor MySQL e adicionar-lhe um ponto final privado. 
 
-1. No lado superior esquerdo do ecrã no portal Azure, **selecione Criar uma**  >  **Networking**  >  **ligação privada** de rede de recursos .
+1. No lado superior esquerdo do ecrã no portal Azure, **selecione Criar uma**  >    >  **ligação privada** de rede de recursos .
 
 2. No **Private Link Center - Overview,** sobre a opção de construir uma **ligação privada a um serviço**, selecione **Start**.
 
@@ -223,6 +223,8 @@ Depois de criar **o myVm,** ligue-o a partir da internet da seguinte forma:
     Name:    myServer.privatelink.mysql.database.azure.com
     Address:  10.1.3.4
     ```
+    > [!NOTE]
+    > Se o acesso público for desativado nas definições de firewall na Base de Dados Azure para MySQL - Servidor Único. Estes testes de ping e telnet serão bem sucedidos independentemente das definições de firewall. Estes testes assegurarão a conectividade da rede.
 
 3. Teste a ligação de ligação privada para o servidor MySQL utilizando qualquer cliente disponível. No exemplo abaixo, usei a [bancada mySQL workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) para fazer a operação.
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 10/05/2020
+ms.date: 01/29/2021
 ms.author: pafarley
-ms.openlocfilehash: e930e5d125a8f1ee90448e293e2e0ca2c5c28465
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: f3b43ed6a86276b308599f9091d581423b0f363c
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913675"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99220995"
 ---
 # <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>Tutorial: Posts e comandos moderados do Facebook com Moderador de Conteúdo Azure
 
@@ -85,14 +85,14 @@ Inscreva-se no [portal Azure](https://portal.azure.com/) e siga estes passos:
 
     ![Painel de funções Azure com o botão 'Adicionar Função' realçado.](images/new-function.png)
 
-    1. Clique no azulejo que diz **Http trigger** .
-    1. Introduza o nome **FBListener** . O campo **Nível de Autorização** deve ser definido como **Função** .
-    1. Clique em **Criar** .
+    1. Clique no azulejo que diz **Http trigger**.
+    1. Introduza o nome **FBListener**. O campo **Nível de Autorização** deve ser definido como **Função**.
+    1. Clique em **Criar**.
     1. Substitua o conteúdo do **run.csx** pelo conteúdo de **FbListener/run.csx**
 
     [!code-csharp[FBListener: csx file](~/samples-fbPageModeration/FbListener/run.csx?range=1-154)]
 
-1. Criar uma nova função **de gatilho http** chamada **CMListener** . Esta função recebe eventos do Content Moderator. Substitua o conteúdo do **run.csx** pelo conteúdo da **CMListener/run.csx**
+1. Criar uma nova função **de gatilho http** chamada **CMListener**. Esta função recebe eventos do Content Moderator. Substitua o conteúdo do **run.csx** pelo conteúdo da **CMListener/run.csx**
 
     [!code-csharp[FBListener: csx file](~/samples-fbPageModeration/CmListener/run.csx?range=1-110)]
 
@@ -105,35 +105,35 @@ Inscreva-se no [portal Azure](https://portal.azure.com/) e siga estes passos:
     ![página de desenvolvedor de facebook](images/facebook-developer-app.png)
 
     1. Navegue até ao [site do Facebook para programadores](https://developers.facebook.com/)
-    1. Clique em **My Apps** (As minhas Aplicações).
+    1. Vá às **minhas apps.**
     1. Adicione uma Nova Aplicação.
-    1. nomeá-lo algo
+    1. Fornecer um nome
     1. Selecione **Webhooks -> Configuração**
     1. Selecione **Página** no menu dropdown e selecione **Subscreva este objeto**
     1. Forneça o **FBListener Url** como o URL de chamada de retorno e o **Token de Verificação** que configurou em **Definições da Aplicação de Funções**
     1. Depois de subscrito, desloque o ecrã para baixo até ao feed e selecione **subscribe** (subscrever).
-    1. Clique no botão **teste** da linha **de alimentação** para enviar uma mensagem de teste para a sua Função FBListener Azure e, em seguida, clique no botão Enviar para o **Meu Servidor.** Deve ver o pedido ser recebido no seu FBListener.
+    1. Selecione o botão **de teste** da linha **de alimentação** para enviar uma mensagem de teste para a sua Função FBListener Azure e, em seguida, prima o botão Enviar para o **Meu Servidor.** Deve ver o pedido ser recebido no seu FBListener.
 
 1. Crie uma Página do Facebook.
 
     > [!IMPORTANT]
     > Em 2018, o Facebook implementou uma verificação mais rigorosa das aplicações do Facebook. Não poderá executar as secções 2, 3 e 4 se a sua aplicação não tiver sido revista e aprovada pela equipa de revisão do Facebook.
 
-    1. Navegue até ao [Facebook](https://www.facebook.com/bookmarks/pages) e crie uma **nova Página do Facebook** .
+    1. Navegue até ao [Facebook](https://www.facebook.com/bookmarks/pages) e crie uma **nova Página do Facebook**.
     1. Permita que a Aplicação do Facebook aceda a esta página, seguindo estes passos:
         1. Navegue até ao [Graph API Explorer](https://developers.facebook.com/tools/explorer/).
         1. Selecione **Application** (Aplicação).
-        1. Selecione **Page Access Token** (Token de Acesso de Página) e envie um pedido **Get** .
-        1. Clique no **ID de Página** na resposta.
+        1. Selecione **Page Access Token** (Token de Acesso de Página) e envie um pedido **Get**.
+        1. Selecione o **ID da página** na resposta.
         1. Agora, acrescente **/subscribed_apps** ao URL e envie um pedido **Get** (resposta vazia).
-        1. Submeta um pedido **Post** . Obtém a resposta como **success: true** .
+        1. Submeta um pedido **Post**. Obtém a resposta como **success: true**.
 
 3. Crie um token de acesso da Graph API que não expira.
 
     1. Navegue até ao [Graph API Explorer](https://developers.facebook.com/tools/explorer/).
     2. Selecione a opção **Application** (Aplicação).
     3. Selecione a opção **Get User Access Token** (Obter Token de Acesso de Utilizador).
-    4. Em **Select Permissions** (Selecionar Permissões), selecione as opções **manage_pages** e **publish_pages** .
+    4. Em **Select Permissions** (Selecionar Permissões), selecione as opções **manage_pages** e **publish_pages**.
     5. Vamos utilizar o **token de acesso** (Token de Curta Duração) no próximo passo.
 
 4. Vamos utilizar o Postman nos passos seguintes.
@@ -153,13 +153,13 @@ Inscreva-se no [portal Azure](https://portal.azure.com/) e siga estes passos:
         1. Selecione **Generate Long-Lived Access Token** (Gerar Token de Acesso de Curta Duração) e clique em **Send** (Enviar).
         2. Selecione **Get User ID** (Obter ID de Utilizador) e clique em **Send** (Enviar).
         3. Selecione **Get Permanent Page Access Token** (Obter Token de Acesso de Página Permanente) e clique em **Send** (Enviar).
-    5. Copie o valor **access_token** da resposta e atribua-o à definição da Aplicação **fb:PageAccessToken** .
+    5. Copie o valor **access_token** da resposta e atribua-o à definição da Aplicação **fb:PageAccessToken**.
 
 A solução envia todas as imagens e texto publicados na sua página do Facebook para o Content Moderator. Em seguida, os fluxos de trabalho que configuraste anteriormente são invocados. O conteúdo que não passa os seus critérios definidos nos fluxos de trabalho é passado para revisões dentro da ferramenta de revisão. O resto do conteúdo é publicado automaticamente.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, criou um programa para analisar as imagens do produto com o propósito de as marcar por tipo de produto e permitir que uma equipa de revisão tome decisões informadas sobre a moderação de conteúdos. Em seguida, saiba mais sobre os detalhes da moderação da imagem.
+Neste tutorial, cria-se um programa para analisar as imagens do produto, marcá-las por tipo de produto e permitir que uma equipa de revisão tome decisões informadas sobre a moderação de conteúdos. Em seguida, saiba mais sobre os detalhes da moderação da imagem.
 
 > [!div class="nextstepaction"]
 > [Moderação de imagens](./image-moderation-api.md)

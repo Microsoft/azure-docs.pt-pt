@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 09/29/2020
+ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: reconhecimento de imagem, app de reconhecimento de imagem, visão personalizada
-ms.openlocfilehash: d644c323cb60e5ef9a89670cd9b828e3e9676299
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: d25b226f5dfff34aa572b40d1e4de142cf8e0b7b
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131700"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221249"
 ---
 # <a name="quickstart-build-a-classifier-with-the-custom-vision-website"></a>Quickstart: Construa um classificador com o website Da Visão Personalizada
 
@@ -71,7 +71,7 @@ No seu navegador web, navegue na página web da [Visão Personalizada](https://c
 
 Nesta secção, você carregará e marcará manualmente imagens para ajudar a treinar o classificador. 
 
-1. Para adicionar imagens, clique no botão __Adicionar imagens__ e, em seguida, selecione __procurar ficheiros locais__. Selecione __Open__ para mover-se para a marcação. A sua seleção de etiquetas será aplicada a todo o grupo de imagens que selecionou para carregar, por isso é mais fácil fazer upload de imagens em grupos separados de acordo com as etiquetas desejadas. Também pode alterar as etiquetas para imagens individuais depois de carregadas.
+1. Para adicionar imagens, __selecione Adicionar imagens__ e, em seguida, selecione __procurar ficheiros locais__. Selecione __Open__ para mover-se para a marcação. A sua seleção de etiquetas será aplicada a todo o grupo de imagens que selecionou para carregar, por isso é mais fácil fazer upload de imagens em grupos separados de acordo com as suas etiquetas aplicadas. Também pode alterar as etiquetas para imagens individuais depois de serem carregadas.
 
     ![O controlo de imagens adicionais é mostrado na parte superior esquerda, e como um botão no centro inferior.](./media/getting-started-build-a-classifier/add-images01.png)
 

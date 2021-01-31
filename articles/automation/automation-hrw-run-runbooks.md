@@ -3,14 +3,14 @@ title: Executar os runbooks da Azure Automation em um trabalhador de runbook hí
 description: Este artigo descreve como executar livros em máquinas no seu datacenter local ou outro fornecedor de nuvem com o Trabalhador de Runbook Híbrido.
 services: automation
 ms.subservice: process-automation
-ms.date: 10/06/2020
+ms.date: 01/29/2021
 ms.topic: conceptual
-ms.openlocfilehash: 4a080505f780e724bfd2ab997f5c823e467c4bec
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 8ea668ab2266a1deae108542687c89f3a221568e
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896974"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99220978"
 ---
 # <a name="run-runbooks-on-a-hybrid-runbook-worker"></a>Executar runbooks numa Função de Trabalho de Runbook Híbrida
 
@@ -94,6 +94,10 @@ Utilize o seguinte procedimento para especificar uma conta Run As para um grupo 
 ## <a name="install-run-as-account-certificate"></a><a name="runas-script"></a>Instalar Executar Como certificado de conta
 
 Como parte do seu processo automatizado de construção para implantação de recursos em Azure, poderá necessitar de acesso a sistemas no local para suportar uma tarefa ou conjunto de passos na sua sequência de implementação. Para fornecer autenticação contra a Azure utilizando a conta Run As, tem de instalar o certificado de conta Run As.
+
+>[!NOTE]
+>Atualmente, este manual powerShell não funciona em máquinas LInux. Funciona apenas em máquinas Windows.
+>
 
 O seguinte runbook PowerShell, chamado **Export-RunAsCertificateToHybridWorker,** exporta o certificado Run As da sua conta Azure Automation. O runbook descarrega e importa o certificado para a loja de certificados de máquina local num Trabalhador De Runbook Híbrido que está ligado à mesma conta. Uma vez concluído esse passo, o livro de recortes verifica se o trabalhador pode autenticar com sucesso a Azure utilizando a conta Run As.
 
@@ -323,7 +327,7 @@ Para ajudar a resolver problemas com os seus runbooks em execução num trabalha
 
 * No Linux, os registos híbridos do utilizador podem ser encontrados em `/home/nxautomation/run/worker.log` , e os registos de trabalhadores do sistema podem ser encontrados em `/var/opt/microsoft/omsagent/run/automationworker/worker.log` .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Se os seus livros não estiverem a concluir com sucesso, reveja o guia de resolução de problemas para [falhas na execução do livro](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails)de corridas .
 * Para obter mais informações sobre o PowerShell, incluindo módulos de referência linguística e aprendizagem, consulte [PowerShell Docs](/powershell/scripting/overview).

@@ -7,16 +7,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 09/30/2020
+ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: processamento de documentos
-ms.openlocfilehash: a1cf919e17e22cb6280dce27faceb7cd034a6962
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: 813f5a06915ca7f5dfc0f4cc9a3f9b3e232ca31a
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845549"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221096"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Treine um modelo de reconhecimento de formulários com etiquetas usando a ferramenta de rotulagem da amostra
 
@@ -202,7 +202,7 @@ Em seguida, irá criar tags (etiquetas) e aplicá-las aos elementos de texto que
    1. Clique **+** para criar uma nova etiqueta.
    1. Insira o nome da etiqueta.
    1. Pressione Insira para guardar a etiqueta.
-1. No editor principal, clique para selecionar palavras dos elementos de texto realçados. Na _pré-visualização v2.1.2_ também pode clicar para selecionar _Marcas de Seleção_ como botões de rádio e caixas de verificação como pares de valor chave. O Reconhecimento de Formulários identificará se a marca de seleção é "selecionada" ou "não selecionada" como o valor.
+1. No editor principal, clique para selecionar palavras dos elementos de texto realçados. Na _pré-visualização v2.1.2_ API, também pode clicar para selecionar _Marcas de Seleção_ como botões de rádio e caixas de verificação como pares de valor chave. O Reconhecimento de Formulários identificará se a marca de seleção é "selecionada" ou "não selecionada" como o valor.
 1. Clique na etiqueta que pretende aplicar ou prima a tecla de teclado correspondente. As teclas numeradas são atribuídas como hotkeys para as primeiras 10 tags. Pode reencomendar as suas etiquetas utilizando os ícones de seta para cima e para baixo no painel de editores de etiquetas.
     > [!Tip]
     > Tenha em mente as seguintes dicas quando estiver a rotular os formulários.

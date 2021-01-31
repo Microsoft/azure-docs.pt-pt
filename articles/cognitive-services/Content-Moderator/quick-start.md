@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 09/29/2020
+ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: moderador de conteúdo, moderação de conteúdo
-ms.openlocfilehash: c026c42fe3c7a7f3f0d6b80e3123904077c104cf
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: f8ad9c135fea4e582e6ba47764d0401936f8c295
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905218"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221181"
 ---
 # <a name="quickstart-try-content-moderator-on-the-web"></a>Quickstart: Experimente o Moderador de Conteúdo na web
 
@@ -88,6 +88,6 @@ Ou, continue com os próximos passos para começar a usar as APIs de Moderação
 ## <a name="next-steps"></a>Passos seguintes
 
 Aprenda a usar as apis de moderação na sua aplicação.
-- Implementar moderação de imagem. Utilize a [consola API](try-image-api.md) ou siga uma [biblioteca de clientes ou rest API para](client-libraries.md) digitalizar imagens e detetar potenciais conteúdos adultos e picantes utilizando tags, pontuações de confiança e outras informações extraídas.
-- Implementar moderação de texto. Utilize a [consola API](try-text-api.md) ou siga uma [biblioteca de clientes ou um quickstart REST API](client-libraries.md) para digitalizar o conteúdo de texto para potencial profanação, classificação de texto indesejado assistido por máquinas (pré-visualização) e dados pessoais.
+- Implementar moderação de imagem. Utilize a [consola API](try-image-api.md) ou siga um [quickstart](client-libraries.md) para digitalizar imagens e detetar potenciais conteúdos adultos e picantes utilizando tags, pontuações de confiança e outras informações extraídas.
+- Implementar moderação de texto. Utilize a [consola API](try-text-api.md) ou siga um [quickstart](client-libraries.md) para digitalizar o conteúdo de texto para obter potenciais palavrões, dados pessoais e outros textos indesejados.
 - Implementar moderação de vídeo. Siga o guia de como pesquisar vídeos para adultos e picantes para a moderação do [vídeo.](video-moderation-api.md) 

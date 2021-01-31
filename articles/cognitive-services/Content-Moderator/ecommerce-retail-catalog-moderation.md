@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 10/23/2020
+ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6d105528404c99f7273687fcdea6972b4212fcf1
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 211f58e26ec89c393bf9f91cc3a05044c6b1e802
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913692"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221283"
 ---
 # <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>Tutorial: Imagens moderadas de produtos de e-commerce com Moderador de Conteúdo Azure
 
-Neste tutorial, você aprenderá a usar os Serviços Cognitivos Azure, incluindo o Moderador de Conteúdo, para classificar e moderar imagens de produtos para um cenário de e-commerce. Você usará visão de computador e visão personalizada para aplicar tags (etiquetas) em imagens, e então você vai criar uma revisão de equipe, que combina as tecnologias baseadas em aprendizagem automática do Content Moderador com equipas de revisão humana para fornecer um sistema de moderação inteligente.
+Neste tutorial, você aprenderá a usar os Serviços Cognitivos Azure, incluindo o Moderador de Conteúdo, para classificar e moderar imagens de produtos para um cenário de e-commerce. Você usará visão de computador e visão personalizada para aplicar tags (etiquetas) em imagens, e então você vai criar uma revisão de equipe, que combina as tecnologias baseadas em aprendizagem automática do Moderador de Conteúdo com equipas de revisão humana para fornecer um sistema de moderação inteligente.
 
 Este tutorial mostrar-lhe como:
 
@@ -54,11 +54,11 @@ Em seguida, crie etiquetas personalizadas na ferramenta 'Rever' (consulte o arti
 
 ## <a name="create-visual-studio-project"></a>Criar projeto do Visual Studio
 
-1. No Visual Studio, abra o diálogo do Novo Projeto. Expandir **instalado,** em **seguida, Visual C.** , em seguida, selecione **app consola (.NET Framework)** .
-1. Nomeie a aplicação **EcommerceModeration** e, em seguida, clique **em OK** .
+1. No Visual Studio, abra o diálogo do Novo Projeto. Expandir **instalado,** em **seguida, Visual C.**, em seguida, selecione **app consola (.NET Framework)**.
+1. Nomeie a aplicação **EcommerceModeration,** em seguida, selecione **OK**.
 1. Se você está adicionando este projeto a uma solução existente, selecione este projeto como o projeto de startup única.
 
-Este tutorial destaca o código que é central para o projeto, mas não cobre todas as linhas de código. Copie todo o conteúdo de _Program.cs_ do projeto de amostra ( [Samples eCommerce Catalog Moderation)](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration)no arquivo _Program.cs_ do seu novo projeto. Em seguida, passe pelas seguintes secções para saber como o projeto funciona e como usá-lo por si mesmo.
+Este tutorial destaca o código que é central para o projeto, mas não cobre todas as linhas de código. Copie todo o conteúdo de _Program.cs_ do projeto de amostra ([Samples eCommerce Catalog Moderation)](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration)no arquivo _Program.cs_ do seu novo projeto. Em seguida, passe pelas seguintes secções para saber como o projeto funciona e como usá-lo por si mesmo.
 
 ## <a name="define-api-keys-and-endpoints"></a>Definir chaves e pontos finais da API
 
@@ -78,13 +78,13 @@ Consulte o seguinte código no método **Principal,** que passa por uma lista de
 
 ## <a name="evaluateadultracy-method"></a>Avaliar métodoAdultRacy
 
-Consulte o método **AvaliarAdultRacy** na classe **Programa.** Este método requer um URL de imagem e uma matriz de pares de valores-chave como parâmetros. Chama a API de Imagem do Moderador de Conteúdo (usando REST) para obter as pontuações de imagem adulta e picante. Se a pontuação para um deles for superior a 0,4 (o intervalo é entre 0 e 1), define o valor correspondente na matriz **ReviewTags** para **True** .
+Consulte o método **AvaliarAdultRacy** na classe **Programa.** Este método requer um URL de imagem e uma matriz de pares de valores-chave como parâmetros. Chama a API de Imagem do Moderador de Conteúdo (usando REST) para obter as pontuações de imagem adulta e picante. Se a pontuação para um deles for superior a 0,4 (o intervalo é entre 0 e 1), define o valor correspondente na matriz **ReviewTags** para **True**.
 
 [!code-csharp[define EvaluateAdultRacy method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=73-113)]
 
 ## <a name="evaluatecomputervisiontags-method"></a>Avaliar Método DeComputerVisionTags
 
-O método seguinte requer um URL de imagem e a informação de subscrição da Visão de Computador e analisa a imagem para a presença de celebridades. Se uma ou mais celebridades forem encontradas, define o valor correspondente na matriz **ReviewTags** para **True** .
+O método seguinte requer um URL de imagem e a informação de subscrição da Visão de Computador e analisa a imagem para a presença de celebridades. Se uma ou mais celebridades forem encontradas, define o valor correspondente na matriz **ReviewTags** para **True**.
 
 [!code-csharp[define EvaluateCustomVisionTags method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=115-146)]
 
@@ -94,7 +94,7 @@ Em seguida, consulte o método **AssessCustomVisionTags,** que classifica os pro
 
 ![Página web da Visão Personalizada com imagens de treinamento de canetas, brinquedos e bandeiras](images/tutorial-ecommerce-custom-vision.PNG)
 
-Depois de ter treinado o seu classificador, obtenha a chave de previsão e url de ponto final de previsão (consulte [obter o URL e a chave de previsão](../custom-vision-service/use-prediction-api.md#get-the-url-and-prediction-key) se precisar de ajuda para recuperá-los) e atribua estes valores ao seu e aos seus `CustomVisionKey` `CustomVisionUri` campos, respectivamente. O método utiliza estes valores para consultar o classificador. Se o classificador encontrar uma ou mais etiquetas personalizadas na imagem, este método define o valor ou s correspondente na matriz **reviewTags** para **True** .
+Depois de ter treinado o seu classificador, obtenha a chave de previsão e url de ponto final de previsão (consulte [obter o URL e a chave de previsão](../custom-vision-service/use-prediction-api.md#get-the-url-and-prediction-key) se precisar de ajuda para recuperá-los) e atribua estes valores ao seu e aos seus `CustomVisionKey` `CustomVisionUri` campos, respectivamente. O método utiliza estes valores para consultar o classificador. Se o classificador encontrar uma ou mais etiquetas personalizadas na imagem, este método define o valor ou s correspondente na matriz **reviewTags** para **True**.
 
 [!code-csharp[define EvaluateCustomVisionTags method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=148-171)]
 

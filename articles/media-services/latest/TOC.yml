@@ -459,7 +459,8 @@
       displayName: 'forums, twitter, feedback'
       href: media-services-community.md
     - name: Roteiro do Azure
-      href: 'https://azure.microsoft.com/roadmap/?category=web-mobile'
+      displayName: azure updates
+      href: 'https://azure.microsoft.com/updates/?category=media'
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/media-services/'
     - name: Vídeos
