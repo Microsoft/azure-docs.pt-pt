@@ -1,14 +1,14 @@
 ---
 title: Detalhes da estrutura de atribuição de políticas
 description: Descreve a definição de atribuição de políticas utilizada pela Azure Policy para relacionar definições de políticas e parâmetros com recursos para avaliação.
-ms.date: 09/22/2020
+ms.date: 01/29/2021
 ms.topic: conceptual
-ms.openlocfilehash: e930e9ddcc04846a35c8db7784a349007c71580b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12acbe368c9ccd6fa5654d3394e0fecb286984bf
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904084"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219571"
 ---
 # <a name="azure-policy-assignment-structure"></a>Estrutura de atribuição do Azure Policy
 
@@ -22,6 +22,7 @@ Usas o JSON para criar uma missão política. A atribuição de políticas cont�
 - modo de execução
 - âmbitos excluídos
 - definição de política
+- mensagens de incumprimento
 - parâmetros
 
 Por exemplo, o seguinte JSON mostra uma atribuição de política no modo _DoNotEnforce_ com parâmetros dinâmicos:
@@ -37,6 +38,11 @@ Por exemplo, o seguinte JSON mostra uma atribuição de política no modo _DoNot
         "enforcementMode": "DoNotEnforce",
         "notScopes": [],
         "policyDefinitionId": "/subscriptions/{mySubscriptionID}/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
+        "nonComplianceMessages": [
+            {
+                "message": "Resource names must start with 'DeptA' and end with '-LC'."
+            }
+        ],
         "parameters": {
             "prefix": {
                 "value": "DeptA"
@@ -61,10 +67,10 @@ A **propriedade EnforcementMode** proporciona aos clientes a capacidade de testa
 
 Esta propriedade tem os seguintes valores:
 
-|Modo |Valor JSON |Tipo |Remediar manualmente |Entrada de registo de atividade |Descrição |
+|Modo |Valor JSON |Tipo |Remediar manualmente |Entrada de registo de atividade |Description |
 |-|-|-|-|-|-|
-|Ativado |Predefinição |string |Sim |Sim |O efeito da política é aplicado durante a criação ou atualização de recursos. |
-|Desativado |DoNotEnforce |string |Sim |Não | O efeito da política não é aplicado durante a criação ou atualização de recursos. |
+|Ativado |Predefinição |string |Yes |Yes |O efeito da política é aplicado durante a criação ou atualização de recursos. |
+|Desativado |DoNotEnforce |string |Yes |No | O efeito da política não é aplicado durante a criação ou atualização de recursos. |
 
 Se **o número de execução Não** for especificado numa definição de política ou iniciativa, o valor _Padrão_ é utilizado. [As tarefas de reparação](../how-to/remediate-resources.md) podem ser iniciadas para implementar as [políticasifNotExists,](./effects.md#deployifnotexists) mesmo quando **a aplicação doMode** está definida para _DoNotEnforce_.
 
@@ -79,6 +85,32 @@ O **âmbito** da atribuição inclui todos os contentores de recursos infantis e
 
 Este campo deve ser o nome completo de uma definição de política ou de uma definição de iniciativa.
 `policyDefinitionId` é uma corda e não uma matriz. Recomenda-se que, se várias políticas forem muitas vezes atribuídas em conjunto, use uma [iniciativa](./initiative-definition-structure.md) em vez disso.
+
+## <a name="non-compliance-messages"></a>Mensagens de incumprimento
+
+Para definir uma mensagem personalizada que descreva por que um recurso não está em conformidade com a definição de política ou iniciativa, definida `nonComplianceMessages` na definição de atribuição. Este nó é uma variedade de `message` entradas. Esta mensagem personalizada é além da mensagem de erro por defeito para incumprimento e é opcional.
+
+```json
+"nonComplianceMessages": [
+    {
+        "message": "Default message"
+    }
+]
+```
+
+Se a atribuição for para uma iniciativa, podem ser configuradas diferentes mensagens para cada definição de política na iniciativa. As mensagens utilizam o `policyDefinitionReferenceId` valor configurado na definição de iniciativa. Para mais detalhes, consulte [as propriedades de definições de propriedade.](./initiative-definition-structure.md#policy-definition-properties)
+
+```json
+"nonComplianceMessages": [
+    {
+        "message": "Default message"
+    },
+    {
+        "message": "Message for just this policy definition by reference ID",
+        "policyDefinitionReferenceId": "10420126870854049575"
+    }
+]
+```
 
 ## <a name="parameters"></a>Parâmetros
 

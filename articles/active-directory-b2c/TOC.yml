@@ -266,9 +266,6 @@
             - name: Validação de políticas
               href: troubleshoot-custom-policies.md
               displayName: troubleshooting
-        - name: Análise de utilização
-          href: analytics-with-application-insights.md
-          displayName: 'application insights, app insights'
         - name: Referência
           items:
             - name: TrustFrameworkPolicy
@@ -321,8 +318,6 @@
                   items:
                     - name: Sobre os perfis técnicos de validação
                       href: validation-technical-profile.md
-                    - name: Application Insights
-                      href: application-insights-technical-profile.md
                     - name: Azure Active Directory
                       href: active-directory-technical-profile.md
                     - name: Multi-Factor Authentication do Azure AD
@@ -422,9 +417,6 @@
           displayName: 'migrate, b2clogin, owin'
     - name: Automatização
       items:
-        - name: Azure Monitor
-          href: azure-monitor.md
-          displayName: 'log, logs, logging, usage, events'
         - name: Microsoft Graph API
           href: microsoft-graph-operations.md
           displayName: 'account, accounts, msgraph, ms graph, graph'
@@ -434,14 +426,23 @@
         - name: Gerir políticas com o PowerShell
           href: manage-custom-policies-powershell.md
           displayName: 'scripting, scripts, psh, custom policy'
-    - name: Registos de auditoria
-      href: view-audit-logs.md
     - name: Gerir utilizadores - Portal do Azure
       href: manage-users-portal.md
       displayName: 'create users, add users, delete users'
     - name: API de Gestão de API Segura
       href: secure-api-management.md
       displayName: 'apim, api management, migrate, b2clogin.com'
+    - name: Registos e monitorização
+      items:
+        - name: Registos de auditoria
+          href: view-audit-logs.md
+          displayName: 'log, logs, logging, usage, events'
+        - name: Azure Monitor
+          href: azure-monitor.md
+          displayName: 'log, logs, logging, usage, events'
+        - name: Análise de utilização
+          href: analytics-with-application-insights.md
+          displayName: 'application insights, app insights'
     - name: Conformidade
       items:
         - name: Acesso do utilizador

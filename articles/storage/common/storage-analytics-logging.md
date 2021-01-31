@@ -5,22 +5,32 @@ author: normesta
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 07/23/2020
+ms.date: 01/29/2021
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: f0f9832a8128a447970535f18cceca3cd4dccc69
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 217a804b0155d7886a068283f8669ace0bc81856
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880258"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99218524"
 ---
 # <a name="azure-storage-analytics-logging"></a>Azure Storage analytics logging (Registo de análise do Armazenamento do Azure)
 
 A Análise de Armazenamento regista informações detalhadas sobre os pedidos com êxito e com falha feitos a um serviço de armazenamento. Estas informações podem ser utilizadas para monitorizar os pedidos individuais e diagnosticar problemas num serviço de armazenamento. Os pedidos são registados numa base de melhor esforço.
 
- O registo da Análise de Armazenamento não está ativado, por predefinição, na conta de armazenamento. Pode ative-lo no [portal Azure;](https://portal.azure.com/) para mais informações, consulte [uma conta de armazenamento no portal Azure](./storage-monitor-storage-account.md). Também pode ativar o Storage Analytics programáticamente através da API REST ou da biblioteca do cliente. Utilize as propriedades de [serviço Get Blob](/rest/api/storageservices/Blob-Service-REST-API), [Obtenha propriedades de serviço de fila](/rest/api/storageservices/Get-Queue-Service-Properties)e obtenha operações de Serviço de [Mesa](/rest/api/storageservices/Get-Table-Service-Properties) para ativar o Storage Analytics para cada serviço.
+> [!NOTE]
+> Recomendamos que utilize registos de armazenamento Azure no Monitor Azure em vez de registos de Storage Analytics. Os registos de armazenamento Azure no Azure Monitor estão em pré-visualização pública e estão disponíveis para testes de pré-visualização em todas as regiões de nuvem pública. Esta pré-visualização permite registos para bolhas (que inclui Azure Data Lake Storage Gen2), ficheiros, filas e tabelas. Para saber mais, consulte qualquer um dos seguintes artigos:
+>
+> - [Monitorização do armazenamento do blob Azure](../blobs/monitor-blob-storage.md)
+> - [Monitorar ficheiros Azure](../files/storage-files-monitoring.md)
+> - [Monitorização do armazenamento da fila Azure](../queues/monitor-queue-storage.md)
+> - [Monitorização do armazenamento da mesa Azure](../tables/monitor-table-storage.md)
+
+ O registo da Análise de Armazenamento não está ativado, por predefinição, na conta de armazenamento. Pode ative-lo no [portal Azure](https://portal.azure.com/) ou utilizando o PowerShell ou o Azure CLI. Para obter orientação passo a passo, consulte [Ativar e gerir os registos Azure Storage Analytics (clássico)](manage-storage-analytics-logs.md). 
+
+Também pode ativar registos de Storage Analytics programáticamente através da API REST ou da biblioteca do cliente. Utilize as propriedades de [serviço Get Blob](/rest/api/storageservices/Blob-Service-REST-API), [Obtenha propriedades de serviço de fila](/rest/api/storageservices/Get-Queue-Service-Properties)e obtenha operações de Serviço de [Mesa](/rest/api/storageservices/Get-Table-Service-Properties) para ativar o Storage Analytics para cada serviço. Para ver um exemplo que permite registos de Storage Analytics utilizando .NET, consulte [Ativar registos](manage-storage-analytics-logs.md)
 
  As entradas de registo só são criadas se houver pedidos feitos contra o ponto final de serviço. Por exemplo, se uma conta de armazenamento tiver atividade no seu ponto final Blob, mas não nos seus pontos finais de Tabela ou Fila, apenas serão criados registos relativos ao serviço Blob.
 
@@ -125,91 +135,10 @@ Para obter informações sobre a listagem de blobs programáticamente, consulte 
 -   `EndTime=2011-07-31T18:22:09Z`
 -   `LogVersion=1.0`
 
-## <a name="enable-storage-logging"></a>Ativar a registo de armazenamento
 
-Pode ativar o registo de armazenamento com o portal Azure, PowerShell e SDKs de armazenamento.
+## <a name="next-steps"></a>Passos seguintes
 
-### <a name="enable-storage-logging-using-the-azure-portal"></a>Ativar o registo de armazenamento utilizando o portal Azure  
-
-No portal Azure, utilize a lâmina **de definições de Diagnóstico (clássica)** para controlar o registo de armazenamento, acessível a partir da secção de **Monitorização (clássica)** da lâmina do **Menu** de uma conta de armazenamento .
-
-Pode especificar os serviços de armazenamento que pretende registar e o período de retenção (em dias) para os dados registados.  
-
-### <a name="enable-storage-logging-using-powershell"></a>Ativar o registo de armazenamento utilizando o PowerShell  
-
- Pode utilizar o PowerShell na sua máquina local para configurar o registo de armazenamento na sua conta de armazenamento utilizando o cmdlet Azure PowerShell **Get-AzStorageServiceLoggingProperty** para recuperar as definições atuais e o cmdlet **Set-AzStorageServiceLoggingProperty** para alterar as definições atuais.  
-
- Os cmdlets que controlam o registo de armazenamento utilizam um parâmetro **de Exploração de Exploração madeireira** que é uma cadeia que contém uma lista separada de vírgulas de tipos de pedido para registar. Os três tipos de pedidos possíveis são **lidos,** **escritos** e **apagados.** Para desligar o registo, utilize o valor **nenhum** para o parâmetro **'Operações de Registo'.**  
-
- O seguinte comando muda a sessão de registo para ler, escrever e apagar pedidos no serviço Queue na sua conta de armazenamento predefinida com retenção definida para cinco dias:  
-
-```powershell
-Set-AzStorageServiceLoggingProperty -ServiceType Queue -LoggingOperations read,write,delete -RetentionDays 5  
-```  
-
- O seguinte comando desliga a sessão de registo para o serviço de tabela na sua conta de armazenamento predefinido:  
-
-```powershell
-Set-AzStorageServiceLoggingProperty -ServiceType Table -LoggingOperations none  
-```  
-
- Para obter informações sobre como configurar os cmdlets Azure PowerShell para trabalhar com a sua subscrição Azure e como selecionar a conta de armazenamento predefinida para utilizar, consulte: [Como instalar e configurar a Azure PowerShell](/powershell/azure/).  
-
-### <a name="enable-storage-logging-programmatically"></a>Ativar o registo de armazenamento programáticamente  
-
- Além de utilizar o portal Azure ou os cmdlets Azure PowerShell para controlar o registo de armazenamento, também pode utilizar uma das APIs de Armazenamento Azure. Por exemplo, se estiver a utilizar um idioma .NET pode utilizar a Biblioteca do Cliente de Armazenamento.  
-
-# <a name="net-v12-sdk"></a>[\.NET v12 SDK](#tab/dotnet)
-
-:::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/Monitoring.cs" id="snippet_EnableDiagnosticLogs":::
-
-# <a name="net-v11-sdk"></a>[\.NET v11 SDK](#tab/dotnet11)
-
-```csharp
-var storageAccount = CloudStorageAccount.Parse(connStr);  
-var queueClient = storageAccount.CreateCloudQueueClient();  
-var serviceProperties = queueClient.GetServiceProperties();  
-
-serviceProperties.Logging.LoggingOperations = LoggingOperations.All;  
-serviceProperties.Logging.RetentionDays = 2;  
-
-queueClient.SetServiceProperties(serviceProperties);  
-```  
-
----
-
-
- Para obter mais informações sobre a utilização de um idioma .NET para configurar o registo de armazenamento, consulte [o Índice da Biblioteca do Cliente de Armazenamento.](/previous-versions/azure/dn261237(v=azure.100))  
-
- Para obter informações gerais sobre a configuração do registo de armazenamento utilizando a API REST, consulte [Ativar e Configurar o Analytics de Armazenamento](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics).  
-
-## <a name="download-storage-logging-log-data"></a>Baixar dados de registo de registo de registo de armazenamento
-
- Para visualizar e analisar os seus dados de registo, deverá descarregar as bolhas que contêm os dados de registo que lhe interessam para uma máquina local. Muitas ferramentas de navegação de armazenamento permitem-lhe descarregar bolhas da sua conta de armazenamento; também pode utilizar a equipa de Armazenamento Azure, fornecida pela linha de comando Azure Copy Tool [AzCopy](storage-use-azcopy-v10.md) para descarregar os seus dados de registo.  
- 
->[!NOTE]
-> O `$logs` contentor não está integrado com a Grade de Eventos, pelo que não receberá notificações quando os ficheiros de registo estiverem escritos. 
-
- Para se certificar de que descarrega os dados de registo em que está interessado e para evitar descarregar os mesmos dados de registo mais de uma vez:  
-
--   Utilize a convenção de nomeação de data e hora para as bolhas que contenham dados de registo para rastrear quais as bolhas que já descarregou para análise para evitar o refiamento dos mesmos dados mais de uma vez.  
-
--   Utilize os metadados nas bolhas que contêm dados de registo para identificar o período específico para o qual a bolha detém dados de registo para identificar a bolha exata que precisa de descarregar.  
-
-Para começar com a AzCopy, consulte [Começar com a AzCopy](storage-use-azcopy-v10.md) 
-
-O exemplo a seguir mostra como pode descarregar os dados de registo do serviço de fila para as horas a partir das 09:00, 10:00 e 11:00 no dia 20 de maio de 2014.
-
-```
-azcopy copy 'https://mystorageaccount.blob.core.windows.net/$logs/queue' 'C:\Logs\Storage' --include-path '2014/05/20/09;2014/05/20/10;2014/05/20/11' --recursive
-```
-
-Para saber mais sobre como descarregar ficheiros específicos, consulte [Baixar ficheiros específicos](./storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#transfer-data).
-
-Quando tiver descarregado os seus dados de registo, pode visualizar as entradas de registo nos ficheiros. Estes ficheiros de registo utilizam um formato de texto delimitado que muitas ferramentas de leitura de registos são capazes de analisar (para mais informações, consulte o guia [Monitor, Diagnóstico e Resolução de Problemas do Microsoft Azure Storage).](storage-monitoring-diagnosing-troubleshooting.md) Diferentes ferramentas têm diferentes instalações para formatação, filtragem, triagem, anúncio de pesquisa do conteúdo dos seus ficheiros de registo. Para obter mais informações sobre o formato e conteúdo do ficheiro de registo de armazenamento, consulte o formato de registo de [armazenamento Analytics](/rest/api/storageservices/storage-analytics-log-format) e o armazenamento de [analítica operações registadas e mensagens de estado](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).
-
-## <a name="next-steps"></a>Próximos passos
-
+* [Ativar e gerir registos Azure Storage Analytics (clássico)](manage-storage-analytics-logs.md)
 * [Formato de registo de analítica de armazenamento](/rest/api/storageservices/storage-analytics-log-format)
 * [Operações registadas e mensagens de estado de armazenamento](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)
 * [Métricas de Análise de Armazenamento (clássico)](storage-analytics-metrics.md)

@@ -1,14 +1,14 @@
 ---
-title: Mensagens de autocarro da Azure Service, cargas e serialização Microsoft Docs
+title: Mensagens de autocarro da Azure Service, cargas e serialização | Microsoft Docs
 description: Este artigo fornece uma visão geral das mensagens do Azure Service Bus, cargas, encaminhamento de mensagens e serialização.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: d426489776dff652cbf72d640f3e74b1bc8e30d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/29/2021
+ms.openlocfilehash: db1989004e60c305341e54e62e42f31e40e47487
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85341686"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219184"
 ---
 # <a name="messages-payloads-and-serialization"></a>Mensagens, payloads e serialização
 
@@ -22,7 +22,7 @@ As propriedades do corretor predefinido estão listadas na tabela seguinte. Os n
  
 Os nomes equivalentes utilizados ao nível do protocolo AMQP estão listados em parênteses. 
 
-| Nome da Propriedade                         | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| Nome da Propriedade                         | Description                                                                                                                                                                                                                                                                                                                                                                                                                               |
 |---------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |  [Tipo de conteúdo](/dotnet/api/microsoft.azure.servicebus.message.contenttype) (tipo de conteúdo)           | Opcionalmente descreve a carga útil da mensagem, com um descritor seguindo o formato de RFC2045, Secção 5; por exemplo, `application/json` . .                                                                                                                                                                                                                                                                                             |
 |  [CorrelationId](/dotnet/api/microsoft.azure.servicebus.message.correlationid#Microsoft_Azure_ServiceBus_Message_CorrelationId) (correlação-id)       | Permite que uma aplicação especifique um contexto para a mensagem para efeitos de correlação; por exemplo, refletindo o **MessageId** de uma mensagem que está a ser respondido.                                                                                                                                                                                                                                                                  |
@@ -70,8 +70,6 @@ Ao contrário das variantes Java ou .NET Standard, a versão .NET Framework da A
 Ao utilizar o protocolo SBMP legado, esses objetos são então serializados com o serializador binário predefinido, ou com um serializador fornecido externamente. Ao utilizar o protocolo AMQP, o objeto é serializado num objeto AMQP. O recetor pode recuperar esses objetos com o método [GetBody \<T> ()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) fornecendo o tipo esperado. Com AMQP, os objetos são serializados em um gráfico AMQP de **ArrayList** e **IDictionary<cadeia, objeto>** objetos, e qualquer cliente AMQP pode descodificá-los. 
 
 Embora esta magia de serialização escondida seja conveniente, as aplicações devem assumir o controlo explícito da serialização dos objetos e transformar os seus gráficos de objetos em fluxos antes de incluí-los numa mensagem, e fazer o inverso no lado recetor. Isto produz resultados interoperáveis. Note-se também que, embora a AMQP tenha um poderoso modelo binário de codificação, está ligada ao ecossistema de mensagens AMQP e os clientes HTTP terão dificuldade em descoditar essas cargas. 
-
-Recomendamos geralmente json e Apache Avro como formatos de carga útil para dados estruturados.
 
 As variantes .NET Standard e Java API apenas aceitam arrays byte, o que significa que a aplicação deve lidar com o controlo de serialização de objetos. 
 

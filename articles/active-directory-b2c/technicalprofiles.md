@@ -11,28 +11,28 @@ ms.topic: reference
 ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b7bd04790c7ac124afe3e9b503803f27118ae959
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 66172fc9e258ae99e8ed263342025f5c33f7a168
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861870"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219677"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Um perfil técnico fornece um quadro com um mecanismo incorporado para comunicar com diferentes tipos de partes usando uma política personalizada em Azure Ative Directory B2C (Azure AD B2C). Os perfis técnicos são utilizados para comunicar com o seu inquilino Azure AD B2C, para criar um utilizador ou ler um perfil de utilizador. Um perfil técnico pode ser autoafirmado para permitir a interação com o utilizador. Por exemplo, colete a credencial do utilizador para iniciar sessão e, em seguida, torne a página de inscrição ou a página de reset da palavra-passe.
+Um perfil técnico fornece um quadro com um mecanismo incorporado para comunicar com diferentes tipos de festas. Os perfis técnicos são utilizados para comunicar com o seu inquilino Azure AD B2C, para criar um utilizador ou ler um perfil de utilizador. Um perfil técnico pode ser autoafirmado para permitir a interação com o utilizador. Por exemplo, colete a credencial do utilizador para iniciar sessão e, em seguida, torne a página de inscrição ou a página de reset da palavra-passe.
 
 ## <a name="type-of-technical-profiles"></a>Tipo de perfis técnicos
 
 Um perfil técnico permite este tipo de cenários:
 
-- [Application Insights](application-insights-technical-profile.md) - Envio de dados de eventos para [Insights de Aplicação](../azure-monitor/app/app-insights-overview.md).
+- [Application Insights](analytics-with-application-insights.md) - Envio de dados de eventos para [Insights de Aplicação](../azure-monitor/app/app-insights-overview.md).
 - [Azure Ative Directory](active-directory-technical-profile.md) - Fornece suporte para a gestão de utilizadores Azure Ative Directory B2C.
 - [Azure AD Multi-Factor Authentication](multi-factor-auth-technical-profile.md) - fornece suporte para verificar um número de telefone utilizando a autenticação multi-factor Azure AD (MFA). 
 - [Transformação de reclamações](claims-transformation-technical-profile.md) - A produção de chamadas reclama transformações para manipular valores de sinistros, validar reclamações ou definir valores padrão para um conjunto de reclamações de saída.
-- [Dica de id token](id-token-hint.md) - Valida `id_token_hint` a assinatura simbólica JWT, o nome do emitente e o público simbólico e extrai a reivindicação do token de entrada.
+- [Dica de iD token](id-token-hint.md) - Valida `id_token_hint` a assinatura simbólica JWT, o nome do emitente, e o público simbólico e extrai a reivindicação do token de entrada.
 - [Emitente JWT token](jwt-issuer-technical-profile.md) - Emite um símbolo JWT que é devolvido à aplicação do partido em gestão.
 - [OAuth1](oauth1-technical-profile.md) - Federação com qualquer provedor de identidade do protocolo OAuth 1.0.
 - [OAuth2](oauth2-technical-profile.md) - Federação com qualquer provedor de identidade do protocolo OAuth 2.0.
@@ -47,7 +47,7 @@ Um perfil técnico permite este tipo de cenários:
 
 ## <a name="technical-profile-flow"></a>Fluxo de perfil técnico
 
-Todos os tipos de perfis técnicos partilham o mesmo conceito. Envia reclamações de entradas, execute a transformação de reclamações e comunica com a parte configurada, como um fornecedor de identidade, REST API ou serviços de diretório AD Azure. Após o processo estar concluído, o perfil técnico devolve os pedidos de saída e pode executar a transformação de sinistros de saída. O diagrama seguinte mostra como as transformações e mapeamentos referenciados no perfil técnico são processados. Independentemente da parte, o perfil técnico interage com, após a execução de qualquer transformação de sinistros, os pedidos de saída do perfil técnico são imediatamente armazenados no saco de reclamações.
+Todos os tipos de perfis técnicos partilham o mesmo conceito. Comece por ler as alegações de entrada, executar a transformação de sinistros. Em seguida, comunique com a parte configurada, como um fornecedor de identidade, REST API, ou serviços de diretório AD Azure. Após o processo estar concluído, o perfil técnico devolve os pedidos de saída e pode executar a transformação de sinistros de saída. O diagrama seguinte mostra como as transformações e mapeamentos referenciados no perfil técnico são processados. Após a transformação dos sinistros, os pedidos de saída são imediatamente armazenados no saco de reclamações. Independentemente do partido, o perfil técnico interage.
 
 ![Diagrama que ilustra o fluxo de perfil técnico](./media/technical-profiles/technical-profile-flow.png)
 
@@ -64,7 +64,7 @@ Todos os tipos de perfis técnicos partilham o mesmo conceito. Envia reclamaçõ
 1. **A output alega transformações** - Após a conclusão do perfil técnico, o Azure AD B2C executa a [transformação de sinistros de](claimstransformations.md)produção . 
 1. **Gestão única da sessão de sessão de sessão ( SSO)** - Persiste os dados do perfil técnico para a sessão, utilizando a gestão da [sessão SSO](custom-policy-reference-sso.md).
 
-Um elemento **TechnicalProfiles** contém um conjunto de perfis técnicos apoiados pelo fornecedor de sinistros. Todos os prestadores de sinistros devem ter um ou mais perfis técnicos que determinem os pontos finais e os protocolos necessários para comunicar com o fornecedor de sinistros. Um fornecedor de sinistros pode ter vários perfis técnicos.
+Um elemento **TechnicalProfiles** contém um conjunto de perfis técnicos apoiados pelo fornecedor de sinistros. Todos os prestadores de sinistros devem ter pelo menos um perfil técnico. O perfil técnico determina os pontos finais e os protocolos necessários para comunicar com o fornecedor de sinistros. Um fornecedor de sinistros pode ter vários perfis técnicos.
 
 ```xml
 <ClaimsProvider>
@@ -90,20 +90,20 @@ O elemento **TécnicoProfile** contém o seguinte atributo:
 
 O **Ficheiro Técnico** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | Domínio | 0:1 | O nome de domínio para o perfil técnico. Por exemplo, se o seu perfil técnico especificar o fornecedor de identidade do Facebook, o nome de domínio é Facebook.com. |
 | DisplayName | 1:1 | O nome de exibição do perfil técnico. |
-| Descrição | 0:1 | A descrição do perfil técnico. |
+| Description | 0:1 | A descrição do perfil técnico. |
 | Protocolo | 1:1 | O protocolo usado para a comunicação com a outra parte. |
-| Metadados | 0:1 | Uma coleção de pares chave/valor que são utilizados pelo protocolo para comunicar com o ponto final no decurso de uma transação. |
+| Metadados | 0:1 | Uma coleção de chave/valor que controla o comportamento do perfil técnico. |
 | InputTokenFormat | 0:1 | O formato do token de entrada. Valores possíveis: `JSON` `JWT` , , ou `SAML11` `SAML2` . O `JWT` valor representa um Token Web JSON de acordo com a especificação IETF. O `SAML11` valor representa um sinal de segurança SAML 1.1 de acordo com a especificação OASIS.  O `SAML2` valor representa um sinal de segurança SAML 2.0 de acordo com a especificação OASIS. |
 | OutputTokenFormat | 0:1 | O formato do token de saída. Valores possíveis: `JSON` `JWT` , , ou `SAML11` `SAML2` . |
 | Chaves Criptográficas | 0:1 | Uma lista de chaves criptográficas que são utilizadas no perfil técnico. |
 | InputClaimsTransformações | 0:1 | Uma lista de referências previamente definidas a transformações de sinistros que devem ser executadas antes de quaisquer reclamações serem enviadas ao prestador de sinistros ou à parte de sinistros. |
 | InputClaims | 0:1 | Uma lista das referências previamente definidas aos tipos de reclamação que são tomados como entrada no perfil técnico. |
-| PersistidoClaims | 0:1 | Uma lista das referências previamente definidas aos tipos de reclamação que são persistidos pelo prestador de sinistros que se relaciona com o perfil técnico. |
-| DisplayClaims | 0:1 | Uma lista das referências previamente definidas aos tipos de sinistros que são apresentados pelo prestador de sinistros que se relaciona com o [perfil técnico autoafirmado.](self-asserted-technical-profile.md) A função DisplayClaims encontra-se atualmente em **pré-visualização**. |
+| PersistidoClaims | 0:1 | Uma lista das referências previamente definidas aos tipos de reclamação que serão persistidos pelo perfil técnico. |
+| DisplayClaims | 0:1 | Uma lista das referências previamente definidas aos tipos de reclamação que são apresentados pelo [perfil técnico autoafirmado](self-asserted-technical-profile.md). A função DisplayClaims encontra-se atualmente em **pré-visualização**. |
 | Resultados | 0:1 | Uma lista das referências previamente definidas aos tipos de reclamação que são tomados como saída no perfil técnico. |
 | ResultadosClaimsTransformações | 0:1 | Uma lista de referências previamente definidas a transformações de sinistros que devem ser executadas após a recebida do prestador de sinistros. |
 | ValidaçãoTechnicalProfiles | 0:n | Uma lista de referências a outros perfis técnicos que o perfil técnico utiliza para efeitos de validação. Para mais informações, consulte [o perfil técnico de validação](validation-technical-profile.md)|
@@ -120,16 +120,16 @@ O **Protocolo** especifica o protocolo a utilizar para a comunicação com a out
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Nome | Yes | O nome de um protocolo válido suportado pelo Azure AD B2C que é utilizado como parte do perfil técnico. Valores possíveis: `OAuth1` `OAuth2` , , ou `SAML2` `OpenIdConnect` `Proprietary` `None` . |
-| Processador | No | Quando o nome do protocolo estiver definido para `Proprietary` , especifique o nome totalmente qualificado do conjunto que é utilizado pela Azure AD B2C para determinar o manipulador de protocolo. |
+| Nome | Yes | O nome de um protocolo válido suportado pelo Azure AD B2C que é utilizado como parte do perfil técnico. Valores possíveis: `OAuth1` , , , , ou `OAuth2` `SAML2` `OpenIdConnect` `Proprietary` `None` . |
+| Processador | No | Quando o nome do protocolo estiver definido para `Proprietary` , especifique o nome do conjunto que é utilizado pelo Azure AD B2C para determinar o manipulador de protocolo. |
 
 ## <a name="metadata"></a>Metadados
 
 O elemento **Metadados** contém as opções de configuração relevantes para um protocolo específico. A lista de metadados suportados está documentada na especificação [de perfil técnico](#type-of-technical-profiles) correspondente. Um elemento **metadados** contém o seguinte elemento:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
-| Item | 0:n | Os metadados que se relacionam com o perfil técnico. Cada tipo de perfil técnico tem um conjunto diferente de itens de metadados. Consulte a secção de tipos de perfis técnicos, para obter mais informações. |
+| Item | 0:n | Os metadados que se relacionam com o perfil técnico. Cada tipo de perfil técnico tem um conjunto diferente de itens de metadados. Para mais informações, consulte a secção de tipos de perfis técnicos.  |
 
 ### <a name="item"></a>Item
 
@@ -173,7 +173,7 @@ O exemplo a seguir ilustra a utilização de metadados relevantes para o [perfil
 
 ## <a name="cryptographic-keys"></a>Chaves criptográficas
 
-A Azure AD B2C armazena segredos e certificados sob a forma de [chaves de política](policy-keys-overview.md) para estabelecer confiança com os serviços com os quais se integra. Durante a execução do perfil técnico, o Azure AD B2C recupera as chaves criptográficas das teclas de política Azure AD B2C e, em seguida, utiliza as chaves para estabelecer confiança, encriptar ou assinar um token. Estes fundos consistem em:
+Para estabelecer confiança com os serviços com os quais se integra, o Azure AD B2C armazena segredos e certificados sob a forma de [chaves de política.](policy-keys-overview.md) Durante a execução do perfil técnico, o Azure AD B2C recupera as chaves criptográficas das teclas de política Azure AD B2C. Em seguida, usa as chaves para estabelecer confiança, encriptar ou assinar um token. Estes fundos consistem em:
 
 - Federação com [OAuth1](oauth1-technical-profile.md#cryptographic-keys), [OAuth2](oauth2-technical-profile.md#cryptographic-keys)e fornecedores de identidade [SAML](saml-identity-provider-technical-profile.md#cryptographic-keys)
 - Garantir a ligação com [os serviços rest API](secure-rest-api.md)
@@ -181,7 +181,7 @@ A Azure AD B2C armazena segredos e certificados sob a forma de [chaves de polít
 
 O elemento **CryptographicKeys** contém o seguinte elemento:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | Chave | 1:n | Uma chave criptográfica utilizada neste perfil técnico. |
 
@@ -198,11 +198,11 @@ O elemento **chave** contém o seguinte atributo:
 
 O elemento **InputClaimsTransformations** pode conter uma coleção de elementos de transformação de pedidos de entrada que são usados para modificar alegações de entrada ou gerar um novo. 
 
-As alegações de saída de uma transformação de sinistros anteriores na coleção de transformação de sinistros podem ser alegações de entrada subsequente de uma transformação de pedidos de entrada subsequente, permitindo-lhe ter uma sequência de transformação de sinistros dependendo uns dos outros.
+As alegações de saída de uma transformação de sinistros anteriores na coleção de transformação de sinistros podem ser alegações de entrada subsequente de uma transformação de pedidos de entrada que lhe permite ter uma sequência de transformação de sinistros dependendo uns dos outros.
 
 O elemento **InputClaimsTransformations** contém o seguinte elemento:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | InputClaimsTransformação | 1:n | O identificador de uma transformação de sinistros que deve ser executada antes de quaisquer reclamações serem enviadas ao prestador de sinistros ou à parte de confiança. Uma transformação de sinistros pode ser usada para modificar as reivindicações existentesSsSchema ou gerar novas. |
 
@@ -241,7 +241,7 @@ O **InputClaims** recolhe reclamações do saco de reclamações e é utilizado 
 
 O elemento **InputClaims** contém o seguinte elemento:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | InputClaim | 1:n | Um tipo de pedido de entrada esperado. |
 
@@ -251,13 +251,13 @@ O elemento **InputClaim** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ClaimTypeReferenceId | Yes | O identificador de um tipo de reclamação já definido na secção ClaimsSchema no ficheiro de política ou no ficheiro de política dos pais. |
+| ClaimTypeReferenceId | Yes | O identificador de um tipo de reclamação. A reclamação já está definida na secção de esquema de reclamações no ficheiro de política ou no ficheiro de política dos pais. |
 | PadrãoValue | No | Um valor predefinido a utilizar para criar uma reclamação se a reclamação indicada pelo ClaimTypeReferenceId não existir para que a reclamação resultante possa ser utilizada como Um InputClaim pelo perfil técnico. |
 | PartnerClaimType | No | O identificador do tipo de reclamação do parceiro externo a que a apólice especificada tipo reivindicação mapeia. Se o atributo PartnerClaimType não for especificado, então o tipo de reclamação de política especificado é mapeado para o tipo de reclamação do parceiro com o mesmo nome. Use esta propriedade quando o seu nome de tipo reivindicação é diferente da outra parte. Por exemplo, o primeiro nome de reclamação é "dado Nome", enquanto o parceiro utiliza uma reclamação denominada "first_name". |
 
 ## <a name="display-claims"></a>Apresentar reclamações
 
-O elemento **DisplayClaims** contém uma lista de reclamações definidas pelo [perfil técnico autoafirmado](self-asserted-technical-profile.md) a ser apresentado no ecrã para recolher dados do utilizador. Na coleção de reclamações do visor, pode incluir uma referência a um [tipo de reclamação](claimsschema.md)ou a um [DisplayControl](display-controls.md) que criou. 
+O elemento **DisplayClaims** contém uma lista de reclamações a apresentar no ecrã para recolher dados do utilizador. Na coleção de reclamações do visor, pode incluir uma referência a um [tipo de reclamação](claimsschema.md)ou a um [DisplayControl](display-controls.md) que criou. 
 
 - Um tipo de reclamação é uma referência a uma reivindicação a ser exibida no ecrã. 
   - Para forçar o utilizador a fornecer um valor para uma reclamação específica, desa estale o atributo **exigido** do elemento **DisplayClaim** para `true` .
@@ -269,7 +269,7 @@ A ordem dos elementos no **DisplayClaims** especifica a ordem em que a Azure AD 
 
 O elemento **DisplayClaims** contém o seguinte elemento:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | DisplayClaim | 1:n | Um tipo de pedido de entrada esperado. |
 
@@ -315,7 +315,7 @@ O nome da reclamação é o nome do [atributo AZure AD,](user-profile-attributes
 
 O elemento **PersistedClaims** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | Reclamação Persistiu | 1:n | O tipo de reivindicação para persistir. |
 
@@ -326,7 +326,7 @@ O elemento **PersistedClaim** contém os seguintes atributos:
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Yes | O identificador de um tipo de reclamação já definido na secção ClaimsSchema no ficheiro de política ou no ficheiro de política dos pais. |
-| PadrãoValue | No | Um valor predefinido a utilizar para criar uma reclamação se a reclamação indicada pelo ClaimTypeReferenceId não existir para que a reclamação resultante possa ser utilizada como Um InputClaim pelo perfil técnico. |
+| PadrãoValue | No | Um valor predefinido a utilizar para criar uma reclamação se a reclamação não existir. |
 | PartnerClaimType | No | O identificador do tipo de reclamação do parceiro externo a que a apólice especificada tipo reivindicação mapeia. Se o atributo PartnerClaimType não for especificado, então o tipo de reclamação de política especificado é mapeado para o tipo de reclamação do parceiro com o mesmo nome. Use esta propriedade quando o seu nome de tipo reivindicação é diferente da outra parte. Por exemplo, o primeiro nome de reclamação é "dado Nome", enquanto o parceiro utiliza uma reclamação denominada "first_name". |
 
 No exemplo seguinte, o perfil técnico **AAD-UserWriteUsingLogonEmail** ou o [pacote inicial](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/SocialAndLocalAccounts), que cria uma nova conta local, persiste na sequência de alegações:
@@ -346,7 +346,7 @@ No exemplo seguinte, o perfil técnico **AAD-UserWriteUsingLogonEmail** ou o [pa
 
 Os **OutputClaims** são a recolha de reclamações que são devolvidas ao saco de reclamações após a conclusão do perfil técnico. Pode usar essas reivindicações na próxima etapa de orquestrações, ou a produção reclama transformações. O elemento **OutputClaims** contém o seguinte elemento:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | OutputClaim | 1:n | Um tipo de reivindicação de saída esperada. |
 
@@ -357,19 +357,19 @@ O elemento **OutputClaim** contém os seguintes atributos:
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Yes | O identificador de um tipo de reclamação já definido na secção ClaimsSchema no ficheiro de política ou no ficheiro de política dos pais. |
-| PadrãoValue | No | Um valor predefinido a utilizar para criar uma reclamação se a reclamação indicada pelo ClaimTypeReferenceId não existir para que a reclamação resultante possa ser utilizada como Um InputClaim pelo perfil técnico. |
+| PadrãoValue | No | Um valor predefinido a utilizar para criar uma reclamação se a reclamação não existir. |
 |AlwaysUseDefaultValue |No |Forçar o uso do valor padrão.  |
-| PartnerClaimType | No | O identificador do tipo de reclamação do parceiro externo a que a apólice especificada tipo reivindicação mapeia. Se o atributo PartnerClaimType não for especificado, então o tipo de reclamação de política especificado é mapeado para o tipo de reclamação do parceiro com o mesmo nome. Use esta propriedade quando o seu nome de tipo reivindicação é diferente da outra parte. Por exemplo, o primeiro nome de reclamação é "dado Nome", enquanto o parceiro utiliza uma reclamação denominada "first_name". |
+| PartnerClaimType | No | O identificador do tipo de reclamação do parceiro externo a que a apólice especificada tipo reivindicação mapeia. Se o atributo do tipo de reclamação do parceiro não for especificado, o tipo de reclamação de política especificado é mapeado para o tipo de reclamação do parceiro com o mesmo nome. Use esta propriedade quando o seu nome de tipo reivindicação é diferente da outra parte. Por exemplo, o primeiro nome de reclamação é "dado Nome", enquanto o parceiro utiliza uma reclamação denominada "first_name". |
 
 ## <a name="output-claims-transformations"></a>Produção reclama transformações
 
-O elemento **OutputClaimsTransformations** pode conter uma coleção de elementos de **saídaClaimsTransformation** que são utilizados para modificar as alegações de saída ou gerar novos. Após a execução, os pedidos de saída são colocados de volta no saco de reclamações. Podes usar essas afirmações na próxima etapa das orquestrações.
+O elemento **OutputClaimsTransformations** pode conter uma coleção de elementos de **saídaClaimsTransformation.** A produção alega que as transformações são usadas para modificar as alegações de saída ou gerar novas. Após a execução, os pedidos de saída são colocados de volta no saco de reclamações. Podes usar essas afirmações na próxima etapa das orquestrações.
 
 As alegações de saída de uma transformação de sinistros anteriores na coleção de transformação de sinistros podem ser alegações de entrada subsequente de uma transformação de pedidos de entrada subsequente, permitindo-lhe ter uma sequência de transformação de sinistros dependendo uns dos outros.
 
 O elemento **OutputClaimsTransformations** contém o seguinte elemento:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | SaídaClaimsTransformação | 1:n | Os identificadores das transformações de sinistros que devem ser executados antes de quaisquer reclamações serem enviadas ao prestador de sinistros ou à parte de confiança. Uma transformação de sinistros pode ser usada para modificar as reivindicações existentesSsSchema ou gerar novas. |
 
@@ -404,7 +404,7 @@ O perfil técnico que se segue refere a assertAccountEnabledIsTrue alega a trans
 
 ## <a name="validation-technical-profiles"></a>Perfis técnicos de validação
 
-É utilizado um perfil técnico de validação para validar algumas ou todas as reivindicações de saída da referência num [perfil técnico autoafirmado.](self-asserted-technical-profile.md#validation-technical-profiles) Um perfil técnico de validação é um perfil técnico ordinário de qualquer protocolo, como [o Azure Ative Directory](active-directory-technical-profile.md) ou um [REST API](restful-technical-profile.md). O perfil técnico de validação devolve as reclamações de saída ou devolve o código de erro. A mensagem de erro é entregue ao utilizador no ecrã, permitindo que o utilizador redoça.
+É utilizado um perfil técnico de validação para validar reclamações de saída num [perfil técnico autoafirmado](self-asserted-technical-profile.md#validation-technical-profiles). Um perfil técnico de validação é um perfil técnico ordinário de qualquer protocolo, como [o Azure Ative Directory](active-directory-technical-profile.md) ou um [REST API](restful-technical-profile.md). O perfil técnico de validação devolve as reclamações de saída ou devolve o código de erro. A mensagem de erro é entregue ao utilizador no ecrã, permitindo que o utilizador redoça.
 
 O diagrama seguinte ilustra como o Azure AD B2C utiliza um perfil técnico de validação para validar as credenciais do utilizador
 
@@ -412,7 +412,7 @@ O diagrama seguinte ilustra como o Azure AD B2C utiliza um perfil técnico de va
 
 O elemento **ValidationTechnicalProfiles** contém o seguinte elemento:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | ValidaçãoTechnicalProfile | 1:n | Os identificadores de perfis técnicos utilizados validam algumas ou todas as reivindicações de saída do perfil técnico de referência. Todas as alegações de entrada do perfil técnico referenciado devem figurar nas alegações de saída do perfil técnico de referência. |
 
@@ -434,7 +434,9 @@ O **SubjectNamingInfo** define o nome do sujeito usado em fichas numa [política
 
 ## <a name="include-technical-profile"></a>Incluir perfil técnico
 
-Um perfil técnico pode incluir outro perfil técnico para alterar definições ou adicionar uma nova funcionalidade. O elemento **IncludeTechnicalProfile** é uma referência ao perfil técnico comum a partir do qual é derivado um perfil técnico. Para reduzir a redundância e complexidade dos seus elementos políticos, utilize a inclusão quando tiver vários perfis técnicos que partilham os elementos fundamentais. Utilize um perfil técnico comum com o conjunto comum de configurações, juntamente com perfis técnicos de tarefas específicos que incluem o perfil técnico comum. Por exemplo, suponha que tem um [perfil técnico da API REST](restful-technical-profile.md) com um único ponto final onde precisa enviar diferentes conjuntos de reclamações para diferentes cenários. Crie um perfil técnico comum com a funcionalidade partilhada, como o ponto final da API REST URI, metadados, tipo de autenticação e teclas criptográficas. Em seguida, crie perfis técnicos de tarefa específicos que incluam o perfil técnico comum, adicione as reclamações de entrada, as alegações de saída ou substitua o ponto final da API REST URI relevante para esse perfil técnico.
+Um perfil técnico pode incluir outro perfil técnico para alterar definições ou adicionar uma nova funcionalidade. O elemento **IncludeTechnicalProfile** é uma referência ao perfil técnico comum a partir do qual é derivado um perfil técnico. Para reduzir a redundância e complexidade dos seus elementos políticos, utilize a inclusão quando tiver vários perfis técnicos que partilham os elementos fundamentais. Utilize um perfil técnico comum com o conjunto comum de configurações, juntamente com perfis técnicos de tarefas específicos que incluem o perfil técnico comum. 
+
+Suponha que tenha um [perfil técnico da API REST](restful-technical-profile.md) com um único ponto final onde precisa enviar diferentes conjuntos de reclamações para diferentes cenários. Crie um perfil técnico comum com a funcionalidade partilhada, como, por exemplo, o ponto final da API REST URI, metadados, tipo de autenticação e teclas criptográficas. Criar perfis técnicos de tarefa específicos que incluam o perfil técnico comum. Em seguida, adicione as reclamações de entrada, as reclamações de saída ou substitua o ponto final rest API URI relevante para esse perfil técnico.
 
 O elemento **IncludeTechnicalProfile** contém o seguinte atributo:
 
@@ -561,7 +563,10 @@ As [ReivindicaçõesProviderSelecções](userjourneys.md#claimsproviderselection
 - **OnItemExistenceInStringCollectionClaim,** execute apenas quando um item existe numa reclamação de coleção de cordas.
 - **OnItemAbsenceInStringCollectionClaim** executam apenas quando um item não existe numa reclamação de coleção de cordas.
 
-Utilizando **OnClaimsExistence**, **OnItemExistenceInStringCollectionClaim** ou **OnItemAbsenceInStringCollectionClaim,** exige que forneça os seguintes metadados: **ClaimTypeOnWhichToEnable** especifica o tipo de reclamação que deve ser avaliado, **ClaimValueOnWhichToEnable** especifica o valor que deve ser comparado.
+Utilizando **OnClaimsExistence**, **OnItemExistenceInStringCollectionClaim**, ou **OnItemAbsenceInStringCollectionClaim,** requer que forneça os seguintes metadados: 
+
+- **ClaimTypeOnWhichToEnable** - especifica o tipo de reclamação que deve ser avaliado.
+- **ClaimValueOnWhichToEnable** - especifica o valor que deve ser comparado.
 
 O seguinte perfil técnico só é executado se a coleção de cordas **IdentityProviders** contiver o valor `facebook.com` de:
 

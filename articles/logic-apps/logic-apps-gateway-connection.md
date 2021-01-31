@@ -3,19 +3,19 @@ title: Fontes de dados de acesso às instalações
 description: Conecte-se a fontes de dados no local a partir de Azure Logic Apps criando um recurso de gateway de dados em Azure
 services: logic-apps
 ms.suite: integration
-ms.reviewer: arthii, divswa, logicappspm
+ms.reviewer: arthii, logicappspm
 ms.topic: article
-ms.date: 08/18/2020
-ms.openlocfilehash: 2dd086ccc45458299cf6b8a7ad83d023055c96ae
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 01/20/2021
+ms.openlocfilehash: 356e63bb0a749ad0f41d886e75971e9b05c7f9dc
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96009263"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99218999"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Ligar a origens de dados no local a partir do Azure Logic Apps
 
-Depois de [instalar o portal de *dados no local* num computador local](../logic-apps/logic-apps-gateway-install.md) e antes de poder aceder a fontes de dados nas instalações a partir das suas aplicações lógicas, precisa de criar um recurso de gateway em Azure para a sua instalação gateway. Em seguida, pode selecionar este recurso gateway nos gatilhos e ações que pretende utilizar para os [conectores no local](../connectors/apis-list.md#on-premises-connectors) disponíveis nas Apps Azure Logic. A Azure Logic Apps suporta operações de leitura e escrita através do portal de dados. No entanto, estas operações têm [limites no seu tamanho de carga](/data-integration/gateway/service-gateway-onprem#considerations)útil.
+Depois de [instalar o portal de *dados no local* num computador local](../logic-apps/logic-apps-gateway-install.md) e antes de poder aceder a fontes de dados nas instalações a partir das suas aplicações lógicas, tem de criar um recurso de gateway em Azure para a sua instalação gateway. Em seguida, pode selecionar este recurso gateway nos gatilhos e ações que pretende utilizar para os [conectores no local](../connectors/apis-list.md#on-premises-connectors) disponíveis nas Apps Azure Logic. A Azure Logic Apps suporta operações de leitura e escrita através do portal de dados. No entanto, estas operações têm [limites no seu tamanho de carga](/data-integration/gateway/service-gateway-onprem#considerations)útil.
 
 Este artigo mostra como criar o seu recurso de gateway Azure para um gateway previamente [instalado no seu computador local.](../logic-apps/logic-apps-gateway-install.md) Para mais informações sobre o portal, consulte [como funciona o portal.](../logic-apps/logic-apps-gateway-install.md#gateway-cloud-service)
 
@@ -54,11 +54,14 @@ Também pode criar [conectores personalizados](../logic-apps/custom-connector-ov
 
 * Já [instalou o portal de dados no local num computador local.](../logic-apps/logic-apps-gateway-install.md) Esta instalação gateway deve existir antes de poder criar um recurso de gateway que se ligue a esta instalação.
 
-* Tem a [mesma conta Eszure e subscrição](../logic-apps/logic-apps-gateway-install.md#requirements) que usou para a instalação do gateway. Esta conta Azure deve pertencer apenas a um único [inquilino ou diretório Azure Ative Directory (Azure AD).](../active-directory/fundamentals/active-directory-whatis.md#terminology) Precisa de utilizar a mesma conta Estil e subscrição Azure para criar o seu recurso gateway em Azure, porque só o administrador de gateway pode criar o recurso gateway em Azure. Os diretores de serviços não são apoiados.
+* Tem a [mesma conta Eszure e subscrição](../logic-apps/logic-apps-gateway-install.md#requirements) que usou para a instalação do gateway. Esta conta Azure deve pertencer apenas a um único [inquilino ou diretório Azure Ative Directory (Azure AD).](../active-directory/fundamentals/active-directory-whatis.md#terminology) Tem de utilizar a mesma conta Estil e subscrição Azure para criar o seu recurso gateway em Azure porque só o administrador de gateway pode criar o recurso gateway em Azure. Os diretores de serviços não são apoiados.
 
   * Quando criar um recurso de gateway em Azure, selecione uma instalação gateway para ligar com o seu recurso gateway e apenas com esse recurso gateway. Cada recurso de gateway pode ligar-se a apenas uma instalação de gateway. Não é possível selecionar uma instalação de gateway que já esteja associada a outro recurso de gateway.
-  
-  * A sua aplicação lógica e recurso gateway não têm de existir na mesma subscrição do Azure. Desde que tenha acesso a subscrição, em gatilhos e ações que possam aceder a fontes de dados no local, pode selecionar outras subscrições do Azure que tenham recursos de gateway.
+
+  * A sua aplicação lógica e recurso gateway não têm de existir na mesma subscrição do Azure. Nos gatilhos e ações onde pode utilizar o recurso gateway, pode selecionar uma subscrição Azure diferente que tenha um recurso de gateway, mas apenas se essa subscrição existir no mesmo inquilino ou diretório AD AZure que a sua aplicação lógica. Também tem de ter permissões de administrador no gateway, que outro administrador pode configurar para si. Para obter mais informações, consulte [Data Gateway: Automation using PowerShell - Part 1](https://community.powerbi.com/t5/Community-Blog/Data-Gateway-Automation-using-PowerShell-Part-1/ba-p/1117330) e [PowerShell: Data Gateway - Add-DataGatewayClusterUser](/powershell/module/datagateway/add-datagatewayclusteruser).
+
+    > [!NOTE]
+    > Atualmente, não é possível partilhar um recurso de gateway ou instalação em várias subscrições. Para submeter feedback do produto, consulte [o Microsoft Azure Feedback Forum](https://feedback.azure.com/forums/34192--general-feedback).
 
 <a name="create-gateway-resource"></a>
 
@@ -103,10 +106,10 @@ Depois de criar o seu recurso gateway e associar a sua subscrição Azure a este
 
 1. Selecione **Connect via gateway de dados no local.**
 
-1. Em **Gateways**, a partir da lista **de Subscrições,** selecione a sua subscrição Azure que tem o recurso gateway que deseja.
+1. Em **Gateway**, a partir da lista de **subscrição,** selecione a sua subscrição Azure que tem o recurso gateway que deseja.
 
-   Desde que tenha acesso a subscrição, pode selecionar a partir de diferentes subscrições Azure que estão associadas a um recurso de gateway diferente. A sua aplicação lógica e recurso gateway não têm de existir na mesma subscrição do Azure.
-
+   A sua aplicação lógica e recurso gateway não têm de existir na mesma subscrição do Azure. Pode selecionar a partir de outras subscrições Azure que cada uma tem um recurso de gateway, mas apenas se estas subscrições existirem no mesmo inquilino ou diretório AZure AD como a sua aplicação lógica, e tem permissões de administrador no gateway, que outro administrador pode configurar para si. Para obter mais informações, consulte [Data Gateway: Automation using PowerShell - Part 1](https://community.powerbi.com/t5/Community-Blog/Data-Gateway-Automation-using-PowerShell-Part-1/ba-p/1117330) e [PowerShell: Data Gateway - Add-DataGatewayClusterUser](/powershell/module/datagateway/add-datagatewayclusteruser).
+  
 1. A partir da lista **Connection Gateway,** que mostra os recursos de gateway disponíveis na sua subscrição selecionada, selecione o recurso gateway que deseja. Cada recurso de gateway está ligado a uma instalação de um único gateway.
 
    > [!NOTE]

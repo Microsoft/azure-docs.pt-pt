@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.openlocfilehash: c712af41fdc191cab4fd08c9d8175a849d4f286a
-ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
+ms.date: 01/29/2021
+ms.openlocfilehash: e74c96e0c03d75f34a16d95d0bed642c1900f558
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97706775"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219728"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>Backup e restauro na Base de Dados Azure para PostgreSQL - Servidor Único
 
@@ -82,6 +82,16 @@ A restauração pontual é útil em vários cenários. Por exemplo, quando um ut
 
 Poderá ter de esperar que a próxima cópia de segurança do registo de transações seja tomada antes de poder restabelecer a um ponto no tempo nos últimos cinco minutos.
 
+Se quiser restaurar uma mesa caída, 
+1. Restaurar o servidor de origem utilizando o método ponto-a-tempo.
+2. Despeje a mesa utilizando `pg_dump` do servidor restaurado.
+3. Mude o nome da tabela de origem no servidor original.
+4. Tabela de importação usando linha de comando psql no servidor original.
+5. Pode eliminar opcionalmente o servidor restaurado.
+
+>[!Note]
+> Recomenda-se que não crie várias restaurações para o mesmo servidor ao mesmo tempo. 
+
 ### <a name="geo-restore"></a>Georrestauro
 
 Pode restaurar um servidor para outra região do Azure onde o serviço está disponível se tiver configurado o seu servidor para cópias de segurança geo-redundantes. Os servidores que suportam até 4 TB de armazenamento podem ser restaurados na região geo emparelhada, ou em qualquer região que suporte até 16 TB de armazenamento. Para servidores que suportam até 16 TB de armazenamento, as geo-cópias podem ser restauradas em qualquer região que suporte também 16 servidores TB. Reveja [a base de dados Azure para os níveis de preços pós-SQL](concepts-pricing-tiers.md) para a lista de regiões apoiadas.
@@ -97,7 +107,7 @@ Durante o geo-restauro, as configurações do servidor que podem ser alteradas i
 
 Após uma restauração de qualquer mecanismo de recuperação, deve executar as seguintes tarefas para que os seus utilizadores e aplicações voltem a funcionar:
 
-- Se o novo servidor pretende substituir o servidor original, redirecione clientes e aplicações de clientes para o novo servidor
+- Se o novo servidor pretende substituir o servidor original, redirecione clientes e aplicações de clientes para o novo servidor. Altere também o nome de utilizador para `username@new-restored-server-name` .
 - Certifique-se de que existem regras adequadas ao nível do servidor e das regras VNet para que os utilizadores se conectem. Estas regras não são copiadas do servidor original.
 - Certifique-se de que estão em vigor logins e permissões de nível de base de dados apropriados
 - Configurar alertas, conforme adequado

@@ -1,14 +1,14 @@
 ---
 title: 'Quickstart: Nova atribuição de políticas com a REST API'
 description: Neste quickstart, você usa a API REST para criar uma atribuição de Política Azure para identificar recursos não conformes.
-ms.date: 10/14/2020
+ms.date: 01/29/2021
 ms.topic: quickstart
-ms.openlocfilehash: ab05079c5bb319f0808a743a1d668649df51b1b3
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 438d8004cd50e6e2ef7586c51adc63257f37978b
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074010"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219982"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-rest-api"></a>Quickstart: Criar uma atribuição de política para identificar recursos não conformes com a API REST
 
@@ -47,6 +47,11 @@ Execute o seguinte comando para criar uma atribuição de política:
          "displayName": "Audit VMs without managed disks Assignment",
          "description": "Shows all virtual machines not using managed disks",
          "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/06a78e20-9358-41c9-923c-fb736d382a4d",
+         "nonComplianceMessages": [
+             {
+                 "message": "Virtual machines should use a managed disk"
+             }
+         ]
        }
      }
      ```
@@ -56,7 +61,7 @@ O organismo final e de pedido anteriores utiliza as seguintes informações:
 REPOUSO API URI:
 - **Âmbito** – Um âmbito determina que recursos ou agrupamento de recursos em que a atribuição de política é imposta. Pode ir de um grupo de gestão a um recurso individual. Certifique-se de que `{scope}` substitui por um dos seguintes padrões:
   - Grupo de gestão: `/providers/Microsoft.Management/managementGroups/{managementGroup}`
-  - Assinatura: `/subscriptions/{subscriptionId}`
+  - Subscrição: `/subscriptions/{subscriptionId}`
   - Grupo de recursos: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}`
   - Recurso: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}`
 - **Nome** – O nome real da atribuição. Neste exemplo, foi utilizado _audit-vm-manageddisks_.
@@ -65,6 +70,7 @@ Corpo de Pedido:
 - **DisplayName** – O nome da atribuição de política a apresentar. Neste caso, está a utilizar _VMs de auditoria sem serviço de discos geridos_.
 - **Descrição** - Uma explicação mais profunda do que a apólice faz ou por que é atribuída a este âmbito.
 - **policyDefinitionId** – O ID de definição de política, baseado no qual está a usar para criar a atribuição. Neste caso, é o ID de definição de política _Audit VMs que não usam discos geridos_.
+- **NonComplianceMessages** - Desconfiem a mensagem vista quando um recurso é negado devido a incumprimento ou avaliado para não ser conforme. Para obter mais informações, consulte [as mensagens de incumprimento da atribuição](./concepts/assignment-structure.md#non-compliance-messages).
 
 ## <a name="identify-non-compliant-resources"></a>Identificar recursos que não estão em conformidade
 
@@ -102,7 +108,7 @@ Os resultados assemelham-se ao seguinte exemplo:
 
 Os resultados são comparáveis aos que normalmente vê listados em **recursos que não estão em conformidade** na vista do portal do Azure.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para remover a atribuição criada, utilize o seguinte comando:
 

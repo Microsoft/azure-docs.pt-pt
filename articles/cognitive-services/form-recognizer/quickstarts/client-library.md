@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 09/21/2020
+ms.date: 01/29/2021
 ms.author: pafarley
 zone_pivot_groups: programming-languages-set-formre
 ms.custom: devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 keywords: tratamento de formulários, processamento automatizado de dados
-ms.openlocfilehash: c915e7753487eba284d89dbb480f9848e90c1ef1
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: cc18cc9e54a5a8887ecd3e079285ba5130b88278
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132288"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99218048"
 ---
 # <a name="quickstart-use-the-form-recognizer-client-library-or-rest-api"></a>Quickstart: Use a biblioteca do cliente do Reconhecimento de Formulários ou a API REST
 

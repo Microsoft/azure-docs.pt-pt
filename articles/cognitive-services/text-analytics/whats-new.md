@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/27/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 3f403308c77e5ee0dfc066ec3dc53100e520d274
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 45b52f98f9f3670f2a68c22cfe9e27a86b2a74cc
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99090676"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99220705"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>O que há de novo na API de Análise de Texto?
 
@@ -28,7 +28,12 @@ A API text Analytics é atualizada numa base contínua. Para se manter atualizad
   * Apoio linguístico alargado para [várias categorias de entidades gerais.](named-entity-types.md) 
   * Melhor qualidade de IA das categorias de entidades gerais para todas as línguas v3 suportadas. 
 
-* A `2021-01-05` versão-modelo para [deteção de idiomas,](how-tos/text-analytics-how-to-language-detection.md)que fornece [suporte linguístico](language-support.md?tabs=language-detection)adicional.
+* A `2021-01-05` versão modelo para [deteção de idiomas,](how-tos/text-analytics-how-to-language-detection.md)que fornece [suporte linguístico](language-support.md?tabs=language-detection)adicional.
+
+Estas versões de modelos estão atualmente indisponíveis na região leste dos EUA. 
+
+> [!div class="nextstepaction"]
+> [Saiba mais sobre o novo modelo NER](https://azure.microsoft.com/updates/text-analytics-ner-improved-ai-quality)
 
 ## <a name="december-2020"></a>Dezembro de 2020
 

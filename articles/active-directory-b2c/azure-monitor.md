@@ -10,13 +10,13 @@ ms.workload: identity
 ms.topic: how-to
 ms.author: mimart
 ms.subservice: B2C
-ms.date: 11/12/2020
-ms.openlocfilehash: 6d40eab12c9726459543d0b69e27b73178eba99f
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.date: 01/29/2021
+ms.openlocfilehash: e44a029c61db5a22513387772c2b0d7a3e4d1a40
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96170621"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219235"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Monitor Azure AD B2C com Monitor Azure
 
@@ -31,6 +31,10 @@ Pode encaminhar eventos de registo para:
 ![Azure Monitor](./media/azure-monitor/azure-monitor-flow.png)
 
 Neste artigo, aprende-se a transferir os registos para um espaço de trabalho Azure Log Analytics. Em seguida, pode criar um dashboard ou criar alertas baseados nas atividades dos utilizadores do Azure AD B2C.
+
+> [!IMPORTANT]
+> Quando planeia transferir registos Azure AD B2C para diferentes soluções de monitorização, ou repositório, considere o seguinte. Os registos Azure AD B2C contêm dados pessoais. Esses dados devem ser tratados de forma a garantir a segurança adequada dos dados pessoais, incluindo a proteção contra o tratamento não autorizado ou ilícito, utilizando medidas técnicas ou organizativas adequadas.
+
 
 ## <a name="deployment-overview"></a>Descrição geral da implementação
 
@@ -100,7 +104,7 @@ Em seguida, irá criar um modelo de Gestor de Recursos Azure que concede acesso 
    | Campo   | Definição |
    |---------|------------|
    | Subscrição |  Selecione o diretório que contém a subscrição Azure onde foi criado o grupo de recursos *ad-b2c-monitor.* |
-   | Região| Selecione a região onde o recurso será implantado.  | 
+   | Region| Selecione a região onde o recurso será implantado.  | 
    | Nome da oferta de msp| Um nome descrevendo esta definição. Por exemplo, *Monitorização Azure AD B2C*.  |
    | Descrição da oferta de msp| Uma breve descrição da sua oferta. Por exemplo, *Ativa o Monitor Azure em Azure AD B2C*.|
    | Gerido por Id inquilino| O **ID** do Inquilino do seu inquilino Azure AD B2C (também conhecido como iD do diretório). |

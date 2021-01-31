@@ -3,12 +3,12 @@ title: Endereços IP utilizados pelo Azure Monitor
 description: Exceções de firewall do servidor exigidas por Insights de Aplicação
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: 78ef6f90f76afa613fdc3d039f3ae4e38e70ae9a
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 0e7028c59b4588ac23424a63f4e3ce240391dfb8
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050605"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99220807"
 ---
 # <a name="ip-addresses-used-by-azure-monitor"></a>Endereços IP utilizados pelo Azure Monitor
 [O Azure Monitor](../overview.md) utiliza vários endereços IP. O Azure Monitor é composto por métricas de plataforma central e log além de Log Analytics e Application Insights. Poderá necessitar de saber estes endereços se a aplicação ou infraestrutura que está a monitorizar estiver atrás de uma firewall.
@@ -243,11 +243,7 @@ Nota: *.loganalytics.io domínio é propriedade da equipa log Analytics.
 
 ## <a name="action-group-webhooks"></a>Webhooks do Grupo de Ação
 
-| Objetivo | IP | Portas
-| --- | --- | --- |
-| Alertas | 13.66.60.119/32<br/>13.66.143.220/30<br/>13.66.202.14/32<br/>13.66.248.225/32<br/>13.66.249.211/32<br/>13.67.10.124/30<br/>13.69.109.132/30<br/>13.71.199.112/30<br/>13.77.53.216/30<br/>13.77.172.102/32<br/>13.77.183.209/32<br/>13.78.109.156/30<br/>13.84.49.247/32<br/>13.84.51.172/32<br/>13.84.52.58/32<br/>13.86.221.220/30<br/>13.106.38.142/32<br/>13.106.38.148/32<br/>13.106.54.3/32<br/>13.106.54.19/32<br/>13.106.57.181/32<br/>13.106.57.196/31<br/>20.38.149.132/30<br/>20.42.64.36/30<br/>20.43.121.124/30<br/>20.44.17.220/30<br/>20.45.123.236/30<br/>20.72.27.152/30<br/>20.150.172.228/30<br/>20.192.238.124/30<br/>20.193.202.4/30<br/>40.68.195.137/32<br/>40.68.201.58/32<br/>40.68.201.65/32<br/>40.68.201.206/32<br/>40.68.201.211/32<br/>40.68.204.18/32<br/>40.115.37.106/32<br/>40.121.219.215/32<br/>40.121.221.62/32<br/>40.121.222.201/32<br/>40.121.223.186/32<br/>51.104.9.100/30<br/>52.183.20.244/32<br/>52.183.31.0/32<br/>52.183.94.59/32<br/>52.184.145.166/32<br/>191.233.50.4/30<br/>191.233.207.64/26<br/>2603:1000:4:402::178/125<br/>2603:1000:104:402::178/125<br/>2603:1010:6:402::178/125<br/>2603:1010:101:402::178/125<br/>2603:1010:304:402::178/125<br/>2603:1010:404:402::178/125<br/>2603:1020:5:402::178/125<br/>2603:1020:206:402::178/125<br/>2603:1020:305:402::178/125<br/>2603:1020:405:402::178/125<br/>2603:1020:605:402::178/125<br/>2603:1020:705:402::178/125<br/>2603:1020:805:402::178/125<br/>2603:1020:905:402::178/125<br/>2603:1020:a04:402::178/125<br/>2603:1020:b04:402::178/125<br/>2603:1020:c04:402::178/125<br/>2603:1020:d04:402::178/125<br/>2603:1020:e04:402::178/125<br/>2603:1020:f04:402::178/125<br/>2603:1020:1004:800::f8/125<br/>2603:1020:1104:400::178/125<br/>2603:1030:f:400::978/125<br/>2603:1030:10:402::178/125<br/>2603:1030:104:402::178/125<br/>2603:1030:107:400::f0/125<br/>2603:1030:210:402::178/125<br/>2603:1030:40b:400::978/125<br/>2603:1030:40c:402::178/125<br/>2603:1030:504:802::f8/125<br/>2603:1030:608:402::178/125<br/>2603:1030:807:402::178/125<br/>2603:1030:a07:402::8f8/125<br/>2603:1030:b04:402::178/125<br/>2603:1030:c06:400::978/125<br/>2603:1030:f05:402::178/125<br/>2603:1030:1005:402::178/125<br/>2603:1040:5:402::178/125<br/>2603:1040:207:402::178/125<br/>2603:1040:407:402::178/125<br/>2603:1040:606:402::178/125<br/>2603:1040:806:402::178/125<br/>2603:1040:904:402::178/125<br/>2603:1040:a06:402::178/125<br/>2603:1040:b04:402::178/125<br/>2603:1040:c06:402::178/125<br/>2603:1040:d04:800::f8/125<br/>2603:1040:f05:402::178/125<br/>2603:1040:1104:400::178/125<br/>2603:1050:6:402::178/125<br/>2603:1050:403:400::1f8/125<br/> | 443 |
-
-Para receber atualizações sobre alterações a estes endereços IP, recomendamos que configuize um alerta de Saúde de Serviço, que monitoriza notificações informativas sobre o serviço Grupos de Ação.
+Pode consultar a lista de endereços IP utilizados pelos Grupos de Ação utilizando o [comando Get-AzNetworkServiceTag PowerShell](https://docs.microsoft.com/powershell/module/az.network/Get-AzNetworkServiceTag).
 
 ### <a name="action-groups-service-tag"></a>Tag de serviço de grupos de ação
 Gerir as alterações nos endereços IP source pode ser bastante demorado. A utilização de **Tags de Serviço** elimina a necessidade de atualizar a sua configuração. Uma etiqueta de serviço representa um grupo de prefixos de endereço IP de um determinado serviço Azure. A Microsoft gere os endereços IP e atualiza automaticamente a etiqueta de serviço à medida que os endereços mudam, eliminando a necessidade de atualizar as regras de segurança da rede para um Grupo de Ação.

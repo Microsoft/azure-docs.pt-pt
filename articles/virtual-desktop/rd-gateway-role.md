@@ -3,19 +3,24 @@ title: Implementar função RD Gateway Windows Virtual Desktop - Azure
 description: Como implementar o papel RD Gateway no Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 01/26/2021
+ms.date: 01/30/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ca3c36f339d5cbca6d5b5990415fba180ae42a13
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 71bd7d38727d99c05a15c54e5141c613960d9050
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98798439"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99220824"
 ---
-# <a name="deploy-the-rd-gateway-role-in-windows-virtual-desktop"></a>Implementar a função RD Gateway no Windows Virtual Desktop
+# <a name="deploy-the-rd-gateway-role-in-windows-virtual-desktop-preview"></a>Implementar a função RD Gateway no Windows Virtual Desktop (pré-visualização)
 
-Este artigo irá dizer-lhe como implementar os servidores Remote Desktop Gateway no seu ambiente. Pode instalar as funções do servidor em máquinas físicas ou máquinas virtuais, dependendo se está a criar um ambiente no local, baseado em nuvem ou híbrido.
+> [!IMPORTANT]
+> Esta funcionalidade encontra-se atualmente em visualização pública.
+> Esta versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não recomendamos a sua utilização para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
+> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Este artigo irá dizer-lhe como utilizar a função RD Gateway (pré-visualização) para implementar servidores Remote Desktop Gateway no seu ambiente. Pode instalar as funções do servidor em máquinas físicas ou máquinas virtuais, dependendo se está a criar um ambiente no local, baseado em nuvem ou híbrido.
 
 ## <a name="install-the-rd-gateway-role"></a>Instale a função RD Gateway
 
@@ -66,6 +71,6 @@ Para configurar o papel rd gateway:
 >[!NOTE]
 >Como o papel de RD Gateway é suposto ser público, recomendamos que use um certificado emitido publicamente. Se utilizar um certificado emitido em particular, terá de se certificar de que configura todos os clientes com a cadeia de confiança do certificado previamente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se pretender adicionar uma elevada disponibilidade à sua função RD Gateway, consulte [Adicionar alta disponibilidade à frente web RD Web e Gateway.](/windows-server/remote/remote-desktop-services/rds-rdweb-gateway-ha)

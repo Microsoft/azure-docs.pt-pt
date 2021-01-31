@@ -128,3 +128,9 @@
       href: production-readiness.md
     - name: Princípios de transparência e de IA responsável
       href: 'https://azure.microsoft.com/resources/transparency-note-live-video-analytics-lva/'
+- name: Recursos
+  items:
+    - name: Roteiro do Azure
+      href: 'https://azure.microsoft.com/updates/?category=media'
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/media-services/'

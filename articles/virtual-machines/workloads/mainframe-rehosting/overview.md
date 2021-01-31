@@ -10,12 +10,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: d754f27a1510d9db0837eabb96b3a7cf75f76fc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f62cb6d5277ae202e8ea864aa99a3e19c3beef22
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87835532"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99220756"
 ---
 # <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Rehosagem de mainframe em máquinas virtuais Azure
 
@@ -70,7 +70,7 @@ Para começar:
 
 O ambiente IBM DB2 pureScale fornece um cluster de base de dados para o Azure. Não é idêntico ao ambiente original, mas oferece disponibilidade e escala semelhantes à IBM DB2 para z/SO em execução numa configuração Paralela Sysplex.
 
-Para começar, consulte [a IBM DB2 pureScale em Azure.](../../linux/ibm-db2-purescale-azure.md)
+Para começar, consulte [a IBM DB2 pureScale em Azure.](.//ibm/ibm-db2-purescale-azure.md)
 
 ## <a name="considerations"></a>Considerações
 

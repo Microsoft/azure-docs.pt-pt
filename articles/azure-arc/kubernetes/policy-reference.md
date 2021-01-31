@@ -1,18 +1,18 @@
 ---
 title: Definições políticas incorporadas para Azure Arc habilitados Kubernetes
 description: Lista definições de políticas incorporadas para Azure Arc habilitadas a Kubernetes. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 01/25/2021
+ms.date: 01/29/2021
 ms.service: azure-arc
 author: mlearned
 ms.author: mlearned
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 8da49c4c410207cebd6613cbbaf8a80c4359bb68
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 93a08505bffb55104a1b6979e0716f11ecb3e937
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98808342"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99218184"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-arc-enabled-kubernetes"></a>Azure Policy definições incorporadas para Azure Arc habilitaram Kubernetes
 

@@ -9,12 +9,12 @@ ms.date: 01/27/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: c8807f0200f96dc12a3b3d43fa50a91bec85ed38
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: 8172abb5e220f28061c7826af24a5d9a2043f4ad
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99071187"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219914"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurar as firewalls e as redes virtuais do Armazenamento do Microsoft Azure
 
@@ -538,11 +538,11 @@ az storage account network-rule list \
 <a id="exceptions"></a>
 <a id="trusted-microsoft-services"></a>
 
-## <a name="grant-access-to-azure-services"></a>Conceder acesso aos serviços da Azure 
+## <a name="grant-access-to-trusted-azure-services"></a>Conceder acesso a serviços de confiança da Azure 
 
-Alguns serviços Azure operam a partir de redes que não podem ser incluídas nas suas regras de rede. Pode conceder a um subconjunto de serviços Azure de confiança o acesso à conta de armazenamento, mantendo ao mesmo tempo regras de rede para outras aplicações. Estes serviços fidedignos utilizarão então uma autenticação forte para se ligarem de forma segura à sua conta de armazenamento. 
+Alguns serviços Azure operam a partir de redes que não podem ser incluídas nas suas regras de rede. Pode conceder a um subconjunto de serviços Azure de confiança o acesso à conta de armazenamento, mantendo ao mesmo tempo regras de rede para outras aplicações. Estes serviços fidedignos utilizarão então uma autenticação forte para se ligarem de forma segura à sua conta de armazenamento.
 
-Pode conceder acesso a serviços de Azure confiáveis criando uma exceção à regra da rede. Para obter orientação passo a passo, consulte a secção [de exceções](#manage-exceptions) de Gestão deste artigo. 
+Pode conceder acesso a serviços de Azure confiáveis criando uma exceção à regra da rede. Para obter orientação passo a passo, consulte a secção [de exceções](#manage-exceptions) de Gestão deste artigo.
 
 Quando concede acesso a serviços fidedignos da Azure, concede os seguintes tipos de acesso:
 
@@ -583,17 +583,23 @@ A tabela que se segue lista os serviços que podem ter acesso aos dados da sua c
 | :----------------------------- | :------------------------------------- | :----------------- |
 | API Management do Azure           | Microsoft.ApiManagement/service        | Permite o acesso do serviço Api Management às contas de armazenamento por trás do firewall utilizando políticas. [Saiba mais](../../api-management/api-management-authentication-policies.md#use-managed-identity-in-send-request-policy). |
 | Azure Cognitive Search         | Microsoft.Search/searchServices        | Permite que os serviços de Pesquisa Cognitiva acedam a contas de armazenamento para indexar, processar e consultar. |
-| Serviços Cognitivos do Azure       | Microsoft.CognitiveService             | Permite que os Serviços Cognitivos acedam a contas de armazenamento. |
+| Serviços Cognitivos do Azure       | Microsoft.CognitiveService/contas    | Permite que os Serviços Cognitivos acedam a contas de armazenamento. |
 | Tarefas do Azure Container Registry | Microsoft.ContainerRegistry/registries | As tarefas ACR podem aceder às contas de armazenamento ao construir imagens de contentores. |
 | Azure Data Factory             | Microsoft.DataFactory/fábricas        | Permite o acesso às contas de armazenamento através do tempo de execução da ADF. |
 | Azure Data Share               | Microsoft.DataShare/contas           | Permite o acesso às contas de armazenamento através do Data Share. |
+| Azure DevTest Labs             | Microsoft.DevTestLab/laboratórios              | Permite o acesso às contas de armazenamento através da DevTest Labs. |
 | Azure IoT Hub                  | Microsoft.Devices/IotHubs              | Permite que os dados de um hub IoT sejam escritos para o armazenamento blob. [Saiba mais](../../iot-hub/virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) |
 | Azure Logic Apps               | Microsoft.Logic/workflows              | Permite que as aplicações lógicas acedam a contas de armazenamento. [Saiba mais](../../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity). |
-| Serviço Azure Machine Learning | Microsoft.MachineLearningServices      | Os espaços de trabalho autorizados de Aprendizagem automática Azure escrevem a saída de experiências, modelos e registos para o armazenamento blob e lêem os dados. [Saiba mais](../../machine-learning/how-to-network-security-overview.md#secure-the-workspace-and-associated-resources). | 
-| Azure Synapse Analytics       | Microsoft.Sql                          | Permite a importação e exportação de dados a partir de bases de dados SQL específicas utilizando a declaração COPY ou PolyBase (em pool dedicado), ou a `openrowset` função e tabelas externas em pool sem servidor. [Saiba mais](../../azure-sql/database/vnet-service-endpoint-rule-overview.md). |
-| Base de Dados SQL do Azure       | Microsoft.Sql                          | Permite [escrever](../../azure-sql/database/audit-write-storage-account-behind-vnet-firewall.md) dados de auditoria para contas de armazenamento por trás da firewall. |
-| Azure Stream Analytics         | Microsoft.StreamAnalytics             | Permite que os dados de um trabalho de streaming sejam escritos para o armazenamento blob. [Saiba mais](../../stream-analytics/blob-output-managed-identity.md). |
-| Azure Synapse Analytics        | Microsoft.Synapse/workspaces          | Permite o acesso aos dados no Azure Storage a partir da Azure Synapse Analytics. |
+| Serviço Azure Machine Learning | Microsoft.MachineLearningServices      | Os espaços de trabalho autorizados de Aprendizagem automática Azure escrevem a saída de experiências, modelos e registos para o armazenamento blob e lêem os dados. [Saiba mais](../../machine-learning/how-to-network-security-overview.md#secure-the-workspace-and-associated-resources). |
+| Serviços de Multimédia do Azure           | Microsoft.Media/mediaservices          | Permite o acesso a contas de armazenamento através dos Serviços de Media. |
+| Azure Migrate                  | Microsoft.Migrate/migrateprojects      | Permite o acesso às contas de armazenamento através do Azure Migrate. |
+| Azure Purview                  | Microsoft.Purview/contas             | Permite que o Purview aceda às contas de armazenamento. |
+| Azure Remote Rendering         | Microsoft.MixedReality/remoteRenderIngS | Permite o acesso às contas de armazenamento através da Renderização Remota. |
+| Azure Site Recovery            | Microsoft.RecoveryServices/cofres      | Permite o acesso às contas de armazenamento através da Recuperação do Site. |
+| Base de Dados SQL do Azure             | Microsoft.Sql                          | Permite [escrever](../../azure-sql/database/audit-write-storage-account-behind-vnet-firewall.md) dados de auditoria para contas de armazenamento por trás da firewall. |
+| Azure Synapse Analytics        | Microsoft.Sql                          | Permite a importação e exportação de dados a partir de bases de dados SQL específicas utilizando a declaração COPY ou PolyBase (em pool dedicado), ou a `openrowset` função e tabelas externas em pool sem servidor. [Saiba mais](../../azure-sql/database/vnet-service-endpoint-rule-overview.md). |
+| Azure Stream Analytics         | Microsoft.StreamAnalytics              | Permite que os dados de um trabalho de streaming sejam escritos para o armazenamento blob. [Saiba mais](../../stream-analytics/blob-output-managed-identity.md). |
+| Azure Synapse Analytics        | Microsoft.Synapse/workspaces           | Permite o acesso aos dados no Azure Storage a partir da Azure Synapse Analytics. |
 
 ## <a name="grant-access-to-storage-analytics"></a>Conceder acesso à análise de armazenamento
 

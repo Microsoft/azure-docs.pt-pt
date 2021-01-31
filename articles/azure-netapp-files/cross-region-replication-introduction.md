@@ -12,14 +12,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/21/2021
+ms.date: 01/29/2021
 ms.author: b-juche
-ms.openlocfilehash: e51297e8fe5c3dccf43318a066ac5da4a7d24cb2
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.custom: references_regions
+ms.openlocfilehash: fd3e8295820cd9388bd7999d3008b4c583dbf295
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696096"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99220909"
 ---
 # <a name="cross-region-replication-of-azure-netapp-files-volumes"></a>Replicação transversal dos volumes dos Ficheiros Azure NetApp
 
@@ -28,26 +29,31 @@ A funcionalidade de replicação dos Ficheiros Azure NetApp fornece proteção d
 > [!IMPORTANT]
 > A funcionalidade de replicação entre regiões está atualmente em visualização pública. Tem de submeter um pedido de lista de espera para aceder à funcionalidade através da [página de submissão da lista de espera de replicação da Azure NetApp Files](https://aka.ms/anfcrrpreviewsignup). Aguarde um e-mail oficial de confirmação da equipa do Azure NetApp Files antes de utilizar a funcionalidade de replicação entre regiões.
 
-## <a name="supported-region-pairs"></a>Pares de regiões apoiados
+## <a name="supported-cross-region-replication-pairs"></a><a name="supported-region-pairs"></a>Pares de replicação inter-região apoiados
 
-A replicação do volume Azure NetApp Files está atualmente disponível nos seguintes pares de região fixa:  
+A replicação do volume Azure NetApp Files é suportada entre [vários pares regionais Azure](/azure/best-practices-availability-paired-regions#azure-regional-pairs) e não-pares. A replicação do volume Azure NetApp Files está atualmente disponível entre as seguintes regiões:  
 
-* Eua Oeste e Eua Leste
-* EUA West 2 e EUA Leste 
-* Central Sul dos EUA e Central dos EUA 
-* Centro Sul dos EUA e Leste dos EUA
-* Centro Sul dos EUA e Leste dos EUA 2 
-* Leste dos EUA e Leste dos EUA 2  
-* EUA Leste 2 e Central dos EUA 
+### <a name="azure-regional-pairs"></a>Pares regionais azure
+
+* Leste dos EUA e Oeste dos EUA
+* Leste dos EUA 2 e Central EUA
 * Austrália Leste e Austrália Sudeste
 * Canadá Central e Canadá Leste
-* Índia Central e Sul da Índia
+* Índia do Sul e Índia Central 
 * Alemanha Centro Ocidental e Alemanha Norte
 * Japão Leste e Japão Oeste
 * Europa do Norte e Europa Ocidental
-* Sudeste Asiático e Austrália Oriental
-* Reino Unido Sul e Alemanha West Central
 * Reino Unido Sul e Reino Unido Oeste
+
+### <a name="azure-regional-non-pairs"></a>Não pares regionais do Azure
+
+*   Eua Ocidental 2 e Leste dos EUA
+*   Centro-Sul dos EUA e Central EUA
+*   Centro-Sul dos EUA e Leste dos EUA
+*   Centro-Sul dos EUA e Leste dos EUA 2
+*   Leste dos EUA e Leste dos EUA 2
+*   Austrália Leste e Sudeste Asiático 
+*   Alemanha West Central e Reino Unido Sul
 
 ## <a name="service-level-objectives"></a>Objetivos ao nível do serviço
 

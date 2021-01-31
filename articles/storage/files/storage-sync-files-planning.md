@@ -4,16 +4,16 @@ description: Planeie uma implementação com o Azure File Sync, um serviço que 
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/15/2020
+ms.date: 01/29/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 28b7419dfc889d1149765b884f1a5990a1e28f03
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 65293df5fae523bff36240273afb93c4dd8485df
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98898109"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219481"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planear uma implementação da Sincronização de Ficheiros do Azure
 
@@ -302,48 +302,16 @@ Para obter mais informações sobre encriptação em trânsito, consulte [a nece
 [!INCLUDE [storage-files-tiers-large-file-share-availability](../../../includes/storage-files-tiers-large-file-share-availability.md)]
 
 ## <a name="azure-file-sync-region-availability"></a>Disponibilidade da região de sincronização de ficheiros Azure
-O Azure File Sync está disponível nas seguintes regiões:
 
-| Nuvem do Azure | Região geográfica | Região do Azure | Código da região |
-|-------------|-------------------|--------------|-------------|
-| Público | Ásia | Ásia Leste | `eastasia` |
-| Público | Ásia | Sudeste Asiático | `southeastasia` |
-| Público | Austrália | Leste da Austrália | `australiaeast` |
-| Público | Austrália | Austrália Sudeste | `australiasoutheast` |
-| Público | Brasil | Sul do Brasil | `brazilsouth` |
-| Público | Canadá | Canadá Central | `canadacentral` |
-| Público | Canadá | Leste do Canadá | `canadaeast` |
-| Público | Europa | Europa do Norte | `northeurope` |
-| Público | Europa | Europa Ocidental | `westeurope` |
-| Público | França | França Central | `francecentral` |
-| Público | França | França Sul* | `francesouth` |
-| Público | Índia | Índia Central | `centralindia` |
-| Público | Índia | Sul da Índia | `southindia` |
-| Público | Japão | Leste do Japão | `japaneast` |
-| Público | Japão | Oeste do Japão | `japanwest` |
-| Público | Coreia | Coreia do Sul Central | `koreacentral` |
-| Público | Coreia | Sul da Coreia do Sul | `koreasouth` |
-| Público | África do Sul | Norte da África do Sul | `southafricanorth` |
-| Público | África do Sul | África do Sul Oeste* | `southafricawest` |
-| Público | E.A.U. | UAE Central* | `uaecentral` |
-| Público | E.A.U. | Uae Norte | `uaenorth` |
-| Público | REINO UNIDO | Sul do Reino Unido | `uksouth` |
-| Público | REINO UNIDO | Oeste do Reino Unido | `ukwest` |
-| Público | EUA | E.U.A. Central | `centralus` |
-| Público | EUA | E.U.A. Leste | `eastus` |
-| Público | EUA | E.U.A. Leste 2 | `eastus2` |
-| Público | EUA | E.U.A. Centro-Norte | `northcentralus` |
-| Público | EUA | E.U.A. Centro-Sul | `southcentralus` |
-| Público | EUA | E.U.A. Centro-Oeste | `westcentralus` |
-| Público | EUA | E.U.A. Oeste | `westus` |
-| Público | EUA | E.U.A. Oeste 2 | `westus2` |
-| US Gov | EUA | US Gov - Arizona | `usgovarizona` |
-| US Gov | EUA | US Gov - Texas | `usgovtexas` |
-| US Gov | EUA | US Gov - Virginia | `usgovvirginia` |
+Para disponibilidade regional, consulte [produtos disponíveis por região.](https://azure.microsoft.com/global-infrastructure/services/?products=storage)
 
-O Azure File Sync suporta sincronização apenas com uma partilha de ficheiros Azure que está na mesma região que o Serviço de Sincronização de Armazenamento.
+As seguintes regiões exigem que solicite acesso ao Azure Storage antes de poder utilizar o Azure File Sync com eles:
 
-Para as regiões marcadas com asteriscos, deve contactar o Apoio Azure para solicitar o acesso ao Azure Storage nessas regiões. O processo está delineado [neste documento.](https://azure.microsoft.com/global-infrastructure/geographies/)
+- Sul de França
+- Oeste da África do Sul
+- Centro dos Emirados Árabes Unidos
+
+Para solicitar o acesso a estas regiões, siga o processo [neste documento.](https://azure.microsoft.com/global-infrastructure/geographies/)
 
 ## <a name="redundancy"></a>Redundância
 [!INCLUDE [storage-files-redundancy-overview](../../../includes/storage-files-redundancy-overview.md)]
@@ -384,7 +352,7 @@ Se preferir utilizar uma solução de backup no local, as cópias de segurança 
 ## <a name="azure-file-sync-agent-update-policy"></a>Política de atualização do agente do Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Considere as definições de firewall e proxy](storage-sync-files-firewall-and-proxy.md)
 * [Planear uma implementação de Ficheiros do Azure](storage-files-planning.md)
 * [Implementar os Ficheiros do Azure](./storage-how-to-create-file-share.md)

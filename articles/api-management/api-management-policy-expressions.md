@@ -1,5 +1,5 @@
 ---
-title: Azure API Expressões políticas de gestão / Microsoft Docs
+title: Azure API Expressões políticas de gestão | Microsoft Docs
 description: Conheça as expressões políticas na Azure API Management. Veja exemplos e veja recursos adicionais disponíveis.
 services: api-management
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
-ms.openlocfilehash: ab83344f779f93107b59ca28348da3a66f1efc1a
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: aec1967f0652e18c4a24ca258c14a103355b22af
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076866"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219320"
 ---
 # <a name="api-management-policy-expressions"></a>Expressões políticas de gestão da API
 Este artigo discute a sintaxe das expressões políticas em C# 7. Cada expressão tem acesso à variável de [contexto](api-management-policy-expressions.md#ContextVariables) implicitamente fornecida e a um [subconjunto](api-management-policy-expressions.md#CLRTypes) permitido de tipos de quadros .NET.
@@ -220,7 +220,7 @@ Uma variável nomeada `context` está implicitamente disponível em todas as [ex
 |<a id="ref-context-request-headers"></a>contexto de cordas. Pedido.Headers.GetValueOrDefault (headerName: string, defaultValue: string)|headerName: corda<br /><br /> defaultValue: cadeia<br /><br /> Devolve valores de cabeçalho de pedido separados por vírgula ou `defaultValue` se o cabeçalho não for encontrado.|
 |<a id="ref-context-response"></a>contexto. Resposta|Corpo: [IMessageBody](#ref-imessagebody)<br /><br /> [Cabeçalhos](#ref-context-response-headers): IReadOnlyDictionary<string[]><br /><br /> StatusCode: int<br /><br /> StatusReason: corda|
 |<a id="ref-context-response-headers"></a>contexto de cordas. Resposta.Headers.GetValueOrDefault (headerName: string, defaultValue: string)|headerName: corda<br /><br /> defaultValue: cadeia<br /><br /> Devolve os valores do cabeçalho de resposta separados por vírgula ou `defaultValue` se o cabeçalho não for encontrado.|
-|<a id="ref-context-subscription"></a>contexto. Assinatura|Tempo criado: DataTime<br /><br /> Fim: DataTime?<br /><br /> Id: corda<br /><br /> Chave: corda<br /><br /> Nome: cadeia<br /><br /> PrimaryKey: corda<br /><br /> SecondaryKey: cadeia<br /><br /> StartDate: DateTime?|
+|<a id="ref-context-subscription"></a>contexto. Assinatura|CreatedDate: DateTime<br /><br /> Fim: DataTime?<br /><br /> Id: corda<br /><br /> Chave: corda<br /><br /> Nome: cadeia<br /><br /> PrimaryKey: corda<br /><br /> SecondaryKey: cadeia<br /><br /> StartDate: DateTime?|
 |<a id="ref-context-user"></a>contexto. Utilizador|E-mail: corda<br /><br /> Primeiro Nome: corda<br /><br /> Grupos: IEnumerable<[IGroup](#ref-igroup)\><br /><br /> Id: corda<br /><br /> Identidades: IEnumerable<[IUserIdentity](#ref-iuseridentity)\><br /><br /> LastName: string<br /><br /> Nota: corda<br /><br /> RegistoDate: Data Hora|
 |<a id="ref-iapi"></a>IAPI|Id: corda<br /><br /> Nome: cadeia<br /><br /> Caminho: corda<br /><br /> Protocolos: IEnumerable<cadeia\><br /><br /> ServiceUrl: [IUrl](#ref-iurl)<br /><br /> SubscriçãoKeyParameterNames: [ISubscriptionKeyParameterNames](#ref-isubscriptionkeyparameternames)|
 |<a id="ref-igroup"></a>IGroup|Id: corda<br /><br /> Nome: cadeia|
@@ -253,4 +253,4 @@ Para obter mais informações sobre as políticas, consulte:
 + [Políticas em Gestão de API](api-management-howto-policies.md)
 + [Transformar APIs](transform-api.md)
 + [Referência política](./api-management-policies.md) para uma lista completa de declarações políticas e suas definições
-+ [Amostras de política](./policy-reference.md)
++ [Exemplos de Políticas](./policy-reference.md)

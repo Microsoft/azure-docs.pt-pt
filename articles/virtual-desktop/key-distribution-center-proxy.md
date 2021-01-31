@@ -3,19 +3,24 @@ title: Configurar o proxy Do Centro de Distribuição de Chaves Kerberos Windows
 description: Como configurar uma piscina de anfitriões virtual do Windows desktop para usar um proxy do Centro de Distribuição de Chaves Kerberos.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 01/26/2021
+ms.date: 01/30/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f123659941eaeb3b8ceeb6a999abf836eb9cf5ea
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 102ddc1c8937c66a92416ddb6d5f2d25f2a3c349
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98798419"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219660"
 ---
-# <a name="configure-a-kerberos-key-distribution-center-proxy"></a>Configure um proxy do Centro de Distribuição de Chaves Kerberos
+# <a name="configure-a-kerberos-key-distribution-center-proxy-preview"></a>Configure um proxy do Centro de Distribuição de Chaves Kerberos (pré-visualização)
 
-Este artigo irá mostrar-lhe como configurar um proxy do Centro de Distribiução de Chave Kerberos (KDC) para a sua piscina de anfitrião. Este proxy permite que as organizações autentem com Kerberos fora dos limites da sua empresa. Por exemplo, pode utilizar o proxy KDC para ativar a autenticação do Smartcard para clientes externos.
+> [!IMPORTANT]
+> Esta funcionalidade encontra-se atualmente em visualização pública.
+> Esta versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não recomendamos a sua utilização para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
+> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Este artigo irá mostrar-lhe como configurar um proxy (preview) do Centro de Distribuição de Chaves Kerberos (KDC) para a sua piscina de anfitrião. Este proxy permite que as organizações autentem com Kerberos fora dos limites da sua empresa. Por exemplo, pode utilizar o proxy KDC para ativar a autenticação do Smartcard para clientes externos.
 
 ## <a name="how-to-configure-the-kdc-proxy"></a>Como configurar o representante da KDC
 
@@ -41,6 +46,6 @@ Para configurar o representante da KDC:
 
 6. O pool de anfitriões selecionado deve agora começar a emitir ficheiros de ligação RDP com o campo kdcproxyname que inseriu.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 O papel RDGateway em Serviços remotos de desktop inclui um serviço de procuração KDC. Consulte [a função De Gateway RD no Windows Virtual Desktop](rd-gateway-role.md) para saber como configurar um para ser um alvo para o Windows Virtual Desktop.

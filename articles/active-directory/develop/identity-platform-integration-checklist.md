@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: cefcf6b1bcd7ac5f81fa4e872b30660183a46a82
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: a6a7bf24571660d8e728c1acba29af2504539a18
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98755249"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219965"
 ---
 # <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>As melhores práticas e recomendações da plataforma de identidade da Microsoft
 
@@ -68,7 +68,7 @@ Utilize a seguinte lista de verificação para garantir que a sua aplicação es
 
 ![caixa de verificação ](./media/active-directory-integration-checklist/checkbox-two.svg) Utilize soluções de autenticação modernas (OAuth 2.0, [OpenID Connect](v2-protocols-oidc.md)) para iniciar um sinal seguro nos utilizadores.
 
-![caixa de verificação ](./media/active-directory-integration-checklist/checkbox-two.svg) Não programe diretamente contra protocolos como OAuth 2.0 e Open ID. Em vez disso, aproveite a [Biblioteca de Autenticação da Microsoft (MSAL)](msal-overview.md). As bibliotecas MSAL envolvem de forma segura protocolos de segurança numa biblioteca de fácil utilização, e obtém suporte incorporado para cenários [de acesso condicional,](../conditional-access/overview.md) sinalização única em todo o dispositivo [(SSO)](../manage-apps/what-is-single-sign-on.md)e suporte de caching em token incorporado. Para obter mais informações, consulte a lista de bibliotecas de [clientes](reference-v2-libraries.md#microsoft-supported-client-libraries) e [bibliotecas](reference-v2-libraries.md#microsoft-supported-server-middleware-libraries) de middleware suportadas pela Microsoft e a lista de [bibliotecas de clientes de terceiros compatíveis.](reference-v2-libraries.md#compatible-client-libraries)<br/><br/>Se tiver de entregar código para os protocolos de autenticação, deve seguir uma metodologia como [o Microsoft SDL](https://www.microsoft.com/sdl/default.aspx). Preste muita atenção às considerações de segurança nas especificações de normas de cada protocolo.
+![caixa de verificação ](./media/active-directory-integration-checklist/checkbox-two.svg) Não programe diretamente contra protocolos como OAuth 2.0 e Open ID. Em vez disso, aproveite a [Biblioteca de Autenticação da Microsoft (MSAL)](msal-overview.md). As bibliotecas MSAL envolvem de forma segura protocolos de segurança numa biblioteca de fácil utilização, e obtém suporte incorporado para cenários [de acesso condicional,](../conditional-access/overview.md) sinalização única em todo o dispositivo [(SSO)](../manage-apps/what-is-single-sign-on.md)e suporte de caching em token incorporado. Para mais informações, consulte a lista de bibliotecas de [clientes](reference-v2-libraries.md)suportadas pela Microsoft. Se tiver de fazer o código manual para os protocolos de autenticação, deve seguir a metodologia de desenvolvimento do [Microsoft SDL](https://www.microsoft.com/sdl/default.aspx) ou similar. Preste muita atenção às considerações de segurança nas especificações de normas de cada protocolo.
 
 ![checkbox ](./media/active-directory-integration-checklist/checkbox-two.svg) Migrar aplicações existentes da [Azure Ative Directory Authentication Library (ADAL)](../azuread-dev/active-directory-authentication-libraries.md) para a [Microsoft Authentication Library](msal-overview.md). A MSAL é a mais recente solução de plataforma de identidade da Microsoft e é preferida à ADAL. Está disponível em .NET, JavaScript, Android, iOS, macOS e também está em pré-visualização pública para Python e Java. Leia mais sobre [ADAL.NET](msal-net-migration.md)migração , [ADAL.js](msal-compare-msal-js-and-adal-js.md), e [aplicações de corretores de ADAL.NET e iOS.](msal-net-migration-ios-broker.md)
 

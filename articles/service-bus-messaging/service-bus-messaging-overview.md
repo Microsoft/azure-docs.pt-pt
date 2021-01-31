@@ -2,13 +2,13 @@
 title: Descrição geral de mensagens do Service Bus do Azure | Microsoft Docs
 description: Este artigo fornece uma visão geral de alto nível da Azure Service Bus, um corretor de mensagens de integração empresarial totalmente gerido.
 ms.topic: overview
-ms.date: 11/20/2020
-ms.openlocfilehash: 7453e8dd300ad754fb58489f059670af209314ab
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.date: 01/28/2021
+ms.openlocfilehash: 232f25ca94e9426a20755940caf284426502cfb3
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881606"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219167"
 ---
 # <a name="what-is-azure-service-bus"></a>O que é o Azure Service Bus?
 O Microsoft Azure Service Bus é um corretor de mensagens da empresa totalmente gerido com filas de mensagens e tópicos de subscrição de publicação. O Service Bus é utilizado para dissociar aplicações e serviços entre si, proporcionando os seguintes benefícios:
@@ -17,7 +17,7 @@ O Microsoft Azure Service Bus é um corretor de mensagens da empresa totalmente 
 - Encaminhamento e transferência de dados e controlo em segurança através dos limites de serviço e aplicação
 - Coordenação do trabalho transacional que requer um elevado grau de fiabilidade 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Os dados são transferidos entre diferentes aplicações e serviços utilizando *mensagens*. Uma mensagem é um recipiente decorado com metadados e contém dados. Os dados podem ser qualquer tipo de informação, incluindo dados estruturados codificados com os formatos comuns, tais como os seguintes: JSON, XML, Apache Avro, Texto Simples.
 
 Alguns cenários comuns de mensagens são:
@@ -152,14 +152,14 @@ As bibliotecas de clientes do Service Bus totalmente suportadas estão disponív
 
 A Service Bus integra-se totalmente com muitos serviços microsoft e Azure, por exemplo:
 
-* [Event Grid](https://azure.microsoft.com/services/event-grid/)
-* [Logic Apps](https://azure.microsoft.com/services/logic-apps/)
-* [Funções do Azure](https://azure.microsoft.com/services/functions/)
-* [Power Platform](https://powerplatform.microsoft.com/)
-* [Dynamics 365](https://dynamics.microsoft.com)
-* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
+* [Event Grid](service-bus-to-event-grid-integration-example.md)
+* [Logic Apps](../connectors/connectors-create-api-servicebus.md)
+* [Funções do Azure](../azure-functions/functions-bindings-service-bus.md)
+* [Power Platform](../connectors/connectors-create-api-servicebus.md)
+* [Dynamics 365](/dynamics365/fin-ops-core/dev-itpro/business-events/how-to/how-to-servicebus)
+* [Azure Stream Analytics](../stream-analytics/stream-analytics-define-outputs.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para começar a utilizar as mensagens do Service Bus, consulte os seguintes artigos:
 

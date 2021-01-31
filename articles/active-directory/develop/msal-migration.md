@@ -13,12 +13,12 @@ ms.date: 08/07/2020
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 3280952636a915cca4bade40d3e56b795050c321
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: f32c81d4d247eb6c819adf5015cf36c846f4e83b
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99053470"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99218235"
 ---
 # <a name="migrate-applications-to-the-microsoft-authentication-library-msal"></a>Migrar aplicações para a Biblioteca de Autenticação da Microsoft (MSAL)
 
@@ -73,7 +73,7 @@ __P: Como funciona a MSAL com a AD FS?__
 R: MSAL.NET apoia certos cenários para autenticar contra a AD FS 2019. Se a sua aplicação precisar de adquirir fichas diretamente da versão anterior do AD FS, deverá permanecer no ADAL. [Saiba mais](msal-net-adfs-support.md).
 
 __P: Como consigo ajuda a migrar a minha candidatura?__  
-R: Consulte a secção de orientação para a [migração](#migration-guidance) deste artigo. Se, depois de ler o guia da plataforma da sua aplicação, tiver perguntas adicionais, pode publicar no Microsoft Q&A com a etiqueta `[azure-ad-adal-deprecation]` ou abrir um problema no repositório GitHub da biblioteca. Consulte a secção [de Línguas e Quadros](msal-overview.md#languages-and-frameworks) do artigo de visão geral do MSAL para obter links para o repo de cada biblioteca.
+R: Consulte a secção de orientação para a [migração](#migration-guidance) deste artigo. Se, depois de ler o guia da plataforma da sua aplicação, tiver perguntas adicionais, pode publicar no [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-ad-adal-deprecation.html) com a etiqueta ou abrir um problema no `[azure-ad-adal-deprecation]` repositório GitHub da biblioteca. Consulte a secção [de Línguas e Quadros](msal-overview.md#languages-and-frameworks) do artigo de visão geral do MSAL para obter links para o repo de cada biblioteca.
 
 ## <a name="next-steps"></a>Passos seguintes
 

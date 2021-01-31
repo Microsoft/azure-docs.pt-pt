@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 01/25/2021
+ms.date: 01/29/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 27c3eb0cce273f3cfe06c1987968d6b52443a937
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: d1530e9fcd46f8b5ea573d7eb4bea69a58b7ee7d
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806120"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99218078"
 ---
-|Name<br /><sub>(Portal Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[\[Implementação de pré-visualização privada ASC \] - Configurar identidade gerida atribuída ao sistema para permitir atribuições do Monitor Azure em VMs](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F17b3de92-f710-4cf4-aa55-0e7859f1ed7b) |[Visualização privada da ASC] Configure a identidade gerida atribuída pelo sistema a máquinas virtuais hospedadas no Azure que são suportadas pelo Azure Monitor que não têm uma identidade gerida atribuída ao sistema. Uma identidade gerida atribuída pelo sistema é um pré-requisito para todas as atribuições do Azure Monitor e deve ser adicionada às máquinas antes de utilizar qualquer extensão do Azure Monitor. As máquinas virtuais-alvo devem estar num local suportado. |modificar |[1.0.0-pré-visualização](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/AzureMonitoring_AddSystemIdentity_Prerequisite.json) |
 |[\[Pré-visualização \] : Implementação do agente de análise de registo de auditoria - VM Image (OS) não listado](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F32133ab0-ee4b-4b44-98d6-042180979d50) |Os VMs reportam como incompatíveis se a Imagem VM (OS) não estiver na lista definida e o agente não estiver instalado. A lista de imagens de SO será atualizada ao longo do tempo à medida que o suporte for atualizado. |auditIfNotExists |[1.0.0-pré-visualização](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/LogAnalytics_OSImage_Audit.json) |

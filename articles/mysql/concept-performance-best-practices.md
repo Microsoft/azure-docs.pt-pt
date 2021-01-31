@@ -1,21 +1,21 @@
 ---
 title: Melhores práticas de desempenho - Azure Database for MySQL
-description: Este artigo descreve as melhores práticas para monitorizar e sintonizar o desempenho da sua Base de Dados Azure para o MySQL.
-author: mksuni
-ms.author: sumuth
+description: Este artigo descreve algumas recomendações para monitorizar e sintonizar o desempenho da sua Base de Dados Azure para o MySQL.
+author: Bashar-MSFT
+ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/23/2020
-ms.openlocfilehash: 30176e2df850e6d2794ab9c1542bcb6a89d8f89f
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.date: 1/28/2021
+ms.openlocfilehash: 46c7952247babd528b230dfa0e70b0eb47878912
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880411"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99217759"
 ---
 # <a name="best-practices-for-optimal-performance-of-your-azure-database-for-mysql---single-server"></a>Melhores práticas para um melhor desempenho da sua Base de Dados Azure para MySQL - Servidor único
 
-Conheça as melhores práticas para obter o melhor desempenho enquanto trabalha com a sua Base de Dados Azure para o MySQL - Servidor Único. À medida que adicionamos novas capacidades à plataforma, continuaremos a aperfeiçoar as melhores práticas detalhadas nesta secção.
+Saiba como obter o melhor desempenho enquanto trabalha com a sua Base de Dados Azure para o MySQL - Servidor Único. À medida que adicionamos novas capacidades à plataforma, continuaremos a refinar as nossas recomendações nesta secção.
 
 ## <a name="physical-proximity"></a>Proximidade Física
 
@@ -23,7 +23,7 @@ Conheça as melhores práticas para obter o melhor desempenho enquanto trabalha 
 
 ## <a name="accelerated-networking"></a>Redes Aceleradas
 
-Utilize rede acelerada para o servidor de aplicações se estiver a utilizar a máquina virtual Azure , Azure Kubernetes ou Serviços de Aplicações. O Networking Acelerado permite uma virtualização de E/S de raiz única (SR-IOV) a um VM, melhorando consideravelmente o seu desempenho em rede. Este percurso de alto desempenho contorna o hospedeiro do datapath, reduzindo a latência, o nervosismo e a utilização do CPU, para utilização com as cargas de trabalho de rede mais exigentes em tipos de VM suportados.
+Utilize rede acelerada para o servidor de aplicações se estiver a utilizar a máquina virtual Azure, Azure Kubernetes ou Serviços de Aplicação. O Networking Acelerado permite uma virtualização de E/S de raiz única (SR-IOV) a um VM, melhorando consideravelmente o seu desempenho em rede. Este percurso de alto desempenho contorna o hospedeiro do datapath, reduzindo a latência, o nervosismo e a utilização do CPU, para utilização com as cargas de trabalho de rede mais exigentes em tipos de VM suportados.
 
 ## <a name="connection-efficiency"></a>Eficiência da Ligação
 
@@ -47,10 +47,27 @@ Estabelecer uma nova ligação é sempre uma tarefa dispendiosa e morosa. Quando
 Uma Base de Dados Azure para as melhores práticas de desempenho do MySQL é atribuir RAM suficiente para que você esteja trabalhando conjunto reside quase completamente na memória. 
 
 - Verifique se a percentagem de memória utilizada para atingir os [limites](./concepts-pricing-tiers.md) utilizando as [métricas do servidor MySQL](./concepts-monitoring.md). 
-- Configurar alertas sobre estes números para garantir que à medida que os servidores atingem limites, pode tomar ações rápidas para corrigi-lo. Com base nos limites definidos, verifique se o escalonamento da base de dados SKU - quer para um tamanho de computação mais elevado, quer para um melhor nível de preços, o que resulta num aumento dramático do desempenho. 
+- Configurar alertas sobre estes números para garantir que à medida que os servidores atingem limites, pode tomar ações rápidas para corrigi-lo. Com base nos limites definidos, verifique se o dimensionamento da base de dados SKU - quer para um maior tamanho de cálculo, quer para um melhor nível de preços, o que resulta num aumento dramático do desempenho. 
 - Dimensione até que os seus números de desempenho não desçam drasticamente após uma operação de escala. Para obter informações sobre a monitorização das métricas de um exemplo de [DB, consulte as métricas de DB mySQL](./concepts-monitoring.md#metrics).
+ 
+## <a name="use-innodb-buffer-pool-warmup"></a>Use o aquecimento da piscina tampão InnoDB
 
-## <a name="next-steps"></a>Próximos passos
+Depois de reiniciar a Base de Dados Azure para o servidor MySQL, as páginas de dados que residem no armazenamento são carregadas à medida que as tabelas são consultadas, o que leva a um aumento da latência e a um desempenho mais lento para a primeira execução das consultas. Isto pode não ser aceitável para cargas de trabalho sensíveis à latência. 
+
+A utilização do aquecimento do pool de tampão InnoDB encurta o período de aquecimento recarregando as páginas de disco que estavam na piscina tampão antes do reinício, em vez de esperar que as operações DML ou SELECT acedam às linhas correspondentes.
+
+Pode reduzir o período de aquecimento após reiniciar a base de dados Azure para o servidor MySQL, o que representa uma vantagem de desempenho configurando [os parâmetros do servidor do buffer pool InnoDB](https://dev.mysql.com/doc/refman/8.0/en/innodb-preload-buffer-pool.html). O InnoDB guarda uma percentagem das páginas mais usadas para cada piscina tampão no fecho do servidor e restaura estas páginas no arranque do servidor.
+
+Também é importante notar que um melhor desempenho vem à custa de tempo de arranque mais longo para o servidor. Quando este parâmetro estiver ativado, espera-se que o início do servidor e o tempo de reinicie aumentem dependendo do IOPS previsto no servidor. 
+
+Recomendamos testar e monitorizar o tempo de reinicio para garantir que o desempenho do arranque/reinicie é aceitável, uma vez que o servidor não está disponível durante esse período. Não é aconselhável utilizar este parâmetro com menos de 1000 IOPS provisionados (ou seja, quando o armazenamento previsto é inferior a 335 GB).
+
+Para salvar o estado da piscina tampão no fecho do servidor, desace o parâmetro do servidor `innodb_buffer_pool_dump_at_shutdown` para `ON` . Da mesma forma, desace o parâmetro do servidor `innodb_buffer_pool_load_at_startup` para restaurar o estado do pool de `ON` tampão no arranque do servidor. Pode controlar o impacto no tempo de arranque/reinicio, reduzindo e afinando o valor do parâmetro do servidor `innodb_buffer_pool_dump_pct` . Por predefinição, este parâmetro é definido para `25` .
+
+> [!Note]
+> Os parâmetros de aquecimento do pool de tampão InnoDB só são suportados em servidores de armazenamento de finalidade geral com armazenamento até 16-TB. Saiba mais sobre [a Base de Dados Azure para as opções de armazenamento MySQL aqui.](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage)
+
+## <a name="next-steps"></a>Passos seguintes
 
 - [Melhores práticas para operações de servidor usando Azure Database para MySQL](concept-operation-excellence-best-practices.md) <br/>
 - [Melhores práticas para monitorizar a sua Base de Dados Azure para o MySQL](concept-monitoring-best-practices.md)<br/>

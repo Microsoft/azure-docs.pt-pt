@@ -4,12 +4,12 @@ description: Fornece um resumo das definições e limitações de suporte ao faz
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: d3329d9cac9547fbe9ec971bb8944f50971732b5
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 3d1238bffd785a47b6e0ffab70366a15dfff0ef3
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757411"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99218116"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte da cópia de segurança de uma VM do Azure
 
@@ -150,6 +150,7 @@ GMs gen2 | Suportado <br> A Azure Backup suporta cópia de segurança e restauro
 Backup de VMs Azure com fechaduras | Não suportado para VMs não geridos. <br><br> Suportado para VMs geridos.
 [Spot VMs](../virtual-machines/spot-vms.md) | Sem apoio. A Azure Backup restaura os VMs spot como VMs Azure regulares.
 [Anfitrião Dedicado Azure](https://docs.microsoft.com/azure/virtual-machines/dedicated-hosts) | Suportado
+Configuração de Espaços de Armazenamento do Windows de VMs Azure autónomos | Suportado 
 
 ## <a name="vm-storage-support"></a>Suporte de armazenamento VM
 
@@ -209,10 +210,10 @@ Segurança de dados:
 
 **Máquina** | **Em trânsito** | **Em repouso**
 --- | --- | ---
-Máquinas Windows no local sem DPM/MABS | ![Sim][green] | ![Sim][green]
-VMs do Azure | ![Sim][green] | ![Sim][green]
-Instalações/VMs Azure com DPM | ![Sim][green] | ![Sim][green]
-Em instalações/VMs Azure com MABS | ![Sim][green] | ![Sim][green]
+Máquinas Windows no local sem DPM/MABS | ![Yes][green] | ![Yes][green]
+VMs do Azure | ![Yes][green] | ![Yes][green]
+Instalações/VMs Azure com DPM | ![Yes][green] | ![Yes][green]
+Em instalações/VMs Azure com MABS | ![Yes][green] | ![Yes][green]
 
 ## <a name="vm-compression-support"></a>Suporte à compressão VM
 
@@ -225,8 +226,8 @@ A cópia de segurança suporta a compressão do tráfego de backup, tal como res
 --- | --- | ---
 Máquinas Windows no local sem DPM/MABS | ND | ![Sim][green]
 VMs do Azure | ND | ND
-Instalações/VMs Azure com DPM | ![Sim][green] | ![Sim][green]
-Em instalações/VMs Azure com MABS | ![Sim][green] | ![Sim][green]
+Instalações/VMs Azure com DPM | ![Yes][green] | ![Yes][green]
+Em instalações/VMs Azure com MABS | ![Yes][green] | ![Sim][green]
 
 ## <a name="next-steps"></a>Próximos passos
 

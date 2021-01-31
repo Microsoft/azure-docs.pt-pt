@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 68e282f192b87b9f2217e0727753e7d37ff1aeb1
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 18a3216855516156792524dc577ecef725d3119d
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516098"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99218779"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Notas do desenvolvedor para políticas personalizadas no Azure Ative Directory B2C
 
@@ -29,7 +29,7 @@ Embora a maioria das opções de política personalizadas disponíveis estejam a
 ## <a name="features-that-are-generally-available"></a>Características que estão geralmente disponíveis
 
 - Autor e faça upload das viagens personalizadas do utilizador da autenticação utilizando políticas personalizadas.
-    - Descreva as viagens dos utilizadores passo a passo como trocas entre fornecedores de sinistros.
+    - Descreva as viagens dos utilizadores passo a passo como trocas entre os fornecedores de sinistros.
     - Defina a ramificação condicional nas viagens do utilizador.
 - Interoperar com serviços com API ativados pela REST nas suas viagens personalizadas de utilizador de autenticação.
 - Federate com fornecedores de identidade que estejam em conformidade com o protocolo OpenIDConnect.
@@ -37,14 +37,14 @@ Embora a maioria das opções de política personalizadas disponíveis estejam a
 
 ## <a name="responsibilities-of-custom-policy-feature-set-developers"></a>Responsabilidades dos desenvolvedores de recursos de política personalizada
 
-A configuração manual da política concede acesso de nível inferior à plataforma subjacente do Azure AD B2C e resulta na criação de um quadro único e fidedificador. As muitas permutações possíveis de fornecedores de identidade personalizados, relações de confiança, integrações com serviços externos e fluxos de trabalho passo a passo requerem uma abordagem metódica do design e da configuração.
+A configuração manual da política concede acesso de nível inferior à plataforma subjacente do Azure AD B2C e resulta na criação de um quadro único e fidedificador. As muitas permutações possíveis de fornecedores de identidade personalizados, relações de confiança, integrações com serviços externos, e fluxos de trabalho passo a passo requerem uma abordagem metódica ao design e configuração.
 
 Os desenvolvedores que consomem o conjunto de recursos de política personalizado devem aderir às seguintes orientações:
 
 - Familiarize-se com a linguagem de configuração das políticas personalizadas e gestão de chaves/segredos. Para mais informações, consulte [TrustFrameworkPolicy](trustframeworkpolicy.md).
 - Tome posse de cenários e integrações personalizadas. Documente o seu trabalho e informe a sua organização do site ao vivo.
 - Realizar testes de cenário metódico.
-- Acompanhe o desenvolvimento de software e a realização de boas práticas com um mínimo de um ambiente de desenvolvimento e teste e um ambiente de produção.
+- Acompanhe o desenvolvimento de software e as melhores práticas. Recomenda-se um mínimo de um ambiente de desenvolvimento e teste.
 - Mantenha-se informado sobre novos desenvolvimentos dos fornecedores de identidade e serviços com os quais integra. Por exemplo, acompanhe as mudanças de segredos e as alterações programadas e não programadas do serviço.
 - Crie uma monitorização ativa e monitorize a capacidade de resposta dos ambientes de produção. Para obter mais informações sobre a integração com a Application Insights, consulte [o Azure Ative Directory B2C: Collecting Logs](analytics-with-application-insights.md).
 - Mantenha os endereços de e-mail de contato atuais na subscrição do Azure e mantenha-se atento aos e-mails da equipa do site da Microsoft.
@@ -58,7 +58,7 @@ Os desenvolvedores que consomem o conjunto de recursos de política personalizad
 
 ## <a name="features-by-stage-and-known-issues"></a>Características por fase e questões conhecidas
 
-As capacidades de enquadramento de política/identidade personalizadas estão em constante e rápida desenvolvimento. O quadro a seguir é um índice de funcionalidades e disponibilidade de componentes.
+As capacidades de política personalizada estão em constante desenvolvimento. O quadro a seguir é um índice de funcionalidades e disponibilidade de componentes.
 
 
 ### <a name="protocols-and-authorization-flows"></a>Protocolos e fluxos de autorização
@@ -144,7 +144,7 @@ As capacidades de enquadramento de política/identidade personalizadas estão em
 | Azure Portal-IEF UX |  |  | X |  |
 | Upload de política |  |  | X |  |
 | [Registos de viagem do utilizador Do Application Insights](troubleshoot-with-application-insights.md) |  | X |  | Usado para resolução de problemas durante o desenvolvimento.  |
-| [Registos de eventos do Application Insights](application-insights-technical-profile.md) |  | X |  | Usado para monitorizar os fluxos de produção dos utilizadores. |
+| [Registos de eventos do Application Insights](analytics-with-application-insights.md) |  | X |  | Usado para monitorizar os fluxos de produção dos utilizadores. |
 
 
 ## <a name="next-steps"></a>Passos seguintes

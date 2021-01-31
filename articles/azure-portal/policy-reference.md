@@ -1,15 +1,15 @@
 ---
 title: Definições políticas incorporadas para o portal Azure
 description: Lista definições políticas incorporadas da Azure Policy para o portal Azure. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 01/25/2021
+ms.date: 01/29/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 4f75f8b9ce5545d914f14ba010799b1ccb8b7c8e
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 7b151b5b90589b100cae071d949e2f77aa36b1d7
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806565"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99218728"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-portal"></a>Definições incorporadas da Política Azure para o portal Azure
 

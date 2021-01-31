@@ -1,150 +1,140 @@
 ---
-title: Bibliotecas de autenticação de plataformas de identidade da Microsoft
-description: Bibliotecas de clientes compatíveis e bibliotecas de middleware de servidor, juntamente com links relacionados com biblioteca, origem e amostra, para a plataforma de identidade da Microsoft.
+title: Bibliotecas de autenticação de plataforma de identidade da Microsoft | Rio Azure
+description: Lista de bibliotecas de clientes e middleware compatíveis com a plataforma de identidade da Microsoft. Utilize estas bibliotecas para adicionar suporte para o acesso ao utilizador (autenticação) e acesso a API (autorização) protegido às suas aplicações.
 services: active-directory
-author: negoe
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
-ms.date: 07/25/2019
-ms.author: negoe
+ms.date: 01/29/2021
+ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 51b60d7b81d7402f69415b79cd575f51915dc38f
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 9549ebab687400e32bbc68a2c76cf8efc8c106c8
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756667"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99218307"
 ---
 # <a name="microsoft-identity-platform-authentication-libraries"></a>Bibliotecas de autenticação de plataformas de identidade da Microsoft
 
-A [plataforma de identidade da Microsoft ](../azuread-dev/azure-ad-endpoint-comparison.md) suporta os protocolos OAuth 2.0 e OpenID Connect 1.0 padrão da indústria. A Microsoft Authentication Library (MSAL) foi concebida para funcionar com a plataforma de identidade da Microsoft. Também pode utilizar bibliotecas de código aberto que suportam OAuth 2.0 e OpenID Connect 1.0.
+As tabelas que se seguem mostram o suporte da biblioteca de autenticação da Microsoft para vários tipos de aplicações. Incluem links para o código fonte da biblioteca, onde obter o pacote para o projeto da sua aplicação, e se a biblioteca suporta o sign-in do utilizador (autenticação), acesso a APIs web protegidas (autorização), ou ambos.
 
-Recomendamos que utilize bibliotecas escritas por peritos em domínio de protocolo que sigam uma metodologia de Ciclo de Vida para o Desenvolvimento de Segurança (SDL). Tais metodologias incluem [a que a Microsoft segue.][Microsoft-SDL] Se entregar código para os protocolos, deve seguir uma metodologia como o Microsoft SDL. Preste muita atenção às considerações de segurança nas especificações de normas de cada protocolo.
+A plataforma de identidade da Microsoft foi certificada pela OpenID Foundation como um [fornecedor certificado de OpenID.](https://openid.net/certification/) Se preferir utilizar uma biblioteca que não seja a Microsoft Authentication Library (MSAL) ou outra biblioteca suportada pela Microsoft, escolha uma com uma [implementação certificada do OpenID Connect](https://openid.net/developers/certified/).
 
-> [!NOTE]
-> Procura a Biblioteca de Autenticação do Diretório Ativo Azure (ADAL)? Consulte o guia da [biblioteca ADAL.](../azuread-dev/active-directory-authentication-libraries.md)
+Se optar por codificar manualmente a sua própria implementação ao nível do protocolo de [OAuth 2.0 ou OpenID Connect 1.0,](active-directory-v2-protocols.md)preste muita atenção às considerações de segurança na especificação de cada padrão e siga uma metodologia de ciclo de vida de desenvolvimento de software (SDL) como o [Microsoft SDL][Microsoft-SDL].
 
-## <a name="types-of-libraries"></a>Tipos de bibliotecas
+## <a name="single-page-application-spa"></a>Aplicação de uma página única (SPA)
 
-A plataforma de identidade da Microsoft funciona com dois tipos de bibliotecas:
+Uma aplicação de uma página única é inteiramente executado na superfície do navegador e recolhe dados de página (HTML, CSS e JavaScript) dinamicamente ou no tempo de carregamento da aplicação. Pode chamar APIs web para interagir com fontes de dados de back-end.
 
-* **Bibliotecas de clientes**: Clientes nativos e servidores usam bibliotecas de clientes para adquirir fichas de acesso para chamar um recurso como o Microsoft Graph.
-* **Bibliotecas de middleware do servidor**: As aplicações web utilizam bibliotecas de middleware do servidor para o início de s início do utilizador. As APIs web utilizam bibliotecas de middleware de servidor para validar fichas que são enviadas por clientes nativos ou por outros servidores.
+Como o código de um SPA funciona inteiramente no navegador, é considerado um *cliente público* que é incapaz de armazenar segredos de forma segura.
 
-## <a name="library-support"></a>Suporte à biblioteca
+| Linguagem / enquadramento | Projeto em<br/>GitHub                                                                                                    | Pacote                                                                      | Ficando<br/>começou                             | Inscreva-se nos utilizadores                                         | Aceda a APIs web                                                 | Geralmente disponível (GA) *ou*<br/>Pré-visualização pública<sup>1</sup> |
+|----------------------|--------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------|:-----------------------------------------------:|:-----------------------------------------------------:|:---------------------------------------------------------------:|:------------------------------------------------------------:|
+| Angular              | [MSAL Angular 2.0](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular)         | [@azure/msal-angular](https://www.npmjs.com/package/@azure/msal-angular)     | —                                               | ![A biblioteca pode solicitar fichas de identificação para o ser-in do utilizador.][y] | ![A biblioteca pode solicitar o acesso a fichas para APIs web protegidas.][y] | Pré-visualização pública                                               |
+| Angular              | [MSAL Angular](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/msal-angular-v1/lib/msal-angular) | [@azure/msal-angular](https://www.npmjs.com/package/@azure/msal-angular)     | [Tutorial](tutorial-v2-angular.md)              | ![A biblioteca pode solicitar fichas de identificação para o ser-in do utilizador.][y] | ![A biblioteca pode solicitar o acesso a fichas para APIs web protegidas.][y] | GA                                                           |
+| AngularJS            | [MSAL AngularJS](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-angularjs)         | [@azure/msal-angularjs](https://www.npmjs.com/package/@azure/msal-angularjs) | —                                               | ![A biblioteca pode solicitar fichas de identificação para o ser-in do utilizador.][y] | ![A biblioteca pode solicitar o acesso a fichas para APIs web protegidas.][y] | Pré-visualização pública                                               |
+| JavaScript           | [MSAL.js 2.0](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser)              | [@azure/msal-browser](https://www.npmjs.com/package/@azure/msal-browser)     | [Tutorial](tutorial-v2-javascript-auth-code.md) | ![A biblioteca pode solicitar fichas de identificação para o ser-in do utilizador.][y] | ![A biblioteca pode solicitar o acesso a fichas para APIs web protegidas.][y] | GA                                                           |
+| React                | [Reação MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-react)                 | [@azure/msal-react](https://www.npmjs.com/package/@azure/msal-react)         | —                                               | ![A biblioteca pode solicitar fichas de identificação para o ser-in do utilizador.][y] | ![A biblioteca pode solicitar o acesso a fichas para APIs web protegidas.][y] | Pré-visualização pública                                               |
+<!--
+| Vue | [Vue MSAL]( https://github.com/mvertopoulos/vue-msal) | [vue-msal]( https://www.npmjs.com/package/vue-msal) | ![X indicating no.][n] | ![Green check mark.][y] | ![Green check mark.][y] | -- |
+-->
 
-As bibliotecas vêm em duas categorias de suporte:
+<sup>1</sup> [Os termos de utilização suplementares para as pré-visualizações do Microsoft Azure][preview-tos] aplicam-se às bibliotecas em *pré-visualização pública*.
 
-* **Suportado pela Microsoft**: A Microsoft fornece correções para estas bibliotecas e fez diligências SDL nestas bibliotecas.
-* **Compatível**: A Microsoft testou estas bibliotecas em cenários básicos e confirmou que funcionam com a plataforma de identidade da Microsoft. A Microsoft não fornece correções para estas bibliotecas e ainda não fez uma revisão destas bibliotecas. As questões e os pedidos de funcionalidade devem ser direcionados para o projeto de código aberto da biblioteca.
+## <a name="web-application"></a>Aplicação Web
 
-Para obter uma lista de bibliotecas que funcionem com a plataforma de identidade da Microsoft, consulte as seguintes secções.
+Uma aplicação web executa código num servidor que gera e envia HTML, CSS e JavaScript para o navegador web de um utilizador a ser renderizado. A identidade do utilizador é mantida como uma sessão entre o navegador do utilizador (a extremidade frontal) e o servidor web (a parte traseira).
 
-## <a name="microsoft-supported-client-libraries"></a>Bibliotecas de clientes suportadas pela Microsoft
+Como o código de uma aplicação web é executado no servidor web, é considerado um *cliente confidencial* que pode armazenar segredos de forma segura.
 
-Utilize bibliotecas de autenticação de clientes para adquirir um símbolo para chamar uma API web protegida.
+| Linguagem / enquadramento | Projeto em<br/>GitHub                                                                                     | Pacote                                                                                                    | Ficando<br/>começou                               | Inscreva-se nos utilizadores                                            | Aceda a APIs web                                                    | Geralmente disponível (GA) *ou*<br/>Pré-visualização pública<sup>1</sup> |
+|----------------------|-----------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|:-------------------------------------------------:|:--------------------------------------------------------:|:------------------------------------------------------------------:|:------------------------------------------------------------:|
+| .NET                 | [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)                        | [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)                      | —                                                 | ![A biblioteca não pode solicitar fichas de identificação para o ser-in do utilizador.][n] | ![A biblioteca pode solicitar o acesso a fichas para APIs web protegidas.][y]    | GA                                                           |
+| ASP.NET Core         | [Segurança ASP.NET](/aspnet/core/security/)                                                                | [Microsoft.AspNetCore.Authentication](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication/) | —                                                 | ![A biblioteca pode solicitar fichas de identificação para o ser-in do utilizador.][y]    | ![A biblioteca não pode solicitar o acesso a fichas de acesso para APIs web protegidas.][n] | GA                                                           |
+| ASP.NET Core         | [Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web)                               | [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web)                            | —                                                 | ![A biblioteca pode solicitar fichas de identificação para o ser-in do utilizador.][y]    | ![A biblioteca pode solicitar o acesso a fichas para APIs web protegidas.][y]    | GA                                                           |
+| Java                 | [MSAL4J](https://github.com/AzureAD/microsoft-authentication-library-for-java)                            | [msal4j](https://search.maven.org/artifact/com.microsoft.azure/msal4j)                                     | [Início rápido](quickstart-v2-java-webapp.md)        | ![A biblioteca pode solicitar fichas de identificação para o ser-in do utilizador.][y]    | ![A biblioteca pode solicitar o acesso a fichas para APIs web protegidas.][y]    | GA                                                           |
+| Node.js              | [MSAL Node.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) | [msal-nó](https://www.npmjs.com/package/@azure/msal-node)                                                | [Início rápido](quickstart-v2-nodejs-webapp-msal.md) | ![A biblioteca pode solicitar fichas de identificação para o ser-in do utilizador.][y]    | ![A biblioteca pode solicitar o acesso a fichas para APIs web protegidas.][y]    | Pré-visualização pública                                               |
+| Node.js              | [Passaporte Azure AD](https://github.com/AzureAD/passport-azure-ad)                                         | [passaporte-azure-ad](https://www.npmjs.com/package/passport-azure-ad)                                       | [Início rápido](quickstart-v2-nodejs-webapp.md)      | ![A biblioteca pode solicitar fichas de identificação para o ser-in do utilizador.][y]    | ![A biblioteca não pode solicitar o acesso a fichas de acesso para APIs web protegidas.][n] | GA                                                           |
+| Python               | [Pitão MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-python)                     | [msal](https://pypi.org/project/msal)                                                                      | [Início rápido](quickstart-v2-python-webapp.md)      | ![A biblioteca pode solicitar fichas de identificação para o ser-in do utilizador.][y]    | ![A biblioteca pode solicitar o acesso a fichas para APIs web protegidas.][y]    | GA                                                           |
+<!--
+| Java | [ScribeJava](https://github.com/scribejava/scribejava) | [ScribeJava 3.2.0](https://github.com/scribejava/scribejava/releases/tag/scribejava-3.2.0) | ![X indicating no.][n] | ![X indicating no.][n] | ![Green check mark.][y] | -- |
+| Java | [Gluu oxAuth](https://github.com/GluuFederation/oxAuth) | [oxAuth 3.0.2](https://github.com/GluuFederation/oxAuth/releases/tag/3.0.2) | ![X indicating no.][n] | ![Green check mark.][y] | ![Green check mark.][y] | -- |
+| Node.js | [openid-client](https://github.com/panva/node-openid-client/) | [openid-client 2.4.5](https://github.com/panva/node-openid-client/releases/tag/v2.4.5) | ![X indicating no.][n] | ![Green check mark.][y] | ![Green check mark.][y] | -- |
+| PHP | [PHP League oauth2-client](https://github.com/thephpleague/oauth2-client) | [oauth2-client 1.4.2](https://github.com/thephpleague/oauth2-client/releases/tag/1.4.2) | ![X indicating no.][n] | ![X indicating no.][n] | ![Green check mark.][y] | -- |
+| Ruby | [OmniAuth](https://github.com/omniauth/omniauth) | [omniauth 1.3.1](https://github.com/omniauth/omniauth/releases/tag/v1.3.1)<br/>[omniauth-oauth2 1.4.0](https://github.com/intridea/omniauth-oauth2) | ![X indicating no.][n] | ![X indicating no.][n] | ![Green check mark.][y] | -- |
+-->
 
-| Plataforma | Biblioteca | Download | Código de origem | Sample | Referência | Doc conceptual | Mapa |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| ![JavaScript](media/sample-v2-code/logo_js.png) | MSAL.js  | [NPM](https://www.npmjs.com/package/msal) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/README.md) |  [Aplicação de página única](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) | [Referência](https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-core/) | [Docs conceptuais](msal-overview.md)| [Mapa](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki#roadmap)
-![Angular](media/sample-v2-code/logo_angular.png) | MSAL Angular | [NPM](https://www.npmjs.com/package/@azure/msal-angular) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/README.md) | [Angular SPA](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular) | [Referência](https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-angular/) | [Docs conceptuais](msal-overview.md) | [Mapa](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki#roadmap)
-| ![.NET Framework](media/sample-v2-code/logo_NET.png) ![UWP](media/sample-v2-code/logo_windows.png) ![Xamarin](media/sample-v2-code/logo_xamarin.png) | MSAL.NET  |[NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [Aplicação de ambiente de trabalho](/windows/apps/desktop/) | [MSAL.NET](/dotnet/api/microsoft.identity.client?view=azure-dotnet-preview&preserve-view=true) |[Docs conceptuais](msal-overview.md) | [Mapa](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki#roadmap)
-| ![Ícone do núcleo .NET](media/sample-v2-code/logo_NETCore.png) | Microsoft Identity Web  |[NuGet](https://www.nuget.org/packages/Microsoft.Identity.Web) |[GitHub](https://github.com/AzureAD/microsoft-identity-web) | [Amostras](https://aka.ms/ms-id-web/samples) | [Microsoft.Identity.Web](/dotnet/api/microsoft.identity.web?view=azure-dotnet-preview&preserve-view=true) |[Docs conceptuais](https://aka.ms/ms-id-web/conceptual-doc) | [Mapa](https://github.com/AzureAD/microsoft-identity-web/wiki#roadmap)
-| ![Python](media/sample-v2-code/logo_python.png) | Pitão MSAL | [PyPI](https://pypi.org/project/msal) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-python) | [Amostras](https://github.com/AzureAD/microsoft-authentication-library-for-python/tree/dev/sample) | [LerTheDocs](https://msal-python.rtfd.io/) | [Rio Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki) | [Mapa](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki/Roadmap)
-| ![Java](media/sample-v2-code/logo_java.png) | MSAL Java | [Maven](https://search.maven.org/artifact/com.microsoft.azure/msal4j) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-java) | [Amostras](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/src/samples) | [Referência](https://javadoc.io/doc/com.microsoft.azure/msal4j/latest/index.html) | [Rio Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | [Mapa](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki)
-| iOS e macOS | MSAL iOS e macOS | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) | [aplicativo iOS](https://github.com/Azure-Samples/ms-identity-mobile-apple-swift-objc), [app macOS](https://github.com/Azure-Samples/ms-identity-macOS-swift-objc) | [Referência](https://azuread.github.io/microsoft-authentication-library-for-objc/index.html)  | [Docs conceptuais](msal-overview.md) | |
-|![Android / Java](media/sample-v2-code/logo_Android.png) | MSAL Android | [Repositório central](https://repo1.maven.org/maven2/com/microsoft/identity/client/msal/) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-android) | [Aplicativo Android](quickstart-v2-android.md) | [JavaDocs](https://javadoc.io/doc/com.microsoft.identity.client/msal) | [Docs conceptuais](msal-overview.md) |[Mapa](https://github.com/AzureAD/microsoft-authentication-library-for-android/wiki/Roadmap)
+<sup>1</sup> [Os termos de utilização suplementares para as pré-visualizações do Microsoft Azure][preview-tos] aplicam-se às bibliotecas em *pré-visualização pública*.
 
-## <a name="microsoft-supported-server-middleware-libraries"></a>Bibliotecas de middleware suportadas pelo microsoft
+## <a name="desktop-application"></a>Aplicação para desktop
 
-Utilize bibliotecas de middleware para ajudar a proteger aplicações web e APIs web. Aplicativos web ou APIs web escritos com ASP.NET ou ASP.NET Core use as bibliotecas de middleware.
+Uma aplicação para desktop é tipicamente binária (compilada) código que aparece numa interface de utilizador e destina-se a ser executada no ambiente de trabalho de um utilizador.
 
-| Plataforma | Biblioteca | Download | Código fonte | Sample | Referência
-| --- | --- | --- | --- | --- | --- |
-| ![.NET](media/sample-v2-code/logo_NET.png) ![.NET Core](media/sample-v2-code/logo_NETcore.png) | Segurança ASP.NET |[NuGet](https://www.nuget.org/packages/Microsoft.AspNet.Mvc/) |[GitHub](https://github.com/aspnet/AspNetCore) |[Aplicativo MVC](quickstart-v2-aspnet-webapp.md) |[referência ASP.NET API](/dotnet/api/?view=aspnetcore-2.0&preserve-view=true) |
-| ![.NET](media/sample-v2-code/logo_NET.png)| Extensões do Modelo de Identidade para .NET| |[GitHub](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) | [Aplicativo MVC](quickstart-v2-aspnet-webapp.md) |[Referência](/dotnet/api/overview/azure/activedirectory/client?view=azure-dotnet&preserve-view=true) |
-| ![Node.js](media/sample-v2-code/logo_nodejs.png) | Passaporte Azure AD |[NPM](https://www.npmjs.com/package/passport-azure-ad) |[GitHub](https://github.com/AzureAD/passport-azure-ad) | [Aplicação Web](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs) | |
+Como uma aplicação de desktop é executado no ambiente de trabalho do utilizador, é considerado um *cliente público* que é incapaz de armazenar segredos de forma segura.
 
-## <a name="microsoft-supported-libraries-by-os--language"></a>Bibliotecas suportadas pela Microsoft por SISTEMA / idioma
+| Linguagem / enquadramento | Projeto em<br/>GitHub                                                                                     | Pacote                                                                               | Ficando<br/>começou                        | Inscreva-se nos utilizadores                                         | Aceda a APIs web                                                 | Geralmente disponível (GA) *ou*<br/>Pré-visualização pública<sup>1</sup> |
+|----------------------|-----------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|:------------------------------------------:|:-----------------------------------------------------:|:---------------------------------------------------------------:|:------------------------------------------------------------:|
+| Eletrão             | [MSAL Node.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) | [@azure/msal-node](https://www.npmjs.com/package/@azure/msal-node)                    | —                                          | ![A biblioteca pode solicitar fichas de identificação para o ser-in do utilizador.][y] | ![A biblioteca pode solicitar o acesso a fichas para APIs web protegidas.][y] | Pré-visualização pública                                               |
+| Java                 | [MSAL4J](https://github.com/AzureAD/microsoft-authentication-library-for-java)                            | [msal4j](https://mvnrepository.com/artifact/com.microsoft.azure/msal4j)               | —                                          | ![A biblioteca pode solicitar fichas de identificação para o ser-in do utilizador.][y] | ![A biblioteca pode solicitar o acesso a fichas para APIs web protegidas.][y] | GA                                                           |
+| macOS (Swift/Obj-C)  | [MSAL para iOS e macOS](https://github.com/AzureAD/microsoft-authentication-library-for-objc)            | [MSAL](https://cocoapods.org/pods/MSAL)                                               | [Tutorial](tutorial-v2-ios.md)             | ![A biblioteca pode solicitar fichas de identificação para o ser-in do utilizador.][y] | ![A biblioteca pode solicitar o acesso a fichas para APIs web protegidas.][y] | GA                                                           |
+| UWP                  | [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)                        | [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client) | [Tutorial](tutorial-v2-windows-uwp.md)     | ![A biblioteca pode solicitar fichas de identificação para o ser-in do utilizador.][y] | ![A biblioteca pode solicitar o acesso a fichas para APIs web protegidas.][y] | GA                                                           |
+| WPF                  | [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)                        | [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client) | [Tutorial](tutorial-v2-windows-desktop.md) | ![A biblioteca pode solicitar fichas de identificação para o ser-in do utilizador.][y] | ![A biblioteca pode solicitar o acesso a fichas para APIs web protegidas.][y] | GA                                                           |
+<!--
+| Java | Scribe | [Scribe Java](https://mvnrepository.com/artifact/org.scribe/scribe) | ![X indicating no.][n] | ![Green check mark.][y] | ![Green check mark.][y] | -- |
+| React Native | [React Native App Auth](https://github.com/FormidableLabs/react-native-app-auth/blob/main/docs/config-examples/azure-active-directory.md) | [react-native-app-auth](https://www.npmjs.com/package/react-native-app-auth) | ![X indicating no.][n] | ![Green check mark.][y] | ![Green check mark.][y] | -- |
+-->
 
-Em termos de sistemas operativos suportados vs idiomas, o mapeamento é o seguinte:
+<sup>1</sup> [Os termos de utilização suplementares para as pré-visualizações do Microsoft Azure][preview-tos] aplicam-se às bibliotecas em *pré-visualização pública*.
 
-| Plataforma    | Windows    | Linux      | macOS      | iOS | Android    |
-|-------------|------------|------------|------------|------------|------------|
-| ![JavaScript](media/sample-v2-code/logo_js.png)  |  MSAL.js | MSAL.js | MSAL.js | MSAL.js |  MSAL.js |
-| <img alt="C#" src="../../cognitive-services/speech-service/media/index/logo_csharp.svg" width="64px" height="64px" /> | ASP.NET, ASP.NET Core, MSAL.Net (.NET FW, Core, UWP)| ASP.NET Core, MSAL.Net (.NET Core) | ASP.NET Core, MSAL.Net (macOS)       | MSAL.Net (Xamarin.iOS) | MSAL.Net (Xamarin.Android)|
-| Swift <br> Objective-C |            |            | [MSAL para iOS e macOS](msal-overview.md) | [MSAL para iOS e macOS](msal-overview.md) |            |
-| ![Java](media/sample-v2-code/logo_java.png) Java | msal4j | msal4j | msal4j | | MSAL Android |
-| ![Python](media/sample-v2-code/logo_python.png) Python | Pitão MSAL | Pitão MSAL | Pitão MSAL |
-| ![Node.js](media/sample-v2-code/logo_nodejs.png) Node.js | Passport.node | Passport.node | Passport.node |
+## <a name="mobile-application"></a>Aplicação móvel
 
-Ver também [Cenários por plataformas e idiomas suportados](authentication-flows-app-scenarios.md#scenarios-and-supported-platforms-and-languages)
+Uma aplicação móvel é tipicamente um código binário (compilado) que aparece numa interface de utilizador e destina-se a funcionar no dispositivo móvel de um utilizador.
 
-## <a name="compatible-client-libraries"></a>Bibliotecas de clientes compatíveis
+Como uma aplicação móvel funciona no dispositivo móvel do utilizador, é considerado um *cliente público* que não consegue armazenar segredos de forma segura.
 
-| Plataforma | Nome da biblioteca | Versão testada | Código de origem | Sample |
-|:---:|:---:|:---:|:---:|:---:|
-|![JavaScript](media/sample-v2-code/logo_js.png)|[Hello.js](https://adodson.com/hello.js/) | Versão 1.13.5 |[Hello.js](https://github.com/MrSwitch/hello.js) |[SPA](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2) |
-|![Vue](media/sample-v2-code/logo_vue.png)|[Vue MSAL](https://github.com/mvertopoulos/vue-msal) | Versão 3.0.3 |[vue-msal](https://github.com/mvertopoulos/vue-msal) | |
-| ![Java](media/sample-v2-code/logo_java.png) | [Escriba Java](https://github.com/scribejava/scribejava) | [Versão 3.2.0](https://github.com/scribejava/scribejava/releases/tag/scribejava-3.2.0) | [EscribaJava](https://github.com/scribejava/scribejava/) | |
-| ![Java](media/sample-v2-code/logo_java.png) | [Biblioteca gluu OpenID Connect](https://github.com/GluuFederation/oxAuth) | [Versão 3.0.2](https://github.com/GluuFederation/oxAuth/releases/tag/3.0.2) | [Biblioteca gluu OpenID Connect](https://github.com/GluuFederation/oxAuth) | |
-| ![Python](media/sample-v2-code/logo_python.png) | [Pedidos-OAuthlib](https://github.com/requests/requests-oauthlib) | [Versão 1.2.0](https://github.com/requests/requests-oauthlib/releases/tag/v1.2.0) | [Pedidos-OAuthlib](https://github.com/requests/requests-oauthlib) | |
-| ![Node.js](media/sample-v2-code/logo_nodejs.png) | [openid-cliente](https://github.com/panva/node-openid-client) | [Versão 2.4.5](https://github.com/panva/node-openid-client/releases/tag/v2.4.5) | [openid-cliente](https://github.com/panva/node-openid-client) | |
-| ![PHP](media/sample-v2-code/logo_php.png) | [O oauth2-cliente da PhP League](https://github.com/thephpleague/oauth2-client) | [Versão 1.4.2](https://github.com/thephpleague/oauth2-client/releases/tag/1.4.2) | [oauth2-cliente](https://github.com/thephpleague/oauth2-client/) | |
-| ![Ruby](media/sample-v2-code/logo_ruby.png) |[OmniAuth](https://github.com/omniauth/omniauth/wiki) |omniauth: 1.3.1<br />omniauth2: 1.4.0 |[OmniAuth](https://github.com/omniauth/omniauth)<br />[OmniAuth OAuth2](https://github.com/intridea/omniauth-oauth2) |  |
-| iOS, macOS, & Android  | [Reagir Auth de Aplicação Nativa](https://github.com/FormidableLabs/react-native-app-auth) | [Versão 4.2.0](https://github.com/FormidableLabs/react-native-app-auth/releases/tag/v4.2.0) | [Reagir Auth de Aplicação Nativa](https://github.com/FormidableLabs/react-native-app-auth) | |
+| Plataforma          | Projeto em<br/>GitHub                                                                          | Pacote                                                                               | Ficando<br/>começou                    | Inscreva-se nos utilizadores                                         | Aceda a APIs web                                                 | Geralmente disponível (GA) *ou*<br/>Pré-visualização pública<sup>1</sup> |
+|-------------------|------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|:--------------------------------------:|:-----------------------------------------------------:|:---------------------------------------------------------------:|:------------------------------------------------------------:|
+| Android (Java)    | [MSAL Android](https://github.com/AzureAD/microsoft-authentication-library-for-android)        | [MSAL](https://mvnrepository.com/artifact/com.microsoft.identity.client/msal)         | [Início rápido](quickstart-v2-android.md) | ![A biblioteca pode solicitar fichas de identificação para o ser-in do utilizador.][y] | ![A biblioteca pode solicitar o acesso a fichas para APIs web protegidas.][y] | GA                                                           |
+| Android (Kotlin)  | [MSAL Android](https://github.com/AzureAD/microsoft-authentication-library-for-android)        | [MSAL](https://mvnrepository.com/artifact/com.microsoft.identity.client/msal)         | —                                      | ![A biblioteca pode solicitar fichas de identificação para o ser-in do utilizador.][y] | ![A biblioteca pode solicitar o acesso a fichas para APIs web protegidas.][y] | GA                                                           |
+| iOS (Swift/Obj-C) | [MSAL para iOS e macOS](https://github.com/AzureAD/microsoft-authentication-library-for-objc) | [MSAL](https://cocoapods.org/pods/MSAL)                                               | [Tutorial](tutorial-v2-ios.md)         | ![A biblioteca pode solicitar fichas de identificação para o ser-in do utilizador.][y] | ![A biblioteca pode solicitar o acesso a fichas para APIs web protegidas.][y] | GA                                                           |
+| Xamarin (.NET)    | [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)             | [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client) | —                                      | ![A biblioteca pode solicitar fichas de identificação para o ser-in do utilizador.][y] | ![A biblioteca pode solicitar o acesso a fichas para APIs web protegidas.][y] | GA                                                           |
+<!--
+| React Native |[React Native App Auth](https://github.com/FormidableLabs/react-native-app-auth/blob/main/docs/config-examples/azure-active-directory.md) | [react-native-app-auth](https://www.npmjs.com/package/react-native-app-auth) | ![X indicating no.][n] | ![Green check mark.][y] | ![Green check mark.][y] | -- |
+-->
 
-Para qualquer biblioteca conforme os padrões, pode utilizar a plataforma de identidade da Microsoft. É importante saber onde ir para o apoio:
+<sup>1</sup> [Os termos de utilização suplementares para as pré-visualizações do Microsoft Azure][preview-tos] aplicam-se às bibliotecas em *pré-visualização pública*.
 
-* Para problemas e novos pedidos de funcionalidades no código da biblioteca, contacte o proprietário da biblioteca.
-* Para problemas e novos pedidos de funcionalidades na implementação do protocolo do lado do serviço, contacte a Microsoft.
-* [Arquiva um pedido de funcionalidade](https://feedback.azure.com/forums/169401-azure-active-directory) para funcionalidades adicionais que pretende ver no protocolo.
-* [Crie um pedido de suporte](../../azure-portal/supportability/how-to-create-azure-support-request.md) se encontrar um problema em que a plataforma de identidade da Microsoft não esteja em conformidade com o OAuth 2.0 ou o OpenID Connect 1.0.
+## <a name="service--daemon"></a>Serviço / daemon
 
-## <a name="related-content"></a>Conteúdo relacionado
+Os serviços e os daemons são geralmente utilizados para o servidor-a-servidor e outras comunicações sem vigilância (por vezes chamadas *de sem cabeça).* Como não há utilizador no teclado para introduzir credenciais ou consentimento para o acesso a recursos, estas aplicações autenticam-se como si mesmos, não como utilizador, ao solicitar o acesso autorizado aos recursos de uma API web.
 
-Para obter mais informações sobre a plataforma de identidade da Microsoft, consulte a visão geral da [plataforma de identidade da Microsoft.][AAD-App-Model-V2-Overview]
+Um serviço ou daemon que funciona num servidor é considerado um *cliente confidencial* que pode armazenar os seus segredos de forma segura.
+
+| Linguagem / enquadramento | Projeto em<br/>GitHub                                                                 | Pacote                                                                                | Ficando<br/>começou                           | Inscreva-se nos utilizadores                                            | Aceda a APIs web                                                 | Geralmente disponível (GA) *ou*<br/>Pré-visualização pública<sup>1</sup> |
+|----------------------|---------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------|:---------------------------------------------:|:--------------------------------------------------------:|:---------------------------------------------------------------:|:------------------------------------------------------------:|
+| .NET                 | [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)    | [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client/) | [Início rápido](quickstart-v2-netcore-daemon.md) | ![A biblioteca não pode solicitar fichas de identificação para o ser-in do utilizador.][n] | ![A biblioteca pode solicitar o acesso a fichas para APIs web protegidas.][y] | GA                                                           |
+| Java                 | [MSAL4J](https://github.com/AzureAD/microsoft-authentication-library-for-java)        | [msal4j](https://javadoc.io/doc/com.microsoft.azure/msal4j/latest/index.html)          | —                                             | ![A biblioteca não pode solicitar fichas de identificação para o ser-in do utilizador.][n] | ![A biblioteca pode solicitar o acesso a fichas para APIs web protegidas.][y] | GA                                                           |
+| Python               | [Pitão MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-python) | [msal-python](https://github.com/AzureAD/microsoft-authentication-library-for-python)  | [Início rápido](quickstart-v2-python-daemon.md)  | ![A biblioteca não pode solicitar fichas de identificação para o ser-in do utilizador.][n] | ![A biblioteca pode solicitar o acesso a fichas para APIs web protegidas.][y] | GA                                                           |
+<!--
+|PHP| [The PHP League oauth2-client](https://oauth2-client.thephpleague.com/usage/) | [League\OAuth2](https://oauth2-client.thephpleague.com/) | ![Green check mark.][n] | ![X indicating no.][n] | ![Green check mark.][y] | -- |
+-->
+
+<sup>1</sup> [Os termos de utilização suplementares para as pré-visualizações do Microsoft Azure][preview-tos] aplicam-se às bibliotecas em *pré-visualização pública*.
+
+## <a name="next-steps"></a>Passos seguintes
+
+Para obter mais informações sobre a Biblioteca de Autenticação da Microsoft, consulte a [visão geral da Biblioteca de Autenticação da Microsoft (MSAL)](msal-overview.md).
 
 <!--Image references-->
+[y]: ./media/common/yes.png
+[n]: ./media/common/no.png
 
-<!--Reference style links -->
+<!--Reference-style links -->
 [AAD-App-Model-V2-Overview]: v2-overview.md
-[ClientLib-NET-Lib]: https://www.nuget.org/packages/Microsoft.Identity.Client
-[ClientLib-NET-Repo]: https://github.com/AzureAD/microsoft-authentication-library-for-dotnet
-[ClientLib-NET-Sample]: ./tutorial-v2-windows-desktop.md
-[ClientLib-Node-Lib]: https://www.npmjs.com/package/passport-azure-ad
-[ClientLib-Node-Repo]: https://github.com/AzureAD/passport-azure-ad
-[ClientLib-Node-Sample]:/
-[ClientLib-Iosmac-Lib]:/
-[ClientLib-Iosmac-Repo]:/
-[ClientLib-Iosmac-Sample]:/
-[ClientLib-Android-Lib]:/
-[ClientLib-Android-Repo]:/
-[ClientLib-Android-Sample]:/
-[ClientLib-Js-Lib]:/
-[ClientLib-Js-Repo]:/
-[ClientLib-Js-Sample]:/
-
-[Microsoft-SDL]: https://www.microsoft.com/sdl/default.aspx
-[ServerLib-Net4-Owin-Oidc-Lib]: https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect/
-[ServerLib-Net4-Owin-Oidc-Repo]: https://katanaproject.codeplex.com/
-[ServerLib-Net4-Owin-Oidc-Sample]: ./tutorial-v2-asp-webapp.md
-[ServerLib-Net4-Owin-Oauth-Lib]: https://www.nuget.org/packages/Microsoft.Owin.Security.OAuth/
-[ServerLib-Net4-Owin-Oauth-Repo]: https://katanaproject.codeplex.com/
-[ServerLib-Net4-Owin-Oauth-Sample]: https://azure.microsoft.com/documentation/articles/active-directory-v2-devquickstarts-dotnet-api/
-[ServerLib-Net-Jwt-Lib]: https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt
-[ServerLib-Net-Jwt-Repo]: https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet
-[ServerLib-Net-Jwt-Sample]:/
-[ServerLib-NetCore-Owin-Oidc-Lib]: https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.OpenIdConnect/
-[ServerLib-NetCore-Owin-Oidc-Repo]: https://github.com/aspnet/Security
-[ServerLib-NetCore-Owin-Oidc-Sample]: https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-aspnetcore-v2
-[ServerLib-NetCore-Owin-Oauth-Lib]: https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.OAuth/
-[ServerLib-NetCore-Owin-Oauth-Repo]: https://github.com/aspnet/Security
-[ServerLib-NetCore-Owin-Oauth-Sample]:/
-[ServerLib-Node-Lib]: https://www.npmjs.com/package/passport-azure-ad
-[ServerLib-Node-Repo]: https://github.com/AzureAD/passport-azure-ad/
-[ServerLib-Node-Sample]: https://azure.microsoft.com/documentation/articles/active-directory-v2-devquickstarts-node-web/
+[Microsoft-SDL]: https://www.microsoft.com/securityengineering/sdl/
+[preview-tos]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/

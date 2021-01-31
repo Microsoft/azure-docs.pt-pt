@@ -12,12 +12,12 @@ ms.date: 05/23/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 1d50e0ed6ac67ed1595b289d27bd08a089840308
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: bce9479d063d091eb4fa68d2452d8a4218d45db9
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99051911"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219948"
 ---
 # <a name="support-and-help-options-for-developers"></a>Opções de suporte e ajuda para programadores
 
@@ -36,7 +36,7 @@ Se tiver uma pergunta relacionada com o desenvolvimento, poderá encontrar a res
 
 ### <a name="scoped-search"></a>Pesquisa de âmbito
 
-Para obter resultados mais rápidos, procure o Microsoft Q&A, a documentação e as amostras de código utilizando a seguinte consulta no seu motor de pesquisa favorito:
+Para obter resultados mais rápidos, coloque a sua pesquisa no [Microsoft Q&A](https://docs.microsoft.com/answers/products/)a documentação e as amostras de código utilizando a seguinte consulta no seu motor de pesquisa favorito:
 
 ```
 {Your Search Terms} (site:http://www.docs.microsoft.com/answers/products/ OR site:docs.microsoft.com OR site:github.com/azure-samples OR site:cloudidentity.com OR site:developer.microsoft.com/graph)
@@ -53,9 +53,9 @@ Onde *{Os seus Termos de Pesquisa}* correspondem às suas palavras-chave de pesq
 
 ## <a name="post-a-question-to-microsoft-qa"></a>Publique uma pergunta ao Microsoft Q&A
 
-Microsoft Q&A é o canal preferido para questões relacionadas com o desenvolvimento. Aqui, membros da comunidade de desenvolvedores e membros da equipa da Microsoft estão diretamente envolvidos em ajudá-lo a resolver os seus problemas.
+[Microsoft Q&A](https://docs.microsoft.com/answers/products/) é o canal preferido para questões relacionadas com o desenvolvimento. Aqui, membros da comunidade de desenvolvedores e membros da equipa da Microsoft estão diretamente envolvidos em ajudá-lo a resolver os seus problemas.
 
-Se não conseguir encontrar uma resposta à sua pergunta através da pesquisa, envie uma nova pergunta ao Microsoft Q&A. Use uma das seguintes etiquetas ao fazer perguntas para ajudar a comunidade a identificar e responder mais rapidamente à sua pergunta:
+Se não conseguir encontrar uma resposta à sua pergunta através da pesquisa, envie uma nova pergunta ao [Microsoft Q&A](https://docs.microsoft.com/answers/products/) . Use uma das seguintes etiquetas ao fazer perguntas para ajudar a comunidade a identificar e responder mais rapidamente à sua pergunta:
 
 |Componente/área  | Etiquetas |
 |---------|---------|
@@ -65,9 +65,9 @@ Se não conseguir encontrar uma resposta à sua pergunta através da pesquisa, e
 | [Azure B2B](../external-identities/what-is-b2b.md)  | [[azure-ad-b2b]](https://docs.microsoft.com/answers/topics/azure-ad-b2b.html) |
 | [Azure B2C](https://azure.microsoft.com/services/active-directory-b2c/)  | [[azure-ad-b2c]](https://docs.microsoft.com/answers/topics/azure-ad-b2c.html) |
 | [Microsoft Graph API](https://developer.microsoft.com/graph/) | [[azure-ad-graph]](https://docs.microsoft.com/answers/topics/azure-ad-graph.html) |
-| Qualquer outra área relacionada com temas de autenticação ou autorização | [[azure-active-directy]](https://docs.microsoft.com/answers/topics/azure-ad-graph.html) |
+| Qualquer outra área relacionada com temas de autenticação ou autorização | [[azure-active-directy]](https://docs.microsoft.com/answers/topics/azure-active-directory.html) |
 
-As seguintes publicações do Microsoft Q&A contêm dicas sobre como fazer perguntas e como adicionar código fonte. Siga estas orientações para aumentar as possibilidades de os membros da comunidade avaliarem e responderem rapidamente à sua pergunta:
+As seguintes publicações do [Microsoft Q&A](https://docs.microsoft.com/answers/products/) contêm dicas sobre como fazer perguntas e como adicionar código fonte. Siga estas orientações para aumentar as possibilidades de os membros da comunidade avaliarem e responderem rapidamente à sua pergunta:
 
 * [Como faço uma boa pergunta?](https://docs.microsoft.com/answers/articles/24951/how-to-write-a-quality-question.html)
 * [Como criar um exemplo mínimo, completo e verificável](https://docs.microsoft.com/answers/articles/24907/how-to-write-a-quality-answer.html)

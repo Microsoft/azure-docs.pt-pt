@@ -1,5 +1,5 @@
 ---
-title: Configurar uma Distribuição Controlada de Desenvolvedores de Aplicações (ADCD) em IBM zD&T v1 [ Microsoft Docs
+title: Crie uma Distribuição Controlada de Desenvolvedores de Aplicações (ADCD) em&de | de | Microsoft Docs
 description: Executar um ambiente de desenvolvimento e teste IBM Z (zD&T) em Azure Virtual Machines (VMs).
 services: virtual-machines-linux
 ms.service: virtual-machines-linux
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: dcd354b906b4d6c92d8b3186fc8e09c94a31ca55
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: c76768fa94b524763ac8ad94c9c3f5bb3a73dddb
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968405"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219443"
 ---
 # <a name="set-up-an-application-developers-controlled-distribution-adcd-in-ibm-zdt-v1"></a>Configurar uma Distribuição Controlada de Desenvolvedores de Aplicações (ADCD) em IBM zD&T v1
 
@@ -187,10 +187,10 @@ A sua imagem pode agora ser implantada e está pronta para ser montada por um em
 
 Parabéns! Está agora a gerir um ambiente central da IBM em Azure.
 
-## <a name="learn-more"></a>Saiba mais
+## <a name="learn-more"></a>Saber mais
 
 - [Migração do quadro principal: mitos e factos](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
-- [IBM DB2 pureScale em Azure](../../../linux/ibm-db2-purescale-azure.md)
+- [IBM DB2 pureScale em Azure](ibm-db2-purescale-azure.md)
 - [Resolução de problemas](../../../troubleshooting/index.yml)
 - [Desmistificar o mainframe para a migração do Azure](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
 
