@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 05b93848bff66adc49d2855ee98fff6c9b7a2d3d
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: ddd676a1e0b3d8f554b007974b62eb8c0c2ca9c1
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756515"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226360"
 ---
 # <a name="desktop-app-that-calls-web-apis-move-to-production"></a>Aplicativo de desktop que chama APIs web: Mover para a produção
 
@@ -39,7 +39,7 @@ Por exemplo, pode ter dois recursos que têm dois âmbitos cada:
 - `https://mytenant.onmicrosoft.com/customerapi` com os âmbitos `customer.read` e `customer.write`
 - `https://mytenant.onmicrosoft.com/vendorapi` com os âmbitos `vendor.read` e `vendor.write`
 
-Neste exemplo, utilize o `.WithAdditionalPromptToConsent` modificador que tenha o `extraScopesToConsent` parâmetro.
+Neste exemplo, utilize o `.WithExtraScopesToConsent` modificador que tenha o `extraScopesToConsent` parâmetro.
 
 Por exemplo:
 
@@ -106,6 +106,11 @@ AcquireTokenSilent(scopesForVendorApi, accounts.FirstOrDefault()).ExecuteAsync()
 
 Para os utilizadores de contas pessoais da Microsoft, repromundo o consentimento em cada cliente nativo (desktop ou aplicativo móvel) para autorizar é o comportamento pretendido. A identidade do cliente nativo é inerentemente insegura, o que é contrário à identidade confidencial da aplicação do cliente. As aplicações confidenciais de clientes trocam um segredo com a plataforma Microsoft Identity para provar a sua identidade. A plataforma de identidade da Microsoft optou por atenuar esta insegurança para os serviços ao consumidor, solicitando ao utilizador o consentimento sempre que a aplicação é autorizada.
 
-## <a name="next-steps"></a>Próximos passos
+[!INCLUDE [Common steps to move to production](../../../includes/active-directory-develop-scenarios-production.md)]
 
-[!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
+## <a name="next-steps"></a>Passos seguintes
+
+Para experimentar amostras adicionais, consulte [as aplicações de desktop e cliente público móvel.](sample-v2-code.md#desktop-and-mobile-public-client-apps)
+
+
+

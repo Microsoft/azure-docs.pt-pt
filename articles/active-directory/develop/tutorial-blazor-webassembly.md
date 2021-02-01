@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 4d6401c53071235784a5371a4a6315e4e25a438f
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 30b7f1054f7bfee8dc58638791f0b8a424de92a4
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98680269"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226426"
 ---
 # <a name="tutorial-sign-in-users-and-call-a-protected-api-from-a-blazor-webassembly-app"></a>Tutorial: Inscreva-se nos utilizadores e chame uma API protegida a partir de uma aplicação Blazor WebAssembly
 
@@ -42,7 +42,7 @@ Todas as aplicações que utilizem o Azure Ative Directory (Azure AD) para auten
 - Para **tipos de conta suportada**, selecione Contas **apenas neste diretório organizacional**.
 - Deixe o **URI de redirecionamento** descer definido para **Web** e insira `https://localhost:5001/authentication/login-callback` . A porta padrão para uma aplicação em execução em Kestrel é 5001. Se a aplicação estiver disponível numa porta diferente, especifique o número da porta em vez de `5001` .
 
-Uma vez registado, na  >  **concessão Autenticação Implícita,** selecione as caixas de verificação para **fichas de acesso** e **fichas de identificação**, e, em seguida, selecione o botão **Guardar.**
+Uma vez registado, em **Manage**, **selecione Autenticação**  >  **Implícita e fluxos híbridos**. Selecione **Tokens de acesso** e **fichas de identificação** e, em seguida, selecione **Save**.
 
 ## <a name="create-the-app-using-the-net-core-cli"></a>Crie a aplicação utilizando o .NET Core CLI
 
@@ -80,7 +80,7 @@ Os componentes deste modelo que permitem logins com AZure AD utilizando a plataf
 
 [O Microsoft Graph](/graph/overview) contém APIs que fornecem acesso aos dados do Microsoft 365 para os seus utilizadores, e suporta os tokens emitidos pela plataforma de identidade microsoft, o que faz com que seja uma boa API protegida para usar como exemplo. Nesta secção, adicione código para ligar para o Microsoft Graph e exibir os e-mails do utilizador na página "Fetch data" da aplicação.
 
-Esta secção é escrita usando uma abordagem comum para chamar uma API protegida usando um cliente nomeado. O mesmo método pode ser utilizado para outras APIs protegidas que pretende chamar. No entanto, se pretender ligar para o Microsoft Graph a partir da sua aplicação, pode utilizar o SDK gráfico para reduzir a placa de caldeira. Os docs .NET contêm instruções sobre [como utilizar o Gráfico SDK](/aspnet/core/blazor/security/webassembly/graph-api?view=aspnetcore-5.0).
+Esta secção é escrita usando uma abordagem comum para chamar uma API protegida usando um cliente nomeado. O mesmo método pode ser utilizado para outras APIs protegidas que pretende chamar. No entanto, se pretender ligar para o Microsoft Graph a partir da sua aplicação, pode utilizar o SDK gráfico para reduzir a placa de caldeira. Os docs .NET contêm instruções sobre [como utilizar o Gráfico SDK](/aspnet/core/blazor/security/webassembly/graph-api?view=aspnetcore-5.0&preserve-view=true).
 
 Antes de começar, faça login na sua app uma vez que irá fazer alterações nas permissões necessárias, e o seu token atual não funcionará. Se ainda não o fez, volte a executar a sua aplicação e selecione **Iniciar sessão** antes de atualizar o código abaixo.
 

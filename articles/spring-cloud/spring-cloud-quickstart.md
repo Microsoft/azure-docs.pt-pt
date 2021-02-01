@@ -8,12 +8,12 @@ ms.date: 10/23/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 416f997475e35f8e784679ca0826f7af38d756c7
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 3c07d64fd046766521e030b6ee1b88a590246e24
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880309"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226174"
 ---
 # <a name="quickstart-deploy-your-first-azure-spring-cloud-application"></a>Quickstart: Implemente a sua primeira aplicação Azure Spring Cloud
 
@@ -416,7 +416,7 @@ O procedimento a seguir constrói e implementa a aplicação utilizando o Azure 
 1. Crie a app com o ponto final público atribuído:
 
     ```azurecli
-    az spring-cloud app create -n hellospring -s <service instance name> -g <resource group name> --is-public
+    az spring-cloud app create -n hellospring -s <service instance name> -g <resource group name> --is-public true
     ```
 
 1. Implementar o ficheiro Jar para a aplicação `target\hellospring-0.0.1-SNAPSHOT.jar` (no Windows):
@@ -506,7 +506,7 @@ Nos passos anteriores, criou recursos Azure que continuarão a acumular encargos
 az group delete --name <your resource group name; for example: hellospring-1558400876966-rg> --yes
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste início rápido, aprendeu a:
 

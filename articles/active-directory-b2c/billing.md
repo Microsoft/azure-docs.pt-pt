@@ -7,23 +7,23 @@ manager: celestedg
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 09/01/2020
+ms.date: 02/01/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: edff5354d0565bd32cd0332b4aa0f215c2980d73
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: a54ed9dc6557d9b613485bf28e74af0c59fc9e5e
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94949790"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225213"
 ---
 # <a name="billing-model-for-azure-active-directory-b2c"></a>Modelo de faturação para Azure Ative Directory B2C
 
 Os preços do Azure Ative Directory B2C (Azure AD B2C) baseiam-se em utilizadores ativos mensais (MAU), que é a contagem de utilizadores únicos com atividade de autenticação dentro de um mês civil. Este modelo de faturação aplica-se tanto aos inquilinos AZURE AD B2C como à [colaboração do utilizador convidado Azure AD (B2B)](../active-directory/external-identities/external-identities-pricing.md). A faturação mau ajuda a reduzir custos oferecendo um nível livre e preços flexíveis e previsíveis. Neste artigo, conheça a faturação mau, ligando os seus inquilinos Azure AD B2C a uma subscrição e alterando o seu nível de preços.
 
 > [!IMPORTANT]
-> Este artigo não contém detalhes sobre os preços. Para obter as informações mais recentes sobre a faturação e preços de utilização, consulte os preços do [Azure Ative Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
+> Este artigo não contém detalhes sobre os preços. Para obter as informações mais recentes sobre a faturação e preços de utilização, consulte os preços do [Azure Ative Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/). Consulte também [a disponibilidade da região AD B2C e a residência de dados](data-residency.md) para mais informações sobre onde está disponível o serviço Azure AD B2C e onde os dados dos utilizadores estão armazenados.
 
 ## <a name="what-do-i-need-to-do"></a>O que preciso fazer?
 
@@ -78,7 +78,7 @@ Um inquilino deve estar ligado ao nível de preços adequado da Azure com base n
 
 Para alterar o seu nível de preços, siga estes passos.
 
-1. Inicie sessão no portal do Azure.
+1. Inicie sessão no Portal do Azure.
 
 2. Selecione o filtro **de subscrição Directory +** no menu superior e, em seguida, selecione o diretório que contém a subscrição Azure a que o seu inquilino Azure B2C está ligado *(não* selecione o inquilino Azure AD B2C em si).
 

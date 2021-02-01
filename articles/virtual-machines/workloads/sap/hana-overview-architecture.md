@@ -1,5 +1,5 @@
 ---
-title: Visão geral da SAP HANA em Azure (Grandes Instâncias) Microsoft Docs
+title: Visão geral do SAP HANA em Azure (Grandes Instâncias) | Microsoft Docs
 description: Visão geral de como implantar o SAP HANA em Azure (Grandes Instâncias).
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,21 +14,21 @@ ms.workload: infrastructure
 ms.date: 01/04/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5ec3500c124d3e4f8cb1b46445c28c6a64c93526
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: d941bd9735149d08bfbd63ec97337dd7a3bac43b
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98195454"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226663"
 ---
 #  <a name="what-is-sap-hana-on-azure-large-instances"></a>O que é SAP HANA nas Instâncias Grandes do Azure?
 
-SAP HANA on Azure (Grandes Instâncias) é uma solução única para a Azure. Além de fornecer máquinas virtuais para implantar e executar o SAP HANA, o Azure oferece-lhe a possibilidade de executar e implantar o SAP HANA em servidores de metal nu que lhe são dedicados. A solução SAP HANA on Azure (Large Instances) baseia-se num hardware de suporte de metal não partilhado de anfitriões/servidor que lhe é atribuído. O hardware do servidor está incorporado em selos maiores que contêm computação/servidor, rede e infraestrutura de armazenamento. Como combinação, é certificada a integração do centro de dados (TDI) à medida da HANA. O SAP HANA on Azure (Grandes Instâncias) oferece diferentes SKUs ou tamanhos de servidor. As unidades podem ter 36 núcleos intel CPU e 768 GB de memória e ir até unidades que têm até 480 núcleos intel CPU e até 24 TB de memória.
+SAP HANA on Azure (Grandes Instâncias) é uma solução única para a Azure. Além de fornecer máquinas virtuais para implantar e executar o SAP HANA, o Azure oferece-lhe a possibilidade de executar e implantar o SAP HANA em servidores de metal nu que lhe são dedicados. A solução SAP HANA on Azure (Large Instances) baseia-se num hardware de suporte de metal não partilhado de anfitriões/servidor que lhe é atribuído. O hardware do servidor está incorporado em selos maiores que contêm computação/servidor, rede e infraestrutura de armazenamento. O SAP HANA on Azure (Grandes Instâncias) oferece diferentes SKUs ou tamanhos de servidor. As unidades podem ter 36 núcleos intel CPU e 768 GB de memória e ir até unidades que têm até 480 núcleos intel CPU e até 24 TB de memória.
 
 O isolamento do cliente dentro do carimbo da infraestrutura é realizado em inquilinos, que parece:
 
 - **Networking**: Isolamento dos clientes dentro da pilha de infraestruturas através de redes virtuais por cliente designado inquilino. Um inquilino é designado para um único cliente. Um cliente pode ter vários inquilinos. O isolamento da rede de inquilinos proíbe a comunicação em rede entre inquilinos ao nível do carimbo da infraestrutura, mesmo que os inquilinos pertençam ao mesmo cliente.
-- **Componentes de armazenamento**: Isolamento através de máquinas virtuais de armazenamento que tenham volumes de armazenamento atribuídos a eles. Os volumes de armazenamento só podem ser atribuídos a uma máquina virtual de armazenamento. Uma máquina virtual de armazenamento é atribuída exclusivamente a um único inquilino na pilha de infraestrutura certificada SAP HANA TDI. Como resultado, os volumes de armazenamento atribuídos a uma máquina virtual de armazenamento podem ser acedidos apenas em um inquilino específico e relacionado. Não são visíveis entre os diferentes inquilinos.
+- **Componentes de armazenamento**: Isolamento através de máquinas virtuais de armazenamento que tenham volumes de armazenamento atribuídos a eles. Os volumes de armazenamento só podem ser atribuídos a uma máquina virtual de armazenamento. Uma máquina virtual de armazenamento é atribuída exclusivamente a um único inquilino na pilha de infraestruturas. Como resultado, os volumes de armazenamento atribuídos a uma máquina virtual de armazenamento podem ser acedidos apenas em um inquilino específico e relacionado. Não são visíveis entre os diferentes inquilinos.
 - **Servidor ou anfitrião**: Um servidor ou unidade de anfitrião não é partilhado entre clientes ou inquilinos. Um servidor ou hospedeiro implantado para um cliente é uma unidade de computação atómica de metal nu que é atribuída a um único inquilino. *Não* é utilizada nenhuma partição de hardware ou divisórias suaves que possam resultar na partilha de um hospedeiro ou de um servidor com outro cliente. Os volumes de armazenamento atribuídos à máquina virtual de armazenamento do inquilino específico são montados num tal servidor. Um inquilino pode ter uma para muitas unidades de servidor de diferentes SKUs exclusivamente atribuídas.
 - Dentro de um carimbo de infraestrutura SAP HANA em Azure (Grandes Instâncias), muitos inquilinos diferentes são implantados e isolados uns contra os outros através dos conceitos de inquilino em networking, armazenamento e nível de cálculo. 
 

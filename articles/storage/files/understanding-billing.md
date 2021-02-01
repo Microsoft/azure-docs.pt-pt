@@ -1,23 +1,45 @@
 ---
-title: Compreender a faturação dos ficheiros Azure | Microsoft Docs
+title: Compreenda a faturação dos Ficheiros Azure | Microsoft Docs
 description: Saiba como interpretar os modelos de faturação a provisionados e pay-as-you-go para ações de ficheiros Azure.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/20/2021
+ms.date: 01/27/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 19ecbea70d9cb6b8cc31c72ed3c1294cd137ce93
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 6bb608492327baae958c32be05d8f2a1bb4dbfbf
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632483"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226646"
 ---
-# <a name="understanding-azure-files-billing"></a>Compreensão da faturação dos Ficheiros Azure
+# <a name="understand-azure-files-billing"></a>Compreenda a faturação dos Ficheiros Azure
 A Azure Files fornece dois modelos de faturação distintos: provisionados e pay-as-you-go. O modelo provisionado só está disponível para ações de ficheiros premium, que são ações de ficheiros implantadas no tipo de conta de armazenamento **FileStorage.** O modelo pay-as-you-go só está disponível para ações de ficheiros padrão, que são ações de ficheiros implantadas no tipo de conta de armazenamento **versão 2 (GPv2) para fins gerais.** Este artigo explica como ambos os modelos funcionam de forma a ajudá-lo a entender a sua conta mensal de Ficheiros Azure.
 
-Os preços atuais dos Ficheiros Azure podem ser encontrados na página de preços dos [Ficheiros Azure](https://azure.microsoft.com/pricing/details/storage/files/).
+Para obter informações sobre preços dos ficheiros Azure, consulte [a página de preços do Azure Files](https://azure.microsoft.com/pricing/details/storage/files/).
+
+## <a name="storage-units"></a>Unidades de armazenamento    
+A Azure Files utiliza unidades de medição base-2 para representar a capacidade de armazenamento: KiB, MiB, GiB e TiB. O seu sistema operativo pode ou não utilizar a mesma unidade de medição ou sistema de contagem.
+
+### <a name="windows"></a>Windows
+
+Tanto o sistema operativo Windows como o Azure Files medem a capacidade de armazenamento utilizando o sistema de contagem base-2, mas há uma diferença na rotulagem das unidades. A Azure Files rotula a sua capacidade de armazenamento com unidades de medição base-2, enquanto o Windows rotula a sua capacidade de armazenamento em unidades de medição base-10. Ao reportar a capacidade de armazenamento, o Windows não converte a sua capacidade de armazenamento de base-2 para base-10.
+
+|Acrónimo  |Definição  |Unidade  |Windows apresenta como  |
+|---------|---------|---------|---------|
+|KiB     |1.024 bytes         |kibibyte         |KB (kilobyte)         |
+|MiB     |1.024 KiB (1.048.576 bytes)         |mebibyte         |MB (megabyte)         |
+|GiB     |1024 MiB (1.073.741.824 bytes)         |gibibyte         |GB (gigabyte)         |
+|TiB     |1024 GiB (1.099.511.627.776 bytes)         |tebibyte         |Tuberculose (terabyte)         |
+
+### <a name="macos"></a>macOS
+
+Veja [como o iOS e o macOS reportam a capacidade de armazenamento](https://support.apple.com/HT201402) no site da Apple para determinar qual o sistema de contagem usado.
+
+### <a name="linux"></a>Linux
+
+Um sistema de contagem diferente poderia ser usado por cada sistema operativo ou peça de software individual. Consulte a documentação deles para determinar como reportam a capacidade de armazenamento.
 
 ## <a name="provisioned-model"></a>Modelo provisionado
 A Azure Files utiliza um modelo provisionado para ações de ficheiros premium. Num modelo de negócio a provisionado, especifica proativamente ao serviço Azure Files quais são os seus requisitos de armazenamento, em vez de ser faturado com base no que utiliza. Isto é semelhante à compra de hardware no local, na medida em que quando fornece uma parte de ficheiro Azure com uma certa quantidade de armazenamento, você paga por esse armazenamento independentemente de usá-lo ou não, assim como você não começa a pagar os custos de meios físicos no local quando você começa a usar o espaço. Ao contrário da compra de meios físicos no local, as ações de ficheiros a provisionadas podem ser dinamicamente dimensionadas para cima ou para baixo, dependendo do seu armazenamento e características de desempenho de IO.

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, devx-track-js
-ms.openlocfilehash: ab3677ede2805fc8ecb076e8a40da605c038b54b
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: fec130ff02d9796fb9a6cea7a831bbdcb25cb1ed
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937927"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225635"
 ---
 # <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Quickstart: Adicione o sinal na utilização do OpenID Connect a uma aplicação web Node.js
 
@@ -45,7 +45,7 @@ Neste arranque rápido, descarrega e execute uma amostra de código que demonstr
 1. **Selecione Adicionar uma plataforma**  >  **Web**. 
 1. Na secção **URIs de redirecionamento,** insira `http://localhost:3000/auth/openid/return` .
 1. Introduza um **URL de logout de canal frontal** `https://localhost:3000` .
-1. Na secção de subvenção implícita, verifique **os tokens de identificação,** uma vez que esta amostra requer que o [fluxo de subvenção implícito](./v2-oauth2-implicit-grant-flow.md) seja habilitado a iniciar a inscrição no utilizador.
+1. Na secção **de fluxos implícitos e híbridos,** selecione **fichas de identificação,** uma vez que esta amostra requer que o [fluxo de subvenção implícito](./v2-oauth2-implicit-grant-flow.md) seja habilitado a iniciar a inscrição no utilizador.
 1. Selecione **Configurar**.
 1. Under **Manage**, selecione **Certificados & segredos**  >  **Novo segredo do cliente**.
 1. Introduza uma descrição chave (por exemplo, o segredo da aplicação).
@@ -113,7 +113,7 @@ Terá um servidor a funcionar com sucesso `http://localhost:3000` .
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre o cenário de aplicações web que a plataforma de identidade da Microsoft suporta:
 > [!div class="nextstepaction"]
 > [Aplicação web que assina no cenário dos utilizadores](scenario-web-app-sign-user-overview.md)

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/12/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 85534d1f64b273e42a2ea063e67286ee7bb4a90a
-ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
+ms.openlocfilehash: 59429358469e4c236755f37b9c992439472d9aa7
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97827160"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226326"
 ---
 # <a name="speech-service-containers-frequently-asked-questions-faq"></a>Recipientes de serviço de fala frequentemente perguntas (FAQ)
 
@@ -292,8 +292,8 @@ Pode ajudar a preencher as seguintes métricas de teste, incluindo que funções
 
 | Ponto final                                                | Teste funcional                                                   | SDK | API REST |
 |---------------------------------------------------------|-------------------------------------------------------------------|-----|----------|
-| `/speech/synthesize/cognitiveservices/v1`               | Sintetizar texto (texto-a-discurso)                                  |     | Yes      |
-| `/speech/recognition/dictation/cognitiveservices/v1`    | Serviços cognitivos no ponto final do ditado v1 websocket        | Yes | No       |
+| `/speech/synthesize/cognitiveservices/v1`               | Sintetizar texto (texto-a-discurso)                                  |     | Sim      |
+| `/speech/recognition/dictation/cognitiveservices/v1`    | Serviços cognitivos no ponto final do ditado v1 websocket        | Sim | Não       |
 | `/speech/recognition/interactive/cognitiveservices/v1`  | O ponto final do serviço cognitivo on-prem interactive v1 websocket  |     |          |
 | `/speech/recognition/conversation/cognitiveservices/v1` | Os serviços cognitivos on-prem conversa v1 websocket endpoint |     |          |
 
@@ -577,10 +577,10 @@ Em C# para permitir o ditado, invoque a `SpeechConfig.EnableDictation()` funçã
 ### <a name="fromendpoint-apis"></a>`FromEndpoint` APIs
 | Linguagem | Detalhes da API |
 |----------|:------------|
-| C++ | <a href="https://docs.microsoft.com/en-us/cpp/cognitive-services/speech/speechconfig#fromendpoint" target="_blank">`SpeechConfig::FromEndpoint` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
+| C++ | <a href="https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#fromendpoint" target="_blank">`SpeechConfig::FromEndpoint` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | C# | <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromendpoint?view=azure-dotnet" target="_blank">`SpeechConfig.FromEndpoint` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | Java | <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.fromendpoint" target="_blank">`SpeechConfig.fromendpoint` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
-| Objective-C | <a href="https://docs.microsoft.com/en-us/objectivec/cognitive-services/speech/spxspeechconfiguration#initwithendpoint" target="_blank">`SPXSpeechConfiguration:initWithEndpoint;` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
+| Objective-C | <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#initwithendpoint" target="_blank">`SPXSpeechConfiguration:initWithEndpoint;` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | Python | <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python" target="_blank">`SpeechConfig;` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | JavaScript | Não está atualmente apoiado, nem está previsto. |
 
@@ -599,9 +599,9 @@ Em C# para permitir o ditado, invoque a `SpeechConfig.EnableDictation()` funçã
 | Linguagem | Detalhes da API |
 |--|:-|
 | C# | <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromhost?view=azure-dotnet" target="_blank">`SpeechConfig.FromHost` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
-| C++ | <a href="https://docs.microsoft.com/en-us/cpp/cognitive-services/speech/speechconfig#fromhost" target="_blank">`SpeechConfig::FromHost` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
+| C++ | <a href="https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#fromhost" target="_blank">`SpeechConfig::FromHost` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | Java | <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.fromhost" target="_blank">`SpeechConfig.fromHost` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
-| Objective-C | <a href="https://docs.microsoft.com/en-us/objectivec/cognitive-services/speech/spxspeechconfiguration#initwithhost" target="_blank">`SPXSpeechConfiguration:initWithHost;` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
+| Objective-C | <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#initwithhost" target="_blank">`SPXSpeechConfiguration:initWithHost;` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | Python | <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python" target="_blank">`SpeechConfig;` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | JavaScript | Atualmente, não é suportado |
 

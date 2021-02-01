@@ -6,18 +6,18 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 01/29/2021
+ms.date: 02/01/2021
 ms.author: alkohli
-ms.openlocfilehash: 025694dc020bb18ce66574bac476f34034353721
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: 7c1f78f405a67687168457448f62d46a39da165f
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99072664"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225129"
 ---
 # <a name="azure-stack-edge-pro-with-fpga-2101-release-notes"></a>Azure Stack Edge Pro com notas de lançamento da FPGA 2101
 
-As seguintes notas de lançamento identificam as questões abertas críticas e os problemas resolvidos para o lançamento de Azure Stack Edge Pro com um Field Programmable Gate Array (FPGA) incorporado.
+As seguintes notas de lançamento identificam as questões abertas críticas e os problemas resolvidos para o lançamento de Azure Stack Edge Pro em 2101 com um Field Programmable Gate Array (FPGA).
 
 As notas de lançamento são continuamente atualizadas. À medida que são descobertas questões críticas que requerem uma solução alternativa, são adicionadas. Antes de implementar o seu dispositivo Azure Stack Edge, reveja cuidadosamente as informações nas notas de lançamento.  
 
@@ -38,7 +38,6 @@ Esta versão também contém as seguintes atualizações:
 
 - Todas as atualizações cumulativas do Windows e atualizações de quadros .NET lançadas até outubro de 2020.
 - A versão de firmware do controlador de gestão de baseboard (BMC) é atualizada de 3.32.32.32 para 3.36.36.36 durante a instalação da fábrica para resolver a incompatibilidade com as mais recentes unidades de alimentação da Dell.
-- O endereço IP estático do Azure Data Box Gateway é mantido através de atualizações de software.
 - Esta versão suporta ioT Edge 1.0.9.3 em dispositivos Azure Stack Edge.
 
 ## <a name="known-issues-in-this-release"></a>Questões conhecidas neste lançamento

@@ -3,18 +3,18 @@ title: Gerir a política de gravação - Azure
 description: Este tópico explica como gerir a política de gravação.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: d3a1be915dc1cc8714e49cc7b2fe68bbe9cad161
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec72f28496c1392b9d95134c343e1892998a0c28
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87011486"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99224994"
 ---
 # <a name="manage-recording-policy"></a>Gerir política de gravação
 
 Pode utilizar o Live Video Analytics no IoT Edge para gravação contínua de [vídeo,](continuous-video-recording-concept.md)através do qual pode gravar vídeos na nuvem durante semanas ou meses. Pode gerir o comprimento (em dias) desse arquivo em nuvem utilizando as ferramentas de Gestão do [Ciclo de Vida incorporadas](../../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal) no armazenamento do Azure.  
 
-A sua conta de Media Service está ligada a uma conta de Armazenamento Azure e, quando grava o vídeo na nuvem, o conteúdo é escrito para um [ativo](../latest/assets-concept.md)do Media Service . Cada ativo é mapeado para um recipiente na conta de armazenamento. a gestão do ciclo de vida permite-lhe definir uma [política](../../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal#policy) para uma conta de Armazenamento, na qual pode especificar uma [regra](../../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal#rules) como a seguinte.
+A sua conta de Media Service está ligada a uma conta de Armazenamento Azure e, quando grava o vídeo na nuvem, o conteúdo é escrito para um [ativo](../latest/assets-concept.md)do Media Service . Cada ativo é mapeado para um recipiente na conta de armazenamento. A gestão do ciclo de vida permite-lhe definir uma [política](../../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal#policy) para uma conta de Armazenamento, na qual pode especificar uma [regra](../../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal#rules) como a seguinte.
 
 ```
 {
@@ -45,7 +45,7 @@ A regra acima:
 * Especifica que quando as bolhas envelhecem para além dos 30 dias, são transferidas do [nível](../../storage/blobs/storage-blob-storage-tiers.md?tabs=azure-portal)de acesso quente para arrefecer .
 * E quando as bolhas envelhecem para além dos 90 dias, devem ser apagadas.
 
-Uma vez que o Live Video Analytics arquiva o seu vídeo em unidades de tempo especificadas, o seu ativo conterá uma série de bolhas, uma bolha por segmento. Quando a política de gestão do ciclo de vida entrar em vigor e eliminar as bolhas mais antigas, continuará a poder aceder e reproduzir as restantes bolhas através das APIs do Media Service. Para obter mais informações, consulte [as gravações de reprodução](playback-recordings-how-to.md). 
+Quando utiliza o Live Video Analytics para gravar num ativo, especifica uma `segmentLength` propriedade que diz ao módulo para agregar uma duração mínima de vídeo (em segundos) antes de ser escrita para a nuvem. O seu ativo conterá uma série de segmentos, cada um com um tempo de criação que é mais recente do que `segmentLength` o anterior. Quando a política de gestão do ciclo de vida entra em vigor, elimina segmentos mais antigos do que o limiar especificado. No entanto, continuará a poder aceder e reproduzir os restantes segmentos através das APIs do Media Service. Para obter mais informações, consulte [as gravações de reprodução](playback-recordings-how-to.md). 
 
 ## <a name="limitations"></a>Limitações
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: d4189e466d5e9b41247723165ce2a5c14c4a8dfa
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 39a675ff4947e7eca64298e1e68160cd6149f081
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756402"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226343"
 ---
 # <a name="single-page-application-app-registration"></a>Aplicação de uma página única: Registo de aplicações
 
@@ -47,7 +47,7 @@ Siga estes passos para adicionar um URI de redirecionamento para uma aplicação
 1. No portal Azure, selecione o registo de aplicações que criou anteriormente no [Registo da aplicação.](#create-the-app-registration)
 1. Em **Gestão**, **selecione Autenticação**  >  **Adicione uma plataforma**.
 1. Nas **aplicações Web,** selecione o azulejo **de aplicação de página única.**
-1. Em **Redirecionar URIs**, [insira um URI de redirecionamento](reply-url.md). **NÃO** selecione uma caixa de verificação sob **subvenção Implícita**.
+1. Em **Redirecionar URIs**, [insira um URI de redirecionamento](reply-url.md). **NÃO** selecione uma caixa de verificação sob **subvenção implícita e fluxos híbridos**.
 1. Selecione **Configurar** para terminar a adição do URI de redirecionamento.
 
 Já concluiu o registo da sua aplicação de uma página única (SPA) e configura um URI de redirecionamento para o qual o cliente será redirecionado e quaisquer fichas de segurança serão enviadas. Ao configurar o seu URI de redirecionamento utilizando o azulejo **de aplicação de página única** no painel de plataforma Add **a,** o seu registo de candidatura está configurado para suportar o fluxo de código de autorização com PKCE e CORS.
@@ -62,7 +62,7 @@ Siga estes passos para adicionar um URI de redirecionamento para uma aplicação
 1. Em **Gestão**, **selecione Autenticação**  >  **Adicione uma plataforma**.
 1. Nas **aplicações Web,** selecione **azulejo de aplicação de página única.**
 1. Em **Redirecionar URIs**, [insira um URI de redirecionamento](reply-url.md).
-1. Ativar o **fluxo implícito:**
+1. Permitir a **concessão implícita e os fluxos híbridos:**
     - Se a sua aplicação assinar nos utilizadores, selecione **fichas de identificação**.
     - Se a sua aplicação também precisar de chamar uma API web protegida, selecione **Tokens de acesso**. Para obter mais informações sobre estes tipos [simbólicos, consulte fichas de identificação](id-tokens.md) e [fichas de acesso.](access-tokens.md)
 1. Selecione **Configurar** para terminar a adição do URI de redirecionamento.
@@ -79,6 +79,6 @@ Como mencionado anteriormente, as aplicações de uma página única que utiliza
 
 Quando todas as aplicações de produção de uma página única representadas por um registo de aplicações estiverem a utilizar MSAL.js 2.0 e o fluxo de código de autorização, desmarque as definições implícitas do painel de **autenticação** do registo da aplicação no portal Azure. As aplicações que utilizam MSAL.js 1.x e o fluxo implícito podem continuar a funcionar, no entanto, se deixar o fluxo implícito ativado (verificado).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Configure o código da sua aplicação para utilizar o registo de aplicações que criou nos passos anteriores: [configuração de código da App](scenario-spa-app-configuration.md).

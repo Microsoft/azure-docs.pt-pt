@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 8bfa7c164f5b974a8cf8974b3ff346f3401dd218
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: ef9a7704dfc67032a601b995d41ef24273711317
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880224"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225533"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-azure-powershell"></a>Implementar um Serviço cloud (suporte alargado) utilizando a Azure PowerShell
 
@@ -88,7 +88,7 @@ Reveja os [pré-requisitos](deploy-prerequisite.md) de implantação para servi�
     $networkProfile = @{loadBalancerConfiguration = $loadBalancerConfig} 
     ```
  
-9. Criar um Key Vault. Este Cofre chave será utilizado para armazenar certificados associados às funções de Cloud Service (suporte alargado). O Cofre-Chave deve estar localizado na mesma região e subscrição que o serviço de nuvem e ter um nome único. Para mais informações consulte [os certificados utilizar com a Azure Cloud Services (suporte alargado)](certificates-and-key-vault.md).
+9. Criar um Key Vault. Este Cofre chave será utilizado para armazenar certificados associados às funções de Cloud Service (suporte alargado). Certifique-se de que ativou as "políticas de acesso" (em portal) para acesso a 'Azure Virtual Machines for deployment' e 'Azure Resource Manager for template deployment'. O Cofre-Chave deve estar localizado na mesma região e subscrição que o serviço de nuvem e ter um nome único. Para mais informações consulte [os certificados utilizar com a Azure Cloud Services (suporte alargado)](certificates-and-key-vault.md).
 
     ```powershell
     New-AzKeyVault -Name "ContosKeyVault” -ResourceGroupName “ContosoOrg” -Location “East US” 
@@ -138,6 +138,8 @@ Reveja os [pré-requisitos](deploy-prerequisite.md) de implantação para servi�
     $expiration = (Get-Date).AddYears(1) 
     $extension = New-AzCloudServiceRemoteDesktopExtensionObject -Name 'RDPExtension' -Credential $credential -Expiration $expiration -TypeHandlerVersion '1.2.1' 
 
+    $storageAccountKey = Get-AzStorageAccountKey -ResourceGroupName "ContosOrg" -Name "contosostorageaccount"
+    $configFile = "<WAD configuration file path>"
     $wadExtension = New-AzCloudServiceDiagnosticsExtension -Name "WADExtension" -ResourceGroupName "ContosOrg" -CloudServiceName "ContosCS" -StorageAccountName "ContosSA" -StorageAccountKey $storageAccountKey[0].Value -DiagnosticsConfigurationPath $configFile -TypeHandlerVersion "1.5" -AutoUpgradeMinorVersion $true 
     $extensionProfile = @{extension = @($rdpExtension, $wadExtension)} 
     ```
@@ -164,7 +166,7 @@ Reveja os [pré-requisitos](deploy-prerequisite.md) de implantação para servi�
     -Tag $tag 
     ```
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Passos seguintes 
 - Reveja [perguntas frequentes](faq.md) para serviços cloud (suporte alargado).
 - Implementar um Serviço de Cloud (suporte alargado) utilizando o [portal Azure](deploy-portal.md), [PowerShell,](deploy-powershell.md) [Modelo](deploy-template.md) ou [Estúdio Visual](deploy-visual-studio.md).
 - Visite o [repositório](https://github.com/Azure-Samples/cloud-services-extended-support) de amostras cloud services (suporte alargado)

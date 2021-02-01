@@ -1,14 +1,14 @@
 ---
 title: Índice de exemplos de esquema
 description: Índice de exemplos de conformidade e normas para a implementação de ambientes, políticas e fundações do Framework de Adoção da Cloud com o Azure Blueprints.
-ms.date: 01/27/2021
+ms.date: 02/01/2021
 ms.topic: sample
-ms.openlocfilehash: 7865a3ea5be374f36de70e62c7bc215fc88d04a5
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 17bacecf8fcf7c0f1969a489561a3a3ac976872e
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98915697"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225146"
 ---
 # <a name="azure-blueprints-samples"></a>Exemplos do Azure Blueprints
 
@@ -28,7 +28,7 @@ A tabela seguinte inclui ligações para exemplos do Azure Blueprints. Cada exem
 | [FedRAMP Alto](./fedramp-h/index.md) | Fornece um conjunto de políticas para ajudar a cumprir o FedRAMP Alto. |
 | [HIPAA HITRUST 9.2](./hipaa-hitrust-9-2.md) | Fornece um conjunto de políticas para ajudar a cumprir o HIPAA HITRUST. |
 | [IRS 1075](./irs-1075/index.md) | Fornece guarda-costas para o cumprimento do IRS 1075.|
-| [ISO 27001](./iso27001/index.md) | Fornece proteções para conformidade com a ISO 27001. |
+| [ISO 27001](./iso-27001-2013.md) | Fornece proteções para conformidade com a ISO 27001. |
 | [Serviços Partilhados ISO 27001](./iso27001-shared/index.md) | Fornece um conjunto de grades de proteção de políticas e padrões de infraestrutura conformes que contribuem para o atestado da norma ISO 27001. |
 | [Carga de trabalho da Base de Dados SQL/Ambiente do Serviço de Aplicações ISO 27001](./iso27001-ase-sql-workload/index.md) | Fornece mais infraestruturas à amostra de projeto [iso 27001 dos Serviços Partilhados.](./iso27001-shared/index.md) |
 | [Media](./media/index.md) | Fornece um conjunto de políticas para ajudar a cumprir o Media MPAA. |

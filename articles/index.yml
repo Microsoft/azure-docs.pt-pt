@@ -10,15 +10,15 @@ metadata:
   ms.topic: hub-page
   author: rolyon
   ms.author: rolyon
-  ms.date: 09/25/2020
+  ms.date: 01/29/2021
   featureFlags:
   - clicktale
-  ms.openlocfilehash: e0ded8bfb6392da769b85dd1e785061b6c8ae73e
-  ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+  ms.openlocfilehash: 57d3607b2076b7a5990361278c8c1372fff1b711
+  ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/26/2021
-  ms.locfileid: "98785402"
+  ms.lasthandoff: 02/01/2021
+  ms.locfileid: "99225597"
 highlightedContent:
   items:
   - title: Guia de introdução para programadores do Azure
@@ -456,6 +456,13 @@ productDirectory:
     - compute
     - containers
     url: aks/index.yml
+  - title: Azure Quantum (Pré-visualização)
+    summary: Experimente o impacto quântico hoje em Azure
+    imageSrc: ./media/index/quantum.svg
+    azureCategories:
+    - compute
+    - featured
+    url: /azure/quantum/
   - title: Azure Spring Cloud
     summary: Um serviço Spring Cloud totalmente gerido, criado e operado com Pivotal
     imageSrc: https://static.docs.com/ui/media/product/azure/spring-cloud.svg

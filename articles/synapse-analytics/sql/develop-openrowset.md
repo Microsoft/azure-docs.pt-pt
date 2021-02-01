@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5d79c296163dfcb1d81b4713f8a8673485950e05
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 9fd10d6a4fb748a61b5e1d9e27777c2fa1134039
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98919770"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225618"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Como utilizar o OPENROWSET utilizando a piscina SQL sem servidor em Azure Synapse Analytics
 
@@ -222,6 +222,7 @@ Detalhes da versão 1.0 do parser CSV:
 Detalhes da versão 2.0 do parser CSV:
 
 - Nem todos os tipos de dados são suportados.
+- O comprimento máximo da coluna de caracteres é de 8000.
 - O limite máximo de tamanho da linha é de 8 MB.
 - As seguintes opções não são suportadas: DATA_COMPRESSION.
 - A corda vazia citada ("") é interpretada como uma corda vazia.
@@ -395,6 +396,6 @@ WITH (
 AS [r]
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais amostras, consulte o [quickstart de armazenamento de dados](query-data-storage.md) de consulta para aprender a usar `OPENROWSET` para ler os formatos de ficheiro [CSV,](query-single-csv-file.md) [PARQUET](query-parquet-files.md)e [JSON.](query-json-files.md) Verifique as [melhores práticas](best-practices-sql-on-demand.md) para obter um desempenho ideal. Também pode aprender a guardar os resultados da sua consulta para o Azure Storage utilizando [o CETAS](develop-tables-cetas.md).

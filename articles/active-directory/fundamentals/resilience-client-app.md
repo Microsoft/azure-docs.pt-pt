@@ -11,12 +11,12 @@ author: knicholasa
 ms.author: nichola
 manager: martinco
 ms.date: 11/23/2020
-ms.openlocfilehash: b32f9dd10d9bd03a7e446616d9941e7bd1a9c3ed
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: bc3b041e44fad66a4edc6ff34c0e534dc423de86
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98724913"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226595"
 ---
 # <a name="increase-the-resilience-of-authentication-and-authorization-in-client-applications-you-develop"></a>Aumentar a resiliência da autenticação e autorização nas aplicações do cliente que desenvolve
 
@@ -97,7 +97,7 @@ Em geral, uma aplicação que utilize a autenticação moderna chamará um ponto
 
 ### <a name="cache-tokens"></a>Fichas de cache
 
-As aplicações devem ser adequadamente cache tokens recebidos da Microsoft Identity. Quando a sua aplicação recebe fichas, a resposta HTTP que contém os tokens também contém uma propriedade "expires_in" que diz à aplicação quanto tempo para cache, e reutilizar, o token. Nele é importante que as aplicações utilizem a propriedade "expires_in" para determinar o tempo de vida útil do token. A aplicação nunca deve tentar descodificar um token de acesso API.
+As aplicações devem ser adequadamente cache tokens recebidos da Microsoft Identity. Quando a sua aplicação recebe fichas, a resposta HTTP que contém os tokens também contém uma propriedade "expires_in" que diz à aplicação quanto tempo para cache, e reutilizar, o token. É importante que as aplicações utilizem a propriedade "expires_in" para determinar o tempo de vida útil do token. A aplicação nunca deve tentar descodificar um token de acesso API.
 
 ![Uma aplicação que faz uma chamada para a identidade da Microsoft, mas a chamada passa por uma cache simbólica no dispositivo que executa a aplicação](media/resilience-client-app/token-cache.png)
 
@@ -178,7 +178,7 @@ Enquanto o CAE está em fase inicial, é possível [desenvolver aplicações de 
 
 Se desenvolver APIs de recursos, encorajamo-lo a participar nos [Sinais e Eventos Partilhados WG.](https://openid.net/wg/sse/) Estamos a trabalhar com este grupo para permitir a partilha de eventos de segurança entre a Microsoft Identity e os fornecedores de recursos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Como utilizar a Avaliação contínua de Acessos permitiu APIs nas suas aplicações](../develop/app-resilience-continuous-access-evaluation.md)
 - [Construir resiliência em aplicações daemon](resilience-daemon-app.md)

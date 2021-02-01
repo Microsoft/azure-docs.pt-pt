@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: 131cb325e3581a135be7a88f26c59637d35bc5f3
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: b2ae48c76ccba80d274e7463b31782b4fbc6a976
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937956"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225719"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Quickstart: Inicie seduário nos utilizadores e obtenha um token de acesso num JavaScript SPA
 
@@ -55,8 +55,9 @@ Veja [como funciona a amostra](#how-the-sample-works) para uma ilustração.
 > 1. Nos **tipos de conta suportada**, selecione Contas em qualquer **diretório organizacional e contas pessoais da Microsoft.**
 > 1. Selecione **Registar**. Na página **geral** da aplicação, note o valor **de ID da Aplicação (cliente)** para posterior utilização.
 > 1. Este arranque rápido requer que o [fluxo de subvenção implícito](v2-oauth2-implicit-grant-flow.md) seja ativado. Em **Gestão**, **selecione Autenticação**.
-> 1. Em **Configurações de Plataforma**, selecione Adicionar uma **plataforma**. Abre-se um painel à esquerda. Lá, selecione a região **aplicações web.**
-> 1. Ainda à esquerda, desa um **valor URI de redirecionamento** para `http://localhost:3000/` . Em seguida, selecione **Access Token** e **ID Token**.
+> 1. Em **Configurações de Plataforma** Adicione uma  >  **plataforma**. Selecione **Web**.
+> 1. Desa estale o valor **URI de redirecionamento** para `http://localhost:3000/` . 
+> 1. Selecione **Tokens de acesso** e **tokens de ID** ao abrigo da **concessão implícita e fluxos híbridos**  .
 > 1. Selecione **Configurar**.
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -293,7 +294,7 @@ myMSALObj.acquireTokenPopup(requestObj)
 > [!NOTE]
 > Este quickstart utiliza os e métodos com o `loginRedirect` Microsoft Internet `acquireTokenRedirect` Explorer, devido a um problema [conhecido](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) relacionado com o manuseamento de janelas popup pelo Internet Explorer.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para um guia passo a passo mais detalhado sobre a construção do pedido para este arranque rápido, consulte:
 

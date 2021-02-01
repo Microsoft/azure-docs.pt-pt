@@ -1,5 +1,5 @@
 ---
-title: Autenticação multi-factor no Azure Ative Directy B2C Microsoft Docs
+title: Autenticação multi-factor no Azure Ative Directory B2C | Microsoft Docs
 description: Como ativar a autenticação multi-factor em aplicações viradas para o consumidor protegidas pelo Azure Ative Directory B2C.
 services: active-directory-b2c
 author: msmimart
@@ -12,18 +12,18 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 5d656a27017f3c7ec97362efc6207917ffcd1a56
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 8449c5437bad6d0036d332ca5c35709b5d571cfa
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97111408"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225163"
 ---
-# <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Ativar a autenticação de vários fatores no Azure Ative Directory B2C
+# <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Ativar a autenticação multifator no Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-O Azure Ative Directory B2C (Azure AD B2C) integra-se diretamente com [a Autenticação Multi-Factor AD Azure para](../active-directory/authentication/concept-mfa-howitworks.md) que possa adicionar uma segunda camada de segurança às experiências de inscrição e inscrição nas suas aplicações. Ativa a autenticação de vários fatores sem escrever uma única linha de código. Se já criou os fluxos de entrada e de inscrição do utilizador, ainda pode ativar a autenticação de vários fatores.
+O Azure Ative Directory B2C (Azure AD B2C) integra-se diretamente com [a Autenticação Multi-Factor AD Azure para](../active-directory/authentication/concept-mfa-howitworks.md) que possa adicionar uma segunda camada de segurança às experiências de inscrição e inscrição nas suas aplicações. Pode ativar a autenticação multifator sem ter de escrever uma única linha de código. Se já criou os fluxos de entrada e de inscrição do utilizador, ainda pode ativar a autenticação de vários fatores.
 
 Esta funcionalidade ajuda as aplicações a lidar com cenários como:
 
@@ -40,7 +40,9 @@ Esta funcionalidade ajuda as aplicações a lidar com cenários como:
 1. Selecione **fluxos de utilizador**.
 1. Selecione o fluxo do utilizador para o qual deseja ativar o MFA. Por exemplo, *B2C_1_signinsignup.*
 1. Selecione **Propriedades**.
-1. Na secção de **autenticação multifactor,** selecione o **método MFA** pretendido e, em seguida, sob **a aplicação do MFA** selecione **Sempre em**, ou **[Condicional](conditional-access-user-flow.md) (Recomendado)**. Para Condicional, crie uma política [de acesso condicional](conditional-access-identity-protection-setup.md) e especifique as aplicações a que pretende aplicar a política. 
+1. Na secção de **autenticação multifactor,** selecione o **método MFA** pretendido e, em seguida, sob **a aplicação do MFA** selecione **Sempre em**, ou **Condicional (Recomendado)**.
+  > [!NOTE]
+  > Se selecionar **Conditional (Recomendado)**, também terá de [adicionar uma política de Acesso Condicional](conditional-access-identity-protection-setup.md#add-a-conditional-access-policy) e especificar as aplicações a que pretende aplicar a política.
 1. Selecione Guardar. O MFA está agora ativado para este fluxo de utilizador.
 
 Pode utilizar **o fluxo do utilizador executar** para verificar a experiência. Confirme o seguinte cenário:

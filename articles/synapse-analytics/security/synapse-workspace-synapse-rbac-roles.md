@@ -1,5 +1,5 @@
 ---
-title: Funções DE Sinapse RBAC
+title: Funções RBAC do Synapse
 description: Este artigo descreve os papéis de Sinaapse RBAC incorporados
 author: billgib
 ms.service: synapse-analytics
@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: billgib
 ms.reviewer: jrasnick
-ms.openlocfilehash: a978113265e5e61c0fc09ef0daeb1da9826f294d
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 1ffbb5579ea19d7d608dd9c9d600342cd89d371c
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96572801"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225079"
 ---
 # <a name="synapse-rbac-roles"></a>Papéis de Sinapse RBAC
 
@@ -39,7 +39,7 @@ A tabela a seguir descreve as funções incorporadas e os âmbitos em que podem 
 
 |Função |Permissões|Âmbitos|
 |---|---|-----|
-|Administrador da Sinapse  |Acesso total da Sinapse a piscinas SQL sem servidor, piscinas Apache Spark e tempos de integração.  Inclui criar, ler, atualizar e eliminar o acesso a todos os artefactos de código publicados.  Inclui permissões de Operador compute, Gestor de Dados Ligados e Credenciais do Utilizador na credencial de identidade do sistema de trabalho.  Inclui a atribuição de funções de RBAC de Sinaapse.  As permissões Azure são necessárias para criar, eliminar e gerir recursos de computação. </br></br>_Pode ler e escrever artefactos </br> Pode fazer todas as ações em atividades de Spark. </br> Pode ver registos de piscina spark </br> Pode ver portátil e saída de pipeline </br> guardados Pode usar os segredos armazenados por serviços ou credenciais </br> ligados Pode ligar-se a pontos finais sem servidor SQL com SQL `db_datareader` , , e `db_datawriter` `connect` `grant` permissões Podem atribuir e revogar </br> funções DE RBAC synapse no âmbito atual_|Área de trabalho </br> Piscina de faíscas<br/>Runtime de integração </br>Serviço ligado</br>Credencial |
+|Administrador da Sinapse  |Acesso total da Sinapse a piscinas SQL sem servidor, piscinas Apache Spark e tempos de integração.  Inclui criar, ler, atualizar e eliminar o acesso a todos os artefactos de código publicados.  Inclui permissões de Operador compute, Gestor de Dados Ligados e Credenciais do Utilizador na credencial de identidade do sistema de trabalho.  Inclui a atribuição de funções de RBAC de Sinaapse. Além do Administrador da Sinapse, os Proprietários do Azure também podem atribuir funções de Sinapse RBAC. As permissões Azure são necessárias para criar, eliminar e gerir recursos de computação. </br></br>_Pode ler e escrever artefactos </br> Pode fazer todas as ações em atividades de Spark. </br> Pode ver registos de piscina spark </br> Pode ver portátil e saída de pipeline </br> guardados Pode usar os segredos armazenados por serviços ou credenciais </br> ligados Pode ligar-se a pontos finais sem servidor SQL com SQL `db_datareader` , , e `db_datawriter` `connect` `grant` permissões Podem atribuir e revogar </br> funções DE RBAC synapse no âmbito atual_|Área de trabalho </br> Piscina de faíscas<br/>Runtime de integração </br>Serviço ligado</br>Credencial |
 |Administrador de faíscas Apache Synapse</br>|Acesso total da Sinapse às Piscinas Apache Spark.  Criar, ler, atualizar e apagar o acesso às definições de emprego, cadernos e suas saídas publicados da Spark, e a bibliotecas, serviços e credenciais ligados.  Inclui acesso de leitura a todos os outros artefactos de código publicados. Não inclui permissão para usar credenciais e executar oleodutos. Não inclui conceder acesso. </br></br>_Pode fazer todas as ações em artefactos de </br> faíscas Pode fazer todas as ações em atividades de Spark_|Área de trabalho</br>Piscina de faíscas|
 |Administrador Sinapse SQL|Acesso total da Sinapse a piscinas SQL sem servidor.  Criar, ler, atualizar e apagar o acesso a scripts, credenciais e serviços SQL publicados.  Inclui acesso de leitura a todos os outros artefactos de código publicados.  Não inclui permissão para usar credenciais e executar oleodutos. Não inclui conceder acesso. </br></br>*Pode fazer todas as ações em scripts SQL <br/> Pode ligar-se a pontos finais sem servidor SQL com `db_datareader` SQL, , e `db_datawriter` `connect` `grant` permissões*|Área de trabalho|
 |Colaborador da Sinapse|Acesso total da Sinapse a piscinas SQL sem servidor, piscinas Apache Spark, tempos de integração.  Inclui criar, ler, atualizar e eliminar o acesso a todos os artefactos de código publicados e suas saídas, incluindo credenciais e serviços ligados.  Inclui permissões do operador de computação. Não inclui permissão para usar credenciais e executar oleodutos. Não inclui conceder acesso. </br></br>_Pode ler e escrever artefactos </br> Pode ver cadernos guardados e saída de pipeline </br> Pode fazer todas as ações em atividades spark </br> pode ver troncos de piscina spark_|Área de trabalho </br> Piscina de faíscas<br/> Runtime de integração|

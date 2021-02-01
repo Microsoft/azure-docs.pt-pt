@@ -126,16 +126,8 @@
           displayName: 'standards, irs, 1075'
           href: ./samples/irs-1075/deploy.md
     - name: ISO 27001
-      items:
-        - name: Descrição geral
-          displayName: 'standards, iso, 27001'
-          href: ./samples/iso27001/index.md
-        - name: Mapeamento de controlo
-          displayName: 'standards, iso, 27001'
-          href: ./samples/iso27001/control-mapping.md
-        - name: Passos para implementar
-          displayName: 'standards, iso, 27001'
-          href: ./samples/iso27001/deploy.md
+      displayName: 'standards, iso, 27001, 2013'
+      href: ./samples/iso-27001-2013.md
     - name: ISO 27001 - Serviços Partilhados
       items:
         - name: Descrição geral

@@ -8,12 +8,12 @@ ms.date: 01/26/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: e8e62d92afb70ec9d4df40f677de05583ef472b0
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 3916cd43a42ef273a45a9992b45d8b9f043c9364
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955788"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226629"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>Serviços do Azure que suportam as Zonas de Disponibilidade
 
@@ -47,16 +47,16 @@ Para alcançar uma ampla continuidade de negócios em Azure, construa a sua arqu
 ## <a name="azure-regions-with-availability-zones"></a>Regiões azure com Zonas de Disponibilidade
 
 
-| América           | Europa         | Alemanha              | África              | Ásia-Pacífico   |
-|--------------------|----------------|----------------------|---------------------|----------------|
-|                    |                |                      |                     |                |
-| Canadá Central     | França Central | Alemanha Centro-Oeste | África do Sul Norte* | Leste do Japão     |
-| E.U.A. Central         | Europa do Norte   |                      |                     | Sudeste Asiático |
-| E.U.A. Leste            | Sul do Reino Unido       |                      |                     | Leste da Austrália |
-| E.U.A. Leste 2          | Europa Ocidental    |                      |                     |                |
-| Centro-Sul dos EUA |                |                      |                     |                |
-| Eua Gov Virginia* |                |                      |                     |                |
-| Oeste DOS EUA 2        |                |                      |                     |                |
+| América           | Europa               | África              | Ásia-Pacífico   |
+|--------------------|----------------------|---------------------|----------------|
+|                    |                      |                     |                |
+| Canadá Central     | França Central       | África do Sul Norte* | Leste do Japão     |
+| E.U.A. Central         | Alemanha Centro-Oeste |                     | Sudeste Asiático |
+| E.U.A. Leste            | Europa do Norte         |                     | Leste da Austrália |
+| E.U.A. Leste 2          | Sul do Reino Unido             |                     |                |
+| Centro-Sul dos EUA | Europa Ocidental          |                     |                |
+| Eua Gov Virginia* |                      |                     |                |
+| Oeste DOS EUA 2        |                      |                     |                |
 
 
 \* Para saber mais sobre As Zonas de Disponibilidade e o suporte de serviços disponíveis nestas regiões, contacte o seu representante de vendas da Microsoft ou do cliente. Para as próximas regiões que apoiarão As Zonas de Disponibilidade, consulte [geografias Azure.](https://azure.microsoft.com/en-us/global-infrastructure/geographies/)

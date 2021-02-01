@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: a85ae227d45c8de6c3d04e4a058ebf9715421ca2
-ms.sourcegitcommit: 983eb1131d59664c594dcb2829eb6d49c4af1560
+ms.openlocfilehash: a5f0a7d8221e970c8c1aa3c1ddffbfc56f2d5715
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/01/2021
-ms.locfileid: "99222069"
+ms.locfileid: "99226190"
 ---
 # <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>Tutorial: Construa um daemon multi-inquilino que usa a plataforma de identidade da Microsoft
 
@@ -110,7 +110,7 @@ Se não quiser utilizar a automatização, utilize os passos nas seguintes secç
 1. Na **página** geral da aplicação, encontre o valor de **ID da Aplicação (cliente)** e grave-o para utilização posterior. Vai precisar dele para configurar o ficheiro de configuração do Estúdio Visual para este projeto.
 1. Em **Gestão**, **selecione Autenticação**.
 1. Desa estação **URL de logotipo do canal** frontal para `https://localhost:44316/Account/EndSession` .
-1. Na secção **de concessão implícita,** selecione **Tokens de acesso** e **fichas de identificação**. Esta amostra requer que o [fluxo de subvenção implícito](v2-oauth2-implicit-grant-flow.md) seja habilitado a assinar no utilizador e a chamar uma API.
+1. Na secção **de fluxos implícitos e híbridos,** selecione **tokens de acesso** e **fichas de identificação.** Esta amostra requer que o [fluxo de subvenção implícito](v2-oauth2-implicit-grant-flow.md) seja habilitado a assinar no utilizador e a chamar uma API.
 1. Selecione **Guardar**.
 1. Em **Gerir**, selecione **Certificados e segredos**.
 1. Na secção **de segredos** do Cliente, selecione **Novo segredo de cliente.** 

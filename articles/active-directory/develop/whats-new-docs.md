@@ -11,12 +11,12 @@ ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
 ms.author: marsma
-ms.openlocfilehash: 0beaef9162f4bdb540764a100243c579b40d1324
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 11f32d893ccc26dd30d9997d4348661d45f84eb8
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98755945"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225484"
 ---
 # <a name="microsoft-identity-platform-docs-whats-new"></a>Docs da plataforma de identidade da Microsoft: Quais as novidades
 
@@ -24,13 +24,25 @@ Bem-vindos às novidades na documentação da plataforma de identidade da Micros
 
 ## <a name="january-2021"></a>Janeiro de 2021
 
+### <a name="new-articles"></a>Artigos novos
+
+- [Registos no MSAL para Android](msal-logging-android.md)
+- [Registos no MSAL.NET](msal-logging-dotnet.md)
+- [Registos no MSAL para iOS/macOS](msal-logging-ios.md)
+- [Registos no MSAL para Java](msal-logging-java.md)
+- [Registos no MSAL.js](msal-logging-js.md)
+- [Registos no MSAL para Python](msal-logging-python.md)
+
 ### <a name="updated-articles"></a>Artigos atualizados
 
+- [Resolver problemas da verificação do publicador](troubleshoot-publisher-verification.md)
+- [Modelo de aplicação](application-model.md)
 - [Autenticação vs. autorização](authentication-vs-authorization.md)
 - [Como: Restringir a sua app Azure AD a um conjunto de utilizadores num inquilino AZure AD](howto-restrict-your-app-to-a-set-of-users.md)
 - [Permissões e consentimento no ponto final da plataforma de identidades da Microsoft](v2-permissions-and-consent.md)
 - [Vidas de token configuradas na plataforma de identidade da Microsoft (pré-visualização)](active-directory-configurable-token-lifetimes.md)
 - [Configure políticas de vida útil simbólicas (pré-visualização)](configure-token-lifetimes.md)
+- [Bibliotecas de autenticação de plataformas de identidade da Microsoft](reference-v2-libraries.md)
 - [Plataforma de identidade da Microsoft e fluxo de código de autorização OAuth 2.0](v2-oauth2-auth-code-flow.md)
 
 ## <a name="december-2020"></a>Dezembro de 2020

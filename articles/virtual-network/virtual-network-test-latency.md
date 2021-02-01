@@ -1,5 +1,5 @@
 ---
-title: Teste Azure rede de máquinas virtuais latência em uma rede virtual Azure / Microsoft Docs
+title: Testar a latência da rede de máquinas virtuais Azure numa rede virtual Azure | Microsoft Docs
 description: Saiba como testar a latência da rede entre máquinas virtuais Azure numa rede virtual
 services: virtual-network
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/29/2019
 ms.author: steveesp
-ms.openlocfilehash: f8f167a7947c42ce837ec83b336ae636f593f2e4
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 7dc8aac730fdf46cab47a3297b8c001cb0b8e314
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219263"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226410"
 ---
 # <a name="test-vm-network-latency"></a>Testar a latência da rede de VMs
 
@@ -29,7 +29,7 @@ Outras ferramentas comuns de conectividade, como o Ping, podem medir a latência
 
 Para testes precisos de latência da rede dos protocolos utilizados pela maioria das aplicações, o SockPerf (para Linux) e latte.exe (para Windows) produzem os resultados mais relevantes. Este artigo cobre ambas as ferramentas.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Ao utilizar dois VMs, um como remetente e outro como recetor, cria-se um canal de comunicação bidirecional. Com esta abordagem, pode enviar e receber pacotes em ambas as direções e medir o tempo de ida e volta (RTT).
 
@@ -45,7 +45,7 @@ Pode utilizar esta abordagem para medir a latência da rede entre dois VMs ou me
 ### <a name="tools-for-testing"></a>Ferramentas para testes
 Para medir a latência, tem duas opções de ferramentas diferentes:
 
-* Para sistemas baseados no Windows: [latte.exe (Windows)](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b)
+* Para sistemas baseados no Windows: [latte.exe (Windows)](https://github.com/microsoft/latte/releases/download/v0/latte.exe)
 * Para sistemas baseados em Linux: [SockPerf (Linux)](https://github.com/mellanox/sockperf)
 
 Ao utilizar estas ferramentas, ajuda a garantir que apenas os prazos de entrega de carga útil TCP ou UDP são medidos e não ICMP (Ping) ou outros tipos de pacotes que não são usados por aplicações e não afetam o seu desempenho.

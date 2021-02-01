@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/06/2020
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: 874488e5de7888edad5310afce1afd1baec4ece0
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: d790b466f669ed067863b6643c8f59662eb628a7
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753061"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226442"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Tutorial: Inscreva-se nos utilizadores e ligue para a API do Gráfico microsoft a partir de uma aplicação de página única JavaScript (SPA)
 
@@ -275,7 +275,7 @@ Antes de prosseguir com a autenticação, registe o seu pedido no **Diretório A
 1. Selecione **Registar**.
 1. Na página **geral** da aplicação, note o valor **de ID da Aplicação (cliente)** para posterior utilização.
 1. Em **Gestão**, **selecione Autenticação**.
-1. Na secção **de concessão implícita,** selecione **fichas de identificação** e **fichas de acesso**. São necessárias fichas de ID e fichas de acesso porque esta aplicação deve assinar nos utilizadores e chamar uma API.
+1. Na secção **de fluxos implícitos e híbridos,** selecione **fichas de identificação** e **fichas de acesso.** São necessárias fichas de ID e fichas de acesso porque esta aplicação deve assinar nos utilizadores e chamar uma API.
 1. Selecione **Guardar**.
 
 > ### <a name="set-a-redirect-url-for-nodejs"></a>Desa redirecione um URL de redirecionamento para Node.js
@@ -508,7 +508,7 @@ A API do Microsoft Graph requer que o âmbito de leitura do *utilizador.leia* pa
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Aprofundar o desenvolvimento de aplicações de uma página única (SPA) na plataforma de identidade da Microsoft na nossa série de cenários multi-partes.
 

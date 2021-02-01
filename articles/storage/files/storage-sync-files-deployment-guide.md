@@ -1,5 +1,5 @@
 ---
-title: Implementar Azure File Sync / Microsoft Docs
+title: Implementar | de sincronização de ficheiros Azure Microsoft Docs
 description: Saiba como implementar o Azure File Sync, do início ao fim, utilizando o portal Azure, o PowerShell ou o Azure CLI.
 author: roygara
 ms.service: storage
@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 11/05/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2af8db1a6e8c774f1004b380c8aaaa06ba61d8c3
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 4814a12a870d5317ad91c3514327ba0daad7ed69
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862337"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225375"
 ---
 # <a name="deploy-azure-file-sync"></a>Implementar Azure File Sync
 Utilize o Azure File Sync para centralizar as ações de ficheiros da sua organização em Ficheiros Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos dados localmente, incluindo SMB, NFS e FTPS. Podes ter o número de caches que precisares em todo o mundo.
@@ -506,7 +506,7 @@ Se quiser configurar a sua sincronização de ficheiros Azure para trabalhar com
 ![Configurar firewall e configurações de rede virtuais para trabalhar com a sincronização do Ficheiro Azure](media/storage-sync-files-deployment-guide/firewall-and-vnet.png)
 
 ## <a name="onboarding-with-azure-file-sync"></a>Embarque com Azure File Sync
-As etapas recomendadas para embarcar no Azure File Sync para o primeiro com zero tempo de inatividade, preservando a fidelidade completa do ficheiro e a lista de controlo de acesso (ACL) são as seguintes:
+As etapas recomendadas para embarcar no Azure File Sync pela primeira vez com zero tempo de inatividade, preservando a fidelidade completa do ficheiro e a lista de controlo de acesso (ACL) são as seguintes:
  
 1. Implementar um serviço de sincronização de armazenamento.
 1. Crie um grupo de sincronização.

@@ -1,5 +1,5 @@
 ---
-title: Use o MSAL numa aplicação nacional de nuvem Rio Azure
+title: Use o MSAL numa aplicação nacional de nuvem | Rio Azure
 titleSuffix: Microsoft identity platform
 description: A Microsoft Authentication Library (MSAL) permite que os desenvolvedores de aplicações adquiram fichas de forma a chamar APIs web seguras. Estas APIs web podem ser Microsoft Graph, outras APIs da Microsoft, APIs de web parceiros ou a sua própria API web. A MSAL suporta múltiplas arquiteturas e plataformas de aplicações.
 services: active-directory
@@ -13,12 +13,12 @@ ms.date: 11/22/2019
 ms.author: negoe
 ms.reviewer: marsma, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 5a032f45027cc4bffc7f2bc46c6ea1a69a1b83e4
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 2f9396e20ae0f426dddd57b32297cfe98e135c44
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178624"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225821"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Use o MSAL num ambiente de nuvem nacional
 
@@ -84,7 +84,7 @@ Para ativar a sua aplicação MSAL.js para nuvens soberanas:
 1. Na página **'Visão Geral',** anote o valor **de ID da Aplicação (cliente)** para utilização posterior.
     Este tutorial requer que você permita o [fluxo de subvenção implícita](v2-oauth2-implicit-grant-flow.md). 
 1. Em **Gestão**, **selecione Autenticação**.
-1. Sob **subvenção implícita,** selecione **fichas de identificação** e **fichas de acesso.** São necessários tokens de ID e fichas de acesso porque esta aplicação precisa de assinar nos utilizadores e chamar uma API.
+1. Sob **subvenção implícita e fluxos híbridos,** selecione **fichas de identificação** e **fichas de acesso.** São necessários tokens de ID e fichas de acesso porque esta aplicação precisa de assinar nos utilizadores e chamar uma API.
 1. Selecione **Guardar**.
 
 ### <a name="step-2--set-up-your-web-server-or-project"></a>Passo 2: Configurar o seu servidor web ou projeto

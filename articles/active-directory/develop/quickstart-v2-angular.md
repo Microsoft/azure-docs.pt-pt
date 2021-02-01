@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 03/18/2020
 ms.author: janutter
-ms.openlocfilehash: 161b7fcf4660ddb9515f0b82887f416d83598bdc
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 56359ba07513ac648c682b8114001e251b0ee44c
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754435"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225804"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-an-angular-single-page-application"></a>Quickstart: Inscreva-se nos utilizadores e obtenha um token de acesso numa aplicação de página única angular
 
@@ -49,11 +49,11 @@ Neste arranque rápido, você descarrega e execute uma amostra de código que de
 > 1. Se a sua conta tiver acesso a mais de um inquilino, selecione a sua conta no canto superior direito e desemconfie da sua sessão de portal para o inquilino AZure AD que pretende utilizar.
 > 1. Siga as instruções para [registar uma aplicação de uma página](./scenario-spa-app-registration.md) no portal Azure.
 > 1. Adicione uma nova plataforma no painel de **autenticação** do registo da sua aplicação e registe o redireccionamento URI: `http://localhost:4200/` .
-> 1. Este quickstart utiliza o [fluxo de subvenção implícito.](v2-oauth2-implicit-grant-flow.md) Selecione as definições implícitas de **concessão** **para fichas de identificação** e **fichas de acesso**. São necessários tokens de ID e fichas de acesso porque esta aplicação assina nos utilizadores e chama uma API.
+> 1. Este quickstart utiliza o [fluxo de subvenção implícito.](v2-oauth2-implicit-grant-flow.md) Na secção **de fluxos implícitos e híbridos,** selecione **fichas de identificação** e **fichas de acesso.** São necessários tokens de ID e fichas de acesso porque esta aplicação assina nos utilizadores e chama uma API.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-the-application-in-the-azure-portal"></a>Passo 1: Configurar a aplicação no portal Azure
-> Para que a amostra de código para este arranque rápido funcione, é necessário adicionar um URI de redirecionamento como **http://localhost:4200/** e ativar a **concessão Implícita**.
+> Para que a amostra de código para este arranque rápido funcione, é necessário adicionar um URI de redirecionamento como **http://localhost:4200/** e ativar a concessão implícita *****.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Faça estas alterações para mim]()
 >
@@ -137,7 +137,7 @@ Depois de o navegador carregar a aplicação, **selecione 'Iniciar sessão'.** A
 ![Diagrama que mostra como a aplicação da amostra neste quickstart funciona](./media/quickstart-v2-angular/diagram-auth-flow-spa-angular.svg)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Em seguida, aprenda a assinar num utilizador e adquira fichas no tutorial angular:
 

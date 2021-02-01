@@ -12,12 +12,12 @@ ms.date: 11/30/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 97f4642d69d4a432b823bd1cd7cdbdd9fc7f270d
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: f3598c6f072d09d7e427db66dcfbf8721b92a3a1
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98752754"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226493"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Plataforma de identidade da Microsoft e fluxo de subvenção implícito
 
@@ -44,7 +44,7 @@ O diagrama seguinte mostra como é todo o fluxo de entrada implícita e as secç
 Para inicialmente iniciar a inscrição do utilizador na sua aplicação, pode enviar um pedido de autenticação [OpenID Connect](v2-protocols-oidc.md) e obter um `id_token` a partir da plataforma de identidade da Microsoft.
 
 > [!IMPORTANT]
-> Para solicitar com sucesso um token de ID e/ou um token de acesso, o registo da aplicação no [portal Azure - Página de registos de aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) deve ter o fluxo de subvenção implícita correspondente, selecionando fichas de **identificação** e.ou **fichas de acesso ao** abrigo da secção de **subvenção Implícita.** Se não estiver ativado, será devolvido um `unsupported_response` erro: **O valor fornecido para o parâmetro de entrada 'response_type' não é permitido para este cliente. Valor esperado é 'código'**
+> Para solicitar com sucesso um token de ID e/ou um token de acesso, o registo da aplicação no [portal Azure - Página de registos de aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) deve ter o fluxo de subvenção implícita correspondente, selecionando fichas de **identificação** e **fichas de acesso** na secção de **fluxos implícitos e híbridos.** Se não estiver ativado, será devolvido um `unsupported_response` erro: `The provided value for the input parameter 'response_type' is not allowed for this client. Expected value is 'code'`
 
 ```
 // Line breaks for legibility only
@@ -210,7 +210,7 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redire
 | `tenant` |obrigatório |O `{tenant}` valor no caminho do pedido pode ser usado para controlar quem pode assinar a aplicação. Os valores permitidos `common` `organizations` são, `consumers` e os identificadores de inquilinos. Para mais detalhes, consulte [o protocolo básico.](active-directory-v2-protocols.md#endpoints) |
 | `post_logout_redirect_uri` | recomendado | O URL a que o utilizador deve ser devolvido após o início de sê-lo. Este valor deve corresponder a um dos URIs de redirecionamento registados para a aplicação. Se não estiver incluído, o utilizador será mostrado uma mensagem genérica pela plataforma de identidade da Microsoft. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Ver as amostras do [MSAL JS](sample-v2-code.md) para começar a codificar.
 * Reveja o [fluxo de código](v2-oauth2-auth-code-flow.md) de autorização como uma alternativa mais recente e melhor à concessão implícita. 

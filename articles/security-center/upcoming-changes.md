@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/25/2021
 ms.author: memildin
-ms.openlocfilehash: 99dadea37a519289120fcf30e394df1e0f7af5e7
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 83c1d8ac316703d9d22d0716c86c5731c3db7133
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757716"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226476"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Mudanças importantes para o Centro de Segurança Azure
 
@@ -83,7 +83,7 @@ Saiba mais sobre estas recomendações na página de referência das [recomenda�
 
 **Data estimada para a alteração:** 2º trimestre de 2021
 
-A versão atual da recomendação **Os dados sensíveis nas suas bases de dados SQL devem ser classificados** no controlo de segurança **de classificação de dados Apply** será depreciado e substituído por uma nova versão mais alinhada com a estratégia de classificação de dados da Microsoft. Como resultado:
+A versão atual da recomendação **Os dados sensíveis nas suas bases de dados SQL devem ser classificados** no controlo de segurança de **classificação de dados Apply** será substituído por uma nova versão mais alinhada com a estratégia de classificação de dados da Microsoft. Como resultado:
 
 - A recomendação não afetará mais a sua pontuação segura
 - O controlo de segurança ("Aplicar classificação de dados") deixará de afetar a sua pontuação segura
@@ -91,6 +91,6 @@ A versão atual da recomendação **Os dados sensíveis nas suas bases de dados 
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para todas as alterações recentes ao produto, veja [o que há de novo no Azure Security Center?](release-notes.md)

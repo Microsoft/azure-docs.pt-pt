@@ -611,6 +611,8 @@
           items:
             - name: Monitorizar e otimizar
               href: concepts-hyperscale-monitoring.md
+            - name: Registos de auditoria
+              href: concepts-hyperscale-audit.md
         - name: Opções de configuração
           href: concepts-hyperscale-configuration-options.md
         - name: Fazer pré-pagamento para a capacidade de reserva

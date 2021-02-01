@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: fe54c4495e589459fe734f315138cafa8d7cd033
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 4e389114dc873d067a32389b288e1bb98d497850
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98934732"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226066"
 ---
 # <a name="spatial-analysis-operations"></a>Operações de análise espacial
 
@@ -130,7 +130,7 @@ Este é um exemplo dos parâmetros DETETOR_NODE_CONFIG para todas as operações
 | `threshold` | float| Os eventos são elitados quando a confiança dos modelos de IA é maior ou igual a este valor. |
 | `type` | string| Para **os serviços cognitivos.vision.spatialanalysis-personcount** isto deve ser `count` .|
 | `trigger` | string| O tipo de gatilho para enviar um evento. Os valores suportados destinam-se `event` ao envio de eventos quando a contagem muda ou `interval` para envio de eventos periodicamente, independentemente de a contagem ter mudado ou não.
-| `interval` | string| Um tempo em segundos que a contagem da pessoa será agregada antes de um evento ser disparado. A operação continuará a analisar a cena a um ritmo constante e devolve a contagem mais comum ao longo desse intervalo. O intervalo de agregação é aplicável a ambos `event` e `interval` .|
+| `output_frequency` | int | A taxa a que os eventos são efencados. Quando `output_frequency` = X, cada evento X é expulso, ex. `output_frequency` = 2 significa que cada outro evento é a saída. O `output_frequency` é aplicável a ambos e `event` `interval` . |
 | `focus` | string| A localização do ponto dentro da caixa de limites da pessoa usada para calcular eventos. O valor do foco pode ser `footprint` (a pegada da pessoa), `bottom_center` (o centro inferior da caixa de delimitação da pessoa), `center` (o centro da caixa de delimitação da pessoa).|
 
 ### <a name="line-configuration-for-cognitiveservicesvisionspatialanalysis-personcrossingline"></a>Configuração de linha para serviços cognitivos.vision.spatialanalysis-personcrossingline
@@ -255,8 +255,7 @@ Este é um exemplo de uma entrada JSON para o parâmetro SPACEANALYTICS_CONFIG q
 | `threshold` | float| Os eventos são elitados quando a confiança dos modelos de IA é maior ou igual a este valor. |
 | `type` | string| Para **os serviços cognitivos.vision.spatialanalysis-persondistance** isto deve ser `people_distance` .|
 | `trigger` | string| O tipo de gatilho para enviar um evento. Os valores suportados destinam-se `event` ao envio de eventos quando a contagem muda ou `interval` para envio de eventos periodicamente, independentemente de a contagem ter mudado ou não.
-| `interval` | string | Um tempo em segundos para que as violações sejam agregadas antes de um evento ser disparado. O intervalo de agregação é aplicável a ambos `event` e `interval` .|
-| `output_frequency` | int | A taxa a que os eventos são efencados. Quando `output_frequency` = X, cada evento X é expulso, ex. `output_frequency` = 2 significa que cada outro evento é a saída. O output_frequency é aplicável a ambos `event` e `interval` .|
+| `output_frequency` | int | A taxa a que os eventos são efencados. Quando `output_frequency` = X, cada evento X é expulso, ex. `output_frequency` = 2 significa que cada outro evento é a saída. O `output_frequency` é aplicável a ambos e `event` `interval` .|
 | `minimum_distance_threshold` | float| Uma distância nos pés que irá desencadear um evento "TooClose" quando as pessoas estão a menos de essa distância.|
 | `maximum_distance_threshold` | float| Uma distância nos pés que irá desencadear um evento "TooFar" quando as pessoas são maiores do que essa distância.|
 | `focus` | string| A localização do ponto dentro da caixa de limites da pessoa usada para calcular eventos. O valor do foco pode ser `footprint` (a pegada da pessoa), `bottom_center` (o centro inferior da caixa de delimitação da pessoa), `center` (o centro da caixa de delimitação da pessoa).|
@@ -968,7 +967,7 @@ Para obter o melhor desempenho e utilização das GPUs, pode implementar quaisqu
 |---------|---------|---------|
 | `batch_size` | int | Indica o número de câmaras que serão usadas na operação. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Implementar uma aplicação web People Counting](spatial-analysis-web-app.md)
 * [Registo e resolução de problemas](spatial-analysis-logging.md)

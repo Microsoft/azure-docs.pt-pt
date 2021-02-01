@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 04/20/2020
-ms.openlocfilehash: 76bb4ffb4ebeb01baf8236d6be84c900b23ffbc0
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3e4b4fc3d4a6c9529c7c0ac0daef8a28173e0bf3
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790819"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225348"
 ---
 # <a name="transactional-replication-with-azure-sql-managed-instance-preview"></a>Replicação transacional com Azure SQL Gestded Instance (Preview)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -26,7 +26,7 @@ A replicação transacional é uma característica do Azure SQL Managed Instance
 
 A replicação transacional está atualmente em pré-visualização pública para SQL Managed Instance. 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Pode utilizar a replicação transacional para impulsionar as alterações efetuadas numa Instância Gerida Azure SQL para:
 
@@ -89,10 +89,10 @@ Existem diferentes [tipos de replicação:](/sql/relational-databases/replicatio
 | **Publisher**   | **Distribuidor** | **Assinante** |
 | :------------   | :-------------- | :------------- |
 | SQL Server 2019 | SQL Server 2019 | SQL Server 2019 <br/> SQL Server 2017 <br/> SQL Server 2016 <br/>  |
-| SQL Server 2017 | SQL Server 2019 <br/>SQL Server 2017 | SQL Server 2019 <br/> SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 |
-| SQL Server 2016 | SQL Server 2019 <br/>SQL Server 2017 <br/> SQL Server 2016 | SQL Server 2019 <br/> SQL Server 2017 <br/>SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 |
+| SQL Server 2017 | SQL Server 2019 <br/>SQL Server 2017 | SQL Server 2019 <br/> SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 |
+| SQL Server 2016 | SQL Server 2019 <br/>SQL Server 2017 <br/> SQL Server 2016 | SQL Server 2019 <br/> SQL Server 2017 <br/>SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 |
 | SQL Server 2014 | SQL Server 2019 <br/> SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>| SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 |
-| SQL Server 2012 | SQL Server 2019 <br/> SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>SQL Server 2012 <br/> | SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 |
+| SQL Server 2012 | SQL Server 2019 <br/> SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>SQL Server 2012 <br/> | SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 |
 | SQL Server 2008 R2 <br/> SQL Server 2008 | SQL Server 2019 <br/> SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 |  SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 <br/>  |
 | &nbsp; | &nbsp; | &nbsp; |
 
@@ -109,7 +109,7 @@ A replicação transacional é útil nos seguintes cenários:
 | Categoria | Sincronização de Dados | Replicação Transacional |
 |---|---|---|
 | Vantagens | - Suporte ativo<br/>- Biducional entre as instalações e a Base de Dados Azure SQL | - Menor latência<br/>- Consistência transacional<br/>- Reutilização da topologia existente após a migração |
-| Desvantagens | - 5 min ou mais de latência<br/>- Sem consistência transacional<br/>- Maior impacto no desempenho | - Não pode publicar na Base de Dados Azure SQL <br/>- Alto custo de manutenção |
+| Desvantagens | - Sem consistência transacional<br/>- Maior impacto no desempenho | - Não pode publicar na Base de Dados Azure SQL <br/>- Alto custo de manutenção |
 
 ## <a name="common-configurations"></a>Configurações comuns
 
@@ -197,7 +197,7 @@ Para obter mais informações sobre a configuração da replicação transaciona
 - [Configure a replicação entre um editor de exemplos geridos sql e assinante](../managed-instance/replication-between-two-instances-configure-tutorial.md)
 - [Configure a replicação entre um editor de instância gerida SQL, distribuidor de instância gerida SQL e subscritor do SQL Server](../managed-instance/replication-two-instances-and-sql-server-configure-tutorial.md)
 - [Criar uma publicação.](/sql/relational-databases/replication/publish/create-a-publication)
-- [Crie uma subscrição push](/sql/relational-databases/replication/create-a-push-subscription) utilizando o nome do servidor como assinante (por `N'azuresqldbdns.database.windows.net` exemplo, e a base de dados no nome Azure SQL Database como base de dados de destino (por exemplo, **Adventureworks** . )
+- [Crie uma subscrição push](/sql/relational-databases/replication/create-a-push-subscription) utilizando o nome do servidor como assinante (por `N'azuresqldbdns.database.windows.net` exemplo, e a base de dados no nome Azure SQL Database como base de dados de destino (por exemplo, **Adventureworks**. )
 
 ## <a name="see-also"></a>Ver também  
 

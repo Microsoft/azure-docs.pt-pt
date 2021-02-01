@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 02/01/2021
 ms.author: panosper
-ms.openlocfilehash: a6f75a80fd73844c975b332db8a0e8919cde9f0d
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 61768991fc4e72b44568bd92278427e6af398d52
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98072178"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226561"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Discurso ao Texto frequentemente feito perguntas
 
@@ -83,7 +83,7 @@ Ambos os modelos base e modelos personalizados serão retirados após algum temp
 
 **P: Os meus pedidos estão registados?**
 
-**A**: Por defeito, os pedidos não são registados (nem áudio, nem transcrição). Se necessário, poderá *selecionar o conteúdo de Log a partir desta* opção de ponto final quando criar um ponto final [personalizado](./how-to-custom-speech-train-model.md). Também pode ativar o registo áudio no [SDK](speech-sdk.md) do discurso numa base de pedido sem criar um ponto final personalizado. Em ambos os casos, os resultados áudio e de reconhecimento dos pedidos serão armazenados em armazenamento seguro. Para as subscrições que utilizam o armazenamento da Microsoft, estarão disponíveis durante 30 dias.
+**A**: Por defeito, os pedidos não são registados (nem áudio, nem transcrição). Se necessário, poderá *selecionar o conteúdo de Log a partir desta* opção de ponto final quando criar um ponto final [personalizado](how-to-custom-speech-train-model.md#deploy-a-custom-model). Também pode ativar o registo áudio no [SDK](how-to-use-logging.md) do discurso numa base de pedido sem criar um ponto final personalizado. Em ambos os casos, os resultados áudio e de reconhecimento dos pedidos serão armazenados em armazenamento seguro. Para as subscrições que utilizam o armazenamento da Microsoft, estarão disponíveis durante 30 dias.
 
 Pode exportar os ficheiros registados na página de implementação no Estúdio de Discurso se utilizar um ponto final personalizado com *conteúdo de Log a partir deste ponto final* ativado. Se o registo áudio estiver ativado através do SDK, ligue para a [API](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModelLogs) para aceder aos ficheiros.
 
