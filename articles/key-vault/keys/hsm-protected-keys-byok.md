@@ -8,14 +8,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: tutorial
-ms.date: 05/29/2020
+ms.date: 02/01/2021
 ms.author: ambapat
-ms.openlocfilehash: a1c6b054a9caac8ba223bc81e164e7ebf34bd267
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 98da8057fb09cf43a59b921694386cbf3fa8ca21
+ms.sourcegitcommit: 983eb1131d59664c594dcb2829eb6d49c4af1560
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413331"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99222222"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault-byok"></a>Chaves protegidas pelo HSM para o Cofre-Chave (BYOK)
 
@@ -65,6 +65,7 @@ As seguintes listas de tabelas pré-requisitos para a utilização do BYOK no Co
 |Criptomático|ISV (Sistema de Gestão de Chaves empresariais)|Múltiplas marcas e modelos HSM, incluindo<ul><li>nCipher</li><li>Thales</li><li>Rio Utimaco</li></ul>Consulte [o site Cryptomathic para mais detalhes](https://www.cryptomathic.com/azurebyok)|[Ferramenta e documentação cryptomathic BYOK](https://www.cryptomathic.com/azurebyok)|
 |Securosys SA|Fabricante, HSM como serviço|Família Primus HSM, Securosys Clouds HSM|[Ferramenta e documentação Primus BYOK](https://www.securosys.com/primus-azure-byok)|
 |StorMagic|ISV (Sistema de Gestão de Chaves empresariais)|Múltiplas marcas e modelos HSM, incluindo<ul><li>Rio Utimaco</li><li>Thales</li><li>nCipher</li></ul>Consulte [o site StorMagic para mais detalhes](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)|[SvKMS e Azure Key Vault BYOK](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)|
+|IBM|Fabricante|IBM 476x, CryptoExpress|[Fundação de Gestão chave da EMPRESA IBM](https://www.ibm.com/security/key-management/ekmf-bring-your-own-key-azure)|
 ||||
 
 
@@ -121,7 +122,7 @@ Transfira o ficheiro BYOK para o seu computador conectado.
 > [!NOTE] 
 > A importação de chaves RSA de 1.024 bits não é suportada. Atualmente, a importação de uma chave da Curva Elíptica (CE) não é suportada.
 > 
-> **Edição conhecida** : Importar uma chave-alvo RSA 4K da Luna HSMs só é suportado com firmware 7.4.0 ou mais recente.
+> **Edição conhecida**: Importar uma chave-alvo RSA 4K da Luna HSMs só é suportado com firmware 7.4.0 ou mais recente.
 
 ### <a name="step-4-transfer-your-key-to-azure-key-vault"></a>Passo 4: Transfira a chave para o Cofre da Chave Azure
 

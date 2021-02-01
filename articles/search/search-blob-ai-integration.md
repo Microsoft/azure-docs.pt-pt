@@ -1,5 +1,5 @@
 ---
-title: Use AI para entender os dados de armazenamento blob
+title: Use AI para enriquecer o conteúdo da bolha
 titleSuffix: Azure Cognitive Search
 description: Conheça as capacidades naturais de análise de linguagem e imagem na Pesquisa Cognitiva do Azure, e como esses processos se aplicam aos conteúdos armazenados em blobs Azure.
 manager: nitinme
@@ -7,17 +7,17 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: a0d32f00bd3c7f8daa2984bdc7c9b9dfb5add218
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/02/2021
+ms.openlocfilehash: 3d427d80e502eed0825165e640acc0755515c5b0
+ms.sourcegitcommit: 983eb1131d59664c594dcb2829eb6d49c4af1560
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362802"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99222053"
 ---
-# <a name="use-ai-to-understand-blob-storage-data"></a>Use AI para entender os dados de armazenamento blob
+# <a name="use-ai-to-process-and-analyze-blob-content-in-azure-cognitive-search"></a>Use AI para processar e analisar conteúdo blob em Pesquisa Cognitiva Azure
 
-Os dados no armazenamento de Azure Blob são frequentemente uma variedade de conteúdos não estruturados, tais como imagens, texto longo, PDFs e documentos do Office. Ao utilizar as capacidades de IA na Azure Cognitive Search, pode compreender e extrair informações valiosas de bolhas de várias maneiras. Exemplos de aplicação de IA ao conteúdo blob incluem:
+Os conteúdos no armazenamento Azure Blob que são compostos por imagens ou textos indiferenciados longos podem ser submetidos a análises de aprendizagem profunda para revelar e extrair informações valiosas úteis para aplicações a jusante. Ao utilizar [o enriquecimento de IA,](cognitive-search-concept-intro.md)pode:
 
 + Extrair texto de imagens utilizando reconhecimento de caracteres óticos (OCR)
 + Produzir uma descrição de cena ou etiquetas de uma foto
@@ -26,23 +26,23 @@ Os dados no armazenamento de Azure Blob são frequentemente uma variedade de con
 
 Embora possa precisar apenas de uma destas capacidades de IA, é comum combinar vários deles no mesmo oleoduto (por exemplo, extrair texto de uma imagem digitalizada e, em seguida, encontrar todas as datas e locais referenciados nele). Também é comum incluir um processamento personalizado de IA ou machine learning sob a forma de pacotes externos de ponta ou modelos internos adaptados aos seus dados e requisitos.
 
-O enriquecimento de IA cria novas informações, capturadas como texto, armazenadas em campos. Após o enriquecimento, pode aceder a estas informações a partir de um índice de pesquisa através de uma pesquisa completa de texto, ou enviar documentos enriquecidos de volta ao armazenamento Azure para alimentar novas experiências de aplicação que incluem explorar dados para cenários de descoberta ou análise. 
+Embora possa aplicar o enriquecimento de IA a qualquer fonte de dados suportada por um indexante de pesquisa, as bolhas são as estruturas mais utilizadas num oleoduto de enriquecimento. Os resultados são puxados para um índice de pesquisa para pesquisa completa de texto, ou reencaminhados de volta para O Azure Storage para alimentar novas experiências de aplicação que incluem explorar dados para cenários de descoberta ou analíticos. 
 
 Neste artigo, vemos o enriquecimento de IA através de uma lente larga para que você possa rapidamente compreender todo o processo, desde a transformação de dados brutos em bolhas, até informações consultadas em um índice de pesquisa ou uma loja de conhecimento.
 
 ## <a name="what-it-means-to-enrich-blob-data-with-ai"></a>O que significa "enriquecer" dados blob com IA
 
-*O enriquecimento* de IA faz parte da arquitetura de indexação da Azure Cognitive Search que integra IA incorporada da Microsoft ou IA personalizada que fornece. Ajuda-o a implementar cenários de ponta a ponta onde é necessário processar bolhas (tanto as existentes como as novas à medida que entram ou são atualizadas), abre todos os formatos de ficheiros para extrair imagens e texto, extrair as informações desejadas utilizando várias capacidades de IA e indexá-las num índice de pesquisa para pesquisa rápida, recuperação e exploração. 
+*O enriquecimento* de IA faz parte da arquitetura de indexação da Azure Cognitive Search que integra modelos de aprendizagem automática da Microsoft ou modelos de aprendizagem personalizados que fornece. Ajuda-o a implementar cenários de ponta a ponta onde é necessário processar bolhas (tanto as existentes como as novas à medida que entram ou são atualizadas), abre todos os formatos de ficheiros para extrair imagens e texto, extrair as informações desejadas utilizando várias capacidades de IA e indexá-las num índice de pesquisa para pesquisa rápida, recuperação e exploração. 
 
 As entradas são as suas bolhas, num único recipiente, no armazenamento de Azure Blob. As bolhas podem ser quase qualquer tipo de texto ou dados de imagem. 
 
 A saída é sempre um índice de pesquisa, usado para pesquisa rápida de texto, recuperação e exploração em aplicações de clientes. Além disso, a produção também pode ser uma [*loja de conhecimento*](knowledge-store-concept-intro.md) que projeta documentos enriquecidos em bolhas Azure ou mesas Azure para análise a jusante em ferramentas como o Power BI ou em cargas de trabalho de ciência de dados.
 
-Pelo meio está a arquitetura do gasoduto em si. O pipeline baseia-se na funcionalidade *indexante,* à qual pode atribuir um *skillset*, que é composto por uma ou mais *competências* que fornecem a IA. O objetivo do gasoduto é produzir *documentos enriquecidos* que insiram como conteúdo bruto, mas que recolham estrutura, contexto e informação adicionais enquanto se deslocam através do oleoduto. Os documentos enriquecidos são consumidos durante a indexação para criar índices invertidos e outras estruturas utilizadas na pesquisa ou exploração e análise de texto completos.
+Pelo meio está a arquitetura do gasoduto em si. O pipeline baseia-se nos [*indexantes*](search-indexer-overview.md), aos quais pode atribuir um [*skillset,*](cognitive-search-working-with-skillsets.md)que é composto por uma ou mais *competências* que fornecem a IA. O objetivo do gasoduto é produzir *documentos enriquecidos* que entrem no gasoduto como conteúdo bruto, mas recolham estrutura, contexto e informação adicionais enquanto se deslocam através do oleoduto. Os documentos enriquecidos são consumidos durante a indexação para criar índices invertidos e outras estruturas utilizadas na pesquisa ou exploração e análise de texto completos.
 
 ## <a name="required-resources"></a>Recursos necessários
 
-Você precisa de armazenamento Azure Blob, Azure Cognitive Search, e um terceiro serviço ou mecanismo que fornece a IA:
+Além do armazenamento Azure Blob e da Pesquisa Cognitiva Azure, precisa de um terceiro serviço ou mecanismo que forneça a IA:
 
 + Para IA incorporada, a Pesquisa Cognitiva integra-se com a visão dos Serviços Cognitivos Azure e as APIs de processamento de linguagem natural. Pode [anexar um recurso de Serviços Cognitivos](cognitive-search-attach-cognitive-services.md) para adicionar Reconhecimento Ótico de Caracteres (OCR), análise de imagem ou processamento de linguagem natural (deteção de linguagem, tradução de texto, reconhecimento de entidades, extração de frases-chave). 
 

@@ -230,7 +230,7 @@
           items:
             - name: Pesquisar em blobs
               href: search-blob-storage-integration.md
-            - name: Compreender blobs com IA
+            - name: Enriquecimento de IA sobre bolhas
               href: search-blob-ai-integration.md
             - name: Configurar um indexador de blobs
               href: search-howto-indexing-azure-blob-storage.md

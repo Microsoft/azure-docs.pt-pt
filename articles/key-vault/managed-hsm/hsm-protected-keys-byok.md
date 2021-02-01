@@ -1,19 +1,19 @@
 ---
-title: Como gerar e transferir chaves protegidas pelo HSM para o Azure Key Vault Gerido HSM - Azure Key Vault / Microsoft Docs
+title: Como gerar e transferir chaves protegidas pelo HSM para o Azure Key Vault Gerido HSM - Azure Key Vault | Microsoft Docs
 description: Use este artigo para ajudá-lo a planear, gerar e transferir as suas próprias chaves protegidas pelo HSM para usar com o Gerido HSM. Também conhecido como trazer a sua própria chave (BYOK).
 services: key-vault
 author: amitbapat
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: conceptual
-ms.date: 09/17/2020
+ms.date: 02/01/2021
 ms.author: ambapat
-ms.openlocfilehash: 3c727b75e0d1b1e05638617d6e460dade15fc3c5
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 444f279f8e96486bd6ad61a2ea2640a18b491c9c
+ms.sourcegitcommit: 983eb1131d59664c594dcb2829eb6d49c4af1560
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413484"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99222239"
 ---
 # <a name="import-hsm-protected-keys-to-managed-hsm-byok"></a>Importa chaves protegidas pelo HSM para o HSM gerido (BYOK)
 
@@ -69,6 +69,7 @@ Para obter mais informações sobre as opções de login através do CLI, dê um
 |Criptomático|ISV (Sistema de Gestão de Chaves empresariais)|Múltiplas marcas e modelos HSM, incluindo<ul><li>nCipher</li><li>Thales</li><li>Rio Utimaco</li></ul>Consulte [o site Cryptomathic para mais detalhes](https://www.cryptomathic.com/azurebyok)|[Ferramenta e documentação cryptomathic BYOK](https://www.cryptomathic.com/azurebyok)|
 |Securosys SA|Fabricante, HSM como serviço|Família Primus HSM, Securosys Clouds HSM|[Ferramenta e documentação Primus BYOK](https://www.securosys.com/primus-azure-byok)|
 |StorMagic|ISV (Sistema de Gestão de Chaves empresariais)|Múltiplas marcas e modelos HSM, incluindo<ul><li>Rio Utimaco</li><li>Thales</li><li>nCipher</li></ul>Consulte [o site StorMagic para mais detalhes](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)|[SvKMS e Azure Key Vault BYOK](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)|
+|IBM|Fabricante|IBM 476x, CryptoExpress|[Fundação de Gestão chave da EMPRESA IBM](https://www.ibm.com/security/key-management/ekmf-bring-your-own-key-azure)|
 ||||
 
 
@@ -128,7 +129,7 @@ Transfira o ficheiro BYOK para o seu computador conectado.
 > [!NOTE] 
 > A importação de chaves RSA de 1.024 bits não é suportada. Atualmente, a importação de uma chave da Curva Elíptica (CE) não é suportada.
 >
-> **Edição conhecida** : Importar uma chave-alvo RSA 4K da Luna HSMs só é suportado com firmware 7.4.0 ou mais recente.
+> **Edição conhecida**: Importar uma chave-alvo RSA 4K da Luna HSMs só é suportado com firmware 7.4.0 ou mais recente.
 
 ### <a name="step-4-transfer-your-key-to-managed-hsm"></a>Passo 4: Transfira a chave para O HSM Gerido
 

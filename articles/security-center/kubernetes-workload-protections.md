@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 09/12/2020
 ms.author: memildin
-ms.openlocfilehash: dfa562be4561e8aaec66d4bff51aadeba77cf35f
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: ce0808bc53ae663b80da793bf33b5b371d881961
+ms.sourcegitcommit: 983eb1131d59664c594dcb2829eb6d49c4af1560
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131343"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99222188"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Proteger cargas de trabalho do Kubernetes
 
@@ -39,7 +39,7 @@ O Security Center oferece mais funcionalidades de segurança para contentores se
 |Preços:|Gratuito|
 |Funções e permissões necessárias:|**Administrador de proprietário** ou **segurança** para editar uma atribuição<br>**Leitor** para ver as recomendações|
 |Aglomerados apoiados:|Kubernetes v1.14 (ou superior) é necessário<br>Sem recurso PodSecurityPolicy (modelo antigo da PSP) nos clusters<br>Os nómadas do Windows não são suportados|
-|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
+|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![No](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
 |||
 
 
@@ -62,7 +62,7 @@ Para configurar as recomendações, instale o  **addon Azure Policy para Kuberne
         > [!TIP]
         > A recomendação está incluída em cinco controlos de segurança diferentes e não importa qual selecione no passo seguinte.
 
-    1. A partir de qualquer um dos controlos de segurança, selecione a recomendação para ver os recursos em que pode instalar o add.
+    1. A partir de qualquer um dos controlos de segurança, selecione a recomendação para ver os recursos em que pode instalar o add-on.
     1. Selecione o cluster relevante e **Remedia.**
 
         :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes-details.png" alt-text="A página de detalhes da recomendação para o addon da Política de Azure para Kubernetes deve ser instalada e ativada nos seus clusters**":::
@@ -78,12 +78,12 @@ Para configurar as recomendações, instale o  **addon Azure Policy para Kuberne
 
     | Nome da recomendação                                                         | Controlo de segurança                         | Configuração necessária |
     |-----------------------------------------------------------------------------|------------------------------------------|------------------------|
-    | CpU do contentor e limites de memória devem ser aplicados                          | Proteja as aplicações contra o ataque do DDoS | Não                     |
-    | Recipientes privilegiados devem ser evitados                                     | Gerir acessos e permissões            | Não                     |
-    | O sistema de ficheiros de raiz imutável (apenas para leitura) deve ser aplicado para os contentores     | Gerir acessos e permissões            | Não                     |
-    | Contentor com escalada de privilégio deve ser evitado                       | Gerir acessos e permissões            | Não                     |
-    | Os recipientes de funcionamento como utilizador de raiz devem ser evitados                           | Gerir acessos e permissões            | Não                     |
-    | Os recipientes que partilham espaços sensíveis de nome de hospedeiro devem ser evitados              | Gerir acessos e permissões            | Não                     |
+    | CpU do contentor e limites de memória devem ser aplicados                          | Proteja as aplicações contra o ataque do DDoS | No                     |
+    | Recipientes privilegiados devem ser evitados                                     | Gerir acessos e permissões            | No                     |
+    | O sistema de ficheiros de raiz imutável (apenas para leitura) deve ser aplicado para os contentores     | Gerir acessos e permissões            | No                     |
+    | Contentor com escalada de privilégio deve ser evitado                       | Gerir acessos e permissões            | No                     |
+    | Os recipientes de funcionamento como utilizador de raiz devem ser evitados                           | Gerir acessos e permissões            | No                     |
+    | Os recipientes que partilham espaços sensíveis de nome de hospedeiro devem ser evitados              | Gerir acessos e permissões            | No                     |
     | Capacidades linux menos privilegiadas devem ser aplicadas para contentores       | Gerir acessos e permissões            | **Sim**                |
     | O uso dos suportes de volume pod HostPath deve ser restringido a uma lista conhecida    | Gerir acessos e permissões            | **Sim**                |
     | Os contentores devem ouvir apenas as portas permitidas                              | Restringir o acesso não autorizado à rede     | **Sim**                |
