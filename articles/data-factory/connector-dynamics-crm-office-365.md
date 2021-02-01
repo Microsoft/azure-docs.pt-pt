@@ -11,13 +11,13 @@ author: linda33wj
 manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 09/23/2020
-ms.openlocfilehash: 204399186ae229324f9dc478e0ef58a173060013
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 02/01/2021
+ms.openlocfilehash: d11125ed00491f87844c7b0b344473825ad52a99
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638181"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99223479"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copiar dados de e para Dynamics 365 (Common Data Service) ou Dynamics CRM utilizando a Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -56,10 +56,10 @@ Especificamente para a Dynamics 365, são suportados os seguintes tipos de aplic
 
 Este conector não suporta outros tipos de aplicações como Finanças, Operações e Talento.
 
-Este conector Dynamics é construído em cima da [ferramenta Dynamics XRM](/dynamics365/customer-engagement/developer/build-windows-client-applications-xrm-tools).
-
 >[!TIP]
 >Para copiar dados da Dynamics 365 Finanças e Operações, pode utilizar o [conector Dynamics AX](connector-dynamics-ax.md).
+
+Este conector Dynamics é construído em cima da [ferramenta Dynamics XRM](/dynamics365/customer-engagement/developer/build-windows-client-applications-xrm-tools).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -79,10 +79,10 @@ As seguintes propriedades são suportadas para o serviço ligado à Dynamics.
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | O tipo de propriedade deve ser definido como "Dynamics", "DynamicsCrm", ou "CommonDataServiceForApps". | Sim |
-| tipo de implantação | O tipo de implantação da instância Dynamics. O valor deve ser "Online" para a Dynamics online. | Sim |
-| serviceUri | O URL de serviço da sua instância Dynamics, o mesmo que você acede a partir do navegador. Um exemplo é "https:// \<organization-name> .crm[x].dynamics.com". | Sim |
-| authenticationType | O tipo de autenticação para ligar a um servidor Dynamics. Os valores válidos são "AADServicePrincipal" e "Office365". | Sim |
+| tipo | O tipo de propriedade deve ser definido como "Dynamics", "DynamicsCrm", ou "CommonDataServiceForApps". | Yes |
+| tipo de implantação | O tipo de implantação da instância Dynamics. O valor deve ser "Online" para a Dynamics online. | Yes |
+| serviceUri | O URL de serviço da sua instância Dynamics, o mesmo que você acede a partir do navegador. Um exemplo é "https:// \<organization-name> .crm[x].dynamics.com". | Yes |
+| authenticationType | O tipo de autenticação para ligar a um servidor Dynamics. Os valores válidos são "AADServicePrincipal" e "Office365". | Yes |
 | servicePrincipalId | A identificação do cliente da aplicação AD Azure. | Sim, quando a autenticação é "AADServicePrincipal" |
 | ServiçoPrincipalCredentialType | O tipo de credencial a utilizar para a autenticação principal de serviço. Os valores válidos são "ServicePrincipalKey" e "ServicePrincipalCert". | Sim, quando a autenticação é "AADServicePrincipal" |
 | serviçoPrincipalCredential | A credencial principal de serviço. <br/><br/>Quando utiliza o "ServicePrincipalKey" como tipo credencial, `servicePrincipalCredential` pode ser uma cadeia que a Azure Data Factory encripta após a implementação do serviço ligado. Ou pode ser uma referência a um segredo em Azure Key Vault. <br/><br/>Quando utilizar o "ServicePrincipalCert" como credencial, `servicePrincipalCredential` deve ser uma referência a um certificado no Cofre da Chave Azure. | Sim, quando a autenticação é "AADServicePrincipal" |
@@ -176,14 +176,14 @@ Propriedades adicionais que se comparam à Dynamics online são **o hostName** e
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | O tipo de propriedade deve ser definido como "Dynamics", "DynamicsCrm", ou "CommonDataServiceForApps". | Sim. |
-| tipo de implantação | O tipo de implantação da instância Dynamics. O valor deve ser "OnPremisesWithIfd" para a Dynamics no local com IFD.| Sim. |
-| nome hospedeiro | O nome de anfitrião do servidor Dynamics no local. | Sim. |
-| porta | A porta do servidor Dynamics no local. | Não. O valor predefinido é 443. |
-| organização Nome | O nome da organização do caso Dynamics. | Sim. |
-| authenticationType | O tipo de autenticação para ligar ao servidor Dynamics. Especificar "Ifd" para Dinâmicas no local com IFD. | Sim. |
-| nome de utilizador | O nome de utilizador para ligar à Dynamics. | Sim. |
-| palavra-passe | A palavra-passe para a conta de utilizador que especificou para o nome de utilizador. Pode marcar este campo com "SecureString" para armazená-lo de forma segura na Data Factory. Ou pode armazenar uma palavra-passe no Key Vault e deixar a atividade de cópia sair daí quando fizer cópia de dados. Saiba mais com as credenciais da [Loja no Key Vault.](store-credentials-in-key-vault.md) | Sim. |
+| tipo | O tipo de propriedade deve ser definido como "Dynamics", "DynamicsCrm", ou "CommonDataServiceForApps". | Yes. |
+| tipo de implantação | O tipo de implantação da instância Dynamics. O valor deve ser "OnPremisesWithIfd" para a Dynamics no local com IFD.| Yes. |
+| nome hospedeiro | O nome de anfitrião do servidor Dynamics no local. | Yes. |
+| porta | A porta do servidor Dynamics no local. | N.º O valor predefinido é 443. |
+| organização Nome | O nome da organização do caso Dynamics. | Yes. |
+| authenticationType | O tipo de autenticação para ligar ao servidor Dynamics. Especificar "Ifd" para Dinâmicas no local com IFD. | Yes. |
+| nome de utilizador | O nome de utilizador para ligar à Dynamics. | Yes. |
+| palavra-passe | A palavra-passe para a conta de utilizador que especificou para o nome de utilizador. Pode marcar este campo com "SecureString" para armazená-lo de forma segura na Data Factory. Ou pode armazenar uma palavra-passe no Key Vault e deixar a atividade de cópia sair daí quando fizer cópia de dados. Saiba mais com as credenciais da [Loja no Key Vault.](store-credentials-in-key-vault.md) | Yes. |
 | connectVia | O [tempo de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Se nenhum valor for especificado, a propriedade utiliza o tempo de execução de integração Azure padrão. | Não para fonte e sim para afundar. |
 
 #### <a name="example-dynamics-on-premises-with-ifd-using-ifd-authentication"></a>Exemplo: Dinâmica nas instalações com IFD utilizando a autenticação IFD
@@ -222,7 +222,7 @@ Para copiar dados de e para a Dynamics, suportam-se as seguintes propriedades:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo do conjunto de dados deve ser definida como "DynamicsEntity", "DynamicsCrmEntity", ou "CommonDataServiceForAppsEntity". |Sim |
+| tipo | A propriedade tipo do conjunto de dados deve ser definida como "DynamicsEntity", "DynamicsCrmEntity", ou "CommonDataServiceForAppsEntity". |Yes |
 | entidade Nome | O nome lógico da entidade para recuperar. | Não para a fonte se a fonte de atividade for especificada como "consulta" e sim para pia |
 
 #### <a name="example"></a>Exemplo
@@ -254,7 +254,7 @@ Para copiar dados da Dynamics, a secção **de origem** da atividade de cópia s
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida como "DynamicsSource", "DynamicsCrmSource", ou "CommonDataServiceForAppsSource". | Sim |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida como "DynamicsSource", "DynamicsCrmSource", ou "CommonDataServiceForAppsSource". | Yes |
 | consulta | FetchXML é uma linguagem de consulta proprietária que é usada em Dynamics on-line e no local. Veja o seguinte exemplo. Para saber mais, consulte [Criar consultas com a FetchXML.](/previous-versions/dynamicscrm-2016/developers-guide/gg328332(v=crm.8)) | Não se `entityName` no conjunto de dados for especificado |
 
 >[!NOTE]
@@ -322,11 +322,11 @@ Para copiar dados para a Dynamics, a secção **de lavatório** de atividade de 
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo do lavatório de atividade de cópia deve ser definida como "DynamicsSink", "DynamicsCrmSink", ou "CommonDataServiceForAppsSink". | Sim. |
-| escrever Comportamento | O comportamento de escrita da operação. O valor deve ser "Upsert". | Sim |
-| nome alternativoKeyName | O nome de chave alternativa definido na sua entidade para fazer um upsert. | Não. |
-| escreverBatchSize | A contagem de dados escrita para a Dynamics em cada lote. | Não. O valor predefinido é 10. |
-| ignoreNullValues | Se ignorar valores nulos de dados de entrada que não sejam campos-chave durante uma operação de escrita.<br/><br/>Valores válidos são **VERDADEIROs** e **FALSOS:**<ul><li>**VERDADE** : Deixe os dados no objeto de destino inalterados quando fizer uma operação de atualização ou atualização. Insira um valor predefinido definido quando fizer uma operação de inserção.</li><li>**FALSO:** Atualize os dados no objeto de destino para um valor nulo quando fizer uma operação de atualização ou atualização. Insira um valor nulo quando fizer uma operação de inserção.</li></ul> | Não. O valor **predefinido** é FALSO . |
+| tipo | A propriedade tipo do lavatório de atividade de cópia deve ser definida como "DynamicsSink", "DynamicsCrmSink", ou "CommonDataServiceForAppsSink". | Yes. |
+| escrever Comportamento | O comportamento de escrita da operação. O valor deve ser "Upsert". | Yes |
+| nome alternativoKeyName | O nome de chave alternativa definido na sua entidade para fazer um upsert. | N.º |
+| escreverBatchSize | A contagem de dados escrita para a Dynamics em cada lote. | N.º O valor predefinido é 10. |
+| ignoreNullValues | Se ignorar valores nulos de dados de entrada que não sejam campos-chave durante uma operação de escrita.<br/><br/>Valores válidos são **VERDADEIROs** e **FALSOS:**<ul><li>**VERDADE**: Deixe os dados no objeto de destino inalterados quando fizer uma operação de atualização ou atualização. Insira um valor predefinido definido quando fizer uma operação de inserção.</li><li>**FALSO:** Atualize os dados no objeto de destino para um valor nulo quando fizer uma operação de atualização ou atualização. Insira um valor nulo quando fizer uma operação de inserção.</li></ul> | N.º O valor **predefinido** é FALSO . |
 
 >[!NOTE]
 >O valor predefinido tanto para o **sink writeBatchSize** como para a atividade de cópia **[paralelosCopias](copy-activity-performance-features.md#parallel-copy)** para o lavatório Dynamics é 10. Portanto, 100 registos são submetidos simultaneamente por defeito à Dynamics.
@@ -397,7 +397,7 @@ Configure o tipo de dados correspondente data factory numa estrutura de conjunto
 | AtributoType.Status | Int32 | ✓ | ✓ |
 
 > [!NOTE]
-> Os tipos de dados Dinâmicos **AttributeType.CalendarRules** , **AttributeType.MultiSelectPicklist** e **AttributeType.PartyList** não são suportados.
+> Os tipos de dados Dinâmicos **AttributeType.CalendarRules**, **AttributeType.MultiSelectPicklist** e **AttributeType.PartyList** não são suportados.
 
 ## <a name="writing-data-to-a-lookup-field"></a>Escrever dados para um campo de procura
 
@@ -414,14 +414,14 @@ Para escrever dados num campo de procura com vários alvos como Cliente e Propri
 Por exemplo, assuma que a fonte tem estas duas colunas:
 
 - **Coluna CustomerField** do tipo **GUID,** que é o valor chave primário da entidade-alvo em Dynamics.
-- **Coluna-alvo** do tipo **String** , que é o nome lógico da entidade-alvo.
+- **Coluna-alvo** do tipo **String**, que é o nome lógico da entidade-alvo.
 
 Assuma também que pretende copiar esses dados para o campo da entidade da Sink Dynamics **CustomerField** do tipo **Cliente.**
 
 No mapeamento de colunas de cópia, mapear as duas colunas da seguinte forma:
 
-- **CustomerField** para **CustomerField** . Este mapeamento é o mapeamento normal do campo.
-- **Destino** para **CustomerField \@ EntityReference** . A coluna da pia é uma coluna virtual que representa a referência da entidade. Insira tais nomes de campo num mapeamento, já que não aparecem importando esquemas.
+- **CustomerField** para **CustomerField**. Este mapeamento é o mapeamento normal do campo.
+- **Destino** para **CustomerField \@ EntityReference**. A coluna da pia é uma coluna virtual que representa a referência da entidade. Insira tais nomes de campo num mapeamento, já que não aparecem importando esquemas.
 
 ![Mapeamento de coluna de campo de procuração dinâmica](./media/connector-dynamics-crm-office-365/connector-dynamics-lookup-field-column-mapping.png)
 

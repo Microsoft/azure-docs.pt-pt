@@ -329,6 +329,8 @@
               href: platform/data-sources-linux-applications.md
             - name: Registos do IIS
               href: platform/data-sources-iis-logs.md
+            - name: Rastreio de eventos para dados do Windows
+              href: platform/data-sources-event-tracing-windows.md
             - name: Registos personalizados
               href: platform/data-sources-custom-logs.md
             - name: Campos personalizados

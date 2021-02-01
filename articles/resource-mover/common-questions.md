@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 02/01/2021
 ms.author: raynew
-ms.openlocfilehash: 68e5f937b8ad8367abf488598bda311a39d462c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb8cfa3e1aa874f807ce46b254a22f3003c2f600
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90600658"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99222820"
 ---
 # <a name="common-questions"></a>Perguntas comuns
 
@@ -62,7 +62,7 @@ Sim, tanto em trânsito como em repouso.
 
 ### <a name="how-is-managed-identity-used-in-resource-mover"></a>Como é utilizada a identidade gerida no Resource Mover?
 
-[A identidade gerida](../active-directory/managed-identities-azure-resources/overview.md) (anteriormente conhecida como Identidade de Serviço Gerido (MIS)) fornece serviços Azure com uma identidade gerida automaticamente em Azure AD.
+[A identidade gerida](../active-directory/managed-identities-azure-resources/overview.md) (anteriormente conhecida como Identidade de Serviço Gerido (MSI)) fornece serviços Azure com uma identidade gerida automaticamente em Azure AD.
 - A Resource Mover utiliza identidade gerida para que possa aceder a subscrições do Azure para mover recursos através das regiões.
 - Uma coleção de movimentos precisa de uma identidade atribuída ao sistema, com acesso à subscrição que contém recursos que está a mover.
 
@@ -74,7 +74,7 @@ Sim, tanto em trânsito como em repouso.
 A identidade gerida do Azure Resource Mover precisa de, pelo menos, estas permissões: 
 
 - Permissão para escrever/criar recursos na subscrição do utilizador, disponível com a função *Contribuinte.* 
-- Permissão para criar atribuições de função. Normalmente disponível com as funções *de Administrador de* Acesso ao *Utilizador* ou com uma função personalizada que tem a *microsoft.Autorizações/atribuições de funções/escrever permissão* atribuída. Esta permissão não é necessária se a identidade gerida do recurso de partilha de dados já tiver acesso à loja de dados Azure. 
+- Permissão para criar atribuições de função. Normalmente disponível com as funções *de Administrador de* Acesso ao *Utilizador* ou com uma função personalizada que tem a *microsoft.Autorizações/atribuições de funções/escrever permissão* atribuída. Esta permissão não será necessária se a identidade gerida do recurso de partilha de dados já tiver acesso concedido ao arquivo de dados do Azure. 
  
 Quando adiciona recursos no hub do Resource Mover no portal, as permissões são processadas automaticamente, desde que o utilizador tenha as permissões descritas acima. Se adicionar recursos com o PowerShell, atribui permissões manualmente.
 

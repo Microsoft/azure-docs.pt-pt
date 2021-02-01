@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/08/2020
 ms.author: jingwang
-ms.openlocfilehash: 1b3ab569666ea413ba36da0dc00f6c37336c4443
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 3fc567b7d4b2efab03e5d93adda62839d47f7522
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931312"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99223105"
 ---
 # <a name="copy-data-from-and-to-a-rest-endpoint-by-using-azure-data-factory"></a>Copiar dados de e para um ponto final REST utilizando a Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -26,7 +26,7 @@ Este artigo descreve como utilizar a Copy Activity na Azure Data Factory para co
 A diferença entre este conector REST, [conector HTTP,](connector-http.md)e o [conector de mesa Web](connector-web-table.md) são:
 
 - **O conector REST** suporta especificamente a cópia de dados de APIs RESTful; 
-- **O conector HTTP** é genérico para obter dados de qualquer ponto final HTTP, por exemplo, para descarregar ficheiro. Antes de este conector REST ficar disponível, pode por acaso utilizar o conector HTTP para copiar dados da API RESTful, que é suportado mas menos funcional em comparação com o conector REST.
+- **O conector HTTP** é genérico para obter dados de qualquer ponto final HTTP, por exemplo, para descarregar ficheiro. Antes deste conector REST pode, por acaso, utilizar o conector HTTP para copiar dados da API RESTful, que é suportado mas menos funcional em comparação com o conector REST.
 - **O conector da tabela web** extrai o conteúdo da tabela a partir de uma página web HTML.
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
@@ -59,11 +59,11 @@ As seguintes propriedades são suportadas para o serviço ligado REST:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade **tipo** deve ser definida para **RestService**. | Sim |
-| url | O URL base do serviço REST. | Sim |
-| enableServerCertificateValidation | Se validar o certificado TLS/SSL do lado do servidor ao ligar-se ao ponto final. | Não<br /> (o padrão é **verdadeiro)** |
-| authenticationType | Tipo de autenticação utilizada para ligar ao serviço REST. Os valores permitidos são **Anónimos,** **Básicos,** **AadServicePrincipal** e **ManagedServiceIdentity**. Consulte as secções correspondentes abaixo em mais propriedades e exemplos, respectivamente. | Sim |
-| connectVia | O [Tempo de Execução de Integração](concepts-integration-runtime.md) para ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não for especificado, esta propriedade utiliza o tempo de execução de integração Azure predefinido. |Não |
+| tipo | A propriedade **tipo** deve ser definida para **RestService**. | Yes |
+| url | O URL base do serviço REST. | Yes |
+| enableServerCertificateValidation | Se validar o certificado TLS/SSL do lado do servidor ao ligar-se ao ponto final. | No<br /> (o padrão é **verdadeiro)** |
+| authenticationType | Tipo de autenticação utilizada para ligar ao serviço REST. Os valores permitidos são **Anónimos,** **Básicos,** **AadServicePrincipal** e **ManagedServiceIdentity**. Consulte as secções correspondentes abaixo em mais propriedades e exemplos, respectivamente. | Yes |
+| connectVia | O [Tempo de Execução de Integração](concepts-integration-runtime.md) para ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não for especificado, esta propriedade utiliza o tempo de execução de integração Azure predefinido. |No |
 
 ### <a name="use-basic-authentication"></a>Utilizar a autenticação básica
 
@@ -71,8 +71,8 @@ Desautense a propriedade **autenticaçãoType** para **Basic**. Além das propri
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| userName | O nome de utilizador a utilizar para aceder ao ponto final REST. | Sim |
-| palavra-passe | A palavra-passe para o utilizador (o valor **do nome do utilizador).** Marque este campo como um tipo **SecureString** para armazená-lo de forma segura na Data Factory. Também pode [fazer referência a um segredo armazenado no Cofre da Chave Azure.](store-credentials-in-key-vault.md) | Sim |
+| userName | O nome de utilizador a utilizar para aceder ao ponto final REST. | Yes |
+| palavra-passe | A palavra-passe para o utilizador (o valor **do nome do utilizador).** Marque este campo como um tipo **SecureString** para armazená-lo de forma segura na Data Factory. Também pode [fazer referência a um segredo armazenado no Cofre da Chave Azure.](store-credentials-in-key-vault.md) | Yes |
 
 **Exemplo**
 
@@ -104,11 +104,11 @@ Desa estaione a propriedade **autenticaçãoType** para **a AadServicePrincipal*
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| servicePrincipalId | Especificar o ID do cliente do Azure Ative Directory. | Sim |
-| servicePrincipalKey | Especifique a chave da aplicação do Diretório Ativo Azure. Marque este campo como um **SecureString** para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim |
-| inquilino | Especifique a informação do inquilino (nome de domínio ou ID do inquilino) sob a qual a sua aplicação reside. Recupere-o pairando sobre o rato no canto superior direito do portal Azure. | Sim |
-| aadResourceId | Especifique o recurso AAD que está a solicitar para autorização, por exemplo, `https://management.core.windows.net` .| Sim |
-| AzureCloudType | Para a autenticação principal do serviço, especifique o tipo de ambiente em nuvem Azure para o qual a sua aplicação AAD está registada. <br/> Os valores permitidos são **AzurePublic,** **AzureChina,** **AzureUsGovernment,** e **AzureGermany**. Por padrão, o ambiente em nuvem da fábrica de dados é utilizado. | Não |
+| servicePrincipalId | Especificar o ID do cliente do Azure Ative Directory. | Yes |
+| servicePrincipalKey | Especifique a chave da aplicação do Diretório Ativo Azure. Marque este campo como um **SecureString** para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Yes |
+| inquilino | Especifique a informação do inquilino (nome de domínio ou ID do inquilino) sob a qual a sua aplicação reside. Recupere-o pairando sobre o rato no canto superior direito do portal Azure. | Yes |
+| aadResourceId | Especifique o recurso AAD que está a solicitar para autorização, por exemplo, `https://management.core.windows.net` .| Yes |
+| AzureCloudType | Para a autenticação principal do serviço, especifique o tipo de ambiente em nuvem Azure para o qual a sua aplicação AAD está registada. <br/> Os valores permitidos são **AzurePublic,** **AzureChina,** **AzureUsGovernment,** e **AzureGermany**. Por padrão, o ambiente em nuvem da fábrica de dados é utilizado. | No |
 
 **Exemplo**
 
@@ -142,7 +142,7 @@ Desaprova a propriedade **autenticaçãoType** para **ManagedServiceIdentity**. 
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| aadResourceId | Especifique o recurso AAD que está a solicitar para autorização, por exemplo, `https://management.core.windows.net` .| Sim |
+| aadResourceId | Especifique o recurso AAD que está a solicitar para autorização, por exemplo, `https://management.core.windows.net` .| Yes |
 
 **Exemplo**
 
@@ -174,8 +174,8 @@ Para copiar dados da REST, suportam-se as seguintes propriedades:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade **tipo** do conjunto de dados deve ser definida para **RestResource**. | Sim |
-| relativoUrl | Um URL relativo ao recurso que contém os dados. Quando esta propriedade não é especificada, apenas é utilizado o URL especificado na definição de serviço ligado. O conector HTTP copia os dados do URL combinado: `[URL specified in linked service]/[relative URL specified in dataset]` . | Não |
+| tipo | A propriedade **tipo** do conjunto de dados deve ser definida para **RestResource**. | Yes |
+| relativoUrl | Um URL relativo ao recurso que contém os dados. Quando esta propriedade não é especificada, apenas é utilizado o URL especificado na definição de serviço ligado. O conector HTTP copia os dados do URL combinado: `[URL specified in linked service]/[relative URL specified in dataset]` . | No |
 
 Se estiver a configurar `requestMethod` , e em conjunto de `additionalHeaders` `requestBody` `paginationRules` dados, ainda é suportado como está, enquanto é sugerido que utilize o novo modelo em atividade.
 
@@ -210,13 +210,13 @@ As seguintes propriedades são suportadas na secção fonte de **origem** da ati
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade **tipo** da fonte de atividade de cópia deve ser definida como **RestSource**. | Sim |
-| requestMethod | O método HTTP. Os valores permitidos são **GET** (padrão) e **POST**. | Não |
-| cabeçalhos adicionais | Cabeçalhos de pedido HTTP adicionais. | Não |
-| requestCorp | O corpo para o pedido HTTP. | Não |
-| paginationRules | As regras de paginação para compor os pedidos da próxima página. Consulte a secção [de suporte de paginação](#pagination-support) sobre detalhes. | Não |
-| httpRequestTimeout | O tempo limite (o valor **TimeSpan)** para o pedido HTTP obter uma resposta. Este valor é o tempo limite para obter uma resposta, não o tempo limite para ler dados de resposta. O valor predefinido é **00:01:40**.  | Não |
-| solicitaçãoInterval | O tempo para esperar antes de enviar o pedido para a próxima página. O valor predefinido é **00:00:01** |  Não |
+| tipo | A propriedade **tipo** da fonte de atividade de cópia deve ser definida como **RestSource**. | Yes |
+| requestMethod | O método HTTP. Os valores permitidos são **GET** (padrão) e **POST**. | No |
+| cabeçalhos adicionais | Cabeçalhos de pedido HTTP adicionais. | No |
+| requestCorp | O corpo para o pedido HTTP. | No |
+| paginationRules | As regras de paginação para compor os pedidos da próxima página. Consulte a secção [de suporte de paginação](#pagination-support) sobre detalhes. | No |
+| httpRequestTimeout | O tempo limite (o valor **TimeSpan)** para o pedido HTTP obter uma resposta. Este valor é o tempo limite para obter uma resposta, não o tempo limite para ler dados de resposta. O valor predefinido é **00:01:40**.  | No |
+| solicitaçãoInterval | O tempo para esperar antes de enviar o pedido para a próxima página. O valor predefinido é **00:00:01** |  No |
 
 >[!NOTE]
 >O conector REST ignora qualquer cabeçalho "Aceitar" especificado em `additionalHeaders` . Como o conector REST apenas suporta a resposta em JSON, gerará automaticamente um cabeçalho de `Accept: application/json` .
@@ -299,13 +299,13 @@ As seguintes propriedades são suportadas na secção de **lavatório** de ativi
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade do **tipo** do lavatório de atividade de cópia deve ser definida para **RestSink**. | Sim |
-| requestMethod | O método HTTP. Os valores permitidos são **POST** (padrão), **PUT** e **PATCH**. | Não |
-| cabeçalhos adicionais | Cabeçalhos de pedido HTTP adicionais. | Não |
-| httpRequestTimeout | O tempo limite (o valor **TimeSpan)** para o pedido HTTP obter uma resposta. Este valor é o tempo limite para obter uma resposta, não o tempo limite para escrever os dados. O valor predefinido é **00:01:40**.  | Não |
-| solicitaçãoInterval | O intervalo entre diferentes pedidos em milissegundo. O valor do intervalo de pedido deve ser um número entre [10,60000]. |  Não |
-| httpCompressionType | Tipo de compressão HTTP para utilizar ao enviar dados com o Nível de Compressão Ideal. Os valores permitidos não são **nenhum** e **gzip**. | Não |
-| escreverBatchSize | Número de registos para escrever para o lavatório REST por lote. O valor predefinido é 10000. | Não |
+| tipo | A propriedade do **tipo** do lavatório de atividade de cópia deve ser definida para **RestSink**. | Yes |
+| requestMethod | O método HTTP. Os valores permitidos são **POST** (padrão), **PUT** e **PATCH**. | No |
+| cabeçalhos adicionais | Cabeçalhos de pedido HTTP adicionais. | No |
+| httpRequestTimeout | O tempo limite (o valor **TimeSpan)** para o pedido HTTP obter uma resposta. Este valor é o tempo limite para obter uma resposta, não o tempo limite para escrever os dados. O valor predefinido é **00:01:40**.  | No |
+| solicitaçãoInterval | O intervalo entre diferentes pedidos em milissegundo. O valor do intervalo de pedido deve ser um número entre [10,60000]. |  No |
+| httpCompressionType | Tipo de compressão HTTP para utilizar ao enviar dados com o Nível de Compressão Ideal. Os valores permitidos não são **nenhum** e **gzip**. | No |
+| escreverBatchSize | Número de registos para escrever para o lavatório REST por lote. O valor predefinido é 10000. | No |
 
 O conector REST como pia funciona com as APIs REST que aceitam JSON. Os dados serão enviados em JSON com o seguinte padrão. Se necessário, pode utilizar o [mapeamento de esquema de](copy-activity-schema-and-type-mapping.md#schema-mapping) atividade de cópia para remodelar os dados de origem de modo a estar em conformidade com a carga útil esperada pela API REST.
 
@@ -477,7 +477,7 @@ O modelo define dois parâmetros:
 
     ![Pipeline](media/solution-template-copy-from-rest-or-http-using-oauth/web-settings.png)
 
-6. Na atividade **de dados copy,** selecione'Source tab, você pode ver que o token do portador (access_token) recuperado do passo anterior seria passado para copiar a atividade de dados como *Source* **Autorização** sob cabeçalhos adicionais. Confirme as definições para seguir as propriedades antes de iniciar uma corrida ao gasoduto.
+6. Na atividade **de dados copy,** selecione'Source tab, você pode ver que o token do portador (access_token) recuperado do passo anterior seria passado para copiar a atividade de dados como  **Autorização** sob cabeçalhos adicionais. Confirme as definições para seguir as propriedades antes de iniciar uma corrida ao gasoduto.
 
     | Propriedade | Descrição |
     |:--- |:--- |:--- | 

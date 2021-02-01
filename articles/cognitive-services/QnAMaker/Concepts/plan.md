@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 048b53186aa0be388d9d801cd6590d4295a4faa7
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: e523b35afca33213a40060819a1293e94d413b00
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353175"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99222870"
 ---
 # <a name="plan-your-qna-maker-app"></a>Planeie a sua app QnA Maker
 
@@ -94,13 +94,13 @@ Agora pode ter bases de conhecimento em diferentes idiomas dentro do mesmo recur
 
 ### <a name="ingest-data-sources"></a>Ingerir fontes de dados
 
-Pode utilizar uma das [seguintes fontes](../index.yml) de dados ingeridas para criar uma base de conhecimento:
+Pode utilizar uma das [seguintes fontes](../Concepts/data-sources-and-content.md) de dados ingeridas para criar uma base de conhecimento:
 
 * URL público
 * Private SharePoint URL
 * Ficheiro
 
-O processo de ingestão converte [tipos de conteúdo suportados](../index.yml) para marcação. Toda a edição adicional da *resposta* é feita com marcação. Depois de criar uma base de conhecimento, pode editar [pares QnA](question-answer-set.md) no portal QnA Maker com [uma rica autoria de texto.](../how-to/edit-knowledge-base.md#rich-text-editing-for-answer)
+O processo de ingestão converte [tipos de conteúdo suportados](../reference-document-format-guidelines.md) para marcação. Toda a edição adicional da *resposta* é feita com marcação. Depois de criar uma base de conhecimento, pode editar [pares QnA](question-answer-set.md) no portal QnA Maker com [uma rica autoria de texto.](../how-to/edit-knowledge-base.md#rich-text-editing-for-answer)
 
 ### <a name="data-format-considerations"></a>Considerações de formato de dados
 
@@ -124,7 +124,7 @@ Deve desenhar o seu fluxo de conversação com um loop em mente para que um util
 
 Os colaboradores podem ser outros desenvolvedores que partilham a pilha completa de desenvolvimento da aplicação base de conhecimento ou podem limitar-se a apenas autorizar a base de conhecimento.
 
-A autoria da base de conhecimento suporta várias [permissões de acesso baseadas](../index.yml) em funções que aplica no portal Azure para limitar o âmbito das capacidades de um colaborador.
+A autoria da base de conhecimento suporta várias [permissões de acesso baseadas](../reference-role-based-access-control.md) em funções que aplica no portal Azure para limitar o âmbito das capacidades de um colaborador.
 
 ## <a name="integration-with-client-applications"></a>Integração com aplicações de clientes
 

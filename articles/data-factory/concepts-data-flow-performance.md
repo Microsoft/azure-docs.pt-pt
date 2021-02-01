@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 12/18/2020
-ms.openlocfilehash: 9706bee07f028c36b4d03311a7abbb969a1be685
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.date: 01/29/2021
+ms.openlocfilehash: 01c448165e6d1f4d6103c61387298f2d9eb40254
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944994"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99222954"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Mapeamento de dados flui desempenho e guia de afinação
 
@@ -244,11 +244,11 @@ Se uma coluna corresponder à forma como deseja descodionar os dados, pode selec
 
 Ao escrever para o CosmosDB, alterar o tamanho da produção e do lote durante a execução do fluxo de dados pode melhorar o desempenho. Estas alterações só têm efeito durante a atividade de fluxo de dados e voltarão às definições originais de recolha após a conclusão. 
 
-**Tamanho do lote:** Calcule o tamanho da linha áspera dos seus dados e certifique-se de que o tamanho do lote * é inferior a dois milhões. Se for, aumente o tamanho do lote para obter melhor produção
+**Tamanho do lote:** Normalmente, começar pelo tamanho do lote predefinido é suficiente. Para afinar ainda mais este valor, calcule o tamanho do objeto áspero dos seus dados e certifique-se de que o tamanho do objeto * tamanho do lote é inferior a 2MB. Se for, pode aumentar o tamanho do lote para obter uma melhor produção.
 
 **Produção:** Defina aqui uma definição de produção mais alta para permitir que os documentos escrevam mais rapidamente para o CosmosDB. Tenha em mente os custos ru mais elevados com base numa elevada definição de produção.
 
-**Escrever Orçamento de Produção:** Utilize um valor inferior ao total de RUs por minuto. Se tiver um fluxo de dados com um elevado número de divisórias Spark, definir uma produção orçamental permitirá um maior equilíbrio entre essas divisórias.
+**Escreva o orçamento de produção:** Utilize um valor inferior ao total de RUs por minuto. Se tiver um fluxo de dados com um elevado número de divisórias Spark, definir uma produção orçamental permitirá um maior equilíbrio entre essas divisórias.
 
 ## <a name="optimizing-transformations"></a>Otimização de transformações
 
@@ -318,7 +318,7 @@ Os fluxos de dados permitem-lhe agrupar os sumidouros em grupos a partir do sepa
 
 No gasoduto execute a atividade de fluxo de dados sob a secção "Propriedades do Lavatório" é uma opção para ligar o carregamento paralelo do lavatório. Quando ativa "correr em paralelo", está a instruir os fluxos de dados a escrever em pias ligadas ao mesmo tempo e não de forma sequencial. Para utilizar a opção paralela, os lavatórios devem ser agrupados e ligados ao mesmo fluxo através de um Novo Ramo ou Divisão Condicional.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte outros artigos do Fluxo de Dados relacionados com o desempenho:
 

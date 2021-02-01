@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 09/21/2020
-ms.openlocfilehash: 5d15947254d80d97b6a241a717fb7d33a3d5ccb5
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: d3f859590b30aaeeaebaed7b1f2f85e1a86a92c9
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98724021"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99223411"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Perguntas frequentes (FAQ) sobre o Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -262,7 +262,7 @@ Yes. Depois de ser a provisionada uma Instância Gerida, pode definir o NSG que 
 
 **Posso definir a firewall NVA ou no local para filtrar o tráfego de gestão de saída com base em FQDNs?**
 
-Não. Isto não é apoiado por várias razões:
+N.º Isto não é apoiado por várias razões:
 -   O tráfego de encaminhamento que represente a resposta ao pedido de gestão de entrada seria assimétrico e não podia funcionar.
 -   O tráfego de encaminhamento que vai para o armazenamento seria afetado por restrições de produção e latência para que desta forma não sejamos capazes de fornecer qualidade e disponibilidade de serviço esperada.
 -   Com base na experiência, estas configurações são propensas a erros e não são reutilizáveis.
@@ -281,7 +281,7 @@ Caso não existam [endereços IP suficientes](connectivity-architecture-overview
 
 **Preciso de uma sub-rede vazia para criar uma Instância Gerida?**
 
-Não. Pode utilizar uma sub-rede vazia ou uma sub-rede que já contenha Instâncias Geridas. 
+N.º Pode utilizar uma sub-rede vazia ou uma sub-rede que já contenha Instâncias Geridas. 
 
 **Posso alterar o intervalo de endereços da sub-rede?**
 
@@ -289,7 +289,7 @@ Não se houver casos geridos dentro. Esta é uma limitação de infraestrutura d
 
 **Posso mudar o meu caso para outra sub-rede?**
 
-Não. Esta é uma limitação de design de instância gerida atual. No entanto, pode prever uma nova instância noutra sub-rede e fazer retrocevesimento manual e restaurar dados entre o antigo e o novo caso ou realizar [restauro pontual](point-in-time-restore.md?tabs=azure-powershell)transversal .
+N.º Esta é uma limitação de design de instância gerida atual. No entanto, pode prever uma nova instância noutra sub-rede e fazer retrocevesimento manual e restaurar dados entre o antigo e o novo caso ou realizar [restauro pontual](point-in-time-restore.md?tabs=azure-powershell)transversal .
 
 **Preciso de uma rede virtual vazia para criar uma Instância Gerida?**
 
@@ -297,7 +297,7 @@ Isto não é necessário. Pode [criar uma rede virtual para Azure SQL Managed In
 
 **Posso colocar uma Instância Gerida com outros serviços numa sub-rede?**
 
-Não. Atualmente não apoiamos a colocação de Casos Geridos numa sub-rede que já contenha outros tipos de recursos.
+N.º Atualmente não apoiamos a colocação de Casos Geridos numa sub-rede que já contenha outros tipos de recursos.
 
 ## <a name="connectivity"></a>Conectividade 
 
@@ -363,7 +363,7 @@ Yes. Ver [como configurar um DNS personalizado para Azure SQL Managed Instance](
 
 **Posso refrescar o DNS?**
 
-Atualmente, não fornecemos uma funcionalidade para atualizar a configuração do servidor DNS para SQL Managed Instance.
+Yes. Consulte [a configuração de servidores DNS de rede virtual sincronizada no cluster virtual SQL Managed Instance](./synchronize-vnet-dns-servers-setting-on-virtual-cluster.md).
 
 A configuração do DNS é eventualmente renovada:
 

@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 01/12/2021
-ms.openlocfilehash: 2fcb8f6d22e93f3a95be26b7bc61f3b5226ba090
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.date: 01/29/2021
+ms.openlocfilehash: cb5ea99223b803435ecd8716a7a57152266878a8
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98117134"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99223372"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-in-the-azure-portal"></a>Copie várias tabelas a granel utilizando a Azure Data Factory no portal Azure
 
@@ -63,7 +63,7 @@ Para verificar e ligar esta definição, aceda ao seu servidor > Security > Fire
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
 1. Abra o browser **Microsoft Edge** ou **Google Chrome**. Atualmente, a IU do Data Factory é suportada apenas nos browsers Microsoft Edge e Google Chrome.
-1. Aceda ao [portal do Azure](https://portal.azure.com). 
+1. Aceda ao [Portal do Azure](https://portal.azure.com). 
 1. À esquerda do menu do portal Azure, **selecione Criar uma** Fábrica de  >  Dados **de Integração de**  >  Recursos. 
 
    ![Seleção do Data Factory no painel "Novo"](./media/doc-common-process/new-azure-data-factory-menu.png)
@@ -261,7 +261,6 @@ O oleoduto  **IterateAndCopySQLTables** tem uma lista de tabelas como parâmetro
         ```
 
         ![Definições de sink de Copy](./media/tutorial-bulk-copy-portal/copy-sink-settings.png)
-
 
 1. Mude para o separador **Definições** e siga os passos abaixo: 
 

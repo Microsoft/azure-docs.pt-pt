@@ -3,12 +3,12 @@ title: Fazer o back up e restaurar vMs Azure encriptados
 description: Descreve como fazer backup e restaurar VMs Azure encriptados com o serviço Azure Backup.
 ms.topic: conceptual
 ms.date: 08/18/2020
-ms.openlocfilehash: ee7fedffd58ffb9e98f8c412833d151eb1a95530
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: db06b64fba203fb3d2ed54d34235504ac6aa4e2d
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96547156"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99223462"
 ---
 # <a name="back-up-and-restore-encrypted-azure-virtual-machines"></a>Fazer o back up e restaurar máquinas virtuais Azure encriptadas
 
@@ -36,19 +36,19 @@ O Azure Backup pode fazer backup e restaurar VMs Azure usando ADE com e sem a ap
 
 **Tipo de disco da VM** | **ADE (BEK/dm-cripta)** | **ADE e KEK**
 --- | --- | ---
-**Não gerido** | Sim | Sim
-**Gerido**  | Sim | Sim
+**Não gerido** | Yes | Yes
+**Gerido**  | Yes | Yes
 
 - Saiba mais sobre [ADE,](../security/fundamentals/azure-disk-encryption-vms-vmss.md) [Key Vault](../key-vault/general/overview.md)e [KEKs](../virtual-machine-scale-sets/disk-encryption-key-vault.md#set-up-a-key-encryption-key-kek).
 - Leia as [FAQ](../security/fundamentals/azure-disk-encryption-vms-vmss.md) para encriptação do disco Azure VM.
 
 ### <a name="limitations"></a>Limitações
 
-- Pode fazer o back up e restaurar VMs encriptados dentro da mesma subscrição e região.
+- Pode fazer o back up e restaurar VMs encriptados ADE dentro da mesma subscrição e região.
 - O Azure Backup suporta VMs encriptados utilizando chaves autónomas. Qualquer chave que faça parte de um certificado usado para encriptar um VM não é suportado atualmente.
-- Pode fazer backup e restaurar VMs encriptados dentro da mesma subscrição e região que o cofre de backup dos Serviços de Recuperação.
-- Os VMs encriptados não podem ser recuperados ao nível do ficheiro/pasta. É necessário recuperar todo o VM para restaurar ficheiros e pastas.
-- Ao restaurar um VM, não é possível utilizar a opção [VM de substituição existente](backup-azure-arm-restore-vms.md#restore-options) para VMs encriptados. Esta opção só é suportada para discos geridos não encriptados.
+- Pode fazer backup e restaurar VMs encriptados ADE dentro da mesma subscrição e região que o cofre de backup dos Serviços de Recuperação.
+- Os VMs encriptados ADE não podem ser recuperados ao nível do ficheiro/pasta. É necessário recuperar todo o VM para restaurar ficheiros e pastas.
+- Ao restaurar um VM, não é possível utilizar a opção [VM de substituição existente](backup-azure-arm-restore-vms.md#restore-options) por VMs encriptados ADE. Esta opção só é suportada para discos geridos não encriptados.
 
 ## <a name="before-you-start"></a>Antes de começar
 
@@ -70,8 +70,8 @@ Além disso, há algumas coisas que pode precisar fazer em algumas circunstânci
 
     ![Painel de reserva](./media/backup-azure-vms-encryption/select-backup.png)
 
-1. Em **Backup goal** Onde está a sua carga de trabalho a  >  **correr?** **Azure**
-1. Em O que pretende fazer **Virtual machine** para fazer **o back-up?** Em seguida, **selecione Backup**.
+1. Em **Backup goal** Onde está a sua carga de trabalho a  >  **correr?** 
+1. Em O que pretende fazer para fazer **o back-up?** Em seguida, **selecione Backup**.
 
       ![Painel de cenário](./media/backup-azure-vms-encryption/select-backup-goal-one.png)
 
@@ -125,6 +125,17 @@ Para definir permissões:
 
 1. No portal Azure, selecione **Todos os serviços** e procure **cofres chave**.
 1. Selecione o cofre de chaves associado ao VM encriptado que está a fazer.
+
+    >[!TIP]
+    >Para identificar o cofre de chaves associado de um VM, utilize o seguinte comando PowerShell. Substitua o nome do seu grupo de recursos e o nome VM:
+    >
+    >`Get-AzVm -ResourceGroupName "MyResourceGroup001" -VMName "VM001" -Status`
+    >
+    > Procure o nome do cofre chave nesta linha:
+    >
+    >`SecretUrl            : https://<keyVaultName>.vault.azure.net`
+    >
+
 1. Selecione **políticas de acesso** Adicionar Política de  >  **Acesso**.
 
     ![Adicionar política de acesso](./media/backup-azure-vms-encryption/add-access-policy.png)
@@ -148,7 +159,7 @@ Os VMs encriptados só podem ser restaurados restaurando o disco VM, conforme ex
 Restaurar vMs encriptados da seguinte forma:
 
 1. [Restaurar o disco VM](backup-azure-arm-restore-vms.md#restore-disks).
-2. Recrie a instância da máquina virtual fazendo uma das seguintes:
+2. Recrie a instância da máquina virtual fazendo uma das seguintes ações:
     1. Utilize o modelo gerado durante a operação de restauro para personalizar as definições de VM e desencadear a implementação de VM. [Saiba mais](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm).
     2. Crie um novo VM a partir dos discos restaurados utilizando o PowerShell. [Saiba mais](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
 3. Para os VMs Linux, reinstale a extensão ADE para que os discos de dados estejam abertos e montados.

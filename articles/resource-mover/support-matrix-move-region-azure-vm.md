@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 10/11/2020
 ms.author: raynew
-ms.openlocfilehash: 00b220e07dc3fa7580100d6d36108c14fe598d40
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: fa0017b0633d856906609818dd56b5971b1879a7
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98572192"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99222803"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Apoio à deslocação de VMs Azure entre regiões de Azure
 
@@ -154,7 +154,7 @@ Disco Premium P20 ou P30 ou P40 ou P50 | 16 KB ou superior |20 MB/s | 1684 GB po
 --- | --- | ---
 NIC | Suportado | Especifique um recurso existente na região alvo ou crie um novo recurso durante o processo de Preparação. 
 Balanceador de carga interno | Suportado | Especifique um recurso existente na região alvo ou crie um novo recurso durante o processo de Preparação.  
-Balanceador de carga público | Atualmente, não é suportado | Especifique um recurso existente na região alvo ou crie um novo recurso durante o processo de Preparação.  
+Balanceador de carga público | Suportado | Especifique um recurso existente na região alvo ou crie um novo recurso durante o processo de Preparação.  
 Endereço IP público | Suportado | Especifique um recurso existente na região alvo ou crie um novo recurso durante o processo de Preparação.<br/><br/> O endereço IP público é específico da região, e não será mantido na região alvo após a mudança. Tenha isto em mente quando modificar as definições de rede (incluindo regras de equilíbrio de carga) no local alvo.
 Grupo de segurança de rede | Suportado | Especifique um recurso existente na região alvo ou crie um novo recurso durante o processo de Preparação.  
 Endereço IP reservado (estático) | Suportado | Não pode configurar isto. O valor é desresposição do valor da fonte. <br/><br/> Se o NIC na fonte VM tiver um endereço IP estático, e a sub-rede alvo tiver o mesmo endereço IP disponível, é atribuído ao VM alvo.<br/><br/> Se a sub-rede-alvo não tiver o mesmo endereço IP disponível, o movimento iniciado para o VM falhará.

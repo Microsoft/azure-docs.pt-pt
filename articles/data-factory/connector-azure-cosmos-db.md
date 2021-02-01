@@ -10,13 +10,13 @@ ms.service: multiple
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/11/2019
-ms.openlocfilehash: bb9f2673eb080ee2919297fcbb5199f99d176bce
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 01/29/2021
+ms.openlocfilehash: 1d9e43aafbe1f9fdd48596c54138075e23a25590
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013688"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99222921"
 ---
 # <a name="copy-and-transform-data-in-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Copiar e transformar os dados no Azure Cosmos DB (API SQL) com o Azure Data Factory
 
@@ -64,9 +64,9 @@ As seguintes propriedades são suportadas para o serviço ligado Azure Cosmos DB
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade **tipo** deve ser definida para **CosmosDb**. | Sim |
-| conexãoStragem |Especifique as informações necessárias para ligar à base de dados DB do Azure Cosmos.<br />**Nota:** Deve especificar as informações da base de dados na cadeia de ligação, tal como indicado nos exemplos que se seguem. <br/> Também pode colocar a chave de conta no Cofre da Chave Azure e retirar a `accountKey` configuração da cadeia de ligação. Consulte as seguintes amostras e [guarde as credenciais no artigo do Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. |Sim |
-| connectVia | O [Tempo de Execução de Integração](concepts-integration-runtime.md) para ligar à loja de dados. Pode utilizar o Tempo de Execução da Integração Azure ou um tempo de integração auto-hospedado (se a sua loja de dados estiver localizada numa rede privada). Se esta propriedade não for especificada, o tempo de execução de integração Azure predefinido é utilizado. |Não |
+| tipo | A propriedade **tipo** deve ser definida para **CosmosDb**. | Yes |
+| conexãoStragem |Especifique as informações necessárias para ligar à base de dados DB do Azure Cosmos.<br />**Nota:** Deve especificar as informações da base de dados na cadeia de ligação, tal como indicado nos exemplos que se seguem. <br/> Também pode colocar a chave de conta no Cofre da Chave Azure e retirar a `accountKey` configuração da cadeia de ligação. Consulte as seguintes amostras e [guarde as credenciais no artigo do Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. |Yes |
+| connectVia | O [Tempo de Execução de Integração](concepts-integration-runtime.md) para ligar à loja de dados. Pode utilizar o Tempo de Execução da Integração Azure ou um tempo de integração auto-hospedado (se a sua loja de dados estiver localizada numa rede privada). Se esta propriedade não for especificada, o tempo de execução de integração Azure predefinido é utilizado. |No |
 
 **Exemplo**
 
@@ -120,8 +120,8 @@ As seguintes propriedades são suportadas para o conjunto de dados Azure Cosmos 
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade do **tipo** do conjunto de dados deve ser definida para **CosmosDbSqlApiCollection**. |Sim |
-| coleçãoName |O nome da coleção de documentos Azure Cosmos DB. |Sim |
+| tipo | A propriedade do **tipo** do conjunto de dados deve ser definida para **CosmosDbSqlApiCollection**. |Yes |
+| coleçãoName |O nome da coleção de documentos Azure Cosmos DB. |Yes |
 
 Se utilizar o conjunto de dados do tipo "DocumentDbCollection", ainda é suportado como é para retrocompatibilidade para a atividade copy e Lookup, não é suportado para o Fluxo de Dados. Sugere-se que use o novo modelo para a frente.
 
@@ -156,10 +156,11 @@ As seguintes propriedades são suportadas na secção **origem** da Atividade de
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A **type** propriedade tipo da fonte de atividade da cópia deve ser definida para **CosmosDbSqlApiSource**. |Sim |
-| consulta |Especifique a consulta DB do Azure Cosmos para ler dados.<br/><br/>Exemplo:<br /> `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Não <br/><br/>Se não for especificada, esta declaração SQL é executada: `select <columns defined in structure> from mycollection` |
-| Regiões preferenciais | A lista preferida das regiões a que se conectam ao recuperar dados da Cosmos DB. | Não |
-| tamanho de página | O número de documentos por página do resultado da consulta. O padrão é "-1", o que significa que utiliza o tamanho da página dinâmica do lado do serviço até 1000. | Não |
+| tipo | A  propriedade tipo da fonte de atividade da cópia deve ser definida para **CosmosDbSqlApiSource**. |Yes |
+| consulta |Especifique a consulta DB do Azure Cosmos para ler dados.<br/><br/>Exemplo:<br /> `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |No <br/><br/>Se não for especificada, esta declaração SQL é executada: `select <columns defined in structure> from mycollection` |
+| Regiões preferenciais | A lista preferida das regiões a que se conectam ao recuperar dados da Cosmos DB. | No |
+| tamanho de página | O número de documentos por página do resultado da consulta. O padrão é "-1", o que significa que utiliza o tamanho da página dinâmica do lado do serviço até 1000. | No |
+| detectarDatetime | Se detetar a data a partir dos valores de cadeia nos documentos. Os valores permitidos são: **verdadeiros** (padrão), **falsos.** | No |
 
 Se utilizar a fonte do tipo "DocumentDbCollectionSource", ainda é suportada como é para retrocompatibilidade. Sugere-se que utilize o novo modelo que vai para a frente, que fornece capacidades mais ricas para copiar dados da Cosmos DB.
 
@@ -208,9 +209,9 @@ As seguintes propriedades são suportadas na secção de **lavatório** Copy Act
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade do **tipo** do lavatório Copy Activity deve ser definida para **CosmosDbSqlApiSink**. |Sim |
-| escrever Comportamento |Descreve como escrever dados para Azure Cosmos DB. Valores permitidos: **inserir** e **aumentar.**<br/><br/>O comportamento do **upsert** é substituir o documento se já existir um documento com o mesmo ID; caso contrário, insira o documento.<br /><br />**Nota:** A Data Factory gera automaticamente um ID para um documento se um ID não for especificado no documento original ou por mapeamento de colunas. Isto significa que deve garantir que, para que **o upsert** funcione como esperado, o seu documento tenha uma identificação. |Não<br />(o padrão é **inserir)** |
-| escreverBatchSize | A Data Factory utiliza a [biblioteca de executores a granel Azure Cosmos DB](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) para escrever dados para a Azure Cosmos DB. A **propriedade writeBatchSize** controla o tamanho dos documentos que a ADF fornece à biblioteca. Pode tentar aumentar o valor para **escreverBatchSize** para melhorar o desempenho e diminuir o valor se o tamanho do seu documento for grande - veja abaixo as dicas. |Não<br />(o padrão é **de 10.000)** |
+| tipo | A propriedade do **tipo** do lavatório Copy Activity deve ser definida para **CosmosDbSqlApiSink**. |Yes |
+| escrever Comportamento |Descreve como escrever dados para Azure Cosmos DB. Valores permitidos: **inserir** e **aumentar.**<br/><br/>O comportamento do **upsert** é substituir o documento se já existir um documento com o mesmo ID; caso contrário, insira o documento.<br /><br />**Nota:** A Data Factory gera automaticamente um ID para um documento se um ID não for especificado no documento original ou por mapeamento de colunas. Isto significa que deve garantir que, para que **o upsert** funcione como esperado, o seu documento tenha uma identificação. |No<br />(o padrão é **inserir)** |
+| escreverBatchSize | A Data Factory utiliza a [biblioteca de executores a granel Azure Cosmos DB](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) para escrever dados para a Azure Cosmos DB. A **propriedade writeBatchSize** controla o tamanho dos documentos que a ADF fornece à biblioteca. Pode tentar aumentar o valor para **escreverBatchSize** para melhorar o desempenho e diminuir o valor se o tamanho do seu documento for grande - veja abaixo as dicas. |No<br />(o padrão é **de 10.000)** |
 | desativaçãoMetricosCollecto | A Data Factory recolhe métricas como Cosmos DB RUs para otimização de desempenho de cópia e recomendações. Se estiver preocupado com este comportamento, especifique `true` para desligá-lo. | Não (o padrão `false` é) |
 
 >[!TIP]
@@ -295,13 +296,16 @@ As definições específicas do Azure Cosmos DB estão disponíveis no **separad
 * Nenhuma: nenhuma ação será feita à coleção.
 * Recriar: A coleção será abandonada e recriada
 
-**Tamanho do lote**: Controla quantas linhas estão a ser escritas em cada balde. Tamanhos maiores do lote melhoram a compressão e a otimização da memória, mas arriscam-se a sair das exceções de memória ao caching dados.
+**Tamanho do lote**: Um inteiro que representa quantos objetos estão a ser escritos para a coleção Cosmos DB em cada lote. Normalmente, começar pelo tamanho do lote predefinido é suficiente. Para afinar ainda mais este valor, note:
+
+- Cosmos DB limita o tamanho de um único pedido para 2MB. A fórmula é "Tamanho do Pedido = Tamanho único do documento * Tamanho do lote". Se atingir um erro dizendo "O tamanho do pedido é demasiado grande", reduza o valor do tamanho do lote.
+- Quanto maior for o tamanho do lote, melhor a produção ADF pode alcançar, ao mesmo tempo que se certifica de que aloca RUs suficientes para capacitar a sua carga de trabalho.
 
 **Chave de partição:** Introduza uma corda que represente a chave de partição da sua coleção. Exemplo: ```/movies/title```
 
 **Produção:** Descreva um valor opcional para o número de RUs que gostaria de aplicar à sua coleção CosmosDB para cada execução deste fluxo de dados. O mínimo é 400.
 
-**Escreva o orçamento de produção:** Um número inteiro que representa o número de RUs que quer atribuir ao trabalho de ingerência a granel. Este número está fora do total de produção atribuído à coleção.
+**Escreva o orçamento de produção:** Um número inteiro que representa as RUs que pretende atribuir para esta operação de escrita data Flow, a partir do total de produção atribuído à coleção.
 
 ## <a name="lookup-activity-properties"></a>Propriedades de atividade de procura
 
