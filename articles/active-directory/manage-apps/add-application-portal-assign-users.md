@@ -3,19 +3,19 @@ title: 'Quickstart: Atribua os utilizadores a uma app que utiliza o Azure Ative 
 description: Este quickstart percorre o processo de permitir que os utilizadores utilizem uma app que você tem configurado para usar a AZure AD como um fornecedor de identidade.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/01/2020
 ms.author: kenwith
-ms.openlocfilehash: 889ad3b74a2f7c0baa006a0c45e3f14664d6cd0c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 53dd2d15565149c3a9888ba063a6194ae033d8e0
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91325883"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258376"
 ---
 # <a name="quickstart-assign-users-to-an-app-that-is-using-azure-ad-as-an-identity-provider"></a>Quickstart: Atribua os utilizadores a uma app que está a usar o AZure AD como fornecedor de identidade
 
@@ -57,7 +57,7 @@ Para atribuir os utilizadores a uma aplicação que adicionou ao seu inquilino A
 
 Pode desatribuição de utilizadores ou grupos utilizando o mesmo procedimento. Selecione o utilizador ou grupo que pretende não assinar e, em seguida, selecione **Remover**. Algumas das aplicações Microsoft 365 e Office 365 requerem a utilização do PowerShell. 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Depois de terminar com o quickstart, considere apagar a aplicação. Assim pode manter o seu inquilino de teste limpo. A eliminação da aplicação é abrangida pelo último quickstart desta série, ver [Delete uma aplicação](delete-application-portal.md).
 
@@ -67,7 +67,7 @@ Avance para o próximo artigo para aprender a configurar um único sº de sôs-o
 > [!div class="nextstepaction"]
 > [Configurar o início de sessão único baseado em SAML](add-application-portal-setup-sso.md)
 
-OU
+OR
 
 > [!div class="nextstepaction"]
 > [Configurar o início de sessão único baseado em OIDC](add-application-portal-setup-oidc-sso.md)

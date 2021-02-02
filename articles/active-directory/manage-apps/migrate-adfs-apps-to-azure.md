@@ -3,7 +3,7 @@ title: Autenticação de aplicações móveis de AD FS para Azure Ative Director
 description: Este artigo destina-se a ajudar as organizações a entender como mover as aplicações para a Azure AD, com foco nas aplicações federadas do SaaS.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
@@ -14,12 +14,12 @@ ms.date: 04/01/2020
 ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e15009dd935d91971ce4212ff44b67a1ca6fa363
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: b27ccf5a861295ae83b5ddc021e77de75962de48
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745388"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258393"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Mover a autenticação da aplicação do AD FS para o AAD
 

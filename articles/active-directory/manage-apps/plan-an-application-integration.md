@@ -3,7 +3,7 @@ title: Começar a integrar a Azure AD com apps
 description: Este artigo é um guia de arranque para integrar o Azure Ative Directory (AD) com aplicações no local e aplicações em nuvem.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/16/2018
 ms.author: kenwith
 ms.reviewer: asteen
-ms.openlocfilehash: db3d3623e175d582a2fe271d73aa452ca07b8e8d
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 8b321acb00e6e9b4b6cca117afba8bf0c9432719
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735071"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258471"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Integrar o Azure Ative Directory com candidaturas a iniciar guia
 
@@ -84,7 +84,7 @@ Os seguintes artigos descrevem formas de gerir o acesso às aplicações depois 
 * [Atribuir grupos a uma aplicação](./assign-user-or-group-access-portal.md)
 * [Partilhar contas](../enterprise-users/users-sharing-accounts.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter informações aprofundadas, você pode baixar os planos de implementação do Azure Ative Directory a partir do [GitHub](../fundamentals/active-directory-deployment-plans.md). Para aplicações de galeria, pode descarregar planos de implementação para um único sign-on, Acesso Condicional e fornecimento de utilizadores através do [portal Azure.](https://portal.azure.com) 
 
 Para descarregar um plano de implementação a partir do portal Azure:
