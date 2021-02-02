@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/11/2021
-ms.openlocfilehash: 2c60e8c71c38e5a6e92939b655cef9fcc1e04f70
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.date: 02/02/2021
+ms.openlocfilehash: 9c85b02ac0e83f3463c458629411989062adc4e6
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98072089"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430752"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Copiar dados de e para a Salesforce utilizando a Azure Data Factory
 
@@ -75,10 +75,7 @@ As seguintes propriedades são suportadas para o serviço ligado à Salesforce.
 | palavra-passe |Especifique uma palavra-passe para a conta de utilizador.<br/><br/>Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). |Sim |
 | securityToken |Especifique um sinal de segurança para a conta de utilizador. <br/><br/>Para conhecer os tokens de segurança em geral, consulte [a Segurança e a API.](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm) O token de segurança só pode ser ignorado se adicionar o IP do Tempo de Integração à [lista de endereços IP fidedignas](https://developer.salesforce.com/docs/atlas.en-us.securityImplGuide.meta/securityImplGuide/security_networkaccess.htm) no Salesforce. Ao utilizar o Azure IR, consulte os [endereços IP do tempo de execução da integração Azure](azure-integration-runtime-ip-addresses.md).<br/><br/>Para obter instruções sobre como obter e redefinir um sinal de segurança, consulte [obter um token de segurança](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). |Não |
 | apiVersion | Especifique a versão API salesforce/granel para utilizar, por `48.0` exemplo. Por predefinição, o conector utiliza [o V45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) para copiar dados da Salesforce e utiliza [o V40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) para copiar dados para a Salesforce. | Não |
-| connectVia | O [tempo de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. | Não para fonte, Sim para afundar se o serviço ligado à fonte não tiver tempo de integração |
-
->[!IMPORTANT]
->Quando copia dados para a Salesforce, o tempo de execução de integração Azure padrão não pode ser usado para executar cópia. Por outras palavras, se o seu serviço ligado à fonte não tiver um tempo de execução de integração especificado, crie explicitamente [um Tempo de Execução de Integração Azure](create-azure-integration-runtime.md#create-azure-ir) com uma localização próxima da sua instância Salesforce. Associar o serviço ligado à Salesforce como no exemplo seguinte.
+| connectVia | O [tempo de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. | Não |
 
 **Exemplo: Armazenar credenciais na Fábrica de Dados**
 
@@ -327,7 +324,7 @@ Ao copiar dados da Salesforce, os seguintes mapeamentos são usados desde os tip
 | Número automático |String |
 | Caixa de verificação |Booleano |
 | Moeda |Decimal |
-| Date |DateTime |
+| Data |DateTime |
 | Data/Hora |DateTime |
 | E-mail |String |
 | ID |String |

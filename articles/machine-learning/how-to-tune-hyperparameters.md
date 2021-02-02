@@ -2,24 +2,23 @@
 title: Hiperparametro afinando um modelo
 titleSuffix: Azure Machine Learning
 description: Automatize a afinação de hiperparímetros para a aprendizagem profunda e modelos de aprendizagem automática usando Azure Machine Learning.
-ms.author: swatig
-author: swatig007
+ms.author: anumamah
+author: Aniththa
 ms.reviewer: sgilley
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 03/30/2020
+ms.date: 01/29/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: e9f9f73a8e0dbc851efdba07bf1e103f58ae9e75
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: a4be95561c097191803f2faa271c5d6bba875869
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133866"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430364"
 ---
 # <a name="hyperparameter-tuning-a-model-with-azure-machine-learning"></a>Hiperparametro afinando um modelo com Azure Machine Learning
-
 
 Automatizar uma afinação eficiente do hiperparametro utilizando o pacote Azure Machine Learning [HyperDrive](/python/api/azureml-train-core/azureml.train.hyperdrive?preserve-view=true&view=azure-ml-py). Saiba como completar os passos necessários para sintonizar hiperparímetros com o [Azure Machine Learning SDK:](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py)
 
@@ -382,6 +381,30 @@ hd_config = HyperDriveConfig(run_config=src,
 
 ## <a name="visualize-hyperparameter-tuning-runs"></a>Visualize corridas de afinação de hiperparímetros
 
+Pode visualizar as suas correções de afinação de hiperparímetros no estúdio Azure Machine Learning ou pode usar um widget de portátil.
+
+### <a name="studio"></a>Studio
+
+Pode visualizar todas as suas afinações de hiperparímetros no [estúdio Azure Machine Learning](https://ml.azure.com). Para obter mais informações sobre como ver uma experiência no portal, consulte [ver os registos de execução do view no estúdio.](how-to-monitor-view-training-logs.md#view-the-experiment-in-the-web-portal)
+
+- **Gráfico de métricas**: Esta visualização acompanha as métricas registadas para cada hiperdrive que a criança corre ao longo da duração da sintonização hiperparítnica. Cada linha representa uma criança executada, e cada ponto mede o valor métrico primário nessa iteração do tempo de execução.  
+
+    :::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-metrics.png" alt-text="Gráfico de métricas de afinação de hiperparímetro":::
+
+- **Gráfico de coordenadas paralelas**: Esta visualização mostra a correlação entre o desempenho métrico primário e os valores individuais do hiperparímetro. O gráfico é interativo através do movimento de eixos (clique e arraste pela etiqueta do eixo), e destacando valores através de um único eixo (clique e arraste verticalmente ao longo de um único eixo para destacar uma gama de valores desejados).
+
+    :::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates.png" alt-text="Gráfico de coordenadas paralelas de afinação de hiperparímetro":::
+
+- **Gráfico de dispersão 2-Dimensional**: Esta visualização mostra a correlação entre dois hiperparímetros individuais juntamente com o seu valor métrico primário associado.
+
+    :::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-2-dimensional-scatter.png" alt-text="Gráfico de dispersão bidimensional de hyparameter":::
+
+- **Gráfico de dispersão 3-Dimensional**: Esta visualização é a mesma que 2D mas permite três dimensões hiperparatítrias de correlação com o valor métrico primário. Também pode clicar e arrastar para reorientar o gráfico para ver diferentes correlações no espaço 3D.
+
+    :::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-3-dimensional-scatter.png" alt-text="Gráfico de dispersão tridimensional de hyparameter":::
+
+### <a name="notebook-widget"></a>Widget de portátil
+
 Utilize o [widget Notebook](/python/api/azureml-widgets/azureml.widgets.rundetails?preserve-view=true&view=azure-ml-py) para visualizar o progresso das suas corridas de treino. O seguinte corte visualiza toda a sua afinação hiperparítnica corre em um lugar em um lugar em um caderno Jupyter:
 
 ```Python
@@ -391,17 +414,9 @@ RunDetails(hyperdrive_run).show()
 
 Este código apresenta uma tabela com detalhes sobre as corridas de treino para cada uma das configurações do hiperparímetro.
 
-![mesa de afinação hiperparímetro](./media/how-to-tune-hyperparameters/hyperparameter-tuning-table.png)
+:::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-table.png" alt-text="Mesa de afinação de hiperparímetro":::
 
-Também pode visualizar o desempenho de cada uma das corridas à medida que o treino progride. 
-
-![enredo de afinação hiperparaípeiro](./media/how-to-tune-hyperparameters/hyperparameter-tuning-plot.png)
-
-Pode identificar visualmente a correlação entre desempenho e valores de hiperparímetros individuais utilizando um Plano de Coordenadas Paralelas. 
-
-[![hiperparatómetro afinar coordenadas paralelas](./media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates.png)](media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates-expanded.png)
-
-Também pode visualizar todas as suas correções de afinação de hiperparímetros no portal web Azure. Para obter mais informações sobre como ver uma experiência no portal, veja [como rastrear experiências.](how-to-monitor-view-training-logs.md#view-the-experiment-in-the-web-portal)
+Também pode visualizar o desempenho de cada uma das corridas à medida que o treino progride.
 
 ## <a name="find-the-best-model"></a>Encontre o melhor modelo
 

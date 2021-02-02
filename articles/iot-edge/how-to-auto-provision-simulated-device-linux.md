@@ -8,12 +8,12 @@ ms.date: 6/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c69e919c76c0aecb6cf8a3ee5e9b7e5d286c168a
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: fccd1bd6f808fad11946c6f0b0dff1f453b61d66
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046048"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430633"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-tpm-on-linux"></a>Criar e providenciar um dispositivo IoT Edge com um TPM no Linux
 
@@ -53,7 +53,7 @@ Um interruptor virtual permite que a sua máquina virtual se conecte a uma rede 
 
 3. Escolha um interruptor virtual **externo** e, em seguida, selecione **Criar Switch Virtual**.
 
-4. Dê um nome ao seu novo interruptor virtual, por exemplo **EdgeSwitch**. Certifique-se de que o tipo de ligação está definido para **rede externa**e, em seguida, selecione **Ok**.
+4. Dê um nome ao seu novo interruptor virtual, por exemplo **EdgeSwitch**. Certifique-se de que o tipo de ligação está definido para **rede externa** e, em seguida, selecione **Ok**.
 
 5. Um pop-up avisa-o de que a conectividade da rede pode ser interrompida. Selecione **Sim** para continuar.
 
@@ -91,7 +91,7 @@ Assim que o seu VM for criado, abra as suas definições para ativar o módulo d
 
 ### <a name="start-the-virtual-machine-and-collect-tpm-data"></a>Inicie a máquina virtual e recolha dados de TPM
 
-Na máquina virtual, construa uma ferramenta que pode utilizar para recuperar a **chave de ID** de Registo e **Endosso**do dispositivo.
+Na máquina virtual, construa uma ferramenta que pode utilizar para recuperar a **chave de ID** de Registo e **Endosso** do dispositivo.
 
 1. No Hyper-V Manager, inicie o seu VM e ligue-se a ele.
 
@@ -205,7 +205,11 @@ Uma vez instalado o tempo de funcionamento no seu dispositivo, configuure o disp
      attestation:
        method: "tpm"
        registration_id: "<REGISTRATION_ID>"
+   # always_reprovision_on_startup: true
+   # dynamic_reprovisioning: false
    ```
+
+   Opcionalmente, utilize as `always_reprovision_on_startup` linhas ou `dynamic_reprovisioning` linhas para configurar o comportamento de reprovisionamento do seu dispositivo. Se um dispositivo estiver definido para reprovisionar no arranque, tentará sempre fornecer primeiro com DPS e depois voltar para a cópia de segurança de provisionamento se isso falhar. Se um dispositivo estiver definido para reprovisionar-se dinamicamente, o IoT Edge reiniciará e reprovisionará se for detetado um evento de reprovisionamento. Para obter mais informações, consulte [conceitos de reprovisionamento do dispositivo IoT Hub](../iot-dps/concepts-device-reprovision.md).
 
 1. Atualize os valores de e com as informações do `scope_id` seu `registration_id` DPS e dispositivo.
 

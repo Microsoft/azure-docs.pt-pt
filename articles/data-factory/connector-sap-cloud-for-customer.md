@@ -11,15 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/12/2020
-ms.openlocfilehash: 3874d3b2b0938b6fd0f763b42ef15f8250b42f1d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/02/2021
+ms.openlocfilehash: 9578b87e16f418a7923cd71aa0638fa4e9279cfd
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87529624"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430887"
 ---
 # <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>Copiar dados da NUVEM SAP para Cliente (C4C) utilizando a Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo descreve como utilizar a Atividade de Cópia na Fábrica de Dados Azure para copiar dados de/para SAP Cloud para Cliente (C4C). Baseia-se no artigo [de visão geral](copy-activity-overview.md) da atividade de cópia que apresenta uma visão geral da atividade da cópia.
@@ -54,10 +55,7 @@ As seguintes propriedades são suportadas para o serviço SAP Cloud para o clien
 | url | O URL do serviço SAP C4C OData. | Sim |
 | nome de utilizador | Especifique o nome de utilizador para ligar ao SAP C4C. | Sim |
 | palavra-passe | Especifique a palavra-passe para a conta de utilizador especificada para o nome de utilizador. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim |
-| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. | Não para a fonte, sim para a pia |
-
->[!IMPORTANT]
->Para copiar dados em NUVEM SAP para Cliente, crie explicitamente [um Azure IR](create-azure-integration-runtime.md#create-azure-ir) com uma localização perto da sua Nuvem SAP para Cliente, e associe no serviço ligado como o seguinte exemplo:
+| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. | Não |
 
 **Exemplo:**
 
@@ -167,8 +165,8 @@ Para copiar dados para SAP Cloud para Cliente, desaperte o tipo de pia na ativid
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo deve ser definida para: **SapCloudForCustomerSink**  | Sim |
-| escrever Comportamento | O comportamento de escrita da operação. Pode ser "Inserir", "Atualizar". | N.º Predefinitivo "Inserir". |
-| escreverBatchSize | O tamanho do lote da operação de escrita. O tamanho do lote para obter o melhor desempenho pode ser diferente para diferentes tabelas ou servidores. | N.º Padrão 10. |
+| escrever Comportamento | O comportamento de escrita da operação. Pode ser "Inserir", "Atualizar". | N.º Predefinitivo "Inserir". |
+| escreverBatchSize | O tamanho do lote da operação de escrita. O tamanho do lote para obter o melhor desempenho pode ser diferente para diferentes tabelas ou servidores. | N.º Padrão 10. |
 
 **Exemplo:**
 
@@ -215,19 +213,19 @@ Ao copiar dados da SAP Cloud para o Cliente, os seguintes mapeamentos são usado
 
 | Tipo de dados SAP C4C OData | Tipo de dados provisórios da fábrica de dados |
 |:--- |:--- |
-| Edm.Binary | Byte[] |
+| Edm.Binary | Byte[] |
 | Edm.Boolean | Booleano |
-| Edm.Byte | Byte[] |
+| Edm.Byte | Byte[] |
 | Edm.DateTime | DateTime |
 | Edm.Decimal | Decimal |
 | Edm.Double | Double (Duplo) |
 | Edm.Single | Único |
-| Edm.Guid | GUID |
+| Edm.Guid | GUID |
 | Edm.Int16 | Int16 |
 | Edm.Int32 | Int32 |
 | Edm.Int64 | Int64 |
 | Edm.SByte | Int16 |
-| Edm.String | Cadeia |
+| Edm.String | String |
 | Edm.Tempo | TimeSpan |
 | Edm.DateTimeOffset | Início de execução de tempo de data |
 

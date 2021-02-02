@@ -3,14 +3,14 @@ title: Tutorial do Kubernetes no Azure - Criar um registo de contentor
 description: Neste tutorial do Azure Kubernetes Service (AKS), vai criar uma instância do Azure Container Registry e carregar uma imagem de contentor da aplicação de exemplo.
 services: container-service
 ms.topic: tutorial
-ms.date: 01/12/2021
+ms.date: 01/31/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: d1dce1c59c4bf40eaead89e4a8a088e9a8ea4f76
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 9f6ec14cea20192aef7d3010201e6613c5d03a9e
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250626"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430968"
 ---
 # <a name="tutorial-deploy-and-use-azure-container-registry"></a>Tutorial: Implementar e utilizar o Azure Container Registry
 
@@ -24,7 +24,7 @@ O Registo de Contentores Azure (ACR) é um registo privado para imagens de conte
 
 Em tutoriais posteriores, este exemplo de ACR é integrado com um cluster Kubernetes em AKS, e uma aplicação é implementada a partir da imagem.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 No [tutorial anterior][aks-tutorial-prepare-app], foi criada uma imagem de contentor para uma aplicação de Votação simples do Azure. Se não tiver criado a imagem de aplicação de Votação do Azure, regresse ao [Tutorial 1 – Criar imagens de contentor][aks-tutorial-prepare-app].
 
@@ -61,7 +61,7 @@ O comando devolve uma mensagem *login concluída* uma vez concluída.
 Para ver uma lista das imagens locais atuais, utilize o comando [docker images][docker-images]:
 
 ```console
-$ docker images
+docker images
 ```
 A saída do comando acima mostra a lista das imagens locais atuais:
 
@@ -88,8 +88,8 @@ docker tag mcr.microsoft.com/azuredocs/azure-vote-front:v1 <acrLoginServer>/azur
 
 Para verificar se as etiquetas são aplicadas, execute novamente [docker images][docker-images].
 
-```azurecli
-$ docker images
+```console
+docker images
 ```
 
 Uma imagem é marcada com o endereço da instância do ACR e um número de versão.

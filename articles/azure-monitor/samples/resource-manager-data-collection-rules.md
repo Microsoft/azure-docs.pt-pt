@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2020
-ms.openlocfilehash: 4983e4b7f76c627cb3cb3081bc12e27111b2b521
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: bff13c24e0b5818b352e76df1d8ecd8251a5f12c
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98951466"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430230"
 ---
 # <a name="resource-manager-template-samples-for-data-collection-rules-in-azure-monitor"></a>Amostras de modelo do gestor de recursos para regras de recolha de dados no Azure Monitor
 Este artigo inclui [modelos de gestor de recursos Azure](../../azure-resource-manager/templates/template-syntax.md) para implantar e configurar o [agente Log Analytics](../platform/log-analytics-agent.md) e a [extensão de diagnóstico](../platform/diagnostics-extension-overview.md) para máquinas virtuais no Azure Monitor. Cada amostra inclui um ficheiro de modelo e um ficheiro de parâmetros com valores de amostra para fornecer ao modelo.
@@ -21,7 +21,7 @@ Este artigo inclui [modelos de gestor de recursos Azure](../../azure-resource-ma
 
 ## <a name="create-association-with-azure-vm"></a>Criar associação com a Azure VM
 
-A amostra que se segue instala o agente Azure Monitor numa máquina virtual Windows Azure. Uma associação é criada entre uma máquina virtual Azure e uma regra de recolha de dados.
+A amostra a seguir cria uma associação entre uma máquina virtual Azure e uma regra de recolha de dados.
 
 ### <a name="template-file"></a>Arquivo de modelo
 

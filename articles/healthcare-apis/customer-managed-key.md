@@ -2,18 +2,18 @@
 title: Configure as chaves geridas pelo cliente para a Azure API para fHIR
 description: Traga a sua própria funcionalidade de chave suportada na Azure API para FHIR através da Cosmos DB
 services: healthcare-apis
-author: matjazl
+author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
 ms.date: 09/28/2020
-ms.author: matjazl
-ms.openlocfilehash: 3879280f56a4b99d8e6e08a9c9ed852ef2cafa68
-ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
+ms.author: ginle
+ms.openlocfilehash: ae78aa80594e46b02d77adcafed961e801780d4f
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98747328"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430264"
 ---
 # <a name="configure-customer-managed-keys-at-rest"></a>Configure as chaves geridas pelo cliente em repouso
 
@@ -44,7 +44,7 @@ Para as contas FHIR existentes, pode ver a escolha de encriptação chave (chave
 
 Além disso, pode criar uma nova versão da chave especificada, após a qual os seus dados serão encriptados com a nova versão sem qualquer interrupção de serviço. Também pode remover o acesso à chave para remover o acesso aos dados. Quando a chave estiver desativada, as consultas resultarão num erro. Se a chave for re-activada, as consultas voltarão a ter sucesso.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a configurar chaves geridas pelo cliente em repouso. Em seguida, pode conferir mais uma vez na secção Azure Cosmos DB FAQ: 
  

@@ -3,12 +3,12 @@ title: Ficheiros Azure NetApp com Solução VMware Azure
 description: Utilize ficheiros Azure NetApp com VMs de Solução VMware Azure para migrar e sincronizar dados em servidores no local, VMs de Solução VMware Azure e infraestruturas em nuvem.
 ms.topic: how-to
 ms.date: 01/20/2021
-ms.openlocfilehash: b712b25130a8bed19bd784d2c45c18a55a582be6
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: b4ffea23606e1829fbf713488f08bc5618180072
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99062983"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430067"
 ---
 # <a name="azure-netapp-files-with-azure-vmware-solution"></a>Ficheiros Azure NetApp com Solução VMware Azure
 
@@ -102,7 +102,10 @@ Seguem-se apenas alguns casos de utilização de ficheiros Azure NetApp.
 - Ações de ficheiros na Azure VMware Solution
 
 ## <a name="next-steps"></a>Passos seguintes
-- [Resource limits for Azure NetApp Files](../azure-netapp-files/azure-netapp-files-resource-limits.md#resource-limits) (Limites dos recursos do Azure NetApp Files)
-- [Diretrizes para o planeamento de rede dos Azure NetApp Files](../azure-netapp-files/azure-netapp-files-network-topologies.md)
-- [Replicação transversal dos volumes dos Ficheiros Azure NetApp](../azure-netapp-files/cross-region-replication-introduction.md) 
-- [FAQs sobre o Azure NetApp Files](../azure-netapp-files/azure-netapp-files-faqs.md)
+
+Depois de ter integrado os Ficheiros Azure NetApp com as suas cargas de trabalho Azure VMware Solution, poderá querer saber mais sobre:
+
+- [Limites de recursos para ficheiros Azure NetApp](../azure-netapp-files/azure-netapp-files-resource-limits.md#resource-limits).
+- [Diretrizes para o planeamento da rede Azure NetApp Files](../azure-netapp-files/azure-netapp-files-network-topologies.md).
+- [Replicação transversal dos volumes de ficheiros Azure NetApp](../azure-netapp-files/cross-region-replication-introduction.md). 
+- [Perguntas frequentes sobre ficheiros Azure NetApp](../azure-netapp-files/azure-netapp-files-faqs.md).

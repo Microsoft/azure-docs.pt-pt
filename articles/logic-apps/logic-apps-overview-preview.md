@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 01/22/2021
-ms.openlocfilehash: a4d1543c5c4ce7a44825a879b838e7829b8c84fd
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.date: 02/01/2021
+ms.openlocfilehash: 5db0214e9b985df5c5aedb1dbe9878e484af2a55
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98760634"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430802"
 ---
 # <a name="overview-azure-logic-apps-preview"></a>Visão geral: Pré-visualização de apps da Azure Logic Apps
 
@@ -169,6 +169,8 @@ Para obter mais informações sobre os modelos de preços aplicáveis a este nov
 
 Na pré-visualização de apps Azure Logic, estas capacidades mudaram, ou estão atualmente limitadas, indisponíveis ou não suportadas:
 
+* **Suporte ao OS**: Atualmente, o designer no Visual Studio Code não funciona no Linux OS, mas ainda pode implementar aplicações lógicas que usam o tempo de pré-visualização de Apps Lógicas para máquinas virtuais baseadas em Linux. Por enquanto, pode construir as suas aplicações lógicas no Código do Estúdio Visual no Windows ou macOS e depois implementar para uma máquina virtual baseada em Linux.
+
 * **Gatilhos e ações**: Alguns gatilhos incorporados não estão disponíveis, tais como janela deslizante e lote. Para iniciar o seu fluxo de trabalho, utilize o [recorrence incorporado, request, HTTP, HTTP Webhook, Event Hubs ou Service Bus trigger](../connectors/apis-list.md). Os gatilhos e ações incorporados são executados de forma nativa no tempo de pré-visualização das aplicações lógicas Azure, enquanto os conectores geridos são implantados em Azure. No designer, os gatilhos e ações incorporados aparecem sob o separador **Incorporado,** enquanto os gatilhos e ações geridos aparecem sob o separador **Azure.**
 
   > [!NOTE]
@@ -261,7 +263,7 @@ Para uma definição de aplicação lógica única, a ação Inline Code Operati
 
 Para obter mais informações, consulte [os limites de definição de aplicações logicos.](logic-apps-limits-and-config.md#definition-limits)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar fluxos de trabalho apátridas e apátridas no portal Azure](create-stateful-stateless-workflows-azure-portal.md)
 * [Criar fluxos de trabalho apátridas e apátridas no Código do Estúdio Visual](create-stateful-stateless-workflows-visual-studio-code.md)

@@ -3,18 +3,18 @@ title: 'Quickstart - Provisão simulada dispositivo X.509 para Azure IoT Hub usa
 description: Quickstart - Criar e providenciar um dispositivo X.509 simulado utilizando o dispositivo C# SDK para o Serviço de Provisionamento de Dispositivos Azure IoT Hub (DPS). Este início rápido utiliza inscrições individuais.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 11/08/2018
+ms.date: 02/01/2021
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 27bb1c97fa082f15642ab9eff6b0bdba357068a2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a6e859a39cbcf867e3c0a21bb59c6154cbd47412
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91323979"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430595"
 ---
 # <a name="quickstart-create-and-provision-a-simulated-x509-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Quickstart: Criar e providenciar um dispositivo X.509 simulado utilizando o dispositivo C# SDK para serviço de provisionamento de dispositivos IoT Hub
 
@@ -35,50 +35,77 @@ Este artigo vai demonstrar as inscrições individuais.
 <a id="setupdevbox"></a>
 ## <a name="prepare-the-development-environment"></a>Preparar o ambiente de desenvolvimento 
 
-1. Certifique-se de que tem o [.NET Core 2.1 SDK ou posteriormente](https://www.microsoft.com/net/download/windows) instalado na sua máquina. 
-
 1. Verifique se `git` está instalado no computador e que é adicionado às variáveis de ambiente às quais a janela de comandos pode aceder. Veja as [ferramentas de cliente Git da Software Freedom Conservancy](https://git-scm.com/download/) relativamente à mais recente versão das ferramentas de `git` a instalar, que incluem o **Git Bash**, a aplicação de linha de comandos que pode utilizar para interagir com o seu repositório Git local. 
 
 1. Abra uma linha de comandos ou o Git Bash. Clone as amostras Azure IoT para C# GitHub repo:
     
-    ```cmd
+    ```bash
     git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
     ```
 
-## <a name="create-a-self-signed-x509-device-certificate-and-individual-enrollment-entry"></a>Criar um certificado de dispositivo X.509 autoassinado e entrada de inscrição individual
+1. Certifique-se de que tem o [.NET Core 3.0.0 SDK ou posteriormente](https://www.microsoft.com/net/download/windows) instalado na sua máquina. Pode utilizar o seguinte comando para verificar a sua versão.
 
-Nesta secção, vai utilizar um certificado X.509 autoassinado e é importante ter em consideração o seguinte:
+    ```bash
+    dotnet --info
+    ```
+
+
+
+## <a name="create-a-self-signed-x509-device-certificate"></a>Criar um certificado de dispositivo X.509 autoassinado
+
+Nesta secção, irá criar um certificado de teste X.509 auto-assinado utilizando `iothubx509device1` como nome comum. É importante ter em mente o seguinte:
 
 * Os certificados autoassinados são apenas para teste e não devem ser utilizados na produção.
 * A data de expiração predefinida para um certificado autoassinado é de um ano.
+* O ID do dispositivo IoT será o nome comum do sujeito no certificado. Certifique-se de que utiliza um nome de sujeito que cumpra os requisitos de [cadeia de identificação](../iot-hub/iot-hub-devguide-identity-registry.md#device-identity-properties)do dispositivo .
 
 Utilizará o código de amostra da amostra do [cliente do dispositivo de provisionamento - X.509 Atestado](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/X509Sample) para criar o certificado a utilizar com a entrada individual de inscrição para o dispositivo simulado.
 
 
-1. Numa linha de comandos, altere os diretórios para o diretório de projeto para o exemplo de aprovisionamento de dispositivo X.509.
+1. Num pedido do PowerShell, mude os diretórios para o diretório do projeto para a amostra de provisão de dispositivos X.509.
 
-    ```cmd
+    ```powershell
     cd .\azure-iot-samples-csharp\provisioning\Samples\device\X509Sample
     ```
 
-2. O código de exemplo é configurado para utilizar certificados X.509 armazenados dentro de um ficheiro formatado PKCS12 protegido por palavra-passe (certificate.pfx). Além disso, você precisa de um arquivo de certificado de chave pública (certificate.cer) para criar uma inscrição individual mais tarde neste quickstart. Para gerar um certificado autoassinado e respetivos ficheiros .cer e .pfx associados, execute o seguinte comando:
+2. O código de exemplo é configurado para utilizar certificados X.509 armazenados dentro de um ficheiro formatado PKCS12 protegido por palavra-passe (certificate.pfx). Além disso, você precisa de um arquivo de certificado chave público (certificado.cer) para criar uma inscrição individual mais tarde neste arranque rápido. Para gerar o certificado auto-assinado e os seus ficheiros .cer e .pfx associados, execute o seguinte comando:
 
-    ```cmd
-    powershell .\GenerateTestCertificate.ps1
+    ```powershell
+    PS D:\azure-iot-samples-csharp\provisioning\Samples\device\X509Sample> .\GenerateTestCertificate.ps1 iothubx509device1
     ```
 
-3. O script pede-lhe uma palavra-passe PFX. Memorize esta palavra-passe, deve utilizá-la ao executar o exemplo.
+3. O script pede-lhe uma palavra-passe PFX. Lembre-se desta palavra-passe, deve usá-la mais tarde quando executar a amostra. Pode correr `certutil` para despejar o certificado e verificar o nome do sujeito.
 
-    ![ Introduza a palavra-passe PFX](./media/quick-create-simulated-device-x509-csharp/generate-certificate.png)  
+    ```powershell
+    PS D:\azure-iot-samples-csharp\provisioning\Samples\device\X509Sample> certutil .\certificate.pfx
+    Enter PFX password:
+    ================ Certificate 0 ================
+    ================ Begin Nesting Level 1 ================
+    Element 0:
+    Serial Number: 7b4a0e2af6f40eae4d91b3b7ff05a4ce
+    Issuer: CN=iothubx509device1, O=TEST, C=US
+     NotBefore: 2/1/2021 6:18 PM
+     NotAfter: 2/1/2022 6:28 PM
+    Subject: CN=iothubx509device1, O=TEST, C=US
+    Signature matches Public Key
+    Root Certificate: Subject matches Issuer
+    Cert Hash(sha1): e3eb7b7cc1e2b601486bf8a733887a54cdab8ed6
+    ----------------  End Nesting Level 1  ----------------
+      Provider = Microsoft Strong Cryptographic Provider
+    Signature test passed
+    CertUtil: -dump command completed successfully.    
+    ```
+
+ ## <a name="create-an-individual-enrollment-entry-for-the-device"></a>Criar uma entrada individual de inscrição para o dispositivo
 
 
-4. Inscreva-se no portal Azure, selecione o botão **Todos os recursos** no menu esquerdo e abra o seu serviço de ação.
+1. Inscreva-se no portal Azure, selecione o botão **Todos os recursos** no menu esquerdo e abra o seu serviço de ação.
 
-5. A partir do menu serviço de fornecimento de **dispositivos, selecione Gerir as inscrições**. Selecione o separador **Inscrições Individuais** e selecione o botão **de inscrição individual** adicionar no topo. 
+2. A partir do menu serviço de fornecimento de **dispositivos, selecione Gerir as inscrições**. Selecione o separador **Inscrições Individuais** e selecione o botão **de inscrição individual** adicionar no topo. 
 
-6. No painel **de inscrição adicionar,** insira as seguintes informações:
+3. No painel **de inscrição adicionar,** insira as seguintes informações:
    - Selecione **X.509** como o *Mecanismo* de atestado de identidades.
-   - Sob o *certificado Primário .pem ou .cer file*, escolha *Selecionar um ficheiro* para selecionar o certificado de ficheiro de **certificado.cer** criado nos passos anteriores.
+   - Nos termos do *certificado Principal .pem ou .cer ficheiro*, escolha *Selecionar um ficheiro* para selecionar o certificado de ficheiro de **certificado.cer** criado nos passos anteriores.
    - Deixe **ID de Dispositivo** em branco. O dispositivo será aprovisionado com o seu ID de dispositivo definido como o nome comum (CN) no certificado X.509, **iothubx509device1**. Este também será o nome utilizado para o ID de registo da entrada de inscrição individual. 
    - Opcionalmente, pode fornecer as seguintes informações:
        - Selecione um hub IoT ligado ao seu serviço de aprovisionamento.
@@ -89,6 +116,8 @@ Utilizará o código de amostra da amostra do [cliente do dispositivo de provisi
     
    Após a instalação bem-sucedida, a sua entrada de inscrição X.509 aparece como **iothubx509device1** na coluna *ID de Registo* do separador *Inscrições Individuais*. 
 
+
+
 ## <a name="provision-the-simulated-device"></a>Aprovisionar o dispositivo simulado
 
 1. A partir da lâmina **de visão geral** para o seu serviço de fornecimento, note o valor **_ID Scope._**
@@ -98,13 +127,35 @@ Utilizará o código de amostra da amostra do [cliente do dispositivo de provisi
 
 2. Escreva o seguinte comando para criar e executar o exemplo de aprovisionamento de dispositivos X.509. Substitua o valor `<IDScope>` pelo Âmbito de ID para o serviço de aprovisionamento. 
 
-    ```cmd
-    dotnet run <IDScope>
+    O ficheiro do certificado por defeito para *./certificate.pfx* e pronta para a senha .pfx.  
+
+    ```powershell
+    dotnet run -- -s <IDScope>
     ```
 
-3. Quando lhe for pedido, introduza a palavra-passe para o ficheiro PFX que criou anteriormente. Repare nas mensagens que simulam o arranque e a ligação do dispositivo ao Serviço Aprovisionamento de Dispositivos para obter as informações do seu hub IoT. 
+    Se quiser passar tudo como parâmetro, pode utilizar o seguinte formato de exemplo.
 
-    ![Saída de dispositivo de exemplo](./media/quick-create-simulated-device-x509-csharp/sample-output.png) 
+    ```powershell
+    dotnet run -- -s 0ne00000A0A -c certificate.pfx -p 1234
+    ```
+
+
+3. O dispositivo ligar-se-á ao DPS e será atribuído a um Hub IoT. O dispositivo enviará ainda uma mensagem de telemetria para o centro.
+
+    ```output
+    Loading the certificate...
+    Found certificate: 10952E59D13A3E388F88E534444484F52CD3D9E4 CN=iothubx509device1, O=TEST, C=US; PrivateKey: True
+    Using certificate 10952E59D13A3E388F88E534444484F52CD3D9E4 CN=iothubx509device1, O=TEST, C=US
+    Initializing the device provisioning client...
+    Initialized for registration Id iothubx509device1.
+    Registering with the device provisioning service...
+    Registration status: Assigned.
+    Device iothubx509device2 registered to sample-iot-hub1.azure-devices.net.
+    Creating X509 authentication for IoT Hub...
+    Testing the provisioned device with IoT Hub...
+    Sending a telemetry message...
+    Finished.
+    ```
 
 4. Certifique-se de que o dispositivo foi aprovisionado. No fornecimento bem sucedido do dispositivo simulado ao hub IoT ligado ao seu serviço de fornecimento, o ID do dispositivo aparece na lâmina dos **dispositivos IoT** do hub. 
 
@@ -113,7 +164,7 @@ Utilizará o código de amostra da amostra do [cliente do dispositivo de provisi
     Se tiver alterado o *estado inicial do dispositivo duplo* face ao valor predefinido na entrada de inscrição do seu dispositivo, este pode extrair o estado pretendido do dispositivo duplo a partir do hub e agir em conformidade. Para obter mais informações, veja [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md) (Compreender e utilizar dispositivos duplos no Hub IoT)
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretender continuar a trabalhar e explorar a amostra do cliente do dispositivo, não limpe os recursos criados neste quickstart. Se não pretender continuar, utilize os seguintes passos para eliminar todos os recursos criados por este arranque rápido.
 

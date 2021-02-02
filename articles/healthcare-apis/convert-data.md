@@ -8,14 +8,17 @@ ms.subservice: fhir
 ms.topic: overview
 ms.date: 01/19/2021
 ms.author: ranku
-ms.openlocfilehash: c794af26fdfe2d3706d8d8d266d0756eff391b50
-ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
+ms.openlocfilehash: 7518f5e2984029c087eec1e6697f3237410bda4b
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98747706"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430281"
 ---
-# <a name="how-to-convert-data-to-fhir"></a>Como converter dados em FHIR
+# <a name="how-to-convert-data-to-fhir-preview"></a>Como converter dados em FHIR (Pré-visualização)
+
+> [!IMPORTANT]
+> Esta capacidade está disponível em pré-visualização pública, é disponibilizada sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 O ponto final personalizado de dados $convert na API Azure para FHIR destina-se à conversão de dados de diferentes formatos para FHIR. Utiliza o motor do modelo Liquid e os modelos do projeto [FHIR Converter](https://github.com/microsoft/FHIR-Converter) como modelos padrão. Pode personalizar estes modelos de conversão conforme necessário. Atualmente suporta a conversão HL7v2 para FHIR.
 

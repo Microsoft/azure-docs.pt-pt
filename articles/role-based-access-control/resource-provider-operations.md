@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 01/15/2021
 ms.custom: generated
-ms.openlocfilehash: a521623447f4415e35a06c5c60e3723a69b4aa15
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 72735dad6a52fffd6e6e94ad4fb0fb7a9558b4c4
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98700606"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430084"
 ---
 # <a name="azure-resource-provider-operations"></a>Operações de fornecedor de recursos Azure
 
@@ -82,6 +82,7 @@ Clique no nome do fornecedor de recursos na tabela seguinte para ver a lista de 
 | [Microsoft.PowerBIDedicated](#microsoftpowerbidedicated) |
 | [Microsoft.Purview](#microsoftpurview) |
 | [Microsoft.StreamAnalytics](#microsoftstreamanalytics) |
+| [Microsoft.Synapse](#microsoftsynapse) |
 | **Blockchain** |
 | [Microsoft.Blockchain](#microsoftblockchain) |
 | **IA + machine learning** |
@@ -3258,7 +3259,7 @@ Serviço Azure: [Data Factory](../data-factory/index.yml)
 > | Microsoft.DataFactory/fábricas/addDataFlowToDebugSession/action | Adicione data flow à sessão de depurar para pré-visualização. |
 > | Microsoft.DataFactory/fábricas/executeDataFlowDebugCommand/action | Execute o comando de depurar fluxo de dados. |
 > | Microsoft.DataFactory/fábricas/deletedataflowdebugsession/action | Elimina uma sessão de depurar fluxo de dados. |
-> | Microsoft.DataFactory/fábricas/consultadataflowdebugsions/action | Questione uma sessão de depurar data flow. |
+> | Microsoft.DataFactory/fábricas/consultadataflowdebugsssions/action | Questione uma sessão de depurar data flow. |
 > | Microsoft.DataFactory/fábricas/cancelpipelinerun/action | Cancela o percurso do gasoduto especificado pelo ID de funcionação. |
 > | Microsoft.DataFactory/fábricas/cancelSandboxPipelineRun/ação | Cancela uma corrida de depuragem para o Oleoduto. |
 > | Microsoft.DataFactory/fábricas/sandboxpipelineruns/ação | Consultas do Oleoduto Debug. |
@@ -4765,6 +4766,169 @@ Serviço Azure: [Stream Analytics](../stream-analytics/index.yml)
 > | Microsoft.StreamAnalytics/streamingjobs/transformations/Delete | Excluir a transformação de emprego em stream analytics |
 > | Microsoft.StreamAnalytics/streamingjobs/transformations/Read | Ler stream Analytics Transformação de Emprego |
 > | Microsoft.StreamAnalytics/streamingjobs/transformations/Write | Escrever Stream Analytics Transformação de Emprego |
+
+### <a name="microsoftsynapse"></a>Microsoft.Synapse
+
+Serviço Azure: [Synapse Analytics](../synapse-analytics/index.yml)
+
+> [!div class="mx-tableFixed"]
+> | Ação | Descrição |
+> | --- | --- |
+> | Microsoft.Synapse/checkNameAvailability/action | Verifica a disponibilidade do nome workspace. |
+> | Microsoft.Synapse/register/action | Regista o Azure Synapse Analytics (Provedor de Recursos) e permite a criação de espaços de trabalho. |
+> | Microsoft.Synapse/unregister/action | Desregista o Azure Synapse Analytics (workspaces) Resource Provider e desativa a criação de espaços de trabalho. |
+> | Microsoft.Synapse/workspaces/integrationRuntimes/read | Obtenha qualquer tempo de integração. |
+> | Microsoft.Synapse/workspaces/integrationruntimes/write | Criar ou atualizar quaisquer tempos de execução de integração. |
+> | Microsoft.Synapse/workspaces/integrationRuntimes/delete | Eliminar qualquer tempo de execução de integração |
+> | Microsoft.Synapse/workspaces/integrationRuntimes/getStatus/action | Obtenha qualquer estado de tempo de execução de integração |
+> | Microsoft.Synapse/workspaces/integrationRuntimes/createExpressSHIRInstallLink/action | Criar um link de instalação de tempo de execução de integração |
+> | Microsoft.Synapse/workspaces/integrationRuntimes/start/action | Inicie qualquer tempo de execução de integração |
+> | Microsoft.Synapse/workspaces/integrationRuntimes/stop/action | Parar qualquer tempo de execução de integração |
+> | Microsoft.Synapse/workspaces/integrationRuntimes/getConnectionInfo/action | Obtenha informações de ligação de qualquer tempo de execução de integração |
+> | Microsoft.Synapse/workspaces/integrationRuntimes/regenerateAuthKey/action | Regenerar a chave de qualquer tempo de execução de integração |
+> | Microsoft.Synapse/workspaces/integrationRuntimes/listAuthKeys/action | Lista Chaves Auth de qualquer Tempo de Execução de Integração |
+> | Microsoft.Synapse/workspaces/integrationRuntimes/removeNode/action | Remover qualquer nó de tempo de execução de integração |
+> | Microsoft.Synapse/workspaces/integrationRuntimes/monitoringData/action | Obtenha quaisquer dados de monitorização do Runtime de Integração |
+> | Microsoft.Synapse/workspaces/integrationRuntimes/syncCredentials/action | Credencial sincronizada em qualquer Tempo de Execução de Integração |
+> | Microsoft.Synapse/workspaces/integrationRuntimes/upgrade/action | Atualizar qualquer tempo de execução de integração |
+> | Microsoft.Synapse/workspaces/integrationRuntimes/removeLinks/action | Remover qualquer link de tempo de execução de integração |
+> | Microsoft.Synapse/workspaces/integrationRuntimes/enableInteractiveQuery/action | Ativar consulta interativa em qualquer tempo de execução de integração |
+> | Microsoft.Synapse/workspaces/integrationRuntimes/disableInteractiveQuery/action | Desativar consulta interativa em qualquer tempo de execução de integração |
+> | Microsoft.Synapse/workspaces/integrationRuntimes/refreshObjectMetadata/action | Atualizar metadados de objeto em qualquer tempo de execução de intergração |
+> | Microsoft.Synapse/workspaces/integrationRuntimes/getObjectMetadata/action | Obtenha metadados de objeto em qualquer tempo de execução de intergração |
+> | Microsoft.Synapse/workspaces/managedIdentitySqlControlSettings/write | Atualizar Definições de controlo SQL de identidade gerida no espaço de trabalho |
+> | Microsoft.Synapse/workspaces/managedIdentitySqlControlSettings/read | Obtenha definições de controlo SQL de identidade gerida |
+> | Microsoft.Synapse/workspaces/scopePools/write | Criar ou atualizar quaisquer piscinas de Âmbito. |
+> | Microsoft.Synapse/workspaces/scopePools/read | Leia todas as piscinas scope. |
+> | Microsoft.Synapse/workspaces/scopePools/delete | Elimine quaisquer piscinas Scope. |
+> | Microsoft.Synapse/operations/read | Leia as operações disponíveis do Fornecedor de Recursos Azure Synapse Analytics. |
+> | Microsoft.Synapse/workspaces/integrationRuntimes/nodes/read | Obtenha qualquer nó de tempo de execução de integração. |
+> | Microsoft.Synapse/workspaces/integrationRuntimes/nodes/delete | Elimine qualquer nó de tempo de execução de integração. |
+> | Microsoft.Synapse/workspaces/integrationRuntimes/nosdes/write | Reme a qualquer nó de tempo de execução de integração. |
+> | Microsoft.Synapse/workspaces/integrationRuntimes/nodes/ipAddress/action | Obter endereço ip de tempo de integração |
+> | Microsoft.Synapse/workspaces/firewallRules/write | Criar ou atualizar qualquer Regra de Firewall IP. |
+> | Microsoft.Synapse/workspaces/firewallRules/read | Ler regra de firewall ip |
+> | Microsoft.Synapse/workspaces/firewallRules/delete | Elimine qualquer regra de firewall IP. |
+> | Microsoft.Synapse/workspaces/replaceAllIpFirewallRules/action | Substitui todas as regras de Firewall Ip para o espaço de trabalho. |
+> | Microsoft.Synapse/workspaces/write | Criar ou Atualizar quaisquer espaços de trabalho. |
+> | Microsoft.Synapse/workspaces/read | Leia quaisquer espaços de trabalho. |
+> | Microsoft.Synapse/workspaces/delete | Elimine quaisquer espaços de trabalho. |
+> | Microsoft.Synapse/workspaces/checkDefaultStorageAccountStatus/action | Verifica o estado da conta de armazenamento predefinido. |
+> | Microsoft.Synapse/workspaces/sqlPools/write | Criar ou atualizar quaisquer piscinas SQL Analytics. |
+> | Microsoft.Synapse/workspaces/sqlPools/read | Leia as piscinas SQL Analytics. |
+> | Microsoft.Synapse/workspaces/sqlPools/delete | Elimine quaisquer piscinas SQL Analytics. |
+> | Microsoft.Synapse/workspaces/sqlPools/pausa/ação | Faça uma pausa em quaisquer piscinas SQL Analytics. |
+> | Microsoft.Synapse/workspaces/sqlPools/currículo/ação | Retomar quaisquer piscinas SQL Analytics. |
+> | Microsoft.Synapse/workspaces/sqlPools/restorePoints/action | Crie uma piscina SQL Analytics Restore Point. |
+> | Microsoft.Synapse/workspaces/sqlPools/move/action | Mude o nome de quaisquer piscinas SQL Analytics. |
+> | Microsoft.Synapse/workspaces/sqlPools/dataWarehouseQueries/read | Leia qualquer dúvida sobre piscinas SQL Analytics. |
+> | Microsoft.Synapse/workspaces/sqlPools/geoBackupPolicies/read | Leia qualquer m2 Analytics pool Geo Backup Policies. |
+> | Microsoft.Synapse/workspaces/sqlPools/dataWarehouseUserActividades/ler | Leia qualquer piscina SQL Analytics Atividades do utilizador. |
+> | Microsoft.Synapse/workspaces/sqlPools/restorePoints/read | Leia qualquer piscina SQL Analytics Restore Points. |
+> | Microsoft.Synapse/workspaces/sqlPools/restorePoints/delete | Elimina um ponto de restauro. |
+> | Microsoft.Synapse/workspaces/sqlPools/dataWarehouseQueries/dataWarehouseQuerySteps/read | Leia qualquer sql Analytics que questione passos. |
+> | Microsoft.Synapse/workspaces/sqlPools/maintenanceWindows/read | Leia qualquer janela de manutenção da piscina SQL Analytics. |
+> | Microsoft.Synapse/workspaces/sqlPools/maintenanceWindows/write | Leia qualquer janela de manutenção da piscina SQL Analytics. |
+> | Microsoft.Synapse/workspaces/sqlPools/maintenanceWindowOptions/read | Leia as opções da janela de manutenção da piscina SQL Analytics. |
+> | Microsoft.Synapse/workspaces/sqlPools/replicationLinks/read | Leia quaisquer links de replicação da piscina SQL Analytics. |
+> | Microsoft.Synapse/workspaces/sqlPools/transparentDataEncryption/read | Leia qualquer conjunto DE ANÁLISE SQL Configuração de encriptação de dados transparente. |
+> | Microsoft.Synapse/workspaces/sqlPools/transparentDataEncryption/write | Criar ou atualizar qualquer sql Analytics pool Configuração de encriptação de dados transparente. |
+> | Microsoft.Synapse/workspaces/sqlPools/transparentDataEncryption/operationResults/read | Leia qualquer grupo DE SQL Analytics Resultados de configuração de configuração de encriptação de dados transparentes. |
+> | Microsoft.Synapse/workspaces/sqlPools/auditingSettings/read | Leia as definições de auditoria de qualquer piscina SQL Analytics. |
+> | Microsoft.Synapse/workspaces/sqlPools/auditingSettings/write | Criar ou atualizar quaisquer Definições de Auditoria de Piscinas SQL Analytics. |
+> | Microsoft.Synapse/workspaces/sqlPools/operations/read | Leia qualquer piscina SQL Analytics Operations. |
+> | Microsoft.Synapse/workspaces/sqlPools/usages/read | Leia qualquer piscina SQL Analytics Uses. |
+> | Microsoft.Synapse/workspaces/sqlPools/currentSensitivityLabels/read | Leia qualquer piscina SQL Analytics Etiquetas de sensibilidade corrente. |
+> | Microsoft.Synapse/workspaces/sqlPools/currentSensitivityLabels/write | Etiquetas de sensibilidade de corrente de atualização de lote |
+> | Microsoft.Synapse/workspaces/sqlPools/recommendedSensitivityLabels/read | Leia qualquer piscina SQL Analytics Rótulos de sensibilidade recomendados. |
+> | Microsoft.Synapse/workspaces/sqlPools/recommendedSensitivityLabels/write | Etiquetas de sensibilidade recomendadas para atualização de lote |
+> | Microsoft.Synapse/workspaces/sqlPools/schemas/read | Leia qualquer schemas de piscina SQL Analytics. |
+> | Microsoft.Synapse/workspaces/sqlPools/schemas/tables/read | Leia qualquer mesa de schema da piscina SQL Analytics. |
+> | Microsoft.Synapse/workspaces/sqlPools/schemas/tables/columns/read | Leia qualquer piscina SQL Analytics Schema Table Columns. |
+> | Microsoft.Synapse/workspaces/sqlPools/connectionPolicies/read | Leia as políticas de conexão do pool SQL Analytics. |
+> | Microsoft.Synapse/workspaces/sqlPools/vulnerabilidadeAssessments/read | Leia qualquer avaliação de vulnerabilidade da piscina SQL Analytics. |
+> | Microsoft.Synapse/workspaces/sqlPools/vulnerabilidadeAssessments/write | Cria ou atualiza a avaliação da vulnerabilidade da piscina Sql |
+> | Microsoft.Synapse/workspaces/sqlPools/vulnerabilidadeAssessments/delete | Elimine qualquer avaliação de vulnerabilidade da piscina SQL Analytics. |
+> | Microsoft.Synapse/workspaces/sqlPools/vulnerabilidadeAssessments/scans/read | Leia qualquer sql Analytics Vulnerabilit Assessment Scan Records. |
+> | Microsoft.Synapse/workspaces/sqlPools/vulnerabilidadeAssessments/scans/initiateScan/action | Inicie qualquer sql Analytics Vulnerabilit Assessment Scan Records. |
+> | Microsoft.Synapse/workspaces/sqlPools/vulnerabilidadeAssessments/scans/export/action | Exporte qualquer sql Analytics Vulnerabilit Assessment Scan Records. |
+> | Microsoft.Synapse/workspaces/sqlPools/securityAlertPolicies/read | Leia todas as políticas de deteção de ameaças da piscina Sql Analytics. |
+> | Microsoft.Synapse/workspaces/sqlPools/securityAlertPolicies/write | Criar ou atualizar quaisquer políticas de deteção de ameaças de piscina SQL Analytics. |
+> | Microsoft.Synapse/workspaces/sqlPools/schemas/tables/columns/sensibilidadeLabels/read | Obtém o rótulo de sensibilidade de uma determinada coluna. |
+> | Microsoft.Synapse/workspaces/sqlPools/schemas/tabelas/colunas/sensibilidadeLabels/enable/action | Ativar quaisquer etiquetas de sensibilidade ao pool SQL Analytics. |
+> | Microsoft.Synapse/workspaces/sqlPools/schemas/tabelas/colunas/sensibilidadeLabels/disable/action | Desative quaisquer etiquetas de sensibilidade à piscina SQL Analytics. |
+> | Microsoft.Synapse/workspaces/sqlPools/schemas/tables/columns/sensibilidadeLabels/write | Criar ou atualizar quaisquer etiquetas de sensibilidade ao pool SQL Analytics. |
+> | Microsoft.Synapse/workspaces/sqlPools/schemas/tabelas/colunas/sensibilidadeLabels/delete | Elimine quaisquer etiquetas de sensibilidade ao pool SQL Analytics. |
+> | Microsoft.Synapse/workspaces/sqlPools/vulnerabilidadeAssessments/rules/baselines/read | Obtenha uma linha de base de avaliação de vulnerabilidade de piscina SQL Analytics. |
+> | Microsoft.Synapse/workspaces/sqlPools/vulnerabilidadeAssessments/rules/baselines/write | Criar ou atualizar qualquer base de base de avaliação de vulnerabilidade de piscina SQL Analytics. |
+> | Microsoft.Synapse/workspaces/sqlPools/vulnerabilidadeAssessments/rules/baselines/delete | Elimine qualquer base de base de avaliação da vulnerabilidade da piscina SQL Analytics. |
+> | Microsoft.Synapse/workspaces/operationStatuses/read | Leia qualquer estado de operação assínc. |
+> | Microsoft.Synapse/workspaces/operationResults/read | Leia qualquer resultado de operação Async. |
+> | Microsoft.Synapse/workspaces/sqlPools/operationResults/read | Leia qualquer resultado de operação Async. |
+> | Microsoft.Synapse/workspaces/bigDataPools/write | Criar ou atualizar quaisquer piscinas Spark. |
+> | Microsoft.Synapse/workspaces/bigDataPools/read | Leia as piscinas de Faíscas. |
+> | Microsoft.Synapse/workspaces/bigDataPools/delete | Apague todas as piscinas Spark. |
+> | Microsoft.Synapse/workspaces/sqlPools/metadadosSync/write | Criar ou atualizar SQL Analytics pool Metadata Sync Config |
+> | Microsoft.Synapse/workspaces/sqlPools/metadadosSync/read | Leia o pool SQL Analytics Metadata Sync Config |
+> | Microsoft.Synapse/workspaces/recoverableSqlpools/read | Obtém piscinas de análise SQL recuperáveis, que são os recursos que representam geo backups de SQL Analytics Pools |
+> | Microsoft.Synapse/workspaces/administradores/write | Definir administrador de diretório ativo no espaço de trabalho |
+> | Microsoft.Synapse/workspaces/administradores/read | Obtenha administrador de diretório ativo do espaço de trabalho |
+> | Microsoft.Synapse/workspaces/administradores/delete | Eliminar administrador de diretório ativo do espaço de trabalho |
+> | Microsoft.Synapse/workspaces/privateEndpointConnections/write | Criar ou atualizar a ligação de pontos de final privados |
+> | Microsoft.Synapse/workspaces/privateEndpointConnections/read | Leia qualquer ligação de ponto final privado |
+> | Microsoft.Synapse/workspaces/privateEndpointConnections/delete | Eliminar ligação de ponto final privado |
+> | Microsoft.Synapse/workspaces/privateLinkResources/read | Obtenha uma lista de Recursos de Ligação Privada |
+> | Microsoft.Synapse/workspaces/sqlPools/extensions/read | Obtenha extensão da Piscina DE Análise SQL |
+> | Microsoft.Synapse/workspaces/sqlPools/extensions/write | Alterar a extensão para um dado SQL Analytics Pool |
+> | Microsoft.Synapse/privateLinkHubs/write | Crie quaisquer PrivateLinkHubs. |
+> | Microsoft.Synapse/privateLinkHubs/read | Leia qualquer PrivateLinkHubs. |
+> | Microsoft.Synapse/privateLinkHubs/delete | Apague o PrivateLinkHubs. |
+> | Microsoft.Synapse/locations/operationStatuses/read | Leia qualquer estado de operação assínc. |
+> | Microsoft.Synapse/locations/operationResults/read | Leia qualquer resultado de operação Async. |
+> | Microsoft.Synapse/privateLinkHubs/privateLinkResources/read | Obtenha uma lista de Recursos de Ligação Privada |
+> | Microsoft.Synapse/privateLinkHubs/privateEndpointConnections/write | Criar ou atualizar a ligação de ponto final privado para privateLinkHub |
+> | Microsoft.Synapse/privateLinkHubs/privateEndpointConnections/read | Leia qualquer ligação de ponto final privado para PrivateLinkHub |
+> | Microsoft.Synapse/privateLinkHubs/privateEndpointConnections/delete | Eliminar ligação de ponto final privado para privateLinkHub |
+> | Microsoft.Synapse/workspaces/sqlPools/operationStatuses/read | Leia qualquer resultado de operação Async. |
+> | Microsoft.Synapse/workspaces/keys/write | Criar ou atualizar chaves do espaço de trabalho |
+> | Microsoft.Synapse/workspaces/keys/read | Leia qualquer definição de chave do espaço de trabalho. |
+> | Microsoft.Synapse/workspaces/keys/delete | Elimine qualquer chave de espaço de trabalho. |
+> | Microsoft.Synapse/workspaces/bibliotecas/ler | Ler artefactos da biblioteca |
+> | Microsoft.Synapse/workspaces/sqlPools/workloadGroups/read | Lista os grupos de carga de trabalho para uma piscina SQL selecionada. |
+> | Microsoft.Synapse/workspaces/sqlPools/workloadGroups/write | Define as propriedades para um grupo de carga de trabalho específico. |
+> | Microsoft.Synapse/workspaces/sqlPools/workloadGroups/delete | Deixa cair um grupo específico de carga de trabalho. |
+> | Microsoft.Synapse/workspaces/sqlPools/workloadGroups/workloadClassifiers/read | Lista os classificadores de carga de trabalho para um Pool de Análise SQL selecionado. |
+> | Microsoft.Synapse/workspaces/sqlPools/workloadGroups/workloadClassifiers/write | Define as propriedades para um classificador de carga de trabalho específico. |
+> | Microsoft.Synapse/workspaces/sqlPools/workloadGroups/workloadClassifiers/delete | Deixa cair um classificador de carga de trabalho específico. |
+> | Microsoft.Synapse/workspaces/sqlPools/extendedAuditingSettings/read | Leia qualquer piscina SQL Analytics Definições de Auditoria Alargadas. |
+> | Microsoft.Synapse/workspaces/sqlPools/extendedAuditingSettings/write | Criar ou atualizar qualquer piscina SQL Analytics Definições de Auditoria Alargadas. |
+> | Microsoft.Synapse/workspaces/sqlPools/dataMaskingPolicies/read | Devolva a lista de políticas de mascaramento de dados do pool SQL Analytics. |
+> | Microsoft.Synapse/workspaces/sqlPools/dataMaskingPolicies/write | Cria ou atualiza uma política de mascaramento de dados do pool SQL Analytics |
+> | Microsoft.Synapse/workspaces/sqlPools/dataMaskingPolicies/rules/read | Obtém uma lista das regras de mascaramento de dados do pool SQL Analytics. |
+> | Microsoft.Synapse/workspaces/sqlPools/dataMaskingPolicies/rules/write | Cria ou atualiza uma regra de mascaramento de dados do pool SQL Analytics. |
+> | Microsoft.Synapse/workspaces/sqlPools/columns/read | Devolva uma lista de colunas para uma piscina SQL Analytics |
+> | Microsoft.Synapse/workspaces/sqlPools/sensibilidadeLabels/read | Obtém o rótulo de sensibilidade de uma determinada coluna. |
+> | Microsoft.Synapse/workspaces/sqlPools/auditRecords/read | Obtenha registos de auditoria de blob de piscina sql |
+> | Microsoft.Synapse/resourceGroups/operationStatuses/read | Leia qualquer estado de operação assínc. |
+> | Microsoft.Synapse/workspaces/extendedAuditingSettings/write | Criar ou atualizar as definições de auditoria alargada do servidor SQL. |
+> | Microsoft.Synapse/workspaces/extendedAuditingSettings/read | Leia as definições de auditoria estendidas do servidor SQL predefinido. |
+> | Microsoft.Synapse/workspaces/auditingSettings/write | Criar ou atualizar as definições de auditoria do servidor SQL. |
+> | Microsoft.Synapse/workspaces/auditingSettings/read | Leia as definições de auditoria do servidor SQL predefinido. |
+> | Microsoft.Synapse/workspaces/securityAlertPolicies/write | Criar ou atualizar políticas de alerta de segurança do servidor SQL. |
+> | Microsoft.Synapse/workspaces/securityAlertPolicies/read | Leia as políticas de alerta de segurança do servidor SQL predefinidas. |
+> | Microsoft.Synapse/workspaces/vulnerabilidadeAssessments/write | Criar ou atualizar relatório de vulnerabilidade do servidor SQL. |
+> | Microsoft.Synapse/workspaces/vulnerabilidadeAssessments/read | Leia o relatório padrão de vulnerabilidade do servidor SQL. |
+> | Microsoft.Synapse/workspaces/vulnerabilidadeAssessments/delete | Apague o relatório de assement de vulnerabilidade do servidor SQL. |
+> | Microsoft.Synapse/workspaces/restorableDroppedSqlPools/read | Obtém uma piscina sql apagada que pode ser restaurada |
+> | Microsoft.Synapse/workspaces/sqlPools/dataWarehouseQueries/Steps/read | Leia qualquer sql Analytics que questione passos. |
+> | Microsoft.Synapse/workspaces/sqlPools/workloadGroups/operationStatuses/read | Sql Analytics Pool estado de funcionamento do grupo de trabalho |
+> | Microsoft.Synapse/workspaces/sqlPools/workloadGroups/workloadClassifiers/operationStatuses/read | SQL Analytics Pool classificando o estado de funcionamento do funcionamento |
+> | Microsoft.Synapse/workspaces/sqlPools/workloadGroups/workloadClassifiers/operationResults/read | SQL Analytics Pool resultado de funcionamento do classificador |
+> | Microsoft.Synapse/workspaces/sqlUsages/read | Obtém limites de utilização disponíveis para piscinas SQL Analytics |
+> | Microsoft.Synapse/workspaces/auditingSettings/operationResults/read | Definições de auditoria de servidor sql |
+> | Microsoft.Synapse/workspaces/sqlAdministrators/write | Definir administrador de diretório ativo no espaço de trabalho |
+> | Microsoft.Synapse/workspaces/sqlAdministrators/read | Obtenha administrador de diretório ativo do espaço de trabalho |
+> | Microsoft.Synapse/workspaces/sqlAdministrators/delete | Eliminar administrador de diretório ativo do espaço de trabalho |
 
 ## <a name="blockchain"></a>Blockchain
 
@@ -10008,7 +10172,7 @@ Serviço Azure: Microsoft Monitoring Insights
 > | Microsoft.Intune/diagnosticsettings/delete | Apagar uma definição de diagnóstico |
 > | Microsoft.Intune/diagnosticsettingscategories/read | Ler uma categoria de definição de diagnóstico |
 
-## <a name="other"></a>Outro
+## <a name="other"></a>Outros
 
 ### <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 
@@ -10076,7 +10240,7 @@ Serviço Azure: [Azure Digital Twins](../digital-twins/index.yml)
 > | Microsoft.DigitalTwins/models/write | Criar ou atualizar qualquer modelo |
 > | Microsoft.DigitalTwins/models/delete | Eliminar qualquer Modelo |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Combine o fornecedor de recursos ao serviço](../azure-resource-manager/management/azure-services-resource-providers.md)
 - [Funções incorporadas do Azure](built-in-roles.md)

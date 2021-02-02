@@ -2,19 +2,20 @@
 title: Configure a sua própria chave para encriptar os dados do Azure Event Hubs em repouso
 description: Este artigo fornece informações sobre como configurar a sua própria chave para encriptar o repouso de dados do Azure Event Hubs.
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: 00e33bc3464aed1829968b7957e48455eaa04447
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.date: 02/01/2021
+ms.openlocfilehash: 53622344e36e514543d547dec95caaf1b0b76a13
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98933788"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430684"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Configure as chaves geridas pelo cliente para encriptar os dados do Azure Event Hubs em repouso utilizando o portal Azure
 O Azure Event Hubs fornece encriptação de dados em repouso com a Encriptação do Serviço de Armazenamento Azure (Azure SSE). O serviço Event Hubs utiliza o Azure Storage para armazenar os dados. Todos os dados armazenados com O Azure Storage são encriptados utilizando as teclas geridas pela Microsoft. Se utilizar a sua própria chave (também designada por Bring Your Own Key (BYOK) ou tecla gerida pelo cliente), os dados ainda são encriptados utilizando a chave gerida pela Microsoft, mas além disso a chave gerida pela Microsoft será encriptada utilizando a chave gerida pelo cliente. Esta funcionalidade permite-lhe criar, rodar, desativar e revogar o acesso às chaves geridas pelo cliente que são utilizadas para encriptar as chaves geridas pela Microsoft. Ativar a função BYOK é um processo de configuração de uma única vez no seu espaço de nome.
 
 > [!NOTE]
-> A capacidade BYOK é suportada por [clusters dedicados ao Evento Hubs.](event-hubs-dedicated-overview.md) Não pode ser ativado para espaços de nomes padrão do Event Hubs.
+> - A capacidade BYOK é suportada por [clusters dedicados ao Evento Hubs.](event-hubs-dedicated-overview.md) Não pode ser ativado para espaços de nomes padrão do Event Hubs.
+> - A encriptação só pode ser ativada para espaços novos ou vazios. Se o espaço de nomes contiver centros de eventos, a operação de encriptação falhará.
 
 Pode utilizar o Azure Key Vault para gerir as suas chaves e auditar o uso da chave. Pode criar as suas próprias chaves e armazená-las num cofre de chaves, ou pode usar as APIs do Cofre de Chaves Azure para gerar chaves. Para mais informações sobre o Azure Key Vault, veja [o que é o Cofre da Chave Azure?](../key-vault/general/overview.md)
 
@@ -410,7 +411,7 @@ Seguem-se os códigos de erros comuns a procurar quando a encriptação BYOK est
 > [!IMPORTANT]
 > Para ativar o Geo-DR num espaço de nome que está a usar a encriptação BYOK, o espaço de nome secundário para emparelhamento deve estar num cluster dedicado e deve ter um sistema atribuído à identidade gerida ativada nele. Para saber mais, consulte [Identidades Geridas para Recursos Azure.](../active-directory/managed-identities-azure-resources/overview.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos:
 - [Descrição geral dos Event Hubs](event-hubs-about.md)
 - [Visão geral do cofre de chaves](../key-vault/general/overview.md)
