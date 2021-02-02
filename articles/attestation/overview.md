@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.custom: references_regions
-ms.openlocfilehash: a2b26ae8debf1c52693018ce9a758bfa9b029fa2
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 85585b771d9c0ed7c6fcdba9cfef7b589a987c8c
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99093381"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99429267"
 ---
 # <a name="microsoft-azure-attestation"></a>Microsoft Azure Attestation 
 
@@ -67,7 +67,7 @@ A azure Attestation é a escolha preferida para atestar tees, uma vez que oferec
 
 - Quadro unificado para atestar vários ambientes, tais como TPMs, enclaves SGX e enclaves de VBS 
 - Serviço multi-inquilino que permite configurar fornecedores e políticas de atestado personalizados para restringir a geração de token
-- Oferece fornecedores predefinidos que podem atestar sem configuração dos utilizadores
+- Oferece fornecedores regionais partilhados que podem atestar sem configuração dos utilizadores
 - Protege os seus dados durante a utilização com implementação num enclave SGX
 - Serviço altamente disponível 
 

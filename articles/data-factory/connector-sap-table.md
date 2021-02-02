@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/01/2020
-ms.openlocfilehash: 4505deaa4cc11c00c7283ef686827d6893c2742a
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.date: 02/01/2021
+ms.openlocfilehash: b796b9eb065a221904fe4487c900efa2db1955af
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280416"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99429548"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Copiar dados de uma tabela SAP utilizando a Azure Data Factory
 
@@ -84,25 +84,25 @@ As seguintes propriedades são suportadas para o serviço ligado ao SAP BW Open 
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| `type` | A `type` propriedade deve ser definida para `SapTable` . | Yes |
-| `server` | O nome do servidor no qual se encontra a instância SAP.<br/>Utilize para ligar a um servidor de aplicações SAP. | No |
-| `systemNumber` | O número do sistema do sistema SAP.<br/>Utilize para ligar a um servidor de aplicações SAP.<br/>Valor permitido: Um número decimal de dois dígitos representado como uma corda. | No |
-| `messageServer` | O nome de anfitrião do servidor de mensagens SAP.<br/>Utilize para ligar a um servidor de mensagens SAP. | No |
-| `messageServerService` | O nome de serviço ou o número da porta do servidor de mensagens.<br/>Utilize para ligar a um servidor de mensagens SAP. | No |
-| `systemId` | A identificação do sistema SAP onde se encontra a mesa.<br/>Utilize para ligar a um servidor de mensagens SAP. | No |
-| `logonGroup` | O grupo de início de são para o sistema SAP.<br/>Utilize para ligar a um servidor de mensagens SAP. | No |
-| `clientId` | A identificação do cliente no sistema SAP.<br/>Valor permitido: Um número decimal de três dígitos representado como uma corda. | Yes |
-| `language` | A linguagem que o sistema SAP usa.<br/>O valor predefinido é `EN`.| No |
-| `userName` | O nome do utilizador que tem acesso ao servidor SAP. | Yes |
-| `password` | A palavra-passe do utilizador. Marque este campo com o `SecureString` tipo de armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Yes |
-| `sncMode` | O indicador de ativação SNC para aceder ao servidor SAP onde a tabela está localizada.<br/>Utilize se quiser utilizar o SNC para ligar ao servidor SAP.<br/>Os valores permitidos são `0` (desligados, o padrão) ou `1` (ligado). | No |
-| `sncMyName` | O nome SNC do iniciador para aceder ao servidor SAP onde a tabela está localizada.<br/>Aplica-se quando `sncMode` está ligado. | No |
-| `sncPartnerName` | O nome SNC do parceiro de comunicação para aceder ao servidor SAP onde a tabela está localizada.<br/>Aplica-se quando `sncMode` está ligado. | No |
-| `sncLibraryPath` | A biblioteca do produto de segurança externa para aceder ao servidor SAP onde a mesa está localizada.<br/>Aplica-se quando `sncMode` está ligado. | No |
-| `sncQop` | O nível de qualidade de proteção do SNC a aplicar.<br/>Aplica-se quando `sncMode` está ligado. <br/>Os valores permitidos são `1` `2` (Autenticação), `3` (Integridade), (Privacidade), `8` (Predefinição), `9` (Máximo). | No |
-| `connectVia` | O [tempo de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. É necessário um tempo de integração auto-organizado, como mencionado anteriormente em [Pré-requisitos](#prerequisites). |Yes |
+| `type` | A `type` propriedade deve ser definida para `SapTable` . | Sim |
+| `server` | O nome do servidor no qual se encontra a instância SAP.<br/>Utilize para ligar a um servidor de aplicações SAP. | Não |
+| `systemNumber` | O número do sistema do sistema SAP.<br/>Utilize para ligar a um servidor de aplicações SAP.<br/>Valor permitido: Um número decimal de dois dígitos representado como uma corda. | Não |
+| `messageServer` | O nome de anfitrião do servidor de mensagens SAP.<br/>Utilize para ligar a um servidor de mensagens SAP. | Não |
+| `messageServerService` | O nome de serviço ou o número da porta do servidor de mensagens.<br/>Utilize para ligar a um servidor de mensagens SAP. | Não |
+| `systemId` | A identificação do sistema SAP onde se encontra a mesa.<br/>Utilize para ligar a um servidor de mensagens SAP. | Não |
+| `logonGroup` | O grupo de início de são para o sistema SAP.<br/>Utilize para ligar a um servidor de mensagens SAP. | Não |
+| `clientId` | A identificação do cliente no sistema SAP.<br/>Valor permitido: Um número decimal de três dígitos representado como uma corda. | Sim |
+| `language` | A linguagem que o sistema SAP usa.<br/>O valor predefinido é `EN`.| Não |
+| `userName` | O nome do utilizador que tem acesso ao servidor SAP. | Sim |
+| `password` | A palavra-passe do utilizador. Marque este campo com o `SecureString` tipo de armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim |
+| `sncMode` | O indicador de ativação SNC para aceder ao servidor SAP onde a tabela está localizada.<br/>Utilize se quiser utilizar o SNC para ligar ao servidor SAP.<br/>Os valores permitidos são `0` (desligados, o padrão) ou `1` (ligado). | Não |
+| `sncMyName` | O nome SNC do iniciador para aceder ao servidor SAP onde a tabela está localizada.<br/>Aplica-se quando `sncMode` está ligado. | Não |
+| `sncPartnerName` | O nome SNC do parceiro de comunicação para aceder ao servidor SAP onde a tabela está localizada.<br/>Aplica-se quando `sncMode` está ligado. | Não |
+| `sncLibraryPath` | A biblioteca do produto de segurança externa para aceder ao servidor SAP onde a mesa está localizada.<br/>Aplica-se quando `sncMode` está ligado. | Não |
+| `sncQop` | O nível de qualidade de proteção do SNC a aplicar.<br/>Aplica-se quando `sncMode` está ligado. <br/>Os valores permitidos são `1` `2` (Autenticação), `3` (Integridade), (Privacidade), `8` (Predefinição), `9` (Máximo). | Não |
+| `connectVia` | O [tempo de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. É necessário um tempo de integração auto-organizado, como mencionado anteriormente em [Pré-requisitos](#prerequisites). |Sim |
 
-**Exemplo 1: Ligar-se a um servidor de aplicações SAP**
+### <a name="example-1-connect-to-an-sap-application-server"></a>Exemplo 1: Ligar-se a um servidor de aplicações SAP
 
 ```json
 {
@@ -192,8 +192,8 @@ Para copiar dados de e para o serviço ligado ao SAP BW Open Hub, suportam-se as
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| `type` | A `type` propriedade deve ser definida para `SapTableResource` . | Yes |
-| `tableName` | O nome da tabela SAP para copiar dados de. | Yes |
+| `type` | A `type` propriedade deve ser definida para `SapTableResource` . | Sim |
+| `tableName` | O nome da tabela SAP para copiar dados de. | Sim |
 
 ### <a name="example"></a>Exemplo
 
@@ -224,17 +224,17 @@ Para copiar dados de uma tabela SAP, suportam-se as seguintes propriedades:
 
 | Propriedade                         | Descrição                                                  | Obrigatório |
 | :------------------------------- | :----------------------------------------------------------- | :------- |
-| `type`                             | A `type` propriedade deve ser definida para `SapTableSource` .         | Yes      |
-| `rowCount`                         | O número de filas a recuperar.                              | No       |
-| `rfcTableFields`                 | Os campos (colunas) para copiar a partir da tabela SAP. Por exemplo, `column0, column1`. | No       |
-| `rfcTableOptions`                | As opções para filtrar as linhas numa mesa SAP. Por exemplo, `COLUMN0 EQ 'SOMEVALUE'`. Consulte também a tabela do operador de consulta SAP mais tarde neste artigo. | No       |
-| `customRfcReadTableFunctionModule` | Um módulo de função RFC personalizado que pode ser usado para ler dados a partir de uma tabela SAP.<br>Pode utilizar um módulo de função RFC personalizado para definir como os dados são recuperados do seu sistema SAP e devolvidos à Data Factory. O módulo de função personalizada deve ter uma interface implementada (importação, exportação, tabelas) semelhante a `/SAPDS/RFC_READ_TABLE2` , que é a interface padrão usada pela Data Factory.<br>Data Factory | No       |
-| `partitionOption`                  | O mecanismo de partição para ler a partir de uma tabela SAP. As opções suportadas são as seguintes: <ul><li>`None`</li><li>`PartitionOnInt` (valores inteiros ou inteiros normais com estofamento zero à esquerda, tais `0000012345` como)</li><li>`PartitionOnCalendarYear` (4 dígitos no formato "YYYY")</li><li>`PartitionOnCalendarMonth` (6 dígitos no formato "YYYYMM")</li><li>`PartitionOnCalendarDate` (8 dígitos no formato "YYYYMMDD")</li><li>`PartitionOntime` (6 dígitos no formato "HHMMSS", tais `235959` como)</li></ul> | No       |
-| `partitionColumnName`              | O nome da coluna usada para dividir os dados.                | No       |
-| `partitionUpperBound`              | O valor máximo da coluna especificada na `partitionColumnName` qual será utilizado para continuar com a partição. | No       |
-| `partitionLowerBound`              | O valor mínimo da coluna especificada na `partitionColumnName` qual será utilizado para continuar com a partição. (Nota: `partitionLowerBound` não pode ser "0" quando a opção de partição é `PartitionOnInt` ) | No       |
-| `maxPartitionsNumber`              | O número máximo de divisórias para dividir os dados.     | No       |
-| `sapDataColumnDelimiter` | O único personagem que é usado como delimiter passou para o SAP RFC para dividir os dados de saída. | No |
+| `type`                             | A `type` propriedade deve ser definida para `SapTableSource` .         | Sim      |
+| `rowCount`                         | O número de filas a recuperar.                              | Não       |
+| `rfcTableFields`                 | Os campos (colunas) para copiar a partir da tabela SAP. Por exemplo, `column0, column1`. | Não       |
+| `rfcTableOptions`                | As opções para filtrar as linhas numa mesa SAP. Por exemplo, `COLUMN0 EQ 'SOMEVALUE'`. Consulte também a tabela do operador de consulta SAP mais tarde neste artigo. | Não       |
+| `customRfcReadTableFunctionModule` | Um módulo de função RFC personalizado que pode ser usado para ler dados a partir de uma tabela SAP.<br>Pode utilizar um módulo de função RFC personalizado para definir como os dados são recuperados do seu sistema SAP e devolvidos à Data Factory. O módulo de função personalizada deve ter uma interface implementada (importação, exportação, tabelas) semelhante a `/SAPDS/RFC_READ_TABLE2` , que é a interface padrão usada pela Data Factory.<br>Data Factory | Não       |
+| `partitionOption`                  | O mecanismo de partição para ler a partir de uma tabela SAP. As opções suportadas são as seguintes: <ul><li>`None`</li><li>`PartitionOnInt` (valores inteiros ou inteiros normais com estofamento zero à esquerda, tais `0000012345` como)</li><li>`PartitionOnCalendarYear` (4 dígitos no formato "YYYY")</li><li>`PartitionOnCalendarMonth` (6 dígitos no formato "YYYYMM")</li><li>`PartitionOnCalendarDate` (8 dígitos no formato "YYYYMMDD")</li><li>`PartitionOntime` (6 dígitos no formato "HHMMSS", tais `235959` como)</li></ul> | Não       |
+| `partitionColumnName`              | O nome da coluna usada para dividir os dados.                | Não       |
+| `partitionUpperBound`              | O valor máximo da coluna especificada na `partitionColumnName` qual será utilizado para continuar com a partição. | Não       |
+| `partitionLowerBound`              | O valor mínimo da coluna especificada na `partitionColumnName` qual será utilizado para continuar com a partição. (Nota: `partitionLowerBound` não pode ser "0" quando a opção de partição é `PartitionOnInt` ) | Não       |
+| `maxPartitionsNumber`              | O número máximo de divisórias para dividir os dados.     | Não       |
+| `sapDataColumnDelimiter` | O único personagem que é usado como delimiter passou para o SAP RFC para dividir os dados de saída. | Não |
 
 >[!TIP]
 >Se a sua tabela SAP tiver um grande volume de dados, como vários biliões de linhas, use `partitionOption` e `partitionSetting` divida os dados em divisórias menores. Neste caso, os dados são lidos por partição, e cada partição de dados é recuperada do seu servidor SAP através de uma única chamada RFC.<br/>
@@ -294,6 +294,60 @@ Em `rfcTableOptions` , pode utilizar os seguintes operadores de consulta SAP com
     }
 ]
 ```
+
+## <a name="join-sap-tables"></a>Junte-se às tabelas SAP
+
+Atualmente, o conector da tabela SAP suporta apenas uma única tabela com o módulo de função predefinido. Para obter os dados associados de várias tabelas, pode aproveitar a propriedade [personalizadaRfcReadTableFunctionModule](#copy-activity-properties) no conector da tabela SAP, seguindo os seguintes passos abaixo:
+
+- [Escreva um módulo de função personalizada,](#create-custom-function-module)que pode tomar uma consulta como OPS e aplicar a sua própria lógica para recuperar os dados.
+- Para o "módulo de função personalizada", insira o nome do seu módulo de função personalizada.
+- Para as "opções de tabela RFC", especifique a declaração de união da tabela para se alimentar no módulo de função como OPÇÕES, tais como " `<TABLE1>` INNER JOIN `<TABLE2>` ON COLUMN0".
+
+Abaixo está um exemplo:
+
+![Mesa de sap join](./media/connector-sap-table/sap-table-join.png) 
+
+>[!TIP]
+>Também pode considerar ter os dados agregados no VIEW, que é suportado pelo conector DA TABELA SAP.
+>Também pode tentar extrair tabelas relacionadas para entrar a bordo do Azure (por exemplo, Azure Storage, Azure SQL Database), e depois utilizar o Data Flow para proceder com mais junta ou filtro.
+
+## <a name="create-custom-function-module"></a>Criar módulo de função personalizada
+
+Para a tabela SAP, atualmente suportamos a propriedade [customRfcReadTableFunctionModule](#copy-activity-properties) na fonte de cópia, que lhe permite alavancar a sua própria lógica e processar dados.
+
+Como uma orientação rápida, aqui estão alguns requisitos para começar com o "módulo de função personalizada":
+
+- Definição:
+
+    ![Definição](./media/connector-sap-table/custom-function-module-definition.png) 
+
+- Dados de exportação num dos quadros abaixo:
+
+    ![Quadro de exportação 1](./media/connector-sap-table/export-table-1.png) 
+
+    ![Quadro de exportação 2](./media/connector-sap-table/export-table-2.png)
+ 
+Abaixo estão ilustrações de como o conector de mesa SAP funciona com módulo de função personalizada:
+
+1. Construa a ligação com o servidor SAP via SAP NCO.
+
+1. Invocar "Módulo de função personalizada" com os parâmetros definidos como abaixo:
+
+    - QUERY_TABLE: o nome da tabela que definiu no conjunto de dados da tabela ADF SAP; 
+    - Delimiter: o limonista que definiu na Fonte de Tabela SAP da ADF; 
+    - ROWCOUNT/Opção/Campos: a Opção Rowcount/Aggregated Option/Fields que definiu na fonte da tabela ADF.
+
+1. Obtenha o resultado e analise os dados de forma abaixo:
+
+    1. Analise o valor na tabela Fields para obter os esquemas.
+
+        ![Valores de parse em Campos](./media/connector-sap-table/parse-values.png)
+
+    1. Obtenha os valores da tabela de saída para ver que tabela contém estes valores.
+
+        ![Obtenha valores na tabela de saída](./media/connector-sap-table/get-values.png)
+
+    1. Obtenha os valores no OUT_TABLE, analise os dados e, em seguida, escreva-os na pia.
 
 ## <a name="data-type-mappings-for-an-sap-table"></a>Mapeamentos de tipo de dados para uma tabela SAP
 

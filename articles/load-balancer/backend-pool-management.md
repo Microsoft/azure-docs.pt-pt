@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 07/07/2020
 ms.author: allensu
-ms.openlocfilehash: 8887474f07928462afe7863ffe2b3667ece536dc
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: e5efbf695b85f474e5d7c84c86809acb2f5a1035
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575304"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99429607"
 ---
 # <a name="backend-pool-management"></a>Gestão de piscinas de backend
 A piscina de backend é um componente crítico do equilibrador de carga. O pool backend define o grupo de recursos que servirá o tráfego para uma determinada regra de equilíbrio de carga.
@@ -25,6 +25,8 @@ Há duas formas de configurar uma piscina de backend:
 Configure o seu pool de backend por NIC ao utilizar máquinas virtuais existentes e conjuntos de balanças de máquinas virtuais. Este método constrói a ligação mais direta entre o seu recurso e o pool backend. 
 
 Ao pré-afinar o seu pool de backend com uma gama de endereços IP que planeia criar mais tarde máquinas virtuais e conjuntos de balanças de máquinas virtuais, configuure o seu pool de backend por endereço IP e combinação VNET ID.
+
+Você pode configurar piscinas de backend baseadas em IP e NIC para o mesmo balanceador de carga, no entanto, você não pode criar um único pool backend que misture endereços apoiados direcionados por endereços NIC e IP dentro da mesma piscina.
 
 As secções de configuração deste artigo centrar-se-ão em:
 

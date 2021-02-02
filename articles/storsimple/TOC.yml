@@ -129,7 +129,7 @@
             - name: Compreender os limites
               href: storsimple-8000-limits.md
             - name: Melhores práticas
-              href: 'https://gallery.technet.microsoft.com/Azure-StorSimple-8000-72b01b68'
+              href: 'https://databoxbuilds.blob.core.windows.net/storsimpledocs/MicrosoftAzureStorSimple_BestPractices_V1.1.pdf'
         - name: Instalar
           items:
             - name: Consultar segurança
@@ -262,11 +262,7 @@
             - name: Automatizar DR de servidor de ficheiros para o Azure
               href: storsimple-disaster-recovery-using-azure-site-recovery.md
             - name: StorSimple com o Express Route
-              href: 'https://gallery.technet.microsoft.com/STORESIMPLE-CONFIGURATION-86c04c3b/view/Discussions#content'
-            - name: StorSimple com VMware
-              href: 'https://gallery.technet.microsoft.com/VMWARE-DEPLOYMENT-WITH-2921b463'
-            - name: StorSimple com Hyper-V
-              href: 'https://gallery.technet.microsoft.com/Deploy-Hyper-V-with-Azure-0d1c6df6'
+              href: 'https://databoxbuilds.blob.core.windows.net/storsimpledocs/MicrosoftAzureStorSimple_ExpressRoute.pdf'
             - name: Espaço de nomes global distribuído
               href: 'https://www.microsoft.com/download/details.aspx?id=45507'
         - name: Monitorizar

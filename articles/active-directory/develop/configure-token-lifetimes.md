@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/04/2021
+ms.date: 02/01/2021
 ms.author: ryanwi
 ms.custom: aaddev, content-perf, FY21Q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 19330af5e4c0e4962993d0ed89ec9bcd4a50514a
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: 3ec94543a53e3e5b7709801de8f4cf1dde3fc3d9
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98986418"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428120"
 ---
 # <a name="configure-token-lifetime-policies-preview"></a>Configure políticas de vida útil simbólicas (pré-visualização)
 Pode especificar o tempo de vida útil de um token de acesso, SAML ou ID emitido pela plataforma de identidade Microsoft. Pode definir durações de tokens para todas as aplicações existentes na sua organização, para uma aplicação multi-inquilino (com várias organizações) ou para um principal de serviço específico na sua organização. Para mais informações, leia [as vidas simbólicas configuráveis.](active-directory-configurable-token-lifetimes.md)
@@ -85,11 +85,11 @@ Neste exemplo, cria-se uma política que exige que os utilizadores autentem mais
 
 ## <a name="create-token-lifetime-policies-for-refresh-and-session-tokens"></a>Criar políticas de vida simbólicas para tokens de atualização e sessão
 > [!IMPORTANT]
-> A partir de maio de 2020, os novos inquilinos não podem configurar a renovação e a sessão simbólica de vidas.  Os inquilinos com configuração existente podem modificar as políticas de atualização e sessão até 30 de janeiro de 2021.  O Azure Ative Directory deixará de honrar a configuração de atualização e ficha de sessão existente em políticas após 30 de janeiro de 2021. Você ainda pode configurar o acesso, SAML, e id token vidas após a aposentadoria.
+> A partir de 30 de janeiro de 2021 não poderá configurar a renovação e a sessão de token lifes. O Azure Ative Directory já não honra a configuração de atualização e símbolo de sessão nas políticas existentes.  Os novos tokens emitidos após a expiração dos tokens existentes estão agora definidos para a [configuração padrão](active-directory-configurable-token-lifetimes.md#configurable-token-lifetime-properties-after-the-retirement). Você ainda pode configurar o acesso, SAML, e ID token vidas após a renovação e sessão de configuração de configuração.
+>
+> A vida útil do símbolo existente não será alterada. Após o seu termo, um novo token será emitido com base no valor padrão.
 >
 > Se precisar de continuar a definir o período de tempo antes de um utilizador ser convidado a iniciar novamente o súmis, configurar a frequência de inscrição no Acesso Condicional. Para saber mais sobre Acesso Condicional, leia a gestão da [sessão de autenticação configurada com Acesso Condicional.](../conditional-access/howto-conditional-access-session-lifetime.md)
->
-> Se não pretender utilizar o Acesso Condicional após a data de reforma, as suas fichas de atualização e sessão serão definidas como [configuração predefinitiva](active-directory-configurable-token-lifetimes.md#configurable-token-lifetime-properties-after-the-retirement) nessa data e deixará de poder alterar as suas vidas.
 
 ### <a name="manage-an-organizations-default-policy"></a>Gerir a política de incumprimento de uma organização
 Neste exemplo, cria-se uma política que permite que os seus utilizadores assinem menos frequentemente em toda a sua organização. Para isso, crie uma política de vida simbólica para tokens de atualização de fatores únicos, que é aplicado em toda a sua organização. A política é aplicada a todas as aplicações da sua organização, e a cada diretor de serviço que ainda não tenha um conjunto de políticas.

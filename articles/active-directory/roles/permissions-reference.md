@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 01/29/2020
+ms.date: 02/01/2020
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f0c8d237e270177ef38c60c523364054bae15af
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: da85c80dd6450fd4427f83586e75cf1e9d62a605
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99090863"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428779"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões da função de administrador no Azure Active Directory
 
@@ -69,15 +69,9 @@ Os utilizadores desta função podem criar registos de aplicações quando a def
 
 ### <a name="authentication-administrator"></a>[Administrador de Autenticação](#authentication-administrator-permissions)
 
-Os utilizadores com esta função podem definir ou redefinir credenciais de não senha para alguns utilizadores e podem atualizar palavras-passe para todos os utilizadores. Os administradores de autenticação podem exigir que os utilizadores que não sejam administradores ou que sejam designados para algumas funções se re-registem contra as credenciais não senhas existentes (por exemplo, MFA ou FIDO), podendo também revogar **o remember MFA no dispositivo**, que solicita mFA no próximo registo. Estas ações aplicam-se apenas aos utilizadores que não sejam administradores ou que lhes sejam atribuídas uma ou mais das seguintes funções:
+Os utilizadores com esta função podem definir ou redefinir credenciais de não senha para alguns utilizadores e podem atualizar palavras-passe para todos os utilizadores. Os administradores de autenticação podem exigir que os utilizadores que não sejam administradores ou que sejam designados para algumas funções se re-registem contra as credenciais não senhas existentes (por exemplo, MFA ou FIDO), podendo também revogar **o remember MFA no dispositivo**, que solicita mFA no próximo registo. Se um Administrador de Autenticação pode redefinir a palavra-passe de um utilizador depende da função atribuída ao utilizador. Para obter uma lista das funções para as quais um Administrador de Autenticação pode redefinir palavras-passe, consulte [permissões de reset de palavra-passe](#password-reset-permissions).
 
-* Administrador de Autenticação
-* Leitores de Diretório
-* Convidado Convidado
-* Leitor do Centro de Mensagens
-* Leitor de Relatórios
-
-A [função de administrador de autenticação privilegiada](#privileged-authentication-administrator) tem permissão pode forçar o re-registo e a autenticação de vários fatores para todos os utilizadores.
+A [função de Administrador de Autenticação Privilegiada](#privileged-authentication-administrator) tem permissão pode forçar o re-registo e a autenticação de vários fatores para todos os utilizadores.
 
 > [!IMPORTANT]
 > Os utilizadores com esta função podem alterar credenciais para pessoas que possam ter acesso a informações sensíveis ou privadas ou configuração crítica dentro e fora do Azure Ative Directory. Alterar as credenciais de um utilizador pode significar a capacidade de assumir a identidade e permissões desse utilizador. Por exemplo:
@@ -253,14 +247,7 @@ Os utilizadores desta função podem gerir convites de utilizadores convidados A
 
 ### <a name="helpdesk-administrator"></a>[Administrador helpdesk](#helpdesk-administrator-permissions)
 
-Os utilizadores com esta função podem alterar palavras-passe, invalidar fichas de atualização, gerir pedidos de serviço e monitorizar a saúde do serviço. Invalidar um token de atualização obriga o utilizador a iniciar novamente o sat. Os administradores da Helpdesk podem redefinir palavras-passe e invalidar fichas de atualização de outros utilizadores que não sejam administradores ou atribuam apenas as seguintes funções:
-
-* Leitores de Diretório
-* Convidado Convidado
-* Administrador helpdesk
-* Leitor do Centro de Mensagens
-* Administrador de password
-* Leitor de Relatórios
+Os utilizadores com esta função podem alterar palavras-passe, invalidar fichas de atualização, gerir pedidos de serviço e monitorizar a saúde do serviço. Invalidar um token de atualização obriga o utilizador a iniciar novamente o sat. Se um Administrador helpdesk pode redefinir a palavra-passe de um utilizador e invalidar fichas de atualização depende da função que o utilizador é atribuído. Para obter uma lista das funções para as quais um administrador de helpdesk pode redefinir palavras-passe e invalidar fichas de atualização, consulte [permissões de reset de palavra-passe](#password-reset-permissions).
 
 > [!IMPORTANT]
 > Os utilizadores com esta função podem alterar palavras-passe para pessoas que possam ter acesso a informações sensíveis ou privadas ou configuração crítica dentro e fora do Azure Ative Directory. Alterar a palavra-passe de um utilizador pode significar a capacidade de assumir a identidade e permissões desse utilizador. Por exemplo:
@@ -271,7 +258,7 @@ Os utilizadores com esta função podem alterar palavras-passe, invalidar fichas
 >- Administradores em outros serviços fora da Azure AD como Exchange Online, Office Security and Compliance Center, e sistemas de recursos humanos.
 >- Não administradores como executivos, advogados e funcionários de recursos humanos que possam ter acesso a informações confidenciais ou privadas.
 
-Delegar permissões administrativas sobre subconjuntos de utilizadores e aplicar políticas a um subconjunto de utilizadores é possível com [Unidades Administrativas (agora em visualização pública)](administrative-units.md).
+Delegar permissões administrativas sobre subconjuntos de utilizadores e aplicar políticas a um subconjunto de utilizadores é possível com [unidades administrativas.](administrative-units.md)
 
 Esta função foi anteriormente denominada "Administrador de Password" no [portal Azure](https://portal.azure.com/). O nome "Helpdesk Administrator" em Azure AD agora corresponde ao seu nome no Azure AD PowerShell e na Microsoft Graph API.
 
@@ -344,11 +331,7 @@ Não utilizar. Este papel foi depreciado e será removido da Azure AD no futuro.
 
 ### <a name="password-administrator"></a>[Administrador de password](#password-administrator-permissions)
 
-Os utilizadores com esta função têm capacidade limitada para gerir senhas. Esta função não garante a capacidade de gerir pedidos de serviço ou monitorizar a saúde do serviço. Os administradores de passwords podem redefinir palavras-passe de outros utilizadores que não sejam administradores ou membros das seguintes funções apenas:
-
-* Leitores de Diretório
-* Convidado Convidado
-* Administrador de password
+Os utilizadores com esta função têm capacidade limitada para gerir senhas. Esta função não garante a capacidade de gerir pedidos de serviço ou monitorizar a saúde do serviço. Se um Administrador de Palavra-Passe pode redefinir a palavra-passe de um utilizador depende da função que o utilizador é atribuído. Para obter uma lista das funções para as quais um administrador de passwords pode redefinir as palavras-passe, consulte [permissões de reset de palavra-passe](#password-reset-permissions).
 
 ### <a name="power-bi-administrator"></a>[Administrador de Bi de Energia](#power-bi-service-administrator-permissions)
 
@@ -371,13 +354,7 @@ Os utilizadores com esta função podem registar impressoras e gerir o estado da
 
 ### <a name="privileged-authentication-administrator"></a>[Administrador de Autenticação Privilegiada](#privileged-authentication-administrator-permissions)
 
-Os utilizadores com esta função podem definir ou redefinir credenciais de não-senha para todos os utilizadores, incluindo Administradores Globais, e podem atualizar palavras-passe para todos os utilizadores. Os Administradores de Autenticação Privilegiada podem forçar os utilizadores a re-registarem-se contra a credencial não-senha existente (como MFA ou FIDO) e revogar "lembrem-se de MFA no dispositivo", solicitando para MFA na próxima entrada de todos os utilizadores. A [função de administrador de autenticação](#authentication-administrator) pode forçar o reensimin e MFA apenas para não administradores e utilizadores atribuídos às seguintes funções AD Azure:
-
-* Administrador de Autenticação
-* Leitores de Diretório
-* Convidado Convidado
-* Leitor do Centro de Mensagens
-* Leitor de Relatórios
+Os utilizadores com esta função podem definir ou redefinir credenciais de não-senha para todos os utilizadores, incluindo Administradores Globais, e podem atualizar palavras-passe para todos os utilizadores. Os Administradores de Autenticação Privilegiada podem forçar os utilizadores a re-registarem-se contra a credencial não-senha existente (como MFA ou FIDO) e revogar "lembrem-se de MFA no dispositivo", solicitando para MFA na próxima entrada de todos os utilizadores.
 
 ### <a name="privileged-role-administrator"></a>[Administrador privilegiado](#privileged-role-administrator-permissions)
 
@@ -500,11 +477,12 @@ Os utilizadores com esta função podem aceder a dados agregados de nível de in
 
 Os utilizadores com esta função podem criar utilizadores e gerir todos os aspetos dos utilizadores com algumas restrições (ver tabela) e podem atualizar as políticas de validade da palavra-passe. Além disso, os utilizadores com esta função podem criar e gerir todos os grupos. Esta função inclui também a capacidade de criar e gerir as vistas dos utilizadores, gerir bilhetes de apoio e monitorizar a saúde do serviço. Os administradores do utilizador não têm permissão para gerir algumas propriedades do utilizador para os utilizadores na maioria das funções de administrador. O utilizador com esta função não tem permissões para gerir o MFA. As funções que são exceções a esta restrição estão listadas no quadro seguinte.
 
-| **Permissão** | **Pode fazer** |
+| Permissão do administrador do utilizador | Notas |
 | --- | --- |
-|Permissões gerais|<p>Criar utilizadores e grupos</p><p>Criar e gerir vistas de utilizador</p><p>Gerir bilhetes de apoio ao Escritório<p>Atualizar as políticas de expiração da palavra-passe|
-| <p>Em todos os utilizadores, incluindo todos os administradores</p>|<p>Gerir licenças</p><p>Gerir todas as propriedades do utilizador, exceto o nome principal do utilizador</p>
-| Apenas em utilizadores que não sejam administradores ou em qualquer uma das seguintes funções de administração limitadas:<ul><li>Leitores de Diretório<li>Administrador de Grupos<li>Convidado Convidado<li>Administrador helpdesk<li>Leitor do Centro de Mensagens<li>Administrador de password<li>Leitor de Relatórios<li>Administrador de Utilizadores|<p>Eliminar e restaurar</p><p>Desativar e ativar</p><p>Tokens de atualização invalidado</p><p>Gerir todas as propriedades do utilizador, incluindo o nome principal do utilizador</p><p>Repor palavra-passe</p><p>Teclas de dispositivo de atualização (FIDO)</p>|
+| Criar utilizadores e grupos<br/>Criar e gerir vistas de utilizador<br/>Gerir bilhetes de apoio ao Escritório<br/>Atualizar as políticas de expiração da palavra-passe |  |
+| Gerir licenças<br/>Gerir todas as propriedades do utilizador, exceto o nome principal do utilizador | Aplica-se a todos os utilizadores, incluindo todos os administradores |
+| Eliminar e restaurar<br/>Desativar e ativar<br/>Gerir todas as propriedades do utilizador, incluindo o nome principal do utilizador<br/>Teclas de dispositivo de atualização (FIDO) | Aplica-se a utilizadores que não sejam administradores ou em qualquer uma das seguintes funções:<ul><li>Administrador helpdesk</li><li>Utilizador sem papel</li><li>Administrador de Utilizadores</li></ul> |
+| Tokens de atualização invalidado<br/>Repor palavra-passe | Para obter uma lista das funções para as quais um Administrador de Utilizador pode redefinir palavras-passe e invalidar fichas de atualização, consulte [permissões de reset de palavra-passe](#password-reset-permissions). |
 
 > [!IMPORTANT]
 > Os utilizadores com esta função podem alterar palavras-passe para pessoas que possam ter acesso a informações sensíveis ou privadas ou configuração crítica dentro e fora do Azure Ative Directory. Alterar a palavra-passe de um utilizador pode significar a capacidade de assumir a identidade e permissões desse utilizador. Por exemplo:
@@ -515,7 +493,7 @@ Os utilizadores com esta função podem criar utilizadores e gerir todos os aspe
 >- Administradores em outros serviços fora da Azure AD como Exchange Online, Office Security and Compliance Center, e sistemas de recursos humanos.
 >- Não administradores como executivos, advogados e funcionários de recursos humanos que possam ter acesso a informações confidenciais ou privadas.
 
-## <a name="role-permissions"></a>Permissões de função
+## <a name="role-permissions"></a>Permissões de funções
 
 As tabelas que se seguem descrevem as permissões específicas no Azure Ative Directory dadas a cada papel. Algumas funções podem ter permissões adicionais nos serviços da Microsoft fora do Azure Ative Directory.
 
@@ -572,6 +550,7 @@ Pode criar e gerir todos os aspetos dos registos de aplicações e aplicações 
 | microsoft.azure.supportTickets/allEntities/allTasks | Crie e gere os bilhetes de apoio da Azure. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Leia e configuure a Microsoft 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerir os bilhetes de apoio do Office 365. |
+| microsoft.office365.webPortal/allEntities/standard/read | Leia propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 
 ### <a name="application-developer-permissions"></a>Permissões do Desenvolvedor de Aplicações
 
@@ -647,6 +626,7 @@ Pode gerir todos os aspetos do serviço de Proteção de Informação Azure.
 | microsoft.azure.supportTickets/allEntities/allTasks | Crie e gere os bilhetes de apoio da Azure. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Leia e configuure a Microsoft 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerir os bilhetes de apoio do Office 365. |
+| microsoft.office365.webPortal/allEntities/standard/read | Leia propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 
 ### <a name="b2c-ief-keyset-administrator-permissions"></a>Permissões de administrador de chaves B2C IEF
 
@@ -725,6 +705,7 @@ Pode criar e gerir todos os aspetos dos registos de aplicações e aplicações 
 | microsoft.azure.supportTickets/allEntities/allTasks | Crie e gere os bilhetes de apoio da Azure. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Leia e configuure a Microsoft 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerir os bilhetes de apoio do Office 365. |
+| microsoft.office365.webPortal/allEntities/standard/read | Leia propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 
 ### <a name="cloud-device-administrator-permissions"></a>Permissões de administrador de dispositivos de nuvem
 
@@ -2064,6 +2045,31 @@ Suporte parceiro tier 2 | Não mostrado porque não deve ser usado | [Documenta�
 Utilizador restrito de hóspedes | Não mostrado porque não pode ser usado | ND
 User | Não mostrado porque não pode ser usado | ND
 Aderir ao dispositivo de trabalho | Preterido | [Documentação de papéis precotados](permissions-reference.md#deprecated-roles)
+
+## <a name="password-reset-permissions"></a>Permissões de reset de palavra-passe
+
+As rubricas da coluna representam as funções que podem redefinir as palavras-passe. As linhas de mesa contêm as funções para as quais a sua palavra-passe pode ser reposta.
+
+A palavra-passe pode ser reposta | Administrador de Autenticação | Administração Helpdesk | Administrador de password | Administrador de Utilizador | Administrador de Autenticação Privilegiada | Admin Global
+------ | ------ | ------ | ------ | ------ | ------ | ------
+Administrador de Autenticação | :heavy_check_mark: | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
+Leitores de Diretório | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Admin Global | &nbsp; | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:\*
+Admin grupos | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Convidado | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Convidado Convidado | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Administração Helpdesk | &nbsp; | :heavy_check_mark: | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Leitor do Centro de Mensagens | :heavy_check_mark: | :heavy_check_mark: | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Administrador de password | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Administrador de Autenticação Privilegiada | &nbsp; | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
+Administrador privilegiado | &nbsp; | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
+Leitor de Relatórios | :heavy_check_mark: | :heavy_check_mark: | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Hóspede restrito | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Utilizador (sem função de administrador) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Administrador de Utilizador | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Leitor de Relatórios de Resumo de Utilização | :heavy_check_mark: | :heavy_check_mark: | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+
+\* Um Administrador Global não pode remover a sua própria atribuição de Administrador Global. Isto é para prevenir uma situação em que uma organização tem 0 Administradores Globais.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -8,13 +8,13 @@ ms.topic: conceptual
 author: dcstwh
 ms.author: weetok
 manager: anandsub
-ms.date: 06/02/2020
-ms.openlocfilehash: aa1246a65dc6971107abe35f4a418b0bbb05641b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 02/01/2021
+ms.openlocfilehash: c3366b7ba0eb0b49d4d5b89481b7bed843e52c8e
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96486135"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99429007"
 ---
 # <a name="management-hub-in-azure-data-factory"></a>Centro de gestão na Azure Data Factory
 
@@ -34,13 +34,17 @@ Os serviços ligados definem as informações de ligação para a Azure Data Fac
 
 Um tempo de integração é uma infraestrutura de computação usada pela Azure Data Factory para fornecer capacidades de integração de dados em diferentes ambientes de rede. Para mais informações, saiba sobre [conceitos de integração em tempo de execução.](concepts-integration-runtime.md) No centro de gestão, pode criar, excluir e monitorizar os tempos de integração.
 
-![Gerir os tempos de integração](media/author-management-hub/management-hub-integration-runtime.png)
+![Gerir runtimes de integração](media/author-management-hub/management-hub-integration-runtime.png)
 
 ## <a name="manage-source-control"></a>Gerir o controlo de origem
 
 ### <a name="git-configuration"></a>Configuração de Git
 
-Ver e editar as definições configuradas do repositório de git no centro de gestão. Para mais informações, saiba mais sobre [o controlo de fontes na Azure Data Factory.](source-control.md)
+Pode visualizar/editar todas as informações relacionadas com Git nas definições de configuração git no centro de gestão. 
+
+As últimas informações publicadas também estão listadas e podem ajudar a compreender o compromisso preciso, que foi publicado pela última vez/ implantado em ambientes. Também pode ser útil ao fazer Hot Fixes na produção.
+
+Para mais informações, saiba mais sobre [o controlo de fontes na Azure Data Factory.](source-control.md)
 
 ![Gerir git repo](media/author-management-hub/management-hub-git.png)
 

@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
-ms.openlocfilehash: 7ef4a1542a050918249f602bbc63567cc8e13f2a
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 962fb8cbd4c64aa2ef625b478afa587099234617
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99091719"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99427639"
 ---
 # <a name="mv2-series"></a>Série Mv2
 
@@ -24,7 +24,7 @@ Recurso da série Mv2 da VM Intel® Hyper-Threading Tecnologia
 [Caching premium armazenamento](premium-storage-performance.md): Suportado<br>
 [Migração ao Vivo](maintenance-and-updates.md): Não Suportado<br>
 [Atualizações de preservação da memória](maintenance-and-updates.md): Não suportado<br>
-[Suporte de geração VM](generation-2.md): Geração 1 e 2<br>
+[Suporte vm geração](generation-2.md): Geração 2<br>
 [Write Accelerator](./how-to-enable-write-accelerator.md): Suportado<br>
 [Rede Acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): Suportado<br>
 [Discos EFÉMEROS :](ephemeral-os-disks.md)Não Suportados <br>

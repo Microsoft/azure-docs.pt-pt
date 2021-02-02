@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 587078f1f084d002e4d725ca3be64bcec36b4c45
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 3ed5c2c1c95822717981f7d30b91edd244420c59
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734652"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99427690"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Supported Kubernetes versions in Azure Kubernetes Service (AKS) (Versões do Kubernetes suportadas no Azure Kubernetes Service [AKS])
 
@@ -138,7 +138,6 @@ Para a história do lançamento passado, consulte [Kubernetes.](https://en.wikip
 
 |  Versão K8s | Libertação a montante  | Pré-visualização da AKS  | AKS GA  | Fim da vida |
 |--------------|-------------------|--------------|---------|-------------|
-| 1.16  | 19-19 de setembro  | Jan 2019   | Mar 2020  | jan 2021| 
 | 1.17  | Dez-09-19  | Jan 2019   | Jul 2020  | 1.20 GA | 
 | 1.18  | Mar-23-20  | Maio de 2020   | Agosto 2020  | 1.21 GA | 
 | 1.19  | Ago-04-20  | Sep 2020   | Nov 2020  | 1.22 GA | 
@@ -187,7 +186,7 @@ Para atualizar, a partir de *1.12.x*  ->  *1.14.x,* primeiro upgrade a partir de
 
 Saltar várias versões só pode ser feito quando o upgrade de uma versão não suportada de volta para uma versão suportada. Por exemplo, o upgrade a partir de um *1.10.x* não suportado --> um *1.15.x* suportado pode ser concluído.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter informações sobre como atualizar o seu cluster, consulte [upgrade de um cluster Azure Kubernetes Service (AKS).][aks-upgrade]
 

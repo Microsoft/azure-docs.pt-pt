@@ -2,18 +2,20 @@
 title: Bloquear recursos para evitar alterações
 description: Impedir que os utilizadores atualem ou apaguem os recursos do Azure aplicando um bloqueio para todos os utilizadores e funções.
 ms.topic: conceptual
-ms.date: 11/11/2020
+ms.date: 02/01/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0e8fc74b2da0c253ec9c5bf34ec7543398aea48f
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 912c7e86d253aa18b9a6c60717ceaa70e32fcf0e
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98802435"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428322"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloquear recursos para prevenir alterações inesperadas
 
-Como administrador, pode ser necessário bloquear uma subscrição, um grupo de recursos ou recursos, para impedir que outros utilizadores na sua organização eliminem ou modifiquem acidentalmente recursos críticos. Pode definir o nível do bloqueio para **CanNotDelete** ou **ReadOnly**. No portal, as fechaduras são chamadas **de Delete** e **Read-only,** respectivamente.
+Como administrador, pode bloquear uma subscrição, grupo de recursos ou recurso para evitar que outros utilizadores da sua organização apaguem ou modifiquem acidentalmente recursos críticos. O bloqueio substitui quaisquer permissões que o utilizador possa ter.
+
+Pode definir o nível do bloqueio para **CanNotDelete** ou **ReadOnly**. No portal, as fechaduras são chamadas **de Delete** e **Read-only,** respectivamente.
 
 * **CanNotDelete** significa que os utilizadores autorizados ainda podem ler e modificar um recurso, mas não podem eliminar o recurso.
 * **ReadOnly** significa que os utilizadores autorizados podem ler um recurso, mas não podem eliminar ou atualizar o recurso. A aplicação deste bloqueio é semelhante a restringir todos os utilizadores autorizados às permissões concedidas pela função **Reader.**
@@ -339,7 +341,7 @@ No pedido, inclua um objeto JSON que especifica as propriedades para o bloqueio.
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para aprender a organizar logicamente os seus recursos, consulte [Usando tags para organizar os seus recursos.](tag-resources.md)
 * Pode aplicar restrições e convenções em toda a sua subscrição com políticas personalizadas. Para obter mais informações, veja [What is Azure Policy?](../../governance/policy/overview.md) (O que é o Azure Policy?).

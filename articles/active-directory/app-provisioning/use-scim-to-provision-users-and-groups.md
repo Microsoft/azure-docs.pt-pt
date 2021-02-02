@@ -8,25 +8,24 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/12/2021
+ms.date: 02/01/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6895a47bc6d99a09408ca002ec48405a5c78682
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: ba000fd4cf79f2bb4a176bd7d5c33fc2dfff3781
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/02/2021
-ms.locfileid: "99255683"
+ms.locfileid: "99428407"
 ---
 # <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint"></a>Tutorial: Desenvolver e planear o provisionamento para um ponto final do SCIM
 
 Como desenvolvedor de aplicações, pode utilizar a API de gestão de identidade de controlo de identidade de domínio cruzado (SCIM) para permitir o fornecimento automático de utilizadores e grupos entre a sua aplicação e a Azure AD. Este artigo descreve como construir um ponto final SCIM e integrar-se com o serviço de fornecimento AZURE AD. A especificação SCIM fornece um esquema comum de utilização para o provisionamento. Quando usado em conjunto com padrões da federação como SAML ou OpenID Connect, o SCIM dá aos administradores uma solução baseada em padrões para a gestão de acessos.
 
-SCIM é uma definição padronizada de dois pontos finais: um `/Users` ponto final e um ponto `/Groups` final. Utiliza verbos rest comuns para criar, atualizar e apagar objetos, e um esquema pré-definido para atributos comuns como nome de grupo, nome de utilizador, nome de primeiro nome, apelido e e-mail. As aplicações que oferecem uma API SCIM 2.0 REST podem reduzir ou eliminar a dor de trabalhar com uma API de gestão de utilizadores proprietário. Por exemplo, qualquer cliente SCIM em conformidade sabe como fazer um HTTP POST de um objeto JSON para o `/Users` ponto final para criar uma nova entrada no utilizador. Em vez de precisar de uma API ligeiramente diferente para as mesmas ações básicas, as aplicações que estão em conformidade com a norma SCIM podem instantaneamente tirar partido dos clientes, ferramentas e código pré-existentes. 
-
 ![Provisionamento de Azure AD para uma app com SCIM](media/use-scim-to-provision-users-and-groups/scim-provisioning-overview.png)
+
+SCIM é uma definição padronizada de dois pontos finais: um `/Users` ponto final e um ponto `/Groups` final. Utiliza verbos rest comuns para criar, atualizar e apagar objetos, e um esquema pré-definido para atributos comuns como nome de grupo, nome de utilizador, nome de primeiro nome, apelido e e-mail. As aplicações que oferecem uma API SCIM 2.0 REST podem reduzir ou eliminar a dor de trabalhar com uma API de gestão de utilizadores proprietário. Por exemplo, qualquer cliente SCIM em conformidade sabe como fazer um HTTP POST de um objeto JSON para o `/Users` ponto final para criar uma nova entrada no utilizador. Em vez de precisar de uma API ligeiramente diferente para as mesmas ações básicas, as aplicações que estão em conformidade com a norma SCIM podem instantaneamente tirar partido dos clientes, ferramentas e código pré-existentes. 
 
 O esquema padrão de objetos de utilizador e apis de repouso para gestão definido em SCIM 2.0 (RFC [7642](https://tools.ietf.org/html/rfc7642), [7643](https://tools.ietf.org/html/rfc7643), [7644](https://tools.ietf.org/html/rfc7644)) permitem que os fornecedores de identidade e apps se integrem mais facilmente uns com os outros. Os desenvolvedores de aplicações que construam um ponto final SCIM podem integrar-se com qualquer cliente compatível com SCIM sem ter que fazer trabalho personalizado.
 
@@ -70,6 +69,7 @@ O esquema acima definido seria representado utilizando a carga útil JSON abaixo
       "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
       "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User"],
      "userName":"bjensen@testuser.com",
+     "id": "48af03ac28ad4fb88478",
      "externalId":"bjensen",
      "name":{
        "familyName":"Jensen",
@@ -914,7 +914,7 @@ Envie um pedido GET ao controlador Token para obter um token ao portador válido
 
 ### <a name="handling-provisioning-and-deprovisioning-of-users"></a>Tratamento do fornecimento e desprovisionamento dos utilizadores
 
-***Exemplo 1. Consultar o serviço para um utilizador correspondente** _
+***Exemplo 1. Consultar o serviço para um utilizador que corresponde***
 
 O Azure Ative Directory consulta o serviço para um utilizador com um `externalId` valor de atributo correspondente ao valor de atributo mailSname de um utilizador em Azure AD. A consulta é expressa como um pedido de Hipertext Transfer Protocol (HTTP) como este exemplo, em que jyoung é uma amostra de um nome de correioNickname de um utilizador em Azure Ative Directory.
 
@@ -942,12 +942,12 @@ No código de amostra, o pedido é traduzido numa chamada para o método QueryAs
 
 Na consulta da amostra, para um utilizador com um dado valor para o `externalId` atributo, os valores dos argumentos transmitidos ao método QueryAsync são:
 
-_ parâmetros. Filtros Alternativos.Contagem: 1
+* parâmetros. Filtros Alternativos.Contagem: 1
 * parâmetros. AlternateFiltros.ElementAt(0). AtributoPath: "externalId"
 * parâmetros. AlternateFiltros.ElementAt(0). ComparaçãoOperador: CompareOperador.Equals
 * parâmetros. AlternateFilter.ElementAt(0). ComparaçãoValue: "jyoung"
 
-***Exemplo 2. Provision a um utilizador** _
+***Exemplo 2. Provisionamento de um utilizador***
 
 Se a resposta a uma consulta ao serviço web para um utilizador com um `externalId` valor de atributo que corresponda ao valor de atributo mailSname de um utilizador não devolver nenhum utilizador, então o Azure Ative Directory solicita que a prestação de serviço seja um utilizador correspondente ao do Diretório Ativo Azure.  Aqui está um exemplo de tal pedido: 
 
@@ -996,7 +996,7 @@ No código de amostra, o pedido é traduzido numa chamada para o método CreateA
 
 Num pedido de fornecimento de um utilizador, o valor do argumento de recurso é uma instância da classe Microsoft.SCIM.Core2EnterpriseUser, definida na biblioteca Microsoft.SCIM.Schemas.  Se o pedido de provisionamento do utilizador for bem sucedido, espera-se que a implementação do método devolva uma instância da classe Microsoft.SCIM.Core2EnterpriseUser, com o valor da propriedade Identifier definida para o identificador único do utilizador recém-atado.  
 
-_*_Exemplo 3. Consulta do estado atual de um utilizador_*_ 
+***Exemplo 3. Consulta do estado atual de um utilizador*** 
 
 Para atualizar um utilizador conhecido por existir numa loja de identidade frontalizada por um SCIM, o Azure Ative Directory procede solicitando ao serviço o estado atual desse utilizador com um pedido como: 
 
@@ -1020,14 +1020,14 @@ No código de amostra, o pedido é traduzido numa chamada para o método Retriev
 
 No exemplo de um pedido de recuperação do estado atual de um utilizador, os valores das propriedades do objeto fornecidos como o valor do argumento dos parâmetros são os seguintes: 
   
-_ Identificador: "54D382A4-2050-4C03-94D1-E769F1D15682"
+* Identificador: "54D382A4-2050-4C03-94D1-E769F1D15682"
 * SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
-***Exemplo 4. Consulta o valor de um atributo de referência a atualizar** _ 
+***Exemplo 4. Consulta do valor de um atributo de referência a atualizar*** 
 
 Se um atributo de referência for atualizado, então o Azure Ative Directory consulta o serviço para determinar se o valor atual do atributo de referência na loja de identidade frontalmente pelo serviço já corresponde ao valor desse atributo no Azure Ative Directory. Para os utilizadores, o único atributo do qual o valor atual é consultado desta forma é o atributo do gestor. Aqui está um exemplo de um pedido para determinar se o atributo do gestor de um objeto de utilizador tem atualmente um determinado valor: No código de amostra o pedido é traduzido numa chamada para o método QueryAsync do prestador do serviço. O valor das propriedades do objeto fornecido como o valor do argumento dos parâmetros são os seguintes: 
   
-_ parâmetros. Filtros Alternativos.Contagem: 2
+* parâmetros. Filtros Alternativos.Contagem: 2
 * parâmetros. AlternateFiltros.ElementAt(x). AtributoPata: "ID"
 * parâmetros. AlternateFiltros.ElementAt(x). ComparaçãoOperador: CompareOperador.Equals
 * parâmetros. AlternateFilter.ElementAt(x). ComparaçãoValue: "54D382A4-2050-4C03-94D1-E769F1D15682"
@@ -1039,7 +1039,7 @@ _ parâmetros. Filtros Alternativos.Contagem: 2
 
 Aqui, o valor do índice x pode ser 0 e o valor do índice y pode ser 1, ou o valor de x pode ser 1 e o valor de y pode ser 0, dependendo da ordem das expressões do parâmetro de consulta do filtro.   
 
-***Exemplo 5. Pedido da Azure AD a um serviço SCIM para atualizar um utilizador** _ 
+***Exemplo 5. Pedido da Azure AD a um serviço SCIM para atualizar um utilizador*** 
 
 Aqui está um exemplo de um pedido do Azure Ative Directory a um serviço SCIM para atualizar um utilizador: 
 
@@ -1078,7 +1078,7 @@ No código de amostra, o pedido é traduzido numa chamada para o método UpdateA
 
 No exemplo de um pedido de atualização de um utilizador, o objeto fornecido como o valor do argumento do patch tem estes valores de propriedade: 
   
-_ ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
+* ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
 * ResourceIdentifier.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 * (PatchRequest como PatchRequest2). Operações.Contagem: 1
 * (PatchRequest como PatchRequest2). Operações.ElementAt(0). OperaçãoName: OperaçãoName.Add
@@ -1087,7 +1087,7 @@ _ ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
 * (PatchRequest como PatchRequest2). Operações.ElementAt(0). Valor.ElementAt(0). Referência: http://.../scim/Users/2819c223-7f76-453a-919d-413861904646
 * (PatchRequest como PatchRequest2). Operações.ElementAt(0). Valor.ElementAt(0). Valor: 2819c223-7f76-453a-919d-413861904646
 
-***Exemplo 6. Desprovisione um utilizador** _
+***Exemplo 6. Desprovisionamento de um utilizador***
 
 Para desprovisionar um utilizador de uma loja de identidade frontalizada por um serviço SCIM, a Azure AD envia um pedido como:
 
@@ -1110,7 +1110,7 @@ No código de amostra, o pedido é traduzido numa chamada para o método DeleteA
 
 O objeto fornecido como o valor do argumento do gestor de recursos tem estes valores de propriedade no exemplo de um pedido de desprovisionamento de um utilizador: 
 
-_ ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
+* ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
 * ResourceIdentifier.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
 ## <a name="step-4-integrate-your-scim-endpoint-with-the-azure-ad-scim-client"></a>Passo 4: Integre o seu ponto final SCIM com o cliente Azure AD SCIM
@@ -1151,8 +1151,8 @@ As aplicações que suportam o perfil SCIM descrito neste artigo podem ser ligad
 7. No campo URL do **inquilino,** insira o URL do ponto final SCIM da aplicação. Exemplo: `https://api.contoso.com/scim/`
 8. Se o ponto final do SCIM necessitar de um token portador de OAuth de um emitente diferente do Azure AD, em seguida, copie o símbolo do portador de OAuth necessário no campo **token secreto** opcional. Se este campo ficar em branco, o Azure AD inclui um token portador de OAuth emitido a partir de Azure AD a cada pedido. As aplicações que usam o Azure AD como fornecedor de identidade podem validar este token emitido pela AZure AD. 
    > [!NOTE]
-   > Não *_é_* recomendado deixar este campo em branco e confiar num símbolo gerado pela Azure AD. Esta opção está disponível principalmente para efeitos de teste.
-9. Selecione _ *Ligação de teste** para que o Azure Ative Directory tente ligar-se ao ponto final DO SCIM. Se a tentativa falhar, é apresentada informação de erro.  
+   > Não é ***recomendado*** deixar este campo em branco e confiar num símbolo gerado pela Azure AD. Esta opção está disponível principalmente para efeitos de teste.
+9. Selecione **a Ligação de Teste** para que o Azure Ative Directory tente ligar-se ao ponto final do SCIM. Se a tentativa falhar, é apresentada informação de erro.  
 
     > [!NOTE]
     > **A Ligação** de Teste consulta o ponto final DO SCIM para um utilizador que não existe, utilizando um GUID aleatório como a propriedade correspondente selecionada na configuração AD Azure. A resposta correta esperada é HTTP 200 OK com uma mensagem scim ListResponse vazia.

@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: 7e58daf72522071eb7d0031d4ea236a21c6d8bfb
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 27d357279a54d7abc351370e7afda3a7961bac33
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/02/2021
-ms.locfileid: "99252326"
+ms.locfileid: "99428559"
 ---
 # <a name="bring-your-own-key-customer-managed-keys-with-media-services"></a>Traga a sua própria chave (chaves geridas pelo cliente) com serviços de mídia
 
@@ -39,9 +39,10 @@ Pode especificar um nome chave e uma versão chave, ou apenas um nome chave. Qua
 
 ## <a name="double-encryption"></a>Encriptação dupla
 
-Os Serviços de Comunicação Social suportam a dupla encriptação.  Para saber mais sobre a dupla encriptação, consulte [a encriptação dupla Azure.](../../security/fundamentals/double-encryption.md)
+Os Serviços de Mídia suportam automaticamente a dupla encriptação. Para os dados em repouso, a primeira camada de encriptação utiliza uma chave gerida pelo cliente ou uma chave gerida pela Microsoft dependendo da `AccountEncryption` definição da conta.  A segunda camada de encriptação para dados em repouso é fornecida automaticamente usando uma chave gerida pela Microsoft separada. Para saber mais sobre a dupla encriptação, consulte [a encriptação dupla Azure.](../../security/fundamentals/double-encryption.md)
 
-A dupla encriptação é ativada automaticamente na conta dos Serviços de Mídia. No entanto, é necessário configurar a chave gerida pelo cliente e duplicar a encriptação na sua conta de armazenamento separadamente.
+> [!NOTE]
+> A dupla encriptação é ativada automaticamente na conta dos Serviços de Mídia. No entanto, é necessário configurar a chave gerida pelo cliente e duplicar a encriptação na sua conta de armazenamento separadamente. Ver, [encriptação storege.](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)
 
 ## <a name="tutorials"></a>Tutoriais
 

@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 09/21/2020
-ms.openlocfilehash: d3f859590b30aaeeaebaed7b1f2f85e1a86a92c9
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.openlocfilehash: f58811411a447eae4ff9a5c0fd2a9888b4a39a34
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99223411"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428678"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Perguntas frequentes (FAQ) sobre o Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -192,7 +192,7 @@ Não, não são apoiados. Pode utilizar [DMVs](../database/monitoring-with-dmvs.
 
 **Posso criar alertas métricos no SQL Managed Instance?**
 
-Yes. Para obter instruções, consulte [Criar alertas para a sql Managed Instance](alerts-create.md).
+Sim. Para obter instruções, consulte [Criar alertas para a sql Managed Instance](alerts-create.md).
 
 **Posso criar alertas métricos numa base de dados em casos geridos?**
 
@@ -254,11 +254,11 @@ Isto é para garantir um fluxo ininterrupto do tráfego de gestão, a fim de cum
 
 **Posso obter os intervalos ip de origem que são usados para o tráfego de gestão de entrada?**
 
-Yes. Pode analisar o tráfego que passa pelo seu grupo de segurança de redes [configurando os registos de fluxo do Observador de Rede](../../network-watcher/network-watcher-monitoring-overview.md#analyze-traffic-to-or-from-a-network-security-group).
+Sim. Pode analisar o tráfego que passa pelo seu grupo de segurança de redes [configurando os registos de fluxo do Observador de Rede](../../network-watcher/network-watcher-monitoring-overview.md#analyze-traffic-to-or-from-a-network-security-group).
 
 **Posso definir o NSG para controlar o acesso ao ponto final de dados (porta 1433)?**
 
-Yes. Depois de ser a provisionada uma Instância Gerida, pode definir o NSG que controla o acesso à porta 1433. É aconselhável reduzir ao máximo o seu intervalo de IP.
+Sim. Depois de ser a provisionada uma Instância Gerida, pode definir o NSG que controla o acesso à porta 1433. É aconselhável reduzir ao máximo o seu intervalo de IP.
 
 **Posso definir a firewall NVA ou no local para filtrar o tráfego de gestão de saída com base em FQDNs?**
 
@@ -269,7 +269,7 @@ N.º Isto não é apoiado por várias razões:
 
 **Posso definir o NVA ou firewall para o tráfego de não gestão de saída?**
 
-Yes. A forma mais simples de o conseguir é adicionar a regra 0/0 a uma UDR associada à sub-rede de instância gerida para encaminhar o tráfego através da NVA.
+Sim. A forma mais simples de o conseguir é adicionar a regra 0/0 a uma UDR associada à sub-rede de instância gerida para encaminhar o tráfego através da NVA.
  
 **Quantos endereços IP preciso para uma Instância Gerida?**
 
@@ -316,7 +316,7 @@ Por esta razão, desencorajamos vivamente a imutabilidade do endereço IP, uma v
 
 **A Managed Instance tem um ponto final público?**
 
-Yes. A Managed Instance tem um ponto final público que é por padrão usado apenas para Gestão de Serviços, mas um cliente pode habilitar o acesso aos dados também. Para obter mais detalhes, consulte [a Utilização sql Managed Instance com pontos finais públicos](./public-endpoint-overview.md). Para configurar o ponto final público, vá ao [ponto final público configure em SQL Managed Instance](public-endpoint-configure.md).
+Sim. A Managed Instance tem um ponto final público que é por padrão usado apenas para Gestão de Serviços, mas um cliente pode habilitar o acesso aos dados também. Para obter mais detalhes, consulte [a Utilização sql Managed Instance com pontos finais públicos](./public-endpoint-overview.md). Para configurar o ponto final público, vá ao [ponto final público configure em SQL Managed Instance](public-endpoint-configure.md).
 
 **Como é que a Managed Instance controla o acesso ao ponto final público?**
 
@@ -326,7 +326,7 @@ Os serviços de gestão e implantação conectam-se a uma instância gerida util
 
 **Posso utilizar o ponto final público para aceder aos dados nas bases de dados de Instância Gerida?**
 
-Yes. O cliente terá de permitir o acesso de dados de ponto final público a partir do [portal Azure](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal)  /  [PowerShell](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-using-powershell) /ARM e configurar o NSG para bloquear o acesso à porta de dados (porta número 3342). Para obter mais informações, consulte o [ponto final público Configure em Azure SQL Managed Instance](public-endpoint-configure.md) e Use [Azure SQL Managed Instance de forma segura com o ponto final público](public-endpoint-overview.md). 
+Sim. O cliente terá de permitir o acesso de dados de ponto final público a partir do [portal Azure](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal)  /  [PowerShell](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-using-powershell) /ARM e configurar o NSG para bloquear o acesso à porta de dados (porta número 3342). Para obter mais informações, consulte o [ponto final público Configure em Azure SQL Managed Instance](public-endpoint-configure.md) e Use [Azure SQL Managed Instance de forma segura com o ponto final público](public-endpoint-overview.md). 
 
 **Posso especificar uma porta personalizada para o ponto final de dados SQL?**
 
@@ -359,18 +359,11 @@ Para mitigar quaisquer riscos de exfiltração de dados, recomenda-se aos client
 
 **Posso configurar um DNS personalizado para sql Managed Instance?**
 
-Yes. Ver [como configurar um DNS personalizado para Azure SQL Managed Instance](./custom-dns-configure.md).
+Sim. Ver [como configurar um DNS personalizado para Azure SQL Managed Instance](./custom-dns-configure.md).
 
 **Posso refrescar o DNS?**
 
-Yes. Consulte [a configuração de servidores DNS de rede virtual sincronizada no cluster virtual SQL Managed Instance](./synchronize-vnet-dns-servers-setting-on-virtual-cluster.md).
-
-A configuração do DNS é eventualmente renovada:
-
-- Quando o contrato de arrendamento DHCP expirar.
-- No upgrade da plataforma.
-
-Como uma solução alternativa, desclasse a SQL Managed Instance para 4 vCores e atualize-a novamente depois. Isto tem um efeito colateral de refrescar a configuração do DNS.
+Sim. Consulte [a configuração de servidores DNS de rede virtual sincronizada no cluster virtual SQL Managed Instance](./synchronize-vnet-dns-servers-setting-on-virtual-cluster.md).
 
 ## <a name="change-time-zone"></a>Alterar fuso horário
 

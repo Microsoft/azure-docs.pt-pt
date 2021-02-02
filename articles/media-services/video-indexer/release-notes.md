@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services Video Indexer lança notas de lançamento / Microsoft Docs
+title: Notas de lançamento do Azure Media Services Video Indexer | Microsoft Docs
 description: Para se manter atualizado com os desenvolvimentos mais recentes, este artigo fornece-lhe as últimas atualizações sobre o Azure Media Services Video Indexer.
 services: media-services
 documentationcenter: ''
@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 01/06/2021
+ms.date: 02/01/2021
 ms.author: juliako
-ms.openlocfilehash: b6e18e077b717da65ca8d70b9bda6a133dba1f5c
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: c0d332c00635444ab4d694e46486a498b43137f2
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120092"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99427668"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Notas de lançamento do Azure Media Services Video Indexer
 
@@ -30,7 +30,23 @@ Para se manter atualizado com os desenvolvimentos mais recentes, este artigo for
 * Correções de erros
 * Funcionalidade preterida
 
-##  <a name="december-2020"></a>Dezembro de 2020
+## <a name="january-2021"></a>Janeiro de 2021
+
+### <a name="video-indexer-is-deployed-on-us-government-cloud"></a>O Indexer de Vídeo é implantado na nuvem do Governo dos EUA 
+
+Agora pode criar uma conta paga pelo Video Indexer na nuvem governamental dos EUA nas regiões da Virgínia e do Arizona. A oferta gratuita de testes do Video Indexer não está disponível na região mencionada. Para mais informações aceda à Documentação do Indexante de Vídeo. 
+
+### <a name="video-indexer-deployed-in-the-india-central-region"></a>Indexante de Vídeo implantado na região centro da Índia 
+
+Pode agora criar uma conta paga por Video Indexer na região centro da Índia. 
+
+### <a name="new-dark-mode-for-the-video-indexer-website-experience"></a>Novo modo escuro para a experiência do site do Video Indexer
+
+As experiências do site do Video Indexer estão agora disponíveis em modo escuro. Para ativar o modo escuro, abra o painel de definições e alterne-se na opção **Modo Escuro.** 
+
+:::image type="content" source="./media/release-notes/dark-mode.png" alt-text="Definição do modo escuro":::
+
+## <a name="december-2020"></a>Dezembro de 2020
 
 ### <a name="video-indexer-deployed-in-the-switzerland-west-and-switzerland-north"></a>Indexante de Vídeo implantado no Oeste da Suíça e Suíça Norte
 

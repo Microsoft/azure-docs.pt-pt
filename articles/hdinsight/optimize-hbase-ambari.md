@@ -3,13 +3,13 @@ title: Otimizar Apache HBase com Apache Ambari em Azure HDInsight
 description: Utilize a UI web Apache Ambari para configurar e otimizar o Apache HBase.
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 05/04/2020
-ms.openlocfilehash: 307e9decad35c20885fbe550cc1f7de58c9386c0
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.date: 02/01/2021
+ms.openlocfilehash: 60c9916bc7d7b3b380a332f41924ee744002fd66
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98942586"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428205"
 ---
 # <a name="optimize-apache-hbase-with-apache-ambari-in-azure-hdinsight"></a>Otimizar Apache HBase com Apache Ambari em Azure HDInsight
 
@@ -18,6 +18,9 @@ Apache Ambari é uma interface web para gerir e monitorizar clusters HDInsight. 
 A configuração Apache HBase é modificada a partir do separador **HBase Configs.** As seguintes secções descrevem algumas das definições de configuração importantes que afetam o desempenho da HBase.
 
 ## <a name="set-hbase_heapsize"></a>Definir HBASE_HEAPSIZE
+
+> [!NOTE]
+> Este artigo contém referências ao termo *mestre*, um termo que a Microsoft já não utiliza. Quando o termo for removido do software, vamos removê-lo deste artigo.
 
 O tamanho da pilha HBase especifica a quantidade máxima de pilha a ser usada em megabytes por *região* e servidores *principais.* O valor predefinido é de 1.000 MB. Este valor deve ser afinado para a carga de trabalho do cluster.
 
@@ -94,7 +97,7 @@ O uso do tampão de atribuição local memstore é determinado pela propriedade 
 
 ![hbase.hregion.memstore.mslab.enabled](./media/optimize-hbase-ambari/hbase-hregion-memstore-mslab-enabled.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Gerir clusters HDInsight com a Web UI Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 * [Apache Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)

@@ -1,5 +1,5 @@
 ---
-title: Migrar dados sobre a série StorSimple 5000-7000 para 8000 séries Microsoft Docs
+title: Migrar dados sobre o dispositivo da série StorSimple 5000-7000 para 8000| Microsoft Docs
 description: Saiba mais sobre os dados migratórios do dispositivo da série StorSimple 5000-7000 para 8000 e quais são os pré-requisitos para o processo de migração.
 services: storsimple
 documentationcenter: NA
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/25/2020
 ms.author: alkohli
-ms.openlocfilehash: f6fffadd3c53f67af2e4c833a6a1d442c18efa0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 58b7b67842e9ba385b34ea4d8fdbcac190076218
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91398191"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428171"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-8000-series-device"></a>Migrar dados da série StorSimple 5000-7000 para 8000
 
@@ -28,7 +28,7 @@ ms.locfileid: "91398191"
 > - Depois de apresentar o pedido de serviço, pode levar algumas semanas para executar o plano de migração e realmente iniciar a migração.
 > - Antes de contactar o Microsoft Support, certifique-se de rever e completar os [pré-requisitos de Migração indicados](#migration-prerequisites) no artigo.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Este artigo introduz a funcionalidade de migração que permite aos clientes da série StorSimple 5000-7000 migrarem os seus dados para o dispositivo físico da série StorSimple 8000 ou para um aparelho em nuvem 8010/8020. Este artigo também se liga a uma passagem passo a passo das etapas necessárias para migrar dados de um dispositivo legado da série 5000-7000 para um aparelho físico ou em nuvem de série 8000.
 
@@ -55,7 +55,7 @@ Uma migração do lado do anfitrião permite configurar a série 8000 de forma i
 | A migração pode ser abordada de forma faseada numa base volume a volume.                                               | Cópias de segurança anteriores (tomadas em série 5000/7000) não estarão disponíveis no dispositivo da série 8000.                                                                                                       |
 | Permite a consolidação de dados numa única conta de armazenamento no Azure.                                                       | O primeiro backup para a nuvem na série 8000 levará mais tempo, uma vez que todos os dados da série 8000 precisam de ser apoiados até Azure.                                                                     |
 | Após uma migração bem sucedida, todos os dados são locais no aparelho. Não há latências no acesso aos dados. | O consumo de armazenamento Azure aumentará até que os dados sejam eliminados do dispositivo 5000/7000.                                                                                                        |
-|                                                                                                                           | Se o dispositivo da série 7000/5000 tiver uma grande quantidade de dados, durante a migração estes dados precisam de ser descarregados do azul que incorrerá em custos e latências relacionadas com o descarregamento de dados do Azure |
+|                                                                                                                           | Se o dispositivo da série 7000/5000 tiver uma grande quantidade de dados, durante a migração estes dados precisam de ser descarregados do Azure, o que incorrerá em custos e latências relacionadas com o descarregamento de dados do Azure |
 
 Este artigo centra-se apenas na funcionalidade de migração de 5000/7000 a 8000 dispositivos da série. Para obter mais informações sobre a migração do lado do hospedeiro, vá para a [Migração de outros dispositivos de armazenamento](https://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating%20Data%20to%20StorSimple%20Volumes_09-02-15.pdf).
 
@@ -150,4 +150,4 @@ Execute os seguintes passos para instalar a ferramenta de migração StorSimple 
   
 
 ## <a name="next-steps"></a>Passos seguintes
-Descarregue as instruções passo a passo sobre como [migrar dados de uma série StorSimple 5000-7000 para um dispositivo de série 8000](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b).
+Descarregue as instruções passo a passo sobre como [migrar dados de uma série StorSimple 5000-7000 para um dispositivo de série 8000](https://databoxbuilds.blob.core.windows.net/storsimpledocs/MicrosoftAzureStorSimple_Migration_Guide_20171115.pdf).

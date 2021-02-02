@@ -7,12 +7,13 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c6c09dc771692cb2fc2f36840e729874cfaf2d09
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.custom: references_regions
+ms.openlocfilehash: 3cd7d2541cb980fc5ca6a1a9c42a430eac1ecb1b
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98572821"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99429284"
 ---
 # <a name="basic-concepts"></a>Basic Concepts (Conceitos Básicos)
 
@@ -30,11 +31,11 @@ Abaixo estão alguns conceitos básicos relacionados com a Microsoft Azure Attes
 
 O fornecedor de attestation pertence ao fornecedor de recursos Azure chamado Microsoft.Attestation. O fornecedor de recursos é um ponto final de serviço que fornece o contrato Azure Attestation REST e é implantado usando [o Azure Resource Manager](../azure-resource-manager/management/overview.md). Cada provedor de atestado honra uma política específica e detetável. Os fornecedores de atestados são criados com uma política padrão para cada tipo de atestado (note que o enclave VBS não tem uma política de incumprimento). Veja [exemplos de uma política de atestado](policy-examples.md) para obter mais detalhes sobre a política padrão para a SGX.
 
-### <a name="regional-default-provider"></a>Fornecedor de incumprimento regional
+### <a name="regional-shared-provider"></a>Fornecedor regional partilhado
 
-A Azure Attestation fornece um fornecedor predefinido em cada região. Os clientes podem optar por utilizar o fornecedor padrão para atestado, ou criar os seus próprios fornecedores com políticas personalizadas. Os fornecedores predefinidos são acessíveis por qualquer utilizador Azure AD e a política associada a um fornecedor predefinido não pode ser alterada.
+A Azure Attestation fornece um fornecedor regional partilhado em todas as regiões disponíveis. Os clientes podem optar por utilizar o fornecedor regional partilhado para atestado, ou criar os seus próprios fornecedores com políticas personalizadas. Os fornecedores partilhados são acessíveis por qualquer utilizador Azure AD e a política associada a ele não pode ser alterada.
 
-| Região | Atestar Uri | 
+| Region | Atestar Uri | 
 |--|--|
 | E.U.A. Leste | `https://sharedeus.eus.attest.azure.net` | 
 | E.U.A. Oeste | `https://sharedwus.wus.attest.azure.net` | 

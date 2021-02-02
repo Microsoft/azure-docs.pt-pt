@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 11/09/2020
+ms.date: 02/01/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: fa6fc11441811589967ddd7728501b521f9f9155
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: b948de6ad9e07a650df98ef38104c02462ab532d
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96169278"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428036"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Códigos de erro da Autenticação e autorização do Azure AD
 
@@ -60,7 +60,7 @@ Aqui está uma resposta de erro de amostra:
 
 O `error` campo tem vários valores possíveis - reveja as ligações de documentação do protocolo e as especificações de OAuth 2.0 para saber mais sobre erros específicos (por exemplo, `authorization_pending` no fluxo de código do [dispositivo](v2-oauth2-device-code.md)) e como reagir a eles.  Alguns comuns estão listados aqui:
 
-| Código de Erro         | Description        | Ação do Cliente    |
+| Código de Erro         | Descrição        | Ação do Cliente    |
 |--------------------|--------------------|------------------|
 | `invalid_request`  | Erro de protocolo, como um parâmetro exigido em falta. | Corrija e reenvia o pedido.|
 | `invalid_grant`    | Parte do material de autenticação (código auth, token de atualização, token de acesso, desafio PKCE) era inválido, inparável, em falta ou de outra forma inutilizável | Tente um novo pedido para o `/authorize` ponto final para obter um novo código de autorização.  Considere rever e validar o uso da aplicação nos protocolos. |
@@ -95,6 +95,7 @@ Por exemplo, se recebeu o código de erro "AADSTS50058" então faça uma pesquis
 | AADSTS50000 | TokenIssuanceError - Há um problema com o serviço de inscrição. [Crie um pedido de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) para resolver este problema. |
 | AADSTS50001 | InvalidResource - O recurso é desativado ou não existe. Verifique o código da sua aplicação para garantir que especificou o URL de recurso exato para o recurso a que está a tentar aceder.  |
 | AADSTS50002 | NotAllowedTenant - A inscrição falhou devido a um acesso restrito por procuração ao inquilino. Se for a sua própria política de inquilino, pode alterar as definições de restrição do inquilino para corrigir este problema. |
+| AADSTS500021 | O acesso ao inquilino '{inquilino}' é negado. O AADSTS500021 indica que a funcionalidade de restrição do arrendatário está configurada e que o utilizador está a tentar aceder a um inquilino que não está na lista de inquilinos autorizados especificados no `Restrict-Access-To-Tenant` cabeçalho. Para obter mais informações, consulte [as restrições de utilização do arrendatário para gerir o acesso às aplicações em nuvem SaaS.](/azure/active-directory/manage-apps/tenant-restrictions)|
 | AADSTS50003 | MissingSigningKey - O sessão falhou devido à falta de uma chave ou certificado de assinatura. Isto pode ser porque não havia nenhuma chave de assinatura configurada na app. Confira as resoluções delineadas em [.. /gestão de apps/aplicação-sign-in-problem-federated-sso-gallery.md#certificate-or-key-not-configurado](../manage-apps/application-sign-in-problem-federated-sso-gallery.md#certificate-or-key-not-configured). Se ainda vir problemas, contacte o proprietário da aplicação ou um administrador de aplicações. |
 | AADSTS50005 | DevicePolicyError - O utilizador tentou iniciar sessão num dispositivo a partir de uma plataforma que não é suportada através da política de Acesso Condicional. |
 | AADSTS50006 | InvalidSignature - A verificação de assinatura falhou devido a uma assinatura inválida. |

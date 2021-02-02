@@ -9,31 +9,29 @@ ms.service: media-services
 ms.topic: conceptual
 ms.date: 1/29/2020
 ms.author: inhenkel
-ms.openlocfilehash: 59c1eb7936bc113f8935d6fa2ad378c6994c3ca9
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: e8d21e57f9a844b3cc0538f4805780829a1350f4
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/02/2021
-ms.locfileid: "99408517"
+ms.locfileid: "99428593"
 ---
 # <a name="trusted-storage-for-media-services"></a>Armazenamento fidedigno para Serviços de Mídia
 
-Ao criar uma conta de Serviços de Comunicação, deve associá-la a uma conta de armazenamento. Os Serviços de Mídia podem aceder a essa conta de armazenamento utilizando a autenticação do sistema. Os Serviços de Comunicação Social validam que a conta de Serviços de Mídia e a conta de armazenamento estão na mesma subscrição e valida que o utilizador que acrescenta a associação tem acesso à conta de armazenamento com o Azure Resource Manager RBAC.
+Ao criar uma conta de Serviços de Comunicação, deve associá-la a uma conta de armazenamento. Os Serviços de Mídia podem aceder a essa conta de armazenamento utilizando a autenticação do sistema ou a autenticação de Identidade Gerida. Os Serviços de Comunicação Social validam que a conta de Serviços de Mídia e a conta de armazenamento estão na mesma subscrição e valida que o utilizador que acrescenta a associação tem acesso à conta de armazenamento com o Azure Resource Manager RBAC.
 
-No entanto, se pretender utilizar uma firewall para proteger a sua conta de armazenamento e ativar o armazenamento fidedigno, deve utilizar a autenticação [Managed Identities.](concept-managed-identities.md) Permite que os Serviços de Comunicação Social acedam à conta de armazenamento que foi configurada com uma firewall ou uma restrição VNet através de acesso de armazenamento fidedigno.
+## <a name="trusted-storage-with-a-firewall"></a>Armazenamento confiável com uma firewall
+
+No entanto, se pretender utilizar uma firewall para proteger a sua conta de armazenamento e ativar o armazenamento fidedigno, a autenticação [Managed Identities](concept-managed-identities.md) é a opção preferida. Permite que os Serviços de Comunicação Social acedam à conta de armazenamento que foi configurada com uma firewall ou uma restrição VNet através de acesso de armazenamento fidedigno. Permite que os Serviços de Comunicação Social acedam à conta de armazenamento que foi configurada com uma firewall ou uma restrição VNet através de acesso de armazenamento fidedigno.
+
+> [!NOTE]
+> É necessário conceder o acesso do Contribuinte de Dados do Blob de Armazenamento de Identidade Gerido da AMS para que os Serviços de Mídia possam ler e escrever na conta de armazenamento.  Conceder o papel genérico de Contribuinte não funcionará, uma vez que não permite as permissões corretas no plano de dados.
+
+## <a name="further-reading"></a>Leitura adicional
 
 Para compreender os métodos de criação de armazenamento fidedignos com identidades geridas, leia [Identidades Geridas e Serviços de Media.](concept-managed-identities.md)
 
-Para obter mais informações sobre as chaves geridas pelo cliente e o Key Vault, consulte [Bring your own key (chaves geridas pelo cliente) com serviços de mídia](concept-use-customer-managed-keys-byok.md)
-
 Para obter mais informações sobre serviços fidedignos da Microsoft, consulte [firewalls de armazenamento Configure Azure e redes virtuais.](../../storage/common/storage-network-security.md#trusted-microsoft-services)
-
-## <a name="tutorials"></a>Tutoriais
-
-Estes tutoriais incluem ambos os cenários acima mencionados.
-
-- [Utilize o portal Azure para utilizar chaves geridas pelo cliente ou BYOK com Serviços de Mídia](tutorial-byok-portal.md)
-- [Utilize chaves geridas pelo cliente ou BYOK com serviços de mídia REST API](tutorial-byok-postman.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

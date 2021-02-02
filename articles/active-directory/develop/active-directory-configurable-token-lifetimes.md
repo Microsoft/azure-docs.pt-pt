@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/04/2021
+ms.date: 02/01/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperf-fy21q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: f4ae26a489b823e2347841cf72690d6cd8462611
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 1bd60a60aa5f6fffcc459f0e14d550740e48496d
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98755307"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428154"
 ---
 # <a name="configurable-token-lifetimes-in-the-microsoft-identity-platform-preview"></a>Vidas de token configuráveis na plataforma de identidade da Microsoft (pré-visualização)
 
@@ -77,16 +77,14 @@ Por exemplo, consulte [Criar uma política para iniciar sessão web](configure-t
 
 ## <a name="token-lifetime-policies-for-refresh-tokens-and-session-tokens"></a>Políticas de vida útil simbólicas para tokens de atualização e fichas de sessão
 
-Você pode definir políticas de vida útil para tokens de atualização e fichas de sessão.
+Não pode definir políticas vitalícias para tokens de atualização e fichas de sessão.
 
 > [!IMPORTANT]
-> A partir de maio de 2020, os novos inquilinos não podem configurar atualização e a sessão simbólica de vida.  Os inquilinos com configuração existente podem modificar as políticas de atualização e sessão até 30 de janeiro de 2021.   O Azure Ative Directory deixará de honrar a configuração de atualização e ficha de sessão existente em políticas após 30 de janeiro de 2021. Você ainda pode configurar o acesso, SAML, e id token vidas após a aposentadoria.
->
-> Se precisar de continuar a definir o período de tempo antes de um utilizador ser convidado a iniciar novamente o súmis, configurar a frequência de inscrição no Acesso Condicional. Para saber mais sobre Acesso Condicional, leia a gestão da [sessão de autenticação configurada com Acesso Condicional.](../conditional-access/howto-conditional-access-session-lifetime.md)
->
-> Se não pretender utilizar o Acesso Condicional após a data de reforma, as suas fichas de atualização e sessão serão definidas como [configuração predefinitiva](#configurable-token-lifetime-properties-after-the-retirement) nessa data e deixará de poder alterar as suas vidas.
+> A partir de 30 de janeiro de 2021 não poderá configurar a renovação e a sessão de token lifes. O Azure Ative Directory já não honra a configuração de atualização e símbolo de sessão nas políticas existentes.  Os novos tokens emitidos após a expiração dos tokens existentes estão agora definidos para a [configuração padrão](#configurable-token-lifetime-properties-after-the-retirement). Você ainda pode configurar o acesso, SAML, e ID token vidas após a renovação e sessão de configuração de configuração.
 >
 > A vida útil do símbolo existente não será alterada. Após o seu termo, um novo token será emitido com base no valor padrão.
+>
+> Se precisar de continuar a definir o período de tempo antes de um utilizador ser convidado a iniciar novamente o súmis, configurar a frequência de inscrição no Acesso Condicional. Para saber mais sobre Acesso Condicional, leia a gestão da [sessão de autenticação configurada com Acesso Condicional.](../conditional-access/howto-conditional-access-session-lifetime.md)
 
 :::image type="content" source="./media/active-directory-configurable-token-lifetimes/roadmap.svg" alt-text="Informações sobre aposentadoria":::
 
@@ -106,7 +104,7 @@ Os clientes públicos não podem armazenar de forma segura uma palavra-passe do 
 A propriedade Max Age é o tempo que um único símbolo pode ser usado. 
 
 ### <a name="single-sign-on-session-tokens"></a>Fichas de sessão de inscrição única
-Quando um utilizador autentica com a plataforma de identidade da Microsoft, é estabelecida uma única sessão de sessão (SSO) com o navegador do utilizador e a plataforma de identidade microsoft. O símbolo SSO, na forma de um cookie, representa esta sessão. O token de sessão SSO não está ligado a uma aplicação específica de recursos/cliente. Os tokens de sessão SSO podem ser revogados e a sua validade é verificada sempre que são utilizadas.
+Quando um utilizador autentica com a plataforma de identidade da Microsoft, é estabelecida uma única sessão de sessão de sessão (SSO) com o navegador do utilizador e a plataforma de identidade microsoft. O símbolo SSO, na forma de um cookie, representa esta sessão. O token de sessão SSO não está ligado a uma aplicação específica de recursos/cliente. Os tokens de sessão SSO podem ser revogados e a sua validade é verificada sempre que são utilizadas.
 
 A plataforma de identidade da Microsoft utiliza dois tipos de fichas de sessão SSO: persistentes e não-persistentes. Tokens de sessão persistente são armazenados como cookies persistentes pelo navegador. As fichas de sessão não-escuta são armazenadas como cookies de sessão. (Os cookies de sessão são destruídos quando o navegador está fechado.) Normalmente, um token de sessão não-reservado é armazenado. Mas, quando o utilizador seleciona o **Keep me assinado na** caixa de verificação durante a autenticação, é armazenado um token de sessão persistente.
 
@@ -274,6 +272,6 @@ Pode utilizar os seguintes cmdlets para as políticas principais do serviço.
 | [Get-AzureADServicePrincipalPolicy](/powershell/module/azuread/get-azureadserviceprincipalpolicy?view=azureadps-2.0-preview&preserve-view=true) | Obtém qualquer política ligada ao principal de serviço especificado.|
 | [Remove-AzureADServicePrincipalPolicy](/powershell/module/azuread/remove-azureadserviceprincipalpolicy?view=azureadps-2.0-preview&preserve-view=true) | Remove a política do principal de serviço especificado.|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais, leia [exemplos de como configurar vidas simbólicas.](configure-token-lifetimes.md)

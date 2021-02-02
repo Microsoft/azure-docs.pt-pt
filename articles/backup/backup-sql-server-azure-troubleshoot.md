@@ -3,12 +3,12 @@ title: Backup da base de dados do SQL Server de resolução de problemas
 description: Informações de resolução de problemas para fazer backup das bases de dados do SQL Server em execução em VMs Azure com Azure Backup.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: d702959be70716f0c2bc85920bdb7aa3e061aff1
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: d502a4188b4f9f383188804f86abbb9a6d05d146
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97733948"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99429471"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Resolução de problemas ML Server base de dados backup usando Azure Backup
 
@@ -217,7 +217,7 @@ Verifique se existem um ou mais dos seguintes sintomas antes de desencadear a op
 
   - Falta de autorização para realizar operações relacionadas com cópias de segurança no VM.
   - Encerramento do VM, para que os reforços não possam ter lugar.
-  - Problemas de rede.
+  - [Problemas de rede](#usererrorvminternetconnectivityissue)
 
    ![re-inscrição em VM](./media/backup-azure-sql-database/re-register-vm.png)
 

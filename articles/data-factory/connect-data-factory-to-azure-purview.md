@@ -13,12 +13,12 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 12/3/2020
-ms.openlocfilehash: 36eac4c60e0d7fd54ec304f0f17c2ecb454f0629
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: ce37e26730fbef9e5e40fd95190727062f9044ac
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99063454"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428944"
 ---
 # <a name="connect-data-factory-to-azure-purview-preview"></a>Ligue a Fábrica de Dados à Azure Purview (Pré-visualização)
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -36,7 +36,7 @@ O Azure Purview é um novo serviço de cloud para uso pelos utilizadores de dado
 3. Uma vez ligado, deverá poder ver o nome da conta ''s Purview' na **conta 'Face ao's.** 
 4. Pode utilizar a barra de pesquisa no centro superior do portal Azure Data Factory para procurar dados. 
 
-Se vir um aviso no portal Azure Data Fator depois de registar a conta Azure Purview na Data Factory, siga os passos abaixo para corrigir o problema:
+Se vir um aviso no portal Azure Data Factory depois de registar a conta Azure Purview na Data Factory, siga os passos abaixo para corrigir o problema:
 
 :::image type="content" source="./media/data-factory-purview/register-purview-account-warning.png" alt-text="Screenshot para aviso de registo de uma conta Desaview.":::
 

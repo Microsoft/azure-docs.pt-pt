@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 59e60dadda7c0de37cfabadbc36ca53bc3c2b336
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: cfb75b6383d8ca449b4bc54b9d21cb16b3a4ad40
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94563737"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428188"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Arquitetura global de rede de trânsito e WAN Virtual
 
@@ -133,9 +133,6 @@ Os hubs Azure Virtual WAN interligam todos os pontos finais de rede em toda a re
 
 **Figura 5: Centro virtual seguro com firewall Azure**
 
-> [!NOTE]
-> O inter-hub com firewall não é suportado atualmente. O tráfego entre os hubs passará diretamente pela Firewall Azure em cada hub.
-
 O Azure Firewall para o WAN virtual suporta os seguintes caminhos globais de conectividade de trânsito garantidos. As letras em parênteses mapeam para a Figura 5.
 
 * VNet-para-VNet trânsito seguro (e)
@@ -152,6 +149,23 @@ O VNet-to-Internet permite que os VNets se conectem à internet através do Azur
 
 ### <a name="branch-to-internet-or-third-party-security-service-j"></a>Serviço de Segurança sucursal ou de terceiros (j)
 O Branch-to-Internet permite que os balcões se conectem à internet através do Azure Firewall no centro WAN virtual. O tráfego para a internet através de serviços de segurança de terceiros suportados não flui através do Azure Firewall. Pode configurar o caminho Branch-to-Internet através de um serviço de segurança de terceiros suportado utilizando o Azure Firewall Manager. 
+
+### <a name="branch-to-branch-secured-transit-cross-region-f"></a>Região transversal de trânsito seguro de sucursal (f)
+
+Os ramos podem ser ligados a um centro virtual seguro com a Azure Firewall utilizando circuitos ExpressRoute e/ou ligações VPN site-to-site. Pode ligar os ramos ao centro wan virtual que está na região mais próxima do ramo.
+
+Esta opção permite que as empresas aproveitem a espinha dorsal do Azure para ligar filiais. No entanto, mesmo esta capacidade disponível, você deve pesar os benefícios de ligar ramos sobre Azure Virtual WAN vs. usando um WAN privado.  
+
+> [!NOTE]
+> O processamento inter-hub de tráfego através de firewall não é atualmente suportado. O tráfego entre os hubs será encaminhado para o ramo adequado dentro do centro virtual seguro, no entanto o tráfego passará pela Firewall Azure em cada hub.
+
+### <a name="branch-to-vnet-secured-transit-g"></a>Transporte seguro branch-to-VNet (g)
+
+O trânsito seguro Branch-to-VNet permite que os balcões comuniquem com redes virtuais na mesma região que o hub virtual WAN, bem como outra rede virtual ligada a outro hub virtual wan em outra região.
+
+> [!NOTE]
+> O inter-hub com firewall não é suportado atualmente. O tráfego entre os hubs passará diretamente pela Firewall Azure em cada hub.  O tráfego através de uma ligação destinada a uma rede virtual na mesma região será processado pelo Azure Firewall no centro seguro.
+
 
 ### <a name="how-do-i-enable-default-route-00000-in-a-secured-virtual-hub"></a>Como posso ativar a rota predefinido (0.0.0.0/0) num Hub Virtual Seguro
 
