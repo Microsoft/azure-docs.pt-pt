@@ -1,10 +1,10 @@
 ---
-title: Criar coleções para os portais my Apps em Azure Ative Directory Microsoft Docs
+title: Crie coleções para os portais my Apps em Azure Ative Directory | Microsoft Docs
 description: Utilize as coleções My Apps para personalizar as páginas das minhas apps para uma experiência mais simples das Minhas Apps para os seus utilizadores finais. Organize aplicações em grupos com separadores.
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -14,12 +14,12 @@ ms.date: 02/10/2020
 ms.author: kenwith
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 967ac34ddb736f58f66639181cdf10e4aaa8ffab
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 7743a1af54b01f848c4ac6f0cb1d4526d66f8132
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656790"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99254987"
 ---
 # <a name="create-collections-on-the-my-apps-portal"></a>Criar coleções no portal As Minhas Aplicações
 
@@ -32,9 +32,9 @@ Os seus utilizadores podem utilizar o portal My Apps para visualizar e iniciar a
 
 1. Abra o [**portal Azure**](https://portal.azure.com/) e inscreva-se como administrador de utilizador ou Administrador Global.
 
-2. Aceda às definições do Utilizador **do Diretório Ativo Azure**  >  **User settings**.
+2. Aceda às definições do Utilizador **do Diretório Ativo Azure**  >  .
 
-3. Nas **pré-visualizações da funcionalidade do Utilizador**, selecione',',',','s **Manage's previews**.
+3. Nas **pré-visualizações da funcionalidade do Utilizador**, selecione','s **Manage's previews**.
 
 4. Em **Utilizadores podem utilizar funcionalidades de pré-visualização para as minhas apps,** escolha uma das seguintes opções:
    * **Selecionado** - Ativa as funcionalidades para um grupo específico. Utilize a opção **De grupo Para** selecionar o grupo para o qual pretende ativar as funcionalidades.  
@@ -69,7 +69,7 @@ Para criar uma coleção, você deve ter uma licença Azure AD Premium P1 ou P2.
 
    ![Adicionar utilizadores e grupos](media/acces-panel-collections/add-users-and-groups.png)
 
-11. Selecione **Review + Criar**. As propriedades da nova coleção aparecem.
+11. Selecione **Rever + Criar**. As propriedades da nova coleção aparecem.
 
 
 ## <a name="view-audit-logs"></a>Ver registos de auditoria
@@ -83,7 +83,7 @@ Os registos de auditoria registam as operações de recolha de My Apps, incluind
 * Adicionar aplicações de self-service (utilizador final)
 * Eliminação de aplicações de autosserviço (utilizador final)
 
-Pode aceder aos registos de auditoria no [portal Azure](https://portal.azure.com) selecionando registos de Auditoria de Aplicações empresariais **do Azure Ative**  >  **Directory**  >  **Audit logs** na secção Atividade. Para **Serviço**, selecione **As minhas aplicações**.
+Pode aceder aos registos de auditoria no [portal Azure](https://portal.azure.com) selecionando registos de Auditoria de Aplicações empresariais **do Azure Ative**  >  **Directory**  >   na secção Atividade. Para **Serviço**, selecione **As minhas aplicações**.
 
 ## <a name="get-support-for-my-account-pages"></a>Obtenha suporte para as páginas da Minha Conta
 
@@ -95,5 +95,5 @@ Caso necessite de submeter um pedido de apoio para um problema com a página da 
 
 * Para problemas com a página **do Office "A minha conta",** abra um pedido de suporte dentro do centro de administração microsoft 365. Vá ao **Microsoft 365 admin center**  >  **Support**. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Experiências de utilizador final para aplicações no Azure Ative Directory](end-user-experiences.md)

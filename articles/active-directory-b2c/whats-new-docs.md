@@ -1,7 +1,7 @@
 ---
 title: Novidades no Azure Ative Directory business-to-customer (B2C)
 description: Documentação nova e atualizada para o Azure Ative Directory business-to-customer (B2C).
-ms.date: 12/15/2020
+ms.date: 02/01/2021
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: reference
@@ -9,16 +9,53 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-ms.openlocfilehash: 8805caad990cd472b3199bda27130d8d63be3071
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 5e58f54d991cd190aba6eeb851e6cf2aec78e695
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97559732"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255174"
 ---
 # <a name="azure-active-directory-b2c-whats-new"></a>Azure Ative Directory B2C: Quais as novidades
 
 Bem-vindos às novidades da documentação do Azure Ative Directory B2C. Este artigo lista novos docs que foram adicionados e aqueles que tiveram atualizações significativas nos últimos três meses. Para saber quais as novidades com o serviço B2C, veja [as novidades do Azure Ative Directory](../active-directory/fundamentals/whats-new.md).
+
+## <a name="january-2021"></a>Janeiro de 2021
+
+### <a name="new-articles"></a>Artigos novos
+
+- [Personalize a interface do utilizador no Azure Ative Directory B2C](customize-ui.md)
+- [Limites e restrições de serviço Azure Ative Directory B2C](service-limits.md)
+- [Configurar inscrição e inscrição com uma conta Azure AD B2C de outro inquilino Azure AD B2C](identity-provider-azure-ad-b2c.md)
+- [Criar o fornecedor local de identidade de conta](identity-provider-local.md)
+- [Configurar um fluxo de entrada no Azure Ative Directory B2C](add-sign-in-policy.md)
+
+### <a name="updated-articles"></a>Artigos atualizados
+
+- [Acompanhe o comportamento do utilizador no Azure Ative Directory B2C usando Insights de Aplicação](analytics-with-application-insights.md)
+- [TechnicalProfiles](technicalprofiles.md)
+- [Personalize a interface do utilizador com modelos HTML no Azure Ative Directory B2C](customize-ui-with-html.md)
+- [Gerir Azure AD B2C com o Microsoft Graph](microsoft-graph-operations.md)
+- [Adicionar AD FS como fornecedor de identidade SAML usando políticas personalizadas no Azure Ative Directory B2C](identity-provider-adfs.md)
+- [Configurar o início de saúde com um fornecedor de SAML salesforce utilizando o protocolo SAML em Azure Ative Directory B2C](identity-provider-salesforce-saml.md)
+- [Tutorial: Registar uma aplicação web no Azure Ative Directory B2C](tutorial-register-applications.md)
+- [Configurar inscrição e inscrição com uma conta Amazon utilizando o Azure Ative Directory B2C](identity-provider-amazon.md)
+- [Configurar inscrição e inscrição com uma conta Azure AD B2C de outro inquilino Azure AD B2C](identity-provider-azure-ad-b2c.md)
+- [Configurar o sº de inscrição para o Diretório Ativo Azure multi-inquilino utilizando políticas personalizadas no Azure Ative Directory B2C](identity-provider-azure-ad-multi-tenant.md)
+- [Configurar o sº de inscrição para uma organização específica do Azure Ative Directory em Azure Ative Directory B2C](identity-provider-azure-ad-single-tenant.md)
+- [Configurar inscrição e inscrição com uma conta no Facebook utilizando o Azure Ative Directory B2C](identity-provider-facebook.md)
+- [Configurar inscrição e inscrição com uma conta GitHub utilizando o Azure Ative Directory B2C](identity-provider-github.md)
+- [Configurar o sº de inscrição e o inseúbmento com uma conta google utilizando o Azure Ative Directory B2C](identity-provider-google.md)
+- [Configurar inscrição e inscrição com uma conta ID.me utilizando o Azure Ative Directory B2C](identity-provider-id-me.md)
+- [Configurar inscrição e inscrição com uma conta LinkedIn utilizando o Azure Ative Directory B2C](identity-provider-linkedin.md)
+- [Configurar o sº de inscrição e o inseúbmento com uma conta microsoft utilizando o Azure Ative Directory B2C](identity-provider-microsoft-account.md)
+- [Configurar inscrição e inscrição com uma conta QQ utilizando o Azure Ative Directory B2C](identity-provider-qq.md)
+- [Configurar inscrição e inscrição com uma conta Salesforce utilizando o Azure Ative Directory B2C](identity-provider-salesforce.md)
+- [Configurar inscrição e inscrição com uma conta no Twitter utilizando o Azure Ative Directory B2C](identity-provider-twitter.md)
+- [Configurar inscrição e inscrição com uma conta WeChat utilizando o Azure Ative Directory B2C](identity-provider-wechat.md)
+- [Configurar inscrição e inscrição com uma conta Weibo utilizando o Azure Ative Directory B2C](identity-provider-weibo.md)
+- [Visão geral da política personalizada AZURE AD B2C](custom-policy-trust-frameworks.md)
+
 
 ## <a name="december-2020"></a>Dezembro de 2020
 

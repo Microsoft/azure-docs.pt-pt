@@ -1,10 +1,10 @@
 ---
-title: Como configurar uma aplicação Proxy de aplicação de aplicação Microsoft Docs
+title: Como configurar uma aplicação de procuração de aplicação | Microsoft Docs
 description: Saiba como criar e configurar uma aplicação de procuração APplication em alguns passos simples
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -16,12 +16,12 @@ ms.date: 05/18/2018
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c63137c6943d9adc0ea7c19f7551d1f31587f42a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 65f1488986dc38bba89a5b9a109a444b5f0d81f2
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84765000"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255208"
 ---
 # <a name="how-to-configure-an-application-proxy-application"></a>Como configurar uma aplicação de procuração de aplicação
 

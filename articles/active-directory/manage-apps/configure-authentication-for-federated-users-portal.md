@@ -4,7 +4,7 @@ description: Saiba como configurar a política home realm Discovery para a auten
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: infrastructure-services
@@ -15,12 +15,12 @@ ms.date: 04/08/2019
 ms.author: kenwith
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 873a87ed2c75d41e0a249bde4b6a29921b7e5ce5
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 10ed9e0d8ba11bddcf8b9b4a68d6d1913ce385d9
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94648060"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255327"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configurar o Azure Ative Directory assinar em comportamento para uma aplicação usando uma política de Descoberta do Realm Doméstico
 
@@ -266,7 +266,7 @@ Remove-AzureADServicePrincipalPolicy -id <ObjectId of the Service Principal>  -P
 ``` powershell
 Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Para obter mais informações sobre como funciona a autenticação em Azure AD, consulte [cenários de autenticação para Azure AD](../develop/authentication-vs-authorization.md).
 - Para obter mais informações sobre o único súmis do utilizador, consulte [um único sinal de inscrição para aplicações no Azure Ative Directory](what-is-single-sign-on.md).
 - Visite a [plataforma de identidade](../develop/v2-overview.md) da Microsoft para obter uma visão geral de todos os conteúdos relacionados com o programador.
