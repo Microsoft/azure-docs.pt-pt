@@ -1,9 +1,9 @@
 ---
-title: Recursos para migrar apps para Azure Ative Directory Microsoft Docs
+title: Recursos para a migração de apps para a Azure Ative Directory | Microsoft Docs
 description: Recursos para ajudá-lo a migrar o acesso e autenticação da aplicação ao Azure Ative Directory (Azure AD).
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
@@ -11,14 +11,14 @@ ms.workload: identity
 ms.date: 02/29/2020
 ms.author: kenwith
 ms.reviewer: baselden
-ms.openlocfilehash: c470987fe6e699a186fa44d17bc731da048a2262
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: ac7e273ebcc4cf541bd94bf7e7fad05802db8d0b
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658762"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258308"
 ---
-# <a name="resources-for-migrating-applications-to-azure-active-directory"></a>Recursos para aplicações migratórias para o Azure Ative Directory
+# <a name="resources-for-migrating-applications-to-azure-active-directory"></a>Recursos para migrar aplicações para o AAD
 
 Recursos para ajudá-lo a migrar o acesso e autenticação da aplicação ao Azure Ative Directory (Azure AD).
 

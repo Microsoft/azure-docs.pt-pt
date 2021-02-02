@@ -3,19 +3,19 @@ title: Entenda como os utilizadores são atribuídos a apps no Azure Ative Direc
 description: Compreenda como os utilizadores são designados para uma aplicação que está a usar o Azure Ative Directory para gestão de identidade.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: reference
 ms.date: 01/07/2021
 ms.author: kenwith
-ms.openlocfilehash: aedcecf528f07d9d7f89c1d5659d8fcd2cb36df2
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 161df0446c9478ca0f2b135c1e426f3786b164fc
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98016733"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257445"
 ---
 # <a name="understand-how-users-are-assigned-to-apps-in-azure-active-directory"></a>Entenda como os utilizadores são atribuídos a apps no Azure Ative Directory
 Este artigo ajuda-o a entender como os utilizadores são designados para uma aplicação no seu inquilino.
@@ -39,7 +39,7 @@ Para que um utilizador aceda a uma aplicação, deve primeiro ser-lhe atribuído
 *  Um [administrador consente que uma aplicação](../develop/howto-convert-app-to-be-multi-tenant.md) seja usada por todos os utilizadores e, em seguida, um utilizador assina a aplicação
 * Um utilizador [consente com uma aplicação](../develop/howto-convert-app-to-be-multi-tenant.md) por si mesmo, inscrevendo-se na aplicação
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Quickstart Series em Gestão de Aplicações](view-applications-portal.md)
 * [O que é a gestão de aplicações?](what-is-application-management.md)
 * [O que é um único sinal?](what-is-single-sign-on.md)

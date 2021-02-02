@@ -3,7 +3,7 @@ title: Gerir políticas de consentimento de aplicativos em Azure AD
 description: Saiba como gerir políticas de consentimento de aplicações incorporadas e personalizadas para controlar quando o consentimento pode ser concedido.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 62a8b48d6b33a92b62bc4c3634794190585615b7
-ms.sourcegitcommit: 983eb1131d59664c594dcb2829eb6d49c4af1560
+ms.openlocfilehash: 68ff89191a4e9b11c2d84ec016090f76b8ea11b7
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99222033"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258121"
 ---
 # <a name="manage-app-consent-policies"></a>Gerir as políticas de consentimento da aplicação
 
@@ -130,7 +130,7 @@ Uma vez criada a política de consentimento da aplicação, pode [permitir o con
 
 A tabela seguinte fornece a lista de condições suportadas para políticas de consentimento de aplicações.
 
-| Condição | Description|
+| Condição | Descrição|
 |:---------------|:----------|
 | Classificação de Permissões | A classificação de [permissão](configure-permission-classifications.md) para a permissão concedida, ou "todos" para corresponder a qualquer classificação de permissão (incluindo permissões que não são classificadas). O padrão é "tudo". |
 | Tipo de permissão | O tipo de permissão que está a ser concedida. Utilize "aplicação" para permissões de candidatura (por exemplo.app funções) ou "delegada" para permissões delegadas. <br><br>**Nota:** O valor "delegadoUserConsentable" indica permissões delegadas que não foram configuradas pelo editor da API para exigir o consentimento administrativo — este valor pode ser usado em políticas de concessão de permissões incorporadas, mas não pode ser utilizado em políticas de concessão de permissão personalizadas. Obrigatório. |

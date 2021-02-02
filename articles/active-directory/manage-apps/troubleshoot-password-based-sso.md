@@ -2,7 +2,7 @@
 title: Resolução de problemas com base em um único sign-on baseado em Azure Ative Directory
 description: Problemas de resolução de problemas com uma aplicação AD AZure que está configurada para um único sign-on baseado em palavra-passe.
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
-ms.openlocfilehash: 84aec5031dd8d19f8f2ad0aa32185002add378b1
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: fdbbc6c53e43d3ecc9fd4ecb563bd7ec798f8888
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99053984"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257585"
 ---
 # <a name="troubleshoot-password-based-single-sign-on-in-azure-ad"></a>Resolver problemas de início de sessão único baseado em palavra-passe no Microsoft Azure AD
 

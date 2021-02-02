@@ -49,6 +49,8 @@
           href: scenario-isolate-vnets.md
         - name: Isolar VNets - personalizado
           href: scenario-isolate-vnets-custom.md
+        - name: Isolar redes e balcões virtuais
+          href: scenario-isolate-virtual-networks-branches.md
         - name: VNets de Serviços Partilhados
           href: scenario-shared-services-vnet.md
         - name: Encaminhar através de uma NVA

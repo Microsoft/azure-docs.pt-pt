@@ -3,7 +3,7 @@ title: Referência para expressões de escrita para mapeamentos de atributos no 
 description: Aprenda a usar mapeamentos de expressão para transformar valores de atributos num formato aceitável durante o fornecimento automatizado de objetos de aplicações SaaS no Azure Ative Directory. Inclui uma lista de funções de referência.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 02/05/2020
 ms.author: kenwith
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: e87211789280c3439d71d8fa63da09416eaaf18e
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 8f5a4d3695722aae14b73bf6bba5f2e38593e08d
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805127"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255802"
 ---
 # <a name="reference-for-writing-expressions-for-attribute-mappings-in-azure-ad"></a>Referência para expressões de escrita para mapeamentos de atributos em Azure AD
 
@@ -419,7 +419,7 @@ Devolve "Joh".
 * Exemplo do dia de trabalho Assumindo que pretende mapear o atributo *ContractEndDate* do Workday que está no formato *2020-12-31-08:00* para *contaRestee* o campo Depires em AD, eis como pode usar esta função e alterar o offset de tempo para combinar com o local. 
   `NumFromDate(Join("", FormatDateTime([ContractEndDate], "yyyy-MM-ddzzz", "yyyy-MM-dd"), "T23:59:59-08:00"))`
 
-* SucessoFactors exemplo Assumindo que pretende mapear o *atributo endDate* de SuccessFactors que está no formato *M/d/yy hh:mm:mmt* para *contaExpires* campo em AD, eis como você pode usar esta função e alterar o fuso horário para combinar com o seu local.
+* SucessoFactors exemplo Assumindo que pretende mapear o *atributo endDate* de SuccessFactors que está no formato *M/d/yyyy hh:mm:mmt* para *contaExpires* campo em AD, eis como você pode usar esta função e alterar o fuso horário para combinar com o seu local.
   `NumFromDate(Join("",FormatDateTime([endDate],"M/d/yyyy hh:mm:ss tt","yyyy-MM-dd"),"T23:59:59-08:00"))`
 
 

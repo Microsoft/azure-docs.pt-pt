@@ -1,16 +1,16 @@
 ---
-title: Adicione encadernações a uma função existente em Funções Azure
-description: Saiba como adicionar encadernações a uma função existente no seu projeto Azure Functions.
+title: Ligar funções a outros serviços Azure
+description: Saiba como adicionar encadernações que se ligam a outros serviços Azure a uma função existente no seu projeto Azure Functions.
 ms.topic: how-to
 ms.date: 04/29/2020
-ms.openlocfilehash: 23b7b05f9a9f9da5a48511ee555e3b6184a74179
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1c6f5bb8ca5fcf995b8a8d326abbec96f1d2e35
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91654156"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258206"
 ---
-# <a name="add-bindings-to-an-existing-function-in-azure-functions"></a>Adicione encadernações a uma função existente em Funções Azure
+# <a name="connect-functions-to-azure-services-using-bindings"></a>Conecte funções aos serviços Azure utilizando encadernações
 
 Quando cria uma função, o código de disparo específico da linguagem é adicionado no seu projeto a partir de um conjunto de modelos de gatilho. Se pretender ligar a sua função a outros serviços utilizando encadernações de entrada ou saída, tem de adicionar definições de ligação específicas na sua função. Para saber mais sobre encadernações, consulte [a Azure Functions triggers e encaderna os conceitos.](functions-triggers-bindings.md)
 

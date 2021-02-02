@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/21/2020
-ms.openlocfilehash: cdf029e0dd9ae126310842b8919c818f4721218e
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 7841affc7a8988cb113af3b728ae117093000011
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054742"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257462"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Base de Dados Azure para MySQL - Servidor Flexível (Pré-visualização)
 
@@ -132,20 +132,20 @@ O serviço executa a versão comunitária do MySQL. Isto permite a compatibilida
 
 Uma das vantagens de executar a sua carga de trabalho em Azure é o seu alcance global. O servidor flexível da Azure Database for MySQL está disponível hoje nas seguintes regiões de Azure:
 
-| Region | Elevada Disponibilidade | 
-| --- | --- |
-| Europa Ocidental | :heavy_check_mark: | 
-| Europa do Norte | :heavy_check_mark: | 
-| Sul do Reino Unido | :x: | 
-| E.U.A. Leste 2 | :heavy_check_mark: | 
-| E.U.A. Oeste 2 | :heavy_check_mark: | 
-| E.U.A. Central | :x: | 
-| E.U.A. Leste | :heavy_check_mark: | 
-| Canadá Central | :x: | 
-| Sudeste Asiático | :heavy_check_mark: | 
-| Coreia do Sul Central | :x: | 
-| Leste do Japão | :x: | 
-| Leste da Austrália | :heavy_check_mark: |
+| Region | Disponibilidade | Zona redundante HA | 
+| --- | --- | --- |
+| Europa Ocidental | :heavy_check_mark: | :heavy_check_mark: |
+| Europa do Norte | :heavy_check_mark: | :heavy_check_mark: |
+| Sul do Reino Unido | :heavy_check_mark: | :x: | 
+| E.U.A. Leste 2 | :heavy_check_mark: | :heavy_check_mark: |
+| E.U.A. Oeste 2 | :heavy_check_mark: | :heavy_check_mark: |
+| E.U.A. Central | :heavy_check_mark: | :x: | 
+| E.U.A. Leste | :heavy_check_mark: | :heavy_check_mark: |
+| Canadá Central | :heavy_check_mark: | :x: | 
+| Sudeste Asiático | :heavy_check_mark: | :heavy_check_mark: |
+| Coreia do Sul Central | :heavy_check_mark: | :x: | 
+| Leste do Japão | :heavy_check_mark: | :x: | 
+| Leste da Austrália | :heavy_check_mark: | :heavy_check_mark: |
 
 Estamos a trabalhar para adicionar novas regiões em breve.
 

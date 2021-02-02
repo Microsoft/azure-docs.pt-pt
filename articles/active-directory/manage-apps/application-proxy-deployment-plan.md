@@ -3,19 +3,19 @@ title: Planeie uma implementação de proxy de aplicação ativa Azure
 description: Um guia de ponta a ponta para o planeamento da implementação do proxy de aplicação dentro da sua organização
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/31/2020
 ms.author: kenwith
-ms.openlocfilehash: 08289987dac81905584ee65b808cfcbf35525728
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 213f7d95916555ea32925a5b0af0865d900b0209
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97835147"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257918"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planear uma implementação do Proxy de Aplicações do Azure AD
 

@@ -3,7 +3,7 @@ title: Como utilizar o acesso a aplicações self-service em Azure AD
 description: Ativar o self-service para que os utilizadores possam encontrar aplicações em Azure AD
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere,asteen
-ms.openlocfilehash: d99f0021ee53e972dacfdadb3e488498a3fc4ad0
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 13f91fdd9e2d9501fba426bd6facbf9824a39285
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372468"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257022"
 ---
 # <a name="how-to-use-self-service-application-access"></a>Como utilizar o acesso a aplicações self-service
 
@@ -43,15 +43,15 @@ Para permitir o acesso de aplicações self-service a uma aplicação, siga os p
 1. Abra o [**portal Azure**](https://portal.azure.com/) e inscreva-se como **Administrador Global.**
 2. Abra a **Extensão do Diretório Ativo Azure** selecionando **todos os serviços** no topo do menu principal de navegação à esquerda.
 3. Digite **"Azure Ative Directory"** na caixa de pesquisa do filtro e selecione o item **Azure Ative Directory.**
-4. Selecione **Aplicações empresariais** do menu de navegação à esquerda do Azure Ative.
-5. Selecione **Todas as Aplicações** para ver uma lista de todas as suas aplicações.
+4. Selecione **Aplicações Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+5. Selecione **Todas as Aplicações** para ver uma lista de todas as aplicações.
    * Se não vir a aplicação deseja aparecer aqui, utilize o controlo **filter** no topo da Lista de **Todas as Aplicações** e desate a opção **'Mostrar'** a **todas as aplicações.**
 6. Selecione a aplicação a que pretende ativar o acesso self-service a partir da lista.
 7. Uma vez que a aplicação seja carregada, selecione **Self-service** do menu de navegação à esquerda da aplicação.
-8. Para permitir o acesso a aplicações self-service para esta aplicação, **Yes.** rode o **Allow users to request access to this application?**
+8. Para permitir o acesso a aplicações self-service para esta aplicação,  rode o **Allow users to request access to this application?**
 9. Em seguida, para selecionar o grupo a que devem ser adicionados os utilizadores que solicitam acesso a esta aplicação, selecione o seletor ao lado da etiqueta **Para que grupo deve ser adicionado os utilizadores?**
-10. **Opcional:** Se desejar uma aprovação do negócio antes de os utilizadores poderem aceder, desacere a **Yes** **aprovação do Requerer antes de conceder acesso a esta aplicação?**
-11. **Opcional: Para aplicações que utilizem a palavra-passe apenas,** se pretender permitir que esses aprovadores de negócios especifiquem as palavras-passe enviadas **Yes**para esta aplicação para utilizadores aprovados, detete **os aprovadores de Autorização para definir as palavras-passe do utilizador para esta aplicação?**
+10. **Opcional:** Se desejar uma aprovação do negócio antes de os utilizadores poderem aceder, desacere a  **aprovação do Requerer antes de conceder acesso a esta aplicação?**
+11. **Opcional: Para aplicações que utilizem a palavra-passe apenas,** se pretender permitir que esses aprovadores de negócios especifiquem as palavras-passe enviadas para esta aplicação para utilizadores aprovados, detete **os aprovadores de Autorização para definir as palavras-passe do utilizador para esta aplicação?**
 12. **Opcional:** Especifique os aprovadores empresariais que estão autorizados a aprovar o acesso a esta aplicação. Selecione **Quem pode aprovar o acesso a esta aplicação?** Em seguida, selecione até 10 aprovadores de negócios individuais.
     * Os grupos não são apoiados.
 13. **Opcional:** **Para aplicações que expõem funções**, se pretender atribuir utilizadores aprovados por autosserviço a uma função, selecione o seletor ao lado da **função a que os utilizadores devem ser atribuídos nesta aplicação?**

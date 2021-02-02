@@ -1,5 +1,5 @@
 ---
-title: Azure Key Vault soft-delete / Microsoft Docs
+title: Azure Key Vault | de eliminação suave Microsoft Docs
 description: A eliminação suave no Cofre da Chave Azure permite-lhe recuperar cofres de chaves apagados e objetos-chave do cofre, tais como chaves, segredos e certificados.
 ms.service: key-vault
 ms.subservice: general
@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: ShaneBala-keyvault
 ms.author: sudbalas
 ms.date: 12/15/2020
-ms.openlocfilehash: 0f428954ac6ef74253e6e6e430977a85a3943f99
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 68c690b9cbd2028f73492550adbe86111f9ec3a7
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97589989"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257951"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Descrição geral da eliminação recuperável do Azure Key Vault
 
@@ -37,7 +37,7 @@ Os Cofres chave Azure são rastreados recursos, geridos pelo Azure Resource Mana
 
 2. Num cenário diferente, um utilizador desonesto pode tentar apagar um cofre ou um objeto de cofre chave, como uma chave dentro de um cofre, para causar uma perturbação do negócio. A separação do cofre-chave ou do objeto do cofre-chave da eliminação real dos dados subjacentes pode ser usada como medida de segurança, limitando, por exemplo, as permissões na eliminação de dados a um papel diferente e fidedigno. Esta abordagem requer efetivamente quórum para uma operação que, de outra forma, poderia resultar numa perda imediata de dados.
 
-### <a name="soft-delete-behavior"></a>Comportamento de eliminação suave
+### <a name="soft-delete-behavior"></a>Comportamento de eliminação recuperável
 
 Quando a eliminação suave é ativada, os recursos marcados como recursos eliminados são mantidos por um período especificado (90 dias por padrão). O serviço fornece ainda um mecanismo para a recuperação do objeto eliminado, essencialmente desfazendo a supressão.
 
@@ -99,5 +99,6 @@ Em geral, quando um objeto (um cofre-chave ou uma chave ou um segredo) está em 
 
 Os dois guias seguintes oferecem os cenários de utilização primários para a utilização de soft-delete.
 
+- [Como utilizar o Key Vault soft-delete com portal](https://docs.microsoft.com/azure/key-vault/general/key-vault-recovery?tabs=azure-portal)
 - [Como utilizar a eliminação de forma recuperável do Key Vault com o PowerShell](./key-vault-recovery.md) 
 - [Como utilizar a eliminação de forma recuperável do Key Vault com a CLI](./key-vault-recovery.md)

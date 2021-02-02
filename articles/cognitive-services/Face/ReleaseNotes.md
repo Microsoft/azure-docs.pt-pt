@@ -1,5 +1,5 @@
 ---
-title: Quais as novidades no serviço Face?
+title: O que há de novo no serviço Face?
 titleSuffix: Azure Cognitive Services
 description: As notas de lançamento para o serviço Face incluem um histórico de alterações de lançamento para várias versões.
 services: cognitive-services
@@ -10,19 +10,31 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 12/11/2020
 ms.author: pafarley
-ms.openlocfilehash: 8a409d66065a7ccd2b34365bd565202f207ac0e8
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 5e537166352f242d54819477a4dc0051aad684b0
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560751"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258087"
 ---
-# <a name="whats-new-in-face-service"></a>Quais as novidades no serviço Face?
+# <a name="whats-new-in-face-service"></a>O que há de novo no serviço Face?
 
 O serviço Azure Face é atualizado de forma contínua. Utilize este artigo para se manter atualizado com melhorias de funcionalidades, correções e atualizações de documentação.
 
+## <a name="january-2021"></a>Janeiro de 2021
+* Mitigar a latência ao utilizar a API Face: A equipa Face publicou um novo artigo que detalha potenciais causas de latência ao utilizar o serviço e possíveis estratégias de mitigação. Consulte [a latência de Mitigate ao utilizar o serviço Face](https://docs.microsoft.com/azure/cognitive-services/face/face-api-how-to-topics/how-to-mitigate-latency).
+
+## <a name="december-2020"></a>Dezembro de 2020
+* Configuração do cliente para armazenamento face ID: Enquanto o Serviço Facial não armazenar imagens do cliente, a(s) função(s) facial extraída será armazenada no servidor. O Face ID é um identificador da função facial e será usado no [Face - Identificar,](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) [Enfrentar - Verificar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a)e Face - Encontrar [Similar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237). As características do rosto armazenadas expirarão e serão apagadas 24 horas após a chamada de deteção original. Os clientes podem agora determinar o tempo que estes IDs faciais estão em cache. O valor máximo ainda é de até 24 horas, mas um valor mínimo de 60 segundos pode agora ser definido. Os novos intervalos de tempo para os Face IDs estarem em cache é qualquer valor entre 60 segundos e 24 horas. Mais detalhes podem ser encontrados na referência [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API (o parâmetro *faceIdTimeToLive).*
+
 ## <a name="november-2020"></a>Novembro de 2020
-* Publicou uma aplicação de inscrição facial de amostra para demonstrar as melhores práticas para estabelecer um consentimento significativo e criar sistemas de reconhecimento facial de alta precisão através de inscrições de alta qualidade. A amostra de código aberto pode ser encontrada no Guia de [aplicações build a e](build-enrollment-app.md) no [GitHub,](https://github.com/Azure-Samples/cognitive-services-FaceAPIEnrollmentSample)pronto para os desenvolvedores implementarem ou personalizarem.  
+* Publicou uma aplicação de inscrição facial de amostra para demonstrar as melhores práticas para estabelecer um consentimento significativo e criar sistemas de reconhecimento facial de alta precisão através de matrículas de alta qualidade. A amostra de código aberto pode ser encontrada no Guia de [aplicações build a e](build-enrollment-app.md) no [GitHub,](https://github.com/Azure-Samples/cognitive-services-FaceAPIEnrollmentSample)pronto para os desenvolvedores implementarem ou personalizarem. 
+
+## <a name="august-2020"></a>Agosto de 2020
+* Encriptação gerida pelo cliente de dados em repouso: O serviço Face encripta automaticamente os seus dados ao persistência na nuvem. A encriptação do serviço Face protege os seus dados para ajudá-lo a cumprir os seus compromissos de segurança organizacional e conformidade. Por predefinição, a subscrição utiliza chaves de encriptação geridas pela Microsoft. Existe também uma nova opção para gerir a sua subscrição com as suas próprias chaves chamadas chaves geridas pelo cliente (CMK). Mais detalhes podem ser encontrados nas [teclas geridas pelo Cliente](https://docs.microsoft.com/azure/cognitive-services/face/face-encryption-of-data-at-rest).
+
+## <a name="april-2020"></a>Abril de 2020
+* Novo Modelo de Reconhecimento de API: O novo modelo de reconhecimento 03 é o modelo mais preciso atualmente disponível. Se for um novo cliente, recomendamos a utilização deste modelo. O reconhecimento 03 proporcionará uma maior precisão tanto para comparações de semelhança como para comparações de pessoas. Mais detalhes podem ser encontrados em [Especificar um modelo de reconhecimento facial.](https://docs.microsoft.com/azure/cognitive-services/face/face-api-how-to-topics/specify-recognition-model)
 
 ## <a name="june-2019"></a>Junho de 2019
 
@@ -60,7 +72,7 @@ O serviço Azure Face é atualizado de forma contínua. Utilize este artigo para
 
 ## <a name="may-2017"></a>Maio de 2017
 
-* Adicionado `hair` , `makeup` e `accessory` `occlusion` `blur` `exposure` `noise` atributos em Face - [Detetar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) `returnFaceAttributes` parâmetro.
+* Adicionado `hair` , , , , , , e `makeup` `accessory` `occlusion` `blur` `exposure` `noise` atributos em Face - [Detetar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) `returnFaceAttributes` parâmetro.
 
 * Suportado 10K pessoas num PersonGroup e [Face - Identifique](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
 
@@ -71,7 +83,7 @@ O serviço Azure Face é atualizado de forma contínua. Utilize este artigo para
 ## <a name="march-2017"></a>Março de 2017
 * `emotion`Atributo adicionado no face - [Detetar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) `returnFaceAttributes` parâmetro.
 
-* Fixar o rosto não pôde ser redetecido com retângulo devolvido do [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) como em `targetFace` [FaceList - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250) and [PersonGroup Person - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b).
+* Fixar o rosto não pôde ser redetecido com retângulo devolvido do [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) como em `targetFace` [FaceList - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250) and [PersonGroup Person Person - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b).
 
 * Fixo o tamanho do rosto detetável para se certificar de que está estritamente entre 36x36 a 4096x4096 pixels.
 

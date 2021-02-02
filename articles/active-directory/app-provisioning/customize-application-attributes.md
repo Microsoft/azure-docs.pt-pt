@@ -3,19 +3,19 @@ title: Tutorial - Personalize mapeamentos de atributos Azure Ative Directory
 description: Saiba quais os mapeamentos de atributos para aplicações SaaS no Azure Ative Directory como pode modificá-las para atender às necessidades do seu negócio.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 1/25/2021
 ms.author: kenwith
-ms.openlocfilehash: 2a27124ea76d6e5aaa7ec4b8ca36c388718ffb94
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 89b40ac68143c2af0d94434ddedec489a2208839
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98761297"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99256412"
 ---
 # <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Tutorial - Personalize o fornecimento de produtos de fornecimento de utilizadores para aplicações SaaS no Azure Ative Directory
 
@@ -334,7 +334,7 @@ A seleção desta opção forçará efetivamente a ressincronização de todos o
 - O atributo de função normalmente precisa ser mapeado usando uma expressão, em vez de um mapeamento direto. Consulte a secção acima para obter mais detalhes sobre o mapeamento de funções. 
 - Embora possa desativar grupos dos seus mapeamentos, os utilizadores incapacitados não são suportados. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Automatizar o Provisionamento/Desprovisionamento do Utilizador para aplicações SaaS](user-provisioning.md)
 - [Expressãos de escrita para atributos-mapeamentos](functions-for-customizing-application-data.md)

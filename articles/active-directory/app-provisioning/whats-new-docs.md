@@ -1,24 +1,36 @@
 ---
 title: Novidades no provisionamento de aplicações do Azure Ative Directory
 description: Documentação nova e atualizada para o provisionamento do Azure Ative Directory.
-ms.date: 12/15/2020
+ms.date: 02/01/2021
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
 ms.author: kenwith
 author: kenwith
-manager: CelesteDG
-ms.openlocfilehash: 053d342c8fbdd506ac5d4ba0916a1ae9361e7189
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+manager: daveba
+ms.openlocfilehash: a127552c47b9e1ee86d2164926971c8628367dc0
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562213"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99256006"
 ---
 # <a name="azure-active-directory-application-provisioning-whats-new"></a>Provisionamento de aplicações do Azure Ative Directory: Quais as novidades
 
 Bem-vindos às novidades da aplicação Azure Ative Directory que prevê documentação. Este artigo lista novos docs que foram adicionados e aqueles que tiveram atualizações significativas nos últimos três meses. Para saber quais as novidades com o serviço de fornecimento, veja [as novidades do Azure Ative Directory](../fundamentals/whats-new.md).
+
+## <a name="january-2021"></a>Janeiro de 2021
+
+### <a name="new-articles"></a>Artigos novos
+- [Como o provisionamento do Diretório Ativo Azure se integra com o Workday](workday-integration-reference.md)
+
+### <a name="updated-articles"></a>Artigos atualizados
+- [Tutorial: Desenvolver uma amostra scim ponto final](use-scim-to-build-users-and-groups-endpoints.md)
+- [Tutorial - Personalize o fornecimento de produtos de fornecimento de utilizadores para aplicações SaaS no Azure Ative Directory](customize-application-attributes.md)
+- [Como o provisionamento do Azure Ative Directory se integra com os SAP SuccessFactors](sap-successfactors-integration-reference.md)
+- [Provisionamento de pedidos em estado de quarentena](application-provisioning-quarantine-status.md)
+
 
 ## <a name="december-2020"></a>Dezembro de 2020
 
@@ -60,7 +72,7 @@ Bem-vindos às novidades da aplicação Azure Ative Directory que prevê documen
 
 ### <a name="new-articles"></a>Artigos novos
 
-- [O que há de novo nos médicos?](whats-new-docs.md)
+- [Novidades no Docs?](whats-new-docs.md)
 
 ### <a name="updated-articles"></a>Artigos atualizados
 - [Provisionamento de pedidos em estado de quarentena](application-provisioning-quarantine-status.md)

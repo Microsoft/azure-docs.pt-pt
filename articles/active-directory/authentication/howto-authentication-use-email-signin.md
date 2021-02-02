@@ -10,12 +10,12 @@ ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: calui
-ms.openlocfilehash: 0ca5f6a853852acbb4ef97adfce2364592bae270
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 4e39d7f15e3ca3c6e241c767a5f881d7170c6379
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97559845"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255972"
 ---
 # <a name="sign-in-to-azure-active-directory-using-email-as-an-alternate-login-id-preview"></a>Iniciar sessão no Azure Ative Directory usando o e-mail como iD de login alternativo (pré-visualização)
 
@@ -113,7 +113,7 @@ Durante a pré-visualização, atualmente só pode ativar o login com e-mail com
 1. Verifique se a política *homeRealmDiscoveryPolicy* já existe no seu inquilino usando o cmdlet [Get-AzureADPolicy][Get-AzureADPolicy] da seguinte forma:
 
     ```powershell
-    Get-AzureADPolicy | where-object {$_.Type -eq "HomeRealmDiscoveryPolicy"} | fl *
+    Get-AzureADPolicy | Where-Object Type -eq "HomeRealmDiscoveryPolicy" | Format-List *
     ```
 
 1. Se não houver nenhuma política configurada, o comando não devolve nada. Se uma política for devolvida, ignore este passo e passe para o próximo passo para atualizar uma política existente.
@@ -121,10 +121,22 @@ Durante a pré-visualização, atualmente só pode ativar o login com e-mail com
     Para adicionar a política *homeRealmDiscoveryPolicy* ao inquilino, use o cmdlet [New-AzureADPolicy][New-AzureADPolicy] e coloque o atributo *AlternateIdLogin* a *"Enabled": verdadeiro* como mostrado no seguinte exemplo:
 
     ```powershell
-    New-AzureADPolicy -Definition @('{"HomeRealmDiscoveryPolicy" :{"AlternateIdLogin":{"Enabled": true}}}') `
-        -DisplayName "BasicAutoAccelerationPolicy" `
-        -IsOrganizationDefault $true `
-        -Type "HomeRealmDiscoveryPolicy"
+    $AzureADPolicyDefinition = @(
+      @{
+         "HomeRealmDiscoveryPolicy" = @{
+            "AlternateIdLogin" = @{
+               "Enabled" = $true
+            }
+         }
+      } | ConvertTo-JSON -Compress
+    )
+    $AzureADPolicyParameters = @{
+      Definition            = $AzureADPolicyDefinition
+      DisplayName           = "BasicAutoAccelerationPolicy"
+      IsOrganizationDefault = $true
+      Type                  = "HomeRealmDiscoveryPolicy"
+    }
+    New-AzureADPolicy @AzureADPolicyParameters
     ```
 
     Quando a apólice foi criada com sucesso, o comando devolve o ID da política, como mostra a seguinte saída de exemplo:
@@ -156,17 +168,31 @@ Durante a pré-visualização, atualmente só pode ativar o login com e-mail com
     O exemplo a seguir adiciona o atributo *AlternateIdLogin* e preserva o atributo *AllowCloudPasswordValidation* que pode já ter sido definido:
 
     ```powershell
-    Set-AzureADPolicy -id b581c39c-8fe3-4bb5-b53d-ea3de05abb4b `
-        -Definition @('{"HomeRealmDiscoveryPolicy" :{"AllowCloudPasswordValidation":true,"AlternateIdLogin":{"Enabled": true}}}') `
-        -DisplayName "BasicAutoAccelerationPolicy" `
-        -IsOrganizationDefault $true `
-        -Type "HomeRealmDiscoveryPolicy"
+    $AzureADPolicyDefinition = @(
+      @{
+         "HomeRealmDiscoveryPolicy" = @{
+            "AllowCloudPasswordValidation" = $true
+            "AlternateIdLogin" = @{
+               "Enabled" = $true
+            }
+         }
+      } | ConvertTo-JSON -Compress
+    )
+    $AzureADPolicyParameters = @{
+      ID                    = "b581c39c-8fe3-4bb5-b53d-ea3de05abb4b"
+      Definition            = $AzureADPolicyDefinition
+      DisplayName           = "BasicAutoAccelerationPolicy"
+      IsOrganizationDefault = $true
+      Type                  = "HomeRealmDiscoveryPolicy"
+    }
+    
+    Set-AzureADPolicy @AzureADPolicyParameters
     ```
 
     Confirme que a política atualizada mostra as suas alterações e que o atributo *AlternateIdLogin* está agora ativado:
 
     ```powershell
-    Get-AzureADPolicy | where-object {$_.Type -eq "HomeRealmDiscoveryPolicy"} | fl *
+    Get-AzureADPolicy | Where-Object Type -eq "HomeRealmDiscoveryPolicy" | Format-List *
     ```
 
 Com a política aplicada, pode levar até uma hora para se propagar e para que os utilizadores possam iniciar sessão usando o seu ID de login alternativo.
@@ -207,7 +233,12 @@ Precisa de permissões de administrador de *inquilinos* para completar os seguin
 4. Se não houver políticas de lançamento encenadas existentes para esta funcionalidade, crie uma nova política de implementação encenada e tome nota do ID da política:
 
    ```powershell
-   New-AzureADMSFeatureRolloutPolicy -Feature EmailAsAlternateId -DisplayName "EmailAsAlternateId Rollout Policy" -IsEnabled $true
+   $AzureADMSFeatureRolloutPolicy = @{
+      Feature    = "EmailAsAlternateId"
+      DisplayName = "EmailAsAlternateId Rollout Policy"
+      IsEnabled   = $true
+   }
+   New-AzureADMSFeatureRolloutPolicy @AzureADMSFeatureRolloutPolicy
    ```
 
 5. Encontre o iD do directórioObject para que o grupo seja adicionado à política de lançamento encenada. Note o valor devolvido para o parâmetro *ID,* porque será usado no passo seguinte.
@@ -250,7 +281,7 @@ Se os utilizadores tiverem problemas com eventos de inscrição utilizando o seu
 1. Confirme que a política Azure AD *HomeRealmDiscoveryPolicy* tem o atributo *AlternateIdLogin* definido como *"Enabled": verdadeiro*:
 
     ```powershell
-    Get-AzureADPolicy | where-object {$_.Type -eq "HomeRealmDiscoveryPolicy"} | fl *
+    Get-AzureADPolicy | Where-Object Type -eq "HomeRealmDiscoveryPolicy" | Format-List *
     ```
 
 ## <a name="next-steps"></a>Passos seguintes

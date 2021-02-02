@@ -4,7 +4,7 @@ description: Saiba como fornecer um único sinal de inscrição para aplicaçõe
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -16,14 +16,14 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7d51aa7e75d7e94d1c2ac66d7edb92a3ef9395b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 03c688952f37bf9fc91e9dd25e09d9c31cd980d4
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657470"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257073"
 ---
-# <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy"></a>SAML único sinal de inscrição para aplicações no local com Proxy de aplicação
+# <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy"></a>Início de sessão único com o SAML para aplicações no local com o Proxy de Aplicações
 
 Pode fornecer um único sinal de entrada (SSO) para aplicações no local que sejam protegidas com autenticação SAML e fornecer acesso remoto a estas aplicações através do Application Proxy. Com um único sign-on SAML, o Azure Ative Directory (Azure AD) autentica-se na aplicação utilizando a conta Azure AD do utilizador. A Azure AD comunica a informação de inscrição à aplicação através de um protocolo de ligação. Também pode mapear os utilizadores para funções de aplicação específicas com base nas regras que define nas suas reclamações SAML. Ao ativar a Aplicação Proxy para além do SAML SSO, os seus utilizadores terão acesso externo à aplicação e uma experiência SSO sem emenda.
 
@@ -95,7 +95,7 @@ Quando tiver completado todos estes passos, a sua aplicação deve estar a funci
 1. Abra um navegador e navegue para o **URL Externo** que criou quando publicou a aplicação. 
 1. Inscreva-se na conta de teste que atribuiu à aplicação. Deverá ser capaz de carregar a aplicação e ter SSO na aplicação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Como é que o Azure AD Application Proxy fornece um único sinal de inscrição?](./what-is-single-sign-on.md)
 - [Resolver problemas do Proxy de Aplicações](application-proxy-troubleshoot.md)

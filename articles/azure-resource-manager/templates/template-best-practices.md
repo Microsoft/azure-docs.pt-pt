@@ -3,12 +3,12 @@ title: Melhores práticas de modelos
 description: Descreve abordagens recomendadas para a autoria de modelos de Gestor de Recursos Azure (modelos ARM). Oferece sugestões para evitar problemas comuns ao usar modelos.
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.openlocfilehash: c0b26c300a9474cc5db0b1a7b732c4416a9e6f5f
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 583a113df9cdb1951daf1002dd69531f050cfb54
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696351"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258002"
 ---
 # <a name="arm-template-best-practices"></a>As melhores práticas do modelo ARM
 
@@ -277,13 +277,15 @@ As seguintes informações podem ser úteis quando se trabalha com [recursos:](t
    > [!NOTE]
    > Para garantir que os segredos são encriptados quando são passados como parâmetros para VMs e extensões, use a `protectedSettings` propriedade das extensões relevantes.
 
+* Especifique valores explícitos para propriedades que tenham valores predefinidos que possam mudar ao longo do tempo. Por exemplo, se estiver a implementar um cluster AKS, pode especificar ou omitir a `kubernetesVersion` propriedade. Se não o especificar, [o cluster está em incumprimento na versão menor N-1 e no patch mais recente](../../aks/supported-kubernetes-versions.md#azure-portal-and-cli-versions). Quando implementa o cluster usando um modelo ARM, este comportamento padrão pode não ser o que se espera. A recolocação do seu modelo pode resultar na atualização inesperada do cluster para uma nova versão Kubernetes. Em vez disso, considere especificar um número de versão explícito e, em seguida, mudá-lo manualmente quando estiver pronto para atualizar o seu cluster.
+
 ## <a name="use-test-toolkit"></a>Use o kit de ferramentas de teste
 
 O kit de ferramentas de teste do modelo ARM é um script que verifica se o seu modelo utiliza práticas recomendadas. Quando o seu modelo não está em conformidade com as práticas recomendadas, devolve uma lista de avisos com alterações sugeridas. O kit de ferramentas de teste pode ajudá-lo a aprender a implementar as melhores práticas no seu modelo.
 
 Depois de ter concluído o seu modelo, execute o kit de ferramentas de teste para ver se existem formas de melhorar a sua implementação. Para obter mais informações, consulte [o kit de ferramentas de teste do modelo ARM](test-toolkit.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter informações sobre a estrutura do ficheiro do modelo, consulte [compreender a estrutura e a sintaxe dos modelos ARM](template-syntax.md).
 * Para recomendações sobre como construir modelos que funcionam em todos os ambientes de nuvem Azure, consulte [modelos de DESENVOLVIMENTO ARM para a consistência da nuvem.](templates-cloud-consistency.md)

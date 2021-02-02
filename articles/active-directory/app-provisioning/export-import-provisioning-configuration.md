@@ -3,19 +3,19 @@ title: Configuração de provisionamento de exportação e retrocesso para um bo
 description: Aprenda a exportar a sua configuração de provisionamento e volte para um bom estado conhecido para a recuperação de desastres.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to
 ms.workload: identity
 ms.date: 03/19/2020
 ms.author: kenwith
-ms.openlocfilehash: e34656d6ce515cabe955c101f7b52ac0f2ade8db
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c6af42c78bda66c4b397cbb99b26af7d6a5c7f07
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994813"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99256378"
 ---
 # <a name="how-to-export-provisioning-configuration-and-roll-back-to-a-known-good-state"></a>Como fazer: Configuração de provisionamento de exportação e retrocesso para um bom estado conhecido
 
@@ -97,7 +97,7 @@ No Microsoft Graph Explorer, configuure a seguinte consulta PUT, substituindo [s
 
 No separador "Request Body", copie o conteúdo do ficheiro de esquema JSON.
 
-   [![Corpo de Pedido](./media/export-import-provisioning-configuration/wd_export_04.png)](./media/export-import-provisioning-configuration/wd_export_04.png#lightbox)
+   [![Corpo do Pedido](./media/export-import-provisioning-configuration/wd_export_04.png)](./media/export-import-provisioning-configuration/wd_export_04.png#lightbox)
 
 No separador "Cabeçalhos de pedido", adicione o atributo cabeçalho do tipo de conteúdo com o valor "aplicação/json"
 

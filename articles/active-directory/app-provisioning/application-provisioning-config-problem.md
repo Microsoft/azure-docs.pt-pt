@@ -3,7 +3,7 @@ title: Problema que configura o fornecimento do utilizador a uma aplicação da 
 description: Como resolver problemas comuns ao configurar o fornecimento de um utilizador a uma aplicação já listada na Galeria de Aplicações AD Azure
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 09/03/2019
 ms.author: kenwith
 ms.reviewer: asteen
-ms.openlocfilehash: 306c3771c0392bbc97260a726e153cfd385cebcd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 651bc199a43881add7faa00a9d1cf78000de6944
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994796"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99256277"
 ---
 # <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Problema de configuração do fornecimento de um utilizador a uma aplicação da Galeria AD Azure
 
@@ -28,7 +28,7 @@ Deve sempre começar por encontrar o tutorial de configuração específico para
 
 Uma vez configurado o serviço, a maioria dos insights sobre o funcionamento do serviço podem ser extraídas de dois locais:
 
--   **Provisionamento de registos (pré-visualização)** – Os [registos de provisionamento registam](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) todas as operações realizadas pelo serviço de fornecimento, incluindo consulta da Azure AD para os utilizadores designados que estão em âmbito de provisionamento. Consultar a aplicação-alvo para a existência desses utilizadores, comparando os objetos do utilizador entre o sistema. Em seguida, adicione, atualize ou desative a conta de utilizador no sistema-alvo com base na comparação. Pode aceder aos registos de provisionamento no portal Azure selecionando registos de provisionamento de aplicações empresariais do **Azure Ative** &gt; **Enterprise Apps** &gt; **Directory (pré-visualização)** na secção **Atividade.**
+-   **Provisionamento de registos (pré-visualização)** – Os [registos de provisionamento registam](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) todas as operações realizadas pelo serviço de fornecimento, incluindo consulta da Azure AD para os utilizadores designados que estão em âmbito de provisionamento. Consultar a aplicação-alvo para a existência desses utilizadores, comparando os objetos do utilizador entre o sistema. Em seguida, adicione, atualize ou desative a conta de utilizador no sistema-alvo com base na comparação. Pode aceder aos registos de provisionamento no portal Azure selecionando registos de provisionamento de aplicações empresariais do **Azure Ative** &gt;  &gt; **Directory (pré-visualização)** na secção **Atividade.**
 
 -   **Estado atual -** Um resumo da última execução de provisionamento para uma determinada aplicação pode ser visto na secção **de &gt; &gt; \[ \] &gt; Provisionamento de Nome de Aplicação de Aplicações de Aplicação de Aplicações do Azure Ative Directory Apps,** na parte inferior do ecrã sob as definições de serviço. A secção Estado Atual mostra se um ciclo de provisionamento iniciou o provisionamento das contas dos utilizadores. Pode observar o progresso do ciclo, ver quantos utilizadores e grupos foram a provisionados e ver quantas funções são criadas. Se houver algum erro, podem ser encontrados detalhes nos registos [Provisioning' (.. /reports-monitoring/concept-provisioning-logs.md?context=azure/active-directy/manage-apps/context/manage-apps-context).
 

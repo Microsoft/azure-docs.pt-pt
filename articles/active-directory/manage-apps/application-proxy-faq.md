@@ -3,7 +3,7 @@ title: Azure Ative Directory Application Proxy frequentemente fez perguntas
 description: Aprenda respostas a perguntas frequentes (FAQ) sobre a utilização de Proxy da Aplicação AD Azure para publicar aplicações internas e no local para utilizadores remotos.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: f1a1d43f9bfc960628447a3c20e7dab2ac701dc5
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 121dcdf51374f625ad7393bb181b1be215775a0b
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762572"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257782"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Diretório Ativo (Azure AD) Aplicação Proxy frequentemente perguntas
 
@@ -58,7 +58,7 @@ Para obter recomendações, consulte [alta disponibilidade e equilíbrio de carg
 O Conector de Procuração de Aplicações realiza a autenticação baseada em certificados para a Azure. A rescisão de TLS (inspeção ou aceleração TLS/HTTPS) quebra este método de autenticação e não é suportada. O tráfego do conector para o Azure deve contornar todos os dispositivos que estejam a realizar a Rescisão TLS.  
 
 ### <a name="is-tls-12-required-for-all-connections"></a>O TLS 1.2 é necessário para todas as ligações?
-Yes. Para fornecer a melhor encriptação em classe aos nossos clientes, o serviço Application Proxy limita o acesso a apenas protocolos TLS 1.2. Estas alterações foram gradualmente lançadas e eficazes desde 31 de agosto de 2019. Certifique-se de que todas as combinações de servidores de clientes e servidores de navegador são atualizadas para utilizar o TLS 1.2 para manter a ligação ao serviço De procuração de aplicações. Estes incluem clientes que os seus utilizadores estão a usar para aceder a aplicações publicadas através do Application Proxy. Consulte a preparação para [o TLS 1.2 no Office 365](/microsoft-365/compliance/prepare-tls-1.2-in-office-365) para obter referências e recursos úteis.
+Sim. Para fornecer a melhor encriptação em classe aos nossos clientes, o serviço Application Proxy limita o acesso a apenas protocolos TLS 1.2. Estas alterações foram gradualmente lançadas e eficazes desde 31 de agosto de 2019. Certifique-se de que todas as combinações de servidores de clientes e servidores de navegador são atualizadas para utilizar o TLS 1.2 para manter a ligação ao serviço De procuração de aplicações. Estes incluem clientes que os seus utilizadores estão a usar para aceder a aplicações publicadas através do Application Proxy. Consulte a preparação para [o TLS 1.2 no Office 365](/microsoft-365/compliance/prepare-tls-1.2-in-office-365) para obter referências e recursos úteis.
 
 ### <a name="can-i-place-a-forward-proxy-device-between-the-connector-servers-and-the-back-end-application-server"></a>Posso colocar um dispositivo de procuração para a frente entre o(s) servidor(s) do conector e o servidor de aplicação de back-end?
 Sim, este cenário é suportado a partir da versão do conector 1.5.1526.0. Consulte [o Trabalho com os servidores proxy existentes no local.](application-proxy-configure-connectors-with-proxy-servers.md)
@@ -183,7 +183,7 @@ A [aplicação móvel SharePoint](/sharepoint/administration/supporting-the-shar
 
 ### <a name="can-i-use-azure-ad-application-proxy-as-ad-fs-proxy-like-web-application-proxy"></a>Posso usar o Azure AD Application Proxy como proxy AD FS (como o Proxy de Aplicações Web)?
 
-Não. O Azure AD Application Proxy foi concebido para trabalhar com a Azure AD e não preenche os requisitos para agir como um representante da AD FS.
+N.º O Azure AD Application Proxy foi concebido para trabalhar com a Azure AD e não preenche os requisitos para agir como um representante da AD FS.
 
 ## <a name="websocket"></a>WebSocket
 
@@ -197,7 +197,7 @@ As funcionalidades (Eventlogs, PowerShell e Remote Desktop Services) no Windows 
 
 ### <a name="does-using-link-translation-affect-performance"></a>A utilização da tradução link afeta o desempenho?
 
-Yes. A tradução de ligação afeta o desempenho. O serviço Application Proxy digitaliza a aplicação de links codificados e substitui-os pelos respetivos URLs externos publicados antes de os apresentar ao utilizador. 
+Sim. A tradução de ligação afeta o desempenho. O serviço Application Proxy digitaliza a aplicação de links codificados e substitui-os pelos respetivos URLs externos publicados antes de os apresentar ao utilizador. 
 
 Para um melhor desempenho, recomendamos a utilização de URLs internos e externos idênticos configurando [domínios personalizados](./application-proxy-configure-custom-domain.md). Se não for possível utilizar domínios personalizados, pode melhorar o desempenho da tradução de ligações utilizando o Signo Seguro das Minhas Aplicações em Extensão ou o Navegador Microsoft Edge no telemóvel. Consulte [links codificados para apps publicadas com Proxy de aplicações AD AD Azure.](application-proxy-configure-hard-coded-link-translation.md)
 

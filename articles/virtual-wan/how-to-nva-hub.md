@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to create a Network Virtual Appliance (NVA) in my Virtual WAN hub.
-ms.openlocfilehash: 7a52d3971e4ec0cb8ec104a57ba7fb4057c23b72
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 1f80da4014d4b6b27155db17d32800e54b51f40d
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964648"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258070"
 ---
 # <a name="how-to-create-a-network-virtual-appliance-in-an-azure-virtual-wan-hub-preview"></a>Como criar um aparelho virtual de rede num hub Azure Virtual WAN (Pré-visualização)
 
@@ -21,8 +21,7 @@ Este artigo mostra-lhe como utilizar o WAN Virtual para ligar aos seus recursos 
 
 Os passos deste artigo ajudam-no a criar um aparelho virtual **Barracuda CloudGen WAN** Network no centro virtual WAN. Para completar este exercício, tem de ter um Dispositivo barracuda cloud premise (CPE) e uma licença para o aparelho Barracuda CloudGen WAN que você implanta no centro antes de começar.
 
-Para documentação de implementação da **Cisco SD-WAN** dentro do Azure Virtual WAN - Consulte [Cisco Cloud OnRamp para Multi-Cloud](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701). Para registar a sua conta e obter as licenças cisco SD-WAN necessárias, envie um e-mail para a Cisco no seguinte endereço de e-mail: vwan_public_preview@external.cisco.com
-
+Para documentação de implementação da **Cisco SD-WAN** dentro do Azure Virtual WAN - Consulte [Cisco Cloud OnRamp para Multi-Cloud](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701). 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

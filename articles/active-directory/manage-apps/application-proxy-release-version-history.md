@@ -3,7 +3,7 @@ title: 'Azure AD Application Proxy: O histórico de lançamentos da versão'
 description: Este artigo lista todos os lançamentos de Azure AD Application Proxy e descreve novas funcionalidades e problemas fixos
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.topic: reference
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/22/2020
 ms.subservice: app-mgmt
 ms.author: kenwith
-ms.openlocfilehash: 8000d07824c27f60dd5d8d6a457521691fe2b7d7
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: a4b029a1397a2522dfaa6eba9c0206dd5a031875
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658405"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258138"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Azure AD Application Proxy: O histórico de lançamentos da versão
 Este artigo lista as versões e funcionalidades do Azure Ative Directory (Azure AD) Application Proxy que foram lançados. A equipa Azure AD atualiza regularmente o Application Proxy com novas funcionalidades e funcionalidades. Os conectores Proxy da aplicação são atualizados automaticamente quando uma nova versão é lançada. 
@@ -126,6 +126,6 @@ Melhor controlo sobre os limites de ligação de saída dos conectores.
 
 Se estiver a utilizar uma versão de conector Proxy da Aplicação antes de 1.5.36.0, atualize a versão mais recente para garantir que tem as funcionalidades mais recentes totalmente suportadas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre [acesso remoto a aplicações no local através do Azure AD Application Proxy](application-proxy.md).
 - Para começar a utilizar o Application Proxy, consulte [Tutorial: Adicione uma aplicação no local para acesso remoto através do Application Proxy](application-proxy-add-on-premises-application.md).

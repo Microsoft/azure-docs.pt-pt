@@ -1,9 +1,9 @@
 ---
-title: Entenda como funciona o provisionamento da AD AZure Microsoft Docs
+title: Entenda como funciona o fornecimento de AD AZure | Microsoft Docs
 description: Entenda como funciona o fornecimento de AD AZure
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 07e3ff76886a935bf0b7b5c83052e0e7cd7a0429
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 1f4466dea35fe3d52f86386f0bf0cc0c3b6a658f
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027429"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99256344"
 ---
 # <a name="how-provisioning-works"></a>Como funciona o aprovisionamento
 

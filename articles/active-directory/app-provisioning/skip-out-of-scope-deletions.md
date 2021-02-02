@@ -3,7 +3,7 @@ title: Excluir os utilizadores fora do âmbito
 description: Saiba como anular o comportamento padrão de desavisionamento fora do âmbito dos utilizadores.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: kenwith
 ms.reviewer: celested
-ms.openlocfilehash: f459a804b4c375eea17cbc22ded2f41f808c1b82
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a6cbabe35b223020528d1cf48aa9e0ef9b9f7c05
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995374"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99256124"
 ---
 # <a name="skip-deletion-of-user-accounts-that-go-out-of-scope"></a>Ignorar a eliminação das contas de utilizador que ficam fora de alcance
 

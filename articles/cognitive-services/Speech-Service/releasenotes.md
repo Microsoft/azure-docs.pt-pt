@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/27/2021
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 1c9c07d3770d2b71bee8f8e789022be6f831cc8f
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 4393607d6714bc4c1b10ac89d5ac69c173f8fef4
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99092873"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257326"
 ---
 # <a name="speech-service-release-notes"></a>Notas de lançamento do Serviço de Fala
 
@@ -26,7 +26,7 @@ ms.locfileid: "99092873"
 
 **Resumo dos destaques**
 - Memória menor e pegada de disco tornando o SDK mais eficiente.
-- Melhor qualidade de voz personalizada e facilidade de utilização. 
+- Formatos de saída de maior fidelidade disponíveis para pré-visualização personalizada de voz neural privada.
 - O Intenção Recogniser pode agora obter retorno mais do que a intenção superior, dando-lhe a capacidade de fazer uma avaliação separada sobre a intenção do seu cliente.
 - O seu assistente de voz ou bot são agora mais fáceis de configurar, e pode fazê-lo parar de ouvir imediatamente, e exercer um maior controlo sobre como responde a erros.
 - Melhorou o desempenho do dispositivo através da compressão opcional.
@@ -43,7 +43,7 @@ ms.locfileid: "99092873"
   - As bibliotecas android são 3-5% menores.
 
 **Novas funcionalidades**
-- **Tudo:** A qualidade de voz personalizada continua a melhorar. Adicionado formato de 48kHz para vozes TTS personalizadas, melhorando a qualidade áudio de vozes personalizadas cujas taxas de amostra de saída nativas são superiores a 24kHz.
+- **Todos**: Novos formatos de saída de 48KHz disponíveis para a pré-visualização privada da voz neural personalizada através da síntese de discurso TTS API: Audio48Khz192KBitRateMonoMp3, audio-48khz-192kbitrate-mono-mp3, Audio48Khz96KBitRateMonoMp3, audio-48khz-96kbitrate-mono-mp3, Raw48Khz16BitMonoPcm, raw-48khz-16bit-mono-pcm, Riff48Khz16BitMonoPcm, riff-48khz-16bit-mono-pcm.
 - **Tudo:** A voz personalizada também é mais fácil de usar. Suporte adicionado para definir voz personalizada através de `EndpointId` ([C++](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#setendpointid), [C#](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.endpointid?view=azure-dotnet#Microsoft_CognitiveServices_Speech_SpeechConfig_EndpointId), [Java,](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setendpointid?view=azure-java-stable#com_microsoft_cognitiveservices_speech_SpeechConfig_setEndpointId_String_) [JavaScript,](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest#endpointId) [Objective-C](https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#endpointid), [Python](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python#endpoint-id)). Antes desta alteração, os utilizadores de voz personalizados precisavam de definir o URL do ponto final através do `FromEndpoint` método. Agora os clientes podem usar o `FromSubscription` método tal como as vozes públicas e, em seguida, fornecer o id de implementação por definição `EndpointId` . Isto simplifica a criação de vozes personalizadas. 
 - **C++/C#/Java/Objective-C/Python**: Obtenha mais do que a intenção superior de `IntentRecognizer` . Agora suporta configurar o resultado do JSON contendo todas as intenções e não apenas a intenção de pontuação superior através do `LanguageUnderstandingModel FromEndpoint` método, utilizando `verbose=true` o parâmetro uri. Trata-se da [questão do GitHub #880.](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/880) Consulte a documentação atualizada [aqui.](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/intent-recognition/#add-a-languageunderstandingmodel-and-intents)
 - **C++/C#/Java**: Faça o seu assistente de voz ou bot parar de ouvir imediatamente. `DialogServiceConnector`[(C++](https://docs.microsoft.com/cpp/cognitive-services/speech/dialog-dialogserviceconnector) [, C#](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector?view=azure-dotnet), [Java)](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.dialog.dialogserviceconnector?view=azure-java-stable)agora tem um `StopListeningAsync()` método para `ListenOnceAsync()` acompanhar. Isto irá parar imediatamente a captura de áudio e esperar graciosamente por um resultado, tornando-o perfeito para ser usado com cenários de pressão de botões "stop now".

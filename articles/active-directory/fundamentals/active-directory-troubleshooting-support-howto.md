@@ -1,5 +1,5 @@
 ---
-title: Encontre ajuda e abra um bilhete de apoio - Azure Ative Directory Microsoft Docs
+title: Encontre ajuda e abra um bilhete de apoio - Azure Ative Directory | Microsoft Docs
 description: Instruções sobre como obter ajuda e abrir um bilhete de apoio para o Azure Ative Directory.
 services: active-directory
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9be6efeba101dc922a1045042b64ac64bc6cd093
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e339e88bb62e81b1f873e8cf7e855f4dff8daade
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89322539"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257411"
 ---
 # <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Encontre ajuda e abra um bilhete de apoio para o Azure Ative Directory
 A Microsoft fornece suporte técnico, pré-venda, faturação e subscrição globais para o Azure Ative Directory (Azure AD). O suporte está disponível tanto online como por telefone para subscrições pagas e de teste da Microsoft Azure. O suporte por telefone e o suporte de faturação online estão disponíveis em idiomas adicionais. 
@@ -41,8 +41,8 @@ Se não conseguir encontrar respostas utilizando recursos de autoajuda, pode abr
 ### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-azure-portal"></a>Como abrir um bilhete de apoio para a Azure AD no portal Azure
 
 > [!NOTE]
-> Para problemas de faturação ou subscrição, tem de utilizar o [centro de administração Microsoft 365](https://admin.microsoft.com).
-> 
+> * Para problemas de faturação ou subscrição, tem de utilizar o [centro de administração Microsoft 365](https://admin.microsoft.com).  
+> * Se estiver a usar o Azure AD B2C, abra um bilhete de apoio mudando primeiro para um inquilino AD Azure que tem uma assinatura Azure associada a ele. Normalmente, este é o seu inquilino empregado ou o inquilino padrão criado para si quando se inscreveu para uma subscrição do Azure. Para saber mais, veja [como uma subscrição do Azure está relacionada com a Azure AD.](active-directory-how-subscriptions-associated-directory.md)
 
 1. Inscreva-se [no portal Azure](https://portal.azure.com) e abra o **Azure Ative Directory**.
    
@@ -56,7 +56,7 @@ Se não conseguir encontrar respostas utilizando recursos de autoajuda, pode abr
 
 1. Crie um **Resumo** para o pedido. O resumo deve ter menos de 140 caracteres.
   
-1. Selecione um **tipo de problema**e, em seguida, selecione uma categoria para este tipo. Neste momento, também lhe é oferecida informação de autoajuda para a sua categoria de problemas.
+1. Selecione um **tipo de problema** e, em seguida, selecione uma categoria para este tipo. Neste momento, também lhe é oferecida informação de autoajuda para a sua categoria de problemas.
   
 1. Adicione o resto das informações do seu problema e clique em **Seguinte**. 
 
@@ -74,7 +74,7 @@ Se não conseguir encontrar respostas utilizando recursos de autoajuda, pode abr
 ### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-microsoft-365-admin-center"></a>Como abrir um bilhete de apoio para Azure AD no Microsoft 365 admin center
 
 > [!NOTE]
-> O suporte para Azure AD no [centro de administração microsoft 365](https://admin.microsoft.com) é oferecido apenas para administradores. 
+> O suporte para Azure AD no [centro de administração microsoft 365](https://admin.microsoft.com) é oferecido apenas para administradores.
 
 1. Inscreva-se no [centro de administração microsoft 365](https://admin.microsoft.com) com uma conta que tem uma licença de Mobilidade Empresarial + Segurança (EMS).
 

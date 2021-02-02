@@ -3,7 +3,7 @@ title: Tutorial - Desenvolver um ponto final SCIM para o fornecimento de utiliza
 description: O sistema de gestão de identidade de domínio cruzado (SCIM) normaliza o fornecimento automático do utilizador. Neste tutorial, aprende-se a desenvolver um ponto final SCIM, a integrar a sua API SCIM com o Azure Ative Directory e a automatizar utilizadores e grupos de a provisionamento nas suas aplicações na nuvem.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6250aef5ec69c65dcdfe457a56d4e077b31af4d1
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: a6895a47bc6d99a09408ca002ec48405a5c78682
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99051673"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255683"
 ---
 # <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint"></a>Tutorial: Desenvolver e planear o provisionamento para um ponto final do SCIM
 
@@ -69,7 +69,7 @@ O esquema acima definido seria representado utilizando a carga útil JSON abaixo
      "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User",
       "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
       "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User"],
-     "userName":"bjensen",
+     "userName":"bjensen@testuser.com",
      "externalId":"bjensen",
      "name":{
        "familyName":"Jensen",
@@ -961,7 +961,7 @@ Se a resposta a uma consulta ao serviço web para um utilizador com um `external
      "urn:ietf:params:scim:schemas:core:2.0:User",
      "urn:ietf:params:scim:schemas:extension:enterprise:2.0User"],
    "externalId":"jyoung",
-   "userName":"jyoung",
+   "userName":"jyoung@testuser.com",
    "active":true,
    "addresses":null,
    "displayName":"Joy Young",

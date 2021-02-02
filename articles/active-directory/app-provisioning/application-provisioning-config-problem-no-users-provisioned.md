@@ -3,7 +3,7 @@ title: Os utilizadores não estão a ser a provisionados na minha aplicação
 description: Como resolver problemas comuns quando não vê utilizadores a aparecer numa Aplicação de Galeria AD AZure que configuraste para o fornecimento de utilizadores com Azure AD
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 12/03/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 89a5838524daa1959ecf6b4fe3c17d6175ca8553
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 429f993764273d6b6eb23d75d0132b374d5d0ca0
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96571781"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99256359"
 ---
 # <a name="no-users-are-being-provisioned"></a>Não existem utilizadores a ser aprovisionados 
 >[!NOTE]
@@ -31,7 +31,7 @@ Depois de o provisionamento automático ter sido configurado para uma aplicaçã
   
 Se observar que os utilizadores não estão a ser a provisionados, consulte os [registos de Provisionamento (pré-visualização)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) em Azure AD. Procure por entradas de registo para um utilizador específico.
 
-Pode aceder aos registos de provisionamento no portal Azure selecionando registos de provisionamento de aplicações empresariais do **Azure Ative** &gt; **Enterprise Apps** &gt; **Directory (pré-visualização)** na secção **Atividade.** Pode pesquisar os dados de fornecimento com base no nome do utilizador ou do identificador no sistema de origem ou no sistema alvo. Para mais informações, consulte [registos de provisionamento (pré-visualização)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). 
+Pode aceder aos registos de provisionamento no portal Azure selecionando registos de provisionamento de aplicações empresariais do **Azure Ative** &gt;  &gt; **Directory (pré-visualização)** na secção **Atividade.** Pode pesquisar os dados de fornecimento com base no nome do utilizador ou do identificador no sistema de origem ou no sistema alvo. Para mais informações, consulte [registos de provisionamento (pré-visualização)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). 
 
 Os registos de provisionamento registam todas as operações realizadas pelo serviço de fornecimento, incluindo consulta da Azure AD para utilizadores designados que estão em âmbito de provisionamento, consultando a aplicação-alvo para a existência desses utilizadores, comparando os objetos de utilizador entre o sistema. Em seguida, adicione, atualize ou desative a conta de utilizador no sistema-alvo com base na comparação.
 

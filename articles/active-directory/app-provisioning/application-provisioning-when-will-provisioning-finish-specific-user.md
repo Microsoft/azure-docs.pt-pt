@@ -3,7 +3,7 @@ title: Saiba quando um utilizador específico poderá aceder a uma aplicação
 description: Como saber quando um utilizador criticamente importante pode aceder a uma aplicação que configura para o fornecimento de utilizadores com Azure AD
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/03/2019
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 307a97b71fe453c89617a86a88063e60fcf28fa3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 890c4a8a5aec3b15b150908c64bb114bd85a61a1
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994014"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99256767"
 ---
 # <a name="check-the-status-of-user-provisioning"></a>Verifique o estado do fornecimento do utilizador
 
@@ -43,7 +43,7 @@ O progresso do provisionamento pode ser visualizado no portal Azure, no **separa
 
 Para ver o estado de provisionamento de um utilizador selecionado, consulte os [registos de Provisionamento (pré-visualização)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) em Azure AD. Todas as operações executadas pelo serviço de fornecimento de utilizadores são registadas nos registos de fornecimento de AZure AD. Isto inclui todas as operações de leitura e escrita feitas para os sistemas de origem e alvo, e os dados do utilizador que foram lidos ou escritos durante cada operação.
 
-Pode aceder aos registos de provisionamento no portal Azure selecionando registos de provisionamento de aplicações empresariais do **Azure Ative** &gt; **Enterprise Apps** &gt; **Directory (pré-visualização)** na secção **Atividade.** Pode pesquisar os dados de fornecimento com base no nome do utilizador ou do identificador no sistema de origem ou no sistema alvo. Para mais informações, consulte [registos de provisionamento (pré-visualização)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). 
+Pode aceder aos registos de provisionamento no portal Azure selecionando registos de provisionamento de aplicações empresariais do **Azure Ative** &gt;  &gt; **Directory (pré-visualização)** na secção **Atividade.** Pode pesquisar os dados de fornecimento com base no nome do utilizador ou do identificador no sistema de origem ou no sistema alvo. Para mais informações, consulte [registos de provisionamento (pré-visualização)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). 
 
 Os registos de provisionamento registam todas as operações realizadas pelo serviço de fornecimento, incluindo:
 

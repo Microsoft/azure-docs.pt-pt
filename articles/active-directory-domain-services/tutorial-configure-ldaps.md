@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Configurar LDAPS para Azure Ative Directory Domain Services / Microsoft Docs
+title: Tutorial - Configurar LDAPS para Azure Ative Directory Domain Services | Microsoft Docs
 description: Neste tutorial, você aprende a configurar o protocolo de acesso de diretório leve seguro (LDAPS) para um domínio gerido Azure Ative Directory Domain Services.
 author: justinha
 manager: daveba
@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: justinha
-ms.openlocfilehash: d5dbb7b71e2d67ed5b3f624c93c3c143d6c98e5d
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 6da1d285440daa5d1d5a230905a77057728d4ae6
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96618540"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99256546"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Configurar LDAP seguro para um domínio gerido por Azure Ative Directory Domain Services
 
@@ -213,6 +213,12 @@ Demora alguns minutos a ativar o LDAP seguro para o seu domínio gerido. Se o ce
 
 Algumas razões comuns para a falha são se o nome de domínio estiver incorreto, o algoritmo de encriptação do certificado não é *TripleDES-SHA1*, ou o certificado expira em breve ou já expirou. Pode recriar o certificado com parâmetros válidos e, em seguida, ativar lDAP seguro utilizando este certificado atualizado.
 
+## <a name="change-an-expiring-certificate"></a>Alterar um certificado de caducidade
+
+1. Crie um certificado LDAP seguro de substituição seguindo as etapas para [criar um certificado para LDAP seguro](#create-a-certificate-for-secure-ldap).
+1. Para aplicar o certificado de substituição ao Azure AD DS, no menu esquerdo para Azure AD DS no portal Azure, selecione **Secure LDAP** e, em seguida, selecione **Alterar o Certificado**.
+1. Distribua o certificado a todos os clientes que se conectem utilizando LDAP seguro. 
+
 ## <a name="lock-down-secure-ldap-access-over-the-internet"></a>Bloqueie o acesso seguro do LDAP através da internet
 
 Quando ativa o acesso seguro do LDAP através da internet ao seu domínio gerido, cria uma ameaça à segurança. O domínio gerido é acessível a partir da internet na porta TCP 636. Recomenda-se restringir o acesso ao domínio gerido a endereços IP conhecidos específicos para o seu ambiente. Uma regra do grupo de segurança da rede Azure pode ser usada para limitar o acesso a LDAP seguro.
@@ -280,7 +286,7 @@ Para ver os objetos armazenados no seu domínio gerido:
 
 Para consultar diretamente um recipiente específico, a partir do menu **View > Tree,** pode especificar um **BaseDN** como *OU=AADDC Users,DC=AADDSCONTOSO,DC=COM* ou *OU=AADDC Computers,DC=AADDSCONTOSO,DC=COM*. Para obter mais informações sobre como formatar e criar consultas, consulte o [básico da consulta LDAP][ldap-query-basics].
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se adicionar uma entrada de DNS ao ficheiro de anfitriões locais do seu computador para testar a conectividade para este tutorial, remova esta entrada e adicione um registo formal na sua zona de DNS. Para remover a entrada do ficheiro dos anfitriões locais, complete os seguintes passos:
 

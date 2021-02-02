@@ -3,7 +3,7 @@ title: Compreenda o sign-on único baseado em SAML (SSO) para aplicações no Az
 description: Compreenda o sign-on único baseado em SAML (SSO) para aplicações no Azure Ative Directory
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
@@ -11,19 +11,19 @@ ms.workload: identity
 ms.date: 07/28/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 32e654f002e3ba0c8bf72fb781b32d9098d83c00
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: f6422c3f751a7aaa430b93ee68ca1a3520ac915f
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219849"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257697"
 ---
 # <a name="understand-saml-based-single-sign-on"></a>Compreenda o sign-on único baseado em SAML
 
 Na [série quickstart](view-applications-portal.md) sobre gestão de aplicações, aprendeu a usar a Azure AD como Fornecedor de Identidade (IdP) para uma aplicação. Este artigo entra em mais detalhes sobre a opção baseada em SAML para um único sign-on. 
 
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 A utilização do Azure AD como seu Fornecedor de Identidade (IdP) e configurar um único sign-on (SSO) pode ser simples ou complexo dependendo da aplicação que está a ser utilizada. Algumas aplicações podem ser configuradas com apenas algumas ações. Outros requerem uma configuração aprofundada. Para aumentar rapidamente o conhecimento, caminhe pela [série quickstart](view-applications-portal.md) sobre gestão de aplicações. Se a aplicação que está a adicionar é simples, então provavelmente não precisa ler este artigo. Se a aplicação que está a adicionar requer uma configuração personalizada para SSO baseado em SAML, então este artigo é para si.
 
@@ -44,7 +44,7 @@ Deve obter os valores do vendedor de aplicações. Pode introduzir manualmente o
 > [!TIP]
 > Muitas aplicações já foram pré-configuradas para trabalhar com a Azure AD. Estas aplicações estão listadas na galeria de aplicações que pode navegar quando adiciona uma aplicação ao seu inquilino AZure AD. A [série quickstart](add-application-portal-setup-sso.md) acompanha-o através do processo. Para as aplicações na galeria encontrará instruções detalhadas, passo a passo. Para aceder aos passos pode clicar no link na página de configuração SAML para a aplicação descrita na série quickstart ou pode navegar numa lista de todos os tutoriais de configuração de aplicações em tutoriais de configuração de [aplicações SaaS.](../saas-apps/tutorial-list.md)
 
-| Definição básica de configuração SAML | Iniciado pelo SP | Iniciado pelo idP | Description |
+| Definição básica de configuração SAML | Iniciado pelo SP | Iniciado pelo idP | Descrição |
 |:--|:--|:--|:--|
 | **Identificador (ID de Entidade)** | Necessário para algumas aplicações | Necessário para algumas aplicações | Identifica exclusivamente a aplicação. A Azure AD envia o identificador para a aplicação como parâmetro do Público do token SAML. Espera-se que o pedido o valide. Este valor também aparece como o ID da Entidade nos metadados SAML que a aplicação fornece. Introduza um URL que utilize o seguinte padrão: 'https:// <subdomain> .contoso.com' *Pode encontrar este valor como elemento **emitente** no **pedido AuthnRequest** (pedido SAML) enviado pela aplicação.* |
 | **URL de resposta** | Necessário | Necessário | Especifica onde é que a aplicação espera receber o token SAML. O URL de resposta também é denominado URL do Serviço de Consumidor de Asserções (ACS). Pode utilizar os campos URL de resposta adicionais para especificar URLs de resposta múltipla. Por exemplo, pode precisar de URLs de resposta adicionais para vários subdomínios. Ou, para efeitos de teste, pode especificar URLs de resposta múltipla (hospedeiro local e URLs públicos) de uma só vez. |

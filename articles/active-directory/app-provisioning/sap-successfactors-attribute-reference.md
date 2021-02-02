@@ -3,7 +3,7 @@ title: SAP SuccessFactors atribuem referência
 description: Saiba quais atributos de SuccessFactors são suportados pelo Fornecimento orientado pelo SuccessFactors-HR
 services: active-directory
 author: cmmdesai
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 08/05/2020
 ms.author: chmutali
 ms.reviewer: celested
-ms.openlocfilehash: ef2da377c7720cfb7b431d1ce0fed56656a2b8c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d1a25f67d3550e79b2339ee060d37acaea0c1c4
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87808512"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255547"
 ---
 # <a name="sap-successfactors-attribute-reference"></a>SAP SuccessFactors atribuem referência
 
@@ -34,7 +34,7 @@ A tabela abaixo captura a lista de atributos SuccessFactors incluídos por padr�
 
 Consulte a referência de [integração SAP SuccessFactors](./sap-successfactors-integration-reference.md#retrieving-additional-attributes) para estender o esquema para atributos adicionais. 
 
-| \# | Entidade de SucessoFactors                  | Atributo SuccessFactors     | Tipo de operação |
+| \# | Entidade de SucessoFactors                  | Atributo SuccessFactors     | Tipo de Operação |
 |----|----------------------------------------|------------------------------|----------------|
 | 1  | PerPerson                              | personIdExternal             | Ler           |
 | 2  | PerPerson                              | personId                     | Ler           |
@@ -45,35 +45,35 @@ Consulte a referência de [integração SAP SuccessFactors](./sap-successfactors
 | 7  | PerPersonal                            | apelido                     | Ler           |
 | 8  | PerPersonal                            | nome médio                   | Ler           |
 | 9  | PerPersonal                            | nome preferido                | Ler           |
-| 10 | Utilizador                                   | endereçoLine1                 | Ler           |
-| 11 | Utilizador                                   | endereçoLine2                 | Ler           |
-| 12 | Utilizador                                   | endereçoLIne3                 | Ler           |
-| 13 | Utilizador                                   | businessPhone                | Ler           |
-| 14 | Utilizador                                   | telemóvelPhone                    | Ler           |
-| 15 | Utilizador                                   | city                         | Ler           |
-| 16 | Utilizador                                   | país                      | Ler           |
-| 17 | Utilizador                                   | custom01                     | Ler           |
-| 18 | Utilizador                                   | personalizado02                     | Ler           |
-| 19 | Utilizador                                   | personalizado03                     | Ler           |
-| 20 | Utilizador                                   | custom04                     | Ler           |
-| 21 | Utilizador                                   | personalizado05                     | Ler           |
-| 22 | Utilizador                                   | custom06                     | Ler           |
-| 23 | Utilizador                                   | custom07                     | Ler           |
-| 24 | Utilizador                                   | personalizado08                     | Ler           |
-| 25 | Utilizador                                   | custom09                     | Ler           |
-| 26 | Utilizador                                   | personalizado10                     | Ler           |
-| 27 | Utilizador                                   | custom11                     | Ler           |
-| 28 | Utilizador                                   | custom12                     | Ler           |
-| 29 | Utilizador                                   | custom13                     | Ler           |
-| 30 | Utilizador                                   | custom14                     | Ler           |
-| 31 | Utilizador                                   | empId                        | Ler           |
-| 32 | Utilizador                                   | homePhone                    | Ler           |
-| 33 | Utilizador                                   | trabalhoFímil                    | Ler           |
-| 34 | Utilizador                                   | apelido                     | Ler           |
-| 35 | Utilizador                                   | state                        | Ler           |
-| 36 | Utilizador                                   | timeZone                     | Ler           |
-| 37 | Utilizador                                   | nome de utilizador                     | Ler           |
-| 38 | Utilizador                                   | zipCode                      | Ler           |
+| 10 | User                                   | endereçoLine1                 | Ler           |
+| 11 | User                                   | endereçoLine2                 | Ler           |
+| 12 | User                                   | endereçoLIne3                 | Ler           |
+| 13 | User                                   | businessPhone                | Ler           |
+| 14 | User                                   | telemóvelPhone                    | Ler           |
+| 15 | User                                   | city                         | Ler           |
+| 16 | User                                   | país                      | Ler           |
+| 17 | User                                   | custom01                     | Ler           |
+| 18 | User                                   | personalizado02                     | Ler           |
+| 19 | User                                   | personalizado03                     | Ler           |
+| 20 | User                                   | custom04                     | Ler           |
+| 21 | User                                   | personalizado05                     | Ler           |
+| 22 | User                                   | custom06                     | Ler           |
+| 23 | User                                   | custom07                     | Ler           |
+| 24 | User                                   | personalizado08                     | Ler           |
+| 25 | User                                   | custom09                     | Ler           |
+| 26 | User                                   | personalizado10                     | Ler           |
+| 27 | User                                   | custom11                     | Ler           |
+| 28 | User                                   | custom12                     | Ler           |
+| 29 | User                                   | custom13                     | Ler           |
+| 30 | User                                   | custom14                     | Ler           |
+| 31 | User                                   | empId                        | Ler           |
+| 32 | User                                   | homePhone                    | Ler           |
+| 33 | User                                   | trabalhoFímil                    | Ler           |
+| 34 | User                                   | apelido                     | Ler           |
+| 35 | User                                   | state                        | Ler           |
+| 36 | User                                   | timeZone                     | Ler           |
+| 37 | User                                   | nome de utilizador                     | Ler           |
+| 38 | User                                   | zipCode                      | Ler           |
 | 39 | PerPhone                               | areaCode                     | Ler           |
 | 40 | PerPhone                               | paísDesco                  | Ler           |
 | 41 | PerPhone                               | extensão                    | Ler           |
@@ -127,12 +127,12 @@ A tabela abaixo fornece o mapeamento de atributos padrão entre atributos Succes
 | 3  | PerPersonal                            | displayName              | displayName                             | ND                                                                                           |
 | 4  | PerPersonal                            | nomePróprio                | nomeDado                               | ND                                                                                           |
 | 5  | PerPersonal                            | apelido                 | sn                                      | ND                                                                                           |
-| 6  | Utilizador                                   | endereçoLine1             | streetAddress                           | ND                                                                                           |
-| 7  | Utilizador                                   | city                     | l                                       | ND                                                                                           |
-| 8  | Utilizador                                   | país                  | co                                      | ND                                                                                           |
-| 9  | Utilizador                                   | state                    | SC                                      | ND                                                                                           |
-| 10 | Utilizador                                   | nome de utilizador                 | NomeContaSam                          | ND                                                                                           |
-| 11 | Utilizador                                   | zipCode                  | código postal                              | ND                                                                                           |
+| 6  | User                                   | endereçoLine1             | streetAddress                           | ND                                                                                           |
+| 7  | User                                   | city                     | l                                       | ND                                                                                           |
+| 8  | User                                   | país                  | co                                      | ND                                                                                           |
+| 9  | User                                   | state                    | SC                                      | ND                                                                                           |
+| 10 | User                                   | nome de utilizador                 | NomeContaSam                          | ND                                                                                           |
+| 11 | User                                   | zipCode                  | postalCode                              | ND                                                                                           |
 | 12 | Peremail                               | e-mailAddress             | correio                                    | ND                                                                                           |
 | 13 | EmpJob                                 | jobTitle                 | título                                   | ND                                                                                           |
 | 14 | EmpJob                                 | managerId                | gestor                                 | ND                                                                                           |
@@ -140,5 +140,5 @@ A tabela abaixo fornece o mapeamento de atributos padrão entre atributos Succes
 | 16 | Departamento de EmpJob \.                     | departamento               | departamento                              | ND                                                                                           |
 | 17 | Divisão EmpJob \.                       | divisão                 | empresa                                 | ND                                                                                           |
 | 18 | Localização empJob \.                       | officeLocationAddress    | streetAddress                           | ND                                                                                           |
-| 19 | Localização empJob \.                       | officeLocationZipCode    | código postal                              | ND                                                                                           |
+| 19 | Localização empJob \.                       | officeLocationZipCode    | postalCode                              | ND                                                                                           |
 | 20 | EmpEmploymentTermination               | activeEmpresocount   | accountEnabled                          | se activarEmpregoso=0, desative a conta\.                                           |

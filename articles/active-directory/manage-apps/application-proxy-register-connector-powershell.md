@@ -1,10 +1,10 @@
 ---
-title: Silent instalar conector Proxy app Ad App / Microsoft Docs
+title: Instalação silenciosa Azure AD App Proxy conector | Microsoft Docs
 description: Cobre como realizar uma instalação não acompanhada do Azure AD Application Proxy Connector para fornecer acesso remoto seguro às suas aplicações no local.
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f46071d15db57f64eb60d9267d4081a2b0b74a50
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 0ac442e895850de04bedf7673ffe267ac8697d26
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658439"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258155"
 ---
 # <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>Criar um script de instalação não acompanhado para o conector proxy aplicação AD Azure
 
@@ -206,7 +206,7 @@ Existem dois métodos que pode utilizar para registar o conector:
    .\RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Token -Token $SecureToken -TenantId <tenant GUID> -Feature ApplicationProxy
    ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Publicar aplicações com o seu próprio nome de domínio](application-proxy-configure-custom-domain.md)
 * [Ativar o início de sessão único](application-proxy-configure-single-sign-on-with-kcd.md)
 * [Resolver problemas com o Proxy da Aplicação](application-proxy-troubleshoot.md)

@@ -3,7 +3,7 @@ title: Conceder consentimento administrativo a um pedido - Azure AD
 description: Saiba como conceder o consentimento do inquilino a uma aplicação para que os utilizadores finais não sejam solicitados para o consentimento ao iniciarem a sessão de um pedido.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.date: 11/04/2019
 ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eaf8f92ec2c7d9653595b3249521582620670aaf
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 66a6317b0cb59d656cdb2e402c5ade1b78ed60aa
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99089958"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258325"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>Conceder consentimento de administrador ao nível do inquilino a uma aplicação
 

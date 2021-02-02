@@ -3,7 +3,7 @@ title: Planeie a aplicação de RH em nuvem para o provisionamento do utilizador
 description: Este artigo descreve o processo de implementação de sistemas de RH em nuvem, tais como Workday e SuccessFactors, com O Diretório Ativo Azure. A integração do Azure AD com o seu sistema de RH em nuvem resulta num sistema completo de gestão do ciclo de vida da identidade.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 64418a727ecb9a300912a4766a9ea2066328ad31
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 9c896d4cccf898b8818b4c363c5bc891a8734ca5
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96174905"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99256716"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planeie a aplicação de RH em nuvem para o provisionamento do utilizador do Azure Ative Directory
 

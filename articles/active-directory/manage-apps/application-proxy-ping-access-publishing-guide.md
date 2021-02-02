@@ -3,7 +3,7 @@ title: Autenticação baseada em cabeçalho com PingAccess para Proxy de Aplica�
 description: Publique aplicações com PingAccess e App Proxy para suportar a autenticação baseada em cabeçalho.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: e09bb0b07112a962b709c380c48f2a656c16097b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 128e053016faf3ed2a9c53ad21f35a13f3ac1265
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94663727"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258172"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Autenticação baseada em cabeçalho para início de sessão único com o Proxy de Aplicações e PingAccess
 
@@ -112,7 +112,7 @@ Agora atribua um utilizador para testes de aplicação e escolha um único sinal
 
 Em seguida, certifique-se de que o url de redirecionamento está definido para o seu URL externo:
 
-1. A partir da barra lateral do centro do **diretório Azure Ative,** selecione as inscrições da **App Azure Ative Directory**  >  **App registrations**. Aparece uma lista de candidaturas.
+1. A partir da barra lateral do centro do **diretório Azure Ative,** selecione as inscrições da **App Azure Ative Directory**  >  . Aparece uma lista de candidaturas.
 1. Selecione a sua candidatura.
 1. Selecione o link ao lado **de Redirecionar URIs,** mostrando o número de URIs de redirecionamento configurado para clientes web e público. A página **\<application name> - Autenticação** aparece.
 1. Verifique se o URL externo que atribuiu à sua aplicação anteriormente está na lista **de URIs de redirecionamento.** Se não for, adicione agora o URL externo, utilizando um tipo URI de redirecionamento de **Web,** e selecione **Save**.
@@ -128,8 +128,8 @@ Por fim, crie a sua aplicação no local para que os utilizadores tenham lido o 
 
    ![Mostra a página de permissões da API do Pedido](./media/application-proxy-configure-single-sign-on-with-ping-access/required-permissions.png)
 
-1. Selecione **permissões delegadas**  >  **User**  >  **Utilizador.Ler**.
-1. **Selecione Aplicação de permissões** de  >  **aplicação.ReadWrite.All**  >  **Application.ReadWrite.All**.
+1. Selecione **permissões delegadas**  >    >  **Utilizador.Ler**.
+1. **Selecione Aplicação de permissões** de  >  **aplicação.ReadWrite.All**  >  .
 1. **Selecione Permissões de adicionar**.
 1. Na página de permissões da **API,** selecione **o consentimento de administração grant para \<your directory name>**.
 
@@ -139,13 +139,13 @@ Você precisa recolher estas três peças de informação (todos GUIDs) para con
 
 | Nome do campo AD AZure | Nome do campo PingAccess | Formato de dados |
 | --- | --- | --- |
-| **ID da Aplicação (cliente)** | **ID do cliente** | GUID |
+| **ID da Aplicação (cliente)** | **ID de Cliente** | GUID |
 | **ID do Diretório (inquilino)** | **Emitente** | GUID |
 | `PingAccess key` | **Segredo do Cliente** | Corda aleatória |
 
 Para recolher esta informação:
 
-1. A partir da barra lateral do centro do **diretório Azure Ative,** selecione as inscrições da **App Azure Ative Directory**  >  **App registrations**. Aparece uma lista de candidaturas.
+1. A partir da barra lateral do centro do **diretório Azure Ative,** selecione as inscrições da **App Azure Ative Directory**  >  . Aparece uma lista de candidaturas.
 1. Selecione a sua candidatura. Aparece a página **de registos da App** para a sua aplicação.
 
    ![Visão geral do registo de um pedido](./media/application-proxy-configure-single-sign-on-with-ping-access/registration-overview-for-an-application.png)
@@ -226,7 +226,7 @@ Esses passos ajudam-no a instalar o PingAccess e a criar uma conta PingAccess (s
 
 Quando completar todos estes passos, a sua candidatura deve estar a funcionar. Para testá-lo, abra um navegador e navegue para o URL externo que criou quando publicou a aplicação no Azure. Inscreva-se na conta de teste que atribuiu à aplicação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Configure PingAccess para Azure AD para proteger aplicações publicadas usando o Microsoft Azure AD Application Proxy](https://docs.pingidentity.com/bundle/pingaccess-60/page/jep1564006742933.html)
 - [Inscrição única para aplicações no Azure Ative Directory](what-is-single-sign-on.md)

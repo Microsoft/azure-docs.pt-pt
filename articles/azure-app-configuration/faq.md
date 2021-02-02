@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: alkemper
-ms.openlocfilehash: 4e19574e5848d1ee86d13aa02a9cf583b92eff02
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 39ad20bd57e3da6345c63d4601f34b19e640c1d6
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96929570"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99256480"
 ---
 # <a name="azure-app-configuration-faq"></a>Azure App Configuration FAQ
 
@@ -105,7 +105,7 @@ Não se pode desvalorizar uma loja do nível Standard para o nível Free. Pode c
 
 ## <a name="are-there-any-limits-on-the-number-of-requests-made-to-app-configuration"></a>Existem limites ao número de pedidos feitos à Configuração de Aplicações?
 
-As lojas de configuração no nível Livre estão limitadas a 1.000 pedidos por dia. As lojas de configuração no nível Standard podem sofrer um estrangulamento temporário quando a taxa de pedido exceder 20.000 pedidos por hora.
+Na Configuração da Aplicação, ao ler valores-chave, os dados serão paginados e cada pedido pode ler até 100 valores-chave. Ao escrever valores-chave, cada pedido pode criar ou atualizar um valor-chave. Isto é suportado através dos PROVEDORes de API, Configuração de Aplicações e Fornecedores de configuração REST. As lojas de configuração no nível Livre estão limitadas a 1.000 pedidos por dia. As lojas de configuração no nível Standard podem sofrer um estrangulamento temporário quando a taxa de pedido exceder 20.000 pedidos por hora.
 
 Quando uma loja atingir o seu limite, devolverá o código de estado HTTP 429 para todos os pedidos feitos até ao termo do prazo. O `retry-after-ms` cabeçalho na resposta dá um tempo de espera sugerido (em milissegundos) antes de voltar a tentar o pedido.
 

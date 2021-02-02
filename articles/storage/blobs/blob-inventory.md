@@ -10,12 +10,12 @@ ms.author: mhopkins
 ms.reviewer: yzheng
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 86ded3dea819702631b1fa04dbc56f727566fc98
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: a41966c2b3ba73d7b68399b1b99d14313e220833
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602687"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257816"
 ---
 # <a name="use-azure-storage-blob-inventory-to-manage-blob-data-preview"></a>Utilize o inventário de bolhas de armazenamento Azure para gerir dados blob (pré-visualização)
 
@@ -32,6 +32,8 @@ A pré-visualização do inventário blob está disponível nas contas de armaze
 - França Central
 - Canadá Central
 - Leste do Canadá
+- E.U.A. Leste
+- E.U.A. Leste 2
 
 ### <a name="pricing-and-billing"></a>Preços e faturação
 
@@ -57,7 +59,7 @@ Ativar os relatórios de inventário blob adicionando uma política à sua conta
 As políticas de inventário são lidas ou escritas na íntegra. Atualizações parciais não são suportadas.
 
 > [!IMPORTANT]
-> Se ativar as regras de firewall para a sua conta de armazenamento, os pedidos de inventário podem ser bloqueados. Pode desbloquear estes pedidos fornecendo exceções para serviços de confiança da Microsoft. Para obter mais informações, consulte a secção Exceções em [firewalls Configure e redes virtuais.](../common/storage-network-security.md#exceptions)
+> Se ativar regras da firewall na conta de armazenamento, os pedidos de inventário poderão ser bloqueados. Pode desbloquear estes pedidos ao indicar exceções para serviços Microsoft fidedignos. Para obter mais informações, consulte a secção Exceções em [firewalls Configure e redes virtuais.](../common/storage-network-security.md#exceptions)
 
 Uma execução de inventário de bolhas é automaticamente programada todos os dias. Pode levar até 24 horas para uma execução de inventário para completar. Um relatório de inventário é configurado adicionando uma política de inventário com uma ou mais regras.
 
@@ -87,7 +89,7 @@ Consulte o JSON para obter uma política de inventário selecionando o separador
 
 | Nome do parâmetro | Tipo de parâmetro        | Notas | Necessário? |
 |----------------|-----------------------|-------|-----------|
-| destino    | Cadeia                | O contentor de destino onde todos os ficheiros de inventário serão gerados. O contentor de destino já deve existir. | Sim |
+| destino    | String                | O contentor de destino onde todos os ficheiros de inventário serão gerados. O contentor de destino já deve existir. | Sim |
 | ativado        | Booleano               | Usado para desativar toda a apólice. Quando definido como **verdadeiro,** o campo ativado pelo nível de regra sobrepõe-se a este parâmetro. Quando desativado, o inventário para todas as regras será desativado. | Sim |
 | regras          | Matriz de objetos de regra | Pelo menos uma regra é necessária numa política. Até 10 regras são apoiadas. | Sim |
 
@@ -99,7 +101,7 @@ Cada regra dentro da política tem vários parâmetros:
 
 | Nome do parâmetro | Tipo de parâmetro                 | Notas | Necessário? |
 |----------------|--------------------------------|-------|-----------|
-| name           | Cadeia                         | Um nome de regra pode incluir até 256 caracteres alfanuméricos sensíveis a casos. O nome deve ser único dentro de uma política. | Sim |
+| name           | String                         | Um nome de regra pode incluir até 256 caracteres alfanuméricos sensíveis a casos. O nome deve ser único dentro de uma política. | Sim |
 | ativado        | Booleano                        | Uma bandeira que permite ativar ou desativar uma regra. O valor predefinido é **verdadeiro.** | Sim |
 | definição     | Definição de regra de inventário JSON | Cada definição é composta por um conjunto de filtro de regras. | Sim |
 
@@ -198,6 +200,6 @@ Evento da amostra:
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Gerir o ciclo de vida do Armazenamento Azure Blob](storage-lifecycle-management-concepts.md)

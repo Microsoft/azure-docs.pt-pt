@@ -1,23 +1,23 @@
 ---
-title: Resolução de problemas SINL único sinal de insusição no Azure Ative Directory
+title: Resolver problemas de início de sessão único baseado em SAML no Azure Active Directory
 description: Problemas de resolução de problemas com uma aplicação AD AZure que está configurada para um único sign-on baseado em SAML.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
-ms.openlocfilehash: 2e8508d4fceb1e7fb580350c726dd70eeaea31c6
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: b169616042892c379196dd1d38c2343704aa1030
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658881"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257531"
 ---
-# <a name="troubleshoot-saml-based-single-sign-on-in-azure-active-directory"></a>Resolução de problemas SINL único sinal de insusição no Azure Ative Directory
+# <a name="troubleshoot-saml-based-single-sign-on-in-azure-active-directory"></a>Resolver problemas de início de sessão único baseado em SAML no Azure Active Directory
 Se encontrar um problema ao configurar uma aplicação. Verifique se seguiu todos os passos do tutorial para a aplicação. Na configuração da aplicação, tem documentação em linha sobre como configurar a aplicação. Além disso, pode aceder à [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Ative Directory](../saas-apps/tutorial-list.md) para uma orientação detalhada passo a passo.
 
 ## <a name="cant-add-another-instance-of-the-application"></a>Não posso adicionar outro exemplo da aplicação
@@ -69,8 +69,8 @@ Para descarregar os metadados ou certificados da aplicação a partir da Azure A
 
 A Azure AD não fornece um URL para obter os metadados. Os metadados só podem ser recuperados como um ficheiro XML.
 
-## <a name="customize-saml-claims-sent-to-an-application"></a>Personalizar reclamações da SAML enviadas para uma aplicação
+## <a name="customize-saml-claims-sent-to-an-application"></a>Personalizar afirmações do SAML enviadas para uma aplicação
 Para saber como personalizar as reclamações de atributos SAML enviadas para a sua aplicação, consulte [o mapeamento de Reclamações no Azure Ative Diretório](../develop/active-directory-claims-mapping.md) para obter mais informações.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Quickstart Series em Gestão de Aplicações](view-applications-portal.md)

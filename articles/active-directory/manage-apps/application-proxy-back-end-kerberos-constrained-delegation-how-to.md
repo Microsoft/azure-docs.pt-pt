@@ -3,7 +3,7 @@ title: Resolução de problemas Kerberos restrita delegação - App Proxy
 description: Resolução de problemas Configurações da delegação restrita kerberos para procuração de aplicação
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,14 +11,14 @@ ms.topic: troubleshooting
 ms.date: 04/23/2019
 ms.author: kenwith
 ms.reviewer: asteen, japere
-ms.openlocfilehash: c28e79c9a6f8c489a97d360c4fe142d431b5ab5d
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 65d68924fbc3a777ef7ef59d2532a1ae20e23c48
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656552"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258223"
 ---
-# <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Resolução de problemas Kerberos limitou configurações da delegação para aplicação proxy
+# <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Resolver problemas de configurações de delegação restrita do Kerberos para o Proxy de Aplicações
 
 Os métodos disponíveis para a obtenção de SSO para aplicações publicadas podem variar de uma aplicação para outra. Uma opção que o Azure Ative Directory (Azure AD) Application Proxy oferece por padrão é a delegação restrita kerberos (KCD). Pode configurar um conector, para os seus utilizadores, para executar a autenticação Kerberos restrita para aplicações de back-end.
 
@@ -163,6 +163,6 @@ Se ainda não conseguir fazer progressos, o suporte da Microsoft pode ajudá-lo.
 - A Azure Application Proxy solicita um bilhete Kerberos antes de enviar o seu pedido para um pedido. Algumas aplicações de terceiros não gostam deste método de autenticação. Estas aplicações esperam que as negociações mais convencionais se realizem. O primeiro pedido é anónimo, o que permite que a aplicação responda com os tipos de autenticação que suporta através de um 401. Este tipo de negociação kerberos pode ser habilitado utilizando as etapas descritas neste documento: [Kerberos Delegação Restrita para uma única assinatura](application-proxy-configure-single-sign-on-with-kcd.md).
 - A autenticação multi-hop é comumente usada em cenários onde uma aplicação é hierárquica, com uma extremidade traseira e extremidade frontal, onde ambos requerem autenticação, como os SqL Server Reporting Services. Para configurar o cenário multi-hop, consulte o artigo [Dedesema restrita de Kerberos pode exigir transição de protocolo em cenários multi-hop](https://support.microsoft.com/help/2005838/kerberos-constrained-delegation-may-require-protocol-transition-in-mul).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Configure o KCD num domínio gerido](../../active-directory-domain-services/deploy-kcd.md).

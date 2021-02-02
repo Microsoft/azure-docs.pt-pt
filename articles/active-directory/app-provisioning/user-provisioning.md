@@ -3,7 +3,7 @@ title: O que é automatizado fornecimento de utilizadores de aplicativos SaaS em
 description: Uma introdução à forma como pode utilizar o Azure AD para provisões automáticas, desavisionamento e atualização contínua de contas de utilizadores através de várias aplicações SaaS de terceiros.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: overview
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 01/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh, celested
-ms.openlocfilehash: c15e92a28de55e5e8bc331fb4398790984439a01
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: cb2c168786ee4cb14f93544d4cd9632b86ba5156
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98107434"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255530"
 ---
 # <a name="what-is-automated-saas-app-user-provisioning-in-azure-ad"></a>O que é o fornecimento automatizado de utilizadores de aplicações SaaS em Azure AD?
 

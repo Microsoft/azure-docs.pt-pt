@@ -3,7 +3,7 @@ title: Reportar provisão automática de conta de utilizador às aplicações do
 description: Saiba como verificar o estado do fornecimento automático de postos de trabalho na conta de utilizador e como resolver o fornecimento de utilizadores individuais.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/09/2018
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 3dcbb2567b9a92ea7d806acedb5d1cc6a31a966e
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: e6839026c83a10a4acebd7b7a6ab55b210e7ef14
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92069811"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99256682"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Tutorial: Relatório sobre o provisionamento automático da conta de utilizador
 
@@ -24,7 +24,7 @@ O Azure Ative Directory (Azure AD) inclui um serviço de [fornecimento de conta 
 
 Este artigo descreve como verificar o estado do provisionamento de postos de trabalho após a sua criação e como resolver os problemas de provisionamento de utilizadores e grupos individuais.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Os conectores de provisionamento são configurados e configurados através do [portal Azure,](https://portal.azure.com)seguindo a [documentação fornecida](../saas-apps/tutorial-list.md) para a aplicação suportada. Uma vez configurados e em funcionamento, os postos de trabalho de provisionamento podem ser comunicados através de um de dois métodos:
 
@@ -57,11 +57,11 @@ A [barra de provisão para progressos](application-provisioning-when-will-provis
 
 O **Estado Atual** deve ser o primeiro local onde os administradores procuram verificar a saúde operacional do trabalho de a provisionamento.
 
- ![Relatório sumário](./media/check-status-user-account-provisioning/provisioning-progress-bar-section.png)
+ ![Relatório sumário](./media/check-status-user-account-provisioning/provisioning-progress-bar-section.png)
 
 ## <a name="provisioning-logs-preview"></a>Registos de provisionamento (pré-visualização)
 
-Todas as atividades realizadas pelo serviço de fornecimento são registadas nos [registos de provisionamento](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context)Azure AD . Pode aceder aos registos de provisionamento no portal Azure selecionando registos de provisionamento de aplicações empresariais do **Azure Ative** &gt; **Enterprise Apps** &gt; **Directory (pré-visualização)** na secção **Atividade.** Pode pesquisar os dados de fornecimento com base no nome do utilizador ou do identificador no sistema de origem ou no sistema alvo. Para mais informações, consulte [registos de provisionamento (pré-visualização)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). Os tipos de eventos de atividade registados incluem:
+Todas as atividades realizadas pelo serviço de fornecimento são registadas nos [registos de provisionamento](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context)Azure AD . Pode aceder aos registos de provisionamento no portal Azure selecionando registos de provisionamento de aplicações empresariais do **Azure Ative** &gt;  &gt; **Directory (pré-visualização)** na secção **Atividade.** Pode pesquisar os dados de fornecimento com base no nome do utilizador ou do identificador no sistema de origem ou no sistema alvo. Para mais informações, consulte [registos de provisionamento (pré-visualização)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). Os tipos de eventos de atividade registados incluem:
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 

@@ -3,7 +3,7 @@ title: Provisionar um utilizador a pedido utilizando o Azure Ative Directory
 description: Sincronização de força
 services: active-directory
 author: msmimart
-manager: CelesteDG
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/01/2020
 ms.author: mimart
 ms.reviewer: arvinh
-ms.openlocfilehash: f7cbe9e9f81b3b71ee7da2feac2908c36f1777e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be03a149f34c16621905081a2f9bb663d85bc53c
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629017"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255666"
 ---
 # <a name="on-demand-provisioning"></a>Aprovisionamento a pedido
 Utilize o provisionamento a pedido para doar um utilizador numa aplicação em segundos. Entre outras coisas, pode utilizar esta capacidade para:
@@ -124,7 +124,7 @@ Finalmente, o serviço de prestação de serviços toma medidas, tais como criar
 
 Aqui está um exemplo do que você pode ver após o bem sucedido fornecimento a pedido de um utilizador:
 
-:::image type="content" source="media/provision-on-demand/success-on-demand-provision.jpg" alt-text="Screenshot que mostra o portal Azure UI para o fornecimento de um utilizador a pedido.":::
+:::image type="content" source="media/provision-on-demand/success-on-demand-provision.jpg" alt-text="Screenshot que mostra o fornecimento a pedido bem sucedido de um utilizador.":::
 
 #### <a name="view-details"></a>Ver detalhes
 

@@ -3,7 +3,7 @@ title: Construa um ponto final SCIM para o fornecimento de utilizadores a apps d
 description: O sistema de gestão de identidade de domínio cruzado (SCIM) normaliza o fornecimento automático do utilizador. Aprenda a desenvolver um ponto final SCIM, integre a sua API SCIM com o Azure Ative Directory e comece a automatizar utilizadores e grupos de provisionamento nas suas aplicações em nuvem com o Azure Ative Directory.
 services: active-directory
 author: kenwith
-manager: CelesteDG
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/27/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 34fa76197c4e08cffd1d8c66d6877b3e427e9fd6
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 6b7451b0d664995a6b647f7926d856b0db6090d8
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98918149"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99256107"
 ---
 # <a name="tutorial-develop-a-sample-scim-endpoint"></a>Tutorial: Desenvolver uma amostra scim ponto final
 
