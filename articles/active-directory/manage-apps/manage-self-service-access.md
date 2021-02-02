@@ -1,10 +1,10 @@
 ---
-title: Como configurar a atribuição de aplicações de self-service / Microsoft Docs
+title: Como configurar a atribuição de aplicações de autosserviço | Microsoft Docs
 description: Permitir o acesso a aplicações self-service para permitir que os utilizadores encontrem as suas próprias aplicações
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 04/20/2020
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfa7530617830de99d752edcf4545300525ddbe8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9742a21cf00733607237c0eaf548f96b434abb33
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997465"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99260219"
 ---
 # <a name="how-to-configure-self-service-application-assignment"></a>Como configurar a atribuição de aplicações de autosserviço
 
@@ -59,23 +59,23 @@ Para permitir o acesso de aplicações self-service a uma aplicação, siga os p
 
 4. No menu de navegação à esquerda, selecione **Self-service**.
 
-5. Para permitir o acesso a aplicações self-service para esta aplicação, **Yes.** rode o **Allow users to request access to this application?**
+5. Para permitir o acesso a aplicações self-service para esta aplicação,  rode o **Allow users to request access to this application?**
 
-6. Ao lado de qual grupo deve ser **Select group** adicionado **aos utilizadores designados?** Escolha um grupo e, em seguida, clique em **Selecionar**. Quando o pedido de um utilizador for aprovado, eles serão adicionados a este grupo. Ao visualizar a adesão deste grupo, poderá ver quem teve acesso à aplicação através do acesso ao self-service.
+6. Ao lado de qual grupo deve ser adicionado **aos utilizadores designados?** Escolha um grupo e, em seguida, clique em **Selecionar**. Quando o pedido de um utilizador for aprovado, eles serão adicionados a este grupo. Ao visualizar a adesão deste grupo, poderá ver quem teve acesso à aplicação através do acesso ao self-service.
   
     > [!NOTE]
     > Esta definição não suporta grupos sincronizados a partir do local.
 
-7. **Opcional:** Para exigir a aprovação do negócio antes de os utilizadores poderem aceder, detete **a aprovação do Requerimento antes de conceder acesso a esta aplicação?** **Yes**
+7. **Opcional:** Para exigir a aprovação do negócio antes de os utilizadores poderem aceder, detete **a aprovação do Requerimento antes de conceder acesso a esta aplicação?** 
 
-8. **Opcional: Para aplicações que utilizem a palavra-passe de assinatura única apenas,** para permitir que os aprovadores de negócios especifiquem as palavras-passe enviadas para esta aplicação para utilizadores aprovados, detete **os aprovadores de Autorização para definir as palavras-passe do utilizador para esta aplicação?** **Yes**
+8. **Opcional: Para aplicações que utilizem a palavra-passe de assinatura única apenas,** para permitir que os aprovadores de negócios especifiquem as palavras-passe enviadas para esta aplicação para utilizadores aprovados, detete **os aprovadores de Autorização para definir as palavras-passe do utilizador para esta aplicação?** 
 
-9. **Opcional:** Para especificar os aprovadores empresariais que estão autorizados a aprovar o acesso a **Select approvers** esta aplicação, ao lado **de Quem está autorizado a aprovar o acesso a esta aplicação?** Em seguida, clique em **Selecionar**.
+9. **Opcional:** Para especificar os aprovadores empresariais que estão autorizados a aprovar o acesso a esta aplicação, ao lado **de Quem está autorizado a aprovar o acesso a esta aplicação?** Em seguida, clique em **Selecionar**.
 
     >[!NOTE]
     >Os grupos não são apoiados. Pode selecionar até 10 aprovadores de negócios individuais. Se especificar vários aprovadores, qualquer um dos aprovadores pode aprovar um pedido de acesso.
 
-10. **Opcional:** **Para aplicações que expõem funções,** atribuir utilizadores aprovados por autosserviço a uma função, **Select Role** ao lado da **função a que os utilizadores devem ser atribuídos nesta aplicação?** Em seguida, clique em **Selecionar**.
+10. **Opcional:** **Para aplicações que expõem funções,** atribuir utilizadores aprovados por autosserviço a uma função, ao lado da **função a que os utilizadores devem ser atribuídos nesta aplicação?** Em seguida, clique em **Selecionar**.
 
 11. Clique no botão **Guardar** na parte superior do painel para terminar.
 

@@ -1,10 +1,10 @@
 ---
-title: Pedido de consentimento inesperado ao iniciar sessão de candidatura Microsoft Docs
+title: Pedido de consentimento inesperado ao iniciar sessão num | de pedido Microsoft Docs
 description: Como resolver problemas quando um utilizador vê um pedido de consentimento para uma aplicação que integrou com a AD Azure que não esperava
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa74424dddd7577eb942f72f038f5bd56854abac
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 6253458bb31388e5f7e6f84b7720cce0dc22886c
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94648196"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259965"
 ---
 # <a name="unexpected-consent-prompt-when-signing-in-to-an-application"></a>Pedido de consentimento inesperado ao iniciar sessão de candidatura
 
@@ -45,7 +45,7 @@ Podem ser esperadas solicitações adicionais em vários cenários:
 
 * O desenvolvedor configura o pedido para exigir um pedido de consentimento sempre que é usado (nota: esta não é a melhor prática).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 -   [Aplicativos, permissões e consentimento no Azure Ative Directory (v1.0 endpoint)](../develop/quickstart-register-app.md)
 

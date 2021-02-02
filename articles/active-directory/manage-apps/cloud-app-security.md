@@ -3,7 +3,7 @@ title: Visibilidade e controlo da app com a Microsoft Cloud App Security
 description: Aprenda formas de identificar os níveis de risco de aplicação, parar as falhas e fugas em tempo real, e usar conectores de aplicações para aproveitar as APIs do fornecedor para visibilidade e governação.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 02/03/2020
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e3e0c10a7ec6b42420db30955ae4911bca27cc0
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 682549b5b99169060437c8c91d465121002edc6e
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651231"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259609"
 ---
 # <a name="cloud-app-visibility-and-control"></a>Visibilidade e controlo de aplicações na cloud
 
@@ -63,7 +63,7 @@ Os conectores de aplicações utilizam as APIs dos fornecedores de aplicações 
 
 - [Conecte aplicativos em Cloud App Security ](/cloud-app-security/enable-instant-visibility-protection-and-governance-actions-for-your-apps)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Descubra e gere ti sombra na sua rede ](/cloud-app-security/tutorial-shadow-it)
 - [Aplicativos descobertos com Segurança de Aplicações cloud ](/cloud-app-security/discovered-apps)

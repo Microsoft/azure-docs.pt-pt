@@ -1,5 +1,5 @@
 ---
-title: Alta disponibilidade de SAP HANA Scale-up com ANF na RHEL Microsoft Docs
+title: Alta disponibilidade de ESCALA SAP HANA com ANF em | RHEL Microsoft Docs
 description: Estabelecer uma elevada disponibilidade de SAP HANA com ANF em máquinas virtuais Azure (VMs).
 services: virtual-machines-linux
 documentationcenter: ''
@@ -11,14 +11,14 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/16/2020
+ms.date: 02/01/2021
 ms.author: radeltch
-ms.openlocfilehash: cfa68bde2462cefd6f690247cfd1e3bd2e3dbc74
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: b90d703a44cf89961eb0dca02abb1b8ea9cff166
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489212"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259207"
 ---
 # <a name="high-availability-of-sap-hana-scale-up-with-azure-netapp-files-on-red-hat-enterprise-linux"></a>Alta disponibilidade de ESCALA SAP HANA com ficheiros Azure NetApp no Red Hat Enterprise Linux
 
@@ -62,7 +62,7 @@ Quando os passos neste documento são marcados com os seguintes prefixos, o sign
  
 Leia primeiro as seguintes notas e artigos SAP:
 
-- Nota SAP [1928533,](https://launchpad.support.sap.com/#/notes/1928533)que tem:
+- Nota SAP [1928533](https://launchpad.support.sap.com/#/notes/1928533), que tem:
     - A lista de tamanhos Azure VM que são suportados para a implementação de software SAP.
     - Informações importantes sobre a capacidade dos tamanhos Azure VM.
     - O software SAP suportado, e as combinações de sistema operativo (OS) e base de dados.
@@ -91,8 +91,9 @@ Leia primeiro as seguintes notas e artigos SAP:
     - [Instale o SAP HANA no Red Hat Enterprise Linux para utilização no Microsoft Azure.](https://access.redhat.com/solutions/3193782)
     - [Configurar a replicação do sistema de escala SAP HANA quando os sistemas de ficheiros HANA estiverem em ações NFS](https://access.redhat.com/solutions/5156571)
 - [Aplicações NETApp SAP no Microsoft Azure utilizando ficheiros Azure NetApp](https://www.netapp.com/us/media/tr-4746.pdf)
+- [Volumes NFS v4.1 no Azure NetApp Files para SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Tradicionalmente em ambiente de escala, todos os sistemas de ficheiros para SAP HANA são montados a partir do armazenamento local. A criação de alta disponibilidade de replicação do sistema SAP HANA no Red Hat Enterprise Linux é publicada no guia [Configurar a replicação do sistema SAP HANA no RHEL](./sap-hana-high-availability-rhel.md)
 
@@ -239,7 +240,7 @@ Primeiro, tem de criar os volumes dos Ficheiros Azure NetApp. Em seguida, faça 
     1.  Primeiro, crie um pool IP frontal:
         1.  Abra o balançador de carga, selecione **o pool IP frontend** e selecione **Adicionar**.
         1.  Insira o nome do novo pool IP frontal (por exemplo, **hana-frontend).**
-        1.  Desaponda a **Estática** e introduza o endereço IP (por exemplo, **10.32.0.10**). **Static**
+        1.  Desaponda a **Estática** e introduza o endereço IP (por exemplo, **10.32.0.10**). 
         1.  Selecione **OK**.
         1.  Após a criação do novo pool IP frontal, note o endereço IP do pool.
     1.  Em seguida, crie uma piscina traseira:
@@ -268,7 +269,7 @@ Primeiro, tem de criar os volumes dos Ficheiros Azure NetApp. Em seguida, faça 
     1.  Configure o equilibrador de carga. Primeiro, crie um pool IP frontal:
         1.  Abra o balançador de carga, selecione **o pool IP frontend** e selecione **Adicionar**.
         1.  Insira o nome do novo pool IP frontal (por exemplo, **hana-frontend).**
-        1.  Desaponda a **Estática** e introduza o endereço IP (por exemplo, **10.32.0.10**). **Static**
+        1.  Desaponda a **Estática** e introduza o endereço IP (por exemplo, **10.32.0.10**). 
         1.  Selecione **OK**.
         1.  Após a criação do novo pool IP frontal, note o endereço IP do pool.
     1.  Em seguida, crie uma piscina traseira:
@@ -694,3 +695,10 @@ Esta secção descreve como pode testar a sua configuração.
     ```
 
    Recomendamos testar cuidadosamente a configuração do cluster SAP HANA, realizando também os testes descritos na [Replicação do Sistema SAP HANA da Configuração EM RHEL](./sap-hana-high-availability-rhel.md#test-the-cluster-setup).
+
+## <a name="next-steps"></a>Passos seguintes
+
+* [Azure Virtual Machines planejamento e implementação para SAP][planning-guide]
+* [Implantação de máquinas virtuais Azure para SAP][deployment-guide]
+* [Implantação DBMS de máquinas virtuais Azure para SAP][dbms-guide]
+* [Volumes NFS v4.1 no Azure NetApp Files para SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp)

@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 12/10/2020
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: d0d5434de747b48464df1c07f8c7b6a7e785c858
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: c63b71ad00a5621babe07597720a1e9ea87f1e4a
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98070971"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99260253"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como utilizar a Gestão de API do Azure com redes virtuais
 As Redes Virtuais (VNETs) do Azure permitem-lhe colocar quaisquer recursos do Azure numa rede encaminhável sem Internet para a qual controla o acesso. Estas redes podem então ser ligadas às suas redes no local utilizando várias tecnologias VPN. Para saber mais sobre as Redes Virtuais Azure comece com a informação aqui: [Azure Virtual Network Overview](../virtual-network/virtual-networks-overview.md).
@@ -117,7 +117,7 @@ Segue-se uma lista de problemas comuns de configuração errada que podem ocorre
 | * / 443                  | Saída           | TCP                | VIRTUAL_NETWORK / Armazenamento             | **Dependência do Armazenamento Azure**                             | & Internos Externos  |
 | * / 443                  | Saída           | TCP                | VIRTUAL_NETWORK / AzureActiveDirectory | [Azure Ative Directory](api-management-howto-aad.md) e Azure KeyVault dependência                  | & Internos Externos  |
 | * / 1433                     | Saída           | TCP                | VIRTUAL_NETWORK / SQL                 | **Acesso aos pontos finais do Azure SQL**                           | & Internos Externos  |
-| * / 433                     | Saída           | TCP                | VIRTUAL_NETWORK / AzureKeyVault                 | **Acesso ao Azure KeyVault**                           | & Internos Externos  |
+| * / 443                     | Saída           | TCP                | VIRTUAL_NETWORK / AzureKeyVault                 | **Acesso ao Azure KeyVault**                           | & Internos Externos  |
 | * / 5671, 5672, 443          | Saída           | TCP                | VIRTUAL_NETWORK / EventHub            | Dependência da política e do monitor do [Log para o Event Hub](api-management-howto-log-event-hubs.md) | & Internos Externos  |
 | * / 445                      | Saída           | TCP                | VIRTUAL_NETWORK / Armazenamento             | Dependência da Azure File Share para [GIT](api-management-configuration-repository-git.md)                      | & Internos Externos  |
 | * / 443, 12000                     | Saída           | TCP                | VIRTUAL_NETWORK / AzureCloud            | Extensão de Saúde e Monitorização         | & Internos Externos  |
@@ -164,7 +164,7 @@ Segue-se uma lista de problemas comuns de configuração errada que podem ocorre
 
   * Ativar os pontos finais de serviço na sub-rede em que o serviço de Gestão API é implantado. [Os pontos finais][ServiceEndpoints] de serviço precisam de ser ativados para Azure Sql, Azure Storage, Azure EventHub e Azure ServiceBus. Ativar pontos finais diretamente da sub-rede delegada da API Management para estes serviços permite-lhes utilizar a rede de espinha dorsal microsoft Azure, fornecendo o encaminhamento ideal para o tráfego de serviços. Se utilizar os Pontos Finais de Serviço com uma Api Management forçada, o tráfego de serviços acima da Azure não é forçado a fazer um túnel. O outro tráfego de dependência do serviço de gestão da API é forçado a fazer um túnel e não pode ser perdido ou o serviço de Gestão da API não funcionaria corretamente.
     
-  * Todo o tráfego de aviões de controlo da Internet para o ponto final de gestão do seu serviço de Gestão API é encaminhado através de um conjunto específico de IPs de entrada hospedado pela API Management. Quando o tráfego for escavado, as respostas não irão mapear simetricamente para estes IPs de entrada. Para ultrapassar a limitação, precisamos adicionar as seguintes rotas definidas pelo utilizador[(UDRs][UDRs]) para orientar o tráfego de volta para Azure, definindo o destino destas rotas hospedeiras para "Internet". O conjunto de IPs de entrada para controlo tráfego de avião é documentado [Endereços IP do plano de controlo](#control-plane-ips)
+  * Todo o tráfego de aviões de controlo da Internet para o ponto final de gestão do seu serviço de Gestão API é encaminhado através de um conjunto específico de IPs de entrada hospedado pela API Management. Quando o tráfego for for for escavado, as respostas não irão mapear simetricamente para estes IPs de entrada. Para ultrapassar a limitação, precisamos adicionar as seguintes rotas definidas pelo utilizador[(UDRs][UDRs]) para orientar o tráfego de volta para Azure, definindo o destino destas rotas hospedeiras para "Internet". O conjunto de IPs de entrada para controlo tráfego de avião é documentado [Endereços IP do plano de controlo](#control-plane-ips)
 
   * Para outras dependências de serviços de gestão da API que são forçadas a fazer túneis, deve haver uma maneira de resolver o nome de hospedeiro e chegar ao ponto final. Estes incluem
       - Métricas e Monitorização da Saúde
@@ -244,7 +244,7 @@ Os endereços IP são divididos pelo **Azure Environment**. Ao permitir pedidos 
 | Azure Público| Sul da Coreia do Sul| 40.80.232.185|
 | Azure Público| Índia Central| 13.71.49.1|
 | Azure Público| E.U.A. Oeste| 13.64.39.16|
-| Azure Público| Sudeste da Austrália| 20.40.160.107|
+| Azure Público| Austrália Sudeste| 20.40.160.107|
 | Azure Público| Austrália Central| 20.37.52.67|
 | Azure Público| Sul da Índia| 20.44.33.246|
 | Azure Público| E.U.A. Central| 13.86.102.66|

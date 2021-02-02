@@ -3,7 +3,7 @@ title: O que é Azure single sign-on (SSO)?
 description: Saiba como funciona o único sign-on (SSO) com o Azure Ative Directory. Utilize SSO para que os utilizadores não precisem de se lembrar de senhas para cada aplicação. Utilize também o SSO para simplificar a gestão de contas.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 4e27266688e39eadc8ae1f3d9afd84c42e1b524e
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 36025a5a68e4c3d0de1d6b11a13df656c72745d4
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97031662"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99260202"
 ---
 # <a name="what-is-single-sign-on-sso"></a>O que é o Início de Sessão Único (SSO)?
 
@@ -30,7 +30,7 @@ Se você é um administrador, ou profissional de TI, então leia para saber mais
 ## <a name="single-sign-on-basics"></a>Básicos de inscrição única
 O sign-on único dá um grande salto em frente na forma como os utilizadores insinuam e usam aplicações. Os sistemas de autenticação baseados em sinais únicos são muitas vezes chamados de "autenticação moderna". A autenticação moderna e o único sign-on enquadram-se numa categoria de computação chamada Gestão de Identidade e Acesso (IAM). Para entender o que torna possível um único sinal, confira este vídeo.
 
-Fundamentos de autenticação: O básico / Diretório Ativo Azure
+Fundamentos da autenticação: O básico | Diretório Ativo Azure
 
 > [!VIDEO https://www.youtube.com/embed/fbSVgC8nGz4]
 
@@ -39,11 +39,11 @@ As aplicações web são incrivelmente populares. As aplicações web são hospe
 
 Para saber como funciona o único s-on com aplicações web, confira estes dois vídeos.
 
-Fundamentos de autenticação: Aplicações web / Diretório Ativo Azure
+Fundamentos de autenticação: Aplicações web | Diretório Ativo Azure
 
 > [!VIDEO https://www.youtube.com/embed/tCNcG1lcCHY]
 
-Fundamentos de autenticação: Web single sign-on / Diretório Ativo Azure
+Fundamentos de autenticação: Web single sign-on | Diretório Ativo Azure
 
 > [!VIDEO https://www.youtube.com/embed/51B-jSOBF8U]
 
@@ -63,7 +63,7 @@ Também pode utilizar um único sign-on para aplicações baseadas no local. A t
 ## <a name="multiple-identity-providers"></a>Vários fornecedores de identidade
 Quando se faz um único contrato para trabalhar entre vários fornecedores de identidade, chama-se federação. Para saber como funciona a federação, confira este vídeo.
 
-Fundamentos de autenticação: Federação / Diretório Ativo Azure
+Fundamentos da autenticação: Federação | Diretório Ativo Azure
 
 > [!VIDEO https://www.youtube.com/embed/CjarTgjKcX8]
 

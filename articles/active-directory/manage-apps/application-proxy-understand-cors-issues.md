@@ -3,7 +3,7 @@ title: Compreender e resolver problemas de aplicação Azure AD CORS
 description: Fornece uma compreensão do CORS no Azure AD Application Proxy, e como identificar e resolver problemas de CORS.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,14 +11,14 @@ ms.topic: troubleshooting
 ms.date: 05/23/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 8836295e9f54260c4e9ff6c1da333ef2a86d58fb
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: b57fc7e3af99819c9b27b6bc796e501d1db02818
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651860"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259173"
 ---
-# <a name="understand-and-solve-azure-active-directory-application-proxy-cors-issues"></a>Compreender e resolver problemas de aplicação de diretório ativo Azure
+# <a name="understand-and-solve-azure-active-directory-application-proxy-cors-issues"></a>Entender e resolver problemas do CORS do Proxy de Aplicações no AAD
 
 [A partilha de recursos de origem cruzada (CORS)](https://www.w3.org/TR/cors/) pode por vezes apresentar desafios para as aplicações e APIs que publica através do Azure Ative Directory Application Proxy. Este artigo discute questões e soluções de procuração de Azure AD.
 
@@ -42,9 +42,9 @@ A política de origem da mesma origem impede que as aplicações acedam a recurs
 
 Pode identificar problemas de CORS utilizando ferramentas de depuragem de navegador:
 
-1. Lance o navegador e navegue para a aplicação web.
-1. Pressione **f12** para trazer a consola de depurg.
-1. Tente reproduzir a transação e reveja a mensagem da consola. Uma violação do CORS produz um erro de consola sobre a origem.
+1. Inicie o browser e navegue até à aplicação Web.
+1. Prima **F12** para abrir a consola de depuração.
+1. Tente reproduzir a transação e leia a mensagem da consola. Uma violação do CORS produz um erro na consola sobre a origem.
 
 Na imagem seguinte, a seleção do botão **Try It** causou uma mensagem de erro CORS que https: \/ /corswebclient-contoso.msappproxy.net não foi encontrada no cabeçalho Access-Control-Allow-Origin.
 
@@ -112,9 +112,9 @@ Pode alterar a sua aplicação para apoiar o CORS adicionando o cabeçalho Acces
 
 ### <a name="option-5-extend-the-lifetime-of-the-access-token"></a>Opção 5: Prolongar a vida útil do token de acesso
 
-Alguns problemas do CORS não podem ser resolvidos, como quando a sua aplicação redireciona para *login.microsoftonline.com* para autenticar, e o token de acesso expira. A chamada do CORS falha. Uma solução alternativa para este cenário é prolongar a vida útil do token de acesso, para evitar que expire durante a sessão do utilizador. Para obter mais informações sobre como fazê-lo, consulte [as vidas simbólicas em Azure AD](../develop/active-directory-configurable-token-lifetimes.md).
+Alguns problemas do CORS não podem ser resolvidos, como quando a sua aplicação redireciona para *login.microsoftonline.com* para autenticar, e o token de acesso expira. A chamada do CORS falhará. Uma solução para este cenário é prolongar a duração do token de acesso para impedir que expire durante uma sessão do utilizador. Para obter mais informações sobre como fazê-lo, consulte [as vidas simbólicas em Azure AD](../develop/active-directory-configurable-token-lifetimes.md).
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 - [Tutorial: Adicionar uma aplicação no local para acesso remoto através de Aplicação Proxy em Diretório Ativo Azure](application-proxy-add-on-premises-application.md) 
 - [Planear uma implementação do Proxy de Aplicações do Azure AD](application-proxy-deployment-plan.md) 
 - [Acesso remoto a aplicações no local através do Azure Ative Directory Application Proxy](application-proxy.md)

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/14/2020
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: a6a01b3a71a7e391c680e6c9547ccd9649dc0e89
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 4ad619fa5f0fb8f8e87333f2681727dabedda42b
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98605145"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99427355"
 ---
 Esta secção descreve como criar um hub IoT utilizando o [portal Azure](https://portal.azure.com).
 
@@ -35,17 +35,17 @@ Esta secção descreve como criar um hub IoT utilizando o [portal Azure](https:/
 
    [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
 
-   ![Criar um hub no portal Azure](./media/iot-hub-include-create-hub/iot-hub-create-screen-basics.png)
+   :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-create-screen-basics.png" alt-text="Crie um hub no portal Azure.":::
 
 1. Selecione **Seguinte: Networking** para continuar a criar o seu hub.
 
    Escolha os pontos finais que podem ligar-se ao seu Hub IoT. Pode selecionar o ponto final público por defeito **(todas as redes)** ou escolher **o ponto final público (intervalos IP selecionados)** ou ponto final **privado**. Aceite a definição padrão para este exemplo.
 
-   ![Escolha os pontos finais que podem ligar](./media/iot-hub-include-create-hub/iot-hub-create-network-screen.png)
+   :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-create-network-screen.png" alt-text="Escolha os pontos finais que podem ligar.":::
 
 1. Selecione **Seguinte: Gestão** para continuar a criar o seu hub.
 
-    ![Desconfiem do tamanho e da escala para um novo hub utilizando o portal Azure](./media/iot-hub-include-create-hub/iot-hub-management-screen.png)
+   :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-management-screen.png" alt-text="Desconfiem do tamanho e da escala para um novo hub utilizando o portal Azure.":::
 
     Pode aceitar as definições predefinidos aqui. Se desejar, pode modificar qualquer um dos seguintes campos:
 
@@ -60,14 +60,14 @@ Esta secção descreve como criar um hub IoT utilizando o [portal Azure](https:/
 
     - **Definições Avançadas**  >  **Partições dispositivo-nuvem**: Esta propriedade relaciona as mensagens dispositivo-nuvem com o número de leitores simultâneos das mensagens. A maioria dos centros só precisa de quatro divisórias.
 
-1.  Selecione **Seguinte: Tags** para continuar para o próximo ecrã.
+1. Selecione **Seguinte: Tags** para continuar para o próximo ecrã.
 
     As etiquetas são pares de nome/valor. Pode atribuir a mesma etiqueta a múltiplos recursos e grupos de recursos para categorizar recursos e consolidar a faturação. Para mais informações, consulte [utilize etiquetas para organizar os seus recursos Azure.](../articles/azure-resource-manager/management/tag-resources.md)
 
-    ![Atribuir tags para o hub usando o portal Azure](./media/iot-hub-include-create-hub/iot-hub-create-tags.png)
+    :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-create-tags.png" alt-text="Atribua etiquetas para o hub utilizando o portal Azure.":::
 
-1.  Selecione **Seguinte: Review + create** para rever as suas escolhas. Vê algo semelhante a este ecrã, mas com os valores que selecionou ao criar o hub. 
+1. Selecione **Seguinte: Review + create** para rever as suas escolhas. Vê algo semelhante a este ecrã, mas com os valores que selecionou ao criar o hub.
 
-    ![Reveja informações para criar o novo hub](./media/iot-hub-include-create-hub/iot-hub-review-and-create.png)
+    :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-review-and-create.png" alt-text="Reveja informações para criar o novo hub.":::
 
-1.  Selecione **Criar** para criar o seu novo hub. Criar o centro leva alguns minutos.
+1. Selecione **Criar** para criar o seu novo hub. Criar o centro leva alguns minutos.

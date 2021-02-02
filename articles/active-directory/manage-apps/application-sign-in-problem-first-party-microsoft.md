@@ -1,10 +1,10 @@
 ---
-title: Problemas de sessão numa aplicação da Microsoft Microsoft Docs
+title: Problemas de sessão numa aplicação da Microsoft | Microsoft Docs
 description: Resolver problemas comuns enfrentados ao iniciar sessão em aplicações microsoft de primeira parte usando Azure AD (como o Microsoft 365).
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -16,12 +16,12 @@ ms.date: 09/10/2018
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57deed9d7fb178ba1cdc8d6e954d751752532de4
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 79c8d6d072379853d6eca561d372f61dbb8acc8a
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94654410"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99260016"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problemas de sessão numa aplicação da Microsoft
 
@@ -518,7 +518,7 @@ O acesso à aplicação pode ser bloqueado porque a operação de consentimento 
 
 ### <a name="perform-administrator-level-consent-for-a-single-tenant-application"></a>Executar consentimento ao nível do administrador para um pedido de um único inquilino
 
--   Para **aplicações de inquilino único** que solicitem permissões (como as que está a desenvolver ou possui na sua organização), pode realizar uma operação de consentimento de nível administrativo em nome de todos os utilizadores, inscrevendo-se como Administrador Global e clicando no botão de **permissões grant** no topo do Registo de **Aplicações &gt; - Todas as Aplicações - &gt; Selecione uma app - &gt; Permissões Necessárias.** **administrative-level consent**
+-   Para **aplicações de inquilino único** que solicitem permissões (como as que está a desenvolver ou possui na sua organização), pode realizar uma operação de consentimento de nível administrativo em nome de todos os utilizadores, inscrevendo-se como Administrador Global e clicando no botão de **permissões grant** no topo do Registo de **Aplicações &gt; - Todas as Aplicações - &gt; Selecione uma app - &gt; Permissões Necessárias.** 
 
 -   Para **qualquer aplicação desenvolvida utilizando o modelo de aplicação V1 ou V2,** pode aplicar este consentimento ao nível do administrador para ocorrer seguindo as instruções ao abrigo **do Pedido as permissões de uma** secção de administração de diretório de [Utilização do ponto de final de consentimento administrativo](../develop/v2-permissions-and-consent.md#using-the-admin-consent-endpoint).
 
@@ -528,5 +528,5 @@ O acesso à aplicação pode ser bloqueado porque a operação de consentimento 
 
 -   Pode também aplicar este consentimento ao nível do administrador, seguindo as instruções ao abrigo do **Pedido, as permissões de uma** secção de administração de diretórios de [Utilização do ponto final](../develop/v2-permissions-and-consent.md#using-the-admin-consent-endpoint)de consentimento de administração .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Usando o ponto final de consentimento administrativo](../develop/v2-permissions-and-consent.md#using-the-admin-consent-endpoint)

@@ -4,7 +4,7 @@ description: Como desativar uma aplicação da empresa para que nenhum utilizado
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0671d3dec963c0b475133881b00224cfe11e8370
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 783de636d4520f48f624f3380f811f1f18366330
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861649"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259241"
 ---
 # <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory"></a>Desativar as insuposições do utilizador para uma aplicação da empresa no Azure Ative Directory
 
@@ -31,7 +31,7 @@ ms.locfileid: "96861649"
 
 1. Iniciar sessão no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
 1. Selecione **Todos os serviços**, insira o **Diretório Ativo Azure** na caixa de texto e, em seguida, selecione **Enter**.
-1. No diretor **do Azure Ative Directory**  -   **_directoryname_*_ pane (isto é, o painel AD AD Azure para o diretório que está a gerir), selecione _* Aplicações da Empresa**.
+1. No diretor **do Azure Ative Directory**  -   ***_ pane (isto é, o painel AD AD Azure para o diretório que está a gerir), selecione _* Aplicações da Empresa**.
 1. Nas **aplicações Da Enterprise - Todas as aplicações** painel, você vê uma lista das aplicações que você pode gerir. Selecione uma aplicação.
 1. No **_nome de appname_*_ painel (isto é, o painel com o nome da aplicação selecionada no título), selecione _* Properties**.
 1. No nome do **_appname_*_ - _* Painel de propriedades,** selecione **No** for **Enabled for users to sign-in?**

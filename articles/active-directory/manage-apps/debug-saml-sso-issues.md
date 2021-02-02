@@ -4,19 +4,19 @@ description: Debug SAML com base em um único sign-on para aplicações no Azure
 services: active-directory
 ms.author: kenwith
 author: kenwith
-manager: CelesteDG
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: troubleshooting
 ms.workload: identity
 ms.date: 02/18/2019
 ms.reviewer: luleon, hirsin, paulgarn
-ms.openlocfilehash: f8eb00a2a88c6e26dd5361097f17990469caa8f3
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 4a5fbef3380db8c9b357c83b4cb8240a41a0012c
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92326065"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259292"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Depurar o início de sessão único baseado em SAML para as aplicações no Azure Active Directory
 
@@ -37,8 +37,8 @@ Para descarregar e instalar a extensão de inscrição segura das minhas apps, u
 Para testar o sign-on único baseado em SAML entre a Azure AD e uma aplicação-alvo:
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) como administrador global ou outro administrador autorizado a gerir aplicações.
-1. Na lâmina esquerda, selecione **Azure Ative Directory**e, em seguida, selecione **aplicações Enterprise**. 
-1. A partir da lista de aplicações empresariais, selecione a aplicação para a qual pretende testar um único sinal de sôr-in e, em seguida, a partir das opções no **seleto único à**esquerda .
+1. Na lâmina esquerda, selecione **Azure Ative Directory** e, em seguida, selecione **aplicações Enterprise**. 
+1. A partir da lista de aplicações empresariais, selecione a aplicação para a qual pretende testar um único sinal de sôr-in e, em seguida, a partir das opções no **seleto único à** esquerda .
 1. Para abrir a experiência de teste de súmis com base em SAML, vá ao **Teste de um único sign-on** (passo 5). Se o botão **Teste** estiver acinzentado, tem de preencher e guardar primeiro os atributos necessários na secção **Configuração Básica SAML.**
 1. Na lâmina **de inscrição única** do Teste, utilize as suas credenciais corporativas para iniciar snutil na aplicação-alvo. Pode iniciar sposição como utilizador atual ou como um utilizador diferente. Se iniciar sus como um utilizador diferente, um pedido será solicitado para autenticar.
 

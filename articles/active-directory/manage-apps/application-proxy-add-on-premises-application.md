@@ -3,7 +3,7 @@ title: Tutorial - Adicionar uma app no local - Application Proxy in Azure AD
 description: O Azure Ative Directory (Azure AD) tem um serviço de Procuração de Aplicações que permite aos utilizadores aceder em aplicações no local, insinundo-se com a sua conta Azure AD. Este tutorial mostra-lhe como preparar o seu ambiente para uso com Aplicação Proxy. Em seguida, utiliza o portal Azure para adicionar uma aplicação no local ao seu inquilino AZure AD.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.date: 01/20/2021
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: 6f8fdb23222944eab4742d1e972280e1e27e30a3
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 04b3dd51aab9686d102b6b94324f89396a268e7d
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98728519"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99260083"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Tutorial: Adicionar uma aplicação no local para acesso remoto através de Aplicação Proxy em Diretório Ativo Azure
 
@@ -56,7 +56,8 @@ Para uma elevada disponibilidade no seu ambiente de produção, recomendamos ter
 > ```
 > Windows Registry Editor Version 5.00
 > 
-> HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 Value: 0
+> [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp]
+> "EnableDefaultHTTP2"=dword:00000000
 > ```
 >
 > A chave pode ser definida através do PowerShell com o seguinte comando.
@@ -255,7 +256,7 @@ Para a resolução de problemas, consulte [problemas de procuração de aplicaç
 
 Quando já não for necessário, elimine os recursos que criou neste tutorial.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, preparou o seu ambiente no local para trabalhar com o Application Proxy e, em seguida, instalou e registou o conector Application Proxy. Em seguida, adicionou um pedido ao seu inquilino AZure AD. Verificou que um utilizador pode inscrever-se na aplicação utilizando uma conta AZure AD.
 

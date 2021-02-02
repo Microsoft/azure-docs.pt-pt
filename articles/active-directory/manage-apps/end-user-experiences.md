@@ -3,7 +3,7 @@ title: Experiências de utilizador final para aplicações - Azure Ative Directo
 description: O Azure Ative Directory (Azure AD) oferece várias formas personalizáveis de implementar aplicações para utilizadores finais na sua organização.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
 ms.reviewer: arvindh
-ms.openlocfilehash: 9bcf45cdfbadbf16f48f8f2ac3bd0c6320a2803f
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 0d3f1cab0637c7409cbc45f4f5a5374b2b5b6a77
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94649233"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259258"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Experiências de utilizador final para aplicações no Azure Ative Directory
 
@@ -69,8 +69,8 @@ Quando um utilizador autorizado clica num destes links específicos da aplicaç�
 
 Estas ligações utilizam os mesmos mecanismos de controlo de acesso que as Minhas Apps e a Microsoft 365, sendo que apenas os utilizadores ou grupos que tenham sido designados para a aplicação no portal Azure poderão autenticar com sucesso. No entanto, qualquer utilizador que não seja autorizado verá uma mensagem explicando que não lhes foi concedido acesso, e é-lhes dado um link para carregar as Minhas Apps para visualizar as aplicações disponíveis para as quais têm acesso.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Quickstart Series em Gestão de Aplicações](view-applications-portal.md)
-* [O que é o início de sessão único?](what-is-single-sign-on.md)
+* [O que é um único sinal?](what-is-single-sign-on.md)
 * [Integrar o Azure Ative Directory com candidaturas a iniciar guia](plan-an-application-integration.md)

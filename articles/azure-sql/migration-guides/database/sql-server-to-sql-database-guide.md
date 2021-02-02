@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: f4f54aa02fb56ba5bf5ae9fcec2dae07c7dc0a27
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: a2ab63febbb4439e50ef0f7bcc0f9797dc50c62c
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358984"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99260033"
 ---
 # <a name="migration-guide-sql-server-to-sql-database"></a>Guia de migração: SQL Server para SQL Database
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -57,7 +57,7 @@ Em alternativa, utilize o [Microsoft Assessment and Planning Toolkit (o "MAP T
 
 Para obter mais informações sobre as ferramentas disponíveis para a fase Discover, consulte [serviços e ferramentas disponíveis para cenários de migração de dados.](../../../dms/dms-tools-matrix.md) 
 
-### <a name="assess"></a>Avaliar 
+### <a name="assess"></a>Avaliação 
 
 Após a descoberta de fontes de dados, avalie qualquer base de dados do SQL Server no local que possa ser migrada para a Base de Dados Azure SQL para identificar bloqueadores de migração ou problemas de compatibilidade. 
 
@@ -100,7 +100,7 @@ Se tiver vários servidores e bases de dados que precisam de ser avaliados e ana
 > [!IMPORTANT]
 > As avaliações em escala para várias bases de dados, especialmente as grandes, também podem ser automatizadas utilizando o [Utilitário da Linha de Comando DMA](/sql/dma/dma-commandline) e enviadas para a [Azure Migrate](/sql/dma/dma-assess-sql-data-estate-to-sqldb#view-target-readiness-assessment-results) para uma análise mais aprofundada e prontidão de destino.
 
-## <a name="migrate"></a>Migrar
+## <a name="migrate"></a>Migrate
 
 Depois de ter concluído as tarefas associadas à fase de pré-migração, está pronto para executar o esquema e a migração de dados. 
 
@@ -149,6 +149,18 @@ Depois de verificar se os dados são os mesmos tanto na fonte como no alvo, pode
 
 > [!IMPORTANT]
 > Para obter mais informações sobre os passos específicos associados à realização de um corte como parte das migrações utilizando DMS, consulte [o corte de migração de desempenho](../../../dms/tutorial-sql-server-azure-sql-online.md#perform-migration-cutover).
+
+## <a name="migration-recommendations"></a>Recomendações de migração
+
+Para acelerar a migração para a Base de Dados Azure SQL, deve considerar as seguintes recomendações:
+
+|  | Contenção de recursos | Recomendação |
+|--|--|--|
+| **Fonte (normalmente nas instalações)** |O estrangulamento primário durante a migração na fonte é data I/O e latência no ficheiro DATA que precisa de ser monitorizado cuidadosamente.  |Com base na latência do ficheiro DATA IO e DATA e dependendo se é uma máquina virtual ou servidor físico, terá de envolver a administração de armazenamento e explorar opções para mitigar o estrangulamento. |
+|**Alvo (Base de Dados Azure SQL)**|O maior fator limitativo é a taxa de geração de registo e a latência no ficheiro de registo. Com a Base de Dados Azure SQL, você pode obter um máximo de 96 MB/s taxa de geração de log. | Para acelerar a migração, escale o sql DB-alvo para Business Critical Gen5 8 vcore para obter a taxa máxima de geração de log de 96 MB/s e também obter baixa latência para o ficheiro de log. O nível de serviço [de Hiperescala](https://docs.microsoft.com/azure/azure-sql/database/service-tier-hyperscale) fornece uma taxa de registo de 100 MB/s, independentemente do nível de serviço escolhido |
+|**Rede** |A largura de banda de rede necessária é igual à taxa máxima de ingestão de log 96 MB/s (768 Mb/s) |Dependendo da conectividade da rede desde o seu data center no local até ao Azure, verifique a largura de banda da rede (normalmente [Azure ExpressRoute)](https://docs.microsoft.com/azure/expressroute/expressroute-introduction#bandwidth-options)para acomodar a taxa máxima de ingestão de registos. |
+|**Máquina virtual utilizada para assistente de migração de dados (DMA)** |CPU é o principal estrangulamento para a máquina virtual que executa o DMA |Coisas a considerar para acelerar a migração de dados usando </br>- VM intensivo de computação Azure </br>- Utilize pelo menos F8s_v2 VM (8 vcore) para executar o DMA </br>- Assegurar que o VM está a funcionar na mesma região do Azure que o alvo |
+|**Azure Database Migration Service (DMS)** |Contenção de recursos computativos e consideração de objetos de base de dados para DMS |Use Premium 4 vCore. O DMS cuida automaticamente de objetos de base de dados como chaves estrangeiras, gatilhos, restrições e índices não agrupados e não necessita de qualquer intervenção manual.  |
 
 
 ## <a name="post-migration"></a>Pós-migração

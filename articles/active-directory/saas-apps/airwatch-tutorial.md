@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com a AirWatch Microsoft Docs'
+title: 'Tutorial: Integração do Azure Ative Directory com a AirWatch | Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o AirWatch.
 services: active-directory
 author: jeevansd
@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/11/2019
+ms.date: 01/20/2021
 ms.author: jeedes
-ms.openlocfilehash: cedea9eb4ec47af445b2ae31225a697f3c51b46e
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: e4f9d05a4b76e440f986a9003c20a48b22c516a8
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318930"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259891"
 ---
 # <a name="tutorial-integrate-airwatch-with-azure-active-directory"></a>Tutorial: Integrar AirWatch com Diretório Ativo Azure
 
@@ -26,50 +26,50 @@ Neste tutorial, você vai aprender a integrar AirWatch com Azure Ative Directory
 * Ativar os seus utilizadores a serem automaticamente inscritos no AirWatch com as suas contas AD Azure.
 * Gerencie as suas contas numa localização central - o portal Azure.
 
-Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
-
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar, precisa dos seguintes itens:
-
-* Uma assinatura AD Azure. Se não tiver uma subscrição, pode ter um mês de teste gratuito [aqui.](https://azure.microsoft.com/pricing/free-trial/)
-* Subscrição única ativada pelo AirWatch (SSO).
+ 
+* Uma assinatura AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
+* Assinatura ativada por airWatch (SSO).
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste. AirWatch suporta SSO iniciado **SP.**
+Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste. 
 
-## <a name="adding-airwatch-from-the-gallery"></a>Adicionando AirWatch da galeria
+* AirWatch suporta SSO iniciado **SP.**
+
+## <a name="add-airwatch-from-the-gallery"></a>Adicione AirWatch da galeria
 
 Para configurar a integração do AirWatch no Azure AD, é necessário adicionar AirWatch da galeria à sua lista de aplicações geridas pelo SaaS.
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
+1. Inscreva-se no portal Azure usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
 1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
 1. Para adicionar nova aplicação, selecione **Nova aplicação**.
 1. Na secção Adicionar a partir da secção **da galeria,** digite **AirWatch** na caixa de pesquisa.
 1. Selecione **AirWatch** do painel de resultados e adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
+## <a name="configure-and-test-azure-ad-sso-for-airwatch"></a>Configure e teste Azure AD SSO para AirWatch
 
 Configure e teste Azure AD SSO com AirWatch usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador AZure AD e o utilizador relacionado no AirWatch.
 
-Para configurar e testar o Azure AD SSO com a AirWatch, complete os seguintes blocos de construção:
+Para configurar e testar o Azure AD SSO com a AirWatch, execute os seguintes passos:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o AirWatch SSO](#configure-airwatch-sso)** - para configurar as definições de Sign-On únicas no lado da aplicação.
-3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
-4. **[Create AirWatch test user](#create-airwatch-test-user)** - para ter uma contraparte de Britta Simon no AirWatch que está ligada à representação AD AD do utilizador.
-5. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
-6. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
+    1. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com B.Simon.
+    1. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de Ad AD.
+1. **[Configure o AirWatch SSO](#configure-airwatch-sso)** - para configurar as definições de inscrição única no lado da aplicação.
+    1. **[Create AirWatch test user](#create-airwatch-test-user)** - para ter uma contraparte de B.Simon em AirWatch que está ligada à representação AD AD do utilizador.
+1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
 Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
-1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **AirWatch,** encontre a secção **Gerir** e selecione **Single sign-on**.
+1. No portal Azure, na página de integração da aplicação **AirWatch,** encontre a secção **'Gerir'** e selecione **'Único sinal de s-on'.**
 1. Na página **de método de inscrição única,** selecione **SAML**.
-1. Na **configuração single Sign-On com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
+1. Na **configuração single Sign-On com página SAML,** clique no ícone de lápis para **configuração SAML básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -88,7 +88,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na secção **'Reclamações** de Utilizador' no diálogo **'Atributos do Utilizador',** edite as alegações utilizando o **ícone Editar** ou adicione as alegações utilizando **adicionar uma nova alegação** para configurar o atributo de ficha SAML como mostrado na imagem acima e executar os seguintes passos:
 
-    | Nome |  Atributo de origem|
+    | Name |  Atributo de origem|
     |---------------|----------------|
     | UID | user.userprincipalname |
     | | |
@@ -115,70 +115,6 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-### <a name="configure-airwatch-sso"></a>Configure AirWatch SSO
-
-1. Numa janela diferente do navegador web, inscreva-se no site da empresa AirWatch como administrador.
-
-1. Na página de definições. Selecione **Configurações > Serviços de Diretório de Integração empresarial >**.
-
-   ![Definições](./media/airwatch-tutorial/ic791921.png "Definições")
-
-1. Clique no **separador Utilizador,** na caixa de texto **Base DN,** digite o nome de domínio e, em seguida, clique em **Guardar**.
-
-   ![Screenshot que realça a caixa de texto Base DN.](./media/airwatch-tutorial/ic791922.png "Utilizador")
-
-1. Clique no **separador 'Servidor'.**
-
-   ![Servidor](./media/airwatch-tutorial/ic791923.png "Servidor")
-
-1. Execute os seguintes passos na secção **LDAP:**
-
-    ![Screenshot que mostra as alterações que precisa de fazer na secção LDAP.](./media/airwatch-tutorial/ic791924.png "LDAP")   
-
-    a. Como **Tipo de Diretório**, selecione **Nenhum**.
-
-    b. Selecione **use SAML para autenticação**.
-
-1. Na secção **SAML 2.0,** para fazer o upload do certificado descarregado, clique em **Upload**.
-
-    ![Carregar](./media/airwatch-tutorial/ic791932.png "Carregar")
-
-1. Na secção **Pedido,** execute os seguintes passos:
-
-    ![Pedir](./media/airwatch-tutorial/ic791925.png "Pedir")  
-
-    a. Como **Tipo de Ligação de Pedido**, selecione **POST**.
-
-    b. No portal Azure, no sinal único de configuração na página de diálogo **AirWatch,** copie o valor URL de **login** e, em seguida, cole-o na caixa de texto **de URL do Fornecedor de Identidade.**
-
-    c. Como **Formato NameID**, selecione **endereço de e-mail**.
-
-    d. Como **Autenticação Pedido De Segurança**, selecione **Nenhum**.
-
-    e. Clique em **Guardar**.
-
-1. Clique novamente no **separador Utilizador.**
-
-    ![Utilizador](./media/airwatch-tutorial/ic791926.png "Utilizador")
-
-1. Na secção **Atributo,** execute os seguintes passos:
-
-    ![Atributo](./media/airwatch-tutorial/ic791927.png "Atributo")
-
-    a. Na caixa de texto do **identificador de objetos,** escreva `http://schemas.microsoft.com/identity/claims/objectidentifier` .
-
-    b. Na caixa de texto do **nome de utilizador,** escreva `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` .
-
-    c. Na caixa de texto **'Mostrar' 'Mostrar',** escreva `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` .
-
-    d. Na caixa de texto **name First,** escreva `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` .
-
-    e. Na caixa de texto **do último nome,** escreva `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` .
-
-    f. Na caixa de texto **por e-mail,** escreva `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` .
-
-    exemplo, Clique em **Guardar**.
-
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD
 
 Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simon.
@@ -195,19 +131,77 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso ao AirWatch.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de aplicações, selecione **AirWatch**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
-
-   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
-
 1. **Selecione Adicionar utilizador,** em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
-
-    ![O link do utilizador adicionar](common/add-assign-user.png)
-
 1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
-1. Se estiver à espera de qualquer valor de função na afirmação SAML, no diálogo **'Fun's Select,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
+1. Se estiver à espera que uma função seja atribuída aos utilizadores, pode selecioná-la a partir do Dropdown de **função** Select. Se não tiver sido configurada qualquer função para esta aplicação, vê a função "Acesso Predefinido" selecionada.
 1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
+
+### <a name="configure-airwatch-sso"></a>Configure AirWatch SSO
+
+1. Numa janela diferente do navegador web, inscreva-se no site da empresa AirWatch como administrador.
+
+1. Na página de definições. Selecione **Configurações > Serviços de Diretório de Integração empresarial >**.
+
+   ![Definições](./media/airwatch-tutorial/services.png "Definições")
+
+1. Clique no **separador Utilizador,** na caixa de texto **Base DN,** digite o nome de domínio e, em seguida, clique em **Guardar**.
+
+   ![Screenshot que realça a caixa de texto Base DN.](./media/airwatch-tutorial/user.png "User")
+
+1. Clique no **separador 'Servidor'.**
+
+   ![Servidor](./media/airwatch-tutorial/directory.png "Servidor")
+
+1. Execute os seguintes passos na secção **LDAP:**
+
+    ![Screenshot que mostra as alterações que precisa de fazer na secção LDAP.](./media/airwatch-tutorial/ldap.png "LDAP")   
+
+    a. Como **Tipo de Diretório**, selecione **Nenhum**.
+
+    b. Selecione **use SAML para autenticação**.
+
+1. Na secção **SAML 2.0,** para fazer o upload do certificado descarregado, clique em **Upload**.
+
+    ![Carregar](./media/airwatch-tutorial/uploads.png "Carregar")
+
+1. Na secção **Pedido,** execute os seguintes passos:
+
+    ![Secção de pedido](./media/airwatch-tutorial/request.png "Pedir")  
+
+    a. Como **Tipo de Ligação de Pedido**, selecione **POST**.
+
+    b. No portal Azure, no sinal único de configuração na página de diálogo **AirWatch,** copie o valor URL de **login** e, em seguida, cole-o na caixa de texto **de URL do Fornecedor de Identidade.**
+
+    c. Como **Formato NameID**, selecione **endereço de e-mail**.
+
+    d. Como **Autenticação Pedido De Segurança**, selecione **Nenhum**.
+
+    e. Clique em **Guardar**.
+
+1. Clique novamente no **separador Utilizador.**
+
+    ![Utilizador](./media/airwatch-tutorial/users.png "User")
+
+1. Na secção **Atributo,** execute os seguintes passos:
+
+    ![Atributo](./media/airwatch-tutorial/attributes.png "Atributo")
+
+    a. Na caixa de texto do **identificador de objetos,** escreva `http://schemas.microsoft.com/identity/claims/objectidentifier` .
+
+    b. Na caixa de texto do **nome de utilizador,** escreva `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` .
+
+    c. Na caixa de texto **'Mostrar' 'Mostrar',** escreva `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` .
+
+    d. Na caixa de texto **name First,** escreva `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` .
+
+    e. Na caixa de texto **do último nome,** escreva `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` .
+
+    f. Na caixa de texto **por e-mail,** escreva `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` .
+
+    exemplo, Clique em **Guardar**.
 
 ### <a name="create-airwatch-test-user"></a>Criar utilizador de teste AirWatch
 
@@ -217,17 +211,17 @@ Para permitir que os utilizadores Azure AD entrem no AirWatch, devem ser adustad
 
 1. Inscreva-se no site da empresa **AirWatch** como administrador.
 
-2. No painel de navegação do lado esquerdo, clique em **Contas**e, em seguida, clique em **Utilizadores**.
+2. No painel de navegação do lado esquerdo, clique em **Contas** e, em seguida, clique em **Utilizadores**.
   
-   ![Utilizadores](./media/airwatch-tutorial/ic791929.png "Utilizadores")
+   ![Utilizadores](./media/airwatch-tutorial/accounts.png "Utilizadores")
 
 3. No menu **Utilizadores,** clique em **'Ver lista'** e, em seguida, clique **em Adicionar > Adicionar Utilizador**.
   
-   ![Screenshot que realça os botões Adicionar e Adicionar Utilizador.](./media/airwatch-tutorial/ic791930.png "Adicionar Utilizador")
+   ![Screenshot que realça os botões Adicionar e Adicionar Utilizador.](./media/airwatch-tutorial/add.png "Adicionar Utilizador")
 
 4. No diálogo **do utilizador Add / Editar,** execute os seguintes passos:
 
-   ![Adicionar utilizador](./media/airwatch-tutorial/ic791931.png "Adicionar Utilizador")
+   ![Adicionar utilizador](./media/airwatch-tutorial/save.png "Adicionar Utilizador")
 
    a. Digite o **nome de utilizador**, **Password**, **Confirme a Palavra-passe,** **o Primeiro Nome,** o Último **Nome,** o Endereço de **E-mail** de uma conta de Diretório Ativo Azure válida que pretende apresentar nas caixas de texto relacionadas.
 
@@ -238,12 +232,14 @@ Para permitir que os utilizadores Azure AD entrem no AirWatch, devem ser adustad
 
 ### <a name="test-sso"></a>Teste SSO
 
-Quando selecionar o azulejo AirWatch no Painel de Acesso, deverá ser automaticamente inscrito no AirWatch para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
+Nesta secção, testa a configuração de um único sinal de inscrição Azure AD com as seguintes opções. 
 
-## <a name="additional-resources"></a>Recursos adicionais
+* Clique em **Testar esta aplicação** no portal Azure. Isto irá redirecionar para o URL de entrada de sinal de AirWatch, onde pode iniciar o fluxo de login. 
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](./tutorial-list.md)
+* Vá diretamente ao URL de inscrição da AirWatch e inicie o fluxo de login a partir daí.
 
-- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo AirWatch nas Minhas Apps, este será redirecionado para o URL de sign-on airWatch. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
-- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
+## <a name="next-steps"></a>Passos seguintes
+
+Uma vez configurado o AirWatch, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
