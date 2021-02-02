@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 01/21/2021
+ms.date: 02/02/2021
 ms.author: tisande
-ms.openlocfilehash: 4d2ad9cf6b47d8307d9652419b82de8ffcbcb099
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 79791bf2db888912d5c1f016f4bf357e76bddcba
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98681655"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475105"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Políticas de indexação no Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -42,10 +42,7 @@ Em Azure Cosmos DB, o armazenamento total consumido é a combinação tanto do t
 
 * O tamanho do índice depende da política de indexação. Se todas as propriedades estiverem indexadas, então o tamanho do índice pode ser maior do que o tamanho dos dados.
 * Quando os dados são eliminados, os índices são compactados numa base quase contínua. No entanto, para pequenas eliminações de dados, não pode observar imediatamente uma diminuição do tamanho do índice.
-* O tamanho do Índice pode crescer nos seguintes casos:
-
-  * Duração da divisão da partição - O espaço do índice é libertado após a divisão da partição estar concluída.
-  * Quando uma partição está se dividindo, o espaço do índice aumentará temporariamente durante a divisão. 
+* O tamanho do Índice pode crescer temporariamente quando as divisórias físicas se dividem. O espaço do índice é libertado após a divisão da partição estar concluída.
 
 ## <a name="including-and-excluding-property-paths"></a><a id="include-exclude-paths"></a>Incluindo e excluindo caminhos imobiliários
 
@@ -186,33 +183,35 @@ Deve personalizar a sua política de indexação para que possa servir todas as 
 
 Se uma consulta tiver filtros em duas ou mais propriedades, pode ser útil criar um índice composto para estas propriedades.
 
-Por exemplo, considere a seguinte consulta que tem um filtro de igualdade em duas propriedades:
+Por exemplo, considere a seguinte consulta que tem um filtro de igualdade e de alcance:
 
 ```sql
-SELECT * FROM c WHERE c.name = "John" AND c.age = 18
+SELECT *
+FROM c
+WHERE c.name = "John" AND c.age > 18
 ```
 
-Esta consulta será mais eficiente, demorando menos tempo e consumindo menos RU's, se for capaz de alavancar um índice composto em (nome ASC, idade ASC).
+Esta consulta será mais eficiente, demorando menos tempo e consumindo menos RU's, se for capaz de alavancar um índice composto em `(name ASC, age ASC)` .
 
-Consultas com filtros de gama também podem ser otimizadas com um índice composto. No entanto, a consulta só pode ter um filtro de gama única. Os filtros de gama `>` `<` incluem, e `<=` `>=` `!=` . O filtro de gama deve ser definido por último no índice composto.
+Consultas com filtros de gama múltipla também podem ser otimizadas com um índice composto. No entanto, cada índice composto individual só pode otimizar um filtro de gama única. Os filtros de gama `>` incluem, , , e `<` `<=` `>=` `!=` . O filtro de gama deve ser definido por último no índice composto.
 
-Considere a seguinte consulta com filtros de igualdade e gama:
+Considere a seguinte consulta com um filtro de igualdade e dois filtros de gama:
 
 ```sql
-SELECT * FROM c WHERE c.name = "John" AND c.age > 18
+SELECT *
+FROM c
+WHERE c.name = "John" AND c.age > 18 AND c._ts > 1612212188
 ```
 
-Esta consulta será mais eficiente com um índice composto em (nome ASC, idade ASC). No entanto, a consulta não utilizaria um índice composto em (asC de idade, nome ASC) porque os filtros de igualdade devem ser definidos primeiro no índice composto.
+Esta consulta será mais eficiente com um índice composto em `(name ASC, age ASC)` e `(name ASC, _ts ASC)` . No entanto, a consulta não utilizaria um índice composto `(age ASC, name ASC)` porque as propriedades com filtros de igualdade devem ser definidas primeiro no índice composto. São necessários dois índices compostos separados em vez de um único índice composto, `(name ASC, age ASC, _ts ASC)` uma vez que cada índice composto só pode otimizar um filtro de gama única.
 
 As seguintes considerações são usadas ao criar índices compostos para consultas com filtros em várias propriedades
 
+- Expressões de filtro podem usar vários índices compostos.
 - As propriedades do filtro da consulta devem coincidir com as do índice composto. Se uma propriedade estiver no índice composto mas não estiver incluída na consulta como um filtro, a consulta não utilizará o índice composto.
 - Se uma consulta tiver propriedades adicionais no filtro que não foram definidas num índice composto, então uma combinação de índices compósitos e de intervalo será usada para avaliar a consulta. Isto requer menos RU's do que exclusivamente usando índices de gama.
-- Se uma propriedade tiver um filtro de alcance ( `>` `<` , ou ), `<=` `>=` `!=` então esta propriedade deve ser definida por último no índice composto. Se uma consulta tiver mais de um filtro de gama, não utilizará o índice composto.
+- Se uma propriedade tiver um filtro de alcance ( `>` , , , , ou ), `<` `<=` `>=` `!=` então esta propriedade deve ser definida por último no índice composto. Se uma consulta tiver mais de um filtro de gama, pode beneficiar de múltiplos índices compostos.
 - Ao criar um índice composto para otimizar consultas com múltiplos filtros, `ORDER` o índice composto não terá qualquer impacto nos resultados. Esta propriedade é opcional.
-- Se não definir um índice composto para uma consulta com filtros em várias propriedades, a consulta continuará a ter sucesso. No entanto, o custo RU da consulta pode ser reduzido com um índice composto.
-- As consultas com ambos os agregados (por exemplo, COUNT ou SUM) e filtros também beneficiam de índices compostos.
-- Expressões de filtro podem usar vários índices compostos.
 
 Considere os seguintes exemplos em que um índice composto é definido no nome, idade e marca de tempo das propriedades:
 
@@ -227,43 +226,76 @@ Considere os seguintes exemplos em que um índice composto é definido no nome, 
 | ```(name ASC, age ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age < 18 AND c.timestamp = 123049923``` | ```No```            |
 | ```(name ASC, age ASC) and (name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age < 18 AND c.timestamp > 123049923``` | ```Yes```            |
 
-### <a name="queries-with-a-filter-as-well-as-an-order-by-clause"></a>Consultas com um filtro e com uma cláusula ORDER BY
+### <a name="queries-with-a-filter-and-order-by"></a>Consultas com filtro e ORDER BY
 
 Se uma consulta filtrar uma ou mais propriedades e tiver propriedades diferentes na cláusula ORDER BY, pode ser útil adicionar as propriedades no filtro à `ORDER BY` cláusula.
 
-Por exemplo, adicionando as propriedades no filtro à cláusula ORDER BY, a seguinte consulta poderia ser reescrita para alavancar um índice composto:
+Por exemplo, adicionando as propriedades do filtro à `ORDER BY` cláusula, a seguinte consulta poderia ser reescrita para alavancar um índice composto:
 
 Consulta utilizando índice de gama:
 
 ```sql
-SELECT * FROM c WHERE c.name = "John" ORDER BY c.timestamp
+SELECT *
+FROM c 
+WHERE c.name = "John" 
+ORDER BY c.timestamp
 ```
 
 Consulta utilizando índice composto:
 
 ```sql
-SELECT * FROM c WHERE c.name = "John" ORDER BY c.name, c.timestamp
+SELECT * 
+FROM c 
+WHERE c.name = "John"
+ORDER BY c.name, c.timestamp
 ```
 
-As mesmas otimizações de padrão e consulta podem ser generalizadas para consultas com filtros de igualdade múltiplas:
+As mesmas otimizações de consulta podem ser generalizadas para quaisquer `ORDER BY` consultas com filtros, tendo em conta que os índices compostos individuais só podem suportar, no máximo, um filtro de gama.
 
 Consulta utilizando índice de gama:
 
 ```sql
-SELECT * FROM c WHERE c.name = "John", c.age = 18 ORDER BY c.timestamp
+SELECT * 
+FROM c 
+WHERE c.name = "John" AND c.age = 18 AND c.timestamp > 1611947901 
+ORDER BY c.timestamp
 ```
 
 Consulta utilizando índice composto:
 
 ```sql
-SELECT * FROM c WHERE c.name = "John", c.age = 18 ORDER BY c.name, c.age, c.timestamp
+SELECT * 
+FROM c 
+WHERE c.name = "John" AND c.age = 18 AND c.timestamp > 1611947901 
+ORDER BY c.name, c.age, c.timestamp
+```
+
+Além disso, pode utilizar índices compostos para otimizar consultas com funções do sistema e ORDER BY:
+
+Consulta utilizando índice de gama:
+
+```sql
+SELECT * 
+FROM c 
+WHERE c.firstName = "John" AND Contains(c.lastName, "Smith", true) 
+ORDER BY c.lastName
+```
+
+Consulta utilizando índice composto:
+
+```sql
+SELECT * 
+FROM c 
+WHERE c.firstName = "John" AND Contains(c.lastName, "Smith", true) 
+ORDER BY c.firstName, c.lastName
 ```
 
 As seguintes considerações são utilizadas na criação de índices compósitos para otimizar uma consulta com um filtro e `ORDER BY` cláusula:
 
-* Se a consulta filtrar as propriedades, estas devem ser incluídas primeiro na `ORDER BY` cláusula.
-* Se a consulta filtrar várias propriedades, os filtros de igualdade devem ser as primeiras propriedades na `ORDER BY` cláusula
 * Se não definir um índice composto numa consulta com um filtro numa propriedade e uma cláusula separada `ORDER BY` usando uma propriedade diferente, a consulta continuará a ter sucesso. No entanto, o custo ru da consulta pode ser reduzido com um índice composto, particularmente se a propriedade na `ORDER BY` cláusula tiver uma cardinalidade elevada.
+* Se a consulta filtrar as propriedades, estas devem ser incluídas primeiro na `ORDER BY` cláusula.
+* Se a consulta filtrar várias propriedades, os filtros de igualdade devem ser as primeiras propriedades da `ORDER BY` cláusula.
+* Se a consulta filtrar várias propriedades, pode ter um máximo de um filtro de gama ou função do sistema utilizado por índice composto. A propriedade utilizada no filtro de gama ou na função do sistema deve ser definida por último no índice composto.
 * Todas as considerações para a criação de índices compósitos para `ORDER BY` consultas com múltiplas propriedades, bem como consultas com filtros em várias propriedades ainda se aplicam.
 
 
@@ -276,6 +308,7 @@ As seguintes considerações são utilizadas na criação de índices compósito
 | ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" ORDER BY c.timestamp ASC``` | ```No```   |
 | ```(age ASC, name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.age = 18 and c.name = "John" ORDER BY c.age ASC, c.name ASC,c.timestamp ASC``` | `Yes` |
 | ```(age ASC, name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.age = 18 and c.name = "John" ORDER BY c.timestamp ASC``` | `No` |
+
 
 ## <a name="modifying-the-indexing-policy"></a>Modificação da política de indexação
 

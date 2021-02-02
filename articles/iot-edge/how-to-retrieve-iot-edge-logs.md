@@ -10,12 +10,12 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: abd30c22aa2b4df20cdb795013768cd175cfef4c
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 69f7ec5114ad650f33eae740a54a3821b76ef2ac
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780744"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475544"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>Recuperar registos de implementações IoT Edge
 
@@ -51,8 +51,8 @@ Este método aceita uma carga JSON com o seguinte esquema:
              "id": "regex string",
              "filter": {
                 "tail": "int",
-                "since": "int",
-                "until": "int",
+                "since": "string",
+                "until": "string",
                 "loglevel": "int",
                 "regex": "regex string"
              }
@@ -70,8 +70,8 @@ Este método aceita uma carga JSON com o seguinte esquema:
 | ID | string | Uma expressão regular que fornece o nome do módulo. Pode combinar vários módulos num dispositivo de borda. Espera-se o formato [.NET Expressões Regulares.](/dotnet/standard/base-types/regular-expressions) |
 | filter | Secção JSON | Registar filtros para aplicar aos módulos correspondentes à `id` expressão regular no tuple. |
 | cauda | número inteiro | Número de linhas de registo no passado para recuperar a partir das últimas. Opcional. |
-| desde | número inteiro | Só os registos de retorno desde este tempo, como duração (1 d, 90 m, 2 dias 3 horas 2 minutos), fc3339 de timetamp ou cartão de tempo UNIX.  Se ambos `tail` e `since` forem especificados, os registos são recuperados usando primeiro o `since` valor. Em seguida, o `tail` valor é aplicado ao resultado, e o resultado final é devolvido. Opcional. |
-| até | número inteiro | Apenas os registos de devolução antes do tempo especificado, como um relógio rfc3339, relógio DE TEMPO UNIX ou duração (1 d, 90 m, 2 dias 3 horas 2 minutos). Opcional. |
+| desde | string | Só os registos de retorno desde este tempo, como duração (1 d, 90 m, 2 dias 3 horas 2 minutos), fc3339 de timetamp ou cartão de tempo UNIX.  Se ambos `tail` e `since` forem especificados, os registos são recuperados usando primeiro o `since` valor. Em seguida, o `tail` valor é aplicado ao resultado, e o resultado final é devolvido. Opcional. |
+| até | string | Apenas os registos de devolução antes do tempo especificado, como um relógio rfc3339, relógio DE TEMPO UNIX ou duração (1 d, 90 m, 2 dias 3 horas 2 minutos). Opcional. |
 | nível de log | número inteiro | Filtrar linhas de registo inferiores ou iguais ao nível de registo especificado. As linhas de registo devem seguir o formato de registo recomendado e utilizar o padrão [de nível de severidade Syslog.](https://en.wikipedia.org/wiki/Syslog#Severity_level) Opcional. |
 | regex | string | Filtrar linhas de registo que tenham conteúdo que corresponda à expressão regular especificada utilizando o formato [.NET Expressões Regulares.](/dotnet/standard/base-types/regular-expressions) Opcional. |
 | codificação | string | `gzip` ou `none`. A predefinição é `none`. |
@@ -160,8 +160,8 @@ Este método aceita uma carga útil JSON semelhante à **GetModuleLogs,** com a 
              "id": "regex string",
              "filter": {
                 "tail": "int",
-                "since": "int",
-                "until": "int",
+                "since": "string",
+                "until": "string",
                 "loglevel": "int",
                 "regex": "regex string"
              }
@@ -293,8 +293,8 @@ Este método aceita uma carga JSON com o seguinte esquema:
 |-|-|-|
 | schemaVersão | string | Definir para `1.0` |
 | sasURL | corda (URI) | [URL de assinatura de acesso compartilhado com acesso de escrita ao recipiente de armazenamento Azure Blob](/archive/blogs/jpsanders/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer) |
-| desde | número inteiro | Só os registos de retorno desde este tempo, como duração (1 d, 90 m, 2 dias 3 horas 2 minutos), fc3339 de timetamp ou cartão de tempo UNIX. Opcional. |
-| até | número inteiro | Apenas os registos de devolução antes do tempo especificado, como um relógio rfc3339, relógio DE TEMPO UNIX ou duração (1 d, 90 m, 2 dias 3 horas 2 minutos). Opcional. |
+| desde | string | Só os registos de retorno desde este tempo, como duração (1 d, 90 m, 2 dias 3 horas 2 minutos), fc3339 de timetamp ou cartão de tempo UNIX. Opcional. |
+| até | string | Apenas os registos de devolução antes do tempo especificado, como um relógio rfc3339, relógio DE TEMPO UNIX ou duração (1 d, 90 m, 2 dias 3 horas 2 minutos). Opcional. |
 | edgeRuntimeOnly | boolean | Se for verdade, só devolva os registos do Edge Agent, edge hub e do Edge Security Daemon. Predefinição: false.  Opcional. |
 
 > [!IMPORTANT]

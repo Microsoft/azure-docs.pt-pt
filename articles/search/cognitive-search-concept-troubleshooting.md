@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 1ab366cddbabf7e6d574189892e779ab49f6fad8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5882cc949d88e8c2a4102362cf5d2a3613e1d714
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91403386"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475493"
 ---
 # <a name="tips-for-ai-enrichment-in-azure-cognitive-search"></a>Dicas para enriquecimento de IA em Pesquisa Cognitiva Azure
 
@@ -100,7 +100,7 @@ A análise de imagem é computacionalmente intensiva para casos mesmo simples, p
 
 O tempo máximo de funcionamento varia por nível: vários minutos no nível Livre, indexação de 24 horas em níveis faturantes. Se o processamento não estiver concluído dentro de um período de 24 horas para o processamento a pedido, mude para um horário para que o indexante retome o processamento onde este deixou de ser colocado. 
 
-Para os indexantes programados, a indexação retoma o calendário no último bom documento conhecido. Ao utilizar um horário recorrente, o indexante pode trabalhar o seu caminho através do atraso de imagem ao longo de uma série de horas ou dias, até que todas as imagens não processadas sejam processadas. Para obter mais informações sobre a sintaxe do horário, consulte [o passo 3: Criar um indexador](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer) ou ver [Como agendar indexadores para a Pesquisa Cognitiva Azure](search-howto-schedule-indexers.md).
+Para os indexantes programados, a indexação retoma o calendário no último bom documento conhecido. Ao utilizar um horário recorrente, o indexante pode trabalhar o seu caminho através do atraso de imagem ao longo de uma série de horas ou dias, até que todas as imagens não processadas sejam processadas. Para obter mais informações sobre a sintaxe do horário, consulte [Agendar um indexante](search-howto-schedule-indexers.md).
 
 > [!NOTE]
 > Se um indexante for definido para um determinado horário, mas falhar repetidamente no mesmo documento repetidamente cada vez mais de cada vez que for executado, o indexante começará a funcionar num intervalo menos frequente (até ao máximo de pelo menos uma vez a cada 24 horas) até que progrida com sucesso novamente.  Se acredita que corrigiu qualquer que fosse o problema que estava a causar a fixação do indexante num determinado ponto, pode realizar uma execução a pedido do indexante, e se isso progredir com sucesso, o indexante voltará a ter o seu intervalo de horário definido.
@@ -109,12 +109,12 @@ Para a indexação baseada no portal (como descrito no arranque rápido), escolh
 
 ## <a name="tip-8-increase-indexing-throughput"></a>Dica 8: Aumentar a produção de indexação
 
-Para [uma indexação paralela,](search-howto-large-index.md)coloque os seus dados em vários recipientes ou várias pastas virtuais dentro do mesmo recipiente. Em seguida, crie vários pares de recursos de dados e indexantes. Todos os indexantes podem usar o mesmo skillset e escrever no mesmo índice de pesquisa alvo, por isso a sua aplicação de pesquisa não precisa de estar ciente desta partição.
+Para [uma indexação paralela,](search-howto-large-index.md)coloque os seus dados em vários recipientes ou várias pastas virtuais dentro do mesmo recipiente. Em seguida, crie vários pares de fontes de dados e indexantes. Todos os indexantes podem usar o mesmo skillset e escrever no mesmo índice de pesquisa alvo, por isso a sua aplicação de pesquisa não precisa de estar ciente desta partição.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 + [Quickstart: Criar um oleoduto de enriquecimento de IA no portal](cognitive-search-quickstart-blob.md)
 + [Tutorial: Aprenda AI enriquecimento REST APIs](cognitive-search-tutorial-blob.md)
-+ [Especificar credenciais de origem de dados](search-howto-indexing-azure-blob-storage.md#how-to-specify-credentials)
++ [Como configurar indexadores blob](search-howto-indexing-azure-blob-storage.md)
 + [Como definir um skillset](cognitive-search-defining-skillset.md)
 + [Como mapear campos enriquecidos para um índice](cognitive-search-output-field-mapping.md)

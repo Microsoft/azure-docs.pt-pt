@@ -1,5 +1,5 @@
 ---
-title: Diagnósticos de arranque para VMs em Azure / Microsoft Doc
+title: Diagnóstico de arranque para VMs em Azure | Microsoft Doc
 description: Visão geral das duas funcionalidades de depuração para máquinas virtuais em Azure
 services: virtual-machines
 author: Deland-Han
@@ -10,12 +10,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: delhan
-ms.openlocfilehash: fa133e7c62b7970a1c48c7fd86c877bcf699e034
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 9030adb9904095ac9b909e650ec6f11dcdf85ed3
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201608"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475527"
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-virtual-machines-in-azure"></a>Como usar diagnósticos de arranque para resolver problemas em máquinas virtuais em Azure
 
@@ -52,7 +52,7 @@ No separador **Gestão,** na secção **de Monitorização,** certifique-se de q
 ![Criar VM](./media/virtual-machines-common-boot-diagnostics/enable-boot-diagnostics-vm.png)
 
 > [!NOTE]
-> A funcionalidade de diagnóstico boot não suporta conta de armazenamento premium ou tipos de conta de armazenamento redundantes da zona. Se utilizar a conta de armazenamento premium para diagnósticos boot, poderá receber o erro de ArmazenamentoAccountTypeNotSupported quando iniciar o VM.
+> A funcionalidade de diagnóstico boot não suporta conta de armazenamento premium ou tipos de conta de armazenamento redundantes da zona. Se utilizar a conta de armazenamento premium para diagnósticos boot, poderá receber o erro de ArmazenamentoAccountTypeNotSupported quando iniciar o VM. 
 >
 
 ### <a name="deploying-from-an-azure-resource-manager-template"></a>Implantação a partir de um modelo de gestor de recursos Azure

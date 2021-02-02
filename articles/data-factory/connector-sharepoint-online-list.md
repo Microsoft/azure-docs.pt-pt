@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: jingwang
-ms.openlocfilehash: f560a01c4ec00649157a9c43aedf0ed6cfc2e050
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 440dd561beddc9696ec703142fe82655b69fbb48
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83871921"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99474952"
 ---
 # <a name="copy-data-from-sharepoint-online-list-by-using-azure-data-factory"></a>Copiar dados da Lista Online do SharePoint utilizando a Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -79,7 +79,7 @@ As secções seguintes fornecem detalhes sobre propriedades que pode usar para d
 
 As seguintes propriedades são suportadas para um serviço ligado à Lista Online sharePoint:
 
-| **Propriedade**        | **Descrição**                                              | **Necessário** |
+| **Propriedade**        | **Descrição**                                              | **Obrigatório** |
 | ------------------- | ------------------------------------------------------------ | ------------ |
 | tipo                | A propriedade tipo deve ser definida para: **SharePointOnlineList**.  | Sim          |
 | siteUrl             | O url do site SharePoint Online, por `https://contoso.sharepoint.com/sites/siteName` exemplo. | Sim          |
@@ -183,22 +183,25 @@ Para copiar dados da Lista Online do SharePoint, as seguintes propriedades são 
 ]
 ```
 
+> [!NOTE]
+> Na Azure Data Factory, não é possível selecionar mais do que um tipo de dados *de escolha* para uma fonte da Lista Online sharePoint.
+
 ## <a name="data-type-mapping-for-sharepoint-online-list"></a>Mapeamento do tipo de dados para a lista online do SharePoint
 
 Ao copiar dados da Lista Online do SharePoint, são utilizados os seguintes mapeamentos entre os tipos de dados da Lista Online do SharePoint e os tipos de dados provisórios da Azure Data Factory. 
 
 | **Tipo de dados SharePoint Online**                 | **Tipo de dados OData**                                  | **Tipo de dados provisórios da Azure Data Factory** |
 | ----------------------------------------------- | ---------------------------------------------------- | ---------------------------------------- |
-| Uma linha de texto                             | Edm.String                                           | Cadeia                                   |
-| Várias linhas de texto                          | Edm.String                                           | Cadeia                                   |
-| Escolha (menu para escolher)                    | Edm.String                                           | Cadeia                                   |
+| Uma linha de texto                             | Edm.String                                           | String                                   |
+| Várias linhas de texto                          | Edm.String                                           | String                                   |
+| Escolha (menu para escolher)                    | Edm.String                                           | String                                   |
 | Número (1, 1.0, 100)                            | Edm.Double                                           | Double (Duplo)                                   |
 | Moeda ($, ≤, €)                              | Edm.Double                                           | Double (Duplo)                                   |
 | Data e Hora                                   | Edm.DateTime                                         | DateTime                                 |
 | Procura (informação já neste site)       | Edm.Int32                                            | Int32                                    |
 | Sim/Não (caixa de verificação)                              | Edm.Boolean                                          | Booleano                                  |
 | Pessoa ou Grupo                                 | Edm.Int32                                            | Int32                                    |
-| Hiperligação ou Imagem                            | Edm.String                                           | Cadeia                                   |
+| Hiperligação ou Imagem                            | Edm.String                                           | String                                   |
 | Calculado (cálculo com base noutras colunas) | Edm.String / Edm.Double / Edm.DateTime / Edm.Boolean | Corda / Duplo / DataTime / Boolean     |
 | Anexo                                      | Não suportado                                        |                                          |
 | Resultado da Tarefa                                    | Não suportado                                        |                                          |

@@ -3,12 +3,12 @@ title: Conceitos - Nuvens privadas e aglomerados
 description: Conheça as principais capacidades dos centros de dados definidos por software Azure VMware Solution e clusters vSphere.
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: 7f8508abed3446c58a683454bc49ec7dbb49d051
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: 234e705ad3b39a575c6f8c475bede4b81efa4b96
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825086"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99474918"
 ---
 #  <a name="azure-vmware-solution-private-cloud-and-cluster-concepts"></a>Azure VMware Solution conceitos de nuvem privada e cluster
 
@@ -66,7 +66,10 @@ As configurações de nuvem privada vCenter e NSX-T estão num horário de backu
 
 ## <a name="next-steps"></a>Passos seguintes
 
-O próximo passo é aprender [conceitos de networking e interconectividade.](concepts-networking.md)
+Agora que cobriu estes conceitos de nuvem privada Azure VMware Solution, talvez queira aprender sobre: 
+
+- [Conceitos de networking e interconectividade Azure VMware Solution](concepts-networking.md).
+- [Conceitos de armazenamento de solução Azure VMware](concepts-storage.md).
 
 <!-- LINKS - internal -->
 

@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 02/02/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9276fca62e96395150c9545b8f4dcb5c8c0afb87
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 3315500e0d8ce090b058cbe0cb11d9ab8e56e193
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954247"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475003"
 ---
 # <a name="authentication-methods-in-azure-active-directory---oath-tokens"></a>Métodos de autenticação em Diretório Ativo Azure - Fichas de OATH
 
@@ -49,7 +49,7 @@ Helga@contoso.com,1234567,1234567abcdef1234567abcdef,60,Contoso,HardwareKey
 ```  
 
 > [!NOTE]
-> Certifique-se de que inclui a linha do cabeçalho no seu ficheiro CSV.
+> Certifique-se de que inclui a linha do cabeçalho no seu ficheiro CSV. Se uma UPN tiver uma única cotação, escape-a com outra única citação. Por exemplo, se a UPN for user@domain.com minha, altere-a para a minha'' user@domain.com ao carregar o ficheiro.
 
 Uma vez devidamente formatado como um ficheiro CSV, um administrador pode então iniciar sedutar no portal Azure, navegar para **o Azure Ative Directory > Security > MFA > tokens OATH**, e carregar o ficheiro CSV resultante.
 

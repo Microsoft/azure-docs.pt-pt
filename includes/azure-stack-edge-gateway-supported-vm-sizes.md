@@ -4,16 +4,16 @@ ms.service: databox
 ms.topic: include
 ms.date: 12/09/2020
 ms.author: alkohli
-ms.openlocfilehash: 9ea5fb26a52c967c5296f1a83976e748c86c9e18
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: ae7cb05aeda296ffb3aa9d7f6e2c88fe59364975
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763881"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475050"
 ---
-O tamanho VM determina a quantidade de recursos computacional como CPU, GPU e memória que são disponibilizados ao VM. As máquinas virtuais devem ser criadas utilizando um tamanho VM adequado para a carga de trabalho. Apesar de todas as máquinas estarem a funcionar no mesmo hardware, os tamanhos das máquinas têm limites diferentes para o acesso ao disco, o que pode ajudá-lo a gerir o acesso geral ao disco através dos seus VMs. Se a carga de trabalho aumentar, uma máquina virtual existente também pode ser redimensionada.
+O tamanho VM determina a quantidade de recursos computacional (como CPU, GPU e memória) que são disponibilizados ao VM. Deve criar máquinas virtuais utilizando um tamanho VM apropriado para a carga de trabalho. Apesar de todas as máquinas estarem a funcionar no mesmo hardware, os tamanhos das máquinas têm limites diferentes para acesso ao disco. Isto pode ajudá-lo a gerir o acesso geral ao disco através dos seus VMs. Se uma carga de trabalho aumentar, também pode redimensionar uma máquina virtual existente.
 
-Os VMs seguintes são suportados para criação no dispositivo Azure Stack Edge.
+Os VMs seguintes são suportados para criação no seu dispositivo Azure Stack Edge.
 
 ### <a name="dv2-series"></a>Série Dv2
 |Tamanho     |vCPU     |Memória (GiB) | Tamanho do disco de recurso (GiB)  | Tamanho do disco de SO (GiB) | Discos de dados máximos | NICs máximos |
@@ -40,7 +40,7 @@ Os VMs seguintes são suportados para criação no dispositivo Azure Stack Edge.
 |**Standard_DS13_v2**|8   |56  |112|32000 |1000 |16 |8 |
 
 
-Para obter mais informações, aceda à [série Dv2 em tamanhos VM de finalidade geral](../articles/virtual-machines/dv2-dsv2-series.md#dv2-series).
+Para mais informações, consulte [a série Dv2 e DSv2](../articles/virtual-machines/dv2-dsv2-series.md#dv2-series).
 
 ### <a name="ncast4_v3-series-preview"></a>NCasT4_v3 série (Pré-visualização)
 
@@ -51,7 +51,7 @@ Estes tamanhos são suportados para VMs GPU no seu dispositivo e são otimizados
 |**Standard_NC4as_T4_v3** |4   |28  |180   |1000|1 |16   |4 |
 |**Standard_NC8as_T4_v3** |8   |56  |360   |1000|1 |16  |8 |
 
-Para obter mais informações, aceda a [NCasT4_v3 séries em tamanhos de VM otimizados da GPU.](../articles/virtual-machines/nct4-v3-series.md)
+Para mais informações, consulte [NCasT4_v3 séries.](../articles/virtual-machines/nct4-v3-series.md)
 
 ### <a name="f-series"></a>Série F
 
@@ -70,5 +70,5 @@ Estas séries são otimizadas para cargas de trabalho computacionais e executada
 | Standard_F8s | 8 | 16 |32 |1000| 32 |  8 |
 | Standard_F16s | 16 | 32 |64 |1000| 64 |  8 |
 
-Para obter mais informações, aceda à [série Fsv2 em tamanhos de VM otimizados compute](../articles/virtual-machines/fsv2-series.md).
+Para mais informações, consulte [a série Fsv2.](../articles/virtual-machines/fsv2-series.md)
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com a TravelPerk Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com a TravelPerk | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o TravelPerk.
 services: active-directory
 author: jeevansd
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/23/2020
 ms.author: jeedes
-ms.openlocfilehash: 23a741e96807acdb7b162b65597c651a2a6c3235
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: eefc47e1308dc5b59d8b57d7481a5250a7d2af93
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92509255"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475747"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-travelperk"></a>Tutorial: Azure Ative Directory integração única (SSO) com TravelPerk
 
@@ -31,7 +31,7 @@ Neste tutorial, você vai aprender a integrar TravelPerk com Azure Ative Directo
 Para começar, precisa dos seguintes itens:
 
 * Uma assinatura AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
-* A assinatura de um único sign-on (SSO) ativada pela TravelPerk.
+* Uma conta TravelPerk com subscrição Premium.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -85,9 +85,9 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     c. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://<COMPANY>.travelperk.com/accounts/saml2/callback/<APPLICATION_ID>/?acs`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o sinal real em URL, URL de resposta e identificador. Contacte [a equipa de suporte do Cliente TravelPerk](mailto:trex@travelperk.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    > Estes valores não são reais. Atualize estes valores com o sinal real em URL, URL de resposta e identificador. Os valores podem ser encontrados dentro da sua conta TravelPerk: vá a **Configurações da Empresa**  >  **Integrações**  >  **Únicas Signo Único .** Para assistência, visite o [centro de ajuda TravelPerk.](https://support.travelperk.com/hc/en-us/articles/360052450271-How-can-I-setup-SSO-for-Azure-SAML-)
 
-1. A sua aplicação TravelPerk espera as afirmações SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem seguinte mostra a lista de atributos predefinidos, onde como **endereço de e-mail** é mapeado com **user.mail**. A aplicação TravelPerk espera que o **emailaddress** seja mapeado com **o nome do utilizador.userprincipalname**, pelo que é necessário editar o mapeamento do atributo clicando no ícone **Editar** e alterar o mapeamento do atributo.
+1. A sua aplicação TravelPerk espera as afirmações SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos. No mapeamento predefinido, o **emailaddress** é mapeado com **user.mail**. No entanto, a aplicação TravelPerk espera que o **emailaddress** seja mapeado com **o nome user.userprincipalname**. Para o TravelPerk, tem de editar o mapeamento do atributo: clique no ícone **Editar** e, em seguida, altere o mapeamento do atributo. Para editar um atributo, basta clicar no atributo para abrir o modo de edição.
 
     ![image](common/default-attributes.png)
 
@@ -114,7 +114,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso ao TravelPerk.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de aplicações, selecione **TravelPerk**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 1. **Selecione Adicionar utilizador,** em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**

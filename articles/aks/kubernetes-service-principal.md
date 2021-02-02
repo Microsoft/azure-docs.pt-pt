@@ -4,12 +4,12 @@ description: Criar e gerir um principal de serviço do Azure Active Directory pa
 services: container-service
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: c6f50b152174cee1ee2cc37baa22432957107d2c
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: b7f8060666612049026f2602ab7c8511aea22757
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97614800"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475442"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Principais de serviço com o Serviço Kubernetes do Azure (AKS)
 
@@ -17,7 +17,7 @@ Para interagir com as APIs do Azure, um cluster AKS requer um [diretor de servi�
 
 Este artigo mostra como criar e utilizar um principal de serviço para os seus clusters do AKS.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Para criar um principal de serviço do Azure AD, tem de ter permissões para registar uma aplicação no seu inquilino do Azure AD e para atribuir a aplicação a uma função na sua subscrição. Se não tiver as permissões necessárias, poderá ter de pedir ao administrador do Microsoft Azure AD ou da subscrição para atribuir as permissões necessárias ou pré-criar um principal de serviço para utilizar com o cluster do AKS.
 
@@ -98,7 +98,7 @@ As seguintes secções detalham as delegações comuns que poderá ter de fazer.
 
 Se utilizar o Registo de Contentores Azure (ACR) como loja de imagens do contentor, tem de conceder permissões ao principal de serviço para que o seu cluster AKS leia e retire imagens. Atualmente, a configuração recomendada é usar o comando [de az aks create][az-aks-create] ou [az aks update][az-aks-update] para integrar-se com um registo e atribuir o papel adequado para o principal serviço. Para obter etapas detalhadas, consulte [Authenticate with Azure Container Registry from Azure Kubernetes Service][aks-to-acr].
 
-### <a name="networking"></a>Redes
+### <a name="networking"></a>Rede
 
 Pode utilizar uma rede avançada onde a rede virtual e os endereços IP da sub-rede ou do ip público se encontram noutro grupo de recursos. Atribua a função de colaborador de [rede][rbac-network-contributor] incorporada na sub-rede dentro da rede virtual. Em alternativa, pode criar uma [função personalizada][rbac-custom-role] com permissões de acesso aos recursos da rede nesse grupo de recursos. Consulte [as permissões de serviço da AKS][aks-permissions] para obter mais detalhes.
 
@@ -128,7 +128,7 @@ Quando utilizar principais de serviço do AKS e do Microsoft Azure AD, tenha em 
 - Se não passar especificamente um principal de serviço em comandos AKS CLI adicionais, é utilizado o principal de serviço padrão `~/.azure/aksServicePrincipal.json` localizado.  
 - Também pode remover opcionalmente o aksServicePrincipal.jsem ficheiro, e a AKS criará um novo diretor de serviço.
 - Ao eliminar um cluster do AKS que tenha sido criado pelo [az aks create][az-aks-create], o principal de serviço que foi criado automaticamente não é eliminado.
-    - Para eliminar o principal serviço, consultar o seu serviço de *clusterPrincipalProfile.clientId* e, em seguida, apagar com [a aplicação az ad delete][az-ad-app-delete]. Substitua os seguintes nomes de grupo de recursos e cluster pelos seus próprios valores:
+    - Para eliminar o principal serviço, consultar o seu serviço de *clusterPrincipalProfile.clientId* e, em seguida, apagar com [az ad sp delete][az-ad-sp-delete]. Substitua os seguintes nomes de grupo de recursos e cluster pelos seus próprios valores:
 
         ```azurecli
         az ad sp delete --id $(az aks show -g myResourceGroup -n myAKSCluster --query servicePrincipalProfile.clientId -o tsv)

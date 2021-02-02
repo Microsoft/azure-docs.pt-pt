@@ -3,12 +3,12 @@ title: Conceitos - Interconectividade da rede
 description: Conheça os principais aspetos e utilize casos de networking e interconectividade na Azure VMware Solution.
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 9369c0fff31de4c6575d8e4903420cfa01461bf4
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: eb701a7fca2be08d70e603734b9c4d8e266959cd
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99062125"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475425"
 ---
 # <a name="azure-vmware-solution-networking-and-interconnectivity-concepts"></a>Conceitos de networking e interconectividade Azure VMware Solution
 
@@ -58,8 +58,11 @@ O diagrama abaixo mostra as instalações para a interconectividade da nuvem pri
 Para uma interconectividade total com a sua nuvem privada, ative o ExpressRoute Global Reach e, em seguida, solicite uma chave de autorização e iD de observação privada para o Alcance Global no portal Azure. A chave de autorização e iD de espreitar são usadas para estabelecer o Global Reach entre um circuito ExpressRoute na sua subscrição e o circuito ExpressRoute para a sua nova nuvem privada. Uma vez ligados, os dois circuitos ExpressRoute encaminham o tráfego de rede entre os ambientes no local e a sua nuvem privada.  Para obter mais informações sobre os procedimentos para solicitar e utilizar a chave de autorização e o ID de espreitar, consulte o [tutorial para criar um ExpressRoute Global Reach olhando para uma nuvem privada.](tutorial-expressroute-global-reach-private-cloud.md)
 
 ## <a name="next-steps"></a>Passos seguintes 
-Saiba mais sobre [conceitos privados de armazenamento em nuvem.](concepts-storage.md)
 
+Agora que cobriu estes conceitos de rede e interconectividade, talvez queira aprender sobre:
+
+- [Conceitos de armazenamento de solução Azure VMware](concepts-storage.md).
+- [Conceitos de identidade de solução Azure VMware](concepts-identity.md)
 
 <!-- LINKS - external -->
 [enable Global Reach]: ../expressroute/expressroute-howto-set-global-reach.md

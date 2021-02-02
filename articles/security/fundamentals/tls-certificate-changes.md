@@ -9,16 +9,16 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 11/10/2020
 ms.author: mbaldwin
-ms.openlocfilehash: bb49523858f07e54887a67d9df68eb894e27ad34
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 04b68899b796088bd4b89509a413c7a1fe5369bb
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881253"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475357"
 ---
 # <a name="azure-tls-certificate-changes"></a>Alterações no certificado Azure TLS  
 
-A Microsoft está a atualizar os serviços da Azure para utilizar certificados TLS de um conjunto diferente de Autoridades de Certificados De Raiz (CAs). Esta alteração está a ser feita porque os certificados ac atuais não cumprem um dos requisitos de Base do Fórum CA/Browser.
+A Microsoft está a atualizar os serviços da Azure para utilizar certificados TLS de um conjunto diferente de Autoridades de Certificados De Raiz (CAs). Esta alteração está a ser feita porque os certificados de CA atuais não cumprem um dos requisitos da Base de Base do Fórum CA/Browser e serão revogados no dia 15 de fevereiro de 2021.
 
 ## <a name="when-will-this-change-happen"></a>Quando é que esta mudança vai acontecer?
 
@@ -89,6 +89,6 @@ Aqui estão algumas formas de detetar se a sua aplicação é impactada:
     - http://ocsp&#46;msocsp&#46;com
     - http://www&#46;microsoft&#46;com/pkiops
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se tiver dúvidas adicionais, contacte-nos através [do suporte.](https://azure.microsoft.com/support/options/)

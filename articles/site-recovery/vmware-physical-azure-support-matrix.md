@@ -3,12 +3,12 @@ title: Matriz de suporte para vMware/recuperação de desastres físicos na recu
 description: Resume o suporte para a recuperação de desastres de VMware VMs e servidor físico para Azure usando a Recuperação do Site Azure.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: f525666e91a482a6c23128e266b4f5669437a502
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 48eba42548287b54d99d1a2188786437f4b05a2b
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98956026"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475476"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação de desastres de VMware VMs e servidores físicos para Azure
 
@@ -187,60 +187,60 @@ Adicione o disco em VM replicado | Não suportado.<br/> Desative a replicação 
 **Componente** | **Suportado**
 --- | ---
 Equipa NIC de rede de anfitriões | Suportado para VMware VMs. <br/><br/>Não suportado para a replicação da máquina física.
-Rede de anfitriões VLAN | Yes.
-Rede de anfitriões IPv4 | Yes.
+Rede de anfitriões VLAN | Sim.
+Rede de anfitriões IPv4 | Sim.
 Rede de anfitriões IPv6 | N.º
 Rede de hóspedes/servidor NIC Teaming | N.º
-Rede de hóspedes/servidores IPv4 | Yes.
+Rede de hóspedes/servidores IPv4 | Sim.
 Rede de hóspedes/servidores IPv6 | N.º
-IP estático de rede de hóspedes/servidor (Windows) | Yes.
-IP estático de rede de hóspedes/servidor (Linux) | Yes. <br/><br/>Os VMs estão configurados para usar o DHCP no failback.
-Rede de hóspedes/servidores múltiplos NICs | Yes.
-Acesso de ligação privada ao serviço de Recuperação de Sítios | Yes. [Saiba mais](hybrid-how-to-enable-replication-private-endpoints.md).
+IP estático de rede de hóspedes/servidor (Windows) | Sim.
+IP estático de rede de hóspedes/servidor (Linux) | Sim. <br/><br/>Os VMs estão configurados para usar o DHCP no failback.
+Rede de hóspedes/servidores múltiplos NICs | Sim.
+Acesso de ligação privada ao serviço de Recuperação de Sítios | Sim. [Saiba mais](hybrid-how-to-enable-replication-private-endpoints.md).
 
 
 ## <a name="azure-vm-network-after-failover"></a>Rede Azure VM (após falha)
 
 **Componente** | **Suportado**
 --- | ---
-Azure ExpressRoute | Yes
-ILB | Yes
-ELB | Yes
-Gestor de Tráfego do Azure | Yes
-Multi-NIC | Yes
-Endereço IP reservado | Yes
-IPv4 | Yes
-Reter endereço IP de origem | Yes
-Pontos finais de serviço de rede virtual Azure<br/> | Yes
-Redes aceleradas | No
+Azure ExpressRoute | Sim
+ILB | Sim
+ELB | Sim
+Gestor de Tráfego do Azure | Sim
+Multi-NIC | Sim
+Endereço IP reservado | Sim
+IPv4 | Sim
+Reter endereço IP de origem | Sim
+Pontos finais de serviço de rede virtual Azure<br/> | Sim
+Redes aceleradas | Não
 
 ## <a name="storage"></a>Armazenamento
 **Componente** | **Suportado**
 --- | ---
 Disco dinâmico | O disco de so deve ser um disco básico. <br/><br/>Os discos de dados podem ser discos dinâmicos
-Configuração do disco docker | No
+Configuração do disco docker | Não
 Anfitrião NFS | Sim para VMware<br/><br/> Não para servidores físicos
-Host SAN (iSCSI/FC) | Yes
+Host SAN (iSCSI/FC) | Sim
 Anfitrião vSAN | Sim para VMware<br/><br/> N/A para servidores físicos
 Hospedeiro multipata (MPIO) | Sim, testado com Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM para CLARiiON
 Volumes Virtuais de Hospedo (VVols) | Sim para VMware<br/><br/> N/A para servidores físicos
-VMDK de hóspedes/servidor | Yes
-Disco de cluster compartilhado de hóspede/servidor | No
-Disco encriptado de hóspede/servidor | No
-NFS de hóspedes/servidores | No
+VMDK de hóspedes/servidor | Sim
+Disco de cluster compartilhado de hóspede/servidor | Não
+Disco encriptado de hóspede/servidor | Não
+NFS de hóspedes/servidores | Não
 Hóspede/servidor iSCSI | Para a Migração - Sim<br/>Para a recuperação de desastres - Não, o iSCSI falhará como um disco anexado ao VM
-Hóspede/servidor SMB 3.0 | No
-Hóspede/servidor RDM | Yes<br/><br/> N/A para servidores físicos
-Disco de hóspedes/servidor > 1 TB | Sim, o disco deve ser maior que 1024 MB<br/><br/>Até 8.192 GB ao replicar discos geridos (versão 9.26 em diante)<br></br> Até 4.095 GB ao replicar-se em contas de armazenamento
-Disco de hóspede/servidor com tamanho lógico lógico e 4k do setor físico | No
-Disco de hóspedes/servidor com tamanho lógico lógico de 4K e 512 bytes do setor físico | No
-Volume de hóspede/servidor com disco listrado >4 TB | Yes
+Hóspede/servidor SMB 3.0 | Não
+Hóspede/servidor RDM | Sim<br/><br/> N/A para servidores físicos
+Disco de hóspedes/servidor > 1 TB | Sim, o disco deve ser maior que 1024 MB<br/><br/>Até 32 TB ao replicar discos geridos (versão 9.40 em diante)<br></br> Até 4.095 GB ao replicar-se em contas de armazenamento
+Disco de hóspede/servidor com tamanho lógico lógico e 4k do setor físico | Não
+Disco de hóspedes/servidor com tamanho lógico lógico de 4K e 512 bytes do setor físico | Não
+Volume de hóspede/servidor com disco listrado >4 TB | Sim
 Gestão lógica do volume (LVM)| Provisão grossa - Sim <br></br> Provisões finas - Não
-Hóspede/servidor - Espaços de Armazenamento | No
-Guest/server - Interface NVMe | No
-Adicionar/remover o disco quente do hóspede/servidor | No
-Guest/server - excluir o disco | Yes
-Multipata de hóspedes/servidores (MPIO) | No
+Hóspede/servidor - Espaços de Armazenamento | Não
+Guest/server - Interface NVMe | Não
+Adicionar/remover o disco quente do hóspede/servidor | Não
+Guest/server - excluir o disco | Sim
+Multipata de hóspedes/servidores (MPIO) | Não
 Divisórias GPT de hóspedes/servidor | Cinco divisórias são suportadas a partir do [Update Rollup 37](https://support.microsoft.com/help/4508614/) (versão 9.25 do serviço mobility) em diante. Anteriormente quatro foram apoiados.
 ReFS | O Sistema de Ficheiros Resiliente é suportado com a versão 9.23 ou superior do serviço de mobilidade
 Bota EFI/UEFI de hóspedes/servidor | - Suportado para todos os [OSes uefi do mercado Azure](../virtual-machines/generation-2.md#generation-2-vm-images-in-azure-marketplace) com a versão 9.30 do agente de mobilidade de recuperação do local. <br/> - O tipo de arranque UEFI seguro não é suportado. [Saiba mais.](../virtual-machines/generation-2.md#on-premises-vs-azure-generation-2-vms)
@@ -249,37 +249,37 @@ Bota EFI/UEFI de hóspedes/servidor | - Suportado para todos os [OSes uefi do me
 
 |**Tipo de replicação**   |**Suportado**  |
 |---------|---------|
-|Transferências de dados descarregadas (ODX)    |       No  |
-|Sementeira offline        |   No      |
-| Azure Data Box | No
+|Transferências de dados descarregadas (ODX)    |       Não  |
+|Sementeira offline        |   Não      |
+| Azure Data Box | Não
 
 ## <a name="azure-storage"></a>Storage do Azure
 
 **Componente** | **Suportado**
 --- | ---
-Armazenamento localmente redundante | Yes
-Armazenamento georredundante | Yes
-Armazenamento georredundante com acesso de leitura | Yes
-Armazenamento fresco | No
-Armazenamento quente| No
-Blobs de blocos | No
-Encriptação em repouso (SSE)| Yes
+Armazenamento localmente redundante | Sim
+Armazenamento georredundante | Sim
+Armazenamento georredundante com acesso de leitura | Sim
+Armazenamento fresco | Não
+Armazenamento quente| Não
+Blobs de blocos | Não
+Encriptação em repouso (SSE)| Sim
 Encriptação em repouso (CMK)| Sim (via módulo PowerShell Az 3.3.0 em diante)
 Dupla encriptação em repouso | Sim (via módulo PowerShell Az 3.3.0 em diante). Saiba mais sobre regiões apoiadas para [Windows](../virtual-machines/disk-encryption.md) e [Linux.](../virtual-machines/disk-encryption.md)
-Armazenamento Premium | Yes
-Opção de transferência segura | Yes
-Serviço de importação/exportação | No
-Firewalls de armazenamento Azure para VNets | Yes.<br/> Configurado na conta de armazenamento/cache-alvo (utilizada para armazenar dados de replicação).
+Armazenamento Premium | Sim
+Opção de transferência segura | Sim
+Serviço de importação/exportação | Não
+Firewalls de armazenamento Azure para VNets | Sim.<br/> Configurado na conta de armazenamento/cache-alvo (utilizada para armazenar dados de replicação).
 Contas de armazenamento v2 para fins gerais (camadas quentes e frescas) | Sim (Os custos de transação são substancialmente mais elevados para o V2 em comparação com v1)
 
 ## <a name="azure-compute"></a>Computação do Azure
 
 **Funcionalidade** | **Suportado**
 --- | ---
-Conjuntos de disponibilidade | Yes
-Zonas de disponibilidade | No
-HUB | Yes
-Managed disks | Yes
+Conjuntos de disponibilidade | Sim
+Zonas de disponibilidade | Não
+HUB | Sim
+Managed disks | Sim
 
 ## <a name="azure-vm-requirements"></a>Requisitos da VM do Azure
 
@@ -292,7 +292,7 @@ Arquitetura do sistema operativo convidado | 64-bit. | A verificação falha se 
 Tamanho do disco do sistema operativo | Até 2.048 GB. | A verificação falha se não for apoiada.
 Contagem de discos do sistema operativo | 1 </br> arranque e divisão do sistema em diferentes discos não é suportado | A verificação falha se não for apoiada.
 Contagem de discos de dados | 64 ou menos. | A verificação falha se não for apoiada.
-Tamanho do disco de dados | Até 8.192 GB ao replicar o disco gerido (versão 9.26 em diante)<br></br>Até 4.095 GB ao replicar-se na conta de armazenamento| A verificação falha se não for apoiada.
+Tamanho do disco de dados | Até 32 TB ao replicar para o disco gerido (versão 9.40 em diante)<br></br>Até 4.095 GB ao replicar-se na conta de armazenamento| A verificação falha se não for apoiada.
 Placas de rede | Vários adaptadores são suportados. |
 VHD partilhado | Não suportado. | A verificação falha se não for apoiada.
 Disco FC | Não suportado. | A verificação falha se não for apoiada.
@@ -333,10 +333,10 @@ Máximo de alterações a dados por dia suportadas por um Servidor de Processos 
 
 **Ação** | **Suportado**
 --- | ---
-Mover cofre através de grupos de recursos | No
-Mover o cofre dentro e através de subscrições | No
-Mover armazenamento, rede, VMs Azure em grupos de recursos | No
-Mover armazenamento, rede, VMs Azure dentro e em todas as subscrições. | No
+Mover cofre através de grupos de recursos | Não
+Mover o cofre dentro e através de subscrições | Não
+Mover armazenamento, rede, VMs Azure em grupos de recursos | Não
+Mover armazenamento, rede, VMs Azure dentro e em todas as subscrições. | Não
 
 
 ## <a name="obtain-latest-components"></a>Obtenha componentes mais recentes

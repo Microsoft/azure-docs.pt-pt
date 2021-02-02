@@ -832,6 +832,24 @@ groups:
     title: Python
   - id: programming-language-swift
     title: Swift
+- id: acs-web-ios-android
+  title: Plataforma
+  prompt: Escolher uma plataforma
+  pivots:
+  - id: platform-web
+    title: Web
+  - id: platform-ios
+    title: iOS
+  - id: platform-android
+    title: Android
+- id: acs-web-ios
+  title: Plataforma
+  prompt: Escolher uma plataforma
+  pivots:
+  - id: platform-web
+    title: Web
+  - id: platform-ios
+    title: iOS
 - id: acs-js-csharp-ios-android-python
   title: Linguagens de programação
   prompt: Escolher uma linguagem de programação
@@ -989,9 +1007,9 @@ groups:
   - id: rest
     title: REST
 metadata:
-  ms.openlocfilehash: d0b0fc066111d3bd01ba5d810a5b1014981dfb1d
-  ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+  ms.openlocfilehash: a31f479718235799cc735e9aa44fbecc728a62ba
+  ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/22/2021
-  ms.locfileid: "98707995"
+  ms.lasthandoff: 02/02/2021
+  ms.locfileid: "99475291"
