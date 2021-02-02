@@ -3,7 +3,7 @@ title: Use restrições de inquilinos para gerir o acesso a apps SaaS - Azure AD
 description: Como usar as restrições do inquilino para gerir quais os utilizadores que podem aceder a apps com base no seu inquilino AZure AD.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.date: 10/26/2020
 ms.author: kenwith
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d69755c36bf37dd591e81bea7983e25905798d4d
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: f605b2bb48855d70ea305dcda194b26da71ee9ec
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286210"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99252479"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Use restrições de inquilinos para gerir o acesso a aplicações em nuvem SaaS
 
@@ -33,13 +33,13 @@ Este artigo centra-se nas restrições de inquilinos para o Microsoft 365, mas a
 
 A solução global compreende os seguintes componentes:
 
-1. **Azure AD** : Se o `Restrict-Access-To-Tenants: <permitted tenant list>` cabeçalho estiver presente, a Azure AD apenas emite fichas de segurança para os inquilinos autorizados.
+1. **Azure AD**: Se o `Restrict-Access-To-Tenants: <permitted tenant list>` cabeçalho estiver presente, a Azure AD apenas emite fichas de segurança para os inquilinos autorizados.
 
-2. **Infraestrutura de servidor de procuração no local** : Esta infraestrutura é um dispositivo proxy capaz de inspeção de Segurança da Camada de Transporte (TLS). Você deve configurar o representante para inserir o cabeçalho contendo a lista de inquilinos permitidos no tráfego destinado a Azure AD.
+2. **Infraestrutura de servidor de procuração no local**: Esta infraestrutura é um dispositivo proxy capaz de inspeção de Segurança da Camada de Transporte (TLS). Você deve configurar o representante para inserir o cabeçalho contendo a lista de inquilinos permitidos no tráfego destinado a Azure AD.
 
-3. **Software do cliente** : Para suportar as restrições dos inquilinos, o software do cliente deve solicitar fichas diretamente da Azure AD, para que a infraestrutura proxy possa intercetar tráfego. As aplicações microsoft 365 baseadas no navegador suportam atualmente as restrições dos inquilinos, assim como os clientes do Office que usam a autenticação moderna (como o OAuth 2.0).
+3. **Software do cliente**: Para suportar as restrições dos inquilinos, o software do cliente deve solicitar fichas diretamente da Azure AD, para que a infraestrutura proxy possa intercetar tráfego. As aplicações microsoft 365 baseadas no navegador suportam atualmente as restrições dos inquilinos, assim como os clientes do Office que usam a autenticação moderna (como o OAuth 2.0).
 
-4. **Autenticação Moderna** : Os serviços em nuvem devem utilizar a autenticação moderna para usar as restrições do arrendatário e bloquear o acesso a todos os inquilinos não permitidos. Tem de configurar os serviços em nuvem microsoft 365 para utilizar por padrão protocolos de autenticação modernos. Para obter as informações mais recentes sobre o suporte da Microsoft 365 para a autenticação moderna, leia [a autenticação moderna do Office 365.](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/)
+4. **Autenticação Moderna**: Os serviços em nuvem devem utilizar a autenticação moderna para usar as restrições do arrendatário e bloquear o acesso a todos os inquilinos não permitidos. Tem de configurar os serviços em nuvem microsoft 365 para utilizar por padrão protocolos de autenticação modernos. Para obter as informações mais recentes sobre o suporte da Microsoft 365 para a autenticação moderna, leia [a autenticação moderna do Office 365.](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/)
 
 O diagrama que se segue ilustra o fluxo de tráfego de alto nível. As restrições ao arrendamento requerem a inspeção TLS apenas no tráfego para Azure AD, e não para os serviços de cloud Microsoft 365. Esta distinção é importante, porque o volume de tráfego para autenticação para Azure AD é tipicamente muito inferior ao volume de tráfego para aplicações SaaS como Exchange Online e SharePoint Online.
 

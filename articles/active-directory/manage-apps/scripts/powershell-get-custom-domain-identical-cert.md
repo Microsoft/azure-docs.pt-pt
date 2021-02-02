@@ -3,7 +3,7 @@ title: Amostra PowerShell - Aplicações Proxy de aplicação com certificados i
 description: Exemplo powerShell que lista todas as aplicações de procuração de aplicação Azure Ative (Azure AD) que são publicadas com o certificado idêntico.
 services: active-directory
 author: kenwith
-manager: CelesteDG
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 0debc48a5509d4c9e3b2b36642c86cd1f0da3ac4
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: c3ad764745b28e3523eee557cb0cd4e24101e4b8
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861571"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99253803"
 ---
 # <a name="get-all-azure-ad-proxy-application-apps-that-are-published-with-the-identical-certificate"></a>Obtenha todas as aplicações de aplicação Azure AD Proxy que são publicadas com o certificado idêntico
 
@@ -40,7 +40,7 @@ Esta amostra requer o [AzureAD V2 PowerShell para módulo Graph](/powershell/azu
 |---|---|
 |[Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) | Arranja um diretor de serviço. |
 |[Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication) | Obtém uma aplicação AD Azure. |
-|[Get-AzureADApplicationProxyApplicationApplicationApplication](/powershell/module/azuread/get-azureadapplicationproxyapplication) | Recupera uma aplicação configurada para Procuração de Aplicação em Azure AD. |
+|[Get-AzureADApplicationProxyApplication](/powershell/module/azuread/get-azureadapplicationproxyapplication) | Recupera uma aplicação configurada para Procuração de Aplicação em Azure AD. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

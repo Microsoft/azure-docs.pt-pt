@@ -3,7 +3,7 @@ title: Opções únicas de inscrição em Azure AD
 description: Saiba mais sobre as opções disponíveis para um único sign-on (SSO) no Azure Ative Directory.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
-ms.openlocfilehash: f7ec8a913634322be5a1eb854972cfa2a0217381
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 2bf84a22a384e6079c2d85c833b34ba37eecaa46
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651928"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99252360"
 ---
 # <a name="single-sign-on-options-in-azure-ad"></a>Opções únicas de inscrição em Azure AD
 
@@ -41,7 +41,7 @@ Este fluxograma ajuda-o a decidir qual o método de inscrição único melhor pa
 
 A tabela a seguir resume os métodos de inscrição única e liga-se a mais detalhes.
 
-| Método de inscrição único | Tipos de aplicações | Quando utilizar |
+| Método de inscrição único | Tipos de aplicação | Quando utilizar |
 | :------ | :------- | :----- |
 | [OpenID Connect e OAuth](#openid-connect-and-oauth) | nuvem e no local | Utilize o OpenID Connect e o OAuth ao desenvolver uma nova aplicação. Este protocolo simplifica a configuração da aplicação, tem SDKs fáceis de usar e permite que a sua aplicação utilize o Ms Graph.
 | [SAML](#saml-sso) | nuvem e no local | Escolha SAML sempre que possível para aplicações existentes que não utilizem OpenID Connect ou OAuth. A SAML trabalha para aplicações que autenticam usando um dos protocolos SAML.|
@@ -55,7 +55,7 @@ A tabela a seguir resume os métodos de inscrição única e liga-se a mais deta
 
 Ao desenvolver novas aplicações, utilize protocolos modernos como OpenID Connect e OAuth para obter a melhor experiência de súp livre para a sua aplicação em várias plataformas de dispositivos. A OAuth permite que utilizadores ou administradores [concedam consentimento](configure-user-consent.md) para recursos protegidos como [o Microsoft Graph](/graph/overview). Fornecemos [SDKs](../develop/reference-v2-libraries.md) fáceis de adotar para a sua aplicação e, além disso, a sua aplicação estará pronta para usar [o Microsoft Graph.](/graph/overview)
 
-Para obter mais informações, veja:
+Para obter mais informações, consulte:
 
 - [OAuth 2.0](../develop/v2-oauth2-auth-code-flow.md)
 - [OpenID Connect 1.0](../develop/v2-protocols-oidc.md)
@@ -187,7 +187,7 @@ Escolha um único sinal de inscrição baseado no cabeçalho quando o Applicatio
 Para saber mais sobre a autenticação baseada em cabeçalho, consulte [o SSO baseado em Cabeçalho](application-proxy-configure-single-sign-on-with-headers.md).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Quickstart Series em Gestão de Aplicações](view-applications-portal.md)
 * [Planear uma implementação de início de sessão único](plan-sso-deployment.md)
 * [Único sinal com aplicativos no local](application-proxy-config-sso-how-to.md)

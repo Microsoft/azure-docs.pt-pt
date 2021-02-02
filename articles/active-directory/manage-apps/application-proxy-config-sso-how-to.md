@@ -3,7 +3,7 @@ title: Compreenda o único sign-on com uma aplicação no local usando o Applica
 description: Compreenda o único sinal de saúde com uma aplicação no local utilizando o Application Proxy.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: kenwith
 ms.reviewer: japere, asteen
-ms.openlocfilehash: e7df16a797fe0d7a0fd9a0b3857b1b1c32ba07ed
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 10b722edbe8d70c92e617c78db3d2fb1d46da3a5
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656297"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99254109"
 ---
-# <a name="how-to-configure-single-sign-on-to-an-application-proxy-application"></a>Como configurar um único sign-on para uma aplicação de procuração de aplicação
+# <a name="how-to-configure-single-sign-on-to-an-application-proxy-application"></a>Como configurar o início de sessão único numa aplicação do Proxy de Aplicações
 
 O único sinal de sso permite aos seus utilizadores aceder a uma aplicação sem autenticar várias vezes. Permite que a autenticação única ocorra na nuvem, contra o Azure Ative Directory, e permite que o serviço ou Conector personiem o utilizador para completar quaisquer desafios adicionais de autenticação da aplicação.
 
 ## <a name="how-to-configure-single-sign-on"></a>Como configurar um único sinal
-Para configurar o SSO, certifique-se primeiro de que a sua aplicação está configurada para Pré-Autenticação através do Diretório Ativo Azure. Para fazer esta configuração, aceda a **aplicações empresariais do Azure Ative Directory**  - &gt; **Enterprise Applications**  - &gt; **Todas as Aplicações**  - &gt; A sua **- &gt; aplicação Proxy**. Nesta página, vê o campo "Pré Autenticação" e certifique-se de que está definido para "Azure Ative Directory". 
+Para configurar o SSO, certifique-se primeiro de que a sua aplicação está configurada para Pré-Autenticação através do Diretório Ativo Azure. Para fazer esta configuração, aceda a **aplicações empresariais do Azure Ative Directory**  - &gt;   - &gt; **Todas as Aplicações**  - &gt; A sua **- &gt; aplicação Proxy**. Nesta página, vê o campo "Pré Autenticação" e certifique-se de que está definido para "Azure Ative Directory". 
 
 Para obter mais informações sobre os métodos de pré-autenticação, consulte o passo 4 do [documento de publicação da aplicação.](application-proxy-add-on-premises-application.md)
 
@@ -46,7 +46,7 @@ Nesta página, você também vê uma opção adicional Sign-On: Linked Sign-On. 
 
 Esta opção permite que um administrador crie um link para uma aplicação que os utilizadores primeiro aterram ao aceder à aplicação. Por exemplo, se houver uma aplicação configurada para autenticar utilizadores que utilizem os Serviços da Federação de Diretório Ativo 2.0, um administrador pode utilizar a opção "Linked Sign-On" para criar um link para o mesmo nas Minhas Apps.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Abóbada de senha para um único sinal com Proxy de aplicação](application-proxy-configure-single-sign-on-password-vaulting.md)
 - [Kerberos Delegação Restrita para um único sign-on com Proxy de aplicação](application-proxy-configure-single-sign-on-with-kcd.md)
 - [Autenticação baseada em cabeçalho para um único sign-on com Application Proxy](application-proxy-configure-single-sign-on-with-headers.md) 

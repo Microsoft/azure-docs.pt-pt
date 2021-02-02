@@ -3,7 +3,7 @@ title: Amostra powerShell - Aplicações Proxy usando domínios personalizados
 description: Exemplo powerShell que lista todas as aplicações de procuração de aplicações Azure Ative (Azure AD) que estão a usar domínios personalizados e informações de certificados.
 services: active-directory
 author: kenwith
-manager: CelesteDG
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: e2cf5aa5ba84bea90779d2a4a0c4d5da84707716
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: b7936ca64b01b400ba9a019a6d138ca11dcccc77
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96859271"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99253056"
 ---
 # <a name="get-all-application-proxy-apps-using-custom-domains-and-certificate-information"></a>Obtenha todas as aplicações Proxy da Aplicação usando domínios personalizados e informações de certificados
 
@@ -40,7 +40,7 @@ Esta amostra requer o [AzureAD V2 PowerShell para módulo Graph](/powershell/azu
 |---|---|
 |[Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) | Arranja um diretor de serviço. |
 |[Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication) | Obtém uma aplicação AD Azure. |
-|[Get-AzureADApplicationProxyApplicationApplicationApplication](/powershell/module/azuread/get-azureadapplicationproxyapplication) | Recupera uma aplicação configurada para Procuração de Aplicação em Azure AD. |
+|[Get-AzureADApplicationProxyApplication](/powershell/module/azuread/get-azureadapplicationproxyapplication) | Recupera uma aplicação configurada para Procuração de Aplicação em Azure AD. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

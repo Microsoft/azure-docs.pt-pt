@@ -4,7 +4,7 @@ description: Cobre o básico sobre conectores de aplicação AD AZure
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 155a91ded6c814e2d868e8edd4572459460d006f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebef93455414c114fb60df9af8ebc629769a33e6
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88642066"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99254433"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Desconfiem de uma página inicial personalizada para aplicações publicadas utilizando o Azure AD Application Proxy
 
@@ -56,7 +56,7 @@ Pode definir o URL da página inicial através do portal Azure ou utilizando o P
 Para alterar o URL da página inicial da sua aplicação através do portal AD Azure, siga estes passos:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/) como administrador.
-1. Selecione **Azure Ative Directory**e, em seguida, **registos de Aplicações**. A lista de aplicações registadas aparece.
+1. Selecione **Azure Ative Directory** e, em seguida, **registos de Aplicações**. A lista de aplicações registadas aparece.
 1. Escolha a sua aplicação na lista. Aparece uma página que mostra os detalhes da aplicação registada.
 1. Under **Manage**, selecione **Branding**.
 1. Atualize o **URL da página inicial**  com o seu novo caminho.
@@ -75,7 +75,7 @@ Para configurar a página inicial de uma aplicação utilizando o PowerShell, é
 
 ### <a name="install-the-azure-ad-powershell-module"></a>Instale o módulo Azure AD PowerShell
 
-Antes de definir um URL de página inicial personalizado utilizando o PowerShell, instale o módulo Azure AD PowerShell.Pode descarregar o pacote da [PowerShell Gallery,](https://www.powershellgallery.com/packages/AzureAD/2.0.2.16)que utiliza o ponto final da API do Gráfico.
+Antes de definir um URL de página inicial personalizado utilizando o PowerShell, instale o módulo Azure AD PowerShell. Pode descarregar o pacote da [PowerShell Gallery,](https://www.powershellgallery.com/packages/AzureAD/2.0.2.16)que utiliza o ponto final da API do Gráfico.
 
 Para instalar a embalagem, siga estes passos:
 
@@ -115,8 +115,8 @@ Obtém o ObjectId da aplicação procurando a aplicação pelo seu nome de exibi
 
    ```console
    DisplayName : SharePoint
-   Homepage    : https://sharepoint-iddemo.msappproxy.net/
-   ObjectId    : 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
+   Homepage    : https://sharepoint-iddemo.msappproxy.net/
+   ObjectId    : 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
    ```
 
    Em alternativa, basta retirar a lista de todas as aplicações, pesquisar a lista para a aplicação com um nome de exibição específico ou página inicial, e copiar o ObjectId da aplicação assim que a aplicação for encontrada.
@@ -169,8 +169,8 @@ Crie o URL da página inicial e atualize a sua aplicação com esse valor. Conti
 
    ```console
    DisplayName : SharePoint
-   Homepage    : https://sharepoint-iddemo.msappproxy.net/hybrid/
-   ObjectId    : 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
+   Homepage    : https://sharepoint-iddemo.msappproxy.net/hybrid/
+   ObjectId    : 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
    ```
 
 1. Reinicie a aplicação para confirmar que a página inicial aparece como o primeiro ecrã, como esperado.

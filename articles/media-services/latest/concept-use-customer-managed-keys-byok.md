@@ -5,13 +5,13 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: conceptual
-ms.date: 10/14/2020
-ms.openlocfilehash: c11bb0e369075c3024824d65290e8aecfa68e6f4
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.date: 1/28/2020
+ms.openlocfilehash: 7e58daf72522071eb7d0031d4ea236a21c6d8bfb
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98956145"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99252326"
 ---
 # <a name="bring-your-own-key-customer-managed-keys-with-media-services"></a>Traga a sua própria chave (chaves geridas pelo cliente) com serviços de mídia
 
@@ -36,6 +36,12 @@ Pode especificar um nome chave e uma versão chave, ou apenas um nome chave. Qua
 
 > [!WARNING]
 > O Media Services monitoriza o acesso à chave do cliente. Se a chave do cliente se tornar inacessível (por exemplo, a chave foi eliminada ou o Cofre-Chave foi eliminado ou a concessão de acesso foi removida), os Serviços de Comunicação social transitarão a conta para o Estado Inacessível da Chave cliente (desativando efetivamente a conta). No entanto, a conta pode ser eliminada neste estado. As únicas operações suportadas são conta GET, LIST e DELETE; todos os outros pedidos (codificação, streaming, e assim por diante) falharão até que o acesso à chave de conta seja restaurado.
+
+## <a name="double-encryption"></a>Encriptação dupla
+
+Os Serviços de Comunicação Social suportam a dupla encriptação.  Para saber mais sobre a dupla encriptação, consulte [a encriptação dupla Azure.](../../security/fundamentals/double-encryption.md)
+
+A dupla encriptação é ativada automaticamente na conta dos Serviços de Mídia. No entanto, é necessário configurar a chave gerida pelo cliente e duplicar a encriptação na sua conta de armazenamento separadamente.
 
 ## <a name="tutorials"></a>Tutoriais
 

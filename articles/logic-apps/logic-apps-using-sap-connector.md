@@ -7,14 +7,14 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
-ms.date: 01/25/2021
+ms.date: 02/01/2021
 tags: connectors
-ms.openlocfilehash: 93e705eea39443ffc15fbdd079e1376ec46cb51c
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: edf4ce188c9239e697e2148d4fff51966d91f85a
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98786695"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99252615"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Ligar-se a sistemas SAP a partir de Azure Logic Apps
 
@@ -528,6 +528,18 @@ Para configurar um padrão de resposta a pedido assíncronos para a sua aplicaç
 Para obter mensagens de erro completas, verifique os registos estendidos do adaptador SAP. Também pode [ativar um ficheiro de registo prolongado para o conector SAP](#extended-sap-logging-in-on-premises-data-gateway).
 
 Para lançamentos de gateway de dados no local a partir de junho de 2020 e posteriormente, pode [ativar registos de gateway nas definições da aplicação.](/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app) 
+
+* O nível de registo predefinido é **Aviso**.
+
+* Se ativar o **registo adicional** nas **definições** de Diagnóstico da aplicação de gateway de dados no local, o nível de registo é aumentado para **Informação.**
+
+* Para aumentar o nível de registo para **Verbose,** atualize a seguinte definição no seu ficheiro de configuração. Normalmente, o ficheiro de configuração está localizado em `C:\Program Files\On-premises data gateway\Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config` .
+
+```json
+<setting name="SapTraceLevel" serializeAs="String">
+   <value>Verbose</value>
+</setting>
+```
 
 Para as versões de gateway de dados no local a partir de abril de 2020 e anteriores, os registos são desativados por padrão.
 
@@ -1338,7 +1350,7 @@ Para obter exemplos detalhados de como utilizar a ação Send IDoc, consulte a [
 
 Para saber como utilizar o parâmetro opcional **ConfirmE TID** `confirmTid` (), consulte a [passagem para confirmar explicitamente a transação](#confirm-transaction-explicitly).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Ligue-se aos sistemas no local](../logic-apps/logic-apps-gateway-connection.md) a partir de Azure Logic Apps.
 

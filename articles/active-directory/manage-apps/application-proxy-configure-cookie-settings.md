@@ -1,9 +1,9 @@
 ---
-title: Configurações de cookies Proxy de aplicação - Azure Ative Directory / Microsoft Docs
+title: Configurações de cookies Proxy de aplicação - Azure Ative Directory | Microsoft Docs
 description: O Azure Ative Directory (Azure AD) tem cookies de acesso e sessão para aceder a aplicações no local através do Application Proxy. Neste artigo, você vai descobrir como usar e configurar as definições de cookies.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.date: 01/16/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 656841fc8e62e81318ffd568069c0664192b1747
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 62afe97b44f45bc0b7aa12b33b6a65dd94ecf095
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84764898"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99252207"
 ---
 # <a name="cookie-settings-for-accessing-on-premises-applications-in-azure-active-directory"></a>Definições de cookies para aceder a aplicações no local no Azure Ative Directory
 

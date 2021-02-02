@@ -11,12 +11,12 @@ ms.date: 11/13/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 9b2fc61054c40f52f7e638117109ec556cc63a78
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: de6c7e47af3019d034d457f43334aad1aeafabdc
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98678462"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99254279"
 ---
 # <a name="troubleshooting-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Resolução de problemas piscina SQL dedicada (anteriormente SQL DW) em Azure Synapse Analytics
 
@@ -76,6 +76,7 @@ Este artigo lista problemas comuns de resolução de problemas em piscina sql de
 | Tipos de dados de base de dados SQL não suportados   | Consulte [os tipos de dados não suportados.](sql-data-warehouse-tables-data-types.md#identify-unsupported-data-types)        |
 | Limitações de procedimentos armazenados          | Consulte [as limitações do procedimento armazenadas](sql-data-warehouse-develop-stored-procedures.md#limitations) para compreender algumas das limitações dos procedimentos armazenados. |
 | Os UDFs não suportam declarações SELECT | Esta é uma limitação atual dos nossos UDFs.  Consulte [a função CREATE](/sql/t-sql/statements/create-function-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para a sintaxe que suportamos. |
+| sp_rename (pré-visualização) para colunas não funciona em esquemas fora do *dbo* | Esta é uma limitação atual da Sinapse [sp_rename (pré-visualização) para colunas](/sql/relational-databases/system-stored-procedures/sp-rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).  Colunas em objetos que não fazem parte do esquema *dbo* podem ser renomeadas através de um CTAS para uma nova tabela. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

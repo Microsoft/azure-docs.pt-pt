@@ -6,14 +6,14 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 1/21/2021
+ms.date: 1/30/2021
 ms.author: cavoeg
-ms.openlocfilehash: 28c01e99c0e8708750341b445b4a31f6eaeab3ce
-ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
+ms.openlocfilehash: 0ee32d37ca8e3a32ba603fd84cee81890ddac98b
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98747530"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99252122"
 ---
 # <a name="features"></a>Funcionalidades
 
@@ -41,8 +41,8 @@ As versões anteriores também suportadas incluem: `3.0.2`
 | criar                         | Sim       | Sim       | Sim       | Apoiar tanto o POST/PUT                               |
 | criar (condicional)           | Sim       | Sim       | Sim       | Emissão [#1382](https://github.com/microsoft/fhir-server/issues/1382) |
 | pesquisar                         | Parcial   | Parcial   | Parcial   | Veja abaixo                                           |
-| pesquisa acorrentada                 | Não        | Sim       | Não        |                                           |
-| pesquisa acorrentada inversa         | Não        | Não        | Não        |                                            |
+| pesquisa acorrentada                 | Não        | Sim       | Não        |                                                     |
+| pesquisa acorrentada inversa         | Não        | Sim       | Não        |                                                     |
 | capacidades                   | Sim       | Sim       | Sim       |                                                     |
 | lote                          | Sim       | Sim       | Sim       |                                                     |
 | transação                    | Não        | Sim       | Não        |                                                     |
@@ -72,39 +72,39 @@ Todos os tipos de parâmetros de pesquisa são suportados.
 |`:exact`               | Sim       | Sim       | Sim       |         |
 |`:contains`            | Sim       | Sim       | Sim       |         |
 |`:text`                | Sim       | Sim       | Sim       |         |
+|`:[type]` (referência)  | Sim       | Sim       | Sim       |         |
+|`:not`                 | Sim       | Sim       | Sim       |         |
+|`:below` (uri)         | Sim       | Sim       | Sim       |         |
+|`:above` (uri)         | Não        | Não        | Não        | Emissão [#158](https://github.com/Microsoft/fhir-server/issues/158) |
 |`:in` (símbolo)          | Não        | Não        | Não        |         |
 |`:below` (símbolo)       | Não        | Não        | Não        |         |
 |`:above` (símbolo)       | Não        | Não        | Não        |         |
 |`:not-in` (símbolo)      | Não        | Não        | Não        |         |
-|`:[type]` (referência)  | Não        | Não        | Não        |         |
-|`:below` (uri)         | Sim       | Sim       | Sim       |         |
-|`:not`                 | Não        | Não        | Não        |         |
-|`:above` (uri)         | Não        | Não        | Não        | Emissão [#158](https://github.com/Microsoft/fhir-server/issues/158) |
 
 | Parâmetro de pesquisa comum | Suportado - PaaS | Suportado - OSS (SQL) | Suportado - OSS (Cosmos DB) | Comentário |
 |-------------------------| ----------| ----------| ----------|---------|
 | `_id`                   | Sim       | Sim       | Sim       |         |
 | `_lastUpdated`          | Sim       | Sim       | Sim       |         |
 | `_tag`                  | Sim       | Sim       | Sim       |         |
-| `_profile`              | Parcial   | Parcial   | Parcial   | Apenas apoiado na STU3, sem apoio em R4 |
+| `_list`                 | Sim       | Sim       | Sim       |         |
+| `_type`                 | Sim       | Sim       | Sim       | #1562 [de emissão](https://github.com/microsoft/fhir-server/issues/1562)        |
 | `_security`             | Sim       | Sim       | Sim       |         |
+| `_profile`              | Parcial   | Parcial   | Parcial   | Apenas apoiado na STU3, sem apoio em R4 |
 | `_text`                 | Não        | Não        | Não        |         |
 | `_content`              | Não        | Não        | Não        |         |
-| `_list`                 | Sim       | Sim       | Sim       |         |
 | `_has`                  | Não        | Não        | Não        |         |
-| `_type`                 | Sim       | Sim       | Sim       |         |
 | `_query`                | Não        | Não        | Não        |         |
 | `_filter`               | Não        | Não        | Não        |         |
 
 | Parâmetros de resultado de pesquisa | Suportado - PaaS | Suportado - OSS (SQL) | Suportado - OSS (Cosmos DB) | Comentário |
 |-------------------------|-----------|-----------|-----------|---------|
-| `_sort`                 | Parcial        | Parcial   | Parcial        |   `_sort=_lastUpdated` é apoiado       |
+| `_elements`             | Sim       | Sim       | Sim       | Emissão [#1256](https://github.com/microsoft/fhir-server/issues/1256)        |
 | `_count`                | Sim       | Sim       | Sim       | `_count` está limitado a 100 caracteres. Se for fixado para mais de 100, apenas 100 serão devolvidos e um aviso será devolvido no pacote. |
 | `_include`              | Sim       | Sim       | Sim       |Os itens incluídos estão limitados a 100. Incluir no PaaS e o OSS na Cosmos DB não inclui :suporte iterate.|
-| `_revinclude`           | Sim       | Sim       | Sim       | Os itens incluídos estão limitados a 100. Incluir no PaaS e o OSS na Cosmos DB não inclui :suporte iterate.|
+| `_revinclude`           | Sim       | Sim       | Sim       | Os itens incluídos estão limitados a 100. Incluir no PaaS e o OSS na Cosmos DB [não inclui :suporte iterate](https://github.com/microsoft/fhir-server/issues/1313). Emissão [#1319](https://github.com/microsoft/fhir-server/issues/1319)|
 | `_summary`              | Parcial   | Parcial   | Parcial   | `_summary=count` é apoiado |
-| `_total`                | Parcial   | Parcial   | Parcial   | _total=não e _total=preciso      |
-| `_elements`             | Sim       | Sim       | Sim       |         |
+| `_total`                | Parcial   | Parcial   | Parcial   | `_total=none` e `_total=accurate`      |
+| `_sort`                 | Parcial   | Parcial   | Parcial   |   `_sort=_lastUpdated` é apoiado       |
 | `_contained`            | Não        | Não        | Não        |         |
 | `containedType`         | Não        | Não        | Não        |         |
 | `_score`                | Não        | Não        | Não        |         |
@@ -156,7 +156,7 @@ O desempenho do sistema depende do número de RUs, ligações simultâneas e do 
 
 Nota: Por exigência de Coss dB, existe um requisito de produção mínima de 10 RU/s por GB de armazenamento. Para mais informações, consulte [as quotas de serviço da Cosmos DB.](../cosmos-db/concepts-limits.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, você leu sobre as funcionalidades de FHIR suportadas na Azure API para FHIR. Em seguida, implemente a AZure API para fHIR.
  

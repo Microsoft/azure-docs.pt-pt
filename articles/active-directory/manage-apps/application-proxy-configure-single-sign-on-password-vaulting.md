@@ -1,10 +1,10 @@
 ---
-title: Único s-on para apps com Azure AD Application Proxy / Microsoft Docs
+title: Único s-on para apps com Azure AD Application Proxy | Microsoft Docs
 description: Ligue um único sinal para as suas aplicações publicadas no local com o Azure AD Application Proxy no portal Azure.
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -14,12 +14,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00b25f1b506228d2d80aecae3845467759a4bc4f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0cb2830c019635e9020a4b586bdc370450fddb0
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88165044"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99254007"
 ---
 # <a name="password-vaulting-for-single-sign-on-with-application-proxy"></a>Abóbada de senha para um único sinal com Proxy de aplicação
 
@@ -51,7 +51,7 @@ Já devia ter publicado e testado a sua aplicação com o Application Proxy. Cas
 1. Selecione **Utilizadores e Grupos**.
 1. Atribua os utilizadores à aplicação com a seleção **do utilizador Adicionar.** 
 1. Se pretender pré-finar credenciais para um utilizador, verifique a caixa frontal do nome de utilizador e selecione **credenciais de Atualização**.
-1. Selecione registos de aplicações **de diretório ativo Azure**  >  **App registrations**  >  **Todas as aplicações**.
+1. Selecione registos de aplicações **de diretório ativo Azure**  >    >  **Todas as aplicações**.
 1. Na lista, selecione a aplicação que configura com Password SSO.
 1. **Selecione Branding**. 
 1. Atualize o **URL da página inicial** com o Sinal no **URL** da página SSO da palavra-passe e selecione **Guardar**.  

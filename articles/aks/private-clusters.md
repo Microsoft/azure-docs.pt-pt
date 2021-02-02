@@ -4,12 +4,12 @@ description: Saiba como criar um cluster privado do Serviço Azure Kubernetes (A
 services: container-service
 ms.topic: article
 ms.date: 7/17/2020
-ms.openlocfilehash: 66072032b3fd1ac33bef60922c62f73a8cfb11bd
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 56d3b36d17ee044ce7aba2337429c45123801ca5
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734669"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99254517"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Criar um cluster privado de serviçoS Azure Kubernetes
 
@@ -130,7 +130,6 @@ Como mencionado, o olhar de rede virtual é uma forma de aceder ao seu cluster p
 * Para os clientes que precisam de permitir que o Registo de Contentores Azure trabalhe com AKS privado, a rede virtual de registo de contentores deve ser espreite com a rede virtual do cluster de agentes.
 * Sem suporte para converter clusters AKS existentes em clusters privados
 * A eliminação ou modificação do ponto final privado na sub-rede do cliente fará com que o cluster deixe de funcionar. 
-* O Monitor Azure para contentores Live Data não é suportado atualmente.
 * Depois de os clientes terem atualizado o registo A nos seus próprios servidores DNS, esses Pods ainda resolveriam o Apiserver FQDN para o IP mais antigo após a migração até que sejam reiniciados. Os clientes precisam de reiniciar os pods de rede de anfitriões e as cápsulas de DNSPolicy predefinidos após o controlo da migração do avião.
 * No caso de manutenção no avião de controlo, o seu [IP AKS](./limit-egress-traffic.md) pode mudar. Neste caso, deve atualizar o registo A que aponta para o IP privado do servidor API no seu servidor DNS personalizado e reiniciar quaisquer cápsulas ou implementações personalizadas utilizando a hostNetwork.
 
