@@ -118,9 +118,8 @@
         - name: Azure AD com a Gestão do Batch
           href: batch-aad-auth-management.md
         - name: Acesso seguro ao Key Vault com o Batch
+          displayName: 'credential, certificate'
           href: credential-access-key-vault.md
-        - name: Utilizar certificados com o Batch
-          href: batch-certificates.md
     - name: Copiar ficheiros e aplicações para nós de conjunto
       items:
         - name: Copiar aplicações e dados para conjuntos de nós

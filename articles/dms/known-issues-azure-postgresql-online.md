@@ -14,12 +14,12 @@ ms.custom:
 - seo-dt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: 8c3c1d28a7fbb3e3c9c449feb03a75d48178b718
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: fdefcabdda64402610f115832976ec9f7af81b80
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97609042"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258834"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-postgresql-to-azure-db-for-postgresql"></a>Questões conhecidas/limitações de migração com migrações on-line de PostgreSQL a Azure DB para PostgreSQL
 
@@ -121,5 +121,6 @@ Quando tentar efetuar uma migração on-line de AWS RDSQL para Azure Database fo
 - Uma mesa capturada deve ter uma chave primária. Se uma tabela não tiver uma chave primária, o resultado das operações de gravação DELETE e UPDATE será imprevisível.
 - A atualização de um segmento de Chave Primária é ignorada. Nesses casos, a aplicação de tal atualização será identificada pelo alvo como uma atualização que não atualizou nenhuma linha e resultará num registo escrito na tabela de exceções.
 - A migração de várias tabelas com o mesmo nome, mas um caso diferente (por exemplo, quadro1, TABLE1 e Quadro1) pode causar comportamentos imprevisíveis e, portanto, não é suportado.
-- Alterar o processamento de [CREATE ] ALTER GOTA / Os DDLs de mesa não são suportados.
+- Alterar o processamento de [CREATE | ALTER | | DROP Os DDLs de mesa não são suportados.
 - No Serviço de Migração da Base de Dados Azure, uma única atividade migratória só pode acomodar até quatro bases de dados.
+- A migração da mesa pg_largeobject não é apoiada. 

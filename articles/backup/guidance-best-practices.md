@@ -3,12 +3,12 @@ title: Documentação de orientação e melhores práticas
 description: Descubra as melhores práticas e orientação para apoiar a nuvem e a carga de trabalho no local para a nuvem
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 522f7d2502a49b912f34f392c52e5046eba8d01f
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 7b65556d8dd9b5b12e8da25055f6e39732c83afd
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92092312"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258766"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Nuvem de backup e cargas de trabalho no local para cloud
 
@@ -66,16 +66,16 @@ Uma vez que o cofre é traçado para uma subscrição, ajuste o seu design de co
 
 ### <a name="single-or-multiple-vault"></a>Cofre único ou múltiplo
 
-Você pode usar um único cofre ou vários cofres para organizar e gerir o seu backup. Considere as seguintes orientações:
+Você pode usar um único cofre ou vários cofres para organizar e gerir o seu backup. Tenha em consideração as seguintes orientações:
 
 * Se as suas cargas de trabalho forem geridas por uma única subscrição e um único recurso, então pode usar um único cofre para monitorizar e gerir a sua propriedade de backup.
 
 * Se as suas cargas de trabalho estiverem distribuídas por subscrições, então pode criar vários cofres, um ou mais por subscrição.
-  * O Backup Center permite-lhe ter um único painel de vidro para gerir todas as tarefas relacionadas com a Cópia de Segurança. [Saiba mais aqui.]()
-  * Pode personalizar as suas opiniões com modelos de livros de trabalho. Backup Explorer é um desses modelos para VMs Azure. [Saiba mais aqui.](monitor-azure-backup-with-backup-explorer.md)
-  * Se precisa de uma política consistente através de cofres, então pode usar a política do Azure para propagar a política de backup em vários cofres. Você pode escrever uma definição de [Política Azure](../governance/policy/concepts/definition-structure.md) personalizada que usa o efeito ['deployifnotexists'](../governance/policy/concepts/effects.md#deployifnotexists) para propagar uma política de backup em vários cofres. A designação pode [atribuir](../governance/policy/assign-policy-portal.md) esta definição de Política Azure a um determinado âmbito (subscrição ou RG), de modo a que implemente um recurso de "política de backup" a todos os cofres dos Serviços de Recuperação no âmbito da atribuição da Política Azure. As definições da política de backup (tais como frequência de backup, retenção, e assim por diante) devem ser especificadas pelo utilizador como parâmetros na atribuição da Política Azure.
+  * O Backup Center permite-lhe ter um único painel de vidro para gerir todas as tarefas relacionadas com a Cópia de Segurança. [Saiba mais aqui]().
+  * Pode personalizar as suas opiniões com modelos de livros de trabalho. Backup Explorer é um desses modelos para VMs Azure. [Saiba mais aqui](monitor-azure-backup-with-backup-explorer.md).
+  * Se precisa de uma política consistente através de cofres, então pode usar a política do Azure para propagar a política de backup em vários cofres. Você pode escrever uma definição de [Política Azure](../governance/policy/concepts/definition-structure.md) personalizada que usa o efeito ['deployifnotexists'](../governance/policy/concepts/effects.md#deployifnotexists) para propagar uma política de backup em vários cofres. Também pode [atribuir](../governance/policy/assign-policy-portal.md) esta definição de Política Azure a um determinado âmbito (subscrição ou RG), de modo a que implemente um recurso de "política de backup" a todos os cofres dos Serviços de Recuperação no âmbito da atribuição da Política Azure. As definições da política de backup (tais como frequência de backup, retenção, e assim por diante) devem ser especificadas pelo utilizador como parâmetros na atribuição da Política Azure.
 
-* À medida que a sua pegada organizacional aumenta, talvez queira mover cargas de trabalho através de subscrições pelas seguintes razões: alinhar por política de backup, consolidar cofres, trocar por redundância mais baixa para economizar no custo (passar de GRS para LRS).  O Azure Backup suporta a movimentação de um cofre de Serviços de Recuperação através de subscrições da Azure ou para outro grupo de recursos dentro da mesma subscrição. [Saiba mais aqui.](backup-azure-move-recovery-services-vault.md)
+* À medida que a sua pegada organizacional aumenta, talvez queira mover cargas de trabalho através de subscrições pelas seguintes razões: alinhar por política de backup, consolidar cofres, trocar por redundância mais baixa para economizar no custo (passar de GRS para LRS).  O Azure Backup suporta a movimentação de um cofre de Serviços de Recuperação através de subscrições da Azure ou para outro grupo de recursos dentro da mesma subscrição. [Saiba mais aqui](backup-azure-move-recovery-services-vault.md).
 
 ### <a name="review-default-settings"></a>Rever definições predefinições
 
@@ -85,13 +85,13 @@ Reveja as definições predefinidos do tipo de replicação de armazenamento e a
 
 * *A eliminação suave* por padrão está ativada em cofres recém-criados para proteger os dados de cópias de segurança de eliminações acidentais ou maliciosas. Siga [estes](backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete) passos para rever e modificar as definições.
 
-* *Cross Region Restore* permite restaurar VMs Azure em uma região secundária, que é uma região emparelhada Azure. Esta opção permite-lhe realizar exercícios para cumprir os requisitos de auditoria ou conformidade, e restaurar o VM ou o seu disco se houver um desastre na região primária. CRR é uma funcionalidade de opt-in para qualquer cofre GRS. [Saiba mais aqui.](backup-create-rs-vault.md#set-cross-region-restore)
+* *Cross Region Restore* permite restaurar VMs Azure em uma região secundária, que é uma região emparelhada Azure. Esta opção permite-lhe realizar exercícios para cumprir os requisitos de auditoria ou conformidade, e restaurar o VM ou o seu disco se houver um desastre na região primária. CRR é uma funcionalidade de opt-in para qualquer cofre GRS. [Saiba mais aqui](backup-create-rs-vault.md#set-cross-region-restore).
 
 * Antes de finalizar o seu design de abóbada, reveja as [matrizes de suporte](backup-support-matrix.md#vault-support) do cofre para entender os fatores que podem influenciar ou limitar as suas escolhas de design.
 
 ## <a name="backup-policy-considerations"></a>Considerações de Política de Backup
 
-A Política de Backup Azure tem dois componentes: *Agendar* (quando tomar cópias de segurança) e *Retenção* (quanto tempo para reter o backup). Pode definir a política com base no tipo de dados que está a ser apoiado, requisitos de RTO/RPO, necessidades operacionais ou regulamentares de conformidade e tipo de carga de trabalho (por exemplo, VM, base de dados, ficheiros). [Saiba mais aqui.](backup-architecture.md#backup-policy-essentials)
+A Política de Backup Azure tem dois componentes: *Agendar* (quando tomar cópias de segurança) e *Retenção* (quanto tempo para reter o backup). Pode definir a política com base no tipo de dados que está a ser apoiado, requisitos de RTO/RPO, necessidades operacionais ou regulamentares de conformidade e tipo de carga de trabalho (por exemplo, VM, base de dados, ficheiros). [Saiba mais aqui](backup-architecture.md#backup-policy-essentials).
 
 Considere as seguintes orientações ao criar a Política de Backup:
 
@@ -130,7 +130,7 @@ Considere as seguintes orientações ao criar a Política de Backup:
   * Uma política de reserva é vista para um cofre.
   * Há um limite no número de itens por política (por exemplo, 100 VMs). Em escala, pode criar políticas duplicadas com os mesmos horários ou horários diferentes.
   * Não é possível eliminar seletivamente pontos de recuperação específicos.
-  * Não é possível desativar completamente a cópia de segurança programada e manter a fonte de dados num estado protegido. A cópia de segurança menos frequente que pode configurar com a apólice é ter uma cópia de segurança semanal programada. Uma alternativa seria parar a proteção com os dados de retenção e permitir a proteção sempre que quiser fazer uma cópia de segurança, fazer uma cópia de segurança a pedido e, em seguida, desligar a proteção, mas reter os dados de backup. [Saiba mais aqui.](backup-azure-manage-vms.md#stop-protecting-a-vm)
+  * Não é possível desativar completamente a cópia de segurança programada e manter a fonte de dados num estado protegido. A cópia de segurança menos frequente que pode configurar com a apólice é ter uma cópia de segurança semanal programada. Uma alternativa seria parar a proteção com os dados de retenção e permitir a proteção sempre que quiser fazer uma cópia de segurança, fazer uma cópia de segurança a pedido e, em seguida, desligar a proteção, mas reter os dados de backup. [Saiba mais aqui](backup-azure-manage-vms.md#stop-protecting-a-vm).
 
 ## <a name="security-considerations"></a>Considerações de segurança
 
@@ -138,9 +138,9 @@ Para ajudá-lo a proteger os seus dados de backup e a satisfazer as necessidades
 
 ### <a name="authentication-and-authorization"></a>Autenticação e autorização
 
-* O controlo de acesso baseado em funções (Azure RBAC) permite uma gestão de acessos finos, a segregação de deveres dentro da sua equipa e a concessão apenas da quantidade de acesso aos utilizadores necessários para desempenharem os seus trabalhos. [Saiba mais aqui.](backup-rbac-rs-vault.md)
+* O controlo de acesso baseado em funções (Azure RBAC) permite uma gestão de acessos finos, a segregação de deveres dentro da sua equipa e a concessão apenas da quantidade de acesso aos utilizadores necessários para desempenharem os seus trabalhos. [Saiba mais aqui](backup-rbac-rs-vault.md).
 
-* A Azure Backup fornece três funções incorporadas para controlar operações de gestão de backup: colaboradores de backup, operadores e leitores. [Saiba mais aqui.](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions)
+* A Azure Backup fornece três funções incorporadas para controlar operações de gestão de backup: colaboradores de backup, operadores e leitores. [Saiba mais aqui](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions).
 
 * O Azure Backup tem vários controlos de segurança incorporados no serviço para prevenir, detetar e responder a vulnerabilidades de segurança (Saiba mais)
 
@@ -154,23 +154,23 @@ A encriptação protege os seus dados e ajuda-o a cumprir os seus compromissos d
 
 * Os dados de backup são automaticamente encriptados utilizando as teclas geridas pela Microsoft. Em alternativa, pode utilizar as suas próprias chaves, também conhecidas como [teclas geridas pelo cliente](encryption-at-rest-with-cmk.md).
 
-* O Azure Backup suporta a cópia de segurança e a restauração de VMs Azure que têm os seus discos DE/S/Data encriptados com Encriptação do Disco Azure (ADE). [Saiba mais aqui.](backup-azure-vms-encryption.md)
+* O Azure Backup suporta a cópia de segurança e a restauração de VMs Azure que têm os seus discos DE/S/Data encriptados com Encriptação do Disco Azure (ADE). [Saiba mais aqui](backup-azure-vms-encryption.md).
 
 ### <a name="protection-of-backup-data-from-unintentional-deletes"></a>Proteção de dados de backup de eliminações não intencionais
 
-O Azure Backup fornece funcionalidades de segurança para ajudar a proteger os dados de backup mesmo após a eliminação. Com a eliminação suave, se um utilizador eliminar a cópia de segurança (de uma base de dados VM, SQL Server, partilha de ficheiros Azure, base de dados SAP HANA) os dados de backup são retidos por 14 dias adicionais, permitindo a recuperação desse item de backup sem perda de dados. Os 14 dias adicionais de retenção de dados de backup no estado de "soft delete" não lhe incorrem em qualquer custo. [Saiba mais aqui.](backup-azure-security-feature-cloud.md)
+O Azure Backup fornece funcionalidades de segurança para ajudar a proteger os dados de backup mesmo após a eliminação. Com a eliminação suave, se um utilizador eliminar a cópia de segurança (de uma base de dados VM, SQL Server, partilha de ficheiros Azure, base de dados SAP HANA) os dados de backup são retidos por 14 dias adicionais, permitindo a recuperação desse item de backup sem perda de dados. Os 14 dias adicionais de retenção de dados de backup no estado de "soft delete" não lhe incorrem em qualquer custo. [Saiba mais aqui](backup-azure-security-feature-cloud.md).
 
 ### <a name="monitoring-and-alerts-of-suspicious-activity"></a>Monitorização e alertas de atividades suspeitas
 
-O Azure Backup fornece capacidades de monitorização e alerta incorporadas para visualizar e configurar ações para eventos relacionados com a Azure Backup. [Saiba mais aqui.](security-overview.md#monitoring-and-alerts-of-suspicious-activity)
+O Azure Backup fornece capacidades de monitorização e alerta incorporadas para visualizar e configurar ações para eventos relacionados com a Azure Backup. [Saiba mais aqui](security-overview.md#monitoring-and-alerts-of-suspicious-activity).
 
 ### <a name="security-features-to-help-protect-hybrid-backups"></a>Funcionalidades de segurança para ajudar a proteger backups híbridos
 
-O serviço Azure Backup utiliza o agente Microsoft Azure Recovery Services (MARS) para fazer backup e restaurar ficheiros, pastas e o estado de volume ou sistema de um computador no local para o Azure. A MARS agora fornece funcionalidades de segurança: uma palavra-passe para encriptar antes do upload e desencriptar após o download do Azure Backup, os dados de backup eliminados são retidos por mais 14 dias a partir da data de eliminação, e operação crítica (ex. alterar uma palavra-passe) só pode ser realizada por utilizadores que tenham credenciais Azure válidas. [Saiba mais aqui.](backup-azure-security-feature.md)
+O serviço Azure Backup utiliza o agente Microsoft Azure Recovery Services (MARS) para fazer backup e restaurar ficheiros, pastas e o estado de volume ou sistema de um computador no local para o Azure. A MARS agora fornece funcionalidades de segurança: uma palavra-passe para encriptar antes do upload e desencriptar após o download do Azure Backup, os dados de backup eliminados são retidos por mais 14 dias a partir da data de eliminação, e operação crítica (ex. alterar uma palavra-passe) só pode ser realizada por utilizadores que tenham credenciais Azure válidas. [Saiba mais aqui](backup-azure-security-feature.md).
 
 ## <a name="network-considerations"></a>Considerações de rede
 
-A Azure Backup requer movimento de dados da sua carga de trabalho para o cofre dos Serviços de Recuperação. O Azure Backup fornece várias capacidades para proteger os dados de backup de serem expostos inadvertidamente (como um ataque homem-no-meio na rede). Considere as seguintes orientações:
+A Azure Backup requer movimento de dados da sua carga de trabalho para o cofre dos Serviços de Recuperação. O Azure Backup fornece várias capacidades para proteger os dados de backup de serem expostos inadvertidamente (como um ataque homem-no-meio na rede). Tenha em consideração as seguintes orientações:
 
 ### <a name="internet-connectivity"></a>Conectividade Internet
 
@@ -184,7 +184,7 @@ A Azure Backup requer movimento de dados da sua carga de trabalho para o cofre d
 
 O Azure [Private Endpoint](../private-link/private-endpoint-overview.md) é uma interface de rede que o liga de forma privada e segura a um serviço alimentado pela Azure Private Link. O Azure Backup permite-lhe fazer o backup seguro e restaurar os seus dados a partir dos cofres dos Serviços de Recuperação utilizando pontos finais privados.
 
-* Quando ativa pontos finais privados para o cofre, eles só são usados para cópias de segurança e restauro de cargas de trabalho SQL e SAP HANA em backups de agentes Azure VM e MARS.  Pode utilizar o cofre para a cópia de segurança de outras cargas de trabalho também (no entanto, não exigirão pontos finais privados). Além da cópia de segurança das cargas de trabalho SQL e SAP HANA e da cópia de segurança utilizando o agente MARS, os pontos finais privados também são utilizados para realizar a recuperação de ficheiros no caso de cópia de segurança Azure VM. [Saiba mais aqui.](private-endpoints.md#recommended-and-supported-scenarios)
+* Quando ativa pontos finais privados para o cofre, eles só são usados para cópias de segurança e restauro de cargas de trabalho SQL e SAP HANA em backups de agentes Azure VM e MARS.  Pode utilizar o cofre para a cópia de segurança de outras cargas de trabalho também (no entanto, não exigirão pontos finais privados). Além da cópia de segurança das cargas de trabalho SQL e SAP HANA e da cópia de segurança utilizando o agente MARS, os pontos finais privados também são utilizados para realizar a recuperação de ficheiros no caso de cópia de segurança Azure VM. [Saiba mais aqui](private-endpoints.md#recommended-and-supported-scenarios).
 
 * O Azure Ative Directory não suporta atualmente pontos finais privados. Assim, os IPs e FQDNs necessários para o Azure Ative Directory terão de ser autorizados a aceder à saída da rede segura ao realizar cópias de segurança de bases de dados em VMs Azure e cópia de segurança utilizando o agente MARS. Também pode utilizar tags NSG e Azure Firewall para permitir o acesso ao Azure AD, conforme aplicável. Saiba mais sobre os [pré-requisitos aqui.](./private-endpoints.md#before-you-start)
 
@@ -194,13 +194,13 @@ A governação em Azure é implementada principalmente com [a Azure Policy](../g
 
 ### <a name="azure-backup-support-two-key-scenarios-via-built-in-azure-policy"></a>Azure Backup suporta dois cenários-chave através da política de Azure incorporada
 
-* Certifique-se de que as máquinas críticas de negócio recentemente criadas são automaticamente apoiadas com as definições de retenção certas. O Azure Backup fornece uma política incorporada (usando a Política Azure) que pode ser atribuída a todos os VMs Azure em um local especificado dentro de um grupo de subscrição ou recursos. Quando esta política é atribuída a um determinado âmbito, todos os novos VMs criados nesse âmbito são automaticamente configurados para cópia de segurança para um cofre existente no mesmo local e subscrição. O utilizador pode especificar o cofre e a política de retenção à qual os VMs apoiados devem estar associados. [Saiba mais aqui.](backup-azure-auto-enable-backup.md)
+* Certifique-se de que as máquinas críticas de negócio recentemente criadas são automaticamente apoiadas com as definições de retenção certas. O Azure Backup fornece uma política incorporada (usando a Política Azure) que pode ser atribuída a todos os VMs Azure em um local especificado dentro de um grupo de subscrição ou recursos. Quando esta política é atribuída a um determinado âmbito, todos os novos VMs criados nesse âmbito são automaticamente configurados para cópia de segurança para um cofre existente no mesmo local e subscrição. O utilizador pode especificar o cofre e a política de retenção à qual os VMs apoiados devem estar associados. [Saiba mais aqui](backup-azure-auto-enable-backup.md).
 
-* Certifique-se de que os cofres recém-criados têm diagnósticos habilitados a suportar relatórios. Muitas vezes, adicionar uma definição de diagnóstico manualmente por abóbada pode ser uma tarefa complicada. Além disso, qualquer novo cofre criado precisa de ter configurações de diagnóstico ativadas para que possa ver relatórios para este cofre. Para simplificar a criação de configurações de diagnóstico em escala (com o Log Analytics como destino), o Azure Backup fornece uma Política de Azure incorporada. Esta política adiciona uma definição de diagnóstico de LA a todos os cofres de cada grupo de subscrição ou recursos. As seguintes secções fornecem instruções sobre como utilizar esta política. [Saiba mais aqui.](azure-policy-configure-diagnostics.md)
+* Certifique-se de que os cofres recém-criados têm diagnósticos habilitados a suportar relatórios. Muitas vezes, adicionar uma definição de diagnóstico manualmente por abóbada pode ser uma tarefa complicada. Além disso, qualquer novo cofre criado precisa de ter configurações de diagnóstico ativadas para que possa ver relatórios para este cofre. Para simplificar a criação de configurações de diagnóstico em escala (com o Log Analytics como destino), o Azure Backup fornece uma Política de Azure incorporada. Esta política adiciona uma definição de diagnóstico de LA a todos os cofres de cada grupo de subscrição ou recursos. As seguintes secções fornecem instruções sobre como utilizar esta política. [Saiba mais aqui](azure-policy-configure-diagnostics.md).
 
 ### <a name="azure-backup-cost-considerations"></a>Considerações de custos de backup Azure
 
-As capacidades do serviço Azure Backup oferecem a flexibilidade para gerir eficazmente os seus custos, e ainda satisfazem os requisitos de negócio do BCDR (continuidade do negócio e recuperação de desastres). Considere as seguintes orientações:
+As capacidades do serviço Azure Backup oferecem a flexibilidade para gerir eficazmente os seus custos, e ainda satisfazem os requisitos de negócio do BCDR (continuidade do negócio e recuperação de desastres). Tenha em consideração as seguintes orientações:
 
 * Utilize a calculadora de preços para avaliar e otimizar o custo ajustando várias alavancas. [Saiba mais aqui](azure-backup-pricing.md)
 
@@ -213,7 +213,7 @@ As capacidades do serviço Azure Backup oferecem a flexibilidade para gerir efic
 
 * Discos de backup seletivos: Excluir o disco (funcionalidade de pré-visualização) fornece uma escolha eficiente e económica para fazer o backup seletivo de dados críticos. Por exemplo, faça uma errólhada quando não quiser fazer o back up do resto dos discos ligados a um VM. Isto também é útil quando você tem várias soluções de backup. Por exemplo, quando faz cópia de segurança das suas bases de dados ou dados com uma solução de backup de carga de trabalho (base de dados SQL Server na cópia de segurança Azure VM) e pretende utilizar a cópia de segurança do nível Azure VM para discos selecionados.
 
-* O Azure Backup tira fotos dos VMs Azure e armazena-os juntamente com os discos para aumentar a criação de pontos de recuperação e acelerar as operações de restauro. Isto é referido como Restauro Instantâneo. Por predefinição, as imagens instante Restore são mantidas durante dois dias. Esta funcionalidade permite uma operação de restauro a partir destes instantâneos, reduzindo os tempos de restauro. Reduz o tempo necessário para transformar e copiar dados do cofre. Como resultado, você verá os custos de armazenamento que correspondem a instantâneos tirados durante este período. [Saiba mais aqui.](backup-instant-restore-capability.md#configure-snapshot-retention)
+* O Azure Backup tira fotos dos VMs Azure e armazena-os juntamente com os discos para aumentar a criação de pontos de recuperação e acelerar as operações de restauro. Isto é referido como Restauro Instantâneo. Por predefinição, as imagens instante Restore são mantidas durante dois dias. Esta funcionalidade permite uma operação de restauro a partir destes instantâneos, reduzindo os tempos de restauro. Reduz o tempo necessário para transformar e copiar dados do cofre. Como resultado, você verá os custos de armazenamento que correspondem a instantâneos tirados durante este período. [Saiba mais aqui](backup-instant-restore-capability.md#configure-snapshot-retention).
 
 * O tipo de replicação de armazenamento do cofre de backup Azure por predefinição é definido para Geo-redundante (GRS). Esta opção não pode ser alterada depois de proteger os itens. O armazenamento geo-redundante (GRS) proporciona um nível mais elevado de durabilidade de dados do que o armazenamento localmente redundante (LRS), permite que um opt-in utilize o Cross Region Restore e custa mais. Reveja as compensações entre custos mais baixos e maior durabilidade dos dados, e decida o que é melhor para o seu cenário. [Saiba mais aqui](backup-create-rs-vault.md#set-storage-redundancy)
 
@@ -225,9 +225,9 @@ Como utilizador ou administrador de backup, deverá ser capaz de monitorizar tod
 
 ### <a name="monitoring"></a>Monitorização
 
-* O Azure Backup fornece **monitorização de trabalho incorporada** para operações como configurar backup, backup, restaurar, eliminar backup, e assim por diante. Isto é traçado para o cofre, e ideal para monitorizar um único cofre. [Saiba mais aqui.](backup-azure-monitoring-built-in-monitor.md#backup-jobs-in-recovery-services-vault)
+* O Azure Backup fornece **monitorização de trabalho incorporada** para operações como configurar backup, backup, restaurar, eliminar backup, e assim por diante. Isto é traçado para o cofre, e ideal para monitorizar um único cofre. [Saiba mais aqui](backup-azure-monitoring-built-in-monitor.md#backup-jobs-in-recovery-services-vault).
 
-* Se você precisa monitorizar as atividades operacionais em escala, então **o Backup Explorer** fornece uma visão agregada de toda a sua propriedade de backup, permitindo uma análise detalhada de perfuração e resolução de problemas. É um livro de trabalho incorporado do Azure Monitor que dá uma localização única e central para ajudá-lo a monitorizar as atividades operacionais em toda a propriedade de backup em Azure, abrangendo inquilinos, locais, subscrições, grupos de recursos e cofres. [Saiba mais aqui.](monitor-azure-backup-with-backup-explorer.md)
+* Se você precisa monitorizar as atividades operacionais em escala, então **o Backup Explorer** fornece uma visão agregada de toda a sua propriedade de backup, permitindo uma análise detalhada de perfuração e resolução de problemas. É um livro de trabalho incorporado do Azure Monitor que dá uma localização única e central para ajudá-lo a monitorizar as atividades operacionais em toda a propriedade de backup em Azure, abrangendo inquilinos, locais, subscrições, grupos de recursos e cofres. [Saiba mais aqui](monitor-azure-backup-with-backup-explorer.md).
   * Use-o para identificar recursos que não estão configurados para backup, e certifique-se de que nunca perde a proteção de dados críticos na sua propriedade em crescimento.
   * O painel de instrumentos proporciona atividades operacionais nos últimos sete dias (máximo). Se precisar de reter estes dados, poderá exportar como ficheiro Excel e retê-los.
   * Se você é um utilizador do Azure Lighthouse, você pode ver informações através de vários inquilinos, permitindo uma monitorização sem limites.
@@ -238,8 +238,8 @@ Como utilizador ou administrador de backup, deverá ser capaz de monitorizar tod
   * Identificar as principais tendências em diferentes níveis de granularidade.
 
 * Além disso
-  * Pode enviar dados (por exemplo, empregos, políticas, e assim por diante) para o espaço de trabalho **Log Analytics.** Isto permitirá que as funcionalidades dos Registos do Monitor Azure permitam a correlação de dados com outros dados de monitorização recolhidos pelo Azure Monitor, consolidar as entradas de registo de várias subscrições de Azure e inquilinos num local para análise em conjunto, utilizar consultas de registo para realizar análises complexas e obter informações profundas sobre as entradas de Log. [Saiba mais aqui.](../azure-monitor/platform/activity-log.md#send-to-log-analytics-workspace)
-  * Pode enviar dados para o Event Hub para enviar entradas fora do Azure, por exemplo para um SIEM de terceiros (Informação de Segurança e Gestão de Eventos) ou outra solução de análise de registos. [Saiba mais aqui.](../azure-monitor/platform/activity-log.md#send-to-azure-event-hubs)
+  * Pode enviar dados (por exemplo, empregos, políticas, e assim por diante) para o espaço de trabalho **Log Analytics.** Isto permitirá que as funcionalidades dos Registos do Monitor Azure permitam a correlação de dados com outros dados de monitorização recolhidos pelo Azure Monitor, consolidar as entradas de registo de várias subscrições de Azure e inquilinos num local para análise em conjunto, utilizar consultas de registo para realizar análises complexas e obter informações profundas sobre as entradas de Log. [Saiba mais aqui](../azure-monitor/platform/activity-log.md#send-to-log-analytics-workspace).
+  * Pode enviar dados para o Event Hub para enviar entradas fora do Azure, por exemplo para um SIEM de terceiros (Informação de Segurança e Gestão de Eventos) ou outra solução de análise de registos. [Saiba mais aqui](../azure-monitor/platform/activity-log.md#send-to-azure-event-hubs).
   * Pode enviar dados para uma conta de Armazenamento Azure se pretender reter os seus dados de registo por mais de 90 dias para auditoria, análise estática ou backup. Se precisar apenas de reter os seus eventos durante 90 dias ou menos, não precisa de configurar arquivos para uma conta de armazenamento, uma vez que os eventos de Registo de Atividade são mantidos na plataforma Azure durante 90 dias. [Saiba mais](../azure-monitor/platform/activity-log.md#send-to--azure-storage).
 
 ### <a name="alerting"></a>Alertas
@@ -247,14 +247,14 @@ Como utilizador ou administrador de backup, deverá ser capaz de monitorizar tod
 * Os alertas são, em primeiro lugar, uma forma de serem notificados para tomar medidas relevantes. A secção alertas de cópia de segurança mostra alertas gerados pelo serviço de backup Azure.
 
 * O Azure Backup fornece um mecanismo de notificação **de alerta incorporado** via e-mail para falhas, avisos e operações críticas. Pode especificar endereços de e-mail individuais ou listas de distribuição para ser notificado quando um alerta é gerado. Também pode escolher se deve ser notificado para cada alerta individual ou agrupar-se numa digestão de hora a hora e, em seguida, ser notificado.
-  * Estes alertas são definidos pelo serviço e fornecem suporte para cenários limitados - falhas de backup/restauro, Parar a proteção com retenção de dados/proteção stop com dados de eliminação, e assim por diante. [Saiba mais aqui.](backup-azure-monitoring-built-in-monitor.md#alert-scenarios)
+  * Estes alertas são definidos pelo serviço e fornecem suporte para cenários limitados - falhas de backup/restauro, Parar a proteção com retenção de dados/proteção stop com dados de eliminação, e assim por diante. [Saiba mais aqui](backup-azure-monitoring-built-in-monitor.md#alert-scenarios).
   * Se for realizada uma operação destrutiva como a proteção stop com os dados de eliminação, é levantado um alerta e é enviado um e-mail aos proprietários de assinaturas, administradores e administradores, mesmo que as notificações **não** estejam configuradas para o cofre dos Serviços de Recuperação.
-  * Certas cargas de trabalho podem gerar alta frequência de falhas (por exemplo, SQL Server a cada 15 minutos). Para evitar que se sobreponha a alertas levantados para cada falha, os alertas são consolidados. [Saiba mais aqui.](backup-azure-monitoring-built-in-monitor.md#consolidated-alerts)
+  * Certas cargas de trabalho podem gerar alta frequência de falhas (por exemplo, SQL Server a cada 15 minutos). Para evitar que se sobreponha a alertas levantados para cada falha, os alertas são consolidados. [Saiba mais aqui](backup-azure-monitoring-built-in-monitor.md#consolidated-alerts).
   * Os alertas incorporados não podem ser personalizados e estão restritos a e-mails definidos no portal Azure.
 
 * Se precisar de **criar alertas personalizados** (por exemplo, alertas de trabalhos bem sucedidos) utilize o Log Analytics. No Azure Monitor, pode criar os seus próprios alertas num espaço de trabalho log analytics. As cargas de trabalho híbridas (DPM/MABS) também podem enviar dados para LA e usar LA para fornecer alertas comuns através de cargas de trabalho apoiadas pela Azure Backup.
 
-* Também pode obter notificações através de **registos**de atividades de cofres incorporados nos Serviços de Recuperação. No entanto, suporta cenários limitados e não é adequado para operações como backup programado, que se alinha melhor com registos de recursos do que com registos de atividade. Para saber mais sobre estas limitações e como pode utilizar o espaço de trabalho do Log Analytics para monitorizar e alertar em escala para todas as suas cargas de trabalho protegidas pela Azure Backup, consulte este [artigo](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-to-monitor-at-scale).
+* Também pode obter notificações através de **registos** de atividades de cofres incorporados nos Serviços de Recuperação. No entanto, suporta cenários limitados e não é adequado para operações como backup programado, que se alinha melhor com registos de recursos do que com registos de atividade. Para saber mais sobre estas limitações e como pode utilizar o espaço de trabalho do Log Analytics para monitorizar e alertar em escala para todas as suas cargas de trabalho protegidas pela Azure Backup, consulte este [artigo](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-to-monitor-at-scale).
 
 ## <a name="next-steps"></a>Passos seguintes
 

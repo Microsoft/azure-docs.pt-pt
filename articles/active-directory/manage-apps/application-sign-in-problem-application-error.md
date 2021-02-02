@@ -1,10 +1,10 @@
 ---
-title: A mensagem de erro aparece na página da aplicação depois de iniciar sôm. Microsoft Docs
+title: A mensagem de erro aparece na página da aplicação depois de iniciar sôm no | Microsoft Docs
 description: Como resolver problemas com o Azure AD entrar quando a aplicação retorna uma mensagem de erro.
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -16,14 +16,14 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 779286a43f8b20ce9a9a528e14eaa930763d82b4
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: c96209f33491645510d8592997c418472d4f227c
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651588"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258817"
 ---
-# <a name="an-app-page-shows-an-error-message-after-the-user-signs-in"></a>Uma página de aplicação mostra uma mensagem de erro após o utilizador assinar em
+# <a name="an-app-page-shows-an-error-message-after-the-user-signs-in"></a>A página de uma aplicação apresenta uma mensagem de erro após o utilizador iniciar sessão
 
 Neste cenário, o Azure Ative Directory (Azure AD) assina o utilizador. Mas a aplicação apresenta uma mensagem de erro e não permite que o utilizador termine o fluxo de entrada. O problema é que a aplicação não aceitou a resposta que a Azure AD emitiu.
 
@@ -163,5 +163,5 @@ Para alterar o algoritmo de assinatura, siga estes passos:
 
    Da próxima vez que o utilizador entrar na aplicação, o Azure AD assinará o token SAML utilizando o algoritmo SHA-1.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Como depurar o único sign-on baseado em SAML para aplicações em Azure AD](./debug-saml-sso-issues.md).

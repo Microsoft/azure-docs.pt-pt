@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 1825767d8140421d4f0e22f9ebfde42f8262da5e
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 8a572221ca8899c5e4f4cf76e4b89c995952a2f3
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201081"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258562"
 ---
 # <a name="azure-security-baseline-for-api-management"></a>Linha de base de segurança Azure para a Gestão da API
 
@@ -90,15 +90,11 @@ Combinar a Gestão da API a provisionada num Vnet interno com o frontend Do Gate
 
 Nota: Esta funcionalidade está disponível nos níveis Premium e Developer da API Management.
 
-Ativar a Norma de Proteção DDoS do Azure na Vnet associada à sua implementação de Gestão API para proteger contra ataques de negação de serviço distribuídos (DDoS).
-
 Use a Azure Security Center Integrated Threat Intelligence para negar comunicações com endereços IP de Internet maliciosos ou não utilizados.
 
 * [Como integrar a Gestão da API num VNET interno com Gateway de Aplicação](./api-management-howto-integrate-internal-vnet-appgateway.md)
 
 * [Compreender gateway de aplicação Azure](../application-gateway/index.yml)
-
-* [Como configurar a Norma de Proteção DDoS do Azure](../ddos-protection/manage-ddos-protection.md)
 
 * [Compreender a Azure Security Center Integrada Desespionagem de Ameaças](../security-center/azure-defender.md)
 
@@ -184,8 +180,7 @@ Atenção: Ao configurar um NSG na sub-rede API Management, há um conjunto de p
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9: Manter configurações de segurança padrão para dispositivos de rede
 
-**Orientação**: Defina e implemente configurações de segurança padrão para definições de rede relacionadas com as suas implementações de Gestão API Azure. Utilize pseudónimos da Azure Policy nos espaços de nome "Microsoft.ApiManagement" e "Microsoft.Network" para criar políticas personalizadas para auditar ou impor a configuração de rede das suas implementações de Gestão API Azure e recursos relacionados. Também pode utilizar definições políticas incorporadas para redes virtuais Azure, tais como:
-- A Norma de Proteção DDoS deve ser ativada
+**Orientação**: Defina e implemente configurações de segurança padrão para definições de rede relacionadas com as suas implementações de Gestão API Azure. Utilize pseudónimos da Azure Policy nos espaços de nome "Microsoft.ApiManagement" e "Microsoft.Network" para criar políticas personalizadas para auditar ou impor a configuração de rede das suas implementações de Gestão API Azure e recursos relacionados. 
 
 Também pode usar plantas Azure para simplificar as implementações de Azure em larga escala através de artefactos de ambiente chave de embalagem, tais como modelos de Gestor de Recursos Azure, controlo de acesso baseado em funções Azure (Azure RBAC), e políticas numa única definição de planta. Pode aplicar facilmente o projeto a novas subscrições, ambientes e controlo e gestão de afinação através da versão.
 

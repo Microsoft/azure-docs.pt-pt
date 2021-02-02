@@ -8,12 +8,12 @@ ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
 ms.custom: references_regions
-ms.openlocfilehash: 56013a51937915cc240e2bd0ec26342c24c79807
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: f34a5b957f64558b468c456686f0f86172630135
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99095911"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258800"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Quais as novidades no Windows Virtual Desktop?
 
@@ -38,7 +38,7 @@ Consulte estes artigos para saber mais sobre as atualizações para os nossos cl
 
 ## <a name="fslogix-updates"></a>Atualizações da FSLogix
 
-Curioso sobre as últimas atualizações para fSLogix? Confira [as novidades da FSLogix.](/fslogix/whats-new.md)
+Curioso sobre as últimas atualizações para fSLogix? Confira [as novidades da FSLogix.](/fslogix/whats-new)
 
 ## <a name="january-2021"></a>Janeiro de 2021
 

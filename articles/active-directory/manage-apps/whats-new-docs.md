@@ -1,24 +1,51 @@
 ---
 title: Novidades na gestão de aplicações do Azure Ative Directory
 description: Documentação nova e atualizada para a gestão de aplicações do Azure Ative Directory.
-ms.date: 12/15/2020
+ms.date: 02/01/2021
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
 ms.workload: identity
 ms.author: kenwith
 author: kenwith
-manager: CelesteDG
-ms.openlocfilehash: ea2e08db91d23e9523b7bc95e01b7adc9c93b3cc
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+manager: daveba
+ms.openlocfilehash: 53339623ee435362d248b794776681972000173e
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054826"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258579"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Gestão de aplicações do Azure Ative Directory: Quais as novidades
 
 Bem-vindos às novidades da documentação de gestão de aplicações do Azure Ative Directory. Este artigo lista novos docs que foram adicionados e aqueles que tiveram atualizações significativas nos últimos três meses. Para saber quais as novidades com o serviço de gestão de aplicações, veja [as novidades do Azure Ative Directory](../fundamentals/whats-new.md).
+
+## <a name="january-2021"></a>Janeiro de 2021
+
+### <a name="new-articles"></a>Artigos novos
+- [Plan Azure Ative Directory My Apps configuração](my-apps-deployment-plan.md)
+
+### <a name="updated-articles"></a>Artigos atualizados
+- [Problema ao instalar o Conector do Agente do Proxy de Aplicações](application-proxy-connector-installation-problem.md)
+- [Resolver problemas de início de sessão único baseado em palavra-passe no Microsoft Azure AD](troubleshoot-password-based-sso.md)
+- [Gestão de aplicações boas práticas](application-management-fundamentals.md)
+- [Integrar o Azure Ative Directory com candidaturas a iniciar guia](plan-an-application-integration.md)
+- [O que é a gestão de aplicações?](what-is-application-management.md)
+- [Diretório Ativo (Azure AD) Aplicação Proxy frequentemente perguntas](application-proxy-faq.md)
+- [Tutorial: Adicionar uma aplicação no local para acesso remoto através de Aplicação Proxy em Diretório Ativo Azure](application-proxy-add-on-premises-application.md)
+- [Trabalhar com servidores proxy existentes no local](application-proxy-configure-connectors-with-proxy-servers.md)
+- [Desenvolver aplicativos de linha de negócios para o Azure Ative Directory](developer-guidance-for-integrating-applications.md)
+- [Compreenda os conectores Proxy de aplicação AD Azure](application-proxy-connectors.md)
+- [Compreender o sinal de inscrição ligado](configure-linked-sign-on.md)
+- [Compreender o sign-on único baseado em palavra-passe](configure-password-single-sign-on-non-gallery-applications.md)
+- [Compreenda o sign-on único baseado em SAML](configure-saml-single-sign-on.md)
+- [Resolução de problemas problemas comuns adicionando ou removendo uma aplicação ao Azure Ative Directory](troubleshoot-adding-apps.md)
+- [Visualização de aplicativos usando o seu inquilino Azure AD para gestão de identidade](application-types.md)
+- [Entenda como os utilizadores são atribuídos a apps no Azure Ative Directory](ways-users-get-assigned-to-applications.md)
+- [Quickstart: Elimine uma aplicação do seu inquilino Azure Ative Directory (Azure AD)](delete-application-portal.md)
+- [Publicar o Ambiente de Trabalho Remoto com o Proxy de Aplicações do Azure AD](application-proxy-integrate-with-remote-desktop-services.md)
+- [Tomar medidas sobre aplicações sobreprivilevasas ou suspeitas no Azure Ative Directory](manage-application-permissions.md)
+
 
 ## <a name="december-2020"></a>Dezembro de 2020
 

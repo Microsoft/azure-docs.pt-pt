@@ -17,6 +17,7 @@
           href: azure-stack-edge-gpu-deploy-checklist.md
         - name: '1 - Ordenar, preparar'
           href: azure-stack-edge-gpu-deploy-prep.md
+          displayName: 'Azure CLI, az databoxedge device, az databoxedge order'
         - name: 2 - Instalar
           href: azure-stack-edge-gpu-deploy-install.md
         - name: 3 - Ligar
@@ -73,6 +74,7 @@
           href: azure-stack-edge-pro-r-deploy-checklist.md
         - name: '1 - Ordenar, preparar'
           href: azure-stack-edge-pro-r-deploy-prep.md
+          displayName: 'Azure CLI, az databoxedge device, az databoxedge order'
         - name: 2 - Instalar
           href: azure-stack-edge-pro-r-deploy-install.md
         - name: 3 - Ligar
@@ -119,6 +121,7 @@
           href: azure-stack-edge-mini-r-deploy-checklist.md
         - name: '1 - Ordenar, preparar'
           href: azure-stack-edge-mini-r-deploy-prep.md
+          displayName: 'Azure CLI, az databoxedge device, az databoxedge order'
         - name: 2 - Instalar
           href: azure-stack-edge-mini-r-deploy-install.md
         - name: 3 - Ligar
@@ -315,6 +318,7 @@
       items:
         - name: 1 - Preparar
           href: azure-stack-edge-deploy-prep.md
+          displayName: 'Azure CLI, az databoxedge device, az databoxedge order'
         - name: 2 - Instalar
           href: azure-stack-edge-deploy-install.md
         - name: '3 - Ligar, configurar, ativar'

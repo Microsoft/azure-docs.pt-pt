@@ -4,7 +4,7 @@ description: Cobre o básico sobre como integrar um servidor SharePoint no local
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c318c539b1c09761ed81e7602808e415fdaf8b80
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 5b5895d016e2d9d9b471218bc083ea7585254b45
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658184"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258686"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Ativar o acesso remoto ao SharePoint com o Proxy de Aplicações do Azure AD
 
@@ -200,7 +200,7 @@ Está agora pronto para iniciar seduca no SharePoint usando o URL externo e aute
 
 Se o login no site não estiver a funcionar, pode obter mais informações sobre o problema nos registos do Conector: A partir da máquina que executa o conector, abra o espectador do evento, vá às **Aplicações e Serviços**  >  **Microsoft**  >  **AadApplicationProxy**  >  **Connector**, e inspecione o registo **de Admin.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Trabalhar com domínios personalizados em Azure AD Application Proxy](application-proxy-configure-custom-domain.md)
 * [Compreenda os conectores Proxy de aplicação AD Azure](application-proxy-connectors.md)

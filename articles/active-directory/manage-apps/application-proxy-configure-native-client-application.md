@@ -1,10 +1,10 @@
 ---
-title: Publicar aplicativos de clientes nativos - Azure AD / Microsoft Docs
+title: Publicar aplicativos de clientes nativos - Azure AD | Microsoft Docs
 description: Abrange como permitir que as aplicações de clientes nativos comuniquem com o Azure AD Application Proxy Connector para fornecer acesso remoto seguro às suas aplicações no local.
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09e813e0dff09885f104e43099b10d6f6f8a7f9b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: e830b52accefa0bcb76cc3434cae2fe94eed97db
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657436"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258667"
 ---
 # <a name="how-to-enable-native-client-applications-to-interact-with-proxy-applications"></a>Como permitir que as aplicações de clientes nativos interajam com aplicações de procuração
 
@@ -120,7 +120,7 @@ As informações necessárias no código de amostra podem ser encontradas no por
 
 Depois de editar o código MSAL com estes parâmetros, os seus utilizadores podem autenticar para aplicações de clientes nativos mesmo quando estão fora da rede corporativa.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o fluxo de aplicações nativas, consulte [aplicações nativas no Azure Ative Directory](../azuread-dev/native-app.md).
 

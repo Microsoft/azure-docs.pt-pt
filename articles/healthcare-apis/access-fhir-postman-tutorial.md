@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.reviewer: dseven
 ms.author: matjazl
 author: matjazl
-ms.date: 02/07/2019
-ms.openlocfilehash: b0acfbf9636c2ad1df7df3197a0a1a83ec91b5c3
-ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
+ms.date: 02/01/2021
+ms.openlocfilehash: 5771f95da7b63c6c16bb581b84cc28c4b838ec27
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98747344"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259021"
 ---
 # <a name="access-azure-api-for-fhir-with-postman"></a>Acesso Azure API para FHIR com Carteiro
 
@@ -23,7 +23,8 @@ Uma aplicação de cliente acederia a uma API FHIR através de uma [API REST](ht
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Um ponto final da FHIR em Azure. Pode configurar isso utilizando o Azure API gerido para FHIR ou o servidor FHIR open source para o Azure. Configurar a Azure API gerida para fHIR utilizando [o portal Azure](fhir-paas-portal-quickstart.md), [PowerShell,](fhir-paas-powershell-quickstart.md)ou [Azure CLI](fhir-paas-cli-quickstart.md).
-- Uma  [aplicação ao cliente](register-confidential-azure-ad-client-app.md) que você vai usar para aceder ao serviço FHIR
+- Uma  [aplicação ao cliente](register-confidential-azure-ad-client-app.md) que irá utilizar para aceder ao serviço FHIR.
+- Concedeu permissões, por exemplo, "FHIR Data Contributor", à aplicação do cliente para aceder ao serviço FHIR. Mais informações na [Configure Azure RBAC para FHIR](https://docs.microsoft.com/azure/healthcare-apis/configure-azure-rbac)
 - Carteiro instalado. Pode obtê-lo de [https://www.getpostman.com](https://www.getpostman.com)
 
 ## <a name="fhir-server-and-authentication-details"></a>Servidor FHIR e detalhes de autenticação
@@ -127,7 +128,7 @@ Se repetir a procura do paciente, deve agora ver o registo do paciente:
 
 ![Paciente criado](media/tutorial-postman/postman-patient-found.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, acedeu a uma API FHIR usando carteiro. Leia sobre as funcionalidades de API suportadas na nossa secção de funcionalidades suportadas.
  

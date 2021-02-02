@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 4cab1765a387bbae61c9c242a8e7a1ca881ea1f5
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 42098786bb92e98b89b1dbfba01a2e071398f460
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966671"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258545"
 ---
 # <a name="tutorial-use-custom-allocation-policies-with-device-provisioning-service-dps"></a>Tutorial: Utilize políticas de atribuição personalizada com serviço de fornecimento de dispositivos (DPS)
 
@@ -347,7 +347,7 @@ Este código de amostra simula uma sequência de arranque do dispositivo que env
     hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-6. Na `main()` função, encontre a chamada para `Prov_Device_Register_Device()` . Antes dessa chamada, adicione as seguintes linhas de código que usam [`Prov_Device_Set_Provisioning_Payload()`](/azure/iot-hub/iot-c-sdk-ref/prov-device-client-h/prov-device-set-provisioning-payload) para passar uma carga personalizada do JSON durante o provisionamento. Isto pode ser usado para fornecer mais informações às suas funções de atribuição personalizada. Isto também poderia ser usado para passar o tipo de dispositivo em vez de examinar o ID de registo.
+6. Na `main()` função, encontre a chamada para `Prov_Device_Register_Device()` . Antes dessa chamada, adicione as seguintes linhas de código que usam [`Prov_Device_Set_Provisioning_Payload()`](/azure/iot-hub/iot-c-sdk-ref/prov-device-client-h/prov-device-set-provisioning-payload) para passar uma carga personalizada do JSON durante o provisionamento. Isto pode ser usado para fornecer mais informações às suas funções de atribuição personalizada. Isto também poderia ser usado para passar o tipo de dispositivo em vez de examinar o ID de registo. Para obter mais informações sobre o envio e receção de cargas personalizadas de dados com DPS, consulte [Como transferir cargas entre dispositivos e DPS](how-to-send-additional-data.md).
 
     ```c
     // An example custom payload
@@ -477,7 +477,7 @@ Para eliminar o grupo de recursos pelo nome:
 
 2. No **Filtro pelo nome...** textbox, digite o nome do grupo de recursos que contém os seus recursos, **contoso-us-resource-group**. 
 
-3. À direita do seu grupo de recursos **...** na lista de resultados, selecione... e depois **elimine o grupo de recursos**.
+3. À direita do seu grupo de recursos  na lista de resultados, selecione... e depois **elimine o grupo de recursos**.
 
 4. Ser-lhe-á pedido que confirme a supressão do grupo de recursos. Escreva novamente o nome do seu grupo de recursos para confirmar e, em seguida, selecione **Delete**. Após alguns instantes, o grupo de recursos e todos os recursos contidos no mesmo são eliminados.
 
