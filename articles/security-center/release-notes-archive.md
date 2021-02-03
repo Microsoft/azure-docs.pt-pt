@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/07/2020
+ms.date: 02/02/2020
 ms.author: memildin
-ms.openlocfilehash: 751ee19225e7e550f368fff2415cd07f25b02d25
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: b7cb6edf825519bb3048de7a8c5326842f2db097
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539928"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99524298"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Arquivo para o que há de novo no Centro de Segurança Azure?
 
@@ -28,6 +28,116 @@ Esta página fornece-lhe informações sobre:
 - Novas funcionalidades
 - Correções de erros
 - Funcionalidade preterida
+
+
+## <a name="august-2020"></a>Agosto de 2020
+
+As atualizações em agosto incluem:
+
+- [Inventário de ativos - nova visão poderosa da postura de segurança dos seus ativos](#asset-inventory---powerful-new-view-of-the-security-posture-of-your-assets)
+- [Suporte adicional para padrão de segurança do Azure Ative Directory (para autenticação de vários fatores)](#added-support-for-azure-active-directory-security-defaults-for-multi-factor-authentication)
+- [Recomendação dos diretores de serviço adicionada](#service-principals-recommendation-added)
+- [Avaliação da vulnerabilidade em VMs - recomendações e políticas consolidadas](#vulnerability-assessment-on-vms---recommendations-and-policies-consolidated)
+- [Novas políticas de segurança AKS adicionadas à iniciativa ASC_default – para utilização apenas por clientes privados de pré-visualização](#new-aks-security-policies-added-to-asc_default-initiative--for-use-by-private-preview-customers-only)
+
+
+### <a name="asset-inventory---powerful-new-view-of-the-security-posture-of-your-assets"></a>Inventário de ativos - nova visão poderosa da postura de segurança dos seus ativos
+
+O inventário de ativos do Security Center (atualmente em pré-visualização) fornece uma forma de ver a postura de segurança dos recursos que ligou ao Centro de Segurança.
+
+O Centro de Segurança analisa periodicamente o estado de segurança dos seus recursos Azure para identificar potenciais vulnerabilidades de segurança. Em seguida, fornece-lhe recomendações sobre como remediar essas vulnerabilidades. Quando algum recurso tiver recomendações pendentes, aparecerão no inventário.
+
+Pode utilizar a vista e os seus filtros para explorar os seus dados de postura de segurança e tomar mais ações com base nas suas descobertas.
+
+Saiba mais sobre [o inventário de ativos.](asset-inventory.md)
+
+
+### <a name="added-support-for-azure-active-directory-security-defaults-for-multi-factor-authentication"></a>Suporte adicional para padrão de segurança do Azure Ative Directory (para autenticação de vários fatores)
+
+O Security Center adicionou suporte total para [falhas de segurança,](../active-directory/fundamentals/concept-fundamentals-security-defaults.md)as proteções de segurança de identidade gratuitas da Microsoft.
+
+Os incumprimentos de segurança fornecem configurações de segurança de identidade pré-configuradas para defender a sua organização de ataques comuns relacionados com a identidade. Incumprimentos de segurança já protegem mais de 5 milhões de inquilinos em geral; 50.000 inquilinos também estão protegidos pelo Centro de Segurança.
+
+O Security Center fornece agora uma recomendação de segurança sempre que identifica uma subscrição do Azure sem falhas de segurança ativadas. Até agora, o Security Center recomendou a autenticação de vários fatores utilizando o acesso condicional, que faz parte da licença premium Azure Ative Directory (AD). Para clientes que usam Azure AD gratuitamente, recomendamos agora permitir incumprimentos de segurança. 
+
+O nosso objetivo é incentivar mais clientes a garantir os seus ambientes em nuvem com MFA, e mitigar um dos maiores riscos que é também o mais impactante para a sua [pontuação segura.](secure-score-security-controls.md)
+
+Saiba mais sobre [os incumprimentos de segurança.](../active-directory/fundamentals/concept-fundamentals-security-defaults.md)
+
+
+### <a name="service-principals-recommendation-added"></a>Recomendação dos diretores de serviço adicionada
+
+Foi adicionada uma nova recomendação para recomendar que os clientes do Security Center utilizem certificados de gestão para gerir as suas subscrições comutadores para os principais serviços.
+
+A recomendação, **os principais do serviço devem ser usados para proteger as suas subscrições em vez de Certificados de Gestão** aconselha-o a usar os Principais de Serviço ou O Gestor de Recursos Azure para gerir mais de forma mais segura as suas subscrições. 
+
+Saiba mais sobre [aplicações e objetos principais de serviço no Azure Ative Directory](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object).
+
+
+### <a name="vulnerability-assessment-on-vms---recommendations-and-policies-consolidated"></a>Avaliação da vulnerabilidade em VMs - recomendações e políticas consolidadas
+
+O Centro de Segurança inspeciona os seus VMs para detetar se estão a executar uma solução de avaliação de vulnerabilidade. Se não for encontrada nenhuma solução de avaliação de vulnerabilidade, o Security Center fornece uma recomendação para simplificar a implementação.
+
+Quando as vulnerabilidades são encontradas, o Centro de Segurança fornece uma recomendação que resume as conclusões para que investigue e remediar se necessário.
+
+Para garantir uma experiência consistente para todos os utilizadores, independentemente do tipo de scanner que estão a usar, un we unificou quatro recomendações para as seguintes duas:
+
+|Recomendação unificada|Alterar descrição|
+|----|:----|
+|**Uma solução de avaliação de vulnerabilidades deve ser ativada nas suas máquinas virtuais**|Substitui as duas seguintes recomendações:<br> **• •** Permitir a solução de avaliação de vulnerabilidade incorporada em máquinas virtuais (alimentadas por Qualys (agora depreciadas) (Incluída com nível padrão)<br> **• •** A solução de avaliação de vulnerabilidades deve ser instalada nas suas máquinas virtuais (agora depreciadas) (Níveis standard e gratuitos)|
+|**As vulnerabilidades nas suas máquinas virtuais devem ser remediadas**|Substitui as duas seguintes recomendações:<br>**• •** Corrigir vulnerabilidades encontradas nas suas máquinas virtuais (alimentadas por Qualys) (agora depreciadas)<br>**• •** As vulnerabilidades devem ser remediadas por uma solução de Avaliação de Vulnerabilidades (agora depreciada)|
+|||
+
+Agora você usará a mesma recomendação para implementar a extensão de avaliação de vulnerabilidade do Security Center ou uma solução licenciada privada ("BYOL") de um parceiro como Qualys ou Rapid7.
+
+Além disso, quando as vulnerabilidades forem encontradas e reportadas ao Security Center, uma única recomendação irá alertá-lo para as conclusões, independentemente da solução de avaliação de vulnerabilidade que as identificou.
+
+#### <a name="updating-dependencies"></a>Atualização das dependências
+
+Se tiver scripts, consultas ou automatizações referentes às recomendações anteriores ou chaves/nomes de apólices anteriores, utilize as tabelas abaixo para atualizar as referências:
+
+##### <a name="before-august-2020"></a>Antes de agosto de 2020
+
+|Recomendação|Âmbito|
+|----|:----|
+|**Permitir a solução de avaliação de vulnerabilidade incorporada em máquinas virtuais (alimentadas por Qualys)**<br>Chave: 550e890b-e652-4d22-8274-60b3bdb24c63|Incorporado|
+|**Corrigir vulnerabilidades encontradas nas suas máquinas virtuais (alimentadas por Qualys)**<br>Chave: 1195afff-c881-495e-9bc5-1486211ae03f|Incorporado|
+|**Solução de avaliação de vulnerabilidades deve ser instalada nas suas máquinas virtuais**<br>Chave: 01b1ed4c-b733-4fee-b145-f23236e70cf3|BYOL|
+|**As vulnerabilidades devem ser remediadas por uma solução de Avaliação de Vulnerabilidades**<br>Chave: 71992a2a-d168-42e0-b10e-6b45fa2ecddb|BYOL|
+||||
+
+
+|Política|Âmbito|
+|----|:----|
+|**A avaliação da vulnerabilidade deve ser ativada em máquinas virtuais**<br>ID da política: 501541f7-f7e7-4cd6-868c-4190fdad3ac9|Incorporado|
+|**As vulnerabilidades devem ser remediadas por uma solução de avaliação de vulnerabilidades**<br>ID da política: 760a85ff-6162-42b3-8d70-698e268f648c|BYOL|
+||||
+
+
+##### <a name="from-august-2020"></a>A partir de agosto de 2020
+
+|Recomendação|Âmbito|
+|----|:----|
+|**Uma solução de avaliação de vulnerabilidades deve ser ativada nas suas máquinas virtuais**<br>Chave: ffff0522-1e88-47fc-8382-2a80ba848f5d|Incorporado + BYOL|
+|**As vulnerabilidades nas suas máquinas virtuais devem ser remediadas**<br>Chave: 1195afff-c881-495e-9bc5-1486211ae03f|Incorporado + BYOL|
+||||
+
+|Política|Âmbito|
+|----|:----|
+|[**A avaliação da vulnerabilidade deve ser ativada em máquinas virtuais**](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f501541f7-f7e7-4cd6-868c-4190fdad3ac9)<br>ID da política: 501541f7-f7e7-4cd6-868c-4190fdad3ac9 |Incorporado + BYOL|
+||||
+
+
+### <a name="new-aks-security-policies-added-to-asc_default-initiative--for-use-by-private-preview-customers-only"></a>Novas políticas de segurança AKS adicionadas à iniciativa ASC_default – para utilização apenas por clientes privados de pré-visualização
+
+Para garantir que as cargas de trabalho de Kubernetes estão seguras por defeito, o Security Center está a adicionar políticas de nível de Kubernetes e recomendações de endurecimento, incluindo opções de aplicação com o controlo de admissão de Kubernetes.
+
+A fase inicial deste projeto inclui uma pré-visualização privada e a adição de novas políticas (desativadas por defeito) à iniciativa ASC_default.
+
+Pode ignorar com segurança estas políticas e não haverá impacto no seu ambiente. Se quiser ative-los, inscreva-se para a pré-visualização https://aka.ms/SecurityPrP e selecione a partir das seguintes opções:
+
+1. **Pré-visualização única** – Para juntar apenas esta pré-visualização privada. Mencione explicitamente "ASC Continuous Scan" como a pré-visualização que gostaria de aderir.
+1. **Programa em curso** – A ser adicionado a esta e futuras antestreias privadas. Terá de completar um acordo de perfil e privacidade.
 
 
 ## <a name="july-2020"></a>Julho de 2020

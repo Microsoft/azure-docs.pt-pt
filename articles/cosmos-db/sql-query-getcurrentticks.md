@@ -5,15 +5,15 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 08/14/2020
+ms.date: 02/03/2021
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: 610c545bf25822d27e0a641a1b2631f899502420
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 16004e6e471094c99229c32a63396ac3b0490905
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340163"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99524310"
 ---
 # <a name="getcurrentticks-azure-cosmos-db"></a>GetCurrentTicks (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -34,7 +34,8 @@ Devolve um valor numérico assinado, o número atual de carrapatos de 100 nanose
 
 GetCurrentTicks é uma função não determinística. O resultado devolvido é UTC (Tempo Universal Coordenado).
 
-Esta função do sistema não utilizará o índice.
+> [!NOTE]
+> Esta função do sistema não utilizará o índice. Se precisar de comparar valores com o tempo atual, obtenha o tempo atual antes da execução da consulta e use esse valor de cadeia constante na `WHERE` cláusula.
 
 ## <a name="examples"></a>Exemplos
 
