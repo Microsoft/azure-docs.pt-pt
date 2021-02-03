@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan
 ms.date: 08/27/2019
-ms.openlocfilehash: 92d1ce51306e846e2d842bef33bb9782da14019a
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 1609f188af8ffb58251edc806e19f7820a6b0869
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94593999"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525726"
 ---
 # <a name="tutorial-add-sql-managed-instance-to-a-failover-group"></a>Tutorial: Adicione a SQL Gestd Instance a um grupo de failover
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -32,7 +32,7 @@ Adicione instâncias geridas de Azure SQL Managed Instance a um grupo de failove
   > [!NOTE]
   > - Ao passar por este tutorial, certifique-se de que está a configurar os seus recursos com os [pré-requisitos para a criação de grupos de failover para a SQL Managed Instance](../database/auto-failover-group-overview.md#enabling-geo-replication-between-managed-instances-and-their-vnets). 
   > - Criar um caso gerido pode demorar um tempo significativo. Como resultado, este tutorial pode levar várias horas para ser concluído. Para obter mais informações sobre os tempos de provisionamento, consulte [as operações de gestão de instância gerida sql](sql-managed-instance-paas-overview.md#management-operations). 
-  > - Casos geridos que participam num grupo de failover requerem ou [a Azure ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) ou dois gateways VPN conectados. O VNet Peering Global não é suportado. Este tutorial fornece passos para criar e ligar os gateways VPN. Ignore estes passos se já tiver o ExpressRoute configurado. 
+  > - Casos geridos que participam num grupo de failover requerem [Azure ExpressRoute,](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md)peering VNet global, ou dois gateways VPN conectados. Este tutorial fornece passos para criar e ligar os gateways VPN. Ignore estes passos se já tiver o ExpressRoute configurado. 
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -72,7 +72,7 @@ Crie o grupo de recursos e a sua primeira instância gerida utilizando o portal 
 1. Na página **"Configurar exemplos geridos do Azure SQL",** no separador **Básicos:**
     1. Em **Detalhes do Projeto,** selecione a sua **Subscrição** a partir do drop-down e, em seguida, escolha **criar novo** grupo de recursos. Digite um nome para o seu grupo de recursos, como `myResourceGroup` . 
     1. Em detalhes de **instância gerida SQL,** forneça o nome da sua instância gerida, e a região onde gostaria de implementar o seu caso gerido. Deixe **o Compute + armazenamento** a valores predefinidos. 
-    1. Em **Conta de Administrador** , forneça um login de administração, `azureuser` como, por exemplo, e uma senha de administração complexa. 
+    1. Em **Conta de Administrador**, forneça um login de administração, `azureuser` como, por exemplo, e uma senha de administração complexa. 
 
     ![Criar exemplos geridos primários](./media/failover-group-add-instance-tutorial/primary-sql-mi-values.png)
 
@@ -930,7 +930,7 @@ Ligue os dois gateways utilizando o portal Azure.
     1. Selecione a subscrição na lista pendente. 
     1. Selecione o grupo de recursos para SQL Managed Instance no drop-down. 
     1. Selecione a localização da sua primeira instância gerida a partir do drop-down. 
-1. Na página **Definições,** selecione ou introduza os seguintes valores e, em seguida, selecione **OK** :
+1. Na página **Definições,** selecione ou introduza os seguintes valores e, em seguida, selecione **OK**:
     1. Escolha o portal de rede primário para o **primeiro gateway de rede virtual,** como `primaryGateway` .  
     1. Escolha o portal de rede secundária para o **segundo gateway de rede virtual,** como `secondaryGateway` . 
     1. Selecione a caixa de verificação ao lado **de Estabelecer conectividade bidirecional**. 
@@ -985,7 +985,7 @@ Crie o grupo de failover utilizando o portal Azure.
 
 1. Selecione **Azure SQL** no menu esquerdo do [portal Azure](https://portal.azure.com). Se **o Azure SQL** não estiver na lista, selecione **Todos os serviços** e, em seguida, digite `Azure SQL` na caixa de pesquisa. (Opcional) Selecione a estrela ao lado do **Azure SQL** para o favorito e adicione-a como um item na navegação à esquerda. 
 1. Selecione a primeira instância gerida que criou na primeira secção, como `sql-mi-primary` . 
-1. Em **Definições** , navegue para **grupos de failover de exemplo** e, em seguida, escolha adicionar **grupo** para abrir a página do Grupo de Falha **de Exemplo.** 
+1. Em **Definições**, navegue para **grupos de failover de exemplo** e, em seguida, escolha adicionar **grupo** para abrir a página do Grupo de Falha **de Exemplo.** 
 
    ![Adicione um grupo de failover](./media/failover-group-add-instance-tutorial/add-failover-group.png)
 
@@ -1085,7 +1085,7 @@ Esta parte do tutorial utiliza os seguintes cmdlets PowerShell:
 
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Limpe os recursos eliminando primeiro as instâncias geridas, depois o cluster virtual, depois os recursos restantes, e, finalmente, o grupo de recursos. 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)

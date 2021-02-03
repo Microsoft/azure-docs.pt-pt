@@ -2,13 +2,13 @@
 title: Importar imagens de contentor
 description: Importar imagens de contentores para um registo de contentores Azure utilizando APIs Azure, sem necessidade de executar comandos Docker.
 ms.topic: article
-ms.date: 09/18/2020
-ms.openlocfilehash: 3950b9fb24b80db4d9654a615521c0eb82914499
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 01/15/2021
+ms.openlocfilehash: 364c90b857d0d7d479152e2aa56db4d80041f037
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019978"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99524503"
 ---
 # <a name="import-container-images-to-a-container-registry"></a>Importar imagens de contentores para um registo de contentores
 
@@ -35,6 +35,11 @@ Para importar imagens de contentores, este artigo requer que você execute o Azu
 > [!NOTE]
 > Se necessitar de distribuir imagens idênticas de contentores em várias regiões do Azure, o Registo de Contentores Azure também suporta [a geo-replicação.](container-registry-geo-replication.md) Ao geo-replicar um registo (nível de serviço Premium necessário), pode servir várias regiões com imagens idênticas e nomes de etiquetas a partir de um único registo.
 >
+
+> [!IMPORTANT]
+> As alterações à importação de imagem entre dois registos de contentores Azure foram introduzidas a partir de janeiro de 2021:
+> * A importação de ou de um registo restrito de contentores Azure em rede requer o registo restrito para permitir o [**acesso por serviços fidedignos**](allow-access-trusted-services.md) para contornar a rede. Por predefinição, a definição está ativada, permitindo a importação. Se a definição não estiver ativada num registo recém-criado com um ponto final privado ou com regras de firewall de registo, a importação falhará. 
+> * Num registo de contentores Azure restrito à rede existente que é utilizado como fonte de importação ou alvo, permitir esta funcionalidade de segurança da rede é opcional, mas recomendado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -92,6 +97,8 @@ Você pode importar uma imagem de um registro de contentores Azure no mesmo inqu
 * O registo pode ser na mesma ou numa subscrição Azure diferente no mesmo inquilino ative directory.
 
 * [O acesso público](container-registry-access-selected-networks.md#disable-public-network-access) ao registo de origem pode ser desativado. Se o acesso público for desativado, especifique o registo de origem por ID de recurso em vez de pelo nome do servidor de login do registo.
+
+* Se o registo de origem e/ou o registo alvo tiver uma regra privada de firewall de ponto final ou registo, certifique-se de que o registo restrito permite que [serviços fidedignos](allow-access-trusted-services.md) acedam à rede.
 
 ### <a name="import-from-a-registry-in-the-same-subscription"></a>Importação de um registo na mesma subscrição
 

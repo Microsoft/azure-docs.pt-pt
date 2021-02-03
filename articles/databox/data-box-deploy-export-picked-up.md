@@ -1,19 +1,19 @@
 ---
-title: Tutorial para enviar Azure Data Box de volta em ordem de exportação / Microsoft Docs
+title: Tutorial para enviar Azure Data Box de volta em ordem de exportação | Microsoft Docs
 description: Saiba como enviar a sua Caixa de Dados Azure para a Microsoft depois de a encomenda de exportação estar completa
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 12/18/2020
+ms.date: 02/02/2021
 ms.author: alkohli
-ms.openlocfilehash: 4b5bbe19ddeda7c6b313186b7e24532a294f7253
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 9ebf95f0a9c5cfc059f38a13ad99a545dd863d21
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680835"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525035"
 ---
 # <a name="tutorial-return-azure-data-box"></a>Tutorial: Caixa de dados do Azure Devolução
 
@@ -43,7 +43,7 @@ A localização a partir da qual pretende devolver o dispositivo determina os pa
 
 ## <a name="ship-data-box-back"></a>Enviar o Data Box de volta
 
-Certifique-se de que a cópia de dados do dispositivo está completa e **prepare-se para o funcionaamento do navio** com sucesso. Com base na região onde está a enviar o dispositivo, o procedimento é diferente.
+Certifique-se de que a cópia de dados do dispositivo está completa e **prepare-se para o funcionaamento do navio** com sucesso. O procedimento é diferente com base na região a partir da qual envia o dispositivo.
 
 ## <a name="us-canada-europe"></a>[EUA, Canadá, Europa](#tab/in-us-canada-europe)
 
@@ -55,17 +55,17 @@ Se quiser devolver o dispositivo nos EUA, Canadá ou Europa, siga os passos abai
 4. Se estiver a devolver o dispositivo, contacte a UPS para agendar uma recolha. Para agendar uma recolha:
 
    - Ligue para o ponto UPS local (número gratuito específico do seu país/região).
-   - Durante a chamada, indique o número de rastreio do envio de devolução mostrado na apresentação da E-ink ou na guia impressa. Se não citar o número de rastreio, o UPS necessitará de uma taxa adicional durante a recolha.
-   - Se surgirem problemas durante o agendamento de uma recolha, ou se lhe pedirem para pagar taxas adicionais, contacte as Operações da Caixa de Dados do Azure. Envie o e-mail para [adbops@microsoft.com](mailto:adbops@microsoft.com).
+   - Durante a chamada, indique o número de rastreio do envio de devolução mostrado na apresentação da E-ink ou na guia impressa. Se não indicar o número de acompanhamento, a UPS cobrará uma taxa adicional na recolha.
+   - Se surgirem problemas ao agendar uma recolha ou lhe for pedido o pagamento de tarifas adicionais, contacte as Operações do Azure Data Box. Envie o e-mail para [adbops@microsoft.com](mailto:adbops@microsoft.com).
 
     Em vez de agendar a recolha, também pode entregar o Data Box na localização de entrega mais próxima.
-4. Após a sua transportadora recolher e analisar o Data Box, o estado de encomenda no portal será atualizado para **Picked up (Recolhido)** . É também mostrado um ID de controlo.
+4. Após a sua transportadora recolher e analisar o Data Box, o estado de encomenda no portal será atualizado para **Picked up (Recolhido)** . É também mostrado um ID de acompanhamento.
 
 ## <a name="australia"></a>[Austrália](#tab/in-australia)
 
 Os datacenters do Azure na Austrália têm uma notificação de segurança adicional. Para todos os envios dirigidos aos mesmos, é necessária uma notificação antecipada. Siga os passos abaixo para os envios na Austrália.
 
-1. Guarde a caixa original usada para enviar o dispositivo para envio de devolução.
+1. Guarde a embalagem original utilizada para enviar o dispositivo para a devolução.
 2. Verifique se a cópia de dados para o dispositivo foi concluída e a **Preparação para envio** foi executada com êxito.
 3. Desligue o dispositivo e remova os cabos.
 4. Coloque em segurança o cabo de alimentação enviado com o dispositivo atrás do mesmo.
@@ -73,7 +73,7 @@ Os datacenters do Azure na Austrália têm uma notificação de segurança adici
 
 ## <a name="japan"></a>[Japão](#tab/in-japan)
 
-1. Guarde a caixa original usada para enviar o dispositivo para envio de devolução.
+1. Guarde a embalagem original utilizada para enviar o dispositivo para a devolução.
 2. Desligue o dispositivo e remova os cabos.
 3. Coloque em segurança o cabo de alimentação enviado com o dispositivo atrás do mesmo.
 4. Escreva o nome e o endereço da sua empresa na nota de expedição como as informações do remetente.
@@ -103,11 +103,11 @@ Se necessário, pode contactar o Apoio ao Cliente da Quantium Solutions (em japo
 
 ## <a name="singapore"></a>[Singapura](#tab/in-singapore)
 
-1. Guarde a caixa original usada para enviar o dispositivo para envio de devolução.
+1. Guarde a embalagem original utilizada para enviar o dispositivo para a devolução.
 2. Tome nota do número de controlo (apresentado como número de referência na página Preparação para envio da IU da Web local do Data Box). Está disponível após o passo de preparação para envio ser concluído com êxito. Transfira o guia de remessa a partir desta página e cole na caixa da embalagem.
 3. Desligue o dispositivo e remova os cabos.
 4. Coloque em segurança o cabo de alimentação enviado com o dispositivo atrás do mesmo. 
-5. Utilize o modelo que se segue com o número de controlo para enviar um e-mail para o Suporte ao Cliente da SingPost.
+5. Utilize o modelo que se segue com o número de acompanhamento para enviar um e-mail para o Suporte ao Cliente da SingPost.
 
     ```
     To: kadcustcare@singpost.com
@@ -174,7 +174,7 @@ Caso se depare com algum problema, envie um e-mail para a Data Box Operations [a
 
 ## <a name="self-managed"></a>[Envio Autónomo](#tab/in-selfmanaged)
 
-Se estiver a utilizar o Data Box no Japão, Singapura, Coreia, Índia, África do Sul ou Europa Ocidental e tiver selecionado a opção de envio autónomo durante a criação da encomenda, siga estas instruções.
+Se estiver a utilizar a Data Box no Japão, Singapura, Coreia, Índia, África do Sul, Reino Unido, Europa Ocidental ou Austrália e tiver selecionado a opção de envio auto-gerida durante a criação da encomenda, siga estas instruções.
 
 1. Tome nota do Código de autorização apresentado na página Preparação para envio da IU da Web local do Data Box após este passo ser concluído com êxito.
 2. Desligue o dispositivo e remova os cabos. Coloque em segurança o cabo de alimentação enviado com o dispositivo na parte de trás do mesmo.

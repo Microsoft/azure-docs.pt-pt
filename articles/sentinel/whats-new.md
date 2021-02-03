@@ -8,12 +8,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 02/02/2021
-ms.openlocfilehash: 8154e1adff8d8c2bdfe7fedc9309f95e5c5880bd
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 0eb3b8feda09d931654d1781ea37737d68a1b377
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/03/2021
-ms.locfileid: "99500724"
+ms.locfileid: "99526641"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>Novidades em Azure Sentinel
 
@@ -46,7 +46,7 @@ O Azure Sentinel suporta agora o novo módulo [Az.SecurityInsights](https://www.
 
 O módulo **Az.SecurityInsights** suporta casos comuns de utilização do Azure Sentinel, como interagir com incidentes para mudar estátuas, gravidade, proprietário, e assim por diante, adicionando comentários e rótulos a incidentes, e criando marcadores.
 
-Embora recomendemos a utilização de modelos [Azure Resource Manager (ARM)](/azure/azure-resource-manager/templates/) para o seu pipeline CI/CD, o módulo **Az.SecurityInsights** é útil para tarefas pós-implantação e é especificamente direcionado para a automatização SOC.  Por exemplo, a sua automatização SOC pode incluir passos para configurar conectores de dados, criar regras de análise ou adicionar ações de automação às regras de análise.
+Embora recomendemos a utilização de modelos [Azure Resource Manager (ARM)](/azure/azure-resource-manager/templates/) para o seu pipeline CI/CD, o módulo **Az.SecurityInsights** é útil para tarefas pós-implantação e é direcionado para a automatização SOC.  Por exemplo, a sua automatização SOC pode incluir passos para configurar conectores de dados, criar regras de análise ou adicionar ações de automação às regras de análise.
 
 Para obter mais informações, incluindo uma lista completa e descrição dos cmdlets disponíveis, descrições de parâmetros e exemplos, consulte a [documentação Az.SecurityInsights PowerShell](/powershell/module/az.securityinsights/).
 
@@ -78,7 +78,7 @@ Para obter mais informações, consulte [os registos do Azure Monitor sobre agru
 
 ### <a name="logic-apps-managed-identities"></a>Aplicativos lógicos geridos identidades
 
-O Azure Sentinel suporta agora identidades geridas para o conector Azure Sentinel Logic Apps, permitindo-lhe conceder permissões a um livro de jogadas específico para operar no Azure Sentinel em vez de criar identidades extra.
+O Azure Sentinel suporta agora identidades geridas para o conector Azure Sentinel Logic Apps, permitindo-lhe conceder permissões diretamente a um livro de jogadas específico para operar no Azure Sentinel em vez de criar identidades extra.
 
 - **Sem uma identidade gerida,** o conector Logic Apps requer uma identidade separada com um papel rbac Azure Sentinel para funcionar no Azure Sentinel. A identidade separada pode ser um utilizador AZure AD ou um diretor de serviço, como uma aplicação registada Azure AD.
 
@@ -123,7 +123,7 @@ Esta atualização para o Azure Sentinel inclui novas consultas de caça que for
 
 As consultas de caça adicionadas são projetadas para ajudá-lo a encontrar atividade suspeita no seu ambiente. Embora possam devolver atividades legítimas e atividades potencialmente maliciosas, podem ser úteis para orientar a sua caça. 
 
-Se, depois de executar estas consultas, estiver confiante com os resultados, poderá querer convertê-los em regras de análise ou adicionar resultados de caça a incidentes existentes ou novos.
+Se depois de executar estas consultas, está confiante com os resultados, pode querer convertê-los em regras de análise ou adicionar resultados de caça a incidentes existentes ou novos.
 
 Todas as consultas adicionais estão disponíveis através da página de Caça Sentinela Azure. Para mais informações, consulte [Hunt para ameaças com Azure Sentinel.](hunting.md)
 

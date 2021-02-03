@@ -3,12 +3,12 @@ title: Problemas de rede de resolução de problemas com registo
 description: Sintomas, causas e resolução de problemas comuns ao aceder a um registo de contentores Azure numa rede virtual ou atrás de uma firewall
 ms.topic: article
 ms.date: 10/01/2020
-ms.openlocfilehash: 2f15eb8a830ce93ecf942663fc8a44b9df86d6d6
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: cf2f308f782ac7d6011c98afd181b194f2b3e09f
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99052166"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525081"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>Problemas de rede de resolução de problemas com registo
 
@@ -105,20 +105,20 @@ Links relacionados:
 
 ### <a name="configure-service-access"></a>Configure acesso ao serviço
 
-Atualmente, o Azure Security Center não pode realizar [a verificação de vulnerabilidade de imagem](../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json) num registo que restringe o acesso a pontos finais privados, sub-redes selecionadas ou endereços IP. Além disso, os recursos dos seguintes serviços não podem aceder a um registo de contentores com restrições de rede:
+Atualmente, o acesso a um registo de contentores com restrições de rede não é permitido a partir de vários serviços da Azure:
 
-* Azure DevOps Services 
-* Azure Container Instances
-* Tarefas do Azure Container Registry
+* O Azure Security Center não pode realizar [uma verificação de vulnerabilidade de imagem](../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json) num registo que restringe o acesso a pontos finais privados, sub-redes selecionadas ou endereços IP. 
+* Os recursos de certos serviços Azure não conseguem aceder a um registo de contentores com restrições de rede, incluindo o Azure App Service e a Azure Container Instances.
 
 Se for necessário aceder ou integração destes serviços Azure com o seu registo de contentores, remova a restrição de rede. Por exemplo, remova os pontos finais privados do registo ou remova ou modifique as regras de acesso público do registo.
+
+A partir de janeiro de 2021, pode configurar um registo restrito de rede para [permitir o acesso](allow-access-trusted-services.md) a partir de serviços de confiança selecionados.
 
 Links relacionados:
 
 * [Digitalização da imagem do registo do contentor Azure pelo Centro de Segurança](../security-center/defender-for-container-registries-introduction.md)
 * Fornecer [feedback](https://feedback.azure.com/forums/347535-azure-security-center/suggestions/41091577-enable-vulnerability-scanning-for-images-that-are)
-* [Configurar regras públicas de rede IP](container-registry-access-selected-networks.md)
-* [Conecte-se privadamente a um registo de contentores Azure usando a Azure Private Link](container-registry-private-link.md)
+* [Permitir serviços fidedignos para aceder de forma segura a um registo restrito de contentores em rede](allow-access-trusted-services.md)
 
 
 ## <a name="advanced-troubleshooting"></a>Resolução de problemas avançados
@@ -140,5 +140,5 @@ Se não resolver o seu problema aqui, consulte as seguintes opções.
   * [Login de registo de resolução de problemas](container-registry-troubleshoot-login.md) 
   * [Desempenho do registo de resolução de problemas](container-registry-troubleshoot-performance.md)
 * [Opções de apoio comunitário](https://azure.microsoft.com/support/community/)
-* [Perguntas e Respostas da Microsoft](/answers/products/)
+* [Perguntas e Respostas da Microsoft](https://docs.microsoft.com/answers/products/)
 * [Abrir um pedido de suporte](https://azure.microsoft.com/support/create-ticket/)

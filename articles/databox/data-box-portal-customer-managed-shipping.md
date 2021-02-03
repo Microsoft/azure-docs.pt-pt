@@ -1,19 +1,19 @@
 ---
-title: Envio auto-gerido da Microsoft Azure Data Box Microsoft Docs em dados
+title: Microsoft Azure Data Box | de envio auto-gerido Microsoft Docs em dados
 description: Descreve fluxo de trabalho de envio auto-gerido para dispositivos Azure Data Box
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: how-to
-ms.date: 08/12/2020
+ms.date: 02/02/2021
 ms.author: alkohli
-ms.openlocfilehash: 9643e62f085888808b95698d068c5e383fb8d539
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 07529b18191c71776a9a36edbfa4cfd8ded5af4f
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337972"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99524554"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-in-the-azure-portal"></a>Utilize o envio auto-gerido para a Caixa de Dados Azure no portal Azure
 
@@ -24,12 +24,14 @@ Este artigo descreve tarefas de envio auto-geridas para encomendar, recolher e l
 O envio auto-gerido está disponível como opção quando [encomenda a Caixa de Dados Azure](data-box-deploy-ordered.md). O transporte auto-gerido só está disponível nas seguintes regiões:
 
 * Governo dos Estados Unidos
+* Reino Unido
 * Europa Ocidental
 * Japão
 * Singapura
 * Coreia do Sul
 * Índia
 * África do Sul
+* Austrália
 
 ## <a name="use-self-managed-shipping"></a>Utilizar o envio gerido automaticamente
 
@@ -41,7 +43,7 @@ Quando escamada uma encomenda de Caixa de Dados, pode escolher a opção de envi
 
 2. Ao escolher um tipo de envio, selecione a opção **de envio auto-gerida.** Esta opção só está disponível se estiver numa região apoiada, conforme descrito nos pré-requisitos.
 
-3. Depois de ter fornecido o seu endereço de envio, terá de o validar e completar a sua encomenda.
+3. Uma vez que tenha fornecido o seu endereço de envio, terá de o validar e completar o seu pedido.
 
    ![Envio auto-gerido, validar e adicionar endereço](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
 
@@ -57,11 +59,11 @@ Quando escamada uma encomenda de Caixa de Dados, pode escolher a opção de envi
 
    ![Agendar recolha para instruções de Azure](media\data-box-portal-customer-managed-shipping\data-box-portal-schedule-pickup-email-01.png)
 
-6. Depois de ter programado a recolha do seu dispositivo, poderá ver o código de autorização do seu dispositivo na **pick-up Schedule para painel Azure.**
+6. Depois de agendar a recolha do seu dispositivo, pode ver o código de autorização do dispositivo na **picke Schedule para Azure.**
 
    ![Visualização do código de autorização do seu dispositivo](media\data-box-portal-customer-managed-shipping\data-box-portal-auth-01b.png)
 
-   Tome nota deste código de **Autorização.** De acordo com os requisitos de segurança, no momento da recolha de horários, é necessário apresentar o nome da pessoa que chegaria para recolha.
+   Tome nota deste código de **Autorização.** De acordo com os requisitos de segurança, no momento da recolha de horários, é necessário apresentar o nome da pessoa que chegaria para a recolha.
 
    Também precisa de fornecer detalhes de quem irá ao datacenter para recolha. Você ou o ponto de contacto devem levar um Documento de Identificação fotográfica aprovado pelo Governo que será validado no datacenter.
 
@@ -73,7 +75,7 @@ Quando escamada uma encomenda de Caixa de Dados, pode escolher a opção de envi
 
 8. Depois de o dispositivo ser recolhido, copie os dados para a Caixa de Dados no seu site. Depois da cópia de dados estar completa, pode preparar-se para enviar a Caixa de Dados. Para mais informações, consulte [Prepare-se para enviar.](data-box-deploy-picked-up.md#prepare-to-ship)
 
-   O **passo de preparação para o envio** tem de ser concluído sem erros críticos, caso contrário terá de voltar a correr este passo depois de fazer as correções necessárias. Depois de a preparação para o envio ter concluído com sucesso, pode ver o código de autorização para a entrega na interface de utilizador local do dispositivo.
+   O **passo de preparação para o navio** tem de ser concluído sem erros críticos. Caso contrário, terá de voltar a dar este passo depois de fazer as correções necessárias. Depois de o passo **de preparação para o envio** estar concluído com sucesso, pode ver o código de autorização para a entrega na interface de utilizador local do dispositivo.
 
    > [!NOTE]
    > Não partilhe o código de autorização por e-mail. Isto só deve ser verificado no datacenter durante a entrega.
@@ -82,7 +84,7 @@ Quando escamada uma encomenda de Caixa de Dados, pode escolher a opção de envi
 
    ![Instruções para a entrega do dispositivo](media\data-box-portal-customer-managed-shipping\data-box-portal-received-complete-02b.png)
 
-10. Após a verificação do seu ID e código de autorização e de ter deixado o dispositivo no centro de dados, o estado da encomenda deve ser **recebido**.
+10. Após a verificação do seu ID e código de autorização, e de ter deixado o dispositivo no centro de dados, o estado da encomenda deve ser **recebido**.
 
     ![Uma ordem com estado recebido](media\data-box-portal-customer-managed-shipping\data-box-portal-received-complete-01.png)
 

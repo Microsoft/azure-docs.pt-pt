@@ -101,6 +101,8 @@
               href: container-registry-access-selected-networks.md
             - name: Restringir o acesso com um ponto final de serviço (pré-visualização)
               href: container-registry-vnet.md
+            - name: Permitir o acesso por serviços fidedignos
+              href: allow-access-trusted-services.md
             - name: Encriptar com uma chave gerida pelo cliente
               href: container-registry-customer-managed-keys.md
             - name: Acesso protegido por uma firewall

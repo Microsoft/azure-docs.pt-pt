@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/16/2020
 ms.author: rolyon
-ms.openlocfilehash: 00fd00112dad9efc31cea83f69bb458a8e1ca935
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 1444ee3643222ceebc67298bdb580955b1432104
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97617379"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526420"
 ---
 # <a name="best-practices-for-azure-rbac"></a>Boas práticas para o Azure RBAC
 
@@ -41,6 +41,10 @@ Deverá ter um máximo de 3 proprietários de subscrições para reduzir o poten
 Para proteger contas privilegiadas de ciberataques maliciosos, pode utilizar a Azure Ative Directory Privileged Identity Management (PIM) para reduzir o tempo de exposição dos privilégios e aumentar a sua visibilidade para a sua utilização através de relatórios e alertas. A PIM ajuda a proteger as contas privilegiadas, proporcionando acesso privilegiado just-in-time aos recursos Azure AD e Azure. O acesso pode ser limitado pelo tempo após o qual os privilégios são revogados automaticamente. 
 
 Para mais informações, veja [o que é Azure AD Gestão de Identidade Privilegiada?](../active-directory/privileged-identity-management/pim-configure.md)
+
+## <a name="assign-roles-to-groups-not-users"></a>Atribuir funções a grupos, não a utilizadores
+
+Para tornar as atribuições de funções mais manejáveis, evite atribuir funções diretamente aos utilizadores. Em vez disso, atribua papéis a grupos. Atribuir funções a grupos em vez de utilizadores também ajuda a minimizar o número de atribuições de funções, que tem um [limite de 2.000 atribuições de funções por subscrição.](troubleshooting.md#azure-role-assignments-limit) 
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/10/2020
+ms.date: 02/01/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 8449c5437bad6d0036d332ca5c35709b5d571cfa
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: d7bc92af31eb179155fd473356c741f365a07a35
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99225163"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525149"
 ---
 # <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Ativar a autenticação multifator no Azure Active Directory B2C
 
@@ -41,9 +41,12 @@ Esta funcionalidade ajuda as aplicações a lidar com cenários como:
 1. Selecione o fluxo do utilizador para o qual deseja ativar o MFA. Por exemplo, *B2C_1_signinsignup.*
 1. Selecione **Propriedades**.
 1. Na secção de **autenticação multifactor,** selecione o **método MFA** pretendido e, em seguida, sob **a aplicação do MFA** selecione **Sempre em**, ou **Condicional (Recomendado)**.
-  > [!NOTE]
-  > Se selecionar **Conditional (Recomendado)**, também terá de [adicionar uma política de Acesso Condicional](conditional-access-identity-protection-setup.md#add-a-conditional-access-policy) e especificar as aplicações a que pretende aplicar a política.
-1. Selecione Guardar. O MFA está agora ativado para este fluxo de utilizador.
+   > [!NOTE]
+   >
+   > - Se selecionar **Conditional (Recomendado)**, também terá de [adicionar uma política de Acesso Condicional](conditional-access-identity-protection-setup.md#add-a-conditional-access-policy) e especificar as aplicações a que pretende aplicar a política.
+   > - A autenticação de vários fatores (MFA) é desativada por padrão para fluxos de utilizador de inscrição. Pode ativar o MFA nos fluxos de utilizador com inscrição no telefone, mas como um número de telefone é usado como identificador principal, a senha de e-mail é a única opção disponível para o segundo fator de autenticação.
+
+1. Selecione **Guardar**. O MFA está agora ativado para este fluxo de utilizador.
 
 Pode utilizar **o fluxo do utilizador executar** para verificar a experiência. Confirme o seguinte cenário:
 

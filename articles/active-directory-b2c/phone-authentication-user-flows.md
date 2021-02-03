@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/29/2020
+ms.date: 02/01/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0ce9b60ead9aff792bf2e4e98841469d58620ccd
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 1ed0ca069f29413083356a3147d4b97f1b6ed981
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754683"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525200"
 ---
 # <a name="set-up-phone-sign-up-and-sign-in-for-user-flows-preview"></a>Configurar a inscrição no telefone e iniciar sômposições para os fluxos do utilizador (pré-visualização)
 
@@ -55,7 +55,7 @@ A inscrição por e-mail é ativada por padrão nas definições do seu forneced
 
    ![Selecione os tipos de identidade permitidos](media/phone-authentication-user-flows/configure-local-idp.png)
 
-1. Selecione **Save** (Guardar).
+1. Selecione **Guardar**.
 
 ## <a name="add-phone-sign-up-to-a-user-flow"></a>Adicione o registo do telefone a um fluxo de utilizador
 
@@ -89,7 +89,7 @@ Aqui está um exemplo que mostra como adicionar inscrição de telefone a um nov
 9. Nos **fornecedores de identidade social,** selecione quaisquer outros fornecedores de identidade que pretenda permitir este fluxo de utilizador.
 
    > [!NOTE]
-   > A autenticação de vários fatores (MFA) é desativada por predefinição. Pode ativar o fluxo de utilizador de inscrição no telefone, mas como um número de telefone é usado como identificador principal, a senha de e-mail é a única opção disponível para o segundo fator de autenticação.
+   > A autenticação de vários fatores (MFA) é desativada por padrão para fluxos de utilizador de inscrição. Pode ativar o fluxo de utilizador de inscrição no telefone, mas como um número de telefone é usado como identificador principal, a senha de e-mail é a única opção disponível para o segundo fator de autenticação.
 
 1. Na secção **de atributos do Utilizador e reclamações simbólicas,** escolha as reclamações e atributos que pretende recolher e enviar do utilizador durante a inscrição. Por exemplo, selecione **Mostrar mais**, e depois escolha atributos e reclamações para **País/Região,** **Nome de Exibição** e **Código Postal**. Selecione **OK**.
 
@@ -123,7 +123,7 @@ Pode ativar o pedido de e-mail de recuperação nas propriedades de fluxo do uti
 
     ![O utilizador flui propriedades com Enable email de recuperação ativado](./media/phone-authentication-user-flows/recovery-email-settings.png)
 
-8. Selecione **Save** (Guardar).
+8. Selecione **Guardar**.
 
 ### <a name="to-test-the-recovery-email-prompt"></a>Para testar o pedido de e-mail de recuperação
 

@@ -1,25 +1,25 @@
 ---
 title: Flexibilidade do tamanho da máquina virtual -Azure Reservado VM Instances
 description: Saiba a que série de tamanho um desconto de reserva se aplica quando você por uma instância VM reservada.
-author: manish-shukla01
+author: yashesvi
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 08/03/2018
-ms.author: manshuk
-ms.openlocfilehash: 381023a0650b078a74c01ff7b698aebacb256147
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/02/2021
+ms.author: yashesvi
+ms.openlocfilehash: e6e96ff41503751741c8afc2229d66fd596e0806
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855515"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525369"
 ---
 # <a name="virtual-machine-size-flexibility-with-reserved-vm-instances"></a>Flexibilidade de tamanho da máquina virtual com o Reserved VM Instances
 
 Ao comprar uma Instância VM Reservada, pode optar por otimizar, por exemplo, a flexibilidade do tamanho ou a prioridade de capacidade. Para obter mais informações sobre a configuração ou alteração da definição de otimização para instâncias VM reservadas, consulte [alterar a definição de otimização para instâncias VM reservadas](../cost-management-billing/reservations/manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances).
 
-Com uma caixa de máquina virtual reservada que é otimizada, por exemplo, flexibilidade de tamanho, a reserva que você compra pode aplicar-se aos tamanhos de máquinas virtuais (VMs) no mesmo grupo de flexibilidade de tamanho de exemplo. Por exemplo, se comprar uma reserva para um tamanho VM listado no Série DSv2, como Standard_DS5_v2, o desconto de reserva pode aplicar-se aos outros quatro tamanhos listados nesse mesmo grupo de flexibilidade de tamanho:
+Com uma caixa de máquina virtual reservada que é otimizada, por exemplo, flexibilidade de tamanho, a reserva que você compra pode aplicar-se aos tamanhos de máquinas virtuais (VMs) no mesmo grupo de flexibilidade de tamanho de exemplo. Por exemplo, se comprar uma reserva para um tamanho VM listado no Série DSv2, como Standard_DS3_v2, o desconto de reserva pode aplicar-se aos outros tamanhos listados nesse mesmo grupo de flexibilidade de tamanhos:
 
 - Standard_DS1_v2
 - Standard_DS2_v2

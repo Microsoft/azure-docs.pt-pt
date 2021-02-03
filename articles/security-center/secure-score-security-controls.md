@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2021
+ms.date: 02/03/2021
 ms.author: memildin
-ms.openlocfilehash: e881c61d16cd167ace78abb96dca7e714436cfc0
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: bd64ca877f0bfd81597e091ef8ef000ad1b76992
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98752213"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526437"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Pontuação de segurança no Centro de Segurança do Azure
 
@@ -244,8 +244,8 @@ Embora a iniciativa de segurança padrão do Security Center se baseie nas melho
     <td class="tg-lboi"; width=55%>- Os controlos de aplicações adaptativos devem ser ativados em máquinas virtuais<br>- O agente de monitorização deve ser instalado nas suas máquinas virtuais<br>- O agente de monitorização deve ser instalado nas suas máquinas<br>- O agente Log Analytics deve ser instalado nas suas máquinas Azure Arc baseadas no Windows (Pré-visualização)<br>- O agente Log Analytics deve ser instalado nas suas máquinas Azure Arc baseadas em Linux (Pré-visualização)<br>- Os problemas de saúde dos agentes de monitorização devem ser resolvidos nas suas máquinas</td>
   </tr>
   <tr>
-    <td class="tg-lboi"><strong><p style="font-size: 16px">Aplicar classificação de dados (pontuação máxima 2)</p></strong>Classificar os dados da sua organização pela sensibilidade e impacto do negócio permite-lhe determinar e atribuir valor aos dados, e fornece a estratégia e base para a governação.<br><a href="/azure/information-protection/what-is-information-protection">A Azure Information Protection</a> pode ajudar na classificação de dados. Utiliza políticas de encriptação, identidade e autorização para proteger os dados e restringir o acesso aos dados. Algumas classificações que a Microsoft usa são não-comerciais, públicas, gerais, confidenciais e altamente confidenciais.</td>
-    <td class="tg-lboi"; width=55%>- Os dados sensíveis nas suas bases de dados SQL devem ser classificados (Pré-visualização)</td>
+    <td class="tg-lboi"><strong><p style="font-size: 16px">Aplicar classificação de dados (pontuação máxima 0)</p></strong>Classificar os dados da sua organização pela sensibilidade e impacto do negócio permite-lhe determinar e atribuir valor aos dados, e fornece a estratégia e base para a governação.<br><a href="/azure/information-protection/what-is-information-protection">A Azure Information Protection</a> pode ajudar na classificação de dados. Utiliza políticas de encriptação, identidade e autorização para proteger os dados e restringir o acesso aos dados. Algumas classificações que a Microsoft usa são não-comerciais, públicas, gerais, confidenciais e altamente confidenciais.</td>
+    <td class="tg-lboi"; width=55%>- Os dados sensíveis nas suas bases de dados SQL devem ser classificados</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Proteja as aplicações contra ataques DDoS (pontuação máxima 2)</p></strong>A negação de serviço distribuída (DDoS) ataca os recursos e torna as aplicações inutilizáveis. Use <a href="/azure/virtual-network/ddos-protection-overview">o Azure DDoS Protection Standard</a> para defender a sua organização dos três principais tipos de ataques DDoS:<br>- <strong>Ataques volumosos</strong> inundam a rede com tráfego legítimo. A Norma de Proteção DDoS atenua estes ataques absorvendo-os ou esfregando-os automaticamente.<br>- <strong>Os ataques de protocolo</strong> tornam um alvo inacessível, explorando fraquezas na pilha de protocolos da camada 3 e da camada 4. A DDoS Protection Standard atenua estes ataques bloqueando o tráfego malicioso.<br>- <strong>A camada de recursos (aplicação) ataca</strong> pacotes de aplicações web alvo. Defenda-se contra este tipo com uma firewall de aplicação web e norma de proteção DDoS.</td>
@@ -279,15 +279,15 @@ Embora a iniciativa de segurança padrão do Security Center se baseie nas melho
 ## <a name="secure-score-faq"></a>Pontuação segura FAQ
 
 ### <a name="if-i-address-only-three-out-of-four-recommendations-in-a-security-control-will-my-secure-score-change"></a>Se eu abordar apenas três de quatro recomendações num controlo de segurança, a minha pontuação segura mudará?
-Não. Não mudará até que remediar todas as recomendações para um único recurso. Para obter a pontuação máxima para um controlo, você deve remediar todas as recomendações, para todos os recursos.
+N.º Não mudará até que remediar todas as recomendações para um único recurso. Para obter a pontuação máxima para um controlo, você deve remediar todas as recomendações, para todos os recursos.
 
 ### <a name="if-a-recommendation-isnt-applicable-to-me-and-i-disable-it-in-the-policy-will-my-security-control-be-fulfilled-and-my-secure-score-updated"></a>Se uma recomendação não for aplicável a mim, e eu a desativar na apólice, o meu controlo de segurança será cumprido e a minha pontuação segura atualizada?
-Yes. Recomendamos desativar recomendações quando são inaplicáveis no seu ambiente. Para obter instruções sobre como desativar uma recomendação específica, consulte [as políticas de segurança para desativar](./tutorial-security-policy.md#disable-security-policies-and-disable-recommendations).
+Sim. Recomendamos desativar recomendações quando são inaplicáveis no seu ambiente. Para obter instruções sobre como desativar uma recomendação específica, consulte [as políticas de segurança para desativar](./tutorial-security-policy.md#disable-security-policies-and-disable-recommendations).
 
 ### <a name="if-a-security-control-offers-me-zero-points-towards-my-secure-score-should-i-ignore-it"></a>Se um controlo de segurança me oferece zero pontos para a minha pontuação segura, devo ignorá-la?
 Em alguns casos, verá uma pontuação máxima de controlo superior a zero, mas o impacto é zero. Quando a pontuação incremental para a fixação de recursos é insignificante, é arredondada para zero. Não ignore estas recomendações, pois ainda trazem melhorias de segurança. A única exceção é o controlo "Melhores Práticas Adicionais". Remediar estas recomendações não aumentará a sua pontuação, mas aumentará a sua segurança geral.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo descreveu a pontuação segura e os controlos de segurança que introduz. Para obter material relacionado, consulte os seguintes artigos:
 

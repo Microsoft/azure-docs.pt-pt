@@ -4,16 +4,16 @@ description: Saiba como funciona o processo de migração automática.
 ms.topic: conceptual
 ms.date: 08/19/2019
 ms.subservice: alerts
-ms.openlocfilehash: 6a2d032c6aa33b72fe422638df45ca48bf8b1036
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ce3550dcef174a4d970917fabfda3c4fd2a8df4
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87847288"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526556"
 ---
 # <a name="understand-the-automatic-migration-process-for-your-classic-alert-rules"></a>Compreenda o processo de migração automática para as suas regras clássicas de alerta
 
-Como [já foi anunciado,](monitoring-classic-retirement.md)os alertas clássicos no Azure Monitor estão reformados, embora ainda em uso limitado para recursos que ainda não suportam os novos alertas. Como parte do processo de aposentação, está disponível [uma ferramenta de migração](alerts-using-migration-tool.md) no portal Azure para que os clientes desencadeiem a migração em si.
+Como [já foi anunciado](monitoring-classic-retirement.md), os alertas clássicos no Azure Monitor são retirados para os utilizadores da nuvem pública, embora ainda em uso limitado para recursos que ainda não suportam os novos alertas. Como parte do processo de aposentação, está disponível [uma ferramenta de migração](alerts-using-migration-tool.md) no portal Azure para que os clientes desencadeiem a migração em si.
 Este artigo acompanha-o através do processo de migração automática e ajuda-o a resolver quaisquer problemas que possa encontrar.
 
   > [!NOTE]
@@ -56,5 +56,5 @@ Consulte o [guia de resolução de problemas](alerts-understand-migration.md#com
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Preparar para a migração](alerts-prepare-migration.md)
+- [Preparar a migração](alerts-prepare-migration.md)
 - [Compreender como funciona a ferramenta de migração](alerts-understand-migration.md)

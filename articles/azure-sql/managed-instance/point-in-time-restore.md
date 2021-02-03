@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, mathoma
 ms.date: 08/25/2019
-ms.openlocfilehash: 31be497d017cb60de6f46d7657889c9c1fabef4a
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: d3414cb31192211c1663a84e1541f56b63674660
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92788354"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525403"
 ---
 # <a name="restore-a-database-in-azure-sql-managed-instance-to-a-previous-point-in-time"></a>Restaurar uma base de dados em Azure SQL Gestd Instance para um ponto anterior no tempo
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -46,9 +46,9 @@ A tabela a seguir mostra cenários de restauro pontual para a ocorrência gerida
 
 |           |Restaurar a DB existente no mesmo caso de SQL Managed Instance| Restaurar o DB existente para outra sql gestditua instância|Restauro caiu DB para a mesma SQL Managed Instance|Restauro deixou cair DB para outra SqL Managed Instance|
 |:----------|:----------|:----------|:----------|:----------|
-|**Portal do Azure**| Sim|Não |Sim|Não|
-|**CLI do Azure**|Sim |Sim |Não|Não|
-|**PowerShell**| Sim|Sim |Sim|Sim|
+|**Portal do Azure**| Yes|No |Yes|No|
+|**CLI do Azure**|Yes |Yes |No|No|
+|**PowerShell**| Yes|Yes |Yes|Yes|
 
 ## <a name="restore-an-existing-database"></a>Restaurar uma base de dados existente
 
@@ -56,7 +56,7 @@ Restaurar uma base de dados existente na mesma SQL Managed Instance utilizando o
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). 
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
 2. Vá ao seu SQL Managed Instance e selecione a base de dados que pretende restaurar.
 3. Selecione **Restaurar** na página da base de dados:
 
@@ -139,7 +139,7 @@ Restaurar uma base de dados eliminada pode ser feito utilizando o portal PowerSh
 ### <a name="portal"></a>Portal 
 
 
-Para recuperar uma base de dados gerida utilizando o portal Azure, abra a página de visão geral do SQL Managed Instance e selecione **bases de dados eliminadas** . Escolha uma base de dados eliminada que pretenda restaurar e digite o nome para a nova base de dados que será criada com dados restaurados a partir da cópia de segurança.
+Para recuperar uma base de dados gerida utilizando o portal Azure, abra a página de visão geral do SQL Managed Instance e selecione **bases de dados eliminadas**. Escolha uma base de dados eliminada que pretenda restaurar e digite o nome para a nova base de dados que será criada com dados restaurados a partir da cópia de segurança.
 
   ![Screenshot da restauração eliminada base de dados de instâncias Azure SQL](./media/point-in-time-restore/restore-deleted-sql-managed-instance-annotated.png)
 
@@ -162,7 +162,7 @@ $targetDatabaseName = "<target database name>"
 $deletedDatabase = Get-AzSqlDeletedInstanceDatabaseBackup -ResourceGroupName $resourceGroupName `
 -InstanceName $managedInstanceName -DatabaseName $deletedDatabaseName
 
-Restore-AzSqlinstanceDatabase -Name $deletedDatabase.Name `
+Restore-AzSqlinstanceDatabase -FromPointInTimeBackup -Name $deletedDatabase.Name `
    -InstanceName $deletedDatabase.ManagedInstanceName `
    -ResourceGroupName $deletedDatabase.ResourceGroupName `
    -DeletionDate $deletedDatabase.DeletionDate `
@@ -176,7 +176,7 @@ Para restaurar a base de dados para outra sql Managed Instance, especificar tamb
 $targetResourceGroupName = "<Resource group of target SQL Managed Instance>"
 $targetInstanceName = "<Target SQL Managed Instance name>"
 
-Restore-AzSqlinstanceDatabase -Name $deletedDatabase.Name `
+Restore-AzSqlinstanceDatabase -FromPointInTimeBackup -Name $deletedDatabase.Name `
    -InstanceName $deletedDatabase.ManagedInstanceName `
    -ResourceGroupName $deletedDatabase.ResourceGroupName `
    -DeletionDate $deletedDatabase.DeletionDate `
@@ -211,7 +211,7 @@ Utilize um dos seguintes métodos para ligar à sua base de dados na SqL Managed
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-No portal Azure, selecione a base de dados a partir da SqL Managed Instance e, em seguida, **selecione Delete** .
+No portal Azure, selecione a base de dados a partir da SqL Managed Instance e, em seguida, **selecione Delete**.
 
    ![Eliminar uma base de dados utilizando o portal Azure](./media/point-in-time-restore/delete-database-from-mi.png)
 

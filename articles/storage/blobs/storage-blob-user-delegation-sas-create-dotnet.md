@@ -1,27 +1,27 @@
 ---
-title: Utilize .NET para criar uma delegação de utilizador SAS para um recipiente ou bolha
+title: Utilize .NET para criar uma delegação de utilizador SAS para um contentor, diretório ou bolha
 titleSuffix: Azure Storage
 description: Saiba como criar uma delegação de utilizador SAS com credenciais de Diretório Azure Ative utilizando a biblioteca de clientes .NET para armazenamento Azure.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/13/2021
+ms.date: 02/03/2021
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 512b949fceda850e968a6f97b3788ae3a602f56d
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 13491735f73cb1696f3c36f3434cc781a1e2b739
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98199262"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526810"
 ---
-# <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-net"></a>Crie uma delegação de utilizador SAS para um recipiente ou bolha com .NET
+# <a name="create-a-user-delegation-sas-for-a-container-directory-or-blob-with-net"></a>Crie uma delegação de utilizador SAS para um contentor, diretório ou bolha com .NET
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-Este artigo mostra como utilizar credenciais do Azure Ative Directory (Azure AD) para criar uma delegação de utilizador SAS para um recipiente ou blob com a biblioteca de clientes Azure Storage para a versão 12 da NET.
+Este artigo mostra como utilizar credenciais do Azure Ative Directory (Azure AD) para criar uma delegação de utilizador SAS para um contentor, diretório ou bolha com a biblioteca de clientes do Azure Storage para a versão 12 da NET.
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
@@ -99,7 +99,7 @@ O exemplo a seguir testa a delegação de utilizador SAS criada no exemplo anter
 
 ## <a name="get-a-user-delegation-sas-for-a-directory"></a>Obtenha uma delegação de utilizadores SAS para um diretório
 
-O exemplo de código a seguir mostra como gerar uma delegação de utilizador SAS para um diretório quando um espaço hierárquico está ativado:
+O exemplo de código a seguir mostra como gerar uma delegação de utilizador SAS para um diretório quando um espaço hierárquico está ativado para a conta de armazenamento:
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Sas.cs" id="Snippet_GetUserDelegationSasDirectory":::
 

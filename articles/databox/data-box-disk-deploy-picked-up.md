@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 12/10/2020
+ms.date: 02/02/2021
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: d529c5900d851368d60099091bb5745660036dea
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
-ms.translationtype: HT
+ms.openlocfilehash: 542eed34f2be05cce3829baab2f07a5c58413ba0
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029894"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526301"
 ---
 ::: zone target="docs"
 
@@ -30,7 +30,7 @@ Neste tutorial, vai aprender a:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, certifique-se de que concluiu o [Tutorial: Copiar dados para o Azure Data Box Disk e verificar](data-box-disk-deploy-copy-data.md).
+Antes de começar, certifique-se de que completou o [Tutorial: Copie os dados para o Disco da Caixa de Dados Azure e verifique](data-box-disk-deploy-copy-data.md).
 
 ## <a name="ship-data-box-disk-back"></a>Enviar o Data Box Disk de volta
 
@@ -63,7 +63,7 @@ Se pretender devolver o dispositivo nos E.U.A. ou no Canadá, siga os passos aba
 
     - Ligue para o ponto UPS local (número gratuito específico do seu país/região).
     - Durante a chamada, indique o número de rastreio do envio de devolução apresentado na guia impressa.
-    - Se não indicar o número de rastreio, terá de pagar uma taxa adicional à UPS na recolha.
+    - Se o número de rastreio não for citado, a UPS exigirá que pague uma taxa adicional durante a recolha.
     - Em vez de agendar a recolha, também pode entregar o Data Box Disk na localização de entrega mais próxima.
 
 
@@ -83,7 +83,7 @@ Se pretender devolver o dispositivo na Europa ou no Reino Unido, siga os passos 
 
 Os datacenters do Azure na Austrália têm uma notificação de segurança adicional. Para todos os envios dirigidos aos mesmos, é necessária uma notificação antecipada. Siga os passos abaixo para recolhas na Austrália.
 
-1. Utilize a guia de remessa para devolução fornecida e confirme que o código TAU (número de referência) se encontra na mesma. Se não tiver a guia de remessa fornecida ou se deparar com outros problemas, envie um e-mail para o departamento de [Operações Data Box na Ásia](mailto:adbo@microsoft.com). Indique o nome da encomenda no assunto e os detalhes do seu problema.
+1. Utilize a guia de remessa para devolução fornecida e confirme que o código TAU (número de referência) se encontra na mesma. Se não tiver a guia de remessa fornecida ou se deparar com outros problemas, envie um e-mail para o departamento de [Operações Data Box na Ásia](mailto:adbo@microsoft.com). Forneça o nome da encomenda no cabeçalho do assunto e detalhes da questão.
 2. Afixe a guia à caixa.
 3. Marque uma recolha online através da ligação https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference.
 
@@ -119,13 +119,13 @@ Se necessário, pode contactar o Apoio ao Cliente da Quantium Solutions (em japo
 1. Certifique-se de que inclui a nota de expedição de devolução.
 2. Para solicitar a recolha quando a nota de expedição estiver presente:
     1. Ligue para a linha direta da *Quantium Solutions International* através do número 070-8231-1418 durante o horário de expediente (das 10:00 às 17:00, de segunda a sexta-feira). Indique *Microsoft Azure pickup* (Recolha do Microsoft Azure) e o número do pedido de serviço para combinar uma recolha.  
-    2. Se a linha direta estiver ocupada, envie um e-mail para `microsoft@rocketparcel.com` com o assunto *Microsoft Azure Pickup* (Recolha do Microsoft Azure) e o número do pedido de serviço como referência.
-    3. Se o estafeta não efetuar a recolha, ligue para a linha direta da *Quantium Solutions International* para combinar uma alternativa.
+    2. Se a linha de apoio estiver ocupada, envie um e-mail, [microsoft@rocketparcel.com](mailto:microsoft@rocketparcel.com) com o sujeito de e-mail Microsoft *Azure Pickup* e o número de pedido de serviço para referência.
+    3. Se o estafeta não chegar para recolha, ligue para a linha telefónica *da Quantium Solutions International* para arranjos alternativos.
     4. Recebe uma confirmação por e-mail do horário da recolha.
-3. Siga este passo apenas se a nota de expedição não estiver presente. Para solicitar a recolha:
-    1. Ligue para a linha direta da *Quantium Solutions International* através do número 070-8231-1418 durante o horário de expediente (das 10:00 às 17:00, de segunda a sexta-feira). Indique *Microsoft Azure pickup* (Recolha do Microsoft Azure) e o número do pedido de serviço para combinar uma recolha. Especifique que precisa de uma nova nota de expedição para combinar uma recolha. Forneça as informações do remetente (cliente), as informações do destinatário (datacenter do Azure) e o número de referência (número do pedido de serviço). 
-    2. Se a linha direta estiver ocupada, envie um e-mail para `microsoft@rocketparcel.com` com o assunto *Microsoft Azure Pickup* (Recolha do Microsoft Azure) e o número do pedido de serviço como referência.
-    3. Se o estafeta não efetuar a recolha, ligue para a linha direta da *Quantium Solutions International* para combinar uma alternativa.
+3. Faça este passo apenas se a nota de remessa não estiver presente. Para solicitar a recolha:
+    1. Ligue para a linha direta da *Quantium Solutions International* através do número 070-8231-1418 durante o horário de expediente (das 10:00 às 17:00, de segunda a sexta-feira). Indique *Microsoft Azure pickup* (Recolha do Microsoft Azure) e o número do pedido de serviço para combinar uma recolha. Especifique que precisa de uma nova nota de expedição para combinar uma recolha. Forneça as informações do remetente (cliente), as informações do destinatário (datacenter do Azure) e o número de referência (número do pedido de serviço).
+    2. Se a linha de apoio estiver ocupada, envie um e-mail, [microsoft@rocketparcel.com](mailto:microsoft@rocketparcel.com) com o sujeito de e-mail Microsoft *Azure Pickup* e o número de pedido de serviço como referência.
+    3. Se o estafeta não chegar para recolha, ligue para a linha telefónica *da Quantium Solutions International* para arranjos alternativos.
     4. Se efetuar o pedido por telefone, recebe uma confirmação verbal.
 
 ### <a name="singapore"></a>[Singapura](#tab/in-singapore)
@@ -152,7 +152,7 @@ Se necessário, pode contactar o Apoio ao Cliente da Quantium Solutions (em japo
    > * Antes das 15:00, a recolha será agendada para o dia útil seguinte entre as 9:00 e as 13:00.
    > * Depois das 15:00, a recolha será agendada para o dia útil seguinte entre as 14:00 e as 18:00.
 
-   Se se deparar com algum problema, contacte o Data Box Operations Asia através de adbo@microsoft.com. Indique o nome da tarefa no cabeçalho do assunto e o problema encontrado.
+   Se encontrar algum problema, contacte a Data Box Operations Asia em [adbo@microsoft.com](mailto:adbo@microsoft.com) . Indique o nome da tarefa no cabeçalho do assunto e o problema encontrado.
 
 3. Entregue a caixa ao estafeta.
 
@@ -185,7 +185,7 @@ Se quiser devolver o dispositivo na África do Sul, siga os passos abaixo.
 
     * Em alternativa, deixe a embalagem no ponto de serviço da DHL mais próximo.
 
-5. Se encontrar algum problema, envie um e-mail [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) com detalhes sobre o problema encontrado e coloque o número da carta de porte na linha de assunto. Também pode ligar para +27(0)119213902.
+5. Se se deparar com problemas, envie um e-mail a [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) com os detalhes e inclua o número da carta de porte na linha de assunto. Também pode ligar para +27(0)119213902.
 
 ### <a name="china"></a>[China](#tab/in-china)
 
@@ -205,7 +205,7 @@ Se quiser devolver o dispositivo na China, siga os passos abaixo.
 
 3. Receberá uma confirmação por e-mail da FedEx após concluir a marcação da recolha.  
 
-4. Se encontrar algum problema, envie um e-mail [DL-DC-SHA@oe.21vianet.com](mailto:DL-DC-SHA@oe.21vianet.com) com detalhes sobre o problema encontrado e o assunto com o nome da encomenda.
+4. Se encontrar algum problema, envie um e-mail [DL-DC-SHA@oe.21vianet.com](mailto:DL-DC-SHA@oe.21vianet.com) com detalhes da(s) e coloque o nome da encomenda no Assunto: linha.
 
 #### <a name="premier-customer-care-contact-information"></a>Informações de contacto do Apoio ao Cliente Premier
 
@@ -229,20 +229,20 @@ Se quiser devolver o dispositivo na China, siga os passos abaixo.
 
 ### <a name="self-managed"></a>[Envio Autónomo](#tab/in-selfmanaged)
 
-Se estiver a utilizar o Data Box Disk nas seguintes regiões: US Government, Japão, Singapura, Coreia, Europa Ocidental, África do Sul ou Índia, e tiver selecionado a opção de envio autónomo durante a criação da encomenda, siga estas instruções.
+Se estiver a usar o Disco de Caixa de Dados no Governo dos EUA, Japão, Singapura, Coreia, Reino Unido, Europa Ocidental, Austrália, África do Sul ou Índia e tiver selecionado a opção de envio auto-gerida durante a criação da encomenda, siga estas instruções.
 
 1. Aceda ao painel **Descrição geral** da encomenda no portal do Azure. Siga as instruções apresentadas quando selecionar **Agendar recolha**. Deverá ver um código de Autorização, o qual é utilizado no momento da entrega da encomenda.
 
-2. Envie um e-mail para a equipa de Operações do Azure Data Box através do seguinte modelo quando estiver pronto para devolver o dispositivo.
+2. Envie um e-mail para a equipa de Operações da Caixa de Dados Azure utilizando o seguinte modelo quando estiver pronto para devolver o dispositivo.
 
     ```
     To: adbops@microsoft.com
     Subject: Request for Azure Data Box Disk drop-off for order: 'orderName'
     Body:
      a. Order name
-     b. Contact name of the person dropping off. You will need to display a Government approved ID during the drop off.
+     b. Contact name of the person dropping off. You will need to display a Government approved ID during the drop-off.
     ```
-3. A equipa de Operações do Azure Data Box trabalhará consigo para organizar a entrega no Datacenter do Azure.
+3. A equipa de Operações da Caixa de Dados da Azure trabalhará consigo para organizar a entrega no datacenter Azure.
 
 ---
 
@@ -256,7 +256,7 @@ Neste tutorial, ficou a conhecer tópicos do Azure Data Box Disk, como:
 >
 > * Enviar o Data Box Disk para a Microsoft
 
-Avance para os procedimentos seguintes para saber como verificar o carregamento de dados do Data Box Disk para a conta de Armazenamento do Microsoft Azure.
+Avance para o próximo como verificar como verificar o upload de dados do Disco de Caixa de Dados para a conta de armazenamento Azure.
 
 > [!div class="nextstepaction"]
 > [Verificar o carregamento de dados do Azure Data Box Disk](./data-box-disk-deploy-upload-verify.md)

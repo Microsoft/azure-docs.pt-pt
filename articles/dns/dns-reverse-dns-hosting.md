@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: rohink
-ms.openlocfilehash: 6a0aebc727233cdd838f3e1bf8eeb5cd247b9836
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0c85049d6c8921432a753bf08989cab473b7c734
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96014028"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525132"
 ---
 # <a name="host-reverse-dns-lookup-zones-in-azure-dns"></a>Host zonas de pesquisa de DNS inversas em Azure DNS
 
@@ -44,7 +44,7 @@ O nome de uma zona de procura inversa IPv4 baseia-se no intervalo IP que represe
 >
 > Por exemplo, para a gama IP 192.0.2.128/26, deve utilizar `128-26.2.0.192.in-addr.arpa` como nome de zona em vez de `128/26.2.0.192.in-addr.arpa` .
 >
-> Embora os padrões DNS suportem ambos os métodos, O Azure DNS não suporta nomes de zonas DNS que contenham para o carácter de corte dianteiro `/` .
+> Embora os padrões DNS suportem ambos os métodos, o Azure DNS não suporta nomes de zonas DNS que contenham o carácter de corte dianteiro `/` .
 
 O exemplo a seguir mostra como criar uma zona DE DNS inversa classe C nomeada `2.0.192.in-addr.arpa` em Azure DNS através do portal Azure:
 

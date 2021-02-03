@@ -7,20 +7,20 @@ ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 720a0e25f3486f32ffed897e54033fd4b68dace4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 368ab1bc6a1fc13c3001b437c3c2a8be2bbb9c04
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87848130"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525996"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Alerta unificado & monitorização no Azure Monitor substitui monitorização clássica de & de alerta
 
 O Azure Monitor tornou-se agora um serviço de monitorização de pilhas completas unificado, que agora suporta "One Metric" e "One Alerts" entre recursos; para mais informações, consulte o nosso [blog post no novo Azure Monitor](https://azure.microsoft.com/blog/new-full-stack-monitoring-capabilities-in-azure-monitor/). As novas plataformas de monitorização e alerta do Azure foram construídas para serem mais rápidas, inteligentes e extensíveis – acompanhando a expansão crescente da computação em nuvem e em linha com a filosofia microsoft Intelligent Cloud.
 
-Com a nova plataforma de monitorização e alerta do Azure em vigor, os alertas clássicos no Azure Monitor são retirados, embora ainda em uso limitado para recursos que ainda não suportam os novos alertas. A data de reforma desses alertas foi alargada. Em breve será anunciada uma nova data para os restantes alertas de migração, [nuvem do Governo Azure](../../azure-government/documentation-government-welcome.md)e [Azure China 21Vianet](https://docs.azure.cn/).
+Com a nova plataforma de monitorização e alerta do Azure em vigor, os alertas clássicos no Azure Monitor são retirados para os utilizadores da nuvem pública, embora ainda em uso limitado para recursos que ainda não suportam os novos alertas. A data de reforma desses alertas foi alargada. Em breve será anunciada uma nova data para os restantes alertas de migração, [nuvem do Governo Azure](../../azure-government/documentation-government-welcome.md)e [Azure China 21Vianet](https://docs.azure.cn/).
 
- ![Alerta clássico no portal Azure](media/monitoring-classic-retirement/monitor-alert-screen2.png) 
+ ![Alerta clássico no portal Azure](media/monitoring-classic-retirement/monitor-alert-screen2.png) 
 
 Encorajamo-lo a começar e a recriar os seus alertas na nova plataforma.
 
@@ -48,7 +48,7 @@ As métricas mais recentes para os recursos Azure estão disponíveis como:
 
 ## <a name="retirement-of-classic-monitoring-and-alerting-platform"></a>Plataforma de monitorização e alerta clássico de aposentadoria
 
-Como anteriormente afirmado, a monitorização e o alerta clássicos mais antigos são retirados; incluindo o encerramento de APIs relacionados, interface do portal Azure, e serviços no mesmo, embora ainda em uso limitado para recursos que ainda não suportam os novos alertas. Especificamente, estas características serão depreciadas:
+Como anteriormente afirmado, a monitorização e o alerta clássicos mais antigos são retirados para os utilizadores públicos de nuvem; incluindo o encerramento de APIs relacionados, interface do portal Azure, e serviços no mesmo, embora ainda em uso limitado para recursos que ainda não suportam os novos alertas. Especificamente, estas características serão depreciadas:
 
 - Métricas e alertas mais antigos (clássicos) para recursos Azure, como atualmente disponível através da [secção Alerts (clássico)](./alerts-classic.overview.md) do portal Azure; acessível como [recurso microsoft.insights/alertrules](/rest/api/monitor/alertrules)
 - Plataforma mais antiga (clássica) e métricas personalizadas para Insights de Aplicações, bem como alertando-os como atualmente disponível através da [secção alerts (clássico)](./alerts-classic.overview.md) do portal Azure e acessível como [recurso microsoft.insights/alertrules](/rest/api/monitor/alertrules)

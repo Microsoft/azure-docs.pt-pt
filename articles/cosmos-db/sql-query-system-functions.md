@@ -5,29 +5,29 @@ author: ginamr
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 10/15/2020
+ms.date: 02/03/2021
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 71dc5b84deda04c02b6d1722b11abf6631e9aa03
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 36ebe80671c77cc83ddba770e3259f6542472e58
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96546374"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526844"
 ---
 # <a name="system-functions-azure-cosmos-db"></a>Funções do sistema (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
  Cosmos DB fornece muitas funções SQL incorporadas. As categorias de funções incorporadas estão listadas abaixo.  
   
-|Grupo de funções|Descrição|Operações|  
+|Grupo de funções|Description|Operações|  
 |--------------|-----------------|-----------------| 
 |[Funções de matriz](sql-query-array-functions.md)|As funções de matriz executam uma operação sobre um valor de entrada de matriz e valor numérico de retorno, Boolean ou matriz. | [ARRAY_CONCAT,](sql-query-array-concat.md) [ARRAY_CONTAINS,](sql-query-array-contains.md) [ARRAY_LENGTH,](sql-query-array-length.md) [ARRAY_SLICE](sql-query-array-slice.md) |
-|[Funções de data e hora](sql-query-date-time-functions.md)|As funções de data e hora permitem obter a data e hora atuais da UTC em duas formas; um timetamp numérico cujo valor é a época Unix em milissegundos ou como uma corda que está em conformidade com o formato ISO 8601. | [GetCurrentDateTime](sql-query-getcurrentdatetime.md), [GetCurrentTimestamp](sql-query-getcurrenttimestamp.md) |
+|[Funções de data e hora](sql-query-date-time-functions.md)|As funções de data e hora permitem obter a data e hora atuais da UTC em duas formas; um timetamp numérico cujo valor é a época Unix em milissegundos ou como uma corda que está em conformidade com o formato ISO 8601. | [GetCurrentDateTime](sql-query-getcurrentdatetime.md), [GetCurrentTimestamp](sql-query-getcurrenttimestamp.md), [GetCurrentTicks](sql-query-getcurrentticks.md) |
 |[Funções matemáticas](sql-query-mathematical-functions.md)|As funções matemáticas realizam cada um cálculo, geralmente baseado em valores de entrada que são fornecidos como argumentos, e devolvem um valor numérico. | [ABS](sql-query-abs.md), [ACOS](sql-query-acos.md), [ASIN](sql-query-asin.md), [ATAN](sql-query-atan.md), [ATN2](sql-query-atn2.md), [TETO](sql-query-ceiling.md), [COS](sql-query-cos.md), [BERÇO](sql-query-cot.md), [GRAUS](sql-query-degrees.md), [EXP](sql-query-exp.md), [PISO](sql-query-floor.md), [LOG](sql-query-log.md), [LOG, LOG10](sql-query-log10.md), [PI,](sql-query-pi.md) [POWER,](sql-query-power.md) [RADIANS](sql-query-radians.md), [RAND](sql-query-rand.md), [ROUND](sql-query-round.md), [SIGN,](sql-query-sign.md) [Sin,](sql-query-sin.md) [SQRT,](sql-query-sqrt.md) [SQUARE,](sql-query-square.md) [TAN,](sql-query-tan.md) [TRUNC](sql-query-trunc.md) |
 |[Funções espaciais](sql-query-spatial-functions.md)|As funções espaciais executam uma operação sobre o valor de entrada de objetos espaciais e devolvem um valor numérico ou booleano. | [ST_DISTANCE,](sql-query-st-distance.md) [ST_INTERSECTS,](sql-query-st-intersects.md) [ST_ISVALID,](sql-query-st-isvalid.md) [ST_ISVALIDDETAILED,](sql-query-st-isvaliddetailed.md) [ST_WITHIN](sql-query-st-within.md) |
 |[Funções de cadeia](sql-query-string-functions.md)|As funções de corda executam uma operação sobre um valor de entrada de corda e devolvem um valor de corda, numérico ou booleano. | [CONCA](sql-query-concat.md), [CONTAINS](sql-query-contains.md), [ENDSWITH](sql-query-endswith.md), [INDEX_OF](sql-query-index-of.md), [ESQUERDA](sql-query-left.md), [COMPRIMENTO](sql-query-length.md), [INFERIOR](sql-query-lower.md), [LTRIM](sql-query-ltrim.md), [REGEXMATCH](sql-query-regexmatch.md)[SUBSTITU,](sql-query-replace.md) [REPLICA,](sql-query-replicate.md) [REVERSO,](sql-query-reverse.md) [DIREITO,](sql-query-right.md) [RTRIM,](sql-query-rtrim.md) [STARTSWITH](sql-query-startswith.md), [StringToArray](sql-query-stringtoarray.md), [StringToBoolean,](sql-query-stringtoboolean.md) [StringTonull,](sql-query-stringtonull.md) [StringToNumber,](sql-query-stringtonumber.md) [StringToObject,](sql-query-stringtoobject.md) [Substring](sql-query-substring.md), [ToString](sql-query-tostring.md), [TRIM](sql-query-trim.md), [UPPER](sql-query-upper.md) |
-|[Funções de verificação de tipo](sql-query-type-checking-functions.md)|As funções de verificação de tipo permitem verificar o tipo de expressão dentro das consultas SQL. | [IS_ARRAY,](sql-query-is-array.md) [IS_BOOL,](sql-query-is-bool.md) [IS_DEFINED,](sql-query-is-defined.md) [IS_NULL,](sql-query-is-null.md) [IS_NUMBER,](sql-query-is-number.md) [IS_OBJECT IS_PRIMITIVE](sql-query-is-object.md)IS_PRIMITIVE, [IS_STRING](sql-query-is-primitive.md) [IS_STRING](sql-query-is-string.md) |
+|[Funções de verificação de tipo](sql-query-type-checking-functions.md)|As funções de verificação de tipo permitem verificar o tipo de expressão dentro das consultas SQL. | [IS_ARRAY,](sql-query-is-array.md) [IS_BOOL,](sql-query-is-bool.md) [IS_DEFINED,](sql-query-is-defined.md) [IS_NULL,](sql-query-is-null.md) [IS_NUMBER,](sql-query-is-number.md) [IS_OBJECT IS_PRIMITIVE](sql-query-is-object.md)IS_PRIMITIVE, [IS_STRING](sql-query-is-primitive.md) [](sql-query-is-string.md) |
 
 ## <a name="built-in-versus-user-defined-functions-udfs"></a>Funções definidas embutidos contra utilizadores (UDFs)
 
@@ -35,7 +35,7 @@ Se estiver atualmente a utilizar uma função definida pelo utilizador (UDF) par
 
 ## <a name="built-in-versus-ansi-sql-functions"></a>Funções incorporadas versus ANSI SQL
 
-A principal diferença entre as funções de Cosmos DB e as funções ANSI SQL é que as funções de Cosmos DB são projetadas para funcionar bem com dados de esquemas e esquemas mistos. Por exemplo, se uma propriedade estiver em falta ou tiver um valor não numérico `unknown` como, o item é ignorado em vez de devolver um erro.
+A principal diferença entre as funções de Cosmos DB e as funções ANSI SQL é que as funções de Cosmos DB são projetadas para funcionar bem com dados de esquemas e esquemas mistos. Por exemplo, se uma propriedade estiver em falta ou tiver um valor não numérico `undefined` como, o item é ignorado em vez de devolver um erro.
 
 ## <a name="next-steps"></a>Passos seguintes
 

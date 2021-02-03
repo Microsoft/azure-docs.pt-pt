@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a criar e configurar cofres dos Serviços de 
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.custom: references_regions
-ms.openlocfilehash: 51d095ab68bc9277cb610bd226039ffbde8d7ddf
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 4022838575ca53608a802a6be95e150778db6ac7
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98915731"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525979"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Criar e configurar um cofre dos Serviços de Recuperação
 
@@ -71,6 +71,7 @@ Uma vez que este processo está ao nível de armazenamento, [existem implicaçõ
 >- Depois de optar, pode levar até 48 horas para que os itens de reserva estejam disponíveis em regiões secundárias.
 >- Atualmente, crr para VMs Azure é suportado apenas para Azure Resource Manger Azure VMs. Os VMs clássicos do Azure não serão suportados.  Quando tipos de gestão adicionais suportam CRR, então eles serão **automaticamente** matriculados.
 >- O Cross Region Restore **não pode ser revertido** para GRS ou LRS uma vez que a proteção é iniciada pela primeira vez.
+>- Atualmente, a [RPO](azure-backup-glossary.md#rpo-recovery-point-objective) da região secundária está a 12 horas da região primária, embora a replicação [de armazenamento geo-redundante de acesso de leitura (RA-GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy#redundancy-in-a-secondary-region) seja de 15 minutos.
 
 ### <a name="configure-cross-region-restore"></a>Conigure Região Cruzada Restaurar
 
@@ -162,7 +163,7 @@ Se precisar de manter os dados protegidos atuais no cofre GRS e continuar a prot
   - Poderá restaurar o VM, se necessário, do cofre grs.
   - A primeira cópia de segurança no cofre LRS do VM no novo recurso será uma réplica inicial.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Saiba mais](backup-azure-recovery-services-vault-overview.md) Cofres dos Serviços de Recuperação.
 [Saiba mais](backup-azure-delete-vault.md) Apagar cofres dos Serviços de Recuperação.
