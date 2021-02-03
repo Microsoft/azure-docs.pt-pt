@@ -4,18 +4,16 @@ description: Neste arranque rápido, aplicará visão computacional para analisa
 ms.topic: quickstart
 ms.date: 04/27/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: 8e3f0a5cb6a97ce55d848c2d3311ebab5151e186
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d3ba937abcc7bbfd9bb2afe7b15aec28ebb57446
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96494992"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508516"
 ---
 # <a name="quickstart-analyze-live-video-by-using-your-own-http-model"></a>Quickstart: Analise o vídeo ao vivo utilizando o seu próprio modelo HTTP
 
 Este quickstart mostra-lhe como usar o Live Video Analytics no IoT Edge para analisar um feed de vídeo ao vivo a partir de uma câmara IP (simulada). Verá como aplicar um modelo de visão computacional para detetar objetos. Um subconjunto dos quadros do feed de vídeo ao vivo é enviado para um serviço de inferência. Os resultados são enviados para o IoT Edge Hub. 
-
-Este quickstart usa um Azure VM como um dispositivo IoT Edge, e utiliza um stream de vídeo simulado ao vivo. Baseia-se no código de amostra escrito em C#, e baseia-se no [movimento Detect e emite eventos](detect-motion-emit-events-quickstart.md) rápidos. 
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [header](includes/analyze-live-video-your-http-model-quickstart/csharp/header.md)]
@@ -45,7 +43,7 @@ Este quickstart usa um Azure VM como um dispositivo IoT Edge, e utiliza um strea
 [!INCLUDE [review-sample-video](includes/analyze-live-video-your-http-model-quickstart/python/review-sample-video.md)]
 ::: zone-end
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [overview](includes/analyze-live-video-your-http-model-quickstart/csharp/overview.md)]

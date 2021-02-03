@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 01/24/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 8bfbacc77843c7978bcb1d364bd93f5e09381144
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 20b47204ea8f64bc430f436a9bcf1b2311409aa6
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98811668"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509491"
 ---
 # <a name="sensor-trends-and-statistics-reports"></a>Tendências dos sensores e relatórios estatísticos
 
@@ -26,19 +26,29 @@ Você pode criar gráficos de widget e gráficos de tortas para obter informaç�
 O painel é composto por widgets que descrevem graficamente os seguintes tipos de informação:
 
 - Tráfego por porto
+- Tráfego superior por porto
 - Largura de banda do canal
 - Largura de banda total
 - Conexão TCP ativa
+- Largura de banda de topo por VLAN
 - Dispositivos:
   - Novos dispositivos
   - Dispositivos ocupados
   - Dispositivos por fornecedor
   - Dispositivos por SISTEMA
+  - Número de dispositivos por VLAN
   - Dispositivos desligados
-- Conectividade gota por horas
+- Conectividade cai por horas
 - Alertas para incidentes por tipo
 - Acesso à tabela de bases de dados
 - Widgets de dissecação de protocolo
+- DELTAV
+  - Distribuição de operações deltaV roc
+  - Eventos deltav roc pelo nome
+  - Eventos DeltaV por tempo
+- AMS
+  - Tráfego AMS por porta de servidor
+  - Tráfego AMS por comando
 - Endereço Ethernet e IP:
   - Tráfego de endereços Ethernet e IP pelo serviço CIP
   - Tráfego de endereços Ethernet e IP por classe CIP
@@ -49,6 +59,15 @@ O painel é composto por widgets que descrevem graficamente os seguintes tipos d
 - Siemens S7:
   - Tráfego S7 por função de controlo
   - Tráfego S7 por subfunção
+- Rio VLAN
+  - Número de dispositivos por VLAN
+  - Largura de banda superior por VLAN
+- 60870-5-104
+  - Tráfego IEC-60870 pela ASDU
+- BACNET
+  - Serviços BACnet
+- DNP3
+  - Tráfego DNP3 por função
 - SRTP:
   - Tráfego SRTP por código de serviço
   - Erros SRTP de dia
@@ -74,7 +93,7 @@ Selecione **Tendências & Estatísticas** no menu lateral.
 
 Por predefinição, os resultados são apresentados para deteções ao longo dos últimos 7 dias. Pode utilizar ferramentas de filtro para alterar esta gama. Por exemplo, a pesquisa por texto não pode ser enviado.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 [Relatórios de avaliação de](how-to-create-risk-assessment-reports.md) 
  riscos [Consultas de mineração de dados de sensores](how-to-create-data-mining-queries.md) 

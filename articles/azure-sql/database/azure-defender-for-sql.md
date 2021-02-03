@@ -10,22 +10,20 @@ ms.topic: conceptual
 ms.author: memildin
 manager: rkarlin
 author: memildin
-ms.reviewer: vanto
-ms.date: 12/01/2020
-ms.openlocfilehash: 4bb7f2fd5823a9d8ebf4234f3bb41d955574b838
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.date: 02/02/2021
+ms.openlocfilehash: 48df96373554f6e474c3835bf81e38a9aea5450c
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96451516"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508816"
 ---
 # <a name="azure-defender-for-sql"></a>Azure Defender para SQL
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-
 O Azure Defender for SQL é um pacote unificado para capacidades avançadas de segurança SQL. O Azure Defender está disponível para Azure SQL Database, Azure SQL Managed Instance e Azure Synapse Analytics. Inclui a funcionalidade para detetar e classificar dados confidenciais, analisar e mitigar potenciais vulnerabilidades da sua base de dados e detetar atividades anómalas que podem indicar uma ameaça à sua base de dados. Oferece uma localização única para ativar e gerir estas capacidades.
 
-## <a name="overview"></a>Descrição geral
+## <a name="what-are-the-benefits-of-azure-defender-for-sql"></a>Quais são os benefícios do Azure Defender para a SQL?
 
 O Azure Defender fornece um conjunto de capacidades avançadas de segurança SQL, incluindo avaliação de vulnerabilidade SQL e Proteção Avançada de Ameaças.
 - [A Avaliação de Vulnerabilidades](sql-vulnerability-assessment.md) é um serviço fácil de configurar que pode descobrir, rastrear e ajudar a corrigir potenciais vulnerabilidades de base de dados. Ele fornece visibilidade para o seu estado de segurança, e inclui medidas accuíveis para resolver problemas de segurança e melhorar as fortificações da sua base de dados.
@@ -34,10 +32,6 @@ O Azure Defender fornece um conjunto de capacidades avançadas de segurança SQL
 Ative uma vez o Azure Defender para SQL para ativar todas estas funcionalidades incluídas. Com um clique, pode ativar o Azure Defender para todas as bases de dados do seu [servidor](logical-servers.md) em Azure ou na sua SQL Managed Instance. Ativar ou gerir as definições do Azure Defender requer pertencer à função [de gestor de segurança SQL,](../../role-based-access-control/built-in-roles.md#sql-security-manager) ou a uma das funções de administração da base de dados ou do servidor.
 
 Para obter mais informações sobre o Azure Defender para preços SQL, consulte a página de preços do [Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/).
-
-## <a name="getting-started-with-azure-defender"></a>Começando com Azure Defender
-
-Os passos seguintes começam com o Azure Defender.
 
 ## <a name="enable-azure-defender"></a>Ativar o Azure Defender
 
@@ -48,27 +42,28 @@ O Azure Defender pode ser acedido através do [portal Azure](https://portal.azur
 >
 > O custo do Azure Defender está alinhado com o preço de nível padrão do Azure Security Center por nó, onde um nó é todo o servidor ou instância gerida. Está assim a pagar apenas uma vez por proteger todas as bases de dados do servidor ou por exemplo gerido com o Azure Defender. Pode experimentar o Azure Defender inicialmente com um teste gratuito.
 
-:::image type="content" source="media/azure-defender-for-sql/enable-azure-defender.png" alt-text="permitir a Azure Defender":::
+:::image type="content" source="media/azure-defender-for-sql/enable-azure-defender.png" alt-text="Ativar o Azure Defender para SQL a partir de bases de dados Azure SQL":::
 
-## <a name="start-tracking-vulnerabilities-and-investigating-threat-alerts"></a>Comece a rastrear vulnerabilidades e a investigar alertas de ameaças
+## <a name="track-vulnerabilities-and-investigate-threat-alerts"></a>Acompanhe vulnerabilidades e investigue alertas de ameaças
 
 Clique no cartão **de Avaliação de Vulnerabilidade** para visualizar e gerir verificações de vulnerabilidades e relatórios e para rastrear a sua estatura de segurança. Se os alertas de segurança tiverem sido recebidos, clique no cartão **de Proteção de Ameaças Avançadas** para ver os detalhes dos alertas e para ver um relatório consolidado sobre todos os alertas na sua assinatura Azure através da página de alertas de segurança do Azure Security Center.
 
 ## <a name="manage-azure-defender-settings"></a>Gerir as configurações do Azure Defender
 
-Para visualizar e gerir as definições do Azure Defender, navegue para o **Centro de Segurança** sob o título de **Segurança** para o seu servidor ou caso gerido. Nesta página, pode ativar ou desativar o Azure Defender e modificar a avaliação de vulnerabilidades e as definições de Proteção de Ameaças Avançadas para todo o seu servidor ou instância gerida.
+Para ver e gerir as definições do Azure Defender:
 
-:::image type="content" source="media/azure-defender-for-sql/security-server-settings.png" alt-text="definições de servidor de segurança":::
+1. A partir da área de **Segurança** do seu servidor ou instância gerida, selecione **Security Center**.
 
-## <a name="manage-azure-defender-settings-for-a-database"></a>Gerir as definições do Azure Defender para uma base de dados
+    Nesta página, você verá o estado de Azure Defender para SQL:
 
-Para substituir as definições do Azure Defender para uma determinada base de dados, consulte o **Enable Azure Defender para SQL na caixa de verificação de nível de base** de dados nas definições do Centro de Segurança **da** sua base de dados. Utilize esta opção apenas se tiver um requisito específico para receber alertas separados de Proteção de Ameaças Avançadas ou resultados de avaliação de vulnerabilidade para cada base de dados, em vez dos alertas e resultados recebidos para todas as bases de dados do servidor ou caso gerido.
+    :::image type="content" source="media/azure-defender-for-sql/status-of-defender-for-sql.png" alt-text="Verificação do estado do Azure Defender para SQL dentro das bases de dados do Azure SQL":::
 
-Uma vez selecionada a caixa de verificação, pode configurar as definições relevantes para esta base de dados.
+1. Se o Azure Defender for SQL estiver ativado, verá uma ligação **Configure** como mostrado no gráfico anterior. Para editar as definições de Azure Defender para SQL, selecione **Configure**.
 
-:::image type="content" source="media/azure-defender-for-sql/enable-for-database-level.png" alt-text="ativar o Azure Defender ao nível da base de dados":::
+    :::image type="content" source="media/azure-defender-for-sql/security-server-settings.png" alt-text="definições de servidor de segurança":::
 
-O Azure Defender para as definições DE SQL para o seu servidor ou instância gerida também pode ser alcançado a partir do painel de base de dados do Azure Defender. Clique em **Definições** no painel principal do Centro de Segurança e, em seguida, clique em **Ver Defender Azure para as definições do servidor SQL**.
+1. Faça as alterações necessárias e **selecione Guardar**.
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

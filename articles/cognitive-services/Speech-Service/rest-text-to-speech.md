@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/08/2021
+ms.date: 02/03/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: 53be2f6795593bf44cafde149242b13ed4fdfe50
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 225fc83133aba0a7d669f36dc9c8e7cd20c8e42e
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98790482"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99507524"
 ---
 # <a name="text-to-speech-rest-api"></a>API REST de conversão de texto em voz
 
@@ -211,7 +211,8 @@ Esta tabela lista os cabeçalhos necessários e opcionais para pedidos de texto-
 
 | Cabeçalho | Descrição | Obrigatório / Opcional |
 |--------|-------------|---------------------|
-| `Authorization` | Um sinal de autorização precedido pela palavra `Bearer` . Para obter mais informações, veja [Autenticação](#authentication). | Necessário |
+| `Ocp-Apim-Subscription-Key` | A chave de subscrição do serviço de discurso. | Ou este cabeçalho ou `Authorization` é necessário. |
+| `Authorization` | Um sinal de autorização precedido pela palavra `Bearer` . Para obter mais informações, veja [Autenticação](#authentication). | Ou este cabeçalho ou `Ocp-Apim-Subscription-Key` é necessário. |
 | `Content-Type` | Especifica o tipo de conteúdo para o texto fornecido. Valor aceite: `application/ssml+xml` . | Necessário |
 | `X-Microsoft-OutputFormat` | Especifica o formato de saída de áudio. Para obter uma lista completa dos valores aceites, consulte [as saídas de áudio](#audio-outputs). | Necessário |
 | `User-Agent` | O nome da aplicação. O valor fornecido deve ser inferior a 255 caracteres. | Necessário |
@@ -274,7 +275,7 @@ O código de estado HTTP para cada resposta indica sucesso ou erros comuns.
 
 Se o estado HTTP `200 OK` for, o corpo da resposta contém um ficheiro áudio no formato solicitado. Este ficheiro pode ser reproduzido à medida que é transferido, guardado para um tampão, ou guardado num ficheiro.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar uma conta do Azure gratuita](https://azure.microsoft.com/free/cognitive-services/)
 - [Síntese assíncronea para áudio de forma longa](./long-audio-api.md)

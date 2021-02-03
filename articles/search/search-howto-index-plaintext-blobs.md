@@ -8,25 +8,25 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/01/2021
-ms.openlocfilehash: 422346430e32ccb8745d5a5d829c5d61089a99c6
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: b8881d3fa7ade08da103c5af4b828a12e74cc355
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430433"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509457"
 ---
 # <a name="how-to-index-plain-text-blobs-in-azure-cognitive-search"></a>Como indexar bolhas de texto simples na Pesquisa Cognitiva Azure
 
-Ao utilizar um [indexante blob](search-howto-indexing-azure-blob-storage.md) para extrair texto pesmável para pesquisa completa de texto, pode invocar vários modos de análise para obter melhores resultados de indexação. Por predefinição, o indexante analisa o conteúdo blob como um único pedaço de texto. No entanto, se todas as bolhas contiverem texto simples na mesma codificação, pode melhorar significativamente o desempenho da indexação utilizando o `text` modo de análise.
+Ao utilizar um [indexante blob](search-howto-indexing-azure-blob-storage.md) para extrair texto blob pesmável para pesquisa completa de texto, pode atribuir um modo de análise para obter melhores resultados de indexação. Por predefinição, o indexante analisa o conteúdo blob como um único pedaço de texto. No entanto, se todas as bolhas contiverem texto simples na mesma codificação, pode melhorar significativamente o desempenho da indexação utilizando o `text` modo de análise.
 
-Deve utilizar o `text` modo de análise quando:
+As recomendações para a `text` análise da utilização incluem:
 
 + O tipo de ficheiro é .txt
 + Os ficheiros são de qualquer tipo, mas o conteúdo em si é texto (por exemplo, código fonte de programa, HTML, XML, etc. Para ficheiros num idioma de marcação, quaisquer caracteres de sintaxe serão enviados como texto estático.
 
-Lembre-se que os indexantes serializam para JSON. O conteúdo de todo o ficheiro de texto será indexado num campo único, uma vez `"content": "<file-contents>"` que . As novas instruções de linha e devolução são expressas como `\r\n\` .
+Lembre-se que todos os indexantes serializam para JSON. Por predefinição, o conteúdo de todo o ficheiro de texto será indexado dentro de um grande campo como `"content": "<file-contents>"` . Quaisquer novas instruções de linha e devolução estão incorporadas no campo de conteúdos e expressas como `\r\n\` .
 
-Se quiser um resultado mais granular, considere as seguintes soluções:
+Se quiser um resultado mais granular e se o tipo de ficheiro for compatível, considere as seguintes soluções:
 
 + [`delimitedText`](search-howto-index-csv-blobs.md) modo de análise, se a fonte for CSV
 + [ `jsonArray` ou `jsonLines` ](search-howto-index-json-blobs.md), se a fonte for JSON

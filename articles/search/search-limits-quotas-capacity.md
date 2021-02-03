@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/02/2021
-ms.openlocfilehash: 9e43521e26a6292141e1bbae7b39db3656df962c
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 994ed74750d159dfdb83259e9fe921f870ec2241
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493046"
+ms.locfileid: "99509372"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Limites de serviço no Azure Cognitive Search
 
@@ -124,14 +124,6 @@ O número máximo de mapas de sinónimo varia por nível. Cada regra pode ter at
 | -------- | -----|------ |----|----|----|-------|---|----|
 | Mapas máximos de sinónimo |3 |3|5 |10 |20 |20 | 10 | 10 |
 | Número máximo de regras por mapa |5000 |20 000|20 000 |20 000 |20 000 |20 000 | 20 000 | 20 000  |
-
-## <a name="queries-per-second-qps"></a>Consultas por segundo (QPS)
-
-As estimativas de QPS devem ser desenvolvidas independentemente por cada cliente. Tamanho e complexidade do índice, tamanho de consulta e complexidade, e a quantidade de tráfego são determinantes primários de QPS. Não há forma de oferecer estimativas significativas quando tais fatores são desconhecidos.
-
-As estimativas são mais previsíveis quando calculadas sobre os serviços em execução em recursos dedicados (níveis básicos e standard). Pode estimar o QPS mais de perto porque tem controlo sobre mais dos parâmetros. Para obter orientações sobre como abordar a estimativa, consulte [o desempenho e otimização da Pesquisa Cognitiva Azure.](search-performance-optimization.md)
-
-Para os níveis otimizados de armazenamento (L1 e L2), deverá esperar uma produção de consulta mais baixa e uma latência mais elevada do que os níveis Standard.
 
 ## <a name="data-limits-ai-enrichment"></a>Limites de dados (enriquecimento de IA)
 

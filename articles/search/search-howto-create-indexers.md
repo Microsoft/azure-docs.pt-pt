@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/28/2021
-ms.openlocfilehash: ade5880a6b06f448df23eb77d81201a521f1d240
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 5fc47599d09e5be60311dbda15868d87de4d91d2
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430050"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509389"
 ---
-# <a name="create-a-search-indexer"></a>Criar um indexador de pesquisa
+# <a name="creating-indexers-in-azure-cognitive-search"></a>Criação de indexantes na Pesquisa Cognitiva Azure
 
 Um indexante de pesquisa fornece um fluxo de trabalho automatizado para transferir documentos e conteúdos de uma fonte de dados externa, para um índice de pesquisa no seu serviço de pesquisa. Como originalmente projetado, extrai texto e metadados de uma fonte de dados Azure, serializa documentos em JSON, e transmite os documentos resultantes para um motor de pesquisa para indexação. Desde então, foi estendida para apoiar o [enriquecimento de IA](cognitive-search-concept-intro.md) para o processamento profundo de conteúdos. 
 
@@ -99,7 +99,7 @@ A imagem que se segue mostra onde pode encontrar estas funcionalidades no portal
 
 ### <a name="use-a-rest-client"></a>Use um cliente REST
 
-Tanto o Código do Carteiro como o Código do Estúdio Visual (com uma extensão para Azure Cognitive Search) podem funcionar como um cliente indexante. Utilizando qualquer uma das ferramentas, pode ligar-se ao seu serviço de pesquisa e enviar pedidos que criem indexadores e outros objetos. Existem inúmeros tutoriais e exemplos que demonstram clientes REST para criar objetos. 
+Tanto o Código do Carteiro como o Código do Estúdio Visual (com uma extensão para Azure Cognitive Search) podem funcionar como um cliente indexante. Utilizando qualquer uma das ferramentas, pode ligar-se ao seu serviço de pesquisa e enviar pedidos [de Criar Indexer (REST).](/rest/api/searchservice/create-indexer) Existem inúmeros tutoriais e exemplos que demonstram clientes REST para criar objetos. 
 
 Comece com qualquer um destes artigos para aprender sobre cada cliente:
 
@@ -110,7 +110,7 @@ Consulte as operações do [Indexer (REST)](/rest/api/searchservice/Indexer-oper
 
 ### <a name="use-an-sdk"></a>Use um SDK
 
-Para pesquisa cognitiva, os Azure SDKs implementam funcionalidades geralmente disponíveis. Como tal, pode utilizar qualquer um dos SDKs para criar objetos relacionados com indexante. Todos eles implementam um **SearchIndexerClient** que fornece métodos para criar indexadores e objetos relacionados, incluindo skillsets.
+Para pesquisa cognitiva, os Azure SDKs implementam funcionalidades geralmente disponíveis. Como tal, pode utilizar qualquer um dos SDKs para criar objetos relacionados com indexante. Todos eles fornecem um **SearchIndexerClient** que tem métodos para criar indexadores e objetos relacionados, incluindo skillsets.
 
 | Azure SDK | Cliente | Exemplos |
 |-----------|--------|----------|

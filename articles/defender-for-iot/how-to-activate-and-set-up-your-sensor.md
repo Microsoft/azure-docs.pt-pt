@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 908460bd0a034e21524b6ea6d3042f362cc810d4
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 7d045ad104f8e2055ae85b74f4aae8f4d3fd61a4
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98623594"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509524"
 ---
 # <a name="activate-and-set-up-your-sensor"></a>Ativar e configurar o seu sensor
 
@@ -81,7 +81,7 @@ Para iniciar sins e ativar:
 
     :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/azure-defender-for-iot-sensor-log-in-screen.png" alt-text="Azure Defender para sensor IoT.":::
 
-1. Introduza as credenciais definidas durante a instalação do sensor. Se adquiriu um sensor pré-configurado a partir de Arrow, gere primeiro uma palavra-passe. Para obter mais informações sobre a recuperação da palavra-passe, consulte [investigar a falha da palavra-passe no início da sindução](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md#investigate-password-failure-at-initial-sign-in).
+1. Introduza as credenciais definidas durante a instalação do sensor ou selecione a opção de recuperação da **Palavra-passe.** Se adquiriu um sensor pré-configurado a partir de Arrow, gere primeiro uma palavra-passe. Para obter mais informações sobre a recuperação da palavra-passe, consulte [investigar a falha da palavra-passe no início da sindução](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md#investigate-password-failure-at-initial-sign-in).
 
 1. Depois de iniciar sação, a caixa de diálogo de **ativação** abre-se. Selecione **Upload** e vá para o ficheiro de ativação que descarregou durante o sensor a bordo.
 
@@ -136,7 +136,7 @@ Depois da sua sação, abre o Azure Defender para a consola IoT.
 
 Após o seu primeiro início de sação, o sensor Azure Defender para IoT começa a monitorizar automaticamente a sua rede. Os dispositivos de rede aparecerão nas secções de inventário do mapa do dispositivo e do dispositivo. O Azure Defender for IoT começará a detetá-lo e alertá-lo sobre todos os incidentes de segurança e operacionais que ocorram na sua rede. Em seguida, pode criar relatórios e consultas com base nas informações detetadas.
 
-Inicialmente esta atividade é realizada no modo de aprendizagem, que instrui o seu sensor a aprender a atividade habitual da sua rede. Por exemplo, o sensor aprende dispositivos descobertos na sua rede, protocolos detetados na rede e transferências de ficheiros que ocorrem entre dispositivos específicos. Esta atividade torna-se a atividade de base da sua rede.
+Inicialmente esta atividade é realizada no Modo de Aprendizagem, que instrui o seu sensor a aprender a atividade habitual da sua rede. Por exemplo, o sensor aprende dispositivos descobertos na sua rede, protocolos detetados na rede e transferências de ficheiros que ocorrem entre dispositivos específicos. Esta atividade torna-se a atividade de base da sua rede.
 
 ### <a name="review-and-update-basic-system-settings"></a>Rever e atualizar as definições básicas do sistema
 
@@ -152,7 +152,7 @@ Defina as definições do sistema do sensor. Por exemplo:
 
 - Se o DHCP estiver a ser utilizado, defina gamas DHCP legítimas.
 
-- Defina integração com o Ative Directory e servidores de correio.
+- Defina a integração com o Ative Directory e o servidor de correio conforme apropriado.
 
 ### <a name="disable-learning-mode"></a>Desativar o modo de aprendizagem
 
@@ -181,7 +181,7 @@ Acede às ferramentas de consola do menu lateral.
 | -----------|--|--|
 | Dashboard | :::image type="icon" source="media/concept-sensor-console-overview/dashboard-icon-azure.png" border="false"::: | Veja uma imagem intuitiva do estado de segurança da rede. |
 | Mapa do dispositivo | :::image type="icon" source="media/concept-sensor-console-overview/asset-map-icon-azure.png" border="false"::: | Veja os dispositivos de rede, as ligações do dispositivo e as propriedades do dispositivo num mapa. Várias opções de zooms, destaque e filtro estão disponíveis para exibir a sua rede. |
-| Inventário de dispositivos | :::image type="icon" source="media/concept-sensor-console-overview/asset-inventory-icon-azure.png" border="false":::  | O inventário do dispositivo apresenta uma vasta gama de atributos do dispositivo que este sensor deteta. As opções estão disponíveis para: <br /> - Filtrar as informações de acordo com os campos de mesa e ver as informações filtradas apresentadas. <br /> - Informação de exportação para um ficheiro CSV. <br /> - Importar detalhes do registo do Windows.|
+| Inventário de dispositivos | :::image type="icon" source="media/concept-sensor-console-overview/asset-inventory-icon-azure.png" border="false":::  | O inventário do dispositivo apresenta uma lista de atributos do dispositivo que este sensor deteta. As opções estão disponíveis para: <br /> - Ordenar ou filtrar as informações de acordo com os campos de mesa e ver as informações filtradas apresentadas. <br /> - Informação de exportação para um ficheiro CSV. <br /> - Importar detalhes do registo do Windows.|
 | Alertas | :::image type="icon" source="media/concept-sensor-console-overview/alerts-icon-azure.png" border="false"::: | Os alertas de exibição quando ocorrem violações de política, ocorrem desvios do comportamento da linha de base ou qualquer tipo de atividade suspeita na rede. |
 | Relatórios | :::image type="icon" source="media/concept-sensor-console-overview/reports-icon-azure.png" border="false"::: | Ver relatórios que são baseados em consultas de mineração de dados. |
 
@@ -196,7 +196,7 @@ Acede às ferramentas de consola do menu lateral.
 | Janela | Ícone | Descrição |
 |---|---|---|
 | Mineração de dados | :::image type="icon" source="media/concept-sensor-console-overview/data-mining-icon-azure.png" border="false"::: | Gere informação abrangente e granular sobre os dispositivos da sua rede em várias camadas. |
-| Tendências e estatísticas | :::image type="icon" source="media/concept-sensor-console-overview/trends-and-statistics-icon-azure.jpg" border="false"::: | Ver tendências e estatísticas numa vasta gama de widgets. |
+| Investigação | :::image type="icon" source="media/concept-sensor-console-overview/trends-and-statistics-icon-azure.jpg" border="false"::: | Ver tendências e estatísticas numa vasta gama de widgets. |
 | Avaliação de Riscos | :::image type="icon" source="media/concept-sensor-console-overview/vulnerabilities-icon-azure.png" border="false"::: | Exiba a janela **Vulnerabilidades.** |
 
 **Administração**
@@ -204,7 +204,7 @@ Acede às ferramentas de consola do menu lateral.
 | Janela | Ícone | Descrição |
 |---|---|---|
 | Utilizadores | :::image type="icon" source="media/concept-sensor-console-overview/users-icon-azure.png" border="false"::: | Defina utilizadores e funções com vários níveis de acesso. |
-| Encaminhamento | :::image type="icon" source="media/concept-sensor-console-overview/forwarding-icon-azure.png" border="false"::: | Encaminhar informações de alerta para parceiros que integram com o Defender para IoT, para endereços de e-mail, para servidores webhook, e muito mais. <br /> Consulte [as informações do alerta para](how-to-forward-alert-information-to-partners.md) a frente para mais detalhes. |
+| Encaminhamento | :::image type="icon" source="media/concept-sensor-console-overview/forwarding-icon-azure.png" border="false"::: | Encaminhar informações de alerta para parceiros, e fontes internas (por exemplo, Sentinel) integrando-se com o Defender para IoT, para endereços de e-mail, para servidores webhook, e muito mais. <br /> Consulte [as informações do alerta para](how-to-forward-alert-information-to-partners.md) a frente para mais detalhes. |
 | Definições do sistema | :::image type="icon" source="media/concept-sensor-console-overview/system-settings-icon-azure.png" border="false"::: | Configure as definições do sistema. Por exemplo, definir as definições de DHCP, fornecer detalhes do servidor de correio ou criar pseudónimos de porta. |
 | Definições de importação | :::image type="icon" source="media/concept-sensor-console-overview/import-settings-icon-azure.png" border="false"::: | Exiba a janela **'Definições de Importação'.** Pode efetuar alterações manuais nas informações de um dispositivo.<br /> Consulte [as informações do dispositivo de importação](how-to-import-device-information.md) para obter mais informações. |
 

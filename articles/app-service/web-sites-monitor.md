@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/23/2020
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: b201ebb5ad8ab9d98a76a29831fa12d6174e47cc
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 587ad53fa3a4875f7019a8c094db1b9a5f096519
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93125211"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509558"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Monitorize aplicativos no Azure App Service
 [O Azure App Service](./overview.md) fornece funcionalidades de monitorização incorporadas para aplicações web, móveis e API no [portal Azure.](https://portal.azure.com)
@@ -31,7 +31,7 @@ Se a aplicação estiver hospedada num plano *Básico,* *Standard* ou *Premium,*
 
 As quotas para aplicações gratuitas ou partilhadas são:
 
-| Quota | Description |
+| Quota | Descrição |
 | --- | --- |
 | **CPU (Curto)** | A quantidade de CPU permitida para esta aplicação num intervalo de 5 minutos. Esta quota repõe a cada cinco minutos. |
 | **CPU (Dia)** | A quantidade total de CPU permitida para esta aplicação em um dia. Esta quota repõe-se a cada 24 horas à meia-noite utc. |
@@ -45,7 +45,7 @@ Para obter mais informações sobre as quotas, limites e funcionalidades especí
 
 ### <a name="quota-enforcement"></a>Execução de quotas
 
-Se uma aplicação exceder o *CPU (curto)* , *CPU (Dia)* ou quota de largura de *banda,* a aplicação é interrompida até que a quota seja reposta. Durante este tempo, todos os pedidos de entrada resultam num erro HTTP 403.
+Se uma aplicação exceder o *CPU (curto)*, *CPU (Dia)* ou quota de largura de *banda,* a aplicação é interrompida até que a quota seja reposta. Durante este tempo, todos os pedidos de entrada resultam num erro HTTP 403.
 
 ![403 mensagem de erro][http403]
 
@@ -72,7 +72,7 @@ As métricas fornecem informações sobre a app ou o comportamento do plano de S
 
 Para uma aplicação, as métricas disponíveis são:
 
-| Métrica | Descrição |
+| Metric | Descrição |
 | --- | --- |
 | **Tempo de resposta** | O tempo que a app demorou a servir pedidos, em segundos. |
 | **Tempo médio de resposta (precotado)** | O tempo médio de tempo necessário para a app servir pedidos, em segundos. |
@@ -82,7 +82,7 @@ Para uma aplicação, as métricas disponíveis são:
 | **Atuais Assembleias** | O número atual de Assembléias carregadas em todos os AppDomains nesta aplicação. |
 | **Dados em** | A quantidade de largura de banda recebida consumida pela app, no MiB. |
 | **Data out** | A quantidade de largura de banda de saída consumida pela app, no MiB. |
-| **Utilização do sistema de ficheiros** | Percentagem de quota de sistema de ficheiros consumida pela app. |
+| **Utilização do sistema de ficheiros** | A quantidade de utilização em bytes por partilha de armazenamento. |
 | **Coleções de lixo gen 0** | O número de vezes que a geração 0 objetos são lixo recolhido desde o início do processo da aplicação. Os GCs de maior geração incluem todos os GCs de menor geração.|
 | **Coleções de lixo da Gen 1** | O número de vezes que os objetos de geração 1 são lixo recolhidos desde o início do processo de aplicação. Os GCs de maior geração incluem todos os GCs de menor geração.|
 | **Coleções de lixo gen 2** | O número de vezes que a geração 2 objetos são lixo recolhidos desde o início do processo de aplicação.|
@@ -117,7 +117,7 @@ Para um plano de Serviço de Aplicações, as métricas disponíveis são:
 > As métricas do plano de aplicação estão disponíveis apenas para planos nos níveis *Básico,* *Standard* e *Premium.*
 > 
 
-| Métrica | Descrição |
+| Metric | Descrição |
 | --- | --- |
 | **Percentagem de CPU** | O CPU médio usado em todas as instâncias do plano. |
 | **Percentagem de Memória** | A memória média usada em todos os casos do plano. |
@@ -131,9 +131,9 @@ Para um plano de Serviço de Aplicações, as métricas disponíveis são:
 
 Existem duas métricas que refletem o uso do CPU:
 
-**TEMPO CPU** : Útil para aplicações hospedadas em planos gratuitos ou partilhados, porque uma das suas quotas é definida em minutos de CPU utilizados pela app.
+**TEMPO CPU**: Útil para aplicações hospedadas em planos gratuitos ou partilhados, porque uma das suas quotas é definida em minutos de CPU utilizados pela app.
 
-**Percentagem de CPU** : Útil para aplicações hospedadas em planos Básicos, Standard e Premium, porque podem ser dimensionadas. A percentagem de CPU é uma boa indicação da utilização global em todos os casos.
+**Percentagem de CPU**: Útil para aplicações hospedadas em planos Básicos, Standard e Premium, porque podem ser dimensionadas. A percentagem de CPU é uma boa indicação da utilização global em todos os casos.
 
 ## <a name="metrics-granularity-and-retention-policy"></a>Política de granularidade e retenção de métricas
 As métricas para um plano de serviço de aplicações e aplicações são registadas e agregadas pelo serviço e [mantidas de acordo com estas regras.](../azure-monitor/platform/data-platform-metrics.md#retention-of-metrics)
@@ -143,7 +143,7 @@ Para rever o estado das várias quotas e métricas que afetam uma app, vá ao [p
 
 ![Tabela de quotas no portal Azure][quotas]
 
-Para encontrar quotas, selecione **Definições**  >  **Quotas** . Na tabela, pode rever: 
+Para encontrar quotas, selecione **Definições**  >  **Quotas**. Na tabela, pode rever: 
 1. O nome da quota.
 1. O seu intervalo de reset.
 1. O seu limite atual.

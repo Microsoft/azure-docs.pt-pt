@@ -13,12 +13,12 @@ ms.date: 02/02/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: cb7acb2ab74cc3f1304e5278524918865185463f
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: d544d884a82a7532bf343f38049102dfccae342f
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/03/2021
-ms.locfileid: "99491304"
+ms.locfileid: "99507282"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifesto da aplicação do Azure Active Directory
 
@@ -173,7 +173,8 @@ Configura a `groups` reclamação emitida num utilizador ou no token de acesso O
 - `"None"`
 - `"SecurityGroup"` (para grupos de segurança e funções AD Azure)
 - `"ApplicationGroup"` (esta opção inclui apenas grupos que são atribuídos à aplicação)
-- `"All"` (isto irá obter todos os grupos de segurança, grupos de distribuição e papel de diretório AD Azure de que o utilizador inscrito é membro.
+- `"DirectoryRole"` (obtém as funções de diretório AD Azure de que o utilizador é membro)
+- `"All"` (isto irá obter todos os grupos de segurança, grupos de distribuição e papel de diretório AD Azure de que o utilizador inscrito é membro).
 
 Exemplo:
 

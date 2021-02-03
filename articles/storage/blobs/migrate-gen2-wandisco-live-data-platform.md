@@ -5,16 +5,16 @@ author: normesta
 ms.topic: how-to
 ms.author: normesta
 ms.reviewer: b-pauls
-ms.date: 11/06/2020
+ms.date: 11/17/2020
 ms.service: storage
 ms.custom: references_regions
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: db95f22a17c3776d84f12249693fb23b3d2d94e6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a0d02530ba2b8758b467b77ff639437675e4cc81
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95914444"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508934"
 ---
 # <a name="meet-demanding-migration-requirements-with-wandisco-livedata-platform-for-azure-preview"></a>Satisfaça requisitos de migração exigentes com a Plataforma LiveData waNdisco para o Azure (pré-visualização)
 
@@ -34,7 +34,9 @@ Ao contrário da migração _de_ dados [offline, copiando informações estátic
 
 ## <a name="key-features-of-wandisco-livedata-platform-for-azure"></a>Principais funcionalidades da Plataforma LiveData waNdisco para o Azure
 
-[A WANdisco LiveData Platform for Azure](https://docs.wandisco.com/live-data-platform/docs/landing/) utiliza um motor de consenso único e de vasta área capaz de obter consistência de dados e para realizar a replicação de dados em escala enquanto as aplicações podem continuar a modificar os dados em replicação.  
+[A WANdisco LiveData Platform for Azure](https://docs.wandisco.com/live-data-platform/docs/landing/) utiliza um motor de consenso único e de vasta área capaz de obter consistência de dados e para realizar a replicação de dados em escala enquanto as aplicações podem continuar a modificar os dados em replicação. <br><br>
+
+>[!VIDEO https://www.youtube.com/embed/KRrmcYPxEho] 
 
 As principais características da plataforma incluem:
 
@@ -86,7 +88,9 @@ As migrações em larga escala dos lagos de dados no local para o Azure precisam
 Mantenha os seus dados consistentes em todos os locais dos clusters Hadoop e armazenamento Azure com o Plano LiveData para Azure após a migração inicial:
 
 1. Fornecimento de Plano LiveData para Azure no local e em Azure, a partir do portal Azure. Não são necessárias alterações de candidatura.
+
 2. Configure as regras de replicação que cobrem as localizações de dados que pretende manter consistentes, por exemplo: `/user/contoso/sales/region/WA` .
+
 3. Executar aplicações que acedam e modificam dados em qualquer local como um sistema de ficheiros compatível com Hadoop conforme necessário.
 
 O LiveData Plane for Azure mantém os seus dados consistentes sem impor uma sobrecarga significativa no funcionamento do cluster ou no desempenho da aplicação. Modifique ou ingere dados enquanto todas as alterações são replicadas de forma consistente.

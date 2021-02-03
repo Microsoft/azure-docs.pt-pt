@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/06/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 7cb805f60ba9feb0ae2d1483b2ab2df4e03639d8
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 333ffbf4107dfd005ba7e7fae6a079a618e0c645
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625419"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509440"
 ---
 # <a name="import-device-information-to-a-sensor"></a>Importar informações do dispositivo a um sensor
 
@@ -160,7 +160,7 @@ Para importar o endereço IP, o sistema operativo e o nível de correção:
 
    - **Sistema operativo**: Selecione a partir da lista de drop-down.
 
-   - **Última atualização**: Utilize o formato YYYY-MM-DD.
+   - **Data da Última Atualização**: Utilize o formato YYYY-MM-DD.
 
     :::image type="content" source="media/how-to-import-device-information/last-update-screen.png" alt-text="O conteúdo no ecrã.":::
 
@@ -172,7 +172,7 @@ Para importar o endereço IP, o sistema operativo e o nível de correção:
 
 Para importar o estado de autorização:
 
-1. Faça o download e guarde o ficheiro [authorized_devices.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) do Centro de Ajuda Do Defender para IoT. Verifique se guardou o ficheiro como CSV.
+1. Faça o download e guarde o [ficheiro authorized_devices - examples.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) do Centro de Ajuda do Defender para IoT. Verifique se guardou o ficheiro como CSV.
 
 2. Insira a informação como:
 

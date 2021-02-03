@@ -3,12 +3,12 @@ title: Conceitos - vSphere controlo de acesso baseado em funções (vSphere RBAC
 description: Conheça as principais capacidades do controlo de acesso baseado em funções vSphere para Azure VMware Solution
 ms.topic: conceptual
 ms.date: 10/23/2020
-ms.openlocfilehash: fbd5b48ce30a6612c45ebd97f08812efd29c50b3
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 6f5c30b070b010f312d038d8286be994039c56f8
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888407"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509253"
 ---
 # <a name="vsphere-role-based-access-control-vsphere-rbac-for-azure-vmware-solution"></a>vSphere controlo de acesso baseado em funções (vSphere RBAC) para Azure VMware Solution
 
@@ -23,14 +23,11 @@ Numa implementação da Azure VMware Solution, o administrador não tem acesso �
 
 O utilizador privado da nuvem não tem acesso e não consegue configurar componentes de gestão específicos suportados e geridos pela Microsoft. Por exemplo, clusters, anfitriões, datastores e comutadores virtuais distribuídos.
 
-
-
-
 ## <a name="azure-vmware-solution-cloudadmin-role-on-vcenter"></a>Função CloudAdmin de Solução VMware Azure no vCenter
 
 Pode ver os privilégios concedidos ao papel cloudAdmin da Solução Azure VMware no seu VMware Solution privado VMware Solution vCenter.
 
-1. Inicie sessão no SDDC vSphere Client e vá para a **Menu**  >  **Administração** do Menu.
+1. Inicie sessão no SDDC vSphere Client e vá para a   >  **Administração** do Menu.
 1. Sob **controlo de acesso**, selecione **Roles**.
 1. Na lista de funções, selecione **CloudAdmin** e, em seguida, selecione **Privileges**. 
 
@@ -63,7 +60,11 @@ O papel cloudAdmin na Azure VMware Solution tem os seguintes privilégios no vCe
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte a documentação do [produto VMware](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html) para obter uma explicação detalhada de cada privilégio.
+Agora que cobriu os fundamentos do controlo de acesso baseado em funções vSphere para a Azure VMware Solution, talvez queira saber:
+
+- Os detalhes de cada privilégio na documentação do [produto VMware.](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html)
+- [Como a Azure VMware Solution monitoriza e repara nuvens privadas](concepts-monitor-repair-private-cloud.md).
+- [Como ativar o recurso Azure VMware Solution](enable-azure-vmware-solution.md).
 
 <!-- LINKS - internal -->
 

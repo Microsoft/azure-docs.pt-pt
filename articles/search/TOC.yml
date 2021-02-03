@@ -302,10 +302,10 @@
               href: knowledge-store-projections-examples.md
     - name: Consultas
       items:
-        - name: Tipos de consulta e composição
-          href: search-query-overview.md
         - name: Criar uma consulta básica
           href: search-query-create.md
+        - name: Tipos de consulta e composição
+          href: search-query-overview.md
         - name: Utilizar sintaxe simples (exemplos)
           href: search-query-simple-examples.md
         - name: Utilizar Lucene completo (exemplos)

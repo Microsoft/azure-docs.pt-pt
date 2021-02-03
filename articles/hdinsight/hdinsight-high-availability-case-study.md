@@ -5,12 +5,12 @@ keywords: hadoop alta disponibilidade
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2020
-ms.openlocfilehash: 0616694d05e3fc9d2255ad97647ebe3bce545a93
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 6b995e2ab5ba663f6e33b009062859eb32928cc1
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945357"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508596"
 ---
 # <a name="azure-hdinsight-highly-available-solution-architecture-case-study"></a>Azure HDInsight estudo de caso de arquitetura de solução altamente disponível
 
@@ -71,7 +71,7 @@ A imagem a seguir mostra a arquitetura de recuperação de desastres de alta dis
 
 **A Colmeia e a Faísca** utilizam modelos de replicação secundária ativa e [on-demand](hdinsight-business-continuity-architecture.md#apache-spark) durante os tempos normais. O processo de replicação da Colmeia funciona periodicamente e acompanha a metastore hive Azure SQL e a replicação da conta de armazenamento de Colmeia. A conta de armazenamento Spark é periodicamente replicada utilizando a ADF DistCP. A natureza transitória destes clusters ajuda a otimizar os custos. As replicações são programadas a cada 4 horas para chegar a um RPO que está bem dentro do requisito de cinco horas.
 
-A replicação **do HBase** utiliza o modelo [Leader – Follower](hdinsight-business-continuity-architecture.md#apache-hbase) em horários normais para garantir que os dados são sempre servidos independentemente da região e o RPO é zero.
+A replicação **do HBase** utiliza o modelo [Leader – Follower](hdinsight-business-continuity-architecture.md#apache-hbase) em horários normais para garantir que os dados são sempre servidos independentemente da região e o RPO é muito baixo.
 
 Se houver uma falha regional na região primária, a página web e o conteúdo de backend são servidos da região secundária durante 5 horas com algum grau de estagnação. Se o painel de saúde do serviço Azure não indicar uma ETA de recuperação na janela de cinco horas, o Venda a Retalho Contoso criará a camada de transformação de Colmeia e Faísca na região secundária e, em seguida, apontará todas as fontes de dados a montante para a região secundária. Tornar a região secundária writable causaria um processo de recuo que envolve a replicação de volta ao primário.
 
@@ -79,7 +79,7 @@ Durante uma época de pico de compras, todo o gasoduto secundário está sempre 
 
 Nenhuma solução de failover precisa de ser projetada para relatórios internos, uma vez que não é fundamental para a continuidade do negócio.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre os itens discutidos neste artigo, consulte:
 

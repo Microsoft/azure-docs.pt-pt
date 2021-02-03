@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.service: azure
 ms.topic: how-to
-ms.openlocfilehash: ad09bcb1ea4aa32bdd04af47d3503f74c850a10b
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: c0670f37da0cead5e3bd05a1d69e17191e8c0ccf
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98803509"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508748"
 ---
 # <a name="manage-alert-events"></a>Gerir eventos de alerta
 
@@ -45,7 +45,7 @@ Em certas situações, pode não querer que um sensor aprenda um evento detetado
 
 Depois de realizar a mitigação ou investigação, pode instruir o sensor a ocultar o alerta selecionando **Reconhecimento**. Se o evento for detetado novamente, o alerta será retrossado.
 
-Para esconder o alerta:
+Para limpar o alerta:
 
   - Selecione **Reconhecimento**.
 
@@ -72,7 +72,7 @@ Nestas situações, a aprendizagem não está disponível. Ao aprender não pode
 
 Um cenário silenciado inclui os dispositivos de rede e o tráfego detetado para um evento. O título de alerta descreve o tráfego que está a ser silenciado.
 
-O dispositivo ou dispositivos em silenciamento serão apresentados como uma imagem no alerta. Se forem mostrados dois dispositivos, o tráfego entre eles será silenciado.
+O dispositivo ou dispositivos em silenciamento serão apresentados como uma imagem no alerta. Se forem mostrados dois dispositivos, o tráfego específico alertado entre eles será silenciado.
 
 **Exemplo 1**
 
@@ -106,6 +106,6 @@ Quando um evento é silenciado, é ignorado sempre que a fonte envia um cabeçal
 
 2. Passe por cima de um alerta para ver se está mudo.  
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 [Controlar que tráfego é monitorizado](how-to-control-what-traffic-is-monitored.md)

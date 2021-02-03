@@ -8,14 +8,14 @@ ms.author: delegenz
 ms.devlang: javascript
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 10/26/2020
+ms.date: 02/02/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: 69cef4c17fd17219f0221c509775ad3fd6a80a27
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 7d31201f9d1a4519538aba3ac57ddfd340d936d1
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498987"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509406"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-using-the-javascript-sdk"></a>Quickstart: Criar um índice de pesquisa cognitiva Azure utilizando o JavaScript SDK
 > [!div class="op_single_selector"]
@@ -56,7 +56,7 @@ As chamadas para o serviço requerem um ponto final URL e uma chave de acesso em
 
 1. [Inscreva-se no portal Azure,](https://portal.azure.com/)e na página **geral do** seu serviço de pesquisa, obtenha o URL. Um ponto final de exemplo poderá ser parecido com `https://mydemo.search.windows.net`.
 
-2. Em **Settings**  >  **Definições Teclas**, obtenha uma chave de administração para todos os direitos sobre o serviço, necessários para criar ou eliminar objetos. Há duas chaves primárias e secundárias intercambiáveis. Pode usar qualquer um.
+2. Em   >  **Definições Teclas**, obtenha uma chave de administração para todos os direitos sobre o serviço, necessários para criar ou eliminar objetos. Há duas chaves primárias e secundárias intercambiáveis. Pode usar qualquer um.
 
    ![Obtenha uma chave de acesso http e acesso](media/search-get-started-rest/get-url-key.png "Obtenha uma chave de acesso http e acesso")
 
@@ -86,7 +86,7 @@ Comece por abrir o Código VS e o seu [terminal integrado](https://code.visualst
     npm install @azure/search-documents
     ```
 
-4. `dotenv`Instale, que é usado para importar variáveis ambientais como o nosso nome de serviço e chave api.
+4. `dotenv`Instalação, que é usada para importar variáveis ambientais como o nosso nome de serviço e chave API.
     ```cmd
     npm install dotenv
     ```
@@ -169,7 +169,7 @@ Com isso no lugar, estamos prontos para criar um índice.
 
 ## <a name="1---create-index"></a>1 - Criar índice 
 
-Crie um ficheiro **hotels_quickstart_index.jsligado .**  Este ficheiro define como a Azure Cognitive Search funciona com os documentos que vai carregar no próximo passo. Cada campo será identificado por um `name` e terá um especificado `type` . Cada campo também tem uma série de atributos de índice que especificam se a Azure Cognitive Search pode pesquisar, filtrar, classificar e facet no campo. A maioria dos campos são tipos de dados simples, mas alguns, como `AddressType` são tipos complexos que permitem criar estruturas de dados ricas no seu índice.  Pode ler mais sobre [tipos de dados suportados](/rest/api/searchservice/supported-data-types) e [atributos de índice.](./search-what-is-an-index.md#index-attributes) 
+Crie um ficheiro **hotels_quickstart_index.jsligado .**  Este ficheiro define como a Azure Cognitive Search funciona com os documentos que vai carregar no próximo passo. Cada campo será identificado por um `name` e terá um especificado `type` . Cada campo também tem uma série de atributos de índice que especificam se a Azure Cognitive Search pode pesquisar, filtrar, classificar e facet no campo. A maioria dos campos são tipos de dados simples, mas alguns, como `AddressType` são tipos complexos que permitem criar estruturas de dados ricas no seu índice.  Pode ler mais sobre [tipos de dados suportados](/rest/api/searchservice/supported-data-types) e atributos de índice descritos no [Índice de Criação (REST)](/rest/api/searchservice/create-index). 
 
 Adicione o seguinte para **hotels_quickstart_index.js** ou [descarregue o ficheiro](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/quickstart/v11/hotels_quickstart_index.json). 
 
@@ -450,7 +450,7 @@ As entradas de documentos podem ser linhas numa base de dados, bolhas no armazen
 }
 ```
 
-À semelhança do que fizemos com o índiceDefinição, precisamos também de importar no topo daindex.jspara `hotels.json` que os dados possam ser acedidos na nossa função principal. **index.js**
+À semelhança do que fizemos com o índiceDefinição, precisamos também de importar no topo daindex.jspara `hotels.json` que os dados possam ser acedidos na nossa função principal. 
 
 ```javascript
 const hotelData = require('./hotels.json');

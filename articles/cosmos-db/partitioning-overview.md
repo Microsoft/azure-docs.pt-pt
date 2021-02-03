@@ -6,17 +6,17 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.openlocfilehash: 7c05ca6462d49d1d41791e5b93b7723ac681d448
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a70cfc7ab01dabd3d740d878acb453b4d1e76b5f
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93080837"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99507423"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Criação de partições e dimensionamento horizontal no Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-A Azure Cosmos DB utiliza divisórias para escalar contentores individuais numa base de dados para atender às necessidades de desempenho da sua aplicação. Na partilha, os itens num recipiente são divididos em subconjuntos distintos *chamados divisórias lógicas* . As divisórias lógicas são formadas com base no valor de uma chave de *partição* que está associada a cada item num recipiente. Todos os itens numa partição lógica têm o mesmo valor chave de partição.
+A Azure Cosmos DB utiliza divisórias para escalar contentores individuais numa base de dados para atender às necessidades de desempenho da sua aplicação. Na partilha, os itens num recipiente são divididos em subconjuntos distintos *chamados divisórias lógicas*. As divisórias lógicas são formadas com base no valor de uma chave de *partição* que está associada a cada item num recipiente. Todos os itens numa partição lógica têm o mesmo valor chave de partição.
 
 Por exemplo, um recipiente contém itens. Cada item tem um valor único para a `UserID` propriedade. Se `UserID` servir como chave de partição para os itens no recipiente e existirem 1.000 `UserID` valores únicos, 1.000 divisórias lógicas são criadas para o recipiente.
 
@@ -36,10 +36,13 @@ Não há limite para o número de divisórias lógicas no seu recipiente. Cada d
 
 Um recipiente é dimensionado distribuindo dados e produção através de divisórias físicas. Internamente, uma ou mais divisórias lógicas são mapeadas para uma única partição física. Normalmente, os recipientes mais pequenos têm muitas divisórias lógicas, mas só requerem uma única partição física. Ao contrário das divisórias lógicas, as divisórias físicas são uma implementação interna do sistema e são inteiramente geridas pela Azure Cosmos DB.
 
-O número de divisórias físicas no seu recipiente depende da seguinte configuração:
+O número de divisórias físicas no seu recipiente depende do seguinte:
 
 * O número de produção a provisionada (cada partição física individual pode fornecer um rendimento de até 10.000 unidades de pedido por segundo).
 * O armazenamento total de dados (cada partição física individual pode armazenar até 50GB de dados).
+
+> [!NOTE]
+> As divisórias físicas são uma implementação interna do sistema e são inteiramente geridas pela Azure Cosmos DB. Ao desenvolver as suas soluções, não se concentre em divisórias físicas porque não pode controlá-las em vez de se concentrar nas suas chaves de partição. Se escolher uma chave de partição que distribui uniformemente o consumo de produção através de divisórias lógicas, garantirá que o consumo de produção através de divisórias físicas seja equilibrado.
 
 Não há limite para o número total de divisórias físicas no seu recipiente. À medida que o seu rendimento ou tamanho de dados aumenta, a Azure Cosmos DB criará automaticamente novas divisórias físicas dividindo as existentes. As divisórias físicas não afetam a disponibilidade da sua aplicação. Após a divisão física, todos os dados dentro de uma única partição lógica ainda serão armazenados na mesma partição física. Uma divisão de partição física simplesmente cria um novo mapeamento de divisórias lógicas para divisórias físicas.
 
@@ -49,12 +52,9 @@ Pode ver as divisórias físicas do seu recipiente na secção de **armazenament
 
 :::image type="content" source="./media/partitioning-overview/view-partitions-zoomed-out.png" alt-text="Número de visualização de divisórias físicas" lightbox="./media/partitioning-overview/view-partitions-zoomed-in.png" ::: 
 
-Na imagem acima, um recipiente tem `/foodGroup` como chave de partição. Cada uma das três barras do gráfico representa uma divisória física. Na imagem, o **alcance da chave de partição** é o mesmo que uma partição física. A partição física selecionada contém três divisórias lógicas: `Beef Products` `Vegetable and Vegetable Products` , e `Soups, Sauces, and Gravies` .
+Na imagem acima, um recipiente tem `/foodGroup` como chave de partição. Cada uma das três barras do gráfico representa uma divisória física. Na imagem, o **alcance da chave de partição** é o mesmo que uma partição física. A partição física selecionada contém as 3 divisórias lógicas de tamanho mais significativas: `Beef Products` `Vegetable and Vegetable Products` , e `Soups, Sauces, and Gravies` .
 
 Se você providenciar uma produção de 18.000 unidades de pedido por segundo (RU/s), então cada uma das três divisórias físicas pode utilizar 1/3 do total de produção a provisionada. Dentro da partição física selecionada, as teclas de partição `Beef Products` `Vegetable and Vegetable Products` lógica, e `Soups, Sauces, and Gravies` podem, coletivamente, utilizar os 6.000 RU/s provisados da partição física. Como a produção a provisionada está igualmente dividida nas divisórias físicas do seu contentor, é importante escolher uma chave de partição que distribua uniformemente o consumo de [produção, escolhendo a chave de partição lógica certa.](#choose-partitionkey) 
-
-> [!NOTE]
-> Se escolher uma chave de partição que distribui uniformemente o consumo de produção através de divisórias lógicas, garantirá que o consumo de produção através de divisórias físicas seja equilibrado.
 
 ## <a name="managing-logical-partitions"></a>Gestão de divisórias lógicas
 
@@ -74,11 +74,11 @@ Normalmente, os recipientes mais pequenos só requerem uma única partição fí
 
 A imagem a seguir mostra como as divisórias lógicas são mapeadas para divisórias físicas que são distribuídas globalmente:
 
-:::image type="content" source="./media/partitioning-overview/logical-partitions.png" alt-text="Número de visualização de divisórias físicas" border="false":::
+:::image type="content" source="./media/partitioning-overview/logical-partitions.png" alt-text="Uma imagem que demonstra a partição de Azure Cosmos DB" border="false":::
 
 ## <a name="choosing-a-partition-key"></a><a id="choose-partitionkey"></a>Escolher uma chave de partição
 
-Uma chave de partição tem dois componentes: **caminho chave de partição** e o valor chave da **partição** . Por exemplo, considere um item { "userId" : "Andrew", "worksFor": "Microsoft" } se escolher "userId" como chave de partição, os dois componentes chave de partição são os dois componentes chave de partição:
+Uma chave de partição tem dois componentes: **caminho chave de partição** e o valor chave da **partição**. Por exemplo, considere um item { "userId" : "Andrew", "worksFor": "Microsoft" } se escolher "userId" como chave de partição, os dois componentes chave de partição são os dois componentes chave de partição:
 
 * O caminho da chave da partição (por exemplo: "/userId"). O caminho chave da partição aceita caracteres alfanuméricos e sublinhados(_). Também pode utilizar objetos aninhados utilizando a notação de trajetória padrão(/).
 
@@ -116,7 +116,7 @@ Se o seu recipiente pode crescer para mais do que algumas divisórias físicas, 
 
 Se o seu recipiente tem uma propriedade que tem uma ampla gama de valores possíveis, é provável que seja uma ótima escolha chave de partição. Um possível exemplo de tal propriedade é o *ID do item.* Para pequenos recipientes pesados de leitura ou recipientes pesados de qualquer tamanho, o *iD* do item é naturalmente uma ótima escolha para a chave de partição.
 
-O *ID do item da* propriedade do sistema existe em todos os itens do seu recipiente. Pode ter outras propriedades que representam uma identificação lógica do seu item. Em muitos casos, estas são também grandes escolhas chave de partição pelas mesmas razões que o *iD do item* .
+O *ID do item da* propriedade do sistema existe em todos os itens do seu recipiente. Pode ter outras propriedades que representam uma identificação lógica do seu item. Em muitos casos, estas são também grandes escolhas chave de partição pelas mesmas razões que o *iD do item*.
 
 O *ID do item* é uma ótima escolha chave de partição pelas seguintes razões:
 

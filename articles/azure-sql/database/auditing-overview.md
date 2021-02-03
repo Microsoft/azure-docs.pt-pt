@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 11/08/2020
+ms.date: 02/03/2021
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: b09eb03994098f8cb68033f3c42309a77e15f91c
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: e96aa32c6b67290fc4b4ee62ae98c4e72399fd4b
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96620996"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509592"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Auditoria para Azure SQL Database e Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -94,7 +94,7 @@ A secção seguinte descreve a configuração da auditoria utilizando o portal A
   > [!NOTE]
   > Não é possível permitir a auditoria a uma piscina SQL dedicada a uma pausa. Para permitir a auditoria, desempaco fique desmesumos na piscina dedicada SQL. Saiba mais sobre [a piscina SQL dedicada.](../..//synapse-analytics/sql/best-practices-sql-pool.md)
 
-1. Aceda ao [portal do Azure](https://portal.azure.com).
+1. Aceda ao [Portal do Azure](https://portal.azure.com).
 2. Navegue para **a Auditoria** sob o título de Segurança na sua base **de dados SQL** ou painel **de servidor SQL.**
 3. Se preferir configurar uma política de auditoria do servidor, pode selecionar o link de definições do servidor Ver na página de auditoria da base de **dados.** Pode então visualizar ou modificar as definições de auditoria do servidor. As políticas de auditoria do servidor aplicam-se a todas as bases de dados existentes e recentemente criadas neste servidor.
 
@@ -273,6 +273,11 @@ Política alargada com suporte à cláusula WHERE para filtragem adicional:
 - [Criar ou atualizar a política de auditoria *estendida* do servidor](/rest/api/sql/server%20auditing%20settings/createorupdate)
 - [Obtenha a política de auditoria *alargada* da base de dados](/rest/api/sql/database%20extended%20auditing%20settings/get)
 - [Obtenha a política de auditoria *alargada* do servidor](/rest/api/sql/server%20auditing%20settings/get)
+
+### <a name="using-azure-cli"></a>Utilizar a CLI do Azure
+
+- [Gerir a política de auditoria de um servidor](/cli/azure/sql/server/audit-policy?view=azure-cli-latest)
+- [Gerir a política de auditoria de uma base de dados](/cli/azure/sql/db/audit-policy?view=azure-cli-latest)
 
 ### <a name="using-azure-resource-manager-templates"></a>Utilizar modelos do Azure Resource Manager
 

@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/06/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 9c868685ad943c1ab9ab263a164111e46294c042
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: c15dc62cad796f5f74f2316d148e217052dc9678
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625436"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508867"
 ---
 # <a name="investigate-sensor-detections-in-a-device-inventory"></a>Investigar as deteções do sensor num inventário de dispositivos
 
@@ -32,18 +32,18 @@ Os seguintes atributos aparecem na tabela de inventário do dispositivo.
 
 | Parâmetro | Descrição |
 |--|--|
-| Nome | O nome do dispositivo quando o sensor o descobriu. |
-| Tipo | O tipo de dispositivo. |
+| Nome | O nome do dispositivo tal como o sensor o descobriu, ou como introduzido pelo utilizador. |
+| Tipo | O tipo de dispositivo determinado pelo sensor, ou conforme introduzido pelo utilizador. |
 | Fornecedor | O nome do fornecedor do dispositivo, tal como definido no endereço MAC. |
-| Sistema Operativo | O SO do dispositivo. |
-| Firmware | O firmware do dispositivo. |
-| Endereço IP | O endereço IP do dispositivo. |
+| Sistema Operativo | O SO do dispositivo, se detetado. |
+| Versão do firmware | O firmware do dispositivo, se for detetado. |
+| Endereço IP | O endereço IP do dispositivo quando definido. |
 | Rio VLAN | O VLAN do dispositivo. Para obter mais informações sobre a instrução do sensor para descobrir VLANs, consulte [os nomes de Definição VLAN](how-to-manage-the-on-premises-management-console.md#define-vlan-names). (como definir-gestão-gestão-consola-definições de rede.md#define-vlan-names). |
 | Endereço MAC | O endereço MAC do dispositivo. |
 | Protocolos | Os protocolos que o dispositivo utiliza. |
 | Alertas não reconhecidos | O número de alertas não reconhecidos associados a este dispositivo. |
 | Está Autorizado | O estado de autorização definido pelo utilizador:<br />- **Verdade**: O aparelho foi autorizado.<br />- **Falso**: O aparelho não foi autorizado. |
-| É conhecido como Scanner | Definido como um dispositivo de digitalização pelo utilizador. |
+| É conhecido como Scanner | Definido como um dispositivo de digitalização de rede pelo utilizador. |
 | É dispositivo de programação | Definido como um dispositivo de programação autorizado pelo utilizador. <br />- **Verdade**: O dispositivo realiza atividades de programação para PLCs, RTUs e controladores, que são relevantes para as estações de engenharia. <br />- **Falso**: O aparelho não é um dispositivo de programação. |
 | Grupos | Os grupos em que este dispositivo participa. |
 | Última Atividade | A última atividade que o dispositivo realizou. |
@@ -111,7 +111,7 @@ Quando muda para a vista do mapa, os dispositivos filtrados são realçados e fi
 
 ## <a name="learn-windows-registry-details"></a>Saiba detalhes do registo do Windows
 
-Além de aprender dispositivos OT, pode descobrir dispositivos de TI, incluindo estações de trabalho e servidores do Microsoft Windows. Estes dispositivos também são apresentados no inventário do dispositivo. Depois de aprender dispositivos, pode enriquecer o inventário do dispositivo com informações detalhadas do Windows, tais como:
+Além de aprender dispositivos OT, pode descobrir estações de trabalho e servidores do Microsoft Windows. Estes dispositivos também são apresentados no Inventário do Dispositivo. Depois de aprender dispositivos, pode enriquecer o Inventário do Dispositivo com informações detalhadas do Windows, tais como:
 
 - Versão do Windows instalada
 
@@ -147,7 +147,7 @@ Pode pesquisar os seguintes sistemas operativos Windows:
 
 - Windows Server 2003/2008/2012/2016
 
-### <a name="before-you-begin"></a>Before you begin
+### <a name="before-you-begin"></a>Antes de começar
 
 Para trabalhar com o script, você precisa cumprir os seguintes requisitos:
 
@@ -217,7 +217,7 @@ Importar:
 
 ## <a name="export-device-inventory-information"></a>Informações sobre inventário de dispositivos de exportação
 
-Pode exportar informações de inventário de dispositivos para um ficheiro Excel. A informação importada substitui as informações atuais.
+Pode exportar informações de inventário de dispositivos para um ficheiro Excel.
 
 Para exportar um ficheiro CSV:
 

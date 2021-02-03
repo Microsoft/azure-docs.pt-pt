@@ -1,5 +1,5 @@
 ---
-title: Notas de lançamento para o agente Azure File Sync Microsoft Docs
+title: Notas de lançamento para o agente Azure File Sync | Microsoft Docs
 description: Leia as notas de lançamento do agente Azure File Sync, que permite centralizar as ações de ficheiros da sua organização em Ficheiros Azure.
 services: storage
 author: wmgries
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/17/2020
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 3bf3ecefb17f4c9fda6405da7fb2bdc2650f5324
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 4dd1941e6a749c2ccf7ca082ab89ef2a70baa0d6
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131479"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509541"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notas de versão do agente do Azure File Sync
 O Azure File Sync permite-lhe centralizar as partilhas de ficheiros da sua organização nos Ficheiros do Azure sem abdicar da flexibilidade, do desempenho e da compatibilidade de um servidor de ficheiros no local. As suas instalações do Windows Server são transformadas numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente (incluindo SMB, NFS e FTPS). Pode ter o número de caches que precisar em todo o mundo.
@@ -25,6 +25,7 @@ As seguintes versões do agente Azure File Sync são suportadas:
 
 | Marco | Número de versão do agente | Data da versão | Estado |
 |----|----------------------|--------------|------------------|
+| V11.2 Lançamento - [KB4539952](https://support.microsoft.com/en-us/help/4539952)| 11.2.0.0 | 2 de fevereiro de 2021 | Suportado - Voo |
 | V11.1 Lançamento - [KB4539951](https://support.microsoft.com/en-us/help/4539951)| 11.1.0.0 | 4 de novembro de 2020 | Suportado |
 | V10.1 Lançamento - [KB4522411](https://support.microsoft.com/en-us/help/4522411)| 10.1.0.0 | 5 de junho de 2020 | Suportado |
 | Rollup de atualização de maio de 2020 - [KB4522412](https://support.microsoft.com/help/4522412)| 10.0.2.0 | 19 de maio de 2020 | Suportado |
@@ -48,6 +49,32 @@ As seguintes versões do agente Azure File Sync expiraram e já não estão supo
 ### <a name="azure-file-sync-agent-update-policy"></a>Política de atualização do agente do Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
+## <a name="agent-version-11200"></a>Versão agente 11.2.0.0
+As seguintes notas de lançamento são para a versão 11.2.0.0 do agente Azure File Sync lançado a 2 de fevereiro de 2021. Estas notas juntam-se às notas de lançamento listadas para a versão 11.1.0.0.
+
+### <a name="improvements-and-issues-that-are-fixed"></a>Melhorias e problemas que são corrigidos 
+- Se uma sessão de sincronização for cancelada devido a um elevado número de erros por item, a sincronização pode passar por uma reconciliação quando uma nova sessão começar se o serviço Azure File Sync determinar que é necessária uma sessão de sincronização personalizada para corrigir os erros por item.
+- Registar um servidor utilizando o Register-AzStorageSyncServer cmdlet pode falhar com o erro "Exceção Não Manipulado".
+- Novo cmdlet PowerShell (Add-StorageSyncAllowedServerEndpointPath) para configurar os caminhos de pontos finais do servidor permitidos num servidor. Este cmdlet é útil para cenários em que a implementação do Azure File Sync é gerida por um Fornecedor de Solução Cloud (CSP) ou Fornecedor de Serviços e o cliente quer configurar caminhos de pontos finais permitidos num servidor. Ao criar um ponto final do servidor, se o caminho especificado não estiver na lista de permitir, a criação do ponto final do servidor falhará. Nota: esta é uma funcionalidade opcional e todos os caminhos suportados são permitidos por padrão ao criar um ponto final do servidor.  
+
+    
+    - Para adicionar um caminho de ponto final do servidor que é permitido, executar os seguintes comandos PowerShell no servidor:
+
+    ```powershell
+    Import-Module 'C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll' -verbose
+    Add-StorageSyncAllowedServerEndpointPath -Path <path>
+    ```  
+
+    - Para obter a lista de caminhos suportados, executar o seguinte comando PowerShell:
+    
+    ```powershell
+    Get-StorageSyncAllowedServerEndpointPath
+    ```     
+    - Para remover um caminho, executar o seguinte comando PowerShell:
+    
+    ```powershell
+    Remove-StorageSyncAllowedServerEndpointPath -Path <path>
+    ```  
 ## <a name="agent-version-11100"></a>Versão agente 11.1.0.0
 As seguintes notas de lançamento são para a versão 11.1.0.0 do agente Azure File Sync (lançado a 4 de novembro de 2020).
 

@@ -4,6 +4,15 @@
   items:
     - name: O que é a WAN Virtual?
       href: virtual-wan-about.md
+- name: Guias de Início Rápido
+  expanded: true
+  items:
+    - name: Modelos de ARM
+      expanded: true
+      items:
+        - name: Qualquer encaminhamento
+          displayName: Resource Manager Any-to-any routing
+          href: quickstart-any-to-any-template.md
 - name: Tutoriais
   expanded: true
   items:

@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 01/20/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 56751adedfc01b3927acc65f47910c3b1281f09c
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: edeb383317d4bdc0e7beef1f8390ddabd350f002
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98811679"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99507575"
 ---
 # <a name="sensor-data-mining-queries"></a>Consultas de mineração de dados de sensores
 
@@ -55,11 +55,11 @@ As consultas de mineração de dados que cria são atualizadas dinamicamente cad
 
 Você pode usar consultas para lidar com uma vasta gama de necessidades de segurança para várias equipas de segurança:
 
-- **Resposta a incidentes SOC**: Gere um relatório em tempo real para ajudar a lidar com a resposta imediata ao incidente. Por exemplo, gere um relatório para uma lista de dispositivos que podem necessitar de remendos.
+- **Resposta a incidentes SOC**: Gere um relatório em tempo real para ajudar a lidar com a resposta imediata ao incidente. Por exemplo, a Data Mining pode gerar um relatório para uma lista de dispositivos que podem necessitar de remendação.
 
 - **Forense :** Gerar um relatório baseado em dados históricos para relatórios de investigação.
 
-- **Integridade da rede de TI**: Gere um relatório que ajude a melhorar a segurança geral da rede. Por exemplo, gere um relatório que lista dispositivos com credenciais de autenticação fracas.
+- **Integridade da rede de TI**: Gere um relatório que ajude a melhorar a segurança geral da rede. Por exemplo, gerar um relatório pode ser gerado que lista dispositivos com credenciais de autenticação fracas.
 
 - **Visibilidade**: Gere um relatório que cubra todos os itens de consulta para visualizar todos os parâmetros de base da sua rede.
 

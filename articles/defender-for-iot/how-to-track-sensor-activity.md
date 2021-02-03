@@ -1,5 +1,5 @@
 ---
-title: Rastrear atividade de sensor
+title: Controlar a atividade do sensor
 description: A linha temporal do evento apresenta uma linha temporal de atividade detetada na sua rede, incluindo alertas e ações de gestão de alerta, eventos de rede e operações de utilizador, como o registo do utilizador e a eliminação do utilizador.
 author: shhazam-ms
 manager: rkarlin
@@ -7,14 +7,14 @@ ms.author: shhazam
 ms.date: 12/10/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 3895e01b1fbfcde79ff91bd1eade8d902c33b852
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 6dbe15da85a85303742ef28c7ca609755193f25e
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97843035"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509104"
 ---
-# <a name="track-sensor-activity"></a>Rastrear atividade de sensor
+# <a name="track-sensor-activity"></a>Controlar a atividade do sensor
 
 ## <a name="event-timeline"></a>Cronologia do evento
 
@@ -59,13 +59,13 @@ Para filtrar a linha do tempo:
 
 2. Definir filtros de eventos, da seguinte forma:
 
-   - **Incluir Endereço**: Exibir dispositivos de evento específicos.
+   - **Incluir Endereço**: Mostrar eventos para dispositivos específicos.
 
-   - **Excluir Endereço**: Ocultar dispositivos de evento específicos.
+   - **Excluir endereço**: Ocultar eventos para dispositivos específicos.
 
-   - **Incluir tipos de eventos**: Exibir tipos específicos de eventos.
+   - **Incluir tipos de eventos**: Exibir tipos de eventos específicos.
 
-   - **Excluir tipos de eventos**: Ocultar tipos específicos de eventos.
+   - **Excluir tipos de eventos**: Ocultar tipos de eventos específicos.
 
    - **Grupo de Dispositivos**: Selecione um grupo de dispositivos, tal como foi definido no mapa do dispositivo. Apenas os eventos deste grupo são apresentados.
 
@@ -87,8 +87,8 @@ Para filtrar a linha do tempo:
 
     - Selecione **O Ficheiro PCAP** para descarregar o ficheiro PCAP (se existir) que contém uma captura de pacote de toda a rede num momento específico. 
     
-      O ficheiro PCAP contém informações técnicas que podem ajudar os engenheiros a determinar exatamente onde estava o evento e o que está a acontecer lá. Pode analisar o ficheiro PCAP com um analisador de protocolo de rede, como o Wireshark, uma aplicação gratuita.
+      O ficheiro PCAP contém informações técnicas que podem ajudar os engenheiros de rede a determinar os parâmetros exatos do evento. Pode analisar o ficheiro PCAP com um analisador de protocolo de rede, como o Wireshark, uma aplicação de código aberto.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 [Ver alertas](how-to-view-alerts.md)

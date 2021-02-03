@@ -3,12 +3,12 @@ title: Monitorização e exploração madeireira - Azure
 description: Este artigo fornece uma visão geral da monitorização e início de sessão em Live Video Analytics no IoT Edge.
 ms.topic: reference
 ms.date: 04/27/2020
-ms.openlocfilehash: 6dc0a6d499d06c95bdccbc9e386d7f9288971ee8
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: a77ca6cf9dc66d1efda5741266f1a2eecc2599c0
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878109"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99507827"
 ---
 # <a name="monitoring-and-logging"></a>Monitorização e registos
 
@@ -254,14 +254,14 @@ Siga estes passos para permitir a recolha de métricas do módulo Live Video Ana
       urls = ["http://edgeHub:9600/metrics", "http://edgeAgent:9600/metrics", "http://{LVA_EDGE_MODULE_NAME}:9600/metrics"]
 
     [[outputs.azure_monitor]]
-      namespace_prefix = ""
+      namespace_prefix = "lvaEdge"
       region = "westus"
       resource_id = "/subscriptions/{SUBSCRIPTON_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.Devices/IotHubs/{IOT_HUB_NAME}"
     ```
     > [!IMPORTANT]
     > Certifique-se de que substitui as variáveis no ficheiro .toml. As variáveis são denotadas por aparelhos ( `{}` ).
 
-1. Na mesma pasta, crie um `.dockerfile` que contenha os seguintes comandos:
+1. Na mesma pasta, crie um Dockerfile que contenha os seguintes comandos:
     ```
         FROM telegraf:1.15.3-alpine
         COPY telegraf.toml /etc/telegraf/telegraf.conf
@@ -305,12 +305,27 @@ Siga estes passos para permitir a recolha de métricas do módulo Live Video Ana
      `AZURE_CLIENT_SECRET`: Especifica o segredo da aplicação para utilizar.  
      
      >[!TIP]
-     > Pode dar ao diretor de serviço o papel de **Editor de Métricas de Monitorização.**
+     > Pode dar ao diretor de serviço o papel de **Editor de Métricas de Monitorização.** Siga os passos na **[Create service principal](https://docs.microsoft.com/azure/azure-arc/data/upload-metrics-and-logs-to-azure-monitor?pivots=client-operating-system-macos-and-linux#create-service-principal)** para criar o principal de serviço e atribuir o papel.
 
 1. Após a implantação dos módulos, as métricas aparecerão no Azure Monitor sob um único espaço de nome. Os nomes métricos corresponderão aos emitidos por Prometeu. 
 
    Neste caso, no portal Azure, vá ao hub IoT e selecione **Métricas** no painel esquerdo. Devia ver as métricas.
 
+Utilizando o Prometheus juntamente com [o Log Analytics,](https://docs.microsoft.com/azure/azure-monitor/log-query/log-analytics-tutorial)pode gerar e [monitorizar métricas](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported) como CPUPercent, MemoryUsedPercent, etc. Utilizando a linguagem de consulta Kusto, pode escrever consultas como abaixo e obter a percentagem de CPU usada pelos módulos de borda IoT.
+```kusto
+let cpu_metrics = promMetrics_CL
+| where Name_s == "edgeAgent_used_cpu_percent"
+| extend dimensions = parse_json(Tags_s)
+| extend module_name = tostring(dimensions.module_name)
+| where module_name in ("lvaEdge","yolov3","tinyyolov3")
+| summarize cpu_percent = avg(Value_d) by bin(TimeGenerated, 5s), module_name;
+cpu_metrics
+| summarize cpu_percent = sum(cpu_percent) by TimeGenerated
+| extend module_name = "Total"
+| union cpu_metrics
+```
+
+[![Diagrama que mostra as métricas usando a consulta de Kusto.](./media/telemetry-schema/metrics.png)](./media/telemetry-schema/metrics.png#lightbox)
 ## <a name="logging"></a>Registo
 
 Tal como acontece com outros módulos IoT Edge, também pode [examinar os registos do contentor](../../iot-edge/troubleshoot.md#check-container-logs-for-issues) no dispositivo de borda. Pode configurar as informações escritas nos registos utilizando as seguintes propriedades gémeas do [módulo:](module-twin-configuration-schema.md)
@@ -326,7 +341,7 @@ Tal como acontece com outros módulos IoT Edge, também pode [examinar os regist
 
 * `logCategories`
 
-   * Uma lista separada por vírgulas de um ou mais destes valores: `Application` `Events` . `MediaPipeline`
+   * Uma lista separada por vírgulas de um ou mais destes valores: `Application` `Events` . . `MediaPipeline` .
    * O valor predefinido é `Application, Events`.
    * `Application`: Informações de alto nível do módulo, como mensagens de arranque de módulos, erros ambientais e chamadas de métodos diretos.
    * `Events`: Todos os eventos descritos anteriormente neste artigo.
@@ -359,6 +374,6 @@ O módulo irá agora escrever registos de depuração num formato binário para 
 
 Se tiver dúvidas, consulte a [monitorização e as métricas faq.](faq.md#monitoring-and-metrics)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Gravação de vídeo contínua](continuous-video-recording-tutorial.md)

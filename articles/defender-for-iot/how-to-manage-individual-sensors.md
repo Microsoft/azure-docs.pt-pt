@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 16031c3d67b075e962c73fbb38ada36c7efeddad
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: b35851bae8db39392d10a302d5f1059ba3ace696
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621219"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508765"
 ---
 # <a name="manage-individual-sensors"></a>Gerir sensores individuais
 
@@ -367,9 +367,9 @@ Para alterar o nome:
 
 1. Elimine o sensor da janela **de Gestão de Sensores.**
 
-1. Registe-se com o novo nome.
+1. Re-registrar com o novo nome.
 
-1. Descarregue e novo ficheiro de ativação.
+1. Descarregue o novo ficheiro de ativação.
 
 1. Inscreva-se no sensor e carre faça o upload do novo ficheiro de ativação.
 
@@ -504,7 +504,7 @@ A consola apresentará falhas de restauro.
 
 O procedimento a seguir descreve como atualizar um sensor autónomo utilizando a consola sensor. O processo de atualização demora cerca de 30 minutos.
 
-1. Aceda ao [portal do Azure](https://portal.azure.com/).
+1. Aceda ao [Portal do Azure](https://portal.azure.com/).
 
 2. Vá ao Defender para ioT.
 

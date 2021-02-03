@@ -3,12 +3,12 @@ title: Gravação contínua de vídeo para a nuvem e reprodução do tutorial de
 description: Neste tutorial, você vai aprender a usar Azure Live Video Analytics em Azure IoT Edge para gravar continuamente o vídeo para a nuvem e transmitir qualquer parte desse vídeo usando a Azure Media Services.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 2db59b9c2b2893cad9a613257b4b7c1bafe3e333
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 898e7a07007d50d848f78c32b8763bf727e4cdcb
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/03/2021
-ms.locfileid: "99491609"
+ms.locfileid: "99508290"
 ---
 # <a name="tutorial-continuous-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Tutorial: Gravação contínua de vídeo para a nuvem e reprodução da nuvem
 
@@ -183,7 +183,7 @@ Quando utiliza o módulo Live Video Analytics no IoT Edge para gravar o stream d
 1. Aceda a src/cloud-to-device-console-app/operations.js.
 1. Sob o nó **GraphTopologySet,** edite o seguinte:
 
-    `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/topology.json" `
+    `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/2.0/topology.json" `
 1. Em seguida, sob os nódos **GraphInstanceSet** e **GraphTopologyDelete,** certifique-se de que o valor da **topologiaName** corresponde ao valor da propriedade do **nome** na topologia do gráfico anterior:
 
     `"topologyName" : "CVRToAMSAsset"`  

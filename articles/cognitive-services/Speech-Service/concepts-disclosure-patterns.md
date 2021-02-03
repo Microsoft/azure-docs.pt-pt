@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: shlo
-ms.openlocfilehash: 348277d42c543bc45cf98bfeaf7ea8313afe8f6f
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 5cf933a11956bb8459bf6f5cd1b2b366eb8419d8
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021988"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508647"
 ---
 # <a name="disclosure-design-patterns"></a>Padrões de conceção de divulgação
 Agora que&#39;determinou o [nível](concepts-disclosure-guidelines.md#disclosure-assessment) certo de divulgação para a sua experiência de voz sintética,&#39;é uma boa altura para explorar potenciais padrões de design.
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Há um espectro de padrões de design de divulgação que pode aplicar à sua experiência de voz sintética. Se o resultado da sua avaliação de divulgação foi "Alta Divulgação", recomendamos [**a divulgação explícita,**](#explicit-disclosure)o que significa comunicar as origens da voz sintética. [**A divulgação implícita**](#implicit-disclosure) inclui pistas e padrões de interação que beneficiam experiências de voz, quer os níveis de divulgação necessários sejam ou não elevados ou baixos.
 ![Espectro de padrões de divulgação](media/responsible-ai/disclosure-patterns/affordances.png)
 
@@ -249,9 +249,8 @@ Use a divulgação como uma oportunidade para falhar graciosamente.
 
 * [Divulgação de Talento de Voz](/legal/cognitive-services/speech-service/disclosure-voice-talent)
 * [Orientações para a implantação responsável da tecnologia de voz sintética](concepts-guidelines-responsible-deployment-synthetic.md)
-* [Visão geral de Gating](concepts-gating-overview.md)
 * [Como Divulgar](concepts-disclosure-guidelines.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Divulgação de Talento de Voz](/legal/cognitive-services/speech-service/disclosure-voice-talent)

@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/02/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 4803691a82a97cd2be5fa3beafd4419010e7a9c9
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: bce83e11a0d4567d37e78388445c108385ca9a61
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97842985"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509079"
 ---
 # <a name="view-alerts"></a>Ver alertas
 
@@ -32,7 +32,7 @@ Para ver alertas:
 
 Pode ver alertas de acordo com várias categorias a partir da vista principal **alerta.** Selecione um alerta para rever detalhes e gerir o evento.
 
-| Ordenar por tipo | Description |
+| Ordenar por tipo | Descrição |
 |--|--|
 | **Alertas Importantes** | Alertas ordenados por importância. |
 | **Alertas Pinned** | Alertas que o utilizador prendeu para mais investigação. Os alertas fixos não são arquivados e são armazenados durante 14 dias na pasta fixada. |
@@ -84,7 +84,7 @@ Quando nenhuma das opções é selecionada, todos os alertas são apresentados.
 
 :::image type="content" source="media/how-to-work-with-alerts-sensor/alerts-security.png" alt-text="Segurança no ecrã dos alertas.":::
 
-## <a name="alert-window-options"></a>Opções de janela de alerta
+## <a name="alert-page-options"></a>Opções de página de alerta
 
 As mensagens de alerta fornecem as seguintes ações:
 
@@ -101,6 +101,8 @@ As mensagens de alerta fornecem as seguintes ações:
 - Selecione :::image type="icon" source="media/how-to-work-with-alerts-sensor/learn-and-acknowledge-all-alerts.png" border="false"::: para aprender e reconhecer todos os alertas.
 
 - Selecione :::image type="icon" source="media/how-to-work-with-alerts-sensor/export-to-csv.png" border="false"::: para exportar a lista de alerta para um ficheiro CSV e selecione a opção de exportação. Escolha **Alert Export** para a opção exportação regular para CSV. Ou escolha **Exporto de alerta alargado** para a possibilidade de adicionar linhas separadas para informações adicionais sobre um alerta no ficheiro CSV.
+
+## <a name="alert-pop-up-window-options"></a>Opções de janela pop-up de alerta
 
 - Selecione o :::image type="icon" source="media/how-to-work-with-alerts-sensor/export-to-pdf.png" border="false"::: ícone para descarregar um relatório de alerta como um ficheiro PDF.
 

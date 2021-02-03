@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: reference
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 53052b35a50899d6f9e761301f31b9ffd20a4b91
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 38012c5b4bb9338c1200d9583256193ee8402c98
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98610017"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99507918"
 ---
 # <a name="trusted-platform-module-tpm-and-virtualization-based-securityvbs-enclave-attestation-protocol"></a>Protocolo de atestado de plataforma fidedigno (TPM) e virtualização baseado em segurança (VBS) 
 
@@ -55,7 +55,7 @@ Cliente Azure Attestation ->
 
 **desafio** (BASE64URL(OCTETS)): Valor aleatório emitido pelo serviço.
 
-**service_context** (BASE64URL(OCTETS):Contexto opaco e encriptado criado pelo serviço, que inclui, entre outros, o desafio, e um prazo de validade para esse desafio. 
+**service_context** (BASE64URL(OCTETS):Contexto opaco criado pelo serviço.
 
 
 ### <a name="request-message"></a>Mensagem de pedido
@@ -236,7 +236,7 @@ Amostra do enclave TPM + VBS:
 
 - **value_type (Cadeia)**: Tipo de dados do valor da reclamação
 
-**service_context** (BASE64URL(OCTETS):Contexto opaco e encriptado criado pelo serviço que inclui, entre outros, o desafio e um prazo de validade para esse desafio.
+**service_context** (BASE64URL(OCTETS):Contexto opaco criado pelo serviço.
 
 ### <a name="report-message"></a>Mensagem de relatório
 

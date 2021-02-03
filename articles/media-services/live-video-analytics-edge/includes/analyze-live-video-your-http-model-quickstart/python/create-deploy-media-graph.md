@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 1b5dd2fb4ef8cb3f6fd169477d9ee82e912c146e
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 7cbb9a09a6f8eae6a9325f060664d50c5725e09f
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98956346"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508526"
 ---
 ### <a name="examine-and-edit-the-sample-files"></a>Examine e edite os ficheiros de amostra
 
@@ -16,16 +16,13 @@ Como parte dos pré-requisitos, descarregou o código de amostra para uma pasta.
 
 1. Aceda à pasta *src/cloud-to-device-app.* Aqui vê a sua *appsettings.jsno* ficheiro e alguns outros ficheiros:
 
-    * ***c2d-console-app.csproj** _ - O ficheiro do projeto para Visual Studio Code.
-    _ ***operations.jsem** _ - Uma lista das operações que pretende que o programa seja executado.
-    _ ***Program.cs** _ - O código do programa de amostra. Este código:
+    * operations.jsem - Uma lista das operações que quer que o programa seja executado.
+    * main.py - O código do programa de amostra. Este código:
 
-        _ Carrega as definições da aplicação.
-        * Invoca métodos diretos que o live video analytics no módulo IoT Edge expõe. Pode utilizar o módulo para analisar streams de vídeo ao vivo invocando os seus [métodos diretos.](../../../direct-methods.md)
+        * Carrega as definições da aplicação.
+        * Invoca métodos diretos que o live video analytics no módulo IoT Edge expõe. Pode utilizar o módulo para analisar streams de vídeo ao vivo invocando os seus métodos diretos.
         * Pausas para que possa examinar a saída do programa na janela **TERMINAL** e examinar os eventos que foram gerados pelo módulo na janela **OUTPUT.**
-        * Invoca métodos diretos para limpar recursos.
-
-
+        * Invoca métodos diretos para limpar recursos.  
 1. Editar o *operations.jsno* ficheiro:
     * Altere a ligação para a topologia do gráfico:
 
