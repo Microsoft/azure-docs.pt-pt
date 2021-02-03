@@ -6,16 +6,16 @@ ms.date: 07/10/2019
 ms.author: yalavi
 author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 6509425f11b09a2fa5229f9dd68a508241391925
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: e57b3dd31455db245103469874c517fe54479110
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875925"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526912"
 ---
 # <a name="understand-migration-options-to-newer-alerts"></a>Compreender opções de migração para alertas mais recentes
 
-Os alertas clássicos são [retirados](./monitoring-classic-retirement.md), embora ainda em uso limitado para recursos que ainda não suportam os novos alertas. Em breve será anunciada uma nova data para os restantes alertas de migração, [nuvem do Governo Azure](../../azure-government/documentation-government-welcome.md)e [Azure China 21Vianet](https://docs.azure.cn/).
+Os alertas clássicos são [retirados](./monitoring-classic-retirement.md) para os utilizadores da nuvem pública, embora ainda em uso limitado para recursos que ainda não suportam os novos alertas. Em breve será anunciada uma nova data para os restantes alertas de migração, [nuvem do Governo Azure](../../azure-government/documentation-government-welcome.md)e [Azure China 21Vianet](https://docs.azure.cn/).
 
 Este artigo explica como funciona a ferramenta de migração manual e de migração voluntária, que será usada para migrar as restantes regras de alerta. Também descreve remédios para alguns problemas comuns.
 
@@ -150,7 +150,7 @@ Para serviços de conta de armazenamento como bolha, tabela, arquivo e fila, as 
 | SASSuccess | Métrica de transações com dimensões "ResponseType"="Sucesso" e "Autenticação" = "SAS" | |
 | ServerOtherError | Métrica de transações com dimensões "ResponseType"="ServerOtherError" | |
 | ServerTimeOutError | Métrica de transações com dimensões "ResponseType"="ServerTimeOutError"  | |
-| Success | Métrica de transações com dimensões "ResponseType"="Sucesso" | |
+| Com êxito | Métrica de transações com dimensões "ResponseType"="Sucesso" | |
 | TotalBillableRequests| Transações | |
 | TotalEgress | Saída | |
 | TotalIngress | Entrada | |
@@ -193,7 +193,7 @@ Para cosmos DB, as métricas equivalentes são como mostrado abaixo:
 | Métrica em alertas clássicos | Métrica equivalente em novos alertas | Comentários|
 |--------------------------|---------------------------------|---------|
 | DisponíveisToragem     |DisponíveisToragem|   |
-| Tamanho dos dados | DataUsage| |
+| Tamanho dos Dados | DataUsage| |
 | Contagem de documentos | Contagem de documentos||
 | Tamanho do índice | IndexUsage||
 | Taxa de pedido de contagem de Mongo| MongoRequestCharge com dimensão "CommandName" = "contagem"||
@@ -264,4 +264,4 @@ Como parte da migração, serão criados novos alertas métricos e novos grupos 
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Como utilizar a ferramenta de migração](alerts-using-migration-tool.md)
-- [Preparar para a migração](alerts-prepare-migration.md)
+- [Preparar a migração](alerts-prepare-migration.md)

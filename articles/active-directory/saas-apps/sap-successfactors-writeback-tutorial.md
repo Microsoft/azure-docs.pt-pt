@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar a gravação do SAP SuccessFactors no Azure Ative Directory Microsoft Docs'
+title: 'Tutorial: Configurar a gravação do SAP SuccessFactors no Azure Ative Directory | Microsoft Docs'
 description: Saiba como configurar o atributo de volta aos SAP SuccessFactors da Azure AD
 services: active-directory
 author: cmmdesai
@@ -10,17 +10,17 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: chmutali
-ms.openlocfilehash: d39e00a80ab167936a749c73867b4343e6ed9d76
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3260787dec4ae26cd6ef7cc3bd562f39db8e3655
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006443"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526980"
 ---
 # <a name="tutorial-configure-attribute-write-back-from-azure-ad-to-sap-successfactors"></a>Tutorial: Configure atribui write-back de Azure AD a SAP SuccessFactors
 O objetivo deste tutorial é mostrar os passos para anular atributos de Azure AD a SAP SuccessFactors Employee Central. 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Pode configurar a app SAP SuccessFactors Writeback para escrever atributos específicos do Azure Ative Directory para a SAP SuccessFactors Employee Central. A aplicação de atribuição de recíprocos SuccessFactors suporta a atribuição de valores aos seguintes atributos Central dos Colaboradores:
 
@@ -282,9 +282,9 @@ Nesta secção, irá configurar como os dados dos utilizadores fluem de SuccessF
    | 3 | 8448 | e-mailType | Este valor constante é o valor de ID Do SuccessFactors associado ao e-mail de negócios. Atualize este valor para corresponder ao ambiente SuccessFactors. Consulte a secção Recuperar valor [constante para emailType](#retrieve-constant-value-for-emailtype) para etapas para definir este valor. |
    | 4 | true | e-mailIsPrimary | Utilize este atributo para definir o email de negócios como principal nos SuccessFactors. Se o e-mail de negócios não for primário, coloque esta bandeira em falso. |
    | 5 | userPrincipalName | [custom01 – custom15] | Utilizando **Add New Mapping**, pode escrever opcionalmente o userPrincipalName ou qualquer atributo AD Azure a um atributo personalizado disponível no objeto do Utilizador SuccessFactors.  |
-   | 6 | on-prem-samAccountName | nome de utilizador | Utilizando **o Add New Mapping,** pode mapear opcionalmente no local o nome de nome de utilizador DoFactcount Para o SuccessFactors. |
+   | 6 | No Prem SamAccountName | nome de utilizador | Utilizando **o Add New Mapping,** pode mapear opcionalmente no local o nome de nome de utilizador DoFactcount Para o SuccessFactors. Use [sincronização Azure AD Connect: Extensões de diretório](../hybrid/how-to-connect-sync-feature-directory-extensions.md) sincronizadas samAccountName a Azure AD. Aparecerá na queda da fonte à medida *que extension_yourTenantGUID_samAccountName* |
    | 7 | SSO | loginMethod | Se o inquilino SuccessFactors estiver configurado para [SSO parcial,](https://apps.support.sap.com/sap/support/knowledge/en/2320766)em seguida, usando Add New Mapping, pode configurar opcionalmente loginMethod para um valor constante de "SSO" ou "PWD". |
-   | 8 | número de telefone | businessPhoneNumber | Utilize este mapeamento para fluir *o telefoneNumber* de Azure AD para SuccessFactors negócio /número de telefone de trabalho. |
+   | 8 | telephoneNumber | businessPhoneNumber | Utilize este mapeamento para fluir *o telefoneNumber* de Azure AD para SuccessFactors negócio /número de telefone de trabalho. |
    | 9 | 10605 | BusinessPhoneType | Este valor constante é o valor de ID SuccessFactors associado ao telefone comercial. Atualize este valor para corresponder ao ambiente SuccessFactors. Consulte a secção Recuperar valor [constante para telefoneType](#retrieve-constant-value-for-phonetype) para etapas para definir este valor. |
    | 10 | true | businessPhoneIsPrimary | Utilize este atributo para definir a bandeira principal para o número de telefone comercial. Valores válidos são verdadeiros ou falsos. |
    | 11 | dispositivo móvel | cellPhoneNumber | Utilize este mapeamento para fluir *o telefoneNumber* de Azure AD para SuccessFactors negócio /número de telefone de trabalho. |
@@ -325,8 +325,8 @@ Uma vez concluídas as configurações de aplicações do SuccessFactors, pode l
 1. No **separador Provisioning,** desa fixação do **Estado de Provisionamento** para **On**.
 
 1. Selecione **Âmbito**. Pode selecionar a partir de uma das seguintes opções: 
-   * **Sincronize todos os utilizadores e grupos**: Selecione esta opção se pretender escrever atributos mapeados de todos os utilizadores, desde Azure AD a SuccessFactors, sujeitos às regras de deteção definidas no Âmbito do Objeto fonte **de Mapeamentos.**  ->  **Source Object Scope** 
-   * **Sincronizar apenas utilizadores e grupos atribuídos**: Selecione esta opção se pretender rescrever atributos mapeados de apenas utilizadores que atribuiu a esta aplicação na opção de menu De gestão de **aplicações**  ->  **Manage**  ->  **e grupos.** Estes utilizadores também estão sujeitos às regras de deteção definidas no âmbito do objeto de **origem de mapeamentos.**  ->  **Source Object Scope**
+   * **Sincronize todos os utilizadores e grupos**: Selecione esta opção se pretender escrever atributos mapeados de todos os utilizadores, desde Azure AD a SuccessFactors, sujeitos às regras de deteção definidas no Âmbito do Objeto fonte **de Mapeamentos.**  ->   
+   * **Sincronizar apenas utilizadores e grupos atribuídos**: Selecione esta opção se pretender rescrever atributos mapeados de apenas utilizadores que atribuiu a esta aplicação na opção de menu De gestão de **aplicações**  ->    ->  **e grupos.** Estes utilizadores também estão sujeitos às regras de deteção definidas no âmbito do objeto de **origem de mapeamentos.**  ->  
 
    > [!div class="mx-imgBorder"]
    > ![Selecione o âmbito de writeback](./media/sap-successfactors-inbound-provisioning/select-writeback-scope.png)
