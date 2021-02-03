@@ -2,15 +2,15 @@
 title: Configure aplicações Linux Python
 description: Saiba como configurar o recipiente Python no qual são executadas aplicações web, utilizando tanto o portal Azure como o Azure CLI.
 ms.topic: quickstart
-ms.date: 11/16/2020
+ms.date: 02/01/2021
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 7589b5c66bf4fa86db243574f551ec585ccccea1
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 83c49eea8bda10d665c0a08666276e905c60c584
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96855061"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493707"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Configure uma aplicação Linux Python para o Azure App Service
 
@@ -22,7 +22,7 @@ Este guia fornece conceitos e instruções fundamentais para os desenvolvedores 
 
 Pode utilizar o [portal Azure](https://portal.azure.com) ou o CLI Azure para configuração:
 
-- **Portal Azure**, use a página de Configuração de **Configurações** da aplicação  >  **Configuration** como descrito no [Configure uma aplicação de Serviço de Aplicações no portal Azure](configure-common.md).
+- **Portal Azure**, use a página de Configuração de **Configurações** da aplicação  >   como descrito no [Configure uma aplicação de Serviço de Aplicações no portal Azure](configure-common.md).
 
 - **Azure CLI:** tem duas opções.
 
@@ -67,10 +67,13 @@ Em vez disso, pode executar uma versão não suportada do Python construindo a s
 
 O sistema de construção do App Service, chamado Oryx, executa os seguintes passos quando implementa a sua aplicação utilizando pacotes Git ou zip:
 
-1. Executar um script pré-construção personalizado se especificado pela `PRE_BUILD_COMMAND` definição.
+1. Executar um script pré-construção personalizado se especificado pela `PRE_BUILD_COMMAND` definição. (O script pode, por si só, executar outros scripts Python e Node.js, comandos pip e npm, e ferramentas baseadas em nó como fios, por exemplo, `yarn install` e `yarn build` .)
+
 1. Execute o `pip install -r requirements.txt`. O *ficheirorequirements.txt* deve estar presente na pasta raiz do projeto. Caso contrário, o processo de construção relata o erro: "Não foi possível encontrar setup.py ou requirements.txt; Não a funcionar pip instalar."
+
 1. Se *manage.py* for encontrado na raiz do repositório (indicando uma aplicação Django), executar *manage.py a collectásta .* No entanto, se a `DISABLE_COLLECTSTATIC` regulação `true` for, este passo é ignorado.
-1. Executar script pós-construção personalizado se especificado pela `POST_BUILD_COMMAND` definição.
+
+1. Executar script pós-construção personalizado se especificado pela `POST_BUILD_COMMAND` definição. (Mais uma vez, o script pode executar outros scripts Python e Node.js, comandos pip e npm, e ferramentas baseadas em nó.)
 
 Por predefinição, as `PRE_BUILD_COMMAND` `POST_BUILD_COMMAND` definições e `DISABLE_COLLECTSTATIC` as definições estão vazias. 
 
@@ -131,6 +134,52 @@ O quadro seguinte descreve as definições de produção relevantes para o Azure
 | `ALLOWED_HOSTS` | Na produção, o Django requer que inclua o URL da aplicação na `ALLOWED_HOSTS` variedade de *settings.py.* Pode recuperar este URL em tempo de execução com o código, `os.environ['WEBSITE_HOSTNAME']` . O Serviço de Aplicações define automaticamente a `WEBSITE_HOSTNAME` variável ambiental para o URL da aplicação. |
 | `DATABASES` | Defina as definições no Serviço de Aplicações para a ligação da base de dados e carregue-as como variáveis ambientais para povoar o [`DATABASES`](https://docs.djangoproject.com/en/3.1/ref/settings/#std:setting-DATABASES) dicionário. Pode armazenar alternadamente os valores (especialmente o nome de utilizador e a palavra-passe) como [segredos do Azure Key Vault](../key-vault/secrets/quick-create-python.md). |
 
+## <a name="serve-static-files-for-django-apps"></a>Sirva ficheiros estáticos para aplicativos Django
+
+Se a sua aplicação web Django inclui ficheiros frontais estáticos, siga primeiro as instruções sobre [como gerir ficheiros estáticos](https://docs.djangoproject.com/en/3.1/howto/static-files/) na documentação do Django.
+
+Para o Serviço de Aplicações, então es faça as seguintes modificações:
+
+1. Considere usar variáveis ambientais (para o desenvolvimento local) e Definições de Aplicações (ao implementar na nuvem) para definir dinamicamente o Django `STATIC_URL` e `STATIC_ROOT` as variáveis. Por exemplo:    
+
+    ```python
+    STATIC_URL = os.environ.get("DJANGO_STATIC_URL", "/static/")
+    STATIC_ROOT = os.environ.get("DJANGO_STATIC_ROOT", "./static/")    
+    ```
+
+    `DJANGO_STATIC_URL` e `DJANGO_STATIC_ROOT` pode ser alterado conforme necessário para os seus ambientes locais e em nuvem. Por exemplo, se o processo de construção dos seus ficheiros estáticos os colocar numa pasta chamada `django-static` , então pode definir `DJANGO_STATIC_URL` para evitar a `/django-static/` utilização do padrão.
+
+1. Se tiver um script pré-construído que gere ficheiros estáticos numa pasta diferente, inclua essa pasta na variável Django para que o `STATICFILES_DIRS` processo de Django `collectstatic` os encontre. Por exemplo, se executar `yarn build` a sua pasta frontal e o fio gerar uma pasta contendo `build/static` ficheiros estáticos, então inclua a pasta da seguinte forma:
+
+    ```python
+    FRONTEND_DIR = "path-to-frontend-folder" 
+    STATICFILES_DIRS = [os.path.join(FRONTEND_DIR, 'build', 'static')]    
+    ```
+
+    Aqui, `FRONTEND_DIR` para construir um caminho para onde uma ferramenta de construção como o fio é executado. Pode voltar a utilizar uma variável ambiental e definição de aplicações conforme desejado.
+
+1. Adicione `whitenoise` ao seu ficheiro *requirements.txt.* [Whitenoise](http://whitenoise.evans.io/en/stable/) (whitenoise.evans.io) é um pacote Python que torna simples para uma aplicação django de produção servir os seus próprios ficheiros estáticos. Whitenoise serve especificamente os ficheiros que são encontrados na pasta especificada pela `STATIC_ROOT` variável Django.
+
+1. No seu ficheiro *settings.py,* adicione a seguinte linha para Whitenoise:
+
+    ```python
+    STATICFILES_STORAGE = ('whitenoise.storage.CompressedManifestStaticFilesStorage')
+    ```
+
+1. Também modifique as `MIDDLEWARE` listas e `INSTALLED_APPS` listas para incluir Whitenoise:
+
+    ```python
+    MIDDLEWARE = [
+        "whitenoise.middleware.WhiteNoiseMiddleware",
+        # Other values follow
+    ]
+
+    INSTALLED_APPS = [
+        "whitenoise.runserver_nostatic",
+        # Other values follow
+    ]
+    ```
+
 ## <a name="container-characteristics"></a>Características do contentor
 
 Quando implementadas no Serviço de Aplicações, as aplicações Python funcionam dentro de um contentor Linux Docker que está definido no [repositório do Serviço de Aplicações Python GitHub.](https://github.com/Azure-App-Service/python) Pode encontrar as configurações de imagem dentro dos diretórios específicos da versão.
@@ -150,6 +199,8 @@ Este contentor tem as seguintes características:
 
 - O Serviço de Aplicações define automaticamente uma variável ambiental nomeada `WEBSITE_HOSTNAME` com o URL da aplicação web, tal como `msdocs-hello-world.azurewebsites.net` . Também define `WEBSITE_SITE_NAME` com o nome da sua app, como `msdocs-hello-world` . 
    
+- npm e Node.js são instalados no recipiente para que possa executar ferramentas de construção baseadas em nó, como fios.
+
 ## <a name="container-startup-process"></a>Processo de arranque de contentores
 
 Durante o arranque, o Serviço de Aplicações no contentor do Linux executa os seguintes passos:
@@ -270,7 +321,7 @@ Por exemplo, se criou a definição de aplicações chamada `DATABASE_SERVER` , 
 ```python
 db_server = os.environ['DATABASE_SERVER']
 ```
-    
+
 ## <a name="detect-https-session"></a>Detetar sessão HTTPS
 
 No Serviço de Aplicações, [a rescisão de SSL](https://wikipedia.org/wiki/TLS_termination_proxy) (wikipedia.org) ocorre nos equilibristas de carga de rede, pelo que todos os pedidos HTTPS chegam à sua aplicação como pedidos HTTP não encriptados. Se a lógica da sua aplicação precisar de verificar se os pedidos do utilizador estão encriptados ou não, inspecione o `X-Forwarded-Proto` cabeçalho.
@@ -294,7 +345,7 @@ Quando implementa o seu código, o Serviço de Aplicações executa o processo d
 
 Utilize os seguintes passos para aceder aos registos de implantação:
 
-1. No portal Azure para a **Deployment** sua aplicação web, selecione  >  **Deployment Deployment Center (Preview)** no menu esquerdo.
+1. No portal Azure para a sua aplicação web, selecione  >  **Deployment Deployment Center (Preview)** no menu esquerdo.
 1. No **separador Registares,** selecione o **ID do Compromisso** para o compromisso mais recente.
 1. Na página de detalhes do **Registo** que aparece, selecione os Registos de **Espetáculos...** link que aparece ao lado de "Running oryx build...".
 

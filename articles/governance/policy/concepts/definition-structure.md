@@ -3,12 +3,12 @@ title: Detalhes da estrutura de definição de políticas
 description: Descreve como as definições de política são usadas para estabelecer convenções para recursos Azure na sua organização.
 ms.date: 10/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6e04551a2ef2f890844693fec71d2d3232a456f2
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 607d1d85dbb370305d0337cc311433c37e36c4c0
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98220818"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493316"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
@@ -132,7 +132,7 @@ A propriedade opcional `metadata` armazena informações sobre a definição de 
 
 ## <a name="parameters"></a>Parâmetros
 
-Os parâmetros ajudam a simplificar a sua gestão de políticas reduzindo o número de definições políticas. Pense em parâmetros como os campos numa forma , `name` `address` `city` `state` . Estes parâmetros mantêm-se sempre os mesmos, no entanto os seus valores mudam com base no indivíduo que preenche o formulário.
+Os parâmetros ajudam a simplificar a sua gestão de políticas reduzindo o número de definições políticas. Pense em parâmetros como os campos numa forma , `name` `address` , , , `city` `state` . Estes parâmetros mantêm-se sempre os mesmos, no entanto os seus valores mudam com base no indivíduo que preenche o formulário.
 Os parâmetros funcionam da mesma forma quando se constrói políticas. Ao incluir parâmetros numa definição de política, pode reutilizar essa política para diferentes cenários utilizando valores diferentes.
 
 > [!NOTE]
@@ -348,7 +348,7 @@ No exemplo seguinte, `concat` é usado para criar um lookup de campo de tags par
                 "value": "[resourcegroup().tags[parameters('tagName')]]"
             }],
             "roleDefinitionIds": [
-                "/providers/microsoft.authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+                "/providers/microsoft.authorization/roleDefinitions/4a9ae827-6dc8-4573-8ac7-8239d42aa03f"
             ]
         }
     }
@@ -800,7 +800,7 @@ A função a seguir está disponível para ser utilizada numa regra de política
 As seguintes funções só estão disponíveis nas regras políticas:
 
 - `addDays(dateTime, numberOfDaysToAdd)`
-  - **dataTime**: [Required] string - String in the Universal ISO 8601 DateTime format 'yy-MM-ddTHH:mm:mms. FFFFFZ'
+  - **dataTime**: [Required] string - String in the Universal ISO 8601 DateTime format 'yyyy-MM-ddTHH:mm:mms. FFFFFZ'
   - **númeroOfDaysToAdd**: [Necessário] inteiro - Número de dias a adicionar
 - `field(fieldName)`
   - **nome de campo**: [Obrigatório] cadeia - Nome do [campo](#fields) para recuperar

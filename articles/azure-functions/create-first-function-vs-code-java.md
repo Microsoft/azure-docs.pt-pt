@@ -3,12 +3,12 @@ title: Criar uma função Java utilizando código de estúdio visual - Funções
 description: Aprenda a criar uma função Java e, em seguida, publique o projeto local para hospedagem sem servidor em Funções Azure usando a extensão de Funções Azure no Código do Estúdio Visual.
 ms.topic: quickstart
 ms.date: 11/03/2020
-ms.openlocfilehash: daaa578b2842a6314706b3578f4c9e44d46aa6ce
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 36516abd8b50c0b0b7d72e6bae0b67701509ca65
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93425072"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493639"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-using-visual-studio-code"></a>Quickstart: Criar uma função Java em Azure usando Código de Estúdio Visual
 
@@ -31,44 +31,44 @@ Antes de começar, certifique-se de que tem os seguintes requisitos em vigor:
 
 + [Apache Maven,](https://maven.apache.org)versão 3.0 ou superior.
 
-+ [Código visual do estúdio](https://code.visualstudio.com/) numa das [plataformas suportadas.](https://code.visualstudio.com/docs/supporting/requirements#_platforms)
++ [Visual Studio Code](https://code.visualstudio.com/) numa das [plataformas suportadas](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 
 + O [pacote de extensão java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)  
 
-+ A [extensão de Funções Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) para Código de Estúdio Visual. 
++ A [extensão das Funções do Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) para o Visual Studio Code. 
 
 ## <a name="create-your-local-project"></a><a name="create-an-azure-functions-project"></a>Crie o seu projeto local
 
-Nesta secção, você usa o Código do Estúdio Visual para criar um projeto local de Funções Azure em Java. Mais tarde neste artigo, publicará o seu código de função para Azure. 
+Nesta secção, você usa o Código do Estúdio Visual para criar um projeto local de Funções Azure em Java. Mais adiante neste artigo, irá publicar o seu código de função no Azure. 
 
-1. Escolha o ícone Azure na barra de Atividade, em seguida, na área **Azure: Funções,** selecione o **novo projeto...** ícone.
+1. Selecione o ícone do Azure na barra de Atividade e, em seguida, na área **Azure: Funções**, selecione o ícone **Criar novo projeto...**.
 
-    ![Escolha Criar um novo projeto](./media/functions-create-first-function-vs-code/create-new-project.png)
+    ![Selecione Criar um novo projeto](./media/functions-create-first-function-vs-code/create-new-project.png)
 
-1. Escolha um local de diretório para o seu espaço de trabalho do projeto e escolha **Select**.
+1. Selecione uma localização do diretório para a área de trabalho do seu projeto e escolha **Selecionar**.
 
     > [!NOTE]
     > Estes passos foram concebidos para serem concluídos fora de um espaço de trabalho. Neste caso, não selecione uma pasta de projeto que faz parte de uma área de trabalho.
 
-1. Fornecer as seguintes informações nas instruções:
+1. Forneça as seguintes informações nos pedidos:
 
-    + **Selecione um idioma para o seu projeto de função** : Escolha `Java` .
+    + **Selecione um idioma para o seu projeto de função**: Selecione `Java`.
 
-    + **Selecione uma versão de Java** : Escolha `Java 8` `Java 11` ou, a versão Java em que as suas funções funcionam em Azure. Escolha uma versão Java que verificou localmente.
+    + **Selecione uma versão de Java**: Escolha `Java 8` `Java 11` ou, a versão Java em que as suas funções funcionam em Azure. Escolha uma versão Java que verificou localmente.
 
-    + **Fornecer um ID de grupo** : Escolha `com.function` .
+    + **Fornecer um ID de grupo**: Escolha `com.function` .
 
     + **Fornecer uma identificação de artefacto:** Escolha `myFunction` .
 
-    + **Fornecer uma versão** : Escolha `1.0-SNAPSHOT` .
+    + **Fornecer uma versão**: Escolha `1.0-SNAPSHOT` .
 
-    + **Fornecer um nome de pacote** : Escolha `com.function` .
+    + **Fornecer um nome de pacote**: Escolha `com.function` .
 
-    + **Fornecer um nome de aplicação** : `myFunction-12345` Escolha.
+    + **Fornecer um nome de aplicação**: `myFunction-12345` Escolha.
 
-    + **Nível de autorização** : `Anonymous` Escolha, que permite a qualquer pessoa ligar para o ponto final da sua função. Para saber mais sobre o nível de autorização, consulte [as teclas de Autorização](functions-bindings-http-webhook-trigger.md#authorization-keys).
+    + **Nível de autorização**: `Anonymous` Escolha, que permite a qualquer pessoa ligar para o ponto final da sua função. Para saber mais sobre o nível de autorização, consulte [as teclas de Autorização](functions-bindings-http-webhook-trigger.md#authorization-keys).
 
-    + **Selecione como pretende abrir o seu projeto** : Escolha `Add to workspace` .
+    + **Selecione como gostaria de abrir o seu projeto**: Selecione `Add to workspace`.
 
 1. Utilizando esta informação, o Visual Studio Code gera um projeto Azure Functions com um gatilho HTTP. Pode ver os ficheiros de projeto locais no Explorer. Para saber mais sobre ficheiros que são criados, consulte [os ficheiros do projeto Gerados.](functions-develop-vs-code.md#generated-project-files) 
 
@@ -86,7 +86,7 @@ Depois de verificar que a função funciona corretamente no seu computador local
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Utilizou o Visual Studio Code para criar uma aplicação de funções com uma função simples acionada por HTTP. No artigo seguinte, expande essa função adicionando uma ligação de saída. Esta ligação escreve o string do pedido HTTP para uma mensagem numa fila de armazenamento de fila Azure. 
+Utilizou o [Código do Estúdio Visual](functions-develop-vs-code.md?tabs=java) para criar uma aplicação de função com uma função simples desencadeada por HTTP. No artigo seguinte, expande essa função ligando-se ao Azure Storage. Para saber mais sobre a ligação a outros serviços Azure, consulte [adicionar ligações a uma função existente em Funções Azure](add-bindings-existing-function.md?tabs=java). 
 
 > [!div class="nextstepaction"]
 > [Ligue-se a uma fila de armazenamento Azure](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-java)

@@ -1,15 +1,15 @@
 ---
 title: 'Quickstart: Enviar eventos personalizados para a fila de armazenamento - Grade de Eventos, Azure CLI'
 description: 'Quickstart: Use Azure Event Grid e Azure CLI para publicar um tópico e subscrever esse evento. É utilizada uma fila de armazenamento para o ponto final.'
-ms.date: 07/07/2020
+ms.date: 02/02/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4de7aa1c111b5b21a27b155474ae10f78feba083
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 00808e7eca13824833673ef820d39b70bf618dd2
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566321"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493270"
 ---
 # <a name="quickstart-route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>Quickstart: Encaminhe eventos personalizados para o armazenamento da Fila Azure com Azure CLI e Grade de Eventos
 
@@ -117,8 +117,13 @@ Navegue para o armazenamento de Filas no portal e repare que o Event Grid enviou
 
 ![Mostrar mensagens](./media/custom-event-to-queue-storage/messages.png)
 
+> [!NOTE]
+> Se utilizar um [gatilho de armazenamento da fila Azure para funções Azure](../azure-functions/functions-bindings-storage-queue-trigger.md) para uma fila que recebe mensagens da Grelha de Eventos, poderá ver a seguinte mensagem de erro na execução da função: `The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.`
+> 
+> A razão é que quando se usa um [gatilho de armazenamento da Fila Azure](../azure-functions/functions-bindings-storage-queue-trigger.md), as Funções Azure esperam uma cadeia **codificada base64**, mas a Grade de Evento envia mensagens para uma fila de armazenamento num formato de texto simples. Atualmente, não é possível configurar o gatilho da fila para as Funções Azure aceitarem texto simples. 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+
+## <a name="clean-up-resources"></a>Limpar os recursos
 Se quiser continuar a trabalhar com este evento, não limpe os recursos criados neste artigo. Caso contrário, utilize o comando seguinte para eliminar os recursos que criou neste artigo.
 
 ```azurecli-interactive

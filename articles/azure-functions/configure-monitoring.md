@@ -4,12 +4,12 @@ description: Saiba como ligar a sua aplicação de função a Application Insigh
 ms.date: 8/31/2020
 ms.topic: how-to
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: e24f2b1a61d77dafd7a23b04d225d0301f82ca59
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: 5007009d9aabf9a1c1c6e1d5c2f286c0ba25b340
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99070145"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493758"
 ---
 # <a name="how-to-configure-monitoring-for-azure-functions"></a>Como configurar a monitorização para as funções do Azure
 
@@ -229,6 +229,8 @@ az functionapp config appsettings delete --name <FUNCTION_APP_NAME> \
 --setting-names SCALE_CONTROLLER_LOGGING_ENABLED
 ```
 
+Com o registo do controlador de escala ativado, é agora capaz [de consultar os registos do controlador de escala](analyze-telemetry-data.md#query-scale-controller-logs). 
+
 ## <a name="enable-application-insights-integration"></a>Ativar a integração do Application Insights
 
 Para que uma aplicação de função envie dados para o Application Insights, precisa de conhecer a chave de instrumentação de um recurso Application Insights. A chave deve estar numa definição de aplicação chamada **APPINSIGHTS_INSTRUMENTATIONKEY**.
@@ -271,30 +273,6 @@ Se um recurso Application Insights não foi criado com a sua aplicação de fun�
 
 > [!NOTE]
 > As primeiras versões de Funções utilizadas na monitorização incorporada, que já não é recomendada. Ao ativar a integração do Application Insights para uma aplicação de tal função, também deve [desativar a sessão embutimento.](#disable-built-in-logging)  
-
-## <a name="query-scale-controller-logs"></a>Registos do controlador de escala de consulta
-
-Depois de permitir a integração tanto do Controlador de Escala como do Application Insights, pode utilizar a pesquisa de registo de insights de aplicação para consultar os registos do controlador de escala emitido. Os registos do controlador de escala são guardados na `traces` coleção na categoria **ScaleControllerLogs.**
-
-A seguinte consulta pode ser usada para procurar todos os registos do controlador de escala para a aplicação de função atual dentro do período de tempo especificado:
-
-```kusto
-traces 
-| extend CustomDimensions = todynamic(tostring(customDimensions))
-| where CustomDimensions.Category == "ScaleControllerLogs"
-```
-
-A consulta que se segue expande-se na consulta anterior para mostrar como obter apenas registos indicando uma alteração na escala:
-
-```kusto
-traces 
-| extend CustomDimensions = todynamic(tostring(customDimensions))
-| where CustomDimensions.Category == "ScaleControllerLogs"
-| where message == "Instance count changed"
-| extend Reason = CustomDimensions.Reason
-| extend PreviousInstanceCount = CustomDimensions.PreviousInstanceCount
-| extend NewInstanceCount = CustomDimensions.CurrentInstanceCount
-```
 
 ## <a name="disable-built-in-logging"></a>Desativar o registo integrado
 

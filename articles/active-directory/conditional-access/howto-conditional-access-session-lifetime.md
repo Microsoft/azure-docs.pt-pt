@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6deb0c005b5ed7daf5b30bea8a65ee70d8b460c5
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 205136437fa1a2a33b3b337f5cc9f2dde283faef
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837469"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491945"
 ---
-# <a name="configure-authentication-session-management-with-conditional-access"></a>Configurar a gestão de sessões de autenticação com o Acesso Condicional
+# <a name="configure-authentication-session-management-with-conditional-access"></a>Configurar gestão de sessão de autenticação com Acesso Condicional
 
 Em implementações complexas, as organizações podem ter a necessidade de restringir as sessões de autenticação. Alguns cenários podem incluir:
 
@@ -88,7 +88,7 @@ O padrão AD AD AZure para persistência da sessão de navegador permite que os 
 O Acesso Condicional é uma capacidade AZure AD Premium e requer uma licença premium. Se quiser saber mais sobre o Acesso Condicional, veja [o que é o Acesso Condicional no Diretório Ativo Azure?](overview.md#license-requirements)
 
 > [!WARNING]
-> Se estiver a utilizar a funcionalidade [de vida útil de token configurável](../develop/active-directory-configurable-token-lifetimes.md) atualmente em visualização pública, por favor, note que não suportamos a criação de duas políticas diferentes para a mesma combinação de utilizador ou app: uma com esta funcionalidade e outra com uma funcionalidade de vida simbólica. A Microsoft planeia retirar a funcionalidade de vida útil de token configurável para a atualização e a sessão de token lifes a 30 de janeiro de 2021 e substituí-la pela funcionalidade de gestão da sessão de autenticação de acesso condicional.  
+> Se estiver a utilizar a funcionalidade [de vida útil de token configurável](../develop/active-directory-configurable-token-lifetimes.md) atualmente em visualização pública, por favor, note que não suportamos a criação de duas políticas diferentes para a mesma combinação de utilizador ou app: uma com esta funcionalidade e outra com uma funcionalidade de vida simbólica. A Microsoft retirou a funcionalidade de vida útil de token configurável para a atualização e sessão de token lifes em 30 de janeiro de 2021 e substituiu-a pela funcionalidade de gestão da sessão de autenticação de acesso condicional.  
 >
 > Antes de ativar a frequência de inscrição, certifique-se de que outras definições de reauthenciacation estão desativadas no seu inquilino. Se estiver ativado "Remember MFA em dispositivos fidedignos", certifique-se de desativá-lo antes de utilizar a frequência de início de sposição, uma vez que utilizar estas duas definições em conjunto pode levar a que os utilizadores sejam inesperadamente informados. Para saber mais sobre as solicitações de reauestatura e a vida útil da sessão, consulte o artigo, [otimize as solicitações de reauestação e compreenda a vida útil da sessão para autenticação multi-factor Azure AD](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
 

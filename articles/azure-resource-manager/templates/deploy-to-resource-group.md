@@ -3,12 +3,12 @@ title: Mobilizar recursos para grupos de recursos
 description: Descreve como implementar recursos num modelo de Gestor de Recursos Azure. Mostra como direcionar mais do que um grupo de recursos.
 ms.topic: conceptual
 ms.date: 01/13/2021
-ms.openlocfilehash: 9eb70e5ce69a2c7bc7ac9b8c9a7a558d09ecbef0
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: c3401346f31d34d92da1f52ca79f691e94e7eb78
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98186231"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491559"
 ---
 # <a name="resource-group-deployments-with-arm-templates"></a>Implementações de grupos de recursos com modelos ARM
 
@@ -128,9 +128,9 @@ Para obter um modelo de exemplo, consulte [Criar grupo de recursos.](#create-res
 
 ### <a name="scope-to-tenant"></a>Âmbito para inquilino
 
-Pode criar recursos no arrendatário definindo o `scope` conjunto para `/` . O utilizador que implementa o modelo deve ter o [acesso necessário para implantar no arrendatário](deploy-to-tenant.md#required-access).
+Para criar recursos no inquilino, estabeleça `scope` `/` o. O utilizador que implementa o modelo deve ter o [acesso necessário para implantar no arrendatário](deploy-to-tenant.md#required-access).
 
-Pode utilizar uma implantação aninhada `scope` e `location` definida.
+Para utilizar uma implantação aninhada, definido `scope` e `location` .
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/resource-group-to-tenant.json" highlight="9,10,14":::
 
@@ -142,7 +142,7 @@ Para mais informações, consulte [o Grupo de Gestão.](deploy-to-management-gro
 
 ## <a name="deploy-to-target-resource-group"></a>Implementar para o grupo de recursos-alvo
 
-Para implantar recursos no grupo de recursos-alvo, defina esses recursos na secção de **recursos** do modelo. O modelo a seguir cria uma conta de armazenamento no grupo de recursos que é especificado na operação de implantação.
+Para implantar recursos no grupo de recursos-alvo, defina esses recursos na `resources` secção do modelo. O modelo a seguir cria uma conta de armazenamento no grupo de recursos que é especificado na operação de implantação.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.json":::
 

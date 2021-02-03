@@ -11,18 +11,21 @@ ms.topic: reference
 ms.date: 08/24/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4237aba81a01423a3356a30879fbd27450c876bd
-ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
+ms.openlocfilehash: 491549933817a127a92180b0e4b455e461e4d3a2
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97976508"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492251"
 ---
 # <a name="page-layout-versions"></a>Versões do esquema de página
 
 Os pacotes de layout da página são periodicamente atualizados para incluir correções e melhorias nos seus elementos de página. O registo de alterações a seguir especifica as alterações introduzidas em cada versão.
 
 ## <a name="self-asserted-page-selfasserted"></a>Página autoafirmada (autoasserida)
+
+**2.1.2**
+- Corrigiu a questão da codificação da localização para línguas como o espanhol e o francês.
 
 **2.1.1**
 
@@ -70,6 +73,10 @@ Os pacotes de layout da página são periodicamente atualizados para incluir cor
 - Versão inicial
 
 ## <a name="unified-sign-in-sign-up-page-with-password-reset-link-unifiedssp"></a>Página de inscrição unificada com link de reset de palavra-passe (unifiedssp)
+
+**2.1.2**
+- Corrigiu a questão da codificação da localização para línguas como o espanhol e o francês.
+- Permitindo que o link "esqueceu-se da palavra-passe" para usar como troca de reclamações como IDP social.
 
 **2.1.1**
 - Adicionei um UXString `heading` para `intro` além de exibir na página como um título. Isto é escondido por defeito.
@@ -176,6 +183,6 @@ Os pacotes de layout da página são periodicamente atualizados para incluir cor
 
 - Versão inicial
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter detalhes sobre como personalizar a interface do utilizador das suas aplicações em políticas personalizadas, consulte [Personalizar a interface do utilizador da sua aplicação utilizando uma política personalizada.](customize-ui-with-html.md)

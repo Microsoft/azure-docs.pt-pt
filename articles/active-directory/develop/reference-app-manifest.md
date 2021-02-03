@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
-ms.date: 04/15/2020
+ms.date: 02/02/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: d855e124c84dee8554073d05fa04fe078b92ddaa
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: cb7acb2ab74cc3f1304e5278524918865185463f
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98208894"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491304"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifesto da aplicação do Azure Active Directory
 
@@ -46,7 +46,7 @@ Esta secção descreve os atributos encontrados no manifesto de aplicação.
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| ID | Cadeia |
+| ID | String |
 
 O identificador único para a aplicação no diretório. Este ID não é o identificador utilizado para identificar a aplicação em qualquer transação protocolar. É usado para fazer referência ao objeto em consultas de diretório.
 
@@ -119,7 +119,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| appId | Cadeia |
+| appId | String |
 
 Especifica o identificador único para a aplicação que é atribuída a uma aplicação pela Azure AD.
 
@@ -158,7 +158,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| errorUrl | Cadeia |
+| errorUrl | String |
 
 Sem apoio.
 
@@ -166,7 +166,7 @@ Sem apoio.
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-|groupMembershipClaims | Cadeia |
+|groupMembershipClaims | String |
 
 Configura a `groups` reclamação emitida num utilizador ou no token de acesso OAuth 2.0 que a app espera. Para definir este atributo, utilize um dos seguintes valores de cadeia válidos:
 
@@ -185,7 +185,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| opcionalClaims | Cadeia |
+| opcionalClaims | String |
 
 As reclamações opcionais devolvidas no token pelo serviço de fichas de segurança para esta aplicação específica.
 
@@ -216,7 +216,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| informationalUrls | Cadeia |
+| informationalUrls | String |
 
 Especifica os links para os termos de serviço e declaração de privacidade da aplicação. Os termos de serviço e declaração de privacidade são divulgados aos utilizadores através da experiência de consentimento do utilizador. Para obter mais informações, consulte [Como: Adicionar Termos de serviço e declaração de privacidade para aplicações AD registadas.](howto-add-terms-of-service-privacy-statement.md)
 
@@ -273,7 +273,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| logoUrl | Cadeia |
+| logoUrl | String |
 
 Leia apenas o valor que aponta para o URL do CDN para o logotipo que foi carregado no portal.
 
@@ -287,7 +287,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| logoutUrl | Cadeia |
+| logoutUrl | String |
 
 O URL para sair da aplicação.
 
@@ -382,10 +382,10 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| parentalControlSettings | Cadeia |
+| parentalControlSettings | String |
 
 - `countriesBlockedForMinors` especifica os países/regiões em que a aplicação está bloqueada para menores.
-- `legalAgeGroupRule` especifica a regra do grupo de idade legal que se aplica aos utilizadores da app. Pode ser definido para `Allow` `RequireConsentForPrivacyServices` , ou `RequireConsentForMinors` `RequireConsentForKids` `BlockMinors` .
+- `legalAgeGroupRule` especifica a regra do grupo de idade legal que se aplica aos utilizadores da app. Pode ser definido para `Allow` , , , , ou `RequireConsentForPrivacyServices` `RequireConsentForMinors` `RequireConsentForKids` `BlockMinors` .
 
 Exemplo:
 
@@ -443,14 +443,14 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| publisherDomain | Cadeia |
+| publisherDomain | String |
 
 O domínio do editor verificado para a aplicação. Só para ler.
 
 Exemplo:
 
 ```json
-    "publisherDomain": "https://www.contoso.com",
+    "publisherDomain": "{tenant}.onmicrosoft.com",
 ```
 
 ### <a name="replyurlswithtype-attribute"></a>atributo answerUrlsWithType
@@ -509,7 +509,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| samlMetadataUrl | Cadeia |
+| samlMetadataUrl | String |
 
 O URL para os metadados SAML para a aplicação.
 
@@ -523,7 +523,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| signInUrl | Cadeia |
+| signInUrl | String |
 
 Especifica o URL para a página inicial da aplicação.
 
@@ -537,7 +537,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| signInAudience | Cadeia |
+| signInAudience | String |
 
 Especifica quais as contas da Microsoft suportadas para a aplicação atual. Os valores suportados são:
 - `AzureADMyOrg` - Utilizadores com uma conta de trabalho ou escola da Microsoft no inquilino AZure AD da minha organização (por exemplo, inquilino único)
@@ -594,11 +594,11 @@ Para obter descrições para estes atributos, consulte a secção [de referênci
 
 Quando tentar carregar um manifesto previamente descarregado, poderá ver um dos seguintes erros. Este erro é provável porque o editor manifesto agora suporta uma versão mais recente do esquema, que não coincide com a que está a tentar carregar.
 
-* "Falhou na atualização da aplicação xxxx. Detalhe de erro: Identificador de objetos inválidos "indefinido". []."
-* "Falhou na atualização da aplicação xxxx. Detalhe de erro: Um ou mais valores de propriedade especificados são inválidos. []."
-* "Falhou na atualização da aplicação xxxx. Detalhe de erro: Não é permitido definir OsTenants disponíveis nesta versão api para atualização. []."
-* "Falhou na atualização da aplicação xxxx. Detalhe de erro: As atualizações à propriedade 'answerUrls' não são permitidas para esta aplicação. Utilize a propriedade 'answerUrlsWithType'. []."
-* "Falhou na atualização da aplicação xxxx. Detalhe de erro: Foi encontrado um valor sem um nome tipo e não existe qualquer tipo esperado. Quando o modelo é especificado, cada valor na carga útil deve ter um tipo que pode ser especificado na carga útil, explicitamente pelo chamador ou implicitamente inferido do valor principal. []"
+* "Falhou na atualização da aplicação xxxxxx. Detalhe de erro: Identificador de objetos inválidos "indefinido". []."
+* "Falhou na atualização da aplicação xxxxxx. Detalhe de erro: Um ou mais valores de propriedade especificados são inválidos. []."
+* "Falhou na atualização da aplicação xxxxxx. Detalhe de erro: Não é permitido definir OsTenants disponíveis nesta versão api para atualização. []."
+* "Falhou na atualização da aplicação xxxxxx. Detalhe de erro: As atualizações à propriedade 'answerUrls' não são permitidas para esta aplicação. Utilize a propriedade 'answerUrlsWithType'. []."
+* "Falhou na atualização da aplicação xxxxxx. Detalhe de erro: Foi encontrado um valor sem um nome tipo e não existe qualquer tipo esperado. Quando o modelo é especificado, cada valor na carga útil deve ter um tipo que pode ser especificado na carga útil, explicitamente pelo chamador ou implicitamente inferido do valor principal. []"
 
 Quando vir um destes erros, recomendamos as seguintes ações:
 

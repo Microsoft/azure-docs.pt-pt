@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 11/04/2020
+ms.date: 02/02/2021
 ms.author: tisande
-ms.openlocfilehash: c687b5b18c9cf7b0920b23f49e3c7a2607e0a89f
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 9e6777a082dcda76c7c7df6bd1b55611cf5cdf84
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791025"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493164"
 ---
 # <a name="getting-started-with-sql-queries"></a>Introdução às consultas SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -189,7 +189,7 @@ Os exemplos anteriores mostram vários aspetos da linguagem de consulta Cosmos D
 
 * Um recipiente Cosmos é uma coleção livre de esquemas de artigos JSON. As relações dentro e fora dos objetos de contentores são implicitamente capturadas pela contenção, não pelas relações fundamentais e externas. Esta funcionalidade é importante para as juntas intra-item que são [descritas em Joins in Azure Cosmos DB](sql-query-join.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Introdução ao Azure Cosmos DB](introduction.md)
 - [Amostras de Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmos-dotnet-v3)

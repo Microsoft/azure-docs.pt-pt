@@ -3,12 +3,12 @@ title: Funções do modelo em implementações de âmbito
 description: Descreve como as funções do modelo são resolvidas em implementações âmbito. O âmbito pode ser um inquilino, grupos de gestão, subscrições e grupos de recursos.
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: cb02a3dc808604a80fd9943138c1cd0d8648904e
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: f128448380612bc9b8d9114226e8a3036feeead8
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92681708"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492098"
 ---
 # <a name="arm-template-functions-in-deployment-scopes"></a>Funções do modelo ARM em âmbitos de implantação
 
@@ -40,15 +40,15 @@ Ao implementar em diferentes âmbitos, existem algumas considerações important
 * Utilize a [função extensionResourceId()](template-functions-resource.md#extensionresourceid) para recursos que são implementados como extensões do grupo de gestão. As definições de política personalizada que são implementadas para o grupo de gestão são extensões do grupo de gestão.
 
   Para obter o ID de recurso para uma definição de política personalizada ao nível do grupo de gestão, utilize:
-  
+
   ```json
   "policyDefinitionId": "[extensionResourceId(variables('mgScope'), 'Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
   ```
 
-* Use a função [TenantResourceId](template-functions-resource.md#tenantresourceid) para obter a identificação de um recurso implantado no inquilino. As definições políticas incorporadas são recursos ao nível dos inquilinos. Ao atribuir uma política incorporada ao nível do grupo de gestão, utilize a função TenantResourceId.
+* Utilize a função [tenantResourceId()](template-functions-resource.md#tenantresourceid) para obter o ID para um recurso implantado no inquilino. As definições políticas incorporadas são recursos ao nível dos inquilinos. Ao atribuir uma política incorporada ao nível do grupo de gestão, utilize a função TenantResourceId.
 
   Para obter o ID de recurso para uma definição de política incorporada, use:
-  
+
   ```json
   "policyDefinitionId": "[tenantResourceId('Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
   ```
@@ -138,6 +138,6 @@ A saída do exemplo anterior é:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para entender como definir parâmetros no seu modelo, consulte [a estrutura e sintaxe dos modelos Azure Resource Manager](template-syntax.md).
+* Para entender como definir parâmetros no seu modelo, consulte [a estrutura e sintaxe dos modelos ARM](template-syntax.md).
 * Para obter dicas sobre a resolução de erros comuns de implementação, consulte [os erros comuns de implementação do Azure com o Azure Resource Manager](common-deployment-errors.md).
-* Para obter informações sobre a implementação de um modelo que requer um token SAS, consulte [implementar o modelo privado com o token SAS](secure-template-with-sas-token.md).
+* Para obter informações sobre a implementação de um modelo que requer um token SAS, consulte [implementar o modelo ARM privado com o token SAS](secure-template-with-sas-token.md).

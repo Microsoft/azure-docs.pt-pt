@@ -5,19 +5,43 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 01/07/2021
+ms.date: 02/02/2021
 ms.author: tisande
-ms.openlocfilehash: f959e4e230c1d9f89ad5141713b6a17a8cbb17a2
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 1dccb8e51fbc578f8f218fe1582f95f7bcaf42d7
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98018926"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493793"
 ---
 # <a name="working-with-arrays-and-objects-in-azure-cosmos-db"></a>Trabalhando com matrizes e objetos em Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Uma característica chave do Azure Cosmos DB SQL API é a criação de matrizes e objetos.
+Uma característica chave do Azure Cosmos DB SQL API é a criação de matrizes e objetos. Este documento utiliza exemplos que podem ser recriados utilizando o [conjunto de dados da Família.](sql-query-getting-started.md#upload-sample-data)
+
+Aqui está um item exemplo neste conjunto de dados:
+
+```json
+{
+  "id": "AndersenFamily",
+  "lastName": "Andersen",
+  "parents": [
+     { "firstName": "Thomas" },
+     { "firstName": "Mary Kay"}
+  ],
+  "children": [
+     {
+         "firstName": "Henriette Thaulow",
+         "gender": "female",
+         "grade": 5,
+         "pets": [{ "givenName": "Fluffy" }]
+     }
+  ],
+  "address": { "state": "WA", "county": "King", "city": "Seattle" },
+  "creationDate": 1431620472,
+  "isRegistered": true
+}
+```
 
 ## <a name="arrays"></a>Matrizes
 
@@ -178,7 +202,9 @@ Os resultados são:
 > [!NOTE]
 > Ao utilizar a palavra-chave IN para iteração, não é possível filtrar ou projetar quaisquer propriedades fora da matriz. Em vez disso, deve utilizar [JOINs](sql-query-join.md).
 
-## <a name="next-steps"></a>Próximos passos
+Para outros exemplos, leia a nossa [publicação de blog sobre como trabalhar com matrizes em Azure Cosmos DB](https://devblogs.microsoft.com/cosmosdb/understanding-how-to-query-arrays-in-azure-cosmos-db/).
+
+## <a name="next-steps"></a>Passos seguintes
 
 - [Introdução](sql-query-getting-started.md)
 - [Amostras de Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmos-dotnet-v3)

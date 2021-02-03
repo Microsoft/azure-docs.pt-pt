@@ -5,12 +5,12 @@ ms.date: 02/07/2020
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-js
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: e280fddbe83da2a7ee89185046883f6c2c77167a
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 96384d2c50e7d5b4b5b6e652d01c4a89cd519573
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97739825"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493404"
 ---
 # <a name="connect-azure-functions-to-azure-storage-using-visual-studio-code"></a>Ligue as funções Azure ao armazenamento do Azure utilizando o Código do Estúdio Visual
 
@@ -96,7 +96,7 @@ Agora, pode adicionar a ligação de saída de armazenamento ao seu projeto.
 
 Em Funções, cada tipo de encadernação requer `direction` `type` um, e um único `name` a ser definido no function.jsem arquivo. A forma como define estes atributos depende do idioma da sua aplicação de função.
 
-::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell,programming-language-java"
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell"
 
 [!INCLUDE [functions-add-output-binding-json](../../includes/functions-add-output-binding-json.md)]
 
@@ -148,35 +148,25 @@ Depois de definido o encadernação, pode utilizar `name` a ligação para acede
 
 [!INCLUDE [functions-add-storage-binding-java-code](../../includes/functions-add-storage-binding-java-code.md)]
 
-## <a name="update-the-test-set"></a>Atualizar o conjunto de teste
+## <a name="update-the-tests"></a>Atualizar os testes
 
 [!INCLUDE [functions-add-output-binding-java-test](../../includes/functions-add-output-binding-java-test.md)]
 
 ::: zone-end  
 
-<!--- Local testing section --->
+## <a name="run-the-function-locally"></a>Executar a função localmente
 
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-python"
+1. Como no artigo anterior, prima <kbd>F5</kbd> para iniciar o projeto de aplicação de função e Ferramentas Core. 
 
-[!INCLUDE [functions-run-function-test-local-vs-code](../../includes/functions-run-function-test-local-vs-code.md)]
+1. Com as Ferramentas Core em funcionamento, vá para a área **Azure: Funções.** Em **Funções**, expandir funções **de projeto**  >  **locais.** Clique com o botão direito (Ctrl-click em Mac) a `HttpExample` função e escolha **Executar Função Agora...**.
 
-::: zone-end
+    :::image type="content" source="../../includes/media/functions-run-function-test-local-vs-code/execute-function-now.png" alt-text="Execute a função agora a partir do Código do Estúdio Visual":::
 
-::: zone pivot="programming-language-powershell"
+1. In **Enter request body** você vê o valor do corpo da mensagem de pedido de `{ "name": "Azure" }` . Prima Insira para enviar esta mensagem de pedido para a sua função.  
+ 
+1. Depois de retornado, prima <kbd>Ctrl + C</kbd> para parar as Ferramentas Core.
 
-[!INCLUDE [functions-run-function-test-local-vs-code-ps](../../includes/functions-run-function-test-local-vs-code-ps.md)]
-
-::: zone-end
-
-Uma nova fila chamada **outqueue** é criada na sua conta de armazenamento pelo tempo de execução de Funções quando a ligação de saída é usada pela primeira vez. Utilizará o Storage Explorer para verificar se a fila foi criada juntamente com a nova mensagem.
-
-::: zone pivot="programming-language-java"  
-
-## <a name="update-the-tests"></a>Atualizar os testes
-
-[!INCLUDE [functions-add-output-binding-java-test](../../includes/functions-add-output-binding-java-test.md)]
-
-::: zone-end
+Como está a utilizar a cadeia de ligação de armazenamento, a sua função liga-se à conta de armazenamento Azure quando funciona localmente. Uma nova fila chamada **outqueue** é criada na sua conta de armazenamento pelo tempo de execução de Funções quando a ligação de saída é usada pela primeira vez. Utilizará o Storage Explorer para verificar se a fila foi criada juntamente com a nova mensagem.
 
 ### <a name="connect-storage-explorer-to-your-account"></a>Ligar o Explorador de Armazenamento à sua conta
 
@@ -212,11 +202,7 @@ Agora, é hora de reeditar a aplicação de função atualizada para a Azure.
 
 1. Escolha a aplicação de função que criou no primeiro artigo. Como está a recolocar o seu projeto na mesma aplicação, selecione **Implementar** para rejeitar o aviso sobre a sobreposição de ficheiros.
 
-1. Após a implementação concluída, pode voltar a utilizar o cURL ou um browser para testar a função reafectada. Como antes, anexar a cadeia de consulta `&name=<yourname>` ao URL, como no exemplo seguinte:
-
-    ```bash
-    curl https://myfunctionapp.azurewebsites.net/api/httptrigger?code=cCr8sAxfBiow548FBDLS1....&name=<yourname>
-    ```
+1. Após a implementação concluída, pode voltar a utilizar a **função Executar Agora...** para ativar a função em Azure.
 
 1. Volte [a ver a mensagem na fila de armazenamento](#examine-the-output-queue) para verificar se a ligação de saída gera novamente uma nova mensagem na fila.
 

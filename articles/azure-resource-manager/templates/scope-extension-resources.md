@@ -3,12 +3,12 @@ title: Âmbito dos tipos de recursos de extensão
 description: Descreve como utilizar a propriedade de âmbito ao implementar tipos de recursos de extensão.
 ms.topic: conceptual
 ms.date: 01/13/2021
-ms.openlocfilehash: 75c2c8b8409cc9f8e7a8e71965589ece6660607a
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: ce08ca951e24c1c0a5450052cf814a68888837c2
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98179984"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492166"
 ---
 # <a name="setting-scope-for-extension-resources-in-arm-templates"></a>Definição de margem para recursos de extensão em modelos ARM
 
@@ -85,6 +85,6 @@ O exemplo a seguir cria uma conta de armazenamento e aplica-lhe uma função.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para entender como definir parâmetros no seu modelo, consulte [a estrutura e sintaxe dos modelos Azure Resource Manager](template-syntax.md).
+* Para entender como definir parâmetros no seu modelo, consulte [a estrutura e sintaxe dos modelos ARM](template-syntax.md).
 * Para obter dicas sobre a resolução de erros comuns de implementação, consulte [os erros comuns de implementação do Azure com o Azure Resource Manager](common-deployment-errors.md).
-* Para obter informações sobre a implementação de um modelo que requer um token SAS, consulte [implementar o modelo privado com o token SAS](secure-template-with-sas-token.md).
+* Para obter informações sobre a implementação de um modelo que requer um token SAS, consulte [implementar o modelo ARM privado com o token SAS](secure-template-with-sas-token.md).

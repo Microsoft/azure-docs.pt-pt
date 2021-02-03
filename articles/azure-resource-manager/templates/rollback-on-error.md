@@ -2,25 +2,34 @@
 title: Recue no erro para a implementação bem sucedida
 description: Especifique que uma implementação falhada deve voltar para uma implementação bem sucedida.
 ms.topic: conceptual
-ms.date: 10/04/2019
-ms.openlocfilehash: 206c794996f58a4c5b6982c551ae50128ed4f5eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/02/2021
+ms.openlocfilehash: 742a8f16a2dce3204b48085759091540586a4522
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79460148"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492217"
 ---
 # <a name="rollback-on-error-to-successful-deployment"></a>Rollback no erro para implantação bem sucedida
 
-Quando uma implementação falha, pode recolocar automaticamente uma implementação mais cedo e bem sucedida do seu histórico de implantação. Esta funcionalidade é útil se você tem um bom estado conhecido para a sua implementação de infraestrutura e quer reverter para este estado. Há uma série de ressalvas e restrições:
+Quando uma implementação falha, pode recolocar automaticamente uma implementação mais cedo e bem sucedida do seu histórico de implantação. Esta funcionalidade é útil se você tem um bom estado conhecido para a sua implementação de infraestrutura e quer reverter para este estado. Pode especificar uma determinada implantação anterior ou a última implementação bem sucedida.
 
+> [!IMPORTANT]
+> Esta funcionalidade reloque uma implementação falhada recolocando uma implementação anterior. Este resultado pode ser diferente do que seria de esperar de desfazer a implementação falhada. Certifique-se de que compreende como a implantação anterior é redistribuída.
+
+## <a name="considerations-for-redeploying"></a>Considerações para a reafectação
+
+Antes de utilizar esta funcionalidade, considere estes detalhes sobre como a redistribuição é tratada:
+
+- A implementação anterior é executada utilizando o [modo completo](./deployment-modes.md#complete-mode), mesmo que tenha utilizado o [modo incremental](./deployment-modes.md#incremental-mode) durante a implementação anterior. A reefectação em modo completo pode produzir resultados inesperados quando a implementação anterior foi utilizada incrementalmente. O modo completo significa que quaisquer recursos não incluídos na implantação anterior são eliminados. Especifique uma implementação anterior que represente todos os recursos e seus estados que pretende existir no grupo de recursos. Para obter mais informações, consulte [os modos de implantação](./deployment-modes.md).
 - A reafectação é executada exatamente como foi executada anteriormente com os mesmos parâmetros. Não pode mudar os parâmetros.
-- A implementação anterior é executada utilizando o [modo completo](./deployment-modes.md#complete-mode). Quaisquer recursos não incluídos na implementação anterior são eliminados e quaisquer configurações de recursos são definidas para o seu estado anterior. Certifique-se de que compreende completamente os [modos de implantação](./deployment-modes.md).
 - A reafectação só afeta os recursos, quaisquer alterações de dados não são afetadas.
-- Só pode utilizar esta funcionalidade com implementações de grupos de recursos, não implementações de grupos de subscrição ou gestão. Para obter mais informações sobre a implementação do nível de subscrição, consulte [Criar grupos de recursos e recursos ao nível da subscrição.](./deploy-to-subscription.md)
+- Só pode utilizar esta funcionalidade com implementações de grupos de recursos. Não suporta subscrições, grupos de gestão ou implantações de nível de inquilino. Para obter mais informações sobre a implementação do nível de subscrição, consulte [Criar grupos de recursos e recursos ao nível da subscrição.](./deploy-to-subscription.md)
 - Só pode utilizar esta opção com implementações de nível de raiz. As implementações de um modelo aninhado não estão disponíveis para redistribuição.
 
-Para utilizar esta opção, as suas implementações devem ter nomes únicos para que possam ser identificadas na história. Se não tiver nomes únicos, a implementação falhada atual pode substituir a implementação anteriormente bem sucedida na história.
+Para utilizar esta opção, as suas implementações devem ter nomes únicos no histórico de implementação. Só com nomes únicos é que uma implantação específica pode ser identificada. Se não tiver nomes únicos, uma implantação falhada pode substituir uma implementação bem sucedida na história.
+
+Se especificar uma implementação anterior que não exista no histórico de implementação, o revés retorna um erro.
 
 ## <a name="powershell"></a>PowerShell
 
@@ -115,7 +124,5 @@ A implantação especificada deve ter sido bem sucedida.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para lançar o seu serviço com segurança para mais de uma região, consulte [o Gestor de Implantação do Azure](deployment-manager-overview.md).
-- Para especificar como lidar com os recursos que existem no grupo de recursos mas não estão definidos no modelo, consulte os [modos de implementação do Gestor de Recursos Azure](deployment-modes.md).
+- Para compreender os modos completos e incrementais, consulte os [modos de implementação do Gestor de Recursos Azure](deployment-modes.md).
 - Para entender como definir parâmetros no seu modelo, consulte [a estrutura e sintaxe dos modelos Azure Resource Manager](template-syntax.md).
-- Para obter informações sobre a implementação de um modelo que requer um token SAS, consulte [implementar o modelo privado com o token SAS](secure-template-with-sas-token.md).

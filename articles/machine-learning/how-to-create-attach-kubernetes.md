@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 10/02/2020
-ms.openlocfilehash: 6400d3f3c721619551ba3989a2e5799b72ff9f38
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: e485c2f0a7deeffe68c932688658ef099fec510e
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97831929"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492760"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Criar e anexar um cluster de serviço Azure Kubernetes
 
@@ -70,7 +70,9 @@ A Azure Machine Learning pode implementar modelos de aprendizagem automática tr
     - [Dimensione manualmente a contagem de nó num cluster AKS](../aks/scale-cluster.md)
     - [Configurar o autoescalador de cluster em AKS](../aks/cluster-autoscaler.md)
 
-## <a name="azure-kubernetes-service-version"></a>Versão do Serviço Azure Kubernetes
+- __Não atualize diretamente o cluster utilizando uma configuração YAML__. Enquanto a Azure Kubernetes Services suporta atualizações através da configuração YAML, as implementações de Machine Learning do Azure irão sobrepor-se às suas alterações. Os únicos dois campos YAML que não serão substituídos são __os limites__ de pedido e __o CPU e a memória.__
+
+## <a name="azure-kubernetes-service-version"></a>Versão do Azure Kubernetes Service
 
 O Serviço Azure Kubernetes permite-lhe criar um cluster utilizando uma variedade de versões Kubernetes. Para obter mais informações sobre as versões disponíveis, consulte as [versões Kubernetes suportadas no Serviço Azure Kubernetes](../aks/supported-kubernetes-versions.md).
 
@@ -381,7 +383,6 @@ No estúdio Azure Machine Learning, __selecione Compute,__ __Inference clusters_
 ---
 
 ## <a name="troubleshooting"></a>Resolução de problemas
-
 ### <a name="update-the-cluster"></a>Atualizar o cluster
 
 As atualizações dos componentes de Aprendizagem automática Azure instalados num cluster de serviço Azure Kubernetes devem ser aplicadas manualmente. 

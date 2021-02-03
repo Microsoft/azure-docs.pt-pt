@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 07/16/2020
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1
-ms.openlocfilehash: 131feaf6ff01659b7d126604a5d081275e64508f
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 9ef339fb0ccd14314a65d03b59e501069446c870
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029571"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493842"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>Garantir um ambiente de formação Azure Machine Learning com redes virtuais
 
@@ -62,16 +62,19 @@ Para utilizar um [ __alvo de computação__ Azure Machine Learning gerido](conce
 > * Se a conta de armazenamento Azure para o espaço de trabalho também estiver protegida numa rede virtual, devem estar na mesma rede virtual que o azure machine learning ou cluster. 
 > * Para que a funcionalidade do Jupyter funcione, certifique-se de que a comunicação da tomada web não está desativada. Certifique-se de que a sua rede permite ligações websocket a *.instances.azureml.net e *.instances.azureml.ms. 
 > * Quando a instância de computação é implantada num espaço de trabalho de ligação privada, só pode ser acedida a partir de uma rede virtual. Se estiver a utilizar o ficheiro DNS ou hostis personalizado, por favor adicione uma entrada `<instance-name>.<region>.instances.azureml.ms` com o endereço IP privado do ponto final privado do espaço de trabalho. Para mais informações consulte o artigo [DNS personalizado.](./how-to-custom-dns.md)
+> * A sub-rede utilizada para implantar cluster/instância computacional não deve ser delegada em qualquer outro serviço como o ACI
+> * As políticas de ponto final do serviço de rede virtual não funcionam para contas de armazenamento de cluster/caso de cálculo
+
     
 > [!TIP]
 > A instância ou cluster do cálculo machine learning aloca automaticamente recursos adicionais de rede __no grupo de recursos que contém a rede virtual.__ Para cada instância de cálculo ou cluster, o serviço aloca os seguintes recursos:
 > 
 > * Um grupo de segurança de rede
-> * Um endereço IP público
+> * Um endereço IP público. Se tiver uma política do Azure que proíba a criação de IP público, a implantação de cluster/instâncias falhará
 > * Um equilibrador de carga
 > 
 > No caso dos clusters, estes recursos são eliminados (e recriados) sempre que o cluster se reduz a 0 nós, no entanto, por exemplo, os recursos são mantidos até que a instância seja completamente eliminada (parar não retira os recursos). 
-> Estes recursos estão limitados pelas [quotas de recursos](../azure-resource-manager/management/azure-subscription-service-limits.md) da subscrição.
+> Estes recursos estão limitados pelas [quotas de recursos](../azure-resource-manager/management/azure-subscription-service-limits.md) da subscrição. Se o grupo de recursos de rede virtual estiver bloqueado, a supressão do cluster/instância do cálculo falhará. O balançador de carga não pode ser eliminado até que o cluster/instância computacional seja eliminado.
 
 
 ### <a name="required-ports"></a><a id="mlcports"></a> Portos necessários

@@ -1,26 +1,23 @@
 ---
-title: Configure um nome de domínio personalizado para o seu auto-hospedado gateway API Management Azure / Microsoft Docs
+title: Configure um nome de domínio personalizado para a sua porta de entrada de gestão API Azure auto-hospedada | Microsoft Docs
 description: Este tópico descreve os passos para configurar um nome de domínio personalizado para o gateway de gestão API AZure auto-hospedado.
 services: api-management
 documentationcenter: ''
 author: vladvino
-manager: gwallace
-editor: ''
 ms.service: api-management
-ms.workload: integration
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: apimpm
-ms.openlocfilehash: 0894203be4867e305c8e15467a2a867b9bfdc727
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d52bf87b74ae9b1770ed5092738fd05eb9f54fde
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86506813"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491035"
 ---
-# <a name="configure-a-custom-domain-name"></a>Configurar um nome de domínio personalizado
+# <a name="configure-a-custom-domain-name-for-a-self-hosted-gateway"></a>Configure um nome de domínio personalizado para um gateway auto-hospedado
 
-Quando disponibiliza uma [porta de entrada auto-hospedada da Azure API Management,](self-hosted-gateway-overview.md) não é atribuído o nome de anfitrião e tem de ser referenciado pelo seu endereço IP. Este artigo mostra como mapear um nome DNS personalizado existente (também referido como nome de hospedeiro) um gateway auto-hospedado.
+Quando disponibiliza um [gateway de Gestão API Azure auto-hospedado,](self-hosted-gateway-overview.md)não lhe é atribuído um nome de anfitrião e tem de ser referenciado pelo seu endereço IP. Este artigo mostra como mapear um nome DNS personalizado existente (também referido como nome de hospedeiro) para um gateway auto-hospedado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,12 +37,10 @@ Para executar os passos descritos neste artigo, deve ter:
 
 ## <a name="add-custom-domain-certificate-to-your-api-management-service"></a>Adicione certificado de domínio personalizado ao seu serviço de Gestão API
 
-1. Selecione **Certificados** de **Segurança.**
-2. Selecione **+ Adicionar**.
-3. Introduza um nome de recurso para o certificado no campo **ID.**
-4. Selecione o ficheiro que contém o certificado (. PFX) selecionando o campo **Certificado** ou o ícone da pasta adjacente ao mesmo.
-5. Introduza a palavra-passe do certificado no campo **Palavra-passe.**
-6. Selecione **Criar** para adicionar o certificado ao seu serviço de Gestão API.
+Adicione um certificado de domínio personalizado (. PFX) arquiva na sua instância de Gestão API ou referencia um certificado armazenado no Cofre da Chave Azure. Siga as etapas nos [serviços de backend Secure utilizando a autenticação de certificado de cliente na Azure API Management.](api-management-howto-mutual-certificates.md)
+
+> [!NOTE]
+> Recomendamos a utilização de um certificado de cofre chave para o domínio de gateway auto-hospedado.
 
 ## <a name="use-the-azure-portal-to-set-a-custom-domain-name-for-your-self-hosted-gateway"></a>Use o portal Azure para definir um nome de domínio personalizado para o seu gateway auto-hospedado
 

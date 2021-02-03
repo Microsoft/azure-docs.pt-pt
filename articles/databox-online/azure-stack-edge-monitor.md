@@ -1,19 +1,19 @@
 ---
-title: Monitorize o seu dispositivo Azure Stack Edge Pro / Microsoft Docs
+title: Monitorize o seu dispositivo Azure Stack Edge Pro | Microsoft Docs
 description: Descreve como usar o portal Azure e a Web UI local para monitorizar o seu Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 04/15/2019
+ms.date: 02/02/2021
 ms.author: alkohli
-ms.openlocfilehash: cd75eb0f7de602979f2233a873c01ef742471e37
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 388be1b13f89a50bed003731c01c6ab6287faaf9
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904403"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491069"
 ---
 # <a name="monitor-your-azure-stack-edge-pro"></a>Monitorize o seu Azure Stack Edge Pro
 
@@ -26,7 +26,6 @@ Neste artigo, vai aprender a:
 > * Ver eventos do dispositivo e os alertas correspondentes
 > * Ver estado de hardware dos componentes do dispositivo
 > * Ver métricas de capacidade e transação para o seu dispositivo
-> * Configurar e gerir alertas
 
 ## <a name="view-device-events"></a>Ver eventos do dispositivo
 
@@ -59,29 +58,26 @@ Uma lista completa das métricas é mostrada na tabela seguinte:
 
 |Métricas de capacidade                     |Descrição  |
 |-------------------------------------|-------------|
-|**Capacidade disponível**               | Refere-se ao tamanho dos dados que podem ser escritos ao dispositivo. Por outras palavras, esta é a capacidade que pode ser disponibilizada no dispositivo. <br></br>Pode libertar a capacidade do dispositivo eliminando a cópia local de ficheiros que têm uma cópia tanto no dispositivo como na nuvem.        |
-|**Capacidade total**                   | Refere-se aos bytes totais do dispositivo para escrever dados. Isto também é referido como o tamanho total da cache local. <br></br> Agora pode aumentar a capacidade de um dispositivo virtual existente adicionando um disco de dados. Adicione um disco de dados através da gestão do hipervisor para o VM e, em seguida, reinicie o seu VM. O conjunto de armazenamento local do dispositivo Gateway expandir-se-á para acomodar o novo disco de dados adicionado. <br></br>Para obter mais informações, aceda a [Adicionar um disco rígido para máquina virtual Hyper-V](https://www.youtube.com/watch?v=EWdqUw9tTe4). |
+|**Capacidade disponível**               | Refere-se ao tamanho dos dados que podem ser escritos ao dispositivo. Por outras palavras, esta métrica é a capacidade que pode ser disponibilizada no dispositivo. <br></br>Pode libertar a capacidade do dispositivo eliminando a cópia local de ficheiros que têm uma cópia tanto no dispositivo como na nuvem.        |
+|**Capacidade total**                   | Refere-se ao total de bytes no dispositivo para escrever dados, que também é referido como o tamanho total da cache local. <br></br> Agora pode aumentar a capacidade de um dispositivo virtual existente adicionando um disco de dados. Adicione um disco de dados através da gestão do hipervisor para o VM e, em seguida, reinicie o seu VM. O conjunto de armazenamento local do dispositivo Gateway expandir-se-á para acomodar o novo disco de dados adicionado. <br></br>Para obter mais informações, aceda a [Adicionar um disco rígido para máquina virtual Hyper-V](https://www.youtube.com/watch?v=EWdqUw9tTe4). |
 
 |Métricas de transação              | Descrição         |
 |-------------------------------------|---------|
 |**Bytes de nuvem carregados (dispositivo)**    | Soma de todos os bytes carregados em todas as ações do seu dispositivo        |
-|**Bytes de nuvem carregados (partilhar)**     | Bytes carregados por ação. Este pode ser: <br></br> Avg, que é a (Soma de todos os bytes carregados por ação / Número de ações),  <br></br>Max, que é o número máximo de bytes carregados a partir de uma ação <br></br>Min, que é o número mínimo de bytes carregados a partir de uma parte      |
-|**Produção de download em nuvem (partilhar)**| Bytes descarregados por ação. Este pode ser: <br></br> Avg, que é a (Soma de todos os bytes lidos ou descarregados para uma partilha / Número de ações) <br></br> Max, que é o número máximo de bytes descarregados de uma parte<br></br> e Min, que é o número mínimo de bytes descarregados de uma parte  |
+|**Bytes de nuvem carregados (partilhar)**     | Bytes carregados por ação. Esta métrica pode ser: <br></br> Avg, que é a (Soma de todos os bytes carregados por ação / Número de ações),  <br></br>Max, que é o número máximo de bytes carregados a partir de uma ação <br></br>Min, que é o número mínimo de bytes carregados a partir de uma parte      |
+|**Produção de download em nuvem (partilhar)**| Bytes descarregados por ação. Esta métrica pode ser: <br></br> Avg, que é a (Soma de todos os bytes lidos ou descarregados para uma partilha / Número de ações) <br></br> Max, que é o número máximo de bytes descarregados de uma parte<br></br> e Min, que é o número mínimo de bytes descarregados de uma parte  |
 |**Produção de leitura de nuvem**            | Soma de todos os bytes lidos da nuvem em todas as ações do seu dispositivo     |
 |**Saída de upload de nuvem**          | Soma de todos os bytes escritos para a nuvem em todas as ações do seu dispositivo     |
 |**Produção de upload de nuvem (partilhar)**  | Soma de todos os bytes escritos para a nuvem a partir de uma parte / # de ações é média, máx e min por ação      |
-|**Ler a produção (rede)**           | Inclui a produção da rede de sistema para todos os bytes lidos a partir da nuvem. Esta visão pode incluir dados que não se limitam a ações. <br></br>A divisão mostrará o tráfego em todos os adaptadores de rede do dispositivo. Isto inclui adaptadores que não estão ligados ou ativados.      |
-|**Escrever produção (rede)**       | Inclui a produção da rede de sistema para todos os bytes escritos na nuvem. Esta visão pode incluir dados que não se limitam a ações. <br></br>A divisão mostrará o tráfego em todos os adaptadores de rede do dispositivo. Isto inclui adaptadores que não estão ligados ou ativados.          |
+|**Ler a produção (rede)**           | Inclui a produção da rede de sistema para todos os bytes lidos a partir da nuvem. Esta visão pode incluir dados que não se limitam a ações. <br></br>A divisão mostrará o tráfego em todos os adaptadores de rede do dispositivo, incluindo adaptadores que não estão ligados ou ativados.      |
+|**Escrever produção (rede)**       | Inclui a produção da rede de sistema para todos os bytes escritos na nuvem. Esta visão pode incluir dados que não se limitam a ações. <br></br>A divisão mostrará o tráfego em todos os adaptadores de rede do dispositivo, incluindo adaptadores que não estão ligados ou ativados.          |
 
 | Métricas de computação de borda              | Descrição         |
 |-------------------------------------|---------|
 |**Edge compute - utilização da memória**      |           |
 |**Edge compute - cpu percentual**    |         |
 
-## <a name="manage-alerts"></a>Gerir alertas
-
-[!INCLUDE [Supported OS for clients connected to device](../../includes/data-box-edge-gateway-manage-alerts.md)]
-
 ## <a name="next-steps"></a>Passos seguintes
 
 Saiba como [Gerir a largura de banda](azure-stack-edge-manage-bandwidth-schedules.md).
+Saiba como gerir notificações de [alerta de eventos do dispositivo](azure-stack-edge-gpu-manage-device-event-alert-notifications.md).

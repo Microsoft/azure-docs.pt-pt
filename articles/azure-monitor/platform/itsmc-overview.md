@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 12/16/2020
 ms.custom: references_regions
-ms.openlocfilehash: 6d9ad775f91778f95380a19fbe253e2cbbebd3fc
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: ed13837eabadc38cee50efac3b9340c973c8ea70
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736461"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492438"
 ---
 # <a name="it-service-management-connector-overview"></a>Visão geral do conector de gestão de serviços de TI
 
@@ -46,8 +46,8 @@ Pode começar a utilizar o ITSMC completando os seguintes passos:
 1. [Confiúde o seu AMBIENTE ITSM para aceitar alertas da Azure.](./itsmc-connections.md)
 1. [Configure Azure Solução ITSM](./itsmc-definition.md#add-it-service-management-connector)
 1. [Configure o conector Azure ITSM para o seu ambiente ITSM.](./itsmc-definition.md#create-an-itsm-connection)
-1. [Configure o Grupo de Ação para alavancar o conector ITSM.](./itsmc-definition.md#use-itsmc)
+1. [Configure o Grupo de Ação para alavancar o conector ITSM.](./itsmc-definition.md#define-a-template)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Resolver problemas do Conector do ITSM](./itsmc-resync-servicenow.md)

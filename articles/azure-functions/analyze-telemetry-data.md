@@ -4,12 +4,12 @@ description: Saiba como visualizar e consultar dados de telemetria Azure Functio
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 14b6ed3964900e3395ca335c301dfd0285da46e7
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 2a991157962b0588e3d49510e8a82a9abcfb9aed
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937302"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493775"
 ---
 # <a name="analyze-azure-functions-telemetry-in-application-insights"></a>Analisar telemetria de funções Azure em Insights de Aplicação 
 
@@ -77,18 +77,18 @@ Escolha **Registos** para explorar ou consultar eventos registados.
 
 Aqui está um exemplo de consulta que mostra a distribuição de pedidos por trabalhador nos últimos 30 minutos.
 
-<pre>
+```kusto
 requests
 | where timestamp > ago(30m) 
 | summarize count() by cloud_RoleInstance, bin(timestamp, 1m)
 | render timechart
-</pre>
+```
 
 As tabelas disponíveis são mostradas no **separador Schema** à esquerda. Pode encontrar dados gerados por invocações de função nas seguintes tabelas:
 
 | Tabela | Descrição |
 | ----- | ----------- |
-| **vestígios** | Registos criados pelo tempo de execução e vestígios do seu código de função. |
+| **vestígios** | Registos criados pelo tempo de execução, controlador de escala e vestígios do seu código de função. |
 | **pedidos** | Um pedido para cada invocação de função. |
 | **exceções** | Quaisquer exceções lançadas pelo tempo de execução. |
 | **costumesMetricos** | A contagem de invocações bem sucedidas e falhadas, taxa de sucesso e duração. |
@@ -99,12 +99,38 @@ As outras tabelas são para testes de disponibilidade, e telemetria de cliente e
 
 Dentro de cada tabela, alguns dos dados específicos das Funções estão num `customDimensions` campo.  Por exemplo, a seguinte consulta recupera todos os vestígios que têm nível de registo `Error` .
 
-<pre>
+```kusto
 traces 
 | where customDimensions.LogLevel == "Error"
-</pre>
+```
 
 O tempo de execução fornece os `customDimensions.LogLevel` `customDimensions.Category` campos e campos. Pode fornecer campos adicionais em registos que escreve no seu código de função. Para um exemplo em C#, consulte [o registo estruturado](functions-dotnet-class-library.md#structured-logging) no guia de desenvolvimento da biblioteca da classe .NET.
+
+## <a name="query-scale-controller-logs"></a>Registos de controlador de escala de consulta
+
+_Esta funcionalidade está em pré-visualização._
+
+Depois de permitir a [integração](configure-monitoring.md#configure-scale-controller-logs) do controlador de escala e do [Application Insights,](configure-monitoring.md#enable-application-insights-integration)pode utilizar a pesquisa de registo de insights de aplicação para consultar os registos do controlador de escala emitido. Os registos do controlador de escala são guardados na `traces` coleção na categoria **ScaleControllerLogs.**
+
+A seguinte consulta pode ser usada para procurar todos os registos do controlador de escala para a aplicação de função atual dentro do período de tempo especificado:
+
+```kusto
+traces 
+| extend CustomDimensions = todynamic(tostring(customDimensions))
+| where CustomDimensions.Category == "ScaleControllerLogs"
+```
+
+A consulta que se segue expande-se na consulta anterior para mostrar como obter apenas registos indicando uma alteração na escala:
+
+```kusto
+traces 
+| extend CustomDimensions = todynamic(tostring(customDimensions))
+| where CustomDimensions.Category == "ScaleControllerLogs"
+| where message == "Instance count changed"
+| extend Reason = CustomDimensions.Reason
+| extend PreviousInstanceCount = CustomDimensions.PreviousInstanceCount
+| extend NewInstanceCount = CustomDimensions.CurrentInstanceCount
+```
 
 ## <a name="consumption-plan-specific-metrics"></a>Métricas específicas do plano de consumo
 

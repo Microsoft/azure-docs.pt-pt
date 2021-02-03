@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: blehr
-ms.openlocfilehash: 4d2f339f5a1339b5f249172170fed54c91f1dc24
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 2c469324db11d2e65f8eb958e68f77fd77020865
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98927191"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491052"
 ---
 # <a name="quickstart-create-a-public-ip-address-using-azure-cli"></a>Quickstart: Criar um endereço IP público utilizando O Azure CLI
 
@@ -53,7 +53,7 @@ Utilize [a rede az public-ip criar](/cli/azure/network/public-ip#az-network-publ
     --resource-group myResourceGroup \
     --name myStandardZRPublicIP \
     --sku Standard
-    --zone 1,2,3
+    --zone 1 2 3
 ```
 > [!IMPORTANT]
 > Para versões da API com mais de 2020-08-01, executar o comando acima sem especificar um parâmetro de zona para criar um endereço IP redundante de zona. 
@@ -105,7 +105,7 @@ Se for aceitável que o endereço IP se altere ao longo do tempo, a atribuição
 
 Para obter mais detalhes sobre as variáveis individuais listadas acima, consulte [Gerir os endereços IP públicos](./virtual-network-public-ip-address.md#create-a-public-ip-address).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Associar um [endereço IP público a uma Máquina Virtual.](./associate-public-ip-address-vm.md#azure-portal)
 - Saiba mais sobre [endereços IP públicos](./public-ip-addresses.md#public-ip-addresses) em Azure.
 - Saiba mais sobre todas as [definições de endereços IP públicos](virtual-network-public-ip-address.md#create-a-public-ip-address).

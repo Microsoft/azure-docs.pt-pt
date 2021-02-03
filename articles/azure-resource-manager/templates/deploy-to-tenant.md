@@ -3,12 +3,12 @@ title: Mobilizar recursos para inquilino
 description: Descreve como implantar recursos no âmbito do inquilino num modelo de Gestor de Recursos Azure.
 ms.topic: conceptual
 ms.date: 01/13/2021
-ms.openlocfilehash: 0b3ddc63e49b272c93349ada91e9a1599ea4be4f
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: fd5a9ae60c578a3be7f70d82baae0a15e406b9db
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98186214"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491491"
 ---
 # <a name="tenant-deployments-with-arm-templates"></a>Implantações de inquilinos com modelos ARM
 
@@ -133,7 +133,7 @@ Para obter informações mais detalhadas sobre comandos de implantação e opç�
 
 Para implantações de nível de inquilino, você deve fornecer uma localização para a implantação. A localização da implantação é separada da localização dos recursos que implementa. A localização da implantação especifica onde armazenar dados de implantação. As implementações de grupos [de subscrição](deploy-to-subscription.md) e [gestão](deploy-to-management-group.md) também requerem uma localização. Para implementações [de grupos](deploy-to-resource-group.md) de recursos, a localização do grupo de recursos é usada para armazenar os dados de implantação.
 
-Pode fornecer um nome para a implementação ou utilizar o nome de implementação predefinido. O nome predefinido é o nome do ficheiro do modelo. Por exemplo, a implementação de um modelo denominado **azuredeploy.jscria** um nome de implementação padrão de **azuredeploy**.
+Pode fornecer um nome para a implementação ou utilizar o nome de implementação predefinido. O nome predefinido é o nome do ficheiro do modelo. Por exemplo, a implementação de um modelo denominado _azuredeploy.jscria_ um nome de implementação padrão de **azuredeploy**.
 
 Para cada nome de implantação, a localização é imutável. Não é possível criar uma implantação num local quando há uma implantação existente com o mesmo nome num local diferente. Por exemplo, se criar uma implantação de inquilino com o nome **implantado1** em **central,** não pode mais tarde criar outra implantação com o nome **de implantação1,** mas uma localização de **Westus**. Se obter o código de erro `InvalidDeploymentLocation` , utilize um nome diferente ou o mesmo local que a colocação anterior para esse nome.
 

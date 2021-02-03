@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/15/2020
-ms.openlocfilehash: 5d265fe02d801cf0d2d66be37a8dc2a220e19b34
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.date: 02/02/2021
+ms.openlocfilehash: 9e43521e26a6292141e1bbae7b39db3656df962c
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591349"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493046"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Limites de serviço no Azure Cognitive Search
 
@@ -139,7 +139,7 @@ Um [oleoduto de enriquecimento de IA](cognitive-search-concept-intro.md) que faz
 
 ## <a name="throttling-limits"></a>Limites de estrangulamento
 
-A consulta de pesquisa e os pedidos de indexação são acelerados à medida que o sistema se aproxima da capacidade máxima. O estrangulamento comporta-se de forma diferente para diferentes APIs. APIs de consulta (Search/Suggest/Autocomplete) e indexar o acelerador APIs dinamicamente com base na carga do serviço. As APIs do índice têm limites de taxa de pedido estático. 
+Os pedidos da API são acelerados à medida que o sistema se aproxima da capacidade máxima. O estrangulamento comporta-se de forma diferente para diferentes APIs. APIs de consulta (Search/Suggest/Autocomplete) e indexar o acelerador APIs dinamicamente com base na carga do serviço. ApIs de índice e operações de serviço API têm limites estáticos de taxa de pedido. 
 
 Limites de pedido de taxa estática para operações relacionadas com um índice:
 
@@ -148,6 +148,10 @@ Limites de pedido de taxa estática para operações relacionadas com um índice
 + Criar Índice (POST/índices): 12 por minuto por unidade de pesquisa
 + Criar ou atualizar índice (PUT/indexes/myindex): 6 por segundo por unidade de pesquisa
 + Eliminar Índice (DELETE/indexes/myindex): 12 por minuto por unidade de pesquisa 
+
+Limites de pedido de taxa estática para operações relacionadas com um serviço:
+
++ Estatísticas de Serviço (GET/servicestats): 4 por segundo por unidade de pesquisa
 
 ## <a name="api-request-limits"></a>Limites de pedido da API
 * Máximo de 16 MB por pedido <sup>1</sup>

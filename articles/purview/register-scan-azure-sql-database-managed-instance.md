@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: 2391a36c02e0bdfe0ea98be7f19fc64f1fbb676f
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: f9791fa8932792398efdea39fe0d39a967420596
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879936"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491727"
 ---
 # <a name="register-and-scan-an-azure-sql-database-managed-instance"></a>Registe e digitalize uma caixa de dados de base de dados Azure SQL
 
@@ -105,20 +105,6 @@ O principal do serviço ou identidade gerida deve ter permissão para obter meta
 1. Se o cofre da chave ainda não estiver ligado ao Purview, terá de [criar uma nova ligação](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account) ao cofre de chaves
 1. Finalmente, [crie uma nova credencial](manage-credentials.md#create-a-new-credential) usando o Principal de Serviço para configurar a sua digitalização
 
-### <a name="firewall-settings"></a>Definições de firewall
-
-O seu servidor de base de dados deve permitir ativar as ligações Azure. Isto permitirá ao Azure Purview alcançar e ligar o servidor. Pode seguir o guia de como fazer [as ligações a partir do interior do Azure.](../azure-sql/database/firewall-configure.md#connections-from-inside-azure)
-
-1. Navegue para a sua conta de base de dados
-1. Selecione o nome do servidor na página **'Vista Geral'**
-1. Selecione **Firewalls > de Segurança e redes virtuais**
-1. Selecione **Sim** para **permitir que os serviços e recursos da Azure acedam a este servidor**
-
-    :::image type="content" source="media/register-scan-azure-sql-database/sql-firewall.png" alt-text="registar opções de fontes" border="true":::
-    
-> [!Note]
-> Atualmente, o Azure Purview não suporta a configuração VNET. Portanto, não é possível fazer definições de firewall baseadas em IP.
-
 ## <a name="register-an-azure-sql-database-managed-instance-data-source"></a>Registar uma fonte de dados gerida por exemplos de dados da Azure SQL
 
 1. Navegue para a sua conta Desemis
@@ -144,7 +130,7 @@ O seu servidor de base de dados deve permitir ativar as ligações Azure. Isto p
 > [!NOTE]
 > A eliminação da sua verificação não elimina os seus ativos de verificações anteriores da Base de Dados Azure SQL.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Navegue no catálogo de dados Azure Purview Data](how-to-browse-catalog.md)
 - [Pesse o Catálogo de Dados da Azure Purview](how-to-search-catalog.md)

@@ -6,16 +6,16 @@ author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
 ms.date: 09/15/2020
-ms.openlocfilehash: 1f198d47191e7893e74b072ae8fd10546e3a6ee7
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 378a85ed77a6eedeb928dee541046db1909da553
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96752214"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491996"
 ---
 # <a name="dependency-analysis"></a>Análise de dependência
 
-Este artigo descreve a análise de dependência em Azure Migrate:Avaliação do servidor.
+Este artigo descreve a análise de dependência em Azure Migrate: Avaliação do servidor.
 
 
 A análise da dependência identifica as dependências entre máquinas descobertas no local. Fornece estas vantagens: 
@@ -78,11 +78,11 @@ As diferenças entre visualização sem agente e visualização baseada em agent
 --- | --- | ---
 **Suporte** | Apenas na pré-visualização de VMware VMs. [Reveja](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) os sistemas operativos suportados. | Em disponibilidade geral (GA).
 **Agente** | Não são necessários agentes em máquinas que queiras analisar. | Agentes necessários em cada máquina no local que você quer analisar.
-**Log Analytics** | Não é necessário. | A Azure Migrate utiliza a solução [de Mapa de Serviço](../azure-monitor/insights/service-map.md) nos [registos do Monitor Azure](../azure-monitor/log-query/log-query-overview.md) para análise de dependência.<br/><br/> Associa um espaço de trabalho log Analytics a um projeto Azure Migrate. O espaço de trabalho deve residir nas regiões do Leste dos EUA, Sudeste Asiático ou Europa Ocidental. O espaço de trabalho deve estar numa região em que [o Mapa de Serviços é suportado.](../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions)
+**Log Analytics** | Não necessárias. | A Azure Migrate utiliza a solução [de Mapa de Serviço](../azure-monitor/insights/service-map.md) nos [registos do Monitor Azure](../azure-monitor/log-query/log-query-overview.md) para análise de dependência.<br/><br/> Associa um espaço de trabalho log Analytics a um projeto Azure Migrate. O espaço de trabalho deve residir nas regiões do Leste dos EUA, Sudeste Asiático ou Europa Ocidental. O espaço de trabalho deve estar numa região em que [o Mapa de Serviços é suportado.](../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions)
 **Processo** | Captura dados de ligação TCP. Após a descoberta, recolhe dados em intervalos de cinco minutos. | Os agentes do Mapa de Serviço instalados numa máquina recolhem dados sobre os processos TCP e ligações de entrada/saída para cada processo.
 **Dados** | Nome do servidor da máquina de origem, processo, nome da aplicação.<br/><br/> Nome do servidor da máquina de destino, processo, nome da aplicação e porta. | Nome do servidor da máquina de origem, processo, nome da aplicação.<br/><br/> Nome do servidor da máquina de destino, processo, nome da aplicação e porta.<br/><br/> O número de ligações, latência e informações de transferência de dados são recolhidos e disponíveis para consultas de Log Analytics. 
 **Visualização** | O mapa de dependência de um único servidor pode ser visto durante uma hora a 30 dias. | Mapa de dependência de um único servidor.<br/><br/> Mapa de dependência de um grupo de servidores.<br/><br/>  O mapa pode ser visto apenas durante uma hora.<br/><br/> Adicione e remova os servidores num grupo a partir da vista do mapa.
-Exportar dados | Os dados dos últimos 30 dias podem ser descarregados num formato CSV. | Os dados podem ser consultados com Log Analytics.
+Exportação de dados | Os dados dos últimos 30 dias podem ser descarregados num formato CSV. | Os dados podem ser consultados com Log Analytics.
 
 
 

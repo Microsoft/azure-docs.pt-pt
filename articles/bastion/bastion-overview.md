@@ -1,5 +1,5 @@
 ---
-title: Bastião Azure Microsoft Docs
+title: Azure Bastion | Microsoft Docs
 description: Saiba mais sobre o Azure Bastion, que fornece conectividade RDP/SSH segura e sem costura às suas máquinas virtuais sem expor as portas RDP/SSH externamente.
 services: bastion
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: overview
 ms.date: 10/13/2020
 ms.author: cherylmc
-ms.openlocfilehash: f4aa1ef29ffb27efb29d969e48af4cf5288e08ae
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 18672d76c262f8919489ccf132532c117666abe4
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183917"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492183"
 ---
 # <a name="what-is-azure-bastion"></a>O que é o Azure Bastion?
 
@@ -30,7 +30,7 @@ RDP e SSH são alguns dos meios fundamentais através dos quais pode ligar-se à
 
 Esta figura mostra a arquitetura de um destacamento de Azure Bastion. Neste diagrama:
 
-* O hospedeiro Bastion está implantado na rede virtual.
+* O anfitrião Bastion é implantado na rede virtual que contém a sub-rede AzureBastionSubnet que tem um prefixo mínimo /27.
 * O utilizador liga-se ao portal Azure utilizando qualquer navegador HTML5.
 * O utilizador seleciona a máquina virtual para se ligar.
 * Com um único clique, a sessão RDP/SSH abre no navegador.

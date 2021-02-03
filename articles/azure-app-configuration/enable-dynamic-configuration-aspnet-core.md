@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/1/2020
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 7072720e2600221e7b8ad8d2337577b65b079afb
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: e894caddd037738645a37ccb43265a24d56e8afe
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98660687"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493808"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Tutorial: Use configuração dinâmica numa aplicação core ASP.NET
 
@@ -33,7 +33,7 @@ Este tutorial mostra como pode implementar atualizações dinâmicas de configur
 
 Você pode usar qualquer editor de código para fazer os passos neste tutorial. [Visual Studio Code](https://code.visualstudio.com/) é uma excelente opção disponível nas plataformas Windows, macOS e Linux.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Configurar a sua aplicação para atualizar a sua configuração em resposta a alterações numa loja de Configuração de Aplicações.
@@ -186,6 +186,7 @@ Uma *chave sentinela* é uma chave especial usada para sinalizar quando a config
     {
         services.Configure<Settings>(Configuration.GetSection("TestApp:Settings"));
         services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+        services.AddAzureAppConfiguration();
     }
     ```
     ---
@@ -440,7 +441,7 @@ Uma *chave sentinela* é uma chave especial usada para sinalizar quando a config
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, permitiu que a sua ASP.NET web atualizasse dinamicamente as definições de configuração a partir da Configuração da Aplicação. Para aprender a usar uma identidade gerida pelo Azure para agilizar o acesso à Configuração de Aplicações, continue para o próximo tutorial.
+Neste tutorial, permitiu que a sua ASP.NET web web web atualizasse dinamicamente as definições de configuração a partir da Configuração da Aplicação. Para aprender a usar uma identidade gerida pelo Azure para agilizar o acesso à Configuração de Aplicações, continue para o próximo tutorial.
 
 > [!div class="nextstepaction"]
 > [Integração de identidade gerida](./howto-integrate-azure-managed-service-identity.md)

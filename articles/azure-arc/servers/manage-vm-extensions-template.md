@@ -1,14 +1,14 @@
 ---
 title: Ativar a extensão VM utilizando o modelo do Gestor de Recursos Azure
 description: Este artigo descreve como implementar extensões de máquinas virtuais para O Arco Azure habilitados a executar em ambientes de nuvem híbrida usando um modelo de Gestor de Recursos Azure.
-ms.date: 11/06/2020
+ms.date: 02/03/2021
 ms.topic: conceptual
-ms.openlocfilehash: d5c7f5055f3e41a91fa00e1e3ad08e7686145b9e
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: cfba14ac30553178bd509d0b0e7ba9c60332d299
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94353871"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493333"
 ---
 # <a name="enable-azure-vm-extensions-by-using-arm-template"></a>Ativar extensões de VM Azure utilizando o modelo ARM
 
@@ -698,6 +698,90 @@ Guarde o ficheiro do modelo para o disco. Em seguida, pode instalar a extensão 
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateFile "D:\Azure\Templates\KeyVaultExtension.json"
+```
+
+## <a name="deploy-the-azure-defender-integrated-scanner"></a>Implementar o scanner integrado Azure Defender
+
+Para utilizar a extensão do scanner integrado Azure Defender, é fornecida a seguinte amostra para funcionar no Windows e Linux. Se não estiver familiarizado com o scanner integrado, consulte [a visão geral da solução de avaliação de vulnerabilidade do Azure Defender](../../security-center/deploy-vulnerability-assessment-vm.md) para máquinas híbridas.
+
+### <a name="template-file-for-windows"></a>Arquivo de modelo para Windows
+
+```json
+{
+  "properties": {
+    "mode": "Incremental",
+    "template": {
+      "contentVersion": "1.0.0.0",
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "parameters": {
+        "vmName": {
+          "type": "string"
+        },
+        "apiVersionByEnv": {
+          "type": "string"
+        }
+      },
+      "resources": [
+        {
+          "type": "resourceType/providers/WindowsAgent.AzureSecurityCenter",
+          "name": "[concat(parameters('vmName'), '/Microsoft.Security/default')]",
+          "apiVersion": "[parameters('apiVersionByEnv')]"
+        }
+      ]
+    },
+    "parameters": {
+      "vmName": {
+        "value": "resourceName"
+      },
+      "apiVersionByEnv": {
+        "value": "2015-06-01-preview"
+      }
+    }
+  }
+}
+```
+
+### <a name="template-file-for-linux"></a>Arquivo de modelo para Linux
+
+```json
+{
+  "properties": {
+    "mode": "Incremental",
+    "template": {
+      "contentVersion": "1.0.0.0",
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "parameters": {
+        "vmName": {
+          "type": "string"
+        },
+        "apiVersionByEnv": {
+          "type": "string"
+        }
+      },
+      "resources": [
+        {
+          "type": "resourceType/providers/LinuxAgent.AzureSecurityCenter",
+          "name": "[concat(parameters('vmName'), '/Microsoft.Security/default')]",
+          "apiVersion": "[parameters('apiVersionByEnv')]"
+        }
+      ]
+    },
+    "parameters": {
+      "vmName": {
+        "value": "resourceName"
+      },
+      "apiVersionByEnv": {
+        "value": "2015-06-01-preview"
+      }
+    }
+  }
+}
+```
+
+Guarde o ficheiro do modelo para o disco. Em seguida, pode instalar a extensão em todas as máquinas ligadas dentro de um grupo de recursos com o seguinte comando.
+
+```powershell
+New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateFile "D:\Azure\Templates\AzureDefenderScanner.json"
 ```
 
 ## <a name="next-steps"></a>Passos seguintes

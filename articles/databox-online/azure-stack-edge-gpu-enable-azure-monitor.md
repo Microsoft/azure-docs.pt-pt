@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 02/02/2021
 ms.author: alkohli
-ms.openlocfilehash: 3485c6ca5c2672fa48b6118a78600b9745994ce1
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 171b4dbfb2a5852e270c483a28cad31f97dcb42b
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96466981"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493917"
 ---
 # <a name="enable-azure-monitor-on-your-azure-stack-edge-pro-gpu-device"></a>Ativar o Monitor Azure no seu dispositivo GPU Azure Stack Edge Pro
 
@@ -30,7 +30,7 @@ Antes de começar, vai precisar de:
 - Completou o passo **de computação Configure** de acordo com o [Tutorial: Conigure computo no seu dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-configure-compute.md) no seu dispositivo. O seu dispositivo deve ter um recurso IoT Hub associado, um dispositivo IoT e um dispositivo IoT Edge.
 
 
-## <a name="create-log-analytics-workspace"></a>Criar espaço de trabalho Log Analytics.
+## <a name="create-log-analytics-workspace"></a>Criar uma área de trabalho do Log Analytics
 
 Tome os seguintes passos para criar um espaço de trabalho de análise de log. Um espaço de trabalho de análise de registo é uma unidade de armazenamento lógica onde os dados de registo são recolhidos e armazenados.
 
@@ -118,8 +118,8 @@ Tome os seguintes passos para permitir informações sobre o recipiente no seu e
 
 1. Obtenha a identificação e a localização do recurso. Aceda a `Your Log Analytics workspace > General > Properties`. Copiar as seguintes informações:
 
-    - **ID de recurso** que é o ID de recurso Azure totalmente qualificado do espaço de trabalho Azure Log Analytics. 
-    - **localização** que é a região de Azure.
+    - **ID de recurso**, que é o ID de recurso Azure totalmente qualificado do espaço de trabalho Azure Log Analytics. 
+    - **localização**, que é a região de Azure.
 
     ![Propriedades do espaço de trabalho Log Analytics](media/azure-stack-edge-gpu-enable-azure-monitor/log-analytics-workspace-properties-1.png) 
 
@@ -241,3 +241,4 @@ Tome os seguintes passos para permitir informações sobre o recipiente no seu e
 ## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como monitorizar as [cargas de trabalho da Kubernetes através do Painel kubernetes.](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md)
+- Saiba como gerir notificações de [alerta de eventos do dispositivo](azure-stack-edge-gpu-manage-device-event-alert-notifications.md). 

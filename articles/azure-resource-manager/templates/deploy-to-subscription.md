@@ -3,12 +3,12 @@ title: Mobilizar recursos para a subscrição
 description: Descreve como criar um grupo de recursos num modelo de Gestor de Recursos Azure. Também mostra como implantar recursos no âmbito de subscrição do Azure.
 ms.topic: conceptual
 ms.date: 01/13/2021
-ms.openlocfilehash: 1daf95945f619d0e904880d8a8a778810a685d9a
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: b5c99e5dc21c2b93f1c9da3977302a2dd311277f
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98183987"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491508"
 ---
 # <a name="subscription-deployments-with-arm-templates"></a>Implementações de subscrição com modelos ARM
 
@@ -104,7 +104,7 @@ az deployment sub create \
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Para o comando de implantação PowerShell, utilize [o New-AzDeployment](/powershell/module/az.resources/new-azdeployment) ou **o New-AzSubscriptionDeployment**. O exemplo a seguir implementa um modelo para criar um grupo de recursos:
+Para o comando de implantação PowerShell, utilize [o New-AzDeployment](/powershell/module/az.resources/new-azdeployment) ou o seu pseudónimo `New-AzSubscriptionDeployment` . O exemplo a seguir implementa um modelo para criar um grupo de recursos:
 
 ```azurepowershell-interactive
 New-AzSubscriptionDeployment `
@@ -130,7 +130,7 @@ Para obter informações mais detalhadas sobre comandos de implantação e opç�
 
 Para implementações de nível de subscrição, deve fornecer uma localização para a implementação. A localização da implantação é separada da localização dos recursos que implementa. A localização da implantação especifica onde armazenar dados de implantação. [O grupo de gestão](deploy-to-management-group.md) e as implantações de [inquilinos](deploy-to-tenant.md) também requerem uma localização. Para implementações [de grupos](deploy-to-resource-group.md) de recursos, a localização do grupo de recursos é usada para armazenar os dados de implantação.
 
-Pode fornecer um nome para a implementação ou utilizar o nome de implementação predefinido. O nome predefinido é o nome do ficheiro do modelo. Por exemplo, a implementação de um modelo denominado **azuredeploy.jscria** um nome de implementação padrão de **azuredeploy**.
+Pode fornecer um nome para a implementação ou utilizar o nome de implementação predefinido. O nome predefinido é o nome do ficheiro do modelo. Por exemplo, a implementação de um modelo denominado _azuredeploy.jscria_ um nome de implementação padrão de **azuredeploy**.
 
 Para cada nome de implantação, a localização é imutável. Não é possível criar uma implantação num local quando há uma implantação existente com o mesmo nome num local diferente. Por exemplo, se criar uma implementação de subscrição com o nome **implantado1** em **central,** não pode mais tarde criar outra implantação com o nome **de implantação1,** mas uma localização de **Westus**. Se obter o código de erro `InvalidDeploymentLocation` , utilize um nome diferente ou o mesmo local que a colocação anterior para esse nome.
 
@@ -173,9 +173,9 @@ Para um exemplo de implantação para um grupo de recursos, consulte [Criar grup
 
 ### <a name="scope-to-tenant"></a>Âmbito para inquilino
 
-Pode criar recursos no arrendatário definindo o `scope` conjunto para `/` . O utilizador que implementa o modelo deve ter o [acesso necessário para implantar no arrendatário](deploy-to-tenant.md#required-access).
+Para criar recursos no inquilino, estabeleça `scope` `/` o. O utilizador que implementa o modelo deve ter o [acesso necessário para implantar no arrendatário](deploy-to-tenant.md#required-access).
 
-Pode utilizar uma implantação aninhada `scope` e `location` definida.
+Para utilizar uma implantação aninhada, definido `scope` e `location` .
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/subscription-to-tenant.json" highlight="9,10,14":::
 
@@ -254,7 +254,7 @@ Utilize o [elemento de cópia](copy-resources.md) com grupos de recursos para cr
 }
 ```
 
-Para obter informações sobre a iteração de recursos, consulte [Implementar mais de um exemplo de um recurso nos Modelos do Gestor de Recursos Azure](./copy-resources.md)e [Tutorial: Criar múltiplas instâncias de recursos com modelos de Gestor de Recursos](./template-tutorial-create-multiple-instances.md).
+Para obter informações sobre a iteração de recursos, consulte [a iteração de recursos nos modelos ARM](./copy-resources.md)e [Tutorial: Crie múltiplas instâncias de recursos com modelos ARM](./template-tutorial-create-multiple-instances.md).
 
 ### <a name="create-resource-group-and-resources"></a>Criar grupo de recursos e recursos
 

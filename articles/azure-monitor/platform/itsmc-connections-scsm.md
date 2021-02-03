@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 12/21/2020
-ms.openlocfilehash: 79706b66dba46253843b1f53a26481170d6ff723
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 907a78b15cca4718308f79bc6be2e6258bc04d19
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97729729"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492676"
 ---
 # <a name="connect-system-center-service-manager-with-it-service-management-connector"></a>Connect System Center Service Manager com it service management connector
 
@@ -32,7 +32,7 @@ Assegurar que os seguintes pré-requisitos sejam cumpridos:
 
 > [!NOTE]
 > - O Conector ITSM só pode ligar-se a instâncias de ServiceNow baseadas na nuvem. As instâncias do ServiceNow no local não são suportadas atualmente.
-> - Para utilizar [modelos personalizados](./itsmc-definition.md#template-definitions) como parte das ações, o parâmetro "ProjectionType" no modelo SCSM deve ser mapeado para "IncidentManagement! System.WorkItem.Incident.ProjectionType"
+> - Para utilizar [modelos personalizados](./itsmc-definition.md#define-a-template) como parte das ações, o parâmetro "ProjectionType" no modelo SCSM deve ser mapeado para "IncidentManagement! System.WorkItem.Incident.ProjectionType"
 
 ## <a name="connection-procedure"></a>Procedimento de ligação
 
@@ -88,7 +88,7 @@ Execute o script fornecendo os seguintes detalhes necessários:
 
 - Detalhes da subscrição do Azure
 - Nome do grupo de recursos
-- A localização
+- Localização
 - Detalhes do servidor do Gestor de Serviço (nome do servidor, domínio, nome de utilizador e palavra-passe)
 - Prefixo de nome do site para a sua aplicação Web
 - Espaço de nomes ServiceBus.
@@ -165,6 +165,6 @@ A imagem da amostra que se segue mostra os detalhes de uma ligação bem sucedid
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Visão geral do conector ITSM](itsmc-overview.md)
+* [Descrição Geral do Conector do ITSM](itsmc-overview.md)
 * [Crie itens de trabalho ITSM a partir de alertas Azure](./itsmc-definition.md#create-itsm-work-items-from-azure-alerts)
 * [Resolver problemas do Conector do ITSM](./itsmc-resync-servicenow.md)

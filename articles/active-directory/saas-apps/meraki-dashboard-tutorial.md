@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/28/2020
 ms.author: jeedes
-ms.openlocfilehash: f635a4c4c6e0b1dcb4d4842d3cddb337d2b26407
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 74009c7e7f2ad28655c9c5322a063a17da96e0c5
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735166"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493926"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-meraki-dashboard"></a>Tutorial: Azure Ative Directory integração única (SSO) com o Meraki Dashboard
 
@@ -103,7 +103,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     ![Editar certificado de assinatura SAML](common/edit-certificate.png)
 
-1. Na secção **Certificado de Assinatura SAML,** copie o **Valor de Impressão Digital** e guarde-o no seu computador.
+1. Na secção **Certificado de Assinatura SAML,** copie o **Valor de Impressão Digital** e guarde-o no seu computador. Este valor precisa de ser convertido para incluir os cólons para que o painel meraki o compreenda. Por exemplo, se a impressão digital do Azure `C2569F50A4AAEDBB8E` for, terá de ser alterada `C2:56:9F:50:A4:AA:ED:BB:8E` para a utilizar mais tarde no Painel Meraki.
 
     ![Valor da impressão digital do polegar da cópia](common/copy-thumbprint.png)
 
@@ -165,7 +165,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     ![Meraki Dashboard Adicionar um IdP SAML](./media/meraki-dashboard-tutorial/configure-3.png)
 
-1. Cole o **Valor de Impressão Digital Thumbprint,** que copiou do portal Azure para a caixa de texto de impressão digital **X.590 cert SHA1.** Em seguida, clique em **Guardar**. Depois de poupar, a URL do consumidor aparecerá. Copie o valor do URL do consumidor e cole-o na caixa de texto **URL de resposta** na Secção de **Configuração Básica SAML** no portal Azure.
+1. Cole o Valor **de Impressão Polegar** convertido, que copiou do portal Azure e convertido em formato especificado, como mencionado no passo 9 da secção anterior em **X.590 cert SHA1 caixa de texto de impressão digital SHA1.** Em seguida, clique em **Guardar**. Depois de poupar, a URL do consumidor aparecerá. Copie o valor do URL do consumidor e cole-o na caixa de texto **URL de resposta** na Secção de **Configuração Básica SAML** no portal Azure.
 
     ![Configuração do painel meraki](./media/meraki-dashboard-tutorial/configure-4.png)
 
@@ -194,6 +194,6 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 * Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo meraki dashboard nas Minhas Apps, deverá ser automaticamente inscrito no Painel Meraki para o qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](../user-help/my-apps-portal-end-user-access.md)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Uma vez configurado o Meraki Dashboard, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

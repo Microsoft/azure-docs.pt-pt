@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.custom: ''
 ms.date: 07/24/2020
 ms.author: inhenkel
-ms.openlocfilehash: 9d784e1697dfbcbfec509c1a51c9b832b533c97b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ddd6a94015829a0b5dd4053f4d3a2fd6d2650d32
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87830755"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492659"
 ---
 # <a name="how-to-use-azure-portal-to-invoke-direct-methods"></a>Como usar o portal Azure para invocar métodos diretos
 
@@ -54,19 +54,19 @@ Utilize a `GraphTopologyList` chamada de método para recuperar uma lista de tod
 1. Copiar e colar o JSON abaixo no campo **De carga útil.**
     ```json
     {
-    "@apiVersion":
+    "@apiVersion": "2.0"
     }
     ```
 1. Selecione o botão **Método invocar** no topo da página.<br><br>
     ![invocar botão método](media/use-azure-portal-to-invoke-directs-methods/direct-method.png)
 1. Deve ver uma mensagem de estado 200 na área **de Resultados.**<br><br>
-    ![limite de tempo da ligação](media/use-azure-portal-to-invoke-directs-methods/connection-timeout.png)
+    ![tempo limite de ligação](media/use-azure-portal-to-invoke-directs-methods/connection-timeout.png)
 
 ## <a name="responses"></a>Respostas
 
 | Condição             | Código de Estado | Código de Erro Detalhado |
 |-----------------------|-------------|---------------------|
-| Success               | 200         | N/D                 |
+| Com êxito               | 200         | N/D                 |
 | Erros gerais do utilizador   | Gama 400   |                     |
 | Erros gerais do servidor | Gama 500   |                     |
 

@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 478ae6146caeb8a27cdaf13b7f33e421b8121afc
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: fa2d910c017d3cc626f737bdab50315aef8d1e77
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741495"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491390"
 ---
 # <a name="enable-azure-active-directory-self-service-password-reset-at-the-windows-sign-in-screen"></a>Ativar a palavra-passe de autosserviço do Azure Ative Directory reiniciada no ecrã de entrada do Windows
 
@@ -40,7 +40,7 @@ Aplicam-se as seguintes limitações à utilização de SSPR a partir do ecrã d
 - As máquinas híbridas AZURE AD devem ter linha de visão de conectividade de rede para um controlador de domínio para usar a nova palavra-passe e atualizar credenciais em cache. Isto significa que os dispositivos devem estar na rede interna da organização ou numa VPN com acesso à rede a um controlador de domínio no local.
 - Se utilizar uma imagem, antes de executar o sysprep, certifique-se de que a cache web está limpa para o administrador incorporado antes de executar o passo CopyProfile. Mais informações sobre este passo podem ser encontradas no artigo De suporte [Desempenho fraco ao utilizar o perfil de utilizador padrão personalizado](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
 - As seguintes definições são conhecidas por interferir com a capacidade de utilizar e redefinir palavras-passe em dispositivos Windows 10:
-    - Se o Ctrl+Alt+Del for exigido por política nas versões do Windows 10 antes do v1909, **a palavra-passe reset** não funcionará.
+    - Se o Ctrl+Alt+Del for exigido pela política no Windows 10, **a palavra-passe reset** não funcionará.
     - Se as notificações do ecrã de bloqueio estiverem desligadas, **a palavra-passe reset** não funcionará.
     - *HideFastUserSwitching* está definido para ativar ou 1
     - *DontDisplayLastUserName* está definido para ativar ou 1
@@ -51,6 +51,10 @@ Aplicam-se as seguintes limitações à utilização de SSPR a partir do ecrã d
     - Logotipo interativo: Não requer CTRL+ALT+DEL = Desativado
     - *DisableLockScreenAppNotificações* = 1 ou Ativado
     - Windows SKU não é edição doméstica ou profissional
+
+> [!NOTE]
+> Estas limitações aplicam-se também ao Windows Hello for Business PIN reiniciado a partir do ecrã de bloqueio do dispositivo.
+>
 
 ## <a name="windows-10-password-reset"></a>Reset da palavra-passe do Windows 10
 

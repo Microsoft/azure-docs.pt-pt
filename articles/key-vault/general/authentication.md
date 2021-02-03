@@ -7,12 +7,12 @@ ms.date: 08/27/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 455caf0b80d82b03f8d00929addeab15a1af6d7e
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: ed83d52d19df126ef9b0e68f984f88f5dfd40c42
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754220"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492945"
 ---
 # <a name="authenticate-to-azure-key-vault"></a>Autenticar para o Azure Key Vault
 
@@ -113,11 +113,9 @@ A tabela a seguir liga-se a diferentes artigos que demonstram como trabalhar com
 | Segredos do Cofre Chave | Chaves do cofre chave | Certificados de cofre chave |
 |  --- | --- | --- |
 | [Python](../secrets/quick-create-python.md) | [Python](../keys/quick-create-python.md) | [Python](../certificates/quick-create-python.md) | 
-| [.NET (SDK v4)](../secrets/quick-create-net.md) | -- | -- |
-| [.NET (SDK v3)](https://dotnet.microsoft.com/download/dotnet-core/3.0) | -- | -- |
-| [Java](../secrets/quick-create-java.md) | -- | -- |
-| [JavaScript](../secrets/quick-create-node.md) | -- | -- | 
-| | | |
+| [.NET](../secrets/quick-create-net.md) | [.NET](../keys/quick-create-net.md) | [.NET](../certificates/quick-create-net.md) |
+| [Java](../secrets/quick-create-java.md) | [Java](../keys/quick-create-java.md) | [Java](../certificates/quick-create-java.md) |
+| [JavaScript](../secrets/quick-create-node.md) | [JavaScript](../keys/quick-create-node.md) | [JavaScript](../certificates/quick-create-node.md) | 
 | [Portal do Azure](../secrets/quick-create-portal.md) | [Portal do Azure](../keys/quick-create-portal.md) | [Portal do Azure](../certificates/quick-create-portal.md) |
 | [CLI do Azure](../secrets/quick-create-cli.md) | [CLI do Azure](../keys/quick-create-cli.md) | [CLI do Azure](../certificates/quick-create-cli.md) |
 | [Azure PowerShell](../secrets/quick-create-powershell.md) | [Azure PowerShell](../keys/quick-create-powershell.md) | [Azure PowerShell](../certificates/quick-create-powershell.md) |

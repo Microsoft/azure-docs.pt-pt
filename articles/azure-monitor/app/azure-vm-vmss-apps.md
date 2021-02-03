@@ -3,12 +3,12 @@ title: Monitor desempenho em VMs Azure - Azure Application Insights
 description: Monitorização do desempenho da aplicação para conjuntos de balanças de máquinas virtuais Azure VM e Azure. Cartografe o tempo de carga e resposta, informações de dependência e definir alertas sobre o desempenho.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 01583cf5ecb85e4f66538afaba6984bff455ea99
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 48441711c8c6209b25974108fd91d1023fd6e6be
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475459"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493741"
 ---
 # <a name="deploy-the-azure-monitor-application-insights-agent-on-azure-virtual-machines-and-azure-virtual-machine-scale-sets"></a>Implementar o Agente de Insights de Aplicação do Monitor Azure em máquinas virtuais Azure e conjuntos de escala de máquina virtual Azure
 
@@ -27,7 +27,7 @@ Este artigo acompanha-o através da monitorização de Insights de Aplicação u
 
 Existem duas formas de permitir a monitorização de aplicações para máquinas virtuais Azure e conjuntos de escala de máquina virtual Azure hospedados aplicações:
 
-### <a name="auto-inctrumentation-via-application-insights-agent"></a>Auto-intrução via Application Insights Agent
+### <a name="auto-instrumentation-via-application-insights-agent"></a>Auto-instrumentação através do Agente de Insights de Aplicação
 
 * Este método é o mais fácil de ativar, e não é necessária nenhuma configuração avançada. É frequentemente referido como monitorização do "tempo de execução".
 

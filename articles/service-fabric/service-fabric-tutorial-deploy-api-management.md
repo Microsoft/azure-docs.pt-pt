@@ -4,12 +4,12 @@ description: Saiba como começar rapidamente com a Azure API Management e encami
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: b89204e2df5c8e79200b780de38d06b1a93c1fa3
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: f1ae658ac4944f8d39dc11769669d32958fd14f4
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97702196"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491287"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Integrar a Gestão da API com tecido de serviço em Azure
 
@@ -30,7 +30,7 @@ Este artigo mostra-lhe como configurar [a Azure API Management](../api-managemen
 Antes de começar:
 
 * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Instale [Azure Powershell](/powershell/azure/install-az-ps) ou [Azure CLI](/cli/azure/install-azure-cli).
+* Instale [a Azure PowerShell](/powershell/azure/install-az-ps) ou [Azure CLI](/cli/azure/install-azure-cli).
 * Crie um [cluster Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) seguro num grupo de segurança de rede.
 * Se implementar um cluster do Windows, configure um ambiente de desenvolvimento do Windows. Instale o [Visual Studio 2019](https://www.visualstudio.com) e o desenvolvimento do **Azure,** **ASP.NET e desenvolvimento web,** e cargas **de desenvolvimento de plataformas cruzadas .NET Core.**  Em seguida, configure um [ambiente de desenvolvimento .NET](service-fabric-get-started.md).
 
@@ -114,7 +114,7 @@ As secções seguintes descrevem os recursos que o modelo *apim.json* define. Pa
 
 [Microsoft.ApiManagement/service/certificates](/azure/templates/microsoft.apimanagement/service/certificates) configura a segurança da Gestão de API. A Gestão de API tem de se autenticar com o seu cluster do Service Fabric para a deteção de serviço através de um certificado de cliente que tenha acesso ao cluster. Este artigo utiliza o mesmo certificado especificado anteriormente na criação do [cluster Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md#createvaultandcert_anchor), que por padrão pode ser utilizado para aceder ao seu cluster.
 
-Este artigo utiliza o mesmo certificado para autenticação do cliente e segurança de nó. Se tiver configurado um certificado de cliente separado, pode utilizá-lo para aceder ao seu cluster do Service Fabric. Indique o **nome**, a **palavra-passe** e os **dados** (cadeia com codificação base 64) do ficheiro de chave privada (.pfx) do certificado de cluster que especificou quando criou o cluster do Service Fabric.
+Este artigo utiliza o mesmo certificado para autenticação do cliente e segurança de nó de nó de nó. Se tiver configurado um certificado de cliente separado, pode utilizá-lo para aceder ao seu cluster do Service Fabric. Indique o **nome**, a **palavra-passe** e os **dados** (cadeia com codificação base 64) do ficheiro de chave privada (.pfx) do certificado de cluster que especificou quando criou o cluster do Service Fabric.
 
 ### <a name="microsoftapimanagementservicebackends"></a>Microsoft.ApiManagement/service/backends
 
@@ -190,7 +190,7 @@ Preencha os parâmetros vazios seguintes em *apim.parameters.json* da sua implem
 |---|---|
 |apimInstanceName|sf-apim|
 |apimPublisherEmail|myemail@contosos.com|
-|apimSku|Suporte para Programadores|
+|apimSku|Programador|
 |serviceFabricCertificateName|sfclustertutorialgroup320171031144217|
 |certificatePassword|q6D7nN%6ck@6|
 |serviceFabricCertificateThumbprint|C4C1E541AD512B8065280292A8BA6079C3F26F10 |
@@ -293,6 +293,8 @@ az group delete --name $ResourceGroupName
 
 Saiba mais sobre a utilização [da API Management.](../api-management/import-and-publish.md)
 
+Também pode utilizar o [portal Azure](../api-management/how-to-configure-service-fabric-backend.md) para criar e gerir backends de Tecido de Serviço para a Gestão da API.
+
 [azure-powershell]: /powershell/azure/
 
 [apim-arm]:https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/service-integration/apim.json
@@ -303,7 +305,6 @@ Saiba mais sobre a utilização [da API Management.](../api-management/import-an
 
 <!-- pics -->
 [sf-apim-topology-overview]: ./media/service-fabric-tutorial-deploy-api-management/sf-apim-topology-overview.png
-vice-tecido-scripts-e-modelos/blob/master/modelos/service-integration/network-apim.parameters.jsemn
 
 <!-- pics -->
 [sf-apim-topology-overview]: ./media/service-fabric-tutorial-deploy-api-management/sf-apim-topology-overview.png

@@ -3,12 +3,12 @@ title: Reprodução de gravações - Azure
 description: Pode utilizar o Live Video Analytics no IoT Edge para gravação contínua de vídeo, através do qual pode gravar vídeos na nuvem durante semanas ou meses. Também pode limitar a sua gravação a clips que sejam de interesse, através de gravações baseadas em eventos. Este artigo fala sobre como reproduzir gravações.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: 6222d2c05b2fe05945d4bcbef6dbb0d64bd4726a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0351f10d9fac3ad7e3b4fdd5fd549eb7c0023694
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84261080"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99490900"
 ---
 # <a name="playback-of-recordings"></a>Reprodução de gravações 
 
@@ -52,7 +52,7 @@ Onde o valor de precisão pode ser de: ano, mês, dia ou cheio (como mostrado ab
 |---|---|---|---|---|
 |Consulta|`/availableMedia?precision=year&startTime=2018&endTime=2019`|`/availableMedia?precision=month& startTime=2018-01& endTime=2019-02`|`/availableMedia?precision=day& startTime=2018-01-15& endTime=2019-02-02`|`/availableMedia?precision=full& startTime=2018-01-15T10:08:11.123& endTime=2019-01-015T12:00:01.123`|
 |Resposta|`{  "timeRanges":[{ "start":"2018", "end":"2019" }]}`|`{  "timeRanges":[{ "start":"2018-03", "end":"2019-01" }]}`|`{  "timeRanges":[    { "start":"2018-03-01", "end":"2018-03-07" },    { "start":"2018-03-09", "end":"2018-03-31" }  ]}`|Resposta de fidelidade completa. Se não houvesse lacunas, o início seria startTime, e o fim seria fim de tempo.|
-|Constrangimentos|&#x2022;startTime <= endTime<br/>&#x2022;Ambos devem estar no formato YYYY, caso contrário, devolva o erro de devolução.<br/>&#x2022;Valores podem ter vários anos de diferença.<br/>&#x2022;Valores são inclusivos.|&#x2022;startTime <= endTime<br/>&#x2022;Ambos devem estar no formato YYYY-MM, caso contrário, erro de devolução.<br/>&#x2022;Valores podem ter no máximo 12 meses de intervalo.<br/>&#x2022;Valores são inclusivos.|&#x2022;startTime <= endTime<br/>&#x2022;Ambos devem estar no formato YYYY-MM-DD, caso contrário, erro de devolução.<br/>&#x2022;Valores podem ter no máximo 31 dias de intervalo.<br/>Os valores são inclusivos.|&#x2022;startTime < endTime<br/>&#x2022;Valores podem estar no máximo com 25 horas de intervalo.<br/>&#x2022;Valores são inclusivos.|
+|Restrições|&#x2022;startTime <= endTime<br/>&#x2022;Ambos devem estar no formato YYYY, caso contrário, devolva o erro de devolução.<br/>&#x2022;Valores podem ter vários anos de diferença.<br/>&#x2022;Valores são inclusivos.|&#x2022;startTime <= endTime<br/>&#x2022;Ambos devem estar no formato YYYY-MM, caso contrário, erro de devolução.<br/>&#x2022;Valores podem ter no máximo 12 meses de intervalo.<br/>&#x2022;Valores são inclusivos.|&#x2022;startTime <= endTime<br/>&#x2022;Ambos devem estar no formato YYYY-MM-DD, caso contrário, erro de devolução.<br/>&#x2022;Valores podem ter no máximo 31 dias de intervalo.<br/>Os valores são inclusivos.|&#x2022;startTime < endTime<br/>&#x2022;Valores podem estar no máximo com 25 horas de intervalo.<br/>&#x2022;Valores são inclusivos.|
 
 #### <a name="additional-request-format-considerations"></a>Considerações adicionais do formato de pedido
 

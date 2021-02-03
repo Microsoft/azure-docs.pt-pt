@@ -8,12 +8,12 @@ ms.service: api-management
 ms.topic: article
 ms.date: 12/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 4cde4dadee33ec1c3f91ab4770dbfe697289cef3
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 344500d5635f591b34a45130c7dd6b63659ad84d
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97504737"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491022"
 ---
 # <a name="use-named-values-in-azure-api-management-policies"></a>Utilizar valores nomeados nas políticas de gestão da API da Azure
 
@@ -43,7 +43,7 @@ A utilização de segredos chave do cofre é recomendada porque ajuda a melhorar
 
 * Segredos armazenados em cofres chave podem ser reutilizados em todos os serviços
 * As [políticas](../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) de acesso granular podem ser aplicadas aos segredos
-* Os segredos atualizados no cofre da chave são automaticamente rodados na Gestão da API. Após a atualização no cofre chave, um valor nomeado na Gestão da API é atualizado dentro de 4 horas. 
+* Os segredos atualizados no cofre da chave são automaticamente rodados na Gestão da API. Após a atualização no cofre chave, um valor nomeado na Gestão da API é atualizado dentro de 4 horas. Também pode atualizar manualmente o segredo utilizando o portal Azure ou através da gestão REST API.
 
 ### <a name="prerequisites-for-key-vault-integration"></a>Pré-requisitos para a integração do cofre-chave
 
@@ -58,25 +58,16 @@ A utilização de segredos chave do cofre é recomendada porque ajuda a melhorar
 
 Para utilizar o segredo do cofre chave, [adicione ou edite um valor nomeado](#add-or-edit-a-named-value), e especifique um tipo de cofre **chave**. Selecione o segredo do cofre da chave.
 
-> [!CAUTION]
-> Ao usar um segredo de cofre chave na API Management, tenha cuidado para não apagar o cofre secreto, o cofre de chaves ou a identidade gerida usada para aceder ao cofre da chave.
-
-Se [a firewall key Vault](../key-vault/general/network-security.md) estiver ativada no cofre da chave, os seguintes são requisitos adicionais para a utilização de segredos chave do cofre:
-
-* Deve utilizar a identidade gerida **do sistema atribuído à** API Management para aceder ao cofre de chaves.
-* Na firewall Key Vault, permita que os **Serviços Da Microsoft fidedignas contornem esta** opção de firewall.
-
-Se a instância de Gestão da API for implantada numa rede virtual, também configurar as seguintes definições de rede:
-* Ativar um [ponto final](../key-vault/general/overview-vnet-service-endpoints.md) de serviço para a Azure Key Vault na sub-rede API Management.
-* Configure uma regra do grupo de segurança da rede (NSG) para permitir o tráfego de saída para as [etiquetas](../virtual-network/service-tags-overview.md)de serviço AzureKeyVault e AzureActiveDirectory . 
-
-Para mais detalhes, consulte os detalhes da configuração da rede no [Connect a uma rede virtual.](api-management-using-with-vnet.md#-common-network-configuration-issues)
+[!INCLUDE [api-management-key-vault-network](../../includes/api-management-key-vault-network.md)]
 
 ## <a name="add-or-edit-a-named-value"></a>Adicionar ou editar um valor nomeado
 
 ### <a name="add-a-key-vault-secret"></a>Adicione um segredo chave do cofre
 
 Consulte [os pré-requisitos para a integração do cofre de chaves](#prerequisites-for-key-vault-integration).
+
+> [!CAUTION]
+> Ao usar um segredo de cofre chave na API Management, tenha cuidado para não apagar o cofre secreto, o cofre de chaves ou a identidade gerida usada para aceder ao cofre da chave.
 
 1. No [portal Azure,](https://portal.azure.com)navegue para o seu caso de Gestão API.
 1. Em **APIs**, selecione **Valores Nomeados**  >  **+Adicionar**.
@@ -109,7 +100,7 @@ Uma vez criado o valor nomeado, pode editá-lo selecionando o nome. Se alterar o
 
 Os exemplos desta secção utilizam os valores indicados indicados na tabela seguinte.
 
-| Nome               | Valor                      | Segredo | 
+| Name               | Valor                      | Segredo | 
 |--------------------|----------------------------|--------|---------|
 | ContosoHeader      | `TrackingId`                 | Falso  | 
 | ContosoHeaderValue | ••••••••••••••••••••••     | Verdadeiro   | 
