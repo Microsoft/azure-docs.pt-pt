@@ -8,12 +8,12 @@ ms.date: 01/04/2021
 ms.author: chhenk
 ms.reviewer: azmetadatadev
 ms.custom: references_regions
-ms.openlocfilehash: ceb560a3f0c56a13b9f8da6c867f513b2b08e59b
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 0b04ebd9672990738d77bc5ae09d7f7fae4ffb9d
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97962231"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99500468"
 ---
 # <a name="azure-instance-metadata-service-imds"></a>Serviço de metadados de caso Azure (IMDs)
 
@@ -78,7 +78,7 @@ Qualquer pedido que não satisfaça **ambos estes** requisitos será rejeitado p
 O IMDS **não** se destina a ser utilizado por detrás de um representante e fazê-lo não é suportado. A maioria dos clientes HTTP fornece uma opção para desativar os proxies nos seus pedidos, e esta funcionalidade deve ser utilizada ao comunicar com o IMDS. Consulte a documentação do seu cliente para mais detalhes.
 
 > [!IMPORTANT]
-> Mesmo que não saiba de nenhuma configuração de procuração no seu ambiente, **ainda deve anular quaisquer definições padrão de procuração de clientes**. As configurações proxy podem ser automaticamente descobertas, e não conseguir contornar tais configurações expõe-no a riscos de indignação caso a configuração da máquina seja alterada no futuro.
+> Mesmo que não saiba de nenhuma configuração de procuração no seu ambiente, **ainda deve anular quaisquer definições padrão de procuração de clientes**. As configurações proxy podem ser automaticamente descobertas, e não conseguir contornar tais configurações expõe-no a riscos de interrupção caso a configuração da máquina seja alterada no futuro.
 
 ## <a name="rate-limiting"></a>Rate limiting (Limitação de taxa)
 
@@ -88,7 +88,7 @@ Em geral, os pedidos ao IMDS limitam-se a 5 pedidos por segundo. Os pedidos que 
 
 Os seguintes verbos HTTP são atualmente suportados:
 
-| Verbo | Description |
+| Verbo | Descrição |
 |------|-------------|
 | `GET` | Recuperar o recurso solicitado
 
@@ -268,7 +268,7 @@ O ponto final da raiz é `http://169.254.169.254/metadata` .
 
 A API IMDS contém várias categorias de pontos finais que representam diferentes fontes de dados, cada uma das quais contém um ou mais pontos finais. Consulte cada categoria para mais detalhes.
 
-| Raiz de categoria | Description | Versão introduzida |
+| Raiz de categoria | Descrição | Versão introduzida |
 |---------------|-------------|--------------------|
 | `/metadata/attested` | Ver [Dados Attestados](#attested-data) | 2018-10-01
 | `/metadata/identity` | Ver [Identidade Gerida via IMDS](#managed-identity) | 2018-02-01
@@ -332,7 +332,7 @@ Desagregação do esquema:
 
 **Computação**
 
-| Dados | Description | Versão introduzida |
+| Dados | Descrição | Versão introduzida |
 |------|-------------|--------------------|
 | `azEnvironment` | Ambiente azul onde o VM está em execução | 2018-10-01
 | `customData` | Esta funcionalidade encontra-se atualmente desativada. Atualizaremos esta documentação quando estiver disponível | 2019-02-01
@@ -373,7 +373,7 @@ O perfil de armazenamento de um VM é dividido em três categorias: referência 
 
 O objeto de referência de imagem contém as seguintes informações sobre a imagem do SO:
 
-| Dados | Description |
+| Dados | Descrição |
 |------|-------------|
 | `id` | ID do Recurso
 | `offer` | Oferta da plataforma ou imagem de mercado
@@ -383,7 +383,7 @@ O objeto de referência de imagem contém as seguintes informações sobre a ima
 
 O objeto do disco OS contém as seguintes informações sobre o disco de oss utilizado pelo VM:
 
-| Dados | Description |
+| Dados | Descrição |
 |------|-------------|
 | `caching` | Requisitos de caching
 | `createOption` | Informação sobre como o VM foi criado
@@ -398,7 +398,7 @@ O objeto do disco OS contém as seguintes informações sobre o disco de oss uti
 
 A matriz de discos de dados contém uma lista de discos de dados anexados ao VM. Cada objeto de disco de dados contém as seguintes informações:
 
-Dados | Description |
+Dados | Descrição |
 -----|-------------|
 | `caching` | Requisitos de caching
 | `createOption` | Informação sobre como o VM foi criado
@@ -414,7 +414,7 @@ Dados | Description |
 
 **Rede**
 
-| Dados | Description | Versão introduzida |
+| Dados | Descrição | Versão introduzida |
 |------|-------------|--------------------|
 | `ipv4.privateIpAddress` | Endereço IPv4 local do VM | 2017-04-02
 | `ipv4.publicIpAddress` | Endereço IPv4 público do VM | 2017-04-02
@@ -740,13 +740,13 @@ GET /metadata/attested/document
 
 A bolha de assinatura é uma versão de documento assinada por [pkcs7.](https://aka.ms/pkcs7) Contém o certificado utilizado para a assinatura juntamente com certos detalhes específicos da VM.
 
-Para os VMs criados através da utilização do Azure Resource Manager, o documento `vmId` `sku` inclui, `nonce` para a `subscriptionId` `timeStamp` criação e expiração do documento, e a informação do plano sobre a imagem. A informação do plano só é preenchida para imagens do Azure Marketplace.
+Para os VMs criados através da utilização do Azure Resource Manager, o documento `vmId` `sku` inclui, `nonce` , , , para a `subscriptionId` `timeStamp` criação e expiração do documento, e a informação do plano sobre a imagem. A informação do plano só é preenchida para imagens do Azure Marketplace.
 
 Para os VMs criados utilizando o modelo de implementação clássico, apenas o `vmId` é garantido para ser povoado. Pode extrair o certificado da resposta e usá-lo para confirmar que a resposta é válida e vem do Azure.
 
 O documento descodificado contém os seguintes campos:
 
-| Dados | Description | Versão introduzida |
+| Dados | Descrição | Versão introduzida |
 |------|-------------|--------------------|
 | `licenseType` | Tipo de licença para [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit). Isto só está presente para VMs ativados por AHB. | 2020-09-01
 | `nonce` | Uma corda que pode ser opcionalmente fornecida com o pedido. Se não `nonce` for fornecida, utiliza-se a atual estação de tempo universal coordenada. | 2018-10-01

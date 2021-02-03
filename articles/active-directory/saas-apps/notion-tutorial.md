@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/05/2021
 ms.author: jeedes
-ms.openlocfilehash: 512436c9d72e0318ec14bf7551a2fde76c6ef3d8
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 520eb25bcb138c96b24166816d3374255fb7c3b2
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735914"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493993"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-notion"></a>Tutorial: Azure Ative Directory integração única (SSO) com Noção
 
@@ -40,7 +40,7 @@ Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 * Noção suporta **SP e IDP** iniciado SSO
 * Noção suporta **provisão do** utilizador Just In Time
 > [!NOTE]
-> O identificador desta aplicação é um valor fixo de cadeia para que apenas um caso possa ser configurado em um inquilino.
+> O identificador desta aplicação é um valor de cadeia fixo para que um espaço de trabalho noção possa ser configurado em um inquilino.
 
 
 ## <a name="adding-notion-from-the-gallery"></a>Adicionar noção da galeria
@@ -80,14 +80,14 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na secção **Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** insira os valores para os seguintes campos:
 
-    Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:  `https://www.notion.so/sso/saml/<CUSTOM_ID>`
+    Na caixa de texto **URL de resposta,** insira o URL com o seguinte padrão que pode obter a partir do seu espaço de trabalho Noção **Definições &** Segurança dos Membros > **& identidade** URL único de > **entrada:**`https://www.notion.so/sso/saml/<CUSTOM_ID>`
 
 1. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
-    Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://www.notion.so/sso/saml/<CUSTOM_ID>`
+    Na caixa de texto **URL de inscrição,** insira o seguinte URL:  `https://www.notion.so/login`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o URL de resposta real e Sign-On URL. Contacte [a equipa de suporte do Cliente notion](mailto:team@makenotion.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    > Estes valores não são reais. Atualize estes valores com o URL de resposta real e Sign-On URL. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
 1. A aplicação Notion espera as afirmações DE SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos.
 
@@ -102,7 +102,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     | apelido | utilizador.sobrenome |
 
 
-1. Na **configuração de um único sessão de inscrição com** a página SAML, na secção **Certificado de Assinatura SAML,** clique no botão de cópia para copiar o Url de **metadados da Federação de Aplicações** e guarde-o no seu computador.
+1. Na **configuração de um único sinal de inscrição com** a página SAML, na secção **certificado de assinatura SAML,** clique no botão de cópia para copiar o **Url de Metadados da Federação de Aplicações**. Vá ao seu espaço de trabalho **Notion** **Definições & identidade** de segurança & dos membros , e cole o valor que  >  copiou no campo URL de **metadados IDP.**
 
     ![O link de descarregamento de certificado](common/copy-metadataurl.png)
 
@@ -132,7 +132,13 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 ## <a name="configure-notion-sso"></a>Configuração SSO
 
-Para configurar um único sign-on on **No notion** side, você precisa enviar o url de **metadados da Federação de Aplicações** para a [equipe de suporte Notion](mailto:team@makenotion.com). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
+Vá ao seu espaço de trabalho **Noção** **Definições & identidade** de segurança & dos membros  >  , e cole o valor url de **metadados da Federação de Aplicações** que copiou no campo **URL de metadados IDP.**
+
+Na mesma página de definições, nos **domínios de email** clique no **suporte de contacto** para adicionar o(s) domínio de e-mail da sua organização.
+
+Depois de os seus domínios de e-mail serem aprovados e adicionados, ative o SSO SAML utilizando o **alternador Enable SAML.**
+
+Após um teste bem sucedido, pode impor sSO SAML utilizando o **toggle Aplico SAML.** Por favor, note que os seus administradores do espaço de trabalho Notion mantêm a capacidade de iniciar sessão com e-mail, mas todos os outros membros terão de usar o SSO SAML para iniciar sessão na Noção.
 
 ### <a name="create-notion-test-user"></a>Criar utilizador de teste de noção
 
@@ -155,6 +161,6 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 Também pode utilizar o Microsoft My Apps para testar a aplicação em qualquer modo. Quando clicar no azulejo Notion nas Minhas Apps, se configurado no modo SP, será redirecionado para o sinal de aplicação na página para iniciar o fluxo de login e se configurado no modo IDP, deverá ser automaticamente inscrito na Noção para a qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](../user-help/my-apps-portal-end-user-access.md)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Uma vez configurada Noção pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
