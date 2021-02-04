@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 01/21/2021
+ms.date: 02/03/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: d7f71afd1cf47ab1a94d984090e8fb52ee69c6b4
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: f7ba6363ec3a38d37ea3df0f76409289069638e8
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99088943"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537801"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>Como: Utilizar o Text Analytics para a saúde (pré-visualização)
 
@@ -113,6 +113,9 @@ O tamanho do documento deve ser inferior a 5.120 caracteres por documento. Para 
 ### <a name="structure-the-api-request-for-the-hosted-asynchronous-web-api"></a>Estruturar o pedido da API para a API web assíncrono hospedado
 
 Tanto para o recipiente como para a API web hospedada, deve criar um pedido DEM. Você pode [usar o Carteiro](text-analytics-how-to-call-api.md), um comando cURL ou a **consola de testes API** no [Text Analytics para a saúde hospedada referência API](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Health) para construir rapidamente e enviar um pedido DEM para a API web hospedada na região desejada. 
+
+> [!NOTE]
+> Tanto os pontos assíncronos `/analyze` como `/health` os pontos finais só estão disponíveis nas seguintes regiões: West US 2, East US 2, Central US, North Europe e West Europe.  Para fazer pedidos bem sucedidos a estes pontos finais, certifique-se de que o seu recurso é criado numa destas regiões.
 
 Abaixo está um exemplo de um ficheiro JSON anexado ao Text Analytics para o corpo POSTAL do pedido de API de saúde:
 

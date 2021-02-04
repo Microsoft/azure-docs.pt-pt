@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 02/02/2020
+ms.date: 02/02/2021
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 228f837a8826612bbbadf2ca8c5ef339ab248397
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 267094ea6a7295a65b93fb7700c97e4280da341d
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99524997"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539116"
 ---
 ::: zone target="docs"
 
@@ -267,6 +267,35 @@ Após o carregamento para o Azure, o Data Box elimina os dados dos discos de aco
     ```
 
 Se se deparar com problemas, envie um e-mail para Data Box Operations Asia [adbo@microsoft.com](mailto:adbo@microsoft.com) com os detalhes e inclua o nome do trabalho na linha de assunto.
+
+::: zone target="chromeless"
+
+## <a name="verify-data-upload-to-azure"></a>Verificar o carregamento de dados para o Azure
+
+[!INCLUDE [data-box-verify-upload](../../includes/data-box-verify-upload.md)]
+
+## <a name="erasure-of-data-from-data-box"></a>Eliminação de dados do Data Box
+ 
+
+::: zone-end
+
+## <a name="united-arab-emirates"></a>[Emirados Árabes Unidos](#tab/in-uae)
+
+1. Guarde a embalagem original utilizada para enviar o dispositivo para a devolução.
+2. Certifique-se de que a cópia de dados do dispositivo está completa e que o passo **de preparação para o envio** foi concluído com sucesso.
+3. Note o número de referência na página **De preparar para** o envio do dispositivo web uI local.
+4. Desligue o aparelho e retire os cabos. Coloque em segurança o cabo de alimentação enviado com o dispositivo atrás do mesmo.
+6. Embale o dispositivo para devolução na embalagem original.
+7. Envie um email [para as Operações da Caixa de Dados do Azure](mailto:adbops@microsoft.com) para obter um ID que será usado para identificar o pacote quando chegar ao datacenter.
+8. Escreva este ID na etiqueta de envio impressa, ao lado do endereço de retorno para que fique claramente visível.  
+9. Reserve uma pick-up on-line indo ao [DHL Express UAE](https://mydhl.express.dhl/ae/en/home.html#/schedulePickupTab)  >  **Agendar uma Pickup.**
+   - Introduza o número de referência a partir da página **de preparação para** enviar a web uI do dispositivo no campo número de bico de carga.
+   - As reservas são aceites das 9h00 às 14h00, seis dias por semana (excluindo o Sex e os feriados).
+   - Os pedidos de recolha devem ser apresentados pelo menos 90 minutos antes da hora de fecho do cliente.
+10. Se encontrar algum problema com a ferramenta de reserva DHL, pode contactar a DHL utilizando qualquer um destes métodos:
+    - Ligue para 04-2924545.
+    - Envie um [ecom.ae@dhl.com](mailto:ecom.ae@dhl.com) e-mail com detalhes da(s) e coloque o número de waybill no Assunto: linha.
+    - Ligue para o Suporte ao Cliente da DHL pelo número 600 567567.
 
 ::: zone target="chromeless"
 

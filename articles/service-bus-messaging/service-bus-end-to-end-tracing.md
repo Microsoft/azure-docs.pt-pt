@@ -2,14 +2,14 @@
 title: Azure Service Bus rastreio e diagnósticos | Microsoft Docs
 description: Visão geral dos diagnósticos de clientes do Service Bus e rastreio de ponta a ponta (cliente através de todos os serviços envolvidos no processamento.)
 ms.topic: article
-ms.date: 01/17/2021
+ms.date: 02/03/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: edfd789f8803acf9fc8d76202805dec0187d220e
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 19b284aceb83fbbc2bcf662b2b58941e6a5b36f9
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601264"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539218"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Rastreio distribuído e correlação através de mensagens de Bus de Serviço
 
@@ -22,7 +22,7 @@ A microsoft Azure Service Bus as mensagens definiram propriedades de carga útil
 O protocolo baseia-se no [protocolo HTTP Correlation](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md).
 
 # <a name="azuremessagingservicebus-sdk-latest"></a>[Azure.messaging.ServiceBus SDK (mais recente)](#tab/net-standard-sdk-2)
-| Nome da Propriedade        | Descrição                                                 |
+| Nome da Propriedade        | Description                                                 |
 |----------------------|-------------------------------------------------------------|
 |  Diagnostic-Id       | Identificador único de uma chamada externa do produtor para a fila. Consulte o [Pedido-Id no protocolo HTTP](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#request-id) para a lógica, considerações e formato |
 
@@ -135,12 +135,6 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 Neste exemplo, o ouvinte regista a duração, o resultado, o identificador único e a hora de início de cada operação do Service Bus.
 
 ### <a name="events"></a>Eventos
-Para cada operação, são enviados dois eventos: "Iniciar" e "Parar". Provavelmente, só está interessado em eventos de "Stop". Fornecem o resultado da operação, e iniciam a hora e a duração como propriedades da Atividade.
-
-A carga útil do evento fornece a um ouvinte o contexto da operação, replica os parâmetros de entrada da API e o valor de retorno. A carga útil do evento 'Stop' tem todas as propriedades da carga útil do evento 'Start', para que possa ignorar completamente o evento 'Iniciar'.
-
-Cada evento 'Stop' tem `Status` propriedade com `TaskStatus` operação async foi concluído com, que também é omitido na tabela seguinte para simplicidade.
-
 Todos os eventos terão as seguintes propriedades que estejam em conformidade com a especificação de telemetria aberta: https://github.com/open-telemetry/opentelemetry-specification/blob/master/specification/trace/api.md .
 
 - `message_bus.destination` – fila/tópico/caminho de subscrição
@@ -201,7 +195,7 @@ Na presença de vários `DiagnosticSource` ouvintes para a mesma fonte, é sufic
 
 # <a name="microsoftazureservicebus-sdk"></a>[Microsoft.Azure.ServiceBus SDK](#tab/net-standard-sdk)
 
-| Nome da Propriedade        | Descrição                                                 |
+| Nome da Propriedade        | Description                                                 |
 |----------------------|-------------------------------------------------------------|
 |  Diagnostic-Id       | Identificador único de uma chamada externa do produtor para a fila. Consulte o [Pedido-Id no protocolo HTTP](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#request-id) para a lógica, considerações e formato |
 |  Correlation-Context | Contexto de operação, que é propagado em todos os serviços envolvidos no processamento de operações. Para mais informações, consulte [Correlation-Context no protocolo HTTP](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#correlation-context) |

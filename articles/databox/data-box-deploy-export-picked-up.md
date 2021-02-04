@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 02/02/2021
+ms.date: 02/03/2021
 ms.author: alkohli
-ms.openlocfilehash: 9ebf95f0a9c5cfc059f38a13ad99a545dd863d21
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 6c2eed9aac614b0765582d5cf373caf50323ef7a
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99525035"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537361"
 ---
 # <a name="tutorial-return-azure-data-box"></a>Tutorial: Caixa de dados do Azure Devolução
 
@@ -172,6 +172,24 @@ Se necessário, pode contactar o Apoio ao Cliente da Quantium Solutions (em japo
 
 Caso se depare com algum problema, envie um e-mail para a Data Box Operations [adbo@microsoft.com](mailto:adbo@microsoft.com) Asia, fornecendo o nome do emprego no cabeçalho do assunto e o problema encontrado.
 
+## <a name="united-arab-emirates"></a>[Emirados Árabes Unidos](#tab/in-uae)
+
+1. Guarde a embalagem original utilizada para enviar o dispositivo para a devolução.
+2. Certifique-se de que a cópia de dados do dispositivo está completa e que o passo **de preparação para o envio** foi concluído com sucesso.
+3. Note o número de referência na página **De preparar para** o envio do dispositivo web uI local.
+4. Desligue o aparelho e retire os cabos. Coloque em segurança o cabo de alimentação enviado com o dispositivo atrás do mesmo.
+6. Embale o dispositivo para devolução na embalagem original.
+7. Envie um email [para as Operações da Caixa de Dados do Azure](mailto:adbops@microsoft.com) para obter um ID que será usado para identificar o pacote quando chegar ao datacenter.
+8. Escreva este ID na etiqueta de envio impressa, ao lado do endereço de retorno para que fique claramente visível.  
+9. Reserve uma pick-up on-line indo ao [DHL Express UAE](https://mydhl.express.dhl/ae/en/home.html#/schedulePickupTab)  >  **Agendar uma Pickup.**
+   - Introduza o número de referência a partir da página **de preparação para** enviar a web uI do dispositivo no campo número de bico de carga.
+   - As reservas são aceites das 9h00 às 14h00, seis dias por semana (excluindo o Sex e os feriados).
+   - Os pedidos de recolha devem ser apresentados pelo menos 90 minutos antes da hora de fecho do cliente.
+10. Se encontrar algum problema com a ferramenta de reserva DHL, pode contactar a DHL utilizando qualquer um destes métodos:
+    - Ligue para 04-2924545.
+    - Envie um [ecom.ae@dhl.com](mailto:ecom.ae@dhl.com) e-mail com detalhes da(s) e coloque o número de waybill no Assunto: linha.
+    - Ligue para o Suporte ao Cliente da DHL pelo número 600 567567.
+
 ## <a name="self-managed"></a>[Envio Autónomo](#tab/in-selfmanaged)
 
 Se estiver a utilizar a Data Box no Japão, Singapura, Coreia, Índia, África do Sul, Reino Unido, Europa Ocidental ou Austrália e tiver selecionado a opção de envio auto-gerida durante a criação da encomenda, siga estas instruções.
@@ -209,5 +227,3 @@ Avance para o próximo artigo para aprender a gerir a sua Caixa de Dados.
 
 > [!div class="nextstepaction"]
 > [Gerir a Caixa de Dados através do portal Azure](./data-box-portal-admin.md)
-
-

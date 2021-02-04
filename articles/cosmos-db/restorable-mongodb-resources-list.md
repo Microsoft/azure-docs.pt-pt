@@ -6,14 +6,19 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/03/2021
 ms.author: govindk
-ms.openlocfilehash: dc90bfb6325831276b3c6171b73aebfa2877cf68
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: b5800c2e9c1f3b36a3ac9afe6cd68f706505fbe0
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99527921"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537446"
 ---
 # <a name="list-restorable-resources-in-azure-cosmos-db-api-for-mongodb-using-rest-api"></a>Listar recursos restauradores em Azure Cosmos DB API para MongoDB usando REST API
+
+> [!IMPORTANT]
+> A funcionalidade de restauro pontual (modo de backup contínuo) para Azure Cosmos DB está atualmente em pré-visualização pública.
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
+> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Devolva uma lista de dados de dados e combo de recolha que existam na conta no determinado horário e localização. Isto ajuda em cenários para validar que recursos existem em determinado horário de tempo e localização. Esta API requer `Microsoft.DocumentDB/locations/restorableDatabaseAccounts/*/read` permissão.
 

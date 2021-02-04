@@ -8,17 +8,17 @@ author: KumudD
 manager: twooley
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: kumud
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 772eb8d436a3ff870caa8fd4bc4e4e2b56672690
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 55894f1b4730ab9af55411d61e4d3dbe3b68224f
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98217520"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539036"
 ---
 # <a name="configure-ipv6-endpoints-in-virtual-network-with-azure-powershell-script-sample-preview"></a>Configurar pontos finais IPv6 em rede virtual com amostra de script Azure PowerShell (pré-visualização)
 

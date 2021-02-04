@@ -7,17 +7,22 @@ ms.topic: how-to
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 3614a85a6df2e793a73a2609d6f5762e4dc873fb
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 9d30f5325162b9ea447d54aadc092dbd9aa29132
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99527863"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538760"
 ---
 # <a name="manage-permissions-to-restore-an-azure-cosmos-db-account"></a>Gerir permissões para restaurar uma conta DB da Azure Cosmos
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
-O Azure Cosmos DB permite-lhe isolar e restringir as permissões de restauro para uma conta de backup contínua a um papel específico ou a um principal. O proprietário da conta pode desencadear uma restauração e atribuir uma função a outros principais para realizar a operação de restauro. Estas permissões podem ser aplicadas no âmbito de subscrição ou mais granularmente no âmbito da conta de origem, tal como mostrado na imagem seguinte:
+> [!IMPORTANT]
+> A funcionalidade de restauro pontual (modo de backup contínuo) para Azure Cosmos DB está atualmente em pré-visualização pública.
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
+> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+O Azure Cosmos DB permite-lhe isolar e restringir as permissões de restauro para uma conta de backup contínua (Preview) a uma função específica ou a um principal. O proprietário da conta pode desencadear uma restauração e atribuir uma função a outros principais para realizar a operação de restauro. Estas permissões podem ser aplicadas no âmbito de subscrição ou mais granularmente no âmbito da conta de origem, tal como mostrado na imagem seguinte:
 
 :::image type="content" source="./media/continuous-backup-restore-permissions/restore-roles-permissions.png" alt-text="Lista de funções necessárias para executar a operação de restauro." lightbox="./media/continuous-backup-restore-permissions/restore-roles-permissions.png" border="false":::
 

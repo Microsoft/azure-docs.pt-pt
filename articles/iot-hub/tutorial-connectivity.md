@@ -16,12 +16,12 @@ ms.custom:
 ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: d9ca9dd345be7fb8f1a2b613386bdca7bdcd835a
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: 253ec23a421415c11e4b47670dca870ebc463256
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99070377"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538778"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Tutorial: utilizar um dispositivo simulado para testar a conectividade com o seu hub do IoT
 
@@ -66,15 +66,15 @@ Um dispositivo tem de ser autenticado com o seu hub antes de poder trocar dados 
 
 Inicie sessão no portal e navegue para o seu hub do IoT. Em seguida, navegue para a ferramenta **Dispositivos IoT**:
 
-![Ferramenta Dispositivos IoT](media/tutorial-connectivity/iot-devices-tool.png)
+:::image type="content" source="media/tutorial-connectivity/iot-devices-tool.png" alt-text="Ferramenta Dispositivos IoT":::
 
-Para registar um novo dispositivo, clique em **+ Adicionar**, defina o **ID do Dispositivo** como **MyTestDevice** e clique em **Guardar**:
+Para registar um novo dispositivo, clique **em + Novo,** descreva o **ID do dispositivo** para **myTestDevice** e clique em **Guardar**.
 
-![Adicionar um novo dispositivo](media/tutorial-connectivity/add-device.png)
+:::image type="content" source="media/tutorial-connectivity/add-device.png" alt-text="Adicionar um novo dispositivo":::
 
-Para obter a cadeia de ligação de **MyTestDevice**, clique na mesma na lista de dispositivos e copie o valor **Cadeia de ligação - chave primária**. A cadeia de ligação inclui a *chave de acesso partilhado* do dispositivo.
+Para recuperar a cadeia de ligação **para MyTestDevice,** clique nela na lista de dispositivos e, em seguida, copie o valor **da cadeia de ligação primária.** A cadeia de ligação inclui a *chave de acesso partilhado* do dispositivo.
 
-![Obter a cadeia de ligação do dispositivo](media/tutorial-connectivity/copy-connection-string.png)
+:::image type="content" source="media/tutorial-connectivity/copy-connection-string.png" alt-text="Obter a corda de ligação do dispositivo}":::
 
 Para simular o **MyTestDevice** a enviar dados telemétricos para o hub do IoT, execute a aplicação de dispositivo simulado Node.js que transferiu anteriormente.
 
@@ -218,7 +218,7 @@ O dispositivo simulado imprime uma mensagem na consola quando recebe uma chamada
 
 ![O dispositivo simulado recebe uma chamada de método direto](media/tutorial-connectivity/receive-method-call.png)
 
-Quando o dispositivo simulado recebe com êxito a chamada de método direto, envia uma confirmação para o hub:
+Quando o dispositivo simulado recebe com sucesso a chamada de método direto, envia um reconhecimento de volta ao centro:
 
 ![Receber reconhecimento de método direto](media/tutorial-connectivity/method-acknowledgement.png)
 

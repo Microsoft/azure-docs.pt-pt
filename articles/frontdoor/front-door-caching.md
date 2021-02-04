@@ -1,5 +1,5 @@
 ---
-title: Azure Front Door - caching / Microsoft Docs
+title: Azure Front Door - | de caching Microsoft Docs
 description: Este artigo ajuda-o a compreender o comportamento da Porta da Frente com regras de encaminhamento que permitiram o caching.
 services: frontdoor
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2020
 ms.author: duau
-ms.openlocfilehash: 1a8064c3ff89c0bc8b0ceb5249492b912c219ce8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d001a7a24d44c46a19bde08051e21d3ae3c5acb8
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91535836"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538056"
 ---
 # <a name="caching-with-azure-front-door"></a>Caching com Azure Front Door
 O documento que se segue especifica comportamentos para a Porta frontal com regras de encaminhamento que permitiram o caching. Front Door é uma moderna Rede de Entrega de Conteúdos (CDN) com aceleração dinâmica do site e equilíbrio de carga, também suporta comportamentos de caching como qualquer outro CDN.
@@ -24,13 +24,13 @@ O documento que se segue especifica comportamentos para a Porta frontal com regr
 ## <a name="delivery-of-large-files"></a>Entrega de grandes ficheiros
 A porta frontal Azure entrega ficheiros grandes sem uma tampa no tamanho do ficheiro. A Porta da Frente usa uma técnica chamada "pancada de objetos". Quando é pedido um ficheiro grande, o Front Door obtém pequenas partes do ficheiro a partir do back-end. Depois de receber um pedido de ficheiro completo ou byte-range, o ambiente front door solicita o ficheiro a partir do backend em pedaços de 8 MB.
 
-</br>Depois de o pedaço chegar ao ambiente da Porta da Frente, é em cache e imediatamente servido ao utilizador. Porta da frente, em seguida, pré-buscar o próximo pedaço em paralelo. Esta pré-busca garante que o conteúdo permanece um pedaço à frente do utilizador, o que reduz a latência. Este processo continua até que todo o ficheiro seja descarregado (se solicitado) ou o cliente fechar a ligação.
+Depois de o pedaço chegar ao ambiente da Porta da Frente, é em cache e imediatamente servido ao utilizador. Porta da frente, em seguida, pré-buscar o próximo pedaço em paralelo. Esta pré-busca garante que o conteúdo permanece um pedaço à frente do utilizador, o que reduz a latência. Este processo continua até que todo o ficheiro seja descarregado (se solicitado) ou o cliente fechar a ligação.
 
-</br>Para obter mais informações sobre o pedido byte-range, leia [RFC 7233](https://web.archive.org/web/20171009165003/http://www.rfc-base.org/rfc-7233.html).
+Para obter mais informações sobre o pedido byte-range, leia [RFC 7233](https://web.archive.org/web/20171009165003/http://www.rfc-base.org/rfc-7233.html).
 A Porta da Frente caches quaisquer pedaços como eles são recebidos para que todo o arquivo não precise ser em cache na cache da porta da frente. Os pedidos subsequentes para o ficheiro ou intervalos de byte são servidos a partir da cache. Se os pedaços não estiverem todos em cache, a pré-busca é usada para pedir pedaços do backend. Esta otimização baseia-se na capacidade do backend de suportar pedidos de alcance byte. Se o backend não suporta pedidos de byte-range, esta otimização não é eficaz.
 
 ## <a name="file-compression"></a>Compressão de ficheiros
-A Porta frontal pode comprimir dinamicamente o conteúdo na borda, resultando num tempo de resposta cada vez menor e mais rápido para os seus clientes. Todos os ficheiros são elegíveis para compressão. No entanto, um ficheiro deve ser de tipo MIME para ser elegível para compressão. Atualmente, a Porta da Frente não permite que esta lista seja alterada. A lista atual é:</br>
+A Porta frontal pode comprimir dinamicamente o conteúdo na borda, resultando num tempo de resposta cada vez menor e mais rápido para os seus clientes. Para que um ficheiro seja elegível para compressão, o caching deve ser ativado e o ficheiro deve ser de tipo MIME para ser elegível para compressão. Atualmente, a Porta da Frente não permite que esta lista seja alterada. A lista atual é:
 - "aplicação/eot"
 - "aplicação/fonte"
 - "aplicação/fonte-sfnt"

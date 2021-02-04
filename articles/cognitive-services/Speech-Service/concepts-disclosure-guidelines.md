@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: shlo
-ms.openlocfilehash: b001b109df7c4b52b61f226a164db232b620a2c6
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: f1889d49d1eb4981e59af6248817a6a9b6e2002d
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99508545"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537260"
 ---
 # <a name="disclosure-design-guidelines"></a>Diretrizes de conceção de divulgação
 Aprenda a construir e manter a confiança com os clientes, sendo transparente sobre a natureza sintética da sua experiência de voz.
@@ -74,11 +74,8 @@ Utilize o seguinte diagrama para determinar se a sua experiência de voz sintét
 
   ![Diagrama de avaliação de divulgação](media/responsible-ai/disclosure-guidelines/flowchart.png)
 
-## <a name="reference-docs"></a>Documentos de referência
-
-* [Divulgação de Talento de Voz](/legal/cognitive-services/speech-service/disclosure-voice-talent)
-* [Orientações para a implantação responsável da tecnologia de voz sintética](concepts-guidelines-responsible-deployment-synthetic.md)
-
-## <a name="next-steps"></a>Passos seguintes
+## <a name="see-also"></a>Ver também
 
 * [Padrões de conceção de divulgação](concepts-disclosure-patterns.md)
+* [Divulgação de Talento de Voz](https://docs.microsoft.com/legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/cognitive-services/speech-service/context/context)
+* [Orientações para a implantação responsável da tecnologia de voz sintética](concepts-guidelines-responsible-deployment-synthetic.md)

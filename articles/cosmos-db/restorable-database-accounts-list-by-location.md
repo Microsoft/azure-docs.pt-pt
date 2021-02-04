@@ -6,16 +6,21 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/03/2021
 ms.author: govindk
-ms.openlocfilehash: 2a3fbc1bb00c57c20436c19602c135f1917c6a60
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 26c07ddaf4db71961d4aeff50e482740d969f0ef
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99527902"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537683"
 ---
 # <a name="list-restorable-database-accounts-by-location-using-azure-cosmos-db-rest-api"></a>Listar contas de base de dados ressuráveis por localização usando Azure Cosmos DB REST API
 
-Lista todas as contas de base de dados DB do Azure Cosmos ressurráveis disponíveis na subscrição e numa região. Esta chamada requer `Microsoft.DocumentDB/locations/restorableDatabaseAccounts/read` permissão.
+> [!IMPORTANT]
+> A funcionalidade de restauro pontual (modo de backup contínuo) para Azure Cosmos DB está atualmente em pré-visualização pública.
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
+> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Lista todas as contas de base de dados ressarveis da Azure Cosmos DB disponíveis na subscrição e numa região. Esta chamada requer `Microsoft.DocumentDB/locations/restorableDatabaseAccounts/read` permissão.
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts?api-version=2020-06-01-preview

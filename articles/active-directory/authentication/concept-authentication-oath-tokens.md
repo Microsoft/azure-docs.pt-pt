@@ -10,12 +10,12 @@ ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3315500e0d8ce090b058cbe0cb11d9ab8e56e193
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: af2c848fe06d9ebc44443bdcce61af0c8de08b2d
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475003"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537006"
 ---
 # <a name="authentication-methods-in-azure-active-directory---oath-tokens"></a>Métodos de autenticação em Diretório Ativo Azure - Fichas de OATH
 
@@ -33,7 +33,7 @@ Algumas fichas de hardware OATH TOTP são programáveis, o que significa que nã
 
 A Azure AD suporta a utilização de fichas OATH-TOTP SHA-1 que atualizam códigos a cada 30 ou 60 segundos. Os clientes podem comprar estes tokens ao fornecedor à sua escolha.
 
-Os tokens de hardware OATH TOTP normalmente vêm com uma chave secreta, ou sementes, pré-programadas no token. Estas teclas devem ser inseridas no AD Azure, conforme descrito nos passos seguintes. As teclas secretas estão limitadas a 128 caracteres, o que pode não ser compatível com todos os tokens. A chave secreta só pode conter os caracteres *a-z* ou *A-Z* e os dígitos *1-7*, e deve ser codificado na *Base32*.
+Os tokens de hardware OATH TOTP normalmente vêm com uma chave secreta, ou sementes, pré-programadas no token. Estas teclas devem ser inseridas no AD Azure, conforme descrito nos passos seguintes. As teclas secretas estão limitadas a 128 caracteres, o que pode não ser compatível com todos os tokens. A chave secreta só pode conter os caracteres *a-z* ou *A-Z* e os dígitos *2-7*, e deve ser codificado na *Base32*.
 
 As fichas de hardware do OATH TOTP programáveis que podem ser ressequidas também podem ser configuradas com Azure AD no fluxo de configuração do token do software.
 
@@ -45,7 +45,7 @@ Uma vez adquiridas as fichas, devem ser carregadas num formato de ficheiro de va
 
 ```csv
 upn,serial number,secret key,time interval,manufacturer,model
-Helga@contoso.com,1234567,1234567abcdef1234567abcdef,60,Contoso,HardwareKey
+Helga@contoso.com,1234567,2234567abcdef1234567abcdef,60,Contoso,HardwareKey
 ```  
 
 > [!NOTE]

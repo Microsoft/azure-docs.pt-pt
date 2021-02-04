@@ -8,17 +8,22 @@ ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
 ms.custom: references_regions
-ms.openlocfilehash: f8ba08c6147320160e99e522536f00fc98855eb4
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 036f086c88267f6a20da51746ca875c48a248712
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99527870"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538858"
 ---
-# <a name="continuous-backup-with-point-in-time-restore-feature-in-azure-cosmos-db"></a>Backup contínuo com recurso de restauro pontual em Azure Cosmos DB
+# <a name="continuous-backup-with-point-in-time-restore-preview-feature-in-azure-cosmos-db"></a>Backup contínuo com recurso de restauro pontual (Preview) em Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
-A funcionalidade de restauro pontual da Azure Cosmos DB ajuda em vários cenários, tais como:
+> [!IMPORTANT]
+> A funcionalidade de restauro pontual (modo de backup contínuo) para Azure Cosmos DB está atualmente em pré-visualização pública.
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
+> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+A funcionalidade de restauro pontual da Azure Cosmos DB (Preview) ajuda em vários cenários, tais como:
 
 * Para recuperar de uma escrita acidental ou apagar o funcionamento dentro de um recipiente.
 * Para restaurar uma conta, base de dados ou um recipiente apagado.
@@ -58,17 +63,17 @@ Seguem-se alguns dos cenários-chave que são abordados pela funcionalidade de r
 
 :::image type="content" source="./media/continuous-backup-restore-introduction/restorable-account-scenario.png" alt-text="Eventos de ciclo de vida com timetamps para uma conta restauradora." lightbox="./media/continuous-backup-restore-introduction/restorable-account-scenario.png" border="false":::
 
-a. **Restaurar a conta eliminada** - Todas as contas eliminadas que pode restaurar são visíveis a partir do painel **Restaurar.** Por exemplo, se "Conta A" for eliminada por vezes omp T3. Neste caso, a marca de tempo pouco antes de T3, localização, nome da conta-alvo, grupo de recursos e nome da conta-alvo é suficiente para restaurar a partir do [portal Azure,](continuous-backup-restore-portal.md#restore-deleted-account) [PowerShell,](continuous-backup-restore-powershell.md#trigger-restore)ou [CLI](continuous-backup-restore-command-line.md).  
+a. **Restaurar a conta eliminada** - Todas as contas eliminadas que pode restaurar são visíveis a partir do painel **Restaurar.** Por exemplo, se "Conta A" for eliminada por vezes omp T3. Neste caso, a marca de tempo pouco antes de T3, localização, nome da conta-alvo, grupo de recursos e nome da conta-alvo é suficiente para restaurar a partir do [portal Azure,](continuous-backup-restore-portal.md#restore-deleted-account) [PowerShell,](continuous-backup-restore-powershell.md#trigger-restore)ou [CLI](continuous-backup-restore-command-line.md#trigger-restore).  
 
 :::image type="content" source="./media/continuous-backup-restore-introduction/restorable-container-database-scenario.png" alt-text="Eventos de ciclo de vida com timetamps para uma base de dados e recipientes restauradores." lightbox="./media/continuous-backup-restore-introduction/restorable-container-database-scenario.png" border="false":::
 
-b. **Restaurar os dados de uma conta numa determinada região** - Por exemplo, se existir "Conta A" em duas regiões "East US" e "West US" no timestamp T3. Se precisar de uma cópia da conta A em "West US", pode fazer um ponto no tempo restaurado a partir do [portal Azure](continuous-backup-restore-portal.md), [PowerShell](continuous-backup-restore-powershell.md)ou [CLI](continuous-backup-restore-command-line.md) com os EUA ocidentais como o local alvo.
+b. **Restaurar os dados de uma conta numa determinada região** - Por exemplo, se existir "Conta A" em duas regiões "East US" e "West US" no timestamp T3. Se precisar de uma cópia da conta A em "West US", pode fazer um ponto no tempo restaurado a partir do [portal Azure](continuous-backup-restore-portal.md), [PowerShell](continuous-backup-restore-powershell.md#trigger-restore)ou [CLI](continuous-backup-restore-command-line.md#trigger-restore) com os EUA ocidentais como o local alvo.
 
-c. **Recuperar de uma operação de escrita ou eliminação acidental dentro de um recipiente com um tempotaste de restauração conhecido** - Por exemplo, se **souber** que o conteúdo do "Contentor 1" dentro da "Base de Dados 1" foi modificado acidentalmente no tempotamp T3. Pode fazer um ponto no tempo restaurar a partir do [portal Azure](continuous-backup-restore-portal.md), [PowerShell](continuous-backup-restore-powershell.md)ou [CLI](continuous-backup-restore-command-line.md) em outra conta em tempos de temperatura T3 para recuperar o estado desejado do recipiente.
+c. **Recuperar de uma operação de escrita ou eliminação acidental dentro de um recipiente com um tempotaste de restauração conhecido** - Por exemplo, se **souber** que o conteúdo do "Contentor 1" dentro da "Base de Dados 1" foi modificado acidentalmente no tempotamp T3. Pode fazer um ponto no tempo restaurar a partir do [portal Azure](continuous-backup-restore-portal.md#restore-live-account), [PowerShell](continuous-backup-restore-powershell.md#trigger-restore)ou [CLI](continuous-backup-restore-command-line.md#trigger-restore) em outra conta em tempos de temperatura T3 para recuperar o estado desejado do recipiente.
 
-d. **Restaurar uma conta num ponto anterior antes da eliminação acidental da base de dados** - No [portal Azure,](continuous-backup-restore-portal.md)pode utilizar o painel de alimentação do evento para determinar quando uma base de dados foi eliminada e encontrar o tempo de restauro. Da mesma forma, com [Azure CLI](continuous-backup-restore-command-line.md) e [PowerShell,](continuous-backup-restore-powershell.md)pode descobrir o evento de eliminação da base de dados enumerando o feed de eventos de base de dados e, em seguida, acionar o comando de restauro com os parâmetros necessários.
+d. **Restaurar uma conta num ponto anterior antes da eliminação acidental da base de dados** - No [portal Azure,](continuous-backup-restore-portal.md#restore-live-account)pode utilizar o painel de alimentação do evento para determinar quando uma base de dados foi eliminada e encontrar o tempo de restauro. Da mesma forma, com [Azure CLI](continuous-backup-restore-command-line.md#trigger-restore) e [PowerShell,](continuous-backup-restore-powershell.md#trigger-restore)pode descobrir o evento de eliminação da base de dados enumerando o feed de eventos de base de dados e, em seguida, acionar o comando de restauro com os parâmetros necessários.
 
-e. **Restaurar uma conta num ponto anterior antes da eliminação acidental ou modificação das propriedades do recipiente.** - No [portal Azure,](continuous-backup-restore-portal.md)pode utilizar o painel de alimentação do evento para determinar quando um recipiente foi criado, modificado ou eliminado para encontrar o tempo de restauro. Da mesma forma, com [Azure CLI](continuous-backup-restore-command-line.md) e [PowerShell,](continuous-backup-restore-powershell.md)pode descobrir todos os eventos do contentor enumerando os eventos do recipiente e, em seguida, acionar o comando de restauração com os parâmetros necessários.
+e. **Restaurar uma conta num ponto anterior antes da eliminação acidental ou modificação das propriedades do recipiente.** - No [portal Azure,](continuous-backup-restore-portal.md#restore-live-account)pode utilizar o painel de alimentação do evento para determinar quando um recipiente foi criado, modificado ou eliminado para encontrar o tempo de restauro. Da mesma forma, com [Azure CLI](continuous-backup-restore-command-line.md#trigger-restore) e [PowerShell,](continuous-backup-restore-powershell.md#trigger-restore)pode descobrir todos os eventos do contentor enumerando os eventos do recipiente e, em seguida, acionar o comando de restauração com os parâmetros necessários.
 
 ## <a name="permissions"></a>Permissões
 

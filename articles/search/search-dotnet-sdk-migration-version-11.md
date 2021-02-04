@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c5f070f59df69bb186041af450e6ca922469d960
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: df8841cb2dcac6335b09a5e7715f42c508c69e76
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98043749"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99536820"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-11"></a>Upgrade para Azure Cognitive Search .NET SDK versão 11
 
@@ -168,8 +168,8 @@ A versão 11.1 acrescenta o seguinte:
 
 As seguintes funcionalidades da versão 10 ainda não estão disponíveis na versão 11. Se necessitar destas funcionalidades, adiste a migração até que sejam apoiadas.
 
-+ tipos geoespaciais
 + [Arquivo de dados de conhecimento](knowledge-store-concept-intro.md)
++ Tipos geoespaciais - o suporte de primeira classe para tipos geoespaciais ainda está em andamento. Por enquanto, o pacote [Microsoft.Spatial](https://www.nuget.org/packages/Microsoft.Spatial/) pode ser usado para suportar operações geográficas. Estão disponíveis exemplos para [System.Text.Js](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Microsoft.Azure.Core.Spatial/README.md) e [Newtonsoft.Jsem](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Microsoft.Azure.Core.Spatial.NewtonsoftJson/README.md).
 
 <a name="UpgradeSteps"></a>
 
@@ -249,5 +249,5 @@ Em termos de atualizações da versão de serviço, em que as alterações de c�
 ## <a name="next-steps"></a>Passos seguintes
 
 + [Azure.Search.Docpacote de uments](https://www.nuget.org/packages/Azure.Search.Documents/)
-+ [Exemplos no GitHub](https://github.com/azure/azure-sdk-for-net/tree/Azure.Search.Documents_11.0.0/sdk/search/Azure.Search.Documents/samples)
++ [Amostras no GitHub](https://github.com/azure/azure-sdk-for-net/tree/Azure.Search.Documents_11.0.0/sdk/search/Azure.Search.Documents/samples)
 + [ referênciaAzure.Search.DocAPI](/dotnet/api/overview/azure/search.documents-readme)

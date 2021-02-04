@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/25/2018
+ms.date: 02/03/2020
 ms.author: barclayn
-ms.openlocfilehash: 84a262cae17a4e26724ab06da397e699e09468db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: dca5f9ed2911ae3042fb9871f849212ec18b1b58
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90969196"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539388"
 ---
 # <a name="how-to-stop-using-the-virtual-machine-managed-identities-extension-and-start-using-the-azure-instance-metadata-service"></a>Como parar de usar a extensão de identidades geridas pela máquina virtual e começar a usar o Serviço de Metadados de Instância Azure
 
@@ -71,7 +72,7 @@ Se estiver a trabalhar com conjuntos de escala de máquina virtual, também pode
    ```azurepowershell-interactive
    $setting = @{ "port" = 50342 }
    $vmss = Get-AzVmss
-   Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Setting $settings 
+   Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Setting $settings 
    ```
 Para obter a extensão de conjunto de escala de máquina virtual com o modelo de implementação do Gestor de Recursos Azure, adicione o seguinte JSON à `extensionpProfile` secção ao modelo (use para o nome `ManagedIdentityExtensionForLinux` e elementos de tipo para a versão Linux).
 

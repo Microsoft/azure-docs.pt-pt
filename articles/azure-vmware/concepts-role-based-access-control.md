@@ -2,13 +2,13 @@
 title: Conceitos - vSphere controlo de acesso baseado em funções (vSphere RBAC)
 description: Conheça as principais capacidades do controlo de acesso baseado em funções vSphere para Azure VMware Solution
 ms.topic: conceptual
-ms.date: 10/23/2020
-ms.openlocfilehash: 6f5c30b070b010f312d038d8286be994039c56f8
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.date: 02/02/2021
+ms.openlocfilehash: 9d7c724fba194d86c2d73bb8323439de7c83c170
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509253"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537023"
 ---
 # <a name="vsphere-role-based-access-control-vsphere-rbac-for-azure-vmware-solution"></a>vSphere controlo de acesso baseado em funções (vSphere RBAC) para Azure VMware Solution
 
@@ -35,7 +35,7 @@ Pode ver os privilégios concedidos ao papel cloudAdmin da Solução Azure VMwar
 
 O papel cloudAdmin na Azure VMware Solution tem os seguintes privilégios no vCenter. Consulte a documentação do [produto VMware](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html) para obter uma explicação detalhada de cada privilégio.
 
-| Privilege | Descrição |
+| Privilege | Description |
 | --------- | ----------- |
 | **Alarmes** | Alarme de reconhecimento<br />Criar alarme<br />Desativar a ação de alarme<br />Modificar o alarme<br />Remover o alarme<br />Definir estado de alarme |
 | **Permissões** | Modificar permissões |

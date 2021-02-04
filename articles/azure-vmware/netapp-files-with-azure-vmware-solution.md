@@ -2,13 +2,13 @@
 title: Ficheiros Azure NetApp com Solução VMware Azure
 description: Utilize ficheiros Azure NetApp com VMs de Solução VMware Azure para migrar e sincronizar dados em servidores no local, VMs de Solução VMware Azure e infraestruturas em nuvem.
 ms.topic: how-to
-ms.date: 01/20/2021
-ms.openlocfilehash: b4ffea23606e1829fbf713488f08bc5618180072
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.date: 02/01/2021
+ms.openlocfilehash: 8c101b652ffcefe05e9b6c11f166c1da3df2ede1
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430067"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539371"
 ---
 # <a name="azure-netapp-files-with-azure-vmware-solution"></a>Ficheiros Azure NetApp com Solução VMware Azure
 

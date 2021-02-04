@@ -7,15 +7,15 @@ author: asudbring
 manager: KumudD
 ms.service: azure-cdn
 ms.topic: tutorial
-ms.date: 11/06/2020
+ms.date: 02/04/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 03ed47ee97f52aca708118f202fad583753549bf
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: b0e8f2b14d506eb408660b939a7c925a33215cca
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331230"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537750"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-endpoint"></a>Tutorial: Adicione um domínio personalizado ao seu ponto final
 
@@ -87,7 +87,7 @@ Para adicionar um registo de pseudónimo para o seu ponto final Azure CDN:
     | ------- | ----- |
     | Nome  | Introduza o pseudónimo que pretende utilizar para o seu ponto final CDN. Por exemplo, **www.** |
     | Tipo  | **Selecione CNAME**. |
-    | Conjunto de registos de alias | Selecione **Sim**. |
+    | Conjunto de registos de alias | Selecione **Yes** (Sim). |
     | Tipo de alias | Selecione **recurso Azure**. |
     | Escolha uma subscrição | Selecione a sua subscrição. |
     | Recurso do Azure | Selecione o seu ponto final Azure CDN. |
@@ -163,9 +163,13 @@ Para criar um registo CNAME para o domínio personalizado:
 
 Depois de registar o domínio personalizado, pode, então, adicioná-lo ao ponto final da CDN. 
 
+
+---
+# <a name="azure-portal"></a>[**Portal Azure**](#tab/azure-portal)
+
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com/) e navegue para o perfil da CDN que contém o ponto final que pretende mapear para um domínio personalizado.
     
-2. Na página **perfil da CDN** , selecione o ponto final da CDN que vai ser associado ao domínio personalizado.
+2. Na página **perfil da CDN**, selecione o ponto final da CDN que vai ser associado ao domínio personalizado.
 
     :::image type="content" source="media/cdn-map-content-to-custom-domain/cdn-endpoint-selection.png" alt-text="Seleção de pontos finais CDN" border="true":::
     
@@ -173,23 +177,59 @@ Depois de registar o domínio personalizado, pode, então, adicioná-lo ao ponto
 
    :::image type="content" source="media/cdn-map-content-to-custom-domain/cdn-custom-domain-button.png" alt-text="Adicionar botão de domínio personalizado" border="true":::
 
-4. In **Add a custom domain** , **Endpoint hostname** , é pré-preenchido e é derivado do seu URL de ponto final CDN: **\<endpoint-hostname>** .azureedge.net. Não pode ser alterado.
+4. In **Add a custom domain**, **Endpoint hostname**, é pré-preenchido e é derivado do seu URL de ponto final CDN: **\<endpoint-hostname>** .azureedge.net. Não pode ser alterado.
 
-5. Para o **Nome de anfitrião personalizado** , introduza o seu domínio personalizado, incluindo o subdomínio para utilizar como o domínio de origem do seu registo de CNAME. 
+5. Para o **Nome de anfitrião personalizado**, introduza o seu domínio personalizado, incluindo o subdomínio para utilizar como o domínio de origem do seu registo de CNAME. 
     1. Por exemplo, **www.contoso.com** ou **cdn.contoso.com**. **Não utilize o nome de subdomínio cdnver.**
 
     :::image type="content" source="media/cdn-map-content-to-custom-domain/cdn-add-custom-domain.png" alt-text="Adicionar domínio personalizado" border="true":::
 
-6. Selecione **Add** (Adicionar).
+6. Selecione **Adicionar**.
 
    O Azure verifica se o registo CNAME existe para o nome de domínio personalizado que introduziu. Se o CNAME estiver correto, o seu domínio personalizado vai ser validado. 
 
    Pode demorar algum tempo para que as novas definições de domínios personalizados se propaguem a todos os nós periféricos da CDN: 
-    - Para os perfis **CDN do Azure Standard da Microsoft** , a propagação normalmente fica concluída em 10 minutos. 
-    - Para os perfis **CDN do Azure Standard da Akamai** , a propagação normalmente fica concluída num minuto. 
-    - Para os perfis **CDN do Azure Standard da Verizon** e **CDN do Azure Premium da Verizon** , a propagação normalmente fica concluída em 10 minutos.   
+    - Para os perfis **CDN do Azure Standard da Microsoft**, a propagação normalmente fica concluída em 10 minutos. 
+    - Para os perfis **CDN do Azure Standard da Akamai**, a propagação normalmente fica concluída num minuto. 
+    - Para os perfis **CDN do Azure Standard da Verizon** e **CDN do Azure Premium da Verizon**, a propagação normalmente fica concluída em 10 minutos.   
+
+# <a name="powershell"></a>[**PowerShell**](#tab/azure-powershell)
+
+1. Inscreva-se no Azure PowerShell:
+
+```azurepowershell-interactive
+    Connect-AzAccount
+
+```
+2. Utilize [New-AzCdnCustomDomain](/powershell/module/az.cdn/new-azcdncustomdomain) para mapear o domínio personalizado para o seu ponto final CDN. 
+
+    * Substitua **myendpoint8675.azureedge.net** pelo url do ponto final.
+    * Substitua **o ponto de terminação myend8675** pelo seu nome de ponto final CDN.
+    * Substitua **www.contoso.com** pelo seu nome de domínio personalizado.
+    * Substitua **o myCDN** pelo nome do seu perfil CDN.
+    * Substitua **o myResourceGroupCDN** pelo nome do grupo de recursos.
+
+```azurepowershell-interactive
+    $parameters = @{
+        Hostname = 'myendpoint8675.azureedge.net'
+        EndPointName = 'myendpoint8675'
+        CustomDomainName = 'www.contoso.com'
+        ProfileName = 'myCDN'
+        ResourceGroupName = 'myResourceGroupCDN'
+    }
+    New-AzCdnCustomDomain @parameters
+```
+
+O Azure verifica se o registo CNAME existe para o nome de domínio personalizado que introduziu. Se o CNAME estiver correto, o seu domínio personalizado vai ser validado. 
+
+   Pode demorar algum tempo para que as novas definições de domínios personalizados se propaguem a todos os nós periféricos da CDN: 
+
+- Para os perfis **CDN do Azure Standard da Microsoft**, a propagação normalmente fica concluída em 10 minutos. 
+- Para os perfis **CDN do Azure Standard da Akamai**, a propagação normalmente fica concluída num minuto. 
+- Para os perfis **CDN do Azure Standard da Verizon** e **CDN do Azure Premium da Verizon**, a propagação normalmente fica concluída em 10 minutos.   
 
 
+---
 ## <a name="verify-the-custom-domain"></a>Verificar o domínio personalizado
 
 Depois de ter concluído o registo do seu domínio personalizado, verifique se o domínio personalizado faz referência ao seu ponto final CDN.
@@ -200,14 +240,40 @@ Depois de ter concluído o registo do seu domínio personalizado, verifique se o
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
+---
+# <a name="azure-portal"></a>[**Portal Azure**](#tab/azure-portal-cleanup)
+
 Se já não pretender associar o seu ponto final a um domínio personalizado, remova o domínio personalizado fazendo os seguintes passos:
  
 1. No seu perfil da CDN, selecione o ponto final com o domínio personalizado que pretende remover.
 
-2. Na página **Ponto Final** , em Domínios Personalizados, clique com o botão direito do rato no domínio personalizado que quer remover e selecione **Eliminar** , no menu de contexto. Selecione **Sim**.
+2. Na página **Ponto Final**, em Domínios Personalizados, clique com o botão direito do rato no domínio personalizado que quer remover e selecione **Eliminar**, no menu de contexto. Selecione **Yes** (Sim).
 
    O domínio personalizado é desassociado do ponto final.
 
+# <a name="powershell"></a>[**PowerShell**](#tab/azure-powershell-cleanup)
+
+Se já não pretender associar o seu ponto final a um domínio personalizado, remova o domínio personalizado fazendo os seguintes passos:
+
+1. Utilize [Remove-AzCdnCustomDomain](/powershell/module/az.cdn/remove-azcdncustomdomain) para remover o domínio personalizado do ponto final:
+
+    * Substitua **o ponto de terminação myend8675** pelo seu nome de ponto final CDN.
+    * Substitua **www.contoso.com** pelo seu nome de domínio personalizado.
+    * Substitua **o myCDN** pelo nome do seu perfil CDN.
+    * Substitua **o myResourceGroupCDN** pelo nome do grupo de recursos.
+
+
+```azurepowershell-interactive
+    $parameters = @{
+        CustomDomainName = 'www.contoso.com'
+        EndPointName = 'myendpoint8675'
+        ProfileName = 'myCDN'
+        ResourceGroupName = 'myResourceGroupCDN'
+    }
+    Remove-AzCdnCustomDomain @parameters
+```
+
+---
 ## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:

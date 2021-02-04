@@ -8,17 +8,17 @@ author: KumudD
 manager: twooley
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: kumud
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: dd56d539df0e14fa2569e32c4c046f35ff4d6000
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: ffeca4919613fcfb1ece85690fcd20f5cc492336
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223181"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539082"
 ---
 # <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-using-standard-load-balancerpreview"></a>Configurar pontos finais IPv6 na amostra de script de rede virtual utilizando o Balanceador de Carga Padrão (pré-visualização)
 

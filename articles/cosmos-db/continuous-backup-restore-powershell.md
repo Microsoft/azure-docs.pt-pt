@@ -7,16 +7,22 @@ ms.topic: how-to
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 00d9e2c3b77ce4ddae105d8115cd62b5f7796e30
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 73652f821abfa4a092e4a61ffe2be9e7262a2f10
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99527822"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538565"
 ---
-# <a name="configure-and-manage-continuous-backup-and-point-in-time-restore---using-azure-powershell"></a>Configure e gerencie a cópia de segurança contínua e o ponto no tempo de restauração - usando a Azure PowerShell
+# <a name="configure-and-manage-continuous-backup-and-point-in-time-restore-preview---using-azure-powershell"></a>Configure e gerencie a cópia de segurança contínua e o ponto no tempo de restauração (Preview) - usando a Azure PowerShell
+[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
-A funcionalidade de restauro pontual da Azure Cosmos DB ajuda-o a recuperar de uma alteração acidental dentro de um contentor, a restaurar uma conta, base de dados ou um contentor apagado ou a restaurar em qualquer região (onde existiam cópias de segurança). O modo de backup contínuo permite-lhe restaurar qualquer ponto de tempo nos últimos 30 dias.
+> [!IMPORTANT]
+> A funcionalidade de restauro pontual (modo de backup contínuo) para Azure Cosmos DB está atualmente em pré-visualização pública.
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
+> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+A funcionalidade de restauro pontual da Azure Cosmos DB (Preview) ajuda-o a recuperar de uma alteração acidental dentro de um contentor, a restaurar uma conta, base de dados ou um contentor apagado ou a restaurar em qualquer região (onde existiam cópias de segurança). O modo de backup contínuo permite-lhe restaurar qualquer ponto de tempo nos últimos 30 dias.
 
 Este artigo descreve como fornecer uma conta com cópia de segurança contínua e restaurar dados usando a Azure PowerShell.
 

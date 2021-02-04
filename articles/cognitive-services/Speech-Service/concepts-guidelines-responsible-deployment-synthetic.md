@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/11/2019
 ms.author: benoah
-ms.openlocfilehash: 371ad2220b2b2b1b73e5611c5abef74454a548ad
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 9a7a8868497433ea0de8f2f8b32f8e8fbaa497eb
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99508274"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537189"
 ---
 # <a name="guidelines-for-responsible-deployment-of-synthetic-voice-technology"></a>Orientações para a implantação responsável da tecnologia de voz sintética
 
@@ -62,14 +62,8 @@ Para indivíduos com distúrbios da fala que registam as suas próprias fontes d
 Os indivíduos com distúrbios da fala desejam fazer atualizações à sua voz sintética para refletir o envelhecimento (por exemplo, uma criança que chega à puberdade). Os indivíduos também podem ter preferências estilísticas que mudam ao longo do tempo, e podem querer fazer alterações no tom, sotaque ou outras características de voz.
 
 
-## <a name="reference-docs"></a>Documentos de referência
+## <a name="see-also"></a>Ver também
 
-* [Divulgação de Talento de Voz](/legal/cognitive-services/speech-service/disclosure-voice-talent)
-* [Como Divulgar](concepts-disclosure-guidelines.md)
-* [Padrões de design de divulgação](concepts-disclosure-patterns.md)
-
-## <a name="next-steps"></a>Passos seguintes
-
-* [Divulgação de Talento de Voz](/legal/cognitive-services/speech-service/disclosure-voice-talent)
+* [Divulgação de Talento de Voz](https://docs.microsoft.com/legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/cognitive-services/speech-service/context/context)
 * [Como Divulgar](concepts-disclosure-guidelines.md)
 * [Padrões de design de divulgação](concepts-disclosure-patterns.md)

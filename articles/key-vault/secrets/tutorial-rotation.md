@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 61e1e729ab0aeac1f7b8e5ee6787da38c5fef108
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: cd90043c8f03361244d3500f83f6df5347f1d867
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98020150"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539404"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-use-one-set-of-authentication-credentials"></a>Automatizar a rotação de um segredo para recursos que usam um conjunto de credenciais de autenticação
 
@@ -45,7 +45,7 @@ Abaixo o link de implementação pode ser usado, se não tiver o Cofre de Chaves
 
 [![Imagem mostrando um botão marcado "Implementar para Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FKeyVault-Rotation-SQLPassword-Csharp%2Fmain%2FARM-Templates%2FInitial-Setup%2Fazuredeploy.json)
 
-1. No **grupo de Recursos,** selecione **Criar novo**. Nomeie a **akvrotation do** grupo .
+1. No **grupo de Recursos,** selecione **Criar novo**. Dê um nome ao grupo, **usamos akvrotation** neste tutorial.
 1. Em **Sql Admin Login,** tipo Sql administrator login. 
 1. Selecione **Rever + criar**.
 1. Selecione **Criar**
@@ -248,7 +248,7 @@ Aceda ao URL de aplicação implantado:
 
 Quando a aplicação abrir no navegador, verá o **Valor Secreto Gerado** e um valor conectado à base de **dados** de *verdade.*
 
-## <a name="learn-more"></a>Saiba mais
+## <a name="learn-more"></a>Saber mais
 
 - Tutorial: [Rotação para recursos com dois conjuntos de credenciais](tutorial-rotation-dual.md)
 - Visão geral: [Cofre de chaves de monitorização com grade de eventos Azure](../general/event-grid-overview.md)

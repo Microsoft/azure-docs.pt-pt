@@ -2,13 +2,13 @@
 title: Conceitos - Armazenamento
 description: Saiba mais sobre as principais capacidades de armazenamento em nuvens privadas Azure VMware Solution.
 ms.topic: conceptual
-ms.date: 11/03/2020
-ms.openlocfilehash: da5117de4b066fd9872558fa6d018ab898a576f4
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.date: 02/02/2021
+ms.openlocfilehash: 522e4f651b36532ac0c144b3889b2b67c91dc77b
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509224"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99536955"
 ---
 #  <a name="azure-vmware-solution-storage-concepts"></a>Conceitos de armazenamento de solução Azure VMware
 
@@ -32,11 +32,11 @@ vSAN datastores usam encriptação de dados em repouso por padrão. A solução 
 
 ## <a name="scaling"></a>Dimensionamento
 
-A capacidade de armazenamento de clusters nativo é dimensionada adicionando hospedeiros a um cluster. Para os agrupamentos que utilizam hospedeiros HE, a capacidade bruta de cluster é aumentada em 15,4 TB com cada hospedeiro adicional. Os clusters que são construídos com anfitriões GP têm a sua capacidade bruta aumentada em 7,7 TB com cada hospedeiro adicional. Em ambos os tipos de aglomerados, os anfitriões demoram cerca de 10 minutos a serem adicionados a um cluster. Para obter instruções sobre aglomerados de escala, consulte o [tutorial de nuvem privada de escala.][tutorial-scale-private-cloud]
+A capacidade de armazenamento de clusters nativo é dimensionada adicionando hospedeiros a um cluster. Para os agrupamentos que utilizam hospedeiros HE, a capacidade bruta de cluster é aumentada em 15,4 TB com cada hospedeiro adicionado. Os clusters que são construídos com anfitriões GP têm a sua capacidade bruta aumentada em 7,7 TB com cada hospedeiro adicionado. Em ambos os tipos de aglomerados, os anfitriões demoram cerca de 10 minutos a serem adicionados a um cluster. Para obter instruções sobre aglomerados de escala, consulte o [tutorial de nuvem privada de escala.][tutorial-scale-private-cloud]
 
 ## <a name="azure-storage-integration"></a>Integração de armazenamento azul
 
-Você pode usar serviços de armazenamento Azure em cargas de trabalho em execução na sua nuvem privada. Os serviços de armazenamento Azure incluem Contas de Armazenamento, Armazenamento de Mesa e Armazenamento de Blob. A ligação de cargas de trabalho aos serviços de armazenamento Azure não atravessa a internet. Esta conectividade proporciona segurança adicional e permite-lhe utilizar serviços de armazenamento Azure baseados em SLA nas suas cargas de trabalho em nuvem privada.
+Você pode usar serviços de armazenamento Azure em cargas de trabalho em execução na sua nuvem privada. Os serviços de armazenamento Azure incluem Contas de Armazenamento, Armazenamento de Mesa e Armazenamento de Blob. A ligação de cargas de trabalho aos serviços de armazenamento Azure não atravessa a internet. Esta conectividade proporciona mais segurança e permite-lhe utilizar serviços de armazenamento Azure baseados em SLA nas suas cargas de trabalho em nuvem privada.
 
 ## <a name="next-steps"></a>Passos seguintes
 

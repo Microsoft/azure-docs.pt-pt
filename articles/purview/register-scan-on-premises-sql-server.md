@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/18/2020
-ms.openlocfilehash: 0d282ee805ac61ba17ceb3ecc6a3d8179ea7b319
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 26012b23a10f560158e3ba3919e12f5c15759189
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98555904"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539320"
 ---
 # <a name="register-and-scan-an-on-premises-sql-server"></a>Registar e digitalizar um servidor SQL no local
 
@@ -50,21 +50,17 @@ Só há uma maneira de configurar a autenticação para o servidor SQL no local:
 
 ### <a name="sql-authentication"></a>Autenticação do SQL
 
-A identidade SQL deve ter acesso à base de dados primária. Este local é onde `sys.databases` está guardado. O scanner de Purview precisa de enumerar `sys.databases` para encontrar todas as instâncias DB SQL no servidor.
+A conta SQL deve ter acesso à base **de dados principal.** Isto é porque `sys.databases` está na base de dados principal. O scanner de Purview precisa de enumerar `sys.databases` para encontrar todas as bases de dados SQL no servidor.
 
 #### <a name="using-an-existing-server-administrator"></a>Usando um administrador de servidor existente
 
 Se planeia utilizar um utilizador de administração (sa) de servidor existente para digitalizar o servidor SQL no local, certifique-se do seguinte:
 
-1. `sa` não é o tipo de autenticação do Windows.
+1. `sa` não é uma conta de autenticação do Windows.
 
-2. O utilizador de nível de servidor que está a planear utilizar deve ter funções de servidor de público e sysadmin. Pode verificar isto navegando no SQL Server Management Studio (SSMS), conectando-se ao servidor, navegando para segurança, selecionando o login que planeia utilizar, clicando com o botão direito **de propriedades** e, em seguida, selecionando **funções do Servidor**.
+2. O início de sessão de nível de servidor que está a planear utilizar deve ter funções de servidor de público e sysadmin. Pode verificar isto ligando-o ao servidor, navegando no SQL Server Management Studio (SSMS), navegando para segurança, selecionando o login que planeia utilizar, clicando com o botão direito **de propriedades** e, em seguida, selecionando **funções do Servidor**.
 
    :::image type="content" source="media/register-scan-on-premises-sql-server/server-level-login.png" alt-text="Início de sessão de nível do servidor.":::
-
-3. As bases de dados são mapeadas para um utilizador que tenha pelo menos db_datareader acesso de nível em cada base de dados.
-
-   :::image type="content" source="media/register-scan-on-premises-sql-server/user-mapping-sa.png" alt-text="mapeamento do utilizador para sa.":::
 
 #### <a name="creating-a-new-login-and-user"></a>Criar um novo login e utilizador
 
@@ -74,9 +70,9 @@ Se pretender criar um novo login e o utilizador para poder digitalizar o seu ser
 
    :::image type="content" source="media/register-scan-on-premises-sql-server/create-new-login-user.png" alt-text="Crie novo login e utilizador.":::
 
-2. Selecione as funções do Servidor na navegação à esquerda e selecione público e sysadmin.
+2. Selecione as funções do Servidor na navegação à esquerda e certifique-se de que o papel público é atribuído.
 
-3. Selecione o mapeamento do Utilizador na navegação à esquerda e selecione todas as bases de dados no mapa.
+3. Selecione o mapeamento do Utilizador na navegação à esquerda, selecione todas as bases de dados no mapa e selecione a função Base de Dados: **db_datareader**.
 
    :::image type="content" source="media/register-scan-on-premises-sql-server/user-mapping.png" alt-text="mapeamento do utilizador.":::
 
@@ -88,8 +84,7 @@ Se pretender criar um novo login e o utilizador para poder digitalizar o seu ser
 
 #### <a name="storing-your-sql-login-password-in-a-key-vault-and-creating-a-credential-in-purview"></a>Armazenar a sua senha de login SQL num cofre de chaves e criar uma credencial em Purview
 
-1. Navegue até ao cofre chave no portal Azure
-1. Selecione **Definições > Segredos**
+1. Navegue até ao cofre chave no portal Azure1. Selecione **Definições > Segredos**
 1. Selecione **+ Gerar/Importar** e insira o **Nome** e **Valor** como *palavra-passe* do seu login do servidor SQL
 1. Selecione **Criar** para completar
 1. Se o cofre da chave ainda não estiver ligado ao Purview, terá de [criar uma nova ligação](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account) ao cofre de chaves

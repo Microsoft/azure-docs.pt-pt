@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: shlo
-ms.openlocfilehash: 5cf933a11956bb8459bf6f5cd1b2b366eb8419d8
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 425096bf7cb75ae3560c06cbcd32778536dc1952
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99508647"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537345"
 ---
 # <a name="disclosure-design-patterns"></a>Padrões de conceção de divulgação
 Agora que&#39;determinou o [nível](concepts-disclosure-guidelines.md#disclosure-assessment) certo de divulgação para a sua experiência de voz sintética,&#39;é uma boa altura para explorar potenciais padrões de design.
@@ -237,20 +237,14 @@ Use a divulgação como uma oportunidade para falhar graciosamente.
 - [Proporcionando oportunidades para aprender mais sobre como a voz foi feita](#providing-opportunities-to-learn-more-about-how-the-voice-was-made)
 - [Entrega ao ser humano](#conversational-transparency)
 
-
-
 ## <a name="additional-resources"></a>Recursos adicionais
 - [Diretrizes do Microsoft Bot](https://www.microsoft.com/research/uploads/prod/2018/11/Bot_Guidelines_Nov_2018.pdf)
 - [Diretrizes de Design cortana](/cortana/voice-commands/voicecommand-design-guidelines)
 - [Diretrizes de design de discurso do Microsoft Windows UWP](/windows/uwp/design/input/speech-interactions)
 - [Diretrizes de comando de voz de realidade mista do Microsoft Windows](/windows/mixed-reality/voice-design#top-things-users-should-know-about-speech-in-mixed-reality)
 
-## <a name="reference-docs"></a>Documentos de referência
+## <a name="see-also"></a>Ver também
 
-* [Divulgação de Talento de Voz](/legal/cognitive-services/speech-service/disclosure-voice-talent)
+* [Divulgação de Talento de Voz](https://docs.microsoft.com/legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/cognitive-services/speech-service/context/context)
 * [Orientações para a implantação responsável da tecnologia de voz sintética](concepts-guidelines-responsible-deployment-synthetic.md)
 * [Como Divulgar](concepts-disclosure-guidelines.md)
-
-## <a name="next-steps"></a>Passos seguintes
-
-* [Divulgação de Talento de Voz](/legal/cognitive-services/speech-service/disclosure-voice-talent)

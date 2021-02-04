@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/09/2020
+ms.date: 02/02/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e2d74519b9adf9a74e5af180a3da28918a9a8dab
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: e5f8264221ada261ccae1b347c47cdf27967d5d8
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96001886"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537168"
 ---
 # <a name="blob-versioning"></a>Versão blob
 
@@ -93,11 +93,11 @@ Quando a versão blob está ativada para uma conta de armazenamento, todas as op
 
 Para bolhas de página e bolhas de apêndice, apenas um subconjunto de operações de escrita e eliminação desencadeia a criação de uma versão. Estas operações incluem:
 
-- [Coloque Blob](/rest/api/storageservices/put-blob)
+- [Colocar o Blob](/rest/api/storageservices/put-blob)
 - [Colocar lista de blocos](/rest/api/storageservices/put-block-list)
 - [Eliminar Blob](/rest/api/storageservices/delete-blob)
 - [Definir metadados blob](/rest/api/storageservices/set-blob-metadata)
-- [Bolha de cópia](/rest/api/storageservices/copy-blob)
+- [Copiar Blob](/rest/api/storageservices/copy-blob)
 
 As seguintes operações não despoletam a criação de uma nova versão. Para capturar as alterações dessas operações, tire uma foto manual:
 
@@ -187,7 +187,7 @@ A versão blob foi concebida para proteger os seus dados de eliminação acident
 
 A tabela que se segue mostra quais as ações do Azure RBAC que suportam a eliminação de uma bolha ou uma versão blob.
 
-| Descrição | Operação de serviço blob | A ação de dados do RBAC Azure necessária | Suporte de função incorporado Azure |
+| Description | Operação de serviço blob | A ação de dados do RBAC Azure necessária | Suporte de função incorporado Azure |
 |----------------------------------------------|------------------------|---------------------------------------------------------------------------------------|-------------------------------|
 | Apagar a versão atual da bolha | Eliminar Blob | **Microsoft.Storage/storageAcounts/blobServices/containers/blobs/delete** | Contribuinte de Dados do Armazenamento de Blobs |
 | Apagar uma versão | Eliminar Blob | **Microsoft.Storage/storageAcounts/blobServices/containers/blobs/deleteBlobVersion/action** | Proprietário dos Dados do Armazenamento de Blobs |

@@ -3,13 +3,13 @@ title: Conceitos - Monitorizar e reparar a Azure VMware Solution nuvens privadas
 description: Saiba como a Azure VMware Solution monitoriza e repara servidores VMware ESXi numa nuvem privada Azure VMware Solution.
 ms.topic: conceptual
 ms.custom: contperf-fy21q2
-ms.date: 11/20/2020
-ms.openlocfilehash: 7f367a6ef9b86f235a16a698735cfb58a11f6862
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.date: 02/03/2021
+ms.openlocfilehash: 6174df429fd9b21c7f685c8ba14e6d5c0bba4c83
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033600"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538963"
 ---
 # <a name="monitor-and-repair-azure-vmware-solution-private-clouds"></a>Monitore e repare Azure VMware Solução nuvens privadas
 
@@ -43,10 +43,7 @@ O processo de remediação do hospedeiro começa adicionando um novo nó saudáv
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Aqui estão alguns tópicos sobre os quais talvez queira saber mais sobre:
+Agora que cobriu a forma como a Azure VMware Solution monitoriza e repara nuvens privadas, talvez queira saber:
 
-- [Atualizações de nuvem privada Azure VMware Solution](concepts-upgrades.md)
-- [Gestão do ciclo de vida da Azure VMware Solution VMs](lifecycle-management-of-azure-vmware-solution-vms.md)
-- [Proteja o seu VMS de Solução VMware Azure com integração do Centro de Segurança Azure](azure-security-integration.md)
-- [Backup VMs de Solução VMware Azure com Servidor de Backup Azure](backup-azure-vmware-solution-virtual-machines.md)
-- [Recuperação completa de desastres de máquinas virtuais usando Azure VMware Solution](disaster-recovery-for-virtual-machines.md)
+- [Upgrades de nuvem privada Azure VMware Solution](concepts-upgrades.md).
+- [Como ativar o recurso Azure VMware Solution](enable-azure-vmware-solution.md).

@@ -4,15 +4,15 @@ description: Este artigo lista as recomendações de segurança do Azure Securit
 author: memildin
 ms.service: security-center
 ms.topic: reference
-ms.date: 01/26/2021
+ms.date: 02/03/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: f6d881036b0ebaa79d1052e41b8ec649bb1e8d6d
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: ce4b34a7f60ca8d9733b8a616671180a9ec7324c
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797171"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539247"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Recomendações de segurança: um guia de referência
 
@@ -53,7 +53,7 @@ A sua pontuação segura baseia-se no número de recomendações do Centro de Se
 |**As políticas de segurança do Pod devem ser definidas para reduzir o vetor de ataque removendo privilégios de aplicação desnecessários (Pré-visualização)**|Defina as políticas de segurança do Pod para reduzir o vetor de ataque removendo privilégios de aplicação desnecessários. Recomenda-se configurar as políticas de segurança do pod para que as cápsulas só possam aceder aos recursos a que possam aceder.<br>(Política relacionada: [Pré-visualização]: As políticas de segurança do Pod devem ser definidas nos serviços kubernetes)|Médio|N|Recursos computacional (Contentores)|
 |**Instale o Azure Security Center para módulo de segurança IoT para obter mais visibilidade nos seus dispositivos IoT**|Instale o Azure Security Center para módulo de segurança IoT para obter mais visibilidade nos seus dispositivos IoT.|Baixo|N|Dispositivo IoT|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre recomendações, consulte o seguinte:
 

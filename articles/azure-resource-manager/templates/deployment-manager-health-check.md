@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 09/21/2020
 ms.author: jgao
-ms.openlocfilehash: 8e13f18ef9c2ec71a351d8a80d72d600bf8e9715
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: ae95269dbac3ef1561e19d4b7ea5dd383c1eed73
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97607410"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99536972"
 ---
 # <a name="introduce-health-integration-rollout-to-azure-deployment-manager-public-preview"></a>Introduzir o lançamento da integração sanitária ao Azure Deployment Manager (visualização pública)
 
@@ -30,18 +30,18 @@ De forma a facilitar a integração na saúde, a Microsoft tem vindo a trabalhar
 
 Estes prestadores de saúde normalmente oferecem APIs DE REST para que o estado dos monitores do seu serviço possa ser examinado programáticamente. As APIs REST podem voltar com um sinal simples saudável/insalubre (determinado pelo código de resposta HTTP) e/ou com informações detalhadas sobre os sinais que está a receber.
 
-O novo passo *healthCheck* no Azure Deployment Manager permite-lhe declarar códigos HTTP que indicam um serviço saudável, ou, para resultados de REST mais complexos, pode até especificar expressões regulares que, se corresponderem, indicam uma resposta saudável.
+O novo `healthCheck` passo no Azure Deployment Manager permite-lhe declarar códigos HTTP que indicam um serviço saudável. Para resultados complexos de REST pode especificar expressões regulares que, quando combinados, indicam uma resposta saudável.
 
-O fluxo para a instalação com verificações de saúde do Azure Deployment Manager:
+O fluxo para configurar os controlos de saúde do Gestor de Implantação do Azure:
 
 1. Crie os seus monitores de saúde através de um prestador de serviços de saúde à sua escolha.
-1. Crie um ou mais passos de saúdeConfiem como parte do seu lançamento do Azure Deployment Manager. Preencha os passos healthCheck com as seguintes informações:
+1. Crie um ou mais `healthCheck` passos como parte do seu lançamento do Azure Deployment Manager. Preencha os `healthCheck` passos com as seguintes informações:
 
     1. O URI para a API REST para os seus monitores de saúde (conforme definido pelo seu prestador de serviços de saúde).
-    1. Informação de autenticação. Atualmente apenas a autenticação do estilo chave API é suportada. Para o Azure Monitor, o tipo de autenticação deve ser definido como – "RolloutIdentity", uma vez que o utilizador atribuído identidade gerida utilizada para o Azure Deployment Manager Rollout estende-se para o Azure Monitor.
-    1. [Códigos de estado HTTP](https://www.wikipedia.org/wiki/List_of_HTTP_status_codes) ou expressões regulares que definem uma resposta saudável. Note que pode fornecer expressões regulares, que TODOS devem corresponder para que a resposta seja considerada saudável, ou pode fornecer expressões das quais ANY deve corresponder para que a resposta seja considerada saudável. Ambos os métodos são apoiados.
+    1. Informação de autenticação. Atualmente apenas a autenticação do estilo chave API é suportada. Para o Azure Monitor, o tipo de autenticação deve ser definido como `RolloutIdentity` a identidade gerida atribuída pelo utilizador utilizada para o lançamento do Azure Deployment Manager estende-se para o Azure Monitor.
+    1. [Códigos de estado HTTP](https://www.wikipedia.org/wiki/List_of_HTTP_status_codes) ou expressões regulares que definem uma resposta saudável. Pode fornecer expressões regulares, que TODOS devem corresponder para que a resposta seja considerada saudável, ou pode fornecer expressões das quais ANY deve corresponder para que a resposta seja considerada saudável. Ambos os métodos são apoiados.
 
-    O Json seguinte é um exemplo para integrar o Azure Monitor com o Azure Deployment Manager que aproveita a RolloutIdentity e estabelece uma verificação de saúde em que um Rollout procede se não houver alertas. A única API suportada do Monitor AZure: [Alertas – Get All](/rest/api/monitor/alertsmanagement/alerts/getall).
+    O JSON seguinte é um exemplo para integrar o Azure Monitor com o Azure Deployment Manager. O exemplo utiliza `RolloutIdentity` e estabelece um exame de saúde onde um lançamento prossegue se não houver alertas. A única API suportada do Monitor AZure: [Alertas – Get All](/rest/api/monitor/alertsmanagement/alerts/getall).
 
     ```json
     {
@@ -86,7 +86,7 @@ O fluxo para a instalação com verificações de saúde do Azure Deployment Man
     }
     ```
 
-    O seguinte Json é um exemplo para todos os outros prestadores de cuidados de saúde:
+    O seguinte JSON é um exemplo para todos os outros prestadores de cuidados de saúde:
 
     ```json
     {
@@ -135,7 +135,7 @@ O fluxo para a instalação com verificações de saúde do Azure Deployment Man
     },
     ```
 
-1. Invoque os passos healthCheck no momento apropriado no seu lançamento do Azure Deployment Manager. No exemplo seguinte, é invocado um passo de verificação de saúde em **passos pós-deploymentsteps** do **stepGroup2**.
+1. Invoque os `healthCheck` passos no momento apropriado no seu lançamento do Azure Deployment Manager. No exemplo seguinte, é invocado um `healthCheck` passo de `postDeploymentSteps` `stepGroup2` .
 
     ```json
     "stepGroups": [
@@ -173,33 +173,35 @@ O fluxo para a instalação com verificações de saúde do Azure Deployment Man
     ]
     ```
 
-Para percorrer um exemplo, consulte [Tutorial: Use o exame de saúde no Azure Deployment Manager](./deployment-manager-health-check.md).
+Para percorrer um exemplo, consulte [Tutorial: Use o exame de saúde no Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
 
 ## <a name="phases-of-a-health-check"></a>Fases de um exame de saúde
 
-Neste ponto, o Azure Deployment Manager sabe como consultar a saúde do seu serviço e em que fases do seu lançamento o faz. No entanto, o Azure Deployment Manager também permite uma configuração profunda do tempo destas verificações. Um passo healthCheck é executado em 3 fases sequenciais, todas com durações configuráveis:
+Neste ponto, o Azure Deployment Manager sabe como consultar a saúde do seu serviço e em que fases do seu lançamento o fazem. No entanto, o Azure Deployment Manager também permite uma configuração profunda do tempo destas verificações. Um `healthCheck` passo é executado em três fases sequenciais, todas com durações configuráveis:
 
 1. Wait
 
     1. Após a conclusão de uma operação de implantação, os VMs podem estar a reiniciar, reconfigurar com base em novos dados ou mesmo a ser iniciados pela primeira vez. Também leva tempo para que os serviços comecem a emitir sinais de saúde para serem agregados pelo prestador de cuidados de saúde em algo útil. Durante este processo tumultuoso, pode não fazer sentido verificar a saúde do serviço, uma vez que a atualização ainda não atingiu um estado estável. Na verdade, o serviço pode estar a oscilar entre estados saudáveis e pouco saudáveis à medida que os recursos se instalam.
     1. Durante a fase de espera, a saúde do serviço não é monitorizada. Isto é usado para permitir aos recursos implantados o tempo para cozer antes de iniciar o processo de verificação de saúde.
+
 1. Elástico
 
-    1. Uma vez que é impossível saber em todos os casos quanto tempo os recursos demorarão a cozer antes de se tornarem estáveis, a fase elástica permite um período de tempo flexível entre quando os recursos são potencialmente instáveis e quando são necessários para manter um estado estável saudável.
+    1. Uma vez que é impossível saber em todos os casos quanto tempo demorará até que os recursos se tornem estáveis, a fase elástica permite um período de tempo flexível entre quando os recursos são potencialmente instáveis e quando são necessários para manter um estado estável saudável.
     1. Quando a fase elástica começa, o Gestor de Implantação do Azure começa a sondar periodicamente o ponto final providenciado rest para a saúde do serviço. O intervalo de votação é configurável.
     1. Se o monitor de saúde voltar com sinais que indicam que o serviço não é saudável, estes sinais são ignorados, a fase elástica continua, e as sondagens continuam.
-    1. Assim que o monitor de saúde volta com sinais indicando que o serviço está saudável, a fase elástica termina e começa a fase HealthyState.
+    1. Quando o monitor de saúde devolve sinais indicando que o serviço está saudável, a fase elástica termina e começa a fase HealthyState.
     1. Assim, a duração especificada para a fase elástica é o tempo máximo que pode ser gasto a votar para a saúde do serviço antes de uma resposta saudável ser considerada obrigatória.
+
 1. Estado Saudável
 
     1. Durante a fase HealthyState, a saúde do serviço é continuamente sondada no mesmo intervalo que a fase elástica.
     1. Espera-se que o serviço mantenha sinais saudáveis do prestador de cuidados de saúde durante toda a duração especificada.
     1. Se em algum momento for detetada uma resposta pouco saudável, o Gestor de Implementação Azure irá parar todo o lançamento e devolver a resposta REST carregando os sinais de serviço pouco saudáveis.
-    1. Uma vez terminada a duração do Estado Saudável, o healthCheck está completo e a implementação continua até ao passo seguinte.
+    1. Após o fim da duração do Estado Saudável, o `healthCheck` está completo e a implementação continua para o passo seguinte.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu sobre como integrar a monitorização de saúde no Azure Deployment Manager. Dirija-se ao próximo artigo para aprender a implementar com o Gestor de Implementação.
 
 > [!div class="nextstepaction"]
-> [Tutorial: integrar o controlo de saúde no Azure Deployment Manager](./deployment-manager-tutorial-health-check.md)
+> [Tutorial: Use o cheque de saúde no Azure Deployment Manager](./deployment-manager-tutorial-health-check.md)

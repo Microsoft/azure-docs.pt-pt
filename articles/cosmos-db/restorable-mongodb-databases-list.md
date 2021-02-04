@@ -6,14 +6,19 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/03/2021
 ms.author: govindk
-ms.openlocfilehash: 64288f67728e59c32c662a6640d60daf52c53fe1
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 5ebb0a23822074f61a16bf1d7652dba589399542
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99527930"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537515"
 ---
 # <a name="list-restorable-databases-in-azure-cosmos-db-api-for-mongodb-using-rest-api"></a>Listar bases de dados restauradoras em Azure Cosmos DB API para MongoDB usando REST API
+
+> [!IMPORTANT]
+> A funcionalidade de restauro pontual (modo de backup contínuo) para Azure Cosmos DB está atualmente em pré-visualização pública.
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
+> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Mostre o feed do evento de todas as mutações feitas em todas as bases de dados Azure Cosmos DB MongoDB sob a conta resprédula. Isto ajuda num cenário em que a base de dados foi acidentalmente eliminada para obter o tempo de eliminação. Esta API requer `Microsoft.DocumentDB/locations/restorableDatabaseAccounts/*/read` permissão
 

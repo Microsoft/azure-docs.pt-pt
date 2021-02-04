@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2021
-ms.openlocfilehash: 8d984a303234a24423ceae100bd139cb484d6495
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: d848c1ed1ab9d4cb24dec9423d93ec62ab45633b
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98702790"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537226"
 ---
 # <a name="estimate-and-manage-capacity-of-an-azure-cognitive-search-service"></a>Estimativa e gestão da capacidade de um serviço de Pesquisa Cognitiva Azure
 
@@ -208,7 +208,15 @@ Os acordos de nível de serviço (SLA) para a Azure Cognitive Search são direci
 
 O nível básico supera com uma divisória e três réplicas. Se quiser que a flexibilidade responda imediatamente às flutuações da procura tanto para indexar como para a produção de consultas, considere um dos níveis Standard.  Se descobrir que os seus requisitos de armazenamento estão a crescer muito mais rapidamente do que a sua produção de consulta, considere um dos níveis otimizados de armazenamento.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="about-queries-per-second-qps"></a>Sobre consultas por segundo (QPS)
+
+Devido ao grande número de fatores que entram em desempenho de consulta, a Microsoft não publica números de QPS esperados. As estimativas de QPS devem ser desenvolvidas de forma independente por cada cliente utilizando o nível de serviço, configuração, índice e construções de consulta que sejam válidas para a sua aplicação. Tamanho e complexidade do índice, tamanho de consulta e complexidade, e a quantidade de tráfego são determinantes primários de QPS. Não há forma de oferecer estimativas significativas quando tais fatores são desconhecidos.
+
+As estimativas são mais previsíveis quando calculadas sobre os serviços em execução em recursos dedicados (níveis básicos e standard). Pode estimar o QPS mais de perto porque tem controlo sobre mais dos parâmetros. Para obter orientações sobre como abordar a estimativa, consulte [o desempenho e otimização da Pesquisa Cognitiva Azure.](search-performance-optimization.md)
+
+Para os níveis otimizados de armazenamento (L1 e L2), deverá esperar uma produção de consulta mais baixa e uma latência mais elevada do que os níveis Standard.
+
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Como estimar e gerir custos](search-sku-manage-costs.md)

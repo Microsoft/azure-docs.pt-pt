@@ -2,13 +2,13 @@
 title: Conceitos - Interconectividade da rede
 description: Conheça os principais aspetos e utilize casos de networking e interconectividade na Azure VMware Solution.
 ms.topic: conceptual
-ms.date: 09/21/2020
-ms.openlocfilehash: 49261f34f879c68f21b57f9256a58a9b0a44d637
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.date: 02/02/2021
+ms.openlocfilehash: bc8a2f8c07a2a4fe37c4899dc33d5173a99dc423
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509287"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538980"
 ---
 # <a name="azure-vmware-solution-networking-and-interconnectivity-concepts"></a>Conceitos de networking e interconectividade Azure VMware Solution
 

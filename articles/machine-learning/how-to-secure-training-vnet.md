@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 07/16/2020
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1
-ms.openlocfilehash: 9ef339fb0ccd14314a65d03b59e501069446c870
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 02045c7ba2373c57213cc7fffb71a5e6bb5979e6
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493842"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538005"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>Garantir um ambiente de formação Azure Machine Learning com redes virtuais
 
@@ -163,15 +163,22 @@ Há duas maneiras de conseguir isto:
 
 * Utilize um [NAT de rede virtual.](../virtual-network/nat-overview.md) Um gateway NAT fornece conectividade de saída da Internet para uma ou mais sub-redes na sua rede virtual. Para obter informações, consulte [conceber redes virtuais com recursos de gateway NAT.](../virtual-network/nat-gateway-resource.md)
 
-* Adicione [as rotas definidas pelo utilizador (UDRs)](../virtual-network/virtual-networks-udr-overview.md) à sub-rede que contém o recurso compute. Estabeleça uma UDR para cada endereço IP que seja utilizado pelo serviço Azure Batch na região onde os seus recursos existem. Estes UDRs permitem ao serviço Batch comunicar com nós computacional para agendamento de tarefas. Adicione também o endereço IP para o serviço de Aprendizagem automática Azure onde existem os recursos, uma vez que este é necessário para o acesso a Instâncias computacional. Para obter uma lista de endereços IP do serviço Batch e do serviço Azure Machine Learning, utilize um dos seguintes métodos:
+* Adicione [as rotas definidas pelo utilizador (UDRs)](../virtual-network/virtual-networks-udr-overview.md) à sub-rede que contém o recurso compute. Estabeleça uma UDR para cada endereço IP que seja utilizado pelo serviço Azure Batch na região onde os seus recursos existem. Estes UDRs permitem ao serviço Batch comunicar com nós computacional para agendamento de tarefas. Adicione também o endereço IP para o serviço Azure Machine Learning, uma vez que este é necessário para o acesso a Instâncias computacional. Ao adicionar o IP para o serviço de Aprendizagem automática Azure, deve adicionar o IP para as regiões __Azure primária e secundária.__ A região primária é aquela onde o seu espaço de trabalho está localizado.
+
+    Para encontrar a região secundária, consulte a garantia de [continuidade do negócio & recuperação de desastres utilizando regiões emparelhadas Azure.](../best-practices-availability-paired-regions.md#azure-regional-pairs) Por exemplo, se o seu serviço de Machine Learning Azure estiver no Leste dos EUA 2, a região secundária é a Central EUA. 
+
+    Para obter uma lista de endereços IP do serviço Batch e do serviço Azure Machine Learning, utilize um dos seguintes métodos:
 
     * Faça o download das [Gamas IP E Tags de Serviço Azure](https://www.microsoft.com/download/details.aspx?id=56519) e procure no ficheiro `BatchNodeManagement.<region>` `AzureMachineLearning.<region>` e, onde `<region>` fica a sua região Azure.
 
-    * Utilize o [CLI Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) para descarregar as informações. O exemplo a seguir descarrega as informações do endereço IP e filtra as informações para a região leste dos EUA 2:
+    * Utilize o [CLI Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) para descarregar as informações. O exemplo a seguir descarrega as informações do endereço IP e filtra as informações para a região leste dos EUA 2 (primária) e central dos EUA (secundária):
 
         ```azurecli-interactive
         az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'Batch')] | [?properties.region=='eastus2']"
+        # Get primary region IPs
         az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'AzureMachineLearning')] | [?properties.region=='eastus2']"
+        # Get secondary region IPs
+        az network list-service-tags -l "Central US" --query "values[?starts_with(id, 'AzureMachineLearning')] | [?properties.region=='centralus']"
         ```
 
         > [!TIP]
@@ -190,7 +197,6 @@ Há duas maneiras de conseguir isto:
     Além de quaisquer UDRs que defina, o tráfego de saída para o Azure Storage deve ser permitido através do seu aparelho de rede no local. Especificamente, os URLs para este tráfego estão nas seguintes formas: `<account>.table.core.windows.net` `<account>.queue.core.windows.net` , e `<account>.blob.core.windows.net` . 
 
     Para obter mais informações, consulte [criar uma piscina Azure Batch numa rede virtual.](../batch/batch-virtual-network.md#user-defined-routes-for-forced-tunneling)
-
 
 ### <a name="create-a-compute-cluster-in-a-virtual-network"></a>Criar um cluster compute numa rede virtual
 

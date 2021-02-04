@@ -7,17 +7,22 @@ ms.topic: conceptual
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 64033182356e66d6a69bd47c1780b7081416019e
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 91421b66af441ed2c7e9c8b66c16ee83f489b03e
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99527814"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538509"
 ---
-# <a name="resource-model-for-the-azure-cosmos-db-point-in-time-restore-feature"></a>Modelo de recursos para a funcionalidade de restauro ponto-a-tempo da Azure Cosmos
+# <a name="resource-model-for-the-azure-cosmos-db-point-in-time-restore-feature-preview"></a>Modelo de recursos para a funcionalidade de restauro ponto-a-tempo do Azure Cosmos (Preview)
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
-Este artigo explica o modelo de recursos para a funcionalidade de restauro ponto-a-tempo da Azure Cosmos. Explica os parâmetros que suportam a backup contínua e os recursos que podem ser restaurados em Azure Cosmos DB API para contas SQL e MongoDB.
+> [!IMPORTANT]
+> A funcionalidade de restauro pontual (modo de backup contínuo) para Azure Cosmos DB está atualmente em pré-visualização pública.
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
+> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Este artigo explica o modelo de recursos para a funcionalidade de restauro ponto-a-tempo do Azure Cosmos (Preview). Explica os parâmetros que suportam a backup contínua e os recursos que podem ser restaurados em Azure Cosmos DB API para contas SQL e MongoDB.
 
 ## <a name="database-accounts-resource-model"></a>Modelo de recursos da conta de base de dados
 

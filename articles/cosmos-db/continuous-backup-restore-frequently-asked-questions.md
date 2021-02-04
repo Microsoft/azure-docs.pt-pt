@@ -7,17 +7,22 @@ ms.topic: conceptual
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 7a41eb8bdd573ac08b0c76eb9a6c2b0724637c39
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: c0af1db12f3ade2945524f48e4539d2d2e9aa6b9
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99527961"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539190"
 ---
-# <a name="frequently-asked-questions-on-the-azure-cosmos-db-point-in-time-restore-feature"></a>Perguntas frequentes sobre a funcionalidade de restauro ponto-a-tempo do Azure Cosmos
+# <a name="frequently-asked-questions-on-the-azure-cosmos-db-point-in-time-restore-feature-preview"></a>Perguntas frequentes sobre a funcionalidade de restauro ponto-a-tempo do Azure Cosmos (Preview)
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
-Este artigo lista frequentemente perguntas sobre a funcionalidade de restauro pontual Azure Cosmos DB que é conseguida utilizando o modo de backup contínuo.
+> [!IMPORTANT]
+> A funcionalidade de restauro pontual (modo de backup contínuo) para Azure Cosmos DB está atualmente em pré-visualização pública.
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
+> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Este artigo lista frequentemente perguntas sobre a funcionalidade de restauro ponto-a-tempo do Azure Cosmos (Preview) que é conseguida utilizando o modo de backup contínuo.
 
 ## <a name="how-much-time-does-it-takes-to-restore"></a>Quanto tempo leva para restaurar?
 A duração do restauro depende do tamanho dos seus dados.

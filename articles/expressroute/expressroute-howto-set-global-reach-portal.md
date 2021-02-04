@@ -7,18 +7,18 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 01/11/2021
 ms.author: duau
-ms.openlocfilehash: 9e943be3544da38788d16e54011e09e1ac3426cc
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 8366978d50875389ce872c2d1402f0defa2a7371
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98122457"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539354"
 ---
 # <a name="configure-expressroute-global-reach-using-the-azure-portal"></a>Configurar ExpressRoute Global Reach usando o portal Azure
 
 Este artigo ajuda-o a configurar o ExpressRoute Global Reach usando o PowerShell. Para mais informações, consulte [ExpressRoute Global Reach](expressroute-global-reach.md).
 
- ## <a name="before-you-begin"></a>Before you begin
+ ## <a name="before-you-begin"></a>Antes de começar
 
 Antes de iniciar a configuração, confirme os seguintes critérios:
 
@@ -68,7 +68,7 @@ Se os dois circuitos não estiverem na mesma assinatura Azure, vai precisar de a
 
    :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/create-authorization-expressroute-circuit.png" alt-text="Gerar chave de autorização"::: 
 
-   Tome nota da identificação privada do circuito 2 e da chave de autorização.
+   Tome nota da identificação do circuito do circuito 2 e da chave de autorização.
 
 1. Selecione a configuração de espreitamento **privado Azure.** 
 

@@ -38,6 +38,14 @@
           href: quickstarts/voice-video-calling/calling-client-samples.md
         - name: Associe a sua aplicação de chamadas a uma reunião do Teams
           href: quickstarts/voice-video-calling/get-started-teams-interop.md
+    - name: Quadro de UI
+      items:
+        - name: Começar com componentes compósitos
+          href: quickstarts/ui-framework/get-started-with-composites.md
+        - name: Começar com componentes base
+          href: quickstarts/ui-framework/get-started-with-components.md
+        - name: Crie o seu próprio componente de Enquadramento de UI
+          href: quickstarts/ui-framework/create-your-own-components.md
 - name: Tutorials (Tutoriais)
   expanded: false
   items:
@@ -70,6 +78,12 @@
           href: concepts/voice-video-calling/about-call-types.md
         - name: Interoperabilidade com o Teams
           href: concepts/voice-video-calling/teams-interop.md
+    - name: Quadro de UI
+      items:
+        - name: Visão geral do Quadro da UI
+          href: concepts/ui-framework/ui-sdk-overview.md
+        - name: Capacidades de enquadramento da UI
+          href: concepts/ui-framework/ui-sdk-features.md
     - name: Arquitetura de cliente e servidor
       href: concepts/client-and-server-architecture.md
     - name: Fluxos de chamada

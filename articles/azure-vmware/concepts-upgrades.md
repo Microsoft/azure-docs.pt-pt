@@ -2,13 +2,13 @@
 title: Conceitos - Atualizações e atualizações em nuvem privadas
 description: Conheça os principais processos e funcionalidades de upgrade na Azure VMware Solution.
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: 8338666d70bd0ca4ea3c6b32bd8f8d205feaf7c0
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.date: 02/02/2021
+ms.openlocfilehash: 2d5f789304cc264f07aad1865b0bcb2ed4182d4b
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509202"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99536989"
 ---
 # <a name="azure-vmware-solution-private-cloud-updates-and-upgrades"></a>Atualizações e atualizações privadas de nuvem Azure VMware
 
