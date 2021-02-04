@@ -1,36 +1,35 @@
 ---
-title: Compreender conjuntos de recursos
+title: Compreender os conjuntos de recursos
 description: Este artigo explica quais são os conjuntos de recursos e como o Azure Purview os cria.
-author: yaronyg
-ms.author: yarong
+author: djpmsft
+ms.author: daperlov
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 10/19/2020
-ms.openlocfilehash: 55efa9443fd59b66a7677c9c460e473715f201df
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.date: 02/03/2021
+ms.openlocfilehash: e4b48729f13ec0234a7a711032a2db34e55a8bd1
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96553986"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539472"
 ---
-# <a name="understanding-resource-sets"></a>Compreender conjuntos de recursos
+# <a name="understanding-resource-sets"></a>Compreender os conjuntos de recursos
 
 Este artigo ajuda-o a entender como o Azure Purview utiliza conjuntos de recursos para mapear os ativos de dados para recursos lógicos.
-
 ## <a name="background-info"></a>Informação de fundo
 
 Os sistemas de processamento de dados à escala normalmente armazenam uma única tabela num disco como vários ficheiros. Este conceito é representado em Azure Purview utilizando conjuntos de recursos. Um conjunto de recursos é um único objeto no catálogo que representa um grande número de ativos em armazenamento.
 
-Por exemplo, suponha que o seu cluster Spark tenha persistido um DataFrame numa fonte de dados da ADLS Gen2. Embora em Spark a tabela pareça um único recurso lógico, no disco existem provavelmente milhares de ficheiros Parquet, cada um dos quais representa uma divisão do conteúdo total do DataFrame. Os dados de IoT e os dados de registo web têm o mesmo desafio. Imagine que tem um sensor que faz registo de ficheiros várias vezes por segundo. Não vai demorar muito até teres centenas de milhares de ficheiros de registo daquele único sensor.
+Por exemplo, suponha que o seu cluster Spark tenha persistido um DataFrame numa fonte de dados da Azure DataL Lake Storage (ADLS) Gen2. Embora em Spark a tabela pareça um único recurso lógico, no disco existem provavelmente milhares de ficheiros Parquet, cada um dos quais representa uma divisão do conteúdo total do DataFrame. Os dados de IoT e os dados de registo web têm o mesmo desafio. Imagine que tem um sensor que faz registo de ficheiros várias vezes por segundo. Não vai demorar muito até teres centenas de milhares de ficheiros de registo daquele único sensor.
 
 Para enfrentar o desafio de mapear um grande número de ativos de dados para um único recurso lógico, o Azure Purview utiliza conjuntos de recursos.
 
 ## <a name="how-azure-purview-detects-resource-sets"></a>Como a Azure Purview deteta conjuntos de recursos
 
-O Azure Purview suporta a deteção de conjuntos de recursos apenas em Azure Blobs, ADLS Gen1 e ADLS Gen2.
+O Azure Purview suporta a deteção de conjuntos de recursos no Azure Blob Storage, ADLS Gen1 e ADLS Gen2.
 
-O Azure Purview deteta automaticamente conjuntos de recursos utilizando uma funcionalidade chamada descoberta automatizada de conjuntos de recursos. Esta funcionalidade analisa todos os dados que são ingeridos através da digitalização e compara-os a um conjunto de padrões definidos.
+A Azure Purview deteta automaticamente conjuntos de recursos durante a digitalização. Esta funcionalidade analisa todos os dados que são ingeridos através da digitalização e compara-os a um conjunto de padrões definidos.
 
 Por exemplo, suponha que você digitaliza uma fonte de dados cuja URL é `https://myaccount.blob.core.windows.net/mycontainer/machinesets/23/foo.parquet` . A Azure Purview olha para os segmentos do caminho e determina se correspondem a quaisquer padrões incorporados. Tem padrões incorporados para GUIDs, números, formatos de data, códigos de localização (por exemplo, en-us), e assim por diante. Neste caso, o padrão de número corresponde *a 23*. A Azure Purview assume que este ficheiro faz parte de um conjunto de recursos chamado `https://myaccount.blob.core.windows.net/mycontainer/machinesets/{N}/foo.parquet` .
 
@@ -42,12 +41,9 @@ Utilizando esta estratégia, o Azure Purview mapearia os seguintes recursos para
 - `https://myaccount.blob.core.windows.net/mycontainer/weblogs/cy_gb/234.json`
 - `https://myaccount.blob.core.windows.net/mycontainer/weblogs/de_Ch/23434.json`
 
-> [!Note]
-> O Azure Data Lake Storage Gen2 já está em disponibilidade geral. Recomendamos que comece a utilizar hoje. Para mais informações, consulte a página do [produto.](https://azure.microsoft.com/en-us/services/storage/data-lake-storage/)
-
 ## <a name="file-types-that-azure-purview-will-not-detect-as-resource-sets"></a>Tipos de ficheiros que o Azure Purview não detetará como conjuntos de recursos
 
-A visão intencional não tenta classificar a maioria dos tipos de ficheiros de documentos como Word, Excel ou PDF como Conjuntos de Recursos. A exceção são CSVs, uma vez que é um formato comum de ficheiro dividido.
+A visão intencional não tenta classificar a maioria dos tipos de ficheiros de documentos como Word, Excel ou PDF como Conjuntos de Recursos. A exceção é o formato CSV, uma vez que é um formato comum de ficheiro dividido.
 
 ## <a name="how-azure-purview-scans-resource-sets"></a>Como a Azure Purview digitaliza conjuntos de recursos
 
@@ -66,16 +62,47 @@ Além de esquema único e classificações, a Azure Purview armazena as seguinte
 ## <a name="built-in-resource-set-patterns"></a>Padrões de conjunto de recursos incorporados
 
 O Azure Purview suporta os seguintes padrões de definição de recursos. Estes padrões podem aparecer como um nome num diretório ou como parte de um nome de ficheiro.
+### <a name="regex-based-patterns"></a>Padrões baseados em Regex
 
-| Nome do padrão | Nome a apresentar | Descrição |
+| Nome do padrão | Nome a Apresentar | Descrição |
 |--------------|--------------|-------------|
-| GUID         | {GUID}       | Um identificador globalmente único, tal como definido no [RFC 4122](https://tools.ietf.org/html/rfc4122). |
-| Número       | {N}          | Um ou mais dígitos. |
-| Formatos de data/hora | {N}     | O Azure Purview suporta diferentes tipos de formatos de data/hora, mas todos são reduzidos a uma série de {N}s. |
-| 4ByteHex     | {HEX}        | Um número hexadecimal de quatro dígitos. |
-| Localização | {LOC}        | Uma etiqueta linguística, tal como definida no [BCP 47](https://tools.ietf.org/html/bcp47). A azure Purview suporta tags que contêm um hífen (-) ou um sublinhado (_). Por exemplo, en_ca e en-ca. |
+| GUID         | {GUID}       | Um identificador globalmente único, definido no [RFC 4122](https://tools.ietf.org/html/rfc4122) |
+| Número       | {N}          | Um ou mais dígitos |
+| Formatos de data/hora | {Ano} {Mês} {Dia} {N}     | Apoiamos vários formatos de data/hora, mas todos estão representados com {Year}[delimiter]{Month}[delimiter]{Day} ou série de {N}s. |
+| 4ByteHex     | {HEX}        | Um número HEX de 4 dígitos. |
+| Localização | {LOC}        | Uma etiqueta linguística definida no [BCP 47](https://tools.ietf.org/html/bcp47), ambos - e _ nomes são suportados (por exemplo, en_ca e en-ca) |
 
-## <a name="issues-with-resource-sets"></a>Problemas com conjuntos de recursos
+### <a name="complex-patterns"></a>Padrões complexos
+
+| Nome do padrão | Nome a Apresentar | Descrição |
+|--------------|--------------|-------------|
+| Caminho da Faísca    | {SparkPartitions} | Identificador de ficheiro de partição de faíscas |
+| Data (yyyy/mm/dd)InPath  | {Ano}/{Mês}/{Dia} | Padrão ano/mês/dia abrangendo várias pastas |
+
+
+## <a name="how-resource-sets-are-displayed-in-the-azure-purview-catalog"></a>Como os conjuntos de recursos são apresentados no Catálogo Azure Purview
+
+Quando o Azure Purview combina um grupo de ativos num conjunto de recursos, tenta extrair as informações mais úteis para usar como nome de exibição no catálogo. Alguns exemplos da convenção de nomeação padrão aplicados: 
+
+### <a name="example-1"></a>Exemplo 1
+
+Nome qualificado: https://myblob.blob.core.windows.net/sample-data/name-of-spark-output/{SparkPartitions}
+
+Nome do visor: "nome da saída de faísca"
+
+### <a name="example-2"></a>Exemplo 2
+
+Nome qualificado: https://myblob.blob.core.windows.net/my-partitioned-data/{Year}-{Month}-{Day}/{N}-{N}-{N}-{N}/{GUID}
+
+Nome do visor: "os meus dados divididos"
+
+### <a name="example-3"></a>Exemplo 3
+
+Nome qualificado: https://myblob.blob.core.windows.net/sample-data/data{N}.csv
+
+Nome do visor: "dados"
+
+## <a name="known-issues-with-resource-sets"></a>Problemas conhecidos com conjuntos de recursos
 
 Embora os conjuntos de recursos funcionem bem na maioria dos casos, poderá encontrar os seguintes problemas, nos quais a Azure Purview:
 
@@ -85,4 +112,4 @@ Embora os conjuntos de recursos funcionem bem na maioria dos casos, poderá enco
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para começar com o Catálogo de Dados, consulte [Quickstart: Criar uma conta Azure Purview](create-catalog-portal.md).
+Para começar com o Azure Purview, consulte [Quickstart: Criar uma conta Azure Purview](create-catalog-portal.md).

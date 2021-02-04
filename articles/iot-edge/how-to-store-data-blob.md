@@ -1,5 +1,5 @@
 ---
-title: Armazenar blocos de blocos em dispositivos - Azure IoT Edge / Microsoft Docs
+title: Armazenar bolhas de blocos em dispositivos - Azure IoT Edge | Microsoft Docs
 description: Compreenda as funcionalidades de tiering e time-to-live, consulte as operações de armazenamento de bolhas suportadas e ligue-se à sua conta de armazenamento de bolhas.
 author: kgremban
 ms.author: kgremban
@@ -8,12 +8,12 @@ ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 2ee4e313366bafdd2f6e3bd0e104abd9f11b7776
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 6cefb60d794defcce54766b9c7f71e7fbf40fe5c
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108675"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539438"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>Armazenar dados na periferia com o Armazenamento de Blobs do Azure no IoT Edge
 
@@ -184,6 +184,7 @@ A documentação de armazenamento Azure Blob inclui código de amostra de arranq
 As seguintes amostras de arranque rápido utilizam idiomas que também são suportados pelo IoT Edge, para que possa implantá-los como módulos IoT Edge ao lado do módulo de armazenamento de bolhas:
 
 * [.NET](../storage/blobs/storage-quickstart-blobs-dotnet.md)
+  * O Azure Blob Storage no módulo Iot Edge v1.4.0 e anterior é compatível com o WindowsAzure.Storage 9.3.3 SDK e v1.4.1 também suporta Azure.Storage.Blobs 12.8.0 SDK.
 * [Python](../storage/blobs/storage-quickstart-blobs-python.md)
   * Versões antes de V2.1 do Python SDK têm um problema conhecido onde o módulo não devolve o tempo de criação de blob. Por causa desta questão, alguns métodos como as bolhas de lista não funcionam. Como solução alternativa, coloque explicitamente a versão API no cliente blob para '2017-04-17'. Exemplo:  `block_blob_service._X_MS_VERSION = '2017-04-17'`
   * [Amostra de Blob de Apêndice](https://github.com/Azure/azure-storage-python/blob/master/samples/blob/append_blob_usage.py)
@@ -292,7 +293,7 @@ Este módulo Azure Blob Storage on IoT Edge proporciona agora integração com a
 
 ## <a name="release-notes"></a>Notas de Versão
 
-Aqui estão as [notas de lançamento no estivador hub](https://hub.docker.com/_/microsoft-azure-blob-storage) para este módulo
+Aqui estão as [notas de lançamento no estivador hub](https://hub.docker.com/_/microsoft-azure-blob-storage) para este módulo. Poderá encontrar mais informações relacionadas com correções de erros e remediação nas notas de lançamento de uma versão específica.
 
 ## <a name="suggestions"></a>Sugestões
 

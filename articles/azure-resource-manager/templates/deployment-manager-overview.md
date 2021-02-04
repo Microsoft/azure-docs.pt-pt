@@ -4,12 +4,12 @@ description: Saiba como implementar um serviço em muitas regiões com o Azure D
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8b950fdc36fe3fbea1ce9436bdd7f7372c64c055
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: baed44e04a0beca02cc959d302a4a29906b4a78e
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333210"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539523"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Permitir práticas de implementação seguras com O Gestor de Implementação Azure (visualização pública)
 
@@ -30,10 +30,10 @@ Você implementa o modelo de topologia antes de implementar o modelo de lançame
 
 Recursos adicionais:
 
-- Referência [Azure Deployment Manager REST API](/rest/api/deploymentmanager/).
-- [Tutorial: Use o Gestor de Implementação Azure com modelos de Gestor de Recursos](./deployment-manager-tutorial.md).
-- [Tutorial: Use o controlo de saúde no Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
-- [Uma amostra do Gestor de Implantação Azure](https://github.com/Azure-Samples/adm-quickstart).
+* [Referência Azure Deployment Manager REST API](/rest/api/deploymentmanager/).
+* [Tutorial: Use o Gestor de Implementação Azure com modelos de Gestor de Recursos](./deployment-manager-tutorial.md).
+* [Tutorial: Use o controlo de saúde no Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
+* [Amostra do Gestor de Implantação Azure](https://github.com/Azure-Samples/adm-quickstart).
 
 ## <a name="identity-and-access"></a>Identidade e acesso
 
@@ -49,10 +49,10 @@ O modelo de topologia descreve os recursos Azure que compõem o seu serviço e o
 
 O modelo de topologia inclui os seguintes recursos:
 
-* Fonte de artefacto - onde os seus modelos e parâmetros do gestor de recursos são armazenados
-* Topologia de serviço - aponta para fonte de artefacto
-  * Serviços - especifica localização e ID de assinatura Azure
-    * Unidades de serviço - especifica grupo de recursos, modo de implementação e caminho para o modelo e arquivo de parâmetros
+* Fonte de artefacto - onde os modelos e parâmetros do seu Gestor de Recursos estão armazenados.
+* Topologia de serviço - aponta para fonte de artefacto.
+  * Serviços - especifica a localização e iD de assinatura Azure.
+    * Unidades de serviço - especifica grupo de recursos, modo de implementação e caminho para os ficheiros de modelo e parâmetro.
 
 Para entender o que acontece em cada nível, é útil ver quais os valores que fornece.
 
@@ -87,7 +87,7 @@ Para obter mais informações, consulte [a referência do modelo artifactSources
 
 ### <a name="service-topology"></a>Topologia de serviço
 
-O exemplo a seguir mostra o formato geral do recurso de topologia de serviço. Fornece o ID de recurso da fonte de artefacto que contém os modelos e os ficheiros de parâmetros. A topologia do serviço inclui todos os recursos de serviço. Para garantir que a fonte de artefacto está disponível, a topologia de serviço depende disso.
+O exemplo a seguir mostra o formato geral do recurso de topologia de serviço. Fornece o ID de recurso da fonte de artefacto que contém os modelos e os ficheiros de parâmetros. A topologia do serviço inclui todos os recursos de serviço. Certifique-se de que a fonte de artefacto está disponível porque a topologia do serviço depende disso.
 
 ```json
 {
@@ -175,11 +175,11 @@ Para obter mais informações, consulte [a referência do modelo de unidades de 
 
 O modelo de lançamento descreve os passos a tomar ao implementar o seu serviço. Especifica a topologia de serviço para utilizar e definir a ordem para implantação de unidades de serviço. Inclui uma fonte de artefacto para armazenar binários para a implantação. No seu modelo de lançamento, define a seguinte hierarquia:
 
-* Fonte de artefacto
-* Passo
-* Lançamento
-  * Grupos de passo
-    * Operações de implantação
+* Fonte de artefactos.
+* Um passo.
+* O lançamento.
+  * Grupos de passos.
+    * Operações de implantação.
 
 A imagem a seguir mostra a hierarquia do modelo de lançamento:
 
@@ -193,9 +193,9 @@ No modelo de lançamento, cria-se uma fonte de artefacto para os binários que p
 
 ### <a name="steps"></a>Passos
 
-Pode definir um passo para realizar antes ou depois da sua operação de implantação. Atualmente, apenas `wait` o passo e o passo 'healthCheck' estão disponíveis.
+Pode definir um passo para realizar antes ou depois da sua operação de implantação. Atualmente, apenas o `wait` passo e o passo `healthCheck` estão disponíveis.
 
-O passo de espera interrompe a colocação antes de continuar. Permite-lhe verificar se o seu serviço está a funcionar como esperado antes de implantar a próxima unidade de serviço. O exemplo a seguir mostra o formato geral de um passo de espera.
+O `wait` passo faz uma pausa na colocação antes de continuar. Permite-lhe verificar se o seu serviço está a funcionar como esperado antes de implantar a próxima unidade de serviço. O exemplo a seguir mostra o formato geral de um `wait` passo.
 
 ```json
 {
@@ -214,13 +214,13 @@ O passo de espera interrompe a colocação antes de continuar. Permite-lhe verif
 
 A propriedade de duração utiliza [a norma ISO 8601.](https://en.wikipedia.org/wiki/ISO_8601#Durations) O exemplo anterior especifica uma espera de um minuto.
 
-Para obter mais informações sobre o passo do controlo de saúde, consulte [Introduzir o lançamento da integração de saúde no Azure Deployment Manager](./deployment-manager-health-check.md) e [tutorial: Use o exame de saúde no Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
+Para obter mais informações sobre os controlos de saúde, consulte [Introduzir o lançamento da integração de saúde no Azure Deployment Manager](./deployment-manager-health-check.md) e [tutorial: Use o exame de saúde no Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
 
 Para obter mais informações, consulte a [referência do modelo de passos.](/azure/templates/Microsoft.DeploymentManager/steps)
 
 ### <a name="rollouts"></a>Implementações
 
-Para garantir que a fonte de artefacto está disponível, o lançamento depende disso. O lançamento define grupos de passos para cada unidade de serviço que é implantada. Pode definir ações a tomar antes ou depois da implantação. Por exemplo, pode especificar que a implementação aguarda depois de a unidade de serviço ter sido implantada. Pode definir a ordem dos grupos de passos.
+Certifique-se de que a fonte de artefacto está disponível porque o lançamento depende disso. O lançamento define grupos de passos para cada unidade de serviço que é implantada. Pode definir ações a tomar antes ou depois da implantação. Por exemplo, pode especificar a implantação para aguardar a implantação da unidade de serviço. Pode definir a ordem dos grupos de passos.
 
 O objeto de identidade especifica a [identidade gerida atribuída pelo utilizador](#identity-and-access) que executa as ações de implantação.
 
@@ -270,7 +270,7 @@ Cria-se dois ficheiros de parâmetros. Um ficheiro de parâmetro é usado ao imp
 
 Com as implementações em versão, o caminho para os seus artefactos muda a cada nova versão. A primeira vez que fizer uma implantação, o caminho pode `https://<base-uri-blob-container>/binaries/1.0.0.0` ser. A segunda vez pode `https://<base-uri-blob-container>/binaries/1.0.0.1` ser. O Gestor de Implementação simplifica a obtenção do caminho de raiz correto para a implementação atual utilizando a `$containerRoot` variável. Este valor muda a cada versão e não é conhecido antes da implementação.
 
-Utilize a `$containerRoot` variável no ficheiro de parâmetros para o modelo para implantar os recursos Azure. No momento da implementação, esta variável é substituída pelos valores reais do lançamento.
+Utilize a `$containerRoot` variável no ficheiro de parâmetros para o modelo que implementa os recursos Azure. No momento da implementação, esta variável é substituída pelos valores reais do lançamento.
 
 Por exemplo, durante o lançamento cria-se uma fonte de artefactos para os artefactos binários.
 
@@ -296,7 +296,7 @@ Por exemplo, durante o lançamento cria-se uma fonte de artefactos para os artef
 
 Reparem nas `artifactRoot` `sasUri` propriedades. A raiz do artefacto pode ser definida para um valor como `binaries/1.0.0.0` . O SAS URI é o URI do seu recipiente de armazenamento com um token SAS para acesso. O Gestor de Implementação constrói automaticamente o valor da `$containerRoot` variável. Combina estes valores no `<container>/<artifactRoot>` formato.
 
-O seu modelo e ficheiro de parâmetros precisam de saber o caminho correto para obter os binários versados. Por exemplo, para implementar ficheiros para uma aplicação web, crie o seguinte ficheiro de parâmetro com a variável $containerRoot. Deve usar duas costas `\\` para o caminho porque a primeira é um personagem de fuga.
+O seu modelo e ficheiro de parâmetros precisam de saber o caminho correto para obter os binários versados. Por exemplo, para implementar ficheiros para uma aplicação web, crie o seguinte ficheiro de parâmetro com a `$containerRoot` variável. Deve usar duas costas `\\` para o caminho porque a primeira é um personagem de fuga.
 
 ```json
 {
@@ -330,7 +330,7 @@ Em seguida, use esse parâmetro no seu modelo:
 }
 ```
 
-Gere as implementações versadas criando novas pastas e passando essa raiz durante o lançamento. O caminho flui até ao modelo que implementa os recursos.
+Gere as implementações versadas criando novas pastas e passando por esse caminho de raiz durante o lançamento. O caminho flui até ao modelo que implementa os recursos.
 
 ## <a name="next-steps"></a>Passos seguintes
 

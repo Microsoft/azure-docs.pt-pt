@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 1/26/2021
-ms.openlocfilehash: 9485d346384344bd7c35d0577245419ca1f56574
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 1b0bcf528a16e2f75bf21235980424b5375f8824
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98951315"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539489"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Parâmetros do servidor na Base de Dados Azure para o MySQL
 
@@ -31,7 +31,7 @@ Consulte as seguintes secções abaixo para saber mais sobre os limites dos vár
 
 ### <a name="thread-pools"></a>Piscinas de rosca
 
-O MySQL atribui tradicionalmente um fio para cada ligação ao cliente. À medida que o número de utilizadores simultâneos aumenta, há uma diminuição correspondente na formance. Muitos fios ativos podem impactar significativamente o desempenho devido ao aumento da comutação de contexto, contenção de fios e má localidade para caches de CPU.
+O MySQL atribui tradicionalmente um fio para cada ligação ao cliente. À medida que o número de utilizadores simultâneos aumenta, há uma diminuição correspondente no desempenho. Muitos fios ativos podem impactar significativamente o desempenho devido ao aumento da comutação de contexto, contenção de fios e má localidade para caches de CPU.
 
 As piscinas de rosca, que é uma característica lateral do servidor e distinta da ligação, maximizam o desempenho introduzindo um conjunto dinâmico de fios de trabalhador que podem ser usados para limitar o número de fios ativos que correm no servidor e minimizar o churn de rosca. Isto ajuda a garantir que uma explosão de ligações não fará com que o servidor fique sem recursos ou se despenhe com um erro de memória. As piscinas de roscas são mais eficientes para consultas curtas e cargas de trabalho intensivas da CPU, por exemplo, cargas de trabalho OLTP.
 
