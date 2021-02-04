@@ -11,12 +11,12 @@ ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 12/21/2020
 ms.custom: automl
-ms.openlocfilehash: ff9bd328dd98fbd614a3bb63a1edddc2027d97b2
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: f0bb354bce0c4696f60e2be5c6186760518c7431
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879785"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549190"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Tutorial: Criar um modelo de classificação com ML automatizado em Aprendizagem automática de máquinas
 
@@ -102,8 +102,8 @@ Antes de configurar a sua experiência, faça o upload do seu ficheiro de dados 
         Cabeçalhos de coluna| Indica como os cabeçalhos do conjunto de dados, se houver, serão tratados.| Todos os ficheiros têm os mesmos cabeçalhos
         Saltar filas | Indica quantas, se houver, são ignoradas no conjunto de dados.| Nenhum
 
-    1. O **formulário Schema** permite uma configuração adicional dos seus dados para esta experiência. Por exemplo, não fazemos seleções. Selecione **Seguinte**.
-
+    1. O **formulário Schema** permite uma configuração adicional dos seus dados para esta experiência. Para este exemplo, selecione o interruptor de alternação para o **day_of_week**, de modo a não incluí-lo. Selecione **Seguinte**.
+         ![Formulário de esquema](./media/tutorial-first-experiment-automated-ml/schema-tab-config.gif)
     1. No formulário **de detalhes confirme,** verifique as informações correspondem ao que foi previamente preenchido na **informação Básica, datastore e seleção de ficheiros** e **configurações e formulários de pré-visualização.**
     
     1. Selecione **Criar** para completar a criação do seu conjunto de dados.
@@ -159,7 +159,7 @@ Depois de carregar e configurar os seus dados, pode configurar a sua experiênci
 
     1. Selecione **Ver as definições de configuração adicionais** e povoar os campos da seguinte forma. Estas configurações são para controlar melhor o trabalho de treino. Caso contrário, os padrão são aplicados com base na seleção de experiências e dados.
 
-        &nbsp;Configurações adicionais|Descrição|Valor &nbsp; para &nbsp; tutorial
+        &nbsp;Configurações adicionais|Description|Valor &nbsp; para &nbsp; tutorial
         ------|---------|---
         Métrica primária| Métrica de avaliação pela que o algoritmo de aprendizagem automática será medido.|AUC_weighted
         Explicar o melhor modelo| Mostra automaticamente a explicabilidade do melhor modelo criado pela ML automatizada.| Ativar
@@ -170,12 +170,6 @@ Depois de carregar e configurar os seus dados, pode configurar a sua experiênci
         
         Selecione **Guardar**.
     
-    1. Selecione **Ver as definições de exibição**. Para este exemplo, selecione o interruptor de alternação para a funcionalidade **day_of_week,** de modo a não incluí-lo para a apresentação nesta experiência.
-
-        ![Seleção de exibição](./media/tutorial-first-experiment-automated-ml/featurization-setting-config.gif)   
- 
-        Selecione **Guardar**.
-
 1. **Selecione Acabamento** para executar a experiência. O ecrã **'Run Detail'**  abre-se com o **estado de Execução** no topo à medida que a preparação da experiência começa. Este estado atualiza à medida que a experiência progride. As notificações também aparecem no canto superior direito do estúdio, para informá-lo sobre o estado da sua experiência.
 
 >[!IMPORTANT]
@@ -247,7 +241,7 @@ Elimine apenas a instância de implantação do Azure Machine Learning em https:
 
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial automatizado de machine learning, usou a interface ML automatizada da Azure Machine Learning para criar e implementar um modelo de classificação. Consulte estes artigos para obter mais informações e próximos passos:
 

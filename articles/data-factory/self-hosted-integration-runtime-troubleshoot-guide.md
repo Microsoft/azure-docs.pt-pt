@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 01/25/2021
 ms.author: lle
-ms.openlocfilehash: 8a722550d12d019e25ff39de27cc0df2c2762a01
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 3735d7b21faf62905ed4c06dbef80c9737e7329e
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98942047"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99551081"
 ---
-# <a name="troubleshoot-self-hosted-integration-runtime"></a>Resolução de problemas de integração auto-acolagem
+# <a name="troubleshoot-self-hosted-integration-runtime"></a>Resolver problemas do runtime de integração autoalojado
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -244,7 +244,7 @@ Instale os controladores tanto para as lojas de dados de origem como de destino 
  
 Se o tráfego não puder passar pela rede entre duas datastores (por exemplo, estão configurados em duas redes virtuais), poderá não terminar a cópia numa só atividade mesmo com o IR instalado. Se não conseguir terminar a cópia numa única atividade, pode criar duas atividades de cópia com duas IRs, cada uma num VENT: 
 * Copie um IR da datastore 1 para o armazenamento de blob Azure
-* Copie outro IR da Azure Blob Storage para a loja ddatastore 2. 
+* Copie outro IR do Azure Blob Storage para a datastore 2. 
 
 Esta solução poderia simular a obrigatoriedade de usar o IR para criar uma ponte que liga duas datas-lojas desligadas.
 
@@ -710,7 +710,7 @@ Esta notificação aplica-se aos seguintes cenários:
 
 Como determinar se está afetado:
 
-- *Não é* afetado se estiver a definir regras de firewall com base em nomes de domínio totalmente qualificados (FQDNs) que utilizam a abordagem descrita na [configuração de uma firewall e permitem a lista de endereços IP](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway).
+- *Não é* afetado se estiver a definir regras de firewall com base em nomes de domínio totalmente qualificados (FQDNs) que utilizam a abordagem descrita na [configuração de uma firewall e permitem a lista de endereços IP](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-addresses).
 
 - Você *é* afetado se você está explicitamente ativando a lista de permitir iPs de saída na sua firewall corporativa.
 
@@ -792,7 +792,7 @@ Você pode notar outras fábricas de dados (em diferentes inquilinos) como você
 
 O IR auto-alojado não pode ser partilhado entre inquilinos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais ajuda na resolução de problemas, experimente os seguintes recursos:
 

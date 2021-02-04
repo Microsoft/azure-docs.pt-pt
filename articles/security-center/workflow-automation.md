@@ -6,20 +6,20 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 10/27/2020
+ms.date: 02/04/2021
 ms.author: memildin
-ms.openlocfilehash: 674ba1cf03f48eb1c746b115d981740b5b938aab
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 652986c4850a0b51fc86b84133d7e93813423c9a
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98919532"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550324"
 ---
 # <a name="automate-responses-to-security-center-triggers"></a>Automatizar respostas aos gatilhos do Centro de Segurança
 
 Todos os programas de segurança incluem vários fluxos de trabalho para resposta a incidentes. Estes processos podem incluir notificar as partes interessadas relevantes, lançar um processo de gestão de mudanças e aplicar medidas de reparação específicas. Os peritos em segurança recomendam que automatize o máximo de passos possível. A automação reduz as despesas gerais. Também pode melhorar a sua segurança garantindo que os passos do processo são feitos de forma rápida, consistente e de acordo com os seus requisitos predefinidos.
 
-Este artigo descreve a funcionalidade de automatização do fluxo de trabalho do Azure Security Center. Esta funcionalidade pode desencadear Aplicações Lógicas em alertas de segurança e recomendações. Por exemplo, pode querer que o Centro de Segurança envie um e-mail a um utilizador específico quando ocorre um alerta. Também aprenderá a criar Aplicações Lógicas usando [Apps Azure Logic.](../logic-apps/logic-apps-overview.md)
+Este artigo descreve a funcionalidade de automatização do fluxo de trabalho do Azure Security Center. Esta funcionalidade pode desencadear aplicações lógicas em alertas de segurança, recomendações e alterações à conformidade regulamentar. Por exemplo, pode querer que o Centro de Segurança envie um e-mail a um utilizador específico quando ocorre um alerta. Também aprenderá a criar Aplicações Lógicas usando [Apps Azure Logic.](../logic-apps/logic-apps-overview.md)
 
 
 ## <a name="availability"></a>Disponibilidade
@@ -70,10 +70,12 @@ Este artigo descreve a funcionalidade de automatização do fluxo de trabalho do
 
     O designer de aplicativos de lógica suporta estes gatilhos do Security Center:
 
-    * **Quando uma recomendação do Centro de Segurança Azure for criada ou ativada** - Se a sua aplicação lógica se basear numa recomendação que seja depreciada ou substituída, a sua automatização deixará de funcionar e terá de atualizar o gatilho. Para acompanhar as alterações às recomendações, consulte [as notas de lançamento do Azure Security Center](release-notes.md).
+    - **Quando uma recomendação do Centro de Segurança Azure for criada ou ativada** - Se a sua aplicação lógica se basear numa recomendação que seja depreciada ou substituída, a sua automatização deixará de funcionar e terá de atualizar o gatilho. Para acompanhar as alterações às recomendações, consulte [as notas de lançamento do Azure Security Center](release-notes.md).
 
-    * **Quando um Alerta do Centro de Segurança Azure é criado ou acionado** - Pode personalizar o gatilho de modo a que se relacione apenas com os níveis de gravidade que lhe interessam.
+    - **Quando um Alerta do Centro de Segurança Azure é criado ou acionado** - Pode personalizar o gatilho de modo a que se relacione apenas com os níveis de gravidade que lhe interessam.
     
+    - **Quando uma avaliação de conformidade regulamentar do Centro de Segurança é criada ou desencadeada** - Desencadeie as automatizações com base em atualizações para avaliações de conformidade regulamentar.
+
     > [!NOTE]
     > Se estiver a utilizar o gatilho legado "Quando for desencadeada uma resposta a um alerta do Centro de Segurança Azure", as suas aplicações lógicas não serão lançadas pela funcionalidade Dem automação do fluxo de trabalho. Em vez disso, utilize qualquer um dos gatilhos acima mencionados. 
 
@@ -151,7 +153,7 @@ Para cada automatização ativa, recomendamos que crie uma automatização idên
 
 Saiba mais sobre [a continuidade do Negócio e recuperação de desastres para a Azure Logic Apps.](../logic-apps/business-continuity-disaster-recovery-guidance.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a criar Aplicações Lógicas, automatizando a sua execução no Centro de Segurança e executando-as manualmente. 
 

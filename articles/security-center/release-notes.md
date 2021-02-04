@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/03/2021
+ms.date: 02/04/2021
 ms.author: memildin
-ms.openlocfilehash: cdc29f89307a986b2d71604ca495eac45458632b
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: fe031fa6de86b8059ba175fc4e1df6385ca7e796
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526624"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99551031"
 ---
 # <a name="whats-new-in-azure-security-center"></a>O que há de novo no Centro de Segurança Azure?
 
@@ -37,7 +37,8 @@ As atualizações em fevereiro incluem:
 
 - [Recomendações de proteção da carga de trabalho da Kubernetes lançadas para disponibilidade geral (GA)](#kubernetes-workload-protection-recommendations-released-for-general-availability-ga)
 - [Ligação direta à política a partir da página de detalhes da recomendação](#direct-link-to-policy-from-recommendation-details-page)
-- [A recomendação de classificação de dados SQL já não afeta a sua pontuação segura](#sql-data-classification-recommendation-no-longer-affect-your-secure-score)
+- [A recomendação de classificação de dados SQL já não afeta a sua pontuação segura](#sql-data-classification-recommendation-no-longer-affects-your-secure-score)
+- [As automatizações de fluxos de trabalho podem ser desencadeadas por alterações às avaliações de conformidade regulamentar (pré-visualização)](#workflow-automations-can-be-triggered-by-changes-to-regulatory-compliance-assessments-preview)
 
 ### <a name="kubernetes-workload-protection-recommendations-released-for-general-availability-ga"></a>Recomendações de proteção da carga de trabalho da Kubernetes lançadas para disponibilidade geral (GA)
 
@@ -63,15 +64,21 @@ Quando se está a rever os detalhes de uma recomendação, muitas vezes é útil
 
 Utilize este link para ver a definição de política e rever a lógica de avaliação. 
 
-Se estiver a rever a lista de recomendações no nosso guia de referência de recomendações de [Segurança,](recommendations-reference.md)também verá estas ligações com as páginas de definição de política:
+Se estiver a rever a lista de recomendações no nosso guia de referência de recomendações de [Segurança,](recommendations-reference.md)também verá ligações às páginas de definição de políticas:
 
-:::image type="content" source="media/release-notes/view-policy-definition-from-documentation.png" alt-text="Aceder à página política do Azure para uma política específica diretamente a partir da página de referência do Centro de Segurança Azure":::
+:::image type="content" source="media/release-notes/view-policy-definition-from-documentation.png" alt-text="Aceder à página política do Azure para uma política específica diretamente a partir da página de referência do Centro de Segurança Azure" lightbox="media/release-notes/view-policy-definition-from-documentation.png":::
 
 
-### <a name="sql-data-classification-recommendation-no-longer-affect-your-secure-score"></a>A recomendação de classificação de dados SQL já não afeta a sua pontuação segura
+### <a name="sql-data-classification-recommendation-no-longer-affects-your-secure-score"></a>A recomendação de classificação de dados SQL já não afeta a sua pontuação segura
 
 A recomendação **Os dados sensíveis nas suas bases de dados SQL devem ser classificados** já não afetam a sua pontuação segura. Esta é a única recomendação no controlo de segurança de classificação de **dados da Apply,** de modo que o controlo tem agora um valor de pontuação seguro de 0.
 
+
+### <a name="workflow-automations-can-be-triggered-by-changes-to-regulatory-compliance-assessments-preview"></a>As automatizações de fluxos de trabalho podem ser desencadeadas por alterações às avaliações de conformidade regulamentar (pré-visualização)
+
+Adicionámos um terceiro tipo de dados às opções de gatilho para as suas automatizações de fluxo de trabalho: alterações às avaliações de conformidade regulamentar.
+
+:::image type="content" source="media/release-notes/regulatory-compliance-triggers-workflow-automation.png" alt-text="Utilização de alterações nas avaliações de conformidade regulamentar para desencadear uma automatização do fluxo de trabalho" lightbox="media/release-notes/regulatory-compliance-triggers-workflow-automation.png":::
 
 
 ## <a name="january-2021"></a>Janeiro de 2021
@@ -111,7 +118,7 @@ As recomendações existentes não são afetadas e à medida que o benchmark cre
 Para saber mais, consulte as seguintes páginas:
 
 - [Saiba mais sobre a Azure Security Benchmark](../security/benchmarks/introduction.md)
-- [Personalizar o conjunto de padrões no seu painel de conformidade regulamentar](update-regulatory-compliance-packages.md)
+- [Personalize o conjunto de padrões no seu painel de conformidade regulamentar](update-regulatory-compliance-packages.md)
 
 ### <a name="vulnerability-assessment-for-on-premise-and-multi-cloud-machines-is-released-for-general-availability-ga"></a>A avaliação da vulnerabilidade para máquinas no local e multi-nuvens é lançada para disponibilidade geral (GA)
 
@@ -161,7 +168,7 @@ As aquisições de subdomínios são uma ameaça comum e de alta gravidade para 
 
 As aquisições de subdomínio permitem que os atores de ameaça redirecionem o tráfego destinado ao domínio de uma organização para um site que executa atividades maliciosas.
 
-O Azure Defender for App Service deteta agora entradas de DNS pendentes quando um website do Serviço de Aplicações é desativado. Este é o momento em que a entrada do DNS está a apontar para um recurso inexistente e o seu website está vulnerável a uma aquisição de subdomínio. Estas proteções estão disponíveis se os seus domínios são geridos com DNS Azure ou um registrador de domínio externo e se aplica tanto ao Serviço de Aplicações no Windows como no Serviço de Aplicações no Linux.
+O Azure Defender for App Service deteta agora entradas de DNS pendentes quando um website do Serviço de Aplicações é desativado. Este é o momento em que a entrada do DNS está apontando para um recurso inexistente, e o seu site é vulnerável a uma aquisição de subdomínio. Estas proteções estão disponíveis se os seus domínios são geridos com DNS Azure ou um registrador de domínio externo e se aplica tanto ao Serviço de Aplicações no Windows como no Serviço de Aplicações no Linux.
 
 Saiba mais:
 
@@ -499,7 +506,7 @@ Links relacionados:
 
 A norma NIST SP 800-171 R2 está agora disponível como uma iniciativa integrada para uso com o painel de conformidade regulamentar do Azure Security Center. Os mapeamentos para os controlos são descritos em [Detalhes da iniciativa integrada NIST SP 800-171 R2 Conformidade Regulamentar.](../governance/policy/samples/nist-sp-800-171-r2.md) 
 
-Para aplicar a norma às suas subscrições e monitorizar continuamente o seu estado de conformidade, utilize as instruções para [Personalizar o conjunto de normas no seu painel de conformidade regulamentar](update-regulatory-compliance-packages.md).
+Para aplicar a norma às suas subscrições e monitorizar continuamente o seu estado de conformidade, utilize as instruções em [Personalizar o conjunto de normas no seu painel de conformidade regulamentar](update-regulatory-compliance-packages.md).
 
 :::image type="content" source="media/release-notes/nist-sp-800-171-r2-standard.png" alt-text="A norma NIST SP 800 171 R2 no painel de conformidade regulamentar do Centro de Segurança":::
 

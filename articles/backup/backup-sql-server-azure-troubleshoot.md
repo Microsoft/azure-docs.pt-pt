@@ -3,12 +3,12 @@ title: Backup da base de dados do SQL Server de resolução de problemas
 description: Informações de resolução de problemas para fazer backup das bases de dados do SQL Server em execução em VMs Azure com Azure Backup.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: d502a4188b4f9f383188804f86abbb9a6d05d146
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 1e4ee2bdcd0826b655aa71d83674ff1e0c06a8cb
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99429471"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549903"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Resolução de problemas ML Server base de dados backup usando Azure Backup
 
@@ -202,6 +202,13 @@ A operação está bloqueada, uma vez que atingiu o limite do número de operaç
 |---|---|---|
 A operação está bloqueada, uma vez que o cofre atingiu o seu limite máximo para tais operações permitidas num período de 24 horas. | Quando se alcança o limite máximo permitido para uma operação num período de 24 horas, este erro aparece. Este erro aparece geralmente quando existem operações à escala, tais como modificar a política ou a auto-protecção. Ao contrário do caso do CloudDosAbsoluteLimitReached, não há muito que possa fazer para resolver este estado. De facto, o serviço de backup Azure irá voltar a tentar as operações internamente para todos os itens em questão.<br> Por exemplo: Se tiver um grande número de fontes de dados protegidas com uma política e tentar modificar essa política, irá desencadear postos de proteção de configuração para cada um dos itens protegidos e, por vezes, poderá atingir o limite máximo permitido para tais operações por dia.| O serviço de backup Azure tentará automaticamente esta operação após 24 horas.
 
+### <a name="workloadextensionnotreachable"></a>WorkloadExtensionNotReachable
+
+| Mensagem de erro | Possíveis causas | Ação recomendada |
+|---|---|---|
+A operação de extensão da carga de trabalho AzureBackup falhou. | O VM é desligado (ou) O VM não é capaz de contactar o serviço de Backup Azure devido a problemas de conectividade com a Internet.| - Certifique-se de que o VM está a funcionar e tem conectividade com a Internet.<br>- [Re-registar a extensão no SQL Server VM](https://docs.microsoft.com/azure/backup/manage-monitor-sql-database-backup#re-register-extension-on-the-sql-server-vm).
+
+
 ### <a name="usererrorvminternetconnectivityissue"></a>UserErrorVMInternetConnectivityIssue
 
 | Mensagem de erro | Possíveis causas | Ação recomendada |
@@ -212,7 +219,7 @@ O VM não é capaz de contactar o serviço de Backup Azure devido a problemas de
 
 Verifique se existem um ou mais dos seguintes sintomas antes de desencadear a operação de re-registo:
 
-- Todas as operações (como cópia de segurança, restauro e cópia de segurança de configuração) estão a falhar no VM com um dos seguintes códigos de erro: **WorkloadExtensionNotReachable,** **UserErrorWorkloadExtensionNotInstalled,** **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**.
+- Todas as operações (como cópia de segurança, restauro e cópia de segurança de configuração) estão a falhar no VM com um dos seguintes códigos de erro: **[WorkloadExtensionNotReachable,](#workloadextensionnotreachable)** **UserErrorWorkloadExtensionNotInstalled,** **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**.
 - Se a área **de Estado de Backup** do item de backup mostrar Não é **alcançável,** exclua todas as outras causas que possam resultar no mesmo estado:
 
   - Falta de autorização para realizar operações relacionadas com cópias de segurança no VM.

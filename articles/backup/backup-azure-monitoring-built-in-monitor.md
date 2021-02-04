@@ -4,18 +4,29 @@ description: Neste artigo, conheça as capacidades de monitorização e notifica
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 978e98bc623cecd768b1f2dda0a129e0459521da
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 74669a1347fac9f61d028d9cb1f3da174bb71f96
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92174010"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550353"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Monitorização das cargas de trabalho de backup do Azure
 
 O Azure Backup fornece múltiplas soluções de backup baseadas na necessidade de backup e topologia de infraestrutura (On-premis vs Azure). Qualquer utilizador ou administrador de backup deve ver o que se passa em todas as soluções e pode esperar ser notificado em cenários importantes. Este artigo detalha as capacidades de monitorização e notificação fornecidas pelo serviço Azure Backup.
 
 [!INCLUDE [backup-center.md](../../includes/backup-center.md)]
+
+## <a name="backup-items-in-recovery-services-vault"></a>Itens de reserva no cofre dos Serviços de Recuperação
+
+Pode monitorizar todos os seus itens de reserva através de um cofre dos Serviços de Recuperação. Navegar para a secção **de Itens de Reserva** no cofre abre uma vista que fornece o número de itens de reserva de cada tipo de carga de trabalho associado ao cofre. Clicar em qualquer linha abre uma visão detalhada listando todos os itens de backup do tipo de carga de trabalho dado, com informações sobre o último estado de backup de cada item, o último ponto de restauro disponível, e assim por diante.
+
+![Itens de backup de cofre RS](media/backup-azure-monitoring-laworkspace/backup-items-view.png)
+
+> [!NOTE]
+> Para itens com apoio até Azure utilizando o DPM, a lista mostrará todas as fontes de dados protegidas (tanto em disco como online) utilizando o servidor DPM. Se a proteção for interrompida para a fonte de dados com dados de backup retidos, a fonte de dados continuará listada no portal. Pode consultar os detalhes da fonte de dados para ver se os pontos de recuperação estão presentes no disco, online ou ambos. Além disso, as fontes de dados para as quais a proteção online é interrompida mas os dados são retidos, a faturação para os pontos de recuperação online continua até que os dados sejam completamente eliminados.
+>
+> A versão DPM deve ser DPM 1807 (5.1.378.0) ou DPM 2019 (versão 10.19.58.0 ou superior), para que os itens de backup sejam visíveis no portal do cofre dos Serviços de Recuperação.
 
 ## <a name="backup-jobs-in-recovery-services-vault"></a>Trabalhos de reserva no cofre dos Serviços de Recuperação
 
@@ -68,7 +79,7 @@ Para soluções de backup de carga de trabalho Azure, como SQL e SAP HANA, os ba
 
 ### <a name="exceptions-when-an-alert-is-not-raised"></a>Exceções quando um alerta não é levantado
 
-Há poucas exceções quando um alerta não é levantado sobre um fracasso. São:
+Há poucas exceções quando um alerta não é levantado sobre um fracasso. A saber:
 
 - O utilizador cancelou explicitamente o trabalho de execução
 - O trabalho falha porque outro trabalho de reserva está em andamento (nada para agir aqui, uma vez que só temos que esperar que o trabalho anterior termine)

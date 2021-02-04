@@ -1,6 +1,6 @@
 ---
-title: Enviar eventos para um ponto final da web usando a configuração da aplicação Azure
-description: Aprenda a usar subscrições de eventos de configuração de aplicativos Azure para enviar eventos de modificação de valor chave para um ponto final web
+title: Utilize a grelha de eventos para notificações de alteração de dados de configuração de aplicações
+description: Saiba como utilizar subscrições de eventos de configuração de aplicações do Azure app para enviar eventos de modificação de valor chave para um ponto final web
 services: azure-app-configuration
 author: AlexandraKemperMS
 ms.assetid: ''
@@ -10,14 +10,14 @@ ms.topic: how-to
 ms.date: 03/04/2020
 ms.author: alkemper
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4e005d2f929fd615080d22e93a102a7cc5c1174a
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: c188a4b7fe8e9223faa1cdeb52ae01ed83b94d84
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97696105"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549784"
 ---
-# <a name="route-azure-app-configuration-events-to-a-web-endpoint-with-azure-cli"></a>Route Azure App Configuration events to a web endpoint with Azure CLI
+# <a name="use-event-grid-for-app-configuration-data-change-notifications"></a>Utilize a grelha de eventos para notificações de alteração de dados de configuração de aplicações
 
 Neste artigo, aprende a configurar subscrições de eventos de Configuração de Aplicação de Aplicações Azure para enviar eventos de modificação de valor chave para um ponto final web. Os utilizadores da Azure App Configuration podem subscrever eventos emitidos sempre que os valores-chave são modificados. Estes eventos podem desencadear ganchos web, funções Azure, filas de armazenamento Azure ou qualquer outro manipulador de eventos que seja suportado pela Azure Event Grid. Normalmente, envia eventos para um ponto final que processa os dados de eventos e efetua ações. No entanto, para simplificar este artigo, vai enviar eventos para uma aplicação Web que recolhe e apresenta as mensagens.
 

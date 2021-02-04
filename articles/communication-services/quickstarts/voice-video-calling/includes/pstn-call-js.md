@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/11/2020
 ms.author: nikuklic
-ms.openlocfilehash: 2f884a09e6b51b1c72034a62eaea601a4e69ecd2
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 8a4de33a7c4230a94d8bded38de7289073153fee
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98024393"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99541097"
 ---
 [!INCLUDE [Emergency Calling Notice](../../../includes/emergency-calling-notice-include.md)]
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -68,9 +68,9 @@ const hangUpPhoneButton = document.getElementById("hang-up-phone-button");
 
 async function init() {
     const callClient = new CallClient();
-    const tokenCredential = new AzureCommunicationUserCredential('your-token-here');
+    const tokenCredential = new AzureCommunicationTokenCredential('<USER ACCESS TOKEN with PSTN scope>');
     callAgent = await callClient.createCallAgent(tokenCredential);
-  //  callButton.disabled = false;
+  //  callPhoneButton.disabled = false;
 }
 
 init();

@@ -1,14 +1,14 @@
 ---
 title: Melhores práticas
 description: Aprenda as melhores práticas e dicas úteis para desenvolver as suas soluções Azure Batch.
-ms.date: 12/18/2020
+ms.date: 02/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 95dca907f9380de29bd3c9b0e52b120c9114b5ee
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 278aae410af536a5cc41e55dabf1dd71de04151b
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98732416"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550866"
 ---
 # <a name="azure-batch-best-practices"></a>As melhores práticas do Azure Batch
 
@@ -149,7 +149,7 @@ Tal como acontece com outras tarefas, a [tarefa de arranque](jobs-and-tasks.md#s
 
 ### <a name="isolated-nodes"></a>Nódoas isoladas
 
-Considere a utilização de tamanhos VM isolados para cargas de trabalho com requisitos de conformidade ou regulamentação. Os tamanhos isolados suportados no modo de configuração da máquina virtual `Standard_E80ids_v4` `Standard_M128ms` incluem, e `Standard_F72s_v2` `Standard_G5` `Standard_GS5` `Standard_E64i_v3` . Para obter mais informações sobre tamanhos de VM isolados, consulte [o isolamento da máquina virtual em Azure.](../virtual-machines/isolation.md)
+Considere a utilização de tamanhos VM isolados para cargas de trabalho com requisitos de conformidade ou regulamentação. Os tamanhos isolados suportados no modo de configuração da máquina virtual `Standard_E80ids_v4` incluem, , , , e `Standard_M128ms` `Standard_F72s_v2` `Standard_G5` `Standard_GS5` `Standard_E64i_v3` . Para obter mais informações sobre tamanhos de VM isolados, consulte [o isolamento da máquina virtual em Azure.](../virtual-machines/isolation.md)
 
 ### <a name="manage-long-running-services-via-the-operating-system-services-interface"></a>Gerir serviços de longa duração através da interface de serviços do sistema operativo
 
@@ -168,6 +168,8 @@ Se notar um problema que envolva o comportamento de um nó ou tarefas em execuç
 ### <a name="manage-os-upgrades"></a>Gerir atualizações de SO
 
 Para o modo de subscrição do utilizador As contas de lote, as atualizações automatizadas de SO podem interromper o progresso da tarefa, especialmente se as tarefas forem longas. [A construção de tarefas idempotentes](#build-durable-tasks) pode ajudar a reduzir os erros causados por estas interrupções. Recomendamos também [o agendamento de atualizações de imagens de SO para horários em que não se espera que as tarefas sejam executadas](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md#manually-trigger-os-image-upgrades).
+
+Para piscinas windows, `enableAutomaticUpdates` está definido `true` por padrão. É recomendável permitir atualizações automáticas, mas pode definir este valor `false` se precisar de garantir que uma atualização de SO não acontece inesperadamente.
 
 ## <a name="isolation-security"></a>Segurança de isolamento
 
@@ -189,8 +191,7 @@ Reveja as seguintes orientações relacionadas com a conectividade nas suas solu
 
 ### <a name="network-security-groups-nsgs-and-user-defined-routes-udrs"></a>Grupos de Segurança de Rede (NSGs) e Rotas Definidas pelo Utilizador (UDRs)
 
-Ao a provisionar [piscinas de Lote numa rede virtual,](batch-virtual-network.md)certifique-se de que está a seguir de perto as diretrizes relativas à utilização da etiqueta de `BatchNodeManagement` serviço, portas, protocolos e direção da regra.
-A utilização da etiqueta de serviço é altamente recomendada, em vez de utilizar os endereços IP de serviço subjacentes. Isto porque os endereços IP podem ser alterados ao longo do tempo. A utilização de endereços IP de serviço de lote diretamente pode causar instabilidade, interrupções ou interrupções para as suas piscinas de Lote.
+Ao a provisionar [piscinas de Lote numa rede virtual,](batch-virtual-network.md)certifique-se de que está a seguir de perto as diretrizes relativas à utilização da etiqueta de `BatchNodeManagement` serviço, portas, protocolos e direção da regra. A utilização da etiqueta de serviço é altamente recomendada, em vez de utilizar os endereços IP de serviço subjacentes. Isto porque os endereços IP podem ser alterados ao longo do tempo. A utilização de endereços IP de serviço de lote diretamente pode causar instabilidade, interrupções ou interrupções para as suas piscinas de Lote.
 
 Para as Rotas Definidas pelo Utilizador (UDRs), certifique-se de que tem um processo em vigor para atualizar os endereços IP do serviço Batch periodicamente na sua tabela de rotas, uma vez que estes endereços mudam ao longo do tempo. Para saber como obter a lista de endereços IP de serviço de lote, consulte [as etiquetas de serviço no local.](../virtual-network/service-tags-overview.md) Os endereços IP de serviço de lote serão associados com a etiqueta de `BatchNodeManagement` serviço (ou a variante regional que corresponde à região da conta Batch).
 
@@ -235,7 +236,7 @@ O lote tenta ativamente limpar o diretório de trabalho em que as tarefas são e
 
 A limpeza automatizada do diretório de trabalho será bloqueada se executar um serviço no Windows a partir do diretório de trabalho startTask, devido à pasta ainda em uso. Isto resultará num desempenho degradado. Para corrigir isto, mude o diretório desse serviço para um diretório separado que não seja gerido pelo Batch.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar uma conta Azure Batch utilizando o portal Azure](batch-account-create-portal.md).
 - Conheça o fluxo de trabalho do [serviço Batch e os recursos primários,](batch-service-workflow-features.md) tais como piscinas, nós, empregos e tarefas.

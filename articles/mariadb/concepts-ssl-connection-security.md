@@ -3,15 +3,15 @@ title: Conectividade SSL/TLS - Base de Dados Azure para MariaDB
 description: Informações para configurar a Base de Dados de Azure para o MariaDB e aplicações associadas para utilizar corretamente as ligações SSL
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: 7ada6f5a7b7ece9b8b36ea1bd2e52b5ad7efd12d
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 6c4ee8c6d12a6350c319e40bbe30046af4932311
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98662496"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550645"
 ---
 # <a name="ssltls-connectivity-in-azure-database-for-mariadb"></a>Conectividade SSL/TLS na Base de Dados Azure para MariaDB
 A Azure Database for MariaDB suporta ligar o seu servidor de base de dados a aplicações de clientes utilizando a Camada de Tomadas Seguras (SSL). A imposição de ligações SSL entre o servidor de base de dados e as aplicações de cliente ajuda a proteger contra ataques "man-in-the-middle" ao encriptar o fluxo de dados entre o servidor e a sua aplicação.
@@ -62,7 +62,7 @@ Para aprender a configurar a definição de TLS para a sua Base de Dados Azure p
 
 ## <a name="cipher-support-by-azure-database-for-mariadb"></a>Cipher support by Azure Database for MariaDB
 
-Como parte da comunicação SSL/TLS, as suítes cifra são validadas e apenas os fatos de cifra de suporte são autorizados a comunicar ao serer da base de dados. A validação da suíte cifra é controlada na camada de [gateway](concepts-connectivity-architecture.md#connectivity-architecture) e não explicitamente no próprio nó. Se as suítes de cifra não corresponderem a uma das suites listadas abaixo, as ligações ao cliente recebidas serão rejeitadas.
+Como parte da comunicação SSL/TLS, as suítes de cifra são validadas e apenas os fatos de cifra de suporte são autorizados a comunicar ao servidor de base de dados. A validação da suíte cifra é controlada na camada de [gateway](concepts-connectivity-architecture.md#connectivity-architecture) e não explicitamente no próprio nó. Se as suítes de cifra não corresponderem a uma das suites listadas abaixo, as ligações ao cliente recebidas serão rejeitadas.
 
 ### <a name="cipher-suite-supported"></a>Suíte cifra apoiada
 

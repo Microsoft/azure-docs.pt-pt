@@ -1,11 +1,10 @@
 ---
-title: Testes de penetração Microsoft Docs
+title: '| de testes de penetração Microsoft Docs'
 description: O artigo fornece uma visão geral do processo de teste de penetração e como realizar um teste de caneta contra a sua app em execução na infraestrutura Azure.
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: barbkess
-editor: TomSh
+manager: rkarlin
 ms.assetid: 695d918c-a9ac-4eba-8692-af4526734ccc
 ms.service: security
 ms.subservice: security-fundamentals
@@ -13,22 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2020
+ms.date: 02/03/2021
 ms.author: terrylan
-ms.openlocfilehash: 84229ce3562f9cdcc4b55704eaa4f3b891a43d75
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 9f65133f622c71189f35a1533e278ca09ab02085
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968947"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550206"
 ---
 # <a name="penetration-testing"></a>Testes de penetração
 
 Um dos benefícios de usar o Azure para testes de aplicações e implementação é que você pode obter rapidamente ambientes criados. Não tens de te preocupar com a requisição, aquisição e "racking e empilhar" o teu próprio hardware no local.
 
 Criar rapidamente ambientes é ótimo – mas ainda precisa de ter a certeza de que realiza as suas diligências normais de segurança. Uma das coisas que provavelmente quer fazer é testar as aplicações que implementa no Azure.
-
-Já deve saber que a Microsoft realiza [testes de penetração do nosso ambiente Azure.](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e) Estes testes ajudam a orientar as melhorias do Azure.
 
 Não realizamos testes de penetração da sua aplicação para si, mas entendemos que quer e precisa de realizar testes nas suas próprias aplicações. Isso é uma coisa boa, porque quando aumentas a segurança das tuas aplicações ajudas a tornar todo o ecossistema Azure mais seguro.
 

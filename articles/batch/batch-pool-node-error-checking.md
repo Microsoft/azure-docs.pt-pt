@@ -3,28 +3,28 @@ title: Verifique se há erros na piscina e node
 description: Este artigo abrange as operações de fundo que podem ocorrer, juntamente com erros a verificar e como evitá-las ao criar piscinas e nós.
 author: mscurrell
 ms.author: markscu
-ms.date: 08/23/2019
+ms.date: 02/03/2020
 ms.topic: how-to
-ms.openlocfilehash: 519b357e4e5fde30221f7dc804bb848ecec9704c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8901877ab3055c02dfc8c129fb35864418cd19d8
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85979922"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549140"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Verifique se há erros na piscina e node
 
-Quando você está criando e gerindo piscinas Azure Batch, algumas operações acontecem imediatamente. No entanto, algumas operações são assíncronos e executadas em segundo plano, demorando vários minutos a ser concluídas.
+Quando você está criando e gerindo piscinas Azure Batch, algumas operações acontecem imediatamente. A deteção de falhas para estas operações é geralmente simples, pois são devolvidas imediatamente pela API, CLI ou UI. No entanto, algumas operações são assíncronos e executadas em segundo plano, demorando vários minutos a ser concluídas.
 
-A deteção de falhas nas operações que ocorrem imediatamente é simples porque quaisquer falhas são devolvidas imediatamente pela API, CLI ou UI.
+Verifique se definiu as suas aplicações para implementar uma verificação completa de erros, especialmente para operações assíncronos. Isto pode ajudá-lo a identificar e diagnosticar rapidamente problemas.
 
-Este artigo abrange as operações de fundo que podem ocorrer para piscinas e nós de piscina. Especifica como pode detetar e evitar falhas.
+Este artigo descreve formas de detetar e evitar falhas nas operações de fundo que podem ocorrer para piscinas e nós de piscina.
 
 ## <a name="pool-errors"></a>Erros na piscina
 
 ### <a name="resize-timeout-or-failure"></a>Redimensionar o tempo limite ou o insucesso
 
-Ao criar uma nova piscina ou redimensionar uma piscina existente, especifique o número de nós alvo.  A operação de criação ou redimensionamento termina imediatamente, mas a atribuição real de novos nós ou a remoção dos nós existentes podem demorar alguns minutos.  Especifica o tempo limite de redimensionar na [API de criar](/rest/api/batchservice/pool/add) ou [redimensionar.](/rest/api/batchservice/pool/resize) Se o Batch não conseguir obter o número de nós alvo durante o período de tempo de redimensionamento, o pool entra num estado estável e relata redimensionar erros.
+Ao criar uma nova piscina ou redimensionar uma piscina existente, especifique o número de nós alvo. A operação de criação ou redimensionamento termina imediatamente, mas a atribuição real de novos nós ou a remoção dos nós existentes podem demorar alguns minutos. Especifica a câmara de redimensionar o tempo limite na [API de criar](/rest/api/batchservice/pool/add) ou [redimensionar.](/rest/api/batchservice/pool/resize) Se o Batch não conseguir obter o número de nós alvo durante o período de tempo de redimensionamento, a piscina entra num estado estável e relata erros de redimensionamento.
 
 A propriedade [ResizeError](/rest/api/batchservice/pool/get#resizeerror) para a avaliação mais recente lista os erros ocorridos.
 
@@ -44,23 +44,25 @@ As causas comuns para erros de redimensionar incluem:
 
 ### <a name="automatic-scaling-failures"></a>Falhas automáticas de escala
 
-Também pode definir O Lote Azure para escalar automaticamente o número de nós numa piscina. Você define os parâmetros para a [fórmula de escala automática para uma piscina](./batch-automatic-scaling.md). O serviço Batch utiliza a fórmula para avaliar periodicamente o número de nós na piscina e definir um novo número-alvo. Podem ocorrer os seguintes tipos de problemas:
+Pode definir O Lote Azure para escalar automaticamente o número de nós numa piscina. Você define os parâmetros para a [fórmula de escala automática para uma piscina](./batch-automatic-scaling.md). O serviço Batch utilizará então a fórmula para avaliar periodicamente o número de nós na piscina e definirá um novo número-alvo.
+
+Os seguintes tipos de problemas podem ocorrer quando se utilizam a escala automática:
 
 - A avaliação automática de escalonamento falha.
 - A operação de redimensione resultante falha e os tempos esgotados.
 - Um problema com a fórmula de escala automática leva a valores de alvo de nó incorretos. O redimensionar funciona ou acaba.
 
-Pode obter informações sobre a última avaliação de escala automática utilizando a propriedade [autoScaleRun.](/rest/api/batchservice/pool/get#autoscalerun) Esta propriedade reporta o tempo de avaliação, os valores e o resultado, e quaisquer erros de desempenho.
+Para obter informações sobre a última avaliação automática de escala, utilize a propriedade [autoScaleRun.](/rest/api/batchservice/pool/get#autoscalerun) Esta propriedade reporta o tempo de avaliação, os valores e o resultado, e quaisquer erros de desempenho.
 
 O [evento completo de redimensionar](./batch-pool-resize-complete-event.md) a piscina capta informações sobre todas as avaliações.
 
-### <a name="delete"></a>Eliminar
+### <a name="pool-deletion-failures"></a>Falhas de eliminação de piscinas
 
-Quando apaga uma piscina que contém nós, primeiro o Lote elimina os nós. Em seguida, elimina o próprio objeto da piscina. Pode levar alguns minutos para que os nós da piscina sejam apagados.
+Quando apaga uma piscina que contém nós, primeiro o Lote elimina os nós. Esta ação pode demorar vários minutos a concluir. Depois disso, o Batch elimina o objeto da piscina em si.
 
 O lote define o estado da [piscina](/rest/api/batchservice/pool/get#poolstate) para **apagar** durante o processo de eliminação. A aplicação de chamada pode detetar se a eliminação da piscina está a demorar muito tempo usando as propriedades **state** e **stateTransitionTime.**
 
-## <a name="pool-compute-node-errors"></a>Erros no nó do nó de cálculo da piscina
+## <a name="node-errors"></a>Erros no nó
 
 Mesmo quando o Batch atribui com sucesso os nós numa piscina, vários problemas podem fazer com que alguns dos nós não sejam saudáveis e incapazes de executar tarefas. Estes nós ainda incorrem em acusações, por isso é importante detetar problemas para evitar pagar por nós que não podem ser usados. Além de erros comuns no nó, conhecer o estado de [trabalho](/rest/api/batchservice/job/get#jobstate) atual é útil para a resolução de problemas.
 
@@ -74,7 +76,7 @@ Pode detetar falhas de tarefa de início utilizando o [resultado](/rest/api/batc
 
 Uma tarefa inicial falhada também faz com que Batch desembarque o [estado](/rest/api/batchservice/computenode/get#computenodestate) do nó para **começar** se  **a espera ForSuccess** foi definido como **verdadeiro**.
 
-Como em qualquer tarefa, pode haver muitas causas para a falha da tarefa inicial.  Para resolver problemas, verifique o stdout, stderr e quaisquer outros ficheiros de registo específicos de tarefas.
+Como em qualquer tarefa, pode haver muitas causas para uma falha de tarefa inicial. Para resolver problemas, verifique o stdout, stderr e quaisquer outros ficheiros de registo específicos de tarefas.
 
 As tarefas de arranque devem ser re-participantes, pois é possível que a tarefa inicial seja executada várias vezes no mesmo nó; a tarefa inicial é executada quando um nó é remimagemed ou reiniciado. Em casos raros, uma tarefa inicial será executada após um evento ter causado um reboot de nó, onde um dos discos operativos ou disquetes efémeros foi reimagemed enquanto o outro não estava. Uma vez que as tarefas de arranque do Batch (como todas as tarefas do Lote) são executadas a partir do disco efémero, este não é normalmente um problema, mas em alguns casos em que a tarefa inicial é instalar uma aplicação no disco do sistema operativo e manter outros dados no disco efémero, isso pode causar problemas porque as coisas estão dessincronizadas. Proteja a sua aplicação em conformidade se estiver a utilizar ambos os discos.
 
@@ -87,6 +89,10 @@ A propriedade de [erros](/rest/api/batchservice/computenode/get#computenodeerror
 ### <a name="container-download-failure"></a>Falha no download do contentor
 
 Pode especificar uma ou mais referências de contentores numa piscina. O lote descarrega os recipientes especificados para cada nó. A propriedade de [erros](/rest/api/batchservice/computenode/get#computenodeerror) de nó relata uma falha no descarregamento de um recipiente e define o estado do nó para **inutilizável**.
+
+### <a name="node-os-updates"></a>Atualizações de nó noss
+
+Para piscinas windows, `enableAutomaticUpdates` está definido `true` por padrão. É aconselhável permitir atualizações automáticas, mas podem interromper o progresso da tarefa, especialmente se as tarefas forem longas. Pode definir este valor `false` se precisar de garantir que uma atualização de SO não acontece inesperadamente.
 
 ### <a name="node-in-unusable-state"></a>Nó em estado inutilizável
 
@@ -116,7 +122,7 @@ O processo de agente Batch que funciona em cada nó de piscina pode fornecer fic
 
 ### <a name="node-disk-full"></a>Disco de nó cheio
 
-A unidade temporária para um VM de nó de piscina é usada pelo Batch para ficheiros de trabalho, ficheiros de tarefas e ficheiros partilhados.
+A unidade temporária para um VM de nó de piscina é usada pelo Batch para ficheiros de trabalho, ficheiros de tarefas e ficheiros partilhados, tais como:
 
 - Ficheiros de pacotes de aplicações
 - Ficheiros de recursos de tarefa
@@ -135,23 +141,17 @@ O tamanho da unidade temporária depende do tamanho do VM. Uma consideração ao
 
 Para ficheiros escritos por cada tarefa, pode ser especificado um tempo de retenção para cada tarefa que determina quanto tempo os ficheiros de tarefa são mantidos antes de serem automaticamente limpos. O tempo de retenção pode ser reduzido para reduzir os requisitos de armazenamento.
 
-
 Se o disco temporário ficar sem espaço (ou estiver muito perto de ficar sem espaço), o nó deslocar-se-á para estado [inutilizável](/rest/api/batchservice/computenode/get#computenodestate) e será reportado um erro de nó dizendo que o disco está cheio.
 
-### <a name="what-to-do-when-a-disk-is-full"></a>O que fazer quando um disco está cheio
+Se não tem certeza do que está ocupando espaço no nó, tente remoer para o nó e investiga manualmente para onde o espaço foi. Também pode utilizar a API dos [Ficheiros de Lista](/rest/api/batchservice/file/listfromcomputenode) de Lote para examinar ficheiros em pastas geridas por Batch (por exemplo, saídas de tarefas). Note que esta API apenas lista ficheiros nos diretórios geridos do Batch. Se as suas tarefas criaram ficheiros noutro lado, não os verá.
 
-Determine por que o disco está cheio: Se não tiver a certeza do que está a ocupar espaço no nó, recomenda-se que se adiante ao nó e investigue manualmente para onde o espaço foi. Também pode utilizar a API dos [Ficheiros de Lista](/rest/api/batchservice/file/listfromcomputenode) de Lote para examinar ficheiros em pastas geridas por Batch (por exemplo, saídas de tarefas). Note que esta API apenas lista ficheiros nos diretórios geridos do Batch e se as suas tarefas criarem ficheiros noutros locais não os verá.
+Certifique-se de que todos os dados necessários foram recuperados do nó ou enviados para uma loja durável e, em seguida, elimine os dados necessários para libertar o espaço.
 
-Certifique-se de que todos os dados necessários foram recuperados do nó ou enviados para uma loja durável. Toda a mitigação da questão completa do disco envolve a eliminação de dados para libertar o espaço.
+Pode eliminar trabalhos antigos ou tarefas antigas concluídas cujos dados de tarefa ainda estão nos nós. Veja na [coleção RecentTasks](/rest/api/batchservice/computenode/get#taskinformation) no nó, ou nos [ficheiros do nó.](/rest/api/batchservice/file/listfromcomputenode) A supressão de um emprego eliminará todas as tarefas no trabalho; a eliminação das tarefas no trabalho irá desencadear dados nos diretórios de tarefas do nó a serem eliminados, libertando assim espaço. Uma vez libertado espaço suficiente, reinicie o nó e deverá sair do estado "Inutilizável" e voltar a "Ocio".
 
-### <a name="recovering-the-node"></a>Recuperando o nó
-
-1. Se a sua piscina for uma piscina [C.loudServiceConfiguration,](/rest/api/batchservice/pool/add#cloudserviceconfiguration) pode re-imagem do nó através da [imagem de re-imagem do Lote API](/rest/api/batchservice/computenode/reimage). Isto vai limpar todo o disco. A re-imagem não é suportada atualmente para piscinas [virtualMachineConfiguration.](/rest/api/batchservice/pool/add#virtualmachineconfiguration)
-
-2. Se a sua piscina for uma [Configuração VirtualMachine,](/rest/api/batchservice/pool/add#virtualmachineconfiguration)pode remover o nó da piscina utilizando os [nós de remoção API](/rest/api/batchservice/pool/removenodes). Em seguida, você pode cultivar a piscina novamente para substituir o nó mau por um fresco.
-
-3.  Eliminar trabalhos antigos ou tarefas antigas concluídas cujos dados de tarefa ainda estão nos nós. Para uma dica sobre quais os dados de emprego/tarefas nos nós que pode ver na [recolha de RecentTasks](/rest/api/batchservice/computenode/get#taskinformation) no nó, ou nos [ficheiros do nó](/rest/api/batchservice/file/listfromcomputenode). A eliminação do trabalho eliminará todas as tarefas no trabalho e a eliminação das tarefas no trabalho irá desencadear dados nos diretórios de tarefas do nó a serem eliminados, libertando assim espaço. Uma vez libertado espaço suficiente, reinicie o nó e deverá sair do estado "Inutilizável" e voltar a "Ocio".
+Para recuperar um nó inutilizável nas piscinas [VirtualMachineConfiguration,](/rest/api/batchservice/pool/add#virtualmachineconfiguration) pode remover um nó da piscina utilizando os [nós de remoção API](/rest/api/batchservice/pool/removenodes). Em seguida, você pode cultivar a piscina novamente para substituir o nó mau por um fresco. Para piscinas [CloudServiceConfiguration,](/rest/api/batchservice/pool/add#cloudserviceconfiguration) pode re-imagem do nó através da [imagem de re-imagem do Lote API](/rest/api/batchservice/computenode/reimage). Isto vai limpar todo o disco. A re-imagem não é suportada atualmente para piscinas [virtualMachineConfiguration.](/rest/api/batchservice/pool/add#virtualmachineconfiguration)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Verifique se definiu a sua aplicação para implementar uma verificação completa de erros, especialmente para operações assíncronos. Pode ser fundamental detetar e diagnosticar rapidamente problemas.
+- Saiba mais sobre [verificação de erros de trabalho e de tarefa.](batch-job-task-error-checking.md)
+- Saiba mais [sobre as melhores práticas](best-practices.md) para trabalhar com a Azure Batch.

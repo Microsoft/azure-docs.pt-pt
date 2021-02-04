@@ -122,7 +122,7 @@
       href: howto-import-export-data.md
     - name: Utilizar o tipo de conteúdo JSON para chaves-valores
       href: howto-leverage-json-content-type.md
-    - name: Encaminhar eventos para um ponto final personalizado
+    - name: Utilize a Grelha de Eventos para notificações de alteração de dados
       href: howto-app-configuration-event.md
     - name: Fazer a cópia de segurança do arquivo de configurações automaticamente
       href: howto-backup-config-store.md

@@ -2,13 +2,13 @@
 title: Criar uma biblioteca de conteúdos para implantar VMs na Solução VMware Azure
 description: Crie uma biblioteca de conteúdos para implantar um VM numa nuvem privada Azure VMware Solution.
 ms.topic: how-to
-ms.date: 09/21/2020
-ms.openlocfilehash: 57db8ac4da8eef826d85feb11680c9c87823ee36
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.date: 02/03/2021
+ms.openlocfilehash: 9e27529ee355ece62f12cc2e6de491dddb5d3f28
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461690"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550543"
 ---
 # <a name="create-a-content-library-to-deploy-vms-in-azure-vmware-solution"></a>Criar uma biblioteca de conteúdos para implantar VMs na Solução VMware Azure
 
@@ -92,7 +92,10 @@ Agora que a biblioteca de conteúdos foi criada, pode adicionar uma imagem ISO p
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se planeia utilizar o VMware HCX para migrar cargas de trabalho VM para a sua nuvem privada, utilize o procedimento [VMware HCX de implementação e configuração.](tutorial-deploy-vmware-hcx.md)
+Agora que cobriu a criação de uma biblioteca de conteúdos para implantar VMs na Solução VMware Azure, talvez queira saber mais sobre:
+
+- [Implantação e configuração VMware HCX](tutorial-deploy-vmware-hcx.md) para migrar cargas de trabalho VM para a sua nuvem privada.
+- [Gestão do ciclo de vida da Azure VMware Solution VMs](lifecycle-management-of-azure-vmware-solution-vms.md).
 
 <!-- LINKS - external-->
 

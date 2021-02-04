@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: deb9f60cd3f75eacdf0adc06f6f7470819949555
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 702ca4f4c3fc92eca70479ba02b1ddc8f6858857
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223232"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549665"
 ---
 # <a name="public-ip-addresses"></a>Endereços IP públicos
 
@@ -54,7 +54,7 @@ Endereços IP públicos standard SKU:
 - Tenha um tempo de saída de entrada recímido ajustável de 4-30 minutos, com um padrão de 4 minutos, e uma saída fixa originou o tempo de saída inativo de 4 minutos.
 - Seguro por defeito e fechado ao tráfego de entrada. Permitir a lista de tráfego de entrada com um [grupo de segurança de rede](./network-security-groups-overview.md#network-security-groups).
 - Atribuído a interfaces de rede, balanceadores de carga público padrão ou Gateways de aplicação. Para obter mais informações sobre o balanceador de carga Standard, consulte [o Balanceador de Carga Standard Azure](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- Pode ser redundante de zona (advertizado de todas as 3 zonas) ou zonal (pode ser criado zonal e garantido em uma zona de disponibilidade específica). Para obter mais informações sobre zonas de disponibilidade, veja [Descrição geral de zonas de disponibilidade](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Balanceador de Carga Standard e Zonas de Disponibilidade](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json). **Os IPs redundantes da zona só podem ser criados em regiões onde vivem [3 zonas de disponibilidade.](../availability-zones/az-region.md)** Os IPs criados antes de as zonas serem ao vivo não serão redundantes.
+- Pode ser redundante de zona (advertizado de todas as 3 zonas), zonal (garantido numa zona de disponibilidade pré-selecionada específica) ou sem zona (não associada a uma zona de disponibilidade pré-selecionada específica). Para obter mais informações sobre zonas de disponibilidade, veja [Descrição geral de zonas de disponibilidade](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Balanceador de Carga Standard e Zonas de Disponibilidade](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json). **Os IPs redundantes da zona só podem ser criados em regiões onde vivem [3 zonas de disponibilidade.](../availability-zones/az-region.md)** Os IPs criados antes de as zonas serem ao vivo não serão redundantes.
 - Pode ser usado como iPs de frontend para [balançadores de carga cross-region (funcionalidade de pré-visualização).](../load-balancer/cross-region-overview.md)
  
 > [!NOTE]

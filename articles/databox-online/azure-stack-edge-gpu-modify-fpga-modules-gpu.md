@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/01/2021
+ms.date: 02/03/2021
 ms.author: alkohli
-ms.openlocfilehash: c23022a1a1ee7796ada32d9111855b9e3bfb7d46
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 6e9e1319b90ab859c63c022e478bc26c4b8aedeb
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539627"
+ms.locfileid: "99550223"
 ---
 # <a name="run-existing-iot-edge-modules-from-azure-stack-edge-pro-fpga-devices-on-azure-stack-edge-pro-gpu-device"></a>Executar os módulos IoT Edge existentes a partir de dispositivos Azure Stack Edge Pro FPGA no dispositivo GPU Azure Stack Edge Pro
 
@@ -205,8 +205,7 @@ Para definir a memória e a utilização do CPU, utilize limites de processador 
 ```
 A memória e a especificação do CPU não são necessárias, mas geralmente são boas práticas. Se `requests` não for especificado, os valores definidos nos limites são utilizados como o mínimo exigido. 
 
-A utilização da memória partilhada para módulos também requer uma forma diferente. <!-- should we give an example-->
-
+A utilização da memória partilhada para módulos também requer uma forma diferente. Por exemplo, pode utilizar o modo Anfitrião IPC para acesso à memória partilhada entre soluções live video analytics e inference, conforme descrito no [Deploy Live Video Analytics no Azure Stack Edge](../media-services/live-video-analytics-edge/deploy-azure-stack-edge-how-to.md#deploy-live-video-analytics-edge-module-using-azure-portal).
 
 
 ## <a name="web-proxy"></a>Proxy Web 

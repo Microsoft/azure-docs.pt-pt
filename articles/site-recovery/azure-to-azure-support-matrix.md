@@ -4,12 +4,12 @@ description: Resume o apoio à recuperação de desastres dos VMs do Azure para 
 ms.topic: article
 ms.date: 11/29/2020
 ms.author: raynew
-ms.openlocfilehash: 9a12d2afec6e24879e100a071ee3499c053db43f
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 856d8961cbdf77fc848df41502678cb438773dbe
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98898482"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550122"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de suporte para recuperação após desastre de VMs do Azure entre regiões do Azure
 
@@ -165,19 +165,19 @@ Debian 10 | [9.40](https://support.microsoft.com/en-us/topic/update-rollup-53-fo
 
 **Libertar** | **Versão do serviço de mobilidade** | **Versão de kernel** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4, SP5) | [9.40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a) | Todas as [ações SUSE 12 SP1,SP2,SP3,SP4 são suportadas.](https://www.suse.com/support/kb/doc/?id=000019587)</br></br> 4.4.138-4.7-azure para 4.4.180-4.31-azure,</br>4.12.14-6.3-azure para 4.12.14-6.43-azure </br> 4.12.14-16.7-azure para 4.12.14-16.38-azure </br> 4.12.14-16.41-azure através de 9.40 patch de correção quente**|
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4, SP5) | [9.39](https://support.microsoft.com/help/4597409/) | Todas as [ações SUSE 12 SP1,SP2,SP3,SP4 são suportadas.](https://www.suse.com/support/kb/doc/?id=000019587)</br></br> 4.4.138-4.7-azure para 4.4.180-4.31-azure,</br>4.12.14-6.3-azure para 4.12.14-6.43-azure </br> 4.12.14-16.7-azure para 4.12.14-16.34-azure </br> 4.12.14-16.38-azure através de 9.39 patch de correção quente**|
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4, SP5) | [9,38](https://support.microsoft.com/help/4590304/) | Todas as [ações SUSE 12 SP1,SP2,SP3,SP4 são suportadas.](https://www.suse.com/support/kb/doc/?id=000019587)</br></br> 4.4.138-4.7-azure para 4.4.180-4.31-azure,</br>4.12.14-6.3-azure para 4.12.14-6.43-azure </br> 4.12.14-16.7-azure para 4.12.14-16.28-azure |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4, SP5) | [9.36](https://support.microsoft.com/help/4578241/), [9.37](https://support.microsoft.com/help/4582666/) | Todas as [ações SUSE 12 SP1,SP2,SP3,SP4 são suportadas.](https://www.suse.com/support/kb/doc/?id=000019587)</br></br> 4.4.138-4.7-azure para 4.4.180-4.31-azure,</br>4.12.14-6.3-azure para 4.12.14-6.43-azure </br> 4.12.14-16.7-azure para 4.12.14-16.22-azure </br> 4.12.14-16.25-azure, 4.12.14-16.28-azure através de 9.37 hot fix patch**|
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4, SP5) | [9.40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a) | Todas as [ações SUSE 12 SP1,SP2,SP3,SP4,SP5 são suportadas.](https://www.suse.com/support/kb/doc/?id=000019587)</br></br> 4.4.138-4.7-azure para 4.4.180-4.31-azure,</br>4.12.14-6.3-azure para 4.12.14-6.43-azure </br> 4.12.14-16.7-azure para 4.12.14-16.38-azure </br> 4.12.14-16.41-azure através de 9.40 patch de correção quente**|
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4, SP5) | [9.39](https://support.microsoft.com/help/4597409/) | Todas as [ações SUSE 12 SP1,SP2,SP3,SP4,SP5 são suportadas.](https://www.suse.com/support/kb/doc/?id=000019587)</br></br> 4.4.138-4.7-azure para 4.4.180-4.31-azure,</br>4.12.14-6.3-azure para 4.12.14-6.43-azure </br> 4.12.14-16.7-azure para 4.12.14-16.34-azure </br> 4.12.14-16.38-azure através de 9.39 patch de correção quente**|
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4, SP5) | [9,38](https://support.microsoft.com/help/4590304/) | Todas as [ações SUSE 12 SP1,SP2,SP3,SP4,SP5 são suportadas.](https://www.suse.com/support/kb/doc/?id=000019587)</br></br> 4.4.138-4.7-azure para 4.4.180-4.31-azure,</br>4.12.14-6.3-azure para 4.12.14-6.43-azure </br> 4.12.14-16.7-azure para 4.12.14-16.28-azure |
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4, SP5) | [9.36](https://support.microsoft.com/help/4578241/), [9.37](https://support.microsoft.com/help/4582666/) | Todas as [ações SUSE 12 SP1,SP2,SP3,SP4,SP5 são suportadas.](https://www.suse.com/support/kb/doc/?id=000019587)</br></br> 4.4.138-4.7-azure para 4.4.180-4.31-azure,</br>4.12.14-6.3-azure para 4.12.14-6.43-azure </br> 4.12.14-16.7-azure para 4.12.14-16.22-azure </br> 4.12.14-16.25-azure, 4.12.14-16.28-azure através de 9.37 hot fix patch**|
 
 #### <a name="supported-suse-linux-enterprise-server-15-kernel-versions-for-azure-virtual-machines"></a>Suportadas versões SUSE Linux Enterprise Server 15 para máquinas virtuais Azure
 
 **Libertar** | **Versão do serviço de mobilidade** | **Versão de kernel** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 15, SP1, SP2 | [9.40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a)  | Por padrão, todas as [ações SUSE 15 e 15 núcleos são suportados.](https://www.suse.com/support/kb/doc/?id=000019587)</br></br> 4.12.14-5.5-azure para 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure para 4.12.14-8.55-azure </br> 5.3.18-16-azure </br> 5.3.18-18.5-azure para 5.3.18-18.29-azure </br> 5.3.18-18.32-azure, 4.12.14-8.58-azure através de 9.40 patch de correção quente**
-SUSE Linux Enterprise Server 15, SP1, SP2 | [9.39](https://support.microsoft.com/help/4597409/)  | Por padrão, todas as [ações SUSE 15 e 15 núcleos são suportados.](https://www.suse.com/support/kb/doc/?id=000019587)</br></br> 4.12.14-5.5-azure para 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure para 4.12.14-8.47-azure </br> 5.3.18-16-azure </br> 5.3.18-18.5-azure para 5.3.18-18.21-azure </br> 4.12.14-8.52-azure, 5.3.18-18.24-azure, 4.12.14-8.55-azure, 5.3.18-18.29-azure através de 9.39 hot patch**
-SUSE Linux Enterprise Server 15, SP1, SP2 | [9,38](https://support.microsoft.com/help/4590304/)  | Por padrão, todas as [ações SUSE 15 e 15 núcleos são suportados.](https://www.suse.com/support/kb/doc/?id=000019587)</br></br> 4.12.14-5.5-azure para 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure para 4.12.14-8.44-azure </br> 5.3.18-16-azure </br> 5.3.18-18.5-azure para 5.3.18-18.18-azure </br> 4.12.14-8.47-azure, 5.3.18-18.21-azure através de 9.38 patch de correção quente**
-SUSE Linux Enterprise Server 15 e 15 SP1 | [9.36](https://support.microsoft.com/help/4578241/), [9.37](https://support.microsoft.com/help/4582666/)  | Por padrão, todas as [ações SUSE 15 e 15 núcleos são suportados.](https://www.suse.com/support/kb/doc/?id=000019587)</br></br> 4.12.14-5.5-azure para 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure para 4.12.14-8.38-azure </br> 4.12.14-8.41-azure, 4.12.14-8.44-azure através de 9.37 patch de fixação quente**
+SUSE Linux Enterprise Server 15, SP1, SP2 | [9.40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a)  | Por predefinição, todas as [ações SUSE 15, SP1, SP2 kernels](https://www.suse.com/support/kb/doc/?id=000019587) são suportadas.</br></br> 4.12.14-5.5-azure para 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure para 4.12.14-8.55-azure </br> 5.3.18-16-azure </br> 5.3.18-18.5-azure para 5.3.18-18.29-azure </br> 5.3.18-18.32-azure, 4.12.14-8.58-azure através de 9.40 patch de correção quente**
+SUSE Linux Enterprise Server 15, SP1, SP2 | [9.39](https://support.microsoft.com/help/4597409/)  | Por predefinição, todas as [ações SUSE 15, SP1, SP2 kernels](https://www.suse.com/support/kb/doc/?id=000019587) são suportadas.</br></br> 4.12.14-5.5-azure para 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure para 4.12.14-8.47-azure </br> 5.3.18-16-azure </br> 5.3.18-18.5-azure para 5.3.18-18.21-azure </br> 4.12.14-8.52-azure, 5.3.18-18.24-azure, 4.12.14-8.55-azure, 5.3.18-18.29-azure através de 9.39 hot patch**
+SUSE Linux Enterprise Server 15, SP1, SP2 | [9,38](https://support.microsoft.com/help/4590304/)  | Por predefinição, todas as [ações SUSE 15, SP1, SP2 kernels](https://www.suse.com/support/kb/doc/?id=000019587) são suportadas.</br></br> 4.12.14-5.5-azure para 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure para 4.12.14-8.44-azure </br> 5.3.18-16-azure </br> 5.3.18-18.5-azure para 5.3.18-18.18-azure </br> 4.12.14-8.47-azure, 5.3.18-18.21-azure através de 9.38 patch de correção quente**
+SUSE Linux Enterprise Server 15 e 15 SP1 | [9.36](https://support.microsoft.com/help/4578241/), [9.37](https://support.microsoft.com/help/4582666/)  | Por predefinição, todas as [ações SUSE 15, SP1, SP2 kernels](https://www.suse.com/support/kb/doc/?id=000019587) são suportadas.</br></br> 4.12.14-5.5-azure para 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure para 4.12.14-8.38-azure </br> 4.12.14-8.41-azure, 4.12.14-8.44-azure através de 9.37 patch de fixação quente**
 
 
 ## <a name="replicated-machines---linux-file-systemguest-storage"></a>Máquinas replicadas - Sistema de ficheiros Linux/armazenamento de hóspedes
@@ -316,7 +316,7 @@ Etiquetas  | Suportado | As tags geradas pelo utilizador nos NICs são replicada
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Leia [orientação de rede](./azure-to-azure-about-networking.md)  para replicar VMs Azure.
 - Implementar a recuperação de [desastres replicando VMs Azure](./azure-to-azure-quickstart.md).

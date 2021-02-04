@@ -3,12 +3,12 @@ title: Gravação contínua de vídeo para a nuvem e reprodução do tutorial de
 description: Neste tutorial, você vai aprender a usar Azure Live Video Analytics em Azure IoT Edge para gravar continuamente o vídeo para a nuvem e transmitir qualquer parte desse vídeo usando a Azure Media Services.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 6956539595c5997569dc92b5c62e2396cb5fdd9c
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 8659bd2e029da13870b50dd6535e959bc90c81a7
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99524401"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99551064"
 ---
 # <a name="tutorial-continuous-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Tutorial: Gravação contínua de vídeo para a nuvem e reprodução da nuvem
 
@@ -140,6 +140,12 @@ O manifesto de implantação define quais os módulos que são implantados num d
 1. Desagre a cadeia de ligação IoT Hub selecionando o ícone **Mais ações** ao lado do painel **AZURE IOT HUB** no canto inferior esquerdo. Copie o fio da src/cloud-to-device-console-app/appsettings.jsno ficheiro. 
 
     ![Definir cadeia de conexão IoT Hub](./media/quickstarts/set-iotconnection-string.png)
+    > [!NOTE]
+    > Pode ser-lhe pedido que forneça informações sobre o ponto final incorporado para o IoT Hub. Para obter essa informação, no portal Azure, navegue até ao seu Hub IoT e procure a opção **de pontos finais incorporados** no painel de navegação esquerdo. Clique lá e procure o **ponto final compatível com o Event Hub** na secção de ponto final **compatível com o Event Hub.** Copie e use o texto na caixa. O ponto final será mais ou menos assim:  
+        ```
+        Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+        ```
+
 1. Clique com o botão direito para o src/edge/deployment.template.jsno ficheiro e selecione **Generate IoT Edge Deployment Manifest**. O Código do Estúdio Visual utiliza os valores do ficheiro .env para substituir as variáveis encontradas no ficheiro do modelo de implantação. Esta ação cria um ficheiro manifesto na pasta src/edge/config chamada **deployment.amd64.jsem**.
 
    ![Gerar manifesto de implantação IoT Edge](./media/quickstarts/generate-iot-edge-deployment-manifest.png)
@@ -163,11 +169,11 @@ Quando utiliza o módulo Live Video Analytics no IoT Edge para gravar o stream d
 
     ![Iniciar monitorização do ponto final do evento incorporado](./media/quickstarts/start-monitoring-iothub-events.png)
 
-> [!NOTE]
-> Pode ser-lhe pedido que forneça informações sobre o ponto final incorporado para o IoT Hub. Para obter essa informação, no portal Azure, navegue até ao seu Hub IoT e procure a opção **de pontos finais incorporados** no painel de navegação esquerdo. Clique lá e procure o **ponto final compatível com o Event Hub** na secção de ponto final **compatível com o Event Hub.** Copie e use o texto na caixa. O ponto final será mais ou menos assim:  
-    ```
-    Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
-    ```
+    > [!NOTE]
+    > Pode ser-lhe pedido que forneça informações sobre o ponto final incorporado para o IoT Hub. Para obter essa informação, no portal Azure, navegue até ao seu Hub IoT e procure a opção **de pontos finais incorporados** no painel de navegação esquerdo. Clique lá e procure o **ponto final compatível com o Event Hub** na secção de ponto final **compatível com o Event Hub.** Copie e use o texto na caixa. O ponto final será mais ou menos assim:  
+        ```
+        Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+        ```
 
 ## <a name="run-the-program"></a>Execute o programa 
 

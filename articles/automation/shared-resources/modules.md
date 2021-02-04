@@ -3,14 +3,14 @@ title: Utilizar módulos na Automatização do Azure
 description: Este artigo diz como utilizar módulos PowerShell para permitir cmdlets em runbooks e recursos DSC em configurações DSC.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 01/25/2021
+ms.date: 02/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: d62ed96f86078839e66a4cf2ce71f304de2abf4d
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: a784127cfd6019629f1c2714d0f36850406c3b9d
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98936624"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99548781"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Utilizar módulos na Automatização do Azure
 
@@ -40,7 +40,11 @@ Estas são limitações conhecidas com a caixa de areia. A solução recomendada
 
 ## <a name="default-modules"></a>Módulos predefinidos
 
-A tabela que se segue lista os módulos que a Azure Automation importa por padrão quando cria a sua conta Automation. A automatização pode importar versões mais recentes destes módulos. No entanto, não é possível remover a versão original da sua conta Automation, mesmo que elimine uma versão mais recente. Note que estes módulos predefinidos incluem vários módulos AzureRM. 
+A tabela que se segue lista os módulos que a Azure Automation importa por padrão quando cria a sua conta Automation. A automatização pode importar versões mais recentes destes módulos. No entanto, não é possível remover a versão original da sua conta Automation, mesmo que elimine uma versão mais recente. Note que estes módulos predefinidos incluem vários módulos AzureRM.
+
+Os módulos predefinidos também são conhecidos como módulos globais. No portal Azure, a propriedade **do módulo Global** será **verdadeira** ao visualizar um módulo que foi importado quando a conta foi criada.
+
+![Screenshot da propriedade global do módulo em Azure Portal](../media/modules/automation-global-modules.png)
 
 A automatização não importa automaticamente o módulo Raiz Az em quaisquer contas de Automação novas ou existentes. Para saber mais sobre como trabalhar com estes módulos, consulte [os módulos Migratórios para Az.](#migrate-to-az-modules)
 
@@ -386,7 +390,7 @@ Para remover um módulo através do PowerShell, executar o seguinte comando:
 Remove-AzAutomationModule -Name <moduleName> -AutomationAccountName <automationAccountName> -ResourceGroupName <resourceGroupName>
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter mais informações sobre a utilização dos módulos Azure PowerShell, consulte [Começar com a Azure PowerShell](/powershell/azure/get-started-azureps).
 

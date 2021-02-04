@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2021
 ms.author: Zhchia
-ms.openlocfilehash: 51410bd86fa9679aea76f6d5c48f267ddec79026
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 67b114ac355b293db61d00b89816ab73aaa2e5b2
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430701"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550273"
 ---
 # <a name="tutorial-configure-atea-for-automatic-user-provisioning"></a>Tutorial: Configure Atea para o fornecimento automático de utilizadores
 
@@ -48,7 +48,7 @@ O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-req
 
 ## <a name="step-2-configure-atea-to-support-provisioning-with-azure-ad"></a>Passo 2. Configure a Atea para apoiar o provisionamento com a Azure AD
 
-Para configurar a Iris Intranet para apoiar o provisionamento com a Azure AD é necessário obter o URL do **Inquilino** e **o Token Secreto,** deixando cair um e-mail para a [equipa de apoio da Atea.](mailto:servicedesk@atea.dk) Estes valores serão inseridos no campo DE URL **Secret Token** e **Tenant** no separador Provisioning da sua aplicação Atea no portal Azure.
+Para configurar a Atea para apoiar o provisionamento com a Azure AD - por favor, escreva um e-mail para a equipa de apoio da Atea <SSO.Support@atea.com>
 
 ## <a name="step-3-add-atea-from-the-azure-ad-application-gallery"></a>Passo 3. Adicione Atea da galeria de aplicações Azure AD
 

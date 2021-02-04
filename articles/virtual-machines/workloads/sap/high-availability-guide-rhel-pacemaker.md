@@ -1,5 +1,5 @@
 ---
-title: Criação do Pacemaker na RHEL em Azure Microsoft Docs
+title: Criação do Pacemaker na RHEL em Azure | Microsoft Docs
 description: Configuração do Pacemaker na Red Hat Enterprise Linux em Azure
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -13,14 +13,14 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 12/01/2020
+ms.date: 02/03/2021
 ms.author: radeltch
-ms.openlocfilehash: b111dae035e7a055628642fe7c460734199ff608
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 631ebcd41e50a6b8f9e049a646394e572c0b15f7
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96486347"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549325"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Configuração do Pacemaker na Red Hat Enterprise Linux em Azure
 
@@ -42,7 +42,7 @@ ms.locfileid: "96486347"
 
 Leia primeiro as seguintes notas e artigos SAP:
 
-* Nota SAP [1928533,]que tem:
+* Nota SAP [1928533], que tem:
   * A lista de tamanhos Azure VM que são suportados para a implementação de software SAP.
   * Informações importantes sobre a capacidade dos tamanhos Azure VM.
   * O software SAP suportado, e as combinações de sistema operativo (OS) e base de dados.
@@ -294,16 +294,17 @@ sudo pcs property set stonith-timeout=900
 </code></pre>
 
 > [!NOTE]
-> A opção 'pcmk_host_map' só é necessária no comando, se os nomes dos anfitriões RHEL e os nomes dos nódoes Azure não forem idênticos. Consulte a secção arrojada no comando.
+> A opção 'pcmk_host_map' só é necessária no comando, se os nomes dos anfitriões RHEL e os nomes VM do Azure não forem idênticos. Especificar o mapeamento no nome de anfitrião do **formato:vm-name**.
+> Consulte a secção arrojada no comando. Para obter mais informações, o [formato que devo utilizar para especificar mapeamentos de nó para dispositivos de atonith em pcmk_host_map](https://access.redhat.com/solutions/2619961)
 
 Para o RHEL **7.X,** utilize o seguinte comando para configurar o dispositivo da cerca:    
-<pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm login="<b>login ID</b>" passwd="<b>password</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:10.0.0.6;prod-cl1-1:10.0.0.7"</b> \
+<pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm login="<b>login ID</b>" passwd="<b>password</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name"</b> \
 power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 \
 op monitor interval=3600
 </code></pre>
 
 Para o RHEL **8.X,** utilize o seguinte comando para configurar o dispositivo da cerca:  
-<pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm username="<b>login ID</b>" password="<b>password</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:10.0.0.6;prod-cl1-1:10.0.0.7"</b> \
+<pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm username="<b>login ID</b>" password="<b>password</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name"</b> \
 power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 \
 op monitor interval=3600
 </code></pre>

@@ -13,15 +13,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/23/2021
+ms.date: 02/03/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 01c6a2eb53e82965dd96deaa1a09afb1e70dda24
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: 48d1c04e59d316ac19000f5b890c0cb1c96fb213
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746752"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549444"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurações de armazenamento da máquina virtual do Azure do SAP HANA
 
@@ -81,7 +81,13 @@ Lendo os detalhes, é evidente que alavancar esta funcionalidade retira complexi
 
 
 ## <a name="linux-io-scheduler-mode"></a>Modo de Programador Linux I/O
-Linux tem vários modos de agendamento de I/O diferentes. Recomendação comum através dos fornecedores Linux e SAP é reconfigurar o modo de programador de E/S para volumes de discos desde o **mq-deadline** ou modo **kyber** até ao modo **noop** (não multiqueue) ou **nenhum** para o modo (multiqueue). Os detalhes são referenciados na [#1984787 da Nota SAP](https://launchpad.support.sap.com/#/notes/1984787). 
+Linux tem vários modos de agendamento de I/O diferentes. Recomendação comum através dos fornecedores Linux e SAP é reconfigurar o modo de programador de E/S para volumes de discos desde o **mq-deadline** ou modo **kyber** para o modo **noop** (não multiqueue) ou **nenhum** para o modo (multiqueue) se ainda não for feito pelos perfis de saptune SLES. Os detalhes são referenciados em: 
+
+- [#1984787 de nota SAP](https://launchpad.support.sap.com/#/notes/1984787)
+- [#2578899 de nota SAP](https://launchpad.support.sap.com/#/notes/2578899) 
+- [Problema com a definição de noop em SLES 12 SP4](https://www.suse.com/support/kb/doc/?id=000019547)
+
+No Red Hat, deixe as definições conforme estabelecidos pelos perfis de sintonização específicos para as diferentes aplicações SAP.
 
 
 ## <a name="solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines"></a>Soluções com armazenamento premium e Acelerador de Escrita Azure para máquinas virtuais Azure M-Series
@@ -322,7 +328,7 @@ No caso de combinar os dados e o volume de registo para o SAP HANA, os discos qu
 Existem tipos de VM listados que não são certificados com SAP e, como tal, não estão listados no chamado [diretório de hardware SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). O feedback dos clientes foi o de que esses tipos de VM não listados foram utilizados com sucesso para algumas tarefas não-produção.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações, consulte:
 
 - [Guia de alta disponibilidade SAP HANA para máquinas virtuais Azure](./sap-hana-availability-overview.md).

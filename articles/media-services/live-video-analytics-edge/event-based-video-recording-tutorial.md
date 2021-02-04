@@ -3,12 +3,12 @@ title: Gravação de vídeo baseada em eventos para a nuvem e reprodução do tu
 description: Neste tutorial, você vai aprender a usar Azure Live Video Analytics em Azure IoT Edge para gravar uma gravação de vídeo baseada em eventos para a nuvem e reproduzi-lo de volta da nuvem.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: f54659cc279b68113150f2f49d18e938f2500030
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: fda727a1abb488910d52b756455d2b6843e0e8b1
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526267"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550256"
 ---
 # <a name="tutorial-event-based-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Tutorial: Gravação de vídeo baseada em eventos para a nuvem e reprodução da nuvem
 
@@ -195,6 +195,12 @@ Para ver os eventos do módulo objectCounter e do live video analytics no módul
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/quickstarts/start-monitoring-iothub-events.png" alt-text="Comece a monitorizar o ponto final do evento incorporado":::
+
+    > [!NOTE]
+    > Pode ser-lhe pedido que forneça informações sobre o ponto final incorporado para o IoT Hub. Para obter essa informação, no portal Azure, navegue até ao seu Hub IoT e procure a opção **de pontos finais incorporados** no painel de navegação esquerdo. Clique lá e procure o **ponto final compatível com o Event Hub** na secção de ponto final **compatível com o Event Hub.** Copie e use o texto na caixa. O ponto final será mais ou menos assim:  
+        ```
+        Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+        ```
     
 ## <a name="run-the-program"></a>Execute o programa
 
@@ -210,7 +216,7 @@ Para ver os eventos do módulo objectCounter e do live video analytics no módul
 1. <!--In Visual Studio Code, go-->Aceda a src/cloud-to-device-console-app/operations.js.
 1. Sob o nó **GraphTopologySet,** edite o seguinte:
 
-    `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/evr-hubMessage-assets/topology.json"`
+    `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/evr-hubMessage-assets/2.0/topology.json"`
     
 1. Em seguida, sob os nómados **GraphInstanceSet** e **GraphTopologyDelete,** edite:
 

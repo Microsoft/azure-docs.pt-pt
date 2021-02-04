@@ -5,15 +5,15 @@ author: msftradford
 manager: MehranAzimi-msft
 services: azure-spatial-anchors
 ms.author: parkerra
-ms.date: 11/20/2020
+ms.date: 2/3/2021
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: ee0bf9b4ce009f37dd1931d4ed030defa24e7d38
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 0233e58a404721586af0ae2fbdf78dbab6d424ed
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95996270"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550395"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-hololens-unity-app-using-azure-spatial-anchors"></a>Tutorial: Instruções passo a passo para criar uma nova app HoloLens Unitity usando âncoras espaciais Azure
 
@@ -43,7 +43,7 @@ Primeiro vamos preparar o nosso projeto e a cena da unidade:
 Vamos agora definir algumas definições de projeto de Unidade que nos ajudam a direcionar o Windows Holographic SDK para o desenvolvimento.
 
 Primeiro, vamos definir definições de qualidade para a nossa aplicação.
-1. **Selecione a**  >  qualidade das **definições do projeto de**  >  **Quality** edição
+1. **Selecione a**  >  qualidade das **definições do projeto de**  >   edição
 2. Na coluna sob o logótipo da **Windows Store,** clique na seta na linha **Predefinido** e selecione **Very Low**. Saberá que a definição é aplicada corretamente quando a caixa na coluna **Windows Store** e na linha **Very Low** estiver verde.
 
 Precisamos configurar a nossa app Unidade com uma visão imersiva, em vez de uma vista 2D. Podemos criar uma visão imersiva, permitindo o suporte de Realidade Virtual na Unidade direcionando o Windows 10 SDK.
@@ -81,7 +81,7 @@ Precisamos configurar a nossa app Unidade com uma visão imersiva, em vez de uma
 4. Selecione-o, e no **Inspetor** rebate-o de **GameObject** para **MixedRealityCloud**. **Selecione Adicionar Componente** e procure e adicione o **AzureSpatialAnchorsScript**.
 
 **Criar a esfera pré-fabricada**
-1. Vá para a Esfera de Objeto 3D **do GameObject.**  ->  **3D Object**  ->  **Sphere**
+1. Vá para a Esfera de Objeto 3D **do GameObject.**  ->    ->  
 2. No **Inspetor,** fixou a sua escala para **0,25, 0,25, 0,25**.
 3. Encontre o objeto **Esfera** no painel **da hierarquia.** Clique nele e arraste-o para a pasta **Ativos** no painel **de projeto.**
 4. Clique à direita e **elimine** a esfera original que criou no painel **de hierarquia.**
@@ -140,36 +140,13 @@ Podemos utilizar o loop Update() para verificar se existe uma fila de ação. Se
 
 ## <a name="get-the-azure-spatial-anchors-sdk"></a>Obtenha o Azure Spatial Anchors SDK
 
-## <a name="via-unity-package-manager-upm-package"></a>[Pacote via Gestor de Pacotes de Unidade (UPM)](#tab/UPMPackage)
+### <a name="download-packages"></a>Pacotes de descarregamento
+[!INCLUDE [Download Unity Packages](../../../includes/spatial-anchors-unity-download-packages.md)]
 
-Este método é compatível com as versões Unidade 2019.1+.
+### <a name="import-packages"></a>Importar pacotes
+[!INCLUDE [Import Unity Packages](../../../includes/spatial-anchors-unity-import-packages.md)]
 
-### <a name="add-the-registry-to-your-unity-project"></a>Adicione o registo ao seu projeto de Unidade
-
-1. Num explorador de ficheiros, navegue para a pasta do seu projeto `Packages` Unidade. Abra o arquivo manifesto do `manifest.json` projeto, em um editor de texto.
-2. No topo do ficheiro, ao mesmo nível da `dependencies` secção, adicione a seguinte entrada para incluir o registo Azure Spatial Anchors ao seu projeto. A `scopedRegistries` entrada diz à Unidade onde procurar os pacotes Azure Spatial Anchors SDK.
-
-    [!code-json[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-unity-scoped-registry-setup.md?range=9-19&highlight=2-10)]
-
-### <a name="add-the-sdk-package-to-your-unity-project"></a>Adicione o pacote SDK ao seu projeto Unidade
-
-1. Adicione uma entrada com o nome do pacote Azure Spatial Anchors Windows SDK ( `com.microsoft.azure.spatial-anchors-sdk.windows` ) e a versão do pacote na secção do manifesto do seu `dependencies` projeto. Veja um exemplo abaixo.
-
-    [!code-json[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-unity-scoped-registry-setup.md?range=9-20&highlight=12)]
-
-2. Guarde e feche o `manifest.json` ficheiro. Quando regressar à Unidade, a Unidade deve detetar automaticamente a alteração manifesto do projeto e recuperar os pacotes especificados. Pode expandir a `Packages` pasta na sua visão do Projeto para verificar se os pacotes certos foram importados.
-
-## <a name="via-unity-asset-package"></a>[Pacote de ativos de unidade](#tab/UnityAssetPackage)
-
-> [!WARNING]
-> A distribuição do Pacote de Ativos de Unidade do Azure Spatial Anchors SDK será depreciada após a versão SDK 2.5.0.
-
-Vamos descarregar o Azure Spatial Anchors SDK. Aceda à página de lançamentos do [Azure Spatial Anchors GitHub](https://github.com/Azure/azure-spatial-anchors-samples/releases). Under **Assets**, descarregue o **AzureSpatialAnchors.unitypackage**. Em Unidade, vá a **Ativos,** selecione Pacote Personalizado **de Pacote de**  >  **Importação...**. Navegue para o pacote e selecione **Open**.
-
-Na nova janela **do Pacote de Unidade de Importação** que aparece, desescolh os **Plugins** e, em seguida, selecione **Import** no canto inferior direito.
-
----
-
+### <a name="prepare-code"></a>Preparar código
 Na sua solução **Visual Studio,** adicione a seguinte importação na `<ProjectName>\Assets\Scripts\AzureSpatialAnchorsScript.cs` sua:
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=18-21&highlight=1)]

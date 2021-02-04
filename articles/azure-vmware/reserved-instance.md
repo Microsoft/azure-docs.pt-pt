@@ -2,13 +2,13 @@
 title: Economize custos com a Azure VMware Solution reservado instância
 description: Saiba como comprar uma instância reservada para a Azure VMware Solution.
 ms.topic: how-to
-ms.date: 11/12/2020
-ms.openlocfilehash: 74344889cd107350e5026c4a0369382fb9c7ef51
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.date: 02/03/2021
+ms.openlocfilehash: 227ea9274f70cc58468e7e0b3ddcf8239f5b7f5b
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600865"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550980"
 ---
 # <a name="save-costs-with-azure-vmware-solution"></a>Economize custos com a Azure VMware Solution
 
@@ -54,9 +54,9 @@ Estes requisitos aplicam-se à compra de um caso de anfitrião dedicado reservad
 
    | Campo        |  Descrição |
    | ------------ | ------------ |
-   | Subscrição | A assinatura usada para pagar a reserva. Os custos de reserva são cobrados de acordo com o método de pagamento indicado na subscrição. O tipo de subscrição deve ser um acordo de empresa (números de oferta: MS-AZR-0017P ou MS-AZR-0148P), Microsoft Customer Agreement, ou uma subscrição individual com taxas pay-as-you-go (números de oferta: MS-AZR-0003P ou MS-AZR-0023P). Os encargos são deduzidos do saldo Azure Prepayment (anteriormente chamado de compromisso monetário), se disponível, ou cobrado como excesso. Para uma subscrição com taxas de pagamento, os encargos são cobrados no cartão de crédito da subscrição ou num método de pagamento de fatura. |
+   | Subscrição | A assinatura usada para pagar a reserva. Os custos de reserva são cobrados de acordo com o método de pagamento indicado na subscrição. O tipo de subscrição deve ser um acordo de empresa (números de oferta: MS-AZR-0017P ou MS-AZR-0148P), Microsoft Customer Agreement, ou uma subscrição individual com taxas pay-as-you-go (números de oferta: MS-AZR-0003P ou MS-AZR-0023P). Os custos são deduzidos do saldo do Pré-pagamento do Azure (que antes se chamava alocação monetária), se disponível, ou cobrados como utilização excedida. Para uma subscrição com taxas de pagamento, os encargos são cobrados no cartão de crédito da subscrição ou num método de pagamento de fatura. |
    | Âmbito        | O âmbito da reserva pode abranger uma subscrição ou várias subscrições (âmbito partilhado). Se selecionar:<br><ul><li><b>Âmbito de grupo de recursos únicos</b> - Aplica o desconto de reserva aos recursos correspondentes apenas no grupo de recursos selecionado.</li><li><b>Âmbito de subscrição único</b> - Aplica o desconto de reserva aos recursos correspondentes na subscrição selecionada.</li><li><b>Âmbito partilhado</b> - Aplica o desconto de reserva aos recursos correspondentes em subscrições elegíveis que estão no contexto de faturação. Para os clientes da EA, o contexto de faturação é a inscrição. Para subscrições individuais com taxas pay as you go, o âmbito da faturação reside em todas as subscrições elegíveis criadas pelo administrador de conta.</li></ul>       |
-   | Região       | A região de Azure que está coberta pela reserva.   |
+   | Region       | A região de Azure que está coberta pela reserva.   |
    | Tamanho do anfitrião    | AV36    |
    | Termo         | Um ano ou três anos.  |
    | Quantidade     | O número de casos para comprar dentro da reserva. A quantidade é o número de anfitriões da Azure VMware Solution que podem obter o desconto de faturação.    |
@@ -85,7 +85,7 @@ Os CSPs que pretendam adquirir instâncias reservadas para os seus clientes deve
    | ------------ | ------------ |
    | Subscrição | A assinatura usada para pagar a reserva. Os custos de reserva são cobrados de acordo com o método de pagamento indicado na subscrição. O tipo de assinatura deve ser elegível, que neste caso é uma subscrição CSP|
    | Âmbito        | O âmbito da reserva pode abranger uma subscrição ou várias subscrições (âmbito partilhado). Se selecionar:<br><ul><li><b>Âmbito de grupo de recursos únicos</b> - Aplica o desconto de reserva aos recursos correspondentes apenas no grupo de recursos selecionado.</li><li><b>Âmbito de subscrição único</b> - Aplica o desconto de reserva aos recursos correspondentes na subscrição selecionada.</li><li><b>Âmbito partilhado</b> - Aplica o desconto de reserva aos recursos correspondentes em subscrições elegíveis que estão no contexto de faturação. Para os clientes da EA, o contexto de faturação é a inscrição. Para subscrições individuais com taxas pay as you go, o âmbito da faturação reside em todas as subscrições elegíveis criadas pelo administrador de conta.</li></ul>       |
-   | Região       | A região de Azure que está coberta pela reserva.   |
+   | Region       | A região de Azure que está coberta pela reserva.   |
    | Tamanho do anfitrião    | AV36    |
    | Termo         | Um ano ou três anos.  |
    | Quantidade     | O número de casos para comprar dentro da reserva. A quantidade é o número de anfitriões da Azure VMware Solution que podem obter o desconto de faturação.     |
@@ -132,3 +132,12 @@ Para mais informações sobre reservas geridas pela CSP, consulte [as reservas d
 Pode cancelar, trocar ou reembolsar reservas com determinadas limitações. Para obter mais informações, veja [Trocas e reembolsos personalizados das Reservas do Azure](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 Os CSPs podem cancelar, trocar ou reembolsar reservas, com determinadas limitações, adquiridas para o seu cliente. Para mais informações, consulte [Gerir, cancelar, trocar ou reembolsar reservas do Microsoft Azure para os clientes.](/partner-center/azure-reservations-manage)
+
+## <a name="next-steps"></a>Passos seguintes
+
+Agora que cobriu a compra de um caso reservado da Azure VMware Solution, talvez queira saber:
+
+- [Criar uma avaliação da Solução VMware Azure](../migrate/how-to-create-azure-vmware-solution-assessment.md).
+- [Gestão da DHCP para a Azure VMware Solution](manage-dhcp.md).
+- [Gestão do ciclo de vida da Azure VMware Solution VMs](lifecycle-management-of-azure-vmware-solution-vms.md).
+ 

@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: blehr
-ms.openlocfilehash: 02a6e934b517cdd118b6175d9cfef73bee4c996d
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 7d0c83f1ae18d36557a7a5b0222aee2905e05cb7
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223011"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550240"
 ---
 # <a name="quickstart-create-a-public-ip-address-using-the-azure-portal"></a>Quickstart: Criar um endereço IP público utilizando o portal Azure
 
 Este artigo mostra-lhe como criar um recurso de endereço IP público utilizando o portal Azure. Para obter mais informações sobre quais os recursos a que estes recursos podem estar associados, a diferença entre O SKU Básico e Padrão, e outras informações [relacionadas, consulte endereços IP públicos.](./public-ip-addresses.md)  Para este exemplo, centrar-nos-emos apenas nos endereços IPv4; para obter mais informações sobre endereços IPv6, consulte [IPv6 para Azure VNet](./ipv6-overview.md).
 
-# <a name="standard-sku---using-zones"></a>[**SKU Padrão - Utilização de zonas**](#tab/option-create-public-ip-standard-zones)
+# <a name="standard-sku"></a>[**SKU Standard**](#tab/option-create-public-ip-standard-zones)
 
 Utilize os seguintes passos para criar um endereço IP público redundante de zona padrão chamado **myStandardZRPublicIP**.
 
@@ -43,10 +43,10 @@ Utilize os seguintes passos para criar um endereço IP público redundante de zo
     | Etiqueta de nome DNS          | Deixe o valor em branco    |
     | Subscrição            | Selecione a sua subscrição.   |
     | Grupo de recursos          | Selecione **Criar novo,** insira o myResourceGroup e, em seguida, selecione **OK** |
-    | A localização                | Selecione **East US 2**      |
-    | Zona de Disponibilidade       | Selecione **Zona-Redundante** ou escolha zona específica (ver nota abaixo) |
+    | Localização                | Selecione **East US 2**      |
+    | Zona de Disponibilidade       | Selecione **Zona-Redundante,** Sem Zona ou escolha zona específica (ver nota abaixo) |
 
-Note que estas são apenas seleções válidas em regiões com [Zonas de Disponibilidade.](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones)  (Também pode selecionar uma zona específica nestas regiões, embora não seja resiliente à falha zonal.)
+Note que estas são apenas seleções válidas em regiões com [Zonas de Disponibilidade.](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones)  (Também pode selecionar uma zona específica nestas regiões, embora não seja resiliente à falha zonal.)  Para obter mais informações sobre as zonas de disponibilidade, consulte [a visão geral das zonas de disponibilidade.](https://docs.microsoft.com/azure/availability-zones/az-overview)
 
 \* = O nível diz respeito à funcionalidade [Balancer de Carga cross-region,](../load-balancer/cross-region-overview.md) atualmente em Pré-visualização.
 
@@ -70,7 +70,7 @@ Utilize os seguintes passos para criar um endereço IP público estático básic
     | Etiqueta de nome DNS          | Deixe o valor em branco    |
     | Subscrição            | Selecione a sua subscrição.   |
     | Grupo de recursos          | Selecione **Criar novo,** insira o myResourceGroup e, em seguida, selecione **OK** |
-    | A localização                | Selecione **East US 2**      |
+    | Localização                | Selecione **East US 2**      |
 
 Se for aceitável que o endereço IP seja alterado ao longo do tempo, a atribuição de IP **dinâmico** pode ser selecionada.
 

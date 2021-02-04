@@ -5,18 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 04/11/2017
+ms.date: 02/03/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7cbcdb4b947e4b45a5473dc0f9f0252b5ad1d5c
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 8160859bb782ee8ffc4fef5ee03b61b6f54be1bb
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92442053"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99548666"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Azure Ative Directy B2B colaboração API e personalização
 
@@ -67,6 +66,16 @@ A API oferece as seguintes capacidades:
     "invitedUserType": "Member"
     ```
 
+## <a name="determine-if-a-user-was-already-invited-to-your-directory"></a>Determine se um utilizador já foi convidado para o seu diretório
+
+Pode utilizar o convite da API para determinar se um utilizador já existe no seu inquilino de recursos. Isto pode ser útil quando está a desenvolver uma aplicação que usa o convite da API para convidar um utilizador. Se o utilizador já existir no seu diretório de recursos, eles não receberão um convite, para que você possa executar uma consulta primeiro para determinar se o e-mail já existe como um UPN ou outro imóvel de inscrição.
+
+1. Certifique-se de que o domínio de e-mail do utilizador não faz parte do domínio verificado do seu inquilino de recursos.
+2. No inquilino de recursos, utilize a seguinte consulta do utilizador onde {0} está o endereço de e-mail que está convidando:
+
+   ```
+   “userPrincipalName eq '{0}' or mail eq '{0}' or proxyAddresses/any(x:x eq 'SMTP:{0}') or signInNames/any(x:x eq '{0}') or otherMails/any(x:x eq '{0}')"
+   ```
 
 ## <a name="authorization-model"></a>Modelo de autorização
 

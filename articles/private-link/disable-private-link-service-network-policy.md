@@ -7,18 +7,18 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 1062f126da8be6b37f6b52eee520425b3edcde16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7528d12dcbfba09b4dae4ac07a5c683a7c11bd88
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84744345"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99548806"
 ---
 # <a name="disable-network-policies-for-private-link-service-source-ip"></a>Desativar as políticas de rede para a fonte de serviço de Ligação Privada IP
 
 Para escolher um endereço IP de origem para o seu serviço De Ligação Privada, é necessária uma definição de desativação explícita `privateLinkServiceNetworkPolicies` na sub-rede. Esta definição só é aplicável para o endereço IP privado específico que escolheu como IP de origem do serviço Private Link. Para outros recursos na sub-rede, o acesso é controlado com base na definição de regras de segurança dos Grupos de Segurança da Rede (NSG). 
  
-Ao utilizar qualquer cliente Azure (PowerShell, CLI ou modelos), é necessário um passo adicional para alterar esta propriedade. Pode desativar a política utilizando a casca de nuvem a partir do portal Azure, ou instalações locais da Azure PowerShell, Azure CLI ou utilizar modelos de Gestor de Recursos Azure.  
+Ao utilizar o portal para criar um serviço de Ligação Privada, esta definição é automaticamente desativada como parte do processo de criação. As implementações que utilizem qualquer cliente Azure (PowerShell, CLI ou modelos), requerem um passo adicional para alterar esta propriedade. Pode desativar a política utilizando a casca de nuvem a partir do portal Azure, ou instalações locais da Azure PowerShell, Azure CLI ou utilizar modelos de Gestor de Recursos Azure.  
  
 Siga os passos abaixo para desativar as políticas de rede de serviços de ligação privada para uma rede virtual chamada *myVirtualNetwork* com uma sub-rede *padrão* hospedada num grupo de recursos chamado *myResourceGroup*. 
 

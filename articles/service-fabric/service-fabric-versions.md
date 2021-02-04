@@ -3,12 +3,12 @@ title: Atualize a sua versão de cluster de tecido de serviço Azure
 description: Conheça as versões de cluster no Azure Service Fabric, incluindo um link para os mais recentes lançamentos do blog da equipa do Service Fabric.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: a99b38a33a5bb83345898769b466ce0cab0a4d4d
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 5abfe83fcb68fcab7df22f1fd266cc695f2b9c80
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98918114"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549073"
 ---
 # <a name="upgrade-your-azure-service-fabric-cluster-version"></a>Atualize a sua versão de cluster de tecido de serviço Azure
 
@@ -40,7 +40,7 @@ Os clusters Azure Service Fabric que funcionam em versões de 5.7 a 6.3.63.* est
 Atualização para uma versão suportada do Service Fabric para evitar tempo de inatividade ou perda de funcionalidades relacionadas com esta alteração. Certifique-se de que os seus clusters estão a executar pelo menos as seguintes versões para evitar problemas no seu ambiente.
 
 > [!Note]
-> Todas as versões lançadas de 7.2 incluem as alterações necessárias.
+> **Todas as versões lançadas de 7.2 incluem as alterações necessárias**.
   
   | SO | Tempo de execução do tecido de serviço atual no cluster | Lançamento CU/Patch |
   | --- | --- |--- |
@@ -75,9 +75,15 @@ Para evitar tempo de inatividade ou perda de funcionalidades, certifique-se de q
 As versões de Tecido de Serviço na tabela contêm as alterações necessárias para evitar a perda de funcionalidade. Certifique-se de que está a usar uma destas versões.  
 
 > [!Note]
-> Todas as versões de lançamento do 7.2 incluem as alterações necessárias.
+> **Os clusters Azure Service Fabric em execução na versão 6.5, têm de realizar várias atualizações ao mesmo tempo antes da alteração de infrastucuture para evitar a perda de funcionalidade para o cluster**. 
+>   -   1. Upgrade para 7.0.466. **Os clusters que executam o Sistema operativo Windows que tem a funcionalidade de contentores do Windows ativado não podem estar nesta versão intermédia. Eles precisam executar o próximo passo (ii) abaixo.i.e.  Upgrade para estar em verião mais segura e compatível para evitar interrupções de serviço**
+>   -   2. Atualize para versões de reclamação mais recentes em versão 7.0* (7.0.478) ou qualquer uma das versões mais altas listadas abaixo.
 
-  | SO | Tempo de execução do tecido de serviço atual no cluster | Lançamento CU/Patch |
+
+> [!Note]
+> **Todas as versões de lançamento do 7.2 incluem as alterações necessárias**.
+
+ | SO | Tempo de execução do tecido de serviço atual no cluster | Lançamento CU/Patch |
   | --- | --- |--- |
   | Windows | 7.0.* | 7.0.478.9590 |
   | Windows | 7.1.* | 7.1.503.9590 |

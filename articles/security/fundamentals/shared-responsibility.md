@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/16/2019
+ms.date: 02/03/2021
 ms.author: terrylan
-ms.openlocfilehash: 8f16105d6bda1798828bc423ec8a158d49e0cf2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d9d3878c34bd203b6c14b45e1196245ef8524f6
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "72518372"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99548954"
 ---
 # <a name="shared-responsibility-in-the-cloud"></a>Responsabilidade partilhada na cloud
 
@@ -50,4 +50,4 @@ O diagrama que se segue mostra uma abordagem tradicional em que muitas responsab
 Na abordagem ativada pela nuvem, também é capaz de aproveitar as capacidades de segurança baseadas na nuvem para obter mais eficácia e usar inteligência em nuvem para melhorar o seu tempo de deteção e resposta de ameaças. Ao transferir responsabilidades para o fornecedor de nuvem, as organizações podem obter mais cobertura de segurança, o que lhes permite realocar recursos de segurança e orçamento para outras prioridades do negócio.
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter mais informações sobre a divisão de responsabilidades entre si e a Microsoft numa implementação de SaaS, PaaS e IaaS, consulte [responsabilidades partilhadas para computação](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91)em nuvem.
+Para obter mais informações sobre a divisão de responsabilidades entre si e a Microsoft numa implementação de SaaS, PaaS e IaaS, consulte [responsabilidades partilhadas para computação](https://azure.microsoft.com/resources/shared-responsibility-for-cloud-computing/)em nuvem.

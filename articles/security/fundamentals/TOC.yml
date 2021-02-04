@@ -138,7 +138,7 @@
       href: service-fabric-best-practices.md
 - name: 'Monitorização, auditoria e operações'
   items:
-    - name: Proteção avançada contra ameaças
+    - name: Proteção contra ameaças
       href: threat-detection.md
     - name: Registo e auditoria do Azure
       href: log-audit.md

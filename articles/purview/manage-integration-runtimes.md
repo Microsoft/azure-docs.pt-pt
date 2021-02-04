@@ -6,17 +6,20 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/16/2020
-ms.openlocfilehash: 0d365787ea3603ef0adb8ad0b48bef9792ffb003
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.date: 02/03/2021
+ms.openlocfilehash: 72efcacf20b0d67c9d6a8255426a09f9813f17b4
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96553655"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550503"
 ---
 # <a name="create-and-manage-a-self-hosted-integration-runtime"></a>Criar e gerir um tempo de integração auto-hospedado
 
-Este artigo descreve como criar e gerir um tempo de integração auto-hospedado (SHIR) para ajudar na digitalização de fontes de dados.
+Este artigo descreve como criar e gerir um tempo de integração auto-hospedado (SHIR) que permite digitalizar fontes de dados em Azure Purview.
+
+> [!NOTE]
+> O tempo de execução da integração do Purview não pode ser partilhado com um Azure Synapse Analytics ou um Tempo de Integração da Fábrica de Dados Azure na mesma máquina. Tem de ser instalado numa máquina separada.
 
 ## <a name="create-a-self-hosted-integration-runtime"></a>Criar um integration runtime autoalojado
 
@@ -24,31 +27,31 @@ Este artigo descreve como criar e gerir um tempo de integração auto-hospedado 
 
 2. Em **Fontes e digitalização** no painel esquerdo, selecione **os tempos de integração** e, em seguida, selecione **+ Novo**.
 
-    :::image type="content" source="media/manage-integration-runtimes/select-integration-runtimes.png" alt-text="clique em IR.":::
+   :::image type="content" source="media/manage-integration-runtimes/select-integration-runtimes.png" alt-text="Clique no IR.":::
 
 3. Na página de configuração do tempo de execução da **Integração,** selecione **Self-Hosted** para criar um Self-Hosted IR e, em seguida, selecione **Continue**.
 
-    :::image type="content" source="media/manage-integration-runtimes/select-self-hosted-ir.png" alt-text="criar novo SHIR.":::
+   :::image type="content" source="media/manage-integration-runtimes/select-self-hosted-ir.png" alt-text="Criar novo SHIR.":::
 
 4. Insira um nome para o seu IR e selecione Criar.
 
 5. Na página de **definições de tempo de execução de integração,** siga os passos por baixo da secção **de configuração manual.** Você terá que baixar o tempo de execução de integração do site de descarregamento para um VM ou máquina onde pretende executá-lo.
 
-    :::image type="content" source="media/manage-integration-runtimes/integration-runtime-settings.png" alt-text="obter chave":::
+   :::image type="content" source="media/manage-integration-runtimes/integration-runtime-settings.png" alt-text="obter chave":::
 
-    a. Copiar e colar a chave de autenticação.
-        
-    b. Descarregue o tempo de execução de integração auto-hospedado a partir do Tempo de Integração da [Azure Data Factory](https://www.microsoft.com/download/details.aspx?id=39717) numa máquina local do Windows. Execute o instalador.
-        
-    c. Na página **'Runtime' de Integração de Registo (Self-hosted),** cole uma das 2 teclas que guardou anteriormente e selecione **Registar.**
+   - Copiar e colar a chave de autenticação.
 
-    :::image type="content" source="media/manage-integration-runtimes/register-integration-runtime.png" alt-text="chave de entrada.":::
+   - Descarregue o tempo de execução de integração auto-hospedado a partir do Tempo de Integração da [Azure Data Factory](https://www.microsoft.com/download/details.aspx?id=39717) numa máquina local do Windows. Execute o instalador.
 
-    d. Na página de nó de novo número **de integração (auto-hospedada),** selecione **Finish**.
+   - Na página **'Runtime' de Integração de Registo (Self-hosted),** cole uma das duas teclas que guardou anteriormente e selecione **Registar.**
+
+     :::image type="content" source="media/manage-integration-runtimes/register-integration-runtime.png" alt-text="chave de entrada.":::
+
+   - Na página de nó de novo número **de integração (auto-hospedada),** selecione **Finish**.
 
 6. Depois de o tempo de integração auto-hospedado ser registado com sucesso, vê a seguinte janela:
 
-    :::image type="content" source="media/manage-integration-runtimes/successfully-registered.png" alt-text="registado com sucesso.":::
+   :::image type="content" source="media/manage-integration-runtimes/successfully-registered.png" alt-text="registado com sucesso.":::
 
 ## <a name="manage-a-self-hosted-integration-runtime"></a>Gerir um tempo de integração auto-hospedado
 
@@ -62,4 +65,4 @@ Pode eliminar um tempo de integração auto-hospedado navegando para **os tempos
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Como as análises detetam ativos eliminados](concept-detect-deleted-assets.md)
+[Como as análises detetam ativos eliminados](concept-detect-deleted-assets.md)

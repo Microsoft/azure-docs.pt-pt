@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 07/16/2020
-ms.openlocfilehash: 9541320f65060a0b1f2b5c84a131c08e92554e9e
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: f5d7094920a21af630e10aec2aa759ce9c505050
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351712"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550589"
 ---
 # <a name="edit-qna-pairs-in-your-knowledge-base"></a>Edite os pares QnA na sua base de conhecimentos
 
@@ -19,6 +19,23 @@ O QnA Maker permite-lhe gerir o conteúdo da sua base de conhecimentos proporcio
 Os pares QNA são adicionados a partir de uma fonte de dados, como um ficheiro ou URL, ou adicionados como uma fonte editorial. Uma fonte editorial indica que o par QnA foi adicionado manualmente no portal QnA. Todos os pares QnA estão disponíveis para edição.
 
 <a name="add-an-editorial-qna-set"></a>
+
+## <a name="question-and-answer-pairs"></a>Pares de perguntas e respostas
+
+Uma base de conhecimento consiste em pares de perguntas e respostas (QnA).  Cada par tem uma resposta e um par contém todas as informações associadas a essa _resposta._ Uma resposta pode assemelhar-se vagamente a uma linha de base de dados ou a uma instância de estrutura de dados. As definições **necessárias** num par de perguntas e respostas (QnA) são:
+
+* uma **pergunta** - texto de consulta do utilizador, usado para a aprendizagem automática do QnA Maker, para alinhar com o texto da pergunta do utilizador com diferentes formulações, mas a mesma resposta
+* a **resposta** - a resposta do par é a resposta que é devolvida quando uma consulta do utilizador é compatível com a pergunta associada
+
+Cada par é representado por um **ID**.
+
+As definições **opcionais** para um par incluem:
+
+* **Formas alternativas da pergunta** - isto ajuda a QnA Maker a devolver a resposta correta para uma maior variedade de frases de perguntas
+* **Metadados**: Os metadados são tags associadas a um par QnA e são representados como pares de valor-chave. As tags de metadados são usadas para filtrar pares QnA e limitar o conjunto sobre o qual a correspondência de consulta é realizada.
+* **Pedidos multi-turn, usados** para continuar uma conversa multi-volta
+
+![Bases de conhecimento do QnA Maker](../media/qnamaker-concepts-knowledgebase/knowledgebase.png)
 
 ## <a name="add-an-editorial-qna-pair"></a>Adicione um par editorial QnA
 
@@ -129,6 +146,14 @@ Selecione periodicamente **Guardar e treinar** depois de fazer edições para ev
 [A edição de](#add-an-editorial-qna-set) respostas em texto rico permite-lhe, como autor, utilizar uma barra de ferramentas formatação para selecionar e formatar texto rapidamente.
 
 [O Markdown](../reference-markdown-format.md) é uma ferramenta melhor quando é necessário autogerar conteúdo para criar bases de conhecimento para ser importado como parte de um pipeline CI/CD ou para [testes de lote](../index.yml).
+
+## <a name="editing-your-knowledge-base-locally"></a>Editar a sua base de conhecimento localmente
+
+Uma vez criada uma base de conhecimento, recomenda-se que faça edições para o texto base de conhecimento no [portal QnA Maker](https://qnamaker.ai), em vez de exportar e reimportar através de ficheiros locais. No entanto, pode haver momentos em que é necessário editar uma base de conhecimento localmente.
+
+Exporte a base de conhecimento a partir da página **Definições** e, em seguida, edite a base de conhecimento com o Microsoft Excel. Se optar por utilizar outra aplicação para editar o seu ficheiro exportado, a aplicação pode introduzir erros de sintaxe porque não está totalmente em conformidade com a TSV. Os ficheiros TSV do Microsoft Excel geralmente não introduzem erros de formatação.
+
+Assim que terminar as suas edições, reiporte o ficheiro TSV da página **Definições.** Isto substituirá completamente a base de conhecimentos atual pela base de conhecimentos importada.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -13,13 +13,13 @@ metadata:
   author: TerryLanfear
   ms.author: terrylan
   manager: rkarlin
-  ms.date: 08/29/2019
-  ms.openlocfilehash: a96ff0e329fb00888645949f2eab5652d15cb941
-  ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
-  ms.translationtype: HT
+  ms.date: 02/03/2021
+  ms.openlocfilehash: e5944ae9a7c701f3bf84ff06fd543484bfe36b23
+  ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+  ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 12/02/2020
-  ms.locfileid: "96489688"
+  ms.lasthandoff: 02/04/2021
+  ms.locfileid: "99549818"
 highlightedContent:
   items:
   - title: Introdução à segurança do Azure
@@ -163,10 +163,10 @@ conceptualContent:
       text: Alertas de segurança no Centro de Segurança do Azure
     - url: ../storage/common/azure-defender-storage-configure.md
       itemType: concept
-      text: Advanced Threat Protection para o Armazenamento do Microsoft Azure
+      text: Azure Defender para Armazenamento
     - url: ../azure-sql/database/threat-detection-overview.md
       itemType: concept
-      text: Advanced Threat Protection para a Base de Dados SQL do Azure
+      text: Azure Defender para SQL
     footerLink:
       url: ./fundamentals/threat-detection.md
       text: Ver mais
