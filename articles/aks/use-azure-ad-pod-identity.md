@@ -4,20 +4,23 @@ description: Saiba como utilizar identidades geridas por cápsulas AAD no Servi�
 services: container-service
 ms.topic: article
 ms.date: 12/01/2020
-ms.openlocfilehash: d992c5c5384c04fe39511481550ab7b0ea47069e
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 22b7a03a8598aa6e4b7c392567905d467776360c
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98217877"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99557354"
 ---
 # <a name="use-azure-active-directory-pod-managed-identities-in-azure-kubernetes-service-preview"></a>Use identidades geridas por cápsulas Azure Ative pod no Serviço Azure Kubernetes (Pré-visualização)
 
 As identidades geridas pelo Azure Ative Directory usam primitivos Kubernetes para associar [identidades geridas para recursos][az-managed-identities] e identidades Azure Ative (AAD) com cápsulas. Os administradores criam identidades e encadernações como primitivos Kubernetes que permitem que as cápsulas acedam aos recursos da Azure que dependem da AAD como fornecedor de identidade.
 
+> [!NOTE]
+> Se tiver uma instalação existente de AADPODIDENTITY, deve remover a instalação existente. Ativar esta funcionalidade significa que o componente MIC não é necessário.
+
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Deve ter o seguinte recurso instalado:
 

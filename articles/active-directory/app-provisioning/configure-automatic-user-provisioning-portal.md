@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/25/2019
+ms.date: 02/04/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 8ee18043f0485ae6290b1b323648ba9b2b83258b
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 02d415bd957b0490857081b996c592f90365f031
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99255921"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99555632"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Gestão do fornecimento de conta de utilizador para aplicações empresariais no portal Azure
 
@@ -63,7 +63,7 @@ Selecione **a Ligação** de Teste para testar as credenciais, fazendo com que a
 
 Expandir **mapeamentos** para visualizar e editar os atributos do utilizador que fluem entre a Azure AD e a aplicação-alvo quando as contas do utilizador são a provisionadas ou atualizadas.
 
-Há um conjunto pré-configurado de mapeamentos entre objetos de utilizador AZure AD e objetos de utilizador de cada aplicação SaaS. Algumas aplicações gerem outros tipos de objetos, tais como Grupos ou Contactos. Selecione um mapeamento na mesa para abrir o editor de mapeamento à direita, onde pode vê-lo e personalizá-lo.
+Há um conjunto pré-configurado de mapeamentos entre objetos de utilizador AZure AD e objetos de utilizador de cada aplicação SaaS. Algumas aplicações também gerem objetos de grupo. Selecione um mapeamento na mesa para abrir o editor de mapeamento à direita, onde pode vê-lo e personalizá-lo.
 
 ![Mostra o ecrã de mapeamento de atributos](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning-mapping.png)
 

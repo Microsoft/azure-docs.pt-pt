@@ -3,12 +3,12 @@ title: Backup da base de dados do SQL Server de resolução de problemas
 description: Informações de resolução de problemas para fazer backup das bases de dados do SQL Server em execução em VMs Azure com Azure Backup.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: 1e4ee2bdcd0826b655aa71d83674ff1e0c06a8cb
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 2cf0ed0200de9b2787f5d9f38bd343f93648bc78
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/04/2021
-ms.locfileid: "99549903"
+ms.locfileid: "99557748"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Resolução de problemas ML Server base de dados backup usando Azure Backup
 
@@ -206,14 +206,14 @@ A operação está bloqueada, uma vez que o cofre atingiu o seu limite máximo p
 
 | Mensagem de erro | Possíveis causas | Ação recomendada |
 |---|---|---|
-A operação de extensão da carga de trabalho AzureBackup falhou. | O VM é desligado (ou) O VM não é capaz de contactar o serviço de Backup Azure devido a problemas de conectividade com a Internet.| - Certifique-se de que o VM está a funcionar e tem conectividade com a Internet.<br>- [Re-registar a extensão no SQL Server VM](https://docs.microsoft.com/azure/backup/manage-monitor-sql-database-backup#re-register-extension-on-the-sql-server-vm).
+A operação de extensão da carga de trabalho AzureBackup falhou. | O VM é desligado ou o VM não pode contactar o serviço de Backup Azure devido a problemas de conectividade com a Internet.| <li> Certifique-se de que o VM está a funcionar e tem conectividade com a Internet.<li> [Re-registar a extensão no SQL Server VM](manage-monitor-sql-database-backup.md#re-register-extension-on-the-sql-server-vm).
 
 
 ### <a name="usererrorvminternetconnectivityissue"></a>UserErrorVMInternetConnectivityIssue
 
 | Mensagem de erro | Possíveis causas | Ação recomendada |
 |---|---|---|
-O VM não é capaz de contactar o serviço de Backup Azure devido a problemas de conectividade com a Internet. | O VM precisa de conectividade de saída para o Serviço de Backup Azure, Armazenamento Azure ou Serviços de Diretório Ativo Azure.| - Se utilizar o NSG para restringir a conectividade, então deve utilizar a etiqueta de serviço *AzureBackup* para permitir o acesso de saída ao Serviço de Backup Azure e, da mesma forma, para os serviços Azure *AD (AzureActiveDirectory)* e Azure Storage *(Storage).* Siga estes [passos](./backup-sql-server-database-azure-vms.md#nsg-tags) para conceder acesso.<br>- Certifique-se de que o DNS está a resolver os pontos finais do Azure.<br>- Verifique se o VM está por detrás de um equilibrador de carga que bloqueia o acesso à Internet. Ao atribuir IP público aos VMs, a descoberta funcionará.<br>- Verifique se não há firewall/antivírus/procuração que bloqueie chamadas para os três serviços-alvo acima.
+O VM não é capaz de contactar o serviço de Backup Azure devido a problemas de conectividade com a Internet. | O VM precisa de conectividade de saída para o Serviço de Backup Azure, Armazenamento Azure ou Serviços de Diretório Ativo Azure.| <li> Se utilizar o NSG para restringir a conectividade, então deve utilizar a etiqueta de serviço *AzureBackup* para permitir o acesso de saída ao Serviço de Backup Azure e, da mesma forma, para os serviços Azure *AD (AzureActiveDirectory)* e Azure Storage *(Storage).* Siga estes [passos](./backup-sql-server-database-azure-vms.md#nsg-tags) para conceder acesso. <li> Certifique-se de que o DNS está a resolver os pontos finais do Azure. <li> Verifique se o VM está por trás de um equilibrador de carga que bloqueia o acesso à Internet. Ao atribuir IP público aos VMs, a descoberta funcionará. <li> Verifique se não há firewall/antivírus/procuração que bloqueie chamadas para os três serviços-alvo acima.
 
 ## <a name="re-registration-failures"></a>Falhas de re-registo
 

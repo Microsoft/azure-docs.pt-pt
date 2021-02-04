@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8aa6a2168bff6e90d636770804900fa93f081ced
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 1196982fedc7321805e36cceed27c90e43a6e705
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97426008"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99558333"
 ---
 # <a name="set-up-msix-app-attach-preview-using-powershell"></a>Configurar o anexo de aplicações MSIX (pré-visualização) utilizando o PowerShell
 
@@ -30,6 +30,7 @@ Aqui está o que precisa para configurar o anexo da app MSIX:
 
 - Uma implementação de ambiente de trabalho virtual do Windows em funcionamento. Para aprender a implementar o Windows Virtual Desktop (clássico), consulte [Criar um inquilino no Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). Para aprender a implementar o Windows Virtual Desktop com integração do Azure Resource Manager, consulte [Criar uma piscina de anfitriões com o portal Azure](./create-host-pools-azure-marketplace.md).
 - Uma piscina de anfitriões virtual do Windows Desktop com pelo menos um anfitrião de sessão ativa.
+- Esta piscina de anfitriões deve estar no ambiente de validação.
 - Um grupo de aplicações remotas desktop.
 - A ferramenta de embalagem MSIX.
 - Uma aplicação embalada pela MSIX expandiu-se para uma imagem MSIX que é enviada para uma partilha de ficheiros.

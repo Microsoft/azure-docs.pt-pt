@@ -1,15 +1,15 @@
 ---
 title: Definições políticas incorporadas para Azure Batch
 description: Lista definições políticas incorporadas da Azure Policy para O Lote Azure. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 01/29/2021
+ms.date: 02/04/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 7135dd4aa8bd02ad952c45442fba3457dfc69c78
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 64b099a7c90f05dc0fa365ff113b65bdf4372181
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99221266"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99555848"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-batch"></a>Definições incorporadas da Política Azure para O Lote Azure
 

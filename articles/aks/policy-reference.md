@@ -1,15 +1,15 @@
 ---
 title: Definições políticas incorporadas para o Serviço Azure Kubernetes
 description: Lista definições de políticas incorporadas da Azure Policy para o Serviço Azure Kubernetes. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 01/29/2021
+ms.date: 02/04/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 17615dc5b9e1ccff3c35a561bc8e31ad1ec136aa
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 9ae2339585616c1da993d47a1172d8ec8eddb372
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99221419"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99557531"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-kubernetes-service"></a>Definições incorporadas da Azure Policy para o Serviço Azure Kubernetes
 

@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 520d572478074a86c9b5cececacd34d7cd41539d
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: 31ca126c75d5c2e3fa7fd91f3398202fad418183
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99071618"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99555614"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Serviços que suportam identidades geridas para recursos da Azure
 
@@ -307,8 +307,8 @@ Tipo de identidade gerido | Tudo geralmente disponível<br>Regiões Azure Globai
 
 |Tipo de identidade gerido | Tudo geralmente disponível<br>Regiões Azure Globais | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Sistema atribuído | ![Disponível][check] | ![Disponível][check] | Pré-visualizar | ![Disponível][check] |
-| Utilizador atribuído | ![Disponível][check] | ![Disponível][check] | Pré-visualizar | ![Disponível][check] |
+| Sistema atribuído | ![Disponível][check] | ![Disponível][check] | ![Disponível][check] | ![Disponível][check] |
+| Utilizador atribuído | ![Disponível][check] | ![Disponível][check] | ![Disponível][check] | ![Disponível][check] |
 
 Consulte a seguinte lista para configurar a identidade gerida para conjuntos de balanças de máquinas virtuais Azure (nas regiões onde disponível):
 
@@ -324,8 +324,8 @@ Consulte a seguinte lista para configurar a identidade gerida para conjuntos de 
 
 | Tipo de identidade gerido | Tudo geralmente disponível<br>Regiões Azure Globais | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Sistema atribuído | ![Disponível][check] | ![Disponível][check] | Pré-visualizar | ![Disponível][check] |
-| Utilizador atribuído | ![Disponível][check] | ![Disponível][check] | Pré-visualizar | ![Disponível][check] |
+| Sistema atribuído | ![Disponível][check] | ![Disponível][check] | ![Disponível][check] | ![Disponível][check] |
+| Utilizador atribuído | ![Disponível][check] | ![Disponível][check] | ![Disponível][check] | ![Disponível][check] |
 
 Consulte a seguinte lista para configurar a identidade gerida para as máquinas virtuais Azure (nas regiões onde disponível):
 

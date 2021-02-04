@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/07/2020
+ms.date: 02/04/2021
 ms.author: memildin
-ms.openlocfilehash: 5b257e45a86a7b22e9064fcfc6092b3c946ae99b
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 13cbc2e9451221fef951eb6fac4c6b2772275122
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757652"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99556423"
 ---
 # <a name="organize-management-groups-subscriptions-and-tenant-wide-visibility"></a>Organizar grupos de gestão, subscrições e visibilidade em todo o arrendamento
 
@@ -81,12 +81,14 @@ Pode adicionar subscrições ao grupo de gestão que criou.
 
 ## <a name="grant-tenant-wide-permissions-to-yourself"></a>Conceder permissões a si mesmo
 
-Um utilizador com o papel **de** Administrador Ativo Azure pode ter responsabilidades em todo o inquilino, mas não tem as permissões do Azure para visualizar essa informação em toda a organização no Azure Security Center. 
+Um utilizador com o papel de Administrador Ativo (AD) da Azure Ative **Directory** (AD) pode ter responsabilidades em todo o inquilino, mas não tem as permissões do Azure para visualizar essa informação em toda a organização no Azure Security Center. A elevação da permissão é necessária porque as atribuições de funções AZure AD não dão acesso aos recursos da Azure. 
 
 > [!TIP]
-> Se a sua organização gere o acesso a recursos com [a Azure AD Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-configure.md)ou qualquer outra ferramenta PIM, a função de administrador global deve estar ativa para o utilizador que es faz estas alterações.
+> Saiba mais sobre a elevação da permissão para o papel de Administrador Global no [acesso elevate para gerir todas as subscrições e grupos de gestão da Azure.](../role-based-access-control/elevate-access-global-admin.md)
 
 Para atribuir permissão ao nível do inquilino:
+
+1. Se a sua organização gerir o acesso a recursos com [a Azure AD Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-configure.md)ou qualquer outra ferramenta PIM, a função de administrador global deve estar ativa para o utilizador seguindo o procedimento abaixo.
 
 1. Como utilizador do Administrador Global sem uma atribuição no grupo de gestão de raiz do inquilino, abra a página **geral** do Security Center e selecione o link **de visibilidade** em todo o inquilino no banner. 
 
@@ -192,7 +194,7 @@ Uma vez atribuídas as funções Azure aos utilizadores, o administrador do arre
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste artigo, aprendeu a ganhar visibilidade para o Centro de Segurança Azure. Para obter informações relacionadas, consulte:
 
 - [Permissions in Azure Security Center](security-center-permissions.md) (Permissões no Centro de Segurança do Azure)

@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
 ms.date: 10/23/2020
-ms.openlocfilehash: 2dd60d1962734f7a4264587fd1b5b0d2a03c9ff0
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 37ba5fc7ce118e2e8532ea4db18634265aaacb64
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359749"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99556855"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Bem-vindo ao Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -46,7 +46,7 @@ Construa rapidamente com APIs de código aberto, múltiplos SDKs, dados sem esqu
 - Construa aplicativos em Core (SQL) API usando os idiomas à sua escolha com SDKs para .NET, Java, Node.js e Python. Ou a sua escolha de motoristas para qualquer uma das outras APIs da base de dados.
 - Execute análises sem ETL sobre os dados operacionais quase em tempo real armazenados em Azure Cosmos DB com Azure Synapse Analytics.
 - Alterar o feed facilita a rastreio e a gestão de alterações nos contentores da base de dados e cria eventos desencadeados com Funções Azure.
-- O serviço de esquemas da Azure Cosmos DB indexa automaticamente todos os seus dados, independentemente do modelo de dados, à entrega de consultas rápidas.
+- O serviço de esquemas da Azure Cosmos DB indexa automaticamente todos os seus dados, independentemente do modelo de dados, para fornecer consultas rápidas em chamas.
 
 ### <a name="mission-critical-ready"></a>Missão crítica pronta
 

@@ -1,5 +1,5 @@
 ---
-title: Use listas de observação Azure Sentinel
+title: Utilizar as listas de observação do Azure Sentinel
 description: Este artigo descreve como usar as listas de observação do Azure Sentinel investigam ameaças, importam dados de negócios, criam listas de permitir e enriquecem dados de eventos.
 services: sentinel
 author: yelevin
@@ -10,14 +10,14 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 09/06/2020
-ms.openlocfilehash: e31128687cfcc1f4e32879328ad3227182efb9ce
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 97509b878fb5e0cb28bddc5d1b58c21b32c34675
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797363"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99555646"
 ---
-# <a name="use-azure-sentinel-watchlists"></a>Use listas de observação Azure Sentinel
+# <a name="use-azure-sentinel-watchlists"></a>Utilizar as listas de observação do Azure Sentinel
 
 > [!IMPORTANT]
 > A funcionalidade de listas de relógios encontra-se atualmente em **PREVIEW**. Consulte os [Termos Complementares de Utilização para o Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para termos legais adicionais aplicáveis às funcionalidades do Azure que estejam em versão beta, pré-visualização ou ainda não lançadas em disponibilidade geral.
@@ -28,7 +28,7 @@ Os cenários comuns para a utilização de listas de observação incluem:
 
 - **Investigar ameaças** e responder rapidamente a incidentes com a rápida importação de endereços IP, hashes de ficheiros e outros dados de ficheiros CSV. Uma vez importados, pode utilizar pares de nomes de lista de observação para junções e filtros em regras de alerta, caça a ameaças, livros de trabalho, cadernos e consultas gerais.
 
-- **Importar dados de negócios** como listas de observação. Por exemplo, importar listas de utilizadores com acesso privilegiado ao sistema ou funcionários despedidos, e depois usar a lista de observação para criar listas de permitir e negar listas usadas para detetar ou impedir que esses utilizadores acedam à rede.
+- **Importar dados de negócios** como lista de observação. Por exemplo, importar listas de utilizadores com acesso privilegiado ao sistema ou funcionários despedidos, e depois usar a lista de observação para criar listas de permitir e negar listas usadas para detetar ou impedir que esses utilizadores acedam à rede.
 
 - **Redução da fadiga de alerta**. Crie listas de permitir suprimir alertas de um grupo de utilizadores, como utilizadores de endereços IP autorizados que executam tarefas que normalmente desencadeariam o alerta e evitar que eventos benignos se tornem alertas.
 
@@ -121,7 +121,7 @@ Para obter uma lista de pseudónimos da lista de observação, a partir do porta
 > [!div class="mx-imgBorder"]
 > ![listas de observação listas](./media/watchlists/sentinel-watchlist-alias.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste documento, aprendeu a usar listas de vigilância no Azure Sentinel para enriquecer dados e melhorar as investigações. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)
 - Começa [a detetar ameaças com o Azure Sentinel.](./tutorial-detect-threats-built-in.md)

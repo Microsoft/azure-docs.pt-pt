@@ -1,18 +1,18 @@
 ---
 title: Definições políticas incorporadas para Azure Database for MySQL
 description: Lista definições de políticas incorporadas para Azure Database for MySQL. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 01/29/2021
+ms.date: 02/04/2021
 ms.topic: reference
 author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 28d6f180d388ee958b59799d5dec53d869d47459
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 6f567f58c8df447b899ff0486f7c9057edf30f97
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99096372"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99555183"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-database-for-mysql"></a>Definições incorporadas da Política Azure para a Base de Dados Azure para o MySQL
 

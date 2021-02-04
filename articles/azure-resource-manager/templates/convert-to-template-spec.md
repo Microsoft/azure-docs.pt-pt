@@ -2,31 +2,21 @@
 title: Converter modelo de portal para especificação de modelo
 description: Descreve como converter um modelo existente na galeria do portal Azure para uma especificação de modelo.
 ms.topic: conceptual
-ms.date: 01/22/2021
+ms.date: 02/04/2021
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 8fe02f55348f2cdcabb43e05bb547819d4b51228
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: c59275fca1eb3037b48b7293fc9e507df46b7fcb
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98739139"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99555950"
 ---
 # <a name="convert-template-gallery-in-portal-to-template-specs"></a>Converter galeria de modelos no portal para especificações de modelo
 
-O portal Azure fornece uma forma de armazenar modelos de Gestor de Recursos Azure (modelos ARM) na sua conta. **Esta característica está a ser depreciada.** Para continuar a utilizar modelos nesta galeria, converta-os em [especificações de modelo.](template-specs.md)
+O portal Azure fornece uma forma de armazenar modelos de Gestor de Recursos Azure (modelos ARM) na sua conta. No entanto, [as especificações do modelo](template-specs.md) oferecem uma maneira mais fácil de compartilhar os seus modelos com os utilizadores na sua organização, e ligar-se com outros modelos. Este artigo mostra como converter os modelos existentes na galeria do modelo para as especificações do modelo.
 
-Este artigo mostra como converter os modelos existentes na galeria do modelo para as especificações do modelo.
-
-No portal, a funcionalidade a ser depreciada chama-se **Modelos (Pré-visualização)**. Para ver se tem algum modelo para converter, veja a [galeria do modelo no portal](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Gallery%2Fmyareas%2Fgalleryitems). Estes modelos têm o tipo de `Microsoft.Gallery/myareas/galleryitems` recurso.
-
-## <a name="deprecation-of-portal-feature"></a>Depreciação do recurso portal
-
-A galeria de modelos do portal será depreterida no dia 21 de janeiro de 2021. Pode continuar a usá-lo até 21 de fevereiro. A partir de 22 de fevereiro, não é possível criar novos modelos na galeria do portal, mas ainda pode ver e implementar modelos existentes.
-
-No dia 22 de junho, a funcionalidade será removida do portal e todas as operações da API serão bloqueadas. Não poderá visualizar ou implementar quaisquer modelos da galeria.
-
-Antes de 22 de junho, deve migrar quaisquer modelos que pretenda continuar a utilizar. Pode utilizar um dos métodos mostrados neste artigo para migrar os modelos. Depois de a funcionalidade ter sido removida, terá de abrir um caso de suporte para obter quaisquer modelos que não tenha migrado.
+Para ver se tem algum modelo para converter, veja a [galeria do modelo no portal](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Gallery%2Fmyareas%2Fgalleryitems). Estes modelos têm o tipo de `Microsoft.Gallery/myareas/galleryitems` recurso.
 
 ## <a name="convert-with-powershell-script"></a>Converter com script PowerShell
 
@@ -73,6 +63,6 @@ Pode copiar manualmente modelos da galeria para uma nova especificação do mode
 
 Se precisar de partilhar a especificação do modelo com outros utilizadores da sua organização, [desafete](../../role-based-access-control/tutorial-role-assignments-group-powershell.md) o controlo de acesso baseado em funções ao grupo ou utilizadores que necessitem de acesso.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre as especificações do modelo, consulte [Criar e implementar especificações de modelo.](template-specs.md)

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/25/2021
 ms.author: memildin
-ms.openlocfilehash: 8ef0fedcbf7ce06063db22fb345a0711acddcb4d
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: a2c29049decc056f0d3c8083d21574456610c124
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526386"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99555141"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Mudanças importantes para o Centro de Segurança Azure
 
@@ -33,6 +33,7 @@ Se procura as últimas notas de lançamento, vai encontrá-las no [What's new in
 
 - [Duas recomendações do controlo de segurança "Aplicar atualizações do sistema" que estão a ser depreciadas](#two-recommendations-from-apply-system-updates-security-control-being-deprecated)
 - [Melhorias à recomendação de classificação de dados sql](#enhancements-to-sql-data-classification-recommendation)
+- [Depreciação de 11 alertas do Azure Defender](#deprecation-of-11-azure-defender-alerts)
 
 ### <a name="two-recommendations-from-apply-system-updates-security-control-being-deprecated"></a>Duas recomendações do controlo de segurança "Aplicar atualizações do sistema" que estão a ser depreciadas 
 
@@ -53,6 +54,37 @@ Saiba mais sobre estas recomendações na página de referência das [recomenda�
 **Data estimada para a alteração:** 2º trimestre de 2021
 
 A recomendação **Os dados sensíveis nas suas bases de dados SQL devem ser classificados** no controlo de segurança de classificação de **dados Apply** será substituído por uma nova versão mais alinhada com a estratégia de classificação de dados da Microsoft. Como resultado, o ID da recomendação também mudará (atualmente b0df6f56-862d-4730-8597-38c0fd4ebd59).
+
+
+### <a name="deprecation-of-11-azure-defender-alerts"></a>Depreciação de 11 alertas do Azure Defender
+
+**Data estimada para a alteração:** março de 2021
+
+No próximo mês, os onze alertas do Azure Defender listados abaixo serão depreciados.
+
+- Novos alertas irão substituir estes dois alertas e fornecer uma melhor cobertura:
+
+    | AlertaType                | Nome de Alertadisplay                                                         |
+    |--------------------------|--------------------------------------------------------------------------|
+    | ARM_MicroBurstDomainInfo | PREVIEW - Kit de ferramentas MicroBurst "Get-AzureDomainInfo" executado |
+    | ARM_MicroBurstRunbook    | PREVIEW - O conjunto de ferramentas MicroBurst "Get-AzurePasswords" executado  |
+    |                          |                                                                          |
+
+- Estes nove alertas dizem respeito a um conector de proteção de identidade do Diretório Ativo Azure que já foi depreciado:
+
+    | AlertaType           | Nome de Alertadisplay              |
+    |---------------------|-------------------------------|
+    | Localização desconhecida  | Propriedades de inícios de sessão desconhecidos |
+    | Anónimos      | Endereço IP anónimo          |
+    | InfectuadoDeviceLogin | Endereço IP ligado a malware     |
+    | ImpossibleTravel    | Viagem atípica               |
+    | MaliciousIP         | Endereço IP malicioso          |
+    | Fugas de informação   | Fuga de credenciais            |
+    | PasswordSpray       | Spray de palavra-passe                |
+    | Fugas de informação   | Inteligência de ameaça Azure AD  |
+    | AADAI               | Azure AD AI                   |
+    |                     |                               |
+ 
 
 
 

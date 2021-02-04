@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1c544bd6d3965bc71df2024e66defbdf9443c8f
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 4982acb54207a9ed08a96414877603a8253c2ade
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550730"
+ms.locfileid: "99557767"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões da função de administrador no Azure Active Directory
 
@@ -2058,7 +2058,7 @@ Administrador de Comunicações de Equipas | Administrador de Comunicações de 
 Engenheiro de Suporte de Comunicações de Equipas | Engenheiro de Suporte de Comunicações de Equipas | f70938a0-fc10-4177-9e90-2178f8765737
 Especialista em Apoio às Comunicações das Equipas | Especialista em Apoio às Comunicações das Equipas | fcf91098-03e3-41a9-b5ba-6f0ec8188a12
 Administrador de dispositivos de equipas | Administrador de dispositivos de equipas | 3d762c5a-1b6c-493f-843e-55a3b42923d4
-Administrador de Equipas | Administrador de Equipas | 69091246-20e8-4a56-aa4d-066075b2a7a8
+Administrador de Serviço de Equipas | Administrador de Serviço de Equipas | 69091246-20e8-4a56-aa4d-066075b2a7a8
 Leitor de Relatórios de Resumo de Utilização | Leitor de relatórios de resumo de utilização | 75934031-6c7e-415a-99d7-48dbd49e875e
 User | Não mostrado porque não pode ser usado | a0b1b346-4d3e-4e8b-98f8-753987be4970
 Administrador de Utilizadores | Administrador de utilizadores | fe930be7-5e62-47db-91af-98c3a49a38b1

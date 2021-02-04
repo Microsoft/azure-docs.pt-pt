@@ -1,5 +1,5 @@
 ---
-title: Gerir a utilização e os custos da Azure Application Insights Microsoft Docs
+title: Gerir a utilização e os custos da Azure Application Insights | Microsoft Docs
 description: Gerir volumes de telemetria e monitorizar os custos em Application Insights.
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
@@ -7,12 +7,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 5/7/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 69ac1e82c267dee521143c4ed5f6c2be4d32e2ea
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 477a96f1bf66255b11b2fee36c38e55b18cddb69
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96531331"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99556121"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gerir a utilização e os custos do Application Insights
 
@@ -186,7 +186,7 @@ O volume de dados enviados pode ser gerido utilizando as seguintes técnicas:
 
 * **Amostragem**: Pode utilizar a amostragem para reduzir a quantidade de telemetria enviada a partir do seu servidor e aplicações de clientes, com a mínima distorção de métricas. A amostragem é a ferramenta primária que pode utilizar para sintonizar a quantidade de dados que envia. Saiba mais sobre [as características de amostragem.](./sampling.md)
 
-* **Limite as chamadas do Ajax**: Pode limitar o número de chamadas do Ajax que podem ser [reportadas](./javascript.md#configuration) em todas as visualizações de página ou desligar o relatório do Ajax.
+* **Limite as chamadas do Ajax**: Pode limitar o número de chamadas do Ajax que podem ser [reportadas](./javascript.md#configuration) em todas as visualizações de página ou desligar o relatório do Ajax. Note que desativar chamadas do Ajax irá desativar a [correlação JavaScript](./javascript.md#enable-correlation).
 
 * **Desativar módulos não necessários**: [Editar ApplicationInsights.config](./configuration-with-applicationinsights-config.md) para desligar os módulos de recolha de que não necessita. Por exemplo, pode decidir que os contadores de desempenho ou dados de dependência são inessenciais.
 
@@ -320,7 +320,7 @@ Como este nível é aplicável apenas aos clientes com uma assinatura Do Suite d
 
 ### <a name="examples-of-how-to-determine-distinct-node-count"></a>Exemplos de como determinar a contagem de nóis distintos
 
-| Cenário                               | Contagem total de nó diário |
+| Scenario                               | Contagem total de nó diário |
 |:---------------------------------------|:----------------:|
 | 1 aplicação utilizando 3 instâncias do Serviço de Aplicações Azure e 1 servidor virtual | 4 |
 | 3 aplicações em execução em 2 VMs; os recursos de Insights de Aplicação para estas aplicações estão na mesma subscrição e no nível Per Node | 2 | 
