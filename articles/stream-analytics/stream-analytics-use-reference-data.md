@@ -6,12 +6,12 @@ ms.author: jeanb
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/18/2020
-ms.openlocfilehash: d4053cd02dd11922a402971c7f3934a8b818eaa4
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: e05a4cbbc5fefbfe8a92914ef480f32bdf43ca37
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98015908"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99560211"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Utilização de dados de referência para procuras no Stream Analytics
 
@@ -32,13 +32,13 @@ O Stream Analytics suporta o armazenamento Azure Blob e a Base de Dados Azure SQ
 
 ## <a name="azure-blob-storage"></a>Armazenamento de Blobs do Azure
 
-Os dados de referência são modelados como uma sequência de bolhas (definidas na configuração de entrada) na ordem ascendente da data/hora especificada no nome blob. **Só** suporta adicionar ao fim da sequência utilizando uma data/hora **maior** do que a especificada pela última bolha na sequência.
+Os dados de referência são modelados como uma sequência de bolhas (definidas na configuração de entrada) na ordem ascendente da data/hora especificada no nome blob. **Só** suporta adicionar ao fim da sequência utilizando uma data/hora **maior** do que a especificada pela última bolha na sequência. Para obter mais informações, consulte [utilizar dados de referência de um Blob Storage para um trabalho de Azure Stream Analytics](data-protection.md).
 
 ### <a name="configure-blob-reference-data"></a>Configure dados de referência blob
 
 Para configurar os seus dados de referência, primeiro precisa de criar uma entrada que seja do tipo Dados de **Referência.** O quadro abaixo explica cada propriedade que terá de fornecer ao mesmo tempo que cria a entrada de dados de referência com a sua descrição:
 
-|**Nome da propriedade**  |**Descrição**  |
+|**Nome da Propriedade**  |**Descrição**  |
 |---------|---------|
 |Alias de Entrada   | Um nome amigável que será usado na consulta de trabalho para referenciar esta entrada.   |
 |Conta de Armazenamento   | O nome da conta de armazenamento onde estão as suas bolhas. Se estiver na mesma subscrição que o seu Stream Analytics Job, pode selecioná-lo a partir do drop-down.   |
@@ -97,7 +97,7 @@ Para configurar os seus dados de referência sql Database, primeiro precisa de c
 
 Pode utilizar [a Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) como uma entrada de dados de referência. Tem de [configurar o ponto final público em SQL Managed Instance](../azure-sql/managed-instance/public-endpoint-configure.md) e, em seguida, configurar manualmente as seguintes definições no Azure Stream Analytics. A máquina virtual Azure que executa o SQL Server com uma base de dados anexada também é suportada configurando manualmente as definições abaixo.
 
-|**Nome da propriedade**|**Descrição**  |
+|**Nome da Propriedade**|**Descrição**  |
 |---------|---------|
 |Alias de entrada|Um nome amigável que será usado na consulta de trabalho para referenciar esta entrada.|
 |Subscrição|Escolher a sua subscrição|
@@ -149,7 +149,7 @@ Existem duas formas de atualizar os dados de referência:
 
 * Atualize a implementação IoT Edge.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"]
 > [Início Rápido: Criar uma tarefa do Stream Analytics com o portal do Azure](stream-analytics-quick-create-portal.md)
 

@@ -1,18 +1,18 @@
 ---
 title: Controlos de conformidade regulamentar da política Azure para armazenamento Azure
 description: Lista controlos de conformidade regulamentar da política Azure disponíveis para armazenamento Azure. Estas definições políticas incorporadas fornecem abordagens comuns para gerir o cumprimento dos seus recursos Azure.
-ms.date: 01/29/2021
+ms.date: 02/04/2021
 ms.topic: sample
 author: twooley
 ms.author: twooley
 ms.service: storage
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 600f948bd0864231b24cfd07e457bdea64d9fd88
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: d82f5ee28d0f34c4b7c01491de59f5642de91e3d
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99094143"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99559477"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-storage"></a>Controlos de conformidade regulamentar da política Azure para armazenamento Azure
 

@@ -1,15 +1,15 @@
 ---
 title: Definições políticas incorporadas para hubs de eventos Azure
 description: Lista definições políticas incorporadas da Azure Policy para Azure Event Hubs. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 01/29/2021
+ms.date: 02/04/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: c4dc3af7d7c4acc7db1913db59e8e6f35adc5806
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 61d936b5a4cc4a1e740cf42955e3a5c1c2a8507d
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99220688"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99560509"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-event-hubs"></a>Definições incorporadas da Política Azure para hubs de eventos Azure
 

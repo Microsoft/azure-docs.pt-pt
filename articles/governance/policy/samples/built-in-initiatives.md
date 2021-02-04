@@ -1,15 +1,15 @@
 ---
 title: Lista de iniciativas políticas integradas
 description: Enumerar iniciativas políticas integradas para a Política Azure. As categorias incluem Conformidade Regulamentar, Configuração de Hóspedes e muito mais.
-ms.date: 01/29/2021
+ms.date: 02/04/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 7bec632388c59e2e94e7c7bc31359450107f7674
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 194f785202a26b60453e30c59088d8cd189f522f
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99219778"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99560816"
 ---
 # <a name="azure-policy-built-in-initiative-definitions"></a>Definições de iniciativa integradas da Política Azure
 

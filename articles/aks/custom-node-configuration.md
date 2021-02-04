@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 12/03/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: d60a241506dbcf3e038f79c99830ef1a81c06b88
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 589081149d08983d3cd5a4a8822873f5a6cfca0e
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735269"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99559444"
 ---
 # <a name="customize-node-configuration-for-azure-kubernetes-service-aks-node-pools-preview"></a>Personalizar a configuração do nó para piscinas de nó Azure Kubernetes (AKS) (pré-visualização)
 
@@ -59,7 +59,7 @@ az extension update --name aks-preview
 
 Os parâmetros kubelet suportados e os valores aceites estão listados abaixo.
 
-| Parâmetro | Valores/intervalo permitidos | Predefinição | Descrição |
+| Parâmetro | Valores/intervalo permitidos | Predefinição | Description |
 | --------- | ----------------------- | ------- | ----------- |
 | `cpuManagerPolicy` | nenhuma, estática | nenhum | A política estática permite que os contentores em [cápsulas garantidas](https://kubernetes.io/docs/tasks/configure-pod-container/quality-service-pod/) com CPU inteiro solicitem acesso a CPUs exclusivos no nó. |
 | `cpuCfsQuota` | TRUE, false | true |  Ativar/Desativar a aplicação das quotas do CPU CFS para os contentores que especificam os limites da CPU. | 
@@ -77,7 +77,7 @@ As definições de SO suportadas e os valores aceites são listados abaixo.
 
 Quando se está a servir muito tráfego, é comum que o tráfego que está a servir venha de um grande número de ficheiros locais. Pode ajustar as definições de kernel abaixo e os limites incorporados para permitir lidar mais, à custa de alguma memória do sistema.
 
-| Definição | Valores/intervalo permitidos | Predefinição | Descrição |
+| Definição | Valores/intervalo permitidos | Predefinição | Description |
 | ------- | ----------------------- | ------- | ----------- |
 | `fs.file-max` | 8192 - 12000500 | 709620 | O número máximo de cabos de ficheiros que o kernel Linux irá atribuir, aumentando este valor pode aumentar o número máximo de ficheiros abertos permitidos. |
 | `fs.inotify.max_user_watches` | 781250 - 2097152 | 1048576 | Número máximo de relógios de ficheiros permitidos pelo sistema. Cada *relógio* tem cerca de 90 bytes num núcleo de 32 bits, e cerca de 160 bytes num núcleo de 64 bits. | 
@@ -89,7 +89,7 @@ Quando se está a servir muito tráfego, é comum que o tráfego que está a ser
 
 Para os nós de agente, que se espera que lidem com um número muito grande de sessões simultâneas, pode utilizar o subconjunto de TCP e opções de rede abaixo que pode ajustar por piscina de nó. 
 
-| Definição | Valores/intervalo permitidos | Predefinição | Descrição |
+| Definição | Valores/intervalo permitidos | Predefinição | Description |
 | ------- | ----------------------- | ------- | ----------- |
 | `net.core.somaxconn` | 4096 - 3240000 | 16384 | Número máximo de pedidos de ligação que podem ser solicitados para qualquer tomada de audição. Um limite superior para o valor do parâmetro de atraso passou para a função [de escuta(2).](http://man7.org/linux/man-pages/man2/listen.2.html) Se o argumento de atraso é maior do que `somaxconn` o, então é silenciosamente truncado a este limite.
 | `net.core.netdev_max_backlog` | 1000 - 3240000 | 1000 | Número máximo de pacotes, em fila no lado de INPUT, quando a interface recebe pacotes mais rápido do que o kernel pode processá-los. |
@@ -114,7 +114,7 @@ Para os nós de agente, que se espera que lidem com um número muito grande de s
 
 Tal como os limites do descritor de ficheiros, o número de trabalhadores ou fios que um processo pode criar são limitados tanto por uma definição de núcleo como pelos limites do utilizador. O limite de utilizador em AKS é ilimitado. 
 
-| Definição | Valores/intervalo permitidos | Predefinição | Descrição |
+| Definição | Valores/intervalo permitidos | Predefinição | Description |
 | ------- | ----------------------- | ------- | ----------- |
 | `kernel.threads-max` | 20 - 513785 | 55601 | Os processos podem girar os fios dos trabalhadores. O número máximo de todos os fios que podem ser criados é definido com a definição de núcleo `kernel.threads-max` . | 
 
@@ -122,7 +122,7 @@ Tal como os limites do descritor de ficheiros, o número de trabalhadores ou fio
 
 As definições abaixo podem ser usadas para sintonizar o funcionamento do subsistema de memória virtual (VM) do kernel Linux e `writeout` dos dados sujos para o disco.
 
-| Definição | Valores/intervalo permitidos | Predefinição | Descrição |
+| Definição | Valores/intervalo permitidos | Predefinição | Description |
 | ------- | ----------------------- | ------- | ----------- |
 | `vm.max_map_count` |  65530 - 262144 | 65530 | Este ficheiro contém o número máximo de áreas de mapa de memória que um processo pode ter. As áreas do mapa de memória são usadas como um efeito colateral da chamada `malloc` , diretamente por `mmap` , e também ao carregar `mprotect` `madvise` bibliotecas partilhadas. | 
 | `vm.vfs_cache_pressure` | 1 - 500 | 100 | Este valor percentual controla a tendência do núcleo para recuperar a memória, que é usada para caching de diretórios e objetos inode. |
@@ -166,7 +166,7 @@ Criar um `linuxosconfig.json` ficheiro com os seguintes conteúdos:
 }
 ```
 
-Crie um novo cluster especificando as configurações de kublet e OS utilizando os ficheiros JSON criados no passo anterior. 
+Crie um novo cluster especificando as configurações de kubelet e SO utilizando os ficheiros JSON criados no passo anterior. 
 
 > [!NOTE]
 > Quando criar um cluster, pode especificar a configuração do kubelet, a configuração do SO ou ambas. Se especificar uma configuração ao criar um cluster, apenas os nós no conjunto de nós iniciais terão essa configuração aplicada. Quaisquer definições não configuradas no ficheiro JSON conservarão o valor predefinido.
@@ -184,7 +184,7 @@ Adicione um novo conjunto de nós especificando os parâmetros Kubelet utilizand
 az aks nodepool add --name mynodepool1 --cluster-name myAKSCluster --resource-group myResourceGroup --kubelet-config ./kubeletconfig.json
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba [como configurar o seu cluster AKS](cluster-configuration.md).
 - Saiba como [atualizar as imagens do nó](node-image-upgrade.md) no seu cluster.

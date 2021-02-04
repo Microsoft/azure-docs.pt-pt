@@ -11,12 +11,12 @@ ms.custom:
 - cli-validate
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: 05bdbd6c9d5dc3862c3191e4564a79e7a44bc0b8
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 6112247a99c519aad8aadf7946c7707480b3b491
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99494060"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99558427"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>Tutorial: Implementar uma aplicação web Django com PostgreSQL no Azure App Service
 
@@ -403,7 +403,7 @@ Abra novamente uma sessão de SSH no browser navegando para `https://<app-name>.
 ```
 cd $APP_PATH
 source /antenv/bin/activate
-pip instal -r requirements.txt
+pip install -r requirements.txt
 python manage.py migrate
 ```
 

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: b5f7f494c9d0969fbf9431d0b552dafa21a5eace
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 38115f18d9b35545912fad97767f38fd3827d626
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705409"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99559983"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Recursos Azure para O Criador QNA
 
@@ -232,22 +232,14 @@ O serviço de gestão da QnA Maker é utilizado apenas para o portal QnA Maker e
 
 O seu serviço QnA Maker trata de dois tipos de chaves: chaves de **autoria** e **teclas de ponto final de consulta utilizadas** com o tempo de execução alojado no serviço App.
 
-Se procura a sua **chave de subscrição,** [a terminologia mudou.](#subscription-keys)
-
 Utilize estas teclas ao escrutinar os pedidos ao serviço através de APIs.
 
 ![Gestão de chaves](../media/qnamaker-how-to-key-management/key-management.png)
 
 |Nome|Localização|Objetivo|
 |--|--|--|
-|Chave de autoria|[Portal do Azure](https://azure.microsoft.com/free/cognitive-services/)|Estas chaves são utilizadas para aceder às APIs do [serviço de gestão QnA Maker](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase). Estas APIs permitem-lhe editar as perguntas e respostas na sua base de conhecimento, e publicar a sua base de conhecimentos. Estas teclas são criadas quando cria um novo serviço QnA Maker.<br><br>Encontre estas chaves no recurso **serviços cognitivos** na página **Chaves.**|
+|Chave de autoria/subscrição|[Portal do Azure](https://azure.microsoft.com/free/cognitive-services/)|Estas chaves são utilizadas para aceder às APIs do [serviço de gestão QnA Maker](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase). Estas APIs permitem-lhe editar as perguntas e respostas na sua base de conhecimento, e publicar a sua base de conhecimentos. Estas teclas são criadas quando cria um novo serviço QnA Maker.<br><br>Encontre estas chaves no recurso **serviços cognitivos** na página **Chaves.**|
 |Chave de ponto final de consulta|[Portal do Criador de FAQ](https://www.qnamaker.ai)|Estas teclas são usadas para consultar o ponto final da base de conhecimento publicado para obter uma resposta para uma questão do utilizador. Normalmente, utiliza este ponto final de consulta no seu chat bot ou no código de aplicação do cliente que se conecta ao serviço QnA Maker. Estas chaves são criadas quando publica a sua base de conhecimento qnA Maker.<br><br>Encontre estas chaves na página **de definições de Serviço.** Encontre esta página a partir do menu do utilizador no canto superior direito da página no menu suspenso.|
-
-### <a name="subscription-keys"></a>Chaves de subscrição
-
-Os termos de autoria e chave de ponto final de consulta são termos corretivos. O termo anterior era **a chave de subscrição.** Se vir outra documentação referente às teclas de subscrição, estas são equivalentes às teclas de ponto final de autoria e consulta (utilizadas no tempo de execução).
-
-Você deve saber qual a chave é o acesso, gestão de base de conhecimento ou consulta de base de conhecimento, para saber que chave você precisa encontrar.
 
 ### <a name="recommended-settings-for-network-isolation"></a>Configurações recomendadas para isolamento de rede
 
@@ -311,22 +303,14 @@ Na QnA Maker gerido (Preview) tanto a gestão como os serviços de previsão sã
 
 O seu serviço QnA Maker geriu (Preview) com dois tipos de chaves: chaves de **autoria** e **chaves de Pesquisa Cognitiva Azure utilizadas** para aceder ao serviço na subscrição do cliente.
 
-Se procura a sua **chave de subscrição,** [a terminologia mudou.](#subscription-keys)
-
 Utilize estas teclas ao escrutinar os pedidos ao serviço através de APIs.
 
 ![Pré-visualização gerida pela gestão de chaves](../media/qnamaker-how-to-key-management/qnamaker-v2-key-management.png)
 
 |Nome|Localização|Objetivo|
 |--|--|--|
-|Chave de autoria|[Portal do Azure](https://azure.microsoft.com/free/cognitive-services/)|Estas chaves são utilizadas para aceder às APIs do [serviço de gestão QnA Maker](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase). Estas APIs permitem-lhe editar as perguntas e respostas na sua base de conhecimento, e publicar a sua base de conhecimentos. Estas teclas são criadas quando cria um novo serviço QnA Maker.<br><br>Encontre estas chaves no recurso **serviços cognitivos** na página **Chaves.**|
+|Chave de autoria/subscrição|[Portal do Azure](https://azure.microsoft.com/free/cognitive-services/)|Estas chaves são utilizadas para aceder às APIs do [serviço de gestão QnA Maker](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase). Estas APIs permitem-lhe editar as perguntas e respostas na sua base de conhecimento, e publicar a sua base de conhecimentos. Estas teclas são criadas quando cria um novo serviço QnA Maker.<br><br>Encontre estas chaves no recurso **serviços cognitivos** na página **Chaves.**|
 |Chave de administração de pesquisa cognitiva Azure|[Portal do Azure](../../../search/search-security-api-keys.md)|Estas teclas são utilizadas para comunicar com o serviço de pesquisa cognitiva Azure implantado na assinatura Azure do utilizador. Quando associa uma pesquisa cognitiva Azure ao serviço gerido (Preview) do QnA Maker, a tecla de administração é automaticamente transmitida para o serviço QnA Maker. <br><br>Pode encontrar estas chaves no recurso **Azure Cognitive Search** na página **Keys.**|
-
-### <a name="subscription-keys"></a>Chaves de subscrição
-
-Os termos de autoria e chave de ponto final de consulta são termos corretivos. O termo anterior era **a chave de subscrição.** Se vir outra documentação referente às teclas de subscrição, estas são equivalentes às teclas de ponto final de autoria e consulta (utilizadas no tempo de execução).
-
-Você deve saber qual a chave é o acesso, gestão de base de conhecimento ou consulta de base de conhecimento, para saber que chave você precisa encontrar.
 
 ### <a name="recommended-settings-for-network-isolation"></a>Configurações recomendadas para isolamento de rede 
 

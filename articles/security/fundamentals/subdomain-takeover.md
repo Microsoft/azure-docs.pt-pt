@@ -11,21 +11,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/29/2020
+ms.date: 02/04/2021
 ms.author: memildin
-ms.openlocfilehash: 7c09a7f6c6a313852fc6212c6190a584ba5f67bd
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 7821d94ed032fd0fc52a756766e6a9af7c82cfde
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409897"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99559234"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>Evitar entradas de DNS pendentes e evitar a aquisição de subdomínios
 
 Este artigo descreve a ameaça comum de segurança da aquisição de subdomínios e os passos que pode tomar para mitigar.
 
 
-## <a name="what-is-subdomain-takeover"></a>O que é a aquisição de subdomínios?
+## <a name="what-is-a-subdomain-takeover"></a>O que é uma aquisição de subdomínio?
 
 As aquisições de subdomínios são uma ameaça comum e de alta gravidade para organizações que criam regularmente e apagam muitos recursos. Uma aquisição de subdomínio pode ocorrer quando se tem um [registo DNS](../../dns/dns-zones-records.md#dns-records) que aponta para um recurso Azure deprovisionado. Estes registos DNS também são conhecidos como entradas "dNS pendentes". Os registos da CNAME são especialmente vulneráveis a esta ameaça. As aquisições de subdomínio permitem que atores maliciosos redirecionem o tráfego destinado ao domínio de uma organização para um site que executa atividades maliciosas.
 
@@ -94,7 +94,7 @@ A ferramenta suporta os recursos Azure listados na tabela seguinte. A ferramenta
 | Endereços IP públicos       | microsoft.network/publicipaddresses         | properties.dnsSettings.fqdn                | `abc.EastUs.cloudapp.azure.com` |
 | Gestor de Tráfego do Azure     | microsoft.network/trafficmanagerprofils    | properties.dnsConfig.fqdn                  | `abc.trafficmanager.net`        |
 | Instância de Contentor do Azure  | microsoft.containerinstance/containergroups | propriedades.ipAddress.fqdn                  | `abc.EastUs.azurecontainer.io`  |
-| Gestão de API do Azure      | microsoft.apimanagement/service             | propriedades.hostnameConfigurations.hostName | `abc.azure-api.net`             |
+| API Management do Azure      | microsoft.apimanagement/service             | propriedades.hostnameConfigurations.hostName | `abc.azure-api.net`             |
 | Serviço de Aplicações do Azure         | microsoft.web/sites                         | propriedades.defaultName                 | `abc.azurewebsites.net`         |
 | Serviço de Aplicações Azure - Slots | microsoft.web/sites/slots                   | propriedades.defaultName                 | `abc-def.azurewebsites.net`     |
 
@@ -119,7 +119,7 @@ Se é administrador global do inquilino da sua organização, eleve a sua conta 
 
 ### <a name="run-the-script"></a>Executar o script
 
-Saiba mais sobre o script PowerShell, **Get-DanglingDnsRecords.ps1** , e descarregue-o a partir do GitHub: https://aka.ms/DanglingDNSDomains .
+Saiba mais sobre o script PowerShell, **Get-DanglingDnsRecords.ps1**, e descarregue-o a partir do GitHub: https://aka.ms/DanglingDNSDomains .
 
 ## <a name="remediate-dangling-dns-entries"></a>Remediar as entradas de DNS pendentes 
 
@@ -144,6 +144,15 @@ Garantir que a sua organização implementou processos para evitar entradas de D
 
 Alguns serviços da Azure oferecem funcionalidades de ajuda na criação de medidas preventivas e são detalhados abaixo. Outros métodos para prevenir este problema devem ser estabelecidos através das melhores práticas da sua organização ou dos procedimentos operacionais padrão.
 
+### <a name="enable-azure-defender-for-app-service"></a>Ativar o Azure Defender para o Serviço de Aplicações
+
+A plataforma integrada de proteção da carga de trabalho em nuvem (CWPP) do Azure Security Center oferece uma gama de planos para proteger os seus recursos e cargas de trabalho Azure, híbridos e multi-cloud.
+
+O plano **Azure Defender for App Service** inclui a deteção de DNS pendente. Com este plano ativado, receberá alertas de segurança se desativar um website do Serviço de Aplicações, mas não remover o seu domínio personalizado do seu registo DNS.
+
+A proteção de DNS pendente do Azure Defender está disponível se os seus domínios são geridos com DNS ou um registrador de domínio externo e se aplica ao Serviço de Aplicações tanto no Windows como no Linux.
+
+Saiba mais sobre este e outros benefícios deste plano Azure Defender em [Introdução ao Azure Defender para o Serviço de Aplicações.](../../security-center/defender-for-app-service-introduction.md)
 
 ### <a name="use-azure-dns-alias-records"></a>Use registos de pseudónimos Azure DNS
 
@@ -201,6 +210,8 @@ Muitas vezes cabe aos desenvolvedores e equipas de operações executar processo
 ## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre serviços relacionados e funcionalidades Azure que pode usar para se defender contra a aquisição de subdomínios, consulte as páginas seguintes.
+
+- [Enable Azure Defender for App Service](../../security-center/defender-for-app-service-introduction.md) - para receber alertas quando forem detetadas entradas de DNS pendentes
 
 - [Evitar registos de DNS pendentes com DNS Azure](../../dns/dns-alias.md#prevent-dangling-dns-records)
 

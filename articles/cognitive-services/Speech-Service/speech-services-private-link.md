@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/15/2020
+ms.date: 02/04/2021
 ms.author: alexeyo
-ms.openlocfilehash: 51989a9219cdbfebf833c99849dba67c939cf77a
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: c9af0cda14261e8eab7f1ecc05c50a289d7ddfdb
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98786847"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99559650"
 ---
 # <a name="use-speech-services-through-a-private-endpoint"></a>Use serviços de fala através de um ponto final privado
 
@@ -268,8 +268,6 @@ Se planeia aceder ao recurso utilizando apenas um ponto final privado, pode salt
              westeurope.prod.vnet.cog.trafficmanager.net
    ```
 
-3. Confirme que o endereço IP corresponde ao endereço IP do seu ponto final privado.
-
 > [!NOTE]
 > O endereço IP resolvido aponta para um ponto final de procuração de rede virtual, que envia o tráfego da rede para o ponto final privado para o recurso Serviços Cognitivos. O comportamento será diferente para um recurso com um nome de domínio personalizado, mas *sem* pontos finais privados. Consulte [esta secção](#dns-configuration) para mais detalhes.
 
@@ -288,29 +286,33 @@ Um recurso de fala com um nome de domínio personalizado e um ponto final privad
 
 Usaremos como amostra o `my-private-link-speech.cognitiveservices.azure.com` nome DNS (domínio personalizado) para esta secção.
 
-Os Serviços de Fala têm APIs DE REPOUSO para [Discurso-a-Texto](rest-speech-to-text.md) e [Texto-a-Voz](rest-text-to-speech.md). Considere as seguintes informações para o cenário com ponta de lança privada.
+Os Serviços de Fala têm APIs DE REPOUSO para [Discurso-a-Texto](rest-speech-to-text.md) e [Texto-a-voz](rest-text-to-speech.md). Considere as seguintes informações para o cenário com ponta de lança privada.
 
-O Discurso-a-Texto tem duas APIs de DESCANSO. Cada API serve um propósito diferente, usa diferentes pontos finais, e requer uma abordagem diferente quando você está usando-o no cenário privado-enabled.
+O discurso-a-texto tem duas APIs de REPOUSO. Cada API serve um propósito diferente, usa diferentes pontos finais, e requer uma abordagem diferente quando você está usando-o no cenário privado-enabled.
 
-As APIs de Repouso Discurso-a-Texto são:
-- [A API de repouso de voz para texto v3.0,](rest-speech-to-text.md#speech-to-text-rest-api-v30)que é utilizada para [transcrição de lote](batch-transcription.md) e [discurso personalizado](custom-speech-overview.md). v3.0 é um [sucessor de v2.0](./migrate-v2-to-v3.md)
-- API de repouso de voz para texto para áudio curto, que é usado para transcrição [on-line](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) 
+As APIs de repouso de discurso para texto são:
+- [A API de voz para texto REST v3.0,](rest-speech-to-text.md#speech-to-text-rest-api-v30)que é utilizada para [a transcrição do Lote](batch-transcription.md) e Discurso [Personalizado](custom-speech-overview.md). v3.0 é um [sucessor de v2.0](./migrate-v2-to-v3.md)
+- API rest de voz para texto para áudio curto, que é usado para transcrição [on-line](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) 
 
-A utilização da API de Repouso Discurso-a-Texto para áudio curto e a API DE REPOUSO text-to-speech no cenário de ponto final privado é a mesma. É equivalente ao [caso DoDK](#speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk) do Discurso descrito mais tarde neste artigo. 
+A utilização da API REST discurso-a-texto para áudio curto e a API DE REPOUSO Text-to-speech no cenário de ponto final privado é a mesma. É equivalente ao [caso DoDK](#speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk) do Discurso descrito mais tarde neste artigo. 
 
-A API de repouso de voz em texto v3.0 utiliza um conjunto diferente de pontos finais, pelo que requer uma abordagem diferente para o cenário privado habilitado para o ponto final.
+A API REST de voz em texto v3.0 utiliza um conjunto diferente de pontos finais, pelo que requer uma abordagem diferente para o cenário privado habilitado para o ponto final.
 
 As próximas subsecções descrevem ambos os casos.
 
-##### <a name="speech-to-text-rest-api-v30"></a>API de REPOUSO fala-a-texto v3.0
+##### <a name="speech-to-text-rest-api-v30"></a>A API DE REPOUSO de expressão em texto v3.0
 
-Normalmente, os recursos da fala utilizam [os pontos finais regionais dos Serviços Cognitivos](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) para comunicar com a [API de repouso fala-a-texto v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30). Estes recursos têm o seguinte formato de nomeação: <p/>`{region}.api.cognitive.microsoft.com`.
+Normalmente, os recursos da fala utilizam [os pontos finais regionais dos Serviços Cognitivos](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) para comunicar com a [API REST de Voz a texto v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30). Estes recursos têm o seguinte formato de nomeação: <p/>`{region}.api.cognitive.microsoft.com`.
 
 Este é um URL de pedido de amostra:
 
 ```http
 https://westeurope.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions
 ```
+
+> [!NOTE]
+> Veja [este artigo](sovereign-clouds.md) para o Governo Azure e para os pontos finais da Azure China.
+
 Depois de ativar um domínio personalizado para um recurso de voz (que é necessário para pontos finais privados), esse recurso utilizará o seguinte padrão de nome DNS para o ponto final básico da API REST: <p/>`{your custom name}.cognitiveservices.azure.com`.
 
 Isto significa que, no nosso exemplo, o nome de ponto final da API REST será: <p/>`my-private-link-speech.cognitiveservices.azure.com`.
@@ -328,48 +330,41 @@ Depois de ativar um nome de domínio personalizado para um recurso de voz, norma
 >
 > Um domínio personalizado para um recurso de voz não contém *nenhuma* informação sobre a região onde o recurso é implantado. Assim, a lógica de aplicação descrita anteriormente *não* funcionará e precisa de ser alterada.
 
-##### <a name="speech-to-text-rest-api-for-short-audio-and-text-to-speech-rest-api"></a>API de REPOUSO de voz para texto para breve áudio e texto-a-discurso REST API
+##### <a name="speech-to-text-rest-api-for-short-audio-and-text-to-speech-rest-api"></a>API REST de voz para texto para breve áudio e API DE REPOUSO TEXT-to-speech
 
-A [API de Repouso Discurso-a-Texto para áudio curto](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) e a [API DE REPOUSO text-to-speech](rest-text-to-speech.md) utilizam dois tipos de pontos finais:
+A [API REST de Voz para texto para áudio curto](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) e a [API DE REPOUSO Text-to-speech](rest-text-to-speech.md) utilizam dois tipos de pontos finais:
 - [Serviços Cognitivos pontos finais regionais](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) para comunicação com os Serviços Cognitivos REST API para obter um token de autorização
 - Pontos finais especiais para todas as outras operações
 
-A descrição detalhada dos pontos finais especiais e como o seu URL deve ser transformado para um recurso de fala ativado por pontos privados é fornecida [nesta subsecção](#general-principles) sobre a utilização com o SDK do discurso. O mesmo princípio descrito para o SDK aplica-se à API de repouso fala-a-texto v1.0 e à API de repouso text-to-speech.
+> [!NOTE]
+> Veja [este artigo](sovereign-clouds.md) para o Governo Azure e para os pontos finais da Azure China.
 
-Familiarize-se com o material da subsecção mencionada no parágrafo anterior e veja o seguinte exemplo. O exemplo descreve a API DE REPOUSO TEXT-TO-SPEECH. A utilização da API de Repouso Discurso-a-Texto para áudio curto é totalmente equivalente.
+A descrição detalhada dos pontos finais especiais e como o seu URL deve ser transformado para um recurso de fala ativado por pontos privados é fornecida [nesta subsecção](#construct-endpoint-url) sobre a utilização com o SDK do discurso. O mesmo princípio descrito para o SDK aplica-se à API REST discurso-a-texto para áudio curto e a API DE REPOUSO Text-to-speech.
+
+Familiarize-se com o material da subsecção mencionada no parágrafo anterior e veja o seguinte exemplo. O exemplo descreve a API DE REPOUSO Text-to-speech. A utilização da API REST fala-a-texto para áudio curto é totalmente equivalente.
 
 > [!NOTE]
-> Quando estiver a utilizar a API de Repouso Discurso-a-Texto para áudio curto em cenários de ponto final privado, utilize um token de autorização [passado através](rest-speech-to-text.md#request-headers) do `Authorization` [cabeçalho](rest-speech-to-text.md#request-headers). Passar uma chave de subscrição de discurso para o ponto final especial através do `Ocp-Apim-Subscription-Key` cabeçalho *não* funcionará e gerará Error 401.
+> Quando estiver a utilizar a API REST de Voz para texto para uma API de áudio curto e de texto para falar em cenários de ponto final privado, utilize uma chave de subscrição passada através do `Ocp-Apim-Subscription-Key` cabeçalho. (Ver detalhes [para a API REST de voz a texto para breve áudio](rest-speech-to-text.md#request-headers) e [API DE REPOUSO TEXT-to-speech](rest-text-to-speech.md#request-headers))
+>
+> A utilização de um token de autorização e a sua passagem para o ponto final especial através `Authorization` do cabeçalho *só* funcionará se tiver ativado a opção de acesso **de todas as redes** na secção de **Networking** do seu recurso Speech. Noutros casos, terá um `Forbidden` ou erro ao tentar obter um `BadRequest` token de autorização.
 
-**Exemplo de utilização da API de REPOUSO text-to-Speech**
+**Exemplo de utilização da API de REPOUSO text-to-speech**
 
 Usaremos a Europa Ocidental como uma amostra da região de Azure e `my-private-link-speech.cognitiveservices.azure.com` como uma amostra do nome DNS (domínio personalizado). O nome de domínio personalizado `my-private-link-speech.cognitiveservices.azure.com` no nosso exemplo pertence ao recurso Discurso criado na região da Europa Ocidental.
 
-Para obter a lista das vozes apoiadas na região, faça as duas operações seguintes:
+Para obter a lista das vozes apoiadas na região, execute o seguinte pedido:
 
-- Obter um sinal de autorização:
-  ```http
-  https://westeurope.api.cognitive.microsoft.com/sts/v1.0/issuetoken
-  ```
-- Ao usar o símbolo, obtenha a lista de vozes:
-  ```http
-  https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list
-  ```
-Consulte mais detalhes sobre os passos anteriores na documentação da [API de REPOUSO TEXT-to-speech](rest-text-to-speech.md).
+```http
+https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list
+```
+Consulte mais detalhes na documentação da [API DE REPOUSO Text-to-speech](rest-text-to-speech.md).
 
-Para o recurso de fala ativado por pontos privados, os URLs de ponto final para a mesma sequência de funcionamento devem ser modificados. A mesma sequência será assim:
+Para o recurso de fala ativado por pontos privados, o URL do ponto final para a mesma operação tem de ser modificado. O mesmo pedido será assim:
 
-- Obter um sinal de autorização:
-  ```http
-  https://my-private-link-speech.cognitiveservices.azure.com/v1.0/issuetoken
-  ```
-  Consulte a explicação detalhada na [subsecção anterior do API de repouso discurso-a-texto v3.0.](#speech-to-text-rest-api-v30)
-
-- Ao utilizar o token obtido, obtenha a lista de vozes:
-  ```http
-  https://my-private-link-speech.cognitiveservices.azure.com/tts/cognitiveservices/voices/list
-  ```
-  Consulte uma explicação detalhada na subsecção [de princípios gerais](#general-principles) para o SDK do discurso.
+```http
+https://my-private-link-speech.cognitiveservices.azure.com/tts/cognitiveservices/voices/list
+```
+Consulte uma explicação detalhada na subsecção [url do ponto final de Construção](#construct-endpoint-url) para o SDK de discurso.
 
 #### <a name="speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk"></a>Recurso de fala com um nome de domínio personalizado e um ponto final privado: Utilização com o SDK de fala
 
@@ -377,9 +372,9 @@ A utilização do SDK de discurso com um nome de domínio personalizado e recurs
 
 Usaremos como amostra o `my-private-link-speech.cognitiveservices.azure.com` nome DNS (domínio personalizado) para esta secção.
 
-##### <a name="general-principles"></a>Princípios gerais
+##### <a name="construct-endpoint-url"></a>Construção URL de ponto final
 
-Normalmente em cenários SDK (bem como nos cenários de API DE REPOUSO DE TEXTO PARA FALAR), os recursos da fala utilizam os pontos finais regionais dedicados para diferentes ofertas de serviços. O formato de nome DNS para estes pontos finais é:
+Normalmente em cenários SDK (bem como na API de Voz a Texto REST para cenários breves de API de áudio e texto-a-discurso), os recursos da fala utilizam os pontos finais regionais dedicados para diferentes ofertas de serviços. O formato de nome DNS para estes pontos finais é:
 
 `{region}.{speech service offering}.speech.microsoft.com`
 
@@ -387,15 +382,15 @@ Um nome DNS exemplo é:
 
 `westeurope.stt.speech.microsoft.com`
 
-Todos os valores possíveis para a região (primeiro elemento do nome DNS) estão listados nas [regiões apoiadas pelo serviço speech](regions.md). A tabela a seguir apresenta os valores possíveis para a oferta de Serviços de Fala (segundo elemento do nome DNS):
+Todos os valores possíveis para a região (primeiro elemento do nome DNS) estão listados nas [regiões apoiadas pelo serviço speech](regions.md). (Ver [este artigo](sovereign-clouds.md) para o Governo Azure e os pontos finais da Azure China.) A tabela a seguir apresenta os valores possíveis para a oferta de Serviços de Fala (segundo elemento do nome DNS):
 
 | Valor do nome DNS | Oferta de serviço de fala                                    |
 |----------------|-------------------------------------------------------------|
 | `commands`     | [Comandos Personalizados](custom-commands.md)                       |
 | `convai`       | [Transcrição de conversa](conversation-transcription.md) |
 | `s2s`          | [Tradução de Voz](speech-translation.md)                 |
-| `stt`          | [Discurso-a-Texto](speech-to-text.md)                         |
-| `tts`          | [Texto-a-Discurso](text-to-speech.md)                         |
+| `stt`          | [Conversão de voz em texto](speech-to-text.md)                         |
+| `tts`          | [Conversão de texto em voz](text-to-speech.md)                         |
 | `voice`        | [Voz Personalizada](how-to-custom-voice.md)                      |
 
 Assim, o exemplo anterior significa `westeurope.stt.speech.microsoft.com` um ponto final de discurso a texto na Europa Ocidental.
@@ -459,7 +454,7 @@ Siga estes passos para modificar o seu código:
 
 2. Criar um `SpeechConfig` exemplo utilizando um URL de ponto final completo:
 
-   1. Modifique o ponto final que acabou de determinar, como descrito na secção de [princípios gerais](#general-principles) anteriores.
+   1. Modifique o ponto final que acabou de determinar, como descrito na secção [URL de ponto final](#construct-endpoint-url) anterior.
 
    1. Modifique a forma como cria o exemplo de `SpeechConfig` . Provavelmente, a sua aplicação está a usar algo assim:
       ```csharp
@@ -531,76 +526,34 @@ Compare-o com a saída [desta secção.](#resolve-dns-from-other-networks)
 
 #### <a name="speech-resource-with-a-custom-domain-name-and-without-private-endpoints-usage-with-the-rest-apis"></a>Recurso de fala com um nome de domínio personalizado e sem pontos finais privados: Utilização com as APIs REST
 
-##### <a name="speech-to-text-rest-api-v30"></a>API de REPOUSO fala-a-texto v3.0
+##### <a name="speech-to-text-rest-api-v30"></a>A API DE REPOUSO de expressão em texto v3.0
 
-A utilização da API de repouso de fala em texto v3.0 é totalmente equivalente ao caso dos recursos de [fala ativados por pontos privados](#speech-to-text-rest-api-v30).
+A utilização do API de fala em texto v3.0 é totalmente equivalente ao caso dos recursos de [fala ativados por pontos privados](#speech-to-text-rest-api-v30).
 
-##### <a name="speech-to-text-rest-api-for-short-audio-and-text-to-speech-rest-api"></a>API de REPOUSO de voz para texto para breve áudio e texto-a-discurso REST API
+##### <a name="speech-to-text-rest-api-for-short-audio-and-text-to-speech-rest-api"></a>API REST de voz para texto para breve áudio e API DE REPOUSO TEXT-to-speech
 
-Neste caso, a utilização da API de Repouso Discurso-a-Texto para áudio curto e utilização da API REST text-to-speech não tem diferenças em termos gerais, com uma exceção para a API de Repouso Discurso-a-Texto para áudio curto. (Ver a seguinte nota.) Deve utilizar ambas as APIs, conforme descrito na [API REST de voz a texto para](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) documentação curta de API áudio e [texto-a-discurso](rest-text-to-speech.md) REST.
+Neste caso, a utilização da API REST discurso-a-texto para áudio curto e utilização da API REST text-to-speech não tem diferenças em termos gerais, com uma exceção. (Ver a seguinte nota.) Deve utilizar ambas as APIs, conforme descrito na [API REST de voz a texto para breves áudios](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) e documentação [de API DE REPOUSO TEXT-to-speech.](rest-text-to-speech.md)
 
 > [!NOTE]
-> Quando estiver a utilizar a API de Repouso Discurso-a-Texto para áudio curto em cenários de domínio personalizado, utilize um token de autorização [passado através de](rest-speech-to-text.md#request-headers) um `Authorization` [cabeçalho](rest-speech-to-text.md#request-headers). Passar uma chave de subscrição de discurso para o ponto final especial através do `Ocp-Apim-Subscription-Key` cabeçalho *não* funcionará e gerará Error 401.
+> Quando estiver a utilizar a API REST de Voz para texto para uma API de áudio curto e de texto para falar em cenários de domínio personalizado, utilize uma chave de subscrição passada através do `Ocp-Apim-Subscription-Key` cabeçalho. (Ver detalhes [para a API REST de voz a texto para breve áudio](rest-speech-to-text.md#request-headers) e [API DE REPOUSO TEXT-to-speech](rest-text-to-speech.md#request-headers))
+>
+> A utilização de um token de autorização e a sua passagem para o ponto final especial através `Authorization` do cabeçalho *só* funcionará se tiver ativado a opção de acesso **de todas as redes** na secção de **Networking** do seu recurso Speech. Noutros casos, terá um `Forbidden` ou erro ao tentar obter um `BadRequest` token de autorização.
 
 #### <a name="speech-resource-with-a-custom-domain-name-and-without-private-endpoints-usage-with-the-speech-sdk"></a>Recurso de fala com um nome de domínio personalizado e sem pontos finais privados: Utilização com o SDK de fala
 
-A utilização do SDK de discurso com recursos de fala personalizados *sem* pontos finais privados requer a revisão e alterações prováveis do seu código de aplicação. Note que estas alterações são diferentes do caso de um [recurso de fala com ponta privada](#speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk). Estamos a trabalhar num suporte mais perfeito de cenários privados de ponto final e domínio personalizado.
+A utilização do SDK de discurso com recursos de fala personalizados *sem* pontos finais privados é equivalente ao caso geral descrito na documentação do [SDK](speech-sdk.md)do discurso .
 
-Usaremos como amostra o `my-private-link-speech.cognitiveservices.azure.com` nome DNS (domínio personalizado) para esta secção.
+No caso de ter modificado o seu código para utilização com um [recurso de discurso com ponta de lança privada,](#speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk)considere o seguinte.
 
 Na secção sobre [os recursos de fala ativados por pontos privados,](#speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk)explicamos como determinar o URL do ponto final, modificá-lo e fazê-lo funcionar através da inicialização "a partir do ponto final"/"com ponto final" da instância de `SpeechConfig` classe.
 
 No entanto, se tentar executar a mesma aplicação depois de ter todos os pontos finais privados removidos (permitindo algum tempo para a reprovisionamento do registo de DNS correspondente), obterá um erro de serviço interno (404). A razão é que o registo do [DNS](#dns-configuration) agora aponta para o ponto final dos Serviços Cognitivos regionais em vez do proxy de rede virtual, e os caminhos de URL como `/stt/speech/recognition/conversation/cognitiveservices/v1?language=en-US` não serão encontrados lá.
 
-Se reverter a sua aplicação para a instantânea padrão `SpeechConfig` no estilo do seguinte código, a sua aplicação terminará com o erro de autenticação (401):
+Tem de reverter a sua aplicação para a instantânea padrão `SpeechConfig` no estilo do seguinte código:
 
 ```csharp
 var config = SpeechConfig.FromSubscription(subscriptionKey, azureRegion);
 ```
-
-##### <a name="modifying-applications"></a>Modificação de aplicações
-
-Para permitir que a sua aplicação utilize um recurso speech com um nome de domínio personalizado e sem pontos finais privados, siga estes passos:
-
-1. Solicite um sinal de autorização da API dos Serviços Cognitivos. [Este artigo](../authentication.md#authenticate-with-an-authentication-token) mostra como obter o símbolo.
-
-   Use o seu nome de domínio personalizado no URL do ponto final. No nosso exemplo, esta URL é:
-   ```http
-   https://my-private-link-speech.cognitiveservices.azure.com/sts/v1.0/issueToken
-   ```
-   > [!TIP]
-   > Pode encontrar este URL no portal Azure. Na sua página de recursos de discurso, no grupo **de gestão de recursos,** selecione **Keys e Endpoint**.
-
-1. Crie um `SpeechConfig` exemplo utilizando o sinal de autorização que obteve na secção anterior. Suponha que temos as seguintes variáveis definidas:
-
-   - `token`: o sinal de autorização obtido na secção anterior
-   - `azureRegion`: o nome da [região](regions.md) dos recursos da fala (exemplo: `westeurope` )
-   - `outError`: (apenas para o [caso do objetivo C)](/objectivec/cognitive-services/speech/spxspeechconfiguration#initwithauthorizationtokenregionerror)
-
-   Criar um `SpeechConfig` caso como este:
-
-   ```csharp
-   var config = SpeechConfig.FromAuthorizationToken(token, azureRegion);
-   ```
-   ```cpp
-   auto config = SpeechConfig::FromAuthorizationToken(token, azureRegion);
-   ```
-   ```java
-   SpeechConfig config = SpeechConfig.fromAuthorizationToken(token, azureRegion);
-   ```
-   ```python
-   import azure.cognitiveservices.speech as speechsdk
-   speech_config = speechsdk.SpeechConfig(auth_token=token, region=azureRegion)
-   ```
-   ```objectivec
-   SPXSpeechConfiguration *speechConfig = [[SPXSpeechConfiguration alloc] initWithAuthorizationToken:token region:azureRegion error:outError];
-   ```
-> [!NOTE]
-> O chamador tem de garantir que o sinal de autorização é válido. Antes que o sinal de autorização expire, o chamador precisa refresca-lo chamando este setter com um novo token válido. Como os valores de configuração são copiados quando se está a criar um novo reconhecimento ou sintetizador, o novo valor simbólico não se aplicará aos reconhecedores ou sintetizadores que já foram criados.
->
-> Para estes, desista o sinal de autorização do reconhecedor ou sintetizador correspondente para refrescar o token. Se não refrescar o token, o reconhecedor ou sintetizador encontrará erros durante o funcionamento.
-
-Após esta modificação, a sua aplicação deve funcionar com recursos da Speech que usam um nome de domínio personalizado sem pontos finais privados.
 
 ## <a name="pricing"></a>Preços
 
@@ -610,5 +563,5 @@ Para obter detalhes sobre os preços, consulte [os preços do Azure Private Link
 
 * [Azure Private Link](../../private-link/private-link-overview.md)
 * [API de Voz](speech-sdk.md)
-* [API de REPOUSO Discurso-A-Texto](rest-speech-to-text.md)
-* [API de REPOUSO Text-to-Speech](rest-text-to-speech.md)
+* [API REST de conversão de voz em texto](rest-speech-to-text.md)
+* [API REST de conversão de texto em voz](rest-text-to-speech.md)
