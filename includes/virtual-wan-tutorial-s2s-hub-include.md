@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -8,24 +8,24 @@ ms.topic: include
 ms.date: 11/04/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 64470b42efeea49b7c778d6dffd88465b8445e36
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31cfb321a60e700aecfdc1288ccdd379b89658ba
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90606353"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99532276"
 ---
 1. Localize o WAN virtual que criou. Na página VIRTUAL WAN, na secção **Conectividade,** selecione **Hubs**.
 2. Na página Hubs, selecione **+New Hub** para abrir a página **do hub virtual Create.**
 
-    ![A screenshot mostra o painel de hub virtual Create com o separador Basics selecionado.](./media/virtual-wan-tutorial-hub-include/basics.png "Noções básicas")
+    ![A screenshot mostra o painel de hub virtual Create com o separador Basics selecionado.](./media/virtual-wan-tutorial-hub-include/basics.png "Informações básicas")
 3. No **separador 'Criar** página de centro virtual **Basics',** complete os seguintes campos:
 
     **Detalhes do projeto**
 
    * Região (anteriormente designada por Localização)
-   * Nome
-   * Espaço de endereço privado hub. O espaço mínimo de endereço é /24 para criar um hub, o que implica que qualquer coisa varia entre /25 e /32 produzirá um erro durante a criação. Sendo o Azure Virtual WAN um serviço gerido pela Microsoft cria as sub-redes adequadas no centro virtual para os diferentes gateways/serviços (por exemplo, Gateways VPN, Gateways ExpressRoute, User VPN/Point-to-site Gateways, Firewall, Encaminhing etc.). Não é necessário que o utilizador planeie explicitamente o espaço de endereço de sub-rede para os serviços no Virtual Hub, uma vez que a Microsoft o faz como parte do serviço.
+   * Name
+   * Espaço de endereço privado hub. O espaço mínimo de endereço é /24 para criar um hub, o que implica que qualquer coisa varia entre /25 e /32 produzirá um erro durante a criação. No entanto, recomendamos que aloque um espaço de endereço /23 ou maior para garantir que existem endereços IP suficientes para suportar futuros serviços que podem ser implantados no Centro Virtual. Sendo o Azure Virtual WAN um serviço gerido pela Microsoft cria as sub-redes adequadas no centro virtual para os diferentes gateways/serviços (por exemplo, Gateways VPN, Gateways ExpressRoute, User VPN/Point-to-site Gateways, Firewall, Encaminhing etc.). Não é necessário que o utilizador planeie explicitamente o espaço de endereço de sub-rede para os serviços no Virtual Hub, uma vez que a Microsoft o faz como parte do serviço.
 4. Selecione **Seguinte: Site-to-site**.
 
     ![A screenshot mostra o painel de hub virtual Create com o Site para o site selecionado.](./media/virtual-wan-tutorial-hub-include/site-to-site.png "Site a Site")

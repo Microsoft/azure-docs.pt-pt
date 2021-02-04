@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/03/2021
-ms.openlocfilehash: 9419e5f419a358be50fbb3b8478d62dfe6e3dff0
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: b013c66feefade077c85194ba3b1ff04ff4c4aa5
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509355"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99536837"
 ---
 # <a name="creating-queries-in-azure-cognitive-search"></a>Criação de consultas na Pesquisa Cognitiva Azure
 
@@ -23,7 +23,7 @@ Se estiver a construir uma consulta pela primeira vez, este artigo descreve abor
 
 Uma consulta é um pedido apenas de leitura contra a recolha de docs de um único índice de pesquisa. Especifica um 'consultaType' e uma expressão de consulta embora o parâmetro 'search'. A expressão de consulta pode ter termos de pesquisa, uma frase em anexo de cotação, e operadores.
 
-Uma consulta também pode ter 'contagem' para devolver o número de partidas encontradas no índice, 'selecionar' para escolher quais os campos que são devolvidos no resultado da pesquisa e 'orderby' para classificar resultados. Os exemplos a seguir mostram um pedido de consulta com um subconjunto dos parâmetros disponíveis. Para obter mais informações sobre a composição de consultas, consulte [tipos de consultas e composições](search-query-overview.md) e [documentos de pesquisa (REST)](/rest/api/searchservice/search-documents).
+Uma consulta também pode ter 'contagem' para devolver o número de partidas encontradas no índice, 'selecionar' para escolher quais os campos que são devolvidos no resultado da pesquisa e 'orderby' para classificar resultados. O exemplo a seguir dá-lhe uma ideia geral de um pedido de consulta mostrando um subconjunto dos parâmetros disponíveis. Para obter mais informações sobre a composição de consultas, consulte [tipos de consultas e composições](search-query-overview.md) e [documentos de pesquisa (REST)](/rest/api/searchservice/search-documents).
 
 ```http
 POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
@@ -38,7 +38,7 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 ## <a name="choose-a-client"></a>Escolha um cliente
 
-Você precisará de uma ferramenta ou API para criar uma consulta, como portal Azure ou Carteiro, ou código que instantaneamente um cliente de consulta. Recomendamos o portal Azure ou ASP DE REST para o desenvolvimento precoce e testes de prova de conceito.
+Você precisará de uma ferramenta como o portal Azure ou o Carteiro, ou código que instantaneamente um cliente de consulta usando APIs. Recomendamos o portal Azure ou ASP DE REST para o desenvolvimento precoce e testes de prova de conceito.
 
 ### <a name="permissions"></a>Permissões
 
@@ -111,14 +111,6 @@ Para obter uma descrição dos atributos de campo, consulte [Criar Índice (REST
 Durante a indexação, o motor de busca utiliza um analisador para realizar análises de texto em cordas, maximizando o potencial de correspondência no tempo de consulta. No mínimo, as cordas são inferiores, mas também podem sofrer de lematização e parar a remoção de palavras. Cordas maiores ou palavras compostas são tipicamente divididas por espaços brancos, hífenes ou traços, e indexadas como símbolos separados. 
 
 O ponto a retirar aqui é que o que você pensa que o seu índice contém, e o que realmente está nele, pode ser diferente. Se as consultas não devolverem os resultados esperados, pode inspecionar os tokens criados pelo analisador através do [Texto de Análise (REST API)](/rest/api/searchservice/test-analyzer). Para obter mais informações sobre a tokenização e o impacto nas consultas, consulte [a pesquisa parcial e padrões com caracteres especiais.](search-query-partial-matching.md)
-
-## <a name="about-queries-per-second-qps"></a>Sobre consultas por segundo (QPS)
-
-Devido ao grande número de fatores que entram em desempenho de consulta, a Microsoft não publica números de QPS esperados. As estimativas de QPS devem ser desenvolvidas de forma independente por cada cliente utilizando o nível de serviço, configuração, índice e construções de consulta que sejam válidas para a sua aplicação. Tamanho e complexidade do índice, tamanho de consulta e complexidade, e a quantidade de tráfego são determinantes primários de QPS. Não há forma de oferecer estimativas significativas quando tais fatores são desconhecidos.
-
-As estimativas são mais previsíveis quando calculadas sobre os serviços em execução em recursos dedicados (níveis básicos e standard). Pode estimar o QPS mais de perto porque tem controlo sobre mais dos parâmetros. Para obter orientações sobre como abordar a estimativa, consulte [o desempenho e otimização da Pesquisa Cognitiva Azure.](search-performance-optimization.md)
-
-Para os níveis otimizados de armazenamento (L1 e L2), deverá esperar uma produção de consulta mais baixa e uma latência mais elevada do que os níveis Standard.
 
 ## <a name="next-steps"></a>Passos seguintes
 

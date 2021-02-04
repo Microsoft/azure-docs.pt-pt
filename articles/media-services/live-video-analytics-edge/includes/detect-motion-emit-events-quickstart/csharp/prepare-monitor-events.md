@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 98b9734bb1c31b08e7f4784558efaba3a393d0b0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 882ba60e16f770651a1d9fe3b02b61be2b4c34c8
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88691048"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99531447"
 ---
 Você usará o live video analytics no módulo IoT Edge para detetar movimento na transmissão de vídeo ao vivo e enviar eventos para ioT Hub. Para ver estes eventos, siga estes passos:
 
@@ -13,3 +13,9 @@ Você usará o live video analytics no módulo IoT Edge para detetar movimento n
 1. Clique com o botão direito **do dispositivo de amostra de lva** e selecione Start **Monitoring Built-in Event Endpoint**.
 
     ![Comece a monitorizar um ponto final de evento incorporado](../../../media/quickstarts/start-monitoring-iothub-events.png)
+
+> [!NOTE]
+> Pode ser-lhe pedido que forneça informações sobre o ponto final incorporado para o IoT Hub. Para obter essa informação, no portal Azure, navegue até ao seu Hub IoT e procure a opção **de pontos finais incorporados** no painel de navegação esquerdo. Clique lá e procure o **ponto final compatível com o Event Hub** na secção de ponto final **compatível com o Event Hub.** Copie e use o texto na caixa. O ponto final será mais ou menos assim:  
+    ```
+    Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+    ```

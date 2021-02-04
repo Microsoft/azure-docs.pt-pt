@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: eff73888a449de20b2b460d519b36c0f03c4ea77
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8bcef40dad9c67e9e2c6d6c4a051045999487027
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88691141"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99531747"
 ---
 Quando executar o gráfico de mídia, os resultados do nó do processador de processador de movimento passam pelo nó da pia IoT Hub para o hub IoT. As mensagens que vê na janela **OUTPUT** do Código do Estúdio Visual contêm uma `body` secção e uma `applicationProperties` secção. Para obter mais informações, consulte [Criar e ler mensagens IoT Hub](../../../../../iot-hub/iot-hub-devguide-messages-construct.md).
 
@@ -61,21 +61,12 @@ Aqui está um exemplo desta mensagem:
         }  
       }  
     ]  
-  },  
-  "applicationProperties": {  
-    "topic": "/subscriptions/{subscriptionID}/resourceGroups/{name}/providers/microsoft.media/mediaservices/hubname",  
-    "subject": "/graphInstances/GRAPHINSTANCENAME/processors/md",  
-    "eventType": "Microsoft.Media.Graph.Analytics.Inference",  
-    "eventTime": "2020-04-17T20:26:32.7010000Z",
-    "dataVersion": "1.0"  
-  }  
+  } 
 }  
 ```
 
 Neste exemplo: 
 
-* Em `applicationProperties` , refere o nó no gráfico mediático a partir do qual a `subject` mensagem foi gerada. Neste caso, a mensagem provém do nó do processador de deteção de movimento.
-* Em `applicationProperties` , indica que este evento é um evento de `eventType` análise.
 * O `eventTime` valor é o momento em que o evento ocorreu.
 * O `body` valor são dados sobre o evento de análise. Neste caso, o evento é um evento de inferência, pelo que o corpo contém `timestamp` e `inferences` dados.
 * Os `inferences` dados indicam que `type` o é `motion` . Tem dados adicionais sobre o `motion` evento.

@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 67d6155d35f366429bf0210f18f052d9b6187820
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: 9503d93afbf14be159e6b982d9be5977717349ac
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "99214984"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99531823"
 ---
 Este tutorial requer os seguintes recursos Azure:
 
@@ -16,6 +16,8 @@ Este tutorial requer os seguintes recursos Azure:
 Para este arranque rápido, recomendamos que utilize o [script de configuração de recursos live video analytics](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) para implementar os recursos necessários na sua subscrição Azure. Para tal, siga estes passos:
 
 1. Abra o [Azure Cloud Shell](https://ms.portal.azure.com/#cloudshell/).
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="../../../media/quickstarts/cloud-shell.png" alt-text="Cloud Shell":::
 1. Se estiver a utilizar a Cloud Shell pela primeira vez, será solicitado que selecione uma subscrição para criar uma conta de armazenamento e uma partilha de Ficheiros Microsoft Azure. Selecione **Criar armazenamento** para criar uma conta de armazenamento para as informações da sessão Cloud Shell. Esta conta de armazenamento é separada da conta que o script criará para utilizar com a sua conta Azure Media Services.
 1. No menu suspenso no lado esquerdo da janela Cloud Shell, selecione **Bash** como seu ambiente.
 
@@ -42,12 +44,12 @@ Para este arranque rápido, recomendamos que utilize o [script de configuração
 
 1. Depois de terminar o script, selecione os suportes encaracolados para expor a estrutura da pasta. Você verá alguns ficheiros no *diretório de amostras ~/clouddrive/Lva.* De interesse neste arranque rápido são:
 
-     * ***~/clouddrive/lva-sample/edge-deployment/.env** _ - Este ficheiro contém propriedades que o Código do Estúdio Visual utiliza para implantar módulos num dispositivo de borda.
-     _ ~**~/clouddrive/lva-sample/appsetting.json** _ - Visual Studio Code usa este ficheiro para executar o código de amostra.
+     * ***~/clouddrive/lva-sample/edge-deployment/.env*** - Este ficheiro contém propriedades que o Código do Estúdio Visual utiliza para implantar módulos num dispositivo de borda.
+     * ***~/clouddrive/lva-sample/appsetting.json*** - Visual Studio Code usa este ficheiro para executar o código de amostra.
      
     Vai precisar destes ficheiros quando configurar o seu ambiente de desenvolvimento no Código do Estúdio Visual na secção seguinte. Talvez queira copiá-los num ficheiro local por enquanto.
     
     ![Definições da aplicação](../../../media/quickstarts/clouddrive.png)
 
 > [!TIP]
-> Se encontrar problemas com os recursos Azure que são criados, por favor veja o nosso *[_ guia de resolução de problemas](../../../troubleshoot-how-to.md#common-error-resolutions)** para resolver alguns problemas comumente encontrados.
+> Se encontrar problemas com os recursos da Azure que são criados, por favor, consulte o nosso **[guia de resolução de problemas](../../../troubleshoot-how-to.md#common-error-resolutions)** para resolver alguns problemas comumente encontrados.
