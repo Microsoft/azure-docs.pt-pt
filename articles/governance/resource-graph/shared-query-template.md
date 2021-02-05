@@ -1,15 +1,15 @@
 ---
 title: 'Quickstart: Criar uma consulta partilhada com modelos'
 description: Neste arranque rápido, utiliza-se um modelo de Gestor de Recursos Azure (modelo ARM) para criar uma consulta partilhada de Gráfico de Recurso que conta com máquinas virtuais por SISTEMA.
-ms.date: 10/14/2020
+ms.date: 02/05/2021
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: a629dd5325fc20d6f173d9f4e0524885af8fdf49
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 8d631ffcb14af93f10e578097470efc6156287d5
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057013"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594321"
 ---
 # <a name="quickstart-create-a-shared-query-by-using-an-arm-template"></a>Quickstart: Crie uma consulta partilhada utilizando um modelo ARM
 
@@ -51,7 +51,7 @@ O recurso definido no modelo é:
    | Name | Valor |
    |------|-------|
    | Subscrição | Selecione a sua subscrição do Azure. |
-   | Grupo de recursos | **Selecione Criar novo,** especifique um nome e, em seguida, selecione **OK**. |
+   | O grupo de recursos | **Selecione Criar novo,** especifique um nome e, em seguida, selecione **OK**. |
    | Localização | selecione uma região. Por exemplo, **E.U.A. Central**. |
    | Nome de consulta | Deixe o valor predefinido: **Conde VMs por OS**. |
    | Código de consulta | Deixe o valor predefinido: `Resources | where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by tostring(properties.storageProfile.osDisk.osType)` |
@@ -73,7 +73,7 @@ Para executar a nova consulta partilhada, siga estes passos:
 
 1. A partir da barra de pesquisa do portal, procure consultas de **Gráfico de Recurso** e selecione-a.
 
-1. Selecione a consulta partilhada denominada **Count VMs por OS**e, em seguida, selecione o **separador Resultados** na página **'Vista Geral'.**
+1. Selecione a consulta partilhada denominada **Count VMs por OS** e, em seguida, selecione o **separador Resultados** na página **'Vista Geral'.**
 
 A consulta partilhada também pode ser aberta a partir do Explorador de Gráficos de Recursos:
 
@@ -85,7 +85,7 @@ A consulta partilhada também pode ser aberta a partir do Explorador de Gráfico
 
 1. Uma vez carregada a consulta, selecione o botão **de consulta 'Executar'.** Os resultados são apresentados no separador **Resultados.**
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para remover a consulta partilhada criada, siga estes passos:
 

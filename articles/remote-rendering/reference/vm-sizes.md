@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 05/28/2020
 ms.topic: reference
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b37aabb39e19fa5ec53d2b006a7cbc1793adad72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e2687954fb05ce826e780ae0dbd3931d899885f
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90988039"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594405"
 ---
 # <a name="server-sizes"></a>Tamanhos de servidor
 
@@ -30,26 +30,35 @@ Quando o renderizador ligado num tamanho do servidor 'Standard' atinge esta limi
 O tipo de configuração do servidor pretendido deve ser especificado no tempo de inicialização da sessão de renderização. Não pode ser alterado numa sessão de corrida. Os seguintes exemplos de código mostram o local onde o tamanho do servidor deve ser especificado:
 
 ```cs
-async void CreateRenderingSession(AzureFrontend frontend)
+async void CreateRenderingSession(RemoteRenderingClient client)
 {
-    RenderingSessionCreationParams sessionCreationParams = new RenderingSessionCreationParams();
-    sessionCreationParams.Size = RenderingSessionVmSize.Standard; // or  RenderingSessionVmSize.Premium
+    RenderingSessionCreationOptions sessionCreationOptions = default;
+    sessionCreationOptions.Size = RenderingSessionVmSize.Standard; // or  RenderingSessionVmSize.Premium
 
-    AzureSession session = await frontend.CreateNewRenderingSessionAsync(sessionCreationParams).AsTask();
+    CreateRenderingSessionResult result = await client.CreateNewRenderingSessionAsync(sessionCreationOptions);
+    if (result.ErrorCode == Result.Success)
+    {
+        RenderingSession session = result.Session;
+        // do something with the session
+    }
 }
 ```
 
 ```cpp
-void CreateRenderingSession(ApiHandle<AzureFrontend> frontend)
+void CreateRenderingSession(ApiHandle<RemoteRenderingClient> client)
 {
-    RenderingSessionCreationParams sessionCreationParams;
-    sessionCreationParams.Size = RenderingSessionVmSize::Standard; // or  RenderingSessionVmSize::Premium
+    RenderingSessionCreationOptions sessionCreationOptions;
+    sessionCreationOptions.Size = RenderingSessionVmSize::Standard; // or  RenderingSessionVmSize::Premium
 
-    if (auto createSessionAsync = frontend->CreateNewRenderingSessionAsync(sessionCreationParams))
-    {
-        // ...
-    }
+    client->CreateNewRenderingSessionAsync(sessionCreationOptions, [](Status status, ApiHandle<CreateRenderingSessionResult> result) {
+        if (status == Status::OK && result->GetErrorCode() == Result::Success)
+        {
+            ApiHandle<RenderingSession> session = result->GetSession();
+            // do something with the session
+        }
+    });
 }
+
 ```
 
 Para o [exemplo, os scripts PowerShell,](../samples/powershell-example-scripts.md)o tamanho do servidor pretendido tem de ser especificado dentro do `arrconfig.json` ficheiro:
@@ -67,7 +76,7 @@ Para o [exemplo, os scripts PowerShell,](../samples/powershell-example-scripts.m
 
 ### <a name="how-the-renderer-evaluates-the-number-of-polygons"></a>Como o renderizador avalia o número de polígonos
 
-O número de polígonos considerados para o teste de limitação é o número de polígonos que são efetivamente passados para o renderizador. Esta geometria é tipicamente a soma de todos os modelos instantâneos, mas também há exceções. Não está **incluída**a seguinte geometria:
+O número de polígonos considerados para o teste de limitação é o número de polígonos que são efetivamente passados para o renderizador. Esta geometria é tipicamente a soma de todos os modelos instantâneos, mas também há exceções. Não está **incluída** a seguinte geometria:
 * Casos de modelo carregados que estão totalmente fora da vista frustum.
 * Modelos ou peças-modelo que são comutados para invisíveis, utilizando o [componente hierárquico de sobreposição do estado](../overview/features/override-hierarchical-state.md).
 
@@ -76,8 +85,8 @@ Assim, é possível escrever uma aplicação que vise o `standard` tamanho que c
 ### <a name="how-to-determine-the-number-of-polygons"></a>Como determinar o número de polígonos
 
 Existem duas formas de determinar o número de polígonos de um modelo ou cena que contribuem para o limite orçamental do tamanho da `standard` configuração:
-* No lado da conversão do modelo, recupere o [ficheiro json de saída de conversão](../how-tos/conversion/get-information.md)e verifique a entrada na secção `numFaces` [ *inputStatistics* ](../how-tos/conversion/get-information.md#the-inputstatistics-section)
-* Se a sua aplicação estiver a lidar com conteúdo dinâmico, o número de polígonos renderizados pode ser consultado dinamicamente durante o tempo de funcionamento. Utilize uma [consulta de avaliação de desempenho](../overview/features/performance-queries.md#performance-assessment-queries) e verifique se o membro da `polygonsRendered` `FrameStatistics` estrutura. O `polygonsRendered` campo será definido para quando o `bad` renderizador atingir a limitação do polígono. O fundo de tabuleiro de verificação é sempre desvanecido com algum atraso para garantir que as ações do utilizador podem ser tomadas após esta consulta assíncronea. A ação do utilizador pode, por exemplo, ocultar ou eliminar exemplos de modelos.
+* No lado da conversão do modelo, recupere o [ficheiro json de saída de conversão](../how-tos/conversion/get-information.md)e verifique a entrada na secção `numFaces` [ *inputStatistics*](../how-tos/conversion/get-information.md#the-inputstatistics-section)
+* Se a sua aplicação estiver a lidar com conteúdo dinâmico, o número de polígonos renderizados pode ser consultado dinamicamente durante o tempo de funcionamento. Utilize uma [consulta de avaliação de desempenho](../overview/features/performance-queries.md#performance-assessment-queries) e verifique se o membro da `polygonsRendered` `FrameStatistics` estrutura. O `PolygonsRendered` campo será definido para quando o `bad` renderizador atingir a limitação do polígono. O fundo de tabuleiro de verificação é sempre desvanecido com algum atraso para garantir que as ações do utilizador podem ser tomadas após esta consulta assíncronea. A ação do utilizador pode, por exemplo, ocultar ou eliminar exemplos de modelos.
 
 ## <a name="pricing"></a>Preços
 

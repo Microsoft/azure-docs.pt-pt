@@ -2,25 +2,29 @@
 title: CI/CD com gasodutos e modelos Azure
 description: Descreve como configurar a integração contínua em Pipelines Azure utilizando modelos de Gestor de Recursos Azure. Mostra como usar um script PowerShell ou copiar ficheiros para um local de paragem e ser implantado a partir daí.
 ms.topic: conceptual
-ms.date: 10/01/2020
-ms.openlocfilehash: 86ad2839375b73bf9595cf3369960e614ec03e67
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.date: 02/05/2021
+ms.openlocfilehash: ea1ccac00f121bd81fd8b9b1f182b565fc53d214
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93233819"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594202"
 ---
 # <a name="integrate-arm-templates-with-azure-pipelines"></a>Integrar modelos do Resource Manager com Pipelines do Azure
 
-Pode integrar os modelos Azure Resource Manager (modelos ARM) com Pipelines Azure para integração contínua e implementação contínua (CI/CD). A [integração tutorial contínua dos modelos ARM com Azure Pipelines](deployment-tutorial-pipeline.md) mostra como usar a [tarefa de implementação](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md) do modelo ARM para implementar um modelo a partir do seu repo GitHub. Esta abordagem funciona quando pretende implantar um modelo diretamente a partir de um repositório.
+Pode integrar os modelos Azure Resource Manager (modelos ARM) com Pipelines Azure para integração contínua e implementação contínua (CI/CD). Neste artigo, você aprende duas formas mais avançadas de implementar modelos com Azure Pipelines.
 
-Neste artigo, aprende-se mais duas formas de implementar modelos com gasodutos Azure. Este artigo mostra como:
+## <a name="select-your-option"></a>Selecione a sua opção
 
-* **Adicionar tarefa que executa um script Azure PowerShell** . Esta opção tem a vantagem de proporcionar consistência ao longo do ciclo de vida do desenvolvimento porque pode usar o mesmo script que usou ao realizar testes locais. O seu script implementa o modelo, mas também pode executar outras operações, tais como obter valores para usar como parâmetros.
+Antes de prosseguir com este artigo, consideremos as diferentes opções para a implementação de um modelo ARM a partir de um oleoduto.
+
+* **Utilize a tarefa de implementação do modelo ARM**. Esta opção é a opção mais fácil. Esta abordagem funciona quando pretende implantar um modelo diretamente a partir de um repositório. Esta opção não é abrangida por este artigo, mas está coberta pela integração tutorial [contínua dos modelos ARM com Azure Pipelines](deployment-tutorial-pipeline.md). Mostra como usar a [tarefa de implementação](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md) do modelo ARM para implementar um modelo a partir do seu repo GitHub.
+
+* **Adicionar tarefa que executa um script Azure PowerShell**. Esta opção tem a vantagem de proporcionar consistência ao longo do ciclo de vida do desenvolvimento porque pode usar o mesmo script que usou ao realizar testes locais. O seu script implementa o modelo, mas também pode executar outras operações, tais como obter valores para usar como parâmetros. Esta opção é mostrada neste artigo. Ver [tarefa Azure PowerShell](#azure-powershell-task).
 
    O Visual Studio fornece o [projeto Azure Resource Group](create-visual-studio-deployment-project.md) que inclui um script PowerShell. O script encena artefactos do seu projeto para uma conta de armazenamento a que o Gestor de Recursos pode aceder. Os artefactos são itens no seu projeto, tais como modelos ligados, scripts e binários de aplicações. Se quiser continuar a utilizar o script do projeto, utilize a tarefa de script PowerShell mostrada neste artigo.
 
-* **Adicionar tarefas para copiar e implementar tarefas** . Esta opção oferece uma alternativa conveniente ao script do projeto. Configura duas tarefas no oleoduto. Uma tarefa coloca os artefactos num local acessível. A outra tarefa implementa o modelo a partir desse local.
+* **Adicionar tarefas para copiar e implementar tarefas**. Esta opção oferece uma alternativa conveniente ao script do projeto. Configura duas tarefas no oleoduto. Uma tarefa coloca os artefactos num local acessível. A outra tarefa implementa o modelo a partir desse local. Esta opção é mostrada neste artigo. Consulte [copiar e implementar tarefas.](#copy-and-deploy-tasks)
 
 ## <a name="prepare-your-project"></a>Prepare o seu projeto
 
@@ -34,11 +38,11 @@ Este artigo assume que o seu modelo ARM e a organização Azure DevOps estão pr
 
 ## <a name="create-pipeline"></a>Criar pipeline
 
-1. Se ainda não adicionou um oleoduto, tem de criar um novo oleoduto. Da sua organização Azure DevOps, selecione **Pipelines** e **New pipeline** .
+1. Se ainda não adicionou um oleoduto, tem de criar um novo oleoduto. Da sua organização Azure DevOps, selecione **Pipelines** e **New pipeline**.
 
    ![Adicione novo oleoduto](./media/add-template-to-azure-pipelines/new-pipeline.png)
 
-1. Especifique onde o seu código está armazenado. A imagem a seguir mostra a seleção de **Azure Repos Git** .
+1. Especifique onde o seu código está armazenado. A imagem a seguir mostra a seleção de **Azure Repos Git**.
 
    ![Selecione fonte de código](./media/add-template-to-azure-pipelines/select-source.png)
 
@@ -46,7 +50,7 @@ Este artigo assume que o seu modelo ARM e a organização Azure DevOps estão pr
 
    ![Selecione repositório](./media/add-template-to-azure-pipelines/select-repo.png)
 
-1. Selecione o tipo de oleoduto para criar. Pode selecionar **o pipeline Starter** .
+1. Selecione o tipo de oleoduto para criar. Pode selecionar **o pipeline Starter**.
 
    ![Selecione o oleoduto](./media/add-template-to-azure-pipelines/select-pipeline.png)
 

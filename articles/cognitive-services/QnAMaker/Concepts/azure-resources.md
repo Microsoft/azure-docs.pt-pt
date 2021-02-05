@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 8c740e2868d2cd2033bc896f9b6ca897b38e922f
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 0864db8a653ff1d6f89ed0b1c857e51053ff50ff
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584826"
+ms.locfileid: "99592608"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Recursos Azure para O Criador QNA
 
@@ -157,9 +157,9 @@ Pode visualizar e redefinir as suas teclas de autoria a partir do portal Azure, 
 
     ![Lista de recursos do Fabricante QnA](../media/qnamaker-how-to-key-management/qnamaker-resource-list.png)
 
-2. Ir para **as Chaves:**
+2. Ir para **Chaves e Endpoint:**
 
-    ![Chave de subscrição](../media/qnamaker-how-to-key-management/subscription-key.PNG)
+    ![QnA Maker geriu (Pré-visualização) chave de subscrição](../media/qnamaker-how-to-key-management/subscription-key-v2.png)
 
 ### <a name="find-query-endpoint-keys-in-the-qna-maker-portal"></a>Encontre chaves de ponto final de consulta no portal QnA Maker
 

@@ -1,14 +1,14 @@
 ---
 title: 'Quickstart: Criar um grupo de gestão com REST API'
 description: Neste quickstart, você usa a API REST para criar um grupo de gestão para organizar os seus recursos numa hierarquia de recursos.
-ms.date: 08/31/2020
+ms.date: 02/05/2021
 ms.topic: quickstart
-ms.openlocfilehash: b19fddf8215a1b133254c2a31bbea568a315f721
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ff1487bf25945c733402ddb74d1e102bea80b4b1
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89237406"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592505"
 ---
 # <a name="quickstart-create-a-management-group-with-rest-api"></a>Quickstart: Criar um grupo de gestão com REST API
 
@@ -20,7 +20,7 @@ O primeiro grupo de gestão criado no diretório pode demorar até 15 minutos pa
 
 - Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-- Se ainda não o fez, instale [o ARMClient](https://github.com/projectkudu/ARMClient). É uma ferramenta que envia pedidos HTTP para AZure Resource Manager-based REST APIs. Em alternativa, pode utilizar a função "Try It" na documentação REST ou na ferramenta como [o Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod) ou [o Carteiro](https://www.postman.com)da PowerShell.
+- Se ainda não o fez, instale [o ARMClient](https://github.com/projectkudu/ARMClient). É uma ferramenta que envia pedidos HTTP para AZure Resource Manager-based REST APIs. Em vez disso, pode utilizar a função "Try It" na documentação REST ou ferramentas como [o Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod) ou [o Carteiro](https://www.postman.com)da PowerShell.
 
 - Qualquer utilizador Azure AD no arrendatário pode criar um grupo de gestão sem que o grupo de gestão escreva a permissão atribuída a esse utilizador se a [proteção da hierarquia](./how-to/protect-resource-hierarchy.md#setting---require-authorization) não estiver ativada. Este novo grupo de gestão torna-se filho do Grupo de Gestão de Raízes ou do [grupo de gestão padrão](./how-to/protect-resource-hierarchy.md#setting---default-management-group) e o criador recebe uma atribuição de função de "Proprietário". O serviço de grupo de gestão permite esta capacidade para que as atribuições de funções não sejam necessárias ao nível da raiz. Nenhum utilizadores tem acesso ao Grupo de Gestão de Raízes quando este é criado. Para evitar o obstáculo de encontrar os Azure AD Global Admins para começar a usar grupos de gestão, permitimos a criação dos grupos de gestão iniciais ao nível da raiz.
 
@@ -79,7 +79,7 @@ Nos exemplos anteriores, o novo grupo de gestão é criado no âmbito do grupo d
   }
   ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para remover o grupo de gestão acima criado, utilize os [Grupos de Gestão - Eliminar](/rest/api/resources/managementgroups/delete) ponto final:
 

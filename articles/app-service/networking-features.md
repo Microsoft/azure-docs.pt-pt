@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/18/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 53c0d37d4a25c2f2092a9e52bcae8ea494046bb0
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 730f26039db0f5441563ac7bf5d6b0ab536cbcd2
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98210023"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593134"
 ---
 # <a name="app-service-networking-features"></a>Funcionalidades de networking do Serviço de Aplicações
 
@@ -113,6 +113,9 @@ A funcionalidade de restrições de acesso baseadas em IP ajuda quando pretende 
 * Restringir o acesso ao tráfego através de um serviço externo de equilíbrio de carga ou outros aparelhos de rede com endereços IP de saída conhecidos. 
 
 Para saber como ativar esta funcionalidade, consulte [configurar restrições de acesso][iprestrictions].
+
+> [!NOTE]
+> As regras de restrição de acesso baseadas em IP apenas lidam com intervalos de endereços de rede virtuais quando a sua aplicação está num Ambiente de Serviço de Aplicações. Se a sua aplicação estiver no serviço multitenant, precisa de utilizar [pontos finais](../virtual-network/virtual-network-service-endpoints-overview.md) de serviço para restringir o tráfego para selecionar sub-redes na sua rede virtual.
 
 #### <a name="access-restriction-rules-based-on-service-endpoints"></a>Regras de restrição de acesso baseadas em pontos finais de serviço 
 

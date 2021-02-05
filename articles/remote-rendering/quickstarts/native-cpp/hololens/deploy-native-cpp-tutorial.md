@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/08/2020
 ms.topic: quickstart
-ms.openlocfilehash: d35d6e75b45c2ea263c2e986c5fc6f414cad16e4
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: b469f0cae1e356c47bfe60af99c4fa2e73eab78d
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724974"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594032"
 ---
 # <a name="quickstart-deploy-native-c-sample-to-hololens"></a>Quickstart: Implementar a amostra nativa C++ para hololens
 
@@ -61,26 +61,26 @@ Mude a configuração de construção para *Debug* (ou *Soltar)* e *ARM64*. Cert
 
 ![Estúdio Visual config](media/vs-config-native-cpp-tutorial.png)
 
-Uma vez que as credenciais de conta são codificadas no código fonte do tutorial, altere-as para credenciais válidas. Para isso, abra o ficheiro `HolographicAppMain.cpp` dentro do Visual Studio e altere a parte onde o frontend é criado dentro do construtor de `HolographicAppMain` classe:
+Uma vez que as credenciais de conta são codificadas no código fonte do tutorial, altere-as para credenciais válidas. Para isso, abra o arquivo `HolographicAppMain.cpp` dentro do Visual Studio e altere a parte onde o cliente é criado dentro do construtor de `HolographicAppMain` classe:
 
 ```cpp
-// 2. Create front end
+// 2. Create Client
 {
     // Users need to fill out the following with their account data and model
-    RR::AzureFrontendAccountInfo init;
+    RR::SessionConfiguration init;
     init.AccountId = "00000000-0000-0000-0000-000000000000";
     init.AccountKey = "<account key>";
-    init.AccountDomain = "westus2.mixedreality.azure.com"; // <change to the region that the rendering session should be created in>
-    init.AccountAuthenticationDomain = "westus2.mixedreality.azure.com"; // <change to the region the account was created in>
+    init.RemoteRenderingDomain = "westus2.mixedreality.azure.com"; // <change to the region that the rendering session should be created in>
+    init.AccountDomain = "westus2.mixedreality.azure.com"; // <change to the region the account was created in>
     m_modelURI = "builtin://Engine";
     m_sessionOverride = ""; // If there is a valid session ID to re-use, put it here. Otherwise a new one is created
-    m_frontEnd = RR::ApiHandle(RR::AzureFrontend(init));
+    m_client = RR::ApiHandle(RR::RemoteRenderingClient(init));
 }
 ```
 
 Especificamente, alterar os seguintes valores:
-* `init.AccountId`, `init.AccountKey` e para usar os `init.AccountAuthenticationDomain` dados da sua conta. Consulte o parágrafo sobre como [obter informações sobre contas](../../../how-tos/create-an-account.md#retrieve-the-account-information).
-* Especificar onde criar a sessão de renderização remota modificando a parte da cadeia da região `init.AccountDomain` para outras regiões que `westus2` não, por exemplo `"westeurope.mixedreality.azure.com"` .
+* `init.AccountId`, `init.AccountKey` e para usar os `init.AccountDomain` dados da sua conta. Consulte o parágrafo sobre como [obter informações sobre contas](../../../how-tos/create-an-account.md#retrieve-the-account-information).
+* Especificar onde criar a sessão de renderização remota modificando a parte da cadeia da região `init.RemoteRenderingDomain` para outras regiões que `westus2` não, por exemplo `"westeurope.mixedreality.azure.com"` .
 * Além disso, `m_sessionOverride` pode ser alterado para um ID de sessão existente. As sessões podem ser criadas fora desta amostra, por exemplo, utilizando [o script PowerShell](../../../samples/powershell-example-scripts.md#script-renderingsessionps1) ou utilizando diretamente a [Sessão REST API.](../../../how-tos/session-rest-api.md#create-a-session)
 Recomenda-se a criação de uma sessão fora da amostra quando a amostra deve ser executada várias vezes. Se nenhuma sessão for transmitida, a amostra criará uma nova sessão em cada startup, que poderá demorar vários minutos.
 

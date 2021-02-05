@@ -5,12 +5,12 @@ author: erscorms
 ms.author: erscor
 ms.date: 02/11/2020
 ms.topic: reference
-ms.openlocfilehash: 33f5314c80dc33dbec50dc21a71f4cb507979e12
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 68c0c04feba2779598a500c84b2ba4a9086b104d
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427433"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593958"
 ---
 # <a name="limitations"></a>Limitações
 
@@ -19,8 +19,8 @@ Uma série de funcionalidades têm tamanho, contagem ou outras limitações.
 ## <a name="azure-frontend"></a>Azure Frontend
 
 As seguintes limitações aplicam-se à API frontal (C++ e C#):
-* Total [de instâncias AzureFrontend](/dotnet/api/microsoft.azure.remoterendering.azurefrontend) por processo: 16.
-* Total de instâncias de [AzureSsssion](/dotnet/api/microsoft.azure.remoterendering.azuresession) por [AzureFrontend:](/dotnet/api/microsoft.azure.remoterendering.azurefrontend)16.
+* Total [de instâncias remoteRenderingClient](/dotnet/api/microsoft.azure.remoterendering.remoterenderingclient) por processo: 16.
+* Total [de processos de renderização](/dotnet/api/microsoft.azure.remoterendering.renderingsession) por [RemoteRenderingClient:](/dotnet/api/microsoft.azure.remoterendering.remoterenderingclient)16.
 
 ## <a name="objects"></a>Objetos
 

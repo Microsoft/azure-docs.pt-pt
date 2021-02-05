@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 12/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 514ce0a43904048952f38edd6a9d38713f6ef8f3
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: cb33e11af26d5f5a2676f5b236ac142179bdb550
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98936660"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592845"
 ---
 # <a name="azure-ad-b2c-custom-policy-overview"></a>Visão geral da política personalizada AZURE AD B2C
 
@@ -115,7 +115,7 @@ Cada pacote de arranque inclui os seguintes ficheiros:
 O modelo de herança é o seguinte:
 
 - A política infantil a qualquer nível pode herdar da política dos pais e alargá-la adicionando novos elementos.
-- Para cenários mais complexos, pode adicionar mais níveis de herança (até 5 no total).
+- Para cenários mais complexos, pode adicionar mais níveis de herança (até 10 no total).
 - Pode adicionar mais políticas partidárias de dependência. Por exemplo, apagar a minha conta, alterar um número de telefone, a política do partido de singing SAML e muito mais.
 
 O diagrama que se segue mostra a relação entre os ficheiros políticos e as aplicações do partido em gestão.
@@ -161,7 +161,7 @@ Você começa com a política personalizada Azure AD B2C:
 1. Depois de fazer o upload do pacote inicial, [teste a sua política de inscrição ou de inscrição](custom-policy-get-started.md#test-the-custom-policy).
 1. Recomendamos que descarregue e instale [o Código do Estúdio Visual](https://code.visualstudio.com/) (Código VS). Visual Studio Code é um editor de código fonte leve mas poderoso, que funciona no seu ambiente de trabalho e está disponível para Windows, macOS e Linux. Com o Código VS, pode navegar rapidamente e editar os seus ficheiros XML de política personalizada Azure AD B2C, instalando a [extensão Azure AD B2C para o Código VS](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c)
  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de configurar e testar a sua política Azure AD B2C, pode começar a personalizar a sua política. Veja os seguintes artigos para aprender a:
 

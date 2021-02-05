@@ -6,12 +6,12 @@ ms.author: nisgoel
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: 39eb007c85d9f0623b4a5611e36d4ed7a75423e0
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 6611f5ca7ddae243c4bc314be73a9030311cec89
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98941185"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594439"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-hive-warehouse-connector-in-azure-hdinsight"></a>Integre a Faísca Apache e a Colmeia Apache com o Conector do Armazém da Colmeia em Azure HDInsight
 
@@ -38,7 +38,11 @@ Algumas das operações apoiadas pelo Conector do Armazém da Colmeia são:
 ## <a name="hive-warehouse-connector-setup"></a>Configuração do conector do armazém da colmeia
 
 > [!IMPORTANT]
-> A instância Interativa HiveServer2 instalada nos clusters spark 2.4 Enterprise Security Package não é suportada para utilização com o Conector do Armazém da Colmeia. Em vez disso, deve configurar um cluster interativo HiveServer2 para acolher as suas cargas de trabalho Interativas HiveServer2. Não é suportada uma configuração do Conector do Armazém de Colmeia que utilize um único cluster Spark 2.4.
+> - A instância Interativa HiveServer2 instalada nos clusters spark 2.4 Enterprise Security Package não é suportada para utilização com o Conector do Armazém da Colmeia. Em vez disso, deve configurar um cluster interativo HiveServer2 para acolher as suas cargas de trabalho Interativas HiveServer2. Não é suportada uma configuração do Conector do Armazém de Colmeia que utilize um único cluster Spark 2.4.
+> - A Biblioteca hive Warehouse Connector (HWC) não é suportada para utilização com clusters de consultas interativos onde a funcionalidade de Gestão da Carga de Trabalho (WLM) está ativada. <br>
+Num cenário em que só tem cargas de trabalho de Faísca e quer utilizar a Biblioteca HWC, certifique-se de que o cluster de consultas interativas não tem a funcionalidade de Gestão da Carga de Trabalho ativada `hive.server2.tez.interactive.queue` (a configuração não está definida em configurações de Hive). <br>
+Para um cenário em que existam cargas de trabalho nativas de Spark (HWC) e LLAP, é necessário criar dois Clusters de Consulta Interativas separados com base de dados de metassestões partilhada. Um cluster para cargas de trabalho llap nativas onde a funcionalidade WLM pode ser ativada em base de necessidade e outro cluster para apenas carga de trabalho HWC onde a funcionalidade WLM não deve ser configurada.
+É importante notar que é possível visualizar os planos de recursos WLM de ambos os clusters, mesmo que esteja ativado em apenas um cluster. Não faça alterações nos planos de recursos no cluster onde a funcionalidade WLM é desativada, uma vez que pode ter impacto na funcionalidade WLM noutro cluster.
 
 O Conector do Armazém da Colmeia necessita de aglomerados separados para cargas de trabalho de faísca e consulta interativa. Siga estes passos para configurar estes clusters em Azure HDInsight.
 
@@ -223,7 +227,7 @@ kinit USERNAME
 
     ![mesa de demonstração depois de aplicar a política ranger](./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-after-ranger-policy.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Operações do HWC e do Apache Spark](./apache-hive-warehouse-connector-operations.md)
 * [Utilizar uma Consulta Interativa com o HDInsight](./apache-interactive-query-get-started.md).

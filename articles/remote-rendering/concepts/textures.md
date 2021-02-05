@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/05/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b951dab1ad01187c7612fad047bc52eb6aa9700e
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: e01ddf0690f11d41021e0a5ae5958c7c80646743
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701879"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594422"
 ---
 # <a name="textures"></a>Texturas
 
@@ -35,66 +35,54 @@ Carregar uma textura com o mesmo URI duas vezes devolverá o mesmo objeto de tex
 
 Semelhante aos modelos de carregamento, existem duas variantes de abordar um ativo de textura no armazenamento de bolhas de origem:
 
-* O ativo de textura pode ser abordado pelo seu SAS URI. A função de carregamento relevante é `LoadTextureFromSASAsync` com `LoadTextureFromSASParams` parâmetro. Utilize esta variante também ao carregar [texturas incorporadas.](../overview/features/sky.md#built-in-environment-maps)
-* A textura pode ser abordada diretamente pelos parâmetros de armazenamento do blob, caso o armazenamento do [blob esteja ligado à conta](../how-tos/create-an-account.md#link-storage-accounts). A função de carregamento relevante neste caso é `LoadTextureAsync` com parâmetro `LoadTextureParams` .
+* A textura pode ser abordada diretamente pelos parâmetros de armazenamento do blob, caso o armazenamento do [blob esteja ligado à conta](../how-tos/create-an-account.md#link-storage-accounts). A função de carregamento relevante neste caso é `LoadTextureAsync` com parâmetro `LoadTextureOptions` .
+* O ativo de textura pode ser abordado pelo seu SAS URI. A função de carregamento relevante é `LoadTextureFromSasAsync` com `LoadTextureFromSasOptions` parâmetro. Utilize esta variante também ao carregar [texturas incorporadas.](../overview/features/sky.md#built-in-environment-maps)
 
-O seguinte código de amostra mostra como carregar uma textura através do seu SAS URI (ou textura incorporada) - note que apenas a função de carregamento/parâmetro difere para o outro caso:
+O seguinte código de amostra mostra como carregar uma textura:
 
 ```cs
-LoadTextureAsync _textureLoad = null;
-void LoadMyTexture(AzureSession session, string textureUri)
+async void LoadMyTexture(RenderingSession session, string storageContainer, string blobName, string assetPath)
 {
-    _textureLoad = session.Actions.LoadTextureFromSASAsync(new LoadTextureFromSASParams(textureUri, TextureType.Texture2D));
-    _textureLoad.Completed +=
-        (LoadTextureAsync res) =>
-        {
-            if (res.IsRanToCompletion)
-            {
-                //use res.Result
-            }
-            else
-            {
-                System.Console.WriteLine("Texture loading failed!");
-            }
-            _textureLoad = null;
-        };
+    try
+    {
+        LoadTextureOptions options = new LoadTextureOptions(storageContainer, blobName, assetPath, TextureType.Texture2D);
+        Texture texture = await session.Connection.LoadTextureAsync(options);
+    
+        // use texture...
+    }
+    catch (RRException ex)
+    {
+    }
 }
 ```
 
 ```cpp
-void LoadMyTexture(ApiHandle<AzureSession> session, std::string textureUri)
+void LoadMyTexture(ApiHandle<RenderingSession> session, std::string storageContainer, std::string blobName, std::string assetPath)
 {
-    LoadTextureFromSASParams params;
+    LoadTextureOptions params;
     params.TextureType = TextureType::Texture2D;
-    params.TextureUrl = std::move(textureUri);
-    ApiHandle<LoadTextureAsync> textureLoad = *session->Actions()->LoadTextureFromSASAsync(params);
-    textureLoad->Completed([](ApiHandle<LoadTextureAsync> res)
+    params.Blob.StorageAccountName = std::move(storageContainer);
+    params.Blob.BlobContainerName = std::move(blobName);
+    params.Blob.AssetPath = std::move(assetPath);
+    session->Connection()->LoadTextureAsync(params, [](Status status, ApiHandle<Texture> texture)
     {
-        if (res->GetIsRanToCompletion())
-        {
-            //use res->Result()
-        }
-        else
-        {
-            printf("Texture loading failed!");
-        }
+        // use texture...
     });
 }
 ```
 
-Dependendo do que a textura deve ser usada, pode haver restrições para o tipo de textura e conteúdo. Por exemplo, o mapa de aspereza de um [material PBR](../overview/features/pbr-materials.md) deve ser em tons de cinza.
+Note que em caso de utilização da sua variante SAS apenas a função de carregamento/parâmetro difere.
 
-> [!CAUTION]
-> Todas as funções *Async* em ARR retornam objetos de operação assíncronos. Deve guardar uma referência a esses objetos até que a operação esteja concluída. Caso contrário, o coletor de lixo C# pode apagar a operação mais cedo e nunca poderá terminar. No código de amostra acima da variável de membro '_textureLoad' é utilizado para manter uma referência até à chegada do evento *Concluído.*
+Dependendo do que a textura deve ser usada, pode haver restrições para o tipo de textura e conteúdo. Por exemplo, o mapa de aspereza de um [material PBR](../overview/features/pbr-materials.md) deve ser em tons de cinza.
 
 ## <a name="api-documentation"></a>Documentação da API
 
 * [C# Classe de textura](/dotnet/api/microsoft.azure.remoterendering.texture)
-* [C# RemoteManager.LoadTextureAsync()](/dotnet/api/microsoft.azure.remoterendering.remotemanager.loadtextureasync)
-* [C# RemoteManager.LoadTextureFromSASAsync()](/dotnet/api/microsoft.azure.remoterendering.remotemanager.loadtexturefromsasasync)
+* [C# RenderingConnection.LoadTextureAsync()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.loadtextureasync)
+* [C# RenderingConnection.LoadTextureFromSasAsync()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.loadtexturefromsasasync)
 * [Classe de textura C++](/cpp/api/remote-rendering/texture)
-* [C++ RemoteManager::LoadTextureAsync()](/cpp/api/remote-rendering/remotemanager#loadtextureasync)
-* [C++ RemoteManager::LoadTextureFromSASAsync()](/cpp/api/remote-rendering/remotemanager#loadtexturefromsasasync)
+* [C++ RenderingConnection::LoadTextureAsync()](/cpp/api/remote-rendering/renderingconnection#loadtextureasync)
+* [C++ RenderingConnection::LoadTextureFromSasAsync()](/cpp/api/remote-rendering/renderingconnection#loadtexturefromsasasync)
 
 ## <a name="next-steps"></a>Passos seguintes
 

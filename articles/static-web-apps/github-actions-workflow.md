@@ -5,14 +5,14 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 02/05/2021
 ms.author: cshoe
-ms.openlocfilehash: acdb635dec5abd73341cc1dda4991b58b82a18c0
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 785fd535c46b67cfd631cd18560f396a6901e5c0
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/05/2021
-ms.locfileid: "99574521"
+ms.locfileid: "99593961"
 ---
 # <a name="github-actions-workflows-for-azure-static-web-apps-preview"></a>GitHub Actions fluxos de trabalho para Azure Static Web Apps Preview
 
@@ -197,12 +197,13 @@ jobs:
 
 ## <a name="monorepo-support"></a>Suporte monorepo
 
-Um monorepo é um repositório que contém código para mais de uma aplicação. Por predefinição, um ficheiro de fluxo de trabalho estático web apps rastreia todos os ficheiros num repositório, mas pode ajustá-lo para direcionar uma única aplicação. Portanto, para os monorepos, cada site estático tem o seu próprio ficheiro de configuração que vive lado a lado na pasta *.git* do repositório.
+Um monorepo é um repositório que contém código para mais de uma aplicação. Por predefinição, um ficheiro de fluxo de trabalho estático web apps rastreia todos os ficheiros num repositório, mas pode ajustá-lo para direcionar uma única aplicação. Portanto, para os monorepos, cada aplicação estática tem o seu próprio ficheiro de configuração que vive lado a lado na pasta *.github/workflows* do repositório.
 
 ```files
-├── .git
-│   ├── azure-static-web-apps-purple-pond.yml
-│   └── azure-static-web-apps-yellow-shoe.yml
+├── .github
+│   └── workflows
+│       ├── azure-static-web-apps-purple-pond.yml
+│       └── azure-static-web-apps-yellow-shoe.yml
 │
 ├── app1  👉 controlled by: azure-static-web-apps-purple-pond.yml
 ├── app2  👉 controlled by: azure-static-web-apps-yellow-shoe.yml
@@ -210,7 +211,7 @@ Um monorepo é um repositório que contém código para mais de uma aplicação.
 ├── api1  👉 controlled by: azure-static-web-apps-purple-pond.yml
 ├── api2  👉 controlled by: azure-static-web-apps-yellow-shoe.yml
 │
-└── readme.md
+└── README.md
 ```
 
 Para direcionar um ficheiro de fluxo de trabalho para uma única aplicação, especifica caminhos nas `push` secções e `pull_request` secções.
@@ -236,7 +237,7 @@ on:
       - .github/workflows/azure-static-web-apps-purple-pond.yml
 ```
 
-Neste caso, apenas as alterações feitas aos ficheiros após ficheiros desencadeiam uma nova construção:
+Neste caso, apenas as alterações feitas a seguir aos ficheiros desencadeiam uma nova construção:
 
 - Quaisquer ficheiros dentro da pasta *da app1*
 - Quaisquer ficheiros dentro da pasta *api1*

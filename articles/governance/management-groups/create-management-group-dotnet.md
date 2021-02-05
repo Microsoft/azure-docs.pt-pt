@@ -1,15 +1,15 @@
 ---
 title: 'Quickstart: Criar um grupo de gestão com .NET Core'
 description: Neste quickstart, você usa .NET Core para criar um grupo de gestão para organizar os seus recursos numa hierarquia de recursos.
-ms.date: 09/30/2020
+ms.date: 02/05/2021
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 138998fdc23fd8a296ca50093e2952017888041f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a74cea9b142785c093b8ed235fc40049746f11a0
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91604684"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592590"
 ---
 # <a name="quickstart-create-a-management-group-with-net-core"></a>Quickstart: Criar um grupo de gestão com .NET Core
 
@@ -125,7 +125,7 @@ Os comandos anteriores utilizam as seguintes informações:
 
 O resultado é um novo grupo de gestão no grupo de gestão de raiz.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 - Elimine o novo grupo de gestão através do portal.
 

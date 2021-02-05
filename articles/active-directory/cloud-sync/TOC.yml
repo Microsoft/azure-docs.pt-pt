@@ -7,7 +7,7 @@
     - name: O que é a sincronização de nuvem AZure AD Connect?
       href: what-is-cloud-sync.md
       maintainContext: true
-- name: Tutoriais
+- name: Tutorials (Tutoriais)
   expanded: true
   items:
     - name: Integrar uma única floresta do AD num único inquilino do Azure AD
@@ -62,7 +62,7 @@
       items:
         - name: Transformações
           href: how-to-transformation.md
-        - name: Sincronização de entrada com a MS Graph API
+        - name: Sincronização de nuvem de configuração programática usando API de Gráfico DE MS
           href: how-to-inbound-synch-ms-graph.md
         - name: API de sincronização do Azure AD
           href: /graph/api/resources/synchronization-overview

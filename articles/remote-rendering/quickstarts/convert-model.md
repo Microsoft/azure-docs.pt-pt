@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: b2a15bcc9d9dce922470031fd07b66cf9899f0b3
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: c9b5d525954e7f0742cd13fe4d64a73df64ea854
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281351"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594472"
 ---
 # <a name="quickstart-convert-a-model-for-rendering"></a>Início Rápido: Converter um modelo para composição
 
@@ -31,7 +31,7 @@ Vai aprender a:
   * Abrir um PowerShell com direitos de administração
   * Corra: `Install-Module -Name Az -AllowClobber`
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 O renderizador do servidor não pode funcionar diretamente com formatos de modelo de origem, tais como FBX ou GLTF. Em vez disso, requer que o modelo esteja num formato binário proprietário.
 O serviço de conversão consome modelos a partir do armazenamento de blob Azure e escreve modelos convertidos de volta para um recipiente de armazenamento de bolhas Azure fornecido.
@@ -155,7 +155,7 @@ O script lê a sua configuração a partir do ficheiro *Scripts\arrconfig.jsem*.
 
 A configuração dentro do grupo **accountSettings** (ID de conta e chave) deve ser preenchida análoga às credenciais no [Render um modelo com arranque rápido da Unidade](render-model.md).
 
-Dentro do grupo **de activosConversionSettings,** certifique-se de alterar **o grupo de recursos**, **blobInputContainerName**e **blobOutputContainerName,** como acima visto.
+Dentro do grupo **de activosConversionSettings,** certifique-se de alterar **o grupo de recursos**, **blobInputContainerName** e **blobOutputContainerName,** como acima visto.
 Note que o valor para **a arrtutorialstorage** precisa de ser substituído pelo nome único que escolheu durante a criação da conta de armazenamento.
 
 Altere **o LocalAssetDirectoryPath** para apontar para o diretório do seu disco, que contém o modelo que pretende converter. Tenha cuidado para escapar adequadamente às costas (" \\ ") no caminho utilizando duplos backslashes (" \\ \\ ").
@@ -188,8 +188,8 @@ Devia ver algo assim: ![Conversion.ps1](./media/successful-conversion.png)
 ### <a name="3-conversion-via-api-calls"></a>3. Conversão através de chamadas API
 
 Tanto o C# como a API C++ fornecem um ponto de entrada para interagir com o serviço:
-* [C# AzureFrontend.StartAssetConversionAsync()](/dotnet/api/microsoft.azure.remoterendering.azurefrontend.startassetconversionasync)
-* [C++ AzureFrontend::StartAssetConversionAsync()](/cpp/api/remote-rendering/azurefrontend#startassetconversionasync)
+* [C# RemoteRenderingClient.StartAssetConversionAsync()](/dotnet/api/microsoft.azure.remoterendering.remoterenderingclient.startassetconversionasync)
+* [C++ RemoteRenderingClient::StartAssetConversionAsync()](/cpp/api/remote-rendering/remoterenderingclient#startassetconversionasync)
 
 
 ## <a name="insert-new-model-into-quickstart-sample-app"></a>Insira novo modelo na Quickstart Sample App

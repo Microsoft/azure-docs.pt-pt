@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 9f69f89f565b2d98e408b06e300ff781c13680ef
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 8be5ac75e2da3eaeae300fd36e152a24c9777e64
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97693672"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593744"
 ---
 # <a name="how-to-install-an-application-gateway-ingress-controller-agic-using-a-new-application-gateway"></a>Como instalar um controlador de entrada de gateway de aplicação (AGIC) usando um novo gateway de aplicações
 
@@ -30,7 +30,7 @@ Alternativamente, lançar Cloud Shell a partir do portal Azure utilizando o segu
 
 O seu [Azure Cloud Shell](https://shell.azure.com/) já tem todas as ferramentas necessárias. Se optar por utilizar outro ambiente, certifique-se de que estão instaladas as seguintes ferramentas de linha de comando:
 
-* `az` - Azure CLI: [instruções de instalação](/cli/azure/install-azure-cli?view=azure-cli-latest)
+* `az` - Azure CLI: [instruções de instalação](/cli/azure/install-azure-cli)
 * `kubectl` - Ferramenta de linha de comando Kubernetes: instruções de [instalação](https://kubernetes.io/docs/tasks/tools/install-kubectl)
 * `helm` - Gestor de pacotes Kubernetes: [instruções de instalação](https://github.com/helm/helm/releases/latest)
 * `jq` - processador JSON de linha de comando: instruções de [instalação](https://stedolan.github.io/jq/download/)
@@ -270,7 +270,7 @@ Para instalar a identidade do pod AAD no seu cluster:
    > `<resource-group>` no comando acima está o grupo de recursos do seu Gateway de Aplicação. `<identity-name>` é o nome da identidade criada. Todas as identidades de uma determinada subscrição podem ser listadas utilizando: `az identity list`
 
 
-1. Instale o pacote do controlador de entrada de aplicação:
+1. Instale o pacote do controlador de entrada de entrada de entrada de aplicação:
 
     ```bash
     helm install -f helm-config.yaml application-gateway-kubernetes-ingress/ingress-azure

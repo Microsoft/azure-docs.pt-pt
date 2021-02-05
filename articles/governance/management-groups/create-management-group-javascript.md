@@ -1,15 +1,15 @@
 ---
 title: 'Quickstart: Criar um grupo de gestão com JavaScript'
 description: Neste quickstart, você usa o JavaScript para criar um grupo de gestão para organizar os seus recursos numa hierarquia de recursos.
-ms.date: 11/18/2020
+ms.date: 02/05/2021
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: c1b800f150cebacf8d17785feb1bded5189f1574
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 25fd93e51c1b49519bb315aab28cdfc44a2a0c58
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886605"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593981"
 ---
 # <a name="quickstart-create-a-management-group-with-javascript"></a>Quickstart: Criar um grupo de gestão com JavaScript
 
@@ -21,7 +21,7 @@ O primeiro grupo de gestão criado no diretório pode demorar até 15 minutos pa
 
 - Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-- Antes de começar, certifique-se de que a versão 12 de [Node.js](https://nodejs.org/) está instalada.
+- Antes de começar, certifique-se de que está instalada pelo menos a versão 12 de [Node.js.](https://nodejs.org/)
 
 - Qualquer utilizador Azure AD no arrendatário pode criar um grupo de gestão sem que o grupo de gestão escreva a permissão atribuída a esse utilizador se a [proteção da hierarquia](./how-to/protect-resource-hierarchy.md#setting---require-authorization) não estiver ativada. Este novo grupo de gestão torna-se filho do Grupo de Gestão de Raízes ou do [grupo de gestão padrão](./how-to/protect-resource-hierarchy.md#setting---default-management-group) e o criador recebe uma atribuição de função de "Proprietário". O serviço de grupo de gestão permite esta capacidade para que as atribuições de funções não sejam necessárias ao nível da raiz. Nenhum utilizadores tem acesso ao Grupo de Gestão de Raízes quando este é criado. Para evitar o obstáculo de encontrar os Azure AD Global Admins para começar a usar grupos de gestão, permitimos a criação dos grupos de gestão iniciais ao nível da raiz.
 

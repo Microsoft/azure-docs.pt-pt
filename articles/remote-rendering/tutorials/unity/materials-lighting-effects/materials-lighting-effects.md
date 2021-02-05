@@ -6,16 +6,16 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 04cb48a3ff84a67995c1a920a323fa568a67cdf3
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 8eb73fcfde7e294896a12289486ff71794a00ae6
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203250"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99591723"
 ---
 # <a name="tutorial-refining-materials-lighting-and-effects"></a>Tutorial: Materiais de refinação, iluminação e efeitos
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 >
@@ -36,7 +36,7 @@ Primeiro, vamos criar um invólucro em torno do componente [**HierarchicalStateO
 
 1. Crie um novo script chamado **EntityOverrideController** e substitua o seu conteúdo pelo seguinte código:
 
-    ```csharp
+    ```cs
     // Copyright (c) Microsoft Corporation. All rights reserved.
     // Licensed under the MIT License. See LICENSE in the project root for license information.
 
@@ -154,7 +154,7 @@ Primeiro, vamos criar um invólucro em torno do componente [**HierarchicalStateO
     }
     ```
 
-O principal trabalho da **LocalOverride**é criar uma ligação entre si e a sua `RemoteComponent` . O **LocalOverride** permite-nos então colocar bandeiras do estado na componente local, que estão ligadas à entidade remota. As sobreposições e os seus estados são descritos na página [de sobreposições do estado hierárquico.](../../../overview/features/override-hierarchical-state.md) 
+O principal trabalho da **LocalOverride** é criar uma ligação entre si e a sua `RemoteComponent` . O **LocalOverride** permite-nos então colocar bandeiras do estado na componente local, que estão ligadas à entidade remota. As sobreposições e os seus estados são descritos na página [de sobreposições do estado hierárquico.](../../../overview/features/override-hierarchical-state.md) 
 
 Esta implementação apenas alterna um estado de cada vez. No entanto, é inteiramente possível combinar múltiplas sobreposições em entidades individuais e criar combinações a diferentes níveis da hierarquia. Por exemplo, combinar `Selected` e num único componente `SeeThrough` dar-lhe-ia um esboço, tornando-o também transparente. Ou, definir a entidade raiz `Hidden` `ForceOn` sobrepondo-se ao fazer a substituição de uma entidade infantil para esconder `Hidden` `ForceOff` tudo, exceto para a criança com o sobreposição.
 
@@ -162,13 +162,13 @@ Para aplicar estados a entidades, podemos modificar a **RemoteEntityHelper** cri
 
 1. Modifique a classe **RemoteEntityHelper** para implementar a classe abstrata **BaseRemoteEntityHelper.** Esta modificação permitirá a utilização de um controlador de vista fornecido nos **Ativos Tutoriais**. Deve ser assim quando modificado:
 
-    ```csharp
+    ```cs
     public class RemoteEntityHelper : BaseRemoteEntityHelper
     ```
 
 2. Sobrepor os métodos abstratos utilizando o seguinte código:
 
-    ```csharp
+    ```cs
     public override BaseEntityOverrideController EnsureOverrideComponent(Entity entity)
     {
         var entityGameObject = entity.GetOrCreateGameObject(UnityCreationMode.DoNotCreateUnityComponents);
@@ -249,7 +249,7 @@ Criaremos um script que cria automaticamente uma entidade remota, adiciona um co
 
 1. Crie um novo script chamado **RemoteCutPlane** e substitua o seu código pelo código abaixo:
 
-    ```csharp
+    ```cs
     // Copyright (c) Microsoft Corporation. All rights reserved.
     // Licensed under the MIT License. See LICENSE in the project root for license information.
 
@@ -322,14 +322,14 @@ Criaremos um script que cria automaticamente uma entidade remota, adiciona um co
 
 2. Substitua o `CreateCutPlane()` método pela versão completa abaixo:
 
-    ```csharp
+    ```cs
     public override void CreateCutPlane()
     {
         if (remoteCutPlaneComponent != null)
             return; //Nothing to do!
 
         //Create a root object for the cut plane
-        var cutEntity = RemoteRenderingCoordinator.CurrentSession.Actions.CreateEntity();
+        var cutEntity = RemoteRenderingCoordinator.CurrentSession.Connection.CreateEntity();
 
         //Bind the remote entity to this game object
         cutEntity.BindToUnityGameObject(this.gameObject);
@@ -339,7 +339,7 @@ Criaremos um script que cria automaticamente uma entidade remota, adiciona um co
         syncComponent.SyncEveryFrame = true;
 
         //Add a cut plane to the entity
-        remoteCutPlaneComponent = RemoteRenderingCoordinator.CurrentSession.Actions.CreateComponent(ObjectType.CutPlaneComponent, cutEntity) as CutPlaneComponent;
+        remoteCutPlaneComponent = RemoteRenderingCoordinator.CurrentSession.Connection.CreateComponent(ObjectType.CutPlaneComponent, cutEntity) as CutPlaneComponent;
 
         //Configure the cut plane
         remoteCutPlaneComponent.Normal = SliceNormal;
@@ -353,7 +353,7 @@ Criaremos um script que cria automaticamente uma entidade remota, adiciona um co
 
 3. Substitua o `DestroyCutPlane()` método pela versão completa abaixo:
 
-    ```csharp
+    ```cs
     public override void DestroyCutPlane()
     {
         if (remoteCutPlaneComponent == null)
@@ -391,7 +391,7 @@ Vamos criar um script **RemoteSky** que tem uma lista dos Cubemaps disponíveis 
 
 1. Crie um novo script chamado **RemoteSky** e substitua todo o seu conteúdo pelo código abaixo:
 
-    ```csharp
+    ```cs
     // Copyright (c) Microsoft Corporation. All rights reserved.
     // Licensed under the MIT License. See LICENSE in the project root for license information.
 
@@ -402,7 +402,7 @@ Vamos criar um script **RemoteSky** que tem uma lista dos Cubemaps disponíveis 
 
     public class RemoteSky : BaseRemoteSky
     {
-        public override Dictionary<string, LoadTextureFromSASParams> AvailableCubemaps => builtInTextures;
+        public override Dictionary<string, LoadTextureFromSasOptions> AvailableCubemaps => builtInTextures;
 
         private bool canSetSky;
         public override bool CanSetSky
@@ -426,22 +426,22 @@ Vamos criar um script **RemoteSky** que tem uma lista dos Cubemaps disponíveis 
             }
         }
 
-        private Dictionary<string, LoadTextureFromSASParams> builtInTextures = new Dictionary<string, LoadTextureFromSASParams>()
+        private Dictionary<string, LoadTextureFromSasOptions> builtInTextures = new Dictionary<string, LoadTextureFromSasOptions>()
         {
-            {"Autoshop",new LoadTextureFromSASParams("builtin://Autoshop", TextureType.CubeMap)},
-            {"BoilerRoom",new LoadTextureFromSASParams("builtin://BoilerRoom", TextureType.CubeMap)},
-            {"ColorfulStudio",new LoadTextureFromSASParams("builtin://ColorfulStudio", TextureType.CubeMap)},
-            {"Hangar",new LoadTextureFromSASParams("builtin://Hangar", TextureType.CubeMap)},
-            {"IndustrialPipeAndValve",new LoadTextureFromSASParams("builtin://IndustrialPipeAndValve", TextureType.CubeMap)},
-            {"Lebombo",new LoadTextureFromSASParams("builtin://Lebombo", TextureType.CubeMap)},
-            {"SataraNight",new LoadTextureFromSASParams("builtin://SataraNight", TextureType.CubeMap)},
-            {"SunnyVondelpark",new LoadTextureFromSASParams("builtin://SunnyVondelpark", TextureType.CubeMap)},
-            {"Syferfontein",new LoadTextureFromSASParams("builtin://Syferfontein", TextureType.CubeMap)},
-            {"TearsOfSteelBridge",new LoadTextureFromSASParams("builtin://TearsOfSteelBridge", TextureType.CubeMap)},
-            {"VeniceSunset",new LoadTextureFromSASParams("builtin://VeniceSunset", TextureType.CubeMap)},
-            {"WhippleCreekRegionalPark",new LoadTextureFromSASParams("builtin://WhippleCreekRegionalPark", TextureType.CubeMap)},
-            {"WinterRiver",new LoadTextureFromSASParams("builtin://WinterRiver", TextureType.CubeMap)},
-            {"DefaultSky",new LoadTextureFromSASParams("builtin://DefaultSky", TextureType.CubeMap)}
+            {"Autoshop",new LoadTextureFromSasOptions("builtin://Autoshop", TextureType.CubeMap)},
+            {"BoilerRoom",new LoadTextureFromSasOptions("builtin://BoilerRoom", TextureType.CubeMap)},
+            {"ColorfulStudio",new LoadTextureFromSasOptions("builtin://ColorfulStudio", TextureType.CubeMap)},
+            {"Hangar",new LoadTextureFromSasOptions("builtin://Hangar", TextureType.CubeMap)},
+            {"IndustrialPipeAndValve",new LoadTextureFromSasOptions("builtin://IndustrialPipeAndValve", TextureType.CubeMap)},
+            {"Lebombo",new LoadTextureFromSasOptions("builtin://Lebombo", TextureType.CubeMap)},
+            {"SataraNight",new LoadTextureFromSasOptions("builtin://SataraNight", TextureType.CubeMap)},
+            {"SunnyVondelpark",new LoadTextureFromSasOptions("builtin://SunnyVondelpark", TextureType.CubeMap)},
+            {"Syferfontein",new LoadTextureFromSasOptions("builtin://Syferfontein", TextureType.CubeMap)},
+            {"TearsOfSteelBridge",new LoadTextureFromSasOptions("builtin://TearsOfSteelBridge", TextureType.CubeMap)},
+            {"VeniceSunset",new LoadTextureFromSasOptions("builtin://VeniceSunset", TextureType.CubeMap)},
+            {"WhippleCreekRegionalPark",new LoadTextureFromSasOptions("builtin://WhippleCreekRegionalPark", TextureType.CubeMap)},
+            {"WinterRiver",new LoadTextureFromSasOptions("builtin://WinterRiver", TextureType.CubeMap)},
+            {"DefaultSky",new LoadTextureFromSasOptions("builtin://DefaultSky", TextureType.CubeMap)}
         };
 
         public UnityBoolEvent OnCanSetSkyChanged;
@@ -485,10 +485,10 @@ Vamos criar um script **RemoteSky** que tem uma lista dos Cubemaps disponíveis 
             {
                 Debug.Log("Setting sky to " + skyKey);
                 //Load the texture into the session
-                var texture = await RemoteRenderingCoordinator.CurrentSession.Actions.LoadTextureFromSASAsync(AvailableCubemaps[skyKey]).AsTask();
+                var texture = await RemoteRenderingCoordinator.CurrentSession.Connection.LoadTextureFromSasAsync(AvailableCubemaps[skyKey]);
 
                 //Apply the texture to the SkyReflectionSettings
-                RemoteRenderingCoordinator.CurrentSession.Actions.SkyReflectionSettings.SkyReflectionTexture = texture;
+                RemoteRenderingCoordinator.CurrentSession.Connection.SkyReflectionSettings.SkyReflectionTexture = texture;
                 SkyChanged?.Invoke(skyKey);
             }
             else
@@ -501,12 +501,12 @@ Vamos criar um script **RemoteSky** que tem uma lista dos Cubemaps disponíveis 
 
     A parte mais importante deste código são apenas algumas linhas:
 
-    ```csharp
+    ```cs
     //Load the texture into the session
-    var texture = await RemoteRenderingCoordinator.CurrentSession.Actions.LoadTextureFromSASAsync(AvailableCubemaps[skyKey]).AsTask();
+    var texture = await RemoteRenderingCoordinator.CurrentSession.Connection.LoadTextureFromSasAsync(AvailableCubemaps[skyKey]);
 
     //Apply the texture to the SkyReflectionSettings
-    RemoteRenderingCoordinator.CurrentSession.Actions.SkyReflectionSettings.SkyReflectionTexture = texture;
+    RemoteRenderingCoordinator.CurrentSession.Connection.SkyReflectionSettings.SkyReflectionTexture = texture;
     ```
 
     Aqui, obtemos uma referência à textura a usar carregando-a na sessão a partir do armazenamento de bolhas incorporada. Então, só precisamos atribuir essa textura à sessão `SkyReflectionTexture` para aplicá-la.
@@ -525,7 +525,7 @@ As luzes da cena remota incluem: ponto, ponto e direcional. Semelhantes ao Plano
 
 1. Crie um novo script chamado **RemoteLight** e substitua o seu código pelo código abaixo:
 
-    ```csharp
+    ```cs
     // Copyright (c) Microsoft Corporation. All rights reserved.
     // Licensed under the MIT License. See LICENSE in the project root for license information.
 
@@ -618,7 +618,7 @@ As luzes da cena remota incluem: ponto, ponto e direcional. Semelhantes ao Plano
 
             //Create a root object for the light
             if(lightEntity == null)
-                lightEntity = RemoteRenderingCoordinator.CurrentSession.Actions.CreateEntity();
+                lightEntity = RemoteRenderingCoordinator.CurrentSession.Connection.CreateEntity();
 
             //Bind the remote entity to this game object
             lightEntity.BindToUnityGameObject(this.gameObject);
@@ -631,13 +631,13 @@ As luzes da cena remota incluem: ponto, ponto e direcional. Semelhantes ao Plano
             switch (RemoteLightType)
             {
                 case ObjectType.DirectionalLightComponent:
-                    var remoteDirectional = RemoteRenderingCoordinator.CurrentSession.Actions.CreateComponent(ObjectType.DirectionalLightComponent, lightEntity) as DirectionalLightComponent;
+                    var remoteDirectional = RemoteRenderingCoordinator.CurrentSession.Connection.CreateComponent(ObjectType.DirectionalLightComponent, lightEntity) as DirectionalLightComponent;
                     //No additional properties
                     remoteLightComponent = remoteDirectional;
                     break;
 
                 case ObjectType.PointLightComponent:
-                    var remotePoint = RemoteRenderingCoordinator.CurrentSession.Actions.CreateComponent(ObjectType.PointLightComponent, lightEntity) as PointLightComponent;
+                    var remotePoint = RemoteRenderingCoordinator.CurrentSession.Connection.CreateComponent(ObjectType.PointLightComponent, lightEntity) as PointLightComponent;
                     remotePoint.Radius = 0;
                     remotePoint.Length = localLight.range;
                     //remotePoint.AttenuationCutoff = //No direct analog in Unity legacy lights
@@ -726,7 +726,7 @@ A partir do material, podemos aceder a valores comuns como o albedo. Em primeiro
 
 1. Crie um script chamado **EntityMaterialController** e substitua o seu conteúdo pelo seguinte código:
 
-    ```csharp
+    ```cs
     // Copyright (c) Microsoft Corporation. All rights reserved.
     // Licensed under the MIT License. See LICENSE in the project root for license information.
 
@@ -890,7 +890,7 @@ A partir do material, podemos aceder a valores comuns como o albedo. Em primeiro
 
 O `OverrideMaterialProperty` tipo deve ser suficientemente flexível para permitir que alguns outros valores materiais sejam alterados, se desejar. O `OverrideMaterialProperty` tipo acompanha o estado de uma sobreposição, mantém o valor antigo e novo, e usa um delegado para definir a sobreposição. Como exemplo, `ColorOverride` veja-se:
 
-```csharp
+```cs
 ColorOverride = new OverrideMaterialProperty<Color>(
     GetMaterialColor(targetMaterial), //The original value
     targetMaterial, //The target material
@@ -901,7 +901,7 @@ Isto está a criar um novo `OverrideMaterialProperty` onde a sobreposição irá
 
 Utiliza `ColorOverride` o método para fazer o seu `ApplyMaterialColor` trabalho:
 
-```csharp
+```cs
 private void ApplyMaterialColor(ARRMaterial material, Color color)
 {
     if (material.MaterialSubType == MaterialType.Color)

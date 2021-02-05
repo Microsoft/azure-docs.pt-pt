@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5793e2958edce0a4c97660a75d0ecefa914c12d2
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: 3a278b6e725488d6107e6b0819e002d1dafe4774
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96559087"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99591668"
 ---
 # <a name="tutorial-interfaces-and-custom-models"></a>Tutorial: Interfaces e modelos personalizados
 
@@ -94,7 +94,7 @@ Note que o script **RemoteRenderedModel** implementa **o Modelo De BaseRemoteRen
 
 1. Crie um novo script chamado **RemoteRenderedModel** na mesma pasta que o **RemoteRenderingCoordinator**. Substitua todo o conteúdo pelo seguinte código:
 
-    ```csharp
+    ```cs
     // Copyright (c) Microsoft Corporation. All rights reserved.
     // Licensed under the MIT License. See LICENSE in the project root for license information.
 

@@ -6,12 +6,12 @@ ms.author: chmant
 ms.date: 03/07/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5809494fb8b619569316a24816a2e5d943dee6b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a739907ce0a3b0b6dfcb8791b51d0ea5e7e76e7
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89013134"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594015"
 ---
 # <a name="stage-space"></a>Espaço de fase
 
@@ -33,9 +33,9 @@ Para informar o servidor de que uma transformação adicional é aplicada ao esp
 > Na [simulação](../../concepts/graphics-bindings.md) do ambiente de trabalho, a localização do espaço mundial da câmara é fornecida pela aplicação do utilizador. Neste caso, a definição da origem do espaço do palco deve ser ignorada, uma vez que já está multiplicada na transformação da câmara.
 
 ```cs
-void ChangeStageSpace(AzureSession session)
+void ChangeStageSpace(RenderingSession session)
 {
-    StageSpaceSettings settings = session.Actions.StageSpaceSettings;
+    StageSpaceSettings settings = session.Connection.StageSpaceSettings;
 
     // Set position and rotation to the world-space transform of the stage space.
     settings.Position = new Double3(0, 0, 0);
@@ -44,9 +44,9 @@ void ChangeStageSpace(AzureSession session)
 ```
 
 ```cpp
-void ChangeStageSpace(ApiHandle<AzureSession> session)
+void ChangeStageSpace(ApiHandle<RenderingSession> session)
 {
-    ApiHandle<StageSpaceSettings> settings = session->Actions()->GetStageSpaceSettings();
+    ApiHandle<StageSpaceSettings> settings = session->Connection()->GetStageSpaceSettings();
 
     // Set position and rotation to the world-space transform of the stage space.
     settings->SetPosition({0, 0, 0});

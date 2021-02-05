@@ -7,18 +7,18 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: caya
-ms.openlocfilehash: 9d1aa54ba1e3f3a589df8f694e340909c4e24ecc
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: d491b714c7d553fbd89d72315f46e6927d437717
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183690"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593822"
 ---
 # <a name="tutorial-enable-application-gateway-ingress-controller-add-on-for-an-existing-aks-cluster-with-an-existing-application-gateway-through-azure-cli-preview"></a>Tutorial: Ativar o addon do controlador de entrada de aplicativos para um cluster AKS existente com um Gateway de aplicação existente através do Azure CLI (Visualização)
 
 Pode utilizar o Azure CLI para ativar o addon [do Controlador de Entrada de Entrada de Aplicação (AGIC),](ingress-controller-overview.md) que está atualmente em pré-visualização, para o seu cluster [Azure Kubernetes Services (AKS).](https://azure.microsoft.com/services/kubernetes-service/) Neste tutorial, você aprenderá a usar o addon AGIC para expor a sua aplicação Kubernetes num cluster AKS existente através de um Gateway de aplicação existente implantado em redes virtuais separadas. Começará por criar um cluster AKS numa rede virtual e um Gateway de aplicação numa rede virtual separada para simular os recursos existentes. Em seguida, irá ativar o add-on AGIC, acompanhar as duas redes virtuais em conjunto, e implementar uma aplicação de amostra que será exposta através do Gateway de Aplicação utilizando o addon AGIC. Se estiver a ativar o addon AGIC para um Gateway de aplicação existente e o cluster AKS existente na mesma rede virtual, então pode saltar o passo de observação abaixo. O addon fornece uma forma muito mais rápida de implementar a AGIC para o seu cluster AKS do que [anteriormente através do Helm](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on) e também oferece uma experiência totalmente gerida.  
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar um grupo de recursos 
@@ -67,7 +67,7 @@ No exemplo seguinte, estará a implementar um novo cluster AKS chamado *myCluste
 az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity 
 ```
 
-Para configurar parâmetros adicionais para o `az aks create` comando, visite referências [aqui.](/cli/azure/aks?view=azure-cli-latest#az-aks-create) 
+Para configurar parâmetros adicionais para o `az aks create` comando, visite referências [aqui.](/cli/azure/aks#az-aks-create) 
 
 ## <a name="deploy-a-new-application-gateway"></a>Implementar um novo Gateway de Aplicações 
 
@@ -131,7 +131,7 @@ kubectl get ingress
 
 Verifique se a aplicação de amostra que criou está a funcionar visitando o endereço IP do Gateway de aplicação que obteve ao executar o comando acima ou consulte `curl` . Pode levar um minuto para o Application Gateway obter a atualização, por isso, se o Gateway de Aplicações ainda estiver num estado de "Atualização" no Portal, deixe-o terminar antes de tentar chegar ao endereço IP. 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não forem necessários, remova o grupo de recursos, o gateway de aplicação e todos os recursos relacionados.
 

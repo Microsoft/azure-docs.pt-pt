@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/14/2020
+ms.date: 02/04/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Mini R so I can use it to transfer data to Azure.
-ms.openlocfilehash: 915aca5f7400496aacb3c3cf248120dff39d747c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 1cca747003a127371db7d110500e2b4168f10219
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96468956"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594455"
 ---
 # <a name="tutorial-configure-network-for-azure-stack-edge-mini-r"></a>Tutorial: Rede de configuração para Azure Stack Edge Mini R
 
@@ -108,7 +108,7 @@ Siga estes passos para configurar a rede para o seu dispositivo.
 
     ![Web local UI "Port Wi-Fi Network settings" 4](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-4.png)
 
-6. Selecione o perfil Wi-Fi que adicionou no passo anterior e selecione **Aplicar**. 
+6. Selecione o perfil de Wi-Fi que adicionou no passo anterior e selecione **Apply**. 
 
     ![Web local UI "Port Wi-Fi Network settings" 5](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-5.png)
 
@@ -126,6 +126,7 @@ Siga estes passos para configurar a rede para o seu dispositivo.
    - Se o DHCP estiver ativado no seu ambiente, as interfaces de rede são configuradas automaticamente. Um endereço IP, uma sub-rede, um gateway e um DNS são atribuídos automaticamente.
    - Se o DHCP não estiver ativado, pode atribuir IPs estáticos se necessário.
    - Pode configurar a sua interface de rede como IPv4.
+   - A agregação de teaming ou agregação de ligações do Cartão de Interface de Rede (NIC) não é suportada com Azure Stack Edge.
    - O número de série de qualquer porta corresponde ao número de série do nó. Para um dispositivo da série K, apenas é apresentado um número de série.
 
      >[!NOTE] 
@@ -146,7 +147,7 @@ Siga estes passos para permitir a computação e configurar a rede de computaç�
     
 1. Atribuir **IPs de nó kubernetes**. Estes endereços IP estáticos são para o VM compute.  
 
-    Para *n* um dispositivo n-node, uma gama contígua de um mínimo de endereços *N+1* IPv4 (ou mais) são fornecidos para o VM compute usando os endereços IP de início e fim. Dado que a Azure Stack Edge é um dispositivo de 1 nó, são fornecidos no mínimo 2 endereços IPv4 contíguos.
+    Para um dispositivo n-node, uma gama contígua de um mínimo de endereços *N+1* IPv4 (ou mais) são fornecidos para o VM compute usando os endereços IP de início e fim. Dado que a Azure Stack Edge é um dispositivo de 1 nó, são fornecidos no mínimo 2 endereços IPv4 contíguos.
 
     > [!IMPORTANT]
     > Kubernetes em Azure Stack Edge utiliza sub-rede 172.27.0.0/16 para pod e sub-rede 172.28.0.0/16 para o serviço. Certifique-se de que estes não estão a ser utilizados na sua rede. Se estas sub-redes já estiverem a ser utilizadas na sua rede, pode alterar estas sub-redes executando o `Set-HcsKubeClusterNetworkInfo` cmdlet a partir da interface PowerShell do dispositivo. Para obter mais informações, consulte [a cápsula Change Kubernetes e as sub-redes de serviço.](azure-stack-edge-gpu-connect-powershell-interface.md#change-kubernetes-pod-and-service-subnets)

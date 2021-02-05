@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/04/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a17bfe4dac2007d3ad136598c3c4e335e2397293
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 9679be03c69090a0c11d007cfc542bae70bd3cbc
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203726"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592199"
 ---
 # <a name="components"></a>Componentes
 
@@ -27,8 +27,8 @@ Pode facilmente adicionar, remover e manipular componentes programáticamente:
 
 ```cs
 // create a point light component
-AzureSession session = GetCurrentlyConnectedSession();
-PointLightComponent lightComponent = session.Actions.CreateComponent(ObjectType.PointLightComponent, ownerEntity) as PointLightComponent;
+RenderingSession session = GetCurrentlyConnectedSession();
+PointLightComponent lightComponent = session.Connection.CreateComponent(ObjectType.PointLightComponent, ownerEntity) as PointLightComponent;
 
 lightComponent.Color = new Color4Ub(255, 150, 20, 255);
 lightComponent.Intensity = 11;
@@ -42,9 +42,9 @@ lightComponent = null;
 
 ```cpp
 // create a point light component
-ApiHandle<AzureSession> session = GetCurrentlyConnectedSession();
+ApiHandle<RenderingSession> session = GetCurrentlyConnectedSession();
 
-ApiHandle<PointLightComponent> lightComponent = session->Actions()->CreateComponent(ObjectType::PointLightComponent, ownerEntity)->as<PointLightComponent>();
+ApiHandle<PointLightComponent> lightComponent = session->Connection()->CreateComponent(ObjectType::PointLightComponent, ownerEntity)->as<PointLightComponent>();
 
 // ...
 
@@ -64,10 +64,10 @@ A integração da Unidade tem funções de extensão adicionais para interagir c
 ## <a name="api-documentation"></a>Documentação da API
 
 * [C# Base de Componentes](/dotnet/api/microsoft.azure.remoterendering.componentbase)
-* [C# RemoteManager.CreateComponent()](/dotnet/api/microsoft.azure.remoterendering.remotemanager.createcomponent)
+* [C# RenderingConnection.CreateComponent()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.createcomponent)
 * [C# Entidade.FindComponentOfType()](/dotnet/api/microsoft.azure.remoterendering.entity.findcomponentoftype)
 * [Base de Componentes C++](/cpp/api/remote-rendering/componentbase)
-* [C++ RemoteManager::CreateComponent()](/cpp/api/remote-rendering/remotemanager#createcomponent)
+* [C++ RenderingConnection::CreateComponent()](/cpp/api/remote-rendering/renderingconnection#createcomponent)
 * [C++ Entidade::FindComponentOfType()](/cpp/api/remote-rendering/entity#findcomponentoftype)
 
 ## <a name="next-steps"></a>Passos seguintes

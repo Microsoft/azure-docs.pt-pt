@@ -1,5 +1,5 @@
 ---
-title: Sincronização de entrada para sincronização em nuvem usando API de Gráfico MS
+title: Como configurar programáticamente a sincronização em nuvem usando a API do Ms Graph
 description: Este tópico descreve como permitir a sincronização de entrada usando apenas a API do Gráfico
 services: active-directory
 author: billmath
@@ -11,14 +11,14 @@ ms.date: 12/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3796b3d86f647e38cf2ff018e8c0c903d9a64e41
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 6c84636ea86b3b640aef365c1c5d8e634b9a1f48
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98682043"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593167"
 ---
-# <a name="inbound-synchronization-for-cloud-sync-using-ms-graph-api"></a>Sincronização de entrada para sincronização em nuvem usando API de Gráfico MS
+# <a name="how-to-programmatically-configure-cloud-sync-using-ms-graph-api"></a>Como configurar programáticamente a sincronização em nuvem usando a API do Ms Graph
 
 O documento que se segue descreve como replicar um perfil de sincronização do zero utilizando apenas APIs MSGraph.  
 A estrutura de como fazê-lo consiste nos seguintes passos.  A saber:
@@ -28,6 +28,7 @@ A estrutura de como fazê-lo consiste nos seguintes passos.  A saber:
 - [Criar Trabalho de Sincronização](#create-sync-job)
 - [Atualizar domínio direcionado](#update-targeted-domain)
 - [Ativar hashes de palavra-passe sincronizada](#enable-sync-password-hashes-on-configuration-blade)
+- [Eliminações acidentais](#accidental-deletes)
 - [Iniciar trabalho de sincronização](#start-sync-job)
 - [Estado de revisão](#review-status)
 
@@ -210,6 +211,71 @@ Aqui, o valor "Domínio" em destaque é o nome do domínio do Diretório Ativo n
 ```
 
  Adicione o esquema no corpo de pedido. 
+
+## <a name="accidental-deletes"></a>Eliminações acidentais
+Esta secção abrangerá como ativar/desativar programaticamente e utilizar [eliminações acidentais](how-to-accidental-deletes.md) programáticamente.
+
+
+### <a name="enabling-and-setting-the-threshold"></a>Ativar e fixar o limiar
+Existem duas definições por trabalho que podes usar, são:
+
+ - DeleteThresholdEnabled - Permite a prevenção acidental de eliminação para o trabalho quando definido como "verdadeiro". Definido como "verdadeiro" por defeito.
+ - DeleteThresholdValue - Define o número máximo de eliminações que serão permitidas em cada execução do trabalho quando estiver ativada a prevenção de eliminações acidentais. O valor é definido para 500 por padrão.  Assim, se o valor for definido para 500, o número máximo de eliminações permitidas será de 499 em cada execução.
+
+As definições de limiar de eliminação são uma parte do `SyncNotificationSettings` e podem ser modificadas através de gráfico. 
+
+Vamos precisar de atualizar as sincronizações de Sincronização esta configuração está a ser alvo, por isso atualize os segredos.
+
+ ```
+ PUT – https://graph.microsoft.com/beta/servicePrincipals/[SERVICE_PRINCIPAL_ID]/synchronization/secrets
+ ```
+
+ Adicione o seguinte par chave/valor no conjunto de valor abaixo baseado no que está a tentar fazer:
+
+```
+ Request body -
+ {
+   "value":[
+             {
+               "key":"SyncNotificationSettings",
+               "value": "{\"Enabled\":true,\"Recipients\":\"foobar@xyz.com\",\"DeleteThresholdEnabled\":true,\"DeleteThresholdValue\":50}"
+              }
+            ]
+  }
+
+
+```
+
+A definição "Ativada" no exemplo acima é para permitir/desativar e-mails de notificação quando o trabalho está em quarentena.
+
+
+Atualmente, não apoiamos pedidos de segredos patch, pelo que terá de adicionar todos os valores no corpo do pedido PUT (como no exemplo acima) para preservar os outros valores.
+
+Os valores existentes para todos os segredos podem ser recuperados usando 
+
+```
+GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/secrets 
+```
+
+### <a name="allowing-deletes"></a>Permitindo eliminações
+Para permitir que as eliminações fluam após a colocação em quarentena, é necessário emitir um reinício apenas com "ForceDeletes" como âmbito. 
+
+```
+Request:
+POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/restart
+```
+
+```
+Request Body:
+{
+  "criteria": {"resetScope": "ForceDeletes"}
+}
+```
+
+
+
+
+
 
 ## <a name="start-sync-job"></a>Iniciar trabalho de sincronização
 O trabalho pode ser recuperado novamente através do seguinte comando:

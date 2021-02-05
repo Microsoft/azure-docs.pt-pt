@@ -1,15 +1,15 @@
 ---
 title: 'Quickstart: Criar um grupo de gestão com a Azure PowerShell'
 description: Neste arranque rápido, você usa a Azure PowerShell para criar um grupo de gestão para organizar os seus recursos numa hierarquia de recursos.
-ms.date: 08/31/2020
+ms.date: 02/05/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 74e4f0769bbf4deafefd27e166e0dae2c2e019a3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 216cfeb6e1389793afcfd27d8785a5f912db2c97
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89237306"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592539"
 ---
 # <a name="quickstart-create-a-management-group-with-azure-powershell"></a>Quickstart: Criar um grupo de gestão com a Azure PowerShell
 
@@ -50,7 +50,7 @@ $parentGroup = Get-AzManagementGroup -GroupName Contoso
 New-AzManagementGroup -GroupName 'ContosoSubGroup' -ParentId $parentGroup.id
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para remover o grupo de gestão acima criado, utilize o cmdlet [Remove-AzManagementGroup:](/powershell/module/az.resources/remove-azmanagementgroup)
 

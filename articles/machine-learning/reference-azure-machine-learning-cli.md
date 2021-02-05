@@ -9,12 +9,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 06/22/2020
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: e88fbaed77113896f818710497a544fbab486246
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: ee10866791d1e5015ef5c91d98bff286ed6ce67a
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98072280"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99591910"
 ---
 # <a name="install--use-the-cli-extension-for-azure-machine-learning"></a>Instale & utilize a extensão CLI para aprendizagem automática Azure
 
@@ -193,7 +193,7 @@ Gerir casos de computação.  Em todos os exemplos abaixo, o nome da instância 
 + Criar uma nova computação.
 
     ```azurecli-interactive
-    az ml computetarget create computeinstance  -n cpu -s "STANDARD_D3_V2" -v
+    az ml computetarget create computeinstance -n cpu -s "STANDARD_D3_V2" -v
     ```
 
     Para obter mais informações, consulte [o az ml computetarget criar computação](/cli/azure/ext/azure-cli-ml/ml/computetarget/create?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-computeinstance).
@@ -201,26 +201,26 @@ Gerir casos de computação.  Em todos os exemplos abaixo, o nome da instância 
 + Pare com uma computação.
 
     ```azurecli-interactive
-    az ml computetarget stop computeinstance -n cpu -v
+    az ml computetarget computeinstance stop -n cpu -v
     ```
 
-    Para obter mais informações, consulte [a az ml computetarget stop computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-stop).
+    Para obter mais informações, consulte [a paragem de cálculo computetarget az ml](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-stop).
 
 + Inicie uma intromissão de computação.
 
     ```azurecli-interactive
-    az ml computetarget start computeinstance -n cpu -v
+    az ml computetarget computeinstance start -n cpu -v
     ```
 
-    Para obter mais informações, consulte [a az ml computetarget start computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-start).
+    Para obter mais informações, consulte [o início da computação az ml computetarget](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-start).
 
 + Reinicie uma insímia computestance.
 
     ```azurecli-interactive
-    az ml computetarget restart computeinstance -n cpu -v
+    az ml computetarget computeinstance restart -n cpu -v
     ```
 
-    Para obter mais informações, consulte [a az ml computetarget restart computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-restart).
+    Para obter mais informações, consulte [o reinstaance computetarget az ml](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-restart).
 
 + Elimine uma insístance computestance.
 
@@ -408,7 +408,7 @@ Se usou o `az ml environment scaffold` comando, gera um ficheiro de modelo `azur
 
 A tabela seguinte detalha cada campo de alto nível no ficheiro JSON, é tipo, e uma descrição. Se um tipo de objeto estiver ligado a uma classe do Python SDK, há uma correspondência solta de 1:1 entre cada campo JSON e o nome variável público na classe Python. Em alguns casos, o campo pode mapear para um argumento de construtor em vez de uma variável de classe. Por exemplo, o `environmentVariables` campo mapeia para a `environment_variables` variável na [`Environment`](/python/api/azureml-core/azureml.core.environment%28class%29?preserve-view=true&view=azure-ml-py) classe.
 
-| Campo JSON | Tipo | Descrição |
+| Campo JSON | Tipo | Description |
 |---|---|---|
 | `name` | `string` | O nome do ambiente. Não comece o nome com **Microsoft** ou **AzureML**. |
 | `version` | `string` | Versão do ambiente. |

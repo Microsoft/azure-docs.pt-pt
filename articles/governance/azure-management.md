@@ -1,14 +1,14 @@
 ---
 title: Visão geral da gestão do Azure - Azure Governance
 description: Panorâmica das áreas de gestão das aplicações e recursos da Azure com ligações aos conteúdos em ferramentas de gestão Azure.
-ms.date: 09/09/2020
+ms.date: 02/05/2021
 ms.topic: overview
-ms.openlocfilehash: 8ffb37cd1db5740ed022b52cd9687bb3db1632bb
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 754fe496b790a7ee32eb840109a60a04ee66ef97
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91949501"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593930"
 ---
 # <a name="what-are-the-azure-management-areas"></a>Quais são as áreas de Gestão Azure?
 
@@ -26,14 +26,14 @@ Nenhum serviço Azure preenche completamente os requisitos de uma determinada á
 
 As secções seguintes descrevem resumidamente as diferentes áreas de gestão e fornecem ligações para conteúdo detalhado sobre os principais serviços do Azure que visam abordar essas áreas.
 
-## <a name="monitor"></a>Monitorizar
+## <a name="monitor"></a>Monitor
 
 A monitorização é o ato de recolher e analisar dados para auditar o desempenho, saúde e disponibilidade dos seus recursos. Uma estratégia de monitorização eficaz ajuda-o a compreender o funcionamento dos componentes e a aumentar o seu tempo de funcionamento com notificações. Leia uma visão geral da Monitorização que abrange os diferentes serviços utilizados na [Monitorização de aplicações e recursos do Azure.](../azure-monitor/overview.md)
 
 ## <a name="configure"></a>Configurar
 
 Configure refere-se à implantação inicial e configuração de recursos e manutenção contínua.
-A automatização destas tarefas permite eliminar a redundância, minimizando o seu tempo e esforço e aumentando a sua precisão e eficiência. A [Automatização do Azure](../automation/automation-intro.md) fornece-lhe o conjunto de serviços que lhe permite automatizar as tarefas de configuração. Enquanto os runbooks lidam com automatização de processos, configuração e gestão de atualização ajudam na gestão da configuração.
+A automatização destas tarefas permite eliminar a redundância, minimizando o seu tempo e esforço e aumentando a sua precisão e eficiência. A [Automatização do Azure](../automation/automation-intro.md) fornece-lhe o conjunto de serviços que lhe permite automatizar as tarefas de configuração. Enquanto os runbooks lidam com automatização de processos, configuração e gestão de atualização ajudam a gerir a configuração.
 
 ## <a name="govern"></a>Governação
 
@@ -50,7 +50,7 @@ Gerencie a segurança dos seus recursos e dados. Um programa de segurança envol
 
 Proteção refere-se a manter as suas aplicações e dados disponíveis, mesmo com falhas que estão fora do seu controlo. A proteção no Azure é fornecida por dois serviços. O [Azure Backup](../backup/backup-overview.md) garante a cópia de segurança e a recuperação dos seus dados, seja na cloud ou no local. [A Azure Site Recovery](../site-recovery/site-recovery-overview.md) proporciona continuidade de negócios e recuperação imediata durante um desastre.
 
-## <a name="migrate"></a>Migrar
+## <a name="migrate"></a>Migrate
 
 Migração refere-se à transição das cargas de trabalho atualmente em execução no local para a cloud do Azure.
 [Azure Migrate](../migrate/migrate-services-overview.md) é um serviço que o ajuda a avaliar a adequação da migração de máquinas virtuais no local para Azure. A Azure Site Recovery migra máquinas virtuais [a partir do local](../site-recovery/migrate-tutorial-on-premises-azure.md) ou dos [Serviços Web da Amazon.](../site-recovery/migrate-tutorial-aws-azure.md) [A Azure Database Migration](../dms/dms-overview.md) ajuda-o na migração de fontes de dados para plataformas de Dados Azure.

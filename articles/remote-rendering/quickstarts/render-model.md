@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: 6258365ab00ab538f3f3502682078d29a391578c
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 525872ca3ad2558c327b7b856254319d3db2dc7f
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724939"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593998"
 ---
 # <a name="quickstart-render-a-model-with-unity"></a>Quickstart: Renderiza um modelo com Unidade
 
@@ -74,8 +74,8 @@ O modelo padrão que prestamos é um [modelo de amostra incorporado.](../samples
 ![Informação da Conta ARR](./media/arr-sample-account-info.png)
 
 > [!IMPORTANT]
-> Desacorde **com a AccountDomain** `<region>.mixedreality.azure.com` para, onde está uma das `<region>` [regiões disponíveis perto de si](../reference/regions.md).\
-> Deite **contaAuthenticationDomain** para [o domínio da conta,](../how-tos/create-an-account.md#retrieve-the-account-information) tal como mostrado no Portal Azure.
+> **Desematado o RemoteRenderingDomain** `<region>.mixedreality.azure.com` para, onde está uma `<region>` das [regiões disponíveis perto de si](../reference/regions.md).\
+> Desconfiem **do 'AccountDomain'** para [o domínio da conta,](../how-tos/create-an-account.md#retrieve-the-account-information) tal como mostrado no Portal Azure.
 
 Mais tarde queremos implementar este projeto num HoloLens e conectar-nos ao serviço de renderização remota a partir desse dispositivo. Uma vez que não temos uma maneira fácil de introduzir as credenciais no dispositivo, a amostra de arranque rápido **salvará as credenciais na cena da Unidade.**
 

@@ -7,24 +7,24 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/09/2020
 ms.author: surmb
-ms.openlocfilehash: 5e5be79371b640431603409a34b1a7812ed5c2a3
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: 95b74e5fc6c5d2c09ff04b3f14e920ae675ab6e1
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746109"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592760"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Resolver problemas de estado de funcionamento do back-end no Gateway de Aplicação
 ==================================================
 
-<a name="overview"></a>Descrição geral
+<a name="overview"></a>Descrição Geral
 --------
 
 Por predefinição, o Azure Application Gateway sonda servidores backend para verificar o seu estado de saúde e para verificar se estão prontos para atender pedidos. Os utilizadores também podem criar sondas personalizadas para mencionar o nome do anfitrião, o caminho a ser sondado e os códigos de estado a serem aceites como Saudáveis. Em cada caso, se o servidor backend não responder com sucesso, o Gateway de Aplicação marca o servidor como Insalubre e deixa de encaminhar pedidos para o servidor. Depois de o servidor começar a responder com sucesso, o Application Gateway volta a encaminhar os pedidos.
 
 ### <a name="how-to-check-backend-health"></a>Como verificar a saúde backend
 
-Para verificar a saúde da sua piscina de backend, pode utilizar a página **Backend Health** no portal Azure. Ou, pode utilizar [a Azure PowerShell,](/powershell/module/az.network/get-azapplicationgatewaybackendhealth?view=azps-2.6.0) [CLI](/cli/azure/network/application-gateway?view=azure-cli-latest#az-network-application-gateway-show-backend-health)ou [REST API](/rest/api/application-gateway/applicationgateways/backendhealth).
+Para verificar a saúde da sua piscina de backend, pode utilizar a página **Backend Health** no portal Azure. Ou, pode utilizar [a Azure PowerShell,](/powershell/module/az.network/get-azapplicationgatewaybackendhealth) [CLI](/cli/azure/network/application-gateway#az-network-application-gateway-show-backend-health)ou [REST API](/rest/api/application-gateway/applicationgateways/backendhealth).
 
 O estado recuperado por qualquer um destes métodos pode ser qualquer um dos seguintes:
 
@@ -119,7 +119,7 @@ Para aumentar o valor de tempo limite, siga estes passos:
 
 1.  Se estiver a utilizar o DNS predefinido do Azure, verifique com o seu registo de nome de domínio se foi concluído um registo adequado ou um mapeamento de registo CNAME.
 
-1.  Se o domínio for privado ou interno, tente resolvê-lo a partir de um VM na mesma rede virtual. Se conseguir resolvê-lo, reinicie o Gateway de Aplicação e verifique novamente. Para reiniciar o Gateway de Aplicações, tem de [parar](/powershell/module/azurerm.network/stop-azurermapplicationgateway?view=azurermps-6.13.0) e [começar](/powershell/module/azurerm.network/start-azurermapplicationgateway?view=azurermps-6.13.0) a utilizar os comandos PowerShell descritos nestes recursos ligados.
+1.  Se o domínio for privado ou interno, tente resolvê-lo a partir de um VM na mesma rede virtual. Se conseguir resolvê-lo, reinicie o Gateway de Aplicação e verifique novamente. Para reiniciar o Gateway de Aplicações, tem de [parar](/powershell/module/azurerm.network/stop-azurermapplicationgateway) e [começar](/powershell/module/azurerm.network/start-azurermapplicationgateway) a utilizar os comandos PowerShell descritos nestes recursos ligados.
 
 #### <a name="tcp-connect-error"></a>Erro de ligação TCP
 
@@ -395,7 +395,7 @@ Este comportamento pode ocorrer por uma ou mais das seguintes razões:
 
 1.  Para verificar se o Gateway de Aplicação está saudável e em funcionamento, vá à opção **Saúde de Recursos** no portal e verifique se o estado é **saudável.** Se vir um estado **insalubre** ou **degradado,** [contacte o suporte](https://azure.microsoft.com/support/options/).
 
-<a name="next-steps"></a>Próximos passos
+<a name="next-steps"></a>Passos seguintes
 ----------
 
 Saiba mais sobre [diagnósticos e registos de gateway de aplicações.](./application-gateway-diagnostics.md)

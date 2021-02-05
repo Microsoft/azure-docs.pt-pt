@@ -9,42 +9,34 @@ ms.author: mariusu
 ms.date: 10/15/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: a00f319c55665695879aac3c8ba711ce13fd5d4e
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: fbd5d3c4489d124014e0d956359f64a8ec9c568a
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98763048"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592794"
 ---
 # <a name="get-started-with-the-web-calling-sample"></a>Começar com a amostra de chamada web
+
+A amostra de chamada web é uma aplicação web que serve como uma caminhada passo a passo através das várias capacidades fornecidas pela web services web call client library. 
+
+Esta amostra foi construída para desenvolvedores e torna muito fácil para você começar com serviços de comunicação. A sua interface de utilizador está dividida em várias secções, cada uma com um botão "Show code" que lhe permite copiar código diretamente do seu navegador para a sua própria aplicação de Serviços de Comunicação.
+
+## <a name="get-started-with-the-web-calling-sample"></a>Começar com a amostra de chamada web
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 > [!IMPORTANT]
 > [Esta amostra está disponível em Github.](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/)
 
-A amostra de **chamada web** dos Serviços de Comunicação Azure demonstra como os Serviços de Comunicação que ligam a biblioteca de clientes podem ser usados para construir uma experiência de chamada com o JavaScript.
-
-Neste quickstart da amostra, vamos aprender como a amostra funciona antes de passarmos a amostra na sua máquina local. Em seguida, enviaremos a amostra para Azure usando os seus próprios recursos dos Serviços de Comunicação Azure.
-
-## <a name="overview"></a>Descrição geral
-
-A amostra de chamada web é uma aplicação web que serve como uma caminhada passo a passo através das várias capacidades fornecidas pela web services web call client library. 
-
-Esta amostra foi construída para desenvolvedores e torna muito fácil para você começar com serviços de comunicação. A sua interface de utilizador está dividida em várias secções, cada uma com um botão "Show code" que lhe permite copiar código diretamente do seu navegador para a sua própria aplicação de Serviços de Comunicação.
-
-Quando a [amostra de chamada](https://github.com/Azure-Samples/communication-services-web-calling-tutorial) web estiver a funcionar na sua máquina, verá a seguinte página de aterragem:
+Siga o /Project/readme.md para configurar o projeto e executá-lo localmente na sua máquina.
+Assim que a [amostra de chamada](https://github.com/Azure-Samples/communication-services-web-calling-tutorial) web estiver a funcionar na sua máquina, verá a seguinte página de aterragem:
 
 :::image type="content" source="./media/web-calling-tutorial-page-1.png" alt-text="Web chamando tutorial 1" lightbox="./media/web-calling-tutorial-page-1.png":::
 
 :::image type="content" source="./media/web-calling-tutorial-page-2.png" alt-text="Web chamando tutorial 2" lightbox="./media/web-calling-tutorial-page-2.png":::
 
-
 ## <a name="user-provisioning-and-sdk-initialization"></a>Provisão de utilizadores e inicialização de SDK 
-
-Para começar a utilizar a demonstração, introduza o fio de ligação do seu [recurso de Serviços de Comunicação](../quickstarts/create-communication-resource.md) em `config.json` . Isto será usado para providenciar um [token de acesso ao utilizador para](../concepts/authentication.md) que o seu chamado SDK possa ser inicializado.
-
-Insira o seu próprio identificador pessoal na entrada identidade do utilizador. Se nada for fornecido aqui, então uma identidade de utilizador aleatória será gerada. 
 
 Clique no "Utilizador de Provisionamento e inicialize o SDK" para rubricar o seu SDK utilizando um token provisionado pelo serviço de fornecimento de token backend. Este serviço de backend está em `/project/webpack.config.js` .
 
@@ -86,7 +78,7 @@ Esta amostra também fornece fragmentos de código para as seguintes capacidades
   - Clicando em "Remover o participante" na lista de participantes para remover um participante específico da chamada
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 >[!div class="nextstepaction"] 
 >[Faça o download da amostra do GitHub](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/)

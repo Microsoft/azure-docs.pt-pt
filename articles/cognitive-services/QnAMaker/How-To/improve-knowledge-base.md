@@ -6,12 +6,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 3f2e8fef35095a007051999d806f2942089ae19a
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 7c477655dfb24eebab9a2669697d9ef610088198
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584758"
+ms.locfileid: "99592029"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>Aceitar aprendizagem ativa sugerida questões na base de conhecimento
 
@@ -81,17 +81,17 @@ Um bot ou outra aplicação de cliente deve usar o seguinte fluxo arquitetónico
 
 * Bot [obtém a resposta da base de conhecimento](#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers) com a API GenerateAnswer, usando a propriedade para obter uma série de `top` respostas.
 
-#### <a name="use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers"></a>Use a propriedade de topo no pedido generateAnswer para obter várias respostas correspondentes
+    #### <a name="use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers"></a>Use a propriedade de topo no pedido generateAnswer para obter várias respostas correspondentes
 
-Ao submeter uma pergunta ao QnA Maker para obter uma resposta, a `top` propriedade do corpo JSON define o número de respostas para devolver.
+    Ao submeter uma pergunta ao QnA Maker para obter uma resposta, a `top` propriedade do corpo JSON define o número de respostas para devolver.
 
-```json
-{
-    "question": "wi-fi",
-    "isTest": false,
-    "top": 3
-}
-```
+    ```json
+    {
+        "question": "wi-fi",
+        "isTest": false,
+        "top": 3
+    }
+    ```
 
 * Bot determina feedback explícito:
     * Utilizando a sua própria [lógica de negócio personalizado,](#use-the-score-property-along-with-business-logic-to-get-list-of-answers-to-show-user)filtre pontuações baixas.

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: caya
-ms.openlocfilehash: 627d5b15a861c3d564cb4db33b366d3227092d37
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: 775dc2133473354a1e534275fb0d813f299217d1
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96296272"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593827"
 ---
 # <a name="tutorial-enable-the-ingress-controller-add-on-preview-for-a-new-aks-cluster-with-a-new-application-gateway-instance"></a>Tutorial: Ativar o addon do Controlador de Ingress (pré-visualização) para um novo cluster AKS com uma nova instância de Gateway de aplicações
 
@@ -22,7 +22,7 @@ Neste tutorial, você vai criar um cluster AKS com o addon AGIC ativado. A cria�
 
 O addon fornece uma maneira muito mais rápida de implantar a AGIC para o seu cluster AKS do que [anteriormente através do Helm.](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on) Também oferece uma experiência totalmente gerida.    
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Crie um grupo de recursos. 
@@ -80,7 +80,7 @@ A implantação de um novo cluster AKS com o addon AGIC ativado sem especificar 
 az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity -a ingress-appgw --appgw-name myApplicationGateway --appgw-subnet-prefix "10.2.0.0/16" --generate-ssh-keys
 ```
 
-Para configurar parâmetros adicionais para o `az aks create` comando, consulte [estas referências](/cli/azure/aks?view=azure-cli-latest#az-aks-create). 
+Para configurar parâmetros adicionais para o `az aks create` comando, consulte [estas referências](/cli/azure/aks#az-aks-create). 
 
 > [!NOTE]
 > O cluster AKS que criou aparecerá no grupo de recursos que criou, *o myResourceGroup*. No entanto, a instância de Gateway de aplicação criada automaticamente estará no grupo de recursos de nó, onde estão os pools do agente. O grupo de recursos de nó é nomeado *MC_resource grupo-name_cluster-name_location* por padrão, mas pode ser modificado. 
@@ -116,7 +116,7 @@ Verifique se a aplicação de amostra que criou está a ser em execução por:
 
 O Gateway de Aplicação pode demorar um minuto a receber a atualização. Se o Gateway de Aplicação ainda estiver em estado **de Atualização** no portal, deixe-o terminar antes de tentar chegar ao endereço IP. 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não precisar deles, remova o grupo de recursos, a instância De Gateway de Aplicação e todos os recursos relacionados:
 

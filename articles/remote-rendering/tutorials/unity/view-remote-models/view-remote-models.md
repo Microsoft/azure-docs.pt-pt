@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 834df29597abaaadad98b232ce75b32a6431cfc2
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: bfcd1e600c722cf3a4951da60097c7c373f9b1a6
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96574739"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592046"
 ---
 # <a name="tutorial-viewing-a-remotely-rendered-model"></a>Tutorial: Visualização de um modelo renderizado remotamente
 
@@ -180,7 +180,7 @@ O seu projeto deve ser assim:
 
 1. Abra **o RemoteRenderingCoordinator** no seu editor de código e substitua todo o seu conteúdo pelo código abaixo:
 
-```csharp
+```cs
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
@@ -238,6 +238,14 @@ public class RemoteRenderingCoordinator : MonoBehaviour
     }
 
     [SerializeField]
+    private string accountAuthenticationDomain = "<enter your account authentication domain here>";
+    public string AccountAuthenticationDomain
+    {
+        get => accountAuthenticationDomain.Trim();
+        set => accountAuthenticationDomain = value;
+    }   
+
+    [SerializeField]
     private string accountKey = "<enter your account key here>";
     public string AccountKey {
         get => accountKey.Trim();
@@ -284,7 +292,7 @@ public class RemoteRenderingCoordinator : MonoBehaviour
         }
     }
 
-    public delegate Task<AzureFrontendAccountInfo> AccountInfoGetter();
+    public delegate Task<SessionConfiguration> AccountInfoGetter();
 
     public static AccountInfoGetter ARRCredentialGetter
     {
@@ -309,7 +317,7 @@ public class RemoteRenderingCoordinator : MonoBehaviour
 
     public static event Action<RemoteRenderingState> CoordinatorStateChange;
 
-    public static AzureSession CurrentSession => instance?.ARRSessionService?.CurrentActiveSession;
+    public static RenderingSession CurrentSession => instance?.ARRSessionService?.CurrentActiveSession;
 
     private ARRServiceUnity arrSessionService;
 
@@ -323,10 +331,10 @@ public class RemoteRenderingCoordinator : MonoBehaviour
         }
     }
 
-    private async Task<AzureFrontendAccountInfo> GetDevelopmentCredentials()
+    private async Task<SessionConfiguration> GetDevelopmentCredentials()
     {
         Debug.LogWarning("Using development credentials! Not recommended for production.");
-        return await Task.FromResult(new AzureFrontendAccountInfo(AccountDomain, AccountId, AccountKey));
+        return await Task.FromResult(new SessionConfiguration(AccountAuthenticationDomain, AccountDomain, AccountId, AccountKey));
     }
 
     /// <summary>
@@ -454,8 +462,8 @@ public class RemoteRenderingCoordinator : MonoBehaviour
 
     private async Task<bool> IsSessionAvailable(string sessionID)
     {
-        var allSessions = await ARRSessionService.Frontend.GetCurrentRenderingSessionsAsync().AsTask();
-        return allSessions.Any(x => x.Id == sessionID && (x.Status == RenderingSessionStatus.Ready || x.Status == RenderingSessionStatus.Starting));
+        var allSessions = await ARRSessionService.Client.GetCurrentRenderingSessionsAsync();
+        return allSessions.SessionProperties.Any(x => x.Id == sessionID && (x.Status == RenderingSessionStatus.Ready || x.Status == RenderingSessionStatus.Starting));
     }
 
     /// <summary>
@@ -473,11 +481,11 @@ public class RemoteRenderingCoordinator : MonoBehaviour
 
     /// <summary>
     /// The session must have its runtime pump updated.
-    /// The Actions.Update() will push messages to the server, receive messages, and update the frame-buffer with the remotely rendered content.
+    /// The Connection.Update() will push messages to the server, receive messages, and update the frame-buffer with the remotely rendered content.
     /// </summary>
     private void LateUpdate()
     {
-        ARRSessionService?.CurrentActiveSession?.Actions?.Update();
+        ARRSessionService?.CurrentActiveSession?.Connection?.Update();
     }
 
     /// <summary>
@@ -487,17 +495,17 @@ public class RemoteRenderingCoordinator : MonoBehaviour
     /// <param name="progress">A call back method that accepts a float progress value [0->1]</param>
     /// <param name="parent">The parent Transform for this remote entity</param>
     /// <returns>An awaitable Remote Rendering Entity</returns>
-    public async Task<Entity> LoadModel(string modelPath, Transform parent = null, ProgressHandler progress = null)
+    public async Task<Entity> LoadModel(string modelPath, Transform parent = null, Action<float> progress = null)
     {
         //Implement me
         return null;
     }
 
-    private async void OnRemoteSessionStatusChanged(ARRServiceUnity caller, AzureSession session)
+    private async void OnRemoteSessionStatusChanged(ARRServiceUnity caller, RenderingSession session)
     {
-        var properties = await session.GetPropertiesAsync().AsTask();
+        var properties = await session.GetPropertiesAsync();
 
-        switch (properties.Status)
+        switch (properties.SessionProperties.Status)
         {
             case RenderingSessionStatus.Error:
             case RenderingSessionStatus.Expired:
@@ -540,7 +548,7 @@ O coordenador de renderização remota e o seu script requerido *(ARRServiceUnit
 1. Adicione o script *RemoteRenderingCoordinator* ao **RemoteRenderingCoordinator** GameObject.\
 ![Adicionar componente RemoteRenderingCoordinator](./media/add-coordinator-script.png)
 1. Confirme que o script *ARRServiceUnity,* que aparece como *Serviço* no inspetor, é automaticamente adicionado ao GameObject. Caso esteja a pensar, este é um resultado que está `[RequireComponent(typeof(ARRServiceUnity))]` no topo do script **RemoteRenderingCoordinator.**
-1. Adicione as suas credenciais de renderização remota Azure e o seu Domínio de Conta ao script do coordenador:\
+1. Adicione as suas credenciais de renderização remota Azure, o seu Domínio de Autenticação de Conta e o Domínio da Conta no script do coordenador:\
 ![Adicione as suas credenciais](./media/configure-coordinator-script.png)
 
 ## <a name="initialize-azure-remote-rendering"></a>Inicialize renderização remota de Azure
@@ -558,7 +566,7 @@ Ao entrar no estado **não australiano,** o **CheckAuthorization** é chamado, q
 
 1. Substitua o conteúdo do **InitializeARR** e **do Serviço de Sesessão Inicialize** pelo código preenchido abaixo:
 
- ```csharp
+ ```cs
 /// <summary>
 /// Initializes ARR, associating the main camera
 /// Note: This must be called on the main Unity thread
@@ -616,7 +624,7 @@ A máquina estatal irá agora progredir para **connectingToNewRemoteSession** ou
 
 1. Para aderir a uma nova sessão, modifique o código para substituir os **métodos Desessessão de Medaremotession** e **StopRemoteSssion** pelos exemplos preenchidos abaixo:
 
-```csharp
+```cs
 /// <summary>
 /// Attempts to join an existing session or start a new session
 /// </summary>
@@ -632,7 +640,7 @@ public async void JoinRemoteSession()
     else
     {
         CurrentCoordinatorState = RemoteRenderingState.ConnectingToNewRemoteSession;
-        joinResult = await ARRSessionService.StartSession(new RenderingSessionCreationParams(renderingSessionVmSize, maxLeaseHours, maxLeaseMinutes));
+        joinResult = await ARRSessionService.StartSession(new RenderingSessionCreationOptions(renderingSessionVmSize, maxLeaseHours, maxLeaseMinutes));
     }
 
     if (joinResult.Status == RenderingSessionStatus.Ready || joinResult.Status == RenderingSessionStatus.Starting)
@@ -674,7 +682,7 @@ A aplicação também precisa de ouvir os acontecimentos sobre a ligação entre
  1. Substitua os **métodos ConnectRuntimeToRemoteSssion** e **DisconnectRuntimeFromRemoteSssion** com as versões completas abaixo.
  1. É importante tomar nota do método de unidade **LateUpdate** e que está a atualizar a sessão ativa atual. Isto permite que a sessão atual envie/receba mensagens e atualize o tampão de quadro com os quadros recebidos da sessão remota. É fundamental para o funcionamento do ARR corretamente.
 
-```csharp
+```cs
 /// <summary>
 /// Connects the local runtime to the current active session, if there's a session available
 /// </summary>
@@ -690,7 +698,7 @@ public void ConnectRuntimeToRemoteSession()
     //This session is set when connecting to a new or existing session
 
     ARRSessionService.CurrentActiveSession.ConnectionStatusChanged += OnLocalRuntimeStatusChanged;
-    ARRSessionService.CurrentActiveSession.ConnectToRuntime(new ConnectToRuntimeParams());
+    ARRSessionService.CurrentActiveSession.ConnectAsync(new RendererInitOptions());
     CurrentCoordinatorState = RemoteRenderingState.ConnectingToRuntime;
 }
 
@@ -702,18 +710,18 @@ public void DisconnectRuntimeFromRemoteSession()
         return;
     }
 
-    ARRSessionService.CurrentActiveSession.DisconnectFromRuntime();
+    ARRSessionService.CurrentActiveSession.Disconnect();
     ARRSessionService.CurrentActiveSession.ConnectionStatusChanged -= OnLocalRuntimeStatusChanged;
     CurrentCoordinatorState = RemoteRenderingState.RemoteSessionReady;
 }
 
 /// <summary>
 /// The session must have its runtime pump updated.
-/// The Actions.Update() will push messages to the server, receive messages, and update the frame-buffer with the remotely rendered content.
+/// The Connection.Update() will push messages to the server, receive messages, and update the frame-buffer with the remotely rendered content.
 /// </summary>
 private void LateUpdate()
 {
-    ARRSessionService?.CurrentActiveSession?.Actions?.Update();
+    ARRSessionService?.CurrentActiveSession?.Connection?.Update();
 }
 ```
 
@@ -730,7 +738,7 @@ O método **LoadModel** foi concebido para aceitar um caminho modelo, manipulado
 
 1. Substitua o método **LoadModel** inteiramente pelo código abaixo:
 
-    ```csharp
+    ```cs
     /// <summary>
     /// Loads a model into the remote session for rendering
     /// </summary>
@@ -738,10 +746,10 @@ O método **LoadModel** foi concebido para aceitar um caminho modelo, manipulado
     /// <param name="parent">The parent Transform for this remote entity</param>
     /// <param name="progress">A call back method that accepts a float progress value [0->1]</param>
     /// <returns>An awaitable Remote Rendering Entity</returns>
-    public async Task<Entity> LoadModel(string modelPath, Transform parent = null, ProgressHandler progress = null)
+    public async Task<Entity> LoadModel(string modelPath, Transform parent = null, Action<float> progress = null)
     {
         //Create a root object to parent a loaded model to
-        var modelEntity = ARRSessionService.CurrentActiveSession.Actions.CreateEntity();
+        var modelEntity = ARRSessionService.CurrentActiveSession.Connection.CreateEntity();
 
         //Get the game object representation of this entity
         var modelGameObject = modelEntity.GetOrCreateGameObject(UnityCreationMode.DoNotCreateUnityComponents);
@@ -770,11 +778,9 @@ O método **LoadModel** foi concebido para aceitar um caminho modelo, manipulado
     #endif
 
         //Load a model that will be parented to the entity
-        var loadModelParams = new LoadModelFromSASParams(modelPath, modelEntity);
-        var loadModelAsync = ARRSessionService.CurrentActiveSession.Actions.LoadModelFromSASAsync(loadModelParams);
-        if(progress != null)
-            loadModelAsync.ProgressUpdated += progress;
-        var result = await loadModelAsync.AsTask();
+        var loadModelParams = new LoadModelFromSasParams(modelPath, modelEntity);
+        var loadModelAsync = ARRSessionService.CurrentActiveSession.Connection.LoadModelFromSasAsync(loadModelParams, progress);
+        var result = await loadModelAsync;
         return modelEntity;
     }
     ```
@@ -796,7 +802,7 @@ Dispomos agora de todo o código necessário para visualizar um modelo renderiza
 
 1. Adicione o seguinte código à classe **RemoteRenderingCoordinator,** logo abaixo do método **LoadModel:**
 
-    ```csharp
+    ```cs
     private bool loadingTestModel = false;
     [ContextMenu("Load Test Model")]
     public async void LoadTestModel()

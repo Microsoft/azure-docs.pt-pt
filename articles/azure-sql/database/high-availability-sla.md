@@ -8,16 +8,16 @@ ms.subservice: high-availability
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
-author: sashan
-ms.author: sashan
-ms.reviewer: sstein, sashan
+author: emlisa
+ms.author: emlisa
+ms.reviewer: sstein, emlisa
 ms.date: 10/28/2020
-ms.openlocfilehash: 15067a046d8adc0ba38101bbe24cdc48cd433d56
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 53b6b4f5d783029cb53de71fe3c47b8cb2d26968
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095445"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593423"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Alta disponibilidade para Azure SQL Database e SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -60,7 +60,7 @@ A versão redundante da zona da arquitetura de alta disponibilidade para o níve
 ![Configuração redundante de zona para fins gerais](./media/high-availability-sla/zone-redundant-for-general-purpose.png)
 
 > [!IMPORTANT]
-> Para obter informações atualizadas sobre as regiões que suportam bases de dados redundantes da zona, consulte [o apoio dos Serviços por região.](../../availability-zones/az-region.md) A configuração redundante da zona só está disponível quando o hardware de computação Gen5 é selecionado. Esta funcionalidade não está disponível em SQL Managed Instance.
+> A configuração redundante da zona só está disponível quando o hardware de computação Gen5 é selecionado. Esta funcionalidade não está disponível em SQL Managed Instance. A configuração redundante da zona para fins gerais só está disponível nas seguintes regiões: Leste dos EUA, Leste dos EUA 2, Oeste dos EUA 2, Norte da Europa, Europa Ocidental, Sudeste Asiático, Austrália Oriental, Japão Leste, Reino Unido Sul e França Central.
 
 > [!NOTE]
 > Bases de dados de Finalidade Geral com um tamanho de 80 vcore podem experimentar degradação de desempenho com configuração redundante de zona. Além disso, operações como cópia de backup, restauro, cópia de base de dados e configuração de relações Geo-DR podem experimentar um desempenho mais lento para qualquer base de dados maior do que 1 TB. 

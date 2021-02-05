@@ -6,16 +6,16 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d8a7bb620b7fcc9c878986d3575e22bb6f0f77bc
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: b1bcba264589d6cbe9b4f671e1e4f2c9b1dbf2c5
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724135"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594253"
 ---
 # <a name="tutorial-securing-azure-remote-rendering-and-model-storage"></a>Tutorial: Assegurar a renderização remota do Azure e o armazenamento do modelo
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 >
@@ -41,16 +41,16 @@ A renderização remota Azure pode aceder de forma segura ao conteúdo do seu Az
 
 Ao utilizar um armazenamento de bolhas ligado, utilizará métodos ligeiramente diferentes para carregar modelos:
 
-```csharp
-var loadModelParams = new LoadModelFromSASParams(modelPath, modelEntity);
-var loadModelAsync = ARRSessionService.CurrentActiveSession.Actions.LoadModelFromSASAsync(loadModelParams);
+```cs
+var loadModelParams = new LoadModelFromSasOptions(modelPath, modelEntity);
+var task = ARRSessionService.CurrentActiveSession.Connection.LoadModelFromSasAsync(loadModelParams);
 ```
 
-As linhas acima utilizam a `FromSAS` versão dos params e a ação de sessão. Devem ser convertidos para as versões não SAS:
+As linhas acima utilizam a `FromSas` versão dos params e a ação de sessão. Devem ser convertidos para as versões não SAS:
 
-```csharp
-var loadModelParams = new LoadModelParams(storageAccountPath, blobContainerName, modelPath, modelEntity);
-var loadModelAsync = ARRSessionService.CurrentActiveSession.Actions.LoadModelAsync(loadModelParams);
+```cs
+var loadModelParams = new LoadModelOptions(storageAccountPath, blobContainerName, modelPath, modelEntity);
+var task = ARRSessionService.CurrentActiveSession.Connection.LoadModelAsync(loadModelParams);
 ```
 
 Vamos modificar **o RemoteRenderingCoordinator** para carregar um modelo personalizado, a partir de uma conta de armazenamento de bolhas ligada.
@@ -58,7 +58,7 @@ Vamos modificar **o RemoteRenderingCoordinator** para carregar um modelo persona
 1. Se ainda não o fez, preencha as [contas de armazenamento de Ligação](../../../how-tos/create-an-account.md#link-storage-accounts) para conceder a sua permissão de exemplo ARR para aceder à sua instância de Armazenamento Blob.
 1. Adicione o seguinte método **loadmodel** modificado ao **RemoteRenderingCoordinator** logo abaixo do método atual **do LoadModel:**
 
-    ```csharp
+    ```cs
     /// <summary>
     /// Loads a model from blob storage that has been linked to the ARR instance
     /// </summary>
@@ -68,10 +68,10 @@ Vamos modificar **o RemoteRenderingCoordinator** para carregar um modelo persona
     /// <param name="parent">The parent Transform for this remote entity</param>
     /// <param name="progress">A call back method that accepts a float progress value [0->1]</param>
     /// <returns></returns>
-    public async Task<Entity> LoadModel(string storageAccountName, string blobContainerName, string modelPath, Transform parent = null, ProgressHandler progress = null)
+    public async Task<Entity> LoadModel(string storageAccountName, string blobContainerName, string modelPath, Transform parent = null, Action<float> progress = null)
     {
         //Create a root object to parent a loaded model to
-        var modelEntity = ARRSessionService.CurrentActiveSession.Actions.CreateEntity();
+        var modelEntity = ARRSessionService.CurrentActiveSession.Connection.CreateEntity();
 
         //Get the game object representation of this entity
         var modelGameObject = modelEntity.GetOrCreateGameObject(UnityCreationMode.DoNotCreateUnityComponents);
@@ -100,11 +100,9 @@ Vamos modificar **o RemoteRenderingCoordinator** para carregar um modelo persona
     #endif
 
         //Load a model that will be parented to the entity
-        var loadModelParams = new LoadModelParams($"{storageAccountName}.blob.core.windows.net", blobContainerName, modelPath, modelEntity);
-        var loadModelAsync = ARRSessionService.CurrentActiveSession.Actions.LoadModelAsync(loadModelParams);
-        if (progress != null)
-            loadModelAsync.ProgressUpdated += progress;
-        var result = await loadModelAsync.AsTask();
+        var loadModelParams = new LoadModelOptions($"{storageAccountName}.blob.core.windows.net", blobContainerName, modelPath, modelEntity);
+        var loadModelAsync = ARRSessionService.CurrentActiveSession.Connection.LoadModelAsync(loadModelParams, progress);
+        var result = await loadModelAsync;
         return modelEntity;
     }
     ```
@@ -115,7 +113,7 @@ Vamos modificar **o RemoteRenderingCoordinator** para carregar um modelo persona
 
 1. Adicione o seguinte método ao **RemoteRenderingCoordinator** logo após **o LoadTestModel**
 
-    ```csharp
+    ```cs
     private bool loadingLinkedCustomModel = false;
 
     [SerializeField]
@@ -190,7 +188,7 @@ Temos mais uma "senha", a AccountKey, para remover da aplicação local. Isto po
 
 A autenticação AAD permitir-lhe-á determinar quais indivíduos ou grupos estão a utilizar o ARR de uma forma mais controlada. A ARR construiu suporte para aceitar [Tokens de acesso](../../../../active-directory/develop/access-tokens.md) em vez de usar uma Chave de Conta. Pode pensar no Access Tokens como uma chave limitada no tempo, específica para o utilizador, que apenas desbloqueia certas partes do recurso específico que foi solicitado.
 
-O script **RemoteRenderingCoordinator** tem um delegado chamado **ARRCredentialGetter,** que detém um método que devolve um objeto **AzureFrontendAccountInfo,** que é usado para configurar a gestão de sessão remota. Podemos atribuir um método diferente ao **ARRCredentialGetter,** permitindo-nos usar um sinal Azure em fluxo, gerando um objeto **AzureFrontendAccountInfo** que contém um Azure Access Token. Este Token de Acesso será específico para o utilizador que está a iniciar sessão.
+O script **RemoteRenderingCoordinator** tem um delegado chamado **ARRCredentialGetter**, que contém um método que devolve um objeto **SessionConfiguration,** que é usado para configurar a gestão de sessão remota. Podemos atribuir um método diferente ao **ARRCredentialGetter,** permitindo-nos usar um sinal Azure em fluxo, gerando um objeto **SessionConfiguration** que contém um Token de Acesso Azure. Este Token de Acesso será específico para o utilizador que está a iniciar sessão.
 
 1. Siga a [autenticação como: Configurar a autenticação - Autenticação para aplicações implementadas](../../../how-tos/authentication.md#authentication-for-deployed-applications), especificamente seguirá as instruções enumeradas na documentação Azure Spatial Anchors [Azure AD autenticação](../../../../spatial-anchors/concepts/authentication.md?tabs=csharp#azure-ad-user-authentication)do utilizador . O que envolve registar uma nova aplicação do Azure Ative Directory e configurar o acesso à sua instância ARR.
 1. Depois de configurar a nova aplicação AAD, verifique se a sua aplicação AAD se parece com as seguintes imagens:
@@ -206,11 +204,11 @@ O script **RemoteRenderingCoordinator** tem um delegado chamado **ARRCredentialG
     >[!NOTE]
     > Uma função *de Proprietário* não é suficiente para gerir sessões através da aplicação do cliente. Para cada utilizador pretende conceder a capacidade de gerir sessões deve fornecer a função **Cliente de Renderização Remota**. Para cada utilizador que pretende gerir sessões e converter modelos, tem de fornecer o papel **administrador de renderização remota**.
 
-Com o lado Azure das coisas no lugar, precisamos agora modificar a forma como o seu código se liga ao serviço AAR. Fazemos isso implementando uma instância de **BaseARRAuthentication**, que devolverá um novo objeto **AzureFrontendAccountInfo.** Neste caso, a informação da conta será configurada com o Azure Access Token.
+Com o lado Azure das coisas no lugar, precisamos agora modificar a forma como o seu código se liga ao serviço AAR. Fazemos isso implementando uma instância de **BaseARRAuthentication**, que devolverá um novo objeto **de SessãoConfiguration.** Neste caso, a informação da conta será configurada com o Azure Access Token.
 
 1. Crie um novo script chamado **AADAuthentication** e substitua o seu código pelo seguinte:
 
-    ```csharp
+    ```cs
     // Copyright (c) Microsoft Corporation. All rights reserved.
     // Licensed under the MIT License. See LICENSE in the project root for license information.
 
@@ -278,7 +276,7 @@ Com o lado Azure das coisas no lugar, precisamos agora modificar a forma como o 
             this.gameObject.AddComponent<ExecuteOnUnityThread>();
         }
 
-        public async override Task<AzureFrontendAccountInfo> GetAARCredentials()
+        public async override Task<SessionConfiguration> GetAARCredentials()
         {
             var result = await TryLogin();
             if (result != null)
@@ -287,7 +285,7 @@ Com o lado Azure das coisas no lugar, precisamos agora modificar a forma como o 
 
                 var AD_Token = result.AccessToken;
 
-                return await Task.FromResult(new AzureFrontendAccountInfo(AzureRemoteRenderingAccountAuthenticationDomain, AccountDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
+                return await Task.FromResult(new SessionConfiguration(AzureRemoteRenderingAccountAuthenticationDomain, AccountDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
             }
             else
             {
@@ -373,11 +371,11 @@ Para este código, estamos a usar o fluxo de código do [dispositivo](../../../.
 
 A parte mais importante desta classe do ponto de vista ARR é esta linha:
 
-```csharp
-return await Task.FromResult(new AzureFrontendAccountInfo(AccountDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
+```cs
+return await Task.FromResult(new SessionConfiguration(AccountDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
 ```
 
-Aqui, criamos um novo objeto **AzureFrontendAccountInfo** utilizando o domínio da conta, iD de conta, domínio de autenticação de conta e token de acesso. Este token é então utilizado pelo serviço ARR para consultar, criar e aderir a sessões de renderização remotas desde que o utilizador seja autorizado com base nas permissões baseadas em funções configuradas anteriormente.
+Aqui, criamos um novo objeto **SessionConfiguration** utilizando o domínio da conta, iD de conta, domínio de autenticação de conta e token de acesso. Este token é então utilizado pelo serviço ARR para consultar, criar e aderir a sessões de renderização remotas desde que o utilizador seja autorizado com base nas permissões baseadas em funções configuradas anteriormente.
 
 Com esta mudança, o estado atual da aplicação e o seu acesso aos seus recursos Azure são assim:
 

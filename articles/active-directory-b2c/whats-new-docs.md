@@ -6,15 +6,15 @@ ms.service: active-directory
 ms.subservice: B2C
 ms.topic: reference
 ms.workload: identity
-ms.author: kenwith
-author: kenwith
+ms.author: mimart
+author: msmimart
 manager: CelesteDG
-ms.openlocfilehash: 5e58f54d991cd190aba6eeb851e6cf2aec78e695
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: c4561780a20bb2dfdef39269a49ebf8cb2a29fff
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99255174"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593015"
 ---
 # <a name="azure-active-directory-b2c-whats-new"></a>Azure Ative Directory B2C: Quais as novidades
 

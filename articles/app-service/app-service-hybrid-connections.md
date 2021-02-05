@@ -4,15 +4,15 @@ description: Saiba como criar e utilizar ligações híbridas no Azure App Servi
 author: ccompy
 ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
 ms.topic: article
-ms.date: 02/04/2020
+ms.date: 02/05/2020
 ms.author: ccompy
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: 20bdeef0a45bb02fab8841c0dd8ec7755143c693
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 1b3fc4a254c1157f2c2336e6360ba7621f31364d
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575996"
+ms.locfileid: "99594236"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Ligações Híbridas do Serviço de Aplicações do Azure
 
@@ -201,13 +201,20 @@ Qualquer pessoa que tenha `Reader` acesso ao Relé poderá _ver_ a Ligação Hí
 
 ## <a name="troubleshooting"></a>Resolução de problemas ##
 
-O estado de "Conectado" significa que pelo menos um HCM está configurado com essa Ligação Híbrida, e é capaz de chegar a Azure. Se o estado da sua Ligação Híbrida não **disser Conectado,** a sua Ligação Híbrida não está configurada em nenhum HCM que tenha acesso ao Azure.
+O estado de "Conectado" significa que pelo menos um HCM está configurado com essa Ligação Híbrida, e é capaz de chegar a Azure. Se o estado da sua Ligação Híbrida não **disser Conectado,** a sua Ligação Híbrida não está configurada em nenhum HCM que tenha acesso ao Azure. Quando o seu HCM mostra **que não está ligado,** há algumas coisas a verificar:
 
-A principal razão pela qual os clientes não podem ligar-se ao seu ponto final é porque o ponto final foi especificado usando um endereço IP em vez de um nome DNS. Se a sua aplicação não conseguir alcançar o ponto final pretendido e utilizar um endereço IP, mude para usar um nome DNS válido no anfitrião onde o HCM está em execução. Verifique também se o nome DNS se resolve corretamente no hospedeiro onde o HCM está em funcionamento. Confirme que existe conectividade do hospedeiro onde o HCM está a correr até ao ponto final de ligação híbrida.  
+* O seu anfitrião tem acesso de saída a Azure no porto 443? Pode testar a partir do seu anfitrião HCM utilizando o destino *de teste-NetConnection de* comando PowerShell -Porta P 
+* O seu HCM está potencialmente em mau estado? Tente reiniciar o serviço local "Azure Hybrid Connection Manager Service".
 
-No Serviço de Aplicações, a ferramenta da linha de comando **tcpping** pode ser invocada a partir da consola Advanced Tools (Kudu). Esta ferramenta pode dizer-lhe se tem acesso a um ponto final TCP, mas não lhe diz se tem acesso a um ponto final de Ligação Híbrida. Quando utilizar a ferramenta na consola contra um ponto final de ligação híbrida, está apenas a confirmar que utiliza uma combinação host:porta.  
+Se o seu estado diz **Conectado** mas a sua aplicação não pode chegar ao seu ponto final, então:
 
-Se tiver um cliente de linha de comando para o seu ponto final, pode testar a conectividade a partir da consola de aplicações. Por exemplo, pode testar o acesso aos pontos finais do servidor web utilizando o curl.
+* certifique-se de que está a utilizar um nome DNS na sua Ligação Híbrida. Se utilizar um endereço IP, a procura de DNS do cliente requerida pode não acontecer. Se o cliente que está a correr na sua aplicação web não fizer uma procura de DNS, então a Ligação Híbrida não funcionará
+* verifique se o nome DNS utilizado na sua Ligação Híbrida pode ser resolvido a partir do anfitrião HCM. Verifique a resolução utilizando o *nome endpointDNSname nslookup* onde o nome EndpointDNS é uma correspondência exata com o que é usado na definição de Ligação Híbrida.
+* teste de acesso do seu anfitrião HCM ao seu ponto final utilizando o comando PowerShell *Test-NetConnection EndpointDNSname -P Port*  Se não conseguir chegar ao ponto final do seu anfitrião HCM, verifique as firewalls entre os dois anfitriões, incluindo quaisquer firewalls baseadas no anfitrião.
+
+No Serviço de Aplicações, a ferramenta de linha de comando **tcpping** pode ser invocada a partir da consola Advanced Tools (Kudu). Esta ferramenta pode dizer-lhe se tem acesso a um ponto final TCP, mas não lhe diz se tem acesso a um ponto final de Ligação Híbrida. Quando utilizar a ferramenta na consola contra um ponto final de ligação híbrida, está apenas a confirmar que utiliza uma combinação host:porta.  
+
+Se tiver um cliente de linha de comando para o seu ponto final, pode testar a conectividade a partir da consola da aplicação. Por exemplo, pode testar o acesso aos pontos finais do servidor web utilizando o curl.
 
 
 <!--Image references-->

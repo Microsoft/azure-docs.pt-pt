@@ -1,20 +1,20 @@
 ---
-title: Tutorial para configurar definições de rede para dispositivo Azure Stack Edge Pro R no portal Azure Microsoft Docs
+title: Tutorial para configurar as definições de rede para o dispositivo Azure Stack Edge Pro R no portal Azure | Microsoft Docs
 description: Tutorial para implementar Azure Stack Edge Pro R instrui-o a configurar a rede, a rede de cálculo e as definições de procuração web para o seu dispositivo físico.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/15/2020
+ms.date: 02/04/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro R so I can use it to transfer data to Azure.
-ms.openlocfilehash: ad0010a1885c1e9bac8fa2341771cedc12115adc
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 11c1d76b5784587f234455f81595778897569eb1
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96468735"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594354"
 ---
 # <a name="tutorial-configure-network-for-azure-stack-edge-pro-r"></a>Tutorial: Rede de configuração para Azure Stack Edge Pro R
 
@@ -72,6 +72,7 @@ Siga estes passos para configurar a rede para o seu dispositivo.
    * Se o DHCP estiver ativado no seu ambiente, as interfaces de rede são configuradas automaticamente. Um endereço IP, uma sub-rede, um gateway e um DNS são atribuídos automaticamente.
    * Se o DHCP não estiver ativado, pode atribuir IPs estáticos se necessário.
    * Pode configurar a sua interface de rede como IPv4.
+   * A agregação de teaming ou agregação de ligações do Cartão de Interface de Rede (NIC) não é suportada com Azure Stack Edge.
    * O número de série de qualquer porta corresponde ao número de série do nó.
     <!--* On the 25-Gbps interfaces, you can set the RDMA (Remote Direct Access Memory) mode to iWarp or RoCE (RDMA over Converged Ethernet). Where low latencies are the primary requirement and scalability is not a concern, use RoCE. When latency is a key requirement, but ease-of-use and scalability are also high priorities, iWARP is the best candidate.-->
     Uma vez configurada a rede do dispositivo, a página atualiza-se conforme mostrado abaixo.
@@ -98,7 +99,7 @@ Siga estes passos para permitir a computação e configurar a rede de computaç�
     
 1. Atribuir **IPs de nó kubernetes**. Estes endereços IP estáticos são para o VM compute.  
 
-    Para *n* um dispositivo n-node, uma gama contígua de um mínimo de endereços *N+1* IPv4 (ou mais) são fornecidos para o VM compute usando os endereços IP de início e fim. Dado que a Azure Stack Edge é um dispositivo de 1 nó, são fornecidos no mínimo 2 endereços IPv4 contíguos. Estes endereços IP devem estar na mesma rede onde o computo ativou e foi criado o switch virtual.
+    Para um dispositivo n-node, uma gama contígua de um mínimo de endereços *N+1* IPv4 (ou mais) são fornecidos para o VM compute usando os endereços IP de início e fim. Dado que a Azure Stack Edge é um dispositivo de 1 nó, são fornecidos no mínimo 2 endereços IPv4 contíguos. Estes endereços IP devem estar na mesma rede onde o computo ativou e foi criado o switch virtual.
 
     > [!IMPORTANT]
     > Kubernetes em Azure Stack Edge utiliza sub-rede 172.27.0.0/16 para pod e sub-rede 172.28.0.0/16 para o serviço. Certifique-se de que estes não estão a ser utilizados na sua rede. Se estas sub-redes já estiverem a ser utilizadas na sua rede, pode alterar estas sub-redes executando o `Set-HcsKubeClusterNetworkInfo` cmdlet a partir da interface PowerShell do dispositivo. Para obter mais informações, consulte [a cápsula Change Kubernetes e as sub-redes de serviço.](azure-stack-edge-gpu-connect-powershell-interface.md#change-kubernetes-pod-and-service-subnets)

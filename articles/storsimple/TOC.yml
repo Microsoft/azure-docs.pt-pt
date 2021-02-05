@@ -263,6 +263,10 @@
               href: storsimple-disaster-recovery-using-azure-site-recovery.md
             - name: StorSimple com o Express Route
               href: 'https://databoxbuilds.blob.core.windows.net/storsimpledocs/MicrosoftAzureStorSimple_ExpressRoute.pdf'
+            - name: StoSimple com Hiper-V
+              href: 'https://databoxbuilds.blob.core.windows.net/storsimpledocs/MicrosoftAzureStorSimple_HyperVDeployment_v1.0.pdf'
+            - name: StorSimple com VMware
+              href: 'https://databoxbuilds.blob.core.windows.net/storsimpledocs/MicrosoftAzureStorSimple_VMware_v10.pdf'
             - name: Espaço de nomes global distribuído
               href: 'https://www.microsoft.com/download/details.aspx?id=45507'
         - name: Monitorizar

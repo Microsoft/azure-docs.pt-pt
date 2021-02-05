@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 4e09f9b8564c9319e68984df1c0f8db7a496a6d0
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: beb45d0d650b07f6106a3307d2d3a955095ee8b1
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584809"
+ms.locfileid: "99592267"
 ---
 # <a name="manage-qna-maker-resources"></a>Gerir os recursos do Fabricante QnA
 
@@ -92,60 +92,10 @@ Este procedimento cria os recursos Azure necessários para gerir o conteúdo da 
     ![Recurso criou um novo serviço QnA Maker gerido (Preview)](../media/qnamaker-how-to-setup-service/resources-created-v2.png)
 
     O recurso com o tipo _serviços cognitivos_ tem as suas chaves _de subscrição._
-
+    
 ---
 
-## <a name="find-authoring-keys-in-the-azure-portal"></a>Encontre chaves de autoria no portal Azure
-
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (lançamento estável)](#tab/v1)
-
-Pode visualizar e redefinir as suas teclas de autoria a partir do portal Azure, onde criou o recurso QnA Maker. Estas teclas podem ser referidas como chaves de subscrição.
-
-1. Vá ao recurso QnA Maker no portal Azure e selecione o recurso que tem o tipo _de Serviços Cognitivos:_
-
-    ![Lista de recursos do Fabricante QnA](../media/qnamaker-how-to-key-management/qnamaker-resource-list.png)
-
-2. Ir para **Chaves e Endpoint:**
-
-    ![QnA Maker geriu (Pré-visualização) chave de subscrição](../media/qnamaker-how-to-key-management/subscription-key-v2.png)
-
-### <a name="find-query-endpoint-keys-in-the-qna-maker-portal"></a>Encontre chaves de ponto final de consulta no portal QnA Maker
-
-O ponto final está na mesma região que o recurso porque as teclas de ponto final são usadas para fazer uma chamada para a base de conhecimento.
-
-As teclas de ponto final podem ser geridas a partir do [portal QnA Maker](https://qnamaker.ai).
-
-1. Inscreva-se no [portal QnA Maker,](https://qnamaker.ai)vá ao seu perfil e, em seguida, selecione **as definições de Serviço**:
-
-    ![Chave de ponto final](../media/qnamaker-how-to-key-management/Endpoint-keys.png)
-
-2. Ver ou redefinir as suas chaves:
-
-    > [!div class="mx-imgBorder"]
-    > ![Gestor chave de ponto final](../media/qnamaker-how-to-key-management/Endpoint-keys1.png)
-
-    >[!NOTE]
-    >Refresque as chaves se acha que foram comprometidas. Isto pode requerer alterações correspondentes à aplicação do seu cliente ou código bot.
-
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerido (pré-visualização)](#tab/v2)
-
-Pode visualizar e redefinir as teclas de autoria do portal Azure, onde criou o recurso (Preview) gerido pelo QnA Maker. Estas teclas podem ser referidas como chaves de subscrição.
-
-1. Aceda ao recurso gerido (Preview) do QnA Maker no portal Azure e selecione o recurso que tem o tipo *de Serviços Cognitivos:*
-
-    ![QnA Maker geriu a lista de recursos (Pré-visualização)](../media/qnamaker-how-to-key-management/qnamaker-v2-resource-list.png)
-
-2. Ir para **Chaves e Endpoint:**
-
-    ![QnA Maker geriu (Pré-visualização) chave de subscrição](../media/qnamaker-how-to-key-management/subscription-key-v2.png)
-
-### <a name="update-the-resources"></a>Atualizar os recursos
-
-Saiba como atualizar os recursos utilizados pela sua base de conhecimentos. QnA Maker gerido (Preview) é **gratuito** durante a pré-visualização. 
-
----
-
-### <a name="recommended-settings-for-network-isolation"></a>Configurações recomendadas para isolamento de rede
+## <a name="recommended-settings-for-network-isolation"></a>Configurações recomendadas para isolamento de rede
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (lançamento estável)](#tab/v1)
 

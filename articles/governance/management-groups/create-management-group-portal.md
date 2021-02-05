@@ -1,14 +1,14 @@
 ---
 title: 'Quickstart: Criar um grupo de gestão com portal'
 description: Neste quickstart, você usa o portal Azure para criar um grupo de gestão para organizar os seus recursos numa hierarquia de recursos.
-ms.date: 08/31/2020
+ms.date: 02/05/2021
 ms.topic: quickstart
-ms.openlocfilehash: c8cb7b8bd3ad33d1f315670bfbb1782972e6e97f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5a336fe4caf5d2f825a93b5c7b8f8d05f6255c39
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89661742"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592437"
 ---
 # <a name="quickstart-create-a-management-group"></a>Quickstart: Criar um grupo de gestão
 
@@ -39,11 +39,11 @@ O primeiro grupo de gestão criado no diretório pode demorar até 15 minutos pa
    - O **ID do Grupo de Gestão** é o identificador único do diretório que é usado para submeter comandos neste grupo de gestão. Este identificador não é editável após a criação, pois é usado em todo o sistema Azure para identificar este grupo. O [grupo de gestão de raiz](./overview.md#root-management-group-for-each-directory) é automaticamente criado com um ID que é o ID do Diretório Ativo Azure. Para todos os outros grupos de gestão, atribua uma identificação única.
    - O campo de nome de exibição é o nome que é apresentado dentro do portal Azure. Um nome de exibição separado é um campo opcional ao criar o grupo de gestão e pode ser alterado a qualquer momento.
 
-   :::image type="content" source="./media/create_context_menu.png" alt-text="Screenshot da página de grupos de gestão mostrando grupos de gestão de crianças e subscrições.":::
+   :::image type="content" source="./media/create_context_menu.png" alt-text="Screenshot das opções do &quot;Add Management Group&quot; para criar um novo grupo de gestão.":::
 
 1. Selecione **Guardar**.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para remover o grupo de gestão criado, siga estes passos:
 

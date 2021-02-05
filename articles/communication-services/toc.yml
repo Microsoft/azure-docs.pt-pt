@@ -88,6 +88,8 @@
       href: concepts/client-and-server-architecture.md
     - name: Fluxos de chamada
       href: concepts/call-flows.md
+    - name: Topologias de fluxo de chamadas
+      href: concepts/detailed-call-flows.md
     - name: Bibliotecas de cliente e APIs REST
       href: concepts/sdk-options.md
     - name: Modelo preços
