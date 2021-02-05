@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 05/29/2020
-ms.custom: sqldbrb=2 
-ms.openlocfilehash: e8b9f12c57b2e4bf943e5fc9a9ebc2bbadef9ee9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: sqldbrb=2
+ms.openlocfilehash: e0ad8e9e71a0ee2c23412d535fe79955edb39ba8
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86504977"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576655"
 ---
 # <a name="quickstart-use-php-to-query-a-database-in-azure-sql-database"></a>Quickstart: Use PHP para consultar uma base de dados na Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -54,7 +54,7 @@ Para concluir este guia de início rápido, precisa de:
 
   - **Linux**, instale o PHP, o controlador ODBC e, em seguida, instale o controlador PHP para o SQL Server. Ver [passo 1, 2 e 3](/sql/connect/php/installation-tutorial-linux-mac).
 
-  - **Windows**, instale PHP para IIS Express e Chocolatey, depois instale o controlador ODBC e o SQLCMD. Veja os [Passos 1.2 e 1.3](https://www.microsoft.com/sql-server/developer-get-started/php/windows/).
+  - **Windows**, instale os controladores PHP e PHP e instale o controlador ODBC e o SQLCMD. Veja os [Passos 1.2 e 1.3](https://www.microsoft.com/sql-server/developer-get-started/php/windows/).
 
 ## <a name="get-server-connection-information"></a>Obtenha informações de ligação do servidor
 

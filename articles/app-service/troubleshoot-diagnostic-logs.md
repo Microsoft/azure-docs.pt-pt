@@ -5,15 +5,15 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 875254071d0ea252508242b83102fb8ca8b44e53
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: 3b7f8f5a0f48bf0cdca7f72e5fb364ea0a5d1315
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825377"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576604"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Permitir o início de sessão de diagnóstico de apps no Azure App Service
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 A Azure fornece diagnósticos incorporados para ajudar na depuração de uma [aplicação do Serviço de Aplicações.](overview.md) Neste artigo, aprende-se a ativar a gravação de diagnóstico e a adicionar instrumentação à sua aplicação, bem como a aceder às informações registadas pelo Azure.
 
 Este artigo utiliza o [portal Azure](https://portal.azure.com) e o Azure CLI para trabalhar com registos de diagnóstico. Para obter informações sobre o trabalho com registos de diagnóstico utilizando o Visual Studio, consulte [Troubleshooting Azure in Visual Studio](troubleshoot-dotnet-visual-studio.md).
@@ -23,7 +23,7 @@ Este artigo utiliza o [portal Azure](https://portal.azure.com) e o Azure CLI par
 >
 >
 
-|Tipo|Plataforma|A localização|Description|
+|Tipo|Plataforma|Localização|Description|
 |-|-|-|-|
 | Registo de aplicação | Windows, Linux | Sistema de ficheiros do Serviço de Aplicações e/ou bolhas de armazenamento Azure | Regista mensagens geradas pelo seu código de aplicação. As mensagens podem ser geradas pela estrutura web que escolher, ou pelo seu código de aplicação diretamente utilizando o padrão de registo padrão do seu idioma. A cada mensagem é atribuída uma das seguintes categorias: **Critical,** **Error**, **Warning**, **Info**, **Debug** e **Trace**. Pode selecionar o quão verbose pretende que a sessão seja, definindo o nível de gravidade quando ativa a sessão de registo de aplicações.|
 | Início de sessão do servidor web| Windows | Sistema de ficheiros do Serviço de Aplicações ou bolhas de armazenamento Azure| Dados de pedidos de HTTP brutos no [formato de ficheiro de registo estendido W3C](/windows/desktop/Http/w3c-logging). Cada mensagem de registo inclui dados como o método HTTP, recurso URI, COMPUTADOR DO Cliente, porta do cliente, agente do utilizador, código de resposta, e assim por diante. |
@@ -169,9 +169,9 @@ Para aplicações windows, o ficheiro ZIP contém o conteúdo do diretório *D:\
 | Tipo de registo | Diretório | Description |
 |-|-|-|
 | **Registos de aplicações** |*/Registos/Aplicação/* | Contém um ou mais ficheiros de texto. O formato das mensagens de registo depende do fornecedor de registo que utiliza. |
-| **Rastreios de pedidos falhados** | */LogFiles/W3SVC# #* | Contém ficheiros XML e um ficheiro XSL. Pode ver os ficheiros XML formatados no navegador. |
+| **Rastreios de pedidos falhados** | */LogFiles/W3SVC###### #* | Contém ficheiros XML e um ficheiro XSL. Pode ver os ficheiros XML formatados no navegador. |
 | **Registos de erros detalhados** | */LogFiles/DetalhadosErrors/* | Contém ficheiros de erro HTM. Pode ver os ficheiros HTM no navegador.<br/>Outra forma de ver os vestígios de pedidos falhados é navegar para a sua página de aplicações no portal. A partir do menu esquerdo, selecione **Diagnosticar e resolver problemas,** em seguida, procure por **Registos de Rastreio de Pedidos Falhados**, em seguida, clique no ícone para navegar e ver o traço que deseja. |
-| **Registos de servidor web** | */LogFiles/http/RawLogs/* | Contém ficheiros de texto formatados utilizando o [formato de ficheiro de registo estendido W3C](/windows/desktop/Http/w3c-logging). Estas informações podem ser lidas usando um editor de texto ou um utilitário como [Log Parser](https://go.microsoft.com/fwlink/?LinkId=246619).<br/>O Serviço de Aplicações não suporta, `s-computername` `s-ip` ou `cs-version` campos. |
+| **Registos de servidor web** | */LogFiles/http/RawLogs/* | Contém ficheiros de texto formatados utilizando o [formato de ficheiro de registo estendido W3C](/windows/desktop/Http/w3c-logging). Estas informações podem ser lidas usando um editor de texto ou um utilitário como [Log Parser](https://www.iis.net/downloads/community/2010/04/log-parser-22).<br/>O Serviço de Aplicações não suporta, `s-computername` `s-ip` ou `cs-version` campos. |
 | **Registos de implantação** | */LogFiles/Git/* e */deployments/* | Conter registos gerados pelos processos de implementação internos, bem como registos para implementações de Git. |
 
 ## <a name="send-logs-to-azure-monitor-preview"></a>Enviar registos para Azure Monitor (pré-visualização)

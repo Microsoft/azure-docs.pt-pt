@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 105128af60b90324e93bcad1bd9900a55461378f
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: 00058f75a2c4378371c427ff9ebabe7e2336b06a
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99071720"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576553"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Compreenda os gémeos digitais e o seu gráfico gémeo
 
@@ -58,9 +58,9 @@ Você também pode usar uma classe de ajudante chamada `BasicDigitalTwin` para a
 
 ### <a name="create-relationships"></a>Criar relações
 
-Aqui está um código de cliente exemplo que usa as [APIs DigitalTwins](/rest/api/digital-twins/dataplane/twins) para construir uma relação entre um twin digital tipo *Floor* chamado *GroundFloor* e um twin digital *tipo Quarto* chamado *Café.*
+Aqui está um código de cliente exemplo que usa as [APIs DigitalTwins](/rest/api/digital-twins/dataplane/twins) para construir uma relação de um gémeo digital (o gémeo "source" ) para outro gémeo digital (o gémeo "alvo").
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_other.cs" id="CreateRelationship_3":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_other.cs" id="CreateRelationship_short":::
 
 ## <a name="json-representations-of-graph-elements"></a>Representações de JSON de elementos gráficos
 

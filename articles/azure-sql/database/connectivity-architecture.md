@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
 ms.date: 01/25/2021
-ms.openlocfilehash: da21fd2b6f8d427369cee89e0ad93d63e8608784
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 07303e3eea7e63f7c153db771168b8a741183362
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98808274"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576503"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Arquitetura de conetividade da Base de Dados SQL do Azure e do Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -92,7 +92,7 @@ Os pormenores sobre a forma como o tráfego deve ser migrado para novos Gateways
 | E.U.A. Leste              | 40.121.158.30, 40.79.153.12, 191.238.6.43, 40.78.225.32 |
 | E.U.A. Leste 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0, 191.239.224.107, 104.208.150.3 |
 | França Central       | 40.79.137.0, 40.79.129.1, 40.79.137.8, 40.79.145.12 |
-| Sul de França         | 40.79.177.10 ,40.79.177.12 |
+| Sul de França         | 40.79.177.0, 40.79.177.10 ,40.79.177.12 |
 | Alemanha Central      | 51.4.144.100       |
 | Alemanha Nordeste   | 51.5.144.179       |
 | Alemanha Centro-Oeste | 51.116.240.0, 51.116.248.0, 51.116.152.0 |
@@ -123,7 +123,7 @@ Os pormenores sobre a forma como o tráfego deve ser migrado para novos Gateways
 | E.U.A. Oeste 2            | 13.66.226.202, 40.78.240.8, 40.78.248.10  |
 |                      |                    |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter informações sobre como alterar a política de ligação da Base de Dados Azure SQL para um servidor, consulte [a política de conn- policy](/cli/azure/sql/server/conn-policy).
 - Para obter informações sobre o comportamento de ligação da Base de Dados Azure SQL para clientes que utilizem ADO.NET 4.5 ou uma versão posterior, consulte [portões para além de 1433 para ADO.NET 4.5](adonet-v12-develop-direct-route-ports.md).

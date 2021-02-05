@@ -4,12 +4,12 @@ description: Este artigo diz como utilizar a Azure AD dentro da Azure Automation
 services: automation
 ms.date: 03/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 41eaab7be66d446109e1052948a29ad4723b191c
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 336c0387ac9febcc517c2ce358d0b04c80d10678
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98894665"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576808"
 ---
 # <a name="use-azure-ad-to-authenticate-to-azure"></a>Utilizar o Azure AD para autenticar no Azure
 
@@ -50,7 +50,7 @@ Antes de instalar os módulos AD AZure no seu computador:
 
 1. Certifique-se de que a função Microsoft .NET Framework 3.5.x está ativada no seu computador. É provável que o seu computador tenha uma versão mais recente instalada, mas a compatibilidade para trás com versões mais antigas do Quadro .NET pode ser ativada ou desativada. 
 
-2. Instale a versão de 64 bits do [Assistente de Serção de Serviços Online da Microsoft](https://www.microsoft.com/download/details.aspx?id=41950).
+2. Instale a versão de 64 bits do [Assistente de Serção de Serviços Online da Microsoft](https://www.microsoft.com/Download/details.aspx?id=28177).
 
 3. Executar o Windows PowerShell como administrador para criar uma solicitação de comando do Windows PowerShell elevada.
 
@@ -157,7 +157,7 @@ Workflow Stop-Start-AzureVM
 }
 ```  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter detalhes sobre a utilização credencial, consulte [Gerir as credenciais na Azure Automation.](shared-resources/credentials.md)
 * Para obter informações sobre módulos, consulte [Gerir os módulos na Azure Automation.](shared-resources/modules.md)

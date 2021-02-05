@@ -7,18 +7,18 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 11/11/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: b6e523fc4a3dcd0eb8c8ed7a44b3d7d9fcdd7d34
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 37c8b4bc186c217ecb27638f5f50297102345de7
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98887284"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576536"
 ---
 # <a name="access-your-application-in-a-private-network"></a>Aceda à sua aplicação numa rede privada
 
 Este documento explica como aceder a um ponto final para a sua aplicação numa rede privada.  Para ter acesso, precisa de criar uma **Zona DE DNS Privada Azure** na sua subscrição para traduzir/resolver o nome de domínio privado totalmente qualificado (FQDN) para o seu endereço IP.
 
-Quando **atribuir o Ponto Final** para aplicações numa instância de serviço Azure Spring Cloud é implantado na sua rede virtual, o ponto final é um FQDN privado. O domínio só é acessível na rede privada. As aplicações e serviços utilizam o ponto final da aplicação. Incluem o **ponto de final de teste** descrito na [Verificação da colocação de encenação](spring-cloud-howto-staging-environment.md#verify-the-staging-deployment). **O streaming de registos**, descrito nos [registos de aplicações stream Azure Spring Cloud em tempo real,](spring-cloud-howto-log-streaming.md)também funciona apenas dentro da rede privada.
+Quando **atribuir o Ponto Final** para aplicações numa instância de serviço Azure Spring Cloud é implantado na sua rede virtual, o ponto final é um FQDN privado. O domínio só é acessível na rede privada. As aplicações e serviços utilizam o ponto final da aplicação. Incluem o **Ponto final de teste** descrito em [aplicações e implementações ver.](spring-cloud-howto-staging-environment.md#view-apps-and-deployments) **O streaming de registos**, descrito nos [registos de aplicações stream Azure Spring Cloud em tempo real,](spring-cloud-howto-log-streaming.md)também funciona apenas dentro da rede privada.
 
 ## <a name="create-a-private-dns-zone"></a>Criar uma zona privada de DNS
 
@@ -117,11 +117,11 @@ Após a atribuição, pode aceder ao FQDN privado da sua aplicação em rede pri
 
 ![Acesso ao ponto final privado em vnet](media/spring-cloud-access-app-vnet/access-private-endpoint.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Expor aplicações à Internet - usando o Gateway de Aplicações e o Azure Firewall](spring-cloud-expose-apps-gateway-azure-firewall.md)
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 - [Resolução de problemas Azure Spring Cloud em VNET](spring-cloud-troubleshooting-vnet.md)
 - [Responsabilidades do cliente para correr Azure Spring Cloud em VNET](spring-cloud-vnet-customer-responsibilities.md)

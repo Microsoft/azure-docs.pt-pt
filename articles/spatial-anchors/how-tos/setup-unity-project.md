@@ -8,29 +8,29 @@ ms.author: parkerra
 ms.date: 2/3/2021
 ms.topic: how-to
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: e058186d8848256bf97d99ee1b8b1ddae7d78383
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 56532c17c91e6c703a6acd7990bbae47cd248165
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550628"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576570"
 ---
 # <a name="configuring-azure-spatial-anchors-in-a-unity-project"></a>Configurar âncoras espaciais Azure num projeto de unidade
 
 Este guia irá mostrar-lhe como começar com o Azure Spatial Anchors SDK no seu projeto De unidade.
 
-## <a name="requirements"></a>Requisitos
+## <a name="project-requirements"></a>Requisitos do projeto
 
-A Azure Spatial Anchors suporta atualmente a Unidade 2019.4 (LTS) com as seguintes configurações.
-
-* Unidade 2019.4 com AR Foundation 3.1 é suportado em Azure Spatial Anchors 2.4.0+.
+[!INCLUDE [Unity Project Requirements](../../../includes/spatial-anchors-unity-project-requirements.md)]
 
 ## <a name="configuring-a-project"></a>Configurar um projeto
 
-### <a name="download-packages"></a>Pacotes de descarregamento
+Antes de incluir o Azure Spatial Anchors SDK no seu projeto Unidade, certifique-se de instalar os pacotes [necessários](#project-requirements) através do Gestor de Pacotes de Unidade.
+
+### <a name="download-asa-packages"></a>Baixar pacotes ASA
 [!INCLUDE [Download Unity Packages](../../../includes/spatial-anchors-unity-download-packages.md)]
 
-### <a name="import-packages"></a>Importar pacotes
+### <a name="import-asa-packages"></a>Pacotes ASA de importação
 [!INCLUDE [Import Unity Packages](../../../includes/spatial-anchors-unity-import-packages.md)]
 
 ### <a name="android-only-configure-the-maintemplategradle-file"></a>Apenas Android: Configurar o ficheiro mainTemplate.gradle

@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 771cf97a5c938fb987c66555c92c23f42b302a10
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 3b2d1bbe2de0ae72087fdf3debeaf42f8745fed9
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134233"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576486"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Funcionalidades do Apache Cassandra suportadas pela API para Cassandra do Azure Cosmos DB 
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -43,14 +43,14 @@ As seguintes versões de controladores do Cassandra são suportadas pela API par
 
 A API para Cassandra do Azure Cosmos DB suporta os seguintes tipos de dados de CQL:
 
-|Comando  |Suportado |
+|Tipo  |Suportado |
 |---------|---------|
 | ascii  | Yes |
 | bigint  | Yes |
 | blob  | Yes |
 | boolean  | Yes |
 | counter  | Yes |
-| date  | Yes |
+| data  | Yes |
 | decimal  | Yes |
 | double  | Yes |
 | float  | Yes |
@@ -82,13 +82,14 @@ A API para Cassandra do Azure Cosmos DB suporta as seguintes funções de CQL:
 |Comando  |Suportado |
 |---------|---------|
 | Token * | Yes |
-| ttl | Yes |
-| tempo de escrita | Yes |
+| ttl *** | Yes |
+| tempo de escrita *** | Yes |
 | elenco ** | Yes |
 
 > [!NOTE] 
 > \* A API cassandra suporta o token como uma projeção/seletor, e só permite token(pk) no lado esquerdo de uma cláusula onde. Por exemplo, `WHERE token(pk) > 1024` é apoiado, mas `WHERE token(pk) > token(100)` **não** é apoiado.  
-> \*\* A `cast()` função não é nesteble na API de Cassandra. Por exemplo, `SELECT cast(count as double) FROM myTable` é apoiado, mas `SELECT avg(cast(count as double)) FROM myTable` **não** é apoiado.
+> \*\* A `cast()` função não é nesteble na API de Cassandra. Por exemplo, `SELECT cast(count as double) FROM myTable` é apoiado, mas `SELECT avg(cast(count as double)) FROM myTable` **não** é apoiado.    
+> \*\*\* Os tempos e TTL personalizados especificados com a `USING` opção são aplicados a um nível de linha (e não por célula).
 
 
 
@@ -140,50 +141,57 @@ O Azure Cosmos DB suporta os seguintes comandos de base de dados nas contas da A
 |---------|---------|
 | PERMITIR A FILTRAGEM | Yes |
 | ALTERAR O ESPAÇO DE CHAVES | N/A (serviço PaaS, replicação gerida internamente)|
-| ALTERAR VISTA MATERIALIZADA | Não |
-| ALTERAR PAPEL | Não |
+| ALTERAR VISTA MATERIALIZADA | No |
+| ALTERAR PAPEL | No |
 | ALTER TABLE | Yes |
-| TIPO ALTER | Não |
-| UTILIZADOR ALTER | Não |
+| TIPO ALTER | No |
+| UTILIZADOR ALTER | No |
 | LOTE | Sim (apenas lote não enólogo)|
 | ARMAZENAMENTO COMPACTO | N/A (serviço PaaS) |
-| CRIAR AGREGADO | Não | 
-| CRIAR ÍNDICE PERSONALIZADO (SASI) | Não |
+| CRIAR AGREGADO | No | 
+| CRIAR ÍNDICE PERSONALIZADO (SASI) | No |
 | CREATE INDEX | Sim (sem [especificar o nome do índice](cassandra-secondary-index.md), e índices em chaves de agrupamento ou recolha completa de FROZEN não suportada) |
-| CREATE FUNCTION | Não |
+| CREATE FUNCTION | No |
 | CRIAR KEYSPACE (definições de replicação ignoradas) | Yes |
-| CRIAR VISTA MATERIALIZADA | Não |
+| CRIAR VISTA MATERIALIZADA | No |
 | CREATE TABLE | Yes |
-| CRIAR GATILHO | Não |
+| CRIAR GATILHO | No |
 | CRIAR TIPO | Yes |
-| CRIAR PAPEL | Não |
-| CREATE USER (Deprecado em Apache Cassandra nativo) | Não |
+| CRIAR PAPEL | No |
+| CREATE USER (Deprecado em Apache Cassandra nativo) | No |
 | DELETE | Yes |
-| EXCLUIR (transações leves com IF CONDITION)| Yes |
-| DISTINCT | Não |
-| AGREGADO DE DROP | Não |
-| DROP FUNCTION | Não |
+| DISTINCT | No |
+| AGREGADO DE DROP | No |
+| DROP FUNCTION | No |
 | DROP INDEX | Yes |
 | DROP KEYSPACE | Yes |
-| VISTA MATERIALIZADA GOTA | Não |
-| PAPEL DE DROP | Não |
+| VISTA MATERIALIZADA GOTA | No |
+| PAPEL DE DROP | No |
 | DROP TABLE | Yes |
-| DETONADOR DE QUEDA | Não | 
+| DETONADOR DE QUEDA | No | 
 | TIPO DE GOTA | Yes |
-| UTILIZADOR DROP (Deprecado em Apache Cassandra nativo) | Não |
-| GRANT | Não |
+| UTILIZADOR DROP (Deprecado em Apache Cassandra nativo) | No |
+| GRANT | No |
 | INSERT | Yes |
-| INSIRA (transações leves com IF CONDITION)| Yes |
-| PERMISSÕES DE LISTA | Não |
-| FUNÇÕES DE LISTA | Não |
-| UTILIZADORES LISTA (Deprecado em Apache Cassandra nativo) | Não |
-| REVOKE | Não |
+| PERMISSÕES DE LISTA | No |
+| FUNÇÕES DE LISTA | No |
+| UTILIZADORES LISTA (Deprecado em Apache Cassandra nativo) | No |
+| REVOKE | No |
 | SELECIONAR | Yes |
-| SELECT (transações leves com IF CONDITION)| Não |
 | UPDATE | Yes |
-| ATUALIZAÇÃO (transações leves com IF CONDITION)| Não |
-| TRUNCATO | Não |
+| TRUNCATO | No |
 | USE | Yes |
+
+## <a name="lightweight-transactions-lwt"></a>Transações leves (LWT)
+
+| Componente  |Suportado |
+|---------|---------|
+| APAGAR SE EXISTE | Yes |
+| Excluir condições | No |
+| INSIRA SE NÃO EXISTE | Yes |
+| ATUALIZAR SE EXISTE | Yes |
+| ATUALIZAÇÃO SE NÃO EXISTE | Yes |
+| Condições de ATUALIZAÇÃO | No |
 
 ## <a name="cql-shell-commands"></a>Comandos CQL Shell
 
@@ -194,14 +202,14 @@ O Azure Cosmos DB suporta os seguintes comandos de base de dados nas contas da A
 | CAPTURA | Yes |
 | CLARO | Yes |
 | CONSISTÊNCIA * | N/D |
-| CÓPIA | Não |
+| CÓPIA | No |
 | DESCREVER | Yes |
-| cqlshExpand | Não |
+| cqlshExpand | No |
 | SAÍDA | Yes |
 | LOGIN | N/A (a função CQL `USER` não é suportada, portanto `LOGIN` é redundante) |
 | PAGING | Yes |
 | CONSISTÊNCIA EM SÉRIE * | N/D |
-| SHOW | Yes |
+| programa | Yes |
 | ORIGEM | Yes |
 | RASTREIO | N/A (Cassandra API é apoiada pela Azure Cosmos DB - use [o registo de diagnóstico](cosmosdb-monitor-resource-logs.md) para resolução de problemas) |
 
@@ -214,8 +222,8 @@ O Azure Cosmos DB suporta os seguintes comandos de base de dados nas contas da A
 |---------|---------|
 | SELECIONE JSON | Yes |
 | INSERIR JSON | Yes |
-| fromJson() | Não |
-| toJson() | Não |
+| fromJson() | No |
+| toJson() | No |
 
 
 ## <a name="cassandra-api-limits"></a>Limites da API para Cassandra

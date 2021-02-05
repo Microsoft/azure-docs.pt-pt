@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
-ms.openlocfilehash: 5e97a35a272684a99e1ca21cbec9c8f3edef253c
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 8926e99db926fc8182e98509c3deff0ccc3d1612
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99097427"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576672"
 ---
 # <a name="virtual-network-service-endpoints"></a>Pontos finais de serviço de Rede Virtual
 
@@ -126,7 +126,7 @@ Os pontos finais de serviço podem ser configurados em redes virtuais de forma i
 
 Para obter mais informações sobre papéis incorporados, consulte [as funções incorporadas do Azure.](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Para obter mais informações sobre a atribuição de permissões específicas a funções personalizadas, consulte [as funções personalizadas Azure](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-As redes virtuais e os recursos de serviço do Azure podem pertencer às mesmas subscrições ou a subscrições diferentes. Se os recursos de serviço da rede virtual e do Azure pertencerem a subscrições diferentes, os recursos devem existir no mesmo inquilino do Active Directory (AD). 
+As redes virtuais e os recursos de serviço do Azure podem pertencer às mesmas subscrições ou a subscrições diferentes. Certos Serviços Azure (nem todos) como o Azure Storage e o Azure Key Vault também suportam pontos finais de serviço em diferentes inquilinos ative directory(AD), ou seja, a rede virtual e o recurso de serviço Azure podem estar em diferentes inquilinos ative directory (AD). Verifique a documentação individual do serviço para mais detalhes.  
 
 ## <a name="pricing-and-limits"></a>Preços e limites
 

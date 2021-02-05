@@ -4,12 +4,12 @@ description: Como escolher entre os tamanhos VM disponíveis e versões de SO pa
 ms.topic: conceptual
 ms.date: 11/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: 59218361c5fff51b33131fdd2455c599dd12b06a
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: de1f61bb2bdc83377887fda726a65c1900f36d55
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897498"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576706"
 ---
 # <a name="choose-a-vm-size-and-image-for-compute-nodes-in-an-azure-batch-pool"></a>Escolha um tamanho e imagem VM para nó de computação numa piscina Azure Batch
 
@@ -29,7 +29,7 @@ As piscinas de lote na configuração da Máquina Virtual suportam quase todos o
 | Série das VMs  | Tamanhos suportados |
 |------------|---------|
 | Básico A | Todos os *tamanhos, exceto* Basic_A0 (A0) |
-| A | Todos os *tamanhos, exceto* Standard_A0 |
+| A | Todos os tamanhos, *exceto* Standard_A0, Standard_A8, Standard_A9, Standard_A10, Standard_A11 |
 | Av2 | Todos os tamanhos |
 | B | Não suportado |
 | DC | Não suportado |
@@ -103,7 +103,7 @@ Utilize uma das seguintes APIs para devolver uma lista de imagens VM Windows e L
 - PowerShell: [Get-AzBatchSupportedImage](/powershell/module/az.batch/get-azbatchsupportedimage)
 - Azure CLI: [az lote pool suportado imagens](/cli/azure/batch/pool/supported-images)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Conheça o fluxo de trabalho do [serviço Batch e os recursos primários,](batch-service-workflow-features.md) tais como piscinas, nós, empregos e tarefas.
 - Para obter informações sobre a utilização de tamanhos de VM intensivos em computação, consulte [utilize casos com capacidade de RDMA ou GPU em piscinas de Lote](batch-pool-compute-intensive-sizes.md).
