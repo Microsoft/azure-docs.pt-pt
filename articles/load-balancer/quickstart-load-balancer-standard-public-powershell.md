@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 11/22/2020
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: 3599f098aa73b7433e2e5af0047c694634e2f933
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 27a2b764ebf420c91c57c6f5f762f656b1040a91
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97630535"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594557"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-powershell"></a>Quickstart: Criar um equilibrador de carga público para carregar VMs de equilíbrio usando Azure PowerShell
 
@@ -64,6 +64,7 @@ $publicip = @{
     Location = 'eastus'
     Sku = 'Standard'
     AllocationMethod = 'static'
+    Zone = 1,2,3
 }
 New-AzPublicIpAddress @publicip
 
@@ -78,7 +79,7 @@ $publicip = @{
     Location = 'eastus'
     Sku = 'Standard'
     AllocationMethod = 'static'
-    Zone = '1'
+    Zone = 1
 }
 New-AzPublicIpAddress @publicip
 
@@ -342,6 +343,7 @@ $publicipout = @{
     Location = 'eastus'
     Sku = 'Standard'
     AllocationMethod = 'static'
+    Zone = 1,2,3
 }
 New-AzPublicIpAddress @publicipout
 
@@ -356,7 +358,7 @@ $publicipout = @{
     Location = 'eastus'
     Sku = 'Standard'
     AllocationMethod = 'static'
-    Zone = '1'
+    Zone = 1
 }
 New-AzPublicIpAddress @publicipout
 
@@ -781,7 +783,7 @@ Copie o endereço IP público e cole-o na barra de endereço do browser. A pági
 
 Para ver o balanceador de carga distribuir tráfego através dos três VMs, pode personalizar a página padrão de cada servidor Web IIS de cada VM e, em seguida, refrescar o seu navegador web a partir da máquina do cliente.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não é necessário, pode utilizar o comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos, o equilibrador de carga e os recursos restantes.
 
@@ -790,7 +792,7 @@ Remove-AzResourceGroup -Name 'CreatePubLBQS-rg'
 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste início rápido:
 

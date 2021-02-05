@@ -1,7 +1,7 @@
 ---
-title: Atualizar ou eliminar o Balanceador de Carga do Azure utilizado pelo Conjunto de Dimensionamento de Máquinas Virtuais
-titleSuffix: Update or delete existing Azure Load Balancer used by Virtual Machine Scale Set
-description: Com este artigo de como fazer, começa com o Azure Standard Load Balancer e os Conjuntos de Balanças de Máquinas Virtuais.
+title: Atualizar ou eliminar um balanceador de carga existente utilizado por conjuntos de escala de máquinas virtuais
+titleSuffix: Update or delete an existing load balancer used by virtual machine scale sets
+description: Com este artigo de como fazer, começa com o Azure Standard Load Balancer e conjuntos de balanças de máquinas virtuais.
 services: load-balancer
 documentationcenter: na
 author: irenehua
@@ -13,52 +13,65 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/30/2020
 ms.author: irenehua
-ms.openlocfilehash: d5614490bfd2cfb67b6b7afd7b7b8643bbf754bd
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 0c491275f793ce2cd5e830ca6a3014dc45d6d509
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98790094"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594540"
 ---
-# <a name="how-to-updatedelete-azure-load-balancer-used-by-virtual-machine-scale-sets"></a>Como atualizar/eliminar o balançador de carga Azure utilizado por conjuntos de balanças de máquinas virtuais
+# <a name="update-or-delete-a-load-balancer-used-by-virtual-machine-scale-sets"></a>Atualizar ou eliminar um equilibrador de carga utilizado por conjuntos de escala de máquina virtual
 
-## <a name="how-to-set-up-azure-load-balancer-for-scaling-out-virtual-machine-scale-sets"></a>Como configurar o balançador de carga Azure para escalonar conjuntos de balanças de máquinas virtuais
-  * Certifique-se de que o Balanceador de Carga tem [a piscina NAT](/cli/azure/network/lb/inbound-nat-pool?view=azure-cli-latest) de entrada configurada e que o Conjunto de Balanças de Máquina Virtual é colocado no pool de backend do Balanceador de Carga. O Azure Load Balancer criará automaticamente novas regras NAT de entrada na piscina NAT de entrada quando forem adicionadas novas instâncias da Máquina Virtual ao Conjunto de Escala de Máquina Virtual. 
-  * Para verificar se a piscina NAT de entrada está devidamente configurada, 
-  1. Inicie sessão no portal do Azure em https://portal.azure.com.
-  
-  1. Selecione **todos os recursos** no menu esquerdo e, em seguida, selecione **MyLoadBalancer** na lista de recursos.
-  
-  1. Em **Definições**, selecione **Inbound NAT Rules**.
-Se vir no painel direito, uma lista de regras criadas para cada instância no Conjunto de Escala de Máquina Virtual, os parabéns que todos você está disposto a ir para escalar a qualquer momento.
+Quando trabalha com conjuntos de balança de máquinas virtuais e uma instância do Azure Load Balancer, pode:
 
-## <a name="how-to-add-inbound-nat-rules"></a>Como adicionar regras NAT de entrada? 
-  * A regra NAT de entrada individual não pode ser adicionada. No entanto, pode adicionar um conjunto de regras NAT de entrada com gama de porta frontal definida e porta de backend para todos os casos no Conjunto de Escala de Máquina Virtual.
-  * Para adicionar um conjunto inteiro de regras NAT de entrada para os conjuntos de escala de máquina virtual, você precisa primeiro criar uma piscina NAT de entrada no Balancer de carga e, em seguida, fazer referência ao pool NAT de entrada a partir do perfil de rede do Conjunto de Escala de Máquina Virtual. Um exemplo completo utilizando o CLI é mostrado abaixo.
-  * A nova piscina NAT de entrada não deve ter uma gama portuária de frontend sobreposta com piscinas NAT de entrada existentes. Para visualizar as piscinas NAT existentes, pode utilizar este [comando CLI](/cli/azure/network/lb/inbound-nat-pool?view=azure-cli-latest#az_network_lb_inbound_nat_pool_list)
+- Adicione, atualize e elimine as regras.
+- Adicione configurações.
+- Elimine o equilibrador de carga.
+
+## <a name="set-up-a-load-balancer-for-scaling-out-virtual-machine-scale-sets"></a>Configurar um equilibrador de carga para escalonar conjuntos de escala de máquina virtual
+
+Certifique-se de que a instância do Azure Load Balancer tem uma [piscina NAT de entrada](/cli/azure/network/lb/inbound-nat-pool?view=azure-cli-latest) configurada e que o conjunto de balanças de máquina virtual é colocado no pool de backend do equilibrador de carga. O Load Balancer criará automaticamente novas regras NAT de entrada na piscina NAT de entrada quando forem adicionadas novas instâncias de máquina virtual ao conjunto de escala de máquina virtual.
+
+Para verificar se a piscina NAT de entrada está devidamente configurada:
+
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. No menu à esquerda, selecione **Todos os recursos.** Em seguida, selecione **MyLoadBalancer** da lista de recursos.
+1. Em **Definições**, selecione **as regras DE ENTRADA**. No painel direito, se vires uma lista de regras criadas para cada instância no conjunto de escala de máquina virtual, estás pronto para escalar a qualquer momento.
+
+## <a name="add-inbound-nat-rules"></a>Adicione as regras NAT de entrada
+
+As regras individuais de entrada não podem ser adicionadas. Mas pode adicionar um conjunto de regras NAT de entrada com gama de porta frontal definida e porta traseira para todos os casos no conjunto de escala de máquina virtual.
+
+Para adicionar um conjunto inteiro de regras NAT de entrada para os conjuntos de escala de máquina virtual, primeiro crie uma piscina NAT de entrada no equilibrador de carga. Em seguida, faça referência à piscina NAT de entrada a partir do perfil de rede do conjunto de balanças de máquinas virtuais. É mostrado um exemplo completo utilizando o CLI.
+
+A nova piscina NAT de entrada não deve ter uma gama de portas frontal sobreposta com piscinas NAT existentes. Para visualizar as piscinas NAT existentes que são configurados, utilize este [comando CLI](/cli/azure/network/lb/inbound-nat-pool?view=azure-cli-latest#az_network_lb_inbound_nat_pool_list):
+  
 ```azurecli-interactive
-az network lb inbound-nat-pool create 
-        -g MyResourceGroup 
-        --lb-name MyLb
-        -n MyNatPool 
-        --protocol Tcp 
-        --frontend-port-range-start 80 
-        --frontend-port-range-end 89 
-        --backend-port 80 
-        --frontend-ip-name MyFrontendIp
-az vmss update 
-        -g MyResourceGroup 
-        -n myVMSS 
-        --add virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerInboundNatPools "{'id':'/subscriptions/mySubscriptionId/resourceGroups/MyResourceGroup/providers/Microsoft.Network/loadBalancers/MyLb/inboundNatPools/MyNatPool'}"
-        
-az vmss update-instances
-        -–instance-ids *
-        --resource-group MyResourceGroup
-        --name MyVMSS
+  az network lb inbound-nat-pool create 
+          -g MyResourceGroup 
+          --lb-name MyLb
+          -n MyNatPool 
+          --protocol Tcp 
+          --frontend-port-range-start 80 
+          --frontend-port-range-end 89 
+          --backend-port 80 
+          --frontend-ip-name MyFrontendIp
+  az vmss update 
+          -g MyResourceGroup 
+          -n myVMSS 
+          --add virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerInboundNatPools "{'id':'/subscriptions/mySubscriptionId/resourceGroups/MyResourceGroup/providers/Microsoft.Network/loadBalancers/MyLb/inboundNatPools/MyNatPool'}"
+            
+  az vmss update-instances
+          -–instance-ids *
+          --resource-group MyResourceGroup
+          --name MyVMSS
 ```
-## <a name="how-to-update-inbound-nat-rules"></a>Como atualizar as regras de ENTRADA? 
-  * A regra NAT de entrada individual não pode ser atualizada. No entanto, pode atualizar um conjunto de regras NAT de entrada com a gama de portas frontend definida e porta de backend para todos os casos no Conjunto de Escala de Máquina Virtual.
-  * Para atualizar um conjunto de regras NAT de entrada para os conjuntos de escala de máquina virtual, é necessário atualizar o pool NAT de entrada no Balancer de Carga. 
+## <a name="update-inbound-nat-rules"></a>Atualizar as regras da NAT de entrada
+
+As regras individuais de entrada não podem ser atualizadas. Mas pode atualizar um conjunto de regras NAT de entrada com uma gama de porta frontal definida e uma porta traseira para todos os casos no conjunto de escala de máquina virtual.
+
+Para atualizar um conjunto de regras NAT de entrada para conjuntos de escala de máquina virtual, atualize o pool NAT de entrada no balançador de carga.
+    
 ```azurecli-interactive
 az network lb inbound-nat-pool update 
         -g MyResourceGroup 
@@ -68,60 +81,68 @@ az network lb inbound-nat-pool update
         --backend-port 8080
 ```
 
-## <a name="how-to-delete-inbound-nat-rules"></a>Como eliminar as regras NAT de entrada? 
-* A regra NAT de entrada individual não pode ser eliminada. No entanto, pode eliminar todo o conjunto de regras NAT de entrada.
-* Para eliminar todo o conjunto de regras NAT de entrada utilizadas pelo Conjunto de Escala, é necessário remover primeiro a piscina NAT do conjunto de escalas. Um exemplo completo utilizando o CLI é mostrado abaixo:
+## <a name="delete-inbound-nat-rules"></a>Eliminar as regras NAT de entrada
+
+As regras individuais de entrada da NAT não podem ser eliminadas, mas pode eliminar todo o conjunto de regras NAT de entrada.
+
+Para eliminar todo o conjunto de regras NAT de entrada utilizadas pelo conjunto de escalas, retire primeiro a piscina NAT do conjunto de escalas. Um exemplo completo da utilização do CLI é mostrado aqui:
+    
 ```azurecli-interactive
-  az vmss update
-     --resource-group MyResourceGroup
-     --name MyVMSS
-   az vmss update-instances 
-     --instance-ids "*" 
-     --resource-group MyResourceGroup
-     --name MyVMSS
-  az network lb inbound-nat-pool delete
-     --resource-group MyResourceGroup
-     -–lb-name MyLoadBalancer
-     --name MyNatPool
+    az vmss update
+       --resource-group MyResourceGroup
+       --name MyVMSS
+     az vmss update-instances 
+       --instance-ids "*" 
+       --resource-group MyResourceGroup
+       --name MyVMSS
+    az network lb inbound-nat-pool delete
+       --resource-group MyResourceGroup
+       -–lb-name MyLoadBalancer
+       --name MyNatPool
 ```
 
-## <a name="how-to-add-multiple-ip-configurations"></a>Como adicionar várias configurações IP:
-1. Selecione **todos os recursos** no menu esquerdo e, em seguida, selecione **MyLoadBalancer** na lista de recursos.
-   
-1. Em **Definições**, selecione **Configurações IP frontend** e, em seguida, selecione **Adicionar**.
-   
-1. Na página de **endereço IP frontend** Add, digite os valores e selecione **OK**
+## <a name="add-multiple-ip-configurations"></a>Adicionar várias configurações IP
 
-1. Siga [o Passo 5](./load-balancer-multiple-ip.md#step-5-configure-the-health-probe) e [o Passo 6](./load-balancer-multiple-ip.md#step-5-configure-the-health-probe) neste tutorial se forem necessárias novas regras de equilíbrio de carga
+Para adicionar várias configurações IP:
 
-1. Crie um novo conjunto de regras NAT de entrada utilizando as configurações IP de frontend recém-criadas, se necessário. O exemplo pode ser encontrado aqui na [secção anterior].
+1. No menu à esquerda, selecione **Todos os recursos.** Em seguida, selecione **MyLoadBalancer** da lista de recursos.
+1. Em **Definições**, selecione **a configuração IP frontend**. Em seguida, selecione **Adicionar**.
+1. Na página de **endereço IP frontend,** insira os valores e selecione **OK**.
+1. Siga [o passo 5](./load-balancer-multiple-ip.md#step-5-configure-the-health-probe) e [o passo 6](./load-balancer-multiple-ip.md#step-5-configure-the-health-probe) neste tutorial se forem necessárias novas regras de equilíbrio de carga.
+1. Crie um novo conjunto de regras NAT de entrada utilizando as configurações IP de extremidade frontal recém-criadas, se necessário. Um exemplo encontra-se na secção anterior.
 
-## <a name="how-to-delete-frontend-ip-configuration-used-by-virtual-machine-scale-set"></a>Como eliminar a configuração IP frontend utilizada pelo Conjunto de Escala de Máquina Virtual: 
- 1. Para eliminar a Configuração IP frontend em uso pelo Conjunto de Escala, é necessário eliminar primeiro a piscina NAT de entrada (conjunto de regras NAT de entrada) que faz referência à configuração IP frontend. As instruções sobre como eliminar as regras de entrada podem ser encontradas na secção anterior.
- 1. Elimine a regra de equilíbrio de carga referente à configuração IP frontend. 
- 1. Elimine a configuração IP frontend.
+## <a name="delete-the-front-end-ip-configuration-used-by-the-virtual-machine-scale-set"></a>Elimine a configuração IP frontal utilizada pelo conjunto de escala de máquina virtual
+
+Para eliminar a configuração IP frontal em uso pelo conjunto de escala:
+
+ 1. Primeiro, elimine a piscina NAT de entrada (o conjunto de regras NAT de entrada) que faz referência à configuração IP frontal. As instruções sobre como eliminar as regras de entrada encontram-se na secção anterior.
+ 1. Elimine a regra de equilíbrio de carga que faz referência à configuração IP frontal.
+ 1. Elimine a configuração IP frontal.
+
+## <a name="delete-a-load-balancer-used-by-a-virtual-machine-scale-set"></a>Elimine um equilibrador de carga utilizado por um conjunto de escala de máquina virtual
+
+Para eliminar a configuração IP frontal em uso pelo conjunto de escala:
+
+ 1. Primeiro, elimine a piscina NAT de entrada (o conjunto de regras NAT de entrada) que faz referência à configuração IP frontal. As instruções sobre como eliminar as regras de entrada encontram-se na secção anterior.
+ 1. Elimine a regra de equilíbrio de carga que faz referência à piscina traseira que contém o conjunto de balanças de máquina virtual.
+ 1. Retire a `loadBalancerBackendAddressPool` referência do perfil de rede do conjunto de balanças de máquinas virtuais.
  
+ Um exemplo completo da utilização do CLI é mostrado aqui:
 
-## <a name="how-to-delete-azure-load-balancer-used-by-virtual-machine-scale-set"></a>Como eliminar o balançador de carga Azure utilizado pelo conjunto de balanças de máquinas virtuais: 
- 1. Para eliminar a Configuração IP frontend em uso pelo Conjunto de Escala, é necessário eliminar primeiro a piscina NAT de entrada (conjunto de regras NAT de entrada) que faz referência à configuração IP frontend. As instruções sobre como eliminar as regras de entrada podem ser encontradas na secção anterior.
- 
- 1. Elimine a regra de equilíbrio de carga referindo a piscina de backend contendo o conjunto de balança de máquina virtual.
- 
- 1. Remova a referência loadBalancerBackendAddressPool do perfil de rede do Conjunto de Balanças de Máquina Virtual. Um exemplo completo utilizando o CLI é mostrado abaixo:
- ```azurecli-interactive
-  az vmss update
-     --resource-group MyResourceGroup
-     --name MyVMSS
-     --remove virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerBackendAddressPools
-  az vmss update-instances 
-     --instance-ids "*" 
-     --resource-group MyResourceGroup
-     --name MyVMSS
+```azurecli-interactive
+    az vmss update
+       --resource-group MyResourceGroup
+       --name MyVMSS
+       --remove virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerBackendAddressPools
+    az vmss update-instances 
+       --instance-ids "*" 
+       --resource-group MyResourceGroup
+       --name MyVMSS
 ```
-Por fim, elimine o recurso balanceador de carga.
+Por último, elimine o recurso do balanceador de carga.
  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre o Azure Load Balancer e o Virtual Machine Scale set, leia mais sobre os conceitos.
+Para saber mais sobre o Azure Load Balancer e os conjuntos de escala de máquinas virtuais, leia mais sobre os conceitos.
 
-> [Balançador de carga Azure com conjuntos de escala de máquina virtual Azure](load-balancer-standard-virtual-machine-scale-sets.md)
+> [Balançador de carga Azure com conjuntos de escala de máquina virtual](load-balancer-standard-virtual-machine-scale-sets.md)

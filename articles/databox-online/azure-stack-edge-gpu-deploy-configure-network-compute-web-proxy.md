@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 01/27/2021
+ms.date: 02/04/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: ac64233467166ca6567f1601c3b90f80fdba3dcf
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 07a4c06b840d41455beea9be4ed0343b4946ddb3
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954652"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594607"
 ---
 # <a name="tutorial-configure-network-for-azure-stack-edge-pro-with-gpu"></a>Tutorial: Rede de configuração para Azure Stack Edge Pro com GPU
 
@@ -56,8 +56,6 @@ Siga estes passos para configurar a rede para o seu dispositivo.
     
     ![Página local de ui "definições de rede"](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/network-2a.png)
 
-
-   
 3. Para alterar as definições de rede, selecione uma porta e no painel direito que aparece, modifique o endereço IP, sub-rede, gateway, DNS primário e DNS secundários. 
 
     - Se selecionar a Porta 1, pode ver que está pré-configurada como estática. 
@@ -74,6 +72,7 @@ Siga estes passos para configurar a rede para o seu dispositivo.
    * Se o DHCP não estiver ativado, pode atribuir IPs estáticos se necessário.
    * Pode configurar a sua interface de rede como IPv4.
    * Nas interfaces de 25-Gbps, pode definir o modo RDMA (Memória de Acesso Direto Remoto) para iWarp ou RoCE (RDMA sobre Ethernet Converged). Quando as baixas latências são a principal exigência e a escalabilidade não é uma preocupação, utilize o RoCE. Quando a latência é um requisito fundamental, mas a facilidade de utilização e a escalabilidade também são prioridades elevadas, o iWARP é o melhor candidato.
+   * A agregação de teaming ou agregação de ligações do Cartão de Interface de Rede (NIC) não é suportada com Azure Stack Edge. 
    * O número de série de qualquer porta corresponde ao número de série do nó.
 
     Uma vez configurada a rede do dispositivo, a página atualiza-se conforme mostrado abaixo.
@@ -81,12 +80,11 @@ Siga estes passos para configurar a rede para o seu dispositivo.
     ![Web local UI "Definições de rede" página 2](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/network-2.png)
 
 
-     >[!NOTE]
-     >
-     > * Recomendamos que não alterne o endereço IP local da interface de rede de estático para DCHP, a menos que tenha outro endereço IP para se ligar ao dispositivo. Se estiver a utilizar uma interface de rede e alternar para DHCP, não haverá forma de determinar o endereço DHCP. Se pretender alterar para um endereço DHCP, aguarde até que o dispositivo tenha sido ativado com o serviço e, em seguida, altere. Em seguida, pode visualizar os IPs de todos os adaptadores nas propriedades do **Dispositivo** no portal Azure para o seu serviço.
+     > [!NOTE]
+     > Recomendamos que não alterne o endereço IP local da interface de rede de estático para DCHP, a menos que tenha outro endereço IP para se ligar ao dispositivo. Se estiver a utilizar uma interface de rede e alternar para DHCP, não haverá forma de determinar o endereço DHCP. Se pretender alterar para um endereço DHCP, aguarde até que o dispositivo tenha sido ativado com o serviço e, em seguida, altere. Em seguida, pode visualizar os IPs de todos os adaptadores nas propriedades do **Dispositivo** no portal Azure para o seu serviço.
 
 
-    Depois de configurar e aplicar as definições de rede, selecione Seguinte: Computação para configurar a rede de cálculo.
+    Depois de configurar e aplicar as definições de rede, selecione **Seguinte: Computação** para configurar a rede de cálculo.
 
 ## <a name="enable-compute-network"></a>Ativar a rede de cálculo
 

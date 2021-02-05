@@ -1,5 +1,5 @@
 ---
-title: Introdução ao IoT Plug and Play ! Microsoft Docs
+title: Introdução ao IoT Plug and Play | Microsoft Docs
 description: Saiba mais sobre ioT Plug e Play. O IoT Plug and Play baseia-se numa linguagem de modelação aberta que permite que dispositivos IoT inteligentes declarem as suas capacidades. Os dispositivos IoT apresentam essa declaração, chamada modelo de dispositivo, quando se ligam a soluções em nuvem. A solução em nuvem pode então compreender automaticamente o dispositivo e começar a interagir com ele, tudo sem escrever qualquer código.
 author: rido-min
 ms.author: rmpablos
@@ -9,16 +9,16 @@ ms.service: iot-pnp
 services: iot-pnp
 manager: eliotgra
 ms.custom: references_regions
-ms.openlocfilehash: d6cba4bcb76094ed156ef35b1ea76cea7001c372
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: dcdd19faec5e428ac26917178aa8114245c205b3
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95486301"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594574"
 ---
 # <a name="what-is-iot-plug-and-play"></a>O que é o IoT Plug and Play?
 
-O IoT Plug and Play permite aos construtores de soluções integrar dispositivos inteligentes com as suas soluções sem qualquer configuração manual. No cerne do IoT Plug and Play, está um _modelo_ de dispositivo que um dispositivo utiliza para anunciar as suas capacidades a uma aplicação IoT Plug e Play. Este modelo é estruturado como um conjunto de elementos que definem:
+O IoT Plug and Play permite que os criadores de soluções integrem dispositivos inteligentes nas respetivas soluções sem configurações manuais. No cerne do IoT Plug and Play, está um _modelo_ de dispositivo que um dispositivo utiliza para anunciar as suas capacidades a uma aplicação IoT Plug e Play. Este modelo é estruturado como um conjunto de elementos que definem:
 
 - _Propriedades_ que representam o estado apenas de leitura ou de um dispositivo ou de outra entidade. Por exemplo, um número de série do dispositivo pode ser uma propriedade apenas de leitura e uma temperatura-alvo num termóstato pode ser uma propriedade writável.
 - _Telemetria_ que são os dados emitidos por um dispositivo, se os dados são um fluxo regular de leituras de sensores, um erro ocasional ou uma mensagem de informação.
@@ -45,9 +45,11 @@ IoT Plug and Play é útil para dois tipos de desenvolvedores:
 
 ## <a name="use-iot-plug-and-play-devices"></a>Utilize dispositivos IoT Plug e Play
 
-Como construtor de soluções, pode desenvolver uma solução IoT hospedada em nuvem que utiliza dispositivos IoT Plug e Play. Use [o IoT Hub](../iot-hub/about-iot-hub.md) - um serviço de nuvem gerido, que funciona como um centro de mensagens para uma comunicação segura e bidcional entre a sua aplicação IoT e os seus dispositivos.
+Como construtor de soluções, pode utilizar [o IoT Central](../iot-central/core/overview-iot-central.md) ou [o IoT Hub](../iot-hub/about-iot-hub.md) para desenvolver uma solução IoT hospedada na nuvem que utiliza dispositivos IoT Plug e Play.
 
-Quando ligar um dispositivo IoT Plug and Play a um hub IoT, pode utilizar a ferramenta [exploradora Azure IoT](./howto-use-iot-explorer.md) para visualizar a telemetria, propriedades e comandos definidos nas interfaces que compõem o modelo.
+A UI web na IoT Central permite monitorizar as condições do dispositivo, criar regras e gerir milhões de dispositivos e seus dados ao longo do seu ciclo de vida. Os dispositivos IoT Plug e Play ligam-se diretamente a uma aplicação IoT Central onde pode utilizar dashboards personalizáveis para monitorizar e controlar os seus dispositivos. Também pode utilizar modelos de dispositivo na UI web IoT Central para criar e editar modelos DTDL.
+
+O IoT Hub - um serviço de nuvem gerido - funciona como um centro de mensagens para uma comunicação segura e bidcional entre a sua aplicação IoT e os seus dispositivos. Quando ligar um dispositivo IoT Plug and Play a um hub IoT, pode utilizar a ferramenta [exploradora Azure IoT](./howto-use-iot-explorer.md) para visualizar a telemetria, propriedades e comandos definidos no modelo DTDL.
 
 Se tiver sensores existentes ligados a um gateway Windows ou Linux, pode utilizar a [ponte IoT Plug e Play](./concepts-iot-pnp-bridge.md), para ligar estes sensores e criar dispositivos IoT Plug e Play sem a necessidade de escrever software/firmware do dispositivo (para [protocolos suportados).](./concepts-iot-pnp-bridge.md#supported-protocols-and-sensors)
 
