@@ -1,5 +1,5 @@
 ---
-title: Tokens de acesso à plataforma de identidade da Microsoft Rio Azure
+title: Tokens de acesso à plataforma de identidade da Microsoft | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Saiba mais sobre os tokens de acesso emitidos pelos pontos finais Azure AD v1.0 e microsoft identity platform (v2.0).
 services: active-directory
@@ -13,12 +13,12 @@ ms.date: 10/27/2020
 ms.author: hirsin
 ms.reviewer: mmacy, hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 4a798443560f62673ef8fcf0bce970a66071d011
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: e1dcd52660ff43a93c6a170912fea5a5847fe9d3
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232391"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575759"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Fichas de acesso à plataforma de identidade da Microsoft
 
@@ -241,7 +241,7 @@ A lógica de negócio da sua aplicação ditará este passo, alguns métodos de 
 * Validar o estado de autenticação do cliente que telefona a usar `appidacr` - não deve ser 0 se os clientes públicos não estiverem autorizados a ligar para a sua API.
 * Verifique contra uma lista de `nonce` alegações passadas para verificar se o símbolo não está a ser reproduzido.
 * Verifique se `tid` o inquilino corresponde a um inquilino que pode ligar para a sua API.
-* Utilize a `acr` reclamação para verificar se o utilizador realizou MFA. Isto deve ser aplicado utilizando [o Acesso Condicional](../conditional-access/overview.md).
+* Utilize a `amr` reclamação para verificar se o utilizador realizou MFA. Isto deve ser aplicado utilizando [o Acesso Condicional](../conditional-access/overview.md).
 * Se você solicitou as `roles` `groups` reclamações ou reclamações no token de acesso, verifique se o utilizador está no grupo autorizado a fazer esta ação.
   * Para os tokens recuperados usando o fluxo implícito, provavelmente terá de consultar o [Microsoft Graph](https://developer.microsoft.com/graph/) para estes dados, uma vez que é muitas vezes demasiado grande para caber no token.
 

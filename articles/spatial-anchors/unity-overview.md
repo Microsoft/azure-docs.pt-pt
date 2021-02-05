@@ -6,18 +6,21 @@ ms.author: parkerra
 manager: MehranAzimi-msft
 services: azure-spatial-anchors
 ms.service: azure-spatial-anchors
-ms.date: 11/20/2020
+ms.date: 2/4/2021
 ms.topic: conceptual
-ms.openlocfilehash: 51df8ff31c6f86608b7cae53ca779a2a03068e57
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: f9d64f4a23bf340f857d5aee8a3e0c99e1859091
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95487270"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575415"
 ---
 # <a name="building-in-unity-with-azure-spatial-anchors"></a>Edifício em Unidade com Âncoras Espaciais Azure
 
 Os desenvolvedores podem escolher a Unidade para criar e implementar aplicações de realidade mista que usam âncoras espaciais Azure.
+
+[!INCLUDE [Unity Project Requirements](../../includes/spatial-anchors-unity-project-requirements.md)]
+
 São suportadas as seguintes plataformas:
 
 **Unidade para HoloLens**

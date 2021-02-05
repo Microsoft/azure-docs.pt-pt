@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 0bd572da9bba9048e2c8b9c4b426056620c4c265
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: ad9e6b99b396465c2cff95bd6ab340ef9d668085
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340707"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575962"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Procedimentos armazenados, gatilhos e funções definidas pelo utilizador
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -65,14 +65,14 @@ As transações são integradas de forma nativa no modelo de programação Azure
 
 ### <a name="data-consistency"></a>Consistência de dados
 
-Os procedimentos e gatilhos armazenados são sempre executados na réplica primária de um contentor Azure Cosmos. Esta funcionalidade garante que as leituras dos procedimentos armazenados oferecem [uma forte consistência.](./consistency-levels.md) As consultas que utilizam funções definidas pelo utilizador podem ser executadas na réplica primária ou secundária. Os procedimentos e gatilhos armazenados destinam-se a suportar escritas transacionais – entretanto, a lógica apenas de leitura é melhor implementada como lógica do lado da aplicação e consultas utilizando os [SDKs API API API AZure Cosmos DB SQL](sql-api-dotnet-samples.md), irão ajudá-lo a saturar o rendimento da base de dados. 
+Os procedimentos e gatilhos armazenados são sempre executados na réplica primária de um contentor Azure Cosmos. Esta funcionalidade garante que as leituras dos procedimentos armazenados oferecem [uma forte consistência.](./consistency-levels.md) As consultas que utilizam funções definidas pelo utilizador podem ser executadas na réplica primária ou secundária. Os procedimentos e gatilhos armazenados destinam-se a suportar escritas transacionais – entretanto, a lógica apenas de leitura é melhor implementada como lógica do lado da aplicação e consultas utilizando os [SDKs API AZure Cosmos DB SQL](sql-api-dotnet-samples.md), irão ajudá-lo a saturar o rendimento da base de dados. 
 
 > [!TIP]
 > As consultas executadas dentro de um procedimento ou gatilho armazenados podem não ver alterações em itens efecionados pela mesma transação de script. Esta declaração aplica-se tanto a consultas SQL como, tais `getContent().getCollection.queryDocuments()` como, assim como consultas linguísticas integradas, tais `getContext().getCollection().filter()` como.
 
 ## <a name="bounded-execution"></a>Execução vinculada
 
-Todas as operações DB da Azure Cosmos devem ser concluídas dentro da duração do tempo limite especificado. Esta restrição aplica-se às funções JavaScript - procedimentos, gatilhos e funções definidas pelo utilizador. Se uma operação não estiver concluída dentro desse prazo, a transação é revoada.
+Todas as operações DB da Azure Cosmos devem ser concluídas dentro da duração do tempo limite especificado. Os procedimentos armazenados têm um prazo de 5 segundos. Esta restrição aplica-se às funções JavaScript - procedimentos, gatilhos e funções definidas pelo utilizador. Se uma operação não estiver concluída dentro desse prazo, a transação é revoada.
 
 Pode garantir que as suas funções JavaScript terminam dentro do prazo ou implementar um modelo baseado na continuação para a execução em lote/currículo. Para simplificar o desenvolvimento de procedimentos armazenados e gatilhos para lidar com os prazos, todas as funções sob o contentor Azure Cosmos (por exemplo, criar, ler, atualizar e eliminar itens) devolvem um valor boolean que representa se essa operação irá completar. Se este valor for falso, é uma indicação de que o procedimento deve encerrar a execução porque o script está a consumir mais tempo ou produção prevista do que o valor configurado. As operações em fila antes da primeira operação de loja não aceite são garantidas para serem concluídas se o procedimento armazenado completar a tempo e não fizer mais pedidos. Assim, as operações devem ser em fila uma de cada vez, utilizando a convenção de retorno do JavaScript para gerir o fluxo de controlo do script. Como os scripts são executados num ambiente do lado do servidor, são estritamente governados. Scripts que violam repetidamente os limites da execução podem ser marcados inativos e não podem ser executados, e devem ser recriados para honrar os limites da execução.
 

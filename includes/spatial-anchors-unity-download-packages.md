@@ -4,13 +4,15 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 2/3/21
 ms.author: parkerra
-ms.openlocfilehash: c97067c66296e8980a36b21298a7b2061e0f9b4c
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: f6c2780ccbb914228a9870cb3b5fe4b0e3d0b214
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550409"
+ms.locfileid: "99569542"
 ---
+Para descarregar os pacotes necessários, terá de ter <a href="https://www.npmjs.com/get-npm" target="_blank">NPM</a> instalado.
+
 Executar o seguinte comando substituindo `<version_number>` pela versão de Azure Spatial Anchors que pretende transferir para a pasta atual:
 
 ```bash

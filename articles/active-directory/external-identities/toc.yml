@@ -116,6 +116,8 @@
               href: use-dynamic-groups.md
             - name: Compreender o utilizador B2B
               href: user-properties.md
+            - name: Redefinir o estado de resgate
+              href: reset-redemption-status.md
             - name: B2B para aplicações integradas do Azure AD
               href: configure-saas-apps.md
         - name: Gerir o acesso para convidados numa organização híbrida

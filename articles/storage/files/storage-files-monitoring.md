@@ -10,12 +10,12 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: cc1e4bf44827f82b3ca592e41fc3e6640f36e1bb
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: d71f3fa27dda9edc4c88ad9ed563e5c3a95ffa4b
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98875149"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99574538"
 ---
 # <a name="monitoring-azure-files"></a>Monitorar ficheiros Azure
 
@@ -589,13 +589,13 @@ A tabela a seguir enumera alguns cenários de exemplo para monitorizar e a métr
 
 3. Clique **em Editar o recurso,** selecione o **tipo de recurso De ficheiro** e, em seguida, clique em **Fazer**. 
 
-4. Clique **em Selecionar a condição** e fornecer as seguintes informações para o alerta: 
+4. Clique **em Adicionar a condição** e forneça as seguintes informações para o alerta: 
 
     - **Métrica**
     - **Nome de dimensão**
     - **Lógica de alerta**
 
-5. Clique **em Selecionar grupo de ação** e adicione um grupo de ação (e-mail, SMS, etc.) ao alerta, selecionando um grupo de ação existente ou criando um novo grupo de ação.
+5. Clique **em Adicionar grupos de ação** e adicione um grupo de ação (e-mail, SMS, etc.) ao alerta, selecionando um grupo de ação existente ou criando um novo grupo de ação.
 
 6. Preencha os **detalhes do Alerta** como o nome da regra de **alerta,** **descrição** e **severidade**.
 
@@ -609,16 +609,31 @@ A tabela a seguir enumera alguns cenários de exemplo para monitorizar e a métr
 1. Aceda à sua **conta de armazenamento** no portal **Azure.**
 2. Na secção **de Monitorização,** clique em **Alertas** e, em seguida, clique **em + Nova regra de alerta**.
 3. Clique **em Editar o recurso,** selecione o **tipo de recurso De ficheiro** para a conta de armazenamento e, em seguida, clique em **Fazer**. Por exemplo, se o nome da conta de armazenamento `contoso` for, selecione o `contoso/file` recurso.
-4. Clique **em Selecionar Condição** para adicionar uma condição.
+4. Clique **em Adicionar condição** para adicionar uma condição.
 5. Verá uma lista de sinais suportados para a conta de armazenamento, selecione a métrica **de Transações.**
 6. Na lâmina lógica de **sinal configurar,** clique no **nome Dimension** drop-down e selecione o tipo **de resposta**.
-7. Clique nos valores de **dimensionamento** e selecione **SuccessWithThrottling** (para SMB) ou **ClientThrottlingError** (para REST).
+7. Clique nos **valores** de Dimension drop-down e selecione os tipos de resposta adequados para a sua partilha de ficheiros.
+
+    Para ações de ficheiros padrão, selecione os seguintes tipos de resposta:
+
+    - SucessoWithThrottling
+    - ClientThrottlingError
+
+    Para ações de ficheiros premium, selecione os seguintes tipos de resposta:
+
+    - SucessoComParteEgressThrottling
+    - SucessoWithShareIngressThrottling
+    - SucessoComPartiIopsThrottling
+    - ClientShareEgressThrottlingError
+    - ClientShareIngressThrottlingError
+    - ClientShareIopsThrottlingError
 
    > [!NOTE]
-   > Se o valor da dimensão SuccessWithThrottling ou ClientThrottlingError não estiver listado, isto significa que o recurso não foi estrangulado. Para adicionar o valor de dimensão, clique em **Adicionar valor personalizado** ao lado dos **valores** de Dimension para baixo, **digite SuccessWithThrottling** ou **ClientThrottlingError,** clique em **OK** e repita o passo #7.
+   > Se os tipos de resposta não estiverem listados na redução dos valores de **dimensão,** isto significa que o recurso não foi estrangulado. Para adicionar os valores de dimensão, junto à lista de valores de **Dimensão,** selecione **Adicionar valor personalizado,** introduzir o tipo de respone (por exemplo, **SuccessWithThrottling),** selecionar **OK**, e, em seguida, repetir estes passos para adicionar todos os tipos de resposta aplicáveis para a sua partilha de ficheiros.
 
 8. Clique no **drop-down** do nome Dimension e selecione A partilha **de ficheiros**.
 9. Clique nos **valores** de Dimension drop-down e selecione as ações de ficheiros em que pretende alertar.
+
 
    > [!NOTE]
    > Se a partilha de ficheiros for uma partilha de ficheiros padrão, selecione **Todos os valores atuais e futuros**. Os valores de dimensão não listam as ações de ficheiros porque as métricas por ação não estão disponíveis para ações de ficheiros padrão. Os alertas de estrangulamento para as ações de ficheiros padrão serão desencadeados se alguma parte do ficheiro dentro da conta de armazenamento for acelerada e o alerta não identificar qual a partilha de ficheiros que foi acelerada. Uma vez que as métricas por ação não estão disponíveis para ações de ficheiros padrão, a recomendação é ter uma ação de ficheiro por conta de armazenamento.
@@ -628,8 +643,8 @@ A tabela a seguir enumera alguns cenários de exemplo para monitorizar e a métr
     > [!TIP]
     > Se estiver a utilizar um limiar estático, o gráfico métrico pode ajudar a determinar um valor limiar razoável se a parte do ficheiro estiver atualmente a ser estrangulada. Se estiver a utilizar um limiar dinâmico, o gráfico métrico apresentará os limiares calculados com base em dados recentes.
 
-11. Clique **em Selecionar grupo de ação** para adicionar um grupo de **ação** (e-mail, SMS, etc.) ao alerta, selecionando um grupo de ação existente ou criando um novo grupo de ação.
-12. Preencha os **detalhes do Alerta** como o nome da regra de **alerta**, **Descrição e **Severidade**.
+11. Clique **em Adicionar grupos de ação** para adicionar um grupo de **ação** (e-mail, SMS, etc.) ao alerta, selecionando um grupo de ação existente ou criando um novo grupo de ação.
+12. Preencha os **detalhes do Alerta** como o nome da regra de **alerta,** **descrição** e **severidade**.
 13. Clique **em Criar regra de alerta** para criar o alerta.
 
 ### <a name="how-to-create-an-alert-if-the-azure-file-share-size-is-80-of-capacity"></a>Como criar um alerta se o tamanho da partilha do ficheiro Azure for 80% da capacidade
@@ -637,7 +652,7 @@ A tabela a seguir enumera alguns cenários de exemplo para monitorizar e a métr
 1. Aceda à sua **conta de armazenamento** no portal **Azure.**
 2. Na secção **'Monitorização',** clique em **Alertas** e clique em **+ Nova regra de alerta**.
 3. Clique **em Editar o recurso,** selecione o **tipo de recurso De ficheiro** para a conta de armazenamento e, em seguida, clique em **Fazer**. Por exemplo, se o nome da conta de armazenamento `contoso` for, selecione o `contoso/file` recurso.
-4. Clique **em Selecionar Condição** para adicionar uma condição.
+4. Clique **em Adicionar condição** para adicionar uma condição.
 5. Verá uma lista de sinais suportados para a conta de armazenamento, selecione a métrica capacidade de **ficheiro.**
 6. Na lâmina lógica de **sinal configurar,** clique no **nome Dimension** drop-down e selecione File **Share**.
 7. Clique nos **valores** de Dimension drop-down e selecione as ações de ficheiros em que pretende alertar.
@@ -647,8 +662,8 @@ A tabela a seguir enumera alguns cenários de exemplo para monitorizar e a métr
 
 8. Introduza o **valor Threshold** em bytes. Por exemplo, se o tamanho da partilha de ficheiros for de 100 TiB e pretender receber um alerta quando o tamanho da ação do ficheiro for de 80% da capacidade, o valor-limiar nos bytes é de 87960930222080.
 9. Defina o resto dos **parâmetros** de alerta (granularidade agregação e frequência de avaliação) e clique em **Fazer**.
-10. Clique em Selecionar grupo de ação para adicionar um grupo de ação (e-mail, SMS, etc.) ao alerta, selecionando um grupo de ação existente ou criando um novo grupo de ação.
-11. Preencha os **detalhes do Alerta** como o nome da regra de **alerta**, **Descrição e **Severidade**.
+10. Clique **em Adicionar grupos de ação** para adicionar um grupo de **ação** (e-mail, SMS, etc.) ao alerta, selecionando um grupo de ação existente ou criando um novo grupo de ação.
+11. Preencha os **detalhes do Alerta** como o nome da regra de **alerta,** **descrição** e **severidade**.
 12. Clique **em Criar regra de alerta** para criar o alerta.
 
 ### <a name="how-to-create-an-alert-if-the-azure-file-share-egress-has-exceeded-500-gib-in-a-day"></a>Como criar um alerta se a saída de partilha de ficheiros Azure excedeu 500 GiB num dia
@@ -656,7 +671,7 @@ A tabela a seguir enumera alguns cenários de exemplo para monitorizar e a métr
 1. Aceda à sua **conta de armazenamento** no portal **Azure.**
 2. Na secção 'Monitorização', clique em **Alertas** e clique em **+ Nova regra de alerta**.
 3. Clique **em Editar o recurso,** selecione o **tipo de recurso De ficheiro** para a conta de armazenamento e, em seguida, clique em **Fazer**. Por exemplo, se o nome da conta de armazenamento for contoso, selecione o recurso contoso/ficheiro.
-4. Clique **em Selecionar Condição** para adicionar uma condição.
+4. Clique **em Adicionar condição** para adicionar uma condição.
 5. Verá uma lista de sinais suportados para a conta de armazenamento, selecione a métrica **Egress.**
 6. Na lâmina lógica de **sinal configurar,** clique no **nome Dimension** drop-down e selecione File **Share**.
 7. Clique nos **valores** de Dimension drop-down e selecione as ações de ficheiros em que pretende alertar.
@@ -667,11 +682,11 @@ A tabela a seguir enumera alguns cenários de exemplo para monitorizar e a métr
 8. Introduza **536870912000** bytes para o valor limiar. 
 9. Clique na **granularidade** da agregação e selecione **24 horas**.
 10. Selecione a **Frequência da avaliação** e **clique em Fazer**.
-11. Clique **em Selecionar grupo de ação** para adicionar um grupo de **ação** (e-mail, SMS, etc.) ao alerta, selecionando um grupo de ação existente ou criando um novo grupo de ação.
-12. Preencha os **detalhes do Alerta** como o nome da regra de **alerta**, **Descrição e **Severidade**.
+11. Clique **em Adicionar grupos de ação** para adicionar um grupo de **ação** (e-mail, SMS, etc.) ao alerta, selecionando um grupo de ação existente ou criando um novo grupo de ação.
+12. Preencha os **detalhes do Alerta** como o nome da regra de **alerta,** **descrição** e **severidade**.
 13. Clique **em Criar regra de alerta** para criar o alerta.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Azure Files monitorizando a referência de dados](storage-files-monitoring-reference.md)
 - [Monitorar recursos do Azure com o Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md)

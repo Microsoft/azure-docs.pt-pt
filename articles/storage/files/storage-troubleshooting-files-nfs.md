@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: jeffpatt
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: f684aff58f441fb0642779e54de39dff941e818c
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 4c87887f77d5f227fe4d4cdee220397289878d7f
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430667"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99574470"
 ---
 # <a name="troubleshoot-azure-nfs-file-shares"></a>Resolução de problemas Azure NFS ações de ficheiros
 
@@ -56,7 +56,7 @@ Connect-AzAccount
 $context = Get-AzSubscription -SubscriptionId <yourSubscriptionIDHere>
 Set-AzContext $context
 
-Register-AzProviderFeature -FeatureName AllowNfsFileShares - ProviderNamespace Microsoft.Storage
+Register-AzProviderFeature -FeatureName AllowNfsFileShares -ProviderNamespace Microsoft.Storage
 
 Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 ```

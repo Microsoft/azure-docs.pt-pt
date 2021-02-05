@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 01/14/2021
 ms.author: juliako
-ms.openlocfilehash: 8e110ba9818b48d66c5f17bb524bada567d808ab
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 4174e63ed12faf5d10029db5b4eb9bf9a40b9b5b
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897161"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576283"
 ---
 # <a name="create-a-video-indexer-account"></a>Criar uma conta de Indexer de Vídeo
 
@@ -195,7 +195,7 @@ Automatizar a criação da conta é um processo de duas etapas:
 1. Utilize o Azure Resource Manager para criar uma conta Azure Media Services + aplicação AZure AD.
 
     Veja um exemplo do modelo de criação de [conta dos Media Services.](https://github.com/Azure-Samples/media-services-v3-arm-templates)
-1. Ligue para [Criar Conta com os Serviços de Comunicação Social e a aplicação AD Azure](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Paid-Account).
+1. Ligue para [Criar Conta com os Serviços de Comunicação Social e a aplicação AD Azure](https://videoindexer.ai.azure.us/account/login?source=apim).
 
 ## <a name="video-indexer-in-azure-government"></a>Indexante de Vídeo no Governo de Azure
 
@@ -222,7 +222,7 @@ Para criar uma conta paga através do portal Video Indexer:
     
 ### <a name="create-new-account-via-the-api-on-azure-government"></a>Criar nova conta através da API sobre o Governo Azure
 
-Para criar uma conta paga no Governo Azure, siga as instruções na [Conta Desatada.](https://api-portal.videoindexer.ai.azure.us/docs/services/Operations/operations/Create-Paid-Account) Este ponto final da API inclui apenas as regiões de nuvens do Governo.
+Para criar uma conta paga no Governo Azure, siga as instruções na [Conta Desatada.](/azure/media-services/video-indexer/connect-to-azure) Este ponto final da API inclui apenas as regiões de nuvens do Governo.
 
 ### <a name="limitations-of-video-indexer-on-azure-government"></a>Limitações do Indexante de Vídeo no Governo de Azure
 
@@ -244,7 +244,7 @@ Selecione a conta -> **Definições**  ->  **Elimine esta conta**.
 
 A conta será permanentemente apagada em 90 dias.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Pode interagir programáticamente com a sua conta experimental e/ou com as suas contas de Indexer de Vídeo que estão ligadas ao Azure seguindo as instruções em: [Use APIs](video-indexer-use-apis.md).
 

@@ -8,21 +8,19 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: a8d1a69070628248fb710a614369ff9311252c05
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: dcdbf94e547581cb9ff885ac5896467abdf316ae
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103036"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576198"
 ---
 # <a name="managed-disk-bursting"></a>Segurança do disco gerido
 [!INCLUDE [managed-disks-bursting](../../includes/managed-disks-bursting.md)]
 
 ## <a name="virtual-machine-level-bursting"></a>Rebentamento do nível da máquina virtual
-O suporte de rebentamento de nível VM é ativado em todas as regiões da Nuvem Pública nestes tamanhos suportados: 
+A rutura do nível VM é ativada nas seguintes séries de VM em todas as regiões em que são suportadas:
 - [Série Lsv2](lsv2-series.md)
-
-A explosão de nível VM também está disponível nos EUA da Central Ocidental para os seguintes tamanhos suportados:
 - [Série Dsv3](dv3-dsv3-series.md)
 - [Série Esv3](ev3-esv3-series.md)
 

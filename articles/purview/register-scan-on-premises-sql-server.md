@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/18/2020
-ms.openlocfilehash: 86942f509ab067a53c47b5132c451f0585760050
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: b5f4218cfcd5f9ccfbe43efac46e2f70fdc30905
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99549648"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99574962"
 ---
 # <a name="register-and-scan-an-on-premises-sql-server"></a>Registar e digitalizar um servidor SQL no local
 
@@ -67,7 +67,7 @@ Se planeia utilizar um utilizador de administração (sa) de servidor existente 
 Se pretender criar um novo login e o utilizador para poder digitalizar o seu servidor SQL, siga os passos abaixo:
 
 > [!Note]
-    > Todos os passos abaixo podem ser realizados usando o código [aqui](https://github.com/Azure/Purview-Samples/blob/master/TSQL-Code-Permissions/grant-access-to-on-prem-sql-databases.sql)fornecido.
+   > Todos os passos abaixo podem ser executados usando o código fornecido [aqui](https://github.com/Azure/Purview-Samples/blob/master/TSQL-Code-Permissions/grant-access-to-on-prem-sql-databases.sql)
 
 1. Navegue para o SQL Server Management Studio (SSMS), ligue-se ao servidor, navegue para segurança, clique com o botão direito no login e crie novo login. Certifique-se de que seleciona a autenticação SQL.
 

@@ -1,14 +1,14 @@
 ---
 title: Monitorar recursos delegados à escala
 description: Aprenda a utilizar eficazmente os Registos do Monitor Azure de forma escalável através dos inquilinos do cliente que está a gerir.
-ms.date: 02/01/2021
+ms.date: 02/02/2021
 ms.topic: how-to
-ms.openlocfilehash: b214f63fba9a5d13aac0f4bf86ce0810f16f0c9c
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 8847c2e5ee4986d35ad676440720b150794003e8
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509474"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575911"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>Monitorar recursos delegados à escala
 
@@ -49,9 +49,9 @@ Depois de implementar as suas políticas, os dados serão registados nos espaço
 
 Pode ver [alertas](../../azure-monitor/platform/alerts-overview.md) para as subscrições delegadas nos inquilinos do cliente que gere.
 
-Para atualizar os alertas automaticamente em vários clientes, utilize uma consulta [de Gráfico de Recursos Azure](../../governance/resource-graph/overview.md) para filtrar alertas. Pode fixar a consulta no seu painel de instrumentos e selecionar todos os clientes e subscrições apropriados.
+A partir do seu inquilino gerente, pode [criar, visualizar e gerir alertas de registo de atividades](../../azure-monitor/platform/alerts-activity-log.md) no portal Azure ou através de APIs e ferramentas de gestão.
 
-A seguinte consulta de exemplo apresentará alertas de severidade 0 e 1, refrescantes a cada 60 minutos.
+Para atualizar os alertas automaticamente em vários clientes, utilize uma consulta [de Gráfico de Recursos Azure](../../governance/resource-graph/overview.md) para filtrar alertas. Pode fixar a consulta no seu painel de instrumentos e selecionar todos os clientes e subscrições apropriados. Por exemplo, a consulta abaixo apresentará alertas de severidade 0 e 1, refrescantes a cada 60 minutos.
 
 ```kusto
 alertsmanagementresources

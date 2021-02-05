@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.reviewer: dseven
 ms.author: cavoeg
 author: CaitlinV39
-ms.date: 11/01/2019
-ms.openlocfilehash: 54119585d4f1377b60b85fbad01fe90f097a304f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 02/03/2021
+ms.openlocfilehash: 8dc87ae5b296f322d9d5a4d59c0a8c9b1c50d5da
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95905179"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575449"
 ---
 # <a name="enable-diagnostic-logging-in-azure-api-for-fhir"></a>Ativar o registo de diagnóstico na API Azure para FHIR
 
@@ -35,9 +35,9 @@ Neste artigo, você vai aprender como ativar o login de diagnóstico em AZure AP
     2. **Transmita para o centro** de eventos para ingestão por um serviço de terceiros ou solução analítica personalizada. Você precisará criar um espaço de nome de eventos e política de centro de eventos antes de configurar este passo.
     3. **Transmita para o** espaço de trabalho Log Analytics no Azure Monitor. Terá de criar o seu Espaço de Trabalho de Analítica de Logs antes de poder selecionar esta opção.
 
-6. Selecione **AuditLogs** e quaisquer métricas que pretenda capturar. Se estiver a utilizar o Conector Azure IoT para FHIR, certifique-se de selecionar **Erros, Tráfego e Latência** para métricas. 
+6. Selecione **AuditLogs** e/ou **AllMetrics**. As métricas incluem nome de serviço, disponibilidade, tamanho de dados, latência total, pedidos totais, erros totais e marcação de tempo.
 
-   :::image type="content" source="media/iot-metrics-export/diagnostic-setting-add.png" alt-text="Conector IoT2" lightbox="media/iot-metrics-export/diagnostic-setting-add.png":::
+   :::image type="content" source="media/diagnostic-logging/fhir-diagnostic-setting.png" alt-text="Definições de diagnóstico Azure FHIR. Selecione AuditLogs e/ou AllMetrics." lightbox="media/diagnostic-logging/fhir-diagnostic-setting.png":::
 
 7. Selecione **Guardar**
 
@@ -63,7 +63,7 @@ Neste momento, a Azure API para o serviço FHIR devolve os seguintes campos no r
 |OperaçãoDuração|int|O tempo que demorou a completar este pedido em segundos
 |OperationName|String| Descreve o tipo de operação (por exemplo, atualização, tipo de pesquisa)
 |RequestUri|String|O pedido URI 
-|ResultType|String|Os valores disponíveis atualmente são **Iniciados, Bem Sucedidos** ou **Falhados** **Started**
+|ResultType|String|Os valores disponíveis atualmente são **Iniciados, Bem Sucedidos** ou **Falhados** 
 |Código de Estado|int|O código de estado HTTP. (por exemplo, 200) 
 |TimeGenerated|DateTime|Data e hora do evento|
 |Propriedades|String| Descreve as propriedades do fhirResourceType

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 12/21/2020
-ms.openlocfilehash: cc4f961c399e9ac5e853085106924584eb3935d0
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.openlocfilehash: 222257f5045984a71c2aee9de83b5fa420306728
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99223394"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99573420"
 ---
 # <a name="connect-servicenow-with-it-service-management-connector"></a>Conecte o ServiceNow com o conector de gestão de serviços de TI
 
@@ -123,7 +123,7 @@ Utilize o seguinte procedimento para criar uma ligação ServiceNow.
    | --- | --- |
    | **Nome de conexão**   | Insira um nome para o caso ServiceNow que pretende ligar-se ao ITSMC. Utilize este nome mais tarde no Log Analytics quando configurar itens de trabalho ITSM e ver análises detalhadas. |
    | **Tipo de Parceiro**   | Selecione **ServiceNow**. |
-   | **URL do Servidor**   | Introduza o URL da instância ServiceNow que pretende ligar ao ITSMC. O URL deve apontar para uma versão SaaS suportada com o *sufixo .servicenow.com* (por exemplo https://XXXXX.service-now.com/) .|
+   | **URL do Servidor**   | Introduza o URL da instância ServiceNow que pretende ligar ao ITSMC. O URL deve apontar para uma versão SaaS suportada com o *sufixo .servicenow.com* (por `https://XXXXX.service-now.com/` exemplo).|
    | **Nome de Utilizador**   | Introduza o nome de utilizador de integração que criou na app ServiceNow para suportar a ligação ao ITSMC.|
    | **Palavra-passe**   | Introduza a palavra-passe associada a este nome de utilizador. **Nota:** O nome de utilizador e a palavra-passe são utilizados apenas para gerar fichas de autenticação. Não estão guardados em nenhum lugar dentro do serviço ITSMC.  |
    | **ID do cliente**   | Insira o ID do cliente que pretende utilizar para a autenticação OAuth2, que gerou anteriormente. Para obter mais informações sobre a geração de um ID do cliente e um segredo, consulte [Configurar OAuth](https://old.wiki/index.php/OAuth_Setup). |

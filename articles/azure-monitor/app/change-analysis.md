@@ -1,16 +1,16 @@
 ---
-title: Use a análise de mudança de aplicação no Azure Monitor para encontrar problemas com a web-app Microsoft Docs
+title: Use a análise de mudança de aplicação no Azure Monitor para encontrar problemas de aplicações web | Microsoft Docs
 description: Utilize a Análise de Alteração de Aplicações no Azure Monitor para resolver problemas de aplicações em sites ao vivo no Azure App Service.
 ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
-ms.openlocfilehash: 728fd8f4705d24f719b6dd47ba88d89fb399fd5a
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 133a7d9b3fa04797648fa253825505d29e37ca98
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98195879"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576418"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Utilizar a Análise de Alteração de Aplicações (pré-visualização) no Monitor Azure
 
@@ -21,13 +21,24 @@ Com base na potência do [Azure Resource Graph,](../../governance/resource-graph
 > [!IMPORTANT]
 > A Análise de Alterações está atualmente em pré-visualização. Esta versão de pré-visualização é fornecida sem um acordo de nível de serviço. Esta versão não é recomendada para cargas de trabalho de produção. Algumas funcionalidades podem não ser suportadas ou podem ter capacidades restritas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 A Análise de Alterações deteta vários tipos de alterações, desde a camada de infraestrutura até à implementação da aplicação. É um fornecedor de recursos Azure de nível de subscrição que verifica as alterações de recursos na subscrição. A Change Analysis fornece dados para várias ferramentas de diagnóstico para ajudar os utilizadores a entender que mudanças podem ter causado problemas.
 
 O seguinte diagrama ilustra a arquitetura da Análise de Mudanças:
 
 ![Diagrama de arquitetura de como a Change Analysis obtém dados de mudança e fornece-os às ferramentas do cliente](./media/change-analysis/overview.png)
+
+## <a name="supported-resource-types"></a>Tipos de recursos suportados
+
+O serviço application Change Analysis suporta alterações no nível de propriedade de recursos em todos os tipos de recursos Azure, incluindo recursos comuns como:
+- Máquina Virtual
+- Conjuntos de dimensionamento de máquinas virtuais
+- Serviço de Aplicações
+- Serviço Azure Kubernetes
+- Função do Azure
+- Recursos de rede: ou seja, Grupo de Segurança de Rede, Rede Virtual, Gateway de Aplicações, etc.
+- Serviços de dados: ou seja, armazenamento, SQL, Redis Cache, Cosmos DB, etc.
 
 ## <a name="data-sources"></a>Origens de dados
 
@@ -49,17 +60,27 @@ A Análise de Alteração captura o estado de implantação e configuração de 
 
 ### <a name="dependency-changes"></a>Alterações de dependência
 
-As alterações nas dependências de recursos também podem causar problemas numa aplicação web. Por exemplo, se uma aplicação web ligar para uma cache Redis, o SKU de cache Redis pode afetar o desempenho da aplicação web. Para detetar alterações nas dependências, a Change Analysis verifica o registo dns da aplicação web. Desta forma, identifica alterações em todos os componentes da aplicação que podem causar problemas.
-Atualmente são suportadas as seguintes dependências:
+As alterações nas dependências de recursos também podem causar problemas num recurso. Por exemplo, se uma aplicação web ligar para uma cache Redis, o SKU de cache Redis pode afetar o desempenho da aplicação web. Outro exemplo é que se a porta 22 foi fechada num Grupo de Segurança de Rede de Máquinas Virtuais, causará erros de conectividade. 
+
+#### <a name="web-app-diagnose-and-solve-problems-navigator-preview"></a>Web App diagnosticar e resolver problemas navegador (Pré-visualização)
+Para detetar alterações nas dependências, a Change Analysis verifica o registo dns da aplicação web. Desta forma, identifica alterações em todos os componentes da aplicação que podem causar problemas.
+Atualmente, as seguintes dependências são suportadas no **Diagnóstico de Aplicações Web e resolvem problemas | Navegador (Pré-visualização):**
 - Aplicações Web
 - Storage do Azure
 - SQL do Azure
 
-## <a name="application-change-analysis-service"></a>Serviço de Análise de Alterações de Aplicações
+#### <a name="related-resources"></a>Recursos relacionados
+A Análise de Alteração de Aplicação deteta recursos relacionados. Exemplos comuns são Network Security Group, Virtual Network, Application Gateway e Load Balancer relacionados com uma Máquina Virtual. Os recursos de rede são geralmente aprovisionados automaticamente no mesmo grupo de recursos que os recursos que o utilizam, pelo que a filtragem das alterações por grupo de recursos mostrará todas as alterações para a Máquina Virtual e recursos de rede relacionados.
+
+![Screenshot das alterações de Rede](./media/change-analysis/network-changes.png)
+
+## <a name="application-change-analysis-service-enablement"></a>Ativação do serviço de análise de alterações de aplicações
 
 O serviço de Análise de Alterações de Aplicação calcula e agrega os dados das fontes de dados acima mencionadas. Fornece um conjunto de análises para que os utilizadores naveguem facilmente através de todas as alterações de recursos e identifiquem qual a mudança relevante no contexto de resolução de problemas ou monitorização.
-O fornecedor de recursos "Microsoft.ChangeAnalysis" precisa de ser registado com uma subscrição para o Gestor de Recursos Azure que rastreou propriedades e definições proxied alterar dados para estar disponível. Ao introduzir a ferramenta de diagnóstico e resolução de problemas da Web App ou apresentar o separador Change Analysis autónomo, este fornecedor de recursos é automaticamente registado. Não tem qualquer desempenho ou implementações de custos para a sua subscrição. Quando ativa a Análise de Alterações para aplicações web (ou ativar a ferramenta de problemas de diagnóstico e resolução), terá um impacto de desempenho negligenciável na aplicação web e sem custo de faturação.
-Para alterações na aplicação web no hóspede, é necessária uma ativação separada para digitalizar ficheiros de código dentro de uma aplicação web. Para obter mais informações, consulte a Análise de Alterações na secção [de Ferramentas de Diagnóstico e resolva problemas](#application-change-analysis-in-the-diagnose-and-solve-problems-tool) mais tarde neste artigo para obter mais detalhes.
+O fornecedor de recursos "Microsoft.ChangeAnalysis" precisa de ser registado com uma subscrição para o Gestor de Recursos Azure que rastreou propriedades e definições proxied alterar dados para estar disponível. Ao introduzir a ferramenta de diagnóstico e resolução de problemas da Web App ou apresentar o separador Change Analysis autónomo, este fornecedor de recursos é automaticamente registado. Para alterações na aplicação web no hóspede, é necessária uma ativação separada para digitalizar ficheiros de código dentro de uma aplicação web. Para obter mais informações, consulte a Análise de Alterações na secção [de Ferramentas de Diagnóstico e resolva problemas](#application-change-analysis-in-the-diagnose-and-solve-problems-tool) mais tarde neste artigo para obter mais detalhes.
+
+## <a name="cost"></a>Custo
+Application Change Analysis é um serviço gratuito - não incorre em qualquer custo de faturação para subscrições com o mesmo ativado. O serviço também não tem qualquer impacto de desempenho para digitalizar as alterações das propriedades do Azure Resource. Quando ativa a Análise de Alterações para aplicações web em aplicativos no hóspede (ou ativar a ferramenta de diagnóstico e resolver problemas), terá um impacto de desempenho negligenciável na aplicação web e nenhum custo de faturação.
 
 ## <a name="visualizations-for-application-change-analysis"></a>Visualizações para análise de mudança de aplicação
 
@@ -82,6 +103,11 @@ Clicando num recurso para ver todas as suas alterações. Se necessário, faça 
 Para obter qualquer feedback, utilize o botão de feedback de envio na lâmina ou e-mail changeanalysisteam@microsoft.com .
 
 ![Screenshot do botão de feedback na lâmina change analysis](./media/change-analysis/change-analysis-feedback.png)
+
+#### <a name="multiple-subscription-support"></a>Suporte de subscrição múltipla
+A UI suporta a seleção de várias subscrições para visualizar alterações de recursos. Utilize o filtro de subscrição:
+
+![Screenshot do filtro de subscrição que suporta a seleção de várias subscrições](./media/change-analysis/multiple-subscriptions-support.png)
 
 ### <a name="web-app-diagnose-and-solve-problems"></a>Diagnóstico e resolução de problemas de aplicações web
 
@@ -174,7 +200,7 @@ foreach ($webapp in $webapp_list)
 ### <a name="having-trouble-registering-microsoftchange-analysis-resource-provider-from-change-history-tab"></a>Ter dificuldade em registar o provedor de recursos Microsoft.Change Analysis a partir do separador Deturb
 Se for a primeira vez que vê o histórico change após a sua integração com a Análise de Alterações de Aplicações, verá que registará automaticamente um fornecedor de recursos **Microsoft.ChangeAnalysis**. Em casos raros, pode falhar pelas seguintes razões:
 
-- **Não tem permissões suficientes para registar o fornecedor de recursos Microsoft.ChangeAnalysis.** Esta mensagem de erro significa que a sua função na subscrição atual não tem o **microsoft.Support/register/action** scope associado a ela. Isto pode acontecer se não for o proprietário de uma subscrição e obtiver permissões de acesso partilhadas através de um colega de trabalho. ou seja, ver acesso a um grupo de recursos. Para corrigir isto, pode contactar o proprietário da sua subscrição para registar o fornecedor de recursos **Microsoft.ChangeAnalysis.** Isto pode ser feito no portal Azure através **de Assinaturas Fornecedores de recursos** e pesquisa ```Microsoft.ChangeAnalysis``` e registo na UI, ou através da Azure PowerShell ou Azure CLI.
+- **Não tem permissões suficientes para registar o fornecedor de recursos Microsoft.ChangeAnalysis.** Esta mensagem de erro significa que a sua função na subscrição atual não tem o **microsoft.Support/register/action** scope associado a ela. Isto pode acontecer se não for o proprietário de uma subscrição e obtiver permissões de acesso partilhadas através de um colega de trabalho. ou seja, ver acesso a um grupo de recursos. Para corrigir isto, pode contactar o proprietário da sua subscrição para registar o fornecedor de recursos **Microsoft.ChangeAnalysis.** Isto pode ser feito no portal Azure através **de Subscrições | Fornecedores de recursos** e pesquisa ```Microsoft.ChangeAnalysis``` e registo na UI, ou através da Azure PowerShell ou Azure CLI.
 
     Registar fornecedor de recursos através do PowerShell: 
     ```PowerShell
@@ -184,7 +210,7 @@ Se for a primeira vez que vê o histórico change após a sua integração com a
 
 - **Falhou no registo do fornecedor de recursos Microsoft.ChangeAnalysis**. Esta mensagem significa que algo falhou imediatamente, pois a UI enviou um pedido de registo do fornecedor de recursos, e não está relacionado com a questão da permissão. É provável que seja um problema temporário de conectividade na Internet. Tente refrescar a página e verifique a sua ligação à Internet. Se o erro persistir, contacte changeanalysishelp@microsoft.com
 
-- **Isto está a demorar mais do que o esperado.** Esta mensagem significa que o registo está a demorar mais de 2 minutos. Isto é invulgar, mas não significa necessariamente que algo correu mal. Pode ir a **Subscrições Fornecedor de recursos** para verificar o estado de registo do fornecedor de recursos **Microsoft.ChangeAnalysis.** Pode tentar utilizar a UI para não registar, reregistar ou refrescar para ver se ajuda. Se o problema persistir, contacte changeanalysishelp@microsoft.com para apoio.
+- **Isto está a demorar mais do que o esperado.** Esta mensagem significa que o registo está a demorar mais de 2 minutos. Isto é invulgar, mas não significa necessariamente que algo correu mal. Pode ir a **Subscrições | Fornecedor de recursos** para verificar o estado de registo do fornecedor de recursos **Microsoft.ChangeAnalysis.** Pode tentar utilizar a UI para não registar, reregistar ou refrescar para ver se ajuda. Se o problema persistir, contacte changeanalysishelp@microsoft.com para apoio.
     ![Registo de RP de resolução de problemas demorando muito tempo](./media/change-analysis/troubleshoot-registration-taking-too-long.png)
 
 ![Screenshot da ferramenta Diagnose and Solve Problems para uma Máquina Virtual com ferramentas de resolução de problemas selecionadas.](./media/change-analysis/vm-dnsp-troubleshootingtools.png)
@@ -209,7 +235,7 @@ Esta é a mensagem de erro geral não autorizada, explicando que o utilizador at
 Esta mensagem significa que algo falhou imediatamente, pois a UI enviou um pedido de registo do fornecedor de recursos, e não está relacionado com a questão da permissão. É provável que seja um problema temporário de conectividade na Internet. Tente refrescar a página e verifique a sua ligação à Internet. Se o erro persistir, contacte changeanalysishelp@microsoft.com
  
 ### <a name="you-dont-have-enough-permissions-to-register-microsoftchangeanalysis-resource-provider-contact-your-azure-subscription-administrator"></a>Não tem permissões suficientes para registar o fornecedor de recursos Microsoft.ChangeAnalysis. Contacte o seu administrador de subscrição Azure.
-Esta mensagem de erro significa que a sua função na subscrição atual não tem o **microsoft.Support/register/action** scope associado a ela. Isto pode acontecer se não for o proprietário de uma subscrição e obtiver permissões de acesso partilhadas através de um colega de trabalho. ou seja, ver acesso a um grupo de recursos. Para corrigir isto, pode contactar o proprietário da sua subscrição para registar o fornecedor de recursos **Microsoft.ChangeAnalysis.** Isto pode ser feito no portal Azure através **de Assinaturas Fornecedores de recursos** e pesquisa ```Microsoft.ChangeAnalysis``` e registo na UI, ou através da Azure PowerShell ou Azure CLI.
+Esta mensagem de erro significa que a sua função na subscrição atual não tem o **microsoft.Support/register/action** scope associado a ela. Isto pode acontecer se não for o proprietário de uma subscrição e obtiver permissões de acesso partilhadas através de um colega de trabalho. ou seja, ver acesso a um grupo de recursos. Para corrigir isto, pode contactar o proprietário da sua subscrição para registar o fornecedor de recursos **Microsoft.ChangeAnalysis.** Isto pode ser feito no portal Azure através **de Subscrições | Fornecedores de recursos** e pesquisa ```Microsoft.ChangeAnalysis``` e registo na UI, ou através da Azure PowerShell ou Azure CLI.
 
 Registar fornecedor de recursos através do PowerShell: 
 

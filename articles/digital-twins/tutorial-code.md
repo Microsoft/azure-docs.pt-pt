@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/02/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 37bd7d91dfe9e4b9e620f89e7504331d8f631a6a
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 4851d06ffedaacb441d28cae24d7d32bfe1c611c
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602128"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576266"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Tutorial: Codificação com as APIs de Gémeos Digitais Azure
 
@@ -253,12 +253,16 @@ Nesta altura do tutorial, tem uma app completa para clientes, capaz de realizar 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs":::
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
- 
-O caso utilizado neste tutorial pode ser reutilizado no próximo tutorial, [*Tutorial: Explore o básico com uma aplicação de cliente de amostra.*](tutorial-command-line-app.md) Se planeia continuar para o próximo tutorial, pode manter a instância Azure Digital Twins que instalou aqui.
+
+Depois de completar este tutorial, pode escolher quais os recursos que gostaria de remover, dependendo do que gostaria de fazer a seguir.
+
+* **Se pretender continuar para o próximo tutorial,** o caso utilizado neste tutorial pode ser reutilizado no próximo. Você pode manter os recursos Azure Digital Twins que você configura aqui e saltar o resto desta secção.
+
+[!INCLUDE [digital-twins-cleanup-clear-instance.md](../../includes/digital-twins-cleanup-clear-instance.md)]
  
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-Por fim, elimine a pasta de projeto que criou na sua máquina local.
+Também pode querer eliminar a pasta do projeto da sua máquina local.
 
 ## <a name="next-steps"></a>Passos seguintes
 

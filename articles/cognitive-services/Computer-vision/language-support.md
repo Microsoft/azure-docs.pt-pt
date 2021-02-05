@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 1abb857c9f03be502db02099383c6fe0b5110461
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 2e0cd424b71ff828ed0d8ad4c16d3333cf8a1c45
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736823"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575877"
 ---
 # <a name="language-support-for-computer-vision"></a>Suporte linguístico para Visão de Computador
 
@@ -25,50 +25,98 @@ Algumas funcionalidades da Visão Computacional suportam vários idiomas; quaisq
 
 As APIs de OCR da Visão Computacional suportam vários idiomas. Não exigem que especifique um código linguístico. Consulte [o Reconhecimento de Caracteres Óticos (OCR)](concept-recognizing-text.md) para obter mais informações.
 
-|Linguagem| Código do idioma | OCR API | Ler 3.0 e 3.1 | Ler v3.2-pré-visualização.1 |
+|Linguagem| Código do idioma | OCR API | Ler 3.0/3.1 | Ler pré-visualização v3.2 |
 |:-----|:----:|:-----:|:---:|:---:|
+|Afrikaans|`af`| | |✔ |
+|Albanês |`sq`| | |✔ |
 |Árabe | `ar`|✔ | | |
+|Asturiano |`ast`| | |✔ |
+|Basco  |`eu`| | |✔ |
+|Bislama   |`bi`| | |✔ |
+|Rio Breton    |`br`| | |✔ |
+|Catalão    |`ca`| | |✔ |
+|Cebuano    |`ceb`| | |✔ |
+|Chamorro  |`ch`| | |✔ |
 |Chinês (Simplificado) | `zh-Hans`|✔ | |✔ |
-|Chinês (Tradicional) | `zh-Hant`|✔ | | |
-|Checo | `cs` |✔ | | |
-|Dinamarquês | `da` |✔ | | |
+|Chinês (Tradicional) | `zh-Hant`|✔ | |✔ |
+|Córsega     |`kw`| | |✔ |
+|Córsico      |`co`| | |✔ |
+|Tártaro da Criméia (latim)  |`crh`| | |✔ |
+|Checo | `cs` |✔ | |✔ |
+|Dinamarquês | `da` |✔ | |✔ |
 |Neerlandês | `nl` |✔ |✔ |✔ |
 |Inglês | `en` |✔ |✔ |✔ |
-|Finlandês | `fi` |✔ | | |
+|Estónio  |`crh`| | |✔ |
+|Fijian |`fj`| | |✔ |
+|Filipino  |`fil`| | |✔ |
+|Finlandês | `fi` |✔ | |✔ |
 |Francês | `fr` |✔ |✔ |✔ |
+|Friulian  | `fur` | | |✔ |
+|Galego   | `gl` | | |✔ |
 |Alemão | `de` |✔ |✔ |✔ |
+|Gilbertese    | `gil` | | |✔ |
 |Grego | `el` |✔ | | |
-|Húngaro | `hu` |✔ | | |
+|Gronelândia   | `kl` | | |✔ |
+|Crioulo haitiano  | `ht` | | |✔ |
+|Hani  | `hni` | | |✔ |
+|Hmong Daw (latim) | `mww` | | |✔ |
+|Húngaro | `hu` |✔ | | ✔ |
+|Indonésio   | `id` | | |✔ |
+|Interlingua  | `ia` | | |✔ |
+|Inuktitut (latim)  | `iu` | | |✔ |
+|Irlandês    | `ga` | | |✔ |
 |Italiano | `it` |✔ |✔ |✔ |
 |Japonês | `ja` |✔ | |✔ |
-|Coreano | `ko` |✔ | | |
+|Javanese | `jv` | | |✔ |
+|Rio Kabuverdianu | `kea` | | |✔ |
+|Kachin (latim) | `kac` | | |✔ |
+|Kara-Kalpak | `kaa` | | |✔ |
+|Kashubian | `csb` | | |✔ |
+|Rio Khasi  | `kha` | | |✔ |
+|Coreano | `ko` |✔ | |✔ |
+|K'iche'  | `quc` | | |✔ |
+|Curdo (latim) | `kur` | | |✔ |
+|Luxemburguês  | `lb` | | |✔ |
+|Malaio (latim)  | `ms` | | |✔ |
+|Manx  | `gv` | | |✔ |
+|Napolitano   | `nap` | | |✔ |
 |Norueguês | `nb` |✔ | | |
-|Polaco | `pl` |✔ | | |
+|Norueguês | `no` | | |✔ |
+|Occitan | `oc` | | |✔ |
+|Polaco | `pl` |✔ | |✔ |
 |Português | `pt` |✔ |✔ |✔ |
 |Romeno | `ro` |✔ | | |
+|Romansh  | `rm` | | |✔ |
 |Russo | `ru` |✔ | | |
+|Escoceses  | `sco` | | |✔ |
+|Gaélico escocês  | `gd` | | |✔ |
 |Sérvio (Cirílico) | `sr-Cyrl` |✔ | | |
 |Sérvio (Latim) | `sr-Latn` |✔ | | |
 |Eslovaco | `sk` |✔ | | |
+|Esloveno  | `slv` | | |✔ |
 |Espanhol | `es` |✔ |✔ |✔ |
-|Sueco | `sw` |✔ | | |
-|Turco | `tr` |✔ | | |
+|Suaíli (latim)  | `sw` | | |✔ |
+|Sueco | `sv` |✔ | |✔ |
+|Tártaro (latim)  | `tat` | | |✔ |
+|Rio Tetum    | `tet` | | |✔ |
+|Turco | `tr` |✔ | |✔ |
+|Sorbian Superior  | `hsb` | | |✔ |
+|Uzbeque (latim)     | `uz` | | |✔ |
+|Rio Volapük   | `vo` | | |✔ |
+|Rio Walser    | `wae` | | |✔ |
+|Frísio Ocidental | `fy` | | |✔ |
+|Maia-de-iucatec | `yua` | | |✔ |
+|Zhuang | `za` | | |✔ |
+|Zulu  | `zu` | | |✔ |
 
 ## <a name="image-analysis"></a>Análise de imagem
 
 Algumas ações da [Análise - API de imagem](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) pode devolver resultados em outras línguas, especificadas com o parâmetro de `language` consulta. Outras ações retornam resultados em inglês, independentemente do que é especificado, e outras lançam uma exceção para línguas não apoiadas. As ações são especificadas com os `visualFeatures` parâmetros e `details` consultas; consulte a [Visão Geral](overview.md) para uma lista de todas as ações que pode fazer com a análise de imagem.
 
-|Linguagem | Código do idioma | Categorias | Etiquetas | Descrição | Adulto | Marcas | Cor | Rostos | ImagemType | Objetos | Celebridades | Pontos de referência |
+|Linguagem | Código do idioma | Categorias | Etiquetas | Description | Adulto | Marcas | Cor | Rostos | ImagemType | Objetos | Celebridades | Pontos de referência |
 |:---|:---:|:----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |Chinês | `zh`    | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
 |Inglês | `en`   | ✔ | ✔| ✔|✔|✔|✔|✔|✔|✔|✔|✔|
 |Japonês | `ja`   | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
 |Português | `pt` | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
 |Espanhol | `es`    | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
-
-## <a name="next-steps"></a>Próximos passos
-
-Começa a utilizar as funcionalidades de Visão de Computador mencionadas neste guia.
-
-* [Analise uma imagem local (REST)](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/REST/CSharp-analyze.md)
-* [Extrato de texto impresso (REST)](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/REST/CSharp-print-text.md)

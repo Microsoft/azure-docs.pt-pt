@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/30/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 2f7746f079e740493348731376d0a5a7b1a9e954
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: cdfeb2fdeefabb0d2d4af2fb63222adda5d023fb
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317856"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576029"
 ---
 # <a name="tutorial-convert-ml-experiments-to-production-python-code"></a>Tutorial: Converter experiências ml para produzir código Python
 
@@ -353,7 +353,7 @@ Em terceiro lugar, as funções relacionadas precisam de ser fundidas em ficheir
 Converta o seu caderno num script executável executando a seguinte declaração num pedido de comando, que utiliza o `nbconvert` pacote e o caminho `experimentation/Diabetes Ridge Regression Training.ipynb` de:
 
 ```
-jupyter nbconvert -- to script "Diabetes Ridge Regression Training.ipynb" –output train
+jupyter nbconvert "Diabetes Ridge Regression Training.ipynb" --to script --output train
 ```
 
 Uma vez que o caderno tenha sido convertido para `train.py` , remova quaisquer comentários indesejados. Substitua a chamada `main()` no final do ficheiro por uma invocação condicional como o seguinte código:
@@ -441,7 +441,7 @@ O `train_aml.py` ficheiro encontrado no `diabetes_regression/training` diretóri
 Encosta o seu caderno a um script executável executando a seguinte declaração num pedido de comando que utiliza o `nbconvert` pacote e o caminho `experimentation/Diabetes Ridge Regression Scoring.ipynb` de:
 
 ```
-jupyter nbconvert -- to script "Diabetes Ridge Regression Scoring.ipynb" –output score
+jupyter nbconvert "Diabetes Ridge Regression Scoring.ipynb" --to script --output score
 ```
 
 Uma vez que o caderno tenha sido convertido para `score.py` , remova quaisquer comentários indesejados. O seu `score.py` ficheiro deve parecer o seguinte código:

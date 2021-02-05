@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com M-Files Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com | M-Files Microsoft Docs'
 description: Saiba como configurar um único sinal de inscrição entre o Azure Ative Directory e o M-Files.
 services: active-directory
 author: jeevansd
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 0df9e4722136dafe94d1bfc84a7767e1e0144d69
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 552e5c2411889ee7f07265eb1cc35d98aed4d7c1
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997227"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99574166"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-m-files"></a>Tutorial: Integração do Diretório Ativo Azure com M-Files
 
@@ -129,7 +129,7 @@ Para configurar o Azure AD com um único sign-on com ficheiros M, execute os seg
     >[!NOTE]
     >Siga os próximos passos se quiser configurar sSO para a sua aplicação de ambiente de trabalho M-File. Não são necessários passos adicionais se apenas pretender configurar sSO para a versão web M-Files.  
 
-1. Siga os próximos passos para configurar a aplicação de ambiente de trabalho M-File para ativar SSO com Azure AD. Para descarregar M-Files, aceda à página [de descarregamento de M-Files.](https://www.m-files.com/en/download-latest-version)
+1. Siga os próximos passos para configurar a aplicação de ambiente de trabalho M-File para ativar SSO com Azure AD. Para descarregar M-Files, aceda à página [de descarregamento de M-Files.](https://www.m-files.com/customers/product-downloads/download-update-links/)
 
 1. Abra a janela **definições de ambiente de trabalho M-Files.** Em seguida, clique em **Adicionar**.
    

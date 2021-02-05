@@ -6,12 +6,12 @@ author: v-dalc
 ms.topic: article
 ms.date: 01/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 02611bdf9689d2f62f661f558fd547ea46bd4d36
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 52b30730ee8ab126521ad0760204ee48ef6a63fe
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98744893"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576013"
 ---
 # <a name="storsimple-virtual-array-update-13-release-notes"></a>StorSimple Virtual Array Update 1.3 notas de lançamento
 
@@ -28,15 +28,15 @@ A atualização 1.3 corresponde à versão do software 10.0.10319.0.
 
 ## <a name="whats-new-in-update-13"></a>Novidades na Atualização 1.3
 
-Esta atualização contém as seguintes melhorias:
+Esta atualização contém as seguintes melhorias:KB4540725
 
 - A Segurança da Camada de Transporte (TLS) 1.2 é uma atualização obrigatória e deve ser instalada. A partir desta versão, o TLS 1.2 torna-se o protocolo padrão para toda a comunicação do portal Azure.
 - As correções de bugs de recolha de lixo melhoram o desempenho do ciclo de recolha de lixo quando o dispositivo e a conta de armazenamento estão em duas regiões distantes.
 - Correção para falhas de backup devido a intervalos de tempo de bolhas.
 - Patches de segurança de quadros atualizados OS/NET:
-  - [KB4540725](\\winsehotfix.segroup.winse.corp.microsoft.com\hotfixes\Windows6.3\RTM\KB4540725\V1.001\free\NEU\X64): março 2020 SSU (atualização de pilha de manutenção)
-  - [KB4565541](\\winsehotfix.segroup.winse.corp.microsoft.com\hotfixes\Windows6.3\RTM\KB4565541\V1.014\free\NEU\X64): Rollup de julho de 2020
-  - [KB4565622](\\winsehotfix.segroup.winse.corp.microsoft.com\hotfixes\Partner\DOTNET47x\KB4565622\V1.000\free\NEU\x64): julho 2020 .NET Atualização do Quadro
+  - [KB4540725](https://support.microsoft.com/topic/servicing-stack-update-for-windows-8-1-rt-8-1-and-server-2012-r2-march-10-2020-cfa082a3-0b58-a8a3-7dc7-ab424de91b86): março 2020 SSU (atualização de pilha de manutenção)
+  - [KB4565541](https://support.microsoft.com/topic/july-14-2020-kb4565541-monthly-rollup-fed6b2b1-3d23-5981-34df-9215a8d8ce01): Rollup de julho de 2020
+  - [KB4565622](https://support.microsoft.com/topic/security-and-quality-rollup-for-net-framework-4-6-4-6-1-4-6-2-4-7-4-7-1-4-7-2-for-windows-8-1-rt-8-1-and-windows-server-2012-r2-kb4565622-b7320848-1889-a624-da01-719f55ee8a00): julho 2020 .NET Atualização do Quadro
 
 ## <a name="download-update-13"></a>Baixar atualização 1.3
 
@@ -52,7 +52,7 @@ Baixe O KB4575898 e siga estas instruções para [aplicar a atualização atrav�
 ## <a name="known-issues-in-update-13"></a>Problemas conhecidos na Atualização 1.3
 Não foram divulgados novos problemas no Update 1.3. Todos os problemas notados pelo lançamento são transitados de lançamentos anteriores. Para ver o resumo das questões conhecidas incluídas nas versões anteriores, vá a [edições conhecidas na Atualização 1.2](./storsimple-virtual-array-update-12-release-notes.md#known-issues-in-update-12).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Baixe o KB4575898 e [aplique a atualização através da web UI local](./storsimple-virtual-array-install-update-1.md#use-the-local-web-ui).
 
 ## <a name="references"></a>Referências

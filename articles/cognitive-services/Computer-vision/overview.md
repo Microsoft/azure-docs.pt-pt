@@ -15,12 +15,12 @@ ms.custom:
 - cog-serv-seo-aug-2020
 - contperf-fy21q2
 keywords: visão computacional, aplicações de visão computacional, serviço de visão computacional
-ms.openlocfilehash: 62d82388d975f36c422f7eb1e9feff8ce2725d54
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 69edbf558b4bd452c67478bac828bfde26be5a70
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033294"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575945"
 ---
 # <a name="what-is-computer-vision"></a>O que é a Imagem Digitalizada?
 
@@ -32,7 +32,7 @@ Pode criar aplicações de Visão de Computador através de uma [biblioteca de c
 
 ## <a name="optical-character-recognition-ocr"></a>Reconhecimento ótico de carateres (OCR)
 
-A Visão Computacional inclui capacidades [de reconhecimento de caracteres óticos (OCR).](concept-recognizing-text.md) Pode utilizar a nova API de leitura para extrair texto impresso e manuscrito a partir de imagens e documentos. Utiliza os modelos mais recentes e trabalha com texto em várias superfícies e fundos. Estes incluem recibos, cartazes, cartões de visita, cartas e quadros. As duas APIs OCR suportam a extração de texto impresso em [várias línguas.](./language-support.md) Siga um [arranque rápido](./quickstarts-sdk/client-library.md) para começar.
+A Visão Computacional inclui capacidades [de reconhecimento de caracteres óticos (OCR).](concept-recognizing-text.md) Pode utilizar a nova API de leitura para extrair texto impresso e manuscrito a partir de imagens e documentos. Utiliza modelos baseados em aprendizagem profunda e trabalha com texto em uma variedade de superfícies e fundos. Estes incluem documentos comerciais, faturas, recibos, cartazes, cartões de visita, cartas e quadros brancos. As APIs do OCR suportam a extração de texto impresso em [várias línguas.](./language-support.md) Siga um [arranque rápido](./quickstarts-sdk/client-library.md) para começar.
 
 ## <a name="computer-vision-for-digital-asset-management"></a>Visão de Computador para gestão de ativos digitais
 

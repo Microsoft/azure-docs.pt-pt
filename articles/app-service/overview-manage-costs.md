@@ -5,12 +5,12 @@ ms.custom: subject-cost-optimization
 ms.service: app-service
 ms.topic: how-to
 ms.date: 01/01/2021
-ms.openlocfilehash: 9d742606435f62d48446bb8ad56ece7a31b76e47
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 3df08705859678525526f8fef198826f58249d8b
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736226"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99573369"
 ---
 # <a name="plan-and-manage-costs-for-azure-app-service"></a>Planear e gerir os custos do Azure App Service
 
@@ -125,7 +125,7 @@ Se planeia utilizar um número mínimo conhecido de instâncias computacional du
 
 O preço reservado aplica-se às instâncias aplicáveis na sua subscrição, até ao número de casos que reserva. Os casos reservados são um assunto de faturação e não estão ligados a casos específicos de computação. Se tiver menos casos do que reserva em qualquer ponto durante o período de reserva, ainda paga pelas instâncias reservadas. Se executar mais casos do que reserva em qualquer ponto durante o período de reserva, paga o custo acumulado normal para as instâncias adicionais.
 
-O nível **isolado** (ambiente de Serviço de Aplicações) também suporta reservas de 1 ano e 3 anos a preços reduzidos. Para mais informações, consulte [como os descontos de reserva se aplicam aos Selos Isolados do Serviço de Aplicações Azure.](../cost-management-billing/reservations/reservation-discount-app-service-isolated-stamp.md)
+O nível **isolado** (ambiente de Serviço de Aplicações) também suporta reservas de 1 ano e 3 anos a preços reduzidos. Para mais informações, consulte [como os descontos de reserva se aplicam ao Azure App Service](../cost-management-billing/reservations/reservation-discount-app-service.md).
 
 ## <a name="monitor-costs"></a>Monitorizar os custos
 
@@ -163,7 +163,7 @@ Os orçamentos podem ser criados com filtros para recursos ou serviços específ
 
 Também pode [exportar os seus dados de custos](../cost-management-billing/costs/tutorial-export-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) para uma conta de armazenamento. Isto é útil quando você precisa ou outros para fazer mais análise de dados para custos. Por exemplo, uma equipa de finanças pode analisar os dados usando o Excel ou o Power BI. Pode exportar os seus custos num horário diário, semanal ou mensal e definir um intervalo de datas personalizado. Exportar dados de custos é a forma recomendada de recuperar conjuntos de dados de custos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre como os preços funcionam com o Azure Storage. Consulte [os preços do Serviço de Aplicações.](https://azure.microsoft.com/pricing/details/app-service/)
 - Saiba [como otimizar o seu investimento em nuvem com a Azure Cost Management.](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

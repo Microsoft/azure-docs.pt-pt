@@ -10,16 +10,31 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 01/13/2021
 ms.author: pafarley
-ms.openlocfilehash: f10319de67a105b4b5e4641c4171ccd0a6e63440
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: ec340e3371b0fe337354006b1284a21420a11f3a
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99490882"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99573641"
 ---
 # <a name="whats-new-in-computer-vision"></a>Novidades na Visão Computacional
 
 Saiba o que há de novo no serviço. Estes itens podem ser notas de lançamento, vídeos, posts de blog e outros tipos de informação. Marque esta página para ficar a par do serviço.
+
+## <a name="february-2021"></a>fevereiro de 2021
+
+### <a name="read-api-v32-public-preview-with-ocr-support-for-73-languages"></a>Leia API v3.2 Visualização pública com suporte OCR para 73 línguas
+A pré-visualização pública da API v3.2 da Computer Vision inclui estas capacidades:
+* OCR para um total de [73 línguas,](./language-support.md#optical-character-recognition-ocr) incluindo chinês simplificado e tradicional, japonês, coreano e grandes línguas latinas.
+* Escolha se des output as linhas de texto na ordem esquerda-direita e superior inferior (predefinição) ou uma ordem de leitura mais natural.
+* Para cada saída de linha de texto, indique se o seu estilo de caligrafia ou não, juntamente com uma pontuação de confiança (apenas línguas latinas).
+* Para um texto de extrato de documento de várias páginas apenas para páginas selecionadas ou intervalo de página.
+
+Consulte a [visão geral](concept-recognizing-text.md) da API para saber mais.
+
+> [!div class="nextstepaction"]
+> [Utilize a API de Leitura v3.2 Visualização pública](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005)
+
 
 ## <a name="january-2021"></a>Janeiro de 2021
 

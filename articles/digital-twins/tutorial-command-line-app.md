@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: db85bf19c1b040fea1ed2f5d6dcf904288366c7f
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 5658bfcf0bf877db1dd001c2af58a40f3b027bd9
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98050243"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576249"
 ---
 # <a name="tutorial-explore-azure-digital-twins-with-a-sample-client-app"></a>Tutorial: Explore a Azure Digital Twins com uma aplicação de cliente de amostra
 
@@ -133,7 +133,7 @@ Content-Length: 223
 Content-Type: application/json; charset=utf-8
 ```
 
-### <a name="create-digital-twins"></a>Criar gémeos digitais
+### <a name="create-digital-twins"></a>Criar duplos digitais
 
 Agora que alguns modelos foram enviados para a sua instância Azure Digital Twins, pode criar [**gémeos digitais**](concepts-twins-graph.md) com base nas definições do modelo. Os gémeos digitais representam as entidades dentro do seu ambiente de negócios — coisas como sensores numa quinta, quartos num edifício ou luzes num carro. 
 
@@ -274,12 +274,15 @@ Uma das principais características da Azure Digital Twins é a capacidade [de c
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-O projeto neste tutorial constitui a base para o próximo tutorial, [*Tutorial: Conecte uma solução de ponta a ponta*](tutorial-end-to-end.md). Se pretender continuar para o próximo tutorial, pode manter os recursos que criou aqui para continuar a usar esta instância Azure Digital Twins e uma aplicação de amostra configurada.
-* Neste caso, pode utilizar a aplicação da amostra `DeleteAllTwins` e `DeleteAllModels` os comandos para limpar os gémeos e modelos no seu caso, respectivamente. Isto vai dar-lhe uma ficha limpa para o próximo tutorial.
+Depois de completar este tutorial, pode escolher quais os recursos que gostaria de remover, dependendo do que gostaria de fazer a seguir.
+
+* **Se pretende continuar para o próximo tutorial,** pode manter os recursos que criou aqui para continuar a usar esta instância Azure Digital Twins e configurar a aplicação de amostra para o próximo tutorial
+
+* **Se quiser continuar a usar a instância Azure Digital Twins, mas desmarcar todos os seus modelos, gémeos e relacionamentos,** pode utilizar a aplicação da amostra `DeleteAllTwins` e os `DeleteAllModels` comandos para limpar os gémeos e modelos no seu caso, respectivamente. Isto vai dar-lhe uma ficha limpa para o próximo tutorial.
 
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-Por fim, elimine a pasta de amostras de projeto que descarregou para a sua máquina local.
+Também pode querer eliminar a pasta do projeto da sua máquina local.
 
 ## <a name="next-steps"></a>Passos seguintes 
 

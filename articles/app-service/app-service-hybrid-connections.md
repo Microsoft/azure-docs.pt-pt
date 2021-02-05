@@ -4,15 +4,15 @@ description: Saiba como criar e utilizar ligações híbridas no Azure App Servi
 author: ccompy
 ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
 ms.topic: article
-ms.date: 06/08/2020
+ms.date: 02/04/2020
 ms.author: ccompy
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: 16f6a0660fa9aa20f636ee412f3f337bd5dea9b5
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: 20bdeef0a45bb02fab8841c0dd8ec7755143c693
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825975"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575996"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Ligações Híbridas do Serviço de Aplicações do Azure
 
@@ -42,7 +42,7 @@ Existem vários benefícios para a capacidade de conexões híbridas, incluindo:
 - Normalmente não requer buracos de firewall. As ligações são todas de saída sobre portas web padrão.
 - Como a funcionalidade é de rede, é agnóstico ao idioma utilizado pela sua app e à tecnologia utilizada pelo ponto final.
 - Pode ser usado para fornecer acesso em várias redes a partir de uma única aplicação. 
-- É suportado em GA para aplicações nativas do Windows e está em pré-visualização para aplicações Linux. Não é suportado para aplicações de contentores Windows.
+- É suportado em GA para aplicações Windows e aplicações Linux. Não é suportado para aplicações de contentores Windows.
 
 ### <a name="things-you-cannot-do-with-hybrid-connections"></a>Coisas que não pode fazer com ligações híbridas ###
 

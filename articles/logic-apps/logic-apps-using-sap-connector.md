@@ -9,12 +9,12 @@ ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
 ms.date: 02/01/2021
 tags: connectors
-ms.openlocfilehash: edf4ce188c9239e697e2148d4fff51966d91f85a
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: cbbc0edf710b8823c1a36daa66bc01d89acf63da
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99252615"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575488"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Ligar-se a sistemas SAP a partir de Azure Logic Apps
 
@@ -504,7 +504,7 @@ Se não conseguir enviar pacotes IDoc do SAP para o gatilho da sua aplicação l
   * Para que estes segmentos tenham sido lançados pela SAP, contacte o engenheiro ABAP para o seu sistema SAP.
 ### <a name="asynchronous-request-reply-for-triggers"></a>Pedido assíncronos de pedido de gatilhos
 
-O conector SAP suporta o [padrão assíncrona de resposta de pedido](/azure/architecture/patterns/async-request-reply.md) da Azure para ativações de Aplicações Lógicas. Pode utilizar este padrão para criar pedidos bem sucedidos que de outra forma teriam falhado com o padrão de resposta a pedido sincronizado. 
+O conector SAP suporta o [padrão assíncrona de resposta de pedido](/azure/architecture/patterns/async-request-reply) da Azure para ativações de Aplicações Lógicas. Pode utilizar este padrão para criar pedidos bem sucedidos que de outra forma teriam falhado com o padrão de resposta a pedido sincronizado. 
 
 > [!TIP]
 > Em aplicações lógicas com múltiplas ações de resposta, todas as ações de resposta devem usar o mesmo padrão de resposta de pedido. Por exemplo, se a sua aplicação lógica utilizar um controlo de comutação com múltiplas ações de resposta possíveis, deve configurar todas as ações de resposta para utilizar o mesmo padrão de resposta de pedido, seja sincronizado ou assíncronos. 

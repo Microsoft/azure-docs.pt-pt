@@ -11,19 +11,19 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
-ms.date: 01/08/2020
-ms.openlocfilehash: 4f3b201d35781d6d33eead0b0a21d38fbb897097
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.date: 02/03/2021
+ms.openlocfilehash: 1ba6a45062f4018c59f5b41ab616f7a04f87140a
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966824"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575576"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-dms"></a>Tutorial: Migrar a MongoDB para a API da Azure Cosmos para a MongoDB offline usando DMS
 
 Você pode usar o Azure Database Migration Service para realizar uma migração offline (uma vez) de bases de dados de um local ou exemplo em nuvem de MongoDB para API da Azure Cosmos DB para MongoDB.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 >
 > * Crie uma instância do Azure Database Migration Service.
@@ -53,6 +53,18 @@ Para concluir este tutorial, precisa de:
 * Certifique-se de que as regras do Grupo de Segurança da Rede virtual (NSG) não bloqueiam as seguintes portas de comunicação: 53, 443, 445, 9354 e 10000-20000. Para obter mais detalhes sobre a filtragem de tráfego NSG da rede virtual, consulte o artigo Filtrar o [tráfego da rede com grupos de segurança de rede](../virtual-network/virtual-network-vnet-plan-design-arm.md).
 * Abra a firewall do Windows para permitir que o Serviço de Migração da Base de Dados de Azure aceda ao servidor MongoDB de origem, que por padrão é a porta TCP 27017.
 * Ao utilizar um aparelho de firewall em frente à sua base de dados de origem, poderá ter de adicionar regras de firewall para permitir que o Azure Database Migration Service aceda à base de dados de origem para migração.
+
+## <a name="configure-azure-cosmos-db-server-side-retries-for-efficient-migration"></a>Configurar Azure Cosmos DB Server Side Retries para uma migração eficiente
+
+Os clientes que migram de MongoDB para Azure Cosmos DB beneficiam de capacidades de governação de recursos, que garantem a capacidade de utilizar plenamente os seus RU/s de produção. A Azure Cosmos DB pode acelerar um determinado pedido do Serviço de Migração de Dados no decurso da migração se esse pedido exceder o contentor a provisionado RU/s; então esse pedido precisa de ser novamente julgado. O Serviço de Migração de Dados é capaz de realizar retréis, no entanto o tempo de ida e volta envolvido no salto de rede entre o Data Migration Service e o Azure Cosmos DB tem impacto no tempo de resposta global desse pedido. A melhoria do tempo de resposta dos pedidos acelerados pode encurtar o tempo total necessário para a migração. A funcionalidade de *Retry side* do servidor da Azure Cosmos DB permite ao serviço intercetar códigos de erro do acelerador e voltar a tentar com um tempo de ida e volta muito mais baixo, melhorando drasticamente os tempos de resposta do pedido.
+
+Pode encontrar a capacidade de relagem do lado do servidor na lâmina *características* do portal DB Azure Cosmos
+
+![Recurso SSR MongoDB](media/tutorial-mongodb-to-cosmosdb/mongo-server-side-retry-feature.png)
+
+E se for *desativado,* então recomendamos que o ative como mostrado abaixo
+
+![MongodB SSR habilita](media/tutorial-mongodb-to-cosmosdb/mongo-server-side-retry-enable.png)
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registar o fornecedor de recursos Microsoft.DataMigration
 

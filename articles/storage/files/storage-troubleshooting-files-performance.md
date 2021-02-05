@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 729c3e46cf329c525ce9204b26d4c6aefa04c89d
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: c3dbd76e76ad6e7bed0808278d4516992bc328f0
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632500"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99574436"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Resolução de problemas Azure partilha problemas de desempenho
 
@@ -34,14 +34,28 @@ Para confirmar se a sua parte está a ser acelerada, pode aceder e utilizar mét
 
 1. Selecione **Transações** como métrica.
 
-1. Adicione um filtro para **o tipo de resposta** e, em seguida, verifique se quaisquer pedidos têm um dos seguintes códigos de resposta:
-   * **SucessoWithThrottling**: Para bloco de mensagens de servidor (SMB)
-   * **ClientThrottlingError**: Para REST
+1. Adicione um filtro para **o tipo de resposta** e, em seguida, verifique se os pedidos foram estrangulados. 
 
-   ![Screenshot das opções de métricas para ações de ficheiros premium, mostrando um filtro de propriedade "Tipo resposta".](media/storage-troubleshooting-premium-fileshares/metrics.png)
+    Para as ações de ficheiros padrão, os seguintes tipos de resposta são registados se um pedido for acelerado:
 
-   > [!NOTE]
-   > Para receber um alerta, consulte a secção ["Como criar um alerta se uma partilha de ficheiros for estrangulada"](#how-to-create-an-alert-if-a-file-share-is-throttled) mais tarde neste artigo.
+    - SucessoWithThrottling
+    - ClientThrottlingError
+
+    Para ações de ficheiros premium, os seguintes tipos de resposta são registados se um pedido for acelerado:
+
+    - SucessoComParteEgressThrottling
+    - SucessoWithShareIngressThrottling
+    - SucessoComPartiIopsThrottling
+    - ClientShareEgressThrottlingError
+    - ClientShareIngressThrottlingError
+    - ClientShareIopsThrottlingError
+
+    Para saber mais sobre cada tipo de resposta, consulte [as dimensões métricas.](https://docs.microsoft.com/azure/storage/files/storage-files-monitoring-reference#metrics-dimensions)
+
+    ![Screenshot das opções de métricas para ações de ficheiros premium, mostrando um filtro de propriedade "Tipo resposta".](media/storage-troubleshooting-premium-fileshares/metrics.png)
+
+    > [!NOTE]
+    > Para receber um alerta, consulte a secção ["Como criar um alerta se uma partilha de ficheiros for estrangulada"](#how-to-create-an-alert-if-a-file-share-is-throttled) mais tarde neste artigo.
 
 ### <a name="solution"></a>Solução
 
@@ -219,48 +233,63 @@ Para confirmar, pode utilizar a Azure Metrics no portal -
 
 ## <a name="how-to-create-an-alert-if-a-file-share-is-throttled"></a>Como criar um alerta se uma partilha de ficheiros for acelerada
 
-1. No portal Azure, vá à sua conta de armazenamento.
-1. Na secção **de Monitorização,** selecione **Alertas** e, em seguida, selecione **Nova regra de alerta**.
-1. **Selecione o recurso Editar,** selecione o **tipo de recurso De ficheiro** para a conta de armazenamento e, em seguida, selecione **'Fazer'** Por exemplo, se o nome da conta de armazenamento for *contoso,* selecione o recurso contoso/ficheiro.
-1. **Selecione Selecione Condição** para adicionar uma condição.
-1. Na lista de sinais suportados para a conta de armazenamento, selecione a métrica **de Transações.**
-1. No painel de lógica de **sinal configurado,** na lista de drop-down do **nome Dimension,** selecione **o tipo de resposta**.
-1. Na lista de valores de **dimensão,** selecione **SuccessWithThrottling** (para SMB) ou **ClientThrottlingError** (para REST).
+1. Aceda à sua **conta de armazenamento** no portal **Azure.**
+2. Na secção **de Monitorização,** clique em **Alertas** e, em seguida, clique **em + Nova regra de alerta**.
+3. Clique **em Editar o recurso,** selecione o **tipo de recurso De ficheiro** para a conta de armazenamento e, em seguida, clique em **Fazer**. Por exemplo, se o nome da conta de armazenamento `contoso` for, selecione o `contoso/file` recurso.
+4. Clique **em Adicionar condição** para adicionar uma condição.
+5. Verá uma lista de sinais suportados para a conta de armazenamento, selecione a métrica **de Transações.**
+6. Na lâmina lógica de **sinal configurar,** clique no **nome Dimension** drop-down e selecione o tipo **de resposta**.
+7. Clique nos **valores** de Dimension drop-down e selecione os tipos de resposta adequados para a sua partilha de ficheiros.
+
+    Para ações de ficheiros padrão, selecione os seguintes tipos de resposta:
+
+    - SucessoWithThrottling
+    - ClientThrottlingError
+
+    Para ações de ficheiros premium, selecione os seguintes tipos de resposta:
+
+    - SucessoComParteEgressThrottling
+    - SucessoWithShareIngressThrottling
+    - SucessoComPartiIopsThrottling
+    - ClientShareEgressThrottlingError
+    - ClientShareIngressThrottlingError
+    - ClientShareIopsThrottlingError
 
    > [!NOTE]
-   > Se não estiver listado nem o valor da dimensão **SuccessWithThrottlingError,** isto significa que o recurso não foi estrangulado.  Para adicionar o valor de dimensão, junto à lista de valores de **Dimensão,** selecione **Adicionar valor personalizado,** insira **SuccessWithThrottling** ou **ClientThrottlingError**, selecione **OK** e, em seguida, repita o passo 7.
+   > Se os tipos de resposta não estiverem listados na redução dos valores de **dimensão,** isto significa que o recurso não foi estrangulado. Para adicionar os valores de dimensão, junto à lista de valores de **Dimensão,** selecione **Adicionar valor personalizado,** introduzir o tipo de respone (por exemplo, **SuccessWithThrottling),** selecionar **OK**, e, em seguida, repetir estes passos para adicionar todos os tipos de resposta aplicáveis para a sua partilha de ficheiros.
 
-1. Na lista de drop-down de **nome Dimension,** selecione **'Partilhar ficheiros'.**
-1. Na lista de valores de **Dimensão,** selecione a partilha de ficheiros ou as ações que pretende alertar.
+8. Clique no **drop-down** do nome Dimension e selecione A partilha **de ficheiros**.
+9. Clique nos **valores** de Dimension drop-down e selecione as ações de ficheiros em que pretende alertar.
+
 
    > [!NOTE]
-   > Se a partilha de ficheiros for uma partilha de ficheiros padrão, selecione **Todos os valores atuais e futuros**. A lista de valores de dimensão não lista as ações de ficheiros, porque as métricas por ação não estão disponíveis para ações de ficheiros padrão. Os alertas de aceleração das ações de ficheiros padrão são desencadeados se alguma parte do ficheiro dentro da conta de armazenamento for acelerada, e o alerta não identificar qual a partilha de ficheiros que foi acelerada. Como as métricas por partilha não estão disponíveis para ações de ficheiros padrão, recomendamos que utilize uma ação de ficheiro por conta de armazenamento.
+   > Se a partilha de ficheiros for uma partilha de ficheiros padrão, selecione **Todos os valores atuais e futuros**. Os valores de dimensão não listam as ações de ficheiros porque as métricas por ação não estão disponíveis para ações de ficheiros padrão. Os alertas de estrangulamento para as ações de ficheiros padrão serão desencadeados se alguma parte do ficheiro dentro da conta de armazenamento for acelerada e o alerta não identificar qual a partilha de ficheiros que foi acelerada. Uma vez que as métricas por ação não estão disponíveis para ações de ficheiros padrão, a recomendação é ter uma ação de ficheiro por conta de armazenamento.
 
-1. Defina os parâmetros de alerta introduzindo o **valor limiar,** **operador,** **granularidade agregação** e **frequência de avaliação,** e, em seguida, selecione **Fazer**.
+10. Defina os **parâmetros** de alerta (valor limiar, operador, granularidade de agregação e frequência de avaliação) e clique em **Fazer**.
 
     > [!TIP]
-    > Se estiver a utilizar um limiar estático, o gráfico métrico pode ajudá-lo a determinar um valor limiar razoável se a parte do ficheiro estiver atualmente a ser estrangulada. Se estiver a utilizar um limiar dinâmico, o gráfico métrico apresenta os limiares calculados com base em dados recentes.
+    > Se estiver a utilizar um limiar estático, o gráfico métrico pode ajudar a determinar um valor limiar razoável se a parte do ficheiro estiver atualmente a ser estrangulada. Se estiver a utilizar um limiar dinâmico, o gráfico métrico apresentará os limiares calculados com base em dados recentes.
 
-1. **Selecione Select action group**, e, em seguida, adicione um grupo de ação (por exemplo, e-mail ou SMS) ao alerta, selecionando um grupo de ação existente ou criando um novo grupo de ação.
-1. Introduza os detalhes do alerta, tais como **o nome da regra de alerta,** **descrição** e **severidade**.
-1. Selecione **Criar a regra de alerta** para criar o alerta.
+11. Clique **em Adicionar grupos de ação** para adicionar um grupo de **ação** (e-mail, SMS, etc.) ao alerta, selecionando um grupo de ação existente ou criando um novo grupo de ação.
+12. Preencha os **detalhes do Alerta** como o nome da regra de **alerta,** **descrição** e **severidade**.
+13. Clique **em Criar regra de alerta** para criar o alerta.
 
 Para saber mais sobre a configuração de alertas no Azure Monitor, consulte [a visão geral dos alertas no Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
 
 ## <a name="how-to-create-alerts-if-a-premium-file-share-is-trending-toward-being-throttled"></a>Como criar alertas se uma quota de ficheiro premium está a tendência para ser estrangulada
 
 1. No portal Azure, vá à sua conta de armazenamento.
-1. Na secção **de Monitorização,** selecione **Alertas** e, em seguida, selecione **Nova regra de alerta**.
-1. **Selecione o recurso Editar,** selecione o **tipo de recurso De ficheiro** para a conta de armazenamento e, em seguida, selecione **'Fazer'** Por exemplo, se o nome da conta de armazenamento for *contoso,* selecione o recurso contoso/ficheiro.
-1. **Selecione Selecione Condição** para adicionar uma condição.
-1. Na lista de sinais suportados para a conta de armazenamento, selecione a métrica **Egress.**
+2. Na secção **de Monitorização,** selecione **Alertas** e, em seguida, selecione **Nova regra de alerta**.
+3. **Selecione o recurso Editar,** selecione o **tipo de recurso De ficheiro** para a conta de armazenamento e, em seguida, selecione **'Fazer'** Por exemplo, se o nome da conta de armazenamento for *contoso,* selecione o recurso contoso/ficheiro.
+4. **Selecione Selecione Condição** para adicionar uma condição.
+5. Na lista de sinais suportados para a conta de armazenamento, selecione a métrica **Egress.**
 
    > [!NOTE]
    > Tem de criar três alertas separados para ser alertado quando a entrada, a saída ou os valores de transação excederem os limiares definidos. Isto porque um alerta só é desencadeado quando todas as condições são satisfeitas. Por exemplo, se colocar todas as condições num só alerta, só será alertado se entrar, entrar e transações excederem os seus valores-limite.
 
-1. Rola para baixo. Na lista de drop-down de **nome Dimension,** selecione **'Partilhar ficheiros'.**
-1. Na lista de valores de **Dimensão,** selecione a partilha de ficheiros ou as ações que pretende alertar.
-1. Defina os parâmetros de alerta selecionando valores no **Operador**, **Valor limiar,** **granularidade agregação** e frequência das listas **de redução de avaliação** e, em seguida, selecione **Fazer**.
+6. Rola para baixo. Na lista de drop-down de **nome Dimension,** selecione **'Partilhar ficheiros'.**
+7. Na lista de valores de **Dimensão,** selecione a partilha de ficheiros ou as ações que pretende alertar.
+8. Defina os parâmetros de alerta selecionando valores no **Operador**, **Valor limiar,** **granularidade agregação** e frequência das listas **de redução de avaliação** e, em seguida, selecione **Fazer**.
 
    As métricas de egress, entradas e transações são expressas por minuto, embora sejam agrestes, entradas e I/O por segundo. Portanto, por exemplo, se a sua saída a provisionada forisso de 90 &nbsp; mebibytes por segundo (MiB/s) e pretender que o seu limiar seja de 80% &nbsp; das saídas a provisionadas, selecione os seguintes parâmetros de alerta: 
    - Por **valor limiar:** *75497472* 
@@ -271,9 +300,9 @@ Para saber mais sobre a configuração de alertas no Azure Monitor, consulte [a 
    - Para **granularidade agregação**: *1 hora*
    - Para **frequência de avaliação:** *1 hora*
 
-1. **Selecione Selecione o grupo de ação** e, em seguida, adicione um grupo de ação (por exemplo, e-mail ou SMS) ao alerta, selecionando um grupo de ação existente ou criando um novo.
-1. Introduza os detalhes do alerta, tais como **o nome da regra de alerta,** **descrição** e **severidade**.
-1. Selecione **Criar a regra de alerta** para criar o alerta.
+9. **Selecione Adicionar grupos de ação**, e, em seguida, adicionar um grupo de ação (por exemplo, e-mail ou SMS) ao alerta, quer selecionando um grupo de ação existente, quer criando um novo.
+10. Introduza os detalhes do alerta, tais como **o nome da regra de alerta,** **descrição** e **severidade**.
+11. Selecione **Criar a regra de alerta** para criar o alerta.
 
     > [!NOTE]
     > - Para ser notificado de que a sua parte de ficheiro premium está perto de ser estrangulada devido a *ingresss,* siga as instruções anteriores, mas com a seguinte alteração:

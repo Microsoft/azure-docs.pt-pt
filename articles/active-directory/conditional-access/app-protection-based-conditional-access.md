@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 672a3f95efad24c07379fafe8b22088dc731c2df
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 720cd46ac37a82f56aa37c0041ca8d92db177071
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97881166"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575776"
 ---
 # <a name="how-to-require-app-protection-policy-and-an-approved-client-app-for-cloud-app-access-with-conditional-access"></a>Como: Requer a política de proteção de aplicações e uma aplicação de cliente aprovada para acesso a aplicações na nuvem com Acesso Condicional
 
@@ -34,7 +34,7 @@ No Acesso Condicional, estas aplicações de clientes são conhecidas por estare
 > Nem todas as aplicações são apoiadas como aplicações aprovadas ou políticas de proteção de aplicações de apoio. Para obter uma lista de aplicações elegíveis para clientes, consulte [o requisito da política de proteção da Aplicação.](concept-conditional-access-grant.md#require-app-protection-policy)
 
 > [!NOTE]
-> "Exigir um dos controlos selecionados" ao abrigo dos controlos de subvenção é como uma cláusula de OR. Isto é utilizado dentro da política para permitir que os utilizadores utilizem apps que suportem a **política de proteção** de aplicações Require ou exijam controlos aprovados de **concessão de aplicações** ao cliente. **Exigir que a política de proteção de aplicações** seja aplicada se uma aplicação for suportada em ambas as políticas. Para obter mais informações sobre quais as aplicações que suportam o controlo **da política de proteção de aplicações Require,** consulte [o requisito da política de proteção da aplicação](concept-conditional-access-grant.md#require-app-protection-policy).
+> "Exigir um dos controlos selecionados" ao abrigo dos controlos de subvenção é como uma cláusula de OR. Isto é utilizado dentro da política para permitir que os utilizadores utilizem apps que suportem a **política de proteção** de aplicações Require ou exijam controlos aprovados de **concessão de aplicações** ao cliente. **Exigir que a política de proteção de aplicações** seja aplicada quando a aplicação suporta esse controlo. Para obter mais informações sobre quais as aplicações que suportam o controlo **da política de proteção de aplicações Require,** consulte [o requisito da política de proteção da aplicação](concept-conditional-access-grant.md#require-app-protection-policy).
 
 ## <a name="scenario-1-microsoft-365-apps-require-approved-apps-with-app-protection-policies"></a>Cenário 1: Aplicações microsoft 365 exigem aplicações aprovadas com políticas de proteção de apps
 

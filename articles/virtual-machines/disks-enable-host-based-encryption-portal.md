@@ -8,12 +8,12 @@ ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: fd74872bc1c46f3dddda1b6d15f14f26dc2187cb
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: ba7d6d8deb2034f8b2a853cf74635687561c41ea
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499378"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99573607"
 ---
 # <a name="use-the-azure-portal-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Utilize o portal Azure para ativar a encriptação de ponta a ponta utilizando encriptação no anfitrião
 
@@ -37,7 +37,7 @@ Quando ativa a encriptação no anfitrião, os dados armazenados no anfitrião V
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para poder utilizar a encriptação no anfitrião para os seus VMs ou conjuntos de escala de máquinas virtuais, tem de obter a funcionalidade ativada na sua subscrição. Enviar um e-mail para encryptionAtHost@microsoft. com os seus Ids de subscrição para obter a funcionalidade ativada para as suas subscrições.
+Para poder utilizar a encriptação no anfitrião para os seus VMs ou conjuntos de escala de máquinas virtuais, tem de obter a funcionalidade ativada na sua subscrição. Envie um e-mail encryptionAtHost@microsoft.com com os seus Ids de subscrição para obter a funcionalidade ativada para as suas subscrições.
 
 Inscreva-se no portal Azure utilizando o [link fornecido](https://aka.ms/diskencryptionupdates).
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: f6bd6b13ab4a2e654bdabc86355f2c3388abed31
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 9d09bca246938f972a212f7ee71f03a618e16ac4
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98050532"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575695"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Quickstart - Explore uma amostra do cenário Azure Digital Twins usando o ADT Explorer
 
@@ -306,11 +306,15 @@ Neste arranque rápido, fez a atualização da temperatura manualmente. É comum
 
 Para embrulhar o trabalho para este arranque rápido, primeiro termine a aplicação de consola de execução. Esta ação desliga a ligação à aplicação ADT Explorer no navegador. Não poderá mais ver dados ao vivo no navegador. Pode fechar o separador do navegador.
 
-Se planeia continuar com os tutoriais do Azure Digital Twins, pode reutilizar o caso neste quickstart para esses artigos, e não precisa removê-lo.
+Depois, pode escolher quais os recursos que gostaria de remover, dependendo do que quiser fazer a seguir.
+
+* **Se planeia continuar com os tutoriais do Azure Digital Twins,** pode reutilizar o caso neste quickstart para esses artigos, e não precisa removê-lo.
+
+[!INCLUDE [digital-twins-cleanup-clear-instance.md](../../includes/digital-twins-cleanup-clear-instance.md)]
  
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-Por fim, elimine a pasta de amostras do projeto, **Azure_Digital_Twins__ADT__explorer,** descarregue para a sua máquina local. Pode ter de apagar as versões com fecho e desapertado.
+Também pode querer eliminar a pasta do projeto da sua máquina local.
 
 ## <a name="next-steps"></a>Passos seguintes
 

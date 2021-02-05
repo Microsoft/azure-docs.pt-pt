@@ -12,21 +12,21 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06a6a42724eb172a77079b94f2cf50afb8e9cdf1
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 29aeca30e1fbdd28d3f69597d902a9b714056cd5
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357322"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575928"
 ---
-# <a name="grant-locally-managed-partner-accounts-access-to-cloud-resources-using-azure-ad-b2b-collaboration"></a>Conceder contas de parceiros geridos localmente acesso a recursos em nuvem usando a colaboração Azure AD B2B
+# <a name="grant-locally-managed-partner-accounts-access-to-cloud-resources-using-azure-ad-b2b-collaboration"></a>Conceder aos recursos na cloud acesso às contas dos parceiros geridas localmente com a colaboração B2B do AAD
 
 Antes do Azure Ative Directory (Azure AD), as organizações com sistemas de identidade no local têm tradicionalmente gerido contas de parceiros no seu diretório no local. Numa organização destas, quando começas a mover apps para Azure AD, queres ter a certeza que os teus parceiros podem aceder aos recursos de que precisam. Não importa se os recursos estão no local ou na nuvem. Além disso, deseja que os utilizadores do seu parceiro possam utilizar as mesmas credenciais de inscrição tanto para os recursos no local como para os recursos AZure AD. 
 
 Se criar contas para os seus parceiros externos no seu diretório no local (por exemplo, criar uma conta com o nome de "wmoran" para um utilizador externo chamado Wendy Moran no seu domínio partners.contoso.com), pode agora sincronizar estas contas na nuvem. Especificamente, pode utilizar o Azure AD Connect para sincronizar as contas do parceiro na nuvem, que cria uma conta de utilizador com o UserType = Guest. Isto permite que os utilizadores do seu parceiro acedam a recursos na nuvem usando as mesmas credenciais que as suas contas locais, sem lhes dar mais acesso do que precisam.
 
 > [!NOTE]
-> Veja também como [convidar utilizadores internos para a colaboração B2B](invite-internal-users.md) (uma funcionalidade de pré-visualização pública). Com esta funcionalidade, pode convidar os utilizadores internos a utilizarem a colaboração B2B, independentemente de terem sincronizado as suas contas desde o seu diretório no local até à nuvem. Assim que o utilizador aceitar o convite para utilizar a colaboração B2B, poderão usar as suas próprias identidades e credenciais para iniciar seduções nos recursos a que pretende aceder. Não precisará de manter senhas ou gerir ciclos de vida de conta.
+> Veja também como [convidar utilizadores internos para a colaboração B2B](invite-internal-users.md). Com esta funcionalidade, pode convidar os utilizadores internos a utilizarem a colaboração B2B, independentemente de terem sincronizado as suas contas desde o seu diretório no local até à nuvem. Assim que o utilizador aceitar o convite para utilizar a colaboração B2B, poderão usar as suas próprias identidades e credenciais para iniciar seduções nos recursos a que pretende aceder. Não precisará de manter senhas ou gerir ciclos de vida de conta.
 
 ## <a name="identify-unique-attributes-for-usertype"></a>Identificar atributos únicos para UserType
 
@@ -45,9 +45,9 @@ Depois de identificar o atributo único, pode configurar o Azure AD Connect para
 
 Para obter instruções de implementação, consulte [Ativar a sincronização do UserType](../hybrid/how-to-connect-sync-change-the-configuration.md#enable-synchronization-of-usertype).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Colaboração B2B do Diretório Ativo Azure para organizações híbridas](hybrid-organizations.md)
-- [Grant B2B utilizadores em Azure AD acesso às suas aplicações no local](hybrid-cloud-to-on-premises.md)
+- [Conceder aos utilizadores B2B no AAD acesso às aplicações no local](hybrid-cloud-to-on-premises.md)
 - Para uma visão geral do Azure AD Connect, consulte [Integrar os seus diretórios no local com o Azure Ative Directory](../hybrid/whatis-hybrid-identity.md).
 

@@ -1,24 +1,26 @@
 ---
-title: Gerir administradores de servidores em Azure Analysis Services / Microsoft Docs
+title: Gerir administradores de servidores em Azure Analysis Services | Microsoft Docs
 description: Este artigo descreve como gerir os administradores de servidores para um servidor Azure Analysis Services utilizando o portal Azure, PowerShell ou REST APIs.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 11/30/2020
+ms.date: 2/4/2021
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9fdd6b6a195d0c6d4c4bf0489a037cb138a23a42
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 62acb526a247362b17c4dfd4e26c52760deecd71
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351729"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99573505"
 ---
 # <a name="manage-server-administrators"></a>Gerir administradores de servidor
 
 Os administradores do servidor devem ser um utilizador válido, principal de serviço ou grupo de segurança no Azure Ative Directory (Azure AD) para o inquilino em que o servidor reside. Pode utilizar **os Administradores de Serviços de Análise** para o seu servidor no portal Azure, Server Properties em SSMS, PowerShell ou REST API para gerir administradores de servidores. 
 
 Ao adicionar um **grupo de segurança,** utilize `obj:groupid@tenantid` . Os principais de serviço não são suportados em grupos de segurança adicionados à função de administrador do servidor.
+
+Para saber mais sobre a adição de um principal de serviço à função de administração do servidor, consulte [Adicionar um principal de serviço à função de administrador do servidor](analysis-services-addservprinc-admins.md).
 
 Se a firewall do servidor estiver ativada, os endereços IP do computador do cliente do administrador do servidor devem ser incluídos numa regra de firewall. Para saber mais, consulte [a firewall do servidor Configure](analysis-services-qs-firewall.md).
 

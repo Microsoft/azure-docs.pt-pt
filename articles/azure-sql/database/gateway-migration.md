@@ -10,19 +10,21 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: c34410fcb5e1992f8b7a358801a354a1e1cf190c
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 01e5095e5ff5c65bff508f4bd526ee5f85e3dc56
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98808011"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575165"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Azure SQL Database migração de tráfego para gateways mais recentes
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 À medida que a infraestrutura Azure melhora, a Microsoft irá atualizar periodicamente hardware para garantir que fornecemos a melhor experiência possível ao cliente. Nos próximos meses, planeamos adicionar gateways construídos sobre as gerações de hardware mais recentes, migrar o tráfego para eles, e eventualmente desativar gateways construídos em hardware mais antigo em algumas regiões.  
 
-Os clientes serão notificados via e-mail e no portal Azure com muita antecedência de qualquer alteração aos gateways disponíveis em cada região. As informações mais atualizadas serão mantidas na tabela de [endereços IP do gateway de gateway Azure SQL.](connectivity-architecture.md#gateway-ip-addresses)
+Os clientes serão notificados através de notificações de saúde de serviço com muito antecedência de qualquer alteração aos gateways disponíveis em cada região. Os clientes podem [utilizar o portal Azure para configurar alertas de registo de atividades.](https://docs.microsoft.com/azure/service-health/alerts-activity-log-service-notifications-portal)
+
+As informações mais atualizadas serão mantidas na tabela de [endereços IP do gateway de gateway Azure SQL.](connectivity-architecture.md#gateway-ip-addresses)
 
 ## <a name="status-updates"></a>Atualizações de estado
 
@@ -148,6 +150,6 @@ As ligações efetuadas a partir de aplicações que utilizam o Controlador Micr
 
 Se a mitigação acima não funcionar, arquive um pedido de suporte para a Base de Dados SQL ou para a SQL Gestão de Instâncias utilizando o seguinte URL: https://aka.ms/getazuresupport
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [a Azure SQL Connectivity Architecture](connectivity-architecture.md)

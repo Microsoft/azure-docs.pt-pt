@@ -4,12 +4,12 @@ description: Saiba como lidar com eventos externos na extensão de Funções Dur
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 3cd04c93d508bd06c4ddd2e05074084202b9fc60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c08306edcea02a9207ab5a15eb62b7fffc2ecb44
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87014944"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576334"
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>Lidar com eventos externos em Funções Duradouras (Funções Azure)
 
@@ -20,7 +20,7 @@ As funções orquestradoras têm a capacidade de esperar e ouvir eventos externo
 
 ## <a name="wait-for-events"></a>Aguarde os eventos
 
-Os métodos [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) (.NET), `waitForExternalEvent` (JavaScript) e `wait_for_external_event` (Python) da [ligação](durable-functions-bindings.md#orchestration-trigger) do gatilho da orquestração permitem que uma função orquestradora aguarde assíncronamente e ouça um evento externo. A função de orquestrador de escuta declara o *nome* do evento e a *forma dos dados* que espera receber.
+Os métodos [WaitForExternalEvent](/dotnet/api/microsoft.azure.webjobs.durableorchestrationcontextbase.waitforexternalevent?view=azure-dotnet-legacy) (.NET), `waitForExternalEvent` (JavaScript) e `wait_for_external_event` (Python) da [ligação](durable-functions-bindings.md#orchestration-trigger) do gatilho da orquestração permitem que uma função orquestradora aguarde assíncronamente e ouça um evento externo. A função de orquestrador de escuta declara o *nome* do evento e a *forma dos dados* que espera receber.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -230,14 +230,14 @@ main = df.Orchestrator.create(orchestrator_function)
 
 ## <a name="send-events"></a>Enviar eventos
 
-Pode utilizar os métodos [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) (.NET) ou `raiseEventAsync` (JavaScript) para enviar um evento externo para uma orquestração. Estes métodos são expostos pela ligação do cliente da [orquestração.](durable-functions-bindings.md#orchestration-client) Também pode utilizar o evento de elevação incorporado [HTTP API](durable-functions-http-api.md#raise-event) para enviar um evento externo para uma orquestração.
+Pode utilizar os métodos [RaiseEventAsync](/dotnet/api/microsoft.azure.webjobs.durableorchestrationclientbase.raiseeventasync?view=azure-dotnet-legacy) (.NET) ou `raiseEventAsync` (JavaScript) para enviar um evento externo para uma orquestração. Estes métodos são expostos pela ligação do cliente da [orquestração.](durable-functions-bindings.md#orchestration-client) Também pode utilizar o evento de elevação incorporado [HTTP API](durable-functions-http-api.md#raise-event) para enviar um evento externo para uma orquestração.
 
 Um evento elevado inclui um *ID de exemplo,* um *nome de eventos,* e *o EventData* como parâmetros. As funções de orquestrador lidam com estes eventos usando as `WaitForExternalEvent` APIs (.NET) ou `waitForExternalEvent` (JavaScript). O *nome do evento* deve coincidir tanto com as extremidades de envio como de receção para que o evento seja processado. Os dados do evento também devem ser serializáveis por JSON.
 
 Internamente, os mecanismos de "raise event" encostam uma mensagem que é captada pela função de orquestrador de espera. Se a instância não estiver à espera do nome especificado do *evento,* a mensagem do evento é adicionada a uma fila de memória. Se a instância de orquestração começar mais tarde a ouvir o nome do *evento,* verificará a fila para obter mensagens de evento.
 
 > [!NOTE]
-> Se não houver qualquer instância de orquestração com o *ID de instância*especificado, a mensagem do evento é descartada.
+> Se não houver qualquer instância de orquestração com o *ID de instância* especificado, a mensagem do evento é descartada.
 
 Abaixo está uma função de exemplo desencadeada por filas que envia um evento de "Aprovação" para uma instância de função orquestradora. A identificação do caso de orquestração vem do corpo da mensagem da fila.
 
@@ -283,7 +283,7 @@ async def main(instance_id:str, starter: str) -> func.HttpResponse:
 Internamente, `RaiseEventAsync` (.NET), `raiseEvent` (JavaScript) ou `raise_event` (Python) encoste uma mensagem que é captada pela função de orquestrador de espera. Se a instância não estiver à espera do nome especificado do *evento,* a mensagem do evento é adicionada a uma fila de memória. Se a instância de orquestração começar mais tarde a ouvir o nome do *evento,* verificará a fila para obter mensagens de evento.
 
 > [!NOTE]
-> Se não houver qualquer instância de orquestração com o *ID de instância*especificado, a mensagem do evento é descartada.
+> Se não houver qualquer instância de orquestração com o *ID de instância* especificado, a mensagem do evento é descartada.
 
 ### <a name="http"></a>HTTP
 

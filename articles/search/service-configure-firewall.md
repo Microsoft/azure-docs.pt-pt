@@ -8,12 +8,12 @@ ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 3e8a94b6b9b71d2d71b634edd70ea4150652b143
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67fa53e565de70d3da0b90e36a968b68d54d667f
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88932802"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99573250"
 ---
 # <a name="configure-ip-firewall-for-azure-cognitive-search"></a>Configure firewall IP para pesquisa cognitiva Azure
 
@@ -31,7 +31,7 @@ Para definir a política de controlo de acesso IP no portal Azure, aceda à sua 
 O portal Azure fornece a capacidade de especificar endereços IP e intervalos de endereços IP no formato CIDR. Um exemplo de notação CIDR é 8.8.8.0/24, que representa os IPs que variam de 8.8.8.0 a 8.8.8.255.
 
 > [!NOTE]
-> Depois de ativar a política de controlo de acesso IP para o seu serviço de Pesquisa Cognitiva Azure, todos os pedidos para o plano de dados de máquinas fora da lista permitida de intervalos de endereços IP são rejeitados. Quando as regras ip são configuradas, algumas características do portal Azure são desativadas. Poderá ver e gerir informações de nível de serviço, mas o acesso do portal aos dados de índice e aos vários componentes do serviço, como as definições de índice, indexador e skillset, é restringido por razões de segurança.
+> Depois de ativar a política de controlo de acesso IP para o seu serviço de Pesquisa Cognitiva Azure, todos os pedidos para o plano de dados de máquinas fora da lista permitida de intervalos de endereços IP são rejeitados. Quando as regras ip são configuradas, algumas características do portal Azure são desativadas. Poderá ver e gerir informações de nível de serviço, mas o acesso do portal aos dados de índice e aos vários componentes do serviço, como as definições de índice, indexador e skillset, é restringido por razões de segurança. Como alternativa ao portal, pode utilizar a [Extensão](https://aka.ms/vscode-search) do Código VS para interagir com os vários componentes do serviço.
 
 ### <a name="requests-from-your-current-ip"></a>Pedidos do seu IP atual
 

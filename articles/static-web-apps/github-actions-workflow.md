@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 5e6188ca2e8e0972e86bed578144a29a96570876
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: acdb635dec5abd73341cc1dda4991b58b82a18c0
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901203"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99574521"
 ---
 # <a name="github-actions-workflows-for-azure-static-web-apps-preview"></a>GitHub Actions fluxos de trabalho para Azure Static Web Apps Preview
 
@@ -38,11 +38,11 @@ name: Azure Static Web Apps CI/CD
 on:
   push:
     branches:
-    - master
+    - main
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
-    - master
+    - main
 
 jobs:
   build_and_deploy_job:
@@ -87,11 +87,11 @@ Um [gatilho](https://help.github.com/actions/reference/events-that-trigger-workf
 on:
   push:
     branches:
-    - master
+    - main
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
-    - master
+    - main
 ```
 
 Através de configurações associadas à `on` propriedade, pode definir quais os ramos que desencadeiam um trabalho, e definir gatilhos para disparar para diferentes estados de pedido de pull.
@@ -107,7 +107,7 @@ No ficheiro de fluxo de trabalho static Web Apps, existem dois empregos disponí
 | Nome  | Descrição |
 |---------|---------|
 |`build_and_deploy_job` | Executa quando empurra comete ou abre um pedido de puxão contra a sucursal listada na `on` propriedade. |
-|`close_pull_request_job` | Executa apenas quando fecha um pedido de puxar que remove o ambiente de encenação criado a partir de pedidos de puxar. |
+|`close_pull_request_job` | Executa apenas quando fecha um pedido de puxar, que remove o ambiente de encenação criado a partir de pedidos de puxar. |
 
 ## <a name="steps"></a>Passos
 
@@ -194,6 +194,53 @@ jobs:
         env: # Add environment variables here
           HUGO_VERSION: 0.58.0
 ```
+
+## <a name="monorepo-support"></a>Suporte monorepo
+
+Um monorepo é um repositório que contém código para mais de uma aplicação. Por predefinição, um ficheiro de fluxo de trabalho estático web apps rastreia todos os ficheiros num repositório, mas pode ajustá-lo para direcionar uma única aplicação. Portanto, para os monorepos, cada site estático tem o seu próprio ficheiro de configuração que vive lado a lado na pasta *.git* do repositório.
+
+```files
+├── .git
+│   ├── azure-static-web-apps-purple-pond.yml
+│   └── azure-static-web-apps-yellow-shoe.yml
+│
+├── app1  👉 controlled by: azure-static-web-apps-purple-pond.yml
+├── app2  👉 controlled by: azure-static-web-apps-yellow-shoe.yml
+│
+├── api1  👉 controlled by: azure-static-web-apps-purple-pond.yml
+├── api2  👉 controlled by: azure-static-web-apps-yellow-shoe.yml
+│
+└── readme.md
+```
+
+Para direcionar um ficheiro de fluxo de trabalho para uma única aplicação, especifica caminhos nas `push` secções e `pull_request` secções.
+
+O exemplo a seguir demonstra como adicionar um `paths` nó às `push` secções e `pull_request` secções de um ficheiro denominado _azure-static-web-apps-purple-pond.yml_.
+
+```yml
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - app1/**
+      - api1/**
+      - .github/workflows/azure-static-web-apps-purple-pond.yml
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    branches:
+      - main
+    paths:
+      - app1/**
+      - api1/**
+      - .github/workflows/azure-static-web-apps-purple-pond.yml
+```
+
+Neste caso, apenas as alterações feitas aos ficheiros após ficheiros desencadeiam uma nova construção:
+
+- Quaisquer ficheiros dentro da pasta *da app1*
+- Quaisquer ficheiros dentro da pasta *api1*
+- Alterações no ficheiro de fluxo de trabalho *azure-static-web-apps-purple-pond.yml*
 
 ## <a name="next-steps"></a>Passos seguintes
 

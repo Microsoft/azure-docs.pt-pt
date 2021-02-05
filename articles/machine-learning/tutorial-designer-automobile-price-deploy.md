@@ -10,17 +10,17 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 01/15/2021
 ms.custom: designer
-ms.openlocfilehash: 6bba5ad17cbb6f1ed72d06b37c6d6af9ebd26495
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: e93f912915303ce903a32ceba4f079593657a4ac
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98246473"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576062"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>Tutorial: Implementar um modelo de machine learning com o designer
 
 
-Pode implementar o modelo preditivo desenvolvido na [parte um do tutorial](tutorial-designer-automobile-price-train-score.md) para dar a outros a oportunidade de usá-lo. Na primeira parte, treinaste o teu modelo. Agora, é hora de gerar novas previsões com base na entrada do utilizador. Nesta parte do tutorial, você:
+Pode implementar o modelo preditivo desenvolvido na [parte um do tutorial](tutorial-designer-automobile-price-train-score.md) para dar a outros a oportunidade de usá-lo. Na primeira parte, treinaste o teu modelo. Agora, é hora de gerar previsões com base na entrada do utilizador. Nesta parte do tutorial, você:
 
 > [!div class="checklist"]
 > * Criar um oleoduto de inferência em tempo real.
@@ -122,21 +122,23 @@ Depois de o seu serviço AKS ter terminado o fornecimento, volte ao gasoduto de 
 > Também pode ser implantado no **Azure Container Instance** (ACI) se selecionar **Azure Container Instance** for **Compute type** na caixa de definição de ponto final em tempo real.
 > A exemplo do recipiente Azure é utilizada para testes ou desenvolvimento. Utilize ACI para cargas de trabalho baseadas em CPU de baixa escala que exijam menos de 48 GB de RAM.
 
-## <a name="view-the-real-time-endpoint"></a>Ver o ponto final em tempo real
+## <a name="test-the-real-time-endpoint"></a>Teste o ponto final em tempo real
 
 Após o fim da implementação, pode ver o seu ponto de chegada em tempo real indo para a página **Endpoints.**
 
 1. Na página **Endpoints,** selecione o ponto final que implementou.
 
-1. No separador **Detalhes,** pode ver mais informações como o REST URI, status e tags.
+    No separador **Detalhes,** pode ver mais informações como o REST URI, definição de Swagger, estado e tags.
 
-1. No separador **Consumir,** pode encontrar chaves de segurança e definir métodos de autenticação.
+    No **separador Consumir,** pode encontrar código de consumo de amostra, chaves de segurança e definir métodos de autenticação.
 
-1. No separador **Registos de Implementação,** pode encontrar os registos de implementação detalhados do seu ponto final em tempo real. 
+    No separador **Registos de Implementação,** pode encontrar os registos de implementação detalhados do seu ponto final em tempo real.
+
+1. Para testar o seu ponto final, vá ao separador **Teste.** A partir daqui, pode introduzir dados de teste e selecionar **Testar** verificar a saída do seu ponto final.
 
 Para obter mais informações sobre o consumo do seu serviço web, consulte [Consumir um modelo implementado como um webservice](how-to-consume-web-service.md)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [aml-ui-cleanup](../../includes/aml-ui-cleanup.md)]
 

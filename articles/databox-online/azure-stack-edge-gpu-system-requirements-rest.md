@@ -1,5 +1,5 @@
 ---
-title: Requisitos de armazenamento do Microsoft Azure Stack Edge Blob/ Microsoft Docs
+title: Requisitos de armazenamento do Microsoft Azure Stack Edge Blob| Microsoft Docs
 description: Conheça as versões suportadas para APIs, SDKs e bibliotecas de clientes para armazenamento Azure Stack Edge Blob
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 10/21/2020
 ms.author: alkohli
-ms.openlocfilehash: f99a3110880626b3a809e6bab5edc02398094547
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 887aaf32592c74a5884916bc7ad63d79544fb554
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426215"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575860"
 ---
 # <a name="azure-stack-edge-blob-storage-requirements"></a>Requisitos de armazenamento Azure Stack Edge Blob
 
@@ -26,7 +26,7 @@ Recomendamos que reveja as informações cuidadosamente antes de ligar ao armaze
 |     Funcionalidade                                             |     Storage do Azure                                     |     Armazenamento Azure Stack Edge Blob |
 |---------------------------------------------------------|-------------------------------------------------------|---------------------------|
 |    Armazenamento de Ficheiros do Azure                                   |    Ações de ficheiro smb baseadas em nuvem suportadas              |    Não suportado      |
-|    Tipo de conta de armazenamento                                 |    Contas de armazenamento de bolhas gerais e Azure    |    Apenas v1 para fins gerais|
+|    Tipo de conta de armazenamento                                 |    Contas de armazenamento geral e Azure Blob    |    Apenas v1 para fins gerais|
 |    Nome do blob                                            |    1.024 caracteres (2.048 bytes)                     |    880 caracteres (1.760 bytes)|
 |    Bloco blob tamanho máximo                              |    4.75 TB (100 MB X 50.000 blocos)                   |    4.75 TB (100 MB x 50.000 blocos) para Azure Stack Edge|
 |    Tamanho máximo da bolha de página                               |    8 TB                                               |    1 TB                   |

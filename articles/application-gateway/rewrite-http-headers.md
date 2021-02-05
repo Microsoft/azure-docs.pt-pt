@@ -1,5 +1,5 @@
 ---
-title: Reescrever cabeçalhos HTTP com Gateway de Aplicação Azure / Microsoft Docs
+title: Reescreva os cabeçalhos HTTP com Azure Application Gateway | Microsoft Docs
 description: Este artigo fornece uma visão geral da reescrita de cabeçalhos HTTP em Azure Application Gateway
 services: application-gateway
 author: vhorne
@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: absha
-ms.openlocfilehash: 3e8eb79d519e2f7bfbf006b852f0c5294976b727
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 7c5b4f0d5d4b153684683963c56b7506e76d963e
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397156"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575658"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Reescrever cabeçalhos HTTP com Gateway de Aplicação
 
@@ -49,14 +49,14 @@ Pode utilizar uma condição para avaliar se uma variável especificada está pr
 Utiliza ações de reescrita para especificar os cabeçalhos de pedido e resposta que pretende reescrever e o novo valor para os cabeçalhos. Pode criar um novo cabeçalho, modificar o valor de um cabeçalho existente ou apagar um cabeçalho existente. O valor de um novo cabeçalho ou de um cabeçalho existente pode ser definido para este tipo de valores:
 
 - Texto.
-- Pedido de cabeçalho. Para especificar um cabeçalho de pedido, é necessário utilizar a sintaxe {http_req_ *nome do cabeçalho* }.
-- O cabeçalho da resposta. Para especificar um cabeçalho de resposta, é necessário utilizar a sintaxe {http_resp_ *nome do cabeçalho* }.
-- Variável do servidor. Para especificar uma variável de servidor, é necessário utilizar a sintaxe {var_ *servidorVariable* }.
+- Pedido de cabeçalho. Para especificar um cabeçalho de pedido, é necessário utilizar a sintaxe {http_req_ *nome do cabeçalho*}.
+- O cabeçalho da resposta. Para especificar um cabeçalho de resposta, é necessário utilizar a sintaxe {http_resp_ *nome do cabeçalho*}.
+- Variável do servidor. Para especificar uma variável de servidor, é necessário utilizar a sintaxe {var_ *servidorVariable*}.
 - Uma combinação de texto, um cabeçalho de pedido, um cabeçalho de resposta e uma variável de servidor.
 
 ## <a name="server-variables"></a>Variáveis de servidor
 
-O Application Gateway utiliza variáveis de servidor para armazenar informações úteis sobre o servidor, a ligação com o cliente e o pedido atual na ligação. Exemplos de informação armazenada incluem o endereço IP do cliente e o tipo de navegador web. As variáveis do servidor mudam dinamicamente, por exemplo, quando uma nova página carrega ou quando um formulário é publicado. Pode utilizar estas variáveis para avaliar as condições de reescrita e reescrever cabeçalhos. Para utilizar o valor das variáveis do servidor para reescrever cabeçalhos, terá de especificar estas variáveis na sintaxe {var_ *servidorVariável* }
+O Application Gateway utiliza variáveis de servidor para armazenar informações úteis sobre o servidor, a ligação com o cliente e o pedido atual na ligação. Exemplos de informação armazenada incluem o endereço IP do cliente e o tipo de navegador web. As variáveis do servidor mudam dinamicamente, por exemplo, quando uma nova página carrega ou quando um formulário é publicado. Pode utilizar estas variáveis para avaliar as condições de reescrita e reescrever cabeçalhos. Para utilizar o valor das variáveis do servidor para reescrever cabeçalhos, terá de especificar estas variáveis na sintaxe {var_ *servidorVariável*}
 
 O gateway de aplicações suporta estas variáveis de servidor:
 
@@ -69,21 +69,21 @@ O gateway de aplicações suporta estas variáveis de servidor:
 | client_port                | O porto do cliente.                                                  |
 | client_tcp_rtt             | Informação sobre a ligação com a TCP do cliente. Disponível em sistemas que suportam a opção de tomada TCP_INFO. |
 | client_user                | Quando é utilizada a autenticação HTTP, o nome de utilizador fornecido para autenticação. |
-| anfitrião                       | Nesta ordem de precedência: o nome de anfitrião da linha de pedido, o nome de anfitrião do campo de cabeçalho de pedido do anfitrião ou o nome do servidor correspondente a um pedido. Exemplo: no *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* pedido, o valor do anfitrião será *contoso.com* |
+| anfitrião                       | Nesta ordem de precedência: o nome de anfitrião da linha de pedido, o nome de anfitrião do campo de cabeçalho de pedido do anfitrião ou o nome do servidor correspondente a um pedido. Exemplo: no `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` pedido, o valor do anfitrião será *contoso.com* |
 | cookie_ *nome*              | O biscoito *de nome.*                                            |
 | http_method                | O método usado para fazer o pedido de URL. Por exemplo, GET ou POST. |
 | http_status                | O estado da sessão. Por exemplo, 200, 400 ou 403.                       |
 | http_version               | O protocolo de pedido. Normalmente HTTP/1.0, HTTP/1.1 ou HTTP/2.0. |
-| query_string               | A lista de pares variáveis/valor que segue o "?" na URL solicitada. Exemplo: no pedido *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* , query_string valor será *id=123&título=fabrikam* |
+| query_string               | A lista de pares variáveis/valor que segue o "?" na URL solicitada. Exemplo: no pedido `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` , query_string valor será *id=123&título=fabrikam* |
 | received_bytes             | A duração do pedido (incluindo a linha de pedido, cabeçalho e corpo de pedido). |
 | request_query              | Os argumentos na linha de pedido.                                |
 | request_scheme             | O sistema de pedidos: http ou https.                            |
-| request_uri                | O pedido original completo URI (com argumentos). Exemplo: no pedido *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* , request_uri valor será */article.aspx?id=123&título=fabrikam*   |
+| request_uri                | O pedido original completo URI (com argumentos). Exemplo: no pedido `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` , request_uri valor será */article.aspx?id=123&título=fabrikam*   |
 | sent_bytes                 | O número de bytes enviados a um cliente.                             |
 | server_port                | A porta do servidor que aceitou um pedido.                 |
 | ssl_connection_protocol    | O protocolo de uma ligação TLS estabelecida.        |
 | ssl_enabled                | "Ligado" se a ligação funcionar no modo TLS. Caso contrário, uma corda vazia. |
-| uri_path                   | Identifica o recurso específico no anfitrião a que o cliente web quer aceder. Esta é a parte do pedido URI sem os argumentos. Exemplo: no *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* pedido, uri_path valor será */article.aspx*  |
+| uri_path                   | Identifica o recurso específico no anfitrião a que o cliente web quer aceder. Esta é a parte do pedido URI sem os argumentos. Exemplo: no `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` pedido, uri_path valor será */artigo.aspx*  |
 
 ## <a name="rewrite-configuration"></a>Reescrever configuração
 
@@ -91,17 +91,17 @@ Para configurar a reescrita do cabeçalho HTTP, é necessário completar estes p
 
 1. Crie os objetos necessários para reescrever o cabeçalho HTTP:
 
-   - **Ação de reescrita** : Usado para especificar os campos de pedido e pedido que pretende reescrever e o novo valor para os cabeçalhos. Pode associar uma ou mais condições de reescrita com uma ação de reescrita.
+   - **Ação de reescrita**: Usado para especificar os campos de pedido e pedido que pretende reescrever e o novo valor para os cabeçalhos. Pode associar uma ou mais condições de reescrita com uma ação de reescrita.
 
-   - **Condição de reescrita** : Uma configuração opcional. As condições de reescrita avaliam o conteúdo dos pedidos e respostas HTTP(S). A ação de reescrita ocorrerá se o pedido http(S) ou a resposta corresponder à condição de reescrita.
+   - **Condição de reescrita**: Uma configuração opcional. As condições de reescrita avaliam o conteúdo dos pedidos e respostas HTTP(S). A ação de reescrita ocorrerá se o pedido http(S) ou a resposta corresponder à condição de reescrita.
 
      Se associar mais do que uma condição a uma ação, a ação ocorre apenas quando todas as condições estão reunidas. Por outras palavras, a operação é uma operação lógica.
 
-   - **Regra de reescrita** : Contém combinações de condição de reescrita múltiplas/ reescrita.
+   - **Regra de reescrita**: Contém combinações de condição de reescrita múltiplas/ reescrita.
 
    - **Sequência de** regras : Ajuda a determinar a ordem pela qual as regras de reescrita executam. Esta configuração é útil quando tem várias regras de reescrita num conjunto de reescrita. Uma regra de reescrita que tem um valor de sequência de regras mais baixo corre primeiro. Se atribuir a mesma sequência de regras a duas regras de reescrita, a ordem de execução não é determinística.
 
-   - **Conjunto de reescrita** : Contém várias regras de reescrita que serão associadas a uma regra de encaminhamento de pedidos.
+   - **Conjunto de reescrita**: Contém várias regras de reescrita que serão associadas a uma regra de encaminhamento de pedidos.
 
 2. Fixe o conjunto de *reescrita (reescreversetset)* a uma regra de encaminhamento. A configuração de reescrita é anexada ao ouvinte de origem através da regra de encaminhamento. Quando utiliza uma regra de encaminhamento básico, a configuração de reescrita do cabeçalho está associada a um ouvinte de origem e é uma reescrita global do cabeçalho. Quando utiliza uma regra de encaminhamento baseada no caminho, a configuração de reescrita do cabeçalho é definida no mapa do caminho URL. Nesse caso, aplica-se apenas à área específica do percurso de um sítio.
    > [!NOTE]

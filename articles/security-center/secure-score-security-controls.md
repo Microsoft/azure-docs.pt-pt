@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 02/03/2021
 ms.author: memildin
 ms.openlocfilehash: bd64ca877f0bfd81597e091ef8ef000ad1b76992
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 02/05/2021
 ms.locfileid: "99526437"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Pontuação de segurança no Centro de Segurança do Azure

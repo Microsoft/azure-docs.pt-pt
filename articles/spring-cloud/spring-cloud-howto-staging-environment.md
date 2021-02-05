@@ -7,31 +7,30 @@ ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 991a335207fc29cef7b243d7e520dd5f62ff691f
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 82a8da9d2663b03d89ad0819ec6d918bebaf5f5e
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99226118"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99574789"
 ---
 # <a name="set-up-a-staging-environment-in-azure-spring-cloud"></a>Crie um ambiente de encenação em Azure Spring Cloud
 
 **Este artigo aplica-se a:** ✔️ Java
 
-Este artigo discute como configurar uma implementação de encenação usando o padrão de implantação azul-verde em Azure Spring Cloud. A implementação azul/verde é um padrão de Entrega Contínua de DevOps do Azure que se baseia em manter uma versão já existente ativa (azul) enquanto é implementada uma nova. Este artigo mostra-lhe como colocar essa encenação em produção sem alterar a implantação da produção diretamente.
+Este artigo explica como configurar uma implementação de encenação usando o padrão de implementação azul-verde em Azure Spring Cloud. A implementação azul-verde é um padrão de entrega contínua Azure DevOps que se baseia em manter uma versão existente (azul) ao vivo, enquanto uma nova (verde) é implementada. Este artigo mostra-lhe como colocar essa encenação em produção sem alterar a implantação da produção.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Exemplo de nuvem de primavera azure com **nível de preços** *padrão* .
-* Um pedido de execução.  Consulte [Quickstart: Implemente a sua primeira aplicação Azure Spring Cloud](spring-cloud-quickstart.md).
-* [Extensão Azure](https://docs.microsoft.com/cli/azure/azure-cli-extensions-overview) CLI asc
+* Exemplo de nuvem de primavera azure no **nível de preços** *padrão* .
+* Extensão da nuvem de primavera Azure CLI [Azure](https://docs.microsoft.com/cli/azure/azure-cli-extensions-overview)
 
-Se quiser utilizar uma aplicação diferente para este exemplo, tem de fazer uma simples alteração numa parte virada para o público da aplicação.  Esta alteração diferencia a sua colocação de produção.
+Este artigo utiliza uma aplicação construída a partir do Inicializador de Mola. Se quiser utilizar uma aplicação diferente para este exemplo, terá de fazer uma simples alteração numa parte virada para o público da aplicação para diferenciar a sua produção.
 
 >[!TIP]
 > AZure Cloud Shell é uma concha interativa gratuita que pode usar para executar as instruções neste artigo.  Tem ferramentas Azure comuns e pré-instaladas, incluindo as versões mais recentes de Git, JDK, Maven e o Azure CLI. Se tiver assinado a sua subscrição Azure, inicie a sua [Azure Cloud Shell](https://shell.azure.com).  Para saber mais, consulte [a visão geral da Azure Cloud Shell.](../cloud-shell/overview.md)
 
-Para configurar um ambiente de preparação em Azure Spring Cloud, siga as instruções nas secções seguintes.
+Para configurar as colocações verde-azuladas na Nuvem de primavera de Azure, siga as instruções nas secções seguintes.
 
 ## <a name="install-the-azure-cli-extension"></a>Instale a extensão Azure CLI
 
@@ -40,18 +39,77 @@ Instale a extensão Azure Spring Cloud para o Azure CLI utilizando o seguinte co
 ```azurecli
 az extension add --name spring-cloud
 ```
-    
+## <a name="prepare-app-and-deployments"></a>Preparar aplicativos e implementações
+Para construir a aplicação siga estes passos:
+1. Gere o código para a aplicação da amostra utilizando o Inicializador primavera com [esta configuração](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.4.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-starter-sleuth,cloud-starter-zipkin,cloud-config-client).
+
+2. Descarregue o código.
+3. Adicione o seguinte ficheiro de origem HelloController.java à pasta `\src\main\java\com\example\hellospring\` .
+```java
+package com.example.hellospring; 
+import org.springframework.web.bind.annotation.RestController; 
+import org.springframework.web.bind.annotation.RequestMapping; 
+
+@RestController 
+
+public class HelloController { 
+
+@RequestMapping("/") 
+
+  public String index() { 
+
+      return "Greetings from Azure Spring Cloud!"; 
+  } 
+
+} 
+```
+4. Construa o ficheiro .jar:
+```azurecli
+mvn clean packge -DskipTests
+```
+5. Crie a aplicação no seu exemplo Azure Spring Cloud:
+```azurecli
+az spring-cloud app create -n demo -g <resourceGroup> -s <Azure Spring Cloud instance> --is-public
+```
+6. Implementar a aplicação para Azure Spring Cloud:
+```azurecli
+az spring-cloud app deploy -n demo -g <resourceGroup> -s <Azure Spring Cloud instance> --jar-path target\hellospring-0.0.1-SNAPSHOT.jar
+```
+7. Modifique o código para a sua colocação de encenação:
+```java
+package com.example.hellospring; 
+import org.springframework.web.bind.annotation.RestController; 
+import org.springframework.web.bind.annotation.RequestMapping; 
+
+@RestController 
+
+public class HelloController { 
+
+@RequestMapping("/") 
+
+  public String index() { 
+
+      return "Greetings from Azure Spring Cloud! THIS IS THE GREEN DEPLOYMENT"; 
+  } 
+
+} 
+```
+8. Reconstruir o ficheiro .jar:
+```azurecli
+mvn clean packge -DskipTests
+```
+9. Criar a implantação verde: 
+```azurecli
+az spring-cloud app deployment create -n green --app demo -g <resourceGroup> -s <Azure Spring Cloud instance> --jar-path target\hellospring-0.0.1-SNAPSHOT.jar 
+```
+
 ## <a name="view-apps-and-deployments"></a>Ver aplicativos e implementações
 
 Ver aplicações implementadas utilizando os seguintes procedimentos.
 
 1. Vá ao seu exemplo de Azure Spring Cloud no portal Azure.
 
-1. A partir do painel de navegação à **esquerda, as implementações**.
-
-    [![Deprecação de implantação](media/spring-cloud-blue-green-staging/deployments.png)](media/spring-cloud-blue-green-staging/deployments.png)
-
-1. Abra a lâmina "Apps" para ver aplicativos para a sua instância de serviço.
+1. A partir do painel de navegação à esquerda abra a lâmina "Apps" para ver aplicativos para a sua instância de serviço.
 
     [![Apps-dashboard](media/spring-cloud-blue-green-staging/app-dashboard.png)](media/spring-cloud-blue-green-staging/app-dashboard.png)
 
@@ -59,43 +117,16 @@ Ver aplicações implementadas utilizando os seguintes procedimentos.
 
     [![Visão geral de apps](media/spring-cloud-blue-green-staging/app-overview.png)](media/spring-cloud-blue-green-staging/app-overview.png)
 
-1. Abra a lâmina **de Implementações** para ver todas as implementações da aplicação. A grelha de implantação mostra se a implantação é produção ou encenação.
+1. **Open Deployments** para ver todas as implementações da aplicação. A grelha mostra tanto as implantações de produção como de encenação.
 
-    [![Painel de implementações](media/spring-cloud-blue-green-staging/deployments-dashboard.png)](media/spring-cloud-blue-green-staging/deployments-dashboard.png)
+    [![Painel de aplicações/implementações](media/spring-cloud-blue-green-staging/deployments-dashboard.png)](media/spring-cloud-blue-green-staging/deployments-dashboard.png)
 
-1. Pode clicar no nome da implementação para visualizar a visão geral da implementação. Neste caso, a única implementação é denominada *Padrão*.
-
-    [![Visão geral das implementações](media/spring-cloud-blue-green-staging/deployments-overview.png)](media/spring-cloud-blue-green-staging/deployments-overview.png)
-    
-
-## <a name="create-a-staging-deployment"></a>Criar uma implementação de encenação
-
-1. No seu ambiente de desenvolvimento local, faça uma pequena modificação na sua aplicação. Ao fazê-lo, permite-lhe diferenciar facilmente as duas implementações. Para construir o pacote de frascos, executar o seguinte comando: 
-
-    ```console
-    mvn clean package -DskipTests
-    ```
-
-1. No CLI Azure, crie uma nova implantação, e dê-lhe o nome de implementação de encenação "verde".
-
-    ```azurecli
-    az spring-cloud app deployment create -g <resource-group-name> -s <service-instance-name> --app <appName> -n green --jar-path gateway/target/gateway.jar
-    ```
-
-1. Após o acabamento da implementação do CLI com sucesso, aceda à página da aplicação a partir do Painel de **Aplicações** e veja todas as suas instâncias no separador **Implementações** à esquerda.
-
-   [![Implementa painel de instrumentos após implantação verde](media/spring-cloud-blue-green-staging/deployments-dashboard-2.png)](media/spring-cloud-blue-green-staging/deployments-dashboard-2.png)
-
-  
-> [!NOTE]
-> O estado de descoberta é *OUT_OF_SERVICE* para que o tráfego não seja encaminhado para esta implementação antes que a verificação esteja completa.
-
-## <a name="verify-the-staging-deployment"></a>Verifique a implantação da encenação
-
-Para verificar se o desenvolvimento da encenação verde está a funcionar:
-1. ir para **Implementações** e clicar na `green` **implementação de Encenação**.
-1. A partir da página **'Vista Geral',** clique no ponto final do **Teste.**
-1. Isto abrirá a construção da encenação mostrando as suas alterações.
+1. Clique no URL para abrir a aplicação atualmente implantada.
+    ![URL implantado](media/spring-cloud-blue-green-staging/running-blue-app.png)
+1. Clique em **Produção** na coluna **Do Estado** para ver a aplicação predefinida.
+    ![Execução padrão](media/spring-cloud-blue-green-staging/running-default-app.png)
+1. Clique em **Staging** na coluna **State** para ver a aplicação de encenação.
+    ![Execução de encenação](media/spring-cloud-blue-green-staging/running-staging-app.png)
 
 >[!TIP]
 > * Confirme que o seu ponto final de teste termina com um corte (/) para garantir que o ficheiro CSS está carregado corretamente.  
@@ -105,20 +136,18 @@ Para verificar se o desenvolvimento da encenação verde está a funcionar:
 > As definições do servidor Config aplicam-se tanto ao ambiente de preparação como à produção. Por exemplo, se definir o caminho de contexto () para o `server.servlet.context-path` seu gateway de aplicações no servidor config como *algum caminho,* o caminho para a sua implementação verde muda para "https:// \<username> : \<password> @ \<cluster-name> .test.azureapps.io/gateway/green/somepath/...".
  
  Se visitar o seu portal de aplicações virado para o público neste momento, deverá ver a página antiga sem a sua nova alteração.
-    
+
 ## <a name="set-the-green-deployment-as-the-production-environment"></a>Definir a implantação verde como o ambiente de produção
 
-1. Depois de verificar a sua mudança no seu ambiente de encenação, pode empurrá-la para a produção. Voltar à **gestão da Implementação**, e selecione a aplicação atualmente em `Production` .
+1. Depois de verificar a sua mudança no seu ambiente de encenação, pode empurrá-la para a produção. Na  / página **Implementações de Aplicações,** selecione a aplicação atualmente em `Production` .
 
-1. Clique nas elipses após o **estado de Registo** e desempate a construção da produção para `staging` .
+1. Clique nas elipses após o estado de **registo** da implantação verde e desempate a construção da encenação para a produção. 
 
-   [![Implementações definem a implementação da encenação](media/spring-cloud-blue-green-staging/set-staging-deployment.png)](media/spring-cloud-blue-green-staging/set-staging-deployment.png)
+   [![Definir produção para encenar](media/spring-cloud-blue-green-staging/set-staging-deployment.png)](media/spring-cloud-blue-green-staging/set-staging-deployment.png)
 
-1. Volte à página **de gestão de implementação.** Desa `green` estação para `production` . Quando a definição terminar, o seu `green` estado de implantação deve aparecer .  Esta é agora a construção da produção em execução.
+1. Agora o URL da aplicação deve apresentar as suas alterações.
 
-   [![Implementações definem o resultado da implementação da fase](media/spring-cloud-blue-green-staging/set-staging-deployment-result.png)](media/spring-cloud-blue-green-staging/set-staging-deployment-result.png)
-
-1. O URL da aplicação deve apresentar as suas alterações.
+   ![Encenação agora em implantação](media/spring-cloud-blue-green-staging/new-production-deployment.png)
 
 >[!NOTE]
 > Depois de definir a implantação verde como ambiente de produção, a implantação anterior torna-se a colocação de encenação.

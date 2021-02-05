@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 03/22/2020
 ms.author: banders
-ms.openlocfilehash: 1c038e896a9f9fc65c3b2201b3e763e966285c56
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
-ms.translationtype: HT
+ms.openlocfilehash: 1dec8253d785973aa900434c10f85ec0a63e0599
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684682"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99574877"
 ---
 # <a name="how-a-reservation-discount-is-applied"></a>Como é aplicado um desconto de reserva
 
@@ -48,7 +48,7 @@ Planos do serviço:
 
 Leia os artigos seguintes que se aplicam a si para saber de que forma é que os descontos se aplicam a um serviço específico do Azure:
 
-- [Serviço de Aplicações](reservation-discount-app-service-isolated-stamp.md)
+- [Serviço de Aplicações](reservation-discount-app-service.md)
 - [Cache do Azure para Redis](understand-azure-cache-for-redis-reservation-charges.md)
 - [BD do Cosmos](understand-cosmosdb-reservation-charges.md)
 - [Database for MariaDB](understand-reservation-charges-mariadb.md)
