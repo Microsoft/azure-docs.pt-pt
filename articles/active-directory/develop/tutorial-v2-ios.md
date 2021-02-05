@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Criar uma aplicação para iOS ou macOS que utilize a plataforma de identidade da Microsoft para autenticação Rio Azure'
+title: 'Tutorial: Criar uma aplicação para iOS ou macOS que utilize a plataforma de identidade da Microsoft para autenticação | Rio Azure'
 titleSuffix: Microsoft identity platform
 description: Neste tutorial, você constrói uma aplicação iOS ou macOS que utiliza a plataforma de identidade da Microsoft para assinar nos utilizadores e obter um token de acesso para ligar para a API do Microsoft Graph em seu nome.
 services: active-directory
@@ -13,12 +13,12 @@ ms.date: 09/18/2020
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: c9e4997ad08f2dd1d96dd442f80ad4203abf6261
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 5734844d91e95fe7d4081e5986095934ea02b4fd
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98015891"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584285"
 ---
 # <a name="tutorial-sign-in-users-and-call-microsoft-graph-from-an-ios-or-macos-app"></a>Tutorial: Inscreva-se nos utilizadores e ligue para o Microsoft Graph a partir de uma aplicação para iOS ou macOS
 
@@ -155,7 +155,7 @@ var webViewParameters : MSALWebviewParameters?
 var currentAccount: MSALAccount?
 ```
 
-O único valor que precisa de modificar acima é o valor atribuído `kClientID` para ser o seu [ID de aplicação.](./developer-glossary.md#application-id-client-id) Este valor faz parte dos dados de Configuração MSAL que guardou durante o passo no início deste tutorial para registar a aplicação no portal Azure.
+O único valor que modifica acima é o valor atribuído `kClientID` para ser o seu [ID de aplicação.](./developer-glossary.md#application-id-client-id) Este valor faz parte dos dados de Configuração MSAL que guardou durante o passo no início deste tutorial para registar a aplicação no portal Azure.
 
 ## <a name="configure-xcode-project-settings"></a>Configurar definições de projeto xcode
 
@@ -853,7 +853,7 @@ A primeira vez que um utilizador entra na sua aplicação, será solicitado pela
 
 Depois de iniciar sposição, a aplicação apresentará os dados devolvidos a partir do ponto final do Microsoft `/me` Graph.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre a construção de aplicações móveis que chamem APIs web protegidas na nossa série de cenários multi-partes.
 

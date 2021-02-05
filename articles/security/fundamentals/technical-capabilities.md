@@ -2,20 +2,21 @@
 title: Capacidades técnicas de segurança em Azure - Microsoft Azure
 description: Introdução aos serviços de segurança em Azure que o ajudam a proteger dados, recursos e aplicações na nuvem.
 services: security
-author: terrylanfear
+author: TerryLanfear
+manager: rkarlin
 ms.assetid: ''
 ms.service: security
 ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2020
+ms.date: 02/04/2021
 ms.author: terrylan
-ms.openlocfilehash: 353b1708a1c6014f9108ad2be62f22c1e0b0604c
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 6e0642a2124d58bb3af483313ac824568b6bbb39
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99092773"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99585148"
 ---
 # <a name="azure-security-technical-capabilities"></a>Capacidades técnicas da segurança do Azure
 Este artigo fornece uma introdução aos serviços de segurança em Azure que o ajudam a proteger os seus dados, recursos e aplicações na nuvem e a atender às necessidades de segurança do seu negócio.
@@ -431,20 +432,6 @@ O Resource Manager oferece várias vantagens:
 > [!Note]
 > O Resource Manager proporciona uma nova forma de implementar e gerir as suas soluções. Se utilizou o modelo de implementação anterior e quer saber das alterações, consulte a [Implementação do Gestor de Recursos compreensivo e a implementação clássica](../../azure-resource-manager/management/deployment-models.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-step"></a>Passo seguinte
 
-Saiba mais sobre segurança lendo alguns dos nossos tópicos de segurança aprofundados:
-
-- [Auditoria e registo](https://www.microsoft.com/en-us/trustcenter/security/auditingandlogging)
-
-- [Cibercrime](https://www.microsoft.com/en-us/trustcenter/security/cybercrime)
-
-- [Conceção e segurança operacional](https://www.microsoft.com/en-us/trustcenter/security/designopsecurity)
-
-- [Encriptação](https://www.microsoft.com/en-us/trustcenter/security/encryption)
-
-- [Gestão de identidades e acessos](https://www.microsoft.com/en-us/trustcenter/security/identity)
-
-- [Segurança da rede](https://www.microsoft.com/en-us/trustcenter/security/networksecurity)
-
-- [Gestão de ameaças](https://www.microsoft.com/en-us/trustcenter/security/threatmanagement)
+O programa [Azure Security Benchmark](../benchmarks/introduction.md) inclui uma coleção de recomendações de segurança que pode usar para ajudar a proteger os serviços que utiliza no Azure.

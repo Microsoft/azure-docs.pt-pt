@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: bbcebfd69789eb6ec03e565b347d05533043781c
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 4c4158fe9c976ca214409ef4c0c9833c610ee34c
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232340"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584335"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Tutorial: Ligue para a Microsoft Graph API a partir de uma aplicação Universal Windows Platform (UWP)
 
@@ -48,7 +48,7 @@ Este guia cria uma aplicação UWP de amostra que consulta a API do Gráfico mic
 
 Este guia utiliza o seguinte pacote NuGet:
 
-|Biblioteca|Descrição|
+|Biblioteca|Description|
 |---|---|
 |[Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)| Biblioteca de Autenticação da Microsoft|
 |[Microsoft.Graph](https://www.nuget.org/packages/Microsoft.Graph)|Biblioteca do cliente do Microsoft Graph|
@@ -292,7 +292,7 @@ private async void SignOutButton_Click(object sender, RoutedEventArgs e)
     }
 ```
 
-MSAL.NET usa métodos assíncronos para adquirir fichas ou manipular contas. Tens de apoiar as ações de UI na linha de UI. Esta é a razão da `Dispatcher.RunAsync` chamada e as precauções para `ConfigureAwait(false)` ligar.
+MSAL.NET usa métodos assíncronos para adquirir fichas ou manipular contas. Como tal, apoie as ações de UI na linha UI. Esta é a razão da `Dispatcher.RunAsync` chamada e as precauções para `ConfigureAwait(false)` ligar.
 
 #### <a name="more-information-about-signing-out"></a>Mais informações sobre a assinatura<a name="more-information-on-sign-out"></a>
 
@@ -343,7 +343,7 @@ private async Task DisplayMessageAsync(string message)
 
 ## <a name="register-your-application"></a>Registar a aplicação
 
-Agora tem de registar a sua candidatura:
+Agora, registe a sua candidatura:
 
 1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>.
 1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino no qual pretende registar uma candidatura.

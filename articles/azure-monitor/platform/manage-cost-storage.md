@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 12/24/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 45f02850797582f97220e91d1582b04b3be711c0
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 0fb4cce8eca2516957c394635e3dab2dbf282385
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882488"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584486"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gerir a utilização e os custos com Registos do Azure Monitor    
 
@@ -152,7 +152,7 @@ Os espaços de trabalho com retenção de 30 dias podem conservar dados durante 
 
 Dois tipos de dados `Usage` são `AzureActivity` retidos por um mínimo de 90 dias por defeito, e não há nenhuma taxa para esta retenção de 90 dias. Se a retenção do espaço de trabalho for aumentada acima dos 90 dias, a retenção destes tipos de dados também será aumentada.  Estes tipos de dados também estão isentos de encargos de ingestão de dados. 
 
-Os tipos de dados dos recursos de Insights de Aplicação baseados no espaço de trabalho ( `AppAvailabilityResults` , `AppBrowserTimings` e - também `AppDependencies` são `AppExceptions` `AppEvents` `AppMetrics` `AppPageViews` `AppPerformanceCounters` `AppRequests` `AppSystemEvents` `AppTraces` mantidos por 90 dias por padrão, e não há nenhuma taxa para esta retenção de 90 dias. A sua retenção pode ser ajustada utilizando a funcionalidade de tipo de dados. 
+Os tipos de dados dos recursos de Insights de Aplicação baseados no espaço de trabalho ( `AppAvailabilityResults` , , e `AppBrowserTimings` - também `AppDependencies` são `AppExceptions` `AppEvents` `AppMetrics` `AppPageViews` `AppPerformanceCounters` `AppRequests` `AppSystemEvents` `AppTraces` mantidos por 90 dias por padrão, e não há nenhuma taxa para esta retenção de 90 dias. A sua retenção pode ser ajustada utilizando a funcionalidade de tipo de dados. 
 
 Tenha em atenção que a [API de remoção](/rest/api/loganalytics/workspacepurge/purge) do Log Analytics não afeta a faturação de retenção e destina-se a ser utilizada em casos muito limitados. Para reduzir a sua conta de retenção, o período de retenção deve ser reduzido quer para o espaço de trabalho, quer para tipos de dados específicos. 
 
@@ -304,7 +304,7 @@ find where TimeGenerated > ago(24h) project _BilledSize, Computer
 
 ### <a name="nodes-billed-by-the-legacy-per-node-pricing-tier"></a>Nódes faturados pelo nível de preços de Per Node
 
-O [legado Per Node preços de nós](#legacy-pricing-tiers) com granularidade horária e também não conta nós apenas enviando um conjunto de tipos de dados de segurança. A sua contagem diária de nódes seria próxima da seguinte consulta:
+O [legado Per Node preços de preços de preços](#legacy-pricing-tiers) de nós com granularidade horária e também não conta nós apenas enviando um conjunto de tipos de dados de segurança. A sua contagem diária de nódes seria próxima da seguinte consulta:
 
 ```kusto
 find where TimeGenerated >= startofday(ago(7d)) and TimeGenerated < startofday(now()) project Computer, _IsBillable, Type, TimeGenerated
@@ -420,10 +420,9 @@ find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillabl
 Para dados de nójados hospedados no Azure, você pode obter o **tamanho** de dados ingeridos __por subscrição Azure,__ use a `_SubscriptionId` propriedade como:
 
 ```kusto
-find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillable
+find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillable, _SubscriptionId
 | where _IsBillable == true 
-| summarize BillableDataBytes = sum(_BilledSize) by _ResourceId
-| summarize BillableDataBytes = sum(BillableDataBytes) by _SubscriptionId | sort by BillableDataBytes nulls last
+| summarize BillableDataBytes = sum(_BilledSize) by _SubscriptionId | sort by BillableDataBytes nulls last
 ```
 
 Para obter volume de dados por grupo de recursos, pode `_ResourceId` analisar:

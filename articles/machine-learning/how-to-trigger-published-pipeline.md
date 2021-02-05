@@ -7,19 +7,19 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: laobri
 author: lobrien
-ms.date: 12/16/2020
+ms.date: 01/29/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: a006dfd4f78f90ed323e5780b173cffb6daeac4a
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 56a3183e259a0b1c661dfe84d5e47c4c221e5d48
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881742"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584872"
 ---
-# <a name="trigger-machine-learning-pipelines-with-azure-machine-learning-sdk-for-python"></a>Pipelines de aprendizagem de máquina de gatilho com Azure Machine Learning SDK para Python
+# <a name="trigger-machine-learning-pipelines"></a>Gasodutos de aprendizagem de máquinas de gatilho
 
-Neste artigo, você vai aprender a programar programáticamente um oleoduto para executar em Azure. Pode optar por criar um horário baseado no tempo decorrido ou em alterações no sistema de ficheiros. Os horários baseados no tempo podem ser usados para tratar de tarefas rotineiras, tais como monitorização para a deriva de dados. Os horários baseados em alterações podem ser usados para reagir a alterações irregulares ou imprevisíveis, tais como novos dados a serem carregados ou dados antigos a serem editados. Depois de aprender a criar horários, aprenderá a recuperá-los e desativá-los. Finalmente, você vai aprender a usar uma App Azure Logic para permitir uma lógica ou comportamento mais complexo.
+Neste artigo, você vai aprender a programar programáticamente um oleoduto para executar em Azure. Pode criar um horário baseado no tempo decorrido ou em alterações no sistema de ficheiros. Os horários baseados no tempo podem ser usados para tratar de tarefas rotineiras, tais como monitorização para a deriva de dados. Os horários baseados em alterações podem ser usados para reagir a alterações irregulares ou imprevisíveis, tais como novos dados a serem carregados ou dados antigos a serem editados. Depois de aprender a criar horários, aprenderá a recuperá-los e desativá-los. Finalmente, você vai aprender a usar outros serviços Azure, Azure Logic App e Azure Data Factory, para executar oleodutos. Uma App Azure Logic permite uma lógica ou comportamento de desencadeamento mais complexo. Os oleodutos Azure Data Factory permitem-lhe chamar um oleoduto de aprendizagem automática como parte de um oleoduto de orquestração de dados maior.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -29,7 +29,7 @@ Neste artigo, você vai aprender a programar programáticamente um oleoduto para
 
 * Um espaço de trabalho de Machine Learning com um oleoduto publicado. Você pode usar o construído em [Criar e executar gasodutos de aprendizagem automática com Azure Machine Learning SDK](./how-to-create-machine-learning-pipelines.md).
 
-## <a name="initialize-the-workspace--get-data"></a>Inicialize o espaço de trabalho & obter dados
+## <a name="trigger-pipelines-with-azure-machine-learning-sdk-for-python"></a>Gasodutos com Azure Machine Learning SDK para Python
 
 Para agendar um oleoduto, você precisará de uma referência ao seu espaço de trabalho, o identificador do seu oleoduto publicado, e o nome da experiência em que deseja criar o horário. Pode obter estes valores com o seguinte código:
 
@@ -81,7 +81,7 @@ recurring_schedule = Schedule.create(ws, name="MyRecurringSchedule",
 
 ### <a name="create-a-change-based-schedule"></a>Criar um horário baseado em alterações
 
-Os oleodutos que são desencadeados por alterações de ficheiros podem ser mais eficientes do que os horários baseados no tempo. Por exemplo, pode querer executar um passo de pré-processamento quando um ficheiro é alterado, ou quando um novo ficheiro é adicionado a um diretório de dados. Pode monitorizar quaisquer alterações a uma datastore ou alterações dentro de um diretório específico dentro da datastore. Se monitorizar um diretório específico, as alterações dentro das subdiretivas desse diretório _não_ desencadearão uma execução.
+Os oleodutos que são desencadeados por alterações de ficheiros podem ser mais eficientes do que os horários baseados no tempo. Quando pretender fazer algo antes de um ficheiro ser alterado, ou quando um novo ficheiro é adicionado a um diretório de dados, pode pré-processar esse ficheiro. Pode monitorizar quaisquer alterações a uma datastore ou alterações dentro de um diretório específico dentro da datastore. Se monitorizar um diretório específico, as alterações dentro das subdiretivas desse diretório _não_ desencadearão uma execução.
 
 Para criar um ficheiro `Schedule` reativo, tem de definir o parâmetro na chamada para `datastore` [Agendar.criar](/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedule?preserve-view=true&view=azure-ml-py#&preserve-view=truecreate-workspace--name--pipeline-id--experiment-name--recurrence-none--description-none--pipeline-parameters-none--wait-for-provisioning-false--wait-timeout-3600--datastore-none--polling-interval-5--data-path-parameter-name-none--continue-on-step-failure-none--path-on-datastore-none---workflow-provider-none---service-endpoint-none-). Para monitorizar uma pasta, desate o `path_on_datastore` argumento.
 
@@ -104,7 +104,7 @@ Além dos argumentos discutidos anteriormente, pode definir o `status` argumento
 
 No seu navegador Web, navegue para Azure Machine Learning. A partir da secção **ponto final** do painel de navegação, escolha **pontos finais do Pipeline**. Isto leva-o a uma lista dos oleodutos publicados no Espaço de Trabalho.
 
-![Página de gasodutos de AML](./media/how-to-trigger-published-pipeline/scheduled-pipelines.png)
+:::image type="content" source="./media/how-to-trigger-published-pipeline/scheduled-pipelines.png" alt-text="Página de gasodutos de AML":::
 
 Nesta página pode ver informações resumidas sobre todos os oleodutos no Espaço de Trabalho: nomes, descrições, estado e assim por diante. Faça um broco clicando no seu oleoduto. Na página resultante, há mais detalhes sobre o seu oleoduto e pode perfurar em corridas individuais.
 
@@ -161,23 +161,23 @@ Uma vez que a sua App Lógica tenha sido aprovisionada, utilize estes passos par
 
 1. Navegue para a vista do Designer de Aplicativos Lógicas lógica e selecione o modelo de App Blank Logic. 
     > [!div class="mx-imgBorder"]
-    > ![Modelo em branco](media/how-to-trigger-published-pipeline/blank-template.png)
+    > :::image type="content" source="media/how-to-trigger-published-pipeline/blank-template.png" alt-text="Modelo em branco":::
 
 1. No Designer, procure **por bolhas.** Selecione o gatilho **Quando uma bolha é adicionada ou modificada (apenas propriedades)** e adicione este gatilho à sua App Lógica.
     > [!div class="mx-imgBorder"]
-    > ![Adicionar acionador](media/how-to-trigger-published-pipeline/add-trigger.png)
+    > :::image type="content" source="media/how-to-trigger-published-pipeline/add-trigger.png" alt-text="Adicionar acionador":::
 
 1. Preencha as informações de ligação para a conta de armazenamento Blob que deseja monitorizar para adições ou modificações blob. Selecione o Recipiente para monitorizar. 
  
     Escolha o **Intervalo** e **a Frequência** para fazer sondagem para obter atualizações que funcionem para si.  
 
     > [!NOTE]
-    > Este gatilho monitorizará o recipiente selecionado, mas não monitorizará as sub-dobradeiras.
+    > Este gatilho irá monitorizar o recipiente selecionado, mas não monitoriza as sub-dobradeiras.
 
 1. Adicione uma ação HTTP que será executada quando for detetada uma bolha nova ou modificada. Selecione **+ Novo Passo,** em seguida, procure e selecione a ação HTTP.
 
   > [!div class="mx-imgBorder"]
-  > ![Pesquisa rumo à ação HTTP](media/how-to-trigger-published-pipeline/search-http.png)
+  > :::image type="content" source="media/how-to-trigger-published-pipeline/search-http.png" alt-text="Pesquisa rumo à ação HTTP":::
 
   Utilize as seguintes definições para configurar a sua ação:
 
@@ -208,14 +208,20 @@ Uma vez que a sua App Lógica tenha sido aprovisionada, utilize estes passos par
     Utilize o `DataStoreName` seu espaço de trabalho como [pré-requisito.](#prerequisites)
      
     > [!div class="mx-imgBorder"]
-    > ![Definições HTTP](media/how-to-trigger-published-pipeline/http-settings.png)
+    > :::image type="content" source="media/how-to-trigger-published-pipeline/http-settings.png" alt-text="Definições HTTP":::
 
 1. **Selecione Save** e a sua agenda está agora pronta.
 
 > [!IMPORTANT]
 > Se estiver a utilizar o controlo de acesso baseado em funções (Azure RBAC) para gerir o acesso ao seu pipeline, [desajeitar as permissões para o seu cenário de pipeline (treino ou pontuação)](how-to-assign-roles.md#common-scenarios).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="call-machine-learning-pipelines-from-azure-data-factory-pipelines"></a>Pipelines de aprendizagem de máquinas de chamada a partir de oleodutos Azure Data Factory
+
+Num oleoduto Azure Data Factory, a atividade do *Pipeline Machine Learning Execute* executa um oleoduto Azure Machine Learning. Pode encontrar esta atividade na página de autoria da Data Factory na categoria *Machine Learning:*
+
+:::image type="content" source="media/how-to-trigger-published-pipeline/azure-data-factory-pipeline-activity.png" alt-text="Screenshot mostrando a atividade do gasoduto ML no ambiente de autoria da Azure Data Factory":::
+
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, você usou o Azure Machine Learning SDK para Python para agendar um oleoduto de duas maneiras diferentes. Um horário repete-se com base na hora do relógio decorrido. O outro horário é executado se um ficheiro for modificado num determinado `Datastore` ou dentro de um diretório nessa loja. Viu como usar o portal para examinar o oleoduto e as corridas individuais. Aprendeu a desativar um horário para que o oleoduto deixe de funcionar. Finalmente, criou uma App Azure Logic para desencadear um oleoduto. 
 

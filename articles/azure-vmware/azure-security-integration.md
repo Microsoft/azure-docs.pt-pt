@@ -2,13 +2,13 @@
 title: Proteja o seu VMS de Solução VMware Azure com integração do Centro de Segurança Azure
 description: Aprenda a proteger os seus VMS Azure VMware Solution com as ferramentas de segurança nativas da Azure a partir de um único dashboard no Azure Security Center.
 ms.topic: how-to
-ms.date: 11/06/2020
-ms.openlocfilehash: 66270c5abef48f9d9f30ed1b262a6b4f2f8144c8
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.date: 02/04/2021
+ms.openlocfilehash: 58cfa1e8e7faa56675d966f86d3b390e52acec27
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99061469"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584962"
 ---
 # <a name="protect-your-azure-vmware-solution-vms-with-azure-security-center-integration"></a>Proteja o seu VMS de Solução VMware Azure com integração do Centro de Segurança Azure
 
@@ -36,7 +36,12 @@ Pode configurar o espaço de trabalho Log Analytics com o Azure Sentinel para de
 
 - Os serviços nativos do Azure podem ser utilizados para a segurança do ambiente híbrido em Azure, Azure VMware Solution e serviços no local.
 - Utilizando um espaço de trabalho Log Analytics, pode recolher os dados ou os registos num único ponto e apresentar os mesmos dados a diferentes serviços nativos do Azure.
-- O Azure Security Center fornece funcionalidades de segurança como monitorização da integridade do ficheiro, deteção de ataques sem ficheiros, avaliação de patch do sistema operativo, avaliação de erros de segurança e avaliação da proteção de pontos finais.
+- O Azure Security Center oferece uma série de funcionalidades, incluindo:
+    - Monitorização da integridade do ficheiro
+    - Deteção de ataque sem ficheiros
+    - Avaliação do patch do sistema operativo 
+    - Avaliação de erros de segurança
+    - Avaliação da proteção do ponto final
 - Azure Sentinel permite-lhe:
     - Recolha dados em escala de nuvem em todos os utilizadores, dispositivos, aplicações e infraestruturas, tanto nas instalações como em várias nuvens.
     - Detetar ameaças não detetadas anteriormente.
@@ -183,7 +188,7 @@ Depois de ligar fontes de dados ao Azure Sentinel, pode criar regras para gerar 
 
 6. No separador **Definições de Incidente,** ative **criar incidentes a partir de alertas desencadeados por esta regra de análise** e selecionar **Seguinte: Resposta automatizada >**.
  
-    :::image type="content" source="media/azure-security-integration/create-new-analytic-rule-wizard.png" alt-text="Screenshot do assistente de regras analítica para criar uma nova regra em Azure Sentinel mostrando Criar incidentes a partir de alertas desencadeados por esta regra de análise como ativado.":::
+    :::image type="content" source="media/azure-security-integration/create-new-analytic-rule-wizard.png" alt-text="Screenshot do assistente de regras analíticas para criar uma nova regra em Azure Sentinel. Mostra Criar incidentes a partir de alertas desencadeados por esta regra conforme ativado.":::
 
 7. Selecione **Seguinte: Rever >**.
 
@@ -235,6 +240,8 @@ Pode criar consultas ou utilizar a consulta pré-definida disponível no Azure S
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Aprenda a utilizar o [painel Azure Defender](../security-center/azure-defender-dashboard.md).
-- Explore toda a gama de proteção oferecida pelo [Azure Defender](../security-center/azure-defender.md).
-- Saiba mais sobre [a deteção avançada de ataques em vários palcos em Azure Sentinel](../azure-monitor/learn/quick-create-workspace.md).
+Agora que cobriu como proteger os seus VMs de Solução VMware Azure, talvez queira saber:
+
+- Utilização do [painel Azure Defender](../security-center/azure-defender-dashboard.md).
+- [Deteção avançada de ataques em vários estágios em Azure Sentinel](../azure-monitor/learn/quick-create-workspace.md).
+- [Gestão do ciclo de vida da Azure VMware Solution VMs](lifecycle-management-of-azure-vmware-solution-vms.md).

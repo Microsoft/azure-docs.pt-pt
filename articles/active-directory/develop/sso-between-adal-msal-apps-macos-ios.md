@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: ''
 ms.custom: aaddev
-ms.openlocfilehash: 60189b8ba952bc3315bf514c5d0786601840665a
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 396e9cfeace8791a59dec4a9c9c7203212f57304
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756199"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584252"
 ---
 # <a name="how-to-sso-between-adal-and-msal-apps-on-macos-and-ios"></a>Como: SSO entre aplicações ADAL e MSAL no macOS e iOS
 
@@ -34,7 +34,7 @@ Esta secção abrange as diferenças de SSO entre MSAL e ADAL 2.7.x
 
 ### <a name="cache-format"></a>Formato cache
 
-ADAL 2.7.x pode ler o formato de cache MSAL. Não precisa de fazer nada de especial para o SSO de aplicações cruzadas com a versão ADAL 2.7.x. No entanto, é preciso estar atento às diferenças de identificação de contas que essas duas bibliotecas suportam.
+ADAL 2.7.x pode ler o formato de cache MSAL. Não precisa de fazer nada de especial para o SSO de aplicações cruzadas com a versão ADAL 2.7.x. No entanto, esteja ciente das diferenças nos identificadores de contas que essas duas bibliotecas apoiam.
 
 ### <a name="account-identifier-differences"></a>Diferenças de identificador de contas
 
@@ -283,6 +283,6 @@ do {
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [fluxos de autenticação e cenários de aplicação](authentication-flows-app-scenarios.md)

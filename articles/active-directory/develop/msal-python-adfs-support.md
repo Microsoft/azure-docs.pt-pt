@@ -13,12 +13,12 @@ ms.date: 11/23/2019
 ms.author: abpati
 ms.reviewer: nacanuma
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 161bcb2a4276b39765361e97a4516812c26ef580
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: d847e38a6114b0e5f8d56f6e994aa47dfbe929e7
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064475"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583710"
 ---
 # <a name="active-directory-federation-services-support-in-msal-for-python"></a>Apoio ativo dos Serviços da Federação de Diretórios no MSAL para Python
 
@@ -57,8 +57,8 @@ Quando ligar o diretório ao AD FS, a autoridade que vai querer usar para constr
 
 MSAL Python suporta ADFS 2019.
 
-Não suporta uma ligação direta à ADFS 2016 ou à ADFS v2. Se precisar de suportar cenários que exijam uma ligação direta ao ADFS 2016, utilize a versão mais recente do ADAL Python. Uma vez atualizado o seu sistema no local para ADFS 2019, pode utilizar o MSAL Python.
+Não suporta uma ligação direta à ADFS 2016 ou à ADFS v2. Para apoiar cenários que exijam uma ligação direta ao ADFS 2016, utilize a versão mais recente do ADAL Python. Uma vez atualizado o seu sistema no local para ADFS 2019, pode utilizar o MSAL Python.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para o caso federado, consulte o [sinal de Diretório Ativo Configure Azure em comportamento para uma aplicação utilizando uma política de Descoberta do Home Realm](../manage-apps/configure-authentication-for-federated-users-portal.md)

@@ -6,13 +6,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/06/2021
-ms.openlocfilehash: d0bebf030a35d5e0cec7e5f9364fddbf090ee1c7
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.date: 02/04/2021
+ms.openlocfilehash: 8b63565457498663250eb6ab5dc1361e43bbffaf
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98072263"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99585012"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Expressões de transformação de dados no fluxo de dados de mapeamento
 
@@ -76,6 +76,48 @@ ___
 <code><b>atan2(<i>&lt;value1&gt;</i> : number, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
 Devolve o ângulo em radiais entre o eixo x positivo de um plano e o ponto dado pelas coordenadas.  
 * ``atan2(0, 0) -> 0.0``  
+___
+### <code>between</code>
+<code><b>between(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any, <i>&lt;value3&gt;</i> : any) => boolean</b></code><br/><br/>
+Verifica se o primeiro valor está entre dois outros valores de forma inclusiva. Valores numéricos, cordas e datas podem ser comparados * ``between(10, 5, 24)``
+* ``true``
+* ``between(currentDate(), currentDate() + 10, currentDate() + 20)``
+* ``false``
+___
+### <code>bitwiseAnd</code>
+<code><b>bitwiseAnd(<i>&lt;value1&gt;</i> : integral, <i>&lt;value2&gt;</i> : integral) => integral</b></code><br/><br/>
+Bitwise E operador em todos os tipos integrais. O mesmo que & operador * ``bitwiseAnd(0xf4, 0xef)``
+* ``0xe4``
+* ``(0xf4 & 0xef)``
+* ``0xe4``
+___
+### <code>bitwiseOr</code>
+<code><b>bitwiseOr(<i>&lt;value1&gt;</i> : integral, <i>&lt;value2&gt;</i> : integral) => integral</b></code><br/><br/>
+Bitwise Ou operador em todos os tipos integrais. O mesmo que | operador * ``bitwiseOr(0xf4, 0xef)``
+* ``0xff``
+* ``(0xf4 | 0xef)``
+* ``0xff``
+___
+### <code>bitwiseXor</code>
+<code><b>bitwiseXor(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
+Bitwise Ou operador em todos os tipos integrais. O mesmo que | operador * ``bitwiseXor(0xf4, 0xef)``
+* ``0x1b``
+* ``(0xf4 ^ 0xef)``
+* ``0x1b``
+* ``(true ^ false)``
+* ``true``
+* ``(true ^ true)``
+* ``false``
+___
+### <code>blake2b</code>
+<code><b>blake2b(<i>&lt;value1&gt;</i> : integer, <i>&lt;value2&gt;</i> : any, ...) => string</b></code><br/><br/>
+Calcula a digestão Blake2 de conjunto de colunas de dados primitivos variados dado um pouco de comprimento que só pode ser múltiplos de 8 entre 8 & 512. Pode ser usado para calcular uma impressão digital para uma linha * ``blake2b(256, 'gunchus', 8.2, 'bojjus', true, toDate('2010-4-4'))``
+* ``'c9521a5080d8da30dffb430c50ce253c345cc4c4effc315dab2162dac974711d'``
+___
+### <code>blake2bBinary</code>
+<code><b>blake2bBinary(<i>&lt;value1&gt;</i> : integer, <i>&lt;value2&gt;</i> : any, ...) => binary</b></code><br/><br/>
+Calcula a digestão Blake2 de conjunto de colunas de dados primitivos variados dado um pouco de comprimento que só pode ser múltiplos de 8 entre 8 & 512. Pode ser usado para calcular uma impressão digital para uma linha * ``blake2bBinary(256, 'gunchus', 8.2, 'bojjus', true, toDate('2010-4-4'))``
+* ``unHex('c9521a5080d8da30dffb430c50ce253c345cc4c4effc315dab2162dac974711d')``
 ___
 ### <code>case</code>
 <code><b>case(<i>&lt;condition&gt;</i> : boolean, <i>&lt;true_expression&gt;</i> : any, <i>&lt;false_expression&gt;</i> : any, ...) => any</b></code><br/><br/>
@@ -231,6 +273,10 @@ ___
 A comparação é igual ao operador ignorando o caso. O mesmo que <= operador de>.  
 * ``'abc'<=>'Abc' -> true``  
 * ``equalsIgnoreCase('abc', 'Abc') -> true``  
+___
+### <code>escape</code>
+<code><b>escape(<i>&lt;string_to_escape&gt;</i> : string, <i>&lt;format&gt;</i> : string) => string</b></code><br/><br/>
+Escapa de uma corda de acordo com um formato. Os valores literais para formato aceitável são 'json', 'xml', 'ecmascript', 'html', 'java'.
 ___
 ### <code>factorial</code>
 <code><b>factorial(<i>&lt;value1&gt;</i> : number) => long</b></code><br/><br/>
@@ -559,7 +605,7 @@ Devolve um valor NUDO. Utilize a função `syntax(null())` se houver uma coluna 
 ___
 ### <code>or</code>
 <code><b>or(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : boolean) => boolean</b></code><br/><br/>
-Operador de OR lógico. O mesmo que.  
+Operador de OR lógico. O mesmo que ||.  
 * ``or(true, false) -> true``  
 * ``true || false -> true``  
 ___
@@ -759,6 +805,12 @@ ___
 Corresponde ao tipo da coluna. Só pode ser usado em expressões de padrão.número corresponde curto, inteiro, longo, duplo, flutuante ou decimal, combinações integrais curtas, inteiros, longas, fracionárias partidas duplas, flutuantes, decimais e datas de data tipo de data ou tipo de hora limite.  
 * ``typeMatch(type, 'number')``  
 * ``typeMatch('date', 'datetime')``  
+___
+### <code>unescape</code>
+<code><b>unescape(<i>&lt;string_to_escape&gt;</i> : string, <i>&lt;format&gt;</i> : string) => string</b></code><br/><br/>
+Unescapes uma corda de acordo com um formato. Os valores literais para formato aceitável são 'json', 'xml', 'ecmascript', 'html', 'java'.
+* ```unescape('{\\\\\"value\\\\\": 10}', 'json')```
+* ```'{\\\"value\\\": 10}'```
 ___
 ### <code>upper</code>
 <code><b>upper(<i>&lt;value1&gt;</i> : string) => string</b></code><br/><br/>
@@ -1119,6 +1171,28 @@ Sorts the array using the provided predicate function. Sort expects a reference 
 * ``sort([4, 8, 2, 3], compare(#item1, #item2)) -> [2, 3, 4, 8]``  
 * ``sort(['a3', 'b2', 'c1'], iif(right(#item1, 1) >= right(#item2, 1), 1, -1)) -> ['c1', 'b2', 'a3']``  
 
+## <a name="cached-lookup-functions"></a>Funções de procura em cache
+As seguintes funções só estão disponíveis quando se utiliza uma procura em cache quando tiver incluído uma pia em cache.
+___
+### <code>lookup</code>
+<code><b>lookup(key, key2, ...) => complex[]</b></code><br/><br/>
+Procura a primeira linha da pia em cache usando as teclas especificadas que combinam com as chaves da pia em cache.
+* ``cacheSink#lookup(movieId)``  
+___
+### <code>mlookup</code>
+<code><b>mlookup(key, key2, ...) => complex[]</b></code><br/><br/>
+Procura todas as linhas correspondentes da pia em cache usando as teclas especificadas que combinam com as chaves da pia em cache.
+* ``cacheSink#mlookup(movieId)``  
+___
+### <code>output</code>
+<code><b>output() => any</b></code><br/><br/>
+Devolve a primeira linha dos resultados da pia cache * ``cacheSink#output()``  
+___
+### <code>outputs</code>
+<code><b>output() => any</b></code><br/><br/>
+Devolve todo o conjunto de linha de saída dos resultados da pia cache * ``cacheSink#outputs()``
+___
+
 
 ## <a name="conversion-functions"></a>Funções de conversão
 
@@ -1153,7 +1227,7 @@ Converte qualquer numérico ou corda para um valor byte. Um formato decimal java
 ___
 ### <code>toDate</code>
 <code><b>toDate(<i>&lt;string&gt;</i> : any, [<i>&lt;date format&gt;</i> : string]) => date</b></code><br/><br/>
-Converte o string da data de entrada até à data utilizando um formato de data de entrada opcional. Consulte a classe de Java `SimpleDateFormat` para formatos disponíveis. Se o formato da data de entrada for omitido, o formato predefinido é yy-[M]M-[d]d. Os formatos aceites são :[yyy-[M]M, yyyy-[M]M-[d]d,yyyy-[M]M-[d]dT*] ].  
+Converte o string da data de entrada até à data utilizando um formato de data de entrada opcional. Consulte a classe de Java `SimpleDateFormat` para formatos disponíveis. Se o formato da data de entrada for omitido, o formato predefinido é yyyy-[M]M-[d]d. Os formatos aceites são :[yyyyyy-[M]M, yyyy-[M]M-[d]d,yyyy-[M]M-[d]dT*] ].  
 * ``toDate('2012-8-18') -> toDate('2012-08-18')``  
 * ``toDate('12/18/2012', 'MM/dd/yyyy') -> toDate('2012-12-18')``  
 ___
@@ -1203,7 +1277,7 @@ Converte qualquer numérico ou corda a um valor curto. Um formato decimal java o
 ___
 ### <code>toString</code>
 <code><b>toString(<i>&lt;value&gt;</i> : any, [<i>&lt;number format/date format&gt;</i> : string]) => string</b></code><br/><br/>
-Converte um tipo de dados primitivo a uma corda. Para números e data, um formato pode ser especificado. Se não for especificado, o sistema por defeito é escolhido. O formato decimal de Java é utilizado para números. Consulte o Java SimpleDateFormat para todos os formatos possíveis de data; o formato predefinido é y-MM-dd.  
+Converte um tipo de dados primitivo a uma corda. Para números e data, um formato pode ser especificado. Se não for especificado, o sistema por defeito é escolhido. O formato decimal de Java é utilizado para números. Consulte o Java SimpleDateFormat para todos os formatos possíveis de data; o formato predefinido é yyy-MM-dd.  
 * ``toString(10) -> '10'``  
 * ``toString('engineer') -> 'engineer'``  
 * ``toString(123456.789, '##,###.##') -> '123,456.79'``  
@@ -1215,7 +1289,7 @@ Converte um tipo de dados primitivo a uma corda. Para números e data, um format
 ___
 ### <code>toTimestamp</code>
 <code><b>toTimestamp(<i>&lt;string&gt;</i> : any, [<i>&lt;timestamp format&gt;</i> : string], [<i>&lt;time zone&gt;</i> : string]) => timestamp</b></code><br/><br/>
-Converte uma corda para um timetamp dado um formato de timetamp opcional. Se a estampação de tempo for omitida, é utilizado o padrão padrão y-[M]M-[d]d hh:mm:mm:ss[.f...] Você pode passar um timezone opcional sob a forma de 'GMT', 'PST', 'UTC', 'America/Cayman'. O timetamp suporta até milissegundo precisão com o valor de 999. Consulte a classe de Java `SimpleDateFormat` para formatos disponíveis. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html.  
+Converte uma corda para um timetamp dado um formato de timetamp opcional. Se a estampação de tempo for omitida, é utilizado o padrão padrão yyyy-[M]M-[d]d hh:mm:mm:ss[.f...] Você pode passar um timezone opcional sob a forma de 'GMT', 'PST', 'UTC', 'America/Cayman'. O timetamp suporta até milissegundo precisão com o valor de 999. Consulte a classe de Java `SimpleDateFormat` para formatos disponíveis. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html.  
 * ``toTimestamp('2016-12-31 00:12:00') -> toTimestamp('2016-12-31 00:12:00')``  
 * ``toTimestamp('2016-12-31T00:12:00', 'yyyy-MM-dd\'T\'HH:mm:ss', 'PST') -> toTimestamp('2016-12-31 00:12:00')``  
 * ``toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss') -> toTimestamp('2016-12-31 00:12:00')``  
@@ -1279,28 +1353,6 @@ Seleciona um valor de coluna pela sua posição relativa(1) no fluxo. Se a posi�
 * ``toBoolean(byName(4))``  
 * ``toString(byName($colName))``  
 * ``toString(byPosition(1234))``  
-
-## <a name="cached-lookup-functions"></a>Funções de procura em cache
-As seguintes funções só estão disponíveis quando se utiliza uma procura em cache quando tiver incluído uma pia em cache.
-___
-### <code>lookup</code>
-<code><b>lookup(key, key2, ...) => complex[]</b></code><br/><br/>
-Procura a primeira linha da pia em cache usando as teclas especificadas que combinam com as chaves da pia em cache.
-* ``cacheSink#lookup(movieId)``  
-___
-### <code>mlookup</code>
-<code><b>mlookup(key, key2, ...) => complex[]</b></code><br/><br/>
-Procura todas as linhas correspondentes da pia em cache usando as teclas especificadas que combinam com as chaves da pia em cache.
-* ``cacheSink#mlookup(movieId)``  
-___
-### <code>output</code>
-<code><b>output() => any</b></code><br/><br/>
-Devolve a primeira linha dos resultados da pia cache * ``cacheSink#output()``  
-___
-### <code>outputs</code>
-<code><b>output() => any</b></code><br/><br/>
-Devolve todo o conjunto de linha de saída dos resultados da pia cache * ``cacheSink#outputs()``
-___
 
 ## <a name="window-functions"></a>Funções do Windows
 As seguintes funções só estão disponíveis em transformações de janelas.

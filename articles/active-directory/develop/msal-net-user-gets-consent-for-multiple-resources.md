@@ -13,12 +13,12 @@ ms.date: 04/30/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: af9dbcbb6c32969b66cd446db634e83ce81f3c92
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: d22b4109cdcdc965b1b2e03aba592022c58f773b
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754727"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583795"
 ---
 # <a name="user-gets-consent-for-several-resources-using-msalnet"></a>O utilizador obtém o consentimento de vários recursos utilizando MSAL.NET
 A plataforma de identidade da Microsoft não permite obter um token para vários recursos de uma só vez. Ao utilizar a Biblioteca de Autenticação do Microsoft para .NET (MSAL.NET), o parâmetro de âmbito no método de ficha de aquisição só deve conter âmbitos para um único recurso. No entanto, pode pré-consentir vários recursos antecipadamente, especificando âmbitos adicionais utilizando o `.WithExtraScopeToConsent` método de construtor.
@@ -52,7 +52,7 @@ var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
                      .ExecuteAsync();
 ```
 
-Isto lhe dará um token de acesso para a primeira API web. Em seguida, quando você precisa aceder à segunda web API você pode obter silenciosamente o token a partir da cache simbólica:
+Isto lhe dará um token de acesso para a primeira API web. Em seguida, para aceder à segunda API web pode adquirir silenciosamente o token a partir da cache simbólica:
 
 ```csharp
 AcquireTokenSilent(scopesForVendorApi, accounts.FirstOrDefault()).ExecuteAsync();

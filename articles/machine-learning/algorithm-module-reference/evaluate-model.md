@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/27/2020
-ms.openlocfilehash: 9abf5a17330566aee2414b8499f228d297880cbf
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 39bdf9cb0c97e19a67b23046c6f06b60daa30147
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323792"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584945"
 ---
 # <a name="evaluate-model-module"></a>Avaliar módulo de modelo
 
@@ -94,7 +94,7 @@ As seguintes métricas são reportadas ao avaliar modelos de classificação bin
   
 -   **A pontuação F1** é calculada como a média ponderada de precisão e recordação entre 0 e 1, onde o valor ideal de pontuação de F1 é 1.  
   
--   **A AUC** mede a área sob a curva traçada com verdadeiros positivos no eixo y e falsos positivos no eixo x. Esta métrica é útil porque fornece um único número que permite comparar modelos de diferentes tipos.  
+-   **A AUC** mede a área sob a curva traçada com verdadeiros positivos no eixo y e falsos positivos no eixo x. Esta métrica é útil porque fornece um único número que permite comparar modelos de diferentes tipos. A AUC é classificação-limiar-invariante. Mede a qualidade das previsões do modelo, independentemente do limiar de classificação escolhido.
 
 
 ### <a name="metrics-for-regression-models"></a>Métricas para modelos de regressão
@@ -113,7 +113,7 @@ As métricas devolvidas para modelos de regressão são projetadas para estimar 
   
 
   
-- **Coeficiente de determinação** , muitas vezes referido como R <sup>2</sup>, representa o poder preditivo do modelo como um valor entre 0 e 1. Zero significa que o modelo é aleatório (não explica nada); 1 significa que há um ajuste perfeito. No entanto, deve ser usada cautela na interpretação dos valores R<sup>2,</sup> uma vez que valores baixos podem ser inteiramente normais e valores elevados podem ser suspeitos.
+- **Coeficiente de determinação**, muitas vezes referido como R <sup>2</sup>, representa o poder preditivo do modelo como um valor entre 0 e 1. Zero significa que o modelo é aleatório (não explica nada); 1 significa que há um ajuste perfeito. No entanto, deve ser usada cautela na interpretação dos valores R<sup>2,</sup> uma vez que valores baixos podem ser inteiramente normais e valores elevados podem ser suspeitos.
 
 ###  <a name="metrics-for-clustering-models"></a>Métricas para modelos de agrupamento
 

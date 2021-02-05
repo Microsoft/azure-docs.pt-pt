@@ -1,5 +1,5 @@
 ---
-title: Monitor Azure Machine Learning referência de dados Microsoft Docs
+title: Monitor Azure Machine Learning referência de dados | Microsoft Docs
 description: Documentação de referência para monitorização da Aprendizagem automática Azure. Conheça os dados & recursos recolhidos e disponíveis no Azure Monitor.
 services: machine-learning
 ms.service: machine-learning
@@ -8,13 +8,14 @@ ms.topic: reference
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
+ms.custom: subject-monitoring
 ms.date: 10/02/2020
-ms.openlocfilehash: d231de8e262194cd7dda2462a3f54d7d531eb63c
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 6da9c6775a6d5c96bc52183fefc3e5330272e9ff
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95542087"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99585131"
 ---
 # <a name="monitoring-azure-machine-learning-data-reference"></a>Monitorização da referência de dados de aprendizagem de máquinas Azure
 
@@ -26,7 +27,7 @@ Esta secção lista todas as métricas da plataforma recolhidas automaticamente 
 
 **Modelação**
 
-| Metric | Unidade | Descrição |
+| Metric | Unidade | Description |
 | ----- | ----- | ----- |
 | A implementação do modelo falhou | de palavras | O número de implementações de modelos que falharam. |
 | Implementação de modelos iniciado | de palavras | O número de implementações de modelos começou. |
@@ -38,7 +39,7 @@ Esta secção lista todas as métricas da plataforma recolhidas automaticamente 
 
 A informação sobre quotas é apenas para o cálculo Azure Machine Learning.
 
-| Metric | Unidade | Descrição |
+| Metric | Unidade | Description |
 | ----- | ----- | ----- |
 | Núcleos ativos | de palavras | O número de núcleos de computação ativo. |
 | Nódes ativos | de palavras | O número de nós ativos. |
@@ -56,7 +57,7 @@ A informação sobre quotas é apenas para o cálculo Azure Machine Learning.
 
 **Recurso**
 
-| Metric | Unidade | Descrição |
+| Metric | Unidade | Description |
 | ----- | ----- | ----- |
 | CpuUtilização | Percentagem | Quanto por cento do CPU foi usado para um dado nó durante uma corrida/trabalho. Esta métrica só é publicada quando um trabalho está a funcionar num nó. Um trabalho pode usar um ou mais nós. Esta métrica é publicada por nó. |
 | GpuUtilização | Percentagem | Quanto percentagem de GPU foi utilizada para um dado nó durante uma corrida/trabalho. Um nó pode ter uma ou mais GPUs. Esta métrica é publicada por GPU por nó. |
@@ -65,7 +66,7 @@ A informação sobre quotas é apenas para o cálculo Azure Machine Learning.
 
 Informação sobre treinos.
 
-| Metric | Unidade | Descrição |
+| Metric | Unidade | Description |
 | ----- | ----- | ----- |
 | Execuções concluídas | de palavras | O número de execuções completas. |
 | Corridas falhadas | de palavras | O número de corridas falhadas. |
@@ -77,7 +78,7 @@ Para obter mais informações sobre as dimensões métricas, consulte [métricas
 
 A Azure Machine Learning tem as seguintes dimensões associadas às suas métricas.
 
-| Dimensão | Descrição |
+| Dimensão | Description |
 | ---- | ---- |
 | Nome do Cluster | O nome do recurso de cluster compute. Disponível para todas as métricas de quota. |
 | Nome da família VM | O nome da família VM usado pelo aglomerado. Disponível para percentagem de utilização de cots. |
@@ -104,7 +105,7 @@ Os valores válidos para a dimensão RunType são:
 
 A tabela que se segue lista as operações relacionadas com a Azure Machine Learning que podem ser criadas no registo de Atividades.
 
-| Operação | Descrição |
+| Operação | Description |
 |:---|:---|
 | Cria ou atualiza um espaço de trabalho de Machine Learning | Um espaço de trabalho foi criado ou atualizado |
 | CheckComputeNameAvailability | Verifique se um nome de computação já está em uso |
@@ -228,7 +229,7 @@ Os seguintes esquemas estão em uso pela Azure Machine Learning
 | TotalE2ETimeInSegundos | O nó de tempo total estava ativo |
 
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 - Consulte [a monitorização da aprendizagem automática Azure](monitor-azure-machine-learning.md) para uma descrição da monitorização da aprendizagem automática do Azure.
 - Consulte [os recursos de Monitor Azure com o Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md) para obter informações sobre a monitorização dos recursos do Azure.

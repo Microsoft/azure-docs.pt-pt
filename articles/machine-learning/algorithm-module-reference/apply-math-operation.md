@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 04ce45f428604275696d83938708bcee0c6c023f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b2925a532d722598ccf16c001c9e2591aed1f2b
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91536771"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584995"
 ---
 # <a name="apply-math-operation"></a>Aplicar Operação Matemática
 
@@ -88,7 +88,7 @@ Cada instância deste módulo pode efetuar apenas um tipo de operação de cada 
   
 1.  Envie o oleoduto.  
   
-## <a name="results"></a>Results
+## <a name="results"></a>Resultados
 
 Se gerar os resultados utilizando as opções **Append** ou **ResultOnly,** as rubricas de coluna do conjunto de dados devolvidos indicam a operação e as colunas utilizadas. Por exemplo, se compararmos duas colunas utilizando o operador **Equals,** os resultados seriam assim:  
   
@@ -162,7 +162,7 @@ Devolve o logaritmo natural aos valores na coluna selecionada.
 
 Devolve o logaritmo natural mais um para os valores na coluna selecionada.  
 
-### <a name="log"></a>Registar
+### <a name="log"></a>Registo
 
 Devolve o registo dos valores na coluna selecionada, dada a base especificada.  
 
@@ -249,20 +249,23 @@ Devolve o valor que é menor — o valor no **conjunto coluna** ou o valor na co
 
 Inclui as operações aritméticas básicas: adição e subtração, divisão e multiplicação.  Como a maioria das operações são binárias, exigindo dois números, primeiro escolhe-se a operação e depois escolhe-se a coluna ou os números para usar no primeiro e segundo argumentos.
 
-A ordem pela qual escolhe as colunas para divisão e subtração pode parecer contraintuitiva; no entanto, para facilitar a compreensão dos resultados, a rubrica da coluna fornece o nome de funcionamento e a ordem pela qual as colunas foram utilizadas.
+A ordem de divisão e subtração são as seguintes: 
+- Subtrai(Arg1_Arg2) = Arg1 - Arg 2
+- Divide (Arg1_Arg2) = Arg1 / Arg 2
 
+A tabela a seguir mostra alguns exemplos
 Operação|Num1|Num2|Coluna de resultados|Valor do resultado|
 ----|----|----|----|----
-|Adição|1|5|Adicionar (Num2_Num1)| 4|
+|Adição|1|5|Adicionar (Num2_Num1)| 6|
 |Multiplicação|1|5|Múltiplos(Num2_Num1)|5|
-|Subtração|1|5|Subtrai-Num2_Num1)|4|
-|Subtração|0|1|Subtrai-Num2_Num1)|0|
-|Divisão|1|5|Divide(Num2_Num1)|5|
-|Divisão|0|1|Divide(Num2_Num1)|Infinity|
+|Subtração|5|1|Subtrai-Num2_Num1)|4|
+|Subtração|0|1|Subtrai-Num2_Num1)|-1|
+|Divisão|5|1|Divide(Num2_Num1)|5|
+|Divisão|1|0|Divide(Num2_Num1)|Infinity|
 
 ### <a name="add"></a>Adicionar
 
-Especifique as colunas de origem utilizando o **conjunto de colunas**e adicione aos valores um número especificado no **segundo argumento**.  
+Especifique as colunas de origem utilizando o **conjunto de colunas** e adicione aos valores um número especificado no **segundo argumento**.  
 
 Para adicionar os valores em duas colunas, escolha uma coluna ou colunas utilizando **o conjunto coluna**, e, em seguida, escolha uma segunda coluna utilizando o segundo **argumento**.  
 
@@ -284,7 +287,7 @@ O designer de Aprendizagem automática Azure suporta uma variedade de operaçõe
 
 - Se utilizar uma constante, desajei o **Tipo de Precisão** a **Constante** e, em seguida, digite o número de dígitos como um número inteiro na caixa de texto **de precisão constante.** Se escrever um não-inteiro, o módulo não levanta um erro, mas os resultados podem ser inesperados.  
 
-- Para utilizar um valor de precisão diferente para cada linha no conjunto de dados, defina **o Tipo de Precisão** para **o ColumnSet**e, em seguida, escolha a coluna que contém valores de precisão adequados.  
+- Para utilizar um valor de precisão diferente para cada linha no conjunto de dados, defina **o Tipo de Precisão** para **o ColumnSet** e, em seguida, escolha a coluna que contém valores de precisão adequados.  
 
 ### <a name="ceiling"></a>Ceiling
 

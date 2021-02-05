@@ -11,12 +11,12 @@ ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: processamento automatizado de dados, processamento de documentos, entrada automatizada de dados, tratamento de formulários
-ms.openlocfilehash: e1e5a4abf8eab96af62b160e28f98d95cf527eaf
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 2d3a37165994a8c7ff9d46ac24e63b7f58404ce3
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98044769"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584571"
 ---
 # <a name="what-is-form-recognizer"></a>O que é o Reconhecedor de Formato?
 
@@ -87,13 +87,13 @@ O Form Recogniser utiliza a [API do Layout](#layout-api) para aprender os tamanh
 O Form Recogniser também inclui modelos pré-construídos para processamento automatizado de dados de tipos de formulários únicos.
 
 ### <a name="prebuilt-invoice-model"></a>Modelo de fatura pré-construído
-O modelo de Fatura Pré-construída extrai dados de faturas em diversos formatos e devolve dados estruturados. Este modelo extrai informações fundamentais como o ID da fatura, detalhes do cliente, detalhes do fornecedor, envio para, fatura para, total, imposto, subtotal e muito mais. Além disso, o modelo de fatura pré-construído é treinado para reconhecer e devolver todo o texto e tabelas na fatura. Consulte o guia conceptual [das Faturas](./concept-invoices.md) para obter mais informações.
+O modelo de Fatura Pré-construída extrai dados de faturas em diversos formatos e devolve dados estruturados. Este modelo extrai informações fundamentais como o ID da fatura, detalhes do cliente, detalhes do fornecedor, envio para, fatura para, total, imposto, subtotal e muito mais. Além disso, o modelo de fatura pré-construído é treinado para analisar e devolver todo o texto e tabelas na fatura. Consulte o guia conceptual [das Faturas](./concept-invoices.md) para obter mais informações.
 
 :::image type="content" source="./media/overview-invoices.jpg" alt-text="fatura de amostra" lightbox="./media/overview-invoices.jpg":::
 
 ### <a name="prebuilt-receipt-model"></a>Modelo de recibo pré-construído
 
-O modelo de recibo pré-construído é utilizado para a leitura de recibos de venda ingleses da Austrália, Canadá, Grã-Bretanha, Índia e Estados Unidos &mdash; do tipo usado por restaurantes, postos de gasolina, varejo, e assim por diante. Este modelo extrai informações-chave como a hora e a data da transação, informação do comerciante, montantes de impostos, rubricas, totais e muito mais. Além disso, o modelo de recibo pré-construído é treinado para reconhecer e devolver todo o texto num recibo. Consulte o guia conceptual [dos Recibos](./concept-receipts.md) para obter mais informações.
+O modelo de recibo pré-construído é utilizado para a leitura de recibos de venda ingleses da Austrália, Canadá, Grã-Bretanha, Índia e Estados Unidos &mdash; do tipo usado por restaurantes, postos de gasolina, varejo, e assim por diante. Este modelo extrai informações-chave como a hora e a data da transação, informação do comerciante, montantes de impostos, rubricas, totais e muito mais. Além disso, o modelo de recibo pré-construído é treinado para analisar e devolver todo o texto num recibo. Consulte o guia conceptual [dos Recibos](./concept-receipts.md) para obter mais informações.
 
 :::image type="content" source="./media/overview-receipt.jpg" alt-text="recibo de amostra" lightbox="./media/overview-receipt.jpg":::
 
@@ -171,4 +171,4 @@ Tal como acontece com todos os serviços cognitivos, os desenvolvedores que usam
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Complete um [quickstart](quickstarts/client-library.md) para começar a escrever uma aplicação de processamento de formulários com o Form Recogniser no idioma à sua escolha.
+Complete um [quickstart](quickstarts/client-library.md) para começar a escrever uma aplicação de processamento de formulários com o Form Recogniser no idioma de desenvolvimento da sua escolha.

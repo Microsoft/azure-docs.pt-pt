@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
-ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 76f266ec915754b5746f06a340b21146b84fa711
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.custom: subject-monitoring, devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: 4ca74070c1b0d2cd4a5cf4225443465e080b518d
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99071669"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584894"
 ---
 # <a name="monitoring-azure-blob-storage"></a>Monitorização do armazenamento do blob Azure
 

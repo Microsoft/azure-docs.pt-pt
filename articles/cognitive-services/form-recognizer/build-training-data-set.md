@@ -9,20 +9,20 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: pafarley
-ms.openlocfilehash: 661b0bbf1aa389dc76567d95ad917548255a1b35
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: ee57ccb82e771ee8ab93b09e476a94df32278069
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845595"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99585114"
 ---
 # <a name="build-a-training-data-set-for-a-custom-model"></a>Construa um conjunto de dados de formação para um modelo personalizado
 
 Ao utilizar o modelo personalizado Form Recogniser, fornece os seus próprios dados de formação para a operação [Do Modelo Personalizado de Comboio,](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync) para que o modelo possa treinar para os seus formulários específicos da indústria. Siga este guia para aprender a recolher e preparar dados para treinar o modelo de forma eficaz.
 
-Se estiver a treinar sem etiquetas manuais, pode utilizar cinco formulários preenchidos ou um formulário vazio (deve incluir a palavra "vazio" no nome do ficheiro) mais dois formulários preenchidos. Mesmo que tenha formulários preenchidos suficientes, adicionar um formulário vazio ao seu conjunto de dados de treino pode melhorar a precisão do modelo.
+Precisa de pelo menos cinco formas preenchidas do mesmo tipo.
 
-Se quiser utilizar dados de treino etiquetados manualmente, deve começar com pelo menos cinco formas preenchidas do mesmo tipo. Ainda pode utilizar formulários não rotulados e um formulário vazio para além do conjunto de dados necessário.
+Se quiser utilizar dados de treino etiquetados manualmente, deve começar com pelo menos cinco formas preenchidas do mesmo tipo. Ainda pode utilizar formulários não rotulados para além do conjunto de dados necessário.
 
 ## <a name="custom-model-input-requirements"></a>Requisitos de entrada de modelo personalizado
 
@@ -75,6 +75,6 @@ Agora que aprendeu a construir um conjunto de dados de treino, siga um quickstar
 * [Treine um modelo e extraia dados de formulário usando a biblioteca do cliente ou REST API](./quickstarts/client-library.md)
 * [Treine com etiquetas usando a ferramenta de rotulagem da amostra](./quickstarts/label-tool.md)
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 * [O que é o Reconhecedor de Formato?](./overview.md)

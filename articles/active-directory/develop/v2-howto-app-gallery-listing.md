@@ -12,12 +12,12 @@ ms.date: 12/14/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 8f5324e967c5a67ee77559087a02c3421611d8f3
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 3ce00c5182246513aaf3178118058826528619d2
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98752864"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584269"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Publique a sua app na galeria de aplicações AZure AD
 
@@ -85,7 +85,7 @@ Você pode obter uma conta de teste gratuita com todas as funcionalidades premiu
 
 ## <a name="step-1---choose-the-right-single-sign-on-standard-for-your-app"></a>Passo 1 - Escolha o padrão de inscrição único certo para a sua aplicação
 
-Para listar uma aplicação na galeria de aplicações AZure AD, é necessário implementar pelo menos uma das opções de inscrição única suportadas. Para compreender as opções de inscrição única, e como os clientes as configurarão em AD Azure, consulte [as opções SSO](../manage-apps/sso-options.md).
+Para listar uma aplicação na galeria de aplicações AZure AD, implemente pelo menos uma das opções de inscrição única suportadas. Para compreender as opções de inscrição única, e como os clientes as configurarão em AD Azure, consulte [as opções SSO](../manage-apps/sso-options.md).
 
 A tabela seguinte compara os principais padrões: Open Authentication 2.0 (OAuth 2.0) com OpenID Connect (OIDC), Security Assertion Markup Language (SAML) e Web Services Federation (WS-Fed).
 
@@ -186,7 +186,7 @@ Você precisará de um inquilino AZure AD para testar a sua app. Para configurar
 
 Em alternativa, um inquilino AZure AD vem com cada subscrição da Microsoft 365. Para configurar um ambiente de desenvolvimento gratuito do Microsoft 365, consulte [o Programa de Desenvolvimento microsoft 365](/office/developer-program/microsoft-365-developer-program).
 
-Uma vez que você tem um inquilino, você precisa testar um único sinal e [provisionamento](../app-provisioning/use-scim-to-provision-users-and-groups.md#step-4-integrate-your-scim-endpoint-with-the-azure-ad-scim-client). 
+Uma vez que tenha um inquilino, teste um único sinal e [provisione.](../app-provisioning/use-scim-to-provision-users-and-groups.md#step-4-integrate-your-scim-endpoint-with-the-azure-ad-scim-client) 
 
 **Para aplicações OIDC ou Juramento,** [Registe a sua candidatura](quickstart-register-app.md) como uma aplicação multi-arrendatário. Selecione as Contas em qualquer diretório organizacional e opção de contas pessoais da Microsoft em tipos de Conta Suportada.
 
@@ -317,6 +317,6 @@ Para qualquer escalada, envie um e-mail para a [Equipa de Integração Azure AD 
 A Microsoft Partner Network fornece acesso instantâneo a recursos exclusivos, programas, ferramentas e conexões. Para aderir à rede e criar o seu plano de mercado, consulte [os clientes comerciais Reach.](https://partner.microsoft.com/explore/commercial#gtm)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Construa um ponto final SCIM e configuure o fornecimento de utilizadores](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 * [Cenários de autenticação para Azure AD](authentication-flows-app-scenarios.md)

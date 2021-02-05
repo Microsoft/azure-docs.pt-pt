@@ -1,5 +1,5 @@
 ---
-title: Instantiate uma app de clientes confidenciais (MSAL.NET) Rio Azure
+title: Instantiate uma aplicação de cliente confidencial (MSAL.NET) | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Aprenda a instantaneaizar uma aplicação confidencial do cliente com opções de configuração utilizando a Biblioteca de Autenticação do Microsoft para .NET (MSAL.NET).
 services: active-directory
@@ -13,12 +13,12 @@ ms.date: 04/30/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 5bccc39144186b23cc7f9fedf02e5b9d84ea2ee4
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: d477c419bb677a6b8f24a3aae26c403e47cc96cb
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063557"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583947"
 ---
 # <a name="instantiate-a-confidential-client-application-with-configuration-options-using-msalnet"></a>Instantiizar uma aplicação confidencial do cliente com opções de configuração usando MSAL.NET
 
@@ -28,7 +28,7 @@ Antes de rubricar uma aplicação, primeiro precisa [de a registar](quickstart-r
 
 - O ID do cliente (uma corda que representa um GUID)
 - O URL do fornecedor de identidade (nomeado o caso) e o público de inscrição para a sua aplicação. Estes dois parâmetros são coletivamente conhecidos como a autoridade.
-- O ID do inquilino se estiver a escrever uma linha de aplicação de negócio apenas para a sua organização (também nomeado pedido de inquilino único).
+- O iD do inquilino se estiver a escrever uma aplicação de linha de negócio apenas para a sua organização (também nomeado pedido de inquilino único).
 - O segredo da aplicação (cadeia secreta do cliente) ou certificado (do tipo X509Certificate2) se for uma aplicação confidencial do cliente.
 - Para aplicações web, e às vezes para aplicações de clientes públicos (em particular quando a sua aplicação precisa de usar um corretor), também terá definido o redirectUri onde o fornecedor de identidade irá contactar de volta a sua aplicação com os tokens de segurança.
 
@@ -60,7 +60,7 @@ Uma configuração de aplicação core ASP.NET é descrita num *appsettings.jsno
 
 A partir de MSAL.NET v3.x, pode configurar a sua aplicação confidencial de cliente a partir do ficheiro config.
 
-Na classe onde pretende configurar e instantaneamente a sua aplicação, tem de declarar um `ConfidentialClientApplicationOptions` objeto.  Ligue a configuração lida da fonte (incluindo a appconfig.jsem ficheiro) à instância das opções de aplicação, utilizando o `IConfigurationRoot.Bind()` método a partir daMicrosoft.Extensions.Config[ uration. Pacote nuget binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder):
+Na classe onde pretende configurar e instantaneamente a sua aplicação, declare um `ConfidentialClientApplicationOptions` objeto.  Ligue a configuração lida da fonte (incluindo a appconfig.jsem ficheiro) à instância das opções de aplicação, utilizando o `IConfigurationRoot.Bind()` método a partir daMicrosoft.Extensions.Config[ uration. Pacote Binder NuGet](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder):
 
 ```csharp
 using Microsoft.Identity.Client;

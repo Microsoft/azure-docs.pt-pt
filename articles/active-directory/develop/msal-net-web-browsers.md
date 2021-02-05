@@ -1,5 +1,5 @@
 ---
-title: Usando navegadores web (MSAL.NET) Rio Azure
+title: Usando navegadores web (MSAL.NET) | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Saiba mais sobre considerações específicas ao utilizar o Xamarin Android com a Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: bf51f39a789b91a4cb0b88eb8bb1f2989bec7358
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23ba50a6eca1e398b9d459153b84719909f2ecac
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88165826"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583744"
 ---
 # <a name="using-web-browsers-msalnet"></a>Usando navegadores web (MSAL.NET)
 
@@ -41,19 +41,19 @@ Os navegadores web são necessários para a autenticação interativa. Por padr�
 
 MSAL.NET é uma biblioteca multi-quadro e tem um código específico-quadro para hospedar um navegador num controlo de UI (por exemplo, em .NET Classic usa WinForms, em Xamarin utiliza controlos móveis nativos, etc.). Este controlo chama-se `embedded` UI web. Em alternativa, MSAL.NET também é capaz de iniciar o navegador sistema OS.
 
-Geralmente, recomenda-se que utilize o padrão da plataforma, e este é tipicamente o navegador do sistema. O navegador do sistema é melhor para lembrar os utilizadores que já iniciaram sessão. Se precisar de alterar este comportamento, use `WithUseEmbeddedWebView(bool)`
+Geralmente, recomenda-se que utilize o padrão da plataforma, e este é tipicamente o navegador do sistema. O navegador do sistema é melhor para lembrar os utilizadores que já iniciaram sessão. Para alterar este comportamento, use `WithUseEmbeddedWebView(bool)`
 
-### <a name="at-a-glance"></a>Num relance
+### <a name="at-a-glance"></a>Síntese
 
 | Arquitetura        | Incorporada | Sistema | Predefinição |
 | ------------- |-------------| -----| ----- |
-| .NET Classic     | Sim | Sim, não só. | Incorporada |
-| .NET Core     | Não | Sim, não só. | Sistema |
-| .NET Standard | Não | Sim, não só. | Sistema |
-| UWP | Sim | Não | Incorporada |
-| Xamarin.Android | Sim | Sim  | Sistema |
-| Xamarin.iOS | Sim | Sim  | Sistema |
-| Xamarin.Mac| Sim | Não | Incorporada |
+| .NET Classic     | Yes | Sim, não só. | Incorporada |
+| .NET Core     | No | Sim, não só. | Sistema |
+| .NET Standard | No | Sim, não só. | Sistema |
+| UWP | Yes | No | Incorporada |
+| Xamarin.Android | Yes | Yes  | Sistema |
+| Xamarin.iOS | Yes | Yes  | Sistema |
+| Xamarin.Mac| Yes | No | Incorporada |
 
 ^ Requer http://localhost " redirecionar URI
 
@@ -141,7 +141,7 @@ Também pode ativar webviews incorporados em aplicações Xamarin.iOS e Xamarin.
 
 Como desenvolvedor que usa MSAL.NET direcionando xamarin, você pode optar por usar webviews incorporados ou navegadores de sistema. Esta é a sua escolha, dependendo da experiência do utilizador e das preocupações de segurança que pretende atingir.
 
-Atualmente, MSAL.NET ainda não suporta os corretores Android e iOS. Portanto, se precisar de fornecer um único sinal de sso , o navegador do sistema ainda pode ser uma opção melhor. Os corretores de suporte com o navegador web incorporado estão no MSAL.NET atraso.
+Atualmente, MSAL.NET ainda não suporta os corretores Android e iOS. Portanto, para fornecer um único sinal de sso, o navegador do sistema ainda pode ser uma opção melhor. Os corretores de suporte com o navegador web incorporado estão no MSAL.NET atraso.
 
 ### <a name="differences-between-embedded-webview-and-system-browser"></a>Diferenças entre webview incorporado e navegador de sistema
 Existem algumas diferenças visuais entre webview incorporado e navegador de sistema em MSAL.NET.

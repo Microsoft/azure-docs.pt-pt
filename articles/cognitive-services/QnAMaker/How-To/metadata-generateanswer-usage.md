@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: f92b8c4835e42e758085e0434ee926fbabce5a38
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 18b70d60ade7cd40f7ed51aa7c219c8c046abfc3
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98936233"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584747"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Obtenha uma resposta com a API generateAnswer e metadados
 
@@ -285,9 +285,11 @@ Pode pesquisar através do kb publicado, utilizando `isTest=false` ou no kb de t
 |404|KB não existe|
 |410|Esta API é depreciada e já não está disponível|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 A página **publicar** também fornece informações para [gerar uma resposta](../Quickstarts/get-answer-from-knowledge-base-using-url-tool.md) com o Carteiro ou cURL.
 
 > [!div class="nextstepaction"]
 > [Obter análises da base de dados de conhecimento](../how-to/get-analytics-knowledge-base.md)
+> [!div class="nextstepaction"]
+> [Pontuação de confiança](../Concepts/confidence-score.md)

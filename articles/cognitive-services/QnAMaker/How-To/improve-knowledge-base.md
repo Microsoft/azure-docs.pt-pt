@@ -6,12 +6,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 6b9077fec13dd177ec4e07e7fbd7818ded2fd0a1
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: 3f2e8fef35095a007051999d806f2942089ae19a
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98164945"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584758"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>Aceitar aprendizagem ativa sugerida questões na base de conhecimento
 
@@ -49,18 +49,39 @@ Para ver as perguntas sugeridas, deve [ligar a aprendizagem ativa](../concepts/a
 
 <a name="#score-proximity-between-knowledge-base-questions"></a>
 
+## <a name="active-learning-suggestions-are-saved-in-the-exported-knowledge-base"></a>Sugestões de aprendizagem ativa são guardadas na base de conhecimento exportada
+
+Quando a sua aplicação tem aprendizagem ativa ativa e exporta a app, a `SuggestedQuestions` coluna no ficheiro tsv retém os dados de aprendizagem ativa.
+
+A `SuggestedQuestions` coluna é um objeto JSON de informação de feedback `autosuggested` implícito, e `usersuggested` explícito. Um exemplo deste objeto JSON para uma única questão submetida pelo utilizador `help` é:
+
+```JSON
+[
+    {
+        "clusterHead": "help",
+        "totalAutoSuggestedCount": 1,
+        "totalUserSuggestedCount": 0,
+        "alternateQuestionList": [
+            {
+                "question": "help",
+                "autoSuggestedCount": 1,
+                "userSuggestedCount": 0
+            }
+        ]
+    }
+]
+```
+
+Ao reimportar esta aplicação, a aprendizagem ativa continua a recolher informações e a recomendar sugestões para a sua base de conhecimentos.
+
+
 ### <a name="architectural-flow-for-using-generateanswer-and-train-apis-from-a-bot"></a>Fluxo arquitetónico para usar APis de 2000 e de comboio de um bot
 
 Um bot ou outra aplicação de cliente deve usar o seguinte fluxo arquitetónico para utilizar a aprendizagem ativa:
 
 * Bot [obtém a resposta da base de conhecimento](#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers) com a API GenerateAnswer, usando a propriedade para obter uma série de `top` respostas.
-* Bot determina feedback explícito:
-    * Utilizando a sua própria [lógica de negócio personalizado,](#use-the-score-property-along-with-business-logic-to-get-list-of-answers-to-show-user)filtre pontuações baixas.
-    * No bot ou na aplicação do cliente, mostrar a lista de possíveis respostas ao utilizador e obter a resposta selecionada do utilizador.
-* Bot [envia resposta selecionada de volta ao QnA Maker](#bot-framework-sample-code) com a [API do comboio.](#train-api)
 
-
-### <a name="use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers"></a>Use a propriedade de topo no pedido generateAnswer para obter várias respostas correspondentes
+#### <a name="use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers"></a>Use a propriedade de topo no pedido generateAnswer para obter várias respostas correspondentes
 
 Ao submeter uma pergunta ao QnA Maker para obter uma resposta, a `top` propriedade do corpo JSON define o número de respostas para devolver.
 
@@ -71,6 +92,12 @@ Ao submeter uma pergunta ao QnA Maker para obter uma resposta, a `top` proprieda
     "top": 3
 }
 ```
+
+* Bot determina feedback explícito:
+    * Utilizando a sua própria [lógica de negócio personalizado,](#use-the-score-property-along-with-business-logic-to-get-list-of-answers-to-show-user)filtre pontuações baixas.
+    * No bot ou na aplicação do cliente, mostrar a lista de possíveis respostas ao utilizador e obter a resposta selecionada do utilizador.
+* Bot [envia resposta selecionada de volta ao QnA Maker](#bot-framework-sample-code) com a [API do comboio.](#train-api)
+
 
 ### <a name="use-the-score-property-along-with-business-logic-to-get-list-of-answers-to-show-user"></a>Use a propriedade de pontuação juntamente com a lógica de negócio para obter uma lista de respostas para mostrar ao utilizador
 
@@ -135,7 +162,7 @@ Content-Type: application/json
 |Parâmetro de rota URL|ID da base de conhecimento|string|O GUID para a sua base de conhecimento.|
 |Subdomínio personalizado|Nome de recurso QnAMaker|string|O nome do recurso é usado como subdomínio personalizado para o seu QnA Maker. Isto está disponível na página Definições depois de publicar a base de conhecimento. Está listado `host` como.|
 |Cabeçalho|Content-Type|string|O tipo de mídia do corpo enviado para a API. O valor predefinido é: `application/json`|
-|Cabeçalho|Autorização|string|A sua chave de ponto final (EndpointKey xxxx-xxxx-xxxx-xxxx-xxx).|
+|Cabeçalho|Autorização|string|A sua chave de ponto final (EndpointKey xxxxxx-xxxx-xxxx-xxxx-xxxxx).|
 |Corpo do Correio|Objeto JSON|JSON|O feedback do treino|
 
 O corpo JSON tem várias configurações:
@@ -309,33 +336,6 @@ async callTrain(stepContext){
     return await stepContext.next(stepContext.result);
 }
 ```
-
-## <a name="active-learning-is-saved-in-the-exported-knowledge-base"></a>A aprendizagem ativa é guardada na base de conhecimentos exportadas
-
-Quando a sua aplicação tem aprendizagem ativa ativa e exporta a app, a `SuggestedQuestions` coluna no ficheiro tsv retém os dados de aprendizagem ativa.
-
-A `SuggestedQuestions` coluna é um objeto JSON de informação de feedback `autosuggested` implícito, e `usersuggested` explícito. Um exemplo deste objeto JSON para uma única questão submetida pelo utilizador `help` é:
-
-```JSON
-[
-    {
-        "clusterHead": "help",
-        "totalAutoSuggestedCount": 1,
-        "totalUserSuggestedCount": 0,
-        "alternateQuestionList": [
-            {
-                "question": "help",
-                "autoSuggestedCount": 1,
-                "userSuggestedCount": 0
-            }
-        ]
-    }
-]
-```
-
-Ao reimportar esta aplicação, a aprendizagem ativa continua a recolher informações e a recomendar sugestões para a sua base de conhecimentos.
-
-
 
 ## <a name="best-practices"></a>Melhores práticas
 

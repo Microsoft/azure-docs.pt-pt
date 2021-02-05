@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/06/2020
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: d790b466f669ed067863b6643c8f59662eb628a7
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 5dae14f546a8c51c7df016ba1e39698302be6f40
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99226442"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584351"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Tutorial: Inscreva-se nos utilizadores e ligue para a API do Gráfico microsoft a partir de uma aplicação de página única JavaScript (SPA)
 
@@ -407,13 +407,13 @@ Crie um novo ficheiro .js `authPopup.js` nomeado, que conterá a sua lógica de 
 
 ### <a name="more-information"></a>Mais informações
 
-Depois de um utilizador selecionar o botão **'Iniciar'** pela primeira vez, o `signIn` método chama para assinar no `loginPopup` utilizador. Este método abre uma janela pop-up com o ponto final da *plataforma de identidade da Microsoft* para solicitar e validar as credenciais do utilizador. Após uma sincê-in bem sucedida, o utilizador é redirecionado de volta para a página original *index.html.* Um token é recebido, processado por `msal.js` , e a informação contida no token é em cache. Este token é conhecido como o *token de ID* e contém informações básicas sobre o utilizador, como o nome de exibição do utilizador. Se pretender utilizar quaisquer dados fornecidos por este token para qualquer finalidade, tem de se certificar de que este token é validado pelo seu servidor de backend para garantir que o token foi emitido a um utilizador válido para a sua aplicação.
+Depois de um utilizador selecionar o botão **'Iniciar'** pela primeira vez, o `signIn` método chama para assinar no `loginPopup` utilizador. Este método abre uma janela pop-up com o ponto final da *plataforma de identidade da Microsoft* para solicitar e validar as credenciais do utilizador. Após uma sincê-in bem sucedida, o utilizador é redirecionado de volta para a página original *index.html.* Um token é recebido, processado por `msal.js` , e a informação contida no token é em cache. Este token é conhecido como o *token de ID* e contém informações básicas sobre o utilizador, como o nome de exibição do utilizador. Se pretender utilizar quaisquer dados fornecidos por este token para qualquer finalidade, certifique-se de que este token é validado pelo seu servidor de backend para garantir que o token foi emitido a um utilizador válido para a sua aplicação.
 
 O SPA gerado por este guia chama `acquireTokenSilent` e/ou `acquireTokenPopup` para adquirir um *token de acesso* usado para consultar a API do Microsoft Graph para obter informações sobre o perfil do utilizador. Se precisar de uma amostra que valide o token de identificação, dê uma olhada [nesta](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "GitHub active-directório-javascript-singlepageapp-dotnet-webapi-v2") aplicação de amostra no GitHub. A amostra utiliza uma API web ASP.NET para validação de fichas.
 
 #### <a name="get-a-user-token-interactively"></a>Obter um token de utilizador interativamente
 
-Após a iniciação inicial, não pretende pedir aos utilizadores que reauttenenássem sempre que precisam de pedir um token para aceder a um recurso. Assim, *adquirir oTokenSilent* deve ser usado na maior parte do tempo para adquirir fichas. Existem situações, no entanto, em que é necessário forçar os utilizadores a interagirem com a plataforma de identidade da Microsoft. Os exemplos incluem:
+Após a iniciação inicial, não pretende pedir aos utilizadores que reauttenenássem sempre que precisam de pedir um token para aceder a um recurso. Assim, *adquirir oTokenSilent* deve ser usado na maior parte do tempo para adquirir fichas. Existem situações, no entanto, em que obriga os utilizadores a interagir com a plataforma de identidade da Microsoft. Os exemplos incluem:
 
 - Os utilizadores precisam de reentrar nas suas credenciais porque a palavra-passe expirou.
 - A sua aplicação está a solicitar o acesso a um recurso e precisa do consentimento do utilizador.

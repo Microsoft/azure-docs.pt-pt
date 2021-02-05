@@ -1,5 +1,5 @@
 ---
-title: Serialização da cache token (MSAL.NET) Rio Azure
+title: '| de serialização de cache token (MSAL.NET) Rio Azure'
 titleSuffix: Microsoft identity platform
 description: Saiba mais sobre a serialização e serialização do cliente da cache simbólica utilizando a Biblioteca de Autenticação da Microsoft para .NET (MSAL.NET).
 services: active-directory
@@ -13,12 +13,12 @@ ms.date: 09/16/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 7e80123f21efded92ab6d59d550965ca72427b1c
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 60ce3d32ffa20fc9117890528eac053d1af9fdf2
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064662"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583913"
 ---
 # <a name="token-cache-serialization-in-msalnet"></a>Serialização da cache simbólica em MSAL.NET
 Depois de adquirido um [token,](msal-acquire-cache-tokens.md)é em cache pela Microsoft Authentication Library (MSAL).  O código de aplicação deve tentar obter um símbolo da cache antes de adquirir um token por outro método.  Este artigo discute a serialização padrão e personalizada da cache simbólica em MSAL.NET.
@@ -34,7 +34,7 @@ Em MSAL.NET, uma cache simbólica na memória é fornecida por padrão. A serial
 
 ## <a name="custom-serialization-for-windows-desktop-apps-and-web-appsweb-apis"></a>Serialização personalizada para aplicações de desktop do Windows e aplicações web/APIs web
 
-Lembre-se, a serialização personalizada não está disponível nas plataformas móveis (UWP, Xamarin.iOS e Xamarin.Android). A MSAL já define um mecanismo de serialização seguro e performante para estas plataformas. No entanto, as aplicações .NET desktop e .NET Core têm arquiteturas variadas e a MSAL não consegue implementar um mecanismo de serialização para fins gerais. Por exemplo, os sites podem optar por armazenar fichas numa cache Redis ou aplicações de desktop armazenar fichas num ficheiro encriptado. Então a serialização não é fornecida fora da caixa. Para ter uma aplicação de cache token persistente em .NET desktop ou .NET Core, é necessário personalizar a serialização.
+Lembre-se, a serialização personalizada não está disponível nas plataformas móveis (UWP, Xamarin.iOS e Xamarin.Android). A MSAL já define um mecanismo de serialização seguro e performante para estas plataformas. No entanto, as aplicações .NET desktop e .NET Core têm arquiteturas variadas e a MSAL não consegue implementar um mecanismo de serialização para fins gerais. Por exemplo, os sites podem optar por armazenar fichas numa cache Redis ou aplicações de desktop armazenar fichas num ficheiro encriptado. Então a serialização não é fornecida fora da caixa. Para ter uma aplicação de cache token persistente em .NET desktop ou .NET Core, personalize a serialização.
 
 As seguintes classes e interfaces são utilizadas na serialização da cache simbólica:
 
@@ -281,7 +281,7 @@ MSAL.NET fornece serialização de cache de fichas personalizadas em subplatafor
 
 A biblioteca [Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web) fornece um pacote de pré-visualização Do [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web) contendo a serialização da cache simbólica:
 
-| Método de Extensão | Microsoft.Identity.Web subconsecontos | Descrição  |
+| Método de Extensão | Microsoft.Identity.Web subconsecontos | Description  |
 | ---------------- | --------- | ------------ |
 | `AddInMemoryTokenCaches` | `TokenCacheProviders.InMemory` | Na memória, a serialização da cache simbólica. Esta implementação é ótima em amostras. Também é bom em aplicações de produção desde que não se importe se a cache de token é perdida quando a aplicação web é reiniciada. `AddInMemoryTokenCaches` toma um parâmetro opcional de tipo `MsalMemoryTokenCacheOptions` que lhe permite especificar a duração após a qual a entrada da cache expirará a menos que seja usada.
 | `AddSessionTokenCaches` | `TokenCacheProviders.Session` | A cache simbólica está ligada à sessão do utilizador. Esta opção não é ideal se o token de ID contiver muitas reclamações, uma vez que o cookie se tornaria demasiado grande.
@@ -331,7 +331,7 @@ A sua utilização é apresentada no tutorial de [aplicações web core ASP.NET]
 
 As seguintes amostras ilustram a serialização da cache simbólica.
 
-| Sample | Plataforma | Descrição|
+| Sample | Plataforma | Description|
 | ------ | -------- | ----------- |
 |[active-directório-dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | Desktop (WPF) | Aplicação Windows Desktop .NET (WPF) chamada API do Gráfico microsoft. ![O diagrama mostra uma topologia com a Desktop App W P F TodoListClient fluindo para Azure A D, adquirindo um símbolo interativamente e para o Microsoft Graph.](media/msal-net-token-cache-serialization/topology.png)|
 |[active-directy-dotnet-v1-to-v2](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2) | Desktop (Consola) | Conjunto de soluções visual Studio que ilustram a migração de aplicações Azure AD v1.0 (utilizando ADAL.NET) para aplicações de plataforma de identidade da Microsoft (utilizando MSAL.NET). Em particular, ver [migração de Cache Token](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/blob/master/TokenCacheMigration/README.md)|

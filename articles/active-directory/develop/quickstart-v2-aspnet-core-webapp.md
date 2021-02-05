@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/11/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: b2e42dcaeb72a053f20afa47439d1825445b0ad8
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 9e9c4773b8f50d3d7b47f0eb94c039a42bee1d04
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99225838"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584453"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Quickstart: Adicione o início de sôs-in com a Microsoft a uma aplicação web core ASP.NET
 
@@ -62,7 +62,7 @@ Veja [como funciona a amostra](#how-the-sample-works) para uma ilustração.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Passo 1: Configurar a sua candidatura no portal Azure
-> O código de amostra deste quickstart requer um **URI de redirecionamento** `https://localhost:44321/` de e um URL de logotipo de canal `https://localhost:44321/signin-oidc` **frontal** de `https://localhost:44321/signout-oidc` . Os tokens de ID do pedido serão emitidos pelo ponto final de autorização.
+> Para que a amostra de código neste arranque rápido funcione, adicione um **URI de redirecionamento** `https://localhost:44321/` e um URL de logotipo de canal `https://localhost:44321/signin-oidc` **frontal** de `https://localhost:44321/signout-oidc` . Os tokens de ID do pedido serão emitidos pelo ponto final de autorização.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Fazer esta alteração por mim]()
 >
@@ -150,7 +150,7 @@ O `AddAuthentication()` método configura o serviço para adicionar autenticaç�
 
 A linha que contém `.AddMicrosoftIdentityWebApp` adiciona a autenticação da plataforma de identidade da Microsoft à sua aplicação. Em seguida, é configurado para iniciar sedução usando a plataforma de identidade da Microsoft com base nas informações na `AzureAD` secção doappsettings.js *no* ficheiro de configuração:
 
-| *appsettings.jsna* chave | Descrição                                                                                                                                                          |
+| *appsettings.jsna* chave | Description                                                                                                                                                          |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `ClientId`             | **Identificação da aplicação (cliente)** da aplicação registada no portal Azure.                                                                                       |
 | `Instance`             | Serviço de ficha de segurança (STS) para o utilizador autenticar. Este valor é tipicamente `https://login.microsoftonline.com/` , indicando a nuvem pública Azure. |

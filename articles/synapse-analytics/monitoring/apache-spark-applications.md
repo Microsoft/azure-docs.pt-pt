@@ -9,12 +9,12 @@ ms.subservice: monitoring
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 2f9fa6e7ef9a7ee8ea7dd2a09622f26f6fd9739e
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 00407b4a55b3c074fa77d4c3664f6e218c23fe21
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223130"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584535"
 ---
 # <a name="use-synapse-studio-to-monitor-your-apache-spark-applications"></a>Use o Synapse Studio para monitorizar as suas aplicações Apache Spark
 
@@ -155,6 +155,26 @@ Abrir **monitor**, em seguida, selecione **as aplicações Apache Spark**. Para 
 6. Verifique a informação de erro.
 
    ![informação de trabalho falhado](./media/how-to-monitor-spark-applications/failed-job-info.png)
+
+## <a name="compare-apache-spark-applications"></a>Compare aplicações Apache Spark
+Clique no botão **Compare aplicações** e escolha uma aplicação para comparar desempenho, os utilizadores podem intuitivamente ver a diferença entre as duas aplicações.
+
+![comparar aplicações](./media/how-to-monitor-spark-applications/compare-applications.png)
+
+1. Utilize o rato para pairar sobre uma aplicação e, em seguida, é apresentado o ícone **de aplicações Compare.**
+
+2. Clique no ícone **de aplicações Compare** e a página de aplicações Compare aparecerá.
+
+3. Clique no botão **Escolha o botão de aplicação** para abrir Escolha a página **de aplicação de comparação.**
+
+4. Ao escolher a aplicação de comparação, os utilizadores precisam de introduzir o URL da aplicação ou escolher entre a lista recorrente. Em seguida, clique no botão **OK.** 
+
+   ![escolher aplicação de comparação](./media/how-to-monitor-spark-applications/choose-comparison-application.png)
+
+5. O resultado da comparação será apresentado na página de aplicações de comparação.
+
+   ![resultado de comparação](./media/how-to-monitor-spark-applications/comparison-result.png)
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c3d9cd5e710eb263707e87c4afe0f08809b8d50c
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 5d93df0b6d59e013c22e138942ab4651784421ae
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756464"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584385"
 ---
 # <a name="protected-web-api-app-registration"></a>API web protegida: Registo de aplicativos
 
@@ -58,7 +58,7 @@ Outras configurações específicas para APIs web são a API exposta e os âmbit
 
 Os âmbitos geralmente têm o `resourceURI/scopeName` formulário. Para o Microsoft Graph, os âmbitos têm atalhos. Por exemplo, `User.Read` é um atalho para `https://graph.microsoft.com/user.read` .
 
-Durante o registo da aplicação, é necessário definir estes parâmetros:
+Durante o registo da aplicação, defina estes parâmetros:
 
 - O recurso URI
 - Um ou mais âmbitos
@@ -68,7 +68,7 @@ Por predefinição, o portal de registo de aplicações recomenda que utilize o 
 
 Para as aplicações do cliente, os âmbitos aparecem como *permissões delegadas* e as funções de aplicação aparecem como permissões de *aplicação* para a sua API web.
 
-Os âmbitos também aparecem na janela de consentimento que é apresentada aos utilizadores da sua aplicação. Por isso, é necessário fornecer as cordas correspondentes que descrevem o âmbito:
+Os âmbitos também aparecem na janela de consentimento que é apresentada aos utilizadores da sua aplicação. Por conseguinte, forneça as cordas correspondentes que descrevem o âmbito:
 
 - Como visto por um utilizador.
 - Como visto por um administrador inquilino, que pode conceder o consentimento administrativo.
@@ -99,7 +99,7 @@ Nesta secção, você aprende a registar a sua API web protegida para que as apl
 
 #### <a name="exposing-application-permissions-app-roles"></a>Expondo permissões de aplicações (funções de aplicação)
 
-Para expor permissões de aplicação, é necessário editar o manifesto.
+Para expor permissões de aplicação, edite o manifesto.
 
 1. No registo de inscrição para a sua candidatura, selecione **Manifesto.**
 1. Para editar o manifesto, encontre a `appRoles` definição e adicione funções de aplicação. As definições de função são fornecidas no bloco JSON da amostra seguinte.
@@ -151,6 +151,6 @@ Para adicionar esta segurança aumentada:
 
 1. Selecione **Guardar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Passe para o próximo artigo neste cenário, [configuração do código de aplicação](scenario-protected-web-api-app-configuration.md).

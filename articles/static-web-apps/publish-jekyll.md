@@ -7,18 +7,18 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 673852f8f9aa81c838a7c1db68681bb9ee0b7e0b
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 8c6764ad5b63aa2fde07326ab986404ea4312316
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862027"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99585181"
 ---
 # <a name="tutorial-publish-a-jekyll-site-to-azure-static-web-apps-preview"></a>Tutorial: Publicar um site jekyll para a Azure Static Web Apps Preview
 
 Este artigo demonstra como criar e implementar uma aplicação web [Jekyll](https://jekyllrb.com/) para [Azure Azure Static Web Apps](overview.md).
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 >
@@ -79,8 +79,11 @@ A azure Static Web Apps usa GitHub para publicar o seu website. Os passos seguin
 1. Empurre o seu repo local até GitHub.
 
    ```bash
-   git push --set-upstream origin master
+   git push --set-upstream origin main
    ```
+
+   > [!NOTE]
+   > O seu ramo de git pode ser nomeado de forma diferente de `main` . Substitua `main` neste comando o valor correto.
 
 ## <a name="deploy-your-web-app"></a>Implemente a sua aplicação web
 
@@ -116,7 +119,7 @@ Os passos seguintes mostram-lhe como criar uma nova aplicação estática do sit
 
 1. Selecione a **aplicação jekyll-estática** como _repositório_.
 
-1. Para o _Branch_ selecione **master**.
+1. Para o _Ramo_ selecione **principal**.
 
     :::image type="content" source="./media/publish-jekyll/completed-github-info.png" alt-text="Informação completa do GitHub":::
 
@@ -146,7 +149,7 @@ Em seguida, adiciona definições de configuração que o processo de construç�
 
 1. Abra a aplicação Jekyll num editor de texto e abra o ficheiro _.github/workflows/azure-pages-<WORKFLOW_NAME>.yml._
 
-1. Depois da linha `- uses: actions/checkout@v2` adicione o seguinte bloco de configuração.
+1. Antes da linha `- name: Build And Deploy` adicionar o seguinte bloco de configuração.
 
     ```yml
     - name: Set up Ruby

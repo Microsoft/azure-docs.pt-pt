@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 601eefa7957972daa2d538e6ba0d9b7a5311c79d
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 656cb167fb47e44c28922afed75d8c46a460aaf1
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756484"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584402"
 ---
 # <a name="call-a-web-api-from-a-mobile-app"></a>Ligue para uma API web a partir de uma aplicação móvel
 
@@ -117,7 +117,7 @@ task.resume()
 
 ## <a name="make-several-api-requests"></a>Faça vários pedidos de API
 
-Se precisar de ligar várias vezes para a mesma API, ou se precisar de ligar para várias APIs, considere os seguintes assuntos quando construir a sua aplicação:
+Para ligar várias vezes para a mesma API, ou ligar para várias APIs, considere os seguintes assuntos quando construir a sua aplicação:
 
 - **Consentimento incremental**: A plataforma de identidade da Microsoft permite que as aplicações obtenham o consentimento do utilizador quando são necessárias permissões e não todas no início. Cada vez que a sua aplicação estiver pronta para chamar uma API, deve solicitar apenas os âmbitos de que necessita.
 
@@ -125,7 +125,7 @@ Se precisar de ligar várias vezes para a mesma API, ou se precisar de ligar par
 
 ## <a name="call-several-apis-by-using-incremental-consent-and-conditional-access"></a>Ligue para várias APIs usando consentimento incremental e acesso condicional
 
-Se precisar de ligar para várias APIs para o mesmo utilizador, depois de adquirir um token para o utilizador, pode evitar pedir repetidamente ao utilizador credenciais, ligando posteriormente `AcquireTokenSilent` para obter um token:
+Para ligar para várias APIs para o mesmo utilizador, depois de adquirir um token para o utilizador, pode evitar pedir repetidamente ao utilizador credenciais, ligando posteriormente `AcquireTokenSilent` para obter um token:
 
 ```csharp
 var result = await app.AcquireTokenXX("scopeApi1")
@@ -157,6 +157,6 @@ catch(MsalUiRequiredException ex)
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Passe para o próximo artigo neste cenário, [passe para a produção](scenario-mobile-production.md).

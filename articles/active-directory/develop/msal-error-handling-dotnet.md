@@ -13,12 +13,12 @@ ms.date: 11/26/2020
 ms.author: marsma
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 381416384cacd44bdb1b08801f7b3174c9504d0b
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 565acd745ba5d7fdec71f306d3851e599838f7d9
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98761182"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584049"
 ---
 # <a name="handle-errors-and-exceptions-in-msalnet"></a>Lidar com erros e exceções no MSAL.NET
 
@@ -38,8 +38,8 @@ Aqui estão as exceções comuns que podem ser lançadas e algumas possíveis mi
 
 | Exceção | Código de erro | Mitigação|
 | --- | --- | --- |
-| [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception) | AADSTS65001: O utilizador ou administrador não consentiu em utilizar a aplicação com o iD '{appId}' denominado '{appName}'. Envie um pedido de autorização interativa para este utilizador e recurso.| Primeiro, tem de obter o consentimento do utilizador. Se não estiver a utilizar o .NET Core (que não tem UI web), ligue (apenas uma vez) `AcquireTokeninteractive` . Se estiver a utilizar o núcleo .NET ou não quiser fazer `AcquireTokenInteractive` um, o utilizador pode navegar até um URL para dar o seu consentimento: `https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id={clientId}&response_type=code&scope=user.read` . para `AcquireTokenInteractive` chamar: `app.AcquireTokenInteractive(scopes).WithAccount(account).WithClaims(ex.Claims).ExecuteAsync();`|
-| [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception) | AADSTS50079: O utilizador é obrigado a utilizar a [autenticação multi-factor (MFA)](../authentication/concept-mfa-howitworks.md).| Não há atenuação. Se a MFA estiver configurada para o seu inquilino e o Azure Ative Directory (AAD) decidir aplicá-lo, tem de recuar para um fluxo interativo como `AcquireTokenInteractive` ou `AcquireTokenByDeviceCode` . .|
+| [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception) | AADSTS65001: O utilizador ou administrador não consentiu em utilizar a aplicação com o iD '{appId}' denominado '{appName}'. Envie um pedido de autorização interativa para este utilizador e recurso.| Obtenha o consentimento do utilizador primeiro. Se não estiver a utilizar o .NET Core (que não tem UI web), ligue (apenas uma vez) `AcquireTokeninteractive` . Se estiver a utilizar o núcleo .NET ou não quiser fazer `AcquireTokenInteractive` um, o utilizador pode navegar até um URL para dar o seu consentimento: `https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id={clientId}&response_type=code&scope=user.read` . para `AcquireTokenInteractive` chamar: `app.AcquireTokenInteractive(scopes).WithAccount(account).WithClaims(ex.Claims).ExecuteAsync();`|
+| [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception) | AADSTS50079: O utilizador é obrigado a utilizar a [autenticação multi-factor (MFA)](../authentication/concept-mfa-howitworks.md).| Não há atenuação. Se a MFA estiver configurada para o seu inquilino e a Azure Ative Directory (AAD) decidir aplicá-la, recue para um fluxo interativo como `AcquireTokenInteractive` ou `AcquireTokenByDeviceCode` .|
 | [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception) |AADSTS90010: O tipo de subvenção não é suportado sobre os pontos finais */comuns* ou */consumidores.* Utilize as */organizações* ou ponto final específico do inquilino. Usou */comum.*| Como explicado na mensagem da Azure AD, a autoridade precisa de ter um inquilino ou outras *organizações.*|
 | [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception) | AADSTS70002: O organismo de pedido deve conter o seguinte parâmetro: `client_secret or client_assertion` .| Esta exceção pode ser lançada se o seu pedido não tiver sido registado como um pedido de cliente público na Azure AD. No portal Azure, edite o manifesto para a sua aplicação e desatado `allowPublicClient` para `true` . |
 | [MentedescientExcepção](/dotnet/api/microsoft.identity.client.msalclientexception)| `unknown_user Message`: Não foi possível identificar o utilizador com sessão registada| A biblioteca não foi capaz de consultar o utilizador atual com sessão iniciada do Windows ou este utilizador não está atado a AD ou Azure AD (os utilizadores do local de trabalho não são suportados). Mitigação 1: no UWP, verifique se a aplicação tem as seguintes capacidades: Autenticação empresarial, Redes Privadas (Cliente e Servidor), Informação da Conta do Utilizador. Mitigação 2: Implemente a sua própria lógica para buscar o nome de utilizador (por exemplo, john@contoso.com ) e use o formulário que toma no nome de `AcquireTokenByIntegratedWindowsAuth` utilizador.|
@@ -175,6 +175,6 @@ do
 } while (retry);
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Considere permitir o [início de Sessão em MSAL.NET](msal-logging-dotnet.md) para ajudá-lo a diagnosticar e depurar problemas.

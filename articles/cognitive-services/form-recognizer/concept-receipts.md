@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 7173efd3dab0e8d2fd3c948a3a9bac07641e78f3
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: c1ae52b2b92c5c8d5a1a98632e19d3140672d6ea
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98792087"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99585046"
 ---
 # <a name="form-recognizer-prebuilt-receipt-model"></a>Modelo de recibo pré-construído do Reconhecimento de Formulário
 
@@ -38,7 +38,7 @@ O serviço de Receção pré-construído extrai o conteúdo dos recibos de venda
 
 ### <a name="fields-extracted"></a>Campos extraídos
 
-|Nome| Tipo | Descrição | Texto | Valor (saída padronizada) |
+|Nome| Tipo | Description | Texto | Valor (saída padronizada) |
 |:-----|:----|:----|:----| :----|
 | Tipo de Recibo | string | Tipo de recibo de venda | Itemizado |  |
 | Nome mercante | string | Nome do comerciante que emite o recibo | Contoso |  |
@@ -465,11 +465,11 @@ As receitas contêm dados úteis que pode utilizar para analisar o comportamento
 
 A API de Receção também alimenta a [funcionalidade de Processamento de Recibos de Construtora de IA.](/ai-builder/prebuilt-receipt-processing)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- Preencha um [quickstart do Reconhecimento de Formulário](quickstarts/client-library.md) para começar a escrever uma aplicação de processamento de recibos com o Form Recogniser no idioma à sua escolha.
+- Preencha um [quickstart do Form Recogniser](quickstarts/client-library.md) para começar a escrever uma aplicação de processamento de recibos com o Form Recogniser no idioma de desenvolvimento à sua escolha.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 * [O que é o Reconhecedor de Formato?](./overview.md)
 * [REST API referenciar docs](./index.yml)

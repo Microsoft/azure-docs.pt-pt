@@ -12,27 +12,22 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c7abad31c9936729b8d9c19ed2efcb841ac103ca
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: e4a47112d2f66edc8af9b7f100d48bc205f2e85e
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756246"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584302"
 ---
 # <a name="web-app-that-signs-in-users-move-to-production"></a>Aplicação web que assina nos utilizadores: Mover-se para a produção
 
-Agora que sabe como obter um símbolo para chamar APIs web, aprenda a movê-lo para a produção.
+Agora que sabe como obter um símbolo para chamar APIs web, aqui ficam algumas coisas a considerar ao mover a sua aplicação para a produção.
 
-[!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
+[!INCLUDE [Common steps to move to production](../../../includes/active-directory-develop-scenarios-production.md)]
 
-## <a name="troubleshooting"></a>Resolução de Problemas
-
-> [!NOTE]
-> Quando os utilizadores iniciarem a s presenciação na aplicação web pela primeira vez, terão de consentir. No entanto, em algumas organizações, os utilizadores podem ver uma mensagem como a seguinte:
->
-> *O AppName precisa de permissões para aceder a recursos na sua organização que só um administrador pode conceder. Por favor, peça a um administrador que conceda permissão a esta aplicação antes de poder usá-la.*
->
-> Isto porque o administrador do seu inquilino **desativou** a capacidade de os utilizadores consentirem. Nesse caso, você precisa contactar os seus administradores de inquilinos para que eles façam um consentimento administrativo para os âmbitos exigidos pelo pedido.
+## <a name="troubleshooting"></a>Resolução de problemas
+Quando os utilizadores iniciarem a s presenciação na aplicação web pela primeira vez, terão de consentir. No entanto, em algumas organizações, os utilizadores podem ver uma mensagem como a seguinte: *O AppName precisa de permissões para aceder a recursos na sua organização que só um administrador pode conceder. Por favor, peça a um administrador que conceda permissão a esta aplicação antes de poder usá-la.*
+Isto porque o administrador do seu inquilino **desativou** a capacidade de os utilizadores consentirem. Nesse caso, contacte os administradores do seu inquilino para que façam um consentimento administrativo para os âmbitos exigidos pelo pedido.
 
 ## <a name="same-site"></a>Mesmo site
 

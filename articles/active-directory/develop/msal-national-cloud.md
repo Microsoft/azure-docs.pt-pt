@@ -13,12 +13,12 @@ ms.date: 11/22/2019
 ms.author: negoe
 ms.reviewer: marsma, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 2f9396e20ae0f426dddd57b32297cfe98e135c44
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 01a69dbf9230154b74145f932b678d6bbebbde08
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99225821"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583964"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Use o MSAL num ambiente de nuvem nacional
 
@@ -40,7 +40,7 @@ Antes de começar, certifique-se de cumprir estes pré-requisitos.
 
 ### <a name="choose-the-appropriate-identities"></a>Escolha as identidades apropriadas
 
-As aplicações [do Governo Azure](../../azure-government/index.yml) podem usar identidades do Governo AD Azure e identidades públicas da Azure AD para autenticar os utilizadores. Como pode usar qualquer uma destas identidades, tem de decidir qual o ponto final da autoridade que deve escolher para o seu cenário:
+As aplicações [do Governo Azure](../../azure-government/index.yml) podem usar identidades do Governo AD Azure e identidades públicas da Azure AD para autenticar os utilizadores. Como pode usar qualquer uma destas identidades, decida qual o ponto final da autoridade que deve escolher para o seu cenário:
 
 - Azure AD Public: Normalmente usado se a sua organização já tem um inquilino público Azure AD para apoiar a Microsoft 365 (Público ou GCC) ou outra aplicação.
 - Governo Azure AD: Normalmente usado se a sua organização já tem um inquilino do Governo Azure AD para apoiar o Office 365 (GCC High ou DoD) ou está a criar um novo inquilino no Governo Azure AD.

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/16/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: ebc22e3cf300b664aae5842f7cf924769d4d907e
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 1187c768a54dd04d25b6de0e6785ebb81a7dfc24
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756489"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584436"
 ---
 # <a name="configure-a-mobile-app-that-calls-web-apis"></a>Configure uma aplicação móvel que chama APIs web
 
@@ -27,7 +27,7 @@ Depois de criar a sua aplicação, aprenderá a configurar o código utilizando 
 
 Os seguintes tipos da Microsoft Authentication Library (MSAL) suportam aplicações móveis.
 
-MSAL | Descrição
+MSAL | Description
 ------------ | ----------
 ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Usado para desenvolver aplicações portáteis. MSAL.NET suporta as seguintes plataformas para a construção de uma aplicação móvel: Universal Windows Platform (UWP), Xamarin.iOS e Xamarin.Android.
 ![MSAL.iOS](media/sample-v2-code/logo_iOS.png) <br/> MSAL.iOS | Usado para desenvolver aplicações nativas do iOS utilizando Object-C ou Swift.
@@ -82,7 +82,7 @@ As secções seguintes fornecem mais informações sobre a instantânea aplicaç
 
 ##### <a name="specify-the-parent-ui-window-or-activity"></a>Especificar a UI, janela ou atividade dos pais
 
-No Android, você precisa passar a atividade dos pais antes de fazer a autenticação interativa. No iOS, quando se usa um corretor, tem de passar a sê-lo `ViewController` . Da mesma forma na UWP, talvez queiras passar pela janela dos pais. Passa-se quando se adquire o símbolo. Mas quando estiver a criar a app, também pode especificar uma chamada como um delegado que `UIParent` retorna.
+No Android, passe a atividade dos pais antes de fazer a autenticação interativa. No iOS, quando se usa um corretor, o `ViewController` passe. Da mesma forma na UWP, talvez queiras passar pela janela dos pais. Passa-se quando se adquire o símbolo. Mas quando estiver a criar a app, também pode especificar uma chamada como um delegado que `UIParent` retorna.
 
 ```csharp
 IPublicClientApplication application = PublicClientApplicationBuilder.Create(clientId)
@@ -363,6 +363,6 @@ Aqui está um exemplo de como `LSApplicationQueriesSchemes` adicionar:
 
 Para obter informações sobre como ativar um corretor no Android, consulte [a autenticação mediada em Xamarin.Android](msal-net-use-brokers-with-xamarin-apps.md#brokered-authentication-for-android).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Passe para o próximo artigo neste cenário, [Adquirindo um símbolo](scenario-mobile-acquire-token.md).

@@ -6,13 +6,13 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 10/30/2020
-ms.openlocfilehash: 8257be28344ac7a03738c80a003c1229282ae305
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.date: 02/04/2021
+ms.openlocfilehash: 753f201fbde5d9e7100b6e257f8dc79e4462d7b6
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145718"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584928"
 ---
 # <a name="build-expressions-in-mapping-data-flow"></a>Construa expressões no fluxo de dados de mapeamento
 
@@ -32,7 +32,7 @@ Em algumas transformações como [o filtro,](data-flow-filter.md)clicar numa cai
 
 ![Caixa de expressão azul](media/data-flow/expressionbox.png "Caixa de expressão azul")
 
-Quando se referem colunas numa condição correspondente ou em grupo, uma expressão pode extrair valores de colunas. Para criar uma expressão, **selecione coluna Computada** .
+Quando se referem colunas numa condição correspondente ou em grupo, uma expressão pode extrair valores de colunas. Para criar uma expressão, **selecione coluna Computada**.
 
 ![Opção de coluna computada](media/data-flow/computedcolumn.png "Opção de coluna computada")
 
@@ -106,6 +106,9 @@ Alguns exemplos de interpolação de cordas:
 * ```"Total cost with sales tax is {round(totalcost * 1.08,2)}"```
 
 * ```"{:playerName} is a {:playerRating} player"```
+
+> [!NOTE]
+> Ao utilizar a sintaxe de interpolação de cordas em consultas de origem SQL, a cadeia de consulta deve estar numa única linha, sem '/n'.
 
 ## <a name="commenting-expressions"></a>Comentando expressões
 

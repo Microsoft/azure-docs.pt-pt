@@ -28,8 +28,6 @@
       href: convert-to-dataset.md
     - name: Converter em Valores Indicadores
       href: convert-to-indicator-values.md
-    - name: Limpar Dados em Falta
-      href: clean-missing-data.md
     - name: Editar Metadados
       href: edit-metadata.md
     - name: Agrupar Dados em Posições

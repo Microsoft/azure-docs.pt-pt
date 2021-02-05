@@ -5,14 +5,14 @@ author: kromerm
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 02/04/2021
 ms.author: makromer
-ms.openlocfilehash: e3152f1dff4a80ce3ae8bd121215ceb2595b9ee2
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: a08457ba041fa39fda367976498a4a89930c56e3
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96854012"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99585165"
 ---
 # <a name="common-data-model-format-in-azure-data-factory"></a>Formato comum do modelo de dados na Fábrica de Dados Azure
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -35,18 +35,18 @@ A tabela abaixo lista as propriedades suportadas por uma fonte de MDL. Pode edit
 | Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Formato | Formato deve ser `cdm` | sim | `cdm` | formato |
-| Formato de metadados | Onde a entidade se refere aos dados está localizada. Se utilizar a versão 1.0 do CDM, escolha manifesto. Se utilizar uma versão CDM antes do 1.0, escolha model.jsligado. | Sim | `'manifest'` ou `'model'` | manifestoType |
-| Localização da raiz: recipiente | Nome do recipiente da pasta CDM | sim | Cadeia | sistema de ficheiros |
-| Localização da raiz: caminho da pasta | Localização da pasta raiz da pasta CDM | sim | Cadeia | folderPath |
-| Arquivo manifesto: Caminho da entidade | Caminho da pasta da entidade dentro da pasta raiz | não | Cadeia | entidadePata |
+| Formato de metadados | Onde a entidade se refere aos dados está localizada. Se utilizar a versão 1.0 do CDM, escolha manifesto. Se utilizar uma versão CDM antes do 1.0, escolha model.jsligado. | Yes | `'manifest'` ou `'model'` | manifestoType |
+| Localização da raiz: recipiente | Nome do recipiente da pasta CDM | sim | String | sistema de ficheiros |
+| Localização da raiz: caminho da pasta | Localização da pasta raiz da pasta CDM | sim | String | folderPath |
+| Arquivo manifesto: Caminho da entidade | Caminho da pasta da entidade dentro da pasta raiz | não | String | entidadePata |
 | Arquivo manifesto: Nome manifesto | Nome do ficheiro manifesto. O valor predefinido é 'predefinido'  | Não | String | manifestoName |
-| Filtrar por última modificação | Opte por filtrar ficheiros com base na última alteração que foram alterados | não | Timestamp | modificado Depois <br> modificadoSForo antes | 
+| Filtrar por última modificação | Opte por filtrar ficheiros com base na última alteração que foram alterados | não | CarimboDeDataEHora | modificado Depois <br> modificadoSForo antes | 
 | Serviço ligado a Schema | O serviço ligado onde o corpus está localizado | Sim, se usar manifesto | `'adlsgen2'` ou `'github'` | corpusStore | 
-| Recipiente de referência de entidade | Container corpus está em | Sim, se usar manifesto e corpus na ADLS Gen2 | Cadeia | adlsgen2_fileSystem |
-| Repositório de referência de entidade | Nome do repositório do GitHub | Sim, se usar manifesto e corpus no GitHub | Cadeia | github_repository |
-| Ramo de referência de entidade | Ramo de repositório GitHub | Sim, se usar manifesto e corpus no GitHub | Cadeia |  github_branch |
-| Pasta Corpus | a localização raiz do corpus | Sim, se usar manifesto | Cadeia | corpusPath |
-| Entidade corpus | Caminho para referência de entidade | sim | Cadeia | entidade |
+| Recipiente de referência de entidade | Container corpus está em | Sim, se usar manifesto e corpus na ADLS Gen2 | String | adlsgen2_fileSystem |
+| Repositório de referência de entidade | Nome do repositório do GitHub | Sim, se usar manifesto e corpus no GitHub | String | github_repository |
+| Ramo de referência de entidade | Ramo de repositório GitHub | Sim, se usar manifesto e corpus no GitHub | String |  github_branch |
+| Pasta Corpus | a localização raiz do corpus | Sim, se usar manifesto | String | corpusPath |
+| Entidade corpus | Caminho para referência de entidade | sim | String | entidade |
 | Não permita que não encontrem ficheiros | Se for verdade, um erro não é jogado se nenhum ficheiro for encontrado | não | `true` ou `false` | ignoreNoFilesFound |
 
 Ao selecionar "Referência de Entidade" tanto nas transformações de Origem como em Sink, pode selecionar a partir destas três opções para a localização da referência da sua entidade:
@@ -85,6 +85,7 @@ Ao mapear colunas de fluxo de dados para propriedades de entidades na transforma
 2. Encontre as divisórias. Propriedade de localização 
 3. Mude o "blob.core.windows.net" para "dfs.core.windows.net"
 4. Fixar qualquer codificação "%2F" no URL para "/"
+5. Se utilizar fluxos de dados ADF, os caracteres especiais na trajetória do ficheiro de partição devem ser substituídos por valores alfanuméricos ou mudar para Fluxos de Dados de Sinapse
 
 ### <a name="cdm-source-data-flow-script-example"></a>Exemplo de script de fluxo de dados de fonte de CDM
 
@@ -117,20 +118,20 @@ A tabela abaixo lista as propriedades suportadas por um lavatório CDM. Pode edi
 | Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Formato | Formato deve ser `cdm` | sim | `cdm` | formato |
-| Localização da raiz: recipiente | Nome do recipiente da pasta CDM | sim | Cadeia | sistema de ficheiros |
-| Localização da raiz: caminho da pasta | Localização da pasta raiz da pasta CDM | sim | Cadeia | folderPath |
-| Arquivo manifesto: Caminho da entidade | Caminho da pasta da entidade dentro da pasta raiz | não | Cadeia | entidadePata |
+| Localização da raiz: recipiente | Nome do recipiente da pasta CDM | sim | String | sistema de ficheiros |
+| Localização da raiz: caminho da pasta | Localização da pasta raiz da pasta CDM | sim | String | folderPath |
+| Arquivo manifesto: Caminho da entidade | Caminho da pasta da entidade dentro da pasta raiz | não | String | entidadePata |
 | Arquivo manifesto: Nome manifesto | Nome do ficheiro manifesto. O valor predefinido é 'predefinido' | Não | String | manifestoName |
 | Serviço ligado a Schema | O serviço ligado onde o corpus está localizado | sim | `'adlsgen2'` ou `'github'` | corpusStore | 
-| Recipiente de referência de entidade | Container corpus está em | Sim, se corpus na ADLS Gen2 | Cadeia | adlsgen2_fileSystem |
-| Repositório de referência de entidade | Nome do repositório do GitHub | Sim, se corpus em GitHub | Cadeia | github_repository |
-| Ramo de referência de entidade | Ramo de repositório GitHub | Sim, se corpus em GitHub | Cadeia |  github_branch |
-| Pasta Corpus | a localização raiz do corpus | sim | Cadeia | corpusPath |
-| Entidade corpus | Caminho para referência de entidade | sim | Cadeia | entidade |
-| Caminho da partição | Local onde a partição será escrita | não | Cadeia | partitionPath |
+| Recipiente de referência de entidade | Container corpus está em | Sim, se corpus na ADLS Gen2 | String | adlsgen2_fileSystem |
+| Repositório de referência de entidade | Nome do repositório do GitHub | Sim, se corpus em GitHub | String | github_repository |
+| Ramo de referência de entidade | Ramo de repositório GitHub | Sim, se corpus em GitHub | String |  github_branch |
+| Pasta Corpus | a localização raiz do corpus | sim | String | corpusPath |
+| Entidade corpus | Caminho para referência de entidade | sim | String | entidade |
+| Caminho da partição | Local onde a partição será escrita | não | String | partitionPath |
 | Limpe a pasta | Se a pasta de destino for apurada antes de escrever | não | `true` ou `false` | truncato |
 | Tipo de formato | Escolha especificar o formato parquet | não | `parquet` se especificado | subformat |
-| Delimitador de colunas | Se escrever ao DelimitedText, como delimitar colunas | Sim, se escrever ao DelimitedText | Cadeia | columnDelimiter |
+| Delimitador de colunas | Se escrever ao DelimitedText, como delimitar colunas | Sim, se escrever ao DelimitedText | String | columnDelimiter |
 | Primeira linha como cabeçalho | Se utilizar o DelimitedText, se os nomes das colunas são adicionados como cabeçalho | não | `true` ou `false` | columnNamesAsHeader |
 
 ### <a name="cdm-sink-data-flow-script-example"></a>Exemplo de script de fluxo de dados de cdM

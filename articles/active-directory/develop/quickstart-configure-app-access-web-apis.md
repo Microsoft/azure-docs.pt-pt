@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Configurar uma app para aceder a uma API web Rio Azure'
+title: 'Quickstart: Configure uma aplicação para aceder a uma API web | Rio Azure'
 titleSuffix: Microsoft identity platform
 description: Neste quickstart, configura um registo de aplicações que representa uma API web na plataforma de identidade da Microsoft para permitir o acesso a recursos (permissões) a aplicações de clientes.
 services: active-directory
@@ -13,12 +13,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, contperf-fy21q1
 ms.reviewer: lenalepa, aragra, sureshja
-ms.openlocfilehash: fdaaf935dc458a6a5b2a87a81bb98a1392f1034a
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 460c96ddb06318cacd4e436190f459e4c060536e
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98012126"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583693"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-a-web-api"></a>Quickstart: Configurar uma aplicação do cliente para aceder a uma API web
 
@@ -78,7 +78,7 @@ Configure a permissão delegada no Microsoft Graph para permitir que a sua aplic
 1. Selecione **permissões delegadas**. O Microsoft Graph expõe muitas permissões, com as mais utilizadas mostradas no topo da lista.
 1. Sob **permissões Selecione,** selecione as seguintes permissões:
 
-    | Permissão       | Descrição                                         |
+    | Permissão       | Description                                         |
     |------------------|-----------------------------------------------------|
     | `email`          | Ver o endereço de e-mail dos utilizadores                           |
     | `offline_access` | Manter o acesso aos dados a que lhe deu acesso |
@@ -110,7 +110,7 @@ Algumas permissões, como os Ficheiros do Microsoft *Graph.Read.All,* requerem o
 
 ### <a name="configure-client-credentials"></a>Configure credenciais de cliente
 
-As aplicações que utilizam permissões de aplicação autenticam-se como elas próprias utilizando as suas próprias credenciais, sem exigir qualquer interação do utilizador. Antes da sua aplicação (ou API) poder aceder ao Microsoft Graph, à sua própria API web ou a qualquer outra API utilizando permissões de aplicação, precisa de configurar as credenciais da aplicação do cliente.
+As aplicações que utilizam permissões de aplicação autenticam-se como elas próprias utilizando as suas próprias credenciais, sem exigir qualquer interação do utilizador. Antes da sua aplicação (ou API) poder aceder ao Microsoft Graph, à sua própria API web ou a qualquer outra API utilizando permissões de aplicação, tem de configurar as credenciais da aplicação do cliente.
 
 Para obter mais informações sobre a configuração das credenciais de uma aplicação, consulte a secção de [credenciais Add](quickstart-register-app.md#add-credentials) do [Quickstart: Registar uma aplicação com a plataforma de identidade microsoft](quickstart-register-app.md).
 
@@ -144,7 +144,7 @@ Após a concessão do consentimento, as permissões que requerem o consentimento
 
 O botão **de consentimento administrativo Grant** é *desativado* se não for administrador ou se não tiver sido configurada nenhuma autorização para a aplicação. Se tiver permissões que tenham sido concedidas mas ainda não configuradas, o botão de consentimento administrativo solicita-lhe que manuseie estas permissões. Pode adicioná-las a permissões configuradas ou removê-las.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Avance para o próximo quickstart da série para aprender a configurar quais os tipos de conta que podem aceder à sua aplicação. Por exemplo, você pode querer limitar o acesso apenas aos utilizadores da sua organização (inquilino único) ou permitir utilizadores em outros inquilinos AZure AD (multi-inquilino) e aqueles com contas pessoais da Microsoft (MSA).
 

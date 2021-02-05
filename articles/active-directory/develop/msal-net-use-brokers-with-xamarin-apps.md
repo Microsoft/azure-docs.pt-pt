@@ -1,5 +1,5 @@
 ---
-title: Use corretores com Xamarin iOS & Android Rio Azure
+title: Utilize corretores com Xamarin iOS & | Android Rio Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como configurar aplicações xamarin iOS que podem utilizar o Autenticador microsoft e a Biblioteca de Autenticação do Microsoft para .NET (MSAL.NET). Aprenda também a migrar da Biblioteca de Autenticação AD Azure para .NET (ADAL.NET) para a Biblioteca de Autenticação do Microsoft para .NET (MSAL.NET).
 author: jmprieur
@@ -12,12 +12,12 @@ ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 73fbda9a3356e2877617391430a7f2b555b1a0e5
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: ee9f374d110115b224c48853f26037dc461e5fa0
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063489"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583846"
 ---
 # <a name="use-microsoft-authenticator-or-intune-company-portal-on-xamarin-applications"></a>Utilize o Microsoft Authenticator ou o Portal da Empresa Intune em aplicações Xamarin
 
@@ -91,7 +91,7 @@ Este método é invocado sempre que a aplicação é iniciada. É usada como uma
 
 ### <a name="step-4-set-uiviewcontroller"></a>Passo 4: Definir UIViewController()
 
-Ainda no ficheiro *AppDelegate.cs,* tens de definir uma janela de objetos. Normalmente, não precisa de definir a janela do objeto para o IOS de Xamarin, mas precisa de uma janela de objeto para enviar e receber respostas do corretor.
+Ainda no ficheiro *AppDelegate.cs,* coloque uma janela de objeto. Normalmente, não precisa de definir a janela do objeto para o IOS de Xamarin, mas precisa de uma janela de objeto para enviar e receber respostas do corretor.
 
 Para configurar a janela do objeto:
 
@@ -237,7 +237,7 @@ result = await app.AcquireTokenInteractive(scopes)
 
 ### <a name="step-4-add-a-redirect-uri-to-your-app-registration"></a>Passo 4: Adicione um URI redirecionado ao registo da sua aplicação
 
-A MSAL utiliza URLs para invocar o corretor e, em seguida, voltar à sua aplicação. Para completar essa viagem de ida e volta, precisa de registar um **URI de redirecionamento** para a sua aplicação utilizando o [portal Azure.](https://portal.azure.com)
+A MSAL utiliza URLs para invocar o corretor e, em seguida, voltar à sua aplicação. Para completar essa viagem de ida e volta, registe um **URI de redirecionamento** para a sua aplicação utilizando o [portal Azure.](https://portal.azure.com)
 
 O formato do URI de redirecionamento para a sua aplicação depende do certificado utilizado para assinar a APK. Por exemplo:
 
@@ -361,6 +361,6 @@ Aqui ficam algumas dicas para evitar problemas quando implementa a autenticaçã
 
     Assim que tiver os registos, pode pesquisar através deles as suas tentativas de autenticação através do ID de correlação. A identificação da correlação está anexada a todos os pedidos de autenticação. Para encontrar erros devolvidos pelo ponto final de autenticação da plataforma de identidade da Microsoft, procure `AADSTS` .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais [sobre considerações para utilizar a Plataforma Universal do Windows com MSAL.NET](msal-net-uwp-considerations.md).

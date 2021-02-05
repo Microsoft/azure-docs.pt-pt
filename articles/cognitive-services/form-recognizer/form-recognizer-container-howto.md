@@ -7,23 +7,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 02/04/2021
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 750c24fd84629f709beb7a92e92fd1ecf581c09a
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 53334dfdcdb917c754c9bc4205b0918c6d207da8
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862231"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584792"
 ---
-# <a name="install-and-run-form-recognizer-containers-preview"></a>Instalar e executar recipientes de reconhecimento de formulários (pré-visualização)
+# <a name="install-and-run-form-recognizer-containers-retiring"></a>Instalar e executar recipientes de reconhecimento de formulários (aposentação)
 
 [!INCLUDE [Form Recognizer containers limit](includes/container-limit.md)]
 
 Azure Form Recogniser aplica tecnologia de aprendizagem automática para identificar e extrair pares e tabelas de valor-chave a partir de formas. Associa valores e entradas de tabela com os pares de valor-chave e, em seguida, produz dados estruturados que incluem as relações no ficheiro original. 
 
-Para reduzir a complexidade e integrar facilmente um modelo personalizado de Reconhecimento de Formulários no seu processo de automatização de fluxo de trabalho ou outra aplicação, pode ligar para o modelo utilizando uma API rest simples. São necessários apenas cinco documentos de formulário (ou um formulário vazio e dois formulários preenchidos), para que possa obter resultados de forma rápida, precisa e adaptada ao seu conteúdo específico. Não é necessária uma intervenção manual pesada ou uma vasta experiência em ciências dos dados. E não requer rotulagem de dados ou anotação de dados.
+Para reduzir a complexidade e integrar facilmente um modelo personalizado de Reconhecimento de Formulários no seu processo de automatização de fluxo de trabalho ou outra aplicação, pode ligar para o modelo utilizando uma API rest simples. Apenas são necessários cinco documentos de formulário, para que possa obter resultados de forma rápida, precisa e adaptada ao seu conteúdo específico. Não é necessária uma intervenção manual pesada ou uma vasta experiência em ciências dos dados. E não requer rotulagem de dados ou anotação de dados.
 
 | Função | Funcionalidades |
 |----------|----------|
@@ -84,37 +84,9 @@ Os núcleos e memórias mínimos e recomendados da CPU a atribuir para cada reci
 > [!Note]
 > Os valores mínimos e recomendados baseiam-se nos limites do Docker e *não* nos recursos da máquina hospedeira.
 
-## <a name="get-the-container-images-with-the-docker-pull-command"></a>Obtenha as imagens do contentor com o comando de puxar o estivador
-
-As imagens do recipiente para as ofertas de texto do Reconhecimento de **Formulários** e **do Reconhecimento** estão disponíveis no seguinte registo de contentores:
-
-| Contentor | Nome de imagem totalmente qualificado |
-|-----------|------------|
-| Reconhecedor de Formato | `containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer:latest` |
-| Reconhecer Texto | `containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest` |
-
-Necessitará de ambos os recipientes, por favor, note que o recipiente **De Texto do Reconhecimento** é detalhado fora deste [artigo.](../Computer-vision/computer-vision-how-to-install-containers.md#get-the-container-image-with-docker-pull)
+Necessitará tanto dos recipientes de Reconhecimento de Formulários como de Reconhecimento de Texto, por favor tenha em atenção que o recipiente **De Texto Reconhecido** é detalhado fora deste [artigo.](../Computer-vision/computer-vision-how-to-install-containers.md#get-the-container-image-with-docker-pull)
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
-
-### <a name="docker-pull-for-the-form-recognizer-container"></a>Docker puxa para o recipiente de reconhecimento de formulário
-
-#### <a name="form-recognizer"></a>Reconhecedor de Formato
-
-Para obter o recipiente 'Reconhecimento de Formulários', utilize o seguinte comando:
-
-```Docker
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer:latest
-```
-### <a name="docker-pull-for-the-recognize-text-container"></a>Docker puxe para o recipiente de texto de reconhecimento
-
-#### <a name="recognize-text"></a>Reconhecer Texto
-
-Para obter o recipiente 'Reconhecer Texto', utilize o seguinte comando:
-
-```Docker
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest
-```
 
 ## <a name="how-to-use-the-container"></a>Como usar o recipiente
 
