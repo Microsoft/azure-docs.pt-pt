@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 03/18/2020
 ms.author: janutter
-ms.openlocfilehash: 56359ba07513ac648c682b8114001e251b0ee44c
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 0de3c46eba0b9364e38c4a952a320ac1c3de512f
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99225804"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583574"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-an-angular-single-page-application"></a>Quickstart: Inscreva-se nos utilizadores e obtenha um token de acesso numa aplicação de página única angular
 
@@ -53,7 +53,7 @@ Neste arranque rápido, você descarrega e execute uma amostra de código que de
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-the-application-in-the-azure-portal"></a>Passo 1: Configurar a aplicação no portal Azure
-> Para que a amostra de código para este arranque rápido funcione, é necessário adicionar um URI de redirecionamento como **http://localhost:4200/** e ativar a concessão implícita *****.
+> Para que a amostra de código neste arranque rápido funcione, é necessário adicionar um URI de redirecionamento como **http://localhost:4200/** e ativar a **concessão Implícita**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Faça estas alterações para mim]()
 >
@@ -96,7 +96,7 @@ Neste arranque rápido, você descarrega e execute uma amostra de código que de
 >
 > Substitua estes valores:
 >
->|Nome do valor|Descrição|
+>|Nome do valor|Description|
 >|---------|---------|
 >|Enter_the_Application_Id_Here|Na página **geral** do seu registo de candidatura, este é o seu valor **de ID de candidatura(cliente).** |
 >|Enter_the_Cloud_Instance_Id_Here|Este é o exemplo da nuvem Azure. Para a nuvem Azure principal ou global, **https://login.microsoftonline.com** entre. Para nuvens nacionais (por exemplo, China), ver [nuvens nacionais.](./authentication-national-cloud.md)|

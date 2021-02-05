@@ -13,12 +13,12 @@ ms.date: 04/10/2019
 ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: a1ec8c31681ab6c0ac40ba33e94f33057ee948e7
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 1a56685c830fc7aa717add3e826c68c04449e378
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754794"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99580851"
 ---
 # <a name="differences-between-msaljs-and-adaljs"></a>Diferenças entre MSAL.js e ADAL.js
 
@@ -48,7 +48,7 @@ No entanto, ainda precisa de utilizar ADAL.js se a sua aplicação precisar de a
 
 Em v1.0, a utilização da `https://login.microsoftonline.com/common` autoridade permitirá que os utilizadores assinem com qualquer conta AD Azure (para qualquer organização).
 
-Em v2.0, usando a `https://login.microsoftonline.com/common` autoridade, permitirá que os utilizadores entrem em qualquer conta de organização AZure ou uma conta pessoal da Microsoft (MSA). Para restringir o sinal apenas às contas AD do Azure (o mesmo comportamento que com ADAL.js), tem de usar `https://login.microsoftonline.com/organizations` . Para mais detalhes, consulte a `authority` opção config em [Initialize usando MSAL.js](msal-js-initializing-client-applications.md).
+Em v2.0, usando a `https://login.microsoftonline.com/common` autoridade, permitirá que os utilizadores entrem em qualquer conta de organização AZure ou uma conta pessoal da Microsoft (MSA). Para restringir a entrada apenas nas contas AD do Azure (o mesmo comportamento que com ADAL.js), utilize `https://login.microsoftonline.com/organizations` . Para mais detalhes, consulte a `authority` opção config em [Initialize usando MSAL.js](msal-js-initializing-client-applications.md).
 
 ### <a name="scopes-for-acquiring-tokens"></a>Âmbitos de aquisição de fichas
 * Âmbito em vez de parâmetro de recursos em pedidos de autenticação para adquirir fichas
@@ -95,5 +95,5 @@ Em v2.0, usando a `https://login.microsoftonline.com/common` autoridade, permiti
     acquireTokenPopup(request);
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações, consulte a [comparação v1.0 e v2.0](../azuread-dev/azure-ad-endpoint-comparison.md).

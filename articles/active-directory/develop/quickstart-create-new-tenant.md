@@ -13,12 +13,12 @@ ms.date: 03/12/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 869b37aea823cf91dc59211b23fcaccd7646afb9
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 41d70b20708f0f355fab5b5a06790c1c0c6530c6
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98012024"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583557"
 ---
 # <a name="quickstart-set-up-a-tenant"></a>Início Rápido: Configurar um inquilino
 
@@ -53,7 +53,7 @@ Muitos programadores já têm inquilinos através de serviços ou subscrições 
    * Se a sua conta estiver associada a vários inquilinos, pode selecionar o nome da sua conta para abrir um menu onde pode alternar entre inquilinos. Cada inquilino tem o seu próprio ID de inquilino.
 
 > [!TIP]
-> Se necessitar de obter o ID do inquilino, pode:
+> Para encontrar a iM do inquilino, você pode:
 > * Passe com o rato por cima do nome da sua conta para obter o diretório/ID do inquilino ou
 > * Pesse e selecione **Azure Ative Directory > Properties > ID do Inquilino** no portal Azure
 
@@ -74,7 +74,7 @@ Se ainda não tem um inquilino AZure AD ou quer criar um novo para o desenvolvim
 
 Para começar a criar aplicações que iniciem sessão nas contas de redes sociais e locais, terá de criar um inquilino do Azure AD B2C. Para começar, siga [Criar um inquilino do Azure AD B2C](../../active-directory-b2c/tutorial-create-tenant.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Registe uma aplicação](quickstart-register-app.md) para integrar-se na plataforma de identidade da Microsoft.

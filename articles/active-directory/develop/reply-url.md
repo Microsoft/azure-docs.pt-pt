@@ -1,5 +1,5 @@
 ---
-title: Redirecionar restrições URI (URL de resposta) / Rio Azure
+title: Redirecionar as restrições URI (URL de resposta) | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Uma descrição das restrições e limitações no formato URI (RESPOSTA URL) aplicada pela plataforma de identidade microsoft.
 author: SureshJa
@@ -11,12 +11,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: marsma, lenalepa, manrath
-ms.openlocfilehash: 30ea74b249937544a0bf9811cad60f02c1ca45c7
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 91df89a69368056c1967e641562cf8515f44ade0
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95752796"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582813"
 ---
 # <a name="redirect-uri-reply-url-restrictions-and-limitations"></a>Redirecionar restrições e limitações URI (URL de resposta)
 
@@ -45,7 +45,7 @@ Pode utilizar um máximo de 256 caracteres para cada redireccionamento URI que a
 
 O modelo de aplicação Azure Ative Directory (Azure AD) suporta atualmente esquemas HTTP e HTTPS para aplicações que assinam contas de trabalho ou escola no inquilino AZure AD de qualquer organização. Estes tipos de conta são especificados pelo `AzureADMyOrg` e `AzureADMultipleOrgs` valores no `signInAudience` campo do manifesto de candidatura. Para aplicações que assinam nas contas pessoais da Microsoft (MSA) *e* contas de trabalho e escola (isto é, `signInAudience` o programado `AzureADandPersonalMicrosoftAccount` para), apenas o esquema HTTPS é permitido.
 
-Para adicionar URIs redirecionando com um esquema HTTP para registos de aplicações que assinam em contas de trabalho ou escola, você precisa usar o editor manifesto de aplicação nas [inscrições](https://go.microsoft.com/fwlink/?linkid=2083908) da App no portal Azure. No entanto, embora seja possível definir um URI de redirecionamento baseado em HTTP usando o editor manifesto, recomendamos *vivamente* que utilize o esquema HTTPS para os seus URIs de redirecionamento.
+Para adicionar URIs redirecionando com um esquema HTTP para registos de aplicações que assinam em contas de trabalho ou escola, use o editor manifesto de aplicação nas [inscrições](https://go.microsoft.com/fwlink/?linkid=2083908) da App no portal Azure. No entanto, embora seja possível definir um URI de redirecionamento baseado em HTTP usando o editor manifesto, recomendamos *vivamente* que utilize o esquema HTTPS para os seus URIs de redirecionamento.
 
 ## <a name="localhost-exceptions"></a>Exceções locais
 
@@ -65,7 +65,7 @@ Do ponto de vista do desenvolvimento, isto significa algumas coisas:
 * Não registe uris de redirecionamento múltiplo onde apenas a porta difere. O servidor de login escolherá um arbitrariamente e utilizará o comportamento associado a esse URI redirecionado (por exemplo, seja um redirecionamento de `web` `native` tipo -, ou `spa` -tipo).
 
     Isto é especialmente importante quando pretende utilizar diferentes fluxos de autenticação no mesmo registo de pedidos, por exemplo, tanto o código de autorização como o fluxo implícito. Para associar o comportamento correto de resposta a cada URI de redirecionamento, o servidor de login deve ser capaz de distinguir entre os URIs de redirecionamento e não pode fazê-lo quando apenas a porta difere.
-* Se precisar de registar uris de redirecionamento múltiplo na localidade local para testar diferentes fluxos durante o desenvolvimento, diferenciá-los utilizando o componente de *caminho* do URI. Por exemplo, `http://localhost/MyWebApp` não `http://localhost/MyNativeApp` corresponde.
+* Para registar uris de redirecionamento múltiplo na localidade local para testar diferentes fluxos durante o desenvolvimento, diferenciá-los usando o componente de *caminho* do URI. Por exemplo, `http://localhost/MyWebApp` não `http://localhost/MyNativeApp` corresponde.
 * O endereço de backback IPv6 `[::1]` não está atualmente suportado.
 
 #### <a name="prefer-127001-over-localhost"></a>Prefira 127.0.0.1 em relação ao local
@@ -84,7 +84,7 @@ Os URIs wildcard `https://*.contoso.com` podem parecer convenientes, mas devem s
 
 Os URIs wildcard não são atualmente suportados em registos de aplicações configurados para assinar em contas pessoais da Microsoft e contas de trabalho ou escola. Os URIs wildcard são permitidos, no entanto, para aplicações configuradas para assinar apenas em contas de trabalho ou escola no inquilino AZure AD de uma organização.
 
-Para adicionar URIs redirecionando com wildcards para registos de aplicações que assinam em contas de trabalho ou escola, você precisa usar o editor manifesto de aplicação nas [inscrições](https://go.microsoft.com/fwlink/?linkid=2083908) da App no portal Azure. Embora seja possível definir um URI redirecionado com um wildcard usando o editor manifesto, recomendamos *vivamente* que adera à [secção 3.1.2 do RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2) e use apenas URIs absolutos.
+Para adicionar URIs redirecionando com wildcards para registos de aplicações que assinam em contas de trabalho ou escola, use o editor manifesto de aplicação nas [inscrições](https://go.microsoft.com/fwlink/?linkid=2083908) da App no portal Azure. Embora seja possível definir um URI redirecionado com um wildcard usando o editor manifesto, recomendamos *vivamente* que adera à [secção 3.1.2 do RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2) e use apenas URIs absolutos.
 
 Se o seu cenário requer mais URIs de redirecionamento do que o limite máximo permitido, considere a [seguinte abordagem](#use-a-state-parameter) de parâmetro de estado em vez de adicionar um URI de redirecionamento wildcard.
 

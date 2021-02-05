@@ -5,16 +5,16 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/09/2020
-ms.openlocfilehash: 4f64bab698cb87e26fa4fd1587c4269acf99fa59
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 5dde3da693d87d537fd2177a6f12b55297b5776e
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94384109"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582201"
 ---
-# <a name="precise-answering"></a>Resposta precisa
+# <a name="precise-answering"></a>Respostas precisas
 
-A funcionalidade de resposta precisa permite-lhe obter a resposta curta precisa da passagem de resposta do melhor candidato presente na base de conhecimento para qualquer consulta do utilizador. Esta funcionalidade utiliza um modelo de aprendizagem profunda que, em tempo de execução, compreende a intenção da consulta do utilizador e deteta a resposta curta precisa a partir da passagem de resposta, se houver uma resposta curta presente como facto na passagem da resposta. 
+A funcionalidade de resposta precisa introduzida no QnA Maker gerido (Preview), permite-lhe obter a resposta curta precisa a partir da passagem de resposta do melhor candidato presente na base de conhecimento para qualquer consulta do utilizador. Esta funcionalidade utiliza um modelo de aprendizagem profunda que, em tempo de execução, compreende a intenção da consulta do utilizador e deteta a resposta curta precisa a partir da passagem de resposta, se houver uma resposta curta presente como facto na passagem da resposta. 
 
 Esta funcionalidade encontra-se por padrão no painel de teste, para que possa testar a funcionalidade específica do seu cenário. Esta funcionalidade é extremamente benéfica tanto para os desenvolvedores de conteúdos como para os utilizadores finais. Agora, os desenvolvedores de conteúdo não precisam de curadoria manualmente de pares QnA específicos para todos os factos presentes na base de conhecimento, e o utilizador final não precisa de olhar através de toda a passagem de resposta devolvida do serviço para encontrar o facto real de que responde à consulta do utilizador. 
 
@@ -32,7 +32,7 @@ O serviço também devolve a pontuação de confiança da resposta exata como um
 
 ## <a name="publishing-a-qna-maker-bot"></a>Publicar um bot QnA Maker
 
-Ao publicar um bot, obtém a experiência com a resposta precisa por padrão na sua aplicação, onde verá uma resposta curta juntamente com a passagem de resposta. O utilizador tem a flexibilidade de escolher outras experiências atualizando o modelo através do serviço de aplicações th eBot. 
+Ao publicar um bot, obtém a experiência com a resposta precisa por padrão na sua aplicação, onde verá uma resposta curta juntamente com a passagem de resposta. Consulte a referência API para [Gerar Resposta](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerv5.0-preview.1/knowledgebase/generateanswer#answerspan) para ver como usar a resposta precisa (chamada AnswerSpan) na resposta. O utilizador tem a flexibilidade de escolher outras experiências atualizando o modelo através do serviço de aplicações Bot. 
 
 ## <a name="language-support"></a>Suporte de idiomas
 

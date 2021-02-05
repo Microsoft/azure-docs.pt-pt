@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 284ab3a2aabb2395636982237159117a10151019
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: d20a363a0320ca45f22183e54bcc390d4733c8bc
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98014948"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581759"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>How to: Utilizar o portal para criar uma aplicação e um principal de serviço do Azure AD que possam aceder aos recursos
 
@@ -115,7 +115,7 @@ A próxima secção mostra como obter valores que são necessários ao assinar p
 
 ## <a name="get-tenant-and-app-id-values-for-signing-in"></a>Obtenha valores de ID de inquilino e aplicativo para iniciar sessão
 
-Ao iniciar sessão programática, tem de passar o ID do inquilino com o seu pedido de autenticação e o ID da aplicação.  Também precisa de um certificado ou de uma chave de autenticação (descrito na secção seguinte). Para obter esses valores, utilize os seguintes passos:
+Ao iniciar sessão programática, passe o ID do inquilino com o seu pedido de autenticação e o ID da aplicação.  Também precisa de um certificado ou de uma chave de autenticação (descrito na secção seguinte). Para obter esses valores, utilize os seguintes passos:
 
 1. Selecione **Azure Active Directory**.
 1. A partir de inscrições de **Aplicações** em Azure AD, selecione a sua aplicação.
@@ -162,7 +162,7 @@ Para fazer o upload do certificado:
 
 1. Selecione **Adicionar**.
 
-Depois de registar o certificado com a sua candidatura no portal de registo de candidaturas, é necessário ativar o código de candidatura do cliente para utilizar o certificado.
+Depois de registar o certificado com a sua candidatura no portal de registo de candidaturas, permita ao cliente o código de inscrição utilizar o certificado.
 
 ### <a name="option-2-create-a-new-application-secret"></a>Opção 2: Criar um novo segredo de aplicação
 
@@ -186,7 +186,7 @@ Tenha em mente que poderá ter de configurar permissões adicionais sobre recurs
 1. **Selecione Adicionar** para adicionar a política de acesso e, em seguida, **guardar** para cometer as suas alterações.
     ![Adicionar política de acesso](./media/howto-create-service-principal-portal/add-access-policy.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Saiba como utilizar o [Azure PowerShell para criar um principal de serviço.](howto-authenticate-service-principal-powershell.md)
 * Para saber especificar políticas de segurança, consulte [o controlo de acesso baseado em funções Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md).
 * Para obter uma lista de ações disponíveis que podem ser concedidas ou negadas aos utilizadores, consulte [as operações do Fornecedor de Recursos do Gestor de Recursos da Azure.](../../role-based-access-control/resource-provider-operations.md)

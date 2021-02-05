@@ -1,5 +1,5 @@
 ---
-title: Criar uma identidade de aplicativo Azure (PowerShell) Rio Azure
+title: Crie uma identidade de aplicativo Azure (PowerShell) | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Descreve como utilizar o Azure PowerShell para criar uma aplicação do Azure Active Directory e um principal de serviço, e conceder acesso a recursos através do controlo de acesso baseado em funções. Mostra como a autenticar a aplicação com um certificado.
 services: active-directory
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
-ms.openlocfilehash: 096b8ed60bf9880b6904ab952d4558939ca13574
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: b07679c6dd5e03131fde1439213783893971a088
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97652080"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581827"
 ---
 # <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Como: Use a Azure PowerShell para criar um principal de serviço com um certificado
 
@@ -72,7 +72,7 @@ O exemplo dorme durante 20 segundos para permitir que o novo diretor de serviço
 
 Pode definir o âmbito de atribuição da função para um grupo de recursos específico, utilizando o parâmetro **ResourceGroupName**. Pode definir o âmbito para um recurso específico, utilizando também os parâmetros **ResourceType** e **ResourceName**. 
 
-Se **não tiver o Windows 10 ou o Windows Server 2016**, precisa de descarregar o [Gerador de certificados autoassinados](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/) a partir do Microsoft Script Center. Extraia o respetivo conteúdo e importe o cmdlet de que precisa.
+Se **não tiver o Windows 10 ou o Windows Server 2016,** descarregue o [gerador de certificado auto-assinado](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/) do Microsoft Script Center. Extraia o respetivo conteúdo e importe o cmdlet de que precisa.
 
 ```powershell
 # Only run if you could not use New-SelfSignedCertificate
@@ -91,7 +91,7 @@ $cert = Get-ChildItem -path Cert:\CurrentUser\my | where {$PSitem.Subject -eq 'C
 
 ### <a name="provide-certificate-through-automated-powershell-script"></a>Fornecer o certificado através do script do PowerShell automatizado
 
-Sempre que iniciar sessão como um principal de serviço, tem de fornecer o ID de inquilino do diretório para a sua aplicação AD. Um inquilino é um exemplo de Azure AD.
+Sempre que se inscrever como diretor de serviço, forneça a identificação do diretório do inquilino para a sua aplicação AD. Um inquilino é um exemplo de Azure AD.
 
 ```powershell
 $TenantId = (Get-AzSubscription -SubscriptionName "Contoso Default").TenantId
@@ -151,7 +151,7 @@ Param (
 ```
 
 ### <a name="provide-certificate-through-automated-powershell-script"></a>Fornecer o certificado através do script do PowerShell automatizado
-Sempre que iniciar sessão como um principal de serviço, tem de fornecer o ID de inquilino do diretório para a sua aplicação AD. Um inquilino é um exemplo de Azure AD.
+Sempre que se inscrever como diretor de serviço, forneça a identificação do diretório do inquilino para a sua aplicação AD. Um inquilino é um exemplo de Azure AD.
 
 ```powershell
 Param (

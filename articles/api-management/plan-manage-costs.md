@@ -7,12 +7,12 @@ ms.custom: subject-cost-optimization
 ms.service: api-management
 ms.topic: how-to
 ms.date: 12/15/2020
-ms.openlocfilehash: e171e642440b7c6c99353169e426a722885f1bcf
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 1ebb89ae318e57f1d4e0708a08019515ca43158d
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98725942"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581334"
 ---
 # <a name="plan-and-manage-costs-for-api-management"></a>Planear e gerir custos para a Gestão da API
 
@@ -89,10 +89,10 @@ Também pode [exportar os seus dados de custos](../cost-management-billing/costs
 
 ### <a name="choose-tier"></a>Escolha o nível
 
-Reveja a [comparação baseada em funcionalidades dos níveis de Gestão Azure API](api-management-features.md) para ajudar a decidir qual o nível de serviço que pode ser apropriado para os seus cenários. Os diferentes níveis de serviço suportam combinações de funcionalidades e capacidades projetadas para vários casos de uso, com custos diferentes. [Atualize](upgrade-and-scale.md) para um nível de serviço diferente a qualquer momento.
+Reveja a [comparação baseada em funcionalidades dos níveis de Gestão Azure API](api-management-features.md) para ajudar a decidir qual o nível de serviço que pode ser apropriado para os seus cenários. Os diferentes níveis de serviço suportam combinações de funcionalidades e capacidades projetadas para vários casos de uso, com custos diferentes. 
 
 * O nível de serviço **de consumo** oferece uma opção leve e sem servidor que não incorre em custos fixos. É faturado com base no número de chamadas da API para o serviço acima de um determinado limiar. A capacidade também escala automaticamente com base na carga do serviço.
-* Outros níveis de Gestão da API incorrem em custos mensais, e fornecem conjuntos de características mais ricos e de produção para avaliação e carga de trabalho de produção.
+* Os níveis de Gestão de API de **Desenvolvimento,** **Básico,** **Standard** e **Premium** incorrem em custos mensais, e fornecem conjuntos de funcionalidades de maior produção e mais ricos para avaliação e carga de trabalho de produção. [Atualize](upgrade-and-scale.md) para um nível de serviço diferente a qualquer momento.
 
 ### <a name="scale-using-capacity-units"></a>Escala usando unidades de capacidade
 
@@ -104,7 +104,7 @@ Ao adicionar ou remover unidades, a capacidade e a escala de custos proporcional
 
 [Monitorize](api-management-howto-use-azure-monitor.md) a métrica de Capacidade para o seu exemplo de Gestão de API para ajudar a tomar decisões quer dimensionar ou atualizar um caso de Gestão de API para acomodar mais carga.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba [como otimizar o seu investimento em nuvem com a Azure Cost Management.](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 - Saiba mais sobre gestão de custos com [a análise de custos.](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

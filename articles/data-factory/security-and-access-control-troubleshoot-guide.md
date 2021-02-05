@@ -5,15 +5,15 @@ services: data-factory
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 01/05/2021
+ms.date: 02/04/2021
 ms.author: lle
 ms.reviewer: craigg
-ms.openlocfilehash: 70e4d0c1a9f26f83924c1343e4e8e51c5595b324
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 37da2869f0cf315ac0a6851c9a77dcee4debf71a
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944506"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581691"
 ---
 # <a name="troubleshoot-azure-data-factory-security-and-access-control-issues"></a>Resolução de problemas Azure Data Factory questões de segurança e controlo de acessos
 
@@ -88,9 +88,10 @@ Para verificar se o nome de domínio totalmente qualificado (FQDN) da Data Facto
 #### <a name="resolution"></a>Resolução
 
 Para resolver a questão, faça o seguinte:
-- Consulte o Azure Private Link para o artigo [da Azure Data Factory.](./data-factory-private-link.md#dns-changes-for-private-endpoints) A instrução é para configurar a zona ou servidor privado de DNS para resolver o FQDN da Data Factory para um endereço IP privado.
 
-- Recomendamos a utilização de um DNS personalizado como solução a longo prazo. No entanto, se não quiser configurar a zona ou servidor privado de DNS, experimente a seguinte solução temporária:
+- Como opção, gostaríamos de sugerir que adicione manualmente uma "ligação de Rede Virtual" na Fábrica de Dados "Zona DS de ligação privada". Para mais informações, consulte o Azure Private Link para o artigo [da Azure Data Factory.](./data-factory-private-link.md#dns-changes-for-private-endpoints) A instrução é para configurar a zona privada de DNS ou o servidor DNS personalizado para resolver o FQDN da Data Factory para um endereço IP privado. 
+
+- No entanto, se não quiser configurar a zona privada de DNS ou o servidor DNS personalizado, experimente a seguinte solução temporária:
 
   1. Altere o ficheiro anfitrião no Windows e mapeeeia o IP privado (o ponto final privado da Azure Data Factory) para o Azure Data Factory FQDN.
   
@@ -152,7 +153,7 @@ Tente permitir o acesso à rede pública na interface do utilizador, como mostra
 
 ![Screenshot do controlo "Ativado" para "Permitir o acesso à rede pública" no painel de networking.](media/self-hosted-integration-runtime-troubleshoot-guide/enable-public-network-access.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais ajuda na resolução de problemas, experimente os seguintes recursos:
 

@@ -13,12 +13,12 @@ ms.date: 11/20/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 46626c3ebe9d70600be1cc5f73c43677f67bcd09
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 00768f363d08bc476350e57a8eac69eafd9c3589
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98761377"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99580943"
 ---
 # <a name="application-configuration-options"></a>Opções de configuração de aplicações
 
@@ -73,7 +73,7 @@ Se não especificar um caso, a sua aplicação terá como alvo a instância de n
 
 O público de inscrição depende das necessidades do negócio para a sua aplicação:
 
-- Se você é um desenvolvedor de linha de negócios (LOB), você provavelmente irá produzir uma aplicação de inquilino único que será usada apenas na sua organização. Nesse caso, você precisa especificar a organização, quer pelo seu ID de inquilino (o ID do seu exemplo AD Azure) ou por um nome de domínio associado à instância AD Azure.
+- Se você é um desenvolvedor de linha de negócios (LOB), você provavelmente irá produzir uma aplicação de inquilino único que será usada apenas na sua organização. Nesse caso, especifique a organização pelo seu ID de inquilino (o ID do seu exemplo AD Azure) ou por um nome de domínio associado à instância AD Azure.
 - Se você é um ISV, você pode querer assinar em utilizadores com o seu trabalho e contas escolares em qualquer organização ou em algumas organizações (app multitenant). Mas também pode querer que os utilizadores entrem com as suas contas pessoais da Microsoft.
 
 ### <a name="how-to-specify-the-audience-in-your-codeconfiguration"></a>Como especificar o público no seu código/configuração
@@ -122,9 +122,9 @@ Se você é um desenvolvedor de aplicativos de cliente público que está usando
   | UWP | valor de `WebAuthenticationBroker.GetCurrentApplicationCallbackUri()` . Isto permite ao SSO com o navegador, definindo o valor para o resultado do WebAuthenticationBroker.GetCurrentApplicationCallbackUri() que precisa de registar |
   | .NET Core | `https://localhost`. Isto permite ao utilizador utilizar o navegador do sistema para autenticação interativa uma vez que .NET Core não tem um UI para a vista web incorporada no momento. |
 
-- Não precisa de adicionar um URI de redirecionamento se estiver a construir uma aplicação Xamarin Android e iOS que não suporta corretor (o URI de redirecionamento está automaticamente definido `msal{ClientId}://auth` para Xamarin Android e iOS
+- Não precisa de adicionar um URI de redirecionamento se estiver a construir uma aplicação Xamarin Android e iOS que não suporta o corretor redirecionar o URI. É automaticamente definido `msal{ClientId}://auth` para Xamarin Android e iOS.
 
-- Você precisa configurar o URI redirecionamento em [registos de aplicações:](https://aka.ms/appregistrations)
+- Configure o redirecionamento URI nos [registos da App:](https://aka.ms/appregistrations)
 
    ![Redirecionar URI em registos de aplicações](media/msal-client-application-configuration/redirect-uri.png)
 
@@ -162,6 +162,6 @@ Para ajudar a depurar e autenticar cenários de resolução de problemas de falh
     :::column-end:::
 :::row-end:::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como [instantânear as aplicações do cliente utilizando aplicações de MSAL.NET](msal-net-initializing-client-applications.md) e [instantaneamente do cliente utilizando MSAL.js](msal-js-initializing-client-applications.md).

@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 1/29/2021
-ms.openlocfilehash: 84d37def6aa519eabf26a72ded7b0ab70994c430
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.date: 2/05/2021
+ms.openlocfilehash: abd47a17392e53770802b61e4ee6561252cc4c1e
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99063084"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581572"
 ---
 # <a name="co-sell-partner-engagement"></a>Compromisso entre parceiros para venda conjunta
 
@@ -79,6 +79,9 @@ Inicie a sua viagem de Co-venda diretamente no Partner Center seguindo os passos
 
 1. Guarde o rascunho antes de continuar.
 1. Depois de ter concluído todas as secções necessárias da oferta, pode submetê-la para revisão e publicação. No canto superior direito, selecione **'Rever e publicar.** Reveja os detalhes da oferta e, em seguida, **selecione Publicar**.
+
+> [!NOTE]
+> Já não precisa de nos contactar para nomear a sua oferta para co-venda. Depois de completar todos os campos necessários na Co-venda com a página da Microsoft e reeditar a sua oferta, revemos a sua oferta para determinar se cumpre os requisitos para o estado de co-venda.
 
 ## <a name="see-your-offers-co-sell-status"></a>Consulte o estado de Co-venda da sua oferta
 

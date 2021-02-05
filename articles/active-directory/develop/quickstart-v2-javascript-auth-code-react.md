@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/14/2021
 ms.author: jamesmantu
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: 323c9e207e5a16ba3e5907862e7a1eba84cc02e6
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 9c30b1ff7b6e708fdd64d082b14b4e9d3c7a0f1a
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754190"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583320"
 ---
 # <a name="quickstart-sign-in-and-get-an-access-token-in-a-react-spa-using-the-auth-code-flow"></a>Quickstart: Inicie e obtenha um token de acesso num React SPA usando o fluxo de código auth
 
@@ -66,7 +66,7 @@ Este quickstart utiliza o MSAL React com o fluxo de código de autorização. Pa
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Passo 1: Configurar a sua candidatura no portal Azure
-> Para fazer a amostra de código neste trabalho de arranque rápido, você precisa adicionar um `redirectUri` como `http://localhost:3000/` .
+> Para que a amostra de código neste arranque rápido funcione, adicione um **URI de redirecionamento** de `http://localhost:3000/` .
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Faça estas alterações para mim]()
 >
@@ -184,7 +184,7 @@ Se tiver Node.js instalado, pode descarregar a versão mais recente utilizando o
 npm install @azure/msal-browser @azure/msal-react
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter um guia passo a passo detalhado sobre a construção da aplicação de fluxo de código auth utilizando o JavaScript de baunilha, consulte o seguinte tutorial:
 

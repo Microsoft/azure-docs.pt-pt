@@ -1,5 +1,5 @@
 ---
-title: Guia de migração da ADAL para o Android Rio Azure
+title: Guia de migração ADAL para MSAL para | Android Rio Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como migrar a sua aplicação Para Autenticação ativa do Azure Ative Directory (ADAL) para a Biblioteca de Autenticação do Microsoft (MSAL).
 services: active-directory
@@ -14,12 +14,12 @@ ms.date: 10/14/2020
 ms.author: marsma
 ms.reviewer: shoatman
 ms.custom: aaddev
-ms.openlocfilehash: bf9b3a154e19fab08c46f9838f555e223f10e8a0
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: ba639bc023affc7c2e6b2b675cdedc1229636893
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97672292"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581045"
 ---
 # <a name="adal-to-msal-migration-guide-for-android"></a>Guia de migração ADAL para MSAL para Android
 
@@ -71,7 +71,7 @@ No registo da sua aplicação no portal, verá um separador **de permissões da 
 Com a ADAL e o ponto final Azure AD v1, o consentimento do utilizador para os recursos que possuem foi concedido na primeira utilização. Com o MSAL e a plataforma de identidade da Microsoft, o consentimento pode ser solicitado incrementalmente. O consentimento incremental é útil para permissões que um utilizador pode considerar de alto privilégio, ou pode de outra forma questionar se não for fornecida uma explicação clara do porquê da permissão ser necessária. No ADAL, estas permissões podem ter resultado no abandono do utilizador na sua aplicação.
 
 > [!TIP]
-> Recomendamos o uso do consentimento incremental em cenários em que necessita de fornecer contexto adicional ao seu utilizador sobre o motivo pelo qual a sua aplicação necessita de uma permissão.
+> Utilize o consentimento incremental para fornecer contexto adicional aos seus utilizadores sobre o motivo pelo qual a sua aplicação necessita de uma permissão.
 
 ### <a name="admin-consent"></a>Consentimento do administrador
 
@@ -237,7 +237,7 @@ public interface SilentAuthenticationCallback {
 Em ADAL, há um tipo de exceção, `AuthenticationException` que inclui um método para recuperar o valor `ADALError` enum.
 No MSAL, há uma hierarquia de exceções, e cada um tem o seu próprio conjunto de códigos de erro específicos associados.
 
-| Exceção                                        | Descrição                                                         |
+| Exceção                                        | Description                                                         |
 |--------------------------------------------------|---------------------------------------------------------------------|
 | `MsalArgumentException`                          | Lançados se um ou mais argumentos de entradas forem inválidos.                 |
 | `MsalClientException`                            | Lançado se o erro for do lado do cliente.                                 |

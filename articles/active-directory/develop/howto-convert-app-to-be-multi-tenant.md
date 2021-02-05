@@ -13,12 +13,12 @@ ms.date: 10/27/2020
 ms.author: ryanwi
 ms.reviewer: marsma, jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 4f87c3fd0cfda2db535b2c8f7f7330a273e6b767
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 825a7d8c53552120a861657c7f3df7ae8f488c18
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98755344"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581725"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>How to: Iniciar sessão de qualquer utilizador do Azure Active Directory com o padrão de aplicação multi-inquilino
 
@@ -125,7 +125,7 @@ Permissões só de aplicativos requerem sempre o consentimento de um administrad
 
 Algumas permissões delegadas também requerem o consentimento de um administrador do inquilino. Por exemplo, a capacidade de responder à Azure AD como assinada no utilizador requer o consentimento de um administrador de inquilino. Como permissões apenas para aplicações, se um utilizador comum tentar iniciar sôms numa aplicação que solicita uma permissão delegada que requer o consentimento do administrador, a sua aplicação recebe um erro. Se uma permissão requer consentimento administrativo é determinado pelo desenvolvedor que publicou o recurso, e pode ser encontrado na documentação para o recurso. A documentação das permissões para a [API do Gráfico da Microsoft][MSFT-Graph-permission-scopes] indica quais as permissões que requerem consentimento administrativo.
 
-Se a sua aplicação utilizar permissões que exijam consentimento administrativo, tem de ter um gesto como um botão ou ligação onde o administrador pode iniciar a ação. O pedido que o seu pedido envia para esta ação é o habitual pedido de autorização OAuth2/OpenID Connect que também inclui o parâmetro de `prompt=admin_consent` cadeia de consulta. Uma vez que o administrador tenha consentido e o diretor de serviço é criado no inquilino do cliente, os pedidos subsequentes de inscrição não precisam do `prompt=admin_consent` parâmetro. Uma vez que o administrador decidiu que as permissões solicitadas são aceitáveis, nenhum outro utilizadores no arrendatário é solicitado a pedir o consentimento a partir desse ponto.
+Se a sua aplicação utilizar permissões que exijam consentimento administrativo, tenha um gesto como um botão ou ligação onde o administrador possa iniciar a ação. O pedido que o seu pedido envia para esta ação é o habitual pedido de autorização OAuth2/OpenID Connect que também inclui o parâmetro de `prompt=admin_consent` cadeia de consulta. Uma vez que o administrador tenha consentido e o diretor de serviço é criado no inquilino do cliente, os pedidos subsequentes de inscrição não precisam do `prompt=admin_consent` parâmetro. Uma vez que o administrador decidiu que as permissões solicitadas são aceitáveis, nenhum outro utilizadores no arrendatário é solicitado a pedir o consentimento a partir desse ponto.
 
 Um administrador de inquilino pode desativar a capacidade de os utilizadores regulares consentirem com as aplicações. Se esta capacidade for desativada, o consentimento administrativo é sempre necessário para que o pedido seja utilizado no arrendatário. Se pretender testar a sua aplicação com o consentimento do utilizador final desativado, pode encontrar o interruptor de configuração no [portal Azure][AZURE-portal] na secção **[de definições](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)** do Utilizador sob **as aplicações da Enterprise**.
 
@@ -186,7 +186,7 @@ As aplicações multi-arrendadas também podem ter acesso a fichas para chamar A
 * [Visão geral do Quadro de Consentimento][AAD-Consent-Overview]
 * [Âmbitos de permissão da Microsoft Graph API][MSFT-Graph-permission-scopes]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a construir uma aplicação que pode assinar num utilizador de qualquer inquilino da AZure AD. Depois de ativar Sign-On (SSO) entre a sua aplicação e a AD Azure, também pode atualizar a sua aplicação para aceder a APIs expostas por recursos da Microsoft como o Microsoft 365. Isto permite-lhe oferecer uma experiência personalizada na sua aplicação, como mostrar informações contextuais aos utilizadores, como a sua imagem de perfil ou a sua próxima marcação de calendário.
 

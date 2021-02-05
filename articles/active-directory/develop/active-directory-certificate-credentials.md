@@ -13,12 +13,12 @@ ms.date: 12/3/2020
 ms.author: hirsin
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 22352f6d0c7dc48b98be5fcb4101f262adc480d6
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: cfbcc8523ff1d5858317a3654b58ec7b2d23607a
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98795615"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582031"
 ---
 # <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Credenciais de certificado de autenticação de aplicativos da plataforma de identidade da Microsoft
 
@@ -101,12 +101,12 @@ No registo da app Azure para a aplicação do cliente:
 
 ### <a name="updating-the-application-manifest"></a>Atualizar o manifesto de aplicação
 
-Tendo um certificado, precisa calcular:
+Após a aquisição de um certificado, calcule estes valores:
 
 - `$base64Thumbprint` - Valor codificado base64 do haxixe do certificado
 - `$base64Value` - Valor codificado base64 dos dados brutos do certificado
 
-Também é necessário fornecer um GUID para identificar a chave no manifesto de candidatura ( `$keyId` ).
+Forneça um GUID para identificar a chave no manifesto de candidatura `$keyId` ().
 
 No registo da app Azure para a aplicação do cliente:
 1. Selecione **Manifesto** para abrir o manifesto de inscrição.
@@ -136,7 +136,7 @@ As afirmações dos clientes podem ser usadas em qualquer lugar que um segredo d
 |`client_assertion_type`|`urn:ietf:params:oauth:client-assertion-type:jwt-bearer`| Trata-se de um valor fixo, indicando que está a utilizar uma credencial de certificado. |
 |`client_assertion`| JWT |Este é o JWT criado acima. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 A [biblioteca MSAL.NET lida com este cenário](msal-net-client-assertions.md) numa única linha de código.
 

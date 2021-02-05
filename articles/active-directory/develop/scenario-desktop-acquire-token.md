@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/06/2021
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: c58f4a553073eb3ed062ef9ec2a66c8e4f40e57b
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 4a244c543aa83ae84891e3f942995dc340a7209d
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98785130"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582660"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Aplicativo de desktop que chama APIs web: Adquirir um token
 
@@ -445,7 +445,7 @@ Para obter mais informações sobre o consentimento, consulte as permissões e c
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-Em MSAL.NET, tem de usar:
+Em MSAL.NET, use:
 
 ```csharp
 AcquireTokenByIntegratedWindowsAuth(IEnumerable<string> scopes)
@@ -922,7 +922,7 @@ Este fluxo não é suportado no MSAL para o macOS.
 
 ### <a name="device-code-flow"></a>Fluxo de código do dispositivo
 
-Se estiver a escrever uma ferramenta de linha de comando que não tenha controlos web e não puder ou não quiser utilizar os fluxos anteriores, tem de utilizar o fluxo de código do dispositivo.
+Se estiver a escrever uma ferramenta de linha de comando que não tenha controlos web e não puder ou não quiser utilizar os fluxos anteriores, utilize o fluxo de código do dispositivo.
 
 A autenticação interativa com Azure AD requer um navegador web. Para mais informações, consulte [a utilização dos navegadores web.](https://aka.ms/msal-net-uses-web-browser) Para autenticar os utilizadores em dispositivos ou sistemas operativos que não fornecem um navegador web, o fluxo de código do dispositivo permite ao utilizador utilizar outro dispositivo, como um computador ou um telemóvel, para iniciar sivamente. Ao utilizar o fluxo de código do dispositivo, a aplicação obtém fichas através de um processo em duas etapas que é projetado para estes dispositivos ou sistemas operativos. Exemplos de tais aplicações são aplicações que funcionam em ferramentas iOT ou linha de comando (CLI). A ideia é que:
 
@@ -1405,6 +1405,6 @@ namespace CommonCacheMsalV3
 
 [!INCLUDE [advanced-token-caching](../../../includes/advanced-token-cache.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Passe para o próximo artigo neste cenário, [Ligue para uma API web a partir da aplicação de ambiente de trabalho](scenario-desktop-call-api.md).

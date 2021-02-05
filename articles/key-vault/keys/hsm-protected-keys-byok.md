@@ -8,14 +8,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: tutorial
-ms.date: 02/01/2021
+ms.date: 02/04/2021
 ms.author: ambapat
-ms.openlocfilehash: 98da8057fb09cf43a59b921694386cbf3fa8ca21
-ms.sourcegitcommit: 983eb1131d59664c594dcb2829eb6d49c4af1560
+ms.openlocfilehash: 51ba981dcc6f36df3bfaacebb503782faed5c91f
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99222222"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581011"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault-byok"></a>Chaves protegidas pelo HSM para o Cofre-Chave (BYOK)
 
@@ -71,10 +71,13 @@ As seguintes listas de tabelas pré-requisitos para a utilização do BYOK no Co
 
 ## <a name="supported-key-types"></a>Supported key types (Tipos de chaves suportados)
 
-|Nome da chave|Tipo de chave|Tamanho da chave|Origem|Description|
+|Nome da chave|Tipo de chave|Tamanho/curva da chave|Origem|Description|
 |---|---|---|---|---|
 |Chave de troca (KEK)|RSA| 2.048-bit<br />3,072 bit<br />4.096-bit|Cofre de Chave Azure HSM|Um par de chaves RSA apoiado pelo HSM gerado no Cofre da Chave Azure|
-|Chave-alvo|RSA|2.048-bit<br />3,072 bit<br />4.096-bit|Fornecedor HSM|A chave a ser transferida para o Cofre Azure-Key HSM|
+|Chave-alvo|
+||RSA|2.048-bit<br />3,072 bit<br />4.096-bit|Fornecedor HSM|A chave a ser transferida para o Cofre Azure-Key HSM|
+||EC|P-256<br />P-384<br />P-521|Fornecedor HSM|A chave a ser transferida para o Cofre Azure-Key HSM|
+||||
 
 ## <a name="generate-and-transfer-your-key-to-the-key-vault-hsm"></a>Gere e transfira a sua chave para o Cofre de Chaves HSM
 
@@ -120,7 +123,7 @@ Consulte a documentação do seu fornecedor HSM para descarregar e instalar a fe
 Transfira o ficheiro BYOK para o seu computador conectado.
 
 > [!NOTE] 
-> A importação de chaves RSA de 1.024 bits não é suportada. Atualmente, a importação de uma chave da Curva Elíptica (CE) não é suportada.
+> A importação de chaves RSA de 1.024 bits não é suportada. A chave de curva elíptica importada com curva P-256K não é suportada.
 > 
 > **Edição conhecida**: Importar uma chave-alvo RSA 4K da Luna HSMs só é suportado com firmware 7.4.0 ou mais recente.
 
@@ -128,8 +131,15 @@ Transfira o ficheiro BYOK para o seu computador conectado.
 
 Para completar a importação de chave, transfira o pacote de transferência de chaves (um ficheiro BYOK) do seu computador desligado para o computador ligado à Internet. Utilize o comando de importação da [chave az keyvault](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-import) para carregar o ficheiro BYOK para o Cofre de Chaves HSM.
 
+Para importar uma chave RSA utilizar o seguinte comando. O parâmetro --kty é opcional e predefinido para 'RSA-HSM'.
 ```azurecli
 az keyvault key import --vault-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --byok-file KeyTransferPackage-ContosoFirstHSMkey.byok
+```
+
+Para importar uma chave CE, deve especificar o tipo de chave e o nome da curva.
+
+```azurecli
+az keyvault key import --vault-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --byok-file --kty EC-HSM --curve-name "P-256" KeyTransferPackage-ContosoFirstHSMkey.byok
 ```
 
 Se o upload for bem sucedido, o Azure CLI exibe as propriedades da chave importada.

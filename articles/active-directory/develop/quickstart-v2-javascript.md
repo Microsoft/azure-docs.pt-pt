@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: b2ae48c76ccba80d274e7463b31782b4fbc6a976
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 9a58e4087745ba0c09b85c2740781c493090a370
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99225719"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583235"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Quickstart: Inicie seduário nos utilizadores e obtenha um token de acesso num JavaScript SPA
 
@@ -62,7 +62,7 @@ Veja [como funciona a amostra](#how-the-sample-works) para uma ilustração.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Passo 1: Configurar a sua candidatura no portal Azure
-> O código de amostra deste quickstart requer um **URI de redirecionamento** `http://localhost:3000/` e permite uma **concessão implícita**.
+> Para que a amostra de código neste arranque rápido funcione, adicione um **URI de redirecionamento** `http://localhost:3000/` e permita a **concessão implícita**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Faça estas alterações para mim]()
 >
@@ -203,7 +203,7 @@ O código quickstart também mostra como inicializar a biblioteca MSAL:
 const myMSALObj = new Msal.UserAgentApplication(msalConfig);
 ```
 
-> |Onde  | Descrição |
+> |Onde  | Description |
 > |---------|---------|
 > |`clientId`     | Identificação de aplicação da aplicação registada no portal Azure.|
 > |`authority`    | (Opcional) O URL de autoridade que suporta tipos de conta, conforme descrito anteriormente na secção de configuração. A autoridade por defeito `https://login.microsoftonline.com/common` é. |
@@ -231,7 +231,7 @@ myMSALObj.loginPopup(loginRequest)
 });
 ```
 
-> |Onde  | Descrição |
+> |Onde  | Description |
 > |---------|---------|
 > | `scopes`   | (Opcional) Contém âmbitos que estão a ser solicitados para o consentimento do utilizador no momento de início de sedu. Por exemplo, `[ "user.read" ]` para o Microsoft Graph ou para `[ "<Application ID URL>/scope" ]` APIs web personalizados (isto é, `api://<Application ID>/access_as_user` ). |
 
@@ -261,13 +261,13 @@ myMSALObj.acquireTokenSilent(tokenRequest)
     });
 ```
 
-> |Onde  | Descrição |
+> |Onde  | Description |
 > |---------|---------|
 > | `scopes`   | Contém âmbitos a serem solicitados para serem devolvidos no token de acesso para a API. Por exemplo, `[ "mail.read" ]` para o Microsoft Graph ou para `[ "<Application ID URL>/scope" ]` APIs web personalizados (isto é, `api://<Application ID>/access_as_user` ).|
 
 #### <a name="get-a-user-token-interactively"></a>Obter um token de utilizador interativamente
 
-Existem situações em que é necessário forçar os utilizadores a interagir com a plataforma de identidade da Microsoft. Por exemplo:
+Existem situações em que obriga os utilizadores a interagir com a plataforma de identidade da Microsoft. Por exemplo:
 * Os utilizadores podem precisar de reentrar nas suas credenciais porque a sua palavra-passe expirou.
 * A sua aplicação está a solicitar acesso a âmbitos de recursos adicionais aos quais o utilizador precisa de consentir.
 * É necessária autenticação de dois fatores.

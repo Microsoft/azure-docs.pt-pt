@@ -8,6 +8,8 @@
   href: network-requirements.md
 - name: Limitações
   href: limits.md
+- name: Residência de Dados
+  href: data-residency.md
 - name: Repositório de exemplos do Remote Rendering (GitHub)
   href: 'https://github.com/Azure/azure-remote-rendering'
 - name: API REST de Gestão de Recursos do Azure Mixed Reality

@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Adicione o início de sing-in com a Microsoft a uma aplicação web java / Rio Azure'
+title: 'Quickstart: Adicione o início de sôs-in com a Microsoft a uma aplicação web Java | Rio Azure'
 titleSuffix: Microsoft identity platform
 description: Neste arranque rápido, você vai aprender a adicionar o início de sôr-in com a Microsoft a uma aplicação web Java usando OpenID Connect.
 services: active-directory
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
-ms.openlocfilehash: 91aa6c96c714bff26ea7e0df5b2b6971c68edec0
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 601b725e5f1fe06c12416ad8ab36ac657f0412f2
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178573"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583421"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Quickstart: Adicione o início de sôs com a Microsoft a uma aplicação web java
 
@@ -68,7 +68,7 @@ Para fazer esta amostra, precisa:
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Passo 1: Configurar a sua candidatura no portal Azure
 >
-> Para utilizar a amostra de código neste arranque rápido, é necessário:
+> Para utilizar a amostra de código neste arranque rápido:
 >
 > 1. Adicione URLs de resposta `https://localhost:8443/msal4jsample/secure/aad` e `https://localhost:8443/msal4jsample/graph/me` .
 > 1. Criar um segredo de cliente.
@@ -161,7 +161,7 @@ Para executar a aplicação web a partir de um IDE, selecione run e, em seguida,
 
 ##### <a name="running-the-project-from-tomcat"></a>Executando o projeto de Tomcat
 
-Se quiser colocar a amostra web no Tomcat, tem de fazer algumas alterações ao código fonte.
+Se quiser colocar a amostra web no Tomcat, faça algumas alterações ao código fonte.
 
 1. Abra *ms-identity-java-webapp/pom.xml*.
     - Em `<name>msal-web-sample</name>` baixo , adicionar `<packaging>war</packaging>` .

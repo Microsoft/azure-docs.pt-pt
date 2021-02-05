@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Adicione o início de sing-in com a Microsoft a uma aplicação web Python / Rio Azure'
+title: 'Quickstart: Adicione o início de sôs-in com a Microsoft a uma aplicação web Python | Rio Azure'
 titleSuffix: Microsoft identity platform
 description: Neste quickstart, saiba como uma aplicação web Python pode iniciar sôm nos utilizadores, obter um token de acesso a partir da plataforma de identidade da Microsoft e ligar para a Microsoft Graph API.
 services: active-directory
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev, devx-track-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: 3c3eaddf1767a3fa4a2ba73ae7a27f1f7df13990
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 0a99ff32f3f1fbcf4af64188640d2edd7f3f5470
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178210"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583133"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Quickstart: Adicione o início de sôs com a Microsoft a uma aplicação web Python
 
@@ -65,7 +65,7 @@ Veja [como funciona a amostra](#how-the-sample-works) para uma ilustração.
 > 1. Digite uma descrição chave (por exemplo, o segredo da aplicação), deixe a expiração predefinitiva e selecione **Adicionar**.
 > 1. Note o **valor** do Segredo do **Cliente** para posterior utilização.
 > 1. Em **Gestão**, selecione **permissões API**  >  **Adicione uma permissão**.
->1.  Certifique-se de que o separador **APIs da Microsoft** está selecionado.
+> 1. Certifique-se de que o separador **APIs da Microsoft** está selecionado.
 > 1. A partir da secção APIs da *Microsoft comumente utilizada,* selecione **Microsoft Graph**.
 > 1. A partir da secção **de permissões delegadas,** certifique-se de que as permissões certas são verificadas: **User.ReadBasic.All**. Utilize a caixa de pesquisa, se necessário.
 > 1. Selecione o botão **'Adicionar permissões'.**
@@ -74,7 +74,7 @@ Veja [como funciona a amostra](#how-the-sample-works) para uma ilustração.
 >
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Passo 1: Configurar a aplicação no portal do Azure
 >
-> Para que a amostra de código para este arranque rápido funcione, você precisa:
+> Para que a amostra de código neste arranque rápido funcione:
 >
 > 1. Adicione um URL de resposta como `http://localhost:5000/getAToken` .
 > 1. Criar um Segredo de Cliente.
@@ -110,7 +110,7 @@ Veja [como funciona a amostra](#how-the-sample-works) para uma ilustração.
 > CLIENT_SECRET = "Enter_the_Client_Secret_Here"
 > AUTHORITY = "https://login.microsoftonline.com/Enter_the_Tenant_Name_Here"
 > ```
-> Onde:
+> Em que:
 >
 > - `Enter_the_Application_Id_here` - é o Id da Aplicação que registou.
 > - `Enter_the_Client_Secret_Here` - é o Segredo de **Cliente** que criou em **Certificados & Segredos**  para a aplicação que registou.

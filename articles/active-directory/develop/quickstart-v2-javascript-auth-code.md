@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: 98110723063ee2a2c9deb75fc931655e18e5bc95
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: b1f38c5822c62c6b6af18a2cb179ed212cfaf313
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98938072"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583292"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow"></a>Quickstart: Inicie os utilizadores e obtenha um token de acesso num JavaScript SPA utilizando o fluxo de código auth
 
@@ -63,7 +63,7 @@ Este arranque rápido utiliza MSAL.js 2.0 com o fluxo de código de autorizaçã
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Passo 1: Configurar a sua candidatura no portal Azure
-> O código de amostra deste quickstart requer um **URI de redirecionamento** de `http://localhost:3000/` .
+> Para que a amostra de código neste arranque rápido funcione, adicione um **URI de redirecionamento** de `http://localhost:3000/` .
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Faça estas alterações para mim]()
 >
@@ -195,7 +195,7 @@ Se tiver Node.js instalado, pode descarregar a versão mais recente utilizando o
 npm install @azure/msal-browser
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para um guia passo a passo mais detalhado sobre a construção da aplicação utilizada neste arranque rápido, consulte o seguinte tutorial:
 

@@ -13,18 +13,18 @@ ms.date: 05/07/2020
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 15f65da83f14f43a7892d52c6a2ed4e08580d367
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: b28454e9b60654541d4f62ec1d8455b30cfc2906
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97614919"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99580832"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Utilize MSAL.NET para assinar em utilizadores com identidades sociais
 
 Pode utilizar MSAL.NET para iniciar súbs nos utilizadores com identidades sociais utilizando [o Azure Ative Directory B2C (Azure AD B2C)](../../active-directory-b2c/overview.md). Azure AD B2C é construído em torno da noção de políticas. Em MSAL.NET, especificar uma política traduz-se em fornecer uma autoridade.
 
-- Ao instantanear a aplicação do cliente público, tem de especificar a apólice como parte da autoridade.
+- Quando instantanear a aplicação do cliente público, especifique a apólice como parte da autoridade.
 - Quando quiser aplicar uma apólice, chame uma anulação `AcquireTokenInteractive` que aceite o `authority` parâmetro.
 
 Este artigo aplica-se a MSAL.NET 3.x. Para MSAL.NET 2.x, consulte [as especificidades do Azure AD B2C em MSAL 2.x](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AAD-B2C-Specifics-MSAL-2.x) no MSAL.NET Wiki no GitHub.
@@ -194,6 +194,6 @@ Para obter mais informações sobre a especificação das reclamações devolvid
 
 São fornecidos mais detalhes sobre a aquisição de fichas interativamente com MSAL.NET para aplicações Azure AD B2C na amostra seguinte.
 
-| Sample | Plataforma | Descrição|
+| Sample | Plataforma | Description|
 |------ | -------- | -----------|
 |[active-directy-b2c-xamarin-nativo](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) | Xamarin iOS, Xamarin Android, UWP | Uma aplicação Xamarin Forms que utiliza MSAL.NET para autenticar os utilizadores através do Azure AD B2C e, em seguida, acede a uma API web com os tokens devolvidos.|

@@ -1,5 +1,5 @@
 ---
-title: Configure a reivindicação de papel para apps Azure AD da empresa / Rio Azure
+title: Configure a reivindicação de papel para apps Azure AD da empresa | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como configurar a reivindicação de papel emitida no token SAML para aplicações empresariais no Azure Ative Directory
 services: active-directory
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 12/07/2020
 ms.author: jeedes
-ms.openlocfilehash: 10b61dd4b6cc3a99b8eecf86cb5ba7e718d64743
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 076054b7240712fec57d0908615ce7abbfb62013
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98015118"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582235"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Como: Configurar a alegação de papel emitida no token SAML para aplicações empresariais
 
@@ -30,7 +30,7 @@ Ao utilizar o Azure Ative Directory (Azure AD), pode personalizar o tipo de recl
 
 ## <a name="when-to-use-this-feature"></a>Quando utilizar esta funcionalidade
 
-Se a sua aplicação espera que as funções personalizadas sejam passadas numa resposta SAML, tem de utilizar esta funcionalidade. Pode criar o máximo de papéis que precisar de ser passado de Azure AD para a sua aplicação.
+Utilize esta funcionalidade se a sua aplicação espera funções personalizadas na resposta SAML devolvida pela Azure AD. Pode criar os papéis que precisar.
 
 ## <a name="create-roles-for-an-application"></a>Criar papéis para uma aplicação
 
@@ -139,7 +139,7 @@ Se a sua aplicação espera que as funções personalizadas sejam passadas numa 
     ![Painel de "Atribuição de Edição" e painel "Select Role"](./media/active-directory-enterprise-app-role-management/graph-explorer-new6.png)
 
     
-    Precisa de refrescar a sua sessão no portal Azure para ver novos papéis.
+    Refresque a sua sessão no portal Azure para ver novos papéis.
 
 1. Atualize a tabela **Atributos** para definir um mapeamento personalizado da reivindicação de funções.
 
@@ -167,7 +167,7 @@ Se a sua aplicação espera que as funções personalizadas sejam passadas numa 
 
     1. A partir da lista **de atributos Source,** digite o valor de atributo mostrado para esta linha.
 
-    1. Selecione **Save** (Guardar).
+    1. Selecione **Guardar**.
 
 10. Para testar a sua aplicação num único sinal de inscrição iniciado por um fornecedor de identidade, inicie sedível no [Painel de Acesso](https://myapps.microsoft.com) e selecione o seu azulejo de aplicação. No token SAML, deverá ver todas as funções atribuídas ao utilizador com o nome de reclamação que deu.
 
@@ -207,7 +207,7 @@ Para atualizar uma função existente, execute os seguintes passos:
 
     1. Atualize o valor de uma função atualizando a descrição da função, o valor da função ou o nome de exibição de funções, conforme necessário.
 
-    1. Depois de atualizar todas as funções necessárias, selecione **' Executar Consulta ' s.**
+    1. Depois de atualizar todas as funções necessárias, selecione **''' Executar Consulta ' s.**
 
 ## <a name="delete-an-existing-role"></a>Eliminar um papel existente
 
@@ -255,7 +255,7 @@ Para eliminar uma função existente, execute os seguintes passos:
 
     A função tem de ser desativada antes de poder ser removida.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para mais etapas, consulte a documentação da [aplicação.](../saas-apps/tutorial-list.md)
 

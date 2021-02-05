@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/15/2019
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:Android
-ms.openlocfilehash: 6d05c4ba6af860616e5afdfba2378ad9b17fcc77
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 49c69a79b4841f13623c9e6ab3daea72dd7fde26
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98938260"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583659"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Início Rápido: Iniciar sessão dos utilizadores e chamar a Microsoft Graph API a partir de uma aplicação Android
 
@@ -35,7 +35,7 @@ As aplicações devem ser representadas por um objeto de aplicação no Azure At
 
 > [!div class="sxs-lookup" renderon="portal"]
 > ### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Passo 1: Configurar a sua candidatura no portal Azure
->  O código de amostra deste quickstart requer um URI de redirecionamento compatível com o corretor Auth.
+> Para que a amostra de código neste arranque rápido funcione, adicione um **URI de redirecionamento** compatível com o corretor Auth.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Faça estas alterações para mim]()
 >
@@ -478,7 +478,7 @@ Ao contrário do [auth_config_single_account.jsno](#auth_config_single_accountjs
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Passe para o tutorial android no qual constrói uma aplicação Android que obtém um token de acesso a partir da plataforma de identidade da Microsoft e a usa para ligar para a Microsoft Graph API.
 

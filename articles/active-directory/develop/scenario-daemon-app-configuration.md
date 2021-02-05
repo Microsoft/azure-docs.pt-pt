@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/19/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: c858f48a67cd434a620fb610046833d29b7475f7
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 8a01ee4e2b0d4e72c1b17cf56953675e735ead79
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756603"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582895"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>App Daemon que chama APIs web - configuração de código
 
@@ -26,7 +26,7 @@ Saiba como configurar o código para a sua aplicação daemon que chama APIs web
 
 Estas bibliotecas da Microsoft suportam aplicações daemon:
 
-  Biblioteca MSAL | Descrição
+  Biblioteca MSAL | Description
   ------------ | ----------
   ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | As plataformas .NET Framework e .NET Core são suportadas para a construção de aplicações daemon. (UWP, Xamarin.iOS e Xamarin.Android não são suportados porque essas plataformas são usadas para construir aplicações de clientes públicos.)
   ![Python](media/sample-v2-code/logo_python.png) <br/> Pitão MSAL | Apoio a aplicações daemon em Python.
@@ -111,7 +111,7 @@ Quando se constrói um cliente confidencial com certificados, o [parameters.jsno
 
 ### <a name="instantiate-the-msal-application"></a>Instantaneamente a aplicação MSAL
 
-Para instantaneaizar a aplicação MSAL, é necessário adicionar, fazer referência ou importar o pacote MSAL (dependendo da língua).
+Para instantaneaizar a aplicação MSAL, adicionar, referir ou importar o pacote MSAL (dependendo da língua).
 
 A construção é diferente, dependendo se você está usando segredos ou certificados de cliente (ou, como um cenário avançado, afirmações assinadas).
 
@@ -289,7 +289,7 @@ MSAL.NET tem dois métodos para fornecer afirmações assinadas à aplicação c
 - `.WithClientAssertion()`
 - `.WithClientClaims()`
 
-Quando `WithClientAssertion` utilizar, tem de fornecer um JWT assinado. Este cenário avançado é detalhado nas [afirmações do Cliente.](msal-net-client-assertions.md)
+Quando `WithClientAssertion` utilizar, forneça um JWT assinado. Este cenário avançado é detalhado nas [afirmações do Cliente.](msal-net-client-assertions.md)
 
 ```csharp
 string signedClientAssertion = ComputeAssertion();
@@ -348,7 +348,7 @@ ConfidentialClientApplication cca =
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 

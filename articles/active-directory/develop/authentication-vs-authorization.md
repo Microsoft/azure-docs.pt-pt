@@ -13,12 +13,12 @@ ms.date: 05/22/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: b81b34010736bce33085cb1ebf0faa3da6a41bd6
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 5244a8e572abb56c00d87d0bdd7e8d1291af9b9e
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98755387"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581912"
 ---
 # <a name="authentication-vs-authorization"></a>Autenticação vs. autorização
 
@@ -34,7 +34,7 @@ Este artigo define autenticação e autorização. Também cobre brevemente como
 
 ## <a name="authentication-and-authorization-using-the-microsoft-identity-platform"></a>Autenticação e autorização utilizando a plataforma de identidade da Microsoft
 
-Criar aplicações que cada um mantenha o seu próprio nome de utilizador e informações de palavra-passe incorre num elevado fardo administrativo quando é necessário adicionar ou remover utilizadores através de várias aplicações. Em vez disso, as suas aplicações podem delegar essa responsabilidade num fornecedor de identidade centralizado.
+Criar aplicações que cada um mantenha o seu próprio nome de utilizador e informações de palavra-passe incorre num elevado fardo administrativo ao adicionar ou remover utilizadores através de várias aplicações. Em vez disso, as suas aplicações podem delegar essa responsabilidade num fornecedor de identidade centralizado.
 
 O Azure Ative Directory (Azure AD) é um fornecedor de identidade centralizado na nuvem. Delegar a autenticação e a autorização permite cenários como:
 
@@ -54,7 +54,7 @@ Aqui está uma comparação dos protocolos que a plataforma de identidade da Mic
 * **OAuth versus SAML**: A plataforma utiliza OAuth 2.0 para autorização e SAML para autenticação. Para obter mais informações sobre como utilizar estes protocolos em conjunto para autenticar um utilizador e obter autorização para aceder a um recurso protegido, consulte a [plataforma de identidade da Microsoft e o fluxo de afirmação do portador da OAuth 2.0 SAML](./scenario-token-exchange-saml-oauth.md).
 * **OpenID Connect versus SAML**: A plataforma utiliza o OpenID Connect e o SAML para autenticar um utilizador e ativar um único sinal de acesso. A autenticação SAML é comumente usada com fornecedores de identidade, tais como Ative Directory Federation Services (AD FS) federados para Azure AD, por isso é frequentemente usado em aplicações empresariais. O OpenID Connect é comumente utilizado para apps que estão puramente na nuvem, tais como aplicações móveis, websites e APIs web.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para outros tópicos que abrangem os fundamentos básicos de autenticação e autorização:
 

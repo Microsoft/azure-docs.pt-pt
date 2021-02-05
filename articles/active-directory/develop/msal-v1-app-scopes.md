@@ -12,12 +12,12 @@ ms.date: 11/25/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: b35b39d7072b22d9cc3f7b4f4ef8886431b06f69
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 7e2fcf2dc0dc53038b82bbf182cb12f580d88357
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754665"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583591"
 ---
 # <a name="scopes-for-a-web-api-accepting-v10-tokens"></a>Âmbitos para uma API web aceitando fichas v1.0
 
@@ -37,7 +37,7 @@ var scopes = new [] {  ResourceId+"/user_impersonation"};
 var scopes = [ ResourceId + "/user_impersonation"];
 ```
 
-Para ler e escrever com MSAL.NET AD Azure utilizando a API do Gráfico microsoft (https: \/ /graph.microsoft.com/), é necessário criar uma lista de âmbitos como mostrado nos seguintes exemplos:
+Para ler e escrever com MSAL.NET AD AZure utilizando a API do Gráfico da Microsoft (https: \/ /graph.microsoft.com/), crie uma lista de âmbitos como mostrado nos seguintes exemplos:
 
 ```csharp
 string ResourceId = "https://graph.microsoft.com/";
@@ -49,7 +49,7 @@ var ResourceId = "https://graph.microsoft.com/";
 var scopes = [ ResourceId + "Directory.Read", ResourceID + "Directory.Write"];
 ```
 
-Para escrever o âmbito correspondente à AZure Resource Manager API (https: \/ /management.core.windows.net/), é necessário solicitar o seguinte âmbito (note as duas barras):
+Para escrever o âmbito correspondente à AZure Resource Manager API (https: \/ /management.core.windows.net/), solicite o seguinte âmbito (nota as duas barras):
 
 ```csharp
 var scopes = new[] {"https://management.core.windows.net//user_impersonation"};
@@ -59,7 +59,7 @@ var result = await app.AcquireTokenInteractive(scopes).ExecuteAsync();
 ```
 
 > [!NOTE]
-> Você precisa usar duas barras porque o API gestor de recursos Azure espera um corte na sua reivindicação de audiência (aud), e depois há um corte para separar o nome API do âmbito.
+> Use duas barras porque a AZure Resource Manager API espera um corte na sua reivindicação de audiência (aud), e depois há um corte para separar o nome API do âmbito.
 
 A lógica utilizada pela Azure AD é a seguinte:
 

@@ -13,12 +13,12 @@ ms.date: 02/02/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: d544d884a82a7532bf343f38049102dfccae342f
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 0291d2e6f0cee07bd7164b63dfd4ac8b02c42a01
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99507282"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583048"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifesto da aplicação do Azure Active Directory
 
@@ -27,7 +27,7 @@ O manifesto da aplicação contém uma definição de todos os atributos de um o
 Pode configurar os atributos de uma aplicação através do portal Azure ou utilizar programáticamente [a API](/graph/api/resources/application) ou [o PowerShell](/powershell/module/azuread#applications). No entanto, existem alguns cenários em que será necessário editar o manifesto da app para configurar o atributo de uma aplicação. Os cenários incluem:
 
 * Se registou a aplicação como multi-inquilino e contas pessoais da Microsoft, não pode alterar as contas da Microsoft suportadas na UI. Em vez disso, deve utilizar o editor manifesto de aplicação para alterar o tipo de conta suportada.
-* Se precisar de definir permissões e funções que a sua aplicação suporta, tem de modificar o manifesto da aplicação.
+* Para definir permissões e funções que a sua aplicação suporta, tem de modificar o manifesto da aplicação.
 
 ## <a name="configure-the-app-manifest"></a>Configure o manifesto da aplicação
 

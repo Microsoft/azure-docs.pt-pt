@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 675a5526bfd741876de16fe41c969c09a4ed0ad7
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: bbd7ca198d04769f7e08a9407a0f73744c7cae01
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98938227"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583642"
 ---
 # <a name="quickstart-aspnet-core-web-app-that-signs-in-users-and-calls-microsoft-graph-on-their-behalf"></a>Quickstart: ASP.NET web web do Core que assina nos utilizadores e chama o Microsoft Graph em seu nome
 
@@ -64,7 +64,7 @@ Veja [como funciona a amostra](#how-the-sample-works) para uma ilustração.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Passo 1: Configurar a sua candidatura no portal Azure
-> O código de amostra deste quickstart requer um URL de **logótipo de redirecionamento e** de linha `https://localhost:44321/signin-oidc` **frontal** no registo `https://localhost:44321/signout-oidc` da aplicação.
+> Para que a amostra de código neste arranque rápido funcione, adicione um URL de **logótipo de redirecionamento URI** `https://localhost:44321/signin-oidc` e de canal **frontal** no registo `https://localhost:44321/signout-oidc` da aplicação.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Fazer esta alteração por mim]()
 >
@@ -168,7 +168,7 @@ O `AddAuthentication()` método configura o serviço para adicionar autenticaç�
 
 A linha que contém `.AddMicrosoftIdentityWebApp` adiciona a autenticação da plataforma de identidade da Microsoft à sua aplicação. Isto é fornecido por [Microsoft.Identity.Web](microsoft-identity-web.md). Em seguida, é configurado para iniciar sedução usando a plataforma de identidade da Microsoft com base nas informações na `AzureAD` secção doappsettings.js *no* ficheiro de configuração:
 
-| *appsettings.jsna* chave | Descrição                                                                                                                                                          |
+| *appsettings.jsna* chave | Description                                                                                                                                                          |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `ClientId`             | **Identificação da aplicação (cliente)** da aplicação registada no portal Azure.                                                                                       |
 | `Instance`             | Serviço de ficha de segurança (STS) para o utilizador autenticar. Este valor é tipicamente `https://login.microsoftonline.com/` , indicando a nuvem pública Azure. |
@@ -211,7 +211,7 @@ public async Task<IActionResult> Index()
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 O repo GitHub que contém a amostra de código core ASP.NET referenciada neste quickstart inclui instruções e mais amostras de código que mostram como:
 

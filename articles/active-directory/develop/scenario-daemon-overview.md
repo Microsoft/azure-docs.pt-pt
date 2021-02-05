@@ -12,18 +12,18 @@ ms.workload: identity
 ms.date: 01/31/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 45af940382a261f1793583e471871b9cceed0a57
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 00a70b585ddf522a25e81703fe5bdf55efbcb7e1
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753837"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582779"
 ---
 # <a name="scenario-daemon-application-that-calls-web-apis"></a>Cenário: Aplicação Daemon que chama APIs web
 
 Aprenda tudo o que precisa para construir uma aplicação daemon que chama APIs web.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 A sua aplicação pode adquirir um token para ligar para uma API web em nome de si próprio (não em nome de um utilizador). Este cenário é útil para aplicações daemon. Utiliza a concessão padrão de [credenciais](v2-oauth2-client-creds-grant-flow.md) de cliente 2.0 da OAuth.
 
@@ -52,7 +52,7 @@ Aplicações que adquirem um símbolo para as suas próprias identidades:
 Para os desenvolvedores, a experiência de ponta a ponta para este cenário tem os seguintes aspetos:
 
 - As aplicações da Daemon só podem funcionar em inquilinos da AD Azure. Não faria sentido construir uma aplicação daemon que tentasse manipular as contas pessoais da Microsoft. Se você é um desenvolvedor de aplicativos line-of-business (LOB), você vai criar a sua app Daemon no seu inquilino. Se é um ISV, talvez queira criar uma aplicação multitenante de daemon. Cada administrador inquilino terá de dar consentimento.
-- Durante o registo de [pedidos,](./scenario-daemon-app-registration.md)a resposta URI não é necessária. Você precisa compartilhar segredos ou certificados ou afirmações assinadas com Azure AD. Também precisa de solicitar permissões de pedidos e conceder consentimento administrativo para usar essas permissões de aplicações.
+- Durante o registo de [pedidos,](./scenario-daemon-app-registration.md)a resposta URI não é necessária. Partilhe segredos ou certificados ou afirmações assinadas com a Azure AD. Também precisa de solicitar permissões de pedidos e conceder consentimento administrativo para usar essas permissões de aplicações.
 - A configuração da [aplicação](./scenario-daemon-app-configuration.md) necessita de fornecer credenciais de clientes partilhadas com a Azure AD durante o registo da candidatura.
 - O [âmbito](scenario-daemon-acquire-token.md#scopes-to-request) utilizado para adquirir um símbolo com o fluxo de credenciais do cliente tem de ser um âmbito estático.
 
@@ -60,6 +60,6 @@ Para os desenvolvedores, a experiência de ponta a ponta para este cenário tem 
 
 [!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Passe para o próximo artigo neste cenário, [registo de aplicações.](./scenario-daemon-app-registration.md)

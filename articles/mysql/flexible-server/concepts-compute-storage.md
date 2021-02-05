@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 1/28/2021
-ms.openlocfilehash: b1e8093a1991a97220060c2b6936368f9a4be796
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 765ff76578e48135d2e7d4d9200c1868d2501df4
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99052351"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581453"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-mysql---flexible-server-preview"></a>Opções de computação e armazenamento em Azure Database para MySQL - Servidor Flexível (Pré-visualização)
 
@@ -102,15 +102,14 @@ Recomendamos que <!--turn on storage auto-grow or to--> configurar um alerta par
 O crescimento automático do armazenamento ainda não está disponível para a Base de Dados Azure para o MySQL Flexible Server.
 
 ## <a name="iops"></a>IOPS
-O IOPS eficaz mínimo é de 100 em todos os tamanhos de cálculo e o IOPS eficaz máximo é determinado por ambos os seguintes atributos: 
-- Compute: o IOPS eficaz máximo talvez limitado pelo máximo disponível IOPS do tamanho do cálculo selecionado.
-- Armazenamento: em todos os níveis de cálculo, a escala IOPS com o tamanho de armazenamento a provisionado numa proporção de 3:1.
 
-Pode escalar o IOPS eficaz disponível aumentando o armazenamento a provisionado ou movendo-se para um tamanho de computação maior (se o seu IOPS estiver limitado por computação). Na pré-visualização, o IOPS máximo eficaz suportado é de 20.000 IOPS.
+A Azure Database for MySQL – Flexible Server suporta o fornecimento de IOPS adicionais. Esta funcionalidade permite-lhe obter IOPS adicionais acima do limite de IOPS complementar. Utilizando esta funcionalidade, pode aumentar ou diminuir o número de IOPS a provisionados com base nos seus requisitos de carga de trabalho a qualquer momento. 
 
-Para saber mais sobre o máximo eficaz IOPS por tamanho de computação, utilizando a combinação de cálculo e armazenamento, é mostrado abaixo: 
+O IOPS mínimo é de 100 em todos os tamanhos de cálculo e o IOPS máximo é determinado pelo tamanho de cálculo selecionado. Na pré-visualização, o IOPS máximo suportado é de 20.000 IOPS.
 
-| Tamanho do cálculo         | IOPS eficazes no máximo  | 
+Para saber mais sobre o tamanho máximo de IOPS por cálculo é mostrado abaixo: 
+
+| Tamanho do cálculo         | IOPS máximos        | 
 |----------------------|---------------------|
 | **Rebentado**        |                     |
 | Standard_B1s         | 320                 |
@@ -133,11 +132,14 @@ Para saber mais sobre o máximo eficaz IOPS por tamanho de computação, utiliza
 | Standard_E48ds_v4    | 20 000               | 
 | Standard_E64ds_v4    | 20 000               |  
 
-O IOPS eficaz máximo depende do máximo disponível IOPS por tamanho de cálculo. Consulte a fórmula abaixo e consulte a coluna *Max desatado: IOPS/MBps* na [série B,](../../virtual-machines/sizes-b-series-burstable.md) [ddsv4 séries](../../virtual-machines/ddv4-ddsv4-series.md)e documentação [da série Edsv4.](../../virtual-machines/edv4-edsv4-series.md)
+O IOPS máximo depende do máximo disponível IOPS por tamanho de cálculo. Consulte a coluna *Max desatado: IOPS/MBps* na [série B,](../../virtual-machines/sizes-b-series-burstable.md) [ddsv4-series](../../virtual-machines/ddv4-ddsv4-series.md)e documentação [da série Edsv4.](../../virtual-machines/edv4-edsv4-series.md)
 
-**IOPS eficaz máximo** = MINIMUM(*"Max uncached disk throughput: IOPS/MBps"* de tamanho computacional, armazenamento aprovisionado em GiB * 3)
+> [!Important]
+> **Os IOPS complementares** são iguais ao MÍNIMO ("Max uncached disk throughput: IOPS/MBps" de tamanho computacional, armazenamento previsto em GiB * 3)<br>
+> **O IOPS mínimo** é 100 em todos os tamanhos de computação<br>
+> **O IOPS máximo** é determinado pelo tamanho de cálculo selecionado. Na pré-visualização, o IOPS máximo suportado é de 20.000 IOPS.
 
-Pode monitorizar o seu consumo de E/S no portal Azure (com o Azure Monitor) utilizando a métrica [IO%.](./concepts-monitoring.md) Se precisar de mais IOPS, terá de perceber se está limitado pelo tamanho do cálculo ou pelo armazenamento a provisionado. Dimensione o cálculo ou armazenamento do seu servidor em conformidade.
+Pode monitorizar o seu consumo de E/S no portal Azure (com o Azure Monitor) utilizando a métrica [IO%.](./concepts-monitoring.md) Se precisar de mais IOPS, então o IOPS max baseado no cálculo, então precisa de escalar o cálculo do seu servidor.
 
 ## <a name="backup"></a>Backup
 

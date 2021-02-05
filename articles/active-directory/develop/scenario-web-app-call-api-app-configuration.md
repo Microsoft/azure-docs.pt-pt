@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: bcbff131706854c079a5af2f38cad98f97018167
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 2109705116c323fd3632b7230a81ccd9158c1a64
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753317"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582329"
 ---
 # <a name="a-web-app-that-calls-web-apis-code-configuration"></a>Uma aplicação web que chama APIs web: configuração de código
 
@@ -32,7 +32,7 @@ A [aplicação Web que assina nos](scenario-web-app-sign-user-overview.md) cená
 
 As seguintes bibliotecas da Microsoft Authentication Library (MSAL) suportam o fluxo de código de autorização para aplicações web:
 
-| Biblioteca MSAL | Descrição |
+| Biblioteca MSAL | Description |
 |--------------|-------------|
 | ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Suporte para plataformas .NET Framework e .NET Core. Não suportadas são a Universal Windows Platform (UWP), Xamarin.iOS e Xamarin.Android, porque essas plataformas são usadas para construir aplicações de clientes públicos. <br/><br/>Para ASP.NET aplicações web core e APIs web, MSAL.NET é encapsulado numa biblioteca de nível superior chamada [Microsoft.Identity.Web](https://aka.ms/ms-identity-web). |
 | ![Pitão MSAL](media/sample-v2-code/logo_python.png) <br/> MSAL para Python | Suporte para aplicações web Python. |
@@ -44,7 +44,7 @@ Selecione o separador para a plataforma em que está interessado:
 
 ## <a name="client-secrets-or-client-certificates"></a>Segredos do cliente ou certificados de cliente
 
-Dado que a sua aplicação web agora chama uma API web a jusante, você precisa fornecer um certificado de cliente secreto ou cliente no *appsettings.jsem* arquivo. Também pode adicionar uma secção que especifica:
+Dado que a sua aplicação web agora chama uma API web a jusante, forneça um certificado secreto ou cliente do cliente no *appsettings.jsem* arquivo. Também pode adicionar uma secção que especifica:
 
 - O URL da API da web a jusante
 - Os âmbitos necessários para chamar a API
@@ -184,7 +184,7 @@ A imagem a seguir mostra as várias possibilidades do *Microsoft.Identity.Web* e
 :::image type="content" source="media/scenarios/microsoft-identity-web-startup-cs.svg" alt-text="Diagrama de bloco mostrando opções de configuração de serviço no ponto de arranque C S para chamar uma API web e especificar uma implementação de cache de símbolo":::
 
 > [!NOTE]
-> Para compreender plenamente os exemplos de código aqui, é necessário estar familiarizado com [ASP.NET fundamentos fundamentais do Núcleo](/aspnet/core/fundamentals), e em particular com a injeção de [dependência](/aspnet/core/fundamentals/dependency-injection) e [as opções.](/aspnet/core/fundamentals/configuration/options)
+> Para compreender plenamente os exemplos de código aqui, conheça [os fundamentos ASP.NET Core](/aspnet/core/fundamentals), e em particular com a injeção de [dependência](/aspnet/core/fundamentals/dependency-injection) e [opções.](/aspnet/core/fundamentals/configuration/options)
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
@@ -515,7 +515,7 @@ def _build_msal_app(cache=None):
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste ponto, quando o utilizador assina, um token é armazenado na cache simbólica. Vamos ver como é usado noutras partes da aplicação web.
 

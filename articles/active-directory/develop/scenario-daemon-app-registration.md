@@ -1,5 +1,5 @@
 ---
-title: Registar aplicações daemon que chamam APIs web - Plataforma de identidade da Microsoft Rio Azure
+title: Registar aplicações daemon que chamam APIs web - Plataforma de identidade da Microsoft | Rio Azure
 description: Saiba como construir uma app daemon que chama APIs web - registo de aplicações
 services: active-directory
 author: jmprieur
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 3b77cc93385efb0bbb8a9b87d29de9bad5cd4ceb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 938a19276839d5e0d2bd3e0244510fc068cb029c
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996015"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582912"
 ---
 # <a name="daemon-app-that-calls-web-apis---app-registration"></a>App Daemon que chama APIs web - registo de aplicações
 
@@ -24,7 +24,7 @@ Para uma aplicação daemon, eis o que precisa de saber quando registar a aplica
 
 ## <a name="supported-account-types"></a>Tipos de conta suportados
 
-As aplicações da Daemon só fazem sentido nos inquilinos da AD Azure. Assim, quando cria a aplicação, tem de escolher uma das seguintes opções:
+As aplicações da Daemon só fazem sentido nos inquilinos da AD Azure. Assim, quando criar a aplicação, escolha uma das seguintes opções:
 
 - **Contas apenas neste diretório organizacional.** Esta escolha é a mais comum porque as aplicações daemon são geralmente escritas por desenvolvedores de linha de negócios (LOB).
 - **Contas em qualquer diretório organizacional.** Você fará esta escolha se você é um ISV fornecendo uma ferramenta de utilidade para os seus clientes. Vai precisar dos administradores dos seus clientes para aprová-lo.

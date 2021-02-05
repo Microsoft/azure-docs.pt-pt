@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: c071cb9a8a27964a93e039e4d1536e078730bfc9
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 6e6eda3d711710ea7450165ab02d7a260067bfcb
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753635"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582558"
 ---
 # <a name="get-a-token-for-a-mobile-app-that-calls-web-apis"></a>Obtenha um símbolo para uma aplicação móvel que chama APIs web
 
@@ -26,7 +26,7 @@ Antes que a sua aplicação possa chamar APIs web protegidas, precisa de um toke
 
 ## <a name="define-a-scope"></a>Definir um âmbito
 
-Quando pede um token, precisa definir um âmbito. O âmbito determina quais os dados a que a sua aplicação pode aceder.
+Quando pedir um token, defina um âmbito. O âmbito determina quais os dados a que a sua aplicação pode aceder.
 
 A forma mais fácil de definir um âmbito é combinar as API's web desejadas `App ID URI` com o âmbito `.default` . Esta definição diz à plataforma de identidade da Microsoft que a sua aplicação requer todos os âmbitos definidos no portal.
 
@@ -236,7 +236,7 @@ A classe define as seguintes constantes:
     Esta opção pode ser útil se a aquisição do token falhar e pretender que o utilizador volte a entrar. Neste caso, a MSAL envia `prompt=login` ao fornecedor de identidade. É possível que queira utilizar esta opção em aplicações focadas na segurança, onde a governação da organização exige que o utilizador assine cada vez que acede a partes específicas da aplicação.
 - `Never` é apenas .NET 4.5 e Windows Runtime (WinRT). Esta constante não irá incitar o utilizador, mas tentará usar o cookie que está armazenado na vista web incorporada escondida. Para obter mais informações, consulte [utilizar os navegadores web com MSAL.NET.](./msal-net-web-browsers.md)
 
-    Se esta opção falhar, então `AcquireTokenInteractive` lança uma exceção para notificá-lo de que é necessária uma interação de UI. Então tens de usar outro `Prompt` parâmetro.
+    Se esta opção falhar, então `AcquireTokenInteractive` lança uma exceção para notificá-lo de que é necessária uma interação de UI. Em seguida, use outro `Prompt` parâmetro.
 - `NoPrompt` não envia um pedido para o fornecedor de identidade.
 
     Esta opção é útil apenas para políticas de perfil de edição no Azure Ative Directory B2C. Para mais informações, consulte [as especificidades do B2C.](https://aka.ms/msal-net-b2c-specificities)
@@ -292,6 +292,6 @@ client_id=<CLIENT_ID>
 &grant_type=authorization_code
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Passe para o próximo artigo neste cenário, [Chamando uma API web](scenario-mobile-call-api.md).

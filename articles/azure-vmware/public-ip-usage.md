@@ -2,13 +2,13 @@
 title: Como utilizar a funcionalidade IP pública na Solução VMware Azure
 description: Este artigo explica como utilizar a funcionalidade IP pública em Azure Virtual WAN.
 ms.topic: how-to
-ms.date: 10/28/2020
-ms.openlocfilehash: 036ec00077720e9dc3197bf9235bea34b77fb5f4
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.date: 02/04/2021
+ms.openlocfilehash: 640f359ed8934048bffd7f58b36e8a3eef71c2f1
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517908"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581385"
 ---
 # <a name="how-to-use-the-public-ip-functionality-in-azure-vmware-solution"></a>Como utilizar a funcionalidade IP pública na Solução VMware Azure
 
@@ -56,7 +56,7 @@ Neste cenário, publicará o webserver do IIS na internet. Utilize a função IP
 
    :::image type="content" source="media/public-ip-usage/avs-private-cloud-resource.png" alt-text="Screenshot da nuvem privada Azure VMware Solution." border="true" lightbox="media/public-ip-usage/avs-private-cloud-resource.png":::
 
-1. Em **Gestão** , selecione **Conectividade**.
+1. Em **Gestão**, selecione **Conectividade**.
 
    :::image type="content" source="media/public-ip-usage/avs-private-cloud-manage-menu.png" alt-text="Screenshot da secção de Conectividade." border="true" lightbox="media/public-ip-usage/avs-private-cloud-manage-menu.png":::
 
@@ -116,11 +116,11 @@ Uma vez implantados todos os componentes, pode vê-los no grupo de Recursos adic
 
    :::image type="content" source="media/public-ip-usage/create-firewall-policy.png" alt-text="Screenshot de como criar uma política de firewall no Gestor de Firewall" border="true" lightbox="media/public-ip-usage/create-firewall-policy.png":::
 
-1. No **separador Básicos,** forneça os detalhes necessários e selecione **Seguinte : Definições DNS**. 
+1. No **separador Básicos,** forneça os detalhes necessários e selecione **Seguinte: Definições DNS**. 
 
-1. No separador **DNS,** **selecione Desativar** e, em seguida, selecione **Seguinte : Regras**.
+1. No separador **DNS,** **selecione Desativar** e, em seguida, selecione **Seguinte: Regras**.
 
-1. **Selecione Adicione uma coleção de regras,** forneça os detalhes abaixo e selecione **Adicionar** e, em seguida, selecione Seguinte : Inteligência **de ameaça**.
+1. **Selecione Adicione uma coleção de regras,** forneça os detalhes abaixo e selecione **Adicionar** e, em seguida, selecione **Next: Threat intelligence**.
 
    -  Name
    -  Tipo de recolha de regras - DNAT
@@ -128,15 +128,15 @@ Uma vez implantados todos os componentes, pode vê-los no grupo de Recursos adic
    -  Ação de recolha de regras – Permitir
    -  Nome da regra
    -  Fonte Tipo- **IPaddress**
-   -  Fonte - * *\** _
-   -  Protocolo – _ *TCP**
+   -  Fonte - **\***
+   -  Protocolo – **TCP**
    -  Porto de destino – **80**
    -  Tipo de destino – **Endereço IP**
    -  Destino – **Endereço IP Público**
    -  Endereço traduzido - Endereço IP privado do **Azure VMware Solution Web Server**
    -  Porta traduzida - **Porta Azure VMware Solution Web Server**
 
-1. Deixe o valor predefinido e, em seguida, **selecione Seguinte : Hubs**.
+1. Deixe o valor predefinido e, em seguida, selecione **Seguinte: Hubs**.
 
 1. Selecione **o centro virtual Associado**.
 
@@ -144,11 +144,11 @@ Uma vez implantados todos os componentes, pode vê-los no grupo de Recursos adic
 
    :::image type="content" source="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png" alt-text="Screenshot que mostra os hubs selecionados que serão convertidos para Secured Virtual Hubs." border="true" lightbox="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png":::
 
-1. Selecione **Seguinte: Etiquetas**. 
+1. Selecione **Seguinte: Tags**. 
 
 1. (Opcional) Crie pares de nomes e valor para categorizar os seus recursos. 
 
-1. Selecione **Seguinte : Rever + criar** e, em seguida, selecionar **Criar**.
+1. Selecione **Seguinte: Rever + criar** e, em seguida, selecionar **Criar**.
 
 ## <a name="limitations"></a>Limitações
 
@@ -156,5 +156,7 @@ Pode ter 100 IPs públicos por SDDCs.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre a utilização de endereços IP públicos utilizando [a Azure Virtual WAN](../virtual-wan/virtual-wan-about.md).
+Agora que cobriu como utilizar a funcionalidade IP pública na Solução VMware Azure, talvez queira saber mais sobre:
 
+- Utilização de endereços IP públicos com [Azure Virtual WAN](../virtual-wan/virtual-wan-about.md).
+- [Criação de um túnel IPSec para a Solução VMware Azure](create-ipsec-tunnel.md).

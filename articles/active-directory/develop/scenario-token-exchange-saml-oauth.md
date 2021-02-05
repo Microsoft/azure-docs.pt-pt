@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 12/08/2020
 ms.author: kenwith
 ms.reviewer: paulgarn
-ms.openlocfilehash: 92d0dad86b3f048eb96dd7b17ed09f6e20d7cde2
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 812bf7bd68362667fcd1b636d0d28fdbb21c1409
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063302"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582354"
 ---
 # <a name="microsoft-identity-platform-token-exchange-scenarios-with-saml-and-oidcoauth"></a>Cenários de troca de símbolos de plataforma de identidade da Microsoft com SAML e OIDC/OAuth
 
 SAML e OpenID Connect (OIDC) / OAuth são protocolos populares usados para implementar Sign-On (SSO). Algumas aplicações só podem implementar SAML e outras só podem implementar OIDC/OAuth. Ambos os protocolos usam fichas para comunicar segredos. Para saber mais sobre o SAML, consulte [o protocolo Single Sign-On SAML](single-sign-on-saml-protocol.md). Para saber mais sobre o OIDC/OAuth, consulte [os protocolos OAuth 2.0 e OpenID Connect na plataforma de identidade da Microsoft.](active-directory-v2-protocols.md)
 
-Este artigo traça um cenário comum onde uma aplicação implementa o SAML mas é necessário ligar para a API do Gráfico, que utiliza o OIDC/OAuth. São fornecidas orientações básicas para as pessoas que trabalham com este cenário.
+Este artigo traça um cenário comum onde uma aplicação implementa SAML mas chama a API graph, que usa OIDC/OAuth. São fornecidas orientações básicas para as pessoas que trabalham com este cenário.
 
 ## <a name="scenario-you-have-a-saml-token-and-want-to-call-the-graph-api"></a>Cenário: Você tem um token SAML e quer chamar a API gráfico
 Muitas aplicações são implementadas com SAML. No entanto, a API do Gráfico utiliza os protocolos OIDC/OAuth. É possível, embora não trivial, adicionar a funcionalidade OIDC/OAuth a uma aplicação SAML. Uma vez que a funcionalidade OAuth esteja disponível numa aplicação, a API do Gráfico pode ser utilizada.
@@ -32,5 +32,5 @@ A estratégia geral é adicionar a pilha OIDC/OAuth à sua aplicação. Com a su
 > [!NOTE]
 > A biblioteca recomendada para adicionar o comportamento OIDC/OAuth é a Microsoft Authentication Library (MSAL). Para saber mais sobre o MSAL, consulte [a visão geral da Biblioteca de Autenticação da Microsoft (MSAL)](msal-overview.md). A biblioteca anterior chamava-se Ative Directory Authentication Library (ADAL), no entanto não é recomendada, uma vez que a MSAL está a substituí-la.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Fluxos de autenticação e cenários de aplicação](authentication-flows-app-scenarios.md)

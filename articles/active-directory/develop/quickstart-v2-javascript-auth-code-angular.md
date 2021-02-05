@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/14/2021
 ms.author: jamesmantu
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: b6e83f8c4ba00f64bd924ce7b404cd3acfcecd14
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 466dc5b09e225876d57dfac7d39d28b88f1beb0f
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754204"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583269"
 ---
 # <a name="quickstart-sign-in-and-get-an-access-token-in-an-angular-spa-using-the-auth-code-flow"></a>Quickstart: Inicie e obtenha um token de acesso em um SPA Angular usando o fluxo de código auth
 
@@ -65,7 +65,7 @@ Este quickstart utiliza o MSAL Angular v2 com o fluxo de código de autorizaçã
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Passo 1: Configurar a sua candidatura no portal Azure
-> Para fazer a amostra de código neste trabalho de arranque rápido, você precisa adicionar um `redirectUri` como `http://localhost:4200/` .
+> Para que a amostra de código neste arranque rápido funcione, adicione um **URI de redirecionamento** de `http://localhost:4200/` .
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Faça estas alterações para mim]()
 >
@@ -186,7 +186,7 @@ Se tiver Node.js instalado, pode descarregar a versão mais recente utilizando o
 npm install @azure/msal-browser @azure/msal-angular@2
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter um guia passo a passo detalhado sobre a construção da aplicação de fluxo de código auth utilizando o JavaScript de baunilha, consulte o seguinte tutorial:
 

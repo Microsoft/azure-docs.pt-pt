@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 45f3a066283a921f60909a4aa3cfdc76f3faad06
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 54caea62feed6ae7c082a979901999a5dcb3bd71
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753265"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582252"
 ---
 # <a name="web-app-that-signs-in-users-code-configuration"></a>Aplicação web que assina nos utilizadores: Configuração de código
 
@@ -28,7 +28,7 @@ Saiba como configurar o código da sua aplicação web que assina nos utilizador
 <!-- This section can be in an include for web app and web APIs -->
 As bibliotecas que são usadas para proteger uma aplicação web (e uma API web) são:
 
-| Plataforma | Biblioteca | Descrição |
+| Plataforma | Biblioteca | Description |
 |----------|---------|-------------|
 | ![.NET](media/sample-v2-code/logo_NET.png) | [Extensões de modelo de identidade para .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | Utilizados diretamente por ASP.NET e ASP.NET Core, as extensões do modelo de identidade da Microsoft para .NET propõe um conjunto de DLLs em execução tanto no .NET Framework como no .NET Core. A partir de uma aplicação web core ASP.NET ou ASP.NET, pode controlar a validação de tokens utilizando a classe **TokenValidationParameters** (em particular, em alguns cenários de parceiros). Na prática, a complexidade é encapsulada na biblioteca [Microsoft.Identity.Web](https://aka.ms/ms-identity-web) |
 | ![Java](media/sample-v2-code/small_logo_java.png) | [MSAL Java](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | Suporte para aplicações web java |
@@ -64,13 +64,13 @@ Os snippets de código neste artigo e os seguintes são extraídos da [aplicaç�
 
 ## <a name="configuration-files"></a>Ficheiros de configuração
 
-As aplicações web que assinam nos utilizadores utilizando a plataforma de identidade da Microsoft são configuradas através de ficheiros de configuração. As definições que precisa de preencher são:
+As aplicações web que assinam nos utilizadores utilizando a plataforma de identidade da Microsoft são configuradas através de ficheiros de configuração. Estes são os valores que é obrigado a especificar na configuração:
 
 - O exemplo da nuvem ( `Instance` ) se você quiser que a sua app seja executada em nuvens nacionais, por exemplo
 - O público no ID do inquilino ( `TenantId` )
 - O ID do cliente `ClientId` para a sua aplicação, copiado do portal Azure
 
-Por vezes, as aplicações podem ser parametrizadas `Authority` por, que é uma concatenação de `Instance` e `TenantId` .
+Também pode ver referências ao `Authority` . O `Authority` valor é a concatenação dos `Instance` `TenantId` valores e valores.
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
@@ -133,7 +133,7 @@ Em ASP.NET Core, um outro ficheiro ([properties\launchSettings.jsem)](https://gi
 }
 ```
 
-No portal Azure, os URIs de resposta que precisa de registar na página **autenticação** para a sua aplicação precisam de corresponder a estes URLs. Para os dois ficheiros de configuração anteriores, seriam `https://localhost:44321/signin-oidc` . A razão é que `applicationUrl` é , mas é especificado `http://localhost:3110` `sslPort` (44321). `CallbackPath` é, `/signin-oidc` tal como definido em `appsettings.json` .
+No portal Azure, os URIs de redirecionamento que regista na página **autenticação** para a sua aplicação precisam de corresponder a estes URLs. Para os dois ficheiros de configuração anteriores, seriam `https://localhost:44321/signin-oidc` . A razão é que `applicationUrl` é , mas é especificado `http://localhost:3110` `sslPort` (44321). `CallbackPath` é, `/signin-oidc` tal como definido em `appsettings.json` .
 
 Da mesma forma, o URI de assinatura seria definido para `https://localhost:44321/signout-oidc` .
 
@@ -161,7 +161,7 @@ Em ASP.NET, a aplicação é configurada através do ficheiro [Web.config, ](htt
   </appSettings>
 ```
 
-No portal Azure, os URIs de resposta que precisa de registar na página **autenticação** para a sua aplicação precisam de corresponder a estes URLs. Ou seja, deviam `https://localhost:44326/` estar.
+No portal Azure, os URIs de resposta que regista na página **autenticação** para a sua aplicação precisam de corresponder a estes URLs. Ou seja, deviam `https://localhost:44326/` estar.
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -175,7 +175,7 @@ aad.redirectUriSignin=http://localhost:8080/msal4jsample/secure/aad
 aad.redirectUriGraph=http://localhost:8080/msal4jsample/graph/me
 ```
 
-No portal Azure, os URIs de resposta que precisa de registar na página **autenticação** para a sua aplicação precisam de corresponder às `redirectUri` instâncias que a aplicação define. Ou seja, deviam estar `http://localhost:8080/msal4jsample/secure/aad` `http://localhost:8080/msal4jsample/graph/me` e.
+No portal Azure, os URIs de resposta que regista na página **autenticação** para a sua aplicação precisam de corresponder às `redirectUri` instâncias que a aplicação define. Ou seja, deviam estar `http://localhost:8080/msal4jsample/secure/aad` `http://localhost:8080/msal4jsample/graph/me` e.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -339,7 +339,7 @@ Session(app)
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 No próximo artigo, aprenderá a desencadear o sº de sção e a assinatura.
 

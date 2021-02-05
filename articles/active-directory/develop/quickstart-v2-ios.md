@@ -13,12 +13,12 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: ef2ab6511d80f7f1f836805055e7cc7f48a488e7
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: b43141a3700b9594e2d5fbb875774b7b90e62a0b
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754297"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583455"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Quickstart: Inicie sísmia nos utilizadores e ligue para a Microsoft Graph API a partir de uma aplicação para iOS ou macOS
 
@@ -69,7 +69,7 @@ O quickstart aplica-se tanto às aplicações iOS como ao macOS. Alguns passos s
 > [!div renderon="portal" class="sxs-lookup"]
 >
 > #### <a name="step-1-configure-your-application"></a>Passo 1: Configurar a aplicação
-> Para que a amostra de código para este arranque rápido funcione, é necessário adicionar um URI de redirecionamento compatível com o corretor Auth.
+> Para que a amostra de código para este arranque rápido funcione, adicione um **URI de redirecionamento** compatível com o corretor Auth.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Fazer esta alteração por mim]()
 >
@@ -118,7 +118,7 @@ Numa janela terminal, navegue para a pasta com a amostra de código descarregada
 >     ```
 > 1. Abra as definições do projeto. Na secção **Identidade,** insira o **identificador de pacote** que inseriu no portal.
 > 1. Clique à direita **Info.plist** e selecione **Abrir Como**  >  **Código Fonte**.
-> 1. Sob o nó de raiz dict, `Enter_the_bundle_Id_Here` substitua-o pelo *_Id do pacote_** que usou no portal.
+> 1. Sob o nó de raiz dict, `Enter_the_bundle_Id_Here` substitua-o pelo ***ID do pacote*** que usou no portal.
 >
 >    ```xml
 >    <key>CFBundleURLTypes</key>
@@ -178,9 +178,9 @@ let msalConfiguration = MSALPublicClientApplicationConfig(clientId: kClientID, r
 self.applicationContext = try MSALPublicClientApplication(configuration: msalConfiguration)
 ```
 
-> |Em que: | Descrição |
+> |Em que: | Description |
 > |---------|---------|
-> | `clientId` | O ID do requerimento registado em _portal.azure.com* |
+> | `clientId` | O ID de Aplicação da aplicação registada em *portal.azure.com* |
 > | `authority` | A plataforma de identidade da Microsoft. Na maioria dos casos isto será `https://login.microsoftonline.com/common` |
 > | `redirectUri` | O URI redirecionado da aplicação. Pode passar 'zero' para utilizar o valor padrão ou o seu URI de redirecionamento personalizado. |
 
@@ -214,7 +214,7 @@ A sua aplicação também deve ter o seguinte na `AppDelegate` sua. Isto permite
     }
  ```
 
-Finalmente, a sua aplicação deve ter uma `LSApplicationQueriesSchemes` entrada na sua ***Info.plist** _ ao lado da `CFBundleURLTypes` . A amostra vem com isto incluído.
+Finalmente, a sua aplicação deve ter uma `LSApplicationQueriesSchemes` entrada na sua ***Info.plist*** ao lado da `CFBundleURLTypes` . A amostra vem com isto incluído.
 
    ```xml
    <key>LSApplicationQueriesSchemes</key>
@@ -232,7 +232,7 @@ A MSAL tem dois métodos que servem para comprar tokens: `acquireToken` e `acqui
 
 Algumas situações exigem que os utilizadores interajam com a plataforma de identidade da Microsoft. Nestes casos, o utilizador final poderá ser obrigado a selecionar a sua conta, introduzir as suas credenciais ou consentir com as permissões da sua aplicação. Por exemplo,
 
-_ A primeira vez que os utilizadores insinam a aplicação
+* A primeira vez que os utilizadores iniciam sessão na aplicação
 * Se um utilizador redefinir a sua palavra-passe, terá de introduzir as suas credenciais
 * Quando a sua aplicação está a solicitar acesso a um recurso pela primeira vez
 * Quando são necessárias políticas de acesso condicional ou MFA ou outras
@@ -242,7 +242,7 @@ let parameters = MSALInteractiveTokenParameters(scopes: kScopes, webviewParamete
 self.applicationContext!.acquireToken(with: parameters) { (result, error) in /* Add your handling logic */}
 ```
 
-> |Em que:| Descrição |
+> |Em que:| Description |
 > |---------|---------|
 > | `scopes` | Contém os âmbitos solicitados (isto é, `[ "user.read" ]` para o Microsoft Graph ou para `[ "<Application ID URL>/scope" ]` APIs web personalizados ( `api://<Application ID>/access_as_user` ) |
 
@@ -262,14 +262,14 @@ self.applicationContext!.getCurrentAccount(with: nil) { (currentAccount, previou
 }
 ```
 
-> |Em que: | Descrição |
+> |Em que: | Description |
 > |---------|---------|
 > | `scopes` | Contém os âmbitos solicitados (isto é, `[ "user.read" ]` para o Microsoft Graph ou para `[ "<Application ID URL>/scope" ]` APIs web personalizados ( `api://<Application ID>/access_as_user` ) |
 > | `account` | A conta está a ser pedida. Este quickstart é sobre uma única aplicação de conta. Se quiser construir uma aplicação multi-conta, terá de definir lógica para identificar qual a conta a utilizar para pedidos simbólicos usando `accountsFromDeviceForParameters:completionBlock:` e passando corretamente `accountIdentifier` |
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Passe para o tutorial passo a passo no qual constrói uma aplicação iOS ou macOS que obtém um token de acesso a partir da plataforma de identidade da Microsoft e a usa para ligar para a Microsoft Graph API.
 
