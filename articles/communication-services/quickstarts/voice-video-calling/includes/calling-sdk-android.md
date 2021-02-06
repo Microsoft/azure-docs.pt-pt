@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 5d81e37ab547d12e33cfacb9725d9bdb22666142
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 26e39b8f0429995bfa336c4971c76f90d903ff55
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97628734"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99628937"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -111,7 +111,9 @@ call oneToOneCall = callAgent.call(appContext, participants, startCallOptions);
 
 ### <a name="place-a-1n-call-with-users-and-pstn"></a>Coloque uma chamada de 1:n com utilizadores e PSTN
 > [!WARNING]
-> Atualmente a chamada pstn não está disponível Para colocar uma chamada de 1:n para um utilizador e um número PSTN tem de especificar o número de telefone do callee.
+> Atualmente a chamada pstn não está disponível
+
+Para escamar uma chamada 1:n para um utilizador e um número PSTN, tem de especificar o número de telefone do callee.
 O seu recurso de Serviços de Comunicação deve ser configurado para permitir a chamada pstn:
 ```java
 CommunicationUser acsUser1 = new CommunicationUser(<USER_ID>);
@@ -596,7 +598,7 @@ int height = renderStreamSize.getHeight();
 
 
 ### <a name="rendererview-methods-and-properties"></a>RendererVer métodos e propriedades
-Ao criar um `RendererView` pode especificar as `scalingMode` propriedades e propriedades que se `mirrored` aplicarão a esta vista: O modo de escala pode ser um dos 'Alongamento' 'Colheita' 'Fit' Se `mirrored` estiver `true` programado, o fluxo renderizado será virado verticalmente.
+Ao criar `RendererView` um, pode especificar as `scalingMode` propriedades e propriedades que se `mirrored` aplicarão a esta vista: O modo de escala pode ser de 'Alongamento' | | 'Crop' 'Fit' Se `mirrored` estiver `true` programado, o fluxo renderizado será virado verticalmente.
 
 ```java
 Renderer remoteVideoRenderer = new Renderer(remoteVideoStream, appContext);
@@ -608,7 +610,7 @@ O RendererView criado pode então ser anexado à UI da aplicação utilizando o 
 layout.addView(rendererView);
 ```
 
-Pode atualizar mais tarde o modo de escala, invocando `updateScalingMode` a API no objeto RendererView com um de ScalingMode.Stretch ; ScalingMode.Crop ScalingMode.Fit como argumento.
+Pode atualizar mais tarde o modo de escala, invocando `updateScalingMode` API no objeto RendererView com um de ScalingMode.Stretch | | de escalamode.crop ScalingMode.Fit como argumento.
 ```java
 // Update the scale mode for this view.
 rendererView.updateScalingMode(ScalingMode.Crop)

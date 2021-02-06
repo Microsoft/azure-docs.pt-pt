@@ -5,23 +5,19 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: include
-ms.date: 11/05/2020
+ms.date: 02/05/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 48a7912b1a6375111b6f9af1496cbbd41966202c
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 9ba0e7173c41e26a698596fa18bf1fc1453f3fb3
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183928"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99628888"
 ---
-### <a name="which-regions-are-available"></a><a name="regions"></a>Que regiões estão disponíveis?
-
-[!INCLUDE [Azure Bastion region availability](bastion-regions-include.md)]
-
 ### <a name="do-i-need-a-public-ip-on-my-virtual-machine-to-connect-via-azure-bastion"></a><a name="publicip"></a>Preciso de um IP público na minha máquina virtual para ligar através do Azure Bastion?
 
-Não. Quando se conecta a um VM utilizando o Azure Bastion, não precisa de um IP público na máquina virtual Azure a que está a ligar. O serviço Bastion abrirá a sessão/ligação RDP/SSH à sua máquina virtual durante o IP privado da sua máquina virtual, dentro da sua rede virtual.
+N.º Quando se conecta a um VM utilizando o Azure Bastion, não precisa de um IP público na máquina virtual Azure a que está a ligar. O serviço Bastion abrirá a sessão/ligação RDP/SSH à sua máquina virtual durante o IP privado da sua máquina virtual, dentro da sua rede virtual.
 
 ### <a name="is-ipv6-supported"></a>O IPv6 está apoiado?
 
@@ -29,11 +25,11 @@ Neste momento, o IPv6 não é apoiado. Azure Bastion suporta apenas o IPv4.
 
 ### <a name="do-i-need-an-rdp-or-ssh-client"></a><a name="rdpssh"></a>Preciso de um cliente RDP ou SSH?
 
-Não. Não precisa de um cliente RDP ou SSH para aceder ao RDP/SSH à sua máquina virtual Azure no seu portal Azure. Utilize o [portal Azure](https://portal.azure.com) para lhe permitir ter acesso RDP/SSH à sua máquina virtual diretamente no navegador.
+N.º Não precisa de um cliente RDP ou SSH para aceder ao RDP/SSH à sua máquina virtual Azure no seu portal Azure. Utilize o [portal Azure](https://portal.azure.com) para lhe permitir ter acesso RDP/SSH à sua máquina virtual diretamente no navegador.
 
 ### <a name="do-i-need-an-agent-running-in-the-azure-virtual-machine"></a><a name="agent"></a>Preciso de um agente a correr na máquina virtual do Azure?
 
-Não. Não precisa de instalar um agente ou qualquer software no seu navegador ou na sua máquina virtual Azure. O serviço Bastion é sem agente e não requer qualquer software adicional para RDP/SSH.
+N.º Não precisa de instalar um agente ou qualquer software no seu navegador ou na sua máquina virtual Azure. O serviço Bastion é sem agente e não requer qualquer software adicional para RDP/SSH.
 
 ### <a name="how-many-concurrent-rdp-and-ssh-sessions-does-each-azure-bastion-support"></a><a name="limits"></a>Quantas sessões simultâneas de RDP e SSH suportam cada Azure Bastion?
 
@@ -79,7 +75,7 @@ AZure Bastion suporta atualmente o layout do teclado en-us-qwerty dentro do VM. 
 
 ### <a name="is-user-defined-routing-udr-supported-on-an-azure-bastion-subnet"></a><a name="udr"></a>O encaminhamento definido pelo utilizador (UDR) é suportado numa sub-rede Azure Bastion?
 
-Não. A UDR não é suportada numa sub-rede Azure Bastion.
+N.º A UDR não é suportada numa sub-rede Azure Bastion.
 
 Para cenários que incluam tanto o Azure Bastion como o Azure Firewall/Network Virtual Appliance (NVA) na mesma rede virtual, não é necessário forçar o tráfego de uma sub-rede de Bastião Azure para Azure Firewall porque a comunicação entre o Azure Bastion e os seus VMs é privada. Para obter mais informações, consulte [Accessing VMs por trás da Azure Firewall com Bastion](https://azure.microsoft.com/blog/accessing-virtual-machines-behind-azure-firewall-with-azure-bastion/).
 
