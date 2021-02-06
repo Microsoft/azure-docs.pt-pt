@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 10/08/2020
+ms.date: 02/04/2021
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 7ba0f1b6f37da923e389964b99a02295dc3d6050
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: f3458c3b12b3151fd20531282f56ed2f1fd29b6b
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359532"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627724"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Tutorial: Criar uma ligação site a site com a WAN Virtual do Azure
 
@@ -55,7 +55,7 @@ Um hub é uma rede virtual que pode conter gateways para a funcionalidade site-t
 
 ## <a name="create-a-site"></a><a name="site"></a>Criar um site
 
-Está agora pronto para criar os sites correspondentes às suas localizações físicas. Crie tantos sites qantos necessários para corresponder às suas localizações físicas. Por exemplo, se tiver uma sucursal em Nova Iorque, uma em Londres e outra em Lisboa, tem de criar três sites separados. Esses sites contêm os pontos finais dos seus dispositivos VPN no local. Pode criar até 1000 sites por Centro Virtual num WAN Virtual. Se tivesse vários centros, poderia criar 1000 por cada um desses centros. Se tiver um dispositivo CPE (link insert) parceiro Virtual WAN (link insert), verifique com eles para saber mais sobre a sua automatização para o Azure. Normalmente, a automatização implica uma simples experiência de clique para exportar informações de sucursais em larga escala para o Azure e estabelecer conectividade do CPE para o gateway Azure Virtual WAN VPN. Para mais informações, consulte [a orientação da Automação da Azure para os parceiros CPE.](virtual-wan-configure-automation-providers.md)
+Nesta secção, cria-se o site. Os sites correspondem às suas localizações físicas. Crie todos os sites que precisar. Por exemplo, se tiver uma sucursal em Nova Iorque, uma em Londres e outra em Lisboa, tem de criar três sites separados. Esses sites contêm os pontos finais dos seus dispositivos VPN no local. Você pode criar até 1000 sites por centro virtual em um WAN virtual. Se tivesse vários centros, poderia criar 1000 por cada um desses centros. Se tiver um dispositivo CPE parceiro Virtual WAN, consulte-os para saber mais sobre a sua automatização para a Azure. Tipicamente, a automatização implica uma simples experiência de clique para exportar informações de sucursais em larga escala para o Azure, e estabelecer conectividade do CPE para o gateway Azure Virtual WAN VPN. Para mais informações, consulte [a orientação da Automação da Azure para os parceiros CPE.](virtual-wan-configure-automation-providers.md)
 
 [!INCLUDE [Create a site](../../includes/virtual-wan-tutorial-s2s-site-include.md)]
 
@@ -78,19 +78,19 @@ Utilize a configuração do dispositivo VPN para configurar o seu dispositivo VP
 3. Após a conclusão da criação do ficheiro, pode clicar na ligação para transferi-lo.
 4. Aplique a configuração no seu dispositivo VPN no local.
 
-### <a name="understanding-the-vpn-device-configuration-file"></a>Compreender o ficheiro de configuração do dispositivo VPN
+### <a name="about-the-vpn-device-configuration-file"></a>Sobre o ficheiro de configuração do dispositivo VPN
 
 O ficheiro de configuração do dispositivo contém as definições que vão ser utilizadas para configurar o dispositivo VPN no local. Quando vir este ficheiro, repare nas informações seguintes:
 
 * **vpnSiteConfiguration -** esta secção mostra os detalhes do dispositivo configurados como site que se vai ligar à WAN virtual. Inclui o nome e o endereço IP público do dispositivo da sucursal.
 * **VPNSiteConnections -** Esta secção fornece informações sobre as seguintes definições:
 
-    * **Espaço de endereços** da VNet do hub ou hubs virtuais.<br>Exemplo:
+    * **Espaço** de endereço do(s) hub virtual(s) VNet.<br>Exemplo:
  
         ```
         "AddressSpace":"10.1.0.0/24"
         ```
-    * **Espaço de endereços** das VNets que estão ligadas ao hub<br>Exemplo:
+    * **Espaço** de endereço dos VNets que estão ligados ao hub.<br>Exemplo:
 
          ```
         "ConnectedSubnets":["10.2.0.0/16","10.3.0.0/16"]
@@ -236,7 +236,7 @@ Na página **Editar VPN Gateway,** pode ver as seguintes definições:
 
    :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-2.png" alt-text="Ver configuração" lightbox="media/virtual-wan-site-to-site-portal/view-configuration-2-expand.png":::
 
-## <a name="clean-up-resources"></a><a name="cleanup"></a>Limpar recursos
+## <a name="clean-up-resources"></a><a name="cleanup"></a>Limpar os recursos
 
 Quando já não precisar desses recursos, pode utilizar [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) para remover o grupo de recursos e todos os recursos que o mesmo contém. Substitua "myResourceGroup" pelo nome do grupo de recursos e execute o seguinte comando do PowerShell:
 

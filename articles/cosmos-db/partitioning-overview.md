@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.openlocfilehash: a70cfc7ab01dabd3d740d878acb453b4d1e76b5f
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: b91c846b5a79125c1cee9c36ce81b5c3d3229ba9
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99507423"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627780"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Criação de partições e dimensionamento horizontal no Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -42,7 +42,7 @@ O número de divisórias físicas no seu recipiente depende do seguinte:
 * O armazenamento total de dados (cada partição física individual pode armazenar até 50GB de dados).
 
 > [!NOTE]
-> As divisórias físicas são uma implementação interna do sistema e são inteiramente geridas pela Azure Cosmos DB. Ao desenvolver as suas soluções, não se concentre em divisórias físicas porque não pode controlá-las em vez de se concentrar nas suas chaves de partição. Se escolher uma chave de partição que distribui uniformemente o consumo de produção através de divisórias lógicas, garantirá que o consumo de produção através de divisórias físicas seja equilibrado.
+> As divisórias físicas são uma implementação interna do sistema e são inteiramente geridas pela Azure Cosmos DB. Ao desenvolver as suas soluções, não se concentre em divisórias físicas porque não pode controlá-las. Em vez disso, concentrem-se nas chaves da partição. Se escolher uma chave de partição que distribui uniformemente o consumo de produção através de divisórias lógicas, garantirá que o consumo de produção através de divisórias físicas seja equilibrado.
 
 Não há limite para o número total de divisórias físicas no seu recipiente. À medida que o seu rendimento ou tamanho de dados aumenta, a Azure Cosmos DB criará automaticamente novas divisórias físicas dividindo as existentes. As divisórias físicas não afetam a disponibilidade da sua aplicação. Após a divisão física, todos os dados dentro de uma única partição lógica ainda serão armazenados na mesma partição física. Uma divisão de partição física simplesmente cria um novo mapeamento de divisórias lógicas para divisórias físicas.
 

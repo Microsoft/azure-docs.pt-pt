@@ -6,12 +6,12 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/30/2020
-ms.openlocfilehash: 82133f990c1714276aa13ff22c3f19d0993d16df
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: cef5f178ea879ba98df90da36ec9c4b639dd100a
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96488719"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627785"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Perguntas mais frequentes sobre o Azure Synapse Link para o Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -109,9 +109,9 @@ Atualmente, o Terraform não suporta contentores do arquivo analítico. Veja [Pr
 
 ## <a name="analytical-time-to-live-ttl"></a>Tempo analítico para viver (TTL)
 
-### <a name="is-ttl-for-analytical-data-supported-at-both-container-and-item-level"></a>O TTL para dados analíticos é suportado tanto ao nível do recipiente como do item?
+### <a name="is-ttl-for-analytical-data-supported-at-both-container-and-item-level"></a>A TTL para dados analíticos é suportada tanto ao nível do recipiente como do item?
 
-Neste momento, o TTl para dados analíticos só pode ser configurado ao nível do recipiente e não há suporte para definir TTL analítico ao nível do item.
+Neste momento, o TTL para dados analíticos só pode ser configurado ao nível do contentor e não existe suporte para definir o TTL analítico ao nível do item.
 
 ### <a name="after-setting-the-container-level--analytical-ttl-on-an-azure-cosmos-db-container-can-i-change-to-a-different-value-later"></a>Depois de definir o nível de TTL analítico do recipiente num recipiente DB Azure Cosmos, posso mudar para um valor diferente mais tarde?
 
@@ -156,7 +156,7 @@ Atualmente, esta funcionalidade não se encontra disponível.
 
 Atualmente, o suporte de streaming estruturado pela Spark para a Azure Cosmos DB é implementado utilizando a funcionalidade de feed de mudança da loja transacional e ainda não é suportado a partir da loja analítica.
 
-## <a name="azure-synapse-studio"></a>Estúdio Azure Synapse
+## <a name="azure-synapse-studio"></a>Azure Synapse Studio
 
 ### <a name="in-the-azure-synapse-studio-how-do-i-recognize-if-im-connected-to-an-azure-cosmos-db-container-with-the-analytics-store-enabled"></a>No Azure Synapse Studio, como reconheço se estou ligado a um contentor Azure Cosmos DB com a loja de análise ativada?
 
