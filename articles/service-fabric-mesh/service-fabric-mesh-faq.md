@@ -4,14 +4,19 @@ description: Saiba mais sobre perguntas e respostas comumente feitas para a malh
 ms.author: pepogors
 ms.date: 4/23/2019
 ms.topic: troubleshooting
-ms.openlocfilehash: 64eeb43d743d71d5acd456409445a4fadfe91aeb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e53ab0ae4cc463bea8a6a8cb6d339f94fdcac6d
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86260115"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626041"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Perguntas de malha de tecido de serviço comumente
+
+> [!IMPORTANT]
+> A pré-estreia da Malha de Tecido de Serviço Azure foi reformada. As novas implementações deixarão de ser permitidas através da API de malha de malha de tecido de serviço. O apoio às implementações existentes continuará até 28 de abril de 2021.
+> 
+> Para mais detalhes, consulte [a pré-reforma da malha de malha de malha de tecido de serviço Azure.](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/)
 
 O Azure Service Fabric Mesh é um serviço totalmente gerido que permite aos programadores implementar aplicações de microsserviços sem gerir máquinas virtuais, armazenamento ou redes. Este artigo tem respostas para perguntas comumente feitas.
 
@@ -123,7 +128,7 @@ A Azure Mesh não suporta atualmente a resolução de DNS em todas as aplicaçõ
 
 Para outros problemas conhecidos do DNS com a execução de um cluster de desenvolvimento de tecido de serviço no Windows 10, consulte: [Recipientes Debug Windows](../service-fabric/service-fabric-how-to-debug-windows-containers.md) e [problemas conhecidos de DNS](../service-fabric/service-fabric-dnsservice.md#known-issues).
 
-### <a name="networking"></a>Redes
+### <a name="networking"></a>Rede
 
 O ServiceFabric network NAT pode desaparecer durante a utilização da sua aplicação na sua máquina local. Para diagnosticar se isto aconteceu, executar o seguinte a partir de um pedido de comando:
 

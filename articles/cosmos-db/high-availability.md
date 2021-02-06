@@ -4,15 +4,15 @@ description: Este artigo descreve como a Azure Cosmos DB fornece alta disponibil
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 01/18/2021
+ms.date: 02/05/2021
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: d827011c4f831433a7446c90eed0c30c7b1e94d7
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 16d2bf39d61961e2f83910735db1d0ddf1c91849
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600562"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627387"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>Como é que a Azure Cosmos DB fornece alta disponibilidade
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -80,7 +80,7 @@ Para os raros casos de paragem regional, a Azure Cosmos DB garante que a sua bas
 
 * Durante uma paragem na região de leitura, as contas da Azure Cosmos utilizando qualquer nível de consistência ou forte consistência com três ou mais regiões de leitura continuarão altamente disponíveis para leituras e escritas.
 
-* As contas de Azure Cosmos usando uma forte consistência com duas ou menos regiões de leitura (que inclui a leitura & região de escrita) perderão a disponibilidade de leitura escrita durante uma interrupção da região de leitura.
+* As contas da Azure Cosmos usando uma forte consistência com três ou menos regiões totais (uma escrita, duas leituras) perderão a disponibilidade de escrita durante uma interrupção da região de leitura. No entanto, os clientes com quatro ou mais regiões totais podem optar por usar quórums de leitura dinâmicos através da submissão de um bilhete de apoio. As contas que mantêm pelo menos duas regiões de leitura nesta configuração manterão a disponibilidade de escrita.
 
 * A região afetada é automaticamente desligada e será marcada offline. Os [Azure Cosmos DB SDKs](sql-api-sdk-dotnet.md) redirecionarão as chamadas de leitura para a próxima região disponível na lista de regiões preferidas.
 
@@ -112,15 +112,15 @@ A tabela a seguir resume a elevada capacidade de disponibilidade de várias conf
 |Falhas de zona – disponibilidade | Perda de disponibilidade | Sem perda de disponibilidade | Sem perda de disponibilidade | Sem perda de disponibilidade |
 |Interrupção regional – perda de dados | Perda de dados |  Perda de dados | Dependente do nível de consistência. Consulte [a consistência, disponibilidade e tradeoffs de desempenho](consistency-levels-tradeoffs.md) para obter mais informações. | Dependente do nível de consistência. Consulte [a consistência, disponibilidade e tradeoffs de desempenho](consistency-levels-tradeoffs.md) para obter mais informações.
 |Paralisação regional – disponibilidade | Perda de disponibilidade | Perda de disponibilidade | Nenhuma perda de disponibilidade para a falha da região de leitura, temporária para a falha da região de escrita | Sem perda de disponibilidade |
-|Preço (**_1_* _) | N/D | Taxa R/s x 1,25 | Taxa R/s x 1,25 _*_(2_*_) | Taxa de escrita multi-região |
+|Preço (***1** _) | N/D | Taxa R/s x 1,25 | Taxa R/s x 1,25 (_*_2_**) | Taxa de escrita multi-região |
 
-_*_1_*_ Para as unidades de pedido de contas sem servidor (RU) são multiplicadas por um fator de 1.25.
+***1*** Para as unidades de pedido de contas sem servidor (RU) são multiplicadas por um fator de 1.25.
 
-_*_2_*_ 1.25 taxa apenas aplicada às regiões em que a AZ está habilitada.
+***2*** 1.25 taxa apenas aplicada às regiões em que a AZ está habilitada.
 
 As Zonas de Disponibilidade podem ser ativadas através de:
 
-_ [Portal Azure](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+* [Portal do Azure](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 
 * [Azure PowerShell](manage-with-powershell.md#create-account)
 

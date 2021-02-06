@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: aa0d78d52ec13c91b82e6a8d10720269076f59a1
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 4cafe9af1eb5a765ab86bafb63cc9ab7d0889dc8
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353549"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627604"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Conceitos dos acionadores e dos enlaces das Funções do Azure
 
@@ -39,16 +39,19 @@ Estes exemplos não se destinam a ser exaustivos, mas são fornecidos para ilust
 
 ###  <a name="trigger-and-binding-definitions"></a>Definições de gatilho e de ligação
 
-Os gatilhos e as ligações são definidos de forma diferente dependendo da abordagem de desenvolvimento.
+Os gatilhos e encadernações são definidos de forma diferente dependendo da linguagem de desenvolvimento.
 
-| Plataforma | Os gatilhos e as encadernações são configurados por... |
+| Linguagem | Os gatilhos e as encadernações são configurados por... |
 |-------------|--------------------------------------------|
 | Biblioteca de classes C# | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;métodos e parâmetros de decoração com atributos C# |
-| Todos os outros (incluindo o portal Azure) | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;atualização [function.js](./functions-reference.md) [(esquema)](http://json.schemastore.org/function) |
+| Java | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;métodos de decoração e parâmetros com anotações java  | 
+| JavaScript/PowerShell/Python/TypeScript | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;atualização [function.js](./functions-reference.md) [(esquema)](http://json.schemastore.org/function) |
 
-O portal fornece um UI para esta configuração, mas pode editar o ficheiro diretamente abrindo o **editor Avançado** disponível através do **separador Integrado** da sua função.
+Para as línguas que dependem de function.js, o portal fornece uma UI para adicionar encadernações no **separador Integração.** Também pode editar o ficheiro diretamente no portal no separador **Código + teste** da sua função. O Visual Studio Code permite-lhe adicionar facilmente [uma ligação a um function.jsno ficheiro,](functions-develop-vs-code.md?tabs=nodejs#add-a-function-to-your-project) seguindo um conveniente conjunto de pedidos. 
 
-Em .NET, o tipo de parâmetro define o tipo de dados para os dados de entrada. Por exemplo, use `string` para ligar ao texto de um gatilho de fila, um conjunto byte para ler como binário e um tipo personalizado para des-serializar a um objeto.
+Em .NET e Java, o tipo de parâmetro define o tipo de dados para os dados de entrada. Por exemplo, use `string` para ligar ao texto de um gatilho de fila, uma matriz byte para ler como binário, e um tipo personalizado para des-serializar a um objeto. Uma vez que as funções da biblioteca de classe .NET e as funções de Java não dependem *defunction.js* para definições vinculativas, não podem ser criadas e editadas no portal. A edição do portal C# baseia-se no script C#, que utiliza *function.jsem* vez de atributos.
+
+Para saber mais sobre como adicionar encadernações às funções existentes, consulte [as funções De Ligar aos serviços Azure utilizando encadernações](add-bindings-existing-function.md).
 
 Para idiomas que são digitado dinamicamente como JavaScript, use a `dataType` propriedade nofunction.js *no* ficheiro. Por exemplo, para ler o conteúdo de um pedido HTTP em formato binário, definido `dataType` `binary` para:
 

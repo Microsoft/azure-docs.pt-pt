@@ -6,14 +6,19 @@ ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: gwallace
 ms.custom: mvc, devcenter, devx-track-azurecli
-ms.openlocfilehash: df28083a0522178b7327d9f6d24029d303e417a1
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 02dc5d43a23c572d441da2bbb7386885bf66ece7
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747868"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625387"
 ---
 # <a name="tutorial-scale-an-application-running-in-service-fabric-mesh"></a>Tutorial: dimensionar uma aplicação em execução no Service Fabric Mesh
+
+> [!IMPORTANT]
+> A pré-estreia da Malha de Tecido de Serviço Azure foi reformada. As novas implementações deixarão de ser permitidas através da API de malha de malha de tecido de serviço. O apoio às implementações existentes continuará até 28 de abril de 2021.
+> 
+> Para mais detalhes, consulte [a pré-reforma da malha de malha de malha de tecido de serviço Azure.](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/)
 
 Este tutorial é a segunda parte de uma série. Saiba como dimensionar manualmente o número de instâncias de serviço de uma aplicação que foi [anteriormente implementada no Service Fabric Mesh](service-fabric-mesh-tutorial-template-deploy-app.md). Quando tiver terminado, terá um serviço de front-end a executar três instâncias e um serviço de dados a executar duas instâncias.
 
@@ -88,7 +93,7 @@ Guarde as alterações ao ficheiro de parâmetros.  Os parâmetros *frontEndRepl
     }
 ```
 
-A propriedade *replicaCount* do serviço WebFrontEnd faz referência ao parâmetro *frontEndReplicaCount* e a propriedade *replicaCount* do serviço ToDoService faz referência ao parâmetro *serviceReplicaCount* :
+A propriedade *replicaCount* do serviço WebFrontEnd faz referência ao parâmetro *frontEndReplicaCount* e a propriedade *replicaCount* do serviço ToDoService faz referência ao parâmetro *serviceReplicaCount*:
 
 ```json
     "services": [

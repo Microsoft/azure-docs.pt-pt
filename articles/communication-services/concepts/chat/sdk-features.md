@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: b239cf6d253c1c2d2e36d213e92e0b218add3f8c
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: dcd8222b46262f6ec70459ec670789ae4a433c1d
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94885993"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625269"
 ---
 # <a name="chat-client-library-overview"></a>Descrição geral da biblioteca de cliente de chat
 
@@ -53,6 +53,17 @@ A lista a seguir apresenta o conjunto de funcionalidades que estão atualmente d
 | Monitorização        | Monitorize o uso em termos de mensagens enviadas                                                                               | ✔️   | ✔️  | ✔️    | ✔️  |
 |                    | Monitorize a qualidade e o estado dos pedidos de API feitos pela sua app e configuure alertas através do portal                                                          | ✔️   | ✔️  | ✔️    | ✔️  |
 |Características adicionais | Use [APIs de Serviços Cognitivos](../../../cognitive-services/index.yml) juntamente com a biblioteca de clientes de chat para permitir funcionalidades inteligentes - *tradução linguística & análise de sentimento da mensagem recebida num cliente, conversão de texto para compor uma mensagem enquanto o membro fala, etc.*                                                                                         | ✔️   | ✔️  | ✔️    | ✔️  |
+
+## <a name="javascript-chat-client-library-support-by-os-and-browser"></a>JavaScript chat cliente suporte à biblioteca por OS e browser
+
+A tabela a seguir representa o conjunto de navegadores e versões suportadas que estão atualmente disponíveis.
+
+|                                  | Windows          | macOS          | Ubuntu | Linux  | Android | iOS    | iPad OS|
+| -------------------------------- | ---------------- | -------------- | ------- | ------ | ------ | ------ | -------|
+| **Biblioteca de clientes de chat** | *Firefox, Chrome,* novo Edge | *Firefox, Chrome,* Safari* | Cromado*  | Cromado* | Cromado* | Safari* | Safari* |
+
+
+*Note que a versão mais recente é suportada para além das duas versões anteriores.<br/>
 
 ## <a name="next-steps"></a>Passos seguintes
 

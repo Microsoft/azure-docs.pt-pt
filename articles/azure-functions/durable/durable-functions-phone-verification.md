@@ -4,12 +4,12 @@ description: Aprenda a lidar com a interação humana e os intervalos de tempo n
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: cba3cd0fd5d8727c4ffa4d1b42d7cd9250f21032
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: dd7f8416b2f4520ec8e94c8608f753f7412afc4d
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028308"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627377"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Interação humana em Funções Duradouras - Amostra de verificação de telefone
 
@@ -37,6 +37,9 @@ Este artigo percorre as seguintes funções na aplicação da amostra:
 
 * `E4_SmsPhoneVerification`: [Função orquestradora](durable-functions-bindings.md#orchestration-trigger) que executa o processo de verificação do telefone, incluindo a gestão de intervalos e retréis.
 * `E4_SendSmsChallenge`: Uma [função de atividade](durable-functions-bindings.md#activity-trigger) que envia um código por mensagem de texto.
+
+> [!NOTE]
+> A `HttpStart` função na aplicação da [amostra e no quickstart](#prerequisites) atua como cliente da [Orquestração,](durable-functions-bindings.md#orchestration-client) o que despoleta a função de orquestrador.
 
 ### <a name="e4_smsphoneverification-orchestrator-function"></a>função orquestrador E4_SmsPhoneVerification
 

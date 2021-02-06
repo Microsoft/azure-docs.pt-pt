@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d5517afe7407da7428d4a83f3d2de67836280c7
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: f80990854fd0c584d8e6582fdf35108e67d9202b
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741903"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625133"
 ---
 # <a name="azure-ad-password-protection-on-premises-frequently-asked-questions"></a>Azure AD Password Protection no local frequentemente perguntas
 
@@ -66,7 +66,7 @@ O Ative Directory suporta a capacidade de testar uma palavra-passe para ver se p
 
 **P: É suportado para instalar a Proteção de PasswordS Azure AD lado a lado com outros produtos baseados em filtro de palavra-passe?**
 
-Yes. O suporte para vários dlls de filtro de senha registados é uma funcionalidade core do Windows e não é específico para a Proteção de Passwords AD AZure. Todos os filtros de senha registados devem concordar antes de uma palavra-passe ser aceite.
+Sim. O suporte para vários dlls de filtro de senha registados é uma funcionalidade core do Windows e não é específico para a Proteção de Passwords AD AZure. Todos os filtros de senha registados devem concordar antes de uma palavra-passe ser aceite.
 
 **P: Como posso implementar e configurar a Proteção de Passwords Azure AD no meu ambiente de Diretório Ativo sem usar o Azure?**
 
@@ -103,11 +103,11 @@ Este requisito é causado pelo comportamento do Core Windows.
 
 **P: Existe alguma forma de configurar um agente de DC para usar um servidor de procuração específico?**
 
-Não. Uma vez que o servidor proxy é apátrida, não é importante que servidor de procuração específico seja usado.
+N.º Uma vez que o servidor proxy é apátrida, não é importante que servidor de procuração específico seja usado.
 
 **P: Não há problema em implementar o serviço de proteção de senhas Azure AD, lado a lado com outros serviços, como o Azure AD Connect?**
 
-Yes. O serviço Azure AD Password Protection Proxy e o Azure AD Connect nunca devem entrar em conflito diretamente entre si.
+Sim. O serviço Azure AD Password Protection Proxy e o Azure AD Connect nunca devem entrar em conflito diretamente entre si.
 
 Infelizmente, foi encontrada uma incompatibilidade entre a versão do serviço Microsoft Azure AD Connect Agent Updater que é instalado pelo software Azure AD Password Protection Proxy e a versão do serviço que é instalado pelo software [Azure Ative Directory Application Proxy.](../manage-apps/application-proxy.md) Esta incompatibilidade pode resultar na incapacidade do serviço De Atualização do Agente para obter contacto com a Azure para atualizações de software. Não é aconselhável instalar o Proxy de Proteção de Passwords Azure AD e o Proxy de Aplicação de Diretório Ativo Azure na mesma máquina.
 
@@ -125,13 +125,13 @@ No entanto, se os seus controladores de domínio atuais já estiverem a funciona
 
 **P: Quero testar a Proteção de Passwords AZure AD em apenas alguns DCs no meu domínio. É possível forçar alterações na palavra-passe do utilizador para utilizar esses DCs específicos?**
 
-Não. O sistema operativo do cliente Windows controla qual o controlador de domínio utilizado quando um utilizador altera a sua palavra-passe. O controlador de domínio é selecionado com base em fatores como o site ative directy e as atribuições de sub-redes, configuração de rede específica do ambiente, etc. O Azure AD Password Protection não controla estes fatores e não pode influenciar qual o controlador de domínio selecionado para alterar a palavra-passe de um utilizador.
+N.º O sistema operativo do cliente Windows controla qual o controlador de domínio utilizado quando um utilizador altera a sua palavra-passe. O controlador de domínio é selecionado com base em fatores como o site ative directy e as atribuições de sub-redes, configuração de rede específica do ambiente, etc. O Azure AD Password Protection não controla estes fatores e não pode influenciar qual o controlador de domínio selecionado para alterar a palavra-passe de um utilizador.
 
 Uma forma de alcançar parcialmente este objetivo seria implementar a Proteção de PasswordS Azure AD em todos os controladores de domínio num determinado site do Ative Directory. Esta abordagem proporcionará uma cobertura razoável para os clientes windows que são atribuídos a esse site, e, portanto, também para os utilizadores que estão a iniciar sessão nesses clientes e a alterar as suas palavras-passe.
 
 **P: Se eu instalar o serviço de agente DC de proteção de passwords Azure AD em apenas o Controlador de Domínio Primário (PDC), todos os outros controladores de domínio no domínio também serão protegidos?**
 
-Não. Quando a palavra-passe de um utilizador é alterada num dado controlador de domínio não PDC, a palavra-passe de texto claro nunca é enviada para o PDC (esta ideia é uma perceção errada comum). Uma vez que uma nova palavra-passe é aceite em um dado DC, que DC usa essa palavra-passe para criar os vários hashes específicos do protocolo de autenticação dessa palavra-passe e, em seguida, persiste esses haeques no diretório. A palavra-passe de texto claro não persiste. Os hashes atualizados são então replicados no PDC. As palavras-passe do utilizador podem, em alguns casos, ser alteradas diretamente no PDC, novamente dependendo de vários fatores, tais como topologia de rede e design de site de ative diretório. (Ver a pergunta anterior.)
+N.º Quando a palavra-passe de um utilizador é alterada num dado controlador de domínio não PDC, a palavra-passe de texto claro nunca é enviada para o PDC (esta ideia é uma perceção errada comum). Uma vez que uma nova palavra-passe é aceite em um dado DC, que DC usa essa palavra-passe para criar os vários hashes específicos do protocolo de autenticação dessa palavra-passe e, em seguida, persiste esses haeques no diretório. A palavra-passe de texto claro não persiste. Os hashes atualizados são então replicados no PDC. As palavras-passe do utilizador podem, em alguns casos, ser alteradas diretamente no PDC, novamente dependendo de vários fatores, tais como topologia de rede e design de site de ative diretório. (Ver a pergunta anterior.)
 
 Em resumo, a implementação do serviço de agente DC de proteção de passwords Azure AD no PDC é necessária para alcançar uma cobertura de segurança 100% da funcionalidade em todo o domínio. A implementação da funcionalidade no PDC apenas não fornece benefícios de segurança de proteção de senha azure AD para quaisquer outros DCs no domínio.
 
@@ -141,7 +141,7 @@ O bloqueio inteligente personalizado só é suportado no Azure AD. As alteraçõ
 
 **P: Um pacote de gestão de gestão de operações do System Center Está disponível para proteção de senha AZure AD?**
 
-Não.
+N.º
 
 **P: Porque é que a Azure AD continua a rejeitar senhas fracas, apesar de ter configurado a política para estar em modo de Auditoria?**
 
@@ -149,7 +149,147 @@ O modo de auditoria só é suportado no ambiente ative directy no local. O Azure
 
 **P: Os meus utilizadores vêem a mensagem de erro tradicional do Windows quando uma palavra-passe é rejeitada pela Azure AD Password Protection. É possível personalizar esta mensagem de erro para que os utilizadores saibam o que realmente aconteceu?**
 
-Não. A mensagem de erro vista pelos utilizadores quando uma palavra-passe é rejeitada por um controlador de domínio é controlada pela máquina do cliente e não pelo controlador de domínio. Este comportamento acontece se uma palavra-passe é rejeitada pelas políticas de senha de ative do Diretório por defeito ou por uma solução baseada em filtro de palavra-passe, como a Proteção de Passwords AD Azure.
+N.º A mensagem de erro vista pelos utilizadores quando uma palavra-passe é rejeitada por um controlador de domínio é controlada pela máquina do cliente e não pelo controlador de domínio. Este comportamento acontece se uma palavra-passe é rejeitada pelas políticas de senha de ative do Diretório por defeito ou por uma solução baseada em filtro de palavra-passe, como a Proteção de Passwords AD Azure.
+
+## <a name="password-testing-procedures"></a>Procedimentos de teste de palavra-passe
+
+Pode querer fazer alguns testes básicos de várias palavras-passe para validar o bom funcionamento do software e obter uma melhor compreensão do algoritmo de avaliação de [palavras-passe](concept-password-ban-bad.md#how-are-passwords-evaluated). Esta secção descreve um método para tais testes que é concebido para produzir resultados repetíveis.
+
+Por que é necessário seguir tais passos? Existem vários fatores que dificultam a tarefa de testes controlados e repetíveis de senhas no ambiente do Ative Directory:
+
+* A política de palavra-passe é configurada e persistiu em Azure, e as cópias da apólice são sincronizadas periodicamente pelos agentes(s) de DC no local usando um mecanismo de votação. A latência inerente a este ciclo de sondagens pode causar confusão. Por exemplo, se configurar a apólice em Azure mas se esquecer de sincronizá-la com o agente DC, então os seus testes podem não produzir os resultados esperados. O intervalo de votação está atualmente codificado para ser uma vez por hora, mas esperar uma hora entre as mudanças de política não é ideal para um cenário de testes interativos.
+* Uma vez que uma nova política de palavra-passe é sincronizada para um controlador de domínio, mais latência ocorrerá enquanto se replica para outros controladores de domínio. Estes atrasos podem causar resultados inesperados se testar uma alteração de palavra-passe contra um controlador de domínio que ainda não recebeu a versão mais recente da apólice.
+* Testar alterações de palavras-passe através de uma interface de utilizador dificulta a confiança nos seus resultados. Por exemplo, é fácil escrever mal uma palavra-passe inválida numa interface de utilizador, especialmente porque a maioria das interfaces de utilizador de palavra-passe ocultam a entrada do utilizador (por exemplo, como o Windows Ctrl-Alt-Delete -> Alterar a palavra-passe UI).
+* Não é possível controlar rigorosamente qual o controlador de domínio utilizado ao testar alterações de palavras-passe de clientes unidos pelo domínio. O cliente do Windows OS seleciona um controlador de domínio com base em fatores como o site ative directy e as atribuições de sub-redes, configuração de rede específica para o ambiente, etc.
+
+Para evitar estes problemas, os passos abaixo baseiam-se no teste da linha de comando de resets de palavra-passe enquanto sessão num controlador de domínio.
+
+> [!WARNING]
+> Estes procedimentos só devem ser utilizados num ambiente de teste, uma vez que todas as alterações e resets de senha de entrada serão aceites sem validação enquanto o serviço de agente DC é interrompido, e também para evitar os riscos acrescidos inerentes ao registo num controlador de domínio.
+
+Os passos seguintes pressupõem que instalou o agente DC em pelo menos um controlador de domínio, instalou pelo menos um representante e registou tanto o representante como a floresta.
+
+1. Inicie sessão num controlador de domínio utilizando credenciais de Administração de Domínio (ou outras credenciais que tenham privilégios suficientes para criar contas de utilizador de teste e redefinir palavras-passe), que tenha o software do agente DC instalado e tenha sido reiniciado.
+1. Abra o Espectador de Eventos e navegue para o registo de eventos do [Dc Agent Admin](howto-password-ban-bad-on-premises-monitor.md#dc-agent-admin-event-log).
+1. Abra uma janela de ordem de comando elevada.
+1. Criar uma conta de teste para fazer testes de senha
+
+   Existem muitas formas de criar uma conta de utilizador, mas uma opção de linha de comando é oferecida aqui como uma forma de facilitar durante ciclos de testes repetitivos:
+
+   ```text
+   net.exe user <testuseraccountname> /add <password>
+   ```
+
+   Para efeitos de discussão abaixo, assuma que criámos uma conta de teste chamada "ContosoUser", por exemplo:
+
+   ```text
+   net.exe user ContosoUser /add <password>
+   ```
+
+1. Abra um navegador web (poderá necessitar de utilizar um dispositivo separado em vez do seu controlador de domínio), inscreva-se no [portal Azure](https://portal.azure.com), e navegue no Azure Ative Directory > Security > Os métodos de autenticação > proteção de palavras-passe.
+1. Modifique a política de proteção de senha azure AD conforme necessário para os testes que pretende realizar.  Por exemplo, pode decidir configurar o Modo De Auditoria ou Desemplijamento, ou pode decidir modificar a lista de termos proibidos na sua lista de senhas proibidas sob medida.
+1. Sincronizar a nova política parando e reiniciando o serviço de agente dc.
+
+   Este passo pode ser alcançado de várias maneiras. Uma das formas seria utilizar a consola administrativa de Gestão de Serviços, clicando à direita no serviço de Agente DC de Proteção de Passwords AZure AD e escolhendo "Reiniciar". Outra forma pode ser executada a partir da janela de ordem de comando assim:
+
+   ```text
+   net stop AzureADPasswordProtectionDCAgent && net start AzureADPasswordProtectionDCAgent
+   ```
+    
+1. Consulte o Observador de Eventos para verificar se uma nova política foi descarregada.
+
+   Cada vez que o serviço de agente dc é interrompido e iniciado, você deve ver dois eventos 30006 emitidos em estreita sucessão. O primeiro evento de 30006 refletirá a política que foi colocada em cache no disco na parte sysvol. O segundo evento 30006 (se presente) deve ter uma data de política atualizada do Arrendatário, e se assim for refletirá a política que foi descarregada do Azure. O valor da data da política do arrendatário está atualmente codificado para exibir o tempotando aproximado que a apólice foi descarregada do Azure.
+   
+   Se o segundo evento 30006 não aparecer, deverá resolver o problema antes de continuar.
+   
+   Os eventos de 30006 serão semelhantes a este exemplo:
+ 
+   ```text
+   The service is now enforcing the following Azure password policy.
+
+   Enabled: 1
+   AuditOnly: 0
+   Global policy date: ‎2018‎-‎05‎-‎15T00:00:00.000000000Z
+   Tenant policy date: ‎2018‎-‎06‎-‎10T20:15:24.432457600Z
+   Enforce tenant policy: 1
+   ```
+
+   Por exemplo, a alteração entre o modo de Auditoria e auditoria resultará na modificação da bandeira da Auditoria (a política acima referida com AuditOnly=0 está em modo aplicado); as alterações à lista de senhas proibidas personalizadas não se refletem diretamente no evento 30006 acima (e não são registadas em nenhum outro lugar por razões de segurança). O download com sucesso da política do Azure após tal alteração também incluirá a lista de senhas proibidas por medida modificada.
+
+1. Executar um teste tentando redefinir uma nova palavra-passe na conta do utilizador do teste.
+
+   Este passo pode ser feito a partir da janela de ordem de comando assim:
+
+   ```text
+   net.exe user ContosoUser <password>
+   ```
+
+   Depois de executar o comando, você pode obter mais informações sobre o resultado do comando olhando para o espectador do evento. Os eventos de resultados da validação de palavras-passe estão documentados no tópico de [registo de eventos do Dc Agent Admin;](howto-password-ban-bad-on-premises-monitor.md#dc-agent-admin-event-log) utilizará tais eventos para validar o resultado do seu teste, para além da saída interativa dos comandos net.exe.
+
+   Vamos tentar um exemplo: tentar definir uma palavra-passe que é proibida pela lista global da Microsoft (note que a lista não está [documentada,](concept-password-ban-bad.md#global-banned-password-list) mas podemos testar aqui contra um termo proibido conhecido). Este exemplo pressupõe que configuraste a política para estar em modo Forçado, e adicionaste zero termos à lista de palavras-passe proibidas personalizadas.
+
+   ```text
+   net.exe user ContosoUser PassWord
+   The password does not meet the password policy requirements. Check the minimum password length, password complexity and password history requirements.
+
+   More help is available by typing NET HELPMSG 2245.
+   ```
+
+   De acordo com a documentação, porque o nosso teste foi uma operação de reset de palavra-passe, você deve ver um evento 10017 e um evento 30005 para o utilizador ContosoUser.
+
+   O evento de 10017 deve ser semelhante a este exemplo:
+
+   ```text
+   The reset password for the specified user was rejected because it did not comply with the current Azure password policy. Please see the correlated event log message for more details.
+ 
+   UserName: ContosoUser
+   FullName: 
+   ```
+
+   O evento de 30005 deve parecer este exemplo:
+
+   ```text
+   The reset password for the specified user was rejected because it matched at least one of the tokens present in the Microsoft global banned password list of the current Azure password policy.
+ 
+   UserName: ContosoUser
+   FullName: 
+   ```
+
+   Foi divertido- vamos tentar outro exemplo! Desta vez tentaremos definir uma palavra-passe que é proibida pela lista proibida por medidas enquanto a política está em modo de Auditoria. Este exemplo pressupõe que fez os seguintes passos: configurar a política para estar em modo auditoria, adicionou o termo "lachrymose" à lista de palavras-passe proibidas personalizadas, e sincronizou a nova política resultante para o controlador de domínio, pedalando o serviço de agente DC como descrito acima.
+
+   Ok, estabeleça uma variação da senha proibida:
+
+   ```text
+   net.exe user ContosoUser LaChRymoSE!1
+   The command completed successfully.
+   ```
+
+   Lembre-se, desta vez conseguiu porque a política está em modo auditoria. Você deve ver um evento 10025 e um 30007 para o utilizador ContosoUser.
+
+   O evento de 10025 deve ser semelhante a este exemplo:
+   
+   ```text
+   The reset password for the specified user would normally have been rejected because it did not comply with the current Azure password policy. The current Azure password policy is configured for audit-only mode so the password was accepted. Please see the correlated event log message for more details.
+ 
+   UserName: ContosoUser
+   FullName: 
+   ```
+
+   O evento de 30007 deve parecer este exemplo:
+
+   ```text
+   The reset password for the specified user would normally have been rejected because it matches at least one of the tokens present in the per-tenant banned password list of the current Azure password policy. The current Azure password policy is configured for audit-only mode so the password was accepted.
+ 
+   UserName: ContosoUser
+   FullName: 
+   ```
+
+1. Continue a testar várias palavras-passe à sua escolha e a verificar os resultados do espectador do evento utilizando os procedimentos descritos nos passos anteriores. Se precisar de alterar a política no portal Azure, não se esqueça de sincronizar a nova política para o agente de DC, como descrito anteriormente.
+
+Cobrimos procedimentos que lhe permitem fazer testes controlados do comportamento de validação de senhas da Azure AD Password Protection. A reposição de palavras-passe do utilizador da linha de comando diretamente num controlador de domínio pode parecer um meio estranho de realizar tais testes, mas, tal como descrito anteriormente, foi concebido para produzir resultados repetíveis. Como está a testar várias palavras-passe, tenha em mente o [algoritmo de avaliação de palavras-passe,](concept-password-ban-bad.md#how-are-passwords-evaluated) pois pode ajudar a explicar resultados que não esperava.
+
+> [!WARNING]
+> Quando todos os testes estiverem concluídos, não se esqueça de eliminar quaisquer contas de utilizador criadas para efeitos de teste!
 
 ## <a name="additional-content"></a>Conteúdo adicional
 

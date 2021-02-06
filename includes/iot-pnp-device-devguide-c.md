@@ -4,12 +4,12 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/19/2020
-ms.openlocfilehash: 1485adc1407720343c27e07c2d2f4a13ba037a90
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: ad83ef0f3f4c0717a3cb669c34145572d44be09a
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95511540"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99616527"
 ---
 ## <a name="model-id-announcement"></a>Anúncio de ID modelo
 
@@ -25,6 +25,9 @@ iothubResult = IoTHubDeviceClient_LL_SetOption(
 
 > [!TIP]
 > Para módulos e IoT Edge, utilize `IoTHubModuleClient_LL` no lugar de `IoTHubDeviceClient_LL` .
+
+> [!TIP]
+> Esta é a única vez que um dispositivo pode definir o ID do modelo, não pode ser atualizado depois de o dispositivo se ligar.
 
 ## <a name="dps-payload"></a>Payload do DPS
 

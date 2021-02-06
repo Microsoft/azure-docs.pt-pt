@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 9/28/2020
 ms.author: matjazl
-ms.openlocfilehash: bdbab0e032764d07119402686051d391376cb913
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60a2a41a8005e8bd0fbc313c9a177d54df6dac5e
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91844000"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627168"
 ---
 # <a name="exporting-de-identified-data-preview"></a>Exportação de dados não identificados (pré-visualização)
 
@@ -23,7 +23,10 @@ O comando $export também pode ser usado para exportar dados desfotados do servi
 
  `https://<<FHIR service base URL>>/$export?_container=<<container_name>>&_anonymizationConfig=<<config file name>>&_anonymizationConfigEtag=<<ETag on storage>>`
 
-|Parâmetro de consulta            | Exemplo |Opcionalidade| Descrição|
+> [!Note] 
+> Neste momento, a API Azure para a FHIR apenas suporta a exportação desin identificada ao nível do sistema ($export).
+
+|Parâmetro de consulta            | Exemplo |Opcionalidade| Description|
 |---------------------------|---------|-----------|------------|
 | _\_anonimizaçãoConfig_   |DemoConfig.jsem|Necessário para exportação deses identificou |Nome do ficheiro de configuração. Consulte [aqui](https://github.com/microsoft/FHIR-Tools-for-Anonymization#configuration-file-format)o formato do ficheiro de configuração . Este ficheiro deve ser mantido dentro de um recipiente chamado **anonimização** dentro da mesma conta de armazenamento Azure que é configurada como o local de exportação. |
 | _\_anonimizaçãoConfigEtag_|"0x8D8494A069489EC"|Opcional para exportação deses identificou|Este é o Etag do ficheiro de configuração. Você pode obter o Etag usando explorador de armazenamento Azure a partir da propriedade blob|

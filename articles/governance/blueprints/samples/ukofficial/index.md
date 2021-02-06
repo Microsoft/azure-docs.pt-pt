@@ -1,14 +1,14 @@
 ---
 title: Descrição geral do exemplo de esquema UK OFFICIAL e UK NHS
 description: Descrição geral e arquitetura dos exemplos de esquema UK OFFICIAL e UK NHS. Este exemplo de esquema ajuda os clientes a avaliar controlos específicos.
-ms.date: 11/02/2020
+ms.date: 02/05/2021
 ms.topic: sample
-ms.openlocfilehash: 8f68af5f61c0ae89e7ad55abec1fe235fa807d56
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
-ms.translationtype: HT
+ms.openlocfilehash: fa628aa1d78909e33e196e025bd483ce21c03835
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420313"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627538"
 ---
 # <a name="overview-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Descrição geral dos exemplos de esquema UK OFFICIAL e UK NHS
 

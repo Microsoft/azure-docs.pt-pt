@@ -5,14 +5,19 @@ author: georgewallace
 ms.author: gwallace
 ms.date: 11/28/2018
 ms.topic: conceptual
-ms.openlocfilehash: d82df6ee598664c2b85cfa82395ac66f3865cf7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1fda83ec00bed0f0c67d45e1e1af61baa5de5e78
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843011"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626761"
 ---
 # <a name="service-fabric-mesh-terminology"></a>Terminologia da malha de tecido de serviço
+
+> [!IMPORTANT]
+> A pré-estreia da Malha de Tecido de Serviço Azure foi reformada. As novas implementações deixarão de ser permitidas através da API de malha de malha de tecido de serviço. O apoio às implementações existentes continuará até 28 de abril de 2021.
+> 
+> Para mais detalhes, consulte [a pré-reforma da malha de malha de malha de tecido de serviço Azure.](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/)
 
 O Azure Service Fabric Mesh é um serviço totalmente gerido que permite aos programadores implementar aplicações de microsserviços sem gerir máquinas virtuais, armazenamento ou redes. Este artigo detalha a terminologia utilizada pela Malha de Tecido de Serviço Azure para ajudá-lo a entender melhor os termos utilizados na documentação.
 
@@ -24,7 +29,7 @@ O Azure Service Fabric Mesh é um serviço totalmente gerido que permite aos pro
 
 **Aplicação de malha de tecido de serviço**: As aplicações de malha de tecido de serviço são descritas pelo Modelo de [Recurso](./service-fabric-mesh-service-fabric-resources.md) (ficheiros de recursos YAML e JSON) e podem ser implantadas em qualquer ambiente onde o Tecido de Serviço funciona.
 
-**Aplicação nativa do tecido de**serviço : Aplicações nativas do tecido de serviço são descritas pelo Modelo de [Aplicação Nativa](../service-fabric/service-fabric-application-model.md) (manifestos de aplicação e serviço baseados em XML).  As aplicações nativas do tecido de serviço não podem funcionar na malha de tecido de serviço.
+**Aplicação nativa do tecido de** serviço : Aplicações nativas do tecido de serviço são descritas pelo Modelo de [Aplicação Nativa](../service-fabric/service-fabric-application-model.md) (manifestos de aplicação e serviço baseados em XML).  As aplicações nativas do tecido de serviço não podem funcionar na malha de tecido de serviço.
 
 **Aplicação**: Uma aplicação de malha de tecido de serviço é a unidade de implantação, versão e vida útil de uma aplicação de malha. O ciclo de vida de cada instância de aplicação pode ser gerido de forma independente.  As aplicações são compostas por um ou mais pacotes de código de serviço e configurações. Uma aplicação é definida usando o esquema do Modelo de Recursos Azure (RM).  Os serviços são descritos como propriedades do recurso de aplicação num modelo de RM.  As redes e volumes utilizados pela aplicação são referenciados pela aplicação.  Ao criar uma aplicação, a aplicação, serviços, rede e volume(s) são modelados usando o Modelo de Recursos de Tecido de Serviço.
 

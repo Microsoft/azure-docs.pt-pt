@@ -5,20 +5,25 @@ author: georgewallace
 ms.author: gwallace
 ms.date: 11/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: aa7a959128d3bcdfcce67d3abeac245975339a9f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e676286dca852c94f94e8bd8ff2ab73ee92b1412
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96007380"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625757"
 ---
 # <a name="optimize-visual-studio-performance-for-service-fabric-mesh-projects"></a>Otimizar o desempenho do Estúdio Visual para projetos de malha de tecido de serviço
+
+> [!IMPORTANT]
+> A pré-estreia da Malha de Tecido de Serviço Azure foi reformada. As novas implementações deixarão de ser permitidas através da API de malha de malha de tecido de serviço. O apoio às implementações existentes continuará até 28 de abril de 2021.
+> 
+> Para mais detalhes, consulte [a pré-reforma da malha de malha de malha de tecido de serviço Azure.](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/)
 
 Este artigo mostra-lhe como otimizar o desempenho do Visual Studio para projetos de Malha de Tecido de Serviço para que a sua primeira corrida de depuração (F5) seja muito mais rápida.  
 
 ## <a name="change-visual-studio-settings"></a>Alterar definições de Estúdio Visual
  
-No Estúdio Visual, no âmbito **Tools**  >  **das ferramentas de serviço**   >  **Ferramentas de malha de tecido**  >  **geral,** pode ajustar as seguintes definições:
+No Estúdio Visual, no âmbito   >  **das ferramentas de serviço**   >  **Ferramentas de malha de tecido**  >  **geral,** pode ajustar as seguintes definições:
 
 - **Puxe as imagens necessárias do Docker no projeto aberto** torna a sua primeira corrida de depuração (F5) mais rápida iniciando o processo de descarregamento de imagem enquanto o projeto está a carregar.  
 - **Implementar a aplicação em projeto aberto** pode tornar a sua primeira depuração (F5) mais rápida iniciando o processo de implementação assim que o projeto é aberto.  

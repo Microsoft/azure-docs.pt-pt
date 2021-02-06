@@ -1,5 +1,5 @@
 ---
-title: Resolução de problemas implementando problemas de máquina virtual do Windows no Azure Microsoft Docs
+title: Resolução de problemas implementando problemas de máquina virtual do Windows em Azure | Microsoft Docs
 description: Resolução de problemas implementando problemas de máquina virtual do Windows no modelo de implementação do Gestor de Recursos Azure.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 8ed567ee20835cfe076c9b06234f2cba23f3a8bd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 98a16e0a60ddf149e8f0e1a092051f3e98ea8225
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002575"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627067"
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Resolver problemas de implementação de máquinas virtuais do Windows no Azure
 
@@ -104,7 +104,7 @@ Pode consultar a disponibilidade dos [Produtos disponíveis por mesa da região,
 
 Pode utilizar o Windows 7, Windows 8 ou Windows 10 em Azure para cenários dev/teste, desde que tenha uma subscrição adequada do Visual Studio (anteriormente MSDN). 
 
-- As imagens do Windows 10 estão disponíveis na Galeria Azure dentro [de ofertas elegíveis dev/teste](../windows/client-images.md#eligible-offers). 
+- As imagens do Windows 10 estão disponíveis na Galeria Azure dentro [de ofertas elegíveis dev/teste](../windows/client-images.md). 
 - Os subscritores do Visual Studio dentro de qualquer tipo de oferta também podem [preparar e criar adequadamente](../windows/prepare-for-upload-vhd-image.md) uma imagem de 64 bits do Windows 7, Windows 8 ou Windows 10 e, em seguida, [fazer o upload para o Azure](../windows/upload-generalized-managed.md). A utilização permanece limitada a dev/teste por subscritores ativos do Visual Studio.
 
 Este [artigo](../windows/client-images.md) descreve os requisitos de elegibilidade para executar o cliente do Windows em Azure e a utilização das imagens da Galeria Azure.

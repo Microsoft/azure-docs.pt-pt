@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 1/21/2021
 ms.author: cavoeg
-ms.openlocfilehash: 8ad5ee78a525b3798bbf613168ff74a9e21fe99b
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 3437c8bcf8ff508149abae2549d7c34521700840
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98920262"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627268"
 ---
 # <a name="how-to-export-fhir-data"></a>Como exportar dados do FHIR
 
@@ -30,12 +30,15 @@ A Azure API For FHIR suporta $export nos seguintes níveis:
 * [Paciente:](https://hl7.org/Fhir/uv/bulkdata/export/index.html#endpoint---all-patients)`GET https://<<FHIR service base URL>>/Patient/$export>>`
 * [Grupo de doentes*](https://hl7.org/Fhir/uv/bulkdata/export/index.html#endpoint---group-of-patients) - A AZure API para a FHIR exporta todos os recursos conexos, mas não exporta as características do grupo: `GET https://<<FHIR service base URL>>/Group/[ID]/$export>>`
 
+Quando os dados são exportados, é criado um ficheiro separado para cada tipo de recurso. Para garantir que os ficheiros exportados não se tornem demasiado grandes, criamos um novo ficheiro depois de o tamanho de um único ficheiro exportado se tornar maior do que 64 MB. O resultado é que pode obter vários ficheiros para cada tipo de recurso, que será enumerado (ou seja, Paciente-1.ndjson, Paciente-2.ndjson). 
 
 
 > [!Note] 
 > `Patient/$export` e `Group/[ID]/$export` pode exportar recursos duplicados se o recurso estiver num compartimento de mais de um recurso, ou se estiver em vários grupos.
 
 Além disso, é apoiado o controlo do estado de exportação através do URL devolvido pelo cabeçalho de localização durante a fila, bem como o cancelamento do emprego de exportação efetivo.
+
+
 
 ## <a name="settings-and-parameters"></a>Definições e parâmetros
 
@@ -47,7 +50,7 @@ Há dois parâmetros de cabeça exigidos que devem ser definidos para $export po
 ### <a name="query-parameters"></a>Parâmetros de consulta
 A Azure API para FHIR suporta os seguintes parâmetros de consulta. Todos estes parâmetros são opcionais:
 
-|Parâmetro de consulta        | Definido pela Especificação FHIR?    |  Descrição|
+|Parâmetro de consulta        | Definido pela Especificação FHIR?    |  Description|
 |------------------------|---|------------|
 | \_outputFormat | Yes | Atualmente suporta três valores para alinhar com a FHIR Spec: application/fhir+ndjson, application/ndjson, ou just ndjson. Todos os postos de trabalho de exportação regressarão `ndjson` e o valor passado não tem qualquer efeito sobre o comportamento do código. |
 | \_desde | Yes | Permite-lhe apenas exportar recursos que foram modificados desde o tempo fornecido |
@@ -56,7 +59,7 @@ A Azure API para FHIR suporta os seguintes parâmetros de consulta. Todos estes 
 | \_recipiente | No |  Especifica o contentor dentro da conta de armazenamento configurada onde os dados devem ser exportados. Se um recipiente for especificado, os dados serão exportados para esse recipiente numa nova pasta com o nome. Se o recipiente não for especificado, será exportado para um novo recipiente utilizando o tempotando e a identificação do trabalho. |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a exportar recursos FHIR usando $export comando. Em seguida, saiba como exportar dados deses identificados:
  

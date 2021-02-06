@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35eff46a0470d429c8ec6f364ffa836501c65f47
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 62dea67f139857befc7ca24b8b8a105241b5c949
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743603"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626160"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Ativar o sing-in sem palavras-passe com a aplicação Microsoft Authenticator (pré-visualização)
 
@@ -57,10 +57,13 @@ O Azure AD permite-lhe escolher quais os métodos de autenticação que podem se
 Para ativar o método de autenticação para a entrada de telefone sem palavras-passe, complete os seguintes passos:
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) com uma conta *de administrador global.*
-1. Procure e selecione *O Diretório Ativo Azure,* em seguida, navegue para métodos de autenticação de **segurança** Política  >  **Authentication methods**  >  **de autenticação (Pré-visualização)**
-1. No **registo telefónico sem palavra-passe,** escolha as seguintes opções:
+1. Procure e selecione *Azure Ative Directory* e, em seguida, navegue pelos  >  **métodos de autenticação de** segurança  >  **Políticas**.
+1. Sob **o Autenticador microsoft (pré-visualização)**, escolha as seguintes opções:
    1. **Ativar** - Sim ou Não
    1. **Alvo** - Todos os utilizadores ou utilizadores selecionados
+1. Cada grupo ou utilizador adicionado é ativado por padrão para utilizar o Microsoft Authenticator nos modos de notificação sem palavras-passe e push ("Any"). Para mudar isto, para cada linha:
+   1. Navegue **por...**  >  **Configure.**
+   1. Para **o modo de autenticação** - Qualquer, sem palavras-passe ou push
 1. Para aplicar a nova política, **selecione Save**.
 
 ## <a name="user-registration-and-management-of-microsoft-authenticator"></a>Registo e gestão do Microsoft Authenticator

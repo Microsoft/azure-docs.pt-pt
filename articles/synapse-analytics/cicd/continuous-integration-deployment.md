@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: ba5286b16b6e640e968b50174e39a05328e750a4
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 5f82e8b7359b90d5127e2c20a2b89cc5ad739a56
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797300"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99624766"
 ---
 # <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Integração contínua e entrega para o espaço de trabalho Azure Synapse
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Integração Contínua (CI) é o processo de automatização da construção e teste do código sempre que um membro da equipa comete alterações ao controlo da versão. A Implementação Contínua (CD) é o processo de construção, teste, configuração e implantação de múltiplos ambientes de teste ou de encenação para um ambiente de produção.
 
@@ -101,7 +101,7 @@ Utilize a extensão [de implantação do espaço de trabalho synapse](https://ma
 
      ![Instalar a extensão](media/install-extension.png)
 
-1. Certifique-se de que o princípio de serviço do gasoduto Azure DevOps foi autorizado a ser atribuído à subscrição e também atribuído como administrador do espaço de trabalho para o espaço de trabalho alvo. 
+1. Certifique-se de que o principal de serviço do gasoduto Azure DevOps recebeu a permissão de subscrição e também atribuído como administrador do espaço de trabalho para o espaço de trabalho alvo. 
 
 1. Criar uma nova tarefa. Procure a **implementação do espaço de trabalho synapse** e, em seguida, selecione **Adicionar**.
 
@@ -139,8 +139,8 @@ Se estiver a utilizar a integração do Git com o seu espaço de trabalho synaps
 
 ### <a name="use-the-synapse-workspace-deployment-task"></a>Utilize a tarefa de implantação do espaço de trabalho Synapse
 
-Na Synapse, todos os tipos de artefactos não são recursos ARM, que são diferentes com a ADF. Não é possível utilizar a tarefa de implantação do modelo ARM para implantar artefactos synapse
+Na Synapse, há uma série de artefactos que não são recursos ARM. Isto difere da Azure Data Factory. A tarefa de implantação do modelo ARM não funcionará adequadamente para implantar artefactos synapse
  
 ### <a name="unexpected-token-error-in-release"></a>Erro inesperado do token no lançamento
 
-Quando o seu ficheiro de parâmetros tem valores de parâmetros que não são escapados, o pipeline de libertação não analisaria o ficheiro com o erro de token inesperado. Sugerimos que substitua os parâmetros ou keyVault para obter parâmetros. Também pode escapar duas vezes como uma solução alternativa.
+Quando o seu ficheiro de parâmetros tem valores de parâmetros que não são escapados, o pipeline de libertação deixará de analisar o ficheiro e gerará o erro, "token inesperado". Sugerimos que sobreponha parâmetros ou use O Azure KeyVault para recuperar os valores dos parâmetros. Também pode usar caracteres de fuga dupla como uma solução alternativa.

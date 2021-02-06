@@ -6,14 +6,20 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: srrengar
 ms.custom: mvc, devcenter, devx-track-azurecli
-ms.openlocfilehash: 63c79169646f05cddc7c605c764398bdef7492d4
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 02de8ea5dd5c53192d2b8c7beba8bc36143beac6
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98682076"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626999"
 ---
 # <a name="monitoring-and-diagnostics"></a>Monitorização e diagnóstico
+
+> [!IMPORTANT]
+> A pré-estreia da Malha de Tecido de Serviço Azure foi reformada. As novas implementações deixarão de ser permitidas através da API de malha de malha de tecido de serviço. O apoio às implementações existentes continuará até 28 de abril de 2021.
+> 
+> Para mais detalhes, consulte [a pré-reforma da malha de malha de malha de tecido de serviço Azure.](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/)
+
 O Azure Service Fabric Mesh é um serviço totalmente gerido que permite aos programadores implementar aplicações de microsserviços sem gerir máquinas virtuais, armazenamento ou redes. A monitorização e diagnóstico da malha de tecido de serviço é categorizada em três tipos principais de dados de diagnóstico:
 
 - Registos de aplicações - estes são definidos como os registos das suas aplicações contentorizadas, com base na forma como instrumentou a sua aplicação (por exemplo, registos de estivadores)
@@ -43,7 +49,7 @@ az mesh code-package-log get --resource-group <nameOfRG> --application-name SbzV
 
 O ambiente de malha expõe um punhado de métricas indicando como os seus recipientes estão a funcionar. As seguintes métricas estão disponíveis através do portal Azure e do monitor Azure CLI:
 
-| Métrica | Descrição | Unidades|
+| Metric | Descrição | Unidades|
 |----|----|----|
 | CpuUtilização | ActualCpu/AlocadoCpu em percentagem | % |
 | Utilização da memória | ActualMem/AlocadoMem em percentagem | % |
@@ -58,7 +64,7 @@ O ambiente de malha expõe um punhado de métricas indicando como os seus recipi
 | RestartCount | Número de contentores reinicia | N/D |
 
 > [!NOTE]
-> Os valores de ServiceStatus e ServiceReplicaStatus são os mesmos que o [HealthState](/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet) in Service Fabric. 
+> Os valores de ServiceStatus e ServiceReplicaStatus são os mesmos que o [HealthState](/dotnet/api/system.fabric.health.healthstate) in Service Fabric.
 
 Cada métrica está disponível em diferentes dimensões para que possa ver agregados em diferentes níveis. A lista atual de dimensões é a seguinte:
 

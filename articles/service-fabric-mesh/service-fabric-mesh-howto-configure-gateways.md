@@ -6,14 +6,19 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: gwallace
 ms.custom: mvc, devcenter
-ms.openlocfilehash: aa3ac9d8835cd17387346bb29b3e7c30f286cd1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40bba03c35568c013e383c08f0a13f765c1cc8bd
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839729"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625859"
 ---
 # <a name="configure-a-gateway-resource-to-route-requests"></a>Configure um recurso Gateway para encaminhar pedidos
+
+> [!IMPORTANT]
+> A pré-estreia da Malha de Tecido de Serviço Azure foi reformada. As novas implementações deixarão de ser permitidas através da API de malha de malha de tecido de serviço. O apoio às implementações existentes continuará até 28 de abril de 2021.
+> 
+> Para mais detalhes, consulte [a pré-reforma da malha de malha de malha de tecido de serviço Azure.](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/)
 
 Um recurso Gateway é usado para encaminhar o tráfego de entrada para a rede que abriga a sua aplicação. Configure-o para especificar as regras através das quais os pedidos são direcionados para serviços específicos ou pontos finais com base na estrutura do pedido. Consulte [Introdução à rede na malha de tecido de serviço](service-fabric-mesh-networks-and-gateways.md) para obter mais informações sobre redes e gateways na Malha. 
 

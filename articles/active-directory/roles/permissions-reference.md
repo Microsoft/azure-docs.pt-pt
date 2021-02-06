@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4982acb54207a9ed08a96414877603a8253c2ade
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 22ac3b9ac5f7a10226e8dc7197fdf60dc0a84e3b
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99557767"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627621"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões da função de administrador no Azure Active Directory
 
@@ -535,6 +535,7 @@ Pode criar e gerir todos os aspetos dos registos de aplicações e aplicações 
 > | microsoft.diretório/políticas/aplicaçãoConfiguration/owners/read | Ler políticas.aplicaçãoConfiguration propriedade em Azure Ative Directory. |
 > | microsoft.diretório/políticas/aplicaçãoConfiguration/owners/update | Atualização políticas.aplicaçãoConfiguration propriedade em Azure Ative Directory. |
 > | microsoft.diretório/políticas/aplicaçãoConfiguration/policyAppliedTo/read | Ler políticas.aplicaçãoConfiguration propriedade em Azure Ative Directory. |
+> | microsoft.diretório/provisioningLogs/allProperties/read | Leia todas as propriedades dos registos de provisionamento. |
 > | microsoft.diretório/serviçoPrincipals/appRoleAssignedTo/update | Serviço de actualizaçãoPrincipals.appRoleAssignedTo propriedade em Azure Ative Directory. |
 > | microsoft.diretório/serviçoPrincipals/appRoleAssignments/update | Serviço de actualizaçãoPrincipals.appRoleAssignments propriedade em Azure Ative Directory. |
 > | microsoft.diretório/serviçoPrincipals/audience/update | Serviço de actualizaçãoPrincipals.propriedade do público em Azure Ative Directory. |
@@ -697,6 +698,7 @@ Pode criar e gerir todos os aspetos dos registos de aplicações e aplicações 
 > | microsoft.diretório/políticas/aplicaçãoConfiguration/owners/read | Ler políticas.aplicaçãoConfiguration propriedade em Azure Ative Directory. |
 > | microsoft.diretório/políticas/aplicaçãoConfiguration/owners/update | Atualização políticas.aplicaçãoConfiguration propriedade em Azure Ative Directory. |
 > | microsoft.diretório/políticas/aplicaçãoConfiguration/policyAppliedTo/read | Ler políticas.aplicaçãoConfiguration propriedade em Azure Ative Directory. |
+> | microsoft.diretório/provisioningLogs/allProperties/read | Leia todas as propriedades dos registos de provisionamento. |
 > | microsoft.diretório/serviçoPrincipals/appRoleAssignedTo/update | Serviço de actualizaçãoPrincipals.appRoleAssignedTo propriedade em Azure Ative Directory. |
 > | microsoft.diretório/serviçoPrincipals/appRoleAssignments/update | Serviço de actualizaçãoPrincipals.appRoleAssignments propriedade em Azure Ative Directory. |
 > | microsoft.diretório/serviçoPrincipals/audience/update | Serviço de actualizaçãoPrincipals.propriedade do público em Azure Ative Directory. |
@@ -766,6 +768,7 @@ Pode gerir todos os aspetos dos serviços Azure AD e Microsoft que utilizam iden
 > | microsoft.diretório/oAuth2PermissionGrants/allProperties/allTasks | Criar e eliminar oAuth2PermissionGrants e ler e atualizar todas as propriedades no Azure Ative Directory. |
 > | microsoft.diretório/organização/allProperties/allTasks | Criar e eliminar organização, e ler e atualizar todas as propriedades no Azure Ative Directory. |
 > | microsoft.diretório/políticas/allProperties/allTasks | Criar e eliminar políticas e ler e atualizar todas as propriedades no Diretório Ativo Azure. |
+> | microsoft.diretório/provisioningLogs/allProperties/read | Leia todas as propriedades dos registos de provisionamento. |
 > | microsoft.diretório/papelAssignments/allProperties/allTasks | Criar e eliminar funçõesAsignments e ler e atualizar todas as propriedades no Azure Ative Directory. |
 > | microsoft.diretório/roleDefinitions/allProperties/allTasks | Criar e eliminar funçõesDefinitions e ler e atualizar todas as propriedades no Azure Ative Directory. |
 > | microsoft.diretório/scopedRoleMemberships/allProperties/allTasks | Criar e eliminar as empresas scopedRoleMemberberships e ler e atualizar todas as propriedades no Azure Ative Directory. |
@@ -1143,6 +1146,7 @@ Pode ler tudo o que um Administrador Global pode, mas não editar nada.
 > | microsoft.diretório/organização/básico/ler    | Leia propriedades básicas sobre organização no Azure Ative Directory. |
 > | microsoft.diretório/organização/trustedCAsForPasslessAuth/read    | Leia a propriedade do Site Azure Ative. |
 > | microsoft.diretório/políticas/standard/read    | Leia as políticas padrão no Diretório Ativo Azure. |
+> | microsoft.diretório/provisioningLogs/allProperties/read | Leia todas as propriedades dos registos de provisionamento. |
 > | microsoft.diretório/papelAssinhas/básico/ler    | Leia propriedades básicas sobre funçõesAssinsignments no Azure Ative Directory. |
 > | microsoft.diretório/roleDefinitions/basic/read    | Leia propriedades básicas sobre funDefinitions no Azure Ative Directory. |
 > | microsoft.diretório/serviçoPrincipals/appRoleAssignedTo/read    | Leia o serviçoPrincipals.appRoleAssignedTo propriedade em Azure Ative Directory. |
@@ -1683,6 +1687,7 @@ Pode ler relatórios de inscrição e auditoria.
 > | Ações | Descrição |
 > | --- | --- |
 > | microsoft.diretório/auditoriaLogs/allProperties/read | Leia todas as propriedades (incluindo propriedades privilegiadas) em auditLogs no Azure Ative Directory. |
+> | microsoft.diretório/provisioningLogs/allProperties/read | Leia todas as propriedades dos registos de provisionamento. |
 > | microsoft.diretório/signInReports/allProperties/read | Leia todas as propriedades (incluindo propriedades privilegiadas) no signInReports in Azure Ative Directory. |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar Azure Service Health. |
 > | microsoft.office365.usageReports/allEntities/read | Leia os relatórios de utilização do Office 365. |
@@ -1743,6 +1748,7 @@ Pode ler informações de segurança e relatórios e gerir a configuração em A
 > | microsoft.diretório/políticas/proprietários/atualização | Atualizar apólices.propriedade dos proprietários em Azure Ative Directory. |
 > | microsoft.diretório/políticas/tenantDefault/update | Atualizar políticas.tenantdefault propriedade em Azure Ative Directory. |
 > | microsoft.diretório/privilegiadoIdmentManagement/allProperties/read | Leia todos os recursos em microsoft.aad.privilegedIdentityManagement. |
+> | microsoft.diretório/provisioningLogs/allProperties/read | Leia todas as propriedades dos registos de provisionamento. |
 > | microsoft.diretório/serviçoPrincipals/políticas/atualização | Serviço de actualizaçãoPrincipals.políticas propriedade em Azure Ative Directory. |
 > | microsoft.diretório/signInReports/allProperties/read | Leia todas as propriedades (incluindo propriedades privilegiadas) no signInReports in Azure Ative Directory. |
 > | microsoft.office365.protectionCenter/allEntities/read | Leia todos os aspetos do Centro de Proteção do Office 365. |
@@ -1792,6 +1798,7 @@ Pode ler informações de segurança e relatórios em Azure AD e Microsoft 365.
 > | microsoft.diretório/signInReports/allProperties/read | Leia todas as propriedades (incluindo propriedades privilegiadas) no signInReports in Azure Ative Directory. |
 > | microsoft.aad.identityProtection/allEntities/read | Leia todos os recursos em microsoft.aad.identityProtection. |
 > | microsoft.aad.privilegedIdentityManagement/allEntities/read | Leia todos os recursos em microsoft.aad.privilegedIdentityManagement. |
+> | microsoft.diretório/provisioningLogs/allProperties/read | Leia todas as propriedades dos registos de provisionamento. |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar Azure Service Health. |
 > | microsoft.office365.webPortal/allEntities/basic/read | Leia propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 > | microsoft.office365.protectionCenter/allEntities/read | Leia todos os aspetos do Centro de Proteção do Office 365. |

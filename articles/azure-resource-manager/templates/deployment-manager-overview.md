@@ -4,12 +4,12 @@ description: Saiba como implementar um serviço em muitas regiões com o Azure D
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: baed44e04a0beca02cc959d302a4a29906b4a78e
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 63553b0bbca031faa44e0d88480fcc08950a3e2c
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539523"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627504"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Permitir práticas de implementação seguras com O Gestor de Implementação Azure (visualização pública)
 
@@ -21,10 +21,10 @@ O Gestor de Implementação Azure está em pré-visualização. Ajude-nos a melh
 
 Para utilizar o Gestor de Implementação, é necessário criar quatro ficheiros:
 
-* Modelo de topologia
-* Modelo de lançamento
-* Arquivo de parâmetros para topologia
-* Arquivo de parâmetros para rollout
+* Modelo de topologia.
+* Modelo de lançamento.
+* Arquivo de parâmetros para topologia.
+* Ficheiro de parâmetro para o lançamento.
 
 Você implementa o modelo de topologia antes de implementar o modelo de lançamento.
 

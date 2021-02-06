@@ -7,16 +7,16 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 01/02/2021
 ms.custom: MVC
-ms.openlocfilehash: 3e098e64eacf8b126d6a6d72b1f242443e88d55c
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: aeeb810174ff5c21a81bcec8aa9265ff100edf91
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881100"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626330"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>Migrar máquinas como servidores físicos para Azure
 
-Este artigo mostra-lhe como migrar máquinas como servidores físicos para Azure, utilizando a ferramenta Azure Migrate:Server Migration. As máquinas migratórias tratando-as como servidores físicos são úteis em vários cenários:
+Este artigo mostra-lhe como migrar máquinas como servidores físicos para Azure, utilizando a ferramenta Azure Migrate: Server Migration. As máquinas migratórias tratando-as como servidores físicos são úteis em vários cenários:
 
 - Migrar nos servidores físicos.
 - Migrar VMs virtualizados por plataformas como Xen, KVM.
@@ -28,9 +28,9 @@ Este artigo mostra-lhe como migrar máquinas como servidores físicos para Azure
 Este tutorial é o terceiro de uma série que demonstra como avaliar e migrar servidores físicos para Azure. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Prepare-se para utilizar o Azure com a Azure Migrate:Migração do servidor.
+> * Prepare-se para usar Azure com Azure Migrate: Migração do servidor.
 > * Verifique os requisitos para as máquinas que pretende migrar e prepare uma máquina para o aparelho de replicação Azure Migrate que é usado para descobrir e migrar máquinas para Azure.
-> * Adicione a ferramenta de migração do servidor Azure Migrate no hub Azure Migrate.
+> * Adicione o Azure Migrate: Ferramenta de migração de servidores no hub Azure Migrate.
 > * Configurar o aparelho de replicação.
 > * Instale o serviço de Mobilidade em máquinas que pretende migrar.
 > * Ative a replicação.
@@ -51,7 +51,7 @@ Antes de começar este tutorial, tem de:
 
 ## <a name="prepare-azure"></a>Preparar o Azure
 
-Prepare o Azure para a migração com a Migração do Servidor.
+Prepare o Azure para a migração com a Azure Migrate: Migração do servidor.
 
 **Tarefa** | **Detalhes**
 --- | ---
@@ -89,7 +89,7 @@ Para se preparar para a migração física do servidor, é necessário verificar
 Certifique-se de que as máquinas cumprem os requisitos de migração para Azure. 
 
 > [!NOTE]
-> Ao migrar máquinas físicas, a Azure Migrate:Server Migration utiliza a mesma arquitetura de replicação que a recuperação de desastres baseada em agentes no serviço de recuperação do local de Azure, e alguns componentes partilham a mesma base de código. Algum conteúdo pode ligar-se à documentação de Recuperação do Site.
+> Ao migrar máquinas físicas, Azure Migrate: A Migração do Servidor utiliza a mesma arquitetura de replicação que a recuperação de desastres baseada em agentes no serviço de Recuperação do Local Azure, e alguns componentes partilham a mesma base de código. Algum conteúdo pode ligar-se à documentação de Recuperação do Site.
 
 1. [Verifique os](migrate-support-matrix-physical-migration.md#physical-server-requirements) requisitos do servidor físico.
 2. Verifique se as máquinas no local que replica ao Azure cumprem os [requisitos da Azure VM](migrate-support-matrix-physical-migration.md#azure-vm-requirements).
@@ -99,7 +99,7 @@ Certifique-se de que as máquinas cumprem os requisitos de migração para Azure
 
 ### <a name="prepare-a-machine-for-the-replication-appliance"></a>Preparar uma máquina para o aparelho de replicação
 
-Azure Migrate:Server Migration usa um aparelho de replicação para replicar máquinas para Azure. O aparelho de replicação executa os seguintes componentes.
+Azure Migrate: A migração do servidor utiliza um aparelho de replicação para replicar máquinas para o Azure. O aparelho de replicação executa os seguintes componentes.
 
 - **Servidor de configuração**: O servidor de configuração coordena as comunicações entre as instalações e o Azure e gere a replicação de dados.
 - **Servidor de** processo : O servidor de processo funciona como um gateway de replicação. Recebe dados de replicação; otimiza-o com caching, compressão e encriptação, e envia-o para uma conta de armazenamento de cache em Azure. 
@@ -116,7 +116,7 @@ Prepare-se para a colocação do aparelho da seguinte forma:
 
 ## <a name="set-up-the-replication-appliance"></a>Configurar o aparelho de replicação
 
-O primeiro passo da migração é configurar o aparelho de replicação. Para configurar o aparelho para a migração física do servidor, descarregue o ficheiro do instalador para o aparelho e, em seguida, coloque-o na [máquina que preparou](#prepare-a-machine-for-the-replication-appliance). Depois de instalar o aparelho, registe-o com a Migração do Servidor Azure Migrate.
+O primeiro passo da migração é configurar o aparelho de replicação. Para configurar o aparelho para a migração física do servidor, descarregue o ficheiro do instalador para o aparelho e, em seguida, coloque-o na [máquina que preparou](#prepare-a-machine-for-the-replication-appliance). Depois de instalar o aparelho, registe-o com a Azure Migrate: Migração do servidor.
 
 
 ### <a name="download-the-replication-appliance-installer"></a>Descarregue o instalador de aparelhos de replicação
@@ -129,7 +129,7 @@ O primeiro passo da migração é configurar o aparelho de replicação. Para co
 4. Na **região Alvo,** selecione a região de Azure para a qual pretende migrar as máquinas.
 5. **Selecione Confirme que a região-alvo para a migração é o nome da região.**
 6. Clique **em Criar recursos.** Isto cria um cofre de recuperação do local de Azure em segundo plano.
-    - Se já estabeleceu migração com a Migração do Servidor Azure Migrate, a opção-alvo não pode ser configurada, uma vez que os recursos foram criados anteriormente.    
+    - Se já estabeleceu migração com a Azure Migrate: Migração de servidores, a opção-alvo não pode ser configurada, uma vez que os recursos foram criados anteriormente.    
     - Não é possível alterar a região alvo deste projeto depois de clicar neste botão.
     - Todas as migrações subsequentes são para esta região.
 
@@ -145,7 +145,7 @@ O primeiro passo da migração é configurar o aparelho de replicação. Para co
 
     ![Finalizar o registo](./media/tutorial-migrate-physical-virtual-machines/finalize-registration.png)
 
-Pode demorar algum tempo depois de finalizar o registo até que as máquinas descobertas apareçam na Migração do Servidor Azure Migrate. À medida que os VMs são descobertos, a contagem de **servidores descobertos** aumenta.
+Pode levar algum tempo depois de finalizar o registo até que as máquinas descobertas apareçam em Azure Migrate: Server Migration. À medida que os VMs são descobertos, a contagem de **servidores descobertos** aumenta.
 
 ![Servidores descobertos](./media/tutorial-migrate-physical-virtual-machines/discovered-servers.png)
 
@@ -353,6 +353,6 @@ Depois de verificar que a migração do teste funciona como esperado, pode migra
     - Considere implementar o [Azure Cost Management](../cost-management-billing/cloudyn/overview.md) para monitorizar a utilização e as despesas do recurso.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Investigue a [jornada de migração](/azure/architecture/cloud-adoption/getting-started/migrate) em nuvem no Quadro de Azure Cloud Adopt.

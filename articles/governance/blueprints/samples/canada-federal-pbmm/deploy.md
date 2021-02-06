@@ -1,14 +1,14 @@
 ---
 title: Implementar amostra de planta federal de PBMM do Canadá
 description: Implementar etapas para a amostra de planta federal do Canadá PBMM, incluindo detalhes do parâmetro do artefacto da planta.
-ms.date: 11/02/2020
+ms.date: 02/05/2021
 ms.topic: sample
-ms.openlocfilehash: da83ec775b953f064444c0c97687a506d66de57f
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 376c6329c0c3c571364c7d5d23a21c9f8cad2e53
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420466"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99624999"
 ---
 # <a name="deploy-the-canada-federal-pbmm-blueprint-samples"></a>Implementar as amostras de planta do PBMM federal do Canadá
 
@@ -33,10 +33,10 @@ Primeiro, crie um esquema novo no ambiente utilizando o exemplo como ponto de pa
 
 1. Introduza as _Informações Básicas_ do esquema de exemplo:
 
-   - **Nome da planta** : Forneça um nome para a sua cópia da amostra de planta.
-   - **Localização de definição** : Utilize a elipse e selecione o grupo de gestão para guardar a sua cópia da amostra para.
+   - **Nome da planta**: Forneça um nome para a sua cópia da amostra de planta.
+   - **Localização de definição**: Utilize a elipse e selecione o grupo de gestão para guardar a sua cópia da amostra para.
 
-1. Selecione o separador _Artefactos_ , na parte superior da página, ou **Seguinte: Artefactos** , na parte inferior.
+1. Selecione o separador _Artefactos_, na parte superior da página, ou **Seguinte: Artefactos**, na parte inferior.
 
 1. Reveja a lista de artefactos que compõem o esquema de exemplo. Muitos dos artefactos têm parâmetros que vamos definir mais tarde. Quando terminar de rever o esquema de exemplo, selecione **Guardar Rascunho**.
 
@@ -48,7 +48,7 @@ A cópia do esquema de exemplo está agora criada no seu ambiente. Está criada 
 
 1. Selecione a página **Definições de esquema** à esquerda. Utilize os filtros para localizar a cópia do esquema de exemplo e selecione-a.
 
-1. Selecione **Publicar esquema** , na parte superior da página. Na página nova à direita, indique uma **Versão** para a cópia do esquema de exemplo. Esta propriedade é útil se fizer modificações mais tarde. Fornecer **notas de mudança** como "Primeira versão publicada a partir da amostra de planta federal do Canadá PBMM." Em seguida, selecione **Publicar** , na parte inferior da página.
+1. Selecione **Publicar esquema**, na parte superior da página. Na página nova à direita, indique uma **Versão** para a cópia do esquema de exemplo. Esta propriedade é útil se fizer modificações mais tarde. Fornecer **notas de mudança** como "Primeira versão publicada a partir da amostra de planta federal do Canadá PBMM." Em seguida, selecione **Publicar**, na parte inferior da página.
 
 ## <a name="assign-the-sample-copy"></a>Atribuir a cópia de exemplo
 
@@ -58,17 +58,17 @@ Uma vez publicada com **sucesso** a cópia da amostra de plantas, pode ser atrib
 
 1. Selecione a página **Definições de esquema** à esquerda. Utilize os filtros para localizar a cópia do esquema de exemplo e selecione-a.
 
-1. Selecione **Atribuir esquema** , na parte superior da página de definição do esquema.
+1. Selecione **Atribuir esquema**, na parte superior da página de definição do esquema.
 
 1. Indique os valores dos parâmetros para a atribuição do esquema:
 
    - Noções básicas
 
-     - **Subscrições** : Selecione uma ou mais das subscrições que estão no grupo de gestão a que guardou a sua cópia da amostra de planta. Se selecionar mais de uma subscrição, é criada uma atribuição para cada uma mediante a utilização dos parâmetros introduzidos.
-     - **Nome da atribuição** : O nome é pré-povoado para si com base no nome da planta.
+     - **Subscrições**: Selecione uma ou mais das subscrições que estão no grupo de gestão a que guardou a sua cópia da amostra de planta. Se selecionar mais de uma subscrição, é criada uma atribuição para cada uma mediante a utilização dos parâmetros introduzidos.
+     - **Nome da atribuição**: O nome é pré-povoado para si com base no nome da planta.
        Mude-o se necessário ou deixe-o como está.
-     - **Localização** : Selecione uma região para a identidade gerida a criar. O Azure Blueprint utiliza esta identidade gerida para implementar todos os artefactos no esquema atribuído. Para saber mais, consulte [identidades geridas para recursos Azure.](../../../../active-directory/managed-identities-azure-resources/overview.md)
-     - **Versão de definição de planta** : Escolha uma versão **publicada** da sua cópia da amostra de planta.
+     - **Localização**: Selecione uma região para a identidade gerida a criar. O Azure Blueprint utiliza esta identidade gerida para implementar todos os artefactos no esquema atribuído. Para saber mais, consulte [identidades geridas para recursos Azure.](../../../../active-directory/managed-identities-azure-resources/overview.md)
+     - **Versão de definição de planta**: Escolha uma versão **publicada** da sua cópia da amostra de planta.
 
    - Atribuição de bloqueio
 
@@ -82,7 +82,7 @@ Uma vez publicada com **sucesso** a cópia da amostra de plantas, pode ser atrib
 
      Os parâmetros definidos nesta secção aplicam-se ao artefacto no qual são definidos. Estes parâmetros são [parâmetros dinâmicos,](../../concepts/parameters.md#dynamic-parameters) uma vez que são definidos durante a atribuição da planta. Para obter uma lista completa ou parâmetros de artefactos e suas descrições, consulte [a tabela de parâmetros do Artefacto](#artifact-parameters-table).
 
-1. Depois de introduzidos todos os parâmetros, selecione **Atribuir** , na parte inferior da página. A atribuição do esquema é criada e a implementação do artefacto inicia-se. A implantação leva cerca de uma hora. Para verificar o estado, abra a atribuição do esquema.
+1. Depois de introduzidos todos os parâmetros, selecione **Atribuir**, na parte inferior da página. A atribuição do esquema é criada e a implementação do artefacto inicia-se. A implantação leva cerca de uma hora. Para verificar o estado, abra a atribuição do esquema.
 
 > [!WARNING]
 > O serviço Azure Blueprints e os esquemas de exemplo incorporados são **gratuitos**. Os preços dos recursos do Azure são os [preços por produto](https://azure.microsoft.com/pricing/). Utilize a [calculadora de preços](https://azure.microsoft.com/pricing/calculator/) para prever o custo da execução de recursos implementados por este esquema de exemplo.

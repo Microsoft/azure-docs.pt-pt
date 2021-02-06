@@ -707,6 +707,8 @@
           href: glassfrog-tutorial.md
         - name: GlobalOne
           href: globalone-tutorial.md
+        - name: GlobeSmart
+          href: globesmart-tutorial.md
         - name: GoLinks
           href: golinks-tutorial.md
         - name: GoToMeeting
@@ -1351,6 +1353,8 @@
           href: podbean-tutorial.md
         - name: PolicyStat
           href: policystat-tutorial.md
+        - name: Suíte Semântica PoolParty
+          href: poolparty-semantic-suite-tutorial.md
         - name: PostBeyond
           href: postbeyond-tutorial.md
         - name: Powerschool Performance Matters

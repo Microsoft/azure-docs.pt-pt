@@ -8,54 +8,43 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: 26bfd9a65cd3e6d36b8190e87d382543cc7f0f60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f8a17ca69da15d650ba88642d7a81e477a6c537
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87292053"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627151"
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>Utilizar cliente Windows no Azure para cenários de desenvolvimento/teste
-Pode utilizar o Windows 7, Windows 8 ou Windows 10 Enterprise (x64) em Azure para cenários dev/teste, desde que tenha uma subscrição adequada do Visual Studio (anteriormente MSDN). Este artigo descreve os requisitos de elegibilidade para executar o Windows 7, Windows 8.1, Windows 10 Enterprise em Azure e a utilização das seguintes imagens da Galeria Azure.
+Pode utilizar o Windows 7, Windows 8 ou Windows 10 Enterprise (x64) em Azure para cenários dev/teste, desde que tenha uma subscrição adequada do Visual Studio (anteriormente MSDN). 
 
-![Detalhes de imagem do portal Azure](./media/client-images/windows-client-msdn-images.png) 
+Para executar o Windows 10 num ambiente de produção veja, [Como implementar o Windows 10 no Azure com direitos de hospedagem multitenant](windows-desktop-multitenant-hosting-deployment.md).
 
-> [!NOTE]
-> Para imagens do Windows 10 Pro e Windows 10 Pro N na Galeria Azure, consulte como implementar o [Windows 10 no Azure com detalhes multitenant hosting Rights](windows-desktop-multitenant-hosting-deployment.md)Pro Image a partir do portal 
-> ![ Azure](./media/client-images/windows-client-pro-images.png) 
->
 
 ## <a name="subscription-eligibility"></a>Elegibilidade da assinatura
-Os subscritores do Ative Visual Studio (pessoas que adquiriram uma licença de subscrição do Visual Studio) podem usar o cliente Windows para fins de desenvolvimento e teste. O cliente Windows pode ser utilizado no seu próprio hardware e máquinas virtuais Azure em qualquer tipo de subscrição do Azure. O cliente windows não pode ser implantado ou utilizado no Azure para uso normal de produção, ou utilizado por pessoas que não são assinantes do Visual Studio ativos.
+Os subscritores do Ative Visual Studio (pessoas que adquiriram uma licença de subscrição do Visual Studio) podem utilizar imagens de clientes do Windows para fins de desenvolvimento e teste. As imagens do cliente do Windows podem ser usadas no seu próprio hardware ou em máquinas virtuais Azure.
 
-Para sua conveniência, algumas imagens do Windows 10 estão disponíveis na Galeria Azure dentro [de ofertas elegíveis dev/teste](#eligible-offers). Os subscritores do Visual Studio dentro de qualquer tipo de oferta também podem [preparar e criar adequadamente](prepare-for-upload-vhd-image.md) uma imagem de 64 bits do Windows 7, Windows 8 ou Windows 10 e, em seguida, [fazer o upload para o Azure](upload-generalized-managed.md). A utilização permanece limitada a dev/teste por subscritores ativos do Visual Studio.
+Algumas imagens do cliente do Windows estão disponíveis no Azure Marketplace. Os subscritores do Visual Studio dentro de qualquer tipo de oferta também podem [preparar e criar](prepare-for-upload-vhd-image.md) imagens de 64 bits do Windows 7, Windows 8 ou Windows 10 e depois fazer o upload para o [Azure](upload-generalized-managed.md).
 
-## <a name="eligible-offers"></a>Ofertas elegíveis
-A tabela seguinte detalha os IDs de oferta que são elegíveis para implementar o Windows 10 através da Galeria Azure. As imagens do Windows 10 só são visíveis para as seguintes ofertas. Os subscritores do Visual Studio que precisam de executar o cliente Do Windows num tipo diferente de oferta requerem que [você prepare e crie adequadamente](prepare-for-upload-vhd-image.md) uma imagem de 64 bits do Windows 7, Windows 8 ou Windows 10 e, em [seguida, faça o upload para o Azure.](upload-generalized-managed.md)
+## <a name="eligible-offers-and-client-images"></a>Ofertas elegíveis e imagens de clientes
+A tabela seguinte detalha os IDs de oferta que são elegíveis para implementar imagens de clientes do Windows através do Azure Marketplace. As imagens do cliente windows só são visíveis às seguintes ofertas. 
 
-| Nome da Oferta | Número de oferta | Imagens de clientes disponíveis |
+| Nome da Oferta | Número de oferta | Imagens de clientes disponíveis | 
 |:--- |:---:|:---:|
-| [Pay As You Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p/) |0023P |Windows 10 |
-| [Subscritores do Visual Studio Enterprise (MPN)](https://azure.microsoft.com/offers/ms-azr-0029p/) |0029P |Windows 10 |
-| [Subscritores visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/) |0059P |Windows 10 |
-| [Subscritores do Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p/) |0060P |Windows 10 |
-| [Visual Studio Premium com MSDN (benefício)](https://azure.microsoft.com/offers/ms-azr-0061p/) |0061P |Windows 10 |
-| [Subscritores do Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/) |0063P |Windows 10 |
-| [Subscritores do Visual Studio Enterprise (BizSpark)](https://azure.microsoft.com/offers/ms-azr-0064p/) |0064P |Windows 10 |
-| [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/) |0148P |Windows 10 |
+| [Pay As You Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p/) |0023P | Windows 10 Enterprise N (x64) <br> Windows 8.1 Enterprise N (x64) <br> Windows 7 Enterprise N com SP1 (x64) |
+| [Subscritores do Visual Studio Enterprise (MPN)](https://azure.microsoft.com/offers/ms-azr-0029p/) |0029P | Windows 10 Enterprise N (x64) <br> Windows 8.1 Enterprise N (x64) <br> Windows 7 Enterprise N com SP1 (x64) |
+| [Subscritores visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/) |0059P | Windows 10 Enterprise N (x64) <br> Windows 8.1 Enterprise N (x64) <br> Windows 7 Enterprise N com SP1 (x64) |
+| [Subscritores do Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p/) |0060P | Windows 10 Enterprise N (x64) <br> Windows 8.1 Enterprise N (x64) <br> Windows 7 Enterprise N com SP1 (x64) |
+| [Visual Studio Premium com MSDN (benefício)](https://azure.microsoft.com/offers/ms-azr-0061p/) |0061P | Windows 10 Enterprise N (x64) <br> Windows 8.1 Enterprise N (x64) <br> Windows 7 Enterprise N com SP1 (x64) |
+| [Subscritores do Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/) |0063P | Windows 10 Enterprise N (x64) <br> Windows 8.1 Enterprise N (x64) <br> Windows 7 Enterprise N com SP1 (x64) |
+| [Subscritores do Visual Studio Enterprise (BizSpark)](https://azure.microsoft.com/offers/ms-azr-0064p/) |0064P | Windows 10 Enterprise N (x64) <br> Windows 8.1 Enterprise N (x64) <br> Windows 7 Enterprise N com SP1 (x64) |
+| [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/) |0148P | Windows 10 Enterprise N (x64) <br> Windows 8.1 Enterprise N (x64) <br> Windows 7 Enterprise N com SP1 (x64) |
 
 ## <a name="check-your-azure-subscription"></a>Verifique a sua assinatura Azure
 Se não conhece o seu ID de oferta, pode obtê-lo através do portal Azure de uma destas duas formas:  
-
-- Na janela *de Assinaturas:*
-
-  ![Oferecer detalhes de ID do portal Azure](./media/client-images/offer-id-azure-portal.png) 
-
+- Na janela *de Subscrições:* ![ Ofereça detalhes de ID do portal Azure](./media/client-images/offer-id-azure-portal.png) 
 - Ou, clique em **Billing** e, em seguida, clique no seu ID de subscrição. A identificação da oferta aparece na janela de *faturação.*
-
-Também pode ver o ID da oferta a partir do [separador 'Subscrições'](https://account.windowsazure.com/Subscriptions) do portal Da Conta Azure:
-
-![Oferecer detalhes de ID do portal Azure Account](./media/client-images/offer-id-azure-account-portal.png) 
+Também pode ver o ID da oferta a partir do [separador 'Subscrições'](https://account.windowsazure.com/Subscriptions) do portal Conta Azure: ![ Oferecer detalhes de ID a partir do portal da Conta Azure](./media/client-images/offer-id-azure-account-portal.png) 
 
 ## <a name="next-steps"></a>Passos seguintes
 Agora pode implementar os seus VMs utilizando [modelos](ps-template.md) [PowerShell,](quick-create-powershell.md)Resource Manager ou [Visual Studio](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md).

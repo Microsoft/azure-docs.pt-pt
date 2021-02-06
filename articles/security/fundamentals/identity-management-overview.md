@@ -1,11 +1,10 @@
 ---
-title: Funcionalidades de segurança da Azure que ajudam na gestão de identidades Microsoft Docs
+title: Funcionalidades de segurança Azure que ajudam na gestão de identidade | Microsoft Docs
 description: Conheça as principais funcionalidades de segurança do Azure que ajudam na gestão de identidade. Consulte informações sobre tópicos como um único sinal de inscrição e procuração inversa.
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: barbkess
-editor: TomSh
+manager: rkarlin
 ms.assetid: 5aa0a7ac-8f18-4ede-92a1-ae0dfe585e28
 ms.service: security
 ms.subservice: security-fundamentals
@@ -13,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2018
+ms.date: 02/05/2021
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: 2c7d51da361816841ff556c1da696a48d2ce6a06
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: d931d3923ff49dde2bea234278c995e79670429f
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843694"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627638"
 ---
-# <a name="azure-identity-management-security-overview"></a>Visão geral da segurança da gestão de identidade Azure
+# <a name="azure-identity-management-security-overview"></a>Descrição geral da segurança da gestão de identidades do Azure
 
  A gestão de identidade é o processo de autenticação e autorização de [princípios de segurança.](/windows/security/identity-protection/access-control/security-principals) Envolve também o controlo da informação sobre esses principais (identidades). Os princípios de segurança (identidades) podem incluir serviços, aplicações, utilizadores, grupos, etc. As soluções de gestão de identidade e acesso da Microsoft ajudam o IT a proteger o acesso a aplicações e recursos em todo o datacenter corporativo e na nuvem. Esta proteção permite níveis adicionais de validação, tais como políticas de autenticação multi-factor e acesso condicional. Monitorizar atividades suspeitas através de relatórios avançados de segurança, auditoria e alerta ajuda a mitigar potenciais problemas de segurança. [O Azure Ative Directory Premium](../../active-directory/fundamentals/active-directory-whatis.md) fornece um único sign-on (SSO) a milhares de software na nuvem como um serviço (SaaS) e acesso a aplicações web que você executou no local.
  
@@ -62,9 +61,9 @@ Não só os utilizadores não têm de gerir vários conjuntos de nomes de utiliz
 
 Saiba mais:
 
-* [Visão geral do único sinal](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)
-* [What is application access and single sign-on with Azure Active Directory?](../../active-directory/manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
-* [Quickstart Series on App Management](../../active-directory/manage-apps/view-applications-portal.md)
+* [Visão geral sobre SSO](../../active-directory/manage-apps/what-is-single-sign-on.md)
+* [Vídeo sobre fundamentos de autenticação](https://www.youtube.com/watch?v=fbSVgC8nGz4&feature=emb_title)
+* [Série quickstart na gestão de aplicações](../../active-directory/manage-apps/view-applications-portal.md)
 
 ## <a name="reverse-proxy"></a>Proxy inverso
 
@@ -84,8 +83,8 @@ A Azure AD Multi-Factor Authentication é um método de autenticação que reque
 Saiba mais:
 
 * [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
-* [O que é a autenticação multi-factor Azure AD?](../../active-directory/authentication/concept-mfa-howitworks.md)
-* [Como funciona a autenticação multi-factor Azure AD](../../active-directory/authentication/concept-mfa-howitworks.md)
+* [O que é a Multi-Factor Authentication do Azure AD?](../../active-directory/authentication/concept-mfa-howitworks.md)
+* [Como funciona o Multi-Factor Authentication do Azure AD](../../active-directory/authentication/concept-mfa-howitworks.md)
 
 ## <a name="azure-rbac"></a>RBAC do Azure
 

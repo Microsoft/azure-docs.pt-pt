@@ -3,14 +3,19 @@ title: Encontre amostras de malha de tecido de serviço Azure
 description: Aqui está um índice de aplicações disponíveis da amostra de malha de tecido de serviço. O código fonte nestes exemplos mostra como alcançar um determinado cenário utilizando o Modelo de Recursos de Tecido de Serviço.
 ms.date: 12/03/2018
 ms.topic: conceptual
-ms.openlocfilehash: 64d9e4e112f26f83eedd02b034c8191c6f677618
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b38cd6a6c0f3aaab4ff5b77be82aee242afef23
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86261275"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627033"
 ---
 # <a name="find-service-fabric-mesh-samples"></a>Encontre amostras de malha de tecido de serviço
+
+> [!IMPORTANT]
+> A pré-estreia da Malha de Tecido de Serviço Azure foi reformada. As novas implementações deixarão de ser permitidas através da API de malha de malha de tecido de serviço. O apoio às implementações existentes continuará até 28 de abril de 2021.
+> 
+> Para mais detalhes, consulte [a pré-reforma da malha de malha de malha de tecido de serviço Azure.](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/)
 
 Esta tabela descreve as aplicações de amostra de malha de tecido de serviço disponíveis. O código fonte nestes exemplos mostra como alcançar um determinado cenário utilizando o Modelo de Recursos de Tecido de Serviço.
 

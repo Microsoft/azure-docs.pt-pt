@@ -6,14 +6,19 @@ ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: gwallace
 ms.custom: mvc, devcenter, devx-track-azurecli
-ms.openlocfilehash: 54ac7b27ada62a969dd40428fd9a753bb5a99530
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 589e881eb48daf7da9cd2a934b14acfcc76dc5f9
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499837"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625420"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Tutorial: Implementar uma aplicação no Service Fabric Mesh com um modelo
+
+> [!IMPORTANT]
+> A pré-estreia da Malha de Tecido de Serviço Azure foi reformada. As novas implementações deixarão de ser permitidas através da API de malha de malha de tecido de serviço. O apoio às implementações existentes continuará até 28 de abril de 2021.
+> 
+> Para mais detalhes, consulte [a pré-reforma da malha de malha de malha de tecido de serviço Azure.](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/)
 
 Este tutorial é a primeira parte de uma série. Vai aprender a implementar uma aplicação do Azure Service Fabric Mesh com um modelo.  A aplicação é composta por um serviço de front-end da Web ASP.NET e um serviço de back-end de API Web ASP.NET Core, que se encontram no Hub do Docker.  Extraia as duas imagens do contentor do Hub do Docker e, em seguida, envie-as para o seu registo privado. Depois, crie um modelo do Azure RM para a aplicação e implemente a aplicação do seu registo de contentor no Service Fabric Mesh. Quando tiver terminado, terá uma simples aplicação de Lista de Tarefas em execução no Service Fabric Mesh.
 

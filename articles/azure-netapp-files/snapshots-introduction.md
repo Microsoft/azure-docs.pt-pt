@@ -1,5 +1,5 @@
 ---
-title: Como funcionam os instantâneos do Azure NetApp Files Microsoft Docs
+title: Como funcionam as fotos dos ficheiros Azure NetApp | Microsoft Docs
 description: Explica como funcionam os instantâneos do Azure NetApp Files, incluindo formas de criar instantâneos, formas de restaurar instantâneos, como usar instantâneos em configurações de replicação entre regiões.
 services: azure-netapp-files
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/12/2021
+ms.date: 02/05/2021
 ms.author: b-juche
-ms.openlocfilehash: beadd250ec4472b894f0f474b1057ad44cf474ed
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 526ef0af08833954aef4136716930cec0df40eea
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133519"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625252"
 ---
-# <a name="how-azure-netapp-files-snapshots-work"></a>Como funcionam as fotos dos ficheiros Azure NetApp
+# <a name="how-azure-netapp-files-snapshots-work"></a>Como funcionam os instantâneos do Azure NetApp Files
 
 Este artigo explica como funcionam as fotos do Azure NetApp Files. A tecnologia snapshot Azure NetApp Files proporciona estabilidade, escalabilidade e recuperabilidade mais rápida, sem impacto no desempenho. A tecnologia Azure NetApp Files snapshot fornece a base para soluções de proteção de dados, incluindo restauros de ficheiros únicos, restauros de volume e clones e replicação transversal. 
 
@@ -49,26 +49,26 @@ Entretanto, os blocos de dados apontados a partir de um instantâneo permanecem 
 
 Uma vez que um instantâneo de volume regista apenas as alterações do bloco desde o último instantâneo, fornece os seguintes benefícios principais:
 
-* As fotos são ***armazenamento eficiente** _.   
-    As imagens consomem espaço de armazenamento mínimo porque não copiam os blocos de dados de todo o volume. Duas imagens tomadas em sequência diferem apenas pelos blocos adicionados ou alterados no intervalo de tempo entre os dois. Este comportamento incremental de bloco limita o consumo de capacidade de armazenamento associado. Muitas implementações instantâneas alternativas consomem volumes de armazenamento iguais ao sistema de ficheiros ativos, aumentando os requisitos de capacidade de armazenamento. Dependendo das taxas diárias de alteração de _block nível de aplicação, os instantâneos do Azure NetApp Files consumirão mais ou menos capacidade, mas apenas em dados alterados. O consumo médio diário de instantâneos varia de apenas 1 a 5% da capacidade de volume usado para muitos volumes de aplicações, ou até 20-30% para volumes como volumes de base de dados SAP HANA. Certifique-se de [que monitoriza o seu volume e utilização instantânea](azure-netapp-files-metrics.md#volumes) para consumo de capacidade instantânea em relação ao número de instantâneos criados e mantidos.   
+* As imagens instantâneas são ***eficientes em termos de armazenamento.***   
+    As imagens consomem espaço de armazenamento mínimo porque não copiam os blocos de dados de todo o volume. Duas imagens tomadas em sequência diferem apenas pelos blocos adicionados ou alterados no intervalo de tempo entre os dois. Este comportamento incremental de bloco limita o consumo de capacidade de armazenamento associado. Muitas implementações instantâneas alternativas consomem volumes de armazenamento iguais ao sistema de ficheiros ativos, aumentando os requisitos de capacidade de armazenamento. Dependendo das taxas diárias de alteração *do nível de bloco da* aplicação, os instantâneos do Azure NetApp Files consumirão mais ou menos capacidade, mas apenas em dados alterados. O consumo médio diário de instantâneos varia de apenas 1 a 5% da capacidade de volume usado para muitos volumes de aplicações, ou até 20-30% para volumes como volumes de base de dados SAP HANA. Certifique-se de [que monitoriza o seu volume e utilização instantânea](azure-netapp-files-metrics.md#volumes) para consumo de capacidade instantânea em relação ao número de instantâneos criados e mantidos.   
 
-* As imagens são ***rápidas para criar, replicar, restaurar ou clonar** _.   
+* Os instantâneos são ***rápidos a criar, replicar, restaurar ou clonar.***   
     Leva apenas alguns segundos para criar, replicar, restaurar ou clonar um instantâneo, independentemente do tamanho e nível de atividades de volume. Pode criar uma imagem instantânea de volume [a pedido](azure-netapp-files-manage-snapshots.md#create-an-on-demand-snapshot-for-a-volume). Também pode utilizar [políticas instantâneas](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies) para especificar quando os Ficheiros Azure NetApp devem criar automaticamente um instantâneo e quantas imagens devem guardar para um volume.  A consistência da aplicação pode ser alcançada orquestrando instantâneos com a camada de aplicação, por exemplo, usando a [ferramenta AzAcSnap](azacsnap-introduction.md) para SAP HANA.
 
-_ As snapshots não têm impacto no volume ***desempenho** _.   
+* As imagens instantâneas não têm qualquer impacto no ***desempenho do*** volume .   
     Devido à natureza "Redirecionamento na Escrita" da tecnologia de subsedição, armazenar ou reter os instantâneos do Azure NetApp Files não tem impacto no desempenho, mesmo com uma atividade de dados pesados. A eliminação de um instantâneo também tem pouco ou nenhum impacto no desempenho na maioria dos casos. 
 
-_ Os instantâneos proporcionam ***escalabilidade** _ porque podem ser criados com frequência e muitos podem ser retidos.   
+* Os instantâneos proporcionam ***escalabilidade*** porque podem ser criados com frequência e muitos podem ser retidos.   
     Os volumes Azure NetApp Files suportam até 255 instantâneos. A capacidade de armazenar um grande número de instantâneos de baixo impacto, frequentemente criados, aumenta a probabilidade de a versão desejada de dados poder ser recuperada com sucesso.
 
-_ As imagens instantâneas proporcionam ***visibilidade do utilizador** _ e _*_a recuperação de ficheiros_*_.   
+* As imagens fornecem ***visibilidade do utilizador** _ e _*_capacidade de recuperação de ficheiros_**.   
 O alto desempenho, escalabilidade e estabilidade da tecnologia snapshot Azure NetApp Files significa que fornece uma cópia de segurança online ideal para a recuperação orientada para o utilizador. As imagens instantâneas podem ser tornadas acessíveis ao utilizador para fins de utilização de ficheiros, diretórios ou restauro de volume. As soluções adicionais permitem-lhe copiar backups para armazenamento offline ou [replicar cross-region](cross-region-replication-introduction.md) para fins de retenção ou recuperação de desastres.
 
 ## <a name="ways-to-create-snapshots"></a>Formas de criar instantâneos   
 
 Pode utilizar vários métodos para criar e manter instantâneos:
 
-_ Manualmente (a pedido), utilizando:   
+* Manualmente (a pedido), utilizando:   
     * O [portal Azure](azure-netapp-files-manage-snapshots.md#create-an-on-demand-snapshot-for-a-volume), [REST API,](/rest/api/netapp/snapshots) [Azure CLI,](/cli/azure/netappfiles/snapshot)ou [ferramentas PowerShell](/powershell/module/az.netappfiles/new-aznetappfilessnapshot)
     * Scripts (ver [exemplos)](azure-netapp-files-solution-architectures.md#sap-tech-community-and-blog-posts)
 
@@ -161,7 +161,7 @@ Consulte [As imagens de Eliminar](azure-netapp-files-manage-snapshots.md#delete-
 * [Resolver problemas das políticas de instantâneo](troubleshoot-snapshot-policies.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md) (Limites dos recursos do Azure NetApp Files)
 * [Azure NetApp Files Snapshots 101 vídeo](https://www.youtube.com/watch?v=uxbTXhtXCkw)
-* [NetApp Snapshot - Biblioteca de Vídeos NetApp](https://tv.netapp.com/detail/video/2579133646001/snapshot)
+* [Visão geral instantânea dos ficheiros Azure NetApp](https://anfcommunity.com/2021/01/31/azure-netapp-files-snapshot-overview/)
 
 
 

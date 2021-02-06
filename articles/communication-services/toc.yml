@@ -51,6 +51,8 @@
   items:
     - name: Criar um serviço de autenticação fidedigno com as Funções do Azure
       href: tutorials/trusted-service-tutorial.md
+    - name: 'Assine um pedido HTTP com uma assinatura HMAC utilizando C #'
+      href: tutorials/hmac-header-tutorial.md
     - name: Preparar uma aplicação web para serviços de comunicação (Node.js)
       href: tutorials/building-app-start.md
 - name: Conceitos
@@ -110,6 +112,8 @@
       href: concepts/metrics.md
     - name: Resolução de problemas
       href: concepts/troubleshooting-info.md
+    - name: Problemas conhecidos
+      href: concepts/known-issues.md
 - name: Amostras
   items:
     - name: Exemplo de destaque das chamadas em grupo

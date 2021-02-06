@@ -1,16 +1,16 @@
 ---
-title: Criar um laboratório SOLIDWORKS para engenharia com a Azure Lab Services Microsoft Docs
+title: Criar um laboratório SOLIDWORKS para engenharia com a Azure Lab Services | Microsoft Docs
 description: Aprenda a criar um laboratório para cursos de engenharia utilizando o SOLIDWORKS.
 author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: dc6fdadbdfdbdd1d32f640e356a67841187a83c9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3a7e8c47977f0518a3a3e9f8a6fd2e57454e1c42
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999268"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626109"
 ---
 # <a name="set-up-a-lab-for-engineering-classes-using-solidworks"></a>Criar um laboratório para aulas de engenharia utilizando a SOLIDWORKS
 
@@ -57,7 +57,7 @@ Utilize as definições na tabela abaixo ao configurar um laboratório de sala d
 > O tamanho da máquina virtual **Small GPU (Visualização)** está configurado para permitir uma experiência gráfica de alto desempenho.  Para obter mais informações sobre este tamanho de máquina virtual, consulte o artigo sobre [como configurar um laboratório com GPUs](./how-to-setup-lab-gpu.md).
 
 > [!WARNING]
-> Não se esqueça de [espreitar a rede virtual da](https://www.mathworks.com/support/requirements/matlab-system-requirements.html) conta de laboratório para a rede virtual do servidor de **licenças antes** de criar o laboratório.
+> Não se esqueça de [espreitar a rede virtual da](./how-to-connect-peer-virtual-network.md) conta de laboratório para a rede virtual do servidor de **licenças antes** de criar o laboratório.
 
 ## <a name="template-virtual-machine-configuration"></a>Configuração da máquina virtual do modelo
 

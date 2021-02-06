@@ -6,14 +6,19 @@ ms.author: edoyle
 ms.topic: how-to
 ms.date: 01/14/2020
 ms.custom: subject-moving-resources
-ms.openlocfilehash: c842a065f108a924c6bffd70d6c2edbbd31b6dff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b59d482b8b88e37da2d61636ff3f254a46ba5c2
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86260149"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626092"
 ---
 # <a name="move-a-service-fabric-mesh-application-to-another-azure-region"></a>Mover uma aplicação de malha de tecido de serviço para outra região do Azure
+
+> [!IMPORTANT]
+> A pré-estreia da Malha de Tecido de Serviço Azure foi reformada. As novas implementações deixarão de ser permitidas através da API de malha de malha de tecido de serviço. O apoio às implementações existentes continuará até 28 de abril de 2021.
+> 
+> Para mais detalhes, consulte [a pré-reforma da malha de malha de malha de tecido de serviço Azure.](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/)
 
 Este artigo descreve como mover a sua aplicação de Malha de Tecido de Serviço e os seus recursos para uma região Azure diferente. Pode mover os seus recursos para outra região por várias razões. Por exemplo, em resposta a interrupções, para obter funcionalidades ou serviços disponíveis apenas em regiões específicas, para satisfazer os requisitos de política interna e de governação, ou em resposta aos requisitos de planeamento de capacidades.
 
@@ -44,7 +49,7 @@ Este artigo descreve como mover a sua aplicação de Malha de Tecido de Serviço
 
 1. Quando a implementação estiver concluída, teste o ponto final da aplicação para verificar a funcionalidade da sua aplicação.
 
-2. Também pode verificar o estado da sua aplicação verificando o estado da aplicação[(az mesh app show](/cli/azure/ext/mesh/mesh/app?view=azure-cli-latest#ext-mesh-az-mesh-app-show)) e revendo os registos de aplicações e[(az mesh code-package-log](/cli/azure/ext/mesh/mesh/code-package-log?view=azure-cli-latest)) usando o CLI de malha de tecido de [serviço Azure](./service-fabric-mesh-quickstart-deploy-container.md#set-up-service-fabric-mesh-cli).
+2. Também pode verificar o estado da sua aplicação verificando o estado da aplicação[(az mesh app show](/cli/azure/ext/mesh/mesh/app#ext-mesh-az-mesh-app-show)) e revendo os registos de aplicações e[(az mesh code-package-log](/cli/azure/ext/mesh/mesh/code-package-log)) usando o CLI de malha de tecido de [serviço Azure](./service-fabric-mesh-quickstart-deploy-container.md#set-up-service-fabric-mesh-cli).
 
 ## <a name="commit"></a>Consolidação
 

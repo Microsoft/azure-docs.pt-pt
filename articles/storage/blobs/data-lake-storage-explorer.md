@@ -5,26 +5,27 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/16/2020
+ms.date: 02/05/2021
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: a63c309c8e728e3f76ad904d479557b368388954
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 5ccef241a37e63467b681d5fd12c65072cb92e58
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624780"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626483"
 ---
 # <a name="use-azure-storage-explorer-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Use Azure Storage Explorer to manage directories, files, and ACLs in Azure Data Lake Storage Gen2 (Utilizar o Explorador de Armazenamento do Azure para gerir diretórios, ficheiros e ACLs no Azure Data Lake Storage Gen2)
 
-Este artigo mostra-lhe como usar [o Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) para criar e gerir diretórios, ficheiros e permissões em contas de armazenamento que têm espaço hierárquico (HNS) habilitado.
+Este artigo mostra-lhe como usar [o Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) para criar e gerir diretórios, ficheiros e listas de controlo de acesso (ACLs) em contas de armazenamento que tenham espaço hierárquico de nomes (HNS) ativados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-> [!div class="checklist"]
-> * Uma subscrição do Azure. Consulte [Obter versão de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-> * Uma conta de armazenamento que tem espaço hierárquico de nome (HNS) ativado. Siga [estas](../common/storage-account-create.md) instruções para criar uma.
-> * Azure Storage Explorer instalado no seu computador local. Para instalar o Explorador de Armazenamento do Azure para Windows, Macintosh ou Linux, consulte [Explorador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/).
+- Uma subscrição do Azure. Consulte [Obter versão de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+
+- Uma conta de armazenamento que tem espaço hierárquico de nome (HNS) ativado. Siga [estas](../common/storage-account-create.md) instruções para criar uma.
+
+- Azure Storage Explorer instalado no seu computador local. Para instalar o Explorador de Armazenamento do Azure para Windows, Macintosh ou Linux, consulte [Explorador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/).
 
 ## <a name="sign-in-to-storage-explorer"></a>Inscreva-se no Storage Explorer
 
@@ -46,7 +47,7 @@ Quando a ligação for concluída, o Explorador de Armazenamento do Azure é car
 
 ## <a name="create-a-container"></a>Criar um contentor
 
-Um contentor contém diretórios e ficheiros. Para criar uma, expanda a conta de armazenamento que criou no passo em curso. Selecione **Contentores de Blobs**, clique com o botão direito do rato e selecione **Criar Contentor de Blobs**. Insira o nome do seu recipiente. Consulte a secção [De Conjunto de Contentores](storage-quickstart-blobs-dotnet.md#create-a-container) para obter uma lista de regras e restrições sobre os recipientes de nomeação. Quando estiver concluído, prima **Enter** para criar o recipiente. Uma vez criado o recipiente com sucesso, é apresentado sob a pasta **Blob Containers** para a conta de armazenamento selecionada.
+Um contentor contém diretórios e ficheiros. Para criar uma, expanda a conta de armazenamento que criou no passo em curso. Selecione **Blob Containers**, click direito e selecione **Create Blob Container**. Insira o nome do seu recipiente. Consulte a secção [De Conjunto de Contentores](storage-quickstart-blobs-dotnet.md#create-a-container) para obter uma lista de regras e restrições sobre os recipientes de nomeação. Quando estiver concluído, prima **Enter** para criar o recipiente. Uma vez criado o recipiente com sucesso, é apresentado sob a pasta **Blob Containers** para a conta de armazenamento selecionada.
 
 ![Microsoft Azure Storage Explorer - Criação de um recipiente](media/data-lake-storage-explorer/creating-a-filesystem.png)
 
@@ -58,7 +59,7 @@ Para criar um diretório, selecione o recipiente que criou no passo de curso. Na
 
 ## <a name="upload-blobs-to-the-directory"></a>Carregar bolhas para o diretório
 
-Na fita do diretório, escolheu o botão **upload.** Esta operação dá-lhe a opção de carregar uma pasta ou um ficheiro.
+Na fita do diretório, escolha o **botão Upload.** Esta operação dá-lhe a opção de carregar uma pasta ou um ficheiro.
 
 Escolha os ficheiros ou pasta a carregar.
 
@@ -76,39 +77,37 @@ Na aplicação **Azure Storage Explorer,** selecione um diretório numa conta de
 
 Para descarregar ficheiros utilizando **o Azure Storage Explorer,** com um ficheiro selecionado, selecione **Descarregue** a partir da fita. É aberta uma caixa de diálogo de ficheiro que lhe permite introduzir um nome de ficheiro. **Selecione Guardar** para iniciar o download de um ficheiro para a localização local.
 
-## <a name="managing-access"></a>Gerir o acesso
+<a id="managing-access"></a>
 
-Pode definir permissões na raiz do seu recipiente. Para tal, tem de iniciar sessão no Azure Storage Explorer com a sua conta individual com direitos para o fazer (ao contrário de uma cadeia de ligação). Clique com o botão direito no seu recipiente e **selecione Permissões de Gestão,** trazendo a caixa de diálogo **de 'Gestão' de permissão.**
+## <a name="manage-acls"></a>Gerir ACLs
 
-![Microsoft Azure Storage Explorer - Gerir o acesso ao diretório](media/storage-quickstart-blobs-storage-explorer/manageperms.png)
+Clique com o botão direito no recipiente, num diretório ou num ficheiro e, em seguida, clique em **Gerir listas de controlo de acesso**.  A imagem que se segue mostra o menu tal como aparece quando clica à direita num diretório.
 
-A caixa de diálogo **'Obter Permissão'** permite-lhe gerir permissões para o proprietário e o grupo de proprietários. Também permite adicionar novos utilizadores e grupos à lista de controlo de acessos para os quais poderá gerir permissões.
+> [!div class="mx-imgBorder"]
+> ![Clicando à direita num diretório no Azure Storage Explorer](./media/data-lake-storage-explorer/manage-access-control-list-option.png)
 
-Para adicionar um novo utilizador ou grupo à lista de controlo de acesso, selecione o utilizador Adicionar ou o campo **de grupo.**
+A caixa de diálogo **Manage Access** permite-lhe gerir permissões para o proprietário e o grupo de proprietários. Também permite adicionar novos utilizadores e grupos à lista de controlo de acessos para os quais poderá gerir permissões.
 
-Introduza a entrada correspondente do Azure Ative Directory (AAD) que pretende adicionar à lista e, em seguida, selecione **Adicionar**.
+> [!div class="mx-imgBorder"]
+> ![Gerir caixa de diálogo de acesso](./media/data-lake-storage-explorer/manage-access-dialog-box.png)
 
-O utilizador ou grupo irá agora aparecer nos **Utilizadores e grupos:** campo, permitindo-lhe começar a gerir as suas permissões.
+Para adicionar um novo utilizador ou grupo à lista de controlo de acesso, selecione o botão **Adicionar.** Em seguida, insira a entrada correspondente do Azure Ative Directory (AAD) que pretende adicionar à lista e, em seguida, selecione **Adicionar**.  O utilizador ou grupo irá agora aparecer nos **Utilizadores e grupos:** campo, permitindo-lhe começar a gerir as suas permissões.
 
 > [!NOTE]
-> É uma boa prática, e recomendada, criar um grupo de segurança em AAD e manter permissões no grupo em vez de utilizadores individuais. Para mais detalhes sobre esta recomendação, bem como outras boas práticas, consulte as [melhores práticas para data lake storage gen2](data-lake-storage-best-practices.md).
+> É uma boa prática, e recomendada, criar um grupo de segurança em AAD e manter permissões no grupo em vez de utilizadores individuais. Para mais informações sobre esta recomendação, bem como outras boas práticas, consulte o [modelo de controlo de acesso no Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md).
 
-Existem duas categorias de permissões que pode atribuir: aceder a ACLs e ACLs predefinidos.
+Utilize os controlos da caixa de verificação para definir acesso e ACLs predefinidos. Para saber mais sobre a diferença entre estes tipos de ACLs, consulte [Tipos de ACLs](data-lake-storage-access-control.md#types-of-acls).
 
-* **Acesso**: Acesso ACLs controlam o acesso a um objeto. Os ficheiros e diretórios têm acesso a ACLs.
+<a id="apply-acls-recursively"></a>
 
-* **Padrão**: Um modelo de ACLs associado a um diretório que determina o acesso ACLs para quaisquer itens infantis que são criados sob esse diretório. Os ficheiros não têm ACLs predefinidos.
+## <a name="apply-acls-recursively"></a>Aplicar ACLs recursivamente
 
-Em ambas as categorias, existem três permissões que pode atribuir em ficheiros ou diretórios: **Ler,** **Escrever** e **Executar**.
+Pode aplicar as entradas ACL de forma recorrente nos itens infantis existentes de um diretório parental sem ter de escrutar estas alterações individualmente para cada item infantil.
 
->[!NOTE]
-> Fazer seleções aqui não definirá permissões em qualquer item atualmente existente dentro do diretório. Deve ir a cada item individual e definir as permissões manualmente, se o ficheiro já existir.
+Para aplicar as entradas ACL de forma recorrente, clique no recipiente ou num diretório e, em seguida, clique em Listas de **Controlo de Acesso propagados**.  A imagem que se segue mostra o menu tal como aparece quando clica à direita num diretório.
 
-Pode gerir permissões em diretórios individuais, bem como em ficheiros individuais, que são o que lhe permite um controlo de acesso com grãos finos. O processo de gestão de permissões para diretórios e ficheiros é o mesmo que descrito acima. Clique com o direito no ficheiro ou diretório em que deseja gerir permissões e seguir o mesmo processo.
-
-## <a name="private-endpoints-in-azure-data-lake-storage-gen2"></a>Pontos finais privados em Azure Data Lake Storage Gen2
-
-O Storage Explorer utiliza tanto o Blob (blob) & data lake storage gen2 [(dfs)](../common/storage-private-endpoints.md#private-endpoints-for-azure-storage) quando trabalha com a Azure Data Lake Storage Gen2. Se o acesso ao Azure Data Lake Storage Gen2 estiver configurado utilizando pontos finais privados, certifique-se de que são criados dois pontos finais privados para a conta de armazenamento: um com o sub-recurso-alvo `blob` e o outro com o sub-recurso alvo `dfs` .
+> [!div class="mx-imgBorder"]
+> ![Clicando à direita num diretório e escolhendo a definição de controlo de acesso de propagação](./media/data-lake-storage-explorer/propagate-access-control-list-option.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 78ff0440fa83b6bd002cdf4256dc066342b1b390
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 9d4eb90d49e8cc671156833f22a85e7c2b4dd15b
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424762"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626665"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>Cenário: Encaminhar o tráfego através de uma NVA
 
@@ -69,14 +69,14 @@ No entanto, neste cenário, temos de pensar em que rotas estáticas para configu
 
 Com isso, as rotas estáticas de que precisamos na tabela Predefinido para enviar tráfego para os porta-vozes da NVA por trás do VNet NVA são as seguintes:
 
-| Descrição | Tabela de rota | Rota estática              |
+| Description | Tabela de rota | Rota estática              |
 | ----------- | ----------- | ------------------------- |
 | VNet 2       | Predefinição     | 10.2.0.0/16 -> eastusconn |
 | VNet 4       | Predefinição     | 10.4.0.0/16 -> weconn     |
 
 Agora a WAN virtual sabe para que ligação enviar os pacotes, mas a ligação precisa de saber o que fazer ao receber esses pacotes: É aqui que são utilizadas as tabelas de rota de ligação. Aqui utilizaremos os prefixos mais curtos (/24 em vez dos mais longos /16), para garantir que estas rotas têm preferência sobre as rotas que são importadas a partir dos VNet 2 e VNet 4):
 
-| Descrição | Ligação | Rota estática            |
+| Description | Ligação | Rota estática            |
 | ----------- | ---------- | ----------------------- |
 | VNet 5       | eastusconn | 10.2.1.0/24 -> 10.2.0.5 |
 | VNet 6       | eastusconn | 10.2.2.0/24 -> 10.2.0.5 |
@@ -89,7 +89,7 @@ Agora NVA VNets, VNets não-NVA, e ramos sabem como chegar a todos os porta-voze
 
 Na **Figura 2**, existem dois hubs; **Hub1** e **Hub2.**
 
-* **Hub1** e **Hub2** estão diretamente ligados aos VNet **2** e **VNet 4**da NVA VNet .
+* **Hub1** e **Hub2** estão diretamente ligados aos VNet **2** e **VNet 4** da NVA VNet .
 
 * **VNet 5** e **VNet 6** são espreitados com **VNet 2**.
 
@@ -99,7 +99,7 @@ Na **Figura 2**, existem dois hubs; **Hub1** e **Hub2.**
 
 **Figura 2**
 
-:::image type="content" source="./media/routing-scenarios/nva/nva.png" alt-text="Figura 1" lightbox="./media/routing-scenarios/nva/nva.png":::
+:::image type="content" source="./media/routing-scenarios/nva/nva.png" alt-text="Figura 2" lightbox="./media/routing-scenarios/nva/nva.png":::
 
 ## <a name="scenario-workflow"></a><a name="workflow"></a>Fluxo de trabalho de cenário
 
@@ -111,13 +111,13 @@ Para configurar o encaminhamento via NVA, aqui estão os passos a considerar:
    * De VNet 5 e VNet 6 a VNet 2 NVA IP
    * De VNet 7 e VNet 8 a VNet 4 NVA IP 
    
-   Não é necessário ligar os VNets 5,6,7,8 diretamente aos centros virtuais. Certifique-se de que os NSGs em VNets 5,6,7,8 permitem o tráfego de sucursais (VPN/ER/P2S) ou VNets ligados aos seus VNets remotos. Por exemplo, os VNets 5.6 devem garantir que os NSGs permitem o tráfego de prefixos de endereço no local e VNets 7,8 que estão ligados ao hub remoto 2.
+   Não é necessário ligar os VNets 5,6,7,8 diretamente aos centros virtuais. Certifique-se de que os NSGs em VNets 5,6,7,8 permitem o tráfego de sucursais (VPN/ER/P2S) ou VNets ligados aos seus VNets remotos. Por exemplo, os VNets 5.6 devem garantir que os NSGs permitem o tráfego para prefixos de endereço no local e VNets 7,8 que estão ligados ao hub remoto 2.
 
 O WAN virtual não suporta um cenário em que os VNets 5,6 se conectem ao hub virtual e comuniquem através do VNet 2 NVA IP; portanto, a necessidade de ligar vNets 5,6 ao VNet2 e similarmente VNet 7,8 ao VNet 4.
 
 2. Adicione uma entrada de rota estática agregada para VNets 2,5,6 à tabela de rota padrão do Hub 1.
 
-   :::image type="content" source="./media/routing-scenarios/nva/nva-static-expand.png" alt-text="Figura 1":::
+   :::image type="content" source="./media/routing-scenarios/nva/nva-static-expand.png" alt-text="Exemplo":::
 
 3. Configurar uma rota estática para VNets 5,6 na ligação de rede virtual do VNet 2. Para configurar a configuração de encaminhamento para uma ligação de rede virtual, consulte [o encaminhamento do hub virtual](how-to-virtual-hub-routing.md#routing-configuration).
 
@@ -129,7 +129,7 @@ Isto resultará em alterações na configuração do encaminhamento, como mostra
 
 **Figura 3**
 
-   :::image type="content" source="./media/routing-scenarios/nva/nva-result.png" alt-text="Figura 1" lightbox="./media/routing-scenarios/nva/nva-result.png":::
+   :::image type="content" source="./media/routing-scenarios/nva/nva-result.png" alt-text="Figura 3" lightbox="./media/routing-scenarios/nva/nva-result.png":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -1,14 +1,14 @@
 ---
 title: Iso 27001 CONTROLOs de amostra de amostra de carga de carga DE TRABALHO ISO 27001
 description: Controlo do mapeamento do sistema iso 27001 App Service Environment/SQL Database amostra de amostra de carga de trabalho para Azure Policy e Azure RBAC.
-ms.date: 11/05/2020
+ms.date: 02/05/2021
 ms.topic: sample
-ms.openlocfilehash: 4256f401e602a0641247dd06a1537289282f647b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: f4bd340e67547ee22a558a63b56619171a1749c7
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842554"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627471"
 ---
 # <a name="control-mapping-of-the-iso-27001-asesql-workload-blueprint-sample"></a>Mapeamento de controlo da amostra de projeto de carga de trabalho DA ISO 27001 ASE/SQL
 
@@ -186,7 +186,7 @@ O plano ajuda-o a garantir que a transferência de informação com os serviços
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que reviu o mapeamento de controlo da amostra de projeto de projeto de projeto de carga de trabalho do Serviço de Aplicações ISO 27001/ SQL Database, visite os seguintes artigos para saber sobre a arquitetura e como implementar esta amostra:
+Agora que reviu o mapeamento de controlo da amostra de projeto de carga de trabalho do Serviço de Aplicações ISO 27001/ SQL Database, visite os seguintes artigos para saber sobre a arquitetura e como implementar esta amostra:
 
 > [!div class="nextstepaction"]
 > [ISO 27001 App Service Environment/SQL Database projeto de carga de carga - Visão geral](./index.md) 
