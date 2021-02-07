@@ -11,12 +11,12 @@ ms.author: lle
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 01/15/2021
-ms.openlocfilehash: 1a8ed80daa4406f32909a6622b8649f37ec48063
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: accb9bbf195daa3d25e1aed109e36ef309083385
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99063972"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805314"
 ---
 # <a name="discover-and-explore-data-in-adf-using-purview"></a>Descubra e explore dados em ADF usando a Purview
 
@@ -47,7 +47,7 @@ Para descobrir dados registados e digitalizados pela Azure Purview, pode utiliza
 ### <a name="actions-that-you-can-perform-over-datasets-with-data-factory-resources"></a>Ações que pode realizar ao longo de conjuntos de dados com recursos da Data Factory 
 Pode criar diretamente o Linked Service, Dataset ou dataflow sobre os dados que procura por Azure Purview.
 
-:::image type="content" source="./media/data-factory-purview/actions-over-purview-data.png" alt-text="Screenshot para executar sobre conjuntos de dados.":::
+:::image type="content" source="./media/data-factory-purview/actions-over-purview-data.png" alt-text="Screenshot que mostra como pode criar diretamente Linked Service, Dataset ou dataflow sobre os dados que procura por Azure Purview.":::
 
 ##  <a name="nextsteps"></a>Próximos passos 
 

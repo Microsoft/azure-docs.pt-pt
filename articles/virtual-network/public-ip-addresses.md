@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: 9a80242422631995f6d5c24ba2118ee98a9b8d32
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: f2818965013e44cbbe3202887bf79a737dbbbb58
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576181"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806970"
 ---
 # <a name="public-ip-addresses"></a>Endereços IP públicos
 
@@ -64,7 +64,7 @@ Endereços IP públicos standard SKU:
 > Apenas endereços IP públicos com SKU básico estão disponíveis quando se utilizam [o IMDS do serviço de metadados de exemplo.](../virtual-machines/windows/instance-metadata-service.md) O SKU padrão não é suportado.
 
 > [!NOTE]
-> As definições de diagnóstico não aparecem sob a lâmina de resouce quando se utiliza um endereço IP público SKU Standard. Para ativar o registo no seu endereço IP público Stanrd, navegue para definições de diagnóstico sob a lâmina do Monitor Azure e selecione o seu recurso de endereço IP.
+> As definições de diagnóstico não aparecem sob a lâmina de resouce quando se utiliza um endereço IP público SKU Standard. Para ativar o registo no seu endereço IP público padrão, navegue para definições de diagnóstico sob a lâmina Azure Monitor e selecione o seu recurso de endereço IP.
 
 ### <a name="basic"></a>Básico
 

@@ -7,12 +7,12 @@ ms.date: 01/27/2021
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: df97ecd1668dcc0e21408b7d39b0973e8f0d8fbf
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 56f1e78e0f2bbba15b50664b88bd8808731e6836
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98934276"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807619"
 ---
 # <a name="azure-image-builder-service-devops-task"></a>Tarefa de devOps de devops de serviço de construtor de imagem Azure
 
@@ -156,10 +156,10 @@ O exemplo a seguir explica como isto funciona:
 
    Pode fazer referência a vários scripts ou adicionar mais comandos, por exemplo:
 
-       ```PowerShell
-       & 'c:\buildArtifacts\webapp\webconfig.ps1'
-       & 'c:\buildArtifacts\webapp\installAgent.ps1'
-       ```
+    ```PowerShell
+    & 'c:\buildArtifacts\webapp\webconfig.ps1'
+    & 'c:\buildArtifacts\webapp\installAgent.ps1'
+    ```
 * Linux - Nos sistemas Linux os artefactos de construção são colocados no `/tmp` diretório. No entanto, em muitos OSs Linux, num reboot, os conteúdos do diretório /tmp são eliminados. Se quiser que os artefactos existam na imagem, deve criar outro diretório e copiá-los.  Por exemplo:
 
     ```bash
@@ -312,7 +312,7 @@ Atualmente, não neste momento.
 
 ### <a name="can-i-specify-the-image-template-name"></a>Posso especificar o nome do modelo de imagem?
 
-Não. Um nome de modelo único é usado e, em seguida, apagado.
+N.º Um nome de modelo único é usado e, em seguida, apagado.
 
 ### <a name="the-image-builder-failed-how-can-i-troubleshoot"></a>O construtor de imagens falhou. Como posso resolver problemas?
 
@@ -339,6 +339,6 @@ template name:  t_1556938436xxx
 O artefacto do recurso do modelo de imagem está no grupo de recursos especificado inicialmente na tarefa. Quando acabares de resolver problemas, apaga o artefacto. Se eliminar utilizando o portal Azure, dentro do grupo de recursos, selecione **Mostrar Tipos Ocultos,** para visualizar o artefacto.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para mais informações, consulte [a visão geral do Azure Image Builder](../image-builder-overview.md).

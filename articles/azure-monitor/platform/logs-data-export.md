@@ -6,18 +6,18 @@ ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
-ms.date: 10/14/2020
-ms.openlocfilehash: bc369b072f90e675cf882d52b2edae30530f1c18
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.date: 02/07/2021
+ms.openlocfilehash: 03061f71ee0cceaa39c7ab9b258f9d3a0a84f1be
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98895973"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807891"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics exportação de dados do espaço de trabalho em Azure Monitor (pré-visualização)
 A exportação de dados do espaço de trabalho do Log Analytics no Azure Monitor permite-lhe exportar continuamente dados de tabelas selecionadas no seu espaço de trabalho Log Analytics para uma conta de armazenamento Azure ou Azure Event Hubs à medida que são recolhidos. Este artigo fornece detalhes sobre esta funcionalidade e passos para configurar a exportação de dados nos seus espaços de trabalho.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Uma vez configurada a exportação de dados para o seu espaço de trabalho Log Analytics, quaisquer novos dados enviados para as tabelas selecionadas no espaço de trabalho são automaticamente exportados para a sua conta de armazenamento em blobs de apêndice de hora em hora ou para o seu centro de eventos em tempo quase real.
 
 ![Visão geral da exportação de dados](media/logs-data-export/data-export-overview.png)
@@ -28,8 +28,7 @@ Todos os dados das tabelas incluídas são exportados sem filtro. Por exemplo, q
 ## <a name="other-export-options"></a>Outras opções de exportação
 Os dados do espaço de trabalho log Analytics exportam continuamente dados de um espaço de trabalho Log Analytics. Outras opções para exportar dados para cenários específicos incluem:
 
-- Exportação programada de uma consulta de log utilizando uma App Lógica. Isto é semelhante ao recurso de exportação de dados, mas permite-lhe enviar dados filtrados ou agregados para o armazenamento do Azure. Este método, no entanto, está sujeito a [limites](../service-limits.md#log-analytics-workspaces)  de consulta de log Ver [dados do Arquivo do Log Analytics para o armazenamento Azure usando a Logic App](logs-export-logic-app.md).
-- Uma vez exportar usando uma App Lógica. Consulte [o conector de registos Azure Monitor para aplicações lógicas e automatização de energia](logicapp-flow-connector.md).
+- Exportação programada de uma consulta de log utilizando uma App Lógica. Isto é semelhante ao recurso de exportação de dados, mas permite-lhe enviar dados filtrados ou agregados para o armazenamento do Azure. Este método, no entanto, está sujeito a [limites](../service-limits.md#log-analytics-workspaces)de consulta de registo , consulte [dados do Arquivo do espaço de trabalho do Log Analytics para o armazenamento Azure usando a Logic App](logs-export-logic-app.md).
 - Uma vez exporta para máquina local usando o script PowerShell. Consulte [Invoke-AzOperationalInsightsQueryExport](https://www.powershellgallery.com/packages/Invoke-AzOperationalInsightsQueryExport).
 
 
@@ -47,16 +46,7 @@ Os dados do espaço de trabalho log Analytics exportam continuamente dados de um
 - Você pode criar duas regras de exportação em um espaço de trabalho - em pode ser uma regra para o centro de eventos e uma regra para a conta de armazenamento.
 - A conta de armazenamento de destino ou o centro de eventos devem estar na mesma região que o espaço de trabalho Log Analytics.
 - Os nomes das tabelas a exportar não podem ser superiores a 60 caracteres para uma conta de armazenamento e não mais de 47 caracteres para um centro de eventos. As tabelas com nomes mais longos não serão exportadas.
-
-> [!NOTE]
-> A exportação de dados do Log Analytics escreve dados como blob de apêndice que está atualmente em pré-visualização para Azure Data Lake Storage Gen2. Deve abrir um pedido de apoio antes de configurar a exportação para este armazenamento. Utilize os seguintes detalhes para este pedido.
-> - Tipo de problema: técnico
-> - Subscrição: a sua subscrição
-> - Serviço: Data Lake Storage Gen2
-> - Recurso: O nome do seu recurso
-> - Resumo: Solicitando o registo de subscrição para aceitar dados da Data Export do Log Analytics.
-> - Tipo de problema: Conectividade
-> - Subtipo de problema: Problema de conectividade
+- O suporte do blob do apêndice para o Azure Data Lake Storage está agora em [pré-visualização pública limitada](https://azure.microsoft.com/updates/append-blob-support-for-azure-data-lake-storage-preview/)
 
 ## <a name="data-completeness"></a>Preencha os dados
 A exportação de dados continuará a tentar o envio de dados por um tempo até 30 minutos no caso de o destino não estar disponível. Se ainda estiver indisponível após 30 minutos, os dados serão descartados até que o destino fique disponível.
@@ -76,6 +66,9 @@ O formato de dados da conta de armazenamento são [linhas JSON.](./resource-logs
 [![Dados da amostra de armazenamento](media/logs-data-export/storage-data.png)](media/logs-data-export/storage-data.png#lightbox)
 
 A exportação de dados do Log Analytics pode escrever blobs de apêndice para contas de armazenamento imutáveis quando as políticas de retenção baseadas no tempo têm a definição *de admissão Dedesempretes* habilitadas ativadas. Isto permite escrever novos blocos para uma bolha de apêndice, mantendo ao mesmo tempo a proteção e a conformidade da imutabilidade. Ver Permita que as bolhas de [apêndice protegidas escrevam](../../storage/blobs/storage-blob-immutable-storage.md#allow-protected-append-blobs-writes).
+
+> [!NOTE]
+> O suporte do blob do apêndice para o armazenamento do Lago de Dados Azure está agora disponível em pré-visualização em todas as regiões do Azure. [Inscreva-se na pré-visualização pública limitada](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4mEEwKhLjlBjU3ziDwLH-pURDk2NjMzUTVEVzU5UU1XUlRXSTlHSlkxQS4u) antes de criar uma regra de exportação para o armazenamento do Lago de Dados Azure. A exportação não funcionará sem esta inscrição.
 
 ### <a name="event-hub"></a>Hub de eventos
 Os dados são enviados para o seu centro de eventos em tempo quase real, à medida que chegam ao Azure Monitor. É criado um hub de eventos para cada tipo de dados que exporta com o nome *am-* seguido pelo nome da tabela. Por exemplo, a tabela *SecurityEvent* enviaria para um centro de eventos chamado *am-SecurityEvent*. Se quiser que os dados exportados cheguem a um centro de eventos específico, ou se tiver uma tabela com um nome que exceda o limite de 47 caracteres, pode fornecer o nome do seu próprio centro de eventos e exportar todos os dados para tabelas definidas para ele.
@@ -728,6 +721,6 @@ As tabelas suportadas estão atualmente limitadas às especificadas abaixo. Todo
 | WVDManagement | |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Consultar os dados exportados do Azure Data Explorer](azure-data-explorer-query-storage.md).

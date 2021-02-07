@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2021
 ms.author: yelevin
-ms.openlocfilehash: ba37b2280ba4d7138f4ed652b7b330bcaf7b9935
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 3684b5a8069a6b683ae562c527af89814362a7f9
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99566879"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806991"
 ---
 # <a name="connect-your-agari-phishing-defense-and-brand-protection-solutions-to-azure-sentinel"></a>Ligue as suas soluções de Defesa e Proteção de Marcas Agari phishing ao Azure Sentinel
 
@@ -58,7 +58,7 @@ As soluções Agari podem integrar e exportar registos diretamente para o Azure 
 
 1. **(Opcional) Ativar a API do Gráfico de Segurança:** 
 
-    A App de Função Agari permite-lhe partilhar informações de ameaça com o Sentinel através da API do Gráfico de Segurança. Para utilizar esta funcionalidade, terá de ativar o [conector de Plataformas de Inteligência de Ameaças sentinelas](connect-threat-intelligence.md) e também [registar uma aplicação](/graph/auth-register-app-v2) no Azure Ative Directory.
+    A App de Função Agari permite-lhe partilhar informações de ameaça com O Azure Sentinel através da API do Gráfico de Segurança. Para utilizar esta funcionalidade, terá de ativar o [conector de Plataformas de Inteligência de Ameaças sentinelas](connect-threat-intelligence.md) e também [registar uma aplicação](/graph/auth-register-app-v2) no Azure Ative Directory.
 
     Este processo irá dar-lhe três peças de informação para utilização ao implementar a App de Função abaixo: o ID do **inquilino gráfico,** o **ID** do cliente gráfico e o segredo do **cliente gráfico.**
 

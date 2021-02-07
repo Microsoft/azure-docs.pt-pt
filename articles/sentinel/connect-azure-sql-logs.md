@@ -8,20 +8,20 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 01/06/2021
 ms.author: yelevin
-ms.openlocfilehash: df132c35ebb04596d91720431f5b08cb88e2abd9
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: a3a09ceffc75e2d396d7bd7aeedd97b7f2b6ec2b
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98104207"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807738"
 ---
 # <a name="connect-azure-sql-database-diagnostics-and-auditing-logs"></a>Ligar diagnósticos de base de dados Azure SQL e registos de auditoria
 
 O Azure SQL é um motor de base de dados totalmente gerido, Plataforma-as-a-Service (PaaS) que lida com a maioria das funções de gestão de bases de dados, tais como upgrade, patching, backups e monitorização, sem o envolvimento do utilizador. 
 
-O conector de base de dados Azure SQL permite-lhe transmitir os registos de auditoria e diagnóstico das suas bases de dados para o Sentinel, permitindo-lhe monitorizar continuamente a atividade em todos os seus casos.
+O conector de base de dados Azure SQL permite-lhe transmitir os registos de auditoria e diagnóstico das suas bases de dados para o Azure Sentinel, permitindo-lhe monitorizar continuamente a atividade em todos os seus casos.
 
-- A ligação de registos de diagnóstico permite-lhe enviar registos de diagnóstico de bases de dados de diferentes tipos de dados para o seu espaço de trabalho Sentinel.
+- A ligação de registos de diagnóstico permite-lhe enviar registos de diagnóstico de bases de dados de diferentes tipos de dados para o seu espaço de trabalho Azure Sentinel.
 
 - A ligação de registos de auditoria permite-lhe transmitir registos de auditoria de segurança a partir de todas as bases de dados do Azure SQL ao nível do servidor.
 

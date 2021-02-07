@@ -1,5 +1,5 @@
 ---
-title: Alertas de segurança no Centro de Segurança Azure Microsoft Docs
+title: Alertas de segurança no Centro de Segurança Azure | Microsoft Docs
 description: Este tópico explica quais são os alertas de segurança e os diferentes tipos disponíveis no Azure Security Center.
 services: security-center
 documentationcenter: na
@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: memildin
-ms.openlocfilehash: c1406e6a1f2f36c5d42544c52ade3f991fe2ba0a
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: b26d42ca32f0048bb2bedcb5fef337c3ac1d7d65
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96433024"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807229"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Alertas de segurança no Centro de Segurança do Azure
 
@@ -23,7 +23,7 @@ No Centro de Segurança, existem uma variedade de alertas para vários tipos de 
 
 Os alertas de segurança são desencadeados por deteções avançadas e estão disponíveis apenas com o Azure Defender. Está disponível uma avaliação gratuita. Pode atualizar a partir da página **de definições & de preços.** Saiba mais sobre [os preços do Security Center.](https://azure.microsoft.com/pricing/details/security-center/)
 
-## <a name="respond-to-todays-threats"></a>Responda às ameaças <a name="respond-threats"> </a> de hoje
+## <a name="respond-to-todays-threats"></a>Responda às ameaças <a name="respond-threats"></a> de hoje
 
 Nos últimos 20 anos, ocorreram alterações significativas no campo das ameaças. No passado, as empresas normalmente só tinham de se preocupar com o desfiguramento do site por parte de agressores individuais que estavam maioritariamente interessados em ver "o que podiam fazer". Os agressores de hoje são muito mais sofisticados e organizados. Têm, muitas vezes, objetivos financeiros e estratégicos específicos. Também têm mais recursos à sua disposição, uma vez que podem ser financiados por estados-nação ou pelo crime organizado.
 
@@ -91,7 +91,7 @@ Tem um leque de opções para visualizar os seus alertas fora do Centro de Segur
 
 - **O relatório CSV** sobre o painel de alertas fornece uma exportação única para o CSV.
 - **A exportação contínua** de definições de preços & permite-lhe configurar fluxos de alertas de segurança e recomendações para log analytics workspaces e Centros de Eventos. [Saiba mais sobre a exportação contínua](continuous-export.md)
-- **O conector Azure Sentinel** transmite alertas de segurança do Centro de Segurança Azure para o Azure Sentinel. [Saiba mais sobre a ligação do Centro de Segurança Azure com o Sentinel](../sentinel/connect-azure-security-center.md)
+- **O conector Azure Sentinel** transmite alertas de segurança do Centro de Segurança Azure para o Azure Sentinel. [Saiba mais sobre a ligação do Centro de Segurança Azure com o Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
 
 ## <a name="next-steps"></a>Passos seguintes

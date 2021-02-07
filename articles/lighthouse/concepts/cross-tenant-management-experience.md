@@ -3,12 +3,12 @@ title: Experiências de gestão entre inquilinos
 description: A gestão de recursos delegados Azure permite uma experiência de gestão de inquilinos cruzados.
 ms.date: 02/02/2021
 ms.topic: conceptual
-ms.openlocfilehash: 5180b2c28bc1157cb785c04f794cc5c9636764c8
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 41047a35328d4eac370d98a6d660f20e5006a2bb
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576689"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805179"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gestão entre inquilinos
 
@@ -143,7 +143,7 @@ A maioria das tarefas e serviços podem ser realizados em recursos delegados ent
 
 - Gerir os recursos do Azure Sentinel [em inquilinos de clientes](../../sentinel/multiple-tenants-service-providers.md)
 - [Acompanhe os ataques e veja alertas de segurança em vários inquilinos](https://techcommunity.microsoft.com/t5/azure-sentinel/using-azure-lighthouse-and-azure-sentinel-to-monitor-across/ba-p/1043899)
-- [Ver incidentes](../../sentinel/multiple-workspace-view.md) em vários espaços de trabalho sentinela espalhados por inquilinos
+- [Veja incidentes](../../sentinel/multiple-workspace-view.md) em vários espaços de trabalho do Azure Sentinel espalhados por inquilinos
 
 [Saúde do Serviço Azure:](../../service-health/index.yml)
 

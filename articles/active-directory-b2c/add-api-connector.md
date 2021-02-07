@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
-ms.openlocfilehash: 9117474c3cbf5087a5b63512fcc17c4771bf7aa6
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: b63db3d02b471a577586ecd54f56caa59af504d6
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96343880"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805517"
 ---
 # <a name="add-an-api-connector-to-a-sign-up-user-flow-preview"></a>Adicione um conector API a um fluxo de utilizador de inscrição (pré-visualização)
 
@@ -36,7 +36,7 @@ Para utilizar um [conector API,](api-connectors-overview.md)primeiro cria o cone
 6. Forneça o **URL endpoint** para a chamada da API.
 7. Forneça a informação de autenticação para a API.
 
-   - Apenas a Autenticação Básica é suportada atualmente. Se desejar utilizar uma API sem Autenticação Básica para fins de desenvolvimento, basta introduzir um nome de **utilizador** e **palavra-passe** 'manequim' que a sua API pode ignorar. Para ser utilizado com uma Função Azure com uma chave API, pode incluir o código como parâmetro de consulta no **URL endpoint** (por exemplo, https://contoso.azurewebsites.net/api/endpoint []() <b>?code=0123456789).</b>
+   - Apenas a Autenticação Básica é suportada atualmente. Se desejar utilizar uma API sem Autenticação Básica para fins de desenvolvimento, basta introduzir um nome de **utilizador** e **palavra-passe** 'manequim' que a sua API pode ignorar. Para ser utilizado com uma Função Azure com uma chave API, pode incluir o código como parâmetro de consulta no **URL endpoint** (por exemplo, `https://contoso.azurewebsites.net/api/endpoint?code=0123456789` ).
 
    ![Configurar um novo conector API](./media/add-api-connector/api-connector-config.png)
 8. Selecione **Guardar**.
@@ -73,7 +73,7 @@ Content-type: application/json
 }
 ```
 
-Apenas as propriedades do utilizador e os atributos personalizados listados na experiência de atributos do utilizador **Azure AD B2C**  >  **User attributes** estão disponíveis para serem enviados no pedido.
+Apenas as propriedades do utilizador e os atributos personalizados listados na experiência de atributos do utilizador **Azure AD B2C**  >   estão disponíveis para serem enviados no pedido.
 
 Os atributos personalizados existem no formato **\<extensions-app-id> extension_ _CustomAttribute**  no diretório. A sua API deverá esperar receber reclamações neste mesmo formato serializado. Para obter mais informações sobre atributos personalizados, consulte [Definir atributos personalizados no Azure Ative Directory B2C](user-flow-custom-attributes.md).
 
@@ -103,7 +103,7 @@ Siga estes passos para adicionar um conector API a um fluxo de utilizador de ins
 
 ## <a name="after-signing-in-with-an-identity-provider"></a>Depois de iniciar sessão com um fornecedor de identidade
 
-Um conector API neste passo no processo de inscrição é invocado imediatamente após o utilizador autenticar com um fornecedor de identidade (como Google, Facebook, & Azure AD). Este passo precede a página de *_recolha *atributo_* _, que é o formulário apresentado ao utilizador para recolher os atributos do utilizador. Este passo não é invocado se um utilizador estiver a registar-se numa conta local.
+Um conector API neste passo no processo de inscrição é invocado imediatamente após o utilizador autenticar com um fornecedor de identidade (como Google, Facebook, & Azure AD). Este passo antecede a ***página de recolha de atributos***, que é o formulário apresentado ao utilizador para recolher os atributos do utilizador. Este passo não é invocado se um utilizador estiver a registar-se numa conta local.
 
 ### <a name="example-request-sent-to-the-api-at-this-step"></a>Pedido de exemplo enviado à API neste passo
 ```http
@@ -239,10 +239,10 @@ Content-type: application/json
 
 | Parâmetro                                          | Tipo              | Necessário | Descrição                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| versão                                            | String            | Sim      | A versão da API.                                                                                                                                                                                                                                                                |
-| ação                                             | String            | Sim      | O valor deve `Continue` ser.                                                                                                                                                                                                                                                              |
-| \<builtInUserAttribute>                            | \<attribute-type> | Não       | Os valores devolvidos podem substituir valores recolhidos por um utilizador. Também podem ser devolvidos no token se forem selecionados como uma reclamação de _*Aplicação**.                                              |
-| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | Não       | A alegação não precisa de `_<extensions-app-id>_` conter. Os valores devolvidos podem substituir valores recolhidos por um utilizador. Também podem ser devolvidos no token se forem selecionados como **reclamação de Aplicação.**  |
+| versão                                            | String            | Yes      | A versão da API.                                                                                                                                                                                                                                                                |
+| ação                                             | String            | Yes      | O valor deve `Continue` ser.                                                                                                                                                                                                                                                              |
+| \<builtInUserAttribute>                            | \<attribute-type> | No       | Os valores devolvidos podem substituir valores recolhidos por um utilizador. Também podem ser devolvidos no token se forem selecionados como **reclamação de Aplicação.**                                              |
+| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | No       | A alegação não precisa de `_<extensions-app-id>_` conter. Os valores devolvidos podem substituir valores recolhidos por um utilizador. Também podem ser devolvidos no token se forem selecionados como **reclamação de Aplicação.**  |
 
 ### <a name="example-of-a-blocking-response"></a>Exemplo de uma resposta de bloqueio
 
@@ -260,9 +260,9 @@ Content-type: application/json
 
 | Parâmetro   | Tipo   | Necessário | Descrição                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
-| versão     | String | Sim      | A versão da API.                                                    |
-| ação      | String | Sim      | Valor deve ser `ShowBlockPage`                                              |
-| userMessage | String | Sim      | A mensagem a apresentar ao utilizador.                                            |
+| versão     | String | Yes      | A versão da API.                                                    |
+| ação      | String | Yes      | Valor deve ser `ShowBlockPage`                                              |
+| userMessage | String | Yes      | A mensagem a apresentar ao utilizador.                                            |
 
 **Experiência de utilizador final com uma resposta de bloqueio**
 
@@ -286,10 +286,10 @@ Content-type: application/json
 
 | Parâmetro   | Tipo    | Necessário | Descrição                                                                |
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
-| versão     | String  | Sim      | A versão da API.                                                    |
-| ação      | String  | Sim      | O valor deve `ValidationError` ser.                                           |
-| status      | Número inteiro | Sim      | Deve ser valor `400` para uma resposta do ValidationError.                        |
-| userMessage | String  | Sim      | A mensagem a apresentar ao utilizador.                                            |
+| versão     | String  | Yes      | A versão da API.                                                    |
+| ação      | String  | Yes      | O valor deve `ValidationError` ser.                                           |
+| status      | Número inteiro | Yes      | Deve ser valor `400` para uma resposta do ValidationError.                        |
+| userMessage | String  | Yes      | A mensagem a apresentar ao utilizador.                                            |
 
 > [!NOTE]
 > O código de estado HTTP tem de ser "400" para além do valor de "estado" no corpo da resposta.

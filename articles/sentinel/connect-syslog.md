@@ -1,6 +1,6 @@
 ---
 title: Ligue os dados do Syslog ao | do Azure Sentinel Microsoft Docs
-description: Ligue qualquer máquina ou aparelho que suporte o Syslog ao Azure Sentinel utilizando um agente numa máquina Linux entre o aparelho e o Sentinel.
+description: Ligue qualquer máquina ou aparelho que suporte o Syslog ao Azure Sentinel utilizando um agente numa máquina Linux entre o aparelho e o Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 8c3cf4c3c135b3f275542af4f531d1071e180ebe
-ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
+ms.openlocfilehash: 35c8c2aa31887feb294b04b8a88bbe5478659e5e
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98747195"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807908"
 ---
 # <a name="collect-data-from-linux-based-sources-using-syslog"></a>Recolher dados de fontes baseadas em Linux utilizando o Syslog
 
@@ -134,7 +134,7 @@ Esta deteção requer uma configuração específica do conector de dados Syslog
     
     Se a contagem resultante for superior a zero, os seus dados de syslog são adequados para a deteção anómala de login SSH. Ativa esta deteção a partir de modelos de regras de **análise**  >     >  **(pré-visualização) Deteção de Login anómala**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste documento, aprendeu a ligar os aparelhos Syslog no local ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)
 - Começa [a detetar ameaças com o Azure Sentinel.](tutorial-detect-threats-built-in.md)

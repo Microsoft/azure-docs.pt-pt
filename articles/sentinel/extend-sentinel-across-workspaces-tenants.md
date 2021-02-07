@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2020
 ms.author: yelevin
-ms.openlocfilehash: 4312a819f8fd41805dca095556efdc6189f23af9
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: dfd8f94dc7ab4e428647b8f44a86a2cd06634e2a
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757124"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807246"
 ---
 # <a name="extend-azure-sentinel-across-workspaces-and-tenants"></a>Alargar o Azure Sentinel através de áreas de trabalho e inquilinos
 
@@ -127,7 +127,7 @@ As capacidades de caça cross-workspace permitem que os seus caçadores de amea�
 
 Para configurar e gerir vários espaços de trabalho do Azure Sentinel, terá de automatizar o uso da API de gestão Azure Sentinel. Para obter mais informações sobre como automatizar a implantação de recursos do Azure Sentinel, incluindo regras de alerta, consultas de caça, livros de trabalho e livros de reprodução, consulte [Extending Azure Sentinel: APIs, Integração e automatização de gestão.](https://techcommunity.microsoft.com/t5/azure-sentinel/extending-azure-sentinel-apis-integration-and-management/ba-p/1116885)
 
-Consulte também [a Implementação e Gestão do Azure Sentinel como Código](https://techcommunity.microsoft.com/t5/azure-sentinel/deploying-and-managing-azure-sentinel-as-code/ba-p/1131928) e [combinando o Farol Azure com as capacidades de DevOps da Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/combining-azure-lighthouse-with-sentinel-s-devops-capabilities/ba-p/1210966) para uma metodologia consolidada e contribuída pela comunidade para gerir o Azure Sentinel como código e para a implantação e configuração de recursos a partir de um repositório privado do GitHub. 
+Consulte também [a Implementação e Gestão do Azure Sentinel como Código](https://techcommunity.microsoft.com/t5/azure-sentinel/deploying-and-managing-azure-sentinel-as-code/ba-p/1131928) e [combinando o Farol Azure com as capacidades de DevOps de Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/combining-azure-lighthouse-with-sentinel-s-devops-capabilities/ba-p/1210966) para uma metodologia consolidada e contribuida pela comunidade para gerir o Azure Sentinel como código e para a implementação e configuração de recursos a partir de um repositório privado do GitHub. 
 
 ## <a name="managing-workspaces-across-tenants-using-azure-lighthouse"></a>Gerir espaços de trabalho em todos os inquilinos usando o Farol de Azure
 
@@ -135,7 +135,7 @@ Como mencionado acima, em muitos cenários, os diferentes espaços de trabalho A
 
 Ao utilizar o Farol Azure, recomenda-se criar um grupo para cada papel de Azure Sentinel e delegar permissões de cada inquilino para esses grupos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste documento, você descobriu como as capacidades de Azure Sentinel podem ser estendidas em vários espaços de trabalho e inquilinos. Para obter orientações práticas sobre a implementação da arquitetura cross-workspace de Azure Sentinel, consulte os seguintes artigos:
 
 - Aprenda a [trabalhar com vários inquilinos](./multiple-tenants-service-providers.md) em Azure Sentinel, usando o Farol de Azure.

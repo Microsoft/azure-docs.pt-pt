@@ -7,14 +7,14 @@ ms.topic: how-to
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: c767edca46696bc7d04a1cf101e2bd183f5cf7f9
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e00496ad623d534e1fbdcb60f22a1e36f77c4212
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970848"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806177"
 ---
-# <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrar para armazenamento premium usando a recuperação do site Azure
+# <a name="use-site-recovery-to-migrate-to-premium-storage"></a>Use a recuperação do site para migrar para o armazenamento premium
 
 [Os SSDs premium Azure](../disks-types.md) oferecem suporte de disco de alto desempenho e baixa latência para máquinas virtuais (VMs) que estão a executar cargas de trabalho intensivas de I/O. Este guia ajuda-o a migrar os discos VM de uma conta de armazenamento padrão para uma conta de armazenamento premium utilizando [a Recuperação do Sítio Azure.](../../site-recovery/site-recovery-overview.md)
 
@@ -74,13 +74,13 @@ Pode utilizar a Recuperação do Sítio para migrar VMs Azure IaaS entre regiõe
 ### <a name="step-1-create-a-recovery-services-vault"></a>Passo 1: Criar um cofre dos Serviços de Recuperação
 
 1. Abra o [portal do Azure](https://portal.azure.com).
-2. Selecione **Criar uma**cópia de segurança de  >  **gestão**de recursos  >  **Backup** e **recuperação do site (OMS)**. Em alternativa, pode selecionar **Browse**  >  **Recovery Services Vault**  >  **Add**. 
+2. Selecione **Criar uma** cópia de segurança de  >  **gestão** de recursos  >   e **recuperação do site (OMS)**. Em alternativa, pode selecionar **Browse**  >  **Recovery Services Vault**  >  **Add**. 
 3. Especifique uma região para a qual os VMs serão replicados. Para efeitos de migração na mesma região, selecione a região onde estão os VMs de origem e as contas de armazenamento de fontes. 
 
 ### <a name="step-2-choose-your-protection-goals"></a>Passo 2: Escolha os seus objetivos de proteção 
 
 1. No VM onde pretende instalar o servidor de configuração, abra o [portal Azure](https://portal.azure.com).
-2. Ir para os **cofres dos Serviços de**  >  **Recuperação Configurações**Passo de  >  **Recuperação do Local**  >  **1: Preparar a**meta de  >  **proteção da**infraestrutura .
+2. Ir para os **cofres dos Serviços de**  >  **Recuperação Configurações** Passo de  >  **Recuperação do Local**  >  **1: Preparar a** meta de  >  **proteção da** infraestrutura .
 
    ![Navegar para o painel de objetivos de Proteção][2]
 
@@ -90,7 +90,7 @@ Pode utilizar a Recuperação do Sítio para migrar VMs Azure IaaS entre regiõe
 
 ### <a name="step-3-set-up-the-source-environment-configuration-server"></a>Passo 3: Configurar o ambiente de origem (servidor de configuração)
 
-1. Descarregue **a configuração unificada de recuperação do local de Azure** e a chave de registo do cofre indo para a **infraestrutura Preparar**  >  **os**  >  painéis de adicionar**servidor.** 
+1. Descarregue **a configuração unificada de recuperação do local de Azure** e a chave de registo do cofre indo para a **infraestrutura Preparar**  >  **os**  >  painéis de adicionar **servidor.** 
  
    Vai precisar da chave de registo do cofre para executar a configuração unificada. A chave é válida durante cinco dias depois de gerá-la.
 
@@ -123,7 +123,7 @@ Pode utilizar a Recuperação do Sítio para migrar VMs Azure IaaS entre regiõe
 
 ### <a name="step-4-set-up-the-target-environment"></a>Passo 4: Configurar o ambiente-alvo
 
-Selecione **preparar a infraestrutura**  >  **Target**e especifique o modelo de implementação que pretende utilizar para VMs após a falha. Pode escolher **Classic** ou **Resource Manager,** dependendo do seu cenário.
+Selecione **preparar a infraestrutura**  >  **Target** e especifique o modelo de implementação que pretende utilizar para VMs após a falha. Pode escolher **Classic** ou **Resource Manager,** dependendo do seu cenário.
 
 ![Painel de alvo][10]
 

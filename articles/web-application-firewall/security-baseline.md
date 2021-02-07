@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 4bda3622c1bb1cb66e83b82df0d13cbfee9e20a3
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: b50ab8cae91aab56be287f517fa6e6a0b25db8e1
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878126"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807874"
 ---
 # <a name="azure-security-baseline-for-azure-web-application-firewall"></a>Linha de segurança Azure para firewall de aplicação web Azure
 
@@ -135,7 +135,7 @@ Escolha a Azure PowerShell ou Azure CLI para procurar ou executar ações em rec
 
 **Orientação**: Configurar os registos da Firewall de Aplicação Web (WAF) a enviar para uma solução central de gestão de registos de segurança, como o Azure Sentinel, ou um SIEM de terceiros. Estes registos incluem Azure Activity, Diagnostic e registos WAF em tempo real, estes registos podem ser vistos em diferentes ferramentas, tais como Azure Monitor, Excel e Power BI. Os registos Azure Web Application Firewall dão uma visão dos dados que o Azure WAF está a avaliar, combinar e bloquear.
 
-Azure Sentinel tem um livro de Azure WAF incorporado, que fornece uma visão geral dos eventos de segurança no Azure WAF. Este livro inclui eventos, regras compatíveis e bloqueadas, e tudo o resto que é registado nos registos de firewall. Esta telemetria pode ser usada para iniciar a automatização de playbook para notificar ou tomar ações de reparação com base em eventos WAF recolhidos pelo Sentinel.
+Azure Sentinel tem um livro de Azure WAF incorporado, que fornece uma visão geral dos eventos de segurança no Azure WAF. Este livro inclui eventos, regras compatíveis e bloqueadas, e tudo o resto que é registado nos registos de firewall. Esta telemetria pode ser usada para iniciar a automatização de playbook para notificar ou tomar ações de remediação com base em eventos WAF recolhidos por Azure Sentinel.
 
 - [Ver Registos de Atividades](../azure-resource-manager/management/view-activity-logs.md)
 
@@ -721,7 +721,7 @@ Marque claramente as subscrições (por exemplo, produção, não produção) e 
 
 **Responsabilidade**: Partilhada
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte a [referência de segurança Azure](../security/benchmarks/overview.md)
 - Saiba mais sobre as [linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md)

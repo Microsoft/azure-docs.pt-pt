@@ -7,16 +7,16 @@ ms.service: web-application-firewall
 ms.date: 10/12/2020
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: 525ec334e73ca010d319b40ab864d08dae32f493
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 6e1d9b8a53eaf69c2294ab42dc0718863e6c1837
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91997384"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99804942"
 ---
 # <a name="using-azure-sentinel-with-azure-web-application-firewall"></a>Usando Azure Sentinel com firewall de aplicação web Azure
 
-A Azure Web Application Firewall (WAF) combinada com a Azure Sentinel pode fornecer gestão de eventos de informação de segurança para recursos WAF. O Azure Sentinel fornece análises de segurança utilizando o Log Analytics, o que lhe permite decompor e visualizar facilmente os seus dados WAF. Utilizando o Sentinel, pode aceder a livros pré-construídos e modificá-los de forma melhor adequada às necessidades da sua organização. O livro pode mostrar análises para WAF na Rede de Entrega de Conteúdos Azure (CDN), WAF na Porta Frontal Azure e WAF no Gateway de aplicações através de várias subscrições e espaços de trabalho.
+A Azure Web Application Firewall (WAF) combinada com a Azure Sentinel pode fornecer gestão de eventos de informação de segurança para recursos WAF. O Azure Sentinel fornece análises de segurança utilizando o Log Analytics, o que lhe permite decompor e visualizar facilmente os seus dados WAF. Utilizando o Azure Sentinel, pode aceder a livros pré-construídos e modificá-los de forma melhor adequada às necessidades da sua organização. O livro pode mostrar análises para WAF na Rede de Entrega de Conteúdos Azure (CDN), WAF na Porta Frontal Azure e WAF no Gateway de aplicações através de várias subscrições e espaços de trabalho.
 
 ## <a name="waf-log-analytics-categories"></a>Categorias de análise de registos WAF
 
@@ -40,11 +40,11 @@ Os seguintes exemplos do livro da WAF mostram dados da amostra:
 
 :::image type="content" source="media//waf-sentinel/waf-actions-filter.png" alt-text="Filtro de ações da WAF":::
 
-:::image type="content" source="media//waf-sentinel/top-50-event-trigger.png" alt-text="Filtro de ações da WAF":::
+:::image type="content" source="media//waf-sentinel/top-50-event-trigger.png" alt-text="Top 50 eventos":::
 
-:::image type="content" source="media//waf-sentinel/attack-events.png" alt-text="Filtro de ações da WAF":::
+:::image type="content" source="media//waf-sentinel/attack-events.png" alt-text="Eventos de ataque":::
 
-:::image type="content" source="media//waf-sentinel/top-10-attacking-ip-address.png" alt-text="Filtro de ações da WAF":::
+:::image type="content" source="media//waf-sentinel/top-10-attacking-ip-address.png" alt-text="Top 10 endereços IP atacantes":::
 
 ## <a name="launch-a-waf-workbook"></a>Lançar um livro da WAF
 
@@ -64,19 +64,19 @@ Para ativar a análise de registos para cada recurso, aceda ao seu recurso Indiv
       1. CDN: 'AzureCdnAccessLog'
    1. Selecione **Guardar**.
 
-   :::image type="content" source="media//waf-sentinel/diagnostics-setting.png" alt-text="Filtro de ações da WAF":::
+   :::image type="content" source="media//waf-sentinel/diagnostics-setting.png" alt-text="Definição de diagnóstico":::
 
 4. Na página inicial do Azure, **digite Azure Sentinel** na barra de pesquisa e selecione o recurso **Azure Sentinel.** 
-2. Selecione um espaço de trabalho já ativo ou crie um novo espaço de trabalho no Sentinel. 
+2. Selecione um espaço de trabalho já ativo ou crie um novo espaço de trabalho. 
 3. No painel lateral esquerdo sob **configuração** selecione **Os Conectores de Dados**.
 4. Procure por **firewall de aplicações web da Microsoft** e selecione firewall de **aplicações web da Microsoft (WAF)**. Selecione Abrir a página do **conector** no canto inferior direito.
 
-   :::image type="content" source="media//waf-sentinel/data-connectors.png" alt-text="Filtro de ações da WAF":::
+   :::image type="content" source="media//waf-sentinel/data-connectors.png" alt-text="Conectores de dados":::
 
 8. Siga as instruções em **Configuração** para cada recurso WAF para o qual pretende ter dados analíticos de registo para se não o tiver feito anteriormente.
 6. Uma vez terminado a configuração dos recursos WAF individuais, selecione o **separador passos seguintes.** Selecione um dos livros recomendados. Este livro utilizará todos os dados analíticos de registo que foram ativados anteriormente. Um livro de trabalho da WAF em funcionamento deve agora existir para os seus recursos WAF.
 
-   :::image type="content" source="media//waf-sentinel/waf-workbooks.png" alt-text="Filtro de ações da WAF":::
+   :::image type="content" source="media//waf-sentinel/waf-workbooks.png" alt-text="Livros waf":::
 
 
 ## <a name="next-steps"></a>Passos seguintes

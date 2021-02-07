@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: 5f42b5f2b2a7660ee0de975068f64572c470503a
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 78187b2cbb6603a0ae0df55465b9a5ce5e7dca7f
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98874911"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807551"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Registar e digitalizar um inquilino power BI (pré-visualização)
 
@@ -84,7 +84,7 @@ Primeiro, adicione uma bandeira de recurso especial ao seu URL de Purview
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/select-power-bi-data-source.png" alt-text="Imagem mostrando a lista de fontes de dados disponíveis para escolher":::
 
-1. Dê ao seu exemplo de Power BI um nome amigável.
+3. Dê ao seu exemplo de Power BI um nome amigável.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-friendly-name.png" alt-text="Imagem mostrando nome amigo da fonte de dados do Power BI":::
 
@@ -94,21 +94,25 @@ Primeiro, adicione uma bandeira de recurso especial ao seu URL de Purview
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-datasource-registered.png" alt-text="Fonte de dados do Power BI registada":::
 
-1. Dê um nome à sua tomografia. Note que o único método de autenticação suportado é **identidade gerida.**
+    > [!Note]
+    > Para o Power BI, o registo de fontes de dados e a varredura são permitidos apenas por um caso.
+
+
+4. Dê um nome à sua tomografia. Note que o único método de autenticação suportado é **identidade gerida.**
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-setup.png" alt-text="Imagem mostrando configuração de digitalização de BI de energia":::
 
     O nome da varredura deve ter entre 3-63 caracteres e deve conter apenas letras, números, sublinhados e hífenes.  Espaços não são permitidos.
 
-1. Instale um gatilho de digitalização. As suas opções são **Uma Vez,** **A cada 7 dias,** e **a cada 30 dias.**
+5. Instale um gatilho de digitalização. As suas opções são **Uma Vez,** **A cada 7 dias,** e **a cada 30 dias.**
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/scan-trigger.png" alt-text="Digitalizar a imagem do gatilho":::
 
-1. Na **nova verificação,** selecione **Save and Run** para lançar a sua digitalização.
+6. Na **nova verificação,** selecione **Save and Run** para lançar a sua digitalização.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/save-run-power-bi-scan.png" alt-text="Guardar e executar a imagem do ecrã do Power BI":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Navegue no catálogo de dados Azure Purview Data](how-to-browse-catalog.md)
 - [Pesse o Catálogo de Dados da Azure Purview](how-to-search-catalog.md)

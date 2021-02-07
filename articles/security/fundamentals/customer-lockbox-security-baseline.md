@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: c2595d75acfacf3d501b6efb83b383d9a56215a6
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: dd54459cef3d6f20180b4c7c41eefbdd42c6980c
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98203291"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807925"
 ---
 # <a name="azure-security-baseline-for-customer-lockbox-for-microsoft-azure"></a>Linha de segurança Azure para o Lockbox do Cliente para o Microsoft Azure
 
@@ -186,7 +186,7 @@ A bordo dos registos de atividade gerados pelo Customer Lockbox para a Azure Sen
 
 * [Registos de auditoria no Bloqueio do Cliente](./customer-lockbox-overview.md#auditing-logs)
 
-* [Como alertar nos dados de registos de registos](../../azure-monitor/learn/tutorial-response.md)
+* [Como alertar nos dados de registo de registo de registos de registos](../../azure-monitor/learn/tutorial-response.md)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 
@@ -883,7 +883,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5: Incorporar alertas de segurança no seu sistema de resposta a incidentes
 
-**Orientação**: Exporte os alertas e recomendações do Centro de Segurança Azure utilizando a função exportação contínua. A Exportação Contínua permite-lhe exportar alertas e recomendações manualmente ou de forma contínua e contínua. Pode utilizar o conector de dados do Azure Security Center para transmitir os alertas Sentinel.
+**Orientação**: Exporte os alertas e recomendações do Centro de Segurança Azure utilizando a função exportação contínua. A Exportação Contínua permite-lhe exportar alertas e recomendações manualmente ou de forma contínua e contínua. Pode utilizar o conector de dados do Azure Security Center para transmitir os alertas ao Azure Sentinel.
 
 * [Como configurar a exportação contínua](../../security-center/continuous-export.md)
 

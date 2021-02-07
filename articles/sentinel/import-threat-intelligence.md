@@ -1,5 +1,5 @@
 ---
-title: Importar informações sobre ameaças para Azure Sentinel Microsoft Docs
+title: Importar informações sobre ameaças para Azure Sentinel | Microsoft Docs
 description: Use feeds de inteligência de ameaça em Azure Sentinel para analisar dados, detetar ameaças e gerar alertas e incidentes. Visualizar informações de inteligência de ameaças com livros de trabalho.
 services: sentinel
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2020
 ms.author: yelevin
-ms.openlocfilehash: bde11c8e06891025be96810acf6d87952a3d8d2f
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 5bf94d7c5889bb5a743655d65e48f021e91e01b7
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660785"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807144"
 ---
 # <a name="import-threat-intelligence-into-azure-sentinel"></a>Importar informações sobre ameaças para o Azure Sentinel
 
@@ -36,7 +36,7 @@ Pode integrar a inteligência de ameaças (TI) no Azure Sentinel através das se
 - Use os modelos de regras **de Analytics** incorporados para gerar alertas de segurança e incidentes usando a sua inteligência de ameaça importada.
 - Visualize informações chave sobre a sua inteligência de ameaça em Azure Sentinel com o **livro de inteligência ameaça**.
 
-A Threat Intelligence também fornece um contexto útil dentro de outras experiências do Azure Sentinel, como **a Caça** e **Os Cadernos,** e embora não esteja abrangida por este artigo, estas experiências são abordadas [neste grande post de blog por Ian Hellen em Jupyter Notebooks in Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/using-threat-intelligence-in-your-jupyter-notebooks/ba-p/860239), que abrange o uso de CTI dentro de Cadernos.
+A Threat Intelligence também fornece um contexto útil dentro de outras experiências do Azure Sentinel, como **a Caça** e **Os Cadernos,** e embora não esteja abrangida por este artigo, estas experiências são abordadas [neste grande post de blog por Ian Hellen em Jupyter Notebooks em Azure Sentinel,](https://techcommunity.microsoft.com/t5/azure-sentinel/using-threat-intelligence-in-your-jupyter-notebooks/ba-p/860239)que abrange o uso de CTI dentro de Cadernos.
 
 ## <a name="azure-sentinel-data-connectors-for-threat-intelligence"></a>Conectores de dados Azure Sentinel para inteligência de ameaça
 
@@ -423,7 +423,7 @@ Os livros de trabalho fornecem poderosos dashboards interativos que lhe dão inf
 
 Há também uma rica comunidade de livros do [Azure Monitor no GitHub](https://github.com/microsoft/Application-Insights-Workbooks) onde você pode baixar modelos adicionais e contribuir com seus próprios modelos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste documento, soubeste das capacidades de inteligência de ameaça do Azure Sentinel e da nova lâmina da Inteligência de Ameaça. Para obter orientações práticas sobre a utilização das capacidades de inteligência de ameaça de Azure Sentinel, consulte os seguintes artigos:
 
 - [Ligue os dados da inteligência](./connect-threat-intelligence.md) de ameaça ao Azure Sentinel.

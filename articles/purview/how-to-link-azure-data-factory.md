@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/22/2020
-ms.openlocfilehash: 0e993cb1e53645f7081a20fc6a2785b8cfef1cce
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 010cfc307d2b2c10c31168fce73673fb1fb611b8
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954192"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807653"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Como ligar a Azure Data Factory e a Azure Purview
 
@@ -107,29 +107,29 @@ A integração entre a Data Factory e a Purview suporta apenas um subconjunto do
 
 ### <a name="data-factory-copy-data-support"></a>Suporte de dados de cópia de fábrica de dados
 
-| Sistema de armazenamento de dados | Suportado como fonte | Suportado como pia |
-| ------------------- | ------------------- | ----------------- |
-| ADLS Gen1 | Yes | Sim (apenas cópia não binária) |
-| ADLS Gen2 | Yes | Yes |
-| Blob do Azure | Yes | Yes |
-| Azure Cosmos DB (SQL API) | Yes | Yes |
-| Azure Cosmos DB (Mongo API) | Yes | Yes |
-| Azure Cognitive Search | Yes | Yes |
-| Azure Data Explorer | Yes | Yes |
-| Base de Dados Azure para Maria DB \* | Yes | Yes |
-| Base de Dados Azure para MYSQL \* | Yes | Yes |
-| Base de Dados Azure para PostgreSQL \* | Yes | Yes |
-| Armazenamento de Ficheiros do Azure | Yes | Sim |
-| Armazenamento de Tabelas do Azure | Yes | Yes |
-| Base de Dados Azure SQL \* | Yes | Yes |
-| Azure SQL MI \* | Yes | Yes |
-| Azure Synapse Analytics (anteriormente SQL DW) \* | Yes | Yes |
-| SQL Server On-prem (SHIR obrigatório) \* | Yes | Yes |
-| Amazon S3 | Yes | Yes |
-| Teradata | Yes | Yes |
-| SAP s4 Hana | Yes | Yes |
-| SAP ECC | Yes | Yes |
-| Hive | Yes | Yes |
+| Sistema de armazenamento de dados | Suportado como fonte | 
+| ------------------- | ------------------- | 
+| ADLS Gen1 | Yes | 
+| ADLS Gen2 | Yes | 
+| Blob do Azure | Yes |
+| Azure Cosmos DB (SQL API) | Yes | 
+| Azure Cosmos DB (Mongo API) | Yes |
+| Azure Cognitive Search | Yes | 
+| Azure Data Explorer | Yes | 
+| Base de Dados Azure para Maria DB \* | Yes | 
+| Base de Dados Azure para MYSQL \* | Yes | 
+| Base de Dados Azure para PostgreSQL \* | Yes |
+| Armazenamento de Ficheiros do Azure | Sim | 
+| Armazenamento de Tabelas do Azure | Yes |
+| Base de Dados Azure SQL \* | Yes | 
+| Azure SQL MI \* | Yes | 
+| Azure Synapse Analytics (anteriormente SQL DW) \* | Yes | 
+| SQL Server On-prem  \* | Yes | 
+| Amazon S3 | Yes | 
+| Teradata | Yes | 
+| Conector de mesa SAP | Yes |
+| SAP ECC | Yes | 
+| Hive | Yes | 
 
 > [!Note]
 > A funcionalidade de linhagem tem uma certa sobrecarga de desempenho na atividade de cópia da Data Factory. Para aqueles que configuram ligações de fábrica de dados em Purview, você pode observar certos trabalhos de cópia demorando mais tempo a completar. A maior parte do impacto não é insignificante. Por favor contacte o suporte com a comparação de tempo se os trabalhos de cópia demorarem significativamente mais tempo a terminar do que o habitual.
@@ -137,7 +137,7 @@ A integração entre a Data Factory e a Purview suporta apenas um subconjunto do
 ### <a name="data-factory-data-flow-support"></a>Suporte ao fluxo de dados da fábrica de dados
 
 | Sistema de armazenamento de dados | Suportado |
-| ------------------- | ------------------- | ----------------- |
+| ------------------- | ------------------- | 
 | ADLS Gen1 | Yes |
 | ADLS Gen2 | Yes |
 | Blob do Azure | Yes |
@@ -147,7 +147,7 @@ A integração entre a Data Factory e a Purview suporta apenas um subconjunto do
 ### <a name="data-factory-execute-ssis-package-support"></a>Data Factory Executa suporte ao pacote SSIS
 
 | Sistema de armazenamento de dados | Suportado |
-| ------------------- | ------------------- | ----------------- |
+| ------------------- | ------------------- |
 | Blob do Azure | Yes |
 | ADLS Gen1 | Yes |
 | ADLS Gen2 | Yes |

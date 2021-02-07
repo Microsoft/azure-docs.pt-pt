@@ -1,6 +1,6 @@
 ---
-title: Ligue o AWS CloudTrail ao Azure Sentinel ! Microsoft Docs
-description: Utilize o conector AWS para delegar o acesso do Azure Sentinel aos registos de recursos AWS, criando uma relação de confiança entre a AWS CloudTrail e a Sentinela.
+title: Ligue o AWS CloudTrail ao | Azure Sentinel Microsoft Docs
+description: Utilize o conector AWS para delegar o acesso do Azure Sentinel aos registos de recursos AWS, criando uma relação de confiança entre a AWS CloudTrail e a Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2020
 ms.author: yelevin
-ms.openlocfilehash: a7405824d2477d2d39c45a56ae545e58a090c321
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 3d24fa1ea046a860feb40d09a6d0a57c79371450
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436611"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807602"
 ---
 # <a name="connect-azure-sentinel-to-aws-cloudtrail"></a>Ligue o Azure Sentinel ao AWS CloudTrail
 
 Utilize o conector AWS para transmitir os seus eventos de gestão AWS CloudTrail para o Azure Sentinel. Este processo de conexão delega acesso para Azure Sentinel aos seus registos de recursos AWS, criando uma relação de confiança entre a AWS CloudTrail e a Azure Sentinel. Isto é realizado em AWS criando um papel que dá permissão ao Azure Sentinel para aceder aos seus registos AWS.
 
 > [!NOTE]
-> A AWS CloudTrail tem [limitações incorporadas na](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) sua API LookupEvents. Não permite mais do que duas transações por segundo (TPS) por conta, e cada consulta pode devolver um máximo de 50 registos. Consequentemente, se um único inquilino gerar constantemente mais de 100 registos por segundo numa região, resultarão atrasos e atrasos na ingestão de dados.
+> A AWS CloudTrail tem [limitações incorporadas na](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) sua API LookupEvents. Não permite mais do que duas transações por segundo (TPS) por conta, e cada consulta pode devolver um máximo de 50 registos. Por conseguinte, se um único inquilino gerar constantemente mais de 100 registos por segundo numa região, ocorrerão registos de tarefas pendentes e atrasos na ingestão de dados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

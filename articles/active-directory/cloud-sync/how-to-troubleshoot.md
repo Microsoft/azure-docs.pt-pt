@@ -8,12 +8,12 @@ ms.date: 01/19/2021
 ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 33af92c1987d9cd0c88e689dd7bafccadd60cb06
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: fad065795345314c58e83c8d2614ed01c9e78e49
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98614059"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805534"
 ---
 # <a name="cloud-sync-troubleshooting"></a>Resolução de problemas de sincronização de nuvem
 
@@ -164,7 +164,7 @@ A sincronização da nuvem monitoriza a saúde da sua configuração e coloca ob
 
 Ao selecionar o estado, pode ver informações adicionais sobre a quarentena. Também pode obter o código de erro e a mensagem.
 
-![Informações sobre o estado de quarentena](media/how-to-troubleshoot/quarantine-2.png)
+![Screenshot que mostra informações adicionais sobre a quarentena.](media/how-to-troubleshoot/quarantine-2.png)
 
 Clicar no estado irá trazer opções adicionais:
     
@@ -172,7 +172,7 @@ Clicar no estado irá trazer opções adicionais:
    - agente ver
    - quarentena clara
 
-![Informações sobre o estado de quarentena](media/how-to-troubleshoot/quarantine-4.png)
+![Screenshot que mostra as opções do menu de clique direito.](media/how-to-troubleshoot/quarantine-4.png)
 
 
 ### <a name="resolve-a-quarantine"></a>Resolva uma quarentena
@@ -186,7 +186,7 @@ Para limpar a marca de água e executar uma sincronização delta no trabalho de
 
 Devia ver que a quarentena está a limpar.
 
-![Informações sobre o estado de quarentena](media/how-to-troubleshoot/quarantine-5.png)
+![Screenshot que mostra o aviso de que a quarentena está a limpar.](media/how-to-troubleshoot/quarantine-5.png)
 
 Então devia ver o estado do seu agente como saudável.
 

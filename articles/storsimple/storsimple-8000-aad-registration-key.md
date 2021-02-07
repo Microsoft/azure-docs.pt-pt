@@ -6,18 +6,18 @@ ms.service: storsimple
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 0e071a20051f047efbd040dfc01a30e3c1381367
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b09d68e7859a787c05a2fc62294f081c4345ae08
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631329"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805045"
 ---
-# <a name="use-azuer-active-directory-ad-authentication-for-your-storsimple"></a>Utilize a autenticação do Diretório Ativo Azuer (AD) para o seu StorSimple
+# <a name="use-azure-active-directory-ad-authentication-for-your-storsimple"></a>Utilize a autenticação do Azure Ative Directory (AD) para o seu StorSimple
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 O serviço StorSimple Device Manager funciona no Microsoft Azure e liga-se a vários dispositivos StorSimple. Até à data, o serviço StorSimple Device Manager utilizou um serviço de Controlo de Acesso (ACS) para autenticar o serviço no seu dispositivo StorSimple. O mecanismo ACS será depreciado em breve e substituído por uma autenticação do Azure Ative Directory (AAD). Para mais informações, aceda aos seguintes anúncios para depreciação acs e utilização da autenticação AAD.
 
@@ -75,7 +75,7 @@ Execute os seguintes passos para gerar uma chave de registo de serviço AAD.
 
 #### <a name="to-generate-the-aad-service-registration-key"></a>Para gerar a chave de registo de serviço AAD
 
-1. No **StorSimple Device Manager,** aceda a **Chaves de Gestão &gt; ** . **Keys** Também pode utilizar a barra de pesquisa para procurar _chaves._
+1. No **StorSimple Device Manager,** aceda a **Chaves de Gestão &gt;** .  Também pode utilizar a barra de pesquisa para procurar _chaves._
     
 2. Clique **na tecla Gerar**.
 

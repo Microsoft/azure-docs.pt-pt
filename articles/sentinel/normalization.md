@@ -1,5 +1,5 @@
 ---
-title: Normalização de dados em Azure Sentinela Microsoft Docs
+title: Normalização de dados em Azure Sentinel | Microsoft Docs
 description: Este artigo explica como o Azure Sentinel normaliza dados de várias fontes diferentes e detalha o esquema de normalização.
 services: sentinel
 cloud: na
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: yelevin
-ms.openlocfilehash: a9d2cd48e3b686614f7361d2007f6f8183c2361e
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 66c315132ef0ef4d320e9edd8e9bcc28b2240924
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657028"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805095"
 ---
 # <a name="normalization-in-azure-sentinel"></a>Normalização em Azure Sentinel
 
@@ -105,11 +105,11 @@ Ao guardar uma função de consulta, pode ser necessário fechar o explorador de
 
 #### <a name="using-the-parsers"></a>Usando os parsers
 
-Uma vez ativado, pode utilizar o meta-parser para consultar uma visão unificada de todos os parsers atualmente ativados. Para tal, vá à página de registos sentinela e questione o meta-parser:
+Uma vez ativado, pode utilizar o meta-parser para consultar uma visão unificada de todos os parsers atualmente ativados. Para tal, vá à página de registos do Azure Sentinel e questione o meta-parser:
 
 :::image type="content" source="./media/normalization/query-parser.png" alt-text="Consulta o parser":::
  
-Também pode aceder ao meta-parser ou aos parsers individuais utilizando o explorador de consultas na página de registos Sentinel, clicando em 'Explorador de Consulta':
+Também pode aceder ao meta-parser ou aos parsers individuais utilizando o explorador de consultas na página de registos, clicando em 'Explorador de consulta':
 
 :::image type="content" source="./media/normalization/query-explorer.png" alt-text="Explorador de consultas":::
 
@@ -135,7 +135,7 @@ Uma vez alterada a função, clique em "Guardar" novamente e use o mesmo nome, p
 Saiba mais sobre [consultas guardadas](../azure-monitor/log-query/example-queries.md) (a implementação dos parsers de consulta) no Log Analytics.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste documento, soube do esquema de normalização de Azure Sentinel. Para o esquema de referência em si, consulte [a referência de esquema de normalização de dados do Azure Sentinel](./normalization-schema.md).
 

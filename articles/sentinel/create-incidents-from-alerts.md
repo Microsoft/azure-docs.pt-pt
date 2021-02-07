@@ -1,5 +1,5 @@
 ---
-title: Criar incidentes a partir de alertas em Azure Sentinel Microsoft Docs
+title: Criar incidentes a partir de alertas em Azure Sentinel | Microsoft Docs
 description: Saiba como criar incidentes a partir de alertas em Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: fabf847b672f4dbf3e680a21bc7015655c612552
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c7c3d69bb26773171e9e0afc9f79ff25909a12a
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906301"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807297"
 ---
 # <a name="automatically-create-incidents-from-microsoft-security-alerts"></a>Criar automaticamente incidentes a partir de alertas de segurança da Microsoft
 
-Os alertas desencadeados nas soluções de segurança da Microsoft que estão ligados ao Azure Sentinel, como o Microsoft Cloud App Security e o Microsoft Defender for Identity (ex-Azure ATP), não criam automaticamente incidentes no Azure Sentinel. Por padrão, quando ligar uma solução Microsoft ao Azure Sentinel, qualquer alerta gerado nesse serviço será armazenado como dados brutos em Azure Sentinel, na tabela Alerta de Segurança no seu espaço de trabalho Azure Sentinel. Em seguida, pode utilizar esses dados como qualquer outro dado bruto que se conecta ao Sentinel.
+Os alertas desencadeados nas soluções de segurança da Microsoft que estão ligados ao Azure Sentinel, como o Microsoft Cloud App Security e o Microsoft Defender for Identity (ex-Azure ATP), não criam automaticamente incidentes no Azure Sentinel. Por padrão, quando ligar uma solução Microsoft ao Azure Sentinel, qualquer alerta gerado nesse serviço será armazenado como dados brutos em Azure Sentinel, na tabela Alerta de Segurança no seu espaço de trabalho Azure Sentinel. Em seguida, pode utilizar esses dados como qualquer outro dado bruto que se conecta ao Azure Sentinel.
 
 Pode configurar facilmente o Azure Sentinel para criar automaticamente incidentes sempre que um alerta é acionado numa solução de segurança da Microsoft conectada, seguindo as instruções deste artigo.
 

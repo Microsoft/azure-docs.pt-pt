@@ -1,5 +1,5 @@
 ---
-title: Criar uma imagem a partir de uma VM
+title: Criar uma imagem a partir de um VM utilizando O Azure CLI
 description: Aprenda a criar uma imagem numa Galeria de Imagens Partilhadas a partir de um VM em Azure.
 author: cynthn
 ms.service: virtual-machines
@@ -10,12 +10,12 @@ ms.date: 05/01/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b8aa2623722b5e75480e68324d76e4a1493501df
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: ca354ee662ebad0cd514d4822794b056ee6f9850
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98685145"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805382"
 ---
 # <a name="create-an-image-version-from-a-vm-in-azure-using-the-azure-cli"></a>Criar uma versão de imagem a partir de um VM em Azure usando o Azure CLI
 
@@ -24,7 +24,7 @@ Se tiver um VM existente que gostaria de usar para fazer VMs múltiplos e idênt
 Uma **versão de imagem** é o que se usa para criar um VM quando se utiliza uma Galeria de Imagens Partilhadas. Pode ter várias versões de uma imagem necessária para o seu ambiente. Quando se utiliza uma versão de imagem para criar um VM, a versão de imagem é usada para criar discos para o novo VM. As versões de imagem podem ser usadas várias vezes.
 
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Para completar este artigo, você deve ter uma Galeria de Imagem Partilhada existente. 
 
