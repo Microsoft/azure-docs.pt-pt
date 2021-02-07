@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: e373556d189e9fffc0626d19250e79c09962a004
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: a88c837c986db346bcb4fbb1b15ceab6a304347d
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99062108"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806227"
 ---
 # <a name="tutorial-scan-data-with-azure-purview-preview"></a>Tutorial: Digitalizar dados com Azure Purview (Pré-visualização)
 
@@ -91,7 +91,9 @@ Antes de executar os scripts PowerShell para arrancar o catálogo, obtenha os va
    1. Selecione a secção **'Vista Geral'** e guarde o GUIADO para o **ID de subscrição.**
 
    > [!NOTE]
-   > Certifique-se de que está a utilizar a mesma subscrição que aquela em que criou a Conta Azure Purview. Esta é a mesma subscrição que foi colocada na lista de autorizações.
+   > - Certifique-se de que está a utilizar a mesma subscrição que aquela em que criou a Conta Azure Purview. Esta é a mesma subscrição que foi colocada na lista de autorizações.
+   > - A linhagem pode faltar às vezes em Azure Purview depois de executar o kit de arranque. Isto porque a Fábrica de Dados criada pelo kit de arranque tem permissões em falta em Purview. Selecione [**este link de documento**](how-to-link-azure-data-factory.md#view-existing-data-factory-connections)  para se certificar de que a Fábrica de Dados está configurada corretamente e atribuída função apropriada em Purview
+
 
 * CatálogoName: O nome da conta Azure Purview que criou na [Create a Azure Purview .](create-catalog-portal.md)
 

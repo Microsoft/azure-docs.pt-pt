@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 09/28/2020
 ms.author: alkemper
-ms.openlocfilehash: a4890dd93cf77e20aff09ca6fd33ec3434a45a4b
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 8ca4a6e78ab3c6ccf492869bb68c5296ae91de21
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98663051"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806075"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Quickstart: Adicione bandeiras de recurso a uma aplicação core ASP.NET
 
@@ -207,7 +207,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
 1. Abra *_Layout.cshtml* no *diretório views* \\ *shared.* Localize o `<nav>` código de barras em `<body>`  >  `<header>` . Insira uma nova `<feature>` etiqueta entre os itens de navegação *Home* e *Privacy,* como mostram as linhas abaixo destacadas.
 
-    :::code language="html" source="../../includes/azure-app-configuration-navbar.md" range="15-38" highlight="13-17":::
+    :::code language="html" source="../../includes/azure-app-configuration-navbar.md" range="15-38" highlight="14-18":::
 
 1. Criar um *diretório De Pontos/Beta* e um ficheiro *Index.cshtml* contendo a seguinte marcação:
 

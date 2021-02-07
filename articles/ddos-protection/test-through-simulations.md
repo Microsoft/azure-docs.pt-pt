@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 55042c8d1e612598cc5728668c9e87b054fb3afa
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: e95495e48725a68ab1fe3f37d235e5765b2c8015
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98537828"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806244"
 ---
 # <a name="test-through-simulations"></a>Testar através de simulações
 
@@ -42,9 +42,9 @@ Estabelecemos uma parceria com [a BreakingPoint Cloud](https://www.ixiacom.com/p
     |---------      |---------                                          |
     |Endereço IP alvo           | Insira um dos seus endereços IP públicos que pretende testar.                     |
     |Número da Porta   | Insira _443_.                       |
-    |Perfil DDos | Os valores possíveis `DNS Flood` incluem, `NTPv2 Flood` `SSDP Flood` `TCP SYN Flood` `UDP 64B Flood` `UDP 128B Flood` `UDP 256B Flood` `UDP 512B Flood` `UDP 1024B Flood` `UDP 1514B Flood` `UDP Fragmentation` `UDP Memcached` .|
+    |Perfil DDos | Os valores possíveis `DNS Flood` incluem, , , , , , , , `NTPv2 Flood` , , , `SSDP Flood` , `TCP SYN Flood` `UDP 64B Flood` `UDP 128B Flood` `UDP 256B Flood` `UDP 512B Flood` `UDP 1024B Flood` `UDP 1514B Flood` `UDP Fragmentation` `UDP Memcached` .|
     |Tamanho do teste       | Os valores possíveis `100K pps, 50 Mbps and 4 source IPs` `200K pps, 100 Mbps and 8 source IPs` incluem, . . `400K pps, 200Mbps and 16 source IPs` `800K pps, 400 Mbps and 32 source IPs` .                                  |
-    |Duração do teste | Os valores possíveis `10 Minutes` `15 Minutes` incluem, . `20 Minutes` `25 Minutes` `30 Minutes` .|
+    |Duração do teste | Os valores possíveis `10 Minutes` incluem, , , , . `15 Minutes` `20 Minutes` `25 Minutes` `30 Minutes` .|
 
 Deve agora parecer assim:
 
@@ -63,7 +63,7 @@ Uma vez que o recurso está sob ataque, deve ver que o valor muda de **0** para 
 
 ### <a name="breakingpoint-cloud-api-script"></a>Script de API de nuvem de breakingPoint
 
-Este [script API](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Breaking%20Point%20SDK) pode ser usado para automatizar os testes de DDoS executando uma vez ou usando cron para agendar testes regulares. Isto é útil para validar que o seu registo está configurado corretamente e que os procedimentos de deteção e resposta são eficazes. Os scripts requerem um Linux OS (testado com Ubuntu 18.04 LTS) e Python 3. Instale pré-requisitos e cliente API utilizando o script incluído ou utilizando a documentação no website [da BreakingPoint Cloud.](http://breakingpoint.cloud/)
+Este [script API](https://aka.ms/ddosbreakingpoint) pode ser usado para automatizar os testes de DDoS executando uma vez ou usando cron para agendar testes regulares. Isto é útil para validar que o seu registo está configurado corretamente e que os procedimentos de deteção e resposta são eficazes. Os scripts requerem um Linux OS (testado com Ubuntu 18.04 LTS) e Python 3. Instale pré-requisitos e cliente API utilizando o script incluído ou utilizando a documentação no website [da BreakingPoint Cloud.](http://breakingpoint.cloud/)
 
 ## <a name="next-steps"></a>Passos seguintes
 

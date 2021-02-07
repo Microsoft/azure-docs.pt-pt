@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa6726bb5c60dceab0a58632da99c04361183246
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 26403c20d7f3274e8f3f2dcae479f72e9a7e3354
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97932695"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807025"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Adicione um conector API a um fluxo de utilizador
 
@@ -38,7 +38,7 @@ Para utilizar um [conector API,](api-connectors-overview.md)primeiro cria o cone
 6. Forneça o **URL endpoint** para a chamada da API.
 7. Forneça a informação de autenticação para a API.
 
-   - Apenas a Autenticação Básica é suportada atualmente. Se desejar utilizar uma API sem Autenticação Básica para fins de desenvolvimento, basta introduzir um nome de **utilizador** e **palavra-passe** falso que a sua API possa ignorar. Para ser utilizado com uma Função Azure com uma chave API, pode incluir o código como parâmetro de consulta no **URL endpoint** (por exemplo, https://contoso.azurewebsites.net/api/endpoint []() <b>?code=0123456789).</b>
+   - Apenas a Autenticação Básica é suportada atualmente. Se desejar utilizar uma API sem Autenticação Básica para fins de desenvolvimento, basta introduzir um nome de **utilizador** e **palavra-passe** falso que a sua API possa ignorar. Para ser utilizado com uma Função Azure com uma chave API, pode incluir o código como parâmetro de consulta no **URL endpoint** (por exemplo, `https://contoso.azurewebsites.net/api/endpoint?code=0123456789` ).
 
    ![Configurar um novo conector API](./media/self-service-sign-up-add-api-connector/api-connector-config.png)
 8. Selecione **Guardar**.
@@ -109,7 +109,7 @@ Siga estes passos para adicionar um conector API a um fluxo de utilizador de ins
 
 ## <a name="after-signing-in-with-an-identity-provider"></a>Depois de iniciar sessão com um fornecedor de identidade
 
-Um conector API neste passo no processo de inscrição é invocado imediatamente após o utilizador autenticar com um fornecedor de identidade (Google, Facebook, Azure AD). Este passo precede a página de *_recolha *atributo_* _, que é o formulário apresentado ao utilizador para recolher os atributos do utilizador. 
+Um conector API neste passo no processo de inscrição é invocado imediatamente após o utilizador autenticar com um fornecedor de identidade (Google, Facebook, Azure AD). Este passo antecede a ***página de recolha de atributos***, que é o formulário apresentado ao utilizador para recolher os atributos do utilizador. 
 
 <!-- The following are examples of API connector scenarios you may enable at this step:
 - Use the email or federated identity that the user provided to look up claims in an existing system. Return these claims from the existing system, pre-fill the attribute collection page, and make them available to return in the token.
@@ -251,7 +251,7 @@ Content-type: application/json
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | versão                                            | String            | Yes      | A versão da API.                                                                                                                                                                                                                                                                |
 | ação                                             | String            | Yes      | O valor deve `Continue` ser.                                                                                                                                                                                                                                                              |
-| \<builtInUserAttribute>                            | \<attribute-type> | No       | Os valores podem ser armazenados no diretório se forem selecionados como a _ *Claim to receive** na configuração do conector API e **atributos do Utilizador** para um fluxo de utilizador. Os valores podem ser devolvidos no token se forem selecionados como **reclamação de Candidatura.**                                              |
+| \<builtInUserAttribute>                            | \<attribute-type> | No       | Os valores podem ser armazenados no diretório se forem selecionados como Uma **Reivindicação para receber** na configuração do conector API e **nos atributos do Utilizador** para um fluxo de utilizador. Os valores podem ser devolvidos no token se forem selecionados como **reclamação de Candidatura.**                                              |
 | \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | No       | A reclamação devolvida não precisa de `_<extensions-app-id>_` conter. Os valores são armazenados no diretório se forem selecionados como Uma **Reivindicação a receber** na configuração do conector API e **no atributo do Utilizador** para um fluxo de utilizador. Os atributos personalizados não podem ser enviados de volta no token. |
 
 ### <a name="example-of-a-blocking-response"></a>Exemplo de uma resposta de bloqueio

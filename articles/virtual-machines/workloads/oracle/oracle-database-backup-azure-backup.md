@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
 ms.reviewer: dbakevlar
-ms.openlocfilehash: 3122b1c5d7ac8b9dca0e244a4b7e73a57c4c5fca
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: ac045694e8975509635e03221a8cb9cc84446b55
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99072409"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806414"
 ---
 # <a name="back-up-and-recover-an-oracle-database-19c-database-on-an-azure-linux-vm-using-azure-backup"></a>Faça backup e recupere uma base de dados oracle Database 19c em um VM Azure Linux usando Azure Backup
 
@@ -697,7 +697,7 @@ Para restaurar todo o VM, complete estes passos:
 
    1. No portal Azure, selecione **+ Crie um recurso** e procure e selecione Conta de **Armazenamento.**
     
-      ![Página de adicionar conta de armazenamento](./media/oracle-backup-recovery/storage-1.png)
+      ![Screenshot que mostra onde criar um recurso.](./media/oracle-backup-recovery/storage-1.png)
     
     
    1. Na página da conta de armazenamento Create, escolha o seu grupo de recursos **existente rg-oráculo,** nomeie a sua conta de armazenamento **oracrestore** e escolha **Armazenamento V2 (generalpurpose v2)** para o Tipo de Conta. Alterar a replicação para **armazenamento localmente redundante (LRS)** e definir desempenho para **padrão**. Certifique-se de que a Localização está definida para a mesma região que todos os seus outros recursos no grupo de recursos. 
@@ -877,7 +877,7 @@ Após a restauração do VM, deverá reatribuir o endereço IP original para o n
 
 5.  Agora deve separar o NIC que foi criado com a operação de restauro VM, uma vez que está configurado como a interface principal. Clique na **interface de rede de desafogado** e escolha o novo NIC semelhante ao **vmoracle19c-nic-XXXXXXXXXXXXX,** em seguida, clique em **OK**
 
-    ![Valor do endereço IP](./media/oracle-backup-recovery/create-ip-05.png)
+    ![Screenshot que mostra onde selecionar a interface de rede Detach.](./media/oracle-backup-recovery/create-ip-05.png)
     
     O seu VM recriado passará a ter o NIC original, que está associado ao endereço IP original e às regras do Grupo de Segurança da Rede
     

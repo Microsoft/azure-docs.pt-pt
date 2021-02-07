@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 01/25/2021
-ms.openlocfilehash: 8e5b43383e0b49c0fe6fffdd9ffee6667fb540f8
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.date: 02/05/2021
+ms.openlocfilehash: 6c064acc44e180d3e99bdcf68d2e1e129d52fd5d
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054759"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805939"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites e informações de configuração para o Azure Logic Apps
 
@@ -427,6 +427,12 @@ Esta secção lista os endereços IP de entrada apenas para o serviço Azure Log
 
 > [!TIP]
 > Para ajudar a reduzir a complexidade ao criar regras de segurança, pode utilizar opcionalmente a etiqueta de [serviço](../virtual-network/service-tags-overview.md), **LogicAppsManagement**, em vez de especificar prefixos de endereço IP de aplicações lógicas de entrada para cada região. Opcionalmente, também pode utilizar a etiqueta de serviço **AzureConnectors** para conectores geridos que fazem chamadas webhook de entrada para o serviço De aplicações lógicas, em vez de especificar prefixos de endereço IP geridos por inbound para cada região. Estas etiquetas funcionam em todas as regiões onde o serviço De Aplicações Lógicas está disponível.
+>
+> Os seguintes conectores fazem chamadas webhook de entrada para o serviço De aplicações lógicas:
+>
+> Adobe Creative Cloud, Adobe Sign, Adobe Sign Demo, Adobe Sign Preview, Adobe Sign Stage, Azure Sentinel, Business Central, Calendly, Common Data Service, DocuSign, DocuSign Demo, Dynamics 365 for Fin & Ops, LiveChat, Office 365 Outlook, Outlook.com, Parserr, SAP*, Shifts for Microsoft Teams, TeamWork, Typeform
+>
+> \***SAP**: O chamador de retorno depende se o ambiente de implantação é multi-inquilino Azure ou ISE. No ambiente multi-inquilino, o gateway de dados no local faz a chamada de volta para o serviço De Aplicações Lógicas. Num ISE, o conector SAP faz a chamada de volta para o serviço De aplicações lógicas.
 
 <a name="multi-tenant-inbound"></a>
 

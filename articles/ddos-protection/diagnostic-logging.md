@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 22c49502883cb444027bd59a24bfb5bb3c32da4c
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 42d4467a6441e517ef3194f701eb47e7e68505b1
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915169"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806312"
 ---
 # <a name="view-and-configure-ddos-diagnostic-logging"></a>Ver e configurar o registo de diagnósticos do DDoS
 
@@ -67,7 +67,7 @@ A tabela que se segue lista os nomes e descrições do campo:
 
 # <a name="ddosprotectionnotifications"></a>[DDoSProtectionNotificações](#tab/DDoSProtectionNotifications)
 
-| Nome do campo | Descrição |
+| Nome do campo | Description |
 | --- | --- |
 | **TimeGenerated** | A data e a hora na UTC quando a notificação foi criada. |
 | **ResourceId** | Identificação de recursos do seu endereço IP público. |
@@ -75,7 +75,7 @@ A tabela que se segue lista os nomes e descrições do campo:
 | **Grupo de Recursos** | O grupo de recursos que contém o seu endereço IP público e rede virtual. |
 | **SubscriçãoId** | O seu ID de subscrição do plano de proteção DDoS. |
 | **Recurso** | O nome do seu endereço IP público. |
-| **Tipo de recursos** | Isto será `PUBLICIPADDRESS` sempre. |
+| **ResourceType** | Isto será `PUBLICIPADDRESS` sempre. |
 | **Operação Nome** | Para notificações, esta `DDoSProtectionNotifications` será.  |
 | **Mensagem** | Detalhes do ataque. |
 | **Tipo** | Tipo de notificação. Os valores possíveis `MitigationStarted` incluem. `MitigationStopped`. |
@@ -83,7 +83,7 @@ A tabela que se segue lista os nomes e descrições do campo:
 
 # <a name="ddosmitigationflowlogs"></a>[DDoSMitigationFlowLogs](#tab/DDoSMitigationFlowLogs)
 
-| Nome do campo | Descrição |
+| Nome do campo | Description |
 | --- | --- |
 | **TimeGenerated** | A data e a hora na UTC quando o registo de fluxo foi criado. |
 | **ResourceId** | Identificação de recursos do seu endereço IP público. |
@@ -91,7 +91,7 @@ A tabela que se segue lista os nomes e descrições do campo:
 | **Grupo de Recursos** | O grupo de recursos que contém o seu endereço IP público e rede virtual. |
 | **SubscriçãoId** | O seu ID de subscrição do plano de proteção DDoS. |
 | **Recurso** | O nome do seu endereço IP público. |
-| **Tipo de recursos** | Isto será `PUBLICIPADDRESS` sempre. |
+| **ResourceType** | Isto será `PUBLICIPADDRESS` sempre. |
 | **Operação Nome** | Para os registos de fluxo, este será `DDoSMitigationFlowLogs` . |
 | **Mensagem** | Detalhes do ataque. |
 | **FontePublicIpAddress** | O endereço IP público do cliente que gera tráfego para o seu endereço IP público. |
@@ -102,7 +102,7 @@ A tabela que se segue lista os nomes e descrições do campo:
 
 # <a name="ddosmitigationreports"></a>[DDoSMitigationReports](#tab/DDoSMitigationReports)
 
-| Nome do campo | Descrição |
+| Nome do campo | Description |
 | --- | --- |
 | **TimeGenerated** | A data e a hora na UTC quando o relatório foi criado. |
 | **ResourceId** | Identificação de recursos do seu endereço IP público. |
@@ -110,16 +110,16 @@ A tabela que se segue lista os nomes e descrições do campo:
 | **Grupo de Recursos** | O grupo de recursos que contém o seu endereço IP público e rede virtual. |
 | **SubscriçãoId** | O seu ID de subscrição do plano de proteção DDoS. |
 | **Recurso** | O nome do seu endereço IP público. |
-| **Tipo de recursos** | Isto será `PUBLICIPADDRESS` sempre. |
+| **ResourceType** | Isto será `PUBLICIPADDRESS` sempre. |
 | **Operação Nome** | Para relatórios de mitigação, isto `DDoSMitigationReports` será. |
 | **Logotipo** | Os valores possíveis `Incremental` incluem, `PostMitigation` . .|
 | **MitigaçãoPeriodStart** | A data e a hora na UTC quando a mitigação começou.  |
 | **MitigaçãoPeriodEnd** | A data e a hora na UTC quando a mitigação terminou. |
 | **IPAddress** | O seu endereço IP público. |
-| **AttackVectors** |  Desagregação de tipos de ataque. As chaves `TCP SYN flood` `TCP flood` incluem, . `UDP flood` `UDP reflection` `Other packet flood` .|
-| **TrafficOverview** |  Avaria no tráfego de ataque. As chaves `Total packets` `Total packets dropped` incluem, , `Total TCP packets` `Total TCP packets dropped` `Total UDP packets` `Total UDP packets dropped` `Total Other packets` `Total Other packets dropped` . |
+| **AttackVectors** |  Desagregação de tipos de ataque. As chaves `TCP SYN flood` incluem, , , , , . `TCP flood` `UDP flood` `UDP reflection` `Other packet flood` .|
+| **TrafficOverview** |  Avaria no tráfego de ataque. As chaves `Total packets` incluem, , , , , , , , `Total packets dropped` , , `Total TCP packets` `Total TCP packets dropped` `Total UDP packets` `Total UDP packets dropped` `Total Other packets` `Total Other packets dropped` . |
 | **Protocolos** | Desagregação dos protocolos envolvidos. As chaves `TCP` `UDP` incluem, . `Other` . |
-| **GotaReasons** | Desagregação das razões para os pacotes abandonados. As chaves `Protocol violation invalid TCP syn` `Protocol violation invalid TCP` incluem, `Protocol violation invalid UDP` , `UDP reflection` `TCP rate limit exceeded` `UDP rate limit exceeded` `Destination limit exceeded` `Other packet flood` `Rate limit exceeded` `Packet was forwarded to service` . |
+| **GotaReasons** | Desagregação das razões para os pacotes abandonados. As chaves `Protocol violation invalid TCP syn` incluem, , , , , , , , `Protocol violation invalid TCP` , , , `Protocol violation invalid UDP` `UDP reflection` `TCP rate limit exceeded` `UDP rate limit exceeded` `Destination limit exceeded` `Other packet flood` `Rate limit exceeded` `Packet was forwarded to service` . |
 | **TopSourceCountries** | Desagregação dos 10 principais países de origem do tráfego. |
 | **TopSourceCountriesForDroppedPackets** | Desagregação dos 10 principais países de origem do tráfego de ataques que é/foi atenuado. |
 | **TopSourceASNs** | Repartição dos 10 principais números do sistema autónomo de origem (ASN) do tráfego de entrada.  |
@@ -128,7 +128,7 @@ A tabela que se segue lista os nomes e descrições do campo:
 
 ## <a name="enable-diagnostic-logging-on-all-public-ips"></a>Permitir o registo de diagnóstico em todos os IPs públicos
 
-Este [modelo](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Enable%20Diagnostic%20Logging/Azure%20Policy) cria uma definição de Política Azure para permitir automaticamente a sessão de diagnóstico em todos os registos IP públicos num âmbito definido.
+Este [modelo](https://aka.ms/ddosdiaglogs) cria uma definição de Política Azure para permitir automaticamente a sessão de diagnóstico em todos os registos IP públicos num âmbito definido.
 
 [![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FEnable%2520Diagnostic%2520Logging%2FAzure%2520Policy%2FDDoSLogs.json)
 
@@ -142,7 +142,7 @@ Pode ligar registos ao Azure Sentinel, visualizar e analisar os seus dados em li
 
 ### <a name="azure-ddos-protection-workbook"></a>Livro de proteção Azure DDos
 
-Pode utilizar este modelo Azure Resource Manager (ARM) para implementar um livro de análise de ataque. Este livro permite visualizar dados de ataque em vários painéis filtrantes para entender facilmente o que está em jogo. 
+Pode utilizar [este modelo Azure Resource Manager (ARM)](https://aka.ms/ddosworkbook) para implementar um livro de análise de ataque. Este livro permite visualizar dados de ataque em vários painéis filtrantes para entender facilmente o que está em jogo. 
 
 [![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FAzure%2520DDoS%2520Protection%2520Workbook%2FAzureDDoSWorkbook_ARM.json)
 

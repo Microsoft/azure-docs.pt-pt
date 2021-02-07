@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
 ms.reviewer: dbakevlar
-ms.openlocfilehash: 695f151e6d6cc0a677942f60c751567da0cfca7c
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: fce947c43e8559f4ea2a65645805e987a9015d3f
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99064042"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806278"
 ---
 # <a name="back-up-and-recover-an-oracle-database-19c-database-on-an-azure-linux-vm-using-azure-storage"></a>Recue e recupere uma base de dados oracle Database 19c num VM Azure Linux usando o Armazenamento Azure
 
@@ -31,19 +31,19 @@ Este artigo demonstra o uso do Azure Storage como um meio de comunicação para 
    ssh azureuser@<publicIpAddress>
    ```
    
-2. Mude para o utilizador **_raiz_* _ :
+2. Mude para o utilizador ***raiz:***
  
    ```bash
    sudo su -
    ```
     
-3. Adicione o utilizador oráculo ao _*_ ficheiro /etc/sudoers_*_ :
+3. Adicione o utilizador oráculo ao ficheiro ***/etc/sudoers:***
 
    ```bash
    echo "oracle   ALL=(ALL)      NOPASSWD: ALL" >> /etc/sudoers
    ```
 
-4. Este passo pressupõe que você tem uma instância Oráculo (teste) que está em execução em um VM chamado _vmoracle19c*.
+4. Este passo pressupõe que você tem uma instância Oráculo (teste) que está em execução em um VM chamado *vmoracle19c*.
 
    Mude o utilizador para o utilizador *oráculo:*
 
@@ -182,31 +182,31 @@ Primeiro, crie a sua conta de armazenamento.
 
 1. Configure o armazenamento de ficheiros no portal Azure
 
-    No portal Azure, selecione ***+ Crie um recurso** _ e procure e selecione Conta de _*_Armazenamento_*_
+    No portal Azure, selecione ***+ Crie um recurso** _ e procure e selecione _ Conta de *_Armazenamento_**
     
-    ![Página de adicionar conta de armazenamento](./media/oracle-backup-recovery/storage-1.png)
+    ![Screenshot que mostra onde criar um recurso e selecionar Conta de Armazenamento.](./media/oracle-backup-recovery/storage-1.png)
     
-2. Na página de conta de armazenamento Create, escolha o seu grupo de recursos _*_existente rg-oráculo,_*_ nomeie a sua conta de armazenamento _*_oracbkup1_*_ e escolha _*_Armazenamento V2 (generalpurpose v2)_*_ para o Tipo de Conta. Alterar a replicação para _*_armazenamento localmente redundante (LRS)_*_ e definir desempenho para _*_padrão_*_. Certifique-se de que a Localização está definida para a mesma região que todos os seus outros recursos no grupo de recursos. 
+2. Na página de conta de armazenamento Create, escolha o seu grupo de recursos existente ***rg-oráculo** _, nomeie a sua conta de armazenamento _*_oracbkup1_*_ e escolha _*_Armazenamento V2 (generalpurpose v2)_*_ para o Tipo de Conta. Alterar a replicação para _*_armazenamento localmente redundante (LRS)_*_ e definir desempenho para _*_Standard_**. Certifique-se de que a Localização está definida para a mesma região que todos os seus outros recursos no grupo de recursos. 
     
-    ![Página de adicionar conta de armazenamento](./media/oracle-backup-recovery/file-storage-1.png)
+    ![Screenshot que mostra onde escolher o seu grupo de recursos existente.](./media/oracle-backup-recovery/file-storage-1.png)
    
    
-3. Clique no separador _*_Advanced_*_ e em Azure Files desconfiem _*_de grandes ações de ficheiros_*_ para _*_Ativadas_*_. Clique em 'Revisão + Criar' e, em seguida, clique em Criar.
+3. Clique no separador ***Advanced** _ e em Azure Files desconfiem _*_de grandes partilhas de ficheiros_*_ para _*_Ativado_**. Clique em 'Revisão + Criar' e, em seguida, clique em Criar.
     
-    ![Página de adicionar conta de armazenamento](./media/oracle-backup-recovery/file-storage-2.png)
-    
-    
-4. Quando a conta de armazenamento tiver sido criada, vá ao recurso e escolha _*_ações de arquivo_*_
-    
-    ![Página de adicionar conta de armazenamento](./media/oracle-backup-recovery/file-storage-3.png)
-    
-5. Clique em _*_ + Arquivo share_ _ e na _ *Nova*_partilha de ficheiro_ _ nome da lâmina da sua partilha de *ficheiro _*_orabkup1_*_. Definir _*_Quota_ _ a *_*_10240_*_ GiB e verificar _*_Transação otimizada_*_ como o nível. A quota reflete um limite superior a que a parte do ficheiro pode crescer. Como estamos a usar o armazenamento Standard, os recursos são PAYG e não são aprovisionados, pelo que defini-lo para 10 TiB não incorrerá em custos para além do que você usa. Se a sua estratégia de backup necessitar de mais armazenamento, tem de definir a quota para um nível adequado para manter todos os backups.   Quando tiver concluído a nova lâmina de partilha de ficheiros, clique em _*_Criar_*_.
-    
-    ![Página de adicionar conta de armazenamento](./media/oracle-backup-recovery/file-storage-4.png)
+    ![Screenshot que mostra onde definir grandes ações de ficheiros para Ativado.](./media/oracle-backup-recovery/file-storage-2.png)
     
     
-6. Quando criado, clique em _*_orabkup1_*_ na página de definições de partilha de ficheiros. 
-    Clique no _*_separador 'Ligar'_*_ para abrir a lâmina 'Ligar' e, em seguida, clique no separador _*_Linux._*_ Copie os comandos fornecidos para montar a Partilha de Ficheiros utilizando o protocolo SMB. 
+4. Quando a conta de armazenamento tiver sido criada, vá ao recurso e escolha ***ações de arquivo***
+    
+    ![Screenshot que mostra onde selecionar partilhas de ficheiros.](./media/oracle-backup-recovery/file-storage-3.png)
+    
+5. Clique em ***+ Partilha de ficheiros** _ e no novo nome da lâmina _*_de partilha de ficheiros_*_ a sua partilha de _*_ficheiros orabkup1_*_. Descreva _*_quota_*_ para _*_10240_*_ GiB e verifique _*_a Transação otimizada_*_ como o nível. A quota reflete um limite superior a que a parte do ficheiro pode crescer. Como estamos a usar o armazenamento Standard, os recursos são PAYG e não são aprovisionados, pelo que defini-lo para 10 TiB não incorrerá em custos para além do que você usa. Se a sua estratégia de backup necessitar de mais armazenamento, tem de definir a quota para um nível adequado para manter todos os backups.   Quando tiver concluído a nova lâmina de partilha de ficheiros, clique em _*_Criar_**.
+    
+    ![Screenshot que mostra onde adicionar uma nova partilha de ficheiros.](./media/oracle-backup-recovery/file-storage-4.png)
+    
+    
+6. Quando criado, clique em ***orabkup1*** na página de definições de partilha de ficheiros. 
+    Clique no separador ***Connect** _ para abrir a lâmina 'Ligar' e, em seguida, clique no separador _ *_Linux*_* Copie os comandos fornecidos para montar a Partilha de Ficheiros utilizando o protocolo SMB. 
     
     ![Página de adicionar conta de armazenamento](./media/oracle-backup-recovery/file-storage-5.png)
 
@@ -371,7 +371,7 @@ Embora a utilização do armazenamento de ficheiros RMAN e Azure para a cópia d
 
     ```bash
     cd /u02/oradata/TEST
-    rm -f _.dbf
+    rm -f *.dbf
     ```
 
 3. Os seguintes comandos utilizam o RMAN para restaurar os ficheiros de dados em falta e recuperar a base de dados:

@@ -760,6 +760,10 @@
           href: solution-template-databricks-notebook.md
     - name: Compreender os preços
       items:
+        - name: Visão geral reservada do fluxo de dados
+          href: data-flow-reserved-capacity-overview.md
+        - name: Fluxo de dados compreende os encargos de reserva
+          href: data-flow-understand-reservation-charges.md
         - name: Planear e gerir custos
           href: plan-manage-costs.md
         - name: Exemplos de preços

@@ -3,12 +3,12 @@ title: Ativar o Monitor Azure para contentores | Microsoft Docs
 description: Este artigo descreve como ativar e configurar o Azure Monitor para contentores para que possa entender como o seu recipiente está a funcionar e quais as questões relacionadas com o desempenho que foram identificadas.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: f598b42f1a8d9fcb42f09d17e40850cf3a1282be
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 56f60b58cff351aa37e98cdba933c929aaaedab6
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98943827"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806014"
 ---
 # <a name="enable-azure-monitor-for-containers"></a>Ativar o Monitor Azure para contentores
 
@@ -35,6 +35,12 @@ Pode ativar o Azure Monitor para contentores para uma nova implantação ou para
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, certifique-se de que cumpriu os seguintes requisitos:
+
+> [!IMPORTANT]
+> Log Analytics Containerized Linux Agent (replicaset pod) faz chamadas API para todos os nós Windows na Porta Segura de Kubelet (10250) dentro do cluster para recolher métricas relacionadas com o desempenho do nó e do contentor. A porta segura de Kubelet (:10250) deve ser aberta na rede virtual do cluster para a entrada e saída para o Windows Node e para a recolha de métricas relacionadas com o desempenho do contentor para funcionar.
+>
+> Se tiver um cluster Kubernetes com nós Windows, por favor reveja e configure o Grupo de Segurança da Rede e as Políticas de Rede para garantir que a porta segura kubelet (:10250) é aberta tanto para a entrada como para a saída na rede virtual do cluster.
+
 
 - Tem um espaço de trabalho log analytics.
 
@@ -80,7 +86,7 @@ A tabela que se segue lista as informações de configuração de procuração e
 
 A tabela a seguir lista as informações de configuração proxy e firewall para Azure China 21Vianet:
 
-|Recursos do agente|Porta |Descrição | 
+|Recursos do agente|Porta |Description | 
 |--------------|------|-------------|
 | `*.ods.opinsights.azure.cn` | 443 | Ingestão de dados |
 | `*.oms.opinsights.azure.cn` | 443 | OMS a bordo |
@@ -88,7 +94,7 @@ A tabela a seguir lista as informações de configuração proxy e firewall para
 
 A tabela a seguir lista as informações de configuração de procuração e firewall para o Governo dos EUA:
 
-|Recursos do agente|Porta |Descrição | 
+|Recursos do agente|Porta |Description | 
 |--------------|------|-------------|
 | `*.ods.opinsights.azure.us` | 443 | Ingestão de dados |
 | `*.oms.opinsights.azure.us` | 443 | OMS a bordo |
@@ -128,6 +134,6 @@ Para ativar o Azure Monitor para recipientes, utilize um dos métodos descritos 
 | | [Ative o cluster OpenShift utilizando um modelo de Gestor de Recursos Azure](container-insights-azure-redhat-setup.md#enable-using-an-azure-resource-manager-template) | Pode ativar a monitorização de um cluster OpenShift existente utilizando um modelo pré-configurado do Gestor de Recursos Azure. |
 | | [Ativar o cluster OpenShift a partir do Azure Monitor](container-insights-azure-redhat-setup.md#from-the-azure-portal) | Pode ativar a monitorização de um ou mais clusters OpenShift que já estão implantados a partir da página multicluster no Azure Monitor. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que ativou a monitorização, pode começar a analisar o desempenho dos seus clusters Kubernetes que estão hospedados no Azure Kubernetes Service (AKS), Azure Stack ou noutro ambiente. Para aprender a utilizar o Azure Monitor para recipientes, consulte [o desempenho do cluster Kubernetes](container-insights-analyze.md).

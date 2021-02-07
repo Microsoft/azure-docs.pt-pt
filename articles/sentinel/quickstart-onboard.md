@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: A bordo em Azure Sentinel'
-description: Neste quickstart, aprenda a embarcar a Azure Sentinel, permitindo primeiro o Sentinel e, em seguida, ligue fontes de dados.
+description: Neste quickstart, aprenda a embarcar a Azure Sentinel, primeiro permitindo-o e, em seguida, conectando fontes de dados.
 services: sentinel
 author: yelevin
 ms.author: yelevin
@@ -10,14 +10,14 @@ ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 10/14/2020
 ms.custom: references_regions
-ms.openlocfilehash: 107806b6372360e501fe9cc0a21d25cff5cc35f9
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 7cb8cb4d99ca8a63195eba21d82814fcd7820f5c
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95248650"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807772"
 ---
-# <a name="quickstart-on-board-azure-sentinel"></a>Início Rápido: Integração do Azure Sentinel
+# <a name="quickstart-on-board-azure-sentinel"></a>Quickstart: A bordo Azure Sentinel
 
 Neste arranque rápido, aprenda a embarcar Azure Sentinel. 
 
@@ -41,7 +41,7 @@ Depois de ligar as suas fontes de dados, escolha entre uma galeria de livros cri
 
 ### <a name="geographical-availability-and-data-residency"></a>Disponibilidade geográfica e residência de dados
 
-- O Azure Sentinel pode funcionar em espaços de trabalho na maioria [das regiões de GA de Log Analytics,](https://azure.microsoft.com/global-infrastructure/services/?products=monitor) exceto as regiões da China e Alemanha (Soberana). Por vezes, as regiões new log analytics podem demorar algum tempo a embarcar no serviço Sentinel. 
+- O Azure Sentinel pode funcionar em espaços de trabalho na maioria [das regiões de GA de Log Analytics,](https://azure.microsoft.com/global-infrastructure/services/?products=monitor) exceto as regiões da China e Alemanha (Soberana). Por vezes, as regiões new log analytics podem demorar algum tempo a embarcar no serviço Azure Sentinel. 
 
 - Os dados gerados pelo Azure Sentinel, tais como incidentes, marcadores e regras de análise, podem conter alguns dados do cliente provenientes dos espaços de trabalho do Log Analytics do cliente. Estes dados gerados pelo Azure Sentinel são guardados na geografia listada na tabela seguinte, de acordo com a geografia em que se encontra o espaço de trabalho:
 
@@ -57,7 +57,7 @@ Depois de ligar as suas fontes de dados, escolha entre uma galeria de livros cri
 
 ## <a name="enable-azure-sentinel"></a>Ativar sentinela Azure <a name="enable"></a>
 
-1. Inicie sessão no portal do Azure. Certifique-se de que a subscrição na qual o Azure Sentinel é criado está selecionada.
+1. Inicie sessão no Portal do Azure. Certifique-se de que a subscrição na qual o Azure Sentinel é criado está selecionada.
 
 1. Procure e selecione **Azure Sentinel.**
 
@@ -67,7 +67,7 @@ Depois de ligar as suas fontes de dados, escolha entre uma galeria de livros cri
 
 1. Selecione o espaço de trabalho que pretende utilizar ou crie um novo. Você pode executar Azure Sentinel em mais de um espaço de trabalho, mas os dados são isolados para um único espaço de trabalho.
 
-   ![Escolha um espaço de trabalho](./media/quickstart-onboard/choose-workspace.png)
+   ![Escolha uma área de trabalho](./media/quickstart-onboard/choose-workspace.png)
 
    >[!NOTE] 
    > - Os espaços de trabalho predefinidos criados pelo Azure Security Center não aparecerão na lista; não se pode instalar o Azure Sentinel neles.
@@ -96,7 +96,7 @@ Por exemplo, se selecionar a fonte de dados do **Azure Ative Directory,** que pe
 
 Depois de as suas fontes de dados estarem ligadas, os seus dados começam a fluir para o Azure Sentinel e estão prontos para começar a trabalhar. Pode ver os registos nos [livros incorporados](quickstart-get-visibility.md) e começar a criar consultas no Log Analytics para [investigar os dados.](tutorial-investigate-cases.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste documento, aprendeu sobre o embarque e a ligação de fontes de dados ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)
 - Começa [a detetar ameaças com o Azure Sentinel.](tutorial-detect-threats-built-in.md)
