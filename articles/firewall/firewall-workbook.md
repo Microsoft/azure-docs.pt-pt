@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: victorh
-ms.openlocfilehash: dabe154535d2bd3ae5550d4bbbafa75adc5ae2c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e63336b0e84d303b51eda56f90ca6fb453d8ae0d
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91347380"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831846"
 ---
 # <a name="monitor-logs-using-azure-firewall-workbook"></a>Monitorize registos usando o Livro de Trabalho da Firewall Azure
 
@@ -26,9 +26,9 @@ Antes de iniciar, deverá [ativar](firewall-diagnostics.md#enable-diagnostic-log
 
 ## <a name="get-started"></a>Introdução
 
-Para implementar o livro, vá ao [Livro de Trabalho do Monitor Azure para a Azure Firewall](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20Firewall/Azure%20Monitor%20Workbook) e seguindo as instruções na página. O Azure Firewall Workbook é projetado para trabalhar em vários inquilinos, multi-subscrições, e é filtrado para várias firewalls.
+Para implementar o livro, vá ao [Livro de Trabalho do Monitor Azure para a Azure Firewall](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20Firewall/Workbook%20-%20Azure%20Firewall%20Monitor%20Workbook) e seguindo as instruções na página. O Azure Firewall Workbook é projetado para trabalhar em vários inquilinos, multi-subscrições, e é filtrado para várias firewalls.
 
-## <a name="overview-page"></a>Página geral
+## <a name="overview-page"></a>Página de descrição geral
 
 A página geral fornece-lhe uma maneira de filtrar através de espaços de trabalho, tempo e firewalls. Mostra eventos por tempo através de firewalls e tipos de registo (aplicação, redes, informação de ameaça, procuração de DNS).
 
@@ -38,23 +38,23 @@ A página geral fornece-lhe uma maneira de filtrar através de espaços de traba
 
 Esta página mostra fontes únicas de endereço IP ao longo do tempo, utilização da contagem de regras de aplicação, FQDN negado/permitido ao longo do tempo, e dados filtrados. Pode filtrar dados com base no endereço IP.
 
-:::image type="content" source="./media/firewall-workbook/firewall-workbook-application-rule.png" alt-text="Visão geral do livro de Azure Firewall":::
+:::image type="content" source="./media/firewall-workbook/firewall-workbook-application-rule.png" alt-text="Registo de regras de aplicação do livro de trabalho de Azure Firewall":::
 
 ## <a name="network-rule-log-statistics"></a>Estatísticas de registo de regras de rede
 
 Esta página fornece uma visão por ação de regras – permitir/negar, porta-alvo por IP e DNAT ao longo do tempo. Também pode filtrar por ação, porta e tipo de destino.
 
-:::image type="content" source="./media/firewall-workbook/firewall-workbook-network-rule.png" alt-text="Visão geral do livro de Azure Firewall":::
+:::image type="content" source="./media/firewall-workbook/firewall-workbook-network-rule.png" alt-text="Registo de regras da rede de livros de trabalho de Azure Firewall":::
 
 Também pode filtrar registos com base na janela do tempo:
 
-:::image type="content" source="./media/firewall-workbook/firewall-workbook-network-rule-time.png" alt-text="Visão geral do livro de Azure Firewall":::
+:::image type="content" source="./media/firewall-workbook/firewall-workbook-network-rule-time.png" alt-text="Janela de tempo de registo de regras da rede de regras da rede Azure Firewall":::
 
 ## <a name="investigations"></a>Investigações
 
 Pode olhar para os registos e entender mais sobre o recurso baseado no endereço IP de origem. Pode obter informações como nome de máquina virtual e nome de interface de rede. É simples filtrar o recurso dos registos.
 
-:::image type="content" source="./media/firewall-workbook/firewall-workbook-investigation.png" alt-text="Visão geral do livro de Azure Firewall":::
+:::image type="content" source="./media/firewall-workbook/firewall-workbook-investigation.png" alt-text="Investigação do Livro de Obras de Azure Firewall":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

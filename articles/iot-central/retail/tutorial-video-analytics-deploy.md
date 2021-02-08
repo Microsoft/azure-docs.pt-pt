@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: abeae674cef8f13a092b53bde6040ad853bd0cca
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: f7f1952ab8c98553a447c3ed1955fb556ba48124
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820369"
+ms.locfileid: "99831948"
 ---
 # <a name="tutorial-how-to-deploy-an-iot-central-application-using-the-video-analytics---object-and-motion-detection-application-template"></a>Tutorial: Como implementar uma aplicação IoT Central usando o modelo de aplicação de deteção de objetos e movimentos
 
@@ -22,6 +22,10 @@ Para uma visão geral da análise de vídeo chave - componentes de aplicação *
 O vídeo a seguir dá uma análise de como usar a análise de vídeo - modelo de _aplicação de deteção de objetos e movimentos_ para implementar uma solução IoT Central:
 
 > [!VIDEO https://www.youtube.com/embed/Bo3FziU9bSA]
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Recomenda-se uma subscrição do Azure. Em alternativa, pode usar um teste gratuito de 7 dias. Se não tiver uma subscrição do Azure, pode criar uma na página de inscrição do [Azure](https://aka.ms/createazuresubscription).
 
 ## <a name="deploy-the-application"></a>Implementar a aplicação
 
@@ -42,6 +46,14 @@ Preencha os seguintes passos para implementar uma aplicação IoT Central utiliz
     - Instale um leitor de media local para ver o vídeo capturado na AMS.
     - Veja o vídeo capturado que mostra objetos detetados.
     - Arrume tudo.
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Quando terminar a aplicação, pode remover todos os recursos que criou da seguinte forma:
+
+1. Na aplicação IoT Central, navegue para a **página de aplicação** da sua candidatura na secção **Administração.** Em seguida, selecione **Eliminar**.
+1. No portal Azure, elimine o grupo de recursos **Lva-rg.**
+1. Na sua máquina local, pare o recipiente **do espectador** estivador.
 
 ## <a name="next-steps"></a>Passos seguintes
 

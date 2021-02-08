@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Interaja com um dispositivo IoT Plug and Play ligado à sua solução Azure IoT Microsoft Docs
+title: Quickstart - Interaja com um dispositivo IoT Plug and Play ligado à sua solução Azure IoT | Microsoft Docs
 description: Quickstart - Use C#, JavaScript, Java ou Python para ligar e interagir com um dispositivo IoT Plug and Play que está ligado à sua solução Azure IoT.
 author: ericmitt
 ms.author: ericmitt
@@ -9,12 +9,12 @@ ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
 zone_pivot_groups: programming-languages-set-ten
-ms.openlocfilehash: 2c39672c779c5aa27aae7271b8a903a1146118d9
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: f1c7cb4c760b5344a7c27fc0257fdea445280b7f
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95510606"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831904"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution"></a>Quickstart: Interaja com um dispositivo IoT Plug and Play que está ligado à sua solução
 
@@ -41,6 +41,10 @@ ms.locfileid: "95510606"
 [!INCLUDE [iot-pnp-service-python](../../includes/iot-pnp-service-python.md)]
 
 :::zone-end
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Se terminou com os quickstarts e tutoriais, consulte [os recursos de limpeza.](set-up-environment.md#clean-up-resources)
 
 ## <a name="next-steps"></a>Passos seguintes
 

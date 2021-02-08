@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: c2f6f386f4a8ea062980c0efc97d0cfb4f37f4f2
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: e5236bb7034ae4d5f86ab2f8f965bdbfbc3d6ccd
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124899"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832050"
 ---
 # <a name="tutorial-modify-and-build-the-live-video-analytics-gateway-modules"></a>Tutorial: Modificar e construir os módulos de gateway de vídeo ao vivo
 
@@ -73,6 +73,13 @@ Abra a pasta local de repositório *de vídeo-análise ao vivo* com código VS.
 1. Utilize o terminal de código VS para executar o comando **de patch de versão npm.** Este script de construção implanta as imagens no registo do seu contentor. A saída na janela do terminal vs Código mostra-lhe se a construção for bem sucedida.
 
 1. A versão da imagem **LvaEdgeGatewayModule** incrementa cada vez que a construção termina. Tem de utilizar esta versão no ficheiro manifesto de implantação.
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Se terminou a aplicação, pode remover todos os recursos que criou da seguinte forma:
+
+1. Na aplicação IoT Central, navegue para a **página de aplicação** da sua candidatura na secção **Administração.** Em seguida, selecione **Eliminar**.
+1. No portal Azure, elimine o grupo de recursos **Lva-rg.**
 
 ## <a name="next-steps"></a>Passos seguintes
 
